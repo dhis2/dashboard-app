@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "gridstack": "0.2.6",
-    "jquery-ui": "1.10.4",
     "prop-types": "15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
