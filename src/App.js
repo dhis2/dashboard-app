@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './App.css';
 
 const $ = global.jQuery;
@@ -30,7 +31,6 @@ function getConfig() {
 
     return configObjects;
 }
-
 function setConfig(config) {
     if (!config) {
         return;
@@ -55,12 +55,20 @@ function restoreConfig() {
 function init() {
     const el = $('.grid-stack');
 
+    const itemresize = (e) => {
+        setTimeout(() => {
+            console.log(getConfig());
+        }, 10);
+    };
+
     const options = {
         cellHeight: 80,
         verticalMargin: 10
     };
 
     el.gridstack(options);
+
+    el.on('resizestop', itemresize);
 
     grid = el.data('gridstack');
 
@@ -76,6 +84,15 @@ function init() {
 class App extends Component {
     componentDidMount() {
         init();
+
+        const { store } = this.context;
+
+        store.dispatch({
+            type: 'SELECT_DASHBOARD',
+            dashboard: {
+                id: 1
+            }
+        });
     }
     render() {
         return (
@@ -83,5 +100,9 @@ class App extends Component {
         );
     }
 }
+
+App.contextTypes = {
+    store: PropTypes.object
+};
 
 export default App;

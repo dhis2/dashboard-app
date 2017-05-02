@@ -3,15 +3,20 @@
   "version": "0.1.0",
   "description": "DHIS2 Dashboards app",
   "private": true,
-  "dependencies": {
-    "gridstack": "0.2.6",
-    "jquery-ui": "1.10.4",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4"
-  },
   "devDependencies": {
     "d2-manifest": "^1.0.0",
     "react-scripts": "0.9.5"
+  },
+  "dependencies": {
+    "gridstack": "0.2.6",
+    "jquery-ui": "1.10.4",
+    "prop-types": "15.5.8",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "5.0.4",
+    "redux": "3.6.0",
+    "redux-logger": "3.0.1",
+    "redux-thunk": "2.2.0"
   },
   "scripts": {
     "prestart": "d2-manifest package.json ./public/manifest.webapp",
