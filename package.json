@@ -1,0 +1,44 @@
+{
+  "name": "dashboards-app",
+  "version": "0.1.0",
+  "description": "DHIS2 Dashboards app",
+  "private": true,
+  "dependencies": {
+    "gridstack": "0.2.6",
+    "jquery-ui": "1.10.4",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "d2-manifest": "^1.0.0",
+    "react-scripts": "0.9.5"
+  },
+  "scripts": {
+    "prestart": "d2-manifest package.json ./public/manifest.webapp",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "validate": "npm ls --depth 0",
+    "lint-all": "eslint src",
+    "prebuild": "rm -rf build && npm run validate && npm run lint-all",
+    "postbuild": "cp -r *.png i18n build/ && npm run manifest",
+    "manifest": "d2-manifest package.json build/manifest.webapp",
+    "deploy": "npm run build && mvn clean deploy"
+  },
+  "manifest.webapp": {
+    "name": "Dashboards app",
+    "icons": {
+      "48": "icon.png"
+    },
+    "developer": {
+      "url": "",
+      "name": "DHIS2"
+    },
+    "activities": {
+      "dhis": {
+        "href": ".."
+      }
+    }
+  }
+}
