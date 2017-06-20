@@ -31,6 +31,7 @@ function getConfig() {
 
     return configObjects;
 }
+
 function setConfig(config) {
     if (!config) {
         return;
@@ -39,7 +40,13 @@ function setConfig(config) {
     grid.removeAll();
 
     config.forEach(function(node) {
-        grid.addWidget($('<div data-gs-text="' + node.text + '"><div class="grid-stack-item-content">' + node.text + '<div/></div>'),
+        grid.addWidget($(
+            '<div data-gs-text="' + node.text + '">' +
+                '<div class="grid-stack-item-content">' +
+                    '<div class="dashboard-item-header">header</div>' +
+                    '<div id="' + node.id + '" class="dashboard-item-content">' + node.text + '</div>' +
+                '</div>' +
+            '</div>'),
             node.x, node.y, node.width, node.height);
     });
 }
@@ -55,7 +62,7 @@ function restoreConfig() {
 function init() {
     const el = $('.grid-stack');
 
-    const itemresize = (e) => {
+    const itemResize = (e) => {
         setTimeout(() => {
             console.log(getConfig());
         }, 10);
@@ -68,14 +75,14 @@ function init() {
 
     el.gridstack(options);
 
-    el.on('resizestop', itemresize);
+    el.on('resizestop', itemResize);
 
     grid = el.data('gridstack');
 
     storeConfig([
-        {x: 0, y: 0, width: 2, height: 2, text: "item 1"},
-        {x: 2, y: 0, width: 2, height: 2, text: "item 2"},
-        {x: 4, y: 0, width: 2, height: 2, text: "item 3"}
+        {x: 0, y: 0, width: 2, height: 2, text: "item 1", id: "uid1"},
+        {x: 2, y: 0, width: 2, height: 2, text: "item 2", id: "uid2"},
+        {x: 4, y: 0, width: 2, height: 2, text: "item 3", id: "uid3"}
     ]);
 
     restoreConfig();
@@ -95,9 +102,7 @@ class App extends Component {
         });
     }
     render() {
-        return (
-            <div className="grid-stack"></div>
-        );
+        return <div className="grid-stack"></div>;
     }
 }
 
