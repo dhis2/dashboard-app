@@ -50,6 +50,6 @@ export default combineReducers({
     dashboard
 });
 
-// pointers
+// selectors
 
 export const getDashboardFromState = (state) => state.dashboard;

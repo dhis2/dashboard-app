@@ -5,17 +5,23 @@
   "private": true,
   "devDependencies": {
     "d2-manifest": "^1.0.0",
-    "react-scripts": "0.9.5"
+    "react-scripts": "1.0.7"
   },
   "dependencies": {
+    "d2": "^27.0.0-8",
+    "d2-ui": "^27.0.1",
+    "d2-utilizr": "^0.2.13",
     "gridstack": "0.2.6",
+    "material-ui": "^0.18.3",
     "prop-types": "15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "5.0.4",
+    "react-tap-event-plugin": "^2.0.1",
     "redux": "3.6.0",
     "redux-logger": "3.0.1",
-    "redux-thunk": "2.2.0"
+    "redux-thunk": "2.2.0",
+    "rxjs": "^5.4.1"
   },
   "scripts": {
     "prestart": "d2-manifest package.json ./public/manifest.webapp",

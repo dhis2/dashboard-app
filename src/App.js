@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
 
+import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
+import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
+import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
+
 const $ = global.jQuery;
+
+const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
 let grid;
 let cache;
@@ -88,11 +94,25 @@ function init() {
     restoreConfig();
 }
 
+const MyCmp = (props, context) => {
+    return <div>{context.d2.currentUser.name}</div>;
+};
+
+MyCmp.contextTypes = {
+    d2: PropTypes.object
+};
+
 class App extends Component {
+    getChildContext() {
+        return {
+            d2: this.props.d2
+        };
+    }
     componentDidMount() {
         init();
 
         const { store } = this.context;
+        //const { d2 } = this.props;
 
         store.dispatch({
             type: 'SELECT_DASHBOARD',
@@ -102,12 +122,22 @@ class App extends Component {
         });
     }
     render() {
-        return <div className="grid-stack"></div>;
+        return (
+            <div>
+                <HeaderBar />
+                <div className="grid-stack"></div>
+                <MyCmp />
+            </div>
+        );
     }
 }
 
 App.contextTypes = {
     store: PropTypes.object
+};
+
+App.childContextTypes = {
+    d2: PropTypes.object
 };
 
 export default App;
