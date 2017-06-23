@@ -10,6 +10,14 @@ const $ = global.jQuery;
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
+const data = [
+    {x: 0, y: 0, width: 5, height: 14, text: "item 1", id: "fzgIcU3hVFH"},
+    {x: 5, y: 0, width: 5, height: 3, text: "item 2", id: "SEMVWsnVblY"},
+    {x: 5, y: 3, width: 5, height: 2, text: "item 3", id: "C0rhAq1oklh"},
+    {x: 11, y: 0, width: 2, height: 5, text: "item 4", id: "BIJgq4OOT3a"},
+    {x: 6, y: 5, width: 7, height: 9, text: "item 5", id: "hrDweynvx7G"},
+];
+
 let grid;
 let cache;
 
@@ -49,7 +57,7 @@ function setConfig(config) {
         grid.addWidget($(
             '<div data-gs-text="' + node.text + '">' +
                 '<div class="grid-stack-item-content">' +
-                    '<div class="dashboard-item-header">header</div>' +
+                    '<div class="dashboard-item-header">(plugin item header)</div>' +
                     '<div id="' + node.id + '" class="dashboard-item-content">' + node.text + '</div>' +
                 '</div>' +
             '</div>'),
@@ -63,6 +71,17 @@ function storeConfig(config) {
 
 function restoreConfig() {
     setConfig(cache);
+
+    const items = data.map(config => ({id: config.id, el: config.id}));
+
+    var plugin = global.reportTablePlugin;
+
+    plugin.url = '//localhost:8080';
+    plugin.username = 'admin';
+    plugin.password = 'district';
+    plugin.loadingIndicator = true;
+
+    plugin.load(items);
 }
 
 function init() {
@@ -85,17 +104,14 @@ function init() {
 
     grid = el.data('gridstack');
 
-    storeConfig([
-        {x: 0, y: 0, width: 2, height: 2, text: "item 1", id: "uid1"},
-        {x: 2, y: 0, width: 2, height: 2, text: "item 2", id: "uid2"},
-        {x: 4, y: 0, width: 2, height: 2, text: "item 3", id: "uid3"}
-    ]);
+    storeConfig(data);
 
     restoreConfig();
 }
 
 const MyCmp = (props, context) => {
-    return <div>{context.d2.currentUser.name}</div>;
+    console.log("context", context);
+    return <div>React provider context: {context.d2.currentUser.name}</div>;
 };
 
 MyCmp.contextTypes = {
