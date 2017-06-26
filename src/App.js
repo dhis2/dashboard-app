@@ -11,12 +11,16 @@ const $ = global.jQuery;
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
 const data = [
-    {x: 0, y: 0, width: 5, height: 14, text: "item 1", id: "fzgIcU3hVFH"},
-    {x: 5, y: 0, width: 5, height: 3, text: "item 2", id: "SEMVWsnVblY"},
-    {x: 5, y: 3, width: 5, height: 2, text: "item 3", id: "C0rhAq1oklh"},
-    {x: 11, y: 0, width: 2, height: 5, text: "item 4", id: "BIJgq4OOT3a"},
-    {x: 6, y: 5, width: 7, height: 9, text: "item 5", id: "hrDweynvx7G"},
+    {x: 0, y: 0, width: 5, height: 14, text: "plugin item 1", id: "fzgIcU3hVFH", type: "REPORTTABLE"},
+    {x: 5, y: 0, width: 5, height: 3, text: "plugin item 2", id: "DkPKc1EUmC2", type: "CHART"},
+    {x: 5, y: 3, width: 5, height: 2, text: "plugin item 3", id: "hewtA7a025J", type: "CHART"},
+    {x: 11, y: 0, width: 2, height: 5, text: "plugin item 4", id: "BIJgq4OOT3a", type: "REPORTTABLE"},
+    {x: 6, y: 5, width: 7, height: 9, text: "plugin item 5", id: "hrDweynvx7G", type: "REPORTTABLE"},
 ];
+
+// TODO, add to plugin instead
+global.reportTablePlugin.type = 'REPORTTABLE';
+global.chartPlugin.type = 'CHART';
 
 let grid;
 let cache;
@@ -36,8 +40,7 @@ function getConfig() {
             x: node.x,
             y: node.y,
             width: node.width,
-            height: node.height,
-            text: node.el[0].attributes['data-gs-text'].value
+            height: node.height
         });
     });
 
@@ -55,10 +58,10 @@ function setConfig(config) {
 
     config.forEach(function(node) {
         grid.addWidget($(
-            '<div data-gs-text="' + node.text + '">' +
-                '<div class="grid-stack-item-content">' +
-                    '<div class="dashboard-item-header">(plugin item header)</div>' +
-                    '<div id="' + node.id + '" class="dashboard-item-content">' + node.text + '</div>' +
+            '<div data-gs-id="' + node.id + '" style="background-color:#fff">' +
+                '<div class="grid-stack-item-content" style="background-color:#fff">' +
+                    '<div class="dashboard-item-header" style="padding:2px">(' + node.text + ')</div>' +
+                    '<div id="' + node.id + '" class="dashboard-item-content" style="height:' + (node.height * 80) + 'px">' + node.text + '</div>' +
                 '</div>' +
             '</div>'),
             node.x, node.y, node.width, node.height);
@@ -72,16 +75,17 @@ function storeConfig(config) {
 function restoreConfig() {
     setConfig(cache);
 
-    const items = data.map(config => ({id: config.id, el: config.id}));
+    // plugins
+    [global.reportTablePlugin, global.chartPlugin].forEach(plugin => {
+        plugin.url = '//localhost:8080';
+        plugin.username = 'admin';
+        plugin.password = 'district';
+        plugin.loadingIndicator = true;
 
-    var plugin = global.reportTablePlugin;
+        data.filter(d => d.type === plugin.type).map(d => ({id: d.id, el: d.id, type: d.type})).forEach(d => plugin.add(d));
 
-    plugin.url = '//localhost:8080';
-    plugin.username = 'admin';
-    plugin.password = 'district';
-    plugin.loadingIndicator = true;
-
-    plugin.load(items);
+        plugin.load();
+    });
 }
 
 function init() {
@@ -89,7 +93,8 @@ function init() {
 
     const itemResize = (e) => {
         setTimeout(() => {
-            console.log(getConfig());
+            console.log(e, getConfig());
+            console.log("resized id: " + e.target.dataset.gsId);
         }, 10);
     };
 
