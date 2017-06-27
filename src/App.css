@@ -1,7 +1,108 @@
 .grid-stack {
-  margin: 20px;
-  background: #eee;
+    margin: 20px;
+    background: #eee;
 }
 .grid-stack-item-content {
-  background: #aaa;
+    background: #f4f4f4;
 }
+
+.grid-stack-item[data-gs-width="50"]  { width: 100% !important}
+.grid-stack-item[data-gs-width="49"]  { width: 98% !important}
+.grid-stack-item[data-gs-width="48"]  { width: 96% !important}
+.grid-stack-item[data-gs-width="47"]  { width: 94% !important}
+.grid-stack-item[data-gs-width="46"]  { width: 92% !important}
+.grid-stack-item[data-gs-width="45"]  { width: 90% !important}
+.grid-stack-item[data-gs-width="44"]  { width: 88% !important}
+.grid-stack-item[data-gs-width="43"]  { width: 86% !important}
+.grid-stack-item[data-gs-width="42"]  { width: 84% !important}
+.grid-stack-item[data-gs-width="41"]  { width: 82% !important}
+.grid-stack-item[data-gs-width="40"]  { width: 80% !important}
+.grid-stack-item[data-gs-width="39"]  { width: 78% !important}
+.grid-stack-item[data-gs-width="38"]  { width: 76% !important}
+.grid-stack-item[data-gs-width="37"]  { width: 74% !important}
+.grid-stack-item[data-gs-width="36"]  { width: 72% !important}
+.grid-stack-item[data-gs-width="35"]  { width: 70% !important}
+.grid-stack-item[data-gs-width="34"]  { width: 68% !important}
+.grid-stack-item[data-gs-width="33"]  { width: 66% !important}
+.grid-stack-item[data-gs-width="32"]  { width: 64% !important}
+.grid-stack-item[data-gs-width="31"]  { width: 62% !important}
+.grid-stack-item[data-gs-width="30"]  { width: 60% !important}
+.grid-stack-item[data-gs-width="29"]  { width: 58% !important}
+.grid-stack-item[data-gs-width="28"]  { width: 56% !important}
+.grid-stack-item[data-gs-width="27"]  { width: 54% !important}
+.grid-stack-item[data-gs-width="26"]  { width: 52% !important}
+.grid-stack-item[data-gs-width="25"]  { width: 50% !important}
+.grid-stack-item[data-gs-width="24"]  { width: 48% !important}
+.grid-stack-item[data-gs-width="23"]  { width: 46% !important}
+.grid-stack-item[data-gs-width="22"]  { width: 44% !important}
+.grid-stack-item[data-gs-width="21"]  { width: 42% !important}
+.grid-stack-item[data-gs-width="20"]  { width: 40% !important}
+.grid-stack-item[data-gs-width="19"]  { width: 38% !important}
+.grid-stack-item[data-gs-width="18"]  { width: 36% !important}
+.grid-stack-item[data-gs-width="17"]  { width: 34% !important}
+.grid-stack-item[data-gs-width="16"]  { width: 32% !important}
+.grid-stack-item[data-gs-width="15"]  { width: 30% !important}
+.grid-stack-item[data-gs-width="14"]  { width: 28% !important}
+.grid-stack-item[data-gs-width="13"]  { width: 26% !important}
+.grid-stack-item[data-gs-width="12"]  { width: 24% !important}
+.grid-stack-item[data-gs-width="11"]  { width: 22% !important}
+.grid-stack-item[data-gs-width="10"]  { width: 20% !important}
+.grid-stack-item[data-gs-width="9"]  { width: 18% !important}
+.grid-stack-item[data-gs-width="8"]  { width: 16% !important}
+.grid-stack-item[data-gs-width="7"]  { width: 14% !important}
+.grid-stack-item[data-gs-width="6"]  { width: 12% !important}
+.grid-stack-item[data-gs-width="5"]  { width: 10% !important}
+.grid-stack-item[data-gs-width="4"]  { width: 8% !important}
+.grid-stack-item[data-gs-width="3"]  { width: 6% !important}
+.grid-stack-item[data-gs-width="2"]  { width: 4% !important}
+.grid-stack-item[data-gs-width="1"]  { width: 2% !important}
+
+.grid-stack-item[data-gs-x="49"]  { left: 98% !important}
+.grid-stack-item[data-gs-x="48"]  { left: 96% !important}
+.grid-stack-item[data-gs-x="47"]  { left: 94% !important}
+.grid-stack-item[data-gs-x="46"]  { left: 92% !important}
+.grid-stack-item[data-gs-x="45"]  { left: 90% !important}
+.grid-stack-item[data-gs-x="44"]  { left: 88% !important}
+.grid-stack-item[data-gs-x="43"]  { left: 86% !important}
+.grid-stack-item[data-gs-x="42"]  { left: 84% !important}
+.grid-stack-item[data-gs-x="41"]  { left: 82% !important}
+.grid-stack-item[data-gs-x="40"]  { left: 80% !important}
+.grid-stack-item[data-gs-x="39"]  { left: 78% !important}
+.grid-stack-item[data-gs-x="38"]  { left: 76% !important}
+.grid-stack-item[data-gs-x="37"]  { left: 74% !important}
+.grid-stack-item[data-gs-x="36"]  { left: 72% !important}
+.grid-stack-item[data-gs-x="35"]  { left: 70% !important}
+.grid-stack-item[data-gs-x="34"]  { left: 68% !important}
+.grid-stack-item[data-gs-x="33"]  { left: 66% !important}
+.grid-stack-item[data-gs-x="32"]  { left: 64% !important}
+.grid-stack-item[data-gs-x="31"]  { left: 62% !important}
+.grid-stack-item[data-gs-x="30"]  { left: 60% !important}
+.grid-stack-item[data-gs-x="29"]  { left: 58% !important}
+.grid-stack-item[data-gs-x="28"]  { left: 56% !important}
+.grid-stack-item[data-gs-x="27"]  { left: 54% !important}
+.grid-stack-item[data-gs-x="26"]  { left: 52% !important}
+.grid-stack-item[data-gs-x="25"]  { left: 50% !important}
+.grid-stack-item[data-gs-x="24"]  { left: 48% !important}
+.grid-stack-item[data-gs-x="23"]  { left: 46% !important}
+.grid-stack-item[data-gs-x="22"]  { left: 44% !important}
+.grid-stack-item[data-gs-x="21"]  { left: 42% !important}
+.grid-stack-item[data-gs-x="20"]  { left: 40% !important}
+.grid-stack-item[data-gs-x="19"]  { left: 38% !important}
+.grid-stack-item[data-gs-x="18"]  { left: 36% !important}
+.grid-stack-item[data-gs-x="17"]  { left: 34% !important}
+.grid-stack-item[data-gs-x="16"]  { left: 32% !important}
+.grid-stack-item[data-gs-x="15"]  { left: 30% !important}
+.grid-stack-item[data-gs-x="14"]  { left: 28% !important}
+.grid-stack-item[data-gs-x="13"]  { left: 26% !important}
+.grid-stack-item[data-gs-x="12"]  { left: 24% !important}
+.grid-stack-item[data-gs-x="11"]  { left: 22% !important}
+.grid-stack-item[data-gs-x="10"]  { left: 20% !important}
+.grid-stack-item[data-gs-x="9"]  { left: 18% !important}
+.grid-stack-item[data-gs-x="8"]  { left: 16% !important}
+.grid-stack-item[data-gs-x="7"]  { left: 14% !important}
+.grid-stack-item[data-gs-x="6"]  { left: 12% !important}
+.grid-stack-item[data-gs-x="5"]  { left: 10% !important}
+.grid-stack-item[data-gs-x="4"]  { left: 8% !important}
+.grid-stack-item[data-gs-x="3"]  { left: 6% !important}
+.grid-stack-item[data-gs-x="2"]  { left: 4% !important}
+.grid-stack-item[data-gs-x="1"]  { left: 2% !important}

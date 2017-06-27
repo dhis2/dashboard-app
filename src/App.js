@@ -6,16 +6,17 @@ import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 
+import isFunction from 'd2-utilizr/lib/isFunction';
+
 const $ = global.jQuery;
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
 const data = [
-    {x: 0, y: 0, width: 5, height: 14, text: "plugin item 1", id: "fzgIcU3hVFH", type: "REPORTTABLE"},
-    {x: 5, y: 0, width: 5, height: 3, text: "plugin item 2", id: "DkPKc1EUmC2", type: "CHART"},
-    {x: 5, y: 3, width: 5, height: 2, text: "plugin item 3", id: "hewtA7a025J", type: "CHART"},
-    {x: 11, y: 0, width: 2, height: 5, text: "plugin item 4", id: "BIJgq4OOT3a", type: "REPORTTABLE"},
-    {x: 6, y: 5, width: 7, height: 9, text: "plugin item 5", id: "hrDweynvx7G", type: "REPORTTABLE"},
+    {x: 0, y: 0, width: 20, height: 14, text: "plugin item 1", id: "fzgIcU3hVFH", type: "REPORTTABLE"},
+    {x: 5, y: 0, width: 7, height: 4, text: "plugin item 2", id: "DkPKc1EUmC2", type: "CHART"},
+    {x: 5, y: 4, width: 7, height: 4, text: "plugin item 3", id: "hewtA7a025J", type: "CHART"},
+    {x: 5, y: 8, width: 7, height: 6, text: "plugin item 4", id: "hrDweynvx7G", type: "REPORTTABLE"},
 ];
 
 // TODO, add to plugin instead
@@ -58,10 +59,10 @@ function setConfig(config) {
 
     config.forEach(function(node) {
         grid.addWidget($(
-            '<div data-gs-id="' + node.id + '" style="background-color:#fff">' +
-                '<div class="grid-stack-item-content" style="background-color:#fff">' +
+            '<div data-gs-id="' + node.id + '" data-gs-type="' + node.type + '" style="background-color:#fff">' +
+                '<div class="grid-stack-item-content">' +
                     '<div class="dashboard-item-header" style="padding:2px">(' + node.text + ')</div>' +
-                    '<div id="' + node.id + '" class="dashboard-item-content" style="height:' + (node.height * 80) + 'px">' + node.text + '</div>' +
+                    '<div class="dashboard-item-content" id="plugin-' + node.id + '"></div>' +
                 '</div>' +
             '</div>'),
             node.x, node.y, node.width, node.height);
@@ -82,9 +83,9 @@ function restoreConfig() {
         plugin.password = 'district';
         plugin.loadingIndicator = true;
 
-        data.filter(d => d.type === plugin.type).map(d => ({id: d.id, el: d.id, type: d.type})).forEach(d => plugin.add(d));
+        data.filter(d => d.type === plugin.type).map(d => ({id: d.id, el: "plugin-" + d.id, type: d.type})).forEach(d => plugin.add(d));
 
-        plugin.load();
+        //plugin.load();
     });
 }
 
@@ -93,14 +94,17 @@ function init() {
 
     const itemResize = (e) => {
         setTimeout(() => {
-            console.log(e, getConfig());
-            console.log("resized id: " + e.target.dataset.gsId);
+            var el = document.getElementById('plugin-' + e.target.dataset.gsId);
+
+            if (el && isFunction(el.setViewportSize)) {
+                el.setViewportSize($(e.target).width() - 30, $(e.target).height() - 16);
+            }
         }, 10);
     };
 
     const options = {
-        cellHeight: 80,
-        verticalMargin: 10
+        verticalMargin: 10,
+        width: 50
     };
 
     el.gridstack(options);
