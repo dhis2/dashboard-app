@@ -88,6 +88,12 @@ function restoreConfig() {
         data.filter(d => d.type === plugin.type).map(d => ({id: d.id, el: "plugin-" + d.id, type: d.type})).forEach(d => plugin.add(d));
 
         plugin.load();
+
+        data.forEach(d => {
+            (function(el) {
+                console.log(el);
+            })(document.getElementById('plugin-' + d.id));
+        });
     });
 }
 
