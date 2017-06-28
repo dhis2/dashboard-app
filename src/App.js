@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
 
+import './styles/gridstack-overrides.css';
+
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
@@ -13,10 +15,10 @@ const $ = global.jQuery;
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
 const data = [
-    {x: 0, y: 0, width: 20, height: 14, text: "plugin item 1", id: "fzgIcU3hVFH", type: "REPORTTABLE"},
-    {x: 5, y: 0, width: 7, height: 4, text: "plugin item 2", id: "DkPKc1EUmC2", type: "CHART"},
-    {x: 5, y: 4, width: 7, height: 4, text: "plugin item 3", id: "hewtA7a025J", type: "CHART"},
-    {x: 5, y: 8, width: 7, height: 6, text: "plugin item 4", id: "hrDweynvx7G", type: "REPORTTABLE"},
+    {x: 0, y: 0, width: 20, height: 15, text: "plugin item 1", id: "fzgIcU3hVFH", type: "REPORTTABLE"},
+    {x: 20, y: 0, width: 20, height: 5, text: "plugin item 2", id: "DkPKc1EUmC2", type: "CHART"},
+    {x: 20, y: 4, width: 20, height: 5, text: "plugin item 3", id: "hewtA7a025J", type: "CHART"},
+    {x: 20, y: 8, width: 20, height: 5, text: "plugin item 4", id: "hrDweynvx7G", type: "REPORTTABLE"}
 ];
 
 // TODO, add to plugin instead
@@ -85,7 +87,7 @@ function restoreConfig() {
 
         data.filter(d => d.type === plugin.type).map(d => ({id: d.id, el: "plugin-" + d.id, type: d.type})).forEach(d => plugin.add(d));
 
-        //plugin.load();
+        plugin.load();
     });
 }
 
@@ -94,7 +96,7 @@ function init() {
 
     const itemResize = (e) => {
         setTimeout(() => {
-            var el = document.getElementById('plugin-' + e.target.dataset.gsId);
+            const el = document.getElementById('plugin-' + e.target.dataset.gsId);
 
             if (el && isFunction(el.setViewportSize)) {
                 el.setViewportSize($(e.target).width() - 30, $(e.target).height() - 16);
