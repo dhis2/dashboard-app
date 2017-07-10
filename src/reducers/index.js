@@ -46,10 +46,22 @@ const dashboard = (state = DEFAULT_DASHBOARD, action) => {
     }
 };
 
+const value = (state = 0, action) => {
+    switch (action.type) {
+        case 'INCREMENT_VALUE':
+            return state + 1;
+        default:
+            return state;
+    }
+};
+
 export default combineReducers({
-    dashboard
+    dashboard,
+    value
 });
 
 // selectors
 
 export const getDashboardFromState = (state) => state.dashboard;
+
+export const getValueFromState = (state) => state.value;

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './App.css';
+import { connect } from 'react-redux';
 
+import './App.css';
 import './styles/gridstack-overrides.css';
+
+import { getValueFromState } from './reducers';
 
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
@@ -127,21 +130,54 @@ function init() {
 }
 
 const MyCmp = (props, context) => {
-    console.log("context", context);
-    return <div>React provider context: {context.d2.currentUser.name}</div>;
+    console.log("<inside stateless sub component>", "props", props, "context", context);
+    return <div style={{padding: "30px"}} onClick={props.klikk}>React provider context: {context.d2.currentUser.name}<br/>My prop: {props.myProp}</div>;
 };
 
 MyCmp.contextTypes = {
     d2: PropTypes.object
 };
 
+const mapStateToProps = (state) => ({
+    myProp: getValueFromState(state)
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    klikk: () => dispatch({
+        type: 'INCREMENT_VALUE'
+    })
+});
+
+const MyCmpContainer = connect(mapStateToProps, mapDispatchToProps)(MyCmp);
+
+// not using redux yet
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {id: 2};
+        console.log("constructor (state: " + this.state);
+    }
+    componentWillMount() {
+        console.log("componentWillMount");
+    }
+    render() {
+        console.log("render (state: ", this.state, "props: ", this.props);
+        return (
+            <div>
+                <HeaderBar />
+                <MyCmpContainer />
+                <div className="grid-stack"></div>
+            </div>
+        );
+    }
     getChildContext() {
+        console.log("getChildContext");
         return {
             d2: this.props.d2
         };
     }
     componentDidMount() {
+        console.log("componentDidMount");
         init();
 
         const { store } = this.context;
@@ -154,14 +190,8 @@ class App extends Component {
             }
         });
     }
-    render() {
-        return (
-            <div>
-                <HeaderBar />
-                <div className="grid-stack"></div>
-                <MyCmp />
-            </div>
-        );
+    shouldComponentUpdate() {
+        console.log("componentShouldUpdate");
     }
 }
 
