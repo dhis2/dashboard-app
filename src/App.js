@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+
+import DashboardListCt from  './containers/DashboardListCt';
 
 import './App.css';
 import './styles/gridstack-overrides.css';
-
-import { getValueFromState } from './reducers';
 
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
@@ -81,6 +80,8 @@ function storeConfig(config) {
 function restoreConfig() {
     setConfig(cache);
 
+    let customData;
+
     // plugins
     [global.reportTablePlugin, global.chartPlugin].forEach(plugin => {
         plugin.url = '//localhost:8080';
@@ -88,14 +89,17 @@ function restoreConfig() {
         plugin.password = 'district';
         plugin.loadingIndicator = true;
 
-        data.filter(d => d.type === plugin.type).map(d => ({id: d.id, el: "plugin-" + d.id, type: d.type})).forEach(d => plugin.add(d));
+        customData = data.filter(d => d.type === plugin.type).map(d => ({id: d.id, el: "plugin-" + d.id, type: d.type}));
+
+        // add plugin items
+        customData.forEach(d => plugin.add(d));
 
         plugin.load();
 
-        data.forEach(d => {
-            (function(el) {
-                console.log(el);
-            })(document.getElementById('plugin-' + d.id));
+        customData.forEach(d => {
+            (function(element) {
+                console.log(element);
+            })(document.getElementById(d.el));
         });
     });
 }
@@ -129,43 +133,23 @@ function init() {
     restoreConfig();
 }
 
-const MyCmp = (props, context) => {
-    console.log("<inside stateless sub component>", "props", props, "context", context);
-    return <div style={{padding: "30px"}} onClick={props.klikk}>React provider context: {context.d2.currentUser.name}<br/>My prop: {props.myProp}</div>;
-};
+// const MyCmp = ({ myProp, klikk }, { d2 }) => {
+//     console.log("<inside stateless sub component>");
+//     return <div style={{padding: "30px"}} onClick={klikk}>React provider context: {d2.currentUser.name}<br/>My prop: {myProp}</div>;
+// };
+//
+// MyCmp.contextTypes = {
+//     d2: PropTypes.object
+// };
 
-MyCmp.contextTypes = {
-    d2: PropTypes.object
-};
-
-const mapStateToProps = (state) => ({
-    myProp: getValueFromState(state)
-});
-
-const mapDispatchToProps = (dispatch) => ({
-    klikk: () => dispatch({
-        type: 'INCREMENT_VALUE'
-    })
-});
-
-const MyCmpContainer = connect(mapStateToProps, mapDispatchToProps)(MyCmp);
 
 // not using redux yet
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {id: 2};
-        console.log("constructor (state: " + this.state);
-    }
-    componentWillMount() {
-        console.log("componentWillMount");
-    }
     render() {
-        console.log("render (state: ", this.state, "props: ", this.props);
         return (
             <div>
                 <HeaderBar />
-                <MyCmpContainer />
+                <DashboardListCt />
                 <div className="grid-stack"></div>
             </div>
         );

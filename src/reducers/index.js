@@ -1,67 +1,35 @@
 import { combineReducers } from 'redux';
 
-const DEFAULT_DASHBOARD = {
-    "id": "nghVC4wtyzi",
-    "displayName": "Antenatal Care",
-    "dashboardItems": [{
-        "id": "cX2przhv9UC",
-        "shape": "NORMAL",
-        "type": "CHART",
-        "x": 0,
-        "y": 0,
-        "width": 2,
-        "height": 2
-    }, {
-        "id": "JcO7yJlKIa3",
-        "shape": "NORMAL",
-        "type": "CHART",
-        "x": 2,
-        "y": 0,
-        "width": 2,
-        "height": 2
-    }, {
-        "id": "OiyMNoXzSdY",
-        "shape": "NORMAL",
-        "type": "MAP",
-        "x": 4,
-        "y": 0,
-        "width": 2,
-        "height": 2
-    }, {
-        "id": "i6NTSuDsk6l",
-        "shape": "NORMAL",
-        "type": "MAP",
-        "x": 6,
-        "y": 0,
-        "width": 2,
-        "height": 2
-    }] };
+export const actionTypes = {
+    SET_DASHBOARDS: 'SET_DASHBOARDS',
+    SET_SELECTED_DASHBOARD: 'SET_SELECTED_DASHBOARD'
+};
 
-const dashboard = (state = DEFAULT_DASHBOARD, action) => {
+const dashboards = (state = [], action) => {
     switch (action.type) {
-        case 'SELECT_DASHBOARD':
-            return action.dashboard;
+        case actionTypes.SET_DASHBOARDS:
+            return action.dashboards;
         default:
             return state;
     }
 };
 
-const value = (state = 0, action) => {
+const selectedDashboardId = (state = null, action) => {
     switch (action.type) {
-        case 'INCREMENT_VALUE':
-            return state + 1;
+        case actionTypes.SET_SELECTED_DASHBOARD:
+            return action.id;
         default:
             return state;
     }
 };
 
 export default combineReducers({
-    dashboard,
-    value
+    dashboards,
+    selectedDashboardId
 });
 
 // selectors
 
-export const getDashboardFromState = (state) => state.dashboard;
+export const getDashboardsFromState = (state) => state.dashboards;
 
-export const getValueFromState = (state) => state.value;
+export const getSelectedDashboardId = (state) => state.selectedDashboardId;
