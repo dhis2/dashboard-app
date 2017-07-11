@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import DashboardListCt from  './containers/DashboardListCt';
+import { acSetDashboards } from './actions';
+import { actionTypes } from './reducers';
+import data from './data';
 
 import './App.css';
 import './styles/gridstack-overrides.css';
@@ -15,13 +18,6 @@ import isFunction from 'd2-utilizr/lib/isFunction';
 const $ = global.jQuery;
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
-
-const data = [
-    {x: 0, y: 0, width: 20, height: 15, text: "plugin item 1", id: "fzgIcU3hVFH", type: "REPORTTABLE"},
-    {x: 20, y: 0, width: 20, height: 5, text: "plugin item 2", id: "DkPKc1EUmC2", type: "CHART"},
-    {x: 20, y: 4, width: 20, height: 5, text: "plugin item 3", id: "hewtA7a025J", type: "CHART"},
-    {x: 20, y: 8, width: 20, height: 5, text: "plugin item 4", id: "hrDweynvx7G", type: "REPORTTABLE"}
-];
 
 // TODO, add to plugin instead
 global.reportTablePlugin.type = 'REPORTTABLE';
@@ -65,7 +61,7 @@ function setConfig(config) {
         grid.addWidget($(
             '<div data-gs-id="' + node.id + '" data-gs-type="' + node.type + '" style="background-color:#fff">' +
                 '<div class="grid-stack-item-content">' +
-                    '<div class="dashboard-item-header" style="padding:2px">(' + node.text + ')</div>' +
+                    '<div class="dashboard-item-header" style="padding:2px">(' + node.name + ')</div>' +
                     '<div class="dashboard-item-content" id="plugin-' + node.id + '"></div>' +
                 '</div>' +
             '</div>'),
@@ -155,27 +151,17 @@ class App extends Component {
         );
     }
     getChildContext() {
-        console.log("getChildContext");
         return {
             d2: this.props.d2
         };
     }
     componentDidMount() {
-        console.log("componentDidMount");
         init();
 
         const { store } = this.context;
         //const { d2 } = this.props;
 
-        store.dispatch({
-            type: 'SELECT_DASHBOARD',
-            dashboard: {
-                id: 1
-            }
-        });
-    }
-    shouldComponentUpdate() {
-        console.log("componentShouldUpdate");
+        store.dispatch(acSetDashboards(data));
     }
 }
 

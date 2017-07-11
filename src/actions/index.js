@@ -1,6 +1,9 @@
 import { actionTypes } from '../reducers';
 
-console.log("actionTypes", actionTypes);
+export const acSetDashboards = (dashboards) => ({
+    type: actionTypes.SET_DASHBOARDS,
+    dashboards
+});
 
 export const acSetSelectedDashboard = (id) => ({
     type: actionTypes.SET_SELECTED_DASHBOARD,

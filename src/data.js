@@ -1,8 +1,8 @@
 export default [
     {x: 0, y: 0, width: 20, height: 15, name: "Plugin item 1", id: "fzgIcU3hVFH", type: "REPORTTABLE"},
-    {x: 20, y: 0, width: 20, height: 5, name: "plugin item 2", id: "DkPKc1EUmC2", type: "CHART"},
-    {x: 20, y: 4, width: 20, height: 5, name: "plugin item 3", id: "hewtA7a025J", type: "CHART"},
-    {x: 20, y: 8, width: 20, height: 5, name: "plugin item 4", id: "hrDweynvx7G", type: "REPORTTABLE"}
+    {x: 20, y: 0, width: 20, height: 5, name: "Plugin item 2", id: "DkPKc1EUmC2", type: "CHART"},
+    {x: 20, y: 4, width: 20, height: 5, name: "Plugin item 3", id: "hewtA7a025J", type: "CHART"},
+    {x: 20, y: 8, width: 20, height: 5, name: "Plugin item 4", id: "hrDweynvx7G", type: "REPORTTABLE"}
 ];
 
 var tmp = [{
