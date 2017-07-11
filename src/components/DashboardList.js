@@ -15,7 +15,7 @@ const liStyle = {
 const DashboardList = ({ dashboards, onClick }) => {
     return (
         <ul style={ulStyle}>
-            {dashboards.map(d => <li style={liStyle} onClick={() => onClick(d.id)}>{d.name}</li>)}
+            {dashboards.map(d => <li key={d.id} style={liStyle} onClick={() => onClick(d.id)}>{d.name}</li>)}
         </ul>
     );
 };

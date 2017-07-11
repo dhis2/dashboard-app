@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import DashboardListCt from  './containers/DashboardListCt';
+import DashboardItemGridCt from  './containers/DashboardItemGridCt';
 import { acSetDashboards } from './actions';
-import { actionTypes } from './reducers';
-import data from './data';
+import { getDashboards } from './data';
 
 import './App.css';
 import './styles/gridstack-overrides.css';
@@ -73,7 +73,7 @@ function storeConfig(config) {
     cache = config || getConfig();
 }
 
-function restoreConfig() {
+function restoreConfig(data) {
     setConfig(cache);
 
     let customData;
@@ -100,7 +100,7 @@ function restoreConfig() {
     });
 }
 
-function init() {
+function init(data) {
     const el = $('.grid-stack');
 
     const itemResize = (e) => {
@@ -146,7 +146,7 @@ class App extends Component {
             <div>
                 <HeaderBar />
                 <DashboardListCt />
-                <div className="grid-stack"></div>
+                <DashboardItemGridCt />
             </div>
         );
     }
@@ -156,12 +156,12 @@ class App extends Component {
         };
     }
     componentDidMount() {
-        init();
+        //init();
 
         const { store } = this.context;
         //const { d2 } = this.props;
 
-        store.dispatch(acSetDashboards(data));
+        store.dispatch(acSetDashboards(getDashboards()));
     }
 }
 

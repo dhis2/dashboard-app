@@ -32,4 +32,4 @@ export default combineReducers({
 
 export const getDashboardsFromState = (state) => state.dashboards;
 
-export const getSelectedDashboardId = (state) => state.selectedDashboardId;
+export const getSelectedDashboardIdFromState = (state) => state.selectedDashboardId;
