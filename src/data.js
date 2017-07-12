@@ -29,4 +29,4 @@ const data = [{
 
 export const getDashboards = () => data.map(d => ({id: d.id, name: d.name}));
 
-export const getDashboardItems = id => data.filter(d => d.id === id).map(d => d.dashboardItems);
+export const getDashboardItems = id => data.filter(d => d.id === id).map(d => d.dashboardItems)[0];

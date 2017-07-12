@@ -101,29 +101,6 @@ function restoreConfig(data) {
 }
 
 function init(data) {
-    const el = $('.grid-stack');
-
-    const itemResize = (e) => {
-        setTimeout(() => {
-            const el = document.getElementById('plugin-' + e.target.dataset.gsId);
-
-            if (el && isFunction(el.setViewportSize)) {
-                el.setViewportSize($(e.target).width() - 30, $(e.target).height() - 16);
-            }
-        }, 10);
-    };
-
-    const options = {
-        verticalMargin: 10,
-        width: 50
-    };
-
-    el.gridstack(options);
-
-    el.on('resizestop', itemResize);
-
-    grid = el.data('gridstack');
-
     storeConfig(data);
 
     restoreConfig();

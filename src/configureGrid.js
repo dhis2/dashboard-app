@@ -2,10 +2,12 @@ import isFunction from 'd2-utilizr/lib/isFunction';
 
 const $ = global.jQuery;
 
-export const Grid = function() {
-    let _grid;
-    this.set = (grid) => _grid = grid;
-    this.get = () => _grid;
+export class Grid {
+    constructor() {
+        let _grid;
+        this.set = (grid) => _grid = grid;
+        this.get = () => _grid;
+    }
 };
 
 const configureGrid = () => {

@@ -10,30 +10,19 @@ import configureGrid from '../configureGrid';
 
 import DashboardItemGrid from '../components/DashboardItemGrid';
 
-const mapStateToProps = state => ({
-    id: getSelectedDashboardIdFromState(state)
-});
+const $ = global.jQuery;
 
 class DashboardItemGridCt extends Component {
-    updateGrid(dashboardId) {
-        console.log("updateGrid:", dashboardId);
-
-        console.log("updateGrid:", getDashboardItems(dashboardId));
-
-        console.log("updateGrid-context-grid-get", this.context.grid.get());
-    }
-    render() {
-        return <DashboardItemGrid {...this.props}/>;
-    }
     componentDidMount() {
         const { grid } = this.context;
 
         grid.set(configureGrid());
     }
-    shouldComponentUpdate(nextProps) {
-        this.updateGrid(nextProps.id);
+    render(nextProps) {
+        const grid = this.context.grid.get();
+        const items = getDashboardItems(this.props.id);
 
-        return false;
+        return (<DashboardItemGrid grid={grid} items={items} />);
     }
 }
 
@@ -41,6 +30,10 @@ DashboardItemGridCt.contextTypes = {
     d2: PropTypes.object,
     grid: PropTypes.object
 };
+
+const mapStateToProps = state => ({
+    id: getSelectedDashboardIdFromState(state)
+});
 
 DashboardItemGridCt = connect(mapStateToProps)(DashboardItemGridCt);
 
