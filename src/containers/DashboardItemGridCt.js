@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 
 import { getSelectedDashboardIdFromState } from '../reducers';
 
+import { getDashboardItems } from '../data';
+
+import configureGrid from '../configureGrid';
+
 import DashboardItemGrid from '../components/DashboardItemGrid';
 
 const mapStateToProps = state => ({
@@ -11,22 +15,34 @@ const mapStateToProps = state => ({
 });
 
 class DashboardItemGridCt extends Component {
+    updateGrid(dashboardId) {
+        console.log("updateGrid:", dashboardId);
+
+        console.log("updateGrid:", getDashboardItems(dashboardId));
+
+        console.log("updateGrid-context-grid-get", this.context.grid.get());
+    }
     render() {
         return <DashboardItemGrid {...this.props}/>;
     }
     componentDidMount() {
-        const { id } = this.props;
-        const { store } = this.context;
+        const { grid } = this.context;
 
-        console.log("DashboardItemGrid", id, store);
+        grid.set(configureGrid());
+    }
+    shouldComponentUpdate(nextProps) {
+        this.updateGrid(nextProps.id);
+
+        return false;
     }
 }
 
-DashboardItemGridCt = connect(mapStateToProps)(DashboardItemGridCt);
-
 DashboardItemGridCt.contextTypes = {
-    store: PropTypes.object
+    d2: PropTypes.object,
+    grid: PropTypes.object
 };
+
+DashboardItemGridCt = connect(mapStateToProps)(DashboardItemGridCt);
 
 export default DashboardItemGridCt;
 

@@ -8,6 +8,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { init, getManifest } from 'd2/lib/d2';
 
 import configureStore from './configureStore';
+import { Grid } from './configureGrid';
 import App from './App';
 
 import './index.css';
@@ -18,11 +19,14 @@ injectTapEventPlugin();
 // redux store
 const store = configureStore();
 
+// grid wrapper
+
+
 const indexRender = (d2) => {
     ReactDOM.render(
         <MuiThemeProvider>
-            <Provider store={ store }>
-                <App d2={d2} />
+            <Provider store={store}>
+                <App d2={d2} grid={new Grid()} />
             </Provider>
         </MuiThemeProvider>,
         document.getElementById('root')

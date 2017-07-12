@@ -138,8 +138,6 @@ function init(data) {
 //     d2: PropTypes.object
 // };
 
-
-// not using redux yet
 class App extends Component {
     render() {
         return (
@@ -152,12 +150,11 @@ class App extends Component {
     }
     getChildContext() {
         return {
-            d2: this.props.d2
+            d2: this.props.d2,
+            grid: this.props.grid
         };
     }
     componentDidMount() {
-        //init();
-
         const { store } = this.context;
         //const { d2 } = this.props;
 
@@ -170,7 +167,8 @@ App.contextTypes = {
 };
 
 App.childContextTypes = {
-    d2: PropTypes.object
+    d2: PropTypes.object,
+    grid: PropTypes.object
 };
 
 export default App;
