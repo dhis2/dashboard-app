@@ -13,90 +13,35 @@ import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 
-const $ = global.jQuery;
-
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
 // TODO, add to plugin instead
 global.reportTablePlugin.type = 'REPORTTABLE';
 global.chartPlugin.type = 'CHART';
 
-let grid;
-let cache;
-
-function getConfig() {
-    const elements = Array.prototype.slice.call($('.grid-stack > .grid-stack-item'));
-    const configObjects = [];
-    let node;
-
-    elements.forEach(function(element) {
-        element = $(element);
-
-        node = element.data('_gridstack_node');
-        console.log("node", node);
-
-        configObjects.push({
-            x: node.x,
-            y: node.y,
-            width: node.width,
-            height: node.height
-        });
-    });
-
-    console.log("configObjects", configObjects);
-
-    return configObjects;
-}
-
-function setConfig(config) {
-    // DashboardItemGrid
-}
-
-function storeConfig(config) {
-    cache = config || getConfig();
-}
-
-function restoreConfig(data) {
-    setConfig(cache);
-
-    let customData;
-
-    // plugins
-    [global.reportTablePlugin, global.chartPlugin].forEach(plugin => {
-        plugin.url = '//localhost:8080';
-        plugin.username = 'admin';
-        plugin.password = 'district';
-        plugin.loadingIndicator = true;
-
-        customData = data.filter(d => d.type === plugin.type).map(d => ({id: d.id, el: "plugin-" + d.id, type: d.type}));
-
-        // add plugin items
-        customData.forEach(d => plugin.add(d));
-
-        plugin.load();
-
-        customData.forEach(d => {
-            (function(element) {
-                console.log(element);
-            })(document.getElementById(d.el));
-        });
-    });
-}
-
-function init(data) {
-    storeConfig(data);
-
-    restoreConfig();
-}
-
-// const MyCmp = ({ myProp, klikk }, { d2 }) => {
-//     console.log("<inside stateless sub component>");
-//     return <div style={{padding: "30px"}} onClick={klikk}>React provider context: {d2.currentUser.name}<br/>My prop: {myProp}</div>;
-// };
+// function getConfig() {
+//     const elements = Array.prototype.slice.call($('.grid-stack > .grid-stack-item'));
+//     const configObjects = [];
+//     let node;
 //
-// MyCmp.contextTypes = {
-//     d2: PropTypes.object
-// };
+//     elements.forEach(function(element) {
+//         element = $(element);
+//
+//         node = element.data('_gridstack_node');
+//         console.log("node", node);
+//
+//         configObjects.push({
+//             x: node.x,
+//             y: node.y,
+//             width: node.width,
+//             height: node.height
+//         });
+//     });
+//
+//     console.log("configObjects", configObjects);
+//
+//     return configObjects;
+// }
 
 class App extends Component {
     render() {

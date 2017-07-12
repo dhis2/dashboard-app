@@ -10,8 +10,6 @@ import configureGrid from '../configureGrid';
 
 import DashboardItemGrid from '../components/DashboardItemGrid';
 
-const $ = global.jQuery;
-
 class DashboardItemGridCt extends Component {
     componentDidMount() {
         const { grid } = this.context;
