@@ -1277,6 +1277,10 @@ clap@^1.0.9:
   dependencies:
     chalk "^1.1.3"
 
+classnames@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
+
 clean-css@4.1.x:
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.1.4.tgz#eec8811db27457e0078d8ca921fa81b72fa82bf4"
@@ -3816,6 +3820,10 @@ lodash.isboolean@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/lodash.isboolean/-/lodash.isboolean-3.0.3.tgz#6c2e171db2a257cd96802fd43b01b20d5f5870f6"
 
+lodash.isequal@^4.0.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+
 lodash.isfunction@^3.0.8:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/lodash.isfunction/-/lodash.isfunction-3.0.8.tgz#4db709fc81bc4a8fd7127a458a5346c5cdce2c6b"
@@ -4845,7 +4853,7 @@ promise@7.1.1, promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@15.5.8, prop-types@^15.0.0, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@~15.5.7:
+prop-types@15.5.8, prop-types@^15.0.0, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@~15.5.7:
   version "15.5.8"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.8.tgz#6b7b2e141083be38c8595aa51fc55775c7199394"
   dependencies:
@@ -4968,6 +4976,12 @@ react-dom@^15.5.4:
     object-assign "^4.1.0"
     prop-types "~15.5.7"
 
+react-draggable@^2.1.1, react-draggable@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/react-draggable/-/react-draggable-2.2.6.tgz#3a806e10f2da6babfea4136be6510e89b0d76901"
+  dependencies:
+    classnames "^2.2.5"
+
 react-error-overlay@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-1.0.7.tgz#8712fe40cfc194ce992a4136c091c03bfada9148"
@@ -4988,6 +5002,16 @@ react-event-listener@^0.4.5:
     prop-types "^15.5.4"
     warning "^3.0.0"
 
+react-grid-layout@^0.14.6:
+  version "0.14.6"
+  resolved "https://registry.yarnpkg.com/react-grid-layout/-/react-grid-layout-0.14.6.tgz#855e83297b0179f1a13b4ea3d4949420cacad735"
+  dependencies:
+    classnames "^2.2.5"
+    lodash.isequal "^4.0.0"
+    prop-types "^15.5.8"
+    react-draggable "^2.1.1"
+    react-resizable "^1.4.0"
+
 react-redux@5.0.4:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.4.tgz#1563babadcfb2672f57f9ceaa439fb16bf85d55b"
@@ -4999,6 +5023,13 @@ react-redux@5.0.4:
     lodash-es "^4.2.0"
     loose-envify "^1.1.0"
     prop-types "^15.0.0"
+
+react-resizable@^1.4.0:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/react-resizable/-/react-resizable-1.7.1.tgz#e8fd2c2247c9299d117fb245dbeed9c68c0e004c"
+  dependencies:
+    prop-types "^15.5.8"
+    react-draggable "^2.2.6"
 
 react-scripts@1.0.7:
   version "1.0.7"

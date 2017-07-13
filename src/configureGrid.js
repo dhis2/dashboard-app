@@ -13,6 +13,12 @@ export class Grid {
 const configureGrid = () => {
     const el = $('.grid-stack');
 
+    const gridResize = e => {
+        console.log("gr", e);
+    };
+
+    el.on('resize', gridResize);
+
     const itemResize = (e) => {
         setTimeout(() => {
             const el = document.getElementById('plugin-' + e.target.dataset.gsId);
@@ -26,6 +32,7 @@ const configureGrid = () => {
     const options = {
         verticalMargin: 10,
         cellHeight: 20,
+        cellWidth: 20,
         width: 50
     };
 
@@ -33,7 +40,11 @@ const configureGrid = () => {
 
     el.on('resizestop', itemResize);
 
-    return el.data('gridstack');
+    const grid = el.data('gridstack');
+
+    grid.batchUpdate();
+
+    return grid;
 };
 
 export default configureGrid;

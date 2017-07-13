@@ -11,16 +11,16 @@ import configureGrid from '../configureGrid';
 import DashboardItemGrid from '../components/DashboardItemGrid';
 
 class DashboardItemGridCt extends Component {
-    componentDidMount() {
-        const { grid } = this.context;
-
-        grid.set(configureGrid());
-    }
+    // componentDidMount() {
+    //     const { grid } = this.context;
+    //
+    //     grid.set(configureGrid());
+    // }
     render(nextProps) {
         const grid = this.context.grid.get();
         const items = getDashboardItems(this.props.id);
 
-        return (<DashboardItemGrid grid={grid} items={items} />);
+        return (<DashboardItemGrid items={items} />);
     }
 }
 

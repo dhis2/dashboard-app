@@ -1,14 +1,17 @@
-/* gridstack */
+/* react-grid-layout */
 
-.grid-stack {
-    border: 1px solid #aaa;
+.react-grid-layout {
+    background-color: #f8f8f8;
 }
 
-.grid-stack-item-content {
-    border: 1px solid #ccc;
+.react-grid-item {
+    border: 1px solid #d0d0d0;
     border-radius: 3px;
-    box-shadow: #ddd 0 0 5px 0;
-    padding: 3px;
+    overflow: auto;
+}
+
+.react-grid-item.CHART {
+    overflow: hidden;
 }
 
 

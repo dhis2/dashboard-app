@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import ReactGridLayout from 'react-grid-layout';
+import 'react-grid-layout/css/styles.css';
+
 import './DashboardItemGrid.css';
 
 const $ = global.jQuery;
@@ -17,6 +20,8 @@ const restoreItems = (grid, items) => {
             '</div>'),
             node.x, node.y, node.width, node.height);
     });
+
+    grid.commit();
 }
 
 const runPlugins = (items) => {
@@ -47,17 +52,36 @@ const runPlugins = (items) => {
 
 class DashboardItemGrid extends Component {
     componentDidUpdate() {
-        const { grid, items } = this.props;
+        const { items } = this.props;
+        console.log("componentDidUpdate");
 
-        restoreItems(grid, items);
-
+        // restoreItems(grid, items);
         runPlugins(items);
     }
+    componentWillUpdate() {
+        console.log("componentWillUpdate");
+    }
     render() {
+        const items = this.props.items || [];
+        console.log("render");
+
+        items.forEach((item, index) => item.i = '' + index);
+
         return (
-            <div className="dashboard-grid-wrapper">
-                <div className="grid-stack"></div>
-            </div>
+            <ReactGridLayout
+                className="layout"
+                layout={items}
+                cols={30}
+                rowHeight={30}
+                width={1200}
+            >
+                {items.map((item) => (
+                    <div key={item.i} className={item.type}>
+                        {item.i}
+                        <div id={'plugin-' + item.id}></div>
+                    </div>
+                ))}
+            </ReactGridLayout>
         );
     }
 }

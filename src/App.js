@@ -7,7 +7,7 @@ import { acSetDashboards } from './actions';
 import { getDashboards } from './data';
 
 import './App.css';
-import './styles/gridstack-overrides.css';
+import './styles/gridstack-overrides2.css';
 
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
