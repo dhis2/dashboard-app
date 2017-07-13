@@ -18,7 +18,7 @@ const configureGrid = () => {
             const el = document.getElementById('plugin-' + e.target.dataset.gsId);
 
             if (el && isFunction(el.setViewportSize)) {
-                el.setViewportSize($(e.target).width() - 15, $(e.target).height() - 30);
+                el.setViewportSize($(e.target).width() - 20, $(e.target).height() - 35);
             }
         }, 10);
     };
