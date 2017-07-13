@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './DashboardItemGrid.css';
+
 const $ = global.jQuery;
 
 const restoreItems = (grid, items) => {
@@ -7,12 +9,12 @@ const restoreItems = (grid, items) => {
 
     items.forEach(function(node) {
         grid.addWidget($(
-                '<div data-gs-id="' + node.id + '" data-gs-type="' + node.type + '" style="background-color:#fff">' +
+            '<div data-gs-id="' + node.id + '" data-gs-type="' + node.type + '">' +
                 '<div class="grid-stack-item-content">' +
-                '<div class="dashboard-item-header" style="padding:2px">(' + node.type + ' ' + node.id + ')</div>' +
-                '<div class="dashboard-item-content" id="plugin-' + node.id + '"></div>' +
+                    '<div class="dashboard-item-header">(' + node.type + ' ' + node.id + ')</div>' +
+                    '<div class="dashboard-item-content" id="plugin-' + node.id + '"></div>' +
                 '</div>' +
-                '</div>'),
+            '</div>'),
             node.x, node.y, node.width, node.height);
     });
 }
@@ -26,6 +28,7 @@ const runPlugins = (items) => {
         plugin.username = 'admin';
         plugin.password = 'district';
         plugin.loadingIndicator = true;
+        plugin.dashboard = true;
 
         filteredItems = items.filter(d => d.type === plugin.type).map(d => ({id: d.id, el: "plugin-" + d.id, type: d.type}));
 
@@ -51,7 +54,11 @@ class DashboardItemGrid extends Component {
         runPlugins(items);
     }
     render() {
-        return (<div className="grid-stack"></div>);
+        return (
+            <div className="dashboard-grid-wrapper">
+                <div className="grid-stack"></div>
+            </div>
+        );
     }
 }
 

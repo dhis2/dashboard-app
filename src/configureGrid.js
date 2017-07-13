@@ -18,13 +18,14 @@ const configureGrid = () => {
             const el = document.getElementById('plugin-' + e.target.dataset.gsId);
 
             if (el && isFunction(el.setViewportSize)) {
-                el.setViewportSize($(e.target).width() - 30, $(e.target).height() - 16);
+                el.setViewportSize($(e.target).width() - 15, $(e.target).height() - 30);
             }
         }, 10);
     };
 
     const options = {
         verticalMargin: 10,
+        cellHeight: 20,
         width: 50
     };
 

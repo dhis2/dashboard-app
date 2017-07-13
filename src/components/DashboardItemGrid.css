@@ -1,0 +1,28 @@
+/* gridstack */
+
+.grid-stack {
+    border: 1px solid #aaa;
+}
+
+.grid-stack-item-content {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: #ddd 0 0 5px 0;
+    padding: 3px;
+}
+
+
+/* dashboard */
+
+.dashboard-grid-wrapper {
+    margin: 20px;
+}
+
+.dashboard-item-header {
+    padding: 2px 5px 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.dashboard-item-content {
+    padding: 3px;
+}

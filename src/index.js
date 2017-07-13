@@ -19,14 +19,14 @@ injectTapEventPlugin();
 // redux store
 const store = configureStore();
 
-// grid wrapper
-
+// grid object
+const grid = new Grid();
 
 const indexRender = (d2) => {
     ReactDOM.render(
         <MuiThemeProvider>
             <Provider store={store}>
-                <App d2={d2} grid={new Grid()} />
+                <App d2={d2} grid={grid} />
             </Provider>
         </MuiThemeProvider>,
         document.getElementById('root')
