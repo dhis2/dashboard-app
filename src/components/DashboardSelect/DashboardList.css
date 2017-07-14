@@ -1,0 +1,11 @@
+.DashboardList > ul {
+    text-align: center;
+}
+
+.DashboardList > ul > li {
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+    color: #2222ff;
+    font-size: 17px;
+}

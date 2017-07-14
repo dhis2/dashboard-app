@@ -6,23 +6,21 @@ import './DashboardTitle.css';
 const hintText = 'Untitled';
 
 class DashboardTitle extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             name: ''
         };
 
-        this.handleChange = this.handleChange.bind(this);
+        this.onChangeHandler = this.onChangeHandler.bind(this);
     }
     componentWillReceiveProps(nextProps) {
-        console.log("componentWillReceiveProps", nextProps);
-
         this.setState({
             name: nextProps.name
         });
     }
-    handleChange(event) {
+    onChangeHandler(event) {
         this.setState({
             name: event.target.value
         });
@@ -32,7 +30,7 @@ class DashboardTitle extends Component {
             <input
                 type="text"
                 value={this.state.name}
-                onChange={this.handleChange}
+                onChange={this.onChangeHandler}
                 onBlur={this.props.onBlur}
                 placeholder={hintText}
                 className="DashboardTitle-textfield"
