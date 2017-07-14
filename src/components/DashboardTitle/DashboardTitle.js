@@ -13,14 +13,14 @@ class DashboardTitle extends Component {
             name: ''
         };
 
-        this.onChangeHandler = this.onChangeHandler.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
     componentWillReceiveProps(nextProps) {
         this.setState({
             name: nextProps.name
         });
     }
-    onChangeHandler(event) {
+    handleChange(event) {
         this.setState({
             name: event.target.value
         });
@@ -30,7 +30,7 @@ class DashboardTitle extends Component {
             <input
                 type="text"
                 value={this.state.name}
-                onChange={this.onChangeHandler}
+                onChange={this.handleChange}
                 onBlur={this.props.onBlur}
                 placeholder={hintText}
                 className="DashboardTitle-textfield"

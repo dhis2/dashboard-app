@@ -56,6 +56,7 @@ class DashboardItemGrid extends Component {
                         <div id={'plugin-' + item.id}></div>
                     </div>
                 ))}
+                {}
             </ReactGridLayout>
         );
     }

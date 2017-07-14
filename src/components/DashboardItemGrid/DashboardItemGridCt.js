@@ -17,8 +17,7 @@ class DashboardItemGridCt extends Component {
 }
 
 DashboardItemGridCt.contextTypes = {
-    d2: PropTypes.object,
-    grid: PropTypes.object
+    d2: PropTypes.object
 };
 
 const mapStateToProps = state => ({
