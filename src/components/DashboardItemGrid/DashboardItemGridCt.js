@@ -2,22 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { getSelectedDashboardIdFromState } from '../reducers';
+import { getSelectedDashboardIdFromState } from '../../reducers/index';
 
-import { getDashboardItems } from '../data';
+import { getDashboardItems } from '../../data';
 
-import configureGrid from '../configureGrid';
-
-import DashboardItemGrid from '../components/DashboardItemGrid';
+import DashboardItemGrid from './DashboardItemGrid';
 
 class DashboardItemGridCt extends Component {
-    // componentDidMount() {
-    //     const { grid } = this.context;
-    //
-    //     grid.set(configureGrid());
-    // }
-    render(nextProps) {
-        const grid = this.context.grid.get();
+    render() {
         const items = getDashboardItems(this.props.id);
 
         return (<DashboardItemGrid items={items} />);

@@ -5,25 +5,6 @@ import 'react-grid-layout/css/styles.css';
 
 import './DashboardItemGrid.css';
 
-const $ = global.jQuery;
-
-const restoreItems = (grid, items) => {
-    grid.removeAll();
-
-    items.forEach(function(node) {
-        grid.addWidget($(
-            '<div data-gs-id="' + node.id + '" data-gs-type="' + node.type + '">' +
-                '<div class="grid-stack-item-content">' +
-                    '<div class="dashboard-item-header">(' + node.type + ' ' + node.id + ')</div>' +
-                    '<div class="dashboard-item-content" id="plugin-' + node.id + '"></div>' +
-                '</div>' +
-            '</div>'),
-            node.x, node.y, node.width, node.height);
-    });
-
-    grid.commit();
-}
-
 const runPlugins = (items) => {
     let filteredItems;
 
@@ -52,18 +33,12 @@ const runPlugins = (items) => {
 
 class DashboardItemGrid extends Component {
     componentDidUpdate() {
-        const { items } = this.props;
-        console.log("componentDidUpdate");
+        //const { items } = this.props;
 
-        // restoreItems(grid, items);
-        runPlugins(items);
-    }
-    componentWillUpdate() {
-        console.log("componentWillUpdate");
+        //runPlugins(items);
     }
     render() {
         const items = this.props.items || [];
-        console.log("render");
 
         items.forEach((item, index) => item.i = '' + index);
 
@@ -73,7 +48,7 @@ class DashboardItemGrid extends Component {
                 layout={items}
                 cols={30}
                 rowHeight={30}
-                width={1200}
+                width={window.innerWidth}
             >
                 {items.map((item) => (
                     <div key={item.i} className={item.type}>

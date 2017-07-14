@@ -28,8 +28,18 @@ export default combineReducers({
     selectedDashboardId
 });
 
-// selectors
+// selectors level 1
 
-export const getDashboardsFromState = (state) => state.dashboards;
+export const getDashboardsFromState = state => state.dashboards;
 
-export const getSelectedDashboardIdFromState = (state) => state.selectedDashboardId;
+export const getSelectedDashboardIdFromState = state => state.selectedDashboardId;
+
+// selectors level 2
+
+export const getDashboardById = (state, id) => getDashboardsFromState(state).find(dashboard => dashboard.id === id);
+
+// selectors level 3
+
+export const getSelectedDashboard = state => getDashboardById(state, getSelectedDashboardIdFromState(state));
+
+

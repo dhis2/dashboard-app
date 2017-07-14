@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import DashboardListCt from  './containers/DashboardListCt';
-import DashboardItemGridCt from  './containers/DashboardItemGridCt';
+import DashboardListCt from  './components/DashboardSelect/DashboardSelectCt';
+import DashboardTitleCt from  './components/DashboardTitle/DashboardTitleCt';
+import DashboardItemGridCt from  './components/DashboardItemGrid/DashboardItemGridCt';
 import { acSetDashboards } from './actions';
 import { getDashboards } from './data';
 
 import './App.css';
-import './styles/gridstack-overrides2.css';
 
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
@@ -19,44 +19,20 @@ const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 global.reportTablePlugin.type = 'REPORTTABLE';
 global.chartPlugin.type = 'CHART';
 
-// function getConfig() {
-//     const elements = Array.prototype.slice.call($('.grid-stack > .grid-stack-item'));
-//     const configObjects = [];
-//     let node;
-//
-//     elements.forEach(function(element) {
-//         element = $(element);
-//
-//         node = element.data('_gridstack_node');
-//         console.log("node", node);
-//
-//         configObjects.push({
-//             x: node.x,
-//             y: node.y,
-//             width: node.width,
-//             height: node.height
-//         });
-//     });
-//
-//     console.log("configObjects", configObjects);
-//
-//     return configObjects;
-// }
-
 class App extends Component {
     render() {
         return (
-            <div>
+            <div className="wrapper">
                 <HeaderBar />
                 <DashboardListCt />
+                <DashboardTitleCt />
                 <DashboardItemGridCt />
             </div>
         );
     }
     getChildContext() {
         return {
-            d2: this.props.d2,
-            grid: this.props.grid
+            d2: this.props.d2
         };
     }
     componentDidMount() {
@@ -72,8 +48,7 @@ App.contextTypes = {
 };
 
 App.childContextTypes = {
-    d2: PropTypes.object,
-    grid: PropTypes.object
+    d2: PropTypes.object
 };
 
 export default App;

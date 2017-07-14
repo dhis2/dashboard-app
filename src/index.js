@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
+import './index.css';
+
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import { init, getManifest } from 'd2/lib/d2';
 
 import configureStore from './configureStore';
-import { Grid } from './configureGrid';
-import App from './App';
 
-import './index.css';
+import App from './App';
 
 // material-ui
 injectTapEventPlugin();
@@ -19,14 +19,11 @@ injectTapEventPlugin();
 // redux store
 const store = configureStore();
 
-// grid object
-const grid = new Grid();
-
 const indexRender = (d2) => {
     ReactDOM.render(
         <MuiThemeProvider>
             <Provider store={store}>
-                <App d2={d2} grid={grid} />
+                <App d2={d2} />
             </Provider>
         </MuiThemeProvider>,
         document.getElementById('root')
