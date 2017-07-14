@@ -13,7 +13,12 @@ const mapDispatchToProps = dispatch => ({
     onClick: (id) => dispatch(acSetSelectedDashboard(id))
 });
 
-let DashboardSelectCt = props => <DashboardList {...props} />;
+let DashboardSelectCt = props => (
+    <div>
+        <DashboardBar />
+        <DashboardList {...props} />
+    </div>
+);
 
 DashboardSelectCt = connect(mapStateToProps, mapDispatchToProps)(DashboardSelectCt);
 
