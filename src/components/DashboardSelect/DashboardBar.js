@@ -13,7 +13,7 @@ import ActionAdd from 'material-ui/svg-icons/content/add-circle';
 import { blue500 } from 'material-ui/styles/colors';
 
 const toolbarStyle = {
-    height: 40,
+    height: 36,
     backgroundColor: 'transparent'
 };
 
@@ -32,17 +32,40 @@ const iconButtonStyle = {
     padding: 8
 };
 
+const toolbarSeparatorStyle = {
+    height: '20px',
+    marginLeft: '15px'
+};
+
 class DashboardBar extends Component {
     render() {
         return (
             <Toolbar style={toolbarStyle}>
                 <ToolbarGroup firstChild={true}>
-                    <IconButton style={iconButtonStyle} iconStyle={iconStyle}>
-                        <ActionAdd color={blue500} />
-                    </IconButton>
+                    <div>
+                        <IconButton style={iconButtonStyle} iconStyle={iconStyle}>
+                            <ActionAdd color={blue500} />
+                        </IconButton>
+                        <span className="DashboardBar-link icontext">Add new</span>
+                    </div>
+                    <div>
                     <IconButton style={iconButtonStyle} iconStyle={iconStyle}>
                         <ActionSettings />
                     </IconButton>
+                        <span className="DashboardBar-link icontext">Manage dashboards</span>
+                    </div>
+                    <ToolbarSeparator style={toolbarSeparatorStyle}/>
+                </ToolbarGroup>
+                <ToolbarGroup>
+                    <div>
+                        <span className="DashboardBar-link fieldtext">Select view:</span>
+                        <span className="separator"></span>
+                        <span className="DashboardBar-link selected">Compact</span>
+                        <span className="separator"></span>
+                        <span className="DashboardBar-link">List</span>
+                        <span className="separator"></span>
+                        <span className="DashboardBar-link">Icon</span>
+                    </div>
                 </ToolbarGroup>
             </Toolbar>
         );
