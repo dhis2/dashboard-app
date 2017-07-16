@@ -17,7 +17,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onBlur: (e) => console.log(e.target.value)
+    onBlur: (e) => console.log("blurred with value: ", e.target.value)
 });
 
 const DashboardTitleCt = connect(mapStateToProps, mapDispatchToProps)(DashboardTitle);

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getDashboardsFromState } from '../../reducers/index';
 import { acSetSelectedDashboard } from '../../actions/index';
 import DashboardList from './DashboardList';
+import DashboardBar from './DashboardBar';
 
 const mapStateToProps = state => ({
     dashboards: getDashboardsFromState(state)
