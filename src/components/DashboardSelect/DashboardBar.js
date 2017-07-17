@@ -61,10 +61,11 @@ class FilterField extends Component {
                 value={this.state.value}
                 onChange={this.handleChange}
                 hintText="Filter dashboards"
-                style={{marginLeft: '18px', fontSize: '13px', lineHeight: '20px'}}
-                hintStyle={{bottom: '12px'}}
-                underlineStyle={{bottom: '10px'}}
-                underlineFocusStyle={{bottom: '10px', borderColor: '#aaa', borderWidth: '1px'}}
+                style={{marginLeft: '18px', height: '36px', fontSize: '13px'}}
+                inputStyle={{top: '1px'}}
+                hintStyle={{top: '8px'}}
+                underlineStyle={{bottom: '5px'}}
+                underlineFocusStyle={{bottom: '5px', borderColor: '#aaa', borderWidth: '1px'}}
             />
         );
     }
