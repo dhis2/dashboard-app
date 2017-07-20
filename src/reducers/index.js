@@ -1,27 +1,17 @@
 import { combineReducers } from 'redux';
 
-export const actionTypes = {
-    SET_DASHBOARDS: 'SET_DASHBOARDS',
-    SET_SELECTED_DASHBOARD: 'SET_SELECTED_DASHBOARD'
-};
+import dashboards, { actionTypes as atDashboards, getDashboardById } from './dashboards';
+import selectedDashboardId, { actionTypes as atSelectedDashboard, getSelectedDashboardIdFromState } from './selectedDashboard';
 
-const dashboards = (state = [], action) => {
-    switch (action.type) {
-        case actionTypes.SET_DASHBOARDS:
-            return action.dashboards;
-        default:
-            return state;
-    }
-};
+// action types
 
-const selectedDashboardId = (state = null, action) => {
-    switch (action.type) {
-        case actionTypes.SET_SELECTED_DASHBOARD:
-            return action.id;
-        default:
-            return state;
-    }
-};
+export const actionTypes = Object.assign(
+    {},
+    atDashboards,
+    atSelectedDashboard
+);
+
+// reducers
 
 export default combineReducers({
     dashboards,
@@ -30,15 +20,11 @@ export default combineReducers({
 
 // selectors level 1
 
-export const getDashboardsFromState = state => state.dashboards;
+export { getDashboardsFromState } from './dashboards';
 
-export const getSelectedDashboardIdFromState = state => state.selectedDashboardId;
+export { getSelectedDashboardIdFromState } from './selectedDashboard';
 
 // selectors level 2
-
-export const getDashboardById = (state, id) => getDashboardsFromState(state).find(dashboard => dashboard.id === id);
-
-// selectors level 3
 
 export const getSelectedDashboard = state => getDashboardById(state, getSelectedDashboardIdFromState(state));
 

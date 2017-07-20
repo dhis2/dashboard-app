@@ -6,13 +6,10 @@ import './DashboardBar.css';
 import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
 import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
-import ActionSettings from 'material-ui/svg-icons/action/settings';
 import ActionAdd from 'material-ui/svg-icons/content/add-circle';
+import ActionSettings from 'material-ui/svg-icons/action/settings';
 
 import { blue500 } from 'material-ui/styles/colors';
-
-const filterStyle = {
-};
 
 const toolbarStyle = {
     height: 36,
@@ -35,6 +32,24 @@ const toolbarSeparatorStyle = {
     marginLeft: '15px'
 };
 
+const AddButton = () => (
+    <div>
+        <IconButton style={iconButtonStyle} iconStyle={iconStyle}>
+            <ActionAdd color={blue500} />
+        </IconButton>
+        <span className="DashboardBar-link icontext">New</span>
+    </div>
+);
+
+const ManageButton = () => (
+    <div>
+        <IconButton style={iconButtonStyle} iconStyle={iconStyle}>
+            <ActionSettings />
+        </IconButton>
+        <span className="DashboardBar-link icontext">Manage dashboards</span>
+    </div>
+);
+
 class FilterField extends Component {
     constructor(props) {
         super(props);
@@ -51,6 +66,8 @@ class FilterField extends Component {
         this.setState({
             value: event.target.value
         });
+console.log("this.props:", this.props);
+        this.props.onChangeFilter(event.target.value);
 
         console.log("filter value:", event.target.value);
     }
@@ -71,34 +88,28 @@ class FilterField extends Component {
     }
 }
 
+const ViewPanel = () => (
+    <div>
+        <span className="DashboardBar-link fieldtext">Select view:</span>
+        <span className="separator"></span>
+        <span className="DashboardBar-link selected">Compact</span>
+        <span className="separator"></span>
+        <span className="DashboardBar-link">Detailed</span>
+    </div>
+);
+
 class DashboardBar extends Component {
     render() {
         return (
             <Toolbar style={toolbarStyle}>
                 <ToolbarGroup firstChild={true}>
-                    <div>
-                        <IconButton style={iconButtonStyle} iconStyle={iconStyle}>
-                            <ActionAdd color={blue500} />
-                        </IconButton>
-                        <span className="DashboardBar-link icontext">Add new</span>
-                    </div>
-                    <div>
-                    <IconButton style={iconButtonStyle} iconStyle={iconStyle}>
-                        <ActionSettings />
-                    </IconButton>
-                        <span className="DashboardBar-link icontext">Manage dashboards</span>
-                    </div>
+                    <AddButton />
+                    <ManageButton />
                     <ToolbarSeparator style={toolbarSeparatorStyle}/>
-                    <FilterField />
+                    <FilterField {...this.props} />
                 </ToolbarGroup>
                 <ToolbarGroup>
-                    <div>
-                        <span className="DashboardBar-link fieldtext">Select view:</span>
-                        <span className="separator"></span>
-                        <span className="DashboardBar-link selected">Compact</span>
-                        <span className="separator"></span>
-                        <span className="DashboardBar-link">Detailed</span>
-                    </div>
+                    <ViewPanel />
                 </ToolbarGroup>
             </Toolbar>
         );

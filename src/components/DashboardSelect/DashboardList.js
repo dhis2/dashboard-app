@@ -7,7 +7,11 @@ const DashboardList = ({ dashboards, onClick }) => {
     return (
         <div className="DashboardList">
             <ul>
-                {dashboards.map(d => <li key={d.id} onClick={() => onClick(d.id)}>{d.name}</li>)}
+                {dashboards.map(d =>
+                    <li key={d.id} onClick={() => onClick(d.id)}>
+                        <div className="name">{d.name}</div>
+                        <div>{d.numberOfItems + ' items'}</div>
+                    </li>)}
             </ul>
         </div>
     );

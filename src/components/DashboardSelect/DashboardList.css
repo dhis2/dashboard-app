@@ -4,8 +4,21 @@
 
 .DashboardList > ul > li {
     display: inline-block;
-    margin: 10px;
+    margin: 5px;
     cursor: pointer;
-    color: #2222ff;
+    color: #555;
+
+    padding: 7px 11px;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+}
+
+.DashboardList > ul > li:hover {
+    border-color: #bbb;
+}
+
+.DashboardList > ul > li > div.name {
+    color: #2264ff;
     font-size: 17px;
+    padding-bottom: 3px;
 }
