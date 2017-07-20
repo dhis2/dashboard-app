@@ -1,11 +1,16 @@
 export const actionTypes = {
-    SET_DASHBOARDS: 'SET_DASHBOARDS'
+    SET_DASHBOARDS: 'SET_DASHBOARDS',
+    SET_DASHBOARDS_FILTER: 'SET_DASHBOARDS_FILTER'
 };
 
 export default (state = [], action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDS:
             return action.dashboards;
+
+        case actionTypes.SET_DASHBOARDS_FILTER:
+            return action.text;
+
         default:
             return state;
     }

@@ -5,6 +5,11 @@ export const acSetDashboards = (dashboards) => ({
     dashboards
 });
 
+export const acSetDashboardFilter = text => ({
+    type: actionTypes.SET_DASHBOARD_FILTER,
+    text
+});
+
 export const acSetSelectedDashboard = (id) => ({
     type: actionTypes.SET_SELECTED_DASHBOARD,
     id

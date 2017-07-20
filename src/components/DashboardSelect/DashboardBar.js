@@ -66,10 +66,8 @@ class FilterField extends Component {
         this.setState({
             value: event.target.value
         });
-console.log("this.props:", this.props);
-        this.props.onChangeFilter(event.target.value);
 
-        console.log("filter value:", event.target.value);
+        this.props.onChangeFilter(event.target.value);
     }
     render() {
         return (
