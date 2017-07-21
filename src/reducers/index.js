@@ -36,7 +36,7 @@ export const getSelectedDashboard = state => getDashboardById(state, getSelected
 export const getDashboards = state => {
     const filter = getDashboardFilterFromState(state).toLowerCase();
     const dashboardsFromState = getDashboardsFromState(state);
-    
+
     return filter === '' ? dashboardsFromState : dashboardsFromState.filter(d => d.name.toLowerCase().indexOf(filter) !== -1);
 };
 

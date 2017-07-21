@@ -23,3 +23,9 @@ export const getDashboardsFromState = state => state.dashboards;
 // selectors level 2
 
 export const getDashboardById = (state, id) => getDashboardsFromState(state).find(dashboard => dashboard.id === id);
+
+// api
+
+export const getPersistedState = state => ({
+    dashboards: state.dashboards
+});

@@ -88,11 +88,21 @@ class FilterField extends Component {
 
 const ViewPanel = () => (
     <div>
-        <span className="DashboardBar-link fieldtext">Select view:</span>
+        <span className="DashboardBar-link fieldtext">View:</span>
         <span className="separator"></span>
         <span className="DashboardBar-link selected">Compact</span>
         <span className="separator"></span>
         <span className="DashboardBar-link">Detailed</span>
+    </div>
+);
+
+const SortPanel = () => (
+    <div>
+        <span className="DashboardBar-link fieldtext">Sort by:</span>
+        <span className="separator"></span>
+        <span className="DashboardBar-link selected">A-Z</span>
+        <span className="separator"></span>
+        <span className="DashboardBar-link">Z-A</span>
     </div>
 );
 
@@ -108,6 +118,9 @@ class DashboardBar extends Component {
                 </ToolbarGroup>
                 <ToolbarGroup>
                     <ViewPanel />
+                </ToolbarGroup>
+                <ToolbarGroup>
+                    <SortPanel />
                 </ToolbarGroup>
             </Toolbar>
         );
