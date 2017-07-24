@@ -1,14 +1,15 @@
 .DashboardList > ul {
     text-align: center;
+    padding-left: 15px;
 }
 
 .DashboardList > ul > li {
     display: inline-block;
-    margin: 5px;
+    margin: 1px;
     cursor: pointer;
-    color: #555;
+    color: #444;
 
-    padding: 7px 11px;
+    padding: 6px 11px;
     border: 1px solid #e1e1e1;
     border-radius: 4px;
 }
@@ -19,6 +20,6 @@
 
 .DashboardList > ul > li > div.name {
     color: #2264ff;
-    font-size: 17px;
+    font-size: 15px;
     padding-bottom: 3px;
 }

@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getDashboards } from '../../reducers';
-import { acSetSelectedDashboard, acSetDashboardFilter} from '../../actions';
+import { getDashboards, getDashboardFilterFromState } from '../../reducers';
+import { acSetSelectedDashboard, acSetDashboardFilter } from '../../actions';
 import DashboardList from './DashboardList';
 import DashboardBar from './DashboardBar';
 
 const mapStateToProps = state => ({
-    dashboards: getDashboards(state)
+    dashboards: getDashboards(state),
+    dashboardFilter: getDashboardFilterFromState(state)
 });
 
 const mapDispatchToProps = dispatch => ({

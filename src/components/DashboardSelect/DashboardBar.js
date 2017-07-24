@@ -6,10 +6,11 @@ import './DashboardBar.css';
 import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
 import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
-import ActionAdd from 'material-ui/svg-icons/content/add-circle';
-import ActionSettings from 'material-ui/svg-icons/action/settings';
+import IconAdd from 'material-ui/svg-icons/content/add-circle';
+import IconSettings from 'material-ui/svg-icons/action/settings';
+import IconClear from 'material-ui/svg-icons/content/clear';
 
-import { blue500 } from 'material-ui/styles/colors';
+import { blue500, grey700 } from 'material-ui/styles/colors';
 
 const toolbarStyle = {
     height: 36,
@@ -35,7 +36,7 @@ const toolbarSeparatorStyle = {
 const AddButton = () => (
     <div>
         <IconButton style={iconButtonStyle} iconStyle={iconStyle}>
-            <ActionAdd color={blue500} />
+            <IconAdd color={blue500} />
         </IconButton>
         <span className="DashboardBar-link icontext">New</span>
     </div>
@@ -44,7 +45,7 @@ const AddButton = () => (
 const ManageButton = () => (
     <div>
         <IconButton style={iconButtonStyle} iconStyle={iconStyle}>
-            <ActionSettings />
+            <IconSettings />
         </IconButton>
         <span className="DashboardBar-link icontext">Manage dashboards</span>
     </div>
@@ -58,14 +59,17 @@ class FilterField extends Component {
             value: ''
         };
 
-        this.handleChange = this.handleChange.bind(this);
+        this.setFilterValue = this.setFilterValue.bind(this);
     }
-    handleChange(event) {
-        event.preventDefault();
+    componentWillReceiveProps(nextProps) {
+        console.log("componentWillReceiveProps", nextProps);
 
         this.setState({
-            value: event.target.value
+            value: nextProps.dashboardFilter
         });
+    }
+    setFilterValue(event) {
+        event.preventDefault();
 
         this.props.onChangeFilter(event.target.value);
     }
@@ -74,7 +78,7 @@ class FilterField extends Component {
             <TextField
                 className="FilterField"
                 value={this.state.value}
-                onChange={this.handleChange}
+                onChange={this.setFilterValue}
                 hintText="Filter dashboards"
                 style={{marginLeft: '18px', height: '36px', fontSize: '13px'}}
                 inputStyle={{top: '1px'}}
@@ -85,6 +89,34 @@ class FilterField extends Component {
         );
     }
 }
+
+const ClearButton = ({ onChangeFilter, dashboardFilter }) => {
+    const disabled = dashboardFilter === '';
+    const opacity = disabled ? 0 : 1;
+
+    return (
+        <IconButton
+            style={{
+                width: '28px',
+                height: '28px',
+                padding: 0,
+                position: 'relative',
+                left: '-25px',
+                opacity: opacity
+            }}
+            iconStyle={{width: '16px', height: '16px'}}
+            onClick={() => onChangeFilter('')}
+            disabled={disabled}
+        >
+            <IconClear color={grey700} />
+        </IconButton>
+    );
+};
+
+ClearButton.propTypes = {
+    onChangeFilter: PropTypes.func,
+    dashboardFilter: PropTypes.string
+};
 
 const ViewPanel = () => (
     <div>
@@ -115,6 +147,7 @@ class DashboardBar extends Component {
                     <ManageButton />
                     <ToolbarSeparator style={toolbarSeparatorStyle}/>
                     <FilterField {...this.props} />
+                    <ClearButton {...this.props} />
                 </ToolbarGroup>
                 <ToolbarGroup>
                     <ViewPanel />
