@@ -9,7 +9,7 @@ export const getDashboardItems = id => data.filter(d => d.id === id).map(d => d.
 export const apiFetchDashboards = () => {
     return Promise.resolve(getDashboards());
 
-    // return new Promise((resolve) => {
+    // return new Promise((resolve, reject) => {
     //     resolve(getDashboards());
     // });
 };

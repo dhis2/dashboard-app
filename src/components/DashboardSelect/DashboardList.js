@@ -30,7 +30,9 @@ const List = ({ dashboards, onClickDashboard, dashboardsIsFetching }) => (
 );
 
 const DashboardList = props => {
-    return props.dashboardsIsFetching ? (<Loading/>) : (<List {...props} />);
+    const { dashboardsIsFetching } = props;
+
+    return dashboardsIsFetching ? (<Loading/>) : (<List {...props} />);
 };
 
 DashboardList.propTypes = {
