@@ -13,7 +13,7 @@ import IconAdd from 'material-ui/svg-icons/content/add-circle';
 import IconSettings from 'material-ui/svg-icons/action/settings';
 import IconClear from 'material-ui/svg-icons/content/clear';
 
-
+const KEYCODE_ESCAPE = 27;
 
 const iconStyle = {
     width: 20,
@@ -53,6 +53,7 @@ class FilterField extends Component {
         };
 
         this.setFilterValue = this.setFilterValue.bind(this);
+        this.handleKeyUp = this.handleKeyUp.bind(this);
     }
     componentWillReceiveProps(nextProps) {
         this.setState({
@@ -64,12 +65,18 @@ class FilterField extends Component {
 
         this.props.onChangeFilter(event.target.value);
     }
+    handleKeyUp(event) {
+        if (event.keyCode === KEYCODE_ESCAPE) {
+            this.props.onChangeFilter();
+        }
+    }
     render() {
         return (
             <TextField
                 className="FilterField"
                 value={this.state.value}
                 onChange={this.setFilterValue}
+                onKeyUp={this.handleKeyUp}
                 hintText="Filter dashboards"
                 style={{marginLeft: '14px', height: '36px', fontSize: '13px', width: '200px'}}
                 inputStyle={{top: '1px'}}
