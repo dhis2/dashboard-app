@@ -1,4 +1,4 @@
-const data = [
+export default [
     {
         "id": "nghVC4wtyzi",
         "name": "Antenatal Care",
@@ -75,7 +75,8 @@ const data = [
             {"id": "fHJLkZCCDQt", "type": "CHART"},
             {"id": "NOh3wWNsOac", "type": "CHART"}
         ]
-    }, {
+    },
+    {
         "id": "L1BtjXgpUpd",
         "name": "Immunization data",
         "dashboardItems": [
@@ -89,7 +90,8 @@ const data = [
             {"id": "NiU91uDbyzr", "type": "CHART"},
             {"id": "HMgKXNPWmEc", "type": "CHART"}
         ]
-    }, {
+    },
+    {
         "id": "SCtS6Szuubz",
         "name": "Info Videos",
         "dashboardItems": [
@@ -99,7 +101,8 @@ const data = [
             {"id": "jq7YQdMVeDq", "type": "RESOURCES"},
             {"id": "TjL6QmFX9kb", "type": "MESSAGES"}
         ]
-    }, {
+    },
+    {
         "id": "uGSg3NSw6TZ",
         "name": "Inpatient BMI, Weight and Height",
         "dashboardItems": [
@@ -112,7 +115,8 @@ const data = [
             {"id": "LkZbA1bXtBC", "type": "REPORT_TABLE"},
             {"id": "vofA0TLbhIU", "type": "REPORT_TABLE"}
         ]
-    }, {
+    },
+    {
         "id": "eZSIccgeq94",
         "name": "Inpatient Discharge",
         "dashboardItems": [
@@ -126,7 +130,8 @@ const data = [
             {"id": "jNx1bippung", "type": "EVENT_CHART"},
             {"id": "bxjhRJAcHaT", "type": "EVENT_CHART"}
         ]
-    }, {
+    },
+    {
         "id": "zbKnj1SCmB4",
         "name": "Inpatient Morbidity Mortality",
         "dashboardItems": [
@@ -145,7 +150,8 @@ const data = [
             {"id": "rp6ikhGNgGa", "type": "EVENT_CHART"},
             {"id": "ZVSy3jkd5mo", "type": "EVENT_CHART"}
         ]
-    }, {
+    },
+    {
         "id": "nTTLMwiwoys",
         "name": "Inpatient Visit Overview",
         "dashboardItems": [
@@ -153,7 +159,8 @@ const data = [
             {"id": "uOtytwHV8H4", "type": "EVENT_REPORT"},
             {"id": "M9xrYqu71hE", "type": "EVENT_REPORT"}
         ]
-    }, {
+    },
+    {
         "id": "xP1jtPjus1c",
         "name": "Key Indicators",
         "dashboardItems": [
@@ -164,7 +171,8 @@ const data = [
             {"id": "YjHFXNOUf6K", "type": "REPORT_TABLE"},
             {"id": "b8EfTCEgVrf", "type": "CHART"}
         ]
-    }, {
+    },
+    {
         "id": "Tvro10HbSUp",
         "name": "LLITN",
         "dashboardItems": [
@@ -177,7 +185,8 @@ const data = [
             {"id": "trbT3UnFA7P", "type": "CHART"},
             {"id": "W7DCoxtlEQQ", "type": "CHART"}
         ]
-    }, {
+    },
+    {
         "id": "KQVXh5tlzW2",
         "name": "Measles (user org unit)",
         "dashboardItems": [
@@ -188,7 +197,8 @@ const data = [
             {"id": "zJDbIpGjpJB", "type": "REPORT_TABLE"},
             {"id": "rO9Pqoc9RTu", "type": "MAP"}
         ]
-    }, {
+    },
+    {
         "id": "nAZMjkQChz8",
         "name": "Nutrition",
         "dashboardItems": [
@@ -199,7 +209,8 @@ const data = [
             {"id": "Ev8bOwRgFMk", "type": "REPORT_TABLE"},
             {"id": "pojAXzamGW9", "type": "MESSAGES"}
         ]
-    }, {
+    },
+    {
         "id": "hSS0wt6gbUK",
         "name": "Push Report Immunization",
         "dashboardItems": [
@@ -210,7 +221,8 @@ const data = [
             {"id": "cgwCHTZBsKV", "type": "CHART"},
             {"id": "loMihvn73OY", "type": "CHART"}
         ]
-    }, {
+    },
+    {
         "id": "MBUMbG6zJIj",
         "name": "Reporting Reproductive Health",
         "dashboardItems": [
@@ -226,14 +238,16 @@ const data = [
             {"id": "ILXpuYIOyZa", "type": "MAP"},
             {"id": "Wz6dl1Lp5fo", "type": "REPORT_TABLE"}
         ]
-    }, {
+    },
+    {
         "id": "a68enp54saw",
         "name": "Staffing",
         "dashboardItems": [
             {"id": "BMPSqQA0dJ1", "type": "MAP"},
             {"id": "ZOgdkmxD1xE", "type": "CHART"}
         ]
-    }, {
+    },
+    {
         "id": "eCp1qIWRUrf",
         "name": "Top Contacts",
         "dashboardItems": [
@@ -241,7 +255,8 @@ const data = [
             {"id": "vG7Prz2vAhn", "type": "USERS"},
             {"id": "KAlCFjMRyqj", "type": "USERS"}
         ]
-    }, {
+    },
+    {
         "id": "juY8oe5lg4g",
         "name": "Visits ANC",
         "dashboardItems": [
@@ -251,7 +266,3 @@ const data = [
         ]
     }
 ];
-
-export const getDashboards = () => data.map(d => ({id: d.id, name: d.name, numberOfItems: d.dashboardItems.length}));
-
-export const getDashboardItems = id => data.filter(d => d.id === id).map(d => d.dashboardItems)[0];

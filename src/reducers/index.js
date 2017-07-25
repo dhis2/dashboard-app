@@ -1,41 +1,46 @@
 import { combineReducers } from 'redux';
 
-import dashboards, { actionTypes as atDashboards, getDashboardsFromState, getDashboardById } from './dashboards';
-import dashboardFilter, { actionTypes as atDashboardFilter, getDashboardFilterFromState } from './dashboardFilter';
-import selectedDashboardId, { actionTypes as atSelectedDashboard, getSelectedDashboardIdFromState } from './selectedDashboard';
+import dashboards, { actionTypes as atDashboards, sGetDashboardsFromState, sGetDashboardById } from './dashboards';
+import dashboardsFilter, { actionTypes as atDashboardsFilter, sGetDashboardsFilterFromState } from './dashboardsFilter';
+import selectedDashboardId, { actionTypes as atSelectedDashboard, sGetSelectedDashboardIdFromState } from './selectedDashboard';
+import dashboardsIsFetching, { actionTypes as atDashboardsIsFetching } from './dashboardsLoading';
 
 // action types
 
 export const actionTypes = Object.assign(
     {},
     atDashboards,
-    atDashboardFilter,
-    atSelectedDashboard
+    atDashboardsFilter,
+    atSelectedDashboard,
+    atDashboardsIsFetching
 );
 
 // reducers
 
 export default combineReducers({
     dashboards,
-    dashboardFilter,
-    selectedDashboardId
+    dashboardsFilter,
+    selectedDashboardId,
+    dashboardsIsFetching
 });
 
 // selectors level 1
 
-export { getDashboardsFromState } from './dashboards';
+export { sGetDashboardsFromState } from './dashboards';
 
-export { getDashboardFilterFromState } from './dashboardFilter';
+export { sGetDashboardsFilterFromState } from './dashboardsFilter';
 
-export { getSelectedDashboardIdFromState } from './selectedDashboard';
+export { sGetSelectedDashboardIdFromState } from './selectedDashboard';
+
+export { sGetDashboardsIsFetchingFromState } from './dashboardsLoading';
 
 // selectors level 2
 
-export const getSelectedDashboard = state => getDashboardById(state, getSelectedDashboardIdFromState(state));
+export const sGetSelectedDashboard = state => sGetDashboardById(state, sGetSelectedDashboardIdFromState(state));
 
-export const getDashboards = state => {
-    const filter = getDashboardFilterFromState(state).toLowerCase();
-    const dashboardsFromState = getDashboardsFromState(state);
+export const sGetDashboards = state => {
+    const filter = sGetDashboardsFilterFromState(state).toLowerCase();
+    const dashboardsFromState = sGetDashboardsFromState(state);
 
     return filter === '' ? dashboardsFromState : dashboardsFromState.filter(d => d.name.toLowerCase().indexOf(filter) !== -1);
 };

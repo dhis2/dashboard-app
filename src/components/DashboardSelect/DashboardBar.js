@@ -2,20 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './DashboardBar.css';
+import { blue500, grey700 } from 'material-ui/styles/colors';
 
-import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
+import isEmpty from 'd2-utilizr/lib/isEmpty';
+
+import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
 import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
 import IconAdd from 'material-ui/svg-icons/content/add-circle';
 import IconSettings from 'material-ui/svg-icons/action/settings';
 import IconClear from 'material-ui/svg-icons/content/clear';
 
-import { blue500, grey700 } from 'material-ui/styles/colors';
 
-const toolbarStyle = {
-    height: 36,
-    backgroundColor: 'transparent'
-};
 
 const iconStyle = {
     width: 20,
@@ -28,17 +26,12 @@ const iconButtonStyle = {
     padding: 8
 };
 
-const toolbarSeparatorStyle = {
-    height: '20px',
-    marginLeft: '15px'
-};
-
 const AddButton = () => (
     <div>
         <IconButton style={iconButtonStyle} iconStyle={iconStyle}>
             <IconAdd color={blue500} />
         </IconButton>
-        <span className="DashboardBar-link icontext">New</span>
+        <span className="DashboardBar-link icontext" onClick={console.log}>New</span>
     </div>
 );
 
@@ -62,10 +55,8 @@ class FilterField extends Component {
         this.setFilterValue = this.setFilterValue.bind(this);
     }
     componentWillReceiveProps(nextProps) {
-        console.log("componentWillReceiveProps", nextProps);
-
         this.setState({
-            value: nextProps.dashboardFilter
+            value: nextProps.dashboardsFilter
         });
     }
     setFilterValue(event) {
@@ -80,7 +71,7 @@ class FilterField extends Component {
                 value={this.state.value}
                 onChange={this.setFilterValue}
                 hintText="Filter dashboards"
-                style={{marginLeft: '18px', height: '36px', fontSize: '13px'}}
+                style={{marginLeft: '14px', height: '36px', fontSize: '13px', width: '200px'}}
                 inputStyle={{top: '1px'}}
                 hintStyle={{top: '8px'}}
                 underlineStyle={{bottom: '5px'}}
@@ -90,8 +81,8 @@ class FilterField extends Component {
     }
 }
 
-const ClearButton = ({ onChangeFilter, dashboardFilter }) => {
-    const disabled = dashboardFilter === '';
+const ClearButton = ({ onChangeFilter, dashboardsFilter }) => {
+    const disabled = isEmpty(dashboardsFilter);
     const opacity = disabled ? 0 : 1;
 
     return (
@@ -105,7 +96,7 @@ const ClearButton = ({ onChangeFilter, dashboardFilter }) => {
                 opacity: opacity
             }}
             iconStyle={{width: '16px', height: '16px'}}
-            onClick={() => onChangeFilter('')}
+            onClick={() => onChangeFilter()}
             disabled={disabled}
         >
             <IconClear color={grey700} />
@@ -118,42 +109,69 @@ ClearButton.propTypes = {
     dashboardFilter: PropTypes.string
 };
 
-const ViewPanel = () => (
+const ShowPanel = () => (
     <div>
-        <span className="DashboardBar-link fieldtext">View:</span>
+        <span className="DashboardBar-link fieldtext">Show:</span>
         <span className="separator"></span>
-        <span className="DashboardBar-link selected">Compact</span>
+        <span className="DashboardBar-link selected">All</span>
         <span className="separator"></span>
-        <span className="DashboardBar-link">Detailed</span>
+        <span className="DashboardBar-link">Starred</span>
     </div>
+);
+
+const DivSeparator = () => (
+    <span style={{
+        position: 'relative',
+        top: '-1px',
+        paddingLeft: '7px',
+        borderRight: '1px solid #aaa'
+    }}></span>
 );
 
 const SortPanel = () => (
     <div>
         <span className="DashboardBar-link fieldtext">Sort by:</span>
         <span className="separator"></span>
-        <span className="DashboardBar-link selected">A-Z</span>
+        <span className="DashboardBar-link selected">Name</span>
         <span className="separator"></span>
-        <span className="DashboardBar-link">Z-A</span>
+        <span className="DashboardBar-link">Created</span>
+        <DivSeparator />
+        <span className="separator"></span>
+        <span className="DashboardBar-link selected">ASC</span>
+        <span className="separator"></span>
+        <span className="DashboardBar-link">DESC</span>
+    </div>
+);
+
+const ViewPanel = () => (
+    <div>
+        <span className="DashboardBar-link fieldtext">View:</span>
+        <span className="separator"></span>
+        <span className="DashboardBar-link selected">Compact</span>
+        <span className="separator"></span>
+        <span className="DashboardBar-link">List</span>
     </div>
 );
 
 class DashboardBar extends Component {
     render() {
         return (
-            <Toolbar style={toolbarStyle}>
+            <Toolbar style={{height: 36, backgroundColor: 'transparent'}}>
                 <ToolbarGroup firstChild={true}>
                     <AddButton />
                     <ManageButton />
-                    <ToolbarSeparator style={toolbarSeparatorStyle}/>
+                    <ToolbarSeparator style={{height: '20px', marginLeft: '9px'}}/>
                     <FilterField {...this.props} />
                     <ClearButton {...this.props} />
                 </ToolbarGroup>
                 <ToolbarGroup>
-                    <ViewPanel />
+                    <ShowPanel />
                 </ToolbarGroup>
                 <ToolbarGroup>
                     <SortPanel />
+                </ToolbarGroup>
+                <ToolbarGroup>
+                    <ViewPanel />
                 </ToolbarGroup>
             </Toolbar>
         );

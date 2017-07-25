@@ -5,7 +5,11 @@ button > div > span > div {
 .DashboardBar-link {
     font-size: 13px;
     font-weight: 500;
-    color: #555;
+    color: #666;
+}
+.DashboardBar-link:hover {
+    color: #888;
+    cursor: pointer;
 }
 
 .DashboardBar-link.selected {
@@ -24,5 +28,5 @@ button > div > span > div {
 }
 
 .separator {
-    padding-left: 7px;
+    padding-left: 6px;
 }

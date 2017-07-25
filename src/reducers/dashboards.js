@@ -8,9 +8,6 @@ export default (state = [], action) => {
         case actionTypes.SET_DASHBOARDS:
             return action.dashboards;
 
-        case actionTypes.SET_DASHBOARDS_FILTER:
-            return action.text;
-
         default:
             return state;
     }
@@ -18,14 +15,14 @@ export default (state = [], action) => {
 
 // selectors level 1
 
-export const getDashboardsFromState = state => state.dashboards;
+export const sGetDashboardsFromState = state => state.dashboards;
 
 // selectors level 2
 
-export const getDashboardById = (state, id) => getDashboardsFromState(state).find(dashboard => dashboard.id === id);
+export const sGetDashboardById = (state, id) => sGetDashboardsFromState(state).find(dashboard => dashboard.id === id);
 
 // api
 
-export const getPersistedState = state => ({
+export const getPersistedState = state => ({ //TODO
     dashboards: state.dashboards
 });

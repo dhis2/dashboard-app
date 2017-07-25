@@ -3,7 +3,21 @@ import PropTypes from 'prop-types';
 
 import './DashboardList.css';
 
-const DashboardList = ({ dashboards, onClickDashboard }) => (
+const DEFAULT_LOADING_MESSAGE = 'Loading dashboards ...';
+
+const Loading = () => (
+    <div style={{
+        width: '100%',
+        padding: '20px',
+        textAlign: 'center',
+        color: '#888',
+        fontSize: '13px'
+    }}>
+        {DEFAULT_LOADING_MESSAGE}
+    </div>
+);
+
+const List = ({ dashboards, onClickDashboard, dashboardsIsFetching }) => (
     <div className="DashboardList">
         <ul>
             {dashboards.map(d =>
@@ -15,10 +29,14 @@ const DashboardList = ({ dashboards, onClickDashboard }) => (
     </div>
 );
 
+const DashboardList = props => {
+    return props.dashboardsIsFetching ? (<Loading/>) : (<List {...props} />);
+};
+
 DashboardList.propTypes = {
     dashboards: PropTypes.array,
     onClickDashboard: PropTypes.func,
-    dashboardFilter: PropTypes.string
+    dashboardsIsFetching: PropTypes.bool
 };
 
 export default DashboardList;

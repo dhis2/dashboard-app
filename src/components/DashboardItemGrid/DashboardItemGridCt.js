@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { getSelectedDashboardIdFromState } from '../../reducers/index';
+import { sGetSelectedDashboardIdFromState } from '../../reducers/index';
 
-import { getDashboardItems } from '../../data';
+import { getDashboardItems } from '../../api';
 
 import DashboardItemGrid from './DashboardItemGrid';
 
@@ -21,7 +21,7 @@ DashboardItemGridCt.contextTypes = {
 };
 
 const mapStateToProps = state => ({
-    id: getSelectedDashboardIdFromState(state)
+    id: sGetSelectedDashboardIdFromState(state)
 });
 
 DashboardItemGridCt = connect(mapStateToProps)(DashboardItemGridCt);

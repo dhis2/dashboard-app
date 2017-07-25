@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { getSelectedDashboard } from '../../reducers';
+import { sGetSelectedDashboard } from '../../reducers';
 import DashboardTitle from './DashboardTitle';
 
 // const mapStateToProps = state => {
@@ -13,11 +13,11 @@ import DashboardTitle from './DashboardTitle';
 // };
 
 const mapStateToProps = state => ({
-    name: (getSelectedDashboard(state) || {}).name || ''
+    name: (sGetSelectedDashboard(state) || {}).name || ''
 });
 
 const mapDispatchToProps = dispatch => ({
-    onBlur: (e) => console.log("blurred with value: ", e.target.value)
+    onBlur: (e) => console.log("dashboard name: ", e.target.value)
 });
 
 const DashboardTitleCt = connect(mapStateToProps, mapDispatchToProps)(DashboardTitle);

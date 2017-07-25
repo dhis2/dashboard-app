@@ -2,7 +2,7 @@ export const actionTypes = {
     SET_SELECTED_DASHBOARD: 'SET_SELECTED_DASHBOARD'
 };
 
-export default (state = {}, action) => {
+export default (state = null, action) => {
     switch (action.type) {
         case actionTypes.SET_SELECTED_DASHBOARD:
             return action.id;
@@ -13,7 +13,7 @@ export default (state = {}, action) => {
 
 // selectors level 1
 
-export const getSelectedDashboardIdFromState = state => state.selectedDashboardId;
+export const sGetSelectedDashboardIdFromState = state => state.selectedDashboardId;
 
 // api
 

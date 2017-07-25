@@ -3,16 +3,18 @@ import PropTypes from 'prop-types';
 
 import './DashboardTitle.css';
 
-const hintText = 'Untitled';
+const DEFAULTVALUE_TEXTFIELD = '';
+const REF_TEXTFIELD = 'REF_TEXTFIELD';
+const HINTTEXT_TEXTFIELD = 'Untitled';
 
-const ENTER = 13;
+const KEYCODE_ENTER = 13;
 
 class DashboardTitle extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            name: ''
+            name: DEFAULTVALUE_TEXTFIELD
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -26,8 +28,10 @@ class DashboardTitle extends Component {
     handleKeyUp(event) {
         event.preventDefault();
 
-        if (event.keyCode === ENTER) {
-            this.refs.textfield.blur();
+        const textField = this.refs[REF_TEXTFIELD];
+
+        if (event.keyCode === KEYCODE_ENTER) {
+            textField.blur();
         }
     }
     handleChange(event) {
@@ -40,13 +44,13 @@ class DashboardTitle extends Component {
     render() {
         return (
             <input
-                ref="textfield"
+                ref={REF_TEXTFIELD}
                 type="text"
                 value={this.state.name}
                 onKeyUp={this.handleKeyUp}
                 onChange={this.handleChange}
                 onBlur={this.props.onBlur}
-                placeholder={hintText}
+                placeholder={HINTTEXT_TEXTFIELD}
                 className="DashboardTitle-textfield"
             />
         );

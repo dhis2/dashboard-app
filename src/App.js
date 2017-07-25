@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import DashboardListCt from  './components/DashboardSelect/DashboardSelectCt';
 import DashboardTitleCt from  './components/DashboardTitle/DashboardTitleCt';
 import DashboardItemGridCt from  './components/DashboardItemGrid/DashboardItemGridCt';
-import { acSetDashboards } from './actions';
-import { getDashboards } from './data';
+import { tSetDashboards } from './actions';
 
 import './App.css';
 
@@ -16,7 +15,7 @@ import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
 // TODO, add to plugin instead
-global.reportTablePlugin.type = 'REPORTTABLE';
+global.reportTablePlugin.type = 'REPORT_TABLE';
 global.chartPlugin.type = 'CHART';
 
 class App extends Component {
@@ -39,7 +38,9 @@ class App extends Component {
         const { store } = this.context;
         //const { d2 } = this.props;
 
-        store.dispatch(acSetDashboards(getDashboards()));
+        store.dispatch(tSetDashboards());
+
+        //store.dispatch(acSetDashboards(getDashboards()));
     }
 }
 
