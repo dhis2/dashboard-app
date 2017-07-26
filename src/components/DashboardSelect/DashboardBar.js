@@ -4,14 +4,16 @@ import PropTypes from 'prop-types';
 import './DashboardBar.css';
 import { blue500, grey700 } from 'material-ui/styles/colors';
 
-import isEmpty from 'd2-utilizr/lib/isEmpty';
-
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
 import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
 import IconAdd from 'material-ui/svg-icons/content/add-circle';
 import IconSettings from 'material-ui/svg-icons/action/settings';
 import IconClear from 'material-ui/svg-icons/content/clear';
+
+import isEmpty from 'd2-utilizr/lib/isEmpty';
+
+import * as fromReducers from '../../reducers';
 
 const KEYCODE_ESCAPE = 27;
 
@@ -49,7 +51,7 @@ class FilterField extends Component {
         super(props);
 
         this.state = {
-            value: ''
+            value: fromReducers.fromDashboardsConfig.DEFAULT_DASHBOARDSCONFIG_TEXTFILTER
         };
 
         this.setFilterValue = this.setFilterValue.bind(this);
@@ -57,7 +59,7 @@ class FilterField extends Component {
     }
     componentWillReceiveProps(nextProps) {
         this.setState({
-            value: nextProps.dashboardsFilter
+            value: nextProps.textFilter
         });
     }
     setFilterValue(event) {

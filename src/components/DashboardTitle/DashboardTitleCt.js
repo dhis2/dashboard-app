@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
-import { sGetSelectedDashboard } from '../../reducers';
+import * as fromReducers from '../../reducers';
+
 import DashboardTitle from './DashboardTitle';
 
 // const mapStateToProps = state => {
@@ -13,7 +14,7 @@ import DashboardTitle from './DashboardTitle';
 // };
 
 const mapStateToProps = state => ({
-    name: (sGetSelectedDashboard(state) || {}).name || ''
+    name: (fromReducers.sGetSelectedDashboard(state) || {}).name || ''
 });
 
 const mapDispatchToProps = dispatch => ({

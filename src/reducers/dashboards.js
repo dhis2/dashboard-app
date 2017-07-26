@@ -1,6 +1,5 @@
 export const actionTypes = {
-    SET_DASHBOARDS: 'SET_DASHBOARDS',
-    SET_DASHBOARDS_FILTER: 'SET_DASHBOARDS_FILTER'
+    SET_DASHBOARDS: 'SET_DASHBOARDS'
 };
 
 export default (state = [], action) => {
@@ -15,11 +14,11 @@ export default (state = [], action) => {
 
 // selectors level 1
 
-export const sGetDashboardsFromState = state => state.dashboards;
+export const sGetFromState = state => state.dashboards;
 
 // selectors level 2
 
-export const sGetDashboardById = (state, id) => sGetDashboardsFromState(state).find(dashboard => dashboard.id === id);
+export const sGetDashboardById = (state, id) => sGetFromState(state).find(dashboard => dashboard.id === id);
 
 // api
 

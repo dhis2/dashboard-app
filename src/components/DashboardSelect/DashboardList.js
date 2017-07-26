@@ -93,7 +93,7 @@ const DashboardList = props => {
 DashboardList.propTypes = {
     dashboards: PropTypes.array,
     onClickDashboard: PropTypes.func,
-    dashboardsIsFetching: PropTypes.bool
+    isFetching: PropTypes.bool
 };
 
 export default DashboardList;

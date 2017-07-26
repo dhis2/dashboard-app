@@ -1,48 +1,36 @@
 import { combineReducers } from 'redux';
 
-import dashboards, { actionTypes as atDashboards, sGetDashboardsFromState, sGetDashboardById } from './dashboards';
-import dashboardsFilter, { actionTypes as atDashboardsFilter, sGetDashboardsFilterFromState } from './dashboardsFilter';
-import selectedDashboardId, { actionTypes as atSelectedDashboard, sGetSelectedDashboardIdFromState } from './selectedDashboard';
-import dashboardsIsFetching, { actionTypes as atDashboardsIsFetching } from './dashboardsLoading';
+import dashboards, * as fromDashboards from './dashboards';
+import dashboardsConfig, * as fromDashboardsConfig from './dashboardsConfig';
 
 // action types
 
-export const actionTypes = Object.assign(
-    {},
-    atDashboards,
-    atDashboardsFilter,
-    atSelectedDashboard,
-    atDashboardsIsFetching
+export const actionTypes = Object.assign({},
+    fromDashboards.actionTypes,
+    fromDashboardsConfig.actionTypes
 );
 
 // reducers
 
 export default combineReducers({
     dashboards,
-    dashboardsFilter,
-    selectedDashboardId,
-    dashboardsIsFetching
+    dashboardsConfig
 });
 
-// selectors level 1
+// root selectors
 
-export { sGetDashboardsFromState } from './dashboards';
-
-export { sGetDashboardsFilterFromState } from './dashboardsFilter';
-
-export { sGetSelectedDashboardIdFromState } from './selectedDashboard';
-
-export { sGetDashboardsIsFetchingFromState } from './dashboardsLoading';
+export { fromDashboards, fromDashboardsConfig };
 
 // selectors level 2
 
-export const sGetSelectedDashboard = state => sGetDashboardById(state, sGetSelectedDashboardIdFromState(state));
+export const sGetSelectedDashboard = state => fromDashboards.sGetDashboardById(state, fromDashboardsConfig.sGetSelectedIdFromState(state));
 
-export const sGetDashboards = state => {
-    const filter = sGetDashboardsFilterFromState(state).toLowerCase();
-    const dashboardsFromState = sGetDashboardsFromState(state);
+export const sGetDashboards = state => { //TODO more filters
+console.log("-state:", state);
+    const textFilter = fromDashboardsConfig.sGetTextFilterFromState(state).toLowerCase();
+    const dashboardsFromState = fromDashboards.sGetFromState(state);
 
-    return filter === '' ? dashboardsFromState : dashboardsFromState.filter(d => d.name.toLowerCase().indexOf(filter) !== -1);
+    return textFilter === '' ? dashboardsFromState : dashboardsFromState.filter(d => d.name.toLowerCase().indexOf(textFilter) !== -1);
 };
 
 

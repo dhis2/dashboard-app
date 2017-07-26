@@ -1,20 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { sGetDashboards, sGetDashboardsFilterFromState, sGetDashboardsIsFetchingFromState } from '../../reducers';
-import { acSetSelectedDashboard, acSetDashboardsFilter } from '../../actions';
-import DashboardList from './DashboardList';
+import * as fromReducers from '../../reducers';
+import * as fromActions from '../../actions';
+
 import DashboardBar from './DashboardBar';
+import DashboardList from './DashboardList';
 
 const mapStateToProps = state => ({
-    dashboards: sGetDashboards(state),
-    dashboardsFilter: sGetDashboardsFilterFromState(state),
-    dashboardsIsFetching: sGetDashboardsIsFetchingFromState(state)
+    dashboards: fromReducers.sGetDashboards(state),
+    textFilter: fromReducers.fromDashboardsConfig.sGetTextFilterFromState(state),
+    isFetching: fromReducers.fromDashboardsConfig.sGetIsFetchingFromState(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-    onClickDashboard: (id) => dispatch(acSetSelectedDashboard(id)),
-    onChangeFilter: (value) => dispatch(acSetDashboardsFilter(value))
+    onClickDashboard: id => dispatch(fromActions.acSetDashboardsConfigSelectedId(id)),
+    onChangeTextFilter: value => dispatch(fromActions.acSetDashboardsConfigTextFilter(value))
 });
 
 let DashboardSelectCt = props => (

@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux';
+
 import isBoolean from 'd2-utilizr/lib/isBoolean';
 
 export const actionTypes = {
@@ -5,13 +7,38 @@ export const actionTypes = {
     SET_DASHBOARDSCONFIG_SELECTEDID: 'SET_DASHBOARDSCONFIG_SELECTEDID',
     SET_DASHBOARDSCONFIG_TEXTFILTER: 'SET_DASHBOARDSCONFIG_TEXTFILTER',
     SET_DASHBOARDSCONFIG_SHOWFILTER: 'SET_DASHBOARDSCONFIG_SHOWFILTER',
-    SET_DASHBOARDSCONFIG_SORTFILTER: 'SET_DASHBOARDSCONFIG_SORTFILTER',
+    SET_DASHBOARDSCONFIG_SORTFILTER_KEY: 'SET_DASHBOARDSCONFIG_SORTFILTER_KEY',
+    SET_DASHBOARDSCONFIG_SORTFILTER_DIRECTION: 'SET_DASHBOARDSCONFIG_SORTFILTER_DIRECTION',
     SET_DASHBOARDSCONFIG_VIEWFILTER: 'SET_DASHBOARDSCONFIG_VIEWFILTER'
 };
 
+export const showFilterValues = {
+    ALL: 'ALL',
+    STARRED: 'STARRED'
+};
+
+export const sortFilterKeyValues = {
+    NAME: 'NAME',
+    CREATED: 'CREATED'
+};
+
+export const sortFilterDirectionValues = {
+    ASC: 'ASC',
+    DESC: 'DESC'
+};
+
+export const viewFilterValues = {
+    LIST: 'LIST',
+    TABLE: 'TABLE'
+};
+
 export const DEFAULT_DASHBOARDSCONFIG_ISFETCHING = false;
+export const DEFAULT_DASHBOARDSCONFIG_SELECTEDID = '';
 export const DEFAULT_DASHBOARDSCONFIG_TEXTFILTER = '';
-export const DEFAULT_DASHBOARDSCONFIG_SELECTEDID = null;
+export const DEFAULT_DASHBOARDSCONFIG_SHOWFILTER = showFilterValues.ALL;
+export const DEFAULT_DASHBOARDSCONFIG_SORTFILTER_KEY = sortFilterKeyValues.NAME;
+export const DEFAULT_DASHBOARDSCONFIG_SORTFILTER_DIRECTION = sortFilterDirectionValues.ASC;
+export const DEFAULT_DASHBOARDSCONFIG_VIEWFILTER = viewFilterValues.LIST;
 
 const isFetching = (state = DEFAULT_DASHBOARDSCONFIG_ISFETCHING, action) => {
     switch (action.type) {
@@ -33,24 +60,79 @@ const selectedId = (state = DEFAULT_DASHBOARDSCONFIG_SELECTEDID, action) => {
 
 const textFilter = (state = DEFAULT_DASHBOARDSCONFIG_TEXTFILTER, action) => {
     switch (action.type) {
-        case actionTypes.SET_DASHBOARDS_TEXTFILTER:
+        case actionTypes.SET_DASHBOARDSCONFIG_TEXTFILTER:
             return action.textFilter || DEFAULT_DASHBOARDSCONFIG_TEXTFILTER;
         default:
             return state;
     }
 };
 
-// selectors level 1
+const showFilter = (state = DEFAULT_DASHBOARDSCONFIG_SHOWFILTER, action) => {
+    switch (action.type) {
+        case actionTypes.SET_DASHBOARDSCONFIG_SHOWFILTER:
+            return action.showFilter;
+        default:
+            return state;
+    }
+};
 
-export const sGetDashboardsconfigIsFetchingFromState = state => state.isFetching;
+const key = (state = DEFAULT_DASHBOARDSCONFIG_SORTFILTER_KEY, action) => {
+    switch (action.type) {
+        case actionTypes.SET_DASHBOARDSCONFIG_SORTFILTER_KEY:
+            return action.key;
+        default:
+            return state;
+    }
+};
 
-export const sGetDashboardsconfigSelectedIdFromState = state => state.selectedId;
+const direction = (state = DEFAULT_DASHBOARDSCONFIG_SORTFILTER_DIRECTION, action) => {
+    switch (action.type) {
+        case actionTypes.SET_DASHBOARDSCONFIG_SORTFILTER_DIRECTION:
+            return action.direction;
+        default:
+            return state;
+    }
+};
 
-export const sGetDashboardsconfigTextFilterFromState = state => state.textFilter;
+const viewFilter = (state = DEFAULT_DASHBOARDSCONFIG_VIEWFILTER, action) => {
+    switch (action.type) {
+        case actionTypes.SET_DASHBOARDSCONFIG_VIEWFILTER:
+            return action.viewFilter;
+        default:
+            return state;
+    }
+};
+
+export default combineReducers({
+    isFetching,
+    selectedId,
+    textFilter,
+    showFilter,
+    sortFilter: combineReducers({
+        key,
+        direction
+    }),
+    viewFilter
+});
+
+// root selector
+
+export const sGetDashboardsConfigFromState = state => state.dashboardsConfig;
+
+// selectors level 2
+
+export const sGetIsFetchingFromState = state => sGetDashboardsConfigFromState(state).isFetching;
+
+export const sGetSelectedIdFromState = state => sGetDashboardsConfigFromState(state).selectedId;
+
+export const sGetTextFilterFromState = state => sGetDashboardsConfigFromState(state).textFilter;
+
+export const sGetShowFilterFromState = state => sGetDashboardsConfigFromState(state).showFilter;
+
+export const sGetSortFilterFromState = state => sGetDashboardsConfigFromState(state).sortFilter;
+
+export const sGetViewFilterFromState = state => sGetDashboardsConfigFromState(state).viewFilter;
 
 
 
 
-
-
-// selectors level 1
