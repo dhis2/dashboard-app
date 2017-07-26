@@ -154,9 +154,9 @@ const ViewPanel = () => (
     <div>
         <span className="DashboardBar-link fieldtext">View:</span>
         <span className="separator"></span>
-        <span className="DashboardBar-link selected">Compact</span>
+        <span className="DashboardBar-link selected">List</span>
         <span className="separator"></span>
-        <span className="DashboardBar-link">List</span>
+        <span className="DashboardBar-link">Table</span>
     </div>
 );
 
