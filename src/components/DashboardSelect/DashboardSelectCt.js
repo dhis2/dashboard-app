@@ -11,12 +11,14 @@ import DashboardList from './DashboardList';
 const mapStateToProps = state => ({
     dashboards: fromReducers.sGetDashboards(state),
     textFilter: fromReducers.fromDashboardsConfig.sGetTextFilterFromState(state),
+    viewFilter: fromReducers.fromDashboardsConfig.sGetViewFilterFromState(state),
     isFetching: fromReducers.fromDashboardsConfig.sGetIsFetchingFromState(state)
 });
 
 const mapDispatchToProps = dispatch => ({
     onClickDashboard: id => dispatch(fromActions.acSetDashboardsConfigSelectedId(id)),
-    onChangeTextFilter: value => dispatch(fromActions.acSetDashboardsConfigTextFilter(value))
+    onChangeTextFilter: value => dispatch(fromActions.acSetDashboardsConfigTextFilter(value)),
+    onClickViewFilter: value => dispatch(fromActions.acSetDashboardsConfigViewFilter(value))
 });
 
 let DashboardSelectCt = props => (
@@ -31,9 +33,11 @@ DashboardSelectCt = connect(mapStateToProps, mapDispatchToProps)(DashboardSelect
 DashboardSelectCt.propTypes = {
     dashboards: PropTypes.array,
     textFilter: PropTypes.string,
+    viewFilter: PropTypes.string,
     isFetching: PropTypes.bool,
     onClickDashboard: PropTypes.func,
-    onChangeTextFilter: PropTypes.func
+    onChangeTextFilter: PropTypes.func,
+    onClickViewFilter: PropTypes.func
 };
 
 export default DashboardSelectCt;

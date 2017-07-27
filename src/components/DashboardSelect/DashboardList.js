@@ -5,7 +5,7 @@ import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowCol
 
 import './DashboardList.css';
 
-const DEFAULT_LOADING_MESSAGE = 'Loading dashboards ...';
+import * as fromReducers from '../../reducers';
 
 const Loading = () => (
     <div style={{
@@ -15,7 +15,7 @@ const Loading = () => (
         color: '#888',
         fontSize: '13px'
     }}>
-        {DEFAULT_LOADING_MESSAGE}
+        {'Loading dashboards ...'}
     </div>
 );
 
@@ -84,10 +84,22 @@ class TableView extends Component {
 }
 
 const DashboardList = props => {
-    const { dashboardsIsFetching } = props;
+    const { dashboardsIsFetching, viewFilter } = props;
 
-    return dashboardsIsFetching ? (<Loading/>) : (<TableView />);
-    //return dashboardsIsFetching ? (<Loading/>) : (<ListView {...props} />);
+    if (dashboardsIsFetching) {
+        return <Loading/>;
+    }
+
+    switch (viewFilter) {
+        case fromReducers.fromDashboardsConfig.viewFilterValues.LIST:
+            return <ListView {...props} />;
+
+        case fromReducers.fromDashboardsConfig.viewFilterValues.TABLE:
+            return <TableView />;
+
+        default:
+            return <ListView {...props} />;
+    }
 };
 
 DashboardList.propTypes = {

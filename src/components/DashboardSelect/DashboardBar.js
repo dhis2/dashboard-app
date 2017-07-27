@@ -88,8 +88,6 @@ function DashboardBar(props) {
 
     const getIconLink = ({ text, onClick }) => getLink({ text, onClick, style: styles.iconText });
 
-    //const getIconText = (text, onClick) => <span style={Object.assign({}, styles.link, styles.iconText)} onClick={onClick}>{text}</span>;
-
     // components
 
     const AddButton = () => (
@@ -200,15 +198,22 @@ function DashboardBar(props) {
         </div>
     );
 
-    const ViewPanel = () => (
-        <div>
-            {getLinkLabel({ label: 'View' })}
-            {getSeparator()}
-            {getLink({ text: 'List', onClick: console.log, isSelected: true })}
-            {getSeparator()}
-            {getLink({ text: 'Table', onClick: console.log })}
-        </div>
-    );
+    const ViewPanel = () => {
+        const list = fromReducers.fromDashboardsConfig.viewFilterValues.LIST;
+        const table = fromReducers.fromDashboardsConfig.viewFilterValues.TABLE;
+
+        const { viewFilter } = props;
+
+        return (
+            <div>
+                {getLinkLabel({ label: 'View' })}
+                {getSeparator()}
+                {getLink({ text: 'List', onClick: () => props.onClickViewFilter(list), isSelected: list === viewFilter })}
+                {getSeparator()}
+                {getLink({ text: 'Table', onClick: () => props.onClickViewFilter(table), isSelected: table === viewFilter })}
+            </div>
+        );
+    }
 
     return (
         <Toolbar style={styles.toolbar}>
