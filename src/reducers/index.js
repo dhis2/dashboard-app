@@ -26,11 +26,12 @@ export { fromDashboards, fromDashboardsConfig };
 export const sGetSelectedDashboard = state => fromDashboards.sGetDashboardById(state, fromDashboardsConfig.sGetSelectedIdFromState(state));
 
 export const sGetDashboards = state => { //TODO more filters
-console.log("-state:", state);
     const textFilter = fromDashboardsConfig.sGetTextFilterFromState(state).toLowerCase();
     const dashboardsFromState = fromDashboards.sGetFromState(state);
 
-    return textFilter === '' ? dashboardsFromState : dashboardsFromState.filter(d => d.name.toLowerCase().indexOf(textFilter) !== -1);
+    return textFilter === fromDashboardsConfig.DEFAULT_DASHBOARDSCONFIG_TEXTFILTER ?
+        dashboardsFromState :
+        dashboardsFromState.filter(d => d.name.toLowerCase().indexOf(textFilter) !== -1);
 };
 
 

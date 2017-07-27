@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import * as fromReducers from '../../reducers';
 import * as fromActions from '../../actions';
@@ -26,5 +27,13 @@ let DashboardSelectCt = props => (
 );
 
 DashboardSelectCt = connect(mapStateToProps, mapDispatchToProps)(DashboardSelectCt);
+
+DashboardSelectCt.propTypes = {
+    dashboards: PropTypes.array,
+    textFilter: PropTypes.string,
+    isFetching: PropTypes.bool,
+    onClickDashboard: PropTypes.func,
+    onChangeTextFilter: PropTypes.func
+};
 
 export default DashboardSelectCt;

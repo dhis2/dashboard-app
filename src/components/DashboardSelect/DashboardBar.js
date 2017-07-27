@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import './DashboardBar.css';
 import { blue500, grey700 } from 'material-ui/styles/colors';
@@ -15,176 +14,222 @@ import isEmpty from 'd2-utilizr/lib/isEmpty';
 
 import * as fromReducers from '../../reducers';
 
-const KEYCODE_ESCAPE = 27;
+function DashboardBar(props) {
 
-const iconStyle = {
-    width: 20,
-    height: 20
-};
+    const styles = {
+        icon: {
+            width: 20,
+            height: 20
+        },
+        iconButton: {
+            width: 36,
+            height: 36,
+            padding: 8
+        },
+        iconText: {
+            position: 'relative',
+            top: '-5px',
+            left: '-5px'
+        },
+        clearButton: {
+            width: '28px',
+            height: '28px',
+            padding: 0,
+            position: 'relative',
+            left: '-25px'
+        },
+        clearButtonIcon: {
+            width: '16px',
+            height: '16px'
+        },
+        link: {
+            fontSize: '13px',
+            fontWeight: 500,
+            color: '#666',
+            cursor: 'pointer'
+        },
+        linkSelected: {
+            color: '#000'
+        },
+        linkLabel: {
+            fontWeight: 400,
+            color: '#666'
+        },
+        separator: {
+            paddingLeft: '6px'
+        },
+        separatorLine: {
+            position: 'relative',
+            top: '-1px',
+            paddingLeft: '7px',
+            borderRight: '1px solid #aaa'
+        },
+        toolbar: {
+            height: 36,
+            backgroundColor: 'transparent'
+        },
+        toolbarSeparator: {
+            height: '20px',
+            marginLeft: '9px'
+        }
+    };
 
-const iconButtonStyle = {
-    width: 36,
-    height: 36,
-    padding: 8
-};
+    const getLinkLabel = ({ label }) => <span style={Object.assign({}, styles.link, styles.linkLabel)}>{label}:</span>;
 
-const AddButton = () => (
-    <div>
-        <IconButton style={iconButtonStyle} iconStyle={iconStyle}>
-            <IconAdd color={blue500} />
-        </IconButton>
-        <span className="DashboardBar-link icontext" onClick={console.log}>New</span>
-    </div>
-);
+    const getSeparator = () => <span style={styles.separator} />;
 
-const ManageButton = () => (
-    <div>
-        <IconButton style={iconButtonStyle} iconStyle={iconStyle}>
-            <IconSettings />
-        </IconButton>
-        <span className="DashboardBar-link icontext">Manage dashboards</span>
-    </div>
-);
+    const getSeparatorLine = () => <span style={styles.separatorLine} />;
 
-class FilterField extends Component {
-    constructor(props) {
-        super(props);
+    const getLink = ({ text, onClick, isSelected, style }) =>
+        <span
+            className="DashboardBar-link"
+            style={Object.assign({}, styles.link, style, isSelected ? styles.linkSelected : null)}
+            onClick={onClick}>{text}</span>;
 
-        this.state = {
-            value: fromReducers.fromDashboardsConfig.DEFAULT_DASHBOARDSCONFIG_TEXTFILTER
-        };
+    const getIconLink = ({ text, onClick }) => getLink({ text, onClick, style: styles.iconText });
 
-        this.setFilterValue = this.setFilterValue.bind(this);
-        this.handleKeyUp = this.handleKeyUp.bind(this);
-    }
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            value: nextProps.textFilter
-        });
-    }
-    setFilterValue(event) {
-        event.preventDefault();
+    //const getIconText = (text, onClick) => <span style={Object.assign({}, styles.link, styles.iconText)} onClick={onClick}>{text}</span>;
 
-        this.props.onChangeFilter(event.target.value);
-    }
-    handleKeyUp(event) {
-        if (event.keyCode === KEYCODE_ESCAPE) {
-            this.props.onChangeFilter();
+    // components
+
+    const AddButton = () => (
+        <div>
+            <IconButton style={styles.iconButton} iconStyle={styles.icon}>
+                <IconAdd color={blue500}/>
+            </IconButton>
+            {getIconLink({ text: 'New', onClick: console.log })}
+        </div>
+    );
+
+    const ManageButton = () => (
+        <div>
+            <IconButton style={styles.iconButton} iconStyle={styles.icon}>
+                <IconSettings/>
+            </IconButton>
+            {getIconLink({ text: 'Manage dashboards', onClick: console.log })}
+        </div>
+    );
+
+    class FilterField extends Component {
+        constructor(props) {
+            super(props);
+
+            this.state = {
+                value: fromReducers.fromDashboardsConfig.DEFAULT_DASHBOARDSCONFIG_TEXTFILTER
+            };
+
+            this.setFilterValue = this.setFilterValue.bind(this);
+            this.handleKeyUp = this.handleKeyUp.bind(this);
+        }
+
+        componentWillReceiveProps(nextProps) {
+            this.setState({
+                value: nextProps.textFilter
+            });
+        }
+
+        setFilterValue(event) {
+            event.preventDefault();
+
+            this.props.onChangeFilter(event.target.value);
+        }
+
+        handleKeyUp(event) {
+            const KEYCODE_ESCAPE = 27;
+
+            if (event.keyCode === KEYCODE_ESCAPE) {
+                this.props.onChangeFilter();
+            }
+        }
+
+        render() {
+            return (
+                <TextField
+                    className="FilterField"
+                    value={this.state.value}
+                    onChange={this.setFilterValue}
+                    onKeyUp={this.handleKeyUp}
+                    hintText="Filter dashboards"
+                    style={{marginLeft: '14px', height: '36px', fontSize: '13px', width: '200px'}}
+                    inputStyle={{top: '1px'}}
+                    hintStyle={{top: '8px'}}
+                    underlineStyle={{bottom: '5px'}}
+                    underlineFocusStyle={{bottom: '5px', borderColor: '#aaa', borderWidth: '1px'}}
+                />
+            );
         }
     }
-    render() {
-        return (
-            <TextField
-                className="FilterField"
-                value={this.state.value}
-                onChange={this.setFilterValue}
-                onKeyUp={this.handleKeyUp}
-                hintText="Filter dashboards"
-                style={{marginLeft: '14px', height: '36px', fontSize: '13px', width: '200px'}}
-                inputStyle={{top: '1px'}}
-                hintStyle={{top: '8px'}}
-                underlineStyle={{bottom: '5px'}}
-                underlineFocusStyle={{bottom: '5px', borderColor: '#aaa', borderWidth: '1px'}}
-            />
-        );
-    }
-}
 
-const ClearButton = ({ onChangeFilter, dashboardsFilter }) => {
-    const disabled = isEmpty(dashboardsFilter);
-    const opacity = disabled ? 0 : 1;
+    const ClearButton = ({ onChangeFilter, dashboardsFilter }) => {
+        const disabled = isEmpty(dashboardsFilter);
+
+        return (
+            <IconButton
+                style={Object.assign({}, styles.clearButton, {opacity: disabled ? 0 : 1})}
+                iconStyle={styles.clearButtonIcon}
+                onClick={() => onChangeFilter()}
+                disabled={disabled}
+            >
+                <IconClear color={grey700} />
+            </IconButton>
+        );
+    };
+
+    const ShowPanel = () => (
+        <div>
+            {getLinkLabel({ label: 'Show' })}
+            {getSeparator()}
+            {getLink({ text: 'All', onClick: console.log, isSelected: true })}
+            {getSeparator()}
+            {getLink({ text: 'Starred', onClick: console.log })}
+        </div>
+    );
+
+    const SortPanel = () => (
+        <div>
+            {getLinkLabel({ label: 'Sort by' })}
+            {getSeparator()}
+            {getLink({ text: 'Name', onClick: console.log, isSelected: true })}
+            {getSeparator()}
+            {getLink({ text: 'Created', onClick: console.log })}
+            {getSeparatorLine()}
+            {getSeparator()}
+            {getLink({ text: 'ASC', onClick: console.log, isSelected: true })}
+            {getSeparator()}
+            {getLink({ text: 'DESC', onClick: console.log })}
+        </div>
+    );
+
+    const ViewPanel = () => (
+        <div>
+            {getLinkLabel({ label: 'View' })}
+            {getSeparator()}
+            {getLink({ text: 'List', onClick: console.log, isSelected: true })}
+            {getSeparator()}
+            {getLink({ text: 'Table', onClick: console.log })}
+        </div>
+    );
 
     return (
-        <IconButton
-            style={{
-                width: '28px',
-                height: '28px',
-                padding: 0,
-                position: 'relative',
-                left: '-25px',
-                opacity: opacity
-            }}
-            iconStyle={{width: '16px', height: '16px'}}
-            onClick={() => onChangeFilter()}
-            disabled={disabled}
-        >
-            <IconClear color={grey700} />
-        </IconButton>
+        <Toolbar style={styles.toolbar}>
+            <ToolbarGroup firstChild={true}>
+                <AddButton/>
+                <ManageButton/>
+                <ToolbarSeparator style={styles.toolbarSeparator}/>
+                <FilterField {...props} />
+                <ClearButton {...props} />
+            </ToolbarGroup>
+            <ToolbarGroup>
+                <ShowPanel/>
+            </ToolbarGroup>
+            <ToolbarGroup>
+                <SortPanel/>
+            </ToolbarGroup>
+            <ToolbarGroup>
+                <ViewPanel/>
+            </ToolbarGroup>
+        </Toolbar>
     );
-};
-
-ClearButton.propTypes = {
-    onChangeFilter: PropTypes.func,
-    dashboardFilter: PropTypes.string
-};
-
-const ShowPanel = () => (
-    <div>
-        <span className="DashboardBar-link fieldtext">Show:</span>
-        <span className="separator"></span>
-        <span className="DashboardBar-link selected">All</span>
-        <span className="separator"></span>
-        <span className="DashboardBar-link">Starred</span>
-    </div>
-);
-
-const DivSeparator = () => (
-    <span style={{
-        position: 'relative',
-        top: '-1px',
-        paddingLeft: '7px',
-        borderRight: '1px solid #aaa'
-    }}></span>
-);
-
-const SortPanel = () => (
-    <div>
-        <span className="DashboardBar-link fieldtext">Sort by:</span>
-        <span className="separator"></span>
-        <span className="DashboardBar-link selected">Name</span>
-        <span className="separator"></span>
-        <span className="DashboardBar-link">Created</span>
-        <DivSeparator />
-        <span className="separator"></span>
-        <span className="DashboardBar-link selected">ASC</span>
-        <span className="separator"></span>
-        <span className="DashboardBar-link">DESC</span>
-    </div>
-);
-
-const ViewPanel = () => (
-    <div>
-        <span className="DashboardBar-link fieldtext">View:</span>
-        <span className="separator"></span>
-        <span className="DashboardBar-link selected">List</span>
-        <span className="separator"></span>
-        <span className="DashboardBar-link">Table</span>
-    </div>
-);
-
-class DashboardBar extends Component {
-    render() {
-        return (
-            <Toolbar style={{height: 36, backgroundColor: 'transparent'}}>
-                <ToolbarGroup firstChild={true}>
-                    <AddButton />
-                    <ManageButton />
-                    <ToolbarSeparator style={{height: '20px', marginLeft: '9px'}}/>
-                    <FilterField {...this.props} />
-                    <ClearButton {...this.props} />
-                </ToolbarGroup>
-                <ToolbarGroup>
-                    <ShowPanel />
-                </ToolbarGroup>
-                <ToolbarGroup>
-                    <SortPanel />
-                </ToolbarGroup>
-                <ToolbarGroup>
-                    <ViewPanel />
-                </ToolbarGroup>
-            </Toolbar>
-        );
-    }
 }
 
 export default DashboardBar;
