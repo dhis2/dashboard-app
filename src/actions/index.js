@@ -13,9 +13,9 @@ export const acSetDashboardsConfigIsFetching = isFetching => ({
     isFetching: !!isFetching
 });
 
-export const acSetDashboardsConfigSelectedId = id => ({
+export const acSetDashboardsConfigSelectedId = selectedId => ({
     type: actionTypes.SET_DASHBOARDSCONFIG_SELECTEDID,
-    id
+    selectedId
 });
 
 export const acSetDashboardsConfigTextFilter = textFilter => ({

@@ -1,44 +1,53 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
-import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
 import './DashboardList.css';
 
+import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
+
 import * as fromReducers from '../../reducers';
 
-const Loading = () => (
-    <div style={{
-        width: '100%',
-        padding: '20px',
-        textAlign: 'center',
-        color: '#888',
-        fontSize: '13px'
-    }}>
-        {'Loading dashboards ...'}
-    </div>
-);
+// components
 
-const ListView = ({ dashboards, onClickDashboard, dashboardsIsFetching }) => (
-    <div className="DashboardList">
-        <ul>
-            {dashboards.map(d =>
-                <li key={d.id} onClick={() => onClickDashboard(d.id)}>
-                    <div className="name">{d.name}</div>
-                    <div>{d.numberOfItems + ' items'}</div>
-                </li>)}
-        </ul>
-    </div>
-);
+function Loading() {
+    const styles = {
+        loading: {
+            width: '100%',
+            padding: '20px',
+            textAlign: 'center',
+            color: '#888',
+            fontSize: '13px'
+        }
+    };
+
+    return (
+        <div style={styles.loading}>
+            {'Loading dashboards ...'}
+        </div>
+    );
+}
+
+function ListView({ dashboards, onClickDashboard, dashboardsIsFetching }) {
+    return (
+        <div className="DashboardList">
+            <ul>
+                {dashboards.map(d =>
+                    <li key={d.id} onClick={() => onClickDashboard(d.id)}>
+                        <div className="name">{d.name}</div>
+                        <div>{d.numberOfItems + ' items'}</div>
+                    </li>)}
+            </ul>
+        </div>
+    );
+}
 
 class TableView extends Component {
     state = {
-        selected: [1],
+        selected: [1]
     };
 
     handleRowSelection = selectedRows => {
         this.setState({
-            selected: selectedRows,
+            selected: selectedRows
         });
     };
 
@@ -47,43 +56,59 @@ class TableView extends Component {
     };
 
     render() {
+        const { dashboards } = this.props;
+
+        const date = (new Date()).toJSON().replace('T', ' ').substr(0,19);
+
+        const styles = {
+            div: {
+                margin: '20px'
+            },
+            row: {
+                height: '21px',
+                padding: '2px',
+                borderColor: '#eee'
+            },
+            starred: {
+                width: '70px'
+            },
+            name: {
+                width: '400px'
+            }
+        };
+
         return (
-            <Table onRowSelection={this.handleRowSelection}>
-                <TableHeader>
-                    <TableRow>
-                        <TableHeaderColumn>ID</TableHeaderColumn>
-                        <TableHeaderColumn>Name</TableHeaderColumn>
-                        <TableHeaderColumn>Status</TableHeaderColumn>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    <TableRow selected={this.isSelected(0)}>
-                        <TableRowColumn>1</TableRowColumn>
-                        <TableRowColumn>John Smith</TableRowColumn>
-                        <TableRowColumn>Employed</TableRowColumn>
-                    </TableRow>
-                    <TableRow selected={this.isSelected(1)}>
-                        <TableRowColumn>2</TableRowColumn>
-                        <TableRowColumn>Randal White</TableRowColumn>
-                        <TableRowColumn>Unemployed</TableRowColumn>
-                    </TableRow>
-                    <TableRow selected={this.isSelected(2)}>
-                        <TableRowColumn>3</TableRowColumn>
-                        <TableRowColumn>Stephanie Sanders</TableRowColumn>
-                        <TableRowColumn>Employed</TableRowColumn>
-                    </TableRow>
-                    <TableRow selected={this.isSelected(3)}>
-                        <TableRowColumn>4</TableRowColumn>
-                        <TableRowColumn>Steve Brown</TableRowColumn>
-                        <TableRowColumn>Employed</TableRowColumn>
-                    </TableRow>
-                </TableBody>
-            </Table>
+            <div style={styles.div}>
+                <Table onRowSelection={this.handleRowSelection}>
+                    <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
+                        <TableRow style={styles.row}>
+                            <TableHeaderColumn style={Object.assign({}, styles.row, styles.starred)}>Starred</TableHeaderColumn>
+                            <TableHeaderColumn style={Object.assign({}, styles.row, styles.name)}>Name</TableHeaderColumn>
+                            <TableHeaderColumn style={styles.row}>Items</TableHeaderColumn>
+                            <TableHeaderColumn style={styles.row}>Owner</TableHeaderColumn>
+                            <TableHeaderColumn style={styles.row}>Created</TableHeaderColumn>
+                            <TableHeaderColumn style={styles.row}>Modified</TableHeaderColumn>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody displayRowCheckbox={false}>
+                        {dashboards.map(d => (
+                            <TableRow key={d.id} style={styles.row}>
+                                <TableRowColumn style={Object.assign({}, styles.row, styles.starred)}>{'' + !!d.starred}</TableRowColumn>
+                                <TableRowColumn style={Object.assign({}, styles.row, styles.name)}>{d.name}</TableRowColumn>
+                                <TableRowColumn style={styles.row}>{d.numberOfItems}</TableRowColumn>
+                                <TableRowColumn style={styles.row}>{'janhov'}</TableRowColumn>
+                                <TableRowColumn style={styles.row}>{date}</TableRowColumn>
+                                <TableRowColumn style={styles.row}>{date}</TableRowColumn>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </div>
         );
     }
 }
 
-const DashboardList = props => {
+function DashboardList(props) {
     const { dashboardsIsFetching, viewFilter } = props;
 
     if (dashboardsIsFetching) {
@@ -95,17 +120,11 @@ const DashboardList = props => {
             return <ListView {...props} />;
 
         case fromReducers.fromDashboardsConfig.viewFilterValues.TABLE:
-            return <TableView />;
+            return <TableView {...props} />;
 
         default:
             return <ListView {...props} />;
     }
-};
-
-DashboardList.propTypes = {
-    dashboards: PropTypes.array,
-    onClickDashboard: PropTypes.func,
-    isFetching: PropTypes.bool
 };
 
 export default DashboardList;
