@@ -50,6 +50,9 @@ const styles = {
     linkSelected: {
         color: '#000'
     },
+    linkHover: {
+        color: '#999'
+    },
     linkLabel: {
         fontWeight: 400,
         color: '#666'
@@ -73,17 +76,62 @@ const styles = {
     }
 };
 
-const getLinkLabel = ({ label }) => <span style={Object.assign({}, styles.link, styles.linkLabel)}>{label}:</span>;
+const getLinkLabel = ({ label }) =>
+    <span style={Object.assign({}, styles.link, styles.linkLabel)}>{label}:</span>;
 
-const getSeparator = () => <span style={styles.separator} />;
+const getSeparator = () =>
+    <span style={styles.separator} />;
 
-const getSeparatorLine = () => <span style={styles.separatorLine} />;
+const getSeparatorLine = () =>
+    <span style={styles.separatorLine} />;
+
+class Link extends Component {
+    constructor(props) {
+        super(props);
+
+        this.onMouseOverHandle = this.onMouseOverHandle.bind(this);
+        this.onMouseOutHandle = this.onMouseOutHandle.bind(this);
+
+        this.state = {
+            color: styles.link.color
+        };
+    }
+
+    onMouseOverHandle() {
+        this.setState({
+            color: styles.linkHover.color
+        });
+    }
+
+    onMouseOutHandle() {
+        this.setState({
+            color: styles.link.color
+        });
+    }
+
+    render() {
+        const { text, onClick, isSelected, style } = this.props;
+        const selectedStyle = isSelected ? styles.linkSelected : null;
+
+        return (
+            <span
+                style={Object.assign({}, styles.link, style, this.state, selectedStyle)}
+                onClick={onClick}
+                onMouseOver={this.onMouseOverHandle}
+                onMouseOut={this.onMouseOutHandle}
+            >
+                {text}
+            </span>
+        );
+    }
+}
 
 const getLink = ({ text, onClick, isSelected, style }) =>
-    <span
-        className="DashboardBar-link"
-        style={Object.assign({}, styles.link, style, isSelected ? styles.linkSelected : null)}
-        onClick={onClick}>{text}</span>;
+    <Link
+        text={text}
+        onClick={onClick}
+        isSelected={isSelected}
+        style={style} />;
 
 const getIconLink = ({ text, onClick }) => getLink({ text, onClick, style: styles.iconText });
 

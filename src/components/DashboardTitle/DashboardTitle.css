@@ -1,7 +1,8 @@
 .DashboardTitle-textfield {
     border: 0 none;
     padding: 5px;
-    font-size: 26px;
+    font-size: 24px;
+    font-weight: 300;
     width: 100%
 }
 
