@@ -14,6 +14,26 @@ const styles = {
         color: '#888',
         fontSize: '13px'
     },
+    listView: {
+        ul: {
+            textAlign: 'center',
+            paddingLeft: '15px'
+        },
+        li: {
+            display: 'inline-block',
+            margin: '1px',
+            cursor: 'pointer',
+            color: '#444',
+            padding: '6px 11px',
+            border: '1px solid #e1e1e1',
+            borderRadius: '3px'
+        },
+        liName: {
+            color: '#2264ff',
+            fontSize: '14px',
+            paddingBottom: '3px'
+        }
+    },
     tableRowColumnTextLink: {
         link: {
             color: '#000',
@@ -63,12 +83,13 @@ function Loading() {
 function ListView({ dashboards, onClickDashboard, dashboardsIsFetching }) {
     return (
         <div className="DashboardList">
-            <ul>
+            <ul style={styles.listView.ul}>
                 {dashboards.map(d =>
                     <li key={d.id} onClick={() => onClickDashboard(d.id)}>
-                        <div className="name">{d.name}</div>
+                        <div style={styles.listView.liName}>{d.name}</div>
                         <div>{d.numberOfItems + ' items'}</div>
-                    </li>)}
+                    </li>
+                )}
             </ul>
         </div>
     );

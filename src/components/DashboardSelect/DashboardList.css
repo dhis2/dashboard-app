@@ -1,8 +1,3 @@
-.DashboardList > ul {
-    text-align: center;
-    padding-left: 15px;
-}
-
 .DashboardList > ul > li {
     display: inline-block;
     margin: 1px;
@@ -16,10 +11,4 @@
 
 .DashboardList > ul > li:hover {
     border-color: #bbb;
-}
-
-.DashboardList > ul > li > div.name {
-    color: #2264ff;
-    font-size: 14px;
-    padding-bottom: 3px;
 }

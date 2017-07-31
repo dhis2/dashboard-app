@@ -229,33 +229,44 @@ const ShowPanel = props => {
     const all = fromReducers.fromDashboardsConfig.showFilterValues.ALL;
     const starred = fromReducers.fromDashboardsConfig.showFilterValues.STARRED;
 
-    const { showFilter } = props;
+    const { showFilter, onClickShowFilter } = props;
 
     return (
         <div>
-            {getLinkLabel({label: 'Show'})}
+            {getLinkLabel({ label: 'Show' })}
             {getSeparator()}
-            {getLink({text: 'All', onClick: () => props.onClickShowFilter(all), isSelected: all === showFilter})}
+            {getLink({ text: 'All', onClick: () => onClickShowFilter(all), isSelected: all === showFilter })}
             {getSeparator()}
-            {getLink({ text: 'Starred', onClick: () => props.onClickShowFilter(starred), isSelected: starred === showFilter })}
+            {getLink({ text: 'Starred', onClick: () => onClickShowFilter(starred), isSelected: starred === showFilter })}
         </div>
     );
 };
 
-const SortPanel = () => (
-    <div>
-        {getLinkLabel({ label: 'Sort by' })}
-        {getSeparator()}
-        {getLink({ text: 'Name', onClick: console.log, isSelected: true })}
-        {getSeparator()}
-        {getLink({ text: 'Created', onClick: console.log })}
-        {getSeparatorLine()}
-        {getSeparator()}
-        {getLink({ text: 'ASC', onClick: console.log, isSelected: true })}
-        {getSeparator()}
-        {getLink({ text: 'DESC', onClick: console.log })}
-    </div>
-);
+const SortPanel = props => {
+    const name = fromReducers.fromDashboardsConfig.sortFilterKeyValues.NAME;
+    const created = fromReducers.fromDashboardsConfig.sortFilterKeyValues.CREATED;
+
+    const asc = fromReducers.fromDashboardsConfig.sortFilterDirectionValues.ASC;
+    const desc = fromReducers.fromDashboardsConfig.sortFilterDirectionValues.DESC;
+
+    const { sortFilter, onClickSortFilterKey, onClickSortFilterDirection } = props;
+    const { key, direction } = sortFilter;
+
+    return (
+        <div>
+            {getLinkLabel({ label: 'Sort by' })}
+            {getSeparator()}
+            {getLink({ text: 'Name', onClick: () => onClickSortFilterKey(name), isSelected: name === key })}
+            {getSeparator()}
+            {getLink({ text: 'Created', onClick: () => onClickSortFilterKey(created), isSelected: created === key })}
+            {getSeparatorLine()}
+            {getSeparator()}
+            {getLink({text: 'ASC', onClick: () => onClickSortFilterDirection(asc), isSelected: asc === direction })}
+            {getSeparator()}
+            {getLink({text: 'DESC', onClick: () => onClickSortFilterDirection(desc), isSelected: desc === direction })}
+        </div>
+    );
+};
 
 const ViewPanel = props => {
     const list = fromReducers.fromDashboardsConfig.viewFilterValues.LIST;
@@ -287,7 +298,7 @@ const DashboardBar = props => (
             <ShowPanel {...props} />
         </ToolbarGroup>
         <ToolbarGroup>
-            <SortPanel/>
+            <SortPanel {...props} />
         </ToolbarGroup>
         <ToolbarGroup>
             <ViewPanel {...props} />

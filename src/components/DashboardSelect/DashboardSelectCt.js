@@ -15,6 +15,7 @@ const mapStateToProps = state => {
         selectedId: fromReducers.fromDashboardsConfig.sGetSelectedIdFromState(state),
         textFilter: fromReducers.fromDashboardsConfig.sGetTextFilterFromState(state),
         showFilter: fromReducers.fromDashboardsConfig.sGetShowFilterFromState(state),
+        sortFilter: fromReducers.fromDashboardsConfig.sGetSortFilterFromState(state),
         viewFilter: fromReducers.fromDashboardsConfig.sGetViewFilterFromState(state)
     };
 };
@@ -23,6 +24,8 @@ const mapDispatchToProps = dispatch => ({
     onClickDashboard: id => dispatch(fromActions.acSetDashboardsConfigSelectedId(id)),
     onChangeTextFilter: value => dispatch(fromActions.acSetDashboardsConfigTextFilter(value)),
     onClickShowFilter: value => dispatch(fromActions.acSetDashboardsConfigShowFilter(value)),
+    onClickSortFilterKey: value => dispatch(fromActions.acSetDashboardsConfigSortFilterKey(value)),
+    onClickSortFilterDirection: value => dispatch(fromActions.acSetDashboardsConfigSortFilterDirection(value)),
     onClickViewFilter: value => dispatch(fromActions.acSetDashboardsConfigViewFilter(value))
 });
 
@@ -41,9 +44,12 @@ DashboardSelectCt.propTypes = {
     selectedId: PropTypes.string,
     textFilter: PropTypes.string,
     showFilter: PropTypes.string,
+    sortFilter: PropTypes.object,
     viewFilter: PropTypes.string,
     onClickDashboard: PropTypes.func,
     onChangeTextFilter: PropTypes.func,
+    onClickShowFilter: PropTypes.func,
+    onClickSortFilter: PropTypes.func,
     onClickViewFilter: PropTypes.func
 };
 
