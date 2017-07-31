@@ -14,6 +14,7 @@ const mapStateToProps = state => {
         isFetching: fromReducers.fromDashboardsConfig.sGetIsFetchingFromState(state),
         selectedId: fromReducers.fromDashboardsConfig.sGetSelectedIdFromState(state),
         textFilter: fromReducers.fromDashboardsConfig.sGetTextFilterFromState(state),
+        showFilter: fromReducers.fromDashboardsConfig.sGetShowFilterFromState(state),
         viewFilter: fromReducers.fromDashboardsConfig.sGetViewFilterFromState(state)
     };
 };
@@ -21,6 +22,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     onClickDashboard: id => dispatch(fromActions.acSetDashboardsConfigSelectedId(id)),
     onChangeTextFilter: value => dispatch(fromActions.acSetDashboardsConfigTextFilter(value)),
+    onClickShowFilter: value => dispatch(fromActions.acSetDashboardsConfigShowFilter(value)),
     onClickViewFilter: value => dispatch(fromActions.acSetDashboardsConfigViewFilter(value))
 });
 
@@ -38,6 +40,7 @@ DashboardSelectCt.propTypes = {
     isFetching: PropTypes.bool,
     selectedId: PropTypes.string,
     textFilter: PropTypes.string,
+    showFilter: PropTypes.string,
     viewFilter: PropTypes.string,
     onClickDashboard: PropTypes.func,
     onChangeTextFilter: PropTypes.func,

@@ -110,7 +110,7 @@ class TableRowColumnTextLink extends Component {
     }
 
     render() {
-        const { text, dId, onClickDashboard, isSelected, style } = this.props;
+        const { text, onClickDashboard, isSelected, style } = this.props;
         const selectedStyle = isSelected ? this.styles.linkSelected : null;
 
         return (
@@ -125,7 +125,7 @@ class TableRowColumnTextLink extends Component {
                     selectedStyle)}
                 onMouseOver={this.onMouseOverHandle}
                 onMouseOut={this.onMouseOutHandle}
-                onClick={() => onClickDashboard(dId)}
+                onClick={onClickDashboard}
             >
                 {text}
             </TableRowColumn>
@@ -154,8 +154,6 @@ class TableView extends Component {
     render() {
         const { dashboards, onClickDashboard, selectedId } = this.props;
 
-        const date = (new Date()).toJSON().replace('T', ' ').substr(0,19);
-
         const styles = this.styles;
 
         return (
@@ -175,11 +173,11 @@ class TableView extends Component {
                         {dashboards.map(d => (
                             <TableRow key={d.id} style={styles.row}>
                                 <TableRowColumn style={Object.assign({}, styles.row, styles.rowColumn, styles.starred)}>{'' + !!d.starred}</TableRowColumn>
-                                <TableRowColumnTextLink text={d.name} dId={d.id} onClickDashboard={onClickDashboard} isSelected={d.id === selectedId} />
+                                <TableRowColumnTextLink text={d.name} onClickDashboard={() => onClickDashboard(d.id)} isSelected={d.id === selectedId} />
                                 <TableRowColumn style={Object.assign({}, styles.row, styles.rowColumn)}>{d.numberOfItems}</TableRowColumn>
                                 <TableRowColumn style={Object.assign({}, styles.row, styles.rowColumn)}>{'janhov'}</TableRowColumn>
-                                <TableRowColumn style={Object.assign({}, styles.row, styles.rowColumn)}>{date}</TableRowColumn>
-                                <TableRowColumn style={Object.assign({}, styles.row, styles.rowColumn)}>{date}</TableRowColumn>
+                                <TableRowColumn style={Object.assign({}, styles.row, styles.rowColumn)}>{d.created}</TableRowColumn>
+                                <TableRowColumn style={Object.assign({}, styles.row, styles.rowColumn)}>{d.lastModified}</TableRowColumn>
                             </TableRow>
                         ))}
                     </TableBody>

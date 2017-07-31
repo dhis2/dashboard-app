@@ -225,15 +225,22 @@ ClearButton.propTypes = {
     textFilter: PropTypes.string.isRequired
 };
 
-const ShowPanel = () => (
-    <div>
-        {getLinkLabel({ label: 'Show' })}
-        {getSeparator()}
-        {getLink({ text: 'All', onClick: console.log, isSelected: true })}
-        {getSeparator()}
-        {getLink({ text: 'Starred', onClick: console.log })}
-    </div>
-);
+const ShowPanel = props => {
+    const all = fromReducers.fromDashboardsConfig.showFilterValues.ALL;
+    const starred = fromReducers.fromDashboardsConfig.showFilterValues.STARRED;
+
+    const { showFilter } = props;
+
+    return (
+        <div>
+            {getLinkLabel({label: 'Show'})}
+            {getSeparator()}
+            {getLink({text: 'All', onClick: () => props.onClickShowFilter(all), isSelected: all === showFilter})}
+            {getSeparator()}
+            {getLink({ text: 'Starred', onClick: () => props.onClickShowFilter(starred), isSelected: starred === showFilter })}
+        </div>
+    );
+};
 
 const SortPanel = () => (
     <div>
@@ -277,7 +284,7 @@ const DashboardBar = props => (
             <ClearButton {...props} />
         </ToolbarGroup>
         <ToolbarGroup>
-            <ShowPanel/>
+            <ShowPanel {...props} />
         </ToolbarGroup>
         <ToolbarGroup>
             <SortPanel/>

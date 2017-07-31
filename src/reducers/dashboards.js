@@ -12,11 +12,11 @@ export default (state = [], action) => {
     }
 };
 
-// selectors level 1
+// root selector
 
 export const sGetFromState = state => state.dashboards;
 
-// selectors level 2
+// selectors level 1
 
 export const sGetDashboardById = (state, id) => sGetFromState(state).find(dashboard => dashboard.id === id);
 

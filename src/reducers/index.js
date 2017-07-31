@@ -3,6 +3,8 @@ import { combineReducers } from 'redux';
 import dashboards, * as fromDashboards from './dashboards';
 import dashboardsConfig, * as fromDashboardsConfig from './dashboardsConfig';
 
+import arraySort from 'd2-utilizr/lib/arraySort';
+
 // action types
 
 export const actionTypes = Object.assign({},
@@ -21,17 +23,39 @@ export default combineReducers({
 
 export { fromDashboards, fromDashboardsConfig };
 
-// selectors level 2
+// selectors level 1
 
 export const sGetSelectedDashboard = state => fromDashboards.sGetDashboardById(state, fromDashboardsConfig.sGetSelectedIdFromState(state));
 
+export const sApplyDashboardsTextFilter = (dashboards, textFilter) => {
+    return dashboards.filter(d => d.name.toLowerCase().indexOf(textFilter.toLowerCase()) !== -1);
+};
+
+export const applyDashboardsShowFilter = (dashboards, showFilter) => {
+    switch (showFilter) {
+        case fromDashboardsConfig.showFilterValues.STARRED:
+            return dashboards.filter(d => !!d.starred);
+        default:
+            return dashboards;
+    }
+}
+
+export const applySortFilter = (dashboards, sortFilter) => {
+    const { key, direction } = sortFilter;
+
+    return arraySort(dashboards, direction, key.toLowerCase());
+}
+
+// selectors level 2
+
 export const sGetDashboards = state => {
-    const textFilter = fromDashboardsConfig.sGetTextFilterFromState(state).toLowerCase();
     const dashboardsFromState = fromDashboards.sGetFromState(state);
 
-    return textFilter === fromDashboardsConfig.DEFAULT_DASHBOARDSCONFIG_TEXTFILTER ?
-        dashboardsFromState :
-        dashboardsFromState.filter(d => d.name.toLowerCase().indexOf(textFilter) !== -1);
+    const textFilter = fromDashboardsConfig.sGetTextFilterFromState(state);
+    const showFilter = fromDashboardsConfig.sGetShowFilterFromState(state);
+    const sortFilter = fromDashboardsConfig.sGetSortFilterFromState(state);
+
+    return applySortFilter(sApplyDashboardsTextFilter(applyDashboardsShowFilter(dashboardsFromState, showFilter), textFilter), sortFilter);
 };
 
 
