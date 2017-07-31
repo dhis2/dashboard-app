@@ -1,3 +1,5 @@
+import isNumber from 'd2-utilizr/lib/isNumber';
+
 import data from '../data';
 
 export const delay = (ms = 500) => new Promise(resolve => setTimeout(resolve, ms));
@@ -9,24 +11,34 @@ const getDate = () => {
     const h = Math.floor(Math.random() * 23) + 1;
     const m = Math.floor(Math.random() * 59) + 1;
     const s = Math.floor(Math.random() * 59) + 1;
-    
+
     return (new Date(y + '-' + M + '-' + d + ' ' + h + ':' + m + ':' + s)).toJSON().replace('T', ' ').substr(0, 19);
 };
 
-export const getDashboards = (textFilter, showFilter, sortFilter) => data.map(d => {
+export const getDashboards = (textFilter, showFilter, sortFilter) => {
     const date = getDate();
 
-    return {
+    return data.map(d => ({
         id: d.id,
         name: d.name,
         starred: d.starred,
         created: date,
         lastModified: date,
         numberOfItems: d.dashboardItems.length
-    };
-});
+    }));
+};
 
-export const getDashboardItems = id => data.filter(d => d.id === id).map(d => d.dashboardItems)[0];
+const hasPosition = item => isNumber(item.x) && isNumber(item.y) && isNumber(item.w) && isNumber(item.h);
+
+const setPosition = (item, i) => {
+    const cols = 4; //TODO
+};
+
+export const getDashboardItems = id => {
+    return data
+        .filter(d => d.id === id)
+        .map(d => d.dashboardItems)[0];
+};
 
 export const apiFetchDashboards = () => {
     return Promise.resolve(getDashboards());

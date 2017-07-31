@@ -36,12 +36,12 @@ const styles = {
     },
     tableRowColumnTextLink: {
         link: {
-            color: '#000',
+            color: '#2264ff',
             fontWeight: 'normal',
             cursor: 'pointer'
         },
         linkHover: {
-            color: '#666'
+            color: '#193874'
         },
         linkSelected: {
             fontWeight: 500
@@ -54,7 +54,6 @@ const styles = {
         row: {
             height: '19px',
             padding: '2px',
-            borderColor: '#eee',
             fontSize: '11px'
         },
         rowColumn: {

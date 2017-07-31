@@ -7,7 +7,10 @@ const store = {
         selectedId: "uid1",
         textFilter: "ante",
         showFilter: "ALL",
-        sortFilter: "NAME",
+        sortFilter: {
+            key: "NAME",
+            direction: "ASC"
+        },
         viewFilter: "LIST"
     }
 };
