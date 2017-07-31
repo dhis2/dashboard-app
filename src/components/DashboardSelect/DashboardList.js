@@ -6,19 +6,53 @@ import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowCol
 
 import * as fromReducers from '../../reducers';
 
+const styles = {
+    loading: {
+        width: '100%',
+        padding: '20px',
+        textAlign: 'center',
+        color: '#888',
+        fontSize: '13px'
+    },
+    tableRowColumnTextLink: {
+        link: {
+            color: '#000',
+            fontWeight: 'normal',
+            cursor: 'pointer'
+        },
+        linkHover: {
+            color: '#666'
+        },
+        linkSelected: {
+            fontWeight: 500
+        }
+    },
+    tableView: {
+        root: {
+            margin: '20px'
+        },
+        row: {
+            height: '19px',
+            padding: '2px',
+            borderColor: '#eee',
+            fontSize: '11px'
+        },
+        rowColumn: {
+            color: '#000',
+            fontSize: '11px'
+        },
+        starred: {
+            width: '70px'
+        },
+        name: {
+            width: '400px'
+        }
+    }
+};
+
 // components
 
 function Loading() {
-    const styles = {
-        loading: {
-            width: '100%',
-            padding: '20px',
-            textAlign: 'center',
-            color: '#888',
-            fontSize: '13px'
-        }
-    };
-
     return (
         <div style={styles.loading}>
             {'Loading dashboards ...'}
@@ -40,7 +74,69 @@ function ListView({ dashboards, onClickDashboard, dashboardsIsFetching }) {
     );
 }
 
+class TableRowColumnTextLink extends Component {
+
+    styles = styles.tableRowColumnTextLink;
+
+    state = {
+        color: this.styles.link.color
+    };
+
+    constructor(props) {
+        super(props);
+
+        this.onMouseOverHandle = this.onMouseOverHandle.bind(this);
+        this.onMouseOutHandle = this.onMouseOutHandle.bind(this);
+
+        this.state = {
+            color: this.styles.link.color
+        };
+    }
+
+    onMouseOverHandle(event) {
+        event.preventDefault();
+
+        this.setState({
+            color: this.styles.linkHover.color
+        });
+    }
+
+    onMouseOutHandle(event) {
+        event.preventDefault();
+
+        this.setState({
+            color: this.styles.link.color
+        });
+    }
+
+    render() {
+        const { text, dId, onClickDashboard, isSelected, style } = this.props;
+        const selectedStyle = isSelected ? this.styles.linkSelected : null;
+
+        return (
+            <TableRowColumn
+                style={Object.assign({},
+                    styles.tableView.row,
+                    styles.tableView.rowColumn,
+                    this.styles.link,
+                    styles.tableView.name,
+                    style,
+                    this.state,
+                    selectedStyle)}
+                onMouseOver={this.onMouseOverHandle}
+                onMouseOut={this.onMouseOutHandle}
+                onClick={() => onClickDashboard(dId)}
+            >
+                {text}
+            </TableRowColumn>
+        );
+    }
+}
+
 class TableView extends Component {
+
+    styles = styles.tableView;
+
     state = {
         selected: [1]
     };
@@ -56,29 +152,14 @@ class TableView extends Component {
     };
 
     render() {
-        const { dashboards } = this.props;
+        const { dashboards, onClickDashboard, selectedId } = this.props;
 
         const date = (new Date()).toJSON().replace('T', ' ').substr(0,19);
 
-        const styles = {
-            div: {
-                margin: '20px'
-            },
-            row: {
-                height: '21px',
-                padding: '2px',
-                borderColor: '#eee'
-            },
-            starred: {
-                width: '70px'
-            },
-            name: {
-                width: '400px'
-            }
-        };
+        const styles = this.styles;
 
         return (
-            <div style={styles.div}>
+            <div style={styles.root}>
                 <Table onRowSelection={this.handleRowSelection}>
                     <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
                         <TableRow style={styles.row}>
@@ -93,12 +174,12 @@ class TableView extends Component {
                     <TableBody displayRowCheckbox={false}>
                         {dashboards.map(d => (
                             <TableRow key={d.id} style={styles.row}>
-                                <TableRowColumn style={Object.assign({}, styles.row, styles.starred)}>{'' + !!d.starred}</TableRowColumn>
-                                <TableRowColumn style={Object.assign({}, styles.row, styles.name)}>{d.name}</TableRowColumn>
-                                <TableRowColumn style={styles.row}>{d.numberOfItems}</TableRowColumn>
-                                <TableRowColumn style={styles.row}>{'janhov'}</TableRowColumn>
-                                <TableRowColumn style={styles.row}>{date}</TableRowColumn>
-                                <TableRowColumn style={styles.row}>{date}</TableRowColumn>
+                                <TableRowColumn style={Object.assign({}, styles.row, styles.rowColumn, styles.starred)}>{'' + !!d.starred}</TableRowColumn>
+                                <TableRowColumnTextLink text={d.name} dId={d.id} onClickDashboard={onClickDashboard} isSelected={d.id === selectedId} />
+                                <TableRowColumn style={Object.assign({}, styles.row, styles.rowColumn)}>{d.numberOfItems}</TableRowColumn>
+                                <TableRowColumn style={Object.assign({}, styles.row, styles.rowColumn)}>{'janhov'}</TableRowColumn>
+                                <TableRowColumn style={Object.assign({}, styles.row, styles.rowColumn)}>{date}</TableRowColumn>
+                                <TableRowColumn style={Object.assign({}, styles.row, styles.rowColumn)}>{date}</TableRowColumn>
                             </TableRow>
                         ))}
                     </TableBody>

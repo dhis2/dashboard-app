@@ -38,7 +38,7 @@ export const DEFAULT_DASHBOARDSCONFIG_TEXTFILTER = '';
 export const DEFAULT_DASHBOARDSCONFIG_SHOWFILTER = showFilterValues.ALL;
 export const DEFAULT_DASHBOARDSCONFIG_SORTFILTER_KEY = sortFilterKeyValues.NAME;
 export const DEFAULT_DASHBOARDSCONFIG_SORTFILTER_DIRECTION = sortFilterDirectionValues.ASC;
-export const DEFAULT_DASHBOARDSCONFIG_VIEWFILTER = viewFilterValues.TABLE;
+export const DEFAULT_DASHBOARDSCONFIG_VIEWFILTER = viewFilterValues.LIST;
 
 const isFetching = (state = DEFAULT_DASHBOARDSCONFIG_ISFETCHING, action) => {
     switch (action.type) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import DashboardListCt from  './components/DashboardSelect/DashboardSelectCt';
+import DashboardSelectCt from  './components/DashboardSelect/DashboardSelectCt';
 import DashboardTitleCt from  './components/DashboardTitle/DashboardTitleCt';
 import DashboardItemGridCt from  './components/DashboardItemGrid/DashboardItemGridCt';
 import { tSetDashboards } from './actions';
@@ -23,7 +23,7 @@ class App extends Component {
         return (
             <div className="wrapper">
                 <HeaderBar />
-                <DashboardListCt />
+                <DashboardSelectCt />
                 <DashboardTitleCt />
                 <DashboardItemGridCt />
             </div>

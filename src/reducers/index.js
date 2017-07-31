@@ -25,7 +25,7 @@ export { fromDashboards, fromDashboardsConfig };
 
 export const sGetSelectedDashboard = state => fromDashboards.sGetDashboardById(state, fromDashboardsConfig.sGetSelectedIdFromState(state));
 
-export const sGetDashboards = state => { //TODO more filters
+export const sGetDashboards = state => {
     const textFilter = fromDashboardsConfig.sGetTextFilterFromState(state).toLowerCase();
     const dashboardsFromState = fromDashboards.sGetFromState(state);
 

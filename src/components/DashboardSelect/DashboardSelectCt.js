@@ -8,12 +8,15 @@ import * as fromActions from '../../actions';
 import DashboardBar from './DashboardBar';
 import DashboardList from './DashboardList';
 
-const mapStateToProps = state => ({
-    dashboards: fromReducers.sGetDashboards(state),
-    textFilter: fromReducers.fromDashboardsConfig.sGetTextFilterFromState(state),
-    viewFilter: fromReducers.fromDashboardsConfig.sGetViewFilterFromState(state),
-    isFetching: fromReducers.fromDashboardsConfig.sGetIsFetchingFromState(state)
-});
+const mapStateToProps = state => {
+    return {
+        dashboards: fromReducers.sGetDashboards(state),
+        isFetching: fromReducers.fromDashboardsConfig.sGetIsFetchingFromState(state),
+        selectedId: fromReducers.fromDashboardsConfig.sGetSelectedIdFromState(state),
+        textFilter: fromReducers.fromDashboardsConfig.sGetTextFilterFromState(state),
+        viewFilter: fromReducers.fromDashboardsConfig.sGetViewFilterFromState(state)
+    };
+};
 
 const mapDispatchToProps = dispatch => ({
     onClickDashboard: id => dispatch(fromActions.acSetDashboardsConfigSelectedId(id)),
@@ -32,9 +35,10 @@ DashboardSelectCt = connect(mapStateToProps, mapDispatchToProps)(DashboardSelect
 
 DashboardSelectCt.propTypes = {
     dashboards: PropTypes.array,
+    isFetching: PropTypes.bool,
+    selectedId: PropTypes.string,
     textFilter: PropTypes.string,
     viewFilter: PropTypes.string,
-    isFetching: PropTypes.bool,
     onClickDashboard: PropTypes.func,
     onChangeTextFilter: PropTypes.func,
     onClickViewFilter: PropTypes.func
