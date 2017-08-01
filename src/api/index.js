@@ -30,14 +30,33 @@ export const getDashboards = (textFilter, showFilter, sortFilter) => {
 
 const hasPosition = item => isNumber(item.x) && isNumber(item.y) && isNumber(item.w) && isNumber(item.h);
 
-const setPosition = (item, i) => {
-    const cols = 4; //TODO
+const getPosition = i => {
+    const numberOfCols = 2;
+    const itemWidth = 14;
+    const itemHeight = 10;
+
+    const col = i % numberOfCols;
+    const row = Math.floor(i / numberOfCols);
+
+    return {
+        x: col * itemWidth,
+        y: row * itemHeight,
+        w: itemWidth,
+        h: itemHeight
+    };
 };
 
-export const getDashboardItems = id => {
-    return data
-        .filter(d => d.id === id)
-        .map(d => d.dashboardItems)[0];
+export const getDashboardItems = dashboardId => {
+    const items = ((data.find(d => d.id === dashboardId) || {}).dashboardItems || []);
+
+    items.forEach((di, i) => {
+        if (!hasPosition(di)) {
+            Object.assign(di, getPosition(i));
+        }
+    });
+
+    return items;
+
 };
 
 export const apiFetchDashboards = () => {

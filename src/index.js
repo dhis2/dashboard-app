@@ -9,6 +9,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import { init, getManifest } from 'd2/lib/d2';
 
+import whyDidYouUpdate from 'why-did-you-update';
+
 import configureStore from './configureStore';
 
 import App from './App';
@@ -29,6 +31,17 @@ const indexRender = (d2) => {
         document.getElementById('root')
     );
 };
+
+// init why-did-you-update
+// if (process.env.NODE_ENV !== 'production') {
+//     let createClass = React.createClass;
+//     Object.defineProperty(React, 'createClass', {
+//         set: (nextCreateClass) => {
+//             createClass = nextCreateClass;
+//         }
+//     });
+//     whyDidYouUpdate(React);
+// }
 
 // init d2
 getManifest('manifest.webapp').then((manifest) => {
