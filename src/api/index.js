@@ -31,8 +31,8 @@ export const getDashboards = (textFilter, showFilter, sortFilter) => {
 const hasPosition = item => isNumber(item.x) && isNumber(item.y) && isNumber(item.w) && isNumber(item.h);
 
 const getPosition = i => {
-    const numberOfCols = 2;
-    const itemWidth = 14;
+    const numberOfCols = 3;
+    const itemWidth = 9;
     const itemHeight = 10;
 
     const col = i % numberOfCols;

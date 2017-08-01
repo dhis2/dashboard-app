@@ -44,7 +44,8 @@ const styles = {
             color: '#193874'
         },
         linkSelected: {
-            fontWeight: 500
+            color: '#215DEA',
+            fontWeight: 600
         }
     },
     tableView: {
