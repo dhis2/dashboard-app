@@ -26,7 +26,13 @@ const mapDispatchToProps = dispatch => ({
     onClickShowFilter: value => dispatch(fromActions.acSetDashboardsConfigShowFilter(value)),
     onClickSortFilterKey: value => dispatch(fromActions.acSetDashboardsConfigSortFilterKey(value)),
     onClickSortFilterDirection: value => dispatch(fromActions.acSetDashboardsConfigSortFilterDirection(value)),
-    onClickViewFilter: value => dispatch(fromActions.acSetDashboardsConfigViewFilter(value))
+    onClickViewFilter: value => dispatch(fromActions.acSetDashboardsConfigViewFilter(value)),
+    onClickManage: () => {
+        dispatch(fromActions.acSetDashboardsConfigShowFilter('ALL'));
+        dispatch(fromActions.acSetDashboardsConfigSortFilterKey('NAME'));
+        dispatch(fromActions.acSetDashboardsConfigSortFilterDirection('ASC'));
+        dispatch(fromActions.acSetDashboardsConfigViewFilter('TABLE'));
+    }
 });
 
 let DashboardSelectCt = props => (

@@ -19,6 +19,12 @@ export default combineReducers({
     dashboardsConfig
 });
 
+const mapConstToData = {
+    [fromDashboardsConfig.sortFilterKeyValues.NAME]: 'name',
+    [fromDashboardsConfig.sortFilterKeyValues.ITEMS]: 'numberOfItems',
+    [fromDashboardsConfig.sortFilterKeyValues.CREATED]: 'created'
+};
+
 // root selectors
 
 export { fromDashboards, fromDashboardsConfig };
@@ -38,13 +44,13 @@ export const applyDashboardsShowFilter = (dashboards, showFilter) => {
         default:
             return dashboards;
     }
-}
+};
 
 export const applySortFilter = (dashboards, sortFilter) => {
     const { key, direction } = sortFilter;
 
-    return arraySort(dashboards, direction, key.toLowerCase());
-}
+    return arraySort(dashboards, direction, mapConstToData[key]);
+};
 
 // selectors level 2
 

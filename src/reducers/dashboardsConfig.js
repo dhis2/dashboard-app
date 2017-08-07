@@ -19,6 +19,7 @@ export const showFilterValues = {
 
 export const sortFilterKeyValues = {
     NAME: 'NAME',
+    ITEMS: 'ITEMS',
     CREATED: 'CREATED'
 };
 

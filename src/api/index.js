@@ -1,6 +1,6 @@
 import isNumber from 'd2-utilizr/lib/isNumber';
 
-import data from '../data';
+import data, { description } from '../data';
 
 export const delay = (ms = 500) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -21,6 +21,7 @@ export const getDashboards = (textFilter, showFilter, sortFilter) => {
     return data.map(d => ({
         id: d.id,
         name: d.name,
+        description: description,
         starred: d.starred,
         created: date,
         lastModified: date,
@@ -56,7 +57,6 @@ export const getDashboardItems = dashboardId => {
     });
 
     return items;
-
 };
 
 export const apiFetchDashboards = () => {

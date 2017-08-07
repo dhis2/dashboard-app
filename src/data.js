@@ -1,3 +1,5 @@
+export const description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+
 export default [
     {
         "id": "nghVC4wtyzi",
@@ -15,10 +17,10 @@ export default [
         "name": "Cases Malaria",
         "starred": false,
         "dashboardItems": [
-            {"id": "DkPKc1EUmC2","type": "CHART","x": 0,"y": 0,"w": 20,"h": 15},
-            {"id": "fzgIcU3hVFH","type": "REPORT_TABLE","x": 20,"y": 0,"w": 20,"h": 5},
-            {"id": "hrDweynvx7G","type": "REPORT_TABLE","x": 20,"y": 4,"w": 20,"h": 5},
-            {"id": "hewtA7a025J","type": "CHART","x": 20,"y": 8,"w": 20,"h": 5}
+            {"id": "DkPKc1EUmC2","type": "CHART"},
+            {"id": "fzgIcU3hVFH","type": "REPORT_TABLE"},
+            {"id": "hrDweynvx7G","type": "REPORT_TABLE"},
+            {"id": "hewtA7a025J","type": "CHART"}
         ]
     },
     {
@@ -26,10 +28,10 @@ export default [
         "name": "Delivery",
         "starred": true,
         "dashboardItems": [
-            {"id": "hewtA7a025J","type": "CHART","x": 0,"y": 0,"w": 20,"h": 15},
-            {"id": "hrDweynvx7G","type": "REPORT_TABLE","x": 20,"y": 0,"w": 20,"h": 5},
-            {"id": "fzgIcU3hVFH","type": "REPORT_TABLE","x": 20,"y": 4,"w": 20,"h": 5},
-            {"id": "DkPKc1EUmC2","type": "CHART","x": 20,"y": 8,"w": 20,"h": 5}
+            {"id": "hewtA7a025J","type": "CHART"},
+            {"id": "hrDweynvx7G","type": "REPORT_TABLE"},
+            {"id": "fzgIcU3hVFH","type": "REPORT_TABLE"},
+            {"id": "DkPKc1EUmC2","type": "CHART"}
         ]
     },
     {

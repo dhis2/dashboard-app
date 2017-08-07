@@ -9,6 +9,13 @@ const HINTTEXT_TEXTFIELD = 'Untitled';
 
 const KEYCODE_ENTER = 13;
 
+const styles = {
+    description: {
+        paddingLeft: '6px',
+        color: '#555'
+    }
+};
+
 class DashboardTitle extends Component {
     constructor(props) {
         super(props);
@@ -43,16 +50,21 @@ class DashboardTitle extends Component {
     }
     render() {
         return (
-            <input
-                ref={REF_TEXTFIELD}
-                type="text"
-                value={this.state.name}
-                onKeyUp={this.handleKeyUp}
-                onChange={this.handleChange}
-                onBlur={this.props.onBlur}
-                placeholder={HINTTEXT_TEXTFIELD}
-                className="DashboardTitle-textfield"
-            />
+            <div>
+                <input
+                    ref={REF_TEXTFIELD}
+                    type="text"
+                    value={this.state.name}
+                    onKeyUp={this.handleKeyUp}
+                    onChange={this.handleChange}
+                    onBlur={this.props.onBlur}
+                    placeholder={HINTTEXT_TEXTFIELD}
+                    className="DashboardTitle-textfield"
+                />
+                <div style={styles.description}>
+                    {this.props.description}
+                </div>
+            </div>
         );
     }
 }

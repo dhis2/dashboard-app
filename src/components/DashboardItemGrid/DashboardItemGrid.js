@@ -33,31 +33,35 @@ const runPlugins = (items) => {
 
 class DashboardItemGrid extends Component {
     componentDidUpdate() {
-        //const { items } = this.props;
+        const { items } = this.props;
 
-        //runPlugins(items);
+        runPlugins(items);
     }
+
     render() {
         const items = this.props.items || [];
 
         items.forEach((item, index) => item.i = '' + index);
 
         return (
-            <ReactGridLayout
-                className="layout"
-                layout={items}
-                cols={30}
-                rowHeight={30}
-                width={window.innerWidth}
-            >
-                {items.map((item) => (
-                    <div key={item.i} className={item.type}>
-                        {item.i}
-                        <div id={'plugin-' + item.id}></div>
-                    </div>
-                ))}
-                {}
-            </ReactGridLayout>
+            <div style={{margin: '10px'}}>
+                <ReactGridLayout
+                    onLayoutChange={(a,b,c) => console.log(a,b,c)}
+                    className="layout"
+                    layout={items}
+                    cols={30}
+                    rowHeight={30}
+                    width={window.innerWidth}
+                >
+                    {items.map((item) => (
+                        <div key={item.i} className={item.type}>
+                            {item.i}
+                            <div id={'plugin-' + item.id} className={'pluginItem'}></div>
+                        </div>
+                    ))}
+                    {}
+                </ReactGridLayout>
+            </div>
         );
     }
 }

@@ -146,12 +146,12 @@ const AddButton = () => (
     </div>
 );
 
-const ManageButton = () => (
+const ManageButton = ({ onClickManage }) => (
     <div>
         <IconButton style={styles.iconButton} iconStyle={styles.icon}>
             <IconSettings/>
         </IconButton>
-        {getIconLink({ text: 'Manage dashboards', onClick: console.log })}
+        {getIconLink({ text: 'Manage dashboards', onClick: onClickManage })}
     </div>
 );
 
@@ -244,6 +244,7 @@ const ShowPanel = props => {
 
 const SortPanel = props => {
     const name = fromReducers.fromDashboardsConfig.sortFilterKeyValues.NAME;
+    const items = fromReducers.fromDashboardsConfig.sortFilterKeyValues.ITEMS;
     const created = fromReducers.fromDashboardsConfig.sortFilterKeyValues.CREATED;
 
     const asc = fromReducers.fromDashboardsConfig.sortFilterDirectionValues.ASC;
@@ -257,6 +258,8 @@ const SortPanel = props => {
             {getLinkLabel({ label: 'Sort by' })}
             {getSeparator()}
             {getLink({ text: 'Name', onClick: () => onClickSortFilterKey(name), isSelected: name === key })}
+            {getSeparator()}
+            {getLink({ text: 'Items', onClick: () => onClickSortFilterKey(items), isSelected: items === key })}
             {getSeparator()}
             {getLink({ text: 'Created', onClick: () => onClickSortFilterKey(created), isSelected: created === key })}
             {getSeparatorLine()}
@@ -289,7 +292,7 @@ const DashboardBar = props => (
     <Toolbar style={styles.toolbar}>
         <ToolbarGroup firstChild={true}>
             <AddButton/>
-            <ManageButton/>
+            <ManageButton {...props} />
             <ToolbarSeparator style={styles.toolbarSeparator}/>
             <FilterField {...props} />
             <ClearButton {...props} />

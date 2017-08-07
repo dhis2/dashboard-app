@@ -20,6 +20,10 @@ export const sGetFromState = state => state.dashboards;
 
 export const sGetDashboardById = (state, id) => sGetFromState(state).find(dashboard => dashboard.id === id);
 
+// util
+
+//export const filterChangedDashboardItems = (state, itemsConfig) =>
+
 // api
 
 export const getPersistedState = state => ({ //TODO
