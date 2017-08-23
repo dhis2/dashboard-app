@@ -6,10 +6,14 @@ import { blue500, grey700 } from 'material-ui/styles/colors';
 
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
 import TextField from 'material-ui/TextField';
+import DropDownMenu from 'material-ui/DropDownMenu';
+import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import IconAdd from 'material-ui/svg-icons/content/add-circle';
 import IconSettings from 'material-ui/svg-icons/action/settings';
 import IconClear from 'material-ui/svg-icons/content/clear';
+import IconList from 'material-ui/svg-icons/action/list';
+import ListViewModule from 'material-ui/svg-icons/action/view-module';
 
 import isEmpty from 'd2-utilizr/lib/isEmpty';
 
@@ -67,7 +71,7 @@ const styles = {
         borderRight: '1px solid #aaa'
     },
     toolbar: {
-        height: 36,
+        height: 52,
         backgroundColor: 'transparent'
     },
     toolbarSeparator: {
@@ -242,34 +246,70 @@ const ShowPanel = props => {
     );
 };
 
-const SortPanel = props => {
-    const name = fromReducers.fromDashboardsConfig.sortFilterKeyValues.NAME;
-    const items = fromReducers.fromDashboardsConfig.sortFilterKeyValues.ITEMS;
-    const created = fromReducers.fromDashboardsConfig.sortFilterKeyValues.CREATED;
+class SortMenu extends Component {
+    constructor(props) {
+        super(props);
 
-    const asc = fromReducers.fromDashboardsConfig.sortFilterDirectionValues.ASC;
-    const desc = fromReducers.fromDashboardsConfig.sortFilterDirectionValues.DESC;
+        this.state = {
+            value: props.sortFilterId
+        };
 
-    const { sortFilter, onClickSortFilterKey, onClickSortFilterDirection } = props;
-    const { key, direction } = sortFilter;
+        this.handleChange = this.handleChange.bind(this);
+    }
 
-    return (
-        <div>
-            {getLinkLabel({ label: 'Sort by' })}
-            {getSeparator()}
-            {getLink({ text: 'Name', onClick: () => onClickSortFilterKey(name), isSelected: name === key })}
-            {getSeparator()}
-            {getLink({ text: 'Items', onClick: () => onClickSortFilterKey(items), isSelected: items === key })}
-            {getSeparator()}
-            {getLink({ text: 'Created', onClick: () => onClickSortFilterKey(created), isSelected: created === key })}
-            {getSeparatorLine()}
-            {getSeparator()}
-            {getLink({text: 'ASC', onClick: () => onClickSortFilterDirection(asc), isSelected: asc === direction })}
-            {getSeparator()}
-            {getLink({text: 'DESC', onClick: () => onClickSortFilterDirection(desc), isSelected: desc === direction })}
-        </div>
-    );
-};
+    handleChange(event, index, value) {
+        console.log(this.state.value, value);
+        const sortFilter = fromReducers.fromDashboardsConfig.uGetSortFilterFromId(value);
+
+        if (value !== this.state.value) {
+            this.setState({ value });
+
+            this.props.onClickSortFilterKey(sortFilter.key);
+            this.props.onClickSortFilterDirection(sortFilter.direction);
+        }
+    }
+
+    render() {
+        var sortMenu = {
+            defaultFontStyle: {
+                color: '#222',
+                fontSize: '14px'
+            },
+            labelStyle: {},
+            listStyle: {
+                padding: '10px 0 !important'
+            },
+            menuItemStyle: {},
+            selectedMenuItemStyle: {
+                fontWeight: 500
+            },
+            underlineStyle: {
+                border: '0 none'
+            }
+        };
+
+        return (
+            <DropDownMenu
+                value={this.state.value}
+                onChange={this.handleChange}
+                labelStyle={Object.assign({}, sortMenu.defaultFontStyle, sortMenu.labelStyle)}
+                listStyle={Object.assign({}, sortMenu.defaultFontStyle, sortMenu.listStyle)}
+                menuItemStyle={Object.assign({}, sortMenu.defaultFontStyle, sortMenu.menuItemStyle)}
+                selectedMenuItemStyle={Object.assign({}, sortMenu.defaultFontStyle, sortMenu.selectedMenuItemStyle)}
+                menuStyle={{padding: 0}}
+                style={sortMenu.style}
+                underlineStyle={sortMenu.underlineStyle}
+            >
+                <MenuItem value={'NAME_ASC'} primaryText="Name (A-Z)" />
+                <MenuItem value={'NAME_DESC'} primaryText="Name (Z-A)" />
+                <MenuItem value={'ITEMS_ASC'} primaryText="Items (0-9)" />
+                <MenuItem value={'ITEMS_DESC'} primaryText="Items (9-0)" />
+                <MenuItem value={'CREATED_ASC'} primaryText="Created (0-9)" />
+                <MenuItem value={'CREATED_DESC'} primaryText="Created (9-0)" />
+            </DropDownMenu>
+        );
+    }
+}
 
 const ViewPanel = props => {
     const list = fromReducers.fromDashboardsConfig.viewFilterValues.LIST;
@@ -277,14 +317,24 @@ const ViewPanel = props => {
 
     const { viewFilter } = props;
 
+    const onClickViewFilterParamMap = {
+        [list]: table,
+        [table]: list
+    };
+
+    function onClick() {
+        props.onClickViewFilter(onClickViewFilterParamMap[viewFilter]);
+    }
+
+    const buttonMap = {
+        [list]: <IconList />,
+        [table]: <ListViewModule />
+    };
+
     return (
-        <div>
-            {getLinkLabel({ label: 'View' })}
-            {getSeparator()}
-            {getLink({ text: 'List', onClick: () => props.onClickViewFilter(list), isSelected: list === viewFilter })}
-            {getSeparator()}
-            {getLink({ text: 'Table', onClick: () => props.onClickViewFilter(table), isSelected: table === viewFilter })}
-        </div>
+        <IconButton onClick={onClick}>
+            {buttonMap[viewFilter]}
+        </IconButton>
     );
 };
 
@@ -301,7 +351,7 @@ const DashboardBar = props => (
             <ShowPanel {...props} />
         </ToolbarGroup>
         <ToolbarGroup>
-            <SortPanel {...props} />
+            <SortMenu {...props} />
         </ToolbarGroup>
         <ToolbarGroup>
             <ViewPanel {...props} />

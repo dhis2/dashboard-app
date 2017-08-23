@@ -21,11 +21,15 @@ global.chartPlugin.type = 'CHART';
 class App extends Component {
     render() {
         return (
-            <div className="wrapper">
+            <div>
                 <HeaderBar />
-                <DashboardSelectCt />
-                <DashboardTitleCt />
-                <DashboardItemGridCt />
+                <div className="DashboardSelect">
+                    <div className="wrapper">
+                        <DashboardSelectCt />
+                        <DashboardTitleCt />
+                        <DashboardItemGridCt />
+                    </div>
+                </div>
             </div>
         );
     }

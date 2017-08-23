@@ -134,6 +134,24 @@ export const sGetSortFilterFromState = state => sGetDashboardsConfigFromState(st
 
 export const sGetViewFilterFromState = state => sGetDashboardsConfigFromState(state).viewFilter;
 
+// selectors level 3
+
+export const sGetSortFilterId = state => {
+    var sortFilter = sGetSortFilterFromState(state);
+    return sortFilter.key + '_' + sortFilter.direction;
+};
+
+// utils
+
+export const uGetSortFilterFromId = id => {
+    const [key, direction] = id.split('_');
+
+    return {
+        key,
+        direction
+    };
+};
+
 
 
 

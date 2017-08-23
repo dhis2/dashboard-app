@@ -30,7 +30,8 @@ const styles = {
         },
         liName: {
             color: '#2264ff',
-            fontSize: '14px',
+            fontSize: '13px',
+            fontWeight: 500,
             paddingBottom: '3px'
         }
     },

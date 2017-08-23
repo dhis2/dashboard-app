@@ -15,7 +15,7 @@ const mapStateToProps = state => {
         selectedId: fromReducers.fromDashboardsConfig.sGetSelectedIdFromState(state),
         textFilter: fromReducers.fromDashboardsConfig.sGetTextFilterFromState(state),
         showFilter: fromReducers.fromDashboardsConfig.sGetShowFilterFromState(state),
-        sortFilter: fromReducers.fromDashboardsConfig.sGetSortFilterFromState(state),
+        sortFilterId: fromReducers.fromDashboardsConfig.sGetSortFilterId(state),
         viewFilter: fromReducers.fromDashboardsConfig.sGetViewFilterFromState(state)
     };
 };
@@ -50,7 +50,7 @@ DashboardSelectCt.propTypes = {
     selectedId: PropTypes.string,
     textFilter: PropTypes.string,
     showFilter: PropTypes.string,
-    sortFilter: PropTypes.object,
+    sortFilterId: PropTypes.object,
     viewFilter: PropTypes.string,
     onClickDashboard: PropTypes.func,
     onChangeTextFilter: PropTypes.func,
