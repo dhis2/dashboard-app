@@ -9,8 +9,9 @@ import TextField from 'material-ui/TextField';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
-import IconAdd from 'material-ui/svg-icons/content/add-circle';
+import IconHome from 'material-ui/svg-icons/action/home';
 import IconSettings from 'material-ui/svg-icons/action/settings';
+import IconAdd from 'material-ui/svg-icons/content/add-circle';
 import IconClear from 'material-ui/svg-icons/content/clear';
 import IconList from 'material-ui/svg-icons/action/list';
 import ListViewModule from 'material-ui/svg-icons/action/view-module';
@@ -98,8 +99,10 @@ const styles = {
         backgroundColor: 'transparent'
     },
     toolbarSeparator: {
-        height: '20px',
-        marginLeft: '9px'
+        height: '24px',
+        marginLeft: '9px',
+        position: 'relative',
+        top: '4px'
     }
 };
 
@@ -164,12 +167,12 @@ const getIconLink = ({ text, onClick }) => getLink({ text, onClick, style: style
 
 // components
 
-const HomeButton = () => (
+const HomeButton = ({ onClickHome }) => (
     <div>
         <IconButton style={styles.iconButton} iconStyle={styles.icon}>
-            <IconAdd color={blue500}/>
+            <IconHome />
         </IconButton>
-        {getIconLink({ text: 'New', onClick: console.log })}
+        {getIconLink({ text: 'Home', onClick: onClickHome })}
     </div>
 );
 
@@ -446,8 +449,10 @@ const ViewPanel = props => {
 const DashboardBar = props => (
     <Toolbar style={styles.toolbar}>
         <ToolbarGroup firstChild={true}>
-            <AddButton/>
+            <HomeButton {...props} />
             <ManageButton {...props} />
+            <ToolbarSeparator style={styles.toolbarSeparator} />
+            <AddButton/>
         </ToolbarGroup>
         <ToolbarGroup lastChild={true}>
             <FilterField {...props} />

@@ -5,10 +5,13 @@ import { apiFetchDashboards } from '../api';
 const { actionTypes } = fromReducers;
 
 // dashboards objects
+
 export const acSetDashboards = dashboards => ({
     type: actionTypes.SET_DASHBOARDS,
     dashboards
 });
+
+// dashboardsConfig objects
 
 export const acSetDashboardsConfigIsFetching = isFetching => ({
     type: actionTypes.SET_DASHBOARDSCONFIG_ISFETCHING,
@@ -45,7 +48,8 @@ export const acSetDashboardsConfigViewFilter = viewFilter => ({
     viewFilter
 });
 
-// thunks
+// dashboards thunks
+
 export const tSetDashboards = () => (dispatch, getState) => {
     dispatch(acSetDashboardsConfigIsFetching(true));
 
@@ -54,4 +58,22 @@ export const tSetDashboards = () => (dispatch, getState) => {
         dispatch(acSetDashboardsConfigTextFilter());
         dispatch(acSetDashboards(dashboards));
     });
+};
+
+// dashboardsConfig thunks
+
+export const tSetPresetHome = () => (dispatch, getState) => {
+    dispatch(acSetDashboardsConfigTextFilter());
+    dispatch(acSetDashboardsConfigShowFilter('STARRED'));
+    dispatch(acSetDashboardsConfigSortFilterKey());
+    dispatch(acSetDashboardsConfigSortFilterDirection());
+    dispatch(acSetDashboardsConfigViewFilter('LIST'));
+};
+
+export const tSetPresetManage = () => (dispatch, getState) => {
+    dispatch(acSetDashboardsConfigTextFilter());
+    dispatch(acSetDashboardsConfigShowFilter());
+    dispatch(acSetDashboardsConfigSortFilterKey());
+    dispatch(acSetDashboardsConfigSortFilterDirection());
+    dispatch(acSetDashboardsConfigViewFilter('TABLE'));
 };

@@ -27,13 +27,8 @@ const mapDispatchToProps = dispatch => ({
     onClickSortFilterKey: value => dispatch(fromActions.acSetDashboardsConfigSortFilterKey(value)),
     onClickSortFilterDirection: value => dispatch(fromActions.acSetDashboardsConfigSortFilterDirection(value)),
     onClickViewFilter: value => dispatch(fromActions.acSetDashboardsConfigViewFilter(value)),
-    onClickManage: () => {
-        dispatch(fromActions.acSetDashboardsConfigTextFilter());
-        dispatch(fromActions.acSetDashboardsConfigShowFilter());
-        dispatch(fromActions.acSetDashboardsConfigSortFilterKey());
-        dispatch(fromActions.acSetDashboardsConfigSortFilterDirection());
-        dispatch(fromActions.acSetDashboardsConfigViewFilter('TABLE'));
-    }
+    onClickHome: () => dispatch(fromActions.tSetPresetHome()),
+    onClickManage: () => dispatch(fromActions.tSetPresetManage())
 });
 
 let DashboardSelectCt = props => (
@@ -56,8 +51,11 @@ DashboardSelectCt.propTypes = {
     onClickDashboard: PropTypes.func,
     onChangeTextFilter: PropTypes.func,
     onClickShowFilter: PropTypes.func,
-    onClickSortFilter: PropTypes.func,
-    onClickViewFilter: PropTypes.func
+    onClickSortFilterKey: PropTypes.func,
+    onClickSortFilterDirection: PropTypes.func,
+    onClickViewFilter: PropTypes.func,
+    onClickHome: PropTypes.func,
+    onClickManage: PropTypes.func
 };
 
 export default DashboardSelectCt;
