@@ -36,12 +36,33 @@ const styles = {
         top: '-2px',
         left: '-11px'
     },
+    filterField: {
+        marginLeft: '14px',
+        height: '36px',
+        fontSize: '14px',
+        width: '200px'
+    },
+    filterFieldInput: {
+        top: '4px'
+    },
+    filterFieldHint: {
+        top: '10px'
+    },
+    filterFieldUnderline: {
+        bottom: '2px'
+    },
+    filterFieldUnderlineFocus: {
+        bottom: '2px',
+        borderColor: '#aaa',
+        borderWidth: '1px'
+    },
     clearButton: {
-        width: '28px',
-        height: '28px',
+        width: '24px',
+        height: '24px',
         padding: 0,
         position: 'relative',
-        left: '-25px'
+        top: '5px',
+        left: '-22px'
     },
     clearButtonIcon: {
         width: '16px',
@@ -201,11 +222,11 @@ class FilterField extends Component {
                 onChange={this.setFilterValue}
                 onKeyUp={this.handleKeyUp}
                 hintText="Filter dashboards"
-                style={{marginLeft: '14px', height: '36px', fontSize: '13px', width: '200px'}}
-                inputStyle={{top: '1px'}}
-                hintStyle={{top: '8px'}}
-                underlineStyle={{bottom: '5px'}}
-                underlineFocusStyle={{bottom: '5px', borderColor: '#aaa', borderWidth: '1px'}}
+                style={styles.filterField}
+                inputStyle={styles.filterFieldInput}
+                hintStyle={styles.filterFieldHint}
+                underlineStyle={styles.filterFieldUnderline}
+                underlineFocusStyle={styles.filterFieldUnderlineFocus}
             />
         );
     }
@@ -231,7 +252,7 @@ ClearButton.propTypes = {
     textFilter: PropTypes.string.isRequired
 };
 
-const Show = props => {
+const TmpShow = props => {
     const all = fromReducers.fromDashboardsConfig.showFilterValues.ALL;
     const starred = fromReducers.fromDashboardsConfig.showFilterValues.STARRED;
 
@@ -257,6 +278,12 @@ class ShowMenu extends Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            value: nextProps.showFilter
+        });
     }
 
     handleChange(event, index, value) {
@@ -316,6 +343,12 @@ class SortMenu extends Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            value: nextProps.sortFilterId
+        });
     }
 
     handleChange(event, index, value) {
@@ -406,11 +439,10 @@ const DashboardBar = props => (
         <ToolbarGroup firstChild={true}>
             <AddButton/>
             <ManageButton {...props} />
-            <ToolbarSeparator style={styles.toolbarSeparator}/>
-            <FilterField {...props} />
-            <ClearButton {...props} />
         </ToolbarGroup>
         <ToolbarGroup lastChild={true}>
+            <FilterField {...props} />
+            <ClearButton {...props} />
             <ShowMenu {...props} />
             <SortMenu {...props} />
             <ViewPanel {...props} />
