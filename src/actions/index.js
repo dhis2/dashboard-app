@@ -1,6 +1,8 @@
-import { actionTypes } from '../reducers';
+import * as fromReducers from '../reducers';
 
 import { apiFetchDashboards } from '../api';
+
+const { actionTypes } = fromReducers;
 
 // dashboards objects
 export const acSetDashboards = dashboards => ({
@@ -10,7 +12,7 @@ export const acSetDashboards = dashboards => ({
 
 export const acSetDashboardsConfigIsFetching = isFetching => ({
     type: actionTypes.SET_DASHBOARDSCONFIG_ISFETCHING,
-    isFetching: !!isFetching
+    isFetching: isFetching
 });
 
 export const acSetDashboardsConfigSelectedId = selectedId => ({

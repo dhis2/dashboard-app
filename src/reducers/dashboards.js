@@ -1,12 +1,15 @@
+import { validateReducer } from './index';
+
 export const actionTypes = {
     SET_DASHBOARDS: 'SET_DASHBOARDS'
 };
 
+export const DEFAULT_DASHBOARDS = [];
+
 export default (state = [], action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDS:
-            return action.dashboards;
-
+            return validateReducer(action.dashboards, DEFAULT_DASHBOARDS);
         default:
             return state;
     }

@@ -12,18 +12,22 @@ export const actionTypes = Object.assign({},
     fromDashboardsConfig.actionTypes
 );
 
+// reducer validator
+export const validateReducer = (value, defaultValue) => value === undefined || value === null ? defaultValue : value;
+
+// map constants to data
+const mapConstToData = {
+    [fromDashboardsConfig.sortFilterKeyValues.NAME]: 'name',
+    [fromDashboardsConfig.sortFilterKeyValues.ITEMS]: 'numberOfItems',
+    [fromDashboardsConfig.sortFilterKeyValues.CREATED]: 'created'
+};
+
 // reducers
 
 export default combineReducers({
     dashboards,
     dashboardsConfig
 });
-
-const mapConstToData = {
-    [fromDashboardsConfig.sortFilterKeyValues.NAME]: 'name',
-    [fromDashboardsConfig.sortFilterKeyValues.ITEMS]: 'numberOfItems',
-    [fromDashboardsConfig.sortFilterKeyValues.CREATED]: 'created'
-};
 
 // root selectors
 

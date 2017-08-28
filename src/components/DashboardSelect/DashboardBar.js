@@ -164,6 +164,15 @@ const getIconLink = ({ text, onClick }) => getLink({ text, onClick, style: style
 
 // components
 
+const HomeButton = () => (
+    <div>
+        <IconButton style={styles.iconButton} iconStyle={styles.icon}>
+            <IconAdd color={blue500}/>
+        </IconButton>
+        {getIconLink({ text: 'New', onClick: console.log })}
+    </div>
+);
+
 const AddButton = () => (
     <div>
         <IconButton style={styles.iconButton} iconStyle={styles.icon}>

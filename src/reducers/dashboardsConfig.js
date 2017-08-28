@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import isBoolean from 'd2-utilizr/lib/isBoolean';
+import { validateReducer } from './index';
 
 export const actionTypes = {
     SET_DASHBOARDSCONFIG_ISFETCHING: 'SET_DASHBOARDSCONFIG_ISFETCHING',
@@ -44,7 +44,7 @@ export const DEFAULT_DASHBOARDSCONFIG_VIEWFILTER = viewFilterValues.LIST;
 const isFetching = (state = DEFAULT_DASHBOARDSCONFIG_ISFETCHING, action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDSCONFIG_ISFETCHING:
-            return isBoolean(action.isFetching) ? action.isFetching : DEFAULT_DASHBOARDSCONFIG_ISFETCHING;
+            return validateReducer(action.isFetching, DEFAULT_DASHBOARDSCONFIG_ISFETCHING);
         default:
             return state;
     }
@@ -53,7 +53,7 @@ const isFetching = (state = DEFAULT_DASHBOARDSCONFIG_ISFETCHING, action) => {
 const selectedId = (state = DEFAULT_DASHBOARDSCONFIG_SELECTEDID, action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDSCONFIG_SELECTEDID:
-            return action.selectedId;
+            return validateReducer(action.selectedId, DEFAULT_DASHBOARDSCONFIG_SELECTEDID);
         default:
             return state;
     }
@@ -62,7 +62,7 @@ const selectedId = (state = DEFAULT_DASHBOARDSCONFIG_SELECTEDID, action) => {
 const textFilter = (state = DEFAULT_DASHBOARDSCONFIG_TEXTFILTER, action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDSCONFIG_TEXTFILTER:
-            return action.textFilter || DEFAULT_DASHBOARDSCONFIG_TEXTFILTER;
+            return validateReducer(action.textFilter, DEFAULT_DASHBOARDSCONFIG_TEXTFILTER);
         default:
             return state;
     }
@@ -71,7 +71,7 @@ const textFilter = (state = DEFAULT_DASHBOARDSCONFIG_TEXTFILTER, action) => {
 const showFilter = (state = DEFAULT_DASHBOARDSCONFIG_SHOWFILTER, action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDSCONFIG_SHOWFILTER:
-            return action.showFilter;
+            return validateReducer(action.showFilter, DEFAULT_DASHBOARDSCONFIG_SHOWFILTER);
         default:
             return state;
     }
@@ -80,7 +80,7 @@ const showFilter = (state = DEFAULT_DASHBOARDSCONFIG_SHOWFILTER, action) => {
 const key = (state = DEFAULT_DASHBOARDSCONFIG_SORTFILTER_KEY, action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDSCONFIG_SORTFILTER_KEY:
-            return action.key;
+            return validateReducer(action.key, DEFAULT_DASHBOARDSCONFIG_SORTFILTER_KEY);
         default:
             return state;
     }
@@ -89,7 +89,7 @@ const key = (state = DEFAULT_DASHBOARDSCONFIG_SORTFILTER_KEY, action) => {
 const direction = (state = DEFAULT_DASHBOARDSCONFIG_SORTFILTER_DIRECTION, action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDSCONFIG_SORTFILTER_DIRECTION:
-            return action.direction;
+            return validateReducer(action.direction, DEFAULT_DASHBOARDSCONFIG_SORTFILTER_DIRECTION);
         default:
             return state;
     }
@@ -98,7 +98,7 @@ const direction = (state = DEFAULT_DASHBOARDSCONFIG_SORTFILTER_DIRECTION, action
 const viewFilter = (state = DEFAULT_DASHBOARDSCONFIG_VIEWFILTER, action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDSCONFIG_VIEWFILTER:
-            return action.viewFilter;
+            return validateReducer(action.viewFilter, DEFAULT_DASHBOARDSCONFIG_VIEWFILTER);
         default:
             return state;
     }

@@ -28,9 +28,10 @@ const mapDispatchToProps = dispatch => ({
     onClickSortFilterDirection: value => dispatch(fromActions.acSetDashboardsConfigSortFilterDirection(value)),
     onClickViewFilter: value => dispatch(fromActions.acSetDashboardsConfigViewFilter(value)),
     onClickManage: () => {
-        dispatch(fromActions.acSetDashboardsConfigShowFilter('ALL'));
-        dispatch(fromActions.acSetDashboardsConfigSortFilterKey('NAME'));
-        dispatch(fromActions.acSetDashboardsConfigSortFilterDirection('ASC'));
+        dispatch(fromActions.acSetDashboardsConfigTextFilter());
+        dispatch(fromActions.acSetDashboardsConfigShowFilter());
+        dispatch(fromActions.acSetDashboardsConfigSortFilterKey());
+        dispatch(fromActions.acSetDashboardsConfigSortFilterDirection());
         dispatch(fromActions.acSetDashboardsConfigViewFilter('TABLE'));
     }
 });
