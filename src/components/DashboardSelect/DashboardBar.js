@@ -21,18 +21,20 @@ import * as fromReducers from '../../reducers';
 
 const styles = {
     icon: {
-        width: 20,
-        height: 20
+        width: 24,
+        height: 24
     },
     iconButton: {
-        width: 36,
-        height: 36,
-        padding: 8
+        width: 56,
+        height: 56,
+        padding: 8,
+        position: 'relative',
+        top: '4px'
     },
     iconText: {
         position: 'relative',
-        top: '-5px',
-        left: '-5px'
+        top: '-2px',
+        left: '-11px'
     },
     clearButton: {
         width: '28px',
@@ -46,16 +48,16 @@ const styles = {
         height: '16px'
     },
     link: {
-        fontSize: '13px',
-        fontWeight: 500,
-        color: '#666',
+        fontSize: '14px',
+        fontWeight: 400,
+        color: '#000',
         cursor: 'pointer'
     },
     linkSelected: {
         color: '#000'
     },
     linkHover: {
-        color: '#999'
+        color: '#666'
     },
     linkLabel: {
         fontWeight: 400,
@@ -229,7 +231,7 @@ ClearButton.propTypes = {
     textFilter: PropTypes.string.isRequired
 };
 
-const ShowPanel = props => {
+const Show = props => {
     const all = fromReducers.fromDashboardsConfig.showFilterValues.ALL;
     const starred = fromReducers.fromDashboardsConfig.showFilterValues.STARRED;
 
@@ -245,6 +247,65 @@ const ShowPanel = props => {
         </div>
     );
 };
+
+class ShowMenu extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            value: props.showFilter
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event, index, value) {
+        console.log(this.state.value, value);
+
+        if (value !== this.state.value) {
+            this.setState({value});
+
+            this.props.onClickShowFilter(value);
+        }
+    }
+
+    render() {
+        var showMenu = {
+            defaultFontStyle: {
+                color: '#222',
+                fontSize: '14px'
+            },
+            labelStyle: {},
+            listStyle: {
+                padding: '10px 0 !important'
+            },
+            menuItemStyle: {},
+            selectedMenuItemStyle: {
+                fontWeight: 500
+            },
+            underlineStyle: {
+                border: '0 none'
+            }
+        };
+
+        return (
+            <DropDownMenu
+                value={this.state.value}
+                onChange={this.handleChange}
+                labelStyle={Object.assign({}, showMenu.defaultFontStyle, showMenu.labelStyle)}
+                listStyle={Object.assign({}, showMenu.defaultFontStyle, showMenu.listStyle)}
+                menuItemStyle={Object.assign({}, showMenu.defaultFontStyle, showMenu.menuItemStyle)}
+                selectedMenuItemStyle={Object.assign({}, showMenu.defaultFontStyle, showMenu.selectedMenuItemStyle)}
+                menuStyle={{padding: 0}}
+                style={showMenu.style}
+                underlineStyle={showMenu.underlineStyle}
+            >
+                <MenuItem value={'ALL'} primaryText="All items"/>
+                <MenuItem value={'STARRED'} primaryText="Starred"/>
+            </DropDownMenu>
+        );
+    }
+}
 
 class SortMenu extends Component {
     constructor(props) {
@@ -302,10 +363,10 @@ class SortMenu extends Component {
             >
                 <MenuItem value={'NAME_ASC'} primaryText="Name (A-Z)" />
                 <MenuItem value={'NAME_DESC'} primaryText="Name (Z-A)" />
-                <MenuItem value={'ITEMS_ASC'} primaryText="Items (0-9)" />
-                <MenuItem value={'ITEMS_DESC'} primaryText="Items (9-0)" />
-                <MenuItem value={'CREATED_ASC'} primaryText="Created (0-9)" />
-                <MenuItem value={'CREATED_DESC'} primaryText="Created (9-0)" />
+                <MenuItem value={'ITEMS_ASC'} primaryText="Number of items (0-9)" />
+                <MenuItem value={'ITEMS_DESC'} primaryText="Number of items (9-0)" />
+                <MenuItem value={'CREATED_ASC'} primaryText="Created date (0-9)" />
+                <MenuItem value={'CREATED_DESC'} primaryText="Created date (9-0)" />
             </DropDownMenu>
         );
     }
@@ -317,6 +378,8 @@ const ViewPanel = props => {
 
     const { viewFilter } = props;
 
+    const buttonColor = grey700;
+
     const onClickViewFilterParamMap = {
         [list]: table,
         [table]: list
@@ -327,12 +390,12 @@ const ViewPanel = props => {
     }
 
     const buttonMap = {
-        [list]: <IconList />,
-        [table]: <ListViewModule />
+        [list]: <IconList color={buttonColor} />,
+        [table]: <ListViewModule color={buttonColor} />
     };
 
     return (
-        <IconButton onClick={onClick}>
+        <IconButton style={styles.iconButton} iconStyle={styles.icon} onClick={onClick}>
             {buttonMap[viewFilter]}
         </IconButton>
     );
@@ -347,13 +410,9 @@ const DashboardBar = props => (
             <FilterField {...props} />
             <ClearButton {...props} />
         </ToolbarGroup>
-        <ToolbarGroup>
-            <ShowPanel {...props} />
-        </ToolbarGroup>
-        <ToolbarGroup>
+        <ToolbarGroup lastChild={true}>
+            <ShowMenu {...props} />
             <SortMenu {...props} />
-        </ToolbarGroup>
-        <ToolbarGroup>
             <ViewPanel {...props} />
         </ToolbarGroup>
     </Toolbar>

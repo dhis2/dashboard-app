@@ -51,12 +51,12 @@ const styles = {
     },
     tableView: {
         root: {
-            margin: '20px'
+            margin: '10px 20px 20px'
         },
         row: {
             height: '19px',
-            padding: '2px',
-            fontSize: '11px'
+            padding: '4px',
+            fontSize: '13px'
         },
         rowColumn: {
             color: '#000',
@@ -66,7 +66,9 @@ const styles = {
             width: '70px'
         },
         name: {
-            width: '400px'
+            width: '400px',
+            fontSize: '13px',
+            fontWeight: 500
         }
     }
 };
