@@ -26,9 +26,11 @@ class App extends Component {
                 <div className="DashboardSelect">
                     <div className="wrapper">
                         <DashboardSelectCt />
-                        <DashboardTitleCt />
-                        <DashboardItemGridCt />
                     </div>
+                </div>
+                <div className="wrapper">
+                    <DashboardTitleCt />
+                    <DashboardItemGridCt />
                 </div>
             </div>
         );

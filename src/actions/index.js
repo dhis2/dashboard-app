@@ -64,7 +64,7 @@ export const tSetDashboards = () => (dispatch, getState) => {
 
 export const tSetPresetHome = () => (dispatch, getState) => {
     dispatch(acSetDashboardsConfigTextFilter());
-    dispatch(acSetDashboardsConfigShowFilter('STARRED'));
+    dispatch(acSetDashboardsConfigShowFilter());
     dispatch(acSetDashboardsConfigSortFilterKey());
     dispatch(acSetDashboardsConfigSortFilterDirection());
     dispatch(acSetDashboardsConfigViewFilter('LIST'));

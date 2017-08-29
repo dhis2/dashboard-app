@@ -8,25 +8,29 @@ const getDate = () => {
     const y = Math.floor(Math.random() * 3) + 2015;
     const M = Math.floor(Math.random() * 12) + 1;
     const d = Math.floor(Math.random() * 28) + 1;
-    const h = Math.floor(Math.random() * 23) + 1;
-    const m = Math.floor(Math.random() * 59) + 1;
-    const s = Math.floor(Math.random() * 59) + 1;
+    // const h = Math.floor(Math.random() * 23) + 1;
+    // const m = Math.floor(Math.random() * 59) + 1;
+    // const s = Math.floor(Math.random() * 59) + 1;
 
-    return (new Date(y + '-' + M + '-' + d + ' ' + h + ':' + m + ':' + s)).toJSON().replace('T', ' ').substr(0, 19);
+    return (new Date(y + '-' + M + '-' + d)).toJSON().replace('T', ' ').substr(0, 10);
 };
 
 export const getDashboards = (textFilter, showFilter, sortFilter) => {
-    const date = getDate();
+    let date;
 
-    return data.map(d => ({
-        id: d.id,
-        name: d.name,
-        description: description,
-        starred: d.starred,
-        created: date,
-        lastModified: date,
-        numberOfItems: d.dashboardItems.length
-    }));
+    return data.map(d => {
+        date = getDate();
+
+        return {
+            id: d.id,
+            name: d.name,
+            description: description,
+            starred: d.starred,
+            created: date,
+            lastModified: date,
+            numberOfItems: d.dashboardItems.length
+        };
+    });
 };
 
 const hasPosition = item => isNumber(item.x) && isNumber(item.y) && isNumber(item.w) && isNumber(item.h);

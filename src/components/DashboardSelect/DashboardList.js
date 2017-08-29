@@ -3,8 +3,15 @@ import React, { Component } from 'react';
 import './DashboardList.css';
 
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
+import Avatar from 'material-ui/Avatar';
+import Chip from 'material-ui/Chip';
+
+import IconStar from 'material-ui/svg-icons/toggle/star';
 
 import * as fromReducers from '../../reducers';
+
+const linkColor = '#2264ff';
+const linkColorHover = '#1b3f8f';
 
 const styles = {
     loading: {
@@ -16,7 +23,6 @@ const styles = {
     },
     listView: {
         ul: {
-            textAlign: 'center',
             paddingLeft: '15px'
         },
         li: {
@@ -24,28 +30,34 @@ const styles = {
             margin: '1px',
             cursor: 'pointer',
             color: '#444',
-            padding: '6px 11px',
+            padding: '7px 11px',
             border: '1px solid #e1e1e1',
             borderRadius: '3px'
         },
         liName: {
-            color: '#2264ff',
+            color: linkColor,
             fontSize: '13px',
             fontWeight: 500,
             paddingBottom: '3px'
+        },
+        liNameSelected: {
+            color: linkColorHover,
+            fontWeight: 600
         }
     },
     tableRowColumnTextLink: {
         link: {
-            color: '#2264ff',
+            color: linkColor,
             fontWeight: 'normal',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            fontSize: '13px',
+            fontWeight: 500
         },
         linkHover: {
-            color: '#193874'
+            color: linkColorHover
         },
         linkSelected: {
-            color: '#215DEA',
+            color: linkColorHover,
             fontWeight: 600
         }
     },
@@ -66,9 +78,7 @@ const styles = {
             width: '70px'
         },
         name: {
-            width: '400px',
-            fontSize: '13px',
-            fontWeight: 500
+            width: '400px'
         }
     }
 };
@@ -83,19 +93,71 @@ function Loading() {
     );
 }
 
-function ListView({ dashboards, onClickDashboard, dashboardsIsFetching }) {
+function ListView({ dashboards, onClickDashboard, selectedId }) {
+    const selectedStyle = Object.assign({}, styles.listView.liName, styles.listView.liNameSelected);
+
+    const icon = {
+        width: '13px',
+        height: '13px',
+        position: 'relative',
+        top: '2px',
+        paddingRight: '4px'
+    };
+
+    const s = {
+        chip: {
+            margin: 4
+        },
+        labelStyle: {
+            fontSize: '13px',
+            color: '#333',
+            fontWeight: 500
+        },
+        wrapper: {
+            display: 'flex',
+            flexWrap: 'wrap'
+        },
+    };
+
+    function handleTouchTap() {
+        alert('You clicked the Chip.');
+    }
+
     return (
         <div className="DashboardList">
-            <ul style={styles.listView.ul}>
-                {dashboards.map(d =>
-                    <li key={d.id} onClick={() => onClickDashboard(d.id)}>
-                        <div style={styles.listView.liName}>{d.name}</div>
-                        <div>{d.numberOfItems + ' items'}</div>
-                    </li>
-                )}
-            </ul>
+            <div style={s.wrapper}>
+                {dashboards.map(d => {
+                    return (
+                        <Chip
+                            key={d.id}
+                            onClick={handleTouchTap}
+                            style={s.chip}
+                            labelStyle={s.labelStyle}
+                        >
+                            {d.starred ? <Avatar color="#444" icon={<IconStar/>}/> : ''}
+                            {d.name}
+                        </Chip>
+                    );
+                })}
+            </div>
         </div>
     );
+
+    // return (
+    //     <div className="DashboardList">
+    //         <ul style={styles.listView.ul}>
+    //             {dashboards.map(d => {
+    //                 const style = d.id === selectedId ? selectedStyle : styles.listView.liName;
+    //
+    //                 return (
+    //                     <li key={d.id} onClick={function () { onClickDashboard(d.id) }}>
+    //                         <span>{d.starred ? <IconStar style={icon} /> : ''}</span><span style={style}>{d.name}</span><span>{' (' + d.numberOfItems + ')'}</span>
+    //                     </li>
+    //                 );
+    //             })}
+    //         </ul>
+    //     </div>
+    // );
 }
 
 class TableRowColumnTextLink extends Component {
@@ -146,7 +208,8 @@ class TableRowColumnTextLink extends Component {
                     styles.tableView.name,
                     style,
                     this.state,
-                    selectedStyle)}
+                    selectedStyle
+                )}
                 onMouseOver={this.onMouseOverHandle}
                 onMouseOut={this.onMouseOutHandle}
                 onClick={onClickDashboard}

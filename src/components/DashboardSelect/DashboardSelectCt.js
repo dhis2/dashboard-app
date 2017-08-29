@@ -32,7 +32,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 let DashboardSelectCt = props => (
-    <div>
+    <div id="DashboardSelectCt">
         <DashboardBar {...props} />
         <DashboardList {...props} />
     </div>

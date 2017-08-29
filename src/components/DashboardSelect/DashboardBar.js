@@ -35,7 +35,7 @@ const styles = {
     iconText: {
         position: 'relative',
         top: '-2px',
-        left: '-11px'
+        left: '-12px'
     },
     filterField: {
         marginLeft: '14px',
@@ -94,13 +94,32 @@ const styles = {
         paddingLeft: '7px',
         borderRight: '1px solid #aaa'
     },
+    showMenu: {
+        defaultFontStyle: {
+            color: '#222',
+            fontSize: '14px'
+        },
+        labelStyle: {},
+        listStyle: {
+            padding: '10px 0 !important'
+        },
+        menuItemStyle: {},
+        selectedMenuItemStyle: {
+            fontWeight: 500
+        },
+        underlineStyle: {
+            border: '0 none'
+        }
+    },
     toolbar: {
         height: 52,
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
+        marginBottom: '10px'
     },
     toolbarSeparator: {
         height: '24px',
-        marginLeft: '9px',
+        marginRight: '5px',
+        marginLeft: '12px',
         position: 'relative',
         top: '4px'
     }
@@ -176,7 +195,7 @@ const HomeButton = ({ onClickHome }) => (
     </div>
 );
 
-const AddButton = () => (
+const NewButton = () => (
     <div>
         <IconButton style={styles.iconButton} iconStyle={styles.icon}>
             <IconAdd color={blue500}/>
@@ -309,38 +328,24 @@ class ShowMenu extends Component {
     }
 
     render() {
-        var showMenu = {
-            defaultFontStyle: {
-                color: '#222',
-                fontSize: '14px'
-            },
-            labelStyle: {},
-            listStyle: {
-                padding: '10px 0 !important'
-            },
-            menuItemStyle: {},
-            selectedMenuItemStyle: {
-                fontWeight: 500
-            },
-            underlineStyle: {
-                border: '0 none'
-            }
-        };
+        const all = fromReducers.fromDashboardsConfig.showFilterValues.ALL;
+        const starred = fromReducers.fromDashboardsConfig.showFilterValues.STARRED;
+
+        const style = styles.showMenu;
 
         return (
             <DropDownMenu
                 value={this.state.value}
                 onChange={this.handleChange}
-                labelStyle={Object.assign({}, showMenu.defaultFontStyle, showMenu.labelStyle)}
-                listStyle={Object.assign({}, showMenu.defaultFontStyle, showMenu.listStyle)}
-                menuItemStyle={Object.assign({}, showMenu.defaultFontStyle, showMenu.menuItemStyle)}
-                selectedMenuItemStyle={Object.assign({}, showMenu.defaultFontStyle, showMenu.selectedMenuItemStyle)}
-                menuStyle={{padding: 0}}
-                style={showMenu.style}
-                underlineStyle={showMenu.underlineStyle}
+                labelStyle={Object.assign({}, style.defaultFontStyle, style.labelStyle)}
+                listStyle={Object.assign({}, style.defaultFontStyle, style.listStyle)}
+                menuItemStyle={Object.assign({}, style.defaultFontStyle, style.menuItemStyle)}
+                selectedMenuItemStyle={Object.assign({}, style.defaultFontStyle, style.selectedMenuItemStyle)}
+                style={style.style}
+                underlineStyle={style.underlineStyle}
             >
-                <MenuItem value={'ALL'} primaryText="All items"/>
-                <MenuItem value={'STARRED'} primaryText="Starred"/>
+                <MenuItem value={all} primaryText="All items"/>
+                <MenuItem value={starred} primaryText="Starred"/>
             </DropDownMenu>
         );
     }
@@ -449,10 +454,10 @@ const ViewPanel = props => {
 const DashboardBar = props => (
     <Toolbar style={styles.toolbar}>
         <ToolbarGroup firstChild={true}>
+            <NewButton/>
+            <ToolbarSeparator style={styles.toolbarSeparator} />
             <HomeButton {...props} />
             <ManageButton {...props} />
-            <ToolbarSeparator style={styles.toolbarSeparator} />
-            <AddButton/>
         </ToolbarGroup>
         <ToolbarGroup lastChild={true}>
             <FilterField {...props} />
