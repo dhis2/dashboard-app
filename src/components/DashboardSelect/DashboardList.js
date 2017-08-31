@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import './DashboardList.css';
-
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 import Avatar from 'material-ui/Avatar';
 import Chip from 'material-ui/Chip';
@@ -45,6 +43,10 @@ const styles = {
             fontWeight: 600
         }
     },
+    listItem: {
+        backgroundColor: '#e0e0e0',
+        backgroundColorHover: '#ccc'
+    },
     tableRowColumnTextLink: {
         link: {
             color: linkColor,
@@ -63,7 +65,8 @@ const styles = {
     },
     tableView: {
         root: {
-            margin: '10px 20px 20px'
+            marginTop: '5px',
+            marginLeft: '5px'
         },
         row: {
             height: '19px',
@@ -93,6 +96,74 @@ function Loading() {
     );
 }
 
+class ListItem extends Component {
+    constructor(props) {
+        super(props);
+
+        this.onMouseOverHandle = this.onMouseOverHandle.bind(this);
+        this.onMouseOutHandle = this.onMouseOutHandle.bind(this);
+
+        this.state = {
+            color: styles.listItem.backgroundColor
+        };
+    }
+
+    onMouseOverHandle() {
+        this.setState({
+            color: styles.listItem.backgroundColorHover
+        });
+    }
+
+    onMouseOutHandle() {
+        this.setState({
+            color: styles.listItem.backgroundColor
+        });
+    }
+
+    handleTouchTap() {
+        alert('You clicked the Chip.');
+    }
+
+    render() {
+        const { dashboard } = this.props;
+
+        const s = {
+            chip: {
+                margin: 4,
+                height: '30px'
+            },
+            labelStyle: {
+                fontSize: '13px',
+                color: '#333',
+                fontWeight: 500,
+                lineHeight: '30px'
+            }
+        };
+
+        return (
+            <Chip
+                onClick={this.onClick}
+                style={s.chip}
+                labelStyle={s.labelStyle}
+            >
+                {dashboard.starred ? <Avatar color="#444" style={{height: '30px', width: '30px'}} icon={<IconStar/>}/> : ''}
+                {dashboard.name}
+                <Avatar size={20} style={{
+                    position: 'relative',
+                    left: '6px',
+                    marginLeft: '6px',
+                    color: '#444',
+                    fontSize: '13px',
+                    fontWeight: 700,
+                    backgroundColor: '#ccc',
+                    borderRadius: '50%',
+                    padding: '1px'
+                }}>{dashboard.numberOfItems}</Avatar>
+            </Chip>
+        );
+    }
+}
+
 function ListView({ dashboards, onClickDashboard, selectedId }) {
     const selectedStyle = Object.assign({}, styles.listView.liName, styles.listView.liNameSelected);
 
@@ -104,39 +175,17 @@ function ListView({ dashboards, onClickDashboard, selectedId }) {
         paddingRight: '4px'
     };
 
-    const s = {
-        chip: {
-            margin: 4
-        },
-        labelStyle: {
-            fontSize: '13px',
-            color: '#333',
-            fontWeight: 500
-        },
-        wrapper: {
-            display: 'flex',
-            flexWrap: 'wrap'
-        },
+    const wrapper = {
+        display: 'flex',
+        flexWrap: 'wrap'
     };
-
-    function handleTouchTap() {
-        alert('You clicked the Chip.');
-    }
 
     return (
         <div className="DashboardList">
-            <div style={s.wrapper}>
+            <div style={wrapper}>
                 {dashboards.map(d => {
                     return (
-                        <Chip
-                            key={d.id}
-                            onClick={handleTouchTap}
-                            style={s.chip}
-                            labelStyle={s.labelStyle}
-                        >
-                            {d.starred ? <Avatar color="#444" icon={<IconStar/>}/> : ''}
-                            {d.name}
-                        </Chip>
+                        <ListItem key={d.id} dashboard={d} />
                     );
                 })}
             </div>

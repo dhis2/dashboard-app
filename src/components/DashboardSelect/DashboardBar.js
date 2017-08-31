@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './DashboardBar.css';
+
 import { blue500, grey700 } from 'material-ui/styles/colors';
 
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
@@ -22,38 +23,28 @@ import * as fromReducers from '../../reducers';
 
 const styles = {
     icon: {
-        width: 24,
-        height: 24
+        width: 28,
+        height: 28
     },
     iconButton: {
-        width: 56,
-        height: 56,
-        padding: 8,
-        position: 'relative',
-        top: '4px'
-    },
-    iconText: {
-        position: 'relative',
-        top: '-2px',
-        left: '-12px'
+        width: 52,
+        height: 52,
+        padding: 0
     },
     filterField: {
-        marginLeft: '14px',
-        height: '36px',
         fontSize: '14px',
         width: '200px'
     },
-    filterFieldInput: {
+    filterFieldInput2: {
         top: '4px'
     },
-    filterFieldHint: {
+    filterFieldHint2: {
         top: '10px'
     },
     filterFieldUnderline: {
-        bottom: '2px'
+        bottom: '11px'
     },
     filterFieldUnderlineFocus: {
-        bottom: '2px',
         borderColor: '#aaa',
         borderWidth: '1px'
     },
@@ -61,80 +52,61 @@ const styles = {
         width: '24px',
         height: '24px',
         padding: 0,
-        position: 'relative',
-        top: '5px',
         left: '-22px'
     },
     clearButtonIcon: {
         width: '16px',
         height: '16px'
     },
-    link: {
+    textLink: {
         fontSize: '14px',
         fontWeight: 400,
         color: '#000',
         cursor: 'pointer'
     },
-    linkSelected: {
-        color: '#000'
-    },
-    linkHover: {
+    textLinkHover: {
         color: '#666'
     },
-    linkLabel: {
-        fontWeight: 400,
-        color: '#666'
-    },
-    separator: {
-        paddingLeft: '6px'
-    },
-    separatorLine: {
-        position: 'relative',
-        top: '-1px',
-        paddingLeft: '7px',
-        borderRight: '1px solid #aaa'
-    },
-    showMenu: {
+    dropDownMenu: {
         defaultFontStyle: {
             color: '#222',
             fontSize: '14px'
         },
-        labelStyle: {},
+        labelStyle: {
+            position: 'relative',
+            top: '-2px'
+        },
         listStyle: {
             padding: '10px 0 !important'
         },
-        menuItemStyle: {},
+        iconStyle: {
+            top: '2px'
+        },
         selectedMenuItemStyle: {
             fontWeight: 500
         },
         underlineStyle: {
             border: '0 none'
+        },
+        style: {
+            height: '52px'
         }
     },
     toolbar: {
         height: 52,
-        backgroundColor: 'transparent',
-        marginBottom: '10px'
+        backgroundColor: '#fff'
     },
     toolbarSeparator: {
-        height: '24px',
-        marginRight: '5px',
-        marginLeft: '12px',
-        position: 'relative',
-        top: '4px'
+        height: '26px',
+        marginRight: '20px',
+        marginLeft: '5px',
+    },
+    hiddenToolbarSeparator: {
+        backgroundColor: 'transparent'
     }
 };
 
-const getLinkLabel = ({ label }) =>
-    <span style={Object.assign({}, styles.link, styles.linkLabel)}>{label}:</span>;
-
-const getSeparator = () =>
-    <span style={styles.separator} />;
-
-const getSeparatorLine = () =>
-    <span style={styles.separatorLine} />;
-
-class Link extends Component {
+class TextLink extends Component {
     constructor(props) {
         super(props);
 
@@ -142,29 +114,28 @@ class Link extends Component {
         this.onMouseOutHandle = this.onMouseOutHandle.bind(this);
 
         this.state = {
-            color: styles.link.color
+            color: styles.textLink.color
         };
     }
 
     onMouseOverHandle() {
         this.setState({
-            color: styles.linkHover.color
+            color: styles.textLinkHover.color
         });
     }
 
     onMouseOutHandle() {
         this.setState({
-            color: styles.link.color
+            color: styles.textLink.color
         });
     }
 
     render() {
         const { text, onClick, isSelected, style } = this.props;
-        const selectedStyle = isSelected ? styles.linkSelected : null;
 
         return (
             <span
-                style={Object.assign({}, styles.link, style, this.state, selectedStyle)}
+                style={Object.assign({}, styles.textLink, style, this.state)}
                 onClick={onClick}
                 onMouseOver={this.onMouseOverHandle}
                 onMouseOut={this.onMouseOutHandle}
@@ -175,43 +146,33 @@ class Link extends Component {
     }
 }
 
-const getLink = ({ text, onClick, isSelected, style }) =>
-    <Link
+const getLink = ({ text, onClick, style }) =>
+    <TextLink
         text={text}
         onClick={onClick}
-        isSelected={isSelected}
         style={style} />;
 
-const getIconLink = ({ text, onClick }) => getLink({ text, onClick, style: styles.iconText });
+const getToolbarLink = ({ text, onClick }) => getLink({ text, onClick });
 
 // components
 
-const HomeButton = ({ onClickHome }) => (
-    <div>
-        <IconButton style={styles.iconButton} iconStyle={styles.icon}>
-            <IconHome />
-        </IconButton>
-        {getIconLink({ text: 'Home', onClick: onClickHome })}
-    </div>
-);
-
 const NewButton = () => (
-    <div>
-        <IconButton style={styles.iconButton} iconStyle={styles.icon}>
-            <IconAdd color={blue500}/>
-        </IconButton>
-        {getIconLink({ text: 'New', onClick: console.log })}
-    </div>
+    <IconButton style={styles.iconButton} iconStyle={styles.icon}>
+        <IconAdd color={blue500}/>
+    </IconButton>
 );
 
-const ManageButton = ({ onClickManage }) => (
-    <div>
-        <IconButton style={styles.iconButton} iconStyle={styles.icon}>
-            <IconSettings/>
-        </IconButton>
-        {getIconLink({ text: 'Manage dashboards', onClick: onClickManage })}
-    </div>
-);
+const HomeButton = ({ onClickHome }) => getToolbarLink({
+    text: 'Home',
+    onClick: onClickHome,
+    style: {}
+});
+
+const ManageButton = ({ onClickManage }) => getToolbarLink({
+    text: 'Manage dashboards',
+    onClick: onClickManage,
+    style: {}
+});
 
 class FilterField extends Component {
     constructor(props) {
@@ -283,23 +244,6 @@ ClearButton.propTypes = {
     textFilter: PropTypes.string.isRequired
 };
 
-const TmpShow = props => {
-    const all = fromReducers.fromDashboardsConfig.showFilterValues.ALL;
-    const starred = fromReducers.fromDashboardsConfig.showFilterValues.STARRED;
-
-    const { showFilter, onClickShowFilter } = props;
-
-    return (
-        <div>
-            {getLinkLabel({ label: 'Show' })}
-            {getSeparator()}
-            {getLink({ text: 'All', onClick: () => onClickShowFilter(all), isSelected: all === showFilter })}
-            {getSeparator()}
-            {getLink({ text: 'Starred', onClick: () => onClickShowFilter(starred), isSelected: starred === showFilter })}
-        </div>
-    );
-};
-
 class ShowMenu extends Component {
     constructor(props) {
         super(props);
@@ -331,7 +275,7 @@ class ShowMenu extends Component {
         const all = fromReducers.fromDashboardsConfig.showFilterValues.ALL;
         const starred = fromReducers.fromDashboardsConfig.showFilterValues.STARRED;
 
-        const style = styles.showMenu;
+        const style = styles.dropDownMenu;
 
         return (
             <DropDownMenu
@@ -339,7 +283,7 @@ class ShowMenu extends Component {
                 onChange={this.handleChange}
                 labelStyle={Object.assign({}, style.defaultFontStyle, style.labelStyle)}
                 listStyle={Object.assign({}, style.defaultFontStyle, style.listStyle)}
-                menuItemStyle={Object.assign({}, style.defaultFontStyle, style.menuItemStyle)}
+                iconStyle={style.iconStyle}
                 selectedMenuItemStyle={Object.assign({}, style.defaultFontStyle, style.selectedMenuItemStyle)}
                 style={style.style}
                 underlineStyle={style.underlineStyle}
@@ -381,35 +325,18 @@ class SortMenu extends Component {
     }
 
     render() {
-        var sortMenu = {
-            defaultFontStyle: {
-                color: '#222',
-                fontSize: '14px'
-            },
-            labelStyle: {},
-            listStyle: {
-                padding: '10px 0 !important'
-            },
-            menuItemStyle: {},
-            selectedMenuItemStyle: {
-                fontWeight: 500
-            },
-            underlineStyle: {
-                border: '0 none'
-            }
-        };
+        const style = styles.dropDownMenu;
 
         return (
             <DropDownMenu
                 value={this.state.value}
                 onChange={this.handleChange}
-                labelStyle={Object.assign({}, sortMenu.defaultFontStyle, sortMenu.labelStyle)}
-                listStyle={Object.assign({}, sortMenu.defaultFontStyle, sortMenu.listStyle)}
-                menuItemStyle={Object.assign({}, sortMenu.defaultFontStyle, sortMenu.menuItemStyle)}
-                selectedMenuItemStyle={Object.assign({}, sortMenu.defaultFontStyle, sortMenu.selectedMenuItemStyle)}
-                menuStyle={{padding: 0}}
-                style={sortMenu.style}
-                underlineStyle={sortMenu.underlineStyle}
+                labelStyle={Object.assign({}, style.defaultFontStyle, style.labelStyle)}
+                listStyle={Object.assign({}, style.defaultFontStyle, style.listStyle)}
+                iconStyle={style.iconStyle}
+                selectedMenuItemStyle={Object.assign({}, style.defaultFontStyle, style.selectedMenuItemStyle)}
+                style={style.style}
+                underlineStyle={style.underlineStyle}
             >
                 <MenuItem value={'NAME_ASC'} primaryText="Name (A-Z)" />
                 <MenuItem value={'NAME_DESC'} primaryText="Name (Z-A)" />
@@ -453,10 +380,11 @@ const ViewPanel = props => {
 
 const DashboardBar = props => (
     <Toolbar style={styles.toolbar}>
-        <ToolbarGroup firstChild={true}>
+        <ToolbarGroup style={{position: 'relative', left: '-10px'}} firstChild={true}>
             <NewButton/>
             <ToolbarSeparator style={styles.toolbarSeparator} />
             <HomeButton {...props} />
+            <ToolbarSeparator style={Object.assign({}, styles.toolbarSeparator, styles.hiddenToolbarSeparator)} />
             <ManageButton {...props} />
         </ToolbarGroup>
         <ToolbarGroup lastChild={true}>
