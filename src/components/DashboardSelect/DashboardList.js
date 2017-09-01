@@ -66,6 +66,7 @@ const styles = {
     tableView: {
         root: {
             marginTop: '5px',
+            marginTop: '5px',
             marginLeft: '5px'
         },
         row: {
@@ -96,76 +97,47 @@ function Loading() {
     );
 }
 
-class ListItem extends Component {
-    constructor(props) {
-        super(props);
+const ListItem = ({ dashboard, onClick }) => {
+    const _styles = {
+        chip: {
+            margin: 4,
+            height: '30px',
+            cursor: 'pointer'
+        },
+        labelStyle: {
+            fontSize: '13px',
+            color: '#333',
+            fontWeight: 500,
+            lineHeight: '30px'
+        }
+    };
 
-        this.onMouseOverHandle = this.onMouseOverHandle.bind(this);
-        this.onMouseOutHandle = this.onMouseOutHandle.bind(this);
-
-        this.state = {
-            color: styles.listItem.backgroundColor
-        };
-    }
-
-    onMouseOverHandle() {
-        this.setState({
-            color: styles.listItem.backgroundColorHover
-        });
-    }
-
-    onMouseOutHandle() {
-        this.setState({
-            color: styles.listItem.backgroundColor
-        });
-    }
-
-    handleTouchTap() {
-        alert('You clicked the Chip.');
-    }
-
-    render() {
-        const { dashboard } = this.props;
-
-        const s = {
-            chip: {
-                margin: 4,
-                height: '30px'
-            },
-            labelStyle: {
-                fontSize: '13px',
-                color: '#333',
-                fontWeight: 500,
-                lineHeight: '30px'
-            }
-        };
-
-        return (
-            <Chip
-                onClick={this.onClick}
-                style={s.chip}
-                labelStyle={s.labelStyle}
-            >
-                {dashboard.starred ? <Avatar color="#444" style={{height: '30px', width: '30px'}} icon={<IconStar/>}/> : ''}
-                {dashboard.name}
-                <Avatar size={20} style={{
-                    position: 'relative',
-                    left: '6px',
-                    marginLeft: '6px',
-                    color: '#444',
-                    fontSize: '13px',
-                    fontWeight: 700,
-                    backgroundColor: '#ccc',
-                    borderRadius: '50%',
-                    padding: '1px'
-                }}>{dashboard.numberOfItems}</Avatar>
-            </Chip>
-        );
-    }
+    return (
+        <Chip
+            onClick={onClick}
+            style={_styles.chip}
+            labelStyle={_styles.labelStyle}
+        >
+            {dashboard.starred ? <Avatar color="#444" style={{height: '30px', width: '30px'}} icon={<IconStar/>}/> : ''}
+            {dashboard.name}
+        </Chip>
+    );
 }
 
+//
+// <Avatar size={20} style={{
+//     position: 'relative',
+//     left: '6px',
+//     marginLeft: '6px',
+//     color: '#444',
+//     fontSize: '13px',
+//     fontWeight: 700,
+//     backgroundColor: '#ccc',
+//     borderRadius: '50%',
+//     padding: '1px'
+// }}>{dashboard.numberOfItems}</Avatar>
+
 function ListView({ dashboards, onClickDashboard, selectedId }) {
-    const selectedStyle = Object.assign({}, styles.listView.liName, styles.listView.liNameSelected);
 
     const icon = {
         width: '13px',
@@ -185,7 +157,7 @@ function ListView({ dashboards, onClickDashboard, selectedId }) {
             <div style={wrapper}>
                 {dashboards.map(d => {
                     return (
-                        <ListItem key={d.id} dashboard={d} />
+                        <ListItem key={d.id} dashboard={d} onClick={() => onClickDashboard(d.id)} />
                     );
                 })}
             </div>

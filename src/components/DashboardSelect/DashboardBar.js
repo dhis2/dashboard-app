@@ -94,12 +94,17 @@ const styles = {
     },
     toolbar: {
         height: 52,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        paddingTop: '5px',
+        paddingBottom: '5px'
     },
     toolbarSeparator: {
         height: '26px',
         marginRight: '20px',
         marginLeft: '5px',
+    },
+    toolbarTextLink: {
+        whiteSpace: 'nowrap'
     },
     hiddenToolbarSeparator: {
         backgroundColor: 'transparent'
@@ -150,7 +155,7 @@ const getLink = ({ text, onClick, style }) =>
     <TextLink
         text={text}
         onClick={onClick}
-        style={style} />;
+        style={Object.assign({}, styles.toolbarTextLink, style)} />;
 
 const getToolbarLink = ({ text, onClick }) => getLink({ text, onClick });
 
@@ -357,6 +362,13 @@ const ViewPanel = props => {
 
     const buttonColor = grey700;
 
+    const _styles = {
+        icon: {
+            width: 24,
+            height: 24
+        }
+    };
+
     const onClickViewFilterParamMap = {
         [list]: table,
         [table]: list
@@ -372,7 +384,7 @@ const ViewPanel = props => {
     };
 
     return (
-        <IconButton style={styles.iconButton} iconStyle={styles.icon} onClick={onClick}>
+        <IconButton style={styles.iconButton} iconStyle={_styles.icon} onClick={onClick}>
             {buttonMap[viewFilter]}
         </IconButton>
     );

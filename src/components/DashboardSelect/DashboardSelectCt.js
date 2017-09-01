@@ -21,14 +21,14 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    onClickDashboard: id => dispatch(fromActions.acSetDashboardsConfigSelectedId(id)),
     onChangeTextFilter: value => dispatch(fromActions.acSetDashboardsConfigTextFilter(value)),
     onClickShowFilter: value => dispatch(fromActions.acSetDashboardsConfigShowFilter(value)),
     onClickSortFilterKey: value => dispatch(fromActions.acSetDashboardsConfigSortFilterKey(value)),
     onClickSortFilterDirection: value => dispatch(fromActions.acSetDashboardsConfigSortFilterDirection(value)),
     onClickViewFilter: value => dispatch(fromActions.acSetDashboardsConfigViewFilter(value)),
     onClickHome: () => dispatch(fromActions.tSetPresetHome()),
-    onClickManage: () => dispatch(fromActions.tSetPresetManage())
+    onClickManage: () => dispatch(fromActions.tSetPresetManage()),
+    onClickDashboard: id => dispatch(fromActions.acSetDashboardsConfigSelectedId(id))
 });
 
 let DashboardSelectCt = props => (
