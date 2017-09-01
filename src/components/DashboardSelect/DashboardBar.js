@@ -95,8 +95,8 @@ const styles = {
     toolbar: {
         height: 52,
         backgroundColor: '#fff',
-        paddingTop: '5px',
-        paddingBottom: '5px'
+        paddingTop: '10px',
+        paddingBottom: '8px'
     },
     toolbarSeparator: {
         height: '26px',

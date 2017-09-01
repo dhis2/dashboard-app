@@ -100,7 +100,7 @@ function Loading() {
 const ListItem = ({ dashboard, onClick }) => {
     const _styles = {
         chip: {
-            margin: 4,
+            margin: 3,
             height: '30px',
             cursor: 'pointer'
         },

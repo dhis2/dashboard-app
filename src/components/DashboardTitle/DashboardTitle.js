@@ -12,7 +12,9 @@ const KEYCODE_ENTER = 13;
 const styles = {
     description: {
         paddingLeft: '6px',
-        color: '#555'
+        color: '#666',
+        fontSize: '13px',
+        fontWeight: 400
     }
 };
 

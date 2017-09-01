@@ -34,7 +34,7 @@ export const viewFilterValues = {
 };
 
 export const DEFAULT_DASHBOARDSCONFIG_ISFETCHING = false;
-export const DEFAULT_DASHBOARDSCONFIG_SELECTEDID = '';
+export const DEFAULT_DASHBOARDSCONFIG_SELECTEDID = 'nghVC4wtyzi';
 export const DEFAULT_DASHBOARDSCONFIG_TEXTFILTER = '';
 export const DEFAULT_DASHBOARDSCONFIG_SHOWFILTER = showFilterValues.ALL;
 export const DEFAULT_DASHBOARDSCONFIG_SORTFILTER_KEY = sortFilterKeyValues.NAME;
