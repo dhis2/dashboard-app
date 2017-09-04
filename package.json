@@ -56,5 +56,10 @@
         "href": ".."
       }
     }
+  },
+  "proxy": {
+      "/dhis-web-core-resource": {
+          "target": "http://localhost:8080"
+      }
   }
 }
