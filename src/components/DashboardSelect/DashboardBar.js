@@ -10,13 +10,9 @@ import TextField from 'material-ui/TextField';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
-import IconHome from 'material-ui/svg-icons/action/home';
-import IconSettings from 'material-ui/svg-icons/action/settings';
 import IconAdd from 'material-ui/svg-icons/content/add-circle';
 import IconClear from 'material-ui/svg-icons/content/clear';
 import IconList from 'material-ui/svg-icons/action/list';
-import IconArrowDownward from 'material-ui/svg-icons/navigation/arrow-downward';
-import IconArrowUpward from 'material-ui/svg-icons/navigation/arrow-upward';
 import ListViewModule from 'material-ui/svg-icons/action/view-module';
 
 import isEmpty from 'd2-utilizr/lib/isEmpty';

@@ -153,7 +153,7 @@ function ListView({ dashboards, onClickDashboard, selectedId }) {
     };
 
     return (
-        <div className="DashboardList">
+        <div>
             <div style={wrapper}>
                 {dashboards.map(d => {
                     return (
@@ -163,22 +163,6 @@ function ListView({ dashboards, onClickDashboard, selectedId }) {
             </div>
         </div>
     );
-
-    // return (
-    //     <div className="DashboardList">
-    //         <ul style={styles.listView.ul}>
-    //             {dashboards.map(d => {
-    //                 const style = d.id === selectedId ? selectedStyle : styles.listView.liName;
-    //
-    //                 return (
-    //                     <li key={d.id} onClick={function () { onClickDashboard(d.id) }}>
-    //                         <span>{d.starred ? <IconStar style={icon} /> : ''}</span><span style={style}>{d.name}</span><span>{' (' + d.numberOfItems + ')'}</span>
-    //                     </li>
-    //                 );
-    //             })}
-    //         </ul>
-    //     </div>
-    // );
 }
 
 class TableRowColumnTextLink extends Component {

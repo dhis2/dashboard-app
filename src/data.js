@@ -93,7 +93,7 @@ export default [
     {
         "id": "L1BtjXgpUpd",
         "name": "Immunization data",
-        "starred": false,
+        "starred": true,
         "owner": "ola",
         "dashboardItems": [
             {"id": "PpOlA8w72Ex", "type": "CHART"},
@@ -178,7 +178,7 @@ export default [
     {
         "id": "nTTLMwiwoys",
         "name": "Inpatient Visit Overview",
-        "starred": false,
+        "starred": true,
         "owner": "system",
         "dashboardItems": [
             {"id": "Swlfkt8mojx", "type": "EVENT_REPORT"},
@@ -189,7 +189,7 @@ export default [
     {
         "id": "xP1jtPjus1c",
         "name": "Key Indicators",
-        "starred": false,
+        "starred": true,
         "owner": "system",
         "dashboardItems": [
             {"id": "jbw2BDoi0yl", "type": "CHART"},
@@ -233,7 +233,7 @@ export default [
     {
         "id": "nAZMjkQChz8",
         "name": "Nutrition",
-        "starred": false,
+        "starred": true,
         "owner": "system",
         "dashboardItems": [
             {"id": "zt2r5Lc3PMb", "type": "CHART"},
@@ -261,7 +261,7 @@ export default [
     {
         "id": "MBUMbG6zJIj",
         "name": "Reporting Reproductive Health",
-        "starred": false,
+        "starred": true,
         "owner": "system",
         "dashboardItems": [
             {"id": "tk2eYvYwIIN", "type": "MESSAGES"},
@@ -301,7 +301,7 @@ export default [
     {
         "id": "juY8oe5lg4g",
         "name": "Visits ANC",
-        "starred": false,
+        "starred": true,
         "owner": "system",
         "dashboardItems": [
             {"id": "rvxClGiBfZR", "type": "CHART"},
