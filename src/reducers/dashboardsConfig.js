@@ -15,7 +15,8 @@ export const actionTypes = {
 
 export const showFilterValues = {
     ALL: 'ALL',
-    STARRED: 'STARRED'
+    STARRED: 'STARRED',
+    UNSTARRED: 'UNSTARRED'
 };
 
 export const ownerFilterValues = {

@@ -47,6 +47,8 @@ export const applyDashboardsShowFilter = (dashboards, filter) => {
     switch (filter) {
         case fromDashboardsConfig.showFilterValues.STARRED:
             return dashboards.filter(d => !!d.starred);
+        case fromDashboardsConfig.showFilterValues.UNSTARRED:
+            return dashboards.filter(d => !d.starred);
         default:
             return dashboards;
     }

@@ -15,6 +15,8 @@ import IconSettings from 'material-ui/svg-icons/action/settings';
 import IconAdd from 'material-ui/svg-icons/content/add-circle';
 import IconClear from 'material-ui/svg-icons/content/clear';
 import IconList from 'material-ui/svg-icons/action/list';
+import IconArrowDownward from 'material-ui/svg-icons/navigation/arrow-downward';
+import IconArrowUpward from 'material-ui/svg-icons/navigation/arrow-upward';
 import ListViewModule from 'material-ui/svg-icons/action/view-module';
 
 import isEmpty from 'd2-utilizr/lib/isEmpty';
@@ -279,6 +281,7 @@ class ShowMenu extends Component {
     render() {
         const all = fromReducers.fromDashboardsConfig.showFilterValues.ALL;
         const starred = fromReducers.fromDashboardsConfig.showFilterValues.STARRED;
+        const unstarred = fromReducers.fromDashboardsConfig.showFilterValues.UNSTARRED;
 
         const style = styles.dropDownMenu;
 
@@ -295,6 +298,7 @@ class ShowMenu extends Component {
             >
                 <MenuItem value={all} primaryText="All items"/>
                 <MenuItem value={starred} primaryText="Starred"/>
+                <MenuItem value={unstarred} primaryText="Unstarred"/>
             </DropDownMenu>
         );
     }
@@ -396,12 +400,12 @@ class SortMenu extends Component {
                 style={style.style}
                 underlineStyle={style.underlineStyle}
             >
-                <MenuItem value={'NAME_ASC'} primaryText="Name (A-Z)" />
-                <MenuItem value={'NAME_DESC'} primaryText="Name (Z-A)" />
-                <MenuItem value={'ITEMS_ASC'} primaryText="Number of items (0-9)" />
-                <MenuItem value={'ITEMS_DESC'} primaryText="Number of items (9-0)" />
-                <MenuItem value={'CREATED_ASC'} primaryText="Created date (0-9)" />
-                <MenuItem value={'CREATED_DESC'} primaryText="Created date (9-0)" />
+                <MenuItem value={'NAME_ASC'} primaryText="Name (asc)" />
+                <MenuItem value={'NAME_DESC'} primaryText="Name (desc)" />
+                <MenuItem value={'ITEMS_ASC'} primaryText="Number of items (asc)" />
+                <MenuItem value={'ITEMS_DESC'} primaryText="Number of items (desc)" />
+                <MenuItem value={'CREATED_ASC'} primaryText="Created date (asc)" />
+                <MenuItem value={'CREATED_DESC'} primaryText="Created date (desc)" />
             </DropDownMenu>
         );
     }
