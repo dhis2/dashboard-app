@@ -5,6 +5,7 @@ export default [
         "id": "nghVC4wtyzi",
         "name": "Antenatal Care",
         "starred": true,
+        "owner": "system",
         "dashboardItems": [
             {"id": "fzgIcU3hVFH", "type": "REPORT_TABLE", "x": 0, "y": 0, "w": 5, "h": 5},
             {"id": "DkPKc1EUmC2", "type": "CHART", "x": 5, "y": 0, "w": 5, "h": 5},
@@ -16,6 +17,7 @@ export default [
         "id": "JW7RlN5xafN",
         "name": "Cases Malaria",
         "starred": false,
+        "owner": "system",
         "dashboardItems": [
             {"id": "DkPKc1EUmC2","type": "CHART"},
             {"id": "fzgIcU3hVFH","type": "REPORT_TABLE"},
@@ -27,6 +29,7 @@ export default [
         "id": "iMnYyBfSxmM",
         "name": "Delivery",
         "starred": true,
+        "owner": "system",
         "dashboardItems": [
             {"id": "hewtA7a025J","type": "CHART"},
             {"id": "hrDweynvx7G","type": "REPORT_TABLE"},
@@ -38,6 +41,7 @@ export default [
         "id": "vqh4MBWOTi4",
         "name": "Disease Surveillance",
         "starred": true,
+        "owner": "system",
         "dashboardItems": [
             {"id": "w0NbkJBeGLP", "type": "MESSAGES"},
             {"id": "elpvfPYiyA0", "type": "CHART"},
@@ -52,6 +56,7 @@ export default [
         "id": "Goz4vyRx2cy",
         "name": "EE maps",
         "starred": false,
+        "owner": "bjorn",
         "dashboardItems": [
             {"id": "gyf8gfs3uk2", "type": "MAP"},
             {"id": "vkMr0dQVrar", "type": "MAP"},
@@ -64,6 +69,7 @@ export default [
         "id": "TAMlzYkstb7",
         "name": "Immunization",
         "starred": false,
+        "owner": "lars",
         "dashboardItems": [
             {"id": "i06K10NkglX", "type": "CHART"},
             {"id": "XtKjGUkZd9I", "type": "MAP"},
@@ -88,6 +94,7 @@ export default [
         "id": "L1BtjXgpUpd",
         "name": "Immunization data",
         "starred": false,
+        "owner": "ola",
         "dashboardItems": [
             {"id": "PpOlA8w72Ex", "type": "CHART"},
             {"id": "WL3m3z4aIK4", "type": "MAP"},
@@ -104,6 +111,7 @@ export default [
         "id": "SCtS6Szuubz",
         "name": "Info Videos",
         "starred": false,
+        "owner": "rodolfo",
         "dashboardItems": [
             {"id": "AIChsURmdVc", "type": "APP"},
             {"id": "eUaTA7BsxSH", "type": "APP"},
@@ -116,6 +124,7 @@ export default [
         "id": "uGSg3NSw6TZ",
         "name": "Inpatient BMI, Weight and Height",
         "starred": false,
+        "owner": "system",
         "dashboardItems": [
             {"id": "RlmqciavCF9", "type": "CHART"},
             {"id": "blse0BWjoXx", "type": "REPORT_TABLE"},
@@ -131,6 +140,7 @@ export default [
         "id": "eZSIccgeq94",
         "name": "Inpatient Discharge",
         "starred": false,
+        "owner": "abyot",
         "dashboardItems": [
             {"id": "rv16DynIFqe", "type": "EVENT_CHART"},
             {"id": "oQRdmdaqyfX", "type": "EVENT_REPORT"},
@@ -147,6 +157,7 @@ export default [
         "id": "zbKnj1SCmB4",
         "name": "Inpatient Morbidity Mortality",
         "starred": false,
+        "owner": "system",
         "dashboardItems": [
             {"id": "qJOdTz9gu9K", "type": "MAP"},
             {"id": "Nxjveh2ZIj7", "type": "MAP"},
@@ -168,6 +179,7 @@ export default [
         "id": "nTTLMwiwoys",
         "name": "Inpatient Visit Overview",
         "starred": false,
+        "owner": "system",
         "dashboardItems": [
             {"id": "Swlfkt8mojx", "type": "EVENT_REPORT"},
             {"id": "uOtytwHV8H4", "type": "EVENT_REPORT"},
@@ -178,6 +190,7 @@ export default [
         "id": "xP1jtPjus1c",
         "name": "Key Indicators",
         "starred": false,
+        "owner": "system",
         "dashboardItems": [
             {"id": "jbw2BDoi0yl", "type": "CHART"},
             {"id": "R1dhvC0iOJ0", "type": "CHART"},
@@ -191,6 +204,7 @@ export default [
         "id": "Tvro10HbSUp",
         "name": "LLITN",
         "starred": false,
+        "owner": "ola",
         "dashboardItems": [
             {"id": "VsP4c8QQF4X", "type": "MAP"},
             {"id": "NenqBPPEstg", "type": "MAP"},
@@ -206,6 +220,7 @@ export default [
         "id": "KQVXh5tlzW2",
         "name": "Measles (user org unit)",
         "starred": false,
+        "owner": "system",
         "dashboardItems": [
             {"id": "tfWLu6BRwoR", "type": "CHART"},
             {"id": "dEMeFW81356", "type": "REPORT_TABLE"},
@@ -219,6 +234,7 @@ export default [
         "id": "nAZMjkQChz8",
         "name": "Nutrition",
         "starred": false,
+        "owner": "system",
         "dashboardItems": [
             {"id": "zt2r5Lc3PMb", "type": "CHART"},
             {"id": "n0QCt701tMw", "type": "CHART"},
@@ -232,6 +248,7 @@ export default [
         "id": "hSS0wt6gbUK",
         "name": "Push Report Immunization",
         "starred": false,
+        "owner": "system",
         "dashboardItems": [
             {"id": "brLFuuyZmUq", "type": "CHART"},
             {"id": "UgPLYI55W8h", "type": "CHART"},
@@ -245,6 +262,7 @@ export default [
         "id": "MBUMbG6zJIj",
         "name": "Reporting Reproductive Health",
         "starred": false,
+        "owner": "system",
         "dashboardItems": [
             {"id": "tk2eYvYwIIN", "type": "MESSAGES"},
             {"id": "OEsyjwRGQ1d", "type": "CHART"},
@@ -263,6 +281,7 @@ export default [
         "id": "a68enp54saw",
         "name": "Staffing",
         "starred": false,
+        "owner": "system",
         "dashboardItems": [
             {"id": "BMPSqQA0dJ1", "type": "MAP"},
             {"id": "ZOgdkmxD1xE", "type": "CHART"}
@@ -272,6 +291,7 @@ export default [
         "id": "eCp1qIWRUrf",
         "name": "Top Contacts",
         "starred": false,
+        "owner": "system",
         "dashboardItems": [
             {"id": "XDtfQmL6A1x", "type": "MESSAGES"},
             {"id": "vG7Prz2vAhn", "type": "USERS"},
@@ -282,6 +302,7 @@ export default [
         "id": "juY8oe5lg4g",
         "name": "Visits ANC",
         "starred": false,
+        "owner": "system",
         "dashboardItems": [
             {"id": "rvxClGiBfZR", "type": "CHART"},
             {"id": "Z2OkBYVcloL", "type": "CHART"},

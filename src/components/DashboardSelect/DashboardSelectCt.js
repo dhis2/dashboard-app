@@ -15,6 +15,7 @@ const mapStateToProps = state => {
         selectedId: fromReducers.fromDashboardsConfig.sGetSelectedIdFromState(state),
         textFilter: fromReducers.fromDashboardsConfig.sGetTextFilterFromState(state),
         showFilter: fromReducers.fromDashboardsConfig.sGetShowFilterFromState(state),
+        ownerFilter: fromReducers.fromDashboardsConfig.sGetOwnerFilterFromState(state),
         sortFilterId: fromReducers.fromDashboardsConfig.sGetSortFilterId(state),
         viewFilter: fromReducers.fromDashboardsConfig.sGetViewFilterFromState(state)
     };
@@ -23,6 +24,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     onChangeTextFilter: value => dispatch(fromActions.acSetDashboardsConfigTextFilter(value)),
     onClickShowFilter: value => dispatch(fromActions.acSetDashboardsConfigShowFilter(value)),
+    onClickOwnerFilter: value => dispatch(fromActions.acSetDashboardsConfigOwnerFilter(value)),
     onClickSortFilterKey: value => dispatch(fromActions.acSetDashboardsConfigSortFilterKey(value)),
     onClickSortFilterDirection: value => dispatch(fromActions.acSetDashboardsConfigSortFilterDirection(value)),
     onClickViewFilter: value => dispatch(fromActions.acSetDashboardsConfigViewFilter(value)),

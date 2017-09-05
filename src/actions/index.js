@@ -33,6 +33,11 @@ export const acSetDashboardsConfigShowFilter = showFilter => ({
     showFilter
 });
 
+export const acSetDashboardsConfigOwnerFilter = ownerFilter => ({
+    type: actionTypes.SET_DASHBOARDSCONFIG_OWNERFILTER,
+    ownerFilter
+});
+
 export const acSetDashboardsConfigSortFilterKey = key => ({
     type: actionTypes.SET_DASHBOARDSCONFIG_SORTFILTER_KEY,
     key
@@ -65,6 +70,7 @@ export const tSetDashboards = () => (dispatch, getState) => {
 export const tSetPresetHome = () => (dispatch, getState) => {
     dispatch(acSetDashboardsConfigTextFilter());
     dispatch(acSetDashboardsConfigShowFilter());
+    dispatch(acSetDashboardsConfigOwnerFilter());
     dispatch(acSetDashboardsConfigSortFilterKey());
     dispatch(acSetDashboardsConfigSortFilterDirection());
     dispatch(acSetDashboardsConfigViewFilter('LIST'));
@@ -73,6 +79,7 @@ export const tSetPresetHome = () => (dispatch, getState) => {
 export const tSetPresetManage = () => (dispatch, getState) => {
     dispatch(acSetDashboardsConfigTextFilter());
     dispatch(acSetDashboardsConfigShowFilter());
+    dispatch(acSetDashboardsConfigOwnerFilter());
     dispatch(acSetDashboardsConfigSortFilterKey());
     dispatch(acSetDashboardsConfigSortFilterDirection());
     dispatch(acSetDashboardsConfigViewFilter('TABLE'));

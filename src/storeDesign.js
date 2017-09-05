@@ -11,6 +11,7 @@ const store = {
             key: "NAME",
             direction: "ASC"
         },
-        viewFilter: "LIST"
+        viewFilter: "LIST",
+        ownerFilter: "ALL"
     }
 };

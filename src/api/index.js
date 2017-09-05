@@ -26,6 +26,7 @@ export const getDashboards = (textFilter, showFilter, sortFilter) => {
             name: d.name,
             description: description,
             starred: d.starred,
+            owner: d.owner,
             created: date,
             lastModified: date,
             numberOfItems: d.dashboardItems.length

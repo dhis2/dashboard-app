@@ -60,7 +60,7 @@ const styles = {
         },
         linkSelected: {
             color: linkColorHover,
-            fontWeight: 600
+            fontWeight: 700
         }
     },
     tableView: {
@@ -243,8 +243,6 @@ class TableRowColumnTextLink extends Component {
 
 class TableView extends Component {
 
-    styles = styles.tableView;
-
     state = {
         selected: [1]
     };
@@ -262,30 +260,30 @@ class TableView extends Component {
     render() {
         const { dashboards, onClickDashboard, selectedId } = this.props;
 
-        const styles = this.styles;
+        const _style = styles.tableView;
 
         return (
-            <div style={styles.root}>
+            <div style={_style.root}>
                 <Table onRowSelection={this.handleRowSelection}>
                     <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-                        <TableRow style={styles.row}>
-                            <TableHeaderColumn style={Object.assign({}, styles.row, styles.starred)}>Starred</TableHeaderColumn>
-                            <TableHeaderColumn style={Object.assign({}, styles.row, styles.name)}>Name</TableHeaderColumn>
-                            <TableHeaderColumn style={styles.row}>Items</TableHeaderColumn>
-                            <TableHeaderColumn style={styles.row}>Owner</TableHeaderColumn>
-                            <TableHeaderColumn style={styles.row}>Created</TableHeaderColumn>
-                            <TableHeaderColumn style={styles.row}>Modified</TableHeaderColumn>
+                        <TableRow style={_style.row}>
+                            <TableHeaderColumn style={Object.assign({}, _style.row, _style.starred)}>Starred</TableHeaderColumn>
+                            <TableHeaderColumn style={Object.assign({}, _style.row, _style.name)}>Name</TableHeaderColumn>
+                            <TableHeaderColumn style={_style.row}>Items</TableHeaderColumn>
+                            <TableHeaderColumn style={_style.row}>Owner</TableHeaderColumn>
+                            <TableHeaderColumn style={_style.row}>Created</TableHeaderColumn>
+                            <TableHeaderColumn style={_style.row}>Modified</TableHeaderColumn>
                         </TableRow>
                     </TableHeader>
                     <TableBody displayRowCheckbox={false}>
                         {dashboards.map(d => (
-                            <TableRow key={d.id} style={styles.row}>
-                                <TableRowColumn style={Object.assign({}, styles.row, styles.rowColumn, styles.starred)}>{'' + !!d.starred}</TableRowColumn>
+                            <TableRow key={d.id} style={_style.row}>
+                                <TableRowColumn style={Object.assign({}, _style.row, _style.rowColumn, _style.starred)}>{'' + !!d.starred}</TableRowColumn>
                                 <TableRowColumnTextLink text={d.name} onClickDashboard={() => onClickDashboard(d.id)} isSelected={d.id === selectedId} />
-                                <TableRowColumn style={Object.assign({}, styles.row, styles.rowColumn)}>{d.numberOfItems}</TableRowColumn>
-                                <TableRowColumn style={Object.assign({}, styles.row, styles.rowColumn)}>{'janhov'}</TableRowColumn>
-                                <TableRowColumn style={Object.assign({}, styles.row, styles.rowColumn)}>{d.created}</TableRowColumn>
-                                <TableRowColumn style={Object.assign({}, styles.row, styles.rowColumn)}>{d.lastModified}</TableRowColumn>
+                                <TableRowColumn style={Object.assign({}, _style.row, _style.rowColumn)}>{d.numberOfItems}</TableRowColumn>
+                                <TableRowColumn style={Object.assign({}, _style.row, _style.rowColumn)}>{'janhov'}</TableRowColumn>
+                                <TableRowColumn style={Object.assign({}, _style.row, _style.rowColumn)}>{d.created}</TableRowColumn>
+                                <TableRowColumn style={Object.assign({}, _style.row, _style.rowColumn)}>{d.lastModified}</TableRowColumn>
                             </TableRow>
                         ))}
                     </TableBody>

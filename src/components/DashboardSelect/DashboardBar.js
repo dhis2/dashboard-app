@@ -300,6 +300,59 @@ class ShowMenu extends Component {
     }
 }
 
+class OwnerMenu extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            value: props.ownerFilter
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            value: nextProps.ownerFilter
+        });
+    }
+
+    handleChange(event, index, value) {
+        console.log(this.state.value, value);
+
+        if (value !== this.state.value) {
+            this.setState({value});
+
+            this.props.onClickOwnerFilter(value);
+        }
+    }
+
+    render() {
+        const all = fromReducers.fromDashboardsConfig.ownerFilterValues.ALL;
+        const me = fromReducers.fromDashboardsConfig.ownerFilterValues.ME;
+        const others = fromReducers.fromDashboardsConfig.ownerFilterValues.OTHERS;
+
+        const style = styles.dropDownMenu;
+
+        return (
+            <DropDownMenu
+                value={this.state.value}
+                onChange={this.handleChange}
+                labelStyle={Object.assign({}, style.defaultFontStyle, style.labelStyle)}
+                listStyle={Object.assign({}, style.defaultFontStyle, style.listStyle)}
+                iconStyle={style.iconStyle}
+                selectedMenuItemStyle={Object.assign({}, style.defaultFontStyle, style.selectedMenuItemStyle)}
+                style={style.style}
+                underlineStyle={style.underlineStyle}
+            >
+                <MenuItem value={all} primaryText="All users"/>
+                <MenuItem value={me} primaryText="Created by me"/>
+                <MenuItem value={others} primaryText="Created by others"/>
+            </DropDownMenu>
+        );
+    }
+}
+
 class SortMenu extends Component {
     constructor(props) {
         super(props);
@@ -403,6 +456,7 @@ const DashboardBar = props => (
             <FilterField {...props} />
             <ClearButton {...props} />
             <ShowMenu {...props} />
+            <OwnerMenu {...props} />
             <SortMenu {...props} />
             <ViewPanel {...props} />
         </ToolbarGroup>

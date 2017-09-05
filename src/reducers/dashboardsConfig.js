@@ -7,6 +7,7 @@ export const actionTypes = {
     SET_DASHBOARDSCONFIG_SELECTEDID: 'SET_DASHBOARDSCONFIG_SELECTEDID',
     SET_DASHBOARDSCONFIG_TEXTFILTER: 'SET_DASHBOARDSCONFIG_TEXTFILTER',
     SET_DASHBOARDSCONFIG_SHOWFILTER: 'SET_DASHBOARDSCONFIG_SHOWFILTER',
+    SET_DASHBOARDSCONFIG_OWNERFILTER: 'SET_DASHBOARDSCONFIG_OWNERFILTER',
     SET_DASHBOARDSCONFIG_SORTFILTER_KEY: 'SET_DASHBOARDSCONFIG_SORTFILTER_KEY',
     SET_DASHBOARDSCONFIG_SORTFILTER_DIRECTION: 'SET_DASHBOARDSCONFIG_SORTFILTER_DIRECTION',
     SET_DASHBOARDSCONFIG_VIEWFILTER: 'SET_DASHBOARDSCONFIG_VIEWFILTER'
@@ -15,6 +16,12 @@ export const actionTypes = {
 export const showFilterValues = {
     ALL: 'ALL',
     STARRED: 'STARRED'
+};
+
+export const ownerFilterValues = {
+    ALL: 'ALL',
+    ME: 'ME',
+    OTHERS: 'OTHERS'
 };
 
 export const sortFilterKeyValues = {
@@ -37,6 +44,7 @@ export const DEFAULT_DASHBOARDSCONFIG_ISFETCHING = false;
 export const DEFAULT_DASHBOARDSCONFIG_SELECTEDID = 'nghVC4wtyzi';
 export const DEFAULT_DASHBOARDSCONFIG_TEXTFILTER = '';
 export const DEFAULT_DASHBOARDSCONFIG_SHOWFILTER = showFilterValues.ALL;
+export const DEFAULT_DASHBOARDSCONFIG_OWNERFILTER = ownerFilterValues.ALL;
 export const DEFAULT_DASHBOARDSCONFIG_SORTFILTER_KEY = sortFilterKeyValues.NAME;
 export const DEFAULT_DASHBOARDSCONFIG_SORTFILTER_DIRECTION = sortFilterDirectionValues.ASC;
 export const DEFAULT_DASHBOARDSCONFIG_VIEWFILTER = viewFilterValues.LIST;
@@ -77,6 +85,15 @@ const showFilter = (state = DEFAULT_DASHBOARDSCONFIG_SHOWFILTER, action) => {
     }
 };
 
+const ownerFilter = (state = DEFAULT_DASHBOARDSCONFIG_OWNERFILTER, action) => {
+    switch (action.type) {
+        case actionTypes.SET_DASHBOARDSCONFIG_OWNERFILTER:
+            return validateReducer(action.ownerFilter, DEFAULT_DASHBOARDSCONFIG_OWNERFILTER);
+        default:
+            return state;
+    }
+};
+
 const key = (state = DEFAULT_DASHBOARDSCONFIG_SORTFILTER_KEY, action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDSCONFIG_SORTFILTER_KEY:
@@ -109,6 +126,7 @@ export default combineReducers({
     selectedId,
     textFilter,
     showFilter,
+    ownerFilter,
     sortFilter: combineReducers({
         key,
         direction
@@ -129,6 +147,8 @@ export const sGetSelectedIdFromState = state => sGetDashboardsConfigFromState(st
 export const sGetTextFilterFromState = state => sGetDashboardsConfigFromState(state).textFilter;
 
 export const sGetShowFilterFromState = state => sGetDashboardsConfigFromState(state).showFilter;
+
+export const sGetOwnerFilterFromState = state => sGetDashboardsConfigFromState(state).ownerFilter;
 
 export const sGetSortFilterFromState = state => sGetDashboardsConfigFromState(state).sortFilter;
 
