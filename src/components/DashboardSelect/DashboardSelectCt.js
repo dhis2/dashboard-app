@@ -1,12 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import * as fromReducers from '../../reducers';
 import * as fromActions from '../../actions';
 
-import DashboardBar from './DashboardBar';
-import DashboardList from './DashboardList';
+import DashboardSelect from './DashboardSelect';
 
 const mapStateToProps = state => {
     return {
@@ -33,31 +31,6 @@ const mapDispatchToProps = dispatch => ({
     onClickDashboard: id => dispatch(fromActions.acSetDashboardsConfigSelectedId(id))
 });
 
-let DashboardSelectCt = props => (
-    <div id="DashboardSelectCt">
-        <DashboardBar {...props} />
-        <DashboardList {...props} />
-    </div>
-);
-
-DashboardSelectCt = connect(mapStateToProps, mapDispatchToProps)(DashboardSelectCt);
-
-DashboardSelectCt.propTypes = {
-    dashboards: PropTypes.array,
-    isFetching: PropTypes.bool,
-    selectedId: PropTypes.string,
-    textFilter: PropTypes.string,
-    showFilter: PropTypes.string,
-    sortFilterId: PropTypes.object,
-    viewFilter: PropTypes.string,
-    onClickDashboard: PropTypes.func,
-    onChangeTextFilter: PropTypes.func,
-    onClickShowFilter: PropTypes.func,
-    onClickSortFilterKey: PropTypes.func,
-    onClickSortFilterDirection: PropTypes.func,
-    onClickViewFilter: PropTypes.func,
-    onClickHome: PropTypes.func,
-    onClickManage: PropTypes.func
-};
+const DashboardSelectCt = connect(mapStateToProps, mapDispatchToProps)(DashboardSelect);
 
 export default DashboardSelectCt;

@@ -1,24 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
-import Avatar from 'material-ui/Avatar';
-import Chip from 'material-ui/Chip';
-
-import IconStar from 'material-ui/svg-icons/toggle/star';
-
-import * as fromReducers from '../../reducers';
 
 const linkColor = '#2264ff';
 const linkColorHover = '#1b3f8f';
 
 const styles = {
-    loading: {
-        width: '100%',
-        padding: '20px',
-        textAlign: 'center',
-        color: '#888',
-        fontSize: '13px'
-    },
     listView: {
         ul: {
             paddingLeft: '15px'
@@ -87,84 +75,6 @@ const styles = {
     }
 };
 
-// components
-
-function Loading() {
-    return (
-        <div style={styles.loading}>
-            {'Loading dashboards ...'}
-        </div>
-    );
-}
-
-const ListItem = ({ dashboard, onClick }) => {
-    const _styles = {
-        chip: {
-            margin: 3,
-            height: '30px',
-            cursor: 'pointer'
-        },
-        labelStyle: {
-            fontSize: '13px',
-            color: '#333',
-            fontWeight: 500,
-            lineHeight: '30px'
-        }
-    };
-
-    return (
-        <Chip
-            onClick={onClick}
-            style={_styles.chip}
-            labelStyle={_styles.labelStyle}
-        >
-            {dashboard.starred ? <Avatar color="#444" style={{height: '30px', width: '30px'}} icon={<IconStar/>}/> : ''}
-            {dashboard.name}
-        </Chip>
-    );
-}
-
-//
-// <Avatar size={20} style={{
-//     position: 'relative',
-//     left: '6px',
-//     marginLeft: '6px',
-//     color: '#444',
-//     fontSize: '13px',
-//     fontWeight: 700,
-//     backgroundColor: '#ccc',
-//     borderRadius: '50%',
-//     padding: '1px'
-// }}>{dashboard.numberOfItems}</Avatar>
-
-function ListView({ dashboards, onClickDashboard, selectedId }) {
-
-    const icon = {
-        width: '13px',
-        height: '13px',
-        position: 'relative',
-        top: '2px',
-        paddingRight: '4px'
-    };
-
-    const wrapper = {
-        display: 'flex',
-        flexWrap: 'wrap'
-    };
-
-    return (
-        <div>
-            <div style={wrapper}>
-                {dashboards.map(d => {
-                    return (
-                        <ListItem key={d.id} dashboard={d} onClick={() => onClickDashboard(d.id)} />
-                    );
-                })}
-            </div>
-        </div>
-    );
-}
-
 class TableRowColumnTextLink extends Component {
 
     styles = styles.tableRowColumnTextLink;
@@ -225,7 +135,14 @@ class TableRowColumnTextLink extends Component {
     }
 }
 
-class TableView extends Component {
+TableRowColumnTextLink.propTypes = {
+    text: PropTypes.string,
+    onClickDashboard: PropTypes.func,
+    isSelected: PropTypes.bool,
+    style: PropTypes.object,
+};
+
+export default class DashboardViewTable extends Component {
 
     state = {
         selected: [1]
@@ -277,23 +194,8 @@ class TableView extends Component {
     }
 }
 
-function DashboardList(props) {
-    const { dashboardsIsFetching, viewFilter } = props;
-
-    if (dashboardsIsFetching) {
-        return <Loading/>;
-    }
-
-    switch (viewFilter) {
-        case fromReducers.fromDashboardsConfig.viewFilterValues.LIST:
-            return <ListView {...props} />;
-
-        case fromReducers.fromDashboardsConfig.viewFilterValues.TABLE:
-            return <TableView {...props} />;
-
-        default:
-            return <ListView {...props} />;
-    }
+DashboardViewTable.propTypes = {
+    dashboards: PropTypes.array,
+    selectedId: PropTypes.string,
+    onClickDashboard: PropTypes.func,
 };
-
-export default DashboardList;

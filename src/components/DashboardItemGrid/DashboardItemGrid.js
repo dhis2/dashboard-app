@@ -55,7 +55,7 @@ class DashboardItemGrid extends Component {
                 >
                     {items.map((item) => (
                         <div key={item.i} className={item.type}>
-                            {item.i}
+                            <div style={{padding: 5, fontSize: 11, fontWeight: 500, color: '#555'}}>{'Item ' + item.i} {'options'}</div>
                             <div id={'plugin-' + item.id} className={'pluginItem'}></div>
                         </div>
                     ))}

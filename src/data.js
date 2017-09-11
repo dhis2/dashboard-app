@@ -1,4 +1,4 @@
-export const description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+export const description = "Dashboard description. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
 
 export default [
     {
@@ -7,10 +7,9 @@ export default [
         "starred": true,
         "owner": "system",
         "dashboardItems": [
-            {"id": "fzgIcU3hVFH", "type": "REPORT_TABLE", "x": 0, "y": 0, "w": 5, "h": 5},
-            {"id": "DkPKc1EUmC2", "type": "CHART", "x": 5, "y": 0, "w": 5, "h": 5},
-            {"id": "hewtA7a025J", "type": "CHART", "x": 10, "y": 0, "w": 5, "h": 5},
-            {"id": "hrDweynvx7G", "type": "REPORT_TABLE", "x": 15, "y": 0, "w": 5, "h": 5}
+            {"id": "LW0O27b7TdD", "type": "CHART", "x": 0, "y": 0, "w": 12, "h": 11},
+            {"id": "Wlkz2NhhRIY", "type": "CHART", "x": 0, "y": 12, "w": 12, "h": 11},
+            {"id": "hrDweynvx7G", "type": "REPORT_TABLE", "x": 12, "y": 0, "w": 17, "h": 22}
         ]
     },
     {
