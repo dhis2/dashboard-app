@@ -5,8 +5,7 @@
   "private": true,
   "devDependencies": {
     "d2-manifest": "^1.0.0",
-    "react-scripts": "1.0.7",
-    "why-did-you-update": "^0.0.8"
+    "react-scripts": "1.0.7"
   },
   "dependencies": {
     "d2": "^27.0.0-8",
@@ -58,8 +57,8 @@
     }
   },
   "proxy": {
-      "/dhis-web-core-resource": {
-          "target": "http://localhost:8080"
-      }
+    "/dhis-web-core-resource": {
+      "target": "http://localhost:8080"
+    }
   }
 }
