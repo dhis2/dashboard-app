@@ -1,10 +1,9 @@
+import './Toolbar.css';
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './DashboardBar.css';
-
 import { blue500, grey700 } from 'material-ui/styles/colors';
-
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
 import TextField from 'material-ui/TextField';
 import DropDownMenu from 'material-ui/DropDownMenu';
@@ -17,21 +16,12 @@ import ListViewModule from 'material-ui/svg-icons/action/view-module';
 
 import isEmpty from 'd2-utilizr/lib/isEmpty';
 
-import Textlink from '../../widgets/Textlink';
-import Iconbutton from '../../widgets/Iconbutton';
+import Textlink from '../widgets/Textlink';
+import Iconbutton from '../widgets/Iconbutton';
 
 import * as fromReducers from '../../reducers';
 
 const styles = {
-    icon: {
-        width: 28,
-        height: 28
-    },
-    iconButton: {
-        width: 52,
-        height: 52,
-        padding: 0
-    },
     filterField: {
         fontSize: '14px',
         width: '200px'
@@ -58,15 +48,6 @@ const styles = {
     clearButtonIcon: {
         width: '16px',
         height: '16px'
-    },
-    textLink: {
-        fontSize: '14px',
-        fontWeight: 400,
-        color: '#000',
-        cursor: 'pointer'
-    },
-    textLinkHover: {
-        color: '#666'
     },
     dropDownMenu: {
         defaultFontStyle: {
@@ -112,7 +93,21 @@ const styles = {
     }
 };
 
+const getTextlink = ({ text, onClick, style, hoverStyle }) =>
+    <Textlink
+        text={text}
+        onClick={onClick}
+        style={style}
+        hoverStyle={hoverStyle}
+    />;
+
 // components
+
+const NewButton = () => (
+    <IconButton style={styles.iconButton} iconStyle={styles.icon}>
+        <IconAdd color={blue500}/>
+    </IconButton>
+);
 
 class FilterField extends Component {
     constructor(props) {
@@ -380,12 +375,16 @@ const ViewPanel = props => {
     );
 };
 
+const HomeButton = ({ onClickHome }) => <Textlink text={'Home'} onClick={onClickHome} />;
+
+const ManageButton = ({ onClickManage }) => <Textlink text={'Manage dashboards'} onClick={onClickManage} />;
+
 const DashboardBar = props => (
     <Toolbar style={styles.toolbar}>
         <ToolbarGroup style={{position: 'relative', left: '-10px'}} firstChild={true}>
             <Iconbutton />
             <ToolbarSeparator style={styles.toolbarSeparator} />
-            <Textlink text={'Home'} onClick={props.onClickHome} />
+            <HomeButton {...props} />
             <ToolbarSeparator style={Object.assign({}, styles.toolbarSeparator, styles.hiddenToolbarSeparator)} />
             <Textlink text={'Manage dashboards'} onClick={props.onClickManage} />
         </ToolbarGroup>
@@ -401,3 +400,4 @@ const DashboardBar = props => (
 );
 
 export default DashboardBar;
+
