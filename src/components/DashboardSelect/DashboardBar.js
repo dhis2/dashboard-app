@@ -17,12 +17,17 @@ import isEmpty from 'd2-utilizr/lib/isEmpty';
 
 import Textlink from '../../widgets/Textlink';
 import Iconbutton from '../../widgets/Iconbutton';
+import Dropdown from '../../widgets/Dropdown';
 
 import './DashboardBar.css';
 
 import * as fromReducers from '../../reducers';
 
 const styles = {
+    defaultFontStyle: {
+        color: '#222',
+        fontSize: '14px',
+    },
     icon: {
         width: 28,
         height: 28,
@@ -67,31 +72,6 @@ const styles = {
     },
     textLinkHover: {
         color: '#666',
-    },
-    dropDownMenu: {
-        defaultFontStyle: {
-            color: '#222',
-            fontSize: '14px',
-        },
-        labelStyle: {
-            position: 'relative',
-            top: '-2px',
-        },
-        listStyle: {
-            padding: '10px 0 !important',
-        },
-        iconStyle: {
-            top: '2px',
-        },
-        selectedMenuItemStyle: {
-            fontWeight: 500,
-        },
-        underlineStyle: {
-            border: '0 none',
-        },
-        style: {
-            height: '52px',
-        },
     },
     toolbar: {
         height: 52,
@@ -380,6 +360,8 @@ const ViewPanel = (props) => {
     );
 };
 
+const { showFilterValues, ownerFilterValues, sortFilterValues } = fromReducers.fromDashboardsConfig;
+
 const DashboardBar = props => (
     <Toolbar style={styles.toolbar}>
         <ToolbarGroup style={{ position: 'relative', left: '-10px' }} firstChild>
@@ -392,12 +374,34 @@ const DashboardBar = props => (
         <ToolbarGroup lastChild>
             <FilterField {...props} />
             <ClearButton {...props} />
-            <ShowMenu {...props} />
-            <OwnerMenu {...props} />
-            <SortMenu {...props} />
+            <Dropdown value={props.showFilter} onClick={props.onClickShowFilter} data={showFilterValues} />
+            <Dropdown value={props.ownerFilter} onClick={props.onClickOwnerFilter} data={ownerFilterValues} />
+            <Dropdown value={props.sortFilter} onClick={props.onClickSortFilter} data={sortFilterValues} />
             <ViewPanel {...props} />
         </ToolbarGroup>
     </Toolbar>
 );
+
+DashboardBar.propTypes = {
+    showFilter: PropTypes.string,
+    ownerFilter: PropTypes.string,
+    sortFilter: PropTypes.string,
+    onClickHome: PropTypes.func,
+    onClickManage: PropTypes.func,
+    onClickShowFilter: PropTypes.func,
+    onClickOwnerFilter: PropTypes.func,
+    onClickSortFilter: PropTypes.func,
+};
+
+DashboardBar.defaultProps = {
+    showFilter: null,
+    ownerFilter: null,
+    sortFilter: null,
+    onClickHome: Function.prototype,
+    onClickManage: Function.prototype,
+    onClickShowFilter: Function.prototype,
+    onClickOwnerFilter: Function.prototype,
+    onClickSortFilter: Function.prototype,
+};
 
 export default DashboardBar;

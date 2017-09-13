@@ -77,28 +77,24 @@ const styles = {
 
 class TableRowColumnTextLink extends Component {
 
-    styles = styles.tableRowColumnTextLink;
-
-    state = {
-        color: this.styles.link.color
-    };
-
     constructor(props) {
         super(props);
+
+        this.state = {
+            color: this.styles.link.color,
+        };
 
         this.onMouseOverHandle = this.onMouseOverHandle.bind(this);
         this.onMouseOutHandle = this.onMouseOutHandle.bind(this);
 
-        this.state = {
-            color: this.styles.link.color
-        };
+        this.styles = styles.tableRowColumnTextLink;
     }
 
     onMouseOverHandle(event) {
         event.preventDefault();
 
         this.setState({
-            color: this.styles.linkHover.color
+            color: this.styles.linkHover.color,
         });
     }
 
@@ -106,7 +102,7 @@ class TableRowColumnTextLink extends Component {
         event.preventDefault();
 
         this.setState({
-            color: this.styles.link.color
+            color: this.styles.link.color,
         });
     }
 
@@ -123,7 +119,7 @@ class TableRowColumnTextLink extends Component {
                     styles.tableView.name,
                     style,
                     this.state,
-                    selectedStyle
+                    selectedStyle,
                 )}
                 onMouseOver={this.onMouseOverHandle}
                 onMouseOut={this.onMouseOutHandle}
@@ -142,49 +138,63 @@ TableRowColumnTextLink.propTypes = {
     style: PropTypes.object,
 };
 
+TableRowColumnTextLink.defaultProps = {
+    text: '',
+    onClickDashboard: Function.prototype,
+    isSelected: false,
+    style: null,
+};
+
 export default class DashboardViewTable extends Component {
 
-    state = {
-        selected: [1]
-    };
+    constructor(props) {
+        super(props);
 
-    handleRowSelection = selectedRows => {
+        this.state = {
+            selected: [1],
+        };
+
+        this.handleRowSelection = this.handleRowSelection.bind(this);
+        this.isSelected = this.isSelected.bind(this);
+    }
+
+    handleRowSelection(selectedRows) {
         this.setState({
-            selected: selectedRows
+            selected: selectedRows,
         });
-    };
+    }
 
-    isSelected = index => {
+    isSelected(index) {
         return this.state.selected.indexOf(index) !== -1;
-    };
+    }
 
     render() {
         const { dashboards, onClickDashboard, selectedId } = this.props;
 
-        const _style = styles.tableView;
+        const style = styles.tableView;
 
         return (
-            <div style={_style.root}>
+            <div style={style.root}>
                 <Table onRowSelection={this.handleRowSelection}>
                     <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-                        <TableRow style={_style.row}>
-                            <TableHeaderColumn style={Object.assign({}, _style.row, _style.starred)}>Starred</TableHeaderColumn>
-                            <TableHeaderColumn style={Object.assign({}, _style.row, _style.name)}>Name</TableHeaderColumn>
-                            <TableHeaderColumn style={_style.row}>Items</TableHeaderColumn>
-                            <TableHeaderColumn style={_style.row}>Owner</TableHeaderColumn>
-                            <TableHeaderColumn style={_style.row}>Created</TableHeaderColumn>
-                            <TableHeaderColumn style={_style.row}>Modified</TableHeaderColumn>
+                        <TableRow style={style.row}>
+                            <TableHeaderColumn style={Object.assign({}, style.row, style.starred)}>Starred</TableHeaderColumn>
+                            <TableHeaderColumn style={Object.assign({}, style.row, style.name)}>Name</TableHeaderColumn>
+                            <TableHeaderColumn style={style.row}>Items</TableHeaderColumn>
+                            <TableHeaderColumn style={style.row}>Owner</TableHeaderColumn>
+                            <TableHeaderColumn style={style.row}>Created</TableHeaderColumn>
+                            <TableHeaderColumn style={style.row}>Modified</TableHeaderColumn>
                         </TableRow>
                     </TableHeader>
                     <TableBody displayRowCheckbox={false}>
                         {dashboards.map(d => (
-                            <TableRow key={d.id} style={_style.row}>
-                                <TableRowColumn style={Object.assign({}, _style.row, _style.rowColumn, _style.starred)}>{'' + !!d.starred}</TableRowColumn>
+                            <TableRow key={d.id} style={style.row}>
+                                <TableRowColumn style={Object.assign({}, style.row, style.rowColumn, style.starred)}>{!!d.starred}</TableRowColumn>
                                 <TableRowColumnTextLink text={d.name} onClickDashboard={() => onClickDashboard(d.id)} isSelected={d.id === selectedId} />
-                                <TableRowColumn style={Object.assign({}, _style.row, _style.rowColumn)}>{d.numberOfItems}</TableRowColumn>
-                                <TableRowColumn style={Object.assign({}, _style.row, _style.rowColumn)}>{'janhov'}</TableRowColumn>
-                                <TableRowColumn style={Object.assign({}, _style.row, _style.rowColumn)}>{d.created}</TableRowColumn>
-                                <TableRowColumn style={Object.assign({}, _style.row, _style.rowColumn)}>{d.lastModified}</TableRowColumn>
+                                <TableRowColumn style={Object.assign({}, style.row, style.rowColumn)}>{d.numberOfItems}</TableRowColumn>
+                                <TableRowColumn style={Object.assign({}, style.row, style.rowColumn)}>{'janhov'}</TableRowColumn>
+                                <TableRowColumn style={Object.assign({}, style.row, style.rowColumn)}>{d.created}</TableRowColumn>
+                                <TableRowColumn style={Object.assign({}, style.row, style.rowColumn)}>{d.lastModified}</TableRowColumn>
                             </TableRow>
                         ))}
                     </TableBody>
@@ -198,4 +208,10 @@ DashboardViewTable.propTypes = {
     dashboards: PropTypes.array,
     selectedId: PropTypes.string,
     onClickDashboard: PropTypes.func,
+};
+
+DashboardViewTable.defaultProps = {
+    dashboards: null,
+    selectedId: null,
+    onClickDashboard: Function.prototype,
 };
