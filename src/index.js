@@ -26,7 +26,7 @@ const indexRender = (d2) => {
                 <App d2={d2} />
             </Provider>
         </MuiThemeProvider>,
-        document.getElementById('root')
+        document.getElementById('root'),
     );
 };
 
@@ -35,11 +35,11 @@ getManifest('manifest.webapp').then((manifest) => {
     const baseUrl = process.env.NODE_ENV === 'production' ? manifest.getBaseUrl() : 'http://localhost:8080';
 
     init({
-        baseUrl: baseUrl + '/api',
+        baseUrl: `${baseUrl}/api`,
         headers: {
-            Authorization: 'Basic ' + btoa('admin:district')
+            Authorization: `Basic ${btoa('admin:district')}`,
         },
-        schemas: []
+        schemas: [],
     }).then((d2) => {
         indexRender(d2);
     });

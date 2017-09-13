@@ -7,33 +7,36 @@ const styles = {
         fontWeight: 400,
         color: '#000',
 
-        cursor: 'pointer'
+        cursor: 'pointer',
     },
     textlinkHover: {
-        color: '#666'
-    }
+        color: '#666',
+    },
 };
 
 export default class Textlink extends Component {
     constructor(props) {
         super(props);
 
-        const { style } = props;
+        this.onMouseOverHandle = this.onMouseOverHandle.bind(this);
+        this.onMouseOutHandle = this.onMouseOutHandle.bind(this);
+
+        const { style } = props;
 
         this.state = Object.assign({}, styles.textlink, style);
     }
 
-    onMouseOverHandle = () => {
-        const { style, hoverStyle } = this.props;
+    onMouseOverHandle() {
+        const { style, hoverStyle } = this.props;
 
         this.setState(Object.assign({}, styles.textlink, styles.textlinkHover, style, hoverStyle));
-    };
+    }
 
-    onMouseOutHandle = () => {
-        const { style } = this.props;
+    onMouseOutHandle() {
+        const { style } = this.props;
 
         this.setState(Object.assign({}, styles.textlink, style));
-    };
+    }
 
     render() {
         const { text, onClick } = this.props;
@@ -56,4 +59,11 @@ Textlink.propTypes = {
     onClick: PropTypes.func,
     style: PropTypes.object,
     hoverStyle: PropTypes.object,
+};
+
+Textlink.defaultProps = {
+    text: '',
+    onClick: Function.prototype,
+    style: null,
+    hoverStyle: null,
 };

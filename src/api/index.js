@@ -12,31 +12,31 @@ const getDate = () => {
     // const m = Math.floor(Math.random() * 59) + 1;
     // const s = Math.floor(Math.random() * 59) + 1;
 
-    return (new Date(y + '-' + M + '-' + d)).toJSON().replace('T', ' ').substr(0, 10);
+    return (new Date(`${y}-${M}-${d}`)).toJSON().replace('T', ' ').substr(0, 10);
 };
 
 export const getDashboards = (textFilter, showFilter, sortFilter) => {
     let date;
 
-    return data.map(d => {
+    return data.map((d) => {
         date = getDate();
 
         return {
             id: d.id,
             name: d.name,
-            description: description,
+            description,
             starred: d.starred,
             owner: d.owner,
             created: date,
             lastModified: date,
-            numberOfItems: d.dashboardItems.length
+            numberOfItems: d.dashboardItems.length,
         };
     });
 };
 
 const hasPosition = item => isNumber(item.x) && isNumber(item.y) && isNumber(item.w) && isNumber(item.h);
 
-const getPosition = i => {
+const getPosition = (i) => {
     const numberOfCols = 3;
     const itemWidth = 9;
     const itemHeight = 10;
@@ -48,11 +48,11 @@ const getPosition = i => {
         x: col * itemWidth,
         y: row * itemHeight,
         w: itemWidth,
-        h: itemHeight
+        h: itemHeight,
     };
 };
 
-export const getDashboardItems = dashboardId => {
+export const getDashboardItems = (dashboardId) => {
     const items = ((data.find(d => d.id === dashboardId) || {}).dashboardItems || []);
 
     items.forEach((di, i) => {
@@ -64,14 +64,13 @@ export const getDashboardItems = dashboardId => {
     return items;
 };
 
-export const apiFetchDashboards = () => {
-    //fetch('')
+export const apiFetchDashboards = () =>
+    // fetch('')
 
 
+    // return Promise.resolve(getDashboards());
 
-    //return Promise.resolve(getDashboards());
-
-    return new Promise((resolve, reject) => {
+    new Promise((resolve, reject) => {
         resolve(getDashboards());
-    });
-};
+    })
+;

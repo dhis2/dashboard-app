@@ -12,8 +12,8 @@ const styles = {
         padding: '20px',
         textAlign: 'center',
         color: '#888',
-        fontSize: '13px'
-    }
+        fontSize: '13px',
+    },
 };
 
 function Loading() {
@@ -28,20 +28,20 @@ export default function DashboardSelect(props) {
     const { dashboardsIsFetching, viewFilter } = props;
 
     if (dashboardsIsFetching) {
-        return (<Loading/>);
+        return (<Loading />);
     }
 
     let ViewComponent;
 
     switch (viewFilter) {
-        case fromReducers.fromDashboardsConfig.viewFilterValues.LIST:
-            ViewComponent = (<DashboardViewList {...props} />);
+    case fromReducers.fromDashboardsConfig.viewFilterValues.LIST:
+        ViewComponent = (<DashboardViewList {...props} />);
 
-        case fromReducers.fromDashboardsConfig.viewFilterValues.TABLE:
-            ViewComponent = (<DashboardViewTable {...props} />);
+    case fromReducers.fromDashboardsConfig.viewFilterValues.TABLE:
+        ViewComponent = (<DashboardViewTable {...props} />);
 
-        default:
-            ViewComponent = (<DashboardViewList {...props} />);
+    default:
+        ViewComponent = (<DashboardViewList {...props} />);
     }
 
     return (

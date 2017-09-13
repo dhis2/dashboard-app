@@ -14,24 +14,24 @@ import DashboardTitle from './DashboardTitle';
 //     };
 // };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     const selectedDashboard = fromReducers.sGetSelectedDashboard(state) || {};
 
     return {
         name: selectedDashboard.name || '',
-        description: selectedDashboard.description || ''
+        description: selectedDashboard.description || '',
     };
 };
 
 const mapDispatchToProps = dispatch => ({
-    onBlur: (e) => console.log("dashboard name: ", e.target.value)
+    onBlur: e => console.log('dashboard name: ', e.target.value),
 });
 
 const DashboardTitleCt = connect(mapStateToProps, mapDispatchToProps)(DashboardTitle);
 
 DashboardTitleCt.propTypes = {
     name: PropTypes.string,
-    description: PropTypes.string
+    description: PropTypes.string,
 };
 
 export default DashboardTitleCt;

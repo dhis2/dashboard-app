@@ -4,14 +4,14 @@ const store = {
 
     dashboardsConfig: {
         isFetching: false,
-        selectedId: "uid1",
-        textFilter: "ante",
-        showFilter: "ALL",
+        selectedId: 'uid1',
+        textFilter: 'ante',
+        showFilter: 'ALL',
         sortFilter: {
-            key: "NAME",
-            direction: "ASC"
+            key: 'NAME',
+            direction: 'ASC',
         },
-        viewFilter: "LIST",
-        ownerFilter: "ALL"
-    }
+        viewFilter: 'LIST',
+        ownerFilter: 'ALL',
+    },
 };

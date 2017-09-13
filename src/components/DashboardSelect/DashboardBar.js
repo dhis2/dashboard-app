@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './DashboardBar.css';
-
 import { blue500, grey700 } from 'material-ui/styles/colors';
 
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
@@ -20,84 +18,86 @@ import isEmpty from 'd2-utilizr/lib/isEmpty';
 import Textlink from '../../widgets/Textlink';
 import Iconbutton from '../../widgets/Iconbutton';
 
+import './DashboardBar.css';
+
 import * as fromReducers from '../../reducers';
 
 const styles = {
     icon: {
         width: 28,
-        height: 28
+        height: 28,
     },
     iconButton: {
         width: 52,
         height: 52,
-        padding: 0
+        padding: 0,
     },
     filterField: {
         fontSize: '14px',
-        width: '200px'
+        width: '200px',
     },
     filterFieldInput2: {
-        top: '4px'
+        top: '4px',
     },
     filterFieldHint2: {
-        top: '10px'
+        top: '10px',
     },
     filterFieldUnderline: {
-        bottom: '11px'
+        bottom: '11px',
     },
     filterFieldUnderlineFocus: {
         borderColor: '#aaa',
-        borderWidth: '1px'
+        borderWidth: '1px',
     },
     clearButton: {
         width: '24px',
         height: '24px',
         padding: 0,
-        left: '-22px'
+        left: '-22px',
     },
     clearButtonIcon: {
         width: '16px',
-        height: '16px'
+        height: '16px',
     },
     textLink: {
         fontSize: '14px',
         fontWeight: 400,
         color: '#000',
-        cursor: 'pointer'
+        cursor: 'pointer',
     },
     textLinkHover: {
-        color: '#666'
+        color: '#666',
     },
     dropDownMenu: {
         defaultFontStyle: {
             color: '#222',
-            fontSize: '14px'
+            fontSize: '14px',
         },
         labelStyle: {
             position: 'relative',
-            top: '-2px'
+            top: '-2px',
         },
         listStyle: {
-            padding: '10px 0 !important'
+            padding: '10px 0 !important',
         },
         iconStyle: {
-            top: '2px'
+            top: '2px',
         },
         selectedMenuItemStyle: {
-            fontWeight: 500
+            fontWeight: 500,
         },
         underlineStyle: {
-            border: '0 none'
+            border: '0 none',
         },
         style: {
-            height: '52px'
-        }
+            height: '52px',
+        },
     },
     toolbar: {
         height: 52,
         backgroundColor: '#fff',
         paddingTop: '10px',
-        paddingBottom: '8px'
+        paddingBottom: '8px',
     },
     toolbarSeparator: {
         height: '26px',
@@ -105,11 +105,11 @@ const styles = {
         marginLeft: '5px',
     },
     toolbarTextLink: {
-        whiteSpace: 'nowrap'
+        whiteSpace: 'nowrap',
     },
     hiddenToolbarSeparator: {
-        backgroundColor: 'transparent'
-    }
+        backgroundColor: 'transparent',
+    },
 };
 
 // components
@@ -119,7 +119,7 @@ class FilterField extends Component {
         super(props);
 
         this.state = {
-            value: fromReducers.fromDashboardsConfig.DEFAULT_DASHBOARDSCONFIG_TEXTFILTER
+            value: fromReducers.fromDashboardsConfig.DEFAULT_DASHBOARDSCONFIG_TEXTFILTER,
         };
 
         this.setFilterValue = this.setFilterValue.bind(this);
@@ -128,7 +128,7 @@ class FilterField extends Component {
 
     componentWillReceiveProps(nextProps) {
         this.setState({
-            value: nextProps.textFilter
+            value: nextProps.textFilter,
         });
     }
 
@@ -169,7 +169,7 @@ const ClearButton = ({ onChangeTextFilter, textFilter }) => {
 
     return (
         <IconButton
-            style={Object.assign({}, styles.clearButton, {opacity: disabled ? 0 : 1})}
+            style={Object.assign({}, styles.clearButton, { opacity: disabled ? 0 : 1 })}
             iconStyle={styles.clearButtonIcon}
             onClick={() => onChangeTextFilter()}
             disabled={disabled}
@@ -181,7 +181,7 @@ const ClearButton = ({ onChangeTextFilter, textFilter }) => {
 
 ClearButton.propTypes = {
     onChangeTextFilter: PropTypes.func.isRequired,
-    textFilter: PropTypes.string.isRequired
+    textFilter: PropTypes.string.isRequired,
 };
 
 class ShowMenu extends Component {
@@ -189,7 +189,7 @@ class ShowMenu extends Component {
         super(props);
 
         this.state = {
-            value: props.showFilter
+            value: props.showFilter,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -197,7 +197,7 @@ class ShowMenu extends Component {
 
     componentWillReceiveProps(nextProps) {
         this.setState({
-            value: nextProps.showFilter
+            value: nextProps.showFilter,
         });
     }
 
@@ -205,7 +205,7 @@ class ShowMenu extends Component {
         console.log(this.state.value, value);
 
         if (value !== this.state.value) {
-            this.setState({value});
+            this.setState({ value });
 
             this.props.onClickShowFilter(value);
         }
@@ -229,9 +229,9 @@ class ShowMenu extends Component {
                 style={style.style}
                 underlineStyle={style.underlineStyle}
             >
-                <MenuItem value={all} primaryText="All items"/>
-                <MenuItem value={starred} primaryText="Starred"/>
-                <MenuItem value={unstarred} primaryText="Unstarred"/>
+                <MenuItem value={all} primaryText="All items" />
+                <MenuItem value={starred} primaryText="Starred" />
+                <MenuItem value={unstarred} primaryText="Unstarred" />
             </DropDownMenu>
         );
     }
@@ -242,7 +242,7 @@ class OwnerMenu extends Component {
         super(props);
 
         this.state = {
-            value: props.ownerFilter
+            value: props.ownerFilter,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -250,7 +250,7 @@ class OwnerMenu extends Component {
 
     componentWillReceiveProps(nextProps) {
         this.setState({
-            value: nextProps.ownerFilter
+            value: nextProps.ownerFilter,
         });
     }
 
@@ -258,7 +258,7 @@ class OwnerMenu extends Component {
         console.log(this.state.value, value);
 
         if (value !== this.state.value) {
-            this.setState({value});
+            this.setState({ value });
 
             this.props.onClickOwnerFilter(value);
         }
@@ -282,9 +282,9 @@ class OwnerMenu extends Component {
                 style={style.style}
                 underlineStyle={style.underlineStyle}
             >
-                <MenuItem value={all} primaryText="All users"/>
-                <MenuItem value={me} primaryText="Created by me"/>
-                <MenuItem value={others} primaryText="Created by others"/>
+                <MenuItem value={all} primaryText="All users" />
+                <MenuItem value={me} primaryText="Created by me" />
+                <MenuItem value={others} primaryText="Created by others" />
             </DropDownMenu>
         );
     }
@@ -295,7 +295,7 @@ class SortMenu extends Component {
         super(props);
 
         this.state = {
-            value: props.sortFilterId
+            value: props.sortFilterId,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -303,7 +303,7 @@ class SortMenu extends Component {
 
     componentWillReceiveProps(nextProps) {
         this.setState({
-            value: nextProps.sortFilterId
+            value: nextProps.sortFilterId,
         });
     }
 
@@ -344,7 +344,7 @@ class SortMenu extends Component {
     }
 }
 
-const ViewPanel = props => {
+const ViewPanel = (props) => {
     const list = fromReducers.fromDashboardsConfig.viewFilterValues.LIST;
     const table = fromReducers.fromDashboardsConfig.viewFilterValues.TABLE;
 
@@ -355,13 +355,13 @@ const ViewPanel = props => {
     const _styles = {
         icon: {
             width: 24,
-            height: 24
-        }
+            height: 24,
+        },
     };
 
     const onClickViewFilterParamMap = {
         [list]: table,
-        [table]: list
+        [table]: list,
     };
 
     function onClick() {
@@ -370,7 +370,7 @@ const ViewPanel = props => {
 
     const buttonMap = {
         [list]: <IconList color={buttonColor} />,
-        [table]: <ListViewModule color={buttonColor} />
+        [table]: <ListViewModule color={buttonColor} />,
     };
 
     return (
@@ -382,14 +382,14 @@ const ViewPanel = props => {
 
 const DashboardBar = props => (
     <Toolbar style={styles.toolbar}>
-        <ToolbarGroup style={{position: 'relative', left: '-10px'}} firstChild={true}>
+        <ToolbarGroup style={{ position: 'relative', left: '-10px' }} firstChild>
             <Iconbutton />
             <ToolbarSeparator style={styles.toolbarSeparator} />
             <Textlink text={'Home'} onClick={props.onClickHome} />
             <ToolbarSeparator style={Object.assign({}, styles.toolbarSeparator, styles.hiddenToolbarSeparator)} />
             <Textlink text={'Manage dashboards'} onClick={props.onClickManage} />
         </ToolbarGroup>
-        <ToolbarGroup lastChild={true}>
+        <ToolbarGroup lastChild>
             <FilterField {...props} />
             <ClearButton {...props} />
             <ShowMenu {...props} />

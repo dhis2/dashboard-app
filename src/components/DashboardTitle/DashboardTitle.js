@@ -14,8 +14,8 @@ const styles = {
         paddingLeft: '6px',
         color: '#666',
         fontSize: '13px',
-        fontWeight: 400
-    }
+        fontWeight: 400,
+    },
 };
 
 class DashboardTitle extends Component {
@@ -23,7 +23,7 @@ class DashboardTitle extends Component {
         super(props);
 
         this.state = {
-            name: DEFAULTVALUE_TEXTFIELD
+            name: DEFAULTVALUE_TEXTFIELD,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -31,7 +31,7 @@ class DashboardTitle extends Component {
     }
     componentWillReceiveProps(nextProps) {
         this.setState({
-            name: nextProps.name
+            name: nextProps.name,
         });
     }
     handleKeyUp(event) {
@@ -47,7 +47,7 @@ class DashboardTitle extends Component {
         event.preventDefault();
 
         this.setState({
-            name: event.target.value
+            name: event.target.value,
         });
     }
     render() {
@@ -73,7 +73,7 @@ class DashboardTitle extends Component {
 
 DashboardTitle.propTypes = {
     name: PropTypes.string,
-    onBlur: PropTypes.func
+    onBlur: PropTypes.func,
 };
 
 export default DashboardTitle;

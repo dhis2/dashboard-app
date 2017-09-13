@@ -11,14 +11,14 @@ const Item = ({ dashboard, onClick }) => {
         chip: {
             margin: 3,
             height: '30px',
-            cursor: 'pointer'
+            cursor: 'pointer',
         },
         labelStyle: {
             fontSize: '13px',
             color: '#333',
             fontWeight: 500,
-            lineHeight: '30px'
-        }
+            lineHeight: '30px',
+        },
     };
 
     return (
@@ -27,7 +27,7 @@ const Item = ({ dashboard, onClick }) => {
             style={_styles.chip}
             labelStyle={_styles.labelStyle}
         >
-            {dashboard.starred ? <Avatar color="#444" style={{height: '30px', width: '30px'}} icon={<IconStar/>}/> : ''}
+            {dashboard.starred ? <Avatar color="#444" style={{ height: '30px', width: '30px' }} icon={<IconStar />} /> : ''}
             {dashboard.name}
         </Chip>
     );
@@ -39,28 +39,25 @@ Item.propTypes = {
 };
 
 export default function DashboardViewList({ dashboards, onClickDashboard, selectedId }) {
-
     const icon = {
         width: '13px',
         height: '13px',
         position: 'relative',
         top: '2px',
-        paddingRight: '4px'
+        paddingRight: '4px',
     };
 
     const wrapper = {
         display: 'flex',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
     };
 
     return (
         <div>
             <div style={wrapper}>
-                {dashboards.map(d => {
-                    return (
-                        <Item key={d.id} dashboard={d} onClick={() => onClickDashboard(d.id)} />
-                    );
-                })}
+                {dashboards.map(d => (
+                    <Item key={d.id} dashboard={d} onClick={() => onClickDashboard(d.id)} />
+                ))}
             </div>
         </div>
     );

@@ -17,15 +17,14 @@ class DashboardItemGridCt extends Component {
 }
 
 DashboardItemGridCt.contextTypes = {
-    d2: PropTypes.object
+    d2: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
-    id: fromReducers.fromDashboardsConfig.sGetSelectedIdFromState(state)
+    id: fromReducers.fromDashboardsConfig.sGetSelectedIdFromState(state),
 });
 
 DashboardItemGridCt = connect(mapStateToProps)(DashboardItemGridCt);
 
 export default DashboardItemGridCt;
-
 

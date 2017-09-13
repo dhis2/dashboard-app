@@ -1,17 +1,17 @@
 import { validateReducer } from './index';
 
 export const actionTypes = {
-    SET_DASHBOARDS: 'SET_DASHBOARDS'
+    SET_DASHBOARDS: 'SET_DASHBOARDS',
 };
 
 export const DEFAULT_DASHBOARDS = [];
 
 export default (state = [], action) => {
     switch (action.type) {
-        case actionTypes.SET_DASHBOARDS:
-            return validateReducer(action.dashboards, DEFAULT_DASHBOARDS);
-        default:
-            return state;
+    case actionTypes.SET_DASHBOARDS:
+        return validateReducer(action.dashboards, DEFAULT_DASHBOARDS);
+    default:
+        return state;
     }
 };
 
@@ -25,10 +25,10 @@ export const sGetDashboardById = (state, id) => sGetFromState(state).find(dashbo
 
 // util
 
-//export const filterChangedDashboardItems = (state, itemsConfig) =>
+// export const filterChangedDashboardItems = (state, itemsConfig) =>
 
 // api
 
-export const getPersistedState = state => ({ //TODO
-    dashboards: state.dashboards
+export const getPersistedState = state => ({ // TODO
+    dashboards: state.dashboards,
 });

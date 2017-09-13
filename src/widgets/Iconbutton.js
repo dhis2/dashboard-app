@@ -37,4 +37,12 @@ Iconbutton.propTypes = {
     onClick: PropTypes.func,
 };
 
+Iconbutton.defaultProps = {
+    style: null,
+    iconStyle: null,
+    icon: null,
+    iconColor: null,
+    onClick: Function.prototype,
+};
+
 export default Iconbutton;

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import DashboardSelectCt from  './components/DashboardSelect/DashboardSelectCt';
-import DashboardTitleCt from  './components/DashboardTitle/DashboardTitleCt';
-import DashboardItemGridCt from  './components/DashboardItemGrid/DashboardItemGridCt';
+import DashboardSelectCt from './components/DashboardSelect/DashboardSelectCt';
+import DashboardTitleCt from './components/DashboardTitle/DashboardTitleCt';
+import DashboardItemGridCt from './components/DashboardItemGrid/DashboardItemGridCt';
 import { tSetDashboards } from './actions';
 
 import './App.css';
@@ -37,25 +37,25 @@ class App extends Component {
     }
     getChildContext() {
         return {
-            d2: this.props.d2
+            d2: this.props.d2,
         };
     }
     componentDidMount() {
         const { store } = this.context;
-        //const { d2 } = this.props;
+        // const { d2 } = this.props;
 
         store.dispatch(tSetDashboards());
 
-        //store.dispatch(acSetDashboards(getDashboards()));
+        // store.dispatch(acSetDashboards(getDashboards()));
     }
 }
 
 App.contextTypes = {
-    store: PropTypes.object
+    store: PropTypes.object,
 };
 
 App.childContextTypes = {
-    d2: PropTypes.object
+    d2: PropTypes.object,
 };
 
 export default App;

@@ -8,49 +8,49 @@ const { actionTypes } = fromReducers;
 
 export const acSetDashboards = dashboards => ({
     type: actionTypes.SET_DASHBOARDS,
-    dashboards
+    dashboards,
 });
 
 // dashboardsConfig objects
 
 export const acSetDashboardsConfigIsFetching = isFetching => ({
     type: actionTypes.SET_DASHBOARDSCONFIG_ISFETCHING,
-    isFetching: isFetching
+    isFetching,
 });
 
 export const acSetDashboardsConfigSelectedId = selectedId => ({
     type: actionTypes.SET_DASHBOARDSCONFIG_SELECTEDID,
-    selectedId
+    selectedId,
 });
 
 export const acSetDashboardsConfigTextFilter = textFilter => ({
     type: actionTypes.SET_DASHBOARDSCONFIG_TEXTFILTER,
-    textFilter
+    textFilter,
 });
 
 export const acSetDashboardsConfigShowFilter = showFilter => ({
     type: actionTypes.SET_DASHBOARDSCONFIG_SHOWFILTER,
-    showFilter
+    showFilter,
 });
 
 export const acSetDashboardsConfigOwnerFilter = ownerFilter => ({
     type: actionTypes.SET_DASHBOARDSCONFIG_OWNERFILTER,
-    ownerFilter
+    ownerFilter,
 });
 
 export const acSetDashboardsConfigSortFilterKey = key => ({
     type: actionTypes.SET_DASHBOARDSCONFIG_SORTFILTER_KEY,
-    key
+    key,
 });
 
 export const acSetDashboardsConfigSortFilterDirection = direction => ({
     type: actionTypes.SET_DASHBOARDSCONFIG_SORTFILTER_DIRECTION,
-    direction
+    direction,
 });
 
 export const acSetDashboardsConfigViewFilter = viewFilter => ({
     type: actionTypes.SET_DASHBOARDSCONFIG_VIEWFILTER,
-    viewFilter
+    viewFilter,
 });
 
 // dashboards thunks
@@ -58,7 +58,7 @@ export const acSetDashboardsConfigViewFilter = viewFilter => ({
 export const tSetDashboards = () => (dispatch, getState) => {
     dispatch(acSetDashboardsConfigIsFetching(true));
 
-    return apiFetchDashboards().then(dashboards => {
+    return apiFetchDashboards().then((dashboards) => {
         dispatch(acSetDashboardsConfigIsFetching(false));
         dispatch(acSetDashboardsConfigTextFilter());
         dispatch(acSetDashboards(dashboards));

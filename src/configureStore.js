@@ -12,7 +12,7 @@ const configureStore = () => {
 
     return createStore(
         reducer,
-        applyMiddleware(...middlewares)
+        applyMiddleware(...middlewares),
     );
 };
 

@@ -10,35 +10,35 @@ export const actionTypes = {
     SET_DASHBOARDSCONFIG_OWNERFILTER: 'SET_DASHBOARDSCONFIG_OWNERFILTER',
     SET_DASHBOARDSCONFIG_SORTFILTER_KEY: 'SET_DASHBOARDSCONFIG_SORTFILTER_KEY',
     SET_DASHBOARDSCONFIG_SORTFILTER_DIRECTION: 'SET_DASHBOARDSCONFIG_SORTFILTER_DIRECTION',
-    SET_DASHBOARDSCONFIG_VIEWFILTER: 'SET_DASHBOARDSCONFIG_VIEWFILTER'
+    SET_DASHBOARDSCONFIG_VIEWFILTER: 'SET_DASHBOARDSCONFIG_VIEWFILTER',
 };
 
 export const showFilterValues = {
     ALL: 'ALL',
     STARRED: 'STARRED',
-    UNSTARRED: 'UNSTARRED'
+    UNSTARRED: 'UNSTARRED',
 };
 
 export const ownerFilterValues = {
     ALL: 'ALL',
     ME: 'ME',
-    OTHERS: 'OTHERS'
+    OTHERS: 'OTHERS',
 };
 
 export const sortFilterKeyValues = {
     NAME: 'NAME',
     ITEMS: 'ITEMS',
-    CREATED: 'CREATED'
+    CREATED: 'CREATED',
 };
 
 export const sortFilterDirectionValues = {
     ASC: 'ASC',
-    DESC: 'DESC'
+    DESC: 'DESC',
 };
 
 export const viewFilterValues = {
     LIST: 'LIST',
-    TABLE: 'TABLE'
+    TABLE: 'TABLE',
 };
 
 export const DEFAULT_DASHBOARDSCONFIG_ISFETCHING = false;
@@ -52,73 +52,73 @@ export const DEFAULT_DASHBOARDSCONFIG_VIEWFILTER = viewFilterValues.LIST;
 
 const isFetching = (state = DEFAULT_DASHBOARDSCONFIG_ISFETCHING, action) => {
     switch (action.type) {
-        case actionTypes.SET_DASHBOARDSCONFIG_ISFETCHING:
-            return validateReducer(action.isFetching, DEFAULT_DASHBOARDSCONFIG_ISFETCHING);
-        default:
-            return state;
+    case actionTypes.SET_DASHBOARDSCONFIG_ISFETCHING:
+        return validateReducer(action.isFetching, DEFAULT_DASHBOARDSCONFIG_ISFETCHING);
+    default:
+        return state;
     }
 };
 
 const selectedId = (state = DEFAULT_DASHBOARDSCONFIG_SELECTEDID, action) => {
     switch (action.type) {
-        case actionTypes.SET_DASHBOARDSCONFIG_SELECTEDID:
-            return validateReducer(action.selectedId, DEFAULT_DASHBOARDSCONFIG_SELECTEDID);
-        default:
-            return state;
+    case actionTypes.SET_DASHBOARDSCONFIG_SELECTEDID:
+        return validateReducer(action.selectedId, DEFAULT_DASHBOARDSCONFIG_SELECTEDID);
+    default:
+        return state;
     }
 };
 
 const textFilter = (state = DEFAULT_DASHBOARDSCONFIG_TEXTFILTER, action) => {
     switch (action.type) {
-        case actionTypes.SET_DASHBOARDSCONFIG_TEXTFILTER:
-            return validateReducer(action.textFilter, DEFAULT_DASHBOARDSCONFIG_TEXTFILTER);
-        default:
-            return state;
+    case actionTypes.SET_DASHBOARDSCONFIG_TEXTFILTER:
+        return validateReducer(action.textFilter, DEFAULT_DASHBOARDSCONFIG_TEXTFILTER);
+    default:
+        return state;
     }
 };
 
 const showFilter = (state = DEFAULT_DASHBOARDSCONFIG_SHOWFILTER, action) => {
     switch (action.type) {
-        case actionTypes.SET_DASHBOARDSCONFIG_SHOWFILTER:
-            return validateReducer(action.showFilter, DEFAULT_DASHBOARDSCONFIG_SHOWFILTER);
-        default:
-            return state;
+    case actionTypes.SET_DASHBOARDSCONFIG_SHOWFILTER:
+        return validateReducer(action.showFilter, DEFAULT_DASHBOARDSCONFIG_SHOWFILTER);
+    default:
+        return state;
     }
 };
 
 const ownerFilter = (state = DEFAULT_DASHBOARDSCONFIG_OWNERFILTER, action) => {
     switch (action.type) {
-        case actionTypes.SET_DASHBOARDSCONFIG_OWNERFILTER:
-            return validateReducer(action.ownerFilter, DEFAULT_DASHBOARDSCONFIG_OWNERFILTER);
-        default:
-            return state;
+    case actionTypes.SET_DASHBOARDSCONFIG_OWNERFILTER:
+        return validateReducer(action.ownerFilter, DEFAULT_DASHBOARDSCONFIG_OWNERFILTER);
+    default:
+        return state;
     }
 };
 
 const key = (state = DEFAULT_DASHBOARDSCONFIG_SORTFILTER_KEY, action) => {
     switch (action.type) {
-        case actionTypes.SET_DASHBOARDSCONFIG_SORTFILTER_KEY:
-            return validateReducer(action.key, DEFAULT_DASHBOARDSCONFIG_SORTFILTER_KEY);
-        default:
-            return state;
+    case actionTypes.SET_DASHBOARDSCONFIG_SORTFILTER_KEY:
+        return validateReducer(action.key, DEFAULT_DASHBOARDSCONFIG_SORTFILTER_KEY);
+    default:
+        return state;
     }
 };
 
 const direction = (state = DEFAULT_DASHBOARDSCONFIG_SORTFILTER_DIRECTION, action) => {
     switch (action.type) {
-        case actionTypes.SET_DASHBOARDSCONFIG_SORTFILTER_DIRECTION:
-            return validateReducer(action.direction, DEFAULT_DASHBOARDSCONFIG_SORTFILTER_DIRECTION);
-        default:
-            return state;
+    case actionTypes.SET_DASHBOARDSCONFIG_SORTFILTER_DIRECTION:
+        return validateReducer(action.direction, DEFAULT_DASHBOARDSCONFIG_SORTFILTER_DIRECTION);
+    default:
+        return state;
     }
 };
 
 const viewFilter = (state = DEFAULT_DASHBOARDSCONFIG_VIEWFILTER, action) => {
     switch (action.type) {
-        case actionTypes.SET_DASHBOARDSCONFIG_VIEWFILTER:
-            return validateReducer(action.viewFilter, DEFAULT_DASHBOARDSCONFIG_VIEWFILTER);
-        default:
-            return state;
+    case actionTypes.SET_DASHBOARDSCONFIG_VIEWFILTER:
+        return validateReducer(action.viewFilter, DEFAULT_DASHBOARDSCONFIG_VIEWFILTER);
+    default:
+        return state;
     }
 };
 
@@ -130,9 +130,9 @@ export default combineReducers({
     ownerFilter,
     sortFilter: combineReducers({
         key,
-        direction
+        direction,
     }),
-    viewFilter
+    viewFilter,
 });
 
 // root selector
@@ -157,22 +157,19 @@ export const sGetViewFilterFromState = state => sGetDashboardsConfigFromState(st
 
 // selectors level 3
 
-export const sGetSortFilterId = state => {
-    var sortFilter = sGetSortFilterFromState(state);
-    return sortFilter.key + '_' + sortFilter.direction;
+export const sGetSortFilterId = (state) => {
+    const sortFilter = sGetSortFilterFromState(state);
+    return `${sortFilter.key}_${sortFilter.direction}`;
 };
 
 // utils
 
-export const uGetSortFilterFromId = id => {
+export const uGetSortFilterFromId = (id) => {
     const [key, direction] = id.split('_');
 
     return {
         key,
-        direction
+        direction,
     };
 };
-
-
-
 
