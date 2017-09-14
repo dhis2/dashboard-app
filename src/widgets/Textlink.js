@@ -26,13 +26,17 @@ export default class Textlink extends Component {
         this.state = Object.assign({}, styles.textlink, style);
     }
 
-    onMouseOverHandle() {
+    onMouseOverHandle(event) {
+        event.preventDefault();
+
         const { style, hoverStyle } = this.props;
 
         this.setState(Object.assign({}, styles.textlink, styles.textlinkHover, style, hoverStyle));
     }
 
-    onMouseOutHandle() {
+    onMouseOutHandle(event) {
+        event.preventDefault();
+
         const { style } = this.props;
 
         this.setState(Object.assign({}, styles.textlink, style));

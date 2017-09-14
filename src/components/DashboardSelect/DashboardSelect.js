@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import DashboardBar from './DashboardBar';
-import DashboardViewTable from './DashboardViewTable';
-import DashboardViewList from './DashboardViewList';
+import Toolbar from '../../dashboardbar/Dashboardbar';
 
 import * as fromReducers from '../../reducers';
+
+import { arrayGetById } from '../../util';
 
 const styles = {
     loading: {
@@ -31,23 +33,20 @@ export default function DashboardSelect(props) {
         return (<Loading />);
     }
 
-    let ViewComponent;
-
-    switch (viewFilter) {
-    case fromReducers.fromDashboardsConfig.viewFilterValues.LIST:
-        ViewComponent = (<DashboardViewList {...props} />);
-
-    case fromReducers.fromDashboardsConfig.viewFilterValues.TABLE:
-        ViewComponent = (<DashboardViewTable {...props} />);
-
-    default:
-        ViewComponent = (<DashboardViewList {...props} />);
-    }
-
     return (
         <div id="DashboardSelect">
             <DashboardBar {...props} />
-            {ViewComponent}
+            {arrayGetById(fromReducers.fromDashboardsConfig.viewFilterData, viewFilter).getViewCmp(props)}
         </div>
     );
 }
+
+DashboardSelect.propTypes = {
+    dashboardsIsFetching: PropTypes.bool,
+    viewFilter: PropTypes.string,
+};
+
+DashboardSelect.defaultProps = {
+    dashboardsIsFetching: false,
+    viewFilter: null,
+};

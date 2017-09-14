@@ -72,11 +72,10 @@ const styles = {
         name: {
             width: '400px'
         }
-    }
+    },
 };
 
 class TableRowColumnTextLink extends Component {
-
     constructor(props) {
         super(props);
 
@@ -109,6 +108,8 @@ class TableRowColumnTextLink extends Component {
     render() {
         const { text, onClickDashboard, isSelected, style } = this.props;
         const selectedStyle = isSelected ? this.styles.linkSelected : null;
+
+        const c = TableRowColumn;
 
         return (
             <TableRowColumn
@@ -146,16 +147,15 @@ TableRowColumnTextLink.defaultProps = {
 };
 
 export default class DashboardViewTable extends Component {
-
     constructor(props) {
         super(props);
+
+        this.handleRowSelection = this.handleRowSelection.bind(this);
+        this.isSelected = this.isSelected.bind(this);
 
         this.state = {
             selected: [1],
         };
-
-        this.handleRowSelection = this.handleRowSelection.bind(this);
-        this.isSelected = this.isSelected.bind(this);
     }
 
     handleRowSelection(selectedRows) {
@@ -169,7 +169,7 @@ export default class DashboardViewTable extends Component {
     }
 
     render() {
-        const { dashboards, onClickDashboard, selectedId } = this.props;
+        const { dashboards, onClickDashboard } = this.props;
 
         const style = styles.tableView;
 
@@ -206,12 +206,10 @@ export default class DashboardViewTable extends Component {
 
 DashboardViewTable.propTypes = {
     dashboards: PropTypes.array,
-    selectedId: PropTypes.string,
     onClickDashboard: PropTypes.func,
 };
 
 DashboardViewTable.defaultProps = {
-    dashboards: null,
-    selectedId: null,
+    dashboards: [],
     onClickDashboard: Function.prototype,
 };

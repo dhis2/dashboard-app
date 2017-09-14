@@ -1,3 +1,3 @@
 export function arrayGetById(array, id) {
-    array.find(item => item === id);
+    return array.find(item => item.id === id);
 }

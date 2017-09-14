@@ -19,9 +19,9 @@ export const validateReducer = (value, defaultValue) => (value === undefined || 
 
 // map constants to data
 const mapConstToData = {
-    [fromDashboardsConfig.sortFilterKeyValues.NAME]: 'name',
-    [fromDashboardsConfig.sortFilterKeyValues.ITEMS]: 'numberOfItems',
-    [fromDashboardsConfig.sortFilterKeyValues.CREATED]: 'created',
+    [fromDashboardsConfig.sortFilterKeyData.NAME]: 'name',
+    [fromDashboardsConfig.sortFilterKeyData.ITEMS]: 'numberOfItems',
+    [fromDashboardsConfig.sortFilterKeyData.CREATED]: 'created',
 };
 
 // reducers
@@ -43,9 +43,9 @@ export const sApplyDashboardsTextFilter = (dashboards, filter) => dashboards.fil
 
 export const applyDashboardsShowFilter = (dashboards, filter) => {
     switch (filter) {
-    case fromDashboardsConfig.showFilterValues.STARRED:
+    case fromDashboardsConfig.showFilterData.STARRED:
         return dashboards.filter(d => !!d.starred);
-    case fromDashboardsConfig.showFilterValues.UNSTARRED:
+    case fromDashboardsConfig.showFilterData.UNSTARRED:
         return dashboards.filter(d => !d.starred);
     default:
         return dashboards;
@@ -54,9 +54,9 @@ export const applyDashboardsShowFilter = (dashboards, filter) => {
 
 export const applyDashboardsOwnerFilter = (dashboards, filter) => {
     switch (filter) {
-    case fromDashboardsConfig.ownerFilterValues.ME:
+    case fromDashboardsConfig.ownerFilterData.ME:
         console.log(dashboards, filter); return dashboards.filter(d => d.owner === USER);
-    case fromDashboardsConfig.ownerFilterValues.OTHERS:
+    case fromDashboardsConfig.ownerFilterData.OTHERS:
         return dashboards.filter(d => d.owner !== USER);
     default:
         return dashboards;

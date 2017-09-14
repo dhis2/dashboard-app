@@ -48,8 +48,6 @@ export default class Dropdown extends Component {
     }
 
     handleChange(event, index, value) {
-        console.log(this.state.value, value);
-
         if (value !== this.state.value) {
             this.setState({ value });
 
@@ -71,7 +69,7 @@ export default class Dropdown extends Component {
                 style={styles.style}
                 underlineStyle={styles.underlineStyle}
             >
-                {data.map(d => <MenuItem value={d.id} primaryText={d.value} />)}
+                {data.map(d => <MenuItem key={d.id} value={d.id} primaryText={d.value} />)}
             </DropDownMenu>
         );
     }

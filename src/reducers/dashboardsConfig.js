@@ -1,8 +1,10 @@
+import React from 'react';
 import { combineReducers } from 'redux';
 
 import { validateReducer } from './index';
 
-import { getById } from '../util';
+import DashboardViewList from '../dashboardselect/DashboardselectList';
+import DashboardViewTable from '../dashboardselect/DashboardselectTable';
 
 export const actionTypes = {
     SET_DASHBOARDSCONFIG_ISFETCHING: 'SET_DASHBOARDSCONFIG_ISFETCHING',
@@ -15,51 +17,51 @@ export const actionTypes = {
     SET_DASHBOARDSCONFIG_VIEWFILTER: 'SET_DASHBOARDSCONFIG_VIEWFILTER',
 };
 
-export const showFilterValues = [
+export const showFilterData = [
     { id: 'ALL', value: 'All items' },
     { id: 'STARRED', value: 'Starred' },
     { id: 'UNSTARRED', value: 'Unstarred' },
 ];
 
-export const ownerFilterValues = [
-    { id: 'ALL', value: 'All items' },
+export const ownerFilterData = [
+    { id: 'ALL', value: 'All users' },
     { id: 'ME', value: 'Created by me' },
     { id: 'OTHERS', value: 'Created by others' },
 ];
 
-export const sortFilterKeyValues = [
+export const sortFilterKeyData = [
     { id: 'NAME', value: 'Name' },
     { id: 'ITEMS', value: 'Number of items' },
     { id: 'CREATED', value: 'Created date' },
 ];
 
-export const sortFilterDirectionValues = [
+export const sortFilterDirectionData = [
     { id: 'ASC', value: 'asc' },
     { id: 'DESC', value: 'desc' },
 ];
 
 export const sortFilterValues = [
-    { id: `${sortFilterKeyValues[0].id}_${sortFilterDirectionValues[0].id}`, value: `${sortFilterKeyValues[0].value} (${sortFilterDirectionValues[0].value})` },
-    { id: `${sortFilterKeyValues[0].id}_${sortFilterDirectionValues[1].id}`, value: `${sortFilterKeyValues[0].value} (${sortFilterDirectionValues[1].value})` },
-    { id: `${sortFilterKeyValues[1].id}_${sortFilterDirectionValues[0].id}`, value: `${sortFilterKeyValues[1].value} (${sortFilterDirectionValues[0].value})` },
-    { id: `${sortFilterKeyValues[1].id}_${sortFilterDirectionValues[1].id}`, value: `${sortFilterKeyValues[1].value} (${sortFilterDirectionValues[1].value})` },
-    { id: `${sortFilterKeyValues[2].id}_${sortFilterDirectionValues[0].id}`, value: `${sortFilterKeyValues[2].value} (${sortFilterDirectionValues[0].value})` },
-    { id: `${sortFilterKeyValues[2].id}_${sortFilterDirectionValues[1].id}`, value: `${sortFilterKeyValues[2].value} (${sortFilterDirectionValues[1].value})` },
+    { id: `${sortFilterKeyData[0].id}_${sortFilterDirectionData[0].id}`, value: `${sortFilterKeyData[0].value} (${sortFilterDirectionData[0].value})` },
+    { id: `${sortFilterKeyData[0].id}_${sortFilterDirectionData[1].id}`, value: `${sortFilterKeyData[0].value} (${sortFilterDirectionData[1].value})` },
+    { id: `${sortFilterKeyData[1].id}_${sortFilterDirectionData[0].id}`, value: `${sortFilterKeyData[1].value} (${sortFilterDirectionData[0].value})` },
+    { id: `${sortFilterKeyData[1].id}_${sortFilterDirectionData[1].id}`, value: `${sortFilterKeyData[1].value} (${sortFilterDirectionData[1].value})` },
+    { id: `${sortFilterKeyData[2].id}_${sortFilterDirectionData[0].id}`, value: `${sortFilterKeyData[2].value} (${sortFilterDirectionData[0].value})` },
+    { id: `${sortFilterKeyData[2].id}_${sortFilterDirectionData[1].id}`, value: `${sortFilterKeyData[2].value} (${sortFilterDirectionData[1].value})` },
 ];
 
-export const viewFilterValues = [
-    { id: 'LIST', value: 'List' },
-    { id: 'TABLE', value: 'Table' },
+export const viewFilterData = [
+    { id: 'LIST', value: 'List', getViewCmp: props => <DashboardViewList {...props} /> },
+    { id: 'TABLE', value: 'Table', getViewCmp: props => <DashboardViewTable {...props} /> },
 ];
 
 export const DEFAULT_DASHBOARDSCONFIG_ISFETCHING = false;
 export const DEFAULT_DASHBOARDSCONFIG_SELECTEDID = '';
 export const DEFAULT_DASHBOARDSCONFIG_TEXTFILTER = '';
-export const DEFAULT_DASHBOARDSCONFIG_SHOWFILTER = showFilterValues[0].id;
-export const DEFAULT_DASHBOARDSCONFIG_OWNERFILTER = ownerFilterValues[0].id;
-export const DEFAULT_DASHBOARDSCONFIG_SORTFILTER_KEY = sortFilterKeyValues[0].id;
-export const DEFAULT_DASHBOARDSCONFIG_SORTFILTER_DIRECTION = sortFilterDirectionValues[0].id;
-export const DEFAULT_DASHBOARDSCONFIG_VIEWFILTER = viewFilterValues[0].id;
+export const DEFAULT_DASHBOARDSCONFIG_SHOWFILTER = showFilterData[0].id;
+export const DEFAULT_DASHBOARDSCONFIG_OWNERFILTER = ownerFilterData[0].id;
+export const DEFAULT_DASHBOARDSCONFIG_SORTFILTER_KEY = sortFilterKeyData[0].id;
+export const DEFAULT_DASHBOARDSCONFIG_SORTFILTER_DIRECTION = sortFilterDirectionData[0].id;
+export const DEFAULT_DASHBOARDSCONFIG_VIEWFILTER = viewFilterData[0].id;
 
 const isFetching = (state = DEFAULT_DASHBOARDSCONFIG_ISFETCHING, action) => {
     switch (action.type) {
@@ -170,7 +172,7 @@ export const sGetViewFilterFromState = state => sGetDashboardsConfigFromState(st
 
 export const sGetSortFilterId = (state) => {
     const sortFilter = sGetSortFilterFromState(state);
-    return `${sortFilter.key}_${sortFilter.direction}`;
+    return `${sortFilter.keyFilter}_${sortFilter.directionFilter}`;
 };
 
 // utils

@@ -192,9 +192,9 @@ class ShowMenu extends Component {
     }
 
     render() {
-        const all = fromReducers.fromDashboardsConfig.showFilterValues.ALL;
-        const starred = fromReducers.fromDashboardsConfig.showFilterValues.STARRED;
-        const unstarred = fromReducers.fromDashboardsConfig.showFilterValues.UNSTARRED;
+        const all = fromReducers.fromDashboardsConfig.showFilterData.ALL;
+        const starred = fromReducers.fromDashboardsConfig.showFilterData.STARRED;
+        const unstarred = fromReducers.fromDashboardsConfig.showFilterData.UNSTARRED;
 
         const style = styles.dropDownMenu;
 
@@ -245,9 +245,9 @@ class OwnerMenu extends Component {
     }
 
     render() {
-        const all = fromReducers.fromDashboardsConfig.ownerFilterValues.ALL;
-        const me = fromReducers.fromDashboardsConfig.ownerFilterValues.ME;
-        const others = fromReducers.fromDashboardsConfig.ownerFilterValues.OTHERS;
+        const all = fromReducers.fromDashboardsConfig.ownerFilterData.ALL;
+        const me = fromReducers.fromDashboardsConfig.ownerFilterData.ME;
+        const others = fromReducers.fromDashboardsConfig.ownerFilterData.OTHERS;
 
         const style = styles.dropDownMenu;
 
@@ -325,8 +325,8 @@ class SortMenu extends Component {
 }
 
 const ViewPanel = (props) => {
-    const list = fromReducers.fromDashboardsConfig.viewFilterValues.LIST;
-    const table = fromReducers.fromDashboardsConfig.viewFilterValues.TABLE;
+    const list = fromReducers.fromDashboardsConfig.viewFilterData.LIST;
+    const table = fromReducers.fromDashboardsConfig.viewFilterData.TABLE;
 
     const { viewFilter } = props;
 
@@ -360,32 +360,34 @@ const ViewPanel = (props) => {
     );
 };
 
-const { showFilterValues, ownerFilterValues, sortFilterValues } = fromReducers.fromDashboardsConfig;
+const { showFilterData, ownerFilterData, sortFilterValues } = fromReducers.fromDashboardsConfig;
 
-const DashboardBar = props => (
-    <Toolbar style={styles.toolbar}>
-        <ToolbarGroup style={{ position: 'relative', left: '-10px' }} firstChild>
-            <Iconbutton />
-            <ToolbarSeparator style={styles.toolbarSeparator} />
-            <Textlink text={'Home'} onClick={props.onClickHome} />
-            <ToolbarSeparator style={Object.assign({}, styles.toolbarSeparator, styles.hiddenToolbarSeparator)} />
-            <Textlink text={'Manage dashboards'} onClick={props.onClickManage} />
-        </ToolbarGroup>
-        <ToolbarGroup lastChild>
-            <FilterField {...props} />
-            <ClearButton {...props} />
-            <Dropdown value={props.showFilter} onClick={props.onClickShowFilter} data={showFilterValues} />
-            <Dropdown value={props.ownerFilter} onClick={props.onClickOwnerFilter} data={ownerFilterValues} />
-            <Dropdown value={props.sortFilter} onClick={props.onClickSortFilter} data={sortFilterValues} />
-            <ViewPanel {...props} />
-        </ToolbarGroup>
-    </Toolbar>
-);
+const DashboardBar = (props) => {
+    return (
+        <Toolbar style={styles.toolbar}>
+            <ToolbarGroup style={{ position: 'relative', left: '-10px' }} firstChild>
+                <Iconbutton />
+                <ToolbarSeparator style={styles.toolbarSeparator} />
+                <Textlink text={'Home'} onClick={props.onClickHome} />
+                <ToolbarSeparator style={Object.assign({}, styles.toolbarSeparator, styles.hiddenToolbarSeparator)} />
+                <Textlink text={'Manage dashboards'} onClick={props.onClickManage} />
+            </ToolbarGroup>
+            <ToolbarGroup lastChild>
+                <FilterField {...props} />
+                <ClearButton {...props} />
+                <Dropdown value={props.showFilter} onClick={props.onClickShowFilter} data={showFilterData} />
+                <Dropdown value={props.ownerFilter} onClick={props.onClickOwnerFilter} data={ownerFilterData} />
+                <Dropdown value={props.sortFilterId} onClick={props.onClickSortFilter} data={sortFilterValues} />
+                <ViewPanel {...props} />
+            </ToolbarGroup>
+        </Toolbar>
+    );
+}
 
 DashboardBar.propTypes = {
     showFilter: PropTypes.string,
     ownerFilter: PropTypes.string,
-    sortFilter: PropTypes.string,
+    sortFilterId: PropTypes.string,
     onClickHome: PropTypes.func,
     onClickManage: PropTypes.func,
     onClickShowFilter: PropTypes.func,
@@ -396,7 +398,7 @@ DashboardBar.propTypes = {
 DashboardBar.defaultProps = {
     showFilter: null,
     ownerFilter: null,
-    sortFilter: null,
+    sortFilterId: null,
     onClickHome: Function.prototype,
     onClickManage: Function.prototype,
     onClickShowFilter: Function.prototype,
