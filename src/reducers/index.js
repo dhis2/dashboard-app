@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
+import arraySort from 'd2-utilizr/lib/arraySort';
+
 import dashboards, * as fromDashboards from './dashboards';
 import dashboardsConfig, * as fromDashboardsConfig from './dashboardsConfig';
 
-import arraySort from 'd2-utilizr/lib/arraySort';
+import { arrayGetById } from '../util';
 
 const USER = 'system';
 
@@ -19,9 +21,9 @@ export const validateReducer = (value, defaultValue) => (value === undefined || 
 
 // map constants to data
 const mapConstToData = {
-    [fromDashboardsConfig.sortFilterKeyData.NAME]: 'name',
-    [fromDashboardsConfig.sortFilterKeyData.ITEMS]: 'numberOfItems',
-    [fromDashboardsConfig.sortFilterKeyData.CREATED]: 'created',
+    NAME: 'name',
+    ITEMS: 'numberOfItems',
+    CREATED: 'created',
 };
 
 // reducers
@@ -78,7 +80,10 @@ export const sGetDashboards = (state) => {
     const showFilter = fromDashboardsConfig.sGetShowFilterFromState(state);
     const ownerFilter = fromDashboardsConfig.sGetOwnerFilterFromState(state);
     const sortFilter = fromDashboardsConfig.sGetSortFilterFromState(state);
-
+console.log("textFilter", textFilter);
+console.log("showFilter", showFilter);
+console.log("ownerFilter", ownerFilter);
+console.log("sortFilter", sortFilter);
     return applySortFilter(
         sApplyDashboardsTextFilter(
             applyDashboardsShowFilter(

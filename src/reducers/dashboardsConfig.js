@@ -3,8 +3,8 @@ import { combineReducers } from 'redux';
 
 import { validateReducer } from './index';
 
-import DashboardViewList from '../dashboardselect/DashboardselectList';
-import DashboardViewTable from '../dashboardselect/DashboardselectTable';
+import DashboardselectList from '../dashboardselect/DashboardselectList';
+import DashboardselectTable from '../dashboardselect/DashboardselectTable';
 
 export const actionTypes = {
     SET_DASHBOARDSCONFIG_ISFETCHING: 'SET_DASHBOARDSCONFIG_ISFETCHING',
@@ -40,7 +40,7 @@ export const sortFilterDirectionData = [
     { id: 'DESC', value: 'desc' },
 ];
 
-export const sortFilterValues = [
+export const sortFilterData = [
     { id: `${sortFilterKeyData[0].id}_${sortFilterDirectionData[0].id}`, value: `${sortFilterKeyData[0].value} (${sortFilterDirectionData[0].value})` },
     { id: `${sortFilterKeyData[0].id}_${sortFilterDirectionData[1].id}`, value: `${sortFilterKeyData[0].value} (${sortFilterDirectionData[1].value})` },
     { id: `${sortFilterKeyData[1].id}_${sortFilterDirectionData[0].id}`, value: `${sortFilterKeyData[1].value} (${sortFilterDirectionData[0].value})` },
@@ -50,8 +50,8 @@ export const sortFilterValues = [
 ];
 
 export const viewFilterData = [
-    { id: 'LIST', value: 'List', getViewCmp: props => <DashboardViewList {...props} /> },
-    { id: 'TABLE', value: 'Table', getViewCmp: props => <DashboardViewTable {...props} /> },
+    { id: 'LIST', value: 'List', getViewCmp: props => <DashboardselectList {...props} /> },
+    { id: 'TABLE', value: 'Table', getViewCmp: props => <DashboardselectTable {...props} /> },
 ];
 
 export const DEFAULT_DASHBOARDSCONFIG_ISFETCHING = false;

@@ -51,7 +51,7 @@ export default class Dropdown extends Component {
         if (value !== this.state.value) {
             this.setState({ value });
 
-            this.props.onClick(value);
+            this.props.onClick(value, this.props);
         }
     }
 

@@ -13,6 +13,15 @@ export default [
         ],
     },
     {
+        id: 'uid1',
+        name: 'Fake maps',
+        starred: false,
+        owner: 'lars',
+        dashboardItems: [
+            { id: 'zDP78aJU8nX', type: 'MAP', x: 0, y: 0, w: 12, h: 11 },
+        ],
+    },
+    {
         id: 'JW7RlN5xafN',
         name: 'Cases Malaria',
         starred: false,

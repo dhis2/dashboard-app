@@ -8,11 +8,15 @@ import './DashboardItemGrid.css';
 const runPlugins = (items) => {
     let filteredItems;
 
+    const url = '//localhost:8080';
+    const username = 'admin';
+    const password = 'district';
+
     // plugins
     [global.reportTablePlugin, global.chartPlugin].forEach((plugin) => {
-        plugin.url = '//localhost:8080';
-        plugin.username = 'admin';
-        plugin.password = 'district';
+        plugin.url = url;
+        plugin.username = username;
+        plugin.password = password;
         plugin.loadingIndicator = true;
         plugin.dashboard = true;
 
@@ -29,6 +33,12 @@ const runPlugins = (items) => {
             }(document.getElementById(d.el)));
         });
     });
+
+    // map
+    filteredItems = items.filter(d => d.type === 'MAP').map(d => ({ id: d.id, el: `plugin-${d.id}`, type: d.type, url, username, password }));
+    console.log(filteredItems);
+
+    filteredItems.forEach(d => global.DHIS.getMap(d));
 };
 
 class DashboardItemGrid extends Component {

@@ -360,29 +360,27 @@ const ViewPanel = (props) => {
     );
 };
 
-const { showFilterData, ownerFilterData, sortFilterValues } = fromReducers.fromDashboardsConfig;
+const { showFilterData, ownerFilterData, sortFilterData } = fromReducers.fromDashboardsConfig;
 
-const DashboardBar = (props) => {
-    return (
-        <Toolbar style={styles.toolbar}>
-            <ToolbarGroup style={{ position: 'relative', left: '-10px' }} firstChild>
-                <Iconbutton />
-                <ToolbarSeparator style={styles.toolbarSeparator} />
-                <Textlink text={'Home'} onClick={props.onClickHome} />
-                <ToolbarSeparator style={Object.assign({}, styles.toolbarSeparator, styles.hiddenToolbarSeparator)} />
-                <Textlink text={'Manage dashboards'} onClick={props.onClickManage} />
-            </ToolbarGroup>
-            <ToolbarGroup lastChild>
-                <FilterField {...props} />
-                <ClearButton {...props} />
-                <Dropdown value={props.showFilter} onClick={props.onClickShowFilter} data={showFilterData} />
-                <Dropdown value={props.ownerFilter} onClick={props.onClickOwnerFilter} data={ownerFilterData} />
-                <Dropdown value={props.sortFilterId} onClick={props.onClickSortFilter} data={sortFilterValues} />
-                <ViewPanel {...props} />
-            </ToolbarGroup>
-        </Toolbar>
-    );
-}
+const DashboardBar = props => (
+    <Toolbar style={styles.toolbar}>
+        <ToolbarGroup style={{ position: 'relative', left: '-10px' }} firstChild>
+            <Iconbutton />
+            <ToolbarSeparator style={styles.toolbarSeparator} />
+            <Textlink text={'Home'} onClick={props.onClickHome} />
+            <ToolbarSeparator style={Object.assign({}, styles.toolbarSeparator, styles.hiddenToolbarSeparator)} />
+            <Textlink text={'Manage dashboards'} onClick={props.onClickManage} />
+        </ToolbarGroup>
+        <ToolbarGroup lastChild>
+            <FilterField {...props} />
+            <ClearButton {...props} />
+            <Dropdown value={props.showFilter} onClick={props.onClickShowFilter} data={showFilterData} />
+            <Dropdown value={props.ownerFilter} onClick={props.onClickOwnerFilter} data={ownerFilterData} />
+            <Dropdown value={props.sortFilterId} onClick={props.onClickSortFilter} data={sortFilterData} />
+            <ViewPanel {...props} />
+        </ToolbarGroup>
+    </Toolbar>
+);
 
 DashboardBar.propTypes = {
     showFilter: PropTypes.string,

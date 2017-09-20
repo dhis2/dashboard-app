@@ -49,31 +49,6 @@ const styles = {
         width: '16px',
         height: '16px',
     },
-    dropDownMenu: {
-        defaultFontStyle: {
-            color: '#222',
-            fontSize: '14px',
-        },
-        labelStyle: {
-            position: 'relative',
-            top: '-2px',
-        },
-        listStyle: {
-            padding: '10px 0 !important',
-        },
-        iconStyle: {
-            top: '2px',
-        },
-        selectedMenuItemStyle: {
-            fontWeight: 500,
-        },
-        underlineStyle: {
-            border: '0 none',
-        },
-        style: {
-            height: '52px',
-        },
-    },
     toolbar: {
         height: 52,
         backgroundColor: '#fff',
@@ -84,9 +59,6 @@ const styles = {
         height: '26px',
         marginRight: '20px',
         marginLeft: '5px',
-    },
-    toolbarTextLink: {
-        whiteSpace: 'nowrap',
     },
     hiddenToolbarSeparator: {
         backgroundColor: 'transparent',
@@ -175,40 +147,29 @@ ClearButton.propTypes = {
     textFilter: PropTypes.string.isRequired,
 };
 
-const ViewPanel = (props) => {
-    const list = fromReducers.fromDashboardsConfig.viewFilterData.LIST;
-    const table = fromReducers.fromDashboardsConfig.viewFilterData.TABLE;
-
-    const { viewFilter } = props;
-
+const getViewFilterIcon = (viewFilter) => {
+    const list = 'LIST';
+    const table = 'TABLE';
     const buttonColor = grey700;
-
-    const _styles = {
-        icon: {
-            width: 24,
-            height: 24,
-        },
-    };
-
-    const onClickViewFilterParamMap = {
-        [list]: table,
-        [table]: list,
-    };
-
-    function onClick() {
-        props.onClickViewFilter(onClickViewFilterParamMap[viewFilter]);
-    }
 
     const buttonMap = {
         [list]: <IconList color={buttonColor} />,
         [table]: <ListViewModule color={buttonColor} />,
     };
 
-    return (
-        <IconButton style={styles.iconButton} iconStyle={_styles.icon} onClick={onClick}>
-            {buttonMap[viewFilter]}
-        </IconButton>
-    );
+    return buttonMap[viewFilter];
+};
+
+const onClickViewFilterWrapper = (viewFilter, onClickViewFilter) => {
+    const list = 'LIST';
+    const table = 'TABLE';
+
+    const onClickViewFilterParamMap = {
+        [list]: table,
+        [table]: list,
+    };
+
+    return () => onClickViewFilter(onClickViewFilterParamMap[viewFilter]);
 };
 
 export const Dashboardbar = props => (
@@ -225,8 +186,8 @@ export const Dashboardbar = props => (
             <ClearButton {...props} />
             <Dropdown value={props.showFilter} onClick={props.onClickShowFilter} data={fromReducers.fromDashboardsConfig.showFilterData} />
             <Dropdown value={props.ownerFilter} onClick={props.onClickOwnerFilter} data={fromReducers.fromDashboardsConfig.ownerFilterData} />
-            <Dropdown value={props.sortFilterId} onClick={props.onClickSortFilter} data={fromReducers.fromDashboardsConfig.sortFilterValues} />
-            <ViewPanel {...props} />
+            <Dropdown value={props.sortFilterId} onClick={props.onClickSortFilter} data={fromReducers.fromDashboardsConfig.sortFilterData} />
+            <Iconbutton icon={getViewFilterIcon(props.viewFilter)} iconStyle={{ width: 24, height: 24 }} onClick={onClickViewFilterWrapper(props.viewFilter, props.onClickViewFilter)} />
         </ToolbarGroup>
     </Toolbar>
 );
@@ -237,9 +198,11 @@ Dashboardbar.propTypes = {
     onClickShowFilter: PropTypes.func,
     onClickOwnerFilter: PropTypes.func,
     onClickSortFilter: PropTypes.func,
-    showFilter: PropTypes.func,
-    ownerFilter: PropTypes.func,
-    sortFilterId: PropTypes.func,
+    onClickViewFilter: PropTypes.func,
+    showFilter: PropTypes.string,
+    ownerFilter: PropTypes.string,
+    sortFilterId: PropTypes.string,
+    viewFilter: PropTypes.string,
 };
 
 Dashboardbar.defaultProps = {
@@ -248,9 +211,11 @@ Dashboardbar.defaultProps = {
     onClickShowFilter: Function.prototype,
     onClickOwnerFilter: Function.prototype,
     onClickSortFilter: Function.prototype,
+    onClickViewFilter: Function.prototype,
     showFilter: null,
     ownerFilter: null,
     sortFilterId: null,
+    viewFilter: null,
 };
 
 // Container
@@ -267,11 +232,17 @@ const mapDispatchToProps = dispatch => ({
     onChangeTextFilter: value => dispatch(fromActions.acSetDashboardsConfigTextFilter(value)),
     onClickShowFilter: value => dispatch(fromActions.acSetDashboardsConfigShowFilter(value)),
     onClickOwnerFilter: value => dispatch(fromActions.acSetDashboardsConfigOwnerFilter(value)),
-    onClickSortFilterKey: value => dispatch(fromActions.acSetDashboardsConfigSortFilterKey(value)),
+    onClickSortFilter: (value) => {
+        const sortFilter = fromReducers.fromDashboardsConfig.uGetSortFilterFromId(value);
+        dispatch(fromActions.acSetDashboardsConfigSortFilterKey(sortFilter.key));
+        dispatch(fromActions.acSetDashboardsConfigSortFilterDirection(sortFilter.direction));
+    },
     onClickSortFilterDirection: value => dispatch(fromActions.acSetDashboardsConfigSortFilterDirection(value)),
     onClickViewFilter: value => dispatch(fromActions.acSetDashboardsConfigViewFilter(value)),
     onClickHome: () => dispatch(fromActions.tSetPresetHome()),
     onClickManage: () => dispatch(fromActions.tSetPresetManage()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboardbar);
+const DashboardbarCt = connect(mapStateToProps, mapDispatchToProps)(Dashboardbar);
+
+export default DashboardbarCt;

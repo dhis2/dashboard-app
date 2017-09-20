@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import DashboardSelectCt from './components/DashboardSelect/DashboardSelectCt';
-import DashboardTitleCt from './components/DashboardTitle/DashboardTitleCt';
-import DashboardItemGridCt from './components/DashboardItemGrid/DashboardItemGridCt';
-import { tSetDashboards } from './actions';
-
-import './App.css';
-
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
+
+import DashboardTitleCt from './components/DashboardTitle/DashboardTitleCt';
+import DashboardItemGridCt from './components/DashboardItemGrid/DashboardItemGridCt';
+import DashboardbarCt from './dashboardbar/Dashboardbar';
+import DashboardselectCt from './dashboardselect/Dashboardselect';
+import { tSetDashboards } from './actions';
+
+import './App.css';
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
@@ -19,22 +20,6 @@ global.reportTablePlugin.type = 'REPORT_TABLE';
 global.chartPlugin.type = 'CHART';
 
 class App extends Component {
-    render() {
-        return (
-            <div>
-                <HeaderBar />
-                <div className="DashboardSelect">
-                    <div className="wrapper">
-                        <DashboardSelectCt />
-                    </div>
-                </div>
-                <div className="wrapper">
-                    <DashboardTitleCt />
-                    <DashboardItemGridCt />
-                </div>
-            </div>
-        );
-    }
     getChildContext() {
         return {
             d2: this.props.d2,
@@ -48,7 +33,32 @@ class App extends Component {
 
         // store.dispatch(acSetDashboards(getDashboards()));
     }
+    render() {
+        return (
+            <div>
+                <HeaderBar />
+                <div className="DashboardSelect">
+                    <div className="wrapper">
+                        <DashboardbarCt />
+                        <DashboardselectCt />
+                    </div>
+                </div>
+                <div className="wrapper">
+                    <DashboardTitleCt />
+                    <DashboardItemGridCt />
+                </div>
+            </div>
+        );
+    }
 }
+
+App.propTypes = {
+    d2: PropTypes.object,
+};
+
+App.defaultProps = {
+    d2: {},
+};
 
 App.contextTypes = {
     store: PropTypes.object,

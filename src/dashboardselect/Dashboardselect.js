@@ -64,4 +64,6 @@ const mapDispatchToProps = dispatch => ({
     onClickDashboard: id => dispatch(fromActions.acSetDashboardsConfigSelectedId(id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboardselect);
+const DashboardselectCt = connect(mapStateToProps, mapDispatchToProps)(Dashboardselect);
+
+export default DashboardselectCt;

@@ -7,71 +7,41 @@ const linkColor = '#2264ff';
 const linkColorHover = '#1b3f8f';
 
 const styles = {
-    listView: {
-        ul: {
-            paddingLeft: '15px'
-        },
-        li: {
-            display: 'inline-block',
-            margin: '1px',
-            cursor: 'pointer',
-            color: '#444',
-            padding: '7px 11px',
-            border: '1px solid #e1e1e1',
-            borderRadius: '3px'
-        },
-        liName: {
-            color: linkColor,
-            fontSize: '13px',
-            fontWeight: 500,
-            paddingBottom: '3px'
-        },
-        liNameSelected: {
-            color: linkColorHover,
-            fontWeight: 600
-        }
-    },
-    listItem: {
-        backgroundColor: '#e0e0e0',
-        backgroundColorHover: '#ccc'
-    },
     tableRowColumnTextLink: {
         link: {
             color: linkColor,
-            fontWeight: 'normal',
             cursor: 'pointer',
             fontSize: '13px',
-            fontWeight: 500
+            fontWeight: 500,
         },
         linkHover: {
-            color: linkColorHover
+            color: linkColorHover,
         },
         linkSelected: {
             color: linkColorHover,
-            fontWeight: 700
-        }
+            fontWeight: 700,
+        },
     },
     tableView: {
         root: {
             marginTop: '5px',
-            marginTop: '5px',
-            marginLeft: '5px'
+            marginLeft: '5px',
         },
         row: {
             height: '19px',
             padding: '4px',
-            fontSize: '13px'
+            fontSize: '13px',
         },
         rowColumn: {
             color: '#000',
-            fontSize: '11px'
+            fontSize: '11px',
         },
         starred: {
-            width: '70px'
+            width: '70px',
         },
         name: {
-            width: '400px'
-        }
+            width: '400px',
+        },
     },
 };
 
@@ -79,14 +49,14 @@ class TableRowColumnTextLink extends Component {
     constructor(props) {
         super(props);
 
+        this.styles = styles.tableRowColumnTextLink;
+
         this.state = {
             color: this.styles.link.color,
         };
 
         this.onMouseOverHandle = this.onMouseOverHandle.bind(this);
         this.onMouseOutHandle = this.onMouseOutHandle.bind(this);
-
-        this.styles = styles.tableRowColumnTextLink;
     }
 
     onMouseOverHandle(event) {
@@ -108,8 +78,6 @@ class TableRowColumnTextLink extends Component {
     render() {
         const { text, onClickDashboard, isSelected, style } = this.props;
         const selectedStyle = isSelected ? this.styles.linkSelected : null;
-
-        const c = TableRowColumn;
 
         return (
             <TableRowColumn
@@ -146,7 +114,9 @@ TableRowColumnTextLink.defaultProps = {
     style: null,
 };
 
-export default class DashboardViewTable extends Component {
+// Component
+
+export default class DashboardselectTable extends Component {
     constructor(props) {
         super(props);
 
@@ -189,8 +159,8 @@ export default class DashboardViewTable extends Component {
                     <TableBody displayRowCheckbox={false}>
                         {dashboards.map(d => (
                             <TableRow key={d.id} style={style.row}>
-                                <TableRowColumn style={Object.assign({}, style.row, style.rowColumn, style.starred)}>{!!d.starred}</TableRowColumn>
-                                <TableRowColumnTextLink text={d.name} onClickDashboard={() => onClickDashboard(d.id)} isSelected={d.id === selectedId} />
+                                <TableRowColumn style={Object.assign({}, style.row, style.rowColumn, style.starred)}>{`${!!d.starred}`}</TableRowColumn>
+                                <TableRowColumnTextLink text={d.name} onClickDashboard={() => onClickDashboard(d.id)} isSelected={false} />
                                 <TableRowColumn style={Object.assign({}, style.row, style.rowColumn)}>{d.numberOfItems}</TableRowColumn>
                                 <TableRowColumn style={Object.assign({}, style.row, style.rowColumn)}>{'janhov'}</TableRowColumn>
                                 <TableRowColumn style={Object.assign({}, style.row, style.rowColumn)}>{d.created}</TableRowColumn>
@@ -204,12 +174,18 @@ export default class DashboardViewTable extends Component {
     }
 }
 
-DashboardViewTable.propTypes = {
+DashboardselectTable.propTypes = {
     dashboards: PropTypes.array,
     onClickDashboard: PropTypes.func,
 };
 
-DashboardViewTable.defaultProps = {
+DashboardselectTable.defaultProps = {
     dashboards: [],
     onClickDashboard: Function.prototype,
 };
+
+// dashboards:(22) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+// isFetching: false
+// onClickDashboard: ƒ onClickDashboard(id)
+// selectedId: ""
+// viewFilter: "TABLE"
