@@ -7,18 +7,10 @@ export default [
         starred: true,
         owner: 'system',
         dashboardItems: [
-            { id: 'LW0O27b7TdD', type: 'CHART', x: 0, y: 0, w: 12, h: 11 },
-            { id: 'Wlkz2NhhRIY', type: 'CHART', x: 0, y: 12, w: 12, h: 11 },
-            { id: 'hrDweynvx7G', type: 'REPORT_TABLE', x: 12, y: 0, w: 17, h: 22 },
-        ],
-    },
-    {
-        id: 'uid1',
-        name: 'Fake maps',
-        starred: false,
-        owner: 'lars',
-        dashboardItems: [
-            { id: 'zDP78aJU8nX', type: 'MAP', x: 0, y: 0, w: 12, h: 11 },
+            { id: 'zDP78aJU8nX', type: 'MAP', x: 0, y: 0, w: 14, h: 9 },
+            { id: 'LW0O27b7TdD', type: 'CHART', x: 0, y: 0, w: 14, h: 10 },
+            // { id: 'Wlkz2NhhRIY', type: 'CHART', x: 0, y: 12, w: 12, h: 7 },
+            { id: 'hrDweynvx7G', type: 'REPORT_TABLE', x: 14, y: 0, w: 15, h: 19 },
         ],
     },
     {

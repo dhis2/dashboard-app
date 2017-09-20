@@ -2,7 +2,7 @@
 
 .react-grid-item {
     overflow: hidden !important;
-    border: 1px solid #eaeaea;
+    border: 1px solid #e1e1e1;
 }
 
 .react-grid-item > .react-resizable-handle {
@@ -13,6 +13,18 @@
     border: 2px solid #444;
     border-top: 0 none;
     border-left: 0 none;
+}
+
+.react-grid-item.react-grid-placeholder {
+    background: #000;
+    opacity: 0.2;
+    transition-duration: 100ms;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 
@@ -27,6 +39,7 @@
 
 .react-grid-layout {
     background-color: #f8f8f8;
+    background-color: #fff;
 }
 
 

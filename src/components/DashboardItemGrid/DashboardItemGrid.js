@@ -35,10 +35,12 @@ const runPlugins = (items) => {
     });
 
     // map
-    filteredItems = items.filter(d => d.type === 'MAP').map(d => ({ id: d.id, el: `plugin-${d.id}`, type: d.type, url, username, password }));
-    console.log(filteredItems);
+    setTimeout(() => {
+        filteredItems = items.filter(d => d.type === 'MAP').map(d => ({ id: d.id, el: `plugin-${d.id}`, type: d.type, url, username, password }));
+        console.log(filteredItems);
 
-    filteredItems.forEach(d => global.DHIS.getMap(d));
+        filteredItems.forEach(d => global.DHIS.getMap(d));
+    }, 200);
 };
 
 class DashboardItemGrid extends Component {

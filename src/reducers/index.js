@@ -71,7 +71,7 @@ export const applyDashboardsOwnerFilter = (dashboards, filter) => {
 
 export const applySortFilter = (dashboards, filter) => {
     const { keyFilter, directionFilter } = filter;
-    
+
     return arraySort(dashboards, directionFilter, mapConstToData[keyFilter]);
 };
 
