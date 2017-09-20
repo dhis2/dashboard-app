@@ -5,8 +5,6 @@ import arraySort from 'd2-utilizr/lib/arraySort';
 import dashboards, * as fromDashboards from './dashboards';
 import dashboardsConfig, * as fromDashboardsConfig from './dashboardsConfig';
 
-import { arrayGetById } from '../util';
-
 const USER = 'system';
 
 // action types
@@ -44,10 +42,13 @@ export const sGetSelectedDashboard = state => fromDashboards.sGetDashboardById(s
 export const sApplyDashboardsTextFilter = (dashboards, filter) => dashboards.filter(d => d.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
 
 export const applyDashboardsShowFilter = (dashboards, filter) => {
+    const STARRED = 'STARRED'; // TODO
+    const UNSTARRED = 'UNSTARRED'; // TODO
+
     switch (filter) {
-    case fromDashboardsConfig.showFilterData.STARRED:
+    case STARRED:
         return dashboards.filter(d => !!d.starred);
-    case fromDashboardsConfig.showFilterData.UNSTARRED:
+    case UNSTARRED:
         return dashboards.filter(d => !d.starred);
     default:
         return dashboards;
@@ -55,10 +56,13 @@ export const applyDashboardsShowFilter = (dashboards, filter) => {
 };
 
 export const applyDashboardsOwnerFilter = (dashboards, filter) => {
+    const ME = 'ME'; // TODO
+    const OTHERS = 'OTHERS'; // TODO
+
     switch (filter) {
-    case fromDashboardsConfig.ownerFilterData.ME:
-        console.log(dashboards, filter); return dashboards.filter(d => d.owner === USER);
-    case fromDashboardsConfig.ownerFilterData.OTHERS:
+    case ME:
+        return dashboards.filter(d => d.owner === USER);
+    case OTHERS:
         return dashboards.filter(d => d.owner !== USER);
     default:
         return dashboards;
@@ -66,9 +70,9 @@ export const applyDashboardsOwnerFilter = (dashboards, filter) => {
 };
 
 export const applySortFilter = (dashboards, filter) => {
-    const { key, direction } = filter;
-
-    return arraySort(dashboards, direction, mapConstToData[key]);
+    const { keyFilter, directionFilter } = filter;
+    
+    return arraySort(dashboards, directionFilter, mapConstToData[keyFilter]);
 };
 
 // selectors level 2
@@ -80,10 +84,7 @@ export const sGetDashboards = (state) => {
     const showFilter = fromDashboardsConfig.sGetShowFilterFromState(state);
     const ownerFilter = fromDashboardsConfig.sGetOwnerFilterFromState(state);
     const sortFilter = fromDashboardsConfig.sGetSortFilterFromState(state);
-console.log("textFilter", textFilter);
-console.log("showFilter", showFilter);
-console.log("ownerFilter", ownerFilter);
-console.log("sortFilter", sortFilter);
+
     return applySortFilter(
         sApplyDashboardsTextFilter(
             applyDashboardsShowFilter(
