@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import ReactGridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
@@ -28,9 +29,9 @@ const runPlugins = (items) => {
         plugin.load();
 
         filteredItems.forEach((d) => {
-            (function (element) {
+            ((element) => {
                 console.log(element);
-            }(document.getElementById(d.el)));
+            })(document.getElementById(d.el));
         });
     });
 
@@ -44,8 +45,15 @@ const runPlugins = (items) => {
 };
 
 class DashboardItemGrid extends Component {
+    getChildContext() {
+        return {
+            d2: this.props.d2,
+        };
+    }
     componentDidUpdate() {
         const { items } = this.props;
+
+        console.log("CONTEXT", this.context, this.props);
 
         runPlugins(items);
     }
@@ -77,5 +85,21 @@ class DashboardItemGrid extends Component {
         );
     }
 }
+
+DashboardItemGrid.propTypes = {
+    d2: PropTypes.object,
+};
+
+DashboardItemGrid.defaultProps = {
+    d2: {},
+};
+
+DashboardItemGrid.contextTypes = {
+    store: PropTypes.object,
+};
+
+DashboardItemGrid.childContextTypes = {
+    d2: PropTypes.object,
+};
 
 export default DashboardItemGrid;

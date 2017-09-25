@@ -65,12 +65,6 @@ export const getDashboardItems = (dashboardId) => {
 };
 
 export const apiFetchDashboards = () =>
-    // fetch('')
-
-
-    // return Promise.resolve(getDashboards());
-
     new Promise((resolve, reject) => {
         resolve(getDashboards());
-    })
-;
+    });

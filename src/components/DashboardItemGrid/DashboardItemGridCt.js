@@ -8,15 +8,24 @@ import { getDashboardItems } from '../../api';
 
 import DashboardItemGrid from './DashboardItemGrid';
 
-class DashboardItemGridCt extends Component {
+class DashboardItemGridCtCmp extends Component {
     render() {
-        const items = getDashboardItems(this.props.id);
+        const { id } = this.props;
+        const { d2 } = this.context;
 
-        return (<DashboardItemGrid items={items} />);
+        return (<DashboardItemGrid items={getDashboardItems(id)} d2={d2} />);
     }
 }
 
-DashboardItemGridCt.contextTypes = {
+DashboardItemGridCtCmp.propTypes = {
+    id: PropTypes.string,
+};
+
+DashboardItemGridCtCmp.defaultProps = {
+    id: '',
+};
+
+DashboardItemGridCtCmp.contextTypes = {
     d2: PropTypes.object,
 };
 
@@ -24,7 +33,7 @@ const mapStateToProps = state => ({
     id: fromReducers.fromDashboardsConfig.sGetSelectedIdFromState(state),
 });
 
-DashboardItemGridCt = connect(mapStateToProps)(DashboardItemGridCt);
+const DashboardItemGridCt = connect(mapStateToProps)(DashboardItemGridCtCmp);
 
 export default DashboardItemGridCt;
 

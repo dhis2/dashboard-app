@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 
 import './index.css';
 
@@ -39,7 +39,7 @@ getManifest('manifest.webapp').then((manifest) => {
         headers: {
             Authorization: `Basic ${btoa('admin:district')}`,
         },
-        schemas: [],
+        schemas: ['dashboard'],
     }).then((d2) => {
         indexRender(d2);
     });
