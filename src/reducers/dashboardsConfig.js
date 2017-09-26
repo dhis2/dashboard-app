@@ -3,8 +3,8 @@ import { combineReducers } from 'redux';
 
 import { validateReducer } from './index';
 
-import DashboardselectList from '../dashboardselect/DashboardselectList';
-import DashboardselectTable from '../dashboardselect/DashboardselectTable';
+import DashboardselectList from '../DashboardSelect/DashboardSelectList';
+import DashboardselectTable from '../DashboardSelect/DashboardSelectTable';
 
 export const actionTypes = {
     SET_DASHBOARDSCONFIG_ISFETCHING: 'SET_DASHBOARDSCONFIG_ISFETCHING',

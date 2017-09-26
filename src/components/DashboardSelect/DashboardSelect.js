@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import DashboardBar from './DashboardBar';
-import Toolbar from '../../dashboardbar/Dashboardbar';
+import Toolbar from '../../DashboardBar/DashboardBar';
 
 import * as fromReducers from '../../reducers';
 

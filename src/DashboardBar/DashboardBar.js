@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { blue500, grey700 } from 'material-ui/styles/colors';
+import { grey700 } from 'material-ui/styles/colors';
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
 import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
@@ -12,7 +12,7 @@ import ListViewModule from 'material-ui/svg-icons/action/view-module';
 
 import isEmpty from 'd2-utilizr/lib/isEmpty';
 
-import './Dashboardbar.css';
+import './DashboardBar.css';
 
 import Textlink from '../widgets/Textlink';
 import Iconbutton from '../widgets/Iconbutton';

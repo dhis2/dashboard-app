@@ -44,7 +44,7 @@ const runPlugins = (items) => {
     }, 200);
 };
 
-class DashboardItemGrid extends Component {
+export class DashboardItemGrid extends Component {
     getChildContext() {
         return {
             d2: this.props.d2,
@@ -102,4 +102,33 @@ DashboardItemGrid.childContextTypes = {
     d2: PropTypes.object,
 };
 
-export default DashboardItemGrid;
+// Container
+
+class DashboardItemGridCtCmp extends Component {
+    render() {
+        const { id } = this.props;
+        const { d2 } = this.context;
+
+        return (<DashboardItemGrid items={getDashboardItems(id)} d2={d2} />);
+    }
+}
+
+DashboardItemGridCtCmp.propTypes = {
+    id: PropTypes.string,
+};
+
+DashboardItemGridCtCmp.defaultProps = {
+    id: '',
+};
+
+DashboardItemGridCtCmp.contextTypes = {
+    d2: PropTypes.object,
+};
+
+const mapStateToProps = state => ({
+    id: fromReducers.fromDashboardsConfig.sGetSelectedIdFromState(state),
+});
+
+const DashboardItemGridCt = connect(mapStateToProps)(DashboardItemGridCtCmp);
+
+export default DashboardItemGridCt;

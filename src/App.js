@@ -6,9 +6,9 @@ import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 
 import DashboardTitleCt from './components/DashboardTitle/DashboardTitleCt';
-import DashboardItemGridCt from './components/DashboardItemGrid/DashboardItemGridCt';
-import DashboardbarCt from './dashboardbar/Dashboardbar';
-import DashboardselectCt from './dashboardselect/Dashboardselect';
+import DashboardItemGridCt from './DashboardItemGrid/DashboardItemGridCt';
+import DashboardbarCt from './DashboardBar/DashboardBar';
+import DashboardselectCt from './DashboardSelect/DashboardSelect';
 import { tSetDashboards } from './actions';
 
 import './App.css';

@@ -4,6 +4,8 @@ import { validateReducer } from './index';
 
 import { getDate } from '../util';
 
+import data, { description } from '../data';
+
 export const actionTypes = {
     SET_DASHBOARDS: 'SET_DASHBOARDS',
 };
@@ -30,10 +32,10 @@ export const sGetDashboardById = (state, id) => sGetFromState(state).find(dashbo
 export const getDashboards = (textFilter, showFilter, ownerFilter) => {
     let date;
 
-    getInstance().then(d2 => d2.models.dashboard.list().then(dashboardCollection => {
-
-        console.log(dashboardCollection.toArray());
-    }));
+    // getInstance().then(d2 => d2.models.dashboard.list().then(dashboardCollection => {
+    //
+    //     console.log(dashboardCollection.toArray());
+    // }));
 
     return data.map((d) => {
         date = getDate();
