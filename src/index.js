@@ -2,33 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import './index.css';
-
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import { init, getManifest } from 'd2/lib/d2';
 
+import './index.css';
+
 import configureStore from './configureStore';
 
 import App from './App';
 
-// material-ui
-injectTapEventPlugin();
-
-// redux store
-const store = configureStore();
-
-const indexRender = (d2) => {
+const indexRender = (props) => {
     ReactDOM.render(
         <MuiThemeProvider>
-            <Provider store={store}>
-                <App d2={d2} />
+            <Provider store={configureStore()}>
+                <App {...props} />
             </Provider>
         </MuiThemeProvider>,
         document.getElementById('root'),
     );
 };
+
+// init material-ui
+injectTapEventPlugin();
 
 // init d2
 getManifest('manifest.webapp').then((manifest) => {
