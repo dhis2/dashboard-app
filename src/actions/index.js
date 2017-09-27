@@ -58,10 +58,11 @@ export const acSetDashboardsConfigViewFilter = viewFilter => ({
 export const tSetDashboards = () => (dispatch, getState) => {
     dispatch(acSetDashboardsConfigIsFetching(true));
 
-    return apiFetchDashboards().then((dashboards) => {
+    return apiFetchDashboards().then((dashboardCollection) => {
+console.log(dashboardCollection.toArray());
         dispatch(acSetDashboardsConfigIsFetching(false));
         dispatch(acSetDashboardsConfigTextFilter());
-        dispatch(acSetDashboards(dashboards));
+        dispatch(acSetDashboards(fromReducers.fromDashboards.getDashboards(dashboardCollection.toArray())));
     });
 };
 

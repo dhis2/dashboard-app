@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import ReactGridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 
 import './DashboardItemGrid.css';
+
+import * as fromReducers from '../reducers';
+
+const { fromDashboards } = fromReducers;
 
 const runPlugins = (items) => {
     let filteredItems;
@@ -45,40 +50,40 @@ const runPlugins = (items) => {
 };
 
 export class DashboardItemGrid extends Component {
-    getChildContext() {
-        return {
-            d2: this.props.d2,
-        };
-    }
+    // getChildContext() {
+    //     return {
+    //         d2: this.props.d2,
+    //     };
+    // }
     componentDidUpdate() {
         const { items } = this.props;
 
-        console.log("CONTEXT", this.context, this.props);
+        console.log("ITEMS", items);
 
         runPlugins(items);
     }
 
     render() {
-        const items = this.props.items || [];
+        const items = this.props.items;
 
-        items.forEach((item, index) => item.i = `${index}`);
+        const pluginItems = items.map((item, index) => Object.assign({}, item, { i: `${index}` }));
 
         return (
             <div style={{ margin: '10px' }}>
                 <ReactGridLayout
                     onLayoutChange={(a, b, c) => console.log(a, b, c)}
                     className="layout"
-                    layout={items}
+                    layout={pluginItems}
                     cols={30}
                     rowHeight={30}
                     width={window.innerWidth}
                 >
-                    {items.map(item => (
+                    {pluginItems.map((item => (
                         <div key={item.i} className={item.type}>
                             <div style={{ padding: 5, fontSize: 11, fontWeight: 500, color: '#555' }}>{`Item ${item.i}`} {'options'}</div>
                             <div id={`plugin-${item.id}`} className={'pluginItem'} />
                         </div>
-                    ))}
+                    )))}
                     {}
                 </ReactGridLayout>
             </div>
@@ -87,47 +92,56 @@ export class DashboardItemGrid extends Component {
 }
 
 DashboardItemGrid.propTypes = {
-    d2: PropTypes.object,
+    items: PropTypes.array,
 };
 
 DashboardItemGrid.defaultProps = {
-    d2: {},
+    items: [],
 };
 
-DashboardItemGrid.contextTypes = {
-    store: PropTypes.object,
-};
-
-DashboardItemGrid.childContextTypes = {
-    d2: PropTypes.object,
-};
+// DashboardItemGrid.propTypes = {
+//     d2: PropTypes.object,
+// };
+//
+// DashboardItemGrid.defaultProps = {
+//     d2: {},
+// };
+//
+// DashboardItemGrid.contextTypes = {
+//     store: PropTypes.object,
+// };
+//
+// DashboardItemGrid.childContextTypes = {
+//     d2: PropTypes.object,
+// };
 
 // Container
 
-class DashboardItemGridCtCmp extends Component {
-    render() {
-        const { id } = this.props;
-        const { d2 } = this.context;
+const DashboardItemGridCtCmp = (props) => {
+    const { items } = props;
 
-        return (<DashboardItemGrid items={getDashboardItems(id)} d2={d2} />);
-    }
+    return (<DashboardItemGrid items={items} />);
 }
 
 DashboardItemGridCtCmp.propTypes = {
-    id: PropTypes.string,
+    items: PropTypes.array,
 };
 
 DashboardItemGridCtCmp.defaultProps = {
-    id: '',
+    items: [],
 };
 
-DashboardItemGridCtCmp.contextTypes = {
-    d2: PropTypes.object,
-};
+// DashboardItemGridCtCmp.contextTypes = {
+//     d2: PropTypes.object,
+// };
 
-const mapStateToProps = state => ({
-    id: fromReducers.fromDashboardsConfig.sGetSelectedIdFromState(state),
-});
+const mapStateToProps = (state) => {
+    const id = fromReducers.fromDashboardsConfig.sGetSelectedIdFromState(state);
+
+    return {
+        items: (fromReducers.fromDashboards.sGetDashboardById(state, id) || {}).dashboardItems,
+    };
+};
 
 const DashboardItemGridCt = connect(mapStateToProps)(DashboardItemGridCtCmp);
 

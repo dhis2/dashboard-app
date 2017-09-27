@@ -38,6 +38,6 @@ getManifest('manifest.webapp').then((manifest) => {
         },
         schemas: ['dashboard'],
     }).then((d2) => {
-        indexRender(d2);
+        indexRender({ d2 });
     });
 });

@@ -4,7 +4,7 @@ import { validateReducer } from './index';
 
 import { getDate } from '../util';
 
-import data, { description } from '../data';
+import { description } from '../data';
 
 export const actionTypes = {
     SET_DASHBOARDS: 'SET_DASHBOARDS',
@@ -29,13 +29,9 @@ export const sGetFromState = state => state.dashboards;
 
 export const sGetDashboardById = (state, id) => sGetFromState(state).find(dashboard => dashboard.id === id);
 
-export const getDashboards = (textFilter, showFilter, ownerFilter) => {
+// util
+export const getDashboards = (data) => {
     let date;
-
-    // getInstance().then(d2 => d2.models.dashboard.list().then(dashboardCollection => {
-    //
-    //     console.log(dashboardCollection.toArray());
-    // }));
 
     return data.map((d) => {
         date = getDate();
@@ -44,7 +40,7 @@ export const getDashboards = (textFilter, showFilter, ownerFilter) => {
             id: d.id,
             name: d.name,
             description,
-            starred: d.starred,
+            starred: Math.random() > 0.7,
             owner: d.owner,
             created: date,
             lastModified: date,
@@ -71,7 +67,7 @@ const getPosition = (i) => {
     };
 };
 
-export const getDashboardItems = (dashboardId) => {
+export const getDashboardItems = (data, dashboardId) => {
     const items = ((data.find(d => d.id === dashboardId) || {}).dashboardItems || []);
 
     items.forEach((di, i) => {
