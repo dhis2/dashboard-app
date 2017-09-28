@@ -22,6 +22,8 @@ const mapConstToData = {
     NAME: 'name',
     ITEMS: 'numberOfItems',
     CREATED: 'created',
+    OWNER: 'owner',
+
 };
 
 // reducers

@@ -39,12 +39,12 @@ export const getDashboards = (data) => {
         return {
             id: d.id,
             name: d.name,
-            description,
+            description: d.description,
             starred: Math.random() > 0.7,
-            owner: d.owner,
-            created: date,
-            lastModified: date,
-            numberOfItems: d.dashboardItems.length,
+            owner: d.user.name,
+            created: d.created.split('T').join(' ').substr(0, 16),
+            lastUpdated: d.lastUpdated.split('T').join(' ').substr(0, 16),
+            numberOfItems: d.dashboardItems,
         };
     });
 };
@@ -78,7 +78,6 @@ export const getDashboardItems = (data, dashboardId) => {
 
     return items;
 };
-
 
 // api
 

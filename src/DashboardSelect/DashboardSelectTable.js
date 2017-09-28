@@ -162,9 +162,9 @@ export default class DashboardselectTable extends Component {
                                 <TableRowColumn style={Object.assign({}, style.row, style.rowColumn, style.starred)}>{`${!!d.starred}`}</TableRowColumn>
                                 <TableRowColumnTextLink text={d.name} onClickDashboard={() => onClickDashboard(d.id)} isSelected={false} />
                                 <TableRowColumn style={Object.assign({}, style.row, style.rowColumn)}>{d.numberOfItems}</TableRowColumn>
-                                <TableRowColumn style={Object.assign({}, style.row, style.rowColumn)}>{'janhov'}</TableRowColumn>
+                                <TableRowColumn style={Object.assign({}, style.row, style.rowColumn)}>{d.owner}</TableRowColumn>
                                 <TableRowColumn style={Object.assign({}, style.row, style.rowColumn)}>{d.created}</TableRowColumn>
-                                <TableRowColumn style={Object.assign({}, style.row, style.rowColumn)}>{d.lastModified}</TableRowColumn>
+                                <TableRowColumn style={Object.assign({}, style.row, style.rowColumn)}>{d.lastUpdated}</TableRowColumn>
                             </TableRow>
                         ))}
                     </TableBody>
