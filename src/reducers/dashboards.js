@@ -28,24 +28,16 @@ export const sGetFromState = state => state.dashboards;
 export const sGetDashboardById = (state, id) => sGetFromState(state).find(dashboard => dashboard.id === id);
 
 // util
-export const getDashboards = (data) => {
-    let date;
-
-    return data.map((d) => {
-        date = getDate();
-
-        return {
-            id: d.id,
-            name: d.name,
-            description: d.description,
-            starred: Math.random() > 0.7,
-            owner: d.user.name,
-            created: d.created.split('T').join(' ').substr(0, 16),
-            lastUpdated: d.lastUpdated.split('T').join(' ').substr(0, 16),
-            numberOfItems: d.dashboardItems,
-        };
-    });
-};
+export const getDashboards = data => data.map(d => ({
+    id: d.id,
+    name: d.name,
+    description: d.description,
+    starred: Math.random() > 0.7,
+    owner: d.user.name,
+    created: d.created.split('T').join(' ').substr(0, 16),
+    lastUpdated: d.lastUpdated.split('T').join(' ').substr(0, 16),
+    numberOfItems: d.dashboardItems,
+}));
 
 const hasPosition = item => isNumber(item.x) && isNumber(item.y) && isNumber(item.w) && isNumber(item.h);
 

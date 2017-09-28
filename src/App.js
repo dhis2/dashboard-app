@@ -16,8 +16,13 @@ import './App.css';
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
 // TODO, add to plugin instead
-global.reportTablePlugin.type = 'REPORT_TABLE';
-global.chartPlugin.type = 'CHART';
+if (global.reportTablePlugin) {
+    global.reportTablePlugin.type = 'REPORT_TABLE';
+}
+
+if (global.chartPlugin) {
+    global.chartPlugin.type = 'CHART';
+}
 
 class App extends Component {
     componentDidMount() {

@@ -2,6 +2,11 @@ import { getInstance } from 'd2/lib/d2';
 
 export const delay = (ms = 500) => new Promise(resolve => setTimeout(resolve, ms));
 
-const dashboardFields = 'id,displayName~rename(name),description,user[id,name],created,lastUpdated,dashboardItems~size';
+const fields = {
+    dashboard: 'id,displayName~rename(name),description,user[id,name],created,lastUpdated,dashboardItems~size',
+    selectedDashboard: 'id,dashboardItems',
+};
 
-export const apiFetchDashboards = () => getInstance().then(d2 => d2.models.dashboard.list({ fields: dashboardFields }));
+export const apiFetchDashboards = () => getInstance().then(d2 => d2.models.dashboard.list({ fields: fields.dashboard }));
+
+export const apiFetchSelectedDashboard = id => getInstance().then(d2 => d2.models.dashboard.get(id, { fields: fields.selectedDashboard }));

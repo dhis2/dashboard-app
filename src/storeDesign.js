@@ -1,10 +1,10 @@
 const storeDesign = {
 
     // not persisted, set on load
-    dashboards: [], // see dashboard
+    dashboards: [], // see dashboard below
 
     // not persisted, set from user interaction
-    selectedDashboard: {}, // see selectedDashboard
+    selectedDashboard: {}, // see selectedDashboard below
 
     // not persisted, set from user interaction
     dashboardsConfig: {
@@ -26,7 +26,7 @@ const storeDesign = {
 
 const dashboard = {
     created: '2013-09-08 21:47',
-    description: 'blabla',
+    description: 'blah',
     id: 'nghVC4wtyzi',
     lastUpdated: '2017-05-29 17:30',
     name: 'Antenatal Care',
