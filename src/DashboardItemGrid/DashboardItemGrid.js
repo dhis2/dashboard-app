@@ -9,8 +9,6 @@ import './DashboardItemGrid.css';
 
 import * as fromReducers from '../reducers';
 
-const { fromDashboards } = fromReducers;
-
 const runPlugins = (items) => {
     let filteredItems;
 
@@ -50,11 +48,6 @@ const runPlugins = (items) => {
 };
 
 export class DashboardItemGrid extends Component {
-    // getChildContext() {
-    //     return {
-    //         d2: this.props.d2,
-    //     };
-    // }
     componentDidUpdate() {
         const { items } = this.props;
 
@@ -99,29 +92,13 @@ DashboardItemGrid.defaultProps = {
     items: [],
 };
 
-// DashboardItemGrid.propTypes = {
-//     d2: PropTypes.object,
-// };
-//
-// DashboardItemGrid.defaultProps = {
-//     d2: {},
-// };
-//
-// DashboardItemGrid.contextTypes = {
-//     store: PropTypes.object,
-// };
-//
-// DashboardItemGrid.childContextTypes = {
-//     d2: PropTypes.object,
-// };
-
 // Container
 
 const DashboardItemGridCtCmp = (props) => {
     const { items } = props;
 
     return (<DashboardItemGrid items={items} />);
-}
+};
 
 DashboardItemGridCtCmp.propTypes = {
     items: PropTypes.array,
@@ -130,10 +107,6 @@ DashboardItemGridCtCmp.propTypes = {
 DashboardItemGridCtCmp.defaultProps = {
     items: [],
 };
-
-// DashboardItemGridCtCmp.contextTypes = {
-//     d2: PropTypes.object,
-// };
 
 const mapStateToProps = (state) => {
     const id = fromReducers.fromDashboardsConfig.sGetSelectedIdFromState(state);

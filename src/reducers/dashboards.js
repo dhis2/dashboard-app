@@ -4,8 +4,6 @@ import { validateReducer } from './index';
 
 import { getDate } from '../util';
 
-import { description } from '../data';
-
 export const actionTypes = {
     SET_DASHBOARDS: 'SET_DASHBOARDS',
 };

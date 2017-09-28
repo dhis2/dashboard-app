@@ -1,11 +1,16 @@
-const store = {
+const storeDesign = {
 
-    dashboards: [],
+    // not persisted, set on load
+    dashboards: [], // see dashboard
 
+    // not persisted, set from user interaction
+    selectedDashboard: {}, // see selectedDashboard
+
+    // not persisted, set from user interaction
     dashboardsConfig: {
         isFetching: false,
-        selectedId: 'uid1',
-        textFilter: 'ante',
+        selectedId: '',
+        textFilter: '',
         showFilter: 'ALL',
         sortFilter: {
             key: 'NAME',
@@ -13,5 +18,39 @@ const store = {
         },
         viewFilter: 'LIST',
         ownerFilter: 'ALL',
+    },
+
+    // persisted
+    defaultDashboardId: '',
+};
+
+const dashboard = {
+    created: '2013-09-08 21:47',
+    description: 'blabla',
+    id: 'nghVC4wtyzi',
+    lastUpdated: '2017-05-29 17:30',
+    name: 'Antenatal Care',
+    numberOfItems: 10,
+    owner: 'Tom Wakiki',
+    starred: false,
+};
+
+const selectedDashboard = Object.assign({}, dashboard, {
+    dashboardItems: [], // see dashboardItem
+});
+
+const dashboardItem = {
+    lastUpdated: '2016-10-10T17:24:30.487',
+    id: 'cX2przhv9UC',
+    created: '2016-10-10T17:24:30.487',
+    type: 'CHART',
+    externalAccess: false,
+    contentCount: 1,
+    shape: 'NORMAL',
+    interpretationCount: 0,
+    interpretationLikeCount: 0,
+    chart: {
+        id: 'VffWmdKFHSq',
+        displayName: 'ANC: ANC IPT 1 Coverage last 12 months districts',
     },
 };
