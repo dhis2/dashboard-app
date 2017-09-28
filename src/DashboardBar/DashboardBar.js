@@ -14,9 +14,9 @@ import isEmpty from 'd2-utilizr/lib/isEmpty';
 
 import './DashboardBar.css';
 
-import Textlink from '../widgets/Textlink';
-import Iconbutton from '../widgets/Iconbutton';
-import Dropdown from '../widgets/Dropdown';
+import D2TextLink from '../widgets/D2TextLink';
+import D2IconButton from '../widgets/D2IconButton';
+import D2Dropdown from '../widgets/D2Dropdown';
 
 import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
@@ -175,19 +175,19 @@ const onClickViewFilterWrapper = (viewFilter, onClickViewFilter) => {
 export const Dashboardbar = props => (
     <Toolbar style={styles.toolbar}>
         <ToolbarGroup style={{ position: 'relative', left: '-10px' }} firstChild>
-            <Iconbutton />
+            <D2IconButton />
             <ToolbarSeparator style={styles.toolbarSeparator} />
-            <Textlink text={'Home'} onClick={props.onClickHome} />
+            <D2TextLink text="Home" onClick={props.onClickHome} />
             <ToolbarSeparator style={Object.assign({}, styles.toolbarSeparator, styles.hiddenToolbarSeparator)} />
-            <Textlink text={'Manage dashboards'} onClick={props.onClickManage} />
+            <D2TextLink text="Manage dashboards" onClick={props.onClickManage} />
         </ToolbarGroup>
         <ToolbarGroup lastChild>
             <FilterField {...props} />
             <ClearButton {...props} />
-            <Dropdown value={props.showFilter} onClick={props.onClickShowFilter} data={fromReducers.fromDashboardsConfig.showFilterData} />
-            <Dropdown value={props.ownerFilter} onClick={props.onClickOwnerFilter} data={fromReducers.fromDashboardsConfig.ownerFilterData} />
-            <Dropdown value={props.sortFilterId} onClick={props.onClickSortFilter} data={fromReducers.fromDashboardsConfig.sortFilterData} />
-            <Iconbutton icon={getViewFilterIcon(props.viewFilter)} iconStyle={{ width: 24, height: 24 }} onClick={onClickViewFilterWrapper(props.viewFilter, props.onClickViewFilter)} />
+            <D2Dropdown value={props.showFilter} onClick={props.onClickShowFilter} data={fromReducers.fromDashboardsConfig.showFilterData} />
+            <D2Dropdown value={props.ownerFilter} onClick={props.onClickOwnerFilter} data={fromReducers.fromDashboardsConfig.ownerFilterData} />
+            <D2Dropdown value={props.sortFilterId} onClick={props.onClickSortFilter} data={fromReducers.fromDashboardsConfig.sortFilterData} />
+            <D2IconButton icon={getViewFilterIcon(props.viewFilter)} iconStyle={{ width: 24, height: 24 }} onClick={onClickViewFilterWrapper(props.viewFilter, props.onClickViewFilter)} />
         </ToolbarGroup>
     </Toolbar>
 );

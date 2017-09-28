@@ -30,7 +30,7 @@ const styles = {
     },
 };
 
-export default class Dropdown extends Component {
+class D2Dropdown extends Component {
     constructor(props) {
         super(props);
 
@@ -75,14 +75,16 @@ export default class Dropdown extends Component {
     }
 }
 
-Dropdown.propTypes = {
+D2Dropdown.propTypes = {
     value: PropTypes.string,
     onClick: PropTypes.func,
     data: PropTypes.array.isRequired,
 };
 
-Dropdown.defaultProps = {
+D2Dropdown.defaultProps = {
     value: '',
     onClick: Function.prototype,
     data: PropTypes.array.isRequired,
 };
+
+export default D2Dropdown;

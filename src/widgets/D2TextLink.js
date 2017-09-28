@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 const styles = {
-    textlink: {
+    textLink: {
         fontSize: '14px',
         fontWeight: 400,
         color: '#000',
 
         cursor: 'pointer',
     },
-    textlinkHover: {
+    textLinkHover: {
         color: '#666',
     },
 };
 
-export default class Textlink extends Component {
+class D2TextLink extends Component {
     constructor(props) {
         super(props);
 
@@ -23,7 +23,7 @@ export default class Textlink extends Component {
 
         const { style } = props;
 
-        this.state = Object.assign({}, styles.textlink, style);
+        this.state = Object.assign({}, styles.textLink, style);
     }
 
     onMouseOverHandle(event) {
@@ -31,7 +31,7 @@ export default class Textlink extends Component {
 
         const { style, hoverStyle } = this.props;
 
-        this.setState(Object.assign({}, styles.textlink, styles.textlinkHover, style, hoverStyle));
+        this.setState(Object.assign({}, styles.textLink, styles.textLinkHover, style, hoverStyle));
     }
 
     onMouseOutHandle(event) {
@@ -39,12 +39,12 @@ export default class Textlink extends Component {
 
         const { style } = this.props;
 
-        this.setState(Object.assign({}, styles.textlink, style));
+        this.setState(Object.assign({}, styles.textLink, style));
     }
 
     render() {
         const { text, onClick } = this.props;
-
+console.log('TEXT', text);
         return (
             <span
                 style={this.state}
@@ -58,16 +58,19 @@ export default class Textlink extends Component {
     }
 }
 
-Textlink.propTypes = {
+D2TextLink.propTypes = {
     text: PropTypes.string,
     onClick: PropTypes.func,
     style: PropTypes.object,
     hoverStyle: PropTypes.object,
 };
 
-Textlink.defaultProps = {
+D2TextLink.defaultProps = {
     text: '',
     onClick: Function.prototype,
     style: null,
     hoverStyle: null,
 };
+
+export default D2TextLink;
+

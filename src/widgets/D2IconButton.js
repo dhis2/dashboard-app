@@ -19,7 +19,7 @@ const styles = {
     iconColor: blue500,
 };
 
-const Iconbutton = props => (
+const D2IconButton = props => (
     <IconButton
         style={Object.assign({}, styles.style, props.style)}
         iconStyle={Object.assign({}, styles.iconStyle, props.iconStyle)}
@@ -29,7 +29,7 @@ const Iconbutton = props => (
     </IconButton>
 );
 
-Iconbutton.propTypes = {
+D2IconButton.propTypes = {
     style: PropTypes.object,
     iconStyle: PropTypes.object,
     icon: PropTypes.object,
@@ -37,7 +37,7 @@ Iconbutton.propTypes = {
     onClick: PropTypes.func,
 };
 
-Iconbutton.defaultProps = {
+D2IconButton.defaultProps = {
     style: null,
     iconStyle: null,
     icon: null,
@@ -45,4 +45,4 @@ Iconbutton.defaultProps = {
     onClick: Function.prototype,
 };
 
-export default Iconbutton;
+export default D2IconButton;
