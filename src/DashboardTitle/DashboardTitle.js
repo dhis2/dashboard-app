@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import './DashboardTitle.css';
+
+import * as fromReducers from '../reducers';
 
 const DEFAULTVALUE_TEXTFIELD = '';
 const REF_TEXTFIELD = 'REF_TEXTFIELD';
@@ -18,7 +21,9 @@ const styles = {
     },
 };
 
-class DashboardTitle extends Component {
+// Component
+
+export class DashboardTitle extends Component {
     constructor(props) {
         super(props);
 
@@ -37,7 +42,7 @@ class DashboardTitle extends Component {
     handleKeyUp(event) {
         event.preventDefault();
 
-        const textField = this.refs[REF_TEXTFIELD];
+        const textField = this[REF_TEXTFIELD];
 
         if (event.keyCode === KEYCODE_ENTER) {
             textField.blur();
@@ -54,7 +59,7 @@ class DashboardTitle extends Component {
         return (
             <div>
                 <input
-                    ref={REF_TEXTFIELD}
+                    ref={(c) => { this[REF_TEXTFIELD] = c; }}
                     type="text"
                     value={this.state.name}
                     onKeyUp={this.handleKeyUp}
@@ -73,7 +78,31 @@ class DashboardTitle extends Component {
 
 DashboardTitle.propTypes = {
     name: PropTypes.string,
+    description: PropTypes.string,
     onBlur: PropTypes.func,
 };
 
-export default DashboardTitle;
+DashboardTitle.defaultProps = {
+    name: '',
+    description: '',
+    onBlur: Function.prototype,
+};
+
+// Container
+
+const mapStateToProps = (state) => {
+    const selectedDashboard = fromReducers.sGetSelectedDashboard(state) || {};
+
+    return {
+        name: selectedDashboard.name || '',
+        description: selectedDashboard.description || '',
+    };
+};
+
+const mapDispatchToProps = () => ({
+    onBlur: e => console.log('dashboard name: ', e.target.value),
+});
+
+const DashboardTitleCt = connect(mapStateToProps, mapDispatchToProps)(DashboardTitle);
+
+export default DashboardTitleCt;

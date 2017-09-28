@@ -5,7 +5,7 @@ import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 
-import DashboardTitleCt from './components/DashboardTitle/DashboardTitleCt';
+import DashboardTitleCt from './DashboardTitle/DashboardTitle';
 import DashboardItemGridCt from './DashboardItemGrid/DashboardItemGrid';
 import DashboardBarCt from './DashboardBar/DashboardBar';
 import DashboardSelectCt from './DashboardSelect/DashboardSelect';
