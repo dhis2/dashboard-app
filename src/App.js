@@ -20,14 +20,8 @@ global.reportTablePlugin.type = 'REPORT_TABLE';
 global.chartPlugin.type = 'CHART';
 
 class App extends Component {
-    getChildContext() {
-        return {
-            d2: this.props.d2,
-        };
-    }
     componentDidMount() {
         const { store } = this.context;
-        // const { d2 } = this.props;
 
         store.dispatch(tSetDashboards());
     }
@@ -50,20 +44,9 @@ class App extends Component {
     }
 }
 
-App.propTypes = {
-    d2: PropTypes.object,
-};
-
-App.defaultProps = {
-    d2: {},
-};
-
 App.contextTypes = {
-    store: PropTypes.object,
-};
-
-App.childContextTypes = {
     d2: PropTypes.object,
+    store: PropTypes.object,
 };
 
 export default App;
