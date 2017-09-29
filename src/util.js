@@ -12,3 +12,6 @@ export function getDate() {
 
     return (new Date(`${y}-${M}-${d}`)).toJSON().replace('T', ' ').substr(0, 10);
 }
+
+// reducer validator
+export const validateReducer = (value, defaultValue) => (value === undefined || value === null ? defaultValue : value);

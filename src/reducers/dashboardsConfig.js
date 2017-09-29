@@ -1,7 +1,7 @@
 import React from 'react';
 import { combineReducers } from 'redux';
 
-import { validateReducer } from './index';
+import { validateReducer } from '../util';
 
 import DashboardselectList from '../DashboardSelect/DashboardSelectList';
 import DashboardselectTable from '../DashboardSelect/DashboardSelectTable';

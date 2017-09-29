@@ -14,9 +14,6 @@ export const actionTypes = Object.assign({},
     fromDashboardsConfig.actionTypes,
 );
 
-// reducer validator
-export const validateReducer = (value, defaultValue) => (value === undefined || value === null ? defaultValue : value);
-
 // map constants to data
 const mapConstToData = {
     NAME: 'name',

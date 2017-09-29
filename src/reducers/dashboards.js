@@ -1,8 +1,6 @@
 import isNumber from 'd2-utilizr/lib/isNumber';
 
-import { validateReducer } from './index';
-
-import { getDate } from '../util';
+import { validateReducer } from '../util';
 
 export const actionTypes = {
     SET_DASHBOARDS: 'SET_DASHBOARDS',
@@ -10,7 +8,7 @@ export const actionTypes = {
 
 export const DEFAULT_DASHBOARDS = [];
 
-export default (state = [], action) => {
+export default (state = DEFAULT_DASHBOARDS, action) => {
     switch (action.type) {
     case actionTypes.SET_DASHBOARDS:
         return validateReducer(action.dashboards, DEFAULT_DASHBOARDS);
