@@ -6,7 +6,7 @@ import Chip from 'material-ui/Chip';
 
 import IconStar from 'material-ui/svg-icons/toggle/star';
 
-const DashboardselectListItem = ({ dashboard, onClick }) => {
+const DashboardSelectListItem = ({ dashboard, onClick }) => {
     const styles = {
         chip: {
             margin: 3,
@@ -33,43 +33,41 @@ const DashboardselectListItem = ({ dashboard, onClick }) => {
     );
 };
 
-DashboardselectListItem.propTypes = {
+DashboardSelectListItem.propTypes = {
     dashboard: PropTypes.object,
     onClick: PropTypes.func,
 };
 
-DashboardselectListItem.defaultProps = {
+DashboardSelectListItem.defaultProps = {
     dashboard: {},
     onClick: Function.prototype,
 };
 
 // Component
 
-const DashboardselectList = ({ dashboards, onClickDashboard }) => {
+const DashboardSelectList = ({ dashboards, onClickDashboard }) => {
     const wrapper = {
         display: 'flex',
         flexWrap: 'wrap',
     };
 
     return (
-        <div>
-            <div style={wrapper}>
-                {dashboards.map(d => (
-                    <DashboardselectListItem key={d.id} dashboard={d} onClick={() => onClickDashboard(d.id)} />
-                ))}
-            </div>
+        <div style={wrapper}>
+            {dashboards.map(d => (
+                <DashboardSelectListItem key={d.id} dashboard={d} onClick={() => onClickDashboard(d.id)} />
+            ))}
         </div>
     );
 };
 
-DashboardselectList.propTypes = {
+DashboardSelectList.propTypes = {
     dashboards: PropTypes.array,
     onClickDashboard: PropTypes.func,
 };
 
-DashboardselectList.defaultProps = {
+DashboardSelectList.defaultProps = {
     dashboards: [],
     onClickDashboard: Function.prototype,
 };
 
-export default DashboardselectList;
+export default DashboardSelectList;

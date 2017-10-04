@@ -26,6 +26,7 @@ export const sGetFromState = state => state.dashboards;
 export const sGetDashboardById = (state, id) => sGetFromState(state).find(dashboard => dashboard.id === id);
 
 // util
+
 export const getDashboards = data => data.map(d => ({
     id: d.id,
     name: d.name,
@@ -36,36 +37,6 @@ export const getDashboards = data => data.map(d => ({
     lastUpdated: d.lastUpdated.split('T').join(' ').substr(0, 16),
     numberOfItems: d.dashboardItems,
 }));
-
-const hasPosition = item => isNumber(item.x) && isNumber(item.y) && isNumber(item.w) && isNumber(item.h);
-
-const getPosition = (i) => {
-    const numberOfCols = 3;
-    const itemWidth = 9;
-    const itemHeight = 10;
-
-    const col = i % numberOfCols;
-    const row = Math.floor(i / numberOfCols);
-
-    return {
-        x: col * itemWidth,
-        y: row * itemHeight,
-        w: itemWidth,
-        h: itemHeight,
-    };
-};
-
-export const getDashboardItems = (data, dashboardId) => {
-    const items = ((data.find(d => d.id === dashboardId) || {}).dashboardItems || []);
-
-    items.forEach((di, i) => {
-        if (!hasPosition(di)) {
-            Object.assign(di, getPosition(i));
-        }
-    });
-
-    return items;
-};
 
 // api
 

@@ -40,15 +40,11 @@ const selectedDashboard = Object.assign({}, dashboard, {
 });
 
 const dashboardItem = {
-    lastUpdated: '2016-10-10T17:24:30.487',
     id: 'cX2przhv9UC',
-    created: '2016-10-10T17:24:30.487',
     type: 'CHART',
-    externalAccess: false,
-    contentCount: 1,
     shape: 'NORMAL',
-    interpretationCount: 0,
-    interpretationLikeCount: 0,
+    // created?
+    // interpretations?
     chart: {
         id: 'VffWmdKFHSq',
         displayName: 'ANC: ANC IPT 1 Coverage last 12 months districts',

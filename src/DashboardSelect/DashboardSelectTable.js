@@ -116,7 +116,7 @@ TableRowColumnTextLink.defaultProps = {
 
 // Component
 
-export default class DashboardselectTable extends Component {
+export default class DashboardSelectTable extends Component {
     constructor(props) {
         super(props);
 
@@ -174,12 +174,12 @@ export default class DashboardselectTable extends Component {
     }
 }
 
-DashboardselectTable.propTypes = {
+DashboardSelectTable.propTypes = {
     dashboards: PropTypes.array,
     onClickDashboard: PropTypes.func,
 };
 
-DashboardselectTable.defaultProps = {
+DashboardSelectTable.defaultProps = {
     dashboards: [],
     onClickDashboard: Function.prototype,
 };

@@ -4,6 +4,7 @@ import arraySort from 'd2-utilizr/lib/arraySort';
 
 import dashboards, * as fromDashboards from './dashboards';
 import dashboardsConfig, * as fromDashboardsConfig from './dashboardsConfig';
+import selectedDashboard, * as fromSelectedDashboard from './selectedDashboard';
 
 const USER = 'system';
 
@@ -12,9 +13,19 @@ const USER = 'system';
 export const actionTypes = Object.assign({},
     fromDashboards.actionTypes,
     fromDashboardsConfig.actionTypes,
+    fromSelectedDashboard.actionTypes,
 );
 
+// reducers
+
+export default combineReducers({
+    dashboards,
+    dashboardsConfig,
+    selectedDashboard,
+});
+
 // map constants to data
+
 const mapConstToData = {
     NAME: 'name',
     ITEMS: 'numberOfItems',
@@ -22,20 +33,11 @@ const mapConstToData = {
     OWNER: 'owner',
 };
 
-// reducers
-
-export default combineReducers({
-    dashboards,
-    dashboardsConfig,
-});
-
 // root selectors
 
-export { fromDashboards, fromDashboardsConfig };
+export { fromDashboards, fromDashboardsConfig, fromSelectedDashboard };
 
 // selectors level 1
-
-export const sGetSelectedDashboard = state => fromDashboards.sGetDashboardById(state, fromDashboardsConfig.sGetSelectedIdFromState(state));
 
 export const sApplyDashboardsTextFilter = (dashboards, filter) => dashboards.filter(d => d.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
 
@@ -75,7 +77,7 @@ export const applySortFilter = (dashboards, filter) => {
 
 // selectors level 2
 
-export const sGetDashboards = (state) => {
+export const sGetVisibleDashboards = (state) => {
     const dashboardsFromState = fromDashboards.sGetFromState(state);
 
     const textFilter = fromDashboardsConfig.sGetTextFilterFromState(state);

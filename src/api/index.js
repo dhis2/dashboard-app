@@ -4,7 +4,7 @@ export const delay = (ms = 500) => new Promise(resolve => setTimeout(resolve, ms
 
 const fields = {
     dashboard: 'id,displayName~rename(name),description,user[id,name],created,lastUpdated,dashboardItems~size',
-    selectedDashboard: 'id,dashboardItems',
+    selectedDashboard: 'id,dashboardItems[id,type,shape,reportTable[id,displayName],chart[id,displayName],map[id,displayName],eventReport[id,displayName],eventChart[id,displayName]]',
 };
 
 export const apiFetchDashboards = () => getInstance().then(d2 => d2.models.dashboard.list({ fields: fields.dashboard }));

@@ -1,0 +1,30 @@
+import { validateReducer, hasShape, getShape } from '../util';
+
+export const actionTypes = {
+    SET_SELECTEDDASHBOARD: 'SET_SELECTEDDASHBOARD',
+};
+
+export const DEFAULT_SELECTEDDASHBOARD = null;
+
+const selectedDashboard = (state = DEFAULT_SELECTEDDASHBOARD, action) => {
+    switch (action.type) {
+    case actionTypes.SET_SELECTEDDASHBOARD:
+        return validateReducer(action.value, DEFAULT_SELECTEDDASHBOARD);
+    default:
+        return state;
+    }
+};
+
+export default selectedDashboard;
+
+// root selector
+
+export const sGetSelectedDashboardFromState = state => state.selectedDashboard;
+
+// selector level 2
+
+export const sGetSelectedDashboardItems = state => (sGetSelectedDashboardFromState(state) || {}).dashboardItems || [];
+
+// util
+
+export const uGetTransformedItems = items => items.map((item, index) => (hasShape(item) ? item : Object.assign({}, item, getShape(index))));

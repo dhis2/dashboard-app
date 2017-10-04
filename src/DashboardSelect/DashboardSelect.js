@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import * as fromActions from '../actions';
 import * as fromReducers from '../reducers';
 
-import { arrayGetById } from '../util';
+import DashboardSelectList from './DashboardSelectList';
+import DashboardSelectTable from './DashboardSelectTable';
 
 const styles = {
     loading: {
@@ -27,43 +28,47 @@ function Loading() {
 
 // Component
 
-export const Dashboardselect = (props) => {
-    const { isFetching, viewFilter } = props;
-
-    const { fromDashboardsConfig } = fromReducers;
-
-    const { viewFilterData } = fromDashboardsConfig;
+export const DashboardSelect = (props) => {
+    const { isFetching, viewFilterComponentIndex } = props;
 
     if (isFetching) {
         return (<Loading />);
     }
 
-    return arrayGetById(viewFilterData, viewFilter).getViewCmp(props);
+    return [
+        <DashboardSelectList {...props} />,
+        <DashboardSelectTable {...props} />,
+    ][viewFilterComponentIndex];
 };
 
-Dashboardselect.propTypes = {
+DashboardSelect.propTypes = {
     isFetching: PropTypes.bool,
-    viewFilter: PropTypes.string,
+    viewFilterComponentIndex: PropTypes.number,
 };
 
-Dashboardselect.defaultProps = {
+DashboardSelect.defaultProps = {
     isFetching: false,
-    viewFilter: null,
+    viewFilterComponentIndex: 0,
 };
 
 // Container
 
-const mapStateToProps = state => ({
-    dashboards: fromReducers.sGetDashboards(state),
-    isFetching: fromReducers.fromDashboardsConfig.sGetIsFetchingFromState(state),
-    selectedId: fromReducers.fromDashboardsConfig.sGetSelectedIdFromState(state),
-    viewFilter: fromReducers.fromDashboardsConfig.sGetViewFilterFromState(state),
-});
+const mapStateToProps = (state) => {
+    const { viewFilterData } = fromReducers.fromDashboardsConfig;
+
+    const viewFilter = fromReducers.fromDashboardsConfig.sGetViewFilterFromState(state);
+
+    return {
+        dashboards: fromReducers.sGetVisibleDashboards(state),
+        isFetching: fromReducers.fromDashboardsConfig.sGetIsFetchingFromState(state),
+        viewFilterComponentIndex: viewFilterData.findIndex(d => d.id === viewFilter),
+    };
+};
 
 const mapDispatchToProps = dispatch => ({
-    onClickDashboard: id => dispatch(fromActions.acSetDashboardsConfigSelectedId(id)),
+    onClickDashboard: id => dispatch(fromActions.tSetSelectedDashboard(id)),
 });
 
-const DashboardselectCt = connect(mapStateToProps, mapDispatchToProps)(Dashboardselect);
+const DashboardSelectCt = connect(mapStateToProps, mapDispatchToProps)(DashboardSelect);
 
-export default DashboardselectCt;
+export default DashboardSelectCt;

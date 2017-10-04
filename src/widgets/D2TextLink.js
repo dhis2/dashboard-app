@@ -44,7 +44,7 @@ class D2TextLink extends Component {
 
     render() {
         const { text, onClick } = this.props;
-console.log('TEXT', text);
+
         return (
             <span
                 style={this.state}

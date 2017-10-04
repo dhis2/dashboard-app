@@ -9,6 +9,8 @@ import './DashboardItemGrid.css';
 
 import * as fromReducers from '../reducers';
 
+const { fromSelectedDashboard } = fromReducers;
+
 const runPlugins = (items) => {
     let filteredItems;
 
@@ -49,17 +51,25 @@ const runPlugins = (items) => {
 
 export class DashboardItemGrid extends Component {
     componentDidUpdate() {
-        const { items } = this.props;
+        const { selectedDashboard } = this.props;
 
-        console.log("ITEMS", items);
+        const dashboardItems = selectedDashboard.dashboardItems || [];
 
-        runPlugins(items);
+        console.log('dashboardItems', dashboardItems);
+
+        runPlugins(dashboardItems);
     }
 
     render() {
-        const items = this.props.items;
+        const { selectedDashboard } = this.props;
 
-        const pluginItems = items.map((item, index) => Object.assign({}, item, { i: `${index}` }));
+        if (selectedDashboard === null) {
+            return (<div style={{ padding: 50 }}>No items</div>);
+        }
+
+        const dashboardItems = selectedDashboard.dashboardItems || [];
+
+        const pluginItems = dashboardItems.map((item, index) => Object.assign({}, item, { i: `${index}` }));
 
         return (
             <div style={{ margin: '10px' }}>
@@ -85,37 +95,19 @@ export class DashboardItemGrid extends Component {
 }
 
 DashboardItemGrid.propTypes = {
-    items: PropTypes.array,
+    selectedDashboard: PropTypes.object,
 };
 
 DashboardItemGrid.defaultProps = {
-    items: [],
+    selectedDashboard: {},
 };
 
 // Container
 
-const DashboardItemGridCtCmp = (props) => {
-    const { items } = props;
+const mapStateToProps = state => ({
+    selectedDashboard: fromSelectedDashboard.uGetTransformedItems(fromSelectedDashboard.sGetSelectedDashboardItems(state)),
+});
 
-    return (<DashboardItemGrid items={items} />);
-};
-
-DashboardItemGridCtCmp.propTypes = {
-    items: PropTypes.array,
-};
-
-DashboardItemGridCtCmp.defaultProps = {
-    items: [],
-};
-
-const mapStateToProps = (state) => {
-    const id = fromReducers.fromDashboardsConfig.sGetSelectedIdFromState(state);
-
-    return {
-        items: (fromReducers.fromDashboards.sGetDashboardById(state, id) || {}).dashboardItems,
-    };
-};
-
-const DashboardItemGridCt = connect(mapStateToProps)(DashboardItemGridCtCmp);
+const DashboardItemGridCt = connect(mapStateToProps)(DashboardItemGrid);
 
 export default DashboardItemGridCt;

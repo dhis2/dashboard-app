@@ -91,7 +91,7 @@ DashboardTitle.defaultProps = {
 // Container
 
 const mapStateToProps = (state) => {
-    const selectedDashboard = fromReducers.sGetSelectedDashboard(state) || {};
+    const selectedDashboard = fromReducers.fromSelectedDashboard.sGetSelectedDashboardFromState(state) || {};
 
     return {
         name: selectedDashboard.name || '',

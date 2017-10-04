@@ -1,4 +1,5 @@
 import reducer, { actionTypes } from '../dashboards';
+import * as utils from '../../util';
 
 describe('dashboards reducer', () => {
     it('should set the list of dashboards', () => {
@@ -13,6 +14,9 @@ describe('dashboards reducer', () => {
 
     it('should return the list of dashboards', () => {
         const expectedState = [1];
+
+        utils.validateReducer = jest.fn();
+        utils.validateReducer.mockReturnValue(expectedState);
 
         const actualState = reducer(undefined, { type: actionTypes.SET_DASHBOARDS, dashboards: expectedState });
 
