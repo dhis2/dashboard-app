@@ -4,7 +4,10 @@ const storeDesign = {
     dashboards: [], // see dashboard below
 
     // not persisted, set from user interaction
-    selectedDashboard: {}, // see selectedDashboard below
+    selectedDashboard: {
+        isFetching: false,
+        dashboard: {}, // see selectedDashboard below
+    },
 
     // not persisted, set from user interaction
     dashboardsConfig: {
@@ -47,6 +50,6 @@ const dashboardItem = {
     // interpretations?
     chart: {
         id: 'VffWmdKFHSq',
-        displayName: 'ANC: ANC IPT 1 Coverage last 12 months districts',
+        name: 'ANC: ANC IPT 1 Coverage last 12 months districts',
     },
 };

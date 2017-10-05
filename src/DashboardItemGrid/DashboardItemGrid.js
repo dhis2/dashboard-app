@@ -11,6 +11,8 @@ import * as fromReducers from '../reducers';
 
 const { fromSelectedDashboard } = fromReducers;
 
+const getReportId = item => (item.reportTable || item.chart || item.map || item.eventReport || item.eventChart).id;
+
 const runPlugins = (items) => {
     let filteredItems;
 
@@ -26,48 +28,44 @@ const runPlugins = (items) => {
         plugin.loadingIndicator = true;
         plugin.dashboard = true;
 
-        filteredItems = items.filter(d => d.type === plugin.type).map(d => ({ id: d.id, el: `plugin-${d.id}`, type: d.type }));
+        filteredItems = items.filter(item => item.type === plugin.type).map(item => ({ id: getReportId(item), el: `plugin-${getReportId(item)}`, type: item.type }));
 
         // add plugin items
-        filteredItems.forEach(d => plugin.add(d));
-
+        filteredItems.forEach(item => plugin.add(item));
+console.log("pt/dv filteredItems", filteredItems);
         plugin.load();
 
-        filteredItems.forEach((d) => {
+        filteredItems.forEach((item) => {
             ((element) => {
                 console.log(element);
-            })(document.getElementById(d.el));
+            })(document.getElementById(item.el));
         });
     });
 
     // map
     setTimeout(() => {
-        filteredItems = items.filter(d => d.type === 'MAP').map(d => ({ id: d.id, el: `plugin-${d.id}`, type: d.type, url, username, password }));
-        console.log(filteredItems);
+        filteredItems = items.filter(item => item.type === 'MAP').map(item => ({ id: getReportId(item), el: `plugin-${getReportId(item)}`, type: item.type, url, username, password }));
+        console.log("gis filteredItems", filteredItems);
 
-        filteredItems.forEach(d => global.DHIS.getMap(d));
+        filteredItems.forEach(item => global.DHIS.getMap(item));
     }, 200);
 };
 
 export class DashboardItemGrid extends Component {
     componentDidUpdate() {
-        const { selectedDashboard } = this.props;
+        const { dashboardItems } = this.props;
 
-        const dashboardItems = selectedDashboard.dashboardItems || [];
-
-        console.log('dashboardItems', dashboardItems);
-
-        runPlugins(dashboardItems);
+        if (dashboardItems.length) {
+            runPlugins(dashboardItems);
+        }
     }
 
     render() {
-        const { selectedDashboard } = this.props;
-
-        if (selectedDashboard === null) {
+        const { dashboardItems } = this.props;
+console.log("dashboardItems", dashboardItems);
+        if (!dashboardItems.length) {
             return (<div style={{ padding: 50 }}>No items</div>);
         }
-
-        const dashboardItems = selectedDashboard.dashboardItems || [];
 
         const pluginItems = dashboardItems.map((item, index) => Object.assign({}, item, { i: `${index}` }));
 
@@ -83,8 +81,10 @@ export class DashboardItemGrid extends Component {
                 >
                     {pluginItems.map((item => (
                         <div key={item.i} className={item.type}>
-                            <div style={{ padding: 5, fontSize: 11, fontWeight: 500, color: '#555' }}>{`Item ${item.i}`} {'options'}</div>
-                            <div id={`plugin-${item.id}`} className={'pluginItem'} />
+                            <div style={{ padding: 5, fontSize: 11, fontWeight: 500, color: '#555' }}>
+                                {`Item ${item.i}`} / {item.type} / {getReportId(item)}
+                            </div>
+                            <div id={`plugin-${getReportId(item)}`} className={'pluginItem'} />
                         </div>
                     )))}
                     {}
@@ -95,17 +95,17 @@ export class DashboardItemGrid extends Component {
 }
 
 DashboardItemGrid.propTypes = {
-    selectedDashboard: PropTypes.object,
+    dashboardItems: PropTypes.array,
 };
 
 DashboardItemGrid.defaultProps = {
-    selectedDashboard: {},
+    dashboardItems: [],
 };
 
 // Container
 
 const mapStateToProps = state => ({
-    selectedDashboard: fromSelectedDashboard.uGetTransformedItems(fromSelectedDashboard.sGetSelectedDashboardItems(state)),
+    dashboardItems: fromSelectedDashboard.uGetTransformedItems(fromSelectedDashboard.sGetSelectedDashboardItems(state)),
 });
 
 const DashboardItemGridCt = connect(mapStateToProps)(DashboardItemGrid);

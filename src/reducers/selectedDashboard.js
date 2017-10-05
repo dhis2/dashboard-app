@@ -6,7 +6,7 @@ export const actionTypes = {
 
 export const DEFAULT_SELECTEDDASHBOARD = null;
 
-const selectedDashboard = (state = DEFAULT_SELECTEDDASHBOARD, action) => {
+export default (state = DEFAULT_SELECTEDDASHBOARD, action) => {
     switch (action.type) {
     case actionTypes.SET_SELECTEDDASHBOARD:
         return validateReducer(action.value, DEFAULT_SELECTEDDASHBOARD);
@@ -14,8 +14,6 @@ const selectedDashboard = (state = DEFAULT_SELECTEDDASHBOARD, action) => {
         return state;
     }
 };
-
-export default selectedDashboard;
 
 // root selector
 
