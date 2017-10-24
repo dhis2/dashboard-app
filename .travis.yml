@@ -3,5 +3,5 @@ node_js:
   - node
 script:
   - npm install
-  - npm build
+  - npm run build
   - npm test
