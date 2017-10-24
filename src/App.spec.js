@@ -6,7 +6,7 @@ import App from './App';
 global.reportTablePlugin = {};
 global.chartPlugin = {};
 
-it.skip('renders without crashing', () => {
+xit('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
         <MuiThemeProvider>
