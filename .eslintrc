@@ -1,6 +1,0 @@
-{
-  "extends": "dhis2",
-  "env": {
-    "browser": true
-  }
-}
