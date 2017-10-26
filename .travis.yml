@@ -13,6 +13,6 @@ script:
   - yarn travis
   - echo $TRAVIS_PULL_REQUEST
   - echo $TRAVIS_TEST_RESULT
-  - ls ./coverage
+  - ls -la ./coverage
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter after-build -d --exit-code $TRAVIS_TEST_RESULT
