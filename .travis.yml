@@ -2,5 +2,6 @@ language: node_js
 node_js:
   - 'node'
 script:
-  - yarn lint
-  - yarn test
+  - yarn travis
+  - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] || travis_terminate 0'
+  - codeclimate-test-reporter < ./coverage/lcov.info
