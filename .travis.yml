@@ -11,6 +11,5 @@ before_script:
 script:
   - yarn travis
   - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] || travis_terminate 0'
-  - codeclimate-test-reporter < ./coverage/lcov.info
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
