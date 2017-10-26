@@ -1,7 +1,16 @@
 language: node_js
 node_js:
   - 'node'
+env:
+  global:
+    - CC_TEST_REPORTER_ID=daeae58060a32f8d37e835457e8b2a1f9af55a38694826f4f6628a30383314f6
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
   - yarn travis
   - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] || travis_terminate 0'
   - codeclimate-test-reporter < ./coverage/lcov.info
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
