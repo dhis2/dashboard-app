@@ -36,8 +36,7 @@
     "prebuild": "rm -rf build && npm run lint",
     "postbuild": "npm run manifest",
     "manifest": "d2-manifest package.json build/manifest.webapp",
-    "deploy": "npm run build && mvn clean deploy",
-    "travis": "npm run lint && npm run coverage"
+    "deploy": "npm run build && mvn clean deploy"
   },
   "manifest.webapp": {
     "name": "Dashboards app",
