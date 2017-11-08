@@ -19,11 +19,11 @@ export const getShape = (i) => {
     }
 
     const numberOfCols = 3;
-    const itemWidth = (gridColumns / numberOfCols) - 1;
-    const itemHeight = gridRowHeight / 3;
-
+    
     const col = i % numberOfCols;
     const row = Math.floor(i / numberOfCols);
+    const itemWidth = Math.floor((gridColumns - 1) / numberOfCols);
+    const itemHeight = gridRowHeight / 3;
 
     return {
         x: col * itemWidth,

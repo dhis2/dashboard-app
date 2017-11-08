@@ -1,4 +1,4 @@
-import { arrayGetById, validateReducer } from '../util';
+import { validateReducer } from '../util';
 
 describe('util', () => {
     describe('validateReducer', () => {
