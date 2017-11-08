@@ -2,7 +2,7 @@
   "name": "dashboards-app",
   "version": "0.1.0",
   "description": "DHIS2 Dashboards app",
-  "private": true,
+  "license": "BSD-3-Clause",
   "devDependencies": {
     "d2-manifest": "^1.0.0",
     "react-scripts": "1.0.7"
