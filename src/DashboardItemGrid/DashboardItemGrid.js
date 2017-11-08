@@ -7,6 +7,8 @@ import 'react-grid-layout/css/styles.css';
 
 import './DashboardItemGrid.css';
 
+import { gridColumns, gridRowHeight } from './gridUtil';
+
 import * as fromReducers from '../reducers';
 
 const { fromSelectedDashboard } = fromReducers;
@@ -62,12 +64,14 @@ export class DashboardItemGrid extends Component {
 
     render() {
         const { dashboardItems } = this.props;
-console.log("dashboardItems", dashboardItems);
         if (!dashboardItems.length) {
             return (<div style={{ padding: 50 }}>No items</div>);
         }
 
         const pluginItems = dashboardItems.map((item, index) => Object.assign({}, item, { i: `${index}` }));
+
+        console.log('jj pluginItems', pluginItems);
+        
 
         return (
             <div style={{ margin: '10px' }}>
@@ -75,8 +79,8 @@ console.log("dashboardItems", dashboardItems);
                     onLayoutChange={(a, b, c) => console.log(a, b, c)}
                     className="layout"
                     layout={pluginItems}
-                    cols={30}
-                    rowHeight={30}
+                    cols={gridColumns}
+                    rowHeight={gridRowHeight}
                     width={window.innerWidth}
                 >
                     {pluginItems.map((item => (

@@ -1,4 +1,5 @@
-import { validateReducer, hasShape, getShape } from '../util';
+import { validateReducer } from '../util';
+import { hasShape, getShape } from '../DashboardItemGrid/gridUtil';
 
 export const actionTypes = {
     SET_SELECTEDDASHBOARD: 'SET_SELECTEDDASHBOARD',
