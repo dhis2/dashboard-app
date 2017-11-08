@@ -3,8 +3,9 @@ import { validateReducer } from '../util';
 describe('util', () => {
     describe('validateReducer', () => {
         it('should return the given value when it is defined and not null', () => {
-            const result = validateReducer('42', 'default val');
-            expect(result).toEqual('42');
+            const givenVal = '42';
+            const result = validateReducer(givenVal, 'default val');
+            expect(result).toEqual(givenVal);
         });
 
         it('should return the default value if the given value is undefined', () => {
