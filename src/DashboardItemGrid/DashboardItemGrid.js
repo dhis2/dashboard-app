@@ -70,9 +70,6 @@ export class DashboardItemGrid extends Component {
 
         const pluginItems = dashboardItems.map((item, index) => Object.assign({}, item, { i: `${index}` }));
 
-        console.log('jj pluginItems', pluginItems);
-        
-
         return (
             <div style={{ margin: '10px' }}>
                 <ReactGridLayout
