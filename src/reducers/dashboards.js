@@ -1,5 +1,3 @@
-import isNumber from 'd2-utilizr/lib/isNumber';
-
 import { validateReducer } from '../util';
 
 export const actionTypes = {
