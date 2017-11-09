@@ -1,10 +1,5 @@
-import React from 'react';
 import { combineReducers } from 'redux';
-
 import { validateReducer } from '../util';
-
-import DashboardSelectList from '../DashboardSelect/DashboardSelectList';
-import DashboardSelectTable from '../DashboardSelect/DashboardSelectTable';
 
 export const actionTypes = {
     SET_DASHBOARDSCONFIG_ISFETCHING: 'SET_DASHBOARDSCONFIG_ISFETCHING',
