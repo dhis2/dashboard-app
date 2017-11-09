@@ -1,4 +1,5 @@
-/** @module reducer/selectedDashboard */
+/** @module reducers/selectedDashboard */
+
 import { validateReducer, hasShape, getShape } from '../util';
 
 /**
@@ -18,6 +19,7 @@ export const DEFAULT_SELECTEDDASHBOARD = null;
 
 /**
  * Reducer that computes and returns the new state based on the given action
+ * @function
  * @param {Object} state The current state
  * @param {Object} action The action to be evaluated
  */
@@ -32,6 +34,7 @@ export default (state = DEFAULT_SELECTEDDASHBOARD, action) => {
 
 /**
  * Returns the selected dashboard from the state object
+ * @function
  * @param {Object} state
  * @returns {Object}
  */
@@ -39,6 +42,7 @@ export const sGetSelectedDashboardFromState = state => state.selectedDashboard;
 
 /**
  * Returns the array of items on the selected dashboard
+ * @function
  * @param {Object} state
  * @returns {Array}
  */
@@ -46,6 +50,7 @@ export const sGetSelectedDashboardItems = state => (sGetSelectedDashboardFromSta
 
 /**
  * Returns an array of items that each contain its grid block shape object
+ * @function
  * @param {Array} items
  * @returns {Array}
  */
