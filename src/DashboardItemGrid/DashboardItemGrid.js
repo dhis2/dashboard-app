@@ -59,16 +59,14 @@ const runPlugins = items => {
 
   // map
   setTimeout(() => {
-    filteredItems = items
-      .filter(item => item.type === "MAP")
-      .map(item => ({
-        id: getReportId(item),
-        el: `plugin-${getReportId(item)}`,
-        type: item.type,
-        url,
-        username,
-        password
-      }));
+    filteredItems = items.filter(item => item.type === "MAP").map(item => ({
+      id: getReportId(item),
+      el: `plugin-${getReportId(item)}`,
+      type: item.type,
+      url,
+      username,
+      password
+    }));
     console.log("gis filteredItems", filteredItems);
 
     filteredItems.forEach(item => global.DHIS.getMap(item));
