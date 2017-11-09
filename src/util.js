@@ -1,5 +1,3 @@
-import isNumber from 'd2-utilizr/lib/isNumber';
-
 // array
 export function arrayGetById(array, id) {
     return array.find(item => item.id === id);
@@ -19,22 +17,3 @@ export function getDate() {
 
 // reducer validator
 export const validateReducer = (value, defaultValue) => (value === undefined || value === null ? defaultValue : value);
-
-// shape
-export const hasShape = item => isNumber(item.x) && isNumber(item.y) && isNumber(item.w) && isNumber(item.h);
-
-export const getShape = (i) => {
-    const numberOfCols = 3;
-    const itemWidth = 9;
-    const itemHeight = 10;
-
-    const col = i % numberOfCols;
-    const row = Math.floor(i / numberOfCols);
-
-    return {
-        x: col * itemWidth,
-        y: row * itemHeight,
-        w: itemWidth,
-        h: itemHeight,
-    };
-};

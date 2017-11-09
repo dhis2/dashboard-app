@@ -1,6 +1,7 @@
 /** @module reducers/selectedDashboard */
 
-import { validateReducer, hasShape, getShape } from '../util';
+import { validateReducer } from '../util';
+import { hasShape, getShape } from '../DashboardItemGrid/gridUtil';
 
 /**
  * Action types for the selectedDashboard reducer

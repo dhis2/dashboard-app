@@ -50,16 +50,5 @@ describe('selected dashboard reducer', () => {
             const actual = sGetSelectedDashboardItems(state);
             expect(actual).toEqual([]);
         });
-
-        // export const uGetTransformedItems = items => items.map((item, index) => (hasShape(item) ? item : Object.assign({}, item, getShape(index))));
-        // it('should get the selected dashboard items', () => {
-        //     const items = {
-        //         'item0': {x: 1, y: 1, w: 4, h: 4},
-        //         'item2': {x: 6, y: 6, w: 5, h: 5},
-        //     };
-
-        //     const actual = uGetTransformedItems(items);
-        //     expect(actual).toEqual(dash.dashboardItems);
-        // });
     });
 });
