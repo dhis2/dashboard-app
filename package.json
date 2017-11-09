@@ -12,7 +12,9 @@
     "d2": "^27.0.0",
     "d2-ui": "^28.0.0-0",
     "d2-utilizr": "^0.2.15",
+    "docdash": "^0.4.0",
     "jest": "^21.2.1",
+    "jsdoc": "^3.5.5",
     "material-ui": "0.19.0",
     "prop-types": "15.5.8",
     "react": "^15.6.2",
@@ -27,11 +29,12 @@
     "rxjs": "^5.4.3"
   },
   "scripts": {
+    "documentation": "./node_modules/.bin/jsdoc -c jsdoc.json",
     "prestart": "d2-manifest package.json ./public/manifest.webapp",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "coverage": "npm test -- --coverage",
     "test": "react-scripts test --env=jsdom",
-    "test2": "jest",
     "eject": "react-scripts eject",
     "lint": "eslint -c node_modules/eslint-config-react-app/index.js src",
     "prebuild": "rm -rf build && npm run lint",
