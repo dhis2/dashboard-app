@@ -43,7 +43,7 @@
     "postbuild": "npm run manifest",
     "manifest": "d2-manifest package.json build/manifest.webapp",
     "deploy": "npm run build && mvn clean deploy",
-    "prettify": "prettier src{/**/,/}*.js --write"
+    "prettify": "prettier \"src/{**/*,*}.js\" --write"
   },
   "manifest.webapp": {
     "name": "Dashboards app",
