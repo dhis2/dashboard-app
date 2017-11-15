@@ -1,21 +1,21 @@
-import { getInstance } from "d2/lib/d2";
+import { getInstance } from 'd2/lib/d2';
 
 export const delay = (ms = 500) =>
-  new Promise(resolve => setTimeout(resolve, ms));
+    new Promise(resolve => setTimeout(resolve, ms));
 
 const fields = {
-  dashboard:
-    "id,displayName~rename(name),description,user[id,name],created,lastUpdated,dashboardItems~size",
-  selectedDashboard:
-    "id,dashboardItems[id,type,shape,reportTable[id,displayName],chart[id,displayName],map[id,displayName],eventReport[id,displayName],eventChart[id,displayName]]"
+    dashboard:
+        'id,displayName~rename(name),description,user[id,name],created,lastUpdated,dashboardItems~size',
+    selectedDashboard:
+        'id,dashboardItems[id,type,shape,reportTable[id,displayName],chart[id,displayName],map[id,displayName],eventReport[id,displayName],eventChart[id,displayName]]',
 };
 
 export const apiFetchDashboards = () =>
-  getInstance().then(d2 =>
-    d2.models.dashboard.list({ fields: fields.dashboard })
-  );
+    getInstance().then(d2 =>
+        d2.models.dashboard.list({ fields: fields.dashboard })
+    );
 
 export const apiFetchSelectedDashboard = id =>
-  getInstance().then(d2 =>
-    d2.models.dashboard.get(id, { fields: fields.selectedDashboard })
-  );
+    getInstance().then(d2 =>
+        d2.models.dashboard.get(id, { fields: fields.selectedDashboard })
+    );

@@ -1,48 +1,48 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { blue500 } from "material-ui/styles/colors";
-import IconButton from "material-ui/IconButton";
-import IconAdd from "material-ui/svg-icons/content/add-circle";
+import { blue500 } from 'material-ui/styles/colors';
+import IconButton from 'material-ui/IconButton';
+import IconAdd from 'material-ui/svg-icons/content/add-circle';
 
 const styles = {
-  style: {
-    width: 52,
-    height: 52,
-    padding: 0
-  },
-  iconStyle: {
-    width: 28,
-    height: 28
-  },
-  icon: IconAdd,
-  iconColor: blue500
+    style: {
+        width: 52,
+        height: 52,
+        padding: 0,
+    },
+    iconStyle: {
+        width: 28,
+        height: 28,
+    },
+    icon: IconAdd,
+    iconColor: blue500,
 };
 
 const D2IconButton = props => (
-  <IconButton
-    style={Object.assign({}, styles.style, props.style)}
-    iconStyle={Object.assign({}, styles.iconStyle, props.iconStyle)}
-    onClick={props.onClick}
-  >
-    {props.icon || <IconAdd color={props.iconColor || styles.iconColor} />}
-  </IconButton>
+    <IconButton
+        style={Object.assign({}, styles.style, props.style)}
+        iconStyle={Object.assign({}, styles.iconStyle, props.iconStyle)}
+        onClick={props.onClick}
+    >
+        {props.icon || <IconAdd color={props.iconColor || styles.iconColor} />}
+    </IconButton>
 );
 
 D2IconButton.propTypes = {
-  style: PropTypes.object,
-  iconStyle: PropTypes.object,
-  icon: PropTypes.object,
-  iconColor: PropTypes.object,
-  onClick: PropTypes.func
+    style: PropTypes.object,
+    iconStyle: PropTypes.object,
+    icon: PropTypes.object,
+    iconColor: PropTypes.object,
+    onClick: PropTypes.func,
 };
 
 D2IconButton.defaultProps = {
-  style: null,
-  iconStyle: null,
-  icon: null,
-  iconColor: null,
-  onClick: Function.prototype
+    style: null,
+    iconStyle: null,
+    icon: null,
+    iconColor: null,
+    onClick: Function.prototype,
 };
 
 export default D2IconButton;

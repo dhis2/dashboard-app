@@ -1,6 +1,6 @@
 /** @module reducers/dashboards */
 
-import { validateReducer } from "../util";
+import { validateReducer } from '../util';
 
 /**
  * Action types for the dashboard reducer
@@ -8,7 +8,7 @@ import { validateReducer } from "../util";
  * @type {Object}
  */
 export const actionTypes = {
-  SET_DASHBOARDS: "SET_DASHBOARDS"
+    SET_DASHBOARDS: 'SET_DASHBOARDS',
 };
 
 /**
@@ -26,12 +26,12 @@ export const DEFAULT_DASHBOARDS = [];
  * @returns {Object}
  */
 export default (state = DEFAULT_DASHBOARDS, action) => {
-  switch (action.type) {
-    case actionTypes.SET_DASHBOARDS:
-      return validateReducer(action.dashboards, DEFAULT_DASHBOARDS);
-    default:
-      return state;
-  }
+    switch (action.type) {
+        case actionTypes.SET_DASHBOARDS:
+            return validateReducer(action.dashboards, DEFAULT_DASHBOARDS);
+        default:
+            return state;
+    }
 };
 
 /**
@@ -41,7 +41,7 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
  * @returns {Array}
  */
 export const sGetFromState = state => {
-  return state.dashboards;
+    return state.dashboards;
 };
 
 /**
@@ -53,7 +53,7 @@ export const sGetFromState = state => {
  * @returns {Object|undefined}
  */
 export const sGetDashboardById = (state, id) =>
-  sGetFromState(state).find(dashboard => dashboard.id === id);
+    sGetFromState(state).find(dashboard => dashboard.id === id);
 
 /**
  * Returns the array of dashboards, customized for ui
@@ -62,22 +62,22 @@ export const sGetDashboardById = (state, id) =>
  * @returns {Array}
  */
 export const getDashboards = data =>
-  data.map(d => ({
-    id: d.id,
-    name: d.name,
-    description: d.description,
-    starred: Math.random() > 0.7,
-    owner: d.user.name,
-    created: d.created
-      .split("T")
-      .join(" ")
-      .substr(0, 16),
-    lastUpdated: d.lastUpdated
-      .split("T")
-      .join(" ")
-      .substr(0, 16),
-    numberOfItems: d.dashboardItems
-  }));
+    data.map(d => ({
+        id: d.id,
+        name: d.name,
+        description: d.description,
+        starred: Math.random() > 0.7,
+        owner: d.user.name,
+        created: d.created
+            .split('T')
+            .join(' ')
+            .substr(0, 16),
+        lastUpdated: d.lastUpdated
+            .split('T')
+            .join(' ')
+            .substr(0, 16),
+        numberOfItems: d.dashboardItems,
+    }));
 
 /**
  * Returns the persisted state
@@ -86,5 +86,5 @@ export const getDashboards = data =>
  * @param {Object} state The current state
  */
 export const getPersistedState = state => ({
-  dashboards: state.dashboards
+    dashboards: state.dashboards,
 });

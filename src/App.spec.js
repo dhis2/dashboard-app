@@ -6,8 +6,8 @@
 // global.reportTablePlugin = {};
 // global.chartPlugin = {};
 
-it("renders without crashing", () => {
-  expect(1).toEqual(1);
+it('renders without crashing', () => {
+    expect(1).toEqual(1);
 });
 //     const div = document.createElement('div');
 //     ReactDOM.render(
