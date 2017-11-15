@@ -59,7 +59,9 @@ export class DashboardTitle extends Component {
         return (
             <div>
                 <input
-                    ref={(c) => { this[REF_TEXTFIELD] = c; }}
+                    ref={c => {
+                        this[REF_TEXTFIELD] = c;
+                    }}
                     type="text"
                     value={this.state.name}
                     onKeyUp={this.handleKeyUp}
@@ -68,9 +70,7 @@ export class DashboardTitle extends Component {
                     placeholder={HINTTEXT_TEXTFIELD}
                     className="DashboardTitle-textfield"
                 />
-                <div style={styles.description}>
-                    {this.props.description}
-                </div>
+                <div style={styles.description}>{this.props.description}</div>
             </div>
         );
     }
@@ -90,9 +90,12 @@ DashboardTitle.defaultProps = {
 
 // Container
 
-const mapStateToProps = (state) => {
-    const selectedDashboard = fromReducers.fromSelectedDashboard.sGetSelectedDashboardFromState(state) || {};
-console.log("mapStateToProps", selectedDashboard, state);
+const mapStateToProps = state => {
+    const selectedDashboard =
+        fromReducers.fromSelectedDashboard.sGetSelectedDashboardFromState(
+            state
+        ) || {};
+    console.log('mapStateToProps', selectedDashboard, state);
     return {
         name: selectedDashboard.name || '',
         description: selectedDashboard.description || '',
@@ -103,6 +106,8 @@ const mapDispatchToProps = () => ({
     onBlur: e => console.log('dashboard name: ', e.target.value),
 });
 
-const DashboardTitleCt = connect(mapStateToProps, mapDispatchToProps)(DashboardTitle);
+const DashboardTitleCt = connect(mapStateToProps, mapDispatchToProps)(
+    DashboardTitle
+);
 
 export default DashboardTitleCt;

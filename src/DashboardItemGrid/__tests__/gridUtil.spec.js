@@ -3,7 +3,7 @@ import { hasShape, getShape } from '../gridUtil';
 describe('gridUtil', () => {
     describe('getShape', () => {
         it('should get the position and size properties of the first grid block', () => {
-            expect(getShape(0)).toEqual({x: 0, y: 0, w: 9, h: 10});
+            expect(getShape(0)).toEqual({ x: 0, y: 0, w: 9, h: 10 });
         });
 
         it('should get the position and size properties of the eighth grid block', () => {

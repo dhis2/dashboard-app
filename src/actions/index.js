@@ -1,7 +1,7 @@
 import * as fromReducers from '../reducers';
 
 import { apiFetchDashboards } from '../api';
-import {apiFetchSelectedDashboard} from "../api/index";
+import { apiFetchSelectedDashboard } from '../api/index';
 
 const { actionTypes } = fromReducers;
 
@@ -70,11 +70,17 @@ export const acSetSelectedDashboard = value => ({
 export const tSetDashboards = () => (dispatch, getState) => {
     dispatch(acSetDashboardsConfigIsFetching(true));
 
-    return apiFetchDashboards().then((dashboardCollection) => {
-console.log(dashboardCollection.toArray());
+    return apiFetchDashboards().then(dashboardCollection => {
+        console.log(dashboardCollection.toArray());
         dispatch(acSetDashboardsConfigIsFetching(false));
         dispatch(acSetDashboardsConfigTextFilter());
-        dispatch(acSetDashboards(fromReducers.fromDashboards.getDashboards(dashboardCollection.toArray())));
+        dispatch(
+            acSetDashboards(
+                fromReducers.fromDashboards.getDashboards(
+                    dashboardCollection.toArray()
+                )
+            )
+        );
     });
 };
 
@@ -100,11 +106,11 @@ export const tSetPresetManage = () => (dispatch, getState) => {
 
 // selectedDashboard
 
-export const tSetSelectedDashboard = id => (dispatch) => {
+export const tSetSelectedDashboard = id => dispatch => {
     // isFetching true
 
-    console.log("t id", id);
-    return apiFetchSelectedDashboard(id).then((what) => {
+    console.log('t id', id);
+    return apiFetchSelectedDashboard(id).then(what => {
         console.log('what', what);
 
         dispatch(acSetSelectedDashboard(what));
@@ -112,4 +118,3 @@ export const tSetSelectedDashboard = id => (dispatch) => {
         // isFetching false
     });
 };
-

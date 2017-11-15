@@ -31,7 +31,15 @@ class D2TextLink extends Component {
 
         const { style, hoverStyle } = this.props;
 
-        this.setState(Object.assign({}, styles.textLink, styles.textLinkHover, style, hoverStyle));
+        this.setState(
+            Object.assign(
+                {},
+                styles.textLink,
+                styles.textLinkHover,
+                style,
+                hoverStyle
+            )
+        );
     }
 
     onMouseOutHandle(event) {
@@ -73,4 +81,3 @@ D2TextLink.defaultProps = {
 };
 
 export default D2TextLink;
-

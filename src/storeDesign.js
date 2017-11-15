@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 
 const storeDesign = {
-
     // not persisted, set on load
     dashboards: [], // see dashboard below
 

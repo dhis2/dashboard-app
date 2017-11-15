@@ -18,7 +18,10 @@ describe('dashboards reducer', () => {
         utils.validateReducer = jest.fn();
         utils.validateReducer.mockReturnValue(expectedState);
 
-        const actualState = reducer(undefined, { type: actionTypes.SET_DASHBOARDS, dashboards: expectedState });
+        const actualState = reducer(undefined, {
+            type: actionTypes.SET_DASHBOARDS,
+            dashboards: expectedState,
+        });
 
         expect(actualState).toEqual(expectedState);
     });
