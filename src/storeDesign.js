@@ -3,12 +3,13 @@
 const storeDesign = {
 
     // not persisted, set on load
-    dashboards: [], // see dashboard below
+    dashboards: {
+        "id": {}
+    }, // see dashboard below
 
     // not persisted, set from user interaction
     selectedDashboard: {
-        isFetching: false,
-        dashboard: {}, // see selectedDashboard below
+        id: "id", // see selectedDashboard below
     },
 
     // not persisted, set from user interaction

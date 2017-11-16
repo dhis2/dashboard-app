@@ -48,7 +48,7 @@ DashboardSelectListItem.defaultProps = {
 const DashboardSelectList = ({ dashboards, onClickDashboard }) => {
     const wrapper = {
         display: 'flex',
-        flexWrap: 'wrap',
+        flexWrap: 'wrap'
     };
 
     return (
