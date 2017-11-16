@@ -27,7 +27,15 @@ const DashboardSelectListItem = ({ dashboard, onClick }) => {
             style={styles.chip}
             labelStyle={styles.labelStyle}
         >
-            {dashboard.starred ? <Avatar color="#444" style={{ height: '30px', width: '30px' }} icon={<IconStar />} /> : ''}
+            {dashboard.starred ? (
+                <Avatar
+                    color="#444"
+                    style={{ height: '30px', width: '30px' }}
+                    icon={<IconStar />}
+                />
+            ) : (
+                ''
+            )}
             {dashboard.name}
         </Chip>
     );
@@ -54,7 +62,11 @@ const DashboardSelectList = ({ dashboards, onClickDashboard }) => {
     return (
         <div style={wrapper}>
             {dashboards.map(d => (
-                <DashboardSelectListItem key={d.id} dashboard={d} onClick={() => onClickDashboard(d.id)} />
+                <DashboardSelectListItem
+                    key={d.id}
+                    dashboard={d}
+                    onClick={() => onClickDashboard(d.id)}
+                />
             ))}
         </div>
     );

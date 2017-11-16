@@ -62,14 +62,28 @@ class D2Dropdown extends Component {
             <DropDownMenu
                 value={this.state.value}
                 onChange={this.handleChange}
-                labelStyle={Object.assign({}, styles.defaultFontStyle, styles.labelStyle)}
-                listStyle={Object.assign({}, styles.defaultFontStyle, styles.listStyle)}
+                labelStyle={Object.assign(
+                    {},
+                    styles.defaultFontStyle,
+                    styles.labelStyle
+                )}
+                listStyle={Object.assign(
+                    {},
+                    styles.defaultFontStyle,
+                    styles.listStyle
+                )}
                 iconStyle={styles.iconStyle}
-                selectedMenuItemStyle={Object.assign({}, styles.defaultFontStyle, styles.selectedMenuItemStyle)}
+                selectedMenuItemStyle={Object.assign(
+                    {},
+                    styles.defaultFontStyle,
+                    styles.selectedMenuItemStyle
+                )}
                 style={styles.style}
                 underlineStyle={styles.underlineStyle}
             >
-                {data.map(d => <MenuItem key={d.id} value={d.id} primaryText={d.value} />)}
+                {data.map(d => (
+                    <MenuItem key={d.id} value={d.id} primaryText={d.value} />
+                ))}
             </DropDownMenu>
         );
     }

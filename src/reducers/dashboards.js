@@ -27,10 +27,10 @@ export const DEFAULT_DASHBOARDS = [];
  */
 export default (state = DEFAULT_DASHBOARDS, action) => {
     switch (action.type) {
-    case actionTypes.SET_DASHBOARDS:
-        return validateReducer(action.dashboards, DEFAULT_DASHBOARDS);
-    default:
-        return state;
+        case actionTypes.SET_DASHBOARDS:
+            return validateReducer(action.dashboards, DEFAULT_DASHBOARDS);
+        default:
+            return state;
     }
 };
 
@@ -40,7 +40,7 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
  * @param {Object} state The current state
  * @returns {Array}
  */
-export const sGetFromState = (state) => {
+export const sGetFromState = state => {
     return state.dashboards;
 };
 
@@ -52,7 +52,8 @@ export const sGetFromState = (state) => {
  * @param {number} id The id of the dashboard to retrieve
  * @returns {Object|undefined}
  */
-export const sGetDashboardById = (state, id) => sGetFromState(state).find(dashboard => dashboard.id === id);
+export const sGetDashboardById = (state, id) =>
+    sGetFromState(state).find(dashboard => dashboard.id === id);
 
 /**
  * Returns the array of dashboards, customized for ui
@@ -60,16 +61,23 @@ export const sGetDashboardById = (state, id) => sGetFromState(state).find(dashbo
  * @param {Array} data The original dashboard list
  * @returns {Array}
  */
-export const getDashboards = data => data.map(d => ({
-    id: d.id,
-    name: d.name,
-    description: d.description,
-    starred: Math.random() > 0.7,
-    owner: d.user.name,
-    created: d.created.split('T').join(' ').substr(0, 16),
-    lastUpdated: d.lastUpdated.split('T').join(' ').substr(0, 16),
-    numberOfItems: d.dashboardItems,
-}));
+export const getDashboards = data =>
+    data.map(d => ({
+        id: d.id,
+        name: d.name,
+        description: d.description,
+        starred: Math.random() > 0.7,
+        owner: d.user.name,
+        created: d.created
+            .split('T')
+            .join(' ')
+            .substr(0, 16),
+        lastUpdated: d.lastUpdated
+            .split('T')
+            .join(' ')
+            .substr(0, 16),
+        numberOfItems: d.dashboardItems,
+    }));
 
 /**
  * Returns the persisted state

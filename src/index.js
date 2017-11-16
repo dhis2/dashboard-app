@@ -17,8 +17,11 @@ import App from './App';
 injectTapEventPlugin();
 
 // init d2
-getManifest('manifest.webapp').then((manifest) => {
-    const baseUrl = process.env.NODE_ENV === 'production' ? manifest.getBaseUrl() : 'http://localhost:8080';
+getManifest('manifest.webapp').then(manifest => {
+    const baseUrl =
+        process.env.NODE_ENV === 'production'
+            ? manifest.getBaseUrl()
+            : 'http://localhost:8080';
 
     ReactDOM.render(
         <D2UIApp
@@ -32,6 +35,6 @@ getManifest('manifest.webapp').then((manifest) => {
                 <App />
             </Provider>
         </D2UIApp>,
-        document.getElementById('root'),
+        document.getElementById('root')
     );
 });

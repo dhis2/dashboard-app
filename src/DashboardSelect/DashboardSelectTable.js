@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
+import {
+    Table,
+    TableBody,
+    TableHeader,
+    TableHeaderColumn,
+    TableRow,
+    TableRowColumn,
+} from 'material-ui/Table';
 
 const linkColor = '#2264ff';
 const linkColorHover = '#1b3f8f';
@@ -81,14 +88,15 @@ class TableRowColumnTextLink extends Component {
 
         return (
             <TableRowColumn
-                style={Object.assign({},
+                style={Object.assign(
+                    {},
                     styles.tableView.row,
                     styles.tableView.rowColumn,
                     this.styles.link,
                     styles.tableView.name,
                     style,
                     this.state,
-                    selectedStyle,
+                    selectedStyle
                 )}
                 onMouseOver={this.onMouseOverHandle}
                 onMouseOut={this.onMouseOutHandle}
@@ -146,25 +154,93 @@ export default class DashboardSelectTable extends Component {
         return (
             <div style={style.root}>
                 <Table onRowSelection={this.handleRowSelection}>
-                    <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
+                    <TableHeader
+                        displaySelectAll={false}
+                        adjustForCheckbox={false}
+                    >
                         <TableRow style={style.row}>
-                            <TableHeaderColumn style={Object.assign({}, style.row, style.starred)}>Starred</TableHeaderColumn>
-                            <TableHeaderColumn style={Object.assign({}, style.row, style.name)}>Name</TableHeaderColumn>
-                            <TableHeaderColumn style={style.row}>Items</TableHeaderColumn>
-                            <TableHeaderColumn style={style.row}>Owner</TableHeaderColumn>
-                            <TableHeaderColumn style={style.row}>Created</TableHeaderColumn>
-                            <TableHeaderColumn style={style.row}>Modified</TableHeaderColumn>
+                            <TableHeaderColumn
+                                style={Object.assign(
+                                    {},
+                                    style.row,
+                                    style.starred
+                                )}
+                            >
+                                Starred
+                            </TableHeaderColumn>
+                            <TableHeaderColumn
+                                style={Object.assign({}, style.row, style.name)}
+                            >
+                                Name
+                            </TableHeaderColumn>
+                            <TableHeaderColumn style={style.row}>
+                                Items
+                            </TableHeaderColumn>
+                            <TableHeaderColumn style={style.row}>
+                                Owner
+                            </TableHeaderColumn>
+                            <TableHeaderColumn style={style.row}>
+                                Created
+                            </TableHeaderColumn>
+                            <TableHeaderColumn style={style.row}>
+                                Modified
+                            </TableHeaderColumn>
                         </TableRow>
                     </TableHeader>
                     <TableBody displayRowCheckbox={false}>
                         {dashboards.map(d => (
                             <TableRow key={d.id} style={style.row}>
-                                <TableRowColumn style={Object.assign({}, style.row, style.rowColumn, style.starred)}>{`${!!d.starred}`}</TableRowColumn>
-                                <TableRowColumnTextLink text={d.name} onClickDashboard={() => onClickDashboard(d.id)} isSelected={false} />
-                                <TableRowColumn style={Object.assign({}, style.row, style.rowColumn)}>{d.numberOfItems}</TableRowColumn>
-                                <TableRowColumn style={Object.assign({}, style.row, style.rowColumn)}>{d.owner}</TableRowColumn>
-                                <TableRowColumn style={Object.assign({}, style.row, style.rowColumn)}>{d.created}</TableRowColumn>
-                                <TableRowColumn style={Object.assign({}, style.row, style.rowColumn)}>{d.lastUpdated}</TableRowColumn>
+                                <TableRowColumn
+                                    style={Object.assign(
+                                        {},
+                                        style.row,
+                                        style.rowColumn,
+                                        style.starred
+                                    )}
+                                >{`${!!d.starred}`}</TableRowColumn>
+                                <TableRowColumnTextLink
+                                    text={d.name}
+                                    onClickDashboard={() =>
+                                        onClickDashboard(d.id)
+                                    }
+                                    isSelected={false}
+                                />
+                                <TableRowColumn
+                                    style={Object.assign(
+                                        {},
+                                        style.row,
+                                        style.rowColumn
+                                    )}
+                                >
+                                    {d.numberOfItems}
+                                </TableRowColumn>
+                                <TableRowColumn
+                                    style={Object.assign(
+                                        {},
+                                        style.row,
+                                        style.rowColumn
+                                    )}
+                                >
+                                    {d.owner}
+                                </TableRowColumn>
+                                <TableRowColumn
+                                    style={Object.assign(
+                                        {},
+                                        style.row,
+                                        style.rowColumn
+                                    )}
+                                >
+                                    {d.created}
+                                </TableRowColumn>
+                                <TableRowColumn
+                                    style={Object.assign(
+                                        {},
+                                        style.row,
+                                        style.rowColumn
+                                    )}
+                                >
+                                    {d.lastUpdated}
+                                </TableRowColumn>
                             </TableRow>
                         ))}
                     </TableBody>

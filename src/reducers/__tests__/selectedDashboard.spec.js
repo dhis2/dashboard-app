@@ -1,10 +1,16 @@
-import reducer,
-{ actionTypes, sGetSelectedDashboardFromState, sGetSelectedDashboardItems } from '../selectedDashboard';
+import reducer, {
+    actionTypes,
+    sGetSelectedDashboardFromState,
+    sGetSelectedDashboardItems,
+} from '../selectedDashboard';
 
 describe('selected dashboard reducer', () => {
     it('should set the selected dashboard', () => {
         const selectedDash = 'my favorite dashboard';
-        const actualState = reducer(undefined, { type: actionTypes.SET_SELECTEDDASHBOARD, value: selectedDash });
+        const actualState = reducer(undefined, {
+            type: actionTypes.SET_SELECTEDDASHBOARD,
+            value: selectedDash,
+        });
 
         expect(actualState).toEqual(selectedDash);
     });
@@ -17,9 +23,9 @@ describe('selected dashboard reducer', () => {
 
     describe('selectors', () => {
         it('should get the selected dashboard', () => {
-            const dash = {name: 'my favorite dashboard'};
+            const dash = { name: 'my favorite dashboard' };
             const state = {
-                selectedDashboard: dash
+                selectedDashboard: dash,
             };
 
             const actual = sGetSelectedDashboardFromState(state);
@@ -32,7 +38,7 @@ describe('selected dashboard reducer', () => {
                 dashboardItems: ['abc', 'def'],
             };
             const state = {
-                selectedDashboard: dash
+                selectedDashboard: dash,
             };
 
             const actual = sGetSelectedDashboardItems(state);
@@ -44,7 +50,7 @@ describe('selected dashboard reducer', () => {
                 name: 'my favorite dashboard',
             };
             const state = {
-                selectedDashboard: dash
+                selectedDashboard: dash,
             };
 
             const actual = sGetSelectedDashboardItems(state);

@@ -5,6 +5,9 @@
   "private": true,
   "devDependencies": {
     "d2-manifest": "^1.0.0",
+    "eslint-config-prettier": "^2.7.0",
+    "eslint-plugin-prettier": "^2.3.1",
+    "prettier": "1.8.1",
     "react-scripts": "1.0.7"
   },
   "dependencies": {
@@ -35,11 +38,12 @@
     "coverage": "npm test -- --coverage",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "eslint -c node_modules/eslint-config-react-app/index.js src",
+    "lint": "eslint -c .eslintrc.json src",
     "prebuild": "rm -rf build && npm run lint",
     "postbuild": "npm run manifest",
     "manifest": "d2-manifest package.json build/manifest.webapp",
-    "deploy": "npm run build && mvn clean deploy"
+    "deploy": "npm run build && mvn clean deploy",
+    "prettify": "prettier \"src/{**/*,*}.js\" --write"
   },
   "manifest.webapp": {
     "name": "Dashboards app",

@@ -19,20 +19,16 @@ const styles = {
 };
 
 function Loading() {
-    return (
-        <div style={styles.loading}>
-            {'Loading dashboards ...'}
-        </div>
-    );
+    return <div style={styles.loading}>{'Loading dashboards ...'}</div>;
 }
 
 // Component
 
-export const DashboardSelect = (props) => {
+export const DashboardSelect = props => {
     const { isFetching, viewFilterComponentIndex } = props;
 
     if (isFetching) {
-        return (<Loading />);
+        return <Loading />;
     }
 
     return [
@@ -53,15 +49,21 @@ DashboardSelect.defaultProps = {
 
 // Container
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     const { viewFilterData } = fromReducers.fromDashboardsConfig;
 
-    const viewFilter = fromReducers.fromDashboardsConfig.sGetViewFilterFromState(state);
+    const viewFilter = fromReducers.fromDashboardsConfig.sGetViewFilterFromState(
+        state
+    );
 
     return {
         dashboards: fromReducers.sGetVisibleDashboards(state),
-        isFetching: fromReducers.fromDashboardsConfig.sGetIsFetchingFromState(state),
-        viewFilterComponentIndex: viewFilterData.findIndex(d => d.id === viewFilter),
+        isFetching: fromReducers.fromDashboardsConfig.sGetIsFetchingFromState(
+            state
+        ),
+        viewFilterComponentIndex: viewFilterData.findIndex(
+            d => d.id === viewFilter
+        ),
     };
 };
 
@@ -69,6 +71,8 @@ const mapDispatchToProps = dispatch => ({
     onClickDashboard: id => dispatch(fromActions.tSetSelectedDashboard(id)),
 });
 
-const DashboardSelectCt = connect(mapStateToProps, mapDispatchToProps)(DashboardSelect);
+const DashboardSelectCt = connect(mapStateToProps, mapDispatchToProps)(
+    DashboardSelect
+);
 
 export default DashboardSelectCt;
