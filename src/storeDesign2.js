@@ -2,39 +2,46 @@
 
 import PropTypes from 'prop-types';
 
-const { bool, string, oneOf } = PropTypes;
+const { bool, string, oneOf, oneOfType } = PropTypes;
 
 const storeDesign = {
 
-    // not persisted
-    edit: bool.isRequired,
-
-    view: {
-        nav: {
-            filter: { // loading indicator based on dashboards object
-                name: string, // default = ''
-                owner: oneOf(['ALL', 'ME', 'OTHERS']),
-                order: oneOf(['NAME:ASC', 'NAME:DESC', 'CREATED:ASC', 'CREATED:DESC', 'ITEMS:ASC', 'ITEMS:DESC', 'STARRED:ASC', 'STARRED:DESC']),
-            },
-            appBar: {
-                rows: 1,
-                expanded: bool, // false
-            },
-            style: oneOf(['LIST', 'TABLE']),
-        },
-        content: {},
-        thirdSection: {}
-    },
-
-    // not persisted
+    // default: null, has not been set, show loading indicator
+    // normal: object with keys=dashboard id and value=customDashboard, empty object means there was no dashboards
+    // extend selected dashboard with full dashboard spec
+    // oneOfType([null, object]).isRequired
     dashboards: {
         "id1": {},
         "id2": {},
-    }, // see customDashboard below
+    },
 
-    // not persisted, set from user interaction
-    selectedDashboard: string,
+    // default: null
+    // normal: selected dashboard id
+    // oneOfType([null, string]).isRequired
+    selected: {
+        id: null, // oneOfType([null, string]).isRequired
+        edit: false, // bool.isRequired
+    },
 
+    // filter list of available dashboards
+    // object
+    filter: {
+        name: null, // oneOfType([null, string]).isRequired
+        owner: 'ALL', // oneOf(['ALL', 'ME', 'OTHERS']),
+        order: 'NAME:ASC', // oneOf(['NAME:ASC', 'NAME:DESC', 'CREATED:ASC', 'CREATED:DESC', 'ITEMS:ASC', 'ITEMS:DESC', 'STARRED:ASC', 'STARRED:DESC']),
+    },
+
+    // render dashboards as list or table
+    style: oneOf(['LIST', 'TABLE']),
+
+    // persisted
+    // rows: default height (number of rows)
+    // expanded: show full height
+    // object
+    controlBar: {
+        rows: 1,
+        expanded: bool, // default: false
+    },
 };
 
 const customDashboard = {
