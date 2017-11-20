@@ -9,9 +9,10 @@ const { actionTypes } = fromReducers;
 
 // dashboards
 
-export const acSetDashboards = dashboards => ({
+export const acSetDashboards = (dashboards, append) => ({
     type: actionTypes.SET_DASHBOARDS,
-    dashboards,
+    append: !!append,
+    value: dashboards,
 });
 
 // dashboardsConfig

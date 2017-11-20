@@ -27,8 +27,11 @@ export const DEFAULT_DASHBOARDS = null;
  */
 export default (state = DEFAULT_DASHBOARDS, action) => {
     switch (action.type) {
-        case actionTypes.SET_DASHBOARDS:
-            return arrayToObject(action.value);
+        case actionTypes.SET_DASHBOARDS: {
+            return action.append
+                ? Object.assign({}, state, arrayToObject(action.value))
+                : arrayToObject(action.value);
+        }
         default:
             return state;
     }
