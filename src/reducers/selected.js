@@ -37,7 +37,7 @@ const edit = (state = DEFAULT_EDIT, action) => {
 
 export default combineReducers({
     selected,
-    edit
+    edit,
 });
 
 /**

@@ -2,7 +2,7 @@
 
 import PropTypes from 'prop-types';
 
-const { bool, string, oneOf, oneOfType } = PropTypes;
+const {bool, string, oneOf, oneOfType} = PropTypes;
 
 const storeDesign = {
 

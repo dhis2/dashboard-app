@@ -36,7 +36,7 @@ const expanded = (state = DEFAULT_EXPANDED, action) => {
 
 export default combineReducers({
     rows,
-    expanded
+    expanded,
 });
 
 /**

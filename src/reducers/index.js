@@ -12,7 +12,7 @@ export const actionTypes = Object.assign(
     {},
     fromDashboards.actionTypes,
     fromSelected.actionTypes,
-    fromFilter.actionTypes,
+    fromFilter.actionTypes
 );
 
 // reducers
