@@ -2,17 +2,16 @@
 
 import PropTypes from 'prop-types';
 
-const {bool, string, oneOf, oneOfType} = PropTypes;
+const { bool, string, oneOf, oneOfType } = PropTypes;
 
 const storeDesign = {
-
     // default: null, has not been set, show loading indicator
     // normal: object with keys=dashboard id and value=customDashboard, empty object means there was no dashboards
     // extend selected dashboard with full dashboard spec
     // oneOfType([null, object]).isRequired
     dashboards: {
-        "id1": {},
-        "id2": {},
+        id1: {},
+        id2: {},
     },
 
     // default: null
@@ -53,5 +52,6 @@ const customDashboard = {
     numberOfItems: 10,
     owner: 'Tom Wakiki',
     starred: false,
-    items: "does not exist (show loading indicator if selected) | null on error (hide loading indicator, show error) | [items]"
+    items:
+        'undefined, "loading" if defined) | error: null (hide "loading", show error) | [items]',
 };

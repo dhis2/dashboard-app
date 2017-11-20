@@ -1,6 +1,6 @@
 /** @module reducers/dashboards */
 
-import { arrayToObject, validateReducer } from '../util';
+import { arrayToObject } from '../util';
 
 /**
  * Action types for the dashboard reducer

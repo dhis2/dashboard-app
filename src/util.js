@@ -6,8 +6,8 @@ export function arrayGetById(array, id) {
 // object
 export function arrayToObject(array) {
     return array.reduce((obj, item) => {
-        obj[item.id] = item
-        return obj
+        obj[item.id] = item;
+        return obj;
     }, {});
 }
 
