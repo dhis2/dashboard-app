@@ -34,7 +34,7 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
     }
 };
 
-// Selectors
+// selectors
 
 /**
  * Selector which returns dashboards from the state object
@@ -42,9 +42,7 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
  * @param {Object} state The current state
  * @returns {Array}
  */
-export const sGetFromState = state => {
-    return state.dashboards;
-};
+export const sGetFromState = state => state.dashboards;
 
 /**
  * Returns a dashboard based on id, from the state object.
@@ -54,7 +52,7 @@ export const sGetFromState = state => {
  * @param {number} id The id of the dashboard to retrieve
  * @returns {Object|undefined}
  */
-export const sGetDashboardById = (state, id) => sGetFromState(state)[id];
+export const sGetById = (state, id) => sGetFromState(state)[id];
 
 /**
  * Returns the array of dashboards, customized for ui
@@ -62,7 +60,7 @@ export const sGetDashboardById = (state, id) => sGetFromState(state)[id];
  * @param {Array} data The original dashboard list
  * @returns {Array}
  */
-export const getDashboards = data =>
+export const getCustomDashboards = data =>
     data.map(d => ({
         id: d.id,
         name: d.name,

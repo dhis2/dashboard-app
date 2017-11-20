@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-
 import arraySort from 'd2-utilizr/lib/arraySort';
-
 import dashboards, * as fromDashboards from './dashboards';
-import dashboardsConfig, * as fromDashboardsConfig from './dashboardsConfig';
-import selectedDashboard, * as fromSelectedDashboard from './selectedDashboard';
+import selected, * as fromSelected from './selected';
+import filter, * as fromFilter from './filter';
 
 const USER = 'system';
 
@@ -13,16 +11,16 @@ const USER = 'system';
 export const actionTypes = Object.assign(
     {},
     fromDashboards.actionTypes,
-    fromDashboardsConfig.actionTypes,
-    fromSelectedDashboard.actionTypes
+    fromSelected.actionTypes,
+    fromFilter.actionTypes,
 );
 
 // reducers
 
 export default combineReducers({
     dashboards,
-    dashboardsConfig,
-    selectedDashboard,
+    selected,
+    filter,
 });
 
 // map constants to data
@@ -34,34 +32,18 @@ const mapConstToData = {
     OWNER: 'owner',
 };
 
-// root selectors
+// selectors
 
-export { fromDashboards, fromDashboardsConfig, fromSelectedDashboard };
+export { fromDashboards, fromSelected, fromFilter };
 
-// selectors level 1
-
-export const sApplyDashboardsTextFilter = (dashboards, filter) =>
+export const sApplyNameFilter = (dashboards, filter) =>
     dashboards.filter(
         d => d.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1
     );
 
-export const applyDashboardsShowFilter = (dashboards, filter) => {
-    const STARRED = 'STARRED'; // TODO
-    const UNSTARRED = 'UNSTARRED'; // TODO
-
-    switch (filter) {
-        case STARRED:
-            return dashboards.filter(d => !!d.starred);
-        case UNSTARRED:
-            return dashboards.filter(d => !d.starred);
-        default:
-            return dashboards;
-    }
-};
-
-export const applyDashboardsOwnerFilter = (dashboards, filter) => {
-    const ME = 'ME'; // TODO
-    const OTHERS = 'OTHERS'; // TODO
+export const sApplyOwnerFilter = (dashboards, filter) => {
+    const ME = fromFilter.ownerData[1]; // TODO
+    const OTHERS = fromFilter.ownerData[2]; // TODO
 
     switch (filter) {
         case ME:
@@ -73,30 +55,29 @@ export const applyDashboardsOwnerFilter = (dashboards, filter) => {
     }
 };
 
-export const applySortFilter = (dashboards, filter) => {
-    const { keyFilter, directionFilter } = filter;
+export const sApplyOrderFilter = (dashboards, filter) => {
+    const filterValues = filter.split(':');
 
-    return arraySort(dashboards, directionFilter, mapConstToData[keyFilter]);
+    const key = filterValues[0];
+    const direction = filterValues[1];
+
+    return arraySort(dashboards, direction, mapConstToData[key]);
 };
 
-// selectors level 2
+// selector dependency level 2
 
-export const sGetVisibleDashboards = state => {
-    const dashboardsFromState = fromDashboards.sGetFromState(state);
+export const sGetFilteredDashboards = state => {
+    const dashboards = fromDashboards.sGetFromState(state);
 
-    const textFilter = fromDashboardsConfig.sGetTextFilterFromState(state);
-    const showFilter = fromDashboardsConfig.sGetShowFilterFromState(state);
-    const ownerFilter = fromDashboardsConfig.sGetOwnerFilterFromState(state);
-    const sortFilter = fromDashboardsConfig.sGetSortFilterFromState(state);
+    const nameFilter = fromFilter.sGetName(state);
+    const ownerFilter = fromFilter.sGetOwner(state);
+    const orderFilter = fromFilter.sGetOrder(state);
 
-    return applySortFilter(
-        sApplyDashboardsTextFilter(
-            applyDashboardsShowFilter(
-                applyDashboardsOwnerFilter(dashboardsFromState, ownerFilter),
-                showFilter
-            ),
-            textFilter
+    return sApplyOrderFilter(
+        sApplyNameFilter(
+            sApplyOwnerFilter(dashboards, ownerFilter),
+            nameFilter
         ),
-        sortFilter
+        orderFilter
     );
 };
