@@ -74,12 +74,12 @@ const DashboardSelectList = ({ dashboards, onClick }) => {
 
 DashboardSelectList.propTypes = {
     dashboards: PropTypes.array,
-    onClickDashboard: PropTypes.func,
+    onClick: PropTypes.func,
 };
 
 DashboardSelectList.defaultProps = {
     dashboards: [],
-    onClickDashboard: Function.prototype,
+    onClick: Function.prototype,
 };
 
 export default DashboardSelectList;

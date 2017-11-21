@@ -204,18 +204,18 @@ export const Dashboardbar = props => (
                 data={fromReducers.fromFilter.ownerData}
             />
             <D2Dropdown
-                value={props.sortFilterId}
-                onClick={props.onClickSortFilter}
+                value={props.orderFilter}
+                onClick={props.onClickOrderFilter}
                 data={fromReducers.fromFilter.orderData}
             />
-            /*<D2IconButton
-                icon={getViewFilterIcon(props.viewFilter)}
+            <D2IconButton
+                icon={getViewFilterIcon(props.style)}
                 iconStyle={{ width: 24, height: 24 }}
                 onClick={onClickViewFilterWrapper(
-                    props.viewFilter,
-                    props.onClickViewFilter
+                    props.style,
+                    props.onClickStyle
                 )}
-            />*/
+            />
         </ToolbarGroup>
     </Toolbar>
 );
@@ -225,9 +225,10 @@ Dashboardbar.propTypes = {
     onClickManage: PropTypes.func,
     onClickOwnerFilter: PropTypes.func,
     onClickOrderFilter: PropTypes.func,
-    //onClickViewFilter: PropTypes.func,
+    onClickStyle: PropTypes.func,
     ownerFilter: PropTypes.string,
     orderFilter: PropTypes.string,
+    style: PropTypes.string,
 };
 
 Dashboardbar.defaultProps = {
@@ -235,10 +236,10 @@ Dashboardbar.defaultProps = {
     onClickManage: Function.prototype,
     onClickOwnerFilter: Function.prototype,
     onClickOrderFilter: Function.prototype,
-    //onClickViewFilter: Function.prototype,
+    onClickStyle: Function.prototype,
     ownerFilter: null,
     orderFilter: null,
-    //viewFilter: null,
+    style: 'LIST',
 };
 
 // Container
