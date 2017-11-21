@@ -3,6 +3,14 @@ export function arrayGetById(array, id) {
     return array.find(item => item.id === id);
 }
 
+// object
+export function arrayToObject(array) {
+    return array.reduce((obj, item) => {
+        obj[item.id] = item;
+        return obj;
+    }, {});
+}
+
 // date
 export function getDate() {
     const y = Math.floor(Math.random() * 3) + 2015;

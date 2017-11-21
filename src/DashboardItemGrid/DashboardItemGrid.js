@@ -11,7 +11,7 @@ import { gridColumns, gridRowHeight } from './gridUtil';
 
 import * as fromReducers from '../reducers';
 
-const { fromSelectedDashboard } = fromReducers;
+const { fromSelected } = fromReducers;
 
 const getReportId = item =>
     (
@@ -139,8 +139,8 @@ DashboardItemGrid.defaultProps = {
 // Container
 
 const mapStateToProps = state => ({
-    dashboardItems: fromSelectedDashboard.uGetTransformedItems(
-        fromSelectedDashboard.sGetSelectedDashboardItems(state)
+    dashboardItems: fromSelected.uGetTransformedItems(
+        fromSelected.sGetSelectedDashboardItems(state)
     ),
 });
 

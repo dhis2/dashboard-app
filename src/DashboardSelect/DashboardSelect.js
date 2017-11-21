@@ -24,51 +24,64 @@ function Loading() {
 
 // Component
 
-export const DashboardSelect = props => {
-    const { isFetching, viewFilterComponentIndex } = props;
-
+export const DashboardSelect = ({ isFetching, dashboards, style, onClick }) => {
     if (isFetching) {
         return <Loading />;
     }
 
-    return [
-        <DashboardSelectList {...props} />,
-        <DashboardSelectTable {...props} />,
-    ][viewFilterComponentIndex];
+    const list = <DashboardSelectList {...{ dashboards, onClick }} />;
+    const table = <DashboardSelectTable {...{ dashboards, onClick }} />;
+
+    switch (style) {
+        case 'LIST':
+            return list;
+        case 'TABLE':
+            return table;
+        default:
+            return list;
+    }
 };
 
 DashboardSelect.propTypes = {
     isFetching: PropTypes.bool,
-    viewFilterComponentIndex: PropTypes.number,
+    dashboards: PropTypes.array,
+    style: PropTypes.string,
+    onClick: PropTypes.func,
 };
 
 DashboardSelect.defaultProps = {
     isFetching: false,
-    viewFilterComponentIndex: 0,
+    dashboards: [],
+    style: 'LIST',
+    onClick: Function.prototype,
 };
 
 // Container
 
-const mapStateToProps = state => {
-    const { viewFilterData } = fromReducers.fromDashboardsConfig;
+// const mapStateToProps = state => ({
+//     isFetching: fromReducers.fromDashboards.sGetFromState(state) === null,
+//     dashboards: fromReducers.sGetFilteredDashboards(state),
+//     style: fromReducers.fromStyle.sGetFromState(state),
+// });
 
-    const viewFilter = fromReducers.fromDashboardsConfig.sGetViewFilterFromState(
-        state
-    );
+const mapStateToProps = state => {
+    const isf = fromReducers.fromDashboards.sGetFromState(state);
+    const dbs = fromReducers.sGetFilteredDashboards(state);
+    const st = fromReducers.fromStyle.sGetFromState(state);
+
+    console.log(isf);
+    console.log(dbs);
+    console.log(st);
 
     return {
-        dashboards: fromReducers.sGetVisibleDashboards(state),
-        isFetching: fromReducers.fromDashboardsConfig.sGetIsFetchingFromState(
-            state
-        ),
-        viewFilterComponentIndex: viewFilterData.findIndex(
-            d => d.id === viewFilter
-        ),
+        isFetching: fromReducers.fromDashboards.sGetFromState(state) === null,
+        dashboards: fromReducers.sGetFilteredDashboards(state),
+        style: fromReducers.fromStyle.sGetFromState(state),
     };
 };
 
 const mapDispatchToProps = dispatch => ({
-    onClickDashboard: id => dispatch(fromActions.tSetSelectedDashboard(id)),
+    onClick: id => dispatch(fromActions.tSetSelectedDashboard(id)),
 });
 
 const DashboardSelectCt = connect(mapStateToProps, mapDispatchToProps)(

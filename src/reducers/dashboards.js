@@ -1,6 +1,6 @@
 /** @module reducers/dashboards */
 
-import { validateReducer } from '../util';
+import { arrayToObject } from '../util';
 
 /**
  * Action types for the dashboard reducer
@@ -16,7 +16,7 @@ export const actionTypes = {
  * @constant
  * @type {Array}
  */
-export const DEFAULT_DASHBOARDS = [];
+export const DEFAULT_DASHBOARDS = null;
 
 /**
  * Reducer that computes and returns the new state based on the given action
@@ -27,22 +27,25 @@ export const DEFAULT_DASHBOARDS = [];
  */
 export default (state = DEFAULT_DASHBOARDS, action) => {
     switch (action.type) {
-        case actionTypes.SET_DASHBOARDS:
-            return validateReducer(action.dashboards, DEFAULT_DASHBOARDS);
+        case actionTypes.SET_DASHBOARDS: {
+            return action.append
+                ? Object.assign({}, state, arrayToObject(action.value))
+                : arrayToObject(action.value);
+        }
         default:
             return state;
     }
 };
 
+// selectors
+
 /**
- * Returns the list of dashboards from the state object
+ * Selector which returns dashboards from the state object
  * @function
  * @param {Object} state The current state
  * @returns {Array}
  */
-export const sGetFromState = state => {
-    return state.dashboards;
-};
+export const sGetFromState = state => state.dashboards;
 
 /**
  * Returns a dashboard based on id, from the state object.
@@ -52,8 +55,7 @@ export const sGetFromState = state => {
  * @param {number} id The id of the dashboard to retrieve
  * @returns {Object|undefined}
  */
-export const sGetDashboardById = (state, id) =>
-    sGetFromState(state).find(dashboard => dashboard.id === id);
+export const sGetById = (state, id) => sGetFromState(state)[id];
 
 /**
  * Returns the array of dashboards, customized for ui
@@ -61,7 +63,7 @@ export const sGetDashboardById = (state, id) =>
  * @param {Array} data The original dashboard list
  * @returns {Array}
  */
-export const getDashboards = data =>
+export const getCustomDashboards = data =>
     data.map(d => ({
         id: d.id,
         name: d.name,
@@ -78,13 +80,3 @@ export const getDashboards = data =>
             .substr(0, 16),
         numberOfItems: d.dashboardItems,
     }));
-
-/**
- * Returns the persisted state
- * @function
- * @todo Implement the function
- * @param {Object} state The current state
- */
-export const getPersistedState = state => ({
-    dashboards: state.dashboards,
-});

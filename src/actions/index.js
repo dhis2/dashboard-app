@@ -1,7 +1,6 @@
 import * as fromReducers from '../reducers';
 
-import { apiFetchDashboards } from '../api';
-import { apiFetchSelectedDashboard } from '../api/index';
+import { apiFetchDashboards, apiFetchSelected } from '../api';
 
 const { actionTypes } = fromReducers;
 
@@ -9,57 +8,33 @@ const { actionTypes } = fromReducers;
 
 // dashboards
 
-export const acSetDashboards = dashboards => ({
+export const acSetDashboards = (dashboards, append) => ({
     type: actionTypes.SET_DASHBOARDS,
-    dashboards,
+    append: !!append,
+    value: dashboards,
 });
 
-// dashboardsConfig
+// selected
 
-export const acSetDashboardsConfigIsFetching = value => ({
-    type: actionTypes.SET_DASHBOARDSCONFIG_ISFETCHING,
+export const acSetSelected = value => ({
+    type: actionTypes.SET_SELECTED,
     value,
 });
 
-export const acSetDashboardsConfigSelectedId = value => ({
-    type: actionTypes.SET_DASHBOARDSCONFIG_SELECTEDID,
+// filter
+
+export const acSetFilterName = value => ({
+    type: actionTypes.SET_FILTER_NAME,
     value,
 });
 
-export const acSetDashboardsConfigTextFilter = value => ({
-    type: actionTypes.SET_DASHBOARDSCONFIG_TEXTFILTER,
+export const acSetFilterOwner = value => ({
+    type: actionTypes.SET_FILTER_OWNER,
     value,
 });
 
-export const acSetDashboardsConfigShowFilter = value => ({
-    type: actionTypes.SET_DASHBOARDSCONFIG_SHOWFILTER,
-    value,
-});
-
-export const acSetDashboardsConfigOwnerFilter = value => ({
-    type: actionTypes.SET_DASHBOARDSCONFIG_OWNERFILTER,
-    value,
-});
-
-export const acSetDashboardsConfigSortFilterKey = value => ({
-    type: actionTypes.SET_DASHBOARDSCONFIG_SORTFILTER_KEY,
-    value,
-});
-
-export const acSetDashboardsConfigSortFilterDirection = value => ({
-    type: actionTypes.SET_DASHBOARDSCONFIG_SORTFILTER_DIRECTION,
-    value,
-});
-
-export const acSetDashboardsConfigViewFilter = value => ({
-    type: actionTypes.SET_DASHBOARDSCONFIG_VIEWFILTER,
-    value,
-});
-
-// selectedDashboard
-
-export const acSetSelectedDashboard = value => ({
-    type: actionTypes.SET_SELECTEDDASHBOARD,
+export const acSetFilterOrder = value => ({
+    type: actionTypes.SET_FILTER_ORDER,
     value,
 });
 
@@ -67,54 +42,79 @@ export const acSetSelectedDashboard = value => ({
 
 // dashboards
 
-export const tSetDashboards = () => (dispatch, getState) => {
-    dispatch(acSetDashboardsConfigIsFetching(true));
+export const tSetDashboards = () => async (dispatch, getState) => {
+    const { getCustomDashboards } = fromReducers.fromDashboards;
 
-    return apiFetchDashboards().then(dashboardCollection => {
-        console.log(dashboardCollection.toArray());
-        dispatch(acSetDashboardsConfigIsFetching(false));
-        dispatch(acSetDashboardsConfigTextFilter());
-        dispatch(
-            acSetDashboards(
-                fromReducers.fromDashboards.getDashboards(
-                    dashboardCollection.toArray()
-                )
-            )
-        );
-    });
+    const onSuccess = data => {
+        dispatch(acSetDashboards(getCustomDashboards(data.toArray())));
+        return data;
+    };
+
+    const onError = error => {
+        console.log('Error: ', error);
+        return error;
+    };
+
+    try {
+        const fetchedData = await apiFetchDashboards();
+        return onSuccess(fetchedData);
+    } catch (err) {
+        return onError(err);
+    }
+
+    // return apiFetchDashboards().then(dashboardCollection => {
+    //     console.log(dashboardCollection.toArray());
+    //     dispatch(acSetDashboardsConfigIsFetching(false));
+    //     dispatch(acSetDashboardsConfigTextFilter());
+    //     dispatch(
+    //         acSetDashboards(
+    //             fromReducers.fromDashboards.getDashboards(
+    //                 dashboardCollection.toArray()
+    //             )
+    //         )
+    //     );
+    // });
 };
 
-// dashboardsConfig
+// filter
 
 export const tSetPresetHome = () => (dispatch, getState) => {
-    dispatch(acSetDashboardsConfigTextFilter());
-    dispatch(acSetDashboardsConfigShowFilter());
-    dispatch(acSetDashboardsConfigOwnerFilter());
-    dispatch(acSetDashboardsConfigSortFilterKey());
-    dispatch(acSetDashboardsConfigSortFilterDirection());
-    dispatch(acSetDashboardsConfigViewFilter('LIST'));
+    dispatch(acSetFilterName());
+    dispatch(acSetFilterOwner());
+    dispatch(acSetFilterOrder());
 };
 
 export const tSetPresetManage = () => (dispatch, getState) => {
-    dispatch(acSetDashboardsConfigTextFilter());
-    dispatch(acSetDashboardsConfigShowFilter());
-    dispatch(acSetDashboardsConfigOwnerFilter());
-    dispatch(acSetDashboardsConfigSortFilterKey());
-    dispatch(acSetDashboardsConfigSortFilterDirection());
-    dispatch(acSetDashboardsConfigViewFilter('TABLE'));
+    dispatch(acSetFilterName());
+    dispatch(acSetFilterOwner());
+    dispatch(acSetFilterOrder());
 };
 
 // selectedDashboard
 
-export const tSetSelectedDashboard = id => dispatch => {
-    // isFetching true
+export const tSetSelectedDashboard = id => async dispatch => {
+    dispatch(acSetSelected()); // sets id to null -> show loading indicator
 
-    console.log('t id', id);
-    return apiFetchSelectedDashboard(id).then(what => {
-        console.log('what', what);
+    const onSuccess = data => {
+        dispatch(acSetSelected(data));
+        return data;
+    };
 
-        dispatch(acSetSelectedDashboard(what));
+    const onError = error => {
+        console.log('Error: ', error);
+        return error;
+    };
 
-        // isFetching false
-    });
+    try {
+        const fetchedData = await apiFetchSelected(id);
+        return onSuccess(fetchedData);
+    } catch (err) {
+        return onError(err);
+    }
+
+    // return apiFetchSelectedDashboard(id).then(what => {
+    //     console.log('what', what);
+    //
+    //     dispatch(acSetSelectedDashboard(what));
+    // });
 };

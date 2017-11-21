@@ -3,12 +3,12 @@
 const storeDesign = {
     // not persisted, set on load
     dashboards: {
-        "id": {}
+        id: {},
     }, // see dashboard below
 
     // not persisted, set from user interaction
     selectedDashboard: {
-        id: "id", // see selectedDashboard below
+        id: 'uid', // see selectedDashboard below
     },
 
     // not persisted, set from user interaction

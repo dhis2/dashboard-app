@@ -53,10 +53,10 @@ DashboardSelectListItem.defaultProps = {
 
 // Component
 
-const DashboardSelectList = ({ dashboards, onClickDashboard }) => {
+const DashboardSelectList = ({ dashboards, onClick }) => {
     const wrapper = {
         display: 'flex',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
     };
 
     return (
@@ -65,7 +65,7 @@ const DashboardSelectList = ({ dashboards, onClickDashboard }) => {
                 <DashboardSelectListItem
                     key={d.id}
                     dashboard={d}
-                    onClick={() => onClickDashboard(d.id)}
+                    onClick={() => onClick(d.id)}
                 />
             ))}
         </div>
@@ -74,12 +74,12 @@ const DashboardSelectList = ({ dashboards, onClickDashboard }) => {
 
 DashboardSelectList.propTypes = {
     dashboards: PropTypes.array,
-    onClickDashboard: PropTypes.func,
+    onClick: PropTypes.func,
 };
 
 DashboardSelectList.defaultProps = {
     dashboards: [],
-    onClickDashboard: Function.prototype,
+    onClick: Function.prototype,
 };
 
 export default DashboardSelectList;

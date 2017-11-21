@@ -83,7 +83,7 @@ class TableRowColumnTextLink extends Component {
     }
 
     render() {
-        const { text, onClickDashboard, isSelected, style } = this.props;
+        const { text, onClick, isSelected, style } = this.props;
         const selectedStyle = isSelected ? this.styles.linkSelected : null;
 
         return (
@@ -100,7 +100,7 @@ class TableRowColumnTextLink extends Component {
                 )}
                 onMouseOver={this.onMouseOverHandle}
                 onMouseOut={this.onMouseOutHandle}
-                onClick={onClickDashboard}
+                onClick={onClick}
             >
                 {text}
             </TableRowColumn>
@@ -110,14 +110,14 @@ class TableRowColumnTextLink extends Component {
 
 TableRowColumnTextLink.propTypes = {
     text: PropTypes.string,
-    onClickDashboard: PropTypes.func,
+    onClick: PropTypes.func,
     isSelected: PropTypes.bool,
     style: PropTypes.object,
 };
 
 TableRowColumnTextLink.defaultProps = {
     text: '',
-    onClickDashboard: Function.prototype,
+    onClick: Function.prototype,
     isSelected: false,
     style: null,
 };
@@ -147,7 +147,7 @@ export default class DashboardSelectTable extends Component {
     }
 
     render() {
-        const { dashboards, onClickDashboard } = this.props;
+        const { dashboards, onClick } = this.props;
 
         const style = styles.tableView;
 
@@ -200,9 +200,7 @@ export default class DashboardSelectTable extends Component {
                                 >{`${!!d.starred}`}</TableRowColumn>
                                 <TableRowColumnTextLink
                                     text={d.name}
-                                    onClickDashboard={() =>
-                                        onClickDashboard(d.id)
-                                    }
+                                    onClick={() => onClick(d.id)}
                                     isSelected={false}
                                 />
                                 <TableRowColumn
@@ -252,16 +250,16 @@ export default class DashboardSelectTable extends Component {
 
 DashboardSelectTable.propTypes = {
     dashboards: PropTypes.array,
-    onClickDashboard: PropTypes.func,
+    onClick: PropTypes.func,
 };
 
 DashboardSelectTable.defaultProps = {
     dashboards: [],
-    onClickDashboard: Function.prototype,
+    onClick: Function.prototype,
 };
 
 // dashboards:(22) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
 // isFetching: false
-// onClickDashboard: ƒ onClickDashboard(id)
+// onClick: ƒ onClick(id)
 // selectedId: ""
 // viewFilter: "TABLE"
