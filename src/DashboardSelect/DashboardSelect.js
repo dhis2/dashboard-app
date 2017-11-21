@@ -24,51 +24,42 @@ function Loading() {
 
 // Component
 
-export const DashboardSelect = props => {
-    const { isFetching, viewFilterComponentIndex } = props;
-
+export const DashboardSelect = ({ isFetching, dashboards, style, onClick }) => {
     if (isFetching) {
         return <Loading />;
     }
 
-    return [
-        <DashboardSelectList {...props} />,
-        <DashboardSelectTable {...props} />,
-    ][viewFilterComponentIndex];
+    return style === 'LIST' ? (
+        <DashboardSelectList dashboards={dashboards} onClick={onClick} />
+    ) : (
+        <DashboardSelectTable dashboards={dashboards} onClick={onClick} />
+    );
 };
 
 DashboardSelect.propTypes = {
     isFetching: PropTypes.bool,
-    viewFilterComponentIndex: PropTypes.number,
+    dashboards: PropTypes.array,
+    style: PropTypes.string,
+    onClick: PropTypes.func,
 };
 
 DashboardSelect.defaultProps = {
     isFetching: false,
-    viewFilterComponentIndex: 0,
+    dashboards: [],
+    style: 'LIST',
+    onClick: Function.prototype,
 };
 
 // Container
 
-const mapStateToProps = state => {
-    const { viewFilterData } = fromReducers.fromDashboardsConfig;
-
-    const viewFilter = fromReducers.fromDashboardsConfig.sGetViewFilterFromState(
-        state
-    );
-
-    return {
-        dashboards: fromReducers.sGetVisibleDashboards(state),
-        isFetching: fromReducers.fromDashboardsConfig.sGetIsFetchingFromState(
-            state
-        ),
-        viewFilterComponentIndex: viewFilterData.findIndex(
-            d => d.id === viewFilter
-        ),
-    };
-};
+const mapStateToProps = state => ({
+    isFetching: fromReducers.fromDashboards.sGetFromState(state) === null,
+    dashboards: fromReducers.sGetFilteredDashboards(state),
+    style: fromReducers.fromStyle.sGetFromState(state),
+});
 
 const mapDispatchToProps = dispatch => ({
-    onClickDashboard: id => dispatch(fromActions.tSetSelectedDashboard(id)),
+    onClick: id => dispatch(fromActions.tSetSelectedDashboard(id)),
 });
 
 const DashboardSelectCt = connect(mapStateToProps, mapDispatchToProps)(

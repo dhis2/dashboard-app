@@ -35,15 +35,9 @@ class App extends Component {
             <div>
                 <HeaderBar />
                 <div className="DashboardSelect">
-                    <div className="wrapper">
-                        <DashboardBarCt />
-                        <DashboardSelectCt />
-                    </div>
+                    <div className="wrapper" />
                 </div>
-                <div className="wrapper">
-                    <DashboardTitleCt />
-                    <DashboardItemGridCt />
-                </div>
+                <div className="wrapper" />
             </div>
         );
     }

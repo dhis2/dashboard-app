@@ -147,7 +147,7 @@ export default class DashboardSelectTable extends Component {
     }
 
     render() {
-        const { dashboards, onClickDashboard } = this.props;
+        const { dashboards, onClick } = this.props;
 
         const style = styles.tableView;
 
@@ -201,7 +201,7 @@ export default class DashboardSelectTable extends Component {
                                 <TableRowColumnTextLink
                                     text={d.name}
                                     onClickDashboard={() =>
-                                        onClickDashboard(d.id)
+                                        onClick(d.id)
                                     }
                                     isSelected={false}
                                 />
@@ -252,12 +252,12 @@ export default class DashboardSelectTable extends Component {
 
 DashboardSelectTable.propTypes = {
     dashboards: PropTypes.array,
-    onClickDashboard: PropTypes.func,
+    onClick: PropTypes.func,
 };
 
 DashboardSelectTable.defaultProps = {
     dashboards: [],
-    onClickDashboard: Function.prototype,
+    onClick: Function.prototype,
 };
 
 // dashboards:(22) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]

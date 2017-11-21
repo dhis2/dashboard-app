@@ -53,7 +53,7 @@ DashboardSelectListItem.defaultProps = {
 
 // Component
 
-const DashboardSelectList = ({ dashboards, onClickDashboard }) => {
+const DashboardSelectList = ({ dashboards, onClick }) => {
     const wrapper = {
         display: 'flex',
         flexWrap: 'wrap',
@@ -65,7 +65,7 @@ const DashboardSelectList = ({ dashboards, onClickDashboard }) => {
                 <DashboardSelectListItem
                     key={d.id}
                     dashboard={d}
-                    onClick={() => onClickDashboard(d.id)}
+                    onClick={() => onClick(d.id)}
                 />
             ))}
         </div>

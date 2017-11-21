@@ -72,9 +72,7 @@ class FilterField extends Component {
         super(props);
 
         this.state = {
-            value:
-                fromReducers.fromDashboardsConfig
-                    .DEFAULT_DASHBOARDSCONFIG_TEXTFILTER,
+            value: fromReducers.fromFilter.DEFAULT_NAME,
         };
 
         this.setFilterValue = this.setFilterValue.bind(this);
@@ -201,28 +199,23 @@ export const Dashboardbar = props => (
             <FilterField {...props} />
             <ClearButton {...props} />
             <D2Dropdown
-                value={props.showFilter}
-                onClick={props.onClickShowFilter}
-                data={fromReducers.fromDashboardsConfig.showFilterData}
-            />
-            <D2Dropdown
                 value={props.ownerFilter}
                 onClick={props.onClickOwnerFilter}
-                data={fromReducers.fromDashboardsConfig.ownerFilterData}
+                data={fromReducers.fromFilter.ownerData}
             />
             <D2Dropdown
                 value={props.sortFilterId}
                 onClick={props.onClickSortFilter}
-                data={fromReducers.fromDashboardsConfig.sortFilterData}
+                data={fromReducers.fromFilter.orderData}
             />
-            <D2IconButton
+            /*<D2IconButton
                 icon={getViewFilterIcon(props.viewFilter)}
                 iconStyle={{ width: 24, height: 24 }}
                 onClick={onClickViewFilterWrapper(
                     props.viewFilter,
                     props.onClickViewFilter
                 )}
-            />
+            />*/
         </ToolbarGroup>
     </Toolbar>
 );
@@ -230,71 +223,38 @@ export const Dashboardbar = props => (
 Dashboardbar.propTypes = {
     onClickHome: PropTypes.func,
     onClickManage: PropTypes.func,
-    onClickShowFilter: PropTypes.func,
     onClickOwnerFilter: PropTypes.func,
-    onClickSortFilter: PropTypes.func,
-    onClickViewFilter: PropTypes.func,
-    showFilter: PropTypes.string,
+    onClickOrderFilter: PropTypes.func,
+    //onClickViewFilter: PropTypes.func,
     ownerFilter: PropTypes.string,
-    sortFilterId: PropTypes.string,
-    viewFilter: PropTypes.string,
+    orderFilter: PropTypes.string,
 };
 
 Dashboardbar.defaultProps = {
     onClickHome: Function.prototype,
     onClickManage: Function.prototype,
-    onClickShowFilter: Function.prototype,
     onClickOwnerFilter: Function.prototype,
-    onClickSortFilter: Function.prototype,
-    onClickViewFilter: Function.prototype,
-    showFilter: null,
+    onClickOrderFilter: Function.prototype,
+    //onClickViewFilter: Function.prototype,
     ownerFilter: null,
-    sortFilterId: null,
-    viewFilter: null,
+    orderFilter: null,
+    //viewFilter: null,
 };
 
 // Container
 
 const mapStateToProps = state => ({
-    textFilter: fromReducers.fromDashboardsConfig.sGetTextFilterFromState(
-        state
-    ),
-    showFilter: fromReducers.fromDashboardsConfig.sGetShowFilterFromState(
-        state
-    ),
-    ownerFilter: fromReducers.fromDashboardsConfig.sGetOwnerFilterFromState(
-        state
-    ),
-    sortFilterId: fromReducers.fromDashboardsConfig.sGetSortFilterId(state),
-    viewFilter: fromReducers.fromDashboardsConfig.sGetViewFilterFromState(
-        state
-    ),
+    textFilter: fromReducers.fromFilter.sGetName(state),
+    ownerFilter: fromReducers.fromFilter.sGetOwner(state),
+    orderFilter: fromReducers.fromFilter.sGetOrder(state),
+    //viewFilter: fromReducers.fromFilter.sGetStyle(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    onChangeTextFilter: value =>
-        dispatch(fromActions.acSetDashboardsConfigTextFilter(value)),
-    onClickShowFilter: value =>
-        dispatch(fromActions.acSetDashboardsConfigShowFilter(value)),
-    onClickOwnerFilter: value =>
-        dispatch(fromActions.acSetDashboardsConfigOwnerFilter(value)),
-    onClickSortFilter: value => {
-        const sortFilter = fromReducers.fromDashboardsConfig.uGetSortFilterFromId(
-            value
-        );
-        dispatch(
-            fromActions.acSetDashboardsConfigSortFilterKey(sortFilter.key)
-        );
-        dispatch(
-            fromActions.acSetDashboardsConfigSortFilterDirection(
-                sortFilter.direction
-            )
-        );
-    },
-    onClickSortFilterDirection: value =>
-        dispatch(fromActions.acSetDashboardsConfigSortFilterDirection(value)),
-    onClickViewFilter: value =>
-        dispatch(fromActions.acSetDashboardsConfigViewFilter(value)),
+    onChangeFilterName: value => dispatch(fromActions.acSetFilterName(value)),
+    onClickFilterOwner: value => dispatch(fromActions.acSetFilterOwner(value)),
+    onClickFilterOrder: value => dispatch(fromActions.acSetFilterOrder(value)),
+    //onClickViewFilter: value => dispatch(fromActions.acSetDashboardsConfigViewFilter(value)),
     onClickHome: () => dispatch(fromActions.tSetPresetHome()),
     onClickManage: () => dispatch(fromActions.tSetPresetManage()),
 });

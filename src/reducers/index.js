@@ -3,6 +3,8 @@ import arraySort from 'd2-utilizr/lib/arraySort';
 import dashboards, * as fromDashboards from './dashboards';
 import selected, * as fromSelected from './selected';
 import filter, * as fromFilter from './filter';
+import controlBar, * as fromControlBar from './controlBar';
+import style, * as fromStyle from './style';
 
 const USER = 'system';
 
@@ -12,7 +14,9 @@ export const actionTypes = Object.assign(
     {},
     fromDashboards.actionTypes,
     fromSelected.actionTypes,
-    fromFilter.actionTypes
+    fromFilter.actionTypes,
+    fromControlBar.actionTypes,
+    fromStyle.actionTypes
 );
 
 // reducers
@@ -21,6 +25,8 @@ export default combineReducers({
     dashboards,
     selected,
     filter,
+    controlBar,
+    style,
 });
 
 // map constants to data
@@ -34,7 +40,7 @@ const mapConstToData = {
 
 // selectors
 
-export { fromDashboards, fromSelected, fromFilter };
+export { fromDashboards, fromSelected, fromFilter, fromControlBar, fromStyle };
 
 export const sApplyNameFilter = (dashboards, filter) =>
     dashboards.filter(
@@ -65,6 +71,9 @@ export const sApplyOrderFilter = (dashboards, filter) => {
 };
 
 // selector dependency level 2
+
+export const sGetSelectedDashboard = state =>
+    fromDashboards.sGetById(fromSelected.sGetId(state));
 
 export const sGetFilteredDashboards = state => {
     const dashboards = fromDashboards.sGetFromState(state);

@@ -43,10 +43,10 @@ export const acSetFilterOrder = value => ({
 // dashboards
 
 export const tSetDashboards = () => async (dispatch, getState) => {
-    const { getDashboards } = fromReducers.fromDashboards;
+    const { getCustomDashboards } = fromReducers.fromDashboards;
 
     const onSuccess = data => {
-        dispatch(acSetDashboards(getDashboards(data.toArray())));
+        dispatch(acSetDashboards(getCustomDashboards(data.toArray())));
         return data;
     };
 
