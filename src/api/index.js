@@ -11,11 +11,11 @@ const fields = {
 };
 
 export const apiFetchDashboards = () =>
-    getInstance().then(d2 =>
-        d2.models.dashboard.list({ fields: fields.dashboard })
-    );
+    getInstance()
+        .then(d2 => d2.models.dashboard.list({ fields: fields.dashboard }))
+        .catch(error => console.log('error', error));
 
 export const apiFetchSelected = id =>
-    getInstance().then(d2 =>
-        d2.models.dashboard.get(id, { fields: fields.selected })
-    );
+    getInstance()
+        .then(d2 => d2.models.dashboard.get(id, { fields: fields.selected }))
+        .catch(error => console.log('error', error));

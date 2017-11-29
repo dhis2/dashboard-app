@@ -27,7 +27,6 @@ if (global.chartPlugin) {
 class App extends Component {
     componentDidMount() {
         const { store } = this.context;
-
         store.dispatch(tSetDashboards());
     }
     render() {

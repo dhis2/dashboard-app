@@ -52,29 +52,16 @@ export const tSetDashboards = () => async (dispatch, getState) => {
     };
 
     const onError = error => {
-        console.log('Error: ', error);
+        console.log('Error (apiFetchDashboards): ', error);
         return error;
     };
 
     try {
-        const fetchedData = await apiFetchDashboards();
-        return onSuccess(fetchedData);
+        const collection = await apiFetchDashboards();
+        return onSuccess(collection);
     } catch (err) {
         return onError(err);
     }
-
-    // return apiFetchDashboards().then(dashboardCollection => {
-    //     console.log(dashboardCollection.toArray());
-    //     dispatch(acSetDashboardsConfigIsFetching(false));
-    //     dispatch(acSetDashboardsConfigTextFilter());
-    //     dispatch(
-    //         acSetDashboards(
-    //             fromReducers.fromDashboards.getDashboards(
-    //                 dashboardCollection.toArray()
-    //             )
-    //         )
-    //     );
-    // });
 };
 
 // filter
@@ -112,10 +99,4 @@ export const tSetSelectedDashboard = id => async dispatch => {
     } catch (err) {
         return onError(err);
     }
-
-    // return apiFetchSelectedDashboard(id).then(what => {
-    //     console.log('what', what);
-    //
-    //     dispatch(acSetSelectedDashboard(what));
-    // });
 };
