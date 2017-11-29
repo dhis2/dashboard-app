@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import * as fromReducers from '../reducers';
 
 import { apiFetchDashboards, apiFetchSelected } from '../api';
