@@ -5,11 +5,7 @@ import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 
-import DashboardTitleCt from './DashboardTitle/DashboardTitle';
-import DashboardItemGridCt from './DashboardItemGrid/DashboardItemGrid';
-import DashboardBarCt from './DashboardBar/DashboardBar';
-import DashboardSelectCt from './DashboardSelect/DashboardSelect';
-import DashboardItemCt from './DashboardContent/DashboardItem';
+import DashboardItemGrid from './DashboardItemGrid/DashboardItemGrid';
 import { tSetDashboards } from './actions';
 
 import './App.css';
@@ -34,11 +30,7 @@ class App extends Component {
         return (
             <div>
                 <HeaderBar />
-                <div className="DashboardSelect">
-                    <div className="wrapper" />
-                </div>
-                <div className="wrapper" />
-                <DashboardItemCt />
+                <DashboardItemGrid />
             </div>
         );
     }

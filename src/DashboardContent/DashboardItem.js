@@ -54,19 +54,32 @@ const DashboardItemReport = ({ favoriteId, type }) => (
     </div>
 );
 
-export const DashboardItem = ({ favoriteId, type, title, onc }) => (
-    <div
-        style={{
-            width: 400,
-            height: 300,
-            border: '1px solid #eee',
-        }}
-    >
-        <DashboardItemBar title={title} />
-        <DashboardItemReport favoriteId={favoriteId} type={type} />
-        <button onClick={onc}>set selected dashboard = nghVC4wtyzi</button>
-    </div>
-);
+class DashboardItem extends React.Component {
+    componentDidMount() {
+        // const { initPlugin } = this.props;
+        // initPlugin();
+    }
+
+    render() {
+        const { favoriteId, type, title, onc } = this.props;
+
+        return (
+            <div
+                style={{
+                    width: 400,
+                    height: 300,
+                    border: '1px solid #eee',
+                }}
+            >
+                <DashboardItemBar title={title} />
+                <DashboardItemReport favoriteId={favoriteId} type={type} />
+                <button onClick={onc}>
+                    set selected dashboard = nghVC4wtyzi
+                </button>
+            </div>
+        );
+    }
+}
 
 const mapStateToProps = state => {
     const selected = fromReducers.sGetSelectedDashboard(state) || {};
@@ -84,6 +97,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     onc: () => dispatch(tSetSelectedDashboardById('nghVC4wtyzi')),
+    //initPlugin: () => {},
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardItem);

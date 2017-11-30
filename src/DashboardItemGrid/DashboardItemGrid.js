@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import ReactGridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 
+import DashboardItem from '../DashboardContent/DashboardItem';
+
 import './DashboardItemGrid.css';
 
 import { gridColumns, gridRowHeight } from './gridUtil';
@@ -103,23 +105,23 @@ export class DashboardItemGrid extends Component {
                     width={window.innerWidth}
                 >
                     {pluginItems.map(item => (
-                        <div key={item.i} className={item.type}>
-                            <div
-                                style={{
-                                    padding: 5,
-                                    fontSize: 11,
-                                    fontWeight: 500,
-                                    color: '#555',
-                                }}
-                            >
-                                {`Item ${item.i}`} / {item.type} /{' '}
-                                {getReportId(item)}
-                            </div>
-                            <div
-                                id={`plugin-${getReportId(item)}`}
-                                className={'pluginItem'}
-                            />
-                        </div>
+                        <DashboardItem key={item.i} item={item} />
+                        //     <div
+                        //         style={{
+                        //             padding: 5,
+                        //             fontSize: 11,
+                        //             fontWeight: 500,
+                        //             color: '#555',
+                        //         }}
+                        //     >
+                        //         {`Item ${item.i}`} / {item.type} /{' '}
+                        //         {getReportId(item)}
+                        //     </div>
+                        //     <div
+                        //         id={`plugin-${getReportId(item)}`}
+                        //         className={'pluginItem'}
+                        //     />
+                        // </DashboardItem>
                     ))}
                     {}
                 </ReactGridLayout>
