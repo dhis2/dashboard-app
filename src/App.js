@@ -9,6 +9,7 @@ import DashboardTitleCt from './DashboardTitle/DashboardTitle';
 import DashboardItemGridCt from './DashboardItemGrid/DashboardItemGrid';
 import DashboardBarCt from './DashboardBar/DashboardBar';
 import DashboardSelectCt from './DashboardSelect/DashboardSelect';
+import DashboardItemCt from './DashboardContent/DashboardItem';
 import { tSetDashboards } from './actions';
 
 import './App.css';
@@ -37,6 +38,7 @@ class App extends Component {
                     <div className="wrapper" />
                 </div>
                 <div className="wrapper" />
+                <DashboardItemCt />
             </div>
         );
     }

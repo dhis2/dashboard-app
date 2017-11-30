@@ -73,7 +73,7 @@ export const sApplyOrderFilter = (dashboards, filter) => {
 // selector dependency level 2
 
 export const sGetSelectedDashboard = state =>
-    fromDashboards.sGetById(fromSelected.sGetId(state));
+    fromDashboards.sGetById(state, fromSelected.sGetId(state));
 
 export const sGetFilteredDashboards = state => {
     const dashboards = fromDashboards.sGetFromState(state);
