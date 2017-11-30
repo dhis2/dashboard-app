@@ -4,7 +4,7 @@ export function arrayGetById(array, id) {
 }
 
 // object
-export function arrayToObject(array) {
+export function arrayToIdMap(array) {
     return array.reduce((obj, item) => {
         obj[item.id] = item;
         return obj;
@@ -29,3 +29,11 @@ export function getDate() {
 // reducer validator
 export const validateReducer = (value, defaultValue) =>
     value === undefined || value === null ? defaultValue : value;
+
+// dashboard item
+export const getDashboardItemFavorite = item =>
+    item.reportTable ||
+    item.chart ||
+    item.map ||
+    item.eventReport ||
+    item.eventChart;

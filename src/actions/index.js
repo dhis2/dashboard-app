@@ -12,7 +12,7 @@ const { actionTypes } = fromReducers;
 export const acSetDashboards = (dashboards, append) => ({
     type: actionTypes.SET_DASHBOARDS,
     append: !!append,
-    value: dashboards,
+    value: Array.isArray(dashboards) ? dashboards : [dashboards],
 });
 
 // selected
@@ -47,7 +47,7 @@ export const tSetDashboards = () => async (dispatch, getState) => {
     const { getCustomDashboards } = fromReducers.fromDashboards;
 
     const onSuccess = data => {
-        dispatch(acSetDashboards(getCustomDashboards(data.toArray())));
+        dispatch(acSetDashboards(data.toArray()));
         return data;
     };
 
@@ -80,11 +80,13 @@ export const tSetPresetManage = () => (dispatch, getState) => {
 
 // selectedDashboard
 
-export const tSetSelectedDashboard = id => async dispatch => {
+export const tSetSelectedDashboardById = id => async dispatch => {
     dispatch(acSetSelected()); // sets id to null -> show loading indicator
 
     const onSuccess = data => {
-        dispatch(acSetSelected(data));
+        console.log('data', data);
+        dispatch(acSetSelected(data.id));
+        dispatch(acSetDashboards(data, true));
         return data;
     };
 
@@ -94,8 +96,8 @@ export const tSetSelectedDashboard = id => async dispatch => {
     };
 
     try {
-        const fetchedData = await apiFetchSelected(id);
-        return onSuccess(fetchedData);
+        const fetchedSelected = await apiFetchSelected(id);
+        return onSuccess(fetchedSelected);
     } catch (err) {
         return onError(err);
     }

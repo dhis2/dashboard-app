@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { acSetSelected } from '../actions';
+import { tSetSelectedDashboardById } from '../actions';
 import * as fromReducers from '../reducers';
+import { getDashboardItemFavorite } from '../util';
 
 // {pluginItems.map(item => (
 //     <div key={item.i} className={item.type}>
@@ -24,38 +25,65 @@ import * as fromReducers from '../reducers';
 //     </div>
 // ))}
 
-const DashboardItemBar = ({ title }) => <div>{title}</div>;
+const DashboardItemBar = ({ title }) => (
+    <div
+        style={{
+            height: 50,
+            backgroundColor: '#eee',
+            padding: 10,
+            fontSize: 15,
+        }}
+    >
+        {title}
+    </div>
+);
 
 const DashboardItemReport = ({ favoriteId, type }) => (
-    <div>
-        {favoriteId}
-        {type}
+    <div
+        style={{
+            padding: 10,
+            fontSize: 13,
+        }}
+    >
+        favorite
+        <br />
+        <br />
+        id: {favoriteId}
+        <br />
+        type: {type}
     </div>
 );
 
 export const DashboardItem = ({ favoriteId, type, title, onc }) => (
-    <div>
-        <button onClick={onc}>set selected = 'nghVC4wtyzi'</button>
-        <br />
-        <br />
-        <br />
+    <div
+        style={{
+            width: 400,
+            height: 300,
+            border: '1px solid #eee',
+        }}
+    >
         <DashboardItemBar title={title} />
         <DashboardItemReport favoriteId={favoriteId} type={type} />
+        <button onClick={onc}>set selected dashboard = nghVC4wtyzi</button>
     </div>
 );
 
 const mapStateToProps = state => {
     const selected = fromReducers.sGetSelectedDashboard(state) || {};
-    console.log('selected', selected);
+    const item = selected.dashboardItems ? selected.dashboardItems[0] : {};
+    const favorite = getDashboardItemFavorite(item) || {};
+
+    console.log('item', item);
+    console.log('favorite', favorite);
     return {
-        favoriteId: selected.id,
-        type: selected.id ? 'PIVOT / CHART' : '',
-        title: selected.name,
+        favoriteId: favorite.id,
+        type: item.type,
+        title: favorite.name,
     };
 };
 
 const mapDispatchToProps = dispatch => ({
-    onc: () => dispatch(acSetSelected('nghVC4wtyzi')),
+    onc: () => dispatch(tSetSelectedDashboardById('nghVC4wtyzi')),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardItem);

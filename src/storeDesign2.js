@@ -53,5 +53,5 @@ const customDashboard = {
     owner: 'Tom Wakiki',
     starred: false,
     items:
-        'undefined, "loading" if defined) | error: null (hide "loading", show error) | [items]',
+        'undefined ("loading" if defined) | error: null (hide "loading", show error) | [items]',
 };

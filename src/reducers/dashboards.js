@@ -1,6 +1,6 @@
 /** @module reducers/dashboards */
 
-import { arrayToObject } from '../util';
+import { arrayToIdMap } from '../util';
 
 /**
  * Action types for the dashboard reducer
@@ -28,9 +28,14 @@ export const DEFAULT_DASHBOARDS = null;
 export default (state = DEFAULT_DASHBOARDS, action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDS: {
-            return action.append
-                ? Object.assign({}, state, arrayToObject(action.value))
-                : arrayToObject(action.value);
+            const customDashboardsMap = arrayToIdMap(
+                getCustomDashboards(action.value)
+            );
+
+            return {
+                ...(action.append ? state || {} : {}),
+                ...customDashboardsMap,
+            };
         }
         default:
             return state;
@@ -63,8 +68,8 @@ export const sGetById = (state, id) => (id ? sGetFromState(state)[id] : null);
  * @param {Array} data The original dashboard list
  * @returns {Array}
  */
-export const getCustomDashboards = data =>
-    data.map(d => ({
+export const getCustomDashboards = data => {
+    return data.map(d => ({
         id: d.id,
         name: d.name,
         description: d.description,
@@ -78,5 +83,7 @@ export const getCustomDashboards = data =>
             .split('T')
             .join(' ')
             .substr(0, 16),
-        numberOfItems: d.dashboardItems,
+        numberOfItems: (d.dashboardItems || []).length,
+        dashboardItems: d.dashboardItems,
     }));
+};
