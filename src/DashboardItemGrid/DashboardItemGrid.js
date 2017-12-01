@@ -78,7 +78,7 @@ const runPlugins = items => {
 export class DashboardItemGrid extends Component {
     componentDidUpdate() {
         const { dashboardItems } = this.props;
-
+        console.log('componentDidUpdate DASHBOARDITEMS', dashboardItems);
         if (dashboardItems.length) {
             runPlugins(dashboardItems);
         }
@@ -86,6 +86,7 @@ export class DashboardItemGrid extends Component {
 
     render() {
         const { dashboardItems } = this.props;
+        console.log('DASHBOARDITEMS FROM CT', dashboardItems);
         if (!dashboardItems.length) {
             return <div style={{ padding: 50 }}>No items</div>;
         }
@@ -94,10 +95,11 @@ export class DashboardItemGrid extends Component {
             Object.assign({}, item, { i: `${index}` })
         );
 
+        console.log('DASHBOARDITEMS > PLUGINITEMS', pluginItems);
         return (
             <div style={{ margin: '10px' }}>
                 <ReactGridLayout
-                    onLayoutChange={(a, b, c) => console.log(a, b, c)}
+                    onLayoutChange={(a, b, c) => console.log('oLC', a, b, c)}
                     className="layout"
                     layout={pluginItems}
                     cols={gridColumns}
@@ -105,23 +107,22 @@ export class DashboardItemGrid extends Component {
                     width={window.innerWidth}
                 >
                     {pluginItems.map(item => (
-                        <DashboardItem key={item.i} item={item} />
-                        //     <div
-                        //         style={{
-                        //             padding: 5,
-                        //             fontSize: 11,
-                        //             fontWeight: 500,
-                        //             color: '#555',
-                        //         }}
-                        //     >
-                        //         {`Item ${item.i}`} / {item.type} /{' '}
-                        //         {getReportId(item)}
-                        //     </div>
-                        //     <div
-                        //         id={`plugin-${getReportId(item)}`}
-                        //         className={'pluginItem'}
-                        //     />
-                        // </DashboardItem>
+                        <div key={item.i} className={item.type}>
+                            <div
+                                style={{
+                                    padding: 5,
+                                    fontSize: 11,
+                                    fontWeight: 500,
+                                    color: '#555',
+                                }}
+                            >
+                                {`Item ${item.i}`} {'options'}
+                            </div>
+                            <div
+                                id={`plugin-${getReportId(item)}`}
+                                className={'pluginItem'}
+                            />
+                        </div>
                     ))}
                     {}
                 </ReactGridLayout>
@@ -142,7 +143,7 @@ DashboardItemGrid.defaultProps = {
 
 const mapStateToProps = state => ({
     dashboardItems: fromSelected.uGetTransformedItems(
-        fromSelected.sGetSelectedDashboardItems(state)
+        (fromReducers.sGetSelectedDashboard(state) || {}).dashboardItems || []
     ),
 });
 

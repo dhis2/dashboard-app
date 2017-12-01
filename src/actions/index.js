@@ -84,7 +84,6 @@ export const tSetSelectedDashboardById = id => async dispatch => {
     dispatch(acSetSelected()); // sets id to null -> show loading indicator
 
     const onSuccess = data => {
-        console.log('data', data);
         dispatch(acSetSelected(data.id));
         dispatch(acSetDashboards(data, true));
         return data;

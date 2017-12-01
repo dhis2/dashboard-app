@@ -25,7 +25,7 @@ import { getDashboardItemFavorite } from '../util';
 //     </div>
 // ))}
 
-const DashboardItemBar = ({ title }) => (
+const DashboardItemBar = ({ title, favoriteId, type }) => (
     <div
         style={{
             height: 50,
@@ -38,66 +38,53 @@ const DashboardItemBar = ({ title }) => (
     </div>
 );
 
-const DashboardItemReport = ({ favoriteId, type }) => (
+const DashboardItemReport = ({ favoriteId }) => (
     <div
+        id={'plugin-' + favoriteId}
         style={{
             padding: 10,
             fontSize: 13,
+            width: '100%',
+            height: '100%',
         }}
-    >
-        favorite
-        <br />
-        <br />
-        id: {favoriteId}
-        <br />
-        type: {type}
+    />
+);
+
+const DashboardItem = ({ key, className, item }) => (
+    <div key={key} className={className}>
+        <div
+            style={{
+                padding: 5,
+                fontSize: 11,
+                fontWeight: 500,
+                color: '#555',
+            }}
+        >
+            {`Item ${item.i}`} {'options'}
+        </div>
+        <div id={`plugin-${item.id}`} className={'pluginItem'} />
     </div>
 );
 
-class DashboardItem extends React.Component {
-    componentDidMount() {
-        // const { initPlugin } = this.props;
-        // initPlugin();
-    }
+export default DashboardItem;
 
-    render() {
-        const { favoriteId, type, title, onc } = this.props;
-
-        return (
-            <div
-                style={{
-                    width: 400,
-                    height: 300,
-                    border: '1px solid #eee',
-                }}
-            >
-                <DashboardItemBar title={title} />
-                <DashboardItemReport favoriteId={favoriteId} type={type} />
-                <button onClick={onc}>
-                    set selected dashboard = nghVC4wtyzi
-                </button>
-            </div>
-        );
-    }
-}
-
-const mapStateToProps = state => {
-    const selected = fromReducers.sGetSelectedDashboard(state) || {};
-    const item = selected.dashboardItems ? selected.dashboardItems[0] : {};
-    const favorite = getDashboardItemFavorite(item) || {};
-
-    console.log('item', item);
-    console.log('favorite', favorite);
-    return {
-        favoriteId: favorite.id,
-        type: item.type,
-        title: favorite.name,
-    };
-};
-
-const mapDispatchToProps = dispatch => ({
-    onc: () => dispatch(tSetSelectedDashboardById('nghVC4wtyzi')),
-    //initPlugin: () => {},
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardItem);
+// const mapStateToProps = state => {
+//     const selected = fromReducers.sGetSelectedDashboard(state) || {};
+//     const item = selected.dashboardItems ? selected.dashboardItems[0] : {};
+//     const favorite = getDashboardItemFavorite(item) || {};
+//
+//     console.log('item', item);
+//     console.log('favorite', favorite);
+//     return {
+//         favoriteId: favorite.id,
+//         type: item.type,
+//         title: favorite.name,
+//     };
+// };
+//
+// const mapDispatchToProps = dispatch => ({
+//     onc: () => dispatch(tSetSelectedDashboardById('nghVC4wtyzi')),
+//     //initPlugin: () => {},
+// });
+//
+// export default connect(mapStateToProps, mapDispatchToProps)(DashboardItem);

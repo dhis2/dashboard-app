@@ -5,8 +5,8 @@ import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 
-import DashboardItemGrid from './DashboardItemGrid/DashboardItemGrid';
-import { tSetDashboards } from './actions';
+import DashboardItemGridCt from './DashboardItemGrid/DashboardItemGrid';
+import { tSetSelectedDashboardById } from './actions';
 
 import './App.css';
 
@@ -24,13 +24,13 @@ if (global.chartPlugin) {
 class App extends Component {
     componentDidMount() {
         const { store } = this.context;
-        store.dispatch(tSetDashboards());
+        store.dispatch(tSetSelectedDashboardById('xP1jtPjus1c'));
     }
     render() {
         return (
             <div>
                 <HeaderBar />
-                <DashboardItemGrid />
+                <DashboardItemGridCt />
             </div>
         );
     }

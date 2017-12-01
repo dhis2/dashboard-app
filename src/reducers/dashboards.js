@@ -1,6 +1,7 @@
 /** @module reducers/dashboards */
 
 import { arrayToIdMap } from '../util';
+import { getShape } from '../DashboardItemGrid/gridUtil';
 
 /**
  * Action types for the dashboard reducer
@@ -60,7 +61,8 @@ export const sGetFromState = state => state.dashboards;
  * @param {number} id The id of the dashboard to retrieve
  * @returns {Object|undefined}
  */
-export const sGetById = (state, id) => (id ? sGetFromState(state)[id] : null);
+export const sGetById = (state, id) =>
+    id ? (sGetFromState(state) || {})[id] : null;
 
 /**
  * Returns the array of dashboards, customized for ui
@@ -69,7 +71,7 @@ export const sGetById = (state, id) => (id ? sGetFromState(state)[id] : null);
  * @returns {Array}
  */
 export const getCustomDashboards = data => {
-    return data.map(d => ({
+    return data.map((d, index) => ({
         id: d.id,
         name: d.name,
         description: d.description,
