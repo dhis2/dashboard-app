@@ -7,7 +7,7 @@ export const hasShape = item =>
     isNonNegativeInteger(item.w) &&
     isNonNegativeInteger(item.h);
 
-//Dimensions for the react-grid-layout
+// Dimensions for the react-grid-layout
 export const gridColumns = 30;
 export const gridRowHeight = 30;
 

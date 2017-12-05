@@ -15,14 +15,12 @@ import * as fromReducers from '../reducers';
 
 const { fromSelected } = fromReducers;
 
-const getReportId = item =>
-    (
-        item.reportTable ||
-        item.chart ||
-        item.map ||
-        item.eventReport ||
-        item.eventChart
-    ).id;
+const getFavorite = item =>
+    item.reportTable ||
+    item.chart ||
+    item.map ||
+    item.eventReport ||
+    item.eventChart;
 
 const runPlugins = items => {
     let filteredItems;
@@ -42,8 +40,8 @@ const runPlugins = items => {
         filteredItems = items
             .filter(item => item.type === plugin.type)
             .map(item => ({
-                id: getReportId(item),
-                el: `plugin-${getReportId(item)}`,
+                id: getFavorite(item).id,
+                el: `plugin-${getFavorite(item).id}`,
                 type: item.type,
             }));
 
@@ -62,8 +60,8 @@ const runPlugins = items => {
     // map
     setTimeout(() => {
         filteredItems = items.filter(item => item.type === 'MAP').map(item => ({
-            id: getReportId(item),
-            el: `plugin-${getReportId(item)}`,
+            id: getFavorite(item).id,
+            el: `plugin-${getFavorite(item).id}`,
             type: item.type,
             url,
             username,
@@ -74,6 +72,35 @@ const runPlugins = items => {
         filteredItems.forEach(item => global.DHIS.getMap(item));
     }, 200);
 };
+
+// const SomeCmp = ({ item }) => (
+//     <div className={item.type}>
+//         <div
+//             style={{
+//                 padding: 5,
+//                 fontSize: 11,
+//                 fontWeight: 500,
+//                 color: '#555',
+//             }}
+//         >
+//             {`Item ${item.i}`} {'options'}
+//         </div>
+//         <div id={`plugin-${getFavorite(item).id}`} className={'pluginItem'} />
+//     </div>
+// );
+
+const Bar = ({ item }) => (
+    <div
+        style={{
+            padding: 10,
+            fontSize: 13,
+            fontWeight: 600,
+            color: '#333',
+        }}
+    >
+        {getFavorite(item).name}
+    </div>
+);
 
 export class DashboardItemGrid extends Component {
     componentDidUpdate() {
@@ -108,18 +135,9 @@ export class DashboardItemGrid extends Component {
                 >
                     {pluginItems.map(item => (
                         <div key={item.i} className={item.type}>
+                            <Bar item={item} />
                             <div
-                                style={{
-                                    padding: 5,
-                                    fontSize: 11,
-                                    fontWeight: 500,
-                                    color: '#555',
-                                }}
-                            >
-                                {`Item ${item.i}`} {'options'}
-                            </div>
-                            <div
-                                id={`plugin-${getReportId(item)}`}
+                                id={`plugin-${getFavorite(item).id}`}
                                 className={'pluginItem'}
                             />
                         </div>
