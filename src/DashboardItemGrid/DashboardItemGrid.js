@@ -37,13 +37,20 @@ const runPlugins = items => {
         plugin.loadingIndicator = true;
         plugin.dashboard = true;
 
+        let favorite;
+
         filteredItems = items
             .filter(item => item.type === plugin.type)
-            .map(item => ({
-                id: getFavorite(item).id,
-                el: `plugin-${getFavorite(item).id}`,
-                type: item.type,
-            }));
+            .map(item => {
+                favorite = getFavorite(item);
+
+                return {
+                    id: favorite.id,
+                    el: `plugin-${favorite.id}`,
+                    type: item.type,
+                    hideTitle: !favorite.title,
+                };
+            });
 
         // add plugin items
         filteredItems.forEach(item => plugin.add(item));
@@ -58,49 +65,85 @@ const runPlugins = items => {
     });
 
     // map
-    setTimeout(() => {
-        filteredItems = items.filter(item => item.type === 'MAP').map(item => ({
-            id: getFavorite(item).id,
-            el: `plugin-${getFavorite(item).id}`,
-            type: item.type,
-            url,
-            username,
-            password,
-        }));
-        console.log('gis filteredItems', filteredItems);
+    filteredItems = items.filter(item => item.type === 'MAP').map(item => ({
+        id: getFavorite(item).id,
+        el: `plugin-${getFavorite(item).id}`,
+        type: item.type,
+        url,
+        username,
+        password,
+    }));
+    console.log('gis filteredItems', filteredItems);
 
-        filteredItems.forEach(item => global.DHIS.getMap(item));
-    }, 200);
+    if (filteredItems.length) {
+        setTimeout(() => {
+            filteredItems.forEach(item => global.DHIS.getMap(item));
+        }, 200);
+    }
 };
 
-// const SomeCmp = ({ item }) => (
-//     <div className={item.type}>
-//         <div
-//             style={{
-//                 padding: 5,
-//                 fontSize: 11,
-//                 fontWeight: 500,
-//                 color: '#555',
-//             }}
-//         >
-//             {`Item ${item.i}`} {'options'}
-//         </div>
-//         <div id={`plugin-${getFavorite(item).id}`} className={'pluginItem'} />
-//     </div>
-// );
+const ItemBar = ({ item }) => {
+    const id = getFavorite(item).id;
+    console.log('id', id);
 
-const Bar = ({ item }) => (
-    <div
-        style={{
-            padding: 10,
-            fontSize: 13,
-            fontWeight: 600,
-            color: '#333',
-        }}
-    >
-        {getFavorite(item).name}
-    </div>
-);
+    return (
+        <div
+            style={{
+                padding: 10,
+                fontSize: 13,
+                fontWeight: 600,
+                color: '#333',
+            }}
+        >
+            <span>{getFavorite(item).name}</span>
+            <ItemButton id={'hlzEdAWPd4L'} text={'P'} />
+            <ItemButton text={'C'} />
+            <ItemButton text={'M'} />
+        </div>
+    );
+};
+
+const ItemButton = ({ id, text }) => {
+    let cmp;
+
+    (function(_id) {
+        cmp = (
+            <button
+                type="button"
+                style={{
+                    float: 'right',
+                }}
+                onClick={() => reload(_id)}
+            >
+                {text}
+            </button>
+        );
+    })(id);
+
+    return cmp;
+};
+
+const reload = (id, type) => {
+    fetch(
+        '//localhost:8080/api/charts/hlzEdAWPd4L.json?fields=id,name,columns[*,items[dimensionItem~rename(id)]],rows[*,items[dimensionItem~rename(id)]],filters[*,items[dimensionItem~rename(id)]]',
+        {
+            headers: {
+                Authorization: 'Basic ' + btoa('admin:district'),
+            },
+        }
+    )
+        .then(data => data.json())
+        .then(d => {
+            console.log('d', d);
+            global.reportTablePlugin.load({
+                el: 'plugin-hlzEdAWPd4L',
+                columns: d.columns,
+                rows: d.rows,
+                filters: d.filters,
+                hideTitle: !d.title,
+            });
+        });
+};
 
 export class DashboardItemGrid extends Component {
     componentDidUpdate() {
@@ -135,7 +178,7 @@ export class DashboardItemGrid extends Component {
                 >
                     {pluginItems.map(item => (
                         <div key={item.i} className={item.type}>
-                            <Bar item={item} />
+                            <ItemBar item={item} />
                             <div
                                 id={`plugin-${getFavorite(item).id}`}
                                 className={'pluginItem'}
