@@ -27,10 +27,12 @@ class App extends Component {
         store.dispatch(tSetSelectedDashboardById('xP1jtPjus1c'));
     }
     render() {
+        const { store } = this.context;
+        console.log('render context store', store);
         return (
             <div>
                 <HeaderBar />
-                <DashboardItemGridCt />
+                <DashboardItemGridCt store={store} />
             </div>
         );
     }

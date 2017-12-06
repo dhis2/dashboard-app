@@ -85,7 +85,7 @@ export const apiFetchDashboards = () =>
             })
         )
         .catch(onError);
-console.log('url', arrayClean(getDashboardFields(true)).join(','));
+
 export const apiFetchSelected = id =>
     getInstance()
         .then(d2 =>

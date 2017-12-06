@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import ReactGridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
-
-import DashboardItem from '../DashboardContent/DashboardItem';
 
 import './DashboardItemGrid.css';
 
 import { gridColumns, gridRowHeight } from './gridUtil';
+
+import { orArray, orObject } from '../util';
 
 import * as fromReducers from '../reducers';
 
@@ -84,21 +83,13 @@ const runPlugins = items => {
 
 const ItemBar = ({ item }) => {
     const id = getFavorite(item).id;
-    console.log('id', id);
 
     return (
-        <div
-            style={{
-                padding: 10,
-                fontSize: 13,
-                fontWeight: 600,
-                color: '#333',
-            }}
-        >
+        <div className="dashboard-item-header">
             <span>{getFavorite(item).name}</span>
-            <ItemButton id={'hlzEdAWPd4L'} text={'P'} />
-            <ItemButton text={'C'} />
             <ItemButton text={'M'} />
+            <ItemButton text={'C'} />
+            <ItemButton id={'hlzEdAWPd4L'} text={'P'} />
         </div>
     );
 };
@@ -134,7 +125,7 @@ const reload = (id, type) => {
     )
         .then(data => data.json())
         .then(d => {
-            console.log('d', d);
+            console.log('d-1', d);
             global.reportTablePlugin.load({
                 el: 'plugin-hlzEdAWPd4L',
                 columns: d.columns,
@@ -148,15 +139,16 @@ const reload = (id, type) => {
 export class DashboardItemGrid extends Component {
     componentDidUpdate() {
         const { dashboardItems } = this.props;
-        console.log('componentDidUpdate DASHBOARDITEMS', dashboardItems);
+
         if (dashboardItems.length) {
             runPlugins(dashboardItems);
         }
     }
 
     render() {
+        console.log('DIG props', this.props);
         const { dashboardItems } = this.props;
-        console.log('DASHBOARDITEMS FROM CT', dashboardItems);
+
         if (!dashboardItems.length) {
             return <div style={{ padding: 50 }}>No items</div>;
         }
@@ -165,9 +157,8 @@ export class DashboardItemGrid extends Component {
             Object.assign({}, item, { i: `${index}` })
         );
 
-        console.log('DASHBOARDITEMS > PLUGINITEMS', pluginItems);
         return (
-            <div style={{ margin: '10px' }}>
+            <div className="dashboard-grid-wrapper">
                 <ReactGridLayout
                     onLayoutChange={(a, b, c) => console.log('oLC', a, b, c)}
                     className="layout"
@@ -181,7 +172,7 @@ export class DashboardItemGrid extends Component {
                             <ItemBar item={item} />
                             <div
                                 id={`plugin-${getFavorite(item).id}`}
-                                className={'pluginItem'}
+                                className="dashboard-item-content"
                             />
                         </div>
                     ))}
@@ -202,12 +193,32 @@ DashboardItemGrid.defaultProps = {
 
 // Container
 
-const mapStateToProps = state => ({
-    dashboardItems: fromSelected.uGetTransformedItems(
-        (fromReducers.sGetSelectedDashboard(state) || {}).dashboardItems || []
-    ),
-});
+const mapStateToProps = state => {
+    const { sGetSelectedDashboard } = fromReducers;
+    const { uGetTransformedItems } = fromSelected;
 
-const DashboardItemGridCt = connect(mapStateToProps)(DashboardItemGrid);
+    return {
+        dashboardItems: uGetTransformedItems(
+            orArray(orObject(sGetSelectedDashboard(state)).dashboardItems)
+        ),
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return { onPivotClick: id => {} };
+};
+
+const mergedProps = (stateProps, dispatchProps) => {
+    return {
+        ...stateProps,
+        ...dispatchProps,
+    };
+};
+
+const DashboardItemGridCt = connect(
+    mapStateToProps,
+    mapDispatchToProps,
+    mergedProps
+)(DashboardItemGrid);
 
 export default DashboardItemGridCt;
