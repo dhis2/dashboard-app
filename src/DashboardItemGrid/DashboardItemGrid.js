@@ -90,21 +90,17 @@ export class DashboardItemGrid extends Component {
                     rowHeight={gridRowHeight}
                     width={window.innerWidth}
                 >
-                    {pluginItems.map(item => {
-                        return (function(_item) {
-                            return (
-                                <div key={_item.i} className={_item.type}>
-                                    <ItemBar item={_item} />
-                                    <div
-                                        id={`plugin-${
-                                            getFavoriteObjectByItem(_item).id
-                                        }`}
-                                        className="dashboard-item-content"
-                                    />
-                                </div>
-                            );
-                        })(item);
-                    })}
+                    {pluginItems.map(item => (
+                        <div key={item.i} className={item.type}>
+                            <ItemBar item={item} />
+                            <div
+                                id={`plugin-${
+                                    getFavoriteObjectByItem(item).id
+                                }`}
+                                className="dashboard-item-content"
+                            />
+                        </div>
+                    ))}
                     {}
                 </ReactGridLayout>
             </div>
