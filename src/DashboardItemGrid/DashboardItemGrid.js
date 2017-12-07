@@ -68,7 +68,6 @@ export class DashboardItemGrid extends Component {
     }
 
     render() {
-        console.log('DIG props', this.props);
         const { dashboardItems } = this.props;
 
         if (!dashboardItems.length) {
@@ -82,7 +81,9 @@ export class DashboardItemGrid extends Component {
         return (
             <div className="dashboard-grid-wrapper">
                 <ReactGridLayout
-                    onLayoutChange={(a, b, c) => console.log('oLC', a, b, c)}
+                    onLayoutChange={(a, b, c) =>
+                        console.log('RGL change', a, b, c)
+                    }
                     className="layout"
                     layout={pluginItems}
                     cols={gridColumns}
