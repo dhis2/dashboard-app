@@ -2,6 +2,7 @@
 
 import { arrayToIdMap } from '../util';
 import { getShape } from '../DashboardItemGrid/gridUtil';
+import { orNull, orObject } from '../util';
 
 /**
  * Action types for the dashboard reducer
@@ -62,7 +63,7 @@ export const sGetFromState = state => state.dashboards;
  * @returns {Object|undefined}
  */
 export const sGetById = (state, id) =>
-    id ? (sGetFromState(state) || {})[id] : null;
+    orNull(orObject(sGetFromState(state))[id]);
 
 /**
  * Returns the array of dashboards, customized for ui

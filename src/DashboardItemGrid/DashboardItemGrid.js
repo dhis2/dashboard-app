@@ -90,17 +90,19 @@ export class DashboardItemGrid extends Component {
                     rowHeight={gridRowHeight}
                     width={window.innerWidth}
                 >
-                    {pluginItems.map(item => (
-                        <div key={item.i} className={item.type}>
-                            <ItemBar item={item} />
-                            <div
-                                id={`plugin-${
-                                    getFavoriteObjectByItem(item).id
-                                }`}
-                                className="dashboard-item-content"
-                            />
-                        </div>
-                    ))}
+                    {pluginItems
+                        .filter(item => getFavoriteObjectByItem(item)) //TODO REMOVE
+                        .map(item => (
+                            <div key={item.i} className={item.type}>
+                                <ItemBar item={item} />
+                                <div
+                                    id={`plugin-${
+                                        getFavoriteObjectByItem(item).id
+                                    }`}
+                                    className="dashboard-item-content"
+                                />
+                            </div>
+                        ))}
                     {}
                 </ReactGridLayout>
             </div>
@@ -121,6 +123,9 @@ DashboardItemGrid.defaultProps = {
 const mapStateToProps = state => {
     const { sGetSelectedDashboard } = fromReducers;
     const { uGetTransformedItems } = fromSelected;
+    const sel = sGetSelectedDashboard(state);
+    console.log('SEL', sel);
+    console.log('SEL STATE', state.selected);
 
     return {
         dashboardItems: uGetTransformedItems(
@@ -129,21 +134,6 @@ const mapStateToProps = state => {
     };
 };
 
-const mapDispatchToProps = dispatch => {
-    return { onPivotClick: id => {} };
-};
-
-const mergedProps = (stateProps, dispatchProps) => {
-    return {
-        ...stateProps,
-        ...dispatchProps,
-    };
-};
-
-const DashboardItemGridCt = connect(
-    mapStateToProps,
-    mapDispatchToProps,
-    mergedProps
-)(DashboardItemGrid);
+const DashboardItemGridCt = connect(mapStateToProps)(DashboardItemGrid);
 
 export default DashboardItemGridCt;

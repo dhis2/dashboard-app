@@ -1,7 +1,9 @@
 /** @module reducers/selected */
 import { combineReducers } from 'redux';
+
 import { validateReducer } from '../util';
 import { hasShape, getShape } from '../DashboardItemGrid/gridUtil';
+import { orNull, orObject } from '../util';
 
 export const actionTypes = {
     SET_SELECTED: 'SET_SELECTED_ID',
@@ -50,11 +52,9 @@ export const sGetFromState = state => state.selected;
 
 // Selector dependency level 2
 
-export const sGetId = state =>
-    sGetFromState(state) ? sGetFromState(state).id : null;
+export const sGetId = state => orNull(orObject(sGetFromState(state)).id);
 
-export const sGetEdit = state =>
-    sGetFromState(state) ? sGetFromState(state).edit : null;
+export const sGetEdit = state => orNull(orObject(sGetFromState(state)).edit);
 
 /**
  * Returns an array of items that each contain its grid block shape object

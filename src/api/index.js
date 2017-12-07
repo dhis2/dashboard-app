@@ -74,6 +74,11 @@ const getDashboardFields = withDep =>
 // };
 
 const onError = error => console.log('error', error);
+console.log(
+    'api1',
+    [getDashboardFields().join(','), 'dashboardItems'].join(',')
+);
+console.log('api2', arrayClean(getDashboardFields(true)).join(','));
 
 export const apiFetchDashboards = () =>
     getInstance()

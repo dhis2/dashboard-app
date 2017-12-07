@@ -1,12 +1,21 @@
 import isObject from 'd2-utilizr/lib/isObject';
 
-// array
-export function arrayGetById(array, id) {
-    return array.find(item => item.id === id);
+// validation
+export function orNull(param) {
+    return param === undefined ? null : param;
 }
 
 export function orArray(param) {
     return Array.isArray(param) ? param : [];
+}
+
+export function orObject(param) {
+    return isObject(param) ? param : {};
+}
+
+// array
+export function arrayGetById(array, id) {
+    return array.find(item => item.id === id);
 }
 
 // object
@@ -15,10 +24,6 @@ export function arrayToIdMap(array) {
         obj[item.id] = item;
         return obj;
     }, {});
-}
-
-export function orObject(param) {
-    return isObject(param) ? param : {};
 }
 
 // date

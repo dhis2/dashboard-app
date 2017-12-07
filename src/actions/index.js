@@ -81,11 +81,11 @@ export const tSetPresetManage = () => (dispatch, getState) => {
 // selectedDashboard
 
 export const tSetSelectedDashboardById = id => async dispatch => {
-    dispatch(acSetSelected()); // sets id to null -> show loading indicator
+    //dispatch(acSetSelected()); // sets id to null -> show loading indicator
 
     const onSuccess = data => {
-        dispatch(acSetSelected(data.id));
         dispatch(acSetDashboards(data, true));
+        dispatch(acSetSelected(id));
         return data;
     };
 
