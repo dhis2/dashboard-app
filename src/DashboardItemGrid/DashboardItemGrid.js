@@ -81,36 +81,29 @@ const runPlugins = items => {
     }
 };
 
-const ItemBar = ({ item }) => {
-    const id = getFavorite(item).id;
-
-    return (
-        <div className="dashboard-item-header">
-            <div style={{ flex: 1 }}>{getFavorite(item).name}</div>
-            <ItemButton id={'hlzEdAWPd4L'} text={'T'} />
-            <ItemButton text={'C'} />
-            <ItemButton text={'M'} />
+const ItemBar = ({ item }) => (
+    <div className="dashboard-item-header">
+        <div style={{ flex: 1, overflow: 'hidden' }}>
+            {getFavorite(item).name}
         </div>
-    );
-};
+        <ItemButton id={getFavorite(item).id} text={'T'} />
+        <ItemButton text={'C'} />
+        <ItemButton text={'M'} />
+    </div>
+);
 
-const ItemButton = ({ id, text }) => {
-    let cmp;
-
-    (function(_id) {
-        cmp = (
-            <button type="button" onClick={() => reload(_id)}>
-                {text}
-            </button>
-        );
-    })(id);
-
-    return cmp;
-};
+const ItemButton = ({ id, text }) => (
+    <button type="button" onClick={() => reload(id)}>
+        {text}
+    </button>
+);
 
 const reload = (id, type) => {
+    console.log('RELOAD ID', id);
     fetch(
-        '//localhost:8080/api/charts/hlzEdAWPd4L.json?fields=id,name,columns[*,items[dimensionItem~rename(id)]],rows[*,items[dimensionItem~rename(id)]],filters[*,items[dimensionItem~rename(id)]]',
+        `//localhost:8080/api/charts/${
+            id
+        }.json?fields=id,name,columns[*,items[dimensionItem~rename(id)]],rows[*,items[dimensionItem~rename(id)]],filters[*,items[dimensionItem~rename(id)]]`,
         {
             headers: {
                 Authorization: 'Basic ' + btoa('admin:district'),
@@ -121,7 +114,7 @@ const reload = (id, type) => {
         .then(d => {
             console.log('d-1', d);
             global.reportTablePlugin.load({
-                el: 'plugin-hlzEdAWPd4L',
+                el: `plugin-${id}`,
                 columns: d.columns,
                 rows: d.rows,
                 filters: d.filters,
@@ -161,15 +154,19 @@ export class DashboardItemGrid extends Component {
                     rowHeight={gridRowHeight}
                     width={window.innerWidth}
                 >
-                    {pluginItems.map(item => (
-                        <div key={item.i} className={item.type}>
-                            <ItemBar item={item} />
-                            <div
-                                id={`plugin-${getFavorite(item).id}`}
-                                className="dashboard-item-content"
-                            />
-                        </div>
-                    ))}
+                    {pluginItems.map(item => {
+                        return (function(_item) {
+                            return (
+                                <div key={_item.i} className={_item.type}>
+                                    <ItemBar item={_item} />
+                                    <div
+                                        id={`plugin-${getFavorite(_item).id}`}
+                                        className="dashboard-item-content"
+                                    />
+                                </div>
+                            );
+                        })(item);
+                    })}
                     {}
                 </ReactGridLayout>
             </div>
