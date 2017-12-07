@@ -86,10 +86,10 @@ const ItemBar = ({ item }) => {
 
     return (
         <div className="dashboard-item-header">
-            <span>{getFavorite(item).name}</span>
-            <ItemButton text={'M'} />
+            <div style={{ flex: 1 }}>{getFavorite(item).name}</div>
+            <ItemButton id={'hlzEdAWPd4L'} text={'T'} />
             <ItemButton text={'C'} />
-            <ItemButton id={'hlzEdAWPd4L'} text={'P'} />
+            <ItemButton text={'M'} />
         </div>
     );
 };
@@ -99,13 +99,7 @@ const ItemButton = ({ id, text }) => {
 
     (function(_id) {
         cmp = (
-            <button
-                type="button"
-                style={{
-                    float: 'right',
-                }}
-                onClick={() => reload(_id)}
-            >
+            <button type="button" onClick={() => reload(_id)}>
                 {text}
             </button>
         );
