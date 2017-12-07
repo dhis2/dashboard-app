@@ -3,10 +3,16 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ReactGridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
+import 'react-resizable/css/styles.css';
 
 import './DashboardItemGrid.css';
 
 import { gridColumns, gridRowHeight } from './gridUtil';
+import {
+    getFavoriteObjectByItem,
+    getPluginItemConfig,
+    renderFavorites,
+} from './pluginUtil';
 
 import { orArray, orObject } from '../util';
 
@@ -14,83 +20,20 @@ import * as fromReducers from '../reducers';
 
 const { fromSelected } = fromReducers;
 
-const getFavorite = item =>
-    item.reportTable ||
-    item.chart ||
-    item.map ||
-    item.eventReport ||
-    item.eventChart;
+// Components
 
-const runPlugins = items => {
-    let filteredItems;
+const ItemBar = ({ item }) => {
+    const favorite = getFavoriteObjectByItem(item);
 
-    const url = '//localhost:8080';
-    const username = 'admin';
-    const password = 'district';
-
-    // plugins
-    [global.reportTablePlugin, global.chartPlugin].forEach(plugin => {
-        plugin.url = url;
-        plugin.username = username;
-        plugin.password = password;
-        plugin.loadingIndicator = true;
-        plugin.dashboard = true;
-
-        let favorite;
-
-        filteredItems = items
-            .filter(item => item.type === plugin.type)
-            .map(item => {
-                favorite = getFavorite(item);
-
-                return {
-                    id: favorite.id,
-                    el: `plugin-${favorite.id}`,
-                    type: item.type,
-                    hideTitle: !favorite.title,
-                };
-            });
-
-        // add plugin items
-        filteredItems.forEach(item => plugin.add(item));
-        console.log('pt/dv filteredItems', filteredItems);
-        plugin.load();
-
-        filteredItems.forEach(item => {
-            (element => {
-                console.log(element);
-            })(document.getElementById(item.el));
-        });
-    });
-
-    // map
-    filteredItems = items.filter(item => item.type === 'MAP').map(item => ({
-        id: getFavorite(item).id,
-        el: `plugin-${getFavorite(item).id}`,
-        type: item.type,
-        url,
-        username,
-        password,
-    }));
-    console.log('gis filteredItems', filteredItems);
-
-    if (filteredItems.length) {
-        setTimeout(() => {
-            filteredItems.forEach(item => global.DHIS.getMap(item));
-        }, 200);
-    }
-};
-
-const ItemBar = ({ item }) => (
-    <div className="dashboard-item-header">
-        <div style={{ flex: 1, overflow: 'hidden' }}>
-            {getFavorite(item).name}
+    return (
+        <div className="dashboard-item-header">
+            <div className="dashboard-item-header-title">{favorite.name}</div>
+            <ItemButton id={favorite.id} text={'T'} />
+            <ItemButton text={'C'} />
+            <ItemButton text={'M'} />
         </div>
-        <ItemButton id={getFavorite(item).id} text={'T'} />
-        <ItemButton text={'C'} />
-        <ItemButton text={'M'} />
-    </div>
-);
+    );
+};
 
 const ItemButton = ({ id, text }) => (
     <button type="button" onClick={() => reload(id)}>
@@ -111,16 +54,9 @@ const reload = (id, type) => {
         }
     )
         .then(data => data.json())
-        .then(d => {
-            console.log('d-1', d);
-            global.reportTablePlugin.load({
-                el: `plugin-${id}`,
-                columns: d.columns,
-                rows: d.rows,
-                filters: d.filters,
-                hideTitle: !d.title,
-            });
-        });
+        .then(favorite =>
+            global.reportTablePlugin.load(getPluginItemConfig(favorite, true))
+        );
 };
 
 export class DashboardItemGrid extends Component {
@@ -128,7 +64,7 @@ export class DashboardItemGrid extends Component {
         const { dashboardItems } = this.props;
 
         if (dashboardItems.length) {
-            runPlugins(dashboardItems);
+            renderFavorites(dashboardItems);
         }
     }
 
@@ -160,7 +96,9 @@ export class DashboardItemGrid extends Component {
                                 <div key={_item.i} className={_item.type}>
                                     <ItemBar item={_item} />
                                     <div
-                                        id={`plugin-${getFavorite(_item).id}`}
+                                        id={`plugin-${
+                                            getFavoriteObjectByItem(_item).id
+                                        }`}
                                         className="dashboard-item-content"
                                     />
                                 </div>
