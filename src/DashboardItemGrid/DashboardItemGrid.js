@@ -42,7 +42,6 @@ const ItemButton = ({ id, text }) => (
 );
 
 const reload = (id, type) => {
-    console.log('RELOAD ID', id);
     fetch(
         `//localhost:8080/api/charts/${
             id
