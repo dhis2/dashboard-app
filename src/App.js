@@ -25,7 +25,6 @@ class App extends Component {
     componentDidMount() {
         const { store } = this.context;
         store.dispatch(tSetDashboards()).then(() => {
-            console.log('dashboards set, now get selected');
             store.dispatch(tSetSelectedDashboardById('xP1jtPjus1c'));
         });
     }

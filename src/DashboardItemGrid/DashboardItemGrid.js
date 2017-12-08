@@ -123,9 +123,6 @@ DashboardItemGrid.defaultProps = {
 const mapStateToProps = state => {
     const { sGetSelectedDashboard } = fromReducers;
     const { uGetTransformedItems } = fromSelected;
-    const sel = sGetSelectedDashboard(state);
-    console.log('SEL', sel);
-    console.log('SEL STATE', state.selected);
 
     return {
         dashboardItems: uGetTransformedItems(

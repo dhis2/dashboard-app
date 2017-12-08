@@ -1,7 +1,7 @@
 /** @module reducers/dashboards */
 
 import arrayFrom from 'd2-utilizr/lib/arrayFrom';
-import { orNull, orObject, arrayToIdMap } from '../util';
+import { orNull, orObject } from '../util';
 
 /**
  * Action types for the dashboard reducer
