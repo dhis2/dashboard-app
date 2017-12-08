@@ -1,5 +1,5 @@
 // Get favorite object from plugin item
-export function getFavoriteObjectByItem(item) {
+export function getFavoriteObjectFromItem(item) {
     return (
         item.reportTable ||
         item.chart ||
@@ -9,8 +9,9 @@ export function getFavoriteObjectByItem(item) {
     );
 }
 
+// Get plugin configuration from item
 export function getPluginItemConfig(item, isReload) {
-    const favorite = getFavoriteObjectByItem(item) || item;
+    const favorite = getFavoriteObjectFromItem(item) || item;
 
     const config = {
         el: `plugin-${favorite.id}`,
@@ -57,7 +58,7 @@ export function renderFavorites(items) {
 
     // map plugin
     filteredItems = items.filter(item => item.type === 'MAP').map(item => {
-        favorite = getFavoriteObjectByItem(item);
+        favorite = getFavoriteObjectFromItem(item);
 
         return {
             id: favorite.id,

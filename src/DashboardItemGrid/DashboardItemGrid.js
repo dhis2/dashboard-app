@@ -9,7 +9,7 @@ import './DashboardItemGrid.css';
 
 import { gridColumns, gridRowHeight } from './gridUtil';
 import {
-    getFavoriteObjectByItem,
+    getFavoriteObjectFromItem,
     getPluginItemConfig,
     renderFavorites,
 } from './pluginUtil';
@@ -23,7 +23,7 @@ const { fromSelected } = fromReducers;
 // Components
 
 const ItemBar = ({ item }) => {
-    const favorite = getFavoriteObjectByItem(item);
+    const favorite = getFavoriteObjectFromItem(item);
 
     return (
         <div className="dashboard-item-header">
@@ -91,13 +91,13 @@ export class DashboardItemGrid extends Component {
                     width={window.innerWidth}
                 >
                     {pluginItems
-                        .filter(item => getFavoriteObjectByItem(item)) //TODO REMOVE
+                        .filter(item => getFavoriteObjectFromItem(item)) //TODO REMOVE
                         .map(item => (
                             <div key={item.i} className={item.type}>
                                 <ItemBar item={item} />
                                 <div
                                     id={`plugin-${
-                                        getFavoriteObjectByItem(item).id
+                                        getFavoriteObjectFromItem(item).id
                                     }`}
                                     className="dashboard-item-content"
                                 />
