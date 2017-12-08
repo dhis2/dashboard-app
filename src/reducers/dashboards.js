@@ -1,8 +1,7 @@
 /** @module reducers/dashboards */
 
-import { arrayToIdMap } from '../util';
-import { getShape } from '../DashboardItemGrid/gridUtil';
-import { orNull, orObject } from '../util';
+import arrayFrom from 'd2-utilizr/lib/arrayFrom';
+import { orNull, orObject, arrayToIdMap } from '../util';
 
 /**
  * Action types for the dashboard reducer
@@ -30,13 +29,9 @@ export const DEFAULT_DASHBOARDS = null;
 export default (state = DEFAULT_DASHBOARDS, action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDS: {
-            const customDashboardsMap = arrayToIdMap(
-                getCustomDashboards(action.value)
-            );
-
             return {
                 ...(action.append ? state || {} : {}),
-                ...customDashboardsMap,
+                ...action.value,
             };
         }
         default:
@@ -71,8 +66,8 @@ export const sGetById = (state, id) =>
  * @param {Array} data The original dashboard list
  * @returns {Array}
  */
-export const getCustomDashboards = data => {
-    return data.map((d, index) => ({
+export const getCustomDashboards = data =>
+    arrayFrom(data).map((d, index) => ({
         id: d.id,
         name: d.name,
         description: d.description,
@@ -89,4 +84,3 @@ export const getCustomDashboards = data => {
         numberOfItems: (d.dashboardItems || []).length,
         dashboardItems: d.dashboardItems,
     }));
-};

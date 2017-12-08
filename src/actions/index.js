@@ -1,7 +1,9 @@
 import 'babel-polyfill';
-import * as fromReducers from '../reducers';
 
+import { getCustomDashboards } from '../reducers/dashboards';
 import { apiFetchDashboards, apiFetchSelected } from '../api';
+import { arrayToIdMap } from '../util';
+import * as fromReducers from '../reducers';
 
 const { actionTypes } = fromReducers;
 
@@ -12,7 +14,7 @@ const { actionTypes } = fromReducers;
 export const acSetDashboards = (dashboards, append) => ({
     type: actionTypes.SET_DASHBOARDS,
     append: !!append,
-    value: Array.isArray(dashboards) ? dashboards : [dashboards],
+    value: arrayToIdMap(getCustomDashboards(dashboards)),
 });
 
 // selected

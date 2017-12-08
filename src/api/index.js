@@ -73,12 +73,7 @@ const getDashboardFields = withDep =>
 //     ],
 // };
 
-const onError = error => console.log('error', error);
-console.log(
-    'api1',
-    [getDashboardFields().join(','), 'dashboardItems'].join(',')
-);
-console.log('api2', arrayClean(getDashboardFields(true)).join(','));
+const onError = error => console.log('Error: ', error);
 
 export const apiFetchDashboards = () =>
     getInstance()
@@ -99,27 +94,3 @@ export const apiFetchSelected = id =>
             })
         )
         .catch(onError);
-
-//     id,
-//     displayName~rename(name),
-//     description,
-//     user[id,name],
-//     created,
-//     lastUpdated,
-//     dashboardItems[
-//         id,type,shape,reportTable[
-//             id,displayName~rename(name),columns[dimension,items[dimensionItem~rename(id)]],rows[dimension,items[dimensionItem~rename(id)]],filters[dimension,items[dimensionItem~rename(id)]]
-//          ],
-//      chart[
-//          id,displayName~rename(name),columns[dimension,items[dimensionItem~rename(id)]],rows[dimension,items[dimensionItem~rename(id)]],filters[dimension,items[dimensionItem~rename(id)]]
-//      ],
-//      map[
-//          id,displayName~rename(name),columns[dimension,items[dimensionItem~rename(id)]],rows[dimension,items[dimensionItem~rename(id)]],filters[dimension,items[dimensionItem~rename(id)]]
-//      ],
-//      eventReport[
-//          id,displayName~rename(name),columns[dimension,items[dimensionItem~rename(id)]],rows[dimension,items[dimensionItem~rename(id)]],filters[dimension,items[dimensionItem~rename(id)]]
-//      ],
-//      eventChart[
-//          id,displayName~rename(name),columns[dimension,items[dimensionItem~rename(id)]],rows[dimension,items[dimensionItem~rename(id)]],filters[dimension,items[dimensionItem~rename(id)]]
-//      ]
-// ]
