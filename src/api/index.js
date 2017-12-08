@@ -64,9 +64,10 @@ export const apiFetchDashboards = () =>
     getInstance()
         .then(d2 =>
             d2.models.dashboard.list({
-                fields: [getDashboardFields().join(','), 'dashboardItems'].join(
-                    ','
-                ),
+                fields: [
+                    getDashboardFields({ withItems: true }).join(','),
+                    'dashboardItems',
+                ].join(','),
             })
         )
         .catch(onError);
@@ -75,7 +76,12 @@ export const apiFetchSelected = id =>
     getInstance()
         .then(d2 =>
             d2.models.dashboard.get(id, {
-                fields: arrayClean(getDashboardFields(true)).join(','),
+                fields: arrayClean(
+                    getDashboardFields({
+                        withItems: true,
+                        withFavorite: true,
+                    })
+                ).join(','),
             })
         )
         .catch(onError);
