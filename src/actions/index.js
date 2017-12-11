@@ -64,20 +64,6 @@ export const tSetDashboards = () => async (dispatch, getState) => {
     }
 };
 
-// filter
-
-export const tSetPresetHome = () => (dispatch, getState) => {
-    dispatch(acSetFilterName());
-    dispatch(acSetFilterOwner());
-    dispatch(acSetFilterOrder());
-};
-
-export const tSetPresetManage = () => (dispatch, getState) => {
-    dispatch(acSetFilterName());
-    dispatch(acSetFilterOwner());
-    dispatch(acSetFilterOrder());
-};
-
 // selectedDashboard
 
 export const tSetSelectedDashboardById = id => async dispatch => {
