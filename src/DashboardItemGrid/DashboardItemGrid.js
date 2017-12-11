@@ -17,14 +17,9 @@ import {
 import { orArray, orObject } from '../util';
 
 import * as fromReducers from '../reducers';
+import { apiFetchFavorite } from '../api';
 
 const { fromSelected } = fromReducers;
-
-const typeUrlMap = {
-    REPORT_TABLE: 'reportTables',
-    CHART: 'charts',
-    MAP: 'maps',
-};
 
 // Components
 
@@ -48,20 +43,19 @@ const ItemButton = ({ id, type, text }) => (
 );
 
 const reload = (id, type) => {
-    fetch(
-        `//localhost:8080/api/${typeUrlMap[type]}/${
-            id
-        }.json?fields=id,name,columns[dimension,items[dimensionItem~rename(id)]],rows[dimension,items[dimensionItem~rename(id)]],filters[dimension,items[dimensionItem~rename(id)]]`,
-        {
-            headers: {
-                Authorization: 'Basic ' + btoa('admin:district'),
-            },
-        }
-    )
-        .then(data => data.json())
-        .then(favorite =>
-            global.reportTablePlugin.load(getPluginItemConfig(favorite, true))
-        );
+    // fetch(
+    //     `//localhost:8080/api/${typeUrlMap[type]}/${
+    //         id
+    //     }.json?fields=id,name,columns[dimension,items[dimensionItem~rename(id)]],rows[dimension,items[dimensionItem~rename(id)]],filters[dimension,items[dimensionItem~rename(id)]]`,
+    //     {
+    //         headers: {
+    //             Authorization: 'Basic ' + btoa('admin:district'),
+    //         },
+    //     }
+    // )
+    apiFetchFavorite(id, type).then(favorite =>
+        global.reportTablePlugin.load(getPluginItemConfig(favorite, true))
+    );
 };
 
 export class DashboardItemGrid extends Component {

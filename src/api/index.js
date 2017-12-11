@@ -1,6 +1,14 @@
 import { getInstance } from 'd2/lib/d2';
 import arrayClean from 'd2-utilizr/lib/arrayClean';
 
+const favoriteTypeUrlMap = {
+    REPORT_TABLE: 'reportTables',
+    CHART: 'charts',
+    MAP: 'maps',
+};
+
+export const getUrlByFavoriteType = type => favoriteTypeUrlMap[type];
+
 export const delay = (ms = 500) =>
     new Promise(resolve => setTimeout(resolve, ms));
 
@@ -93,5 +101,12 @@ export const apiFetchSelected = id =>
         )
         .catch(onError);
 
-// export const apiFetchSomething = () =>
-//     getInstance().then(d2 => d2.Api.getApi().get('/'));
+// Get more info about selected dashboard
+export const apiFetchFavorite = (id, type) =>
+    getInstance().then(d2 =>
+        d2.Api.getApi().get(
+            `${getUrlByFavoriteType(type)}/${
+                id
+            }.json?fields=${getFavoriteFields({ withDimensions: true })}`
+        )
+    );
