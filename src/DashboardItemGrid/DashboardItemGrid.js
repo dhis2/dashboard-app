@@ -20,6 +20,12 @@ import * as fromReducers from '../reducers';
 
 const { fromSelected } = fromReducers;
 
+const typeUrlMap = {
+    REPORT_TABLE: 'reportTables',
+    CHART: 'charts',
+    MAP: 'maps',
+};
+
 // Components
 
 const ItemBar = ({ item }) => {
@@ -28,24 +34,24 @@ const ItemBar = ({ item }) => {
     return (
         <div className="dashboard-item-header">
             <div className="dashboard-item-header-title">{favorite.name}</div>
-            <ItemButton id={favorite.id} text={'T'} />
+            <ItemButton id={favorite.id} type={item.type} text={'T'} />
             <ItemButton text={'C'} />
             <ItemButton text={'M'} />
         </div>
     );
 };
 
-const ItemButton = ({ id, text }) => (
-    <button type="button" onClick={() => reload(id)}>
+const ItemButton = ({ id, type, text }) => (
+    <button type="button" onClick={() => reload(id, type)}>
         {text}
     </button>
 );
 
 const reload = (id, type) => {
     fetch(
-        `//localhost:8080/api/charts/${
+        `//localhost:8080/api/${typeUrlMap[type]}/${
             id
-        }.json?fields=id,name,columns[*,items[dimensionItem~rename(id)]],rows[*,items[dimensionItem~rename(id)]],filters[*,items[dimensionItem~rename(id)]]`,
+        }.json?fields=id,name,columns[dimension,items[dimensionItem~rename(id)]],rows[dimension,items[dimensionItem~rename(id)]],filters[dimension,items[dimensionItem~rename(id)]]`,
         {
             headers: {
                 Authorization: 'Basic ' + btoa('admin:district'),

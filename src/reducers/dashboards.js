@@ -1,7 +1,7 @@
 /** @module reducers/dashboards */
 
 import arrayFrom from 'd2-utilizr/lib/arrayFrom';
-import { orNull, orObject } from '../util';
+import { orArray, orNull, orObject } from '../util';
 
 /**
  * Action types for the dashboard reducer
@@ -81,6 +81,6 @@ export const getCustomDashboards = data =>
             .split('T')
             .join(' ')
             .substr(0, 16),
-        numberOfItems: (d.dashboardItems || []).length,
+        numberOfItems: orArray(d.dashboardItems).length,
         dashboardItems: d.dashboardItems,
     }));

@@ -17,23 +17,24 @@ const getDimensionFields = ({ withItems }) =>
         withItems ? `items[${getItemFields().join(',')}]` : ``,
     ]);
 
-const getAxesFields = () => [
-    `columns[${getDimensionFields({ withItems: true }).join(',')}]`,
-    `rows[${getDimensionFields({ withItems: true }).join(',')}]`,
-    `filters[${getDimensionFields({ withItems: true }).join(',')}]`,
+const getAxesFields = ({ withItems }) => [
+    `columns[${getDimensionFields({ withItems }).join(',')}]`,
+    `rows[${getDimensionFields({ withItems }).join(',')}]`,
+    `filters[${getDimensionFields({ withItems }).join(',')}]`,
 ];
 
-const getFavoriteFields = () => [
-    `${getIdNameFields({ rename: true }).join(',')}`,
-    `${getAxesFields().join(',')}`,
-];
+const getFavoriteFields = ({ withDimensions }) =>
+    arrayClean([
+        `${getIdNameFields({ rename: true }).join(',')}`,
+        withDimensions ? `${getAxesFields({ withItems: true }).join(',')}` : ``,
+    ]);
 
-const getFavoritesFields = () => [
-    `reportTable[${getFavoriteFields().join(',')}]`,
-    `chart[${getFavoriteFields().join(',')}]`,
-    `map[${getFavoriteFields().join(',')}]`,
-    `eventReport[${getFavoriteFields().join(',')}]`,
-    `eventChart[${getFavoriteFields().join(',')}]`,
+const getFavoritesFields = ({ withDimensions }) => [
+    `reportTable[${getFavoriteFields({ withDimensions }).join(',')}]`,
+    `chart[${getFavoriteFields({ withDimensions }).join(',')}]`,
+    `map[${getFavoriteFields({ withDimensions }).join(',')}]`,
+    `eventReport[${getFavoriteFields({ withDimensions }).join(',')}]`,
+    `eventChart[${getFavoriteFields({ withDimensions }).join(',')}]`,
 ];
 
 const getDashboardItemsFields = ({ withFavorite } = {}) =>
@@ -41,7 +42,11 @@ const getDashboardItemsFields = ({ withFavorite } = {}) =>
         'id',
         'type',
         'shape',
-        withFavorite ? `${getFavoritesFields().join(',')}` : ``,
+        withFavorite
+            ? `${getFavoritesFields({
+                  withDimensions: withFavorite.withDimensions,
+              }).join(',')}`
+            : ``,
     ]);
 
 const getDashboardFields = ({ withItems, withFavorite } = {}) =>
@@ -53,25 +58,27 @@ const getDashboardFields = ({ withItems, withFavorite } = {}) =>
         'lastUpdated',
         withItems
             ? `dashboardItems[${getDashboardItemsFields({
-                  withFavorite: true,
+                  withFavorite,
               }).join(',')}]`
             : ``,
     ]);
 
 const onError = error => console.log('Error: ', error);
 
+// Get "all" dashboards on startup
 export const apiFetchDashboards = () =>
     getInstance()
         .then(d2 =>
             d2.models.dashboard.list({
                 fields: [
-                    getDashboardFields({ withItems: true }).join(','),
-                    'dashboardItems',
+                    getDashboardFields().join(','),
+                    'dashboardItems[id]',
                 ].join(','),
             })
         )
         .catch(onError);
 
+// Get more info about selected dashboard
 export const apiFetchSelected = id =>
     getInstance()
         .then(d2 =>
@@ -79,9 +86,12 @@ export const apiFetchSelected = id =>
                 fields: arrayClean(
                     getDashboardFields({
                         withItems: true,
-                        withFavorite: true,
+                        withFavorite: { withDimensions: false },
                     })
                 ).join(','),
             })
         )
         .catch(onError);
+
+// export const apiFetchSomething = () =>
+//     getInstance().then(d2 => d2.Api.getApi().get('/'));
