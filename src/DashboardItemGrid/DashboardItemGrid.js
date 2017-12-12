@@ -9,6 +9,7 @@ import './DashboardItemGrid.css';
 
 import { gridColumns, gridRowHeight, addShapeToItems } from './gridUtil';
 import {
+    getPluginByType,
     getFavoriteObjectFromItem,
     getPluginItemConfig,
     renderFavorites,
@@ -23,30 +24,39 @@ const { fromSelected } = fromReducers;
 
 // Components
 
-const ItemBar = ({ item }) => {
+const ItemBar = ({ item, onButtonClick }) => {
     const favorite = getFavoriteObjectFromItem(item);
 
     return (
         <div className="dashboard-item-header">
             <div className="dashboard-item-header-title">{favorite.name}</div>
-            <ItemButton id={favorite.id} type={item.type} text={'T'} />
-            <ItemButton text={'C'} />
-            <ItemButton text={'M'} />
+            <ItemButton
+                id={favorite.id}
+                type={'REPORT_TABLE'}
+                text={'T'}
+                onButtonClick={onButtonClick}
+            />
+            <ItemButton
+                type={'CHART'}
+                text={'C'}
+                onButtonClick={onButtonClick}
+            />
+            <ItemButton type={'MAP'} text={'M'} onButtonClick={onButtonClick} />
         </div>
     );
 };
 
-const ItemButton = ({ id, type, text }) => (
-    <button type="button" onClick={() => reload(id, type)}>
+const ItemButton = ({ id, type, text, onButtonClick }) => (
+    <button type="button" onClick={() => onButtonClick(id, type)}>
         {text}
     </button>
 );
 
-const reload = (id, type) => {
-    apiFetchFavorite(id, type).then(favorite =>
-        global.reportTablePlugin.load(getPluginItemConfig(favorite, true))
-    );
-};
+// const reload = (id, type) => {
+//     apiFetchFavorite(id, type).then(favorite =>
+//         global.reportTablePlugin.load(getPluginItemConfig(favorite, true))
+//     );
+// };
 
 export class DashboardItemGrid extends Component {
     componentDidUpdate() {
@@ -58,7 +68,7 @@ export class DashboardItemGrid extends Component {
     }
 
     render() {
-        const { isLoading, dashboardItems } = this.props;
+        const { isLoading, dashboardItems, onButtonClick } = this.props;
 
         if (isLoading) {
             return <div style={{ padding: 50 }}>Loading...</div>;
@@ -88,7 +98,10 @@ export class DashboardItemGrid extends Component {
                         .filter(item => getFavoriteObjectFromItem(item)) //TODO IMPROVE
                         .map(item => (
                             <div key={item.i} className={item.type}>
-                                <ItemBar item={item} />
+                                <ItemBar
+                                    item={item}
+                                    onButtonClick={onButtonClick}
+                                />
                                 <div
                                     id={`plugin-${
                                         getFavoriteObjectFromItem(item).id
@@ -120,17 +133,24 @@ const mapStateToProps = state => {
 
     const selectedDashboard = sGetSelectedDashboard(state);
     const dashboardItems = orObject(selectedDashboard).dashboardItems;
-    const shaped = addShapeToItems(orArray(dashboardItems));
+    const dashboardItemsWithShape = addShapeToItems(orArray(dashboardItems));
 
     console.log('selectedDashboard', selectedDashboard);
     console.log('dashboardItems', dashboardItems);
-    console.log('shaped', shaped);
+    console.log('dashboardItemsWithShape', dashboardItemsWithShape);
 
     return {
         isLoading: sGetSelectedIsLoading(state),
-        dashboardItems: addShapeToItems(
-            orArray(orObject(sGetSelectedDashboard(state)).dashboardItems)
-        ),
+        dashboardItems: dashboardItemsWithShape,
+        onButtonClick: (id, type) => {
+            const plugin = getPluginByType(type);
+
+            apiFetchFavorite(id, type).then(favorite => {
+                const itemConfig = getPluginItemConfig(favorite, true);
+
+                plugin.load(itemConfig);
+            });
+        },
     };
 };
 
