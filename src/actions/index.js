@@ -19,8 +19,18 @@ export const acSetDashboards = (dashboards, append) => ({
 
 // selected
 
-export const acSetSelected = value => ({
-    type: actionTypes.SET_SELECTED,
+export const acSetSelectedId = value => ({
+    type: actionTypes.SET_SELECTED_ID,
+    value,
+});
+
+export const acSetSelectedEdit = value => ({
+    type: actionTypes.SET_SELECTED_EDIT,
+    value,
+});
+
+export const acSetSelectedIsLoading = value => ({
+    type: actionTypes.SET_SELECTED_ISLOADING,
     value,
 });
 
@@ -67,11 +77,11 @@ export const tSetDashboards = () => async (dispatch, getState) => {
 // selectedDashboard
 
 export const tSetSelectedDashboardById = id => async dispatch => {
-    //dispatch(acSetSelected()); // sets id to null -> show loading indicator
+    dispatch(acSetSelectedIsLoading(true));
 
     const onSuccess = data => {
         dispatch(acSetDashboards(data, true));
-        dispatch(acSetSelected(id));
+        dispatch(acSetSelectedIsLoading(false));
         return data;
     };
 

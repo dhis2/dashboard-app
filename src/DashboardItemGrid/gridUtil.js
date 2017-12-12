@@ -32,3 +32,15 @@ export const getShape = i => {
         h: itemHeight,
     };
 };
+
+/**
+ * Returns an array of items that each contain its grid block shape object
+ * @function
+ * @param {Array} items
+ * @returns {Array}
+ */
+export const uGetTransformedItems = items =>
+    items.map(
+        (item, index) =>
+            hasShape(item) ? item : Object.assign({}, item, getShape(index))
+    );

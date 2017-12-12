@@ -7,7 +7,7 @@ import 'react-resizable/css/styles.css';
 
 import './DashboardItemGrid.css';
 
-import { gridColumns, gridRowHeight } from './gridUtil';
+import { gridColumns, gridRowHeight, uGetTransformedItems } from './gridUtil';
 import {
     getFavoriteObjectFromItem,
     getPluginItemConfig,
@@ -43,16 +43,6 @@ const ItemButton = ({ id, type, text }) => (
 );
 
 const reload = (id, type) => {
-    // fetch(
-    //     `//localhost:8080/api/${typeUrlMap[type]}/${
-    //         id
-    //     }.json?fields=id,name,columns[dimension,items[dimensionItem~rename(id)]],rows[dimension,items[dimensionItem~rename(id)]],filters[dimension,items[dimensionItem~rename(id)]]`,
-    //     {
-    //         headers: {
-    //             Authorization: 'Basic ' + btoa('admin:district'),
-    //         },
-    //     }
-    // )
     apiFetchFavorite(id, type).then(favorite =>
         global.reportTablePlugin.load(getPluginItemConfig(favorite, true))
     );
@@ -68,7 +58,11 @@ export class DashboardItemGrid extends Component {
     }
 
     render() {
-        const { dashboardItems } = this.props;
+        const { isLoading, dashboardItems } = this.props;
+
+        if (isLoading) {
+            return <div style={{ padding: 50 }}>Loading...</div>;
+        }
 
         if (!dashboardItems.length) {
             return <div style={{ padding: 50 }}>No items</div>;
@@ -122,9 +116,10 @@ DashboardItemGrid.defaultProps = {
 
 const mapStateToProps = state => {
     const { sGetSelectedDashboard } = fromReducers;
-    const { uGetTransformedItems } = fromSelected;
+    const { sGetSelectedIsLoading } = fromSelected;
 
     return {
+        isLoading: sGetSelectedIsLoading(state),
         dashboardItems: uGetTransformedItems(
             orArray(orObject(sGetSelectedDashboard(state)).dashboardItems)
         ),

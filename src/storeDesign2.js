@@ -20,6 +20,7 @@ const storeDesign = {
     selected: {
         id: null, // oneOfType([null, string]).isRequired
         edit: false, // bool.isRequired
+        isLoading: false, // bool.isRequired
     },
 
     // filter list of available dashboards
@@ -52,6 +53,9 @@ const customDashboard = {
     numberOfItems: 10,
     owner: 'Tom Wakiki',
     starred: false,
-    items:
-        'undefined ("loading" if defined) | error: null (hide "loading", show error) | [items]',
+    dashboardItems: [
+        // 'undefined ("loading" if defined) | error: null (hide "loading", show error) | [items]',
+    ],
 };
+
+// - when selecting dashboard - also have isLoading
