@@ -57,8 +57,10 @@ export const sGetFromState = state => state.dashboards;
  * @param {number} id The id of the dashboard to retrieve
  * @returns {Object|undefined}
  */
-export const sGetById = (state, id) =>
-    orNull(orObject(sGetFromState(state))[id]);
+export const sGetById = (state, id) => {
+    console.log('sGetById', state, id);
+    return orNull(orObject(sGetFromState(state))[id]);
+};
 
 /**
  * Returns the array of dashboards, customized for ui

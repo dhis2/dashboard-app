@@ -7,7 +7,7 @@ import 'react-resizable/css/styles.css';
 
 import './DashboardItemGrid.css';
 
-import { gridColumns, gridRowHeight, uGetTransformedItems } from './gridUtil';
+import { gridColumns, gridRowHeight, addShapeToItems } from './gridUtil';
 import {
     getFavoriteObjectFromItem,
     getPluginItemConfig,
@@ -85,7 +85,7 @@ export class DashboardItemGrid extends Component {
                     width={window.innerWidth}
                 >
                     {pluginItems
-                        .filter(item => getFavoriteObjectFromItem(item)) //TODO REMOVE
+                        .filter(item => getFavoriteObjectFromItem(item)) //TODO IMPROVE
                         .map(item => (
                             <div key={item.i} className={item.type}>
                                 <ItemBar item={item} />
@@ -118,9 +118,17 @@ const mapStateToProps = state => {
     const { sGetSelectedDashboard } = fromReducers;
     const { sGetSelectedIsLoading } = fromSelected;
 
+    const selectedDashboard = sGetSelectedDashboard(state);
+    const dashboardItems = orObject(selectedDashboard).dashboardItems;
+    const shaped = addShapeToItems(orArray(dashboardItems));
+
+    console.log('selectedDashboard', selectedDashboard);
+    console.log('dashboardItems', dashboardItems);
+    console.log('shaped', shaped);
+
     return {
         isLoading: sGetSelectedIsLoading(state),
-        dashboardItems: uGetTransformedItems(
+        dashboardItems: addShapeToItems(
             orArray(orObject(sGetSelectedDashboard(state)).dashboardItems)
         ),
     };

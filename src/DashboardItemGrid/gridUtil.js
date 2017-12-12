@@ -39,7 +39,7 @@ export const getShape = i => {
  * @param {Array} items
  * @returns {Array}
  */
-export const uGetTransformedItems = items =>
+export const addShapeToItems = items =>
     items.map(
         (item, index) =>
             hasShape(item) ? item : Object.assign({}, item, getShape(index))
