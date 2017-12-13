@@ -7,7 +7,6 @@ import 'react-resizable/css/styles.css';
 
 import './DashboardItemGrid.css';
 import DashboardItemHeader from './DashboardItemHeader';
-import DashboardItemHeaderButton from './DashboardItemHeaderButton';
 
 import { gridColumns, gridRowHeight, addShapeToItems } from './gridUtil';
 import {
