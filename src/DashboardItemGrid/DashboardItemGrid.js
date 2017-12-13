@@ -6,6 +6,8 @@ import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 
 import './DashboardItemGrid.css';
+import DashboardItemHeader from './DashboardItemHeader';
+import DashboardItemHeaderButton from './DashboardItemHeaderButton';
 
 import { gridColumns, gridRowHeight, addShapeToItems } from './gridUtil';
 import {
@@ -23,40 +25,6 @@ import { apiFetchFavorite } from '../api';
 const { fromSelected } = fromReducers;
 
 // Components
-
-const ItemBar = ({ item, onButtonClick }) => {
-    const favorite = getFavoriteObjectFromItem(item);
-
-    return (
-        <div className="dashboard-item-header">
-            <div className="dashboard-item-header-title">{favorite.name}</div>
-            <ItemButton
-                id={favorite.id}
-                type={'REPORT_TABLE'}
-                text={'T'}
-                onButtonClick={onButtonClick}
-            />
-            <ItemButton
-                type={'CHART'}
-                text={'C'}
-                onButtonClick={onButtonClick}
-            />
-            <ItemButton type={'MAP'} text={'M'} onButtonClick={onButtonClick} />
-        </div>
-    );
-};
-
-const ItemButton = ({ id, type, text, onButtonClick }) => (
-    <button type="button" onClick={() => onButtonClick(id, type)}>
-        {text}
-    </button>
-);
-
-// const reload = (id, type) => {
-//     apiFetchFavorite(id, type).then(favorite =>
-//         global.reportTablePlugin.load(getPluginItemConfig(favorite, true))
-//     );
-// };
 
 export class DashboardItemGrid extends Component {
     componentDidUpdate() {
@@ -96,20 +64,26 @@ export class DashboardItemGrid extends Component {
                 >
                     {pluginItems
                         .filter(item => getFavoriteObjectFromItem(item)) //TODO IMPROVE
-                        .map(item => (
-                            <div key={item.i} className={item.type}>
-                                <ItemBar
-                                    item={item}
-                                    onButtonClick={onButtonClick}
-                                />
-                                <div
-                                    id={`plugin-${
-                                        getFavoriteObjectFromItem(item).id
-                                    }`}
-                                    className="dashboard-item-content"
-                                />
-                            </div>
-                        ))}
+                        .map(item => {
+                            const favorite = getFavoriteObjectFromItem(item);
+
+                            return (
+                                <div key={item.i} className={item.type}>
+                                    <DashboardItemHeader
+                                        type={item.type}
+                                        favoriteId={favorite.id}
+                                        favoriteName={favorite.name}
+                                        onButtonClick={onButtonClick}
+                                    />
+                                    <div
+                                        id={`plugin-${
+                                            getFavoriteObjectFromItem(item).id
+                                        }`}
+                                        className="dashboard-item-content"
+                                    />
+                                </div>
+                            );
+                        })}
                     {}
                 </ReactGridLayout>
             </div>
@@ -142,11 +116,13 @@ const mapStateToProps = state => {
     return {
         isLoading: sGetSelectedIsLoading(state),
         dashboardItems: dashboardItemsWithShape,
-        onButtonClick: (id, type) => {
-            const plugin = getPluginByType(type);
-
+        onButtonClick: (id, type, targetType) => {
+            const plugin = getPluginByType(targetType);
+            console.log('plugin', plugin);
             apiFetchFavorite(id, type).then(favorite => {
+                console.log('plugin fetched favorite', favorite);
                 const itemConfig = getPluginItemConfig(favorite, true);
+                console.log('plugin itemConfig', itemConfig);
 
                 plugin.load(itemConfig);
             });
