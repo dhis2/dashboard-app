@@ -1,4 +1,7 @@
+import isFunction from 'd2-utilizr/lib/isFunction';
 import isObject from 'd2-utilizr/lib/isObject';
+
+import { orObject } from '../util';
 
 // Plugin type map
 const pluginTypeMap = {
@@ -93,5 +96,14 @@ export function renderFavorites(items) {
         setTimeout(() => {
             filteredItems.forEach(item => global.DHIS.getMap(item));
         }, 200);
+    }
+}
+
+export function onPluginItemResize(id) {
+    const el = orObject(document.querySelector(`#plugin-${id}`));
+    const fn = el.setViewportWidth;
+
+    if (isFunction(fn)) {
+        setTimeout(() => el.setViewportWidth(el.clientWidth - 5), 100);
     }
 }

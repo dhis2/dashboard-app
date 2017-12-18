@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import ReactGridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
-import isFunction from 'd2-utilizr/lib/isFunction';
 
 import './ItemGrid.css';
 import ItemHeader from './ItemHeader';
@@ -15,6 +14,7 @@ import {
     getFavoriteObjectFromItem,
     getPluginItemConfig,
     renderFavorites,
+    onPluginItemResize,
 } from './pluginUtil';
 
 import { orArray, orObject } from '../util';
@@ -32,6 +32,8 @@ export class ItemGrid extends Component {
 
         if (dashboardItems.length) {
             renderFavorites(dashboardItems);
+
+            this.currentItemTypeMap = {};
         }
     }
 
@@ -61,7 +63,7 @@ export class ItemGrid extends Component {
             <div className="grid-wrapper">
                 <ReactGridLayout
                     onLayoutChange={(a, b, c) => {
-                        console.log('RGL change', a, b, c);
+                        //console.log('RGL change', a, b, c);
                     }}
                     onResizeStop={(layout, oldItem, newItem) => {
                         onItemResize(newItem.i);
@@ -111,6 +113,8 @@ ItemGrid.defaultProps = {
 
 // Container
 
+const currentItemTypeMap = {}; //TODO: improve
+
 const mapStateToProps = state => {
     const { sGetSelectedDashboard } = fromReducers;
     const { sGetSelectedIsLoading } = fromSelected;
@@ -118,10 +122,6 @@ const mapStateToProps = state => {
     const selectedDashboard = sGetSelectedDashboard(state);
     const dashboardItems = orObject(selectedDashboard).dashboardItems;
     const dashboardItemsWithShape = addShapeToItems(orArray(dashboardItems));
-
-    console.log('selectedDashboard', selectedDashboard);
-    console.log('dashboardItems', dashboardItems);
-    console.log('dashboardItemsWithShape', dashboardItemsWithShape);
 
     return {
         isLoading: sGetSelectedIsLoading(state),
@@ -131,17 +131,19 @@ const mapStateToProps = state => {
 
             apiFetchFavorite(id, type).then(favorite => {
                 const itemConfig = getPluginItemConfig(favorite, true);
-                console.log('plugin itemConfig', itemConfig);
 
                 plugin.load(itemConfig);
+
+                currentItemTypeMap[id] = targetType;
             });
         },
         onItemResize: id => {
-            const el = orObject(document.querySelector(`#plugin-${id}`));
-            const fn = el.setViewportWidth;
-
-            if (isFunction(fn)) {
-                setTimeout(() => el.setViewportWidth(el.clientWidth - 5), 100);
+            if (
+                [undefined, 'CHART', 'EVENT_CHART'].indexOf(
+                    currentItemTypeMap[id]
+                ) !== -1
+            ) {
+                onPluginItemResize(id);
             }
         },
     };
