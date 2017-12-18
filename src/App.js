@@ -5,11 +5,11 @@ import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 
-import DashboardItemGridCt from './DashboardItemGrid/DashboardItemGrid';
+import ItemGridCt from './ItemGrid/ItemGrid';
 import { tSetDashboards, tSetSelectedDashboardById } from './actions';
 
 import './App.css';
-import DashboardTitleCt from './DashboardTitle/DashboardTitle';
+import TitleBarCt from './TitleBar/TitleBar';
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
@@ -38,8 +38,8 @@ class App extends Component {
             <div className="app-wrapper">
                 <HeaderBar />
                 <div className="dashboard-wrapper">
-                    <DashboardTitleCt />
-                    <DashboardItemGridCt store={store} />
+                    <TitleBarCt />
+                    <ItemGridCt store={store} />
                 </div>
             </div>
         );

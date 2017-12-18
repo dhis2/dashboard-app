@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import './DashboardTitle.css';
-
-import * as fromReducers from '../reducers';
-import { orObject } from '../util';
+import './Title.css';
 
 const DEFAULTVALUE_TEXTFIELD = '';
 const REF_TEXTFIELD = 'REF_TEXTFIELD';
@@ -22,7 +18,7 @@ const styles = {
     },
 };
 
-export class DashboardTitle extends Component {
+export class Title extends Component {
     constructor(props) {
         super(props);
 
@@ -75,7 +71,7 @@ export class DashboardTitle extends Component {
     }
 }
 
-DashboardTitle.propTypes = {
+Title.propTypes = {
     name: PropTypes.string,
     description: PropTypes.string,
     edit: PropTypes.bool,
@@ -83,28 +79,4 @@ DashboardTitle.propTypes = {
     onBlur: PropTypes.func,
 };
 
-// Container
-
-const mapStateToProps = state => {
-    const { fromSelected, sGetSelectedDashboard } = fromReducers;
-    const { sGetSelectedEdit } = fromSelected;
-
-    const selectedDashboard = orObject(sGetSelectedDashboard(state));
-
-    return {
-        name: selectedDashboard.name,
-        description: selectedDashboard.description,
-        starred: selectedDashboard.starred,
-        edit: sGetSelectedEdit(state),
-    };
-};
-
-const mapDispatchToProps = () => ({
-    onBlur: e => console.log('dashboard name: ', e.target.value),
-});
-
-const DashboardTitleCt = connect(mapStateToProps, mapDispatchToProps)(
-    DashboardTitle
-);
-
-export default DashboardTitleCt;
+export default Title;

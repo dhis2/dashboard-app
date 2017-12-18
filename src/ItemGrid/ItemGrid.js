@@ -6,8 +6,8 @@ import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 import isFunction from 'd2-utilizr/lib/isFunction';
 
-import './DashboardItemGrid.css';
-import DashboardItemHeader from './DashboardItemHeader';
+import './ItemGrid.css';
+import ItemHeader from './ItemHeader';
 
 import { gridColumns, gridRowHeight, addShapeToItems } from './gridUtil';
 import {
@@ -26,7 +26,7 @@ const { fromSelected } = fromReducers;
 
 // Components
 
-export class DashboardItemGrid extends Component {
+export class ItemGrid extends Component {
     componentDidUpdate() {
         const { dashboardItems } = this.props;
 
@@ -58,7 +58,7 @@ export class DashboardItemGrid extends Component {
         );
 
         return (
-            <div className="dashboard-grid-wrapper">
+            <div className="grid-wrapper">
                 <ReactGridLayout
                     onLayoutChange={(a, b, c) => {
                         console.log('RGL change', a, b, c);
@@ -79,7 +79,7 @@ export class DashboardItemGrid extends Component {
 
                             return (
                                 <div key={item.i} className={item.type}>
-                                    <DashboardItemHeader
+                                    <ItemHeader
                                         type={item.type}
                                         favoriteId={favorite.id}
                                         favoriteName={favorite.name}
@@ -101,11 +101,11 @@ export class DashboardItemGrid extends Component {
     }
 }
 
-DashboardItemGrid.propTypes = {
+ItemGrid.propTypes = {
     dashboardItems: PropTypes.array,
 };
 
-DashboardItemGrid.defaultProps = {
+ItemGrid.defaultProps = {
     dashboardItems: [],
 };
 
@@ -147,6 +147,6 @@ const mapStateToProps = state => {
     };
 };
 
-const DashboardItemGridCt = connect(mapStateToProps)(DashboardItemGrid);
+const ItemGridCt = connect(mapStateToProps)(ItemGrid);
 
-export default DashboardItemGridCt;
+export default ItemGridCt;

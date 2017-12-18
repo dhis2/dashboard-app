@@ -1,9 +1,9 @@
 import React from 'react';
 
-const DashboardItemHeaderButton = ({ text, onButtonClick }) => (
+const ItemHeaderButton = ({ text, onButtonClick }) => (
     <button type="button" onClick={onButtonClick}>
         {text}
     </button>
 );
 
-export default DashboardItemHeaderButton;
+export default ItemHeaderButton;
