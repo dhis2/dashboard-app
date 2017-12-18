@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
+import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
 import ItemHeaderButton from './ItemHeaderButton';
+
+const getIconButton = (icon, favoriteId, type, targetType, onButtonClick) => (
+    <div
+        style={{ cursor: 'pointer' }}
+        onClick={() =>
+            onButtonClick ? onButtonClick(favoriteId, type, targetType) : null
+        }
+    >
+        <SvgIcon icon={icon} />
+    </div>
+);
 
 class ItemHeader extends Component {
     render() {
@@ -11,28 +23,28 @@ class ItemHeader extends Component {
                 <div className="dashboard-item-header-title">
                     {favoriteName}
                 </div>
-                <ItemHeaderButton
-                    text={'I'}
-                    style={{
-                        marginRight: 10,
-                    }}
-                />
-                <ItemHeaderButton
-                    text={'T'}
-                    onButtonClick={() =>
-                        onButtonClick(favoriteId, type, 'REPORT_TABLE')
-                    }
-                />
-                <ItemHeaderButton
-                    text={'C'}
-                    onButtonClick={() =>
-                        onButtonClick(favoriteId, type, 'CHART')
-                    }
-                />
-                <ItemHeaderButton
-                    text={'M'}
-                    onButtonClick={() => onButtonClick(favoriteId, type, 'MAP')}
-                />
+                <div style={{ marginRight: 20 }}>
+                    {getIconButton('ArrowDownward')}
+                </div>
+                <div style={{ marginRight: 5 }}>
+                    {getIconButton(
+                        'ViewList',
+                        favoriteId,
+                        type,
+                        'REPORT_TABLE',
+                        onButtonClick
+                    )}
+                </div>
+                <div style={{ marginRight: 5 }}>
+                    {getIconButton(
+                        'Star',
+                        favoriteId,
+                        type,
+                        'CHART',
+                        onButtonClick
+                    )}
+                </div>
+                {getIconButton('Room', favoriteId, type, 'MAP', onButtonClick)}
             </div>
         );
     }
