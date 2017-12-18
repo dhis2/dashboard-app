@@ -24,7 +24,7 @@ import { apiFetchFavorite } from '../api';
 
 const { fromSelected } = fromReducers;
 
-// Components
+// Component
 
 export class ItemGrid extends Component {
     componentDidUpdate() {

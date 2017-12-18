@@ -53,7 +53,6 @@ export function renderFavorites(items) {
 
     const plugins = [global.reportTablePlugin, global.chartPlugin];
     let filteredItems;
-    let favorite;
 
     // pivot/chart plugins
     plugins.forEach(plugin => {
@@ -73,6 +72,9 @@ export function renderFavorites(items) {
     });
 
     // map plugin
+
+    let favorite;
+
     filteredItems = items.filter(item => item.type === 'MAP').map(item => {
         favorite = getFavoriteObjectFromItem(item);
 
