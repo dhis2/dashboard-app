@@ -59,3 +59,7 @@ react-grid-item {
     background-color: #ffffff;
     overflow: auto;
 }
+
+.CHART .dashboard-item-content {
+    overflow: hidden;
+}

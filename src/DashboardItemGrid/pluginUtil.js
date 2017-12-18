@@ -28,7 +28,7 @@ export function getFavoriteObjectFromItem(item) {
 export function getPluginItemConfig(item, isReload) {
     const favorite = getFavoriteObjectFromItem(item) || item;
     let config;
-
+    console.log('favorite.title', favorite.title);
     if (isReload) {
         config = {
             ...favorite,

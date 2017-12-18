@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ReactGridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
+import isFunction from 'd2-utilizr/lib/isFunction';
 
 import './DashboardItemGrid.css';
 import DashboardItemHeader from './DashboardItemHeader';
@@ -35,7 +36,12 @@ export class DashboardItemGrid extends Component {
     }
 
     render() {
-        const { isLoading, dashboardItems, onButtonClick } = this.props;
+        const {
+            isLoading,
+            dashboardItems,
+            onButtonClick,
+            onItemResize,
+        } = this.props;
 
         if (isLoading) {
             return <div style={{ padding: 50 }}>Loading...</div>;
@@ -46,15 +52,20 @@ export class DashboardItemGrid extends Component {
         }
 
         const pluginItems = dashboardItems.map((item, index) =>
-            Object.assign({}, item, { i: `${index}` })
+            Object.assign({}, item, {
+                i: `${getFavoriteObjectFromItem(item).id}`,
+            })
         );
 
         return (
             <div className="dashboard-grid-wrapper">
                 <ReactGridLayout
-                    onLayoutChange={(a, b, c) =>
-                        console.log('RGL change', a, b, c)
-                    }
+                    onLayoutChange={(a, b, c) => {
+                        console.log('RGL change', a, b, c);
+                    }}
+                    onResizeStop={(layout, oldItem, newItem) => {
+                        onItemResize(newItem.i);
+                    }}
                     className="layout"
                     layout={pluginItems}
                     cols={gridColumns}
@@ -117,14 +128,21 @@ const mapStateToProps = state => {
         dashboardItems: dashboardItemsWithShape,
         onButtonClick: (id, type, targetType) => {
             const plugin = getPluginByType(targetType);
-            console.log('plugin', plugin);
+
             apiFetchFavorite(id, type).then(favorite => {
-                console.log('plugin fetched favorite', favorite);
                 const itemConfig = getPluginItemConfig(favorite, true);
                 console.log('plugin itemConfig', itemConfig);
 
                 plugin.load(itemConfig);
             });
+        },
+        onItemResize: id => {
+            const el = orObject(document.querySelector(`#plugin-${id}`));
+            const fn = el.setViewportWidth;
+
+            if (isFunction(fn)) {
+                setTimeout(() => el.setViewportWidth(el.clientWidth - 20), 100);
+            }
         },
     };
 };
