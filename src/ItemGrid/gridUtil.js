@@ -18,7 +18,7 @@ export const getShape = i => {
         throw new Error('Invalid grid block number');
     }
 
-    const numberOfCols = 3;
+    const numberOfCols = 2;
 
     const col = i % numberOfCols;
     const row = Math.floor(i / numberOfCols);
