@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import './DashboardTitle.css';
 
 import * as fromReducers from '../reducers';
+import { orObject } from '../util';
 
 const DEFAULTVALUE_TEXTFIELD = '';
 const REF_TEXTFIELD = 'REF_TEXTFIELD';
@@ -20,8 +21,6 @@ const styles = {
         fontWeight: 400,
     },
 };
-
-// Component
 
 export class DashboardTitle extends Component {
     constructor(props) {
@@ -57,7 +56,7 @@ export class DashboardTitle extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="dashboard-title">
                 <input
                     ref={c => {
                         this[REF_TEXTFIELD] = c;
@@ -79,25 +78,24 @@ export class DashboardTitle extends Component {
 DashboardTitle.propTypes = {
     name: PropTypes.string,
     description: PropTypes.string,
+    edit: PropTypes.bool,
+    starred: PropTypes.bool,
     onBlur: PropTypes.func,
-};
-
-DashboardTitle.defaultProps = {
-    name: '',
-    description: '',
-    onBlur: Function.prototype,
 };
 
 // Container
 
 const mapStateToProps = state => {
-    const selectedDashboard = fromReducers.sGetSelectedDashboard(state) || {};
+    const { fromSelected, sGetSelectedDashboard } = fromReducers;
+    const { sGetSelectedEdit } = fromSelected;
 
-    console.log('mapStateToProps', selectedDashboard, state);
+    const selectedDashboard = orObject(sGetSelectedDashboard(state));
 
     return {
-        name: selectedDashboard.name || '',
-        description: selectedDashboard.description || '',
+        name: selectedDashboard.name,
+        description: selectedDashboard.description,
+        starred: selectedDashboard.starred,
+        edit: sGetSelectedEdit(state),
     };
 };
 

@@ -1,16 +1,12 @@
 /* react-grid-layout style */
 
-.react-grid-layout,
-react-grid-item {
-    background-color: #f6f6f6;
-}
-
 .react-grid-item {
     display: flex;
     flex-direction: column;
     overflow: hidden !important;
     border: 0px solid #e1e1e1;
     box-shadow: 0px 0px 1px 1px #aaaaaa;
+    background-color: #ffffff;
 }
 
 .react-grid-item.react-grid-placeholder {
@@ -25,13 +21,6 @@ react-grid-item {
     user-select: none;
 }
 
-/* dashboard wrapper */
-
-.dashboard-grid-wrapper {
-    background-color: #f6f6f6;
-    padding: 10px;
-}
-
 /* dashboard item - header */
 
 .dashboard-item-header {
@@ -39,7 +28,6 @@ react-grid-item {
     font-size: 13px;
     font-weight: 600;
     color: #333333;
-    background-color: #ffffff;
     display: flex;
     align-items: center;
     padding: 0 10px;
@@ -56,7 +44,6 @@ react-grid-item {
     flex: 1;
     padding-left: 5px;
     padding-bottom: 5px;
-    background-color: #ffffff;
     overflow: auto;
 }
 

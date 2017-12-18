@@ -1,0 +1,18 @@
+.dashboard-title {
+    background-color: #f6f6f6;
+}
+
+.DashboardTitle-textfield {
+    border: 0 none;
+    padding: 15px 15px 5px 10px;
+    font-size: 21px;
+    font-weight: 500;
+    color: #333333;
+    background-color: #f6f6f6;
+}
+
+.DashboardTitle-textfield:focus {
+    outline: 0 none;
+    border: 0 none;
+    color: #666;
+}

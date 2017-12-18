@@ -141,7 +141,7 @@ const mapStateToProps = state => {
             const fn = el.setViewportWidth;
 
             if (isFunction(fn)) {
-                setTimeout(() => el.setViewportWidth(el.clientWidth - 20), 100);
+                setTimeout(() => el.setViewportWidth(el.clientWidth - 5), 100);
             }
         },
     };

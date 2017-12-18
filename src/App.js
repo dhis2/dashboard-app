@@ -9,6 +9,7 @@ import DashboardItemGridCt from './DashboardItemGrid/DashboardItemGrid';
 import { tSetDashboards, tSetSelectedDashboardById } from './actions';
 
 import './App.css';
+import DashboardTitleCt from './DashboardTitle/DashboardTitle';
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
@@ -31,10 +32,15 @@ class App extends Component {
     render() {
         const { store } = this.context;
 
+        //TODO: ControlBar below HeaderBar
+
         return (
-            <div>
+            <div className="app-wrapper">
                 <HeaderBar />
-                <DashboardItemGridCt store={store} />
+                <div className="dashboard-wrapper">
+                    <DashboardTitleCt />
+                    <DashboardItemGridCt store={store} />
+                </div>
             </div>
         );
     }
