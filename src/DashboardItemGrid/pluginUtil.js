@@ -1,3 +1,5 @@
+import isObject from 'd2-utilizr/lib/isObject';
+
 // Plugin type map
 const pluginTypeMap = {
     REPORT_TABLE: global.reportTablePlugin,
@@ -9,6 +11,10 @@ export const getPluginByType = type => pluginTypeMap[type];
 
 // Get favorite object from plugin item
 export function getFavoriteObjectFromItem(item) {
+    if (!isObject(item)) {
+        return null;
+    }
+
     return (
         item.reportTable ||
         item.chart ||
@@ -21,19 +27,19 @@ export function getFavoriteObjectFromItem(item) {
 // Get plugin configuration from item
 export function getPluginItemConfig(item, isReload) {
     const favorite = getFavoriteObjectFromItem(item) || item;
-
-    const config = {
-        el: `plugin-${favorite.id}`,
-        hideTitle: !favorite.title,
-    };
+    let config;
 
     if (isReload) {
-        config.columns = favorite.columns;
-        config.rows = favorite.rows;
-        config.filters = favorite.filters;
+        config = {
+            ...favorite,
+            id: null,
+        };
     } else {
-        config.id = favorite.id;
+        config = { id: favorite.id };
     }
+
+    config.el = `plugin-${favorite.id}`;
+    config.hideTitle = !favorite.title;
 
     return config;
 }

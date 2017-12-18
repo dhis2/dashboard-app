@@ -31,13 +31,42 @@ const getAxesFields = ({ withItems }) => [
     `filters[${getDimensionFields({ withItems }).join(',')}]`,
 ];
 
-const getFavoriteFields = ({ withDimensions }) =>
+const getFavoriteFields = ({ withDimensions, withOptions }) =>
     arrayClean([
         `${getIdNameFields({ rename: true }).join(',')}`,
         withDimensions ? `${getAxesFields({ withItems: true }).join(',')}` : ``,
+        withOptions
+            ? [
+                  '*',
+                  '!attributeDimensions',
+                  '!attributeValues',
+                  '!category',
+                  '!categoryDimensions',
+                  '!categoryOptionGroupSetDimensions',
+                  '!columnDimensions',
+                  '!dataDimensionItems',
+                  '!dataElementDimensions',
+                  '!dataElementGroupSetDimensions',
+                  '!filterDimensions',
+                  '!itemOrganisationUnitGroups',
+                  '!lastUpdatedBy',
+                  '!organisationUnitGroupSetDimensions',
+                  '!organisationUnitLevels',
+                  '!organisationUnits',
+                  '!programIndicatorDimensions',
+                  '!relativePeriods',
+                  '!reportParams',
+                  '!rowDimensions',
+                  '!series',
+                  '!translations',
+                  '!userOrganisationUnit',
+                  '!userOrganisationUnitChildren',
+                  '!userOrganisationUnitGrandChildren',
+              ].join(',')
+            : '',
     ]);
 
-const getFavoritesFields = ({ withDimensions }) => [
+const getFavoritesFields = ({ withDimensions, withOptions }) => [
     `reportTable[${getFavoriteFields({ withDimensions }).join(',')}]`,
     `chart[${getFavoriteFields({ withDimensions }).join(',')}]`,
     `map[${getFavoriteFields({ withDimensions }).join(',')}]`,
@@ -107,6 +136,9 @@ export const apiFetchFavorite = (id, type) =>
         d2.Api.getApi().get(
             `${getUrlByFavoriteType(type)}/${
                 id
-            }.json?fields=${getFavoriteFields({ withDimensions: true })}`
+            }.json?fields=${getFavoriteFields({
+                withDimensions: true,
+                withOptions: true,
+            })}`
         )
     );
