@@ -9,10 +9,8 @@ react-grid-item {
     display: flex;
     flex-direction: column;
     overflow: hidden !important;
-    border: 2px solid #e1e1e1;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    border: 0px solid #e1e1e1;
+    box-shadow: 0px 0px 1px 1px #aaaaaa;
 }
 
 .react-grid-item.react-grid-placeholder {
