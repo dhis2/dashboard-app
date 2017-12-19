@@ -82,7 +82,7 @@ export const tSetSelectedDashboardById = id => async dispatch => {
     const onSuccess = data => {
         dispatch(acSetDashboards(data, true));
         dispatch(acSetSelectedId(id));
-        //dispatch(acSetSelectedIsLoading(false));
+        dispatch(acSetSelectedIsLoading(false));
         return data;
     };
 

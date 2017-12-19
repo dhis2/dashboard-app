@@ -24,7 +24,7 @@ const ModalLoadingMask = ({ isLoading }) => {
     }
 
     return (
-        <div>
+        <div className="loading-mask-wrapper">
             <div style={styles.modal}>
                 <LoadingMask />
             </div>
