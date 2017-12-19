@@ -18,22 +18,30 @@ import {
 } from './pluginUtil';
 
 import { orArray, orObject } from '../util';
-
 import * as fromReducers from '../reducers';
 import { apiFetchFavorite } from '../api';
+import ModalLoadingMask from '../widgets/ModalLoadingMask';
 
 const { fromSelected } = fromReducers;
 
 // Component
+
+let cachedItems = [];
 
 export class ItemGrid extends Component {
     componentDidUpdate() {
         const { dashboardItems } = this.props;
 
         if (dashboardItems.length) {
-            renderFavorites(dashboardItems);
+            const ids = dashboardItems.map(item => item.id).join('-');
+            const cachedIds = cachedItems.map(item => item.id).join('-');
 
-            this.currentItemTypeMap = {};
+            if (ids !== cachedIds) {
+                console.log('renderFavorites');
+                renderFavorites(dashboardItems);
+            }
+
+            cachedItems = dashboardItems;
         }
     }
 
@@ -44,10 +52,6 @@ export class ItemGrid extends Component {
             onButtonClick,
             onItemResize,
         } = this.props;
-
-        if (isLoading) {
-            return <div style={{ padding: 50 }}>Loading...</div>;
-        }
 
         if (!dashboardItems.length) {
             return <div style={{ padding: 50 }}>No items</div>;
@@ -61,6 +65,7 @@ export class ItemGrid extends Component {
 
         return (
             <div className="grid-wrapper">
+                <ModalLoadingMask isLoading={isLoading} />
                 <ReactGridLayout
                     onLayoutChange={(a, b, c) => {
                         //console.log('RGL change', a, b, c);
