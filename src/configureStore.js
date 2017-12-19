@@ -1,20 +1,25 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
-// import observable from 'redux-observable';
 import reducer from './reducers';
 
 const configureStore = () => {
-    const middlewares = [
-        thunk,
-        // observable,
-    ];
+    const middleware = [thunk];
 
-    if (process.env.NODE_ENV !== 'production') {
-        middlewares.push(createLogger());
+    // If the Redux devtools extension is installed, enable that in favor of logging every state change
+    const composeEnhancers =
+        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+    if (
+        !window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ &&
+        process.env.NODE_ENV !== 'production'
+    ) {
+        middleware.push(createLogger());
     }
 
-    return createStore(reducer, applyMiddleware(...middlewares));
+    return createStore(
+        reducer,
+        composeEnhancers(applyMiddleware(...middleware))
+    );
 };
 
 export default configureStore;
