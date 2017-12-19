@@ -51,5 +51,3 @@ class ItemHeader extends Component {
 }
 
 export default ItemHeader;
-
-// = ({ type, favoriteId, favoriteName, onButtonClick }) => (
