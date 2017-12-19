@@ -6,7 +6,7 @@ import reducer from './reducers';
 const configureStore = () => {
     const middleware = [thunk];
 
-    // If the Redux devtools extension is installed, enable that in favor of logging every state change
+    // Enable Redux devtools if extension is installed instead of redux-logger
     const composeEnhancers =
         window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
     if (

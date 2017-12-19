@@ -25,12 +25,12 @@
 
 .dashboard-item-header {
     height: 40px;
-    font-size: 13px;
-    font-weight: 600;
-    color: #333333;
+    font-size: 15px;
+    font-weight: 700;
+    color: #3a3a3a;
     display: flex;
     align-items: center;
-    padding: 0 10px;
+    padding: 0 12px;
 }
 
 .dashboard-item-header-title {
