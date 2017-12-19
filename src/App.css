@@ -1,17 +1,11 @@
-.DashboardSelect {
-    padding-bottom: 17px;
-    margin-bottom: 15px;
-    -webkit-box-shadow: 1px 1px 6px #aaa;
-    box-shadow: 1px 1px 6px #aaa;
-}
-
-.wrapper {
-    margin-right: 15px;
-    margin-left: 15px;
-}
-
-.wrapper * {
+.app-wrapper * {
     font-family: Roboto;
+}
+
+.dashboard-wrapper {
+    background-color: #f6f6f6;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /* plugin TODO */

@@ -1,7 +1,9 @@
 import 'babel-polyfill';
-import * as fromReducers from '../reducers';
 
+import { getCustomDashboards } from '../reducers/dashboards';
 import { apiFetchDashboards, apiFetchSelected } from '../api';
+import { arrayToIdMap } from '../util';
+import * as fromReducers from '../reducers';
 
 const { actionTypes } = fromReducers;
 
@@ -12,13 +14,23 @@ const { actionTypes } = fromReducers;
 export const acSetDashboards = (dashboards, append) => ({
     type: actionTypes.SET_DASHBOARDS,
     append: !!append,
-    value: dashboards,
+    value: arrayToIdMap(getCustomDashboards(dashboards)),
 });
 
 // selected
 
-export const acSetSelected = value => ({
-    type: actionTypes.SET_SELECTED,
+export const acSetSelectedId = value => ({
+    type: actionTypes.SET_SELECTED_ID,
+    value,
+});
+
+export const acSetSelectedEdit = value => ({
+    type: actionTypes.SET_SELECTED_EDIT,
+    value,
+});
+
+export const acSetSelectedIsLoading = value => ({
+    type: actionTypes.SET_SELECTED_ISLOADING,
     value,
 });
 
@@ -44,10 +56,8 @@ export const acSetFilterOrder = value => ({
 // dashboards
 
 export const tSetDashboards = () => async (dispatch, getState) => {
-    const { getCustomDashboards } = fromReducers.fromDashboards;
-
     const onSuccess = data => {
-        dispatch(acSetDashboards(getCustomDashboards(data.toArray())));
+        dispatch(acSetDashboards(data.toArray()));
         return data;
     };
 
@@ -64,27 +74,15 @@ export const tSetDashboards = () => async (dispatch, getState) => {
     }
 };
 
-// filter
-
-export const tSetPresetHome = () => (dispatch, getState) => {
-    dispatch(acSetFilterName());
-    dispatch(acSetFilterOwner());
-    dispatch(acSetFilterOrder());
-};
-
-export const tSetPresetManage = () => (dispatch, getState) => {
-    dispatch(acSetFilterName());
-    dispatch(acSetFilterOwner());
-    dispatch(acSetFilterOrder());
-};
-
 // selectedDashboard
 
-export const tSetSelectedDashboard = id => async dispatch => {
-    dispatch(acSetSelected()); // sets id to null -> show loading indicator
+export const tSetSelectedDashboardById = id => async dispatch => {
+    dispatch(acSetSelectedIsLoading(true));
 
     const onSuccess = data => {
-        dispatch(acSetSelected(data));
+        dispatch(acSetDashboards(data, true));
+        dispatch(acSetSelectedId(id));
+        dispatch(acSetSelectedIsLoading(false));
         return data;
     };
 
@@ -94,8 +92,8 @@ export const tSetSelectedDashboard = id => async dispatch => {
     };
 
     try {
-        const fetchedData = await apiFetchSelected(id);
-        return onSuccess(fetchedData);
+        const fetchedSelected = await apiFetchSelected(id);
+        return onSuccess(fetchedSelected);
     } catch (err) {
         return onError(err);
     }

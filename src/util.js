@@ -1,10 +1,25 @@
+import isObject from 'd2-utilizr/lib/isObject';
+
+// validation
+export function orNull(param) {
+    return param === undefined ? null : param;
+}
+
+export function orArray(param) {
+    return Array.isArray(param) ? param : [];
+}
+
+export function orObject(param) {
+    return isObject(param) ? param : {};
+}
+
 // array
 export function arrayGetById(array, id) {
     return array.find(item => item.id === id);
 }
 
 // object
-export function arrayToObject(array) {
+export function arrayToIdMap(array) {
     return array.reduce((obj, item) => {
         obj[item.id] = item;
         return obj;
@@ -29,3 +44,11 @@ export function getDate() {
 // reducer validator
 export const validateReducer = (value, defaultValue) =>
     value === undefined || value === null ? defaultValue : value;
+
+// dashboard item
+export const getDashboardItemFavorite = item =>
+    item.reportTable ||
+    item.chart ||
+    item.map ||
+    item.eventReport ||
+    item.eventChart;

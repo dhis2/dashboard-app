@@ -7,7 +7,7 @@ export const hasShape = item =>
     isNonNegativeInteger(item.w) &&
     isNonNegativeInteger(item.h);
 
-//Dimensions for the react-grid-layout
+// Dimensions for the react-grid-layout
 export const gridColumns = 30;
 export const gridRowHeight = 30;
 
@@ -18,7 +18,7 @@ export const getShape = i => {
         throw new Error('Invalid grid block number');
     }
 
-    const numberOfCols = 3;
+    const numberOfCols = 2;
 
     const col = i % numberOfCols;
     const row = Math.floor(i / numberOfCols);
@@ -32,3 +32,15 @@ export const getShape = i => {
         h: itemHeight,
     };
 };
+
+/**
+ * Returns an array of items that each contain its grid block shape object
+ * @function
+ * @param {Array} items
+ * @returns {Array}
+ */
+export const addShapeToItems = items =>
+    items.map(
+        (item, index) =>
+            hasShape(item) ? item : Object.assign({}, item, getShape(index))
+    );

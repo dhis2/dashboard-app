@@ -5,13 +5,11 @@ import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 
-import DashboardTitleCt from './DashboardTitle/DashboardTitle';
-import DashboardItemGridCt from './DashboardItemGrid/DashboardItemGrid';
-import DashboardBarCt from './DashboardBar/DashboardBar';
-import DashboardSelectCt from './DashboardSelect/DashboardSelect';
-import { tSetDashboards } from './actions';
+import ItemGridCt from './ItemGrid/ItemGrid';
+import { tSetDashboards, tSetSelectedDashboardById } from './actions';
 
 import './App.css';
+import TitleBarCt from './TitleBar/TitleBar';
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
@@ -27,16 +25,22 @@ if (global.chartPlugin) {
 class App extends Component {
     componentDidMount() {
         const { store } = this.context;
-        store.dispatch(tSetDashboards());
+        store.dispatch(tSetDashboards()).then(() => {
+            store.dispatch(tSetSelectedDashboardById('xP1jtPjus1c'));
+        });
     }
     render() {
+        const { store } = this.context;
+
+        //TODO: ControlBar below HeaderBar
+
         return (
-            <div>
+            <div className="app-wrapper">
                 <HeaderBar />
-                <div className="DashboardSelect">
-                    <div className="wrapper" />
+                <div className="dashboard-wrapper">
+                    <TitleBarCt />
+                    <ItemGridCt store={store} />
                 </div>
-                <div className="wrapper" />
             </div>
         );
     }

@@ -1,6 +1,7 @@
 /** @module reducers/dashboards */
 
-import { arrayToObject } from '../util';
+import arrayFrom from 'd2-utilizr/lib/arrayFrom';
+import { orArray, orNull, orObject } from '../util';
 
 /**
  * Action types for the dashboard reducer
@@ -28,9 +29,10 @@ export const DEFAULT_DASHBOARDS = null;
 export default (state = DEFAULT_DASHBOARDS, action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDS: {
-            return action.append
-                ? Object.assign({}, state, arrayToObject(action.value))
-                : arrayToObject(action.value);
+            return {
+                ...(action.append ? state || {} : {}),
+                ...action.value,
+            };
         }
         default:
             return state;
@@ -55,7 +57,10 @@ export const sGetFromState = state => state.dashboards;
  * @param {number} id The id of the dashboard to retrieve
  * @returns {Object|undefined}
  */
-export const sGetById = (state, id) => sGetFromState(state)[id];
+export const sGetById = (state, id) => {
+    console.log('sGetById', state, id);
+    return orNull(orObject(sGetFromState(state))[id]);
+};
 
 /**
  * Returns the array of dashboards, customized for ui
@@ -64,7 +69,7 @@ export const sGetById = (state, id) => sGetFromState(state)[id];
  * @returns {Array}
  */
 export const getCustomDashboards = data =>
-    data.map(d => ({
+    arrayFrom(data).map((d, index) => ({
         id: d.id,
         name: d.name,
         description: d.description,
@@ -78,5 +83,6 @@ export const getCustomDashboards = data =>
             .split('T')
             .join(' ')
             .substr(0, 16),
-        numberOfItems: d.dashboardItems,
+        numberOfItems: orArray(d.dashboardItems).length,
+        dashboardItems: d.dashboardItems,
     }));

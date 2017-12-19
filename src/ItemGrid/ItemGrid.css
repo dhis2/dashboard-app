@@ -1,0 +1,52 @@
+/* react-grid-layout style */
+
+.react-grid-item {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden !important;
+    border: 0px solid #e1e1e1;
+    box-shadow: 0px 0px 1px 1px #aaaaaa;
+    background-color: #ffffff;
+}
+
+.react-grid-item.react-grid-placeholder {
+    background: #000;
+    opacity: 0.1;
+    transition-duration: 150ms;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+/* dashboard item - header */
+
+.dashboard-item-header {
+    height: 40px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.dashboard-item-header-title {
+    flex: 1;
+    overflow: hidden;
+}
+
+/* dashboard item - content */
+
+.dashboard-item-content {
+    flex: 1;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    overflow: auto;
+}
+
+.CHART .dashboard-item-content {
+    overflow: hidden;
+}

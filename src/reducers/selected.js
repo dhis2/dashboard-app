@@ -1,15 +1,17 @@
 /** @module reducers/selected */
 import { combineReducers } from 'redux';
+
 import { validateReducer } from '../util';
-import { hasShape, getShape } from '../DashboardItemGrid/gridUtil';
 
 export const actionTypes = {
-    SET_SELECTED: 'SET_SELECTED_ID',
-    SET_EDIT: 'SET_SELECTED_EDIT',
+    SET_SELECTED_ID: 'SET_SELECTED_ID',
+    SET_SELECTED_EDIT: '',
+    SET_SELECTED_ISLOADING: 'SET_SELECTED_ISLOADING',
 };
 
-export const DEFAULT_SELECTED = null;
-export const DEFAULT_EDIT = false;
+export const DEFAULT_SELECTED_ID = null;
+export const DEFAULT_SELECTED_EDIT = false;
+export const DEFAULT_SELECTED_ISLOADING = false;
 
 /**
  * Reducer functions that computes and returns the new state based on the given action
@@ -17,27 +19,37 @@ export const DEFAULT_EDIT = false;
  * @param {Object} state The current state
  * @param {Object} action The action to be evaluated
  */
-const selected = (state = DEFAULT_SELECTED, action) => {
+const id = (state = DEFAULT_SELECTED_ID, action) => {
     switch (action.type) {
-        case actionTypes.SET_SELECTED:
-            return validateReducer(action.value, DEFAULT_SELECTED);
+        case actionTypes.SET_SELECTED_ID:
+            return validateReducer(action.value, DEFAULT_SELECTED_ID);
         default:
             return state;
     }
 };
 
-const edit = (state = DEFAULT_EDIT, action) => {
+const edit = (state = DEFAULT_SELECTED_EDIT, action) => {
     switch (action.type) {
-        case actionTypes.SET_SELECTED:
-            return validateReducer(action.value, DEFAULT_EDIT);
+        case actionTypes.SET_SELECTED_EDIT:
+            return validateReducer(action.value, DEFAULT_SELECTED_EDIT);
+        default:
+            return state;
+    }
+};
+
+const isLoading = (state = DEFAULT_SELECTED_ISLOADING, action) => {
+    switch (action.type) {
+        case actionTypes.SET_SELECTED_ISLOADING:
+            return validateReducer(action.value, DEFAULT_SELECTED_ISLOADING);
         default:
             return state;
     }
 };
 
 export default combineReducers({
-    selected,
+    id,
     edit,
+    isLoading,
 });
 
 /**
@@ -50,17 +62,8 @@ export const sGetFromState = state => state.selected;
 
 // Selector dependency level 2
 
-export const sGetId = state => sGetFromState(state).id;
-export const sGetEdit = state => sGetFromState(state).edit;
+export const sGetSelectedId = state => sGetFromState(state).id;
 
-/**
- * Returns an array of items that each contain its grid block shape object
- * @function
- * @param {Array} items
- * @returns {Array}
- */
-export const uGetTransformedItems = items =>
-    items.map(
-        (item, index) =>
-            hasShape(item) ? item : Object.assign({}, item, getShape(index))
-    );
+export const sGetSelectedEdit = state => sGetFromState(state).edit;
+
+export const sGetSelectedIsLoading = state => sGetFromState(state).isLoading;

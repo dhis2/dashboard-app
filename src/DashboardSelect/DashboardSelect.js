@@ -81,7 +81,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    onClick: id => dispatch(fromActions.tSetSelectedDashboard(id)),
+    onClick: id => dispatch(fromActions.tSetSelectedDashboardById(id)),
 });
 
 const DashboardSelectCt = connect(mapStateToProps, mapDispatchToProps)(
