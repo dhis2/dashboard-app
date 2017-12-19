@@ -8,7 +8,12 @@ import 'react-resizable/css/styles.css';
 import './ItemGrid.css';
 import ItemHeader from './ItemHeader';
 
-import { gridColumns, gridRowHeight, addShapeToItems } from './gridUtil';
+import {
+    gridRowHeight,
+    addShapeToItems,
+    getGridColumns,
+    gridGravity,
+} from './gridUtil';
 import {
     getPluginByType,
     getFavoriteObjectFromItem,
@@ -62,7 +67,7 @@ export class ItemGrid extends Component {
                 i: `${getFavoriteObjectFromItem(item).id}`,
             })
         );
-
+        console.log('COLS', getGridColumns());
         return (
             <div className="grid-wrapper">
                 <ModalLoadingMask isLoading={isLoading} />
@@ -75,9 +80,10 @@ export class ItemGrid extends Component {
                     }}
                     className="layout"
                     layout={pluginItems}
-                    cols={gridColumns}
+                    cols={getGridColumns()}
                     rowHeight={gridRowHeight}
                     width={window.innerWidth}
+                    verticalCompact={gridGravity}
                 >
                     {pluginItems
                         .filter(item => getFavoriteObjectFromItem(item)) //TODO IMPROVE

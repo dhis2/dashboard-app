@@ -1,15 +1,37 @@
+// Dimensions for the react-grid-layout
+
+export const gridGravity = true;
+export const gridRowHeight = 30;
+const columnWidthPx = 20;
+const gridLayout = 'FLEXIBLE'; // FIXED | FLEXIBLE
+
+// Dimensions for getShape
+
+const numberOfItemCols = 2;
+const gridColumns = 60;
+
+export const getGridColumns = () => {
+    switch (gridLayout) {
+        case 'FLEXIBLE':
+            return gridColumns;
+        case 'FIXED':
+            return Math.floor((window.innerWidth - 20) / columnWidthPx);
+        default:
+            return gridColumns;
+    }
+};
+
+// isNonNegativeInteger
+
 const isNonNegativeInteger = x => Number.isInteger(x) && x >= 0;
 
 // Does the item have all the shape properties?
+
 export const hasShape = item =>
     isNonNegativeInteger(item.x) &&
     isNonNegativeInteger(item.y) &&
     isNonNegativeInteger(item.w) &&
     isNonNegativeInteger(item.h);
-
-// Dimensions for the react-grid-layout
-export const gridColumns = 30;
-export const gridRowHeight = 30;
 
 // returns a rectangular grid block dimensioned with x, y, w, h in grid units.
 // based on a grid with 3 items across
@@ -18,11 +40,9 @@ export const getShape = i => {
         throw new Error('Invalid grid block number');
     }
 
-    const numberOfCols = 2;
-
-    const col = i % numberOfCols;
-    const row = Math.floor(i / numberOfCols);
-    const itemWidth = Math.floor((gridColumns - 1) / numberOfCols);
+    const col = i % numberOfItemCols;
+    const row = Math.floor(i / numberOfItemCols);
+    const itemWidth = Math.floor((gridColumns - 1) / numberOfItemCols);
     const itemHeight = gridRowHeight / 3;
 
     return {
