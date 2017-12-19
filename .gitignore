@@ -14,9 +14,9 @@ docs/*
 
 # misc
 .DS_Store
-.env
+*.env.local*
 .idea
-.iml
+*.iml
 .vscode
 npm-debug.log*
 yarn-debug.log*

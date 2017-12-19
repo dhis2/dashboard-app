@@ -134,9 +134,7 @@ export const apiFetchSelected = id =>
 export const apiFetchFavorite = (id, type) =>
     getInstance().then(d2 =>
         d2.Api.getApi().get(
-            `${getUrlByFavoriteType(type)}/${
-                id
-            }.json?fields=${getFavoriteFields({
+            `${getUrlByFavoriteType(type)}/${id}?fields=${getFavoriteFields({
                 withDimensions: true,
                 withOptions: true,
             })}`
