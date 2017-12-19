@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
-import ItemHeaderButton from './ItemHeaderButton';
-
 const getIconButton = (icon, favoriteId, type, targetType, onButtonClick) => (
     <div
         style={{ cursor: 'pointer' }}

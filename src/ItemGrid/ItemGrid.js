@@ -26,14 +26,22 @@ const { fromSelected } = fromReducers;
 
 // Component
 
+let cachedItems = [];
+
 export class ItemGrid extends Component {
     componentDidUpdate() {
         const { dashboardItems } = this.props;
 
         if (dashboardItems.length) {
-            renderFavorites(dashboardItems);
+            const d1 = dashboardItems.map(item => item.id).join('-');
+            const d2 = cachedItems.map(item => item.id).join('-');
 
-            this.currentItemTypeMap = {};
+            if (d1 !== d2) {
+                console.log('renderFavorites');
+                renderFavorites(dashboardItems);
+            }
+
+            cachedItems = dashboardItems;
         }
     }
 
