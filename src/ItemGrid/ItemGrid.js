@@ -21,6 +21,7 @@ import { orArray, orObject } from '../util';
 
 import * as fromReducers from '../reducers';
 import { apiFetchFavorite } from '../api';
+import ModalLoadingMask from '../widgets/ModalLoadingMask';
 
 const { fromSelected } = fromReducers;
 
@@ -53,9 +54,9 @@ export class ItemGrid extends Component {
             onItemResize,
         } = this.props;
 
-        if (isLoading) {
-            return <div style={{ padding: 50 }}>Loading...</div>;
-        }
+        // if (isLoading) {
+        //     return <div style={{ padding: 50 }}>Loading...</div>;
+        // }
 
         if (!dashboardItems.length) {
             return <div style={{ padding: 50 }}>No items</div>;
@@ -69,6 +70,7 @@ export class ItemGrid extends Component {
 
         return (
             <div className="grid-wrapper">
+                <ModalLoadingMask isLoading={isLoading} />
                 <ReactGridLayout
                     onLayoutChange={(a, b, c) => {
                         //console.log('RGL change', a, b, c);

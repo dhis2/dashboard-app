@@ -37,7 +37,7 @@ class App extends Component {
         return (
             <div className="app-wrapper">
                 <HeaderBar />
-                <div className="dashboard-wrapper">
+                <div id="dashboard-wrapper">
                     <TitleBarCt />
                     <ItemGridCt store={store} />
                 </div>

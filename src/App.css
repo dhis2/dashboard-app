@@ -2,7 +2,7 @@
     font-family: Roboto;
 }
 
-.dashboard-wrapper {
+#dashboard-wrapper {
     background-color: #f6f6f6;
     padding-left: 10px;
     padding-right: 10px;
