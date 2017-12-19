@@ -12,7 +12,7 @@ import {
     gridRowHeight,
     addShapeToItems,
     getGridColumns,
-    gridGravity,
+    gridVerticalCompact,
 } from './gridUtil';
 import {
     getPluginByType,
@@ -67,7 +67,7 @@ export class ItemGrid extends Component {
                 i: `${getFavoriteObjectFromItem(item).id}`,
             })
         );
-        console.log('COLS', getGridColumns());
+
         return (
             <div className="grid-wrapper">
                 <ModalLoadingMask isLoading={isLoading} />
@@ -83,7 +83,7 @@ export class ItemGrid extends Component {
                     cols={getGridColumns()}
                     rowHeight={gridRowHeight}
                     width={window.innerWidth}
-                    verticalCompact={gridGravity}
+                    verticalCompact={gridVerticalCompact}
                 >
                     {pluginItems
                         .filter(item => getFavoriteObjectFromItem(item)) //TODO IMPROVE

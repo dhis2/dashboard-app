@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
-const getIconButton = (icon, favoriteId, type, targetType, onButtonClick) => (
+const getIconButton = ({
+    icon,
+    favoriteId,
+    type,
+    targetType,
+    onButtonClick,
+    style = {},
+}) => (
     <div
         style={{ cursor: 'pointer' }}
         onClick={() =>
             onButtonClick ? onButtonClick(favoriteId, type, targetType) : null
         }
     >
-        <SvgIcon icon={icon} />
+        <SvgIcon icon={icon} style={style} />
     </div>
 );
 
@@ -21,28 +28,41 @@ class ItemHeader extends Component {
                 <div className="dashboard-item-header-title">
                     {favoriteName}
                 </div>
-                <div style={{ marginRight: 20 }}>
-                    {getIconButton('ArrowDownward')}
+                <div
+                    style={{
+                        paddingRight: 10,
+                        borderRight: '1px solid #ddd',
+                    }}
+                >
+                    {getIconButton({
+                        icon: 'Message',
+                        style: { width: 20, height: 20 },
+                    })}
                 </div>
-                <div style={{ marginRight: 5 }}>
-                    {getIconButton(
-                        'ViewList',
+                <div style={{ paddingLeft: 10, marginRight: 4 }}>
+                    {getIconButton({
+                        icon: 'GridOn',
                         favoriteId,
                         type,
-                        'REPORT_TABLE',
-                        onButtonClick
-                    )}
+                        targetType: 'REPORT_TABLE',
+                        onButtonClick,
+                        style: { width: 20, height: 20 },
+                    })}
                 </div>
-                <div style={{ marginRight: 5 }}>
-                    {getIconButton(
-                        'Star',
+                <div style={{ marginRight: 4 }}>
+                    {getIconButton({
+                        icon: 'InsertChart',
                         favoriteId,
                         type,
-                        'CHART',
-                        onButtonClick
-                    )}
+                        targetType: 'CHART',
+                        onButtonClick,
+                        style: { width: 22, height: 22 },
+                    })}
                 </div>
-                {getIconButton('Room', favoriteId, type, 'MAP', onButtonClick)}
+                {getIconButton({
+                    icon: 'Public',
+                    style: { width: 20, height: 20 },
+                })}
             </div>
         );
     }

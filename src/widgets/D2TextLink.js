@@ -6,7 +6,6 @@ const styles = {
         fontSize: '14px',
         fontWeight: 400,
         color: '#000',
-
         cursor: 'pointer',
     },
     textLinkHover: {
@@ -31,15 +30,12 @@ class D2TextLink extends Component {
 
         const { style, hoverStyle } = this.props;
 
-        this.setState(
-            Object.assign(
-                {},
-                styles.textLink,
-                styles.textLinkHover,
-                style,
-                hoverStyle
-            )
-        );
+        this.setState({
+            ...styles.textLink,
+            ...styles.textLinkHover,
+            ...style,
+            ...hoverStyle,
+        });
     }
 
     onMouseOutHandle(event) {
@@ -47,7 +43,10 @@ class D2TextLink extends Component {
 
         const { style } = this.props;
 
-        this.setState(Object.assign({}, styles.textLink, style));
+        this.setState({
+            ...styles.textLink,
+            ...style,
+        });
     }
 
     render() {

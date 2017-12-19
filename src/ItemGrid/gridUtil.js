@@ -1,6 +1,6 @@
 // Dimensions for the react-grid-layout
 
-export const gridGravity = true;
+export const gridVerticalCompact = true;
 export const gridRowHeight = 30;
 const columnWidthPx = 20;
 const gridLayout = 'FLEXIBLE'; // FIXED | FLEXIBLE
