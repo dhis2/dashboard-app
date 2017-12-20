@@ -6,6 +6,7 @@ import { Title } from './Title';
 import D2TextLink from '../widgets/D2TextLink';
 import * as fromReducers from '../reducers';
 import { orObject } from '../util';
+import { acSetSelectedEdit } from '../actions/index';
 
 // Component
 
@@ -33,7 +34,14 @@ const styles = {
     },
 };
 
-const TitleBar = ({ name, description, edit, starred }) => (
+const TitleBar = ({
+    name,
+    description,
+    edit,
+    starred,
+    onBlur,
+    onEditClick,
+}) => (
     <div style={styles.titleBarWrapper}>
         <div>
             <Title
@@ -54,6 +62,7 @@ const TitleBar = ({ name, description, edit, starred }) => (
                 text={'Edit'}
                 style={styles.textLink}
                 hoverStyle={styles.textLinkHover}
+                onClick={onEditClick}
             />
         </div>
         <div style={styles.titleBarLink}>
@@ -89,8 +98,9 @@ const mapStateToProps = state => {
     };
 };
 
-const mapDispatchToProps = () => ({
+const mapDispatchToProps = dispatch => ({
     onBlur: e => console.log('dashboard name: ', e.target.value),
+    onEditClick: () => dispatch(acSetSelectedEdit(true)),
 });
 
 const TitleBarCt = connect(mapStateToProps, mapDispatchToProps)(TitleBar);

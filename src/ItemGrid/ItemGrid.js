@@ -31,22 +31,31 @@ const { fromSelected } = fromReducers;
 
 // Component
 
-let cachedItems = [];
+let cachedIds = '';
+let cachedEdit = false;
+
+const shouldPluginRender = (dashboardItems, edit) => {
+    if (dashboardItems.length) {
+        const ids = dashboardItems.map(item => item.id).join('-');
+
+        if (ids !== cachedIds || edit !== cachedEdit) {
+            cachedIds = ids;
+            cachedEdit = edit;
+
+            return true;
+        }
+    }
+
+    return false;
+};
 
 export class ItemGrid extends Component {
     componentDidUpdate() {
-        const { dashboardItems } = this.props;
+        const { dashboardItems, edit } = this.props;
 
-        if (dashboardItems.length) {
-            const ids = dashboardItems.map(item => item.id).join('-');
-            const cachedIds = cachedItems.map(item => item.id).join('-');
-
-            if (ids !== cachedIds) {
-                console.log('renderFavorites');
-                renderFavorites(dashboardItems);
-            }
-
-            cachedItems = dashboardItems;
+        if (shouldPluginRender(dashboardItems, edit)) {
+            console.log('renderFavorites');
+            renderFavorites(dashboardItems);
         }
     }
 
@@ -56,6 +65,7 @@ export class ItemGrid extends Component {
             dashboardItems,
             onButtonClick,
             onItemResize,
+            edit,
         } = this.props;
 
         if (!dashboardItems.length) {
@@ -65,6 +75,7 @@ export class ItemGrid extends Component {
         const pluginItems = dashboardItems.map((item, index) =>
             Object.assign({}, item, {
                 i: `${getFavoriteObjectFromItem(item).id}`,
+                static: !edit,
             })
         );
 
@@ -128,7 +139,7 @@ const currentItemTypeMap = {}; //TODO: improve
 
 const mapStateToProps = state => {
     const { sGetSelectedDashboard } = fromReducers;
-    const { sGetSelectedIsLoading } = fromSelected;
+    const { sGetSelectedIsLoading, sGetSelectedEdit } = fromSelected;
 
     const selectedDashboard = sGetSelectedDashboard(state);
     const dashboardItems = orObject(selectedDashboard).dashboardItems;
@@ -136,6 +147,7 @@ const mapStateToProps = state => {
 
     return {
         isLoading: sGetSelectedIsLoading(state),
+        edit: sGetSelectedEdit(state),
         dashboardItems: dashboardItemsWithShape,
         onButtonClick: (id, type, targetType) => {
             const plugin = getPluginByType(targetType);
