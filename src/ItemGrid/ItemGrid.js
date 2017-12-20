@@ -10,7 +10,7 @@ import ItemHeader from './ItemHeader';
 
 import {
     gridRowHeight,
-    addShapeToItems,
+    getShapedItems,
     getGridColumns,
     gridVerticalCompact,
 } from './gridUtil';
@@ -143,12 +143,11 @@ const mapStateToProps = state => {
 
     const selectedDashboard = sGetSelectedDashboard(state);
     const dashboardItems = orObject(selectedDashboard).dashboardItems;
-    const dashboardItemsWithShape = addShapeToItems(orArray(dashboardItems));
 
     return {
+        dashboardItems,
         isLoading: sGetSelectedIsLoading(state),
         edit: sGetSelectedEdit(state),
-        dashboardItems: dashboardItemsWithShape,
         onButtonClick: (id, type, targetType) => {
             const plugin = getPluginByType(targetType);
 

@@ -2,8 +2,9 @@ import 'babel-polyfill';
 
 import { getCustomDashboards } from '../reducers/dashboards';
 import { apiFetchDashboards, apiFetchSelected } from '../api';
-import { arrayToIdMap } from '../util';
+import { arrayToIdMap, orArray } from '../util';
 import * as fromReducers from '../reducers';
+import { getShapedItems } from '../ItemGrid/gridUtil';
 
 const { actionTypes } = fromReducers;
 
@@ -28,6 +29,17 @@ export const acSetDashboards = (dashboards, append) => ({
     append: !!append,
     value: arrayToIdMap(getCustomDashboards(dashboards)),
 });
+
+// export const acAddDashboardItem = favorite => ({
+//     type: actionTypes.ADD_DASHBOARD_ITEM,
+//     value: {
+//         type: favorite.type,
+//         shape: {
+//             x:
+//         }
+
+//     }
+// })
 
 // selected
 
@@ -91,11 +103,19 @@ export const tSetDashboards = () => async (dispatch, getState) => {
 export const tSetSelectedDashboardById = id => async dispatch => {
     dispatch(acSetSelectedIsLoading(true));
 
-    const onSuccess = data => {
-        dispatch(acSetDashboards(data, true));
+    const onSuccess = selected => {
+        dispatch(
+            acSetDashboards(
+                {
+                    ...selected,
+                    dashboardItems: getShapedItems(selected.dashboardItems),
+                },
+                true
+            )
+        );
         dispatch(acSetSelectedId(id));
         dispatch(acSetSelectedIsLoading(false));
-        return data;
+        return selected;
     };
 
     const onError = error => {

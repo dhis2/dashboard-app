@@ -1,3 +1,6 @@
+import isObject from 'd2-utilizr/lib/isObject';
+import { orArray } from '../util';
+
 // Dimensions for the react-grid-layout
 
 export const gridVerticalCompact = true;
@@ -59,7 +62,7 @@ export const getShape = i => {
  * @param {Array} items
  * @returns {Array}
  */
-export const addShapeToItems = items =>
+export const getShapedItems = items =>
     items.map(
         (item, index) =>
             hasShape(item) ? item : Object.assign({}, item, getShape(index))

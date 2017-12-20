@@ -41,8 +41,9 @@ const TitleBar = ({
     starred,
     onBlur,
     onEditClick,
+    onAddClick,
 }) => (
-    <div style={styles.titleBarWrapper}>
+    <div className="titlebar-wrapper" style={styles.titleBarWrapper}>
         <div>
             <Title
                 name={name}
@@ -79,6 +80,14 @@ const TitleBar = ({
                 hoverStyle={styles.textLinkHover}
             />
         </div>
+        <div style={styles.titleBarLink}>
+            <D2TextLink
+                text={'+ Add item'}
+                style={styles.textLink}
+                hoverStyle={styles.textLinkHover}
+                onClick={onAddClick}
+            />
+        </div>
     </div>
 );
 
@@ -99,10 +108,19 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
+    dispatch,
     onBlur: e => console.log('dashboard name: ', e.target.value),
     onEditClick: () => dispatch(acSetSelectedEdit(true)),
 });
 
-const TitleBarCt = connect(mapStateToProps, mapDispatchToProps)(TitleBar);
+const mergeProps = (stateProps, dispatchProps, ownProps) => ({
+    ...stateProps,
+    ...dispatchProps,
+    onAddClick: () => {},
+});
+
+const TitleBarCt = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
+    TitleBar
+);
 
 export default TitleBarCt;
