@@ -9,6 +9,18 @@ const { actionTypes } = fromReducers;
 
 // object creators
 
+// controlbar
+
+export const tSetControlBarRows = rows => ({
+    type: actionTypes.SET_CONTROLBAR_ROWS,
+    value: rows,
+});
+
+export const tSetControlBarExpanded = expanded => ({
+    type: actionTypes.SET_CONTROLBAR_EXPANDED,
+    value: !!expanded,
+});
+
 // dashboards
 
 export const acSetDashboards = (dashboards, append) => ({
