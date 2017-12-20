@@ -17,6 +17,8 @@ const styles = {
     titleBarIcon: {
         alignSelf: 'flex-end',
         marginLeft: 5,
+        position: 'relative',
+        bottom: 1,
     },
     titleBarLink: {
         marginLeft: 20,
