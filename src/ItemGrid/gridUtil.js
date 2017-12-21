@@ -1,10 +1,7 @@
-import isObject from 'd2-utilizr/lib/isObject';
-import { orArray } from '../util';
-
 // Dimensions for the react-grid-layout
 
-export const gridVerticalCompact = true;
-export const gridRowHeight = 30;
+export const gridCompactType = 'vertical'; // vertical | horizonal | null
+export const gridRowHeight = 10;
 const columnWidthPx = 20;
 const gridLayout = 'FLEXIBLE'; // FIXED | FLEXIBLE
 
@@ -46,7 +43,7 @@ export const getShape = i => {
     const col = i % numberOfItemCols;
     const row = Math.floor(i / numberOfItemCols);
     const itemWidth = Math.floor((gridColumns - 1) / numberOfItemCols);
-    const itemHeight = gridRowHeight / 3;
+    const itemHeight = gridRowHeight * 2;
 
     return {
         x: col * itemWidth,

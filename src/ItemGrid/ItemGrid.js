@@ -8,12 +8,7 @@ import 'react-resizable/css/styles.css';
 import './ItemGrid.css';
 import ItemHeader from './ItemHeader';
 
-import {
-    gridRowHeight,
-    getShapedItems,
-    getGridColumns,
-    gridVerticalCompact,
-} from './gridUtil';
+import { gridRowHeight, getGridColumns, gridCompactType } from './gridUtil';
 import {
     getPluginByType,
     getFavoriteObjectFromItem,
@@ -22,7 +17,7 @@ import {
     onPluginItemResize,
 } from './pluginUtil';
 
-import { orArray, orObject } from '../util';
+import { orObject } from '../util';
 import * as fromReducers from '../reducers';
 import { apiFetchFavorite } from '../api';
 import ModalLoadingMask from '../widgets/ModalLoadingMask';
@@ -94,7 +89,7 @@ export class ItemGrid extends Component {
                     cols={getGridColumns()}
                     rowHeight={gridRowHeight}
                     width={window.innerWidth}
-                    verticalCompact={gridVerticalCompact}
+                    compactType={gridCompactType}
                 >
                     {this.pluginItems
                         .filter(item => getFavoriteObjectFromItem(item)) //TODO IMPROVE

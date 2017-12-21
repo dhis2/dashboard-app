@@ -7,6 +7,7 @@ import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import Chip from 'd2-ui/lib/chip/Chip';
 
 import { tSetControlBarExpanded, tSetControlBarRows } from '../actions';
+import * as fromSelected from '../reducers/selected';
 
 const styles = {
     scrollWrapper: {
@@ -41,6 +42,7 @@ const ControlBarComponent = ({
     onChangeHeight,
     isExpanded,
     onToggleExpanded,
+    editMode,
 }) => {
     const contentWrapperStyle = Object.assign({}, styles.scrollWrapper, {
         height: getInnerHeight(isExpanded, rows),
@@ -50,6 +52,7 @@ const ControlBarComponent = ({
         <ControlBar
             height={getOuterHeight(isExpanded, rows)}
             onChangeHeight={onChangeHeight}
+            editMode={editMode}
         >
             <div style={contentWrapperStyle}>
                 <div style={styles.leftControls}>
@@ -91,12 +94,15 @@ const ControlBarComponent = ({
 };
 
 const mapStateToProps = state => {
+    const { sGetSelectedEdit } = fromSelected;
+
     return {
         dashboards: (state.dashboards && Object.values(state.dashboards)) || [],
         rows: (state.controlBar && state.controlBar.rows) || 1,
         isExpanded:
             state.controlBar.expanded &&
             state.controlBar.rows < expandedRowCount,
+        editMode: sGetSelectedEdit(state),
     };
 };
 
