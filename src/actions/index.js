@@ -58,6 +58,11 @@ export const acSetSelectedIsLoading = value => ({
     value,
 });
 
+export const acSetSelectedShowDescription = value => ({
+    type: actionTypes.SET_SELECTED_SHOWDESCRIPTION,
+    value,
+});
+
 // filter
 
 export const acSetFilterName = value => ({

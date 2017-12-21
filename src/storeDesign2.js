@@ -21,6 +21,7 @@ const storeDesign = {
         id: null, // oneOfType([null, string]).isRequired
         edit: false, // bool.isRequired
         isLoading: false, // bool.isRequired
+        showDescription: false,
     },
 
     // filter list of available dashboards

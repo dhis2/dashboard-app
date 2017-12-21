@@ -7,11 +7,13 @@ export const actionTypes = {
     SET_SELECTED_ID: 'SET_SELECTED_ID',
     SET_SELECTED_EDIT: '',
     SET_SELECTED_ISLOADING: 'SET_SELECTED_ISLOADING',
+    SET_SELECTED_SHOWDESCRIPTION: 'SET_SELECTED_SHOWDESCRIPTION',
 };
 
 export const DEFAULT_SELECTED_ID = null;
 export const DEFAULT_SELECTED_EDIT = false;
 export const DEFAULT_SELECTED_ISLOADING = false;
+export const DEFAULT_SELECTED_SHOWDESCRIPTION = false;
 
 /**
  * Reducer functions that computes and returns the new state based on the given action
@@ -46,10 +48,23 @@ const isLoading = (state = DEFAULT_SELECTED_ISLOADING, action) => {
     }
 };
 
+const showDescription = (state = DEFAULT_SELECTED_SHOWDESCRIPTION, action) => {
+    switch (action.type) {
+        case actionTypes.SET_SELECTED_SHOWDESCRIPTION:
+            return validateReducer(
+                action.value,
+                DEFAULT_SELECTED_SHOWDESCRIPTION
+            );
+        default:
+            return state;
+    }
+};
+
 export default combineReducers({
     id,
     edit,
     isLoading,
+    showDescription,
 });
 
 /**
@@ -67,3 +82,6 @@ export const sGetSelectedId = state => sGetFromState(state).id;
 export const sGetSelectedEdit = state => sGetFromState(state).edit;
 
 export const sGetSelectedIsLoading = state => sGetFromState(state).isLoading;
+
+export const sGetSelectedShowDescription = state =>
+    sGetFromState(state).showDescription;

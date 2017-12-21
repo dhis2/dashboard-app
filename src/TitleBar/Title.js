@@ -65,7 +65,6 @@ export class Title extends Component {
                     placeholder={HINTTEXT_TEXTFIELD}
                     className="DashboardTitle-textfield"
                 />
-                <div style={styles.description}>{this.props.description}</div>
             </div>
         );
     }

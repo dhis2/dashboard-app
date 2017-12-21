@@ -2,16 +2,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
-import { Title } from './Title';
+import Title from './Title';
+import Info from './Info';
 import D2TextLink from '../widgets/D2TextLink';
 import * as fromReducers from '../reducers';
 import { orObject } from '../util';
-import { acSetSelectedEdit } from '../actions/index';
+import {
+    acSetSelectedEdit,
+    acSetSelectedShowDescription,
+} from '../actions/index';
 
 // Component
 
 const styles = {
     titleBarWrapper: {
+        padding: '20px 15px 5px 10px',
+    },
+    titleBar: {
         display: 'flex',
         alignItems: 'baseline',
     },
@@ -19,7 +26,7 @@ const styles = {
         alignSelf: 'flex-end',
         marginLeft: 5,
         position: 'relative',
-        bottom: 1,
+        top: 1,
     },
     titleBarLink: {
         marginLeft: 20,
@@ -32,62 +39,79 @@ const styles = {
     textLinkHover: {
         color: '#3399f8',
     },
+    description: {
+        paddingTop: 10,
+        paddingBottom: 5,
+        fontSize: 13,
+        color: '#555555',
+    },
 };
 
 const TitleBar = ({
     name,
     description,
     edit,
+    showDescripton,
     starred,
     onBlur,
     onEditClick,
+    onInfoClick,
     onAddClick,
 }) => (
     <div className="titlebar-wrapper" style={styles.titleBarWrapper}>
-        <div>
-            <Title
-                name={name}
-                description={description}
-                edit={edit}
-                starred={starred}
-            />
+        <div className="titlebar" style={styles.titleBar}>
+            <div>
+                <Title
+                    name={name}
+                    description={description}
+                    edit={edit}
+                    starred={starred}
+                />
+            </div>
+            <div style={styles.titleBarIcon}>
+                <SvgIcon icon={starred ? 'Star' : 'StarBorder'} />
+            </div>
+            <div style={styles.titleBarIcon}>
+                <Info onClick={onInfoClick} />
+            </div>
+            <div style={styles.titleBarLink}>
+                <D2TextLink
+                    text={'Edit'}
+                    style={styles.textLink}
+                    hoverStyle={styles.textLinkHover}
+                    onClick={onEditClick}
+                />
+            </div>
+            <div style={styles.titleBarLink}>
+                <D2TextLink
+                    text={'Share'}
+                    style={styles.textLink}
+                    hoverStyle={styles.textLinkHover}
+                />
+            </div>
+            <div style={styles.titleBarLink}>
+                <D2TextLink
+                    text={'Filter'}
+                    style={styles.textLink}
+                    hoverStyle={styles.textLinkHover}
+                />
+            </div>
+            <div style={styles.titleBarLink}>
+                <D2TextLink
+                    text={'+ Add item'}
+                    style={styles.textLink}
+                    hoverStyle={styles.textLinkHover}
+                    onClick={onAddClick}
+                />
+            </div>
         </div>
-        <div style={styles.titleBarIcon}>
-            <SvgIcon icon={starred ? 'Star' : 'StarBorder'} />
-        </div>
-        <div style={styles.titleBarIcon}>
-            <SvgIcon icon={'InfoOutline'} />
-        </div>
-        <div style={styles.titleBarLink}>
-            <D2TextLink
-                text={'Edit'}
-                style={styles.textLink}
-                hoverStyle={styles.textLinkHover}
-                onClick={onEditClick}
-            />
-        </div>
-        <div style={styles.titleBarLink}>
-            <D2TextLink
-                text={'Share'}
-                style={styles.textLink}
-                hoverStyle={styles.textLinkHover}
-            />
-        </div>
-        <div style={styles.titleBarLink}>
-            <D2TextLink
-                text={'Filter'}
-                style={styles.textLink}
-                hoverStyle={styles.textLinkHover}
-            />
-        </div>
-        <div style={styles.titleBarLink}>
-            <D2TextLink
-                text={'+ Add item'}
-                style={styles.textLink}
-                hoverStyle={styles.textLinkHover}
-                onClick={onAddClick}
-            />
-        </div>
+        {showDescripton || edit ? (
+            <div className="description" style={styles.description}>
+                {description}
+            </div>
+        ) : (
+            ''
+        )}
     </div>
 );
 
@@ -95,15 +119,20 @@ const TitleBar = ({
 
 const mapStateToProps = state => {
     const { fromSelected, sGetSelectedDashboard } = fromReducers;
-    const { sGetSelectedEdit } = fromSelected;
+    const { sGetSelectedEdit, sGetSelectedShowDescription } = fromSelected;
 
     const selectedDashboard = orObject(sGetSelectedDashboard(state));
+    const showDescription = sGetSelectedShowDescription(state);
+
+    const loremIpsum =
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.';
 
     return {
         name: selectedDashboard.name,
-        description: selectedDashboard.description,
+        description: selectedDashboard.description || loremIpsum,
         starred: selectedDashboard.starred,
         edit: sGetSelectedEdit(state),
+        showDescripton: sGetSelectedShowDescription(state),
     };
 };
 
@@ -111,6 +140,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch,
     onBlur: e => console.log('dashboard name: ', e.target.value),
     onEditClick: () => dispatch(acSetSelectedEdit(true)),
+    onInfoClick: isShow => dispatch(acSetSelectedShowDescription(isShow)),
 });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => ({

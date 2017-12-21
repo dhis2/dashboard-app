@@ -54,7 +54,7 @@ export class ItemGrid extends Component {
         const { dashboardItems, edit } = this.props;
 
         if (shouldPluginRender(dashboardItems, edit)) {
-            console.log('renderFavorites');
+            console.log('RENDER FAVORITES');
             renderFavorites(dashboardItems);
         }
     }
@@ -72,7 +72,7 @@ export class ItemGrid extends Component {
             return <div style={{ padding: 50 }}>No items</div>;
         }
 
-        const pluginItems = dashboardItems.map((item, index) =>
+        this.pluginItems = dashboardItems.map((item, index) =>
             Object.assign({}, item, {
                 i: `${getFavoriteObjectFromItem(item).id}`,
                 static: !edit,
@@ -90,13 +90,13 @@ export class ItemGrid extends Component {
                         onItemResize(newItem.i);
                     }}
                     className="layout"
-                    layout={pluginItems}
+                    layout={this.pluginItems}
                     cols={getGridColumns()}
                     rowHeight={gridRowHeight}
                     width={window.innerWidth}
                     verticalCompact={gridVerticalCompact}
                 >
-                    {pluginItems
+                    {this.pluginItems
                         .filter(item => getFavoriteObjectFromItem(item)) //TODO IMPROVE
                         .map(item => {
                             const favorite = getFavoriteObjectFromItem(item);
