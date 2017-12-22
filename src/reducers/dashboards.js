@@ -10,6 +10,7 @@ import { orArray, orNull, orObject } from '../util';
  */
 export const actionTypes = {
     SET_DASHBOARDS: 'SET_DASHBOARDS',
+    ADD_DASHBOARD_ITEM: 'ADD_DASHBOARD_ITEM',
 };
 
 /**
@@ -33,6 +34,18 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
                 ...(action.append ? state || {} : {}),
                 ...action.value,
             };
+        }
+        case 'changex': {
+            const sel = Object.assign({}, state['xP1jtPjus1c']);
+            sel.dashboardItems[5].y += 1000;
+            sel.dashboardItems[5].x = 0;
+
+            const s = {
+                ...state,
+                xP1jtPjus1c: sel,
+            };
+
+            return s;
         }
         default:
             return state;

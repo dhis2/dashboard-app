@@ -6,11 +6,15 @@ import Title from './Title';
 import Info from './Info';
 import D2TextLink from '../widgets/D2TextLink';
 import * as fromReducers from '../reducers';
-import { orObject } from '../util';
+import { orObject, orArray } from '../util';
 import {
     acSetSelectedEdit,
     acSetSelectedShowDescription,
+    acAddDashboardItem,
 } from '../actions/index';
+import { sGetSelectedId } from '../reducers/selected';
+import { sGetSelectedDashboard } from '../reducers';
+import { getYMax } from '../ItemGrid/gridUtil';
 
 // Component
 
@@ -122,32 +126,51 @@ const mapStateToProps = state => {
     const { sGetSelectedEdit, sGetSelectedShowDescription } = fromSelected;
 
     const selectedDashboard = orObject(sGetSelectedDashboard(state));
-    const showDescription = sGetSelectedShowDescription(state);
 
     const loremIpsum =
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.';
 
     return {
-        name: selectedDashboard.name,
-        description: selectedDashboard.description || loremIpsum,
-        starred: selectedDashboard.starred,
-        edit: sGetSelectedEdit(state),
-        showDescripton: sGetSelectedShowDescription(state),
+        state,
+        props: {
+            name: selectedDashboard.name,
+            description: selectedDashboard.description || loremIpsum,
+            starred: selectedDashboard.starred,
+            edit: sGetSelectedEdit(state),
+            showDescripton: sGetSelectedShowDescription(state),
+        },
     };
 };
 
 const mapDispatchToProps = dispatch => ({
     dispatch,
-    onBlur: e => console.log('dashboard name: ', e.target.value),
-    onEditClick: () => dispatch(acSetSelectedEdit(true)),
-    onInfoClick: isShow => dispatch(acSetSelectedShowDescription(isShow)),
+    props: {
+        onBlur: e => console.log('dashboard name: ', e.target.value),
+        onEditClick: () => dispatch(acSetSelectedEdit(true)),
+        onInfoClick: isShow => dispatch(acSetSelectedShowDescription(isShow)),
+    },
 });
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => ({
-    ...stateProps,
-    ...dispatchProps,
-    onAddClick: () => {},
-});
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+    const dashboardItems = orArray(
+        orObject(sGetSelectedDashboard(stateProps.state)).dashboardItems
+    );
+
+    const yValue = getYMax(dashboardItems);
+    const dashboardId = sGetSelectedId(stateProps.state);
+
+    const p = {
+        ...stateProps.props,
+        ...dispatchProps.props,
+        onAddClick: () =>
+            dispatchProps.dispatch(
+                acAddDashboardItem(dashboardId, yValue, { type: 'CHART' })
+            ),
+    };
+
+    console.log('P', p);
+    return p;
+};
 
 const TitleBarCt = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
     TitleBar

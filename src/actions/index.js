@@ -2,9 +2,9 @@ import 'babel-polyfill';
 
 import { getCustomDashboards } from '../reducers/dashboards';
 import { apiFetchDashboards, apiFetchSelected } from '../api';
-import { arrayToIdMap, orArray } from '../util';
+import { arrayToIdMap, orArray, favoriteTypeUrlMap } from '../util';
 import * as fromReducers from '../reducers';
-import { getShapedItems } from '../ItemGrid/gridUtil';
+import { getShapedItems, getYMax } from '../ItemGrid/gridUtil';
 
 const { actionTypes } = fromReducers;
 
@@ -30,16 +30,21 @@ export const acSetDashboards = (dashboards, append) => ({
     value: arrayToIdMap(getCustomDashboards(dashboards)),
 });
 
-// export const acAddDashboardItem = favorite => ({
-//     type: actionTypes.ADD_DASHBOARD_ITEM,
-//     value: {
-//         type: favorite.type,
-//         shape: {
-//             x:
-//         }
+export const acAddDashboardItem = (dashboardId, yValue, favorite) => {
+    const favoritePropName = favoriteTypeUrlMap[favorite.type].propName;
 
-//     }
-// })
+    return {
+        type: actionTypes.ADD_DASHBOARD_ITEM,
+        value: {
+            type: favorite.type,
+            [favoritePropName]: favorite,
+            x: 0,
+            y: yValue,
+            h: 10,
+            w: 20,
+        },
+    };
+};
 
 // selected
 
