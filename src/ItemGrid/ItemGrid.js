@@ -5,8 +5,11 @@ import ReactGridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 
+import Dialog from 'material-ui/Dialog';
+
 import './ItemGrid.css';
 import ItemHeader from './ItemHeader';
+import Interpretations from './Interpretations';
 
 import { gridRowHeight, getGridColumns, gridCompactType } from './gridUtil';
 import {
@@ -54,6 +57,14 @@ export class ItemGrid extends Component {
         }
     }
 
+    state = {
+        showInterpretations: false,
+    };
+
+    onInterpretationsClick = () => {
+        this.setState({ showInterpretations: !this.state.showInterpretations });
+    };
+
     render() {
         const {
             isLoading,
@@ -76,6 +87,13 @@ export class ItemGrid extends Component {
 
         return (
             <div className="grid-wrapper">
+                <Dialog
+                    modal={false}
+                    open={this.state.showInterpretations}
+                    onRequestClose={this.onInterpretationsClick}
+                >
+                    <Interpretations />
+                </Dialog>
                 <ModalLoadingMask isLoading={isLoading} />
                 <ReactGridLayout
                     onLayoutChange={(a, b, c) => {
@@ -103,6 +121,9 @@ export class ItemGrid extends Component {
                                         favoriteId={favorite.id}
                                         favoriteName={favorite.name}
                                         onButtonClick={onButtonClick}
+                                        onInterpretationsClick={
+                                            this.onInterpretationsClick
+                                        }
                                     />
                                     <div
                                         id={`plugin-${
