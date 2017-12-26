@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
 import Title from './Title';
@@ -11,7 +12,7 @@ import {
     acSetSelectedEdit,
     acSetSelectedShowDescription,
     acAddDashboardItem,
-} from '../actions/index';
+} from '../actions';
 import { sGetSelectedId } from '../reducers/selected';
 import { sGetSelectedDashboard } from '../reducers';
 import { getYMax } from '../ItemGrid/gridUtil';
@@ -118,6 +119,23 @@ const TitleBar = ({
         )}
     </div>
 );
+
+TitleBar.propTypes = {
+    name: PropTypes.string,
+    description: PropTypes.string,
+    starred: PropTypes.bool,
+    edit: PropTypes.bool,
+    showDescripton: PropTypes.bool,
+    onBlur: PropTypes.func,
+    onEditClick: PropTypes.func,
+    onInfoClick: PropTypes.func,
+    onAddClick: PropTypes.func,
+};
+
+TitleBar.defaultProps = {
+    name: '',
+    description: '',
+};
 
 // Container
 
