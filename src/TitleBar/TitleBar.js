@@ -164,7 +164,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         ...dispatchProps.props,
         onAddClick: () =>
             dispatchProps.dispatch(
-                acAddDashboardItem(dashboardId, yValue, { type: 'CHART' })
+                acAddDashboardItem(dashboardId, yValue, {
+                    id: 'VffWmdKFHSq',
+                    name: 'ANC: ANC IPT 1 Coverage last 12 months districts',
+                    type: 'CHART',
+                })
             ),
     };
 

@@ -35,17 +35,14 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
                 ...action.value,
             };
         }
-        case 'changex': {
-            const sel = Object.assign({}, state['xP1jtPjus1c']);
-            sel.dashboardItems[5].y += 1000;
-            sel.dashboardItems[5].x = 0;
-
-            const s = {
+        case actionTypes.ADD_DASHBOARD_ITEM: {
+            const newState = {
                 ...state,
-                xP1jtPjus1c: sel,
             };
 
-            return s;
+            newState[action.dashboardId].dashboardItems.push(action.value);
+
+            return newState;
         }
         default:
             return state;

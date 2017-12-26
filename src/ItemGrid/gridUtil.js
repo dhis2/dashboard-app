@@ -69,4 +69,10 @@ export const getShapedItems = items =>
             hasShape(item) ? item : Object.assign({}, item, getShape(index))
     );
 
-export const getYMax = items => arrayMax(arrayPluck(items, 'y'));
+export const getYMax = items =>
+    items.reduce(
+        (tot, item) => (item.y + item.h > tot ? item.y + item.h : tot),
+        0
+    );
+
+//arrayMax(arrayPluck(items, 'y')) + 1;
