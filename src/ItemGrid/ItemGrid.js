@@ -5,11 +5,9 @@ import ReactGridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 
-import Dialog from 'material-ui/Dialog';
-
 import './ItemGrid.css';
 import ItemHeader from './ItemHeader';
-import Interpretations from './Interpretations';
+import ItemFooter from './ItemFooter';
 
 import { gridRowHeight, getGridColumns, gridCompactType } from './gridUtil';
 import {
@@ -59,10 +57,12 @@ export class ItemGrid extends Component {
 
     state = {
         showInterpretations: false,
+        visId: '',
     };
 
-    onInterpretationsClick = () => {
+    onInterpretationsClick = clickedId => {
         this.setState({ showInterpretations: !this.state.showInterpretations });
+        this.setState({ visId: clickedId });
     };
 
     render() {
@@ -87,13 +87,6 @@ export class ItemGrid extends Component {
 
         return (
             <div className="grid-wrapper">
-                <Dialog
-                    modal={false}
-                    open={this.state.showInterpretations}
-                    onRequestClose={this.onInterpretationsClick}
-                >
-                    <Interpretations />
-                </Dialog>
                 <ModalLoadingMask isLoading={isLoading} />
                 <ReactGridLayout
                     onLayoutChange={(a, b, c) => {
@@ -114,6 +107,24 @@ export class ItemGrid extends Component {
                         .map(item => {
                             const favorite = getFavoriteObjectFromItem(item);
 
+                            let interpretations = [];
+                            switch (item.type) {
+                                case 'CHART':
+                                    interpretations =
+                                        item.chart.interpretations;
+                                    break;
+                                case 'REPORT_TABLE':
+                                    interpretations =
+                                        item.reportTable.interpretations;
+                                    break;
+                                default:
+                                    interpretations = [];
+                                    break;
+                            }
+
+                            const showInterpretations =
+                                this.state.visId === item.id;
+
                             return (
                                 <div key={item.i} className={item.type}>
                                     <ItemHeader
@@ -121,8 +132,8 @@ export class ItemGrid extends Component {
                                         favoriteId={favorite.id}
                                         favoriteName={favorite.name}
                                         onButtonClick={onButtonClick}
-                                        onInterpretationsClick={
-                                            this.onInterpretationsClick
+                                        onInterpretationsClick={() =>
+                                            this.onInterpretationsClick(item.id)
                                         }
                                     />
                                     <div
@@ -130,6 +141,13 @@ export class ItemGrid extends Component {
                                             getFavoriteObjectFromItem(item).id
                                         }`}
                                         className="dashboard-item-content"
+                                    />
+                                    <ItemFooter
+                                        interpretations={interpretations}
+                                        show={showInterpretations}
+                                        onToggleInterpretations={
+                                            this.onInterpretationsClick
+                                        }
                                     />
                                 </div>
                             );
