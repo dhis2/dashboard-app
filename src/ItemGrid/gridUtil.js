@@ -1,3 +1,6 @@
+import arrayMax from 'd2-utilizr/lib/arrayMax';
+import arrayPluck from 'd2-utilizr/lib/arrayPluck';
+
 // Dimensions for the react-grid-layout
 
 export const gridCompactType = 'vertical'; // vertical | horizonal | null
@@ -59,8 +62,17 @@ export const getShape = i => {
  * @param {Array} items
  * @returns {Array}
  */
+
 export const getShapedItems = items =>
     items.map(
         (item, index) =>
             hasShape(item) ? item : Object.assign({}, item, getShape(index))
     );
+
+export const getYMax = items =>
+    items.reduce(
+        (tot, item) => (item.y + item.h > tot ? item.y + item.h : tot),
+        0
+    );
+
+//arrayMax(arrayPluck(items, 'y')) + 1;

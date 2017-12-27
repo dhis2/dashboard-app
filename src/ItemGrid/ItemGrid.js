@@ -54,6 +54,9 @@ export class ItemGrid extends Component {
             renderFavorites(dashboardItems);
         }
     }
+    componentWillUpdate() {
+        console.log('CWU');
+    }
 
     state = {
         showInterpretations: false,

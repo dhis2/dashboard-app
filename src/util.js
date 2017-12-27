@@ -52,3 +52,27 @@ export const getDashboardItemFavorite = item =>
     item.map ||
     item.eventReport ||
     item.eventChart;
+
+// favorite type url map
+export const favoriteTypeUrlMap = {
+    REPORT_TABLE: {
+        endPointName: 'reportTables',
+        propName: 'reportTable',
+    },
+    CHART: {
+        endPointName: 'charts',
+        propName: 'chart',
+    },
+    MAP: {
+        endPointName: 'maps',
+        propName: 'map',
+    },
+    EVENT_REPORT: {
+        endPointName: 'eventReports',
+        propName: 'eventReport',
+    },
+    EVENT_CHART: {
+        endPointName: 'eventCharts',
+        propName: 'eventChart',
+    },
+};
