@@ -7,6 +7,7 @@ import 'react-resizable/css/styles.css';
 
 import './ItemGrid.css';
 import ItemHeader from './ItemHeader';
+import ItemFooter from './ItemFooter';
 
 import { gridRowHeight, getGridColumns, gridCompactType } from './gridUtil';
 import {
@@ -44,6 +45,20 @@ const shouldPluginRender = (dashboardItems, edit) => {
     return false;
 };
 
+const extractInterpretations = item => {
+    switch (item.type) {
+        case 'CHART':
+            return item.chart.interpretations;
+            break;
+        case 'REPORT_TABLE':
+            return item.reportTable.interpretations;
+            break;
+        default:
+            return [];
+            break;
+    }
+};
+
 export class ItemGrid extends Component {
     componentDidUpdate() {
         const { dashboardItems, edit } = this.props;
@@ -56,6 +71,17 @@ export class ItemGrid extends Component {
     componentWillUpdate() {
         console.log('CWU');
     }
+
+    state = {
+        showInterpretations: false,
+        activeItemId: '',
+    };
+
+    onInterpretationsClick = clickedId => {
+        //TODO This will change
+        this.setState({ showInterpretations: !this.state.showInterpretations });
+        this.setState({ activeItemId: clickedId });
+    };
 
     render() {
         const {
@@ -99,6 +125,9 @@ export class ItemGrid extends Component {
                         .map(item => {
                             const favorite = getFavoriteObjectFromItem(item);
 
+                            const showInterpretations =
+                                this.state.activeItemId === item.id;
+
                             return (
                                 <div key={item.i} className={item.type}>
                                     <ItemHeader
@@ -106,12 +135,24 @@ export class ItemGrid extends Component {
                                         favoriteId={favorite.id}
                                         favoriteName={favorite.name}
                                         onButtonClick={onButtonClick}
+                                        onInterpretationsClick={() =>
+                                            this.onInterpretationsClick(item.id)
+                                        }
                                     />
                                     <div
                                         id={`plugin-${
                                             getFavoriteObjectFromItem(item).id
                                         }`}
                                         className="dashboard-item-content"
+                                    />
+                                    <ItemFooter
+                                        interpretations={extractInterpretations(
+                                            item
+                                        )}
+                                        show={showInterpretations}
+                                        onToggleInterpretations={
+                                            this.onInterpretationsClick
+                                        }
                                     />
                                 </div>
                             );

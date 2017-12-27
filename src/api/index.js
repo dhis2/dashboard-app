@@ -28,9 +28,14 @@ const getAxesFields = ({ withItems }) => [
     `filters[${getDimensionFields({ withItems }).join(',')}]`,
 ];
 
-const getFavoriteFields = ({ withDimensions, withOptions }) =>
-    arrayClean([
+const interpretationFields = () => {
+    return 'interpretations[id,text,created,user[id,displayName],likedBy,comments[id,text,created,user[id,displayName]]]';
+};
+
+const getFavoriteFields = ({ withDimensions, withOptions }) => {
+    return arrayClean([
         `${getIdNameFields({ rename: true }).join(',')}`,
+        interpretationFields(),
         withDimensions ? `${getAxesFields({ withItems: true }).join(',')}` : ``,
         withOptions
             ? [
@@ -62,6 +67,7 @@ const getFavoriteFields = ({ withDimensions, withOptions }) =>
               ].join(',')
             : '',
     ]);
+};
 
 const getFavoritesFields = ({ withDimensions, withOptions }) => [
     `reportTable[${getFavoriteFields({ withDimensions }).join(',')}]`,

@@ -21,7 +21,15 @@ const getIconButton = ({
 
 class ItemHeader extends Component {
     render() {
-        const { type, favoriteId, favoriteName, onButtonClick } = this.props;
+        const {
+            type,
+            favoriteId,
+            favoriteName,
+            onButtonClick,
+            onInterpretationsClick,
+        } = this.props;
+
+        const buttonStyle = { width: 20, height: 20 };
 
         return (
             <div className="dashboard-item-header">
@@ -34,10 +42,12 @@ class ItemHeader extends Component {
                         borderRight: '1px solid #ddd',
                     }}
                 >
-                    {getIconButton({
-                        icon: 'Message',
-                        style: { width: 20, height: 20 },
-                    })}
+                    <div
+                        style={{ cursor: 'pointer' }}
+                        onClick={onInterpretationsClick}
+                    >
+                        <SvgIcon icon="Message" style={buttonStyle} />
+                    </div>
                 </div>
                 <div style={{ paddingLeft: 10, marginRight: 4 }}>
                     {getIconButton({
