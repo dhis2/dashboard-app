@@ -6,8 +6,8 @@ import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 
 import './ItemGrid.css';
-import ItemHeader from './ItemHeader';
-import ItemFooter from './ItemFooter';
+import ItemHeader from '../Item/ItemHeader';
+import ItemFooter from '../Item/ItemFooter';
 
 import { gridRowHeight, getGridColumns, gridCompactType } from './gridUtil';
 import {
