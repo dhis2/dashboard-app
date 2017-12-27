@@ -45,6 +45,20 @@ const shouldPluginRender = (dashboardItems, edit) => {
     return false;
 };
 
+const extractInterpretations = item => {
+    switch (item.type) {
+        case 'CHART':
+            return item.chart.interpretations;
+            break;
+        case 'REPORT_TABLE':
+            return item.reportTable.interpretations;
+            break;
+        default:
+            return [];
+            break;
+    }
+};
+
 export class ItemGrid extends Component {
     componentDidUpdate() {
         const { dashboardItems, edit } = this.props;
@@ -60,12 +74,13 @@ export class ItemGrid extends Component {
 
     state = {
         showInterpretations: false,
-        visId: '',
+        activeItemId: '',
     };
 
     onInterpretationsClick = clickedId => {
+        //TODO This will change
         this.setState({ showInterpretations: !this.state.showInterpretations });
-        this.setState({ visId: clickedId });
+        this.setState({ activeItemId: clickedId });
     };
 
     render() {
@@ -110,23 +125,8 @@ export class ItemGrid extends Component {
                         .map(item => {
                             const favorite = getFavoriteObjectFromItem(item);
 
-                            let interpretations = [];
-                            switch (item.type) {
-                                case 'CHART':
-                                    interpretations =
-                                        item.chart.interpretations;
-                                    break;
-                                case 'REPORT_TABLE':
-                                    interpretations =
-                                        item.reportTable.interpretations;
-                                    break;
-                                default:
-                                    interpretations = [];
-                                    break;
-                            }
-
                             const showInterpretations =
-                                this.state.visId === item.id;
+                                this.state.activeItemId === item.id;
 
                             return (
                                 <div key={item.i} className={item.type}>
@@ -146,7 +146,9 @@ export class ItemGrid extends Component {
                                         className="dashboard-item-content"
                                     />
                                     <ItemFooter
-                                        interpretations={interpretations}
+                                        interpretations={extractInterpretations(
+                                            item
+                                        )}
                                         show={showInterpretations}
                                         onToggleInterpretations={
                                             this.onInterpretationsClick
