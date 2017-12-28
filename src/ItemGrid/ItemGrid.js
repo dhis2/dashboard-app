@@ -6,8 +6,7 @@ import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 
 import './ItemGrid.css';
-import ItemHeader from '../Item/ItemHeader';
-import ItemFooter from '../Item/ItemFooter';
+import Item from '../Item/Item';
 
 import { gridRowHeight, getGridColumns, gridCompactType } from './gridUtil';
 import {
@@ -45,26 +44,11 @@ const shouldPluginRender = (dashboardItems, edit) => {
     return false;
 };
 
-const extractInterpretations = item => {
-    switch (item.type) {
-        case 'CHART':
-            return item.chart.interpretations;
-            break;
-        case 'REPORT_TABLE':
-            return item.reportTable.interpretations;
-            break;
-        default:
-            return [];
-            break;
-    }
-};
-
 export class ItemGrid extends Component {
     componentDidUpdate() {
         const { dashboardItems, edit } = this.props;
 
         if (shouldPluginRender(dashboardItems, edit)) {
-            console.log('RENDER FAVORITES');
             renderFavorites(dashboardItems);
         }
     }
@@ -73,14 +57,14 @@ export class ItemGrid extends Component {
     }
 
     state = {
-        showInterpretations: false,
-        activeItemId: '',
+        expandedItems: [],
     };
 
-    onInterpretationsClick = clickedId => {
-        //TODO This will change
-        this.setState({ showInterpretations: !this.state.showInterpretations });
-        this.setState({ activeItemId: clickedId });
+    onToggleItemFooter = clickedId => {
+        //TODO Update state of expandedItems
+        // slice clickedId out of expandedItems array, or add it if its not there
+        //TODO Set new heights for grid items based on expandedItems
+        console.log('onToggleItemFooter', clickedId);
     };
 
     render() {
@@ -123,35 +107,15 @@ export class ItemGrid extends Component {
                     {this.pluginItems
                         .filter(item => getFavoriteObjectFromItem(item)) //TODO IMPROVE
                         .map(item => {
-                            const favorite = getFavoriteObjectFromItem(item);
-
                             const showInterpretations =
                                 this.state.activeItemId === item.id;
 
                             return (
                                 <div key={item.i} className={item.type}>
-                                    <ItemHeader
-                                        type={item.type}
-                                        favoriteId={favorite.id}
-                                        favoriteName={favorite.name}
-                                        onButtonClick={onButtonClick}
-                                        onInterpretationsClick={() =>
-                                            this.onInterpretationsClick(item.id)
-                                        }
-                                    />
-                                    <div
-                                        id={`plugin-${
-                                            getFavoriteObjectFromItem(item).id
-                                        }`}
-                                        className="dashboard-item-content"
-                                    />
-                                    <ItemFooter
-                                        interpretations={extractInterpretations(
-                                            item
-                                        )}
-                                        show={showInterpretations}
-                                        onToggleInterpretations={
-                                            this.onInterpretationsClick
+                                    <Item
+                                        item={item}
+                                        onToggleItemFooter={
+                                            this.onToggleItemFooter
                                         }
                                     />
                                 </div>
