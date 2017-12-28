@@ -32,7 +32,6 @@ class Item extends Component {
         const item = this.props.item;
         const favorite = getFavoriteObjectFromItem(item);
         const pluginId = `plugin-${getFavoriteObjectFromItem(item).id}`;
-        const onButtonClick = () => console.log('yo');
 
         return (
             <div>
@@ -40,7 +39,7 @@ class Item extends Component {
                     type={item.type}
                     favoriteId={favorite.id}
                     favoriteName={favorite.name}
-                    onButtonClick={onButtonClick}
+                    onButtonClick={this.props.onButtonClick}
                     onInterpretationsClick={this.onToggleInterpretations}
                 />
                 <div id={pluginId} className="dashboard-item-content" />

@@ -114,6 +114,7 @@ export class ItemGrid extends Component {
                                 <div key={item.i} className={item.type}>
                                     <Item
                                         item={item}
+                                        onButtonClick={onButtonClick}
                                         onToggleItemFooter={
                                             this.onToggleItemFooter
                                         }
