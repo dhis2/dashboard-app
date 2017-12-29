@@ -59,4 +59,32 @@ const customDashboard = {
     ],
 };
 
-// - when selecting dashboard - also have isLoading
+const interpretations = {
+    id: 'xyzpdq123',
+    author: {
+        id: 'pgra9g323',
+        name: 'Sally Sense',
+    },
+    created: 'new Date()', //Date type
+    text: 'This is the interpretation text',
+    likedBy: [
+        {
+            id: 'pqrm135',
+            name: 'Terry Turnbull',
+        },
+        {
+            id: 'defg4632',
+            name: 'William Wilcox',
+        },
+    ],
+    comments: [
+        {
+            id: 'abc123def',
+            author: {
+                id: '135rgar',
+                name: 'Mary Merryweather',
+            },
+            text: 'This is the comment text',
+        },
+    ],
+};
