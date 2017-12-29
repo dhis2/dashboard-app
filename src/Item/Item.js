@@ -19,6 +19,8 @@ const extractInterpretations = item => {
     }
 };
 
+const ReactFragment = props => props.children;
+
 class Item extends Component {
     state = {
         showInterpretations: false,
@@ -34,7 +36,7 @@ class Item extends Component {
         const pluginId = `plugin-${getFavoriteObjectFromItem(item).id}`;
 
         return (
-            <div>
+            <ReactFragment>
                 <ItemHeader
                     type={item.type}
                     favoriteId={favorite.id}
@@ -48,7 +50,7 @@ class Item extends Component {
                     show={this.state.showInterpretations}
                     onToggleInterpretations={this.onToggleInterpretations}
                 />
-            </div>
+            </ReactFragment>
         );
     }
 }

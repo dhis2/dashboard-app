@@ -101,9 +101,11 @@ export function renderFavorites(items) {
 
 export function onPluginItemResize(id) {
     const el = orObject(document.querySelector(`#plugin-${id}`));
-    const fn = el.setViewportWidth;
 
-    if (isFunction(fn)) {
-        setTimeout(() => el.setViewportWidth(el.clientWidth - 5), 100);
+    if (isFunction(el.setViewportSize)) {
+        setTimeout(
+            () => el.setViewportSize(el.clientWidth - 5, el.clientHeight),
+            100
+        );
     }
 }

@@ -36,6 +36,9 @@
 .dashboard-item-header-title {
     flex: 1;
     overflow: hidden;
+    position: relative;
+    top: -3px;
+    left: -2px;
 }
 
 /* dashboard item - content */
@@ -43,10 +46,13 @@
 .dashboard-item-content {
     flex: 1;
     padding-left: 5px;
-    padding-bottom: 5px;
     overflow: auto;
 }
-
-.CHART .dashboard-item-content {
+.REPORT_TABLE .dashboard-item-content,
+.EVENT_REPORT .dashboard-item-content {
+    padding-bottom: 5px;
+}
+.CHART .dashboard-item-content,
+.EVENT_CHART .dashboard-item-content {
     overflow: hidden;
 }
