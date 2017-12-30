@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getInstance } from 'd2/lib/d2';
+
+import { tLikeInterpretation, tUnlikeInterpretation } from './actions';
+import { sGetSelectedDashboard } from '../../reducers';
 
 import TextField from 'd2-ui/lib/text-field/TextField';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
@@ -23,6 +28,28 @@ const style = {
 };
 
 class Interpretations extends Component {
+    toggleInterpretationLike = id => {
+        getInstance()
+            .then(d2 => d2.currentUser)
+            .then(user => {
+                const interpretation = this.props.interpretations.find(
+                    i => i.id === id
+                );
+                const liked = interpretation.likedBy.find(
+                    liker => liker.id === user.id
+                );
+
+                const data = {
+                    interpretationId: id,
+                    dashboardId: this.props.dashboardId,
+                };
+
+                liked
+                    ? this.props.unlikeInterpretation(data)
+                    : this.props.likeInterpretation(data);
+            });
+    };
+
     render() {
         const interpretationBody = item => {
             return (
@@ -55,7 +82,12 @@ class Interpretations extends Component {
                             <SvgIcon icon="Reply" />
                             Reply
                         </button>
-                        <button style={style.like}>
+                        <button
+                            style={style.like}
+                            onClick={() =>
+                                this.toggleInterpretationLike(item.id)
+                            }
+                        >
                             <SvgIcon icon="ThumbUp" />
                             Like
                         </button>
@@ -81,4 +113,21 @@ class Interpretations extends Component {
     }
 }
 
-export default Interpretations;
+const mapStateToProps = state => {
+    return {
+        dashboardId: sGetSelectedDashboard(state).id,
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        likeInterpretation: data => dispatch(tLikeInterpretation(data)),
+        unlikeInterpretation: data => dispatch(tUnlikeInterpretation(data)),
+    };
+};
+
+const InterpretationsContainer = connect(mapStateToProps, mapDispatchToProps)(
+    Interpretations
+);
+
+export default InterpretationsContainer;
