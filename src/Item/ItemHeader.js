@@ -29,7 +29,7 @@ class ItemHeader extends Component {
             onInterpretationsClick,
         } = this.props;
 
-        const buttonStyle = { width: 20, height: 20 };
+        const buttonStyle = {};
 
         return (
             <div className="dashboard-item-header">
@@ -51,12 +51,12 @@ class ItemHeader extends Component {
                 </div>
                 <div style={{ paddingLeft: 10, marginRight: 4 }}>
                     {getIconButton({
-                        icon: 'GridOn',
+                        icon: 'ViewList',
                         favoriteId,
                         type,
                         targetType: 'REPORT_TABLE',
                         onButtonClick,
-                        style: { width: 20, height: 20 },
+                        //style: { width: 25, height: 25 },
                     })}
                 </div>
                 <div style={{ marginRight: 4 }}>
@@ -66,12 +66,12 @@ class ItemHeader extends Component {
                         type,
                         targetType: 'CHART',
                         onButtonClick,
-                        style: { width: 22, height: 22 },
+                        //style: { width: 22, height: 22 },
                     })}
                 </div>
                 {getIconButton({
                     icon: 'Public',
-                    style: { width: 20, height: 20 },
+                    //style: { width: 20, height: 20 },
                 })}
             </div>
         );
