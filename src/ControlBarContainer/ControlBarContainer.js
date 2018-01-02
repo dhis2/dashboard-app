@@ -78,7 +78,6 @@ const ControlBarComponent = ({
                                 avatar={
                                     dashboard.name !== 'bpiwgwg' ? 'star' : ''
                                 }
-                                color="primary"
                             />
                         </div>
                     ))
