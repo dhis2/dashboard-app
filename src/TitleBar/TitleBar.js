@@ -40,7 +40,7 @@ const styles = {
     title: {
         marginRight: 20,
         position: 'relative',
-        top: 2,
+        top: 1,
     },
     textLink: {
         fontSize: 15,
@@ -77,7 +77,7 @@ const TitleBar = ({
                     name={name}
                     onBlur={onBlur}
                     disabled={!edit}
-                    placeholder={'Unnamed dashboard'}
+                    placeholder={'Untitled'}
                 />
             </div>
             <div style={styles.titleBarIcon}>
