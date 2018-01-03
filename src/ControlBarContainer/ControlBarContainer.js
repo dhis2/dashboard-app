@@ -12,10 +12,14 @@ import {
     tSetControlBarRows,
     acSetFilterName,
 } from '../actions';
-import * as fromSelected from '../reducers/selected';
-import * as fromFilter from '../reducers/filter';
-import { orArray, orObject } from '../util';
-import { fromDashboards } from '../reducers/index';
+import { orObject } from '../util';
+import { fromDashboards, fromSelected, fromFilter } from '../reducers';
+import {
+    blue400,
+    blue200,
+    blue600,
+    blue800,
+} from '../../../d2-ui/node_modules/material-ui/styles/colors';
 
 const styles = {
     scrollWrapper: {
@@ -37,12 +41,12 @@ const styles = {
 };
 
 export const controlBarRowHeight = 36;
-const expandedRowCount = 15;
+const expandedRowCount = 12;
 
 const getInnerHeight = (isExpanded, rows) =>
     (isExpanded ? expandedRowCount : rows) * controlBarRowHeight;
 const getOuterHeight = (isExpanded, rows) =>
-    getInnerHeight(isExpanded, rows) + 42;
+    getInnerHeight(isExpanded, rows) + 22;
 
 const ControlBarComponent = ({
     dashboards,
@@ -73,29 +77,28 @@ const ControlBarComponent = ({
                         <SvgIcon icon="ViewList" />
                     </Button>
                 </div>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() =>
-                    dashboards.map(dashboard => (
-                        <div
-                            key={dashboard.id}
-                            style={{
-                                display: 'inline-block',
-                                height: 36,
-                            }}
-                        >
-                            <Chip
-                                label={dashboard.name}
-                                avatar={
-                                    dashboard.name !== 'bpiwgwg' ? 'star' : ''
-                                }
-                            />
-                        </div>
-                    ))
-                )}
+                {dashboards.map(dashboard => (
+                    <Chip
+                        key={dashboard.id}
+                        label={dashboard.name}
+                        avatar={dashboard.starred ? 'star' : null}
+                    />
+                ))}
             </div>
             <div style={styles.expandButtonWrap}>
-                <Button onClick={onToggleExpanded} color="primary">
-                    {isExpanded ? 'Collapse' : 'Enlarge'}
-                </Button>
+                <div
+                    onClick={onToggleExpanded}
+                    style={{
+                        paddingTop: 4,
+                        fontSize: 11,
+                        fontWeight: 500,
+                        color: blue800,
+                        textTransform: 'uppercase',
+                        cursor: 'pointer',
+                    }}
+                >
+                    {isExpanded ? 'Show less' : 'Show more'}
+                </div>
             </div>
         </ControlBar>
     );
@@ -107,28 +110,27 @@ const mapStateToProps = state => {
 
     const dashboards = Object.values(
         orObject(fromDashboards.sGetFromState(state))
-    );
+    ).filter(d => d.name.toLowerCase().indexOf(sGetFilterName(state)) !== -1);
 
     return {
-        state,
-        props: {
-            dashboards: dashboards.filter(
-                d => d.name.indexOf(sGetFilterName(state)) !== -1
-            ),
-            rows: (state.controlBar && state.controlBar.rows) || 1,
-            isExpanded:
-                state.controlBar.expanded &&
-                state.controlBar.rows < expandedRowCount,
-            editMode: sGetSelectedEdit(state),
-        },
+        dashboards: [
+            ...dashboards.filter(d => d.starred),
+            ...dashboards.filter(d => !d.starred),
+        ],
+        rows: (state.controlBar && state.controlBar.rows) || 1,
+        isExpanded:
+            state.controlBar.expanded &&
+            state.controlBar.rows < expandedRowCount,
+        editMode: sGetSelectedEdit(state),
     };
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const dispatch = dispatchProps.dispatch;
+    const { dispatch } = dispatchProps;
+    const { rows, isExpanded } = stateProps;
 
     return {
-        ...stateProps.props,
+        ...stateProps,
         ...ownProps,
         onChangeHeight: stateProps.isExpanded
             ? null
@@ -138,12 +140,12 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
                       Math.floor((newHeight - 24) / controlBarRowHeight)
                   );
 
-                  if (newRows !== stateProps.rows) {
+                  if (newRows !== rows) {
                       dispatch(tSetControlBarRows(newRows));
                   }
               },
         onToggleExpanded: () => {
-            dispatch(tSetControlBarExpanded(!stateProps.isExpanded));
+            dispatch(tSetControlBarExpanded(!isExpanded));
         },
         onFilterName: name => dispatch(acSetFilterName(name)),
     };

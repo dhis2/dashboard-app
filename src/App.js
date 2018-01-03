@@ -36,7 +36,7 @@ const DynamicTopMarginContainer = ({ marginTop, children }) => (
     </div>
 );
 const PageContainer = connect(state => ({
-    marginTop: state.controlBar.rows * controlBarRowHeight + 100,
+    marginTop: state.controlBar.rows * controlBarRowHeight + 80,
 }))(DynamicTopMarginContainer);
 
 // App
