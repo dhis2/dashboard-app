@@ -1,5 +1,4 @@
 .dashboard-title {
-    border: 0 none;
     font-size: 21px;
     font-weight: 500;
     color: #333333;
@@ -9,10 +8,5 @@
 
 .dashboard-title:focus {
     outline: 0 none;
-    border: 0 none;
     color: #666;
-}
-
-.dashboard-title:before {
-    content: ' ';
 }

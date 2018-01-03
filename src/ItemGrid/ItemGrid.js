@@ -53,7 +53,7 @@ export class ItemGrid extends Component {
         }
     }
     componentWillUpdate() {
-        console.log('CWU');
+        //console.log('CWU');
     }
 
     state = {

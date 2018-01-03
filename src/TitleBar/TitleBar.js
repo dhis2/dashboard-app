@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
-import Title from './Title';
 import Info from './Info';
 import D2TextLink from '../widgets/D2TextLink';
+import D2ContentEditable from '../widgets/D2ContentEditable';
 import * as fromReducers from '../reducers';
 import { orObject, orArray } from '../util';
 import {
@@ -17,6 +17,8 @@ import { sGetSelectedId } from '../reducers/selected';
 import { sGetSelectedDashboard } from '../reducers';
 import { getYMax } from '../ItemGrid/gridUtil';
 
+import './TitleBar.css';
+
 // Component
 
 const styles = {
@@ -25,16 +27,20 @@ const styles = {
     },
     titleBar: {
         display: 'flex',
-        alignItems: 'baseline',
+        alignItems: 'flex-end',
     },
     titleBarIcon: {
-        alignSelf: 'flex-end',
         marginLeft: 5,
         position: 'relative',
-        top: 1,
+        top: 5,
     },
     titleBarLink: {
         marginLeft: 20,
+    },
+    title: {
+        marginRight: 20,
+        position: 'relative',
+        top: 2,
     },
     textLink: {
         fontSize: 15,
@@ -65,12 +71,13 @@ const TitleBar = ({
 }) => (
     <div className="titlebar-wrapper" style={styles.titleBarWrapper}>
         <div className="titlebar" style={styles.titleBar}>
-            <div>
-                <Title
+            <div style={styles.title}>
+                <D2ContentEditable
+                    className="dashboard-title"
                     name={name}
-                    description={description}
-                    edit={edit}
-                    starred={starred}
+                    onBlur={onBlur}
+                    disabled={!edit}
+                    placeholder={'Unnamed dashboard'}
                 />
             </div>
             <div style={styles.titleBarIcon}>
@@ -127,14 +134,18 @@ TitleBar.propTypes = {
     edit: PropTypes.bool,
     showDescripton: PropTypes.bool,
     onBlur: PropTypes.func,
-    onEditClick: PropTypes.func,
+    onEditClick: PropTypes.func.isRequired,
     onInfoClick: PropTypes.func,
-    onAddClick: PropTypes.func,
 };
 
 TitleBar.defaultProps = {
     name: '',
     description: '',
+    starred: false,
+    edit: false,
+    showDescripton: false,
+    onBlur: null,
+    onInfoClick: null,
 };
 
 // Container
@@ -190,7 +201,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             ),
     };
 
-    console.log('P', p);
+    console.log('TITLEBAR props', p);
     return p;
 };
 
