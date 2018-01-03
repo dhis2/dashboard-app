@@ -1,17 +1,9 @@
-[contenteditable='true']:empty:not(:focus):before {
+[contenteditable='true']:empty:before {
     content: attr(data-text);
     color: #999;
     font-weight: 400;
 }
 
 [contenteditable='true'] {
-    border-bottom: 1px solid #444;
-}
-
-[contenteditable='true']:focus {
-    border-bottom: 1px solid #888;
-}
-
-[contenteditable='false'] {
-    border-bottom: 1px solid transparent;
+    cursor: text;
 }
