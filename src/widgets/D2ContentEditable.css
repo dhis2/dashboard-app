@@ -1,0 +1,9 @@
+[contenteditable='true']:empty:before {
+    content: attr(data-text);
+    color: #999;
+    font-weight: 400;
+}
+
+[contenteditable='true'] {
+    cursor: text;
+}
