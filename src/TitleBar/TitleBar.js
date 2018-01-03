@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
+import './TitleBar.css';
+
 import Info from './Info';
 import D2TextLink from '../widgets/D2TextLink';
 import D2ContentEditable from '../widgets/D2ContentEditable';
@@ -16,8 +18,6 @@ import {
 import { sGetSelectedId } from '../reducers/selected';
 import { sGetSelectedDashboard } from '../reducers';
 import { getYMax } from '../ItemGrid/gridUtil';
-
-import './TitleBar.css';
 
 // Component
 
@@ -174,7 +174,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     dispatch,
     props: {
-        onBlur: e => console.log('dashboard name: ', e.target.value),
+        onBlur: name => console.log('dashboard name: ', name),
         onEditClick: () => dispatch(acSetSelectedEdit(true)),
         onInfoClick: isShow => dispatch(acSetSelectedShowDescription(isShow)),
     },
