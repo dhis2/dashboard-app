@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
@@ -6,8 +7,15 @@ import Button from 'd2-ui/lib/button/Button';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import Chip from 'd2-ui/lib/chip/Chip';
 
-import { tSetControlBarExpanded, tSetControlBarRows } from '../actions';
+import {
+    tSetControlBarExpanded,
+    tSetControlBarRows,
+    acSetFilterName,
+} from '../actions';
 import * as fromSelected from '../reducers/selected';
+import * as fromFilter from '../reducers/filter';
+import { orArray, orObject } from '../util';
+import { fromDashboards } from '../reducers/index';
 
 const styles = {
     scrollWrapper: {
@@ -43,6 +51,7 @@ const ControlBarComponent = ({
     isExpanded,
     onToggleExpanded,
     editMode,
+    onFilterName,
 }) => {
     const contentWrapperStyle = Object.assign({}, styles.scrollWrapper, {
         height: getInnerHeight(isExpanded, rows),
@@ -57,7 +66,7 @@ const ControlBarComponent = ({
             <div style={contentWrapperStyle}>
                 <div style={styles.leftControls}>
                     <Button onClick={() => {}}>+</Button>
-                    <span>Search box __________</span>
+                    <input onKeyUp={e => onFilterName(e.target.value)} />
                 </div>
                 <div style={styles.rightControls}>
                     <Button onClick={() => {}}>
@@ -94,45 +103,52 @@ const ControlBarComponent = ({
 
 const mapStateToProps = state => {
     const { sGetSelectedEdit } = fromSelected;
+    const { sGetFilterName } = fromFilter;
+
+    const dashboards = Object.values(
+        orObject(fromDashboards.sGetFromState(state))
+    );
 
     return {
-        dashboards: (state.dashboards && Object.values(state.dashboards)) || [],
-        rows: (state.controlBar && state.controlBar.rows) || 1,
-        isExpanded:
-            state.controlBar.expanded &&
-            state.controlBar.rows < expandedRowCount,
-        editMode: sGetSelectedEdit(state),
+        state,
+        props: {
+            dashboards: dashboards.filter(
+                d => d.name.indexOf(sGetFilterName(state)) !== -1
+            ),
+            rows: (state.controlBar && state.controlBar.rows) || 1,
+            isExpanded:
+                state.controlBar.expanded &&
+                state.controlBar.rows < expandedRowCount,
+            editMode: sGetSelectedEdit(state),
+        },
     };
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const dispatch = dispatchProps.dispatch;
 
-    return Object.assign(
-        stateProps,
-        dispatchProps,
-        ownProps,
-        stateProps.isExpanded
-            ? {}
-            : {
-                  onChangeHeight: newHeight => {
-                      const newRows = Math.max(
-                          1,
-                          Math.floor((newHeight - 24) / controlBarRowHeight)
-                      );
+    return {
+        ...stateProps.props,
+        ...ownProps,
+        onChangeHeight: stateProps.isExpanded
+            ? null
+            : newHeight => {
+                  const newRows = Math.max(
+                      1,
+                      Math.floor((newHeight - 24) / controlBarRowHeight)
+                  );
 
-                      if (newRows !== stateProps.rows) {
-                          dispatch(tSetControlBarRows(newRows));
-                      }
-                  },
+                  if (newRows !== stateProps.rows) {
+                      dispatch(tSetControlBarRows(newRows));
+                  }
               },
-        {
-            onToggleExpanded: () => {
-                dispatch(tSetControlBarExpanded(!stateProps.isExpanded));
-            },
-        }
-    );
+        onToggleExpanded: () => {
+            dispatch(tSetControlBarExpanded(!stateProps.isExpanded));
+        },
+        onFilterName: name => dispatch(acSetFilterName(name)),
+    };
 };
+
 export const ControlBarContainer = connect(mapStateToProps, null, mergeProps)(
     ControlBarComponent
 );

@@ -78,9 +78,9 @@ export const sGetSelectedDashboard = state =>
 export const sGetFilteredDashboards = state => {
     const dashboards = fromDashboards.sGetFromState(state);
 
-    const nameFilter = fromFilter.sGetName(state);
-    const ownerFilter = fromFilter.sGetOwner(state);
-    const orderFilter = fromFilter.sGetOrder(state);
+    const nameFilter = fromFilter.sGetFilterName(state);
+    const ownerFilter = fromFilter.sGetFilterOwner(state);
+    const orderFilter = fromFilter.sGetFilterOrder(state);
 
     return sApplyOrderFilter(
         sApplyNameFilter(
