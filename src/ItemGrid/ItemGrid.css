@@ -1,9 +1,6 @@
 /* react-grid-layout style */
 
 .react-grid-item {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden !important;
     border: 0px solid #e1e1e1;
     box-shadow: 0px 0px 1px 1px #aaaaaa;
     background-color: #ffffff;

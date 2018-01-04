@@ -16,6 +16,11 @@ import * as fromReducers from '../../reducers';
 const { sGetSelectedDashboard } = fromReducers;
 
 const style = {
+    container: {
+        overflowY: 'scroll',
+        height: 320,
+        padding: 5,
+    },
     list: {
         listStyleType: 'none',
     },
@@ -87,12 +92,16 @@ class Interpretations extends Component {
     };
 
     componentWillMount() {
+        console.log('componentWillMount');
+
         this.loadInterpretations();
     }
 
-    componentWillReceiveProps() {
-        this.loadInterpretations();
-    }
+    // componentWillReceiveProps() {
+    //     console.log('componentWillReceiveProps');
+
+    //     this.loadInterpretations();
+    // }
 
     renderItems() {
         let Items = null;
@@ -152,7 +161,7 @@ class Interpretations extends Component {
         const Items = this.renderItems();
 
         return (
-            <div>
+            <div style={style.container}>
                 <h3 style={style.title}>
                     Interpretations ({this.props.ids.length})
                 </h3>

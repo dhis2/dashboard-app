@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
-import Dialog from 'material-ui/Dialog';
 import Interpretations from './Interpretations/Interpretations';
+
+const style = {
+    container: {
+        padding: 5,
+    },
+};
 
 const extractInterpretations = item => {
     switch (item.type) {
@@ -34,18 +39,15 @@ class ItemFooter extends Component {
         });
 
         return (
-            <Dialog
-                modal={false}
-                open={this.props.show}
-                autoScrollBodyContent={true}
-                onRequestClose={this.props.onToggleInterpretations}
-            >
-                <Interpretations
-                    objectType={this.props.item.type}
-                    objectId={objectId}
-                    ids={ids}
-                />
-            </Dialog>
+            <div style={style.container}>
+                {this.props.showInterpretations ? (
+                    <Interpretations
+                        objectType={this.props.item.type}
+                        objectId={objectId}
+                        ids={ids}
+                    />
+                ) : null}
+            </div>
         );
     }
 }

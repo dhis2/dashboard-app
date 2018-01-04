@@ -90,7 +90,7 @@ export class ItemGrid extends Component {
             let hProp = { h: item.h };
 
             if (expandedItem && expandedItem === true) {
-                hProp.h = item.h * 2;
+                hProp.h = item.h + 20;
             }
 
             return Object.assign({}, item, hProp, {
@@ -124,6 +124,7 @@ export class ItemGrid extends Component {
                                 <div key={item.i} className={item.type}>
                                     <Item
                                         item={item}
+                                        editMode={edit}
                                         onButtonClick={onButtonClick}
                                         onToggleItemFooter={
                                             this.onToggleItemFooter
