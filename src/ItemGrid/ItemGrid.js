@@ -53,7 +53,7 @@ export class ItemGrid extends Component {
         }
     }
     componentWillUpdate() {
-        console.log('CWU');
+        //console.log('CWU');
     }
 
     state = {
@@ -141,6 +141,27 @@ ItemGrid.defaultProps = {
 
 const currentItemTypeMap = {}; //TODO: improve
 
+const onButtonClick = (id, type, targetType) => {
+    const plugin = getPluginByType(targetType);
+
+    apiFetchFavorite(id, type).then(favorite => {
+        const itemConfig = getPluginItemConfig(favorite, true);
+
+        plugin.load(itemConfig);
+
+        currentItemTypeMap[id] = targetType;
+    });
+};
+
+const onItemResize = id => {
+    if (
+        [undefined, 'CHART', 'EVENT_CHART'].indexOf(currentItemTypeMap[id]) !==
+        -1
+    ) {
+        onPluginItemResize(id);
+    }
+};
+
 const mapStateToProps = state => {
     const { sGetSelectedDashboard } = fromReducers;
     const { sGetSelectedIsLoading, sGetSelectedEdit } = fromSelected;
@@ -152,26 +173,8 @@ const mapStateToProps = state => {
         dashboardItems,
         isLoading: sGetSelectedIsLoading(state),
         edit: sGetSelectedEdit(state),
-        onButtonClick: (id, type, targetType) => {
-            const plugin = getPluginByType(targetType);
-
-            apiFetchFavorite(id, type).then(favorite => {
-                const itemConfig = getPluginItemConfig(favorite, true);
-
-                plugin.load(itemConfig);
-
-                currentItemTypeMap[id] = targetType;
-            });
-        },
-        onItemResize: id => {
-            if (
-                [undefined, 'CHART', 'EVENT_CHART'].indexOf(
-                    currentItemTypeMap[id]
-                ) !== -1
-            ) {
-                onPluginItemResize(id);
-            }
-        },
+        onButtonClick,
+        onItemResize,
     };
 };
 

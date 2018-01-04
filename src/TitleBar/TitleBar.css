@@ -1,0 +1,11 @@
+.dashboard-title {
+    font-size: 21px;
+    font-weight: 500;
+    color: #333333;
+    min-width: 80px;
+}
+
+.dashboard-title:focus {
+    outline: 0 none;
+    color: #666;
+}
