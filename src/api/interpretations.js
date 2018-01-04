@@ -12,9 +12,17 @@ export const getInterpretation = id => {
 };
 
 export const postInterpretation = data => {
-    const url = `/interpretations/${data.objectType}/${data.objectId}`;
+    const url = `/interpretations/${data.objectType.toLowerCase()}/${
+        data.objectId
+    }`;
+    const options = {
+        headers: {
+            'Content-Type': 'text/plain',
+        },
+    };
+
     return getInstance()
-        .then(d2 => d2.Api.getApi().post(url, data.text))
+        .then(d2 => d2.Api.getApi().post(url, data.text, options))
         .catch(onError);
 };
 

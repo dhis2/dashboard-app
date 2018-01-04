@@ -5,20 +5,6 @@ import ItemFooter from './ItemFooter';
 
 import { getFavoriteObjectFromItem } from '../ItemGrid/pluginUtil';
 
-const extractInterpretations = item => {
-    switch (item.type) {
-        case 'CHART':
-            return item.chart.interpretations;
-            break;
-        case 'REPORT_TABLE':
-            return item.reportTable.interpretations;
-            break;
-        default:
-            return [];
-            break;
-    }
-};
-
 const ReactFragment = props => props.children;
 
 class Item extends Component {
@@ -46,7 +32,7 @@ class Item extends Component {
                 />
                 <div id={pluginId} className="dashboard-item-content" />
                 <ItemFooter
-                    interpretations={extractInterpretations(item)}
+                    item={item}
                     show={this.state.showInterpretations}
                     onToggleInterpretations={this.onToggleInterpretations}
                 />

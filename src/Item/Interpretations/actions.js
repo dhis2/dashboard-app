@@ -1,107 +1,95 @@
 import { actionTypes } from '../../reducers/interpretations';
 import {
-    postInterpretationComment,
     postInterpretationLike,
     deleteInterpretationLike,
+    getInterpretation,
+    postInterpretation,
 } from '../../api/interpretations';
 
 import { tSetSelectedDashboardById } from '../../actions';
 
-//action creators
+// action creators
 
 export const addInterpretation = value => ({
     type: actionTypes.ADD_INTERPRETATION,
     value,
 });
 
-export const editInterpretation = (id, text) => ({
-    type: actionTypes.EDIT_INTERPRETATION,
-    value: { id, text },
-});
-
-export const deleteInterpretation = id => ({
-    type: actionTypes.DELETE_INTERPRETATION,
-    value: id,
-});
-
-export const addInterpretationComment = value => ({
-    type: actionTypes.ADD_INTERPRETATION_COMMENT,
+export const addInterpretations = value => ({
+    type: actionTypes.ADD_INTERPRETATIONS,
     value,
 });
 
-export const editInterpretationComment = (id, text) => ({
-    type: actionTypes.EDIT_INTERPRETATION_COMMENT,
-    value: { id, text },
-});
+// error function for all!
 
-export const deleteInterpretationComment = id => ({
-    type: actionTypes.DELETE_INTERPRETATION_COMMENT,
-    value: id,
-});
+const onError = (action, error) => {
+    console.log(`Error in action ${action}: ${error}`);
+    return error;
+};
 
-export const likeInterpretation = id => ({
-    type: actionTypes.LIKE_INTERPRETATION,
-    value: id,
-});
+// thunks
 
-export const unlikeInterpretation = id => ({
-    type: actionTypes.UNLIKE_INTERPRETATION,
-    value: id,
-});
-
-//thunks
-
-export const tLikeInterpretation = data => async dispatch => {
+export const tLikeInterpretation = id => async dispatch => {
     const onSuccess = res => {
-        return dispatch(tSetSelectedDashboardById(data.dashboardId));
-    };
-
-    const onError = error => {
-        console.log('Error (likeInterpretation): ', error);
-        return error;
+        return getInterpretation(id).then(interpretation => {
+            return dispatch(addInterpretation(interpretation));
+        });
     };
 
     try {
-        const result = await postInterpretationLike(data.interpretationId);
+        const result = await postInterpretationLike(id);
         return onSuccess(result);
     } catch (err) {
-        return onError(err);
+        return onError('Like Interpretation', err);
     }
 };
 
-export const tUnlikeInterpretation = data => async dispatch => {
+export const tUnlikeInterpretation = id => async dispatch => {
     const onSuccess = res => {
-        return dispatch(tSetSelectedDashboardById(data.dashboardId));
-    };
-
-    const onError = error => {
-        console.log('Error (unlikeInterpretation): ', error);
-        return error;
+        return getInterpretation(id).then(interpretation => {
+            return dispatch(addInterpretation(interpretation));
+        });
     };
 
     try {
-        const res = await deleteInterpretationLike(data.interpretationId);
+        const res = await deleteInterpretationLike(id);
         return onSuccess(res);
     } catch (err) {
-        return onError(err);
+        return onError('Unlike Interpretation', err);
     }
 };
 
-// export const tAddInterpretationComment = () => async (dispatch, getState) => {
-//     const onSuccess = data => {
-//         dispatch(acSetDashboards(data.toArray()));
-//         return data;
-//     };
+export const tGetInterpretations = ids => async dispatch => {
+    const onSuccess = interpretations => {
+        return dispatch(addInterpretations(interpretations));
+    };
 
-//     const onError = error => {
-//         console.log('Error (addInterpretationComment): ', error);
-//         return error;
-//     };
+    try {
+        const promises = [];
+        ids.forEach(id =>
+            promises.push(
+                new Promise(resolve => {
+                    getInterpretation(id).then(response => resolve(response));
+                })
+            )
+        );
 
-//     try {
-//         const collection = await apiFetchDashboards();
-//         return onSuccess(collection);
-//     } catch (err) {
-//         return onError(err);
-//     }
-// };
+        const interpretations = await Promise.all(promises);
+        return onSuccess(interpretations);
+    } catch (err) {
+        return onError('Get Interpretation', err);
+    }
+};
+
+export const tPostInterpretation = (data, dashboardId) => async dispatch => {
+    const onSuccess = res => {
+        return dispatch(tSetSelectedDashboardById(dashboardId));
+    };
+
+    try {
+        const res = await postInterpretation(data);
+        return onSuccess(res);
+    } catch (err) {
+        return onError('Post Interpretation', err);
+    }
+};
