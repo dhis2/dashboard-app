@@ -33,22 +33,24 @@ describe('dashboards reducer', () => {
 
     it('should return the appended list of dashboards', () => {
         const currentState = {
-            'a': {
+            a: {
                 id: 'a',
             },
         };
 
-        const actionValue = [{
-            'b': {
-                id: 'b',
+        const actionValue = [
+            {
+                b: {
+                    id: 'b',
+                },
             },
-        }];
+        ];
 
         const expectedState = {
-            'a': {
+            a: {
                 id: 'a',
             },
-            'b': {
+            b: {
                 id: 'b',
             },
         };
