@@ -149,8 +149,6 @@ class Interpretations extends Component {
     }
 
     render() {
-        console.log('Interpretations render');
-
         const Items = this.renderItems();
 
         return (

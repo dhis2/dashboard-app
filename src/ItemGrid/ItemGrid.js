@@ -86,11 +86,10 @@ export class ItemGrid extends Component {
         }
 
         this.pluginItems = dashboardItems.map((item, index) => {
-            const expandedItems = this.state.expandedItems;
-            const itemId = getFavoriteObjectFromItem(item).id;
+            const expandedItem = this.state.expandedItems[item.id];
             let hProp = { h: item.h };
 
-            if (expandedItems[item.id] && expandedItems[item.id] === true) {
+            if (expandedItem && expandedItem === true) {
                 hProp.h = item.h * 2;
             }
 
@@ -133,7 +132,6 @@ export class ItemGrid extends Component {
                                 </div>
                             );
                         })}
-                    {}
                 </ReactGridLayout>
             </div>
         );

@@ -16,6 +16,7 @@ class Item extends Component {
         this.setState({ showInterpretations: !this.state.showInterpretations });
         this.props.onToggleItemFooter(this.props.item.id);
     };
+
     render() {
         const item = this.props.item;
         const favorite = getFavoriteObjectFromItem(item);
