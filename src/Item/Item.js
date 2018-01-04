@@ -8,13 +8,8 @@ import { getFavoriteObjectFromItem } from '../ItemGrid/pluginUtil';
 const ReactFragment = props => props.children;
 
 const style = {
-    flexContainer: {
-        display: 'flex',
-        flexDirection: 'column',
-        overflow: 'hidden !important',
-    },
-    flexItem: {
-        flex: 1,
+    itemFooter: {
+        flex: '0 0 320',
     },
 };
 
@@ -35,18 +30,17 @@ class Item extends Component {
 
         return (
             <ReactFragment>
-                <div style={style.flexContainer}>
-                    <ItemHeader
-                        type={item.type}
-                        favoriteId={favorite.id}
-                        favoriteName={favorite.name}
-                        onButtonClick={this.props.onButtonClick}
-                        onInterpretationsClick={this.onToggleInterpretations}
-                    />
-                    <div id={pluginId} className="dashboard-item-content" />
-                </div>
+                <ItemHeader
+                    type={item.type}
+                    favoriteId={favorite.id}
+                    favoriteName={favorite.name}
+                    onButtonClick={this.props.onButtonClick}
+                    onInterpretationsClick={this.onToggleInterpretations}
+                />
+                <div id={pluginId} className="dashboard-item-content" />
                 {!this.props.editMode ? (
                     <ItemFooter
+                        style={style.itemFooter}
                         item={item}
                         showInterpretations={this.state.showInterpretations}
                         onToggleInterpretations={this.onToggleInterpretations}
