@@ -1,5 +1,4 @@
 import { actionTypes } from '../../reducers/interpretations';
-import { postInterpretationComment } from '../../api/interpretations';
 
 //action creators
 
@@ -42,24 +41,3 @@ export const unlikeInterpretation = id => ({
     type: actionTypes.UNLIKE_INTERPRETATION,
     value: id,
 });
-
-//thunks
-
-export const tAddInterpretationComment = () => async (dispatch, getState) => {
-    const onSuccess = data => {
-        dispatch(acSetDashboards(data.toArray()));
-        return data;
-    };
-
-    const onError = error => {
-        console.log('Error (addInterpretationComment): ', error);
-        return error;
-    };
-
-    try {
-        const collection = await apiFetchDashboards();
-        return onSuccess(collection);
-    } catch (err) {
-        return onError(err);
-    }
-};
