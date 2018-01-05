@@ -1,19 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getInstance } from 'd2/lib/d2';
-
 import TextField from 'd2-ui/lib/text-field/TextField';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
-import {
-    tLikeInterpretation,
-    tUnlikeInterpretation,
-    tGetInterpretations,
-    tPostInterpretation,
-} from './actions';
-
+import Interpretation from './Interpretation';
+import { tGetInterpretations, tPostInterpretation } from './actions';
 import * as fromReducers from '../../reducers';
-const { sGetSelectedDashboard } = fromReducers;
 
 const style = {
     container: {
@@ -29,33 +20,11 @@ const style = {
         marginBottom: 10,
         paddingBottom: 10,
     },
-    author: {
-        fontWeight: 'bold',
-    },
-    created: {
-        float: 'right',
-    },
-    text: {},
-    reply: {},
 };
 
 class Interpretations extends Component {
     state = {
         newInterpretationText: '',
-    };
-
-    toggleInterpretationLike = id => {
-        getInstance()
-            .then(d2 => d2.currentUser)
-            .then(user => {
-                const liked = this.props.interpretations[id].likedBy.find(
-                    liker => liker.id === user.id
-                );
-
-                liked
-                    ? this.props.unlikeInterpretation(id)
-                    : this.props.likeInterpretation(id);
-            });
     };
 
     updateNewInterpretationText = newInterpretationText => {
@@ -93,63 +62,22 @@ class Interpretations extends Component {
 
     componentWillMount() {
         console.log('componentWillMount');
-
         this.loadInterpretations();
     }
 
     // componentWillReceiveProps() {
     //     console.log('componentWillReceiveProps');
-
     //     this.loadInterpretations();
     // }
 
     renderItems() {
         let Items = null;
         if (this.interpretationsLoaded()) {
-            const interpretationBody = item => {
-                return (
-                    <div>
-                        <div>
-                            <span style={style.author}>
-                                {item.user.displayName}
-                            </span>
-                            <span style={style.created}>{item.created}</span>
-                        </div>
-                        <p style={style.text}>{item.text}</p>
-                    </div>
-                );
-            };
-
             Items = this.props.ids.map((id, i) => {
                 const item = this.props.interpretations[id];
-                const comments = item.comments.map(comment => (
-                    <li key={comment.id}>{interpretationBody(comment)}</li>
-                ));
-
                 return (
-                    <li style={style.item} key={item.id}>
-                        {interpretationBody(item)}
-                        <div>
-                            <button>
-                                <SvgIcon icon="Launch" />
-                                View in Visualizer
-                            </button>
-                            <button style={style.reply}>
-                                <SvgIcon icon="Reply" />
-                                Reply
-                            </button>
-                            <button
-                                style={style.like}
-                                onClick={() =>
-                                    this.toggleInterpretationLike(item.id)
-                                }
-                            >
-                                <SvgIcon icon="ThumbUp" />
-                                Like
-                            </button>
-                            <span>{item.likedBy.length} likes</span>
-                        </div>
-                        <ul style={style.list}>{comments}</ul>
+                    <li style={style.item} key={this.props.interpretations[id]}>
+                        <Interpretation item={item} />
                     </li>
                 );
             });
@@ -158,14 +86,12 @@ class Interpretations extends Component {
     }
 
     render() {
-        const Items = this.renderItems();
-
         return (
             <div style={style.container}>
                 <h3 style={style.title}>
                     Interpretations ({this.props.ids.length})
                 </h3>
-                <ul style={style.list}>{Items}</ul>
+                <ul style={style.list}>{this.renderItems()}</ul>
                 <div>
                     <TextField onChange={this.updateNewInterpretationText} />
                     <button onClick={this.postInterpretation}>POST</button>
@@ -177,6 +103,8 @@ class Interpretations extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     const { fromInterpretations } = fromReducers;
+    const { sGetSelectedDashboard } = fromReducers;
+
     const dashboardId = sGetSelectedDashboard(state).id;
     return {
         dashboardId,
@@ -189,8 +117,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        likeInterpretation: data => dispatch(tLikeInterpretation(data)),
-        unlikeInterpretation: data => dispatch(tUnlikeInterpretation(data)),
         getInterpretations: ids => dispatch(tGetInterpretations(ids)),
         postInterpretation: (data, dashboardId) =>
             dispatch(tPostInterpretation(data, dashboardId)),

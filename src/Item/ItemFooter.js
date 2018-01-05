@@ -31,9 +31,9 @@ const extractObjectId = item => {
 
 class ItemFooter extends Component {
     render() {
+        const objectId = extractObjectId(this.props.item);
         const ids = [];
         const interpretations = extractInterpretations(this.props.item);
-        const objectId = extractObjectId(this.props.item);
         interpretations.forEach(element => {
             ids.push(element.id);
         });
