@@ -60,13 +60,13 @@ class Interpretations extends Component {
         }
     };
 
-    componentWillMount() {
-        console.log('componentWillMount');
+    componentDidMount() {
+        console.log('componentDidMount');
         this.loadInterpretations();
     }
 
-    // componentWillReceiveProps() {
-    //     console.log('componentWillReceiveProps');
+    // componentDidUpdate() {
+    //     console.log('componentDidUpdate');
     //     this.loadInterpretations();
     // }
 
@@ -76,7 +76,7 @@ class Interpretations extends Component {
             Items = this.props.ids.map((id, i) => {
                 const item = this.props.interpretations[id];
                 return (
-                    <li style={style.item} key={this.props.interpretations[id]}>
+                    <li style={style.item} key={item.id}>
                         <Interpretation item={item} />
                     </li>
                 );

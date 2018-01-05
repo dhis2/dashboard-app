@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getInstance } from 'd2/lib/d2';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import TextField from 'd2-ui/lib/text-field/TextField';
+import Button from 'd2-ui/lib/button/Button';
 
-import { tLikeInterpretation, tUnlikeInterpretation } from './actions';
+import {
+    tLikeInterpretation,
+    tUnlikeInterpretation,
+    tAddInterpretationComment,
+    tDeleteInterpretationComment,
+} from './actions';
 
 const style = {
     author: {
@@ -13,27 +20,66 @@ const style = {
         float: 'right',
     },
     text: {},
-    reply: {},
+    link: {
+        background: 'none !important',
+        color: 'inherit',
+        border: 'none',
+        padding: '0 !important',
+        font: 'inherit',
+        textDecoration: 'underline',
+        cursor: 'pointer',
+    },
+    list: {
+        listStyleType: 'none',
+    },
 };
 
 class Interpretation extends Component {
-    toggleInterpretationLike = id => {
-        getInstance()
-            .then(d2 => d2.currentUser)
-            .then(user => {
-                const liked = this.props.item.likedBy.find(
-                    liker => liker.id === user.id
-                );
-
-                liked
-                    ? this.props.unlikeInterpretation(id)
-                    : this.props.likeInterpretation(id);
-            });
+    state = {
+        showCommentField: false,
+        commentText: '',
     };
+
+    toggleInterpretationLike = () => {
+        const item = this.props.item;
+        const liked = item.likedBy.find(liker => this.userIsOwner(liker.id));
+
+        liked
+            ? this.props.unlikeInterpretation(item.id)
+            : this.props.likeInterpretation(item.id);
+    };
+
+    showCommentField = () => {
+        this.setState({ showCommentField: true });
+    };
+
+    postComment = () => {
+        const data = {
+            id: this.props.item.id,
+            text: this.state.commentText,
+        };
+        this.props.addComment(data);
+        this.setState({ showCommentField: false });
+        this.setState({ commentText: '' });
+    };
+
+    deleteComment = commentId => {
+        const data = {
+            id: this.props.item.id,
+            commentId,
+        };
+
+        this.props.deleteComment(data);
+    };
+
+    onChangeCommentText = commentText => {
+        this.setState({ commentText });
+    };
+
+    userIsOwner = id => id === this.context.d2.currentUser.id;
 
     render() {
         const item = this.props.item;
-
         const interpretationBody = item => {
             return (
                 <div>
@@ -49,26 +95,35 @@ class Interpretation extends Component {
         };
 
         const comments = item.comments.map(comment => (
-            <li key={comment.id}>{interpretationBody(comment)}</li>
+            <li key={comment.id}>
+                <div>
+                    {this.userIsOwner(comment.user.id) ? (
+                        <span onClick={() => this.deleteComment(comment.id)}>
+                            <SvgIcon icon="Delete" />
+                        </span>
+                    ) : null}
+                    <span style={style.author}>{comment.user.displayName}</span>
+                    <span style={style.created}>{comment.created}</span>
+                </div>
+                <p style={style.text}>{comment.text}</p>
+            </li>
         ));
-
-        // return <div />;
 
         return (
             <div>
                 {interpretationBody(item)}
                 <div>
-                    <button>
+                    <button style={style.link}>
                         <SvgIcon icon="Launch" />
                         View in Visualizer
                     </button>
-                    <button style={style.reply}>
+                    <button style={style.link} onClick={this.showCommentField}>
                         <SvgIcon icon="Reply" />
                         Reply
                     </button>
                     <button
-                        style={style.like}
-                        onClick={() => this.toggleInterpretationLike(item.id)}
+                        style={style.link}
+                        onClick={this.toggleInterpretationLike}
                     >
                         <SvgIcon icon="ThumbUp" />
                         Like
@@ -76,6 +131,12 @@ class Interpretation extends Component {
                     <span>{item.likedBy.length} likes</span>
                 </div>
                 <ul style={style.list}>{comments}</ul>
+                {this.state.showCommentField ? (
+                    <div>
+                        <TextField onChange={this.onChangeCommentText} />
+                        <Button onClick={this.postComment}>Reply</Button>
+                    </div>
+                ) : null}
             </div>
         );
     }
@@ -85,7 +146,13 @@ const mapDispatchToProps = dispatch => {
     return {
         likeInterpretation: data => dispatch(tLikeInterpretation(data)),
         unlikeInterpretation: data => dispatch(tUnlikeInterpretation(data)),
+        addComment: data => dispatch(tAddInterpretationComment(data)),
+        deleteComment: data => dispatch(tDeleteInterpretationComment(data)),
     };
+};
+
+Interpretation.contextTypes = {
+    d2: PropTypes.object,
 };
 
 const InterpretationContainer = connect(null, mapDispatchToProps)(

@@ -2,6 +2,8 @@ import { actionTypes } from '../../reducers/interpretations';
 import {
     postInterpretationLike,
     deleteInterpretationLike,
+    postInterpretationComment,
+    deleteInterpretationComment,
     getInterpretation,
     postInterpretation,
 } from '../../api/interpretations';
@@ -59,6 +61,35 @@ export const tUnlikeInterpretation = id => async dispatch => {
     }
 };
 
+export const tAddInterpretationComment = data => async dispatch => {
+    const onSuccess = res => {
+        return getInterpretation(data.id).then(interpretation => {
+            return dispatch(addInterpretation(interpretation));
+        });
+    };
+
+    try {
+        const res = await postInterpretationComment(data);
+        return onSuccess(res);
+    } catch (err) {
+        return onError('Add Interpretation Comment', err);
+    }
+};
+
+export const tDeleteInterpretationComment = data => async dispatch => {
+    const onSuccess = res => {
+        return getInterpretation(data.id).then(interpretation => {
+            return dispatch(addInterpretation(interpretation));
+        });
+    };
+
+    try {
+        const res = await deleteInterpretationComment(data);
+        return onSuccess(res);
+    } catch (err) {
+        return onError('Add Interpretation Comment', err);
+    }
+};
 export const tGetInterpretations = ids => async dispatch => {
     const onSuccess = interpretations => {
         return dispatch(addInterpretations(interpretations));

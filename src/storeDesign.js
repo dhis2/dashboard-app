@@ -80,6 +80,7 @@ const interpretations = {
     comments: [
         {
             id: 'abc123def',
+            created: 'new Date()', //Date type
             author: {
                 id: '135rgar',
                 name: 'Mary Merryweather',

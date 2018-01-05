@@ -56,8 +56,14 @@ export const deleteInterpretationLike = id => {
 
 export const postInterpretationComment = data => {
     const url = `/interpretations/${data.id}/comments`;
+    const options = {
+        headers: {
+            'Content-Type': 'text/plain',
+        },
+    };
+
     return getInstance()
-        .then(d2 => d2.Api.getApi().post(url, data.text))
+        .then(d2 => d2.Api.getApi().post(url, data.text, options))
         .catch(onError);
 };
 
@@ -70,6 +76,7 @@ export const updateInterpretationComment = data => {
 
 export const deleteInterpretationComment = data => {
     const url = `/interpretations/${data.id}/comments/${data.commentId}`;
+
     return getInstance()
         .then(d2 => d2.Api.getApi().delete(url))
         .catch(onError);
