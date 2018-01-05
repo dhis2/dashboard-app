@@ -6,7 +6,9 @@ import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 import Button from 'd2-ui/lib/button/Button';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import Chip from 'd2-ui/lib/chip/Chip';
+
 import D2IconButton from '../widgets/D2IconButton';
+import Filter from './Filter';
 
 import {
     tSetControlBarExpanded,
@@ -26,6 +28,7 @@ const styles = {
         display: 'inline-block',
         fontSize: 16,
         float: 'left',
+        height: '36px',
     },
     rightControls: {
         display: 'inline-block',
@@ -48,12 +51,13 @@ const getOuterHeight = (isExpanded, rows) =>
 
 const ControlBarComponent = ({
     dashboards,
+    name,
+    edit,
     rows,
-    onChangeHeight,
     isExpanded,
+    onChangeHeight,
     onToggleExpanded,
-    editMode,
-    onFilterName,
+    onChangeName,
 }) => {
     const contentWrapperStyle = Object.assign({}, styles.scrollWrapper, {
         height: getInnerHeight(isExpanded, rows),
@@ -63,17 +67,17 @@ const ControlBarComponent = ({
         <ControlBar
             height={getOuterHeight(isExpanded, rows)}
             onChangeHeight={onChangeHeight}
-            editMode={editMode}
+            editMode={edit}
         >
             <div style={contentWrapperStyle}>
                 <div style={styles.leftControls}>
-                    <D2IconButton />
-                    <input onKeyUp={e => onFilterName(e.target.value)} />
+                    <D2IconButton
+                        style={{ width: 36, height: 36, marginRight: 10 }}
+                    />
+                    <Filter name={name} onChangeName={onChangeName} />
                 </div>
                 <div style={styles.rightControls}>
-                    <Button onClick={() => {}}>
-                        <SvgIcon icon="ViewList" />
-                    </Button>
+                    <SvgIcon icon="List" />
                 </div>
                 {dashboards.map(dashboard => (
                     <Chip
@@ -104,8 +108,8 @@ const ControlBarComponent = ({
 
 const mapStateToProps = state => ({
     dashboards: fromDashboards.sGetFromState(state),
-    filterName: fromFilter.sGetFilterName(state),
-    editMode: fromSelected.sGetSelectedEdit(state),
+    name: fromFilter.sGetFilterName(state),
+    edit: fromSelected.sGetSelectedEdit(state),
     rows: (state.controlBar && state.controlBar.rows) || 1,
     isExpanded:
         state.controlBar.expanded && state.controlBar.rows < expandedRowCount,
@@ -113,10 +117,10 @@ const mapStateToProps = state => ({
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const { dispatch } = dispatchProps;
-    const { dashboards, filterName, rows, isExpanded } = stateProps;
+    const { dashboards, name, rows, isExpanded } = stateProps;
 
     const filteredDashboards = Object.values(orObject(dashboards)).filter(
-        d => d.name.toLowerCase().indexOf(filterName) !== -1
+        d => d.name.toLowerCase().indexOf(name) !== -1
     );
 
     return {
@@ -141,7 +145,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         onToggleExpanded: () => {
             dispatch(tSetControlBarExpanded(!isExpanded));
         },
-        onFilterName: name => dispatch(acSetFilterName(name)),
+        onChangeName: name => dispatch(acSetFilterName(name)),
     };
 };
 
