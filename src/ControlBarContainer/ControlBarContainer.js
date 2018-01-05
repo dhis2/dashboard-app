@@ -6,6 +6,7 @@ import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 import Button from 'd2-ui/lib/button/Button';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import Chip from 'd2-ui/lib/chip/Chip';
+import D2IconButton from '../widgets/D2IconButton';
 
 import {
     tSetControlBarExpanded,
@@ -14,12 +15,7 @@ import {
 } from '../actions';
 import { orObject } from '../util';
 import { fromDashboards, fromSelected, fromFilter } from '../reducers';
-import {
-    blue400,
-    blue200,
-    blue600,
-    blue800,
-} from '../../../d2-ui/node_modules/material-ui/styles/colors';
+import { blue800 } from '../../../d2-ui/node_modules/material-ui/styles/colors';
 
 const styles = {
     scrollWrapper: {
@@ -42,11 +38,13 @@ const styles = {
 
 export const controlBarRowHeight = 36;
 const expandedRowCount = 12;
+const outerHeightDiff = 22;
 
 const getInnerHeight = (isExpanded, rows) =>
     (isExpanded ? expandedRowCount : rows) * controlBarRowHeight;
+
 const getOuterHeight = (isExpanded, rows) =>
-    getInnerHeight(isExpanded, rows) + 22;
+    getInnerHeight(isExpanded, rows) + outerHeightDiff;
 
 const ControlBarComponent = ({
     dashboards,
@@ -69,7 +67,7 @@ const ControlBarComponent = ({
         >
             <div style={contentWrapperStyle}>
                 <div style={styles.leftControls}>
-                    <Button onClick={() => {}}>+</Button>
+                    <D2IconButton />
                     <input onKeyUp={e => onFilterName(e.target.value)} />
                 </div>
                 <div style={styles.rightControls}>
@@ -104,35 +102,31 @@ const ControlBarComponent = ({
     );
 };
 
-const mapStateToProps = state => {
-    const { sGetSelectedEdit } = fromSelected;
-    const { sGetFilterName } = fromFilter;
-
-    const dashboards = Object.values(
-        orObject(fromDashboards.sGetFromState(state))
-    ).filter(d => d.name.toLowerCase().indexOf(sGetFilterName(state)) !== -1);
-
-    return {
-        dashboards: [
-            ...dashboards.filter(d => d.starred),
-            ...dashboards.filter(d => !d.starred),
-        ],
-        rows: (state.controlBar && state.controlBar.rows) || 1,
-        isExpanded:
-            state.controlBar.expanded &&
-            state.controlBar.rows < expandedRowCount,
-        editMode: sGetSelectedEdit(state),
-    };
-};
+const mapStateToProps = state => ({
+    dashboards: fromDashboards.sGetFromState(state),
+    filterName: fromFilter.sGetFilterName(state),
+    editMode: fromSelected.sGetSelectedEdit(state),
+    rows: (state.controlBar && state.controlBar.rows) || 1,
+    isExpanded:
+        state.controlBar.expanded && state.controlBar.rows < expandedRowCount,
+});
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const { dispatch } = dispatchProps;
-    const { rows, isExpanded } = stateProps;
+    const { dashboards, filterName, rows, isExpanded } = stateProps;
+
+    const filteredDashboards = Object.values(orObject(dashboards)).filter(
+        d => d.name.toLowerCase().indexOf(filterName) !== -1
+    );
 
     return {
         ...stateProps,
         ...ownProps,
-        onChangeHeight: stateProps.isExpanded
+        dashboards: [
+            ...filteredDashboards.filter(d => d.starred),
+            ...filteredDashboards.filter(d => !d.starred),
+        ],
+        onChangeHeight: isExpanded
             ? null
             : newHeight => {
                   const newRows = Math.max(
