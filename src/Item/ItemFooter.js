@@ -3,7 +3,7 @@ import Interpretations from './Interpretations/Interpretations';
 
 const style = {
     container: {
-        padding: 5,
+        padding: 2,
     },
 };
 

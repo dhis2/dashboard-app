@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { grey700 } from 'material-ui/styles/colors';
 import TextField from 'material-ui/TextField';

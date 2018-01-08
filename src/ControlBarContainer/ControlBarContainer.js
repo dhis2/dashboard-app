@@ -119,12 +119,7 @@ const mapStateToProps = state => {
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const { dispatch } = dispatchProps;
     const { dashboards, name, rows, isExpanded } = stateProps;
-    const {
-        fromControlBar,
-        fromDashboards,
-        fromFilter,
-        fromSelected,
-    } = fromActions;
+    const { fromControlBar, fromFilter, fromSelected } = fromActions;
 
     const filteredDashboards = Object.values(orObject(dashboards)).filter(
         d => d.name.toLowerCase().indexOf(name) !== -1

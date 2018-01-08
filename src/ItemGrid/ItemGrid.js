@@ -65,7 +65,6 @@ export class ItemGrid extends Component {
     };
 
     componentDidUpdate() {
-        console.log('ITEM GRID updated');
         const { dashboardItems, edit } = this.props;
 
         if (shouldPluginRender(dashboardItems, edit)) {
@@ -88,6 +87,10 @@ export class ItemGrid extends Component {
         this.setState({ expandedItems });
     };
 
+    onLayoutChange = (a, b, c) => {
+        //console.log('RGL change', a, b, c);
+    };
+
     render() {
         const {
             edit,
@@ -95,7 +98,7 @@ export class ItemGrid extends Component {
             dashboardItems,
             noItemsMessage,
             onButtonClick,
-            onItemResize,
+            onResizeStop,
         } = this.props;
 
         if (noItemsMessage) {
@@ -119,12 +122,8 @@ export class ItemGrid extends Component {
             <div className="grid-wrapper">
                 <ModalLoadingMask isLoading={isLoading} />
                 <ReactGridLayout
-                    onLayoutChange={(a, b, c) => {
-                        //console.log('RGL change', a, b, c);
-                    }}
-                    onResizeStop={(layout, oldItem, newItem) => {
-                        onItemResize(newItem.i);
-                    }}
+                    onLayoutChange={this.onLayoutChange}
+                    onResizeStop={onResizeStop}
                     className="layout"
                     layout={this.pluginItems}
                     cols={getGridColumns()}
@@ -190,6 +189,10 @@ const onItemResize = id => {
     }
 };
 
+const onResizeStop = (layout, oldItem, newItem) => {
+    onItemResize(newItem.i);
+};
+
 const mapStateToProps = state => {
     const { sGetSelectedDashboard } = fromReducers;
     const { sGetSelectedIsLoading, sGetSelectedEdit } = fromSelected;
@@ -214,26 +217,9 @@ const mergeProps = (stateProps, dispatchProps) => {
         isLoading: stateProps.isLoading,
         dashboardItems: orArray(stateProps.dashboardItems),
         noItemsMessage: !hasItems ? noItemsMsg : null,
-        onButtonClick: (id, type, targetType) => {
-            const plugin = getPluginByType(targetType);
-
-            apiFetchFavorite(id, type).then(favorite => {
-                const itemConfig = getPluginItemConfig(favorite, true);
-
-                plugin.load(itemConfig);
-
-                currentItemTypeMap[id] = targetType;
-            });
-        },
-        onItemResize: id => {
-            if (
-                [undefined, 'CHART', 'EVENT_CHART'].indexOf(
-                    currentItemTypeMap[id]
-                ) !== -1
-            ) {
-                onPluginItemResize(id);
-            }
-        },
+        onButtonClick,
+        onItemResize,
+        onResizeStop,
     };
 };
 

@@ -2,7 +2,6 @@ import { actionTypes } from '../reducers';
 import { getCustomDashboards } from '../reducers/dashboards';
 import { apiFetchDashboards } from '../api';
 import { arrayToIdMap, favoriteTypeUrlMap } from '../util';
-import { acSetSelectedId, acSetSelectedEdit } from './selected';
 
 // actions
 
