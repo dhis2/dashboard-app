@@ -56,19 +56,14 @@ class Interpretations extends Component {
             const idsToGet = this.props.ids.filter(
                 id => !this.props.interpretations[id]
             );
+
             this.props.getInterpretations(idsToGet);
         }
     };
 
     componentDidMount() {
-        console.log('componentDidMount');
         this.loadInterpretations();
     }
-
-    // componentDidUpdate() {
-    //     console.log('componentDidUpdate');
-    //     this.loadInterpretations();
-    // }
 
     renderItems() {
         let Items = null;
@@ -102,24 +97,23 @@ class Interpretations extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const { fromInterpretations } = fromReducers;
-    const { sGetSelectedDashboard } = fromReducers;
+    const { fromVisualizations, fromInterpretations } = fromReducers;
+    const ids = fromVisualizations
+        .sGetVisInterpretations(state, ownProps.objectId)
+        .map(i => i.id);
 
-    const dashboardId = sGetSelectedDashboard(state).id;
+    const interpretations = fromInterpretations.sGetInterpretations(state, ids);
+
     return {
-        dashboardId,
-        interpretations: fromInterpretations.sGetInterpretations(
-            state,
-            ownProps.ids
-        ),
+        ids,
+        interpretations,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         getInterpretations: ids => dispatch(tGetInterpretations(ids)),
-        postInterpretation: (data, dashboardId) =>
-            dispatch(tPostInterpretation(data, dashboardId)),
+        postInterpretation: data => dispatch(tPostInterpretation(data)),
     };
 };
 

@@ -44,7 +44,6 @@ class ItemFooter extends Component {
                     <Interpretations
                         objectType={this.props.item.type}
                         objectId={objectId}
-                        ids={ids}
                     />
                 ) : null}
             </div>

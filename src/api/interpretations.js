@@ -15,14 +15,10 @@ export const postInterpretation = data => {
     const url = `/interpretations/${data.objectType.toLowerCase()}/${
         data.objectId
     }`;
-    const options = {
-        headers: {
-            'Content-Type': 'text/plain',
-        },
-    };
+    const headers = { 'Content-Type': 'text/plain' };
 
     return getInstance()
-        .then(d2 => d2.Api.getApi().post(url, data.text, options))
+        .then(d2 => d2.Api.getApi().post(url, data.text, { headers }))
         .catch(onError);
 };
 
@@ -56,14 +52,10 @@ export const deleteInterpretationLike = id => {
 
 export const postInterpretationComment = data => {
     const url = `/interpretations/${data.id}/comments`;
-    const options = {
-        headers: {
-            'Content-Type': 'text/plain',
-        },
-    };
+    const headers = { 'Content-Type': 'text/plain' };
 
     return getInstance()
-        .then(d2 => d2.Api.getApi().post(url, data.text, options))
+        .then(d2 => d2.Api.getApi().post(url, data.text, { headers }))
         .catch(onError);
 };
 
@@ -79,5 +71,24 @@ export const deleteInterpretationComment = data => {
 
     return getInstance()
         .then(d2 => d2.Api.getApi().delete(url))
+        .catch(onError);
+};
+
+const getVisType = type => {
+    switch (type.toLowerCase()) {
+        case 'chart':
+            return 'charts';
+        case 'reporttable':
+            return 'reporttables';
+        default:
+            return type;
+    }
+};
+export const fetchVisualization = data => {
+    const type = getVisType(data.objectType);
+    const url = `/${type}/${data.objectId}?fields=id,name,interpretations[id]`;
+
+    return getInstance()
+        .then(d2 => d2.Api.getApi().get(url))
         .catch(onError);
 };

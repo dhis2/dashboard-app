@@ -36,6 +36,11 @@ export default (state = {}, action) => {
 };
 
 // selectors
+
+export const sGetInterpretation = (state, id) => {
+    return state.interpretations[id] || null;
+};
+
 export const sGetInterpretations = (state, ids) => {
     const interpretations = {};
 

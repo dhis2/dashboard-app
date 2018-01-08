@@ -59,6 +59,12 @@ const customDashboard = {
     ],
 };
 
+const visualizations = {
+    abc12345: {
+        interpretations: ['abc', 'def'],
+    },
+};
+
 const interpretations = {
     id: 'xyzpdq123',
     author: {

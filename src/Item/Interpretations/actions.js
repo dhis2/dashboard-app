@@ -1,4 +1,4 @@
-import { actionTypes } from '../../reducers/interpretations';
+import { actionTypes, fromInterpretations } from '../../reducers';
 import {
     postInterpretationLike,
     deleteInterpretationLike,
@@ -6,9 +6,8 @@ import {
     deleteInterpretationComment,
     getInterpretation,
     postInterpretation,
+    fetchVisualization,
 } from '../../api/interpretations';
-
-import { tSetSelectedDashboardById } from '../../actions';
 
 // action creators
 
@@ -19,6 +18,11 @@ export const addInterpretation = value => ({
 
 export const addInterpretations = value => ({
     type: actionTypes.ADD_INTERPRETATIONS,
+    value,
+});
+
+export const receivedVisualization = value => ({
+    type: actionTypes.RECEIVED_VISUALIZATION,
     value,
 });
 
@@ -95,14 +99,31 @@ export const tGetInterpretations = ids => async dispatch => {
     }
 };
 
-export const tPostInterpretation = (data, dashboardId) => async dispatch => {
-    const onSuccess = res => {
-        return dispatch(tSetSelectedDashboardById(dashboardId));
+/**
+ * Post the new interpretation, then get the updated list of interpretations
+ * for the visualization and update the store with that, then get the new
+ * interpretation
+ * @param {Object} data
+ */
+export const tPostInterpretation = data => async (dispatch, getState) => {
+    const onSuccess = vis => {
+        return dispatch(receivedVisualization(vis));
     };
 
     try {
-        const res = await postInterpretation(data);
-        return onSuccess(res);
+        await postInterpretation(data);
+        const vis = await fetchVisualization(data);
+
+        const newInterpretation = vis.interpretations.find(interpretation => {
+            const exists = !!fromInterpretations.sGetInterpretation(
+                getState(),
+                interpretation.id
+            );
+            return !exists;
+        });
+        await updateInterpretationInStore([newInterpretation.id], dispatch);
+
+        return onSuccess(vis);
     } catch (err) {
         return onError('Post Interpretation', err);
     }
