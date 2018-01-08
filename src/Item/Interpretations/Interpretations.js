@@ -65,11 +65,24 @@ class Interpretations extends Component {
         this.loadInterpretations();
     }
 
+    sortByDate = () => {
+        const values = Object.values(this.props.interpretations);
+
+        values.sort((a, b) => {
+            const aDate = new Date(a.created);
+            const bDate = new Date(b.created);
+
+            return aDate - bDate;
+        });
+
+        return values;
+    };
+
     renderItems() {
         let Items = null;
         if (this.interpretationsLoaded()) {
-            Items = this.props.ids.map((id, i) => {
-                const item = this.props.interpretations[id];
+            const sorted = this.sortByDate();
+            Items = sorted.map(item => {
                 return (
                     <li style={style.item} key={item.id}>
                         <Interpretation item={item} />
@@ -102,11 +115,9 @@ const mapStateToProps = (state, ownProps) => {
         .sGetVisInterpretations(state, ownProps.objectId)
         .map(i => i.id);
 
-    const interpretations = fromInterpretations.sGetInterpretations(state, ids);
-
     return {
         ids,
-        interpretations,
+        interpretations: fromInterpretations.sGetInterpretations(state, ids),
     };
 };
 
