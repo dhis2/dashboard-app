@@ -31,15 +31,12 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDS: {
             return {
-                ...(action.append ? state || {} : {}),
+                ...(action.append ? orObject(state) : {}),
                 ...action.value,
             };
         }
         case actionTypes.ADD_DASHBOARD_ITEM: {
-            const newState = {
-                ...state,
-            };
-
+            const newState = Object.assign({}, state);
             newState[action.dashboardId].dashboardItems.push(action.value);
 
             return newState;
