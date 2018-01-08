@@ -60,13 +60,18 @@ class Interpretation extends Component {
             .then(uiLocale => this.setState({ uiLocale }));
     }
 
-    toggleInterpretationLike = () => {
-        const item = this.props.item;
-        const liked = item.likedBy.find(liker => this.userIsOwner(liker.id));
+    userLikesInterpretation = () => {
+        return this.props.item.likedBy.find(liker =>
+            this.userIsOwner(liker.id)
+        );
+    };
 
-        liked
-            ? this.props.unlikeInterpretation(item.id)
-            : this.props.likeInterpretation(item.id);
+    toggleInterpretationLike = () => {
+        const { id } = this.props.item;
+
+        this.userLikesInterpretation()
+            ? this.props.unlikeInterpretation(id)
+            : this.props.likeInterpretation(id);
     };
 
     showCommentField = () => {
@@ -109,6 +114,10 @@ class Interpretation extends Component {
         }
 
         return value.substr(0, 19).replace('T', ' ');
+    };
+
+    likeText = () => {
+        return this.userLikesInterpretation() ? 'You like this' : 'Like';
     };
 
     render() {
@@ -164,7 +173,7 @@ class Interpretation extends Component {
                         onClick={this.toggleInterpretationLike}
                     >
                         <SvgIcon icon="ThumbUp" />
-                        Like
+                        {this.likeText()}
                     </button>
                     <span>{item.likedBy.length} likes</span>
                 </div>
