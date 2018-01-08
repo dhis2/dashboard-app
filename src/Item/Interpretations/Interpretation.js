@@ -34,11 +34,31 @@ const style = {
     },
 };
 
+const sortByDate = items => {
+    const values = Object.values(items);
+
+    values.sort((a, b) => {
+        const aDate = new Date(a.created);
+        const bDate = new Date(b.created);
+
+        return aDate - bDate;
+    });
+
+    return values;
+};
+
 class Interpretation extends Component {
     state = {
         showCommentField: false,
         commentText: '',
+        uiLocale: '',
     };
+
+    componentDidMount() {
+        this.context.d2.currentUser.userSettings
+            .get('keyUiLocale')
+            .then(uiLocale => this.setState({ uiLocale }));
+    }
 
     toggleInterpretationLike = () => {
         const item = this.props.item;
@@ -78,6 +98,19 @@ class Interpretation extends Component {
 
     userIsOwner = id => id === this.context.d2.currentUser.id;
 
+    renderDateString = value => {
+        if (typeof global.Intl !== 'undefined' && Intl.DateTimeFormat) {
+            const locale = this.state.uiLocale || 'en';
+            return new Intl.DateTimeFormat(locale, {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+            }).format(new Date(value));
+        }
+
+        return value.substr(0, 19).replace('T', ' ');
+    };
+
     render() {
         const item = this.props.item;
         const interpretationBody = item => {
@@ -87,14 +120,17 @@ class Interpretation extends Component {
                         <span style={style.author}>
                             {item.user.displayName}
                         </span>
-                        <span style={style.created}>{item.created}</span>
+                        <span style={style.created}>
+                            {this.renderDateString(item.created)}
+                        </span>
                     </div>
                     <p style={style.text}>{item.text}</p>
                 </div>
             );
         };
 
-        const comments = item.comments.map(comment => (
+        const sortedComments = sortByDate(item.comments);
+        const comments = sortedComments.map(comment => (
             <li key={comment.id}>
                 <div>
                     {this.userIsOwner(comment.user.id) ? (
@@ -103,7 +139,9 @@ class Interpretation extends Component {
                         </span>
                     ) : null}
                     <span style={style.author}>{comment.user.displayName}</span>
-                    <span style={style.created}>{comment.created}</span>
+                    <span style={style.created}>
+                        {this.renderDateString(comment.created)}
+                    </span>
                 </div>
                 <p style={style.text}>{comment.text}</p>
             </li>
