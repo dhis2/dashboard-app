@@ -34,7 +34,7 @@ const styles = {
     title: {
         marginRight: 20,
         position: 'relative',
-        top: 1,
+        top: 2,
     },
     textLink: {
         fontSize: 15,
@@ -155,6 +155,7 @@ const mapStateToProps = state => ({
 const mergeProps = (stateProps, dispatchProps) => {
     const { selectedDashboard, edit, showDescription } = stateProps;
     const { dispatch } = dispatchProps;
+    const { fromDashboards, fromSelected } = fromActions;
 
     const selectedDashboardObject = orObject(selectedDashboard);
 
@@ -172,12 +173,12 @@ const mergeProps = (stateProps, dispatchProps) => {
         edit: edit,
         showDescription: showDescription,
         onBlur: name => console.log('dashboard name: ', name),
-        onEditClick: () => dispatch(fromActions.acSetSelectedEdit(true)),
+        onEditClick: () => dispatch(fromSelected.acSetSelectedEdit(true)),
         onInfoClick: show =>
-            dispatch(fromActions.acSetSelectedShowDescription(show)),
+            dispatch(fromSelected.acSetSelectedShowDescription(show)),
         onAddClick: () =>
             dispatch(
-                fromActions.acAddDashboardItem(selectedDashboardId, yValue, {
+                fromDashboards.acAddDashboardItem(selectedDashboardId, yValue, {
                     id: 'VffWmdKFHSq',
                     name: 'ANC: ANC IPT 1 Coverage last 12 months districts',
                     type: 'CHART',

@@ -8,7 +8,6 @@ import IconClear from 'material-ui/svg-icons/content/clear';
 import isEmpty from 'd2-utilizr/lib/isEmpty';
 
 import * as fromReducers from '../reducers';
-import * as fromActions from '../actions';
 
 const KEYCODE_ESCAPE = 27;
 

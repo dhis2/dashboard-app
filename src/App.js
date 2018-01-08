@@ -13,7 +13,7 @@ import {
 } from './ControlBarContainer/ControlBarContainer';
 
 import ItemGridCt from './ItemGrid/ItemGrid';
-import { tSetDashboards, tSetSelectedDashboardById } from './actions';
+import { fromDashboards, fromSelected } from './actions';
 
 import './App.css';
 import TitleBarCt from './TitleBar/TitleBar';
@@ -43,8 +43,10 @@ const PageContainer = connect(state => ({
 class App extends Component {
     componentDidMount() {
         const { store } = this.context;
-        store.dispatch(tSetDashboards()).then(() => {
-            store.dispatch(tSetSelectedDashboardById('xP1jtPjus1c'));
+        store.dispatch(fromDashboards.tSetDashboards()).then(() => {
+            store.dispatch(
+                fromSelected.tSetSelectedDashboardById('xP1jtPjus1c')
+            );
         });
     }
 

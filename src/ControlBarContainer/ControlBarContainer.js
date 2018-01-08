@@ -1,22 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
-import Button from 'd2-ui/lib/button/Button';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import Chip from 'd2-ui/lib/chip/Chip';
 
 import D2IconButton from '../widgets/D2IconButton';
 import Filter from './Filter';
 
-import {
-    tSetControlBarExpanded,
-    tSetControlBarRows,
-    acSetFilterName,
-} from '../actions';
+import * as fromActions from '../actions';
+import * as fromReducers from '../reducers';
 import { orObject } from '../util';
-import { fromDashboards, fromSelected, fromFilter } from '../reducers';
 import { blue800 } from '../../../d2-ui/node_modules/material-ui/styles/colors';
 
 const styles = {
@@ -57,6 +51,7 @@ const ControlBarComponent = ({
     isExpanded,
     onChangeHeight,
     onToggleExpanded,
+    onNewClick,
     onChangeName,
 }) => {
     const contentWrapperStyle = Object.assign({}, styles.scrollWrapper, {
@@ -73,6 +68,7 @@ const ControlBarComponent = ({
                 <div style={styles.leftControls}>
                     <D2IconButton
                         style={{ width: 36, height: 36, marginRight: 10 }}
+                        onClick={onNewClick}
                     />
                     <Filter name={name} onChangeName={onChangeName} />
                 </div>
@@ -106,18 +102,29 @@ const ControlBarComponent = ({
     );
 };
 
-const mapStateToProps = state => ({
-    dashboards: fromDashboards.sGetFromState(state),
-    name: fromFilter.sGetFilterName(state),
-    edit: fromSelected.sGetSelectedEdit(state),
-    rows: (state.controlBar && state.controlBar.rows) || 1,
-    isExpanded:
-        state.controlBar.expanded && state.controlBar.rows < expandedRowCount,
-});
+const mapStateToProps = state => {
+    const { fromDashboards, fromSelected, fromFilter } = fromReducers;
+
+    return {
+        dashboards: fromDashboards.sGetFromState(state),
+        name: fromFilter.sGetFilterName(state),
+        edit: fromSelected.sGetSelectedEdit(state),
+        rows: (state.controlBar && state.controlBar.rows) || 1,
+        isExpanded:
+            state.controlBar.expanded &&
+            state.controlBar.rows < expandedRowCount,
+    };
+};
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const { dispatch } = dispatchProps;
     const { dashboards, name, rows, isExpanded } = stateProps;
+    const {
+        fromControlBar,
+        fromDashboards,
+        fromFilter,
+        fromSelected,
+    } = fromActions;
 
     const filteredDashboards = Object.values(orObject(dashboards)).filter(
         d => d.name.toLowerCase().indexOf(name) !== -1
@@ -139,13 +146,14 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
                   );
 
                   if (newRows !== rows) {
-                      dispatch(tSetControlBarRows(newRows));
+                      dispatch(fromControlBar.tSetControlBarRows(newRows));
                   }
               },
         onToggleExpanded: () => {
-            dispatch(tSetControlBarExpanded(!isExpanded));
+            dispatch(fromControlBar.tSetControlBarExpanded(!isExpanded));
         },
-        onChangeName: name => dispatch(acSetFilterName(name)),
+        onNewClick: () => dispatch(fromSelected.tNewDashboard()),
+        onChangeName: name => dispatch(fromFilter.acSetFilterName(name)),
     };
 };
 

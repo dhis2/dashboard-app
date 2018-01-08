@@ -17,10 +17,11 @@ import {
     onPluginItemResize,
 } from './pluginUtil';
 
-import { orObject } from '../util';
+import { orObject, orArray } from '../util';
 import * as fromReducers from '../reducers';
 import { apiFetchFavorite } from '../api';
 import ModalLoadingMask from '../widgets/ModalLoadingMask';
+import isArray from 'd2-utilizr/lib/isArray';
 
 const { fromSelected } = fromReducers;
 
@@ -44,8 +45,23 @@ const shouldPluginRender = (dashboardItems, edit) => {
     return false;
 };
 
+const NoItemsMessage = ({ text }) => (
+    <div
+        style={{
+            padding: '50px 10px',
+            textAlign: 'center',
+            fontSize: '15px',
+            fontWeight: 500,
+            color: '#777',
+        }}
+    >
+        {text}
+    </div>
+);
+
 export class ItemGrid extends Component {
     componentDidUpdate() {
+        console.log('ITEM GRID updated');
         const { dashboardItems, edit } = this.props;
 
         if (shouldPluginRender(dashboardItems, edit)) {
@@ -69,15 +85,16 @@ export class ItemGrid extends Component {
 
     render() {
         const {
+            edit,
             isLoading,
             dashboardItems,
+            noItemsMessage,
             onButtonClick,
             onItemResize,
-            edit,
         } = this.props;
 
-        if (!dashboardItems.length) {
-            return <div style={{ padding: 50 }}>No items</div>;
+        if (noItemsMessage) {
+            return <NoItemsMessage text={noItemsMessage} />;
         }
 
         this.pluginItems = dashboardItems.map((item, index) =>
@@ -139,19 +156,33 @@ ItemGrid.defaultProps = {
 
 // Container
 
-const currentItemTypeMap = {}; //TODO: improve
+const currentItemTypeMap = {}; // TODO: improve
+const noItemsMsg = 'You have not added any items';
 
 const mapStateToProps = state => {
     const { sGetSelectedDashboard } = fromReducers;
     const { sGetSelectedIsLoading, sGetSelectedEdit } = fromSelected;
 
     const selectedDashboard = sGetSelectedDashboard(state);
-    const dashboardItems = orObject(selectedDashboard).dashboardItems;
 
     return {
-        dashboardItems,
-        isLoading: sGetSelectedIsLoading(state),
         edit: sGetSelectedEdit(state),
+        isLoading: sGetSelectedIsLoading(state),
+        dashboardItems: selectedDashboard
+            ? selectedDashboard.dashboardItems
+            : null,
+    };
+};
+
+const mergeProps = (stateProps, dispatchProps) => {
+    const hasItems =
+        isArray(stateProps.dashboardItems) && stateProps.dashboardItems.length;
+
+    return {
+        edit: stateProps.edit,
+        isLoading: stateProps.isLoading,
+        dashboardItems: orArray(stateProps.dashboardItems),
+        noItemsMessage: !hasItems ? noItemsMsg : null,
         onButtonClick: (id, type, targetType) => {
             const plugin = getPluginByType(targetType);
 
@@ -175,6 +206,6 @@ const mapStateToProps = state => {
     };
 };
 
-const ItemGridCt = connect(mapStateToProps)(ItemGrid);
+const ItemGridCt = connect(mapStateToProps, null, mergeProps)(ItemGrid);
 
 export default ItemGridCt;
