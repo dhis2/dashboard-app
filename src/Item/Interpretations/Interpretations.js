@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
 import TextField from 'd2-ui/lib/text-field/TextField';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+
+import Interpretation from './Interpretation';
+import { tGetInterpretations, tPostInterpretation } from './actions';
+import * as fromReducers from '../../reducers';
 
 const style = {
+    container: {
+        overflowY: 'scroll',
+        height: 320,
+        padding: 5,
+    },
     list: {
         listStyleType: 'none',
     },
@@ -12,73 +20,105 @@ const style = {
         marginBottom: 10,
         paddingBottom: 10,
     },
-    author: {
-        fontWeight: 'bold',
-    },
-    created: {
-        float: 'right',
-    },
-    text: {},
-    reply: {},
 };
 
 class Interpretations extends Component {
-    render() {
-        const interpretationBody = item => {
-            return (
-                <div>
-                    <div>
-                        <span style={style.author}>
-                            {item.user.displayName}
-                        </span>
-                        <span style={style.created}>{item.created}</span>
-                    </div>
-                    <p style={style.text}>{item.text}</p>
-                </div>
-            );
+    state = {
+        newInterpretationText: '',
+    };
+
+    updateNewInterpretationText = newInterpretationText => {
+        this.setState({ newInterpretationText });
+    };
+
+    postInterpretation = () => {
+        const data = {
+            objectType: this.props.objectType,
+            objectId: this.props.objectId,
+            text: this.state.newInterpretationText,
         };
 
-        const Items = this.props.interpretations.map(item => {
-            const comments = item.comments.map(comment => (
-                <li key={comment.id}>{interpretationBody(comment)}</li>
-            ));
+        this.props.postInterpretation(data, this.props.dashboardId);
+        this.setState({ newInterpretationText: '' });
+    };
 
-            return (
-                <li style={style.item} key={item.id}>
-                    {interpretationBody(item)}
-                    <div>
-                        <button>
-                            <SvgIcon icon="Launch" />
-                            View in Visualizer
-                        </button>
-                        <button style={style.reply}>
-                            <SvgIcon icon="Reply" />
-                            Reply
-                        </button>
-                        <button style={style.like}>
-                            <SvgIcon icon="ThumbUp" />
-                            Like
-                        </button>
-                        <span>{item.likedBy.length} likes</span>
-                    </div>
-                    <ul style={style.list}>{comments}</ul>
-                    <div>
-                        <TextField />
-                        <button>POST</button>
-                    </div>
-                </li>
+    interpretationsLoaded = () => {
+        const isLoaded =
+            this.props.ids.length &&
+            this.props.ids.length ===
+                Object.keys(this.props.interpretations).length;
+
+        return isLoaded;
+    };
+
+    loadInterpretations = () => {
+        if (!this.interpretationsLoaded()) {
+            const idsToGet = this.props.ids.filter(
+                id => !this.props.interpretations[id]
             );
-        });
 
+            this.props.getInterpretations(idsToGet);
+        }
+    };
+
+    componentDidMount() {
+        this.loadInterpretations();
+    }
+
+    renderItems() {
+        let Items = null;
+        if (this.interpretationsLoaded()) {
+            Items = this.props.ids.map((id, i) => {
+                const item = this.props.interpretations[id];
+                return (
+                    <li style={style.item} key={item.id}>
+                        <Interpretation item={item} />
+                    </li>
+                );
+            });
+        }
+        return Items;
+    }
+
+    render() {
         return (
-            <div>
+            <div style={style.container}>
                 <h3 style={style.title}>
-                    Interpretations ({this.props.interpretations.length})
+                    Interpretations ({this.props.ids.length})
                 </h3>
-                <ul style={style.list}>{Items}</ul>
+                <ul style={style.list}>{this.renderItems()}</ul>
+                <div>
+                    <TextField onChange={this.updateNewInterpretationText} />
+                    <button onClick={this.postInterpretation}>POST</button>
+                </div>
             </div>
         );
     }
 }
 
-export default Interpretations;
+const mapStateToProps = (state, ownProps) => {
+    const { fromVisualizations, fromInterpretations } = fromReducers;
+    const ids = fromVisualizations
+        .sGetVisInterpretations(state, ownProps.objectId)
+        .map(i => i.id);
+
+    const interpretations = fromInterpretations.sGetInterpretations(state, ids);
+
+    return {
+        ids,
+        interpretations,
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getInterpretations: ids => dispatch(tGetInterpretations(ids)),
+        postInterpretation: data => dispatch(tPostInterpretation(data)),
+    };
+};
+
+const InterpretationsContainer = connect(mapStateToProps, mapDispatchToProps)(
+    Interpretations
+);
+
+export default InterpretationsContainer;

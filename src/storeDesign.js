@@ -59,6 +59,12 @@ const customDashboard = {
     ],
 };
 
+const visualizations = {
+    abc12345: {
+        interpretations: ['abc', 'def'],
+    },
+};
+
 const interpretations = {
     id: 'xyzpdq123',
     author: {
@@ -80,6 +86,7 @@ const interpretations = {
     comments: [
         {
             id: 'abc123def',
+            created: 'new Date()', //Date type
             author: {
                 id: '135rgar',
                 name: 'Mary Merryweather',

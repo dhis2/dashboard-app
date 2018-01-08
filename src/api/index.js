@@ -29,7 +29,8 @@ const getAxesFields = ({ withItems }) => [
 ];
 
 const interpretationFields = () => {
-    return 'interpretations[id,text,created,user[id,displayName],likedBy,comments[id,text,created,user[id,displayName]]]';
+    return 'interpretations[id]';
+    // return 'interpretations[id,text,created,user[id,displayName],likedBy,comments[id,text,created,user[id,displayName]]]';
 };
 
 const getFavoriteFields = ({ withDimensions, withOptions }) => {
