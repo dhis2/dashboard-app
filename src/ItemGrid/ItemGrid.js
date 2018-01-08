@@ -17,7 +17,7 @@ import {
     onPluginItemResize,
 } from './pluginUtil';
 
-import { orObject, orArray } from '../util';
+import { orArray } from '../util';
 import * as fromReducers from '../reducers';
 import { apiFetchFavorite } from '../api';
 import ModalLoadingMask from '../widgets/ModalLoadingMask';
@@ -60,6 +60,10 @@ const NoItemsMessage = ({ text }) => (
 );
 
 export class ItemGrid extends Component {
+    state = {
+        expandedItems: {},
+    };
+
     componentDidUpdate() {
         console.log('ITEM GRID updated');
         const { dashboardItems, edit } = this.props;
@@ -72,15 +76,16 @@ export class ItemGrid extends Component {
         //console.log('CWU');
     }
 
-    state = {
-        expandedItems: [],
-    };
-
     onToggleItemFooter = clickedId => {
-        //TODO Update state of expandedItems
-        // slice clickedId out of expandedItems array, or add it if its not there
-        //TODO Set new heights for grid items based on expandedItems
-        console.log('onToggleItemFooter', clickedId);
+        const isExpanded =
+            typeof this.state.expandedItems[clickedId] === 'boolean'
+                ? this.state.expandedItems[clickedId]
+                : false;
+
+        const expandedItems = { ...this.state.expandedItems };
+        expandedItems[clickedId] = !isExpanded;
+
+        this.setState({ expandedItems });
     };
 
     render() {
@@ -97,12 +102,18 @@ export class ItemGrid extends Component {
             return <NoItemsMessage text={noItemsMessage} />;
         }
 
-        this.pluginItems = dashboardItems.map((item, index) =>
-            Object.assign({}, item, {
+        this.pluginItems = dashboardItems.map((item, index) => {
+            const expandedItem = this.state.expandedItems[item.id];
+            let hProp = { h: item.h };
+
+            if (expandedItem && expandedItem === true) {
+                hProp.h = item.h + 20;
+            }
+
+            return Object.assign({}, item, hProp, {
                 i: `${getFavoriteObjectFromItem(item).id}`,
-                static: !edit,
-            })
-        );
+            });
+        });
 
         return (
             <div className="grid-wrapper">
@@ -120,17 +131,17 @@ export class ItemGrid extends Component {
                     rowHeight={gridRowHeight}
                     width={window.innerWidth}
                     compactType={gridCompactType}
+                    isDraggable={edit}
+                    isResizable={edit}
                 >
                     {this.pluginItems
                         .filter(item => getFavoriteObjectFromItem(item)) //TODO IMPROVE
                         .map(item => {
-                            const showInterpretations =
-                                this.state.activeItemId === item.id;
-
                             return (
                                 <div key={item.i} className={item.type}>
                                     <Item
                                         item={item}
+                                        editMode={edit}
                                         onButtonClick={onButtonClick}
                                         onToggleItemFooter={
                                             this.onToggleItemFooter
@@ -139,7 +150,6 @@ export class ItemGrid extends Component {
                                 </div>
                             );
                         })}
-                    {}
                 </ReactGridLayout>
             </div>
         );
@@ -158,6 +168,27 @@ ItemGrid.defaultProps = {
 
 const currentItemTypeMap = {}; // TODO: improve
 const noItemsMsg = 'You have not added any items';
+
+const onButtonClick = (id, type, targetType) => {
+    const plugin = getPluginByType(targetType);
+
+    apiFetchFavorite(id, type).then(favorite => {
+        const itemConfig = getPluginItemConfig(favorite, true);
+
+        plugin.load(itemConfig);
+
+        currentItemTypeMap[id] = targetType;
+    });
+};
+
+const onItemResize = id => {
+    if (
+        [undefined, 'CHART', 'EVENT_CHART'].indexOf(currentItemTypeMap[id]) !==
+        -1
+    ) {
+        onPluginItemResize(id);
+    }
+};
 
 const mapStateToProps = state => {
     const { sGetSelectedDashboard } = fromReducers;
