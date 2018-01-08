@@ -12,6 +12,7 @@ import * as fromActions from '../actions';
 import * as fromReducers from '../reducers';
 import { orObject } from '../util';
 import { blue800 } from '../../../d2-ui/node_modules/material-ui/styles/colors';
+import { fromDashboards } from '../actions';
 
 const styles = {
     scrollWrapper: {
@@ -43,6 +44,8 @@ const getInnerHeight = (isExpanded, rows) =>
 const getOuterHeight = (isExpanded, rows) =>
     getInnerHeight(isExpanded, rows) + outerHeightDiff;
 
+const onDashboardSelectWrapper = (id, onClick) => () => onClick(id);
+
 const ControlBarComponent = ({
     dashboards,
     name,
@@ -52,7 +55,8 @@ const ControlBarComponent = ({
     onChangeHeight,
     onToggleExpanded,
     onNewClick,
-    onChangeName,
+    onChangeFilterName,
+    onDashboardSelect,
 }) => {
     const contentWrapperStyle = Object.assign({}, styles.scrollWrapper, {
         height: getInnerHeight(isExpanded, rows),
@@ -70,7 +74,7 @@ const ControlBarComponent = ({
                         style={{ width: 36, height: 36, marginRight: 10 }}
                         onClick={onNewClick}
                     />
-                    <Filter name={name} onChangeName={onChangeName} />
+                    <Filter name={name} onChangeName={onChangeFilterName} />
                 </div>
                 <div style={styles.rightControls}>
                     <SvgIcon icon="List" />
@@ -80,6 +84,10 @@ const ControlBarComponent = ({
                         key={dashboard.id}
                         label={dashboard.name}
                         avatar={dashboard.starred ? 'star' : null}
+                        onClick={onDashboardSelectWrapper(
+                            dashboard.id,
+                            onDashboardSelect
+                        )}
                     />
                 ))}
             </div>
@@ -148,7 +156,9 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             dispatch(fromControlBar.tSetControlBarExpanded(!isExpanded));
         },
         onNewClick: () => dispatch(fromSelected.tNewDashboard()),
-        onChangeName: name => dispatch(fromFilter.acSetFilterName(name)),
+        onChangeFilterName: name => dispatch(fromFilter.acSetFilterName(name)),
+        onDashboardSelect: id =>
+            dispatch(fromSelected.tSetSelectedDashboardById(id)),
     };
 };
 
