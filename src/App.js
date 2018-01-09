@@ -16,7 +16,7 @@ import './App.css';
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
-// TODO, add to plugin instead
+// TODO TMP, add to plugin instead
 if (global.reportTablePlugin) {
     global.reportTablePlugin.type = 'REPORT_TABLE';
 }
