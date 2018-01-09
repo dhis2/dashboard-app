@@ -67,12 +67,7 @@ export default combineReducers({
     showDescription,
 });
 
-/**
- * Selectors that point to specific props in the state object
- * @function
- * @param {Object} state
- * @returns {Object}
- */
+// Selector level 1
 export const sGetFromState = state => state.selected;
 
 // Selector dependency level 2
