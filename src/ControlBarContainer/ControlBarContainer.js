@@ -34,7 +34,7 @@ const styles = {
     },
 };
 
-export const controlBarRowHeight = 36;
+export const controlBarRowHeight = 38;
 const expandedRowCount = 12;
 const outerHeightDiff = 22;
 
@@ -95,7 +95,7 @@ const ControlBarComponent = ({
                 <div
                     onClick={onToggleExpanded}
                     style={{
-                        paddingTop: 4,
+                        paddingTop: 2,
                         fontSize: 11,
                         fontWeight: 500,
                         color: blue800,
