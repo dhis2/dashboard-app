@@ -174,6 +174,10 @@ class Interpretation extends Component {
         const likePluralization =
             this.props.item.likedBy.length === 1 ? 'like' : 'likes';
 
+        const userOwnsInterpretation = this.userIsOwner(
+            this.props.item.user.id
+        );
+
         return (
             <div>
                 {interpretationBody(item)}
@@ -196,13 +200,15 @@ class Interpretation extends Component {
                     <span>
                         {item.likedBy.length} {likePluralization}
                     </span>
-                    <button
-                        style={style.link}
-                        onClick={this.deleteInterpretation}
-                    >
-                        <SvgIcon style={style.icon} icon="Delete" />
-                        Delete
-                    </button>
+                    {userOwnsInterpretation ? (
+                        <button
+                            style={style.link}
+                            onClick={this.deleteInterpretation}
+                        >
+                            <SvgIcon style={style.icon} icon="Delete" />
+                            Delete
+                        </button>
+                    ) : null}
                 </div>
                 <ul style={style.list}>{comments}</ul>
                 {this.state.showCommentField ? (
