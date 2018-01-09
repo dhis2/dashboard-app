@@ -78,7 +78,17 @@ const ControlBarComponent = ({
                     <Filter name={name} onChangeName={onChangeFilterName} />
                 </div>
                 <div style={styles.rightControls}>
-                    <SvgIcon icon="List" />
+                    <div
+                        style={{
+                            position: 'relative',
+                            top: '6px',
+                            left: '-10px',
+                            cursor: 'pointer',
+                        }}
+                        onClick={() => alert('show list view')}
+                    >
+                        <SvgIcon icon="List" />
+                    </div>
                 </div>
                 {dashboards.map(dashboard => (
                     <Chip
