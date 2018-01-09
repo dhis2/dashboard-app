@@ -10,6 +10,7 @@ import {
     tUnlikeInterpretation,
     tAddInterpretationComment,
     tDeleteInterpretationComment,
+    tDeleteInterpretation,
 } from './actions';
 
 const style = {
@@ -31,6 +32,10 @@ const style = {
     },
     list: {
         listStyleType: 'none',
+    },
+    icon: {
+        width: 16,
+        height: 16,
     },
 };
 
@@ -97,6 +102,16 @@ class Interpretation extends Component {
         this.props.deleteComment(data);
     };
 
+    deleteInterpretation = () => {
+        const data = {
+            id: this.props.item.id,
+            objectId: this.props.objectId,
+            objectType: this.props.objectType,
+        };
+
+        this.props.deleteInterpretation(data);
+    };
+
     onChangeCommentText = commentText => {
         this.setState({ commentText });
     };
@@ -114,10 +129,6 @@ class Interpretation extends Component {
         }
 
         return value.substr(0, 19).replace('T', ' ');
-    };
-
-    likeText = () => {
-        return this.userLikesInterpretation() ? 'You like this' : 'Like';
     };
 
     render() {
@@ -156,26 +167,42 @@ class Interpretation extends Component {
             </li>
         ));
 
+        const likeText = this.userLikesInterpretation()
+            ? 'You like this'
+            : 'Like';
+
+        const likePluralization =
+            this.props.item.likedBy.length === 1 ? 'like' : 'likes';
+
         return (
             <div>
                 {interpretationBody(item)}
                 <div>
                     <button style={style.link}>
-                        <SvgIcon icon="Launch" />
+                        <SvgIcon style={style.icon} icon="Launch" />
                         View in Visualizer
                     </button>
                     <button style={style.link} onClick={this.showCommentField}>
-                        <SvgIcon icon="Reply" />
+                        <SvgIcon style={style.icon} icon="Reply" />
                         Reply
                     </button>
                     <button
                         style={style.link}
                         onClick={this.toggleInterpretationLike}
                     >
-                        <SvgIcon icon="ThumbUp" />
-                        {this.likeText()}
+                        <SvgIcon style={style.icon} icon="ThumbUp" />
+                        {likeText}
                     </button>
-                    <span>{item.likedBy.length} likes</span>
+                    <span>
+                        {item.likedBy.length} {likePluralization}
+                    </span>
+                    <button
+                        style={style.link}
+                        onClick={this.deleteInterpretation}
+                    >
+                        <SvgIcon style={style.icon} icon="Delete" />
+                        Delete
+                    </button>
                 </div>
                 <ul style={style.list}>{comments}</ul>
                 {this.state.showCommentField ? (
@@ -195,6 +222,7 @@ const mapDispatchToProps = dispatch => {
         unlikeInterpretation: data => dispatch(tUnlikeInterpretation(data)),
         addComment: data => dispatch(tAddInterpretationComment(data)),
         deleteComment: data => dispatch(tDeleteInterpretationComment(data)),
+        deleteInterpretation: data => dispatch(tDeleteInterpretation(data)),
     };
 };
 

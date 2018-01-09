@@ -1,17 +1,14 @@
 /** @module reducers/interpretations */
 
+import update from 'immutability-helper';
+
 export const actionTypes = {
     ADD_INTERPRETATION: 'ADD_INTERPRETATION',
     ADD_INTERPRETATIONS: 'ADD_INTERPRETATIONS',
+    REMOVE_INTERPRETATION: 'REMOVE_INTERPRETATION',
 };
 
-/**
- * Reducer that computes new state for state.interpretations
- * @function
- * @param {Object} state The current state
- * @param {Object} action The action to be evaluated
- * @returns {Object}
- */
+// Reducer
 
 export default (state = {}, action) => {
     switch (action.type) {
@@ -30,12 +27,15 @@ export default (state = {}, action) => {
 
             return Object.assign({}, state, newInterpretations);
         }
+        case actionTypes.REMOVE_INTERPRETATION: {
+            return update(state, { $unset: [action.value] });
+        }
         default:
             return state;
     }
 };
 
-// selectors
+// Selectors
 
 export const sGetInterpretation = (state, id) => {
     return state.interpretations[id] || null;
