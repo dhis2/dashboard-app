@@ -17,7 +17,6 @@ import { fromDashboards } from '../actions';
 const styles = {
     scrollWrapper: {
         padding: '6px 6px 0 6px',
-        overflowY: 'auto',
     },
     leftControls: {
         display: 'inline-block',
@@ -58,9 +57,16 @@ const ControlBarComponent = ({
     onChangeFilterName,
     onDashboardSelect,
 }) => {
-    const contentWrapperStyle = Object.assign({}, styles.scrollWrapper, {
-        height: getInnerHeight(isExpanded, rows),
-    });
+    const contentWrapperStyle = Object.assign(
+        {},
+        styles.scrollWrapper,
+        {
+            overflowY: isExpanded ? 'auto' : 'hidden',
+        },
+        {
+            height: getInnerHeight(isExpanded, rows),
+        }
+    );
 
     return (
         <ControlBar
