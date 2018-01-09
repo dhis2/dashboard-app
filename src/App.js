@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { connect } from 'react-redux';
-
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 
-import {
-    ControlBarContainer,
-    controlBarRowHeight,
-} from './ControlBarContainer/ControlBarContainer';
-
+import PageContainer from './PageContainer/PageContainer';
+import ControlBarContainer from './ControlBarContainer/ControlBarContainer';
+import TitleBarCt from './TitleBar/TitleBar';
 import ItemGridCt from './ItemGrid/ItemGrid';
+
 import { fromDashboards, fromSelected } from './actions';
 
 import './App.css';
-import TitleBarCt from './TitleBar/TitleBar';
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
@@ -28,16 +24,6 @@ if (global.reportTablePlugin) {
 if (global.chartPlugin) {
     global.chartPlugin.type = 'CHART';
 }
-
-// Adjust the top margin of the page so it starts below the control bar
-const DynamicTopMarginContainer = ({ marginTop, children }) => (
-    <div className="dashboard-wrapper" style={{ marginTop }}>
-        {children}
-    </div>
-);
-const PageContainer = connect(state => ({
-    marginTop: state.controlBar.rows * controlBarRowHeight + 80,
-}))(DynamicTopMarginContainer);
 
 // App
 class App extends Component {

@@ -12,11 +12,10 @@ import * as fromActions from '../actions';
 import * as fromReducers from '../reducers';
 import { orObject } from '../util';
 import { blue800 } from '../../../d2-ui/node_modules/material-ui/styles/colors';
-import { fromDashboards } from '../actions';
 
 const styles = {
     scrollWrapper: {
-        padding: '6px 6px 0 6px',
+        padding: '10px 6px 0 6px',
     },
     leftControls: {
         display: 'inline-block',
@@ -33,12 +32,12 @@ const styles = {
     },
 };
 
-export const controlBarRowHeight = 38;
-const expandedRowCount = 12;
+export const CONTROL_BAR_ROW_COUNT = 36;
+const EXPANDED_ROW_COUNT = 12;
 const outerHeightDiff = 22;
 
 const getInnerHeight = (isExpanded, rows) =>
-    (isExpanded ? expandedRowCount : rows) * controlBarRowHeight;
+    (isExpanded ? EXPANDED_ROW_COUNT : rows) * CONTROL_BAR_ROW_COUNT;
 
 const getOuterHeight = (isExpanded, rows) =>
     getInnerHeight(isExpanded, rows) + outerHeightDiff;
@@ -60,12 +59,8 @@ const ControlBarComponent = ({
     const contentWrapperStyle = Object.assign(
         {},
         styles.scrollWrapper,
-        {
-            overflowY: isExpanded ? 'auto' : 'hidden',
-        },
-        {
-            height: getInnerHeight(isExpanded, rows),
-        }
+        { overflowY: isExpanded ? 'auto' : 'hidden' },
+        { height: getInnerHeight(isExpanded, rows) }
     );
 
     return (
@@ -126,7 +121,7 @@ const mapStateToProps = state => {
         rows: (state.controlBar && state.controlBar.rows) || 1,
         isExpanded:
             state.controlBar.expanded &&
-            state.controlBar.rows < expandedRowCount,
+            state.controlBar.rows < EXPANDED_ROW_COUNT,
     };
 };
 
@@ -151,7 +146,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             : newHeight => {
                   const newRows = Math.max(
                       1,
-                      Math.floor((newHeight - 24) / controlBarRowHeight)
+                      Math.floor((newHeight - 24) / CONTROL_BAR_ROW_COUNT)
                   );
 
                   if (newRows !== rows) {
