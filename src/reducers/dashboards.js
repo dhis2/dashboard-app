@@ -1,6 +1,7 @@
 /** @module reducers/dashboards */
 
 import arrayFrom from 'd2-utilizr/lib/arrayFrom';
+import update from 'immutability-helper';
 import { orArray, orNull, orObject } from '../util';
 
 /**
@@ -36,11 +37,11 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
             };
         }
         case actionTypes.ADD_DASHBOARD_ITEM: {
-            const newState = {
-                ...state,
-            };
-
-            newState[action.dashboardId].dashboardItems.push(action.value);
+            const newState = update(state, {
+                [action.dashboardId]: {
+                    dashboardItems: { $push: [action.value] },
+                },
+            });
 
             return newState;
         }

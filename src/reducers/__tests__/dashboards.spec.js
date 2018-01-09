@@ -1,9 +1,19 @@
 import reducer, { actionTypes, DEFAULT_DASHBOARDS } from '../dashboards';
+import update from 'immutability-helper';
 
-describe('dashboards reducer', () => {
-    it('should set the list of dashboards', () => {
-        expect(1).toEqual(1);
-    });
+describe.only('dashboards reducer', () => {
+    const boards = {
+        dash1: {
+            id: 'dash1',
+            name: 'good stuff',
+            dashboardItems: [],
+        },
+        dash2: {
+            id: 'dash2',
+            name: 'ok stuff',
+            dashboardItems: [{ id: '234' }],
+        },
+    };
 
     it('should return the default state', () => {
         const actualState = reducer(undefined, { type: 'NO_MATCH' });
@@ -11,56 +21,48 @@ describe('dashboards reducer', () => {
         expect(actualState).toEqual(DEFAULT_DASHBOARDS);
     });
 
-    it('should return the list of dashboards', () => {
-        const expectedState = {
-            id: 'abc',
-            description: 'description',
-            created: '2013-09-08',
-            lastUpdated: '2013-09-08',
-            dashboardItems: [],
-            user: {
-                name: 'name',
-            },
-        };
-
-        const actualState = reducer(undefined, {
+    it('should set the list of dashboards by replacing the existing list', () => {
+        const currentState = { dash0: { id: 'dash0}' } };
+        const actualState = reducer(currentState, {
             type: actionTypes.SET_DASHBOARDS,
-            value: [expectedState],
+            append: false,
+            value: boards,
         });
 
-        expect(actualState).toEqual(expectedState);
+        expect(actualState).toEqual(boards);
     });
 
-    it('should return the appended list of dashboards', () => {
-        const currentState = {
-            a: {
-                id: 'a',
-            },
-        };
-
-        const actionValue = [
-            {
-                b: {
-                    id: 'b',
-                },
-            },
-        ];
-
-        const expectedState = {
-            a: {
-                id: 'a',
-            },
-            b: {
-                id: 'b',
-            },
-        };
-
+    it('should append to the list of dashboards', () => {
+        const currentState = { dash0: { id: 'dash0}' } };
         const actualState = reducer(currentState, {
             type: actionTypes.SET_DASHBOARDS,
             append: true,
-            value: actionValue,
+            value: boards,
         });
 
-        expect(actualState).toEqual(expectedState);
+        const expected = Object.assign({}, boards, currentState);
+
+        expect(actualState).toEqual(expected);
+    });
+
+    it('should add a dashboard item', () => {
+        const newItem = {
+            id: 'new dashboard item',
+            size: 'large',
+        };
+
+        const actualState = reducer(boards, {
+            type: actionTypes.ADD_DASHBOARD_ITEM,
+            value: newItem,
+            dashboardId: 'dash2',
+        });
+
+        const expectedState = update(boards, {
+            dash2: {
+                dashboardItems: { $push: [newItem] },
+            },
+        });
+
+        expect(actualState).toMatchObject(expectedState);
     });
 });
