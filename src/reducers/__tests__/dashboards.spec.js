@@ -1,7 +1,7 @@
 import reducer, { actionTypes, DEFAULT_DASHBOARDS } from '../dashboards';
 import update from 'immutability-helper';
 
-describe.only('dashboards reducer', () => {
+describe('dashboards reducer', () => {
     const boards = {
         dash1: {
             id: 'dash1',
