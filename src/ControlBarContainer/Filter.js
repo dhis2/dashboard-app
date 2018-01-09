@@ -28,11 +28,11 @@ const styles = {
         borderWidth: '1px',
     },
     clearButton: {
-        width: '24px',
+        width: '20px',
         height: '24px',
         padding: 0,
-        top: '-3px',
-        left: '-22px',
+        top: '-5px',
+        left: '-18px',
     },
     clearButtonIcon: {
         width: '16px',
