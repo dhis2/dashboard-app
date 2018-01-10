@@ -167,16 +167,11 @@ class Interpretation extends Component {
             </li>
         ));
 
+        const likes = item.likedBy.length === 1 ? 'like' : 'likes';
+        const userOwnsInterpretation = this.userIsOwner(item.user.id);
         const likeText = this.userLikesInterpretation()
             ? 'You like this'
             : 'Like';
-
-        const likePluralization =
-            this.props.item.likedBy.length === 1 ? 'like' : 'likes';
-
-        const userOwnsInterpretation = this.userIsOwner(
-            this.props.item.user.id
-        );
 
         return (
             <div>
@@ -198,7 +193,7 @@ class Interpretation extends Component {
                         {likeText}
                     </button>
                     <span>
-                        {item.likedBy.length} {likePluralization}
+                        {item.likedBy.length} {likes}
                     </span>
                     {userOwnsInterpretation ? (
                         <button
