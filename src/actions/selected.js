@@ -1,5 +1,5 @@
 import { actionTypes } from '../reducers';
-import { apiFetchSelected } from '../api';
+import { apiFetchSelected, apiPostDashboard } from '../api';
 import { acSetDashboards } from './dashboards';
 import { getShapedItems } from '../ItemGrid/gridUtil';
 
@@ -63,6 +63,11 @@ export const tSetSelectedDashboardById = id => async dispatch => {
 };
 
 export const tNewDashboard = () => async dispatch => {
+    const data = await apiPostDashboard({
+        name: 'New dashboard',
+    });
+
+    console.log(data);
     dispatch(acSetSelectedId());
     dispatch(acSetSelectedEdit(true));
     dispatch(acSetSelectedIsLoading(false));

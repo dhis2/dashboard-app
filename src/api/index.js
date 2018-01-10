@@ -119,6 +119,20 @@ export const apiFetchDashboards = () =>
         )
         .catch(onError);
 
+// Create a new dashboard
+export const apiPostDashboard = (props = {}) =>
+    getInstance().then(d2 => {
+        const dashboard = d2.models.dashboard.create();
+
+        Object.entries(props).forEach(entry => {
+            dashboard[entry[0]] = entry[1];
+        });
+
+        dashboard.save().then(r => {
+            global.r = r;
+        });
+    });
+
 // Get more info about selected dashboard
 export const apiFetchSelected = id =>
     getInstance()
