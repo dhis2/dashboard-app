@@ -85,7 +85,11 @@ class Interpretations extends Component {
             Items = sorted.map(item => {
                 return (
                     <li style={style.item} key={item.id}>
-                        <Interpretation item={item} />
+                        <Interpretation
+                            item={item}
+                            objectId={this.props.objectId}
+                            objectType={this.props.objectType}
+                        />
                     </li>
                 );
             });
