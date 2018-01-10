@@ -21,6 +21,13 @@ const style = {
         marginBottom: 10,
         paddingBottom: 10,
     },
+    title: {
+        color: 'rgba(0,0,0,0.87)',
+        fontSize: '13px',
+        fontWeight: 'bold',
+        height: '19px',
+        lineHeight: '19px',
+    },
 };
 
 class Interpretations extends Component {

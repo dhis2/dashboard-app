@@ -15,44 +15,58 @@ import {
 
 import './Interpretation.css';
 
-const redColor = '#E53935';
-const lightGray = '#ECEFF1';
+const actionButtonClass = 'interpretation-action-button';
+const red = '#E53935';
+const lightGrey = '#ECEFF1';
+const mediumGrey = '#393939';
+const darkGrey = '#494949';
 const style = {
     author: {
-        fontWeight: 'bold',
+        color: darkGrey,
+        fontSize: '13px',
+        fontWeight: '500',
+        lineHeight: '15px',
     },
     created: {
+        color: mediumGrey,
         float: 'right',
+        fontSize: '12px',
+        lineHeight: '14px',
+        textAlign: 'right',
     },
-    text: {},
+    text: {
+        color: darkGrey,
+        fontSize: '13px',
+        lineHeight: '17px',
+    },
     list: {
+        borderLeft: `4px solid ${lightGrey}`,
+        borderTop: `1px solid ${lightGrey}`,
         listStyleType: 'none',
-        paddingLeft: '20px',
-        borderLeft: `4px solid ${lightGray}`,
         marginTop: '10px',
-        borderTop: `1px solid ${lightGray}`,
+        paddingLeft: '20px',
     },
     icon: {
-        width: '12px',
         height: '12px',
         marginBottom: '-2px',
         paddingRight: '3px',
+        width: '12px',
     },
     likes: {
         margin: '0 8px',
     },
     deleteButton: {
-        color: redColor,
+        color: red,
     },
     comment: {
-        paddingTop: '7px',
         paddingRight: '6px',
+        paddingTop: '7px',
     },
     line: {
-        margin: '-1px 0px 0px',
-        height: '1px',
+        backgroundColor: `${lightGrey}`,
         border: 'none',
-        backgroundColor: `${lightGray}`,
+        height: '1px',
+        margin: '-1px 0px 0px',
     },
 };
 
@@ -149,12 +163,12 @@ class Interpretation extends Component {
     };
 
     renderActions() {
-        const buttonClass = 'interpretation-action-button';
+        const actionButtonClass = 'interpretation-action-button';
         const likes = this.props.item.likedBy.length === 1 ? 'like' : 'likes';
         const userOwnsInterpretation = this.userIsOwner(
             this.props.item.user.id
         );
-        const deleteStyle = Object.assign({}, style.icon, { fill: redColor });
+        const deleteStyle = Object.assign({}, style.icon, { fill: red });
         const thumbsUpIcon = this.userLikesInterpretation()
             ? Object.assign({}, style.icon, { fill: '#48A999' })
             : style.icon;
@@ -164,16 +178,19 @@ class Interpretation extends Component {
 
         return (
             <div>
-                <button className={buttonClass}>
+                <button className={actionButtonClass}>
                     <SvgIcon style={style.icon} icon="Launch" />
                     View in Visualizer
                 </button>
-                <button className={buttonClass} onClick={this.showCommentField}>
+                <button
+                    className={actionButtonClass}
+                    onClick={this.showCommentField}
+                >
                     <SvgIcon style={style.icon} icon="Reply" />
                     Reply
                 </button>
                 <button
-                    className={buttonClass}
+                    className={actionButtonClass}
                     onClick={this.toggleInterpretationLike}
                 >
                     <SvgIcon style={thumbsUpIcon} icon="ThumbUp" />
@@ -184,7 +201,7 @@ class Interpretation extends Component {
                 </span>
                 {userOwnsInterpretation ? (
                     <button
-                        className={buttonClass}
+                        className={actionButtonClass}
                         style={style.deleteButton}
                         onClick={this.deleteInterpretation}
                     >
@@ -196,8 +213,42 @@ class Interpretation extends Component {
         );
     }
 
+    renderComments() {
+        if (!this.props.item.comments.length) {
+            return null;
+        }
+
+        const lineStyle = Object.assign({}, style.line, {
+            marginTop: '5px',
+        });
+        const deleteStyle = Object.assign({}, style.icon, { fill: red });
+        const comments = sortByDate(this.props.item.comments).map(comment => (
+            <li style={style.comment} key={comment.id}>
+                <div>
+                    <span style={style.author}>{comment.user.displayName}</span>
+                    <span style={style.created}>
+                        {this.renderDateString(comment.created)}
+                    </span>
+                </div>
+                <p style={style.text}>{comment.text}</p>
+                {this.userIsOwner(comment.user.id) ? (
+                    <button
+                        className={actionButtonClass}
+                        style={style.deleteButton}
+                        onClick={() => this.deleteComment(comment.id)}
+                    >
+                        <SvgIcon style={deleteStyle} icon="Delete" />
+                        Delete
+                    </button>
+                ) : null}
+                <hr style={lineStyle} />
+            </li>
+        ));
+
+        return <ul style={style.list}>{comments}</ul>;
+    }
+
     render() {
-        const item = this.props.item;
         const interpretationBody = item => {
             return (
                 <div>
@@ -214,32 +265,11 @@ class Interpretation extends Component {
             );
         };
 
-        const deleteStyle = Object.assign({}, style.icon, { fill: redColor });
-        const comments = sortByDate(item.comments).map(comment => (
-            <li style={style.comment} key={comment.id}>
-                <div>
-                    <span style={style.author}>{comment.user.displayName}</span>
-                    <span style={style.created}>
-                        {this.renderDateString(comment.created)}
-                    </span>
-                </div>
-                <p style={style.text}>{comment.text}</p>
-                {this.userIsOwner(comment.user.id) ? (
-                    <span onClick={() => this.deleteComment(comment.id)}>
-                        <SvgIcon style={deleteStyle} icon="Delete" />
-                    </span>
-                ) : null}
-                <hr style={style.line} />
-            </li>
-        ));
-
         return (
             <div>
-                {interpretationBody(item)}
+                {interpretationBody(this.props.item)}
                 {this.renderActions()}
-                {item.comments.length ? (
-                    <ul style={style.list}>{comments}</ul>
-                ) : null}
+                {this.renderComments()}
                 {this.state.showCommentField ? (
                     <div>
                         <TextField onChange={this.onChangeCommentText} />
