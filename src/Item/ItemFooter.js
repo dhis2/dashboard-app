@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import Interpretations from './Interpretations/Interpretations';
-import Divider from 'material-ui/Divider';
 
+const lightGray = '#ECEFF1';
 const style = {
     container: {
         padding: 5,
+    },
+    line: {
+        margin: '-1px 0px 0px',
+        height: '1px',
+        border: 'none',
+        backgroundColor: `${lightGray}`,
     },
 };
 
@@ -43,7 +49,7 @@ class ItemFooter extends Component {
             <div style={style.container}>
                 {this.props.showInterpretations ? (
                     <div>
-                        <Divider />
+                        <hr style={style.line} />
                         <Interpretations
                             objectType={this.props.item.type}
                             objectId={objectId}

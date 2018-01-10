@@ -16,6 +16,7 @@ import {
 import './Interpretation.css';
 
 const redColor = '#E53935';
+const lightGray = '#ECEFF1';
 const style = {
     author: {
         fontWeight: 'bold',
@@ -26,6 +27,10 @@ const style = {
     text: {},
     list: {
         listStyleType: 'none',
+        paddingLeft: '20px',
+        borderLeft: `4px solid ${lightGray}`,
+        marginTop: '10px',
+        borderTop: `1px solid ${lightGray}`,
     },
     icon: {
         width: '12px',
@@ -38,6 +43,16 @@ const style = {
     },
     deleteButton: {
         color: redColor,
+    },
+    comment: {
+        paddingTop: '7px',
+        paddingRight: '6px',
+    },
+    line: {
+        margin: '-1px 0px 0px',
+        height: '1px',
+        border: 'none',
+        backgroundColor: `${lightGray}`,
     },
 };
 
@@ -199,20 +214,22 @@ class Interpretation extends Component {
             );
         };
 
+        const deleteStyle = Object.assign({}, style.icon, { fill: redColor });
         const comments = sortByDate(item.comments).map(comment => (
-            <li key={comment.id}>
+            <li style={style.comment} key={comment.id}>
                 <div>
-                    {this.userIsOwner(comment.user.id) ? (
-                        <span onClick={() => this.deleteComment(comment.id)}>
-                            <SvgIcon icon="Delete" />
-                        </span>
-                    ) : null}
                     <span style={style.author}>{comment.user.displayName}</span>
                     <span style={style.created}>
                         {this.renderDateString(comment.created)}
                     </span>
                 </div>
                 <p style={style.text}>{comment.text}</p>
+                {this.userIsOwner(comment.user.id) ? (
+                    <span onClick={() => this.deleteComment(comment.id)}>
+                        <SvgIcon style={deleteStyle} icon="Delete" />
+                    </span>
+                ) : null}
+                <hr style={style.line} />
             </li>
         ));
 
@@ -220,7 +237,9 @@ class Interpretation extends Component {
             <div>
                 {interpretationBody(item)}
                 {this.renderActions()}
-                <ul style={style.list}>{comments}</ul>
+                {item.comments.length ? (
+                    <ul style={style.list}>{comments}</ul>
+                ) : null}
                 {this.state.showCommentField ? (
                     <div>
                         <TextField onChange={this.onChangeCommentText} />
