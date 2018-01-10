@@ -14,6 +14,7 @@ const style = {
     },
     list: {
         listStyleType: 'none',
+        paddingLeft: '0px',
     },
     item: {
         borderBottom: '1px solid #DCDCDC',
