@@ -133,6 +133,54 @@ class Interpretation extends Component {
         return value.substr(0, 19).replace('T', ' ');
     };
 
+    renderActions() {
+        const buttonClass = 'interpretation-action-button';
+        const likes = this.props.item.likedBy.length === 1 ? 'like' : 'likes';
+        const userOwnsInterpretation = this.userIsOwner(
+            this.props.item.user.id
+        );
+        const deleteStyle = Object.assign({}, style.icon, { fill: redColor });
+        const thumbsUpIcon = this.userLikesInterpretation()
+            ? Object.assign({}, style.icon, { fill: '#48A999' })
+            : style.icon;
+        const likeText = this.userLikesInterpretation()
+            ? 'You like this'
+            : 'Like';
+
+        return (
+            <div>
+                <button className={buttonClass}>
+                    <SvgIcon style={style.icon} icon="Launch" />
+                    View in Visualizer
+                </button>
+                <button className={buttonClass} onClick={this.showCommentField}>
+                    <SvgIcon style={style.icon} icon="Reply" />
+                    Reply
+                </button>
+                <button
+                    className={buttonClass}
+                    onClick={this.toggleInterpretationLike}
+                >
+                    <SvgIcon style={thumbsUpIcon} icon="ThumbUp" />
+                    {likeText}
+                </button>
+                <span style={style.likes}>
+                    {this.props.item.likedBy.length} {likes}
+                </span>
+                {userOwnsInterpretation ? (
+                    <button
+                        className={buttonClass}
+                        style={style.deleteButton}
+                        onClick={this.deleteInterpretation}
+                    >
+                        <SvgIcon style={deleteStyle} icon="Delete" />
+                        Delete
+                    </button>
+                ) : null}
+            </div>
+        );
+    }
+
     render() {
         const item = this.props.item;
         const interpretationBody = item => {
@@ -151,8 +199,7 @@ class Interpretation extends Component {
             );
         };
 
-        const sortedComments = sortByDate(item.comments);
-        const comments = sortedComments.map(comment => (
+        const comments = sortByDate(item.comments).map(comment => (
             <li key={comment.id}>
                 <div>
                     {this.userIsOwner(comment.user.id) ? (
@@ -169,53 +216,10 @@ class Interpretation extends Component {
             </li>
         ));
 
-        const likes = item.likedBy.length === 1 ? 'like' : 'likes';
-        const userOwnsInterpretation = this.userIsOwner(item.user.id);
-        const deleteStyle = Object.assign({}, style.icon, { fill: redColor });
-        const thumbsUpIcon = this.userLikesInterpretation()
-            ? Object.assign({}, style.icon, { fill: '#48A999' })
-            : style.icon;
-        const likeText = this.userLikesInterpretation()
-            ? 'You like this'
-            : 'Like';
-
-        const buttonClass = 'interpretation-action-button';
         return (
             <div>
                 {interpretationBody(item)}
-                <div>
-                    <button className={buttonClass}>
-                        <SvgIcon style={style.icon} icon="Launch" />
-                        View in Visualizer
-                    </button>
-                    <button
-                        className={buttonClass}
-                        onClick={this.showCommentField}
-                    >
-                        <SvgIcon style={style.icon} icon="Reply" />
-                        Reply
-                    </button>
-                    <button
-                        className={buttonClass}
-                        onClick={this.toggleInterpretationLike}
-                    >
-                        <SvgIcon style={thumbsUpIcon} icon="ThumbUp" />
-                        {likeText}
-                    </button>
-                    <span style={style.likes}>
-                        {item.likedBy.length} {likes}
-                    </span>
-                    {userOwnsInterpretation ? (
-                        <button
-                            className={buttonClass}
-                            style={style.deleteButton}
-                            onClick={this.deleteInterpretation}
-                        >
-                            <SvgIcon style={deleteStyle} icon="Delete" />
-                            Delete
-                        </button>
-                    ) : null}
-                </div>
+                {this.renderActions()}
                 <ul style={style.list}>{comments}</ul>
                 {this.state.showCommentField ? (
                     <div>
