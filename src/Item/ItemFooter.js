@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Interpretations from './Interpretations/Interpretations';
+import Divider from 'material-ui/Divider';
 
 const style = {
     container: {
@@ -41,10 +42,13 @@ class ItemFooter extends Component {
         return (
             <div style={style.container}>
                 {this.props.showInterpretations ? (
-                    <Interpretations
-                        objectType={this.props.item.type}
-                        objectId={objectId}
-                    />
+                    <div>
+                        <Divider />
+                        <Interpretations
+                            objectType={this.props.item.type}
+                            objectId={objectId}
+                        />
+                    </div>
                 ) : null}
             </div>
         );
