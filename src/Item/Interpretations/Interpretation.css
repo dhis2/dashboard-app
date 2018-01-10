@@ -1,0 +1,14 @@
+.interpretation-action-button {
+    background: none !important;
+    color: inherit;
+    border: none;
+    padding: 0 !important;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.interpretation-action-button:focus {
+    outline: 0;
+}

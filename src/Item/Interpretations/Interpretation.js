@@ -13,6 +13,8 @@ import {
     tDeleteInterpretation,
 } from './actions';
 
+import './Interpretation.css';
+
 const style = {
     author: {
         fontWeight: 'bold',
@@ -21,21 +23,17 @@ const style = {
         float: 'right',
     },
     text: {},
-    link: {
-        background: 'none !important',
-        color: 'inherit',
-        border: 'none',
-        padding: '0 !important',
-        font: 'inherit',
-        textDecoration: 'underline',
-        cursor: 'pointer',
-    },
     list: {
         listStyleType: 'none',
     },
     icon: {
-        width: 16,
-        height: 16,
+        width: '12px',
+        height: '12px',
+        marginBottom: '-2px',
+        paddingRight: '3px',
+    },
+    likes: {
+        margin: '0 8px',
     },
 };
 
@@ -173,31 +171,39 @@ class Interpretation extends Component {
             ? 'You like this'
             : 'Like';
 
+        const thumbsUpIcon = this.userLikesInterpretation()
+            ? Object.assign({}, style.icon, { fill: '#48A999' })
+            : style.icon;
+
+        const buttonClass = 'interpretation-action-button';
         return (
             <div>
                 {interpretationBody(item)}
                 <div>
-                    <button style={style.link}>
+                    <button className={buttonClass}>
                         <SvgIcon style={style.icon} icon="Launch" />
                         View in Visualizer
                     </button>
-                    <button style={style.link} onClick={this.showCommentField}>
+                    <button
+                        className={buttonClass}
+                        onClick={this.showCommentField}
+                    >
                         <SvgIcon style={style.icon} icon="Reply" />
                         Reply
                     </button>
                     <button
-                        style={style.link}
+                        className={buttonClass}
                         onClick={this.toggleInterpretationLike}
                     >
-                        <SvgIcon style={style.icon} icon="ThumbUp" />
+                        <SvgIcon style={thumbsUpIcon} icon="ThumbUp" />
                         {likeText}
                     </button>
-                    <span>
+                    <span style={style.likes}>
                         {item.likedBy.length} {likes}
                     </span>
                     {userOwnsInterpretation ? (
                         <button
-                            style={style.link}
+                            className={buttonClass}
                             onClick={this.deleteInterpretation}
                         >
                             <SvgIcon style={style.icon} icon="Delete" />
