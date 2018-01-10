@@ -15,6 +15,7 @@ import {
 
 import './Interpretation.css';
 
+const redColor = '#E53935';
 const style = {
     author: {
         fontWeight: 'bold',
@@ -34,6 +35,9 @@ const style = {
     },
     likes: {
         margin: '0 8px',
+    },
+    deleteButton: {
+        color: redColor,
     },
 };
 
@@ -167,13 +171,13 @@ class Interpretation extends Component {
 
         const likes = item.likedBy.length === 1 ? 'like' : 'likes';
         const userOwnsInterpretation = this.userIsOwner(item.user.id);
-        const likeText = this.userLikesInterpretation()
-            ? 'You like this'
-            : 'Like';
-
+        const deleteStyle = Object.assign({}, style.icon, { fill: redColor });
         const thumbsUpIcon = this.userLikesInterpretation()
             ? Object.assign({}, style.icon, { fill: '#48A999' })
             : style.icon;
+        const likeText = this.userLikesInterpretation()
+            ? 'You like this'
+            : 'Like';
 
         const buttonClass = 'interpretation-action-button';
         return (
@@ -204,9 +208,10 @@ class Interpretation extends Component {
                     {userOwnsInterpretation ? (
                         <button
                             className={buttonClass}
+                            style={style.deleteButton}
                             onClick={this.deleteInterpretation}
                         >
-                            <SvgIcon style={style.icon} icon="Delete" />
+                            <SvgIcon style={deleteStyle} icon="Delete" />
                             Delete
                         </button>
                     ) : null}
