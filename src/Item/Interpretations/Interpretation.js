@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import TextField from 'd2-ui/lib/text-field/TextField';
 import Button from 'd2-ui/lib/button/Button';
+import { colors } from '../../styleGuide';
 
 import {
     tLikeInterpretation,
@@ -16,35 +17,26 @@ import {
 import './Interpretation.css';
 
 const actionButtonClass = 'interpretation-action-button';
-const red = '#E53935';
-const lightGrey = '#ECEFF1';
-const mediumGrey = '#393939';
-const darkGrey = '#494949';
 const style = {
     author: {
-        color: darkGrey,
+        color: colors.darkGrey,
         fontSize: '13px',
         fontWeight: '500',
         lineHeight: '15px',
     },
+    comment: {
+        paddingRight: '6px',
+        paddingTop: '7px',
+    },
     created: {
-        color: mediumGrey,
+        color: colors.mediumGrey,
         float: 'right',
         fontSize: '12px',
         lineHeight: '14px',
         textAlign: 'right',
     },
-    text: {
-        color: darkGrey,
-        fontSize: '13px',
-        lineHeight: '17px',
-    },
-    list: {
-        borderLeft: `4px solid ${lightGrey}`,
-        borderTop: `1px solid ${lightGrey}`,
-        listStyleType: 'none',
-        marginTop: '10px',
-        paddingLeft: '20px',
+    deleteButton: {
+        color: colors.red,
     },
     icon: {
         height: '12px',
@@ -54,19 +46,27 @@ const style = {
     },
     likes: {
         margin: '0 8px',
-    },
-    deleteButton: {
-        color: red,
-    },
-    comment: {
-        paddingRight: '6px',
-        paddingTop: '7px',
+        color: colors.darkGrey,
+        fontSize: '12px',
+        lineHeight: '14px',
     },
     line: {
-        backgroundColor: `${lightGrey}`,
+        backgroundColor: `${colors.lightGrey}`,
         border: 'none',
         height: '1px',
         margin: '-1px 0px 0px',
+    },
+    list: {
+        borderLeft: `4px solid ${colors.lightGrey}`,
+        borderTop: `1px solid ${colors.lightGrey}`,
+        listStyleType: 'none',
+        marginTop: '10px',
+        paddingLeft: '20px',
+    },
+    text: {
+        color: colors.darkGrey,
+        fontSize: '13px',
+        lineHeight: '17px',
     },
 };
 
@@ -168,9 +168,9 @@ class Interpretation extends Component {
         const userOwnsInterpretation = this.userIsOwner(
             this.props.item.user.id
         );
-        const deleteStyle = Object.assign({}, style.icon, { fill: red });
+        const deleteStyle = Object.assign({}, style.icon, { fill: colors.red });
         const thumbsUpIcon = this.userLikesInterpretation()
-            ? Object.assign({}, style.icon, { fill: '#48A999' })
+            ? Object.assign({}, style.icon, { fill: colors.accentLightGreen })
             : style.icon;
         const likeText = this.userLikesInterpretation()
             ? 'You like this'
@@ -221,7 +221,7 @@ class Interpretation extends Component {
         const lineStyle = Object.assign({}, style.line, {
             marginTop: '5px',
         });
-        const deleteStyle = Object.assign({}, style.icon, { fill: red });
+        const deleteStyle = Object.assign({}, style.icon, { fill: colors.red });
         const comments = sortByDate(this.props.item.comments).map(comment => (
             <li style={style.comment} key={comment.id}>
                 <div>

@@ -5,6 +5,7 @@ import TextField from 'd2-ui/lib/text-field/TextField';
 import Interpretation from './Interpretation';
 import { tGetInterpretations, tPostInterpretation } from './actions';
 import * as fromReducers from '../../reducers';
+import { colors } from '../../styleGuide';
 
 const style = {
     container: {
@@ -12,17 +13,17 @@ const style = {
         height: 320,
         padding: 5,
     },
+    item: {
+        borderBottom: `1px solid ${colors.lightGrey}`,
+        marginBottom: 10,
+        paddingBottom: 10,
+    },
     list: {
         listStyleType: 'none',
         paddingLeft: '0px',
     },
-    item: {
-        borderBottom: '1px solid #DCDCDC',
-        marginBottom: 10,
-        paddingBottom: 10,
-    },
     title: {
-        color: 'rgba(0,0,0,0.87)',
+        color: colors.black,
         fontSize: '13px',
         fontWeight: 'bold',
         height: '19px',
