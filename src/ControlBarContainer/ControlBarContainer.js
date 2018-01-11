@@ -44,6 +44,8 @@ const getOuterHeight = (isExpanded, rows) =>
 
 const onDashboardSelectWrapper = (id, onClick) => () => onClick(id);
 
+const ReactFragment = props => props.children;
+
 const ControlBarComponent = ({
     dashboards,
     name,
@@ -71,36 +73,54 @@ const ControlBarComponent = ({
         >
             <div style={contentWrapperStyle}>
                 <div style={styles.leftControls}>
-                    <D2IconButton
-                        style={{ width: 36, height: 36, marginRight: 10 }}
-                        onClick={onNewClick}
-                    />
-                    <Filter name={name} onChangeName={onChangeFilterName} />
+                    {edit ? (
+                        <div>Save changes</div>
+                    ) : (
+                        <ReactFragment>
+                            <D2IconButton
+                                style={{
+                                    width: 36,
+                                    height: 36,
+                                    marginRight: 10,
+                                }}
+                                onClick={onNewClick}
+                            />
+                            <Filter
+                                name={name}
+                                onChangeName={onChangeFilterName}
+                            />
+                        </ReactFragment>
+                    )}
                 </div>
                 <div style={styles.rightControls}>
-                    <div
-                        style={{
-                            position: 'relative',
-                            top: '6px',
-                            left: '-10px',
-                            cursor: 'pointer',
-                        }}
-                        onClick={() => alert('show list view')}
-                    >
-                        <SvgIcon icon="List" />
-                    </div>
+                    {edit ? (
+                        <div>Exit without saving</div>
+                    ) : (
+                        <div
+                            style={{
+                                position: 'relative',
+                                top: '6px',
+                                left: '-10px',
+                                cursor: 'pointer',
+                            }}
+                            onClick={() => alert('show list view')}
+                        >
+                            <SvgIcon icon="List" />
+                        </div>
+                    )}
                 </div>
-                {dashboards.map(dashboard => (
-                    <Chip
-                        key={dashboard.id}
-                        label={dashboard.name}
-                        avatar={dashboard.starred ? 'star' : null}
-                        onClick={onDashboardSelectWrapper(
-                            dashboard.id,
-                            onDashboardSelect
-                        )}
-                    />
-                ))}
+                {!edit &&
+                    dashboards.map(dashboard => (
+                        <Chip
+                            key={dashboard.id}
+                            label={dashboard.name}
+                            avatar={dashboard.starred ? 'star' : null}
+                            onClick={onDashboardSelectWrapper(
+                                dashboard.id,
+                                onDashboardSelect
+                            )}
+                        />
+                    ))}
             </div>
             <div style={styles.expandButtonWrap}>
                 <div
