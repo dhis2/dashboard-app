@@ -1,33 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import TextField from 'd2-ui/lib/text-field/TextField';
-import Button from 'd2-ui/lib/button/Button';
 
 import Interpretation from './Interpretation';
+import InputField from './InputField';
 import { tGetInterpretations, tPostInterpretation } from './actions';
 import * as fromReducers from '../../reducers';
 import { colors } from '../../styleGuide';
 
 const style = {
-    button: {
-        height: '30px',
-        width: '16.84px',
-        color: colors.charcoalGrey,
-        fontFamily: 'inherit',
-        fontSize: '13px',
-        lineHeight: '15px',
-    },
     container: {
         overflowY: 'scroll',
         height: 320,
         padding: 5,
-    },
-    interpretationBox: {
-        marginBottom: '5px',
-    },
-    interpretationText: {
-        fontSize: '14px',
-        fontStretch: 'normal',
     },
     item: {
         borderBottom: `1px solid ${colors.lightGrey}`,
@@ -37,10 +21,6 @@ const style = {
     list: {
         listStyleType: 'none',
         paddingLeft: '0px',
-    },
-    newInterpretation: {
-        width: '80%',
-        display: 'inline-block',
     },
     title: {
         color: colors.black,
@@ -56,19 +36,9 @@ class Interpretations extends Component {
         newInterpretationText: '',
     };
 
-    updateNewInterpretationText = newInterpretationText => {
-        this.setState({ newInterpretationText });
-    };
-
-    postInterpretation = () => {
-        const data = {
-            objectType: this.props.objectType,
-            objectId: this.props.objectId,
-            text: this.state.newInterpretationText,
-        };
-
-        this.props.postInterpretation(data, this.props.dashboardId);
-        this.setState({ newInterpretationText: '' });
+    postInterpretation = text => {
+        const { objectType, objectId } = this.props;
+        this.props.postInterpretation({ objectType, objectId, text });
     };
 
     interpretationsLoaded = () => {
@@ -133,26 +103,11 @@ class Interpretations extends Component {
                     Interpretations ({this.props.ids.length})
                 </h3>
                 <ul style={style.list}>{this.renderItems()}</ul>
-                <div style={style.interpretationBox}>
-                    <div style={style.newInterpretation}>
-                        <TextField
-                            multiLine
-                            value={this.state.newInterpretationText}
-                            rows={1}
-                            rowsMax={8}
-                            fullWidth
-                            style={style.interpretationText}
-                            placeholder="Write your own interpretation"
-                            onChange={this.updateNewInterpretationText}
-                        />
-                    </div>
-                    <Button
-                        style={style.button}
-                        onClick={this.postInterpretation}
-                    >
-                        Post
-                    </Button>
-                </div>
+                <InputField
+                    placeholder="Write your own interpretation"
+                    onPost={this.postInterpretation}
+                    postText="Post"
+                />
             </div>
         );
     }

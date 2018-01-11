@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
-import TextField from 'd2-ui/lib/text-field/TextField';
-import Button from 'd2-ui/lib/button/Button';
+import InputField from './InputField';
 import { colors } from '../../styleGuide';
 
 import {
@@ -37,25 +36,9 @@ const style = {
         padding: '0 !important',
         textDecoration: 'underline',
     },
-    commentButton: {
-        height: '30px',
-        width: '16.84px',
-        color: colors.charcoalGrey,
-        fontFamily: 'inherit',
-        fontSize: '13px',
-        lineHeight: '15px',
-    },
     comment: {
         paddingRight: '6px',
         paddingTop: '7px',
-    },
-    newCommentText: {
-        fontSize: '14px',
-        fontStretch: 'normal',
-    },
-    newComment: {
-        width: '80%',
-        display: 'inline-block',
     },
     created: {
         color: colors.mediumGrey,
@@ -314,26 +297,11 @@ class Interpretation extends Component {
                 {this.renderActions()}
                 {this.renderComments()}
                 {this.state.showCommentField ? (
-                    <div>
-                        <div style={style.newComment}>
-                            <TextField
-                                multiLine
-                                value={this.state.commentText}
-                                rows={1}
-                                rowsMax={5}
-                                fullWidth
-                                style={style.newCommentText}
-                                placeholder="Write your reply"
-                                onChange={this.onChangeCommentText}
-                            />
-                        </div>
-                        <Button
-                            style={style.commentButton}
-                            onClick={this.postComment}
-                        >
-                            Reply
-                        </Button>
-                    </div>
+                    <InputField
+                        placeholder="Write your reply"
+                        onPost={this.postComment}
+                        postText="Reply"
+                    />
                 ) : null}
             </div>
         );
