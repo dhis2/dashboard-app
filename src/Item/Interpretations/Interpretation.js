@@ -37,9 +37,25 @@ const style = {
         padding: '0 !important',
         textDecoration: 'underline',
     },
+    commentButton: {
+        height: '30px',
+        width: '16.84px',
+        color: colors.charcoalGrey,
+        fontFamily: 'inherit',
+        fontSize: '13px',
+        lineHeight: '15px',
+    },
     comment: {
         paddingRight: '6px',
         paddingTop: '7px',
+    },
+    newCommentText: {
+        fontSize: '14px',
+        fontStretch: 'normal',
+    },
+    newComment: {
+        width: '80%',
+        display: 'inline-block',
     },
     created: {
         color: colors.mediumGrey,
@@ -299,8 +315,24 @@ class Interpretation extends Component {
                 {this.renderComments()}
                 {this.state.showCommentField ? (
                     <div>
-                        <TextField onChange={this.onChangeCommentText} />
-                        <Button onClick={this.postComment}>Reply</Button>
+                        <div style={style.newComment}>
+                            <TextField
+                                multiLine
+                                value={this.state.commentText}
+                                rows={1}
+                                rowsMax={5}
+                                fullWidth
+                                style={style.newCommentText}
+                                placeholder="Write your reply"
+                                onChange={this.onChangeCommentText}
+                            />
+                        </div>
+                        <Button
+                            style={style.commentButton}
+                            onClick={this.postComment}
+                        >
+                            Reply
+                        </Button>
                     </div>
                 ) : null}
             </div>

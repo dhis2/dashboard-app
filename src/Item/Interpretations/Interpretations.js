@@ -23,7 +23,7 @@ const style = {
         padding: 5,
     },
     interpretationBox: {
-        marginBottom: '10px',
+        marginBottom: '5px',
     },
     interpretationText: {
         fontSize: '14px',
