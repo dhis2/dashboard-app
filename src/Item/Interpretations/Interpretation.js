@@ -24,6 +24,19 @@ const style = {
         fontWeight: '500',
         lineHeight: '15px',
     },
+    button: {
+        background: 'none !important',
+        border: 'none',
+        color: colors.darkGrey,
+        cursor: 'pointer',
+        font: 'inherit',
+        fontSize: '12px',
+        height: '14px',
+        lineJeight: '14px',
+        marginRight: '10px',
+        padding: '0 !important',
+        textDecoration: 'underline',
+    },
     comment: {
         paddingRight: '6px',
         paddingTop: '7px',
@@ -163,7 +176,6 @@ class Interpretation extends Component {
     };
 
     renderActions() {
-        const actionButtonClass = 'interpretation-action-button';
         const likes = this.props.item.likedBy.length === 1 ? 'like' : 'likes';
         const userOwnsInterpretation = this.userIsOwner(
             this.props.item.user.id
@@ -176,14 +188,21 @@ class Interpretation extends Component {
             ? 'You like this'
             : 'Like';
 
+        const deleteButtonStyle = Object.assign(
+            {},
+            style.button,
+            style.deleteButton
+        );
+
         return (
             <div>
-                <button className={actionButtonClass}>
+                <button className={actionButtonClass} style={style.button}>
                     <SvgIcon style={style.icon} icon="Launch" />
                     View in Visualizer
                 </button>
                 <button
                     className={actionButtonClass}
+                    style={style.button}
                     onClick={this.showCommentField}
                 >
                     <SvgIcon style={style.icon} icon="Reply" />
@@ -191,6 +210,7 @@ class Interpretation extends Component {
                 </button>
                 <button
                     className={actionButtonClass}
+                    style={style.button}
                     onClick={this.toggleInterpretationLike}
                 >
                     <SvgIcon style={thumbsUpIcon} icon="ThumbUp" />
@@ -202,7 +222,7 @@ class Interpretation extends Component {
                 {userOwnsInterpretation ? (
                     <button
                         className={actionButtonClass}
-                        style={style.deleteButton}
+                        style={deleteButtonStyle}
                         onClick={this.deleteInterpretation}
                     >
                         <SvgIcon style={deleteStyle} icon="Delete" />
@@ -222,6 +242,13 @@ class Interpretation extends Component {
             marginTop: '5px',
         });
         const deleteStyle = Object.assign({}, style.icon, { fill: colors.red });
+
+        const deleteButtonStyle = Object.assign(
+            {},
+            style.button,
+            style.deleteButton
+        );
+
         const comments = sortByDate(this.props.item.comments).map(comment => (
             <li style={style.comment} key={comment.id}>
                 <div>
@@ -234,7 +261,7 @@ class Interpretation extends Component {
                 {this.userIsOwner(comment.user.id) ? (
                     <button
                         className={actionButtonClass}
-                        style={style.deleteButton}
+                        style={deleteButtonStyle}
                         onClick={() => this.deleteComment(comment.id)}
                     >
                         <SvgIcon style={deleteStyle} icon="Delete" />

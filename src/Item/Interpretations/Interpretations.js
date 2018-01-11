@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TextField from 'd2-ui/lib/text-field/TextField';
+import Button from 'd2-ui/lib/button/Button';
 
 import Interpretation from './Interpretation';
 import { tGetInterpretations, tPostInterpretation } from './actions';
@@ -8,10 +9,25 @@ import * as fromReducers from '../../reducers';
 import { colors } from '../../styleGuide';
 
 const style = {
+    button: {
+        height: '30px',
+        width: '16.84px',
+        color: colors.charcoalGrey,
+        fontFamily: 'inherit',
+        fontSize: '13px',
+        lineHeight: '15px',
+    },
     container: {
         overflowY: 'scroll',
         height: 320,
         padding: 5,
+    },
+    interpretationBox: {
+        marginBottom: '10px',
+    },
+    interpretationText: {
+        fontSize: '14px',
+        fontStretch: 'normal',
     },
     item: {
         borderBottom: `1px solid ${colors.lightGrey}`,
@@ -21,6 +37,10 @@ const style = {
     list: {
         listStyleType: 'none',
         paddingLeft: '0px',
+    },
+    newInterpretation: {
+        width: '80%',
+        display: 'inline-block',
     },
     title: {
         color: colors.black,
@@ -113,9 +133,25 @@ class Interpretations extends Component {
                     Interpretations ({this.props.ids.length})
                 </h3>
                 <ul style={style.list}>{this.renderItems()}</ul>
-                <div>
-                    <TextField onChange={this.updateNewInterpretationText} />
-                    <button onClick={this.postInterpretation}>POST</button>
+                <div style={style.interpretationBox}>
+                    <div style={style.newInterpretation}>
+                        <TextField
+                            multiLine
+                            value={this.state.newInterpretationText}
+                            rows={1}
+                            rowsMax={8}
+                            fullWidth
+                            style={style.interpretationText}
+                            placeholder="Write your own interpretation"
+                            onChange={this.updateNewInterpretationText}
+                        />
+                    </div>
+                    <Button
+                        style={style.button}
+                        onClick={this.postInterpretation}
+                    >
+                        Post
+                    </Button>
                 </div>
             </div>
         );

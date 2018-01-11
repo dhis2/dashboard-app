@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import Interpretations from './Interpretations/Interpretations';
+import { colors } from '../styleGuide';
 
-const lightGray = '#ECEFF1';
 const style = {
     container: {
-        padding: 5,
+        padding: '5px',
     },
     line: {
         margin: '-1px 0px 0px',
         height: '1px',
         border: 'none',
-        backgroundColor: `${lightGray}`,
+        backgroundColor: colors.lightGrey,
     },
 };
 
