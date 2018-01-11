@@ -1,3 +1,4 @@
+import { generateUid } from 'd2/lib/uid';
 import { actionTypes } from '../reducers';
 import { apiFetchSelected, apiPostDashboard } from '../api';
 import { acSetDashboards } from './dashboards';
@@ -63,13 +64,15 @@ export const tSetSelectedDashboardById = id => async dispatch => {
 };
 
 export const tNewDashboard = () => async dispatch => {
+    const id = generateUid();
+
     const data = await apiPostDashboard({
-        name: 'New dashboard',
+        id: id,
+        name: `New dashboard ${id}`,
     });
 
     console.log(data);
-    dispatch(acSetSelectedId());
+
+    dispatch(tSetSelectedDashboardById(id));
     dispatch(acSetSelectedEdit(true));
-    dispatch(acSetSelectedIsLoading(false));
-    dispatch(acSetSelectedShowDescription(true));
 };
