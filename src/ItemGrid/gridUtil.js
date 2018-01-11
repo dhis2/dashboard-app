@@ -1,23 +1,23 @@
 // Dimensions for the react-grid-layout
 
-export const gridCompactType = 'vertical'; // vertical | horizonal | null
-export const gridRowHeight = 10;
-const columnWidthPx = 20;
-const gridLayout = 'FLEXIBLE'; // FIXED | FLEXIBLE
+export const GRID_COMPACT_TYPE = 'vertical'; // vertical | horizonal | null
+export const GRID_ROW_HEIGHT = 10;
+const GRID_COLUMN_WIDTH_PX = 20;
+const GRID_LAYOUT = 'FLEXIBLE'; // FIXED | FLEXIBLE
 
 // Dimensions for getShape
 
-const numberOfItemCols = 2;
-const gridColumns = 60;
+const NUMBER_OF_ITEM_COLS = 2;
+const GRID_COLUMNS = 60;
 
 export const getGridColumns = () => {
-    switch (gridLayout) {
+    switch (GRID_LAYOUT) {
         case 'FLEXIBLE':
-            return gridColumns;
+            return GRID_COLUMNS;
         case 'FIXED':
-            return Math.floor((window.innerWidth - 20) / columnWidthPx);
+            return Math.floor((window.innerWidth - 20) / GRID_COLUMN_WIDTH_PX);
         default:
-            return gridColumns;
+            return GRID_COLUMNS;
     }
 };
 
@@ -40,10 +40,10 @@ export const getShape = i => {
         throw new Error('Invalid grid block number');
     }
 
-    const col = i % numberOfItemCols;
-    const row = Math.floor(i / numberOfItemCols);
-    const itemWidth = Math.floor((gridColumns - 1) / numberOfItemCols);
-    const itemHeight = gridRowHeight * 2;
+    const col = i % NUMBER_OF_ITEM_COLS;
+    const row = Math.floor(i / NUMBER_OF_ITEM_COLS);
+    const itemWidth = Math.floor((GRID_COLUMNS - 1) / NUMBER_OF_ITEM_COLS);
+    const itemHeight = GRID_ROW_HEIGHT * 2;
 
     return {
         x: col * itemWidth,

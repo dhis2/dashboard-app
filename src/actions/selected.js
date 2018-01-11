@@ -75,8 +75,14 @@ export const tNewDashboard = () => async dispatch => {
             .substr(0, 17)})`,
     });
 
-    dispatch(tSetDashboards()).then(() => {
-        dispatch(acSetSelectedEdit(true));
-        dispatch(tSetSelectedDashboardById(id));
-    });
+    await dispatch(tSetDashboards());
+
+    await dispatch(tSetSelectedDashboardById(id));
+
+    dispatch(acSetSelectedEdit(true));
+
+    // dispatch(tSetDashboards()).then(() => {
+    //     dispatch(acSetSelectedEdit(true));
+    //     dispatch(tSetSelectedDashboardById(id));
+    // });
 };

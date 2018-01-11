@@ -35,11 +35,19 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
                 ...action.value,
             };
         }
-        case actionTypes.ADD_DASHBOARD_ITEM: {
-            const newState = Object.assign({}, state);
-            newState[action.dashboardId].dashboardItems.push(action.value);
 
-            return newState;
+        // returns new reference for dashboard.dashboardItems, keeps reference for dashboard
+        case actionTypes.ADD_DASHBOARD_ITEM: {
+            const dashboard = state[action.dashboardId];
+            dashboard.dashboardItems = [
+                ...dashboard.dashboardItems,
+                action.value,
+            ];
+            console.log('ACTION VALUE', action.value);
+            return {
+                ...state,
+                [action.dashboardId]: dashboard,
+            };
         }
         default:
             return state;

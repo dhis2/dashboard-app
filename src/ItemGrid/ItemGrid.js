@@ -9,9 +9,9 @@ import './ItemGrid.css';
 import Item from '../Item/Item';
 
 import {
-    gridRowHeight,
+    GRID_ROW_HEIGHT,
+    GRID_COMPACT_TYPE,
     getGridColumns,
-    gridCompactType,
     hasShape,
 } from './gridUtil';
 import {
@@ -22,25 +22,20 @@ import {
     onPluginItemResize,
 } from './pluginUtil';
 
-import { orArray, orObject } from '../util';
+import { orArray } from '../util';
 import * as fromReducers from '../reducers';
 import { apiFetchFavorite } from '../api';
 import ModalLoadingMask from '../widgets/ModalLoadingMask';
-import isArray from 'd2-utilizr/lib/isArray';
-import { fromDashboards } from '../actions/index';
-import { sGetSelectedDashboard } from '../reducers';
-
-const { fromSelected } = fromReducers;
 
 // Component
 
 let cachedIds = '';
 let cachedEdit = false;
 
-const shouldPluginRender = (dashboardItems, edit) => {
+const shouldPluginUpdate = (dashboardItems, edit) => {
     if (dashboardItems.length) {
         const ids = dashboardItems.map(item => item.id).join('-');
-
+        console.log('shouldPluginUpdate', ids);
         if (ids.length && (ids !== cachedIds || edit !== cachedEdit)) {
             cachedIds = ids;
             cachedEdit = edit;
@@ -76,10 +71,11 @@ export class ItemGrid extends Component {
     componentDidUpdate() {
         const { dashboardItems, edit } = this.props;
 
-        if (shouldPluginRender(dashboardItems, edit)) {
+        if (shouldPluginUpdate(dashboardItems, edit)) {
             renderFavorites(dashboardItems);
         }
     }
+
     componentWillUpdate() {
         //console.log('CWU');
     }
@@ -135,9 +131,9 @@ export class ItemGrid extends Component {
                     className="layout"
                     layout={this.pluginItems}
                     cols={getGridColumns()}
-                    rowHeight={gridRowHeight}
+                    rowHeight={GRID_ROW_HEIGHT}
                     width={window.innerWidth}
-                    compactType={gridCompactType}
+                    compactType={GRID_COMPACT_TYPE}
                     isDraggable={edit}
                     isResizable={edit}
                 >
@@ -201,29 +197,32 @@ const onResizeStop = (layout, oldItem, newItem) => {
 };
 
 const mapStateToProps = state => {
-    const { sGetSelectedDashboard } = fromReducers;
+    const { sGetSelectedDashboard, fromSelected } = fromReducers;
     const { sGetSelectedIsLoading, sGetSelectedEdit } = fromSelected;
 
     const selectedDashboard = sGetSelectedDashboard(state);
+
+    const dashboardItems = selectedDashboard
+        ? selectedDashboard.dashboardItems
+        : null;
+
     console.log(
         'MSTP',
         sGetSelectedEdit(state),
         sGetSelectedIsLoading(state),
-        selectedDashboard ? selectedDashboard.dashboardItems : null
+        dashboardItems
     );
 
     return {
         edit: sGetSelectedEdit(state),
         isLoading: sGetSelectedIsLoading(state),
-        dashboardItems: selectedDashboard
-            ? selectedDashboard.dashboardItems
-            : null,
+        dashboardItems,
     };
 };
 
 const mergeProps = (stateProps, dispatchProps) => {
     const validItems = orArray(stateProps.dashboardItems).filter(hasShape);
-    console.log('MP', validItems);
+    console.log('-- MP', validItems);
     return {
         edit: stateProps.edit,
         isLoading: stateProps.isLoading,
