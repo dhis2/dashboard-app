@@ -16,9 +16,9 @@ export const acAddDashboardItem = (dashboardId, yValue, favorite) => {
     const favoritePropName = favoriteTypeUrlMap[favorite.type].propName;
 
     return {
-        id: generateUid(),
         type: actionTypes.ADD_DASHBOARD_ITEM,
         value: {
+            id: generateUid(),
             type: favorite.type,
             [favoritePropName]: favorite,
             x: 0,
