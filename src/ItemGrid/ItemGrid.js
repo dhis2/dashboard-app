@@ -8,7 +8,12 @@ import 'react-resizable/css/styles.css';
 import './ItemGrid.css';
 import Item from '../Item/Item';
 
-import { gridRowHeight, getGridColumns, gridCompactType } from './gridUtil';
+import {
+    gridRowHeight,
+    getGridColumns,
+    gridCompactType,
+    hasShape,
+} from './gridUtil';
 import {
     getPluginByType,
     getFavoriteObjectFromItem,
@@ -17,11 +22,13 @@ import {
     onPluginItemResize,
 } from './pluginUtil';
 
-import { orArray } from '../util';
+import { orArray, orObject } from '../util';
 import * as fromReducers from '../reducers';
 import { apiFetchFavorite } from '../api';
 import ModalLoadingMask from '../widgets/ModalLoadingMask';
 import isArray from 'd2-utilizr/lib/isArray';
+import { fromDashboards } from '../actions/index';
+import { sGetSelectedDashboard } from '../reducers';
 
 const { fromSelected } = fromReducers;
 
@@ -34,7 +41,7 @@ const shouldPluginRender = (dashboardItems, edit) => {
     if (dashboardItems.length) {
         const ids = dashboardItems.map(item => item.id).join('-');
 
-        if (ids !== cachedIds || edit !== cachedEdit) {
+        if (ids.length && (ids !== cachedIds || edit !== cachedEdit)) {
             cachedIds = ids;
             cachedEdit = edit;
 
@@ -63,6 +70,8 @@ export class ItemGrid extends Component {
     state = {
         expandedItems: {},
     };
+
+    NO_ITEMS_MESSAGE = 'You have not added any items';
 
     componentDidUpdate() {
         const { dashboardItems, edit } = this.props;
@@ -96,13 +105,12 @@ export class ItemGrid extends Component {
             edit,
             isLoading,
             dashboardItems,
-            noItemsMessage,
             onButtonClick,
             onResizeStop,
         } = this.props;
 
-        if (noItemsMessage) {
-            return <NoItemsMessage text={noItemsMessage} />;
+        if (!dashboardItems.length) {
+            return <NoItemsMessage text={this.NO_ITEMS_MESSAGE} />;
         }
 
         this.pluginItems = dashboardItems.map((item, index) => {
@@ -166,7 +174,6 @@ ItemGrid.defaultProps = {
 // Container
 
 const currentItemTypeMap = {}; // TODO: improve
-const noItemsMsg = 'You have not added any items';
 
 const onButtonClick = (id, type, targetType) => {
     const plugin = getPluginByType(targetType);
@@ -198,6 +205,12 @@ const mapStateToProps = state => {
     const { sGetSelectedIsLoading, sGetSelectedEdit } = fromSelected;
 
     const selectedDashboard = sGetSelectedDashboard(state);
+    console.log(
+        'MSTP',
+        sGetSelectedEdit(state),
+        sGetSelectedIsLoading(state),
+        selectedDashboard ? selectedDashboard.dashboardItems : null
+    );
 
     return {
         edit: sGetSelectedEdit(state),
@@ -209,14 +222,12 @@ const mapStateToProps = state => {
 };
 
 const mergeProps = (stateProps, dispatchProps) => {
-    const hasItems =
-        isArray(stateProps.dashboardItems) && stateProps.dashboardItems.length;
-
+    const validItems = orArray(stateProps.dashboardItems).filter(hasShape);
+    console.log('MP', validItems);
     return {
         edit: stateProps.edit,
         isLoading: stateProps.isLoading,
-        dashboardItems: orArray(stateProps.dashboardItems),
-        noItemsMessage: !hasItems ? noItemsMsg : null,
+        dashboardItems: validItems,
         onButtonClick,
         onItemResize,
         onResizeStop,

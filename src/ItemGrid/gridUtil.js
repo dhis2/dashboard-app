@@ -60,7 +60,7 @@ export const getShape = i => {
  * @returns {Array}
  */
 
-export const getShapedItems = items =>
+export const withShape = items =>
     items.map(
         (item, index) =>
             hasShape(item) ? item : Object.assign({}, item, getShape(index))

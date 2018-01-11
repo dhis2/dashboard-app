@@ -1,8 +1,8 @@
 import { generateUid } from 'd2/lib/uid';
 import { actionTypes } from '../reducers';
 import { apiFetchSelected, apiPostDashboard } from '../api';
-import { acSetDashboards } from './dashboards';
-import { getShapedItems } from '../ItemGrid/gridUtil';
+import { acSetDashboards, tSetDashboards } from './dashboards';
+import { withShape } from '../ItemGrid/gridUtil';
 
 // actions
 
@@ -40,7 +40,7 @@ export const tSetSelectedDashboardById = id => async dispatch => {
             acSetDashboards(
                 {
                     ...selected,
-                    dashboardItems: getShapedItems(selected.dashboardItems),
+                    dashboardItems: withShape(selected.dashboardItems), // TODO get shape from backend instead
                 },
                 true
             )
@@ -65,14 +65,18 @@ export const tSetSelectedDashboardById = id => async dispatch => {
 
 export const tNewDashboard = () => async dispatch => {
     const id = generateUid();
+    const date = new Date();
 
-    const data = await apiPostDashboard({
+    await apiPostDashboard({
         id: id,
-        name: `New dashboard ${id}`,
+        name: `New dashboard - by user (${date
+            .toJSON()
+            .replace('T', ', ')
+            .substr(0, 17)})`,
     });
 
-    console.log(data);
-
-    dispatch(tSetSelectedDashboardById(id));
-    dispatch(acSetSelectedEdit(true));
+    dispatch(tSetDashboards()).then(() => {
+        dispatch(acSetSelectedEdit(true));
+        dispatch(tSetSelectedDashboardById(id));
+    });
 };
