@@ -1,4 +1,4 @@
-import { actionTypes, fromInterpretations } from '../../reducers';
+import { actionTypes, fromInterpretations } from '../../../reducers';
 import {
     postInterpretationLike,
     deleteInterpretationLike,
@@ -8,7 +8,7 @@ import {
     postInterpretation,
     deleteInterpretation,
     fetchVisualization,
-} from '../../api/interpretations';
+} from '../../../api/interpretations';
 
 // action creators
 
