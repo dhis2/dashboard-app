@@ -114,7 +114,6 @@ const deleteButton = action => {
 class Interpretation extends Component {
     state = {
         showCommentField: false,
-        commentText: '',
         uiLocale: '',
     };
 
@@ -142,14 +141,10 @@ class Interpretation extends Component {
         this.setState({ showCommentField: true });
     };
 
-    postComment = () => {
-        const data = {
-            id: this.props.item.id,
-            text: this.state.commentText,
-        };
-        this.props.addComment(data);
+    postComment = text => {
+        const { id } = this.props.item;
+        this.props.addComment({ id, text });
         this.setState({ showCommentField: false });
-        this.setState({ commentText: '' });
     };
 
     deleteComment = commentId => {
@@ -165,10 +160,6 @@ class Interpretation extends Component {
         };
 
         this.props.deleteInterpretation(data);
-    };
-
-    onChangeCommentText = commentText => {
-        this.setState({ commentText });
     };
 
     userIsOwner = id => id === this.context.d2.currentUser.id;

@@ -98,7 +98,7 @@ class Interpretations extends Component {
     }
     render() {
         return (
-            <div className="container" style={style.container}>
+            <div style={style.container}>
                 <h3 style={style.title}>
                     Interpretations ({this.props.ids.length})
                 </h3>
