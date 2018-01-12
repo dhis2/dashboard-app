@@ -56,7 +56,7 @@ class Item extends Component {
     render() {
         const item = this.props.item;
         const favorite = getFavoriteObjectFromItem(item);
-        const pluginId = getPluginItemConfig.el;
+        const pluginId = getPluginItemConfig(item).el;
 
         return (
             <ReactFragment>
