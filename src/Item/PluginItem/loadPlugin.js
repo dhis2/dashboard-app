@@ -46,7 +46,7 @@ const username = 'admin';
 const password = 'district';
 
 // pivot/chart plugins
-const renderChart = item => {
+const loadChart = item => {
     let plugin = pluginTypeMap[item.type];
 
     plugin.url = url;
@@ -59,7 +59,7 @@ const renderChart = item => {
     plugin.load(itemConfig);
 };
 
-const renderMap = item => {
+const loadMap = item => {
     const favorite = getFavoriteObjectFromItem(item);
     const mapItem = {
         id: favorite.id,
@@ -81,9 +81,9 @@ export function loadFavorite(item) {
     switch (item.type) {
         case 'CHART':
         case 'REPORT_TABLE':
-            return renderChart(item);
+            return loadChart(item);
         case 'MAP':
-            return renderMap(item);
+            return loadMap(item);
         default:
             return;
     }
