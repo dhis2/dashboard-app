@@ -69,7 +69,7 @@ export const tNewDashboard = () => async dispatch => {
 
     await apiPostDashboard({
         id: id,
-        name: `New dashboard - by user (${date
+        name: `Created by user (${date
             .toJSON()
             .replace('T', ', ')
             .substr(0, 17)})`,
