@@ -44,7 +44,7 @@ class InputField extends Component {
             <div style={style.container}>
                 <div style={style.textField}>
                     <TextField
-                        multiLine
+                        multiline
                         value={this.state.newText}
                         rows={1}
                         rowsMax={8}
