@@ -6,7 +6,7 @@ import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 
 import './ItemGrid.css';
-import Item from '../Item/Item';
+import PluginItem from '../Item/PluginItem/Item';
 
 import { gridRowHeight, getGridColumns, gridCompactType } from './gridUtil';
 import {
@@ -85,7 +85,7 @@ export class ItemGrid extends Component {
             return <div style={{ padding: 50 }}>No items</div>;
         }
 
-        this.pluginItems = dashboardItems.map((item, index) => {
+        const pluginItems = dashboardItems.map((item, index) => {
             const expandedItem = this.state.expandedItems[item.id];
             let hProp = { h: item.h };
 
@@ -94,7 +94,7 @@ export class ItemGrid extends Component {
             }
 
             return Object.assign({}, item, hProp, {
-                i: `${getFavoriteObjectFromItem(item).id}`,
+                i: item.id,
             });
         });
 
@@ -109,7 +109,7 @@ export class ItemGrid extends Component {
                         onItemResize(newItem.i);
                     }}
                     className="layout"
-                    layout={this.pluginItems}
+                    layout={pluginItems}
                     cols={getGridColumns()}
                     rowHeight={gridRowHeight}
                     width={window.innerWidth}
@@ -117,12 +117,20 @@ export class ItemGrid extends Component {
                     isDraggable={edit}
                     isResizable={edit}
                 >
-                    {this.pluginItems
+                    {pluginItems
                         .filter(item => getFavoriteObjectFromItem(item)) //TODO IMPROVE
                         .map(item => {
+                            const keyVal = item.id;
+                            console.log(
+                                'jj item.type',
+                                item.type,
+                                'keyVal',
+                                keyVal
+                            );
+
                             return (
-                                <div key={item.i} className={item.type}>
-                                    <Item
+                                <div key={keyVal} className={item.type}>
+                                    <PluginItem
                                         item={item}
                                         editMode={edit}
                                         onButtonClick={onButtonClick}

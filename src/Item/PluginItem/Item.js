@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import ItemHeader from './ItemHeader';
 import ItemFooter from './ItemFooter';
 
-import { getFavoriteObjectFromItem } from '../ItemGrid/pluginUtil';
+import { getFavoriteObjectFromItem } from '../../ItemGrid/pluginUtil';
 
 const ReactFragment = props => props.children;
 
