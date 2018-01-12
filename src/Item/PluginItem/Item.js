@@ -4,11 +4,9 @@ import ItemHeader from './ItemHeader';
 import ItemFooter from './ItemFooter';
 
 import {
-    getPluginByType,
     getFavoriteObjectFromItem,
     getPluginItemConfig,
-    onPluginItemResize,
-    renderFavorite,
+    loadFavorite,
 } from './renderPlugin';
 
 const ReactFragment = props => props.children;
@@ -23,13 +21,14 @@ const style = {
 let cachedIds = [];
 let cachedEdit = false;
 
-const shouldPluginRender = (item, edit) => {
-    // console.log('jj shouldpluginrender edit', edit);
-    // console.log('jj cachedEdit', cachedEdit);
-
-    if (cachedIds.indexOf(item.id) === -1 || edit !== cachedEdit) {
-        cachedIds.push(item.id);
+const shouldPluginLoad = (item, edit) => {
+    if (edit !== cachedEdit) {
+        cachedIds = [];
         cachedEdit = edit;
+    }
+
+    if (cachedIds.indexOf(item.id) === -1) {
+        cachedIds.push(item.id);
 
         return true;
     }
@@ -37,35 +36,16 @@ const shouldPluginRender = (item, edit) => {
 };
 
 class Item extends Component {
-    constructor(props) {
-        super(props);
-        console.log('jj Item constructor', props.item.id);
-    }
     state = {
         showInterpretations: false,
     };
 
-    componentDidUpdate() {
-        console.log('jj Item componentDidUpdate');
-
+    componentWillMount() {
         const { item, editMode } = this.props;
 
-        if (shouldPluginRender(item, editMode)) {
-            renderFavorite(item);
+        if (shouldPluginLoad(item, editMode)) {
+            loadFavorite(item);
         }
-    }
-
-    shouldComponentUpdate = nextProps => {
-        // console.log('jj nextProps', nextProps);
-        // console.log('jj currentProps', this.props);
-
-        console.log('jj Item shouldComponentUpdate');
-
-        return true;
-    };
-
-    componentDidMount() {
-        console.log('jj Item componentDidMount');
     }
 
     onToggleInterpretations = () => {
@@ -74,11 +54,9 @@ class Item extends Component {
     };
 
     render() {
-        console.log('jj Item Render');
-
         const item = this.props.item;
         const favorite = getFavoriteObjectFromItem(item);
-        const pluginId = `plugin-${getFavoriteObjectFromItem(item).id}`;
+        const pluginId = getPluginItemConfig.el;
 
         return (
             <ReactFragment>
