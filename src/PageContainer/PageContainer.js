@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { CONTROL_BAR_ROW_COUNT } from '../ControlBarContainer/ControlBarContainer';
+import { CONTROL_BAR_ROW_HEIGHT } from '../ControlBarContainer/ControlBarContainer';
 
 const TOP_MARGIN = 80;
 
@@ -13,7 +13,7 @@ const DynamicTopMarginContainer = ({ marginTop, children }) => (
 );
 
 const mapStateToProps = state => ({
-    marginTop: state.controlBar.rows * CONTROL_BAR_ROW_COUNT + TOP_MARGIN,
+    marginTop: state.controlBar.rows * CONTROL_BAR_ROW_HEIGHT + TOP_MARGIN,
 });
 
 export default connect(mapStateToProps)(DynamicTopMarginContainer);

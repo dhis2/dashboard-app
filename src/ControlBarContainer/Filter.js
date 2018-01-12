@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { grey700 } from 'material-ui/styles/colors';
 import TextField from 'material-ui/TextField';
@@ -120,11 +120,9 @@ ClearButton.propTypes = {
     onChangeName: PropTypes.func.isRequired,
 };
 
-const ReactFragment = props => props.children;
-
 export default props => (
-    <ReactFragment>
+    <Fragment>
         <Filter {...props} />
         <ClearButton {...props} />
-    </ReactFragment>
+    </Fragment>
 );

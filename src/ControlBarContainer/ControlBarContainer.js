@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
@@ -12,6 +12,8 @@ import * as fromActions from '../actions';
 import * as fromReducers from '../reducers';
 import { orObject } from '../util';
 import { blue800 } from '../../../d2-ui/node_modules/material-ui/styles/colors';
+
+import './ControlBarContainer.css';
 
 const styles = {
     scrollWrapper: {
@@ -32,19 +34,17 @@ const styles = {
     },
 };
 
-export const CONTROL_BAR_ROW_COUNT = 36;
+export const CONTROL_BAR_ROW_HEIGHT = 36;
 const EXPANDED_ROW_COUNT = 12;
-const outerHeightDiff = 22;
+const CONTROL_BAR_OUTER_HEIGHT_DIFF = 24;
 
 const getInnerHeight = (isExpanded, rows) =>
-    (isExpanded ? EXPANDED_ROW_COUNT : rows) * CONTROL_BAR_ROW_COUNT;
+    (isExpanded ? EXPANDED_ROW_COUNT : rows) * CONTROL_BAR_ROW_HEIGHT;
 
 const getOuterHeight = (isExpanded, rows) =>
-    getInnerHeight(isExpanded, rows) + outerHeightDiff;
+    getInnerHeight(isExpanded, rows) + CONTROL_BAR_OUTER_HEIGHT_DIFF;
 
 const onDashboardSelectWrapper = (id, onClick) => () => onClick(id);
-
-const ReactFragment = props => props.children;
 
 const ControlBarComponent = ({
     dashboards,
@@ -76,7 +76,7 @@ const ControlBarComponent = ({
                     {edit ? (
                         <div>Save changes</div>
                     ) : (
-                        <ReactFragment>
+                        <Fragment>
                             <D2IconButton
                                 style={{
                                     width: 36,
@@ -89,7 +89,7 @@ const ControlBarComponent = ({
                                 name={name}
                                 onChangeName={onChangeFilterName}
                             />
-                        </ReactFragment>
+                        </Fragment>
                     )}
                 </div>
                 <div style={styles.rightControls}>
@@ -126,9 +126,9 @@ const ControlBarComponent = ({
                 <div
                     onClick={onToggleExpanded}
                     style={{
-                        paddingTop: 2,
+                        paddingTop: isExpanded ? 0 : 4,
                         fontSize: 11,
-                        fontWeight: 500,
+                        fontWeight: 700,
                         color: blue800,
                         textTransform: 'uppercase',
                         cursor: 'pointer',
@@ -176,7 +176,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             : newHeight => {
                   const newRows = Math.max(
                       1,
-                      Math.floor((newHeight - 24) / CONTROL_BAR_ROW_COUNT)
+                      Math.floor((newHeight - 24) / CONTROL_BAR_ROW_HEIGHT)
                   );
 
                   if (newRows !== rows) {
