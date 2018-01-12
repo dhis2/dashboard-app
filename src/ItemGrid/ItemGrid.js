@@ -120,16 +120,8 @@ export class ItemGrid extends Component {
                     {pluginItems
                         .filter(item => getFavoriteObjectFromItem(item)) //TODO IMPROVE
                         .map(item => {
-                            const keyVal = item.id;
-                            console.log(
-                                'jj item.type',
-                                item.type,
-                                'keyVal',
-                                keyVal
-                            );
-
                             return (
-                                <div key={keyVal} className={item.type}>
+                                <div key={item.id} className={item.type}>
                                     <PluginItem
                                         item={item}
                                         editMode={edit}
