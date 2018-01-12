@@ -121,7 +121,7 @@ export class ItemGrid extends Component {
                         .filter(item => getFavoriteObjectFromItem(item)) //TODO IMPROVE
                         .map(item => {
                             return (
-                                <div key={item.id} className={item.type}>
+                                <div key={item.i} className={item.type}>
                                     <PluginItem
                                         item={item}
                                         editMode={edit}
