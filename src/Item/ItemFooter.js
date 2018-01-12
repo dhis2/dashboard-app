@@ -46,7 +46,7 @@ class ItemFooter extends Component {
         });
 
         return (
-            <div style={style.container}>
+            <div className="dashboard-item-footer" style={style.container}>
                 {this.props.showInterpretations ? (
                     <div>
                         <hr style={style.line} />

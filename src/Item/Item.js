@@ -40,7 +40,6 @@ class Item extends Component {
                 <div id={pluginId} className="dashboard-item-content" />
                 {!this.props.editMode ? (
                     <ItemFooter
-                        className="dashboard-item-footer"
                         style={style.itemFooter}
                         item={item}
                         showInterpretations={this.state.showInterpretations}
