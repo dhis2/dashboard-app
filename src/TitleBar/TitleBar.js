@@ -75,7 +75,7 @@ const TitleBar = ({
 
     return (
         <div className="titlebar-wrapper" style={styles.titleBarWrapper}>
-            {edit ? <span>Currently editing</span> : ''}
+            {edit ? <span>Currently editing</span> : null}
             <div className="titlebar" style={styles.titleBar}>
                 <div style={styles.title}>
                     <D2ContentEditable
@@ -87,9 +87,7 @@ const TitleBar = ({
                     />
                 </div>
                 {edit ? (
-                    <div>
-                        <ItemSelect />
-                    </div>
+                    <ItemSelect />
                 ) : (
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <div style={styles.titleBarIcon}>
