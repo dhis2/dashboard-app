@@ -50,8 +50,6 @@ export function getPluginItemConfig(item, isReload) {
 export function onPluginItemResize(id) {
     const el = orObject(document.querySelector(`#plugin-${id}`));
 
-    console.log('jj set plugin viewport size');
-
     if (isFunction(el.setViewportSize)) {
         setTimeout(
             () => el.setViewportSize(el.clientWidth - 5, el.clientHeight),

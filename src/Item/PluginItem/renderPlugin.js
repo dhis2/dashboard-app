@@ -47,7 +47,6 @@ const password = 'district';
 
 // pivot/chart plugins
 const renderChart = item => {
-    const itemConfig = getPluginItemConfig(item);
     let plugin = pluginTypeMap[item.type];
 
     plugin.url = url;
@@ -56,8 +55,8 @@ const renderChart = item => {
     plugin.loadingIndicator = true;
     plugin.dashboard = true;
 
-    plugin.add(itemConfig);
-    plugin.load();
+    const itemConfig = getPluginItemConfig(item);
+    plugin.load(itemConfig);
 };
 
 const renderMap = item => {
