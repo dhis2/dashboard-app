@@ -1,5 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+
+const style = {
+    title: {
+        paddingRight: 10,
+        borderRight: '1px solid #ddd',
+    },
+};
 
 const getIconButton = ({
     icon,
@@ -20,33 +27,22 @@ const getIconButton = ({
 );
 
 class ItemHeader extends Component {
-    render() {
+    renderButtons() {
         const {
             type,
             favoriteId,
-            favoriteName,
             onButtonClick,
             onInterpretationsClick,
         } = this.props;
 
-        const buttonStyle = {};
-
         return (
-            <div className="dashboard-item-header">
-                <div className="dashboard-item-header-title">
-                    {favoriteName}
-                </div>
-                <div
-                    style={{
-                        paddingRight: 10,
-                        borderRight: '1px solid #ddd',
-                    }}
-                >
+            <Fragment>
+                <div style={style.title}>
                     <div
                         style={{ cursor: 'pointer' }}
                         onClick={onInterpretationsClick}
                     >
-                        <SvgIcon icon="Message" style={buttonStyle} />
+                        <SvgIcon icon="Message" />
                     </div>
                 </div>
                 <div style={{ paddingLeft: 10, marginRight: 4 }}>
@@ -73,6 +69,19 @@ class ItemHeader extends Component {
                     icon: 'Public',
                     //style: { width: 20, height: 20 },
                 })}
+            </Fragment>
+        );
+    }
+
+    render() {
+        const { favoriteName } = this.props;
+
+        return (
+            <div className="dashboard-item-header">
+                <div className="dashboard-item-header-title">
+                    {favoriteName}
+                </div>
+                {!this.props.editMode ? this.renderButtons() : null}
             </div>
         );
     }
