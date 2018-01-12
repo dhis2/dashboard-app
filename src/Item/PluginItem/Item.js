@@ -40,7 +40,7 @@ class Item extends Component {
         showInterpretations: false,
     };
 
-    componentWillMount() {
+    componentDidMount() {
         const { item, editMode } = this.props;
 
         if (shouldPluginLoad(item, editMode)) {
