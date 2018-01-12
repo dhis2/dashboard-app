@@ -1,4 +1,4 @@
-import { actionTypes, fromInterpretations } from '../../reducers';
+import { actionTypes, fromInterpretations } from '../../../reducers';
 import {
     postInterpretationLike,
     deleteInterpretationLike,
@@ -6,8 +6,9 @@ import {
     deleteInterpretationComment,
     getInterpretation,
     postInterpretation,
+    deleteInterpretation,
     fetchVisualization,
-} from '../../api/interpretations';
+} from '../../../api/interpretations';
 
 // action creators
 
@@ -18,6 +19,11 @@ export const addInterpretation = value => ({
 
 export const addInterpretations = value => ({
     type: actionTypes.ADD_INTERPRETATIONS,
+    value,
+});
+
+export const removeInterpretation = value => ({
+    type: actionTypes.REMOVE_INTERPRETATION,
     value,
 });
 
@@ -126,5 +132,27 @@ export const tPostInterpretation = data => async (dispatch, getState) => {
         return onSuccess(vis);
     } catch (err) {
         return onError('Post Interpretation', err);
+    }
+};
+
+/**
+ * Post the new interpretation, then get the updated list of interpretations
+ * for the visualization and update the store with that, then get the new
+ * interpretation
+ * @param {Object} data
+ */
+export const tDeleteInterpretation = data => async (dispatch, getState) => {
+    const onSuccess = vis => {
+        return dispatch(receivedVisualization(vis));
+    };
+
+    try {
+        await deleteInterpretation(data.id);
+        const vis = await fetchVisualization(data);
+        dispatch(removeInterpretation(data.id));
+
+        return onSuccess(vis);
+    } catch (err) {
+        return onError('Delete Interpretation', err);
     }
 };

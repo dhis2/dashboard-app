@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import Interpretations from './Interpretations/Interpretations';
+import { colors } from './colors';
 
-import { orArray } from '../util';
+import { orArray } from '../../util';
 
 const style = {
     container: {
-        padding: 2,
+        padding: '5px',
+    },
+    line: {
+        margin: '-1px 0px 0px',
+        height: '1px',
+        border: 'none',
+        backgroundColor: colors.lightGrey,
     },
 };
 
@@ -43,12 +50,15 @@ class ItemFooter extends Component {
         });
 
         return (
-            <div style={style.container}>
+            <div className="dashboard-item-footer" style={style.container}>
                 {this.props.showInterpretations ? (
-                    <Interpretations
-                        objectType={this.props.item.type}
-                        objectId={objectId}
-                    />
+                    <div>
+                        <hr style={style.line} />
+                        <Interpretations
+                            objectType={this.props.item.type}
+                            objectId={objectId}
+                        />
+                    </div>
                 ) : null}
             </div>
         );

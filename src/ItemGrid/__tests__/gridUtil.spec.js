@@ -2,12 +2,13 @@ import { hasShape, getShape } from '../gridUtil';
 
 describe('gridUtil', () => {
     describe('getShape', () => {
-        it('should get the position and size properties of the first grid block', () => {
-            expect(getShape(0)).toEqual({ x: 0, y: 0, w: 9, h: 10 });
-        });
-
-        it('should get the position and size properties of the eighth grid block', () => {
-            expect(getShape(7)).toEqual({ x: 9, y: 20, w: 9, h: 10 });
+        it('should return an object with 4 properties (x, y, w, h)', () => {
+            const shape = getShape(0);
+            expect(shape).toHaveProperty('x');
+            expect(shape).toHaveProperty('y');
+            expect(shape).toHaveProperty('w');
+            expect(shape).toHaveProperty('h');
+            expect(Object.keys(shape)).toHaveLength(4);
         });
 
         it('should throw an error when the grid block number is invalid', () => {

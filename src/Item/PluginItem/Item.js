@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import ItemHeader from './ItemHeader';
 import ItemFooter from './ItemFooter';
 
-import { getFavoriteObjectFromItem } from '../ItemGrid/pluginUtil';
+import { getFavoriteObjectFromItem } from '../../ItemGrid/pluginUtil';
 
-const ReactFragment = props => props.children;
+const Fragment = props => props.children;
 
 const style = {
     itemFooter: {
@@ -29,11 +29,12 @@ class Item extends Component {
         const pluginId = `plugin-${getFavoriteObjectFromItem(item).id}`;
 
         return (
-            <ReactFragment>
+            <Fragment>
                 <ItemHeader
                     type={item.type}
                     favoriteId={favorite.id}
                     favoriteName={favorite.name}
+                    editMode={this.props.editMode}
                     onButtonClick={this.props.onButtonClick}
                     onInterpretationsClick={this.onToggleInterpretations}
                 />
@@ -46,7 +47,7 @@ class Item extends Component {
                         onToggleInterpretations={this.onToggleInterpretations}
                     />
                 ) : null}
-            </ReactFragment>
+            </Fragment>
         );
     }
 }

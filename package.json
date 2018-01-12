@@ -36,6 +36,7 @@
     "file-loader": "1.1.5",
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
+    "immutability-helper": "^2.6.3",
     "jest": "20.0.4",
     "jsdoc": "^3.5.5",
     "material-ui": "^0.19.4",

@@ -1,6 +1,7 @@
 /** @module reducers/dashboards */
 
 import arrayFrom from 'd2-utilizr/lib/arrayFrom';
+import update from 'immutability-helper';
 import { orArray, orNull, orObject } from '../util';
 
 /**
@@ -36,14 +37,14 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
             };
         }
 
-        // returns new reference for dashboard.dashboardItems, keeps reference for dashboard
+        // keep reference to dashboard, create new dashboardItems array (updates component)
         case actionTypes.ADD_DASHBOARD_ITEM: {
             const dashboard = state[action.dashboardId];
             dashboard.dashboardItems = [
                 ...dashboard.dashboardItems,
                 action.value,
             ];
-            console.log('ACTION VALUE', action.value);
+
             return {
                 ...state,
                 [action.dashboardId]: dashboard,

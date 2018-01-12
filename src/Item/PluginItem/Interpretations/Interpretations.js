@@ -1,24 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import TextField from 'd2-ui/lib/text-field/TextField';
 
 import Interpretation from './Interpretation';
+import InputField from './InputField';
 import { tGetInterpretations, tPostInterpretation } from './actions';
-import * as fromReducers from '../../reducers';
+import * as fromReducers from '../../../reducers';
+import { colors } from '../colors';
 
 const style = {
     container: {
         overflowY: 'scroll',
-        height: 320,
-        padding: 5,
+        height: '320px',
+        padding: '5px',
+        marginTop: '5px',
+    },
+    item: {
+        borderBottom: `1px solid ${colors.lightGrey}`,
+        marginBottom: '10px',
+        paddingBottom: '10px',
     },
     list: {
         listStyleType: 'none',
+        paddingLeft: '0px',
     },
-    item: {
-        borderBottom: '1px solid #DCDCDC',
-        marginBottom: 10,
-        paddingBottom: 10,
+    title: {
+        color: colors.black,
+        fontSize: '13px',
+        fontWeight: 'bold',
+        height: '19px',
+        lineHeight: '19px',
     },
 };
 
@@ -27,19 +37,9 @@ class Interpretations extends Component {
         newInterpretationText: '',
     };
 
-    updateNewInterpretationText = newInterpretationText => {
-        this.setState({ newInterpretationText });
-    };
-
-    postInterpretation = () => {
-        const data = {
-            objectType: this.props.objectType,
-            objectId: this.props.objectId,
-            text: this.state.newInterpretationText,
-        };
-
-        this.props.postInterpretation(data, this.props.dashboardId);
-        this.setState({ newInterpretationText: '' });
+    postInterpretation = text => {
+        const { objectType, objectId } = this.props;
+        this.props.postInterpretation({ objectType, objectId, text });
     };
 
     interpretationsLoaded = () => {
@@ -85,14 +85,17 @@ class Interpretations extends Component {
             Items = sorted.map(item => {
                 return (
                     <li style={style.item} key={item.id}>
-                        <Interpretation item={item} />
+                        <Interpretation
+                            item={item}
+                            objectId={this.props.objectId}
+                            objectType={this.props.objectType}
+                        />
                     </li>
                 );
             });
         }
         return Items;
     }
-
     render() {
         return (
             <div style={style.container}>
@@ -100,10 +103,11 @@ class Interpretations extends Component {
                     Interpretations ({this.props.ids.length})
                 </h3>
                 <ul style={style.list}>{this.renderItems()}</ul>
-                <div>
-                    <TextField onChange={this.updateNewInterpretationText} />
-                    <button onClick={this.postInterpretation}>POST</button>
-                </div>
+                <InputField
+                    placeholder="Write your own interpretation"
+                    onPost={this.postInterpretation}
+                    postText="Post"
+                />
             </div>
         );
     }

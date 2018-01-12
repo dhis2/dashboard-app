@@ -6,7 +6,7 @@ import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 
 import './ItemGrid.css';
-import Item from '../Item/Item';
+import PluginItem from '../Item/PluginItem/Item';
 
 import {
     GRID_ROW_HEIGHT,
@@ -109,7 +109,7 @@ export class ItemGrid extends Component {
             return <NoItemsMessage text={this.NO_ITEMS_MESSAGE} />;
         }
 
-        this.pluginItems = dashboardItems.map((item, index) => {
+        const pluginItems = dashboardItems.map((item, index) => {
             const expandedItem = this.state.expandedItems[item.id];
             let hProp = { h: item.h };
 
@@ -118,7 +118,7 @@ export class ItemGrid extends Component {
             }
 
             return Object.assign({}, item, hProp, {
-                i: `${getFavoriteObjectFromItem(item).id}`,
+                i: item.id,
             });
         });
 
@@ -129,7 +129,7 @@ export class ItemGrid extends Component {
                     onLayoutChange={this.onLayoutChange}
                     onResizeStop={onResizeStop}
                     className="layout"
-                    layout={this.pluginItems}
+                    layout={pluginItems}
                     cols={getGridColumns()}
                     rowHeight={GRID_ROW_HEIGHT}
                     width={window.innerWidth}
@@ -137,12 +137,12 @@ export class ItemGrid extends Component {
                     isDraggable={edit}
                     isResizable={edit}
                 >
-                    {this.pluginItems
+                    {pluginItems
                         .filter(item => getFavoriteObjectFromItem(item)) //TODO IMPROVE
                         .map(item => {
                             return (
                                 <div key={item.i} className={item.type}>
-                                    <Item
+                                    <PluginItem
                                         item={item}
                                         editMode={edit}
                                         onButtonClick={onButtonClick}
