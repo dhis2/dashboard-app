@@ -95,6 +95,22 @@ const sortByDate = items => {
     return values;
 };
 
+const deleteButton = action => {
+    const iconStyle = Object.assign({}, style.icon, { fill: colors.red });
+    const buttonStyle = Object.assign({}, style.button, style.deleteButton);
+
+    return (
+        <button
+            className={actionButtonClass}
+            style={buttonStyle}
+            onClick={action}
+        >
+            <SvgIcon style={iconStyle} icon="Delete" />
+            Delete
+        </button>
+    );
+};
+
 class Interpretation extends Component {
     state = {
         showCommentField: false,
@@ -137,12 +153,8 @@ class Interpretation extends Component {
     };
 
     deleteComment = commentId => {
-        const data = {
-            id: this.props.item.id,
-            commentId,
-        };
-
-        this.props.deleteComment(data);
+        const { id } = this.props.item;
+        this.props.deleteComment({ id, commentId });
     };
 
     deleteInterpretation = () => {
@@ -179,19 +191,13 @@ class Interpretation extends Component {
         const userOwnsInterpretation = this.userIsOwner(
             this.props.item.user.id
         );
-        const deleteStyle = Object.assign({}, style.icon, { fill: colors.red });
+
         const thumbsUpIcon = this.userLikesInterpretation()
             ? Object.assign({}, style.icon, { fill: colors.accentLightGreen })
             : style.icon;
         const likeText = this.userLikesInterpretation()
             ? 'You like this'
             : 'Like';
-
-        const deleteButtonStyle = Object.assign(
-            {},
-            style.button,
-            style.deleteButton
-        );
 
         return (
             <div>
@@ -218,16 +224,9 @@ class Interpretation extends Component {
                 <span style={style.likes}>
                     {this.props.item.likedBy.length} {likes}
                 </span>
-                {userOwnsInterpretation ? (
-                    <button
-                        className={actionButtonClass}
-                        style={deleteButtonStyle}
-                        onClick={this.deleteInterpretation}
-                    >
-                        <SvgIcon style={deleteStyle} icon="Delete" />
-                        Delete
-                    </button>
-                ) : null}
+                {userOwnsInterpretation
+                    ? deleteButton(this.deleteInterpretation)
+                    : null}
             </div>
         );
     }
@@ -240,13 +239,6 @@ class Interpretation extends Component {
         const lineStyle = Object.assign({}, style.line, {
             marginTop: '5px',
         });
-        const deleteStyle = Object.assign({}, style.icon, { fill: colors.red });
-
-        const deleteButtonStyle = Object.assign(
-            {},
-            style.button,
-            style.deleteButton
-        );
 
         const comments = sortByDate(this.props.item.comments).map(comment => (
             <li style={style.comment} key={comment.id}>
@@ -257,16 +249,9 @@ class Interpretation extends Component {
                     </span>
                 </div>
                 <p style={style.text}>{comment.text}</p>
-                {this.userIsOwner(comment.user.id) ? (
-                    <button
-                        className={actionButtonClass}
-                        style={deleteButtonStyle}
-                        onClick={() => this.deleteComment(comment.id)}
-                    >
-                        <SvgIcon style={deleteStyle} icon="Delete" />
-                        Delete
-                    </button>
-                ) : null}
+                {this.userIsOwner(comment.user.id)
+                    ? deleteButton(() => this.deleteComment(comment.id))
+                    : null}
                 <hr style={lineStyle} />
             </li>
         ));
