@@ -3,7 +3,13 @@ import React, { Component } from 'react';
 import ItemHeader from './ItemHeader';
 import ItemFooter from './ItemFooter';
 
-import { getFavoriteObjectFromItem } from '../../ItemGrid/pluginUtil';
+import {
+    getPluginByType,
+    getFavoriteObjectFromItem,
+    getPluginItemConfig,
+    onPluginItemResize,
+    renderFavorite,
+} from './renderPlugin';
 
 const ReactFragment = props => props.children;
 
@@ -13,10 +19,54 @@ const style = {
     },
 };
 
+//TODO - do caching differently, does not belong here in Item
+let cachedIds = [];
+let cachedEdit = false;
+
+const shouldPluginRender = (item, edit) => {
+    // console.log('jj shouldpluginrender edit', edit);
+    // console.log('jj cachedEdit', cachedEdit);
+
+    if (cachedIds.indexOf(item.id) === -1 || edit !== cachedEdit) {
+        cachedIds.push(item.id);
+        cachedEdit = edit;
+
+        return true;
+    }
+    return false;
+};
+
 class Item extends Component {
+    constructor(props) {
+        super(props);
+        console.log('jj Item constructor', props.item.id);
+    }
     state = {
         showInterpretations: false,
     };
+
+    componentDidUpdate() {
+        console.log('jj Item componentDidUpdate');
+
+        const { item, editMode } = this.props;
+
+        if (shouldPluginRender(item, editMode)) {
+            renderFavorite(item);
+        }
+    }
+
+    shouldComponentUpdate = nextProps => {
+        // console.log('jj nextProps', nextProps);
+        // console.log('jj currentProps', this.props);
+
+        console.log('jj Item shouldComponentUpdate');
+
+        return true;
+    };
+
+    componentDidMount() {
+        console.log('jj Item componentDidMount');
+    }
 
     onToggleInterpretations = () => {
         this.setState({ showInterpretations: !this.state.showInterpretations });
@@ -24,6 +74,8 @@ class Item extends Component {
     };
 
     render() {
+        console.log('jj Item Render');
+
         const item = this.props.item;
         const favorite = getFavoriteObjectFromItem(item);
         const pluginId = `plugin-${getFavoriteObjectFromItem(item).id}`;

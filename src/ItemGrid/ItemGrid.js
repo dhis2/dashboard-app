@@ -13,7 +13,6 @@ import {
     getPluginByType,
     getFavoriteObjectFromItem,
     getPluginItemConfig,
-    renderFavorites,
     onPluginItemResize,
 } from './pluginUtil';
 
@@ -24,41 +23,10 @@ import ModalLoadingMask from '../widgets/ModalLoadingMask';
 
 const { fromSelected } = fromReducers;
 
-// Component
-
-let cachedIds = '';
-let cachedEdit = false;
-
-const shouldPluginRender = (dashboardItems, edit) => {
-    if (dashboardItems.length) {
-        const ids = dashboardItems.map(item => item.id).join('-');
-
-        if (ids !== cachedIds || edit !== cachedEdit) {
-            cachedIds = ids;
-            cachedEdit = edit;
-
-            return true;
-        }
-    }
-
-    return false;
-};
-
 export class ItemGrid extends Component {
     state = {
         expandedItems: {},
     };
-
-    componentDidUpdate() {
-        const { dashboardItems, edit } = this.props;
-
-        if (shouldPluginRender(dashboardItems, edit)) {
-            renderFavorites(dashboardItems);
-        }
-    }
-    componentWillUpdate() {
-        //console.log('CWU');
-    }
 
     onToggleItemFooter = clickedId => {
         const isExpanded =
@@ -164,6 +132,8 @@ const onButtonClick = (id, type, targetType) => {
 };
 
 const onItemResize = id => {
+    console.log('jj currentItemTypeMap', currentItemTypeMap);
+
     if (
         [undefined, 'CHART', 'EVENT_CHART'].indexOf(currentItemTypeMap[id]) !==
         -1
