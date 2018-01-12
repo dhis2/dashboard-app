@@ -7,7 +7,7 @@ import {
     getFavoriteObjectFromItem,
     getPluginItemConfig,
     loadFavorite,
-} from './renderPlugin';
+} from './loadPlugin';
 
 const ReactFragment = props => props.children;
 

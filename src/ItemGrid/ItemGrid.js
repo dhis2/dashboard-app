@@ -132,8 +132,6 @@ const onButtonClick = (id, type, targetType) => {
 };
 
 const onItemResize = id => {
-    console.log('jj currentItemTypeMap', currentItemTypeMap);
-
     if (
         [undefined, 'CHART', 'EVENT_CHART'].indexOf(currentItemTypeMap[id]) !==
         -1
