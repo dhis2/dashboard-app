@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Interpretations from './Interpretations/Interpretations';
-import { colors } from '../styleGuide';
+import { colors } from './colors';
 
 const style = {
     container: {

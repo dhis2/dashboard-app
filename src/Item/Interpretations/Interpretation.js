@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import InputField from './InputField';
-import { colors } from '../../styleGuide';
+import { colors } from '../colors';
 
 import {
     tLikeInterpretation,

@@ -5,18 +5,19 @@ import Interpretation from './Interpretation';
 import InputField from './InputField';
 import { tGetInterpretations, tPostInterpretation } from './actions';
 import * as fromReducers from '../../reducers';
-import { colors } from '../../styleGuide';
+import { colors } from '../colors';
 
 const style = {
     container: {
         overflowY: 'scroll',
-        height: 320,
-        padding: 5,
+        height: '320px',
+        padding: '5px',
+        marginTop: '5px',
     },
     item: {
         borderBottom: `1px solid ${colors.lightGrey}`,
-        marginBottom: 10,
-        paddingBottom: 10,
+        marginBottom: '10px',
+        paddingBottom: '10px',
     },
     list: {
         listStyleType: 'none',
@@ -95,10 +96,9 @@ class Interpretations extends Component {
         }
         return Items;
     }
-
     render() {
         return (
-            <div style={style.container}>
+            <div className="container" style={style.container}>
                 <h3 style={style.title}>
                     Interpretations ({this.props.ids.length})
                 </h3>
