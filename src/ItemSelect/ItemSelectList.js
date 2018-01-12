@@ -183,14 +183,15 @@ class ItemSelectList extends Component {
 
 ItemSelectList.propTypes = {
     type: PropTypes.oneOf([
+        'APP',
         'CHART',
         'EVENT_CHART',
-        'REPORT_TABLE',
         'EVENT_REPORT',
         'MAP',
-        'REPORTS',
-        'RESOURCES',
-        'USERS',
+        'REPORT',
+        'REPORT_TABLE',
+        'RESOURCE',
+        'USER',
     ]).isRequired,
     title: PropTypes.string.isRequired,
     items: PropTypes.array.isRequired,

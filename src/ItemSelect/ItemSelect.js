@@ -1,27 +1,25 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Popover from 'material-ui/Popover';
 import TextField from 'material-ui/TextField';
 
-import { getInstance } from 'd2/lib/d2';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import { itemTypeMap } from '../util';
 import ItemSelectList from './ItemSelectList';
 
-const ItemSearchField = props => {
-    return (
-        <div style={{ display: 'flex', alignItems: 'center', width: '400px' }}>
-            <SvgIcon icon="Search" />
-            <TextField
-                hintText="Search favorite elements to add to dashboard"
-                type="text"
-                fullWidth={true}
-                onClick={props.onClick}
-                onChange={props.onChange}
-                style={{ marginLeft: '10px' }}
-            />
-        </div>
-    );
-};
+const ItemSearchField = props => (
+    <div style={{ display: 'flex', alignItems: 'center', width: '400px' }}>
+        <SvgIcon icon="Search" />
+        <TextField
+            hintText="Search favorite elements to add to dashboard"
+            type="text"
+            fullWidth={true}
+            onClick={props.onClick}
+            onChange={props.onChange}
+            style={{ marginLeft: '10px' }}
+        />
+    </div>
+);
 
 class ItemSelect extends React.Component {
     constructor(props) {
@@ -50,14 +48,11 @@ class ItemSelect extends React.Component {
     };
 
     setFilter = event => {
-        this.setState({ filter: event.target.value });
-
-        this.fetchItems();
+        this.setState({ filter: event.target.value }, this.fetchItems);
     };
 
     fetchItems = async maxOption => {
-        const d2 = await getInstance();
-        const api = d2.Api.getApi();
+        const api = this.context.d2.Api.getApi();
 
         let queryString;
 
@@ -156,5 +151,9 @@ class ItemSelect extends React.Component {
         );
     }
 }
+
+ItemSelect.contextTypes = {
+    d2: PropTypes.object.isRequired,
+};
 
 export default ItemSelect;
