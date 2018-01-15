@@ -16,7 +16,7 @@ import {
     onItemResize,
 } from './gridUtil';
 
-import { orArray, orObject } from '../util';
+import { orArray } from '../util';
 import * as fromReducers from '../reducers';
 import ModalLoadingMask from '../widgets/ModalLoadingMask';
 
