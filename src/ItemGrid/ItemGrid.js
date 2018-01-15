@@ -6,46 +6,21 @@ import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 
 import './ItemGrid.css';
-import PluginItem from '../Item/PluginItem/Item';
+import { Item } from '../Item/Item';
 
 import {
     GRID_ROW_HEIGHT,
     GRID_COMPACT_TYPE,
     getGridColumns,
     hasShape,
+    onItemResize,
 } from './gridUtil';
-import {
-    getPluginByType,
-    getFavoriteObjectFromItem,
-    getPluginItemConfig,
-    renderFavorites,
-    onPluginItemResize,
-} from './pluginUtil';
 
-import { orArray } from '../util';
+import { orArray, orObject } from '../util';
 import * as fromReducers from '../reducers';
-import { apiFetchFavorite } from '../api';
 import ModalLoadingMask from '../widgets/ModalLoadingMask';
 
 // Component
-
-let cachedIds = '';
-let cachedEdit = false;
-
-const shouldPluginUpdate = (dashboardItems, edit) => {
-    if (dashboardItems.length) {
-        const ids = dashboardItems.map(item => item.id).join('-');
-        console.log('shouldPluginUpdate', ids);
-        if (ids.length && (ids !== cachedIds || edit !== cachedEdit)) {
-            cachedIds = ids;
-            cachedEdit = edit;
-
-            return true;
-        }
-    }
-
-    return false;
-};
 
 const NoItemsMessage = ({ text }) => (
     <div
@@ -68,18 +43,6 @@ export class ItemGrid extends Component {
 
     NO_ITEMS_MESSAGE = 'You have not added any items';
 
-    componentDidUpdate() {
-        const { dashboardItems, edit } = this.props;
-
-        if (shouldPluginUpdate(dashboardItems, edit)) {
-            renderFavorites(dashboardItems);
-        }
-    }
-
-    componentWillUpdate() {
-        //console.log('CWU');
-    }
-
     onToggleItemFooter = clickedId => {
         const isExpanded =
             typeof this.state.expandedItems[clickedId] === 'boolean'
@@ -101,7 +64,6 @@ export class ItemGrid extends Component {
             edit,
             isLoading,
             dashboardItems,
-            onButtonClick,
             onResizeStop,
         } = this.props;
 
@@ -109,7 +71,7 @@ export class ItemGrid extends Component {
             return <NoItemsMessage text={this.NO_ITEMS_MESSAGE} />;
         }
 
-        const pluginItems = dashboardItems.map((item, index) => {
+        const items = dashboardItems.map((item, index) => {
             const expandedItem = this.state.expandedItems[item.id];
             let hProp = { h: item.h };
 
@@ -129,7 +91,7 @@ export class ItemGrid extends Component {
                     onLayoutChange={this.onLayoutChange}
                     onResizeStop={onResizeStop}
                     className="layout"
-                    layout={pluginItems}
+                    layout={items}
                     cols={getGridColumns()}
                     rowHeight={GRID_ROW_HEIGHT}
                     width={window.innerWidth}
@@ -137,22 +99,17 @@ export class ItemGrid extends Component {
                     isDraggable={edit}
                     isResizable={edit}
                 >
-                    {pluginItems
-                        .filter(item => getFavoriteObjectFromItem(item)) //TODO IMPROVE
-                        .map(item => {
-                            return (
-                                <div key={item.i} className={item.type}>
-                                    <PluginItem
-                                        item={item}
-                                        editMode={edit}
-                                        onButtonClick={onButtonClick}
-                                        onToggleItemFooter={
-                                            this.onToggleItemFooter
-                                        }
-                                    />
-                                </div>
-                            );
-                        })}
+                    {items.map(item => {
+                        return (
+                            <div key={item.i} className={item.type}>
+                                <Item
+                                    item={item}
+                                    editMode={edit}
+                                    onToggleItemFooter={this.onToggleItemFooter}
+                                />
+                            </div>
+                        );
+                    })}
                 </ReactGridLayout>
             </div>
         );
@@ -168,29 +125,6 @@ ItemGrid.defaultProps = {
 };
 
 // Container
-
-const currentItemTypeMap = {}; // TODO: improve
-
-const onButtonClick = (id, type, targetType) => {
-    const plugin = getPluginByType(targetType);
-
-    apiFetchFavorite(id, type).then(favorite => {
-        const itemConfig = getPluginItemConfig(favorite, true);
-
-        plugin.load(itemConfig);
-
-        currentItemTypeMap[id] = targetType;
-    });
-};
-
-const onItemResize = id => {
-    if (
-        [undefined, 'CHART', 'EVENT_CHART'].indexOf(currentItemTypeMap[id]) !==
-        -1
-    ) {
-        onPluginItemResize(id);
-    }
-};
 
 const onResizeStop = (layout, oldItem, newItem) => {
     onItemResize(newItem.i);
@@ -227,7 +161,6 @@ const mergeProps = (stateProps, dispatchProps) => {
         edit: stateProps.edit,
         isLoading: stateProps.isLoading,
         dashboardItems: validItems,
-        onButtonClick,
         onItemResize,
         onResizeStop,
     };

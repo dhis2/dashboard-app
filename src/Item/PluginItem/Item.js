@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 
 import ItemHeader from './ItemHeader';
 import ItemFooter from './ItemFooter';
+import { apiFetchFavorite } from '../../api';
 
-import { getFavoriteObjectFromItem } from '../../ItemGrid/pluginUtil';
+import {
+    getFavoriteObjectFromItem,
+    getPluginItemConfig,
+    loadFavorite,
+} from './loadPlugin';
 
 const Fragment = props => props.children;
 
@@ -13,10 +18,56 @@ const style = {
     },
 };
 
+// Plugin type map
+const pluginTypeMap = {
+    REPORT_TABLE: global.reportTablePlugin,
+    CHART: global.chartPlugin,
+};
+
+// Get plugin by type
+export const getPluginByType = type => pluginTypeMap[type];
+
+const onButtonClick = (id, type, targetType) => {
+    const plugin = getPluginByType(targetType);
+
+    apiFetchFavorite(id, type).then(favorite => {
+        const itemConfig = getPluginItemConfig(favorite, true);
+
+        plugin.load(itemConfig);
+    });
+};
+
+//TODO - do caching differently, does not belong here in Item
+let cachedIds = [];
+let cachedEdit = false;
+
+const shouldPluginLoad = (item, edit) => {
+    if (edit !== cachedEdit) {
+        cachedIds = [];
+        cachedEdit = edit;
+    }
+
+    if (cachedIds.indexOf(item.id) === -1) {
+        cachedIds.push(item.id);
+
+        return true;
+    }
+
+    return false;
+};
+
 class Item extends Component {
     state = {
         showInterpretations: false,
     };
+
+    componentDidMount() {
+        const { item, editMode } = this.props;
+
+        if (shouldPluginLoad(item, editMode)) {
+            loadFavorite(item);
+        }
+    }
 
     onToggleInterpretations = () => {
         this.setState({ showInterpretations: !this.state.showInterpretations });
@@ -26,7 +77,7 @@ class Item extends Component {
     render() {
         const item = this.props.item;
         const favorite = getFavoriteObjectFromItem(item);
-        const pluginId = `plugin-${getFavoriteObjectFromItem(item).id}`;
+        const pluginId = getPluginItemConfig(item).el;
 
         return (
             <Fragment>
@@ -35,7 +86,7 @@ class Item extends Component {
                     favoriteId={favorite.id}
                     favoriteName={favorite.name}
                     editMode={this.props.editMode}
-                    onButtonClick={this.props.onButtonClick}
+                    onButtonClick={onButtonClick}
                     onInterpretationsClick={this.onToggleInterpretations}
                 />
                 <div id={pluginId} className="dashboard-item-content" />
