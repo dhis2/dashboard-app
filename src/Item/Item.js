@@ -20,7 +20,7 @@ export const Item = props => {
     return (
         <GridItem
             item={props.item}
-            editMode={props.edit}
+            editMode={props.editMode}
             onToggleItemFooter={props.onToggleItemFooter}
         />
     );

@@ -28,8 +28,6 @@ const pluginTypeMap = {
 export const getPluginByType = type => pluginTypeMap[type];
 
 const onButtonClick = (id, type, targetType) => {
-    console.log('onButtonClick', id, type, targetType);
-
     const plugin = getPluginByType(targetType);
 
     apiFetchFavorite(id, type).then(favorite => {
@@ -54,6 +52,7 @@ const shouldPluginLoad = (item, edit) => {
 
         return true;
     }
+
     return false;
 };
 
