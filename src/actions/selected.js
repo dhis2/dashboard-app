@@ -30,12 +30,33 @@ export const acNewDashboard = () => ({
     type: actionTypes.NEW_DASHBOARD,
 });
 
+export const receivedVisualization = value => ({
+    type: actionTypes.RECEIVED_VISUALIZATION,
+    value,
+});
+
 // thunks
 
 export const tSetSelectedDashboardById = id => async dispatch => {
     dispatch(acSetSelectedIsLoading(true));
 
     const onSuccess = selected => {
+        selected.dashboardItems.forEach(item => {
+            let vis;
+            switch (item.type) {
+                case 'CHART':
+                    vis = item.chart;
+                    break;
+                case 'REPORT_TABLE':
+                    vis = item.reportTable;
+                    break;
+                default:
+                    vis = [];
+            }
+
+            dispatch(receivedVisualization(vis));
+        });
+
         dispatch(
             acSetDashboards(
                 {
