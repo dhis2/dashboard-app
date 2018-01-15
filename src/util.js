@@ -62,21 +62,50 @@ export const favoriteTypeUrlMap = {
     REPORT_TABLE: {
         endPointName: 'reportTables',
         propName: 'reportTable',
+        countName: 'reportTableCount',
     },
     CHART: {
         endPointName: 'charts',
         propName: 'chart',
+        countName: 'chartCount',
     },
     MAP: {
         endPointName: 'maps',
         propName: 'map',
+        countName: 'mapCount',
     },
     EVENT_REPORT: {
         endPointName: 'eventReports',
         propName: 'eventReport',
+        countName: 'eventReportCount',
     },
     EVENT_CHART: {
         endPointName: 'eventCharts',
         propName: 'eventChart',
+        countName: 'eventChartCount',
+    },
+};
+
+export const itemTypeMap = {
+    ...favoriteTypeUrlMap,
+    APP: {
+        endPointName: 'apps',
+        propName: 'app',
+        countName: 'appCount',
+    },
+    REPORT: {
+        endPointName: 'reports',
+        propName: 'report',
+        countName: 'reportCount',
+    },
+    RESOURCE: {
+        endPointName: 'resources',
+        propName: 'resource',
+        countName: 'resourceCount',
+    },
+    USER: {
+        endPointName: 'users',
+        propName: 'user',
+        countName: 'userCount',
     },
 };
