@@ -8,8 +8,12 @@ import 'react-resizable/css/styles.css';
 import './ItemGrid.css';
 import { Item } from '../Item/Item';
 
-import { gridRowHeight, getGridColumns, gridCompactType } from './gridUtil';
-import { onItemResize } from './pluginUtil';
+import {
+    gridRowHeight,
+    getGridColumns,
+    gridCompactType,
+    onItemResize,
+} from './gridUtil';
 import { orObject } from '../util';
 import * as fromReducers from '../reducers';
 import ModalLoadingMask from '../widgets/ModalLoadingMask';
@@ -34,12 +38,7 @@ export class ItemGrid extends Component {
     };
 
     render() {
-        const {
-            isLoading,
-            dashboardItems,
-            onGridItemResize,
-            edit,
-        } = this.props;
+        const { isLoading, dashboardItems, edit } = this.props;
 
         if (!dashboardItems.length) {
             return <div style={{ padding: 50 }}>No items</div>;
@@ -66,7 +65,7 @@ export class ItemGrid extends Component {
                         //console.log('RGL change', a, b, c);
                     }}
                     onResizeStop={(layout, oldItem, newItem) => {
-                        onGridItemResize(newItem.i);
+                        onItemResize(newItem.i);
                     }}
                     className="layout"
                     layout={items}
@@ -104,10 +103,6 @@ ItemGrid.defaultProps = {
 
 // Container
 
-const onGridItemResize = id => {
-    onItemResize(id);
-};
-
 const mapStateToProps = state => {
     const { sGetSelectedDashboard } = fromReducers;
     const { sGetSelectedIsLoading, sGetSelectedEdit } = fromSelected;
@@ -119,7 +114,6 @@ const mapStateToProps = state => {
         dashboardItems,
         isLoading: sGetSelectedIsLoading(state),
         edit: sGetSelectedEdit(state),
-        onGridItemResize,
     };
 };
 

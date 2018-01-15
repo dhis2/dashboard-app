@@ -1,5 +1,7 @@
 import isObject from 'd2-utilizr/lib/isObject';
 
+import { getGridItemDomId } from '../../ItemGrid/gridUtil';
+
 // Plugin type map
 const pluginTypeMap = {
     REPORT_TABLE: global.reportTablePlugin,
@@ -35,7 +37,7 @@ export function getPluginItemConfig(item, isReload) {
         config = { id: favorite.id };
     }
 
-    config.el = `plugin-${favorite.id}`;
+    config.el = getGridItemDomId(item.id);
     config.hideTitle = !favorite.title;
 
     return config;
@@ -63,7 +65,7 @@ const loadMap = item => {
     const favorite = getFavoriteObjectFromItem(item);
     const mapItem = {
         id: favorite.id,
-        el: `plugin-${favorite.id}`,
+        el: getGridItemDomId(item.id),
         type: item.type,
         url,
         username,

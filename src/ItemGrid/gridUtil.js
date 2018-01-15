@@ -1,5 +1,5 @@
-import arrayMax from 'd2-utilizr/lib/arrayMax';
-import arrayPluck from 'd2-utilizr/lib/arrayPluck';
+import isFunction from 'd2-utilizr/lib/isFunction';
+import { orObject } from '../util';
 
 // Dimensions for the react-grid-layout
 
@@ -75,4 +75,13 @@ export const getYMax = items =>
         0
     );
 
-//arrayMax(arrayPluck(items, 'y')) + 1;
+export const getGridItemDomId = id => `item-${id}`;
+
+export function onItemResize(id) {
+    const el = orObject(document.querySelector(`#${getGridItemDomId(id)}`));
+    if (isFunction(el.setViewportSize))
+        setTimeout(
+            () => el.setViewportSize(el.clientWidth - 5, el.clientHeight),
+            100
+        );
+}
