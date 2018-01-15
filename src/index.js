@@ -28,7 +28,14 @@ getManifest('manifest.webapp').then(manifest => {
             initConfig={{
                 baseUrl: `${baseUrl}/api`,
                 headers: { Authorization: `Basic ${btoa('admin:district')}` },
-                schemas: ['dashboard'],
+                schemas: [
+                    'dashboard',
+                    'chart',
+                    'reportTable',
+                    'map',
+                    'eventReport',
+                    'eventChart',
+                ],
             }}
         >
             <Provider store={configureStore()}>

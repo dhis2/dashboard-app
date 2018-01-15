@@ -85,6 +85,7 @@ class Item extends Component {
                     type={item.type}
                     favoriteId={favorite.id}
                     favoriteName={favorite.name}
+                    editMode={this.props.editMode}
                     onButtonClick={onButtonClick}
                     onInterpretationsClick={this.onToggleInterpretations}
                 />
