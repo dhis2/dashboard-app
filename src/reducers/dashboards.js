@@ -36,7 +36,8 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
             };
         }
 
-        // keep reference to dashboard, create new root object and dashboardItems array (updates component)
+        // keep reference to dashboard so app does not think user selected a different dashboard
+        // create new root object and dashboardItems array (updates component)
         case actionTypes.ADD_DASHBOARD_ITEM: {
             const dashboard = state[action.dashboardId];
             dashboard.dashboardItems = [
