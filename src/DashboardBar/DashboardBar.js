@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
+// This component will be removed. Some of the code should be reused in dashboards List view mode.
+
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { grey700 } from 'material-ui/styles/colors';
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
-import TextField from 'material-ui/TextField';
-import IconButton from 'material-ui/IconButton';
-import IconClear from 'material-ui/svg-icons/content/clear';
 import IconList from 'material-ui/svg-icons/action/list';
 import ListViewModule from 'material-ui/svg-icons/action/view-module';
-
-import isEmpty from 'd2-utilizr/lib/isEmpty';
 
 import './DashboardBar.css';
 
@@ -114,8 +111,6 @@ export const Dashboardbar = props => (
             />
         </ToolbarGroup>
         <ToolbarGroup lastChild>
-            <FilterField {...props} />
-            <ClearButton {...props} />
             <D2Dropdown
                 value={props.ownerFilter}
                 onClick={props.onClickOwnerFilter}
