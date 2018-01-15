@@ -37,6 +37,12 @@ export class ItemGrid extends Component {
         this.setState({ expandedItems });
     };
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.edit) {
+            this.setState({ expandedItems: {} });
+        }
+    }
+
     render() {
         const { isLoading, dashboardItems, edit } = this.props;
 
