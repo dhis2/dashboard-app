@@ -3,15 +3,6 @@ import isObject from 'd2-utilizr/lib/isObject';
 
 import { orObject } from '../util';
 
-// Plugin type map
-const pluginTypeMap = {
-    REPORT_TABLE: global.reportTablePlugin,
-    CHART: global.chartPlugin,
-};
-
-// Get plugin by type
-export const getPluginByType = type => pluginTypeMap[type];
-
 // Get favorite object from plugin item
 export function getFavoriteObjectFromItem(item) {
     if (!isObject(item)) {

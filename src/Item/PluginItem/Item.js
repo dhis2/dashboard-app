@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import ItemHeader from './ItemHeader';
 import ItemFooter from './ItemFooter';
+import { apiFetchFavorite } from '../../api';
 
 import {
     getFavoriteObjectFromItem,
@@ -15,6 +16,27 @@ const style = {
     itemFooter: {
         flex: '0 0 320',
     },
+};
+
+// Plugin type map
+const pluginTypeMap = {
+    REPORT_TABLE: global.reportTablePlugin,
+    CHART: global.chartPlugin,
+};
+
+// Get plugin by type
+export const getPluginByType = type => pluginTypeMap[type];
+
+const onButtonClick = (id, type, targetType) => {
+    console.log('onButtonClick', id, type, targetType);
+
+    const plugin = getPluginByType(targetType);
+
+    apiFetchFavorite(id, type).then(favorite => {
+        const itemConfig = getPluginItemConfig(favorite, true);
+
+        plugin.load(itemConfig);
+    });
 };
 
 //TODO - do caching differently, does not belong here in Item
@@ -64,7 +86,7 @@ class Item extends Component {
                     type={item.type}
                     favoriteId={favorite.id}
                     favoriteName={favorite.name}
-                    onButtonClick={this.props.onButtonClick}
+                    onButtonClick={onButtonClick}
                     onInterpretationsClick={this.onToggleInterpretations}
                 />
                 <div id={pluginId} className="dashboard-item-content" />
