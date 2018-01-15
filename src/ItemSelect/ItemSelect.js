@@ -14,6 +14,7 @@ const ItemSearchField = props => (
             hintText="Search favorite elements to add to dashboard"
             type="text"
             fullWidth={true}
+            value={props.value}
             onClick={props.onClick}
             onChange={props.onChange}
             style={{ marginLeft: '10px' }}
@@ -30,12 +31,12 @@ class ItemSelect extends React.Component {
             open: false,
             maxOptions: new Set(),
             items: undefined,
-            filter: null,
+            filter: '',
         };
     }
 
     closeList = () => {
-        this.setState({ open: false, filter: null });
+        this.setState({ open: false, filter: '' });
     };
 
     openList = event => {
@@ -95,6 +96,7 @@ class ItemSelect extends React.Component {
         return (
             <Fragment>
                 <ItemSearchField
+                    value={this.state.filter}
                     onClick={this.openList}
                     onChange={this.setFilter}
                 />
