@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import loglevel from 'loglevel';
 import Divider from 'material-ui/Divider';
 import { List, ListItem } from 'material-ui/List';
 
@@ -10,6 +11,7 @@ import { acAddDashboardItem } from '../actions';
 import { sGetSelectedDashboard } from '../reducers';
 import { sGetSelectedId } from '../reducers/selected';
 import { getYMax } from '../ItemGrid/gridUtil';
+import { itemTypeMap } from '../util';
 
 const getIcon = type => {
     switch (type) {
@@ -91,13 +93,31 @@ class ItemSelectList extends Component {
         const { dashboardId, dashboardItems } = this.props;
         const yValue = getYMax(dashboardItems);
 
-        this.props.acAddDashboardItem(dashboardId, yValue, {
-            ...item,
-            type: this.props.type,
-        });
+        const modelDefinitionName = itemTypeMap[this.props.type].propName;
 
-        // TODO toggle the is this ok here?
-        this.props.onRequestAdd();
+        if (
+            modelDefinitionName.match(
+                /(chart|reportTable|map|eventChart|eventReport)/
+            )
+        ) {
+            // TODO perhaps move this into the PluginItem
+            this.context.d2.models[modelDefinitionName]
+                .get(item.id)
+                .then(model => {
+                    this.props.acAddDashboardItem(dashboardId, yValue, {
+                        ...model.toJSON(),
+                        type: this.props.type,
+                    });
+
+                    // TODO toggle the is this ok here?
+                    this.props.onRequestAdd();
+                })
+                .catch(error => loglevel.error(error));
+        } else {
+            loglevel.warning(
+                `${this.props.type} dashboard item type not supported yet`
+            );
+        }
     };
 
     toggleSeeMore = () => {

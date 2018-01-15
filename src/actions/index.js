@@ -36,6 +36,9 @@ export const acAddDashboardItem = (dashboardId, yValue, item) => {
     return {
         type: actionTypes.ADD_DASHBOARD_ITEM,
         value: {
+            i: item.id,
+            id: item.id,
+            shape: 'NORMAL',
             type: item.type,
             [itemPropName]: item,
             x: 0,
