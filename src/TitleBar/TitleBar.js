@@ -5,6 +5,7 @@ import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
 import './TitleBar.css';
 
+import ItemSelect from '../ItemSelect/ItemSelect';
 import Info from './Info';
 import D2TextLink from '../widgets/D2TextLink';
 import D2ContentEditable from '../widgets/D2ContentEditable';
@@ -21,26 +22,22 @@ import { getYMax } from '../ItemGrid/gridUtil';
 
 // Component
 
-const styles = {
+let styles = {
     titleBarWrapper: {
         padding: '20px 15px 5px 10px',
     },
     titleBar: {
         display: 'flex',
-        alignItems: 'flex-end',
+        alignItems: 'center',
     },
     titleBarIcon: {
         marginLeft: 5,
-        position: 'relative',
-        top: 5,
     },
     titleBarLink: {
         marginLeft: 20,
     },
     title: {
         marginRight: 20,
-        position: 'relative',
-        top: 1,
     },
     textLink: {
         fontSize: 15,
@@ -68,64 +65,70 @@ const TitleBar = ({
     onEditClick,
     onInfoClick,
     onAddClick,
-}) => (
-    <div className="titlebar-wrapper" style={styles.titleBarWrapper}>
-        <div className="titlebar" style={styles.titleBar}>
-            <div style={styles.title}>
-                <D2ContentEditable
-                    className="dashboard-title"
-                    name={name}
-                    onBlur={onBlur}
-                    disabled={!edit}
-                    placeholder={'Untitled'}
-                />
+}) => {
+    if (edit) {
+        styles = {
+            ...styles,
+            titleBar: { ...styles.titleBar, justifyContent: 'space-between' },
+        };
+    }
+
+    return (
+        <div className="titlebar-wrapper" style={styles.titleBarWrapper}>
+            {edit ? <span>Currently editing</span> : null}
+            <div className="titlebar" style={styles.titleBar}>
+                <div style={styles.title}>
+                    <D2ContentEditable
+                        className="dashboard-title"
+                        name={name}
+                        onBlur={onBlur}
+                        disabled={!edit}
+                        placeholder={'Untitled'}
+                    />
+                </div>
+                {edit ? (
+                    <ItemSelect />
+                ) : (
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <div style={styles.titleBarIcon}>
+                            <SvgIcon icon={starred ? 'Star' : 'StarBorder'} />
+                        </div>
+                        <div style={styles.titleBarIcon}>
+                            <Info onClick={onInfoClick} />
+                        </div>
+                        <div style={styles.titleBarLink}>
+                            <D2TextLink
+                                text={'Edit'}
+                                style={styles.textLink}
+                                hoverStyle={styles.textLinkHover}
+                                onClick={onEditClick}
+                            />
+                        </div>
+                        <div style={styles.titleBarLink}>
+                            <D2TextLink
+                                text={'Share'}
+                                style={styles.textLink}
+                                hoverStyle={styles.textLinkHover}
+                            />
+                        </div>
+                        <div style={styles.titleBarLink}>
+                            <D2TextLink
+                                text={'Filter'}
+                                style={styles.textLink}
+                                hoverStyle={styles.textLinkHover}
+                            />
+                        </div>
+                    </div>
+                )}
             </div>
-            <div style={styles.titleBarIcon}>
-                <SvgIcon icon={starred ? 'Star' : 'StarBorder'} />
-            </div>
-            <div style={styles.titleBarIcon}>
-                <Info onClick={onInfoClick} />
-            </div>
-            <div style={styles.titleBarLink}>
-                <D2TextLink
-                    text={'Edit'}
-                    style={styles.textLink}
-                    hoverStyle={styles.textLinkHover}
-                    onClick={onEditClick}
-                />
-            </div>
-            <div style={styles.titleBarLink}>
-                <D2TextLink
-                    text={'Share'}
-                    style={styles.textLink}
-                    hoverStyle={styles.textLinkHover}
-                />
-            </div>
-            <div style={styles.titleBarLink}>
-                <D2TextLink
-                    text={'Filter'}
-                    style={styles.textLink}
-                    hoverStyle={styles.textLinkHover}
-                />
-            </div>
-            <div style={styles.titleBarLink}>
-                <D2TextLink
-                    text={'+ Add item'}
-                    style={styles.textLink}
-                    hoverStyle={styles.textLinkHover}
-                    onClick={onAddClick}
-                />
-            </div>
+            {showDescripton || edit ? (
+                <div className="description" style={styles.description}>
+                    {description}
+                </div>
+            ) : null}
         </div>
-        {showDescripton || edit ? (
-            <div className="description" style={styles.description}>
-                {description}
-            </div>
-        ) : (
-            ''
-        )}
-    </div>
-);
+    );
+};
 
 TitleBar.propTypes = {
     name: PropTypes.string,
