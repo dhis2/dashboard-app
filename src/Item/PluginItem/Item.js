@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import ItemHeader from './ItemHeader';
 import ItemFooter from './ItemFooter';
@@ -9,8 +9,6 @@ import {
     getPluginItemConfig,
     loadFavorite,
 } from './loadPlugin';
-
-const Fragment = props => props.children;
 
 const style = {
     itemFooter: {
