@@ -38,9 +38,8 @@ export function getPluginItemConfig(item, isReload) {
     return config;
 }
 
-export function onPluginItemResize(id) {
+export function onItemResize(id) {
     const el = orObject(document.querySelector(`#plugin-${id}`));
-
     if (isFunction(el.setViewportSize)) {
         setTimeout(
             () => el.setViewportSize(el.clientWidth - 5, el.clientHeight),

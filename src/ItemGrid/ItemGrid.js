@@ -9,8 +9,7 @@ import './ItemGrid.css';
 import { Item } from '../Item/Item';
 
 import { gridRowHeight, getGridColumns, gridCompactType } from './gridUtil';
-import { onPluginItemResize } from './pluginUtil';
-
+import { onItemResize } from './pluginUtil';
 import { orObject } from '../util';
 import * as fromReducers from '../reducers';
 import ModalLoadingMask from '../widgets/ModalLoadingMask';
@@ -35,7 +34,12 @@ export class ItemGrid extends Component {
     };
 
     render() {
-        const { isLoading, dashboardItems, onItemResize, edit } = this.props;
+        const {
+            isLoading,
+            dashboardItems,
+            onGridItemResize,
+            edit,
+        } = this.props;
 
         if (!dashboardItems.length) {
             return <div style={{ padding: 50 }}>No items</div>;
@@ -62,7 +66,7 @@ export class ItemGrid extends Component {
                         //console.log('RGL change', a, b, c);
                     }}
                     onResizeStop={(layout, oldItem, newItem) => {
-                        onItemResize(newItem.i);
+                        onGridItemResize(newItem.i);
                     }}
                     className="layout"
                     layout={items}
@@ -100,15 +104,8 @@ ItemGrid.defaultProps = {
 
 // Container
 
-const currentItemTypeMap = {}; //TODO: improve
-
-const onItemResize = id => {
-    if (
-        [undefined, 'CHART', 'EVENT_CHART'].indexOf(currentItemTypeMap[id]) !==
-        -1
-    ) {
-        onPluginItemResize(id);
-    }
+const onGridItemResize = id => {
+    onItemResize(id);
 };
 
 const mapStateToProps = state => {
@@ -122,7 +119,7 @@ const mapStateToProps = state => {
         dashboardItems,
         isLoading: sGetSelectedIsLoading(state),
         edit: sGetSelectedEdit(state),
-        onItemResize,
+        onGridItemResize,
     };
 };
 
