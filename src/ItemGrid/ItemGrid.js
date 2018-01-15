@@ -60,12 +60,7 @@ export class ItemGrid extends Component {
     };
 
     render() {
-        const {
-            edit,
-            isLoading,
-            dashboardItems,
-            onResizeStop,
-        } = this.props;
+        const { edit, isLoading, dashboardItems, onResizeStop } = this.props;
 
         if (!dashboardItems.length) {
             return <NoItemsMessage text={this.NO_ITEMS_MESSAGE} />;
