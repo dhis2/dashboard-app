@@ -131,7 +131,8 @@ class ItemSelectList extends Component {
                 <List>
                     {this.props.items.map(item => (
                         <ListItem
-                            key={item.id}
+                            // apps don't have item.id
+                            key={item.id || item.key}
                             leftIcon={
                                 <SvgIcon
                                     icon={getIcon(this.props.type)}
