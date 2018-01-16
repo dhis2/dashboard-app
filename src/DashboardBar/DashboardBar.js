@@ -16,7 +16,7 @@ import D2IconButton from '../widgets/D2IconButton';
 import D2Dropdown from '../widgets/D2Dropdown';
 
 import * as fromReducers from '../reducers';
-import * as fromActions from '../actions';
+import { fromFilter } from '../actions';
 
 const styles = {
     filterField: {
@@ -161,16 +161,12 @@ const mapStateToProps = state => ({
     textFilter: fromReducers.fromFilter.sGetName(state),
     ownerFilter: fromReducers.fromFilter.sGetOwner(state),
     orderFilter: fromReducers.fromFilter.sGetOrder(state),
-    //viewFilter: fromReducers.fromFilter.sGetStyle(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    onChangeFilterName: value => dispatch(fromActions.acSetFilterName(value)),
-    onClickFilterOwner: value => dispatch(fromActions.acSetFilterOwner(value)),
-    onClickFilterOrder: value => dispatch(fromActions.acSetFilterOrder(value)),
-    //onClickViewFilter: value => dispatch(fromActions.acSetDashboardsConfigViewFilter(value)),
-    onClickHome: () => dispatch(fromActions.tSetPresetHome()),
-    onClickManage: () => dispatch(fromActions.tSetPresetManage()),
+    onChangeFilterName: value => dispatch(fromFilter.acSetFilterName(value)),
+    onClickFilterOwner: value => dispatch(fromFilter.acSetFilterOwner(value)),
+    onClickFilterOrder: value => dispatch(fromFilter.acSetFilterOrder(value)),
 });
 
 const DashboardbarCt = connect(mapStateToProps, mapDispatchToProps)(
