@@ -36,6 +36,12 @@ class App extends Component {
         });
     }
 
+    getChildContext() {
+        return {
+            baseUrl: this.props.baseUrl,
+        };
+    }
+
     render() {
         return (
             <div className="app-wrapper">
@@ -53,6 +59,10 @@ class App extends Component {
 App.contextTypes = {
     d2: PropTypes.object,
     store: PropTypes.object,
+};
+
+App.childContextTypes = {
+    baseUrl: PropTypes.string,
 };
 
 export default App;

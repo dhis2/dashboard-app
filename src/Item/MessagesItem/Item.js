@@ -1,8 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getManifest } from 'd2/lib/d2';
-import { getBaseUrl } from '../../config';
 import { fromMessages } from '../../reducers';
 import { colors } from '../PluginItem/colors';
 import { formatDate, sortByDate } from '../../util';
@@ -28,7 +26,6 @@ const style = {
 class MessagesItem extends Component {
     state = {
         uiLocale: '',
-        baseUrl: '',
     };
 
     async componentDidMount() {
@@ -37,15 +34,11 @@ class MessagesItem extends Component {
         );
 
         this.setState({ uiLocale });
-
-        const manifest = await getManifest();
-        const baseUrl = getBaseUrl(manifest);
-        this.setState({ baseUrl });
     }
 
     linkSrc = id => {
         return `${
-            this.state.baseUrl
+            this.context.baseUrl
         }/dhis-web-messaging/readMessage.action?id=${id}`;
     };
 
@@ -86,6 +79,7 @@ class MessagesItem extends Component {
 
 MessagesItem.contextTypes = {
     d2: PropTypes.object,
+    baseUrl: PropTypes.string,
 };
 
 const mapStateToProps = state => {
