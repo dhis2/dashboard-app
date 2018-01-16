@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { getManifest } from 'd2/lib/d2';
+import { getBaseUrl } from '../../config';
 import { fromMessages } from '../../reducers';
 import { colors } from '../PluginItem/colors';
 import { formatDate, sortByDate } from '../../util';
@@ -26,13 +28,26 @@ const style = {
 class MessagesItem extends Component {
     state = {
         uiLocale: '',
+        baseUrl: '',
     };
 
-    componentDidMount() {
-        this.context.d2.currentUser.userSettings
-            .get('keyUiLocale')
-            .then(uiLocale => this.setState({ uiLocale }));
+    async componentDidMount() {
+        const uiLocale = await this.context.d2.currentUser.userSettings.get(
+            'keyUiLocale'
+        );
+
+        this.setState({ uiLocale });
+
+        const manifest = await getManifest();
+        const baseUrl = getBaseUrl(manifest);
+        this.setState({ baseUrl });
     }
+
+    linkSrc = id => {
+        return `${
+            this.state.baseUrl
+        }/dhis-web-messaging/readMessage.action?id=${id}`;
+    };
 
     render() {
         const { messages } = this.props;
@@ -41,9 +56,13 @@ class MessagesItem extends Component {
                 return (
                     <li style={style.listitem} key={msg.id}>
                         <div>
-                            {msg.displayName} ({msg.messageCount})
+                            <div>{msg.userSurname}</div>
+                            <a href={this.linkSrc(msg.id)}>
+                                <span>
+                                    {msg.displayName} ({msg.messageCount})
+                                </span>
+                            </a>
                         </div>
-                        <div>{msg.userSurname}</div>
                         <div style={style.date}>
                             {formatDate(msg.lastUpdated, this.state.uiLocale)}
                         </div>

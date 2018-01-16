@@ -6,6 +6,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import D2UIApp from 'd2-ui/lib/app/D2UIApp';
 
 import { getManifest } from 'd2/lib/d2';
+import { getBaseUrl } from './config';
 
 import './index.css';
 
@@ -18,11 +19,7 @@ injectTapEventPlugin();
 
 // init d2
 getManifest('manifest.webapp').then(manifest => {
-    const baseUrl =
-        process.env.NODE_ENV === 'production'
-            ? manifest.getBaseUrl()
-            : 'http://localhost:8080';
-
+    const baseUrl = getBaseUrl(manifest);
     ReactDOM.render(
         <D2UIApp
             initConfig={{
