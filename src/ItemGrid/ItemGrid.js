@@ -55,6 +55,12 @@ export class ItemGrid extends Component {
         this.setState({ expandedItems });
     };
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.edit) {
+            this.setState({ expandedItems: {} });
+        }
+    }
+
     onLayoutChange = (a, b, c) => {
         //console.log('RGL change', a, b, c);
     };
