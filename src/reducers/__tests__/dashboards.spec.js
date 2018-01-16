@@ -1,3 +1,4 @@
+import update from 'immutability-helper';
 import reducer, { actionTypes, DEFAULT_DASHBOARDS } from '../dashboards';
 
 describe('dashboards reducer', () => {
@@ -56,14 +57,9 @@ describe('dashboards reducer', () => {
             dashboardId: 'dash2',
         });
 
-        // keep reference to dashboard
-        const dash2 = boards.dash2;
-        dash2.dashboardItems = [...dash2.dashboardItems, newItem];
-
-        const expectedState = {
-            ...boards,
-            dash2: dash2,
-        };
+        const expectedState = update(boards, {
+            dash2: { dashboardItems: { $push: [newItem] } },
+        });
 
         expect(actualState).toMatchObject(expectedState);
     });
