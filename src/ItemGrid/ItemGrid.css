@@ -4,9 +4,9 @@
     display: flex;
     flex-direction: column;
     overflow: hidden !important;
-    border: 0px solid #e1e1e1;
-    box-shadow: 0px 0px 1px 1px #aaaaaa;
+    box-shadow: 0px 0px 3px 0px #999999;
     background-color: #ffffff;
+    border-radius: 3px;
 }
 
 .react-grid-item.react-grid-placeholder {
@@ -24,13 +24,13 @@
 /* dashboard item - header */
 
 .dashboard-item-header {
-    height: 40px;
+    height: 46px;
     font-size: 15px;
     font-weight: 700;
     color: #3a3a3a;
     display: flex;
     align-items: center;
-    padding: 0 12px;
+    padding: 0 12px 0 14px;
 }
 
 .dashboard-item-header-title {

@@ -65,6 +65,6 @@ export const sGetFromState = state => state.filter;
 
 // selector dependency level 2
 
-export const sGetName = state => sGetFromState(state).name;
-export const sGetOwner = state => sGetFromState(state).owner;
-export const sGetOrder = state => sGetFromState(state).order;
+export const sGetFilterName = state => sGetFromState(state).name;
+export const sGetFilterOwner = state => sGetFromState(state).owner;
+export const sGetFilterOrder = state => sGetFromState(state).order;

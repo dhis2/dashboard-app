@@ -9,21 +9,39 @@ import './ItemGrid.css';
 import { Item } from '../Item/Item';
 
 import {
-    gridRowHeight,
+    GRID_ROW_HEIGHT,
+    GRID_COMPACT_TYPE,
     getGridColumns,
-    gridCompactType,
+    hasShape,
     onItemResize,
 } from './gridUtil';
-import { orObject } from '../util';
+
+import { orArray } from '../util';
 import * as fromReducers from '../reducers';
 import ModalLoadingMask from '../widgets/ModalLoadingMask';
 
-const { fromSelected } = fromReducers;
+// Component
+
+const NoItemsMessage = ({ text }) => (
+    <div
+        style={{
+            padding: '50px 10px',
+            textAlign: 'center',
+            fontSize: '15px',
+            fontWeight: 500,
+            color: '#777',
+        }}
+    >
+        {text}
+    </div>
+);
 
 export class ItemGrid extends Component {
     state = {
         expandedItems: {},
     };
+
+    NO_ITEMS_MESSAGE = 'You have not added any items';
 
     onToggleItemFooter = clickedId => {
         const isExpanded =
@@ -37,11 +55,15 @@ export class ItemGrid extends Component {
         this.setState({ expandedItems });
     };
 
+    onLayoutChange = (a, b, c) => {
+        //console.log('RGL change', a, b, c);
+    };
+
     render() {
-        const { isLoading, dashboardItems, edit } = this.props;
+        const { edit, isLoading, dashboardItems, onResizeStop } = this.props;
 
         if (!dashboardItems.length) {
-            return <div style={{ padding: 50 }}>No items</div>;
+            return <NoItemsMessage text={this.NO_ITEMS_MESSAGE} />;
         }
 
         const items = dashboardItems.map((item, index) => {
@@ -61,18 +83,14 @@ export class ItemGrid extends Component {
             <div className="grid-wrapper">
                 <ModalLoadingMask isLoading={isLoading} />
                 <ReactGridLayout
-                    onLayoutChange={(a, b, c) => {
-                        //console.log('RGL change', a, b, c);
-                    }}
-                    onResizeStop={(layout, oldItem, newItem) => {
-                        onItemResize(newItem.i);
-                    }}
+                    onLayoutChange={this.onLayoutChange}
+                    onResizeStop={onResizeStop}
                     className="layout"
                     layout={items}
                     cols={getGridColumns()}
-                    rowHeight={gridRowHeight}
+                    rowHeight={GRID_ROW_HEIGHT}
                     width={window.innerWidth}
-                    compactType={gridCompactType}
+                    compactType={GRID_COMPACT_TYPE}
                     isDraggable={edit}
                     isResizable={edit}
                 >
@@ -103,20 +121,46 @@ ItemGrid.defaultProps = {
 
 // Container
 
+const onResizeStop = (layout, oldItem, newItem) => {
+    onItemResize(newItem.i);
+};
+
 const mapStateToProps = state => {
-    const { sGetSelectedDashboard } = fromReducers;
+    const { sGetSelectedDashboard, fromSelected } = fromReducers;
     const { sGetSelectedIsLoading, sGetSelectedEdit } = fromSelected;
 
     const selectedDashboard = sGetSelectedDashboard(state);
-    const dashboardItems = orObject(selectedDashboard).dashboardItems;
+
+    const dashboardItems = selectedDashboard
+        ? selectedDashboard.dashboardItems
+        : null;
+
+    console.log(
+        'MSTP',
+        sGetSelectedEdit(state),
+        sGetSelectedIsLoading(state),
+        dashboardItems
+    );
 
     return {
-        dashboardItems,
-        isLoading: sGetSelectedIsLoading(state),
         edit: sGetSelectedEdit(state),
+        isLoading: sGetSelectedIsLoading(state),
+        dashboardItems,
     };
 };
 
-const ItemGridCt = connect(mapStateToProps)(ItemGrid);
+const mergeProps = (stateProps, dispatchProps) => {
+    const validItems = orArray(stateProps.dashboardItems).filter(hasShape);
+    console.log('-- MP', validItems);
+    return {
+        edit: stateProps.edit,
+        isLoading: stateProps.isLoading,
+        dashboardItems: validItems,
+        onItemResize,
+        onResizeStop,
+    };
+};
+
+const ItemGridCt = connect(mapStateToProps, null, mergeProps)(ItemGrid);
 
 export default ItemGridCt;

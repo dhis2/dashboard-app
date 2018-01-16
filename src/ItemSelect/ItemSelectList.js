@@ -7,7 +7,7 @@ import { List, ListItem } from 'material-ui/List';
 
 import Button from 'd2-ui/lib/button/Button';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
-import { acAddDashboardItem } from '../actions';
+import { fromDashboards } from '../actions';
 import { sGetSelectedDashboard } from '../reducers';
 import { sGetSelectedId } from '../reducers/selected';
 import { getYMax } from '../ItemGrid/gridUtil';
@@ -104,7 +104,7 @@ class ItemSelectList extends Component {
             this.context.d2.models[modelDefinitionName]
                 .get(item.id)
                 .then(model => {
-                    this.props.acAddDashboardItem(dashboardId, yValue, {
+                    fromDashboards.acAddDashboardItem(dashboardId, yValue, {
                         ...model.toJSON(),
                         type: this.props.type,
                     });
@@ -226,12 +226,9 @@ ItemSelectList.contextTypes = {
     d2: PropTypes.object.isRequired,
 };
 
-export default connect(
-    state => {
-        return {
-            dashboardId: sGetSelectedId(state),
-            dashboardItems: sGetSelectedDashboard(state).dashboardItems,
-        };
-    },
-    { acAddDashboardItem }
-)(ItemSelectList);
+export default connect(state => {
+    return {
+        dashboardId: sGetSelectedId(state),
+        dashboardItems: sGetSelectedDashboard(state).dashboardItems,
+    };
+})(ItemSelectList);

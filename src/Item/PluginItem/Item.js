@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import ItemHeader from './ItemHeader';
 import ItemFooter from './ItemFooter';
@@ -9,8 +9,6 @@ import {
     getPluginItemConfig,
     loadFavorite,
 } from './loadPlugin';
-
-const ReactFragment = props => props.children;
 
 const style = {
     itemFooter: {
@@ -80,7 +78,7 @@ class Item extends Component {
         const pluginId = getPluginItemConfig(item).el;
 
         return (
-            <ReactFragment>
+            <Fragment>
                 <ItemHeader
                     type={item.type}
                     favoriteId={favorite.id}
@@ -98,7 +96,7 @@ class Item extends Component {
                         onToggleInterpretations={this.onToggleInterpretations}
                     />
                 ) : null}
-            </ReactFragment>
+            </Fragment>
         );
     }
 }

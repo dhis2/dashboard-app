@@ -32,17 +32,19 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDS: {
             return {
-                ...(action.append ? state || {} : {}),
+                ...(action.append ? orObject(state) : {}),
                 ...action.value,
             };
         }
+
+        // keep reference to dashboard so app does not think user selected a different dashboard
+        // create new root object and dashboardItems array (updates component)
         case actionTypes.ADD_DASHBOARD_ITEM: {
             const newState = update(state, {
                 [action.dashboardId]: {
                     dashboardItems: { $push: [action.value] },
                 },
             });
-
             return newState;
         }
         default:

@@ -56,12 +56,16 @@ export {
     fromStyle,
 };
 
-export const sApplyNameFilter = (dashboards, filter) =>
-    dashboards.filter(
-        d => d.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1
-    );
+// selected dashboard
+export const sGetSelectedDashboard = state =>
+    fromDashboards.sGetById(state, fromSelected.sGetSelectedId(state));
 
-export const sApplyOwnerFilter = (dashboards, filter) => {
+// filter dashboards by name
+export const sFilterDashboardsByName = (dashboards, filter) =>
+    dashboards.filter(d => d.name.toLowerCase().includes(filter.toLowerCase()));
+
+// filter dashboards by owner
+export const sFilterDashboardsByOwner = (dashboards, filter) => {
     const ME = fromFilter.ownerData[1]; // TODO
     const OTHERS = fromFilter.ownerData[2]; // TODO
 
@@ -75,7 +79,8 @@ export const sApplyOwnerFilter = (dashboards, filter) => {
     }
 };
 
-export const sApplyOrderFilter = (dashboards, filter) => {
+// filter dashboards by order
+export const sFilterDashboardsByOrder = (dashboards, filter) => {
     const filterValues = filter.split(':');
 
     const key = filterValues[0];
@@ -84,21 +89,19 @@ export const sApplyOrderFilter = (dashboards, filter) => {
     return arraySort(dashboards, direction, mapConstToData[key]);
 };
 
-// selector dependency level 2
+// selectors dependency level 2
 
-export const sGetSelectedDashboard = state =>
-    fromDashboards.sGetById(state, fromSelected.sGetSelectedId(state));
-
+// get filtered dashboards
 export const sGetFilteredDashboards = state => {
     const dashboards = fromDashboards.sGetFromState(state);
 
-    const nameFilter = fromFilter.sGetName(state);
-    const ownerFilter = fromFilter.sGetOwner(state);
-    const orderFilter = fromFilter.sGetOrder(state);
+    const nameFilter = fromFilter.sGetFilterName(state);
+    const ownerFilter = fromFilter.sGetFilterOwner(state);
+    const orderFilter = fromFilter.sGetFilterOrder(state);
 
-    return sApplyOrderFilter(
-        sApplyNameFilter(
-            sApplyOwnerFilter(dashboards, ownerFilter),
+    return sFilterDashboardsByOrder(
+        sFilterDashboardsByName(
+            sFilterDashboardsByOwner(dashboards, ownerFilter),
             nameFilter
         ),
         orderFilter

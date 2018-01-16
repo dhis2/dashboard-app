@@ -1,5 +1,5 @@
-import reducer, { actionTypes, DEFAULT_DASHBOARDS } from '../dashboards';
 import update from 'immutability-helper';
+import reducer, { actionTypes, DEFAULT_DASHBOARDS } from '../dashboards';
 
 describe('dashboards reducer', () => {
     const boards = {
@@ -22,7 +22,7 @@ describe('dashboards reducer', () => {
     });
 
     it('should set the list of dashboards by replacing the existing list', () => {
-        const currentState = { dash0: { id: 'dash0}' } };
+        const currentState = { dash0: { id: 'dash0' } };
         const actualState = reducer(currentState, {
             type: actionTypes.SET_DASHBOARDS,
             append: false,
@@ -33,7 +33,7 @@ describe('dashboards reducer', () => {
     });
 
     it('should append to the list of dashboards', () => {
-        const currentState = { dash0: { id: 'dash0}' } };
+        const currentState = { dash0: { id: 'dash0' } };
         const actualState = reducer(currentState, {
             type: actionTypes.SET_DASHBOARDS,
             append: true,
@@ -58,9 +58,7 @@ describe('dashboards reducer', () => {
         });
 
         const expectedState = update(boards, {
-            dash2: {
-                dashboardItems: { $push: [newItem] },
-            },
+            dash2: { dashboardItems: { $push: [newItem] } },
         });
 
         expect(actualState).toMatchObject(expectedState);

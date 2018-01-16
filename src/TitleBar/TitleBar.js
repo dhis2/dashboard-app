@@ -10,14 +10,8 @@ import Info from './Info';
 import D2TextLink from '../widgets/D2TextLink';
 import D2ContentEditable from '../widgets/D2ContentEditable';
 import * as fromReducers from '../reducers';
-import { orObject, orArray } from '../util';
-import {
-    acSetSelectedEdit,
-    acSetSelectedShowDescription,
-    acAddDashboardItem,
-} from '../actions';
-import { sGetSelectedId } from '../reducers/selected';
-import { sGetSelectedDashboard } from '../reducers';
+import * as fromActions from '../actions';
+import { orObject, orArray, loremIpsum } from '../util';
 import { getYMax } from '../ItemGrid/gridUtil';
 
 // Component
@@ -38,6 +32,8 @@ let styles = {
     },
     title: {
         marginRight: 20,
+        position: 'relative',
+        top: 2,
     },
     textLink: {
         fontSize: 15,
@@ -153,63 +149,49 @@ TitleBar.defaultProps = {
 
 // Container
 
-const mapStateToProps = state => {
-    const { fromSelected, sGetSelectedDashboard } = fromReducers;
-    const { sGetSelectedEdit, sGetSelectedShowDescription } = fromSelected;
-
-    const selectedDashboard = orObject(sGetSelectedDashboard(state));
-
-    const loremIpsum =
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.';
-
-    return {
-        state,
-        props: {
-            name: selectedDashboard.name,
-            description: selectedDashboard.description || loremIpsum,
-            starred: selectedDashboard.starred,
-            edit: sGetSelectedEdit(state),
-            showDescripton: sGetSelectedShowDescription(state),
-        },
-    };
-};
-
-const mapDispatchToProps = dispatch => ({
-    dispatch,
-    props: {
-        onBlur: name => console.log('dashboard name: ', name),
-        onEditClick: () => dispatch(acSetSelectedEdit(true)),
-        onInfoClick: isShow => dispatch(acSetSelectedShowDescription(isShow)),
-    },
+const mapStateToProps = state => ({
+    selectedDashboard: fromReducers.sGetSelectedDashboard(state),
+    edit: fromReducers.fromSelected.sGetSelectedEdit(state),
+    showDescripton: fromReducers.fromSelected.sGetSelectedShowDescription(
+        state
+    ),
 });
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const dashboardItems = orArray(
-        orObject(sGetSelectedDashboard(stateProps.state)).dashboardItems
+const mergeProps = (stateProps, dispatchProps) => {
+    const { selectedDashboard, edit, showDescription } = stateProps;
+    const { dispatch } = dispatchProps;
+    const { fromDashboards, fromSelected } = fromActions;
+
+    const selectedDashboardObject = orObject(selectedDashboard);
+
+    const selectedDashboardItems = orArray(
+        selectedDashboardObject.dashboardItems
     );
+    const selectedDashboardId = selectedDashboardObject.id;
 
-    const yValue = getYMax(dashboardItems);
-    const dashboardId = sGetSelectedId(stateProps.state);
+    const yValue = getYMax(selectedDashboardItems);
 
-    const p = {
-        ...stateProps.props,
-        ...dispatchProps.props,
+    return {
+        name: selectedDashboardObject.name,
+        description: selectedDashboardObject.description || loremIpsum,
+        starred: selectedDashboardObject.starred,
+        edit: edit,
+        showDescription: showDescription,
+        onBlur: name => console.log('dashboard name: ', name),
+        onEditClick: () => dispatch(fromSelected.acSetSelectedEdit(true)),
+        onInfoClick: show =>
+            dispatch(fromSelected.acSetSelectedShowDescription(show)),
         onAddClick: () =>
-            dispatchProps.dispatch(
-                acAddDashboardItem(dashboardId, yValue, {
+            dispatch(
+                fromDashboards.acAddDashboardItem(selectedDashboardId, yValue, {
                     id: 'VffWmdKFHSq',
                     name: 'ANC: ANC IPT 1 Coverage last 12 months districts',
                     type: 'CHART',
                 })
             ),
     };
-
-    console.log('TITLEBAR props', p);
-    return p;
 };
 
-const TitleBarCt = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
-    TitleBar
-);
+const TitleBarCt = connect(mapStateToProps, null, mergeProps)(TitleBar);
 
 export default TitleBarCt;
