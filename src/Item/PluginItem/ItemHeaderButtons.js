@@ -26,8 +26,8 @@ const getIconButton = ({
     </div>
 );
 
-class ItemHeader extends Component {
-    renderButtons() {
+class PluginItemHeaderButtons extends Component {
+    render() {
         const {
             type,
             favoriteId,
@@ -72,19 +72,6 @@ class ItemHeader extends Component {
             </Fragment>
         );
     }
-
-    render() {
-        const { favoriteName } = this.props;
-
-        return (
-            <div className="dashboard-item-header">
-                <div className="dashboard-item-header-title">
-                    {favoriteName}
-                </div>
-                {!this.props.editMode ? this.renderButtons() : null}
-            </div>
-        );
-    }
 }
 
-export default ItemHeader;
+export default PluginItemHeaderButtons;

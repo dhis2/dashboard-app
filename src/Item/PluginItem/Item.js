@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 
-import ItemHeader from './ItemHeader';
+import ItemHeader from '../ItemHeader';
 import ItemFooter from './ItemFooter';
+import PluginItemHeaderButtons from './ItemHeaderButtons';
 import { apiFetchFavorite } from '../../api';
 
 import {
@@ -77,15 +78,19 @@ class Item extends Component {
         const favorite = getFavoriteObjectFromItem(item);
         const pluginId = getPluginItemConfig(item).el;
 
+        const actionButtons = !this.props.editMode ? (
+            <PluginItemHeaderButtons
+                onButtonClick={onButtonClick}
+                onInterpretationsClick={this.onToggleInterpretations}
+            />
+        ) : null;
+
         return (
             <Fragment>
                 <ItemHeader
-                    type={item.type}
-                    favoriteId={favorite.id}
-                    favoriteName={favorite.name}
+                    title={favorite.name}
+                    actionButtons={actionButtons}
                     editMode={this.props.editMode}
-                    onButtonClick={onButtonClick}
-                    onInterpretationsClick={this.onToggleInterpretations}
                 />
                 <div id={pluginId} className="dashboard-item-content" />
                 {!this.props.editMode ? (

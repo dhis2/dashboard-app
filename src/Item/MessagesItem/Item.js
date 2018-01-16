@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
+import ItemHeader from '../ItemHeader';
 import { fromMessages } from '../../reducers';
 import { colors } from '../PluginItem/colors';
 import { formatDate, sortByDate } from '../../util';
@@ -36,7 +38,7 @@ class MessagesItem extends Component {
         this.setState({ uiLocale });
     }
 
-    linkSrc = id => {
+    conversationHref = id => {
         return `${
             this.context.baseUrl
         }/dhis-web-messaging/readMessage.action?id=${id}`;
@@ -50,7 +52,7 @@ class MessagesItem extends Component {
                     <li style={style.listitem} key={msg.id}>
                         <div>
                             <div>{msg.userSurname}</div>
-                            <a href={this.linkSrc(msg.id)}>
+                            <a href={this.conversationHref(msg.id)}>
                                 <span>
                                     {msg.displayName} ({msg.messageCount})
                                 </span>
@@ -64,11 +66,11 @@ class MessagesItem extends Component {
             }
         );
 
-        const conversationCount = messages.length;
+        const title = `Messages (${messages.length})`;
 
         return (
             <Fragment>
-                <div>Messages ({conversationCount})</div>
+                <ItemHeader title={title} />
                 <div style={style.container}>
                     <ul style={style.list}>{messageItems}</ul>
                 </div>
