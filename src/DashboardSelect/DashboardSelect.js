@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import * as fromActions from '../actions';
+import { fromSelected } from '../actions';
 import * as fromReducers from '../reducers';
 
 import DashboardSelectList from './DashboardSelectList';
@@ -81,7 +81,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    onClick: id => dispatch(fromActions.tSetSelectedDashboardById(id)),
+    onClick: id => dispatch(fromSelected.tSetSelectedDashboardById(id)),
 });
 
 const DashboardSelectCt = connect(mapStateToProps, mapDispatchToProps)(

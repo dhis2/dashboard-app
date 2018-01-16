@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
+// This component will be removed. Some of the code should be reused in dashboards List view mode.
+
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { grey700 } from 'material-ui/styles/colors';
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
-import TextField from 'material-ui/TextField';
-import IconButton from 'material-ui/IconButton';
-import IconClear from 'material-ui/svg-icons/content/clear';
 import IconList from 'material-ui/svg-icons/action/list';
 import ListViewModule from 'material-ui/svg-icons/action/view-module';
-
-import isEmpty from 'd2-utilizr/lib/isEmpty';
 
 import './DashboardBar.css';
 
@@ -19,7 +16,7 @@ import D2IconButton from '../widgets/D2IconButton';
 import D2Dropdown from '../widgets/D2Dropdown';
 
 import * as fromReducers from '../reducers';
-import * as fromActions from '../actions';
+import { fromFilter } from '../actions';
 
 const styles = {
     filterField: {
@@ -66,88 +63,6 @@ const styles = {
 };
 
 // Component
-
-class FilterField extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            value: fromReducers.fromFilter.DEFAULT_NAME,
-        };
-
-        this.setFilterValue = this.setFilterValue.bind(this);
-        this.handleKeyUp = this.handleKeyUp.bind(this);
-    }
-
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            value: nextProps.textFilter,
-        });
-    }
-
-    setFilterValue(event) {
-        event.preventDefault();
-
-        this.props.onChangeTextFilter(event.target.value);
-    }
-
-    handleKeyUp(event) {
-        const KEYCODE_ESCAPE = 27;
-
-        if (event.keyCode === KEYCODE_ESCAPE) {
-            this.props.onChangeTextFilter();
-        }
-    }
-
-    render() {
-        return (
-            <TextField
-                className="FilterField"
-                value={this.state.value}
-                onChange={this.setFilterValue}
-                onKeyUp={this.handleKeyUp}
-                hintText="Filter dashboards"
-                style={styles.filterField}
-                inputStyle={styles.filterFieldInput}
-                hintStyle={styles.filterFieldHint}
-                underlineStyle={styles.filterFieldUnderline}
-                underlineFocusStyle={styles.filterFieldUnderlineFocus}
-            />
-        );
-    }
-}
-
-FilterField.propTypes = {
-    textFilter: PropTypes.string,
-    onChangeTextFilter: PropTypes.func,
-};
-
-FilterField.defaultProps = {
-    textFilter: '',
-    onChangeTextFilter: Function.prototype,
-};
-
-const ClearButton = ({ onChangeTextFilter, textFilter }) => {
-    const disabled = isEmpty(textFilter);
-
-    return (
-        <IconButton
-            style={Object.assign({}, styles.clearButton, {
-                opacity: disabled ? 0 : 1,
-            })}
-            iconStyle={styles.clearButtonIcon}
-            onClick={() => onChangeTextFilter()}
-            disabled={disabled}
-        >
-            <IconClear color={grey700} />
-        </IconButton>
-    );
-};
-
-ClearButton.propTypes = {
-    onChangeTextFilter: PropTypes.func.isRequired,
-    textFilter: PropTypes.string.isRequired,
-};
 
 const getViewFilterIcon = viewFilter => {
     const list = 'LIST';
@@ -196,8 +111,6 @@ export const Dashboardbar = props => (
             />
         </ToolbarGroup>
         <ToolbarGroup lastChild>
-            <FilterField {...props} />
-            <ClearButton {...props} />
             <D2Dropdown
                 value={props.ownerFilter}
                 onClick={props.onClickOwnerFilter}
@@ -248,16 +161,12 @@ const mapStateToProps = state => ({
     textFilter: fromReducers.fromFilter.sGetName(state),
     ownerFilter: fromReducers.fromFilter.sGetOwner(state),
     orderFilter: fromReducers.fromFilter.sGetOrder(state),
-    //viewFilter: fromReducers.fromFilter.sGetStyle(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    onChangeFilterName: value => dispatch(fromActions.acSetFilterName(value)),
-    onClickFilterOwner: value => dispatch(fromActions.acSetFilterOwner(value)),
-    onClickFilterOrder: value => dispatch(fromActions.acSetFilterOrder(value)),
-    //onClickViewFilter: value => dispatch(fromActions.acSetDashboardsConfigViewFilter(value)),
-    onClickHome: () => dispatch(fromActions.tSetPresetHome()),
-    onClickManage: () => dispatch(fromActions.tSetPresetManage()),
+    onChangeFilterName: value => dispatch(fromFilter.acSetFilterName(value)),
+    onClickFilterOwner: value => dispatch(fromFilter.acSetFilterOwner(value)),
+    onClickFilterOrder: value => dispatch(fromFilter.acSetFilterOrder(value)),
 });
 
 const DashboardbarCt = connect(mapStateToProps, mapDispatchToProps)(

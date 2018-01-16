@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Interpretations from './Interpretations/Interpretations';
 import { colors } from './colors';
 
+import { orArray } from '../../util';
+
 const style = {
     container: {
         padding: '5px',
@@ -40,7 +42,9 @@ class ItemFooter extends Component {
     render() {
         const objectId = extractObjectId(this.props.item);
         const ids = [];
-        const interpretations = extractInterpretations(this.props.item);
+        const interpretations = orArray(
+            extractInterpretations(this.props.item)
+        );
         interpretations.forEach(element => {
             ids.push(element.id);
         });
