@@ -16,13 +16,19 @@ import { getYMax } from '../ItemGrid/gridUtil';
 
 // Component
 
+const titleBarStyle = {
+    display: 'flex',
+    alignItems: 'flex-end',
+};
+
 const styles = {
     titleBarWrapper: {
         padding: '20px 15px 5px 10px',
     },
-    titleBar: {
-        display: 'flex',
-        alignItems: 'center',
+    titleBar: titleBarStyle,
+    titleBarEdit: {
+        ...titleBarStyle,
+        justifyContent: 'space-between',
     },
     titleBarIcon: {
         marginLeft: 5,
@@ -49,11 +55,6 @@ const styles = {
         fontSize: 13,
         color: '#555555',
     },
-};
-
-styles.titleBarEdit = {
-    ...styles.titleBar,
-    justifyContent: 'space-between',
 };
 
 const TitleBar = ({
