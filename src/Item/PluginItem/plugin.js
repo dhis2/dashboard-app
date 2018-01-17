@@ -28,11 +28,7 @@ const getFavoriteObjectFromItem = item => {
     );
 };
 
-export const getId = item => getFavoriteObjectFromItem(item).id;
-export const getName = item => getFavoriteObjectFromItem(item).name;
-
-// Get plugin configuration from item
-export const getPluginItemConfig = item => {
+const getPluginItemConfig = item => {
     const favorite = getFavoriteObjectFromItem(item);
 
     return {
@@ -42,7 +38,6 @@ export const getPluginItemConfig = item => {
     };
 };
 
-// pivot/chart plugins
 const loadChart = item => {
     let plugin = pluginTypeMap[item.type];
 
@@ -71,6 +66,9 @@ const loadMap = item => {
         return global.DHIS.getMap(mapItem);
     }, 200);
 };
+
+export const getId = item => getFavoriteObjectFromItem(item).id;
+export const getName = item => getFavoriteObjectFromItem(item).name;
 
 export const reload = (item, targetType) => {
     const favoriteId = getId(item);
