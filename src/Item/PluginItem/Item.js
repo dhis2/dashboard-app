@@ -90,7 +90,6 @@ class Item extends Component {
                 <ItemHeader
                     title={favorite.name}
                     actionButtons={actionButtons}
-                    editMode={this.props.editMode}
                 />
                 <div id={pluginId} className="dashboard-item-content" />
                 {!this.props.editMode ? (

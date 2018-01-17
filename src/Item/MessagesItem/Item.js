@@ -8,9 +8,6 @@ import { colors } from '../PluginItem/colors';
 import { formatDate, sortByDate } from '../../util';
 
 const style = {
-    container: {
-        overflowY: 'scroll',
-    },
     list: {
         listStyleType: 'none',
         paddingLeft: '0px',
@@ -71,7 +68,7 @@ class MessagesItem extends Component {
         return (
             <Fragment>
                 <ItemHeader title={title} />
-                <div style={style.container}>
+                <div className="dashboard-item-content">
                     <ul style={style.list}>{messageItems}</ul>
                 </div>
             </Fragment>
