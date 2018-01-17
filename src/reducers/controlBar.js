@@ -49,5 +49,5 @@ export const sGetFromState = state => state.controlBar;
 
 // Selector dependency level 2
 
-export const sGetRows = state => sGetFromState(state).rows;
-export const sGetExpanded = state => sGetFromState(state).expanded;
+export const sGetControlBarRows = state => sGetFromState(state).rows;
+export const sGetControlBarExpanded = state => sGetFromState(state).expanded;
