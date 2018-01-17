@@ -10,16 +10,14 @@ const style = {
 
 const getIconButton = ({
     icon,
-    favoriteId,
-    type,
     targetType,
-    onButtonClick,
+    onSelectVisualization,
     style = {},
 }) => (
     <div
         style={{ cursor: 'pointer' }}
         onClick={() =>
-            onButtonClick ? onButtonClick(favoriteId, type, targetType) : null
+            onSelectVisualization ? onSelectVisualization(targetType) : null
         }
     >
         <SvgIcon icon={icon} style={style} />
@@ -28,12 +26,7 @@ const getIconButton = ({
 
 class PluginItemHeaderButtons extends Component {
     render() {
-        const {
-            type,
-            favoriteId,
-            onButtonClick,
-            onInterpretationsClick,
-        } = this.props;
+        const { onSelectVisualization, onInterpretationsClick } = this.props;
 
         return (
             <Fragment>
@@ -48,26 +41,19 @@ class PluginItemHeaderButtons extends Component {
                 <div style={{ paddingLeft: 10, marginRight: 4 }}>
                     {getIconButton({
                         icon: 'ViewList',
-                        favoriteId,
-                        type,
                         targetType: 'REPORT_TABLE',
-                        onButtonClick,
-                        //style: { width: 25, height: 25 },
+                        onSelectVisualization,
                     })}
                 </div>
                 <div style={{ marginRight: 4 }}>
                     {getIconButton({
                         icon: 'InsertChart',
-                        favoriteId,
-                        type,
                         targetType: 'CHART',
-                        onButtonClick,
-                        //style: { width: 22, height: 22 },
+                        onSelectVisualization,
                     })}
                 </div>
                 {getIconButton({
                     icon: 'Public',
-                    //style: { width: 20, height: 20 },
                 })}
             </Fragment>
         );

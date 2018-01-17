@@ -1,6 +1,11 @@
 import isObject from 'd2-utilizr/lib/isObject';
 
+import { apiFetchFavorite } from '../../api';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
+
+const url = '//localhost:8080';
+const username = 'admin';
+const password = 'district';
 
 // Plugin type map
 const pluginTypeMap = {
@@ -9,7 +14,7 @@ const pluginTypeMap = {
 };
 
 // Get favorite object from plugin item
-export function getFavoriteObjectFromItem(item) {
+const getFavoriteObjectFromItem = item => {
     if (!isObject(item)) {
         return null;
     }
@@ -21,31 +26,21 @@ export function getFavoriteObjectFromItem(item) {
         item.eventReport ||
         item.eventChart
     );
-}
+};
+
+export const getId = item => getFavoriteObjectFromItem(item).id;
+export const getName = item => getFavoriteObjectFromItem(item).name;
 
 // Get plugin configuration from item
-export function getPluginItemConfig(item, isReload) {
-    const favorite = getFavoriteObjectFromItem(item) || item;
-    let config;
+export const getPluginItemConfig = item => {
+    const favorite = getFavoriteObjectFromItem(item);
 
-    if (isReload) {
-        config = {
-            ...favorite,
-            id: null,
-        };
-    } else {
-        config = { id: favorite.id };
-    }
-
-    config.el = getGridItemDomId(item.id);
-    config.hideTitle = !favorite.title;
-
-    return config;
-}
-
-const url = '//localhost:8080';
-const username = 'admin';
-const password = 'district';
+    return {
+        id: favorite.id,
+        el: getGridItemDomId(item.id),
+        hideTitle: !favorite.title,
+    };
+};
 
 // pivot/chart plugins
 const loadChart = item => {
@@ -77,9 +72,30 @@ const loadMap = item => {
     }, 200);
 };
 
+export const reload = (item, targetType) => {
+    const favoriteId = getId(item);
+
+    apiFetchFavorite(favoriteId, item.type).then(favorite => {
+        const itemConfig = {
+            ...favorite,
+            id: null,
+            el: getGridItemDomId(item.id),
+        };
+
+        let plugin = pluginTypeMap[targetType];
+
+        plugin.url = url;
+        plugin.username = username;
+        plugin.password = password;
+        plugin.loadingIndicator = true;
+        plugin.dashboard = true;
+        plugin.load(itemConfig);
+    });
+};
+
 // Render pivot, chart, map favorites
 // TODO
-export function loadFavorite(item) {
+export function load(item) {
     switch (item.type) {
         case 'CHART':
         case 'REPORT_TABLE':
