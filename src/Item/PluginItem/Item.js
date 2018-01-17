@@ -70,7 +70,7 @@ class Item extends Component {
 
     onToggleInterpretations = () => {
         this.setState({ showInterpretations: !this.state.showInterpretations });
-        this.props.onToggleItemFooter(this.props.item.id);
+        this.props.onToggleItemExpanded(this.props.item.id);
     };
 
     render() {
