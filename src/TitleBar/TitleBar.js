@@ -13,6 +13,7 @@ import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
 import { orObject, orArray, loremIpsum } from '../util';
 import { getYMax } from '../ItemGrid/gridUtil';
+import showChart from '../../../d2-ui/node_modules/material-ui/svg-icons/editor/show-chart';
 
 // Component
 
@@ -51,80 +52,77 @@ let styles = {
     },
 };
 
+styles.titleBarEdit = {
+    ...styles.titleBar,
+    justifyContent: 'space-between',
+};
+
 const TitleBar = ({
     name,
     description,
     edit,
-    showDescripton,
+    showDescription,
     starred,
-    onBlur,
     onEditClick,
     onInfoClick,
     onAddClick,
-}) => {
-    if (edit) {
-        styles = {
-            ...styles,
-            titleBar: { ...styles.titleBar, justifyContent: 'space-between' },
-        };
-    }
-
-    return (
-        <div className="titlebar-wrapper" style={styles.titleBarWrapper}>
-            {edit ? <span>Currently editing</span> : null}
-            <div className="titlebar" style={styles.titleBar}>
-                <div style={styles.title}>
-                    <D2ContentEditable
-                        className="dashboard-title"
-                        name={name}
-                        onBlur={onBlur}
-                        disabled={!edit}
-                        placeholder={'Untitled'}
-                    />
-                </div>
-                {edit ? (
-                    <ItemSelect />
-                ) : (
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <div style={styles.titleBarIcon}>
-                            <SvgIcon icon={starred ? 'Star' : 'StarBorder'} />
-                        </div>
-                        <div style={styles.titleBarIcon}>
-                            <Info onClick={onInfoClick} />
-                        </div>
-                        <div style={styles.titleBarLink}>
-                            <D2TextLink
-                                text={'Edit'}
-                                style={styles.textLink}
-                                hoverStyle={styles.textLinkHover}
-                                onClick={onEditClick}
-                            />
-                        </div>
-                        <div style={styles.titleBarLink}>
-                            <D2TextLink
-                                text={'Share'}
-                                style={styles.textLink}
-                                hoverStyle={styles.textLinkHover}
-                            />
-                        </div>
-                        <div style={styles.titleBarLink}>
-                            <D2TextLink
-                                text={'Filter'}
-                                style={styles.textLink}
-                                hoverStyle={styles.textLinkHover}
-                            />
-                        </div>
-                    </div>
-                )}
+}) => (
+    <div className="titlebar-wrapper" style={styles.titleBarWrapper}>
+        {edit ? <span>Currently editing</span> : null}
+        <div
+            className="titlebar"
+            style={edit ? styles.titleBarEdit : styles.titleBar}
+        >
+            <div style={styles.title}>
+                <D2ContentEditable
+                    className="dashboard-title"
+                    name={name}
+                    disabled={!edit}
+                    placeholder={'Untitled'}
+                />
             </div>
-            {showDescripton || edit ? (
-                <div className="description" style={styles.description}>
-                    {description}
+            {edit ? (
+                <ItemSelect />
+            ) : (
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <div style={styles.titleBarIcon}>
+                        <SvgIcon icon={starred ? 'Star' : 'StarBorder'} />
+                    </div>
+                    <div style={styles.titleBarIcon}>
+                        <Info onClick={onInfoClick} />
+                    </div>
+                    <div style={styles.titleBarLink}>
+                        <D2TextLink
+                            text={'Edit'}
+                            style={styles.textLink}
+                            hoverStyle={styles.textLinkHover}
+                            onClick={onEditClick}
+                        />
+                    </div>
+                    <div style={styles.titleBarLink}>
+                        <D2TextLink
+                            text={'Share'}
+                            style={styles.textLink}
+                            hoverStyle={styles.textLinkHover}
+                        />
+                    </div>
+                    <div style={styles.titleBarLink}>
+                        <D2TextLink
+                            text={'Filter'}
+                            style={styles.textLink}
+                            hoverStyle={styles.textLinkHover}
+                        />
+                    </div>
                 </div>
-            ) : null}
+            )}
         </div>
-    );
-};
+        {showDescription || edit ? (
+            <div className="description" style={styles.description}>
+                {description}
+            </div>
+        ) : null}
+    </div>
+);
 
 TitleBar.propTypes = {
     name: PropTypes.string,
@@ -132,7 +130,6 @@ TitleBar.propTypes = {
     starred: PropTypes.bool,
     edit: PropTypes.bool,
     showDescripton: PropTypes.bool,
-    onBlur: PropTypes.func,
     onEditClick: PropTypes.func.isRequired,
     onInfoClick: PropTypes.func,
 };
@@ -143,22 +140,24 @@ TitleBar.defaultProps = {
     starred: false,
     edit: false,
     showDescripton: false,
-    onBlur: null,
     onInfoClick: null,
 };
 
 // Container
 
+let onInfoClickState = false;
+
 const mapStateToProps = state => ({
     selectedDashboard: fromReducers.sGetSelectedDashboard(state),
     edit: fromReducers.fromSelected.sGetSelectedEdit(state),
-    showDescripton: fromReducers.fromSelected.sGetSelectedShowDescription(
+    showDescription: fromReducers.fromSelected.sGetSelectedShowDescription(
         state
     ),
 });
 
 const mergeProps = (stateProps, dispatchProps) => {
     const { selectedDashboard, edit, showDescription } = stateProps;
+
     const { dispatch } = dispatchProps;
     const { fromDashboards, fromSelected } = fromActions;
 
@@ -173,14 +172,17 @@ const mergeProps = (stateProps, dispatchProps) => {
 
     return {
         name: selectedDashboardObject.name,
-        description: selectedDashboardObject.description || loremIpsum,
+        description: selectedDashboardObject.description || loremIpsum, // TODO remove example text
         starred: selectedDashboardObject.starred,
-        edit: edit,
-        showDescription: showDescription,
-        onBlur: name => console.log('dashboard name: ', name),
+        edit,
+        showDescription,
         onEditClick: () => dispatch(fromSelected.acSetSelectedEdit(true)),
-        onInfoClick: show =>
-            dispatch(fromSelected.acSetSelectedShowDescription(show)),
+        onInfoClick: () =>
+            dispatch(
+                fromSelected.acSetSelectedShowDescription(
+                    (onInfoClickState = !onInfoClickState)
+                )
+            ),
         onAddClick: () =>
             dispatch(
                 fromDashboards.acAddDashboardItem(selectedDashboardId, yValue, {
