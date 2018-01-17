@@ -5,7 +5,8 @@ import Interpretation from './Interpretation';
 import InputField from './InputField';
 import { tGetInterpretations, tPostInterpretation } from './actions';
 import * as fromReducers from '../../../reducers';
-import { colors } from '../colors';
+import { colors } from '../../../colors';
+import { sortByDate } from '../../../util';
 
 const style = {
     container: {
@@ -65,23 +66,10 @@ class Interpretations extends Component {
         this.loadInterpretations();
     }
 
-    sortByDate = () => {
-        const values = Object.values(this.props.interpretations);
-
-        values.sort((a, b) => {
-            const aDate = new Date(a.created);
-            const bDate = new Date(b.created);
-
-            return aDate - bDate;
-        });
-
-        return values;
-    };
-
     renderItems() {
         let Items = null;
         if (this.interpretationsLoaded()) {
-            const sorted = this.sortByDate();
+            const sorted = sortByDate(this.props.interpretations, 'created');
             Items = sorted.map(item => {
                 return (
                     <li style={style.item} key={item.id}>

@@ -45,6 +45,39 @@ export function getDate() {
         .substr(0, 10);
 }
 
+export const formatDate = (value, uiLocale) => {
+    if (typeof global.Intl !== 'undefined' && Intl.DateTimeFormat) {
+        const locale = uiLocale || 'en';
+        return new Intl.DateTimeFormat(locale, {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+        }).format(new Date(value));
+    }
+
+    return value.substr(0, 19).replace('T', ' ');
+};
+
+/**
+ * Sorts an array of objects based on provided date property
+ *
+ * @param {Array} items Array of objects
+ * @param {String} dateProp Name of the date property to be used for sorting
+ * @param {Boolean} ascending Whether to sort ascending or descending
+ */
+export const sortByDate = (items, dateProp, ascending = true) => {
+    const values = Object.values(items);
+
+    values.sort((a, b) => {
+        const aDate = new Date(a[dateProp]);
+        const bDate = new Date(b[dateProp]);
+
+        return ascending ? aDate - bDate : bDate - aDate;
+    });
+
+    return values;
+};
+
 // reducer validator
 export const validateReducer = (value, defaultValue) =>
     value === undefined || value === null ? defaultValue : value;

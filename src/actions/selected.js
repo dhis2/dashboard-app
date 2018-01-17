@@ -3,6 +3,7 @@ import { actionTypes } from '../reducers';
 import { apiFetchSelected, apiPostDashboard } from '../api';
 import { acSetDashboards, tSetDashboards } from './dashboards';
 import { withShape } from '../ItemGrid/gridUtil';
+import { tGetMessages } from '../Item/MessagesItem/actions';
 
 // actions
 
@@ -46,15 +47,18 @@ export const tSetSelectedDashboardById = id => async dispatch => {
             switch (item.type) {
                 case 'CHART':
                     vis = item.chart;
+                    dispatch(receivedVisualization(vis));
                     break;
                 case 'REPORT_TABLE':
                     vis = item.reportTable;
+                    dispatch(receivedVisualization(vis));
+                    break;
+                case 'MESSAGES':
+                    dispatch(tGetMessages(id));
                     break;
                 default:
                     vis = [];
             }
-
-            dispatch(receivedVisualization(vis));
         });
 
         dispatch(

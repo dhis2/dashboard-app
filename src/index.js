@@ -22,7 +22,6 @@ getManifest('manifest.webapp').then(manifest => {
         process.env.NODE_ENV === 'production'
             ? manifest.getBaseUrl()
             : 'http://localhost:8080';
-
     ReactDOM.render(
         <D2UIApp
             initConfig={{
@@ -39,7 +38,7 @@ getManifest('manifest.webapp').then(manifest => {
             }}
         >
             <Provider store={configureStore()}>
-                <App />
+                <App baseUrl={baseUrl} />
             </Provider>
         </D2UIApp>,
         document.getElementById('root')

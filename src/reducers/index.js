@@ -6,6 +6,7 @@ import filter, * as fromFilter from './filter';
 import controlBar, * as fromControlBar from './controlBar';
 import interpretations, * as fromInterpretations from './interpretations';
 import visualizations, * as fromVisualizations from './visualizations';
+import messages, * as fromMessages from './messages';
 import style, * as fromStyle from './style';
 
 const USER = 'system';
@@ -20,6 +21,7 @@ export const actionTypes = Object.assign(
     fromControlBar.actionTypes,
     fromInterpretations.actionTypes,
     fromVisualizations.actionTypes,
+    fromMessages.actionTypes,
     fromStyle.actionTypes
 );
 
@@ -32,6 +34,7 @@ export default combineReducers({
     controlBar,
     interpretations,
     visualizations,
+    messages,
     style,
 });
 
@@ -53,6 +56,7 @@ export {
     fromControlBar,
     fromInterpretations,
     fromVisualizations,
+    fromMessages,
     fromStyle,
 };
 

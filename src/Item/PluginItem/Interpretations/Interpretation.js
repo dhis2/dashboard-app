@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import InputField from './InputField';
-import { colors } from '../colors';
+import { colors } from '../../../colors';
+import { formatDate, sortByDate } from '../../../util';
 
 import {
     tLikeInterpretation,
@@ -82,19 +83,6 @@ const style = {
     },
 };
 
-const sortByDate = items => {
-    const values = Object.values(items);
-
-    values.sort((a, b) => {
-        const aDate = new Date(a.created);
-        const bDate = new Date(b.created);
-
-        return aDate - bDate;
-    });
-
-    return values;
-};
-
 const deleteButton = action => {
     const iconStyle = Object.assign({}, style.icon, { fill: colors.red });
     const buttonStyle = Object.assign({}, style.button, style.deleteButton);
@@ -164,19 +152,6 @@ class Interpretation extends Component {
 
     userIsOwner = id => id === this.context.d2.currentUser.id;
 
-    renderDateString = value => {
-        if (typeof global.Intl !== 'undefined' && Intl.DateTimeFormat) {
-            const locale = this.state.uiLocale || 'en';
-            return new Intl.DateTimeFormat(locale, {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric',
-            }).format(new Date(value));
-        }
-
-        return value.substr(0, 19).replace('T', ' ');
-    };
-
     renderActions() {
         const likes = this.props.item.likedBy.length === 1 ? 'like' : 'likes';
         const userOwnsInterpretation = this.userIsOwner(
@@ -231,21 +206,25 @@ class Interpretation extends Component {
             marginTop: '5px',
         });
 
-        const comments = sortByDate(this.props.item.comments).map(comment => (
-            <li style={style.comment} key={comment.id}>
-                <div>
-                    <span style={style.author}>{comment.user.displayName}</span>
-                    <span style={style.created}>
-                        {this.renderDateString(comment.created)}
-                    </span>
-                </div>
-                <p style={style.text}>{comment.text}</p>
-                {this.userIsOwner(comment.user.id)
-                    ? deleteButton(() => this.deleteComment(comment.id))
-                    : null}
-                <hr style={lineStyle} />
-            </li>
-        ));
+        const comments = sortByDate(this.props.item.comments, 'created').map(
+            comment => (
+                <li style={style.comment} key={comment.id}>
+                    <div>
+                        <span style={style.author}>
+                            {comment.user.displayName}
+                        </span>
+                        <span style={style.created}>
+                            {formatDate(comment.created, this.state.uiLocale)}
+                        </span>
+                    </div>
+                    <p style={style.text}>{comment.text}</p>
+                    {this.userIsOwner(comment.user.id)
+                        ? deleteButton(() => this.deleteComment(comment.id))
+                        : null}
+                    <hr style={lineStyle} />
+                </li>
+            )
+        );
 
         return <ul style={style.list}>{comments}</ul>;
     }
@@ -259,7 +238,7 @@ class Interpretation extends Component {
                             {item.user.displayName}
                         </span>
                         <span style={style.created}>
-                            {this.renderDateString(item.created)}
+                            {formatDate(item.created, this.state.uiLocale)}
                         </span>
                     </div>
                     <p style={style.text}>{item.text}</p>
