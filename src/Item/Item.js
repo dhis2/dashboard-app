@@ -4,12 +4,6 @@ import PluginItem from './PluginItem/Item';
 import MessagesItem from './MessagesItem/Item';
 import NotSupportedItem from './NotSupportedItem/Item';
 
-const Items = {
-    PluginItem,
-    MessagesItem,
-    NotSupportedItem,
-};
-
 export const Item = props => {
     let GridItem = null;
     switch (props.item.type) {
@@ -18,13 +12,13 @@ export const Item = props => {
         case 'MAP':
         case 'EVENT_CHART':
         case 'EVENT_REPORT':
-            GridItem = Items.PluginItem;
+            GridItem = PluginItem;
             break;
         case 'MESSAGES':
-            GridItem = Items.MessagesItem;
+            GridItem = MessagesItem;
             break;
         default:
-            GridItem = Items.NotSupportedItem;
+            GridItem = NotSupportedItem;
             break;
     }
 

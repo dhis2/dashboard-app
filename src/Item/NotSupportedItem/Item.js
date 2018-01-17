@@ -4,7 +4,7 @@ import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
 const NotSupportedItem = props => (
     <Fragment>
-        <ItemHeader title={`Not supported item type: ${props.item.type}`} />
+        <ItemHeader title={`Item type not supported: ${props.item.type}`} />
         <div
             style={{
                 display: 'flex',
