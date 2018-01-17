@@ -37,8 +37,8 @@ const style = {
     },
     author: {
         color: colors.darkGrey,
-        fontSize: '13px',
-        lineHeight: '15px',
+        fontSize: '12px',
+        lineHeight: '14px',
     },
 };
 
@@ -72,7 +72,9 @@ class MessagesItem extends Component {
                     <li style={listItemStyle} key={msg.id}>
                         <div>
                             <div style={style.author}>
-                                {msg.userSurname} ({msg.messageCount})
+                                {msg.userFirstname} {msg.userSurname} ({
+                                    msg.messageCount
+                                })
                             </div>
                             <div style={style.date}>
                                 {formatDate(
