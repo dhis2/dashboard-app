@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TextField from 'd2-ui/lib/text-field/TextField';
 import Button from 'd2-ui/lib/button/Button';
-import { colors } from '../colors';
+import { colors } from '../../../colors';
 
 const style = {
     button: {

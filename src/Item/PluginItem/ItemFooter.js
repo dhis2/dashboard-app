@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Interpretations from './Interpretations/Interpretations';
-import { colors } from './colors';
+import { colors } from '../../colors';
 
 import { orArray } from '../../util';
 

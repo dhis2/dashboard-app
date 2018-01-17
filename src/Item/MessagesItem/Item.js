@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import ItemHeader from '../ItemHeader';
 import { fromMessages } from '../../reducers';
-import { colors } from '../PluginItem/colors';
+import { colors } from '../../colors';
 import { formatDate, sortByDate } from '../../util';
 
 const style = {

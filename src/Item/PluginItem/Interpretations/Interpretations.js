@@ -5,7 +5,7 @@ import Interpretation from './Interpretation';
 import InputField from './InputField';
 import { tGetInterpretations, tPostInterpretation } from './actions';
 import * as fromReducers from '../../../reducers';
-import { colors } from '../colors';
+import { colors } from '../../../colors';
 import { sortByDate } from '../../../util';
 
 const style = {
