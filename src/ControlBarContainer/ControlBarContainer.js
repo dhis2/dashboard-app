@@ -65,11 +65,17 @@ const ControlBarComponent = ({
         { height: getInnerHeight(isExpanded, rows) }
     );
 
+    const controlBarHeight = getOuterHeight(
+        edit ? false : isExpanded,
+        edit ? 1 : rows
+    );
+
     return (
         <ControlBar
-            height={getOuterHeight(isExpanded, rows)}
+            height={controlBarHeight}
             onChangeHeight={onChangeHeight}
             editMode={edit}
+            expandable={!edit}
         >
             <div style={contentWrapperStyle}>
                 <div style={styles.leftControls}>
@@ -132,6 +138,7 @@ const ControlBarComponent = ({
                         color: blue800,
                         textTransform: 'uppercase',
                         cursor: 'pointer',
+                        visibility: edit ? 'hidden' : 'visible',
                     }}
                 >
                     {isExpanded ? 'Show less' : 'Show more'}
