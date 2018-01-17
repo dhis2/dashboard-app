@@ -14,11 +14,31 @@ const style = {
     },
     listitem: {
         borderBottom: `1px solid ${colors.lightGrey}`,
-        marginBottom: '10px',
         paddingBottom: '10px',
+        margin: '0 5px 10px 5px',
+    },
+    line: {
+        backgroundColor: `${colors.lightGrey}`,
+        border: 'none',
+        height: '1px',
+        margin: '0px 0px 5px 0px',
     },
     date: {
+        color: colors.mediumGrey,
         float: 'right',
+        fontSize: '12px',
+        lineHeight: '14px',
+        textAlign: 'right',
+    },
+    title: {
+        color: colors.darkGrey,
+        fontSize: '13px',
+        lineHeight: '17px',
+    },
+    author: {
+        color: colors.darkGrey,
+        fontSize: '13px',
+        lineHeight: '15px',
     },
 };
 
@@ -45,29 +65,36 @@ class MessagesItem extends Component {
         const { messages } = this.props;
         const messageItems = sortByDate(messages, 'lastUpdated', false).map(
             msg => {
+                const listItemStyle = Object.assign({}, style.listitem, {
+                    fontWeight: msg.read ? 'normal' : 'bold',
+                });
                 return (
-                    <li style={style.listitem} key={msg.id}>
+                    <li style={listItemStyle} key={msg.id}>
                         <div>
-                            <div>{msg.userSurname}</div>
+                            <div style={style.author}>
+                                {msg.userSurname} ({msg.messageCount})
+                            </div>
+                            <div style={style.date}>
+                                {formatDate(
+                                    msg.lastUpdated,
+                                    this.state.uiLocale
+                                )}
+                            </div>
                             <a href={this.conversationHref(msg.id)}>
-                                <span>
-                                    {msg.displayName} ({msg.messageCount})
+                                <span style={style.title}>
+                                    {msg.displayName}
                                 </span>
                             </a>
-                        </div>
-                        <div style={style.date}>
-                            {formatDate(msg.lastUpdated, this.state.uiLocale)}
                         </div>
                     </li>
                 );
             }
         );
 
-        const title = `Messages (${messages.length})`;
-
         return (
             <Fragment>
-                <ItemHeader title={title} />
+                <ItemHeader title="Messages" />
+                <hr style={style.line} />
                 <div className="dashboard-item-content">
                     <ul style={style.list}>{messageItems}</ul>
                 </div>
