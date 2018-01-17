@@ -121,10 +121,10 @@ class ItemSelect extends React.Component {
                         { id: 'MAP', title: 'Maps' },
                         { id: 'EVENT_CHART', title: 'Event charts' },
                         { id: 'EVENT_REPORT', title: 'Event reports' },
-                        { id: 'USER', title: 'Users' },
-                        { id: 'REPORT', title: 'Standard reports' },
-                        { id: 'RESOURCE', title: 'Resources' },
-                        { id: 'APP', title: 'Apps' },
+                        { id: 'USERS', title: 'Users' },
+                        { id: 'REPORTS', title: 'Standard reports' },
+                        { id: 'RESOURCES', title: 'Resources' },
+                        { id: 'APPS', title: 'Apps' },
                     ].map(type => {
                         const itemType = itemTypeMap[type.id];
 

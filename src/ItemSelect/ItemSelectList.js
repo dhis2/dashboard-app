@@ -15,7 +15,7 @@ import { itemTypeMap } from '../util';
 
 const getIcon = type => {
     switch (type) {
-        case 'APP':
+        case 'APPS':
             return 'ViewList'; // XXX change to something app
         case 'CHART':
         case 'EVENT_CHART':
@@ -24,11 +24,11 @@ const getIcon = type => {
         case 'EVENT_REPORT':
         case 'MAP':
             return 'Public';
-        case 'RESOURCE':
+        case 'RESOURCES':
             return 'ViewList'; // XXX change to something document
-        case 'REPORT':
+        case 'REPORTS':
             return 'ViewList';
-        case 'USER':
+        case 'USERS':
             return 'Person';
         default:
             return '';
@@ -49,7 +49,7 @@ class ItemSelectList extends Component {
         let url;
 
         switch (type) {
-            case 'APP':
+            case 'APPS':
                 url = '#';
                 break;
             case 'CHART':
@@ -90,31 +90,24 @@ class ItemSelectList extends Component {
     };
 
     addItem = item => () => {
-        const { dashboardId, dashboardItems } = this.props;
+        const { dashboardId, dashboardItems, acAddDashboardItem } = this.props;
         const yValue = getYMax(dashboardItems);
 
-        const modelDefinitionName = itemTypeMap[this.props.type].propName;
-
         if (
-            modelDefinitionName.match(
+            itemTypeMap[this.props.type].propName.match(
                 /(chart|reportTable|map|eventChart|eventReport)/
             )
         ) {
-            // TODO perhaps move this into the PluginItem
-            this.context.d2.models[modelDefinitionName]
-                .get(item.id)
-                .then(model => {
-                    fromDashboards.acAddDashboardItem(dashboardId, yValue, {
-                        ...model.toJSON(),
-                        type: this.props.type,
-                    });
+            acAddDashboardItem(dashboardId, yValue, {
+                id: item.id,
+                name: item.displayName || item.name,
+                type: this.props.type,
+            });
 
-                    // TODO toggle the is this ok here?
-                    this.props.onRequestAdd();
-                })
-                .catch(error => loglevel.error(error));
+            // TODO toggle the popover is this ok here?
+            this.props.onRequestAdd();
         } else {
-            loglevel.warning(
+            loglevel.warn(
                 `${this.props.type} dashboard item type not supported yet`
             );
         }
@@ -204,15 +197,15 @@ class ItemSelectList extends Component {
 
 ItemSelectList.propTypes = {
     type: PropTypes.oneOf([
-        'APP',
+        'APPS',
         'CHART',
         'EVENT_CHART',
         'EVENT_REPORT',
         'MAP',
-        'REPORT',
+        'REPORTS',
         'REPORT_TABLE',
-        'RESOURCE',
-        'USER',
+        'RESOURCES',
+        'USERS',
     ]).isRequired,
     title: PropTypes.string.isRequired,
     items: PropTypes.array.isRequired,
@@ -226,9 +219,14 @@ ItemSelectList.contextTypes = {
     d2: PropTypes.object.isRequired,
 };
 
-export default connect(state => {
-    return {
-        dashboardId: sGetSelectedId(state),
-        dashboardItems: sGetSelectedDashboard(state).dashboardItems,
-    };
-})(ItemSelectList);
+export default connect(
+    state => {
+        return {
+            dashboardId: sGetSelectedId(state),
+            dashboardItems: sGetSelectedDashboard(state).dashboardItems,
+        };
+    },
+    {
+        acAddDashboardItem: fromDashboards.acAddDashboardItem,
+    }
+)(ItemSelectList);

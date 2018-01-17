@@ -121,22 +121,22 @@ export const favoriteTypeUrlMap = {
 
 export const itemTypeMap = {
     ...favoriteTypeUrlMap,
-    APP: {
+    APPS: {
         endPointName: 'apps',
         propName: 'app',
         countName: 'appCount',
     },
-    REPORT: {
+    REPORTS: {
         endPointName: 'reports',
         propName: 'report',
         countName: 'reportCount',
     },
-    RESOURCE: {
+    RESOURCES: {
         endPointName: 'resources',
         propName: 'resource',
         countName: 'resourceCount',
     },
-    USER: {
+    USERS: {
         endPointName: 'users',
         propName: 'user',
         countName: 'userCount',
