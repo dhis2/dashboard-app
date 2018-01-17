@@ -187,11 +187,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
                   );
 
                   if (newRows !== rows) {
-                      dispatch(fromControlBar.tSetControlBarRows(newRows));
+                      dispatch(fromControlBar.acSetControlBarRows(newRows));
                   }
               },
         onToggleExpanded: () => {
-            dispatch(fromControlBar.tSetControlBarExpanded(!isExpanded));
+            dispatch(fromControlBar.acSetControlBarExpanded(!isExpanded));
         },
         onNewClick: () => dispatch(fromSelected.tNewDashboard()),
         onChangeFilterName: name => dispatch(fromFilter.acSetFilterName(name)),

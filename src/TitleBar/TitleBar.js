@@ -144,8 +144,6 @@ TitleBar.defaultProps = {
 
 // Container
 
-let onInfoClickState = false;
-
 const mapStateToProps = state => ({
     selectedDashboard: fromReducers.sGetSelectedDashboard(state),
     edit: fromReducers.fromSelected.sGetSelectedEdit(state),
@@ -178,9 +176,7 @@ const mergeProps = (stateProps, dispatchProps) => {
         onEditClick: () => dispatch(fromSelected.acSetSelectedEdit(true)),
         onInfoClick: () =>
             dispatch(
-                fromSelected.acSetSelectedShowDescription(
-                    (onInfoClickState = !onInfoClickState)
-                )
+                fromSelected.acSetSelectedShowDescription(!showDescription)
             ),
         onAddClick: () =>
             dispatch(
