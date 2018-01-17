@@ -69,21 +69,18 @@ const loadMap = item => {
 export const getId = item => getFavoriteObjectFromItem(item).id;
 export const getName = item => getFavoriteObjectFromItem(item).name;
 
-export const reload = (item, targetType) => {
-    const favoriteId = getId(item);
+export const reload = async (item, targetType) => {
+    const favorite = await apiFetchFavorite(getId(item), item.type);
+    const itemConfig = {
+        ...favorite,
+        id: null,
+        el: getGridItemDomId(item.id),
+        hideTitle: !favorite.title,
+    };
 
-    apiFetchFavorite(favoriteId, item.type).then(favorite => {
-        const itemConfig = {
-            ...favorite,
-            id: null,
-            el: getGridItemDomId(item.id),
-            hideTitle: !favorite.title,
-        };
+    let plugin = pluginTypeMap[targetType];
 
-        let plugin = pluginTypeMap[targetType];
-
-        loadPlugin(plugin, itemConfig);
-    });
+    loadPlugin(plugin, itemConfig);
 };
 
 // Render pivot, chart, map favorites
