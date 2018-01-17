@@ -35,7 +35,7 @@ const styles = {
 };
 
 export const CONTROL_BAR_ROW_HEIGHT = 36;
-const EXPANDED_ROW_COUNT = 12;
+const EXPANDED_ROW_COUNT = 10;
 const CONTROL_BAR_OUTER_HEIGHT_DIFF = 24;
 
 const getInnerHeight = (isExpanded, rows) =>
@@ -51,6 +51,7 @@ const ControlBarComponent = ({
     name,
     edit,
     rows,
+    expandable,
     isExpanded,
     onChangeHeight,
     onToggleExpanded,
@@ -75,7 +76,7 @@ const ControlBarComponent = ({
             height={controlBarHeight}
             onChangeHeight={onChangeHeight}
             editMode={edit}
-            expandable={!edit}
+            expandable={expandable}
         >
             <div style={contentWrapperStyle}>
                 <div style={styles.leftControls}>
@@ -132,7 +133,7 @@ const ControlBarComponent = ({
                 <div
                     onClick={onToggleExpanded}
                     style={{
-                        paddingTop: isExpanded ? 0 : 4,
+                        paddingTop: 4,
                         fontSize: 11,
                         fontWeight: 700,
                         color: blue800,
@@ -163,8 +164,8 @@ const mapStateToProps = state => {
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
+    const { dashboards, name, edit, rows, isExpanded } = stateProps;
     const { dispatch } = dispatchProps;
-    const { dashboards, name, rows, isExpanded } = stateProps;
     const { fromControlBar, fromFilter, fromSelected } = fromActions;
 
     const filteredDashboards = Object.values(orObject(dashboards)).filter(
@@ -178,18 +179,21 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             ...filteredDashboards.filter(d => d.starred),
             ...filteredDashboards.filter(d => !d.starred),
         ],
-        onChangeHeight: isExpanded
-            ? null
-            : newHeight => {
-                  const newRows = Math.max(
-                      1,
-                      Math.floor((newHeight - 24) / CONTROL_BAR_ROW_HEIGHT)
-                  );
+        expandable: !isExpanded && !edit,
+        onChangeHeight: (newHeight, onEndDrag) => {
+            const newRows = Math.max(
+                1,
+                Math.floor((newHeight - 24) / CONTROL_BAR_ROW_HEIGHT)
+            );
 
-                  if (newRows !== rows) {
-                      dispatch(fromControlBar.acSetControlBarRows(newRows));
-                  }
-              },
+            if (newRows !== rows) {
+                dispatch(
+                    fromControlBar.acSetControlBarRows(
+                        Math.min(newRows, EXPANDED_ROW_COUNT)
+                    )
+                );
+            }
+        },
         onToggleExpanded: () => {
             dispatch(fromControlBar.acSetControlBarExpanded(!isExpanded));
         },
