@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import ItemHeader from '../ItemHeader';
-// import MessageItemHeaderButtons from './MessageItemHeaderButtons';
 import { fromMessages } from '../../reducers';
 import { colors } from '../../colors';
 import { formatDate, sortByDate } from '../../util';
@@ -11,6 +10,15 @@ import { formatDate, sortByDate } from '../../util';
 import './MessagesItem.css';
 
 const style = {
+    activeButton: {
+        fontWeight: 'bold',
+        textDecoration: 'underline',
+    },
+    author: {
+        color: colors.darkGrey,
+        fontSize: '12px',
+        lineHeight: '14px',
+    },
     button: {
         background: 'none !important',
         border: 'none',
@@ -23,9 +31,18 @@ const style = {
         marginRight: '10px',
         padding: '0 !important',
     },
-    activeButton: {
-        fontWeight: 'bold',
-        textDecoration: 'underline',
+    date: {
+        color: colors.mediumGrey,
+        float: 'right',
+        fontSize: '12px',
+        lineHeight: '14px',
+        textAlign: 'right',
+    },
+    line: {
+        backgroundColor: `${colors.lightGrey}`,
+        border: 'none',
+        height: '1px',
+        margin: '0px 0px 5px 0px',
     },
     list: {
         listStyleType: 'none',
@@ -36,28 +53,10 @@ const style = {
         paddingBottom: '10px',
         margin: '0 5px 10px 5px',
     },
-    line: {
-        backgroundColor: `${colors.lightGrey}`,
-        border: 'none',
-        height: '1px',
-        margin: '0px 0px 5px 0px',
-    },
-    date: {
-        color: colors.mediumGrey,
-        float: 'right',
-        fontSize: '12px',
-        lineHeight: '14px',
-        textAlign: 'right',
-    },
     title: {
         color: colors.darkGrey,
         fontSize: '13px',
         lineHeight: '17px',
-    },
-    author: {
-        color: colors.darkGrey,
-        fontSize: '12px',
-        lineHeight: '14px',
     },
 };
 
@@ -75,7 +74,7 @@ class MessagesItem extends Component {
         this.setState({ uiLocale });
     }
 
-    conversationHref = id => {
+    messageHref = id => {
         return `${
             this.context.baseUrl
         }/dhis-web-messaging/readMessage.action?id=${id}`;
@@ -89,7 +88,7 @@ class MessagesItem extends Component {
         this.setState({ filter: 'unread' });
     };
 
-    render() {
+    getActionButtons = () => {
         const activeStyle = Object.assign({}, style.button, style.activeButton);
 
         const allButtonStyle =
@@ -97,7 +96,7 @@ class MessagesItem extends Component {
         const unreadButtonStyle =
             this.state.filter === 'unread' ? activeStyle : style.button;
 
-        const actionButtons = !this.props.editMode ? (
+        return !this.props.editMode ? (
             <Fragment>
                 <button
                     className="messages-action-button"
@@ -117,16 +116,15 @@ class MessagesItem extends Component {
                 </button>
             </Fragment>
         ) : null;
+    };
 
+    getMessageItems = () => {
         const { messages } = this.props;
         const filteredMessages = messages.filter(msg => {
             return this.state.filter === 'unread' ? msg.read === false : true;
         });
-        const messageItems = sortByDate(
-            filteredMessages,
-            'lastUpdated',
-            false
-        ).map(msg => {
+
+        return sortByDate(filteredMessages, 'lastUpdated', false).map(msg => {
             const listItemStyle = Object.assign({}, style.listitem, {
                 fontWeight: msg.read ? 'normal' : 'bold',
             });
@@ -141,13 +139,18 @@ class MessagesItem extends Component {
                         <div style={style.date}>
                             {formatDate(msg.lastUpdated, this.state.uiLocale)}
                         </div>
-                        <a href={this.conversationHref(msg.id)}>
+                        <a href={this.messageHref(msg.id)}>
                             <span style={style.title}>{msg.displayName}</span>
                         </a>
                     </div>
                 </li>
             );
         });
+    };
+
+    render() {
+        const actionButtons = this.getActionButtons();
+        const messageItems = this.getMessageItems();
 
         return (
             <Fragment>
