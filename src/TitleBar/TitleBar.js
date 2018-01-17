@@ -13,11 +13,10 @@ import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
 import { orObject, orArray, loremIpsum } from '../util';
 import { getYMax } from '../ItemGrid/gridUtil';
-import showChart from '../../../d2-ui/node_modules/material-ui/svg-icons/editor/show-chart';
 
 // Component
 
-let styles = {
+const styles = {
     titleBarWrapper: {
         padding: '20px 15px 5px 10px',
     },
