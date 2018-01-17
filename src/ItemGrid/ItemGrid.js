@@ -143,13 +143,6 @@ const mapStateToProps = state => {
         ? selectedDashboard.dashboardItems
         : null;
 
-    console.log(
-        'MSTP',
-        sGetSelectedEdit(state),
-        sGetSelectedIsLoading(state),
-        dashboardItems
-    );
-
     return {
         edit: sGetSelectedEdit(state),
         isLoading: sGetSelectedIsLoading(state),
@@ -159,7 +152,7 @@ const mapStateToProps = state => {
 
 const mergeProps = (stateProps, dispatchProps) => {
     const validItems = orArray(stateProps.dashboardItems).filter(hasShape);
-    console.log('-- MP', validItems);
+
     return {
         edit: stateProps.edit,
         isLoading: stateProps.isLoading,
