@@ -28,27 +28,26 @@ const getFavoriteObjectFromItem = item => {
     );
 };
 
-const getPluginItemConfig = item => {
-    const favorite = getFavoriteObjectFromItem(item);
-
-    return {
-        id: favorite.id,
-        el: getGridItemDomId(item.id),
-        hideTitle: !favorite.title,
-    };
-};
-
-const loadChart = item => {
-    let plugin = pluginTypeMap[item.type];
-
+const loadPlugin = (plugin, itemConfig) => {
     plugin.url = url;
     plugin.username = username;
     plugin.password = password;
     plugin.loadingIndicator = true;
     plugin.dashboard = true;
-
-    const itemConfig = getPluginItemConfig(item);
     plugin.load(itemConfig);
+};
+
+const loadChart = item => {
+    let plugin = pluginTypeMap[item.type];
+
+    const favorite = getFavoriteObjectFromItem(item);
+    const itemConfig = {
+        id: favorite.id,
+        el: getGridItemDomId(item.id),
+        hideTitle: !favorite.title,
+    };
+
+    loadPlugin(plugin, itemConfig);
 };
 
 const loadMap = item => {
@@ -78,16 +77,12 @@ export const reload = (item, targetType) => {
             ...favorite,
             id: null,
             el: getGridItemDomId(item.id),
+            hideTitle: !favorite.title,
         };
 
         let plugin = pluginTypeMap[targetType];
 
-        plugin.url = url;
-        plugin.username = username;
-        plugin.password = password;
-        plugin.loadingIndicator = true;
-        plugin.dashboard = true;
-        plugin.load(itemConfig);
+        loadPlugin(plugin, itemConfig);
     });
 };
 
