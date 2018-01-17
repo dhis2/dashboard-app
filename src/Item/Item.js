@@ -2,23 +2,23 @@ import React from 'react';
 
 import PluginItem from './PluginItem/Item';
 import MessagesItem from './MessagesItem/Item';
-
-const Items = {
-    PluginItem,
-    MessagesItem,
-};
+import NotSupportedItem from './NotSupportedItem/Item';
 
 export const Item = props => {
     let GridItem = null;
     switch (props.item.type) {
         case 'CHART':
         case 'REPORT_TABLE':
-            GridItem = Items.PluginItem;
+        case 'MAP':
+        case 'EVENT_CHART':
+        case 'EVENT_REPORT':
+            GridItem = PluginItem;
             break;
         case 'MESSAGES':
-            GridItem = Items.MessagesItem;
+            GridItem = MessagesItem;
             break;
         default:
+            GridItem = NotSupportedItem;
             break;
     }
 
