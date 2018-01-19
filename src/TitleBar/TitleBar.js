@@ -32,6 +32,8 @@ const styles = {
     },
     titleBarIcon: {
         marginLeft: 5,
+        position: 'relative',
+        top: 1,
     },
     titleBarLink: {
         marginLeft: 20,
@@ -39,7 +41,7 @@ const styles = {
     title: {
         marginRight: 20,
         position: 'relative',
-        top: 2,
+        top: -2,
     },
     textLink: {
         fontSize: 15,
@@ -50,7 +52,7 @@ const styles = {
         color: '#3399f8',
     },
     description: {
-        paddingTop: 10,
+        paddingTop: 5,
         paddingBottom: 5,
         fontSize: 13,
         color: '#555555',

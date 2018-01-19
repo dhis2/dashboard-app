@@ -115,6 +115,7 @@ export const apiFetchDashboards = () =>
                     getDashboardFields().join(','),
                     'dashboardItems[id]',
                 ].join(','),
+                paging: 'false',
             })
         )
         .catch(onError);
