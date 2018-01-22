@@ -10,7 +10,7 @@ import Info from './Info';
 import D2TextLink from '../widgets/D2TextLink';
 import D2ContentEditable from '../widgets/D2ContentEditable';
 import * as fromReducers from '../reducers';
-import * as fromActions from '../actions';
+import { fromEditDashboard, fromSelected } from '../actions';
 import { orObject, loremIpsum } from '../util';
 
 // Component
@@ -158,9 +158,7 @@ const mapStateToProps = state => ({
 const mergeProps = (stateProps, dispatchProps) => {
     const { edit, showDescription } = stateProps;
     const selectedDashboard = orObject(stateProps.selectedDashboard);
-
     const { dispatch } = dispatchProps;
-    const { fromEditDashboard, fromSelected } = fromActions;
 
     return {
         name: selectedDashboard.name,
