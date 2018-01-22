@@ -3,37 +3,14 @@ import React, { Component, Fragment } from 'react';
 import ItemHeader from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import PluginItemHeaderButtons from './ItemHeaderButtons';
-import { apiFetchFavorite } from '../../api';
 
-import {
-    getFavoriteObjectFromItem,
-    getPluginItemConfig,
-    loadFavorite,
-} from './loadPlugin';
+import * as favorite from './plugin';
+import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 
 const style = {
     itemFooter: {
         flex: '0 0 320',
     },
-};
-
-// Plugin type map
-const pluginTypeMap = {
-    REPORT_TABLE: global.reportTablePlugin,
-    CHART: global.chartPlugin,
-};
-
-// Get plugin by type
-export const getPluginByType = type => pluginTypeMap[type];
-
-const onButtonClick = (id, type, targetType) => {
-    const plugin = getPluginByType(targetType);
-
-    apiFetchFavorite(id, type).then(favorite => {
-        const itemConfig = getPluginItemConfig(favorite, true);
-
-        plugin.load(itemConfig);
-    });
 };
 
 //TODO - do caching differently, does not belong here in Item
@@ -64,7 +41,7 @@ class Item extends Component {
         const { item, editMode } = this.props;
 
         if (shouldPluginLoad(item, editMode)) {
-            loadFavorite(item);
+            favorite.load(item);
         }
     }
 
@@ -73,25 +50,26 @@ class Item extends Component {
         this.props.onToggleItemExpanded(this.props.item.id);
     };
 
+    onSelectVisualization = targetType => {
+        favorite.reload(this.props.item, targetType);
+    };
+
     render() {
         const item = this.props.item;
-        const favorite = getFavoriteObjectFromItem(item);
-        const pluginId = getPluginItemConfig(item).el;
+        const title = favorite.getName(item);
+        const elementId = getGridItemDomId(item.id);
 
         const actionButtons = !this.props.editMode ? (
             <PluginItemHeaderButtons
-                onButtonClick={onButtonClick}
+                onSelectVisualization={this.onSelectVisualization}
                 onInterpretationsClick={this.onToggleInterpretations}
             />
         ) : null;
 
         return (
             <Fragment>
-                <ItemHeader
-                    title={favorite.name}
-                    actionButtons={actionButtons}
-                />
-                <div id={pluginId} className="dashboard-item-content" />
+                <ItemHeader title={title} actionButtons={actionButtons} />
+                <div id={elementId} className="dashboard-item-content" />
                 {!this.props.editMode ? (
                     <ItemFooter
                         style={style.itemFooter}

@@ -1,6 +1,11 @@
 import isObject from 'd2-utilizr/lib/isObject';
 
+import { apiFetchFavorite } from '../../api';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
+
+const url = '//localhost:8080';
+const username = 'admin';
+const password = 'district';
 
 // Plugin type map
 const pluginTypeMap = {
@@ -9,7 +14,7 @@ const pluginTypeMap = {
 };
 
 // Get favorite object from plugin item
-export function getFavoriteObjectFromItem(item) {
+const getFavoriteObjectFromItem = item => {
     if (!isObject(item)) {
         return null;
     }
@@ -21,44 +26,28 @@ export function getFavoriteObjectFromItem(item) {
         item.eventReport ||
         item.eventChart
     );
-}
+};
 
-// Get plugin configuration from item
-export function getPluginItemConfig(item, isReload) {
-    const favorite = getFavoriteObjectFromItem(item) || item;
-    let config;
-
-    if (isReload) {
-        config = {
-            ...favorite,
-            id: null,
-        };
-    } else {
-        config = { id: favorite.id };
-    }
-
-    config.el = getGridItemDomId(item.id);
-    config.hideTitle = !favorite.title;
-
-    return config;
-}
-
-const url = '//localhost:8080';
-const username = 'admin';
-const password = 'district';
-
-// pivot/chart plugins
-const loadChart = item => {
-    let plugin = pluginTypeMap[item.type];
-
+const loadPlugin = (plugin, itemConfig) => {
     plugin.url = url;
     plugin.username = username;
     plugin.password = password;
     plugin.loadingIndicator = true;
     plugin.dashboard = true;
-
-    const itemConfig = getPluginItemConfig(item);
     plugin.load(itemConfig);
+};
+
+const loadChart = item => {
+    let plugin = pluginTypeMap[item.type];
+
+    const favorite = getFavoriteObjectFromItem(item);
+    const itemConfig = {
+        id: favorite.id,
+        el: getGridItemDomId(item.id),
+        hideTitle: !favorite.title,
+    };
+
+    loadPlugin(plugin, itemConfig);
 };
 
 const loadMap = item => {
@@ -77,9 +66,26 @@ const loadMap = item => {
     }, 200);
 };
 
+export const getId = item => getFavoriteObjectFromItem(item).id;
+export const getName = item => getFavoriteObjectFromItem(item).name;
+
+export const reload = async (item, targetType) => {
+    const favorite = await apiFetchFavorite(getId(item), item.type);
+    const itemConfig = {
+        ...favorite,
+        id: null,
+        el: getGridItemDomId(item.id),
+        hideTitle: !favorite.title,
+    };
+
+    let plugin = pluginTypeMap[targetType];
+
+    loadPlugin(plugin, itemConfig);
+};
+
 // Render pivot, chart, map favorites
 // TODO
-export function loadFavorite(item) {
+export function load(item) {
     switch (item.type) {
         case 'CHART':
         case 'REPORT_TABLE':
