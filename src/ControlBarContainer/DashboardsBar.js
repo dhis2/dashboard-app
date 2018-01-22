@@ -177,10 +177,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     };
 };
 
-export const DashboardsBarContainer = connect(
-    mapStateToProps,
-    null,
-    mergeProps
-)(DashboardsBar);
+const DashboardsBarContainer = connect(mapStateToProps, null, mergeProps)(
+    DashboardsBar
+);
 
 export default DashboardsBarContainer;
