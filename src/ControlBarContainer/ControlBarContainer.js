@@ -28,11 +28,9 @@ const ControlBar = ({ edit }) => {
     );
 };
 
-const mapStateToProps = state => {
-    return {
-        edit: fromSelected.sGetSelectedEdit(state),
-    };
-};
+const mapStateToProps = state => ({
+    edit: fromSelected.sGetSelectedEdit(state),
+});
 
 const ControlBarCt = connect(mapStateToProps, null)(ControlBar);
 

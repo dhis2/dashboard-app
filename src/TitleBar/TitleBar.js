@@ -10,9 +10,8 @@ import Info from './Info';
 import D2TextLink from '../widgets/D2TextLink';
 import D2ContentEditable from '../widgets/D2ContentEditable';
 import * as fromReducers from '../reducers';
-import * as fromActions from '../actions';
-import { orObject, orArray, loremIpsum } from '../util';
-import { getYMax } from '../ItemGrid/gridUtil';
+import { fromEditDashboard, fromSelected } from '../actions';
+import { orObject, loremIpsum } from '../util';
 
 // Component
 
@@ -67,7 +66,7 @@ const TitleBar = ({
     starred,
     onEditClick,
     onInfoClick,
-    onAddClick,
+    onChangeTitle,
 }) => (
     <div className="titlebar-wrapper" style={styles.titleBarWrapper}>
         {edit ? <span>Currently editing</span> : null}
@@ -81,6 +80,7 @@ const TitleBar = ({
                     name={name}
                     disabled={!edit}
                     placeholder={'Untitled'}
+                    onChange={onChangeTitle}
                 />
             </div>
             {edit ? (
@@ -158,11 +158,7 @@ const mapStateToProps = state => ({
 const mergeProps = (stateProps, dispatchProps) => {
     const { edit, showDescription } = stateProps;
     const selectedDashboard = orObject(stateProps.selectedDashboard);
-    const selectedDashboardItems = orArray(selectedDashboard.dashboardItems);
-
-    const yValue = getYMax(selectedDashboardItems);
     const { dispatch } = dispatchProps;
-    const { fromDashboards, fromEditDashboard, fromSelected } = fromActions;
 
     return {
         name: selectedDashboard.name,
@@ -178,19 +174,8 @@ const mergeProps = (stateProps, dispatchProps) => {
             dispatch(
                 fromSelected.acSetSelectedShowDescription(!showDescription)
             ),
-        onAddClick: () =>
-            dispatch(
-                fromDashboards.acAddDashboardItem(
-                    selectedDashboard.id,
-                    yValue,
-                    {
-                        id: 'VffWmdKFHSq',
-                        name:
-                            'ANC: ANC IPT 1 Coverage last 12 months districts',
-                        type: 'CHART',
-                    }
-                )
-            ),
+        onChangeTitle: e =>
+            dispatch(fromEditDashboard.acSetDashboardTitle(e.target.value)),
     };
 };
 

@@ -26,6 +26,7 @@ const D2ContentEditable = props => (
         disabled={props.disabled}
         disable={'' + props.disabled}
         data-text={props.placeholder}
+        onChange={props.onChange}
     />
 );
 
@@ -35,6 +36,7 @@ D2ContentEditable.propTypes = {
     onBlur: PropTypes.func,
     disabled: PropTypes.bool,
     placeholder: PropTypes.string,
+    onChange: PropTypes.func,
 };
 
 D2ContentEditable.defaultProps = {

@@ -82,6 +82,7 @@ export const tSetSelectedDashboardById = id => async dispatch => {
 
     try {
         const fetchedSelected = await apiFetchSelected(id);
+
         return onSuccess(fetchedSelected);
     } catch (err) {
         return onError(err);
