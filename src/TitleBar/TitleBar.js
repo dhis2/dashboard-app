@@ -156,31 +156,23 @@ const mapStateToProps = state => ({
 });
 
 const mergeProps = (stateProps, dispatchProps) => {
-    const { selectedDashboard, edit, showDescription } = stateProps;
+    const { edit, showDescription } = stateProps;
+    const selectedDashboard = orObject(stateProps.selectedDashboard);
+    const selectedDashboardItems = orArray(selectedDashboard.dashboardItems);
 
+    const yValue = getYMax(selectedDashboardItems);
     const { dispatch } = dispatchProps;
     const { fromDashboards, fromEditDashboard, fromSelected } = fromActions;
 
-    const selectedDashboardObject = orObject(selectedDashboard);
-
-    const selectedDashboardItems = orArray(
-        selectedDashboardObject.dashboardItems
-    );
-    const selectedDashboardId = selectedDashboardObject.id;
-
-    const yValue = getYMax(selectedDashboardItems);
-
     return {
-        name: selectedDashboardObject.name,
-        description: selectedDashboardObject.description || loremIpsum, // TODO remove example text
-        starred: selectedDashboardObject.starred,
+        name: selectedDashboard.name,
+        description: selectedDashboard.description || loremIpsum, // TODO remove example text
+        starred: selectedDashboard.starred,
         edit,
         showDescription,
         onEditClick: () => {
             dispatch(fromSelected.acSetSelectedEdit(true));
-            dispatch(
-                fromEditDashboard.acSetEditDashboard(selectedDashboardObject)
-            );
+            dispatch(fromEditDashboard.acSetEditDashboard(selectedDashboard));
         },
         onInfoClick: () =>
             dispatch(
@@ -188,11 +180,16 @@ const mergeProps = (stateProps, dispatchProps) => {
             ),
         onAddClick: () =>
             dispatch(
-                fromDashboards.acAddDashboardItem(selectedDashboardId, yValue, {
-                    id: 'VffWmdKFHSq',
-                    name: 'ANC: ANC IPT 1 Coverage last 12 months districts',
-                    type: 'CHART',
-                })
+                fromDashboards.acAddDashboardItem(
+                    selectedDashboard.id,
+                    yValue,
+                    {
+                        id: 'VffWmdKFHSq',
+                        name:
+                            'ANC: ANC IPT 1 Coverage last 12 months districts',
+                        type: 'CHART',
+                    }
+                )
             ),
     };
 };

@@ -66,7 +66,9 @@ export {
 
 // selected dashboard
 export const sGetSelectedDashboard = state =>
-    fromDashboards.sGetById(state, fromSelected.sGetSelectedId(state));
+    state.selected.edit
+        ? fromEditDashboard.sGetEditDashboard(state)
+        : fromDashboards.sGetById(state, fromSelected.sGetSelectedId(state));
 
 // filter dashboards by name
 export const sFilterDashboardsByName = (dashboards, filter) =>
