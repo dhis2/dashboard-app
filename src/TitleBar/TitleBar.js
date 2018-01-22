@@ -177,7 +177,7 @@ const mergeProps = (stateProps, dispatchProps) => {
         edit,
         showDescription,
         onEditClick: () => {
-            dispatch(fromSelected.acSetSelectedEdit(edit));
+            dispatch(fromSelected.acSetSelectedEdit(true));
             dispatch(
                 fromEditDashboard.acSetEditDashboard(selectedDashboardObject)
             );
