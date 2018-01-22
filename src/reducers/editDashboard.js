@@ -6,9 +6,8 @@ export const actionTypes = {
 
 export default (state = {}, action) => {
     switch (action.type) {
-        case actionTypes.RECEIVED_EDIT_DASHBOARD: {
+        case actionTypes.RECEIVED_EDIT_DASHBOARD:
             return action.value;
-        }
         default:
             return state;
     }
