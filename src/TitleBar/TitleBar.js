@@ -159,7 +159,7 @@ const mergeProps = (stateProps, dispatchProps) => {
     const { selectedDashboard, edit, showDescription } = stateProps;
 
     const { dispatch } = dispatchProps;
-    const { fromDashboards, fromSelected } = fromActions;
+    const { fromDashboards, fromEditDashboard, fromSelected } = fromActions;
 
     const selectedDashboardObject = orObject(selectedDashboard);
 
@@ -176,7 +176,12 @@ const mergeProps = (stateProps, dispatchProps) => {
         starred: selectedDashboardObject.starred,
         edit,
         showDescription,
-        onEditClick: () => dispatch(fromSelected.acSetSelectedEdit(true)),
+        onEditClick: () => {
+            dispatch(fromSelected.acSetSelectedEdit(edit));
+            dispatch(
+                fromEditDashboard.acSetEditDashboard(selectedDashboardObject)
+            );
+        },
         onInfoClick: () =>
             dispatch(
                 fromSelected.acSetSelectedShowDescription(!showDescription)
