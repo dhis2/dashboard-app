@@ -39,7 +39,7 @@ const EditBar = ({ style, onSaveChanges, onDiscardChanges }) => {
 const mapDispatchToProps = dispatch => {
     return {
         onSaveChanges: () => {
-            console.log('not implemented yet');
+            dispatch(fromEditDashboard.tSaveDashboard());
         },
         onDiscardChanges: () => {
             dispatch(fromSelected.acSetSelectedEdit(false));
