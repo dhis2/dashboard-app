@@ -39,6 +39,22 @@ describe('editDashboard reducer', () => {
         );
     });
 
+    it('should set the dashboard title', () => {
+        const title = 'moohaha scary dashboard';
+
+        const actualState = reducer(initialState, {
+            type: actionTypes.RECEIVED_TITLE,
+            value: title,
+        });
+
+        expect(actualState.name).toEqual(title);
+        expect(actualState.dashboardItems.length).toEqual(
+            initialState.dashboardItems.length
+        );
+
+        expect(initialState.name).toEqual('My pony dashboard');
+    });
+
     it('should be a pure function', () => {
         reducer(initialState, {
             type: actionTypes.RECEIVED_EDIT_DASHBOARD,
