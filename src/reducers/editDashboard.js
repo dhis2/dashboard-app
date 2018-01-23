@@ -11,14 +11,12 @@ export default (state = {}, action) => {
         case actionTypes.RECEIVED_EDIT_DASHBOARD:
             return action.value;
         case actionTypes.RECEIVED_TITLE: {
-            const newState = Object.assign({}, state, { name: action.value });
-            return newState;
+            return Object.assign({}, state, { name: action.value });
         }
         case actionTypes.RECEIVED_DESCRIPTION: {
-            const newState = Object.assign({}, state, {
+            return Object.assign({}, state, {
                 description: action.value,
             });
-            return newState;
         }
 
         default:
