@@ -74,7 +74,7 @@ describe('editDashboard reducer', () => {
             'My pony dashboard description'
         );
     });
-  
+
     it('should add a dashboard item', () => {
         const newItem = {
             id: 'add1',
