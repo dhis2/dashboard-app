@@ -1,7 +1,8 @@
 import { actionTypes } from '../reducers';
 import { getCustomDashboards } from '../reducers/dashboards';
 import { apiFetchDashboards } from '../api';
-import { arrayToIdMap } from '../util';
+import { arrayToIdMap, itemTypeMap } from '../util';
+import { generateUid } from 'd2/lib/uid';
 
 // actions
 
@@ -10,6 +11,24 @@ export const acSetDashboards = (dashboards, append) => ({
     append: !!append,
     value: arrayToIdMap(getCustomDashboards(dashboards)),
 });
+
+export const acAddDashboardItem = (dashboardId, yValue, favorite) => {
+    const favoritePropName = itemTypeMap[favorite.type].propName;
+
+    return {
+        type: actionTypes.ADD_DASHBOARD_ITEM,
+        value: {
+            id: generateUid(),
+            type: favorite.type,
+            [favoritePropName]: favorite,
+            x: 0,
+            y: yValue,
+            h: 20,
+            w: 29,
+        },
+        dashboardId,
+    };
+};
 
 // thunks
 

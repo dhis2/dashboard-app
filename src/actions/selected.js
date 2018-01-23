@@ -4,6 +4,7 @@ import { apiFetchSelected, apiPostDashboard } from '../api';
 import { acSetDashboards, tSetDashboards } from './dashboards';
 import { withShape } from '../ItemGrid/gridUtil';
 import { tGetMessages } from '../Item/MessagesItem/actions';
+import { REPORT_TABLE, CHART, MESSAGES } from '../util';
 
 // actions
 
@@ -43,21 +44,18 @@ export const tSetSelectedDashboardById = id => async dispatch => {
 
     const onSuccess = selected => {
         selected.dashboardItems.forEach(item => {
-            let vis;
             switch (item.type) {
-                case 'CHART':
-                    vis = item.chart;
-                    dispatch(receivedVisualization(vis));
+                case REPORT_TABLE:
+                    dispatch(receivedVisualization(item.reportTable));
                     break;
-                case 'REPORT_TABLE':
-                    vis = item.reportTable;
-                    dispatch(receivedVisualization(vis));
+                case CHART:
+                    dispatch(receivedVisualization(item.chart));
                     break;
-                case 'MESSAGES':
+                case MESSAGES:
                     dispatch(tGetMessages(id));
                     break;
                 default:
-                    vis = [];
+                    break;
             }
         });
 

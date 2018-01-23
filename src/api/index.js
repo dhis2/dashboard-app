@@ -1,10 +1,9 @@
 import { getInstance } from 'd2/lib/d2';
 import arrayClean from 'd2-utilizr/lib/arrayClean';
 
-import { favoriteTypeUrlMap } from '../util';
+import { itemTypeMap } from '../util';
 
-export const getUrlByFavoriteType = type =>
-    favoriteTypeUrlMap[type].endPointName;
+export const getUrlByFavoriteType = type => itemTypeMap[type].endPointName;
 
 export const delay = (ms = 500) =>
     new Promise(resolve => setTimeout(resolve, ms));

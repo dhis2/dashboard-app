@@ -10,23 +10,34 @@ import { acAddDashboardItem } from '../actions/editDashboard';
 import { tAddListItemContent } from './actions';
 import { sGetEditDashboard } from '../reducers/editDashboard';
 import { getYMax } from '../ItemGrid/gridUtil';
+import {
+    APPS,
+    CHART,
+    EVENT_CHART,
+    REPORT_TABLE,
+    EVENT_REPORT,
+    MAP,
+    RESOURCES,
+    REPORTS,
+    USERS,
+} from '../util';
 
 const getIcon = type => {
     switch (type) {
-        case 'APPS':
+        case APPS:
             return 'Extension';
-        case 'CHART':
-        case 'EVENT_CHART':
-            return 'InsertChart';
-        case 'REPORT_TABLE':
-        case 'EVENT_REPORT':
-        case 'MAP':
+        case REPORT_TABLE:
+        case EVENT_REPORT:
+        case MAP:
             return 'Public';
-        case 'RESOURCES':
+        case CHART:
+        case EVENT_CHART:
+            return 'InsertChart';
+        case RESOURCES:
             return 'Description';
-        case 'REPORTS':
+        case REPORTS:
             return 'ViewList';
-        case 'USERS':
+        case USERS:
             return 'Person';
         default:
             return '';
@@ -46,33 +57,33 @@ class ItemSelectList extends Component {
         let url;
 
         switch (type) {
-            case 'APPS':
+            case APPS:
                 url = '#';
                 break;
-            case 'CHART':
+            case CHART:
                 url = `dhis-web-visualizer/?id=${id}`;
                 break;
-            case 'EVENT_CHART':
-                url = `dhis-web-event-visualizer/?id=${id}`;
-                break;
-            case 'EVENT_REPORT':
+            case EVENT_REPORT:
                 url = `dhis-web-event-reports/?id=${id}`;
                 break;
-            case 'MAP':
+            case EVENT_CHART:
+                url = `dhis-web-event-visualizer/?id=${id}`;
+                break;
+            case MAP:
                 url = `dhis-web-mapping/?id=${id}`;
                 break;
-            case 'REPORTS':
+            case REPORTS:
                 url = `dhis-web-reporting/getReportParams.action?mode=report&uid=${id}`;
                 break;
-            case 'REPORT_TABLE':
+            case REPORT_TABLE:
                 url = `dhis-web-pivot/?id=${id}`;
                 break;
-            case 'RESOURCES':
+            case RESOURCES:
                 url = `${
                     this.context.d2.Api.getApi().baseUrl
                 }/documents/${id}/data`;
                 break;
-            case 'USERS':
+            case USERS:
                 url = `dhis-web-dashboard-integration/profile.action?id=${id}`;
                 break;
             default:
@@ -194,15 +205,15 @@ class ItemSelectList extends Component {
 
 ItemSelectList.propTypes = {
     type: PropTypes.oneOf([
-        'APPS',
-        'CHART',
-        'EVENT_CHART',
-        'EVENT_REPORT',
-        'MAP',
-        'REPORTS',
-        'REPORT_TABLE',
-        'RESOURCES',
-        'USERS',
+        APPS,
+        CHART,
+        EVENT_CHART,
+        EVENT_REPORT,
+        MAP,
+        REPORTS,
+        REPORT_TABLE,
+        RESOURCES,
+        USERS,
     ]).isRequired,
     title: PropTypes.string.isRequired,
     items: PropTypes.array.isRequired,
