@@ -87,7 +87,7 @@ const ViewTitleBar = ({
 
 const mapStateToProps = state => {
     return {
-        selectedDashboard: fromReducers.sGetSelectedDashboard(state),
+        selectedDashboard: orObject(fromReducers.sGetSelectedDashboard(state)),
         showDescription: fromReducers.fromSelected.sGetSelectedShowDescription(
             state
         ),
@@ -102,8 +102,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     return {
         ...stateProps,
         ...ownProps,
-        name: selectedDashboard.name,
-        description: selectedDashboard.description,
         starred: selectedDashboard.starred,
         showDescription,
         onEditClick: () => {

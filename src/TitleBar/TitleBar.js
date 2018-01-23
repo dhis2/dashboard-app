@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import EditTitleBar from './EditTitleBar';
 import ViewTitleBar from './ViewTitleBar';
 import { fromSelected } from '../reducers';
+import * as fromReducers from '../reducers';
+import { orObject } from '../util';
 
 import './TitleBar.css';
 
@@ -25,7 +27,7 @@ const style = {
     },
 };
 
-const TitleBar = ({ edit }) => {
+const TitleBar = ({ name, description, edit }) => {
     return (
         <div
             className="titlebar-wrapper"
@@ -34,17 +36,32 @@ const TitleBar = ({ edit }) => {
             }}
         >
             {edit ? (
-                <EditTitleBar style={style} />
+                <EditTitleBar
+                    style={style}
+                    name={name}
+                    description={description}
+                />
             ) : (
-                <ViewTitleBar style={style} />
+                <ViewTitleBar
+                    style={style}
+                    name={name}
+                    description={description}
+                />
             )}
         </div>
     );
 };
 
-const mapStateToProps = state => ({
-    edit: fromSelected.sGetSelectedEdit(state),
-});
+const mapStateToProps = state => {
+    const selectedDashboard = orObject(
+        fromReducers.sGetSelectedDashboard(state)
+    );
+    return {
+        name: selectedDashboard.name,
+        description: selectedDashboard.description || 'No description',
+        edit: fromSelected.sGetSelectedEdit(state),
+    };
+};
 
 const TitleBarCt = connect(mapStateToProps, null)(TitleBar);
 

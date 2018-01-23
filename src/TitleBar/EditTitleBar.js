@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 
 import ItemSelect from '../ItemSelect/ItemSelect';
 import D2ContentEditable from '../widgets/D2ContentEditable';
-import * as fromReducers from '../reducers';
 import { fromEditDashboard } from '../actions';
-import { orObject } from '../util';
 
 const EditTitleBar = ({
     name,
@@ -46,26 +44,15 @@ const EditTitleBar = ({
     );
 };
 
-const mapStateToProps = state => ({
-    selectedDashboard: fromReducers.sGetSelectedDashboard(state),
-});
-
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const selectedDashboard = orObject(stateProps.selectedDashboard);
-    const { dispatch } = dispatchProps;
-
+const mapDispatchToProps = dispatch => {
     return {
-        ...stateProps,
-        ...ownProps,
-        name: selectedDashboard.name,
-        description: selectedDashboard.description,
         onChangeTitle: e =>
             dispatch(fromEditDashboard.acSetDashboardTitle(e.target.value)),
         onChangeDescription: e => console.log('to be implemented'),
     };
 };
 
-const TitleBarCt = connect(mapStateToProps, null, mergeProps)(EditTitleBar);
+const TitleBarCt = connect(null, mapDispatchToProps)(EditTitleBar);
 
 export default TitleBarCt;
 
