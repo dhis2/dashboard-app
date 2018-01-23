@@ -34,7 +34,7 @@ const EditTitleBar = ({
             </div>
             <div className="description" style={style.description}>
                 <D2ContentEditable
-                    description={description}
+                    name={description}
                     disabled={false}
                     placeholder={'Add description here'}
                     onChange={onChangeDescription}
@@ -48,7 +48,10 @@ const mapDispatchToProps = dispatch => {
     return {
         onChangeTitle: e =>
             dispatch(fromEditDashboard.acSetDashboardTitle(e.target.value)),
-        onChangeDescription: e => console.log('to be implemented'),
+        onChangeDescription: e =>
+            dispatch(
+                fromEditDashboard.acSetDashboardDescription(e.target.value)
+            ),
     };
 };
 

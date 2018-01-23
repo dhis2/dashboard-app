@@ -4,6 +4,7 @@ import update from 'immutability-helper';
 export const actionTypes = {
     RECEIVED_EDIT_DASHBOARD: 'RECEIVED_EDIT_DASHBOARD',
     RECEIVED_TITLE: 'RECEIVED_TITLE',
+    RECEIVED_DESCRIPTION: 'RECEIVED_DESCRIPTION',
     ADD_DASHBOARD_ITEM: 'ADD_DASHBOARD_ITEM',
     REMOVE_DASHBOARD_ITEM: 'REMOVE_DASHBOARD_ITEM',
     UPDATE_DASHBOARD_ITEM: 'UPDATE_DASHBOARD_ITEM',
@@ -14,8 +15,12 @@ export default (state = {}, action) => {
         case actionTypes.RECEIVED_EDIT_DASHBOARD:
             return action.value;
         case actionTypes.RECEIVED_TITLE: {
-            const newState = Object.assign({}, state, { name: action.value });
-            return newState;
+            return Object.assign({}, state, { name: action.value });
+        }
+        case actionTypes.RECEIVED_DESCRIPTION: {
+            return Object.assign({}, state, {
+                description: action.value,
+            });
         }
         case actionTypes.ADD_DASHBOARD_ITEM:
             return update(state, {

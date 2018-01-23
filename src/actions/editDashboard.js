@@ -22,11 +22,18 @@ export const acSetDashboardTitle = value => ({
     value,
 });
 
+export const acSetDashboardDescription = value => ({
+    type: actionTypes.RECEIVED_DESCRIPTION,
+    value,
+});
+
 export const tSaveDashboard = () => async (dispatch, getState) => {
     const newDashboard = fromEditDashboard.sGetEditDashboard(getState());
+
     try {
         await updateDashboard(newDashboard);
         await dispatch(fromSelected.tSetSelectedDashboardById(newDashboard.id));
+
         return dispatch(fromSelected.acSetSelectedEdit(false));
     } catch (error) {
         onError(error);

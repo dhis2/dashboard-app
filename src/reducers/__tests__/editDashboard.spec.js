@@ -5,6 +5,7 @@ describe('editDashboard reducer', () => {
     const initialState = {
         id: 'ponydash',
         name: 'My pony dashboard',
+        description: 'My pony dashboard description',
         dashboardItems: [
             { id: 'int0', type: 'FLUTTERSHY' },
             { id: 'int1', type: 'RARITY' },
@@ -54,6 +55,24 @@ describe('editDashboard reducer', () => {
         );
 
         expect(initialState.name).toEqual('My pony dashboard');
+    });
+
+    it('should set the dashboard description', () => {
+        const description = 'moohaha scary dashboard dashboard';
+
+        const actualState = reducer(initialState, {
+            type: actionTypes.RECEIVED_DESCRIPTION,
+            value: description,
+        });
+
+        expect(actualState.description).toEqual(description);
+        expect(actualState.dashboardItems.length).toEqual(
+            initialState.dashboardItems.length
+        );
+
+        expect(initialState.description).toEqual(
+            'My pony dashboard description'
+        );
     });
 
     it('should add a dashboard item', () => {
