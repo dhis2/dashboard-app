@@ -12,24 +12,6 @@ export const acSetDashboards = (dashboards, append) => ({
     value: arrayToIdMap(getCustomDashboards(dashboards)),
 });
 
-export const acAddDashboardItem = (dashboardId, yValue, favorite) => {
-    const favoritePropName = itemTypeMap[favorite.type].propName;
-
-    return {
-        type: actionTypes.ADD_DASHBOARD_ITEM,
-        value: {
-            id: generateUid(),
-            type: favorite.type,
-            [favoritePropName]: favorite,
-            x: 0,
-            y: yValue,
-            h: 20,
-            w: 29,
-        },
-        dashboardId,
-    };
-};
-
 // thunks
 
 export const tSetDashboards = () => async (dispatch, getState) => {
