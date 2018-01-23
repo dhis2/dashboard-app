@@ -64,7 +64,7 @@ export class ItemGrid extends Component {
     }
 
     onLayoutChange = newLayout => {
-        this.props.updateDashboardLayout(newLayout);
+        this.props.acUpdateDashboardLayout(newLayout);
     };
 
     render() {
@@ -152,11 +152,8 @@ const mapStateToProps = state => {
     };
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        updateDashboardLayout: value =>
-            dispatch(acUpdateDashboardLayout(value)),
-    };
+const mapDispatchToProps = {
+    acUpdateDashboardLayout,
 };
 
 const mergeProps = (stateProps, dispatchProps) => {
