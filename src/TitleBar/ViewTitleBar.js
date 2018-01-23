@@ -67,13 +67,6 @@ const ViewTitleBar = ({
                             hoverStyle={styles.textLinkHover}
                         />
                     </div>
-                    <div style={styles.titleBarLink}>
-                        <D2TextLink
-                            text={'Filter'}
-                            style={styles.textLink}
-                            hoverStyle={styles.textLinkHover}
-                        />
-                    </div>
                 </div>
             </div>
             {showDescription ? (
