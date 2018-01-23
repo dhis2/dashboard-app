@@ -1,22 +1,20 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import loglevel from 'loglevel';
 import Divider from 'material-ui/Divider';
 import { List, ListItem } from 'material-ui/List';
 
 import Button from 'd2-ui/lib/button/Button';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
-import { fromDashboards } from '../actions';
-import { sGetSelectedDashboard } from '../reducers';
-import { sGetSelectedId } from '../reducers/selected';
+import { acAddDashboardItem } from '../actions/editDashboard';
+import { tAddListItemContent } from './actions';
+import { sGetEditDashboard } from '../reducers/editDashboard';
 import { getYMax } from '../ItemGrid/gridUtil';
-import { itemTypeMap } from '../util';
 
 const getIcon = type => {
     switch (type) {
         case 'APPS':
-            return 'ViewList'; // XXX change to something app
+            return 'Extension';
         case 'CHART':
         case 'EVENT_CHART':
             return 'InsertChart';
@@ -25,7 +23,7 @@ const getIcon = type => {
         case 'MAP':
             return 'Public';
         case 'RESOURCES':
-            return 'ViewList'; // XXX change to something document
+            return 'Description';
         case 'REPORTS':
             return 'ViewList';
         case 'USERS':
@@ -45,7 +43,6 @@ class ItemSelectList extends Component {
     }
 
     getAppUrl = (type, id) => {
-        let appName;
         let url;
 
         switch (type) {
@@ -53,63 +50,63 @@ class ItemSelectList extends Component {
                 url = '#';
                 break;
             case 'CHART':
-                appName = 'dhis-web-visualizer/';
+                url = `dhis-web-visualizer/?id=${id}`;
                 break;
             case 'EVENT_CHART':
-                appName = 'dhis-web-event-visualizer/';
+                url = `dhis-web-event-visualizer/?id=${id}`;
                 break;
             case 'EVENT_REPORT':
-                appName = 'dhis-web-event-reports/';
+                url = `dhis-web-event-reports/?id=${id}`;
                 break;
             case 'MAP':
-                appName = 'dhis-web-mapping/';
+                url = `dhis-web-mapping/?id=${id}`;
                 break;
             case 'REPORTS':
-                url = `../dhis-web-reporting/getReportParams.action?mode=report&uid=${id}`;
+                url = `dhis-web-reporting/getReportParams.action?mode=report&uid=${id}`;
                 break;
             case 'REPORT_TABLE':
-                appName = 'dhis-web-pivot/';
+                url = `dhis-web-pivot/?id=${id}`;
                 break;
             case 'RESOURCES':
-                url = `${this.context.d2.Api.getApi().baseUrl}/documents/${id}`;
+                url = `${
+                    this.context.d2.Api.getApi().baseUrl
+                }/documents/${id}/data`;
                 break;
             case 'USERS':
-                appName = 'dhis-web-dashboard-integration/profile.action';
+                url = `dhis-web-dashboard-integration/profile.action?id=${id}`;
                 break;
             default:
-                appName = '';
+                url = '';
                 break;
         }
 
-        if (!url && appName) {
-            // TODO getBaseUrl() from manifest?!
-            url = `../${appName}?id=${id}`;
+        if (url) {
+            url = `${this.context.baseUrl}/${url}`;
         }
 
         return url;
     };
 
     addItem = item => () => {
-        const { dashboardId, dashboardItems, acAddDashboardItem } = this.props;
+        const {
+            type,
+            dashboardId,
+            dashboardItems,
+            acAddDashboardItem,
+            tAddListItemContent,
+        } = this.props;
         const yValue = getYMax(dashboardItems);
 
-        if (
-            itemTypeMap[this.props.type].propName.match(
-                /(chart|reportTable|map|eventChart|eventReport)/
-            )
-        ) {
-            acAddDashboardItem(dashboardId, yValue, {
-                id: item.id,
-                name: item.displayName || item.name,
-                type: this.props.type,
-            });
+        const newItem = {
+            id: item.id,
+            name: item.displayName || item.name,
+        };
 
-            // TODO toggle the popover is this ok here?
-            this.props.onRequestAdd();
+        // special handling for ListItem types
+        if (type.match(/(REPORTS|RESOURCES|USERS)/)) {
+            tAddListItemContent(dashboardId, type, newItem);
         } else {
-            loglevel.warn(
-                `${this.props.type} dashboard item type not supported yet`
-            );
+            acAddDashboardItem({ type: type, content: newItem }, yValue);
         }
     };
 
@@ -209,24 +206,21 @@ ItemSelectList.propTypes = {
     ]).isRequired,
     title: PropTypes.string.isRequired,
     items: PropTypes.array.isRequired,
-    onRequestAdd: PropTypes.func.isRequired,
     onChangeItemsLimit: PropTypes.func.isRequired,
-    dashboardId: PropTypes.string.isRequired,
-    dashboardItems: PropTypes.array.isRequired,
 };
 
 ItemSelectList.contextTypes = {
     d2: PropTypes.object.isRequired,
+    baseUrl: PropTypes.string,
 };
 
 export default connect(
-    state => {
-        return {
-            dashboardId: sGetSelectedId(state),
-            dashboardItems: sGetSelectedDashboard(state).dashboardItems,
-        };
-    },
+    state => ({
+        dashboardId: sGetEditDashboard(state).id,
+        dashboardItems: sGetEditDashboard(state).dashboardItems,
+    }),
     {
-        acAddDashboardItem: fromDashboards.acAddDashboardItem,
+        acAddDashboardItem,
+        tAddListItemContent,
     }
 )(ItemSelectList);

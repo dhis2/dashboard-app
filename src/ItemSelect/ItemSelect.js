@@ -140,7 +140,6 @@ class ItemSelect extends React.Component {
                                     items={
                                         this.state.items[itemType.endPointName]
                                     }
-                                    onRequestAdd={this.closeList}
                                     onChangeItemsLimit={this.fetchItems}
                                 />
                             );
