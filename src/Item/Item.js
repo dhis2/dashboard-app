@@ -3,6 +3,7 @@ import React from 'react';
 import PluginItem from './PluginItem/Item';
 import MessagesItem from './MessagesItem/Item';
 import NotSupportedItem from './NotSupportedItem/Item';
+import ListItem from './ListItem/Item';
 
 export const Item = props => {
     let GridItem = null;
@@ -16,6 +17,11 @@ export const Item = props => {
             break;
         case 'MESSAGES':
             GridItem = MessagesItem;
+            break;
+        case 'REPORTS':
+        case 'RESOURCES':
+        case 'USERS':
+            GridItem = ListItem;
             break;
         default:
             GridItem = NotSupportedItem;

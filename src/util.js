@@ -128,17 +128,17 @@ export const itemTypeMap = {
     },
     REPORTS: {
         endPointName: 'reports',
-        propName: 'report',
+        propName: 'reports',
         countName: 'reportCount',
     },
     RESOURCES: {
         endPointName: 'resources',
-        propName: 'resource',
+        propName: 'resources',
         countName: 'resourceCount',
     },
     USERS: {
         endPointName: 'users',
-        propName: 'user',
+        propName: 'users',
         countName: 'userCount',
     },
 };

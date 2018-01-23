@@ -1,3 +1,4 @@
+import update from 'immutability-helper';
 import reducer, { actionTypes } from '../editDashboard';
 
 describe('editDashboard reducer', () => {
@@ -72,6 +73,28 @@ describe('editDashboard reducer', () => {
         expect(initialState.description).toEqual(
             'My pony dashboard description'
         );
+    });
+  
+    it('should add a dashboard item', () => {
+        const newItem = {
+            id: 'add1',
+            type: 'ROBOT',
+        };
+
+        const actualState = reducer(initialState, {
+            type: actionTypes.ADD_DASHBOARD_ITEM,
+            value: newItem,
+        });
+
+        expect(actualState.dashboardItems.length).toEqual(
+            initialState.dashboardItems.length + 1
+        );
+
+        const expectedState = update(initialState, {
+            dashboardItems: { $push: [newItem] },
+        });
+
+        expect(actualState).toMatchObject(expectedState);
     });
 
     it('should be a pure function', () => {

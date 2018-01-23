@@ -78,11 +78,18 @@ const getFavoritesFields = ({ withDimensions, withOptions }) => [
     `eventChart[${getFavoriteFields({ withDimensions }).join(',')}]`,
 ];
 
+const getListItemFields = () => [
+    `reports[${getIdNameFields({ rename: true }).join(',')}]`,
+    `resources[${getIdNameFields({ rename: true }).join(',')}]`,
+    `users[${getIdNameFields({ rename: true }).join(',')}]`,
+];
+
 const getDashboardItemsFields = ({ withFavorite } = {}) =>
     arrayClean([
         'id',
         'type',
         'shape',
+        `${getListItemFields().join(',')}`,
         withFavorite
             ? `${getFavoritesFields({
                   withDimensions: withFavorite.withDimensions,
