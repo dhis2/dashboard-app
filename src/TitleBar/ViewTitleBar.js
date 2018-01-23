@@ -86,31 +86,34 @@ const ViewTitleBar = ({
 };
 
 const mapStateToProps = state => {
+    const selectedDashboard = orObject(
+        fromReducers.sGetSelectedDashboard(state)
+    );
     return {
-        selectedDashboard: orObject(fromReducers.sGetSelectedDashboard(state)),
+        selectedDashboard,
         showDescription: fromReducers.fromSelected.sGetSelectedShowDescription(
             state
         ),
+        starred: selectedDashboard.starred,
     };
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const { showDescription } = stateProps;
     const selectedDashboard = orObject(stateProps.selectedDashboard);
     const { dispatch } = dispatchProps;
 
     return {
         ...stateProps,
         ...ownProps,
-        starred: selectedDashboard.starred,
-        showDescription,
         onEditClick: () => {
             dispatch(fromSelected.acSetSelectedEdit(true));
             dispatch(fromEditDashboard.acSetEditDashboard(selectedDashboard));
         },
         onInfoClick: () =>
             dispatch(
-                fromSelected.acSetSelectedShowDescription(!showDescription)
+                fromSelected.acSetSelectedShowDescription(
+                    !stateProps.showDescription
+                )
             ),
     };
 };
