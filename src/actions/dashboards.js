@@ -1,8 +1,7 @@
 import { actionTypes } from '../reducers';
 import { getCustomDashboards } from '../reducers/dashboards';
 import { apiFetchDashboards } from '../api';
-import { arrayToIdMap, itemTypeMap } from '../util';
-import { generateUid } from 'd2/lib/uid';
+import { arrayToIdMap } from '../util';
 
 // actions
 
