@@ -21,7 +21,8 @@ getManifest('manifest.webapp').then(manifest => {
     const baseUrl =
         process.env.NODE_ENV === 'production'
             ? manifest.getBaseUrl()
-            : 'http://localhost:8080';
+            : // : 'http://localhost:8080';
+              'https://play.dhis2.org/dev';
     ReactDOM.render(
         <D2UIApp
             initConfig={{
