@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import EditTitleBar from './EditTitleBar';
 import ViewTitleBar from './ViewTitleBar';
-import { fromSelected } from '../reducers';
 import * as fromReducers from '../reducers';
 import { orObject } from '../util';
 
@@ -59,7 +58,7 @@ const mapStateToProps = state => {
     return {
         name: selectedDashboard.name,
         description: selectedDashboard.description || 'No description',
-        edit: fromSelected.sGetSelectedEdit(state),
+        edit: fromReducers.fromSelected.sGetSelectedEdit(state),
     };
 };
 
