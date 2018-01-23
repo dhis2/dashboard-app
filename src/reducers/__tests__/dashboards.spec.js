@@ -44,23 +44,4 @@ describe('dashboards reducer', () => {
 
         expect(actualState).toEqual(expected);
     });
-
-    it('should add a dashboard item', () => {
-        const newItem = {
-            id: 'new dashboard item',
-            size: 'large',
-        };
-
-        const actualState = reducer(boards, {
-            type: actionTypes.ADD_DASHBOARD_ITEM,
-            value: newItem,
-            dashboardId: 'dash2',
-        });
-
-        const expectedState = update(boards, {
-            dash2: { dashboardItems: { $push: [newItem] } },
-        });
-
-        expect(actualState).toMatchObject(expectedState);
-    });
 });
