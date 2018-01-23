@@ -1,7 +1,6 @@
 /** @module reducers/dashboards */
 
 import arrayFrom from 'd2-utilizr/lib/arrayFrom';
-import update from 'immutability-helper';
 import { orArray, orNull, orObject } from '../util';
 
 /**
@@ -11,7 +10,6 @@ import { orArray, orNull, orObject } from '../util';
  */
 export const actionTypes = {
     SET_DASHBOARDS: 'SET_DASHBOARDS',
-    ADD_DASHBOARD_ITEM: 'ADD_DASHBOARD_ITEM',
 };
 
 /**
@@ -35,17 +33,6 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
                 ...(action.append ? orObject(state) : {}),
                 ...action.value,
             };
-        }
-
-        // keep reference to dashboard so app does not think user selected a different dashboard
-        // create new root object and dashboardItems array (updates component)
-        case actionTypes.ADD_DASHBOARD_ITEM: {
-            const newState = update(state, {
-                [action.dashboardId]: {
-                    dashboardItems: { $push: [action.value] },
-                },
-            });
-            return newState;
         }
         default:
             return state;
