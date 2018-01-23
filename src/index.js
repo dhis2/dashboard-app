@@ -22,7 +22,6 @@ getManifest('manifest.webapp').then(manifest => {
         process.env.NODE_ENV === 'production'
             ? manifest.getBaseUrl()
             : 'http://localhost:8080';
-
     ReactDOM.render(
         <D2UIApp
             initConfig={{
