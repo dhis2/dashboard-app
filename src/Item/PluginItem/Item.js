@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 
 import ItemHeader from '../ItemHeader';
 import ItemFooter from './ItemFooter';
-import ItemButton from '../ItemButton';
 import PluginItemHeaderButtons from './ItemHeaderButtons';
 
 import * as favorite from './plugin';
@@ -30,10 +29,6 @@ class Item extends Component {
 
     onSelectVisualization = targetType => {
         favorite.reload(this.props.item, targetType);
-    };
-
-    onRemoveItem = () => {
-        this.props.onRemoveItem(this.props.item.id);
     };
 
     render() {

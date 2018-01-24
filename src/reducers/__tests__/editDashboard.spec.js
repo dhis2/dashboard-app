@@ -96,6 +96,7 @@ describe('editDashboard reducer', () => {
             initialState.dashboardItems.length
         );
 
+        //check for pure function
         expect(initialState.name).toEqual('My pony dashboard');
     });
 
@@ -112,6 +113,7 @@ describe('editDashboard reducer', () => {
             initialState.dashboardItems.length
         );
 
+        //check for pure function
         expect(initialState.description).toEqual(
             'My pony dashboard description'
         );
@@ -137,21 +139,31 @@ describe('editDashboard reducer', () => {
         });
 
         expect(actualState).toMatchObject(expectedState);
+
+        //check for pure function
+        expect(initialState.dashboardItems.length).toEqual(2);
     });
 
-    it('should be a pure function', () => {
-        reducer(initialState, {
-            type: actionTypes.RECEIVED_EDIT_DASHBOARD,
-            value: newState,
+    it('should remove a dashboard item', () => {
+        const removeIdx = 1;
+        const itemToRemove = initialState.dashboardItems[removeIdx];
+
+        const actualState = reducer(initialState, {
+            type: actionTypes.REMOVE_DASHBOARD_ITEM,
+            value: itemToRemove.id,
         });
 
-        // run the reducer again
-        reducer(initialState, {
-            type: actionTypes.RECEIVED_EDIT_DASHBOARD,
-            value: newState,
+        expect(actualState.dashboardItems.length).toEqual(
+            initialState.dashboardItems.length - 1
+        );
+
+        const expectedState = update(initialState, {
+            dashboardItems: { $splice: [[removeIdx, 1]] },
         });
 
-        expect(initialState.id).toEqual('ponydash');
+        expect(actualState).toMatchObject(expectedState);
+
+        //check for pure function
         expect(initialState.dashboardItems.length).toEqual(2);
     });
 });

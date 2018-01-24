@@ -126,7 +126,6 @@ export class ItemGrid extends Component {
                                     onToggleItemExpanded={
                                         this.onToggleItemExpanded
                                     }
-                                    onRemoveItem={this.onRemoveItem}
                                 />
                             </div>
                         );
