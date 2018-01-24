@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import { REPORT_TABLE, CHART } from '../../util';
 
 const style = {
     title: {
@@ -41,14 +42,14 @@ class PluginItemHeaderButtons extends Component {
                 <div style={{ paddingLeft: 10, marginRight: 4 }}>
                     {getIconButton({
                         icon: 'ViewList',
-                        targetType: 'REPORT_TABLE',
+                        targetType: REPORT_TABLE,
                         onSelectVisualization,
                     })}
                 </div>
                 <div style={{ marginRight: 4 }}>
                     {getIconButton({
                         icon: 'InsertChart',
-                        targetType: 'CHART',
+                        targetType: CHART,
                         onSelectVisualization,
                     })}
                 </div>

@@ -4,7 +4,18 @@ import Popover from 'material-ui/Popover';
 import TextField from 'material-ui/TextField';
 
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
-import { itemTypeMap } from '../util';
+import {
+    itemTypeMap,
+    REPORT_TABLE,
+    CHART,
+    MAP,
+    EVENT_CHART,
+    EVENT_REPORT,
+    USERS,
+    REPORTS,
+    RESOURCES,
+    APPS,
+} from '../util';
 import ItemSelectList from './ItemSelectList';
 
 const ItemSearchField = props => (
@@ -116,15 +127,30 @@ class ItemSelect extends React.Component {
                     }}
                 >
                     {[
-                        { id: 'CHART', title: 'Charts' },
-                        { id: 'REPORT_TABLE', title: 'Pivot tables' },
-                        { id: 'MAP', title: 'Maps' },
-                        { id: 'EVENT_CHART', title: 'Event charts' },
-                        { id: 'EVENT_REPORT', title: 'Event reports' },
-                        { id: 'USERS', title: 'Users' },
-                        { id: 'REPORTS', title: 'Standard reports' },
-                        { id: 'RESOURCES', title: 'Resources' },
-                        { id: 'APPS', title: 'Apps' },
+                        {
+                            id: REPORT_TABLE,
+                            title: itemTypeMap[REPORT_TABLE].pluralTitle,
+                        },
+                        { id: CHART, title: itemTypeMap[CHART].pluralTitle },
+                        { id: MAP, title: itemTypeMap[MAP].pluralTitle },
+                        {
+                            id: EVENT_REPORT,
+                            title: itemTypeMap[EVENT_REPORT].pluralTitle,
+                        },
+                        {
+                            id: EVENT_CHART,
+                            title: itemTypeMap[EVENT_CHART].pluralTitle,
+                        },
+                        { id: USERS, title: itemTypeMap[USERS].pluralTitle },
+                        {
+                            id: REPORTS,
+                            title: itemTypeMap[REPORTS].pluralTitle,
+                        },
+                        {
+                            id: RESOURCES,
+                            title: itemTypeMap[RESOURCES].pluralTitle,
+                        },
+                        { id: APPS, title: itemTypeMap[APPS].pluralTitle },
                     ].map(type => {
                         const itemType = itemTypeMap[type.id];
 

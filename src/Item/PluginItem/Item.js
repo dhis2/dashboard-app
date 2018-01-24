@@ -13,36 +13,13 @@ const style = {
     },
 };
 
-//TODO - do caching differently, does not belong here in Item
-let cachedIds = [];
-let cachedEdit = false;
-
-const shouldPluginLoad = (item, edit) => {
-    if (edit !== cachedEdit) {
-        cachedIds = [];
-        cachedEdit = edit;
-    }
-
-    if (cachedIds.indexOf(item.id) === -1) {
-        cachedIds.push(item.id);
-
-        return true;
-    }
-
-    return false;
-};
-
 class Item extends Component {
     state = {
         showInterpretations: false,
     };
 
     componentDidMount() {
-        const { item, editMode } = this.props;
-
-        if (shouldPluginLoad(item, editMode)) {
-            favorite.load(item);
-        }
+        favorite.load(this.props.item);
     }
 
     onToggleInterpretations = () => {

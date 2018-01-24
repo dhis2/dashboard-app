@@ -1,9 +1,5 @@
 import isObject from 'd2-utilizr/lib/isObject';
 
-// long text
-export const loremIpsum =
-    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.';
-
 // validation
 export function orNull(param) {
     return param === undefined ? null : param;
@@ -90,55 +86,73 @@ export const getDashboardItemFavorite = item =>
     item.eventReport ||
     item.eventChart;
 
-// favorite type url map
-export const favoriteTypeUrlMap = {
-    REPORT_TABLE: {
+// item types
+export const REPORT_TABLE = 'REPORT_TABLE';
+export const CHART = 'CHART';
+export const MAP = 'MAP';
+export const EVENT_REPORT = 'EVENT_REPORT';
+export const EVENT_CHART = 'EVENT_CHART';
+export const APPS = 'APPS';
+export const REPORTS = 'REPORTS';
+export const RESOURCES = 'RESOURCES';
+export const USERS = 'USERS';
+export const MESSAGES = 'MESSAGES';
+
+export const itemTypeMap = {
+    [REPORT_TABLE]: {
         endPointName: 'reportTables',
         propName: 'reportTable',
         countName: 'reportTableCount',
+        plugin: global.reportTablePlugin,
+        pluralTitle: 'Report tables',
     },
-    CHART: {
+    [CHART]: {
         endPointName: 'charts',
         propName: 'chart',
         countName: 'chartCount',
+        plugin: global.chartPlugin,
+        pluralTitle: 'Charts',
     },
-    MAP: {
+    [MAP]: {
         endPointName: 'maps',
         propName: 'map',
         countName: 'mapCount',
+        pluralTitle: 'Maps',
     },
-    EVENT_REPORT: {
+    [EVENT_REPORT]: {
         endPointName: 'eventReports',
         propName: 'eventReport',
         countName: 'eventReportCount',
+        pluralTitle: 'Event reports',
     },
-    EVENT_CHART: {
+    [EVENT_CHART]: {
         endPointName: 'eventCharts',
         propName: 'eventChart',
         countName: 'eventChartCount',
+        pluralTitle: 'Event charts',
     },
-};
-
-export const itemTypeMap = {
-    ...favoriteTypeUrlMap,
-    APPS: {
+    [APPS]: {
         endPointName: 'apps',
         propName: 'app',
         countName: 'appCount',
+        pluralTitle: 'Apps',
     },
-    REPORTS: {
+    [REPORTS]: {
         endPointName: 'reports',
         propName: 'reports',
         countName: 'reportCount',
+        pluralTitle: 'Reports',
     },
-    RESOURCES: {
+    [RESOURCES]: {
         endPointName: 'resources',
         propName: 'resources',
         countName: 'resourceCount',
+        pluralTitle: 'Resources',
     },
-    USERS: {
+    [USERS]: {
         endPointName: 'users',
         propName: 'users',
         countName: 'userCount',
+        pluralTitle: 'Users',
     },
 };
