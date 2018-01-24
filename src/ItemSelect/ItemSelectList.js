@@ -11,7 +11,7 @@ import { tAddListItemContent } from './actions';
 import { sGetEditDashboard } from '../reducers/editDashboard';
 import { getYMax } from '../ItemGrid/gridUtil';
 import {
-    APPS,
+    APP,
     CHART,
     EVENT_CHART,
     REPORT_TABLE,
@@ -24,7 +24,7 @@ import {
 
 const getIcon = type => {
     switch (type) {
-        case APPS:
+        case APP:
             return 'Extension';
         case REPORT_TABLE:
         case EVENT_REPORT:
@@ -57,7 +57,7 @@ class ItemSelectList extends Component {
         let url;
 
         switch (type) {
-            case APPS:
+            case APP:
                 url = '#';
                 break;
             case CHART:
@@ -116,6 +116,10 @@ class ItemSelectList extends Component {
         // special handling for ListItem types
         if (type.match(/(REPORTS|RESOURCES|USERS)/)) {
             tAddListItemContent(dashboardId, type, newItem);
+        } else if (type === APP) {
+            newItem.id = newItem.appKey = item.key;
+
+            acAddDashboardItem({ type, content: newItem }, yValue);
         } else {
             acAddDashboardItem({ type: type, content: newItem }, yValue);
         }
@@ -205,7 +209,7 @@ class ItemSelectList extends Component {
 
 ItemSelectList.propTypes = {
     type: PropTypes.oneOf([
-        APPS,
+        APP,
         CHART,
         EVENT_CHART,
         EVENT_REPORT,
