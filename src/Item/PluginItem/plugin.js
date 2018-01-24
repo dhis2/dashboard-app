@@ -1,14 +1,6 @@
 import { apiFetchFavorite } from '../../api';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
-import {
-    REPORT_TABLE,
-    CHART,
-    MAP,
-    EVENT_REPORT,
-    EVENT_CHART,
-    itemTypeMap,
-    extractFavoriteFromDashboardItem,
-} from '../../util';
+import { itemTypeMap, extractFavoriteFromDashboardItem } from '../../util';
 
 const url = '//localhost:8080';
 const username = 'admin';
@@ -23,7 +15,7 @@ const loadPlugin = (plugin, itemConfig) => {
     plugin.load(itemConfig);
 };
 
-const loadChart = item => {
+const loadItem = item => {
     let plugin = itemTypeMap[item.type].plugin;
 
     const favorite = extractFavoriteFromDashboardItem(item);
@@ -34,22 +26,6 @@ const loadChart = item => {
     };
 
     loadPlugin(plugin, itemConfig);
-};
-
-const loadMap = item => {
-    const favorite = extractFavoriteFromDashboardItem(item);
-    const mapItem = {
-        id: favorite.id,
-        el: getGridItemDomId(item.id),
-        type: item.type,
-        url,
-        username,
-        password,
-    };
-
-    setTimeout(() => {
-        return global.DHIS.getMap(mapItem);
-    }, 200);
 };
 
 export const getId = item => extractFavoriteFromDashboardItem(item).id;
@@ -69,18 +45,4 @@ export const reload = async (item, targetType) => {
     loadPlugin(plugin, itemConfig);
 };
 
-// Render pivot, chart, map favorites
-// TODO
-export function load(item) {
-    switch (item.type) {
-        case REPORT_TABLE:
-        case CHART:
-        case EVENT_REPORT:
-        case EVENT_CHART:
-            return loadChart(item);
-        case MAP:
-            return loadMap(item);
-        default:
-            return;
-    }
-}
+export const load = item => loadItem(item);
