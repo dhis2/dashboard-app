@@ -78,14 +78,6 @@ export const sortByDate = (items, dateProp, ascending = true) => {
 export const validateReducer = (value, defaultValue) =>
     value === undefined || value === null ? defaultValue : value;
 
-// dashboard item
-export const getDashboardItemFavorite = item =>
-    item.reportTable ||
-    item.chart ||
-    item.map ||
-    item.eventReport ||
-    item.eventChart;
-
 // item types
 export const REPORT_TABLE = 'REPORT_TABLE';
 export const CHART = 'CHART';
@@ -99,64 +91,134 @@ export const USERS = 'USERS';
 export const MESSAGES = 'MESSAGES';
 export const TEXT = 'TEXT';
 
+export const DOMAIN_TYPE_AGGREGATE = 'AGGREGATE';
+export const DOMAIN_TYPE_TRACKER = 'TRACKER';
+
+export const VISUALIZATION_TYPE_TABLE = 'TABLE';
+export const VISUALIZATION_TYPE_CHART = 'CHART';
+export const VISUALIZATION_TYPE_MAP = 'MAP';
+
 export const itemTypeMap = {
     [REPORT_TABLE]: {
+        id: REPORT_TABLE,
         endPointName: 'reportTables',
         propName: 'reportTable',
         countName: 'reportTableCount',
-        plugin: global.reportTablePlugin,
         pluralTitle: 'Report tables',
+        plugin: global.reportTablePlugin,
+        domainType: DOMAIN_TYPE_AGGREGATE,
+        visualizationType: VISUALIZATION_TYPE_TABLE,
     },
     [CHART]: {
+        id: CHART,
         endPointName: 'charts',
         propName: 'chart',
         countName: 'chartCount',
-        plugin: global.chartPlugin,
         pluralTitle: 'Charts',
+        plugin: global.chartPlugin,
+        domainType: DOMAIN_TYPE_AGGREGATE,
+        visualizationType: VISUALIZATION_TYPE_CHART,
     },
     [MAP]: {
+        id: MAP,
         endPointName: 'maps',
         propName: 'map',
         countName: 'mapCount',
         pluralTitle: 'Maps',
+        plugin: global.mapPlugin,
+        domainType: DOMAIN_TYPE_AGGREGATE,
+        visualizationType: VISUALIZATION_TYPE_MAP,
     },
     [EVENT_REPORT]: {
+        id: EVENT_REPORT,
         endPointName: 'eventReports',
         propName: 'eventReport',
         countName: 'eventReportCount',
         pluralTitle: 'Event reports',
+        plugin: global.eventReportPlugin,
+        domainType: DOMAIN_TYPE_TRACKER,
+        visualizationType: VISUALIZATION_TYPE_TABLE,
     },
     [EVENT_CHART]: {
+        id: EVENT_CHART,
         endPointName: 'eventCharts',
         propName: 'eventChart',
         countName: 'eventChartCount',
         pluralTitle: 'Event charts',
+        plugin: global.eventChartPlugin,
+        domainType: DOMAIN_TYPE_TRACKER,
+        visualizationType: VISUALIZATION_TYPE_CHART,
     },
     [APPS]: {
+        id: APPS,
         endPointName: 'apps',
         propName: 'app',
         countName: 'appCount',
         pluralTitle: 'Apps',
     },
     [REPORTS]: {
+        id: REPORTS,
         endPointName: 'reports',
         propName: 'reports',
         countName: 'reportCount',
         pluralTitle: 'Reports',
     },
     [RESOURCES]: {
+        id: RESOURCES,
         endPointName: 'resources',
         propName: 'resources',
         countName: 'resourceCount',
         pluralTitle: 'Resources',
     },
     [USERS]: {
+        id: USERS,
         endPointName: 'users',
         propName: 'users',
         countName: 'userCount',
         pluralTitle: 'Users',
     },
     [TEXT]: {
+        id: TEXT,
         propName: 'text',
     },
+};
+
+export const getItemTypeIdByVisualizationTypeAndDomainType = (
+    visualizationType,
+    domainType
+) =>
+    Object.values(itemTypeMap)
+        .filter(
+            item =>
+                item.visualizationType === visualizationType &&
+                item.domainType === domainType
+        )
+        .map(item => item.id);
+
+export const extractFavoriteFromDashboardItem = item => {
+    if (!isObject(item)) {
+        return null;
+    }
+
+    switch (item.type) {
+        case REPORT_TABLE:
+            return item.reportTable;
+        case CHART:
+            return item.chart;
+        case MAP:
+            return item.map;
+        case EVENT_REPORT:
+            return item.eventReport;
+        case EVENT_CHART:
+            return item.eventChart;
+        default:
+            return (
+                item.reportTable ||
+                item.chart ||
+                item.map ||
+                item.eventReport ||
+                item.eventChart ||
+                {}
+            );
+    }
 };

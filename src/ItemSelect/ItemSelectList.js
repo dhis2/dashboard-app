@@ -28,6 +28,7 @@ const getIcon = type => {
             return 'Extension';
         case REPORT_TABLE:
         case EVENT_REPORT:
+            return 'ViewList';
         case MAP:
             return 'Public';
         case CHART:
