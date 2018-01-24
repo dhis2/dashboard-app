@@ -6,9 +6,6 @@ class PluginItemHeaderButtons extends Component {
     render() {
         const { onSelectVisualization, onInterpretationsClick } = this.props;
 
-        const onViewTable = () => onSelectVisualization(REPORT_TABLE);
-        const onViewChart = () => onSelectVisualization(CHART);
-
         return (
             <Fragment>
                 <div
@@ -23,10 +20,16 @@ class PluginItemHeaderButtons extends Component {
                     />
                 </div>
                 <div style={{ paddingLeft: 10, marginRight: 4 }}>
-                    <ItemButton icon={'ViewList'} onClick={onViewTable} />
+                    <ItemButton
+                        icon={'ViewList'}
+                        onClick={() => onSelectVisualization(REPORT_TABLE)}
+                    />
                 </div>
                 <div style={{ marginRight: 4 }}>
-                    <ItemButton icon={'InsertChart'} onClick={onViewChart} />
+                    <ItemButton
+                        icon={'InsertChart'}
+                        onClick={() => onSelectVisualization(CHART)}
+                    />
                 </div>
                 <ItemButton icon={'Public'} onClick={() => {}} />
             </Fragment>
