@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import TextField from 'd2-ui/lib/text-field/TextField';
 import { acUpdateDashboardItem } from '../../actions/editDashboard';
-import { sGetEditDashboard } from '../../reducers/editDashboard';
+import { sGetSelectedDashboard } from '../../reducers';
 
 const TextItem = props => {
     const { item, editMode, text, acUpdateDashboardItem } = props;
@@ -37,7 +37,7 @@ const TextItem = props => {
 export default connect(
     (state, ownProps) => ({
         text:
-            sGetEditDashboard(state).dashboardItems.find(
+            sGetSelectedDashboard(state).dashboardItems.find(
                 item => item.id === ownProps.item.id
             ).text || '',
     }),
