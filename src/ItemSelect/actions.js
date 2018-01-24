@@ -1,5 +1,6 @@
 import { sGetEditDashboard } from '../reducers/editDashboard';
 import { getYMax } from '../ItemGrid/gridUtil';
+import { itemTypeMap } from '../util';
 import {
     acAddDashboardItem,
     acUpdateDashboardItem,
@@ -10,7 +11,7 @@ export const tAddListItemContent = (dashboardId, type, content) => (
     getState
 ) => {
     const state = getState();
-    const listItemType = type.toLowerCase();
+    const listItemType = itemTypeMap[type].propName;
     const dashboardItems = sGetEditDashboard(state).dashboardItems;
     const dashboardItemIndex = dashboardItems.findIndex(
         item => item.type === type

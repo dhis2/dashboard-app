@@ -5,18 +5,15 @@ import { List, ListItem as MUIListItem } from 'material-ui/List';
 import Button from 'd2-ui/lib/button/Button';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import ItemHeader from '../ItemHeader';
-import { sGetEditDashboard } from '../../reducers/editDashboard';
 import { REPORTS, RESOURCES, USERS, itemTypeMap, orArray } from '../../util';
 import { tRemoveListItemContent } from './actions';
 
-const getItemTitle = (item, itemTypeMap) => {
-    const type = itemTypeMap[item.type].endPointName;
-
-    return type.charAt(0).toUpperCase() + type.slice(1);
+const getItemTitle = item => {
+    return itemTypeMap[item.type].pluralTitle;
 };
 
-const getContentItems = (item, itemTypeMap) =>
-    orArray(item[itemTypeMap[item.type].endPointName]).filter(
+const getContentItems = item =>
+    orArray(item[itemTypeMap[item.type].propName]).filter(
         (item, index, array) =>
             array.findIndex(el => el.id === item.id) === index
     );
@@ -49,11 +46,11 @@ const ListItem = (props, context) => {
     const { item, editMode, tRemoveListItemContent } = props;
 
     // avoid showing duplicates
-    const contentItems = getContentItems(item, itemTypeMap);
+    const contentItems = getContentItems(item);
 
     return (
         <Fragment>
-            <ItemHeader title={getItemTitle(item, itemTypeMap)} />
+            <ItemHeader title={getItemTitle(item)} />
             <List className="dashboard-item-content">
                 {contentItems.map(contentItem => (
                     <MUIListItem
@@ -90,13 +87,8 @@ ListItem.contextTypes = {
     baseUrl: PropTypes.string,
 };
 
-const ListItemContainer = connect(
-    state => ({
-        editDashboard: sGetEditDashboard(state),
-    }),
-    {
-        tRemoveListItemContent,
-    }
-)(ListItem);
+const ListItemContainer = connect(null, {
+    tRemoveListItemContent,
+})(ListItem);
 
 export default ListItemContainer;
