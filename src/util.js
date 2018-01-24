@@ -92,7 +92,7 @@ export const CHART = 'CHART';
 export const MAP = 'MAP';
 export const EVENT_REPORT = 'EVENT_REPORT';
 export const EVENT_CHART = 'EVENT_CHART';
-export const APPS = 'APPS';
+export const APP = 'APP';
 export const REPORTS = 'REPORTS';
 export const RESOURCES = 'RESOURCES';
 export const USERS = 'USERS';
@@ -132,7 +132,7 @@ export const itemTypeMap = {
         countName: 'eventChartCount',
         pluralTitle: 'Event charts',
     },
-    [APPS]: {
+    [APP]: {
         endPointName: 'apps',
         propName: 'app',
         countName: 'appCount',

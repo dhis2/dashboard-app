@@ -14,7 +14,7 @@ import {
     USERS,
     REPORTS,
     RESOURCES,
-    APPS,
+    APP,
 } from '../util';
 import ItemSelectList from './ItemSelectList';
 import ItemSelectStatic from './ItemSelectStatic';
@@ -158,7 +158,7 @@ class ItemSelect extends React.Component {
                                 id: RESOURCES,
                                 title: itemTypeMap[RESOURCES].pluralTitle,
                             },
-                            { id: APPS, title: itemTypeMap[APPS].pluralTitle },
+                            { id: APP, title: itemTypeMap[APP].pluralTitle },
                         ].map(type => {
                             const itemType = itemTypeMap[type.id];
 

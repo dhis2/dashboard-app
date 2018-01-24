@@ -5,7 +5,9 @@ import MessagesItem from './MessagesItem/Item';
 import NotSupportedItem from './NotSupportedItem/Item';
 import ListItem from './ListItem/Item';
 import TextItem from './TextItem/Item';
+import AppItem from './AppItem/Item';
 import {
+    APP,
     REPORT_TABLE,
     CHART,
     MAP,
@@ -34,6 +36,8 @@ const getGridItem = type => {
             return ListItem;
         case TEXT:
             return TextItem;
+        case APP:
+            return AppItem;
         default:
             return NotSupportedItem;
     }
