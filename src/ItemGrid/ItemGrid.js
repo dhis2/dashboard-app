@@ -101,6 +101,7 @@ export class ItemGrid extends Component {
                     compactType={GRID_COMPACT_TYPE}
                     isDraggable={edit}
                     isResizable={edit}
+                    draggableCancel="input,textarea"
                 >
                     {items.map(item => {
                         return (

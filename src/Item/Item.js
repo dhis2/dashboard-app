@@ -4,6 +4,7 @@ import PluginItem from './PluginItem/Item';
 import MessagesItem from './MessagesItem/Item';
 import NotSupportedItem from './NotSupportedItem/Item';
 import ListItem from './ListItem/Item';
+import TextItem from './TextItem/Item';
 import {
     REPORT_TABLE,
     CHART,
@@ -14,6 +15,7 @@ import {
     REPORTS,
     RESOURCES,
     USERS,
+    TEXT,
 } from '../util';
 
 const getGridItem = type => {
@@ -30,6 +32,8 @@ const getGridItem = type => {
         case RESOURCES:
         case USERS:
             return ListItem;
+        case TEXT:
+            return TextItem;
         default:
             return NotSupportedItem;
     }
