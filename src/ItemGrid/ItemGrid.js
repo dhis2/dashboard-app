@@ -95,6 +95,8 @@ export class ItemGrid extends Component {
             });
         });
 
+        const onRemoveItemWrapper = id => () => this.onRemoveItem(id);
+
         return (
             <div className="grid-wrapper">
                 <ModalLoadingMask isLoading={isLoading} />
@@ -115,9 +117,7 @@ export class ItemGrid extends Component {
                             <div key={item.i} className={item.type}>
                                 {edit ? (
                                     <DeleteItemButton
-                                        onClick={() =>
-                                            this.onRemoveItem(item.id)
-                                        }
+                                        onClick={onRemoveItemWrapper(item.id)}
                                     />
                                 ) : null}
                                 <Item
