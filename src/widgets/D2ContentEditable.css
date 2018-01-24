@@ -4,6 +4,7 @@
     font-weight: 400;
 }
 
-[contenteditable='true'] {
+.editable-text:focus {
+    outline: 0 none;
     cursor: text;
 }

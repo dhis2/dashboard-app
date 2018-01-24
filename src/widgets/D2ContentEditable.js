@@ -21,7 +21,7 @@ const D2ContentEditable = props => (
     <ContentEditable
         ref={c => (this.component = c)}
         className={props.className}
-        html={props.name}
+        html={props.text}
         onKeyDown={e => handleKeyDown(e, props.onBlur)}
         disabled={props.disabled}
         disable={'' + props.disabled}
@@ -32,7 +32,7 @@ const D2ContentEditable = props => (
 
 D2ContentEditable.propTypes = {
     className: PropTypes.string,
-    name: PropTypes.string,
+    text: PropTypes.string,
     onBlur: PropTypes.func,
     disabled: PropTypes.bool,
     placeholder: PropTypes.string,
@@ -41,7 +41,7 @@ D2ContentEditable.propTypes = {
 
 D2ContentEditable.defaultProps = {
     className: '',
-    name: '',
+    text: '',
     onBlur: null,
     disabled: false,
     placeholder: '',

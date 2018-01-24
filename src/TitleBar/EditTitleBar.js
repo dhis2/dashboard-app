@@ -20,11 +20,11 @@ const EditTitleBar = ({
     return (
         <Fragment>
             <span>Currently editing</span>
-            <div className="titlebar" style={titleBarEdit}>
+            <div style={titleBarEdit}>
                 <div style={style.title}>
                     <D2ContentEditable
-                        className="dashboard-title"
-                        name={name}
+                        className="dashboard-title editable-text"
+                        text={name}
                         disabled={false}
                         placeholder={'Add title here'}
                         onChange={onChangeTitle}
@@ -32,9 +32,10 @@ const EditTitleBar = ({
                 </div>
                 <ItemSelect />
             </div>
-            <div className="description" style={style.description}>
+            <div style={style.description}>
                 <D2ContentEditable
-                    name={description}
+                    className="dashboard-description editable-text"
+                    text={description}
                     disabled={false}
                     placeholder={'Add description here'}
                     onChange={onChangeDescription}
