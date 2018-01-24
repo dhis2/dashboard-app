@@ -70,7 +70,7 @@ export const acUpdateDashboardItem = item => ({
     value: item,
 });
 
-export const acRemoveDashboardItem = item => ({
+export const acRemoveDashboardItem = value => ({
     type: actionTypes.REMOVE_DASHBOARD_ITEM,
-    value: item,
+    value,
 });

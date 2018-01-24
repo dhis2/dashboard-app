@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 
 import ItemHeader from '../ItemHeader';
 import ItemFooter from './ItemFooter';
+import ItemButton from '../ItemButton';
 import PluginItemHeaderButtons from './ItemHeaderButtons';
 
 import * as favorite from './plugin';
@@ -31,6 +32,10 @@ class Item extends Component {
         favorite.reload(this.props.item, targetType);
     };
 
+    onRemoveItem = () => {
+        this.props.onRemoveItem(this.props.item.id);
+    };
+
     render() {
         const item = this.props.item;
         const title = favorite.getName(item);
@@ -41,7 +46,9 @@ class Item extends Component {
                 onSelectVisualization={this.onSelectVisualization}
                 onInterpretationsClick={this.onToggleInterpretations}
             />
-        ) : null;
+        ) : (
+            <ItemButton icon={'Delete'} onClick={this.onRemoveItem} />
+        );
 
         return (
             <Fragment>

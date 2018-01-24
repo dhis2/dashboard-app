@@ -5,7 +5,10 @@ import ReactGridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 
-import { acUpdateDashboardLayout } from '../actions/editDashboard';
+import {
+    acUpdateDashboardLayout,
+    acRemoveDashboardItem,
+} from '../actions/editDashboard';
 
 import './ItemGrid.css';
 import { Item } from '../Item/Item';
@@ -55,6 +58,10 @@ export class ItemGrid extends Component {
         expandedItems[clickedId] = !isExpanded;
 
         this.setState({ expandedItems });
+    };
+
+    onRemoveItem = clickedId => {
+        this.props.acRemoveDashboardItem(clickedId);
     };
 
     componentWillReceiveProps(nextProps) {
@@ -111,6 +118,7 @@ export class ItemGrid extends Component {
                                     onToggleItemExpanded={
                                         this.onToggleItemExpanded
                                     }
+                                    onRemoveItem={this.onRemoveItem}
                                 />
                             </div>
                         );
@@ -154,6 +162,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     acUpdateDashboardLayout,
+    acRemoveDashboardItem,
 };
 
 const mergeProps = (stateProps, dispatchProps) => {

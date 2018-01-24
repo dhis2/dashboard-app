@@ -43,6 +43,7 @@ export const Item = props => {
             item={props.item}
             editMode={props.editMode}
             onToggleItemExpanded={props.onToggleItemExpanded}
+            onRemoveItem={props.onRemoveItem}
         />
     );
 };
