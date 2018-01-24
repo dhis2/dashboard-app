@@ -97,6 +97,7 @@ export const REPORTS = 'REPORTS';
 export const RESOURCES = 'RESOURCES';
 export const USERS = 'USERS';
 export const MESSAGES = 'MESSAGES';
+export const TEXT = 'TEXT';
 
 export const itemTypeMap = {
     [REPORT_TABLE]: {
@@ -154,5 +155,8 @@ export const itemTypeMap = {
         propName: 'users',
         countName: 'userCount',
         pluralTitle: 'Users',
+    },
+    [TEXT]: {
+        propName: 'text',
     },
 };
