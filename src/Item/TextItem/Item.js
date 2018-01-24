@@ -19,15 +19,17 @@ const TextItem = props => {
 
     return (
         <Fragment>
-            {editMode ? (
-                <TextField
-                    value={text}
-                    placeholder={'Add text here'}
-                    onChange={onChangeText}
-                />
-            ) : (
-                text
-            )}
+            <div className="dashboard-item-content">
+                {editMode ? (
+                    <TextField
+                        value={text}
+                        placeholder={'Add text here'}
+                        onChange={onChangeText}
+                    />
+                ) : (
+                    text
+                )}
+            </div>
         </Fragment>
     );
 };
