@@ -1,5 +1,5 @@
 import React from 'react';
-import ItemButton from '../Item/ItemButton';
+import ItemHeaderButton from '../Item/ItemHeaderButton';
 import { colors } from '../colors';
 
 const style = {
@@ -10,8 +10,8 @@ const style = {
     fill: colors.red,
 };
 
-const DeleteItemButton = ({ onClick }) => (
-    <ItemButton style={style} onClick={onClick} icon={'Delete'} />
+const DeleteItemHeaderButton = ({ onClick }) => (
+    <ItemHeaderButton style={style} onClick={onClick} icon={'Delete'} />
 );
 
-export default DeleteItemButton;
+export default DeleteItemHeaderButton;
