@@ -1,5 +1,6 @@
 /** @module reducers/editDashboard */
 import update from 'immutability-helper';
+import { orArray } from '../util';
 
 export const actionTypes = {
     RECEIVED_EDIT_DASHBOARD: 'RECEIVED_EDIT_DASHBOARD',
@@ -8,6 +9,7 @@ export const actionTypes = {
     ADD_DASHBOARD_ITEM: 'ADD_DASHBOARD_ITEM',
     REMOVE_DASHBOARD_ITEM: 'REMOVE_DASHBOARD_ITEM',
     UPDATE_DASHBOARD_ITEM: 'UPDATE_DASHBOARD_ITEM',
+    RECEIVED_DASHBOARD_LAYOUT: 'RECEIVED_DASHBOARD_LAYOUT',
 };
 
 export default (state = {}, action) => {
@@ -42,6 +44,19 @@ export default (state = {}, action) => {
             }
 
             return state;
+        }
+        case actionTypes.RECEIVED_DASHBOARD_LAYOUT: {
+            const stateItems = orArray(state.dashboardItems);
+
+            const newStateItems = action.value.map(({ x, y, w, h, i }) => {
+                const stateItem = stateItems.find(si => si.id === i);
+
+                return Object.assign({}, stateItem, { w, h, x, y });
+            });
+
+            return update(state, {
+                dashboardItems: { $set: newStateItems },
+            });
         }
         case actionTypes.UPDATE_DASHBOARD_ITEM: {
             const dashboardItem = action.value;

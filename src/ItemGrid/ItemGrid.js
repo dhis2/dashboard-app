@@ -5,6 +5,8 @@ import ReactGridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 
+import { acUpdateDashboardLayout } from '../actions/editDashboard';
+
 import './ItemGrid.css';
 import { Item } from '../Item/Item';
 
@@ -61,8 +63,8 @@ export class ItemGrid extends Component {
         }
     }
 
-    onLayoutChange = (a, b, c) => {
-        //console.log('RGL change', a, b, c);
+    onLayoutChange = newLayout => {
+        this.props.acUpdateDashboardLayout(newLayout);
     };
 
     render() {
@@ -150,10 +152,15 @@ const mapStateToProps = state => {
     };
 };
 
+const mapDispatchToProps = {
+    acUpdateDashboardLayout,
+};
+
 const mergeProps = (stateProps, dispatchProps) => {
     const validItems = orArray(stateProps.dashboardItems).filter(hasShape);
 
     return {
+        ...dispatchProps,
         edit: stateProps.edit,
         isLoading: stateProps.isLoading,
         dashboardItems: validItems,
@@ -162,6 +169,8 @@ const mergeProps = (stateProps, dispatchProps) => {
     };
 };
 
-const ItemGridCt = connect(mapStateToProps, null, mergeProps)(ItemGrid);
+const ItemGridCt = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
+    ItemGrid
+);
 
 export default ItemGridCt;

@@ -7,10 +7,52 @@ describe('editDashboard reducer', () => {
         name: 'My pony dashboard',
         description: 'My pony dashboard description',
         dashboardItems: [
-            { id: 'int0', type: 'FLUTTERSHY' },
-            { id: 'int1', type: 'RARITY' },
+            {
+                id: 'd0',
+                type: 'FLUTTERSHY',
+                w: 4,
+                h: 4,
+                x: 4,
+                y: 4,
+                shape: 'elegant',
+            },
+            {
+                id: 'd1',
+                type: 'RARITY',
+                w: 4,
+                h: 4,
+                x: 4,
+                y: 4,
+                shape: 'sloppy',
+            },
         ],
     };
+
+    it('should set the dashboard layout', () => {
+        const shape0 = { w: 7, h: 7, x: 7, y: 7 };
+        const shape1 = { w: 9, h: 9, x: 9, y: 9 };
+        const newLayout = [
+            Object.assign({}, { i: 'd0' }, shape0),
+            Object.assign({}, { i: 'd1' }, shape1),
+        ];
+
+        const actualState = reducer(initialState, {
+            type: actionTypes.RECEIVED_DASHBOARD_LAYOUT,
+            value: newLayout,
+        });
+
+        expect(actualState.id).toEqual('ponydash');
+        expect(actualState.name).toEqual('My pony dashboard');
+
+        const expectedItem = update(initialState.dashboardItems[0], {
+            $merge: shape0,
+        });
+
+        expect(actualState.dashboardItems[0]).toMatchObject(expectedItem);
+
+        //check for pure function
+        expect(initialState.dashboardItems[0].w).toEqual(4);
+    });
 
     const newState = {
         id: 'scarydash',
