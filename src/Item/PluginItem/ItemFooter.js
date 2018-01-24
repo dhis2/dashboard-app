@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Interpretations from './Interpretations/Interpretations';
 import { colors } from '../../colors';
 
-import { orArray } from '../../util';
+import { orArray, REPORT_TABLE, CHART } from '../../util';
 
 const style = {
     container: {
@@ -18,10 +18,10 @@ const style = {
 
 const extractInterpretations = item => {
     switch (item.type) {
-        case 'CHART':
-            return item.chart.interpretations;
-        case 'REPORT_TABLE':
+        case REPORT_TABLE:
             return item.reportTable.interpretations;
+        case CHART:
+            return item.chart.interpretations;
         default:
             return [];
     }
@@ -29,10 +29,10 @@ const extractInterpretations = item => {
 
 const extractObjectId = item => {
     switch (item.type) {
-        case 'CHART':
-            return item.chart.id;
-        case 'REPORT_TABLE':
+        case REPORT_TABLE:
             return item.reportTable.id;
+        case CHART:
+            return item.chart.id;
         default:
             return [];
     }

@@ -16,13 +16,25 @@ import './App.css';
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
-// TODO TMP, add to plugin instead
+// TODO, add to plugin instead
 if (global.reportTablePlugin) {
     global.reportTablePlugin.type = 'REPORT_TABLE';
 }
 
 if (global.chartPlugin) {
     global.chartPlugin.type = 'CHART';
+}
+
+if (global.mapPlugin) {
+    global.mapPlugin.type = 'MAP';
+}
+
+if (global.eventReportPlugin) {
+    global.eventReportPlugin.type = 'EVENT_REPORT';
+}
+
+if (global.eventChartPlugin) {
+    global.eventChartPlugin.type = 'EVENT_CHART';
 }
 
 // App

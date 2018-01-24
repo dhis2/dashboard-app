@@ -2,16 +2,11 @@ import isObject from 'd2-utilizr/lib/isObject';
 
 import { apiFetchFavorite } from '../../api';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
+import { REPORT_TABLE, CHART, MAP, itemTypeMap } from '../../util';
 
 const url = '//localhost:8080';
 const username = 'admin';
 const password = 'district';
-
-// Plugin type map
-const pluginTypeMap = {
-    REPORT_TABLE: global.reportTablePlugin,
-    CHART: global.chartPlugin,
-};
 
 // Get favorite object from plugin item
 const getFavoriteObjectFromItem = item => {
@@ -38,7 +33,7 @@ const loadPlugin = (plugin, itemConfig) => {
 };
 
 const loadChart = item => {
-    let plugin = pluginTypeMap[item.type];
+    let plugin = itemTypeMap[item.type].plugin;
 
     const favorite = getFavoriteObjectFromItem(item);
     const itemConfig = {
@@ -78,7 +73,7 @@ export const reload = async (item, targetType) => {
         hideTitle: !favorite.title,
     };
 
-    let plugin = pluginTypeMap[targetType];
+    let plugin = itemTypeMap[targetType].plugin;
 
     loadPlugin(plugin, itemConfig);
 };
@@ -87,10 +82,10 @@ export const reload = async (item, targetType) => {
 // TODO
 export function load(item) {
     switch (item.type) {
-        case 'CHART':
-        case 'REPORT_TABLE':
+        case REPORT_TABLE:
+        case CHART:
             return loadChart(item);
-        case 'MAP':
+        case MAP:
             return loadMap(item);
         default:
             return;
