@@ -12,6 +12,7 @@ import {
 
 import './ItemGrid.css';
 import { Item } from '../Item/Item';
+import DeleteItemButton from './DeleteItemButton';
 
 import {
     GRID_ROW_HEIGHT,
@@ -112,6 +113,13 @@ export class ItemGrid extends Component {
                     {items.map(item => {
                         return (
                             <div key={item.i} className={item.type}>
+                                {edit ? (
+                                    <DeleteItemButton
+                                        onClick={() =>
+                                            this.onRemoveItem(item.id)
+                                        }
+                                    />
+                                ) : null}
                                 <Item
                                     item={item}
                                     editMode={edit}

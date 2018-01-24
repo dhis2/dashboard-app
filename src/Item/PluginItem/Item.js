@@ -46,9 +46,7 @@ class Item extends Component {
                 onSelectVisualization={this.onSelectVisualization}
                 onInterpretationsClick={this.onToggleInterpretations}
             />
-        ) : (
-            <ItemButton icon={'Delete'} onClick={this.onRemoveItem} />
-        );
+        ) : null;
 
         return (
             <Fragment>
