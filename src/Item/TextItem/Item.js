@@ -9,7 +9,6 @@ const TextItem = props => {
     const { item, editMode, text, acUpdateDashboardItem } = props;
 
     const onChangeText = text => {
-        console.log('change text');
         const updatedItem = {
             ...item,
             text,
@@ -35,9 +34,10 @@ const TextItem = props => {
 
 export default connect(
     (state, ownProps) => ({
-        text: sGetEditDashboard(state).dashboardItems.find(
-            item => item.id === ownProps.item.id
-        ).text,
+        text:
+            sGetEditDashboard(state).dashboardItems.find(
+                item => item.id === ownProps.item.id
+            ).text || '',
     }),
     {
         acUpdateDashboardItem,
