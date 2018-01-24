@@ -5,10 +5,14 @@ import ReactGridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 
-import { acUpdateDashboardLayout } from '../actions/editDashboard';
+import {
+    acUpdateDashboardLayout,
+    acRemoveDashboardItem,
+} from '../actions/editDashboard';
 
 import './ItemGrid.css';
 import { Item } from '../Item/Item';
+import DeleteItemButton from './DeleteItemButton';
 
 import {
     GRID_ROW_HEIGHT,
@@ -57,6 +61,10 @@ export class ItemGrid extends Component {
         this.setState({ expandedItems });
     };
 
+    onRemoveItem = clickedId => {
+        this.props.acRemoveDashboardItem(clickedId);
+    };
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.edit) {
             this.setState({ expandedItems: {} });
@@ -87,6 +95,8 @@ export class ItemGrid extends Component {
             });
         });
 
+        const onRemoveItemWrapper = id => () => this.onRemoveItem(id);
+
         return (
             <div className="grid-wrapper">
                 <ModalLoadingMask isLoading={isLoading} />
@@ -106,6 +116,11 @@ export class ItemGrid extends Component {
                     {items.map(item => {
                         return (
                             <div key={item.i} className={item.type}>
+                                {edit ? (
+                                    <DeleteItemButton
+                                        onClick={onRemoveItemWrapper(item.id)}
+                                    />
+                                ) : null}
                                 <Item
                                     item={item}
                                     editMode={edit}
@@ -155,6 +170,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     acUpdateDashboardLayout,
+    acRemoveDashboardItem,
 };
 
 const mergeProps = (stateProps, dispatchProps) => {

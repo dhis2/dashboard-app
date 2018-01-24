@@ -29,10 +29,10 @@ export default (state = {}, action) => {
                 dashboardItems: { $push: [action.value] },
             });
         case actionTypes.REMOVE_DASHBOARD_ITEM: {
-            const dashboardItem = action.value;
+            const idToRemove = action.value;
 
             const dashboardItemIndex = state.dashboardItems.findIndex(
-                item => item.id === dashboardItem.id
+                item => item.id === idToRemove
             );
 
             if (dashboardItemIndex > -1) {
