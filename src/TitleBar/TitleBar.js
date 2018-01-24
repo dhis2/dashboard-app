@@ -17,6 +17,10 @@ const style = {
         marginRight: 20,
         position: 'relative',
         top: -2,
+        fontSize: 21,
+        fontWeight: 500,
+        color: '#333333',
+        minWidth: 80,
     },
     description: {
         paddingTop: 5,
@@ -57,11 +61,11 @@ const mapStateToProps = state => {
     );
     return {
         name: selectedDashboard.name,
-        description: selectedDashboard.description || 'No description',
+        description: selectedDashboard.description,
         edit: fromReducers.fromSelected.sGetSelectedEdit(state),
     };
 };
 
-const TitleBarCt = connect(mapStateToProps, null)(TitleBar);
+const TitleBarCt = connect(mapStateToProps)(TitleBar);
 
 export default TitleBarCt;

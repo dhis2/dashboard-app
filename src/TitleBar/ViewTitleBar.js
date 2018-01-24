@@ -9,6 +9,8 @@ import * as fromReducers from '../reducers';
 import { fromEditDashboard, fromSelected } from '../actions';
 import { orObject } from '../util';
 
+const NO_DESCRIPTION = 'No description';
+
 const viewStyle = {
     textLink: {
         fontSize: 15,
@@ -25,6 +27,9 @@ const viewStyle = {
     },
     titleBarLink: {
         marginLeft: 20,
+    },
+    noDescription: {
+        color: '#888',
     },
 };
 
@@ -43,7 +48,7 @@ const ViewTitleBar = ({
         <Fragment>
             <div className="titlebar" style={styles.titleBar}>
                 <div style={styles.title}>
-                    <div className="dashboard-title">{name}</div>
+                    <div style={{ userSelect: 'text' }}>{name}</div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <div style={styles.titleBarIcon}>
@@ -70,8 +75,15 @@ const ViewTitleBar = ({
                 </div>
             </div>
             {showDescription ? (
-                <div className="description" style={styles.description}>
-                    {description}
+                <div
+                    className="dashboard-description"
+                    style={Object.assign(
+                        {},
+                        styles.description,
+                        !description ? styles.noDescription : {}
+                    )}
+                >
+                    {description || NO_DESCRIPTION}
                 </div>
             ) : null}
         </Fragment>
