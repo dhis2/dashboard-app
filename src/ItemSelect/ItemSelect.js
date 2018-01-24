@@ -17,6 +17,7 @@ import {
     APPS,
 } from '../util';
 import ItemSelectList from './ItemSelectList';
+import ItemSelectStatic from './ItemSelectStatic';
 
 const ItemSearchField = props => (
     <div style={{ display: 'flex', alignItems: 'center', width: '400px' }}>
@@ -127,52 +128,64 @@ class ItemSelect extends React.Component {
                     }}
                 >
                     {[
-                        {
-                            id: REPORT_TABLE,
-                            title: itemTypeMap[REPORT_TABLE].pluralTitle,
-                        },
-                        { id: CHART, title: itemTypeMap[CHART].pluralTitle },
-                        { id: MAP, title: itemTypeMap[MAP].pluralTitle },
-                        {
-                            id: EVENT_REPORT,
-                            title: itemTypeMap[EVENT_REPORT].pluralTitle,
-                        },
-                        {
-                            id: EVENT_CHART,
-                            title: itemTypeMap[EVENT_CHART].pluralTitle,
-                        },
-                        { id: USERS, title: itemTypeMap[USERS].pluralTitle },
-                        {
-                            id: REPORTS,
-                            title: itemTypeMap[REPORTS].pluralTitle,
-                        },
-                        {
-                            id: RESOURCES,
-                            title: itemTypeMap[RESOURCES].pluralTitle,
-                        },
-                        { id: APPS, title: itemTypeMap[APPS].pluralTitle },
-                    ].map(type => {
-                        const itemType = itemTypeMap[type.id];
+                        [
+                            {
+                                id: REPORT_TABLE,
+                                title: itemTypeMap[REPORT_TABLE].pluralTitle,
+                            },
+                            {
+                                id: CHART,
+                                title: itemTypeMap[CHART].pluralTitle,
+                            },
+                            { id: MAP, title: itemTypeMap[MAP].pluralTitle },
+                            {
+                                id: EVENT_REPORT,
+                                title: itemTypeMap[EVENT_REPORT].pluralTitle,
+                            },
+                            {
+                                id: EVENT_CHART,
+                                title: itemTypeMap[EVENT_CHART].pluralTitle,
+                            },
+                            {
+                                id: USERS,
+                                title: itemTypeMap[USERS].pluralTitle,
+                            },
+                            {
+                                id: REPORTS,
+                                title: itemTypeMap[REPORTS].pluralTitle,
+                            },
+                            {
+                                id: RESOURCES,
+                                title: itemTypeMap[RESOURCES].pluralTitle,
+                            },
+                            { id: APPS, title: itemTypeMap[APPS].pluralTitle },
+                        ].map(type => {
+                            const itemType = itemTypeMap[type.id];
 
-                        if (
-                            this.state.items &&
-                            this.state.items[itemType.countName] > 0
-                        ) {
-                            return (
-                                <ItemSelectList
-                                    key={type.id}
-                                    type={type.id}
-                                    title={type.title}
-                                    items={
-                                        this.state.items[itemType.endPointName]
-                                    }
-                                    onChangeItemsLimit={this.fetchItems}
-                                />
-                            );
-                        } else {
-                            return null;
-                        }
-                    })}
+                            if (
+                                this.state.items &&
+                                this.state.items[itemType.countName] > 0
+                            ) {
+                                return (
+                                    <ItemSelectList
+                                        key={type.id}
+                                        type={type.id}
+                                        title={type.title}
+                                        items={
+                                            this.state.items[
+                                                itemType.endPointName
+                                            ]
+                                        }
+                                        onChangeItemsLimit={this.fetchItems}
+                                    />
+                                );
+                            } else {
+                                return null;
+                            }
+                        }),
+                        // Static items
+                        <ItemSelectStatic key="STATIC" />,
+                    ]}
                 </Popover>
             </Fragment>
         );
