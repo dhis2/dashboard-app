@@ -14,8 +14,9 @@ import {
 
 import * as fromActions from '../actions';
 import * as fromReducers from '../reducers';
-import { orObject } from '../util';
+import { orObject, orArray } from '../util';
 import { blue800 } from '../../../d2-ui/node_modules/material-ui/styles/colors';
+import { sGetSelectedId } from '../reducers/selected';
 
 const dashboardBarStyles = {
     scrollWrapper: {
@@ -34,13 +35,14 @@ const getInnerHeight = (isExpanded, rows) =>
 const getOuterHeight = (isExpanded, rows) =>
     getInnerHeight(isExpanded, rows) + CONTROL_BAR_OUTER_HEIGHT_DIFF;
 
-const onDashboardSelectWrapper = (id, onClick) => () => onClick(id);
+const onDashboardSelectWrapper = (id, onClick) => () => id && onClick(id);
 
 const DashboardsBar = ({
     controlsStyle,
     dashboards,
     name,
     rows,
+    selectedId,
     isExpanded,
     onChangeHeight,
     onToggleExpanded,
@@ -76,7 +78,14 @@ const DashboardsBar = ({
                             }}
                             onClick={onNewClick}
                         />
-                        <Filter name={name} onChangeName={onChangeFilterName} />
+                        <Filter
+                            name={name}
+                            onChangeName={onChangeFilterName}
+                            onKeypressEnter={onDashboardSelectWrapper(
+                                orObject(orArray(dashboards)[0]).id,
+                                onDashboardSelect
+                            )}
+                        />
                     </Fragment>
                 </div>
                 <div style={style.rightControls}>
@@ -97,6 +106,9 @@ const DashboardsBar = ({
                         key={dashboard.id}
                         label={dashboard.name}
                         avatar={dashboard.starred ? 'star' : null}
+                        color={
+                            dashboard.id === selectedId ? 'primary' : undefined
+                        }
                         onClick={onDashboardSelectWrapper(
                             dashboard.id,
                             onDashboardSelect
@@ -131,6 +143,7 @@ const mapStateToProps = state => {
         dashboards: fromDashboards.sGetFromState(state),
         name: fromFilter.sGetFilterName(state),
         rows: (state.controlBar && state.controlBar.rows) || 1,
+        selectedId: sGetSelectedId(state),
         isExpanded:
             state.controlBar.expanded &&
             state.controlBar.rows < EXPANDED_ROW_COUNT,

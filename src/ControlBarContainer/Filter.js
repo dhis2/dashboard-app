@@ -8,6 +8,7 @@ import isEmpty from 'd2-utilizr/lib/isEmpty';
 
 import * as fromReducers from '../reducers';
 
+const KEYCODE_ENTER = 13;
 const KEYCODE_ESCAPE = 27;
 
 const styles = {
@@ -65,6 +66,17 @@ class Filter extends Component {
     }
 
     handleKeyUp(event) {
+        switch (event.keyCode) {
+            case KEYCODE_ENTER:
+                this.props.onKeypressEnter();
+                break;
+            case KEYCODE_ESCAPE:
+                this.props.onChangeName();
+                break;
+            default:
+                break;
+        }
+
         if (event.keyCode === KEYCODE_ESCAPE) {
             this.props.onChangeName();
         }
