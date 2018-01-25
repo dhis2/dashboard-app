@@ -27,6 +27,11 @@ export const acSetDashboardDescription = value => ({
     value,
 });
 
+export const acUpdateDashboardLayout = value => ({
+    type: actionTypes.RECEIVED_DASHBOARD_LAYOUT,
+    value,
+});
+
 export const acAddDashboardItem = (item, yValue) => {
     const type = item.type;
     delete item.type;
