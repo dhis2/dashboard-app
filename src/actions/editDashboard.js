@@ -37,6 +37,8 @@ export const acAddDashboardItem = (item, yValue) => {
     delete item.type;
     const itemPropName = itemTypeMap[type].propName;
 
+    console.log('itemPropName and value', itemPropName, item.content);
+
     return {
         type: actionTypes.ADD_DASHBOARD_ITEM,
         value: {
