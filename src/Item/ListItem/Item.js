@@ -5,6 +5,7 @@ import { List, ListItem as MUIListItem } from 'material-ui/List';
 import IconButton from 'material-ui/IconButton';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import ItemHeader from '../ItemHeader';
+import Line from '../../widgets/Line';
 import { REPORTS, RESOURCES, USERS, itemTypeMap, orArray } from '../../util';
 import { tRemoveListItemContent } from './actions';
 import { colors } from '../../colors';
@@ -50,8 +51,6 @@ const ListItem = (props, context) => {
     const contentItems = getContentItems(item);
 
     const primaryText = contentItem => {
-        console.log('contentItem', contentItem);
-
         const deleteButton = (
             <IconButton
                 style={{
@@ -89,6 +88,7 @@ const ListItem = (props, context) => {
     return (
         <Fragment>
             <ItemHeader title={getItemTitle(item)} />
+            <Line />
             <List className="dashboard-item-content">
                 {contentItems.map(contentItem => (
                     <MUIListItem
