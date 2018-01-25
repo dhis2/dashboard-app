@@ -32,19 +32,6 @@ export const acUpdateDashboardLayout = value => ({
     value,
 });
 
-export const tSaveDashboard = () => async (dispatch, getState) => {
-    const newDashboard = fromEditDashboard.sGetEditDashboard(getState());
-
-    try {
-        await updateDashboard(newDashboard);
-        await dispatch(fromSelected.tSetSelectedDashboardById(newDashboard.id));
-
-        return dispatch(fromSelected.acSetSelectedEdit(false));
-    } catch (error) {
-        onError(error);
-    }
-};
-
 export const acAddDashboardItem = (item, yValue) => {
     const type = item.type;
     delete item.type;
@@ -74,3 +61,18 @@ export const acRemoveDashboardItem = value => ({
     type: actionTypes.REMOVE_DASHBOARD_ITEM,
     value,
 });
+
+//thunks
+
+export const tSaveDashboard = () => async (dispatch, getState) => {
+    const newDashboard = fromEditDashboard.sGetEditDashboard(getState());
+
+    try {
+        await updateDashboard(newDashboard);
+        await dispatch(fromSelected.tSetSelectedDashboardById(newDashboard.id));
+
+        return dispatch(fromSelected.acSetSelectedEdit(false));
+    } catch (error) {
+        onError(error);
+    }
+};
