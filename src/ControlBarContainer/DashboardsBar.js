@@ -8,8 +8,9 @@ import Chip from 'd2-ui/lib/chip/Chip';
 import D2IconButton from '../widgets/D2IconButton';
 import Filter from './Filter';
 import {
-    CONTROL_BAR_OUTER_HEIGHT_DIFF,
     CONTROL_BAR_ROW_HEIGHT,
+    getInnerHeight,
+    getOuterHeight,
 } from './ControlBarContainer';
 
 import * as fromActions from '../actions';
@@ -29,12 +30,6 @@ const dashboardBarStyles = {
 
 const EXPANDED_ROW_COUNT = 10;
 
-const getInnerHeight = (isExpanded, rows) =>
-    (isExpanded ? EXPANDED_ROW_COUNT : rows) * CONTROL_BAR_ROW_HEIGHT;
-
-const getOuterHeight = (isExpanded, rows) =>
-    getInnerHeight(isExpanded, rows) + CONTROL_BAR_OUTER_HEIGHT_DIFF;
-
 const onDashboardSelectWrapper = (id, onClick) => () => id && onClick(id);
 
 const DashboardsBar = ({
@@ -51,14 +46,15 @@ const DashboardsBar = ({
     onDashboardSelect,
 }) => {
     const style = Object.assign({}, controlsStyle, dashboardBarStyles);
+    const rowCount = isExpanded ? EXPANDED_ROW_COUNT : rows;
     const contentWrapperStyle = Object.assign(
         {},
         dashboardBarStyles.scrollWrapper,
         { overflowY: isExpanded ? 'auto' : 'hidden' },
-        { height: getInnerHeight(isExpanded, rows) }
+        { height: getInnerHeight(rowCount) }
     );
 
-    const controlBarHeight = getOuterHeight(isExpanded, rows);
+    const controlBarHeight = getOuterHeight(rowCount);
 
     return (
         <ControlBar

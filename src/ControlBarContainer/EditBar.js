@@ -5,14 +5,10 @@ import Button from 'd2-ui/lib/button/Button';
 
 import { fromSelected, fromEditDashboard } from '../actions';
 
-import {
-    CONTROL_BAR_OUTER_HEIGHT_DIFF,
-    CONTROL_BAR_ROW_HEIGHT,
-} from './ControlBarContainer';
+import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './ControlBarContainer';
 
 const EditBar = ({ style, onSaveChanges, onDiscardChanges }) => {
-    const controlBarHeight =
-        CONTROL_BAR_OUTER_HEIGHT_DIFF + CONTROL_BAR_ROW_HEIGHT;
+    const controlBarHeight = getOuterHeight(1, true);
 
     return (
         <ControlBar
