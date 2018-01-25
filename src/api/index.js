@@ -88,6 +88,10 @@ const getDashboardItemsFields = ({ withFavorite } = {}) =>
         'id',
         'type',
         'shape',
+        'x',
+        'y',
+        'width~rename(w)',
+        'height~rename(h)',
         `${getListItemFields().join(',')}`,
         withFavorite
             ? `${getFavoritesFields({
