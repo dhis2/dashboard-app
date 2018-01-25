@@ -130,10 +130,6 @@ export const apiFetchDashboards = () =>
         )
         .catch(onError);
 
-// Create a new dashboard
-export const apiPostDashboard = (props = {}) =>
-    getInstance().then(d2 => d2.Api.getApi().post('/dashboards', props));
-
 // Get more info about selected dashboard
 export const apiFetchSelected = id =>
     getInstance()

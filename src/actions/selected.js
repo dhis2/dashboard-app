@@ -1,7 +1,6 @@
-import { generateUid } from 'd2/lib/uid';
 import { actionTypes } from '../reducers';
-import { apiFetchSelected, apiPostDashboard } from '../api';
-import { acSetDashboards, tSetDashboards } from './dashboards';
+import { apiFetchSelected } from '../api';
+import { acSetDashboards } from './dashboards';
 import { withShape } from '../ItemGrid/gridUtil';
 import { tGetMessages } from '../Item/MessagesItem/actions';
 import { REPORT_TABLE, CHART, MESSAGES } from '../util';
@@ -68,6 +67,7 @@ export const tSetSelectedDashboardById = id => async dispatch => {
                 true
             )
         );
+
         dispatch(acSetSelectedId(id));
         dispatch(acSetSelectedIsLoading(false));
         return selected;
@@ -85,28 +85,4 @@ export const tSetSelectedDashboardById = id => async dispatch => {
     } catch (err) {
         return onError(err);
     }
-};
-
-export const tNewDashboard = () => async dispatch => {
-    const id = generateUid();
-    const date = new Date();
-
-    await apiPostDashboard({
-        id: id,
-        name: `Created by user (${date
-            .toJSON()
-            .replace('T', ', ')
-            .substr(0, 17)})`,
-    });
-
-    await dispatch(tSetDashboards());
-
-    await dispatch(tSetSelectedDashboardById(id));
-
-    dispatch(acSetSelectedEdit(true));
-
-    // dispatch(tSetDashboards()).then(() => {
-    //     dispatch(acSetSelectedEdit(true));
-    //     dispatch(tSetSelectedDashboardById(id));
-    // });
 };
