@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { List, ListItem as MUIListItem } from 'material-ui/List';
-// import Button from 'd2-ui/lib/button/Button';
 import IconButton from 'material-ui/IconButton';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import ItemHeader from '../ItemHeader';
@@ -41,8 +40,6 @@ const getLink = (item, id, context) => {
 };
 
 const removeContent = (handler, item, contentToRemove) => () => {
-    console.log('removeContent', item, contentToRemove);
-
     handler(item, contentToRemove);
 };
 
@@ -53,6 +50,8 @@ const ListItem = (props, context) => {
     const contentItems = getContentItems(item);
 
     const primaryText = contentItem => {
+        console.log('contentItem', contentItem);
+
         const deleteButton = (
             <IconButton
                 style={{
