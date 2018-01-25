@@ -3,7 +3,6 @@ import { actionTypes } from '../reducers';
 import { fromEditDashboard } from '../reducers';
 import { updateDashboard, postDashboard } from '../api/editDashboard';
 import { fromSelected } from '.';
-import { tSetDashboards } from './dashboards';
 import { itemTypeMap } from '../util';
 
 const onError = error => {
