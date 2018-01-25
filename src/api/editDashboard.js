@@ -6,14 +6,14 @@ export const updateDashboard = data => {
     const { id, name, description, dashboardItems } = data;
     const url = `/dashboards/${id}`;
 
-    const newItems = dashboardItems.map(item =>
+    const items = dashboardItems.map(item =>
         Object.assign({}, item, { width: item.w, height: item.h })
     );
 
     const payload = {
         name,
         description,
-        dashboardItems: newItems,
+        dashboardItems: items,
     };
 
     return getInstance()
