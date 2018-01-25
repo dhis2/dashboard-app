@@ -15,9 +15,11 @@ import {
     REPORTS,
     RESOURCES,
     APP,
+    MESSAGES,
 } from '../util';
 import ItemSelectList from './ItemSelectList';
 import ItemSelectStatic from './ItemSelectStatic';
+import ItemSelectApp from './ItemSelectApp';
 
 const ItemSearchField = props => (
     <div style={{ display: 'flex', alignItems: 'center', width: '400px' }}>
@@ -159,6 +161,10 @@ class ItemSelect extends React.Component {
                                 title: itemTypeMap[RESOURCES].pluralTitle,
                             },
                             { id: APP, title: itemTypeMap[APP].pluralTitle },
+                            {
+                                id: MESSAGES,
+                                title: itemTypeMap[MESSAGES].title,
+                            },
                         ].map(type => {
                             const itemType = itemTypeMap[type.id];
 
@@ -184,6 +190,7 @@ class ItemSelect extends React.Component {
                             }
                         }),
                         // Static items
+                        <ItemSelectApp key="APP" />,
                         <ItemSelectStatic key="STATIC" />,
                     ]}
                 </Popover>
