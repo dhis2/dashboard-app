@@ -2,11 +2,13 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { List, ListItem as MUIListItem } from 'material-ui/List';
-import Button from 'd2-ui/lib/button/Button';
+import IconButton from 'material-ui/IconButton';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import ItemHeader from '../ItemHeader';
+import Line from '../../widgets/Line';
 import { REPORTS, RESOURCES, USERS, itemTypeMap, orArray } from '../../util';
 import { tRemoveListItemContent } from './actions';
+import { colors } from '../../colors';
 
 const getItemTitle = item => {
     return itemTypeMap[item.type].pluralTitle;
@@ -48,34 +50,50 @@ const ListItem = (props, context) => {
     // avoid showing duplicates
     const contentItems = getContentItems(item);
 
+    const primaryText = contentItem => {
+        const deleteButton = (
+            <IconButton
+                style={{
+                    verticalAlign: 'text-bottom',
+                    height: '32px',
+                }}
+                iconStyle={{
+                    width: 20,
+                    height: 20,
+                    fill: colors.red,
+                }}
+                onClick={removeContent(
+                    tRemoveListItemContent,
+                    item,
+                    contentItem
+                )}
+            >
+                <SvgIcon icon="Delete" />
+            </IconButton>
+        );
+
+        return (
+            <div>
+                <a
+                    style={{ textDecoration: 'none' }}
+                    href={getLink(item, contentItem.id, context)}
+                >
+                    {contentItem.name}
+                </a>
+                {editMode ? deleteButton : null}
+            </div>
+        );
+    };
+
     return (
         <Fragment>
             <ItemHeader title={getItemTitle(item)} />
+            <Line />
             <List className="dashboard-item-content">
                 {contentItems.map(contentItem => (
                     <MUIListItem
                         key={contentItem.id}
-                        primaryText={
-                            <a
-                                style={{ textDecoration: 'none' }}
-                                href={getLink(item, contentItem.id, context)}
-                            >
-                                {contentItem.name}
-                            </a>
-                        }
-                        rightIconButton={
-                            editMode ? (
-                                <Button
-                                    onClick={removeContent(
-                                        tRemoveListItemContent,
-                                        item,
-                                        contentItem
-                                    )}
-                                >
-                                    <SvgIcon icon="Delete" />
-                                </Button>
-                            ) : null
-                        }
+                        primaryText={primaryText(contentItem)}
                     />
                 ))}
             </List>

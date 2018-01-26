@@ -163,4 +163,7 @@ export const itemTypeMap = {
     [TEXT]: {
         propName: 'text',
     },
+    [MESSAGES]: {
+        propName: 'messages',
+    },
 };
