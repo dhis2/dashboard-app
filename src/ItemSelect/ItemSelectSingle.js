@@ -9,16 +9,10 @@ import { acAddDashboardItem } from '../actions/editDashboard';
 import { sGetEditDashboard } from '../reducers/editDashboard';
 import { getYMax } from '../ItemGrid/gridUtil';
 
-const mapTypeItem = {
-    TEXT: { icon: 'FontDownload', name: 'Text box' },
-};
-
-const StaticItem = ({ type, onAddToDashboard }) => {
-    const item = mapTypeItem[type];
-
+const SingleItem = ({ item, onAddToDashboard }) => {
     return (
         <ListItem
-            key={type}
+            key={item.type}
             leftIcon={<SvgIcon icon={item.icon} style={{ margin: '6px' }} />}
             innerDivStyle={{ padding: '0px 0px 0px 42px' }}
             hoverColor="transparent"
@@ -41,11 +35,11 @@ const StaticItem = ({ type, onAddToDashboard }) => {
     );
 };
 
-const ItemSelectStatic = ({ dashboardItems, acAddDashboardItem }) => {
-    const addToDashboard = type => () => {
+const ItemSelectSingle = ({ dashboardItems, acAddDashboardItem, category }) => {
+    const addToDashboard = ({ type, content }) => () => {
         const yValue = getYMax(dashboardItems);
 
-        acAddDashboardItem({ type }, yValue);
+        acAddDashboardItem({ type, content }, yValue);
     };
 
     return (
@@ -57,15 +51,15 @@ const ItemSelectStatic = ({ dashboardItems, acAddDashboardItem }) => {
                     paddingLeft: '16px',
                 }}
             >
-                <h3>Static items</h3>
+                <h3>{category.header}</h3>
             </div>
             <Divider />
             <List>
-                {Object.keys(mapTypeItem).map(type => (
-                    <StaticItem
-                        key={type}
-                        type={type}
-                        onAddToDashboard={addToDashboard(type)}
+                {category.items.map(item => (
+                    <SingleItem
+                        key={item.type}
+                        item={item}
+                        onAddToDashboard={addToDashboard(item)}
                     />
                 ))}
             </List>
@@ -79,5 +73,10 @@ export default connect(
     }),
     {
         acAddDashboardItem,
-    }
-)(ItemSelectStatic);
+    },
+    (stateProps, dispatchProps, ownProps) => ({
+        ...ownProps,
+        ...stateProps,
+        ...dispatchProps,
+    })
+)(ItemSelectSingle);

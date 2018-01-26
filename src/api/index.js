@@ -92,6 +92,8 @@ const getDashboardItemsFields = ({ withFavorite } = {}) =>
         'y',
         'width~rename(w)',
         'height~rename(h)',
+        'messages',
+        'text',
         `${getListItemFields().join(',')}`,
         withFavorite
             ? `${getFavoritesFields({
