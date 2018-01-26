@@ -51,7 +51,7 @@ const ItemSelectSingle = ({ dashboardItems, acAddDashboardItem, category }) => {
                     paddingLeft: '16px',
                 }}
             >
-                <h3>{category.category} items</h3>
+                <h3>{category.header}</h3>
             </div>
             <Divider />
             <List>

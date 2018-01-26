@@ -15,7 +15,8 @@ import {
 
 export const singleItems = [
     {
-        category: 'Static',
+        id: 'static',
+        header: 'Static items',
         items: [
             {
                 type: TEXT,
@@ -26,7 +27,8 @@ export const singleItems = [
         ],
     },
     {
-        category: 'App',
+        id: 'apps',
+        header: 'Apps',
         items: [
             {
                 type: MESSAGES,

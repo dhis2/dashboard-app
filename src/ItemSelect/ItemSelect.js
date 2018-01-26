@@ -45,8 +45,8 @@ const getListItems = items => {
 };
 
 const popoverChildren = items => {
-    const SingleItems = singleItems.map(cat => (
-        <ItemSelectSingle key={cat.category} category={cat} />
+    const SingleItems = singleItems.map(category => (
+        <ItemSelectSingle key={category.id} category={category} />
     ));
     const ListItems = getListItems(items);
 
