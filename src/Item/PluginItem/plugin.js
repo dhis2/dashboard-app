@@ -1,12 +1,12 @@
+/* global DHIS_CONFIG */
+
 import isObject from 'd2-utilizr/lib/isObject';
 
 import { apiFetchFavorite } from '../../api';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { REPORT_TABLE, CHART, MAP, itemTypeMap } from '../../util';
 
-const url = '//localhost:8080';
-const username = 'admin';
-const password = 'district';
+const url = DHIS_CONFIG.baseUrl;
 
 // Get favorite object from plugin item
 const getFavoriteObjectFromItem = item => {
@@ -25,8 +25,6 @@ const getFavoriteObjectFromItem = item => {
 
 const loadPlugin = (plugin, itemConfig) => {
     plugin.url = url;
-    plugin.username = username;
-    plugin.password = password;
     plugin.loadingIndicator = true;
     plugin.dashboard = true;
     plugin.load(itemConfig);
@@ -52,8 +50,6 @@ const loadMap = item => {
         el: getGridItemDomId(item.id),
         type: item.type,
         url,
-        username,
-        password,
     };
 
     setTimeout(() => {

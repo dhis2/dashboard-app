@@ -1,6 +1,7 @@
 /* For documentation of this file, refer to
 https://github.com/facebook/create-react-app/blob/next/packages/react-scripts/config/webpack.config.dev.js */
 
+const { dhisConfig, bypass } = require('./dhis2config');
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
@@ -16,6 +17,14 @@ const paths = require('./paths');
 const publicPath = '/';
 const publicUrl = '';
 const env = getClientEnvironment(publicUrl);
+
+const globals = Object.assign(
+    {},
+    {
+        DHIS_CONFIG: JSON.stringify(dhisConfig),
+    },
+    env.stringified
+);
 
 module.exports = {
     devtool: 'source-map',
@@ -130,7 +139,7 @@ module.exports = {
             template: paths.appHtml,
         }),
         new webpack.NamedModulesPlugin(),
-        new webpack.DefinePlugin(env.stringified),
+        new webpack.DefinePlugin(globals),
         new webpack.HotModuleReplacementPlugin(),
         new CaseSensitivePathsPlugin(),
         new WatchMissingNodeModulesPlugin(paths.appNodeModules),
@@ -145,5 +154,26 @@ module.exports = {
     },
     performance: {
         hints: false,
+    },
+    devServer: {
+        contentBase: './',
+        port: 3000,
+        inline: true,
+        compress: true,
+        proxy: [
+            {
+                context: [
+                    '/api/**',
+                    '/dhis-web-commons/**',
+                    '/dhis-web-core-resource/**',
+                    '/icons/**',
+                    '/css/**',
+                    '/images/**',
+                ],
+                target: dhisConfig.baseUrl,
+                changeOrigin: true,
+                bypass,
+            },
+        ],
     },
 };
