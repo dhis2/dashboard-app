@@ -74,6 +74,10 @@ export const sortByDate = (items, dateProp, ascending = true) => {
     return values;
 };
 
+// event handler wrapper
+export const eventHandlerWrapper = (handler, ...params) => () =>
+    handler(...params);
+
 // reducer validator
 export const validateReducer = (value, defaultValue) =>
     value === undefined || value === null ? defaultValue : value;

@@ -7,6 +7,7 @@ import IconClear from 'material-ui/svg-icons/content/clear';
 import isEmpty from 'd2-utilizr/lib/isEmpty';
 
 import * as fromReducers from '../reducers';
+import { eventHandlerWrapper } from '../util';
 
 const KEYCODE_ENTER = 13;
 const KEYCODE_ESCAPE = 27;
@@ -119,7 +120,7 @@ const ClearButton = ({ name, onChangeName }) => {
                 opacity: disabled ? 0 : 1,
             })}
             iconStyle={styles.clearButtonIcon}
-            onClick={() => onChangeName()}
+            onClick={eventHandlerWrapper(onChangeName)}
             disabled={disabled}
         >
             <IconClear color={grey700} />

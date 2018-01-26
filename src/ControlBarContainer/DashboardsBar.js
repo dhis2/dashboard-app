@@ -48,7 +48,7 @@ const DashboardsBar = ({
     onToggleExpanded,
     onNewClick,
     onChangeFilterName,
-    onDashboardSelect,
+    onSelectDashboard,
 }) => {
     const style = Object.assign({}, controlsStyle, dashboardBarStyles);
     const contentWrapperStyle = Object.assign(
@@ -83,7 +83,7 @@ const DashboardsBar = ({
                             onChangeName={onChangeFilterName}
                             onKeypressEnter={onDashboardSelectWrapper(
                                 orObject(orArray(dashboards)[0]).id,
-                                onDashboardSelect
+                                onSelectDashboard
                             )}
                         />
                     </Fragment>
@@ -111,7 +111,7 @@ const DashboardsBar = ({
                         }
                         onClick={onDashboardSelectWrapper(
                             dashboard.id,
-                            onDashboardSelect
+                            onSelectDashboard
                         )}
                     />
                 ))}
@@ -199,8 +199,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             dispatch(fromControlBar.acSetControlBarExpanded(!isExpanded));
         },
         onChangeFilterName: name => dispatch(fromFilter.acSetFilterName(name)),
-        onDashboardSelect: id =>
-            dispatch(fromSelected.tSetSelectedDashboardById(id)),
+        onSelectDashboard: id => dispatch(fromActions.tSelectDashboardById(id)),
     };
 };
 
