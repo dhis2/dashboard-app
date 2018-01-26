@@ -1,7 +1,6 @@
 /* For documentation of this file, refer to
 https://github.com/facebook/create-react-app/blob/next/packages/react-scripts/config/webpack.config.dev.js */
 
-const { dhisConfig, bypass } = require('./dhis2config');
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
@@ -17,6 +16,21 @@ const paths = require('./paths');
 const publicPath = '/';
 const publicUrl = '';
 const env = getClientEnvironment(publicUrl);
+
+const dhisConfigPath =
+    process.env.DHIS2_HOME && `${process.env.DHIS2_HOME}/config`;
+let dhisConfig;
+
+try {
+    dhisConfig = require(dhisConfigPath);
+} catch (e) {
+    // Failed to load config file - use default config
+    console.warn(`\nWARNING! Failed to load DHIS config:`, e.message);
+    dhisConfig = {
+        baseUrl: 'http://localhost:8080',
+        authorization: 'Basic YWRtaW46ZGlzdHJpY3Q=', // admin:district
+    };
+}
 
 const globals = Object.assign(
     {},
@@ -156,10 +170,6 @@ module.exports = {
         hints: false,
     },
     devServer: {
-        contentBase: './',
-        port: 3000,
-        inline: true,
-        compress: true,
         proxy: [
             {
                 context: [
@@ -172,7 +182,6 @@ module.exports = {
                 ],
                 target: dhisConfig.baseUrl,
                 changeOrigin: true,
-                bypass,
             },
         ],
     },
