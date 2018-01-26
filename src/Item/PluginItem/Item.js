@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import ItemHeader from '../ItemHeader';
 import ItemFooter from './ItemFooter';
@@ -19,7 +20,7 @@ class Item extends Component {
     };
 
     componentDidMount() {
-        favorite.load(this.props.item);
+        favorite.load(this.props.item, this.context.baseUrl);
     }
 
     onToggleInterpretations = () => {
@@ -28,7 +29,7 @@ class Item extends Component {
     };
 
     onSelectVisualization = targetType => {
-        favorite.reload(this.props.item, targetType);
+        favorite.reload(this.props.item, targetType, this.context.baseUrl);
     };
 
     render() {
@@ -59,5 +60,9 @@ class Item extends Component {
         );
     }
 }
+
+Item.contextTypes = {
+    baseUrl: PropTypes.string,
+};
 
 export default Item;
