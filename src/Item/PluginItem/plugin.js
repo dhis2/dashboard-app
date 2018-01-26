@@ -63,6 +63,9 @@ const loadMap = item => {
 
 export const getId = item => getFavoriteObjectFromItem(item).id;
 export const getName = item => getFavoriteObjectFromItem(item).name;
+export const getDescription = item =>
+    getFavoriteObjectFromItem(item).description;
+export const getLink = item => itemTypeMap[item.type].appUrl(getId(item));
 
 export const reload = async (item, targetType) => {
     const favorite = await apiFetchFavorite(getId(item), item.type);

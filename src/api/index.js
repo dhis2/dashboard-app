@@ -35,6 +35,7 @@ const interpretationFields = () => {
 const getFavoriteFields = ({ withDimensions, withOptions }) => {
     return arrayClean([
         `${getIdNameFields({ rename: true }).join(',')}`,
+        'displayDescription~rename(description)',
         interpretationFields(),
         withDimensions ? `${getAxesFields({ withItems: true }).join(',')}` : ``,
         withOptions
