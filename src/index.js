@@ -13,6 +13,8 @@ import configureStore from './configureStore';
 
 import App from './App';
 
+console.log('mapPlugin', global.mapsPlugin);
+
 // init material-ui
 injectTapEventPlugin();
 

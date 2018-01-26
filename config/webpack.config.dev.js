@@ -220,6 +220,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             inject: true,
             template: paths.appHtml,
+            vendorScripts: [
+                `http://localhost:8080/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.js`,
+                `http://localhost:8080/dhis-web-core-resource/react/16.1.1/umd/react.development.js`,
+                `http://localhost:8080/dhis-web-core-resource/react-dom/16.1.1/umd/react-dom.development.js`,
+            ].map(script => `<script src="${script}"></script>`).join('\n'),
         }),
         // Add module names to factory functions so they appear in browser profiler.
         new webpack.NamedModulesPlugin(),
