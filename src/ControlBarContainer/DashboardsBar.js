@@ -54,7 +54,7 @@ const DashboardsBar = ({
         { height: getInnerHeight(rowCount) }
     );
 
-    const controlBarHeight = getOuterHeight(rowCount);
+    const controlBarHeight = getOuterHeight(rowCount, true);
 
     return (
         <ControlBar

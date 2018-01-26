@@ -8,7 +8,7 @@ import { fromSelected, fromEditDashboard } from '../actions';
 import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './ControlBarContainer';
 
 const EditBar = ({ style, onSaveChanges, onDiscardChanges }) => {
-    const controlBarHeight = getOuterHeight(1, true);
+    const controlBarHeight = getOuterHeight(1, false);
 
     return (
         <ControlBar
