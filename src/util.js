@@ -106,6 +106,7 @@ export const itemTypeMap = {
         countName: 'reportTableCount',
         plugin: global.reportTablePlugin,
         pluralTitle: 'Report tables',
+        appUrl: id => `dhis-web-pivot/?id=${id}`,
     },
     [CHART]: {
         endPointName: 'charts',
@@ -113,24 +114,28 @@ export const itemTypeMap = {
         countName: 'chartCount',
         plugin: global.chartPlugin,
         pluralTitle: 'Charts',
+        appUrl: id => `dhis-web-visualizer/?id=${id}`,
     },
     [MAP]: {
         endPointName: 'maps',
         propName: 'map',
         countName: 'mapCount',
         pluralTitle: 'Maps',
+        appUrl: id => `dhis-web-mapping/?id=${id}`,
     },
     [EVENT_REPORT]: {
         endPointName: 'eventReports',
         propName: 'eventReport',
         countName: 'eventReportCount',
         pluralTitle: 'Event reports',
+        appUrl: id => `dhis-web-event-reports/?id=${id}`,
     },
     [EVENT_CHART]: {
         endPointName: 'eventCharts',
         propName: 'eventChart',
         countName: 'eventChartCount',
         pluralTitle: 'Event charts',
+        appUrl: id => `dhis-web-event-visualizer/?id=${id}`,
     },
     [APP]: {
         endPointName: 'apps',
@@ -143,18 +148,22 @@ export const itemTypeMap = {
         propName: 'reports',
         countName: 'reportCount',
         pluralTitle: 'Reports',
+        appUrl: id =>
+            `dhis-web-reporting/getReportParams.action?mode=report&uid=${id}`,
     },
     [RESOURCES]: {
         endPointName: 'resources',
         propName: 'resources',
         countName: 'resourceCount',
         pluralTitle: 'Resources',
+        appUrl: (id, baseUrl) => `${baseUrl}/documents/${id}/data`,
     },
     [USERS]: {
         endPointName: 'users',
         propName: 'users',
         countName: 'userCount',
         pluralTitle: 'Users',
+        appUrl: id => `dhis-web-dashboard-integration/profile.action?id=${id}`,
     },
     [TEXT]: {
         propName: 'text',
