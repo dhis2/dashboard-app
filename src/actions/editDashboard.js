@@ -1,7 +1,7 @@
 import { generateUid } from 'd2/lib/uid';
 import { actionTypes } from '../reducers';
 import { fromEditDashboard } from '../reducers';
-import { updateDashboard } from '../api/editDashboard';
+import { updateDashboard, postDashboard } from '../api/editDashboard';
 import { fromSelected } from '.';
 import { itemTypeMap } from '../util';
 
@@ -32,19 +32,6 @@ export const acUpdateDashboardLayout = value => ({
     value,
 });
 
-export const tSaveDashboard = () => async (dispatch, getState) => {
-    const newDashboard = fromEditDashboard.sGetEditDashboard(getState());
-
-    try {
-        await updateDashboard(newDashboard);
-        await dispatch(fromSelected.tSetSelectedDashboardById(newDashboard.id));
-
-        return dispatch(fromSelected.acSetSelectedEdit(false));
-    } catch (error) {
-        onError(error);
-    }
-};
-
 export const acAddDashboardItem = (item, yValue) => {
     const type = item.type;
     delete item.type;
@@ -74,3 +61,22 @@ export const acRemoveDashboardItem = value => ({
     type: actionTypes.REMOVE_DASHBOARD_ITEM,
     value,
 });
+
+//thunks
+
+export const tSaveDashboard = () => async (dispatch, getState) => {
+    const newDashboard = fromEditDashboard.sGetEditDashboard(getState());
+
+    try {
+        const selectedId = newDashboard.id
+            ? await updateDashboard(newDashboard)
+            : await postDashboard(newDashboard);
+
+        await dispatch(fromSelected.tSetSelectedDashboardById(selectedId));
+        dispatch(fromSelected.acSetSelectedEdit(false));
+
+        return dispatch(acSetEditDashboard({}));
+    } catch (error) {
+        onError(error);
+    }
+};

@@ -8,14 +8,16 @@ import Chip from 'd2-ui/lib/chip/Chip';
 import D2IconButton from '../widgets/D2IconButton';
 import Filter from './Filter';
 import {
-    CONTROL_BAR_OUTER_HEIGHT_DIFF,
     CONTROL_BAR_ROW_HEIGHT,
+    getInnerHeight,
+    getOuterHeight,
 } from './ControlBarContainer';
 
 import * as fromActions from '../actions';
 import * as fromReducers from '../reducers';
-import { orObject } from '../util';
+import { orObject, orArray } from '../util';
 import { blue800 } from '../../../d2-ui/node_modules/material-ui/styles/colors';
+import { sGetSelectedId } from '../reducers/selected';
 
 const dashboardBarStyles = {
     scrollWrapper: {
@@ -28,35 +30,31 @@ const dashboardBarStyles = {
 
 const EXPANDED_ROW_COUNT = 10;
 
-const getInnerHeight = (isExpanded, rows) =>
-    (isExpanded ? EXPANDED_ROW_COUNT : rows) * CONTROL_BAR_ROW_HEIGHT;
-
-const getOuterHeight = (isExpanded, rows) =>
-    getInnerHeight(isExpanded, rows) + CONTROL_BAR_OUTER_HEIGHT_DIFF;
-
-const onDashboardSelectWrapper = (id, onClick) => () => onClick(id);
+const onDashboardSelectWrapper = (id, onClick) => () => id && onClick(id);
 
 const DashboardsBar = ({
     controlsStyle,
     dashboards,
     name,
     rows,
+    selectedId,
     isExpanded,
     onChangeHeight,
     onToggleExpanded,
     onNewClick,
     onChangeFilterName,
-    onDashboardSelect,
+    onSelectDashboard,
 }) => {
     const style = Object.assign({}, controlsStyle, dashboardBarStyles);
+    const rowCount = isExpanded ? EXPANDED_ROW_COUNT : rows;
     const contentWrapperStyle = Object.assign(
         {},
         dashboardBarStyles.scrollWrapper,
         { overflowY: isExpanded ? 'auto' : 'hidden' },
-        { height: getInnerHeight(isExpanded, rows) }
+        { height: getInnerHeight(rowCount) }
     );
 
-    const controlBarHeight = getOuterHeight(isExpanded, rows);
+    const controlBarHeight = getOuterHeight(rowCount, true);
 
     return (
         <ControlBar
@@ -76,7 +74,14 @@ const DashboardsBar = ({
                             }}
                             onClick={onNewClick}
                         />
-                        <Filter name={name} onChangeName={onChangeFilterName} />
+                        <Filter
+                            name={name}
+                            onChangeName={onChangeFilterName}
+                            onKeypressEnter={onDashboardSelectWrapper(
+                                orObject(orArray(dashboards)[0]).id,
+                                onSelectDashboard
+                            )}
+                        />
                     </Fragment>
                 </div>
                 <div style={style.rightControls}>
@@ -97,9 +102,12 @@ const DashboardsBar = ({
                         key={dashboard.id}
                         label={dashboard.name}
                         avatar={dashboard.starred ? 'star' : null}
+                        color={
+                            dashboard.id === selectedId ? 'primary' : undefined
+                        }
                         onClick={onDashboardSelectWrapper(
                             dashboard.id,
-                            onDashboardSelect
+                            onSelectDashboard
                         )}
                     />
                 ))}
@@ -131,6 +139,7 @@ const mapStateToProps = state => {
         dashboards: fromDashboards.sGetFromState(state),
         name: fromFilter.sGetFilterName(state),
         rows: (state.controlBar && state.controlBar.rows) || 1,
+        selectedId: sGetSelectedId(state),
         isExpanded:
             state.controlBar.expanded &&
             state.controlBar.rows < EXPANDED_ROW_COUNT,
@@ -140,7 +149,12 @@ const mapStateToProps = state => {
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const { dashboards, name, rows, isExpanded } = stateProps;
     const { dispatch } = dispatchProps;
-    const { fromControlBar, fromFilter, fromSelected } = fromActions;
+    const {
+        fromControlBar,
+        fromFilter,
+        fromSelected,
+        fromEditDashboard,
+    } = fromActions;
 
     const filteredDashboards = Object.values(orObject(dashboards)).filter(
         d => d.name.toLowerCase().indexOf(name) !== -1
@@ -167,13 +181,21 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
                 );
             }
         },
-        onNewClick: () => dispatch(fromSelected.tNewDashboard()),
+        onNewClick: () => {
+            const newDashboard = {
+                name: '',
+                description: '',
+                dashboardItems: [],
+            };
+            dispatch(fromSelected.acSetSelectedId(''));
+            dispatch(fromSelected.acSetSelectedEdit(true));
+            dispatch(fromEditDashboard.acSetEditDashboard(newDashboard));
+        },
         onToggleExpanded: () => {
             dispatch(fromControlBar.acSetControlBarExpanded(!isExpanded));
         },
         onChangeFilterName: name => dispatch(fromFilter.acSetFilterName(name)),
-        onDashboardSelect: id =>
-            dispatch(fromSelected.tSetSelectedDashboardById(id)),
+        onSelectDashboard: id => dispatch(fromActions.tSelectDashboardById(id)),
     };
 };
 

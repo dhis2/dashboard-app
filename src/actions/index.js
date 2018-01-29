@@ -13,3 +13,15 @@ export {
     fromControlBar,
     fromEditDashboard,
 };
+
+// depends on: fromSelected, fromFilter, fromControlBar
+export const tSelectDashboardById = id => dispatch => {
+    // select dashboard by id
+    dispatch(fromSelected.tSetSelectedDashboardById(id));
+
+    // reset filter
+    dispatch(fromFilter.acSetFilterName());
+
+    // collapse controlbar
+    dispatch(fromControlBar.acSetControlBarExpanded(false));
+};

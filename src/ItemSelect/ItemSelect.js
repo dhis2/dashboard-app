@@ -4,20 +4,10 @@ import Popover from 'material-ui/Popover';
 import TextField from 'material-ui/TextField';
 
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
-import {
-    itemTypeMap,
-    REPORT_TABLE,
-    CHART,
-    MAP,
-    EVENT_CHART,
-    EVENT_REPORT,
-    USERS,
-    REPORTS,
-    RESOURCES,
-    APPS,
-} from '../util';
+import { itemTypeMap } from '../util';
 import ItemSelectList from './ItemSelectList';
-import ItemSelectStatic from './ItemSelectStatic';
+import ItemSelectSingle from './ItemSelectSingle';
+import { singleItems, listItems } from './itemTypes';
 
 const ItemSearchField = props => (
     <div style={{ display: 'flex', alignItems: 'center', width: '400px' }}>
@@ -33,6 +23,35 @@ const ItemSearchField = props => (
         />
     </div>
 );
+
+const getListItems = items => {
+    return listItems.map(type => {
+        const itemType = itemTypeMap[type.id];
+
+        if (items && items[itemType.countName] > 0) {
+            return (
+                <ItemSelectList
+                    key={type.id}
+                    type={type.id}
+                    title={type.title}
+                    items={items[itemType.endPointName]}
+                    onChangeItemsLimit={this.fetchItems}
+                />
+            );
+        } else {
+            return null;
+        }
+    });
+};
+
+const popoverChildren = items => {
+    const SingleItems = singleItems.map(category => (
+        <ItemSelectSingle key={category.id} category={category} />
+    ));
+    const ListItems = getListItems(items);
+
+    return ListItems.concat(SingleItems);
+};
 
 class ItemSelect extends React.Component {
     constructor(props) {
@@ -127,65 +146,7 @@ class ItemSelect extends React.Component {
                         left: -1000,
                     }}
                 >
-                    {[
-                        [
-                            {
-                                id: REPORT_TABLE,
-                                title: itemTypeMap[REPORT_TABLE].pluralTitle,
-                            },
-                            {
-                                id: CHART,
-                                title: itemTypeMap[CHART].pluralTitle,
-                            },
-                            { id: MAP, title: itemTypeMap[MAP].pluralTitle },
-                            {
-                                id: EVENT_REPORT,
-                                title: itemTypeMap[EVENT_REPORT].pluralTitle,
-                            },
-                            {
-                                id: EVENT_CHART,
-                                title: itemTypeMap[EVENT_CHART].pluralTitle,
-                            },
-                            {
-                                id: USERS,
-                                title: itemTypeMap[USERS].pluralTitle,
-                            },
-                            {
-                                id: REPORTS,
-                                title: itemTypeMap[REPORTS].pluralTitle,
-                            },
-                            {
-                                id: RESOURCES,
-                                title: itemTypeMap[RESOURCES].pluralTitle,
-                            },
-                            { id: APPS, title: itemTypeMap[APPS].pluralTitle },
-                        ].map(type => {
-                            const itemType = itemTypeMap[type.id];
-
-                            if (
-                                this.state.items &&
-                                this.state.items[itemType.countName] > 0
-                            ) {
-                                return (
-                                    <ItemSelectList
-                                        key={type.id}
-                                        type={type.id}
-                                        title={type.title}
-                                        items={
-                                            this.state.items[
-                                                itemType.endPointName
-                                            ]
-                                        }
-                                        onChangeItemsLimit={this.fetchItems}
-                                    />
-                                );
-                            } else {
-                                return null;
-                            }
-                        }),
-                        // Static items
-                        <ItemSelectStatic key="STATIC" />,
-                    ]}
+                    {popoverChildren(this.state.items)}
                 </Popover>
             </Fragment>
         );

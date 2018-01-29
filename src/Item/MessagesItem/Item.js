@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import ItemHeader from '../ItemHeader';
 import { fromMessages } from '../../reducers';
+import Line from '../../widgets/Line';
 import { colors } from '../../colors';
 import { formatDate, sortByDate } from '../../util';
 
@@ -37,12 +38,6 @@ const style = {
         fontSize: '12px',
         lineHeight: '14px',
         textAlign: 'right',
-    },
-    line: {
-        backgroundColor: `${colors.lightGrey}`,
-        border: 'none',
-        height: '1px',
-        margin: '0px 0px 5px 0px',
     },
     list: {
         listStyleType: 'none',
@@ -155,7 +150,7 @@ class MessagesItem extends Component {
         return (
             <Fragment>
                 <ItemHeader title="Messages" actionButtons={actionButtons} />
-                <hr style={style.line} />
+                <Line />
                 <div className="dashboard-item-content">
                     <ul style={style.list}>{messageItems}</ul>
                 </div>

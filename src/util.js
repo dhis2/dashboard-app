@@ -74,6 +74,10 @@ export const sortByDate = (items, dateProp, ascending = true) => {
     return values;
 };
 
+// event handler wrapper
+export const eventHandlerWrapper = (handler, ...params) => () =>
+    handler(...params);
+
 // reducer validator
 export const validateReducer = (value, defaultValue) =>
     value === undefined || value === null ? defaultValue : value;
@@ -84,7 +88,7 @@ export const CHART = 'CHART';
 export const MAP = 'MAP';
 export const EVENT_REPORT = 'EVENT_REPORT';
 export const EVENT_CHART = 'EVENT_CHART';
-export const APPS = 'APPS';
+export const APP = 'APP';
 export const REPORTS = 'REPORTS';
 export const RESOURCES = 'RESOURCES';
 export const USERS = 'USERS';
@@ -149,8 +153,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_TRACKER,
         visualizationType: VISUALIZATION_TYPE_CHART,
     },
-    [APPS]: {
-        id: APPS,
+    [APP]: {
         endPointName: 'apps',
         propName: 'app',
         countName: 'appCount',
@@ -180,6 +183,9 @@ export const itemTypeMap = {
     [TEXT]: {
         id: TEXT,
         propName: 'text',
+    },
+    [MESSAGES]: {
+        propName: 'messages',
     },
 };
 
