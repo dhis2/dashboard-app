@@ -20,7 +20,7 @@ import {
     RESOURCES,
     REPORTS,
     USERS,
-} from '../util';
+} from '../itemTypes';
 
 const getIcon = type => {
     switch (type) {

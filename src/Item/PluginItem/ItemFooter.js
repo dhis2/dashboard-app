@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Interpretations from './Interpretations/Interpretations';
 import { colors } from '../../colors';
-
-import { extractFavoriteFromDashboardItem } from '../../util';
+import { extractFavorite } from './plugin';
 
 const style = {
     container: {
@@ -18,7 +17,7 @@ const style = {
 
 class ItemFooter extends Component {
     render() {
-        const objectId = extractFavoriteFromDashboardItem(this.props.item).id;
+        const objectId = extractFavorite(this.props.item).id;
 
         return (
             <div className="dashboard-item-footer" style={style.container}>

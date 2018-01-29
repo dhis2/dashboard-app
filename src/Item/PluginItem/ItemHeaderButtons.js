@@ -5,8 +5,16 @@ import {
     VISUALIZATION_TYPE_CHART,
     // VISUALIZATION_TYPE_MAP,
     itemTypeMap,
-    getItemTypeIdByVisualizationTypeAndDomainType,
-} from '../../util';
+} from '../../itemTypes';
+
+export const getItemTypeId = (itemTypeMap, visualizationType, domainType) =>
+    Object.values(itemTypeMap)
+        .filter(
+            item =>
+                item.visualizationType === visualizationType &&
+                item.domainType === domainType
+        )
+        .map(item => item.id);
 
 class PluginItemHeaderButtons extends Component {
     render() {
@@ -20,23 +28,18 @@ class PluginItemHeaderButtons extends Component {
 
         const onViewTable = () =>
             onSelectVisualization(
-                getItemTypeIdByVisualizationTypeAndDomainType(
-                    VISUALIZATION_TYPE_TABLE,
-                    domainType
-                )
+                getItemTypeId(itemTypeMap, VISUALIZATION_TYPE_TABLE, domainType)
             );
 
         const onViewChart = () =>
             onSelectVisualization(
-                getItemTypeIdByVisualizationTypeAndDomainType(
-                    VISUALIZATION_TYPE_CHART,
-                    domainType
-                )
+                getItemTypeId(itemTypeMap, VISUALIZATION_TYPE_CHART, domainType)
             );
 
         // const onViewMap = () =>
         //     onSelectVisualization(
-        //         getItemTypeIdByVisualizationTypeAndDomainType(
+        //         getItemTypeId(
+        //             itemTypeMap,
         //             VISUALIZATION_TYPE_MAP,
         //             domainType
         //         )

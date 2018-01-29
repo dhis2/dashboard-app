@@ -1,7 +1,7 @@
 import { getInstance } from 'd2/lib/d2';
 import arrayClean from 'd2-utilizr/lib/arrayClean';
 
-import { itemTypeMap } from '../util';
+import { itemTypeMap } from '../itemTypes';
 
 export const getUrlByFavoriteType = type => itemTypeMap[type].endPointName;
 

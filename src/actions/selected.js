@@ -10,7 +10,7 @@ import {
     EVENT_REPORT,
     EVENT_CHART,
     MESSAGES,
-} from '../util';
+} from '../itemTypes';
 
 // actions
 

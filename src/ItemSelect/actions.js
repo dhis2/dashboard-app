@@ -1,6 +1,6 @@
 import { sGetEditDashboard } from '../reducers/editDashboard';
 import { getYMax } from '../ItemGrid/gridUtil';
-import { itemTypeMap } from '../util';
+import { itemTypeMap } from '../itemTypes';
 import {
     acAddDashboardItem,
     acUpdateDashboardItem,
