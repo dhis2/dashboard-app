@@ -8,6 +8,8 @@ import PluginItemHeaderButtons from './ItemHeaderButtons';
 import * as favorite from './plugin';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 
+import { SMALL_EXPAND, LARGE_EXPAND } from '../../ItemGrid/ItemGrid';
+
 const style = {
     itemFooter: {
         flex: '0 0 320',
@@ -36,22 +38,34 @@ class Item extends Component {
         favorite.load(this.props.item);
     }
 
+    notifyChangedContent = () => {
+        const intHeight = this.state.showInterpretations ? LARGE_EXPAND : 0;
+        const descHeight = this.state.showDescription ? SMALL_EXPAND : 0;
+
+        this.props.onItemContentChanged(
+            this.props.item.id,
+            intHeight + descHeight
+        );
+    };
+
     onToggleInterpretations = () => {
-        if (!this.state.showDescription) {
-            this.props.onToggleItemExpanded(this.props.item.id);
-        }
-        this.setState({ showInterpretations: !this.state.showInterpretations });
+        this.setState(
+            {
+                showInterpretations: !this.state.showInterpretations,
+            },
+            this.notifyChangedContent
+        );
+    };
+
+    onToggleDescription = () => {
+        this.setState(
+            { showDescription: !this.state.showDescription },
+            this.notifyChangedContent
+        );
     };
 
     onSelectVisualization = targetType => {
         favorite.reload(this.props.item, targetType);
-    };
-
-    onToggleDescription = () => {
-        if (!this.state.showInterpretations) {
-            this.props.onToggleItemExpanded(this.props.item.id);
-        }
-        this.setState({ showDescription: !this.state.showDescription });
     };
 
     render() {

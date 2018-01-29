@@ -16,12 +16,16 @@ const style = {
         border: 'none',
         backgroundColor: colors.lightGrey,
     },
-    description: {
+    descriptionTitle: {
         color: colors.black,
         fontSize: '13px',
         fontWeight: 'bold',
         height: '19px',
         lineHeight: '19px',
+    },
+    descriptionText: {
+        fontSize: '13px',
+        lineHeight: '17px',
     },
 };
 
@@ -34,8 +38,10 @@ class ItemFooter extends Component {
                 {this.props.showDescription ? (
                     <div>
                         <hr style={style.line} />
-                        <h3 style={style.description}>Description</h3>
-                        <p>{getDescription(this.props.item)}</p>
+                        <h3 style={style.descriptionTitle}>Description</h3>
+                        <p style={style.descriptionText}>
+                            {getDescription(this.props.item)}
+                        </p>
                     </div>
                 ) : null}
                 {this.props.showInterpretations ? (
