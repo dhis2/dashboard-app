@@ -20,15 +20,11 @@ injectTapEventPlugin();
 
 // init d2
 getManifest('manifest.webapp').then(manifest => {
-    const baseUrl =
-        process.env.NODE_ENV === 'production'
-            ? manifest.getBaseUrl()
-            : DHIS_CONFIG.baseUrl;
-
-    const headers =
-        process.env.NODE_ENV !== 'production' && DHIS_CONFIG.authorization
-            ? { Authorization: DHIS_CONFIG.authorization }
-            : null;
+    const isProd = process.env.NODE_ENV === 'production';
+    const baseUrl = isProd ? manifest.getBaseUrl() : DHIS_CONFIG.baseUrl;
+    const headers = isProd
+        ? null
+        : { Authorization: DHIS_CONFIG.authorization };
 
     ReactDOM.render(
         <D2UIApp
