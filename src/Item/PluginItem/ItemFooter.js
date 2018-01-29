@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Interpretations from './Interpretations/Interpretations';
 import { colors } from '../../colors';
 import { extractFavorite, getDescription } from './plugin';
@@ -36,7 +36,7 @@ class ItemFooter extends Component {
         return (
             <div className="dashboard-item-footer" style={style.container}>
                 {this.props.showDescription ? (
-                    <div>
+                    <div style={style.descriptionContainer}>
                         <hr style={style.line} />
                         <h3 style={style.descriptionTitle}>Description</h3>
                         <p style={style.descriptionText}>
