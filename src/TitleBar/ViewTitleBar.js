@@ -102,12 +102,14 @@ class ViewTitleBar extends Component {
                         {description || NO_DESCRIPTION}
                     </div>
                 ) : null}
-                <SharingDialog
-                    id={id}
-                    type="dashboard"
-                    open={this.state.sharingDialogIsOpen}
-                    onRequestClose={this.toggleSharingDialog}
-                />
+                {id ? (
+                    <SharingDialog
+                        id={id}
+                        type="dashboard"
+                        open={this.state.sharingDialogIsOpen}
+                        onRequestClose={this.toggleSharingDialog}
+                    />
+                ) : null}
             </Fragment>
         );
     }
@@ -151,7 +153,7 @@ const ViewTitleBarCt = connect(mapStateToProps, null, mergeProps)(ViewTitleBar);
 export default ViewTitleBarCt;
 
 ViewTitleBar.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     name: PropTypes.string,
     description: PropTypes.string,
     starred: PropTypes.bool,
