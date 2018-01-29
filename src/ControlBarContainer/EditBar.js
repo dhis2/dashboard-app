@@ -46,20 +46,12 @@ const EditBar = ({ style, onSave, onDiscard }) => {
         >
             <div style={styles.buttonBar}>
                 <div style={style.leftControls}>
-                    <Button
-                        className="save"
-                        style={styles.save}
-                        onClick={onSave}
-                    >
+                    <Button style={styles.save} onClick={onSave}>
                         Save Changes
                     </Button>
                 </div>
                 <div style={style.rightControls}>
-                    <button
-                        className="discard"
-                        style={styles.discard}
-                        onClick={onDiscard}
-                    >
+                    <button style={styles.discard} onClick={onDiscard}>
                         Exit without saving
                     </button>
                 </div>
