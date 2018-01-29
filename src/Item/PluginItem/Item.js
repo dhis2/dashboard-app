@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import ItemHeader from '../ItemHeader';
 import ItemFooter from './ItemFooter';
@@ -18,8 +19,16 @@ class Item extends Component {
         showInterpretations: false,
     };
 
+    getApiCredentials = () => {
+        const api = this.context.d2.api;
+        return {
+            baseUrl: api.baseUrl,
+            auth: api.defaultHeaders.Authorization,
+        };
+    };
+
     componentDidMount() {
-        favorite.load(this.props.item);
+        favorite.load(this.props.item, this.getApiCredentials());
     }
 
     onToggleInterpretations = () => {
@@ -28,7 +37,7 @@ class Item extends Component {
     };
 
     onSelectVisualization = targetType => {
-        favorite.reload(this.props.item, targetType);
+        favorite.reload(this.props.item, targetType, this.getApiCredentials());
     };
 
     render() {
@@ -64,5 +73,9 @@ class Item extends Component {
         );
     }
 }
+
+Item.contextTypes = {
+    d2: PropTypes.object,
+};
 
 export default Item;
