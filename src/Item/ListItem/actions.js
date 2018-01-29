@@ -2,7 +2,7 @@ import {
     acUpdateDashboardItem,
     acRemoveDashboardItem,
 } from '../../actions/editDashboard';
-import { itemTypeMap } from '../../util';
+import { itemTypeMap } from '../../itemTypes';
 
 export const tRemoveListItemContent = (dashboardItem, content) => dispatch => {
     const listItemType = itemTypeMap[dashboardItem.type].propName;
