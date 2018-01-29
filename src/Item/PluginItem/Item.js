@@ -46,7 +46,11 @@ class Item extends Component {
 
         return (
             <Fragment>
-                <ItemHeader title={title} actionButtons={actionButtons} />
+                <ItemHeader
+                    title={title}
+                    actionButtons={actionButtons}
+                    editMode={this.props.editMode}
+                />
                 <div id={elementId} className="dashboard-item-content" />
                 {!this.props.editMode ? (
                     <ItemFooter
