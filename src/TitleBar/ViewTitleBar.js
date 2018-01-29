@@ -121,12 +121,12 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             dispatch(fromSelected.acSetSelectedEdit(true));
             dispatch(fromEditDashboard.acSetEditDashboard(selectedDashboard));
         },
-        onInfoClick: () =>
-            dispatch(
-                fromSelected.acSetSelectedShowDescription(
-                    !stateProps.showDescription
-                )
-            ),
+        onInfoClick: eventHandlerWrapper(
+            dispatch,
+            fromSelected.acSetSelectedShowDescription(
+                !stateProps.showDescription
+            )
+        ),
     };
 };
 
