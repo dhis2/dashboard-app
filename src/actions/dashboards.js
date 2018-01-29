@@ -40,11 +40,8 @@ export const tSetDashboards = () => async (dispatch, getState) => {
 
 export const tStarDashboard = (id, isStarred) => async (dispatch, getState) => {
     const onSuccess = id => {
-        // dispatch(tSetDashboards());
-        // dispatch(tSetSelectedDashboardById(id));
         dispatch(acStarDashboard(id, isStarred));
-
-        return;
+        return id;
     };
 
     const onError = error => {
