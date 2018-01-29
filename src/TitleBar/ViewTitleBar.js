@@ -7,7 +7,8 @@ import Info from './Info';
 import D2TextLink from '../widgets/D2TextLink';
 import * as fromReducers from '../reducers';
 import { fromEditDashboard, fromSelected } from '../actions';
-import { orObject } from '../util';
+import { orObject, eventHandlerWrapper } from '../util';
+import { tStarDashboard } from '../actions/dashboards';
 
 const NO_DESCRIPTION = 'No description';
 
@@ -24,6 +25,7 @@ const viewStyle = {
         marginLeft: 5,
         position: 'relative',
         top: 1,
+        cursor: 'pointer',
     },
     titleBarLink: {
         marginLeft: 20,
@@ -39,6 +41,7 @@ const ViewTitleBar = ({
     style,
     showDescription,
     starred,
+    onStarClick,
     onEditClick,
     onInfoClick,
 }) => {
@@ -51,7 +54,7 @@ const ViewTitleBar = ({
                     <div style={{ userSelect: 'text' }}>{name}</div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <div style={styles.titleBarIcon}>
+                    <div style={styles.titleBarIcon} onClick={onStarClick}>
                         <SvgIcon icon={starred ? 'Star' : 'StarBorder'} />
                     </div>
                     <div style={styles.titleBarIcon}>
@@ -110,6 +113,10 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     return {
         ...stateProps,
         ...ownProps,
+        onStarClick: eventHandlerWrapper(
+            dispatch,
+            tStarDashboard(selectedDashboard.id, !stateProps.starred)
+        ),
         onEditClick: () => {
             dispatch(fromSelected.acSetSelectedEdit(true));
             dispatch(fromEditDashboard.acSetEditDashboard(selectedDashboard));
