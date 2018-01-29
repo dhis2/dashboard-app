@@ -5,7 +5,12 @@ const ItemHeader = props => {
 
     return (
         <div className="dashboard-item-header">
-            <div className="dashboard-item-header-title">{title}</div>
+            <div
+                className="dashboard-item-header-title"
+                style={{ userSelect: 'text' }}
+            >
+                {title}
+            </div>
             {actionButtons}
         </div>
     );
