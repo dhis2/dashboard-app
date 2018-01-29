@@ -11,7 +11,7 @@ import {
     APP,
     MESSAGES,
     TEXT,
-} from '../util';
+} from '../itemTypes';
 
 export const singleItems = [
     {
