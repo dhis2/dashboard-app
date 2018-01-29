@@ -15,13 +15,14 @@ const styles = {
         color: colors.lightGrey,
         fontWeight: '500',
         boxShadow:
-            '0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24), 0 0 8px 0 rgba(0,0,0,0.12), 0 8px 8px 0 rgba(0,0,0,0.24)',
+            '0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24), 0 0 8px 0 rgba(0,0,0,0.12), 0 0 8px 0 rgba(0,0,0,0.24)',
     },
     discard: {
         color: colors.royalBlue,
         backgroundColor: 'transparent',
         border: 'none',
         fontSize: '14px',
+        fontWeight: 500,
         textTransform: 'uppercase',
         padding: '5px',
         height: '36px',
@@ -29,9 +30,9 @@ const styles = {
     },
     buttonBar: {
         height: CONTROL_BAR_ROW_HEIGHT,
-        paddingTop: '13px',
-        marginLeft: '10px',
-        marginRight: '10px',
+        paddingTop: '14px',
+        marginLeft: '15px',
+        marginRight: '15px',
     },
 };
 
