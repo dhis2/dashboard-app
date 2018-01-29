@@ -38,6 +38,7 @@ class Item extends Component {
 
         const actionButtons = !this.props.editMode ? (
             <PluginItemHeaderButtons
+                item={item}
                 onSelectVisualization={this.onSelectVisualization}
                 onInterpretationsClick={this.onToggleInterpretations}
             />
