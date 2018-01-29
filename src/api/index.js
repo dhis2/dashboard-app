@@ -5,9 +5,6 @@ import { itemTypeMap } from '../itemTypes';
 
 export const getUrlByFavoriteType = type => itemTypeMap[type].endPointName;
 
-export const delay = (ms = 500) =>
-    new Promise(resolve => setTimeout(resolve, ms));
-
 const getIdNameFields = ({ rename } = {}) => [
     'id',
     `${rename ? 'displayName~rename(name)' : 'name'}`,
