@@ -40,7 +40,6 @@ getManifest('manifest.webapp')
         config.headers = isProd
             ? null
             : { Authorization: DHIS_CONFIG.authorization };
-
     })
     .then(getUserSettings)
     .then(configI18n)
