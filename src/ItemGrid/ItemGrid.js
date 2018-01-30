@@ -51,7 +51,7 @@ export class ItemGrid extends Component {
 
     NO_ITEMS_MESSAGE = 'You have not added any items';
 
-    onItemContentChanged = clickedId => {
+    onToggleItemExpanded = clickedId => {
         const isExpanded =
             typeof this.state.expandedItems[clickedId] === 'boolean'
                 ? this.state.expandedItems[clickedId]
@@ -125,8 +125,8 @@ export class ItemGrid extends Component {
                                 <Item
                                     item={item}
                                     editMode={edit}
-                                    onItemContentChanged={
-                                        this.onItemContentChanged
+                                    onToggleItemExpanded={
+                                        this.onToggleItemExpanded
                                     }
                                 />
                             </div>

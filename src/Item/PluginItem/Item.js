@@ -49,7 +49,7 @@ class Item extends Component {
             {
                 showInterpretations: !this.state.showInterpretations,
             },
-            this.props.onItemContentChanged(this.props.item.id)
+            this.props.onToggleItemExpanded(this.props.item.id)
         );
     };
 

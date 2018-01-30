@@ -50,7 +50,7 @@ export const Item = props => {
         <GridItem
             item={props.item}
             editMode={props.editMode}
-            onItemContentChanged={props.onItemContentChanged}
+            onToggleItemExpanded={props.onToggleItemExpanded}
         />
     );
 };
