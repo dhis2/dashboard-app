@@ -51,9 +51,7 @@ const loadPlugin = (plugin, itemConfig, credentials) => {
 
 export const getId = item => extractFavorite(item).id;
 export const getName = item => extractFavorite(item).name;
-// export const getDescription = item => extractFavorite(item).description;
-export const getDescription = item =>
-    'This is a really long block of text This is a really long block of text This is a really long block of text This is a really long block of text This is a really long block of text This is a really long block of text This is a really long block of text lly long block of text This is a really long block of text This is a really long block of text This is a really long block of text This is a really long block of text This is a really long block of text This is a really long block of text ';
+export const getDescription = item => extractFavorite(item).description;
 export const getLink = item => itemTypeMap[item.type].appUrl(getId(item));
 
 export const reload = async (item, targetType, credentials) => {
