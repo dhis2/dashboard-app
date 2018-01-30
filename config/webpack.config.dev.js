@@ -237,7 +237,7 @@ module.exports = {
     },
     externals: [
         {
-            'react': 'var React',
+            react: 'var React',
             'react-dom': 'var ReactDOM',
         },
     ],
@@ -255,7 +255,13 @@ module.exports = {
                 `${scriptPrefix}/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.js`,
                 `${scriptPrefix}/dhis-web-core-resource/react/16.2.0/umd/react.development.js`,
                 `${scriptPrefix}/dhis-web-core-resource/react-dom/16.2.0/umd/react-dom.development.js`,
-            ].map(script => `<script src="${script}"></script>`).join('\n'),
+                `${scriptPrefix}/dhis-web-pivot/reporttable.js`,
+                `${scriptPrefix}/dhis-web-visualizer/chart.js`,
+                `${scriptPrefix}/dhis-web-event-reports/eventreport.js`,
+                `${scriptPrefix}/dhis-web-event-visualizer/eventchart.js`,
+            ]
+                .map(script => `<script src="${script}"></script>`)
+                .join('\n'),
         }),
         // Add module names to factory functions so they appear in browser profiler.
         new webpack.NamedModulesPlugin(),
