@@ -46,6 +46,8 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
     { publicPath: Array(cssFilename.split('/').length).join('../') }
   : {};
 
+const scriptPrefix = '..';
+
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
@@ -233,6 +235,12 @@ module.exports = {
       },
     ],
   },
+  externals: [
+    {
+      'react': 'var React',
+      'react-dom': 'var ReactDOM',
+    },
+  ],
   plugins: [
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
@@ -244,6 +252,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
+      vendorScripts: [
+        `${scriptPrefix}/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.min.js`,
+        `${scriptPrefix}/dhis-web-core-resource/react/16.2.0/umd/react.production.min.js`,
+        `${scriptPrefix}/dhis-web-core-resource/react-dom/16.2.0/umd/react-dom.production.min.js`,
+      ].map(script => `<script src="${script}"></script>`).join('\n'),
       minify: {
         removeComments: true,
         collapseWhitespace: true,
