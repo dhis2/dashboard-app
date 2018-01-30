@@ -20,7 +20,8 @@ class Item extends Component {
     };
 
     getApiCredentials = () => {
-        const api = this.context.d2.api;
+        const api = this.context.d2.Api.getApi();
+
         return {
             baseUrl: api.baseUrl,
             auth: api.defaultHeaders.Authorization,
