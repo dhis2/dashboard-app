@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Interpretations from './Interpretations/Interpretations';
 import { colors } from '../../colors';
-import { extractFavorite, getDescription } from './plugin';
+import { getId, getDescription } from './plugin';
 
 const style = {
     container: {
@@ -29,23 +29,26 @@ const style = {
     },
 };
 
+const ItemDescription = ({ description }) => {
+    return (
+        <div style={style.descriptionContainer}>
+            <hr style={style.line} />
+            <h3 style={style.descriptionTitle}>Description</h3>
+            <p style={style.descriptionText}>{description}</p>
+        </div>
+    );
+};
+
 class ItemFooter extends Component {
     render() {
-        const objectId = extractFavorite(this.props.item).id;
+        const objectId = getId(this.props.item);
+        const description = getDescription(this.props.item);
 
         return (
             <div className="dashboard-item-footer" style={style.container}>
-                {this.props.showDescription ? (
-                    <div style={style.descriptionContainer}>
-                        <hr style={style.line} />
-                        <h3 style={style.descriptionTitle}>Description</h3>
-                        <p style={style.descriptionText}>
-                            {getDescription(this.props.item)}
-                        </p>
-                    </div>
-                ) : null}
                 {this.props.showInterpretations ? (
                     <div>
+                        <ItemDescription description={description} />
                         <hr style={style.line} />
                         <Interpretations
                             objectType={this.props.item.type}

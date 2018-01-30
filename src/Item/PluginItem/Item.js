@@ -43,7 +43,6 @@ const getPluginCredentials = d2 => {
 class Item extends Component {
     state = {
         showInterpretations: false,
-        showDescription: false,
     };
 
     componentDidMount() {
@@ -52,12 +51,8 @@ class Item extends Component {
 
     notifyChangedContent = () => {
         const intHeight = this.state.showInterpretations ? LARGE_EXPAND : 0;
-        const descHeight = this.state.showDescription ? SMALL_EXPAND : 0;
 
-        this.props.onItemContentChanged(
-            this.props.item.id,
-            intHeight + descHeight
-        );
+        this.props.onItemContentChanged(this.props.item.id, intHeight);
     };
 
     onToggleInterpretations = () => {
@@ -65,13 +60,6 @@ class Item extends Component {
             {
                 showInterpretations: !this.state.showInterpretations,
             },
-            this.notifyChangedContent
-        );
-    };
-
-    onToggleDescription = () => {
-        this.setState(
-            { showDescription: !this.state.showDescription },
             this.notifyChangedContent
         );
     };
@@ -96,14 +84,6 @@ class Item extends Component {
                 <a href={favorite.getLink(item)} style={{ height: 16 }}>
                     <SvgIcon icon="Launch" style={style.icon} />
                 </a>
-                {favorite.getDescription(item) ? (
-                    <div
-                        onClick={this.onToggleDescription}
-                        style={{ height: 16 }}
-                    >
-                        <SvgIcon icon="InfoOutline" style={style.icon} />
-                    </div>
-                ) : null}
             </div>
         );
 
@@ -129,8 +109,6 @@ class Item extends Component {
                         item={item}
                         showInterpretations={this.state.showInterpretations}
                         onToggleInterpretations={this.onToggleInterpretations}
-                        showDescription={this.state.showDescription}
-                        onToggleDescription={this.onToggleDescription}
                     />
                 ) : null}
             </Fragment>
