@@ -22,6 +22,29 @@ const publicUrl = '';
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
 
+const dhisConfigPath =
+    process.env.DHIS2_HOME && `${process.env.DHIS2_HOME}/config`;
+
+let dhisConfig;
+try {
+    dhisConfig = require(dhisConfigPath);
+} catch (e) {
+    // Failed to load config file - use default config
+    console.warn(`\nWARNING! Failed to load DHIS config:`, e.message);
+    dhisConfig = {
+        baseUrl: 'http://localhost:8080',
+        authorization: 'Basic YWRtaW46ZGlzdHJpY3Q=', // admin:district
+    };
+}
+
+const globals = Object.assign(
+    {},
+    {
+        DHIS_CONFIG: JSON.stringify(dhisConfig),
+    },
+    env.stringified
+);
+
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
@@ -237,7 +260,7 @@ module.exports = {
         new webpack.NamedModulesPlugin(),
         // Makes some environment variables available to the JS code, for example:
         // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
-        new webpack.DefinePlugin(env.stringified),
+        new webpack.DefinePlugin(globals),
         // This is necessary to emit hot updates (currently CSS only):
         new webpack.HotModuleReplacementPlugin(),
         // Watcher doesn't work well if you mistype casing in a path so we use

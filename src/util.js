@@ -74,9 +74,20 @@ export const sortByDate = (items, dateProp, ascending = true) => {
     return values;
 };
 
-// event handler wrapper
+// event handler wrappers
+const getFromPath = (obj, path) => {
+    if (!obj || !path) {
+        return obj;
+    }
+
+    return path.split('.').reduce((res, prop) => res[prop], obj);
+};
+
 export const eventHandlerWrapper = (handler, ...params) => () =>
     handler(...params);
+
+export const eventHandlerWrapperWithParam = (handler, param, path) => obj =>
+    handler(param(getFromPath(obj, path)));
 
 // reducer validator
 export const validateReducer = (value, defaultValue) =>

@@ -1,6 +1,6 @@
-import { apiFetchFavorite } from '../../api';
-import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import isObject from 'd2-utilizr/lib/isObject';
+import { apiFetchFavorite } from '../../api/dashboards';
+import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import {
     REPORT_TABLE,
     CHART,
@@ -9,10 +9,6 @@ import {
     EVENT_CHART,
     itemTypeMap,
 } from '../../itemTypes';
-
-const url = '//localhost:8080';
-const username = 'admin';
-const password = 'district';
 
 export const extractFavorite = item => {
     if (!isObject(item)) {
@@ -42,32 +38,21 @@ export const extractFavorite = item => {
     }
 };
 
-const loadPlugin = (plugin, itemConfig) => {
-    plugin.url = url;
-    plugin.username = username;
-    plugin.password = password;
+const loadPlugin = (plugin, itemConfig, credentials) => {
+    plugin.url = credentials.baseUrl;
     plugin.loadingIndicator = true;
     plugin.dashboard = true;
+    if (credentials.auth) {
+        plugin.auth = credentials.auth;
+    }
+
     plugin.load(itemConfig);
-};
-
-const loadItem = item => {
-    let plugin = itemTypeMap[item.type].plugin;
-
-    const favorite = extractFavorite(item);
-    const itemConfig = {
-        id: favorite.id,
-        el: getGridItemDomId(item.id),
-        hideTitle: !favorite.title,
-    };
-
-    loadPlugin(plugin, itemConfig);
 };
 
 export const getId = item => extractFavorite(item).id;
 export const getName = item => extractFavorite(item).name;
 
-export const reload = async (item, targetType) => {
+export const reload = async (item, targetType, credentials) => {
     const favorite = await apiFetchFavorite(getId(item), item.type);
     const itemConfig = {
         ...favorite,
@@ -78,7 +63,18 @@ export const reload = async (item, targetType) => {
 
     let plugin = itemTypeMap[targetType].plugin;
 
-    loadPlugin(plugin, itemConfig);
+    loadPlugin(plugin, itemConfig, credentials);
 };
 
-export const load = item => loadItem(item);
+export const load = (item, credentials) => {
+    let plugin = itemTypeMap[item.type].plugin;
+
+    const favorite = extractFavorite(item);
+    const itemConfig = {
+        id: favorite.id,
+        el: getGridItemDomId(item.id),
+        hideTitle: !favorite.title,
+    };
+
+    loadPlugin(plugin, itemConfig, credentials);
+};

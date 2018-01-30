@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import ItemSelect from '../ItemSelect/ItemSelect';
 import D2ContentEditable from '../widgets/D2ContentEditable';
 import { fromEditDashboard } from '../actions';
+import { eventHandlerWrapperWithParam } from '../util';
 
 const EditTitleBar = ({
     name,
@@ -45,16 +46,18 @@ const EditTitleBar = ({
     );
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onChangeTitle: e =>
-            dispatch(fromEditDashboard.acSetDashboardTitle(e.target.value)),
-        onChangeDescription: e =>
-            dispatch(
-                fromEditDashboard.acSetDashboardDescription(e.target.value)
-            ),
-    };
-};
+const mapDispatchToProps = dispatch => ({
+    onChangeTitle: eventHandlerWrapperWithParam(
+        dispatch,
+        fromEditDashboard.acSetDashboardTitle,
+        'target.value'
+    ),
+    onChangeDescription: eventHandlerWrapperWithParam(
+        dispatch,
+        fromEditDashboard.acSetDashboardDescription,
+        'target.value'
+    ),
+});
 
 const TitleBarCt = connect(null, mapDispatchToProps)(EditTitleBar);
 
