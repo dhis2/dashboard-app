@@ -10,10 +10,6 @@ import {
     itemTypeMap,
 } from '../../itemTypes';
 
-const url = '//localhost:8080';
-const username = 'admin';
-const password = 'district';
-
 export const extractFavorite = item => {
     if (!isObject(item)) {
         return null;

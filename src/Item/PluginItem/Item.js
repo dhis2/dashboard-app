@@ -14,22 +14,24 @@ const style = {
     },
 };
 
+const getPluginCredentials = d2 => {
+    const api = d2.Api.getApi();
+    const idx = api.baseUrl.indexOf('/api');
+    const baseUrl = api.baseUrl.slice(0, idx);
+
+    return {
+        baseUrl,
+        auth: api.defaultHeaders.Authorization,
+    };
+};
+
 class Item extends Component {
     state = {
         showInterpretations: false,
     };
 
-    getApiCredentials = () => {
-        const api = this.context.d2.Api.getApi();
-
-        return {
-            baseUrl: api.baseUrl,
-            auth: api.defaultHeaders.Authorization,
-        };
-    };
-
     componentDidMount() {
-        favorite.load(this.props.item, this.getApiCredentials());
+        favorite.load(this.props.item, getPluginCredentials(this.context.d2));
     }
 
     onToggleInterpretations = () => {
@@ -38,7 +40,11 @@ class Item extends Component {
     };
 
     onSelectVisualization = targetType => {
-        favorite.reload(this.props.item, targetType, this.getApiCredentials());
+        favorite.reload(
+            this.props.item,
+            targetType,
+            getPluginCredentials(this.context.d2)
+        );
     };
 
     render() {
