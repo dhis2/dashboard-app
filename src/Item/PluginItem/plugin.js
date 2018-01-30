@@ -1,6 +1,6 @@
-import { apiFetchFavorite } from '../../api';
-import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import isObject from 'd2-utilizr/lib/isObject';
+import { apiFetchFavorite } from '../../api/dashboards';
+import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import {
     REPORT_TABLE,
     CHART,
