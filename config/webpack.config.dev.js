@@ -45,6 +45,8 @@ const globals = Object.assign(
     env.stringified
 );
 
+const scriptPrefix = dhisConfig.baseUrl;
+
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
@@ -237,7 +239,6 @@ module.exports = {
         {
             'react': 'var React',
             'react-dom': 'var ReactDOM',
-
         },
     ],
     plugins: [
@@ -251,9 +252,9 @@ module.exports = {
             inject: true,
             template: paths.appHtml,
             vendorScripts: [
-                `http://localhost:8080/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.js`,
-                `http://localhost:8080/dhis-web-core-resource/react/16.2.0/umd/react.development.js`,
-                `http://localhost:8080/dhis-web-core-resource/react-dom/16.2.0/umd/react-dom.development.js`,
+                `${scriptPrefix}/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.js`,
+                `${scriptPrefix}/dhis-web-core-resource/react/16.2.0/umd/react.development.js`,
+                `${scriptPrefix}/dhis-web-core-resource/react-dom/16.2.0/umd/react-dom.development.js`,
             ].map(script => `<script src="${script}"></script>`).join('\n'),
         }),
         // Add module names to factory functions so they appear in browser profiler.
