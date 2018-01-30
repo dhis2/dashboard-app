@@ -1,38 +1,37 @@
-import { getInstance } from 'd2/lib/d2';
 import arrayClean from 'd2-utilizr/lib/arrayClean';
-
 import { itemTypeMap } from '../itemTypes';
 
-export const getUrlByFavoriteType = type => itemTypeMap[type].endPointName;
+// Helper functions
+export const onError = error => console.log('Error: ', error);
 
-export const delay = (ms = 500) =>
-    new Promise(resolve => setTimeout(resolve, ms));
+export const getEndPointName = type => itemTypeMap[type].endPointName;
 
-const getIdNameFields = ({ rename } = {}) => [
+// Fields
+export const getIdNameFields = ({ rename } = {}) => [
     'id',
     `${rename ? 'displayName~rename(name)' : 'name'}`,
 ];
 
-const getItemFields = () => ['dimensionItem~rename(id)'];
+export const getItemFields = () => ['dimensionItem~rename(id)'];
 
-const getDimensionFields = ({ withItems }) =>
+export const getDimensionFields = ({ withItems }) =>
     arrayClean([
         'dimension',
         withItems ? `items[${getItemFields().join(',')}]` : ``,
     ]);
 
-const getAxesFields = ({ withItems }) => [
+export const getAxesFields = ({ withItems }) => [
     `columns[${getDimensionFields({ withItems }).join(',')}]`,
     `rows[${getDimensionFields({ withItems }).join(',')}]`,
     `filters[${getDimensionFields({ withItems }).join(',')}]`,
 ];
 
-const interpretationFields = () => {
+export const interpretationFields = () => {
     return 'interpretations[id]';
     // return 'interpretations[id,text,created,user[id,displayName],likedBy,comments[id,text,created,user[id,displayName]]]';
 };
 
-const getFavoriteFields = ({ withDimensions, withOptions }) => {
+export const getFavoriteFields = ({ withDimensions, withOptions }) => {
     return arrayClean([
         `${getIdNameFields({ rename: true }).join(',')}`,
         'displayDescription~rename(description)',
@@ -70,7 +69,7 @@ const getFavoriteFields = ({ withDimensions, withOptions }) => {
     ]);
 };
 
-const getFavoritesFields = ({ withDimensions, withOptions }) => [
+export const getFavoritesFields = ({ withDimensions, withOptions }) => [
     `reportTable[${getFavoriteFields({ withDimensions }).join(',')}]`,
     `chart[${getFavoriteFields({ withDimensions }).join(',')}]`,
     `map[${getFavoriteFields({ withDimensions }).join(',')}]`,
@@ -78,13 +77,13 @@ const getFavoritesFields = ({ withDimensions, withOptions }) => [
     `eventChart[${getFavoriteFields({ withDimensions }).join(',')}]`,
 ];
 
-const getListItemFields = () => [
+export const getListItemFields = () => [
     `reports[${getIdNameFields({ rename: true }).join(',')}]`,
     `resources[${getIdNameFields({ rename: true }).join(',')}]`,
     `users[${getIdNameFields({ rename: true }).join(',')}]`,
 ];
 
-const getDashboardItemsFields = ({ withFavorite } = {}) =>
+export const getDashboardItemsFields = ({ withFavorite } = {}) =>
     arrayClean([
         'id',
         'type',
@@ -103,10 +102,11 @@ const getDashboardItemsFields = ({ withFavorite } = {}) =>
             : ``,
     ]);
 
-const getDashboardFields = ({ withItems, withFavorite } = {}) =>
+export const getDashboardFields = ({ withItems, withFavorite } = {}) =>
     arrayClean([
         `${getIdNameFields({ rename: true }).join(',')}`,
         'description',
+        'favorite',
         `user[${getIdNameFields({ rename: true }).join(',')}]`,
         'created',
         'lastUpdated',
@@ -116,45 +116,3 @@ const getDashboardFields = ({ withItems, withFavorite } = {}) =>
               }).join(',')}]`
             : ``,
     ]);
-
-const onError = error => console.log('Error: ', error);
-
-// Get "all" dashboards on startup
-export const apiFetchDashboards = () =>
-    getInstance()
-        .then(d2 =>
-            d2.models.dashboard.list({
-                fields: [
-                    getDashboardFields().join(','),
-                    'dashboardItems[id]',
-                ].join(','),
-                paging: 'false',
-            })
-        )
-        .catch(onError);
-
-// Get more info about selected dashboard
-export const apiFetchSelected = id =>
-    getInstance()
-        .then(d2 =>
-            d2.models.dashboard.get(id, {
-                fields: arrayClean(
-                    getDashboardFields({
-                        withItems: true,
-                        withFavorite: { withDimensions: false },
-                    })
-                ).join(','),
-            })
-        )
-        .catch(onError);
-
-// Get more info about selected dashboard
-export const apiFetchFavorite = (id, type) =>
-    getInstance().then(d2 =>
-        d2.Api.getApi().get(
-            `${getUrlByFavoriteType(type)}/${id}?fields=${getFavoriteFields({
-                withDimensions: true,
-                withOptions: true,
-            })}`
-        )
-    );
