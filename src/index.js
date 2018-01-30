@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import D2UIApp from 'd2-ui/lib/app/D2UIApp';
 
-import { getManifest } from 'd2/lib/d2';
+import { config, getManifest, getUserSettings } from 'd2/lib/d2';
 
 import './index.css';
 
@@ -18,33 +18,48 @@ import App from './App';
 // init material-ui
 injectTapEventPlugin();
 
-// init d2
-getManifest('manifest.webapp').then(manifest => {
-    const isProd = process.env.NODE_ENV === 'production';
-    const baseUrl = isProd ? manifest.getBaseUrl() : DHIS_CONFIG.baseUrl;
-    const headers = isProd
-        ? null
-        : { Authorization: DHIS_CONFIG.authorization };
+let baseUrl;
 
-    ReactDOM.render(
-        <D2UIApp
-            initConfig={{
-                baseUrl: `${baseUrl}/api`,
-                headers,
-                schemas: [
-                    'dashboard',
-                    'chart',
-                    'reportTable',
-                    'map',
-                    'eventReport',
-                    'eventChart',
-                ],
-            }}
-        >
-            <Provider store={configureStore()}>
-                <App baseUrl={baseUrl} />
-            </Provider>
-        </D2UIApp>,
-        document.getElementById('root')
-    );
-});
+const configI18n = userSettings => {
+    const uiLocale = userSettings.keyUiLocale;
+
+    if (uiLocale && uiLocale !== 'en') {
+        config.i18n.sources.add(`./i18n/i18n_module_${uiLocale}.properties`);
+    }
+
+    config.i18n.sources.add('./i18n/i18n_module_en.properties');
+};
+
+// init d2
+getManifest('manifest.webapp')
+    .then(manifest => {
+        const isProd = process.env.NODE_ENV === 'production';
+        baseUrl = isProd ? manifest.getBaseUrl() : DHIS_CONFIG.baseUrl;
+
+        config.baseUrl = `${baseUrl}/api`;
+        config.headers = isProd
+            ? null
+            : { Authorization: DHIS_CONFIG.authorization };
+
+    })
+    .then(getUserSettings)
+    .then(configI18n)
+    .then(() => {
+        config.schemas = [
+            'dashboard',
+            'chart',
+            'reportTable',
+            'map',
+            'eventReport',
+            'eventChart',
+        ];
+
+        ReactDOM.render(
+            <D2UIApp initConfig={config}>
+                <Provider store={configureStore()}>
+                    <App baseUrl={baseUrl} />
+                </Provider>
+            </D2UIApp>,
+            document.getElementById('root')
+        );
+    });

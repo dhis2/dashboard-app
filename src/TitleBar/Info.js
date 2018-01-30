@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
-const styles = {
-    info: {
-        cursor: 'pointer',
-    },
-};
-
 class Info extends Component {
     show = false;
 
@@ -17,10 +11,7 @@ class Info extends Component {
 
     render() {
         return (
-            <div
-                style={styles.info}
-                onClick={() => this.props.onClick(this.toggle())}
-            >
+            <div onClick={() => this.props.onClick(this.toggle())}>
                 <SvgIcon icon={'InfoOutline'} />
             </div>
         );

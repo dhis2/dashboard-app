@@ -1,9 +1,16 @@
 import { actionTypes } from '../reducers';
-import { apiFetchSelected } from '../api';
+import { apiFetchSelected } from '../api/dashboards';
 import { acSetDashboards } from './dashboards';
 import { withShape } from '../ItemGrid/gridUtil';
 import { tGetMessages } from '../Item/MessagesItem/actions';
-import { REPORT_TABLE, CHART, MESSAGES } from '../util';
+import {
+    REPORT_TABLE,
+    CHART,
+    MAP,
+    EVENT_REPORT,
+    EVENT_CHART,
+    MESSAGES,
+} from '../itemTypes';
 
 // actions
 
@@ -49,6 +56,15 @@ export const tSetSelectedDashboardById = id => async dispatch => {
                     break;
                 case CHART:
                     dispatch(receivedVisualization(item.chart));
+                    break;
+                case MAP:
+                    dispatch(receivedVisualization(item.map));
+                    break;
+                case EVENT_REPORT:
+                    dispatch(receivedVisualization(item.eventReport));
+                    break;
+                case EVENT_CHART:
+                    dispatch(receivedVisualization(item.eventChart));
                     break;
                 case MESSAGES:
                     dispatch(tGetMessages(id));

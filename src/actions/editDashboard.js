@@ -3,7 +3,7 @@ import { actionTypes } from '../reducers';
 import { fromEditDashboard } from '../reducers';
 import { updateDashboard, postDashboard } from '../api/editDashboard';
 import { fromSelected } from '.';
-import { itemTypeMap } from '../util';
+import { itemTypeMap } from '../itemTypes';
 
 const onError = error => {
     console.log('Error (Saving Dashboard): ', error);

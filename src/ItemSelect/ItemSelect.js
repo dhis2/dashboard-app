@@ -4,10 +4,10 @@ import Popover from 'material-ui/Popover';
 import TextField from 'material-ui/TextField';
 
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
-import { itemTypeMap } from '../util';
 import ItemSelectList from './ItemSelectList';
 import ItemSelectSingle from './ItemSelectSingle';
-import { singleItems, listItems } from './itemTypes';
+import { singleItems, listItems } from './selectableItems';
+import { itemTypeMap } from '../itemTypes';
 
 const ItemSearchField = props => (
     <div style={{ display: 'flex', alignItems: 'center', width: '400px' }}>

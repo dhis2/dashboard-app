@@ -18,7 +18,7 @@ import {
     RESOURCES,
     USERS,
     TEXT,
-} from '../util';
+} from '../itemTypes';
 
 const getGridItem = type => {
     switch (type) {
