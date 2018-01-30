@@ -86,6 +86,9 @@ const getFromPath = (obj, path) => {
 export const eventHandlerWrapper = (handler, ...params) => () =>
     handler(...params);
 
+export const eventHandlerMultipleWrapper = (handler, ...params) => () =>
+    params.forEach(param => handler(param));
+
 export const eventHandlerWrapperWithParam = (handler, param, path) => obj =>
     handler(param(getFromPath(obj, path)));
 

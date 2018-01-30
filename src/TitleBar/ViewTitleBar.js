@@ -8,7 +8,11 @@ import Info from './Info';
 import D2TextLink from '../widgets/D2TextLink';
 import * as fromReducers from '../reducers';
 import { fromEditDashboard, fromSelected } from '../actions';
-import { orObject, eventHandlerWrapper } from '../util';
+import {
+    orObject,
+    eventHandlerWrapper,
+    eventHandlerMultipleWrapper,
+} from '../util';
 import { tStarDashboard } from '../actions/dashboards';
 
 const NO_DESCRIPTION = 'No description';
@@ -142,10 +146,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             dispatch,
             tStarDashboard(selectedDashboard.id, !stateProps.starred)
         ),
-        onEditClick: () => {
-            dispatch(fromSelected.acSetSelectedEdit(true));
-            dispatch(fromEditDashboard.acSetEditDashboard(selectedDashboard));
-        },
+        onEditClick: eventHandlerMultipleWrapper(
+            dispatch,
+            fromSelected.acSetSelectedEdit(true),
+            fromEditDashboard.acSetEditDashboard(selectedDashboard)
+        ),
         onInfoClick: eventHandlerWrapper(
             dispatch,
             fromSelected.acSetSelectedShowDescription(
