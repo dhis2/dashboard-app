@@ -9,8 +9,6 @@ import PluginItemHeaderButtons from './ItemHeaderButtons';
 import * as favorite from './plugin';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 
-import { SMALL_EXPAND, LARGE_EXPAND } from '../../ItemGrid/ItemGrid';
-
 const style = {
     icon: {
         width: 16,
@@ -46,18 +44,12 @@ class Item extends Component {
         favorite.load(this.props.item, getPluginCredentials(this.context.d2));
     }
 
-    notifyChangedContent = () => {
-        const intHeight = this.state.showInterpretations ? LARGE_EXPAND : 0;
-
-        this.props.onItemContentChanged(this.props.item.id, intHeight);
-    };
-
     onToggleInterpretations = () => {
         this.setState(
             {
                 showInterpretations: !this.state.showInterpretations,
             },
-            this.notifyChangedContent
+            this.props.onItemContentChanged(this.props.item.id)
         );
     };
 

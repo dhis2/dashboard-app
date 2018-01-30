@@ -26,11 +26,9 @@ import { orArray } from '../util';
 import * as fromReducers from '../reducers';
 import ModalLoadingMask from '../widgets/ModalLoadingMask';
 
-export const NO_EXPAND = 0;
-export const SMALL_EXPAND = 5;
-export const LARGE_EXPAND = 20;
-
 // Component
+
+const EXPANDED_HEIGHT = 20;
 
 const NoItemsMessage = ({ text }) => (
     <div
@@ -53,10 +51,14 @@ export class ItemGrid extends Component {
 
     NO_ITEMS_MESSAGE = 'You have not added any items';
 
-    onItemContentChanged = (clickedId, heightFactor) => {
-        const expandedItems = { ...this.state.expandedItems };
-        expandedItems[clickedId] = heightFactor;
+    onItemContentChanged = clickedId => {
+        const isExpanded =
+            typeof this.state.expandedItems[clickedId] === 'boolean'
+                ? this.state.expandedItems[clickedId]
+                : false;
 
+        const expandedItems = { ...this.state.expandedItems };
+        expandedItems[clickedId] = !isExpanded;
         this.setState({ expandedItems });
     };
 
@@ -85,8 +87,8 @@ export class ItemGrid extends Component {
             const expandedItem = this.state.expandedItems[item.id];
             let hProp = { h: item.h };
 
-            if (expandedItem) {
-                hProp.h = item.h + expandedItem;
+            if (expandedItem && expandedItem === true) {
+                hProp.h = item.h + EXPANDED_HEIGHT;
             }
 
             return Object.assign({}, item, hProp, {
