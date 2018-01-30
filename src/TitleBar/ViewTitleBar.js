@@ -1,6 +1,7 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import SharingDialog from 'd2-ui/lib/sharing/SharingDialog.component';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
 import Info from './Info';
@@ -35,63 +36,87 @@ const viewStyle = {
     },
 };
 
-const ViewTitleBar = ({
-    name,
-    description,
-    style,
-    showDescription,
-    starred,
-    onStarClick,
-    onEditClick,
-    onInfoClick,
-}) => {
-    const styles = Object.assign({}, style, viewStyle);
+class ViewTitleBar extends Component {
+    constructor(props) {
+        super(props);
 
-    return (
-        <Fragment>
-            <div className="titlebar" style={styles.titleBar}>
-                <div style={styles.title}>
-                    <div style={{ userSelect: 'text' }}>{name}</div>
+        this.state = {
+            sharingDialogIsOpen: false,
+        };
+    }
+
+    toggleSharingDialog = () =>
+        this.setState({ sharingDialogIsOpen: !this.state.sharingDialogIsOpen });
+
+    render() {
+        const {
+            id,
+            name,
+            description,
+            style,
+            showDescription,
+            starred,
+            onStarClick,
+            onEditClick,
+            onInfoClick,
+        } = this.props;
+        const styles = Object.assign({}, style, viewStyle);
+
+        return (
+            <Fragment>
+                <div className="titlebar" style={styles.titleBar}>
+                    <div style={styles.title}>
+                        <div style={{ userSelect: 'text' }}>{name}</div>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <div style={styles.titleBarIcon} onClick={onStarClick}>
+                            <SvgIcon icon={starred ? 'Star' : 'StarBorder'} />
+                        </div>
+                        <div style={styles.titleBarIcon}>
+                            <Info onClick={onInfoClick} />
+                        </div>
+                        <div style={styles.titleBarLink}>
+                            <D2TextLink
+                                text={'Edit'}
+                                style={styles.textLink}
+                                hoverStyle={styles.textLinkHover}
+                                onClick={onEditClick}
+                            />
+                        </div>
+                        <div style={styles.titleBarLink}>
+                            <D2TextLink
+                                text={'Share'}
+                                style={styles.textLink}
+                                hoverStyle={styles.textLinkHover}
+                                onClick={this.toggleSharingDialog}
+                            />
+                        </div>
+                    </div>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <div style={styles.titleBarIcon} onClick={onStarClick}>
-                        <SvgIcon icon={starred ? 'Star' : 'StarBorder'} />
+                {showDescription ? (
+                    <div
+                        className="dashboard-description"
+                        style={Object.assign(
+                            {},
+                            styles.description,
+                            !description ? styles.noDescription : {}
+                        )}
+                    >
+                        {description || NO_DESCRIPTION}
                     </div>
-                    <div style={styles.titleBarIcon}>
-                        <Info onClick={onInfoClick} />
-                    </div>
-                    <div style={styles.titleBarLink}>
-                        <D2TextLink
-                            text={'Edit'}
-                            style={styles.textLink}
-                            hoverStyle={styles.textLinkHover}
-                            onClick={onEditClick}
-                        />
-                    </div>
-                    <div style={styles.titleBarLink}>
-                        <D2TextLink
-                            text={'Share'}
-                            style={styles.textLink}
-                            hoverStyle={styles.textLinkHover}
-                        />
-                    </div>
-                </div>
-            </div>
-            {showDescription ? (
-                <div
-                    className="dashboard-description"
-                    style={Object.assign(
-                        {},
-                        styles.description,
-                        !description ? styles.noDescription : {}
-                    )}
-                >
-                    {description || NO_DESCRIPTION}
-                </div>
-            ) : null}
-        </Fragment>
-    );
-};
+                ) : null}
+                {id ? (
+                    <SharingDialog
+                        id={id}
+                        type="dashboard"
+                        open={this.state.sharingDialogIsOpen}
+                        onRequestClose={this.toggleSharingDialog}
+                    />
+                ) : null}
+            </Fragment>
+        );
+    }
+}
 
 const mapStateToProps = state => {
     const selectedDashboard = orObject(
@@ -135,6 +160,7 @@ const ViewTitleBarCt = connect(mapStateToProps, null, mergeProps)(ViewTitleBar);
 export default ViewTitleBarCt;
 
 ViewTitleBar.propTypes = {
+    id: PropTypes.string,
     name: PropTypes.string,
     description: PropTypes.string,
     starred: PropTypes.bool,
