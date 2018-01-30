@@ -12,9 +12,6 @@ import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { SMALL_EXPAND, LARGE_EXPAND } from '../../ItemGrid/ItemGrid';
 
 const style = {
-    itemFooter: {
-        flex: '0 0 320',
-    },
     icon: {
         width: 16,
         height: 16,
@@ -105,7 +102,6 @@ class Item extends Component {
                 <div id={elementId} className="dashboard-item-content" />
                 {!this.props.editMode ? (
                     <ItemFooter
-                        style={style.itemFooter}
                         item={item}
                         showInterpretations={this.state.showInterpretations}
                         onToggleInterpretations={this.onToggleInterpretations}

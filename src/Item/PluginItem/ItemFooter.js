@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Interpretations from './Interpretations/Interpretations';
 import { colors } from '../../colors';
 import { getId, getDescription } from './plugin';
 
 const style = {
-    container: {
-        padding: '5px',
+    scrollContainer: {
+        overflowY: 'scroll',
+        height: '380px',
+        paddintTop: '5px',
     },
     containerHidden: {
         paddingTop: 0,
@@ -32,7 +34,6 @@ const style = {
 const ItemDescription = ({ description }) => {
     return (
         <div style={style.descriptionContainer}>
-            <hr style={style.line} />
             <h3 style={style.descriptionTitle}>Description</h3>
             <p style={style.descriptionText}>{description}</p>
         </div>
@@ -45,16 +46,19 @@ class ItemFooter extends Component {
         const description = getDescription(this.props.item);
 
         return (
-            <div className="dashboard-item-footer" style={style.container}>
+            <div className="dashboard-item-footer">
                 {this.props.showInterpretations ? (
-                    <div>
-                        <ItemDescription description={description} />
+                    <Fragment>
                         <hr style={style.line} />
-                        <Interpretations
-                            objectType={this.props.item.type}
-                            objectId={objectId}
-                        />
-                    </div>
+                        <div style={style.scrollContainer}>
+                            <ItemDescription description={description} />
+                            <hr style={style.line} />
+                            <Interpretations
+                                objectType={this.props.item.type}
+                                objectId={objectId}
+                            />
+                        </div>
+                    </Fragment>
                 ) : null}
             </div>
         );
