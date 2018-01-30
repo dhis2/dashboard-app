@@ -7,10 +7,7 @@ const style = {
     scrollContainer: {
         overflowY: 'scroll',
         height: '380px',
-        paddintTop: '5px',
-    },
-    containerHidden: {
-        paddingTop: 0,
+        paddingTop: '5px',
     },
     line: {
         margin: '-1px 0px 0px',
