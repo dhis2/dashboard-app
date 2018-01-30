@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Interpretations from './Interpretations/Interpretations';
 import { colors } from '../../colors';
 import { getId, getDescription } from './plugin';
@@ -44,19 +44,15 @@ class ItemFooter extends Component {
 
         return (
             <div className="dashboard-item-footer">
-                {this.props.showInterpretations ? (
-                    <Fragment>
-                        <hr style={style.line} />
-                        <div style={style.scrollContainer}>
-                            <ItemDescription description={description} />
-                            <hr style={style.line} />
-                            <Interpretations
-                                objectType={this.props.item.type}
-                                objectId={objectId}
-                            />
-                        </div>
-                    </Fragment>
-                ) : null}
+                <hr style={style.line} />
+                <div style={style.scrollContainer}>
+                    <ItemDescription description={description} />
+                    <hr style={style.line} />
+                    <Interpretations
+                        objectType={this.props.item.type}
+                        objectId={objectId}
+                    />
+                </div>
             </div>
         );
     }

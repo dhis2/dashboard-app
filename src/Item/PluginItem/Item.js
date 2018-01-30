@@ -37,18 +37,16 @@ const getPluginCredentials = d2 => {
 
 class Item extends Component {
     state = {
-        showInterpretations: false,
+        showFooter: false,
     };
 
     componentDidMount() {
         favorite.load(this.props.item, getPluginCredentials(this.context.d2));
     }
 
-    onToggleInterpretations = () => {
+    onToggleFooter = () => {
         this.setState(
-            {
-                showInterpretations: !this.state.showInterpretations,
-            },
+            { showFooter: !this.state.showFooter },
             this.props.onToggleItemExpanded(this.props.item.id)
         );
     };
@@ -80,7 +78,7 @@ class Item extends Component {
             <PluginItemHeaderButtons
                 item={item}
                 onSelectVisualization={this.onSelectVisualization}
-                onInterpretationsClick={this.onToggleInterpretations}
+                onToggleFooter={this.onToggleFooter}
             />
         ) : null;
 
@@ -92,12 +90,8 @@ class Item extends Component {
                     editMode={this.props.editMode}
                 />
                 <div id={elementId} className="dashboard-item-content" />
-                {!this.props.editMode ? (
-                    <ItemFooter
-                        item={item}
-                        showInterpretations={this.state.showInterpretations}
-                        onToggleInterpretations={this.onToggleInterpretations}
-                    />
+                {!this.props.editMode && this.state.showFooter ? (
+                    <ItemFooter item={item} />
                 ) : null}
             </Fragment>
         );
