@@ -1,3 +1,5 @@
+/* global DHIS_CONFIG */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -31,17 +33,17 @@ const configI18n = userSettings => {
 // init d2
 getManifest('manifest.webapp')
     .then(manifest => {
-        baseUrl =
-            process.env.NODE_ENV === 'production'
-                ? manifest.getBaseUrl()
-                : 'http://localhost:8080';
+        const isProd = process.env.NODE_ENV === 'production';
+        baseUrl = isProd ? manifest.getBaseUrl() : DHIS_CONFIG.baseUrl;
 
         config.baseUrl = `${baseUrl}/api`;
+        config.headers = isProd
+            ? null
+            : { Authorization: DHIS_CONFIG.authorization };
     })
     .then(getUserSettings)
     .then(configI18n)
     .then(() => {
-        config.headers = { Authorization: `Basic ${btoa('admin:district')}` };
         config.schemas = [
             'dashboard',
             'chart',
