@@ -7,6 +7,8 @@ import {
     itemTypeMap,
 } from '../../itemTypes';
 
+import { colors } from '../../colors';
+
 export const getItemTypeId = (itemTypeMap, visualizationType, domainType) =>
     Object.values(itemTypeMap)
         .filter(
@@ -18,7 +20,12 @@ export const getItemTypeId = (itemTypeMap, visualizationType, domainType) =>
 
 class PluginItemHeaderButtons extends Component {
     render() {
-        const { item, onSelectVisualization, onToggleFooter } = this.props;
+        const {
+            item,
+            onSelectVisualization,
+            activeFooter,
+            onToggleFooter,
+        } = this.props;
 
         const domainType = itemTypeMap[item.type].domainType;
 
@@ -41,6 +48,26 @@ class PluginItemHeaderButtons extends Component {
         //         )
         //     );
 
+        const buttonContainer = {
+            padding: '6px 6px 4px 6px',
+            borderRadius: '2px',
+            border: `1px solid ${colors.lightGrey}`,
+        };
+        const container = activeFooter
+            ? Object.assign(
+                  {},
+                  {
+                      backgroundColor: colors.lightBlue,
+                  },
+                  buttonContainer
+              )
+            : buttonContainer;
+        const icon = activeFooter
+            ? { fill: colors.royalBlue, width: '22px', height: '22px' }
+            : { fill: colors.lightMediumGrey, width: '22px', height: '22px' };
+
+        const toggleFooterStyle = Object.assign({}, { container }, { icon });
+
         return (
             <Fragment>
                 <div
@@ -51,6 +78,7 @@ class PluginItemHeaderButtons extends Component {
                 >
                     <ItemHeaderButton
                         icon={'Message'}
+                        style={toggleFooterStyle}
                         onClick={onToggleFooter}
                     />
                 </div>

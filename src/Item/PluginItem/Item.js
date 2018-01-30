@@ -77,6 +77,7 @@ class Item extends Component {
         const actionButtons = !this.props.editMode ? (
             <PluginItemHeaderButtons
                 item={item}
+                activeFooter={this.state.showFooter}
                 onSelectVisualization={this.onSelectVisualization}
                 onToggleFooter={this.onToggleFooter}
             />
