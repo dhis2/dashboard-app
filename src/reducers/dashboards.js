@@ -10,6 +10,7 @@ import { orArray, orNull, orObject } from '../util';
  */
 export const actionTypes = {
     SET_DASHBOARDS: 'SET_DASHBOARDS',
+    STAR_DASHBOARD: 'STAR_DASHBOARD',
 };
 
 /**
@@ -32,6 +33,15 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
             return {
                 ...(action.append ? orObject(state) : {}),
                 ...action.value,
+            };
+        }
+        case actionTypes.STAR_DASHBOARD: {
+            return {
+                ...state,
+                [action.dashboardId]: {
+                    ...state[action.dashboardId],
+                    starred: action.value,
+                },
             };
         }
         default:
@@ -71,7 +81,7 @@ export const getCustomDashboards = data =>
         id: d.id,
         name: d.name,
         description: d.description,
-        starred: Math.random() > 0.7,
+        starred: d.favorite,
         owner: d.user.name,
         created: d.created
             .split('T')

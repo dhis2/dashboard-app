@@ -1,5 +1,5 @@
 import { actionTypes } from '../reducers';
-import { apiFetchSelected } from '../api';
+import { apiFetchSelected } from '../api/dashboards';
 import { acSetDashboards } from './dashboards';
 import { withShape } from '../ItemGrid/gridUtil';
 import { tGetMessages } from '../Item/MessagesItem/actions';
