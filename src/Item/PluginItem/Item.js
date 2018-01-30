@@ -38,6 +38,7 @@ class Item extends Component {
 
         const actionButtons = !this.props.editMode ? (
             <PluginItemHeaderButtons
+                item={item}
                 onSelectVisualization={this.onSelectVisualization}
                 onInterpretationsClick={this.onToggleInterpretations}
             />
@@ -45,7 +46,11 @@ class Item extends Component {
 
         return (
             <Fragment>
-                <ItemHeader title={title} actionButtons={actionButtons} />
+                <ItemHeader
+                    title={title}
+                    actionButtons={actionButtons}
+                    editMode={this.props.editMode}
+                />
                 <div id={elementId} className="dashboard-item-content" />
                 {!this.props.editMode ? (
                     <ItemFooter

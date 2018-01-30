@@ -1,13 +1,49 @@
 import React, { Component, Fragment } from 'react';
 import ItemHeaderButton from '../ItemHeaderButton';
-import { REPORT_TABLE, CHART } from '../../util';
+import {
+    VISUALIZATION_TYPE_TABLE,
+    VISUALIZATION_TYPE_CHART,
+    // VISUALIZATION_TYPE_MAP,
+    itemTypeMap,
+} from '../../itemTypes';
+
+export const getItemTypeId = (itemTypeMap, visualizationType, domainType) =>
+    Object.values(itemTypeMap)
+        .filter(
+            item =>
+                item.visualizationType === visualizationType &&
+                item.domainType === domainType
+        )
+        .map(item => item.id);
 
 class PluginItemHeaderButtons extends Component {
     render() {
-        const { onSelectVisualization, onInterpretationsClick } = this.props;
+        const {
+            item,
+            onSelectVisualization,
+            onInterpretationsClick,
+        } = this.props;
 
-        const onViewTable = () => onSelectVisualization(REPORT_TABLE);
-        const onViewChart = () => onSelectVisualization(CHART);
+        const domainType = itemTypeMap[item.type].domainType;
+
+        const onViewTable = () =>
+            onSelectVisualization(
+                getItemTypeId(itemTypeMap, VISUALIZATION_TYPE_TABLE, domainType)
+            );
+
+        const onViewChart = () =>
+            onSelectVisualization(
+                getItemTypeId(itemTypeMap, VISUALIZATION_TYPE_CHART, domainType)
+            );
+
+        // const onViewMap = () =>
+        //     onSelectVisualization(
+        //         getItemTypeId(
+        //             itemTypeMap,
+        //             VISUALIZATION_TYPE_MAP,
+        //             domainType
+        //         )
+        //     );
 
         return (
             <Fragment>
