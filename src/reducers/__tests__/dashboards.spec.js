@@ -1,4 +1,3 @@
-import update from 'immutability-helper';
 import reducer, { actionTypes, DEFAULT_DASHBOARDS } from '../dashboards';
 
 describe('dashboards reducer', () => {
