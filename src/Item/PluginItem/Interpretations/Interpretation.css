@@ -1,3 +1,17 @@
+.interpretation-action-button {
+    background-color: transparent;
+    border: none;
+    color: #494949;
+    cursor: pointer;
+    font: inherit;
+    font-size: 12px;
+    height: 14px;
+    line-height: 14px;
+    margin-right: 10px;
+    padding: 0 !important;
+    text-decoration: underline;
+}
+
 .interpretation-action-button:focus {
     outline: 0;
 }
