@@ -7,7 +7,6 @@ import IconClear from 'material-ui/svg-icons/content/clear';
 import isEmpty from 'd2-utilizr/lib/isEmpty';
 
 import * as fromReducers from '../reducers';
-import { eventHandlerWrapper } from '../util';
 
 const KEYCODE_ENTER = 13;
 const KEYCODE_ESCAPE = 27;
@@ -49,9 +48,6 @@ class Filter extends Component {
         this.state = {
             value: fromReducers.fromFilter.DEFAULT_NAME,
         };
-
-        this.setFilterValue = this.setFilterValue.bind(this);
-        this.handleKeyUp = this.handleKeyUp.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -60,13 +56,13 @@ class Filter extends Component {
         });
     }
 
-    setFilterValue(event) {
+    setFilterValue = event => {
         event.preventDefault();
 
         this.props.onChangeName(event.target.value);
-    }
+    };
 
-    handleKeyUp(event) {
+    handleKeyUp = event => {
         switch (event.keyCode) {
             case KEYCODE_ENTER:
                 this.props.onKeypressEnter();
@@ -81,7 +77,7 @@ class Filter extends Component {
         if (event.keyCode === KEYCODE_ESCAPE) {
             this.props.onChangeName();
         }
-    }
+    };
 
     render() {
         return (
@@ -120,7 +116,7 @@ const ClearButton = ({ name, onChangeName }) => {
                 opacity: disabled ? 0 : 1,
             })}
             iconStyle={styles.clearButtonIcon}
-            onClick={eventHandlerWrapper(onChangeName)}
+            onClick={onChangeName}
             disabled={disabled}
         >
             <IconClear color={grey700} />
