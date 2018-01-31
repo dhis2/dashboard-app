@@ -44,14 +44,7 @@ getManifest('manifest.webapp')
     .then(getUserSettings)
     .then(configI18n)
     .then(() => {
-        config.schemas = [
-            'dashboard',
-            'chart',
-            'reportTable',
-            'map',
-            'eventReport',
-            'eventChart',
-        ];
+        config.schemas = ['dashboard'];
 
         ReactDOM.render(
             <D2UIApp initConfig={config}>

@@ -18,11 +18,7 @@ export const getItemTypeId = (itemTypeMap, visualizationType, domainType) =>
 
 class PluginItemHeaderButtons extends Component {
     render() {
-        const {
-            item,
-            onSelectVisualization,
-            onInterpretationsClick,
-        } = this.props;
+        const { item, onSelectVisualization, onToggleFooter } = this.props;
 
         const domainType = itemTypeMap[item.type].domainType;
 
@@ -55,7 +51,7 @@ class PluginItemHeaderButtons extends Component {
                 >
                     <ItemHeaderButton
                         icon={'Message'}
-                        onClick={onInterpretationsClick}
+                        onClick={onToggleFooter}
                     />
                 </div>
                 <div style={{ paddingLeft: 10, marginRight: 4 }}>
