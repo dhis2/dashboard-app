@@ -6,6 +6,8 @@ const lightGrey = '#ECEFF1';
 const mediumGrey = '#393939';
 const red = '#E53935';
 const royalBlue = '#004BA0';
+const lightBlue = '#EAF4FF';
+const lightMediumGrey = '#9E9E9E';
 
 export const colors = {
     accentLightGreen,
@@ -16,4 +18,6 @@ export const colors = {
     mediumGrey,
     red,
     royalBlue,
+    lightBlue,
+    lightMediumGrey,
 };

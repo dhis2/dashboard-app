@@ -1,0 +1,9 @@
+.item-action-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.item-action-button:focus {
+    outline: 0;
+}
