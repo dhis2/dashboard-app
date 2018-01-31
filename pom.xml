@@ -8,6 +8,43 @@
   <artifactId>dhis-app-dashboard</artifactId>
   <version>2.29-SNAPSHOT</version>
   <packaging>jar</packaging>
+  <name>Dashboard</name>
+  <description>DHIS 2 dashboards app</description>
+  <url>https://github.com/dhis2/dashboards-app</url>
+
+  <organization>
+    <name>DHIS 2</name>
+    <url>https://www.dhis2.org</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <name>BSD</name>
+      <url>https://opensource.org/licenses/BSD-3-Clause</url>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:git@github.com:dhis2/dashboards-app.git</connection>
+    <developerConnection>scm:git:git@github.com:dhis2/dashboards-app.git</developerConnection>
+    <url>git@github.com:dhis2/dashboards-app.git</url>
+  </scm>
+
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/dhis2/dashboards-app</url>
+  </issueManagement>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+    </repository>
+  </distributionManagement>
 
   <build>
     <resources>
