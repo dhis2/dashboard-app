@@ -71,9 +71,7 @@ const style = {
 };
 
 const deleteButton = action => {
-    const iconStyle = Object.assign({}, style.icon, {
-        fill: colors.accentLightGreen,
-    });
+    const iconStyle = Object.assign({}, style.icon, { fill: colors.red });
 
     return (
         <button
