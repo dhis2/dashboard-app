@@ -27,14 +27,14 @@ const style = {
     },
 };
 
-export const getItemTypeId = (itemTypeMap, visualizationType, domainType) =>
-    Object.values(itemTypeMap)
-        .filter(
-            item =>
-                item.visualizationType === visualizationType &&
-                item.domainType === domainType
-        )
-        .map(item => item.id);
+export const getItemTypeId = (itemTypeMap, visualizationType, domainType) => {
+    const item = Object.values(itemTypeMap).find(
+        item =>
+            item.visualizationType === visualizationType &&
+            item.domainType === domainType
+    );
+    return item.id;
+};
 
 class PluginItemHeaderButtons extends Component {
     render() {
