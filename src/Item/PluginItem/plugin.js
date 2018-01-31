@@ -51,6 +51,8 @@ const loadPlugin = (plugin, itemConfig, credentials) => {
 
 export const getId = item => extractFavorite(item).id;
 export const getName = item => extractFavorite(item).name;
+export const getDescription = item => extractFavorite(item).description;
+export const getLink = item => itemTypeMap[item.type].appUrl(getId(item));
 
 export const reload = async (item, targetType, credentials) => {
     const favorite = await apiFetchFavorite(getId(item), item.type);

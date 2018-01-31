@@ -28,6 +28,8 @@ import ModalLoadingMask from '../widgets/ModalLoadingMask';
 
 // Component
 
+const EXPANDED_HEIGHT = 20;
+
 const NoItemsMessage = ({ text }) => (
     <div
         style={{
@@ -57,7 +59,6 @@ export class ItemGrid extends Component {
 
         const expandedItems = { ...this.state.expandedItems };
         expandedItems[clickedId] = !isExpanded;
-
         this.setState({ expandedItems });
     };
 
@@ -87,7 +88,7 @@ export class ItemGrid extends Component {
             let hProp = { h: item.h };
 
             if (expandedItem && expandedItem === true) {
-                hProp.h = item.h + 20;
+                hProp.h = item.h + EXPANDED_HEIGHT;
             }
 
             return Object.assign({}, item, hProp, {

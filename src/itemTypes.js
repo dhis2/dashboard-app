@@ -31,6 +31,7 @@ export const itemTypeMap = {
         plugin: global.reportTablePlugin,
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_TABLE,
+        appUrl: id => `dhis-web-pivot/?id=${id}`,
     },
     [CHART]: {
         id: CHART,
@@ -41,6 +42,7 @@ export const itemTypeMap = {
         plugin: global.chartPlugin,
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_CHART,
+        appUrl: id => `dhis-web-visualizer/?id=${id}`,
     },
     [MAP]: {
         id: MAP,
@@ -51,6 +53,7 @@ export const itemTypeMap = {
         plugin: global.mapPlugin,
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_MAP,
+        appUrl: id => `dhis-web-mapping/?id=${id}`,
     },
     [EVENT_REPORT]: {
         id: EVENT_REPORT,
@@ -61,6 +64,7 @@ export const itemTypeMap = {
         plugin: global.eventReportPlugin,
         domainType: DOMAIN_TYPE_TRACKER,
         visualizationType: VISUALIZATION_TYPE_TABLE,
+        appUrl: id => `dhis-web-event-reports/?id=${id}`,
     },
     [EVENT_CHART]: {
         id: EVENT_CHART,
@@ -71,6 +75,7 @@ export const itemTypeMap = {
         plugin: global.eventChartPlugin,
         domainType: DOMAIN_TYPE_TRACKER,
         visualizationType: VISUALIZATION_TYPE_CHART,
+        appUrl: id => `dhis-web-event-visualizer/?id=${id}`,
     },
     [APP]: {
         endPointName: 'apps',
@@ -84,6 +89,8 @@ export const itemTypeMap = {
         propName: 'reports',
         countName: 'reportCount',
         pluralTitle: 'Reports',
+        appUrl: id =>
+            `dhis-web-reporting/getReportParams.action?mode=report&uid=${id}`,
     },
     [RESOURCES]: {
         id: RESOURCES,
@@ -91,6 +98,7 @@ export const itemTypeMap = {
         propName: 'resources',
         countName: 'resourceCount',
         pluralTitle: 'Resources',
+        appUrl: (id, baseUrl) => `${baseUrl}/documents/${id}/data`,
     },
     [USERS]: {
         id: USERS,
@@ -98,6 +106,7 @@ export const itemTypeMap = {
         propName: 'users',
         countName: 'userCount',
         pluralTitle: 'Users',
+        appUrl: id => `dhis-web-dashboard-integration/profile.action?id=${id}`,
     },
     [TEXT]: {
         id: TEXT,

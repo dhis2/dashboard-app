@@ -10,8 +10,6 @@ import { sortByDate } from '../../../util';
 
 const style = {
     container: {
-        overflowY: 'scroll',
-        height: '320px',
         padding: '5px',
         marginTop: '5px',
     },
