@@ -14,12 +14,15 @@ import { colors } from '../../colors';
 
 const style = {
     iconBase: {
-        width: '22px',
-        height: '22px',
+        width: '24px',
+        height: '24px',
         fill: colors.lightMediumGrey,
     },
     buttonBase: {
         padding: '6px 6px 4px 6px',
+    },
+    toggleFooterPadding: {
+        padding: '8px 6px 2px 6px',
     },
     border: {
         borderRadius: '2px',
@@ -90,7 +93,11 @@ class PluginItemHeaderButtons extends Component {
         const toggleFooterBase = activeFooter ? active : base;
 
         const toggleFooter = Object.assign({}, toggleFooterBase, {
-            container: { ...toggleFooterBase.container, ...style.border },
+            container: {
+                ...toggleFooterBase.container,
+                ...style.toggleFooterPadding,
+                ...style.border,
+            },
         });
 
         return (
