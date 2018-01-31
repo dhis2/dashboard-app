@@ -14,9 +14,9 @@ const style = {
         marginTop: '5px',
     },
     item: {
-        borderBottom: `1px solid ${colors.lightGrey}`,
         marginBottom: '10px',
-        paddingBottom: '10px',
+        maxWidth: '560px',
+        marginRight: '20px',
     },
     list: {
         listStyleType: 'none',
