@@ -67,13 +67,13 @@ class PluginItemHeaderButtons extends Component {
         //         )
         //     );
 
-        const baseStyle = Object.assign(
+        const base = Object.assign(
             {},
             { icon: style.iconBase },
             { container: style.buttonBase }
         );
 
-        const activeStyle = Object.assign(
+        const active = Object.assign(
             {},
             { icon: { ...style.iconBase, fill: colors.royalBlue } },
             {
@@ -84,42 +84,37 @@ class PluginItemHeaderButtons extends Component {
             }
         );
 
-        const visContainerStyle = Object.assign({}, style.border);
-        const chartButtonStyle =
-            activeVisualization === CHART ? activeStyle : baseStyle;
-        const tableButtonStyle =
-            activeVisualization === REPORT_TABLE ? activeStyle : baseStyle;
-        const mapButtonStyle =
-            activeVisualization === MAP ? activeStyle : baseStyle;
+        const chartBtn = activeVisualization === CHART ? active : base;
+        const tableBtn = activeVisualization === REPORT_TABLE ? active : base;
+        const mapBtn = activeVisualization === MAP ? active : base;
+        const toggleFooterBase = activeFooter ? active : base;
 
-        const toggleFooterStyle = activeFooter ? activeStyle : baseStyle;
-
-        const finaltoggleFooterStyle = Object.assign({}, toggleFooterStyle, {
-            container: { ...toggleFooterStyle.container, ...style.border },
+        const toggleFooter = Object.assign({}, toggleFooterBase, {
+            container: { ...toggleFooterBase.container, ...style.border },
         });
 
         return (
             <Fragment>
                 <div style={{ marginRight: 10 }}>
                     <ItemHeaderButton
-                        style={finaltoggleFooterStyle}
+                        style={toggleFooter}
                         icon={'Message'}
                         onClick={onToggleFooter}
                     />
                 </div>
-                <div style={visContainerStyle}>
+                <div style={style.border}>
                     <ItemHeaderButton
-                        style={tableButtonStyle}
+                        style={tableBtn}
                         icon={'ViewList'}
                         onClick={onViewTable}
                     />
                     <ItemHeaderButton
-                        style={chartButtonStyle}
+                        style={chartBtn}
                         icon={'InsertChart'}
                         onClick={onViewChart}
                     />
                     <ItemHeaderButton
-                        style={mapButtonStyle}
+                        style={mapBtn}
                         icon={'Public'}
                         onClick={() => {}}
                     />
