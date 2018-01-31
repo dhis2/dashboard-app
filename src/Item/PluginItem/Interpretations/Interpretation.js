@@ -24,19 +24,6 @@ const style = {
         fontWeight: '500',
         lineHeight: '15px',
     },
-    button: {
-        background: 'none !important',
-        border: 'none',
-        color: colors.darkGrey,
-        cursor: 'pointer',
-        font: 'inherit',
-        fontSize: '12px',
-        height: '14px',
-        lineJeight: '14px',
-        marginRight: '10px',
-        padding: '0 !important',
-        textDecoration: 'underline',
-    },
     comment: {
         paddingRight: '6px',
         paddingTop: '7px',
@@ -84,13 +71,14 @@ const style = {
 };
 
 const deleteButton = action => {
-    const iconStyle = Object.assign({}, style.icon, { fill: colors.red });
-    const buttonStyle = Object.assign({}, style.button, style.deleteButton);
+    const iconStyle = Object.assign({}, style.icon, {
+        fill: colors.accentLightGreen,
+    });
 
     return (
         <button
             className={actionButtonClass}
-            style={buttonStyle}
+            style={style.deleteButton}
             onClick={action}
         >
             <SvgIcon style={iconStyle} icon="Delete" />
@@ -167,13 +155,12 @@ class Interpretation extends Component {
 
         return (
             <div>
-                <button className={actionButtonClass} style={style.button}>
+                <button className={actionButtonClass}>
                     <SvgIcon style={style.icon} icon="Launch" />
                     View in Visualizer
                 </button>
                 <button
                     className={actionButtonClass}
-                    style={style.button}
                     onClick={this.showCommentField}
                 >
                     <SvgIcon style={style.icon} icon="Reply" />
@@ -181,7 +168,6 @@ class Interpretation extends Component {
                 </button>
                 <button
                     className={actionButtonClass}
-                    style={style.button}
                     onClick={this.toggleInterpretationLike}
                 >
                     <SvgIcon style={thumbsUpIcon} icon="ThumbUp" />
