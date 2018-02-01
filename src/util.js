@@ -78,13 +78,8 @@ export const sortByDate = (items, dateProp, ascending = true) => {
 export const validateReducer = (value, defaultValue) =>
     value === undefined || value === null ? defaultValue : value;
 
-export const getDhis2Credentials = d2 => {
+export const getBaseUrl = d2 => {
     const api = d2.Api.getApi();
     const idx = api.baseUrl.indexOf('/api');
-    const baseUrl = idx > -1 ? api.baseUrl.slice(0, idx) : api.baseUrl;
-
-    return {
-        baseUrl,
-        auth: api.defaultHeaders.Authorization,
-    };
+    return idx > -1 ? api.baseUrl.slice(0, idx) : api.baseUrl;
 };

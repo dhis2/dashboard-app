@@ -1,4 +1,4 @@
-import { validateReducer, getDhis2Credentials } from '../util';
+import { validateReducer, getBaseUrl } from '../util';
 
 describe('util', () => {
     describe('validateReducer', () => {
@@ -21,43 +21,33 @@ describe('util', () => {
         });
     });
 
-    describe('getDhis2Credentials', () => {
-        it('should return the baseUrl and auth header', () => {
+    describe('getBaseUrl', () => {
+        it('should return the baseUrl', () => {
             const baseUrl = 'https://base.url.com';
-            const authVal = 'the authorization str';
             const d2 = {
                 Api: {
                     getApi: () => ({
                         baseUrl: `${baseUrl}/api`,
-                        defaultHeaders: {
-                            Authorization: authVal,
-                        },
                     }),
                 },
             };
 
-            const actual = getDhis2Credentials(d2);
-            expect(actual.baseUrl).toEqual(baseUrl);
-            expect(actual.auth).toEqual(authVal);
+            const actual = getBaseUrl(d2);
+            expect(actual).toEqual(baseUrl);
         });
 
         it('should return the baseUrl and auth header from versioned api', () => {
             const baseUrl = 'https://base.url.com';
-            const authVal = 'the authorization str';
             const d2 = {
                 Api: {
                     getApi: () => ({
                         baseUrl: `${baseUrl}/api/29`,
-                        defaultHeaders: {
-                            Authorization: authVal,
-                        },
                     }),
                 },
             };
 
-            const actual = getDhis2Credentials(d2);
-            expect(actual.baseUrl).toEqual(baseUrl);
-            expect(actual.auth).toEqual(authVal);
+            const actual = getBaseUrl(d2);
+            expect(actual).toEqual(baseUrl);
         });
     });
 });
