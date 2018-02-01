@@ -193,28 +193,27 @@ class Interpretation extends Component {
             return null;
         }
 
-        const comments = sortByDate(this.props.interpretation.comments, 'created').map(
-            comment => (
-                <li
-                    className="comment-container"
-                    style={style.comment}
-                    key={comment.id}
-                >
-                    <div>
-                        <span style={style.author}>
-                            {comment.user.displayName}
-                        </span>
-                        <span style={style.created}>
-                            {formatDate(comment.created, this.state.uiLocale)}
-                        </span>
-                    </div>
-                    <p style={style.text}>{comment.text}</p>
-                    {this.userIsOwner(comment.user.id)
-                        ? deleteButton(() => this.deleteComment(comment.id))
-                        : null}
-                </li>
-            )
-        );
+        const comments = sortByDate(
+            this.props.interpretation.comments,
+            'created'
+        ).map(comment => (
+            <li
+                className="comment-container"
+                style={style.comment}
+                key={comment.id}
+            >
+                <div>
+                    <span style={style.author}>{comment.user.displayName}</span>
+                    <span style={style.created}>
+                        {formatDate(comment.created, this.state.uiLocale)}
+                    </span>
+                </div>
+                <p style={style.text}>{comment.text}</p>
+                {this.userIsOwner(comment.user.id)
+                    ? deleteButton(() => this.deleteComment(comment.id))
+                    : null}
+            </li>
+        ));
 
         return <ul style={style.list}>{comments}</ul>;
     }
