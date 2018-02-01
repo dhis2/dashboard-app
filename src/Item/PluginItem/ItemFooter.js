@@ -15,6 +15,9 @@ const style = {
         border: 'none',
         backgroundColor: colors.lightGrey,
     },
+    descriptionContainer: {
+        padding: '5px',
+    },
     descriptionTitle: {
         color: colors.black,
         fontSize: '13px',
