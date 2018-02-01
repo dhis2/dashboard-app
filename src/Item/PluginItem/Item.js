@@ -24,7 +24,7 @@ const style = {
     },
 };
 
-const getPluginCredentials = d2 => {
+export const getPluginCredentials = d2 => {
     const api = d2.Api.getApi();
     const idx = api.baseUrl.indexOf('/api');
     const baseUrl = api.baseUrl.slice(0, idx);

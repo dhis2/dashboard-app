@@ -5,6 +5,7 @@ import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import InputField from './InputField';
 import { colors } from '../../../colors';
 import { formatDate, sortByDate } from '../../../util';
+import { getPluginCredentials } from '../Item';
 
 import {
     tLikeInterpretation,
@@ -89,12 +90,19 @@ class Interpretation extends Component {
     state = {
         showCommentField: false,
         uiLocale: '',
+        visualizerHref: '',
     };
 
     componentDidMount() {
         this.context.d2.currentUser.userSettings
             .get('keyUiLocale')
             .then(uiLocale => this.setState({ uiLocale }));
+
+        const baseUrl = getPluginCredentials(this.context.d2).baseUrl;
+        const visualizerHref = `${baseUrl}/dhis-web-visualizer/index.html?id=${
+            this.props.objectId
+        }&interpretationid=${this.props.item.id}`;
+        this.setState({ visualizerHref });
     }
 
     userLikesInterpretation = () => {
@@ -139,10 +147,9 @@ class Interpretation extends Component {
     userIsOwner = id => id === this.context.d2.currentUser.id;
 
     renderActions() {
-        const likes = this.props.item.likedBy.length === 1 ? 'like' : 'likes';
-        const userOwnsInterpretation = this.userIsOwner(
-            this.props.item.user.id
-        );
+        const item = this.props.item;
+        const likes = item.likedBy.length === 1 ? 'like' : 'likes';
+        const userOwnsInterpretation = this.userIsOwner(item.user.id);
 
         const thumbsUpIcon = this.userLikesInterpretation()
             ? Object.assign({}, style.icon, { fill: colors.accentLightGreen })
@@ -153,10 +160,10 @@ class Interpretation extends Component {
 
         return (
             <div>
-                <button className={actionButtonClass}>
-                    <SvgIcon style={style.icon} icon="Launch" />
+                <a href={this.state.visualizerHref} style={{ height: 16 }}>
+                    <SvgIcon icon="Launch" style={style.icon} />
                     View in Visualizer
-                </button>
+                </a>
                 <button
                     className={actionButtonClass}
                     onClick={this.showCommentField}
