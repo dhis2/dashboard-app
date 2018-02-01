@@ -5,20 +5,49 @@ import {
     VISUALIZATION_TYPE_CHART,
     VISUALIZATION_TYPE_MAP,
     itemTypeMap,
+    CHART,
+    MAP,
+    REPORT_TABLE,
 } from '../../itemTypes';
 
-export const getItemTypeId = (itemTypeMap, visualizationType, domainType) =>
-    Object.values(itemTypeMap)
-        .filter(
-            item =>
-                item.visualizationType === visualizationType &&
-                item.domainType === domainType
-        )
-        .map(item => item.id);
+import { colors } from '../../colors';
+
+const style = {
+    iconBase: {
+        width: '24px',
+        height: '24px',
+        fill: colors.lightMediumGrey,
+    },
+    buttonBase: {
+        padding: '6px 6px 4px 6px',
+    },
+    toggleFooterPadding: {
+        padding: '8px 6px 2px 6px',
+    },
+    border: {
+        borderRadius: '2px',
+        border: `1px solid ${colors.lightGrey}`,
+    },
+};
+
+export const getItemTypeId = (itemTypeMap, visualizationType, domainType) => {
+    const item = Object.values(itemTypeMap).find(
+        item =>
+            item.visualizationType === visualizationType &&
+            item.domainType === domainType
+    );
+    return item.id;
+};
 
 class PluginItemHeaderButtons extends Component {
     render() {
-        const { item, onSelectVisualization, onToggleFooter } = this.props;
+        const {
+            item,
+            onSelectVisualization,
+            activeFooter,
+            activeVisualization,
+            onToggleFooter,
+        } = this.props;
 
         const domainType = itemTypeMap[item.type].domainType;
 
@@ -37,29 +66,62 @@ class PluginItemHeaderButtons extends Component {
                 getItemTypeId(itemTypeMap, VISUALIZATION_TYPE_MAP, domainType)
             );
 
+        const base = Object.assign(
+            {},
+            { icon: style.iconBase },
+            { container: style.buttonBase }
+        );
+
+        const active = Object.assign(
+            {},
+            { icon: { ...style.iconBase, fill: colors.royalBlue } },
+            {
+                container: {
+                    ...style.buttonBase,
+                    backgroundColor: colors.lightBlue,
+                },
+            }
+        );
+
+        const chartBtn = activeVisualization === CHART ? active : base;
+        const tableBtn = activeVisualization === REPORT_TABLE ? active : base;
+        const mapBtn = activeVisualization === MAP ? active : base;
+        const toggleFooterBase = activeFooter ? active : base;
+
+        const toggleFooter = Object.assign({}, toggleFooterBase, {
+            container: {
+                ...toggleFooterBase.container,
+                ...style.toggleFooterPadding,
+                ...style.border,
+            },
+        });
+
         return (
             <Fragment>
-                <div
-                    style={{
-                        paddingRight: 10,
-                        borderRight: '1px solid #ddd',
-                    }}
-                >
+                <div style={{ marginRight: 10 }}>
                     <ItemHeaderButton
+                        style={toggleFooter}
                         icon={'Message'}
                         onClick={onToggleFooter}
                     />
                 </div>
-                <div style={{ paddingLeft: 10, marginRight: 4 }}>
-                    <ItemHeaderButton icon={'ViewList'} onClick={onViewTable} />
-                </div>
-                <div style={{ marginRight: 4 }}>
+                <div style={style.border}>
                     <ItemHeaderButton
+                        style={tableBtn}
+                        icon={'ViewList'}
+                        onClick={onViewTable}
+                    />
+                    <ItemHeaderButton
+                        style={chartBtn}
                         icon={'InsertChart'}
                         onClick={onViewChart}
                     />
+                    <ItemHeaderButton
+                        style={mapBtn}
+                        icon={'Public'}
+                        onClick={onViewMap}
+                    />
                 </div>
-                <ItemHeaderButton icon={'Public'} onClick={onViewMap} />
             </Fragment>
         );
     }

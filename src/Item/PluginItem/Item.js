@@ -46,6 +46,7 @@ const getPluginCredentials = d2 => {
 class Item extends Component {
     state = {
         showFooter: false,
+        activeVisualization: this.props.item.type,
     };
 
     componentDidMount() {
@@ -60,6 +61,7 @@ class Item extends Component {
     };
 
     onSelectVisualization = targetType => {
+        this.setState({ activeVisualization: targetType });
         favorite.reload(
             this.props.item,
             targetType,
@@ -70,7 +72,6 @@ class Item extends Component {
     render() {
         const item = this.props.item;
         const elementId = getGridItemDomId(item.id);
-
         const title = (
             <div style={{ display: 'flex', alignItems: 'center' }}>
                 <span title={favorite.getName(item)} style={style.title}>
@@ -85,6 +86,8 @@ class Item extends Component {
         const actionButtons = !this.props.editMode ? (
             <PluginItemHeaderButtons
                 item={item}
+                activeFooter={this.state.showFooter}
+                activeVisualization={this.state.activeVisualization}
                 onSelectVisualization={this.onSelectVisualization}
                 onToggleFooter={this.onToggleFooter}
             />

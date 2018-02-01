@@ -1,17 +1,17 @@
 import React from 'react';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
-const ItemHeaderButton = ({ icon, onClick, style = {} }) => {
-    const containerStyle = Object.assign(
-        {},
-        { cursor: 'pointer' },
-        style.container
-    );
+import './ItemHeaderButton.css';
 
+const ItemHeaderButton = ({ icon, onClick, style = {} }) => {
     return (
-        <div style={containerStyle} onClick={onClick}>
+        <button
+            className="item-action-button"
+            style={style.container}
+            onClick={onClick}
+        >
             <SvgIcon icon={icon} style={style.icon} />
-        </div>
+        </button>
     );
 };
 

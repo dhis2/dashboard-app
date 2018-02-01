@@ -112,8 +112,6 @@ module.exports = {
             // Support React Native Web
             // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
             'react-native': 'react-native-web',
-            react: path.resolve('node_modules/react'),
-            'react-dom': path.resolve('node_modules/react-dom'),
             d2: path.resolve('node_modules/d2'),
         },
         plugins: [
@@ -237,7 +235,7 @@ module.exports = {
     },
     externals: [
         {
-            'react': 'var React',
+            react: 'var React',
             'react-dom': 'var ReactDOM',
         },
     ],
@@ -255,7 +253,16 @@ module.exports = {
                 `${scriptPrefix}/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.js`,
                 `${scriptPrefix}/dhis-web-core-resource/react/16.2.0/umd/react.development.js`,
                 `${scriptPrefix}/dhis-web-core-resource/react-dom/16.2.0/umd/react-dom.development.js`,
-            ].map(script => `<script src="${script}"></script>`).join('\n'),
+                `${scriptPrefix}/dhis-web-core-resource/jquery/3.2.0/dist/jquery.js`,
+                `${scriptPrefix}/dhis-web-core-resource/jquery-migrate/3.0.0/dist/jquery-migrate.js`,
+                `${scriptPrefix}/dhis-web-pivot/reporttable.js`,
+                `${scriptPrefix}/dhis-web-visualizer/chart.js`,
+                `${scriptPrefix}/dhis-web-maps/map.js`,
+                `${scriptPrefix}/dhis-web-event-reports/eventreport.js`,
+                `${scriptPrefix}/dhis-web-event-visualizer/eventchart.js`,
+            ]
+                .map(script => `<script src="${script}"></script>`)
+                .join('\n'),
         }),
         // Add module names to factory functions so they appear in browser profiler.
         new webpack.NamedModulesPlugin(),
