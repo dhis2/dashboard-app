@@ -6,7 +6,6 @@ import InputField from './InputField';
 import { colors } from '../../../colors';
 import { formatDate, sortByDate, getBaseUrl } from '../../../util';
 import { itemTypeMap } from '../../../itemTypes';
-import { getLink } from '../plugin';
 
 import {
     tLikeInterpretation,
