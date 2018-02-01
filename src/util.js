@@ -81,9 +81,10 @@ export const validateReducer = (value, defaultValue) =>
 export const getDhis2Credentials = d2 => {
     const api = d2.Api.getApi();
     const idx = api.baseUrl.indexOf('/api');
+    const baseUrl = idx > -1 ? api.baseUrl.slice(0, idx) : api.baseUrl;
 
     return {
-        baseUrl: api.baseUrl.slice(0, idx),
+        baseUrl,
         auth: api.defaultHeaders.Authorization,
     };
 };
