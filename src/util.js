@@ -77,3 +77,9 @@ export const sortByDate = (items, dateProp, ascending = true) => {
 // reducer validator
 export const validateReducer = (value, defaultValue) =>
     value === undefined || value === null ? defaultValue : value;
+
+export const getBaseUrl = d2 => {
+    const api = d2.Api.getApi();
+    const idx = api.baseUrl.indexOf('/api');
+    return idx > -1 ? api.baseUrl.slice(0, idx) : api.baseUrl;
+};
