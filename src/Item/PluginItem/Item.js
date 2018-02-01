@@ -24,6 +24,14 @@ const style = {
     },
 };
 
+const getLink = (item, d2) => {
+    const api = d2.Api.getApi();
+    const baseUrl = api.baseUrl.split('/api', 1)[0];
+    const appUrl = favorite.getLink(item);
+
+    return `${baseUrl}/${appUrl}`;
+};
+
 const getPluginCredentials = d2 => {
     const api = d2.Api.getApi();
     const idx = api.baseUrl.indexOf('/api');
@@ -68,7 +76,7 @@ class Item extends Component {
                 <span title={favorite.getName(item)} style={style.title}>
                     {favorite.getName(item)}
                 </span>
-                <a href={favorite.getLink(item)} style={{ height: 16 }}>
+                <a href={getLink(item, this.context.d2)} style={{ height: 16 }}>
                     <SvgIcon icon="Launch" style={style.icon} />
                 </a>
             </div>
