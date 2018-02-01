@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import InputField from './InputField';
 import { colors } from '../../../colors';
-import { formatDate, sortByDate } from '../../../util';
-import { getPluginCredentials } from '../Item';
+import { formatDate, sortByDate, getDhis2Credentials } from '../../../util';
 
 import {
     tLikeInterpretation,
@@ -98,7 +97,7 @@ class Interpretation extends Component {
             .get('keyUiLocale')
             .then(uiLocale => this.setState({ uiLocale }));
 
-        const baseUrl = getPluginCredentials(this.context.d2).baseUrl;
+        const baseUrl = getDhis2Credentials(this.context.d2).baseUrl;
         const visualizerHref = `${baseUrl}/dhis-web-visualizer/index.html?id=${
             this.props.objectId
         }&interpretationid=${this.props.item.id}`;
@@ -147,9 +146,10 @@ class Interpretation extends Component {
     userIsOwner = id => id === this.context.d2.currentUser.id;
 
     renderActions() {
-        const item = this.props.item;
-        const likes = item.likedBy.length === 1 ? 'like' : 'likes';
-        const userOwnsInterpretation = this.userIsOwner(item.user.id);
+        const likes = this.props.item.likedBy.length === 1 ? 'like' : 'likes';
+        const userOwnsInterpretation = this.userIsOwner(
+            this.props.item.user.id
+        );
 
         const thumbsUpIcon = this.userLikesInterpretation()
             ? Object.assign({}, style.icon, { fill: colors.accentLightGreen })
@@ -161,7 +161,7 @@ class Interpretation extends Component {
         return (
             <div>
                 <a href={this.state.visualizerHref} style={{ height: 16 }}>
-                    <SvgIcon icon="Launch" style={style.icon} />
+                    <SvgIcon style={style.icon} icon="Launch" />
                     View in Visualizer
                 </a>
                 <button
