@@ -8,6 +8,7 @@ import PluginItemHeaderButtons from './ItemHeaderButtons';
 
 import * as favorite from './plugin';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
+import { getBaseUrl } from '../../util';
 
 const style = {
     icon: {
@@ -24,22 +25,10 @@ const style = {
     },
 };
 
-const getLink = (item, d2) => {
-    const api = d2.Api.getApi();
-    const baseUrl = api.baseUrl.split('/api', 1)[0];
-    const appUrl = favorite.getLink(item);
-
-    return `${baseUrl}/${appUrl}`;
-};
-
-const getPluginCredentials = d2 => {
-    const api = d2.Api.getApi();
-    const idx = api.baseUrl.indexOf('/api');
-    const baseUrl = api.baseUrl.slice(0, idx);
-
+const pluginCredentials = d2 => {
     return {
-        baseUrl,
-        auth: api.defaultHeaders.Authorization,
+        baseUrl: getBaseUrl(d2),
+        auth: d2.Api.getApi().defaultHeaders.Authorization,
     };
 };
 
@@ -50,7 +39,8 @@ class Item extends Component {
     };
 
     componentDidMount() {
-        favorite.load(this.props.item, getPluginCredentials(this.context.d2));
+        const credentials = pluginCredentials(this.context.d2);
+        favorite.load(this.props.item, credentials);
     }
 
     onToggleFooter = () => {
@@ -65,7 +55,7 @@ class Item extends Component {
         favorite.reload(
             this.props.item,
             targetType,
-            getPluginCredentials(this.context.d2)
+            pluginCredentials(this.context.d2)
         );
     };
 
@@ -77,7 +67,10 @@ class Item extends Component {
                 <span title={favorite.getName(item)} style={style.title}>
                     {favorite.getName(item)}
                 </span>
-                <a href={getLink(item, this.context.d2)} style={{ height: 16 }}>
+                <a
+                    href={favorite.getLink(item, this.context.d2)}
+                    style={{ height: 16 }}
+                >
                     <SvgIcon icon="Launch" style={style.icon} />
                 </a>
             </div>
