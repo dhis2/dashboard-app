@@ -255,6 +255,7 @@ module.exports = {
             inject: true,
             template: paths.appHtml,
             vendorScripts: [
+                `${scriptPrefix}/dhis-web-core-resource/fonts/roboto.css`,
                 `${scriptPrefix}/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.min.js`,
                 `${scriptPrefix}/dhis-web-core-resource/react/16.2.0/umd/react.production.min.js`,
                 `${scriptPrefix}/dhis-web-core-resource/react-dom/16.2.0/umd/react-dom.production.min.js`,
@@ -266,7 +267,11 @@ module.exports = {
                 `${scriptPrefix}/dhis-web-event-reports/eventreport.js`,
                 `${scriptPrefix}/dhis-web-event-visualizer/eventchart.js`,
             ]
-                .map(script => `<script src="${script}"></script>`)
+                .map(asset => {
+                    return /\.js$/.test(asset)
+                        ? `<script src="${asset}"></script>`
+                        : `<link type="text/css" rel="stylesheet" href="${asset}">`;
+                })
                 .join('\n'),
             minify: {
                 removeComments: true,
@@ -274,7 +279,7 @@ module.exports = {
                 removeRedundantAttributes: true,
                 useShortDoctype: true,
                 removeEmptyAttributes: true,
-                removeStyleLinkTypeAttributes: true,
+                removeStyleLinkTypeAttributes: false,
                 keepClosingSlash: true,
                 minifyJS: true,
                 minifyCSS: true,

@@ -250,6 +250,7 @@ module.exports = {
             inject: true,
             template: paths.appHtml,
             vendorScripts: [
+                `./dhis-web-core-resource/fonts/roboto.css`,
                 `${scriptPrefix}/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.js`,
                 `${scriptPrefix}/dhis-web-core-resource/react/16.2.0/umd/react.development.js`,
                 `${scriptPrefix}/dhis-web-core-resource/react-dom/16.2.0/umd/react-dom.development.js`,
@@ -261,7 +262,11 @@ module.exports = {
                 `${scriptPrefix}/dhis-web-event-reports/eventreport.js`,
                 `${scriptPrefix}/dhis-web-event-visualizer/eventchart.js`,
             ]
-                .map(script => `<script src="${script}"></script>`)
+                .map(asset => {
+                    return /\.js$/.test(asset)
+                        ? `<script src="${asset}"></script>`
+                        : `<link type="text/css" rel="stylesheet" href="${asset}">`;
+                })
                 .join('\n'),
         }),
         // Add module names to factory functions so they appear in browser profiler.
