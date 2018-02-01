@@ -8,6 +8,7 @@ import PluginItemHeaderButtons from './ItemHeaderButtons';
 
 import * as favorite from './plugin';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
+import { getBaseUrl } from '../../util';
 
 const style = {
     icon: {
@@ -24,14 +25,10 @@ const style = {
     },
 };
 
-const getPluginCredentials = d2 => {
-    const api = d2.Api.getApi();
-    const idx = api.baseUrl.indexOf('/api');
-    const baseUrl = api.baseUrl.slice(0, idx);
-
+const pluginCredentials = d2 => {
     return {
-        baseUrl,
-        auth: api.defaultHeaders.Authorization,
+        baseUrl: getBaseUrl(d2),
+        auth: d2.Api.getApi().defaultHeaders.Authorization,
     };
 };
 
@@ -42,7 +39,8 @@ class Item extends Component {
     };
 
     componentDidMount() {
-        favorite.load(this.props.item, getPluginCredentials(this.context.d2));
+        const credentials = pluginCredentials(this.context.d2);
+        favorite.load(this.props.item, credentials);
     }
 
     onToggleFooter = () => {
@@ -57,7 +55,7 @@ class Item extends Component {
         favorite.reload(
             this.props.item,
             targetType,
-            getPluginCredentials(this.context.d2)
+            pluginCredentials(this.context.d2)
         );
     };
 

@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import InputField from './InputField';
 import { colors } from '../../../colors';
-import { formatDate, sortByDate } from '../../../util';
+import { formatDate, sortByDate, getBaseUrl } from '../../../util';
+import { itemTypeMap } from '../../../itemTypes';
 
 import {
     tLikeInterpretation,
@@ -84,22 +85,32 @@ class Interpretation extends Component {
     state = {
         showCommentField: false,
         uiLocale: '',
+        visualizerHref: '',
     };
 
     componentDidMount() {
         this.context.d2.currentUser.userSettings
             .get('keyUiLocale')
             .then(uiLocale => this.setState({ uiLocale }));
+
+        const baseUrl = getBaseUrl(this.context.d2);
+        const appUrl = itemTypeMap[this.props.objectType].appUrl(
+            this.props.objectId
+        );
+        const visualizerHref = `${baseUrl}/${appUrl}&interpretationid=${
+            this.props.interpretation.id
+        }`;
+        this.setState({ visualizerHref });
     }
 
     userLikesInterpretation = () => {
-        return this.props.item.likedBy.find(liker =>
+        return this.props.interpretation.likedBy.find(liker =>
             this.userIsOwner(liker.id)
         );
     };
 
     toggleInterpretationLike = () => {
-        const { id } = this.props.item;
+        const { id } = this.props.interpretation;
 
         this.userLikesInterpretation()
             ? this.props.unlikeInterpretation(id)
@@ -111,19 +122,19 @@ class Interpretation extends Component {
     };
 
     postComment = text => {
-        const { id } = this.props.item;
+        const { id } = this.props.interpretation;
         this.props.addComment({ id, text });
         this.setState({ showCommentField: false });
     };
 
     deleteComment = commentId => {
-        const { id } = this.props.item;
+        const { id } = this.props.interpretation;
         this.props.deleteComment({ id, commentId });
     };
 
     deleteInterpretation = () => {
         const data = {
-            id: this.props.item.id,
+            id: this.props.interpretation.id,
             objectId: this.props.objectId,
             objectType: this.props.objectType,
         };
@@ -134,9 +145,10 @@ class Interpretation extends Component {
     userIsOwner = id => id === this.context.d2.currentUser.id;
 
     renderActions() {
-        const likes = this.props.item.likedBy.length === 1 ? 'like' : 'likes';
+        const likes =
+            this.props.interpretation.likedBy.length === 1 ? 'like' : 'likes';
         const userOwnsInterpretation = this.userIsOwner(
-            this.props.item.user.id
+            this.props.interpretation.user.id
         );
 
         const thumbsUpIcon = this.userLikesInterpretation()
@@ -148,10 +160,10 @@ class Interpretation extends Component {
 
         return (
             <div>
-                <button className={actionButtonClass}>
+                <a href={this.state.visualizerHref} style={{ height: 16 }}>
                     <SvgIcon style={style.icon} icon="Launch" />
                     View in Visualizer
-                </button>
+                </a>
                 <button
                     className={actionButtonClass}
                     onClick={this.showCommentField}
@@ -167,7 +179,7 @@ class Interpretation extends Component {
                     {likeText}
                 </button>
                 <span style={style.likes}>
-                    {this.props.item.likedBy.length} {likes}
+                    {this.props.interpretation.likedBy.length} {likes}
                 </span>
                 {userOwnsInterpretation
                     ? deleteButton(this.deleteInterpretation)
@@ -177,11 +189,11 @@ class Interpretation extends Component {
     }
 
     renderComments() {
-        if (!this.props.item.comments.length) {
+        if (!this.props.interpretation.comments.length) {
             return null;
         }
 
-        const comments = sortByDate(this.props.item.comments, 'created').map(
+        const comments = sortByDate(this.props.interpretation.comments, 'created').map(
             comment => (
                 <li
                     className="comment-container"
@@ -227,7 +239,7 @@ class Interpretation extends Component {
         return (
             <div>
                 <div className="interpretation-container">
-                    {interpretationBody(this.props.item)}
+                    {interpretationBody(this.props.interpretation)}
                     {this.renderActions()}
                 </div>
                 {this.renderComments()}

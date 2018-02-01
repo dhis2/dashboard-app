@@ -13,7 +13,7 @@ const style = {
         padding: '5px',
         marginTop: '5px',
     },
-    item: {
+    interpretation: {
         marginBottom: '10px',
         maxWidth: '560px',
         marginRight: '20px',
@@ -68,11 +68,11 @@ class Interpretations extends Component {
         let Items = null;
         if (this.interpretationsLoaded()) {
             const sorted = sortByDate(this.props.interpretations, 'created');
-            Items = sorted.map(item => {
+            Items = sorted.map(interpretation => {
                 return (
-                    <li style={style.item} key={item.id}>
+                    <li style={style.interpretation} key={interpretation.id}>
                         <Interpretation
-                            item={item}
+                            interpretation={interpretation}
                             objectId={this.props.objectId}
                             objectType={this.props.objectType}
                         />
