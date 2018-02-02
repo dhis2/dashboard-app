@@ -44,7 +44,7 @@ yarn prettify
 When deploying the dashboards-app for DHIS2 releases, the build is pushed to Sonatype, which builds a jar artifact, and DHIS2 picks it up from there. The dashboards-app contains a [pom.xml](pom.xml) file. When it is time for release of a new version (example 2.29 below), do the following:
 
 1. Checkout master branch and git pull to get the latest. `git checkout master && git pull`
-2. Update the **version** property to 2.29-SNAPSHOT. (Always include "-SNAPSHOT").
+2. In pom.xml, update the **version** property to 2.29-SNAPSHOT. (Always include "-SNAPSHOT").
 3. Commit and push to master.
 4. Still on master, create a git tag v2.29.0 `git tag v2.29.0`
 5. Push the new tag `git push origin v2.29.0`
