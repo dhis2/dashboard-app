@@ -32,16 +32,34 @@ The webpack-dev-server will start up on localhost:3000, by default.
 
 ### Other useful things to know
 
-The dashboards-app uses **eslint** for code correctness checking, and **prettier** for formatting, and the build will fail if any of the checks fail. To make life easier, we suggest that you add the eslint and prettier plugins to your editor. But if you prefer, you can run these before pushing your code:
+The dashboards-app uses **eslint** for code correctness checking, and **prettier** for formatting, and the build will fail if any of the checks fail. To make life easier, we suggest that you add the eslint and prettier plugins to your editor. But if you prefer, you can run the following before pushing your code:
 
 ```
 yarn lint
 yarn prettify
 ```
 
-### Deploying to Sonatype
+### Deploy
 
-When deploying the dashboards-app for DHIS2 releases, the build is pushed to Sonatype, which builds a jar artifact, and DHIS2 picks it up from there. The dashboards-app contains a [pom.xml](pom.xml) file. When it is time for release of a new version (example 2.29 below), do the following:
+#### Local deployment
+
+The instructions here assume a good understanding of building DHIS2 locally.
+
+Build the dashboards-app locally
+
+```
+yarn build
+```
+
+Then copy the contents of the /build folder to your .m2 directory. Then run:
+
+```
+mvn install -o
+```
+
+#### Sonatype (for production releases)
+
+When deploying the dashboards-app for DHIS2 production releases, the build is pushed to Sonatype, which builds a jar artifact, and DHIS2 picks it up from there. The dashboards-app contains a [pom.xml](pom.xml) file. When it is time for release of a new version (example 2.29 below), do the following:
 
 1. Checkout master branch and git pull to get the latest. `git checkout master && git pull`
 2. In pom.xml, update the **version** property to 2.29-SNAPSHOT. (Always include "-SNAPSHOT").
