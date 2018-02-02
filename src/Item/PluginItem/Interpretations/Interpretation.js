@@ -25,10 +25,6 @@ const style = {
         fontWeight: '500',
         lineHeight: '15px',
     },
-    comment: {
-        paddingRight: '6px',
-        paddingTop: '7px',
-    },
     created: {
         color: colors.mediumGrey,
         float: 'right',
@@ -58,11 +54,10 @@ const style = {
         margin: '-1px 0px 0px',
     },
     list: {
-        borderLeft: `4px solid ${colors.lightGrey}`,
-        borderTop: `1px solid ${colors.lightGrey}`,
         listStyleType: 'none',
         marginTop: '10px',
-        paddingLeft: '20px',
+        marginLeft: '37px',
+        paddingLeft: '0px',
     },
     text: {
         color: colors.darkGrey,
@@ -195,15 +190,15 @@ class Interpretation extends Component {
             return null;
         }
 
-        const lineStyle = Object.assign({}, style.line, {
-            marginTop: '5px',
-        });
-
         const comments = sortByDate(
             this.props.interpretation.comments,
             'created'
         ).map(comment => (
-            <li style={style.comment} key={comment.id}>
+            <li
+                className="comment-container"
+                style={style.comment}
+                key={comment.id}
+            >
                 <div>
                     <span style={style.author}>{comment.user.displayName}</span>
                     <span style={style.created}>
@@ -214,7 +209,6 @@ class Interpretation extends Component {
                 {this.userIsOwner(comment.user.id)
                     ? deleteButton(() => this.deleteComment(comment.id))
                     : null}
-                <hr style={lineStyle} />
             </li>
         ));
 
@@ -240,8 +234,10 @@ class Interpretation extends Component {
 
         return (
             <div>
-                {interpretationBody(this.props.interpretation)}
-                {this.renderActions()}
+                <div className="interpretation-container">
+                    {interpretationBody(this.props.interpretation)}
+                    {this.renderActions()}
+                </div>
                 {this.renderComments()}
                 {this.state.showCommentField ? (
                     <InputField

@@ -1,3 +1,19 @@
+.interpretation-container,
+.comment-container {
+    background-color: #f6f7f8;
+    border-radius: 4px;
+    padding: 10px;
+    max-width: 560px;
+}
+
+.interpretation-container {
+    margin-left: 10px;
+}
+
+.comment-container {
+    padding: 6px;
+}
+
 .interpretation-action-button {
     background-color: transparent;
     border: none;
