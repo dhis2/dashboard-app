@@ -63,6 +63,7 @@ const style = {
         color: colors.darkGrey,
         fontSize: '13px',
         lineHeight: '17px',
+        whiteSpace: 'pre-line',
     },
 };
 
