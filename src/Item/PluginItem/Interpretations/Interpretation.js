@@ -133,7 +133,7 @@ class Interpretation extends Component {
         const data = {
             id: this.props.interpretation.id,
             objectId: this.props.objectId,
-            objectType: this.props.objectType,
+            objectType: this.props.object.type,
         };
 
         this.props.deleteInterpretation(data);

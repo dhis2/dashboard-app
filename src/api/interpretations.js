@@ -13,7 +13,7 @@ export const getInterpretation = id => {
 };
 
 export const postInterpretation = data => {
-    const typePath = itemTypeMap[data.objectType].propName;
+    const typePath = itemTypeMap[data.object.type].propName;
     const url = `/interpretations/${typePath}/${data.objectId}`;
     const headers = { 'Content-Type': 'text/plain' };
 
@@ -75,7 +75,7 @@ export const deleteInterpretationComment = data => {
 };
 
 export const fetchVisualization = data => {
-    const typePath = itemTypeMap[data.objectType].endPointName;
+    const typePath = itemTypeMap[data.object.type].endPointName;
     const url = `/${typePath}/${
         data.objectId
     }?fields=id,name,interpretations[id]`;
