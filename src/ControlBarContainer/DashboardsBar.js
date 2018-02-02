@@ -2,7 +2,8 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+// FIXME: TO BE USED IN 2.30
+//import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import Chip from 'd2-ui/lib/chip/Chip';
 
 import D2IconButton from '../widgets/D2IconButton';
