@@ -6,14 +6,19 @@ import { getId, getDescription } from './plugin';
 const style = {
     scrollContainer: {
         overflowY: 'scroll',
-        height: '380px',
-        paddingTop: '5px',
+        height: '370px',
+        marginTop: '5px',
+        marginBottom: '5px',
+        paddingLeft: '14px',
     },
     line: {
         margin: '-1px 0px 0px',
         height: '1px',
         border: 'none',
         backgroundColor: colors.lightGrey,
+    },
+    descriptionContainer: {
+        padding: '5px',
     },
     descriptionTitle: {
         color: colors.black,
