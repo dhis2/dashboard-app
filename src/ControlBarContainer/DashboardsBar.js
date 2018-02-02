@@ -32,6 +32,23 @@ const EXPANDED_ROW_COUNT = 10;
 
 const onDashboardSelectWrapper = (id, onClick) => () => id && onClick(id);
 
+// FIXME: TO BE USED IN 2.30
+// const ListViewButton = () => (
+//     <div style={style.rightControls}>
+//         <div
+//             style={{
+//                 position: 'relative',
+//                 top: '6px',
+//                 left: '-10px',
+//                 cursor: 'pointer',
+//             }}
+//             onClick={() => alert('show list view')}
+//         >
+//             <SvgIcon icon="List" />
+//         </div>
+//     </div>
+// );
+
 const DashboardsBar = ({
     controlsStyle,
     dashboards,
@@ -83,19 +100,6 @@ const DashboardsBar = ({
                             )}
                         />
                     </Fragment>
-                </div>
-                <div style={style.rightControls}>
-                    <div
-                        style={{
-                            position: 'relative',
-                            top: '6px',
-                            left: '-10px',
-                            cursor: 'pointer',
-                        }}
-                        onClick={() => alert('show list view')}
-                    >
-                        <SvgIcon icon="List" />
-                    </div>
                 </div>
                 {dashboards.map(dashboard => (
                     <Chip
