@@ -8,6 +8,7 @@ const style = {
         overflowY: 'scroll',
         height: '370px',
         marginTop: '5px',
+        marginBottom: '5px',
         paddingLeft: '14px',
     },
     line: {
