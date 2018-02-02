@@ -67,7 +67,10 @@ class Item extends Component {
                 <span title={favorite.getName(item)} style={style.title}>
                     {favorite.getName(item)}
                 </span>
-                <a href={favorite.getLink(item)} style={{ height: 16 }}>
+                <a
+                    href={favorite.getLink(item, this.context.d2)}
+                    style={{ height: 16 }}
+                >
                     <SvgIcon icon="Launch" style={style.icon} />
                 </a>
             </div>

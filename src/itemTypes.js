@@ -53,7 +53,7 @@ export const itemTypeMap = {
         plugin: global.mapPlugin,
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_MAP,
-        appUrl: id => `dhis-web-mapping/?id=${id}`,
+        appUrl: id => `dhis-web-maps/?id=${id}`,
     },
     [EVENT_REPORT]: {
         id: EVENT_REPORT,

@@ -9,6 +9,25 @@ import ItemSelectSingle from './ItemSelectSingle';
 import { singleItems, listItems } from './selectableItems';
 import { itemTypeMap } from '../itemTypes';
 
+const styles = {
+    filterField: {
+        fontSize: '14px',
+        height: '30px',
+        marginLeft: '10px',
+    },
+    filterFieldInput: {
+        top: '-9px',
+        left: '1px',
+    },
+    filterFieldUnderline: {
+        bottom: '10px',
+    },
+    filterFieldUnderlineFocus: {
+        borderColor: '#aaa',
+        borderWidth: '1px',
+    },
+};
+
 const ItemSearchField = props => (
     <div style={{ display: 'flex', alignItems: 'center', width: '400px' }}>
         <SvgIcon icon="Search" />
@@ -19,7 +38,11 @@ const ItemSearchField = props => (
             value={props.value}
             onClick={props.onClick}
             onChange={props.onChange}
-            style={{ marginLeft: '10px' }}
+            style={styles.filterField}
+            inputStyle={styles.fieldFieldInput}
+            hintStyle={styles.fielterFieldHint}
+            underlineStyle={styles.filterFiledUnderline}
+            underlineFocusStyle={styles.filterFieldUnderlineFocus}
         />
     </div>
 );

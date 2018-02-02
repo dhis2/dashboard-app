@@ -54,7 +54,7 @@ class ItemFooter extends Component {
                     <ItemDescription description={description} />
                     <hr style={style.line} />
                     <Interpretations
-                        objectType={this.props.item.type}
+                        object={this.props.item}
                         objectId={objectId}
                     />
                 </div>

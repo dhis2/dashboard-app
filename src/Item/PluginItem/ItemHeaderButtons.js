@@ -3,7 +3,7 @@ import ItemHeaderButton from '../ItemHeaderButton';
 import {
     VISUALIZATION_TYPE_TABLE,
     VISUALIZATION_TYPE_CHART,
-    // VISUALIZATION_TYPE_MAP,
+    VISUALIZATION_TYPE_MAP,
     itemTypeMap,
     CHART,
     MAP,
@@ -61,14 +61,10 @@ class PluginItemHeaderButtons extends Component {
                 getItemTypeId(itemTypeMap, VISUALIZATION_TYPE_CHART, domainType)
             );
 
-        // const onViewMap = () =>
-        //     onSelectVisualization(
-        //         getItemTypeId(
-        //             itemTypeMap,
-        //             VISUALIZATION_TYPE_MAP,
-        //             domainType
-        //         )
-        //     );
+        const onViewMap = () =>
+            onSelectVisualization(
+                getItemTypeId(itemTypeMap, VISUALIZATION_TYPE_MAP, domainType)
+            );
 
         const base = Object.assign(
             {},
@@ -123,7 +119,7 @@ class PluginItemHeaderButtons extends Component {
                     <ItemHeaderButton
                         style={mapBtn}
                         icon={'Public'}
-                        onClick={() => {}}
+                        onClick={onViewMap}
                     />
                 </div>
             </Fragment>

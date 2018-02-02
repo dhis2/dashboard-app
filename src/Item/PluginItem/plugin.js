@@ -9,6 +9,7 @@ import {
     EVENT_CHART,
     itemTypeMap,
 } from '../../itemTypes';
+import { getBaseUrl } from '../../util';
 
 export const extractFavorite = item => {
     if (!isObject(item)) {
@@ -52,7 +53,12 @@ const loadPlugin = (plugin, itemConfig, credentials) => {
 export const getId = item => extractFavorite(item).id;
 export const getName = item => extractFavorite(item).name;
 export const getDescription = item => extractFavorite(item).description;
-export const getLink = item => itemTypeMap[item.type].appUrl(getId(item));
+export const getLink = (item, d2) => {
+    const baseUrl = getBaseUrl(d2);
+    const appUrl = itemTypeMap[item.type].appUrl(getId(item));
+
+    return `${baseUrl}${appUrl}`;
+};
 
 export const reload = async (item, targetType, credentials) => {
     const favorite = await apiFetchFavorite(getId(item), item.type);

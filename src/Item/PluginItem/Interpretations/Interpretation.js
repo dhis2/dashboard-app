@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import InputField from './InputField';
 import { colors } from '../../../colors';
-import { formatDate, sortByDate, getBaseUrl } from '../../../util';
-import { itemTypeMap } from '../../../itemTypes';
+import { formatDate, sortByDate } from '../../../util';
+import { getLink } from '../plugin';
 
 import {
     tLikeInterpretation,
@@ -93,13 +93,10 @@ class Interpretation extends Component {
             .get('keyUiLocale')
             .then(uiLocale => this.setState({ uiLocale }));
 
-        const baseUrl = getBaseUrl(this.context.d2);
-        const appUrl = itemTypeMap[this.props.objectType].appUrl(
-            this.props.objectId
-        );
-        const visualizerHref = `${baseUrl}/${appUrl}&interpretationid=${
-            this.props.interpretation.id
-        }`;
+        const visualizerHref = `${getLink(
+            this.props.object,
+            this.context.d2
+        )}&interpretationid=${this.props.interpretation.id}`;
         this.setState({ visualizerHref });
     }
 
@@ -136,7 +133,7 @@ class Interpretation extends Component {
         const data = {
             id: this.props.interpretation.id,
             objectId: this.props.objectId,
-            objectType: this.props.objectType,
+            objectType: this.props.object.type,
         };
 
         this.props.deleteInterpretation(data);

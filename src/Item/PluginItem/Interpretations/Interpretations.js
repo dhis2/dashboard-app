@@ -37,8 +37,12 @@ class Interpretations extends Component {
     };
 
     postInterpretation = text => {
-        const { objectType, objectId } = this.props;
-        this.props.postInterpretation({ objectType, objectId, text });
+        const { object, objectId } = this.props;
+        this.props.postInterpretation({
+            objectType: object.type,
+            objectId,
+            text,
+        });
     };
 
     interpretationsLoaded = () => {
@@ -73,8 +77,8 @@ class Interpretations extends Component {
                     <li style={style.interpretation} key={interpretation.id}>
                         <Interpretation
                             interpretation={interpretation}
+                            object={this.props.object}
                             objectId={this.props.objectId}
-                            objectType={this.props.objectType}
                         />
                     </li>
                 );
