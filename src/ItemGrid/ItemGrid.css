@@ -49,3 +49,8 @@
     overflow: auto;
     margin-bottom: 5px;
 }
+
+.CHART .dashboard-item-content,
+.EVENT_CHART .dashboard-item-content {
+    overflow: hidden;
+}
