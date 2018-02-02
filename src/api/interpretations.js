@@ -1,4 +1,5 @@
 import { getInstance } from 'd2/lib/d2';
+import { itemTypeMap } from '../itemTypes';
 
 const onError = error => console.log('Error: ', error);
 
@@ -12,9 +13,8 @@ export const getInterpretation = id => {
 };
 
 export const postInterpretation = data => {
-    const url = `/interpretations/${data.objectType.toLowerCase()}/${
-        data.objectId
-    }`;
+    const typePath = itemTypeMap[data.objectType].propName;
+    const url = `/interpretations/${typePath}/${data.objectId}`;
     const headers = { 'Content-Type': 'text/plain' };
 
     return getInstance()
@@ -74,19 +74,11 @@ export const deleteInterpretationComment = data => {
         .catch(onError);
 };
 
-const getVisType = type => {
-    switch (type.toLowerCase()) {
-        case 'chart':
-            return 'charts';
-        case 'reporttable':
-            return 'reporttables';
-        default:
-            return type;
-    }
-};
 export const fetchVisualization = data => {
-    const type = getVisType(data.objectType);
-    const url = `/${type}/${data.objectId}?fields=id,name,interpretations[id]`;
+    const typePath = itemTypeMap[data.objectType].endPointName;
+    const url = `/${typePath}/${
+        data.objectId
+    }?fields=id,name,interpretations[id]`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))

@@ -73,6 +73,7 @@ class Interpretations extends Component {
                     <li style={style.interpretation} key={interpretation.id}>
                         <Interpretation
                             interpretation={interpretation}
+                            object={this.props.object}
                             objectId={this.props.objectId}
                             objectType={this.props.objectType}
                         />
