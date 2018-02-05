@@ -32,7 +32,7 @@ const configI18n = userSettings => {
 
 const isProd = process.env.NODE_ENV === 'production';
 baseUrl = isProd ? manifest.activities.dhis.href : DHIS_CONFIG.baseUrl;
-config.baseUrl = `${baseUrl}/api/${manifest.version}`;
+config.baseUrl = `${baseUrl}/api/${manifest.apiVersion}`;
 config.headers = isProd ? null : { Authorization: DHIS_CONFIG.authorization };
 
 getUserSettings()

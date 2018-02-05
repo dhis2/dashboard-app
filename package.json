@@ -91,7 +91,7 @@
             "url": "",
             "name": "DHIS2"
         },
-        "version": "29",
+        "apiVersion": "29",
         "activities": {
             "dhis": {
                 "href": ".."
