@@ -18,6 +18,8 @@ import App from './App';
 // init material-ui
 injectTapEventPlugin();
 
+const API_VERSION = '29';
+
 let baseUrl;
 
 const configI18n = userSettings => {
@@ -36,7 +38,7 @@ getManifest('manifest.webapp')
         const isProd = process.env.NODE_ENV === 'production';
         baseUrl = isProd ? manifest.getBaseUrl() : DHIS_CONFIG.baseUrl;
 
-        config.baseUrl = `${baseUrl}/api`;
+        config.baseUrl = `${baseUrl}/api/${API_VERSION}`;
         config.headers = isProd
             ? null
             : { Authorization: DHIS_CONFIG.authorization };
