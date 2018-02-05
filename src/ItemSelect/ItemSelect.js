@@ -47,35 +47,6 @@ const ItemSearchField = props => (
     </div>
 );
 
-const getListItems = items => {
-    return listItems.map(type => {
-        const itemType = itemTypeMap[type.id];
-
-        if (items && items[itemType.countName] > 0) {
-            return (
-                <ItemSelectList
-                    key={type.id}
-                    type={type.id}
-                    title={type.title}
-                    items={items[itemType.endPointName]}
-                    onChangeItemsLimit={this.fetchItems}
-                />
-            );
-        } else {
-            return null;
-        }
-    });
-};
-
-const popoverChildren = items => {
-    const SingleItems = singleItems.map(category => (
-        <ItemSelectSingle key={category.id} category={category} />
-    ));
-    const ListItems = getListItems(items);
-
-    return ListItems.concat(SingleItems);
-};
-
 class ItemSelect extends React.Component {
     constructor(props) {
         super(props);
@@ -104,6 +75,35 @@ class ItemSelect extends React.Component {
 
     setFilter = event => {
         this.setState({ filter: event.target.value }, this.fetchItems);
+    };
+
+    getListItems = items => {
+        return listItems.map(type => {
+            const itemType = itemTypeMap[type.id];
+
+            if (items && items[itemType.countName] > 0) {
+                return (
+                    <ItemSelectList
+                        key={type.id}
+                        type={type.id}
+                        title={type.title}
+                        items={items[itemType.endPointName]}
+                        onChangeItemsLimit={this.fetchItems}
+                    />
+                );
+            } else {
+                return null;
+            }
+        });
+    };
+
+    popoverChildren = items => {
+        const SingleItems = singleItems.map(category => (
+            <ItemSelectSingle key={category.id} category={category} />
+        ));
+        const ListItems = this.getListItems(items);
+
+        return ListItems.concat(SingleItems);
     };
 
     fetchItems = async maxOption => {
@@ -169,7 +169,7 @@ class ItemSelect extends React.Component {
                         left: -1000,
                     }}
                 >
-                    {popoverChildren(this.state.items)}
+                    {this.popoverChildren(this.state.items)}
                 </Popover>
             </Fragment>
         );
