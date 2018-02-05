@@ -36,10 +36,6 @@ const globals = Object.assign(
     env.stringified
 );
 
-console.log('paths', paths);
-
-console.log('manifest', manifest);
-
 // Assert this just to be safe.
 // Development builds of React are slow and not intended for production.
 if (env.stringified['process.env'].NODE_ENV !== '"production"') {
