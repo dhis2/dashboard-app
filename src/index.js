@@ -1,4 +1,4 @@
-/* global DHIS_CONFIG */
+/* global DHIS_CONFIG, manifest */
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import D2UIApp from 'd2-ui/lib/app/D2UIApp';
 
-import { config, getManifest, getUserSettings } from 'd2/lib/d2';
+import { config, getUserSettings } from 'd2/lib/d2';
 
 import './index.css';
 
@@ -30,18 +30,12 @@ const configI18n = userSettings => {
     config.i18n.sources.add('./i18n/i18n_module_en.properties');
 };
 
-// init d2
-getManifest('manifest.webapp')
-    .then(manifest => {
-        const isProd = process.env.NODE_ENV === 'production';
-        baseUrl = isProd ? manifest.getBaseUrl() : DHIS_CONFIG.baseUrl;
+const isProd = process.env.NODE_ENV === 'production';
+baseUrl = isProd ? manifest.getBaseUrl() : DHIS_CONFIG.baseUrl;
+config.baseUrl = `${baseUrl}/api/${manifest.version}`;
+config.headers = isProd ? null : { Authorization: DHIS_CONFIG.authorization };
 
-        config.baseUrl = `${baseUrl}/api/${manifest.version}`;
-        config.headers = isProd
-            ? null
-            : { Authorization: DHIS_CONFIG.authorization };
-    })
-    .then(getUserSettings)
+getUserSettings()
     .then(configI18n)
     .then(() => {
         config.schemas = ['dashboard'];

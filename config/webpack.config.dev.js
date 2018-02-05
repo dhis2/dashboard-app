@@ -37,10 +37,12 @@ try {
     };
 }
 
+const manifest = require(`${paths.appPublic}/manifest`);
 const globals = Object.assign(
     {},
     {
         DHIS_CONFIG: JSON.stringify(dhisConfig),
+        manifest: JSON.stringify(manifest),
     },
     env.stringified
 );

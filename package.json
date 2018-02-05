@@ -69,15 +69,16 @@
     },
     "scripts": {
         "documentation": "./node_modules/.bin/jsdoc -c jsdoc.json",
-        "prestart": "d2-manifest package.json ./public/manifest.webapp",
+        "prestart": "d2-manifest package.json ./public/manifest.json",
         "start": "node scripts/start.js",
         "build": "node scripts/build.js",
         "coverage": "npm test -- --coverage",
         "test": "node scripts/test.js --env=jsdom",
         "lint": "eslint -c .eslintrc.json src",
-        "prebuild": "rm -rf build && npm run lint",
-        "postbuild": "cp -r src/i18n build && npm run manifest",
-        "manifest": "d2-manifest package.json build/manifest.webapp",
+        "prebuild":
+            "rm -rf build && npm run lint && mkdir build && npm run manifest",
+        "postbuild": "cp -r src/i18n build",
+        "manifest": "d2-manifest package.json build/manifest.json",
         "deploy": "npm run build && mvn clean deploy",
         "prettify": "prettier \"src/{**/*,*}.js\" --write"
     },
