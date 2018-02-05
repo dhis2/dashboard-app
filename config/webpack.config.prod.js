@@ -27,7 +27,7 @@ const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 const publicUrl = publicPath.slice(0, -1);
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
-const manifest = require(`${paths.appPublic}/manifest`);
+const manifest = require(`${paths.appBuild}/manifest`);
 const globals = Object.assign(
     {},
     {
@@ -35,6 +35,10 @@ const globals = Object.assign(
     },
     env.stringified
 );
+
+console.log('paths', paths);
+
+console.log('manifest', manifest);
 
 // Assert this just to be safe.
 // Development builds of React are slow and not intended for production.
