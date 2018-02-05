@@ -57,7 +57,7 @@ export const getLink = (item, d2) => {
     const baseUrl = getBaseUrl(d2);
     const appUrl = itemTypeMap[item.type].appUrl(getId(item));
 
-    return `${baseUrl}${appUrl}`;
+    return `${baseUrl}/${appUrl}`;
 };
 
 export const reload = async (item, targetType, credentials) => {
