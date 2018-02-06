@@ -77,7 +77,7 @@ class PluginItemHeaderButtons extends Component {
             activeVisualization,
             onToggleFooter,
         } = this.props;
-        console.log('ITEM', item);
+
         const domainType = itemTypeMap[item.type].domainType;
 
         const onViewTable = () =>

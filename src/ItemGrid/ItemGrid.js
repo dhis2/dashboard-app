@@ -116,7 +116,7 @@ export class ItemGrid extends Component {
                 >
                     {items.map(item => {
                         const itemClassNames = item.type.concat(
-                            edit ? '' : ' viewing'
+                            edit ? ' edit' : ' view'
                         );
 
                         return (
