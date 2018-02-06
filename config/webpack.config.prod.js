@@ -10,6 +10,7 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const fs = require('fs');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 
@@ -27,7 +28,9 @@ const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 const publicUrl = publicPath.slice(0, -1);
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
-const manifest = require(`${paths.appBuild}/manifest`);
+const manifest = JSON.parse(
+    fs.readFileSync(`${paths.appBuild}/manifest.webapp`, 'utf8')
+);
 const globals = Object.assign(
     {},
     {
