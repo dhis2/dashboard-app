@@ -18,8 +18,6 @@ import App from './App';
 // init material-ui
 injectTapEventPlugin();
 
-let baseUrl;
-
 const configI18n = userSettings => {
     const uiLocale = userSettings.keyUiLocale;
 
@@ -31,7 +29,7 @@ const configI18n = userSettings => {
 };
 
 const isProd = process.env.NODE_ENV === 'production';
-baseUrl = isProd ? manifest.activities.dhis.href : DHIS_CONFIG.baseUrl;
+const baseUrl = isProd ? manifest.activities.dhis.href : DHIS_CONFIG.baseUrl;
 config.baseUrl = `${baseUrl}/api/${manifest.dhis2.apiVersion}`;
 config.headers = isProd ? null : { Authorization: DHIS_CONFIG.authorization };
 
