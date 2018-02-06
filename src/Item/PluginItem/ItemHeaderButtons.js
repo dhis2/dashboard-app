@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import arrayContains from 'd2-utilizr/lib/arrayContains';
+
 import ItemHeaderButton from '../ItemHeaderButton';
 import {
     VISUALIZATION_TYPE_TABLE,
@@ -8,8 +10,9 @@ import {
     CHART,
     MAP,
     REPORT_TABLE,
+    EVENT_CHART,
+    EVENT_REPORT,
 } from '../../itemTypes';
-
 import { colors } from '../../colors';
 
 const style = {
@@ -30,6 +33,32 @@ const style = {
     },
 };
 
+const baseStyle = {
+    icon: style.iconBase,
+    container: style.buttonBase,
+};
+
+const activeStyle = {
+    icon: { ...style.iconBase, fill: colors.royalBlue },
+    container: {
+        ...style.buttonBase,
+        backgroundColor: colors.lightBlue,
+    },
+};
+
+const getTableBtnStyle = activeVisualization =>
+    arrayContains([REPORT_TABLE, EVENT_REPORT], activeVisualization)
+        ? activeStyle
+        : baseStyle;
+
+const getChartBtnStyle = activeVisualization =>
+    arrayContains([CHART, EVENT_CHART], activeVisualization)
+        ? activeStyle
+        : baseStyle;
+
+const getMapBtnStyle = activeVisualization =>
+    arrayContains([MAP], activeVisualization) ? activeStyle : baseStyle;
+
 export const getItemTypeId = (itemTypeMap, visualizationType, domainType) => {
     const item = Object.values(itemTypeMap).find(
         item =>
@@ -48,7 +77,7 @@ class PluginItemHeaderButtons extends Component {
             activeVisualization,
             onToggleFooter,
         } = this.props;
-
+        console.log('ITEM', item);
         const domainType = itemTypeMap[item.type].domainType;
 
         const onViewTable = () =>
@@ -66,35 +95,16 @@ class PluginItemHeaderButtons extends Component {
                 getItemTypeId(itemTypeMap, VISUALIZATION_TYPE_MAP, domainType)
             );
 
-        const base = Object.assign(
-            {},
-            { icon: style.iconBase },
-            { container: style.buttonBase }
-        );
+        const toggleFooterBase = activeFooter ? activeStyle : baseStyle;
 
-        const active = Object.assign(
-            {},
-            { icon: { ...style.iconBase, fill: colors.royalBlue } },
-            {
-                container: {
-                    ...style.buttonBase,
-                    backgroundColor: colors.lightBlue,
-                },
-            }
-        );
-
-        const chartBtn = activeVisualization === CHART ? active : base;
-        const tableBtn = activeVisualization === REPORT_TABLE ? active : base;
-        const mapBtn = activeVisualization === MAP ? active : base;
-        const toggleFooterBase = activeFooter ? active : base;
-
-        const toggleFooter = Object.assign({}, toggleFooterBase, {
+        const toggleFooter = {
+            ...toggleFooterBase,
             container: {
                 ...toggleFooterBase.container,
                 ...style.toggleFooterPadding,
                 ...style.border,
             },
-        });
+        };
 
         return (
             <Fragment>
@@ -107,17 +117,17 @@ class PluginItemHeaderButtons extends Component {
                 </div>
                 <div style={style.border}>
                     <ItemHeaderButton
-                        style={tableBtn}
+                        style={getTableBtnStyle(activeVisualization)}
                         icon={'ViewList'}
                         onClick={onViewTable}
                     />
                     <ItemHeaderButton
-                        style={chartBtn}
+                        style={getChartBtnStyle(activeVisualization)}
                         icon={'InsertChart'}
                         onClick={onViewChart}
                     />
                     <ItemHeaderButton
-                        style={mapBtn}
+                        style={getMapBtnStyle(activeVisualization)}
                         icon={'Public'}
                         onClick={onViewMap}
                     />
