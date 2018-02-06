@@ -29,19 +29,18 @@ const styles = {
 };
 
 const ItemSearchField = props => (
-    <div style={{ display: 'flex', alignItems: 'center', width: '400px' }}>
+    <div style={{ display: 'flex', alignItems: 'baseline', width: '400px' }}>
         <SvgIcon icon="Search" />
         <TextField
             hintText="Search favorite elements to add to dashboard"
-            type="text"
             fullWidth={true}
             value={props.value}
             onClick={props.onClick}
             onChange={props.onChange}
             style={styles.filterField}
-            inputStyle={styles.fieldFieldInput}
-            hintStyle={styles.fielterFieldHint}
-            underlineStyle={styles.filterFiledUnderline}
+            inputStyle={styles.filterFieldInput}
+            hintStyle={styles.filterFieldHint}
+            underlineStyle={styles.filterFieldUnderline}
             underlineFocusStyle={styles.filterFieldUnderlineFocus}
         />
     </div>
