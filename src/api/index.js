@@ -94,6 +94,7 @@ export const getDashboardItemsFields = ({ withFavorite } = {}) =>
         'height~rename(h)',
         'messages',
         'text',
+        'appKey',
         `${getListItemFields().join(',')}`,
         withFavorite
             ? `${getFavoritesFields({
