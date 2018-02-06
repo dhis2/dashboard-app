@@ -3,6 +3,8 @@ import { apiFetchSelected } from '../api/dashboards';
 import { acSetDashboards } from './dashboards';
 import { withShape } from '../ItemGrid/gridUtil';
 import { tGetMessages } from '../Item/MessagesItem/actions';
+import { putPreferredDashboard } from '../api/localStorage';
+import { fromUser } from '../reducers';
 import {
     REPORT_TABLE,
     CHART,
@@ -45,7 +47,7 @@ export const receivedVisualization = value => ({
 
 // thunks
 
-export const tSetSelectedDashboardById = id => async dispatch => {
+export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
     dispatch(acSetSelectedIsLoading(true));
 
     const onSuccess = selected => {
@@ -73,6 +75,8 @@ export const tSetSelectedDashboardById = id => async dispatch => {
                     break;
             }
         });
+
+        putPreferredDashboard(fromUser.sGetUsername(getState()), id);
 
         dispatch(
             acSetDashboards(
