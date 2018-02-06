@@ -29,52 +29,22 @@ const styles = {
 };
 
 const ItemSearchField = props => (
-    <div style={{ display: 'flex', alignItems: 'center', width: '400px' }}>
+    <div style={{ display: 'flex', alignItems: 'baseline', width: '400px' }}>
         <SvgIcon icon="Search" />
         <TextField
             hintText="Search favorite elements to add to dashboard"
-            type="text"
             fullWidth={true}
             value={props.value}
             onClick={props.onClick}
             onChange={props.onChange}
             style={styles.filterField}
-            inputStyle={styles.fieldFieldInput}
-            hintStyle={styles.fielterFieldHint}
-            underlineStyle={styles.filterFiledUnderline}
+            inputStyle={styles.filterFieldInput}
+            hintStyle={styles.filterFieldHint}
+            underlineStyle={styles.filterFieldUnderline}
             underlineFocusStyle={styles.filterFieldUnderlineFocus}
         />
     </div>
 );
-
-const getListItems = items => {
-    return listItems.map(type => {
-        const itemType = itemTypeMap[type.id];
-
-        if (items && items[itemType.countName] > 0) {
-            return (
-                <ItemSelectList
-                    key={type.id}
-                    type={type.id}
-                    title={type.title}
-                    items={items[itemType.endPointName]}
-                    onChangeItemsLimit={this.fetchItems}
-                />
-            );
-        } else {
-            return null;
-        }
-    });
-};
-
-const popoverChildren = items => {
-    const SingleItems = singleItems.map(category => (
-        <ItemSelectSingle key={category.id} category={category} />
-    ));
-    const ListItems = getListItems(items);
-
-    return ListItems.concat(SingleItems);
-};
 
 class ItemSelect extends React.Component {
     constructor(props) {
@@ -104,6 +74,35 @@ class ItemSelect extends React.Component {
 
     setFilter = event => {
         this.setState({ filter: event.target.value }, this.fetchItems);
+    };
+
+    getListItems = items => {
+        return listItems.map(type => {
+            const itemType = itemTypeMap[type.id];
+
+            if (items && items[itemType.countName] > 0) {
+                return (
+                    <ItemSelectList
+                        key={type.id}
+                        type={type.id}
+                        title={type.title}
+                        items={items[itemType.endPointName]}
+                        onChangeItemsLimit={this.fetchItems}
+                    />
+                );
+            } else {
+                return null;
+            }
+        });
+    };
+
+    popoverChildren = items => {
+        const SingleItems = singleItems.map(category => (
+            <ItemSelectSingle key={category.id} category={category} />
+        ));
+        const ListItems = this.getListItems(items);
+
+        return ListItems.concat(SingleItems);
     };
 
     fetchItems = async maxOption => {
@@ -169,7 +168,7 @@ class ItemSelect extends React.Component {
                         left: -1000,
                     }}
                 >
-                    {popoverChildren(this.state.items)}
+                    {this.popoverChildren(this.state.items)}
                 </Popover>
             </Fragment>
         );
