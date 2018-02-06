@@ -15,8 +15,8 @@ import {
 
 export const singleItems = [
     {
-        id: 'static',
-        header: 'Static items',
+        id: 'additional',
+        header: 'Additional items',
         items: [
             {
                 type: TEXT,
@@ -24,12 +24,6 @@ export const singleItems = [
                 name: 'Text box',
                 content: 'No content',
             },
-        ],
-    },
-    {
-        id: 'apps',
-        header: 'Apps',
-        items: [
             {
                 type: MESSAGES,
                 icon: 'Email',
