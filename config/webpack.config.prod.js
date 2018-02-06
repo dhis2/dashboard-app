@@ -10,6 +10,7 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const fs = require('fs');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 
@@ -27,6 +28,16 @@ const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 const publicUrl = publicPath.slice(0, -1);
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
+const manifest = JSON.parse(
+    fs.readFileSync(`${paths.appBuild}/manifest.webapp`, 'utf8')
+);
+const globals = Object.assign(
+    {},
+    {
+        manifest: JSON.stringify(manifest),
+    },
+    env.stringified
+);
 
 // Assert this just to be safe.
 // Development builds of React are slow and not intended for production.
@@ -290,7 +301,7 @@ module.exports = {
         // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
         // It is absolutely essential that NODE_ENV was set to production here.
         // Otherwise React will be compiled in the very slow development mode.
-        new webpack.DefinePlugin(env.stringified),
+        new webpack.DefinePlugin(globals),
         // Minify the code.
         new webpack.optimize.UglifyJsPlugin({
             compress: {

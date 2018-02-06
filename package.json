@@ -75,8 +75,9 @@
         "coverage": "npm test -- --coverage",
         "test": "node scripts/test.js --env=jsdom",
         "lint": "eslint -c .eslintrc.json src",
-        "prebuild": "rm -rf build && npm run lint",
-        "postbuild": "cp -r src/i18n build && npm run manifest",
+        "prebuild":
+            "rm -rf build && npm run lint && mkdir build && npm run manifest",
+        "postbuild": "cp -r src/i18n build",
         "manifest": "d2-manifest package.json build/manifest.webapp",
         "deploy": "npm run build && mvn clean deploy",
         "prettify": "prettier \"src/{**/*,*}.js\" --write"
@@ -89,6 +90,9 @@
         "developer": {
             "url": "",
             "name": "DHIS2"
+        },
+        "dhis2": {
+            "apiVersion": "29"
         },
         "activities": {
             "dhis": {
