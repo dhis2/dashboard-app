@@ -9,6 +9,10 @@
     border-radius: 3px;
 }
 
+.react-grid-item.SPACER.viewing {
+    visibility: hidden;
+}
+
 .react-grid-item.react-grid-placeholder {
     background: #000;
     opacity: 0.1;

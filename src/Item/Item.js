@@ -6,6 +6,7 @@ import NotSupportedItem from './NotSupportedItem/Item';
 import ListItem from './ListItem/Item';
 import TextItem from './TextItem/Item';
 import AppItem from './AppItem/Item';
+import SpacerItem from './SpacerItem/Item';
 import {
     APP,
     REPORT_TABLE,
@@ -18,6 +19,7 @@ import {
     RESOURCES,
     USERS,
     TEXT,
+    SPACER,
 } from '../itemTypes';
 
 const getGridItem = type => {
@@ -36,6 +38,8 @@ const getGridItem = type => {
             return ListItem;
         case TEXT:
             return TextItem;
+        case SPACER:
+            return SpacerItem;
         case APP:
             return AppItem;
         default:

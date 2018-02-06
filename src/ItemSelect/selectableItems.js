@@ -1,5 +1,6 @@
 import {
     itemTypeMap,
+    spacerContent,
     REPORT_TABLE,
     CHART,
     MAP,
@@ -11,6 +12,7 @@ import {
     APP,
     MESSAGES,
     TEXT,
+    SPACER,
 } from '../itemTypes';
 
 export const singleItems = [
@@ -29,6 +31,12 @@ export const singleItems = [
                 icon: 'Email',
                 name: 'Messages',
                 content: 'true',
+            },
+            {
+                type: SPACER,
+                icon: 'FontDownload',
+                name: 'Spacer',
+                content: spacerContent,
             },
         ],
     },
