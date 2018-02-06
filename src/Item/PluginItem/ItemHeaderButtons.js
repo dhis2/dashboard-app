@@ -22,10 +22,10 @@ const style = {
         fill: colors.lightMediumGrey,
     },
     buttonBase: {
-        padding: '6px 6px 4px 6px',
+        padding: '5px 6px 3px 6px',
     },
     toggleFooterPadding: {
-        padding: '8px 6px 2px 6px',
+        padding: '7px 6px 1px 6px',
     },
     border: {
         borderRadius: '2px',
