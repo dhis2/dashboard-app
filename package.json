@@ -1,6 +1,6 @@
 {
     "name": "dashboards-app",
-    "version": "29.0.2",
+    "version": "29.0.3",
     "description": "DHIS2 Dashboards app",
     "private": true,
     "license": "BSD-3-Clause",
@@ -75,8 +75,7 @@
         "coverage": "npm test -- --coverage",
         "test": "node scripts/test.js --env=jsdom",
         "lint": "eslint -c .eslintrc.json src",
-        "prebuild":
-            "rm -rf build && npm run lint && mkdir build && npm run manifest",
+        "prebuild": "rm -rf build && npm run lint && mkdir build && npm run manifest",
         "postbuild": "cp -r src/i18n build",
         "manifest": "d2-manifest package.json build/manifest.webapp",
         "deploy": "npm run build && mvn clean deploy",
