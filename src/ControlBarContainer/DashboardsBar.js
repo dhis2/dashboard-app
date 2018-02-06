@@ -5,6 +5,7 @@ import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 // FIXME: TO BE USED IN 2.30
 //import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import Chip from 'd2-ui/lib/chip/Chip';
+import { blue800 } from 'material-ui/styles/colors';
 
 import D2IconButton from '../widgets/D2IconButton';
 import Filter from './Filter';
@@ -17,7 +18,6 @@ import {
 import * as fromActions from '../actions';
 import * as fromReducers from '../reducers';
 import { orObject, orArray } from '../util';
-import { blue800 } from '../../../d2-ui/node_modules/material-ui/styles/colors';
 import { sGetSelectedId } from '../reducers/selected';
 
 const dashboardBarStyles = {
