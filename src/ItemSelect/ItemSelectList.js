@@ -122,7 +122,7 @@ class ItemSelectList extends Component {
 
             acAddDashboardItem({ type, content: newItem }, yValue);
         } else {
-            acAddDashboardItem({ type: type, content: newItem }, yValue);
+            acAddDashboardItem({ type, content: newItem }, yValue);
         }
     };
 
