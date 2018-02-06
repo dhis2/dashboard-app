@@ -79,7 +79,6 @@ export const tSaveDashboard = () => async (dispatch, getState) => {
         ...dashboard,
         dashboardItems,
     };
-    console.log('saving normalized dashboard', dashboardToSave);
 
     try {
         const selectedId = dashboardToSave.id
