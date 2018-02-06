@@ -3,7 +3,7 @@ import { apiFetchSelected } from '../api/dashboards';
 import { acSetDashboards } from './dashboards';
 import { withShape } from '../ItemGrid/gridUtil';
 import { tGetMessages } from '../Item/MessagesItem/actions';
-import { putPreferredDashboard } from '../api/localStorage';
+import { storePreferredDashboard } from '../api/localStorage';
 import { fromUser } from '../reducers';
 import {
     REPORT_TABLE,
@@ -76,7 +76,7 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
             }
         });
 
-        putPreferredDashboard(fromUser.sGetUsername(getState()), id);
+        storePreferredDashboard(fromUser.sGetUsername(getState()), id);
 
         dispatch(
             acSetDashboards(

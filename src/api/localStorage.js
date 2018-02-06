@@ -4,6 +4,6 @@ export const getPreferredDashboard = username => {
     );
 };
 
-export const putPreferredDashboard = (username, dashboardId) => {
+export const storePreferredDashboard = (username, dashboardId) => {
     localStorage.setItem(`dhis2.dashboard.current.${username}`, dashboardId);
 };
