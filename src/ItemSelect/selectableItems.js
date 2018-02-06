@@ -34,7 +34,7 @@ export const singleItems = [
             },
             {
                 type: SPACER,
-                icon: 'FontDownload',
+                icon: 'CropFree',
                 name: 'Spacer',
                 content: spacerContent,
             },
