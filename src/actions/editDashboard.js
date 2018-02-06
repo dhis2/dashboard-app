@@ -3,7 +3,7 @@ import { actionTypes } from '../reducers';
 import { fromEditDashboard } from '../reducers';
 import { updateDashboard, postDashboard } from '../api/editDashboard';
 import { fromSelected } from '.';
-import { itemTypeMap } from '../itemTypes';
+import { itemTypeMap, isSpacerType, TEXT } from '../itemTypes';
 
 const onError = error => {
     console.log('Error (Saving Dashboard): ', error);
@@ -65,12 +65,25 @@ export const acRemoveDashboardItem = value => ({
 //thunks
 
 export const tSaveDashboard = () => async (dispatch, getState) => {
-    const newDashboard = fromEditDashboard.sGetEditDashboard(getState());
+    const dashboard = fromEditDashboard.sGetEditDashboard(getState());
+
+    const dashboardItems = dashboard.dashboardItems.map(item => {
+        const type = isSpacerType(item) ? TEXT : item.type;
+        return {
+            ...item,
+            type,
+        };
+    });
+
+    const dashboardToSave = {
+        ...dashboard,
+        dashboardItems,
+    };
 
     try {
-        const selectedId = newDashboard.id
-            ? await updateDashboard(newDashboard)
-            : await postDashboard(newDashboard);
+        const selectedId = dashboardToSave.id
+            ? await updateDashboard(dashboardToSave)
+            : await postDashboard(dashboardToSave);
 
         await dispatch(fromSelected.tSetSelectedDashboardById(selectedId));
         dispatch(fromSelected.acSetSelectedEdit(false));

@@ -115,8 +115,13 @@ export class ItemGrid extends Component {
                     draggableCancel="input,textarea"
                 >
                     {items.map(item => {
+                        const itemClassNames = [
+                            item.type,
+                            edit ? 'edit' : 'view',
+                        ].join(' ');
+
                         return (
-                            <div key={item.i} className={item.type}>
+                            <div key={item.i} className={itemClassNames}>
                                 {edit ? (
                                     <DeleteItemButton
                                         onClick={onRemoveItemWrapper(item.id)}

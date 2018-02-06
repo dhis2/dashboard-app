@@ -10,6 +10,7 @@ export const RESOURCES = 'RESOURCES';
 export const USERS = 'USERS';
 export const MESSAGES = 'MESSAGES';
 export const TEXT = 'TEXT';
+export const SPACER = 'SPACER';
 
 // Domain types
 export const DOMAIN_TYPE_AGGREGATE = 'AGGREGATE';
@@ -19,6 +20,10 @@ export const DOMAIN_TYPE_TRACKER = 'TRACKER';
 export const VISUALIZATION_TYPE_TABLE = 'TABLE';
 export const VISUALIZATION_TYPE_CHART = 'CHART';
 export const VISUALIZATION_TYPE_MAP = 'MAP';
+
+export const spacerContent = 'SPACER_ITEM_FOR_DASHBOARD_LAYOUT_CONVENIENCE';
+export const isSpacerType = item =>
+    item.type === TEXT && item.text === spacerContent;
 
 // Item type map
 export const itemTypeMap = {
@@ -114,5 +119,8 @@ export const itemTypeMap = {
     },
     [MESSAGES]: {
         propName: 'messages',
+    },
+    [SPACER]: {
+        propName: 'text',
     },
 };

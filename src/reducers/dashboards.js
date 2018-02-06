@@ -2,6 +2,7 @@
 
 import arrayFrom from 'd2-utilizr/lib/arrayFrom';
 import { orArray, orNull, orObject } from '../util';
+import { SPACER, isSpacerType } from '../itemTypes';
 
 /**
  * Action types for the dashboard reducer
@@ -76,8 +77,17 @@ export const sGetById = (state, id) =>
  * @param {Array} data The original dashboard list
  * @returns {Array}
  */
-export const getCustomDashboards = data =>
-    arrayFrom(data).map((d, index) => ({
+export const getCustomDashboards = data => {
+    const uiItems = items =>
+        items.map(item => {
+            const type = isSpacerType(item) ? SPACER : item.type;
+            return {
+                ...item,
+                type,
+            };
+        });
+
+    return arrayFrom(data).map((d, index) => ({
         id: d.id,
         name: d.name,
         description: d.description,
@@ -92,5 +102,6 @@ export const getCustomDashboards = data =>
             .join(' ')
             .substr(0, 16),
         numberOfItems: orArray(d.dashboardItems).length,
-        dashboardItems: d.dashboardItems,
+        dashboardItems: uiItems(d.dashboardItems),
     }));
+};
