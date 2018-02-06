@@ -14,6 +14,7 @@ before_script:
 script:
 - yarn lint
 - yarn coverage
+- yarn build
 after_script:
 - "./cc-test-reporter after-build -d --exit-code $TRAVIS_TEST_RESULT"
 after_success:
