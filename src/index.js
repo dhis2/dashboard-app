@@ -17,7 +17,6 @@ import App from './App';
 
 const configI18n = userSettings => {
     const uiLocale = userSettings.keyUiLocale;
-    console.log('jj userSettings', userSettings);
 
     if (uiLocale && uiLocale !== 'en') {
         config.i18n.sources.add(`./i18n/i18n_module_${uiLocale}.properties`);
