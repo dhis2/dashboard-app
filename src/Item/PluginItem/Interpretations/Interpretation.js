@@ -178,7 +178,7 @@ class Interpretation extends Component {
                 <span style={style.likes}>
                     {this.props.interpretation.likedBy.length} {likes}
                 </span>
-                {this.canDelete()
+                {this.canDelete(this.props.interpretation.user.id)
                     ? deleteButton(this.deleteInterpretation)
                     : null}
             </div>
