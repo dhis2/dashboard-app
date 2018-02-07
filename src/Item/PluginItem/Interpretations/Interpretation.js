@@ -258,22 +258,18 @@ class Interpretation extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        isSuperUser: fromUser.sGetIsSuperuser(state),
-        userId: fromUser.sGetUserId(state),
-    };
-};
+const mapStateToProps = state => ({
+    userId: fromUser.sGetUserId(state),
+    isSuperUser: fromUser.sGetIsSuperuser(state),
+});
 
-const mapDispatchToProps = dispatch => {
-    return {
-        likeInterpretation: data => dispatch(tLikeInterpretation(data)),
-        unlikeInterpretation: data => dispatch(tUnlikeInterpretation(data)),
-        addComment: data => dispatch(tAddInterpretationComment(data)),
-        deleteComment: data => dispatch(tDeleteInterpretationComment(data)),
-        deleteInterpretation: data => dispatch(tDeleteInterpretation(data)),
-    };
-};
+const mapDispatchToProps = dispatch => ({
+    likeInterpretation: data => dispatch(tLikeInterpretation(data)),
+    unlikeInterpretation: data => dispatch(tUnlikeInterpretation(data)),
+    addComment: data => dispatch(tAddInterpretationComment(data)),
+    deleteComment: data => dispatch(tDeleteInterpretationComment(data)),
+    deleteInterpretation: data => dispatch(tDeleteInterpretation(data)),
+});
 
 Interpretation.contextTypes = {
     d2: PropTypes.object,
