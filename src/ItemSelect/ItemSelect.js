@@ -9,6 +9,8 @@ import ItemSelectSingle from './ItemSelectSingle';
 import { singleItems, listItems } from './selectableItems';
 import { itemTypeMap } from '../itemTypes';
 
+import './ItemSelect.css';
+
 const styles = {
     filterField: {
         fontSize: '14px',
@@ -154,6 +156,7 @@ class ItemSelect extends React.Component {
                     onChange={this.setFilter}
                 />
                 <Popover
+                    className="dashboard-item-select"
                     open={this.state.open}
                     onRequestClose={this.closeList}
                     anchorEl={this.state.anchorEl}

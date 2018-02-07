@@ -15,9 +15,6 @@ import configureStore from './configureStore';
 
 import App from './App';
 
-// init material-ui
-injectTapEventPlugin();
-
 const configI18n = userSettings => {
     const uiLocale = userSettings.keyUiLocale;
 
@@ -28,22 +25,41 @@ const configI18n = userSettings => {
     config.i18n.sources.add('./i18n/i18n_module_en.properties');
 };
 
-const isProd = process.env.NODE_ENV === 'production';
-const baseUrl = isProd ? manifest.activities.dhis.href : DHIS_CONFIG.baseUrl;
-config.baseUrl = `${baseUrl}/api/${manifest.dhis2.apiVersion}`;
-config.headers = isProd ? null : { Authorization: DHIS_CONFIG.authorization };
+const init = () => {
+    // init material-ui
+    injectTapEventPlugin();
 
-getUserSettings()
-    .then(configI18n)
-    .then(() => {
-        config.schemas = ['dashboard'];
+    // log app info
+    console.info(
+        `Dashboards app, v${manifest.version}, ${
+            manifest.manifest_generated_at
+        }`
+    );
 
-        ReactDOM.render(
-            <D2UIApp initConfig={config}>
-                <Provider store={configureStore()}>
-                    <App baseUrl={baseUrl} />
-                </Provider>
-            </D2UIApp>,
-            document.getElementById('root')
-        );
-    });
+    // d2-ui config
+    const isProd = process.env.NODE_ENV === 'production';
+    const baseUrl = isProd
+        ? manifest.activities.dhis.href
+        : DHIS_CONFIG.baseUrl;
+    config.baseUrl = `${baseUrl}/api/${manifest.dhis2.apiVersion}`;
+    config.headers = isProd
+        ? null
+        : { Authorization: DHIS_CONFIG.authorization };
+
+    getUserSettings()
+        .then(configI18n)
+        .then(() => {
+            config.schemas = ['dashboard'];
+
+            ReactDOM.render(
+                <D2UIApp initConfig={config}>
+                    <Provider store={configureStore()}>
+                        <App baseUrl={baseUrl} />
+                    </Provider>
+                </D2UIApp>,
+                document.getElementById('root')
+            );
+        });
+};
+
+init();

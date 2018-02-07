@@ -12,6 +12,7 @@ import {
     REPORT_TABLE,
     EVENT_CHART,
     EVENT_REPORT,
+    DOMAIN_TYPE_AGGREGATE,
 } from '../../itemTypes';
 import { colors } from '../../colors';
 
@@ -126,11 +127,13 @@ class PluginItemHeaderButtons extends Component {
                         icon={'InsertChart'}
                         onClick={onViewChart}
                     />
-                    <ItemHeaderButton
-                        style={getMapBtnStyle(activeVisualization)}
-                        icon={'Public'}
-                        onClick={onViewMap}
-                    />
+                    {domainType === DOMAIN_TYPE_AGGREGATE ? (
+                        <ItemHeaderButton
+                            style={getMapBtnStyle(activeVisualization)}
+                            icon={'Public'}
+                            onClick={onViewMap}
+                        />
+                    ) : null}
                 </div>
             </Fragment>
         );

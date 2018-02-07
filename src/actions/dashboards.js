@@ -1,6 +1,12 @@
 import { actionTypes } from '../reducers';
-import { getCustomDashboards } from '../reducers/dashboards';
+import {
+    getCustomDashboards,
+    sGetStarredDashboardIds,
+} from '../reducers/dashboards';
+import { sGetUsername } from '../reducers/user';
+import { tSetSelectedDashboardById } from './selected';
 import { apiFetchDashboards, apiStarDashboard } from '../api/dashboards';
+import { getPreferredDashboard } from '../api/localStorage';
 import { arrayToIdMap } from '../util';
 
 // actions
@@ -21,7 +27,17 @@ export const acStarDashboard = (dashboardId, isStarred) => ({
 
 export const tSetDashboards = () => async (dispatch, getState) => {
     const onSuccess = data => {
-        dispatch(acSetDashboards(data.toArray()));
+        const dashboards = data.toArray();
+        dispatch(acSetDashboards(dashboards));
+        const state = getState();
+
+        const dashboardId =
+            getPreferredDashboard(sGetUsername(state)) ||
+            sGetStarredDashboardIds(state)[0] ||
+            dashboards[0].id;
+
+        dispatch(tSetSelectedDashboardById(dashboardId));
+
         return data;
     };
 

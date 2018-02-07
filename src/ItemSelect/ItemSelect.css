@@ -1,0 +1,23 @@
+/* headers */
+.dashboard-item-select h3 {
+    font-size: 15px;
+    color: #444;
+    margin-top: 12px;
+    margin-bottom: 10px;
+}
+
+/* list items */
+.dashboard-item-select span p {
+    font-size: 15px;
+}
+
+/* buttons */
+.dashboard-item-select button {
+    align-self: flex-end;
+}
+
+.dashboard-item-select button span {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #1565c0;
+}

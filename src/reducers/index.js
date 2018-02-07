@@ -8,6 +8,7 @@ import interpretations, * as fromInterpretations from './interpretations';
 import visualizations, * as fromVisualizations from './visualizations';
 import editDashboard, * as fromEditDashboard from './editDashboard';
 import messages, * as fromMessages from './messages';
+import user, * as fromUser from './user';
 import style, * as fromStyle from './style';
 
 const USER = 'system';
@@ -23,6 +24,7 @@ export const actionTypes = Object.assign(
     fromInterpretations.actionTypes,
     fromVisualizations.actionTypes,
     fromMessages.actionTypes,
+    fromUser.actionTypes,
     fromEditDashboard.actionTypes,
     fromStyle.actionTypes
 );
@@ -37,6 +39,7 @@ export default combineReducers({
     interpretations,
     visualizations,
     messages,
+    user,
     editDashboard,
     style,
 });
@@ -61,6 +64,7 @@ export {
     fromVisualizations,
     fromMessages,
     fromEditDashboard,
+    fromUser,
     fromStyle,
 };
 
