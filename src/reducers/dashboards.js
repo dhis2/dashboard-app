@@ -71,6 +71,13 @@ export const sGetFromState = state => state.dashboards;
 export const sGetById = (state, id) =>
     orNull(orObject(sGetFromState(state))[id]);
 
+export const sGetStarredDashboardIds = state => {
+    const dashboards = Object.values(state.dashboards);
+    return dashboards
+        .filter(dashboard => dashboard.starred === true)
+        .map(starred => starred.id);
+};
+
 /**
  * Returns the array of dashboards, customized for ui
  * @function
