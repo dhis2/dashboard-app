@@ -10,7 +10,7 @@ import ControlBarContainer from './ControlBarContainer/ControlBarContainer';
 import TitleBarCt from './TitleBar/TitleBar';
 import ItemGridCt from './ItemGrid/ItemGrid';
 
-import { fromDashboards, fromSelected } from './actions';
+import { fromDashboards, fromUser } from './actions';
 
 import './App.css';
 
@@ -19,12 +19,9 @@ const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 // App
 class App extends Component {
     componentDidMount() {
-        const { store } = this.context;
-        store.dispatch(fromDashboards.tSetDashboards()).then(() => {
-            store.dispatch(
-                fromSelected.tSetSelectedDashboardById('xP1jtPjus1c')
-            );
-        });
+        const { store, d2 } = this.context;
+        store.dispatch(fromUser.acReceivedUser(d2.currentUser));
+        store.dispatch(fromDashboards.tSetDashboards());
     }
 
     getChildContext() {
