@@ -7,28 +7,40 @@ import './D2ContentEditable.css';
 
 const KEYCODE_ENTER = 13;
 
-const handleKeyDown = (event, onBlur) => {
-    if (event.keyCode === KEYCODE_ENTER) {
-        event.preventDefault();
-        this.component.htmlEl.blur();
+class D2ContentEditable extends React.Component {
+    handleKeyDown = (event, onBlur) => {
+        if (event.keyCode === KEYCODE_ENTER) {
+            event.preventDefault();
+            this.component.htmlEl.blur();
 
-        isFunction(onBlur) && onBlur(this.component.htmlEl.textContent);
+            isFunction(onBlur) && onBlur(this.component.htmlEl.textContent);
+        }
+    };
+
+    render() {
+        const {
+            className,
+            text,
+            disabled,
+            placeholder,
+            onBlur,
+            onChange,
+        } = this.props;
+        return (
+            // Provide both 'disabled' and 'disable' due to typo in shouldComponentUpdate
+            <ContentEditable
+                ref={c => (this.component = c)}
+                className={className}
+                html={text}
+                onKeyDown={e => this.handleKeyDown(e, onBlur)}
+                disabled={disabled}
+                disable={'' + disabled}
+                data-text={placeholder}
+                onChange={onChange}
+            />
+        );
     }
-};
-
-const D2ContentEditable = props => (
-    // Provide both 'disabled' and 'disable' due to typo in shouldComponentUpdate
-    <ContentEditable
-        ref={c => (this.component = c)}
-        className={props.className}
-        html={props.text}
-        onKeyDown={e => handleKeyDown(e, props.onBlur)}
-        disabled={props.disabled}
-        disable={'' + props.disabled}
-        data-text={props.placeholder}
-        onChange={props.onChange}
-    />
-);
+}
 
 D2ContentEditable.propTypes = {
     className: PropTypes.string,
