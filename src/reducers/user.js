@@ -3,7 +3,10 @@ export const actionTypes = {
 };
 
 export const defaultState = {
+    id: '',
     username: '',
+    uiLocale: '',
+    isSuperuser: false,
 };
 
 export default (state = defaultState, action) => {

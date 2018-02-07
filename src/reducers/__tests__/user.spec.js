@@ -8,9 +8,9 @@ describe('user reducer', () => {
     });
 
     it('should handle RECEIVED_USER action', () => {
+        const id = '35abc42';
         const username = 'tinkywinky';
         const uiLocale = 'teletubbie';
-        const id = '35abc42';
 
         const action = {
             type: actionTypes.RECEIVED_USER,
