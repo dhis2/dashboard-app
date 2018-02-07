@@ -20,7 +20,6 @@ const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 class App extends Component {
     componentDidMount() {
         const { store, d2 } = this.context;
-        console.log('d2.currentUser', d2.currentUser.authorities.has('ALL'));
 
         store.dispatch(fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromDashboards.tSetDashboards());
