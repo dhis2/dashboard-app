@@ -108,6 +108,7 @@ export const getCustomDashboards = data => {
             .split('T')
             .join(' ')
             .substr(0, 16),
+        access: d.access,
         numberOfItems: orArray(d.dashboardItems).length,
         dashboardItems: uiItems(d.dashboardItems),
     }));

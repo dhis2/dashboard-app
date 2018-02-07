@@ -112,6 +112,7 @@ export const getDashboardFields = ({ withItems, withFavorite } = {}) =>
         `user[${getIdNameFields({ rename: true }).join(',')}]`,
         'created',
         'lastUpdated',
+        'access',
         withItems
             ? `dashboardItems[${getDashboardItemsFields({
                   withFavorite,

@@ -53,6 +53,7 @@ class ViewTitleBar extends Component {
             id,
             name,
             description,
+            access,
             style,
             showDescription,
             starred,
@@ -75,14 +76,16 @@ class ViewTitleBar extends Component {
                         <div style={styles.titleBarIcon}>
                             <Info onClick={onInfoClick} />
                         </div>
-                        <div style={styles.titleBarLink}>
-                            <D2TextLink
-                                text={'Edit'}
-                                style={styles.textLink}
-                                hoverStyle={styles.textLinkHover}
-                                onClick={onEditClick}
-                            />
-                        </div>
+                        {access.update ? (
+                            <div style={styles.titleBarLink}>
+                                <D2TextLink
+                                    text={'Edit'}
+                                    style={styles.textLink}
+                                    hoverStyle={styles.textLinkHover}
+                                    onClick={onEditClick}
+                                />
+                            </div>
+                        ) : null}
                         <div style={styles.titleBarLink}>
                             <D2TextLink
                                 text={'Share'}
@@ -122,12 +125,14 @@ const mapStateToProps = state => {
     const selectedDashboard = orObject(
         fromReducers.sGetSelectedDashboard(state)
     );
+
     return {
         selectedDashboard,
         showDescription: fromReducers.fromSelected.sGetSelectedShowDescription(
             state
         ),
         starred: selectedDashboard.starred,
+        access: orObject(selectedDashboard.access),
     };
 };
 
