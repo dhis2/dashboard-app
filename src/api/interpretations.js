@@ -5,7 +5,7 @@ const onError = error => console.log('Error: ', error);
 
 export const getInterpretation = id => {
     const fields =
-        'id,text,created,user[id,displayName],likedBy,comments[id,text,created,user[id,displayName]]';
+        'id,text,created,user[id,displayName],likedBy,access,comments[id,text,created,user[id,displayName]]';
     const url = `/interpretations/${id}?fields=${fields}`;
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))

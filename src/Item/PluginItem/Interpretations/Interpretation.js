@@ -141,13 +141,12 @@ class Interpretation extends Component {
     };
 
     userIsOwner = id => id === this.context.d2.currentUser.id;
+    canDelete = userId =>
+        this.userIsOwner(userId) || this.props.interpretation.access.delete;
 
     renderActions() {
         const likes =
             this.props.interpretation.likedBy.length === 1 ? 'like' : 'likes';
-        const userOwnsInterpretation = this.userIsOwner(
-            this.props.interpretation.user.id
-        );
 
         const thumbsUpIcon = this.userLikesInterpretation()
             ? Object.assign({}, style.icon, { fill: colors.accentLightGreen })
@@ -179,7 +178,7 @@ class Interpretation extends Component {
                 <span style={style.likes}>
                     {this.props.interpretation.likedBy.length} {likes}
                 </span>
-                {userOwnsInterpretation
+                {this.canDelete()
                     ? deleteButton(this.deleteInterpretation)
                     : null}
             </div>
@@ -207,7 +206,7 @@ class Interpretation extends Component {
                     </span>
                 </div>
                 <p style={style.text}>{comment.text}</p>
-                {this.userIsOwner(comment.user.id)
+                {this.canDelete(comment.user.id)
                     ? deleteButton(() => this.deleteComment(comment.id))
                     : null}
             </li>
