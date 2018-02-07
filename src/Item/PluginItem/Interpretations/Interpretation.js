@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import { fromUser } from '../../../reducers';
 import InputField from './InputField';
 import { colors } from '../../../colors';
 import { formatDate, sortByDate } from '../../../util';
@@ -140,9 +141,7 @@ class Interpretation extends Component {
         this.props.deleteInterpretation(data);
     };
 
-    userIsOwner = ownerId => ownerId === this.context.d2.currentUser.id;
-    canDelete = ownerId =>
-        this.userIsOwner(ownerId) || this.props.interpretation.access.delete;
+    userIsOwner = ownerId => ownerId === this.props.userId;
 
     renderActions() {
         const likes =
@@ -154,6 +153,11 @@ class Interpretation extends Component {
         const likeText = this.userLikesInterpretation()
             ? 'You like this'
             : 'Like';
+
+        const canDeleteInterpretation = () =>
+            this.userIsOwner(this.props.interpretation.user.id) ||
+            this.props.interpretation.access.delete ||
+            this.props.isSuperUser;
 
         return (
             <div>
@@ -178,7 +182,7 @@ class Interpretation extends Component {
                 <span style={style.likes}>
                     {this.props.interpretation.likedBy.length} {likes}
                 </span>
-                {this.canDelete(this.props.interpretation.user.id)
+                {canDeleteInterpretation()
                     ? deleteButton(this.deleteInterpretation)
                     : null}
             </div>
@@ -189,6 +193,9 @@ class Interpretation extends Component {
         if (!this.props.interpretation.comments.length) {
             return null;
         }
+
+        const canDeleteComment = ownerId =>
+            this.userIsOwner(ownerId) || this.props.isSuperUser;
 
         const comments = sortByDate(
             this.props.interpretation.comments,
@@ -206,7 +213,7 @@ class Interpretation extends Component {
                     </span>
                 </div>
                 <p style={style.text}>{comment.text}</p>
-                {this.canDelete(comment.user.id)
+                {canDeleteComment(comment.user.id)
                     ? deleteButton(() => this.deleteComment(comment.id))
                     : null}
             </li>
@@ -251,6 +258,13 @@ class Interpretation extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        isSuperUser: fromUser.sGetIsSuperuser(state),
+        userId: fromUser.sGetUserId(state),
+    };
+};
+
 const mapDispatchToProps = dispatch => {
     return {
         likeInterpretation: data => dispatch(tLikeInterpretation(data)),
@@ -265,7 +279,7 @@ Interpretation.contextTypes = {
     d2: PropTypes.object,
 };
 
-const InterpretationContainer = connect(null, mapDispatchToProps)(
+const InterpretationContainer = connect(mapStateToProps, mapDispatchToProps)(
     Interpretation
 );
 
