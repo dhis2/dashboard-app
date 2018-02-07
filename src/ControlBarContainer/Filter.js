@@ -110,13 +110,15 @@ Filter.defaultProps = {
 const ClearButton = ({ name, onChangeName }) => {
     const disabled = isEmpty(name);
 
+    const clearFilter = () => onChangeName();
+
     return (
         <IconButton
             style={Object.assign({}, styles.clearButton, {
                 opacity: disabled ? 0 : 1,
             })}
             iconStyle={styles.clearButtonIcon}
-            onClick={onChangeName}
+            onClick={clearFilter}
             disabled={disabled}
         >
             <IconClear color={grey700} />
