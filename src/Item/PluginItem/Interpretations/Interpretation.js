@@ -140,9 +140,9 @@ class Interpretation extends Component {
         this.props.deleteInterpretation(data);
     };
 
-    userIsOwner = id => id === this.context.d2.currentUser.id;
-    canDelete = userId =>
-        this.userIsOwner(userId) || this.props.interpretation.access.delete;
+    userIsOwner = ownerId => ownerId === this.context.d2.currentUser.id;
+    canDelete = ownerId =>
+        this.userIsOwner(ownerId) || this.props.interpretation.access.delete;
 
     renderActions() {
         const likes =
