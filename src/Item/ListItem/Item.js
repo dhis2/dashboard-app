@@ -6,8 +6,8 @@ import IconButton from 'material-ui/IconButton';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import ItemHeader from '../ItemHeader';
 import Line from '../../widgets/Line';
-import { itemTypeMap } from '../../itemTypes';
-import { orArray, getItemUrl } from '../../util';
+import { itemTypeMap, getItemUrl } from '../../itemTypes';
+import { orArray } from '../../util';
 import { tRemoveListItemContent } from './actions';
 import { colors } from '../../colors';
 
@@ -79,11 +79,11 @@ const ListItem = (props, context) => {
                         leftIcon={
                             <SvgIcon
                                 icon={itemTypeMap[item.type].icon}
-                                style={{ margin: 0, padding: '4px 0' }}
+                                style={{ margin: 0 }}
                             />
                         }
                         disabled={true}
-                        innerDivStyle={{ padding: '6px 6px 6px 32px' }}
+                        innerDivStyle={{ padding: '4px 4px 4px 32px' }}
                     />
                 ))}
             </List>

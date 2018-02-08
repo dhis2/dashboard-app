@@ -1,3 +1,5 @@
+import { getBaseUrl } from './util';
+
 // Item types
 export const REPORT_TABLE = 'REPORT_TABLE';
 export const CHART = 'CHART';
@@ -135,4 +137,10 @@ export const itemTypeMap = {
         propName: 'text',
         icon: 'CropFree',
     },
+};
+
+export const getItemUrl = (type, id, d2) => {
+    if (itemTypeMap[type] && itemTypeMap[type].appUrl) {
+        return `${getBaseUrl(d2)}/${itemTypeMap[type].appUrl(id)}`;
+    }
 };

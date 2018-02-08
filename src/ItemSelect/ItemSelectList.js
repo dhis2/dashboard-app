@@ -12,6 +12,7 @@ import { sGetEditDashboard } from '../reducers/editDashboard';
 import { getYMax } from '../ItemGrid/gridUtil';
 import {
     itemTypeMap,
+    getItemUrl,
     APP,
     CHART,
     EVENT_CHART,
@@ -22,7 +23,6 @@ import {
     RESOURCES,
     USERS,
 } from '../itemTypes';
-import { getItemUrl } from '../util';
 
 class ItemSelectList extends Component {
     constructor(props) {
