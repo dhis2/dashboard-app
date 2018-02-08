@@ -182,11 +182,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             }
         },
         onNewClick: () => {
-            dispatch(
-                fromEditDashboard.acSetEditDashboard(
-                    fromReducers.fromEditDashboard.NEW_DASHBOARD
-                )
-            );
+            dispatch(fromEditDashboard.acSetEditNewDashboard());
         },
         onToggleExpanded: () => {
             dispatch(fromControlBar.acSetControlBarExpanded(!isExpanded));

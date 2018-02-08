@@ -6,6 +6,7 @@ import { orArray } from '../util';
 export const actionTypes = {
     RECEIVED_EDIT_DASHBOARD: 'RECEIVED_EDIT_DASHBOARD',
     RECEIVED_NOT_EDITING: 'RECEIVED_NOT_EDITING',
+    START_NEW_DASHBOARD: 'START_NEW_DASHBOARD',
     RECEIVED_TITLE: 'RECEIVED_TITLE',
     RECEIVED_DESCRIPTION: 'RECEIVED_DESCRIPTION',
     ADD_DASHBOARD_ITEM: 'ADD_DASHBOARD_ITEM',
@@ -15,12 +16,6 @@ export const actionTypes = {
 };
 
 export const DEFAULT_STATE = {};
-export const NEW_DASHBOARD = {
-    id: '',
-    name: '',
-    description: '',
-    dashboardItems: [],
-};
 
 export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {
@@ -28,6 +23,13 @@ export default (state = DEFAULT_STATE, action) => {
             return action.value;
         case actionTypes.RECEIVED_NOT_EDITING:
             return DEFAULT_STATE;
+        case actionTypes.START_NEW_DASHBOARD:
+            return {
+                id: '',
+                name: '',
+                description: '',
+                dashboardItems: [],
+            };
         case actionTypes.RECEIVED_TITLE: {
             return Object.assign({}, state, { name: action.value });
         }

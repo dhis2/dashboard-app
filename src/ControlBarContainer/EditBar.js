@@ -3,10 +3,7 @@ import { connect } from 'react-redux';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 import Button from 'd2-ui/lib/button/Button';
 import { colors } from '../colors';
-
-import { tSaveDashboard, acSetEditDashboard } from '../actions/editDashboard';
-import { fromEditDashboard } from '../reducers';
-
+import { tSaveDashboard, acClearEditDashboard } from '../actions/editDashboard';
 import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './ControlBarContainer';
 
 const styles = {
@@ -68,7 +65,7 @@ const mapDispatchToProps = dispatch => {
             dispatch(tSaveDashboard());
         },
         onDiscard: () => {
-            dispatch(acSetEditDashboard(fromEditDashboard.DEFAULT_STATE));
+            dispatch(acClearEditDashboard());
         },
     };
 };
