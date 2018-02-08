@@ -22,19 +22,19 @@ export const singleItems = [
         items: [
             {
                 type: TEXT,
-                icon: 'FontDownload',
+                icon: itemTypeMap[TEXT].icon,
                 name: 'Text box',
                 content: 'No content',
             },
             {
                 type: MESSAGES,
                 icon: 'Email',
-                name: 'Messages',
+                name: itemTypeMap[MESSAGES].icon,
                 content: 'true',
             },
             {
                 type: SPACER,
-                icon: 'CropFree',
+                icon: itemTypeMap[SPACER].icon,
                 name: 'Spacer',
                 content: spacerContent,
             },

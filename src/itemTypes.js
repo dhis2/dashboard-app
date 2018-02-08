@@ -1,3 +1,5 @@
+import { getBaseUrl } from './util';
+
 // Item types
 export const REPORT_TABLE = 'REPORT_TABLE';
 export const CHART = 'CHART';
@@ -37,6 +39,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_TABLE,
         appUrl: id => `dhis-web-pivot/?id=${id}`,
+        icon: 'ViewList',
     },
     [CHART]: {
         id: CHART,
@@ -48,6 +51,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_CHART,
         appUrl: id => `dhis-web-visualizer/?id=${id}`,
+        icon: 'InsertChart',
     },
     [MAP]: {
         id: MAP,
@@ -59,6 +63,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_MAP,
         appUrl: id => `dhis-web-maps/?id=${id}`,
+        icon: 'Public',
     },
     [EVENT_REPORT]: {
         id: EVENT_REPORT,
@@ -70,6 +75,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_TRACKER,
         visualizationType: VISUALIZATION_TYPE_TABLE,
         appUrl: id => `dhis-web-event-reports/?id=${id}`,
+        icon: 'ViewList',
     },
     [EVENT_CHART]: {
         id: EVENT_CHART,
@@ -81,12 +87,14 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_TRACKER,
         visualizationType: VISUALIZATION_TYPE_CHART,
         appUrl: id => `dhis-web-event-visualizer/?id=${id}`,
+        icon: 'InsertChart',
     },
     [APP]: {
         endPointName: 'apps',
         propName: 'app',
         countName: 'appCount',
         pluralTitle: 'Apps',
+        icon: 'Extension',
     },
     [REPORTS]: {
         id: REPORTS,
@@ -96,6 +104,7 @@ export const itemTypeMap = {
         pluralTitle: 'Reports',
         appUrl: id =>
             `dhis-web-reporting/getReportParams.action?mode=report&uid=${id}`,
+        icon: 'ViewList',
     },
     [RESOURCES]: {
         id: RESOURCES,
@@ -103,7 +112,8 @@ export const itemTypeMap = {
         propName: 'resources',
         countName: 'resourceCount',
         pluralTitle: 'Resources',
-        appUrl: (id, baseUrl) => `${baseUrl}/documents/${id}/data`,
+        appUrl: id => `api/documents/${id}`,
+        icon: 'Description',
     },
     [USERS]: {
         id: USERS,
@@ -112,15 +122,25 @@ export const itemTypeMap = {
         countName: 'userCount',
         pluralTitle: 'Users',
         appUrl: id => `dhis-web-dashboard-integration/profile.action?id=${id}`,
+        icon: 'Person',
     },
     [TEXT]: {
         id: TEXT,
         propName: 'text',
+        icon: 'FontDownload',
     },
     [MESSAGES]: {
         propName: 'messages',
+        icon: 'Email',
     },
     [SPACER]: {
         propName: 'text',
+        icon: 'CropFree',
     },
+};
+
+export const getItemUrl = (type, id, d2) => {
+    if (itemTypeMap[type] && itemTypeMap[type].appUrl) {
+        return `${getBaseUrl(d2)}/${itemTypeMap[type].appUrl(id)}`;
+    }
 };

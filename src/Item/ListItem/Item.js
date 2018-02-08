@@ -6,7 +6,7 @@ import IconButton from 'material-ui/IconButton';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import ItemHeader from '../ItemHeader';
 import Line from '../../widgets/Line';
-import { REPORTS, RESOURCES, USERS, itemTypeMap } from '../../itemTypes';
+import { itemTypeMap, getItemUrl } from '../../itemTypes';
 import { orArray } from '../../util';
 import { tRemoveListItemContent } from './actions';
 import { colors } from '../../colors';
@@ -20,26 +20,6 @@ const getContentItems = item =>
         (item, index, array) =>
             array.findIndex(el => el.id === item.id) === index
     );
-
-const getLink = (item, id, context) => {
-    let url;
-
-    switch (item.type) {
-        case REPORTS:
-            url = `dhis-web-reporting/getReportParams.action?mode=report&uid=${id}`;
-            break;
-        case RESOURCES:
-            url = `api/documents/${id}/data`;
-            break;
-        case USERS:
-            url = `dhis-web-messaging/profile.action?uid=${id}`;
-            break;
-        default:
-            break;
-    }
-
-    return `${context.baseUrl}/${url}`;
-};
 
 const removeContent = (handler, item, contentToRemove) => () => {
     handler(item, contentToRemove);
@@ -56,7 +36,8 @@ const ListItem = (props, context) => {
             <IconButton
                 style={{
                     verticalAlign: 'text-bottom',
-                    height: '32px',
+                    padding: '0 12px',
+                    height: 20,
                 }}
                 iconStyle={{
                     width: 20,
@@ -77,7 +58,7 @@ const ListItem = (props, context) => {
             <div>
                 <a
                     style={{ textDecoration: 'none' }}
-                    href={getLink(item, contentItem.id, context)}
+                    href={getItemUrl(item.type, contentItem.id, context.d2)}
                 >
                     {contentItem.name}
                 </a>
@@ -95,6 +76,14 @@ const ListItem = (props, context) => {
                     <MUIListItem
                         key={contentItem.id}
                         primaryText={primaryText(contentItem)}
+                        leftIcon={
+                            <SvgIcon
+                                icon={itemTypeMap[item.type].icon}
+                                style={{ margin: 0 }}
+                            />
+                        }
+                        disabled={true}
+                        innerDivStyle={{ padding: '4px 4px 4px 32px' }}
                     />
                 ))}
             </List>
@@ -103,7 +92,7 @@ const ListItem = (props, context) => {
 };
 
 ListItem.contextTypes = {
-    baseUrl: PropTypes.string,
+    d2: PropTypes.object,
 };
 
 const ListItemContainer = connect(null, {

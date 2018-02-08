@@ -11,39 +11,18 @@ import { tAddListItemContent } from './actions';
 import { sGetEditDashboard } from '../reducers/editDashboard';
 import { getYMax } from '../ItemGrid/gridUtil';
 import {
+    itemTypeMap,
+    getItemUrl,
     APP,
     CHART,
     EVENT_CHART,
     REPORT_TABLE,
     EVENT_REPORT,
     MAP,
-    RESOURCES,
     REPORTS,
+    RESOURCES,
     USERS,
 } from '../itemTypes';
-
-const getIcon = type => {
-    switch (type) {
-        case APP:
-            return 'Extension';
-        case REPORT_TABLE:
-        case EVENT_REPORT:
-            return 'ViewList';
-        case MAP:
-            return 'Public';
-        case CHART:
-        case EVENT_CHART:
-            return 'InsertChart';
-        case RESOURCES:
-            return 'Description';
-        case REPORTS:
-            return 'ViewList';
-        case USERS:
-            return 'Person';
-        default:
-            return '';
-    }
-};
 
 class ItemSelectList extends Component {
     constructor(props) {
@@ -53,51 +32,6 @@ class ItemSelectList extends Component {
             seeMore: false,
         };
     }
-
-    getAppUrl = (type, id) => {
-        let url;
-
-        switch (type) {
-            case APP:
-                url = '#';
-                break;
-            case CHART:
-                url = `dhis-web-visualizer/?id=${id}`;
-                break;
-            case EVENT_REPORT:
-                url = `dhis-web-event-reports/?id=${id}`;
-                break;
-            case EVENT_CHART:
-                url = `dhis-web-event-visualizer/?id=${id}`;
-                break;
-            case MAP:
-                url = `dhis-web-mapping/?id=${id}`;
-                break;
-            case REPORTS:
-                url = `dhis-web-reporting/getReportParams.action?mode=report&uid=${id}`;
-                break;
-            case REPORT_TABLE:
-                url = `dhis-web-pivot/?id=${id}`;
-                break;
-            case RESOURCES:
-                url = `${
-                    this.context.d2.Api.getApi().baseUrl
-                }/documents/${id}/data`;
-                break;
-            case USERS:
-                url = `dhis-web-dashboard-integration/profile.action?id=${id}`;
-                break;
-            default:
-                url = '';
-                break;
-        }
-
-        if (url) {
-            url = `${this.context.baseUrl}/${url}`;
-        }
-
-        return url;
-    };
 
     addItem = item => () => {
         const {
@@ -161,7 +95,7 @@ class ItemSelectList extends Component {
                             key={item.id || item.key}
                             leftIcon={
                                 <SvgIcon
-                                    icon={getIcon(this.props.type)}
+                                    icon={itemTypeMap[this.props.type].icon}
                                     style={{ margin: '6px' }}
                                 />
                             }
@@ -184,9 +118,10 @@ class ItemSelectList extends Component {
                                         + ADD
                                     </Button>
                                     <a
-                                        href={this.getAppUrl(
+                                        href={getItemUrl(
                                             this.props.type,
-                                            item.id
+                                            item.id,
+                                            this.context.d2
                                         )}
                                         style={{ display: 'flex' }}
                                     >
@@ -213,10 +148,10 @@ ItemSelectList.propTypes = {
         APP,
         CHART,
         EVENT_CHART,
+        REPORT_TABLE,
         EVENT_REPORT,
         MAP,
         REPORTS,
-        REPORT_TABLE,
         RESOURCES,
         USERS,
     ]).isRequired,
@@ -227,7 +162,6 @@ ItemSelectList.propTypes = {
 
 ItemSelectList.contextTypes = {
     d2: PropTypes.object.isRequired,
-    baseUrl: PropTypes.string,
 };
 
 export default connect(
