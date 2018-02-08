@@ -157,7 +157,7 @@ class Interpretation extends Component {
         const canDeleteInterpretation = () =>
             this.userIsOwner(this.props.interpretation.user.id) ||
             this.props.interpretation.access.delete ||
-            this.props.isSuperUser;
+            this.props.userIsSuperuser;
 
         return (
             <div>
@@ -195,7 +195,7 @@ class Interpretation extends Component {
         }
 
         const canDeleteComment = ownerId =>
-            this.userIsOwner(ownerId) || this.props.isSuperUser;
+            this.userIsOwner(ownerId) || this.props.userIsSuperuser;
 
         const comments = sortByDate(
             this.props.interpretation.comments,
@@ -260,7 +260,7 @@ class Interpretation extends Component {
 
 const mapStateToProps = state => ({
     userId: fromUser.sGetUserId(state),
-    isSuperUser: fromUser.sGetIsSuperuser(state),
+    userIsSuperuser: fromUser.sGetIsSuperuser(state),
 });
 
 const mapDispatchToProps = dispatch => ({
