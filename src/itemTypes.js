@@ -110,7 +110,7 @@ export const itemTypeMap = {
         propName: 'resources',
         countName: 'resourceCount',
         pluralTitle: 'Resources',
-        appUrl: id => `api/documents/${id}/data`,
+        appUrl: id => `api/documents/${id}`,
         icon: 'Description',
     },
     [USERS]: {
