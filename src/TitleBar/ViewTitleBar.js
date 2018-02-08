@@ -146,7 +146,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         onStarClick: () =>
             dispatch(tStarDashboard(selectedDashboard.id, !stateProps.starred)),
         onEditClick: () => {
-            dispatch(fromSelected.acSetSelectedEdit(true));
             dispatch(fromEditDashboard.acSetEditDashboard(selectedDashboard));
         },
         onInfoClick: () =>

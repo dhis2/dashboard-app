@@ -70,7 +70,7 @@ export {
 
 // selected dashboard
 export const sGetSelectedDashboard = state =>
-    state.selected.edit
+    fromEditDashboard.sGetIsEditing(state)
         ? fromEditDashboard.sGetEditDashboard(state)
         : fromDashboards.sGetById(state, fromSelected.sGetSelectedId(state));
 

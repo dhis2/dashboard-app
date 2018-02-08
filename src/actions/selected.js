@@ -21,11 +21,6 @@ export const acSetSelectedId = value => ({
     value,
 });
 
-export const acSetSelectedEdit = value => ({
-    type: actionTypes.SET_SELECTED_EDIT,
-    value,
-});
-
 export const acSetSelectedIsLoading = value => ({
     type: actionTypes.SET_SELECTED_ISLOADING,
     value,

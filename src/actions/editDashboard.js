@@ -17,6 +17,14 @@ export const acSetEditDashboard = value => ({
     value,
 });
 
+export const acSetEditNewDashboard = () => ({
+    type: actionTypes.START_NEW_DASHBOARD,
+});
+
+export const acClearEditDashboard = () => ({
+    type: actionTypes.RECEIVED_NOT_EDITING,
+});
+
 export const acSetDashboardTitle = value => ({
     type: actionTypes.RECEIVED_TITLE,
     value,
@@ -86,9 +94,8 @@ export const tSaveDashboard = () => async (dispatch, getState) => {
             : await postDashboard(dashboardToSave);
 
         await dispatch(fromSelected.tSetSelectedDashboardById(selectedId));
-        dispatch(fromSelected.acSetSelectedEdit(false));
 
-        return dispatch(acSetEditDashboard({}));
+        return dispatch(acClearEditDashboard());
     } catch (error) {
         onError(error);
     }

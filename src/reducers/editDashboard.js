@@ -1,9 +1,12 @@
 /** @module reducers/editDashboard */
 import update from 'immutability-helper';
+import isEmpty from 'lodash/isEmpty';
 import { orArray } from '../util';
 
 export const actionTypes = {
     RECEIVED_EDIT_DASHBOARD: 'RECEIVED_EDIT_DASHBOARD',
+    RECEIVED_NOT_EDITING: 'RECEIVED_NOT_EDITING',
+    START_NEW_DASHBOARD: 'START_NEW_DASHBOARD',
     RECEIVED_TITLE: 'RECEIVED_TITLE',
     RECEIVED_DESCRIPTION: 'RECEIVED_DESCRIPTION',
     ADD_DASHBOARD_ITEM: 'ADD_DASHBOARD_ITEM',
@@ -12,10 +15,22 @@ export const actionTypes = {
     RECEIVED_DASHBOARD_LAYOUT: 'RECEIVED_DASHBOARD_LAYOUT',
 };
 
-export default (state = {}, action) => {
+export const DEFAULT_STATE = {};
+export const NEW_DASHBOARD_STATE = {
+    id: '',
+    name: '',
+    description: '',
+    dashboardItems: [],
+};
+
+export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {
         case actionTypes.RECEIVED_EDIT_DASHBOARD:
             return action.value;
+        case actionTypes.RECEIVED_NOT_EDITING:
+            return DEFAULT_STATE;
+        case actionTypes.START_NEW_DASHBOARD:
+            return NEW_DASHBOARD_STATE;
         case actionTypes.RECEIVED_TITLE: {
             return Object.assign({}, state, { name: action.value });
         }
@@ -83,6 +98,8 @@ export default (state = {}, action) => {
 };
 
 // selectors
-export const sGetEditDashboard = state => {
-    return state.editDashboard;
+export const sGetEditDashboard = state => state.editDashboard;
+
+export const sGetIsEditing = state => {
+    return !isEmpty(state.editDashboard);
 };

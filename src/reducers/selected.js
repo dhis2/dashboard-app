@@ -5,13 +5,11 @@ import { validateReducer } from '../util';
 
 export const actionTypes = {
     SET_SELECTED_ID: 'SET_SELECTED_ID',
-    SET_SELECTED_EDIT: 'SET_SELECTED_EDIT',
     SET_SELECTED_ISLOADING: 'SET_SELECTED_ISLOADING',
     SET_SELECTED_SHOWDESCRIPTION: 'SET_SELECTED_SHOWDESCRIPTION',
 };
 
 export const DEFAULT_SELECTED_ID = null;
-export const DEFAULT_SELECTED_EDIT = false;
 export const DEFAULT_SELECTED_ISLOADING = false;
 export const DEFAULT_SELECTED_SHOWDESCRIPTION = false;
 
@@ -25,15 +23,6 @@ const id = (state = DEFAULT_SELECTED_ID, action) => {
     switch (action.type) {
         case actionTypes.SET_SELECTED_ID:
             return validateReducer(action.value, DEFAULT_SELECTED_ID);
-        default:
-            return state;
-    }
-};
-
-const edit = (state = DEFAULT_SELECTED_EDIT, action) => {
-    switch (action.type) {
-        case actionTypes.SET_SELECTED_EDIT:
-            return validateReducer(action.value, DEFAULT_SELECTED_EDIT);
         default:
             return state;
     }
@@ -62,7 +51,6 @@ const showDescription = (state = DEFAULT_SELECTED_SHOWDESCRIPTION, action) => {
 
 export default combineReducers({
     id,
-    edit,
     isLoading,
     showDescription,
 });
@@ -73,8 +61,6 @@ export const sGetFromState = state => state.selected;
 // Selector dependency level 2
 
 export const sGetSelectedId = state => sGetFromState(state).id;
-
-export const sGetSelectedEdit = state => sGetFromState(state).edit;
 
 export const sGetSelectedIsLoading = state => sGetFromState(state).isLoading;
 

@@ -3,7 +3,6 @@ import reducer, { actionTypes } from '../selected';
 describe('selected dashboard reducer', () => {
     const defaultState = {
         id: null,
-        edit: false,
         isLoading: false,
         showDescription: false,
     };
@@ -16,18 +15,6 @@ describe('selected dashboard reducer', () => {
             const actualState = reducer(defaultState, {
                 type: actionTypes.SET_SELECTED_ID,
                 value: id,
-            });
-
-            expect(actualState).toEqual(expectedState);
-        });
-
-        it('should set the selected dashboard edit state', () => {
-            const edit = true;
-            const expectedState = Object.assign({}, defaultState, { edit });
-
-            const actualState = reducer(defaultState, {
-                type: actionTypes.SET_SELECTED_EDIT,
-                value: edit,
             });
 
             expect(actualState).toEqual(expectedState);
