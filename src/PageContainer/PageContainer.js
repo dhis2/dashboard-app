@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { CONTROL_BAR_ROW_HEIGHT } from '../ControlBarContainer/ControlBarContainer';
-import { sGetSelectedEdit } from '../reducers/selected';
+import { sGetIsEditing } from '../reducers/editDashboard';
 import { sGetControlBarRows } from '../reducers/controlBar';
 
 const DEFAULT_TOP_MARGIN = 80;
@@ -15,7 +15,7 @@ const DynamicTopMarginContainer = ({ marginTop, children }) => (
 );
 
 const mapStateToProps = state => {
-    const edit = sGetSelectedEdit(state);
+    const edit = sGetIsEditing(state);
     const rows = sGetControlBarRows(state);
 
     return {

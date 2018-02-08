@@ -67,8 +67,7 @@ const mapDispatchToProps = dispatch => {
             dispatch(fromEditDashboard.tSaveDashboard());
         },
         onDiscard: () => {
-            dispatch(fromSelected.acSetSelectedEdit(false));
-            dispatch(fromEditDashboard.acSetEditDashboard({}));
+            dispatch(fromEditDashboard.acSetEditDashboard(null));
         },
     };
 };

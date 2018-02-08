@@ -64,7 +64,7 @@ const mapStateToProps = state => {
         id: selectedDashboard.id,
         name: selectedDashboard.name,
         description: selectedDashboard.description,
-        edit: fromReducers.fromSelected.sGetSelectedEdit(state),
+        edit: fromReducers.fromEditDashboard.sGetIsEditing(state),
     };
 };
 

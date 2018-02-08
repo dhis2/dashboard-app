@@ -86,7 +86,6 @@ export const tSaveDashboard = () => async (dispatch, getState) => {
             : await postDashboard(dashboardToSave);
 
         await dispatch(fromSelected.tSetSelectedDashboardById(selectedId));
-        dispatch(fromSelected.acSetSelectedEdit(false));
 
         return dispatch(acSetEditDashboard({}));
     } catch (error) {

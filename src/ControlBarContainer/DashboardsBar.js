@@ -188,12 +188,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         },
         onNewClick: () => {
             const newDashboard = {
+                id: '',
                 name: '',
                 description: '',
                 dashboardItems: [],
             };
-            dispatch(fromSelected.acSetSelectedId(''));
-            dispatch(fromSelected.acSetSelectedEdit(true));
             dispatch(fromEditDashboard.acSetEditDashboard(newDashboard));
         },
         onToggleExpanded: () => {

@@ -73,7 +73,9 @@ export class ItemGrid extends Component {
     }
 
     onLayoutChange = newLayout => {
-        this.props.acUpdateDashboardLayout(newLayout);
+        if (this.props.edit) {
+            this.props.acUpdateDashboardLayout(newLayout);
+        }
     };
 
     render() {
@@ -158,8 +160,12 @@ const onResizeStop = (layout, oldItem, newItem) => {
 };
 
 const mapStateToProps = state => {
-    const { sGetSelectedDashboard, fromSelected } = fromReducers;
-    const { sGetSelectedIsLoading, sGetSelectedEdit } = fromSelected;
+    const {
+        sGetSelectedDashboard,
+        fromSelected,
+        fromEditDashboard,
+    } = fromReducers;
+    const { sGetSelectedIsLoading } = fromSelected;
 
     const selectedDashboard = sGetSelectedDashboard(state);
 
@@ -168,7 +174,7 @@ const mapStateToProps = state => {
         : null;
 
     return {
-        edit: sGetSelectedEdit(state),
+        edit: fromEditDashboard.sGetIsEditing(state),
         isLoading: sGetSelectedIsLoading(state),
         dashboardItems,
     };

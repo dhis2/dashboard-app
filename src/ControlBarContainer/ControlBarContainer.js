@@ -4,7 +4,7 @@ import { END_FLAP_HEIGHT } from 'd2-ui/lib/controlbar/ControlBar';
 
 import EditBar from './EditBar';
 import DashboardsBar from './DashboardsBar';
-import { fromSelected } from '../reducers';
+import { fromEditDashboard } from '../reducers';
 
 import './ControlBarContainer.css';
 
@@ -30,7 +30,7 @@ const ControlBar = ({ edit }) => {
 };
 
 const mapStateToProps = state => ({
-    edit: fromSelected.sGetSelectedEdit(state),
+    edit: fromEditDashboard.sGetIsEditing(state),
 });
 
 const ControlBarCt = connect(mapStateToProps, null)(ControlBar);
