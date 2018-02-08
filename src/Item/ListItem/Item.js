@@ -36,7 +36,8 @@ const ListItem = (props, context) => {
             <IconButton
                 style={{
                     verticalAlign: 'text-bottom',
-                    height: '32px',
+                    padding: '0 12px',
+                    height: 20,
                 }}
                 iconStyle={{
                     width: 20,
@@ -76,8 +77,13 @@ const ListItem = (props, context) => {
                         key={contentItem.id}
                         primaryText={primaryText(contentItem)}
                         leftIcon={
-                            <SvgIcon icon={itemTypeMap[item.type].icon} />
+                            <SvgIcon
+                                icon={itemTypeMap[item.type].icon}
+                                style={{ margin: 0, padding: '4px 0' }}
+                            />
                         }
+                        disabled={true}
+                        innerDivStyle={{ padding: '6px 6px 6px 32px' }}
                     />
                 ))}
             </List>
