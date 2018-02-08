@@ -3,6 +3,7 @@ import reducer, {
     actionTypes,
     sGetIsEditing,
     DEFAULT_STATE,
+    NEW_DASHBOARD_STATE,
 } from '../editDashboard';
 
 describe('editDashboard', () => {
@@ -73,6 +74,22 @@ describe('editDashboard', () => {
             const actualState = reducer(undefined, {});
 
             expect(actualState).toEqual(DEFAULT_STATE);
+        });
+
+        it('should handle the action RECEIVED_NOT_EDITING', () => {
+            const actualState = reducer(initialState, {
+                type: actionTypes.RECEIVED_NOT_EDITING,
+            });
+
+            expect(actualState).toEqual(DEFAULT_STATE);
+        });
+
+        it('should return the state for a new dashboard', () => {
+            const actualState = reducer(DEFAULT_STATE, {
+                type: actionTypes.START_NEW_DASHBOARD,
+            });
+
+            expect(actualState).toEqual(NEW_DASHBOARD_STATE);
         });
 
         it('should set the dashboard to be edited', () => {
@@ -147,6 +164,28 @@ describe('editDashboard', () => {
 
             //check for pure function
             expect(initialState.dashboardItems.length).toEqual(2);
+        });
+
+        it('should update a dashboard item', () => {
+            const updatedDashboardItem = {
+                id: 'd1',
+                type: 'APPLEJACK',
+                w: 8,
+                h: 8,
+                x: 4,
+                y: 4,
+                shape: 'sloppy',
+            };
+
+            const actualState = reducer(initialState, {
+                type: actionTypes.UPDATE_DASHBOARD_ITEM,
+                value: updatedDashboardItem,
+            });
+
+            const actualItem = actualState.dashboardItems.find(
+                item => item.id === 'd1'
+            );
+            expect(actualItem).toEqual(updatedDashboardItem);
         });
 
         it('should remove a dashboard item', () => {

@@ -16,6 +16,12 @@ export const actionTypes = {
 };
 
 export const DEFAULT_STATE = {};
+export const NEW_DASHBOARD_STATE = {
+    id: '',
+    name: '',
+    description: '',
+    dashboardItems: [],
+};
 
 export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {
@@ -24,12 +30,7 @@ export default (state = DEFAULT_STATE, action) => {
         case actionTypes.RECEIVED_NOT_EDITING:
             return DEFAULT_STATE;
         case actionTypes.START_NEW_DASHBOARD:
-            return {
-                id: '',
-                name: '',
-                description: '',
-                dashboardItems: [],
-            };
+            return NEW_DASHBOARD_STATE;
         case actionTypes.RECEIVED_TITLE: {
             return Object.assign({}, state, { name: action.value });
         }
