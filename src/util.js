@@ -1,4 +1,5 @@
 import isObject from 'd2-utilizr/lib/isObject';
+import { itemTypeMap } from './itemTypes';
 
 // validation
 export function orNull(param) {
@@ -82,4 +83,10 @@ export const getBaseUrl = d2 => {
     const api = d2.Api.getApi();
     const idx = api.baseUrl.indexOf('/api');
     return idx > -1 ? api.baseUrl.slice(0, idx) : api.baseUrl;
+};
+
+export const getItemUrl = (type, id, d2) => {
+    if (itemTypeMap[type] && itemTypeMap[type].appUrl) {
+        return `${getBaseUrl(d2)}/${itemTypeMap[type].appUrl(id)}`;
+    }
 };
