@@ -15,6 +15,12 @@ export const actionTypes = {
 };
 
 export const DEFAULT_STATE = {};
+export const NEW_DASHBOARD = {
+    id: '',
+    name: '',
+    description: '',
+    dashboardItems: [],
+};
 
 export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {

@@ -154,12 +154,7 @@ const mapStateToProps = state => {
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const { dashboards, name, rows, isExpanded } = stateProps;
     const { dispatch } = dispatchProps;
-    const {
-        fromControlBar,
-        fromFilter,
-        fromSelected,
-        fromEditDashboard,
-    } = fromActions;
+    const { fromControlBar, fromFilter, fromEditDashboard } = fromActions;
 
     const filteredDashboards = Object.values(orObject(dashboards)).filter(
         d => d.name.toLowerCase().indexOf(name) !== -1
@@ -187,13 +182,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             }
         },
         onNewClick: () => {
-            const newDashboard = {
-                id: '',
-                name: '',
-                description: '',
-                dashboardItems: [],
-            };
-            dispatch(fromEditDashboard.acSetEditDashboard(newDashboard));
+            dispatch(
+                fromEditDashboard.acSetEditDashboard(
+                    fromReducers.fromEditDashboard.NEW_DASHBOARD
+                )
+            );
         },
         onToggleExpanded: () => {
             dispatch(fromControlBar.acSetControlBarExpanded(!isExpanded));

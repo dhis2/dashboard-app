@@ -4,7 +4,8 @@ import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 import Button from 'd2-ui/lib/button/Button';
 import { colors } from '../colors';
 
-import { fromSelected, fromEditDashboard } from '../actions';
+import { tSaveDashboard, acSetEditDashboard } from '../actions/editDashboard';
+import { fromEditDashboard } from '../reducers';
 
 import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './ControlBarContainer';
 
@@ -64,10 +65,10 @@ const EditBar = ({ style, onSave, onDiscard }) => {
 const mapDispatchToProps = dispatch => {
     return {
         onSave: () => {
-            dispatch(fromEditDashboard.tSaveDashboard());
+            dispatch(tSaveDashboard());
         },
         onDiscard: () => {
-            dispatch(fromEditDashboard.acSetEditDashboard(null));
+            dispatch(acSetEditDashboard(fromEditDashboard.DEFAULT_STATE));
         },
     };
 };
