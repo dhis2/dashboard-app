@@ -59,3 +59,13 @@ export const apiStarDashboard = (id, isStarred) => {
         }
     });
 };
+
+export const apiDeleteDashboard = id => {
+    return getInstance()
+        .then(d2 => {
+            return d2.models.dashboards
+                .get(id)
+                .then(dashboard => dashboard.delete());
+        })
+        .catch(onError);
+};
