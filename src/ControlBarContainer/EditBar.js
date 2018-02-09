@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 import Button from 'd2-ui/lib/button/Button';
+import TranslationDialog from 'd2-ui/lib/i18n/TranslationDialog.component';
 import { colors } from '../colors';
 import { tSaveDashboard, acClearEditDashboard } from '../actions/editDashboard';
+import { sGetEditDashboard } from '../reducers/editDashboard';
 import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './ControlBarContainer';
+import { apiFetchSelected } from '../api/dashboards';
 
 const styles = {
     save: {
@@ -34,30 +37,74 @@ const styles = {
     },
 };
 
-const EditBar = ({ style, onSave, onDiscard }) => {
-    const controlBarHeight = getOuterHeight(1, false);
+class EditBar extends Component {
+    state = {
+        translationDialogIsOpen: false,
+        dashboardModel: undefined,
+    };
 
-    return (
-        <ControlBar
-            height={controlBarHeight}
-            editMode={true}
-            expandable={false}
-        >
-            <div style={styles.buttonBar}>
-                <div style={style.leftControls}>
-                    <Button style={styles.save} onClick={onSave}>
-                        Save Changes
-                    </Button>
-                </div>
-                <div style={style.rightControls}>
-                    <button style={styles.discard} onClick={onDiscard}>
-                        Exit without saving
-                    </button>
-                </div>
-            </div>
-        </ControlBar>
-    );
-};
+    componentDidMount() {
+        apiFetchSelected(this.props.dashboardId).then(dashboardModel =>
+            this.setState({ dashboardModel })
+        );
+    }
+
+    toggleTranslationDialog = () => {
+        this.setState({
+            translationDialogIsOpen: !this.state.translationDialogIsOpen,
+        });
+    };
+
+    render() {
+        const { style, onSave, onDiscard } = this.props;
+        const controlBarHeight = getOuterHeight(1, false);
+
+        return (
+            <Fragment>
+                <ControlBar
+                    height={controlBarHeight}
+                    editMode={true}
+                    expandable={false}
+                >
+                    <div style={styles.buttonBar}>
+                        <div style={style.leftControls}>
+                            <Button style={styles.save} onClick={onSave}>
+                                Save Changes
+                            </Button>
+                            <Button onClick={this.toggleTranslationDialog}>
+                                Translate
+                            </Button>
+                        </div>
+                        <div style={style.rightControls}>
+                            <button style={styles.discard} onClick={onDiscard}>
+                                Exit without saving
+                            </button>
+                        </div>
+                    </div>
+                </ControlBar>
+                {this.state.dashboardModel ? (
+                    <TranslationDialog
+                        open={this.state.translationDialogIsOpen}
+                        onRequestClose={this.toggleTranslationDialog}
+                        objectToTranslate={this.state.dashboardModel}
+                        fieldsToTranslate={['name', 'description']}
+                        // TODO handle messages in snackbar
+                        onTranslationSaved={msg =>
+                            console.log('translation update response', msg)
+                        }
+                        onTranslationError={err =>
+                            console.log('translation update error', err)
+                        }
+                    />
+                ) : null}
+            </Fragment>
+        );
+    }
+}
+
+const mapStateToProps = state => ({
+    dashboardId: sGetEditDashboard(state).id,
+});
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -70,6 +117,6 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-const EditBarCt = connect(null, mapDispatchToProps)(EditBar);
+const EditBarCt = connect(mapStateToProps, mapDispatchToProps)(EditBar);
 
 export default EditBarCt;
