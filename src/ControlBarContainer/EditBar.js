@@ -61,8 +61,6 @@ class EditBar extends Component {
     };
 
     componentDidMount() {
-        console.log('CDM', this.props.dashboardId);
-
         apiFetchSelected(this.props.dashboardId).then(dashboardModel =>
             this.setState({ dashboardModel })
         );
@@ -110,8 +108,6 @@ class EditBar extends Component {
             deleteAccess,
         } = this.props;
         const controlBarHeight = getOuterHeight(1, false);
-
-        console.log('dashboardId', dashboardId);
 
         return (
             <Fragment>
@@ -161,10 +157,9 @@ const mapStateToProps = state => {
     const dashboard = sGetEditDashboard(state);
 
     return {
-        dashboardId: dashboard.id || '',
-        dashboardName: dashboard.name || '',
-        deleteAccess:
-            dashboard && dashboard.access ? dashboard.access.delete : false,
+        dashboardId: dashboard.id,
+        dashboardName: dashboard.name,
+        deleteAccess: dashboard.access ? dashboard.access.delete : false,
     };
 };
 
