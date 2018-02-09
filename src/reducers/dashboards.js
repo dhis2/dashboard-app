@@ -2,7 +2,12 @@
 
 import arrayFrom from 'd2-utilizr/lib/arrayFrom';
 import { orArray, orNull, orObject } from '../util';
-import { SPACER, isSpacerType } from '../itemTypes';
+import {
+    SPACER,
+    isSpacerType,
+    isTextType,
+    emptyTextItemContent,
+} from '../itemTypes';
 
 /**
  * Action types for the dashboard reducer
@@ -88,8 +93,13 @@ export const getCustomDashboards = data => {
     const uiItems = items =>
         items.map(item => {
             const type = isSpacerType(item) ? SPACER : item.type;
+            const text = isTextType(item)
+                ? item.text === emptyTextItemContent ? '' : item.text
+                : null;
+
             return {
                 ...item,
+                ...(text !== null ? { text } : {}),
                 type,
             };
         });

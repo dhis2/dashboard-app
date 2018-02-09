@@ -24,7 +24,7 @@ export const singleItems = [
                 type: TEXT,
                 icon: itemTypeMap[TEXT].icon,
                 name: 'Text box',
-                content: 'No content',
+                content: '',
             },
             {
                 type: MESSAGES,

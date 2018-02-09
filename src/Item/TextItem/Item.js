@@ -11,10 +11,10 @@ const style = {
     textDiv: {
         padding: '10px',
         whiteSpace: 'pre-line',
+        lineHeight: '20px',
     },
     textField: {
         fontSize: '14px',
-        lineHeight: '18px',
         fontStretch: 'normal',
         width: '90%',
         margin: '0 auto',
