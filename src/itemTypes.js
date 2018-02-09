@@ -24,8 +24,11 @@ export const VISUALIZATION_TYPE_CHART = 'CHART';
 export const VISUALIZATION_TYPE_MAP = 'MAP';
 
 export const spacerContent = 'SPACER_ITEM_FOR_DASHBOARD_LAYOUT_CONVENIENCE';
+export const emptyTextItemContent = 'TEXT_ITEM_WITH_NO_CONTENT';
 export const isSpacerType = item =>
     item.type === TEXT && item.text === spacerContent;
+export const isTextType = item =>
+    item.type === TEXT && item.text !== spacerContent;
 
 // Item type map
 export const itemTypeMap = {

@@ -3,7 +3,13 @@ import { actionTypes } from '../reducers';
 import { fromEditDashboard } from '../reducers';
 import { updateDashboard, postDashboard } from '../api/editDashboard';
 import { fromSelected } from '.';
-import { itemTypeMap, isSpacerType, TEXT } from '../itemTypes';
+import {
+    itemTypeMap,
+    isSpacerType,
+    TEXT,
+    emptyTextItemContent,
+    isTextType,
+} from '../itemTypes';
 
 const onError = error => {
     console.log('Error (Saving Dashboard): ', error);
@@ -76,9 +82,15 @@ export const tSaveDashboard = () => async (dispatch, getState) => {
     const dashboard = fromEditDashboard.sGetEditDashboard(getState());
 
     const dashboardItems = dashboard.dashboardItems.map(item => {
+        const text = isTextType(item)
+            ? item.text || emptyTextItemContent
+            : null;
+
         const type = isSpacerType(item) ? TEXT : item.type;
+
         return {
             ...item,
+            ...(text ? { text } : {}),
             type,
         };
     });
