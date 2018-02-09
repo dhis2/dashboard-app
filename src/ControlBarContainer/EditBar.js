@@ -55,6 +55,23 @@ class EditBar extends Component {
         });
     };
 
+    translationDialog = () =>
+        this.state.dashboardModel ? (
+            <TranslationDialog
+                open={this.state.translationDialogIsOpen}
+                onRequestClose={this.toggleTranslationDialog}
+                objectToTranslate={this.state.dashboardModel}
+                fieldsToTranslate={['name', 'description']}
+                // TODO handle messages in snackbar
+                onTranslationSaved={msg =>
+                    console.log('translation update response', msg)
+                }
+                onTranslationError={err =>
+                    console.log('translation update error', err)
+                }
+            />
+        ) : null;
+
     render() {
         const { style, onSave, onDiscard } = this.props;
         const controlBarHeight = getOuterHeight(1, false);
@@ -82,21 +99,7 @@ class EditBar extends Component {
                         </div>
                     </div>
                 </ControlBar>
-                {this.state.dashboardModel ? (
-                    <TranslationDialog
-                        open={this.state.translationDialogIsOpen}
-                        onRequestClose={this.toggleTranslationDialog}
-                        objectToTranslate={this.state.dashboardModel}
-                        fieldsToTranslate={['name', 'description']}
-                        // TODO handle messages in snackbar
-                        onTranslationSaved={msg =>
-                            console.log('translation update response', msg)
-                        }
-                        onTranslationError={err =>
-                            console.log('translation update error', err)
-                        }
-                    />
-                ) : null}
+                {this.translationDialog()}
             </Fragment>
         );
     }
