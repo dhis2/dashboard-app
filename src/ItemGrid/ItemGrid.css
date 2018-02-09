@@ -11,6 +11,10 @@
     min-width: 70px;
 }
 
+.react-grid-item.edit:hover {
+    cursor: move;
+}
+
 .react-grid-item.SPACER.view {
     visibility: hidden;
 }
