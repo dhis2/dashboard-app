@@ -89,9 +89,7 @@ export const tDeleteDashboard = id => async dispatch => {
     };
 
     try {
-        const response = await apiDeleteDashboard(id);
-
-        console.log('delete response', response);
+        await apiDeleteDashboard(id);
 
         return onSuccess();
     } catch (err) {
