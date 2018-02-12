@@ -51,6 +51,8 @@ class Item extends Component {
     };
 
     onSelectVisualization = targetType => {
+        favorite.unmount(this.props.item);
+
         this.setState({ activeVisualization: targetType });
         favorite.reload(
             this.props.item,
