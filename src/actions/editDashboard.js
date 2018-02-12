@@ -95,8 +95,12 @@ export const tSaveDashboard = () => async (dispatch, getState) => {
         };
     });
 
+    const { id, name, description, starred: favorite } = dashboard;
     const dashboardToSave = {
-        ...dashboard,
+        id,
+        name,
+        description,
+        favorite,
         dashboardItems,
     };
 
