@@ -93,7 +93,6 @@ export const tDeleteDashboard = id => async (dispatch, getState) => {
 
     try {
         await apiDeleteDashboard(id);
-        deletePreferredDashboard(sGetUsername(getState()));
 
         return onSuccess();
     } catch (err) {
