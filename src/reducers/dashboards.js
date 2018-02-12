@@ -63,7 +63,7 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
  * @param {Object} state The current state
  * @returns {Array}
  */
-export const sGetFromState = state => state.dashboards;
+export const sGetFromState = state => orObject(state.dashboards);
 
 /**
  * Returns a dashboard based on id, from the state object.
@@ -77,7 +77,7 @@ export const sGetById = (state, id) =>
     orNull(orObject(sGetFromState(state))[id]);
 
 export const sGetStarredDashboardIds = state => {
-    const dashboards = Object.values(state.dashboards);
+    const dashboards = Object.values(sGetFromState(state));
     return dashboards
         .filter(dashboard => dashboard.starred === true)
         .map(starred => starred.id);
