@@ -12,10 +12,7 @@ import {
     apiStarDashboard,
     apiDeleteDashboard,
 } from '../api/dashboards';
-import {
-    getPreferredDashboard,
-    deletePreferredDashboard,
-} from '../api/localStorage';
+import { getPreferredDashboard } from '../api/localStorage';
 import { arrayToIdMap } from '../util';
 
 // actions
