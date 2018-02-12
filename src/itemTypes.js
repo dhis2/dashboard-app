@@ -29,6 +29,8 @@ export const isSpacerType = item =>
     item.type === TEXT && item.text === spacerContent;
 export const isTextType = item =>
     item.type === TEXT && item.text !== spacerContent;
+export const isPluginType = item =>
+    itemTypeMap[item.type].hasOwnProperty('plugin');
 
 // Item type map
 export const itemTypeMap = {

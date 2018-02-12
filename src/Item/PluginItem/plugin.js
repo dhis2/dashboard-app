@@ -90,7 +90,7 @@ export const load = (item, credentials) => {
 export const resize = item => {
     const plugin = itemTypeMap[item.type].plugin;
 
-    if (plugin.resize) {
+    if (plugin && plugin.resize) {
         plugin.resize(getGridItemDomId(item.id));
     }
 };
@@ -98,7 +98,7 @@ export const resize = item => {
 export const unmount = item => {
     const plugin = itemTypeMap[item.type].plugin;
 
-    if (plugin.unmount) {
+    if (plugin && plugin.unmount) {
         plugin.unmount(getGridItemDomId(item.id));
     }
 };

@@ -12,6 +12,8 @@ import {
 
 import './ItemGrid.css';
 import { Item } from '../Item/Item';
+import { resize as pluginResize } from '../Item/PluginItem/plugin';
+import { isPluginType } from '../itemTypes';
 import DeleteItemButton from './DeleteItemButton';
 
 import {
@@ -78,8 +80,21 @@ export class ItemGrid extends Component {
         }
     };
 
+    onResizeStop = (layout, oldItem, newItem) => {
+        onItemResize(newItem.i);
+
+        const dashboardItem = this.props.dashboardItems.find(
+            item => item.id === newItem.i
+        );
+
+        // call resize on the item component if it's a plugin type
+        if (dashboardItem && isPluginType(dashboardItem)) {
+            pluginResize(dashboardItem);
+        }
+    };
+
     render() {
-        const { edit, isLoading, dashboardItems, onResizeStop } = this.props;
+        const { edit, isLoading, dashboardItems } = this.props;
 
         if (!dashboardItems.length) {
             return <NoItemsMessage text={this.NO_ITEMS_MESSAGE} />;
@@ -105,7 +120,7 @@ export class ItemGrid extends Component {
                 <ModalLoadingMask isLoading={isLoading} />
                 <ReactGridLayout
                     onLayoutChange={this.onLayoutChange}
-                    onResizeStop={onResizeStop}
+                    onResizeStop={this.onResizeStop}
                     className="layout"
                     layout={items}
                     cols={getGridColumns()}
@@ -155,10 +170,6 @@ ItemGrid.defaultProps = {
 
 // Container
 
-const onResizeStop = (layout, oldItem, newItem) => {
-    onItemResize(newItem.i);
-};
-
 const mapStateToProps = state => {
     const {
         sGetSelectedDashboard,
@@ -194,7 +205,6 @@ const mergeProps = (stateProps, dispatchProps) => {
         isLoading: stateProps.isLoading,
         dashboardItems: validItems,
         onItemResize,
-        onResizeStop,
     };
 };
 
