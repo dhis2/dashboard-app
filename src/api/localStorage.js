@@ -4,3 +4,7 @@ export const getPreferredDashboard = username =>
 export const storePreferredDashboard = (username, dashboardId) => {
     localStorage.setItem(`dhis2.dashboard.current.${username}`, dashboardId);
 };
+
+export const deletePreferredDashboard = username => {
+    localStorage.setItem(`dhis2.dashboard.current.${username}`, null);
+};

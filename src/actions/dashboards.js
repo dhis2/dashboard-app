@@ -12,7 +12,10 @@ import {
     apiStarDashboard,
     apiDeleteDashboard,
 } from '../api/dashboards';
-import { getPreferredDashboard } from '../api/localStorage';
+import {
+    getPreferredDashboard,
+    deletePreferredDashboard,
+} from '../api/localStorage';
 import { arrayToIdMap } from '../util';
 
 // actions
@@ -81,7 +84,7 @@ export const tStarDashboard = (id, isStarred) => async (dispatch, getState) => {
     }
 };
 
-export const tDeleteDashboard = id => async dispatch => {
+export const tDeleteDashboard = id => async (dispatch, getState) => {
     const onSuccess = () => {
         dispatch(acClearEditDashboard());
 
@@ -90,6 +93,7 @@ export const tDeleteDashboard = id => async dispatch => {
 
     try {
         await apiDeleteDashboard(id);
+        deletePreferredDashboard(sGetUsername(getState()));
 
         return onSuccess();
     } catch (err) {
