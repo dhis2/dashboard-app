@@ -63,7 +63,7 @@
     overflow: auto;
 }
 
-.CHART .dashboard-item-content,
-.EVENT_CHART .dashboard-item-content {
+.CHART.resizing .dashboard-item-content,
+.EVENT_CHART.resizing .dashboard-item-content {
     overflow: hidden;
 }

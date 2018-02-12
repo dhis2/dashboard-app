@@ -84,7 +84,7 @@ export function onItemResize(id) {
     const el = orObject(document.querySelector(`#${getGridItemDomId(id)}`));
     if (isFunction(el.setViewportSize))
         setTimeout(
-            () => el.setViewportSize(el.clientWidth - 5, el.clientHeight),
-            100
+            () => el.setViewportSize(el.clientWidth - 5, el.clientHeight - 5),
+            10
         );
 }
