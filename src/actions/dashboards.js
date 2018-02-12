@@ -3,6 +3,7 @@ import {
     getCustomDashboards,
     sGetStarredDashboardIds,
     sGetById,
+    sGetFromState,
 } from '../reducers/dashboards';
 import { sGetUsername } from '../reducers/user';
 import { tSetSelectedDashboardById } from './selected';
@@ -12,7 +13,7 @@ import {
     apiStarDashboard,
     apiDeleteDashboard,
 } from '../api/dashboards';
-import { getPreferredDashboard } from '../api/localStorage';
+import { getPreferredDashboardId } from '../api/localStorage';
 import { arrayToIdMap } from '../util';
 
 // actions
@@ -32,22 +33,20 @@ export const acStarDashboard = (dashboardId, isStarred) => ({
 // thunks
 
 export const tSetDashboards = () => async (dispatch, getState) => {
-    const onSuccess = data => {
-        const dashboards = data.toArray();
-        dispatch(acSetDashboards(dashboards));
+    const onSuccess = () => {
         const state = getState();
 
         const preferredDashboard = sGetById(
-            getPreferredDashboard(sGetUsername(state))
+            state,
+            getPreferredDashboardId(sGetUsername(state))
         );
 
         const dashboardId = preferredDashboard
             ? preferredDashboard.id
-            : sGetStarredDashboardIds(state)[0] || dashboards[0].id;
+            : sGetStarredDashboardIds(state)[0] ||
+              Object.keys(sGetFromState(state))[0];
 
         dispatch(tSetSelectedDashboardById(dashboardId));
-
-        return data;
     };
 
     const onError = error => {
@@ -57,7 +56,9 @@ export const tSetDashboards = () => async (dispatch, getState) => {
 
     try {
         const collection = await apiFetchDashboards();
-        return onSuccess(collection);
+        dispatch(acSetDashboards(collection.toArray()));
+
+        return onSuccess();
     } catch (err) {
         return onError(err);
     }
