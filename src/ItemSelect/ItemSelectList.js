@@ -128,8 +128,8 @@ class ItemSelectList extends Component {
                                         <SvgIcon
                                             icon="Launch"
                                             style={{
-                                                width: '20px',
-                                                height: '20px',
+                                                width: '16px',
+                                                height: '16px',
                                             }}
                                         />
                                     </a>
