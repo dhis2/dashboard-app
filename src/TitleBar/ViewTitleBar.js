@@ -62,11 +62,14 @@ class ViewTitleBar extends Component {
             onInfoClick,
         } = this.props;
         const styles = Object.assign({}, style, viewStyle);
+        const titleStyle = Object.assign({}, style.title, {
+            cursor: 'default',
+        });
 
         return (
             <Fragment>
                 <div className="titlebar" style={styles.titleBar}>
-                    <div style={styles.title}>
+                    <div style={titleStyle}>
                         <div style={{ userSelect: 'text' }}>{name}</div>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center' }}>

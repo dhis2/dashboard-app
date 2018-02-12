@@ -4,7 +4,10 @@
     font-weight: 400;
 }
 
+.editable-text {
+    cursor: text;
+}
+
 .editable-text:focus {
     outline: 0 none;
-    cursor: text;
 }
