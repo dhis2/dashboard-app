@@ -83,7 +83,7 @@ class EditBar extends Component {
         ) : null;
 
     translationDialog = () =>
-        this.state.dashboardModel ? (
+        this.state.dashboardModel && this.state.dashboardModel.id ? (
             <TranslationDialog
                 open={this.state.translationDialogIsOpen}
                 onRequestClose={this.toggleTranslationDialog}
@@ -129,12 +129,14 @@ class EditBar extends Component {
                                     Delete dashboard
                                 </button>
                             ) : null}
-                            <Button
-                                style={styles.secondary}
-                                onClick={this.toggleTranslationDialog}
-                            >
-                                Translate
-                            </Button>
+                            {dashboardId ? (
+                                <Button
+                                    style={styles.secondary}
+                                    onClick={this.toggleTranslationDialog}
+                                >
+                                    Translate
+                                </Button>
+                            ) : null}
                         </div>
                         <div style={style.rightControls}>
                             <button
