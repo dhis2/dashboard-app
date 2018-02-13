@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import SharingDialog from 'd2-ui/lib/sharing/SharingDialog.component';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
+import FilterDialog from '../ItemFilter/ItemFilter';
 import Info from './Info';
 import D2TextLink from '../widgets/D2TextLink';
 import * as fromReducers from '../reducers';
@@ -42,11 +43,15 @@ class ViewTitleBar extends Component {
 
         this.state = {
             sharingDialogIsOpen: false,
+            filterDialogIsOpen: false,
         };
     }
 
     toggleSharingDialog = () =>
         this.setState({ sharingDialogIsOpen: !this.state.sharingDialogIsOpen });
+
+    toggleFilterDialog = () =>
+        this.setState({ filterDialogIsOpen: !this.state.filterDialogIsOpen });
 
     render() {
         const {
@@ -97,6 +102,14 @@ class ViewTitleBar extends Component {
                                 onClick={this.toggleSharingDialog}
                             />
                         </div>
+                        <div style={styles.titleBarLink}>
+                            <D2TextLink
+                                text={'Filter'}
+                                style={styles.textLink}
+                                hoverStyle={styles.textLinkHover}
+                                onClick={this.toggleFilterDialog}
+                            />
+                        </div>
                     </div>
                 </div>
                 {showDescription ? (
@@ -117,6 +130,12 @@ class ViewTitleBar extends Component {
                         type="dashboard"
                         open={this.state.sharingDialogIsOpen}
                         onRequestClose={this.toggleSharingDialog}
+                    />
+                ) : null}
+                {id ? (
+                    <FilterDialog
+                        open={this.state.filterDialogIsOpen}
+                        onRequestClose={this.toggleFilterDialog}
                     />
                 ) : null}
             </Fragment>
