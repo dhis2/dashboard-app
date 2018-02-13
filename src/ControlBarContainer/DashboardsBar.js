@@ -6,6 +6,7 @@ import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 //import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import Chip from 'd2-ui/lib/chip/Chip';
 import { blue800 } from 'material-ui/styles/colors';
+import arraySort from 'd2-utilizr/lib/arraySort';
 
 import D2IconButton from '../widgets/D2IconButton';
 import Filter from './Filter';
@@ -152,20 +153,24 @@ const mapStateToProps = state => {
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const { dashboards, name, rows, isExpanded } = stateProps;
     const { dispatch } = dispatchProps;
     const { fromControlBar, fromFilter, fromEditDashboard } = fromActions;
 
-    const filteredDashboards = Object.values(orObject(dashboards)).filter(
-        d => d.name.toLowerCase().indexOf(name) !== -1
+    const dashboards = Object.values(orObject(stateProps.dashboards));
+    const displayDashboards = arraySort(
+        dashboards.filter(d =>
+            d.displayName.toLowerCase().includes(stateProps.name)
+        ),
+        'ASC',
+        'displayName'
     );
 
     return {
         ...stateProps,
         ...ownProps,
         dashboards: [
-            ...filteredDashboards.filter(d => d.starred),
-            ...filteredDashboards.filter(d => !d.starred),
+            ...displayDashboards.filter(d => d.starred),
+            ...displayDashboards.filter(d => !d.starred),
         ],
         onChangeHeight: (newHeight, onEndDrag) => {
             const newRows = Math.max(
@@ -173,7 +178,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
                 Math.floor((newHeight - 24) / CONTROL_BAR_ROW_HEIGHT)
             );
 
-            if (newRows !== rows) {
+            if (newRows !== stateProps.rows) {
                 dispatch(
                     fromControlBar.acSetControlBarRows(
                         Math.min(newRows, EXPANDED_ROW_COUNT)
@@ -185,9 +190,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             dispatch(fromEditDashboard.acSetEditNewDashboard());
         },
         onToggleExpanded: () => {
-            dispatch(fromControlBar.acSetControlBarExpanded(!isExpanded));
+            dispatch(
+                fromControlBar.acSetControlBarExpanded(!stateProps.isExpanded)
+            );
         },
-        onChangeFilterName: name => dispatch(fromFilter.acSetFilterName(name)),
+        onChangeFilterName: text => dispatch(fromFilter.acSetFilterName(text)),
         onSelectDashboard: id => dispatch(fromActions.tSelectDashboardById(id)),
     };
 };
