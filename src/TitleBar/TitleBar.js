@@ -11,7 +11,7 @@ import './TitleBar.css';
 const style = {
     titleBar: {
         display: 'flex',
-        alignItems: 'flex-end',
+        alignItems: 'flex-start',
     },
     title: {
         marginRight: 20,
@@ -30,7 +30,7 @@ const style = {
     },
 };
 
-const TitleBar = ({ id, name, description, edit }) => {
+const TitleBar = ({ id, name, displayName, description, edit }) => {
     return (
         <div
             className="titlebar-wrapper"
@@ -42,13 +42,14 @@ const TitleBar = ({ id, name, description, edit }) => {
                 <EditTitleBar
                     style={style}
                     name={name}
+                    displayName={displayName}
                     description={description}
                 />
             ) : (
                 <ViewTitleBar
                     style={style}
                     id={id}
-                    name={name}
+                    name={displayName || name}
                     description={description}
                 />
             )}
@@ -63,6 +64,7 @@ const mapStateToProps = state => {
     return {
         id: selectedDashboard.id,
         name: selectedDashboard.name,
+        displayName: selectedDashboard.displayName,
         description: selectedDashboard.description,
         edit: fromReducers.fromEditDashboard.sGetIsEditing(state),
     };

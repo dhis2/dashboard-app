@@ -112,6 +112,7 @@ export const getCustomDashboards = data => {
     return arrayFrom(data).map((d, index) => ({
         id: d.id,
         name: d.name,
+        displayName: d.displayName,
         description: d.description,
         starred: d.favorite,
         owner: d.user.name,
