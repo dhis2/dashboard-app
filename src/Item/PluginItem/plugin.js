@@ -95,8 +95,8 @@ export const resize = item => {
     }
 };
 
-export const unmount = item => {
-    const plugin = itemTypeMap[item.type].plugin;
+export const unmount = (item, targetType) => {
+    const plugin = itemTypeMap[targetType].plugin;
 
     if (plugin && plugin.unmount) {
         plugin.unmount(getGridItemDomId(item.id));
