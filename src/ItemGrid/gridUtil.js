@@ -71,15 +71,6 @@ export const withShape = items =>
             hasShape(item) ? item : Object.assign({}, item, getShape(index))
     );
 
-export const getYMax = (items = []) => {
-    return !items.length
-        ? 0
-        : items.reduce(
-              (tot, item) => (item.y + item.h > tot ? item.y + item.h : tot),
-              0
-          );
-};
-
 export const getGridItemDomId = id => `item-${id}`;
 
 export function onItemResize(id) {
