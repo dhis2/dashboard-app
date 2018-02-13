@@ -8,6 +8,8 @@ export const GRID_ROW_HEIGHT = 10;
 const GRID_COLUMN_WIDTH_PX = 20;
 const GRID_LAYOUT = 'FLEXIBLE'; // FIXED | FLEXIBLE
 
+export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 };
+
 // Dimensions for getShape
 
 const NUMBER_OF_ITEM_COLS = 2;
