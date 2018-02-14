@@ -34,7 +34,7 @@ const ItemSearchField = props => (
     <div style={{ display: 'flex', alignItems: 'baseline', width: '400px' }}>
         <SvgIcon icon="Search" />
         <TextField
-            hintText="Search favorite elements to add to dashboard"
+            hintText="Search for items to add to this dashboard"
             fullWidth={true}
             value={props.value}
             onClick={props.onClick}
