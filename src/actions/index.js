@@ -4,6 +4,7 @@ import * as fromDashboardsFilter from './dashboardsFilter';
 import * as fromControlBar from './controlBar';
 import * as fromEditDashboard from './editDashboard';
 import * as fromUser from './user';
+import * as fromItemFilter from './itemFilter';
 
 export {
     fromDashboards,
@@ -12,6 +13,7 @@ export {
     fromControlBar,
     fromEditDashboard,
     fromUser,
+    fromItemFilter,
 };
 
 // depends on: fromSelected, fromDashboardsFilter, fromControlBar

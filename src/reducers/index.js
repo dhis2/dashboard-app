@@ -9,6 +9,7 @@ import visualizations, * as fromVisualizations from './visualizations';
 import editDashboard, * as fromEditDashboard from './editDashboard';
 import messages, * as fromMessages from './messages';
 import user, * as fromUser from './user';
+import itemFilter, * as fromItemFilter from './itemFilter';
 import style, * as fromStyle from './style';
 
 const USER = 'system';
@@ -26,6 +27,7 @@ export const actionTypes = Object.assign(
     fromMessages.actionTypes,
     fromUser.actionTypes,
     fromEditDashboard.actionTypes,
+    fromItemFilter.actionTypes,
     fromStyle.actionTypes
 );
 
@@ -41,6 +43,7 @@ export default combineReducers({
     messages,
     user,
     editDashboard,
+    itemFilter,
     style,
 });
 
@@ -65,6 +68,7 @@ export {
     fromMessages,
     fromEditDashboard,
     fromUser,
+    fromItemFilter,
     fromStyle,
 };
 
