@@ -1,6 +1,6 @@
 import * as fromDashboards from './dashboards';
 import * as fromSelected from './selected';
-import * as fromFilter from './filter';
+import * as fromFilter from './dashboardsFilter';
 import * as fromControlBar from './controlBar';
 import * as fromEditDashboard from './editDashboard';
 import * as fromUser from './user';

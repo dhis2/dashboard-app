@@ -8,7 +8,7 @@ import Chip from 'd2-ui/lib/chip/Chip';
 import { blue800 } from 'material-ui/styles/colors';
 
 import D2IconButton from '../widgets/D2IconButton';
-import Filter from './Filter';
+import Filter from './dashboardsFilter';
 import {
     CONTROL_BAR_ROW_HEIGHT,
     getInnerHeight,
