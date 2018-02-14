@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import arraySort from 'd2-utilizr/lib/arraySort';
 import dashboards, * as fromDashboards from './dashboards';
 import selected, * as fromSelected from './selected';
-import filter, * as fromFilter from './filter';
+import dashboardsFilter, * as fromFilter from './dashboardsFilter';
 import controlBar, * as fromControlBar from './controlBar';
 import interpretations, * as fromInterpretations from './interpretations';
 import visualizations, * as fromVisualizations from './visualizations';
@@ -34,7 +34,7 @@ export const actionTypes = Object.assign(
 export default combineReducers({
     dashboards,
     selected,
-    filter,
+    dashboardsFilter,
     controlBar,
     interpretations,
     visualizations,

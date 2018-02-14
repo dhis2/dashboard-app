@@ -2,9 +2,9 @@ import { combineReducers } from 'redux';
 import { validateReducer } from '../util';
 
 export const actionTypes = {
-    SET_FILTER_NAME: 'SET_FILTER_NAME',
-    SET_FILTER_OWNER: 'SET_FILTER_OWNER',
-    SET_FILTER_ORDER: 'SET_FILTER_ORDER',
+    SET_DASHBOARDS_FILTER_NAME: 'SET_DASHBOARDS_FILTER_NAME',
+    SET_DASHBOARDS_FILTER_OWNER: 'SET_DASHBOARDS_FILTER_OWNER',
+    SET_DASHBOARDS_FILTER_ORDER: 'SET_DASHBOARDS_FILTER_ORDER',
 };
 
 export const ownerData = [
@@ -28,7 +28,7 @@ export const DEFAULT_ORDER = orderData[0].id;
 
 const name = (state = DEFAULT_NAME, action) => {
     switch (action.type) {
-        case actionTypes.SET_FILTER_NAME:
+        case actionTypes.SET_DASHBOARDS_FILTER_NAME:
             return validateReducer(action.value, DEFAULT_NAME);
         default:
             return state;
@@ -37,7 +37,7 @@ const name = (state = DEFAULT_NAME, action) => {
 
 const owner = (state = DEFAULT_OWNER, action) => {
     switch (action.type) {
-        case actionTypes.SET_FILTER_OWNER:
+        case actionTypes.SET_DASHBOARDS_FILTER_OWNER:
             return validateReducer(action.value, DEFAULT_NAME);
         default:
             return state;
@@ -46,7 +46,7 @@ const owner = (state = DEFAULT_OWNER, action) => {
 
 const order = (state = DEFAULT_ORDER, action) => {
     switch (action.type) {
-        case actionTypes.SET_FILTER_ORDER:
+        case actionTypes.SET_DASHBOARDS_FILTER_ORDER:
             return validateReducer(action.value, DEFAULT_ORDER);
         default:
             return state;
@@ -61,7 +61,7 @@ export default combineReducers({
 
 // selectors
 
-export const sGetFromState = state => state.filter;
+export const sGetFromState = state => state.dashboardsFilter;
 
 // selector dependency level 2
 
