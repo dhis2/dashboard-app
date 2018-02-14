@@ -40,7 +40,7 @@ class ItemFilter extends Component {
     };
 
     onSubmit = () => {
-        //TODO: dispatch action to add selected org units to itemFilter store
+        //TODO: dispatch action to set itemFilter store to this.state.selected
         this.props.onRequestClose();
     };
 
@@ -61,8 +61,6 @@ class ItemFilter extends Component {
     };
 
     render() {
-        console.log('selected', this.state.selected);
-
         const actions = [
             <FlatButton label="Cancel" onClick={this.props.onRequestClose} />,
             <FlatButton
