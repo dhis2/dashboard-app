@@ -38,11 +38,22 @@ class Item extends Component {
         activeVisualization: this.props.item.type,
     };
 
+    pluginCredentials = null;
+
     componentDidMount() {
-        const credentials = pluginCredentials(this.context.d2);
-        pluginManager.load(this.props.item, credentials, {
+        this.pluginCredentials = pluginCredentials(this.context.d2);
+
+        pluginManager.load(this.props.item, this.pluginCredentials, {
             filter: this.props.itemFilter,
         });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.itemFilter !== this.props.itemFilter) {
+            pluginManager.load(this.props.item, this.pluginCredentials, {
+                filter: nextProps.itemFilter,
+            });
+        }
     }
 
     onToggleFooter = () => {
@@ -59,7 +70,7 @@ class Item extends Component {
         pluginManager.reload(
             this.props.item,
             targetType,
-            pluginCredentials(this.context.d2),
+            this.pluginCredentials,
             {
                 filter: this.props.itemFilter,
             }

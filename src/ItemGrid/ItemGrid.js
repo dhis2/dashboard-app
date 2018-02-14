@@ -69,12 +69,6 @@ export class ItemGrid extends Component {
     };
 
     componentWillReceiveProps(nextProps) {
-        console.log(
-            'componentWillReceiveProps',
-            nextProps.itemFilter,
-            this.props.itemFilter,
-            nextProps.itemFilter === this.props.itemFilter
-        );
         if (nextProps.edit) {
             this.setState({ expandedItems: {} });
         }
@@ -208,7 +202,7 @@ const mapDispatchToProps = {
 
 const mergeProps = (stateProps, dispatchProps) => {
     const validItems = orArray(stateProps.dashboardItems).filter(hasShape);
-    console.log('stateProps.itemFilter', stateProps.itemFilter);
+
     return {
         ...dispatchProps,
         edit: stateProps.edit,
