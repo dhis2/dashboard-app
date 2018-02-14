@@ -10,7 +10,6 @@ import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import { acAddDashboardItem } from '../actions/editDashboard';
 import { tAddListItemContent } from './actions';
 import { sGetEditDashboard } from '../reducers/editDashboard';
-import { getYMax } from '../ItemGrid/gridUtil';
 import {
     itemTypeMap,
     getItemUrl,
@@ -38,11 +37,9 @@ class ItemSelectList extends Component {
         const {
             type,
             dashboardId,
-            dashboardItems,
             acAddDashboardItem,
             tAddListItemContent,
         } = this.props;
-        const yValue = getYMax(dashboardItems);
 
         const newItem = {
             id: item.id,
@@ -55,9 +52,9 @@ class ItemSelectList extends Component {
         } else if (type === APP) {
             newItem.id = newItem.appKey = item.key;
 
-            acAddDashboardItem({ type, content: newItem }, yValue);
+            acAddDashboardItem({ type, content: newItem });
         } else {
-            acAddDashboardItem({ type, content: newItem }, yValue);
+            acAddDashboardItem({ type, content: newItem });
         }
     };
 
@@ -168,7 +165,6 @@ ItemSelectList.contextTypes = {
 export default connect(
     state => ({
         dashboardId: sGetEditDashboard(state).id,
-        dashboardItems: sGetEditDashboard(state).dashboardItems,
     }),
     {
         acAddDashboardItem,

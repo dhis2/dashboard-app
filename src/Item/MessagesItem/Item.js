@@ -72,9 +72,11 @@ class MessagesItem extends Component {
     }
 
     messageHref = id => {
-        return `${
-            this.context.baseUrl
-        }/dhis-web-messaging/readMessage.action?id=${id}`;
+        return this.props.editMode
+            ? '#'
+            : `${
+                  this.context.baseUrl
+              }/dhis-web-messaging/readMessage.action?id=${id}`;
     };
 
     filterAll = () => {
