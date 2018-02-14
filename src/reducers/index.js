@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import arraySort from 'd2-utilizr/lib/arraySort';
 import dashboards, * as fromDashboards from './dashboards';
 import selected, * as fromSelected from './selected';
-import dashboardsFilter, * as fromFilter from './dashboardsFilter';
+import dashboardsFilter, * as fromDashboardsFilter from './dashboardsFilter';
 import controlBar, * as fromControlBar from './controlBar';
 import interpretations, * as fromInterpretations from './interpretations';
 import visualizations, * as fromVisualizations from './visualizations';
@@ -19,7 +19,7 @@ export const actionTypes = Object.assign(
     {},
     fromDashboards.actionTypes,
     fromSelected.actionTypes,
-    fromFilter.actionTypes,
+    fromDashboardsFilter.actionTypes,
     fromControlBar.actionTypes,
     fromInterpretations.actionTypes,
     fromVisualizations.actionTypes,
@@ -58,7 +58,7 @@ const mapConstToData = {
 export {
     fromDashboards,
     fromSelected,
-    fromFilter,
+    fromDashboardsFilter,
     fromControlBar,
     fromInterpretations,
     fromVisualizations,
@@ -80,8 +80,8 @@ export const sFilterDashboardsByName = (dashboards, filter) =>
 
 // filter dashboards by owner
 export const sFilterDashboardsByOwner = (dashboards, filter) => {
-    const ME = fromFilter.ownerData[1]; // TODO
-    const OTHERS = fromFilter.ownerData[2]; // TODO
+    const ME = fromDashboardsFilter.ownerData[1]; // TODO
+    const OTHERS = fromDashboardsFilter.ownerData[2]; // TODO
 
     switch (filter) {
         case ME:
@@ -109,9 +109,9 @@ export const sFilterDashboardsByOrder = (dashboards, filter) => {
 export const sGetFilteredDashboards = state => {
     const dashboards = fromDashboards.sGetFromState(state);
 
-    const nameFilter = fromFilter.sGetFilterName(state);
-    const ownerFilter = fromFilter.sGetFilterOwner(state);
-    const orderFilter = fromFilter.sGetFilterOrder(state);
+    const nameFilter = fromDashboardsFilter.sGetFilterName(state);
+    const ownerFilter = fromDashboardsFilter.sGetFilterOwner(state);
+    const orderFilter = fromDashboardsFilter.sGetFilterOrder(state);
 
     return sFilterDashboardsByOrder(
         sFilterDashboardsByName(
