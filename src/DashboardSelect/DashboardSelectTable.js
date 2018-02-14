@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Trans } from 'react-i18next';
 
 import {
     Table,
@@ -166,24 +167,24 @@ export default class DashboardSelectTable extends Component {
                                     style.starred
                                 )}
                             >
-                                Starred
+                                <Trans>Starred</Trans>
                             </TableHeaderColumn>
                             <TableHeaderColumn
                                 style={Object.assign({}, style.row, style.name)}
                             >
-                                Name
+                                <Trans>Name</Trans>
                             </TableHeaderColumn>
                             <TableHeaderColumn style={style.row}>
-                                Items
+                                <Trans>Items</Trans>
                             </TableHeaderColumn>
                             <TableHeaderColumn style={style.row}>
-                                Owner
+                                <Trans>Owner</Trans>
                             </TableHeaderColumn>
                             <TableHeaderColumn style={style.row}>
-                                Created
+                                <Trans>Created</Trans>
                             </TableHeaderColumn>
                             <TableHeaderColumn style={style.row}>
-                                Modified
+                                <Trans>Modified</Trans>
                             </TableHeaderColumn>
                         </TableRow>
                     </TableHeader>

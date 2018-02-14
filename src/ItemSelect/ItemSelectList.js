@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { t } from 'i18next';
 import Divider from 'material-ui/Divider';
 import { List, ListItem } from 'material-ui/List';
 
@@ -82,9 +83,9 @@ class ItemSelectList extends Component {
                         style={{ textTransform: 'uppercase' }}
                         onClick={this.toggleSeeMore}
                     >
-                        {`See ${this.state.seeMore ? 'fewer' : 'more'} ${
-                            this.props.title
-                        }`}
+                        {`${t('See')} ${
+                            this.state.seeMore ? t('fewer') : t('more')
+                        } ${this.props.title}`}
                     </Button>
                 </div>
                 <Divider />

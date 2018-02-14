@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { t } from 'i18next';
 import SharingDialog from 'd2-ui/lib/sharing/SharingDialog.component';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
@@ -11,7 +12,7 @@ import { fromEditDashboard, fromSelected } from '../actions';
 import { orObject } from '../util';
 import { tStarDashboard } from '../actions/dashboards';
 
-const NO_DESCRIPTION = 'No description';
+const NO_DESCRIPTION = t('No description');
 
 const viewStyle = {
     textLink: {

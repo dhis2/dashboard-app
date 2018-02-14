@@ -127,7 +127,7 @@ class EditBar extends Component {
                                     style={styles.secondary}
                                     onClick={this.onConfirmDelete}
                                 >
-                                    Delete dashboard
+                                    <Trans>Delete dashboard</Trans>
                                 </button>
                             ) : null}
                             {dashboardId ? (
@@ -135,7 +135,7 @@ class EditBar extends Component {
                                     style={styles.secondary}
                                     onClick={this.toggleTranslationDialog}
                                 >
-                                    Translate
+                                    <Trans>Translate</Trans>
                                 </Button>
                             ) : null}
                         </div>
@@ -144,7 +144,7 @@ class EditBar extends Component {
                                 style={styles.secondary}
                                 onClick={onDiscard}
                             >
-                                Exit without saving
+                                <Trans>Exit without saving</Trans>
                             </button>
                         </div>
                     </div>
