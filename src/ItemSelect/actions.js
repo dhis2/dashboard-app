@@ -1,5 +1,4 @@
 import { sGetEditDashboard } from '../reducers/editDashboard';
-import { getYMax } from '../ItemGrid/gridUtil';
 import { itemTypeMap } from '../itemTypes';
 import {
     acAddDashboardItem,
@@ -30,6 +29,6 @@ export const tAddListItemContent = (dashboardId, type, content) => (
             content: [content],
         };
 
-        dispatch(acAddDashboardItem(dashboardItem, getYMax(dashboardItems)));
+        dispatch(acAddDashboardItem(dashboardItem));
     }
 };
