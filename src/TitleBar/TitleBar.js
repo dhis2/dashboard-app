@@ -20,7 +20,7 @@ const style = {
         fontSize: 21,
         fontWeight: 500,
         color: '#333333',
-        minWidth: 80,
+        minWidth: 50,
     },
     description: {
         paddingTop: 5,

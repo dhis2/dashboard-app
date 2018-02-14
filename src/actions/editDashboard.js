@@ -4,6 +4,7 @@ import { fromEditDashboard } from '../reducers';
 import { updateDashboard, postDashboard } from '../api/editDashboard';
 import { fromSelected } from '.';
 import { fromDashboards } from '.';
+import { NEW_ITEM_SHAPE } from '../ItemGrid/gridUtil';
 import {
     itemTypeMap,
     isSpacerType,
@@ -47,7 +48,7 @@ export const acUpdateDashboardLayout = value => ({
     value,
 });
 
-export const acAddDashboardItem = (item, yValue) => {
+export const acAddDashboardItem = item => {
     const type = item.type;
     delete item.type;
     const itemPropName = itemTypeMap[type].propName;
@@ -58,11 +59,7 @@ export const acAddDashboardItem = (item, yValue) => {
             id: generateUid(),
             type,
             [itemPropName]: item.content,
-            // TODO pass these as arguments
-            x: 0,
-            y: yValue,
-            h: 20,
-            w: 29,
+            ...NEW_ITEM_SHAPE,
         },
     };
 };

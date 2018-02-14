@@ -175,7 +175,7 @@ describe('editDashboard', () => {
             );
 
             const expectedState = update(initialState, {
-                dashboardItems: { $push: [newItem] },
+                dashboardItems: { $unshift: [newItem] },
             });
 
             expect(actualState).toMatchObject(expectedState);

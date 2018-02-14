@@ -48,7 +48,7 @@ export default (state = DEFAULT_STATE, action) => {
         }
         case actionTypes.ADD_DASHBOARD_ITEM:
             return update(state, {
-                dashboardItems: { $push: [action.value] },
+                dashboardItems: { $unshift: [action.value] },
             });
         case actionTypes.REMOVE_DASHBOARD_ITEM: {
             const idToRemove = action.value;
