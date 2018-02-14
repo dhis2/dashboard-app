@@ -49,7 +49,7 @@ const init = () => {
     getUserSettings()
         .then(configI18n)
         .then(() => {
-            config.schemas = ['dashboard'];
+            config.schemas = ['dashboard', 'organisationUnit'];
 
             ReactDOM.render(
                 <D2UIApp initConfig={config}>
