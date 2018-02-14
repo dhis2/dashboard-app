@@ -16,20 +16,19 @@ const USER = 'system';
 
 // action types
 
-export const actionTypes = Object.assign(
-    {},
-    fromDashboards.actionTypes,
-    fromSelected.actionTypes,
-    fromDashboardsFilter.actionTypes,
-    fromControlBar.actionTypes,
-    fromInterpretations.actionTypes,
-    fromVisualizations.actionTypes,
-    fromMessages.actionTypes,
-    fromUser.actionTypes,
-    fromEditDashboard.actionTypes,
-    fromItemFilter.actionTypes,
-    fromStyle.actionTypes
-);
+export const actionTypes = {
+    ...fromDashboards.actionTypes,
+    ...fromSelected.actionTypes,
+    ...fromDashboardsFilter.actionTypes,
+    ...fromControlBar.actionTypes,
+    ...fromInterpretations.actionTypes,
+    ...fromVisualizations.actionTypes,
+    ...fromMessages.actionTypes,
+    ...fromUser.actionTypes,
+    ...fromEditDashboard.actionTypes,
+    ...fromItemFilter.actionTypes,
+    ...fromStyle.actionTypes,
+};
 
 // reducers
 
