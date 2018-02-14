@@ -8,6 +8,7 @@ export const actionTypes = {
     RECEIVED_NOT_EDITING: 'RECEIVED_NOT_EDITING',
     START_NEW_DASHBOARD: 'START_NEW_DASHBOARD',
     RECEIVED_TITLE: 'RECEIVED_TITLE',
+    RECEIVED_DISPLAY_TITLE: 'RECEIVED_DISPLAY_TITLE',
     RECEIVED_DESCRIPTION: 'RECEIVED_DESCRIPTION',
     ADD_DASHBOARD_ITEM: 'ADD_DASHBOARD_ITEM',
     REMOVE_DASHBOARD_ITEM: 'REMOVE_DASHBOARD_ITEM',
@@ -19,6 +20,7 @@ export const DEFAULT_STATE = {};
 export const NEW_DASHBOARD_STATE = {
     id: '',
     name: '',
+    displayName: '',
     description: '',
     dashboardItems: [],
 };
@@ -33,6 +35,11 @@ export default (state = DEFAULT_STATE, action) => {
             return NEW_DASHBOARD_STATE;
         case actionTypes.RECEIVED_TITLE: {
             return Object.assign({}, state, { name: action.value });
+        }
+        case actionTypes.RECEIVED_DISPLAY_TITLE: {
+            return Object.assign({}, state, {
+                displayName: action.value,
+            });
         }
         case actionTypes.RECEIVED_DESCRIPTION: {
             return Object.assign({}, state, {

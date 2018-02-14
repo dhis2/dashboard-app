@@ -36,6 +36,11 @@ export const acSetDashboardTitle = value => ({
     value,
 });
 
+export const acSetDashboardDisplayTitle = value => ({
+    type: actionTypes.RECEIVED_DISPLAY_TITLE,
+    value,
+});
+
 export const acSetDashboardDescription = value => ({
     type: actionTypes.RECEIVED_DESCRIPTION,
     value,
