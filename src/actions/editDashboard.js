@@ -3,6 +3,7 @@ import { actionTypes } from '../reducers';
 import { fromEditDashboard } from '../reducers';
 import { updateDashboard, postDashboard } from '../api/editDashboard';
 import { fromSelected } from '.';
+import { fromDashboards } from '.';
 import {
     itemTypeMap,
     isSpacerType,
@@ -33,11 +34,6 @@ export const acClearEditDashboard = () => ({
 
 export const acSetDashboardTitle = value => ({
     type: actionTypes.RECEIVED_TITLE,
-    value,
-});
-
-export const acSetDashboardDisplayTitle = value => ({
-    type: actionTypes.RECEIVED_DISPLAY_TITLE,
     value,
 });
 
@@ -82,6 +78,20 @@ export const acRemoveDashboardItem = value => ({
 });
 
 //thunks
+
+export const tSetDashboardDisplayTitle = value => async (
+    dispatch,
+    getState
+) => {
+    const dashboard = fromEditDashboard.sGetEditDashboard(getState());
+
+    dispatch({
+        type: actionTypes.RECEIVED_DISPLAY_TITLE,
+        value,
+    });
+
+    dispatch(fromDashboards.acSetDashboardDisplayName(dashboard.id, value));
+};
 
 export const tSaveDashboard = () => async (dispatch, getState) => {
     const dashboard = fromEditDashboard.sGetEditDashboard(getState());
