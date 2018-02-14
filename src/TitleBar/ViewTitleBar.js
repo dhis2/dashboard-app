@@ -108,7 +108,9 @@ class ViewTitleBar extends Component {
                                 style={styles.textLink}
                                 hoverStyle={styles.textLinkHover}
                                 onClick={() =>
-                                    onFilterClick('ou', ['O6uvpzGd5pu'])
+                                    onFilterClick('userOrgUnit', [
+                                        'O6uvpzGd5pu',
+                                    ])
                                 }
                             />
                         </div>

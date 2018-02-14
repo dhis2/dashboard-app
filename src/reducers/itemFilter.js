@@ -23,3 +23,7 @@ export default (state = DEFAULT_FILTER, action) => {
             return state;
     }
 };
+
+// selectors
+
+export const sGetFromState = state => state.itemFilter;
