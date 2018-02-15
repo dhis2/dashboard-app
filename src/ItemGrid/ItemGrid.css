@@ -58,7 +58,7 @@
 /* dashboard item - content */
 
 .dashboard-item-content {
-    flex: 1;
+    height: 337px;
     padding: 0 4px 4px;
     overflow: auto;
 }
