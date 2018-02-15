@@ -4,11 +4,11 @@ export const actionTypes = {
     SET_ITEM_FILTER: 'SET_ITEM_FILTER',
 };
 
-const DEFAULT_FILTER = {};
+export const DEFAULT_STATE = {};
 
 const isEmpty = param => param === undefined || param === null;
 
-export default (state = DEFAULT_FILTER, action) => {
+export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {
         case actionTypes.SET_ITEM_FILTER: {
             return objectClean(
