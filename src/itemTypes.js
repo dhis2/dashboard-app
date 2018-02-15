@@ -1,4 +1,4 @@
-import { t } from 'i18next';
+import i18n from 'i18next';
 import { getBaseUrl } from './util';
 
 // Item types
@@ -40,7 +40,7 @@ export const itemTypeMap = {
         endPointName: 'reportTables',
         propName: 'reportTable',
         countName: 'reportTableCount',
-        pluralTitle: t('Report tables'),
+        pluralTitle: i18n.t('Report tables'),
         plugin: global.reportTablePlugin,
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_TABLE,
@@ -52,7 +52,7 @@ export const itemTypeMap = {
         endPointName: 'charts',
         propName: 'chart',
         countName: 'chartCount',
-        pluralTitle: t('Charts'),
+        pluralTitle: i18n.t('Charts'),
         plugin: global.chartPlugin,
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_CHART,
@@ -64,7 +64,7 @@ export const itemTypeMap = {
         endPointName: 'maps',
         propName: 'map',
         countName: 'mapCount',
-        pluralTitle: t('Maps'),
+        pluralTitle: i18n.t('Maps'),
         plugin: global.mapPlugin,
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_MAP,
@@ -76,7 +76,7 @@ export const itemTypeMap = {
         endPointName: 'eventReports',
         propName: 'eventReport',
         countName: 'eventReportCount',
-        pluralTitle: t('Event reports'),
+        pluralTitle: i18n.t('Event reports'),
         plugin: global.eventReportPlugin,
         domainType: DOMAIN_TYPE_TRACKER,
         visualizationType: VISUALIZATION_TYPE_TABLE,
@@ -88,7 +88,7 @@ export const itemTypeMap = {
         endPointName: 'eventCharts',
         propName: 'eventChart',
         countName: 'eventChartCount',
-        pluralTitle: t('Event charts'),
+        pluralTitle: i18n.t('Event charts'),
         plugin: global.eventChartPlugin,
         domainType: DOMAIN_TYPE_TRACKER,
         visualizationType: VISUALIZATION_TYPE_CHART,
@@ -107,7 +107,7 @@ export const itemTypeMap = {
         endPointName: 'reports',
         propName: 'reports',
         countName: 'reportCount',
-        pluralTitle: t('Reports'),
+        pluralTitle: i18n.t('Reports'),
         appUrl: id =>
             `dhis-web-reporting/getReportParams.action?mode=report&uid=${id}`,
         icon: 'ViewList',
@@ -117,7 +117,7 @@ export const itemTypeMap = {
         endPointName: 'resources',
         propName: 'resources',
         countName: 'resourceCount',
-        pluralTitle: t('Resources'),
+        pluralTitle: i18n.t('Resources'),
         appUrl: id => `api/documents/${id}`,
         icon: 'Description',
     },
@@ -126,7 +126,7 @@ export const itemTypeMap = {
         endPointName: 'users',
         propName: 'users',
         countName: 'userCount',
-        pluralTitle: t('Users'),
+        pluralTitle: i18n.t('Users'),
         appUrl: id => `dhis-web-dashboard-integration/profile.action?id=${id}`,
         icon: 'Person',
     },
