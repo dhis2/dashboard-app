@@ -8,6 +8,7 @@ const lightMediumGrey = '#9E9E9E';
 const red = '#E53935';
 
 // const lightBlue = '#63A4FF';
+const paleBlue = '#E3F2FD';
 const lightBlue = '#EAF4FF';
 const mediumBlue = '#1976D2';
 const royalBlue = '#004BA0';
@@ -42,4 +43,5 @@ export const colors = {
     darkGreen,
     mediumGreen,
     mediumBlue,
+    paleBlue,
 };

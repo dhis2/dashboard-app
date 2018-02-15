@@ -1,6 +1,6 @@
 import React from 'react';
 import Dialog from 'material-ui/Dialog';
-import Button from '../widgets/Button';
+import FlatButton from '../widgets/FlatButton';
 import PrimaryButton from '../widgets/PrimaryButton';
 
 const ConfirmDeleteDialog = ({
@@ -10,8 +10,8 @@ const ConfirmDeleteDialog = ({
     open,
 }) => {
     const actions = [
-        <Button onClick={onDeleteConfirmed}>Delete</Button>,
-        <PrimaryButton onClick={onContinueEditing}>
+        <FlatButton onClick={onDeleteConfirmed}>Delete</FlatButton>,
+        <PrimaryButton onClick={onContinueEditing} disabled={true}>
             Continue editing
         </PrimaryButton>,
     ];

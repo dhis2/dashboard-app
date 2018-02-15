@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 import PrimaryButton from '../widgets/PrimaryButton';
-import Button from '../widgets/Button';
+import FlatButton from '../widgets/FlatButton';
 import TranslationDialog from 'd2-ui/lib/i18n/TranslationDialog.component';
 import ConfirmDeleteDialog from './ConfirmDeleteDialog';
 import { tSaveDashboard, acClearEditDashboard } from '../actions/editDashboard';
@@ -104,20 +104,22 @@ class EditBar extends Component {
                                 </PrimaryButton>
                             </span>
                             {dashboardId && deleteAccess ? (
-                                <Button onClick={this.onConfirmDelete}>
+                                <FlatButton onClick={this.onConfirmDelete}>
                                     Delete
-                                </Button>
+                                </FlatButton>
                             ) : null}
                             {dashboardId ? (
-                                <Button onClick={this.toggleTranslationDialog}>
+                                <FlatButton
+                                    onClick={this.toggleTranslationDialog}
+                                >
                                     Translate
-                                </Button>
+                                </FlatButton>
                             ) : null}
                         </div>
                         <div style={style.rightControls}>
-                            <Button onClick={onDiscard}>
+                            <FlatButton onClick={onDiscard}>
                                 Exit without saving
-                            </Button>
+                            </FlatButton>
                         </div>
                     </div>
                 </ControlBar>

@@ -26,8 +26,8 @@ export const muiTheme = () => {
         // primaryTextColor: colors.white,
         // secondaryColor: palette.accent1Color,
         // secondaryTextColor: colors.white,
-        // disabledColor: darken(palette.alternateTextColor, 0.1),
-        // disabledTextColor: fade(palette.textColor, 0.3),
+        disabledColor: colors.paleBlue,
+        disabledTextColor: colors.lightMediumGrey,
         // fontSize: typography.fontStyleButtonFontSize,
         // fontWeight: typography.fontWeightMedium,
     };

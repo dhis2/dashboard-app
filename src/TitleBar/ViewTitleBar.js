@@ -5,7 +5,7 @@ import SharingDialog from 'd2-ui/lib/sharing/SharingDialog.component';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
 import Info from './Info';
-import Button from '../widgets/Button';
+import FlatButton from '../widgets/FlatButton';
 import * as fromReducers from '../reducers';
 import { fromEditDashboard, fromSelected } from '../actions';
 import { orObject } from '../util';
@@ -22,6 +22,9 @@ const viewStyle = {
     },
     noDescription: {
         color: '#888',
+    },
+    button: {
+        fontSize: '13px',
     },
 };
 
@@ -56,8 +59,6 @@ class ViewTitleBar extends Component {
             userSelect: 'text',
         });
 
-        console.log('titleStyle', titleStyle);
-
         return (
             <Fragment>
                 <div className="titlebar" style={styles.titleBar}>
@@ -70,12 +71,20 @@ class ViewTitleBar extends Component {
                             <Info onClick={onInfoClick} />
                         </div>
                         {access.update ? (
-                            <Button onClick={onEditClick}>Edit</Button>
+                            <FlatButton
+                                style={viewStyle.button}
+                                onClick={onEditClick}
+                            >
+                                Edit
+                            </FlatButton>
                         ) : null}
 
-                        <Button onClick={this.toggleSharingDialog}>
+                        <FlatButton
+                            style={viewStyle.button}
+                            onClick={this.toggleSharingDialog}
+                        >
                             Share
-                        </Button>
+                        </FlatButton>
                     </div>
                 </div>
                 {showDescription ? (
