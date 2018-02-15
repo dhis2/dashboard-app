@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { t } from 'i18next';
 
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
-// FIXME: TO BE USED IN 2.30
-//import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import Chip from 'd2-ui/lib/chip/Chip';
 import { blue800 } from 'material-ui/styles/colors';
 
@@ -33,23 +31,6 @@ const dashboardBarStyles = {
 const EXPANDED_ROW_COUNT = 10;
 
 const onDashboardSelectWrapper = (id, onClick) => () => id && onClick(id);
-
-// FIXME: TO BE USED IN 2.30
-// const ListViewButton = () => (
-//     <div style={style.rightControls}>
-//         <div
-//             style={{
-//                 position: 'relative',
-//                 top: '6px',
-//                 left: '-10px',
-//                 cursor: 'pointer',
-//             }}
-//             onClick={() => alert('show list view')}
-//         >
-//             <SvgIcon icon="List" />
-//         </div>
-//     </div>
-// );
 
 const DashboardsBar = ({
     controlsStyle,
