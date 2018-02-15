@@ -85,12 +85,14 @@ class Item extends Component {
                 <span title={pluginManager.getName(item)} style={style.title}>
                     {pluginManager.getName(item)}
                 </span>
-                <a
-                    href={pluginManager.getLink(item, this.context.d2)}
-                    style={{ height: 16 }}
-                >
-                    <SvgIcon icon="Launch" style={style.icon} />
-                </a>
+                {!this.props.editMode ? (
+                    <a
+                        href={pluginManager.getLink(item, this.context.d2)}
+                        style={{ height: 16 }}
+                    >
+                        <SvgIcon icon="Launch" style={style.icon} />
+                    </a>
+                ) : null}
             </div>
         );
 
