@@ -1941,9 +1941,9 @@ d2-utilizr@^0.2.15:
     lodash.isset "^4.3.0"
     lodash.isstring "^4.0.1"
 
-d2@^28.3.0:
-  version "28.3.0"
-  resolved "https://registry.yarnpkg.com/d2/-/d2-28.3.0.tgz#7ca7e5369849aa5d8e8e3659c3b46999541508ff"
+d2@^29.0.0:
+  version "29.0.0"
+  resolved "https://registry.yarnpkg.com/d2/-/d2-29.0.0.tgz#c49925be87dee8f7cd950821c01e3d6e4209c268"
   dependencies:
     docdash "^0.4.0"
     jsdoc "^3.5.5"

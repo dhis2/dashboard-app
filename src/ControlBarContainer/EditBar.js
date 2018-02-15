@@ -126,7 +126,7 @@ class EditBar extends Component {
                                     style={styles.secondary}
                                     onClick={this.onConfirmDelete}
                                 >
-                                    Delete dashboard
+                                    Delete
                                 </button>
                             ) : null}
                             {dashboardId ? (

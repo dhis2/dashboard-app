@@ -6,7 +6,7 @@ import ItemHeader from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import PluginItemHeaderButtons from './ItemHeaderButtons';
 
-import * as favorite from './plugin';
+import * as pluginManager from './plugin';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { getBaseUrl } from '../../util';
 
@@ -38,9 +38,22 @@ class Item extends Component {
         activeVisualization: this.props.item.type,
     };
 
+    pluginCredentials = null;
+
     componentDidMount() {
-        const credentials = pluginCredentials(this.context.d2);
-        favorite.load(this.props.item, credentials);
+        this.pluginCredentials = pluginCredentials(this.context.d2);
+
+        pluginManager.load(this.props.item, this.pluginCredentials, {
+            filter: this.props.itemFilter,
+        });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.itemFilter !== this.props.itemFilter) {
+            pluginManager.load(this.props.item, this.pluginCredentials, {
+                filter: nextProps.itemFilter,
+            });
+        }
     }
 
     onToggleFooter = () => {
@@ -51,13 +64,16 @@ class Item extends Component {
     };
 
     onSelectVisualization = targetType => {
-        favorite.unmount(this.props.item, targetType);
+        pluginManager.unmount(this.props.item, targetType);
 
         this.setState({ activeVisualization: targetType });
-        favorite.reload(
+        pluginManager.reload(
             this.props.item,
             targetType,
-            pluginCredentials(this.context.d2)
+            this.pluginCredentials,
+            {
+                filter: this.props.itemFilter,
+            }
         );
     };
 
@@ -66,15 +82,17 @@ class Item extends Component {
         const elementId = getGridItemDomId(item.id);
         const title = (
             <div style={{ display: 'flex', alignItems: 'center' }}>
-                <span title={favorite.getName(item)} style={style.title}>
-                    {favorite.getName(item)}
+                <span title={pluginManager.getName(item)} style={style.title}>
+                    {pluginManager.getName(item)}
                 </span>
-                <a
-                    href={favorite.getLink(item, this.context.d2)}
-                    style={{ height: 16 }}
-                >
-                    <SvgIcon icon="Launch" style={style.icon} />
-                </a>
+                {!this.props.editMode ? (
+                    <a
+                        href={pluginManager.getLink(item, this.context.d2)}
+                        style={{ height: 16 }}
+                    >
+                        <SvgIcon icon="Launch" style={style.icon} />
+                    </a>
+                ) : null}
             </div>
         );
 

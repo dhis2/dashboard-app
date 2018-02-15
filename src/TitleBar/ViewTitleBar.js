@@ -8,9 +8,8 @@ import FilterDialog from '../ItemFilter/ItemFilter';
 import Info from './Info';
 import D2TextLink from '../widgets/D2TextLink';
 import * as fromReducers from '../reducers';
-import { fromEditDashboard, fromSelected } from '../actions';
+import { fromEditDashboard, fromSelected, fromDashboards } from '../actions';
 import { orObject } from '../util';
-import { tStarDashboard } from '../actions/dashboards';
 
 const NO_DESCRIPTION = 'No description';
 
@@ -166,7 +165,12 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         ...stateProps,
         ...ownProps,
         onStarClick: () =>
-            dispatch(tStarDashboard(selectedDashboard.id, !stateProps.starred)),
+            dispatch(
+                fromDashboards.tStarDashboard(
+                    selectedDashboard.id,
+                    !stateProps.starred
+                )
+            ),
         onEditClick: () => {
             dispatch(fromEditDashboard.acSetEditDashboard(selectedDashboard));
         },

@@ -6,8 +6,6 @@ import { List, ListItem } from 'material-ui/List';
 import Button from 'd2-ui/lib/button/Button';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import { acAddDashboardItem } from '../actions/editDashboard';
-import { sGetEditDashboard } from '../reducers/editDashboard';
-import { getYMax } from '../ItemGrid/gridUtil';
 
 const SingleItem = ({ item, onAddToDashboard }) => {
     return (
@@ -35,11 +33,9 @@ const SingleItem = ({ item, onAddToDashboard }) => {
     );
 };
 
-const ItemSelectSingle = ({ dashboardItems, acAddDashboardItem, category }) => {
+const ItemSelectSingle = ({ acAddDashboardItem, category }) => {
     const addToDashboard = ({ type, content }) => () => {
-        const yValue = getYMax(dashboardItems);
-
-        acAddDashboardItem({ type, content }, yValue);
+        acAddDashboardItem({ type, content });
     };
 
     return (
@@ -68,9 +64,7 @@ const ItemSelectSingle = ({ dashboardItems, acAddDashboardItem, category }) => {
 };
 
 export default connect(
-    state => ({
-        dashboardItems: sGetEditDashboard(state).dashboardItems,
-    }),
+    null,
     {
         acAddDashboardItem,
     },
