@@ -23,7 +23,6 @@ const PrimaryButton = props => {
             primary={true}
             onClick={onClick}
             label={label}
-            disabled={true}
         />
     );
 };
