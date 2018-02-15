@@ -1,8 +1,11 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import OrgUnitTree from 'd2-ui/lib/org-unit-tree/OrgUnitTreeMultipleRoots.component';
-import { apiGetOrgUnits } from '../api/orgUnits';
+import { apiFetchOrgUnits } from '../api/orgUnits';
+import { acSetItemFilter, FILTER_USER_ORG_UNIT } from '../actions/itemFilter';
+import { sGetFromState } from '../reducers/itemFilter';
 import { colors } from '../colors';
 
 const style = {
@@ -22,9 +25,13 @@ class ItemFilter extends Component {
     };
 
     componentDidMount() {
-        apiGetOrgUnits().then(roots => {
+        apiFetchOrgUnits().then(roots => {
             this.setState({ roots });
         });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({ selected: nextProps.selected });
     }
 
     onSelectOrgUnit = (e, orgUnit) => {
@@ -40,11 +47,12 @@ class ItemFilter extends Component {
     };
 
     onSubmit = () => {
-        //TODO: dispatch action to set itemFilter store to this.state.selected
+        this.props.acSetItemFilter(FILTER_USER_ORG_UNIT, this.state.selected);
         this.props.onRequestClose();
     };
 
     renderOrgUnitTree = () => {
+        // const selected = this.state.selected.map(s => s.path);
         return (
             <Fragment>
                 <p>Applies to favorites with "User org units" set</p>
@@ -53,6 +61,7 @@ class ItemFilter extends Component {
                         roots={this.state.roots}
                         selected={this.state.selected}
                         onSelectClick={this.onSelectOrgUnit}
+                        initiallyExpanded={this.state.selected}
                         hideCheckboxes
                     />
                 </div>
@@ -68,7 +77,6 @@ class ItemFilter extends Component {
                 backgroundColor={colors.royalBlue}
                 hoverColor={colors.lightBlue}
                 style={style.button}
-                disabled={!this.state.selected.length}
                 onClick={this.onSubmit}
             />,
         ];
@@ -87,4 +95,10 @@ class ItemFilter extends Component {
     }
 }
 
-export default ItemFilter;
+const mapStateToProps = state => ({
+    selected: sGetFromState(state)[FILTER_USER_ORG_UNIT] || [],
+});
+
+const ItemFilterCt = connect(mapStateToProps, { acSetItemFilter })(ItemFilter);
+
+export default ItemFilterCt;

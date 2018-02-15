@@ -1,6 +1,6 @@
 import { getInstance } from 'd2/lib/d2';
 
-export const apiGetOrgUnits = () => {
+export const apiFetchOrgUnits = () => {
     return getInstance().then(d2 => {
         return d2.models.organisationUnits
             .list({
