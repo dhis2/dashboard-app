@@ -6,12 +6,11 @@ import Button from 'd2-ui/lib/button/Button';
 import TranslationDialog from 'd2-ui/lib/i18n/TranslationDialog.component';
 import ConfirmDeleteDialog from './ConfirmDeleteDialog';
 import { colors } from '../colors';
+import { tSaveDashboard, acClearEditDashboard } from '../actions/editDashboard';
 import {
-    tSaveDashboard,
-    acClearEditDashboard,
-    tSetDashboardDisplayTitle,
-} from '../actions/editDashboard';
-import { tDeleteDashboard } from '../actions/dashboards';
+    tDeleteDashboard,
+    acSetDashboardDisplayName,
+} from '../actions/dashboards';
 import { sGetEditDashboard } from '../reducers/editDashboard';
 import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './ControlBarContainer';
 import { apiFetchSelected } from '../api/dashboards';
@@ -68,7 +67,7 @@ class EditBar extends Component {
     onTranslationsSaved = async translations => {
         if (translations && translations.length) {
             const uiLocale = await this.context.d2.currentUser.userSettings.get(
-                'keyUiLocale'
+                'keyDbLocale'
             );
 
             const translation = translations.find(
@@ -203,7 +202,7 @@ const mapDispatchToProps = dispatch => {
             dispatch(tDeleteDashboard(id));
         },
         onTranslate: (id, translatedDisplayName) => {
-            dispatch(tSetDashboardDisplayTitle(translatedDisplayName));
+            dispatch(acSetDashboardDisplayName(id, translatedDisplayName));
         },
     };
 };

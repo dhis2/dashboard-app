@@ -61,10 +61,17 @@ const mapStateToProps = state => {
     const selectedDashboard = orObject(
         fromReducers.sGetSelectedDashboard(state)
     );
+    const dashboard = orObject(
+        fromReducers.fromDashboards.sGetById(
+            state,
+            fromReducers.fromSelected.sGetSelectedId(state)
+        )
+    );
+
     return {
         id: selectedDashboard.id,
         name: selectedDashboard.name,
-        displayName: selectedDashboard.displayName,
+        displayName: dashboard.displayName,
         description: selectedDashboard.description,
         edit: fromReducers.fromEditDashboard.sGetIsEditing(state),
     };

@@ -10,7 +10,6 @@ describe('editDashboard', () => {
     const initialState = {
         id: 'ponydash',
         name: 'My pony dashboard',
-        displayName: 'untranslated',
         description: 'My pony dashboard description',
         dashboardItems: [
             {
@@ -121,23 +120,6 @@ describe('editDashboard', () => {
 
             //check for pure function
             expect(initialState.name).toEqual('My pony dashboard');
-        });
-
-        it('should set the dashboard display title', () => {
-            const displayTitle = 'moohaha dashboard da paura!';
-
-            const actualState = reducer(initialState, {
-                type: actionTypes.RECEIVED_DISPLAY_TITLE,
-                value: displayTitle,
-            });
-
-            expect(actualState.displayName).toEqual(displayTitle);
-            expect(actualState.dashboardItems.length).toEqual(
-                initialState.dashboardItems.length
-            );
-
-            //check for pure function
-            expect(initialState.displayName).toEqual('untranslated');
         });
 
         it('should set the dashboard description', () => {
