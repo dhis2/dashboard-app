@@ -5,7 +5,7 @@ import SharingDialog from 'd2-ui/lib/sharing/SharingDialog.component';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
 import Info from './Info';
-import D2TextLink from '../widgets/D2TextLink';
+import Button from '../widgets/Button';
 import * as fromReducers from '../reducers';
 import { fromEditDashboard, fromSelected } from '../actions';
 import { orObject } from '../util';
@@ -14,22 +14,11 @@ import { tStarDashboard } from '../actions/dashboards';
 const NO_DESCRIPTION = 'No description';
 
 const viewStyle = {
-    textLink: {
-        fontSize: 15,
-        fontWeight: 500,
-        color: '#006ed3',
-    },
-    textLinkHover: {
-        color: '#3399f8',
-    },
     titleBarIcon: {
         marginLeft: 5,
         position: 'relative',
         top: 1,
         cursor: 'pointer',
-    },
-    titleBarLink: {
-        marginLeft: 20,
     },
     noDescription: {
         color: '#888',
@@ -64,14 +53,15 @@ class ViewTitleBar extends Component {
         const styles = Object.assign({}, style, viewStyle);
         const titleStyle = Object.assign({}, style.title, {
             cursor: 'default',
+            userSelect: 'text',
         });
+
+        console.log('titleStyle', titleStyle);
 
         return (
             <Fragment>
                 <div className="titlebar" style={styles.titleBar}>
-                    <div style={titleStyle}>
-                        <div style={{ userSelect: 'text' }}>{name}</div>
-                    </div>
+                    <span style={titleStyle}>{name}</span>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <div style={styles.titleBarIcon} onClick={onStarClick}>
                             <SvgIcon icon={starred ? 'Star' : 'StarBorder'} />
@@ -80,23 +70,12 @@ class ViewTitleBar extends Component {
                             <Info onClick={onInfoClick} />
                         </div>
                         {access.update ? (
-                            <div style={styles.titleBarLink}>
-                                <D2TextLink
-                                    text={'Edit'}
-                                    style={styles.textLink}
-                                    hoverStyle={styles.textLinkHover}
-                                    onClick={onEditClick}
-                                />
-                            </div>
+                            <Button onClick={onEditClick}>Edit</Button>
                         ) : null}
-                        <div style={styles.titleBarLink}>
-                            <D2TextLink
-                                text={'Share'}
-                                style={styles.textLink}
-                                hoverStyle={styles.textLinkHover}
-                                onClick={this.toggleSharingDialog}
-                            />
-                        </div>
+
+                        <Button onClick={this.toggleSharingDialog}>
+                            Share
+                        </Button>
                     </div>
                 </div>
                 {showDescription ? (

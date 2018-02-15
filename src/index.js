@@ -14,6 +14,7 @@ import './index.css';
 import configureStore from './configureStore';
 
 import App from './App';
+import { muiTheme } from './theme';
 
 const configI18n = userSettings => {
     const uiLocale = userSettings.keyUiLocale;
@@ -52,7 +53,7 @@ const init = () => {
             config.schemas = ['dashboard'];
 
             ReactDOM.render(
-                <D2UIApp initConfig={config}>
+                <D2UIApp initConfig={config} muiTheme={muiTheme()}>
                     <Provider store={configureStore()}>
                         <App baseUrl={baseUrl} />
                     </Provider>
