@@ -52,7 +52,6 @@ class ItemFilter extends Component {
     };
 
     renderOrgUnitTree = () => {
-        // const selected = this.state.selected.map(s => s.path);
         return (
             <Fragment>
                 <p>Applies to favorites with "User org units" set</p>

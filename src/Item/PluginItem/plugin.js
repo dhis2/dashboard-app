@@ -1,6 +1,7 @@
 import isObject from 'd2-utilizr/lib/isObject';
 import { apiFetchFavorite } from '../../api/dashboards';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
+import { FILTER_USER_ORG_UNIT } from '../../actions/itemFilter';
 import {
     REPORT_TABLE,
     CHART,
@@ -60,19 +61,30 @@ export const getLink = (item, d2) => {
     return `${baseUrl}/${appUrl}`;
 };
 
-export const reload = async (
-    item,
-    targetType,
-    credentials,
-    { filter = {} }
-) => {
+const getUserOrgUnitIds = (ouPaths = []) => {
+    return ouPaths.map(ouPath => ouPath.split('/').slice(-1)[0]);
+};
+
+const configureFilter = (filter = {}) => {
+    const ouIds = getUserOrgUnitIds(filter[FILTER_USER_ORG_UNIT]);
+    const userOrgUnitFilter = ouIds.length
+        ? { [FILTER_USER_ORG_UNIT]: ouIds }
+        : {};
+
+    return Object.assign({}, ...filter, userOrgUnitFilter);
+};
+
+export const reload = async (item, targetType, credentials, filter) => {
     const favorite = await apiFetchFavorite(getId(item), item.type);
+
+    const configuredFilter = configureFilter(filter);
+
     const itemConfig = {
         ...favorite,
         id: null,
         el: getGridItemDomId(item.id),
         hideTitle: !favorite.title,
-        ...filter,
+        ...configuredFilter,
     };
 
     let plugin = itemTypeMap[targetType].plugin;
@@ -80,15 +92,16 @@ export const reload = async (
     loadPlugin(plugin, itemConfig, credentials);
 };
 
-export const load = (item, credentials, { filter = {} }) => {
+export const load = (item, credentials, filter) => {
     let plugin = itemTypeMap[item.type].plugin;
 
+    const configuredFilter = configureFilter(filter);
     const favorite = extractFavorite(item);
     const itemConfig = {
         id: favorite.id,
         el: getGridItemDomId(item.id),
         hideTitle: !favorite.title,
-        ...filter,
+        ...configuredFilter,
     };
 
     loadPlugin(plugin, itemConfig, credentials);

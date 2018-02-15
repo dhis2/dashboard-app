@@ -43,16 +43,20 @@ class Item extends Component {
     componentDidMount() {
         this.pluginCredentials = pluginCredentials(this.context.d2);
 
-        pluginManager.load(this.props.item, this.pluginCredentials, {
-            filter: this.props.itemFilter,
-        });
+        pluginManager.load(
+            this.props.item,
+            this.pluginCredentials,
+            this.props.itemFilter
+        );
     }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.itemFilter !== this.props.itemFilter) {
-            pluginManager.load(this.props.item, this.pluginCredentials, {
-                filter: nextProps.itemFilter,
-            });
+            pluginManager.load(
+                this.props.item,
+                this.pluginCredentials,
+                nextProps.itemFilter
+            );
         }
     }
 
@@ -71,9 +75,7 @@ class Item extends Component {
             this.props.item,
             targetType,
             this.pluginCredentials,
-            {
-                filter: this.props.itemFilter,
-            }
+            this.props.itemFilter
         );
     };
 
