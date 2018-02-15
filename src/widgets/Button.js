@@ -15,15 +15,7 @@ const style = {
 const PlainButton = ({ onClick, children }) => {
     const label = typeof children === 'string' ? children : null;
 
-    return (
-        <FlatButton
-            style={style}
-            onClick={onClick}
-            label={label}
-            disabledBackgroundColor={colors.white}
-            disabledLabelColor={colors.lightMediumGrey}
-        />
-    );
+    return <FlatButton style={style} onClick={onClick} label={label} />;
 };
 
 export default PlainButton;
