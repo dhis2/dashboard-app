@@ -11,7 +11,7 @@ const ConfirmDeleteDialog = ({
 }) => {
     const actions = [
         <FlatButton onClick={onDeleteConfirmed}>Delete</FlatButton>,
-        <PrimaryButton onClick={onContinueEditing} disabled={true}>
+        <PrimaryButton onClick={onContinueEditing}>
             Continue editing
         </PrimaryButton>,
     ];
