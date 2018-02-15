@@ -3,15 +3,19 @@ import { connect } from 'react-redux';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import OrgUnitTree from 'd2-ui/lib/org-unit-tree/OrgUnitTreeMultipleRoots.component';
+import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import { apiFetchOrgUnits } from '../api/orgUnits';
 import { acSetItemFilter, FILTER_USER_ORG_UNIT } from '../actions/itemFilter';
 import { sGetFromState } from '../reducers/itemFilter';
 import { colors } from '../colors';
+import D2TextLink from '../widgets/D2TextLink';
 
 const style = {
     container: {
         height: '500px',
         overflowY: 'auto',
+        border: '1px solid #eee',
+        padding: '10px 7px',
     },
     button: {
         color: colors.white,
@@ -46,21 +50,58 @@ class ItemFilter extends Component {
         this.setState({ selected });
     };
 
+    onDeselectAll = () => {
+        this.setState({
+            selected: [],
+        });
+    };
+
     onSubmit = () => {
         this.props.acSetItemFilter(FILTER_USER_ORG_UNIT, this.state.selected);
         this.props.onRequestClose();
     };
 
+    // text: PropTypes.string,
+    // onClick: PropTypes.func,
+    // style: PropTypes.object,
+    // hoverStyle: PropTypes.object,
     renderOrgUnitTree = () => {
         return (
             <Fragment>
-                <p>Applies to favorites with "User org units" set</p>
+                <div
+                    style={{
+                        fontSize: '13px',
+                        marginTop: '5px',
+                        marginBottom: '16px',
+                    }}
+                >
+                    <SvgIcon
+                        icon="Info"
+                        style={{
+                            fill: '#888',
+                            position: 'relative',
+                            top: '7px',
+                            marginRight: '5px',
+                        }}
+                    />
+                    Filtering only applies to favorites with "User org units"
+                    set
+                </div>
                 <div style={style.container}>
+                    <div style={{ padding: '1px 0 12px 6px' }}>
+                        <D2TextLink
+                            text="Deselect all"
+                            onClick={this.onDeselectAll}
+                            style={{ color: '#006ed3' }}
+                            hoverStyle={{
+                                color: '#3399f8',
+                            }}
+                        />
+                    </div>
                     <OrgUnitTree
                         roots={this.state.roots}
                         selected={this.state.selected}
                         onSelectClick={this.onSelectOrgUnit}
-                        initiallyExpanded={this.state.selected}
                         hideCheckboxes
                     />
                 </div>
