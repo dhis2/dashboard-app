@@ -26,7 +26,11 @@ export const NEW_DASHBOARD_STATE = {
 export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {
         case actionTypes.RECEIVED_EDIT_DASHBOARD:
-            return action.value;
+            const newState = {};
+            Object.keys(NEW_DASHBOARD_STATE).map(
+                k => (newState[k] = action.value[k])
+            );
+            return newState;
         case actionTypes.RECEIVED_NOT_EDITING:
             return DEFAULT_STATE;
         case actionTypes.START_NEW_DASHBOARD:

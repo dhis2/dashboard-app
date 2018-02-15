@@ -30,6 +30,12 @@ export const acStarDashboard = (dashboardId, isStarred) => ({
     value: isStarred,
 });
 
+export const acSetDashboardDisplayName = (dashboardId, value) => ({
+    type: actionTypes.SET_DASHBOARD_DISPLAY_NAME,
+    dashboardId,
+    value,
+});
+
 // thunks
 
 export const tSetDashboards = () => async (dispatch, getState) => {

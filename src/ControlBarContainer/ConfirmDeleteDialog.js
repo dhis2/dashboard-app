@@ -1,4 +1,6 @@
 import React from 'react';
+import { t } from 'i18next';
+import { Trans } from 'react-i18next';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from '../widgets/FlatButton';
 import PrimaryButton from '../widgets/PrimaryButton';
@@ -10,20 +12,22 @@ const ConfirmDeleteDialog = ({
     open,
 }) => {
     const actions = [
-        <FlatButton onClick={onDeleteConfirmed}>Delete</FlatButton>,
+        <FlatButton onClick={onDeleteConfirmed}><Trans>Delete</Trans></FlatButton>,
         <PrimaryButton onClick={onContinueEditing}>
-            Continue editing
+            <Trans>Continue editing</Trans>
         </PrimaryButton>,
     ];
 
     return (
         <Dialog
-            title="Confirm delete dashboard"
+            title={t('Confirm delete dashboard')}
             actions={actions}
             modal={true}
             open={open}
         >
-            {`Are you sure you want to delete dashboard "${dashboardName}"?`}
+            {t('Are you sure you want to delete dashboard {{ name }}', {
+                name: dashboardName,
+            })}
         </Dialog>
     );
 };

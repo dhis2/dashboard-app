@@ -3,6 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { t } from 'i18next';
 
 import { grey700 } from 'material-ui/styles/colors';
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
@@ -97,7 +98,7 @@ export const Dashboardbar = props => (
         >
             <D2IconButton />
             <ToolbarSeparator style={styles.toolbarSeparator} />
-            <D2TextLink text="Home" onClick={props.onClickHome} />
+            <D2TextLink text={t('Home')} onClick={props.onClickHome} />
             <ToolbarSeparator
                 style={Object.assign(
                     {},
@@ -106,7 +107,7 @@ export const Dashboardbar = props => (
                 )}
             />
             <D2TextLink
-                text="Manage dashboards"
+                text={t('Manage dashboards')}
                 onClick={props.onClickManage}
             />
         </ToolbarGroup>

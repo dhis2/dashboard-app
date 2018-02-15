@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { t } from 'i18next';
 
 import ItemSelect from '../ItemSelect/ItemSelect';
 import D2ContentEditable from '../widgets/D2ContentEditable';
@@ -8,6 +9,7 @@ import { fromEditDashboard } from '../actions';
 
 const EditTitleBar = ({
     name,
+    displayName,
     description,
     style,
     onChangeTitle,
@@ -17,18 +19,29 @@ const EditTitleBar = ({
         justifyContent: 'space-between',
     });
 
+    const translatedName = () => {
+        return displayName ? (
+            <span style={style.description}>
+                Current translation: {displayName}
+            </span>
+        ) : null;
+    };
+
     return (
         <Fragment>
             <span>Currently editing</span>
             <div style={titleBarEdit}>
-                <div style={style.title}>
-                    <D2ContentEditable
-                        className="dashboard-title editable-text"
-                        text={name}
-                        disabled={false}
-                        placeholder={'Add title here'}
-                        onChange={onChangeTitle}
-                    />
+                <div style={{ padding: '6px 0' }}>
+                    <div style={style.title}>
+                        <D2ContentEditable
+                            className="dashboard-title editable-text"
+                            text={name}
+                            disabled={false}
+                            placeholder={t('Add title here')}
+                            onChange={onChangeTitle}
+                        />
+                    </div>
+                    {translatedName()}
                 </div>
                 <ItemSelect />
             </div>
@@ -37,7 +50,7 @@ const EditTitleBar = ({
                     className="dashboard-description editable-text"
                     text={description}
                     disabled={false}
-                    placeholder={'Add description here'}
+                    placeholder={t('Add description here')}
                     onChange={onChangeDescription}
                 />
             </div>
@@ -60,10 +73,12 @@ export default TitleBarCt;
 
 EditTitleBar.propTypes = {
     name: PropTypes.string,
+    displayName: PropTypes.string,
     description: PropTypes.string,
 };
 
 EditTitleBar.defaultProps = {
     name: '',
+    displayName: '',
     description: '',
 };
