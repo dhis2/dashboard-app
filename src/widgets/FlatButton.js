@@ -1,5 +1,5 @@
 import React from 'react';
-import FlatButton from 'material-ui/FlatButton';
+import MuiFlatButton from 'material-ui/FlatButton';
 import { colors } from '../colors';
 
 const defaultStyles = {
@@ -7,7 +7,7 @@ const defaultStyles = {
     backgroundColor: 'transparent',
 };
 
-const PlainButton = ({ onClick, children, style, disabled }) => {
+const FlatButton = ({ onClick, children, style, disabled }) => {
     const label = typeof children === 'string' ? children : null;
     const classes = ['d2ui-flat-button', disabled ? 'disabled' : null].join(
         ' '
@@ -16,7 +16,7 @@ const PlainButton = ({ onClick, children, style, disabled }) => {
     const combinedStyle = Object.assign({}, defaultStyles, style);
 
     return (
-        <FlatButton
+        <MuiFlatButton
             className={classes}
             style={combinedStyle}
             onClick={onClick}
@@ -26,4 +26,4 @@ const PlainButton = ({ onClick, children, style, disabled }) => {
     );
 };
 
-export default PlainButton;
+export default FlatButton;
