@@ -2,45 +2,47 @@ import { combineReducers } from 'redux';
 import arraySort from 'd2-utilizr/lib/arraySort';
 import dashboards, * as fromDashboards from './dashboards';
 import selected, * as fromSelected from './selected';
-import filter, * as fromFilter from './filter';
+import dashboardsFilter, * as fromDashboardsFilter from './dashboardsFilter';
 import controlBar, * as fromControlBar from './controlBar';
 import interpretations, * as fromInterpretations from './interpretations';
 import visualizations, * as fromVisualizations from './visualizations';
 import editDashboard, * as fromEditDashboard from './editDashboard';
 import messages, * as fromMessages from './messages';
 import user, * as fromUser from './user';
+import itemFilter, * as fromItemFilter from './itemFilter';
 import style, * as fromStyle from './style';
 
 const USER = 'system';
 
 // action types
 
-export const actionTypes = Object.assign(
-    {},
-    fromDashboards.actionTypes,
-    fromSelected.actionTypes,
-    fromFilter.actionTypes,
-    fromControlBar.actionTypes,
-    fromInterpretations.actionTypes,
-    fromVisualizations.actionTypes,
-    fromMessages.actionTypes,
-    fromUser.actionTypes,
-    fromEditDashboard.actionTypes,
-    fromStyle.actionTypes
-);
+export const actionTypes = {
+    ...fromDashboards.actionTypes,
+    ...fromSelected.actionTypes,
+    ...fromDashboardsFilter.actionTypes,
+    ...fromControlBar.actionTypes,
+    ...fromInterpretations.actionTypes,
+    ...fromVisualizations.actionTypes,
+    ...fromMessages.actionTypes,
+    ...fromUser.actionTypes,
+    ...fromEditDashboard.actionTypes,
+    ...fromItemFilter.actionTypes,
+    ...fromStyle.actionTypes,
+};
 
 // reducers
 
 export default combineReducers({
     dashboards,
     selected,
-    filter,
+    dashboardsFilter,
     controlBar,
     interpretations,
     visualizations,
     messages,
     user,
     editDashboard,
+    itemFilter,
     style,
 });
 
@@ -58,13 +60,14 @@ const mapConstToData = {
 export {
     fromDashboards,
     fromSelected,
-    fromFilter,
+    fromDashboardsFilter,
     fromControlBar,
     fromInterpretations,
     fromVisualizations,
     fromMessages,
     fromEditDashboard,
     fromUser,
+    fromItemFilter,
     fromStyle,
 };
 
@@ -80,8 +83,8 @@ export const sFilterDashboardsByName = (dashboards, filter) =>
 
 // filter dashboards by owner
 export const sFilterDashboardsByOwner = (dashboards, filter) => {
-    const ME = fromFilter.ownerData[1]; // TODO
-    const OTHERS = fromFilter.ownerData[2]; // TODO
+    const ME = fromDashboardsFilter.ownerData[1]; // TODO
+    const OTHERS = fromDashboardsFilter.ownerData[2]; // TODO
 
     switch (filter) {
         case ME:
@@ -109,9 +112,9 @@ export const sFilterDashboardsByOrder = (dashboards, filter) => {
 export const sGetFilteredDashboards = state => {
     const dashboards = fromDashboards.sGetFromState(state);
 
-    const nameFilter = fromFilter.sGetFilterName(state);
-    const ownerFilter = fromFilter.sGetFilterOwner(state);
-    const orderFilter = fromFilter.sGetFilterOrder(state);
+    const nameFilter = fromDashboardsFilter.sGetFilterName(state);
+    const ownerFilter = fromDashboardsFilter.sGetFilterOwner(state);
+    const orderFilter = fromDashboardsFilter.sGetFilterOrder(state);
 
     return sFilterDashboardsByOrder(
         sFilterDashboardsByName(

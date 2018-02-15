@@ -139,11 +139,11 @@ const DashboardsBar = ({
 };
 
 const mapStateToProps = state => {
-    const { fromDashboards, fromFilter } = fromReducers;
+    const { fromDashboards, fromDashboardsFilter } = fromReducers;
 
     return {
         dashboards: fromDashboards.sGetFromState(state),
-        name: fromFilter.sGetFilterName(state),
+        name: fromDashboardsFilter.sGetFilterName(state),
         rows: (state.controlBar && state.controlBar.rows) || 1,
         selectedId: sGetSelectedId(state),
         isExpanded:
@@ -155,7 +155,11 @@ const mapStateToProps = state => {
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const { dashboards, name, rows, isExpanded } = stateProps;
     const { dispatch } = dispatchProps;
-    const { fromControlBar, fromFilter, fromEditDashboard } = fromActions;
+    const {
+        fromControlBar,
+        fromDashboardsFilter,
+        fromEditDashboard,
+    } = fromActions;
 
     const filteredDashboards = Object.values(orObject(dashboards)).filter(
         d => d.name.toLowerCase().indexOf(name) !== -1
@@ -188,7 +192,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         onToggleExpanded: () => {
             dispatch(fromControlBar.acSetControlBarExpanded(!isExpanded));
         },
-        onChangeFilterName: name => dispatch(fromFilter.acSetFilterName(name)),
+        onChangeFilterName: name =>
+            dispatch(fromDashboardsFilter.acSetFilterName(name)),
         onSelectDashboard: id => dispatch(fromActions.tSelectDashboardById(id)),
     };
 };

@@ -8,9 +8,13 @@ import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import Info from './Info';
 import D2TextLink from '../widgets/D2TextLink';
 import * as fromReducers from '../reducers';
-import { fromEditDashboard, fromSelected } from '../actions';
+import {
+    fromEditDashboard,
+    fromSelected,
+    fromItemFilter,
+    fromDashboards,
+} from '../actions';
 import { orObject } from '../util';
-import { tStarDashboard } from '../actions/dashboards';
 
 const NO_DESCRIPTION = t('No description');
 
@@ -61,6 +65,7 @@ class ViewTitleBar extends Component {
             onStarClick,
             onEditClick,
             onInfoClick,
+            onFilterClick,
         } = this.props;
         const styles = Object.assign({}, style, viewStyle);
         const titleStyle = Object.assign({}, style.title, {
@@ -96,6 +101,19 @@ class ViewTitleBar extends Component {
                                 style={styles.textLink}
                                 hoverStyle={styles.textLinkHover}
                                 onClick={this.toggleSharingDialog}
+                            />
+                        </div>
+                        <div style={styles.titleBarLink}>
+                            <D2TextLink
+                                text={'Filter'}
+                                style={styles.textLink}
+                                hoverStyle={styles.textLinkHover}
+                                onClick={() =>
+                                    // TODO toggle filter dialog like edit/share above
+                                    onFilterClick('userOrgUnit', [
+                                        'O6uvpzGd5pu',
+                                    ])
+                                }
                             />
                         </div>
                     </div>
@@ -148,7 +166,12 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         ...stateProps,
         ...ownProps,
         onStarClick: () =>
-            dispatch(tStarDashboard(selectedDashboard.id, !stateProps.starred)),
+            dispatch(
+                fromDashboards.tStarDashboard(
+                    selectedDashboard.id,
+                    !stateProps.starred
+                )
+            ),
         onEditClick: () => {
             dispatch(fromEditDashboard.acSetEditDashboard(selectedDashboard));
         },
@@ -158,6 +181,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
                     !stateProps.showDescription
                 )
             ),
+        onFilterClick: (key, value) =>
+            dispatch(fromItemFilter.acSetItemFilter(key, value)),
     };
 };
 

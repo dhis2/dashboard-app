@@ -60,13 +60,19 @@ export const getLink = (item, d2) => {
     return `${baseUrl}/${appUrl}`;
 };
 
-export const reload = async (item, targetType, credentials) => {
+export const reload = async (
+    item,
+    targetType,
+    credentials,
+    { filter = {} }
+) => {
     const favorite = await apiFetchFavorite(getId(item), item.type);
     const itemConfig = {
         ...favorite,
         id: null,
         el: getGridItemDomId(item.id),
         hideTitle: !favorite.title,
+        ...filter,
     };
 
     let plugin = itemTypeMap[targetType].plugin;
@@ -74,7 +80,7 @@ export const reload = async (item, targetType, credentials) => {
     loadPlugin(plugin, itemConfig, credentials);
 };
 
-export const load = (item, credentials) => {
+export const load = (item, credentials, { filter = {} }) => {
     let plugin = itemTypeMap[item.type].plugin;
 
     const favorite = extractFavorite(item);
@@ -82,6 +88,7 @@ export const load = (item, credentials) => {
         id: favorite.id,
         el: getGridItemDomId(item.id),
         hideTitle: !favorite.title,
+        ...filter,
     };
 
     loadPlugin(plugin, itemConfig, credentials);
