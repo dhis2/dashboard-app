@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { t } from 'i18next';
 
 import ItemSelect from '../ItemSelect/ItemSelect';
 import D2ContentEditable from '../widgets/D2ContentEditable';
@@ -36,7 +37,7 @@ const EditTitleBar = ({
                             className="dashboard-title editable-text"
                             text={name}
                             disabled={false}
-                            placeholder={'Add title here'}
+                            placeholder={t('Add title here')}
                             onChange={onChangeTitle}
                         />
                     </div>
@@ -49,7 +50,7 @@ const EditTitleBar = ({
                     className="dashboard-description editable-text"
                     text={description}
                     disabled={false}
-                    placeholder={'Add description here'}
+                    placeholder={t('Add description here')}
                     onChange={onChangeDescription}
                 />
             </div>

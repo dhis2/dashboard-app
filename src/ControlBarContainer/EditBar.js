@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Trans } from 'react-i18next';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 import Button from 'd2-ui/lib/button/Button';
 import TranslationDialog from 'd2-ui/lib/i18n/TranslationDialog.component';
@@ -140,14 +141,14 @@ class EditBar extends Component {
                     <div style={styles.buttonBar}>
                         <div style={style.leftControls}>
                             <Button style={styles.save} onClick={onSave}>
-                                Save Changes
+                                <Trans>Save Changes</Trans>
                             </Button>
                             {dashboardId && deleteAccess ? (
                                 <button
                                     style={styles.secondary}
                                     onClick={this.onConfirmDelete}
                                 >
-                                    Delete dashboard
+                                    <Trans>Delete</Trans>
                                 </button>
                             ) : null}
                             {dashboardId ? (
@@ -155,7 +156,7 @@ class EditBar extends Component {
                                     style={styles.secondary}
                                     onClick={this.toggleTranslationDialog}
                                 >
-                                    Translate
+                                    <Trans>Translate</Trans>
                                 </Button>
                             ) : null}
                         </div>
@@ -164,7 +165,7 @@ class EditBar extends Component {
                                 style={styles.secondary}
                                 onClick={onDiscard}
                             >
-                                Exit without saving
+                                <Trans>Exit without saving</Trans>
                             </button>
                         </div>
                     </div>
