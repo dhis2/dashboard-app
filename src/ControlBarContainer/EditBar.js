@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Trans } from 'react-i18next';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
@@ -7,7 +8,10 @@ import TranslationDialog from 'd2-ui/lib/i18n/TranslationDialog.component';
 import ConfirmDeleteDialog from './ConfirmDeleteDialog';
 import { colors } from '../colors';
 import { tSaveDashboard, acClearEditDashboard } from '../actions/editDashboard';
-import { tDeleteDashboard } from '../actions/dashboards';
+import {
+    tDeleteDashboard,
+    acSetDashboardDisplayName,
+} from '../actions/dashboards';
 import { sGetEditDashboard } from '../reducers/editDashboard';
 import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './ControlBarContainer';
 import { apiFetchSelected } from '../api/dashboards';
@@ -61,6 +65,25 @@ class EditBar extends Component {
         this.props.onDelete(this.props.dashboardId);
     };
 
+    onTranslationsSaved = async translations => {
+        if (translations && translations.length) {
+            const dbLocale = await this.context.d2.currentUser.userSettings.get(
+                'keyDbLocale'
+            );
+
+            const translation = translations.find(
+                t => t.locale === dbLocale && t.property === 'NAME'
+            );
+
+            if (translation && translation.value) {
+                this.props.onTranslate(
+                    this.props.dashboardId,
+                    translation.value
+                );
+            }
+        }
+    };
+
     componentDidMount() {
         apiFetchSelected(this.props.dashboardId).then(dashboardModel =>
             this.setState({ dashboardModel })
@@ -91,9 +114,7 @@ class EditBar extends Component {
                 objectToTranslate={this.state.dashboardModel}
                 fieldsToTranslate={['name', 'description']}
                 // TODO handle messages in snackbar
-                onTranslationSaved={msg =>
-                    console.log('translation update response', msg)
-                }
+                onTranslationSaved={this.onTranslationsSaved}
                 onTranslationError={err =>
                     console.log('translation update error', err)
                 }
@@ -156,6 +177,10 @@ class EditBar extends Component {
     }
 }
 
+EditBar.contextTypes = {
+    d2: PropTypes.object,
+};
+
 const mapStateToProps = state => {
     const dashboard = sGetEditDashboard(state);
 
@@ -176,6 +201,9 @@ const mapDispatchToProps = dispatch => {
         },
         onDelete: id => {
             dispatch(tDeleteDashboard(id));
+        },
+        onTranslate: (id, translatedDisplayName) => {
+            dispatch(acSetDashboardDisplayName(id, translatedDisplayName));
         },
     };
 };
