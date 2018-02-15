@@ -14,7 +14,6 @@ const PlainButton = ({ onClick, children, style, disabled }) => {
     );
 
     const combinedStyle = Object.assign({}, defaultStyles, style);
-    console.log('style', style);
 
     return (
         <FlatButton

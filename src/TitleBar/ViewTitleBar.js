@@ -23,9 +23,6 @@ const viewStyle = {
     noDescription: {
         color: '#888',
     },
-    button: {
-        fontSize: '13px',
-    },
 };
 
 class ViewTitleBar extends Component {
@@ -71,18 +68,10 @@ class ViewTitleBar extends Component {
                             <Info onClick={onInfoClick} />
                         </div>
                         {access.update ? (
-                            <FlatButton
-                                style={viewStyle.button}
-                                onClick={onEditClick}
-                            >
-                                Edit
-                            </FlatButton>
+                            <FlatButton onClick={onEditClick}>Edit</FlatButton>
                         ) : null}
 
-                        <FlatButton
-                            style={viewStyle.button}
-                            onClick={this.toggleSharingDialog}
-                        >
+                        <FlatButton onClick={this.toggleSharingDialog}>
                             Share
                         </FlatButton>
                     </div>

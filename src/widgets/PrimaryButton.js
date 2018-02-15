@@ -10,8 +10,6 @@ const PrimaryButton = props => {
         ' '
     );
 
-    console.log('Raised button style', style);
-
     return (
         <RaisedButton
             className={classes}
