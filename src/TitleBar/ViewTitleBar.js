@@ -108,6 +108,7 @@ class ViewTitleBar extends Component {
                                 style={styles.textLink}
                                 hoverStyle={styles.textLinkHover}
                                 onClick={() =>
+                                    // TODO toggle filter dialog like edit/share above
                                     onFilterClick('userOrgUnit', [
                                         'O6uvpzGd5pu',
                                     ])
@@ -179,8 +180,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
                     !stateProps.showDescription
                 )
             ),
-        onFilterClick: (dimensionId, value) =>
-            dispatch(fromItemFilter.acSetItemFilter(dimensionId, value)),
+        onFilterClick: (key, value) =>
+            dispatch(fromItemFilter.acSetItemFilter(key, value)),
     };
 };
 

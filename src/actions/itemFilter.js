@@ -2,8 +2,8 @@ import { actionTypes } from '../reducers';
 
 // actions
 
-export const acSetItemFilter = (dimensionId, value) => ({
+export const acSetItemFilter = (key, value) => ({
     type: actionTypes.SET_ITEM_FILTER,
-    dimensionId,
+    key,
     value,
 });

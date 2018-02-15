@@ -14,7 +14,7 @@ export default (state = DEFAULT_FILTER, action) => {
             return objectClean(
                 {
                     ...state,
-                    [action.dimensionId]: action.value,
+                    [action.key]: action.value,
                 },
                 isEmpty
             );
