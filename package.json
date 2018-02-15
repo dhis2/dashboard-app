@@ -39,7 +39,7 @@
         "immutability-helper": "^2.6.3",
         "jest": "20.0.4",
         "jsdoc": "^3.5.5",
-        "material-ui": "^0.19.4",
+        "material-ui": "^0.20.0",
         "object-assign": "4.1.1",
         "postcss-flexbugs-fixes": "3.2.0",
         "postcss-loader": "2.0.8",
