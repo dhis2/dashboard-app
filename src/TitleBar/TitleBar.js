@@ -16,7 +16,7 @@ const style = {
     title: {
         marginRight: 20,
         position: 'relative',
-        top: -4,
+        top: -6,
         fontSize: 21,
         fontWeight: 500,
         color: '#333333',

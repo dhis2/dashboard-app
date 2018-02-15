@@ -67,13 +67,23 @@ class ViewTitleBar extends Component {
                         <div style={styles.titleBarIcon}>
                             <Info onClick={onInfoClick} />
                         </div>
-                        {access.update ? (
-                            <FlatButton onClick={onEditClick}>Edit</FlatButton>
-                        ) : null}
+                        <span style={{ marginLeft: '10px' }}>
+                            {access.update ? (
+                                <FlatButton
+                                    style={{ minWidth: '30px' }}
+                                    onClick={onEditClick}
+                                >
+                                    Edit
+                                </FlatButton>
+                            ) : null}
 
-                        <FlatButton onClick={this.toggleSharingDialog}>
-                            Share
-                        </FlatButton>
+                            <FlatButton
+                                style={{ minWidth: '30px' }}
+                                onClick={this.toggleSharingDialog}
+                            >
+                                Share
+                            </FlatButton>
+                        </span>
                     </div>
                 </div>
                 {showDescription ? (
