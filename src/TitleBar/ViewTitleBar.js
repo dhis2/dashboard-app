@@ -8,7 +8,12 @@ import FilterDialog from '../ItemFilter/ItemFilter';
 import Info from './Info';
 import D2TextLink from '../widgets/D2TextLink';
 import * as fromReducers from '../reducers';
-import { fromEditDashboard, fromSelected, fromDashboards } from '../actions';
+import {
+    fromEditDashboard,
+    fromSelected,
+    fromDashboards,
+    fromItemFilter,
+} from '../actions';
 import { orObject } from '../util';
 
 const NO_DESCRIPTION = 'No description';
@@ -51,6 +56,13 @@ class ViewTitleBar extends Component {
 
     toggleFilterDialog = () =>
         this.setState({ filterDialogIsOpen: !this.state.filterDialogIsOpen });
+
+    renderItemFilterLabel = () =>
+        this.props.itemFilterKeys.length ? (
+            <div>{this.props.itemFilterKeys.length} filters applied</div>
+        ) : (
+            ''
+        );
 
     render() {
         const {
@@ -109,6 +121,7 @@ class ViewTitleBar extends Component {
                                 onClick={this.toggleFilterDialog}
                             />
                         </div>
+                        {this.renderItemFilterLabel()}
                     </div>
                 </div>
                 {showDescription ? (
@@ -154,6 +167,7 @@ const mapStateToProps = state => {
         ),
         starred: selectedDashboard.starred,
         access: orObject(selectedDashboard.access),
+        itemFilterKeys: fromReducers.fromItemFilter.sGetFilterKeys(state),
     };
 };
 

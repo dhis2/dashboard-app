@@ -24,6 +24,10 @@ export default (state = DEFAULT_STATE, action) => {
     }
 };
 
-// selectors
+// root selector
 
 export const sGetFromState = state => state.itemFilter;
+
+// selectors
+
+export const sGetFilterKeys = state => Object.keys(sGetFromState(state));
