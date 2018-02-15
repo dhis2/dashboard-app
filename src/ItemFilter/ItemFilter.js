@@ -61,10 +61,6 @@ class ItemFilter extends Component {
         this.props.onRequestClose();
     };
 
-    // text: PropTypes.string,
-    // onClick: PropTypes.func,
-    // style: PropTypes.object,
-    // hoverStyle: PropTypes.object,
     renderOrgUnitTree = () => {
         return (
             <Fragment>
