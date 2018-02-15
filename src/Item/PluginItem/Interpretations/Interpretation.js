@@ -148,7 +148,7 @@ class Interpretation extends Component {
             this.props.interpretation.likedBy.length === 1 ? 'like' : 'likes';
 
         const thumbsUpIcon = this.userLikesInterpretation()
-            ? Object.assign({}, style.icon, { fill: colors.accentLightGreen })
+            ? Object.assign({}, style.icon, { fill: colors.lightGreen })
             : style.icon;
         const likeText = this.userLikesInterpretation()
             ? 'You like this'
