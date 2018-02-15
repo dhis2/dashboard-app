@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { t } from 'i18next';
 import Popover from 'material-ui/Popover';
 import TextField from 'material-ui/TextField';
 
@@ -34,7 +35,7 @@ const ItemSearchField = props => (
     <div style={{ display: 'flex', alignItems: 'baseline', width: '400px' }}>
         <SvgIcon icon="Search" />
         <TextField
-            hintText="Search for items to add to this dashboard"
+            hintText={t('Search for items to add to this dashboard')}
             fullWidth={true}
             value={props.value}
             onClick={props.onClick}
