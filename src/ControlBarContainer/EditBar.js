@@ -67,12 +67,12 @@ class EditBar extends Component {
 
     onTranslationsSaved = async translations => {
         if (translations && translations.length) {
-            const uiLocale = await this.context.d2.currentUser.userSettings.get(
+            const dbLocale = await this.context.d2.currentUser.userSettings.get(
                 'keyDbLocale'
             );
 
             const translation = translations.find(
-                t => t.locale === uiLocale && t.property === 'NAME'
+                t => t.locale === dbLocale && t.property === 'NAME'
             );
 
             if (translation && translation.value) {
