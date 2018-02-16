@@ -9,12 +9,7 @@ import FilterDialog from '../ItemFilter/ItemFilter';
 import Info from './Info';
 import D2TextLink from '../widgets/D2TextLink';
 import * as fromReducers from '../reducers';
-import {
-    fromEditDashboard,
-    fromSelected,
-    fromDashboards,
-    fromItemFilter,
-} from '../actions';
+import { fromEditDashboard, fromSelected, fromDashboards } from '../actions';
 import { orObject } from '../util';
 
 const NO_DESCRIPTION = t('No description');
