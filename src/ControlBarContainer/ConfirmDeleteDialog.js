@@ -1,4 +1,6 @@
 import React from 'react';
+import { t } from 'i18next';
+import { Trans } from 'react-i18next';
 import Dialog from 'material-ui/Dialog';
 import Button from 'd2-ui/lib/button/Button';
 import { colors } from '../colors';
@@ -25,21 +27,23 @@ const ConfirmDeleteDialog = ({
 }) => {
     const actions = [
         <Button onClick={onDeleteConfirmed} style={style.button}>
-            Delete
+            <Trans>Delete</Trans>
         </Button>,
         <Button onClick={onContinueEditing} style={style.button}>
-            Continue editing
+            <Trans>Continue editing</Trans>
         </Button>,
     ];
 
     return (
         <Dialog
-            title="Confirm delete dashboard"
+            title={t('Confirm delete dashboard')}
             actions={actions}
             modal={true}
             open={open}
         >
-            {`Are you sure you want to delete dashboard "${dashboardName}"?`}
+            {t('Are you sure you want to delete dashboard {{ name }}', {
+                name: dashboardName,
+            })}
         </Dialog>
     );
 };

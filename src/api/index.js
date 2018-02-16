@@ -9,7 +9,7 @@ export const getEndPointName = type => itemTypeMap[type].endPointName;
 // Fields
 export const getIdNameFields = ({ rename } = {}) => [
     'id',
-    `${rename ? 'displayName~rename(name)' : 'name'}`,
+    `${rename ? 'displayName~rename(name)' : 'name,displayName'}`,
 ];
 
 export const getItemFields = () => ['dimensionItem~rename(id)'];
@@ -106,7 +106,7 @@ export const getDashboardItemsFields = ({ withFavorite } = {}) =>
 
 export const getDashboardFields = ({ withItems, withFavorite } = {}) =>
     arrayClean([
-        `${getIdNameFields({ rename: true }).join(',')}`,
+        `${getIdNameFields({ rename: false }).join(',')}`,
         'description',
         'favorite',
         `user[${getIdNameFields({ rename: true }).join(',')}]`,

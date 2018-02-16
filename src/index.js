@@ -4,6 +4,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
+import i18n from './locales';
+import { I18nextProvider } from 'react-i18next';
+
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import D2UIApp from 'd2-ui/lib/app/D2UIApp';
 
@@ -23,6 +26,7 @@ const configI18n = userSettings => {
     }
 
     config.i18n.sources.add('./i18n/i18n_module_en.properties');
+    i18n.changeLanguage(uiLocale);
 };
 
 const init = () => {
@@ -52,11 +56,13 @@ const init = () => {
             config.schemas = ['dashboard', 'organisationUnit'];
 
             ReactDOM.render(
-                <D2UIApp initConfig={config}>
-                    <Provider store={configureStore()}>
-                        <App baseUrl={baseUrl} />
-                    </Provider>
-                </D2UIApp>,
+                <I18nextProvider i18n={i18n}>
+                    <D2UIApp initConfig={config}>
+                        <Provider store={configureStore()}>
+                            <App baseUrl={baseUrl} />
+                        </Provider>
+                    </D2UIApp>
+                </I18nextProvider>,
                 document.getElementById('root')
             );
         });

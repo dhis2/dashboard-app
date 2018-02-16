@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { t } from 'i18next';
 import ReactGridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
@@ -51,7 +52,7 @@ export class ItemGrid extends Component {
         expandedItems: {},
     };
 
-    NO_ITEMS_MESSAGE = 'You have not added any items';
+    NO_ITEMS_MESSAGE = t('You have not added any items');
 
     onToggleItemExpanded = clickedId => {
         const isExpanded =

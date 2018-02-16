@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { t } from 'i18next';
 import PropTypes from 'prop-types';
 import { grey700 } from 'material-ui/styles/colors';
 import TextField from 'material-ui/TextField';
@@ -86,7 +87,7 @@ class Filter extends Component {
                 value={this.state.value}
                 onChange={this.setFilterValue}
                 onKeyUp={this.handleKeyUp}
-                hintText="Filter dashboards"
+                hintText={t('Filter dashboards')}
                 style={styles.filterField}
                 inputStyle={styles.filterFieldInput}
                 hintStyle={styles.filterFieldHint}

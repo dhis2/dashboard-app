@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { t } from 'i18next';
+import { Trans } from 'react-i18next';
 
 import ItemHeader from '../ItemHeader';
 import { fromMessages } from '../../reducers';
@@ -101,7 +103,7 @@ class MessagesItem extends Component {
                     style={allButtonStyle}
                     onClick={this.filterAll}
                 >
-                    All
+                    <Trans>All</Trans>
                 </button>
                 <button
                     className="messages-action-button"
@@ -109,7 +111,7 @@ class MessagesItem extends Component {
                     style={unreadButtonStyle}
                     onClick={this.filterUnread}
                 >
-                    Unread
+                    <Trans>Unread</Trans>
                 </button>
             </Fragment>
         ) : null;
@@ -151,7 +153,10 @@ class MessagesItem extends Component {
 
         return (
             <Fragment>
-                <ItemHeader title="Messages" actionButtons={actionButtons} />
+                <ItemHeader
+                    title={t('Messages')}
+                    actionButtons={actionButtons}
+                />
                 <Line />
                 <div className="dashboard-item-content">
                     <ul style={style.list}>{messageItems}</ul>
