@@ -35,7 +35,7 @@ const viewStyle = {
         cursor: 'pointer',
     },
     titleBarLink: {
-        marginLeft: 20,
+        marginLeft: 25,
     },
     noDescription: {
         color: '#888',
@@ -58,12 +58,30 @@ class ViewTitleBar extends Component {
     toggleFilterDialog = () =>
         this.setState({ filterDialogIsOpen: !this.state.filterDialogIsOpen });
 
-    renderItemFilterLabel = () =>
-        this.props.itemFilterKeys.length ? (
-            <div>{this.props.itemFilterKeys.length} filters applied</div>
+    renderItemFilterLabel = () => {
+        const len = this.props.itemFilterKeys.length;
+
+        return len ? (
+            <div
+                style={{ marginLeft: '20px', cursor: 'pointer' }}
+                onClick={this.toggleFilterDialog}
+            >
+                <div
+                    style={{
+                        color: '#fff',
+                        fontWeight: 500,
+                        backgroundColor: '#444',
+                        padding: '5px 7px',
+                        borderRadius: '3px',
+                    }}
+                >
+                    {len} {len > 1 ? 'filters' : 'filter'} applied
+                </div>
+            </div>
         ) : (
             ''
         );
+    };
 
     render() {
         const {
@@ -81,6 +99,7 @@ class ViewTitleBar extends Component {
         const styles = Object.assign({}, style, viewStyle);
         const titleStyle = Object.assign({}, style.title, {
             cursor: 'default',
+            top: '1px',
         });
 
         return (

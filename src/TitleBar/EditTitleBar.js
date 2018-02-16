@@ -18,6 +18,9 @@ const EditTitleBar = ({
     const titleBarEdit = Object.assign({}, style.titleBar, {
         justifyContent: 'space-between',
     });
+    const titleStyle = Object.assign({}, style.title, {
+        top: '-2px',
+    });
 
     const translatedName = () => {
         return displayName ? (
@@ -32,7 +35,7 @@ const EditTitleBar = ({
             <span>Currently editing</span>
             <div style={titleBarEdit}>
                 <div style={{ padding: '6px 0' }}>
-                    <div style={style.title}>
+                    <div style={titleStyle}>
                         <D2ContentEditable
                             className="dashboard-title editable-text"
                             text={name}
