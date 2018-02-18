@@ -14,7 +14,6 @@ const style = {
         alignItems: 'flex-start',
     },
     title: {
-        marginRight: 20,
         position: 'relative',
         fontSize: 21,
         fontWeight: 500,
