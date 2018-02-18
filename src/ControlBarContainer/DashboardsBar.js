@@ -75,25 +75,6 @@ const DashboardsBar = ({
 
     const controlBarHeight = getOuterHeight(rowCount, true);
 
-    const dashboardChips = () => {
-        const chips = dashboards.map(dashboard => {
-            return (
-                <Chip
-                    key={dashboard.id}
-                    label={dashboard.name}
-                    starred={dashboard.starred}
-                    selected={dashboard.id === selectedId}
-                    onClick={onDashboardSelectWrapper(
-                        dashboard.id,
-                        onSelectDashboard
-                    )}
-                />
-            );
-        });
-
-        return chips;
-    };
-
     return (
         <ControlBar
             height={controlBarHeight}
@@ -122,7 +103,17 @@ const DashboardsBar = ({
                         />
                     </Fragment>
                 </div>
-                {dashboardChips()}
+                {dashboards.map(dashboard => (
+                    <Chip
+                        label={dashboard.name}
+                        starred={dashboard.starred}
+                        selected={dashboard.id === selectedId}
+                        onClick={onDashboardSelectWrapper(
+                            dashboard.id,
+                            onSelectDashboard
+                        )}
+                    />
+                ))}
             </div>
             <div style={style.expandButtonWrap}>
                 <div
