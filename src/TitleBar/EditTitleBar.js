@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { t } from 'i18next';
+import { t } from 'dhis2-i18n';
 
 import ItemSelect from '../ItemSelect/ItemSelect';
 import D2ContentEditable from '../widgets/D2ContentEditable';

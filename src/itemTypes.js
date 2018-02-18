@@ -1,4 +1,4 @@
-import i18n from 'i18next';
+import i18n from 'dhis2-i18n';
 import { getBaseUrl } from './util';
 
 // Item types

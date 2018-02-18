@@ -1,34 +1,14 @@
-import i18n from 'i18next';
+import i18n from 'dhis2-i18n';
+
 import en from './en';
 import ur from './ur';
 
-const langs = {
-    en,
-    ur,
-};
+const ns = 'dashboards-app';
 
-const resources = {};
+i18n.addResources('en', ns, en);
+i18n.addResources('ur', ns, ur);
 
-Object.entries(langs).forEach(([code, translations]) => {
-    resources[code] = {
-        dhis2: translations,
-    };
-});
-
-i18n.init({
-    resources,
-
-    lng: 'en',
-    fallbackLng: 'en',
-
-    debug: false,
-    ns: ['dhis2'],
-    defaultNS: 'dhis2',
-
-    keySeparator: false,
-    react: {
-        wait: true,
-    },
-});
+i18n.setDefaultNamespace(ns);
+i18n.changeLanguage('en');
 
 export default i18n;

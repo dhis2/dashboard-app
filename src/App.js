@@ -54,4 +54,4 @@ App.childContextTypes = {
     baseUrl: PropTypes.string,
 };
 
-export default translate('dhis2')(App);
+export default translate('dashboards-app')(App);

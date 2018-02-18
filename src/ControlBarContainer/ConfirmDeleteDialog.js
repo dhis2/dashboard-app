@@ -1,5 +1,5 @@
 import React from 'react';
-import { t } from 'i18next';
+import { t } from 'dhis2-i18n';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from '../widgets/FlatButton';
 import PrimaryButton from '../widgets/PrimaryButton';
