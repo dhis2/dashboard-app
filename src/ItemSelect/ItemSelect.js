@@ -148,7 +148,7 @@ class ItemSelect extends React.Component {
             .catch(console.error);
     };
 
-    getMaxPopoverHeight = () => {
+    getPopoverHeight = () => {
         //hack - approximate height of controlbar + titlebar + top of grid area until ItemSelect
         const HEIGHT_ABOVE = 180;
         //some buffer at the bottom
@@ -158,7 +158,7 @@ class ItemSelect extends React.Component {
     };
 
     render() {
-        const popoverHeight = this.getMaxPopoverHeight();
+        const popoverHeight = this.getPopoverHeight();
 
         return (
             <Fragment>
