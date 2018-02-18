@@ -10,6 +10,7 @@ const paleBlue = '#E3F2FD';
 const lightBlue = '#EAF4FF'; //'#63A4FF'
 const royalBlue = '#004BA0';
 
+const mint = '#B2DFDB';
 const lightGreen = '#48A999';
 const mediumGreen = '#00796B';
 const darkGreen = '#004C40';
@@ -29,6 +30,7 @@ export const colors = {
     paleBlue,
     lightBlue,
     royalBlue,
+    mint,
     lightGreen,
     mediumGreen,
     darkGreen,
