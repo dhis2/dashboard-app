@@ -5,7 +5,7 @@ import { getId, getDescription } from './plugin';
 
 const style = {
     scrollContainer: {
-        overflowY: 'scroll',
+        overflowY: 'auto',
         height: '370px',
         marginTop: '5px',
         marginBottom: '5px',
