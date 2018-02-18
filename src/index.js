@@ -54,7 +54,7 @@ const init = () => {
     getUserSettings()
         .then(configI18n)
         .then(() => {
-            config.schemas = ['dashboard'];
+            config.schemas = ['dashboard', 'organisationUnit'];
 
             ReactDOM.render(
                 <I18nextProvider i18n={i18n}>

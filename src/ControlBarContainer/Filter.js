@@ -47,7 +47,7 @@ class Filter extends Component {
         super(props);
 
         this.state = {
-            value: fromReducers.fromFilter.DEFAULT_NAME,
+            value: fromReducers.fromDashboardsFilter.DEFAULT_NAME,
         };
     }
 

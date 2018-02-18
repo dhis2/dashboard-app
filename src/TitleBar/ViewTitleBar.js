@@ -5,12 +5,13 @@ import { t } from 'i18next';
 import SharingDialog from 'd2-ui/lib/sharing/SharingDialog.component';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
+import FilterDialog from '../ItemFilter/ItemFilter';
 import Info from './Info';
 import FlatButton from '../widgets/FlatButton';
+import D2TextLink from '../widgets/D2TextLink';
 import * as fromReducers from '../reducers';
-import { fromEditDashboard, fromSelected } from '../actions';
+import { fromEditDashboard, fromSelected, fromDashboards } from '../actions';
 import { orObject } from '../util';
-import { tStarDashboard } from '../actions/dashboards';
 
 const NO_DESCRIPTION = t('No description');
 
@@ -32,11 +33,40 @@ class ViewTitleBar extends Component {
 
         this.state = {
             sharingDialogIsOpen: false,
+            filterDialogIsOpen: false,
         };
     }
 
     toggleSharingDialog = () =>
         this.setState({ sharingDialogIsOpen: !this.state.sharingDialogIsOpen });
+
+    toggleFilterDialog = () =>
+        this.setState({ filterDialogIsOpen: !this.state.filterDialogIsOpen });
+
+    renderItemFilterLabel = () => {
+        const len = this.props.itemFilterKeys.length;
+
+        return len ? (
+            <div
+                style={{ marginLeft: '20px', cursor: 'pointer' }}
+                onClick={this.toggleFilterDialog}
+            >
+                <div
+                    style={{
+                        color: '#fff',
+                        fontWeight: 500,
+                        backgroundColor: '#444',
+                        padding: '5px 7px',
+                        borderRadius: '3px',
+                    }}
+                >
+                    {len} {len > 1 ? 'filters' : 'filter'} applied
+                </div>
+            </div>
+        ) : (
+            ''
+        );
+    };
 
     render() {
         const {
@@ -86,6 +116,15 @@ class ViewTitleBar extends Component {
                                 Share
                             </FlatButton>
                         </span>
+                        <div style={styles.titleBarLink}>
+                            <D2TextLink
+                                text={'Filter'}
+                                style={styles.textLink}
+                                hoverStyle={styles.textLinkHover}
+                                onClick={this.toggleFilterDialog}
+                            />
+                        </div>
+                        {this.renderItemFilterLabel()}
                     </div>
                 </div>
                 {showDescription ? (
@@ -108,6 +147,12 @@ class ViewTitleBar extends Component {
                         onRequestClose={this.toggleSharingDialog}
                     />
                 ) : null}
+                {id ? (
+                    <FilterDialog
+                        open={this.state.filterDialogIsOpen}
+                        onRequestClose={this.toggleFilterDialog}
+                    />
+                ) : null}
             </Fragment>
         );
     }
@@ -125,6 +170,7 @@ const mapStateToProps = state => {
         ),
         starred: selectedDashboard.starred,
         access: orObject(selectedDashboard.access),
+        itemFilterKeys: fromReducers.fromItemFilter.sGetFilterKeys(state),
     };
 };
 
@@ -136,7 +182,12 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         ...stateProps,
         ...ownProps,
         onStarClick: () =>
-            dispatch(tStarDashboard(selectedDashboard.id, !stateProps.starred)),
+            dispatch(
+                fromDashboards.tStarDashboard(
+                    selectedDashboard.id,
+                    !stateProps.starred
+                )
+            ),
         onEditClick: () => {
             dispatch(fromEditDashboard.acSetEditDashboard(selectedDashboard));
         },
