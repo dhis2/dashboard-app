@@ -8,7 +8,6 @@ import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import FilterDialog from '../ItemFilter/ItemFilter';
 import Info from './Info';
 import FlatButton from '../widgets/FlatButton';
-import D2TextLink from '../widgets/D2TextLink';
 import * as fromReducers from '../reducers';
 import { fromEditDashboard, fromSelected, fromDashboards } from '../actions';
 import { orObject } from '../util';
@@ -115,16 +114,12 @@ class ViewTitleBar extends Component {
                             >
                                 Share
                             </FlatButton>
+                            <FlatButton onClick={this.toggleFilterDialog}>
+                                style={{ minWidth: '30px' }}
+                                Filter
+                            </FlatButton>
+                            {this.renderItemFilterLabel()}
                         </span>
-                        <div style={styles.titleBarLink}>
-                            <D2TextLink
-                                text={'Filter'}
-                                style={styles.textLink}
-                                hoverStyle={styles.textLinkHover}
-                                onClick={this.toggleFilterDialog}
-                            />
-                        </div>
-                        {this.renderItemFilterLabel()}
                     </div>
                 </div>
                 {showDescription ? (

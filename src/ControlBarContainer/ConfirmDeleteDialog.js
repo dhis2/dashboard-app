@@ -12,7 +12,9 @@ const ConfirmDeleteDialog = ({
     open,
 }) => {
     const actions = [
-        <FlatButton onClick={onDeleteConfirmed}><Trans>Delete</Trans></FlatButton>,
+        <FlatButton onClick={onDeleteConfirmed}>
+            <Trans>Delete</Trans>
+        </FlatButton>,
         <PrimaryButton onClick={onContinueEditing}>
             <Trans>Continue editing</Trans>
         </PrimaryButton>,

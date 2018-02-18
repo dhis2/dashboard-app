@@ -142,8 +142,6 @@ class EditBar extends Component {
                             <FlatButton onClick={onDiscard}>
                                 <Trans>Exit without saving</Trans>
                             </FlatButton>
-                                    <Trans>Translate</Trans>
-                                </Button>
                             ) : null}
                         </div>
                         <div style={style.rightControls}>
