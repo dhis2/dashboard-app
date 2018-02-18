@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { t } from 'i18next';
+import { t } from 'dhis2-i18n';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 import PrimaryButton from '../widgets/PrimaryButton';
 import FlatButton from '../widgets/FlatButton';

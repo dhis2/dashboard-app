@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { t } from 'i18next';
+import { t } from 'dhis2-i18n';
 
 import Interpretation from './Interpretation';
 import InputField from './InputField';
