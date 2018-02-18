@@ -8,12 +8,14 @@ import { fromEditDashboard } from '../reducers';
 
 import './ControlBarContainer.css';
 
+export const CONTROL_BAR_HEIGHT = 36;
+
 const style = {
     leftControls: {
         display: 'inline-block',
         fontSize: 16,
         float: 'left',
-        height: '36px',
+        height: `${CONTROL_BAR_HEIGHT}px`,
     },
     rightControls: {
         display: 'inline-block',

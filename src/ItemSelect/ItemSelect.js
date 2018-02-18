@@ -148,7 +148,18 @@ class ItemSelect extends React.Component {
             .catch(console.error);
     };
 
+    getMaxPopoverHeight = () => {
+        //hack - approximate height of controlbar + titlebar + top of grid area until ItemSelect
+        const HEIGHT_ABOVE = 180;
+        //some buffer at the bottom
+        const HEIGHT_BUFFER = 100;
+
+        return window.innerHeight - HEIGHT_ABOVE - HEIGHT_BUFFER;
+    };
+
     render() {
+        const popoverHeight = this.getMaxPopoverHeight();
+
         return (
             <Fragment>
                 <ItemSearchField
@@ -167,8 +178,7 @@ class ItemSelect extends React.Component {
                     autoCloseWhenOffScreen={false}
                     style={{
                         width: 700,
-                        height: 900,
-                        overflow: 'auto',
+                        height: popoverHeight,
                         left: -1000,
                     }}
                 >
