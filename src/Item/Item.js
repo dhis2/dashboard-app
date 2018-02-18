@@ -54,6 +54,7 @@ export const Item = props => {
         <GridItem
             item={props.item}
             editMode={props.editMode}
+            itemFilter={props.editMode ? {} : props.itemFilter}
             onToggleItemExpanded={props.onToggleItemExpanded}
         />
     );
