@@ -114,8 +114,10 @@ class ViewTitleBar extends Component {
                             >
                                 Share
                             </FlatButton>
-                            <FlatButton onClick={this.toggleFilterDialog}>
+                            <FlatButton
+                                onClick={this.toggleFilterDialog}
                                 style={{ minWidth: '30px' }}
+                            >
                                 Filter
                             </FlatButton>
                             {this.renderItemFilterLabel()}
