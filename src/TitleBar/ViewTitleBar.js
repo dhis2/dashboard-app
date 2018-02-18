@@ -46,22 +46,20 @@ class ViewTitleBar extends Component {
         const len = this.props.itemFilterKeys.length;
 
         return len ? (
-            <div
-                style={{ marginLeft: '20px', cursor: 'pointer' }}
+            <span
                 onClick={this.toggleFilterDialog}
+                style={{
+                    marginLeft: '20px',
+                    cursor: 'pointer',
+                    color: '#fff',
+                    fontWeight: 500,
+                    backgroundColor: '#444',
+                    padding: '5px 7px',
+                    borderRadius: '3px',
+                }}
             >
-                <div
-                    style={{
-                        color: '#fff',
-                        fontWeight: 500,
-                        backgroundColor: '#444',
-                        padding: '5px 7px',
-                        borderRadius: '3px',
-                    }}
-                >
-                    {len} {len > 1 ? 'filters' : 'filter'} applied
-                </div>
-            </div>
+                {len} {len > 1 ? 'filters' : 'filter'} applied
+            </span>
         ) : (
             ''
         );
