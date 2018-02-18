@@ -21,20 +21,20 @@ const chipTheme = {
 
 const chipDimension = '30px';
 
-const DashboardItemChip = ({ starred, selected, label, onClick }) => {
-    const avatar = () => {
-        const avatarProps = {
-            color: colors.white,
-            backgroundColor: selected ? 'transparent' : colors.lightGreen,
-            style: {
-                height: chipDimension,
-                width: chipDimension,
-            },
-        };
-
-        return <Avatar icon={<IconStar />} {...avatarProps} />;
+const avatar = selected => {
+    const avatarProps = {
+        color: colors.white,
+        backgroundColor: selected ? 'transparent' : colors.lightGreen,
+        style: {
+            height: chipDimension,
+            width: chipDimension,
+        },
     };
 
+    return <Avatar icon={<IconStar />} {...avatarProps} />;
+};
+
+const DashboardItemChip = ({ starred, selected, label, onClick }) => {
     const chipColorProps = selected
         ? chipTheme.accent
         : starred ? chipTheme.primary : chipTheme.default;
@@ -61,7 +61,7 @@ const DashboardItemChip = ({ starred, selected, label, onClick }) => {
     return (
         <div style={{ display: 'inline-block', verticalAlign: 'top' }}>
             <MuiChip {...props}>
-                {starred ? avatar() : null}
+                {starred ? avatar(selected) : null}
                 {label}
             </MuiChip>
         </div>
