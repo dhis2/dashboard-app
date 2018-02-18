@@ -32,7 +32,7 @@ const DashboardItemChip = ({ starred, selected, label, onClick }) => {
             },
         };
 
-        return starred ? <Avatar icon={<IconStar />} {...avatarProps} /> : null;
+        return <Avatar icon={<IconStar />} {...avatarProps} />;
     };
 
     const chipColorProps = selected
@@ -61,7 +61,7 @@ const DashboardItemChip = ({ starred, selected, label, onClick }) => {
     return (
         <div style={{ display: 'inline-block', verticalAlign: 'top' }}>
             <MuiChip {...props}>
-                {avatar()}
+                {starred ? avatar() : null}
                 {label}
             </MuiChip>
         </div>
