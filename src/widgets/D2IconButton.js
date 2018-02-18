@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { blue500 } from 'material-ui/styles/colors';
 import IconButton from 'material-ui/IconButton';
 import IconAdd from 'material-ui/svg-icons/content/add-circle';
+import { colors } from '../colors';
 
 const styles = {
     style: {
@@ -12,11 +12,11 @@ const styles = {
         padding: 0,
     },
     iconStyle: {
-        width: 28,
-        height: 28,
+        width: 32,
+        height: 32,
     },
     icon: IconAdd,
-    iconColor: blue500,
+    iconColor: colors.lightGreen,
 };
 
 const D2IconButton = props => (
