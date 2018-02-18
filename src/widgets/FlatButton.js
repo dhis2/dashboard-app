@@ -22,7 +22,9 @@ const FlatButton = ({ onClick, children, style, disabled }) => {
             onClick={onClick}
             label={label}
             disabled={disabled}
-        />
+        >
+            {typeof children !== 'string' ? children : null}
+        </MuiFlatButton>
     );
 };
 
