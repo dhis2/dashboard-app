@@ -122,35 +122,26 @@ class EditBar extends Component {
                         <div style={style.leftControls}>
                             <span style={{ marginRight: '15px' }}>
                                 <PrimaryButton onClick={onSave}>
-                                    <Trans>Save Changes</Trans>
+                                    Save Changes
                                 </PrimaryButton>
                             </span>
                             {dashboardId && deleteAccess ? (
                                 <FlatButton onClick={this.onConfirmDelete}>
-                                    <Trans>Delete</Trans>
+                                    Delete
                                 </FlatButton>
                             ) : null}
                             {dashboardId ? (
                                 <FlatButton
                                     onClick={this.toggleTranslationDialog}
                                 >
-                                    <Trans>Translate</Trans>
+                                    Translate
                                 </FlatButton>
                             ) : null}
                         </div>
                         <div style={style.rightControls}>
                             <FlatButton onClick={onDiscard}>
-                                <Trans>Exit without saving</Trans>
+                                Exit without saving
                             </FlatButton>
-                            ) : null}
-                        </div>
-                        <div style={style.rightControls}>
-                            <button
-                                style={styles.secondary}
-                                onClick={onDiscard}
-                            >
-                                <Trans>Exit without saving</Trans>
-                            </button>
                         </div>
                     </div>
                 </ControlBar>
