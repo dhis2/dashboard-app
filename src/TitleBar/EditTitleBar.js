@@ -35,7 +35,7 @@ const EditTitleBar = ({
             <span>Currently editing</span>
             <div style={titleBarEdit}>
                 <div style={{ padding: '6px 0' }}>
-                    <div style={titleStyle} id="dashboard-title-id">
+                    <div style={titleStyle}>
                         <D2ContentEditable
                             className="dashboard-title editable-text"
                             text={name}
