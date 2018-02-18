@@ -6,8 +6,8 @@ import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 // FIXME: TO BE USED IN 2.30
 //import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import Chip from 'd2-ui/lib/chip/Chip';
-import { blue800 } from 'material-ui/styles/colors';
 
+import { colors } from '../colors';
 import D2IconButton from '../widgets/D2IconButton';
 import Filter from './Filter';
 import {
@@ -125,7 +125,7 @@ const DashboardsBar = ({
                         paddingTop: 4,
                         fontSize: 11,
                         fontWeight: 700,
-                        color: blue800,
+                        color: colors.royalBlue,
                         textTransform: 'uppercase',
                         cursor: 'pointer',
                         visibility: 'visible',

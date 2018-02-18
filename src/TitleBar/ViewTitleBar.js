@@ -7,7 +7,7 @@ import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
 import FilterDialog from '../ItemFilter/ItemFilter';
 import Info from './Info';
-import D2TextLink from '../widgets/D2TextLink';
+import FlatButton from '../widgets/FlatButton';
 import * as fromReducers from '../reducers';
 import { fromEditDashboard, fromSelected, fromDashboards } from '../actions';
 import { orObject } from '../util';
@@ -15,22 +15,11 @@ import { orObject } from '../util';
 const NO_DESCRIPTION = t('No description');
 
 const viewStyle = {
-    textLink: {
-        fontSize: 15,
-        fontWeight: 500,
-        color: '#006ed3',
-    },
-    textLinkHover: {
-        color: '#3399f8',
-    },
     titleBarIcon: {
         marginLeft: 5,
         position: 'relative',
         top: 1,
         cursor: 'pointer',
-    },
-    titleBarLink: {
-        marginLeft: 25,
     },
     noDescription: {
         color: '#888',
@@ -57,22 +46,20 @@ class ViewTitleBar extends Component {
         const len = this.props.itemFilterKeys.length;
 
         return len ? (
-            <div
-                style={{ marginLeft: '20px', cursor: 'pointer' }}
+            <span
                 onClick={this.toggleFilterDialog}
+                style={{
+                    marginLeft: '20px',
+                    cursor: 'pointer',
+                    color: '#fff',
+                    fontWeight: 500,
+                    backgroundColor: '#444',
+                    padding: '5px 7px',
+                    borderRadius: '3px',
+                }}
             >
-                <div
-                    style={{
-                        color: '#fff',
-                        fontWeight: 500,
-                        backgroundColor: '#444',
-                        padding: '5px 7px',
-                        borderRadius: '3px',
-                    }}
-                >
-                    {len} {len > 1 ? 'filters' : 'filter'} applied
-                </div>
-            </div>
+                {len} {len > 1 ? 'filters' : 'filter'} applied
+            </span>
         ) : (
             ''
         );
@@ -94,15 +81,14 @@ class ViewTitleBar extends Component {
         const styles = Object.assign({}, style, viewStyle);
         const titleStyle = Object.assign({}, style.title, {
             cursor: 'default',
-            top: '1px',
+            userSelect: 'text',
+            top: '6px',
         });
 
         return (
             <Fragment>
                 <div className="titlebar" style={styles.titleBar}>
-                    <div style={titleStyle}>
-                        <div style={{ userSelect: 'text' }}>{name}</div>
-                    </div>
+                    <span style={titleStyle}>{name}</span>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <div style={styles.titleBarIcon} onClick={onStarClick}>
                             <SvgIcon icon={starred ? 'Star' : 'StarBorder'} />
@@ -110,33 +96,30 @@ class ViewTitleBar extends Component {
                         <div style={styles.titleBarIcon}>
                             <Info onClick={onInfoClick} />
                         </div>
-                        {access.update ? (
-                            <div style={styles.titleBarLink}>
-                                <D2TextLink
-                                    text={'Edit'}
-                                    style={styles.textLink}
-                                    hoverStyle={styles.textLinkHover}
+                        <span style={{ marginLeft: '10px' }}>
+                            {access.update ? (
+                                <FlatButton
+                                    style={{ minWidth: '30px' }}
                                     onClick={onEditClick}
-                                />
-                            </div>
-                        ) : null}
-                        <div style={styles.titleBarLink}>
-                            <D2TextLink
-                                text={'Share'}
-                                style={styles.textLink}
-                                hoverStyle={styles.textLinkHover}
+                                >
+                                    Edit
+                                </FlatButton>
+                            ) : null}
+
+                            <FlatButton
+                                style={{ minWidth: '30px' }}
                                 onClick={this.toggleSharingDialog}
-                            />
-                        </div>
-                        <div style={styles.titleBarLink}>
-                            <D2TextLink
-                                text={'Filter'}
-                                style={styles.textLink}
-                                hoverStyle={styles.textLinkHover}
+                            >
+                                Share
+                            </FlatButton>
+                            <FlatButton
                                 onClick={this.toggleFilterDialog}
-                            />
-                        </div>
-                        {this.renderItemFilterLabel()}
+                                style={{ minWidth: '30px' }}
+                            >
+                                Filter
+                            </FlatButton>
+                            {this.renderItemFilterLabel()}
+                        </span>
                     </div>
                 </div>
                 {showDescription ? (

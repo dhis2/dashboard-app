@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import { t } from 'i18next';
 import PropTypes from 'prop-types';
-import { grey700 } from 'material-ui/styles/colors';
 import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
 import IconClear from 'material-ui/svg-icons/content/clear';
 import isEmpty from 'd2-utilizr/lib/isEmpty';
 
+import { colors } from '../colors';
 import * as fromReducers from '../reducers';
 
 const KEYCODE_ENTER = 13;
@@ -122,7 +122,7 @@ const ClearButton = ({ name, onChangeName }) => {
             onClick={clearFilter}
             disabled={disabled}
         >
-            <IconClear color={grey700} />
+            <IconClear color={colors.mediumGrey} />
         </IconButton>
     );
 };

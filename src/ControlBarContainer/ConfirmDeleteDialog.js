@@ -2,22 +2,8 @@ import React from 'react';
 import { t } from 'i18next';
 import { Trans } from 'react-i18next';
 import Dialog from 'material-ui/Dialog';
-import Button from 'd2-ui/lib/button/Button';
-import { colors } from '../colors';
-
-const style = {
-    button: {
-        color: colors.royalBlue,
-        backgroundColor: 'transparent',
-        border: 'none',
-        fontSize: '14px',
-        fontWeight: 500,
-        textTransform: 'uppercase',
-        padding: '5px',
-        height: '36px',
-        cursor: 'pointer',
-    },
-};
+import FlatButton from '../widgets/FlatButton';
+import PrimaryButton from '../widgets/PrimaryButton';
 
 const ConfirmDeleteDialog = ({
     dashboardName,
@@ -26,12 +12,12 @@ const ConfirmDeleteDialog = ({
     open,
 }) => {
     const actions = [
-        <Button onClick={onDeleteConfirmed} style={style.button}>
+        <FlatButton onClick={onDeleteConfirmed}>
             <Trans>Delete</Trans>
-        </Button>,
-        <Button onClick={onContinueEditing} style={style.button}>
+        </FlatButton>,
+        <PrimaryButton onClick={onContinueEditing}>
             <Trans>Continue editing</Trans>
-        </Button>,
+        </PrimaryButton>,
     ];
 
     return (

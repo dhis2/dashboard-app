@@ -17,6 +17,7 @@ import './index.css';
 import configureStore from './configureStore';
 
 import App from './App';
+import { muiTheme } from './theme';
 
 const configI18n = userSettings => {
     const uiLocale = userSettings.keyUiLocale;
@@ -57,7 +58,7 @@ const init = () => {
 
             ReactDOM.render(
                 <I18nextProvider i18n={i18n}>
-                    <D2UIApp initConfig={config}>
+                    <D2UIApp initConfig={config} muiTheme={muiTheme()}>
                         <Provider store={configureStore()}>
                             <App baseUrl={baseUrl} />
                         </Provider>

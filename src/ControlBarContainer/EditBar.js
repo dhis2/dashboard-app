@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Trans } from 'react-i18next';
+import { t } from 'i18next';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
-import Button from 'd2-ui/lib/button/Button';
+import PrimaryButton from '../widgets/PrimaryButton';
+import FlatButton from '../widgets/FlatButton';
 import TranslationDialog from 'd2-ui/lib/i18n/TranslationDialog.component';
 import ConfirmDeleteDialog from './ConfirmDeleteDialog';
-import { colors } from '../colors';
 import { tSaveDashboard, acClearEditDashboard } from '../actions/editDashboard';
 import {
     tDeleteDashboard,
@@ -17,29 +17,9 @@ import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './ControlBarContainer';
 import { apiFetchSelected } from '../api/dashboards';
 
 const styles = {
-    save: {
-        borderRadius: '2px',
-        backgroundColor: colors.royalBlue,
-        color: colors.lightGrey,
-        fontWeight: '500',
-        boxShadow:
-            '0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24), 0 0 8px 0 rgba(0,0,0,0.12), 0 0 8px 0 rgba(0,0,0,0.24)',
-    },
-    secondary: {
-        color: colors.royalBlue,
-        backgroundColor: 'transparent',
-        border: 'none',
-        fontSize: '14px',
-        fontWeight: 500,
-        textTransform: 'uppercase',
-        padding: '5px',
-        height: '36px',
-        cursor: 'pointer',
-        marginLeft: '10px',
-    },
     buttonBar: {
         height: CONTROL_BAR_ROW_HEIGHT,
-        paddingTop: '14px',
+        paddingTop: '15px',
         marginLeft: '15px',
         marginRight: '15px',
     },
@@ -140,33 +120,28 @@ class EditBar extends Component {
                 >
                     <div style={styles.buttonBar}>
                         <div style={style.leftControls}>
-                            <Button style={styles.save} onClick={onSave}>
-                                <Trans>Save Changes</Trans>
-                            </Button>
+                            <span style={{ marginRight: '15px' }}>
+                                <PrimaryButton onClick={onSave}>
+                                    {t('Save changes')}
+                                </PrimaryButton>
+                            </span>
                             {dashboardId && deleteAccess ? (
-                                <button
-                                    style={styles.secondary}
-                                    onClick={this.onConfirmDelete}
-                                >
-                                    <Trans>Delete</Trans>
-                                </button>
+                                <FlatButton onClick={this.onConfirmDelete}>
+                                    {t('Delete')}
+                                </FlatButton>
                             ) : null}
                             {dashboardId ? (
-                                <Button
-                                    style={styles.secondary}
+                                <FlatButton
                                     onClick={this.toggleTranslationDialog}
                                 >
-                                    <Trans>Translate</Trans>
-                                </Button>
+                                    {t('Translate')}
+                                </FlatButton>
                             ) : null}
                         </div>
                         <div style={style.rightControls}>
-                            <button
-                                style={styles.secondary}
-                                onClick={onDiscard}
-                            >
-                                <Trans>Exit without saving</Trans>
-                            </button>
+                            <FlatButton onClick={onDiscard}>
+                                {t('Exit without saving')}
+                            </FlatButton>
                         </div>
                     </div>
                 </ControlBar>

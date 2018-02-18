@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
+import FlatButton from '../widgets/FlatButton';
+import PrimaryButton from '../widgets/PrimaryButton';
 import OrgUnitTree from 'd2-ui/lib/org-unit-tree/OrgUnitTreeMultipleRoots.component';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import { apiFetchOrgUnits } from '../api/orgUnits';
 import { acSetItemFilter, FILTER_USER_ORG_UNIT } from '../actions/itemFilter';
 import { sGetFromState } from '../reducers/itemFilter';
-import { colors } from '../colors';
 import D2TextLink from '../widgets/D2TextLink';
 
 const style = {
@@ -16,9 +16,6 @@ const style = {
         overflowY: 'auto',
         border: '1px solid #eee',
         padding: '10px 7px',
-    },
-    button: {
-        color: colors.white,
     },
 };
 
@@ -107,14 +104,8 @@ class ItemFilter extends Component {
 
     render() {
         const actions = [
-            <FlatButton label="Cancel" onClick={this.props.onRequestClose} />,
-            <FlatButton
-                label="Save"
-                backgroundColor={colors.royalBlue}
-                hoverColor={colors.lightBlue}
-                style={style.button}
-                onClick={this.onSubmit}
-            />,
+            <FlatButton onClick={this.props.onRequestClose}>Cancel</FlatButton>,
+            <PrimaryButton onClick={this.onSubmit}>Save</PrimaryButton>,
         ];
 
         return (
