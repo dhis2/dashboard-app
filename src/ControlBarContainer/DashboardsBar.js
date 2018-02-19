@@ -5,7 +5,7 @@ import { t } from 'dhis2-i18n';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 // FIXME: TO BE USED IN 2.30
 //import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
-import Chip from 'd2-ui/lib/chip/Chip';
+import Chip from './DashboardItemChip';
 
 import { colors } from '../colors';
 import D2IconButton from '../widgets/D2IconButton';
@@ -105,12 +105,9 @@ const DashboardsBar = ({
                 </div>
                 {dashboards.map(dashboard => (
                     <Chip
-                        key={dashboard.id}
                         label={dashboard.name}
-                        avatar={dashboard.starred ? 'star' : null}
-                        color={
-                            dashboard.id === selectedId ? 'primary' : undefined
-                        }
+                        starred={dashboard.starred}
+                        selected={dashboard.id === selectedId}
                         onClick={onDashboardSelectWrapper(
                             dashboard.id,
                             onSelectDashboard
