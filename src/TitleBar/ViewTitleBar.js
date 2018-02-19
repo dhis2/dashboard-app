@@ -54,8 +54,10 @@ class ViewTitleBar extends Component {
                     color: '#fff',
                     fontWeight: 500,
                     backgroundColor: '#444',
-                    padding: '5px 7px',
+                    padding: '6px 8px',
                     borderRadius: '3px',
+                    position: 'relative',
+                    top: '1px',
                 }}
             >
                 {len} {len > 1 ? 'filters' : 'filter'} applied
@@ -105,7 +107,7 @@ class ViewTitleBar extends Component {
                         <span style={{ marginLeft: '10px' }}>
                             {access.update ? (
                                 <FlatButton
-                                    style={{ minWidth: '30px' }}
+                                    style={{ minWidth: '30px', top: '1px' }}
                                     onClick={onEditClick}
                                 >
                                     Edit
@@ -113,14 +115,14 @@ class ViewTitleBar extends Component {
                             ) : null}
 
                             <FlatButton
-                                style={{ minWidth: '30px' }}
+                                style={{ minWidth: '30px', top: '1px' }}
                                 onClick={this.toggleSharingDialog}
                             >
                                 Share
                             </FlatButton>
                             <FlatButton
                                 onClick={this.toggleFilterDialog}
-                                style={{ minWidth: '30px' }}
+                                style={{ minWidth: '30px', top: '1px' }}
                             >
                                 Filter
                             </FlatButton>
