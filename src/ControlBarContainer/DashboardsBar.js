@@ -106,6 +106,7 @@ const DashboardsBar = ({
                 </div>
                 {dashboards.map(dashboard => (
                     <Chip
+                        key={dashboard.id}
                         label={dashboard.displayName}
                         starred={dashboard.starred}
                         selected={dashboard.id === selectedId}
