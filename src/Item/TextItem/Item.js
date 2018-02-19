@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { t } from 'i18next';
+import { t } from 'dhis2-i18n';
 
 import ItemHeader from '../ItemHeader';
 import Line from '../../widgets/Line';

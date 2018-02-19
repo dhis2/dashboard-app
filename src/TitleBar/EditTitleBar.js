@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { t } from 'i18next';
+import { t } from 'dhis2-i18n';
 
 import ItemSelect from '../ItemSelect/ItemSelect';
-import D2ContentEditable from '../widgets/D2ContentEditable';
+import TextField from 'd2-ui/lib/text-field/TextField';
 import { fromEditDashboard } from '../actions';
 
 const EditTitleBar = ({
@@ -15,9 +15,6 @@ const EditTitleBar = ({
     onChangeTitle,
     onChangeDescription,
 }) => {
-    const titleBarEdit = Object.assign({}, style.titleBar, {
-        justifyContent: 'space-between',
-    });
     const titleStyle = Object.assign({}, style.title, {
         top: '-2px',
     });
@@ -31,43 +28,45 @@ const EditTitleBar = ({
     };
 
     return (
-        <Fragment>
-            <span>Currently editing</span>
-            <div style={titleBarEdit}>
+        <section style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{ flex: '1', marginRight: '20px' }}>
+                <span>Currently editing</span>
                 <div style={{ padding: '6px 0' }}>
-                    <div style={titleStyle}>
-                        <D2ContentEditable
-                            className="dashboard-title editable-text"
-                            text={name}
-                            disabled={false}
-                            placeholder={t('Add title here')}
-                            onChange={onChangeTitle}
-                        />
-                    </div>
+                    <TextField
+                        multiline
+                        fullWidth
+                        rows={1}
+                        rowsMax={3}
+                        style={titleStyle}
+                        value={name}
+                        placeholder={t('Add title here')}
+                        onChange={onChangeTitle}
+                    />
                     {translatedName()}
                 </div>
-                <ItemSelect />
-            </div>
-            <div style={style.description}>
-                <D2ContentEditable
-                    className="dashboard-description editable-text"
-                    text={description}
-                    disabled={false}
+                <TextField
+                    multiline
+                    fullWidth
+                    rows={1}
+                    rowsMax={3}
+                    style={style.description}
+                    value={description}
                     placeholder={t('Add description here')}
                     onChange={onChangeDescription}
                 />
             </div>
-        </Fragment>
+            <div>
+                <ItemSelect />
+            </div>
+        </section>
     );
 };
 
 const mapDispatchToProps = dispatch => ({
-    onChangeTitle: event =>
-        dispatch(fromEditDashboard.acSetDashboardTitle(event.target.value)),
-    onChangeDescription: event =>
-        dispatch(
-            fromEditDashboard.acSetDashboardDescription(event.target.value)
-        ),
+    onChangeTitle: text =>
+        dispatch(fromEditDashboard.acSetDashboardTitle(text)),
+    onChangeDescription: text =>
+        dispatch(fromEditDashboard.acSetDashboardDescription(text)),
 });
 
 const TitleBarCt = connect(null, mapDispatchToProps)(EditTitleBar);

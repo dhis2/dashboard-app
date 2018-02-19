@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { t } from 'i18next';
+import { t } from 'dhis2-i18n';
 import SharingDialog from 'd2-ui/lib/sharing/SharingDialog.component';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
@@ -89,7 +89,13 @@ class ViewTitleBar extends Component {
             <Fragment>
                 <div className="titlebar" style={styles.titleBar}>
                     <span style={titleStyle}>{name}</span>
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            marginLeft: '20px',
+                        }}
+                    >
                         <div style={styles.titleBarIcon} onClick={onStarClick}>
                             <SvgIcon icon={starred ? 'Star' : 'StarBorder'} />
                         </div>
