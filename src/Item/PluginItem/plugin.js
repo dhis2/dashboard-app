@@ -1,5 +1,5 @@
 import isObject from 'd2-utilizr/lib/isObject';
-import { apiFetchFavorite } from '../../api/dashboards';
+import { apiFetchFavorite } from '../../api/metaData';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { FILTER_USER_ORG_UNIT } from '../../actions/itemFilter';
 import {
@@ -65,6 +65,11 @@ const getUserOrgUnitIds = (ouPaths = []) => {
     return ouPaths.map(ouPath => ouPath.split('/').slice(-1)[0]);
 };
 
+const configureFavorite = (type, favorite = {}) => {
+    console.log(type, favorite);
+    return favorite;
+};
+
 const configureFilter = (filter = {}) => {
     const ouIds = getUserOrgUnitIds(filter[FILTER_USER_ORG_UNIT]);
     const userOrgUnitFilter = ouIds.length
@@ -80,7 +85,7 @@ export const reload = async (item, targetType, credentials, filter) => {
     const configuredFilter = configureFilter(filter);
 
     const itemConfig = {
-        ...favorite,
+        ...configureFavorite(item.type, favorite),
         id: null,
         el: getGridItemDomId(item.id),
         hideTitle: !favorite.title,
