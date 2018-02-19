@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { t } from 'i18next';
+import { t } from 'dhis2-i18n';
 import { Trans } from 'react-i18next';
 import ItemHeader from '../ItemHeader';
 
