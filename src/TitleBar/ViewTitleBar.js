@@ -89,7 +89,13 @@ class ViewTitleBar extends Component {
             <Fragment>
                 <div className="titlebar" style={styles.titleBar}>
                     <span style={titleStyle}>{name}</span>
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            marginLeft: '20px',
+                        }}
+                    >
                         <div style={styles.titleBarIcon} onClick={onStarClick}>
                             <SvgIcon icon={starred ? 'Star' : 'StarBorder'} />
                         </div>
