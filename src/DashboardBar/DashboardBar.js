@@ -3,6 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { t } from 'dhis2-i18n';
 
 import { grey700 } from 'material-ui/styles/colors';
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
@@ -16,7 +17,7 @@ import D2IconButton from '../widgets/D2IconButton';
 import D2Dropdown from '../widgets/D2Dropdown';
 
 import * as fromReducers from '../reducers';
-import { fromFilter } from '../actions';
+import { fromDashboardsFilter } from '../actions';
 
 const styles = {
     filterField: {
@@ -97,7 +98,7 @@ export const Dashboardbar = props => (
         >
             <D2IconButton />
             <ToolbarSeparator style={styles.toolbarSeparator} />
-            <D2TextLink text="Home" onClick={props.onClickHome} />
+            <D2TextLink text={t('Home')} onClick={props.onClickHome} />
             <ToolbarSeparator
                 style={Object.assign(
                     {},
@@ -106,7 +107,7 @@ export const Dashboardbar = props => (
                 )}
             />
             <D2TextLink
-                text="Manage dashboards"
+                text={t('Manage dashboards')}
                 onClick={props.onClickManage}
             />
         </ToolbarGroup>
@@ -114,12 +115,12 @@ export const Dashboardbar = props => (
             <D2Dropdown
                 value={props.ownerFilter}
                 onClick={props.onClickOwnerFilter}
-                data={fromReducers.fromFilter.ownerData}
+                data={fromReducers.fromDashboardsFilter.ownerData}
             />
             <D2Dropdown
                 value={props.orderFilter}
                 onClick={props.onClickOrderFilter}
-                data={fromReducers.fromFilter.orderData}
+                data={fromReducers.fromDashboardsFilter.orderData}
             />
             <D2IconButton
                 icon={getViewFilterIcon(props.style)}
@@ -158,15 +159,18 @@ Dashboardbar.defaultProps = {
 // Container
 
 const mapStateToProps = state => ({
-    textFilter: fromReducers.fromFilter.sGetName(state),
-    ownerFilter: fromReducers.fromFilter.sGetOwner(state),
-    orderFilter: fromReducers.fromFilter.sGetOrder(state),
+    textFilter: fromReducers.fromDashboardsFilter.sGetName(state),
+    ownerFilter: fromReducers.fromDashboardsFilter.sGetOwner(state),
+    orderFilter: fromReducers.fromDashboardsFilter.sGetOrder(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    onChangeFilterName: value => dispatch(fromFilter.acSetFilterName(value)),
-    onClickFilterOwner: value => dispatch(fromFilter.acSetFilterOwner(value)),
-    onClickFilterOrder: value => dispatch(fromFilter.acSetFilterOrder(value)),
+    onChangeFilterName: value =>
+        dispatch(fromDashboardsFilter.acSetFilterName(value)),
+    onClickFilterOwner: value =>
+        dispatch(fromDashboardsFilter.acSetFilterOwner(value)),
+    onClickFilterOrder: value =>
+        dispatch(fromDashboardsFilter.acSetFilterOrder(value)),
 });
 
 const DashboardbarCt = connect(mapStateToProps, mapDispatchToProps)(

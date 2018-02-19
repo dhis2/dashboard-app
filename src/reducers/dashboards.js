@@ -17,6 +17,7 @@ import {
 export const actionTypes = {
     SET_DASHBOARDS: 'SET_DASHBOARDS',
     STAR_DASHBOARD: 'STAR_DASHBOARD',
+    SET_DASHBOARD_DISPLAY_NAME: 'SET_DASHBOARD_DISPLAY_NAME',
 };
 
 /**
@@ -47,6 +48,15 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
                 [action.dashboardId]: {
                     ...state[action.dashboardId],
                     starred: action.value,
+                },
+            };
+        }
+        case actionTypes.SET_DASHBOARD_DISPLAY_NAME: {
+            return {
+                ...state,
+                [action.dashboardId]: {
+                    ...state[action.dashboardId],
+                    displayName: action.value,
                 },
             };
         }
@@ -112,6 +122,7 @@ export const getCustomDashboards = data => {
     return arrayFrom(data).map((d, index) => ({
         id: d.id,
         name: d.name,
+        displayName: d.displayName,
         description: d.description,
         starred: d.favorite,
         owner: d.user.name,

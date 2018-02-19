@@ -63,6 +63,7 @@ describe('editDashboard', () => {
         const newState = {
             id: 'scarydash',
             name: 'My scary dashboard',
+            displayName: 'La mia dashboard da paura',
             dashboardItems: [
                 { id: 'd5', type: 'GHOST' },
                 { id: 'd6', type: 'GHOUL' },
@@ -98,6 +99,7 @@ describe('editDashboard', () => {
                 value: newState,
             });
 
+            expect(actualState.displayName).toEqual();
             expect(actualState.name).toEqual(newState.name);
             expect(actualState.id).toEqual(newState.id);
             expect(actualState.dashboardItems.length).toEqual(
@@ -157,7 +159,7 @@ describe('editDashboard', () => {
             );
 
             const expectedState = update(initialState, {
-                dashboardItems: { $push: [newItem] },
+                dashboardItems: { $unshift: [newItem] },
             });
 
             expect(actualState).toMatchObject(expectedState);

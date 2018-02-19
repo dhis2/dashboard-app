@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { t } from 'dhis2-i18n';
 import Divider from 'material-ui/Divider';
 import { List, ListItem } from 'material-ui/List';
 
@@ -9,7 +10,6 @@ import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import { acAddDashboardItem } from '../actions/editDashboard';
 import { tAddListItemContent } from './actions';
 import { sGetEditDashboard } from '../reducers/editDashboard';
-import { getYMax } from '../ItemGrid/gridUtil';
 import {
     itemTypeMap,
     getItemUrl,
@@ -37,11 +37,9 @@ class ItemSelectList extends Component {
         const {
             type,
             dashboardId,
-            dashboardItems,
             acAddDashboardItem,
             tAddListItemContent,
         } = this.props;
-        const yValue = getYMax(dashboardItems);
 
         const newItem = {
             id: item.id,
@@ -54,9 +52,9 @@ class ItemSelectList extends Component {
         } else if (type === APP) {
             newItem.id = newItem.appKey = item.key;
 
-            acAddDashboardItem({ type, content: newItem }, yValue);
+            acAddDashboardItem({ type, content: newItem });
         } else {
-            acAddDashboardItem({ type, content: newItem }, yValue);
+            acAddDashboardItem({ type, content: newItem });
         }
     };
 
@@ -82,9 +80,9 @@ class ItemSelectList extends Component {
                         style={{ textTransform: 'uppercase' }}
                         onClick={this.toggleSeeMore}
                     >
-                        {`See ${this.state.seeMore ? 'fewer' : 'more'} ${
-                            this.props.title
-                        }`}
+                        {`${t('See')} ${
+                            this.state.seeMore ? t('fewer') : t('more')
+                        } ${this.props.title}`}
                     </Button>
                 </div>
                 <Divider />
@@ -167,7 +165,6 @@ ItemSelectList.contextTypes = {
 export default connect(
     state => ({
         dashboardId: sGetEditDashboard(state).id,
-        dashboardItems: sGetEditDashboard(state).dashboardItems,
     }),
     {
         acAddDashboardItem,

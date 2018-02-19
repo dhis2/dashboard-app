@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { t } from 'dhis2-i18n';
 import ReactGridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
@@ -51,7 +52,7 @@ export class ItemGrid extends Component {
         expandedItems: {},
     };
 
-    NO_ITEMS_MESSAGE = 'You have not added any items';
+    NO_ITEMS_MESSAGE = t('You have not added any items');
 
     onToggleItemExpanded = clickedId => {
         const isExpanded =
@@ -93,8 +94,10 @@ export class ItemGrid extends Component {
         }
     };
 
+    onRemoveItemWrapper = id => () => this.onRemoveItem(id);
+
     render() {
-        const { edit, isLoading, dashboardItems } = this.props;
+        const { edit, isLoading, itemFilter, dashboardItems } = this.props;
 
         if (!dashboardItems.length) {
             return <NoItemsMessage text={this.NO_ITEMS_MESSAGE} />;
@@ -112,8 +115,6 @@ export class ItemGrid extends Component {
                 i: item.id,
             });
         });
-
-        const onRemoveItemWrapper = id => () => this.onRemoveItem(id);
 
         return (
             <div className="grid-wrapper">
@@ -141,12 +142,15 @@ export class ItemGrid extends Component {
                             <div key={item.i} className={itemClassNames}>
                                 {edit ? (
                                     <DeleteItemButton
-                                        onClick={onRemoveItemWrapper(item.id)}
+                                        onClick={this.onRemoveItemWrapper(
+                                            item.id
+                                        )}
                                     />
                                 ) : null}
                                 <Item
                                     item={item}
                                     editMode={edit}
+                                    itemFilter={itemFilter}
                                     onToggleItemExpanded={
                                         this.onToggleItemExpanded
                                     }
@@ -175,8 +179,8 @@ const mapStateToProps = state => {
         sGetSelectedDashboard,
         fromSelected,
         fromEditDashboard,
+        fromItemFilter,
     } = fromReducers;
-    const { sGetSelectedIsLoading } = fromSelected;
 
     const selectedDashboard = sGetSelectedDashboard(state);
 
@@ -186,7 +190,8 @@ const mapStateToProps = state => {
 
     return {
         edit: fromEditDashboard.sGetIsEditing(state),
-        isLoading: sGetSelectedIsLoading(state),
+        isLoading: fromSelected.sGetSelectedIsLoading(state),
+        itemFilter: fromItemFilter.sGetFromState(state),
         dashboardItems,
     };
 };
@@ -203,6 +208,7 @@ const mergeProps = (stateProps, dispatchProps) => {
         ...dispatchProps,
         edit: stateProps.edit,
         isLoading: stateProps.isLoading,
+        itemFilter: stateProps.itemFilter,
         dashboardItems: validItems,
         onItemResize,
     };

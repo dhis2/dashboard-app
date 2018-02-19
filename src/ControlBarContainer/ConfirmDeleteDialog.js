@@ -1,21 +1,8 @@
 import React from 'react';
+import { t } from 'dhis2-i18n';
 import Dialog from 'material-ui/Dialog';
-import Button from 'd2-ui/lib/button/Button';
-import { colors } from '../colors';
-
-const style = {
-    button: {
-        color: colors.royalBlue,
-        backgroundColor: 'transparent',
-        border: 'none',
-        fontSize: '14px',
-        fontWeight: 500,
-        textTransform: 'uppercase',
-        padding: '5px',
-        height: '36px',
-        cursor: 'pointer',
-    },
-};
+import FlatButton from '../widgets/FlatButton';
+import PrimaryButton from '../widgets/PrimaryButton';
 
 const ConfirmDeleteDialog = ({
     dashboardName,
@@ -24,22 +11,22 @@ const ConfirmDeleteDialog = ({
     open,
 }) => {
     const actions = [
-        <Button onClick={onDeleteConfirmed} style={style.button}>
-            Delete
-        </Button>,
-        <Button onClick={onContinueEditing} style={style.button}>
-            Continue editing
-        </Button>,
+        <FlatButton onClick={onDeleteConfirmed}>{t('Delete')}</FlatButton>,
+        <PrimaryButton onClick={onContinueEditing}>
+            {t('Continue editing')}
+        </PrimaryButton>,
     ];
 
     return (
         <Dialog
-            title="Confirm delete dashboard"
+            title={t('Confirm delete dashboard')}
             actions={actions}
             modal={true}
             open={open}
         >
-            {`Are you sure you want to delete dashboard "${dashboardName}"?`}
+            {t('Are you sure you want to delete dashboard {{ name }}', {
+                name: dashboardName,
+            })}
         </Dialog>
     );
 };

@@ -1,13 +1,14 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
+import { t } from 'dhis2-i18n';
 
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 // FIXME: TO BE USED IN 2.30
 //import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
-import Chip from 'd2-ui/lib/chip/Chip';
-import { blue800 } from 'material-ui/styles/colors';
 import arraySort from 'd2-utilizr/lib/arraySort';
+import Chip from './DashboardItemChip';
 
+import { colors } from '../colors';
 import D2IconButton from '../widgets/D2IconButton';
 import Filter from './Filter';
 import {
@@ -105,12 +106,9 @@ const DashboardsBar = ({
                 </div>
                 {dashboards.map(dashboard => (
                     <Chip
-                        key={dashboard.id}
                         label={dashboard.name}
-                        avatar={dashboard.starred ? 'star' : null}
-                        color={
-                            dashboard.id === selectedId ? 'primary' : undefined
-                        }
+                        starred={dashboard.starred}
+                        selected={dashboard.id === selectedId}
                         onClick={onDashboardSelectWrapper(
                             dashboard.id,
                             onSelectDashboard
@@ -125,13 +123,13 @@ const DashboardsBar = ({
                         paddingTop: 4,
                         fontSize: 11,
                         fontWeight: 700,
-                        color: blue800,
+                        color: colors.royalBlue,
                         textTransform: 'uppercase',
                         cursor: 'pointer',
                         visibility: 'visible',
                     }}
                 >
-                    {isExpanded ? 'Show less' : 'Show more'}
+                    {isExpanded ? t('Show less') : t('Show more')}
                 </div>
             </div>
         </ControlBar>
@@ -139,11 +137,11 @@ const DashboardsBar = ({
 };
 
 const mapStateToProps = state => {
-    const { fromDashboards, fromFilter } = fromReducers;
+    const { fromDashboards, fromDashboardsFilter } = fromReducers;
 
     return {
         dashboards: fromDashboards.sGetFromState(state),
-        name: fromFilter.sGetFilterName(state),
+        name: fromDashboardsFilter.sGetFilterName(state),
         rows: (state.controlBar && state.controlBar.rows) || 1,
         selectedId: sGetSelectedId(state),
         isExpanded:
@@ -154,7 +152,11 @@ const mapStateToProps = state => {
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const { dispatch } = dispatchProps;
-    const { fromControlBar, fromFilter, fromEditDashboard } = fromActions;
+    const {
+        fromControlBar,
+        fromDashboardsFilter,
+        fromEditDashboard,
+    } = fromActions;
 
     const dashboards = Object.values(orObject(stateProps.dashboards));
     const displayDashboards = arraySort(
@@ -194,7 +196,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
                 fromControlBar.acSetControlBarExpanded(!stateProps.isExpanded)
             );
         },
-        onChangeFilterName: text => dispatch(fromFilter.acSetFilterName(text)),
+        onChangeFilterName: name =>
+            dispatch(fromDashboardsFilter.acSetFilterName(name)),
         onSelectDashboard: id => dispatch(fromActions.tSelectDashboardById(id)),
     };
 };

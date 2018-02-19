@@ -19,6 +19,7 @@ export const DEFAULT_STATE = {};
 export const NEW_DASHBOARD_STATE = {
     id: '',
     name: '',
+    access: {},
     description: '',
     dashboardItems: [],
 };
@@ -26,7 +27,11 @@ export const NEW_DASHBOARD_STATE = {
 export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {
         case actionTypes.RECEIVED_EDIT_DASHBOARD:
-            return action.value;
+            const newState = {};
+            Object.keys(NEW_DASHBOARD_STATE).map(
+                k => (newState[k] = action.value[k])
+            );
+            return newState;
         case actionTypes.RECEIVED_NOT_EDITING:
             return DEFAULT_STATE;
         case actionTypes.START_NEW_DASHBOARD:
@@ -41,7 +46,7 @@ export default (state = DEFAULT_STATE, action) => {
         }
         case actionTypes.ADD_DASHBOARD_ITEM:
             return update(state, {
-                dashboardItems: { $push: [action.value] },
+                dashboardItems: { $unshift: [action.value] },
             });
         case actionTypes.REMOVE_DASHBOARD_ITEM: {
             const idToRemove = action.value;

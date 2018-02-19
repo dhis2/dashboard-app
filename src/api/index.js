@@ -9,7 +9,7 @@ export const getEndPointName = type => itemTypeMap[type].endPointName;
 // Fields
 export const getIdNameFields = ({ rename } = {}) => [
     'id',
-    `${rename ? 'displayName~rename(name)' : 'name'}`,
+    `${rename ? 'displayName~rename(name)' : 'name,displayName'}`,
 ];
 
 export const getItemFields = () => ['dimensionItem~rename(id)'];

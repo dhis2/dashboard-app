@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { t } from 'dhis2-i18n';
 
 import Interpretation from './Interpretation';
 import InputField from './InputField';
@@ -94,7 +95,7 @@ class Interpretations extends Component {
                 </h3>
                 <ul style={style.list}>{this.renderItems()}</ul>
                 <InputField
-                    placeholder="Write your own interpretation"
+                    placeholder={t('Write your own interpretation')}
                     onPost={this.postInterpretation}
                     postText="Post"
                 />

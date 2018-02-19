@@ -1,3 +1,7 @@
+body {
+    background-color: #f4f6f8;
+}
+
 .app-wrapper * {
     font-family: Roboto;
 }
