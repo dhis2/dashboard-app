@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { t } from 'dhis2-i18n';
-import { Trans } from 'react-i18next';
+import i18n from 'dhis2-i18n';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import { fromUser } from '../../../reducers';
 import InputField from './InputField';
@@ -153,8 +152,8 @@ class Interpretation extends Component {
             ? Object.assign({}, style.icon, { fill: colors.lightGreen })
             : style.icon;
         const likeText = this.userLikesInterpretation()
-            ? t('You like this')
-            : t('Like');
+            ? i18n.t('You like this')
+            : i18n.t('Like');
 
         const canDeleteInterpretation = () =>
             this.userIsOwner(this.props.interpretation.user.id) ||
@@ -172,7 +171,7 @@ class Interpretation extends Component {
                     onClick={this.showCommentField}
                 >
                     <SvgIcon style={style.icon} icon="Reply" />
-                    <Trans>Reply</Trans>
+                    {i18n.t('Reply')}
                 </button>
                 <button
                     className={actionButtonClass}
@@ -250,9 +249,9 @@ class Interpretation extends Component {
                 {this.renderComments()}
                 {this.state.showCommentField ? (
                     <InputField
-                        placeholder={t('Write your reply')}
+                        placeholder={i18n.t('Write your reply')}
                         onPost={this.postComment}
-                        postText={t('Reply')}
+                        postText={i18n.t('Reply')}
                     />
                 ) : null}
             </div>

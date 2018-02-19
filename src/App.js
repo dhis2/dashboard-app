@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
 
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
@@ -54,4 +53,4 @@ App.childContextTypes = {
     baseUrl: PropTypes.string,
 };
 
-export default translate('dashboards-app')(App);
+export default App;

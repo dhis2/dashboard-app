@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { t } from 'dhis2-i18n';
+import i18n from 'dhis2-i18n';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 import PrimaryButton from '../widgets/PrimaryButton';
 import FlatButton from '../widgets/FlatButton';
@@ -122,25 +122,25 @@ class EditBar extends Component {
                         <div style={style.leftControls}>
                             <span style={{ marginRight: '15px' }}>
                                 <PrimaryButton onClick={onSave}>
-                                    {t('Save changes')}
+                                    {i18n.t('Save changes')}
                                 </PrimaryButton>
                             </span>
                             {dashboardId && deleteAccess ? (
                                 <FlatButton onClick={this.onConfirmDelete}>
-                                    {t('Delete')}
+                                    {i18n.t('Delete')}
                                 </FlatButton>
                             ) : null}
                             {dashboardId ? (
                                 <FlatButton
                                     onClick={this.toggleTranslationDialog}
                                 >
-                                    {t('Translate')}
+                                    {i18n.t('Translate')}
                                 </FlatButton>
                             ) : null}
                         </div>
                         <div style={style.rightControls}>
                             <FlatButton onClick={onDiscard}>
-                                {t('Exit without saving')}
+                                {i18n.t('wExit without saving')}
                             </FlatButton>
                         </div>
                     </div>

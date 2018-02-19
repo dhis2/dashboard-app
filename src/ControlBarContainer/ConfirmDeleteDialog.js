@@ -1,5 +1,5 @@
 import React from 'react';
-import { t } from 'dhis2-i18n';
+import i18n from 'dhis2-i18n';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from '../widgets/FlatButton';
 import PrimaryButton from '../widgets/PrimaryButton';
@@ -11,20 +11,20 @@ const ConfirmDeleteDialog = ({
     open,
 }) => {
     const actions = [
-        <FlatButton onClick={onDeleteConfirmed}>{t('Delete')}</FlatButton>,
+        <FlatButton onClick={onDeleteConfirmed}>{i18n.t('Delete')}</FlatButton>,
         <PrimaryButton onClick={onContinueEditing}>
-            {t('Continue editing')}
+            {i18n.t('Continue editing')}
         </PrimaryButton>,
     ];
 
     return (
         <Dialog
-            title={t('Confirm delete dashboard')}
+            title={i18n.t('Confirm delete dashboard')}
             actions={actions}
             modal={true}
             open={open}
         >
-            {t('Are you sure you want to delete dashboard {{ name }}', {
+            {i18n.t('Are you sure you want to delete dashboard {{ name }}', {
                 name: dashboardName,
             })}
         </Dialog>

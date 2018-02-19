@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { t } from 'dhis2-i18n';
+import i18n from 'dhis2-i18n';
 import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
@@ -87,7 +87,7 @@ class Filter extends Component {
                 value={this.state.value}
                 onChange={this.setFilterValue}
                 onKeyUp={this.handleKeyUp}
-                hintText={t('Filter dashboards')}
+                hintText={i18n.t('Filter dashboards')}
                 style={styles.filterField}
                 inputStyle={styles.filterFieldInput}
                 hintStyle={styles.filterFieldHint}
