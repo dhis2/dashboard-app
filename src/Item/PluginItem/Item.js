@@ -68,7 +68,7 @@ class Item extends Component {
     };
 
     onSelectVisualization = targetType => {
-        pluginManager.unmount(this.props.item, targetType);
+        pluginManager.unmount(this.props.item, this.state.activeVisualization);
 
         this.setState({ activeVisualization: targetType });
         pluginManager.reload(
