@@ -167,8 +167,7 @@ class ItemSelect extends React.Component {
                     autoCloseWhenOffScreen={false}
                     style={{
                         width: 700,
-                        height: 900,
-                        overflow: 'auto',
+                        height: '70vh',
                         left: -1000,
                     }}
                 >
