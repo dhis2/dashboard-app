@@ -140,7 +140,7 @@ class EditBar extends Component {
                         </div>
                         <div style={style.rightControls}>
                             <FlatButton onClick={onDiscard}>
-                                {i18n.t('wExit without saving')}
+                                {i18n.t('Exit without saving')}
                             </FlatButton>
                         </div>
                     </div>
