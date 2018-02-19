@@ -5,6 +5,7 @@ import { t } from 'dhis2-i18n';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 // FIXME: TO BE USED IN 2.30
 //import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import arraySort from 'd2-utilizr/lib/arraySort';
 import Chip from './DashboardItemChip';
 
 import { colors } from '../colors';
@@ -105,7 +106,7 @@ const DashboardsBar = ({
                 </div>
                 {dashboards.map(dashboard => (
                     <Chip
-                        label={dashboard.name}
+                        label={dashboard.displayName}
                         starred={dashboard.starred}
                         selected={dashboard.id === selectedId}
                         onClick={onDashboardSelectWrapper(
@@ -150,7 +151,6 @@ const mapStateToProps = state => {
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const { dashboards, name, rows, isExpanded } = stateProps;
     const { dispatch } = dispatchProps;
     const {
         fromControlBar,
@@ -158,16 +158,21 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         fromEditDashboard,
     } = fromActions;
 
-    const filteredDashboards = Object.values(orObject(dashboards)).filter(
-        d => d.name.toLowerCase().indexOf(name) !== -1
+    const dashboards = Object.values(orObject(stateProps.dashboards));
+    const displayDashboards = arraySort(
+        dashboards.filter(d =>
+            d.displayName.toLowerCase().includes(stateProps.name)
+        ),
+        'ASC',
+        'displayName'
     );
 
     return {
         ...stateProps,
         ...ownProps,
         dashboards: [
-            ...filteredDashboards.filter(d => d.starred),
-            ...filteredDashboards.filter(d => !d.starred),
+            ...displayDashboards.filter(d => d.starred),
+            ...displayDashboards.filter(d => !d.starred),
         ],
         onChangeHeight: (newHeight, onEndDrag) => {
             const newRows = Math.max(
@@ -175,7 +180,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
                 Math.floor((newHeight - 24) / CONTROL_BAR_ROW_HEIGHT)
             );
 
-            if (newRows !== rows) {
+            if (newRows !== stateProps.rows) {
                 dispatch(
                     fromControlBar.acSetControlBarRows(
                         Math.min(newRows, EXPANDED_ROW_COUNT)
@@ -187,7 +192,9 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             dispatch(fromEditDashboard.acSetEditNewDashboard());
         },
         onToggleExpanded: () => {
-            dispatch(fromControlBar.acSetControlBarExpanded(!isExpanded));
+            dispatch(
+                fromControlBar.acSetControlBarExpanded(!stateProps.isExpanded)
+            );
         },
         onChangeFilterName: name =>
             dispatch(fromDashboardsFilter.acSetFilterName(name)),

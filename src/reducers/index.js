@@ -79,7 +79,9 @@ export const sGetSelectedDashboard = state =>
 
 // filter dashboards by name
 export const sFilterDashboardsByName = (dashboards, filter) =>
-    dashboards.filter(d => d.name.toLowerCase().includes(filter.toLowerCase()));
+    dashboards.filter(d =>
+        d.displayName.toLowerCase().includes(filter.toLowerCase())
+    );
 
 // filter dashboards by owner
 export const sFilterDashboardsByOwner = (dashboards, filter) => {
