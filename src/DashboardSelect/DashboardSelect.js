@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { t } from 'dhis2-i18n';
+import i18n from 'dhis2-i18n';
 
 import { fromSelected } from '../actions';
 import * as fromReducers from '../reducers';
@@ -20,7 +20,7 @@ const styles = {
 };
 
 function Loading() {
-    return <div style={styles.loading}>{t('Loading dashboards ...')}</div>;
+    return <div style={styles.loading}>{i18n.t('Loading dashboards...')}</div>;
 }
 
 // Component

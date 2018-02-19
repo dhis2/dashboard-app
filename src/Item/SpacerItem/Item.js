@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
-import { t } from 'dhis2-i18n';
-import { Trans } from 'react-i18next';
+import i18n from 'dhis2-i18n';
 import ItemHeader from '../ItemHeader';
 
 const style = {
@@ -12,12 +11,11 @@ const style = {
 const SpacerItem = () => {
     return (
         <Fragment>
-            <ItemHeader title={t('Spacer')} />
+            <ItemHeader title={i18n.t('Spacer')} />
             <p style={style}>
-                <Trans>
-                    Use a spacer to create empty vertical space between other
-                    dashboard items.
-                </Trans>
+                {i18n.t(
+                    'Use a spacer to create empty vertical space between other dashboard items.'
+                )}
             </p>
         </Fragment>
     );

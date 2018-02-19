@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { t } from 'dhis2-i18n';
+import i18n from 'dhis2-i18n';
 
 import ItemSelect from '../ItemSelect/ItemSelect';
 import TextField from 'd2-ui/lib/text-field/TextField';
@@ -39,7 +39,7 @@ const EditTitleBar = ({
                         rowsMax={3}
                         style={titleStyle}
                         value={name}
-                        placeholder={t('Add title here')}
+                        placeholder={i18n.t('Add title here')}
                         onChange={onChangeTitle}
                     />
                     {translatedName()}
@@ -51,7 +51,7 @@ const EditTitleBar = ({
                     rowsMax={3}
                     style={style.description}
                     value={description}
-                    placeholder={t('Add description here')}
+                    placeholder={i18n.t('Add description here')}
                     onChange={onChangeDescription}
                 />
             </div>

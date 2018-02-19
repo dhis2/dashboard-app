@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { t } from 'dhis2-i18n';
+import i18n from 'dhis2-i18n';
 
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 // FIXME: TO BE USED IN 2.30
@@ -131,7 +131,7 @@ const DashboardsBar = ({
                         visibility: 'visible',
                     }}
                 >
-                    {isExpanded ? t('Show less') : t('Show more')}
+                    {isExpanded ? i18n.t('Show less') : i18n.t('Show more')}
                 </div>
             </div>
         </ControlBar>
