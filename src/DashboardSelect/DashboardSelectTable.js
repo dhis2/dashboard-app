@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Trans } from 'react-i18next';
+import i18n from 'dhis2-i18n';
 
 import {
     Table,
@@ -167,24 +167,24 @@ export default class DashboardSelectTable extends Component {
                                     style.starred
                                 )}
                             >
-                                <Trans>Starred</Trans>
+                                {i18n.t('Starred')}
                             </TableHeaderColumn>
                             <TableHeaderColumn
                                 style={Object.assign({}, style.row, style.name)}
                             >
-                                <Trans>Name</Trans>
+                                {i18n.t('Name')}
                             </TableHeaderColumn>
                             <TableHeaderColumn style={style.row}>
-                                <Trans>Items</Trans>
+                                {i18n.t('Items')}
                             </TableHeaderColumn>
                             <TableHeaderColumn style={style.row}>
-                                <Trans>Owner</Trans>
+                                {i18n.t('Owner')}
                             </TableHeaderColumn>
                             <TableHeaderColumn style={style.row}>
-                                <Trans>Created</Trans>
+                                {i18n.t('Created')}
                             </TableHeaderColumn>
                             <TableHeaderColumn style={style.row}>
-                                <Trans>Modified</Trans>
+                                {i18n.t('Modified')}
                             </TableHeaderColumn>
                         </TableRow>
                     </TableHeader>
