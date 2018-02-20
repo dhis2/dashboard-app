@@ -1,5 +1,5 @@
 import isObject from 'd2-utilizr/lib/isObject';
-import { apiFetchFavorite } from '../../api/metaData';
+import { apiFetchFavorite, getMapFields } from '../../api/metaData';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { FILTER_USER_ORG_UNIT } from '../../actions/itemFilter';
 import {
@@ -10,7 +10,7 @@ import {
     EVENT_CHART,
     itemTypeMap,
 } from '../../itemTypes';
-import { getBaseUrl } from '../../util';
+import { getBaseUrl, orObject } from '../../util';
 
 export const extractFavorite = item => {
     if (!isObject(item)) {
@@ -40,7 +40,10 @@ export const extractFavorite = item => {
     }
 };
 
-const loadPlugin = (plugin, itemConfig, credentials) => {
+export const extractMapView = map =>
+    map.mapViews && map.mapViews.find(mv => mv.layer.includes('thematic'));
+
+const loadPlugin = (plugin, config, credentials) => {
     plugin.url = credentials.baseUrl;
     plugin.loadingIndicator = true;
     plugin.dashboard = true;
@@ -48,7 +51,7 @@ const loadPlugin = (plugin, itemConfig, credentials) => {
         plugin.auth = credentials.auth;
     }
 
-    plugin.load(itemConfig);
+    plugin.load(config);
 };
 
 export const getId = item => extractFavorite(item).id;
@@ -65,8 +68,30 @@ const getUserOrgUnitIds = (ouPaths = []) => {
     return ouPaths.map(ouPath => ouPath.split('/').slice(-1)[0]);
 };
 
-const configureFavorite = (type, favorite = {}) => {
-    console.log(type, favorite);
+// if original visualisation, set id and let the plugin handle it
+// otherwise fetch and pass the correct config to the plugin
+const configureFavorite = async (item, targetType) => {
+    const isOriginalVisualisation = item.type === targetType;
+    let favorite;
+
+    if (isOriginalVisualisation) {
+        favorite = {
+            id: getId(item),
+        };
+    } else {
+        const fetchedFavorite = await apiFetchFavorite(getId(item), item.type, {
+            fields: item.type === MAP ? getMapFields() : null,
+        });
+
+        favorite =
+            item.type === MAP
+                ? orObject(extractMapView(fetchedFavorite))
+                : fetchedFavorite;
+
+        favorite.id = null;
+        favorite.hideTitle = !favorite.hideTitle;
+    }
+
     return favorite;
 };
 
@@ -80,21 +105,15 @@ const configureFilter = (filter = {}) => {
 };
 
 export const reload = async (item, targetType, credentials, filter) => {
-    const favorite = await apiFetchFavorite(getId(item), item.type);
-
-    const configuredFilter = configureFilter(filter);
-
-    const itemConfig = {
-        ...configureFavorite(item.type, favorite),
-        id: null,
+    const config = {
+        ...(await configureFavorite(item, targetType)),
+        ...configureFilter(filter),
         el: getGridItemDomId(item.id),
-        hideTitle: !favorite.title,
-        ...configuredFilter,
     };
 
-    let plugin = itemTypeMap[targetType].plugin;
+    const plugin = itemTypeMap[targetType].plugin;
 
-    loadPlugin(plugin, itemConfig, credentials);
+    loadPlugin(plugin, config, credentials);
 };
 
 export const load = (item, credentials, filter) => {

@@ -80,7 +80,7 @@
         "lint": "eslint -c .eslintrc.json src",
         "prebuild":
             "rm -rf build && npm run lint && mkdir build && npm run manifest",
-        "postbuild": "cp -r src/i18n build",
+        "postbuild": "cp -r public/i18n build",
         "manifest": "d2-manifest package.json build/manifest.webapp",
         "deploy": "npm run build && mvn clean deploy",
         "prettify": "prettier \"src/{**/*,*}.js\" --write"

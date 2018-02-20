@@ -11,7 +11,7 @@ const chipTheme = {
     },
     primary: {
         labelColor: colors.black,
-        backgroundColor: colors.mint,
+        backgroundColor: colors.lightGrey,
     },
     accent: {
         labelColor: colors.white,
@@ -24,7 +24,7 @@ const chipDimension = '30px';
 const avatar = selected => {
     const avatarProps = {
         color: colors.white,
-        backgroundColor: selected ? 'transparent' : colors.lightGreen,
+        backgroundColor: selected ? 'transparent' : colors.lightMediumGrey,
         style: {
             height: chipDimension,
             width: chipDimension,

@@ -84,7 +84,7 @@ export const getListItemFields = () => [
 
 // Map
 export const getMapFields = () =>
-    'id,user,displayName~rename(name),longitude,latitude,zoom,basemap, mapViews[*,columns[dimension,filter,items[dimensionItem~rename(id),dimensionItemType,displayName~rename(name)]],rows[dimension,filter,items[dimensionItem~rename(id),dimensionItemType,displayName~rename(name)]],filters[dimension,filter,items[dimensionItem~rename(id),dimensionItemType,displayName~rename(name)]],dataDimensionItems,program[id,displayName~rename(name)],programStage[id,displayName~rename(name)],legendSet[id,displayName~rename(name)],!lastUpdated,!href,!created,!publicAccess,!rewindRelativePeriods,!userOrganisationUnit,!userOrganisationUnitChildren,!userOrganisationUnitGrandChildren,!externalAccess,!access,!relativePeriods,!columnDimensions,!rowDimensions,!filterDimensions,!user,!organisationUnitGroups,!itemOrganisationUnitGroups,!userGroupAccesses,!indicators,!dataElements,!dataElementOperands,!dataElementGroups,!dataSets,!periods,!organisationUnitLevels,!organisationUnits,!sortOrder,!topLimit]]';
+    'id,user,displayName~rename(name),longitude,latitude,zoom,basemap,mapViews[	*,	columns[		dimension,filter,items[			dimensionItem~rename(id),dimensionItemType,displayName~rename(name)		]	],	rows[dimension,filter,items[dimensionItem~rename(id),dimensionItemType,displayName~rename(name)]],	filters[dimension,filter,items[dimensionItem~rename(id),dimensionItemType,displayName~rename(name)]]]';
 
 // Api
 
