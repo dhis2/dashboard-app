@@ -83,7 +83,14 @@
         "postbuild": "cp -r public/i18n build",
         "manifest": "d2-manifest package.json build/manifest.webapp",
         "deploy": "npm run build && mvn clean deploy",
+        "extract-pot": "dhis2-i18n-extract -p src/ -o i18n/",
         "prettify": "prettier \"src/{**/*,*}.js\" --write"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit":
+                "npm run extract-pot && npm run prettify && CI=true npm run test && git add -A ."
+        }
     },
     "manifest.webapp": {
         "name": "Dashboards app",
@@ -144,5 +151,9 @@
     },
     "eslintConfig": {
         "extends": "react-app"
+    },
+    "devDependencies": {
+        "dhis2-i18n-extract": "github:adeelshahid/dhis2-i18n-extract",
+        "husky": "^0.15.0-rc.8"
     }
 }
