@@ -2,7 +2,7 @@ import { getInstance } from 'd2/lib/d2';
 import arrayClean from 'd2-utilizr/lib/arrayClean';
 
 import { interpretationFields } from './interpretations';
-import { onError, getEndPointName } from './index';
+import { getEndPointName } from './index';
 
 // Id, name
 export const getIdNameFields = ({ rename } = {}) => [

@@ -1,7 +1,6 @@
 import { getInstance } from 'd2/lib/d2';
 import arrayClean from 'd2-utilizr/lib/arrayClean';
-import { getFavoriteFields } from './metaData';
-import { onError, getEndPointName, getDashboardFields } from './index';
+import { onError, getDashboardFields } from './index';
 
 // Get "all" dashboards on startup
 export const apiFetchDashboards = () =>
