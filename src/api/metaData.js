@@ -83,8 +83,14 @@ export const getListItemFields = () => [
 ];
 
 // Map
-export const getMapFields = () =>
-    'id,user,displayName~rename(name),longitude,latitude,zoom,basemap,mapViews[	*,	columns[		dimension,filter,items[			dimensionItem~rename(id),dimensionItemType,displayName~rename(name)		]	],	rows[dimension,filter,items[dimensionItem~rename(id),dimensionItemType,displayName~rename(name)]],	filters[dimension,filter,items[dimensionItem~rename(id),dimensionItemType,displayName~rename(name)]]]';
+export const getMapFields = () => [
+    `${getIdNameFields({ rename: true }).join(',')}`,
+    'user,longitude,latitude,zoom,basemap',
+    `mapViews[${getFavoriteFields({
+        withDimensions: true,
+        withOptions: true,
+    })}]`,
+];
 
 // Api
 
