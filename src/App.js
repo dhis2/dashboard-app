@@ -67,10 +67,6 @@ const mapStateToProps = state => {
     };
 };
 
-const mapDispatchToProps = {
-    acSnackbarClosed,
-};
-
 App.contextTypes = {
     d2: PropTypes.object,
     store: PropTypes.object,
@@ -80,6 +76,8 @@ App.childContextTypes = {
     baseUrl: PropTypes.string,
 };
 
-const AppCt = connect(mapStateToProps, mapDispatchToProps)(App);
+const AppCt = connect(mapStateToProps, {
+    acSnackbarClosed,
+})(App);
 
 export default AppCt;
