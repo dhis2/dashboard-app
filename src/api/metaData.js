@@ -89,12 +89,13 @@ export const getMapFields = () =>
 // Api
 
 // Get more info about the favorite of a dashboard item
-export const apiFetchFavorite = (id, type) =>
+export const apiFetchFavorite = (id, type, { fields }) =>
     getInstance().then(d2 =>
         d2.Api.getApi().get(
-            `${getEndPointName(type)}/${id}?fields=${getFavoriteFields({
-                withDimensions: true,
-                withOptions: true,
-            })}`
+            `${getEndPointName(type)}/${id}?fields=${fields ||
+                getFavoriteFields({
+                    withDimensions: true,
+                    withOptions: true,
+                })}`
         )
     );
