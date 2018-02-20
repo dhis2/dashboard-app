@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
+import Snackbar from 'material-ui/Snackbar';
 
 import PageContainer from './PageContainer/PageContainer';
 import ControlBarContainer from './ControlBarContainer/ControlBarContainer';
@@ -11,6 +13,8 @@ import TitleBarCt from './TitleBar/TitleBar';
 import ItemGridCt from './ItemGrid/ItemGrid';
 
 import { fromDashboards, fromUser } from './actions';
+import { acSnackbarClosed } from './actions/snackbar';
+import { fromSnackbar } from './reducers';
 
 import './App.css';
 
@@ -30,6 +34,10 @@ class App extends Component {
         };
     }
 
+    onCloseSnackbar = () => {
+        this.props.acSnackbarClosed();
+    };
+
     render() {
         return (
             <div className="app-wrapper">
@@ -39,10 +47,29 @@ class App extends Component {
                     <TitleBarCt />
                     <ItemGridCt />
                 </PageContainer>
+                <Snackbar
+                    open={!!this.props.snackbarMessage}
+                    message={this.props.snackbarMessage}
+                    autoHideDuration={this.props.snackbarDuration}
+                    onRequestClose={this.props.onCloseSnackbar}
+                />
             </div>
         );
     }
 }
+
+const mapStateToProps = state => {
+    const { message, duration } = fromSnackbar.sGetSnackbar(state);
+
+    return {
+        snackbarMessage: message,
+        snackbarDuration: duration,
+    };
+};
+
+const mapDispatchToProps = {
+    acSnackbarClosed,
+};
 
 App.contextTypes = {
     d2: PropTypes.object,
@@ -53,4 +80,6 @@ App.childContextTypes = {
     baseUrl: PropTypes.string,
 };
 
-export default App;
+const AppCt = connect(mapStateToProps, mapDispatchToProps)(App);
+
+export default AppCt;
