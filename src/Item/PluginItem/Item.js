@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import ItemHeader from '../ItemHeader';
@@ -9,6 +10,8 @@ import PluginItemHeaderButtons from './ItemHeaderButtons';
 import * as pluginManager from './plugin';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { getBaseUrl } from '../../util';
+import { sGetVisualization } from '../../reducers/visualizations';
+import { acReceivedActiveVisualization } from '../../actions/selected';
 
 const style = {
     icon: {
@@ -42,7 +45,7 @@ class Item extends Component {
 
     componentDidMount() {
         this.pluginCredentials = pluginCredentials(this.context.d2);
-
+        console.log('componentDidMount');
         pluginManager.load(
             this.props.item,
             this.pluginCredentials,
@@ -51,6 +54,13 @@ class Item extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        console.log(
+            'componentWillReceiveProps',
+            nextProps.itemFilter !== this.props.itemFilter,
+            nextProps.itemFilter,
+            this.props.itemFilter,
+            this.props.visualization
+        );
         if (nextProps.itemFilter !== this.props.itemFilter) {
             pluginManager.load(
                 this.props.item,
@@ -68,15 +78,23 @@ class Item extends Component {
     };
 
     onSelectVisualization = targetType => {
-        pluginManager.unmount(this.props.item, this.state.activeVisualization);
-
-        this.setState({ activeVisualization: targetType });
-        pluginManager.reload(
+        pluginManager.unmount(
             this.props.item,
-            targetType,
-            this.pluginCredentials,
-            this.props.itemFilter
+            this.props.visualization.active || this.props.item.type
         );
+
+        // this.setState({ activeVisualization: targetType });
+        this.props.onSelectVisualization({
+            id: this.props.visualization.id,
+            active: targetType,
+        });
+
+        // pluginManager.reload(
+        //     this.props.item,
+        //     targetType,
+        //     this.pluginCredentials,
+        //     this.props.itemFilter
+        // );
     };
 
     render() {
@@ -102,7 +120,9 @@ class Item extends Component {
             <PluginItemHeaderButtons
                 item={item}
                 activeFooter={this.state.showFooter}
-                activeVisualization={this.state.activeVisualization}
+                activeVisualization={
+                    this.props.visualization.active || this.props.item.type
+                }
                 onSelectVisualization={this.onSelectVisualization}
                 onToggleFooter={this.onToggleFooter}
             />
@@ -128,4 +148,16 @@ Item.contextTypes = {
     d2: PropTypes.object,
 };
 
-export default Item;
+const mapStateToProps = (state, ownProps) => ({
+    visualization: sGetVisualization(
+        state,
+        pluginManager.extractFavorite(ownProps.item).id
+    ),
+});
+
+const mapDispatchToProps = dispatch => ({
+    onSelectVisualization: value =>
+        dispatch(acReceivedActiveVisualization(value)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Item);

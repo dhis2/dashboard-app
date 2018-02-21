@@ -40,6 +40,11 @@ export const acReceivedVisualization = value => ({
     value,
 });
 
+export const acReceivedActiveVisualization = value => ({
+    type: actionTypes.RECEIVED_ACTIVE_VISUALIZATION,
+    value,
+});
+
 // thunks
 
 export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
