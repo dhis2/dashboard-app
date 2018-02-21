@@ -1,10 +1,9 @@
-import React from 'react';
 import { actionTypes } from '../reducers';
 import { apiFetchSelected } from '../api/dashboards';
 import { acSetDashboards } from './dashboards';
 import { withShape } from '../ItemGrid/gridUtil';
 import { tGetMessages } from '../Item/MessagesItem/actions';
-import { acReceivedSnackbarMessage, acSnackbarClosed } from './snackbar';
+import { acReceivedSnackbarMessage, acCloseSnackbar } from './snackbar';
 import { storePreferredDashboardId } from '../api/localStorage';
 import { fromUser, fromSelected } from '../reducers';
 import { LOADING_DASHBOARD } from '../SnackbarMessage';
@@ -42,8 +41,6 @@ export const receivedVisualization = value => ({
     type: actionTypes.RECEIVED_VISUALIZATION,
     value,
 });
-
-// const LoadingMesage = name => <span>Loading {name} dashboard</span>;
 
 // thunks
 export const tSetSelectedDashboardById = (id, name = '') => async (
@@ -103,7 +100,7 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
         dispatch(acSetSelectedId(id));
         dispatch(acSetSelectedIsLoading(false));
         clearTimeout(snackbarTimeout);
-        dispatch(acSnackbarClosed());
+        dispatch(acCloseSnackbar());
         return selected;
     };
 

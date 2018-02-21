@@ -5,6 +5,6 @@ export const acReceivedSnackbarMessage = value => ({
     value,
 });
 
-export const acSnackbarClosed = () => ({
+export const acCloseSnackbar = () => ({
     type: actionTypes.SNACKBAR_CLOSED,
 });

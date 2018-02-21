@@ -14,7 +14,7 @@ import ItemGridCt from './ItemGrid/ItemGrid';
 import SnackbarMessage from './SnackbarMessage';
 
 import { fromDashboards, fromUser } from './actions';
-import { acSnackbarClosed } from './actions/snackbar';
+import { acCloseSnackbar } from './actions/snackbar';
 import { fromSnackbar } from './reducers';
 
 import './App.css';
@@ -36,7 +36,7 @@ class App extends Component {
     }
 
     onCloseSnackbar = () => {
-        this.props.acSnackbarClosed();
+        this.props.acCloseSnackbar();
     };
 
     render() {
@@ -79,7 +79,7 @@ App.childContextTypes = {
 };
 
 const AppCt = connect(mapStateToProps, {
-    acSnackbarClosed,
+    acCloseSnackbar,
 })(App);
 
 export default AppCt;
