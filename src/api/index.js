@@ -4,7 +4,7 @@ import {
     getListItemFields,
     getFavoritesFields,
     getIdNameFields,
-} from './metaData';
+} from './metadata';
 
 // Helper functions
 
