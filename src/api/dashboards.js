@@ -1,11 +1,6 @@
 import { getInstance } from 'd2/lib/d2';
 import arrayClean from 'd2-utilizr/lib/arrayClean';
-import {
-    onError,
-    getEndPointName,
-    getDashboardFields,
-    getFavoriteFields,
-} from './index';
+import { onError, getDashboardFields } from './index';
 
 // Get "all" dashboards on startup
 export const apiFetchDashboards = () =>
@@ -35,17 +30,6 @@ export const apiFetchSelected = id =>
             })
         )
         .catch(onError);
-
-// Get more info about the favorite of a dashboard item
-export const apiFetchFavorite = (id, type) =>
-    getInstance().then(d2 =>
-        d2.Api.getApi().get(
-            `${getEndPointName(type)}/${id}?fields=${getFavoriteFields({
-                withDimensions: true,
-                withOptions: true,
-            })}`
-        )
-    );
 
 // Star dashboard
 export const apiStarDashboard = (id, isStarred) => {

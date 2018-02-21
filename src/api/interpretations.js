@@ -3,6 +3,13 @@ import { itemTypeMap } from '../itemTypes';
 
 const onError = error => console.log('Error: ', error);
 
+// Fields
+export const interpretationFields = () => {
+    return 'interpretations[id]';
+    // return 'interpretations[id,text,created,user[id,displayName],likedBy,comments[id,text,created,user[id,displayName]]]';
+};
+
+// Api
 export const getInterpretation = id => {
     const fields =
         'id,text,created,user[id,displayName],likedBy,access,comments[id,text,created,user[id,displayName]]';
