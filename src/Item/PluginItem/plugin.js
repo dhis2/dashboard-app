@@ -1,5 +1,5 @@
 import isObject from 'd2-utilizr/lib/isObject';
-import { apiFetchFavorite, getMapFields } from '../../api/metaData';
+import { apiFetchFavorite, getMapFields } from '../../api/metadata';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { FILTER_USER_ORG_UNIT } from '../../actions/itemFilter';
 import {
