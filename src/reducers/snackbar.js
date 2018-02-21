@@ -4,7 +4,7 @@ export const actionTypes = {
 };
 
 export const DEFAULT_STATE = {
-    message: '',
+    message: {},
     duration: null,
 };
 

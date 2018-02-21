@@ -1,3 +1,4 @@
+import React from 'react';
 import { actionTypes } from '../reducers';
 import { apiFetchSelected } from '../api/dashboards';
 import { acSetDashboards } from './dashboards';
@@ -6,6 +7,7 @@ import { tGetMessages } from '../Item/MessagesItem/actions';
 import { acReceivedSnackbarMessage, acSnackbarClosed } from './snackbar';
 import { storePreferredDashboardId } from '../api/localStorage';
 import { fromUser, fromSelected } from '../reducers';
+import { LOADING_DASHBOARD } from '../SnackbarMessage';
 import {
     REPORT_TABLE,
     CHART,
@@ -41,8 +43,10 @@ export const receivedVisualization = value => ({
     value,
 });
 
+// const LoadingMesage = name => <span>Loading {name} dashboard</span>;
+
 // thunks
-export const tSetSelectedDashboardById = (id, name) => async (
+export const tSetSelectedDashboardById = (id, name = '') => async (
     dispatch,
     getState
 ) => {
@@ -51,7 +55,7 @@ export const tSetSelectedDashboardById = (id, name) => async (
         if (fromSelected.sGetSelectedIsLoading(getState())) {
             dispatch(
                 acReceivedSnackbarMessage({
-                    message: `Loading "${name}" dashboard`,
+                    message: { name, type: LOADING_DASHBOARD },
                     open: true,
                 })
             );
@@ -90,7 +94,7 @@ export const tSetSelectedDashboardById = (id, name) => async (
             acSetDashboards(
                 {
                     ...selected,
-                    dashboardItems: withShape(selected.dashboardItems), // TODO get shape from backend instead
+                    dashboardItems: withShape(selected.dashboardItems),
                 },
                 true
             )

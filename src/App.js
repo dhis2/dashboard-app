@@ -11,6 +11,7 @@ import PageContainer from './PageContainer/PageContainer';
 import ControlBarContainer from './ControlBarContainer/ControlBarContainer';
 import TitleBarCt from './TitleBar/TitleBar';
 import ItemGridCt from './ItemGrid/ItemGrid';
+import SnackbarMessage from './SnackbarMessage';
 
 import { fromDashboards, fromUser } from './actions';
 import { acSnackbarClosed } from './actions/snackbar';
@@ -49,7 +50,9 @@ class App extends Component {
                 </PageContainer>
                 <Snackbar
                     open={!!this.props.snackbarMessage}
-                    message={this.props.snackbarMessage}
+                    message={
+                        <SnackbarMessage message={this.props.snackbarMessage} />
+                    }
                     autoHideDuration={this.props.snackbarDuration}
                     onRequestClose={this.props.onCloseSnackbar}
                 />
@@ -60,7 +63,6 @@ class App extends Component {
 
 const mapStateToProps = state => {
     const { message, duration } = fromSnackbar.sGetSnackbar(state);
-
     return {
         snackbarMessage: message,
         snackbarDuration: duration,
