@@ -35,7 +35,7 @@ export const acNewDashboard = () => ({
     type: actionTypes.NEW_DASHBOARD,
 });
 
-export const receivedVisualization = value => ({
+export const acReceivedVisualization = value => ({
     type: actionTypes.RECEIVED_VISUALIZATION,
     value,
 });
@@ -49,19 +49,19 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
         selected.dashboardItems.forEach(item => {
             switch (item.type) {
                 case REPORT_TABLE:
-                    dispatch(receivedVisualization(item.reportTable));
+                    dispatch(acReceivedVisualization(item.reportTable));
                     break;
                 case CHART:
-                    dispatch(receivedVisualization(item.chart));
+                    dispatch(acReceivedVisualization(item.chart));
                     break;
                 case MAP:
-                    dispatch(receivedVisualization(item.map));
+                    dispatch(acReceivedVisualization(item.map));
                     break;
                 case EVENT_REPORT:
-                    dispatch(receivedVisualization(item.eventReport));
+                    dispatch(acReceivedVisualization(item.eventReport));
                     break;
                 case EVENT_CHART:
-                    dispatch(receivedVisualization(item.eventChart));
+                    dispatch(acReceivedVisualization(item.eventChart));
                     break;
                 case MESSAGES:
                     dispatch(tGetMessages(id));
