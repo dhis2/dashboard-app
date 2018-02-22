@@ -13,6 +13,7 @@ import {
     EVENT_CHART,
     MESSAGES,
 } from '../itemTypes';
+import { extractFavorite } from '../Item/PluginItem/plugin';
 
 // actions
 
@@ -40,10 +41,18 @@ export const acReceivedVisualization = value => ({
     value,
 });
 
-export const acReceivedActiveVisualization = value => ({
-    type: actionTypes.RECEIVED_ACTIVE_VISUALIZATION,
-    value,
-});
+export const acReceivedActiveVisualization = (id, type, activeType) => {
+    const action = {
+        type: actionTypes.RECEIVED_ACTIVE_VISUALIZATION,
+        id,
+    };
+
+    if (activeType !== type) {
+        action.activeType = activeType;
+    }
+
+    return action;
+};
 
 // thunks
 
@@ -54,19 +63,16 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
         selected.dashboardItems.forEach(item => {
             switch (item.type) {
                 case REPORT_TABLE:
-                    dispatch(acReceivedVisualization(item.reportTable));
-                    break;
                 case CHART:
-                    dispatch(acReceivedVisualization(item.chart));
-                    break;
                 case MAP:
-                    dispatch(acReceivedVisualization(item.map));
-                    break;
                 case EVENT_REPORT:
-                    dispatch(acReceivedVisualization(item.eventReport));
-                    break;
                 case EVENT_CHART:
-                    dispatch(acReceivedVisualization(item.eventChart));
+                    dispatch(
+                        acReceivedVisualization(
+                            extractFavorite(item),
+                            item.type
+                        )
+                    );
                     break;
                 case MESSAGES:
                     dispatch(tGetMessages(id));

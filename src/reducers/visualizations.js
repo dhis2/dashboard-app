@@ -3,6 +3,8 @@ import objectClean from 'd2-utilizr/lib/objectClean';
 
 /** @module reducers/visualizations */
 
+const isEmpty = p => p === undefined || p === null;
+
 export const actionTypes = {
     RECEIVED_VISUALIZATION: 'RECEIVED_VISUALIZATION',
     RECEIVED_ACTIVE_VISUALIZATION: 'RECEIVED_ACTIVE_VISUALIZATION',
@@ -19,10 +21,13 @@ export default (state = {}, action) => {
         case actionTypes.RECEIVED_ACTIVE_VISUALIZATION: {
             return {
                 ...state,
-                [action.value.id]: objectClean({
-                    ...orObject(state[action.value.id]),
-                    active: action.value.active,
-                }),
+                [action.id]: objectClean(
+                    {
+                        ...orObject(state[action.id]),
+                        activeType: action.activeType,
+                    },
+                    isEmpty
+                ),
             };
         }
         default:

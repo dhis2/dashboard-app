@@ -54,20 +54,58 @@ class Item extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(
-            'componentWillReceiveProps',
-            nextProps.itemFilter !== this.props.itemFilter,
-            nextProps.itemFilter,
-            this.props.itemFilter,
-            this.props.visualization
-        );
-        if (nextProps.itemFilter !== this.props.itemFilter) {
+        let filterChanged = false;
+        let itemFilter = this.props.itemFilter;
+
+        if (nextProps.itemFilter !== itemFilter) {
+            filterChanged = true;
+            itemFilter = nextProps.itemFilter;
+        }
+
+        let activeChanged = false;
+        let activeType = this.props.visualization.activeType;
+
+        if (nextProps.visualization.activeType !== activeType) {
+            activeChanged = true;
+            activeType =
+                nextProps.visualization.activeType || this.props.item.type;
+        }
+
+        // load plugin if
+        if (activeChanged) {
+            pluginManager.reload(
+                this.props.item,
+                activeType,
+                this.pluginCredentials,
+                itemFilter
+            );
+        } else if (filterChanged) {
             pluginManager.load(
                 this.props.item,
                 this.pluginCredentials,
-                nextProps.itemFilter
+                itemFilter
             );
         }
+
+        // if ()
+
+        // console.log('CWRP', 'this.props', this.props);
+        // console.log('CWRP', 'nextProps', nextProps);
+
+        // pluginManager.reload(
+        //     this.props.item,
+        //     activeType,
+        //     this.pluginCredentials,
+        //     this.props.itemFilter
+        // );
+
+        // if (nextProps.itemFilter !== this.props.itemFilter) {
+        //     pluginManager.load(
+        //         this.props.item,
+        //         this.pluginCredentials,
+        //         nextProps.itemFilter
+        //     );
+        // }
     }
 
     onToggleFooter = () => {
@@ -77,21 +115,22 @@ class Item extends Component {
         );
     };
 
-    onSelectVisualization = targetType => {
+    onSelectVisualization = activeType => {
         pluginManager.unmount(
             this.props.item,
-            this.props.visualization.active || this.props.item.type
+            this.props.visualization.activeType || this.props.item.type
         );
 
-        // this.setState({ activeVisualization: targetType });
-        this.props.onSelectVisualization({
-            id: this.props.visualization.id,
-            active: targetType,
-        });
+        // this.setState({ activeVisualization: activeType });
+        this.props.onSelectVisualization(
+            this.props.visualization.id,
+            this.props.item.type,
+            activeType
+        );
 
         // pluginManager.reload(
         //     this.props.item,
-        //     targetType,
+        //     activeType,
         //     this.pluginCredentials,
         //     this.props.itemFilter
         // );
@@ -156,8 +195,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onSelectVisualization: value =>
-        dispatch(acReceivedActiveVisualization(value)),
+    onSelectVisualization: (id, type, activeType) =>
+        dispatch(acReceivedActiveVisualization(id, type, activeType)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Item);

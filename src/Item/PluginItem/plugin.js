@@ -70,8 +70,8 @@ const getUserOrgUnitIds = (ouPaths = []) => {
 
 // if original visualisation, set id and let the plugin handle it
 // otherwise fetch and pass the correct config to the plugin
-const configureFavorite = async (item, targetType) => {
-    const isOriginalVisualisation = item.type === targetType;
+const configureFavorite = async (item, activeType) => {
+    const isOriginalVisualisation = item.type === activeType;
     let favorite;
 
     if (isOriginalVisualisation) {
@@ -104,14 +104,14 @@ const configureFilter = (filter = {}) => {
     return Object.assign({}, ...filter, userOrgUnitFilter);
 };
 
-export const reload = async (item, targetType, credentials, filter) => {
+export const reload = async (item, activeType, credentials, filter) => {
     const config = {
-        ...(await configureFavorite(item, targetType)),
+        ...(await configureFavorite(item, activeType)),
         ...configureFilter(filter),
         el: getGridItemDomId(item.id),
     };
 
-    const plugin = itemTypeMap[targetType].plugin;
+    const plugin = itemTypeMap[activeType].plugin;
 
     loadPlugin(plugin, config, credentials);
 };
