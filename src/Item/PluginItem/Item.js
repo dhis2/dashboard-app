@@ -45,7 +45,7 @@ class Item extends Component {
 
     componentDidMount() {
         this.pluginCredentials = pluginCredentials(this.context.d2);
-        console.log('componentDidMount');
+
         pluginManager.load(
             this.props.item,
             this.pluginCredentials,
@@ -62,17 +62,20 @@ class Item extends Component {
             itemFilter = nextProps.itemFilter;
         }
 
-        let activeChanged = false;
+        let useActiveType = false;
         let activeType = this.props.visualization.activeType;
 
-        if (nextProps.visualization.activeType !== activeType) {
-            activeChanged = true;
+        if (
+            nextProps.visualization.activeType !== activeType ||
+            nextProps.visualization.activeType !== this.props.item.type
+        ) {
+            useActiveType = true;
             activeType =
                 nextProps.visualization.activeType || this.props.item.type;
         }
 
         // load plugin if
-        if (activeChanged) {
+        if (useActiveType) {
             pluginManager.reload(
                 this.props.item,
                 activeType,
@@ -86,26 +89,6 @@ class Item extends Component {
                 itemFilter
             );
         }
-
-        // if ()
-
-        // console.log('CWRP', 'this.props', this.props);
-        // console.log('CWRP', 'nextProps', nextProps);
-
-        // pluginManager.reload(
-        //     this.props.item,
-        //     activeType,
-        //     this.pluginCredentials,
-        //     this.props.itemFilter
-        // );
-
-        // if (nextProps.itemFilter !== this.props.itemFilter) {
-        //     pluginManager.load(
-        //         this.props.item,
-        //         this.pluginCredentials,
-        //         nextProps.itemFilter
-        //     );
-        // }
     }
 
     onToggleFooter = () => {
@@ -121,19 +104,11 @@ class Item extends Component {
             this.props.visualization.activeType || this.props.item.type
         );
 
-        // this.setState({ activeVisualization: activeType });
         this.props.onSelectVisualization(
             this.props.visualization.id,
             this.props.item.type,
             activeType
         );
-
-        // pluginManager.reload(
-        //     this.props.item,
-        //     activeType,
-        //     this.pluginCredentials,
-        //     this.props.itemFilter
-        // );
     };
 
     render() {
@@ -160,7 +135,7 @@ class Item extends Component {
                 item={item}
                 activeFooter={this.state.showFooter}
                 activeVisualization={
-                    this.props.visualization.active || this.props.item.type
+                    this.props.visualization.activeType || this.props.item.type
                 }
                 onSelectVisualization={this.onSelectVisualization}
                 onToggleFooter={this.onToggleFooter}
