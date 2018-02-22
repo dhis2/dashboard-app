@@ -12,6 +12,7 @@ import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { getBaseUrl } from '../../util';
 import { sGetVisualization } from '../../reducers/visualizations';
 import { acReceivedActiveVisualization } from '../../actions/selected';
+import { fromItemFilter } from '../../reducers';
 
 const style = {
     icon: {
@@ -37,7 +38,6 @@ const pluginCredentials = d2 => {
 
 class Item extends Component {
     state = {
-        isMounted: false,
         showFooter: false,
     };
 
@@ -47,7 +47,6 @@ class Item extends Component {
         this.pluginCredentials = pluginCredentials(this.context.d2);
 
         console.log('componentDidMount');
-        this.setState({ isMounted: true });
 
         pluginManager.load(
             this.props.item,
@@ -60,75 +59,73 @@ class Item extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        console.log(
-            'editMode',
-            prevProps.editMode === this.props.editMode,
-            prevProps.editMode,
-            this.props.editMode
-        );
-        console.log(
-            'item',
-            prevProps.item === this.props.item,
-            prevProps.item,
-            this.props.item
-        );
-        console.log(
-            'itemFilter',
-            prevProps.itemFilter === this.props.itemFilter,
-            prevProps.itemFilter,
-            this.props.itemFilter
-        );
-        console.log(
-            'visualization',
-            prevProps.visualization === this.props.visualization,
-            prevProps.visualization,
-            this.props.visualization
-        );
-    }
+        let itemChanged = prevProps.item !== this.props.item;
+        let visDidNotChange =
+            prevProps.visualization.id === this.props.visualization.id &&
+            prevProps.visualization.id.activeType ===
+                this.props.visualization.activeType;
+        let itemFilterDidNotChange =
+            prevProps.itemFilter === this.props.itemFilter;
 
-    componentWillReceiveProps(nextProps) {
-        console.log('componentWillReceiveProps');
-        // console.log('this.state.isMounted', this.state.isMounted);
-        if (this.state.isMounted) {
-            let filterChanged = false;
-            let itemFilter = this.props.itemFilter;
+        if (itemChanged || (visDidNotChange && itemFilterDidNotChange)) {
+            return;
+        }
 
-            if (nextProps.itemFilter !== itemFilter) {
-                filterChanged = true;
-                itemFilter = nextProps.itemFilter;
-            }
-
-            let useActiveType = false;
-            let activeType = this.props.visualization.activeType;
-
-            if (
-                nextProps.visualization.activeType !== activeType ||
-                nextProps.visualization.activeType !== this.props.item.type
-            ) {
-                useActiveType = true;
-                activeType =
-                    nextProps.visualization.activeType || this.props.item.type;
-            }
-
-            // load plugin if
-            if (useActiveType) {
-                // this.setState({ isMounted: false });
-                pluginManager.reload(
-                    this.props.item,
-                    activeType,
-                    this.pluginCredentials,
-                    itemFilter
-                );
-            } else if (filterChanged) {
-                // this.setState({ isMounted: false });
-                pluginManager.load(
-                    this.props.item,
-                    this.pluginCredentials,
-                    itemFilter
-                );
-            }
+        let filterChanged = false;
+        let itemFilter = prevProps.itemFilter;
+        if (this.props.itemFilter !== itemFilter) {
+            filterChanged = true;
+            itemFilter = this.props.itemFilter;
+        }
+        let useActiveType = false;
+        let activeType = prevProps.visualization.activeType;
+        if (
+            this.props.visualization.activeType !== activeType ||
+            this.props.visualization.activeType !== prevProps.item.type
+        ) {
+            useActiveType = true;
+            activeType =
+                this.props.visualization.activeType || prevProps.item.type;
+        }
+        // load plugin if
+        if (useActiveType) {
+            pluginManager.reload(
+                prevProps.item,
+                activeType,
+                this.pluginCredentials,
+                itemFilter
+            );
+        } else if (filterChanged) {
+            pluginManager.load(
+                prevProps.item,
+                this.pluginCredentials,
+                itemFilter
+            );
         }
     }
+
+    fn = nextProps => {
+        //TODO remove
+        console.log('--CWRP--');
+        if (nextProps.item !== this.props.item) {
+            console.log('CHANGED: item', nextProps.item, this.props.item);
+        }
+        if (nextProps.itemFilter !== this.props.itemFilter) {
+            console.log(
+                'CHANGED: itemFilter',
+                nextProps.itemFilter,
+                this.props.itemFilter
+            );
+        }
+        if (nextProps.visualization !== this.props.visualization) {
+            console.log(
+                'CHANGED: visualization',
+                nextProps.visualization,
+                this.props.visualization
+            );
+        }
+        console.log('componentWillReceiveProps');
+    };
 
     onToggleFooter = () => {
         this.setState(
@@ -202,6 +199,7 @@ Item.contextTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
+    itemFilter: fromItemFilter.sGetFromState(state),
     visualization: sGetVisualization(
         state,
         pluginManager.extractFavorite(ownProps.item).id
