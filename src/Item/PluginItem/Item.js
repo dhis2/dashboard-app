@@ -37,8 +37,8 @@ const pluginCredentials = d2 => {
 
 class Item extends Component {
     state = {
+        isMounted: false,
         showFooter: false,
-        activeVisualization: this.props.item.type,
     };
 
     pluginCredentials = null;
@@ -46,48 +46,87 @@ class Item extends Component {
     componentDidMount() {
         this.pluginCredentials = pluginCredentials(this.context.d2);
 
+        console.log('componentDidMount');
+        this.setState({ isMounted: true });
+
         pluginManager.load(
             this.props.item,
             this.pluginCredentials,
             this.props.itemFilter
         );
     }
+    componentWillUnmount() {
+        console.log('componentWillUnmount');
+    }
+
+    componentDidUpdate(prevProps) {
+        console.log(
+            'editMode',
+            prevProps.editMode === this.props.editMode,
+            prevProps.editMode,
+            this.props.editMode
+        );
+        console.log(
+            'item',
+            prevProps.item === this.props.item,
+            prevProps.item,
+            this.props.item
+        );
+        console.log(
+            'itemFilter',
+            prevProps.itemFilter === this.props.itemFilter,
+            prevProps.itemFilter,
+            this.props.itemFilter
+        );
+        console.log(
+            'visualization',
+            prevProps.visualization === this.props.visualization,
+            prevProps.visualization,
+            this.props.visualization
+        );
+    }
 
     componentWillReceiveProps(nextProps) {
-        let filterChanged = false;
-        let itemFilter = this.props.itemFilter;
+        console.log('componentWillReceiveProps');
+        // console.log('this.state.isMounted', this.state.isMounted);
+        if (this.state.isMounted) {
+            let filterChanged = false;
+            let itemFilter = this.props.itemFilter;
 
-        if (nextProps.itemFilter !== itemFilter) {
-            filterChanged = true;
-            itemFilter = nextProps.itemFilter;
-        }
+            if (nextProps.itemFilter !== itemFilter) {
+                filterChanged = true;
+                itemFilter = nextProps.itemFilter;
+            }
 
-        let useActiveType = false;
-        let activeType = this.props.visualization.activeType;
+            let useActiveType = false;
+            let activeType = this.props.visualization.activeType;
 
-        if (
-            nextProps.visualization.activeType !== activeType ||
-            nextProps.visualization.activeType !== this.props.item.type
-        ) {
-            useActiveType = true;
-            activeType =
-                nextProps.visualization.activeType || this.props.item.type;
-        }
+            if (
+                nextProps.visualization.activeType !== activeType ||
+                nextProps.visualization.activeType !== this.props.item.type
+            ) {
+                useActiveType = true;
+                activeType =
+                    nextProps.visualization.activeType || this.props.item.type;
+            }
 
-        // load plugin if
-        if (useActiveType) {
-            pluginManager.reload(
-                this.props.item,
-                activeType,
-                this.pluginCredentials,
-                itemFilter
-            );
-        } else if (filterChanged) {
-            pluginManager.load(
-                this.props.item,
-                this.pluginCredentials,
-                itemFilter
-            );
+            // load plugin if
+            if (useActiveType) {
+                // this.setState({ isMounted: false });
+                pluginManager.reload(
+                    this.props.item,
+                    activeType,
+                    this.pluginCredentials,
+                    itemFilter
+                );
+            } else if (filterChanged) {
+                // this.setState({ isMounted: false });
+                pluginManager.load(
+                    this.props.item,
+                    this.pluginCredentials,
+                    itemFilter
+                );
+            }
         }
     }
 
