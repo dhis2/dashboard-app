@@ -7,8 +7,11 @@ describe('snackbar reducer', () => {
         expect(actualState).toEqual(DEFAULT_STATE);
     });
 
-    it('should handle RECEIVED_SNACKBAR_MESSAGE action with only message', () => {
-        const message = 'Loading "tinkywinky" dashboard';
+    it('should handle RECEIVED_SNACKBAR_MESSAGE action with message object containing only message text', () => {
+        const message = {
+            name: 'Loading "tinkywinky" dashboard',
+            type: 'LOADING_TINKYWINKY',
+        };
 
         const action = {
             type: actionTypes.RECEIVED_SNACKBAR_MESSAGE,
@@ -27,8 +30,11 @@ describe('snackbar reducer', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it('should handle RECEIVED_SNACKBAR_MESSAGE action with only message with duration previously set', () => {
-        const message = 'Loading "tinkywinky" dashboard';
+    it('should handle RECEIVED_SNACKBAR_MESSAGE action with message object with duration previously set', () => {
+        const message = {
+            name: 'Loading "tinkywinky" dashboard',
+            type: 'LOADING_TINKYWINKY',
+        };
         const duration = 3000;
 
         const action = {
@@ -54,7 +60,34 @@ describe('snackbar reducer', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it('should handle RECEIVED_SNACKBAR_MESSAGE action with message and duration', () => {
+    it('should handle RECEIVED_SNACKBAR_MESSAGE action with message object containing text and duration', () => {
+        const message = {
+            name: 'Loading "tinkywinky" dashboard',
+            type: 'LOADING_TINKYWINKY',
+        };
+        const duration = 3000;
+        const open = true;
+
+        const action = {
+            type: actionTypes.RECEIVED_SNACKBAR_MESSAGE,
+            value: {
+                message,
+                duration,
+                open,
+            },
+        };
+
+        const expectedState = {
+            message,
+            duration,
+            open,
+        };
+
+        const actualState = reducer(DEFAULT_STATE, action);
+        expect(actualState).toEqual(expectedState);
+    });
+
+    it('should handle RECEIVED_SNACKBAR_MESSAGE action with message string', () => {
         const message = 'Loading "tinkywinky" dashboard';
         const duration = 3000;
         const open = true;
