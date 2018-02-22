@@ -78,11 +78,14 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
 
         storePreferredDashboardId(fromUser.sGetUsername(getState()), id);
 
+        // withShape adds shape info to items lacking it
+        // only works properly when all items in a dashboard are missing it
+        // ensures that upgraded dasbboards work before they are re-saved
         dispatch(
             acSetDashboards(
                 {
                     ...selected,
-                    dashboardItems: withShape(selected.dashboardItems), // TODO get shape from backend instead
+                    dashboardItems: withShape(selected.dashboardItems),
                 },
                 true
             )
