@@ -40,12 +40,6 @@ class App extends Component {
     };
 
     render() {
-        console.log(
-            'render App, with snackbar prop',
-            this.props.snackbarMessage,
-            !!this.props.snackbarMessage
-        );
-
         return (
             <div className="app-wrapper">
                 <HeaderBar />

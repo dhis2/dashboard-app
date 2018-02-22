@@ -48,12 +48,9 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
     getState
 ) => {
     dispatch(acSetSelectedIsLoading(true));
-    console.log('create timeout');
 
     const snackbarTimeout = setTimeout(() => {
         if (fromSelected.sGetSelectedIsLoading(getState()) && name) {
-            console.log('dispatch loading msg for ', name);
-
             loadingDashboardMsg.name = name;
 
             dispatch(
@@ -105,12 +102,9 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
 
         dispatch(acSetSelectedId(id));
         dispatch(acSetSelectedIsLoading(false));
-        console.log('clear timeout');
-
         clearTimeout(snackbarTimeout);
-        console.log('close snackbar');
-
         dispatch(acCloseSnackbar());
+
         return selected;
     };
 
