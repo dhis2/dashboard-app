@@ -1,6 +1,6 @@
 export const actionTypes = {
-    RECEIVED_MESSAGE: 'RECEIVED_MESSAGE',
-    SNACKBAR_CLOSED: 'SNACKBAR_CLOSED',
+    RECEIVED_SNACKBAR_MESSAGE: 'RECEIVED_SNACKBAR_MESSAGE',
+    CLOSE_SNACKBAR: 'CLOSE_SNACKBAR',
 };
 
 export const DEFAULT_STATE = {
@@ -11,10 +11,10 @@ export const DEFAULT_STATE = {
 
 export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {
-        case actionTypes.RECEIVED_MESSAGE: {
+        case actionTypes.RECEIVED_SNACKBAR_MESSAGE: {
             return { ...state, ...action.value };
         }
-        case actionTypes.SNACKBAR_CLOSED: {
+        case actionTypes.CLOSE_SNACKBAR: {
             return DEFAULT_STATE;
         }
         default:

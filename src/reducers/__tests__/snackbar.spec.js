@@ -7,11 +7,11 @@ describe('snackbar reducer', () => {
         expect(actualState).toEqual(DEFAULT_STATE);
     });
 
-    it('should handle RECEIVED_MESSAGE action with only message', () => {
+    it('should handle RECEIVED_SNACKBAR_MESSAGE action with only message', () => {
         const message = 'Loading "tinkywinky" dashboard';
 
         const action = {
-            type: actionTypes.RECEIVED_MESSAGE,
+            type: actionTypes.RECEIVED_SNACKBAR_MESSAGE,
             value: {
                 message,
             },
@@ -27,12 +27,12 @@ describe('snackbar reducer', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it('should handle RECEIVED_MESSAGE action with only message with duration previously set', () => {
+    it('should handle RECEIVED_SNACKBAR_MESSAGE action with only message with duration previously set', () => {
         const message = 'Loading "tinkywinky" dashboard';
         const duration = 3000;
 
         const action = {
-            type: actionTypes.RECEIVED_MESSAGE,
+            type: actionTypes.RECEIVED_SNACKBAR_MESSAGE,
             value: {
                 message,
             },
@@ -54,13 +54,13 @@ describe('snackbar reducer', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it('should handle RECEIVED_MESSAGE action with message and duration', () => {
+    it('should handle RECEIVED_SNACKBAR_MESSAGE action with message and duration', () => {
         const message = 'Loading "tinkywinky" dashboard';
         const duration = 3000;
         const open = true;
 
         const action = {
-            type: actionTypes.RECEIVED_MESSAGE,
+            type: actionTypes.RECEIVED_SNACKBAR_MESSAGE,
             value: {
                 message,
                 duration,
@@ -78,9 +78,9 @@ describe('snackbar reducer', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it('should handle the SNACKBAR_CLOSED action', () => {
+    it('should handle the CLOSE_SNACKBAR action', () => {
         const action = {
-            type: actionTypes.SNACKBAR_CLOSED,
+            type: actionTypes.CLOSE_SNACKBAR,
         };
 
         const currentState = {
