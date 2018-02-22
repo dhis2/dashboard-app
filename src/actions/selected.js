@@ -3,8 +3,10 @@ import { apiFetchSelected } from '../api/dashboards';
 import { acSetDashboards } from './dashboards';
 import { withShape } from '../ItemGrid/gridUtil';
 import { tGetMessages } from '../Item/MessagesItem/actions';
+import { acReceivedSnackbarMessage, acCloseSnackbar } from './snackbar';
 import { storePreferredDashboardId } from '../api/localStorage';
-import { fromUser } from '../reducers';
+import { fromUser, fromSelected } from '../reducers';
+import { loadingDashboardMsg } from '../SnackbarMessage';
 import {
     REPORT_TABLE,
     CHART,
@@ -55,9 +57,24 @@ export const acReceivedActiveVisualization = (id, type, activeType) => {
 };
 
 // thunks
-
-export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
+export const tSetSelectedDashboardById = (id, name = '') => async (
+    dispatch,
+    getState
+) => {
     dispatch(acSetSelectedIsLoading(true));
+
+    const snackbarTimeout = setTimeout(() => {
+        if (fromSelected.sGetSelectedIsLoading(getState()) && name) {
+            loadingDashboardMsg.name = name;
+
+            dispatch(
+                acReceivedSnackbarMessage({
+                    message: loadingDashboardMsg,
+                    open: true,
+                })
+            );
+        }
+    }, 500);
 
     const onSuccess = selected => {
         // update store with selected dashboard
@@ -105,6 +122,8 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
 
         // remove loading indicator
         dispatch(acSetSelectedIsLoading(false));
+        clearTimeout(snackbarTimeout);
+        dispatch(acCloseSnackbar());
 
         return selected;
     };

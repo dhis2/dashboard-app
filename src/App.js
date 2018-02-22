@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
+import Snackbar from 'material-ui/Snackbar';
 
 import PageContainer from './PageContainer/PageContainer';
 import ControlBarContainer from './ControlBarContainer/ControlBarContainer';
 import TitleBarCt from './TitleBar/TitleBar';
 import ItemGridCt from './ItemGrid/ItemGrid';
+import SnackbarMessage from './SnackbarMessage';
 
 import { fromDashboards, fromUser } from './actions';
+import { acCloseSnackbar } from './actions/snackbar';
+import { fromSnackbar } from './reducers';
 
 import './App.css';
 
@@ -30,6 +35,10 @@ class App extends Component {
         };
     }
 
+    onCloseSnackbar = () => {
+        this.props.acCloseSnackbar();
+    };
+
     render() {
         return (
             <div className="app-wrapper">
@@ -39,10 +48,27 @@ class App extends Component {
                     <TitleBarCt />
                     <ItemGridCt />
                 </PageContainer>
+                <Snackbar
+                    open={this.props.snackbarOpen}
+                    message={
+                        <SnackbarMessage message={this.props.snackbarMessage} />
+                    }
+                    autoHideDuration={this.props.snackbarDuration}
+                    onRequestClose={this.props.onCloseSnackbar}
+                />
             </div>
         );
     }
 }
+
+const mapStateToProps = state => {
+    const { message, duration, open } = fromSnackbar.sGetSnackbar(state);
+    return {
+        snackbarOpen: open,
+        snackbarMessage: message,
+        snackbarDuration: duration,
+    };
+};
 
 App.contextTypes = {
     d2: PropTypes.object,
@@ -53,4 +79,8 @@ App.childContextTypes = {
     baseUrl: PropTypes.string,
 };
 
-export default App;
+const AppCt = connect(mapStateToProps, {
+    acCloseSnackbar,
+})(App);
+
+export default AppCt;

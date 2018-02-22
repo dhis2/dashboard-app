@@ -33,7 +33,8 @@ const dashboardBarStyles = {
 
 const EXPANDED_ROW_COUNT = 10;
 
-const onDashboardSelectWrapper = (id, onClick) => () => id && onClick(id);
+const onDashboardSelectWrapper = (id, name, onClick) => () =>
+    id && onClick(id, name);
 
 // FIXME: TO BE USED IN 2.30
 // const ListViewButton = () => (
@@ -99,6 +100,7 @@ const DashboardsBar = ({
                             onChangeName={onChangeFilterName}
                             onKeypressEnter={onDashboardSelectWrapper(
                                 orObject(orArray(dashboards)[0]).id,
+                                orObject(orArray(dashboards)[0]).displayName,
                                 onSelectDashboard
                             )}
                         />
@@ -112,6 +114,7 @@ const DashboardsBar = ({
                         selected={dashboard.id === selectedId}
                         onClick={onDashboardSelectWrapper(
                             dashboard.id,
+                            dashboard.displayName,
                             onSelectDashboard
                         )}
                     />
@@ -199,7 +202,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         },
         onChangeFilterName: name =>
             dispatch(fromDashboardsFilter.acSetFilterName(name)),
-        onSelectDashboard: id => dispatch(fromActions.tSelectDashboardById(id)),
+        onSelectDashboard: (id, name) =>
+            dispatch(fromActions.tSelectDashboardById(id, name)),
     };
 };
 
