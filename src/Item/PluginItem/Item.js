@@ -43,10 +43,65 @@ class Item extends Component {
 
     pluginCredentials = null;
 
+    shouldPluginLoad = (props, prevProps) => {
+        const item = props.item;
+        const filter = props.itemFilter;
+        const vis = props.visualization;
+        const prevItem = prevProps.item;
+        const prevFilter = prevProps.itemFilter;
+        const prevVis = prevProps.visualization;
+
+        // item clause
+        const itemChanged = item !== prevItem;
+
+        // visualization clause
+        const visDidNotChange =
+            vis.id === prevVis.id && vis.activeType === prevVis.activeType;
+
+        // filter clause
+        const filterDidNotChange = prevFilter === filter;
+
+        return !(itemChanged || (visDidNotChange && filterDidNotChange));
+    };
+
+    loadPlugin = (props, prevProps) => {
+        if (this.shouldPluginLoad(props, prevProps)) {
+            let filterChanged = false;
+            let itemFilter = prevProps.itemFilter;
+            if (props.itemFilter !== itemFilter) {
+                filterChanged = true;
+                itemFilter = props.itemFilter;
+            }
+            let useActiveType = false;
+            let activeType = prevProps.visualization.activeType;
+            if (
+                props.visualization.activeType !== activeType ||
+                props.visualization.activeType !== prevProps.item.type
+            ) {
+                useActiveType = true;
+                activeType =
+                    props.visualization.activeType || prevProps.item.type;
+            }
+            // load plugin if
+            if (useActiveType) {
+                pluginManager.reload(
+                    prevProps.item,
+                    activeType,
+                    this.pluginCredentials,
+                    itemFilter
+                );
+            } else if (filterChanged) {
+                pluginManager.load(
+                    prevProps.item,
+                    this.pluginCredentials,
+                    itemFilter
+                );
+            }
+        }
+    };
+
     componentDidMount() {
         this.pluginCredentials = pluginCredentials(this.context.d2);
-
-        console.log('componentDidMount');
 
         pluginManager.load(
             this.props.item,
@@ -54,84 +109,10 @@ class Item extends Component {
             this.props.itemFilter
         );
     }
-    componentWillUnmount() {
-        console.log('componentWillUnmount');
-    }
 
     componentDidUpdate(prevProps) {
-        let itemChanged = prevProps.item !== this.props.item;
-        let visDidNotChange =
-            prevProps.visualization.id === this.props.visualization.id &&
-            prevProps.visualization.activeType ===
-                this.props.visualization.activeType;
-        let itemFilterDidNotChange =
-            prevProps.itemFilter === this.props.itemFilter;
-        console.log(
-            'visDidNotChange',
-            visDidNotChange,
-            prevProps.visualization,
-            this.props.visualization
-        );
-        // stop?
-        if (itemChanged || (visDidNotChange && itemFilterDidNotChange)) {
-            return;
-        }
-
-        let filterChanged = false;
-        let itemFilter = prevProps.itemFilter;
-        if (this.props.itemFilter !== itemFilter) {
-            filterChanged = true;
-            itemFilter = this.props.itemFilter;
-        }
-        let useActiveType = false;
-        let activeType = prevProps.visualization.activeType;
-        if (
-            this.props.visualization.activeType !== activeType ||
-            this.props.visualization.activeType !== prevProps.item.type
-        ) {
-            useActiveType = true;
-            activeType =
-                this.props.visualization.activeType || prevProps.item.type;
-        }
-        // load plugin if
-        if (useActiveType) {
-            pluginManager.reload(
-                prevProps.item,
-                activeType,
-                this.pluginCredentials,
-                itemFilter
-            );
-        } else if (filterChanged) {
-            pluginManager.load(
-                prevProps.item,
-                this.pluginCredentials,
-                itemFilter
-            );
-        }
+        this.loadPlugin(this.props, prevProps);
     }
-
-    fn = nextProps => {
-        //TODO remove
-        console.log('--CWRP--');
-        if (nextProps.item !== this.props.item) {
-            console.log('CHANGED: item', nextProps.item, this.props.item);
-        }
-        if (nextProps.itemFilter !== this.props.itemFilter) {
-            console.log(
-                'CHANGED: itemFilter',
-                nextProps.itemFilter,
-                this.props.itemFilter
-            );
-        }
-        if (nextProps.visualization !== this.props.visualization) {
-            console.log(
-                'CHANGED: visualization',
-                nextProps.visualization,
-                this.props.visualization
-            );
-        }
-        console.log('componentWillReceiveProps');
-    };
 
     onToggleFooter = () => {
         this.setState(
