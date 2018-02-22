@@ -1,6 +1,7 @@
 import React from 'react';
 
-export const LOADING_DASHBOARD = 'LOADING_DASHBOARD';
+const LOADING_DASHBOARD = 'LOADING_DASHBOARD';
+export const loadingDashboardMsg = { name: '', type: LOADING_DASHBOARD };
 
 const SnackbarMessage = ({ message }) => {
     // if (message.type === LOADING_DASHBOARD) {

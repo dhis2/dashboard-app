@@ -6,7 +6,7 @@ import { tGetMessages } from '../Item/MessagesItem/actions';
 import { acReceivedSnackbarMessage, acCloseSnackbar } from './snackbar';
 import { storePreferredDashboardId } from '../api/localStorage';
 import { fromUser, fromSelected } from '../reducers';
-import { LOADING_DASHBOARD } from '../SnackbarMessage';
+import { loadingDashboardMsg } from '../SnackbarMessage';
 import {
     REPORT_TABLE,
     CHART,
@@ -48,11 +48,17 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
     getState
 ) => {
     dispatch(acSetSelectedIsLoading(true));
+    console.log('create timeout');
+
     const snackbarTimeout = setTimeout(() => {
-        if (fromSelected.sGetSelectedIsLoading(getState())) {
+        if (fromSelected.sGetSelectedIsLoading(getState()) && name) {
+            console.log('dispatch loading msg for ', name);
+
+            loadingDashboardMsg.name = name;
+
             dispatch(
                 acReceivedSnackbarMessage({
-                    message: { name, type: LOADING_DASHBOARD },
+                    message: loadingDashboardMsg,
                     open: true,
                 })
             );
@@ -99,7 +105,11 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
 
         dispatch(acSetSelectedId(id));
         dispatch(acSetSelectedIsLoading(false));
+        console.log('clear timeout');
+
         clearTimeout(snackbarTimeout);
+        console.log('close snackbar');
+
         dispatch(acCloseSnackbar());
         return selected;
     };

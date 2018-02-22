@@ -20,6 +20,7 @@ describe('snackbar reducer', () => {
         const expectedState = {
             message,
             duration: null,
+            open: false,
         };
 
         const actualState = reducer(DEFAULT_STATE, action);
@@ -40,11 +41,13 @@ describe('snackbar reducer', () => {
         const expectedState = {
             message,
             duration,
+            open: true,
         };
 
         const currentState = {
             message: 'You just won 1000 dollars',
             duration,
+            open: true,
         };
 
         const actualState = reducer(currentState, action);
@@ -54,18 +57,21 @@ describe('snackbar reducer', () => {
     it('should handle RECEIVED_MESSAGE action with message and duration', () => {
         const message = 'Loading "tinkywinky" dashboard';
         const duration = 3000;
+        const open = true;
 
         const action = {
             type: actionTypes.RECEIVED_MESSAGE,
             value: {
                 message,
                 duration,
+                open,
             },
         };
 
         const expectedState = {
             message,
             duration,
+            open,
         };
 
         const actualState = reducer(DEFAULT_STATE, action);
@@ -80,6 +86,7 @@ describe('snackbar reducer', () => {
         const currentState = {
             message: 'You just won 1000 dollars',
             duration: 3000,
+            open: true,
         };
 
         const actualState = reducer(currentState, action);

@@ -6,6 +6,7 @@ export const actionTypes = {
 export const DEFAULT_STATE = {
     message: {},
     duration: null,
+    open: false,
 };
 
 export default (state = DEFAULT_STATE, action) => {

@@ -40,6 +40,12 @@ class App extends Component {
     };
 
     render() {
+        console.log(
+            'render App, with snackbar prop',
+            this.props.snackbarMessage,
+            !!this.props.snackbarMessage
+        );
+
         return (
             <div className="app-wrapper">
                 <HeaderBar />
@@ -49,7 +55,7 @@ class App extends Component {
                     <ItemGridCt />
                 </PageContainer>
                 <Snackbar
-                    open={!!this.props.snackbarMessage}
+                    open={this.props.snackbarOpen}
                     message={
                         <SnackbarMessage message={this.props.snackbarMessage} />
                     }
@@ -62,8 +68,9 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-    const { message, duration } = fromSnackbar.sGetSnackbar(state);
+    const { message, duration, open } = fromSnackbar.sGetSnackbar(state);
     return {
+        snackbarOpen: open,
         snackbarMessage: message,
         snackbarDuration: duration,
     };
