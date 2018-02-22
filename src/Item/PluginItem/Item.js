@@ -62,11 +62,17 @@ class Item extends Component {
         let itemChanged = prevProps.item !== this.props.item;
         let visDidNotChange =
             prevProps.visualization.id === this.props.visualization.id &&
-            prevProps.visualization.id.activeType ===
+            prevProps.visualization.activeType ===
                 this.props.visualization.activeType;
         let itemFilterDidNotChange =
             prevProps.itemFilter === this.props.itemFilter;
-
+        console.log(
+            'visDidNotChange',
+            visDidNotChange,
+            prevProps.visualization,
+            this.props.visualization
+        );
+        // stop?
         if (itemChanged || (visDidNotChange && itemFilterDidNotChange)) {
             return;
         }
