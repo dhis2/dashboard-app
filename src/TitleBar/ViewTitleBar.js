@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from 'dhis2-i18n';
-import SharingDialog from 'd2-ui/lib/sharing/SharingDialog.component';
+import SharingDialog from 'd2-ui-sharing';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
 import FilterDialog from '../ItemFilter/ItemFilter';
@@ -144,6 +144,7 @@ class ViewTitleBar extends Component {
                 ) : null}
                 {id ? (
                     <SharingDialog
+                        d2={this.context.d2}
                         id={id}
                         type="dashboard"
                         open={this.state.sharingDialogIsOpen}
@@ -223,4 +224,8 @@ ViewTitleBar.defaultProps = {
     starred: false,
     showDescription: false,
     onInfoClick: null,
+};
+
+ViewTitleBar.contextTypes = {
+    d2: PropTypes.object,
 };
