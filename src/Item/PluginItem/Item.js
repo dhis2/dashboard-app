@@ -9,6 +9,7 @@ import PluginItemHeaderButtons from './ItemHeaderButtons';
 import * as pluginManager from './plugin';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { getBaseUrl } from '../../util';
+import { itemTypeMap } from '../../itemTypes';
 
 const style = {
     icon: {
@@ -23,6 +24,12 @@ const style = {
         textOverflow: 'ellipsis',
         whiteSpace: 'nowrap',
     },
+    textDiv: {
+        fontSize: '14px',
+        fontStretch: 'normal',
+        padding: '10px',
+        lineHeight: '20px',
+    },
 };
 
 const pluginCredentials = d2 => {
@@ -36,6 +43,9 @@ class Item extends Component {
     state = {
         showFooter: false,
         activeVisualization: this.props.item.type,
+        pluginIsAvailable: itemTypeMap[this.props.item.type].plugin
+            ? true
+            : false,
     };
 
     pluginCredentials = null;
@@ -43,15 +53,20 @@ class Item extends Component {
     componentDidMount() {
         this.pluginCredentials = pluginCredentials(this.context.d2);
 
-        pluginManager.load(
-            this.props.item,
-            this.pluginCredentials,
-            this.props.itemFilter
-        );
+        if (this.state.pluginIsAvailable) {
+            pluginManager.load(
+                this.props.item,
+                this.pluginCredentials,
+                this.props.itemFilter
+            );
+        }
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.itemFilter !== this.props.itemFilter) {
+        if (
+            this.state.pluginIsAvailable &&
+            nextProps.itemFilter !== this.props.itemFilter
+        ) {
             pluginManager.load(
                 this.props.item,
                 this.pluginCredentials,
@@ -87,7 +102,7 @@ class Item extends Component {
                 <span title={pluginManager.getName(item)} style={style.title}>
                     {pluginManager.getName(item)}
                 </span>
-                {!this.props.editMode ? (
+                {!this.props.editMode && this.state.pluginIsAvailable ? (
                     <a
                         href={pluginManager.getLink(item, this.context.d2)}
                         style={{ height: 16 }}
@@ -98,15 +113,16 @@ class Item extends Component {
             </div>
         );
 
-        const actionButtons = !this.props.editMode ? (
-            <PluginItemHeaderButtons
-                item={item}
-                activeFooter={this.state.showFooter}
-                activeVisualization={this.state.activeVisualization}
-                onSelectVisualization={this.onSelectVisualization}
-                onToggleFooter={this.onToggleFooter}
-            />
-        ) : null;
+        const actionButtons =
+            !this.props.editMode && this.state.pluginIsAvailable ? (
+                <PluginItemHeaderButtons
+                    item={item}
+                    activeFooter={this.state.showFooter}
+                    activeVisualization={this.state.activeVisualization}
+                    onSelectVisualization={this.onSelectVisualization}
+                    onToggleFooter={this.onToggleFooter}
+                />
+            ) : null;
 
         return (
             <Fragment>
@@ -115,7 +131,13 @@ class Item extends Component {
                     actionButtons={actionButtons}
                     editMode={this.props.editMode}
                 />
-                <div id={elementId} className="dashboard-item-content" />
+                <div id={elementId} className="dashboard-item-content">
+                    {!this.state.pluginIsAvailable ? (
+                        <div style={style.textDiv}>
+                            Unable to load the plugin for this item
+                        </div>
+                    ) : null}
+                </div>
                 {!this.props.editMode && this.state.showFooter ? (
                     <ItemFooter item={item} />
                 ) : null}
