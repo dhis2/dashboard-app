@@ -1,13 +1,28 @@
 import { getInstance } from 'd2/lib/d2';
 
-export const apiPostControlBarRows = (id, isStarred) => {
-    const url = `dashboards/${id}/favorite`;
+const NAMESPACE = 'dashboard';
+const KEY = 'controlBarRows';
 
-    getInstance().then(d2 => {
-        if (isStarred) {
-            d2.Api.getApi().post(url);
-        } else {
-            d2.Api.getApi().delete(url);
+const url = `userDataStore/${NAMESPACE}/${KEY}`;
+
+export const apiGetControlBarRows = async () => {
+    const d2 = await getInstance();
+    const hasNamespace = await d2.currentUser.dataStore.has(NAMESPACE);
+    console.log('hasNamespace', hasNamespace);
+
+    if (hasNamespace) {
+        const ns = await d2.currentUser.dataStore.get(NAMESPACE);
+        console.log('ns', ns);
+        const hasKey = ns.keys.find(key => key === KEY);
+        console.log('hasKey', hasKey);
+
+        if (hasKey) {
+            return await ns.get(KEY);
         }
-    });
+    }
 };
+
+export const apiPostControlBarRows = rows =>
+    getInstance().then(d2 => {
+        d2.Api.getApi().update(url, rows);
+    });

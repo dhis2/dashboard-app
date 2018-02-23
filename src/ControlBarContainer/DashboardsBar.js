@@ -21,6 +21,7 @@ import * as fromActions from '../actions';
 import * as fromReducers from '../reducers';
 import { orObject, orArray } from '../util';
 import { sGetSelectedId } from '../reducers/selected';
+import { apiPostControlBarRows } from '../api/controlBar';
 
 const dashboardBarStyles = {
     scrollWrapper: {
@@ -61,6 +62,7 @@ const DashboardsBar = ({
     selectedId,
     isExpanded,
     onChangeHeight,
+    onEndDrag,
     onToggleExpanded,
     onNewClick,
     onChangeFilterName,
@@ -81,6 +83,7 @@ const DashboardsBar = ({
         <ControlBar
             height={controlBarHeight}
             onChangeHeight={onChangeHeight}
+            onEndDrag={onEndDrag}
             editMode={false}
             expandable={!isExpanded}
         >
@@ -192,6 +195,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
                 );
             }
         },
+        onEndDrag: () => apiPostControlBarRows(stateProps.rows),
         onNewClick: () => {
             dispatch(fromEditDashboard.acSetEditNewDashboard());
         },
