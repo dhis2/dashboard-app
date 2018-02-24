@@ -3,8 +3,6 @@ import { getInstance } from 'd2/lib/d2';
 const NAMESPACE = 'dashboard';
 const KEY = 'controlBarRows';
 
-const url = `userDataStore/${NAMESPACE}/${KEY}`;
-
 export const apiGetControlBarRows = async () => {
     const d2 = await getInstance();
     const hasNamespace = await d2.currentUser.dataStore.has(NAMESPACE);
@@ -22,7 +20,15 @@ export const apiGetControlBarRows = async () => {
     }
 };
 
-export const apiPostControlBarRows = rows =>
-    getInstance().then(d2 => {
-        d2.Api.getApi().update(url, rows);
-    });
+export const apiPostControlBarRows = async rows => {
+    const d2 = await getInstance();
+    const hasNamespace = await d2.currentUser.dataStore.has(NAMESPACE);
+    console.log('hasNamespace', hasNamespace);
+
+    const ns = hasNamespace
+        ? await d2.currentUser.dataStore.get(NAMESPACE)
+        : await d2.currentUser.dataStore.create(NAMESPACE);
+
+    console.log('ns', ns);
+    ns.set(KEY, rows);
+};
