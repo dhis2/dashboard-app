@@ -18,7 +18,6 @@ import { acCloseSnackbar } from './actions/snackbar';
 import { fromSnackbar } from './reducers';
 
 import './App.css';
-import { apiPostControlBarRows } from './api/controlBar';
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
@@ -29,7 +28,6 @@ class App extends Component {
         store.dispatch(fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromDashboards.tSetDashboards());
         store.dispatch(fromControlBar.tSetControlBarRows());
-        // apiPostControlBarRows(7);
     }
 
     getChildContext() {

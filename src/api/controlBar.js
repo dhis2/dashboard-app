@@ -1,34 +1,35 @@
 import { getInstance } from 'd2/lib/d2';
+import { DEFAULT_ROWS } from '../reducers/controlBar';
 
 const NAMESPACE = 'dashboard';
 const KEY = 'controlBarRows';
 
-export const apiGetControlBarRows = async () => {
-    const d2 = await getInstance();
-    const hasNamespace = await d2.currentUser.dataStore.has(NAMESPACE);
-    console.log('hasNamespace', hasNamespace);
+const hasNamespace = async d2 => await d2.currentUser.dataStore.has(NAMESPACE);
 
-    if (hasNamespace) {
-        const ns = await d2.currentUser.dataStore.get(NAMESPACE);
-        console.log('ns', ns);
-        const hasKey = ns.keys.find(key => key === KEY);
-        console.log('hasKey', hasKey);
-
-        if (hasKey) {
-            return await ns.get(KEY);
-        }
-    }
-};
-
-export const apiPostControlBarRows = async rows => {
-    const d2 = await getInstance();
-    const hasNamespace = await d2.currentUser.dataStore.has(NAMESPACE);
-    console.log('hasNamespace', hasNamespace);
-
-    const ns = hasNamespace
+const getNamespace = async (d2, hasNamespace) =>
+    hasNamespace
         ? await d2.currentUser.dataStore.get(NAMESPACE)
         : await d2.currentUser.dataStore.create(NAMESPACE);
 
-    console.log('ns', ns);
+export const apiGetControlBarRows = async () => {
+    const d2 = await getInstance();
+    const namespace = await getNamespace(d2, await hasNamespace(d2));
+    const hasKey = namespace.keys && namespace.keys.find(key => key === KEY);
+
+    if (hasKey) {
+        return await namespace.get(KEY);
+    } else {
+        await apiPostControlBarRows(DEFAULT_ROWS, namespace);
+        console.log(
+            '(These errors to /userDataStore/dashboard can be ignored)'
+        );
+        return DEFAULT_ROWS;
+    }
+};
+
+export const apiPostControlBarRows = async (rows, namespace) => {
+    const d2 = await getInstance();
+    const ns = namespace || (await getNamespace(d2, hasNamespace));
+
     ns.set(KEY, rows);
 };

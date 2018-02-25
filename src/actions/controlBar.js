@@ -16,6 +16,10 @@ export const acSetControlBarExpanded = expanded => ({
 // thunks
 
 export const tSetControlBarRows = () => async (dispatch, getState) => {
+    const onSuccess = rows => {
+        dispatch(acSetControlBarRows(rows));
+    };
+
     const onError = error => {
         console.log('Error (apiGetControlBarRows): ', error);
         return error;
@@ -23,10 +27,7 @@ export const tSetControlBarRows = () => async (dispatch, getState) => {
 
     try {
         const controlBarRows = await apiGetControlBarRows();
-        console.log('controlBarRows', controlBarRows);
-        dispatch(acSetControlBarRows(controlBarRows));
-
-        return;
+        return onSuccess(controlBarRows);
     } catch (err) {
         return onError(err);
     }
