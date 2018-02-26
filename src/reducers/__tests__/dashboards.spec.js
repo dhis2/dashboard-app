@@ -5,6 +5,7 @@ describe('dashboards reducer', () => {
         dash1: {
             id: 'dash1',
             name: 'good stuff',
+            displayName: 'untranslated',
             dashboardItems: [],
         },
         dash2: {
@@ -40,6 +41,26 @@ describe('dashboards reducer', () => {
         });
 
         const expected = Object.assign({}, boards, currentState);
+
+        expect(actualState).toEqual(expected);
+    });
+
+    it('should set the displayName on a dashboard', () => {
+        const currentState = boards;
+        const actualState = reducer(currentState, {
+            type: actionTypes.SET_DASHBOARD_DISPLAY_NAME,
+            dashboardId: 'dash1',
+            value: 'bella roba',
+        });
+
+        const expected = Object.assign({}, currentState, {
+            dash1: {
+                id: 'dash1',
+                name: 'good stuff',
+                displayName: 'bella roba',
+                dashboardItems: [],
+            },
+        });
 
         expect(actualState).toEqual(expected);
     });

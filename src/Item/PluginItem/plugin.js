@@ -1,6 +1,7 @@
 import isObject from 'd2-utilizr/lib/isObject';
-import { apiFetchFavorite } from '../../api/dashboards';
+import { apiFetchFavorite, getMapFields } from '../../api/metadata';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
+import { FILTER_USER_ORG_UNIT } from '../../actions/itemFilter';
 import {
     REPORT_TABLE,
     CHART,
@@ -9,7 +10,7 @@ import {
     EVENT_CHART,
     itemTypeMap,
 } from '../../itemTypes';
-import { getBaseUrl } from '../../util';
+import { getBaseUrl, orObject } from '../../util';
 
 export const extractFavorite = item => {
     if (!isObject(item)) {
@@ -39,7 +40,10 @@ export const extractFavorite = item => {
     }
 };
 
-const loadPlugin = (plugin, itemConfig, credentials) => {
+export const extractMapView = map =>
+    map.mapViews && map.mapViews.find(mv => mv.layer.includes('thematic'));
+
+const loadPlugin = (plugin, config, credentials) => {
     plugin.url = credentials.baseUrl;
     plugin.loadingIndicator = true;
     plugin.dashboard = true;
@@ -47,7 +51,7 @@ const loadPlugin = (plugin, itemConfig, credentials) => {
         plugin.auth = credentials.auth;
     }
 
-    plugin.load(itemConfig);
+    plugin.load(config);
 };
 
 export const getId = item => extractFavorite(item).id;
@@ -60,31 +64,75 @@ export const getLink = (item, d2) => {
     return `${baseUrl}/${appUrl}`;
 };
 
-export const reload = async (item, targetType, credentials) => {
-    const favorite = await apiFetchFavorite(getId(item), item.type);
-    const itemConfig = {
-        ...favorite,
-        id: null,
-        el: getGridItemDomId(item.id),
-        hideTitle: !favorite.title,
-    };
-
-    let plugin = itemTypeMap[targetType].plugin;
-
-    loadPlugin(plugin, itemConfig, credentials);
+const getUserOrgUnitIds = (ouPaths = []) => {
+    return ouPaths.map(ouPath => ouPath.split('/').slice(-1)[0]);
 };
 
-export const load = (item, credentials) => {
-    let plugin = itemTypeMap[item.type].plugin;
+// if original visualisation, set id and let the plugin handle it
+// otherwise fetch and pass the correct config to the plugin
+const configureFavorite = async (item, activeType) => {
+    const isOriginalVisualisation = item.type === activeType;
+    let favorite;
 
-    const favorite = extractFavorite(item);
-    const itemConfig = {
-        id: favorite.id,
+    if (isOriginalVisualisation) {
+        favorite = {
+            id: getId(item),
+        };
+    } else {
+        const fetchedFavorite = await apiFetchFavorite(getId(item), item.type, {
+            fields: item.type === MAP ? getMapFields() : null,
+        });
+
+        favorite =
+            item.type === MAP
+                ? orObject(extractMapView(fetchedFavorite))
+                : fetchedFavorite;
+
+        favorite.id = null;
+        favorite.hideTitle = !favorite.hideTitle;
+    }
+
+    return favorite;
+};
+
+const configureFilter = (filter = {}) => {
+    const ouIds = getUserOrgUnitIds(filter[FILTER_USER_ORG_UNIT]);
+    const userOrgUnitFilter = ouIds.length
+        ? { [FILTER_USER_ORG_UNIT]: ouIds }
+        : {};
+
+    return Object.assign({}, ...filter, userOrgUnitFilter);
+};
+
+export const reload = async (item, activeType, credentials, filter) => {
+    const config = {
+        ...(await configureFavorite(item, activeType)),
+        ...configureFilter(filter),
         el: getGridItemDomId(item.id),
-        hideTitle: !favorite.title,
     };
 
-    loadPlugin(plugin, itemConfig, credentials);
+    const plugin = itemTypeMap[activeType].plugin;
+
+    if (plugin && plugin.load) {
+        loadPlugin(plugin, config, credentials);
+    }
+};
+
+export const load = (item, credentials, filter) => {
+    let plugin = itemTypeMap[item.type].plugin;
+
+    if (plugin && plugin.load) {
+        const configuredFilter = configureFilter(filter);
+        const favorite = extractFavorite(item);
+        const itemConfig = {
+            id: favorite.id,
+            el: getGridItemDomId(item.id),
+            hideTitle: !favorite.title,
+            ...configuredFilter,
+        };
+
+        loadPlugin(plugin, itemConfig, credentials);
+    }
 };
 
 export const resize = item => {
@@ -95,8 +143,8 @@ export const resize = item => {
     }
 };
 
-export const unmount = (item, targetType) => {
-    const plugin = itemTypeMap[targetType].plugin;
+export const unmount = (item, activeType) => {
+    const plugin = itemTypeMap[activeType].plugin;
 
     if (plugin && plugin.unmount) {
         plugin.unmount(getGridItemDomId(item.id));

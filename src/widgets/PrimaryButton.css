@@ -1,0 +1,10 @@
+.d2ui-primary-button {
+    border-radius: 2px;
+    font-weight: 500;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24),
+        0 0 8px 0 rgba(0, 0, 0, 0.12), 0 0 8px 0 rgba(0, 0, 0, 0.24);
+}
+
+.d2ui-primary-button.disabled {
+    box-shadow: none;
+}

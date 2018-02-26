@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
+import i18n from 'dhis2-i18n';
 
 import ItemHeader from '../ItemHeader';
 import Line from '../../widgets/Line';
@@ -50,7 +51,7 @@ const TextItem = props => {
     const editItem = () => {
         return (
             <Fragment>
-                <ItemHeader title="Text item" />
+                <ItemHeader title={i18n.t('Text item')} />
                 <Line />
                 <div className="dashboard-item-content">
                     <TextField
@@ -60,7 +61,7 @@ const TextItem = props => {
                         rowsMax={8}
                         fullWidth
                         style={style.textField}
-                        placeholder={'Add text here'}
+                        placeholder={i18n.t('Add text here')}
                         onChange={onChangeText}
                     />
                 </div>

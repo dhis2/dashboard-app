@@ -27,7 +27,7 @@ export const removeInterpretation = value => ({
     value,
 });
 
-export const receivedVisualization = value => ({
+export const acReceivedVisualization = value => ({
     type: actionTypes.RECEIVED_VISUALIZATION,
     value,
 });
@@ -113,7 +113,7 @@ export const tGetInterpretations = ids => async dispatch => {
  */
 export const tPostInterpretation = data => async (dispatch, getState) => {
     const onSuccess = vis => {
-        return dispatch(receivedVisualization(vis));
+        return dispatch(acReceivedVisualization(vis));
     };
 
     try {
@@ -143,7 +143,7 @@ export const tPostInterpretation = data => async (dispatch, getState) => {
  */
 export const tDeleteInterpretation = data => async (dispatch, getState) => {
     const onSuccess = vis => {
-        return dispatch(receivedVisualization(vis));
+        return dispatch(acReceivedVisualization(vis));
     };
 
     try {

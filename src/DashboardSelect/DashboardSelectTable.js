@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import i18n from 'dhis2-i18n';
 
 import {
     Table,
@@ -166,24 +167,24 @@ export default class DashboardSelectTable extends Component {
                                     style.starred
                                 )}
                             >
-                                Starred
+                                {i18n.t('Starred')}
                             </TableHeaderColumn>
                             <TableHeaderColumn
                                 style={Object.assign({}, style.row, style.name)}
                             >
-                                Name
+                                {i18n.t('Name')}
                             </TableHeaderColumn>
                             <TableHeaderColumn style={style.row}>
-                                Items
+                                {i18n.t('Items')}
                             </TableHeaderColumn>
                             <TableHeaderColumn style={style.row}>
-                                Owner
+                                {i18n.t('Owner')}
                             </TableHeaderColumn>
                             <TableHeaderColumn style={style.row}>
-                                Created
+                                {i18n.t('Created')}
                             </TableHeaderColumn>
                             <TableHeaderColumn style={style.row}>
-                                Modified
+                                {i18n.t('Modified')}
                             </TableHeaderColumn>
                         </TableRow>
                     </TableHeader>

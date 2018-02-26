@@ -11,12 +11,10 @@ import './TitleBar.css';
 const style = {
     titleBar: {
         display: 'flex',
-        alignItems: 'flex-end',
+        alignItems: 'flex-start',
     },
     title: {
-        marginRight: 20,
         position: 'relative',
-        top: -2,
         fontSize: 21,
         fontWeight: 500,
         color: '#333333',
@@ -30,7 +28,7 @@ const style = {
     },
 };
 
-const TitleBar = ({ id, name, description, edit }) => {
+const TitleBar = ({ id, name, displayName, description, edit }) => {
     return (
         <div
             className="titlebar-wrapper"
@@ -42,13 +40,14 @@ const TitleBar = ({ id, name, description, edit }) => {
                 <EditTitleBar
                     style={style}
                     name={name}
+                    displayName={displayName}
                     description={description}
                 />
             ) : (
                 <ViewTitleBar
                     style={style}
                     id={id}
-                    name={name}
+                    name={displayName || name}
                     description={description}
                 />
             )}
@@ -60,9 +59,14 @@ const mapStateToProps = state => {
     const selectedDashboard = orObject(
         fromReducers.sGetSelectedDashboard(state)
     );
+    const dashboard = orObject(
+        fromReducers.fromDashboards.sGetById(state, selectedDashboard.id)
+    );
+
     return {
         id: selectedDashboard.id,
         name: selectedDashboard.name,
+        displayName: dashboard && dashboard.displayName,
         description: selectedDashboard.description,
         edit: fromReducers.fromEditDashboard.sGetIsEditing(state),
     };

@@ -3,8 +3,10 @@ import { apiFetchSelected } from '../api/dashboards';
 import { acSetDashboards } from './dashboards';
 import { withShape } from '../ItemGrid/gridUtil';
 import { tGetMessages } from '../Item/MessagesItem/actions';
+import { acReceivedSnackbarMessage, acCloseSnackbar } from './snackbar';
 import { storePreferredDashboardId } from '../api/localStorage';
-import { fromUser } from '../reducers';
+import { fromUser, fromSelected } from '../reducers';
+import { loadingDashboardMsg } from '../SnackbarMessage';
 import {
     REPORT_TABLE,
     CHART,
@@ -13,6 +15,7 @@ import {
     EVENT_CHART,
     MESSAGES,
 } from '../itemTypes';
+import { extractFavorite } from '../Item/PluginItem/plugin';
 
 // actions
 
@@ -35,33 +38,76 @@ export const acNewDashboard = () => ({
     type: actionTypes.NEW_DASHBOARD,
 });
 
-export const receivedVisualization = value => ({
+export const acReceivedVisualization = value => ({
     type: actionTypes.RECEIVED_VISUALIZATION,
     value,
 });
 
-// thunks
+export const acReceivedActiveVisualization = (id, type, activeType) => {
+    const action = {
+        type: actionTypes.RECEIVED_ACTIVE_VISUALIZATION,
+        id,
+    };
 
-export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
+    if (activeType !== type) {
+        action.activeType = activeType;
+    }
+
+    return action;
+};
+
+// thunks
+export const tSetSelectedDashboardById = (id, name = '') => async (
+    dispatch,
+    getState
+) => {
     dispatch(acSetSelectedIsLoading(true));
 
+    const snackbarTimeout = setTimeout(() => {
+        if (fromSelected.sGetSelectedIsLoading(getState()) && name) {
+            loadingDashboardMsg.name = name;
+
+            dispatch(
+                acReceivedSnackbarMessage({
+                    message: loadingDashboardMsg,
+                    open: true,
+                })
+            );
+        }
+    }, 500);
+
     const onSuccess = selected => {
+        // update store with selected dashboard
+        // withShape adds shape info to items lacking it
+        // only works properly when all items in a dashboard are missing it
+        // ensures that upgraded dasbboards work before they are re-saved
+        dispatch(
+            acSetDashboards(
+                {
+                    ...selected,
+                    dashboardItems: withShape(selected.dashboardItems),
+                },
+                true
+            )
+        );
+
+        // store preferred dashboard
+        storePreferredDashboardId(fromUser.sGetUsername(getState()), id);
+
+        // add visualizations to store
         selected.dashboardItems.forEach(item => {
             switch (item.type) {
                 case REPORT_TABLE:
-                    dispatch(receivedVisualization(item.reportTable));
-                    break;
                 case CHART:
-                    dispatch(receivedVisualization(item.chart));
-                    break;
                 case MAP:
-                    dispatch(receivedVisualization(item.map));
-                    break;
                 case EVENT_REPORT:
-                    dispatch(receivedVisualization(item.eventReport));
-                    break;
                 case EVENT_CHART:
-                    dispatch(receivedVisualization(item.eventChart));
+                    dispatch(
+                        acReceivedVisualization(
+                            extractFavorite(item),
+                            item.type
+                        )
+                    );
                     break;
                 case MESSAGES:
                     dispatch(tGetMessages(id));
@@ -71,20 +117,14 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
             }
         });
 
-        storePreferredDashboardId(fromUser.sGetUsername(getState()), id);
-
-        dispatch(
-            acSetDashboards(
-                {
-                    ...selected,
-                    dashboardItems: withShape(selected.dashboardItems), // TODO get shape from backend instead
-                },
-                true
-            )
-        );
-
+        // set selected dashboard
         dispatch(acSetSelectedId(id));
+
+        // remove loading indicator
         dispatch(acSetSelectedIsLoading(false));
+        clearTimeout(snackbarTimeout);
+        dispatch(acCloseSnackbar());
+
         return selected;
     };
 

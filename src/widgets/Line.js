@@ -2,7 +2,7 @@ import React from 'react';
 import { colors } from '../colors';
 
 const style = {
-    backgroundColor: `${colors.lightGrey}`,
+    backgroundColor: colors.lightGrey,
     border: 'none',
     height: '1px',
     margin: '0px 0px 5px 0px',

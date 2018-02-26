@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import i18n from 'dhis2-i18n';
 import ReactGridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
@@ -51,7 +52,7 @@ export class ItemGrid extends Component {
         expandedItems: {},
     };
 
-    NO_ITEMS_MESSAGE = 'You have not added any items';
+    NO_ITEMS_MESSAGE = i18n.t('You have not added any items');
 
     onToggleItemExpanded = clickedId => {
         const isExpanded =
@@ -93,6 +94,8 @@ export class ItemGrid extends Component {
         }
     };
 
+    onRemoveItemWrapper = id => () => this.onRemoveItem(id);
+
     render() {
         const { edit, isLoading, dashboardItems } = this.props;
 
@@ -112,8 +115,6 @@ export class ItemGrid extends Component {
                 i: item.id,
             });
         });
-
-        const onRemoveItemWrapper = id => () => this.onRemoveItem(id);
 
         return (
             <div className="grid-wrapper">
@@ -141,7 +142,9 @@ export class ItemGrid extends Component {
                             <div key={item.i} className={itemClassNames}>
                                 {edit ? (
                                     <DeleteItemButton
-                                        onClick={onRemoveItemWrapper(item.id)}
+                                        onClick={this.onRemoveItemWrapper(
+                                            item.id
+                                        )}
                                     />
                                 ) : null}
                                 <Item
@@ -176,7 +179,6 @@ const mapStateToProps = state => {
         fromSelected,
         fromEditDashboard,
     } = fromReducers;
-    const { sGetSelectedIsLoading } = fromSelected;
 
     const selectedDashboard = sGetSelectedDashboard(state);
 
@@ -186,7 +188,7 @@ const mapStateToProps = state => {
 
     return {
         edit: fromEditDashboard.sGetIsEditing(state),
-        isLoading: sGetSelectedIsLoading(state),
+        isLoading: fromSelected.sGetSelectedIsLoading(state),
         dashboardItems,
     };
 };
