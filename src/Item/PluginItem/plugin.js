@@ -113,22 +113,26 @@ export const reload = async (item, targetType, credentials, filter) => {
 
     const plugin = itemTypeMap[targetType].plugin;
 
-    loadPlugin(plugin, config, credentials);
+    if (plugin && plugin.load) {
+        loadPlugin(plugin, config, credentials);
+    }
 };
 
 export const load = (item, credentials, filter) => {
     let plugin = itemTypeMap[item.type].plugin;
 
-    const configuredFilter = configureFilter(filter);
-    const favorite = extractFavorite(item);
-    const itemConfig = {
-        id: favorite.id,
-        el: getGridItemDomId(item.id),
-        hideTitle: !favorite.title,
-        ...configuredFilter,
-    };
+    if (plugin && plugin.load) {
+        const configuredFilter = configureFilter(filter);
+        const favorite = extractFavorite(item);
+        const itemConfig = {
+            id: favorite.id,
+            el: getGridItemDomId(item.id),
+            hideTitle: !favorite.title,
+            ...configuredFilter,
+        };
 
-    loadPlugin(plugin, itemConfig, credentials);
+        loadPlugin(plugin, itemConfig, credentials);
+    }
 };
 
 export const resize = item => {
