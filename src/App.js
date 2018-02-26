@@ -13,7 +13,7 @@ import TitleBarCt from './TitleBar/TitleBar';
 import ItemGridCt from './ItemGrid/ItemGrid';
 import SnackbarMessage from './SnackbarMessage';
 
-import { fromDashboards, fromUser } from './actions';
+import { fromDashboards, fromUser, fromControlBar } from './actions';
 import { acCloseSnackbar } from './actions/snackbar';
 import { fromSnackbar } from './reducers';
 
@@ -27,6 +27,7 @@ class App extends Component {
         const { store, d2 } = this.context;
         store.dispatch(fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromDashboards.tSetDashboards());
+        store.dispatch(fromControlBar.tSetControlBarRows());
     }
 
     getChildContext() {
