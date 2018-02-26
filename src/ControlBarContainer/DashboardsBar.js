@@ -13,6 +13,7 @@ import D2IconButton from '../widgets/D2IconButton';
 import Filter from './Filter';
 import {
     CONTROL_BAR_ROW_HEIGHT,
+    CONTROL_BAR_OUTER_HEIGHT_DIFF,
     getInnerHeight,
     getOuterHeight,
 } from './ControlBarContainer';
@@ -184,7 +185,10 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         onChangeHeight: (newHeight, onEndDrag) => {
             const newRows = Math.max(
                 1,
-                Math.floor((newHeight - 24) / CONTROL_BAR_ROW_HEIGHT)
+                Math.floor(
+                    (newHeight - CONTROL_BAR_OUTER_HEIGHT_DIFF) /
+                        CONTROL_BAR_ROW_HEIGHT
+                )
             );
 
             if (newRows !== stateProps.rows) {
