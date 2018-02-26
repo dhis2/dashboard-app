@@ -15,6 +15,7 @@ import {
     EVENT_CHART,
     MESSAGES,
 } from '../itemTypes';
+import { extractFavorite } from '../Item/PluginItem/plugin';
 
 // actions
 
@@ -37,10 +38,23 @@ export const acNewDashboard = () => ({
     type: actionTypes.NEW_DASHBOARD,
 });
 
-export const receivedVisualization = value => ({
+export const acReceivedVisualization = value => ({
     type: actionTypes.RECEIVED_VISUALIZATION,
     value,
 });
+
+export const acReceivedActiveVisualization = (id, type, activeType) => {
+    const action = {
+        type: actionTypes.RECEIVED_ACTIVE_VISUALIZATION,
+        id,
+    };
+
+    if (activeType !== type) {
+        action.activeType = activeType;
+    }
+
+    return action;
+};
 
 // thunks
 export const tSetSelectedDashboardById = (id, name = '') => async (
@@ -63,33 +77,7 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
     }, 500);
 
     const onSuccess = selected => {
-        selected.dashboardItems.forEach(item => {
-            switch (item.type) {
-                case REPORT_TABLE:
-                    dispatch(receivedVisualization(item.reportTable));
-                    break;
-                case CHART:
-                    dispatch(receivedVisualization(item.chart));
-                    break;
-                case MAP:
-                    dispatch(receivedVisualization(item.map));
-                    break;
-                case EVENT_REPORT:
-                    dispatch(receivedVisualization(item.eventReport));
-                    break;
-                case EVENT_CHART:
-                    dispatch(receivedVisualization(item.eventChart));
-                    break;
-                case MESSAGES:
-                    dispatch(tGetMessages(id));
-                    break;
-                default:
-                    break;
-            }
-        });
-
-        storePreferredDashboardId(fromUser.sGetUsername(getState()), id);
-
+        // update store with selected dashboard
         // withShape adds shape info to items lacking it
         // only works properly when all items in a dashboard are missing it
         // ensures that upgraded dasbboards work before they are re-saved
@@ -103,7 +91,36 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
             )
         );
 
+        // store preferred dashboard
+        storePreferredDashboardId(fromUser.sGetUsername(getState()), id);
+
+        // add visualizations to store
+        selected.dashboardItems.forEach(item => {
+            switch (item.type) {
+                case REPORT_TABLE:
+                case CHART:
+                case MAP:
+                case EVENT_REPORT:
+                case EVENT_CHART:
+                    dispatch(
+                        acReceivedVisualization(
+                            extractFavorite(item),
+                            item.type
+                        )
+                    );
+                    break;
+                case MESSAGES:
+                    dispatch(tGetMessages(id));
+                    break;
+                default:
+                    break;
+            }
+        });
+
+        // set selected dashboard
         dispatch(acSetSelectedId(id));
+
+        // remove loading indicator
         dispatch(acSetSelectedIsLoading(false));
         clearTimeout(snackbarTimeout);
         dispatch(acCloseSnackbar());

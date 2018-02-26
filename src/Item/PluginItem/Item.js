@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import ItemHeader from '../ItemHeader';
@@ -9,6 +10,9 @@ import PluginItemHeaderButtons from './ItemHeaderButtons';
 import * as pluginManager from './plugin';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { getBaseUrl } from '../../util';
+import { sGetVisualization } from '../../reducers/visualizations';
+import { acReceivedActiveVisualization } from '../../actions/selected';
+import { fromItemFilter } from '../../reducers';
 import { itemTypeMap } from '../../itemTypes';
 
 const style = {
@@ -48,6 +52,67 @@ class Item extends Component {
 
     pluginCredentials = null;
 
+    shouldPluginLoad = (props, prevProps) => {
+        if (!this.state.pluginIsAvailable) {
+            return false;
+        }
+
+        const item = props.item;
+        const filter = props.itemFilter;
+        const vis = props.visualization;
+        const prevItem = prevProps.item;
+        const prevFilter = prevProps.itemFilter;
+        const prevVis = prevProps.visualization;
+
+        // item clause
+        const itemChanged = item !== prevItem;
+
+        // visualization clause
+        const visDidNotChange =
+            vis.id === prevVis.id && vis.activeType === prevVis.activeType;
+
+        // filter clause
+        const filterDidNotChange = prevFilter === filter;
+
+        return !(itemChanged || (visDidNotChange && filterDidNotChange));
+    };
+
+    loadPlugin = (props, prevProps) => {
+        if (this.shouldPluginLoad(props, prevProps)) {
+            let filterChanged = false;
+            let itemFilter = prevProps.itemFilter;
+            if (props.itemFilter !== itemFilter) {
+                filterChanged = true;
+                itemFilter = props.itemFilter;
+            }
+            let useActiveType = false;
+            let activeType = prevProps.visualization.activeType;
+            if (
+                props.visualization.activeType !== activeType ||
+                props.visualization.activeType !== prevProps.item.type
+            ) {
+                useActiveType = true;
+                activeType =
+                    props.visualization.activeType || prevProps.item.type;
+            }
+            // load plugin if
+            if (useActiveType) {
+                pluginManager.reload(
+                    prevProps.item,
+                    activeType,
+                    this.pluginCredentials,
+                    itemFilter
+                );
+            } else if (filterChanged) {
+                pluginManager.load(
+                    prevProps.item,
+                    this.pluginCredentials,
+                    itemFilter
+                );
+            }
+        }
+    };
+
     componentDidMount() {
         this.pluginCredentials = pluginCredentials(this.context.d2);
 
@@ -60,17 +125,8 @@ class Item extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (
-            this.state.pluginIsAvailable &&
-            nextProps.itemFilter !== this.props.itemFilter
-        ) {
-            pluginManager.load(
-                this.props.item,
-                this.pluginCredentials,
-                nextProps.itemFilter
-            );
-        }
+    componentDidUpdate(prevProps) {
+        this.loadPlugin(this.props, prevProps);
     }
 
     onToggleFooter = () => {
@@ -80,15 +136,16 @@ class Item extends Component {
         );
     };
 
-    onSelectVisualization = targetType => {
-        pluginManager.unmount(this.props.item, this.state.activeVisualization);
-
-        this.setState({ activeVisualization: targetType });
-        pluginManager.reload(
+    onSelectVisualization = activeType => {
+        pluginManager.unmount(
             this.props.item,
-            targetType,
-            this.pluginCredentials,
-            this.props.itemFilter
+            this.props.visualization.activeType || this.props.item.type
+        );
+
+        this.props.onSelectVisualization(
+            this.props.visualization.id,
+            this.props.item.type,
+            activeType
         );
     };
 
@@ -112,11 +169,14 @@ class Item extends Component {
         );
 
         const actionButtons =
-            !this.props.editMode && this.state.pluginIsAvailable ? (
+            this.state.pluginIsAvailable && !this.props.editMode ? (
                 <PluginItemHeaderButtons
                     item={item}
                     activeFooter={this.state.showFooter}
-                    activeVisualization={this.state.activeVisualization}
+                    activeVisualization={
+                        this.props.visualization.activeType ||
+                        this.props.item.type
+                    }
                     onSelectVisualization={this.onSelectVisualization}
                     onToggleFooter={this.onToggleFooter}
                 />
@@ -148,4 +208,17 @@ Item.contextTypes = {
     d2: PropTypes.object,
 };
 
-export default Item;
+const mapStateToProps = (state, ownProps) => ({
+    itemFilter: fromItemFilter.sGetFromState(state),
+    visualization: sGetVisualization(
+        state,
+        pluginManager.extractFavorite(ownProps.item).id
+    ),
+});
+
+const mapDispatchToProps = dispatch => ({
+    onSelectVisualization: (id, type, activeType) =>
+        dispatch(acReceivedActiveVisualization(id, type, activeType)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Item);
