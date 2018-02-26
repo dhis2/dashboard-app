@@ -169,7 +169,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const dashboards = Object.values(orObject(stateProps.dashboards));
     const displayDashboards = arraySort(
         dashboards.filter(d =>
-            d.displayName.toLowerCase().includes(stateProps.name)
+            d.displayName.toLowerCase().includes(stateProps.name.toLowerCase())
         ),
         'ASC',
         'displayName'
