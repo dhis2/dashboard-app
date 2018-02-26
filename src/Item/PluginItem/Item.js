@@ -43,9 +43,7 @@ class Item extends Component {
     state = {
         showFooter: false,
         activeVisualization: this.props.item.type,
-        pluginIsAvailable: itemTypeMap[this.props.item.type].plugin
-            ? true
-            : false,
+        pluginIsAvailable: !!itemTypeMap[this.props.item.type].plugin,
     };
 
     pluginCredentials = null;
