@@ -10,7 +10,9 @@ export const actionTypes = {
     RECEIVED_ACTIVE_VISUALIZATION: 'RECEIVED_ACTIVE_VISUALIZATION',
 };
 
-export default (state = {}, action) => {
+export const DEFAULT_STATE = {};
+
+export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {
         case actionTypes.RECEIVED_VISUALIZATION: {
             return {
