@@ -108,14 +108,13 @@ class Item extends Component {
     componentDidMount() {
         this.pluginCredentials = pluginCredentials(this.context.d2);
 
-        const itemType =
-            this.props.visualization.activeType || this.props.item.type;
-
         if (this.pluginIsAvailable()) {
             pluginManager.load(
                 this.props.item,
                 this.pluginCredentials,
-                !this.props.editMode ? itemType : null,
+                !this.props.editMode
+                    ? orObject(this.props.visualization).activeType
+                    : null,
                 this.props.itemFilter
             );
         }
