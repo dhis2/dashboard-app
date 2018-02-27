@@ -46,75 +46,61 @@ const pluginCredentials = d2 => {
 class Item extends Component {
     state = {
         showFooter: false,
-        activeVisualization: this.props.item.type,
-        pluginIsAvailable: !!itemTypeMap[this.props.item.type].plugin,
     };
 
     pluginCredentials = null;
 
-    shouldPluginLoad = (props, prevProps) => {
-        if (!this.state.pluginIsAvailable) {
-            return false;
-        }
+    pluginIsAvailable = () => {
+        const type =
+            orObject(this.props.visualization).activeType ||
+            this.props.item.type;
 
+        return !!itemTypeMap[type].plugin;
+    };
+
+    shouldPluginReload = prevProps => {
         // TODO - fix this hack, to handle bug with multiple
         // rerendering while switching between dashboards.
         //
         // To determine if the rendering is happening because of a
-        // dashboard switch, check for a changed item. Only allow reload
-        // if the item is not changing.
-        const loadAllowed = props.item === prevProps.item;
+        // dashboard switch, check if the item reference has changed.
+        const reloadAllowed = this.props.item === prevProps.item;
 
-        const vis = orObject(props.visualization);
+        const filterChanged = prevProps.itemFilter !== this.props.itemFilter;
+        const vis = orObject(this.props.visualization);
         const prevVis = orObject(prevProps.visualization);
         const visChanged =
             vis.id !== prevVis.id || vis.activeType !== prevVis.activeType;
 
-        const filterChanged = prevProps.itemFilter !== props.itemFilter;
-
-        return loadAllowed && (visChanged || filterChanged);
+        return reloadAllowed && (visChanged || filterChanged);
     };
 
-    loadPlugin = (props, prevProps) => {
-        if (this.shouldPluginLoad(props, prevProps)) {
-            let filterChanged = false;
-            let itemFilter = prevProps.itemFilter;
-            if (props.itemFilter !== itemFilter) {
-                filterChanged = true;
-                itemFilter = props.itemFilter;
-            }
-            let useActiveType = false;
-            let activeType = orObject(prevProps.visualization).activeType;
-            if (
-                props.visualization.activeType !== activeType ||
-                props.visualization.activeType !== prevProps.item.type
-            ) {
-                useActiveType = true;
-                activeType =
-                    props.visualization.activeType || prevProps.item.type;
-            }
+    reloadPlugin = prevProps => {
+        if (this.pluginIsAvailable() && this.shouldPluginReload(prevProps)) {
+            const prevVis = orObject(prevProps.visualization);
+            const currentVis = this.props.visualization;
 
-            // load plugin if
-            if (useActiveType || filterChanged) {
+            const useActiveType =
+                currentVis.activeType !== prevVis.activeType ||
+                currentVis.activeType !== this.props.item.type
+                    ? true
+                    : false;
+
+            if (
+                useActiveType ||
+                this.props.itemFilter !== prevProps.itemFilter
+            ) {
                 pluginManager.unmount(
-                    prevProps.item,
-                    activeType || prevProps.item.type
+                    this.props.item,
+                    prevVis.activeType || this.props.item.type
                 );
 
-                if (useActiveType) {
-                    pluginManager.reload(
-                        prevProps.item,
-                        activeType,
-                        this.pluginCredentials,
-                        itemFilter
-                    );
-                } else if (filterChanged) {
-                    pluginManager.load(
-                        prevProps.item,
-                        this.pluginCredentials,
-                        itemFilter
-                    );
-                }
+                pluginManager.load(
+                    this.props.item,
+                    this.pluginCredentials,
+                    useActiveType ? currentVis.activeType : null,
+                    this.props.itemFilter
+                );
             }
         }
     };
@@ -122,17 +108,21 @@ class Item extends Component {
     componentDidMount() {
         this.pluginCredentials = pluginCredentials(this.context.d2);
 
-        if (this.state.pluginIsAvailable) {
+        const itemType =
+            this.props.visualization.activeType || this.props.item.type;
+
+        if (this.pluginIsAvailable()) {
             pluginManager.load(
                 this.props.item,
                 this.pluginCredentials,
+                !this.props.editMode ? itemType : null,
                 this.props.itemFilter
             );
         }
     }
 
     componentDidUpdate(prevProps) {
-        this.loadPlugin(this.props, prevProps);
+        this.reloadPlugin(prevProps);
     }
 
     onToggleFooter = () => {
@@ -158,12 +148,14 @@ class Item extends Component {
     render() {
         const item = this.props.item;
         const elementId = getGridItemDomId(item.id);
+        const pluginIsAvailable = this.pluginIsAvailable();
+
         const title = (
             <div style={{ display: 'flex', alignItems: 'center' }}>
                 <span title={pluginManager.getName(item)} style={style.title}>
                     {pluginManager.getName(item)}
                 </span>
-                {!this.props.editMode && this.state.pluginIsAvailable ? (
+                {!this.props.editMode && pluginIsAvailable ? (
                     <a
                         href={pluginManager.getLink(item, this.context.d2)}
                         style={{ height: 16 }}
@@ -175,13 +167,12 @@ class Item extends Component {
         );
 
         const actionButtons =
-            this.state.pluginIsAvailable && !this.props.editMode ? (
+            pluginIsAvailable && !this.props.editMode ? (
                 <PluginItemHeaderButtons
                     item={item}
                     activeFooter={this.state.showFooter}
                     activeVisualization={
-                        this.props.visualization.activeType ||
-                        this.props.item.type
+                        this.props.visualization.activeType || item.type
                     }
                     onSelectVisualization={this.onSelectVisualization}
                     onToggleFooter={this.onToggleFooter}
@@ -196,7 +187,7 @@ class Item extends Component {
                     editMode={this.props.editMode}
                 />
                 <div id={elementId} className="dashboard-item-content">
-                    {!this.state.pluginIsAvailable ? (
+                    {!pluginIsAvailable ? (
                         <div style={style.textDiv}>
                             Unable to load the plugin for this item
                         </div>
