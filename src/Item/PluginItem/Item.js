@@ -9,7 +9,7 @@ import PluginItemHeaderButtons from './ItemHeaderButtons';
 
 import * as pluginManager from './plugin';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
-import { getBaseUrl } from '../../util';
+import { getBaseUrl, orObject } from '../../util';
 import { sGetVisualization } from '../../reducers/visualizations';
 import { acReceivedActiveVisualization } from '../../actions/selected';
 import { fromItemFilter } from '../../reducers';
@@ -57,24 +57,22 @@ class Item extends Component {
             return false;
         }
 
-        const item = props.item;
-        const filter = props.itemFilter;
-        const vis = props.visualization;
-        const prevItem = prevProps.item;
-        const prevFilter = prevProps.itemFilter;
-        const prevVis = prevProps.visualization;
+        // TODO - fix this hack, to handle bug with multiple
+        // rerendering while switching between dashboards.
+        //
+        // To determine if the rendering is happening because of a
+        // dashboard switch, check for a changed item. Only allow reload
+        // if the item is not changing.
+        const loadAllowed = props.item === prevProps.item;
 
-        // item clause
-        const itemChanged = item !== prevItem;
+        const vis = orObject(props.visualization);
+        const prevVis = orObject(prevProps.visualization);
+        const visChanged =
+            vis.id !== prevVis.id || vis.activeType !== prevVis.activeType;
 
-        // visualization clause
-        const visDidNotChange =
-            vis.id === prevVis.id && vis.activeType === prevVis.activeType;
+        const filterChanged = prevProps.itemFilter !== props.itemFilter;
 
-        // filter clause
-        const filterDidNotChange = prevFilter === filter;
-
-        return !(itemChanged || (visDidNotChange && filterDidNotChange));
+        return loadAllowed && (visChanged || filterChanged);
     };
 
     loadPlugin = (props, prevProps) => {
@@ -86,7 +84,7 @@ class Item extends Component {
                 itemFilter = props.itemFilter;
             }
             let useActiveType = false;
-            let activeType = prevProps.visualization.activeType;
+            let activeType = orObject(prevProps.visualization).activeType;
             if (
                 props.visualization.activeType !== activeType ||
                 props.visualization.activeType !== prevProps.item.type
