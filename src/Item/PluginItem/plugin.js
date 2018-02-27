@@ -93,7 +93,7 @@ const configureFavorite = async (item, activeType) => {
                 : fetchedFavorite;
 
         favorite.id = null;
-        favorite.hideTitle = !favorite.hideTitle;
+        favorite.hideTitle = !favorite.title;
     }
 
     return favorite;
