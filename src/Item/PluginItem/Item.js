@@ -93,20 +93,28 @@ class Item extends Component {
                 activeType =
                     props.visualization.activeType || prevProps.item.type;
             }
+
             // load plugin if
-            if (useActiveType) {
-                pluginManager.reload(
+            if (useActiveType || filterChanged) {
+                pluginManager.unmount(
                     prevProps.item,
-                    activeType,
-                    this.pluginCredentials,
-                    itemFilter
+                    activeType || prevProps.item.type
                 );
-            } else if (filterChanged) {
-                pluginManager.load(
-                    prevProps.item,
-                    this.pluginCredentials,
-                    itemFilter
-                );
+
+                if (useActiveType) {
+                    pluginManager.reload(
+                        prevProps.item,
+                        activeType,
+                        this.pluginCredentials,
+                        itemFilter
+                    );
+                } else if (filterChanged) {
+                    pluginManager.load(
+                        prevProps.item,
+                        this.pluginCredentials,
+                        itemFilter
+                    );
+                }
             }
         }
     };
