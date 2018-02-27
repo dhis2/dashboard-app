@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import i18n from 'dhis2-i18n';
+import i18n from 'd2-i18n';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import { fromUser } from '../../../reducers';
 import InputField from './InputField';

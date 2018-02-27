@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import i18n from 'dhis2-i18n';
+import i18n from 'd2-i18n';
 import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';

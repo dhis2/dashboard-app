@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import i18n from 'dhis2-i18n';
+import i18n from 'd2-i18n';
 import ItemHeader from '../ItemHeader';
 
 const style = {

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import i18n from 'dhis2-i18n';
+import i18n from 'd2-i18n';
 
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 // FIXME: TO BE USED IN 2.30

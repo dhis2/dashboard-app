@@ -1,4 +1,4 @@
-import i18n from 'dhis2-i18n';
+import i18n from 'd2-i18n';
 
 import en from './en';
 import ur from './ur';

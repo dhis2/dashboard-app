@@ -22,7 +22,7 @@
         "d2-manifest": "^1.0.0",
         "d2-ui": "29",
         "d2-utilizr": "^0.2.15",
-        "dhis2-i18n": "^1.0.0",
+        "d2-i18n": "^1.0.0",
         "dotenv": "4.0.0",
         "eslint": "4.10.0",
         "eslint-config-prettier": "^2.9.0",
@@ -78,18 +78,16 @@
         "coverage": "npm test -- --coverage",
         "test": "node scripts/test.js --env=jsdom",
         "lint": "eslint -c .eslintrc.json src",
-        "prebuild":
-            "rm -rf build && npm run lint && mkdir build && npm run manifest",
+        "prebuild": "rm -rf build && npm run lint && mkdir build && npm run manifest",
         "postbuild": "cp -r public/i18n build",
         "manifest": "d2-manifest package.json build/manifest.webapp",
         "deploy": "npm run build && mvn clean deploy",
-        "extract-pot": "dhis2-i18n-extract -p src/ -o i18n/",
+        "extract-pot": "d2-i18n-extract -p src/ -o i18n/",
         "prettify": "prettier \"src/{**/*,*}.js\" --write"
     },
     "husky": {
         "hooks": {
-            "pre-commit":
-                "npm run extract-pot && npm run prettify && CI=true npm run test && git add -A ."
+            "pre-commit": "npm run extract-pot && npm run prettify && CI=true npm run test && git add -A ."
         }
     },
     "manifest.webapp": {
@@ -116,8 +114,12 @@
         }
     },
     "jest": {
-        "collectCoverageFrom": ["src/**/*.{js,jsx,mjs}"],
-        "setupFiles": ["<rootDir>/config/polyfills.js"],
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx,mjs}"
+        ],
+        "setupFiles": [
+            "<rootDir>/config/polyfills.js"
+        ],
         "testMatch": [
             "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
             "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
@@ -127,8 +129,7 @@
         "transform": {
             "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
             "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-            "^(?!.*\\.(js|jsx|mjs|css|json)$)":
-                "<rootDir>/config/jest/fileTransform.js"
+            "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
         },
         "transformIgnorePatterns": [
             "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
@@ -147,13 +148,15 @@
         ]
     },
     "babel": {
-        "presets": ["react-app"]
+        "presets": [
+            "react-app"
+        ]
     },
     "eslintConfig": {
         "extends": "react-app"
     },
     "devDependencies": {
-        "dhis2-i18n-extract": "github:adeelshahid/dhis2-i18n-extract",
+        "d2-i18n-extract": "^1.0.2",
         "husky": "^0.15.0-rc.8"
     }
 }
