@@ -134,7 +134,7 @@ class ViewTitleBar extends Component {
                     <div
                         className="dashboard-description"
                         style={Object.assign(
-                            {},
+                            { paddingTop: '5px', paddingBottom: '5px' },
                             styles.description,
                             !description ? styles.noDescription : {}
                         )}
