@@ -27,3 +27,6 @@ manifest.webapp
 
 #maven
 /target
+
+# locales, locales are auto-generated for dev / build
+src/locales/

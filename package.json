@@ -73,9 +73,9 @@
     },
     "scripts": {
         "documentation": "./node_modules/.bin/jsdoc -c jsdoc.json",
-        "prestart": "d2-manifest package.json ./public/manifest.webapp",
+        "prestart": "npm run localize && d2-manifest package.json ./public/manifest.webapp",
         "start": "node scripts/start.js",
-        "build": "node scripts/build.js",
+        "build": "npm run localize && node scripts/build.js",
         "coverage": "npm test -- --coverage",
         "test": "node scripts/test.js --env=jsdom",
         "lint": "eslint -c .eslintrc.json src",
@@ -84,6 +84,7 @@
         "manifest": "d2-manifest package.json build/manifest.webapp",
         "deploy": "npm run build && mvn clean deploy",
         "extract-pot": "d2-i18n-extract -p src/ -o i18n/",
+        "localize": "d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/",
         "prettify": "prettier \"src/{**/*,*}.js\" --write"
     },
     "husky": {
@@ -157,7 +158,8 @@
         "extends": "react-app"
     },
     "devDependencies": {
-        "d2-i18n-extract": "^1.0.2",
+        "d2-i18n-extract": "^1.x",
+        "d2-i18n-generate": "^1.x",
         "husky": "^0.15.0-rc.8"
     }
 }
