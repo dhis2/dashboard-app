@@ -7,6 +7,7 @@ export const GRID_COMPACT_TYPE = 'vertical'; // vertical | horizonal | null
 export const GRID_ROW_HEIGHT = 10;
 const GRID_COLUMN_WIDTH_PX = 20;
 const GRID_LAYOUT = 'FLEXIBLE'; // FIXED | FLEXIBLE
+export const MARGIN = [10, 10];
 
 export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 };
 

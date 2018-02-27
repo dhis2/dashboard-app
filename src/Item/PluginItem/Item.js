@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
-import ItemHeader from '../ItemHeader';
+import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import PluginItemHeaderButtons from './ItemHeaderButtons';
 
@@ -182,6 +182,17 @@ class Item extends Component {
                 />
             ) : null;
 
+        let itemHeight;
+
+        if (!this.props.editMode) {
+            itemHeight = this.props.height - HEADER_HEIGHT;
+        }
+
+        const itemHeightStyle = !this.props.editMode
+            ? { height: `${itemHeight}px` }
+            : null;
+        console.log('itemHeightStyle', itemHeightStyle);
+
         return (
             <Fragment>
                 <ItemHeader
@@ -189,7 +200,11 @@ class Item extends Component {
                     actionButtons={actionButtons}
                     editMode={this.props.editMode}
                 />
-                <div id={elementId} className="dashboard-item-content">
+                <div
+                    id={elementId}
+                    className="dashboard-item-content"
+                    style={itemHeightStyle}
+                >
                     {!this.state.pluginIsAvailable ? (
                         <div style={style.textDiv}>
                             Unable to load the plugin for this item
