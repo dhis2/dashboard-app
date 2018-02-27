@@ -13,6 +13,7 @@ import D2IconButton from '../widgets/D2IconButton';
 import Filter from './Filter';
 import {
     CONTROL_BAR_ROW_HEIGHT,
+    CONTROL_BAR_OUTER_HEIGHT_DIFF,
     getInnerHeight,
     getOuterHeight,
 } from './ControlBarContainer';
@@ -21,6 +22,7 @@ import * as fromActions from '../actions';
 import * as fromReducers from '../reducers';
 import { orObject, orArray } from '../util';
 import { sGetSelectedId } from '../reducers/selected';
+import { apiPostControlBarRows } from '../api/controlBar';
 
 const dashboardBarStyles = {
     scrollWrapper: {
@@ -33,7 +35,8 @@ const dashboardBarStyles = {
 
 const EXPANDED_ROW_COUNT = 10;
 
-const onDashboardSelectWrapper = (id, onClick) => () => id && onClick(id);
+const onDashboardSelectWrapper = (id, name, onClick) => () =>
+    id && onClick(id, name);
 
 // FIXME: TO BE USED IN 2.30
 // const ListViewButton = () => (
@@ -60,6 +63,7 @@ const DashboardsBar = ({
     selectedId,
     isExpanded,
     onChangeHeight,
+    onEndDrag,
     onToggleExpanded,
     onNewClick,
     onChangeFilterName,
@@ -80,6 +84,7 @@ const DashboardsBar = ({
         <ControlBar
             height={controlBarHeight}
             onChangeHeight={onChangeHeight}
+            onEndDrag={onEndDrag}
             editMode={false}
             expandable={!isExpanded}
         >
@@ -99,6 +104,7 @@ const DashboardsBar = ({
                             onChangeName={onChangeFilterName}
                             onKeypressEnter={onDashboardSelectWrapper(
                                 orObject(orArray(dashboards)[0]).id,
+                                orObject(orArray(dashboards)[0]).displayName,
                                 onSelectDashboard
                             )}
                         />
@@ -112,6 +118,7 @@ const DashboardsBar = ({
                         selected={dashboard.id === selectedId}
                         onClick={onDashboardSelectWrapper(
                             dashboard.id,
+                            dashboard.displayName,
                             onSelectDashboard
                         )}
                     />
@@ -162,7 +169,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const dashboards = Object.values(orObject(stateProps.dashboards));
     const displayDashboards = arraySort(
         dashboards.filter(d =>
-            d.displayName.toLowerCase().includes(stateProps.name)
+            d.displayName.toLowerCase().includes(stateProps.name.toLowerCase())
         ),
         'ASC',
         'displayName'
@@ -178,7 +185,10 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         onChangeHeight: (newHeight, onEndDrag) => {
             const newRows = Math.max(
                 1,
-                Math.floor((newHeight - 24) / CONTROL_BAR_ROW_HEIGHT)
+                Math.floor(
+                    (newHeight - CONTROL_BAR_OUTER_HEIGHT_DIFF) /
+                        CONTROL_BAR_ROW_HEIGHT
+                )
             );
 
             if (newRows !== stateProps.rows) {
@@ -189,6 +199,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
                 );
             }
         },
+        onEndDrag: () => apiPostControlBarRows(stateProps.rows),
         onNewClick: () => {
             dispatch(fromEditDashboard.acSetEditNewDashboard());
         },
@@ -199,7 +210,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         },
         onChangeFilterName: name =>
             dispatch(fromDashboardsFilter.acSetFilterName(name)),
-        onSelectDashboard: id => dispatch(fromActions.tSelectDashboardById(id)),
+        onSelectDashboard: (id, name) =>
+            dispatch(fromActions.tSelectDashboardById(id, name)),
     };
 };
 

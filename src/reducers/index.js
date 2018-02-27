@@ -9,6 +9,7 @@ import visualizations, * as fromVisualizations from './visualizations';
 import editDashboard, * as fromEditDashboard from './editDashboard';
 import messages, * as fromMessages from './messages';
 import user, * as fromUser from './user';
+import snackbar, * as fromSnackbar from './snackbar';
 import itemFilter, * as fromItemFilter from './itemFilter';
 import style, * as fromStyle from './style';
 
@@ -28,6 +29,7 @@ export const actionTypes = {
     ...fromEditDashboard.actionTypes,
     ...fromItemFilter.actionTypes,
     ...fromStyle.actionTypes,
+    ...fromSnackbar.actionTypes,
 };
 
 // reducers
@@ -44,6 +46,7 @@ export default combineReducers({
     editDashboard,
     itemFilter,
     style,
+    snackbar,
 });
 
 // map constants to data
@@ -69,6 +72,7 @@ export {
     fromUser,
     fromItemFilter,
     fromStyle,
+    fromSnackbar,
 };
 
 // selected dashboard

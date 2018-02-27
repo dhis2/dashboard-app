@@ -5,7 +5,6 @@ import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
 import IconClear from 'material-ui/svg-icons/content/clear';
 import isEmpty from 'd2-utilizr/lib/isEmpty';
-
 import { colors } from '../colors';
 import * as fromReducers from '../reducers';
 
@@ -87,7 +86,7 @@ class Filter extends Component {
                 value={this.state.value}
                 onChange={this.setFilterValue}
                 onKeyUp={this.handleKeyUp}
-                hintText={i18n.t('Filter dashboards')}
+                hintText={i18n.t('Search for a dashboard')}
                 style={styles.filterField}
                 inputStyle={styles.filterFieldInput}
                 hintStyle={styles.filterFieldHint}

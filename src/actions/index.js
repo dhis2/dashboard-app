@@ -17,9 +17,9 @@ export {
 };
 
 // depends on: fromSelected, fromDashboardsFilter, fromControlBar
-export const tSelectDashboardById = id => dispatch => {
+export const tSelectDashboardById = (id, name) => dispatch => {
     // select dashboard by id
-    dispatch(fromSelected.tSetSelectedDashboardById(id));
+    dispatch(fromSelected.tSetSelectedDashboardById(id, name));
 
     // reset filter
     dispatch(fromDashboardsFilter.acSetFilterName());
