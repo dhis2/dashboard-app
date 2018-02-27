@@ -44,6 +44,10 @@ export const extractMapView = map =>
     map.mapViews && map.mapViews.find(mv => mv.layer.includes('thematic'));
 
 const loadPlugin = (plugin, config, credentials) => {
+    if (!(plugin && plugin.load)) {
+        return;
+    }
+
     plugin.url = credentials.baseUrl;
     plugin.loadingIndicator = true;
     plugin.dashboard = true;
@@ -113,26 +117,22 @@ export const reload = async (item, activeType, credentials, filter) => {
 
     const plugin = itemTypeMap[activeType].plugin;
 
-    if (plugin && plugin.load) {
-        loadPlugin(plugin, config, credentials);
-    }
+    loadPlugin(plugin, config, credentials);
 };
 
 export const load = (item, credentials, filter) => {
     let plugin = itemTypeMap[item.type].plugin;
 
-    if (plugin && plugin.load) {
-        const configuredFilter = configureFilter(filter);
-        const favorite = extractFavorite(item);
-        const itemConfig = {
-            id: favorite.id,
-            el: getGridItemDomId(item.id),
-            hideTitle: !favorite.title,
-            ...configuredFilter,
-        };
+    const configuredFilter = configureFilter(filter);
+    const favorite = extractFavorite(item);
+    const itemConfig = {
+        id: favorite.id,
+        el: getGridItemDomId(item.id),
+        hideTitle: !favorite.title,
+        ...configuredFilter,
+    };
 
-        loadPlugin(plugin, itemConfig, credentials);
-    }
+    loadPlugin(plugin, itemConfig, credentials);
 };
 
 export const resize = item => {
