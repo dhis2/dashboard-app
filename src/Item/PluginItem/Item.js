@@ -185,11 +185,11 @@ class Item extends Component {
         let itemHeight;
 
         if (!this.props.editMode) {
-            itemHeight = this.props.height - HEADER_HEIGHT;
+            itemHeight = this.props.height - HEADER_HEIGHT - 4;
         }
 
         const itemHeightStyle = !this.props.editMode
-            ? { height: `${itemHeight}px` }
+            ? { height: itemHeight }
             : null;
         console.log('itemHeightStyle', itemHeightStyle);
 
