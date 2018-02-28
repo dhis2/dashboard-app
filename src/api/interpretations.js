@@ -29,6 +29,14 @@ export const postInterpretation = data => {
         .catch(onError);
 };
 
+export const postInterpretationSharing = data => {
+    const url = `/sharing?type=interpretation&id=${data.id}`;
+
+    return getInstance()
+        .then(d2 => d2.Api.getApi().post(url, { object: data.sharing }))
+        .catch(onError);
+};
+
 export const updateInterpretation = data => {
     const url = `/interpretations/${data.id}`;
     return getInstance()
@@ -86,6 +94,15 @@ export const fetchVisualization = data => {
     const url = `/${typePath}/${
         data.objectId
     }?fields=id,name,interpretations[id]`;
+
+    return getInstance()
+        .then(d2 => d2.Api.getApi().get(url))
+        .catch(onError);
+};
+
+export const fetchVisualizationSharing = data => {
+    const type = itemTypeMap[data.objectType].propName;
+    const url = `/sharing?type=${type}&id=${data.objectId}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
