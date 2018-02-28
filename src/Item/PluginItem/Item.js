@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
-import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
+import ItemHeader from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import PluginItemHeaderButtons from './ItemHeaderButtons';
 
@@ -178,13 +178,6 @@ class Item extends Component {
                 />
             ) : null;
 
-        const PADDING_BOTTOM = 4;
-        const contentStyle = !this.props.editMode
-            ? {
-                  height: item.originalHeight - HEADER_HEIGHT - PADDING_BOTTOM,
-              }
-            : null;
-
         return (
             <Fragment>
                 <ItemHeader
@@ -192,11 +185,7 @@ class Item extends Component {
                     actionButtons={actionButtons}
                     editMode={this.props.editMode}
                 />
-                <div
-                    id={elementId}
-                    className="dashboard-item-content"
-                    style={contentStyle}
-                >
+                <div id={elementId} className="dashboard-item-content">
                     {!pluginIsAvailable ? (
                         <div style={style.textDiv}>
                             Unable to load the plugin for this item
