@@ -77,21 +77,13 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
     }, 500);
 
     const onSuccess = selected => {
-        // update store with selected dashboard
-        // withShape adds shape info to items lacking it
-        // only works properly when all items in a dashboard are missing it
-        // ensures that upgraded dasbboards work before they are re-saved
-        dispatch(
-            acSetDashboards(
-                {
-                    ...selected,
-                    dashboardItems: withShape(selected.dashboardItems),
-                },
-                true
-            )
-        );
+        const dashboard = {
+            ...selected,
+            dashboardItems: withShape(selected.dashboardItems),
+        };
 
-        // store preferred dashboard
+        dispatch(acSetDashboards(dashboard, true));
+
         storePreferredDashboardId(fromUser.sGetUsername(getState()), id);
 
         // add visualizations to store
