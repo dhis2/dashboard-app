@@ -40,7 +40,7 @@ const DashboardItemChip = ({ starred, selected, label, onClick }) => {
         : starred ? chipTheme.primary : chipTheme.default;
 
     const labelStyle = {
-        fontSize: '13px',
+        fontSize: '14px',
         fontWeight: 400,
         lineHeight: chipDimension,
     };
