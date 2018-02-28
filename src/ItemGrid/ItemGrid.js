@@ -51,7 +51,6 @@ const NoItemsMessage = ({ text }) => (
 export class ItemGrid extends Component {
     state = {
         expandedItems: {},
-        originalItemHeights: {},
     };
 
     NO_ITEMS_MESSAGE = i18n.t('You have not added any items');
@@ -74,27 +73,6 @@ export class ItemGrid extends Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps.edit) {
             this.setState({ expandedItems: {} });
-        }
-
-        if (
-            nextProps.dashboardItems.length &&
-            !Object.keys(this.state.originalItemHeights).length
-        ) {
-            const originalItemHeights = nextProps.dashboardItems.reduce(
-                (acc, item) => {
-                    const itemHeight = Math.round(
-                        GRID_ROW_HEIGHT * item.h +
-                            Math.max(0, item.h - 1) * MARGIN[1]
-                    );
-                    return {
-                        ...acc,
-                        [item.id]: itemHeight,
-                    };
-                },
-                {}
-            );
-
-            this.setState({ originalItemHeights });
         }
     }
 
@@ -174,11 +152,6 @@ export class ItemGrid extends Component {
                                 <Item
                                     item={item}
                                     editMode={edit}
-                                    height={
-                                        this.state.originalItemHeights[
-                                            item.id
-                                        ] || 0
-                                    }
                                     onToggleItemExpanded={
                                         this.onToggleItemExpanded
                                     }

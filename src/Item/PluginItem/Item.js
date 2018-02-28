@@ -182,16 +182,12 @@ class Item extends Component {
                 />
             ) : null;
 
-        let itemHeight;
-
-        if (!this.props.editMode) {
-            itemHeight = this.props.height - HEADER_HEIGHT - 4;
-        }
-
-        const itemHeightStyle = !this.props.editMode
-            ? { height: itemHeight }
+        const PADDING_BOTTOM = 4;
+        const contentStyle = !this.props.editMode
+            ? {
+                  height: item.originalHeight - HEADER_HEIGHT - PADDING_BOTTOM,
+              }
             : null;
-        console.log('itemHeightStyle', itemHeightStyle);
 
         return (
             <Fragment>
@@ -203,7 +199,7 @@ class Item extends Component {
                 <div
                     id={elementId}
                     className="dashboard-item-content"
-                    style={itemHeightStyle}
+                    style={contentStyle}
                 >
                     {!this.state.pluginIsAvailable ? (
                         <div style={style.textDiv}>

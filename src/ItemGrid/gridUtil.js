@@ -60,17 +60,33 @@ export const getShape = i => {
 };
 
 /**
- * Returns an array of items that each contain its grid block shape object
+ * Calculates the grid item's original height in pixels based
+ * on the height in grid units. This calculation
+ * is copied directly from react-grid-layout GridItem.js (calcPosition)
+ *
+ * @param {integer} height height in grid units
+ */
+const getOriginalHeight = height => {
+    const originalHeight = Math.round(
+        GRID_ROW_HEIGHT * height + Math.max(0, height - 1) * MARGIN[1]
+    );
+
+    return { originalHeight };
+};
+
+/**
+ * Returns an array of items containing the x, y, w, h dimensions
+ * and the item's originalheight in pixels
  * @function
  * @param {Array} items
  * @returns {Array}
  */
 
 export const withShape = items =>
-    items.map(
-        (item, index) =>
-            hasShape(item) ? item : Object.assign({}, item, getShape(index))
-    );
+    items.map((item, index) => {
+        const shape = hasShape(item) ? {} : getShape(index);
+        return Object.assign({}, item, shape, getOriginalHeight(shape.h));
+    });
 
 export const getGridItemDomId = id => `item-${id}`;
 

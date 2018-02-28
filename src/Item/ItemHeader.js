@@ -8,7 +8,7 @@ const ItemHeader = props => {
     return (
         <div
             className="dashboard-item-header"
-            style={{ height: `${HEADER_HEIGHT}px` }}
+            style={{ height: HEADER_HEIGHT }}
         >
             <div
                 className="dashboard-item-header-title"
