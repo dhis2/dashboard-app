@@ -40,11 +40,11 @@ const style = {
     icon: {
         height: '12px',
         marginBottom: '-2px',
-        paddingRight: '3px',
+        paddingRight: '2px',
         width: '12px',
     },
     likes: {
-        margin: '0 8px',
+        margin: '0 10px 0 0',
         color: colors.darkGrey,
         fontSize: '12px',
         lineHeight: '14px',
@@ -162,7 +162,15 @@ class Interpretation extends Component {
 
         return (
             <div>
-                <a href={this.state.visualizerHref} style={{ height: 16 }}>
+                <a
+                    href={this.state.visualizerHref}
+                    style={{
+                        height: 16,
+                        color: '#494949',
+                        fontSize: '12px',
+                        marginRight: '10px',
+                    }}
+                >
                     <SvgIcon style={style.icon} icon="Launch" />
                     View in Visualizer
                 </a>
