@@ -64,11 +64,11 @@ export const getShape = i => {
  * on the height in grid units. This calculation
  * is copied directly from react-grid-layout GridItem.js (calcPosition)
  *
- * @param {integer} height height in grid units
+ * @param {Object} item item containing shape (x, y, w, h)
  */
-const getOriginalHeight = height => {
+const getOriginalHeight = item => {
     const originalHeight = Math.round(
-        GRID_ROW_HEIGHT * height + Math.max(0, height - 1) * MARGIN[1]
+        GRID_ROW_HEIGHT * item.h + Math.max(0, item.h - 1) * MARGIN[1]
     );
 
     return { originalHeight };
@@ -84,8 +84,15 @@ const getOriginalHeight = height => {
 
 export const withShape = items =>
     items.map((item, index) => {
-        const shape = hasShape(item) ? {} : getShape(index);
-        return Object.assign({}, item, shape, getOriginalHeight(shape.h));
+        const itemWithShape = hasShape(item)
+            ? item
+            : Object.assign({}, item, getShape(index));
+
+        return Object.assign(
+            {},
+            itemWithShape,
+            getOriginalHeight(itemWithShape)
+        );
     });
 
 export const getGridItemDomId = id => `item-${id}`;

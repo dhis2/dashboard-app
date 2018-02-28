@@ -65,7 +65,7 @@
 }
 
 .react-grid-item.edit .dashboard-item-content {
-    flex: 1 1;
+    flex: 1;
 }
 
 .CHART.resizing .dashboard-item-content,
