@@ -20,6 +20,7 @@ import DeleteItemButton from './DeleteItemButton';
 import {
     GRID_ROW_HEIGHT,
     GRID_COMPACT_TYPE,
+    MARGIN,
     getGridColumns,
     hasShape,
     onItemResize,
@@ -124,6 +125,7 @@ export class ItemGrid extends Component {
                     onResizeStop={this.onResizeStop}
                     className="layout"
                     layout={items}
+                    margin={MARGIN}
                     cols={getGridColumns()}
                     rowHeight={GRID_ROW_HEIGHT}
                     width={window.innerWidth}

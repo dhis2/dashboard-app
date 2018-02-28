@@ -7,6 +7,7 @@ export const GRID_COMPACT_TYPE = 'vertical'; // vertical | horizonal | null
 export const GRID_ROW_HEIGHT = 10;
 const GRID_COLUMN_WIDTH_PX = 20;
 const GRID_LAYOUT = 'FLEXIBLE'; // FIXED | FLEXIBLE
+export const MARGIN = [10, 10];
 
 export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 };
 
@@ -59,17 +60,40 @@ export const getShape = i => {
 };
 
 /**
- * Returns an array of items that each contain its grid block shape object
+ * Calculates the grid item's original height in pixels based
+ * on the height in grid units. This calculation
+ * is copied directly from react-grid-layout GridItem.js (calcPosition)
+ *
+ * @param {Object} item item containing shape (x, y, w, h)
+ */
+const getOriginalHeight = item => {
+    const originalHeight = Math.round(
+        GRID_ROW_HEIGHT * item.h + Math.max(0, item.h - 1) * MARGIN[1]
+    );
+
+    return { originalHeight };
+};
+
+/**
+ * Returns an array of items containing the x, y, w, h dimensions
+ * and the item's originalheight in pixels
  * @function
  * @param {Array} items
  * @returns {Array}
  */
 
 export const withShape = items =>
-    items.map(
-        (item, index) =>
-            hasShape(item) ? item : Object.assign({}, item, getShape(index))
-    );
+    items.map((item, index) => {
+        const itemWithShape = hasShape(item)
+            ? item
+            : Object.assign({}, item, getShape(index));
+
+        return Object.assign(
+            {},
+            itemWithShape,
+            getOriginalHeight(itemWithShape)
+        );
+    });
 
 export const getGridItemDomId = id => `item-${id}`;
 
