@@ -6,7 +6,7 @@ import EditBar from './EditBar';
 import DashboardsBar from './DashboardsBar';
 import { fromEditDashboard } from '../reducers';
 
-import './ControlBarContainer.css';
+// import './ControlBarContainer.css';
 
 const style = {
     leftControls: {
