@@ -114,6 +114,10 @@ class ItemSelectList extends Component {
                                     <Button
                                         color="primary"
                                         onClick={this.addItem(item)}
+                                        style={{
+                                            marginLeft: '5px',
+                                            marginRight: '5px',
+                                        }}
                                     >
                                         + ADD
                                     </Button>
