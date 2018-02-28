@@ -44,6 +44,10 @@ export const extractMapView = map =>
     map.mapViews && map.mapViews.find(mv => mv.layer.includes('thematic'));
 
 const loadPlugin = (plugin, config, credentials) => {
+    if (!(plugin && plugin.load)) {
+        return;
+    }
+
     plugin.url = credentials.baseUrl;
     plugin.loadingIndicator = true;
     plugin.dashboard = true;
@@ -71,12 +75,16 @@ const getUserOrgUnitIds = (ouPaths = []) => {
 // if original visualisation, set id and let the plugin handle it
 // otherwise fetch and pass the correct config to the plugin
 const configureFavorite = async (item, activeType) => {
-    const isOriginalVisualisation = item.type === activeType;
+    const isOriginalVisualisation = activeType
+        ? item.type === activeType
+        : true;
     let favorite;
 
     if (isOriginalVisualisation) {
+        const fullFavorite = extractFavorite(item);
         favorite = {
-            id: getId(item),
+            id: fullFavorite.id,
+            hideTitle: !fullFavorite.title,
         };
     } else {
         const fetchedFavorite = await apiFetchFavorite(getId(item), item.type, {
@@ -89,7 +97,7 @@ const configureFavorite = async (item, activeType) => {
                 : fetchedFavorite;
 
         favorite.id = null;
-        favorite.hideTitle = !favorite.hideTitle;
+        favorite.hideTitle = !favorite.title;
     }
 
     return favorite;
@@ -104,35 +112,17 @@ const configureFilter = (filter = {}) => {
     return Object.assign({}, ...filter, userOrgUnitFilter);
 };
 
-export const reload = async (item, activeType, credentials, filter) => {
+export const load = async (item, credentials, activeType, filter = {}) => {
     const config = {
         ...(await configureFavorite(item, activeType)),
         ...configureFilter(filter),
         el: getGridItemDomId(item.id),
     };
 
-    const plugin = itemTypeMap[activeType].plugin;
+    const type = activeType || item.type;
+    const plugin = itemTypeMap[type].plugin;
 
-    if (plugin && plugin.load) {
-        loadPlugin(plugin, config, credentials);
-    }
-};
-
-export const load = (item, credentials, filter) => {
-    let plugin = itemTypeMap[item.type].plugin;
-
-    if (plugin && plugin.load) {
-        const configuredFilter = configureFilter(filter);
-        const favorite = extractFavorite(item);
-        const itemConfig = {
-            id: favorite.id,
-            el: getGridItemDomId(item.id),
-            hideTitle: !favorite.title,
-            ...configuredFilter,
-        };
-
-        loadPlugin(plugin, itemConfig, credentials);
-    }
+    loadPlugin(plugin, config, credentials);
 };
 
 export const resize = item => {
