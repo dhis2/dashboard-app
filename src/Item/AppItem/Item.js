@@ -8,9 +8,9 @@ import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 const AppItem = ({ item }, context) => {
     let appDetails;
 
-    if (item.appKey) {
+    if (item.app.appKey) {
         appDetails = context.d2.system.installedApps.find(
-            app => app.folderName === item.appKey
+            app => app.folderName === item.app.appKey
         );
     }
 
@@ -29,7 +29,7 @@ const AppItem = ({ item }, context) => {
         </Fragment>
     ) : (
         <Fragment>
-            <ItemHeader title={`${item.appKey} app not found`} />
+            <ItemHeader title={`${item.app.appKey} app not found`} />
             <Line />
             <div
                 className="dashboard-item-content"
