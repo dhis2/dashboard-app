@@ -53,12 +53,16 @@ export const acAddDashboardItem = item => {
     delete item.type;
     const itemPropName = itemTypeMap[type].propName;
 
+    const content = type === APP ? item.content.appKey : item.content;
+
+    // console.log('add itemContent', itemPropName, ': ', item.content);
+
     return {
         type: actionTypes.ADD_DASHBOARD_ITEM,
         value: {
             id: generateUid(),
             type,
-            [itemPropName]: item.content,
+            [itemPropName]: content,
             ...NEW_ITEM_SHAPE,
         },
     };
@@ -86,20 +90,14 @@ export const tSaveDashboard = () => async (dispatch, getState) => {
 
         const type = isSpacerType(item) ? TEXT : item.type;
 
-        // special handling for APP type
-        // the data expected from the server is a bit different for the APP type
-        if (item.type === APP) {
-            item.appKey = item.app.appKey;
-
-            delete item.app;
-        }
-
         return {
             ...item,
             ...(text ? { text } : {}),
             type,
         };
     });
+
+    console.log('save items', dashboardItems);
 
     const dashboardToSave = {
         ...dashboard,
