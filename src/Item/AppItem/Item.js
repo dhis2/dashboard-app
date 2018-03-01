@@ -8,9 +8,13 @@ import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 const AppItem = ({ item }, context) => {
     let appDetails;
 
-    if (item.app.appKey) {
+    // data from the API has only appKey, while data from
+    // the ItemSelect search is formatted in the same fashion as the other dashboard item types
+    const appKey = item.appKey || item.app.appKey;
+
+    if (appKey) {
         appDetails = context.d2.system.installedApps.find(
-            app => app.folderName === item.app.appKey
+            app => app.folderName === appKey
         );
     }
 
@@ -29,7 +33,7 @@ const AppItem = ({ item }, context) => {
         </Fragment>
     ) : (
         <Fragment>
-            <ItemHeader title={`${item.app.appKey} app not found`} />
+            <ItemHeader title={`${appKey} app not found`} />
             <Line />
             <div
                 className="dashboard-item-content"

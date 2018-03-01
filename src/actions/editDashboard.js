@@ -7,6 +7,7 @@ import { NEW_ITEM_SHAPE } from '../ItemGrid/gridUtil';
 import {
     itemTypeMap,
     isSpacerType,
+    APP,
     TEXT,
     emptyTextItemContent,
     isTextType,
@@ -84,6 +85,14 @@ export const tSaveDashboard = () => async (dispatch, getState) => {
             : null;
 
         const type = isSpacerType(item) ? TEXT : item.type;
+
+        // special handling for APP type
+        // the data expected from the server is a bit different for the APP type
+        if (item.type === APP) {
+            item.appKey = item.app.appKey;
+
+            delete item.app;
+        }
 
         return {
             ...item,
