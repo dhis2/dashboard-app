@@ -38,6 +38,7 @@ export const getDashboardFields = ({ withItems, withFavorite } = {}) =>
     arrayClean([
         `${getIdNameFields().join(',')}`,
         'description',
+        'displayDescription',
         'favorite',
         `user[${getIdNameFields({ rename: true }).join(',')}]`,
         'created',

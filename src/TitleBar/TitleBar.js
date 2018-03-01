@@ -27,7 +27,14 @@ const style = {
     },
 };
 
-const TitleBar = ({ id, name, displayName, description, edit }) => {
+const TitleBar = ({
+    id,
+    name,
+    displayName,
+    description,
+    displayDescription,
+    edit,
+}) => {
     return (
         <div
             className="titlebar-wrapper"
@@ -46,8 +53,8 @@ const TitleBar = ({ id, name, displayName, description, edit }) => {
                 <ViewTitleBar
                     style={style}
                     id={id}
-                    name={displayName || name}
-                    description={description}
+                    name={displayName}
+                    description={displayDescription}
                 />
             )}
         </div>
@@ -67,6 +74,7 @@ const mapStateToProps = state => {
         name: selectedDashboard.name,
         displayName: dashboard && dashboard.displayName,
         description: selectedDashboard.description,
+        displayDescription: dashboard && dashboard.displayDescription,
         edit: fromReducers.fromEditDashboard.sGetIsEditing(state),
     };
 };

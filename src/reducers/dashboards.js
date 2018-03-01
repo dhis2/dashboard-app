@@ -124,6 +124,7 @@ export const getCustomDashboards = data => {
         name: d.name,
         displayName: d.displayName,
         description: d.description,
+        displayDescription: d.displayDescription,
         starred: d.favorite,
         owner: d.user.name,
         created: d.created
