@@ -52,10 +52,7 @@ export const acAddDashboardItem = item => {
     const type = item.type;
     delete item.type;
     const itemPropName = itemTypeMap[type].propName;
-
     const content = type === APP ? item.content.appKey : item.content;
-
-    // console.log('add itemContent', itemPropName, ': ', item.content);
 
     return {
         type: actionTypes.ADD_DASHBOARD_ITEM,
@@ -96,8 +93,6 @@ export const tSaveDashboard = () => async (dispatch, getState) => {
             type,
         };
     });
-
-    console.log('save items', dashboardItems);
 
     const dashboardToSave = {
         ...dashboard,
