@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import i18n from 'dhis2-i18n';
 
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
-// FIXME: TO BE USED IN 2.30
-//import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import arraySort from 'd2-utilizr/lib/arraySort';
 import Chip from './DashboardItemChip';
 
@@ -33,27 +31,11 @@ const dashboardBarStyles = {
     },
 };
 
-const EXPANDED_ROW_COUNT = 10;
+const MIN_ROW_COUNT = 1;
+const MAX_ROW_COUNT = 10;
 
 const onDashboardSelectWrapper = (id, name, onClick) => () =>
     id && onClick(id, name);
-
-// FIXME: TO BE USED IN 2.30
-// const ListViewButton = () => (
-//     <div style={style.rightControls}>
-//         <div
-//             style={{
-//                 position: 'relative',
-//                 top: '6px',
-//                 left: '-10px',
-//                 cursor: 'pointer',
-//             }}
-//             onClick={() => alert('show list view')}
-//         >
-//             <SvgIcon icon="List" />
-//         </div>
-//     </div>
-// );
 
 const DashboardsBar = ({
     controlsStyle,
@@ -61,20 +43,20 @@ const DashboardsBar = ({
     name,
     rows,
     selectedId,
-    isExpanded,
+    isMaxHeight,
     onChangeHeight,
     onEndDrag,
-    onToggleExpanded,
+    onToggleMaxHeight,
     onNewClick,
     onChangeFilterName,
     onSelectDashboard,
 }) => {
     const style = Object.assign({}, controlsStyle, dashboardBarStyles);
-    const rowCount = isExpanded ? EXPANDED_ROW_COUNT : rows;
+    const rowCount = isMaxHeight ? MAX_ROW_COUNT : rows;
     const contentWrapperStyle = Object.assign(
         {},
         dashboardBarStyles.scrollWrapper,
-        { overflowY: isExpanded ? 'auto' : 'hidden' },
+        { overflowY: isMaxHeight ? 'auto' : 'hidden' },
         { height: getInnerHeight(rowCount) }
     );
 
@@ -86,7 +68,7 @@ const DashboardsBar = ({
             onChangeHeight={onChangeHeight}
             onEndDrag={onEndDrag}
             editMode={false}
-            expandable={!isExpanded}
+            expandable={true}
         >
             <div style={contentWrapperStyle}>
                 <div style={style.leftControls}>
@@ -126,7 +108,7 @@ const DashboardsBar = ({
             </div>
             <div style={style.expandButtonWrap}>
                 <div
-                    onClick={onToggleExpanded}
+                    onClick={onToggleMaxHeight}
                     style={{
                         paddingTop: 4,
                         fontSize: 11,
@@ -137,7 +119,9 @@ const DashboardsBar = ({
                         visibility: 'visible',
                     }}
                 >
-                    {isExpanded ? i18n.t('Show less') : i18n.t('Show more')}
+                    {isMaxHeight
+                        ? i18n.t('Close')
+                        : i18n.t('View all dashboards')}
                 </div>
             </div>
         </ControlBar>
@@ -152,9 +136,7 @@ const mapStateToProps = state => {
         name: fromDashboardsFilter.sGetFilterName(state),
         rows: (state.controlBar && state.controlBar.rows) || 1,
         selectedId: sGetSelectedId(state),
-        isExpanded:
-            state.controlBar.expanded &&
-            state.controlBar.rows < EXPANDED_ROW_COUNT,
+        isMaxHeight: state.controlBar.rows === MAX_ROW_COUNT,
     };
 };
 
@@ -194,7 +176,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             if (newRows !== stateProps.rows) {
                 dispatch(
                     fromControlBar.acSetControlBarRows(
-                        Math.min(newRows, EXPANDED_ROW_COUNT)
+                        Math.min(newRows, MAX_ROW_COUNT)
                     )
                 );
             }
@@ -203,10 +185,13 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         onNewClick: () => {
             dispatch(fromEditDashboard.acSetEditNewDashboard());
         },
-        onToggleExpanded: () => {
-            dispatch(
-                fromControlBar.acSetControlBarExpanded(!stateProps.isExpanded)
-            );
+        onToggleMaxHeight: () => {
+            const rows =
+                stateProps.rows === MAX_ROW_COUNT
+                    ? MIN_ROW_COUNT
+                    : MAX_ROW_COUNT;
+
+            dispatch(fromControlBar.acSetControlBarRows(rows));
         },
         onChangeFilterName: name =>
             dispatch(fromDashboardsFilter.acSetFilterName(name)),
