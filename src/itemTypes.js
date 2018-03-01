@@ -97,7 +97,7 @@ export const itemTypeMap = {
     },
     [APP]: {
         endPointName: 'apps',
-        propName: 'app',
+        propName: 'appKey',
         countName: 'appCount',
         pluralTitle: 'Apps',
         icon: 'Extension',
