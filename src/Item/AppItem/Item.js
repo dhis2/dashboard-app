@@ -8,9 +8,7 @@ import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 const AppItem = ({ item }, context) => {
     let appDetails;
 
-    // data from the API has only appKey, while data from
-    // the ItemSelect search is formatted in the same fashion as the other dashboard item types
-    const appKey = item.appKey || item.app.appKey;
+    const appKey = item.appKey;
 
     if (appKey) {
         appDetails = context.d2.system.installedApps.find(

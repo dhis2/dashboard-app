@@ -50,9 +50,7 @@ class ItemSelectList extends Component {
         if (type.match(/(REPORTS|RESOURCES|USERS)/)) {
             tAddListItemContent(dashboardId, type, newItem);
         } else if (type === APP) {
-            newItem.id = newItem.appKey = item.key;
-
-            acAddDashboardItem({ type, content: newItem });
+            acAddDashboardItem({ type, content: item.key });
         } else {
             acAddDashboardItem({ type, content: newItem });
         }
