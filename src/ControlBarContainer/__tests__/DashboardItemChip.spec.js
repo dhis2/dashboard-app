@@ -1,14 +1,8 @@
 import React from 'react';
-
-import 'jest-enzyme';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import { shallow } from 'enzyme';
 import { getStubContext } from '../../../config/testsContext';
 import DashboardItemChip from '../DashboardItemChip';
 import MuiChip from 'material-ui/Chip';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('DashboardItemChip', () => {
     const renderWithProps = props =>
