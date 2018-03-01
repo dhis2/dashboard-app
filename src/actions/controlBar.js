@@ -3,14 +3,10 @@ import { apiGetControlBarRows } from '../api/controlBar';
 
 // actions
 
-export const acSetControlBarRows = rows => {
-    console.log('acSetControlBarRows', rows);
-
-    return {
-        type: actionTypes.SET_CONTROLBAR_ROWS,
-        value: rows,
-    };
-};
+export const acSetControlBarRows = rows => ({
+    type: actionTypes.SET_CONTROLBAR_ROWS,
+    value: rows,
+});
 
 // thunks
 
