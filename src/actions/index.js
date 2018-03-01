@@ -25,5 +25,5 @@ export const tSelectDashboardById = (id, name) => dispatch => {
     dispatch(fromDashboardsFilter.acSetFilterName());
 
     // collapse controlbar
-    dispatch(fromControlBar.acSetControlBarExpanded(false));
+    dispatch(fromControlBar.acSetControlBarRows(1));
 };

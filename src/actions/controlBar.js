@@ -8,11 +8,6 @@ export const acSetControlBarRows = rows => ({
     value: rows,
 });
 
-export const acSetControlBarExpanded = expanded => ({
-    type: actionTypes.SET_CONTROLBAR_EXPANDED,
-    value: !!expanded,
-});
-
 // thunks
 
 export const tSetControlBarRows = () => async (dispatch, getState) => {
