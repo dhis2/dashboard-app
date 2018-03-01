@@ -145,8 +145,12 @@ export const itemTypeMap = {
     },
 };
 
-export const getItemUrl = (type, id, d2) => {
+export const getItemUrl = (type, item, d2) => {
+    if (type === APP) {
+        return item.launchUrl;
+    }
+
     if (itemTypeMap[type] && itemTypeMap[type].appUrl) {
-        return `${getBaseUrl(d2)}/${itemTypeMap[type].appUrl(id)}`;
+        return `${getBaseUrl(d2)}/${itemTypeMap[type].appUrl(item.id)}`;
     }
 };

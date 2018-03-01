@@ -122,7 +122,7 @@ class ItemSelectList extends Component {
                                     <a
                                         href={getItemUrl(
                                             this.props.type,
-                                            item.id,
+                                            item,
                                             this.context.d2
                                         )}
                                         style={{ display: 'flex' }}
