@@ -40,7 +40,7 @@ export const itemTypeMap = {
         endPointName: 'reportTables',
         propName: 'reportTable',
         countName: 'reportTableCount',
-        pluralTitle: i18n.t('Report tables'),
+        pluralTitle: i18n.t('Pivot tables'),
         plugin: global.reportTablePlugin,
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_TABLE,
