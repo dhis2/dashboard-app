@@ -87,58 +87,64 @@ class ItemSelectList extends Component {
                 </div>
                 <Divider />
                 <List>
-                    {this.props.items.map(item => (
-                        <ListItem
-                            // apps don't have item.id
-                            key={item.id || item.key}
-                            leftIcon={
-                                <SvgIcon
-                                    icon={itemTypeMap[this.props.type].icon}
-                                    style={{ margin: '6px' }}
-                                />
-                            }
-                            innerDivStyle={{ padding: '0px 0px 0px 42px' }}
-                            hoverColor="transparent"
-                            primaryText={
-                                <p
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'flex-start',
-                                        margin: 0,
-                                    }}
-                                >
-                                    {item.displayName || item.name}
-                                    <Button
-                                        color="primary"
-                                        onClick={this.addItem(item)}
+                    {this.props.items.map(item => {
+                        const itemUrl = getItemUrl(
+                            this.props.type,
+                            item,
+                            this.context.d2
+                        );
+
+                        return (
+                            <ListItem
+                                // apps don't have item.id
+                                key={item.id || item.key}
+                                leftIcon={
+                                    <SvgIcon
+                                        icon={itemTypeMap[this.props.type].icon}
+                                        style={{ margin: '6px' }}
+                                    />
+                                }
+                                innerDivStyle={{ padding: '0px 0px 0px 42px' }}
+                                hoverColor="transparent"
+                                primaryText={
+                                    <p
                                         style={{
-                                            marginLeft: '5px',
-                                            marginRight: '5px',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'flex-start',
+                                            margin: 0,
                                         }}
                                     >
-                                        + ADD
-                                    </Button>
-                                    <a
-                                        href={getItemUrl(
-                                            this.props.type,
-                                            item.id,
-                                            this.context.d2
-                                        )}
-                                        style={{ display: 'flex' }}
-                                    >
-                                        <SvgIcon
-                                            icon="Launch"
+                                        {item.displayName || item.name}
+                                        <Button
+                                            color="primary"
+                                            onClick={this.addItem(item)}
                                             style={{
-                                                width: '16px',
-                                                height: '16px',
+                                                marginLeft: '5px',
+                                                marginRight: '5px',
                                             }}
-                                        />
-                                    </a>
-                                </p>
-                            }
-                        />
-                    ))}
+                                        >
+                                            + ADD
+                                        </Button>
+                                        {itemUrl ? (
+                                            <a
+                                                href={itemUrl}
+                                                style={{ display: 'flex' }}
+                                            >
+                                                <SvgIcon
+                                                    icon="Launch"
+                                                    style={{
+                                                        width: '16px',
+                                                        height: '16px',
+                                                    }}
+                                                />
+                                            </a>
+                                        ) : null}
+                                    </p>
+                                }
+                            />
+                        );
+                    })}
                 </List>
             </Fragment>
         );
