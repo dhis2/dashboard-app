@@ -81,8 +81,7 @@
         "coverage": "npm test -- --coverage",
         "test": "node scripts/test.js --env=jsdom",
         "lint": "eslint -c .eslintrc.json src",
-        "prebuild":
-            "rm -rf build && npm run lint && mkdir build && npm run manifest",
+        "prebuild": "rm -rf build && npm run lint && mkdir build && npm run manifest",
         "postbuild": "cp -r public/i18n build",
         "manifest": "d2-manifest package.json build/manifest.webapp",
         "deploy": "npm run build && mvn clean deploy",
@@ -112,7 +111,9 @@
         }
     },
     "jest": {
-        "collectCoverageFrom": ["src/**/*.{js,jsx,mjs}"],
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx,mjs}"
+        ],
         "setupFiles": [
             "<rootDir>/config/polyfills.js",
             "<rootDir>/config/shim.js"
@@ -127,10 +128,11 @@
         "transform": {
             "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
             "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-            "^(?!.*\\.(js|jsx|mjs|css|json)$)":
-                "<rootDir>/config/jest/fileTransform.js"
+            "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
         },
-        "transformIgnorePatterns": ["/node_modules/(?!d2-ui).+\\.js$"],
+        "transformIgnorePatterns": [
+            "/node_modules/(?!d2-ui).+\\.js$"
+        ],
         "moduleNameMapper": {
             "^react-native$": "react-native-web"
         },
@@ -145,7 +147,9 @@
         ]
     },
     "babel": {
-        "presets": ["react-app"]
+        "presets": [
+            "react-app"
+        ]
     },
     "eslintConfig": {
         "extends": "react-app"
