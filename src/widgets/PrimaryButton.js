@@ -1,7 +1,7 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 
-// import './PrimaryButton.css';
+import './PrimaryButton.css';
 
 const PrimaryButton = props => {
     const { onClick, children, disabled, style } = props;

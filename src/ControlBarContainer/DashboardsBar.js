@@ -37,13 +37,12 @@ const MAX_ROW_COUNT = 10;
 const onDashboardSelectWrapper = (id, name, onClick) => () =>
     id && onClick(id, name);
 
-const DashboardsBar = ({
+export const DashboardsBar = ({
     controlsStyle,
     dashboards,
     name,
     rows,
     selectedId,
-    isMaxHeight,
     onChangeHeight,
     onEndDrag,
     onToggleMaxHeight,
@@ -51,16 +50,16 @@ const DashboardsBar = ({
     onChangeFilterName,
     onSelectDashboard,
 }) => {
+    const isMaxHeight = rows === MAX_ROW_COUNT;
     const style = Object.assign({}, controlsStyle, dashboardBarStyles);
-    const rowCount = isMaxHeight ? MAX_ROW_COUNT : rows;
     const contentWrapperStyle = Object.assign(
         {},
         dashboardBarStyles.scrollWrapper,
         { overflowY: isMaxHeight ? 'auto' : 'hidden' },
-        { height: getInnerHeight(rowCount) }
+        { height: getInnerHeight(rows) }
     );
 
-    const controlBarHeight = getOuterHeight(rowCount, true);
+    const controlBarHeight = getOuterHeight(rows, true);
 
     return (
         <ControlBar
@@ -136,7 +135,6 @@ const mapStateToProps = state => {
         name: fromDashboardsFilter.sGetFilterName(state),
         rows: (state.controlBar && state.controlBar.rows) || 1,
         selectedId: sGetSelectedId(state),
-        isMaxHeight: state.controlBar.rows === MAX_ROW_COUNT,
     };
 };
 
@@ -200,8 +198,4 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     };
 };
 
-const DashboardsBarContainer = connect(mapStateToProps, null, mergeProps)(
-    DashboardsBar
-);
-
-export default DashboardsBarContainer;
+export default connect(mapStateToProps, null, mergeProps)(DashboardsBar);
