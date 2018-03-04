@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import i18n from 'dhis2-i18n';
+import i18n from 'd2-i18n';
 
 import ItemSelect from '../ItemSelect/ItemSelect';
 import TextField from 'd2-ui/lib/text-field/TextField';

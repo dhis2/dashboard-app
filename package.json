@@ -23,7 +23,7 @@
         "d2-ui": "29.0.6",
         "d2-ui-sharing": "^1.0.0",
         "d2-utilizr": "^0.2.15",
-        "dhis2-i18n": "^1.0.0",
+        "d2-i18n": "^1.0.0",
         "dotenv": "4.0.0",
         "eslint": "4.10.0",
         "eslint-config-prettier": "^2.9.0",
@@ -73,9 +73,9 @@
     },
     "scripts": {
         "documentation": "./node_modules/.bin/jsdoc -c jsdoc.json",
-        "prestart": "d2-manifest package.json ./public/manifest.webapp",
+        "prestart": "npm run localize && d2-manifest package.json ./public/manifest.webapp",
         "start": "node scripts/start.js",
-        "build": "node scripts/build.js",
+        "build": "npm run localize && node scripts/build.js",
         "coverage": "npm test -- --coverage",
         "test": "node scripts/test.js --env=jsdom",
         "lint": "eslint -c .eslintrc.json src",
@@ -83,7 +83,14 @@
         "postbuild": "cp -r public/i18n build",
         "manifest": "d2-manifest package.json build/manifest.webapp",
         "deploy": "npm run build && mvn clean deploy",
+        "extract-pot": "d2-i18n-extract -p src/ -o i18n/",
+        "localize": "d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/",
         "prettify": "prettier \"src/{**/*,*}.js\" --write"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run extract-pot && npm run prettify && CI=true npm run test && git add -A ."
+        }
     },
     "manifest.webapp": {
         "name": "Dashboards app",
@@ -149,5 +156,10 @@
     },
     "eslintConfig": {
         "extends": "react-app"
+    },
+    "devDependencies": {
+        "d2-i18n-extract": "^1.x",
+        "d2-i18n-generate": "^1.x",
+        "husky": "^0.15.0-rc.8"
     }
 }
