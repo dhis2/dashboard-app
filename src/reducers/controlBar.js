@@ -3,20 +3,14 @@ import { combineReducers } from 'redux';
 import { validateReducer } from '../util';
 
 export const actionTypes = {
-    SET_CONTROLBAR_ROWS: 'SET_CONTROLBAR_ROWS',
+    SET_CONTROLBAR_USER_ROWS: 'SET_CONTROLBAR_USER_ROWS',
 };
 
 export const DEFAULT_ROWS = 1;
 
-/**
- * Reducer functions that computes and returns the new state based on the given action
- * @function
- * @param {Object} state The current state
- * @param {Object} action The action to be evaluated
- */
-const rows = (state = DEFAULT_ROWS, action) => {
+const userRows = (state = DEFAULT_ROWS, action) => {
     switch (action.type) {
-        case actionTypes.SET_CONTROLBAR_ROWS:
+        case actionTypes.SET_CONTROLBAR_USER_ROWS:
             return validateReducer(action.value, DEFAULT_ROWS);
         default:
             return state;
@@ -24,7 +18,7 @@ const rows = (state = DEFAULT_ROWS, action) => {
 };
 
 export default combineReducers({
-    rows,
+    userRows,
 });
 
 /**
@@ -37,4 +31,4 @@ export const sGetFromState = state => state.controlBar;
 
 // Selector dependency level 2
 
-export const sGetControlBarRows = state => sGetFromState(state).rows;
+export const sGetControlBarUserRows = state => sGetFromState(state).userRows;
