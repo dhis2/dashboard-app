@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import i18n from 'dhis2-i18n';
 
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
@@ -33,6 +34,7 @@ class App extends Component {
     getChildContext() {
         return {
             baseUrl: this.props.baseUrl,
+            i18n,
         };
     }
 
@@ -78,6 +80,7 @@ App.contextTypes = {
 
 App.childContextTypes = {
     baseUrl: PropTypes.string,
+    i18n: PropTypes.object,
 };
 
 const AppCt = connect(mapStateToProps, {
