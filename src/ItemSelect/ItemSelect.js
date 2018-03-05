@@ -32,7 +32,7 @@ const styles = {
 };
 
 const ItemSearchField = props => (
-    <div style={{ display: 'flex', alignItems: 'baseline', width: '400px' }}>
+    <div style={{ display: 'flex', alignItems: 'baseline' }}>
         <SvgIcon icon="Search" />
         <TextField
             hintText={i18n.t('Search for items to add to this dashboard')}
