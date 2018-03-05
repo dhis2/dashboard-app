@@ -257,7 +257,7 @@ class Interpretation extends Component {
                 {this.renderComments()}
                 {this.state.showCommentField ? (
                     <InputField
-                        placeholder={i18n.t('Write your reply')}
+                        placeholder={i18n.t('Add your reply')}
                         onPost={this.postComment}
                         postText={i18n.t('Reply')}
                     />
