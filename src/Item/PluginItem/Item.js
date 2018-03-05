@@ -158,6 +158,7 @@ class Item extends Component {
                     <a
                         href={pluginManager.getLink(item, this.context.d2)}
                         style={{ height: 16 }}
+                        title={`View in ${itemTypeMap[item.type].appName} app`}
                     >
                         <SvgIcon icon="Launch" style={style.icon} />
                     </a>
