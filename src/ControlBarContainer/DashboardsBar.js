@@ -44,6 +44,7 @@ class DashboardsBar extends Component {
 
     componentWillReceiveProps(nextProps) {
         this.setState({ rows: nextProps.userRows });
+        this.setState({ isMaxHeight: nextProps.userRows === MAX_ROW_COUNT });
     }
 
     onChangeHeight = (newHeight, onEndDrag) => {
@@ -71,7 +72,7 @@ class DashboardsBar extends Component {
                 ? this.props.userRows
                 : MAX_ROW_COUNT;
 
-        this.setState({ rows });
+        this.setState({ rows, isMaxHeight: !this.state.isMaxHeight });
     };
 
     render() {
@@ -85,7 +86,7 @@ class DashboardsBar extends Component {
             onSelectDashboard,
         } = this.props;
 
-        const isMaxHeight = this.state.rows === MAX_ROW_COUNT;
+        const isMaxHeight = this.state.isMaxHeight;
         const style = Object.assign({}, controlsStyle, dashboardBarStyles);
         const rowCount = isMaxHeight ? MAX_ROW_COUNT : this.state.rows;
         const contentWrapperStyle = Object.assign(
