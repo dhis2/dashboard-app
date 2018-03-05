@@ -8,11 +8,17 @@ export const acSetControlBarRows = rows => ({
     value: rows,
 });
 
+export const acSetControlBarUserRows = rows => ({
+    type: actionTypes.SET_CONTROLBAR_USER_ROWS,
+    value: rows,
+});
+
 // thunks
 
 export const tSetControlBarRows = () => async (dispatch, getState) => {
     const onSuccess = rows => {
-        dispatch(acSetControlBarRows(rows));
+        dispatch(acSetControlBarUserRows(rows));
+        // dispatch(acSetControlBarRows(rows));
     };
 
     const onError = error => {

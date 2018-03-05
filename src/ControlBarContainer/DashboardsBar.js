@@ -42,8 +42,8 @@ const DashboardsBar = ({
     dashboards,
     name,
     rows,
+    userRows,
     selectedId,
-    isMaxHeight,
     onChangeHeight,
     onEndDrag,
     onToggleMaxHeight,
@@ -51,6 +51,9 @@ const DashboardsBar = ({
     onChangeFilterName,
     onSelectDashboard,
 }) => {
+    console.log('render DashboardsBar with rows', rows, userRows);
+    const isMaxHeight = rows === MAX_ROW_COUNT;
+
     const style = Object.assign({}, controlsStyle, dashboardBarStyles);
     const rowCount = isMaxHeight ? MAX_ROW_COUNT : rows;
     const contentWrapperStyle = Object.assign(
@@ -129,14 +132,17 @@ const DashboardsBar = ({
 };
 
 const mapStateToProps = state => {
+    console.log('mapStateToProps', state.controlBar);
+
     const { fromDashboards, fromDashboardsFilter } = fromReducers;
 
     return {
         dashboards: fromDashboards.sGetFromState(state),
         name: fromDashboardsFilter.sGetFilterName(state),
-        rows: (state.controlBar && state.controlBar.rows) || 1,
+        rows: (state.controlBar && state.controlBar.rows) || MIN_ROW_COUNT,
+        userRows:
+            (state.controlBar && state.controlBar.userRows) || MIN_ROW_COUNT,
         selectedId: sGetSelectedId(state),
-        isMaxHeight: state.controlBar.rows === MAX_ROW_COUNT,
     };
 };
 
@@ -166,7 +172,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         ],
         onChangeHeight: (newHeight, onEndDrag) => {
             const newRows = Math.max(
-                1,
+                MIN_ROW_COUNT,
                 Math.floor(
                     (newHeight - CONTROL_BAR_OUTER_HEIGHT_DIFF) /
                         CONTROL_BAR_ROW_HEIGHT
@@ -174,21 +180,21 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             );
 
             if (newRows !== stateProps.rows) {
-                dispatch(
-                    fromControlBar.acSetControlBarRows(
-                        Math.min(newRows, MAX_ROW_COUNT)
-                    )
-                );
+                const newRowCount = Math.min(newRows, MAX_ROW_COUNT);
+                dispatch(fromControlBar.acSetControlBarRows(newRowCount));
+                dispatch(fromControlBar.acSetControlBarUserRows(newRowCount));
             }
         },
-        onEndDrag: () => apiPostControlBarRows(stateProps.rows),
+        onEndDrag: () => {
+            return apiPostControlBarRows(stateProps.rows);
+        },
         onNewClick: () => {
             dispatch(fromEditDashboard.acSetEditNewDashboard());
         },
         onToggleMaxHeight: () => {
             const rows =
                 stateProps.rows === MAX_ROW_COUNT
-                    ? MIN_ROW_COUNT
+                    ? stateProps.userRows
                     : MAX_ROW_COUNT;
 
             dispatch(fromControlBar.acSetControlBarRows(rows));
@@ -200,8 +206,4 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     };
 };
 
-const DashboardsBarContainer = connect(mapStateToProps, null, mergeProps)(
-    DashboardsBar
-);
-
-export default DashboardsBarContainer;
+export default connect(mapStateToProps, null, mergeProps)(DashboardsBar);
