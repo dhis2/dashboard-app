@@ -155,7 +155,7 @@ class DashboardsBar extends Component {
                     <div
                         onClick={this.onToggleMaxHeight}
                         style={{
-                            paddingTop: 4,
+                            paddingTop: 3,
                             fontSize: 11,
                             fontWeight: 700,
                             color: colors.royalBlue,
