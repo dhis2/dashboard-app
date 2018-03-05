@@ -71,25 +71,19 @@ export const DashboardsBar = ({
         >
             <div style={contentWrapperStyle}>
                 <div style={style.leftControls}>
-                    <Fragment>
-                        <D2IconButton
-                            style={{
-                                width: 36,
-                                height: 36,
-                                marginRight: 10,
-                            }}
-                            onClick={onNewClick}
-                        />
-                        <Filter
-                            name={name}
-                            onChangeName={onChangeFilterName}
-                            onKeypressEnter={onDashboardSelectWrapper(
-                                orObject(orArray(dashboards)[0]).id,
-                                orObject(orArray(dashboards)[0]).displayName,
-                                onSelectDashboard
-                            )}
-                        />
-                    </Fragment>
+                    <D2IconButton
+                        style={{ width: 36, height: 36, marginRight: 10 }}
+                        onClick={onNewClick}
+                    />
+                    <Filter
+                        name={name}
+                        onChangeName={onChangeFilterName}
+                        onKeypressEnter={onDashboardSelectWrapper(
+                            orObject(orArray(dashboards)[0]).id,
+                            orObject(orArray(dashboards)[0]).displayName,
+                            onSelectDashboard
+                        )}
+                    />
                 </div>
                 {dashboards.map(dashboard => (
                     <Chip
