@@ -43,7 +43,6 @@ class DashboardsBar extends Component {
     };
 
     componentWillReceiveProps(nextProps) {
-        console.log('nextProps', nextProps);
         this.setState({ rows: nextProps.userRows });
     }
 
@@ -66,22 +65,27 @@ class DashboardsBar extends Component {
         return apiPostControlBarRows(this.state.rows);
     };
 
+    onToggleMaxHeight = () => {
+        const rows =
+            this.state.rows === MAX_ROW_COUNT
+                ? this.props.userRows
+                : MAX_ROW_COUNT;
+
+        this.setState({ rows });
+    };
+
     render() {
         const {
             controlsStyle,
             dashboards,
             name,
-            userRows,
             selectedId,
-            onToggleMaxHeight,
             onNewClick,
             onChangeFilterName,
             onSelectDashboard,
         } = this.props;
 
-        console.log('render rows, userRows:', this.state.rows, userRows);
         const isMaxHeight = this.state.rows === MAX_ROW_COUNT;
-
         const style = Object.assign({}, controlsStyle, dashboardBarStyles);
         const rowCount = isMaxHeight ? MAX_ROW_COUNT : this.state.rows;
         const contentWrapperStyle = Object.assign(
@@ -140,7 +144,7 @@ class DashboardsBar extends Component {
                 </div>
                 <div style={style.expandButtonWrap}>
                     <div
-                        onClick={onToggleMaxHeight}
+                        onClick={this.onToggleMaxHeight}
                         style={{
                             paddingTop: 4,
                             fontSize: 11,
@@ -161,26 +165,21 @@ class DashboardsBar extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    const { fromDashboards, fromDashboardsFilter } = fromReducers;
+const mapStateToProps = state => ({
+    dashboards: fromReducers.fromDashboards.sGetFromState(state),
+    name: fromReducers.fromDashboardsFilter.sGetFilterName(state),
+    userRows: (state.controlBar && state.controlBar.userRows) || MIN_ROW_COUNT,
+    selectedId: sGetSelectedId(state),
+});
 
-    return {
-        dashboards: fromDashboards.sGetFromState(state),
-        name: fromDashboardsFilter.sGetFilterName(state),
-        userRows:
-            (state.controlBar && state.controlBar.userRows) || MIN_ROW_COUNT,
-        selectedId: sGetSelectedId(state),
-    };
+const mapDispatchToProps = {
+    onNewClick: fromActions.fromEditDashboard.acSetEditNewDashboard,
+    onChangeHeight: fromActions.fromControlBar.acSetControlBarUserRows,
+    onChangeFilterName: fromActions.fromDashboardsFilter.acSetFilterName,
+    onSelectDashboard: fromActions.tSelectDashboardById,
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const { dispatch } = dispatchProps;
-    const {
-        fromControlBar,
-        fromDashboardsFilter,
-        fromEditDashboard,
-    } = fromActions;
-
     const dashboards = Object.values(orObject(stateProps.dashboards));
     const displayDashboards = arraySort(
         dashboards.filter(d =>
@@ -193,29 +192,14 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     return {
         ...stateProps,
         ...ownProps,
+        ...dispatchProps,
         dashboards: [
             ...displayDashboards.filter(d => d.starred),
             ...displayDashboards.filter(d => !d.starred),
         ],
-        onChangeHeight: newRowCount => {
-            dispatch(fromControlBar.acSetControlBarUserRows(newRowCount));
-        },
-        onNewClick: () => {
-            dispatch(fromEditDashboard.acSetEditNewDashboard());
-        },
-        onToggleMaxHeight: () => {
-            const rows =
-                stateProps.rows === MAX_ROW_COUNT
-                    ? stateProps.userRows
-                    : MAX_ROW_COUNT;
-
-            dispatch(fromControlBar.acSetControlBarRows(rows));
-        },
-        onChangeFilterName: name =>
-            dispatch(fromDashboardsFilter.acSetFilterName(name)),
-        onSelectDashboard: (id, name) =>
-            dispatch(fromActions.tSelectDashboardById(id, name)),
     };
 };
 
-export default connect(mapStateToProps, null, mergeProps)(DashboardsBar);
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(
+    DashboardsBar
+);

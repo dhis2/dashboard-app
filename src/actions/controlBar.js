@@ -3,11 +3,6 @@ import { apiGetControlBarRows } from '../api/controlBar';
 
 // actions
 
-export const acSetControlBarRows = rows => ({
-    type: actionTypes.SET_CONTROLBAR_ROWS,
-    value: rows,
-});
-
 export const acSetControlBarUserRows = rows => ({
     type: actionTypes.SET_CONTROLBAR_USER_ROWS,
     value: rows,
@@ -18,7 +13,6 @@ export const acSetControlBarUserRows = rows => ({
 export const tSetControlBarRows = () => async (dispatch, getState) => {
     const onSuccess = rows => {
         dispatch(acSetControlBarUserRows(rows));
-        // dispatch(acSetControlBarRows(rows));
     };
 
     const onError = error => {
