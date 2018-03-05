@@ -256,11 +256,13 @@ class Interpretation extends Component {
                 </div>
                 {this.renderComments()}
                 {this.state.showCommentField ? (
-                    <InputField
-                        placeholder={i18n.t('Write your reply')}
-                        onPost={this.postComment}
-                        postText={i18n.t('Reply')}
-                    />
+                    <div style={{ marginLeft: '37px' }}>
+                        <InputField
+                            placeholder={i18n.t('Add your reply')}
+                            onPost={this.postComment}
+                            postText={i18n.t('Reply')}
+                        />
+                    </div>
                 ) : null}
             </div>
         );
