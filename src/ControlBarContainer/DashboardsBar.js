@@ -42,9 +42,17 @@ class DashboardsBar extends Component {
         rows: MIN_ROW_COUNT,
     };
 
+    setInitialDashboardState = rows => {
+        this.setState({ rows });
+        this.setState({ isMaxHeight: rows === MAX_ROW_COUNT });
+    };
+
+    componentDidMount() {
+        this.setInitialDashboardState(this.props.userRows);
+    }
+
     componentWillReceiveProps(nextProps) {
-        this.setState({ rows: nextProps.userRows });
-        this.setState({ isMaxHeight: nextProps.userRows === MAX_ROW_COUNT });
+        this.setInitialDashboardState(nextProps.userRows);
     }
 
     onChangeHeight = (newHeight, onEndDrag) => {
