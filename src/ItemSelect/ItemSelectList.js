@@ -128,6 +128,7 @@ class ItemSelectList extends Component {
                                         </Button>
                                         {itemUrl ? (
                                             <a
+                                                target="_blank"
                                                 href={itemUrl}
                                                 style={{ display: 'flex' }}
                                             >

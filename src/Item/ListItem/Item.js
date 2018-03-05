@@ -58,7 +58,7 @@ const ListItem = (props, context) => {
             <div>
                 <a
                     style={{ textDecoration: 'none' }}
-                    href={getItemUrl(item.type, contentItem.id, context.d2)}
+                    href={getItemUrl(item.type, contentItem, context.d2)}
                 >
                     {contentItem.name}
                 </a>
