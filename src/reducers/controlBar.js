@@ -12,7 +12,6 @@ export const DEFAULT_ROWS = 1;
 const rows = (state = DEFAULT_ROWS, action) => {
     switch (action.type) {
         case actionTypes.SET_CONTROLBAR_ROWS:
-            console.log('reducer', state, action);
             return validateReducer(action.value, DEFAULT_ROWS);
         default:
             return state;
@@ -22,7 +21,6 @@ const rows = (state = DEFAULT_ROWS, action) => {
 const userRows = (state = DEFAULT_ROWS, action) => {
     switch (action.type) {
         case actionTypes.SET_CONTROLBAR_USER_ROWS:
-            console.log('reducer 2', state, action);
             return validateReducer(action.value, DEFAULT_ROWS);
         default:
             return state;
