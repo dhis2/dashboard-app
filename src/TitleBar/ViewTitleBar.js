@@ -114,12 +114,14 @@ class ViewTitleBar extends Component {
                                 </FlatButton>
                             ) : null}
 
-                            <FlatButton
-                                style={{ minWidth: '30px', top: '1px' }}
-                                onClick={this.toggleSharingDialog}
-                            >
-                                Share
-                            </FlatButton>
+                            {access.manage ? (
+                                <FlatButton
+                                    style={{ minWidth: '30px', top: '1px' }}
+                                    onClick={this.toggleSharingDialog}
+                                >
+                                    Share
+                                </FlatButton>
+                            ) : null}
                             <FlatButton
                                 onClick={this.toggleFilterDialog}
                                 style={{ minWidth: '30px', top: '1px' }}
