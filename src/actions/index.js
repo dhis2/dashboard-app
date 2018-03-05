@@ -16,14 +16,11 @@ export {
     fromItemFilter,
 };
 
-// depends on: fromSelected, fromDashboardsFilter, fromControlBar
+// depends on: fromSelected, fromDashboardsFilter
 export const tSelectDashboardById = (id, name) => dispatch => {
     // select dashboard by id
     dispatch(fromSelected.tSetSelectedDashboardById(id, name));
 
     // reset filter
     dispatch(fromDashboardsFilter.acSetFilterName());
-
-    // collapse controlbar
-    dispatch(fromControlBar.acSetControlBarRows(1));
 };
