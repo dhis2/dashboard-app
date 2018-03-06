@@ -1967,9 +1967,9 @@ d2-ui-sharing@^1.0.0:
     recompose "^0.26.0"
     rxjs "^5.4.3"
 
-d2-ui@29.0.6:
-  version "29.0.6"
-  resolved "https://registry.yarnpkg.com/d2-ui/-/d2-ui-29.0.6.tgz#aeacb5f9c4b797ac4db292ccee7d451340abae1e"
+d2-ui@^29.0.10:
+  version "29.0.12"
+  resolved "https://registry.yarnpkg.com/d2-ui/-/d2-ui-29.0.12.tgz#6726c7b2122fd2ef5201b5ae05c09ebcd0641cbc"
 
 d2-ui@^29.0.5:
   version "29.0.5"

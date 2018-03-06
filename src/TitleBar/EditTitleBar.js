@@ -29,7 +29,7 @@ const EditTitleBar = ({
 
     return (
         <section style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <div style={{ flex: '1', marginRight: '20px' }}>
+            <div style={{ flex: '3', marginRight: '20px' }}>
                 <span>Currently editing</span>
                 <div style={{ padding: '6px 0' }}>
                     <TextField
@@ -55,7 +55,15 @@ const EditTitleBar = ({
                     onChange={onChangeDescription}
                 />
             </div>
-            <div>
+            <div
+                style={{
+                    flex: '2',
+                    minWidth: '300px',
+                    maxWidth: '730px',
+                    position: 'relative',
+                    top: '33px',
+                }}
+            >
                 <ItemSelect />
             </div>
         </section>

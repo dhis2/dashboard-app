@@ -45,6 +45,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_TABLE,
         appUrl: id => `dhis-web-pivot/?id=${id}`,
+        appName: i18n.t('Pivot Tables'),
         icon: 'ViewList',
     },
     [CHART]: {
@@ -57,6 +58,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_CHART,
         appUrl: id => `dhis-web-visualizer/?id=${id}`,
+        appName: i18n.t('Visualizer'),
         icon: 'InsertChart',
     },
     [MAP]: {
@@ -69,6 +71,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_MAP,
         appUrl: id => `dhis-web-maps/?id=${id}`,
+        appName: i18n.t('Maps'),
         icon: 'Public',
     },
     [EVENT_REPORT]: {
@@ -81,6 +84,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_TRACKER,
         visualizationType: VISUALIZATION_TYPE_TABLE,
         appUrl: id => `dhis-web-event-reports/?id=${id}`,
+        appName: i18n.t('Event Reports'),
         icon: 'ViewList',
     },
     [EVENT_CHART]: {
@@ -93,6 +97,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_TRACKER,
         visualizationType: VISUALIZATION_TYPE_CHART,
         appUrl: id => `dhis-web-event-visualizer/?id=${id}`,
+        appName: i18n.t('Event Visualizer'),
         icon: 'InsertChart',
     },
     [APP]: {
