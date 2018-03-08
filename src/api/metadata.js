@@ -11,7 +11,10 @@ export const getIdNameFields = ({ rename } = {}) => [
 ];
 
 // Item
-export const getItemFields = () => ['dimensionItem~rename(id)'];
+export const getItemFields = () => [
+    'dimensionItem~rename(id)',
+    'displayName~rename(name)',
+];
 
 // Dimension
 export const getDimensionFields = ({ withItems }) =>

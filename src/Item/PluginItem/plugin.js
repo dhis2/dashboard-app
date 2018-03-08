@@ -82,9 +82,9 @@ const configureFavorite = async (item, activeType) => {
 
     if (isOriginalVisualisation) {
         const fullFavorite = extractFavorite(item);
+
         favorite = {
             id: fullFavorite.id,
-            hideTitle: !fullFavorite.title,
         };
     } else {
         const fetchedFavorite = await apiFetchFavorite(getId(item), item.type, {
@@ -97,7 +97,6 @@ const configureFavorite = async (item, activeType) => {
                 : fetchedFavorite;
 
         favorite.id = null;
-        favorite.hideTitle = !favorite.title;
     }
 
     return favorite;

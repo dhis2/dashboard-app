@@ -151,24 +151,26 @@ export class DashboardsBar extends Component {
                         />
                     ))}
                 </div>
-                <div style={style.expandButtonWrap}>
-                    <div
-                        onClick={this.onToggleMaxHeight}
-                        style={{
-                            paddingTop: 3,
-                            fontSize: 11,
-                            fontWeight: 700,
-                            color: colors.royalBlue,
-                            textTransform: 'uppercase',
-                            cursor: 'pointer',
-                            visibility: 'visible',
-                        }}
-                    >
-                        {isMaxHeight
-                            ? i18n.t('Close')
-                            : i18n.t('View all dashboards')}
+                {this.props.userRows !== MAX_ROW_COUNT ? (
+                    <div style={style.expandButtonWrap}>
+                        <div
+                            onClick={this.onToggleMaxHeight}
+                            style={{
+                                paddingTop: 3,
+                                fontSize: 11,
+                                fontWeight: 700,
+                                color: colors.royalBlue,
+                                textTransform: 'uppercase',
+                                cursor: 'pointer',
+                                visibility: 'visible',
+                            }}
+                        >
+                            {isMaxHeight
+                                ? i18n.t('Show less')
+                                : i18n.t('Show more')}
+                        </div>
                     </div>
-                </div>
+                ) : null}
             </ControlBar>
         );
     }
