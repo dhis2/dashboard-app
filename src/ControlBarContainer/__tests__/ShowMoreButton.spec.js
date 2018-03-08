@@ -14,7 +14,7 @@ describe('ShowMoreButton', () => {
 
     beforeEach(() => {
         props = {
-            onToggleMaxHeight: undefined,
+            onClick: undefined,
             isMaxHeight: undefined,
         };
         shallowShowMoreButton = undefined;
@@ -45,16 +45,16 @@ describe('ShowMoreButton', () => {
         expect(button1Text).not.toEqual(button2Text);
     });
 
-    describe('when onToggleMaxHeight is defined', () => {
+    describe('when onClick is defined', () => {
         beforeEach(() => {
-            props.onToggleMaxHeight = jest.fn();
+            props.onClick = jest.fn();
         });
 
-        it('should call onToggleMaxHeight when div clicked', () => {
+        it('should call onClick when div clicked', () => {
             const innerDiv = showMoreButton().children();
 
             innerDiv.simulate('click');
-            expect(props.onToggleMaxHeight).toHaveBeenCalled();
+            expect(props.onClick).toHaveBeenCalled();
         });
     });
 });

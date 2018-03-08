@@ -2,10 +2,10 @@ import React from 'react';
 import i18n from 'dhis2-i18n';
 import { colors } from '../colors';
 
-const ShowMoreButton = ({ onToggleMaxHeight, isMaxHeight }) => (
+const ShowMoreButton = ({ onClick, isMaxHeight }) => (
     <div style={{ textAlign: 'center' }}>
         <div
-            onClick={onToggleMaxHeight}
+            onClick={onClick}
             style={{
                 paddingTop: 3,
                 fontSize: 11,

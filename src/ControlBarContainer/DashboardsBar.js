@@ -54,6 +54,7 @@ export class DashboardsBar extends Component {
 
         if (newRows !== this.state.rows) {
             const newRowCount = Math.min(newRows, MAX_ROW_COUNT);
+
             this.props.onChangeHeight(newRowCount);
         }
     };
@@ -139,7 +140,7 @@ export class DashboardsBar extends Component {
                 </div>
                 {this.props.userRows !== MAX_ROW_COUNT ? (
                     <ShowMoreButton
-                        onToggleMaxHeight={this.onToggleMaxHeight}
+                        onClick={this.onToggleMaxHeight}
                         isMaxHeight={this.state.isMaxHeight}
                     />
                 ) : null}
