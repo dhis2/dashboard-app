@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import IconButton from 'material-ui/IconButton';
-import IconClear from 'material-ui/svg-icons/content/clear';
 import { ClearButton } from '../Filter';
 
 describe('Filter', () => {
