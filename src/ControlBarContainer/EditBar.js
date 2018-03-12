@@ -85,8 +85,8 @@ export class EditBar extends Component {
             />
         ) : null;
 
-    translationDialog = () => {
-        return this.state.dashboardModel && this.state.dashboardModel.id ? (
+    translationDialog = () =>
+        this.state.dashboardModel && this.state.dashboardModel.id ? (
             <TranslationDialog
                 open={this.state.translationDialogIsOpen}
                 onRequestClose={this.toggleTranslationDialog}
@@ -99,8 +99,6 @@ export class EditBar extends Component {
                 }
             />
         ) : null;
-    };
-
     render() {
         const {
             style,
