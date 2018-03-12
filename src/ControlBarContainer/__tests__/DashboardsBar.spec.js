@@ -37,7 +37,7 @@ describe('DashboardsBar', () => {
         shallowDashboardsBar = undefined;
     });
 
-    it('should render DashboardsBar', () => {
+    it('renders a DashboardsBar', () => {
         expect(dashboardsBar().find('ControlBar')).toHaveLength(1);
     });
 
@@ -90,7 +90,7 @@ describe('DashboardsBar', () => {
             props.userRows = MAX_ROW_COUNT - 1;
         });
 
-        it('should trigger onChangeHeight with correct value', () => {
+        it('triggers onChangeHeight with correct value', () => {
             const controlBar = dashboardsBar().find(ControlBar);
             const impossiblySmallHeightPxls = 0;
             controlBar.simulate('changeHeight', impossiblySmallHeightPxls);

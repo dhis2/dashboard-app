@@ -18,27 +18,27 @@ describe('DashboardItemChip', () => {
             context: getStubContext(),
         });
 
-    it('should render a div', () => {
+    it('renders a div', () => {
         const chipWrapper = chip(defaultProps);
 
         const div = chipWrapper.find('div');
         expect(div).toHaveLength(1);
     });
 
-    it('should render a div containing everything else', () => {
+    it('renders a div containing everything else', () => {
         const chipWrapper = chip(defaultProps);
         const wrappingDiv = chipWrapper.find('div').first();
 
         expect(wrappingDiv.children()).toEqual(chipWrapper.children());
     });
 
-    it('should render a MuiChip', () => {
+    it('renders a MuiChip inside the div', () => {
         const chipWrapper = chip(defaultProps);
 
         expect(chipWrapper.find(MuiChip).length).toBe(1);
     });
 
-    it('should have an avatar when starred', () => {
+    it('has an avatar when starred', () => {
         const props = Object.assign({}, defaultProps, { starred: true });
         const muiChip = chip(props).find(MuiChip);
 
@@ -46,19 +46,19 @@ describe('DashboardItemChip', () => {
         expect(muiChip.childAt(0).type()).toBe(Avatar);
     });
 
-    it('should not have an avatar when not starred', () => {
+    it('does not have an avatar when not starred', () => {
         const muiChip = chip(defaultProps).find(MuiChip);
 
         expect(muiChip.children().length).toBe(1);
     });
 
-    it('should pass "label" property to MuiChip as children', () => {
+    it('passes "label" property to MuiChip as children', () => {
         const muiChip = chip(defaultProps).find(MuiChip);
 
         expect(muiChip.childAt(0).text()).toBe(defaultProps.label);
     });
 
-    it('should pass the onClick function to MuiChip', () => {
+    it('passes the onClick function to MuiChip', () => {
         const onClick = jest.fn();
         const props = Object.assign({}, defaultProps, { onClick });
 

@@ -21,18 +21,18 @@ describe('ShowMoreButton', () => {
     });
 
     it('always renders a div', () => {
-        const divs = showMoreButton().find('div');
-        expect(divs.length).toBeGreaterThan(0);
+        expect(showMoreButton().find('div').length).toBeGreaterThan(0);
     });
 
     it('the rendered div contains everything else that gets rendered', () => {
-        const divs = showMoreButton().find('div');
-        const wrappingDiv = divs.first();
+        const wrappingDiv = showMoreButton()
+            .find('div')
+            .first();
 
         expect(wrappingDiv.children()).toEqual(showMoreButton().children());
     });
 
-    it('should change text when isMaxHeight is changed', () => {
+    it('changes text when isMaxHeight is changed', () => {
         props.isMaxHeight = true;
         const button1Text = showMoreButton().text();
 
@@ -50,10 +50,10 @@ describe('ShowMoreButton', () => {
             props.onClick = jest.fn();
         });
 
-        it('should call onClick when div clicked', () => {
-            const innerDiv = showMoreButton().children();
-
-            innerDiv.simulate('click');
+        it('triggers onClick when div clicked', () => {
+            showMoreButton()
+                .childAt(0)
+                .simulate('click');
             expect(props.onClick).toHaveBeenCalled();
         });
     });
