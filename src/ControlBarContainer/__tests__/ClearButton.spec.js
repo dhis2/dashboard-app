@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import IconButton from 'material-ui/IconButton';
 import { ClearButton } from '../Filter';
 
-describe('Filter', () => {
+describe('ClearButton', () => {
     let props;
     let shallowClearButton;
     const clearButton = () => {

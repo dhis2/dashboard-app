@@ -4,7 +4,7 @@ import TextField from 'material-ui/TextField';
 
 import { Filter, KEYCODE_ENTER, KEYCODE_ESCAPE } from '../Filter';
 
-describe('Filter', () => {
+describe('Filter Field', () => {
     let props;
     let shallowFilterField;
     const filterField = () => {
