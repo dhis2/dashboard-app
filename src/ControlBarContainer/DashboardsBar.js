@@ -123,6 +123,7 @@ class DashboardsBar extends Component {
                                     height: 36,
                                     marginRight: 10,
                                 }}
+                                iconColor={colors.mediumGreen}
                                 onClick={onNewClick}
                             />
                             <Filter
