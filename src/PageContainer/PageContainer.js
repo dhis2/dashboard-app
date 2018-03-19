@@ -21,7 +21,7 @@ export const PageContainer = props => {
                 <ItemGrid />
             </Fragment>
         ) : (
-            <NoContentMessage text="No dashboards found" />
+            <NoContentMessage text="No dashboards found. Use the + button to create a new dashboard." />
         );
 
     return (
