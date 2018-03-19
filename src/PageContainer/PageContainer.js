@@ -2,6 +2,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
+import i18n from 'd2-i18n';
 
 import { CONTROL_BAR_ROW_HEIGHT } from '../ControlBarContainer/ControlBarContainer';
 import { sGetIsEditing } from '../reducers/editDashboard';
@@ -21,7 +22,11 @@ export const PageContainer = props => {
                 <ItemGrid />
             </Fragment>
         ) : (
-            <NoContentMessage text="No dashboards found. Use the + button to create a new dashboard." />
+            <NoContentMessage
+                text={i18n.t(
+                    'No dashboards found. Use the + button to create a new dashboard.'
+                )}
+            />
         );
 
     return (
