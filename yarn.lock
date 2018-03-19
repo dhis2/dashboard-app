@@ -2179,7 +2179,7 @@ currently-unhandled@^0.4.1:
   dependencies:
     array-find-index "^1.0.1"
 
-d2-i18n-extract@^1.0.3:
+d2-i18n-extract@^1.x:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/d2-i18n-extract/-/d2-i18n-extract-1.0.3.tgz#bff4d83bbbdd0de5d8647a03f86654853d4a87f1"
   dependencies:
@@ -2187,16 +2187,16 @@ d2-i18n-extract@^1.0.3:
     i18next-conv "^6.0.0"
     i18next-scanner "^2.4.4"
 
-d2-i18n-generate@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/d2-i18n-generate/-/d2-i18n-generate-1.0.5.tgz#15c27d49c8013c6149cceaf6e162ece6061978ba"
+d2-i18n-generate@^1.x:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/d2-i18n-generate/-/d2-i18n-generate-1.0.6.tgz#75d17b266c01071aed92115cc3d516813bf21171"
   dependencies:
     argparse "^1.0.10"
     handlebars "^4.0.11"
     i18next-conv "^6.0.0"
     rimraf "^2.6.2"
 
-d2-i18n@^1.0.2:
+d2-i18n@^1.x:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/d2-i18n/-/d2-i18n-1.0.2.tgz#011197c2ab2d789f6b76c621fe8665ba52f91d00"
 
