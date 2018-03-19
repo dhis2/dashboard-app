@@ -1,14 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import i18n from 'dhis2-i18n';
 
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 import arraySort from 'd2-utilizr/lib/arraySort';
 import Chip from './DashboardItemChip';
-
-import { colors } from '../colors';
 import D2IconButton from '../widgets/D2IconButton';
 import Filter from './Filter';
+import ShowMoreButton from './ShowMoreButton';
 import {
     CONTROL_BAR_ROW_HEIGHT,
     CONTROL_BAR_OUTER_HEIGHT_DIFF,
@@ -22,29 +20,19 @@ import { orObject, orArray } from '../util';
 import { sGetSelectedId } from '../reducers/selected';
 import { apiPostControlBarRows } from '../api/controlBar';
 
-const dashboardBarStyles = {
-    scrollWrapper: {
-        padding: '10px 6px 0 6px',
-    },
-    expandButtonWrap: {
-        textAlign: 'center',
-    },
-};
-
-const MIN_ROW_COUNT = 1;
-const MAX_ROW_COUNT = 10;
+export const MIN_ROW_COUNT = 1;
+export const MAX_ROW_COUNT = 10;
 
 const onDashboardSelectWrapper = (id, name, onClick) => () =>
     id && onClick(id, name);
 
-class DashboardsBar extends Component {
+export class DashboardsBar extends Component {
     state = {
         rows: MIN_ROW_COUNT,
     };
 
     setInitialDashboardState = rows => {
-        this.setState({ rows });
-        this.setState({ isMaxHeight: rows === MAX_ROW_COUNT });
+        this.setState({ rows, isMaxHeight: rows === MAX_ROW_COUNT });
     };
 
     componentDidMount() {
@@ -66,6 +54,7 @@ class DashboardsBar extends Component {
 
         if (newRows !== this.state.rows) {
             const newRowCount = Math.min(newRows, MAX_ROW_COUNT);
+
             this.props.onChangeHeight(newRowCount);
         }
     };
@@ -94,17 +83,15 @@ class DashboardsBar extends Component {
             onSelectDashboard,
         } = this.props;
 
-        const isMaxHeight = this.state.isMaxHeight;
-        const style = Object.assign({}, controlsStyle, dashboardBarStyles);
-        const rowCount = isMaxHeight ? MAX_ROW_COUNT : this.state.rows;
-        const contentWrapperStyle = Object.assign(
-            {},
-            dashboardBarStyles.scrollWrapper,
-            { overflowY: isMaxHeight ? 'auto' : 'hidden' },
-            { height: getInnerHeight(rowCount) }
-        );
-
+        const rowCount = this.state.isMaxHeight
+            ? MAX_ROW_COUNT
+            : this.state.rows;
         const controlBarHeight = getOuterHeight(rowCount, true);
+        const contentWrapperStyle = {
+            padding: '10px 6px 0 6px',
+            overflowY: this.state.isMaxHeight ? 'auto' : 'hidden',
+            height: getInnerHeight(rowCount),
+        };
 
         return (
             <ControlBar
@@ -115,7 +102,7 @@ class DashboardsBar extends Component {
                 expandable={true}
             >
                 <div style={contentWrapperStyle}>
-                    <div style={style.leftControls}>
+                    <div style={orObject(controlsStyle).leftControls}>
                         <Fragment>
                             <D2IconButton
                                 style={{
@@ -138,7 +125,7 @@ class DashboardsBar extends Component {
                             />
                         </Fragment>
                     </div>
-                    {dashboards.map(dashboard => (
+                    {orArray(dashboards).map(dashboard => (
                         <Chip
                             key={dashboard.id}
                             label={dashboard.displayName}
@@ -153,24 +140,10 @@ class DashboardsBar extends Component {
                     ))}
                 </div>
                 {this.props.userRows !== MAX_ROW_COUNT ? (
-                    <div style={style.expandButtonWrap}>
-                        <div
-                            onClick={this.onToggleMaxHeight}
-                            style={{
-                                paddingTop: 3,
-                                fontSize: 11,
-                                fontWeight: 700,
-                                color: colors.royalBlue,
-                                textTransform: 'uppercase',
-                                cursor: 'pointer',
-                                visibility: 'visible',
-                            }}
-                        >
-                            {isMaxHeight
-                                ? i18n.t('Show less')
-                                : i18n.t('Show more')}
-                        </div>
-                    </div>
+                    <ShowMoreButton
+                        onClick={this.onToggleMaxHeight}
+                        isMaxHeight={this.state.isMaxHeight}
+                    />
                 ) : null}
             </ControlBar>
         );

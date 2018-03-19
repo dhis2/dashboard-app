@@ -14,18 +14,17 @@ import {
 } from '../actions/dashboards';
 import { sGetEditDashboard } from '../reducers/editDashboard';
 import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './ControlBarContainer';
+import { MIN_ROW_COUNT } from './DashboardsBar';
 import { apiFetchSelected } from '../api/dashboards';
 
-const styles = {
-    buttonBar: {
-        height: CONTROL_BAR_ROW_HEIGHT,
-        paddingTop: '15px',
-        marginLeft: '15px',
-        marginRight: '15px',
-    },
+const buttonBarStyle = {
+    height: CONTROL_BAR_ROW_HEIGHT,
+    paddingTop: '15px',
+    marginLeft: '15px',
+    marginRight: '15px',
 };
 
-class EditBar extends Component {
+export class EditBar extends Component {
     state = {
         translationDialogIsOpen: false,
         dashboardModel: undefined,
@@ -100,7 +99,6 @@ class EditBar extends Component {
                 }
             />
         ) : null;
-
     render() {
         const {
             style,
@@ -109,7 +107,7 @@ class EditBar extends Component {
             dashboardId,
             deleteAccess,
         } = this.props;
-        const controlBarHeight = getOuterHeight(1, false);
+        const controlBarHeight = getOuterHeight(MIN_ROW_COUNT, false);
 
         return (
             <Fragment>
@@ -118,7 +116,7 @@ class EditBar extends Component {
                     editMode={true}
                     expandable={false}
                 >
-                    <div style={styles.buttonBar}>
+                    <div style={buttonBarStyle}>
                         <div style={style.leftControls}>
                             <span style={{ marginRight: '15px' }}>
                                 <PrimaryButton onClick={onSave}>
@@ -166,23 +164,11 @@ const mapStateToProps = state => {
     };
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onSave: () => {
-            dispatch(tSaveDashboard());
-        },
-        onDiscard: () => {
-            dispatch(acClearEditDashboard());
-        },
-        onDelete: id => {
-            dispatch(tDeleteDashboard(id));
-        },
-        onTranslate: (id, translatedDisplayName) => {
-            dispatch(acSetDashboardDisplayName(id, translatedDisplayName));
-        },
-    };
+const mapDispatchToProps = {
+    onSave: tSaveDashboard,
+    onDiscard: acClearEditDashboard,
+    onDelete: tDeleteDashboard,
+    onTranslate: acSetDashboardDisplayName,
 };
 
-const EditBarCt = connect(mapStateToProps, mapDispatchToProps)(EditBar);
-
-export default EditBarCt;
+export default connect(mapStateToProps, mapDispatchToProps)(EditBar);

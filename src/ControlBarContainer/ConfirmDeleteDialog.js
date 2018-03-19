@@ -5,7 +5,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from '../widgets/FlatButton';
 import PrimaryButton from '../widgets/PrimaryButton';
 
-const ConfirmDeleteDialog = (
+export const ConfirmDeleteDialog = (
     { dashboardName, onDeleteConfirmed, onContinueEditing, open },
     context
 ) => {
