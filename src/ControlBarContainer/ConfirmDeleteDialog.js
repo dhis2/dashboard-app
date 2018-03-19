@@ -24,8 +24,10 @@ export const ConfirmDeleteDialog = ({
             modal={true}
             open={open}
         >
-            {i18n.t('Are you sure you want to delete dashboard')}{' '}
-            <strong>{{ dashboardName }}</strong>?
+            {i18n.t(
+                'Are you sure you want to delete dashboard "{{ dashboardName }}"?',
+                { dashboardName }
+            )}
         </Dialog>
     );
 };
