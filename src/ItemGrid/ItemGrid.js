@@ -85,8 +85,6 @@ export class ItemGrid extends Component {
     onRemoveItemWrapper = id => () => this.onRemoveItem(id);
 
     render() {
-        console.log('render ItemGrid');
-
         const { edit, isLoading, dashboardItems } = this.props;
 
         if (!isLoading && !dashboardItems.length) {
