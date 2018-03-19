@@ -27,3 +27,6 @@ manifest.webapp
 
 #maven
 /target
+
+# generated localization files
+src/locales/

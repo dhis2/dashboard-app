@@ -1,40 +1,35 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Trans } from 'react-i18next';
+import i18n from 'd2-i18n';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from '../widgets/FlatButton';
 import PrimaryButton from '../widgets/PrimaryButton';
 
-export const ConfirmDeleteDialog = (
-    { dashboardName, onDeleteConfirmed, onContinueEditing, open },
-    context
-) => {
+export const ConfirmDeleteDialog = ({
+    dashboardName,
+    onDeleteConfirmed,
+    onContinueEditing,
+    open,
+}) => {
     const actions = [
-        <FlatButton onClick={onDeleteConfirmed}>
-            {context.i18n.t('Delete')}
-        </FlatButton>,
+        <FlatButton onClick={onDeleteConfirmed}>{i18n.t('Delete')}</FlatButton>,
         <PrimaryButton onClick={onContinueEditing}>
-            {context.i18n.t('Continue editing')}
+            {i18n.t('Continue editing')}
         </PrimaryButton>,
     ];
 
     return (
         <Dialog
-            title={context.i18n.t('Confirm delete dashboard')}
+            title={i18n.t('Confirm delete dashboard')}
             actions={actions}
             modal={true}
             open={open}
         >
-            <Trans>
-                Are you sure you want to delete dashboard{' '}
-                <strong>{{ dashboardName }}</strong>?
-            </Trans>
+            {i18n.t(
+                'Are you sure you want to delete dashboard "{{ dashboardName }}"?',
+                { dashboardName }
+            )}
         </Dialog>
     );
-};
-
-ConfirmDeleteDialog.contextTypes = {
-    i18n: PropTypes.object,
 };
 
 export default ConfirmDeleteDialog;
