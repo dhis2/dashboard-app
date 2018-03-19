@@ -33,7 +33,7 @@ D2IconButton.propTypes = {
     style: PropTypes.object,
     iconStyle: PropTypes.object,
     icon: PropTypes.object,
-    iconColor: PropTypes.object,
+    iconColor: PropTypes.string,
     onClick: PropTypes.func,
 };
 
@@ -41,7 +41,7 @@ D2IconButton.defaultProps = {
     style: null,
     iconStyle: null,
     icon: null,
-    iconColor: null,
+    iconColor: '',
     onClick: Function.prototype,
 };
 
