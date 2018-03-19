@@ -8,8 +8,8 @@ import isEmpty from 'd2-utilizr/lib/isEmpty';
 import { colors } from '../colors';
 import * as fromReducers from '../reducers';
 
-const KEYCODE_ENTER = 13;
-const KEYCODE_ESCAPE = 27;
+export const KEYCODE_ENTER = 13;
+export const KEYCODE_ESCAPE = 27;
 
 const styles = {
     filterField: {
@@ -42,7 +42,7 @@ const styles = {
     },
 };
 
-class Filter extends Component {
+export class Filter extends Component {
     constructor(props) {
         super(props);
 
@@ -74,10 +74,6 @@ class Filter extends Component {
             default:
                 break;
         }
-
-        if (event.keyCode === KEYCODE_ESCAPE) {
-            this.props.onChangeName();
-        }
     };
 
     render() {
@@ -108,7 +104,7 @@ Filter.defaultProps = {
     onChangeName: Function.prototype,
 };
 
-const ClearButton = ({ name, onChangeName }) => {
+export const ClearButton = ({ name, onChangeName }) => {
     const disabled = isEmpty(name);
 
     const clearFilter = () => onChangeName();
