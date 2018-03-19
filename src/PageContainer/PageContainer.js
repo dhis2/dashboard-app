@@ -1,5 +1,5 @@
 // Adjust the top margin of the page so it starts below the control bar
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
 
@@ -13,23 +13,26 @@ import NoContentMessage from '../widgets/NoContentMessage';
 
 const DEFAULT_TOP_MARGIN = 80;
 
-const DynamicTopMarginContainer = props => {
+export const PageContainer = props => {
     const hasDashboards =
         props.dashboards === null ? false : !isEmpty(props.dashboards);
+
+    const Content = () =>
+        hasDashboards || props.edit ? (
+            <Fragment>
+                <TitleBar />
+                <ItemGrid />
+            </Fragment>
+        ) : (
+            <NoContentMessage text="No dashboards found" />
+        );
 
     return (
         <div
             className="dashboard-wrapper"
             style={{ marginTop: props.marginTop }}
         >
-            {hasDashboards || props.edit ? (
-                <Fragment>
-                    <TitleBar />
-                    <ItemGrid />
-                </Fragment>
-            ) : (
-                <NoContentMessage text="No dashboards found" />
-            )}
+            {props.dashboards === null ? null : <Content />}
         </div>
     );
     // }
@@ -48,4 +51,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(DynamicTopMarginContainer);
+export default connect(mapStateToProps)(PageContainer);
