@@ -14,11 +14,8 @@ import NoContentMessage from '../widgets/NoContentMessage';
 const DEFAULT_TOP_MARGIN = 80;
 
 export const PageContainer = props => {
-    const hasDashboards =
-        props.dashboards === null ? false : !isEmpty(props.dashboards);
-
     const Content = () =>
-        hasDashboards || props.edit ? (
+        !isEmpty(props.dashboards) || props.edit ? (
             <Fragment>
                 <TitleBar />
                 <ItemGrid />
