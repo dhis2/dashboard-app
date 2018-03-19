@@ -19,6 +19,7 @@ import * as fromReducers from '../reducers';
 import { orObject, orArray } from '../util';
 import { sGetSelectedId } from '../reducers/selected';
 import { apiPostControlBarRows } from '../api/controlBar';
+import { colors } from '../colors';
 
 export const MIN_ROW_COUNT = 1;
 export const MAX_ROW_COUNT = 10;
