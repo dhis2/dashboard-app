@@ -19,11 +19,11 @@
         "chalk": "1.1.3",
         "css-loader": "0.28.7",
         "d2": "^29.0.0",
+        "d2-i18n": "^1.0.2",
         "d2-manifest": "^1.0.0",
         "d2-ui": "^29.0.10",
         "d2-ui-sharing": "^1.0.0",
         "d2-utilizr": "^0.2.15",
-        "dhis2-i18n": "^1.0.0",
         "dotenv": "4.0.0",
         "eslint": "4.10.0",
         "eslint-config-prettier": "^2.9.0",
@@ -55,7 +55,6 @@
         "react-dev-utils": "^4.2.1",
         "react-dom": "^16.1.1",
         "react-grid-layout": "^0.16.0",
-        "react-i18next": "^7.3.6",
         "react-redux": "^5.0.6",
         "react-tap-event-plugin": "^3.0.2",
         "redux": "^3.7.2",
@@ -73,9 +72,9 @@
     },
     "scripts": {
         "documentation": "./node_modules/.bin/jsdoc -c jsdoc.json",
-        "prestart": "d2-manifest package.json ./public/manifest.webapp",
+        "prestart": "npm run localize && d2-manifest package.json ./public/manifest.webapp",
         "start": "node scripts/start.js",
-        "build": "node scripts/build.js",
+        "build": "npm run localize && node scripts/build.js",
         "coverage": "npm test -- --coverage",
         "test": "node scripts/test.js --env=jsdom",
         "lint": "eslint -c .eslintrc.json src",
@@ -83,7 +82,14 @@
         "postbuild": "cp -r public/i18n build",
         "manifest": "d2-manifest package.json build/manifest.webapp",
         "deploy": "npm run build && mvn clean deploy",
-        "prettify": "prettier \"src/{**/*,*}.js\" --write"
+        "prettify": "prettier \"src/{**/*,*}.js\" --write",
+        "localize": "npm run extract-pot && d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/",
+        "extract-pot": "d2-i18n-extract -p src/ -o i18n/"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run extract-pot && npm run prettify && CI=true npm run test && git add -A ."
+        }
     },
     "manifest.webapp": {
         "name": "Dashboards app",
@@ -149,5 +155,10 @@
     },
     "eslintConfig": {
         "extends": "react-app"
+    },
+    "devDependencies": {
+        "d2-i18n-extract": "^1.0.3",
+        "d2-i18n-generate": "^1.0.5",
+        "husky": "^0.14.3"
     }
 }

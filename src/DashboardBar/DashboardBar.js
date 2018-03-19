@@ -3,7 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import i18n from 'dhis2-i18n';
+import i18n from 'd2-i18n';
 
 import { grey700 } from 'material-ui/styles/colors';
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
