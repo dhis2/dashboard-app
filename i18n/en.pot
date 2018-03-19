@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-03-19T08:44:19.191Z\n"
-"PO-Revision-Date: 2018-03-19T08:44:19.191Z\n"
+"POT-Creation-Date: 2018-03-19T09:50:27.506Z\n"
+"PO-Revision-Date: 2018-03-19T09:50:27.506Z\n"
 
 msgid "Delete"
 msgstr ""
@@ -20,12 +20,6 @@ msgstr ""
 msgid "Are you sure you want to delete dashboard"
 msgstr ""
 
-msgid "Show less"
-msgstr ""
-
-msgid "Show more"
-msgstr ""
-
 msgid "Save changes"
 msgstr ""
 
@@ -36,6 +30,12 @@ msgid "Exit without saving"
 msgstr ""
 
 msgid "Search for a dashboard"
+msgstr ""
+
+msgid "Show less"
+msgstr ""
+
+msgid "Show more"
 msgstr ""
 
 msgid "Home"

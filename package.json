@@ -166,7 +166,7 @@
         "d2-i18n-extract": "^1.0.3",
         "d2-i18n-generate": "^1.0.5",
         "enzyme-adapter-react-16": "^1.1.1",
-        "husky": "^0.14.3",
+        "husky": "^0.15.0-rc.12",
         "jest-enzyme": "^6.0.0"
     }
 }
