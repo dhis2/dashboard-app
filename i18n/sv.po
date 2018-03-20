@@ -1,0 +1,173 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-20 09:24+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 2.2.5\n"
+"X-Pootle-Path: /sv/dashboards-app/sv.po\n"
+"X-Pootle-Revision: 29460\n"
+
+msgid "Delete"
+msgstr "Ta bort"
+
+msgid "Continue editing"
+msgstr "Fortsätt redigera"
+
+msgid "Confirm delete dashboard"
+msgstr "Bekräfta att radera dashboard"
+
+msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
+msgstr "Är du säker på att du vill radera dashboard \"{{ dashboardName }}\"?"
+
+msgid "Save changes"
+msgstr "Spara ändringar"
+
+msgid "Translate"
+msgstr "Översätt"
+
+msgid "Exit without saving"
+msgstr "Avsluta utan att spara"
+
+msgid "Search for a dashboard"
+msgstr "Sök efter en dashboard"
+
+msgid "Show less"
+msgstr "Visa mindre"
+
+msgid "Show more"
+msgstr "Visa mer"
+
+msgid "Home"
+msgstr "Hem"
+
+msgid "Manage dashboards"
+msgstr "Hantera dashboards"
+
+msgid "Loading dashboards"
+msgstr "Ladda dashboards"
+
+msgid "Starred"
+msgstr "Stjärnmärkt"
+
+msgid "Name"
+msgstr "Namn"
+
+msgid "Items"
+msgstr "Föremål"
+
+msgid "Owner"
+msgstr "Ägare"
+
+msgid "Created"
+msgstr "Skapad"
+
+msgid "Modified"
+msgstr "Ändrad"
+
+msgid "All"
+msgstr "Alla"
+
+msgid "Unread"
+msgstr "Olästa"
+
+msgid "Messages"
+msgstr "Meddelanden"
+
+msgid "You like this"
+msgstr "Du gilla detta"
+
+msgid "Like"
+msgstr "Gilla"
+
+msgid "Reply"
+msgstr "Svara"
+
+msgid "Add your reply"
+msgstr "Lägg till ditt svar"
+
+msgid "Add your interpretation"
+msgstr "Lägg till din tolkning"
+
+msgid "Spacer"
+msgstr "Utrymme"
+
+msgid ""
+"Use a spacer to create empty vertical space between other dashboard items"
+msgstr ""
+"Använd en spacer för att skapa tomt vertikalt utrymme mellan andra dashboards"
+
+msgid "Text item"
+msgstr "Textobjekt"
+
+msgid "Add text here"
+msgstr "Lägg till text här"
+
+msgid "There are no items on this dashboard"
+msgstr "Det finns inga föremål på dashboarden"
+
+msgid "Search for items to add to this dashboard"
+msgstr "Sök föremål att lägga till denna dashboard"
+
+msgid "See"
+msgstr "Se"
+
+msgid "fewer"
+msgstr "färre"
+
+msgid "more"
+msgstr "mera"
+
+msgid "No dashboards found"
+msgstr "Ingen dashboards hittade"
+
+msgid "Add title here"
+msgstr "Lägg till titel här"
+
+msgid "Add description here"
+msgstr "Lägg till en beskrivning här"
+
+msgid "No description"
+msgstr "Ingen beskrivning"
+
+msgid "Pivot tables"
+msgstr "Pivottabeller"
+
+msgid "Pivot Tables"
+msgstr "Pivottabeller"
+
+msgid "Charts"
+msgstr "Diagram"
+
+msgid "Visualizer"
+msgstr "Visualisering"
+
+msgid "Maps"
+msgstr "Kartor"
+
+msgid "Event reports"
+msgstr "Händelsesrapporter"
+
+msgid "Event Reports"
+msgstr "Händelsesrapporter"
+
+msgid "Event charts"
+msgstr "Händelsesgrafiker"
+
+msgid "Event Visualizer"
+msgstr "Händelsesevisualisering"
+
+msgid "Reports"
+msgstr "Rapporter"
+
+msgid "Resources"
+msgstr "Resurser"
+
+msgid "Users"
+msgstr "Användare"
