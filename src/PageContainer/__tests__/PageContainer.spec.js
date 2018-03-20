@@ -43,7 +43,7 @@ describe('PageContainer', () => {
         });
 
         describe('when not in edit mode', () => {
-            it('renders a message stating no dashboards found', () => {
+            it('renders a NoContentMessage', () => {
                 props.edit = false;
                 const children = pageContainer().children();
 
