@@ -29,24 +29,11 @@ import {
 import { orArray } from '../util';
 import * as fromReducers from '../reducers';
 import ModalLoadingMask from '../widgets/ModalLoadingMask';
+import NoContentMessage from '../widgets/NoContentMessage';
 
 // Component
 
 const EXPANDED_HEIGHT = 20;
-
-const NoItemsMessage = ({ text }) => (
-    <div
-        style={{
-            padding: '50px 10px',
-            textAlign: 'center',
-            fontSize: '15px',
-            fontWeight: 500,
-            color: '#777',
-        }}
-    >
-        {text}
-    </div>
-);
 
 export class ItemGrid extends Component {
     state = {
@@ -101,7 +88,7 @@ export class ItemGrid extends Component {
         const { edit, isLoading, dashboardItems } = this.props;
 
         if (!isLoading && !dashboardItems.length) {
-            return <NoItemsMessage text={this.NO_ITEMS_MESSAGE} />;
+            return <NoContentMessage text={this.NO_ITEMS_MESSAGE} />;
         }
 
         const items = dashboardItems.map((item, index) => {

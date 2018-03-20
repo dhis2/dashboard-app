@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-03-19T10:59:49.988Z\n"
-"PO-Revision-Date: 2018-03-19T10:59:49.988Z\n"
+"POT-Creation-Date: 2018-03-20T06:58:34.168Z\n"
+"PO-Revision-Date: 2018-03-20T06:58:34.168Z\n"
 
 msgid "Delete"
 msgstr ""
@@ -114,6 +114,9 @@ msgid "fewer"
 msgstr ""
 
 msgid "more"
+msgstr ""
+
+msgid "No dashboards found"
 msgstr ""
 
 msgid "Add title here"

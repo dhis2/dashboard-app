@@ -10,8 +10,6 @@ import Snackbar from 'material-ui/Snackbar';
 
 import PageContainer from './PageContainer/PageContainer';
 import ControlBarContainer from './ControlBarContainer/ControlBarContainer';
-import TitleBarCt from './TitleBar/TitleBar';
-import ItemGridCt from './ItemGrid/ItemGrid';
 import SnackbarMessage from './SnackbarMessage';
 
 import { fromDashboards, fromUser, fromControlBar } from './actions';
@@ -47,10 +45,7 @@ class App extends Component {
             <div className="app-wrapper">
                 <HeaderBar />
                 <ControlBarContainer />
-                <PageContainer>
-                    <TitleBarCt />
-                    <ItemGridCt />
-                </PageContainer>
+                <PageContainer />
                 <Snackbar
                     open={this.props.snackbarOpen}
                     message={
