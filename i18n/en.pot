@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-03-20T06:58:34.168Z\n"
-"PO-Revision-Date: 2018-03-20T06:58:34.168Z\n"
+"POT-Creation-Date: 2018-03-20T12:11:04.439Z\n"
+"PO-Revision-Date: 2018-03-20T12:11:04.440Z\n"
 
 msgid "Delete"
 msgstr ""
@@ -36,33 +36,6 @@ msgid "Show less"
 msgstr ""
 
 msgid "Show more"
-msgstr ""
-
-msgid "Home"
-msgstr ""
-
-msgid "Manage dashboards"
-msgstr ""
-
-msgid "Loading dashboards"
-msgstr ""
-
-msgid "Starred"
-msgstr ""
-
-msgid "Name"
-msgstr ""
-
-msgid "Items"
-msgstr ""
-
-msgid "Owner"
-msgstr ""
-
-msgid "Created"
-msgstr ""
-
-msgid "Modified"
 msgstr ""
 
 msgid "All"
