@@ -24,7 +24,14 @@ const SingleItem = ({ item, onAddToDashboard }) => {
                     }}
                 >
                     {item.name}
-                    <Button color="primary" onClick={onAddToDashboard}>
+                    <Button
+                        color="primary"
+                        onClick={onAddToDashboard}
+                        style={{
+                            marginLeft: '5px',
+                            marginRight: '5px',
+                        }}
+                    >
                         + ADD
                     </Button>
                 </p>

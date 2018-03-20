@@ -73,7 +73,7 @@ export const acRemoveDashboardItem = value => ({
     value,
 });
 
-//thunks
+// thunks
 
 export const tSaveDashboard = () => async (dispatch, getState) => {
     const dashboard = fromEditDashboard.sGetEditDashboard(getState());

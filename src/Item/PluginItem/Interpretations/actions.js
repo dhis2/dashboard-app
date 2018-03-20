@@ -6,8 +6,10 @@ import {
     deleteInterpretationComment,
     getInterpretation,
     postInterpretation,
+    postInterpretationSharing,
     deleteInterpretation,
     fetchVisualization,
+    fetchVisualizationSharing,
 } from '../../../api/interpretations';
 
 // action creators
@@ -27,7 +29,7 @@ export const removeInterpretation = value => ({
     value,
 });
 
-export const receivedVisualization = value => ({
+export const acReceivedVisualization = value => ({
     type: actionTypes.RECEIVED_VISUALIZATION,
     value,
 });
@@ -113,7 +115,7 @@ export const tGetInterpretations = ids => async dispatch => {
  */
 export const tPostInterpretation = data => async (dispatch, getState) => {
     const onSuccess = vis => {
-        return dispatch(receivedVisualization(vis));
+        return dispatch(acReceivedVisualization(vis));
     };
 
     try {
@@ -129,6 +131,24 @@ export const tPostInterpretation = data => async (dispatch, getState) => {
         });
         await updateInterpretationInStore([newInterpretation.id], dispatch);
 
+        // get favorite sharing settings and set them on the new interpretation
+        const visSharing = await fetchVisualizationSharing(data);
+
+        if (visSharing && visSharing.object) {
+            const sharing = {
+                ...visSharing.object,
+                // remove unwanted keys
+                id: undefined,
+                name: undefined,
+                displayName: undefined,
+            };
+
+            await postInterpretationSharing({
+                id: newInterpretation.id,
+                sharing,
+            });
+        }
+
         return onSuccess(vis);
     } catch (err) {
         return onError('Post Interpretation', err);
@@ -143,7 +163,7 @@ export const tPostInterpretation = data => async (dispatch, getState) => {
  */
 export const tDeleteInterpretation = data => async (dispatch, getState) => {
     const onSuccess = vis => {
-        return dispatch(receivedVisualization(vis));
+        return dispatch(acReceivedVisualization(vis));
     };
 
     try {

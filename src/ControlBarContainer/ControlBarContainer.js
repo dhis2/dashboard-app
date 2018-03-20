@@ -21,7 +21,7 @@ const style = {
     },
 };
 
-const ControlBar = ({ edit }) => {
+export const ControlBar = ({ edit }) => {
     return edit ? (
         <EditBar style={style} />
     ) : (
@@ -33,9 +33,7 @@ const mapStateToProps = state => ({
     edit: fromEditDashboard.sGetIsEditing(state),
 });
 
-const ControlBarCt = connect(mapStateToProps, null)(ControlBar);
-
-export default ControlBarCt;
+export default connect(mapStateToProps, null)(ControlBar);
 
 export const CONTROL_BAR_ROW_HEIGHT = 36;
 export const CONTROL_BAR_OUTER_HEIGHT_DIFF = 24;

@@ -1,12 +1,11 @@
 import objectClean from 'd2-utilizr/lib/objectClean';
+import isEmpty from 'd2-utilizr/lib/isEmpty';
 
 export const actionTypes = {
     SET_ITEM_FILTER: 'SET_ITEM_FILTER',
 };
 
 export const DEFAULT_STATE = {};
-
-const isEmpty = param => param === undefined || param === null;
 
 export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {

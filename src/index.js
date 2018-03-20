@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import i18n from './locales';
-import { I18nextProvider } from 'react-i18next';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import D2UIApp from 'd2-ui/lib/app/D2UIApp';
@@ -17,6 +16,7 @@ import './index.css';
 import configureStore from './configureStore';
 
 import App from './App';
+import { muiTheme } from './theme';
 
 const configI18n = userSettings => {
     const uiLocale = userSettings.keyUiLocale;
@@ -56,13 +56,11 @@ const init = () => {
             config.schemas = ['dashboard', 'organisationUnit'];
 
             ReactDOM.render(
-                <I18nextProvider i18n={i18n}>
-                    <D2UIApp initConfig={config}>
-                        <Provider store={configureStore()}>
-                            <App baseUrl={baseUrl} />
-                        </Provider>
-                    </D2UIApp>
-                </I18nextProvider>,
+                <D2UIApp initConfig={config} muiTheme={muiTheme()}>
+                    <Provider store={configureStore()}>
+                        <App baseUrl={baseUrl} />
+                    </Provider>
+                </D2UIApp>,
                 document.getElementById('root')
             );
         });

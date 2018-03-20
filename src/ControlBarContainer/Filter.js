@@ -1,22 +1,22 @@
 import React, { Component, Fragment } from 'react';
-import { t } from 'i18next';
+import i18n from 'd2-i18n';
 import PropTypes from 'prop-types';
-import { grey700 } from 'material-ui/styles/colors';
 import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
 import IconClear from 'material-ui/svg-icons/content/clear';
 import isEmpty from 'd2-utilizr/lib/isEmpty';
-
+import { colors } from '../colors';
 import * as fromReducers from '../reducers';
 
-const KEYCODE_ENTER = 13;
-const KEYCODE_ESCAPE = 27;
+export const KEYCODE_ENTER = 13;
+export const KEYCODE_ESCAPE = 27;
 
 const styles = {
     filterField: {
         fontSize: '14px',
         width: '200px',
         height: '30px',
+        top: '-2px',
     },
     filterFieldInput: {
         top: '-9px',
@@ -42,7 +42,7 @@ const styles = {
     },
 };
 
-class Filter extends Component {
+export class Filter extends Component {
     constructor(props) {
         super(props);
 
@@ -74,10 +74,6 @@ class Filter extends Component {
             default:
                 break;
         }
-
-        if (event.keyCode === KEYCODE_ESCAPE) {
-            this.props.onChangeName();
-        }
     };
 
     render() {
@@ -87,7 +83,7 @@ class Filter extends Component {
                 value={this.state.value}
                 onChange={this.setFilterValue}
                 onKeyUp={this.handleKeyUp}
-                hintText={t('Filter dashboards')}
+                hintText={i18n.t('Search for a dashboard')}
                 style={styles.filterField}
                 inputStyle={styles.filterFieldInput}
                 hintStyle={styles.filterFieldHint}
@@ -108,7 +104,7 @@ Filter.defaultProps = {
     onChangeName: Function.prototype,
 };
 
-const ClearButton = ({ name, onChangeName }) => {
+export const ClearButton = ({ name, onChangeName }) => {
     const disabled = isEmpty(name);
 
     const clearFilter = () => onChangeName();
@@ -122,7 +118,7 @@ const ClearButton = ({ name, onChangeName }) => {
             onClick={clearFilter}
             disabled={disabled}
         >
-            <IconClear color={grey700} />
+            <IconClear color={colors.mediumGrey} />
         </IconButton>
     );
 };

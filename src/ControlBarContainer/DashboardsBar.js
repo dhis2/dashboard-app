@@ -1,15 +1,15 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { t } from 'i18next';
 
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
-import Chip from 'd2-ui/lib/chip/Chip';
-import { blue800 } from 'material-ui/styles/colors';
-
+import arraySort from 'd2-utilizr/lib/arraySort';
+import Chip from './DashboardItemChip';
 import D2IconButton from '../widgets/D2IconButton';
 import Filter from './Filter';
+import ShowMoreButton from './ShowMoreButton';
 import {
     CONTROL_BAR_ROW_HEIGHT,
+    CONTROL_BAR_OUTER_HEIGHT_DIFF,
     getInnerHeight,
     getOuterHeight,
 } from './ControlBarContainer';
@@ -18,169 +18,174 @@ import * as fromActions from '../actions';
 import * as fromReducers from '../reducers';
 import { orObject, orArray } from '../util';
 import { sGetSelectedId } from '../reducers/selected';
+import { apiPostControlBarRows } from '../api/controlBar';
+import { colors } from '../colors';
 
-const dashboardBarStyles = {
-    scrollWrapper: {
-        padding: '10px 6px 0 6px',
-    },
-    expandButtonWrap: {
-        textAlign: 'center',
-    },
-};
+export const MIN_ROW_COUNT = 1;
+export const MAX_ROW_COUNT = 10;
 
-const EXPANDED_ROW_COUNT = 10;
+const onDashboardSelectWrapper = (id, name, onClick) => () =>
+    id && onClick(id, name);
 
-const onDashboardSelectWrapper = (id, onClick) => () => id && onClick(id);
+export class DashboardsBar extends Component {
+    state = {
+        rows: MIN_ROW_COUNT,
+    };
 
-const DashboardsBar = ({
-    controlsStyle,
-    dashboards,
-    name,
-    rows,
-    selectedId,
-    isExpanded,
-    onChangeHeight,
-    onToggleExpanded,
-    onNewClick,
-    onChangeFilterName,
-    onSelectDashboard,
-}) => {
-    const style = Object.assign({}, controlsStyle, dashboardBarStyles);
-    const rowCount = isExpanded ? EXPANDED_ROW_COUNT : rows;
-    const contentWrapperStyle = Object.assign(
-        {},
-        dashboardBarStyles.scrollWrapper,
-        { overflowY: isExpanded ? 'auto' : 'hidden' },
-        { height: getInnerHeight(rowCount) }
-    );
+    setInitialDashboardState = rows => {
+        this.setState({ rows, isMaxHeight: rows === MAX_ROW_COUNT });
+    };
 
-    const controlBarHeight = getOuterHeight(rowCount, true);
+    componentDidMount() {
+        this.setInitialDashboardState(this.props.userRows);
+    }
 
-    return (
-        <ControlBar
-            height={controlBarHeight}
-            onChangeHeight={onChangeHeight}
-            editMode={false}
-            expandable={!isExpanded}
-        >
-            <div style={contentWrapperStyle}>
-                <div style={style.leftControls}>
-                    <Fragment>
-                        <D2IconButton
-                            style={{
-                                width: 36,
-                                height: 36,
-                                marginRight: 10,
-                            }}
-                            onClick={onNewClick}
-                        />
-                        <Filter
-                            name={name}
-                            onChangeName={onChangeFilterName}
-                            onKeypressEnter={onDashboardSelectWrapper(
-                                orObject(orArray(dashboards)[0]).id,
+    componentWillReceiveProps(nextProps) {
+        this.setInitialDashboardState(nextProps.userRows);
+    }
+
+    onChangeHeight = (newHeight, onEndDrag) => {
+        const newRows = Math.max(
+            MIN_ROW_COUNT,
+            Math.floor(
+                (newHeight - CONTROL_BAR_OUTER_HEIGHT_DIFF) /
+                    CONTROL_BAR_ROW_HEIGHT
+            )
+        );
+
+        if (newRows !== this.state.rows) {
+            const newRowCount = Math.min(newRows, MAX_ROW_COUNT);
+
+            this.props.onChangeHeight(newRowCount);
+        }
+    };
+
+    onEndDrag = () => {
+        return apiPostControlBarRows(this.state.rows);
+    };
+
+    onToggleMaxHeight = () => {
+        const rows =
+            this.state.rows === MAX_ROW_COUNT
+                ? this.props.userRows
+                : MAX_ROW_COUNT;
+
+        this.setState({ rows, isMaxHeight: !this.state.isMaxHeight });
+    };
+
+    render() {
+        const {
+            controlsStyle,
+            dashboards,
+            name,
+            selectedId,
+            onNewClick,
+            onChangeFilterName,
+            onSelectDashboard,
+        } = this.props;
+
+        const rowCount = this.state.isMaxHeight
+            ? MAX_ROW_COUNT
+            : this.state.rows;
+        const controlBarHeight = getOuterHeight(rowCount, true);
+        const contentWrapperStyle = {
+            padding: '10px 6px 0 6px',
+            overflowY: this.state.isMaxHeight ? 'auto' : 'hidden',
+            height: getInnerHeight(rowCount),
+        };
+
+        return (
+            <ControlBar
+                height={controlBarHeight}
+                onChangeHeight={this.onChangeHeight}
+                onEndDrag={this.onEndDrag}
+                editMode={false}
+                expandable={true}
+            >
+                <div style={contentWrapperStyle}>
+                    <div style={orObject(controlsStyle).leftControls}>
+                        <Fragment>
+                            <D2IconButton
+                                style={{
+                                    width: 36,
+                                    height: 36,
+                                    marginRight: 10,
+                                }}
+                                iconColor={colors.mediumGreen}
+                                onClick={onNewClick}
+                            />
+                            <Filter
+                                name={name}
+                                onChangeName={onChangeFilterName}
+                                onKeypressEnter={onDashboardSelectWrapper(
+                                    orObject(orArray(dashboards)[0]).id,
+                                    orObject(orArray(dashboards)[0])
+                                        .displayName,
+                                    onSelectDashboard
+                                )}
+                            />
+                        </Fragment>
+                    </div>
+                    {orArray(dashboards).map(dashboard => (
+                        <Chip
+                            key={dashboard.id}
+                            label={dashboard.displayName}
+                            starred={dashboard.starred}
+                            selected={dashboard.id === selectedId}
+                            onClick={onDashboardSelectWrapper(
+                                dashboard.id,
+                                dashboard.displayName,
                                 onSelectDashboard
                             )}
                         />
-                    </Fragment>
+                    ))}
                 </div>
-                {dashboards.map(dashboard => (
-                    <Chip
-                        key={dashboard.id}
-                        label={dashboard.name}
-                        avatar={dashboard.starred ? 'star' : null}
-                        color={
-                            dashboard.id === selectedId ? 'primary' : undefined
-                        }
-                        onClick={onDashboardSelectWrapper(
-                            dashboard.id,
-                            onSelectDashboard
-                        )}
+                {this.props.userRows !== MAX_ROW_COUNT ? (
+                    <ShowMoreButton
+                        onClick={this.onToggleMaxHeight}
+                        isMaxHeight={this.state.isMaxHeight}
                     />
-                ))}
-            </div>
-            <div style={style.expandButtonWrap}>
-                <div
-                    onClick={onToggleExpanded}
-                    style={{
-                        paddingTop: 4,
-                        fontSize: 11,
-                        fontWeight: 700,
-                        color: blue800,
-                        textTransform: 'uppercase',
-                        cursor: 'pointer',
-                        visibility: 'visible',
-                    }}
-                >
-                    {isExpanded ? t('Show less') : t('Show more')}
-                </div>
-            </div>
-        </ControlBar>
-    );
-};
+                ) : null}
+            </ControlBar>
+        );
+    }
+}
 
-const mapStateToProps = state => {
-    const { fromDashboards, fromDashboardsFilter } = fromReducers;
+const mapStateToProps = state => ({
+    dashboards: fromReducers.fromDashboards.sGetFromState(state),
+    name: fromReducers.fromDashboardsFilter.sGetFilterName(state),
+    userRows: (state.controlBar && state.controlBar.userRows) || MIN_ROW_COUNT,
+    selectedId: sGetSelectedId(state),
+});
 
-    return {
-        dashboards: fromDashboards.sGetFromState(state),
-        name: fromDashboardsFilter.sGetFilterName(state),
-        rows: (state.controlBar && state.controlBar.rows) || 1,
-        selectedId: sGetSelectedId(state),
-        isExpanded:
-            state.controlBar.expanded &&
-            state.controlBar.rows < EXPANDED_ROW_COUNT,
-    };
+const mapDispatchToProps = {
+    onNewClick: fromActions.fromEditDashboard.acSetEditNewDashboard,
+    onChangeHeight: fromActions.fromControlBar.acSetControlBarUserRows,
+    onChangeFilterName: fromActions.fromDashboardsFilter.acSetFilterName,
+    onSelectDashboard: fromActions.tSelectDashboardById,
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const { dashboards, name, rows, isExpanded } = stateProps;
-    const { dispatch } = dispatchProps;
-    const {
-        fromControlBar,
-        fromDashboardsFilter,
-        fromEditDashboard,
-    } = fromActions;
-
-    const filteredDashboards = Object.values(orObject(dashboards)).filter(
-        d => d.name.toLowerCase().indexOf(name) !== -1
+    const dashboards = Object.values(orObject(stateProps.dashboards));
+    const displayDashboards = arraySort(
+        dashboards.filter(d =>
+            d.displayName.toLowerCase().includes(stateProps.name.toLowerCase())
+        ),
+        'ASC',
+        'displayName'
     );
 
     return {
         ...stateProps,
         ...ownProps,
+        ...dispatchProps,
         dashboards: [
-            ...filteredDashboards.filter(d => d.starred),
-            ...filteredDashboards.filter(d => !d.starred),
+            ...displayDashboards.filter(d => d.starred),
+            ...displayDashboards.filter(d => !d.starred),
         ],
-        onChangeHeight: (newHeight, onEndDrag) => {
-            const newRows = Math.max(
-                1,
-                Math.floor((newHeight - 24) / CONTROL_BAR_ROW_HEIGHT)
-            );
-
-            if (newRows !== rows) {
-                dispatch(
-                    fromControlBar.acSetControlBarRows(
-                        Math.min(newRows, EXPANDED_ROW_COUNT)
-                    )
-                );
-            }
-        },
-        onNewClick: () => {
-            dispatch(fromEditDashboard.acSetEditNewDashboard());
-        },
-        onToggleExpanded: () => {
-            dispatch(fromControlBar.acSetControlBarExpanded(!isExpanded));
-        },
-        onChangeFilterName: name =>
-            dispatch(fromDashboardsFilter.acSetFilterName(name)),
-        onSelectDashboard: id => dispatch(fromActions.tSelectDashboardById(id)),
     };
 };
 
-const DashboardsBarContainer = connect(mapStateToProps, null, mergeProps)(
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(
     DashboardsBar
 );
-
-export default DashboardsBarContainer;

@@ -1,49 +1,33 @@
 import React from 'react';
-import { t } from 'i18next';
-import { Trans } from 'react-i18next';
+import i18n from 'd2-i18n';
 import Dialog from 'material-ui/Dialog';
-import Button from 'd2-ui/lib/button/Button';
-import { colors } from '../colors';
+import FlatButton from '../widgets/FlatButton';
+import PrimaryButton from '../widgets/PrimaryButton';
 
-const style = {
-    button: {
-        color: colors.royalBlue,
-        backgroundColor: 'transparent',
-        border: 'none',
-        fontSize: '14px',
-        fontWeight: 500,
-        textTransform: 'uppercase',
-        padding: '5px',
-        height: '36px',
-        cursor: 'pointer',
-    },
-};
-
-const ConfirmDeleteDialog = ({
+export const ConfirmDeleteDialog = ({
     dashboardName,
     onDeleteConfirmed,
     onContinueEditing,
     open,
 }) => {
     const actions = [
-        <Button onClick={onDeleteConfirmed} style={style.button}>
-            <Trans>Delete</Trans>
-        </Button>,
-        <Button onClick={onContinueEditing} style={style.button}>
-            <Trans>Continue editing</Trans>
-        </Button>,
+        <FlatButton onClick={onDeleteConfirmed}>{i18n.t('Delete')}</FlatButton>,
+        <PrimaryButton onClick={onContinueEditing}>
+            {i18n.t('Continue editing')}
+        </PrimaryButton>,
     ];
 
     return (
         <Dialog
-            title={t('Confirm delete dashboard')}
+            title={i18n.t('Confirm delete dashboard')}
             actions={actions}
             modal={true}
             open={open}
         >
-            {t('Are you sure you want to delete dashboard {{ name }}', {
-                name: dashboardName,
-            })}
+            {i18n.t(
+                'Are you sure you want to delete dashboard "{{ dashboardName }}"?',
+                { dashboardName }
+            )}
         </Dialog>
     );
 };

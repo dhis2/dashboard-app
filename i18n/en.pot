@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2018-03-20T11:58:40.636Z\n"
+"PO-Revision-Date: 2018-03-20T11:58:40.636Z\n"
+
+msgid "Delete"
+msgstr ""
+
+msgid "Continue editing"
+msgstr ""
+
+msgid "Confirm delete dashboard"
+msgstr ""
+
+msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
+msgstr ""
+
+msgid "Save changes"
+msgstr ""
+
+msgid "Translate"
+msgstr ""
+
+msgid "Exit without saving"
+msgstr ""
+
+msgid "Search for a dashboard"
+msgstr ""
+
+msgid "Show less"
+msgstr ""
+
+msgid "Show more"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "Unread"
+msgstr ""
+
+msgid "Messages"
+msgstr ""
+
+msgid "You like this"
+msgstr ""
+
+msgid "Like"
+msgstr ""
+
+msgid "Reply"
+msgstr ""
+
+msgid "Add your reply"
+msgstr ""
+
+msgid "Add your interpretation"
+msgstr ""
+
+msgid "Spacer"
+msgstr ""
+
+msgid "Use a spacer to create empty vertical space between other dashboard items"
+msgstr ""
+
+msgid "Text item"
+msgstr ""
+
+msgid "Add text here"
+msgstr ""
+
+msgid "There are no items on this dashboard"
+msgstr ""
+
+msgid "Search for items to add to this dashboard"
+msgstr ""
+
+msgid "See"
+msgstr ""
+
+msgid "fewer"
+msgstr ""
+
+msgid "more"
+msgstr ""
+
+msgid "No dashboards found"
+msgstr ""
+
+msgid "Add title here"
+msgstr ""
+
+msgid "Add description here"
+msgstr ""
+
+msgid "No description"
+msgstr ""
+
+msgid "Pivot tables"
+msgstr ""
+
+msgid "Pivot Tables"
+msgstr ""
+
+msgid "Charts"
+msgstr ""
+
+msgid "Visualizer"
+msgstr ""
+
+msgid "Maps"
+msgstr ""
+
+msgid "Event reports"
+msgstr ""
+
+msgid "Event Reports"
+msgstr ""
+
+msgid "Event charts"
+msgstr ""
+
+msgid "Event Visualizer"
+msgstr ""
+
+msgid "Reports"
+msgstr ""
+
+msgid "Resources"
+msgstr ""
+
+msgid "Users"
+msgstr ""

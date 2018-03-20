@@ -19,6 +19,7 @@ export const DEFAULT_STATE = {};
 export const NEW_DASHBOARD_STATE = {
     id: '',
     name: '',
+    access: {},
     description: '',
     dashboardItems: [],
 };

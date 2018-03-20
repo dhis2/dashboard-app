@@ -5,6 +5,7 @@ import EditTitleBar from './EditTitleBar';
 import ViewTitleBar from './ViewTitleBar';
 import * as fromReducers from '../reducers';
 import { orObject } from '../util';
+import { colors } from '../colors';
 
 import './TitleBar.css';
 
@@ -14,22 +15,26 @@ const style = {
         alignItems: 'flex-start',
     },
     title: {
-        marginRight: 20,
         position: 'relative',
         fontSize: 21,
         fontWeight: 500,
-        color: '#333333',
+        color: colors.black,
         minWidth: 50,
     },
     description: {
-        paddingTop: 5,
-        paddingBottom: 5,
-        fontSize: 13,
-        color: '#555555',
+        fontSize: 14,
+        color: colors.darkGrey,
     },
 };
 
-const TitleBar = ({ id, name, displayName, description, edit }) => {
+const TitleBar = ({
+    id,
+    name,
+    displayName,
+    description,
+    displayDescription,
+    edit,
+}) => {
     return (
         <div
             className="titlebar-wrapper"
@@ -48,8 +53,8 @@ const TitleBar = ({ id, name, displayName, description, edit }) => {
                 <ViewTitleBar
                     style={style}
                     id={id}
-                    name={displayName || name}
-                    description={description}
+                    name={displayName}
+                    description={displayDescription}
                 />
             )}
         </div>
@@ -61,17 +66,15 @@ const mapStateToProps = state => {
         fromReducers.sGetSelectedDashboard(state)
     );
     const dashboard = orObject(
-        fromReducers.fromDashboards.sGetById(
-            state,
-            fromReducers.fromSelected.sGetSelectedId(state)
-        )
+        fromReducers.fromDashboards.sGetById(state, selectedDashboard.id)
     );
 
     return {
         id: selectedDashboard.id,
         name: selectedDashboard.name,
-        displayName: dashboard.displayName,
+        displayName: dashboard && dashboard.displayName,
         description: selectedDashboard.description,
+        displayDescription: dashboard && dashboard.displayDescription,
         edit: fromReducers.fromEditDashboard.sGetIsEditing(state),
     };
 };

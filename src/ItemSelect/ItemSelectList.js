@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { t } from 'i18next';
+import i18n from 'd2-i18n';
 import Divider from 'material-ui/Divider';
 import { List, ListItem } from 'material-ui/List';
 
@@ -50,9 +50,7 @@ class ItemSelectList extends Component {
         if (type.match(/(REPORTS|RESOURCES|USERS)/)) {
             tAddListItemContent(dashboardId, type, newItem);
         } else if (type === APP) {
-            newItem.id = newItem.appKey = item.key;
-
-            acAddDashboardItem({ type, content: newItem });
+            acAddDashboardItem({ type, content: item.key });
         } else {
             acAddDashboardItem({ type, content: newItem });
         }
@@ -80,61 +78,74 @@ class ItemSelectList extends Component {
                         style={{ textTransform: 'uppercase' }}
                         onClick={this.toggleSeeMore}
                     >
-                        {`${t('See')} ${
-                            this.state.seeMore ? t('fewer') : t('more')
+                        {`${i18n.t('See')} ${
+                            this.state.seeMore
+                                ? i18n.t('fewer')
+                                : i18n.t('more')
                         } ${this.props.title}`}
                     </Button>
                 </div>
                 <Divider />
                 <List>
-                    {this.props.items.map(item => (
-                        <ListItem
-                            // apps don't have item.id
-                            key={item.id || item.key}
-                            leftIcon={
-                                <SvgIcon
-                                    icon={itemTypeMap[this.props.type].icon}
-                                    style={{ margin: '6px' }}
-                                />
-                            }
-                            innerDivStyle={{ padding: '0px 0px 0px 42px' }}
-                            hoverColor="transparent"
-                            primaryText={
-                                <p
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'flex-start',
-                                        margin: 0,
-                                    }}
-                                >
-                                    {item.displayName || item.name}
-                                    <Button
-                                        color="primary"
-                                        onClick={this.addItem(item)}
+                    {this.props.items.map(item => {
+                        const itemUrl = getItemUrl(
+                            this.props.type,
+                            item,
+                            this.context.d2
+                        );
+
+                        return (
+                            <ListItem
+                                // apps don't have item.id
+                                key={item.id || item.key}
+                                leftIcon={
+                                    <SvgIcon
+                                        icon={itemTypeMap[this.props.type].icon}
+                                        style={{ margin: '6px' }}
+                                    />
+                                }
+                                innerDivStyle={{ padding: '0px 0px 0px 42px' }}
+                                hoverColor="transparent"
+                                primaryText={
+                                    <p
+                                        style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'flex-start',
+                                            margin: 0,
+                                        }}
                                     >
-                                        + ADD
-                                    </Button>
-                                    <a
-                                        href={getItemUrl(
-                                            this.props.type,
-                                            item.id,
-                                            this.context.d2
-                                        )}
-                                        style={{ display: 'flex' }}
-                                    >
-                                        <SvgIcon
-                                            icon="Launch"
+                                        {item.displayName || item.name}
+                                        <Button
+                                            color="primary"
+                                            onClick={this.addItem(item)}
                                             style={{
-                                                width: '16px',
-                                                height: '16px',
+                                                marginLeft: '5px',
+                                                marginRight: '5px',
                                             }}
-                                        />
-                                    </a>
-                                </p>
-                            }
-                        />
-                    ))}
+                                        >
+                                            + ADD
+                                        </Button>
+                                        {itemUrl ? (
+                                            <a
+                                                target="_blank"
+                                                href={itemUrl}
+                                                style={{ display: 'flex' }}
+                                            >
+                                                <SvgIcon
+                                                    icon="Launch"
+                                                    style={{
+                                                        width: '16px',
+                                                        height: '16px',
+                                                    }}
+                                                />
+                                            </a>
+                                        ) : null}
+                                    </p>
+                                }
+                            />
+                        );
+                    })}
                 </List>
             </Fragment>
         );

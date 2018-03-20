@@ -52,7 +52,9 @@ export const tSetDashboards = () => async (dispatch, getState) => {
             : sGetStarredDashboardIds(state)[0] ||
               Object.keys(sGetFromState(state))[0];
 
-        dispatch(tSetSelectedDashboardById(dashboardId));
+        if (dashboardId) {
+            dispatch(tSetSelectedDashboardById(dashboardId));
+        }
     };
 
     const onError = error => {

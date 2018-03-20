@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { t } from 'i18next';
+import i18n from 'd2-i18n';
 import ReactGridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
@@ -20,6 +20,7 @@ import DeleteItemButton from './DeleteItemButton';
 import {
     GRID_ROW_HEIGHT,
     GRID_COMPACT_TYPE,
+    MARGIN,
     getGridColumns,
     hasShape,
     onItemResize,
@@ -28,31 +29,18 @@ import {
 import { orArray } from '../util';
 import * as fromReducers from '../reducers';
 import ModalLoadingMask from '../widgets/ModalLoadingMask';
+import NoContentMessage from '../widgets/NoContentMessage';
 
 // Component
 
 const EXPANDED_HEIGHT = 20;
-
-const NoItemsMessage = ({ text }) => (
-    <div
-        style={{
-            padding: '50px 10px',
-            textAlign: 'center',
-            fontSize: '15px',
-            fontWeight: 500,
-            color: '#777',
-        }}
-    >
-        {text}
-    </div>
-);
 
 export class ItemGrid extends Component {
     state = {
         expandedItems: {},
     };
 
-    NO_ITEMS_MESSAGE = t('You have not added any items');
+    NO_ITEMS_MESSAGE = i18n.t('There are no items on this dashboard');
 
     onToggleItemExpanded = clickedId => {
         const isExpanded =
@@ -97,10 +85,10 @@ export class ItemGrid extends Component {
     onRemoveItemWrapper = id => () => this.onRemoveItem(id);
 
     render() {
-        const { edit, isLoading, itemFilter, dashboardItems } = this.props;
+        const { edit, isLoading, dashboardItems } = this.props;
 
-        if (!dashboardItems.length) {
-            return <NoItemsMessage text={this.NO_ITEMS_MESSAGE} />;
+        if (!isLoading && !dashboardItems.length) {
+            return <NoContentMessage text={this.NO_ITEMS_MESSAGE} />;
         }
 
         const items = dashboardItems.map((item, index) => {
@@ -124,6 +112,7 @@ export class ItemGrid extends Component {
                     onResizeStop={this.onResizeStop}
                     className="layout"
                     layout={items}
+                    margin={MARGIN}
                     cols={getGridColumns()}
                     rowHeight={GRID_ROW_HEIGHT}
                     width={window.innerWidth}
@@ -150,7 +139,6 @@ export class ItemGrid extends Component {
                                 <Item
                                     item={item}
                                     editMode={edit}
-                                    itemFilter={itemFilter}
                                     onToggleItemExpanded={
                                         this.onToggleItemExpanded
                                     }
@@ -179,7 +167,6 @@ const mapStateToProps = state => {
         sGetSelectedDashboard,
         fromSelected,
         fromEditDashboard,
-        fromItemFilter,
     } = fromReducers;
 
     const selectedDashboard = sGetSelectedDashboard(state);
@@ -190,8 +177,8 @@ const mapStateToProps = state => {
 
     return {
         edit: fromEditDashboard.sGetIsEditing(state),
-        isLoading: fromSelected.sGetSelectedIsLoading(state),
-        itemFilter: fromItemFilter.sGetFromState(state),
+        isLoading:
+            fromSelected.sGetSelectedIsLoading(state) || !selectedDashboard,
         dashboardItems,
     };
 };
@@ -208,7 +195,6 @@ const mergeProps = (stateProps, dispatchProps) => {
         ...dispatchProps,
         edit: stateProps.edit,
         isLoading: stateProps.isLoading,
-        itemFilter: stateProps.itemFilter,
         dashboardItems: validItems,
         onItemResize,
     };

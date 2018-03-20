@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Trans } from 'react-i18next';
+import i18n from 'd2-i18n';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
-import Button from 'd2-ui/lib/button/Button';
+import PrimaryButton from '../widgets/PrimaryButton';
+import FlatButton from '../widgets/FlatButton';
 import TranslationDialog from 'd2-ui/lib/i18n/TranslationDialog.component';
 import ConfirmDeleteDialog from './ConfirmDeleteDialog';
-import { colors } from '../colors';
 import { tSaveDashboard, acClearEditDashboard } from '../actions/editDashboard';
 import {
     tDeleteDashboard,
@@ -14,38 +14,17 @@ import {
 } from '../actions/dashboards';
 import { sGetEditDashboard } from '../reducers/editDashboard';
 import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './ControlBarContainer';
+import { MIN_ROW_COUNT } from './DashboardsBar';
 import { apiFetchSelected } from '../api/dashboards';
 
-const styles = {
-    save: {
-        borderRadius: '2px',
-        backgroundColor: colors.royalBlue,
-        color: colors.lightGrey,
-        fontWeight: '500',
-        boxShadow:
-            '0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24), 0 0 8px 0 rgba(0,0,0,0.12), 0 0 8px 0 rgba(0,0,0,0.24)',
-    },
-    secondary: {
-        color: colors.royalBlue,
-        backgroundColor: 'transparent',
-        border: 'none',
-        fontSize: '14px',
-        fontWeight: 500,
-        textTransform: 'uppercase',
-        padding: '5px',
-        height: '36px',
-        cursor: 'pointer',
-        marginLeft: '10px',
-    },
-    buttonBar: {
-        height: CONTROL_BAR_ROW_HEIGHT,
-        paddingTop: '14px',
-        marginLeft: '15px',
-        marginRight: '15px',
-    },
+const buttonBarStyle = {
+    height: CONTROL_BAR_ROW_HEIGHT,
+    paddingTop: '15px',
+    marginLeft: '15px',
+    marginRight: '15px',
 };
 
-class EditBar extends Component {
+export class EditBar extends Component {
     state = {
         translationDialogIsOpen: false,
         dashboardModel: undefined,
@@ -120,7 +99,6 @@ class EditBar extends Component {
                 }
             />
         ) : null;
-
     render() {
         const {
             style,
@@ -129,7 +107,7 @@ class EditBar extends Component {
             dashboardId,
             deleteAccess,
         } = this.props;
-        const controlBarHeight = getOuterHeight(1, false);
+        const controlBarHeight = getOuterHeight(MIN_ROW_COUNT, false);
 
         return (
             <Fragment>
@@ -138,35 +116,30 @@ class EditBar extends Component {
                     editMode={true}
                     expandable={false}
                 >
-                    <div style={styles.buttonBar}>
+                    <div style={buttonBarStyle}>
                         <div style={style.leftControls}>
-                            <Button style={styles.save} onClick={onSave}>
-                                <Trans>Save Changes</Trans>
-                            </Button>
+                            <span style={{ marginRight: '15px' }}>
+                                <PrimaryButton onClick={onSave}>
+                                    {i18n.t('Save changes')}
+                                </PrimaryButton>
+                            </span>
                             {dashboardId && deleteAccess ? (
-                                <button
-                                    style={styles.secondary}
-                                    onClick={this.onConfirmDelete}
-                                >
-                                    <Trans>Delete</Trans>
-                                </button>
+                                <FlatButton onClick={this.onConfirmDelete}>
+                                    {i18n.t('Delete')}
+                                </FlatButton>
                             ) : null}
                             {dashboardId ? (
-                                <Button
-                                    style={styles.secondary}
+                                <FlatButton
                                     onClick={this.toggleTranslationDialog}
                                 >
-                                    <Trans>Translate</Trans>
-                                </Button>
+                                    {i18n.t('Translate')}
+                                </FlatButton>
                             ) : null}
                         </div>
                         <div style={style.rightControls}>
-                            <button
-                                style={styles.secondary}
-                                onClick={onDiscard}
-                            >
-                                <Trans>Exit without saving</Trans>
-                            </button>
+                            <FlatButton onClick={onDiscard}>
+                                {i18n.t('Exit without saving')}
+                            </FlatButton>
                         </div>
                     </div>
                 </ControlBar>
@@ -191,23 +164,11 @@ const mapStateToProps = state => {
     };
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onSave: () => {
-            dispatch(tSaveDashboard());
-        },
-        onDiscard: () => {
-            dispatch(acClearEditDashboard());
-        },
-        onDelete: id => {
-            dispatch(tDeleteDashboard(id));
-        },
-        onTranslate: (id, translatedDisplayName) => {
-            dispatch(acSetDashboardDisplayName(id, translatedDisplayName));
-        },
-    };
+const mapDispatchToProps = {
+    onSave: tSaveDashboard,
+    onDiscard: acClearEditDashboard,
+    onDelete: tDeleteDashboard,
+    onTranslate: acSetDashboardDisplayName,
 };
 
-const EditBarCt = connect(mapStateToProps, mapDispatchToProps)(EditBar);
-
-export default EditBarCt;
+export default connect(mapStateToProps, mapDispatchToProps)(EditBar);

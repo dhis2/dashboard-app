@@ -3,6 +3,13 @@ import { itemTypeMap } from '../itemTypes';
 
 const onError = error => console.log('Error: ', error);
 
+// Fields
+export const interpretationFields = () => {
+    return 'interpretations[id]';
+    // return 'interpretations[id,text,created,user[id,displayName],likedBy,comments[id,text,created,user[id,displayName]]]';
+};
+
+// Api
 export const getInterpretation = id => {
     const fields =
         'id,text,created,user[id,displayName],likedBy,access,comments[id,text,created,user[id,displayName]]';
@@ -19,6 +26,14 @@ export const postInterpretation = data => {
 
     return getInstance()
         .then(d2 => d2.Api.getApi().post(url, data.text, { headers }))
+        .catch(onError);
+};
+
+export const postInterpretationSharing = data => {
+    const url = `/sharing?type=interpretation&id=${data.id}`;
+
+    return getInstance()
+        .then(d2 => d2.Api.getApi().post(url, { object: data.sharing }))
         .catch(onError);
 };
 
@@ -79,6 +94,15 @@ export const fetchVisualization = data => {
     const url = `/${typePath}/${
         data.objectId
     }?fields=id,name,interpretations[id]`;
+
+    return getInstance()
+        .then(d2 => d2.Api.getApi().get(url))
+        .catch(onError);
+};
+
+export const fetchVisualizationSharing = data => {
+    const type = itemTypeMap[data.objectType].propName;
+    const url = `/sharing?type=${type}&id=${data.objectId}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))

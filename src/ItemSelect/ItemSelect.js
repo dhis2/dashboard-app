@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { t } from 'i18next';
+import i18n from 'd2-i18n';
 import Popover from 'material-ui/Popover';
 import TextField from 'material-ui/TextField';
 
@@ -32,10 +32,10 @@ const styles = {
 };
 
 const ItemSearchField = props => (
-    <div style={{ display: 'flex', alignItems: 'baseline', width: '400px' }}>
+    <div style={{ display: 'flex', alignItems: 'baseline' }}>
         <SvgIcon icon="Search" />
         <TextField
-            hintText={t('Search for items to add to this dashboard')}
+            hintText={i18n.t('Search for items to add to this dashboard')}
             fullWidth={true}
             value={props.value}
             onClick={props.onClick}
@@ -167,8 +167,7 @@ class ItemSelect extends React.Component {
                     autoCloseWhenOffScreen={false}
                     style={{
                         width: 700,
-                        height: 900,
-                        overflow: 'auto',
+                        height: '70vh',
                         left: -1000,
                     }}
                 >

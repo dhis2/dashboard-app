@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { t } from 'i18next';
-import { Trans } from 'react-i18next';
+import i18n from 'd2-i18n';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import { fromUser } from '../../../reducers';
 import InputField from './InputField';
@@ -41,11 +40,11 @@ const style = {
     icon: {
         height: '12px',
         marginBottom: '-2px',
-        paddingRight: '3px',
+        paddingRight: '2px',
         width: '12px',
     },
     likes: {
-        margin: '0 8px',
+        margin: '0 10px 0 0',
         color: colors.darkGrey,
         fontSize: '12px',
         lineHeight: '14px',
@@ -150,11 +149,11 @@ class Interpretation extends Component {
             this.props.interpretation.likedBy.length === 1 ? 'like' : 'likes';
 
         const thumbsUpIcon = this.userLikesInterpretation()
-            ? Object.assign({}, style.icon, { fill: colors.accentLightGreen })
+            ? Object.assign({}, style.icon, { fill: colors.lightGreen })
             : style.icon;
         const likeText = this.userLikesInterpretation()
-            ? t('You like this')
-            : t('Like');
+            ? i18n.t('You like this')
+            : i18n.t('Like');
 
         const canDeleteInterpretation = () =>
             this.userIsOwner(this.props.interpretation.user.id) ||
@@ -163,7 +162,15 @@ class Interpretation extends Component {
 
         return (
             <div>
-                <a href={this.state.visualizerHref} style={{ height: 16 }}>
+                <a
+                    href={this.state.visualizerHref}
+                    style={{
+                        height: 16,
+                        color: '#494949',
+                        fontSize: '12px',
+                        marginRight: '10px',
+                    }}
+                >
                     <SvgIcon style={style.icon} icon="Launch" />
                     View in Visualizer
                 </a>
@@ -172,7 +179,7 @@ class Interpretation extends Component {
                     onClick={this.showCommentField}
                 >
                     <SvgIcon style={style.icon} icon="Reply" />
-                    <Trans>Reply</Trans>
+                    {i18n.t('Reply')}
                 </button>
                 <button
                     className={actionButtonClass}
@@ -249,11 +256,13 @@ class Interpretation extends Component {
                 </div>
                 {this.renderComments()}
                 {this.state.showCommentField ? (
-                    <InputField
-                        placeholder={t('Write your reply')}
-                        onPost={this.postComment}
-                        postText={t('Reply')}
-                    />
+                    <div style={{ marginLeft: '37px' }}>
+                        <InputField
+                            placeholder={i18n.t('Add your reply')}
+                            onPost={this.postComment}
+                            postText={i18n.t('Reply')}
+                        />
+                    </div>
                 ) : null}
             </div>
         );
