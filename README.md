@@ -49,9 +49,9 @@ The dashboards-app uses the d2 library for communicating with the DHIS2 api. And
 
 #### Local deployment
 
-The instructions here assume a good understanding of building DHIS2 locally.
+In order to test the build of the dashboards-app (rather than just the dev server), deploy it to your local dhis2 build. The instructions here assume a good understanding of building DHIS2 locally.
 
-Build the dashboards-app locally
+From the root of the dashboards-app, build the dashboards-app locally
 
 ```
 yarn build
@@ -60,19 +60,25 @@ yarn build
 Then copy the contents of the /build folder to your .m2 directory. Then run:
 
 ```
-mvn install -o
+mvn install
+```
+
+Navigate to your local dhis2 repo, dhis-web-apps directory. Then run
+
+```
+mvn clean install -o
 ```
 
 #### Deploy to production
 
-To deploy a build for an existing version, e.g., 2.29 do the following:
+Every commit to master is automatically deployed. To deploy a build to an older dashboards-app version, e.g., 2.29, a tag needs to be created. Do the following:
 
 ```
-git checkout master
+git checkout 2.29
 git pull
-yarn version (interactive, will ask you for a new version number, eg. 29.0.21)
+yarn version (interactive, will ask you for a new version number, eg. 29.0.22)
 git push origin master
-git push origin v29.0.21
+git push origin v29.0.22 (pushes the v29.0.22 tag)
 ```
 
-To deploy a major upgrade, it is necessary to branch the current version, and update the pom.xml. Details of this will be provided elsewhere.
+To deploy a major upgrade, it is necessary to branch the current version, and update the pom.xml on master. Details of this will be provided elsewhere.
