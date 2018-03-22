@@ -63,9 +63,7 @@ Then copy the contents of the /build folder to your .m2 directory. Then run:
 mvn install -o
 ```
 
-#### Sonatype (for production releases)
-
-When deploying the dashboards-app for DHIS2 production releases, the build is pushed to Sonatype, which builds a jar artifact, and DHIS2 picks it up from there. The dashboards-app contains a [pom.xml](pom.xml) file.
+#### Deploy to production
 
 To deploy a build for an existing version, e.g., 2.29 do the following:
 
