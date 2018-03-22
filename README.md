@@ -65,11 +65,16 @@ mvn install -o
 
 #### Sonatype (for production releases)
 
-When deploying the dashboards-app for DHIS2 production releases, the build is pushed to Sonatype, which builds a jar artifact, and DHIS2 picks it up from there. The dashboards-app contains a [pom.xml](pom.xml) file. When it is time for release of a new version (example 2.29 below), do the following:
+When deploying the dashboards-app for DHIS2 production releases, the build is pushed to Sonatype, which builds a jar artifact, and DHIS2 picks it up from there. The dashboards-app contains a [pom.xml](pom.xml) file.
 
-1. Checkout master branch and git pull to get the latest. `git checkout master && git pull`
-2. In pom.xml, update the **version** property to 2.29-SNAPSHOT. (Always include "-SNAPSHOT").
-3. Commit and push to master.
-4. Still on master, create a git tag: `git tag v29.0.0`
-5. Push the new tag `git push origin v29.0.0`
-6. Travis will detect the new tag and do a fresh build and deploy to Sonatype.
+To deploy a build for an existing version, e.g., 2.29 do the following:
+
+```
+git checkout master
+git pull
+yarn version (interactive, will ask you for a new version number, eg. 29.0.21)
+git push origin master
+git push origin v29.0.21
+```
+
+To deploy a major upgrade, it is necessary to branch the current version, and update the pom.xml. Details of this will be provided elsewhere.
