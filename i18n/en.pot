@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-03-20T12:11:04.439Z\n"
-"PO-Revision-Date: 2018-03-20T12:11:04.440Z\n"
+"POT-Creation-Date: 2018-03-27T17:02:00.816Z\n"
+"PO-Revision-Date: 2018-03-27T17:02:00.816Z\n"
 
 msgid "Delete"
 msgstr ""
@@ -65,7 +65,7 @@ msgstr ""
 msgid "Spacer"
 msgstr ""
 
-msgid "Use a spacer to create empty vertical space between other dashboard items"
+msgid "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
 
 msgid "Text item"
@@ -89,7 +89,7 @@ msgstr ""
 msgid "more"
 msgstr ""
 
-msgid "No dashboards found"
+msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
 
 msgid "Add title here"

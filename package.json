@@ -41,13 +41,14 @@
         "html-webpack-plugin": "2.29.0",
         "i18next": "^10.3.0",
         "immutability-helper": "^2.6.3",
-        "jest": "20.0.4",
+        "jest": "^22.4.3",
         "jsdoc": "^3.5.5",
         "lint-staged": "^7.0.0",
         "material-ui": "^0.20.0",
         "object-assign": "4.1.1",
         "postcss-flexbugs-fixes": "3.2.0",
         "postcss-loader": "2.0.8",
+        "postcss-rtl": "^1.2.3",
         "prettier": "^1.11.1",
         "promise": "8.0.1",
         "prop-types": "^15.6.1",
@@ -167,6 +168,7 @@
         "d2-i18n-generate": "^1.x",
         "enzyme-adapter-react-16": "^1.1.1",
         "husky": "^0.15.0-rc.12",
+        "jest-cli": "^22.4.3",
         "jest-enzyme": "^6.0.0"
     }
 }
