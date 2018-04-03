@@ -1,0 +1,172 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-20 09:24+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: lo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 2.2.5\n"
+"X-Pootle-Path: /lo/dashboards-app/lo.po\n"
+"X-Pootle-Revision: 29458\n"
+
+msgid "Delete"
+msgstr "ລຶບ"
+
+msgid "Continue editing"
+msgstr "ດຳເນີນການແກ້ໄຂ"
+
+msgid "Confirm delete dashboard"
+msgstr "ຢືນຢັນລຶບກະດານຂ່າວ"
+
+msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
+msgstr "ທ່ານຕ້ອງການລຶບກະດານຂ່າວແທ້ບໍ \"{{ dashboardName }}\"?"
+
+msgid "Save changes"
+msgstr "ບັນທຶກ"
+
+msgid "Translate"
+msgstr "ແປພາສາ"
+
+msgid "Exit without saving"
+msgstr "ອອກໂດຍບໍ່ບັນທຶກ"
+
+msgid "Search for a dashboard"
+msgstr "ຄົນຫາກະດານຂ່າວ"
+
+msgid "Show less"
+msgstr "ສະແດງໜ້ອຍ"
+
+msgid "Show more"
+msgstr "ສະແດງຫຼາຍ"
+
+msgid "Home"
+msgstr "ໜ້າຫຼັກ"
+
+msgid "Manage dashboards"
+msgstr "ຈັດການກະດານຂ່າວ"
+
+msgid "Loading dashboards"
+msgstr "ກຳລັງໂຫຼດກະດານຂ່າວ"
+
+msgid "Starred"
+msgstr "ຕິດດາວ"
+
+msgid "Name"
+msgstr "ຊື່"
+
+msgid "Items"
+msgstr "ລາຍການ"
+
+msgid "Owner"
+msgstr "ເຈົ້າຂອງ"
+
+msgid "Created"
+msgstr "ສ້າງ"
+
+msgid "Modified"
+msgstr "ແກ້ໄຂ"
+
+msgid "All"
+msgstr "ທ່ັງໝົດ"
+
+msgid "Unread"
+msgstr "ບໍ່ທັນໄດ້ອ່ານ"
+
+msgid "Messages"
+msgstr "ຂໍ້ຄວາມ"
+
+msgid "You like this"
+msgstr "ເຈົົ້າມັກສິ່ງນີ້"
+
+msgid "Like"
+msgstr "ມັກ"
+
+msgid "Reply"
+msgstr "ຕອບກັບ"
+
+msgid "Add your reply"
+msgstr "ເພີ້ມຕອບກັບ"
+
+msgid "Add your interpretation"
+msgstr "ເພີ້ມອະທິບາຍ"
+
+msgid "Spacer"
+msgstr "ເວັນວັກ"
+
+msgid ""
+"Use a spacer to create empty vertical space between other dashboard items"
+msgstr "ໃຊ້ເວັ້ນວັກໃນການກຳນົດໄລຍະຫ່າງຂອງລາຍການໃນກະດານຂ່າວ"
+
+msgid "Text item"
+msgstr "ລາຍການທີ່ເປັນໜັງສື"
+
+msgid "Add text here"
+msgstr "ເພີ້ມໜັງສືບ່ອນນີ້"
+
+msgid "There are no items on this dashboard"
+msgstr "ບໍ່່ທັນມີລາຍການໃນກະດານຂ່າວນີ້"
+
+msgid "Search for items to add to this dashboard"
+msgstr "ຄົ້ນຫາລາຍການແລະບັນທຶກລົງກະດານຂ່າວ"
+
+msgid "See"
+msgstr "ເຫັນ"
+
+msgid "fewer"
+msgstr "ໜ້ອຍລົງ"
+
+msgid "more"
+msgstr "ຫຼາຍຂື້ນ"
+
+msgid "No dashboards found"
+msgstr "ບໍ່ພົບກະດານຂ່າວ"
+
+msgid "Add title here"
+msgstr "ເພີ້ມໜ້ອຍໜື່ງບ່ອນນີ້"
+
+msgid "Add description here"
+msgstr "ເພີ້ມອະທິບາຍ"
+
+msgid "No description"
+msgstr "ບໍ່ມີຄຳອະທິບາຍ"
+
+msgid "Pivot tables"
+msgstr "ຕາຕະລາງຂໍ້ມູນ"
+
+msgid "Pivot Tables"
+msgstr "ຕາຕະລາງຂໍ້ມູນ"
+
+msgid "Charts"
+msgstr "ແຜນວາດຂໍ້ມູນ"
+
+msgid "Visualizer"
+msgstr "ການສ້າງແຜນວາດ"
+
+msgid "Maps"
+msgstr "ແຜນທີ່"
+
+msgid "Event reports"
+msgstr "ບົດລາຍງານເຫດການຕ່າງໆ"
+
+msgid "Event Reports"
+msgstr "ບົດລາຍງານເຫດການຕ່າງໆ"
+
+msgid "Event charts"
+msgstr "ບົດລາຍງານເຫດການແບບແຜ່ນວາດ"
+
+msgid "Event Visualizer"
+msgstr "ບົດລາຍງານເຫດການແບບຮູບພາຍ"
+
+msgid "Reports"
+msgstr "ລາຍງານ"
+
+msgid "Resources"
+msgstr "ແຫຼ່ງ"
+
+msgid "Users"
+msgstr "ຜູ້ໃຊ້"
