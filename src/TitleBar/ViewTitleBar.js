@@ -171,6 +171,7 @@ const mapStateToProps = state => {
 
     return {
         selectedDashboard,
+        dashboardItems: fromReducers.sGetCurrentDashboardItems(state),
         showDescription: fromReducers.fromSelected.sGetSelectedShowDescription(
             state
         ),
@@ -195,7 +196,12 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
                 )
             ),
         onEditClick: () => {
-            dispatch(fromEditDashboard.acSetEditDashboard(selectedDashboard));
+            dispatch(
+                fromEditDashboard.acSetEditDashboard(
+                    selectedDashboard,
+                    stateProps.dashboardItems
+                )
+            );
         },
         onInfoClick: () =>
             dispatch(

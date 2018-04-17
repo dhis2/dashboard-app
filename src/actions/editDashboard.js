@@ -19,10 +19,26 @@ const onError = error => {
 
 // actions
 
-export const acSetEditDashboard = value => ({
-    type: actionTypes.RECEIVED_EDIT_DASHBOARD,
-    value,
-});
+export const acSetEditDashboard = (dashboard, items) => {
+    console.log('dashboard, items', dashboard, items);
+    const val = {
+        ...dashboard,
+        dashboardItems: items,
+    };
+    console.log('val', val);
+    return {
+        type: actionTypes.RECEIVED_EDIT_DASHBOARD,
+        value: val,
+    };
+};
+
+// export const acSetEditDashboard = (dashboard, items) => ({
+//     type: actionTypes.RECEIVED_EDIT_DASHBOARD,
+//     value: {
+//         ...dashboard,
+//         dashboardItems: items,
+//     },
+// });
 
 export const acSetEditNewDashboard = () => ({
     type: actionTypes.START_NEW_DASHBOARD,
@@ -96,7 +112,7 @@ export const tSaveDashboard = () => async (dispatch, getState) => {
         ...dashboard,
         dashboardItems,
     };
-    console.log('dashboardToSave', dashboardToSave);
+
     try {
         const selectedId = dashboardToSave.id
             ? await updateDashboard(dashboardToSave)
