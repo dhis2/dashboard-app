@@ -1,6 +1,7 @@
 /** @module reducers/dashboards */
 
 import arrayFrom from 'd2-utilizr/lib/arrayFrom';
+import arraySort from 'd2-utilizr/lib/arraySort';
 import { orArray, orObject } from '../util';
 import {
     SPACER,
@@ -121,28 +122,45 @@ export const sGetItems = state => sGetFromState(state).items;
 // selector level 2
 
 /**
- * Selector which returns starred dashboards
+ * Generic selector which returns filtered dashboards
  *
  * @function
  * @param {Object} state The current state
+ * @param {Object} propName The name of the filter prop
+ * @param {Object} value The value of the filter prop
  * @returns {Array}
  */
-export const sGetStarredDashboards = state =>
+const sGetDashboardsByProp = (state, propName, value) =>
     Object.values(orObject(sGetById(state))).filter(
-        dashboard => dashboard.starred === true
+        dashboard => dashboard[propName] === value
     );
 
 // selector level 3
 
-/**
- * Selector which returns starred dashboard ids
- *
- * @function
- * @param {Object} state The current state
- * @returns {Array}
- */
-export const sGetStarredDashboardIds = state =>
-    sGetStarredDashboards(state).map(dashboard => dashboard.id);
+export const sGetStarredDashboards = state =>
+    sGetDashboardsByProp(state, 'starred', true);
+
+export const sGetUnstarredDashboards = state =>
+    sGetDashboardsByProp(state, 'starred', false);
+
+// selector level 4
+
+export const sGetStarredDashboardIds = state => {
+    return sGetStarredDashboards(state).map(dashboard => dashboard.id);
+};
+
+export const sGetUnstarredDashboardIds = state =>
+    sGetUnstarredDashboards(state).map(dashboard => dashboard.id);
+
+// selector level 5
+
+export const sGetSortedDashboards = state =>
+    [].concat(
+        arraySort(sGetStarredDashboards(state)),
+        arraySort(sGetUnstarredDashboardIds(state))
+    );
+
+// utils
 
 /**
  * Returns the array of dashboards, customized for ui

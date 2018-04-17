@@ -186,9 +186,7 @@ const mapDispatchToProps = {
 };
 
 const mergeProps = (stateProps, dispatchProps) => {
-    console.log('stateProps.dashboardItems', stateProps.dashboardItems);
     const validItems = orArray(stateProps.dashboardItems).filter(hasShape);
-    console.log('validItems', validItems);
 
     return {
         ...dispatchProps,

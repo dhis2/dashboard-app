@@ -3,7 +3,9 @@ import {
     getCustomDashboards,
     sGetStarredDashboardIds,
     sGetById,
-    sGetFromState,
+    sGetFirstStarredDashboardId,
+    sGetUnstarredDashboardIds,
+    sGetSortedDashboards,
 } from '../reducers/dashboards';
 import { sGetUsername } from '../reducers/user';
 import { tSetSelectedDashboardById } from './selected';
@@ -50,19 +52,16 @@ export const acSetDashboardItems = value => ({
 export const tSetDashboards = () => async (dispatch, getState) => {
     const onSuccess = () => {
         const state = getState();
-
-        const preferredDashboard = sGetById(
-            state,
-            getPreferredDashboardId(sGetUsername(state))
+        const preferredDashboardId = getPreferredDashboardId(
+            sGetUsername(state)
         );
 
-        const dashboardId = preferredDashboard
-            ? preferredDashboard.id
-            : sGetStarredDashboardIds(state)[0] ||
-              Object.keys(sGetFromState(state))[0];
+        const dashboardToSelect = preferredDashboardId
+            ? sGetById(state, preferredDashboardId)
+            : sGetSortedDashboards(state)[0];
 
-        if (dashboardId) {
-            dispatch(tSetSelectedDashboardById(dashboardId));
+        if (dashboardToSelect) {
+            dispatch(tSetSelectedDashboardById(dashboardToSelect.id));
         }
     };
 
