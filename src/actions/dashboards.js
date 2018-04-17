@@ -1,10 +1,7 @@
 import { actionTypes } from '../reducers';
 import {
     getCustomDashboards,
-    sGetStarredDashboardIds,
     sGetById,
-    sGetFirstStarredDashboardId,
-    sGetUnstarredDashboardIds,
     sGetSortedDashboards,
 } from '../reducers/dashboards';
 import { sGetUsername } from '../reducers/user';
