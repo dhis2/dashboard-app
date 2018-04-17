@@ -96,7 +96,7 @@ export const tSaveDashboard = () => async (dispatch, getState) => {
         ...dashboard,
         dashboardItems,
     };
-
+    console.log('dashboardToSave', dashboardToSave);
     try {
         const selectedId = dashboardToSave.id
             ? await updateDashboard(dashboardToSave)

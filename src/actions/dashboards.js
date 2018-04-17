@@ -18,14 +18,18 @@ import { arrayToIdMap } from '../util';
 
 // actions
 
-export const acSetDashboards = (dashboards, append) => ({
+export const acSetDashboards = dashboards => ({
     type: actionTypes.SET_DASHBOARDS,
-    append: !!append,
     value: arrayToIdMap(getCustomDashboards(dashboards)),
 });
 
-export const acStarDashboard = (dashboardId, isStarred) => ({
-    type: actionTypes.STAR_DASHBOARD,
+export const acAppendDashboards = dashboards => ({
+    type: actionTypes.APPEND_DASHBOARDS,
+    value: arrayToIdMap(getCustomDashboards(dashboards)),
+});
+
+export const acSetDashboardStarred = (dashboardId, isStarred) => ({
+    type: actionTypes.SET_DASHBOARD_STARRED,
     dashboardId: dashboardId,
     value: isStarred,
 });
@@ -33,6 +37,11 @@ export const acStarDashboard = (dashboardId, isStarred) => ({
 export const acSetDashboardDisplayName = (dashboardId, value) => ({
     type: actionTypes.SET_DASHBOARD_DISPLAY_NAME,
     dashboardId,
+    value,
+});
+
+export const acSetDashboardItems = value => ({
+    type: actionTypes.SET_DASHBOARD_ITEMS,
     value,
 });
 
@@ -74,7 +83,7 @@ export const tSetDashboards = () => async (dispatch, getState) => {
 
 export const tStarDashboard = (id, isStarred) => async (dispatch, getState) => {
     const onSuccess = id => {
-        dispatch(acStarDashboard(id, isStarred));
+        dispatch(acSetDashboardStarred(id, isStarred));
         return id;
     };
 

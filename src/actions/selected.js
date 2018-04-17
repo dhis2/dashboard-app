@@ -1,6 +1,6 @@
 import { actionTypes } from '../reducers';
 import { apiFetchSelected } from '../api/dashboards';
-import { acSetDashboards } from './dashboards';
+import { acSetDashboardItems } from './dashboards';
 import { withShape } from '../ItemGrid/gridUtil';
 import { tGetMessages } from '../Item/MessagesItem/actions';
 import { acReceivedSnackbarMessage, acCloseSnackbar } from './snackbar';
@@ -77,13 +77,6 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
     }, 500);
 
     const onSuccess = selected => {
-        const dashboard = {
-            ...selected,
-            dashboardItems: withShape(selected.dashboardItems),
-        };
-
-        dispatch(acSetDashboards(dashboard, true));
-
         storePreferredDashboardId(fromUser.sGetUsername(getState()), id);
 
         // add visualizations to store
@@ -108,6 +101,9 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
                     break;
             }
         });
+
+        // set dashboard items
+        dispatch(acSetDashboardItems(withShape(selected.dashboardItems)));
 
         // set selected dashboard
         dispatch(acSetSelectedId(id));
