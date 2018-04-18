@@ -1,6 +1,6 @@
 import { actionTypes } from '../reducers';
 import { apiFetchSelected } from '../api/dashboards';
-import { acSetDashboardItems } from './dashboards';
+import { acSetDashboardItems, acAppendDashboards } from './dashboards';
 import { withShape } from '../ItemGrid/gridUtil';
 import { tGetMessages } from '../Item/MessagesItem/actions';
 import { acReceivedSnackbarMessage, acCloseSnackbar } from './snackbar';
@@ -77,6 +77,13 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
     }, 500);
 
     const onSuccess = selected => {
+        // set dashboard items
+        dispatch(acSetDashboardItems(withShape(selected.dashboardItems)));
+
+        // add dashboard
+        dispatch(acAppendDashboards(selected));
+
+        // store preferred dashboard
         storePreferredDashboardId(fromUser.sGetUsername(getState()), id);
 
         // add visualizations to store
@@ -102,15 +109,14 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
             }
         });
 
-        // set dashboard items
-        dispatch(acSetDashboardItems(withShape(selected.dashboardItems)));
-
         // set selected dashboard
         dispatch(acSetSelectedId(id));
 
         // remove loading indicator
         dispatch(acSetSelectedIsLoading(false));
+
         clearTimeout(snackbarTimeout);
+
         dispatch(acCloseSnackbar());
 
         return selected;

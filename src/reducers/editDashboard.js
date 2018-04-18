@@ -108,9 +108,7 @@ export const sGetEditDashboard = state => state.editDashboard;
 
 // selectors
 
-export const sGetIsEditing = state => {
-    return !isEmpty(state.editDashboard);
-};
+export const sGetIsEditing = state => !isEmpty(state.editDashboard);
 
 export const sGetEditDashboardItems = state =>
     orObject(sGetEditDashboard(state)).dashboardItems;

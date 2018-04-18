@@ -216,6 +216,16 @@ Item.contextTypes = {
     d2: PropTypes.object,
 };
 
+Item.propTypes = {
+    itemFilter: PropTypes.object,
+    visualization: PropTypes.object,
+};
+
+Item.defaultProps = {
+    itemFilter: {},
+    visualization: {},
+};
+
 const mapStateToProps = (state, ownProps) => ({
     itemFilter: fromItemFilter.sGetFromState(state),
     visualization: sGetVisualization(

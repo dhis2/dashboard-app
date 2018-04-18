@@ -20,12 +20,11 @@ const onError = error => {
 // actions
 
 export const acSetEditDashboard = (dashboard, items) => {
-    console.log('dashboard, items', dashboard, items);
     const val = {
         ...dashboard,
         dashboardItems: items,
     };
-    console.log('val', val);
+
     return {
         type: actionTypes.RECEIVED_EDIT_DASHBOARD,
         value: val,
