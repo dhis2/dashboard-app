@@ -6,8 +6,6 @@ import ItemHeader from '../ItemHeader';
 import Line from '../../widgets/Line';
 import TextField from 'd2-ui/lib/text-field/TextField';
 import { acUpdateDashboardItem } from '../../actions/editDashboard';
-import { sGetSelectedDashboard } from '../../reducers';
-import { orArray } from '../../util';
 import { sGetItems } from '../../reducers/dashboards';
 
 const style = {
