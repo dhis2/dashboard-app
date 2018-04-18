@@ -12,6 +12,7 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const fs = require('fs');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+const parse = require('url-parse');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -52,6 +53,7 @@ const globals = Object.assign(
 );
 
 const scriptPrefix = dhisConfig.baseUrl;
+const pathnamePrefix = parse(scriptPrefix).pathname;
 
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
@@ -257,7 +259,7 @@ module.exports = {
             inject: true,
             template: paths.appHtml,
             vendorScripts: [
-                `./dhis-web-core-resource/fonts/roboto.css`,
+                `.${pathnamePrefix}/dhis-web-core-resource/fonts/roboto.css`,
                 `${scriptPrefix}/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.js`,
                 `${scriptPrefix}/dhis-web-core-resource/react/16.2.0/umd/react.development.js`,
                 `${scriptPrefix}/dhis-web-core-resource/react-dom/16.2.0/umd/react-dom.development.js`,
