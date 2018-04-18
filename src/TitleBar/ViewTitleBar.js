@@ -183,6 +183,7 @@ const mapStateToProps = state => {
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const selectedDashboard = orObject(stateProps.selectedDashboard);
+    const { starred, dashboardItems, showDescription } = stateProps;
     const { dispatch } = dispatchProps;
 
     return {
@@ -190,24 +191,19 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         ...ownProps,
         onStarClick: () =>
             dispatch(
-                fromDashboards.tStarDashboard(
-                    selectedDashboard.id,
-                    !stateProps.starred
-                )
+                fromDashboards.tStarDashboard(selectedDashboard.id, !starred)
             ),
         onEditClick: () => {
             dispatch(
                 fromEditDashboard.acSetEditDashboard(
                     selectedDashboard,
-                    stateProps.dashboardItems
+                    dashboardItems
                 )
             );
         },
         onInfoClick: () =>
             dispatch(
-                fromSelected.acSetSelectedShowDescription(
-                    !stateProps.showDescription
-                )
+                fromSelected.acSetSelectedShowDescription(!showDescription)
             ),
     };
 };
