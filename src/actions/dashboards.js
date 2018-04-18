@@ -53,9 +53,10 @@ export const tSetDashboards = () => async (dispatch, getState) => {
             sGetUsername(state)
         );
 
-        const dashboardToSelect = preferredDashboardId
-            ? sGetById(state, preferredDashboardId)
-            : sGetSortedDashboards(state)[0];
+        const preferredDashboard = sGetById(state, preferredDashboardId);
+
+        const dashboardToSelect =
+            preferredDashboard || sGetSortedDashboards(state)[0];
 
         if (dashboardToSelect) {
             dispatch(tSetSelectedDashboardById(dashboardToSelect.id));
