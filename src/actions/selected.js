@@ -16,6 +16,7 @@ import {
     MESSAGES,
 } from '../itemTypes';
 import { extractFavorite } from '../Item/PluginItem/plugin';
+import { getCustomDashboards } from '../reducers/dashboards';
 
 // actions
 
@@ -77,8 +78,12 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
     }, 500);
 
     const onSuccess = selected => {
+        const customDashboard = getCustomDashboards(selected)[0];
+
         // set dashboard items
-        dispatch(acSetDashboardItems(withShape(selected.dashboardItems)));
+        dispatch(
+            acSetDashboardItems(withShape(customDashboard.dashboardItems))
+        );
 
         // add dashboard
         dispatch(acAppendDashboards(selected));
@@ -87,7 +92,7 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
         storePreferredDashboardId(fromUser.sGetUsername(getState()), id);
 
         // add visualizations to store
-        selected.dashboardItems.forEach(item => {
+        customDashboard.dashboardItems.forEach(item => {
             switch (item.type) {
                 case REPORT_TABLE:
                 case CHART:
