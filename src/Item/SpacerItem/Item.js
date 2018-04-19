@@ -3,9 +3,10 @@ import i18n from 'd2-i18n';
 import ItemHeader from '../ItemHeader';
 
 const style = {
-    margin: '10px',
-    fontSize: '15px',
+    margin: '21px 28px',
+    fontSize: '14px',
     lineHeight: '18px',
+    color: '#666',
 };
 
 const SpacerItem = () => {
