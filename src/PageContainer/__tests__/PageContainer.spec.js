@@ -17,29 +17,27 @@ describe('PageContainer', () => {
 
     beforeEach(() => {
         props = {
-            dashboards: undefined,
             edit: undefined,
-            marginTop: 1,
+            dashboardsIsEmpty: undefined,
+            dashboardsIsNull: undefined,
         };
         shallowPageContainer = undefined;
     });
 
     it('renders a div', () => {
-        props.dashboards = ['dashboard1'];
-        props.edit = false;
         expect(pageContainer().find('div').length).toBeGreaterThan(0);
     });
 
-    describe('when dashboards is null', () => {
+    describe('when "dashboardsIsNull" is true', () => {
         it('does not render any children inside the div', () => {
-            props.dashboards = null;
+            props.dashboardsIsNull = true;
             expect(pageContainer().children().length).toBe(0);
         });
     });
 
-    describe('when dashboards is an empty array', () => {
+    describe('when "dashboardsIsEmpty" is true', () => {
         beforeEach(() => {
-            props.dashboards = [];
+            props.dashboardsIsEmpty = true;
         });
 
         describe('when not in edit mode', () => {
@@ -66,9 +64,9 @@ describe('PageContainer', () => {
         });
     });
 
-    describe('when dashboards is an array with values', () => {
+    describe('when "dashboardsIsEmpty" is false', () => {
         it('renders a Titlebar and ItemGrid', () => {
-            props.dashboards = ['dashboard1'];
+            props.dashboardsIsEmpty = false;
             const children = pageContainer().children();
 
             expect(children.length).toBe(1);

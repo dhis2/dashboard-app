@@ -152,7 +152,7 @@ export class DashboardsBar extends Component {
 }
 
 const mapStateToProps = state => ({
-    dashboards: fromReducers.fromDashboards.sGetFromState(state),
+    dashboards: fromReducers.fromDashboards.sGetById(state),
     name: fromReducers.fromDashboardsFilter.sGetFilterName(state),
     userRows: (state.controlBar && state.controlBar.userRows) || MIN_ROW_COUNT,
     selectedId: sGetSelectedId(state),

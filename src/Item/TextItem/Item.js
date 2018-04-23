@@ -6,7 +6,7 @@ import ItemHeader from '../ItemHeader';
 import Line from '../../widgets/Line';
 import TextField from 'd2-ui/lib/text-field/TextField';
 import { acUpdateDashboardItem } from '../../actions/editDashboard';
-import { sGetSelectedDashboard } from '../../reducers';
+import { sGetCurrentDashboardItems } from '../../reducers';
 
 const style = {
     textDiv: {
@@ -72,14 +72,13 @@ const TextItem = props => {
     return <Fragment>{editMode ? editItem() : viewItem()}</Fragment>;
 };
 
-export default connect(
-    (state, ownProps) => ({
-        text:
-            sGetSelectedDashboard(state).dashboardItems.find(
-                item => item.id === ownProps.item.id
-            ).text || '',
-    }),
-    {
-        acUpdateDashboardItem,
-    }
-)(TextItem);
+const mapStateToProps = (state, ownProps) => ({
+    text:
+        sGetCurrentDashboardItems(state).find(
+            item => item.id === ownProps.item.id
+        ).text || '',
+});
+
+export default connect(mapStateToProps, {
+    acUpdateDashboardItem,
+})(TextItem);

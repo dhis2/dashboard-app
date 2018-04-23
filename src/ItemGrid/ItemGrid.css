@@ -42,6 +42,12 @@
     user-select: none;
 }
 
+/* react-resizable */
+
+.react-resizable-handle {
+    background: none;
+}
+
 /* dashboard item - header */
 
 .dashboard-item-header {

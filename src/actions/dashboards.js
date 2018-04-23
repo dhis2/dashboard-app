@@ -1,9 +1,8 @@
 import { actionTypes } from '../reducers';
 import {
     getCustomDashboards,
-    sGetStarredDashboardIds,
     sGetById,
-    sGetFromState,
+    sGetSortedDashboards,
 } from '../reducers/dashboards';
 import { sGetUsername } from '../reducers/user';
 import { tSetSelectedDashboardById } from './selected';
@@ -18,14 +17,18 @@ import { arrayToIdMap } from '../util';
 
 // actions
 
-export const acSetDashboards = (dashboards, append) => ({
+export const acSetDashboards = dashboards => ({
     type: actionTypes.SET_DASHBOARDS,
-    append: !!append,
     value: arrayToIdMap(getCustomDashboards(dashboards)),
 });
 
-export const acStarDashboard = (dashboardId, isStarred) => ({
-    type: actionTypes.STAR_DASHBOARD,
+export const acAppendDashboards = dashboards => ({
+    type: actionTypes.APPEND_DASHBOARDS,
+    value: arrayToIdMap(getCustomDashboards(dashboards)),
+});
+
+export const acSetDashboardStarred = (dashboardId, isStarred) => ({
+    type: actionTypes.SET_DASHBOARD_STARRED,
     dashboardId: dashboardId,
     value: isStarred,
 });
@@ -36,24 +39,28 @@ export const acSetDashboardDisplayName = (dashboardId, value) => ({
     value,
 });
 
+export const acSetDashboardItems = value => ({
+    type: actionTypes.SET_DASHBOARD_ITEMS,
+    value,
+});
+
 // thunks
 
 export const tSetDashboards = () => async (dispatch, getState) => {
     const onSuccess = () => {
         const state = getState();
-
-        const preferredDashboard = sGetById(
-            state,
-            getPreferredDashboardId(sGetUsername(state))
+        const preferredDashboardId = getPreferredDashboardId(
+            sGetUsername(state)
         );
+        const preferredDashboard = sGetById(state, preferredDashboardId);
 
-        const dashboardId = preferredDashboard
-            ? preferredDashboard.id
-            : sGetStarredDashboardIds(state)[0] ||
-              Object.keys(sGetFromState(state))[0];
+        const dashboardToSelect =
+            preferredDashboardId && preferredDashboard
+                ? preferredDashboard
+                : sGetSortedDashboards(state)[0];
 
-        if (dashboardId) {
-            dispatch(tSetSelectedDashboardById(dashboardId));
+        if (dashboardToSelect) {
+            dispatch(tSetSelectedDashboardById(dashboardToSelect.id));
         }
     };
 
@@ -74,7 +81,7 @@ export const tSetDashboards = () => async (dispatch, getState) => {
 
 export const tStarDashboard = (id, isStarred) => async (dispatch, getState) => {
     const onSuccess = id => {
-        dispatch(acStarDashboard(id, isStarred));
+        dispatch(acSetDashboardStarred(id, isStarred));
         return id;
     };
 
@@ -91,10 +98,10 @@ export const tStarDashboard = (id, isStarred) => async (dispatch, getState) => {
 };
 
 export const tDeleteDashboard = id => async (dispatch, getState) => {
-    const onSuccess = () => {
-        dispatch(acClearEditDashboard());
+    const onSuccess = async () => {
+        await dispatch(tSetDashboards());
 
-        return dispatch(tSetDashboards());
+        return dispatch(acClearEditDashboard());
     };
 
     try {

@@ -1,7 +1,7 @@
 /** @module reducers/editDashboard */
 import update from 'immutability-helper';
 import isEmpty from 'lodash/isEmpty';
-import { orArray } from '../util';
+import { orArray, orObject } from '../util';
 
 export const actionTypes = {
     RECEIVED_EDIT_DASHBOARD: 'RECEIVED_EDIT_DASHBOARD',
@@ -102,9 +102,13 @@ export default (state = DEFAULT_STATE, action) => {
     }
 };
 
-// selectors
+// root selector
+
 export const sGetEditDashboard = state => state.editDashboard;
 
-export const sGetIsEditing = state => {
-    return !isEmpty(state.editDashboard);
-};
+// selectors
+
+export const sGetIsEditing = state => !isEmpty(state.editDashboard);
+
+export const sGetEditDashboardItems = state =>
+    orObject(sGetEditDashboard(state)).dashboardItems;
