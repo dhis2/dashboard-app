@@ -81,6 +81,12 @@ export const sGetSelectedDashboard = state =>
         ? fromEditDashboard.sGetEditDashboard(state)
         : fromDashboards.sGetById(state, fromSelected.sGetSelectedId(state));
 
+// get current dashboard items, normal or edit
+export const sGetCurrentDashboardItems = state =>
+    fromEditDashboard.sGetIsEditing(state)
+        ? fromEditDashboard.sGetEditDashboardItems(state)
+        : fromDashboards.sGetItems(state);
+
 // filter dashboards by name
 export const sFilterDashboardsByName = (dashboards, filter) =>
     dashboards.filter(d =>

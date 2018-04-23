@@ -19,10 +19,17 @@ const onError = error => {
 
 // actions
 
-export const acSetEditDashboard = value => ({
-    type: actionTypes.RECEIVED_EDIT_DASHBOARD,
-    value,
-});
+export const acSetEditDashboard = (dashboard, items) => {
+    const val = {
+        ...dashboard,
+        dashboardItems: items,
+    };
+
+    return {
+        type: actionTypes.RECEIVED_EDIT_DASHBOARD,
+        value: val,
+    };
+};
 
 export const acSetEditNewDashboard = () => ({
     type: actionTypes.START_NEW_DASHBOARD,

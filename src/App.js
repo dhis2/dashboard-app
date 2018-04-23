@@ -9,6 +9,7 @@ import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 import Snackbar from 'material-ui/Snackbar';
 
 import PageContainer from './PageContainer/PageContainer';
+import PageContainerSpacer from './PageContainer/PageContainerSpacer';
 import ControlBarContainer from './ControlBarContainer/ControlBarContainer';
 import SnackbarMessage from './SnackbarMessage';
 
@@ -45,6 +46,7 @@ class App extends Component {
             <div className="app-wrapper">
                 <HeaderBar />
                 <ControlBarContainer />
+                <PageContainerSpacer />
                 <PageContainer />
                 <Snackbar
                     open={this.props.snackbarOpen}

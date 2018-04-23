@@ -1,7 +1,8 @@
 /** @module reducers/dashboards */
 
 import arrayFrom from 'd2-utilizr/lib/arrayFrom';
-import { orArray, orNull, orObject } from '../util';
+import arraySort from 'd2-utilizr/lib/arraySort';
+import { orArray, orObject } from '../util';
 import {
     SPACER,
     isSpacerType,
@@ -9,23 +10,31 @@ import {
     emptyTextItemContent,
 } from '../itemTypes';
 
-/**
- * Action types for the dashboard reducer
- * @constant
- * @type {Object}
- */
 export const actionTypes = {
     SET_DASHBOARDS: 'SET_DASHBOARDS',
-    STAR_DASHBOARD: 'STAR_DASHBOARD',
+    APPEND_DASHBOARDS: 'APPEND_DASHBOARDS',
+    SET_DASHBOARD_STARRED: 'SET_DASHBOARD_STARRED',
     SET_DASHBOARD_DISPLAY_NAME: 'SET_DASHBOARD_DISPLAY_NAME',
+    SET_DASHBOARD_ITEMS: 'SET_DASHBOARD_ITEMS',
 };
 
-/**
- * The default list of dashboards
- * @constant
- * @type {Array}
- */
-export const DEFAULT_DASHBOARDS = null;
+export const DEFAULT_DASHBOARDS = {
+    byId: null,
+    items: [],
+};
+
+// reducer helper functions
+
+const updateDashboardProp = (state, dashboardId, prop, value) => ({
+    byId: {
+        ...state.byId,
+        [dashboardId]: {
+            ...state.byId[dashboardId],
+            [prop]: value,
+        },
+    },
+    items: state.items,
+});
 
 /**
  * Reducer that computes and returns the new state based on the given action
@@ -38,26 +47,39 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDS: {
             return {
-                ...(action.append ? orObject(state) : {}),
-                ...action.value,
+                byId: action.value,
+                items: [],
             };
         }
-        case actionTypes.STAR_DASHBOARD: {
+        case actionTypes.APPEND_DASHBOARDS: {
             return {
                 ...state,
-                [action.dashboardId]: {
-                    ...state[action.dashboardId],
-                    starred: action.value,
+                byId: {
+                    ...state.byId,
+                    ...action.value,
                 },
             };
+        }
+        case actionTypes.SET_DASHBOARD_STARRED: {
+            return updateDashboardProp(
+                state,
+                action.dashboardId,
+                'starred',
+                action.value
+            );
         }
         case actionTypes.SET_DASHBOARD_DISPLAY_NAME: {
+            return updateDashboardProp(
+                state,
+                action.dashboardId,
+                'displayName',
+                action.value
+            );
+        }
+        case actionTypes.SET_DASHBOARD_ITEMS: {
             return {
                 ...state,
-                [action.dashboardId]: {
-                    ...state[action.dashboardId],
-                    displayName: action.value,
-                },
+                items: action.value,
             };
         }
         default:
@@ -65,38 +87,80 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
     }
 };
 
-// selectors
+// root selector
+
+export const sGetFromState = state => state.dashboards;
+
+// selector level 1
 
 /**
- * Selector which returns dashboards from the state object
- * If state.dashboards is null, then the dashboards api request
- * has not yet completed. If state.dashboards is an empty object
- * then the dashboards api request is complete, and there are no
- * dashboards
+ * Selector which returns dashboards by id from the state object
+ * If no id is provided it returns all dashboards
+ * If no matching dashboard is found it returns undefined
+ * If dashboards.byId is null, then the dashboards api request
+ * has not yet completed. If dashboards.byId is an empty object
+ * then the dashboards api request is complete, and no dashboards
+ * were returned
+ *
+ * @function
+ * @param {Object} state The current state
+ * @param {Number} id The id of the dashboard
+ * @returns {Object | undefined}
+ */
+export const sGetById = (state, id) =>
+    id ? sGetFromState(state).byId[id] : sGetFromState(state).byId;
+
+/**
+ * Selector which returns the current dashboard items
  *
  * @function
  * @param {Object} state The current state
  * @returns {Array}
  */
-export const sGetFromState = state => state.dashboards;
+export const sGetItems = state => sGetFromState(state).items;
+
+// selector level 2
 
 /**
- * Returns a dashboard based on id, from the state object.
- * If no matching dashboard is found, then undefined is returned
+ * Generic selector which returns filtered dashboards
+ *
  * @function
  * @param {Object} state The current state
- * @param {number} id The id of the dashboard to retrieve
- * @returns {Object|undefined}
+ * @param {Object} propName The name of the filter prop
+ * @param {Object} value The value of the filter prop
+ * @returns {Array}
  */
-export const sGetById = (state, id) =>
-    orNull(orObject(sGetFromState(state))[id]);
+const sGetDashboardsByProp = (state, propName, value) =>
+    Object.values(orObject(sGetById(state))).filter(
+        dashboard => dashboard[propName] === value
+    );
+
+// selector level 3
+
+export const sGetStarredDashboards = state =>
+    sGetDashboardsByProp(state, 'starred', true);
+
+export const sGetUnstarredDashboards = state =>
+    sGetDashboardsByProp(state, 'starred', false);
+
+// selector level 4
 
 export const sGetStarredDashboardIds = state => {
-    const dashboards = Object.values(orObject(sGetFromState(state)));
-    return dashboards
-        .filter(dashboard => dashboard.starred === true)
-        .map(starred => starred.id);
+    return sGetStarredDashboards(state).map(dashboard => dashboard.id);
 };
+
+export const sGetUnstarredDashboardIds = state =>
+    sGetUnstarredDashboards(state).map(dashboard => dashboard.id);
+
+// selector level 5
+
+export const sGetSortedDashboards = state =>
+    [].concat(
+        arraySort(sGetStarredDashboards(state), 'ASC', 'displayName'),
+        arraySort(sGetUnstarredDashboardIds(state), 'ASC', 'displayName')
+    );
+
+// utils
 
 /**
  * Returns the array of dashboards, customized for ui

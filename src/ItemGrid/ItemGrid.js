@@ -165,21 +165,18 @@ ItemGrid.defaultProps = {
 const mapStateToProps = state => {
     const {
         sGetSelectedDashboard,
+        sGetCurrentDashboardItems,
         fromSelected,
         fromEditDashboard,
     } = fromReducers;
 
     const selectedDashboard = sGetSelectedDashboard(state);
 
-    const dashboardItems = selectedDashboard
-        ? selectedDashboard.dashboardItems
-        : null;
-
     return {
         edit: fromEditDashboard.sGetIsEditing(state),
         isLoading:
             fromSelected.sGetSelectedIsLoading(state) || !selectedDashboard,
-        dashboardItems,
+        dashboardItems: sGetCurrentDashboardItems(state),
     };
 };
 
@@ -200,8 +197,6 @@ const mergeProps = (stateProps, dispatchProps) => {
     };
 };
 
-const ItemGridCt = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(
     ItemGrid
 );
-
-export default ItemGridCt;

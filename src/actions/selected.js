@@ -1,6 +1,6 @@
 import { actionTypes } from '../reducers';
 import { apiFetchSelected } from '../api/dashboards';
-import { acSetDashboards } from './dashboards';
+import { acSetDashboardItems, acAppendDashboards } from './dashboards';
 import { withShape } from '../ItemGrid/gridUtil';
 import { tGetMessages } from '../Item/MessagesItem/actions';
 import { acReceivedSnackbarMessage, acCloseSnackbar } from './snackbar';
@@ -16,6 +16,7 @@ import {
     MESSAGES,
 } from '../itemTypes';
 import { extractFavorite } from '../Item/PluginItem/plugin';
+import { getCustomDashboards } from '../reducers/dashboards';
 
 // actions
 
@@ -77,17 +78,21 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
     }, 500);
 
     const onSuccess = selected => {
-        const dashboard = {
-            ...selected,
-            dashboardItems: withShape(selected.dashboardItems),
-        };
+        const customDashboard = getCustomDashboards(selected)[0];
 
-        dispatch(acSetDashboards(dashboard, true));
+        // set dashboard items
+        dispatch(
+            acSetDashboardItems(withShape(customDashboard.dashboardItems))
+        );
 
+        // add dashboard
+        dispatch(acAppendDashboards(selected));
+
+        // store preferred dashboard
         storePreferredDashboardId(fromUser.sGetUsername(getState()), id);
 
         // add visualizations to store
-        selected.dashboardItems.forEach(item => {
+        customDashboard.dashboardItems.forEach(item => {
             switch (item.type) {
                 case REPORT_TABLE:
                 case CHART:
@@ -114,7 +119,9 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
 
         // remove loading indicator
         dispatch(acSetSelectedIsLoading(false));
+
         clearTimeout(snackbarTimeout);
+
         dispatch(acCloseSnackbar());
 
         return selected;

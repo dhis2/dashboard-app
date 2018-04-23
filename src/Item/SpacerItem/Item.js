@@ -1,11 +1,13 @@
 import React, { Fragment } from 'react';
 import i18n from 'd2-i18n';
 import ItemHeader from '../ItemHeader';
+import { colors } from '../../colors';
 
 const style = {
-    margin: '10px',
-    fontSize: '15px',
+    margin: '21px 28px',
+    fontSize: '14px',
     lineHeight: '18px',
+    color: colors.charcoalGrey,
 };
 
 const SpacerItem = () => {
