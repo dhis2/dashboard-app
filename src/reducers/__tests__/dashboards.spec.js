@@ -93,7 +93,7 @@ describe('dashboards reducer', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it('SET_DASHBOARD_STARRED: should set "displayName" on a dashboard', () => {
+    it('SET_DASHBOARD_DISPLAYNAME: should set "displayName" on a dashboard', () => {
         const displayName = 'nome tradotto';
 
         const actualState = reducer(currentState, {

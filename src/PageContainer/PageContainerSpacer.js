@@ -8,7 +8,10 @@ import { sGetControlBarUserRows } from '../reducers/controlBar';
 const DEFAULT_TOP_MARGIN = 80;
 
 const PageContainerSpacer = props => (
-    <div className="page-spacer" style={{ marginTop: props.marginTop }} />
+    <div
+        className="page-container-top-margin"
+        style={{ marginTop: props.marginTop }}
+    />
 );
 
 const mapStateToProps = state => {

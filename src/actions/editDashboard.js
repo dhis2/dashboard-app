@@ -31,14 +31,6 @@ export const acSetEditDashboard = (dashboard, items) => {
     };
 };
 
-// export const acSetEditDashboard = (dashboard, items) => ({
-//     type: actionTypes.RECEIVED_EDIT_DASHBOARD,
-//     value: {
-//         ...dashboard,
-//         dashboardItems: items,
-//     },
-// });
-
 export const acSetEditNewDashboard = () => ({
     type: actionTypes.START_NEW_DASHBOARD,
 });
