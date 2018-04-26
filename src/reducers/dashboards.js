@@ -129,30 +129,17 @@ export const sGetDashboardItems = state => sGetFromState(state).items;
 
 // selector level 2
 
-/**
- * Generic selector which returns dashboards filtered by a prop value
- * Uses === to check equality
- *
- * @function
- * @param {Object} state The current state
- * @param {String} propName The name of the filter prop
- * @param {Any} value The value of the filter prop
- * @returns {Array}
- */
-const sGetDashboardsFilteredByPropValue = (state, propName, value) =>
+export const sGetStarredDashboards = state =>
     Object.values(sGetAllDashboards(state)).filter(
-        dashboard => dashboard[propName] === value
+        dashboard => dashboard.starred === true
+    );
+
+export const sGetUnstarredDashboards = state =>
+    Object.values(sGetAllDashboards(state)).filter(
+        dashboard => dashboard.starred === false
     );
 
 // selector level 3
-
-export const sGetStarredDashboards = state =>
-    sGetDashboardsFilteredByPropValue(state, 'starred', true);
-
-export const sGetUnstarredDashboards = state =>
-    sGetDashboardsFilteredByPropValue(state, 'starred', false);
-
-// selector level 4
 
 export const sGetStarredDashboardIds = state => {
     return sGetStarredDashboards(state).map(dashboard => dashboard.id);
