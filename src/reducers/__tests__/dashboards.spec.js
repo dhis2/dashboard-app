@@ -55,6 +55,8 @@ const dashboards = {
     someDash: {
         id: 'someDash',
         name: 'good stuff',
+        displayName: 'roba buona',
+        starred: false,
     },
 };
 
