@@ -31,13 +31,13 @@ const dashboardsState = {
             starred: true,
         },
         [dashId3]: {
-            id: 'dash3',
+            id: dashId3,
             name: 'unstarred dashboard',
             displayName: 'cruscotto non stellato',
             starred: false,
         },
         [dashId4]: {
-            id: 'dash4',
+            id: dashId4,
             name: 'starred dashboard',
             displayName: 'cruscotto con stelle',
             starred: true,
