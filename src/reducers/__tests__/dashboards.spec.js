@@ -30,41 +30,6 @@ const dashboards = {
 };
 
 describe('dashboards reducer', () => {
-    // const currentBoards = {
-    //     dash1: {
-    //         id: 'dash1',
-    //         name: 'good stuff',
-    //         displayName: 'untranslated',
-    //         starred: false,
-    //     },
-    // };
-
-    // const boards = {
-    //     dash2: {
-    //         id: 'dash2',
-    //         name: 'ok stuff',
-    //     },
-    // };
-
-    // const currentItems = [
-    //     {
-    //         id: 'item1',
-    //         type: 'CHART',
-    //     },
-    // ];
-
-    // const items = [
-    //     {
-    //         id: 'item2',
-    //         type: 'MAP',
-    //     },
-    // ];
-
-    // const currentState = {
-    //     byId: currentBoards,
-    //     items: currentItems,
-    // };
-
     it('should return the default state', () => {
         const actualState = reducer(undefined, { type: 'NO_MATCH' });
 
