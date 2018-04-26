@@ -157,7 +157,7 @@ export const sGetUnstarredDashboardIds = state =>
 export const sGetSortedDashboards = state =>
     [].concat(
         arraySort(sGetStarredDashboards(state), 'ASC', 'displayName'),
-        arraySort(sGetUnstarredDashboardIds(state), 'ASC', 'displayName')
+        arraySort(sGetUnstarredDashboards(state), 'ASC', 'displayName')
     );
 
 // utils
