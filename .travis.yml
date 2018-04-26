@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- node
+- 8.11.1
 env:
   global:
   - CC_TEST_REPORTER_ID=daeae58060a32f8d37e835457e8b2a1f9af55a38694826f4f6628a30383314f6
@@ -21,4 +21,3 @@ after_success:
 - if ( [ "$TRAVIS_BRANCH" == "master" ] || [ ! -z "$TRAVIS_TAG" ] ) && [ "$TRAVIS_REPO_SLUG"
   == "dhis2/dashboards-app" ]  &&  [ "$TRAVIS_PULL_REQUEST" == "false" ] ; then
   mvn clean deploy --settings deploy/settings.xml && exit 0; fi
-
