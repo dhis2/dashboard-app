@@ -140,7 +140,7 @@ export const sGetDashboardItems = state => sGetFromState(state).items;
  * @returns {Array}
  */
 const sGetDashboardsFilteredByPropValue = (state, propName, value) =>
-    Object.values(orObject(sGetAllDashboards(state))).filter(
+    Object.values(sGetAllDashboards(state)).filter(
         dashboard => dashboard[propName] === value
     );
 
