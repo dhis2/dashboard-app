@@ -13,18 +13,33 @@ import reducer, {
 
 const dashId1 = 'dash1';
 const dashId2 = 'dash2';
+const dashId3 = 'dash3';
+const dashId4 = 'dash4';
 
 const dashboardsState = {
     byId: {
         [dashId1]: {
             id: dashId1,
-            name: 'good stuff',
-            displayName: 'untranslated',
+            name: 'an unstarred dashboard',
+            displayName: 'una cruscotto non stellato',
             starred: false,
         },
         [dashId2]: {
             id: dashId2,
-            name: 'decent stuff',
+            name: 'a starred dashboard',
+            displayName: 'una cruscotto con stelle',
+            starred: true,
+        },
+        [dashId3]: {
+            id: 'dash3',
+            name: 'unstarred dashboard',
+            displayName: 'cruscotto non stellato',
+            starred: false,
+        },
+        [dashId4]: {
+            id: 'dash4',
+            name: 'starred dashboard',
+            displayName: 'cruscotto con stelle',
             starred: true,
         },
     },
@@ -37,9 +52,9 @@ const dashboardsState = {
 };
 
 const dashboards = {
-    dash3: {
-        id: 'dash3',
-        name: 'ok stuff',
+    someDash: {
+        id: 'someDash',
+        name: 'good stuff',
     },
 };
 
@@ -148,6 +163,11 @@ const testState = {
     dashboards: dashboardsState,
 };
 
+const dash1 = dashboardsState.byId[dashId1];
+const dash2 = dashboardsState.byId[dashId2];
+const dash3 = dashboardsState.byId[dashId3];
+const dash4 = dashboardsState.byId[dashId4];
+
 describe('dashboards selectors', () => {
     it('sGetFromState: should return the root prop', () => {
         const actualState = sGetFromState(testState);
@@ -176,33 +196,30 @@ describe('dashboards selectors', () => {
     it('sGetStarredDashboards: should return an array of starred dashboards', () => {
         const actualState = sGetStarredDashboards(testState);
 
-        expect(actualState).toEqual([dashboardsState.byId[dashId2]]);
+        expect(actualState).toEqual([dash2, dash4]);
     });
 
     it('sGetUnstarredDashboards: should return an array of unstarred dashboards', () => {
         const actualState = sGetUnstarredDashboards(testState);
 
-        expect(actualState).toEqual([dashboardsState.byId[dashId1]]);
+        expect(actualState).toEqual([dash1, dash3]);
     });
 
     it('sGetStarredDashboardIds: should return an array of starred dashboard ids', () => {
         const actualState = sGetStarredDashboardIds(testState);
 
-        expect(actualState).toEqual([dashId2]);
+        expect(actualState).toEqual([dashId2, dashId4]);
     });
 
     it('sGetUnstarredDashboardIds: should return an array of unstarred dashboard ids', () => {
         const actualState = sGetUnstarredDashboardIds(testState);
 
-        expect(actualState).toEqual([dashId1]);
+        expect(actualState).toEqual([dashId1, dashId3]);
     });
 
-    it('sGetDashboardsSortedByStarred: should return an array of first starred then unstarred dashboards', () => {
-        const dash1 = dashboardsState.byId[dashId1];
-        const dash2 = dashboardsState.byId[dashId2];
-
+    it('sGetDashboardsSortedByStarred: should return an array of dashboards sorted by starred/displayName-asc, then unstarred/displayName-asc', () => {
         const actualState = sGetDashboardsSortedByStarred(testState);
 
-        expect(actualState).toEqual([dash2, dash1]);
+        expect(actualState).toEqual([dash4, dash2, dash3, dash1]);
     });
 });
