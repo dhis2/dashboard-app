@@ -66,7 +66,10 @@ const mapStateToProps = state => {
         fromReducers.sGetSelectedDashboard(state)
     );
     const dashboard = orObject(
-        fromReducers.fromDashboards.sGetById(state, selectedDashboard.id)
+        fromReducers.fromDashboards.sGetDashboardById(
+            state,
+            selectedDashboard.id
+        )
     );
 
     return {
