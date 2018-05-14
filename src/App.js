@@ -8,9 +8,7 @@ import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 import Snackbar from 'material-ui/Snackbar';
 
-import PageContainer from './PageContainer/PageContainer';
-import PageContainerSpacer from './PageContainer/PageContainerSpacer';
-import ControlBarContainer from './ControlBarContainer/ControlBarContainer';
+import Dashboard from './Dashboard/Dashboard';
 import SnackbarMessage from './SnackbarMessage';
 
 import { fromDashboards, fromUser, fromControlBar } from './actions';
@@ -24,9 +22,20 @@ const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 // App
 class App extends Component {
     componentDidMount() {
+        console.log('this.props', this.props);
+
         const { store, d2 } = this.context;
         store.dispatch(fromUser.acReceivedUser(d2.currentUser));
-        store.dispatch(fromDashboards.tSetDashboards());
+        console.log(
+            'this.props.match.params.dashboardId',
+            this.props.match.params.dashboardId
+        );
+
+        store.dispatch(
+            fromDashboards.tSetDashboards(
+                this.props.match.params.dashboardId || null
+            )
+        );
         store.dispatch(fromControlBar.tSetControlBarRows());
     }
 
@@ -45,9 +54,7 @@ class App extends Component {
         return (
             <div className="app-wrapper">
                 <HeaderBar />
-                <ControlBarContainer />
-                <PageContainerSpacer />
-                <PageContainer />
+                <Dashboard />
                 <Snackbar
                     open={this.props.snackbarOpen}
                     message={

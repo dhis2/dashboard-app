@@ -46,12 +46,13 @@ export const acSetDashboardItems = value => ({
 
 // thunks
 
-export const tSetDashboards = () => async (dispatch, getState) => {
+export const tSetDashboards = id => async (dispatch, getState) => {
     const onSuccess = () => {
         const state = getState();
-        const preferredDashboardId = getPreferredDashboardId(
-            sGetUsername(state)
-        );
+
+        const preferredDashboardId = id
+            ? id
+            : getPreferredDashboardId(sGetUsername(state));
         const preferredDashboard = sGetById(state, preferredDashboardId);
 
         const dashboardToSelect =

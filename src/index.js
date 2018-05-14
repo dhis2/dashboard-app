@@ -3,6 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import i18n from './locales';
 
@@ -58,7 +59,24 @@ const init = () => {
             ReactDOM.render(
                 <D2UIApp initConfig={config} muiTheme={muiTheme()}>
                     <Provider store={configureStore()}>
-                        <App baseUrl={baseUrl} />
+                        <Router>
+                            <Switch>
+                                <Route
+                                    exact
+                                    path="/"
+                                    component={props => (
+                                        <App {...props} baseUrl={baseUrl} />
+                                    )}
+                                />
+                                <Route
+                                    exact
+                                    path="/:dashboardId"
+                                    component={props => (
+                                        <App {...props} baseUrl={baseUrl} />
+                                    )}
+                                />
+                            </Switch>
+                        </Router>
                     </Provider>
                 </D2UIApp>,
                 document.getElementById('root')
