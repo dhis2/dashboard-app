@@ -7,11 +7,12 @@ import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 import Snackbar from 'material-ui/Snackbar';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Dashboard from './Dashboard/Dashboard';
 import SnackbarMessage from './SnackbarMessage';
 
-import { fromDashboards, fromUser, fromControlBar } from './actions';
+import { fromUser } from './actions';
 import { acCloseSnackbar } from './actions/snackbar';
 import { fromSnackbar } from './reducers';
 
@@ -22,21 +23,8 @@ const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 // App
 class App extends Component {
     componentDidMount() {
-        console.log('this.props', this.props);
-
         const { store, d2 } = this.context;
         store.dispatch(fromUser.acReceivedUser(d2.currentUser));
-        console.log(
-            'this.props.match.params.dashboardId',
-            this.props.match.params.dashboardId
-        );
-
-        store.dispatch(
-            fromDashboards.tSetDashboards(
-                this.props.match.params.dashboardId || null
-            )
-        );
-        store.dispatch(fromControlBar.tSetControlBarRows());
     }
 
     getChildContext() {
@@ -54,7 +42,30 @@ class App extends Component {
         return (
             <div className="app-wrapper">
                 <HeaderBar />
-                <Dashboard />
+                <Router>
+                    <Switch>
+                        <Route
+                            exact
+                            path="/"
+                            component={props => (
+                                <Dashboard
+                                    {...props}
+                                    baseUrl={this.props.baseUrl}
+                                />
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/:dashboardId"
+                            component={props => (
+                                <Dashboard
+                                    {...props}
+                                    baseUrl={this.props.baseUrl}
+                                />
+                            )}
+                        />
+                    </Switch>
+                </Router>
                 <Snackbar
                     open={this.props.snackbarOpen}
                     message={
@@ -87,8 +98,6 @@ App.childContextTypes = {
     i18n: PropTypes.object,
 };
 
-const AppCt = connect(mapStateToProps, {
+export default connect(mapStateToProps, {
     acCloseSnackbar,
 })(App);
-
-export default AppCt;

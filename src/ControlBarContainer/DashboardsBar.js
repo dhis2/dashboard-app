@@ -131,6 +131,7 @@ export class DashboardsBar extends Component {
                             key={dashboard.id}
                             label={dashboard.displayName}
                             starred={dashboard.starred}
+                            dashboardId={dashboard.id}
                             selected={dashboard.id === selectedId}
                             onClick={onDashboardSelectWrapper(
                                 dashboard.id,

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import MuiChip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
 import IconStar from 'material-ui/svg-icons/toggle/star';
+import { Link } from 'react-router-dom';
 import { colors } from '../colors';
 
 const chipTheme = {
@@ -32,7 +33,7 @@ const avatar = selected => {
     return <Avatar icon={<IconStar />} {...avatarProps} />;
 };
 
-const DashboardItemChip = ({ starred, selected, label, onClick }) => {
+const DashboardItemChip = ({ starred, selected, dashboardId, label }) => {
     const chipColorProps = selected
         ? chipTheme.accent
         : starred ? chipTheme.primary : chipTheme.default;
@@ -43,17 +44,19 @@ const DashboardItemChip = ({ starred, selected, label, onClick }) => {
     const props = {
         style,
         labelStyle,
-        onClick,
         ...chipColorProps,
     };
 
     return (
-        <div style={{ display: 'inline-block', verticalAlign: 'top' }}>
+        <Link
+            style={{ display: 'inline-block', verticalAlign: 'top' }}
+            to={`/${dashboardId}`}
+        >
             <MuiChip {...props}>
                 {starred ? avatar(selected) : null}
                 {label}
             </MuiChip>
-        </div>
+        </Link>
     );
 };
 

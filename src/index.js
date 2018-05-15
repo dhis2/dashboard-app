@@ -3,20 +3,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-import i18n from './locales';
-
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import D2UIApp from 'd2-ui/lib/app/D2UIApp';
-
 import { config, getUserSettings } from 'd2/lib/d2';
 
-import './index.css';
-
-import configureStore from './configureStore';
-
 import App from './App';
+import './index.css';
+import i18n from './locales';
+import configureStore from './configureStore';
 import { muiTheme } from './theme';
 
 const configI18n = userSettings => {
@@ -59,24 +53,7 @@ const init = () => {
             ReactDOM.render(
                 <D2UIApp initConfig={config} muiTheme={muiTheme()}>
                     <Provider store={configureStore()}>
-                        <Router>
-                            <Switch>
-                                <Route
-                                    exact
-                                    path="/"
-                                    component={props => (
-                                        <App {...props} baseUrl={baseUrl} />
-                                    )}
-                                />
-                                <Route
-                                    exact
-                                    path="/:dashboardId"
-                                    component={props => (
-                                        <App {...props} baseUrl={baseUrl} />
-                                    )}
-                                />
-                            </Switch>
-                        </Router>
+                        <App baseUrl={baseUrl} />
                     </Provider>
                 </D2UIApp>,
                 document.getElementById('root')
