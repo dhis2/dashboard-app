@@ -12,8 +12,10 @@ import NoContentMessage from '../widgets/NoContentMessage';
 
 export const PageContainer = props => {
     const noContentMessage = props.dashboardsIsEmpty
-        ? 'No dashboards found. Use the + button to create a new dashboard.'
-        : 'Requested dashboard not found';
+        ? i18n.t(
+              'No dashboards found. Use the + button to create a new dashboard.'
+          )
+        : i18n.t('Requested dashboard not found');
 
     const Content = () => {
         return props.edit || (props.selectedId && !props.dashboardsIsEmpty) ? (
@@ -22,7 +24,7 @@ export const PageContainer = props => {
                 <ItemGrid />
             </Fragment>
         ) : (
-            <NoContentMessage text={i18n.t(noContentMessage)} />
+            <NoContentMessage text={noContentMessage} />
         );
     };
 
