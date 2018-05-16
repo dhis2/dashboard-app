@@ -5,6 +5,7 @@ import i18n from 'd2-i18n';
 
 import { sGetIsEditing } from '../reducers/editDashboard';
 import { sGetFromState } from '../reducers/dashboards';
+import { sGetSelectedId } from '../reducers/selected';
 import TitleBar from '../TitleBar/TitleBar';
 import ItemGrid from '../ItemGrid/ItemGrid';
 import NoContentMessage from '../widgets/NoContentMessage';
@@ -34,9 +35,11 @@ export const PageContainer = props => {
 const mapStateToProps = state => {
     const edit = sGetIsEditing(state);
     const dashboards = sGetFromState(state);
+    const selectedId = sGetSelectedId(state);
 
     return {
         edit,
+        selectedId,
         dashboardsIsEmpty: isEmpty(dashboards),
         dashboardsIsNull: dashboards === null,
     };

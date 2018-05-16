@@ -50,12 +50,14 @@ const TitleBar = ({
                     description={description}
                 />
             ) : (
-                <ViewTitleBar
-                    style={style}
-                    id={id}
-                    name={displayName}
-                    description={displayDescription}
-                />
+                id && (
+                    <ViewTitleBar
+                        style={style}
+                        id={id}
+                        name={displayName}
+                        description={displayDescription}
+                    />
+                )
             )}
         </div>
     );
@@ -65,6 +67,7 @@ const mapStateToProps = state => {
     const selectedDashboard = orObject(
         fromReducers.sGetSelectedDashboard(state)
     );
+
     const dashboard = orObject(
         fromReducers.fromDashboards.sGetById(state, selectedDashboard.id)
     );

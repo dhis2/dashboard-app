@@ -50,18 +50,28 @@ export const tSetDashboards = id => async (dispatch, getState) => {
     const onSuccess = () => {
         const state = getState();
 
-        const preferredDashboardId = id
-            ? id
-            : getPreferredDashboardId(sGetUsername(state));
-        const preferredDashboard = sGetById(state, preferredDashboardId);
-
-        const dashboardToSelect =
-            preferredDashboardId && preferredDashboard
-                ? preferredDashboard
-                : sGetSortedDashboards(state)[0];
+        let preferredDashboard;
+        let dashboardToSelect = null;
+        if (id) {
+            preferredDashboard = sGetById(state, id);
+            if (preferredDashboard) {
+                dashboardToSelect = preferredDashboard;
+            }
+        } else {
+            const preferredDashboardId = getPreferredDashboardId(
+                sGetUsername(state)
+            );
+            preferredDashboard = sGetById(state, preferredDashboardId);
+            dashboardToSelect =
+                preferredDashboardId && preferredDashboard
+                    ? preferredDashboard
+                    : sGetSortedDashboards(state)[0];
+        }
 
         if (dashboardToSelect) {
             dispatch(tSetSelectedDashboardById(dashboardToSelect.id));
+        } else {
+            console.log('dashboard not found');
         }
     };
 
