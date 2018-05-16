@@ -50,14 +50,12 @@ const TitleBar = ({
                     description={description}
                 />
             ) : (
-                id && (
-                    <ViewTitleBar
-                        style={style}
-                        id={id}
-                        name={displayName}
-                        description={displayDescription}
-                    />
-                )
+                <ViewTitleBar
+                    style={style}
+                    id={id}
+                    name={displayName}
+                    description={displayDescription}
+                />
             )}
         </div>
     );
