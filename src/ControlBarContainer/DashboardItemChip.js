@@ -49,7 +49,11 @@ const DashboardItemChip = ({ starred, selected, dashboardId, label }) => {
 
     return (
         <Link
-            style={{ display: 'inline-block', verticalAlign: 'top' }}
+            style={{
+                display: 'inline-block',
+                verticalAlign: 'top',
+                textDecoration: 'none',
+            }}
             to={`/${dashboardId}`}
         >
             <MuiChip {...props}>
