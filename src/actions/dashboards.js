@@ -71,8 +71,10 @@ export const tSetDashboards = id => async (dispatch, getState) => {
     };
 
     try {
-        const collection = await apiFetchDashboards();
-        dispatch(acSetDashboards(collection.toArray()));
+        if (sGetById(getState()) === null) {
+            const collection = await apiFetchDashboards();
+            dispatch(acSetDashboards(collection.toArray()));
+        }
 
         return onSuccess();
     } catch (err) {
