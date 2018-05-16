@@ -15,11 +15,29 @@ describe('PageContainer', () => {
         return shallowPageContainer;
     };
 
+    const assertTitleAndGrid = () => {
+        const children = pageContainer().children();
+
+        expect(children.length).toBe(1);
+        expect(children.dive().find(NoContentMessage)).toHaveLength(0);
+        expect(children.dive().find(TitleBar)).toHaveLength(1);
+        expect(children.dive().find(ItemGrid)).toHaveLength(1);
+    };
+
+    const assertNoContentMessage = () => {
+        const children = pageContainer().children();
+
+        expect(children.length).toBe(1);
+        expect(children.dive().find(NoContentMessage)).toHaveLength(1);
+        expect(children.dive().find(ItemGrid)).toHaveLength(0);
+    };
+
     beforeEach(() => {
         props = {
             edit: undefined,
+            selectedId: undefined,
             dashboardsIsEmpty: undefined,
-            dashboardsIsNull: undefined,
+            dashboardsLoaded: undefined,
         };
         shallowPageContainer = undefined;
     });
@@ -28,51 +46,77 @@ describe('PageContainer', () => {
         expect(pageContainer().find('div').length).toBeGreaterThan(0);
     });
 
-    describe('when "dashboardsIsNull" is true', () => {
+    describe('when "dashboardsLoaded" is false', () => {
         it('does not render any children inside the div', () => {
-            props.dashboardsIsNull = true;
+            props.dashboardsLoaded = false;
             expect(pageContainer().children().length).toBe(0);
         });
     });
 
-    describe('when "dashboardsIsEmpty" is true', () => {
+    describe('when "dashboardsLoaded" is true', () => {
         beforeEach(() => {
-            props.dashboardsIsEmpty = true;
+            props.dashboardsLoaded = true;
         });
 
-        describe('when not in edit mode', () => {
-            it('renders a NoContentMessage', () => {
+        describe('when "selectedId" is null', () => {
+            it('does not render any children inside the div', () => {
+                props.selectedId = null;
+                expect(pageContainer().children().length).toBe(0);
+            });
+        });
+
+        describe('when "dashboardsIsEmpty" is true', () => {
+            beforeEach(() => {
+                props.dashboardsIsEmpty = true;
+            });
+
+            it('renders a NoContentMessage when not in edit mode', () => {
                 props.edit = false;
-                const children = pageContainer().children();
-
-                expect(children.length).toBe(1);
-                expect(children.dive().find(NoContentMessage)).toHaveLength(1);
-                expect(children.dive().find(ItemGrid)).toHaveLength(0);
+                assertNoContentMessage();
             });
-        });
 
-        describe('when in edit mode', () => {
-            it('renders a Titlebar and ItemGrid', () => {
+            it('renders a Titlebar and ItemGrid when in edit mode', () => {
                 props.edit = true;
-                const children = pageContainer().children();
-
-                expect(children.length).toBe(1);
-                expect(children.dive().find(NoContentMessage)).toHaveLength(0);
-                expect(children.dive().find(TitleBar)).toHaveLength(1);
-                expect(children.dive().find(ItemGrid)).toHaveLength(1);
+                assertTitleAndGrid();
             });
         });
-    });
 
-    describe('when "dashboardsIsEmpty" is false', () => {
-        it('renders a Titlebar and ItemGrid', () => {
-            props.dashboardsIsEmpty = false;
-            const children = pageContainer().children();
+        describe('when "dashboardsIsEmpty" is false', () => {
+            beforeEach(() => {
+                props.dashboardsIsEmpty = false;
+            });
 
-            expect(children.length).toBe(1);
-            expect(children.dive().find(NoContentMessage)).toHaveLength(0);
-            expect(children.dive().find(TitleBar)).toHaveLength(1);
-            expect(children.dive().find(ItemGrid)).toHaveLength(1);
+            describe('when selectedId is not null or false', () => {
+                beforeEach(() => {
+                    props.selectedId = '123xyz';
+                });
+
+                it('renders a TitleBar and ItemGrid when in edit mode', () => {
+                    props.edit = true;
+                    assertTitleAndGrid();
+                });
+
+                it('renders a TitleBar and ItemGrid when not in edit mode', () => {
+                    props.edit = false;
+                    assertTitleAndGrid();
+                });
+            });
+
+            describe('when selectedId is false', () => {
+                beforeEach(() => {
+                    props.selectedId = false;
+                });
+
+                it('renders a TitleBar and ItemGrid when in edit mode', () => {
+                    props.edit = true;
+                    assertTitleAndGrid();
+                });
+
+                it('renders a NoContentMessage when not in edit mode', () => {
+                    props.edit = false;
+                    assertNoContentMessage();
+                });
+            });
         });
     });
 });

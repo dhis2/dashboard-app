@@ -5,7 +5,7 @@ import {
     sGetSortedDashboards,
 } from '../reducers/dashboards';
 import { sGetUsername } from '../reducers/user';
-import { tSetSelectedDashboardById } from './selected';
+import { tSetSelectedDashboardById, acSetSelectedId } from './selected';
 import { acClearEditDashboard } from './editDashboard';
 import {
     apiFetchDashboards,
@@ -71,7 +71,7 @@ export const tSetDashboards = id => async (dispatch, getState) => {
         if (dashboardToSelect) {
             dispatch(tSetSelectedDashboardById(dashboardToSelect.id));
         } else {
-            console.log('dashboard not found');
+            dispatch(acSetSelectedId(false));
         }
     };
 
