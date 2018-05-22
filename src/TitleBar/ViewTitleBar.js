@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import i18n from 'd2-i18n';
 import SharingDialog from 'd2-ui-sharing';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
@@ -106,12 +107,21 @@ class ViewTitleBar extends Component {
                         </div>
                         <span style={{ marginLeft: '10px' }}>
                             {access.update ? (
-                                <FlatButton
-                                    style={{ minWidth: '30px', top: '1px' }}
-                                    onClick={onEditClick}
+                                <Link
+                                    style={{
+                                        display: 'inline-block',
+                                        verticalAlign: 'top',
+                                        textDecoration: 'none',
+                                    }}
+                                    to={`/edit/${id}`}
                                 >
-                                    Edit
-                                </FlatButton>
+                                    <FlatButton
+                                        style={{ minWidth: '30px', top: '1px' }}
+                                        onClick={onEditClick}
+                                    >
+                                        Edit
+                                    </FlatButton>
+                                </Link>
                             ) : null}
 
                             {access.manage ? (

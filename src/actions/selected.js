@@ -133,6 +133,8 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
     };
 
     try {
+        console.log('fetchselected', id);
+
         const fetchedSelected = await apiFetchSelected(id);
 
         return onSuccess(fetchedSelected);

@@ -50,10 +50,13 @@ export const tSetDashboards = id => async (dispatch, getState) => {
     const onSuccess = () => {
         const state = getState();
 
-        let preferredDashboard;
+        console.log('tSetDashboards onSuccess with id', id);
+
         let dashboardToSelect = null;
         if (id) {
-            preferredDashboard = sGetById(state, id);
+            const preferredDashboard = sGetById(state, id);
+            console.log('preferredDashboard', preferredDashboard);
+
             if (preferredDashboard) {
                 dashboardToSelect = preferredDashboard;
             }
@@ -61,16 +64,25 @@ export const tSetDashboards = id => async (dispatch, getState) => {
             const preferredDashboardId = getPreferredDashboardId(
                 sGetUsername(state)
             );
-            preferredDashboard = sGetById(state, preferredDashboardId);
+            const preferredDashboard = sGetById(state, preferredDashboardId);
             dashboardToSelect =
                 preferredDashboardId && preferredDashboard
                     ? preferredDashboard
                     : sGetSortedDashboards(state)[0];
         }
 
+        console.log('dashboardToSelect', dashboardToSelect);
+
         if (dashboardToSelect) {
+            console.log(
+                'Set Selected Dashboard by id to',
+                dashboardToSelect.id
+            );
+
             dispatch(tSetSelectedDashboardById(dashboardToSelect.id));
         } else {
+            console.log('SetSelectedId to false');
+
             dispatch(acSetSelectedId(false));
         }
     };

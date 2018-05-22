@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-
+import { Link } from 'react-router-dom';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 import arraySort from 'd2-utilizr/lib/arraySort';
 import Chip from './DashboardItemChip';
@@ -12,7 +12,7 @@ import {
     CONTROL_BAR_OUTER_HEIGHT_DIFF,
     getInnerHeight,
     getOuterHeight,
-} from './ControlBarContainer';
+} from './controlBarDimensions';
 
 import * as fromActions from '../actions';
 import * as fromReducers from '../reducers';
@@ -20,6 +20,8 @@ import { orObject, orArray } from '../util';
 import { sGetSelectedId } from '../reducers/selected';
 import { apiPostControlBarRows } from '../api/controlBar';
 import { colors } from '../colors';
+
+import './ControlBarContainer.css';
 
 export const MIN_ROW_COUNT = 1;
 export const MAX_ROW_COUNT = 10;
@@ -75,7 +77,6 @@ export class DashboardsBar extends Component {
 
     render() {
         const {
-            controlsStyle,
             dashboards,
             name,
             selectedId,
@@ -103,17 +104,26 @@ export class DashboardsBar extends Component {
                 expandable={true}
             >
                 <div style={contentWrapperStyle}>
-                    <div style={orObject(controlsStyle).leftControls}>
+                    <div className="left-controls">
                         <Fragment>
-                            <D2IconButton
+                            <Link
                                 style={{
-                                    width: 36,
-                                    height: 36,
-                                    marginRight: 10,
+                                    display: 'inline-block',
+                                    verticalAlign: 'top',
+                                    textDecoration: 'none',
                                 }}
-                                iconColor={colors.mediumGreen}
-                                onClick={onNewClick}
-                            />
+                                to={'/new'}
+                            >
+                                <D2IconButton
+                                    style={{
+                                        width: 36,
+                                        height: 36,
+                                        marginRight: 10,
+                                    }}
+                                    iconColor={colors.mediumGreen}
+                                    onClick={onNewClick}
+                                />
+                            </Link>
                             <Filter
                                 name={name}
                                 onChangeName={onChangeFilterName}

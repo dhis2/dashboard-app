@@ -50,16 +50,40 @@ class App extends Component {
                             component={props => (
                                 <Dashboard
                                     {...props}
+                                    mode="view"
                                     baseUrl={this.props.baseUrl}
                                 />
                             )}
                         />
                         <Route
                             exact
-                            path="/:dashboardId"
+                            path="/new"
                             component={props => (
                                 <Dashboard
                                     {...props}
+                                    mode="new"
+                                    baseUrl={this.props.baseUrl}
+                                />
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/view/:dashboardId"
+                            component={props => (
+                                <Dashboard
+                                    {...props}
+                                    mode="view"
+                                    baseUrl={this.props.baseUrl}
+                                />
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/edit/:dashboardId"
+                            component={props => (
+                                <Dashboard
+                                    {...props}
+                                    mode="edit"
                                     baseUrl={this.props.baseUrl}
                                 />
                             )}

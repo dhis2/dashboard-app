@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { CONTROL_BAR_ROW_HEIGHT } from '../ControlBarContainer/ControlBarContainer';
+import { CONTROL_BAR_ROW_HEIGHT } from '../ControlBarContainer/controlBarDimensions';
 import { sGetIsEditing } from '../reducers/editDashboard';
 import { sGetControlBarUserRows } from '../reducers/controlBar';
 

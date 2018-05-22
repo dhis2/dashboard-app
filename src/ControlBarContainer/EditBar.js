@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import i18n from 'd2-i18n';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 import PrimaryButton from '../widgets/PrimaryButton';
@@ -13,9 +15,11 @@ import {
     acSetDashboardDisplayName,
 } from '../actions/dashboards';
 import { sGetEditDashboard } from '../reducers/editDashboard';
-import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './ControlBarContainer';
+import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './controlBarDimensions';
 import { MIN_ROW_COUNT } from './DashboardsBar';
 import { apiFetchSelected } from '../api/dashboards';
+
+import './ControlBarContainer.css';
 
 const buttonBarStyle = {
     height: CONTROL_BAR_ROW_HEIGHT,
@@ -33,6 +37,13 @@ export class EditBar extends Component {
 
     onConfirmDelete = () => {
         this.setState({ confirmDeleteDialogOpen: true });
+    };
+
+    onSave = () => {
+        this.props.save().then(newId => {
+            this.props.clearEditDashboard();
+            this.props.history.push(`/view/${newId}`);
+        });
     };
 
     onContinueEditing = () => {
@@ -99,14 +110,9 @@ export class EditBar extends Component {
                 }
             />
         ) : null;
+
     render() {
-        const {
-            style,
-            onSave,
-            onDiscard,
-            dashboardId,
-            deleteAccess,
-        } = this.props;
+        const { clearEditDashboard, dashboardId, deleteAccess } = this.props;
         const controlBarHeight = getOuterHeight(MIN_ROW_COUNT, false);
 
         return (
@@ -117,9 +123,9 @@ export class EditBar extends Component {
                     expandable={false}
                 >
                     <div style={buttonBarStyle}>
-                        <div style={style.leftControls}>
+                        <div className="left-controls">
                             <span style={{ marginRight: '15px' }}>
-                                <PrimaryButton onClick={onSave}>
+                                <PrimaryButton onClick={this.onSave}>
                                     {i18n.t('Save changes')}
                                 </PrimaryButton>
                             </span>
@@ -136,8 +142,8 @@ export class EditBar extends Component {
                                 </FlatButton>
                             ) : null}
                         </div>
-                        <div style={style.rightControls}>
-                            <FlatButton onClick={onDiscard}>
+                        <div className="right-controls">
+                            <FlatButton onClick={clearEditDashboard}>
                                 {i18n.t('Exit without saving')}
                             </FlatButton>
                         </div>
@@ -164,11 +170,28 @@ const mapStateToProps = state => {
     };
 };
 
-const mapDispatchToProps = {
-    onSave: tSaveDashboard,
-    onDiscard: acClearEditDashboard,
-    onDelete: tDeleteDashboard,
-    onTranslate: acSetDashboardDisplayName,
-};
+function mapDispatchToProps(dispatch) {
+    const save = () => dispatch(tSaveDashboard()).then(id => id);
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditBar);
+    const clearEditDashboard = () => {
+        dispatch(acClearEditDashboard());
+    };
+
+    return {
+        save,
+        clearEditDashboard,
+        onDelete: tDeleteDashboard,
+        onTranslate: acSetDashboardDisplayName,
+    };
+}
+
+// const mapDispatchToProps = {
+//     onSave: tSaveDashboard,
+//     clearEditDashboard: acClearEditDashboard,
+//     onDelete: tDeleteDashboard,
+//     onTranslate: acSetDashboardDisplayName,
+// };
+
+export default withRouter(
+    connect(mapStateToProps, mapDispatchToProps)(EditBar)
+);

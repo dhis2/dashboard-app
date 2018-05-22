@@ -54,7 +54,7 @@ const DashboardItemChip = ({ starred, selected, dashboardId, label }) => {
                 verticalAlign: 'top',
                 textDecoration: 'none',
             }}
-            to={`/${dashboardId}`}
+            to={`/view/${dashboardId}`}
         >
             <MuiChip {...props}>
                 {starred ? avatar(selected) : null}

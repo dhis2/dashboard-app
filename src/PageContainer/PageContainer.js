@@ -17,8 +17,11 @@ export const PageContainer = props => {
           )
         : i18n.t('Requested dashboard not found');
 
+    const hasDashboardContent =
+        props.edit || (props.selectedId && !props.dashboardsIsEmpty);
+
     const Content = () => {
-        return props.edit || (props.selectedId && !props.dashboardsIsEmpty) ? (
+        return hasDashboardContent ? (
             <Fragment>
                 <TitleBar />
                 <ItemGrid />

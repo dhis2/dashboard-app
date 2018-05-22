@@ -2,7 +2,8 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import PageContainer from '../PageContainer/PageContainer';
 import PageContainerSpacer from '../PageContainer/PageContainerSpacer';
-import ControlBarContainer from '../ControlBarContainer/ControlBarContainer';
+import EditBar from '../ControlBarContainer/EditBar';
+import DashboardsBar from '../ControlBarContainer/DashboardsBar';
 import { fromDashboards, fromControlBar } from '../actions';
 
 class Dashboard extends Component {
@@ -26,9 +27,15 @@ class Dashboard extends Component {
     }
 
     render() {
-        return (
+        return this.props.mode === 'view' ? (
             <Fragment>
-                <ControlBarContainer />
+                <DashboardsBar />
+                <PageContainerSpacer />
+                <PageContainer />
+            </Fragment>
+        ) : (
+            <Fragment>
+                <EditBar />
                 <PageContainerSpacer />
                 <PageContainer />
             </Fragment>
