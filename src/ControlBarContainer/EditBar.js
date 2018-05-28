@@ -185,13 +185,6 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-// const mapDispatchToProps = {
-//     onSave: tSaveDashboard,
-//     clearEditDashboard: acClearEditDashboard,
-//     onDelete: tDeleteDashboard,
-//     onTranslate: acSetDashboardDisplayName,
-// };
-
 export default withRouter(
     connect(mapStateToProps, mapDispatchToProps)(EditBar)
 );
