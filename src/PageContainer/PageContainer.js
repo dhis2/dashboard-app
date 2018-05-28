@@ -4,7 +4,7 @@ import isEmpty from 'lodash/isEmpty';
 import i18n from 'd2-i18n';
 
 import { sGetIsEditing } from '../reducers/editDashboard';
-import { sGetById } from '../reducers/dashboards';
+import { sGetById, sDashboardsIsFetching } from '../reducers/dashboards';
 import { sGetSelectedId } from '../reducers/selected';
 import TitleBar from '../TitleBar/TitleBar';
 import ItemGrid from '../ItemGrid/ItemGrid';
@@ -42,12 +42,13 @@ export const PageContainer = props => {
 
 const mapStateToProps = state => {
     const dashboards = sGetById(state);
+    const dashboardsIsFetching = sDashboardsIsFetching(state);
 
     return {
         edit: sGetIsEditing(state),
         selectedId: sGetSelectedId(state),
         dashboardsIsEmpty: isEmpty(dashboards),
-        dashboardsLoaded: !(dashboards === null),
+        dashboardsLoaded: !dashboardsIsFetching,
     };
 };
 

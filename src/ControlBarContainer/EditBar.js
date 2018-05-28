@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import i18n from 'd2-i18n';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
@@ -17,7 +16,7 @@ import {
 import { sGetEditDashboard } from '../reducers/editDashboard';
 import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './controlBarDimensions';
 import { MIN_ROW_COUNT } from './DashboardsBar';
-import { apiFetchSelected } from '../api/dashboards';
+import { apiFetchDashboard } from '../api/dashboards';
 
 import './ControlBarContainer.css';
 
@@ -52,7 +51,9 @@ export class EditBar extends Component {
 
     onDeleteConfirmed = () => {
         this.setState({ confirmDeleteDialogOpen: false });
-        this.props.onDelete(this.props.dashboardId);
+        this.props.onDelete(this.props.dashboardId).then(() => {
+            this.props.history.push('/');
+        });
     };
 
     onTranslationsSaved = async translations => {
@@ -75,7 +76,7 @@ export class EditBar extends Component {
     };
 
     componentDidMount() {
-        apiFetchSelected(this.props.dashboardId).then(dashboardModel =>
+        apiFetchDashboard(this.props.dashboardId).then(dashboardModel =>
             this.setState({ dashboardModel })
         );
     }
@@ -173,14 +174,12 @@ const mapStateToProps = state => {
 function mapDispatchToProps(dispatch) {
     const save = () => dispatch(tSaveDashboard()).then(id => id);
 
-    const clearEditDashboard = () => {
-        dispatch(acClearEditDashboard());
-    };
+    const clearEditDashboard = () => dispatch(acClearEditDashboard());
 
     return {
         save,
         clearEditDashboard,
-        onDelete: tDeleteDashboard,
+        onDelete: id => dispatch(tDeleteDashboard(id)),
         onTranslate: acSetDashboardDisplayName,
     };
 }

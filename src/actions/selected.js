@@ -1,5 +1,5 @@
 import { actionTypes } from '../reducers';
-import { apiFetchSelected } from '../api/dashboards';
+import { apiFetchDashboard } from '../api/dashboards';
 import { acSetDashboardItems, acAppendDashboards } from './dashboards';
 import { withShape } from '../ItemGrid/gridUtil';
 import { tGetMessages } from '../Item/MessagesItem/actions';
@@ -57,9 +57,9 @@ export const acReceivedActiveVisualization = (id, type, activeType) => {
     return action;
 };
 
-export const tAppendDashboard = id => async (dispatch, getState) => {
+export const tLoadDashboard = id => async (dispatch, getState) => {
     try {
-        const dash = await apiFetchSelected(id);
+        const dash = await apiFetchDashboard(id);
         dispatch(acAppendDashboards(dash));
 
         return Promise.resolve(dash);
@@ -142,9 +142,9 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
     };
 
     try {
-        const fetchedSelected = await dispatch(tAppendDashboard(id));
+        const selected = await dispatch(tLoadDashboard(id));
 
-        return onSuccess(fetchedSelected);
+        return onSuccess(selected);
     } catch (err) {
         return onError(err);
     }

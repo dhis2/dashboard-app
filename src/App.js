@@ -23,8 +23,8 @@ const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
 // App
 class App extends Component {
-    componentDidMount() {
-        console.log('App.js CDM');
+    componentWillMount() {
+        console.log('App CWM');
 
         const { store, d2 } = this.context;
         store.dispatch(fromDashboards.tFetchDashboards());
@@ -44,8 +44,12 @@ class App extends Component {
 
     render() {
         if (this.props.dashboardsIsFetching) {
+            console.log('App render loading');
+
             return <p>Loading</p>;
         }
+
+        console.log('App render route');
 
         return (
             <div className="app-wrapper">
