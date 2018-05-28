@@ -46,59 +46,35 @@ export const acSetDashboardItems = value => ({
 
 // thunks
 
-export const tSetDashboards = id => async (dispatch, getState) => {
-    const onSuccess = () => {
-        const state = getState();
+export const tFetchDashboards = () => async dispatch => {
+    const collection = await apiFetchDashboards();
+    dispatch(acSetDashboards(collection.toArray()));
+};
 
-        console.log('tSetDashboards onSuccess with id', id);
-
-        let dashboardToSelect = null;
-        if (id) {
-            const preferredDashboard = sGetById(state, id);
-            console.log('preferredDashboard', preferredDashboard);
-
-            if (preferredDashboard) {
-                dashboardToSelect = preferredDashboard;
-            }
-        } else {
-            const preferredDashboardId = getPreferredDashboardId(
-                sGetUsername(state)
-            );
-            const preferredDashboard = sGetById(state, preferredDashboardId);
-            dashboardToSelect =
-                preferredDashboardId && preferredDashboard
-                    ? preferredDashboard
-                    : sGetSortedDashboards(state)[0];
-        }
-
-        console.log('dashboardToSelect', dashboardToSelect);
-
-        if (dashboardToSelect) {
-            console.log(
-                'Set Selected Dashboard by id to',
-                dashboardToSelect.id
-            );
-
-            dispatch(tSetSelectedDashboardById(dashboardToSelect.id));
-        } else {
-            console.log('SetSelectedId to false');
-
-            dispatch(acSetSelectedId(false));
-        }
-    };
-
+export const tSelectDashboard = id => async (dispatch, getState) => {
     const onError = error => {
         console.log('Error (apiFetchDashboards): ', error);
         return error;
     };
 
     try {
-        if (sGetById(getState()) === null) {
-            const collection = await apiFetchDashboards();
-            dispatch(acSetDashboards(collection.toArray()));
+        const state = getState();
+
+        let dashboardToSelect = null;
+        if (id) {
+            dashboardToSelect = sGetById(state, id) || null;
+        } else {
+            const preferredId = getPreferredDashboardId(sGetUsername(state));
+            const dash = sGetById(state, preferredId);
+            dashboardToSelect =
+                preferredId && dash ? dash : sGetSortedDashboards(state)[0];
         }
 
-        return onSuccess();
+        if (dashboardToSelect) {
+            dispatch(tSetSelectedDashboardById(dashboardToSelect.id));
+        } else {
+            dispatch(acSetSelectedId(false));
+        }
     } catch (err) {
         return onError(err);
     }
@@ -124,7 +100,7 @@ export const tStarDashboard = (id, isStarred) => async (dispatch, getState) => {
 
 export const tDeleteDashboard = id => async (dispatch, getState) => {
     const onSuccess = async () => {
-        await dispatch(tSetDashboards());
+        await dispatch(tSelectDashboard());
 
         return dispatch(acClearEditDashboard());
     };

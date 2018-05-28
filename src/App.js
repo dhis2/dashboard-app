@@ -12,9 +12,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Dashboard from './Dashboard/Dashboard';
 import SnackbarMessage from './SnackbarMessage';
 
-import { fromUser } from './actions';
+import { fromUser, fromDashboards } from './actions';
 import { acCloseSnackbar } from './actions/snackbar';
 import { fromSnackbar } from './reducers';
+import { sDashboardsIsFetching } from './reducers/dashboards';
 
 import './App.css';
 
@@ -23,7 +24,10 @@ const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 // App
 class App extends Component {
     componentDidMount() {
+        console.log('App.js CDM');
+
         const { store, d2 } = this.context;
+        store.dispatch(fromDashboards.tFetchDashboards());
         store.dispatch(fromUser.acReceivedUser(d2.currentUser));
     }
 
@@ -39,6 +43,10 @@ class App extends Component {
     };
 
     render() {
+        if (this.props.dashboardsIsFetching) {
+            return <p>Loading</p>;
+        }
+
         return (
             <div className="app-wrapper">
                 <HeaderBar />
@@ -105,10 +113,13 @@ class App extends Component {
 
 const mapStateToProps = state => {
     const { message, duration, open } = fromSnackbar.sGetSnackbar(state);
+    const dashboardsIsFetching = sDashboardsIsFetching(state);
+
     return {
         snackbarOpen: open,
         snackbarMessage: message,
         snackbarDuration: duration,
+        dashboardsIsFetching,
     };
 };
 

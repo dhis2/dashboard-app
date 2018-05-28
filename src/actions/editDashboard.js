@@ -2,7 +2,7 @@ import { generateUid } from 'd2/lib/uid';
 import { actionTypes } from '../reducers';
 import { fromEditDashboard } from '../reducers';
 import { updateDashboard, postDashboard } from '../api/editDashboard';
-import { fromSelected } from '.';
+import { tAppendDashboard } from '../actions/selected';
 import { NEW_ITEM_SHAPE } from '../ItemGrid/gridUtil';
 import {
     itemTypeMap,
@@ -105,11 +105,13 @@ export const tSaveDashboard = () => async (dispatch, getState) => {
     };
 
     try {
-        const selectedId = dashboardToSave.id
+        const dashboardId = dashboardToSave.id
             ? await updateDashboard(dashboardToSave)
             : await postDashboard(dashboardToSave);
 
-        return Promise.resolve(selectedId);
+        await dispatch(tAppendDashboard(dashboardId));
+
+        return Promise.resolve(dashboardId);
     } catch (error) {
         onError(error);
     }

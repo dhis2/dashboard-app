@@ -57,6 +57,18 @@ export const acReceivedActiveVisualization = (id, type, activeType) => {
     return action;
 };
 
+export const tAppendDashboard = id => async (dispatch, getState) => {
+    try {
+        const dash = await apiFetchSelected(id);
+        dispatch(acAppendDashboards(dash));
+
+        return Promise.resolve(dash);
+    } catch (err) {
+        console.log('Error: ', err);
+        return err;
+    }
+};
+
 // thunks
 export const tSetSelectedDashboardById = (id, name = '') => async (
     dispatch,
@@ -84,9 +96,6 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
         dispatch(
             acSetDashboardItems(withShape(customDashboard.dashboardItems))
         );
-
-        // add dashboard
-        dispatch(acAppendDashboards(selected));
 
         // store preferred dashboard
         storePreferredDashboardId(fromUser.sGetUsername(getState()), id);
@@ -133,9 +142,7 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
     };
 
     try {
-        console.log('fetchselected', id);
-
-        const fetchedSelected = await apiFetchSelected(id);
+        const fetchedSelected = await dispatch(tAppendDashboard(id));
 
         return onSuccess(fetchedSelected);
     } catch (err) {

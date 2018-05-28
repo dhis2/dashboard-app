@@ -8,10 +8,8 @@ import { fromDashboards, fromControlBar } from '../actions';
 
 class Dashboard extends Component {
     loadDashboard = () => {
-        const { store } = this.context;
-
-        store.dispatch(
-            fromDashboards.tSetDashboards(
+        this.context.store.dispatch(
+            fromDashboards.tSelectDashboard(
                 this.props.match.params.dashboardId || null
             )
         );
