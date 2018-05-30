@@ -100,9 +100,8 @@ export const tStarDashboard = (id, isStarred) => async (dispatch, getState) => {
 
 export const tDeleteDashboard = id => async (dispatch, getState) => {
     try {
-        console.log('tDeleteDashboard');
-
         await apiDeleteDashboard(id);
+        await dispatch(tFetchDashboards());
         dispatch(acClearEditDashboard());
         return Promise.resolve();
     } catch (err) {
