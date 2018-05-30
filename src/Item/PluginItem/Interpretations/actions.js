@@ -4,6 +4,7 @@ import {
     deleteInterpretationLike,
     postInterpretationComment,
     updateInterpretation, // new: Joakim
+    updateInterpretationComment, // new: Joakim
     deleteInterpretationComment,
     getInterpretation,
     postInterpretation,
@@ -22,6 +23,11 @@ export const addInterpretation = value => ({
 
 export const addInterpretations = value => ({
     type: actionTypes.ADD_INTERPRETATIONS,
+    value,
+});
+
+export const editInterpretation = value => ({
+    type: actionTypes.EDIT_INTERPRETATION,
     value,
 });
 
@@ -45,6 +51,14 @@ const onError = (action, error) => {
 const updateInterpretationInStore = (id, dispatch) => {
     return getInterpretation(id).then(interpretation => {
         return dispatch(addInterpretation(interpretation));
+    });
+};
+
+const editInterpretationInStore = (id, dispatch) => {
+    console.log(id);
+    return getInterpretation(id).then(interpretation => {
+        console.log(interpretation);
+        return dispatch(editInterpretation(interpretation));
     });
 };
 
@@ -78,10 +92,19 @@ export const tAddInterpretationComment = data => async dispatch => {
 };
 
 // new: Joakim
-export const tEditInterpretationComment = data => async dispatch => {
+export const tEditInterpretation = data => async dispatch => {
     try {
         await updateInterpretation(data);
-        return updateInterpretationInStore(data.id, dispatch);
+        return editInterpretationInStore(data.id, dispatch);
+    } catch (err) {
+        return onError('Edit Interpretation Comment', err);
+    }
+};
+
+export const tEditInterpretationComment = data => async dispatch => {
+    try {
+        await updateInterpretationComment(data);
+        return editInterpretationInStore(data.id, dispatch);
     } catch (err) {
         return onError('Edit Interpretation Comment', err);
     }

@@ -13,8 +13,10 @@ import {
     tLikeInterpretation,
     tUnlikeInterpretation,
     tAddInterpretationComment,
+    tEditInterpretation,
     tDeleteInterpretationComment,
     tDeleteInterpretation,
+    tEditInterpretationComment,
 } from './actions';
 
 import './Interpretation.css';
@@ -121,19 +123,29 @@ class Interpretation extends Component {
     showCommentField = () => {
         this.setState({ showCommentField: true });
     };
-
-    postComment = (text, commentId) => {
+    // expanding on existing function: joakim -> Check if InputField relates to an existing comment and update, or post new comment
+    postComment = (commentId, text) => {
         const { id } = this.props.interpretation;
-        this.props.addComment({ id, text });
-        this.setState({ showCommentField: false });
-
-        this.setState({
-            editing: this.state.editing.filter(entry => {
-                return entry !== commentId;
-            }),
-        });
+        if (this.state.editing.includes(commentId)) {
+            id === commentId
+                ? this.props.updateInterpretation({ id: commentId, text })
+                : this.props.updateInterpretationComment({
+                      id,
+                      commentId,
+                      text,
+                  });
+            this.setState({
+                editing: this.state.editing.filter(entry => {
+                    return entry !== commentId;
+                }),
+            });
+        } else {
+            this.props.addComment({ id, text });
+            this.setState({ showCommentField: false });
+        }
     };
 
+    // new: joakim (find better name) -> Render InputField or actual text if ID is present in Array.
     isEditing = item => {
         return this.state.editing.includes(item.id) ? (
             <InputField
@@ -147,9 +159,15 @@ class Interpretation extends Component {
         );
     };
 
+    // new: joakim -> Toggle Edit function
     editComment = commentId => {
-        !this.state.editing.includes(commentId) &&
-            this.setState({ editing: [...this.state.editing, commentId] });
+        !this.state.editing.includes(commentId)
+            ? this.setState({ editing: [...this.state.editing, commentId] })
+            : this.setState({
+                  editing: this.state.editing.filter(entry => {
+                      return entry !== commentId;
+                  }),
+              });
     };
 
     deleteComment = commentId => {
@@ -197,7 +215,7 @@ class Interpretation extends Component {
                     }}
                 >
                     <SvgIcon style={style.icon} icon="Launch" />
-                    View in Visualizer
+                    {i18n.t('View in Visualizer')}
                 </a>
                 <button
                     className={actionButtonClass}
@@ -318,6 +336,9 @@ const mapDispatchToProps = dispatch => ({
     likeInterpretation: data => dispatch(tLikeInterpretation(data)),
     unlikeInterpretation: data => dispatch(tUnlikeInterpretation(data)),
     addComment: data => dispatch(tAddInterpretationComment(data)),
+    updateInterpretation: data => dispatch(tEditInterpretation(data)), // new: Joakim
+    updateInterpretationComment: data =>
+        dispatch(tEditInterpretationComment(data)), // new: joakim
     deleteComment: data => dispatch(tDeleteInterpretationComment(data)),
     deleteInterpretation: data => dispatch(tDeleteInterpretation(data)),
 });

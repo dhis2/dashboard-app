@@ -6,6 +6,7 @@ export const actionTypes = {
     ADD_INTERPRETATION: 'ADD_INTERPRETATION',
     ADD_INTERPRETATIONS: 'ADD_INTERPRETATIONS',
     REMOVE_INTERPRETATION: 'REMOVE_INTERPRETATION',
+    EDIT_INTERPRETATION: 'EDIT_INTERPRETATION',
 };
 
 // Reducer
@@ -27,6 +28,12 @@ export default (state = {}, action) => {
             }, {});
 
             return Object.assign({}, state, newInterpretations);
+        }
+        //new: joakim
+        case actionTypes.EDIT_INTERPRETATION: {
+            return Object.assign({}, state, {
+                [action.value.id]: action.value,
+            });
         }
         case actionTypes.REMOVE_INTERPRETATION: {
             return update(state, { $unset: [action.value] });

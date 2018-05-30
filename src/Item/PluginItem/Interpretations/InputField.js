@@ -27,7 +27,8 @@ const style = {
 
 class InputField extends Component {
     state = {
-        newText: this.props.placeholder || '',
+        //the "Add your reply" Inputfield does not have the commentId prop
+        newText: this.props.commentId ? this.props.placeholder || '' : '',
     };
 
     updateNewText = newText => {
@@ -35,7 +36,7 @@ class InputField extends Component {
     };
 
     onClick = () => {
-        this.props.onPost(this.state.newText, this.props.commentId);
+        this.props.onPost(this.props.commentId, this.state.newText);
         this.setState({ newText: '' });
     };
 
