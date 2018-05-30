@@ -89,6 +89,7 @@ class Interpretation extends Component {
         showCommentField: false,
         uiLocale: '',
         visualizerHref: '',
+        editing: [],
     };
 
     componentDidMount() {
@@ -121,10 +122,34 @@ class Interpretation extends Component {
         this.setState({ showCommentField: true });
     };
 
-    postComment = text => {
+    postComment = (text, commentId) => {
         const { id } = this.props.interpretation;
         this.props.addComment({ id, text });
         this.setState({ showCommentField: false });
+
+        this.setState({
+            editing: this.state.editing.filter(entry => {
+                return entry !== commentId;
+            }),
+        });
+    };
+
+    isEditing = item => {
+        return this.state.editing.includes(item.id) ? (
+            <InputField
+                placeholder={item.text}
+                commentId={item.id}
+                postText={'Post'}
+                onPost={this.postComment}
+            />
+        ) : (
+            <p style={style.text}>{item.text}</p>
+        );
+    };
+
+    editComment = commentId => {
+        !this.state.editing.includes(commentId) &&
+            this.setState({ editing: [...this.state.editing, commentId] });
     };
 
     deleteComment = commentId => {
@@ -176,6 +201,15 @@ class Interpretation extends Component {
                 </a>
                 <button
                     className={actionButtonClass}
+                    onClick={() =>
+                        this.editComment(this.props.interpretation.id)
+                    }
+                >
+                    <SvgIcon style={style.icon} icon="Create" />
+                    {i18n.t('Edit')}
+                </button>
+                <button
+                    className={actionButtonClass}
                     onClick={this.showCommentField}
                 >
                     <SvgIcon style={style.icon} icon="Reply" />
@@ -202,7 +236,6 @@ class Interpretation extends Component {
         if (!this.props.interpretation.comments.length) {
             return null;
         }
-
         const canDeleteComment = ownerId =>
             this.userIsOwner(ownerId) || this.props.userIsSuperuser;
 
@@ -221,7 +254,14 @@ class Interpretation extends Component {
                         {formatDate(comment.created, this.state.uiLocale)}
                     </span>
                 </div>
-                <p style={style.text}>{comment.text}</p>
+                {this.isEditing(comment)}
+                <button
+                    className={actionButtonClass}
+                    onClick={() => this.editComment(comment.id)}
+                >
+                    <SvgIcon style={style.icon} icon="Create" />
+                    {i18n.t('Edit')}
+                </button>
                 {canDeleteComment(comment.user.id)
                     ? deleteButton(() => this.deleteComment(comment.id))
                     : null}
@@ -243,7 +283,7 @@ class Interpretation extends Component {
                             {formatDate(item.created, this.state.uiLocale)}
                         </span>
                     </div>
-                    <p style={style.text}>{item.text}</p>
+                    {this.isEditing(item)}
                 </div>
             );
         };

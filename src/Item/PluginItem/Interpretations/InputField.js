@@ -27,7 +27,7 @@ const style = {
 
 class InputField extends Component {
     state = {
-        newText: '',
+        newText: this.props.placeholder || '',
     };
 
     updateNewText = newText => {
@@ -35,7 +35,7 @@ class InputField extends Component {
     };
 
     onClick = () => {
-        this.props.onPost(this.state.newText);
+        this.props.onPost(this.state.newText, this.props.commentId);
         this.setState({ newText: '' });
     };
 

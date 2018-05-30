@@ -3,6 +3,7 @@ import {
     postInterpretationLike,
     deleteInterpretationLike,
     postInterpretationComment,
+    updateInterpretation, // new: Joakim
     deleteInterpretationComment,
     getInterpretation,
     postInterpretation,
@@ -73,6 +74,16 @@ export const tAddInterpretationComment = data => async dispatch => {
         return updateInterpretationInStore(data.id, dispatch);
     } catch (err) {
         return onError('Add Interpretation Comment', err);
+    }
+};
+
+// new: Joakim
+export const tEditInterpretationComment = data => async dispatch => {
+    try {
+        await updateInterpretation(data);
+        return updateInterpretationInStore(data.id, dispatch);
+    } catch (err) {
+        return onError('Edit Interpretation Comment', err);
     }
 };
 
