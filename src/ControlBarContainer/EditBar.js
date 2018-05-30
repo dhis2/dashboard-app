@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import i18n from 'd2-i18n';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 import PrimaryButton from '../widgets/PrimaryButton';
@@ -32,6 +32,7 @@ export class EditBar extends Component {
         translationDialogIsOpen: false,
         dashboardModel: undefined,
         confirmDeleteDialogOpen: false,
+        redirectUrl: undefined,
     };
 
     onConfirmDelete = () => {
@@ -40,9 +41,13 @@ export class EditBar extends Component {
 
     onSave = () => {
         this.props.save().then(newId => {
-            this.props.clearEditDashboard();
-            this.props.history.push(`/view/${newId}`);
+            this.setState({ redirectUrl: `/view/${newId}` });
         });
+    };
+
+    onDiscard = () => {
+        this.props.onDiscardChanges();
+        this.setState({ redirectUrl: `/view/${this.props.dashboardId}` });
     };
 
     onContinueEditing = () => {
@@ -52,7 +57,7 @@ export class EditBar extends Component {
     onDeleteConfirmed = () => {
         this.setState({ confirmDeleteDialogOpen: false });
         this.props.onDelete(this.props.dashboardId).then(() => {
-            this.props.history.push('/');
+            this.setState({ redirectUrl: `/` });
         });
     };
 
@@ -113,7 +118,11 @@ export class EditBar extends Component {
         ) : null;
 
     render() {
-        const { clearEditDashboard, dashboardId, deleteAccess } = this.props;
+        if (this.state.redirectUrl) {
+            return <Redirect to={this.state.redirectUrl} />;
+        }
+
+        const { dashboardId, deleteAccess } = this.props;
         const controlBarHeight = getOuterHeight(MIN_ROW_COUNT, false);
 
         return (
@@ -144,7 +153,7 @@ export class EditBar extends Component {
                             ) : null}
                         </div>
                         <div className="right-controls">
-                            <FlatButton onClick={clearEditDashboard}>
+                            <FlatButton onClick={this.onDiscard}>
                                 {i18n.t('Exit without saving')}
                             </FlatButton>
                         </div>
@@ -172,18 +181,12 @@ const mapStateToProps = state => {
 };
 
 function mapDispatchToProps(dispatch) {
-    const save = () => dispatch(tSaveDashboard()).then(id => id);
-
-    const clearEditDashboard = () => dispatch(acClearEditDashboard());
-
     return {
-        save,
-        clearEditDashboard,
+        save: () => dispatch(tSaveDashboard()).then(id => id),
+        onDiscardChanges: () => dispatch(acClearEditDashboard()),
         onDelete: id => dispatch(tDeleteDashboard(id)),
-        onTranslate: acSetDashboardDisplayName,
+        onTranslate: () => dispatch(acSetDashboardDisplayName()),
     };
 }
 
-export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps)(EditBar)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(EditBar);

@@ -110,6 +110,7 @@ export const tSaveDashboard = () => async (dispatch, getState) => {
             : await postDashboard(dashboardToSave);
 
         await dispatch(tLoadDashboard(dashboardId));
+        dispatch(acClearEditDashboard());
 
         return Promise.resolve(dashboardId);
     } catch (error) {
