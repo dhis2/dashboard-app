@@ -35,10 +35,6 @@ export const acSetSelectedShowDescription = value => ({
     value,
 });
 
-export const acNewDashboard = () => ({
-    type: actionTypes.NEW_DASHBOARD,
-});
-
 export const acReceivedVisualization = value => ({
     type: actionTypes.RECEIVED_VISUALIZATION,
     value,

@@ -10,7 +10,7 @@ import FilterDialog from '../ItemFilter/ItemFilter';
 import Info from './Info';
 import FlatButton from '../widgets/FlatButton';
 import * as fromReducers from '../reducers';
-import { fromEditDashboard, fromSelected, fromDashboards } from '../actions';
+import { fromSelected, fromDashboards } from '../actions';
 import { orObject } from '../util';
 
 const NO_DESCRIPTION = i18n.t('No description');
@@ -78,7 +78,6 @@ class ViewTitleBar extends Component {
             showDescription,
             starred,
             onStarClick,
-            onEditClick,
             onInfoClick,
         } = this.props;
         const styles = Object.assign({}, style, viewStyle);
@@ -117,7 +116,6 @@ class ViewTitleBar extends Component {
                                 >
                                     <FlatButton
                                         style={{ minWidth: '30px', top: '1px' }}
-                                        onClick={onEditClick}
                                     >
                                         Edit
                                     </FlatButton>
@@ -193,7 +191,7 @@ const mapStateToProps = state => {
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const selectedDashboard = orObject(stateProps.selectedDashboard);
-    const { starred, dashboardItems, showDescription } = stateProps;
+    const { starred, showDescription } = stateProps;
     const { dispatch } = dispatchProps;
 
     return {
@@ -203,14 +201,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             dispatch(
                 fromDashboards.tStarDashboard(selectedDashboard.id, !starred)
             ),
-        onEditClick: () => {
-            dispatch(
-                fromEditDashboard.acSetEditDashboard(
-                    selectedDashboard,
-                    dashboardItems
-                )
-            );
-        },
         onInfoClick: () =>
             dispatch(
                 fromSelected.acSetSelectedShowDescription(!showDescription)
@@ -228,7 +218,6 @@ ViewTitleBar.propTypes = {
     description: PropTypes.string,
     starred: PropTypes.bool,
     showDescription: PropTypes.bool,
-    onEditClick: PropTypes.func.isRequired,
     onInfoClick: PropTypes.func,
 };
 

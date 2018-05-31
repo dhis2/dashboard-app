@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import PageContainer from '../PageContainer/PageContainer';
 import PageContainerSpacer from '../PageContainer/PageContainerSpacer';
-import EditBar from '../ControlBarContainer/EditBar';
+import EditDashboard from './EditDashboard';
 import DashboardsBar from '../ControlBarContainer/DashboardsBar';
 import { fromDashboards, fromControlBar } from '../actions';
 
@@ -33,9 +33,7 @@ class Dashboard extends Component {
             </Fragment>
         ) : (
             <Fragment>
-                <EditBar />
-                <PageContainerSpacer />
-                <PageContainer />
+                <EditDashboard mode={this.props.mode} />
             </Fragment>
         );
     }
