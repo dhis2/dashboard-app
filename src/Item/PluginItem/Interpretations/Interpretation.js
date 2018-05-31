@@ -121,7 +121,7 @@ class Interpretation extends Component {
     };
 
     showCommentField = () => {
-        this.setState({ showCommentField: true });
+        this.setState({ showCommentField: !this.state.showCommentField });
     };
 
     postComment = text => {

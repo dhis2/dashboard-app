@@ -54,8 +54,14 @@ const updateInterpretationInStore = (id, dispatch) => {
     });
 };
 
-const editInterpretationInStore = (id, dispatch) => {
-    return getInterpretation(id).then(interpretation => {
+// Comments recieved have an extra ' " ', and \n on carridge return.
+// d2 API function .update() does not filter correctly.
+// this hack does not work.
+const editInterpretationInStore = (data, dispatch) => {
+    return getInterpretation(data.id).then(interpretation => {
+        interpretation.comments.map(entry =>
+            entry.text.slice(1, entry.text.length)
+        );
         return dispatch(editInterpretation(interpretation));
     });
 };
@@ -93,7 +99,7 @@ export const tAddInterpretationComment = data => async dispatch => {
 export const tEditInterpretation = data => async dispatch => {
     try {
         await updateInterpretation(data);
-        return editInterpretationInStore(data.id, dispatch);
+        return editInterpretationInStore(data, dispatch);
     } catch (err) {
         return onError('Edit Interpretation Comment', err);
     }
@@ -103,7 +109,7 @@ export const tEditInterpretation = data => async dispatch => {
 export const tEditInterpretationComment = data => async dispatch => {
     try {
         await updateInterpretationComment(data);
-        return editInterpretationInStore(data.id, dispatch);
+        return editInterpretationInStore(data, dispatch);
     } catch (err) {
         return onError('Edit Interpretation Comment', err);
     }

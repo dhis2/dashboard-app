@@ -37,6 +37,7 @@ export const postInterpretationSharing = data => {
         .catch(onError);
 };
 
+// New: joakim
 export const updateInterpretation = data => {
     const url = `/interpretations/${data.id}`;
     return getInstance()
@@ -74,6 +75,7 @@ export const postInterpretationComment = data => {
         .catch(onError);
 };
 
+// new: Joakim
 export const updateInterpretationComment = data => {
     const url = `/interpretations/${data.id}/comments/${data.commentId}`;
     return getInstance()
