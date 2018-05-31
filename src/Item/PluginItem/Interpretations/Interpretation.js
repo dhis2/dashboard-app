@@ -123,36 +123,35 @@ class Interpretation extends Component {
     showCommentField = () => {
         this.setState({ showCommentField: true });
     };
-    // expanding on existing function: joakim -> Check if InputField relates to an existing comment and update, or post new comment
-    postComment = (commentId, text) => {
+
+    postComment = text => {
         const { id } = this.props.interpretation;
-        if (this.state.editing.includes(commentId)) {
-            id === commentId
-                ? this.props.updateInterpretation({ id: commentId, text })
-                : this.props.updateInterpretationComment({
-                      id,
-                      commentId,
-                      text,
-                  });
-            this.setState({
-                editing: this.state.editing.filter(entry => {
-                    return entry !== commentId;
-                }),
-            });
-        } else {
-            this.props.addComment({ id, text });
-            this.setState({ showCommentField: false });
-        }
+        this.props.addComment({ id, text });
+        this.setState({ showCommentField: false });
+    };
+
+    // new: joakim -> Update original interpretation, or comment related to the interpretation.
+    editComment = (commentId, text) => {
+        const { id } = this.props.interpretation;
+        id === commentId
+            ? this.props.updateInterpretation({ id, text })
+            : this.props.updateInterpretationComment({
+                  id,
+                  commentId,
+                  text,
+              });
+        this.toggleEdit(commentId);
     };
 
     // new: joakim (find better name) -> Render InputField or actual text if ID is present in Array.
     isEditing = item => {
         return this.state.editing.includes(item.id) ? (
             <InputField
+                editing
                 placeholder={item.text}
                 commentId={item.id}
                 postText={'Post'}
-                onPost={this.postComment}
+                onEdit={this.editComment}
             />
         ) : (
             <p style={style.text}>{item.text}</p>
@@ -160,7 +159,7 @@ class Interpretation extends Component {
     };
 
     // new: joakim -> Toggle Edit function
-    editComment = commentId => {
+    toggleEdit = commentId => {
         !this.state.editing.includes(commentId)
             ? this.setState({ editing: [...this.state.editing, commentId] })
             : this.setState({
@@ -220,7 +219,7 @@ class Interpretation extends Component {
                 <button
                     className={actionButtonClass}
                     onClick={() =>
-                        this.editComment(this.props.interpretation.id)
+                        this.toggleEdit(this.props.interpretation.id)
                     }
                 >
                     <SvgIcon style={style.icon} icon="Create" />
@@ -275,7 +274,7 @@ class Interpretation extends Component {
                 {this.isEditing(comment)}
                 <button
                     className={actionButtonClass}
-                    onClick={() => this.editComment(comment.id)}
+                    onClick={() => this.toggleEdit(comment.id)}
                 >
                     <SvgIcon style={style.icon} icon="Create" />
                     {i18n.t('Edit')}
@@ -317,6 +316,7 @@ class Interpretation extends Component {
                     <div style={{ marginLeft: '37px' }}>
                         <InputField
                             placeholder={i18n.t('Add your reply')}
+                            commentId={this.props.interpretation.id}
                             onPost={this.postComment}
                             postText={i18n.t('Reply')}
                         />

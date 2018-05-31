@@ -12,7 +12,6 @@ export const actionTypes = {
 // Reducer
 
 export default (state = {}, action) => {
-    console.log(action);
     switch (action.type) {
         case actionTypes.ADD_INTERPRETATION: {
             return Object.assign({}, state, {

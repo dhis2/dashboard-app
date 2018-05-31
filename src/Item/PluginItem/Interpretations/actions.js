@@ -55,9 +55,7 @@ const updateInterpretationInStore = (id, dispatch) => {
 };
 
 const editInterpretationInStore = (id, dispatch) => {
-    console.log(id);
     return getInterpretation(id).then(interpretation => {
-        console.log(interpretation);
         return dispatch(editInterpretation(interpretation));
     });
 };
@@ -101,6 +99,7 @@ export const tEditInterpretation = data => async dispatch => {
     }
 };
 
+// new: Joakim
 export const tEditInterpretationComment = data => async dispatch => {
     try {
         await updateInterpretationComment(data);
