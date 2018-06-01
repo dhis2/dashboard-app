@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 
-import PluginItem from './PluginItem/Item';
-import MessagesItem from './MessagesItem/Item';
-import NotSupportedItem from './NotSupportedItem/Item';
-import ListItem from './ListItem/Item';
-import TextItem from './TextItem/Item';
-import AppItem from './AppItem/Item';
-import SpacerItem from './SpacerItem/Item';
+import PluginItem from './PluginItem/Item'
+import MessagesItem from './MessagesItem/Item'
+import NotSupportedItem from './NotSupportedItem/Item'
+import ListItem from './ListItem/Item'
+import TextItem from './TextItem/Item'
+import AppItem from './AppItem/Item'
+import SpacerItem from './SpacerItem/Item'
 import {
     APP,
     REPORT_TABLE,
@@ -19,9 +19,9 @@ import {
     RESOURCES,
     USERS,
     TEXT,
-    SPACER,
-} from '../itemTypes';
-import { DEFAULT_STATE } from '../reducers/itemFilter';
+    SPACER
+} from '../itemTypes'
+import { DEFAULT_STATE } from '../reducers/itemFilter'
 
 const getGridItem = type => {
     switch (type) {
@@ -30,26 +30,26 @@ const getGridItem = type => {
         case MAP:
         case EVENT_CHART:
         case EVENT_REPORT:
-            return PluginItem;
+            return PluginItem
         case MESSAGES:
-            return MessagesItem;
+            return MessagesItem
         case REPORTS:
         case RESOURCES:
         case USERS:
-            return ListItem;
+            return ListItem
         case TEXT:
-            return TextItem;
+            return TextItem
         case SPACER:
-            return SpacerItem;
+            return SpacerItem
         case APP:
-            return AppItem;
+            return AppItem
         default:
-            return NotSupportedItem;
+            return NotSupportedItem
     }
-};
+}
 
 export const Item = props => {
-    const GridItem = getGridItem(props.item.type);
+    const GridItem = getGridItem(props.item.type)
 
     return (
         <GridItem
@@ -58,5 +58,5 @@ export const Item = props => {
             itemFilter={props.editMode ? DEFAULT_STATE : props.itemFilter}
             onToggleItemExpanded={props.onToggleItemExpanded}
         />
-    );
-};
+    )
+}

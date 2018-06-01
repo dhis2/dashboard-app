@@ -1,78 +1,78 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import i18n from 'dhis2-i18n';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import i18n from 'dhis2-i18n'
 
-import Interpretation from './Interpretation';
-import InputField from './InputField';
-import { tGetInterpretations, tPostInterpretation } from './actions';
-import * as fromReducers from '../../../reducers';
-import { colors } from '../../../colors';
-import { sortByDate } from '../../../util';
+import Interpretation from './Interpretation'
+import InputField from './InputField'
+import { tGetInterpretations, tPostInterpretation } from './actions'
+import * as fromReducers from '../../../reducers'
+import { colors } from '../../../colors'
+import { sortByDate } from '../../../util'
 
 const style = {
     container: {
         padding: '5px',
-        marginTop: '5px',
+        marginTop: '5px'
     },
     interpretation: {
         marginBottom: '10px',
         maxWidth: '560px',
-        marginRight: '20px',
+        marginRight: '20px'
     },
     list: {
         listStyleType: 'none',
-        paddingLeft: '0px',
+        paddingLeft: '0px'
     },
     title: {
         color: colors.black,
         fontSize: '13px',
         fontWeight: 'bold',
         height: '19px',
-        lineHeight: '19px',
-    },
-};
+        lineHeight: '19px'
+    }
+}
 
 class Interpretations extends Component {
     state = {
-        newInterpretationText: '',
-    };
+        newInterpretationText: ''
+    }
 
     postInterpretation = text => {
-        const { object, objectId } = this.props;
+        const { object, objectId } = this.props
         this.props.postInterpretation({
             objectType: object.type,
             objectId,
-            text,
-        });
-    };
+            text
+        })
+    }
 
     interpretationsLoaded = () => {
         const isLoaded =
             this.props.ids.length &&
             this.props.ids.length ===
-                Object.keys(this.props.interpretations).length;
+                Object.keys(this.props.interpretations).length
 
-        return isLoaded;
-    };
+        return isLoaded
+    }
 
     loadInterpretations = () => {
         if (!this.interpretationsLoaded()) {
             const idsToGet = this.props.ids.filter(
                 id => !this.props.interpretations[id]
-            );
+            )
 
-            this.props.getInterpretations(idsToGet);
+            this.props.getInterpretations(idsToGet)
         }
-    };
+    }
 
     componentDidMount() {
-        this.loadInterpretations();
+        this.loadInterpretations()
     }
 
     renderItems() {
-        let Items = null;
+        let Items = null
         if (this.interpretationsLoaded()) {
-            const sorted = sortByDate(this.props.interpretations, 'created');
+            const sorted = sortByDate(this.props.interpretations, 'created')
             Items = sorted.map(interpretation => {
                 return (
                     <li style={style.interpretation} key={interpretation.id}>
@@ -82,10 +82,10 @@ class Interpretations extends Component {
                             objectId={this.props.objectId}
                         />
                     </li>
-                );
-            });
+                )
+            })
         }
-        return Items;
+        return Items
     }
     render() {
         return (
@@ -100,31 +100,32 @@ class Interpretations extends Component {
                     postText="Post"
                 />
             </div>
-        );
+        )
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const { fromVisualizations, fromInterpretations } = fromReducers;
+    const { fromVisualizations, fromInterpretations } = fromReducers
     const ids = fromVisualizations
         .sGetVisInterpretations(state, ownProps.objectId)
-        .map(i => i.id);
+        .map(i => i.id)
 
     return {
         ids,
-        interpretations: fromInterpretations.sGetInterpretations(state, ids),
-    };
-};
+        interpretations: fromInterpretations.sGetInterpretations(state, ids)
+    }
+}
 
 const mapDispatchToProps = dispatch => {
     return {
         getInterpretations: ids => dispatch(tGetInterpretations(ids)),
-        postInterpretation: data => dispatch(tPostInterpretation(data)),
-    };
-};
+        postInterpretation: data => dispatch(tPostInterpretation(data))
+    }
+}
 
-const InterpretationsContainer = connect(mapStateToProps, mapDispatchToProps)(
-    Interpretations
-);
+const InterpretationsContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Interpretations)
 
-export default InterpretationsContainer;
+export default InterpretationsContainer

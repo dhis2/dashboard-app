@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
-import i18n from 'dhis2-i18n';
-import ItemHeader from '../ItemHeader';
+import React, { Fragment } from 'react'
+import i18n from 'dhis2-i18n'
+import ItemHeader from '../ItemHeader'
 
 const style = {
     margin: '10px',
     fontSize: '15px',
-    lineHeight: '18px',
-};
+    lineHeight: '18px'
+}
 
 const SpacerItem = () => {
     return (
@@ -18,7 +18,7 @@ const SpacerItem = () => {
                 )}
             </p>
         </Fragment>
-    );
-};
+    )
+}
 
-export default SpacerItem;
+export default SpacerItem

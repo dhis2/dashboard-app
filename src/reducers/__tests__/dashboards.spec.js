@@ -1,4 +1,4 @@
-import reducer, { actionTypes, DEFAULT_DASHBOARDS } from '../dashboards';
+import reducer, { actionTypes, DEFAULT_DASHBOARDS } from '../dashboards'
 
 describe('dashboards reducer', () => {
     const boards = {
@@ -6,62 +6,62 @@ describe('dashboards reducer', () => {
             id: 'dash1',
             name: 'good stuff',
             displayName: 'untranslated',
-            dashboardItems: [],
+            dashboardItems: []
         },
         dash2: {
             id: 'dash2',
             name: 'ok stuff',
-            dashboardItems: [{ id: '234' }],
-        },
-    };
+            dashboardItems: [{ id: '234' }]
+        }
+    }
 
     it('should return the default state', () => {
-        const actualState = reducer(undefined, { type: 'NO_MATCH' });
+        const actualState = reducer(undefined, { type: 'NO_MATCH' })
 
-        expect(actualState).toEqual(DEFAULT_DASHBOARDS);
-    });
+        expect(actualState).toEqual(DEFAULT_DASHBOARDS)
+    })
 
     it('should set the list of dashboards by replacing the existing list', () => {
-        const currentState = { dash0: { id: 'dash0' } };
+        const currentState = { dash0: { id: 'dash0' } }
         const actualState = reducer(currentState, {
             type: actionTypes.SET_DASHBOARDS,
             append: false,
-            value: boards,
-        });
+            value: boards
+        })
 
-        expect(actualState).toEqual(boards);
-    });
+        expect(actualState).toEqual(boards)
+    })
 
     it('should append to the list of dashboards', () => {
-        const currentState = { dash0: { id: 'dash0' } };
+        const currentState = { dash0: { id: 'dash0' } }
         const actualState = reducer(currentState, {
             type: actionTypes.SET_DASHBOARDS,
             append: true,
-            value: boards,
-        });
+            value: boards
+        })
 
-        const expected = Object.assign({}, boards, currentState);
+        const expected = Object.assign({}, boards, currentState)
 
-        expect(actualState).toEqual(expected);
-    });
+        expect(actualState).toEqual(expected)
+    })
 
     it('should set the displayName on a dashboard', () => {
-        const currentState = boards;
+        const currentState = boards
         const actualState = reducer(currentState, {
             type: actionTypes.SET_DASHBOARD_DISPLAY_NAME,
             dashboardId: 'dash1',
-            value: 'bella roba',
-        });
+            value: 'bella roba'
+        })
 
         const expected = Object.assign({}, currentState, {
             dash1: {
                 id: 'dash1',
                 name: 'good stuff',
                 displayName: 'bella roba',
-                dashboardItems: [],
-            },
-        });
+                dashboardItems: []
+            }
+        })
 
-        expect(actualState).toEqual(expected);
-    });
-});
+        expect(actualState).toEqual(expected)
+    })
+})

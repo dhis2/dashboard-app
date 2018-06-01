@@ -1,11 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import i18n from 'dhis2-i18n';
+import React from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import i18n from 'dhis2-i18n'
 
-import ItemSelect from '../ItemSelect/ItemSelect';
-import TextField from 'd2-ui/lib/text-field/TextField';
-import { fromEditDashboard } from '../actions';
+import ItemSelect from '../ItemSelect/ItemSelect'
+import TextField from 'd2-ui/lib/text-field/TextField'
+import { fromEditDashboard } from '../actions'
 
 const EditTitleBar = ({
     name,
@@ -13,19 +13,19 @@ const EditTitleBar = ({
     description,
     style,
     onChangeTitle,
-    onChangeDescription,
+    onChangeDescription
 }) => {
     const titleStyle = Object.assign({}, style.title, {
-        top: '-2px',
-    });
+        top: '-2px'
+    })
 
     const translatedName = () => {
         return displayName ? (
             <span style={style.description}>
                 Current translation: {displayName}
             </span>
-        ) : null;
-    };
+        ) : null
+    }
 
     return (
         <section style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -59,28 +59,31 @@ const EditTitleBar = ({
                 <ItemSelect />
             </div>
         </section>
-    );
-};
+    )
+}
 
 const mapDispatchToProps = dispatch => ({
     onChangeTitle: text =>
         dispatch(fromEditDashboard.acSetDashboardTitle(text)),
     onChangeDescription: text =>
-        dispatch(fromEditDashboard.acSetDashboardDescription(text)),
-});
+        dispatch(fromEditDashboard.acSetDashboardDescription(text))
+})
 
-const TitleBarCt = connect(null, mapDispatchToProps)(EditTitleBar);
+const TitleBarCt = connect(
+    null,
+    mapDispatchToProps
+)(EditTitleBar)
 
-export default TitleBarCt;
+export default TitleBarCt
 
 EditTitleBar.propTypes = {
     name: PropTypes.string,
     displayName: PropTypes.string,
-    description: PropTypes.string,
-};
+    description: PropTypes.string
+}
 
 EditTitleBar.defaultProps = {
     name: '',
     displayName: '',
-    description: '',
-};
+    description: ''
+}

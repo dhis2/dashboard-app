@@ -1,13 +1,13 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import i18n from 'dhis2-i18n';
+import React from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import i18n from 'dhis2-i18n'
 
-import { fromSelected } from '../actions';
-import * as fromReducers from '../reducers';
+import { fromSelected } from '../actions'
+import * as fromReducers from '../reducers'
 
-import DashboardSelectList from './DashboardSelectList';
-import DashboardSelectTable from './DashboardSelectTable';
+import DashboardSelectList from './DashboardSelectList'
+import DashboardSelectTable from './DashboardSelectTable'
 
 const styles = {
     loading: {
@@ -15,47 +15,47 @@ const styles = {
         padding: '20px',
         textAlign: 'center',
         color: '#888',
-        fontSize: '13px',
-    },
-};
+        fontSize: '13px'
+    }
+}
 
 function Loading() {
-    return <div style={styles.loading}>{i18n.t('Loading dashboards...')}</div>;
+    return <div style={styles.loading}>{i18n.t('Loading dashboards...')}</div>
 }
 
 // Component
 
 export const DashboardSelect = ({ isFetching, dashboards, style, onClick }) => {
     if (isFetching) {
-        return <Loading />;
+        return <Loading />
     }
 
-    const list = <DashboardSelectList {...{ dashboards, onClick }} />;
-    const table = <DashboardSelectTable {...{ dashboards, onClick }} />;
+    const list = <DashboardSelectList {...{ dashboards, onClick }} />
+    const table = <DashboardSelectTable {...{ dashboards, onClick }} />
 
     switch (style) {
         case 'LIST':
-            return list;
+            return list
         case 'TABLE':
-            return table;
+            return table
         default:
-            return list;
+            return list
     }
-};
+}
 
 DashboardSelect.propTypes = {
     isFetching: PropTypes.bool,
     dashboards: PropTypes.array,
     style: PropTypes.string,
-    onClick: PropTypes.func,
-};
+    onClick: PropTypes.func
+}
 
 DashboardSelect.defaultProps = {
     isFetching: false,
     dashboards: [],
     style: 'LIST',
-    onClick: Function.prototype,
-};
+    onClick: Function.prototype
+}
 
 // Container
 
@@ -66,27 +66,28 @@ DashboardSelect.defaultProps = {
 // });
 
 const mapStateToProps = state => {
-    const isf = fromReducers.fromDashboards.sGetFromState(state);
-    const dbs = fromReducers.sGetFilteredDashboards(state);
-    const st = fromReducers.fromStyle.sGetFromState(state);
+    const isf = fromReducers.fromDashboards.sGetFromState(state)
+    const dbs = fromReducers.sGetFilteredDashboards(state)
+    const st = fromReducers.fromStyle.sGetFromState(state)
 
-    console.log(isf);
-    console.log(dbs);
-    console.log(st);
+    console.log(isf)
+    console.log(dbs)
+    console.log(st)
 
     return {
         isFetching: fromReducers.fromDashboards.sGetFromState(state) === null,
         dashboards: fromReducers.sGetFilteredDashboards(state),
-        style: fromReducers.fromStyle.sGetFromState(state),
-    };
-};
+        style: fromReducers.fromStyle.sGetFromState(state)
+    }
+}
 
 const mapDispatchToProps = dispatch => ({
-    onClick: id => dispatch(fromSelected.tSetSelectedDashboardById(id)),
-});
+    onClick: id => dispatch(fromSelected.tSetSelectedDashboardById(id))
+})
 
-const DashboardSelectCt = connect(mapStateToProps, mapDispatchToProps)(
-    DashboardSelect
-);
+const DashboardSelectCt = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(DashboardSelect)
 
-export default DashboardSelectCt;
+export default DashboardSelectCt

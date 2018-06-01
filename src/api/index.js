@@ -1,16 +1,16 @@
-import arrayClean from 'd2-utilizr/lib/arrayClean';
-import { itemTypeMap } from '../itemTypes';
+import arrayClean from 'd2-utilizr/lib/arrayClean'
+import { itemTypeMap } from '../itemTypes'
 import {
     getListItemFields,
     getFavoritesFields,
-    getIdNameFields,
-} from './metadata';
+    getIdNameFields
+} from './metadata'
 
 // Helper functions
 
-export const onError = error => console.log('Error: ', error);
+export const onError = error => console.log('Error: ', error)
 
-export const getEndPointName = type => itemTypeMap[type].endPointName;
+export const getEndPointName = type => itemTypeMap[type].endPointName
 
 // Dashboard item
 export const getDashboardItemsFields = ({ withFavorite } = {}) =>
@@ -28,10 +28,10 @@ export const getDashboardItemsFields = ({ withFavorite } = {}) =>
         `${getListItemFields().join(',')}`,
         withFavorite
             ? `${getFavoritesFields({
-                  withDimensions: withFavorite.withDimensions,
+                  withDimensions: withFavorite.withDimensions
               }).join(',')}`
-            : ``,
-    ]);
+            : ``
+    ])
 
 // Dashboard
 export const getDashboardFields = ({ withItems, withFavorite } = {}) =>
@@ -45,7 +45,7 @@ export const getDashboardFields = ({ withItems, withFavorite } = {}) =>
         'access',
         withItems
             ? `dashboardItems[${getDashboardItemsFields({
-                  withFavorite,
+                  withFavorite
               }).join(',')}]`
-            : ``,
-    ]);
+            : ``
+    ])

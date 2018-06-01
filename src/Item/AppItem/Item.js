@@ -1,17 +1,17 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
+import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 
-import ItemHeader from '../ItemHeader';
-import Line from '../../widgets/Line';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import ItemHeader from '../ItemHeader'
+import Line from '../../widgets/Line'
+import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon'
 
 const AppItem = ({ item }, context) => {
-    let appDetails;
+    let appDetails
 
     if (item.appKey) {
         appDetails = context.d2.system.installedApps.find(
             app => app.folderName === item.appKey
-        );
+        )
     }
 
     return appDetails && appDetails.name && appDetails.launchUrl ? (
@@ -23,7 +23,7 @@ const AppItem = ({ item }, context) => {
                 src={appDetails.launchUrl}
                 className="dashboard-item-content"
                 style={{
-                    border: 'none',
+                    border: 'none'
                 }}
             />
         </Fragment>
@@ -37,7 +37,7 @@ const AppItem = ({ item }, context) => {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    height: '90%',
+                    height: '90%'
                 }}
             >
                 <SvgIcon
@@ -47,11 +47,11 @@ const AppItem = ({ item }, context) => {
                 />
             </div>
         </Fragment>
-    );
-};
+    )
+}
 
 AppItem.contextTypes = {
-    d2: PropTypes.object,
-};
+    d2: PropTypes.object
+}
 
-export default AppItem;
+export default AppItem

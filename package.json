@@ -77,7 +77,7 @@
         "build": "node scripts/build.js",
         "coverage": "npm test -- --coverage",
         "test": "node scripts/test.js --env=jsdom",
-        "lint": "eslint -c .eslintrc.json src",
+        "lint": "code-style",
         "prebuild": "rm -rf build && npm run lint && mkdir build && npm run manifest",
         "postbuild": "cp -r public/i18n build",
         "manifest": "d2-manifest package.json build/manifest.webapp",

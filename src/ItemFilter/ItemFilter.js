@@ -1,62 +1,62 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from '../widgets/FlatButton';
-import PrimaryButton from '../widgets/PrimaryButton';
-import OrgUnitTree from 'd2-ui/lib/org-unit-tree/OrgUnitTreeMultipleRoots.component';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
-import { apiFetchOrgUnits } from '../api/orgUnits';
-import { acSetItemFilter, FILTER_USER_ORG_UNIT } from '../actions/itemFilter';
-import { sGetFromState } from '../reducers/itemFilter';
-import D2TextLink from '../widgets/D2TextLink';
+import React, { Component, Fragment } from 'react'
+import { connect } from 'react-redux'
+import Dialog from 'material-ui/Dialog'
+import FlatButton from '../widgets/FlatButton'
+import PrimaryButton from '../widgets/PrimaryButton'
+import OrgUnitTree from 'd2-ui/lib/org-unit-tree/OrgUnitTreeMultipleRoots.component'
+import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon'
+import { apiFetchOrgUnits } from '../api/orgUnits'
+import { acSetItemFilter, FILTER_USER_ORG_UNIT } from '../actions/itemFilter'
+import { sGetFromState } from '../reducers/itemFilter'
+import D2TextLink from '../widgets/D2TextLink'
 
 const style = {
     container: {
         height: '500px',
         overflowY: 'auto',
         border: '1px solid #eee',
-        padding: '10px 7px',
-    },
-};
+        padding: '10px 7px'
+    }
+}
 
 class ItemFilter extends Component {
     state = {
         roots: [],
-        selected: [],
-    };
+        selected: []
+    }
 
     componentDidMount() {
         apiFetchOrgUnits().then(roots => {
-            this.setState({ roots });
-        });
+            this.setState({ roots })
+        })
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState({ selected: nextProps.selected });
+        this.setState({ selected: nextProps.selected })
     }
 
     onSelectOrgUnit = (e, orgUnit) => {
-        let selected;
+        let selected
 
         if (this.state.selected.includes(orgUnit.path)) {
-            selected = this.state.selected.filter(ou => ou !== orgUnit.path);
+            selected = this.state.selected.filter(ou => ou !== orgUnit.path)
         } else {
-            selected = this.state.selected.concat(orgUnit.path);
+            selected = this.state.selected.concat(orgUnit.path)
         }
 
-        this.setState({ selected });
-    };
+        this.setState({ selected })
+    }
 
     onDeselectAll = () => {
         this.setState({
-            selected: [],
-        });
-    };
+            selected: []
+        })
+    }
 
     onSubmit = () => {
-        this.props.acSetItemFilter(FILTER_USER_ORG_UNIT, this.state.selected);
-        this.props.onRequestClose();
-    };
+        this.props.acSetItemFilter(FILTER_USER_ORG_UNIT, this.state.selected)
+        this.props.onRequestClose()
+    }
 
     renderOrgUnitTree = () => {
         return (
@@ -65,7 +65,7 @@ class ItemFilter extends Component {
                     style={{
                         fontSize: '13px',
                         marginTop: '5px',
-                        marginBottom: '16px',
+                        marginBottom: '16px'
                     }}
                 >
                     <SvgIcon
@@ -74,7 +74,7 @@ class ItemFilter extends Component {
                             fill: '#888',
                             position: 'relative',
                             top: '7px',
-                            marginRight: '5px',
+                            marginRight: '5px'
                         }}
                     />
                     Filtering only applies to favorites with "User org units"
@@ -87,7 +87,7 @@ class ItemFilter extends Component {
                             onClick={this.onDeselectAll}
                             style={{ color: '#006ed3' }}
                             hoverStyle={{
-                                color: '#3399f8',
+                                color: '#3399f8'
                             }}
                         />
                     </div>
@@ -99,14 +99,14 @@ class ItemFilter extends Component {
                     />
                 </div>
             </Fragment>
-        );
-    };
+        )
+    }
 
     render() {
         const actions = [
             <FlatButton onClick={this.props.onRequestClose}>Cancel</FlatButton>,
-            <PrimaryButton onClick={this.onSubmit}>Save</PrimaryButton>,
-        ];
+            <PrimaryButton onClick={this.onSubmit}>Save</PrimaryButton>
+        ]
 
         return (
             <Dialog
@@ -118,14 +118,17 @@ class ItemFilter extends Component {
             >
                 {this.renderOrgUnitTree()}
             </Dialog>
-        );
+        )
     }
 }
 
 const mapStateToProps = state => ({
-    selected: sGetFromState(state)[FILTER_USER_ORG_UNIT] || [],
-});
+    selected: sGetFromState(state)[FILTER_USER_ORG_UNIT] || []
+})
 
-const ItemFilterCt = connect(mapStateToProps, { acSetItemFilter })(ItemFilter);
+const ItemFilterCt = connect(
+    mapStateToProps,
+    { acSetItemFilter }
+)(ItemFilter)
 
-export default ItemFilterCt;
+export default ItemFilterCt

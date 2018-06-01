@@ -1,6 +1,6 @@
-import { getInstance } from 'd2/lib/d2';
-import arrayClean from 'd2-utilizr/lib/arrayClean';
-import { onError, getDashboardFields } from './index';
+import { getInstance } from 'd2/lib/d2'
+import arrayClean from 'd2-utilizr/lib/arrayClean'
+import { onError, getDashboardFields } from './index'
 
 // Get "all" dashboards on startup
 export const apiFetchDashboards = () =>
@@ -9,12 +9,12 @@ export const apiFetchDashboards = () =>
             d2.models.dashboard.list({
                 fields: [
                     getDashboardFields().join(','),
-                    'dashboardItems[id]',
+                    'dashboardItems[id]'
                 ].join(','),
-                paging: 'false',
+                paging: 'false'
             })
         )
-        .catch(onError);
+        .catch(onError)
 
 // Get more info about selected dashboard
 export const apiFetchSelected = id =>
@@ -24,32 +24,32 @@ export const apiFetchSelected = id =>
                 fields: arrayClean(
                     getDashboardFields({
                         withItems: true,
-                        withFavorite: { withDimensions: false },
+                        withFavorite: { withDimensions: false }
                     })
-                ).join(','),
+                ).join(',')
             })
         )
-        .catch(onError);
+        .catch(onError)
 
 // Star dashboard
 export const apiStarDashboard = (id, isStarred) => {
-    const url = `dashboards/${id}/favorite`;
+    const url = `dashboards/${id}/favorite`
 
     getInstance().then(d2 => {
         if (isStarred) {
-            d2.Api.getApi().post(url);
+            d2.Api.getApi().post(url)
         } else {
-            d2.Api.getApi().delete(url);
+            d2.Api.getApi().delete(url)
         }
-    });
-};
+    })
+}
 
 export const apiDeleteDashboard = id => {
     return getInstance()
         .then(d2 => {
             return d2.models.dashboards
                 .get(id)
-                .then(dashboard => dashboard.delete());
+                .then(dashboard => dashboard.delete())
         })
-        .catch(onError);
-};
+        .catch(onError)
+}

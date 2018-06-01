@@ -1,4 +1,4 @@
-import { getInstance } from 'd2/lib/d2';
+import { getInstance } from 'd2/lib/d2'
 
 export const apiFetchOrgUnits = () => {
     return getInstance().then(d2 => {
@@ -6,13 +6,13 @@ export const apiFetchOrgUnits = () => {
             .list({
                 paging: false,
                 fields: 'id,path,displayName,children::isNotEmpty',
-                userDataViewFallback: true,
+                userDataViewFallback: true
             })
             .then(rootLevel => {
-                const rootList = rootLevel.toArray();
-                const roots = rootList.length > 1 ? rootList : [rootList[0]];
+                const rootList = rootLevel.toArray()
+                const roots = rootList.length > 1 ? rootList : [rootList[0]]
 
-                return roots;
-            });
-    });
-};
+                return roots
+            })
+    })
+}

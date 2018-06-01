@@ -7,8 +7,8 @@
 // global.chartPlugin = {};
 
 it('renders without crashing', () => {
-    expect(1).toEqual(1);
-});
+    expect(1).toEqual(1)
+})
 //     const div = document.createElement('div');
 //     ReactDOM.render(
 //         <MuiThemeProvider>

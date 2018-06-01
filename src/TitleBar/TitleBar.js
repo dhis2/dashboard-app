@@ -1,39 +1,39 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import { connect } from 'react-redux'
 
-import EditTitleBar from './EditTitleBar';
-import ViewTitleBar from './ViewTitleBar';
-import * as fromReducers from '../reducers';
-import { orObject } from '../util';
+import EditTitleBar from './EditTitleBar'
+import ViewTitleBar from './ViewTitleBar'
+import * as fromReducers from '../reducers'
+import { orObject } from '../util'
 
-import './TitleBar.css';
+import './TitleBar.css'
 
 const style = {
     titleBar: {
         display: 'flex',
-        alignItems: 'flex-start',
+        alignItems: 'flex-start'
     },
     title: {
         position: 'relative',
         fontSize: 21,
         fontWeight: 500,
         color: '#333333',
-        minWidth: 50,
+        minWidth: 50
     },
     description: {
         paddingTop: 5,
         paddingBottom: 5,
         fontSize: 13,
-        color: '#555555',
-    },
-};
+        color: '#555555'
+    }
+}
 
 const TitleBar = ({ id, name, displayName, description, edit }) => {
     return (
         <div
             className="titlebar-wrapper"
             style={{
-                padding: '20px 15px 5px 10px',
+                padding: '20px 15px 5px 10px'
             }}
         >
             {edit ? (
@@ -52,29 +52,29 @@ const TitleBar = ({ id, name, displayName, description, edit }) => {
                 />
             )}
         </div>
-    );
-};
+    )
+}
 
 const mapStateToProps = state => {
     const selectedDashboard = orObject(
         fromReducers.sGetSelectedDashboard(state)
-    );
+    )
     const dashboard = orObject(
         fromReducers.fromDashboards.sGetById(
             state,
             fromReducers.fromSelected.sGetSelectedId(state)
         )
-    );
+    )
 
     return {
         id: selectedDashboard.id,
         name: selectedDashboard.name,
         displayName: dashboard.displayName,
         description: selectedDashboard.description,
-        edit: fromReducers.fromEditDashboard.sGetIsEditing(state),
-    };
-};
+        edit: fromReducers.fromEditDashboard.sGetIsEditing(state)
+    }
+}
 
-const TitleBarCt = connect(mapStateToProps)(TitleBar);
+const TitleBarCt = connect(mapStateToProps)(TitleBar)
 
-export default TitleBarCt;
+export default TitleBarCt

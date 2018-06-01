@@ -1,49 +1,49 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import i18n from 'dhis2-i18n';
-import SharingDialog from 'd2-ui/lib/sharing/SharingDialog.component';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import React, { Component, Fragment } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import i18n from 'dhis2-i18n'
+import SharingDialog from 'd2-ui/lib/sharing/SharingDialog.component'
+import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon'
 
-import FilterDialog from '../ItemFilter/ItemFilter';
-import Info from './Info';
-import FlatButton from '../widgets/FlatButton';
-import * as fromReducers from '../reducers';
-import { fromEditDashboard, fromSelected, fromDashboards } from '../actions';
-import { orObject } from '../util';
+import FilterDialog from '../ItemFilter/ItemFilter'
+import Info from './Info'
+import FlatButton from '../widgets/FlatButton'
+import * as fromReducers from '../reducers'
+import { fromEditDashboard, fromSelected, fromDashboards } from '../actions'
+import { orObject } from '../util'
 
-const NO_DESCRIPTION = i18n.t('No description');
+const NO_DESCRIPTION = i18n.t('No description')
 
 const viewStyle = {
     titleBarIcon: {
         marginLeft: 5,
         position: 'relative',
         top: 1,
-        cursor: 'pointer',
+        cursor: 'pointer'
     },
     noDescription: {
-        color: '#888',
-    },
-};
+        color: '#888'
+    }
+}
 
 class ViewTitleBar extends Component {
     constructor(props) {
-        super(props);
+        super(props)
 
         this.state = {
             sharingDialogIsOpen: false,
-            filterDialogIsOpen: false,
-        };
+            filterDialogIsOpen: false
+        }
     }
 
     toggleSharingDialog = () =>
-        this.setState({ sharingDialogIsOpen: !this.state.sharingDialogIsOpen });
+        this.setState({ sharingDialogIsOpen: !this.state.sharingDialogIsOpen })
 
     toggleFilterDialog = () =>
-        this.setState({ filterDialogIsOpen: !this.state.filterDialogIsOpen });
+        this.setState({ filterDialogIsOpen: !this.state.filterDialogIsOpen })
 
     renderItemFilterLabel = () => {
-        const len = this.props.itemFilterKeys.length;
+        const len = this.props.itemFilterKeys.length
 
         return len ? (
             <span
@@ -57,15 +57,15 @@ class ViewTitleBar extends Component {
                     padding: '6px 8px',
                     borderRadius: '3px',
                     position: 'relative',
-                    top: '1px',
+                    top: '1px'
                 }}
             >
                 {len} {len > 1 ? 'filters' : 'filter'} applied
             </span>
         ) : (
             ''
-        );
-    };
+        )
+    }
 
     render() {
         const {
@@ -78,14 +78,14 @@ class ViewTitleBar extends Component {
             starred,
             onStarClick,
             onEditClick,
-            onInfoClick,
-        } = this.props;
-        const styles = Object.assign({}, style, viewStyle);
+            onInfoClick
+        } = this.props
+        const styles = Object.assign({}, style, viewStyle)
         const titleStyle = Object.assign({}, style.title, {
             cursor: 'default',
             userSelect: 'text',
-            top: '6px',
-        });
+            top: '6px'
+        })
 
         return (
             <Fragment>
@@ -95,7 +95,7 @@ class ViewTitleBar extends Component {
                         style={{
                             display: 'flex',
                             alignItems: 'center',
-                            marginLeft: '20px',
+                            marginLeft: '20px'
                         }}
                     >
                         <div style={styles.titleBarIcon} onClick={onStarClick}>
@@ -157,14 +157,14 @@ class ViewTitleBar extends Component {
                     />
                 ) : null}
             </Fragment>
-        );
+        )
     }
 }
 
 const mapStateToProps = state => {
     const selectedDashboard = orObject(
         fromReducers.sGetSelectedDashboard(state)
-    );
+    )
 
     return {
         selectedDashboard,
@@ -173,13 +173,13 @@ const mapStateToProps = state => {
         ),
         starred: selectedDashboard.starred,
         access: orObject(selectedDashboard.access),
-        itemFilterKeys: fromReducers.fromItemFilter.sGetFilterKeys(state),
-    };
-};
+        itemFilterKeys: fromReducers.fromItemFilter.sGetFilterKeys(state)
+    }
+}
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const selectedDashboard = orObject(stateProps.selectedDashboard);
-    const { dispatch } = dispatchProps;
+    const selectedDashboard = orObject(stateProps.selectedDashboard)
+    const { dispatch } = dispatchProps
 
     return {
         ...stateProps,
@@ -192,20 +192,24 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
                 )
             ),
         onEditClick: () => {
-            dispatch(fromEditDashboard.acSetEditDashboard(selectedDashboard));
+            dispatch(fromEditDashboard.acSetEditDashboard(selectedDashboard))
         },
         onInfoClick: () =>
             dispatch(
                 fromSelected.acSetSelectedShowDescription(
                     !stateProps.showDescription
                 )
-            ),
-    };
-};
+            )
+    }
+}
 
-const ViewTitleBarCt = connect(mapStateToProps, null, mergeProps)(ViewTitleBar);
+const ViewTitleBarCt = connect(
+    mapStateToProps,
+    null,
+    mergeProps
+)(ViewTitleBar)
 
-export default ViewTitleBarCt;
+export default ViewTitleBarCt
 
 ViewTitleBar.propTypes = {
     id: PropTypes.string,
@@ -214,13 +218,13 @@ ViewTitleBar.propTypes = {
     starred: PropTypes.bool,
     showDescription: PropTypes.bool,
     onEditClick: PropTypes.func.isRequired,
-    onInfoClick: PropTypes.func,
-};
+    onInfoClick: PropTypes.func
+}
 
 ViewTitleBar.defaultProps = {
     name: '',
     description: '',
     starred: false,
     showDescription: false,
-    onInfoClick: null,
-};
+    onInfoClick: null
+}

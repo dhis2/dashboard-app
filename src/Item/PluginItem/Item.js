@@ -1,53 +1,53 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
 
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
-import ItemHeader from '../ItemHeader';
-import ItemFooter from './ItemFooter';
-import PluginItemHeaderButtons from './ItemHeaderButtons';
+import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon'
+import ItemHeader from '../ItemHeader'
+import ItemFooter from './ItemFooter'
+import PluginItemHeaderButtons from './ItemHeaderButtons'
 
-import * as pluginManager from './plugin';
-import { getGridItemDomId } from '../../ItemGrid/gridUtil';
-import { getBaseUrl } from '../../util';
+import * as pluginManager from './plugin'
+import { getGridItemDomId } from '../../ItemGrid/gridUtil'
+import { getBaseUrl } from '../../util'
 
 const style = {
     icon: {
         width: 16,
         height: 16,
         marginLeft: 3,
-        cursor: 'pointer',
+        cursor: 'pointer'
     },
     title: {
         overflow: 'hidden',
         maxWidth: '85%',
         textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-    },
-};
+        whiteSpace: 'nowrap'
+    }
+}
 
 const pluginCredentials = d2 => {
     return {
         baseUrl: getBaseUrl(d2),
-        auth: d2.Api.getApi().defaultHeaders.Authorization,
-    };
-};
+        auth: d2.Api.getApi().defaultHeaders.Authorization
+    }
+}
 
 class Item extends Component {
     state = {
         showFooter: false,
-        activeVisualization: this.props.item.type,
-    };
+        activeVisualization: this.props.item.type
+    }
 
-    pluginCredentials = null;
+    pluginCredentials = null
 
     componentDidMount() {
-        this.pluginCredentials = pluginCredentials(this.context.d2);
+        this.pluginCredentials = pluginCredentials(this.context.d2)
 
         pluginManager.load(
             this.props.item,
             this.pluginCredentials,
             this.props.itemFilter
-        );
+        )
     }
 
     componentWillReceiveProps(nextProps) {
@@ -56,7 +56,7 @@ class Item extends Component {
                 this.props.item,
                 this.pluginCredentials,
                 nextProps.itemFilter
-            );
+            )
         }
     }
 
@@ -64,24 +64,24 @@ class Item extends Component {
         this.setState(
             { showFooter: !this.state.showFooter },
             this.props.onToggleItemExpanded(this.props.item.id)
-        );
-    };
+        )
+    }
 
     onSelectVisualization = targetType => {
-        pluginManager.unmount(this.props.item, this.state.activeVisualization);
+        pluginManager.unmount(this.props.item, this.state.activeVisualization)
 
-        this.setState({ activeVisualization: targetType });
+        this.setState({ activeVisualization: targetType })
         pluginManager.reload(
             this.props.item,
             targetType,
             this.pluginCredentials,
             this.props.itemFilter
-        );
-    };
+        )
+    }
 
     render() {
-        const item = this.props.item;
-        const elementId = getGridItemDomId(item.id);
+        const item = this.props.item
+        const elementId = getGridItemDomId(item.id)
         const title = (
             <div style={{ display: 'flex', alignItems: 'center' }}>
                 <span title={pluginManager.getName(item)} style={style.title}>
@@ -96,7 +96,7 @@ class Item extends Component {
                     </a>
                 ) : null}
             </div>
-        );
+        )
 
         const actionButtons = !this.props.editMode ? (
             <PluginItemHeaderButtons
@@ -106,7 +106,7 @@ class Item extends Component {
                 onSelectVisualization={this.onSelectVisualization}
                 onToggleFooter={this.onToggleFooter}
             />
-        ) : null;
+        ) : null
 
         return (
             <Fragment>
@@ -120,12 +120,12 @@ class Item extends Component {
                     <ItemFooter item={item} />
                 ) : null}
             </Fragment>
-        );
+        )
     }
 }
 
 Item.contextTypes = {
-    d2: PropTypes.object,
-};
+    d2: PropTypes.object
+}
 
-export default Item;
+export default Item

@@ -1,76 +1,76 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import i18n from 'dhis2-i18n';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
-import { fromUser } from '../../../reducers';
-import InputField from './InputField';
-import { colors } from '../../../colors';
-import { formatDate, sortByDate } from '../../../util';
-import { getLink } from '../plugin';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import i18n from 'dhis2-i18n'
+import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon'
+import { fromUser } from '../../../reducers'
+import InputField from './InputField'
+import { colors } from '../../../colors'
+import { formatDate, sortByDate } from '../../../util'
+import { getLink } from '../plugin'
 
 import {
     tLikeInterpretation,
     tUnlikeInterpretation,
     tAddInterpretationComment,
     tDeleteInterpretationComment,
-    tDeleteInterpretation,
-} from './actions';
+    tDeleteInterpretation
+} from './actions'
 
-import './Interpretation.css';
+import './Interpretation.css'
 
-const actionButtonClass = 'interpretation-action-button';
+const actionButtonClass = 'interpretation-action-button'
 const style = {
     author: {
         color: colors.darkGrey,
         fontSize: '13px',
         fontWeight: '500',
-        lineHeight: '15px',
+        lineHeight: '15px'
     },
     created: {
         color: colors.mediumGrey,
         float: 'right',
         fontSize: '12px',
         lineHeight: '14px',
-        textAlign: 'right',
+        textAlign: 'right'
     },
     deleteButton: {
-        color: colors.red,
+        color: colors.red
     },
     icon: {
         height: '12px',
         marginBottom: '-2px',
         paddingRight: '3px',
-        width: '12px',
+        width: '12px'
     },
     likes: {
         margin: '0 8px',
         color: colors.darkGrey,
         fontSize: '12px',
-        lineHeight: '14px',
+        lineHeight: '14px'
     },
     line: {
         backgroundColor: `${colors.lightGrey}`,
         border: 'none',
         height: '1px',
-        margin: '-1px 0px 0px',
+        margin: '-1px 0px 0px'
     },
     list: {
         listStyleType: 'none',
         marginTop: '10px',
         marginLeft: '37px',
-        paddingLeft: '0px',
+        paddingLeft: '0px'
     },
     text: {
         color: colors.darkGrey,
         fontSize: '13px',
         lineHeight: '17px',
-        whiteSpace: 'pre-line',
-    },
-};
+        whiteSpace: 'pre-line'
+    }
+}
 
 const deleteButton = action => {
-    const iconStyle = Object.assign({}, style.icon, { fill: colors.red });
+    const iconStyle = Object.assign({}, style.icon, { fill: colors.red })
 
     return (
         <button
@@ -81,84 +81,84 @@ const deleteButton = action => {
             <SvgIcon style={iconStyle} icon="Delete" />
             Delete
         </button>
-    );
-};
+    )
+}
 
 class Interpretation extends Component {
     state = {
         showCommentField: false,
         uiLocale: '',
-        visualizerHref: '',
-    };
+        visualizerHref: ''
+    }
 
     componentDidMount() {
         this.context.d2.currentUser.userSettings
             .get('keyUiLocale')
-            .then(uiLocale => this.setState({ uiLocale }));
+            .then(uiLocale => this.setState({ uiLocale }))
 
         const visualizerHref = `${getLink(
             this.props.object,
             this.context.d2
-        )}&interpretationid=${this.props.interpretation.id}`;
-        this.setState({ visualizerHref });
+        )}&interpretationid=${this.props.interpretation.id}`
+        this.setState({ visualizerHref })
     }
 
     userLikesInterpretation = () => {
         return this.props.interpretation.likedBy.find(liker =>
             this.userIsOwner(liker.id)
-        );
-    };
+        )
+    }
 
     toggleInterpretationLike = () => {
-        const { id } = this.props.interpretation;
+        const { id } = this.props.interpretation
 
         this.userLikesInterpretation()
             ? this.props.unlikeInterpretation(id)
-            : this.props.likeInterpretation(id);
-    };
+            : this.props.likeInterpretation(id)
+    }
 
     showCommentField = () => {
-        this.setState({ showCommentField: true });
-    };
+        this.setState({ showCommentField: true })
+    }
 
     postComment = text => {
-        const { id } = this.props.interpretation;
-        this.props.addComment({ id, text });
-        this.setState({ showCommentField: false });
-    };
+        const { id } = this.props.interpretation
+        this.props.addComment({ id, text })
+        this.setState({ showCommentField: false })
+    }
 
     deleteComment = commentId => {
-        const { id } = this.props.interpretation;
-        this.props.deleteComment({ id, commentId });
-    };
+        const { id } = this.props.interpretation
+        this.props.deleteComment({ id, commentId })
+    }
 
     deleteInterpretation = () => {
         const data = {
             id: this.props.interpretation.id,
             objectId: this.props.objectId,
-            objectType: this.props.object.type,
-        };
+            objectType: this.props.object.type
+        }
 
-        this.props.deleteInterpretation(data);
-    };
+        this.props.deleteInterpretation(data)
+    }
 
-    userIsOwner = ownerId => ownerId === this.props.userId;
+    userIsOwner = ownerId => ownerId === this.props.userId
 
     renderActions() {
         const likes =
-            this.props.interpretation.likedBy.length === 1 ? 'like' : 'likes';
+            this.props.interpretation.likedBy.length === 1 ? 'like' : 'likes'
 
         const thumbsUpIcon = this.userLikesInterpretation()
             ? Object.assign({}, style.icon, { fill: colors.lightGreen })
-            : style.icon;
+            : style.icon
         const likeText = this.userLikesInterpretation()
             ? i18n.t('You like this')
-            : i18n.t('Like');
+            : i18n.t('Like')
 
         const canDeleteInterpretation = () =>
             this.userIsOwner(this.props.interpretation.user.id) ||
             this.props.interpretation.access.delete ||
-            this.props.userIsSuperuser;
+            this.props.userIsSuperuser
 
         return (
             <div>
@@ -187,16 +187,16 @@ class Interpretation extends Component {
                     ? deleteButton(this.deleteInterpretation)
                     : null}
             </div>
-        );
+        )
     }
 
     renderComments() {
         if (!this.props.interpretation.comments.length) {
-            return null;
+            return null
         }
 
         const canDeleteComment = ownerId =>
-            this.userIsOwner(ownerId) || this.props.userIsSuperuser;
+            this.userIsOwner(ownerId) || this.props.userIsSuperuser
 
         const comments = sortByDate(
             this.props.interpretation.comments,
@@ -218,9 +218,9 @@ class Interpretation extends Component {
                     ? deleteButton(() => this.deleteComment(comment.id))
                     : null}
             </li>
-        ));
+        ))
 
-        return <ul style={style.list}>{comments}</ul>;
+        return <ul style={style.list}>{comments}</ul>
     }
 
     render() {
@@ -237,8 +237,8 @@ class Interpretation extends Component {
                     </div>
                     <p style={style.text}>{item.text}</p>
                 </div>
-            );
-        };
+            )
+        }
 
         return (
             <div>
@@ -255,29 +255,30 @@ class Interpretation extends Component {
                     />
                 ) : null}
             </div>
-        );
+        )
     }
 }
 
 const mapStateToProps = state => ({
     userId: fromUser.sGetUserId(state),
-    userIsSuperuser: fromUser.sGetIsSuperuser(state),
-});
+    userIsSuperuser: fromUser.sGetIsSuperuser(state)
+})
 
 const mapDispatchToProps = dispatch => ({
     likeInterpretation: data => dispatch(tLikeInterpretation(data)),
     unlikeInterpretation: data => dispatch(tUnlikeInterpretation(data)),
     addComment: data => dispatch(tAddInterpretationComment(data)),
     deleteComment: data => dispatch(tDeleteInterpretationComment(data)),
-    deleteInterpretation: data => dispatch(tDeleteInterpretation(data)),
-});
+    deleteInterpretation: data => dispatch(tDeleteInterpretation(data))
+})
 
 Interpretation.contextTypes = {
-    d2: PropTypes.object,
-};
+    d2: PropTypes.object
+}
 
-const InterpretationContainer = connect(mapStateToProps, mapDispatchToProps)(
-    Interpretation
-);
+const InterpretationContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Interpretation)
 
-export default InterpretationContainer;
+export default InterpretationContainer

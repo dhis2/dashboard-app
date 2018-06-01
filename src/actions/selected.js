@@ -1,94 +1,94 @@
-import { actionTypes } from '../reducers';
-import { apiFetchSelected } from '../api/dashboards';
-import { acSetDashboards } from './dashboards';
-import { withShape } from '../ItemGrid/gridUtil';
-import { tGetMessages } from '../Item/MessagesItem/actions';
-import { acReceivedSnackbarMessage, acCloseSnackbar } from './snackbar';
-import { storePreferredDashboardId } from '../api/localStorage';
-import { fromUser, fromSelected } from '../reducers';
-import { loadingDashboardMsg } from '../SnackbarMessage';
+import { actionTypes } from '../reducers'
+import { apiFetchSelected } from '../api/dashboards'
+import { acSetDashboards } from './dashboards'
+import { withShape } from '../ItemGrid/gridUtil'
+import { tGetMessages } from '../Item/MessagesItem/actions'
+import { acReceivedSnackbarMessage, acCloseSnackbar } from './snackbar'
+import { storePreferredDashboardId } from '../api/localStorage'
+import { fromUser, fromSelected } from '../reducers'
+import { loadingDashboardMsg } from '../SnackbarMessage'
 import {
     REPORT_TABLE,
     CHART,
     MAP,
     EVENT_REPORT,
     EVENT_CHART,
-    MESSAGES,
-} from '../itemTypes';
+    MESSAGES
+} from '../itemTypes'
 
 // actions
 
 export const acSetSelectedId = value => ({
     type: actionTypes.SET_SELECTED_ID,
-    value,
-});
+    value
+})
 
 export const acSetSelectedIsLoading = value => ({
     type: actionTypes.SET_SELECTED_ISLOADING,
-    value,
-});
+    value
+})
 
 export const acSetSelectedShowDescription = value => ({
     type: actionTypes.SET_SELECTED_SHOWDESCRIPTION,
-    value,
-});
+    value
+})
 
 export const acNewDashboard = () => ({
-    type: actionTypes.NEW_DASHBOARD,
-});
+    type: actionTypes.NEW_DASHBOARD
+})
 
 export const receivedVisualization = value => ({
     type: actionTypes.RECEIVED_VISUALIZATION,
-    value,
-});
+    value
+})
 
 // thunks
 export const tSetSelectedDashboardById = (id, name = '') => async (
     dispatch,
     getState
 ) => {
-    dispatch(acSetSelectedIsLoading(true));
+    dispatch(acSetSelectedIsLoading(true))
 
     const snackbarTimeout = setTimeout(() => {
         if (fromSelected.sGetSelectedIsLoading(getState()) && name) {
-            loadingDashboardMsg.name = name;
+            loadingDashboardMsg.name = name
 
             dispatch(
                 acReceivedSnackbarMessage({
                     message: loadingDashboardMsg,
-                    open: true,
+                    open: true
                 })
-            );
+            )
         }
-    }, 500);
+    }, 500)
 
     const onSuccess = selected => {
         selected.dashboardItems.forEach(item => {
             switch (item.type) {
                 case REPORT_TABLE:
-                    dispatch(receivedVisualization(item.reportTable));
-                    break;
+                    dispatch(receivedVisualization(item.reportTable))
+                    break
                 case CHART:
-                    dispatch(receivedVisualization(item.chart));
-                    break;
+                    dispatch(receivedVisualization(item.chart))
+                    break
                 case MAP:
-                    dispatch(receivedVisualization(item.map));
-                    break;
+                    dispatch(receivedVisualization(item.map))
+                    break
                 case EVENT_REPORT:
-                    dispatch(receivedVisualization(item.eventReport));
-                    break;
+                    dispatch(receivedVisualization(item.eventReport))
+                    break
                 case EVENT_CHART:
-                    dispatch(receivedVisualization(item.eventChart));
-                    break;
+                    dispatch(receivedVisualization(item.eventChart))
+                    break
                 case MESSAGES:
-                    dispatch(tGetMessages(id));
-                    break;
+                    dispatch(tGetMessages(id))
+                    break
                 default:
-                    break;
+                    break
             }
-        });
+        })
 
-        storePreferredDashboardId(fromUser.sGetUsername(getState()), id);
+        storePreferredDashboardId(fromUser.sGetUsername(getState()), id)
 
         // withShape adds shape info to items lacking it
         // only works properly when all items in a dashboard are missing it
@@ -97,30 +97,30 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
             acSetDashboards(
                 {
                     ...selected,
-                    dashboardItems: withShape(selected.dashboardItems),
+                    dashboardItems: withShape(selected.dashboardItems)
                 },
                 true
             )
-        );
+        )
 
-        dispatch(acSetSelectedId(id));
-        dispatch(acSetSelectedIsLoading(false));
-        clearTimeout(snackbarTimeout);
-        dispatch(acCloseSnackbar());
+        dispatch(acSetSelectedId(id))
+        dispatch(acSetSelectedIsLoading(false))
+        clearTimeout(snackbarTimeout)
+        dispatch(acCloseSnackbar())
 
-        return selected;
-    };
+        return selected
+    }
 
     const onError = error => {
-        console.log('Error: ', error);
-        return error;
-    };
+        console.log('Error: ', error)
+        return error
+    }
 
     try {
-        const fetchedSelected = await apiFetchSelected(id);
+        const fetchedSelected = await apiFetchSelected(id)
 
-        return onSuccess(fetchedSelected);
+        return onSuccess(fetchedSelected)
     } catch (err) {
-        return onError(err);
+        return onError(err)
     }
-};
+}

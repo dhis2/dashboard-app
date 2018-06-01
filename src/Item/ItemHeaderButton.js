@@ -1,7 +1,7 @@
-import React from 'react';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import React from 'react'
+import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon'
 
-import './ItemHeaderButton.css';
+import './ItemHeaderButton.css'
 
 const ItemHeaderButton = ({ icon, onClick, style = {} }) => {
     return (
@@ -12,7 +12,7 @@ const ItemHeaderButton = ({ icon, onClick, style = {} }) => {
         >
             <SvgIcon icon={icon} style={style.icon} />
         </button>
-    );
-};
+    )
+}
 
-export default ItemHeaderButton;
+export default ItemHeaderButton

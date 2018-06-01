@@ -1,93 +1,93 @@
-import { getInstance } from 'd2/lib/d2';
-import { itemTypeMap } from '../itemTypes';
+import { getInstance } from 'd2/lib/d2'
+import { itemTypeMap } from '../itemTypes'
 
-const onError = error => console.log('Error: ', error);
+const onError = error => console.log('Error: ', error)
 
 // Fields
 export const interpretationFields = () => {
-    return 'interpretations[id]';
+    return 'interpretations[id]'
     // return 'interpretations[id,text,created,user[id,displayName],likedBy,comments[id,text,created,user[id,displayName]]]';
-};
+}
 
 // Api
 export const getInterpretation = id => {
     const fields =
-        'id,text,created,user[id,displayName],likedBy,access,comments[id,text,created,user[id,displayName]]';
-    const url = `/interpretations/${id}?fields=${fields}`;
+        'id,text,created,user[id,displayName],likedBy,access,comments[id,text,created,user[id,displayName]]'
+    const url = `/interpretations/${id}?fields=${fields}`
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
-        .catch(onError);
-};
+        .catch(onError)
+}
 
 export const postInterpretation = data => {
-    const typePath = itemTypeMap[data.objectType].propName;
-    const url = `/interpretations/${typePath}/${data.objectId}`;
-    const headers = { 'Content-Type': 'text/plain' };
+    const typePath = itemTypeMap[data.objectType].propName
+    const url = `/interpretations/${typePath}/${data.objectId}`
+    const headers = { 'Content-Type': 'text/plain' }
 
     return getInstance()
         .then(d2 => d2.Api.getApi().post(url, data.text, { headers }))
-        .catch(onError);
-};
+        .catch(onError)
+}
 
 export const updateInterpretation = data => {
-    const url = `/interpretations/${data.id}`;
+    const url = `/interpretations/${data.id}`
     return getInstance()
         .then(d2 => d2.Api.getApi().update(url, data.text))
-        .catch(onError);
-};
+        .catch(onError)
+}
 
 export const deleteInterpretation = id => {
-    const url = `/interpretations/${id}`;
+    const url = `/interpretations/${id}`
     return getInstance()
         .then(d2 => d2.Api.getApi().delete(url))
-        .catch(onError);
-};
+        .catch(onError)
+}
 
 export const postInterpretationLike = id => {
-    const url = `/interpretations/${id}/like`;
+    const url = `/interpretations/${id}/like`
     return getInstance()
         .then(d2 => d2.Api.getApi().post(url))
-        .catch(onError);
-};
+        .catch(onError)
+}
 
 export const deleteInterpretationLike = id => {
-    const url = `/interpretations/${id}/like`;
+    const url = `/interpretations/${id}/like`
     return getInstance()
         .then(d2 => d2.Api.getApi().delete(url))
-        .catch(onError);
-};
+        .catch(onError)
+}
 
 export const postInterpretationComment = data => {
-    const url = `/interpretations/${data.id}/comments`;
-    const headers = { 'Content-Type': 'text/plain' };
+    const url = `/interpretations/${data.id}/comments`
+    const headers = { 'Content-Type': 'text/plain' }
 
     return getInstance()
         .then(d2 => d2.Api.getApi().post(url, data.text, { headers }))
-        .catch(onError);
-};
+        .catch(onError)
+}
 
 export const updateInterpretationComment = data => {
-    const url = `/interpretations/${data.id}/comments/${data.commentId}`;
+    const url = `/interpretations/${data.id}/comments/${data.commentId}`
     return getInstance()
         .then(d2 => d2.Api.getApi().update(url, data.text))
-        .catch(onError);
-};
+        .catch(onError)
+}
 
 export const deleteInterpretationComment = data => {
-    const url = `/interpretations/${data.id}/comments/${data.commentId}`;
+    const url = `/interpretations/${data.id}/comments/${data.commentId}`
 
     return getInstance()
         .then(d2 => d2.Api.getApi().delete(url))
-        .catch(onError);
-};
+        .catch(onError)
+}
 
 export const fetchVisualization = data => {
-    const typePath = itemTypeMap[data.objectType].endPointName;
+    const typePath = itemTypeMap[data.objectType].endPointName
     const url = `/${typePath}/${
         data.objectId
-    }?fields=id,name,interpretations[id]`;
+    }?fields=id,name,interpretations[id]`
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
-        .catch(onError);
-};
+        .catch(onError)
+}

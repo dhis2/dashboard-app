@@ -1,13 +1,13 @@
-import { actionTypes } from '../reducers';
+import { actionTypes } from '../reducers'
 
 // actions
 
 export const acSetControlBarRows = rows => ({
     type: actionTypes.SET_CONTROLBAR_ROWS,
-    value: rows,
-});
+    value: rows
+})
 
 export const acSetControlBarExpanded = expanded => ({
     type: actionTypes.SET_CONTROLBAR_EXPANDED,
-    value: !!expanded,
-});
+    value: !!expanded
+})

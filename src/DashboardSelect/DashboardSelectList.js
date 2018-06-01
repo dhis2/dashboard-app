@@ -1,25 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Avatar from 'material-ui/Avatar';
-import Chip from 'material-ui/Chip';
+import Avatar from 'material-ui/Avatar'
+import Chip from 'material-ui/Chip'
 
-import IconStar from 'material-ui/svg-icons/toggle/star';
+import IconStar from 'material-ui/svg-icons/toggle/star'
 
 const DashboardSelectListItem = ({ dashboard, onClick }) => {
     const styles = {
         chip: {
             margin: 3,
             height: '30px',
-            cursor: 'pointer',
+            cursor: 'pointer'
         },
         labelStyle: {
             fontSize: '13px',
             color: '#333',
             fontWeight: 500,
-            lineHeight: '30px',
-        },
-    };
+            lineHeight: '30px'
+        }
+    }
 
     return (
         <Chip
@@ -38,26 +38,26 @@ const DashboardSelectListItem = ({ dashboard, onClick }) => {
             )}
             {dashboard.name}
         </Chip>
-    );
-};
+    )
+}
 
 DashboardSelectListItem.propTypes = {
     dashboard: PropTypes.object,
-    onClick: PropTypes.func,
-};
+    onClick: PropTypes.func
+}
 
 DashboardSelectListItem.defaultProps = {
     dashboard: {},
-    onClick: Function.prototype,
-};
+    onClick: Function.prototype
+}
 
 // Component
 
 const DashboardSelectList = ({ dashboards, onClick }) => {
     const wrapper = {
         display: 'flex',
-        flexWrap: 'wrap',
-    };
+        flexWrap: 'wrap'
+    }
 
     return (
         <div style={wrapper}>
@@ -69,17 +69,17 @@ const DashboardSelectList = ({ dashboards, onClick }) => {
                 />
             ))}
         </div>
-    );
-};
+    )
+}
 
 DashboardSelectList.propTypes = {
     dashboards: PropTypes.array,
-    onClick: PropTypes.func,
-};
+    onClick: PropTypes.func
+}
 
 DashboardSelectList.defaultProps = {
     dashboards: [],
-    onClick: Function.prototype,
-};
+    onClick: Function.prototype
+}
 
-export default DashboardSelectList;
+export default DashboardSelectList

@@ -1,14 +1,14 @@
 /** @module reducers/controlBar */
-import { combineReducers } from 'redux';
-import { validateReducer } from '../util';
+import { combineReducers } from 'redux'
+import { validateReducer } from '../util'
 
 export const actionTypes = {
     SET_CONTROLBAR_ROWS: 'SET_CONTROLBAR_ROWS',
-    SET_CONTROLBAR_EXPANDED: 'SET_CONTROLBAR_EXPANDED',
-};
+    SET_CONTROLBAR_EXPANDED: 'SET_CONTROLBAR_EXPANDED'
+}
 
-export const DEFAULT_ROWS = 1;
-export const DEFAULT_EXPANDED = false;
+export const DEFAULT_ROWS = 1
+export const DEFAULT_EXPANDED = false
 
 /**
  * Reducer functions that computes and returns the new state based on the given action
@@ -19,25 +19,25 @@ export const DEFAULT_EXPANDED = false;
 const rows = (state = DEFAULT_ROWS, action) => {
     switch (action.type) {
         case actionTypes.SET_CONTROLBAR_ROWS:
-            return validateReducer(action.value, DEFAULT_ROWS);
+            return validateReducer(action.value, DEFAULT_ROWS)
         default:
-            return state;
+            return state
     }
-};
+}
 
 const expanded = (state = DEFAULT_EXPANDED, action) => {
     switch (action.type) {
         case actionTypes.SET_CONTROLBAR_EXPANDED:
-            return validateReducer(action.value, DEFAULT_EXPANDED);
+            return validateReducer(action.value, DEFAULT_EXPANDED)
         default:
-            return state;
+            return state
     }
-};
+}
 
 export default combineReducers({
     rows,
-    expanded,
-});
+    expanded
+})
 
 /**
  * Selectors that point to specific props in the state object
@@ -45,9 +45,9 @@ export default combineReducers({
  * @param {Object} state
  * @returns {Object}
  */
-export const sGetFromState = state => state.controlBar;
+export const sGetFromState = state => state.controlBar
 
 // Selector dependency level 2
 
-export const sGetControlBarRows = state => sGetFromState(state).rows;
-export const sGetControlBarExpanded = state => sGetFromState(state).expanded;
+export const sGetControlBarRows = state => sGetFromState(state).rows
+export const sGetControlBarExpanded = state => sGetFromState(state).expanded

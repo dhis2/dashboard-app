@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
-import Divider from 'material-ui/Divider';
-import { List, ListItem } from 'material-ui/List';
+import React, { Fragment } from 'react'
+import { connect } from 'react-redux'
+import Divider from 'material-ui/Divider'
+import { List, ListItem } from 'material-ui/List'
 
-import Button from 'd2-ui/lib/button/Button';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
-import { acAddDashboardItem } from '../actions/editDashboard';
+import Button from 'd2-ui/lib/button/Button'
+import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon'
+import { acAddDashboardItem } from '../actions/editDashboard'
 
 const SingleItem = ({ item, onAddToDashboard }) => {
     return (
@@ -20,7 +20,7 @@ const SingleItem = ({ item, onAddToDashboard }) => {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'flex-start',
-                        margin: 0,
+                        margin: 0
                     }}
                 >
                     {item.name}
@@ -30,13 +30,13 @@ const SingleItem = ({ item, onAddToDashboard }) => {
                 </p>
             }
         />
-    );
-};
+    )
+}
 
 const ItemSelectSingle = ({ acAddDashboardItem, category }) => {
     const addToDashboard = ({ type, content }) => () => {
-        acAddDashboardItem({ type, content });
-    };
+        acAddDashboardItem({ type, content })
+    }
 
     return (
         <Fragment>
@@ -44,7 +44,7 @@ const ItemSelectSingle = ({ acAddDashboardItem, category }) => {
                 style={{
                     display: 'flex',
                     justifyContent: 'space-between',
-                    paddingLeft: '16px',
+                    paddingLeft: '16px'
                 }}
             >
                 <h3>{category.header}</h3>
@@ -60,17 +60,17 @@ const ItemSelectSingle = ({ acAddDashboardItem, category }) => {
                 ))}
             </List>
         </Fragment>
-    );
-};
+    )
+}
 
 export default connect(
     null,
     {
-        acAddDashboardItem,
+        acAddDashboardItem
     },
     (stateProps, dispatchProps, ownProps) => ({
         ...ownProps,
         ...stateProps,
-        ...dispatchProps,
+        ...dispatchProps
     })
-)(ItemSelectSingle);
+)(ItemSelectSingle)

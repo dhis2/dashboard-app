@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const ItemHeader = props => {
-    const { title, actionButtons, editMode } = props;
+    const { title, actionButtons, editMode } = props
 
     return (
         <div className="dashboard-item-header">
@@ -13,7 +13,7 @@ const ItemHeader = props => {
             </div>
             {actionButtons}
         </div>
-    );
-};
+    )
+}
 
-export default ItemHeader;
+export default ItemHeader

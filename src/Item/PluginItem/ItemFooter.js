@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import Interpretations from './Interpretations/Interpretations';
-import { colors } from '../../colors';
-import { getId, getDescription } from './plugin';
+import React, { Component } from 'react'
+import Interpretations from './Interpretations/Interpretations'
+import { colors } from '../../colors'
+import { getId, getDescription } from './plugin'
 
 const style = {
     scrollContainer: {
@@ -9,29 +9,29 @@ const style = {
         height: '370px',
         marginTop: '5px',
         marginBottom: '5px',
-        paddingLeft: '14px',
+        paddingLeft: '14px'
     },
     line: {
         margin: '-1px 0px 0px',
         height: '1px',
         border: 'none',
-        backgroundColor: colors.lightGrey,
+        backgroundColor: colors.lightGrey
     },
     descriptionContainer: {
-        padding: '5px',
+        padding: '5px'
     },
     descriptionTitle: {
         color: colors.black,
         fontSize: '13px',
         fontWeight: 'bold',
         height: '19px',
-        lineHeight: '19px',
+        lineHeight: '19px'
     },
     descriptionText: {
         fontSize: '13px',
-        lineHeight: '17px',
-    },
-};
+        lineHeight: '17px'
+    }
+}
 
 const ItemDescription = ({ description }) => {
     return (
@@ -39,13 +39,13 @@ const ItemDescription = ({ description }) => {
             <h3 style={style.descriptionTitle}>Description</h3>
             <p style={style.descriptionText}>{description}</p>
         </div>
-    );
-};
+    )
+}
 
 class ItemFooter extends Component {
     render() {
-        const objectId = getId(this.props.item);
-        const description = getDescription(this.props.item);
+        const objectId = getId(this.props.item)
+        const description = getDescription(this.props.item)
 
         return (
             <div className="dashboard-item-footer">
@@ -59,8 +59,8 @@ class ItemFooter extends Component {
                     />
                 </div>
             </div>
-        );
+        )
     }
 }
 
-export default ItemFooter;
+export default ItemFooter

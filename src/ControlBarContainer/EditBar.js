@@ -1,80 +1,80 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import i18n from 'dhis2-i18n';
-import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
-import PrimaryButton from '../widgets/PrimaryButton';
-import FlatButton from '../widgets/FlatButton';
-import TranslationDialog from 'd2-ui/lib/i18n/TranslationDialog.component';
-import ConfirmDeleteDialog from './ConfirmDeleteDialog';
-import { tSaveDashboard, acClearEditDashboard } from '../actions/editDashboard';
+import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import i18n from 'dhis2-i18n'
+import ControlBar from 'd2-ui/lib/controlbar/ControlBar'
+import PrimaryButton from '../widgets/PrimaryButton'
+import FlatButton from '../widgets/FlatButton'
+import TranslationDialog from 'd2-ui/lib/i18n/TranslationDialog.component'
+import ConfirmDeleteDialog from './ConfirmDeleteDialog'
+import { tSaveDashboard, acClearEditDashboard } from '../actions/editDashboard'
 import {
     tDeleteDashboard,
-    acSetDashboardDisplayName,
-} from '../actions/dashboards';
-import { sGetEditDashboard } from '../reducers/editDashboard';
-import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './ControlBarContainer';
-import { apiFetchSelected } from '../api/dashboards';
+    acSetDashboardDisplayName
+} from '../actions/dashboards'
+import { sGetEditDashboard } from '../reducers/editDashboard'
+import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './ControlBarContainer'
+import { apiFetchSelected } from '../api/dashboards'
 
 const styles = {
     buttonBar: {
         height: CONTROL_BAR_ROW_HEIGHT,
         paddingTop: '15px',
         marginLeft: '15px',
-        marginRight: '15px',
-    },
-};
+        marginRight: '15px'
+    }
+}
 
 class EditBar extends Component {
     state = {
         translationDialogIsOpen: false,
         dashboardModel: undefined,
-        confirmDeleteDialogOpen: false,
-    };
+        confirmDeleteDialogOpen: false
+    }
 
     onConfirmDelete = () => {
-        this.setState({ confirmDeleteDialogOpen: true });
-    };
+        this.setState({ confirmDeleteDialogOpen: true })
+    }
 
     onContinueEditing = () => {
-        this.setState({ confirmDeleteDialogOpen: false });
-    };
+        this.setState({ confirmDeleteDialogOpen: false })
+    }
 
     onDeleteConfirmed = () => {
-        this.setState({ confirmDeleteDialogOpen: false });
-        this.props.onDelete(this.props.dashboardId);
-    };
+        this.setState({ confirmDeleteDialogOpen: false })
+        this.props.onDelete(this.props.dashboardId)
+    }
 
     onTranslationsSaved = async translations => {
         if (translations && translations.length) {
             const dbLocale = await this.context.d2.currentUser.userSettings.get(
                 'keyDbLocale'
-            );
+            )
 
             const translation = translations.find(
                 t => t.locale === dbLocale && t.property === 'NAME'
-            );
+            )
 
             if (translation && translation.value) {
                 this.props.onTranslate(
                     this.props.dashboardId,
                     translation.value
-                );
+                )
             }
         }
-    };
+    }
 
     componentDidMount() {
         apiFetchSelected(this.props.dashboardId).then(dashboardModel =>
             this.setState({ dashboardModel })
-        );
+        )
     }
 
     toggleTranslationDialog = () => {
         this.setState({
-            translationDialogIsOpen: !this.state.translationDialogIsOpen,
-        });
-    };
+            translationDialogIsOpen: !this.state.translationDialogIsOpen
+        })
+    }
 
     confirmDeleteDialog = () =>
         this.props.deleteAccess && this.props.dashboardId ? (
@@ -84,7 +84,7 @@ class EditBar extends Component {
                 onContinueEditing={this.onContinueEditing}
                 open={this.state.confirmDeleteDialogOpen}
             />
-        ) : null;
+        ) : null
 
     translationDialog = () =>
         this.state.dashboardModel && this.state.dashboardModel.id ? (
@@ -99,7 +99,7 @@ class EditBar extends Component {
                     console.log('translation update error', err)
                 }
             />
-        ) : null;
+        ) : null
 
     render() {
         const {
@@ -107,9 +107,9 @@ class EditBar extends Component {
             onSave,
             onDiscard,
             dashboardId,
-            deleteAccess,
-        } = this.props;
-        const controlBarHeight = getOuterHeight(1, false);
+            deleteAccess
+        } = this.props
+        const controlBarHeight = getOuterHeight(1, false)
 
         return (
             <Fragment>
@@ -148,41 +148,44 @@ class EditBar extends Component {
                 {this.translationDialog()}
                 {this.confirmDeleteDialog()}
             </Fragment>
-        );
+        )
     }
 }
 
 EditBar.contextTypes = {
-    d2: PropTypes.object,
-};
+    d2: PropTypes.object
+}
 
 const mapStateToProps = state => {
-    const dashboard = sGetEditDashboard(state);
+    const dashboard = sGetEditDashboard(state)
 
     return {
         dashboardId: dashboard.id,
         dashboardName: dashboard.name,
-        deleteAccess: dashboard.access ? dashboard.access.delete : false,
-    };
-};
+        deleteAccess: dashboard.access ? dashboard.access.delete : false
+    }
+}
 
 const mapDispatchToProps = dispatch => {
     return {
         onSave: () => {
-            dispatch(tSaveDashboard());
+            dispatch(tSaveDashboard())
         },
         onDiscard: () => {
-            dispatch(acClearEditDashboard());
+            dispatch(acClearEditDashboard())
         },
         onDelete: id => {
-            dispatch(tDeleteDashboard(id));
+            dispatch(tDeleteDashboard(id))
         },
         onTranslate: (id, translatedDisplayName) => {
-            dispatch(acSetDashboardDisplayName(id, translatedDisplayName));
-        },
-    };
-};
+            dispatch(acSetDashboardDisplayName(id, translatedDisplayName))
+        }
+    }
+}
 
-const EditBarCt = connect(mapStateToProps, mapDispatchToProps)(EditBar);
+const EditBarCt = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(EditBar)
 
-export default EditBarCt;
+export default EditBarCt

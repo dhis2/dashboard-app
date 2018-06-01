@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-const LOADING_DASHBOARD = 'LOADING_DASHBOARD';
-export const loadingDashboardMsg = { name: '', type: LOADING_DASHBOARD };
+const LOADING_DASHBOARD = 'LOADING_DASHBOARD'
+export const loadingDashboardMsg = { name: '', type: LOADING_DASHBOARD }
 
 const SnackbarMessage = ({ message }) => {
     if (typeof message === 'object') {
@@ -11,9 +11,9 @@ const SnackbarMessage = ({ message }) => {
                 Loading <span style={{ fontWeight: 800 }}>{message.name}</span>{' '}
                 dashboard
             </span>
-        );
+        )
     }
-    return message;
-};
+    return message
+}
 
-export default SnackbarMessage;
+export default SnackbarMessage

@@ -1,13 +1,13 @@
 /** @module reducers/dashboards */
 
-import arrayFrom from 'd2-utilizr/lib/arrayFrom';
-import { orArray, orNull, orObject } from '../util';
+import arrayFrom from 'd2-utilizr/lib/arrayFrom'
+import { orArray, orNull, orObject } from '../util'
 import {
     SPACER,
     isSpacerType,
     isTextType,
-    emptyTextItemContent,
-} from '../itemTypes';
+    emptyTextItemContent
+} from '../itemTypes'
 
 /**
  * Action types for the dashboard reducer
@@ -17,15 +17,15 @@ import {
 export const actionTypes = {
     SET_DASHBOARDS: 'SET_DASHBOARDS',
     STAR_DASHBOARD: 'STAR_DASHBOARD',
-    SET_DASHBOARD_DISPLAY_NAME: 'SET_DASHBOARD_DISPLAY_NAME',
-};
+    SET_DASHBOARD_DISPLAY_NAME: 'SET_DASHBOARD_DISPLAY_NAME'
+}
 
 /**
  * The default list of dashboards
  * @constant
  * @type {Array}
  */
-export const DEFAULT_DASHBOARDS = null;
+export const DEFAULT_DASHBOARDS = null
 
 /**
  * Reducer that computes and returns the new state based on the given action
@@ -39,31 +39,31 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
         case actionTypes.SET_DASHBOARDS: {
             return {
                 ...(action.append ? orObject(state) : {}),
-                ...action.value,
-            };
+                ...action.value
+            }
         }
         case actionTypes.STAR_DASHBOARD: {
             return {
                 ...state,
                 [action.dashboardId]: {
                     ...state[action.dashboardId],
-                    starred: action.value,
-                },
-            };
+                    starred: action.value
+                }
+            }
         }
         case actionTypes.SET_DASHBOARD_DISPLAY_NAME: {
             return {
                 ...state,
                 [action.dashboardId]: {
                     ...state[action.dashboardId],
-                    displayName: action.value,
-                },
-            };
+                    displayName: action.value
+                }
+            }
         }
         default:
-            return state;
+            return state
     }
-};
+}
 
 // selectors
 
@@ -78,7 +78,7 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
  * @param {Object} state The current state
  * @returns {Array}
  */
-export const sGetFromState = state => state.dashboards;
+export const sGetFromState = state => state.dashboards
 
 /**
  * Returns a dashboard based on id, from the state object.
@@ -89,14 +89,14 @@ export const sGetFromState = state => state.dashboards;
  * @returns {Object|undefined}
  */
 export const sGetById = (state, id) =>
-    orNull(orObject(sGetFromState(state))[id]);
+    orNull(orObject(sGetFromState(state))[id])
 
 export const sGetStarredDashboardIds = state => {
-    const dashboards = Object.values(orObject(sGetFromState(state)));
+    const dashboards = Object.values(orObject(sGetFromState(state)))
     return dashboards
         .filter(dashboard => dashboard.starred === true)
-        .map(starred => starred.id);
-};
+        .map(starred => starred.id)
+}
 
 /**
  * Returns the array of dashboards, customized for ui
@@ -107,17 +107,19 @@ export const sGetStarredDashboardIds = state => {
 export const getCustomDashboards = data => {
     const uiItems = items =>
         items.map(item => {
-            const type = isSpacerType(item) ? SPACER : item.type;
+            const type = isSpacerType(item) ? SPACER : item.type
             const text = isTextType(item)
-                ? item.text === emptyTextItemContent ? '' : item.text
-                : null;
+                ? item.text === emptyTextItemContent
+                    ? ''
+                    : item.text
+                : null
 
             return {
                 ...item,
                 ...(text !== null ? { text } : {}),
-                type,
-            };
-        });
+                type
+            }
+        })
 
     return arrayFrom(data).map((d, index) => ({
         id: d.id,
@@ -136,6 +138,6 @@ export const getCustomDashboards = data => {
             .substr(0, 16),
         access: d.access,
         numberOfItems: orArray(d.dashboardItems).length,
-        dashboardItems: uiItems(d.dashboardItems),
-    }));
-};
+        dashboardItems: uiItems(d.dashboardItems)
+    }))
+}

@@ -1,17 +1,17 @@
 /** @module reducers/selected */
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 
-import { validateReducer } from '../util';
+import { validateReducer } from '../util'
 
 export const actionTypes = {
     SET_SELECTED_ID: 'SET_SELECTED_ID',
     SET_SELECTED_ISLOADING: 'SET_SELECTED_ISLOADING',
-    SET_SELECTED_SHOWDESCRIPTION: 'SET_SELECTED_SHOWDESCRIPTION',
-};
+    SET_SELECTED_SHOWDESCRIPTION: 'SET_SELECTED_SHOWDESCRIPTION'
+}
 
-export const DEFAULT_SELECTED_ID = null;
-export const DEFAULT_SELECTED_ISLOADING = false;
-export const DEFAULT_SELECTED_SHOWDESCRIPTION = false;
+export const DEFAULT_SELECTED_ID = null
+export const DEFAULT_SELECTED_ISLOADING = false
+export const DEFAULT_SELECTED_SHOWDESCRIPTION = false
 
 /**
  * Reducer functions that computes and returns the new state based on the given action
@@ -22,20 +22,20 @@ export const DEFAULT_SELECTED_SHOWDESCRIPTION = false;
 const id = (state = DEFAULT_SELECTED_ID, action) => {
     switch (action.type) {
         case actionTypes.SET_SELECTED_ID:
-            return validateReducer(action.value, DEFAULT_SELECTED_ID);
+            return validateReducer(action.value, DEFAULT_SELECTED_ID)
         default:
-            return state;
+            return state
     }
-};
+}
 
 const isLoading = (state = DEFAULT_SELECTED_ISLOADING, action) => {
     switch (action.type) {
         case actionTypes.SET_SELECTED_ISLOADING:
-            return validateReducer(action.value, DEFAULT_SELECTED_ISLOADING);
+            return validateReducer(action.value, DEFAULT_SELECTED_ISLOADING)
         default:
-            return state;
+            return state
     }
-};
+}
 
 const showDescription = (state = DEFAULT_SELECTED_SHOWDESCRIPTION, action) => {
     switch (action.type) {
@@ -43,26 +43,26 @@ const showDescription = (state = DEFAULT_SELECTED_SHOWDESCRIPTION, action) => {
             return validateReducer(
                 action.value,
                 DEFAULT_SELECTED_SHOWDESCRIPTION
-            );
+            )
         default:
-            return state;
+            return state
     }
-};
+}
 
 export default combineReducers({
     id,
     isLoading,
-    showDescription,
-});
+    showDescription
+})
 
 // Selector level 1
-export const sGetFromState = state => state.selected;
+export const sGetFromState = state => state.selected
 
 // Selector dependency level 2
 
-export const sGetSelectedId = state => sGetFromState(state).id;
+export const sGetSelectedId = state => sGetFromState(state).id
 
-export const sGetSelectedIsLoading = state => sGetFromState(state).isLoading;
+export const sGetSelectedIsLoading = state => sGetFromState(state).isLoading
 
 export const sGetSelectedShowDescription = state =>
-    sGetFromState(state).showDescription;
+    sGetFromState(state).showDescription

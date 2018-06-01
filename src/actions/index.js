@@ -1,10 +1,10 @@
-import * as fromDashboards from './dashboards';
-import * as fromSelected from './selected';
-import * as fromDashboardsFilter from './dashboardsFilter';
-import * as fromControlBar from './controlBar';
-import * as fromEditDashboard from './editDashboard';
-import * as fromUser from './user';
-import * as fromItemFilter from './itemFilter';
+import * as fromDashboards from './dashboards'
+import * as fromSelected from './selected'
+import * as fromDashboardsFilter from './dashboardsFilter'
+import * as fromControlBar from './controlBar'
+import * as fromEditDashboard from './editDashboard'
+import * as fromUser from './user'
+import * as fromItemFilter from './itemFilter'
 
 export {
     fromDashboards,
@@ -13,17 +13,17 @@ export {
     fromControlBar,
     fromEditDashboard,
     fromUser,
-    fromItemFilter,
-};
+    fromItemFilter
+}
 
 // depends on: fromSelected, fromDashboardsFilter, fromControlBar
 export const tSelectDashboardById = (id, name) => dispatch => {
     // select dashboard by id
-    dispatch(fromSelected.tSetSelectedDashboardById(id, name));
+    dispatch(fromSelected.tSetSelectedDashboardById(id, name))
 
     // reset filter
-    dispatch(fromDashboardsFilter.acSetFilterName());
+    dispatch(fromDashboardsFilter.acSetFilterName())
 
     // collapse controlbar
-    dispatch(fromControlBar.acSetControlBarExpanded(false));
-};
+    dispatch(fromControlBar.acSetControlBarExpanded(false))
+}

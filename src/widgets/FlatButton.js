@@ -1,19 +1,17 @@
-import React from 'react';
-import MuiFlatButton from 'material-ui/FlatButton';
-import { colors } from '../colors';
+import React from 'react'
+import MuiFlatButton from 'material-ui/FlatButton'
+import { colors } from '../colors'
 
 const defaultStyles = {
     color: colors.royalBlue,
-    backgroundColor: 'transparent',
-};
+    backgroundColor: 'transparent'
+}
 
 const FlatButton = ({ onClick, children, style, disabled }) => {
-    const label = typeof children === 'string' ? children : null;
-    const classes = ['d2ui-flat-button', disabled ? 'disabled' : null].join(
-        ' '
-    );
+    const label = typeof children === 'string' ? children : null
+    const classes = ['d2ui-flat-button', disabled ? 'disabled' : null].join(' ')
 
-    const combinedStyle = Object.assign({}, defaultStyles, style);
+    const combinedStyle = Object.assign({}, defaultStyles, style)
 
     return (
         <MuiFlatButton
@@ -25,7 +23,7 @@ const FlatButton = ({ onClick, children, style, disabled }) => {
         >
             {typeof children !== 'string' ? children : null}
         </MuiFlatButton>
-    );
-};
+    )
+}
 
-export default FlatButton;
+export default FlatButton

@@ -12,8 +12,8 @@ import {
     APP,
     MESSAGES,
     TEXT,
-    SPACER,
-} from '../itemTypes';
+    SPACER
+} from '../itemTypes'
 
 export const singleItems = [
     {
@@ -24,53 +24,53 @@ export const singleItems = [
                 type: TEXT,
                 icon: itemTypeMap[TEXT].icon,
                 name: 'Text box',
-                content: '',
+                content: ''
             },
             {
                 type: MESSAGES,
                 icon: 'Email',
                 name: itemTypeMap[MESSAGES].icon,
-                content: 'true',
+                content: 'true'
             },
             {
                 type: SPACER,
                 icon: itemTypeMap[SPACER].icon,
                 name: 'Spacer',
-                content: spacerContent,
-            },
-        ],
-    },
-];
+                content: spacerContent
+            }
+        ]
+    }
+]
 
 export const listItems = [
     {
         id: REPORT_TABLE,
-        title: itemTypeMap[REPORT_TABLE].pluralTitle,
+        title: itemTypeMap[REPORT_TABLE].pluralTitle
     },
     {
         id: CHART,
-        title: itemTypeMap[CHART].pluralTitle,
+        title: itemTypeMap[CHART].pluralTitle
     },
     { id: MAP, title: itemTypeMap[MAP].pluralTitle },
     {
         id: EVENT_REPORT,
-        title: itemTypeMap[EVENT_REPORT].pluralTitle,
+        title: itemTypeMap[EVENT_REPORT].pluralTitle
     },
     {
         id: EVENT_CHART,
-        title: itemTypeMap[EVENT_CHART].pluralTitle,
+        title: itemTypeMap[EVENT_CHART].pluralTitle
     },
     {
         id: USERS,
-        title: itemTypeMap[USERS].pluralTitle,
+        title: itemTypeMap[USERS].pluralTitle
     },
     {
         id: REPORTS,
-        title: itemTypeMap[REPORTS].pluralTitle,
+        title: itemTypeMap[REPORTS].pluralTitle
     },
     {
         id: RESOURCES,
-        title: itemTypeMap[RESOURCES].pluralTitle,
+        title: itemTypeMap[RESOURCES].pluralTitle
     },
-    { id: APP, title: itemTypeMap[APP].pluralTitle },
-];
+    { id: APP, title: itemTypeMap[APP].pluralTitle }
+]

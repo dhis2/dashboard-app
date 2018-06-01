@@ -1,84 +1,84 @@
-import React, { Component, Fragment } from 'react';
-import i18n from 'dhis2-i18n';
-import PropTypes from 'prop-types';
-import TextField from 'material-ui/TextField';
-import IconButton from 'material-ui/IconButton';
-import IconClear from 'material-ui/svg-icons/content/clear';
-import isEmpty from 'd2-utilizr/lib/isEmpty';
+import React, { Component, Fragment } from 'react'
+import i18n from 'dhis2-i18n'
+import PropTypes from 'prop-types'
+import TextField from 'material-ui/TextField'
+import IconButton from 'material-ui/IconButton'
+import IconClear from 'material-ui/svg-icons/content/clear'
+import isEmpty from 'd2-utilizr/lib/isEmpty'
 
-import { colors } from '../colors';
-import * as fromReducers from '../reducers';
+import { colors } from '../colors'
+import * as fromReducers from '../reducers'
 
-const KEYCODE_ENTER = 13;
-const KEYCODE_ESCAPE = 27;
+const KEYCODE_ENTER = 13
+const KEYCODE_ESCAPE = 27
 
 const styles = {
     filterField: {
         fontSize: '14px',
         width: '200px',
-        height: '30px',
+        height: '30px'
     },
     filterFieldInput: {
         top: '-9px',
-        left: '1px',
+        left: '1px'
     },
     filterFieldUnderline: {
-        bottom: '10px',
+        bottom: '10px'
     },
     filterFieldUnderlineFocus: {
         borderColor: '#aaa',
-        borderWidth: '1px',
+        borderWidth: '1px'
     },
     clearButton: {
         width: '20px',
         height: '24px',
         padding: 0,
         top: '-5px',
-        left: '-18px',
+        left: '-18px'
     },
     clearButtonIcon: {
         width: '16px',
-        height: '16px',
-    },
-};
+        height: '16px'
+    }
+}
 
 class Filter extends Component {
     constructor(props) {
-        super(props);
+        super(props)
 
         this.state = {
-            value: fromReducers.fromDashboardsFilter.DEFAULT_NAME,
-        };
+            value: fromReducers.fromDashboardsFilter.DEFAULT_NAME
+        }
     }
 
     componentWillReceiveProps(nextProps) {
         this.setState({
-            value: nextProps.name,
-        });
+            value: nextProps.name
+        })
     }
 
     setFilterValue = event => {
-        event.preventDefault();
+        event.preventDefault()
 
-        this.props.onChangeName(event.target.value);
-    };
+        this.props.onChangeName(event.target.value)
+    }
 
     handleKeyUp = event => {
         switch (event.keyCode) {
             case KEYCODE_ENTER:
-                this.props.onKeypressEnter();
-                break;
+                this.props.onKeypressEnter()
+                break
             case KEYCODE_ESCAPE:
-                this.props.onChangeName();
-                break;
+                this.props.onChangeName()
+                break
             default:
-                break;
+                break
         }
 
         if (event.keyCode === KEYCODE_ESCAPE) {
-            this.props.onChangeName();
+            this.props.onChangeName()
         }
-    };
+    }
 
     render() {
         return (
@@ -94,29 +94,29 @@ class Filter extends Component {
                 underlineStyle={styles.filterFieldUnderline}
                 underlineFocusStyle={styles.filterFieldUnderlineFocus}
             />
-        );
+        )
     }
 }
 
 Filter.propTypes = {
     name: PropTypes.string,
-    onChangeName: PropTypes.func,
-};
+    onChangeName: PropTypes.func
+}
 
 Filter.defaultProps = {
     name: '',
-    onChangeName: Function.prototype,
-};
+    onChangeName: Function.prototype
+}
 
 const ClearButton = ({ name, onChangeName }) => {
-    const disabled = isEmpty(name);
+    const disabled = isEmpty(name)
 
-    const clearFilter = () => onChangeName();
+    const clearFilter = () => onChangeName()
 
     return (
         <IconButton
             style={Object.assign({}, styles.clearButton, {
-                opacity: disabled ? 0 : 1,
+                opacity: disabled ? 0 : 1
             })}
             iconStyle={styles.clearButtonIcon}
             onClick={clearFilter}
@@ -124,17 +124,17 @@ const ClearButton = ({ name, onChangeName }) => {
         >
             <IconClear color={colors.mediumGrey} />
         </IconButton>
-    );
-};
+    )
+}
 
 ClearButton.propTypes = {
     name: PropTypes.string.isRequired,
-    onChangeName: PropTypes.func.isRequired,
-};
+    onChangeName: PropTypes.func.isRequired
+}
 
 export default props => (
     <Fragment>
         <Filter {...props} />
         <ClearButton {...props} />
     </Fragment>
-);
+)

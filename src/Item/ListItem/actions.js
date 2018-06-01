@@ -1,20 +1,20 @@
 import {
     acUpdateDashboardItem,
-    acRemoveDashboardItem,
-} from '../../actions/editDashboard';
-import { itemTypeMap } from '../../itemTypes';
+    acRemoveDashboardItem
+} from '../../actions/editDashboard'
+import { itemTypeMap } from '../../itemTypes'
 
 export const tRemoveListItemContent = (dashboardItem, content) => dispatch => {
-    const listItemType = itemTypeMap[dashboardItem.type].propName;
+    const listItemType = itemTypeMap[dashboardItem.type].propName
 
     const newContent = dashboardItem[listItemType].filter(
         item => item.id !== content.id
-    );
+    )
 
     if (newContent.length) {
-        dashboardItem[listItemType] = newContent;
-        dispatch(acUpdateDashboardItem(dashboardItem));
+        dashboardItem[listItemType] = newContent
+        dispatch(acUpdateDashboardItem(dashboardItem))
     } else {
-        dispatch(acRemoveDashboardItem(dashboardItem));
+        dispatch(acRemoveDashboardItem(dashboardItem))
     }
-};
+}

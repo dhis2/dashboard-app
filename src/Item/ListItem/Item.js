@@ -1,35 +1,35 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { List, ListItem as MUIListItem } from 'material-ui/List';
-import IconButton from 'material-ui/IconButton';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
-import ItemHeader from '../ItemHeader';
-import Line from '../../widgets/Line';
-import { itemTypeMap, getItemUrl } from '../../itemTypes';
-import { orArray } from '../../util';
-import { tRemoveListItemContent } from './actions';
-import { colors } from '../../colors';
+import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { List, ListItem as MUIListItem } from 'material-ui/List'
+import IconButton from 'material-ui/IconButton'
+import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon'
+import ItemHeader from '../ItemHeader'
+import Line from '../../widgets/Line'
+import { itemTypeMap, getItemUrl } from '../../itemTypes'
+import { orArray } from '../../util'
+import { tRemoveListItemContent } from './actions'
+import { colors } from '../../colors'
 
 const getItemTitle = item => {
-    return itemTypeMap[item.type].pluralTitle;
-};
+    return itemTypeMap[item.type].pluralTitle
+}
 
 const getContentItems = item =>
     orArray(item[itemTypeMap[item.type].propName]).filter(
         (item, index, array) =>
             array.findIndex(el => el.id === item.id) === index
-    );
+    )
 
 const removeContent = (handler, item, contentToRemove) => () => {
-    handler(item, contentToRemove);
-};
+    handler(item, contentToRemove)
+}
 
 const ListItem = (props, context) => {
-    const { item, editMode, tRemoveListItemContent } = props;
+    const { item, editMode, tRemoveListItemContent } = props
 
     // avoid showing duplicates
-    const contentItems = getContentItems(item);
+    const contentItems = getContentItems(item)
 
     const primaryText = contentItem => {
         const deleteButton = (
@@ -37,12 +37,12 @@ const ListItem = (props, context) => {
                 style={{
                     verticalAlign: 'text-bottom',
                     padding: '0 12px',
-                    height: 20,
+                    height: 20
                 }}
                 iconStyle={{
                     width: 20,
                     height: 20,
-                    fill: colors.red,
+                    fill: colors.red
                 }}
                 onClick={removeContent(
                     tRemoveListItemContent,
@@ -52,7 +52,7 @@ const ListItem = (props, context) => {
             >
                 <SvgIcon icon="Delete" />
             </IconButton>
-        );
+        )
 
         return (
             <div>
@@ -64,8 +64,8 @@ const ListItem = (props, context) => {
                 </a>
                 {editMode ? deleteButton : null}
             </div>
-        );
-    };
+        )
+    }
 
     return (
         <Fragment>
@@ -88,15 +88,18 @@ const ListItem = (props, context) => {
                 ))}
             </List>
         </Fragment>
-    );
-};
+    )
+}
 
 ListItem.contextTypes = {
-    d2: PropTypes.object,
-};
+    d2: PropTypes.object
+}
 
-const ListItemContainer = connect(null, {
-    tRemoveListItemContent,
-})(ListItem);
+const ListItemContainer = connect(
+    null,
+    {
+        tRemoveListItemContent
+    }
+)(ListItem)
 
-export default ListItemContainer;
+export default ListItemContainer

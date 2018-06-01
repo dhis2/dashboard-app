@@ -1,21 +1,21 @@
-import React from 'react';
-import i18n from 'dhis2-i18n';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from '../widgets/FlatButton';
-import PrimaryButton from '../widgets/PrimaryButton';
+import React from 'react'
+import i18n from 'dhis2-i18n'
+import Dialog from 'material-ui/Dialog'
+import FlatButton from '../widgets/FlatButton'
+import PrimaryButton from '../widgets/PrimaryButton'
 
 const ConfirmDeleteDialog = ({
     dashboardName,
     onDeleteConfirmed,
     onContinueEditing,
-    open,
+    open
 }) => {
     const actions = [
         <FlatButton onClick={onDeleteConfirmed}>{i18n.t('Delete')}</FlatButton>,
         <PrimaryButton onClick={onContinueEditing}>
             {i18n.t('Continue editing')}
-        </PrimaryButton>,
-    ];
+        </PrimaryButton>
+    ]
 
     return (
         <Dialog
@@ -25,10 +25,10 @@ const ConfirmDeleteDialog = ({
             open={open}
         >
             {i18n.t('Are you sure you want to delete dashboard {{ name }}', {
-                name: dashboardName,
+                name: dashboardName
             })}
         </Dialog>
-    );
-};
+    )
+}
 
-export default ConfirmDeleteDialog;
+export default ConfirmDeleteDialog

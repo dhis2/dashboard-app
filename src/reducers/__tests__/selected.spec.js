@@ -1,51 +1,51 @@
-import reducer, { actionTypes } from '../selected';
+import reducer, { actionTypes } from '../selected'
 
 describe('selected dashboard reducer', () => {
     const defaultState = {
         id: null,
         isLoading: false,
-        showDescription: false,
-    };
+        showDescription: false
+    }
 
     describe('reducer', () => {
         it('should set the selected dashboard id', () => {
-            const id = 'my favorite dashboard';
-            const expectedState = Object.assign({}, defaultState, { id });
+            const id = 'my favorite dashboard'
+            const expectedState = Object.assign({}, defaultState, { id })
 
             const actualState = reducer(defaultState, {
                 type: actionTypes.SET_SELECTED_ID,
-                value: id,
-            });
+                value: id
+            })
 
-            expect(actualState).toEqual(expectedState);
-        });
+            expect(actualState).toEqual(expectedState)
+        })
 
         it('should set the selected dashboard isLoading state', () => {
-            const isLoading = true;
+            const isLoading = true
             const expectedState = Object.assign({}, defaultState, {
-                isLoading,
-            });
+                isLoading
+            })
 
             const actualState = reducer(defaultState, {
                 type: actionTypes.SET_SELECTED_ISLOADING,
-                value: isLoading,
-            });
+                value: isLoading
+            })
 
-            expect(actualState).toEqual(expectedState);
-        });
+            expect(actualState).toEqual(expectedState)
+        })
 
         it('should set the selected dashboard showDescription state', () => {
-            const showDescription = true;
+            const showDescription = true
             const expectedState = Object.assign({}, defaultState, {
-                showDescription,
-            });
+                showDescription
+            })
 
             const actualState = reducer(defaultState, {
                 type: actionTypes.SET_SELECTED_SHOWDESCRIPTION,
-                value: showDescription,
-            });
+                value: showDescription
+            })
 
-            expect(actualState).toEqual(expectedState);
-        });
-    });
-});
+            expect(actualState).toEqual(expectedState)
+        })
+    })
+})

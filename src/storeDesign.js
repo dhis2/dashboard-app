@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
-const { bool, string, oneOf, oneOfType } = PropTypes;
+const { bool, string, oneOf, oneOfType } = PropTypes
 
 const storeDesign = {
     // default: null, has not been set, show loading indicator
@@ -11,7 +11,7 @@ const storeDesign = {
     // oneOfType([null, object]).isRequired
     dashboards: {
         id1: {},
-        id2: {},
+        id2: {}
     },
 
     // default: null
@@ -21,7 +21,7 @@ const storeDesign = {
         id: null, // oneOfType([null, string]).isRequired
         edit: false, // bool.isRequired
         isLoading: false, // bool.isRequired
-        showDescription: false,
+        showDescription: false
     },
 
     // filter list of available dashboards
@@ -29,7 +29,7 @@ const storeDesign = {
     filter: {
         name: null, // oneOfType([null, string]).isRequired
         owner: 'ALL', // oneOf(['ALL', 'ME', 'OTHERS']),
-        order: 'NAME:ASC', // oneOf(['NAME:ASC', 'NAME:DESC', 'CREATED:ASC', 'CREATED:DESC', 'ITEMS:ASC', 'ITEMS:DESC', 'STARRED:ASC', 'STARRED:DESC']),
+        order: 'NAME:ASC' // oneOf(['NAME:ASC', 'NAME:DESC', 'CREATED:ASC', 'CREATED:DESC', 'ITEMS:ASC', 'ITEMS:DESC', 'STARRED:ASC', 'STARRED:DESC']),
     },
 
     // render dashboards as list or table
@@ -41,9 +41,9 @@ const storeDesign = {
     // object
     controlBar: {
         rows: 1,
-        expanded: bool, // default: false
-    },
-};
+        expanded: bool // default: false
+    }
+}
 
 const customDashboard = {
     created: '2013-09-08 21:47',
@@ -56,34 +56,34 @@ const customDashboard = {
     starred: false,
     dashboardItems: [
         // 'undefined ("loading" if defined) | error: null (hide "loading", show error) | [items]',
-    ],
-};
+    ]
+}
 
 const visualizations = {
     abc12345: {
         id: 'abc12345',
-        interpretations: ['xyzpdq123', 'defghi346'],
-    },
-};
+        interpretations: ['xyzpdq123', 'defghi346']
+    }
+}
 
 const interpretations = {
     xyzpdq123: {
         id: 'xyzpdq123',
         author: {
             id: 'pgra9g323',
-            name: 'Sally Sense',
+            name: 'Sally Sense'
         },
         created: 'new Date()', //Date type
         text: 'This is the interpretation text',
         likedBy: [
             {
                 id: 'pqrm135',
-                name: 'Terry Turnbull',
+                name: 'Terry Turnbull'
             },
             {
                 id: 'defg4632',
-                name: 'William Wilcox',
-            },
+                name: 'William Wilcox'
+            }
         ],
         comments: [
             {
@@ -91,10 +91,10 @@ const interpretations = {
                 created: 'new Date()', //Date type
                 author: {
                     id: '135rgar',
-                    name: 'Mary Merryweather',
+                    name: 'Mary Merryweather'
                 },
-                text: 'This is the comment text',
-            },
-        ],
-    },
-};
+                text: 'This is the comment text'
+            }
+        ]
+    }
+}

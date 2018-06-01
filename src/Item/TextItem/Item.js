@@ -1,52 +1,52 @@
-import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
-import i18n from 'dhis2-i18n';
+import React, { Fragment } from 'react'
+import { connect } from 'react-redux'
+import i18n from 'dhis2-i18n'
 
-import ItemHeader from '../ItemHeader';
-import Line from '../../widgets/Line';
-import TextField from 'd2-ui/lib/text-field/TextField';
-import { acUpdateDashboardItem } from '../../actions/editDashboard';
-import { sGetSelectedDashboard } from '../../reducers';
+import ItemHeader from '../ItemHeader'
+import Line from '../../widgets/Line'
+import TextField from 'd2-ui/lib/text-field/TextField'
+import { acUpdateDashboardItem } from '../../actions/editDashboard'
+import { sGetSelectedDashboard } from '../../reducers'
 
 const style = {
     textDiv: {
         padding: '10px',
         whiteSpace: 'pre-line',
-        lineHeight: '20px',
+        lineHeight: '20px'
     },
     textField: {
         fontSize: '14px',
         fontStretch: 'normal',
         width: '90%',
         margin: '0 auto',
-        display: 'block',
+        display: 'block'
     },
     container: {
         marginBottom: '20px',
-        marginTop: '20px',
-    },
-};
+        marginTop: '20px'
+    }
+}
 
 const TextItem = props => {
-    const { item, editMode, text, acUpdateDashboardItem } = props;
+    const { item, editMode, text, acUpdateDashboardItem } = props
 
     const onChangeText = text => {
         const updatedItem = {
             ...item,
-            text,
-        };
+            text
+        }
 
-        acUpdateDashboardItem(updatedItem);
-    };
+        acUpdateDashboardItem(updatedItem)
+    }
 
     const viewItem = () => {
-        const textDivStyle = Object.assign({}, style.textField, style.textDiv);
+        const textDivStyle = Object.assign({}, style.textField, style.textDiv)
         return (
             <div className="dashboard-item-content" style={style.container}>
                 <div style={textDivStyle}>{text}</div>
             </div>
-        );
-    };
+        )
+    }
 
     const editItem = () => {
         return (
@@ -66,20 +66,20 @@ const TextItem = props => {
                     />
                 </div>
             </Fragment>
-        );
-    };
+        )
+    }
 
-    return <Fragment>{editMode ? editItem() : viewItem()}</Fragment>;
-};
+    return <Fragment>{editMode ? editItem() : viewItem()}</Fragment>
+}
 
 export default connect(
     (state, ownProps) => ({
         text:
             sGetSelectedDashboard(state).dashboardItems.find(
                 item => item.id === ownProps.item.id
-            ).text || '',
+            ).text || ''
     }),
     {
-        acUpdateDashboardItem,
+        acUpdateDashboardItem
     }
-)(TextItem);
+)(TextItem)

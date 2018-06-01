@@ -1,32 +1,32 @@
-import { getInstance } from 'd2/lib/d2';
-import arrayClean from 'd2-utilizr/lib/arrayClean';
+import { getInstance } from 'd2/lib/d2'
+import arrayClean from 'd2-utilizr/lib/arrayClean'
 
-import { interpretationFields } from './interpretations';
-import { getEndPointName } from './index';
+import { interpretationFields } from './interpretations'
+import { getEndPointName } from './index'
 
 // Id, name
 export const getIdNameFields = ({ rename } = {}) => [
     'id',
-    `${rename ? 'displayName~rename(name)' : 'name,displayName'}`,
-];
+    `${rename ? 'displayName~rename(name)' : 'name,displayName'}`
+]
 
 // Item
-export const getItemFields = () => ['dimensionItem~rename(id)'];
+export const getItemFields = () => ['dimensionItem~rename(id)']
 
 // Dimension
 export const getDimensionFields = ({ withItems }) =>
     arrayClean([
         'dimension',
         'legendSet[id]',
-        withItems ? `items[${getItemFields().join(',')}]` : ``,
-    ]);
+        withItems ? `items[${getItemFields().join(',')}]` : ``
+    ])
 
 // Axis
 export const getAxesFields = ({ withItems }) => [
     `columns[${getDimensionFields({ withItems }).join(',')}]`,
     `rows[${getDimensionFields({ withItems }).join(',')}]`,
-    `filters[${getDimensionFields({ withItems }).join(',')}]`,
-];
+    `filters[${getDimensionFields({ withItems }).join(',')}]`
+]
 
 // Favorite
 export const getFavoriteFields = ({ withDimensions, withOptions }) => {
@@ -61,26 +61,26 @@ export const getFavoriteFields = ({ withDimensions, withOptions }) => {
                   '!translations',
                   '!userOrganisationUnit',
                   '!userOrganisationUnitChildren',
-                  '!userOrganisationUnitGrandChildren',
+                  '!userOrganisationUnitGrandChildren'
               ].join(',')
-            : '',
-    ]);
-};
+            : ''
+    ])
+}
 
 export const getFavoritesFields = ({ withDimensions, withOptions }) => [
     `reportTable[${getFavoriteFields({ withDimensions }).join(',')}]`,
     `chart[${getFavoriteFields({ withDimensions }).join(',')}]`,
     `map[${getFavoriteFields({ withDimensions }).join(',')}]`,
     `eventReport[${getFavoriteFields({ withDimensions }).join(',')}]`,
-    `eventChart[${getFavoriteFields({ withDimensions }).join(',')}]`,
-];
+    `eventChart[${getFavoriteFields({ withDimensions }).join(',')}]`
+]
 
 // List item
 export const getListItemFields = () => [
     `reports[${getIdNameFields({ rename: true }).join(',')}]`,
     `resources[${getIdNameFields({ rename: true }).join(',')}]`,
-    `users[${getIdNameFields({ rename: true }).join(',')}]`,
-];
+    `users[${getIdNameFields({ rename: true }).join(',')}]`
+]
 
 // Map
 export const getMapFields = () => [
@@ -88,9 +88,9 @@ export const getMapFields = () => [
     'user,longitude,latitude,zoom,basemap',
     `mapViews[${getFavoriteFields({
         withDimensions: true,
-        withOptions: true,
-    })}]`,
-];
+        withOptions: true
+    })}]`
+]
 
 // Api
 
@@ -101,7 +101,7 @@ export const apiFetchFavorite = (id, type, { fields }) =>
             `${getEndPointName(type)}/${id}?fields=${fields ||
                 getFavoriteFields({
                     withDimensions: true,
-                    withOptions: true,
+                    withOptions: true
                 })}`
         )
-    );
+    )

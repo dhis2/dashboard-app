@@ -1,11 +1,11 @@
 /** @module reducers/selected */
-import { validateReducer } from '../util';
+import { validateReducer } from '../util'
 
 export const actionTypes = {
-    SET_STYLE: 'SET_STYLE',
-};
+    SET_STYLE: 'SET_STYLE'
+}
 
-export const DEFAULT_STYLE = 'LIST';
+export const DEFAULT_STYLE = 'LIST'
 
 /**
  * Reducer functions that computes and returns the new state based on the given action
@@ -16,13 +16,13 @@ export const DEFAULT_STYLE = 'LIST';
 const style = (state = DEFAULT_STYLE, action) => {
     switch (action.type) {
         case actionTypes.SET_STYLE:
-            return validateReducer(action.value, DEFAULT_STYLE);
+            return validateReducer(action.value, DEFAULT_STYLE)
         default:
-            return state;
+            return state
     }
-};
+}
 
-export default style;
+export default style
 
 /**
  * Selectors that point to specific props in the state object
@@ -30,4 +30,4 @@ export default style;
  * @param {Object} state
  * @returns {Object}
  */
-export const sGetFromState = state => state.style;
+export const sGetFromState = state => state.style

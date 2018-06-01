@@ -1,5 +1,5 @@
-import React from 'react';
-import LoadingMask from 'd2-ui/lib/loading-mask/LoadingMask.component';
+import React from 'react'
+import LoadingMask from 'd2-ui/lib/loading-mask/LoadingMask.component'
 
 const styles = {
     modal: {
@@ -9,18 +9,18 @@ const styles = {
         width: '100%',
         height: '100%',
         zIndex: 999999998,
-        pointerEvents: 'none',
+        pointerEvents: 'none'
     },
     dark: {
         backgroundColor: '#000000',
         opacity: 0.2,
-        zIndex: 999999999,
-    },
-};
+        zIndex: 999999999
+    }
+}
 
 const ModalLoadingMask = ({ isLoading }) => {
     if (!isLoading) {
-        return null;
+        return null
     }
 
     return (
@@ -31,11 +31,11 @@ const ModalLoadingMask = ({ isLoading }) => {
             <div
                 style={{
                     ...styles.modal,
-                    ...styles.dark,
+                    ...styles.dark
                 }}
             />
         </div>
-    );
-};
+    )
+}
 
-export default ModalLoadingMask;
+export default ModalLoadingMask

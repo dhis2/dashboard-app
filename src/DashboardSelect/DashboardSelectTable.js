@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import i18n from 'dhis2-i18n';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import i18n from 'dhis2-i18n'
 
 import {
     Table,
@@ -8,11 +8,11 @@ import {
     TableHeader,
     TableHeaderColumn,
     TableRow,
-    TableRowColumn,
-} from 'material-ui/Table';
+    TableRowColumn
+} from 'material-ui/Table'
 
-const linkColor = '#2264ff';
-const linkColorHover = '#1b3f8f';
+const linkColor = '#2264ff'
+const linkColorHover = '#1b3f8f'
 
 const styles = {
     tableRowColumnTextLink: {
@@ -20,72 +20,72 @@ const styles = {
             color: linkColor,
             cursor: 'pointer',
             fontSize: '13px',
-            fontWeight: 500,
+            fontWeight: 500
         },
         linkHover: {
-            color: linkColorHover,
+            color: linkColorHover
         },
         linkSelected: {
             color: linkColorHover,
-            fontWeight: 700,
-        },
+            fontWeight: 700
+        }
     },
     tableView: {
         root: {
             marginTop: '5px',
-            marginLeft: '5px',
+            marginLeft: '5px'
         },
         row: {
             height: '19px',
             padding: '4px',
-            fontSize: '13px',
+            fontSize: '13px'
         },
         rowColumn: {
             color: '#000',
-            fontSize: '11px',
+            fontSize: '11px'
         },
         starred: {
-            width: '70px',
+            width: '70px'
         },
         name: {
-            width: '400px',
-        },
-    },
-};
+            width: '400px'
+        }
+    }
+}
 
 class TableRowColumnTextLink extends Component {
     constructor(props) {
-        super(props);
+        super(props)
 
-        this.styles = styles.tableRowColumnTextLink;
+        this.styles = styles.tableRowColumnTextLink
 
         this.state = {
-            color: this.styles.link.color,
-        };
+            color: this.styles.link.color
+        }
 
-        this.onMouseOverHandle = this.onMouseOverHandle.bind(this);
-        this.onMouseOutHandle = this.onMouseOutHandle.bind(this);
+        this.onMouseOverHandle = this.onMouseOverHandle.bind(this)
+        this.onMouseOutHandle = this.onMouseOutHandle.bind(this)
     }
 
     onMouseOverHandle(event) {
-        event.preventDefault();
+        event.preventDefault()
 
         this.setState({
-            color: this.styles.linkHover.color,
-        });
+            color: this.styles.linkHover.color
+        })
     }
 
     onMouseOutHandle(event) {
-        event.preventDefault();
+        event.preventDefault()
 
         this.setState({
-            color: this.styles.link.color,
-        });
+            color: this.styles.link.color
+        })
     }
 
     render() {
-        const { text, onClick, isSelected, style } = this.props;
-        const selectedStyle = isSelected ? this.styles.linkSelected : null;
+        const { text, onClick, isSelected, style } = this.props
+        const selectedStyle = isSelected ? this.styles.linkSelected : null
 
         return (
             <TableRowColumn
@@ -105,7 +105,7 @@ class TableRowColumnTextLink extends Component {
             >
                 {text}
             </TableRowColumn>
-        );
+        )
     }
 }
 
@@ -113,44 +113,44 @@ TableRowColumnTextLink.propTypes = {
     text: PropTypes.string,
     onClick: PropTypes.func,
     isSelected: PropTypes.bool,
-    style: PropTypes.object,
-};
+    style: PropTypes.object
+}
 
 TableRowColumnTextLink.defaultProps = {
     text: '',
     onClick: Function.prototype,
     isSelected: false,
-    style: null,
-};
+    style: null
+}
 
 // Component
 
 export default class DashboardSelectTable extends Component {
     constructor(props) {
-        super(props);
+        super(props)
 
-        this.handleRowSelection = this.handleRowSelection.bind(this);
-        this.isSelected = this.isSelected.bind(this);
+        this.handleRowSelection = this.handleRowSelection.bind(this)
+        this.isSelected = this.isSelected.bind(this)
 
         this.state = {
-            selected: [1],
-        };
+            selected: [1]
+        }
     }
 
     handleRowSelection(selectedRows) {
         this.setState({
-            selected: selectedRows,
-        });
+            selected: selectedRows
+        })
     }
 
     isSelected(index) {
-        return this.state.selected.indexOf(index) !== -1;
+        return this.state.selected.indexOf(index) !== -1
     }
 
     render() {
-        const { dashboards, onClick } = this.props;
+        const { dashboards, onClick } = this.props
 
-        const style = styles.tableView;
+        const style = styles.tableView
 
         return (
             <div style={style.root}>
@@ -245,19 +245,19 @@ export default class DashboardSelectTable extends Component {
                     </TableBody>
                 </Table>
             </div>
-        );
+        )
     }
 }
 
 DashboardSelectTable.propTypes = {
     dashboards: PropTypes.array,
-    onClick: PropTypes.func,
-};
+    onClick: PropTypes.func
+}
 
 DashboardSelectTable.defaultProps = {
     dashboards: [],
-    onClick: Function.prototype,
-};
+    onClick: Function.prototype
+}
 
 // dashboards:(22) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
 // isFetching: false

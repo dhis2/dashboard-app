@@ -1,15 +1,15 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import i18n from 'dhis2-i18n';
-import Divider from 'material-ui/Divider';
-import { List, ListItem } from 'material-ui/List';
+import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import i18n from 'dhis2-i18n'
+import Divider from 'material-ui/Divider'
+import { List, ListItem } from 'material-ui/List'
 
-import Button from 'd2-ui/lib/button/Button';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
-import { acAddDashboardItem } from '../actions/editDashboard';
-import { tAddListItemContent } from './actions';
-import { sGetEditDashboard } from '../reducers/editDashboard';
+import Button from 'd2-ui/lib/button/Button'
+import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon'
+import { acAddDashboardItem } from '../actions/editDashboard'
+import { tAddListItemContent } from './actions'
+import { sGetEditDashboard } from '../reducers/editDashboard'
 import {
     itemTypeMap,
     getItemUrl,
@@ -21,16 +21,16 @@ import {
     MAP,
     REPORTS,
     RESOURCES,
-    USERS,
-} from '../itemTypes';
+    USERS
+} from '../itemTypes'
 
 class ItemSelectList extends Component {
     constructor(props) {
-        super(props);
+        super(props)
 
         this.state = {
-            seeMore: false,
-        };
+            seeMore: false
+        }
     }
 
     addItem = item => () => {
@@ -38,31 +38,31 @@ class ItemSelectList extends Component {
             type,
             dashboardId,
             acAddDashboardItem,
-            tAddListItemContent,
-        } = this.props;
+            tAddListItemContent
+        } = this.props
 
         const newItem = {
             id: item.id,
-            name: item.displayName || item.name,
-        };
+            name: item.displayName || item.name
+        }
 
         // special handling for ListItem types
         if (type.match(/(REPORTS|RESOURCES|USERS)/)) {
-            tAddListItemContent(dashboardId, type, newItem);
+            tAddListItemContent(dashboardId, type, newItem)
         } else if (type === APP) {
-            newItem.id = newItem.appKey = item.key;
+            newItem.id = newItem.appKey = item.key
 
-            acAddDashboardItem({ type, content: newItem });
+            acAddDashboardItem({ type, content: newItem })
         } else {
-            acAddDashboardItem({ type, content: newItem });
+            acAddDashboardItem({ type, content: newItem })
         }
-    };
+    }
 
     toggleSeeMore = () => {
-        this.setState({ seeMore: !this.state.seeMore });
+        this.setState({ seeMore: !this.state.seeMore })
 
-        this.props.onChangeItemsLimit(this.props.type);
-    };
+        this.props.onChangeItemsLimit(this.props.type)
+    }
 
     render() {
         return (
@@ -71,7 +71,7 @@ class ItemSelectList extends Component {
                     style={{
                         display: 'flex',
                         justifyContent: 'space-between',
-                        paddingLeft: '16px',
+                        paddingLeft: '16px'
                     }}
                 >
                     <h3>{this.props.title}</h3>
@@ -107,7 +107,7 @@ class ItemSelectList extends Component {
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'flex-start',
-                                        margin: 0,
+                                        margin: 0
                                     }}
                                 >
                                     {item.displayName || item.name}
@@ -129,7 +129,7 @@ class ItemSelectList extends Component {
                                             icon="Launch"
                                             style={{
                                                 width: '16px',
-                                                height: '16px',
+                                                height: '16px'
                                             }}
                                         />
                                     </a>
@@ -139,7 +139,7 @@ class ItemSelectList extends Component {
                     ))}
                 </List>
             </Fragment>
-        );
+        )
     }
 }
 
@@ -153,23 +153,23 @@ ItemSelectList.propTypes = {
         MAP,
         REPORTS,
         RESOURCES,
-        USERS,
+        USERS
     ]).isRequired,
     title: PropTypes.string.isRequired,
     items: PropTypes.array.isRequired,
-    onChangeItemsLimit: PropTypes.func.isRequired,
-};
+    onChangeItemsLimit: PropTypes.func.isRequired
+}
 
 ItemSelectList.contextTypes = {
-    d2: PropTypes.object.isRequired,
-};
+    d2: PropTypes.object.isRequired
+}
 
 export default connect(
     state => ({
-        dashboardId: sGetEditDashboard(state).id,
+        dashboardId: sGetEditDashboard(state).id
     }),
     {
         acAddDashboardItem,
-        tAddListItemContent,
+        tAddListItemContent
     }
-)(ItemSelectList);
+)(ItemSelectList)

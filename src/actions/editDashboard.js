@@ -1,56 +1,56 @@
-import { generateUid } from 'd2/lib/uid';
-import { actionTypes } from '../reducers';
-import { fromEditDashboard } from '../reducers';
-import { updateDashboard, postDashboard } from '../api/editDashboard';
-import { fromSelected } from '.';
-import { NEW_ITEM_SHAPE } from '../ItemGrid/gridUtil';
+import { generateUid } from 'd2/lib/uid'
+import { actionTypes } from '../reducers'
+import { fromEditDashboard } from '../reducers'
+import { updateDashboard, postDashboard } from '../api/editDashboard'
+import { fromSelected } from '.'
+import { NEW_ITEM_SHAPE } from '../ItemGrid/gridUtil'
 import {
     itemTypeMap,
     isSpacerType,
     TEXT,
     emptyTextItemContent,
-    isTextType,
-} from '../itemTypes';
+    isTextType
+} from '../itemTypes'
 
 const onError = error => {
-    console.log('Error (Saving Dashboard): ', error);
-    return error;
-};
+    console.log('Error (Saving Dashboard): ', error)
+    return error
+}
 
 // actions
 
 export const acSetEditDashboard = value => ({
     type: actionTypes.RECEIVED_EDIT_DASHBOARD,
-    value,
-});
+    value
+})
 
 export const acSetEditNewDashboard = () => ({
-    type: actionTypes.START_NEW_DASHBOARD,
-});
+    type: actionTypes.START_NEW_DASHBOARD
+})
 
 export const acClearEditDashboard = () => ({
-    type: actionTypes.RECEIVED_NOT_EDITING,
-});
+    type: actionTypes.RECEIVED_NOT_EDITING
+})
 
 export const acSetDashboardTitle = value => ({
     type: actionTypes.RECEIVED_TITLE,
-    value,
-});
+    value
+})
 
 export const acSetDashboardDescription = value => ({
     type: actionTypes.RECEIVED_DESCRIPTION,
-    value,
-});
+    value
+})
 
 export const acUpdateDashboardLayout = value => ({
     type: actionTypes.RECEIVED_DASHBOARD_LAYOUT,
-    value,
-});
+    value
+})
 
 export const acAddDashboardItem = item => {
-    const type = item.type;
-    delete item.type;
-    const itemPropName = itemTypeMap[type].propName;
+    const type = item.type
+    delete item.type
+    const itemPropName = itemTypeMap[type].propName
 
     return {
         type: actionTypes.ADD_DASHBOARD_ITEM,
@@ -58,54 +58,52 @@ export const acAddDashboardItem = item => {
             id: generateUid(),
             type,
             [itemPropName]: item.content,
-            ...NEW_ITEM_SHAPE,
-        },
-    };
-};
+            ...NEW_ITEM_SHAPE
+        }
+    }
+}
 
 export const acUpdateDashboardItem = item => ({
     type: actionTypes.UPDATE_DASHBOARD_ITEM,
-    value: item,
-});
+    value: item
+})
 
 export const acRemoveDashboardItem = value => ({
     type: actionTypes.REMOVE_DASHBOARD_ITEM,
-    value,
-});
+    value
+})
 
 // thunks
 
 export const tSaveDashboard = () => async (dispatch, getState) => {
-    const dashboard = fromEditDashboard.sGetEditDashboard(getState());
+    const dashboard = fromEditDashboard.sGetEditDashboard(getState())
 
     const dashboardItems = dashboard.dashboardItems.map(item => {
-        const text = isTextType(item)
-            ? item.text || emptyTextItemContent
-            : null;
+        const text = isTextType(item) ? item.text || emptyTextItemContent : null
 
-        const type = isSpacerType(item) ? TEXT : item.type;
+        const type = isSpacerType(item) ? TEXT : item.type
 
         return {
             ...item,
             ...(text ? { text } : {}),
-            type,
-        };
-    });
+            type
+        }
+    })
 
     const dashboardToSave = {
         ...dashboard,
-        dashboardItems,
-    };
+        dashboardItems
+    }
 
     try {
         const selectedId = dashboardToSave.id
             ? await updateDashboard(dashboardToSave)
-            : await postDashboard(dashboardToSave);
+            : await postDashboard(dashboardToSave)
 
-        await dispatch(fromSelected.tSetSelectedDashboardById(selectedId));
+        await dispatch(fromSelected.tSetSelectedDashboardById(selectedId))
 
-        return dispatch(acClearEditDashboard());
+        return dispatch(acClearEditDashboard())
     } catch (error) {
-        onError(error);
+        onError(error)
     }
-};
+}

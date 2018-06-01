@@ -1,7 +1,7 @@
 /** @module reducers/editDashboard */
-import update from 'immutability-helper';
-import isEmpty from 'lodash/isEmpty';
-import { orArray } from '../util';
+import update from 'immutability-helper'
+import isEmpty from 'lodash/isEmpty'
+import { orArray } from '../util'
 
 export const actionTypes = {
     RECEIVED_EDIT_DASHBOARD: 'RECEIVED_EDIT_DASHBOARD',
@@ -12,99 +12,99 @@ export const actionTypes = {
     ADD_DASHBOARD_ITEM: 'ADD_DASHBOARD_ITEM',
     REMOVE_DASHBOARD_ITEM: 'REMOVE_DASHBOARD_ITEM',
     UPDATE_DASHBOARD_ITEM: 'UPDATE_DASHBOARD_ITEM',
-    RECEIVED_DASHBOARD_LAYOUT: 'RECEIVED_DASHBOARD_LAYOUT',
-};
+    RECEIVED_DASHBOARD_LAYOUT: 'RECEIVED_DASHBOARD_LAYOUT'
+}
 
-export const DEFAULT_STATE = {};
+export const DEFAULT_STATE = {}
 export const NEW_DASHBOARD_STATE = {
     id: '',
     name: '',
     access: {},
     description: '',
-    dashboardItems: [],
-};
+    dashboardItems: []
+}
 
 export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {
         case actionTypes.RECEIVED_EDIT_DASHBOARD:
-            const newState = {};
+            const newState = {}
             Object.keys(NEW_DASHBOARD_STATE).map(
                 k => (newState[k] = action.value[k])
-            );
-            return newState;
+            )
+            return newState
         case actionTypes.RECEIVED_NOT_EDITING:
-            return DEFAULT_STATE;
+            return DEFAULT_STATE
         case actionTypes.START_NEW_DASHBOARD:
-            return NEW_DASHBOARD_STATE;
+            return NEW_DASHBOARD_STATE
         case actionTypes.RECEIVED_TITLE: {
-            return Object.assign({}, state, { name: action.value });
+            return Object.assign({}, state, { name: action.value })
         }
         case actionTypes.RECEIVED_DESCRIPTION: {
             return Object.assign({}, state, {
-                description: action.value,
-            });
+                description: action.value
+            })
         }
         case actionTypes.ADD_DASHBOARD_ITEM:
             return update(state, {
-                dashboardItems: { $unshift: [action.value] },
-            });
+                dashboardItems: { $unshift: [action.value] }
+            })
         case actionTypes.REMOVE_DASHBOARD_ITEM: {
-            const idToRemove = action.value;
+            const idToRemove = action.value
 
             const dashboardItemIndex = state.dashboardItems.findIndex(
                 item => item.id === idToRemove
-            );
+            )
 
             if (dashboardItemIndex > -1) {
                 return update(state, {
                     dashboardItems: {
-                        $splice: [[dashboardItemIndex, 1]],
-                    },
-                });
+                        $splice: [[dashboardItemIndex, 1]]
+                    }
+                })
             }
 
-            return state;
+            return state
         }
         case actionTypes.RECEIVED_DASHBOARD_LAYOUT: {
-            const stateItems = orArray(state.dashboardItems);
+            const stateItems = orArray(state.dashboardItems)
 
             const newStateItems = action.value.map(({ x, y, w, h, i }) => {
-                const stateItem = stateItems.find(si => si.id === i);
+                const stateItem = stateItems.find(si => si.id === i)
 
-                return Object.assign({}, stateItem, { w, h, x, y });
-            });
+                return Object.assign({}, stateItem, { w, h, x, y })
+            })
 
             return update(state, {
-                dashboardItems: { $set: newStateItems },
-            });
+                dashboardItems: { $set: newStateItems }
+            })
         }
         case actionTypes.UPDATE_DASHBOARD_ITEM: {
-            const dashboardItem = action.value;
+            const dashboardItem = action.value
 
             const dashboardItemIndex = state.dashboardItems.findIndex(
                 item => item.id === dashboardItem.id
-            );
+            )
 
             if (dashboardItemIndex > -1) {
                 const newState = update(state, {
                     dashboardItems: {
-                        $splice: [[dashboardItemIndex, 1, dashboardItem]],
-                    },
-                });
+                        $splice: [[dashboardItemIndex, 1, dashboardItem]]
+                    }
+                })
 
-                return newState;
+                return newState
             }
 
-            return state;
+            return state
         }
         default:
-            return state;
+            return state
     }
-};
+}
 
 // selectors
-export const sGetEditDashboard = state => state.editDashboard;
+export const sGetEditDashboard = state => state.editDashboard
 
 export const sGetIsEditing = state => {
-    return !isEmpty(state.editDashboard);
-};
+    return !isEmpty(state.editDashboard)
+}

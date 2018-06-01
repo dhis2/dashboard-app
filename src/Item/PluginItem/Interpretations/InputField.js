@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import TextField from 'd2-ui/lib/text-field/TextField';
-import Button from 'd2-ui/lib/button/Button';
-import { colors } from '../../../colors';
+import React, { Component } from 'react'
+import TextField from 'd2-ui/lib/text-field/TextField'
+import Button from 'd2-ui/lib/button/Button'
+import { colors } from '../../../colors'
 
 const style = {
     button: {
@@ -10,34 +10,34 @@ const style = {
         color: colors.charcoalGrey,
         fontFamily: 'inherit',
         fontSize: '13px',
-        lineHeight: '15px',
+        lineHeight: '15px'
     },
     container: {
-        marginBottom: '5px',
+        marginBottom: '5px'
     },
     text: {
         fontSize: '14px',
-        fontStretch: 'normal',
+        fontStretch: 'normal'
     },
     textField: {
         width: '80%',
-        display: 'inline-block',
-    },
-};
+        display: 'inline-block'
+    }
+}
 
 class InputField extends Component {
     state = {
-        newText: '',
-    };
+        newText: ''
+    }
 
     updateNewText = newText => {
-        this.setState({ newText });
-    };
+        this.setState({ newText })
+    }
 
     onClick = () => {
-        this.props.onPost(this.state.newText);
-        this.setState({ newText: '' });
-    };
+        this.props.onPost(this.state.newText)
+        this.setState({ newText: '' })
+    }
 
     render() {
         return (
@@ -58,8 +58,8 @@ class InputField extends Component {
                     {this.props.postText}
                 </Button>
             </div>
-        );
+        )
     }
 }
 
-export default InputField;
+export default InputField

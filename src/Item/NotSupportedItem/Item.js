@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-import ItemHeader from '../ItemHeader';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import React, { Fragment } from 'react'
+import ItemHeader from '../ItemHeader'
+import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon'
 
 const NotSupportedItem = props => (
     <Fragment>
@@ -10,7 +10,7 @@ const NotSupportedItem = props => (
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: '90%',
+                height: '90%'
             }}
         >
             <SvgIcon
@@ -20,6 +20,6 @@ const NotSupportedItem = props => (
             />
         </div>
     </Fragment>
-);
+)
 
-export default NotSupportedItem;
+export default NotSupportedItem

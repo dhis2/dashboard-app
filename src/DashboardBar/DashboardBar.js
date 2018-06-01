@@ -1,94 +1,94 @@
 // This component will be removed. Some of the code should be reused in dashboards List view mode.
 
-import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import i18n from 'dhis2-i18n';
+import React from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import i18n from 'dhis2-i18n'
 
-import { grey700 } from 'material-ui/styles/colors';
-import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
-import IconList from 'material-ui/svg-icons/action/list';
-import ListViewModule from 'material-ui/svg-icons/action/view-module';
+import { grey700 } from 'material-ui/styles/colors'
+import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar'
+import IconList from 'material-ui/svg-icons/action/list'
+import ListViewModule from 'material-ui/svg-icons/action/view-module'
 
-import './DashboardBar.css';
+import './DashboardBar.css'
 
-import D2TextLink from '../widgets/D2TextLink';
-import D2IconButton from '../widgets/D2IconButton';
-import D2Dropdown from '../widgets/D2Dropdown';
+import D2TextLink from '../widgets/D2TextLink'
+import D2IconButton from '../widgets/D2IconButton'
+import D2Dropdown from '../widgets/D2Dropdown'
 
-import * as fromReducers from '../reducers';
-import { fromDashboardsFilter } from '../actions';
+import * as fromReducers from '../reducers'
+import { fromDashboardsFilter } from '../actions'
 
 const styles = {
     filterField: {
         fontSize: '14px',
-        width: '200px',
+        width: '200px'
     },
     filterFieldInput2: {
-        top: '4px',
+        top: '4px'
     },
     filterFieldHint2: {
-        top: '10px',
+        top: '10px'
     },
     filterFieldUnderline: {
-        bottom: '11px',
+        bottom: '11px'
     },
     filterFieldUnderlineFocus: {
         borderColor: '#aaa',
-        borderWidth: '1px',
+        borderWidth: '1px'
     },
     clearButton: {
         width: '24px',
         height: '24px',
         padding: 0,
-        left: '-22px',
+        left: '-22px'
     },
     clearButtonIcon: {
         width: '16px',
-        height: '16px',
+        height: '16px'
     },
     toolbar: {
         height: 52,
         backgroundColor: '#fff',
         paddingTop: '10px',
-        paddingBottom: '8px',
+        paddingBottom: '8px'
     },
     toolbarSeparator: {
         height: '26px',
         marginRight: '20px',
-        marginLeft: '5px',
+        marginLeft: '5px'
     },
     hiddenToolbarSeparator: {
-        backgroundColor: 'transparent',
-    },
-};
+        backgroundColor: 'transparent'
+    }
+}
 
 // Component
 
 const getViewFilterIcon = viewFilter => {
-    const list = 'LIST';
-    const table = 'TABLE';
-    const buttonColor = grey700;
+    const list = 'LIST'
+    const table = 'TABLE'
+    const buttonColor = grey700
 
     const buttonMap = {
         [list]: <IconList color={buttonColor} />,
-        [table]: <ListViewModule color={buttonColor} />,
-    };
+        [table]: <ListViewModule color={buttonColor} />
+    }
 
-    return buttonMap[viewFilter];
-};
+    return buttonMap[viewFilter]
+}
 
 const onClickViewFilterWrapper = (viewFilter, onClickViewFilter) => {
-    const list = 'LIST';
-    const table = 'TABLE';
+    const list = 'LIST'
+    const table = 'TABLE'
 
     const onClickViewFilterParamMap = {
         [list]: table,
-        [table]: list,
-    };
+        [table]: list
+    }
 
-    return () => onClickViewFilter(onClickViewFilterParamMap[viewFilter]);
-};
+    return () => onClickViewFilter(onClickViewFilterParamMap[viewFilter])
+}
 
 export const Dashboardbar = props => (
     <Toolbar style={styles.toolbar}>
@@ -132,7 +132,7 @@ export const Dashboardbar = props => (
             />
         </ToolbarGroup>
     </Toolbar>
-);
+)
 
 Dashboardbar.propTypes = {
     onClickHome: PropTypes.func,
@@ -142,8 +142,8 @@ Dashboardbar.propTypes = {
     onClickStyle: PropTypes.func,
     ownerFilter: PropTypes.string,
     orderFilter: PropTypes.string,
-    style: PropTypes.string,
-};
+    style: PropTypes.string
+}
 
 Dashboardbar.defaultProps = {
     onClickHome: Function.prototype,
@@ -153,16 +153,16 @@ Dashboardbar.defaultProps = {
     onClickStyle: Function.prototype,
     ownerFilter: null,
     orderFilter: null,
-    style: 'LIST',
-};
+    style: 'LIST'
+}
 
 // Container
 
 const mapStateToProps = state => ({
     textFilter: fromReducers.fromDashboardsFilter.sGetName(state),
     ownerFilter: fromReducers.fromDashboardsFilter.sGetOwner(state),
-    orderFilter: fromReducers.fromDashboardsFilter.sGetOrder(state),
-});
+    orderFilter: fromReducers.fromDashboardsFilter.sGetOrder(state)
+})
 
 const mapDispatchToProps = dispatch => ({
     onChangeFilterName: value =>
@@ -170,11 +170,12 @@ const mapDispatchToProps = dispatch => ({
     onClickFilterOwner: value =>
         dispatch(fromDashboardsFilter.acSetFilterOwner(value)),
     onClickFilterOrder: value =>
-        dispatch(fromDashboardsFilter.acSetFilterOrder(value)),
-});
+        dispatch(fromDashboardsFilter.acSetFilterOrder(value))
+})
 
-const DashboardbarCt = connect(mapStateToProps, mapDispatchToProps)(
-    Dashboardbar
-);
+const DashboardbarCt = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Dashboardbar)
 
-export default DashboardbarCt;
+export default DashboardbarCt
