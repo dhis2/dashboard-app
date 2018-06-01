@@ -30,7 +30,6 @@ describe('DashboardsBar', () => {
             onChangeHeight: undefined,
             onEndDrag: undefined,
             onToggleMaxHeight: undefined,
-            onNewClick: undefined,
             onChangeFilterName: undefined,
             onSelectDashboard: undefined,
         };

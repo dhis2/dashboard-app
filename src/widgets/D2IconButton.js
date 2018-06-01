@@ -6,9 +6,9 @@ import IconAdd from 'material-ui/svg-icons/content/add-circle';
 import { colors } from '../colors';
 
 const styles = {
-    style: {
-        width: 52,
-        height: 52,
+    button: {
+        width: 36,
+        height: 36,
         padding: 0,
     },
     iconStyle: {
@@ -16,16 +16,16 @@ const styles = {
         height: 32,
     },
     icon: IconAdd,
-    iconColor: colors.lightGreen,
+    iconColor: colors.mediumGreen,
 };
 
 const D2IconButton = props => (
     <IconButton
-        style={Object.assign({}, styles.style, props.style)}
+        style={styles.button}
         iconStyle={Object.assign({}, styles.iconStyle, props.iconStyle)}
         onClick={props.onClick}
     >
-        {props.icon || <IconAdd color={props.iconColor || styles.iconColor} />}
+        {props.icon || <IconAdd color={styles.iconColor} />}
     </IconButton>
 );
 
