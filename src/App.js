@@ -49,7 +49,7 @@ class App extends Component {
             return <p>Loading</p>;
         }
 
-        console.log('App render route');
+        console.log('App render route', this.props);
 
         return (
             <div className="app-wrapper">

@@ -25,6 +25,8 @@ class Dashboard extends Component {
     }
 
     render() {
+        console.log('render Dashboard');
+
         return this.props.mode === 'view' ? (
             <Fragment>
                 <DashboardsBar />

@@ -16,7 +16,8 @@ import {
     MESSAGES,
 } from '../itemTypes';
 import { extractFavorite } from '../Item/PluginItem/plugin';
-import { getCustomDashboards } from '../reducers/dashboards';
+import { getCustomDashboards, sGetById } from '../reducers/dashboards';
+import { orObject } from '../util';
 
 // actions
 
@@ -66,15 +67,13 @@ export const tLoadDashboard = id => async (dispatch, getState) => {
 };
 
 // thunks
-export const tSetSelectedDashboardById = (id, name = '') => async (
-    dispatch,
-    getState
-) => {
+export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
     dispatch(acSetSelectedIsLoading(true));
 
     const snackbarTimeout = setTimeout(() => {
-        if (fromSelected.sGetSelectedIsLoading(getState()) && name) {
-            loadingDashboardMsg.name = name;
+        const dashboardName = orObject(sGetById(getState(), id)).displayName;
+        if (fromSelected.sGetSelectedIsLoading(getState()) && dashboardName) {
+            loadingDashboardMsg.name = dashboardName;
 
             dispatch(
                 acReceivedSnackbarMessage({
