@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import PageContainer from '../PageContainer/PageContainer';
 import PageContainerSpacer from '../PageContainer/PageContainerSpacer';
 import EditDashboard from './EditDashboard';
@@ -8,16 +8,13 @@ import { fromDashboards, fromControlBar } from '../actions';
 
 class Dashboard extends Component {
     loadDashboard = () => {
-        this.context.store.dispatch(
-            fromDashboards.tSelectDashboard(
-                this.props.match.params.dashboardId || null
-            )
-        );
+        const id = this.props.match.params.dashboardId || null;
+        this.props.selectDashboard(id);
     };
 
     componentDidMount() {
         this.loadDashboard();
-        this.context.store.dispatch(fromControlBar.tSetControlBarRows());
+        this.props.setControlBarRows();
     }
 
     componentDidUpdate() {
@@ -25,8 +22,6 @@ class Dashboard extends Component {
     }
 
     render() {
-        console.log('render Dashboard');
-
         return this.props.mode === 'view' ? (
             <Fragment>
                 <DashboardsBar />
@@ -41,8 +36,7 @@ class Dashboard extends Component {
     }
 }
 
-Dashboard.contextTypes = {
-    store: PropTypes.object,
-};
-
-export default Dashboard;
+export default connect(null, {
+    selectDashboard: fromDashboards.tSelectDashboard,
+    setControlBarRows: fromControlBar.tSetControlBarRows,
+})(Dashboard);
