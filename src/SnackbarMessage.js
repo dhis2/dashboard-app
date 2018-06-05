@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Snackbar from 'material-ui/Snackbar';
 
-import { fromSnackbar } from './reducers';
+import { sGetSnackbar } from './reducers/snackbar';
 import { acCloseSnackbar } from './actions/snackbar';
 
 const LOADING_DASHBOARD = 'LOADING_DASHBOARD';
@@ -33,7 +33,7 @@ export const SnackbarMessage = props => {
 };
 
 const mapStateToProps = state => {
-    const { message, duration, open } = fromSnackbar.sGetSnackbar(state);
+    const { message, duration, open } = sGetSnackbar(state);
     return {
         snackbarOpen: open,
         snackbarMessage: message,
