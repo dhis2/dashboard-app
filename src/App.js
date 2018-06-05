@@ -1,27 +1,20 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from 'd2-i18n';
 
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
-import Snackbar from 'material-ui/Snackbar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
 import Dashboard from './Dashboard/Dashboard';
 import SnackbarMessage from './SnackbarMessage';
-
-import { fromUser, fromDashboards } from './actions';
-import { acCloseSnackbar } from './actions/snackbar';
-import { fromSnackbar } from './reducers';
+import { fromUser } from './actions';
 import { sDashboardsIsFetching } from './reducers/dashboards';
 
 import './App.css';
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
-// App
 class App extends Component {
     componentWillMount() {
         console.log('App CWM');
@@ -36,10 +29,6 @@ class App extends Component {
             i18n,
         };
     }
-
-    onCloseSnackbar = () => {
-        this.props.acCloseSnackbar();
-    };
 
     render() {
         console.log('App render route', this.props);
@@ -95,30 +84,11 @@ class App extends Component {
                         />
                     </Switch>
                 </Router>
-                <Snackbar
-                    open={this.props.snackbarOpen}
-                    message={
-                        <SnackbarMessage message={this.props.snackbarMessage} />
-                    }
-                    autoHideDuration={this.props.snackbarDuration}
-                    onRequestClose={this.props.onCloseSnackbar}
-                />
+                <SnackbarMessage />
             </div>
         );
     }
 }
-
-const mapStateToProps = state => {
-    const { message, duration, open } = fromSnackbar.sGetSnackbar(state);
-    const dashboardsIsFetching = sDashboardsIsFetching(state);
-
-    return {
-        snackbarOpen: open,
-        snackbarMessage: message,
-        snackbarDuration: duration,
-        dashboardsIsFetching,
-    };
-};
 
 App.contextTypes = {
     d2: PropTypes.object,
@@ -130,6 +100,4 @@ App.childContextTypes = {
     i18n: PropTypes.object,
 };
 
-export default connect(mapStateToProps, {
-    acCloseSnackbar,
-})(App);
+export default App;
