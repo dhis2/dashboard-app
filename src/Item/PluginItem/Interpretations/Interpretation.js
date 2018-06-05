@@ -143,7 +143,7 @@ class Interpretation extends Component {
         this.toggleEdit(commentId);
     };
 
-    // new: joakim (find better name) -> Render InputField or actual text if ID is present in Array.
+    // new: joakim (find better name) -> Render InputField or existing text, if ID is present in Array.
     isEditing = item => {
         return this.state.editing.includes(item.id) ? (
             <InputField
