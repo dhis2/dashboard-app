@@ -27,7 +27,6 @@ class App extends Component {
         console.log('App CWM');
 
         const { store, d2 } = this.context;
-        store.dispatch(fromDashboards.tFetchDashboards());
         store.dispatch(fromUser.acReceivedUser(d2.currentUser));
     }
 
@@ -43,12 +42,6 @@ class App extends Component {
     };
 
     render() {
-        if (this.props.dashboardsIsFetching) {
-            console.log('App render loading');
-
-            return <p>Loading</p>;
-        }
-
         console.log('App render route', this.props);
 
         return (

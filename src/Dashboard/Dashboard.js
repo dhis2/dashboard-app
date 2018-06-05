@@ -7,21 +7,21 @@ import DashboardsBar from '../ControlBarContainer/DashboardsBar';
 import { fromDashboards, fromControlBar } from '../actions';
 
 class Dashboard extends Component {
-    loadDashboard = () => {
-        const id = this.props.match.params.dashboardId || null;
-        this.props.selectDashboard(id);
-    };
-
     componentDidMount() {
-        this.loadDashboard();
+        const id = this.props.match.params.dashboardId || null;
+        this.props.loadDashboards(id);
         this.props.setControlBarRows();
     }
 
     componentDidUpdate() {
-        this.loadDashboard();
+        const id = this.props.match.params.dashboardId || null;
+        console.log('Dashboard CDU load dashboard with id', id);
+        this.props.selectDashboard(id);
     }
 
     render() {
+        console.log('Dashboard render');
+
         return this.props.mode === 'view' ? (
             <Fragment>
                 <DashboardsBar />
@@ -39,4 +39,5 @@ class Dashboard extends Component {
 export default connect(null, {
     selectDashboard: fromDashboards.tSelectDashboard,
     setControlBarRows: fromControlBar.tSetControlBarRows,
+    loadDashboards: fromDashboards.tFetchDashboards,
 })(Dashboard);
