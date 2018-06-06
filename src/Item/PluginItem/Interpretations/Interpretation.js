@@ -86,6 +86,15 @@ const deleteButton = action => {
     );
 };
 
+const editButton = action => {
+    return (
+        <button className={actionButtonClass} onClick={action}>
+            <SvgIcon style={style.icon} icon="Create" />
+            {i18n.t('Edit')}
+        </button>
+    );
+};
+
 class Interpretation extends Component {
     state = {
         showCommentField: false,
@@ -148,7 +157,8 @@ class Interpretation extends Component {
 
     // new: joakim (find better name) -> Render InputField or existing text, if ID is present in Array.
     renderCommentOrEditField = item => {
-        return this.state.editing.includes(item.id) ? (
+        return this.state.editing.includes(item.id) &&
+            this.userIsOwner(this.props.interpretation.user.id) ? (
             <InputField
                 editing
                 placeholder={item.text}
@@ -183,7 +193,6 @@ class Interpretation extends Component {
             objectId: this.props.objectId,
             objectType: this.props.object.type,
         };
-
         this.props.deleteInterpretation(data);
     };
 
@@ -200,7 +209,7 @@ class Interpretation extends Component {
             ? i18n.t('You like this')
             : i18n.t('Like');
 
-        const canDeleteInterpretation = () =>
+        const canModifyInterpretation = () =>
             this.userIsOwner(this.props.interpretation.user.id) ||
             this.props.interpretation.access.delete ||
             this.props.userIsSuperuser;
@@ -219,15 +228,10 @@ class Interpretation extends Component {
                     <SvgIcon style={style.icon} icon="Launch" />
                     {i18n.t('View in Visualizer')}
                 </a>
-                <button
-                    className={actionButtonClass}
-                    onClick={() =>
+                {canModifyInterpretation() &&
+                    editButton(() =>
                         this.toggleEdit(this.props.interpretation.id)
-                    }
-                >
-                    <SvgIcon style={style.icon} icon="Create" />
-                    {i18n.t('Edit')}
-                </button>
+                    )}
                 <button
                     className={actionButtonClass}
                     onClick={this.showCommentField}
@@ -245,9 +249,8 @@ class Interpretation extends Component {
                 <span style={style.likes}>
                     {this.props.interpretation.likedBy.length} {likes}
                 </span>
-                {canDeleteInterpretation()
-                    ? deleteButton(this.deleteInterpretation)
-                    : null}
+                {canModifyInterpretation() &&
+                    deleteButton(this.deleteInterpretation)}
             </div>
         );
     }
@@ -256,7 +259,7 @@ class Interpretation extends Component {
         if (!this.props.interpretation.comments.length) {
             return null;
         }
-        const canDeleteComment = ownerId =>
+        const canModifyComment = ownerId =>
             this.userIsOwner(ownerId) || this.props.userIsSuperuser;
 
         const comments = sortByDate(
@@ -275,16 +278,12 @@ class Interpretation extends Component {
                     </span>
                 </div>
                 {this.renderCommentOrEditField(comment)}
-                <button
-                    className={actionButtonClass}
-                    onClick={() => this.toggleEdit(comment.id)}
-                >
-                    <SvgIcon style={style.icon} icon="Create" />
-                    {i18n.t('Edit')}
-                </button>
-                {canDeleteComment(comment.user.id)
-                    ? deleteButton(() => this.deleteComment(comment.id))
-                    : null}
+                {canModifyComment(comment.user.id) && (
+                    <div>
+                        {editButton(() => this.toggleEdit(comment.id))}
+                        {deleteButton(() => this.deleteComment(comment.id))}
+                    </div>
+                )}
             </li>
         ));
 
