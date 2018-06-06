@@ -133,18 +133,21 @@ class Interpretation extends Component {
     // new: joakim -> Update original interpretation, or comment related to the interpretation.
     editComment = (commentId, text) => {
         const { id } = this.props.interpretation;
-        id === commentId
-            ? this.props.updateInterpretation({ id, text })
-            : this.props.updateInterpretationComment({
-                  id,
-                  commentId,
-                  text,
-              });
+        // Ignore posting empty edits, forcing user to delete the comment instead.
+        if (text.length > 0) {
+            id === commentId
+                ? this.props.updateInterpretation({ id, text })
+                : this.props.updateInterpretationComment({
+                      id,
+                      commentId,
+                      text,
+                  });
+        }
         this.toggleEdit(commentId);
     };
 
     // new: joakim (find better name) -> Render InputField or existing text, if ID is present in Array.
-    isEditing = item => {
+    renderCommentOrEditField = item => {
         return this.state.editing.includes(item.id) ? (
             <InputField
                 editing
@@ -271,7 +274,7 @@ class Interpretation extends Component {
                         {formatDate(comment.created, this.state.uiLocale)}
                     </span>
                 </div>
-                {this.isEditing(comment)}
+                {this.renderCommentOrEditField(comment)}
                 <button
                     className={actionButtonClass}
                     onClick={() => this.toggleEdit(comment.id)}
@@ -300,7 +303,7 @@ class Interpretation extends Component {
                             {formatDate(item.created, this.state.uiLocale)}
                         </span>
                     </div>
-                    {this.isEditing(item)}
+                    {this.renderCommentOrEditField(item)}
                 </div>
             );
         };
