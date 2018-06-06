@@ -17,6 +17,7 @@ import { sGetEditDashboard } from '../reducers/editDashboard';
 import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './controlBarDimensions';
 import { MIN_ROW_COUNT } from './DashboardsBar';
 import { apiFetchDashboard } from '../api/dashboards';
+import { orObject } from '../util';
 
 import './ControlBarContainer.css';
 
@@ -99,6 +100,19 @@ export class EditBar extends Component {
         this.fetchDashboardModel();
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if (
+            nextProps.dashboardName !== this.props.dashboardName ||
+            nextProps.dashboardId !== this.props.dashboardId ||
+            nextProps.deleteAccess !== this.props.deleteAccess ||
+            nextProps.updateAccess !== this.props.updateAccess ||
+            nextState.redirectUrl
+        ) {
+            return true;
+        }
+        return false;
+    }
+
     toggleTranslationDialog = () => {
         this.setState({
             translationDialogIsOpen: !this.state.translationDialogIsOpen,
@@ -135,8 +149,12 @@ export class EditBar extends Component {
             return <Redirect to={this.state.redirectUrl} />;
         }
 
-        const { dashboardId, deleteAccess } = this.props;
+        const { dashboardId, deleteAccess, updateAccess } = this.props;
         const controlBarHeight = getOuterHeight(MIN_ROW_COUNT, false);
+
+        const discardBtnText = updateAccess
+            ? i18n.t('Exit without saving')
+            : i18n.t('Go to dashboards');
 
         return (
             <Fragment>
@@ -146,28 +164,31 @@ export class EditBar extends Component {
                     expandable={false}
                 >
                     <div style={buttonBarStyle}>
-                        <div className="left-controls">
-                            <span style={{ marginRight: '15px' }}>
-                                <PrimaryButton onClick={this.onSave}>
-                                    {i18n.t('Save changes')}
-                                </PrimaryButton>
-                            </span>
-                            {dashboardId && deleteAccess ? (
-                                <FlatButton onClick={this.onConfirmDelete}>
-                                    {i18n.t('Delete')}
-                                </FlatButton>
-                            ) : null}
-                            {dashboardId ? (
-                                <FlatButton
-                                    onClick={this.toggleTranslationDialog}
-                                >
-                                    {i18n.t('Translate')}
-                                </FlatButton>
-                            ) : null}
-                        </div>
+                        {updateAccess ? (
+                            <div className="left-controls">
+                                <span style={{ marginRight: '15px' }}>
+                                    <PrimaryButton onClick={this.onSave}>
+                                        {i18n.t('Save changes')}
+                                    </PrimaryButton>
+                                </span>
+                                {dashboardId && deleteAccess ? (
+                                    <FlatButton onClick={this.onConfirmDelete}>
+                                        {i18n.t('Delete')}
+                                    </FlatButton>
+                                ) : null}
+                                {dashboardId ? (
+                                    <FlatButton
+                                        onClick={this.toggleTranslationDialog}
+                                    >
+                                        {i18n.t('Translate')}
+                                    </FlatButton>
+                                ) : null}
+                            </div>
+                        ) : null}
+
                         <div className="right-controls">
                             <FlatButton onClick={this.onDiscard}>
-                                {i18n.t('Exit without saving')}
+                                {discardBtnText}
                             </FlatButton>
                         </div>
                     </div>
@@ -190,15 +211,16 @@ const mapStateToProps = state => {
         dashboardId: dashboard.id,
         dashboardName: dashboard.name,
         deleteAccess: dashboard.access ? dashboard.access.delete : false,
+        updateAccess: dashboard.access ? dashboard.access.update : false,
     };
 };
 
 function mapDispatchToProps(dispatch) {
     return {
         onSave: () => dispatch(tSaveDashboard()).then(id => id),
-        onDiscardChanges: () => dispatch(acClearEditDashboard()),
-        onDelete: id => dispatch(tDeleteDashboard(id)),
-        onTranslate: () => dispatch(acSetDashboardDisplayName()),
+        onDelete: tDeleteDashboard,
+        onDiscardChanges: acClearEditDashboard,
+        onTranslate: acSetDashboardDisplayName,
     };
 }
 
