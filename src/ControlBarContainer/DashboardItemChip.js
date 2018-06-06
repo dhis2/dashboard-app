@@ -33,7 +33,7 @@ const avatar = selected => {
     return <Avatar icon={<IconStar />} {...avatarProps} />;
 };
 
-const DashboardItemChip = ({ starred, selected, dashboardId, label }) => {
+const DashboardItemChip = ({ starred, selected, label, dashboardId }) => {
     const chipColorProps = selected
         ? chipTheme.accent
         : starred ? chipTheme.primary : chipTheme.default;
