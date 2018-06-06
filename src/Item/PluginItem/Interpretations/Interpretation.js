@@ -141,9 +141,9 @@ class Interpretation extends Component {
 
     // new: joakim -> Update original interpretation, or comment related to the interpretation.
     editComment = (commentId, text) => {
-        const { id } = this.props.interpretation;
         // Ignore posting empty edits, forcing user to delete the comment instead.
         if (text.length > 0) {
+            const { id } = this.props.interpretation;
             id === commentId
                 ? this.props.updateInterpretation({ id, text })
                 : this.props.updateInterpretationComment({
@@ -157,8 +157,7 @@ class Interpretation extends Component {
 
     // new: joakim (find better name) -> Render InputField or existing text, if ID is present in Array.
     renderCommentOrEditField = item => {
-        return this.state.editing.includes(item.id) &&
-            this.userIsOwner(this.props.interpretation.user.id) ? (
+        return this.state.editing.includes(item.id) ? (
             <InputField
                 editing
                 placeholder={item.text}
