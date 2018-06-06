@@ -46,12 +46,14 @@ export const acSetDashboardItems = value => ({
 
 // thunks
 
-export const tFetchDashboards = id => async dispatch => {
+export const tFetchDashboards = () => async dispatch => {
     const collection = await apiFetchDashboards();
     dispatch(acSetDashboards(collection.toArray()));
-    // if (id) {
+};
+
+export const tInitializeDashboards = id => async dispatch => {
+    await dispatch(tFetchDashboards());
     dispatch(tSelectDashboard(id));
-    // }
 };
 
 export const tSelectDashboard = id => async (dispatch, getState) => {
