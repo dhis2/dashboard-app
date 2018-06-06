@@ -10,7 +10,7 @@ import {
 } from '../actions/editDashboard';
 
 class EditDashboard extends Component {
-    loadEditDashboard = () => {
+    initEditDashboard = () => {
         if (this.props.mode === 'new') {
             this.props.setNewDashboard();
         } else {
@@ -19,11 +19,11 @@ class EditDashboard extends Component {
     };
 
     componentDidMount() {
-        this.loadEditDashboard();
+        this.initEditDashboard();
     }
 
     componentDidUpdate() {
-        this.loadEditDashboard();
+        this.initEditDashboard();
     }
 
     render() {

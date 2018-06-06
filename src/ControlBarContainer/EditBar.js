@@ -40,14 +40,17 @@ export class EditBar extends Component {
     };
 
     onSave = () => {
-        this.props.save().then(newId => {
+        this.props.onSave().then(newId => {
             this.setState({ redirectUrl: `/view/${newId}` });
         });
     };
 
     onDiscard = () => {
         this.props.onDiscardChanges();
-        this.setState({ redirectUrl: `/view/${this.props.dashboardId}` });
+        const redirectUrl = this.props.dashboardId
+            ? `/view/${this.props.dashboardId}`
+            : '/';
+        this.setState({ redirectUrl });
     };
 
     onContinueEditing = () => {
@@ -182,7 +185,7 @@ const mapStateToProps = state => {
 
 function mapDispatchToProps(dispatch) {
     return {
-        save: () => dispatch(tSaveDashboard()).then(id => id),
+        onSave: () => dispatch(tSaveDashboard()).then(id => id),
         onDiscardChanges: () => dispatch(acClearEditDashboard()),
         onDelete: id => dispatch(tDeleteDashboard(id)),
         onTranslate: () => dispatch(acSetDashboardDisplayName()),

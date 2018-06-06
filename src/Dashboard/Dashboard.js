@@ -4,19 +4,15 @@ import PageContainer from '../PageContainer/PageContainer';
 import PageContainerSpacer from '../PageContainer/PageContainerSpacer';
 import EditDashboard from './EditDashboard';
 import DashboardsBar from '../ControlBarContainer/DashboardsBar';
-import { fromDashboards, fromControlBar } from '../actions';
+import { fromDashboards } from '../actions';
+import { sDashboardsIsFetching } from '../reducers/dashboards';
 
 class Dashboard extends Component {
-    componentDidMount() {
-        const id = this.props.match.params.dashboardId || null;
-        this.props.loadDashboards(id);
-        this.props.setControlBarRows();
-    }
-
     componentDidUpdate() {
-        const id = this.props.match.params.dashboardId || null;
-        console.log('Dashboard CDU load dashboard with id', id);
-        this.props.selectDashboard(id);
+        if (!this.props.dashboardsFetching) {
+            const id = this.props.match.params.dashboardId || null;
+            this.props.selectDashboard(id);
+        }
     }
 
     render() {
@@ -36,8 +32,10 @@ class Dashboard extends Component {
     }
 }
 
-export default connect(null, {
+const mapStateToProps = state => {
+    return { isFetching: sDashboardsIsFetching(state) };
+};
+
+export default connect(mapStateToProps, {
     selectDashboard: fromDashboards.tSelectDashboard,
-    setControlBarRows: fromControlBar.tSetControlBarRows,
-    loadDashboards: fromDashboards.tFetchDashboards,
 })(Dashboard);

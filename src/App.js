@@ -8,8 +8,7 @@ import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Dashboard from './Dashboard/Dashboard';
 import SnackbarMessage from './SnackbarMessage';
-import { fromUser } from './actions';
-import { sDashboardsIsFetching } from './reducers/dashboards';
+import { fromUser, fromDashboards, fromControlBar } from './actions';
 
 import './App.css';
 
@@ -17,10 +16,10 @@ const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
 class App extends Component {
     componentWillMount() {
-        console.log('App CWM');
-
         const { store, d2 } = this.context;
         store.dispatch(fromUser.acReceivedUser(d2.currentUser));
+        store.dispatch(fromDashboards.tFetchDashboards());
+        store.dispatch(fromControlBar.tSetControlBarRows());
     }
 
     getChildContext() {
@@ -31,8 +30,6 @@ class App extends Component {
     }
 
     render() {
-        console.log('App render route', this.props);
-
         return (
             <div className="app-wrapper">
                 <HeaderBar />
