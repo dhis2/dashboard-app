@@ -83,10 +83,22 @@ export class EditBar extends Component {
         }
     };
 
+    fetchDashboardModel = () => {
+        if (this.props.dashboardId && !this.state.dashboardModel) {
+            console.log('fetch the model for id', this.props.dashboardId);
+
+            apiFetchDashboard(this.props.dashboardId).then(dashboardModel =>
+                this.setState({ dashboardModel })
+            );
+        }
+    };
+
     componentDidMount() {
-        apiFetchDashboard(this.props.dashboardId).then(dashboardModel =>
-            this.setState({ dashboardModel })
-        );
+        this.fetchDashboardModel();
+    }
+
+    componentDidUpdate() {
+        this.fetchDashboardModel();
     }
 
     toggleTranslationDialog = () => {

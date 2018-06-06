@@ -14,7 +14,12 @@ class EditDashboard extends Component {
         if (this.props.mode === 'new') {
             this.props.setNewDashboard();
         } else {
-            this.props.setEditDashboard(this.props.dashboard, this.props.items);
+            if (this.props.dashboard) {
+                this.props.setEditDashboard(
+                    this.props.dashboard,
+                    this.props.items
+                );
+            }
         }
     };
 
@@ -38,10 +43,10 @@ class EditDashboard extends Component {
 }
 
 const mapStateToProps = state => {
-    const dashboard = fromDashboards.sGetById(
-        state,
-        fromSelected.sGetSelectedId(state)
-    );
+    const selectedId = fromSelected.sGetSelectedId(state);
+    const dashboard = selectedId
+        ? fromDashboards.sGetById(state, selectedId)
+        : null;
 
     const items = fromDashboards.sGetItems(state);
 
