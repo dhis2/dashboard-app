@@ -39,44 +39,28 @@ class App extends Component {
                             exact
                             path="/"
                             component={props => (
-                                <Dashboard
-                                    {...props}
-                                    mode="view"
-                                    baseUrl={this.props.baseUrl}
-                                />
+                                <Dashboard {...props} mode="view" />
                             )}
                         />
                         <Route
                             exact
                             path="/new"
                             component={props => (
-                                <Dashboard
-                                    {...props}
-                                    mode="new"
-                                    baseUrl={this.props.baseUrl}
-                                />
+                                <Dashboard {...props} mode="new" />
                             )}
                         />
                         <Route
                             exact
-                            path="/view/:dashboardId"
+                            path="/:dashboardId"
                             component={props => (
-                                <Dashboard
-                                    {...props}
-                                    mode="view"
-                                    baseUrl={this.props.baseUrl}
-                                />
+                                <Dashboard {...props} mode="view" />
                             )}
                         />
                         <Route
                             exact
-                            path="/edit/:dashboardId"
+                            path="/:dashboardId/edit"
                             component={props => (
-                                <Dashboard
-                                    {...props}
-                                    mode="edit"
-                                    baseUrl={this.props.baseUrl}
-                                />
+                                <Dashboard {...props} mode="edit" />
                             )}
                         />
                     </Switch>

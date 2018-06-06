@@ -87,12 +87,10 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
     const onSuccess = selected => {
         const customDashboard = getCustomDashboards(selected)[0];
 
-        // set dashboard items
         dispatch(
             acSetDashboardItems(withShape(customDashboard.dashboardItems))
         );
 
-        // store preferred dashboard
         storePreferredDashboardId(fromUser.sGetUsername(getState()), id);
 
         // add visualizations to store
@@ -118,10 +116,8 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
             }
         });
 
-        // set selected dashboard
         dispatch(acSetSelectedId(id));
 
-        // remove loading indicator
         dispatch(acSetSelectedIsLoading(false));
 
         clearTimeout(snackbarTimeout);

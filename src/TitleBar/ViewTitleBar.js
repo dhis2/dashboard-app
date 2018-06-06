@@ -112,7 +112,7 @@ class ViewTitleBar extends Component {
                                         verticalAlign: 'top',
                                         textDecoration: 'none',
                                     }}
-                                    to={`/edit/${id}`}
+                                    to={`/${id}/edit`}
                                 >
                                     <FlatButton
                                         style={{ minWidth: '30px', top: '1px' }}

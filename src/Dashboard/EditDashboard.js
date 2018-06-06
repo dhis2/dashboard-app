@@ -10,11 +10,17 @@ import {
 } from '../actions/editDashboard';
 
 class EditDashboard extends Component {
+    state = {
+        initialized: false,
+    };
+
     initEditDashboard = () => {
         if (this.props.mode === 'new') {
+            this.setState({ initialized: true });
             this.props.setNewDashboard();
         } else {
             if (this.props.dashboard) {
+                this.setState({ initialized: true });
                 this.props.setEditDashboard(
                     this.props.dashboard,
                     this.props.items
@@ -28,7 +34,9 @@ class EditDashboard extends Component {
     }
 
     componentDidUpdate() {
-        this.initEditDashboard();
+        if (!this.state.initialized) {
+            this.initEditDashboard();
+        }
     }
 
     render() {

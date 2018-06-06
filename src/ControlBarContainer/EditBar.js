@@ -41,14 +41,14 @@ export class EditBar extends Component {
 
     onSave = () => {
         this.props.onSave().then(newId => {
-            this.setState({ redirectUrl: `/view/${newId}` });
+            this.setState({ redirectUrl: `/${newId}` });
         });
     };
 
     onDiscard = () => {
         this.props.onDiscardChanges();
         const redirectUrl = this.props.dashboardId
-            ? `/view/${this.props.dashboardId}`
+            ? `/${this.props.dashboardId}`
             : '/';
         this.setState({ redirectUrl });
     };
@@ -60,7 +60,7 @@ export class EditBar extends Component {
     onDeleteConfirmed = () => {
         this.setState({ confirmDeleteDialogOpen: false });
         this.props.onDelete(this.props.dashboardId).then(() => {
-            this.setState({ redirectUrl: `/` });
+            this.setState({ redirectUrl: '/' });
         });
     };
 
@@ -85,8 +85,6 @@ export class EditBar extends Component {
 
     fetchDashboardModel = () => {
         if (this.props.dashboardId && !this.state.dashboardModel) {
-            console.log('fetch the model for id', this.props.dashboardId);
-
             apiFetchDashboard(this.props.dashboardId).then(dashboardModel =>
                 this.setState({ dashboardModel })
             );
