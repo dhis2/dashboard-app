@@ -68,4 +68,18 @@ describe('interpretations reducer', () => {
         //check that reducer did not mutate the passed in state
         expect(currentState).toMatchObject(matcher);
     });
+    it('should update an edited interpretation', () => {
+        const updatedInterpretation = { id: 'int1', text: 'edit, edit' };
+
+        const actualState = reducer(currentState, {
+            type: actionTypes.EDIT_INTERPRETATION,
+            value: updatedInterpretation,
+        });
+
+        const expectedState = Object.assign({}, currentState, {
+            [updatedInterpretation.id]: updatedInterpretation,
+        });
+
+        expect(actualState).toMatchObject(expectedState);
+    });
 });
