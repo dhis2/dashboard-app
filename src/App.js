@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from 'd2-i18n';
 
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
-import Snackbar from 'material-ui/Snackbar';
 
 import PageContainer from './PageContainer/PageContainer';
 import PageContainerSpacer from './PageContainer/PageContainerSpacer';
@@ -14,14 +12,11 @@ import ControlBarContainer from './ControlBarContainer/ControlBarContainer';
 import SnackbarMessage from './SnackbarMessage';
 
 import { fromDashboards, fromUser, fromControlBar } from './actions';
-import { acCloseSnackbar } from './actions/snackbar';
-import { fromSnackbar } from './reducers';
 
 import './App.css';
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
-// App
 class App extends Component {
     componentDidMount() {
         const { store, d2 } = this.context;
@@ -37,10 +32,6 @@ class App extends Component {
         };
     }
 
-    onCloseSnackbar = () => {
-        this.props.acCloseSnackbar();
-    };
-
     render() {
         return (
             <div className="app-wrapper">
@@ -48,27 +39,11 @@ class App extends Component {
                 <ControlBarContainer />
                 <PageContainerSpacer />
                 <PageContainer />
-                <Snackbar
-                    open={this.props.snackbarOpen}
-                    message={
-                        <SnackbarMessage message={this.props.snackbarMessage} />
-                    }
-                    autoHideDuration={this.props.snackbarDuration}
-                    onRequestClose={this.props.onCloseSnackbar}
-                />
+                <SnackbarMessage />
             </div>
         );
     }
 }
-
-const mapStateToProps = state => {
-    const { message, duration, open } = fromSnackbar.sGetSnackbar(state);
-    return {
-        snackbarOpen: open,
-        snackbarMessage: message,
-        snackbarDuration: duration,
-    };
-};
 
 App.contextTypes = {
     d2: PropTypes.object,
@@ -80,8 +55,4 @@ App.childContextTypes = {
     i18n: PropTypes.object,
 };
 
-const AppCt = connect(mapStateToProps, {
-    acCloseSnackbar,
-})(App);
-
-export default AppCt;
+export default App;
