@@ -13,7 +13,10 @@ import {
     tDeleteDashboard,
     acSetDashboardDisplayName,
 } from '../actions/dashboards';
-import { sGetEditDashboard } from '../reducers/editDashboard';
+import {
+    sGetEditDashboard,
+    sGetIsNewDashboard,
+} from '../reducers/editDashboard';
 import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './controlBarDimensions';
 import { MIN_ROW_COUNT } from './DashboardsBar';
 import { apiFetchDashboard } from '../api/dashboards';
@@ -216,7 +219,7 @@ const mapStateToProps = state => {
 
     let deleteAccess;
     let updateAccess;
-    if (!dashboard.id) {
+    if (sGetIsNewDashboard(state)) {
         deleteAccess = true;
         updateAccess = true;
     } else {
