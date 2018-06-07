@@ -72,7 +72,7 @@ export class DashboardsBar extends Component {
     };
 
     onSelectDashboard = () => {
-        this.props.history.push(`/view/${this.props.dashboards[0].id}`);
+        this.props.history.push(`/${this.props.dashboards[0].id}`);
     };
 
     render() {
