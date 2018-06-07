@@ -3,22 +3,20 @@ import { connect } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
 import i18n from 'd2-i18n';
 
-import { sGetIsEditing } from '../reducers/editDashboard';
 import { sGetById, sDashboardsIsFetching } from '../reducers/dashboards';
 import { sGetSelectedId } from '../reducers/selected';
 import TitleBar from '../TitleBar/TitleBar';
 import ItemGrid from '../ItemGrid/ItemGrid';
 import NoContentMessage from '../widgets/NoContentMessage';
 
-export const PageContainer = props => {
+export const ViewDashboardContent = props => {
     const noContentMessage = props.dashboardsIsEmpty
         ? i18n.t(
               'No dashboards found. Use the + button to create a new dashboard.'
           )
         : i18n.t('Requested dashboard not found');
 
-    const hasDashboardContent =
-        props.edit || (props.selectedId && !props.dashboardsIsEmpty);
+    const hasDashboardContent = props.selectedId && !props.dashboardsIsEmpty;
 
     const Content = () => {
         return hasDashboardContent ? (
@@ -42,14 +40,12 @@ export const PageContainer = props => {
 
 const mapStateToProps = state => {
     const dashboards = sGetById(state);
-    const dashboardsIsFetching = sDashboardsIsFetching(state);
 
     return {
-        edit: sGetIsEditing(state),
         selectedId: sGetSelectedId(state),
         dashboardsIsEmpty: isEmpty(dashboards),
-        dashboardsLoaded: !dashboardsIsFetching,
+        dashboardsLoaded: !sDashboardsIsFetching(state),
     };
 };
 
-export default connect(mapStateToProps)(PageContainer);
+export default connect(mapStateToProps)(ViewDashboardContent);

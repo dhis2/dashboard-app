@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-05-16T15:02:07.625Z\n"
-"PO-Revision-Date: 2018-05-16T15:02:07.625Z\n"
+"POT-Creation-Date: 2018-06-07T07:08:14.696Z\n"
+"PO-Revision-Date: 2018-06-07T07:08:14.696Z\n"
 
 msgid "Delete"
 msgstr ""
@@ -20,13 +20,16 @@ msgstr ""
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
 
+msgid "Exit without saving"
+msgstr ""
+
+msgid "Go to dashboards"
+msgstr ""
+
 msgid "Save changes"
 msgstr ""
 
 msgid "Translate"
-msgstr ""
-
-msgid "Exit without saving"
 msgstr ""
 
 msgid "Search for a dashboard"

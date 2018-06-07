@@ -17,7 +17,6 @@ import { sGetEditDashboard } from '../reducers/editDashboard';
 import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './controlBarDimensions';
 import { MIN_ROW_COUNT } from './DashboardsBar';
 import { apiFetchDashboard } from '../api/dashboards';
-import { orObject } from '../util';
 
 import './ControlBarContainer.css';
 
@@ -100,18 +99,26 @@ export class EditBar extends Component {
         this.fetchDashboardModel();
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        if (
-            nextProps.dashboardName !== this.props.dashboardName ||
-            nextProps.dashboardId !== this.props.dashboardId ||
-            nextProps.deleteAccess !== this.props.deleteAccess ||
-            nextProps.updateAccess !== this.props.updateAccess ||
-            nextState.redirectUrl
-        ) {
-            return true;
-        }
-        return false;
-    }
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     if (
+    //         nextProps.dashboardName !== this.props.dashboardName ||
+    //         nextProps.dashboardId !== this.props.dashboardId ||
+    //         nextProps.deleteAccess !== this.props.deleteAccess ||
+    //         nextProps.updateAccess !== this.props.updateAccess ||
+    //         nextState.translationDialogIsOpen !==
+    //             this.state.translationDialogIsOpen ||
+    //         nextState.dashboardModel !== this.state.dashboardModel ||
+    //         nextState.confirmDeleteDialogOpen !==
+    //             this.state.confirmDeleteDialogOpen ||
+    //         nextState.redirectUrl !== this.state.redirectUrl
+    //     ) {
+    //         console.log('EditBar SCU true');
+
+    //         return true;
+    //     }
+    //     console.log('EditBar SCU false');
+    //     return false;
+    // }
 
     toggleTranslationDialog = () => {
         this.setState({
@@ -207,21 +214,29 @@ EditBar.contextTypes = {
 const mapStateToProps = state => {
     const dashboard = sGetEditDashboard(state);
 
+    let deleteAccess;
+    let updateAccess;
+    if (!dashboard.id) {
+        deleteAccess = true;
+        updateAccess = true;
+    } else {
+        updateAccess = dashboard.access ? dashboard.access.update : false;
+        deleteAccess = dashboard.access ? dashboard.access.delete : false;
+    }
+
     return {
         dashboardId: dashboard.id,
         dashboardName: dashboard.name,
-        deleteAccess: dashboard.access ? dashboard.access.delete : false,
-        updateAccess: dashboard.access ? dashboard.access.update : false,
+        deleteAccess,
+        updateAccess,
     };
 };
 
-function mapDispatchToProps(dispatch) {
-    return {
-        onSave: () => dispatch(tSaveDashboard()).then(id => id),
-        onDelete: tDeleteDashboard,
-        onDiscardChanges: acClearEditDashboard,
-        onTranslate: acSetDashboardDisplayName,
-    };
-}
+const mapDispatchToProps = dispatch => ({
+    onSave: () => dispatch(tSaveDashboard()).then(id => id),
+    onDelete: id => dispatch(tDeleteDashboard(id)),
+    onDiscardChanges: () => dispatch(acClearEditDashboard()),
+    onTranslate: () => dispatch(acSetDashboardDisplayName()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditBar);

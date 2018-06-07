@@ -1,8 +1,8 @@
 import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
 import { fromDashboards, fromSelected } from '../reducers';
-import PageContainer from '../PageContainer/PageContainer';
-import PageContainerSpacer from '../PageContainer/PageContainerSpacer';
+import EditDashboardContent from './EditDashboardContent';
+import DashboardVerticalOffset from './DashboardVerticalOffset';
 import EditBar from '../ControlBarContainer/EditBar';
 import {
     acSetEditNewDashboard,
@@ -43,8 +43,8 @@ class EditDashboard extends Component {
         return (
             <Fragment>
                 <EditBar />
-                <PageContainerSpacer />
-                <PageContainer />
+                <DashboardVerticalOffset />
+                <EditDashboardContent />
             </Fragment>
         );
     }
