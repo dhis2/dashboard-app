@@ -10,8 +10,6 @@ import NoContentMessage from '../widgets/NoContentMessage';
 
 class EditDashboardContent extends Component {
     render() {
-        console.log('EditDashboardContent render');
-
         const hasDashboardContent = this.props.access
             ? this.props.access.update
             : false;
