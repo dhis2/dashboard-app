@@ -28,7 +28,6 @@ export default (state = {}, action) => {
 
             return Object.assign({}, state, newInterpretations);
         }
-        //new: joakim
         case actionTypes.EDIT_INTERPRETATION: {
             return Object.assign({}, state, {
                 [action.value.id]: action.value,

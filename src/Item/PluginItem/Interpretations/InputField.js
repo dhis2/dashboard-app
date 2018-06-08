@@ -35,7 +35,6 @@ class InputField extends Component {
     };
 
     onClick = () => {
-        // Ignore posting empty interpretations or edits.
         this.state.newText.length > 0 &&
             (this.props.editing
                 ? this.props.onEdit(this.props.commentId, this.state.newText)

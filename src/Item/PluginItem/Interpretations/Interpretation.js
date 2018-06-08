@@ -81,7 +81,7 @@ const deleteButton = action => {
             onClick={action}
         >
             <SvgIcon style={iconStyle} icon="Delete" />
-            Delete
+            {i18n.t('Delete')}
         </button>
     );
 };
@@ -139,7 +139,6 @@ class Interpretation extends Component {
         this.setState({ showCommentField: false });
     };
 
-    // new: joakim -> Update original interpretation, or comment related to the interpretation.
     editComment = (commentId, text) => {
         const { id } = this.props.interpretation;
         id === commentId
@@ -152,22 +151,20 @@ class Interpretation extends Component {
         this.toggleEdit(commentId);
     };
 
-    // new: joakim (find better name) -> Render InputField or existing text, if ID is present in Array.
     renderCommentOrEditField = item => {
         return this.state.editing.includes(item.id) ? (
             <InputField
                 editing
-                placeholder={item.text}
+                placeholder={i18n.t(item.text)}
                 commentId={item.id}
-                postText={'Post'}
+                postText={i18n.t('Post')}
                 onEdit={this.editComment}
             />
         ) : (
-            <p style={style.text}>{item.text}</p>
+            <p style={style.text}>{i18n.t(item.text)}</p>
         );
     };
 
-    // new: joakim -> Toggle Edit function
     toggleEdit = commentId => {
         !this.state.editing.includes(commentId)
             ? this.setState({ editing: [...this.state.editing, commentId] })
@@ -196,7 +193,9 @@ class Interpretation extends Component {
 
     renderActions() {
         const likes =
-            this.props.interpretation.likedBy.length === 1 ? 'like' : 'likes';
+            this.props.interpretation.likedBy.length === 1
+                ? i18n.t('like')
+                : i18n.t('likes');
 
         const thumbsUpIcon = this.userLikesInterpretation()
             ? Object.assign({}, style.icon, { fill: colors.lightGreen })
@@ -205,7 +204,7 @@ class Interpretation extends Component {
             ? i18n.t('You like this')
             : i18n.t('Like');
 
-        const canModifyInterpretation = () =>
+        const canDeleteInterpretation = () =>
             this.userIsOwner(this.props.interpretation.user.id) ||
             this.props.interpretation.access.delete ||
             this.props.userIsSuperuser;
@@ -224,7 +223,7 @@ class Interpretation extends Component {
                     <SvgIcon style={style.icon} icon="Launch" />
                     {i18n.t('View in Visualizer')}
                 </a>
-                {canModifyInterpretation() &&
+                {this.userIsOwner(this.props.interpretation.user.id) &&
                     editButton(() =>
                         this.toggleEdit(this.props.interpretation.id)
                     )}
@@ -245,7 +244,7 @@ class Interpretation extends Component {
                 <span style={style.likes}>
                     {this.props.interpretation.likedBy.length} {likes}
                 </span>
-                {canModifyInterpretation() &&
+                {canDeleteInterpretation() &&
                     deleteButton(this.deleteInterpretation)}
             </div>
         );
@@ -255,12 +254,12 @@ class Interpretation extends Component {
         if (!this.props.interpretation.comments.length) {
             return null;
         }
-        const canModifyComment = ownerId =>
+        const canDeleteComment = ownerId =>
             this.userIsOwner(ownerId) || this.props.userIsSuperuser;
 
         const comments = sortByDate(
             this.props.interpretation.comments,
-            'created'
+            i18n.t('created')
         ).map(comment => (
             <li
                 className="comment-container"
@@ -274,12 +273,10 @@ class Interpretation extends Component {
                     </span>
                 </div>
                 {this.renderCommentOrEditField(comment)}
-                {canModifyComment(comment.user.id) && (
-                    <div>
-                        {editButton(() => this.toggleEdit(comment.id))}
-                        {deleteButton(() => this.deleteComment(comment.id))}
-                    </div>
-                )}
+                {this.userIsOwner(comment.user.id) &&
+                    editButton(() => this.toggleEdit(comment.id))}
+                {canDeleteComment(comment.user.id) &&
+                    deleteButton(() => this.deleteComment(comment.id))}
             </li>
         ));
 
@@ -334,9 +331,9 @@ const mapDispatchToProps = dispatch => ({
     likeInterpretation: data => dispatch(tLikeInterpretation(data)),
     unlikeInterpretation: data => dispatch(tUnlikeInterpretation(data)),
     addComment: data => dispatch(tAddInterpretationComment(data)),
-    updateInterpretation: data => dispatch(tEditInterpretation(data)), // new: Joakim
+    updateInterpretation: data => dispatch(tEditInterpretation(data)),
     updateInterpretationComment: data =>
-        dispatch(tEditInterpretationComment(data)), // new: joakim
+        dispatch(tEditInterpretationComment(data)),
     deleteComment: data => dispatch(tDeleteInterpretationComment(data)),
     deleteInterpretation: data => dispatch(tDeleteInterpretation(data)),
 });

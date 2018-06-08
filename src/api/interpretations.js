@@ -37,11 +37,10 @@ export const postInterpretationSharing = data => {
         .catch(onError);
 };
 
-// New: joakim
 export const updateInterpretation = data => {
     const url = `/interpretations/${data.id}`;
     return getInstance()
-        .then(d2 => d2.Api.getApi().patch(url, { text: data.text }))
+        .then(d2 => d2.Api.getApi().update(url, data.text))
         .catch(onError);
 };
 
@@ -75,7 +74,6 @@ export const postInterpretationComment = data => {
         .catch(onError);
 };
 
-// new: Joakim
 export const updateInterpretationComment = data => {
     const url = `/interpretations/${data.id}/comments/${data.commentId}`;
     return getInstance()

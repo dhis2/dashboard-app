@@ -3,8 +3,8 @@ import {
     postInterpretationLike,
     deleteInterpretationLike,
     postInterpretationComment,
-    updateInterpretation, // new: Joakim
-    updateInterpretationComment, // new: Joakim
+    updateInterpretation,
+    updateInterpretationComment,
     deleteInterpretationComment,
     getInterpretation,
     postInterpretation,
@@ -89,7 +89,6 @@ export const tAddInterpretationComment = data => async dispatch => {
     }
 };
 
-// new: Joakim
 export const tEditInterpretation = data => async dispatch => {
     try {
         await updateInterpretation(data);
@@ -99,7 +98,6 @@ export const tEditInterpretation = data => async dispatch => {
     }
 };
 
-// new: Joakim
 export const tEditInterpretationComment = data => async dispatch => {
     try {
         await updateInterpretationComment(data);
