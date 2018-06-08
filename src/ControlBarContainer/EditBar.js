@@ -239,7 +239,7 @@ const mapDispatchToProps = dispatch => ({
     onSave: () => dispatch(tSaveDashboard()).then(id => id),
     onDelete: id => dispatch(tDeleteDashboard(id)),
     onDiscardChanges: () => dispatch(acClearEditDashboard()),
-    onTranslate: () => dispatch(acSetDashboardDisplayName()),
+    onTranslate: (id, value) => dispatch(acSetDashboardDisplayName(id, value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditBar);
