@@ -39,7 +39,6 @@ class Interpretations extends Component {
 
     postInterpretation = text => {
         const { object, objectId } = this.props;
-        console.log('interpretation object: ', object, ' ObjectId: ', objectId);
         this.props.postInterpretation({
             objectType: object.type,
             objectId,
