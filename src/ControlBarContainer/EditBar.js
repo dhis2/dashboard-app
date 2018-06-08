@@ -102,27 +102,6 @@ export class EditBar extends Component {
         this.fetchDashboardModel();
     }
 
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     if (
-    //         nextProps.dashboardName !== this.props.dashboardName ||
-    //         nextProps.dashboardId !== this.props.dashboardId ||
-    //         nextProps.deleteAccess !== this.props.deleteAccess ||
-    //         nextProps.updateAccess !== this.props.updateAccess ||
-    //         nextState.translationDialogIsOpen !==
-    //             this.state.translationDialogIsOpen ||
-    //         nextState.dashboardModel !== this.state.dashboardModel ||
-    //         nextState.confirmDeleteDialogOpen !==
-    //             this.state.confirmDeleteDialogOpen ||
-    //         nextState.redirectUrl !== this.state.redirectUrl
-    //     ) {
-    //         console.log('EditBar SCU true');
-
-    //         return true;
-    //     }
-    //     console.log('EditBar SCU false');
-    //     return false;
-    // }
-
     toggleTranslationDialog = () => {
         this.setState({
             translationDialogIsOpen: !this.state.translationDialogIsOpen,
