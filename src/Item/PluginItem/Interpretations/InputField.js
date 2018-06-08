@@ -35,9 +35,11 @@ class InputField extends Component {
     };
 
     onClick = () => {
-        this.props.editing
-            ? this.props.onEdit(this.props.commentId, this.state.newText)
-            : this.props.onPost(this.state.newText);
+        // Ignore posting empty interpretations or edits.
+        this.state.newText.length > 0 &&
+            (this.props.editing
+                ? this.props.onEdit(this.props.commentId, this.state.newText)
+                : this.props.onPost(this.state.newText));
         this.setState({ newText: '' });
     };
 

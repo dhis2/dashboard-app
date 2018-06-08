@@ -141,17 +141,14 @@ class Interpretation extends Component {
 
     // new: joakim -> Update original interpretation, or comment related to the interpretation.
     editComment = (commentId, text) => {
-        // Ignore posting empty edits, forcing user to delete the comment instead.
-        if (text.length > 0) {
-            const { id } = this.props.interpretation;
-            id === commentId
-                ? this.props.updateInterpretation({ id, text })
-                : this.props.updateInterpretationComment({
-                      id,
-                      commentId,
-                      text,
-                  });
-        }
+        const { id } = this.props.interpretation;
+        id === commentId
+            ? this.props.updateInterpretation({ id, text })
+            : this.props.updateInterpretationComment({
+                  id,
+                  commentId,
+                  text,
+              });
         this.toggleEdit(commentId);
     };
 
