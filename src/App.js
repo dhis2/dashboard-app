@@ -44,13 +44,6 @@ class App extends Component {
                         />
                         <Route
                             exact
-                            path="/index.html"
-                            component={props => (
-                                <Dashboard {...props} mode="view" />
-                            )}
-                        />
-                        <Route
-                            exact
                             path="/new"
                             component={props => (
                                 <Dashboard {...props} mode="new" />
