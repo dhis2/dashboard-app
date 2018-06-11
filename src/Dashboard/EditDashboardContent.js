@@ -10,12 +10,12 @@ import NoContentMessage from '../widgets/NoContentMessage';
 
 class EditDashboardContent extends Component {
     render() {
-        const hasDashboardContent = this.props.access
+        const hasUpdateAccess = this.props.access
             ? this.props.access.update
             : false;
 
         const Content = () => {
-            return hasDashboardContent ? (
+            return hasUpdateAccess ? (
                 <Fragment>
                     <TitleBar />
                     <ItemGrid />

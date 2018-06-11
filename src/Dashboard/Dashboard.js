@@ -9,7 +9,7 @@ import { sDashboardsIsFetching } from '../reducers/dashboards';
 
 class Dashboard extends Component {
     setDashboard = () => {
-        if (!this.props.isFetching) {
+        if (this.props.dashboardsLoaded) {
             const id = this.props.match.params.dashboardId || null;
             this.props.selectDashboard(id);
         }
@@ -39,7 +39,7 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => {
-    return { isFetching: sDashboardsIsFetching(state) };
+    return { dashboardsLoaded: !sDashboardsIsFetching(state) };
 };
 
 export default connect(mapStateToProps, {
