@@ -33,11 +33,18 @@ class App extends Component {
         return (
             <div className="app-wrapper">
                 <HeaderBar />
-                <Router>
+                <Router basename={this.props.appBaseName}>
                     <Switch>
                         <Route
                             exact
                             path="/"
+                            component={props => (
+                                <Dashboard {...props} mode="view" />
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/index.html"
                             component={props => (
                                 <Dashboard {...props} mode="view" />
                             )}

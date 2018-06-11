@@ -35,7 +35,7 @@ const init = () => {
         }`
     );
 
-    // d2-ui config
+    // api config
     const isProd = process.env.NODE_ENV === 'production';
     const baseUrl = isProd
         ? manifest.activities.dhis.href
@@ -45,6 +45,8 @@ const init = () => {
         ? null
         : { Authorization: DHIS_CONFIG.authorization };
 
+    const appBaseName = isProd ? manifest.dhis2.appBaseName : '';
+
     getUserSettings()
         .then(configI18n)
         .then(() => {
@@ -53,7 +55,7 @@ const init = () => {
             ReactDOM.render(
                 <D2UIApp initConfig={config} muiTheme={muiTheme()}>
                     <Provider store={configureStore()}>
-                        <App baseUrl={baseUrl} />
+                        <App baseUrl={baseUrl} appBaseName={appBaseName} />
                     </Provider>
                 </D2UIApp>,
                 document.getElementById('root')
