@@ -45,8 +45,6 @@ const init = () => {
         ? null
         : { Authorization: DHIS_CONFIG.authorization };
 
-    const appBaseName = isProd ? manifest.dhis2.appBaseName : '';
-
     getUserSettings()
         .then(configI18n)
         .then(() => {
@@ -55,7 +53,7 @@ const init = () => {
             ReactDOM.render(
                 <D2UIApp initConfig={config} muiTheme={muiTheme()}>
                     <Provider store={configureStore()}>
-                        <App baseUrl={baseUrl} appBaseName={appBaseName} />
+                        <App baseUrl={baseUrl} />
                     </Provider>
                 </D2UIApp>,
                 document.getElementById('root')

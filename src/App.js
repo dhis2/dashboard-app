@@ -5,7 +5,7 @@ import i18n from 'd2-i18n';
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Dashboard from './Dashboard/Dashboard';
 import SnackbarMessage from './SnackbarMessage';
 import { fromUser, fromDashboards, fromControlBar } from './actions';
@@ -33,7 +33,7 @@ class App extends Component {
         return (
             <div className="app-wrapper">
                 <HeaderBar />
-                <Router basename={this.props.appBaseName}>
+                <Router>
                     <Switch>
                         <Route
                             exact
