@@ -31,7 +31,6 @@ describe('DashboardsBar', () => {
             onEndDrag: undefined,
             onToggleMaxHeight: undefined,
             onChangeFilterName: undefined,
-            onSelectDashboard: undefined,
         };
         shallowDashboardsBar = undefined;
     });
@@ -125,7 +124,6 @@ describe('DashboardsBar', () => {
                     starred: true,
                 },
             ];
-            props.onSelectDashboard = jest.fn();
         });
 
         it('renders a DashboardItemChip for each dashboard', () => {
@@ -145,14 +143,6 @@ describe('DashboardsBar', () => {
                         .props().selected
                 ).toBe(true);
             });
-        });
-
-        it('triggers the Chip onClick function', () => {
-            dashboardsBar()
-                .find(DashboardItemChip)
-                .first()
-                .simulate('click');
-            expect(props.onSelectDashboard).toHaveBeenCalled();
         });
     });
 });

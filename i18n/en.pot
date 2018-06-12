@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-06-07T07:08:14.696Z\n"
-"PO-Revision-Date: 2018-06-07T07:08:14.696Z\n"
+"POT-Creation-Date: 2018-06-11T18:11:18.693Z\n"
+"PO-Revision-Date: 2018-06-11T18:11:18.693Z\n"
 
 msgid "Delete"
 msgstr ""
@@ -39,6 +39,15 @@ msgid "Show less"
 msgstr ""
 
 msgid "Show more"
+msgstr ""
+
+msgid "No access"
+msgstr ""
+
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+
+msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "All"
@@ -90,12 +99,6 @@ msgid "fewer"
 msgstr ""
 
 msgid "more"
-msgstr ""
-
-msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr ""
-
-msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "Add title here"

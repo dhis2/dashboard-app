@@ -9,14 +9,18 @@ import TitleBar from '../TitleBar/TitleBar';
 import ItemGrid from '../ItemGrid/ItemGrid';
 import NoContentMessage from '../widgets/NoContentMessage';
 
-export const ViewDashboardContent = props => {
-    const noContentMessage = props.dashboardsIsEmpty
+export const ViewDashboardContent = ({
+    selectedId,
+    dashboardsIsEmpty,
+    dashboardsLoaded,
+}) => {
+    const noContentMessage = dashboardsIsEmpty
         ? i18n.t(
               'No dashboards found. Use the + button to create a new dashboard.'
           )
         : i18n.t('Requested dashboard not found');
 
-    const hasDashboardContent = props.selectedId && !props.dashboardsIsEmpty;
+    const hasDashboardContent = selectedId && !dashboardsIsEmpty;
 
     const Content = () => {
         return hasDashboardContent ? (
@@ -31,9 +35,7 @@ export const ViewDashboardContent = props => {
 
     return (
         <div className="dashboard-wrapper">
-            {!props.dashboardsLoaded || props.selectedId === null ? null : (
-                <Content />
-            )}
+            {!dashboardsLoaded || selectedId === null ? null : <Content />}
         </div>
     );
 };

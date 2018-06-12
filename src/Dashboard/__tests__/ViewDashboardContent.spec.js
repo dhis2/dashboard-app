@@ -1,22 +1,24 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { PageContainer } from '../PageContainer';
+import { ViewDashboardContent } from '../ViewDashboardContent';
 import TitleBar from '../../TitleBar/TitleBar';
 import ItemGrid from '../../ItemGrid/ItemGrid';
 import { NoContentMessage } from '../../widgets/NoContentMessage';
 
-describe('PageContainer', () => {
+describe('ViewDashboardContent', () => {
     let props;
-    let shallowPageContainer;
-    const pageContainer = () => {
-        if (!shallowPageContainer) {
-            shallowPageContainer = shallow(<PageContainer {...props} />);
+    let shallowViewDashboardContent;
+    const viewDashboardContent = () => {
+        if (!shallowViewDashboardContent) {
+            shallowViewDashboardContent = shallow(
+                <ViewDashboardContent {...props} />
+            );
         }
-        return shallowPageContainer;
+        return shallowViewDashboardContent;
     };
 
     const assertTitleAndGrid = () => {
-        const children = pageContainer().children();
+        const children = viewDashboardContent().children();
 
         expect(children.length).toBe(1);
         expect(children.dive().find(NoContentMessage)).toHaveLength(0);
@@ -25,7 +27,7 @@ describe('PageContainer', () => {
     };
 
     const assertNoContentMessage = () => {
-        const children = pageContainer().children();
+        const children = viewDashboardContent().children();
 
         expect(children.length).toBe(1);
         expect(children.dive().find(NoContentMessage)).toHaveLength(1);
@@ -34,22 +36,21 @@ describe('PageContainer', () => {
 
     beforeEach(() => {
         props = {
-            edit: undefined,
             selectedId: undefined,
             dashboardsIsEmpty: undefined,
             dashboardsLoaded: undefined,
         };
-        shallowPageContainer = undefined;
+        shallowViewDashboardContent = undefined;
     });
 
     it('renders a div', () => {
-        expect(pageContainer().find('div').length).toBeGreaterThan(0);
+        expect(viewDashboardContent().find('div').length).toBeGreaterThan(0);
     });
 
     describe('when "dashboardsLoaded" is false', () => {
         it('does not render any children inside the div', () => {
             props.dashboardsLoaded = false;
-            expect(pageContainer().children().length).toBe(0);
+            expect(viewDashboardContent().children().length).toBe(0);
         });
     });
 
@@ -61,7 +62,7 @@ describe('PageContainer', () => {
         describe('when "selectedId" is null', () => {
             it('does not render any children inside the div', () => {
                 props.selectedId = null;
-                expect(pageContainer().children().length).toBe(0);
+                expect(viewDashboardContent().children().length).toBe(0);
             });
         });
 
@@ -70,14 +71,8 @@ describe('PageContainer', () => {
                 props.dashboardsIsEmpty = true;
             });
 
-            it('renders a NoContentMessage when not in edit mode', () => {
-                props.edit = false;
+            it('renders a NoContentMessage', () => {
                 assertNoContentMessage();
-            });
-
-            it('renders a Titlebar and ItemGrid when in edit mode', () => {
-                props.edit = true;
-                assertTitleAndGrid();
             });
         });
 
@@ -91,13 +86,7 @@ describe('PageContainer', () => {
                     props.selectedId = '123xyz';
                 });
 
-                it('renders a TitleBar and ItemGrid when in edit mode', () => {
-                    props.edit = true;
-                    assertTitleAndGrid();
-                });
-
-                it('renders a TitleBar and ItemGrid when not in edit mode', () => {
-                    props.edit = false;
+                it('renders a TitleBar and ItemGrid', () => {
                     assertTitleAndGrid();
                 });
             });
@@ -107,13 +96,7 @@ describe('PageContainer', () => {
                     props.selectedId = false;
                 });
 
-                it('renders a TitleBar and ItemGrid when in edit mode', () => {
-                    props.edit = true;
-                    assertTitleAndGrid();
-                });
-
-                it('renders a NoContentMessage when not in edit mode', () => {
-                    props.edit = false;
+                it('renders a NoContentMessage', () => {
                     assertNoContentMessage();
                 });
             });
