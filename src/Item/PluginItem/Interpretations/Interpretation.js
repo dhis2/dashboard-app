@@ -155,13 +155,13 @@ class Interpretation extends Component {
         return this.state.editing.includes(item.id) ? (
             <InputField
                 editing
-                placeholder={i18n.t(item.text)}
+                placeholder={item.text}
                 commentId={item.id}
                 postText={i18n.t('Post')}
                 onEdit={this.editComment}
             />
         ) : (
-            <p style={style.text}>{i18n.t(item.text)}</p>
+            <p style={style.text}>{item.text}</p>
         );
     };
 
