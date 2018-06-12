@@ -22,7 +22,7 @@ describe('interpretations reducer', () => {
         const newInterpretation = { id: 'int2', text: 'woot' };
 
         const actualState = reducer(currentState, {
-            type: actionTypes.ADD_INTERPRETATION,
+            type: actionTypes.RECEIVED_INTERPRETATION,
             value: newInterpretation,
         });
 
@@ -72,7 +72,7 @@ describe('interpretations reducer', () => {
         const updatedInterpretation = { id: 'int1', text: 'edit, edit' };
 
         const actualState = reducer(currentState, {
-            type: actionTypes.EDIT_INTERPRETATION,
+            type: actionTypes.RECEIVED_INTERPRETATION,
             value: updatedInterpretation,
         });
 

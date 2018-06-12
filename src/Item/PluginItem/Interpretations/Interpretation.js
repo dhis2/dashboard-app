@@ -13,10 +13,10 @@ import {
     tLikeInterpretation,
     tUnlikeInterpretation,
     tAddInterpretationComment,
-    tEditInterpretation,
+    tUpdateInterpretation,
     tDeleteInterpretationComment,
     tDeleteInterpretation,
-    tEditInterpretationComment,
+    tUpdateInterpretationComment,
 } from './actions';
 
 import './Interpretation.css';
@@ -331,9 +331,9 @@ const mapDispatchToProps = dispatch => ({
     likeInterpretation: data => dispatch(tLikeInterpretation(data)),
     unlikeInterpretation: data => dispatch(tUnlikeInterpretation(data)),
     addComment: data => dispatch(tAddInterpretationComment(data)),
-    updateInterpretation: data => dispatch(tEditInterpretation(data)),
+    updateInterpretation: data => dispatch(tUpdateInterpretation(data)),
     updateInterpretationComment: data =>
-        dispatch(tEditInterpretationComment(data)),
+        dispatch(tUpdateInterpretationComment(data)),
     deleteComment: data => dispatch(tDeleteInterpretationComment(data)),
     deleteInterpretation: data => dispatch(tDeleteInterpretation(data)),
 });
