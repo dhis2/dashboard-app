@@ -108,10 +108,8 @@ export const sGetEditDashboard = state => state.editDashboard;
 
 // selectors
 
-export const sGetIsEditing = state => !isEmpty(state.editDashboard);
-
 export const sGetIsNewDashboard = state => {
-    return sGetIsEditing(state) && sGetEditDashboard(state).id === '';
+    return !isEmpty(state.editDashboard) && sGetEditDashboard(state).id === '';
 };
 
 export const sGetEditDashboardItems = state =>

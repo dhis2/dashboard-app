@@ -167,13 +167,11 @@ const mapStateToProps = state => {
         sGetSelectedDashboard,
         sGetCurrentDashboardItems,
         fromSelected,
-        fromEditDashboard,
     } = fromReducers;
 
     const selectedDashboard = sGetSelectedDashboard(state);
 
     return {
-        edit: fromEditDashboard.sGetIsEditing(state),
         isLoading:
             fromSelected.sGetSelectedIsLoading(state) || !selectedDashboard,
         dashboardItems: sGetCurrentDashboardItems(state),

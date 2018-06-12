@@ -76,7 +76,6 @@ const mapStateToProps = state => {
         displayName: dashboard && dashboard.displayName,
         description: selectedDashboard.description,
         displayDescription: dashboard && dashboard.displayDescription,
-        edit: fromReducers.fromEditDashboard.sGetIsEditing(state),
     };
 };
 

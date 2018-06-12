@@ -25,8 +25,8 @@ export const ViewDashboardContent = ({
     const Content = () => {
         return hasDashboardContent ? (
             <Fragment>
-                <TitleBar />
-                <ItemGrid />
+                <TitleBar edit={false} />
+                <ItemGrid edit={false} />
             </Fragment>
         ) : (
             <NoContentMessage text={noContentMessage} />

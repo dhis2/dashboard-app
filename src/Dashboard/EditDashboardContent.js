@@ -17,8 +17,8 @@ class EditDashboardContent extends Component {
         const Content = () => {
             return hasUpdateAccess ? (
                 <Fragment>
-                    <TitleBar />
-                    <ItemGrid />
+                    <TitleBar edit={true} />
+                    <ItemGrid edit={true} />
                 </Fragment>
             ) : (
                 <NoContentMessage text={i18n.t('No access')} />
