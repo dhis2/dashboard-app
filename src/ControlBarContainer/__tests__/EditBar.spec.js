@@ -89,7 +89,13 @@ describe('EditBar', () => {
             it('renders Discard button', () => {
                 const discardBtn = editBar().find(FlatButton);
                 expect(discardBtn).toHaveLength(1);
-                expect(discardBtn.props().onClick).toBe(props.onDiscardChanges);
+            });
+
+            it('triggers the discard action', () => {
+                editBar()
+                    .find(FlatButton)
+                    .simulate('click');
+                expect(props.onDiscardChanges).toHaveBeenCalled();
             });
 
             it('does not render a TranslationDialog', () => {
@@ -191,7 +197,7 @@ describe('EditBar', () => {
             describe('when deleteAccess is true', () => {
                 beforeEach(() => {
                     props.deleteAccess = true;
-                    props.onDelete = jest.fn();
+                    props.onDelete = jest.fn(() => ({ then: () => {} }));
                 });
 
                 it('renders a ConfirmDeleteDialog', () => {

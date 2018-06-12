@@ -43,8 +43,6 @@ export class EditBar extends Component {
     };
 
     onSave = () => {
-        console.log('onSave**********');
-
         this.props.onSave().then(newId => {
             this.setState({ redirectUrl: `/${newId}` });
         });
