@@ -57,7 +57,11 @@ class InputField extends Component {
                         onChange={this.updateNewText}
                     />
                 </div>
-                <Button style={style.button} onClick={this.onClick}>
+                <Button
+                    disabled={!this.state.newText.length}
+                    style={style.button}
+                    onClick={this.onClick}
+                >
                     {this.props.postText}
                 </Button>
             </div>

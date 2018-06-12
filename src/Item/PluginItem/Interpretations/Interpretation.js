@@ -139,7 +139,7 @@ class Interpretation extends Component {
         this.toggleCommentField();
     };
 
-    editComment = (commentId, text) => {
+    updateComment = (commentId, text) => {
         const { id } = this.props.interpretation;
         id === commentId
             ? this.props.updateInterpretation({ id, text })
@@ -157,8 +157,8 @@ class Interpretation extends Component {
                 editing
                 placeholder={item.text}
                 commentId={item.id}
-                postText={i18n.t('Post')}
-                onUpdate={this.editComment}
+                postText={i18n.t('Update')}
+                onSubmit={this.updateComment}
             />
         ) : (
             <p style={style.text}>{item.text}</p>
@@ -312,7 +312,7 @@ class Interpretation extends Component {
                         <InputField
                             placeholder={i18n.t('Add your reply')}
                             commentId={this.props.interpretation.id}
-                            onPost={this.postComment}
+                            onSubmit={this.postComment}
                             postText={i18n.t('Reply')}
                         />
                     </div>
