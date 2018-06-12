@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TextField from 'd2-ui/lib/text-field/TextField';
 import Button from 'd2-ui/lib/button/Button';
+import i18n from 'd2-i18n';
 import { colors } from '../../../colors';
 
 const style = {
@@ -11,6 +12,7 @@ const style = {
         fontFamily: 'inherit',
         fontSize: '13px',
         lineHeight: '15px',
+        //display: 'inherit',
     },
     container: {
         marginBottom: '5px',
@@ -27,7 +29,10 @@ const style = {
 
 class InputField extends Component {
     state = {
-        newText: this.props.editing ? this.props.placeholder : '',
+        newText:
+            this.props.postText === i18n.t('Update')
+                ? this.props.placeholder
+                : '',
     };
 
     updateNewText = newText => {
@@ -35,10 +40,7 @@ class InputField extends Component {
     };
 
     onClick = () => {
-        this.state.newText.length > 0 &&
-            (this.props.editing
-                ? this.props.onUpdate(this.props.commentId, this.state.newText)
-                : this.props.onPost(this.state.newText));
+        this.props.onSubmit(this.state.newText);
         this.setState({ newText: '' });
     };
 

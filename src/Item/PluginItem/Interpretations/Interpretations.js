@@ -96,7 +96,7 @@ class Interpretations extends Component {
                 <ul style={style.list}>{this.renderItems()}</ul>
                 <InputField
                     placeholder={i18n.t('Add your interpretation')}
-                    onPost={this.postInterpretation}
+                    onSubmit={this.postInterpretation}
                     postText="Post"
                 />
             </div>

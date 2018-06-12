@@ -100,7 +100,7 @@ class Interpretation extends Component {
         showCommentField: false,
         uiLocale: '',
         visualizerHref: '',
-        editing: [],
+        editId: '',
     };
 
     componentDidMount() {
@@ -133,32 +133,29 @@ class Interpretation extends Component {
         this.setState({ showCommentField: !this.state.showCommentField });
     };
 
-    postComment = text => {
+    submitComment = text => {
         const { id } = this.props.interpretation;
-        this.props.addComment({ id, text });
-        this.toggleCommentField();
-    };
-
-    updateComment = (commentId, text) => {
-        const { id } = this.props.interpretation;
-        id === commentId
-            ? this.props.updateInterpretation({ id, text })
-            : this.props.updateInterpretationComment({
-                  id,
-                  commentId,
-                  text,
-              });
-        this.toggleEdit(commentId);
+        if (this.state.editId) {
+            id === this.state.editId
+                ? this.props.updateInterpretation({ id, text })
+                : this.props.updateInterpretationComment({
+                      id,
+                      commentId: this.state.editId,
+                      text,
+                  });
+            this.toggleEdit(this.state.editId);
+        } else {
+            this.props.addComment({ id, text });
+            this.toggleCommentField();
+        }
     };
 
     renderCommentOrEditField = item => {
-        return this.state.editing.includes(item.id) ? (
+        return this.state.editId === item.id ? (
             <InputField
-                editing
                 placeholder={item.text}
-                commentId={item.id}
                 postText={i18n.t('Update')}
-                onSubmit={this.updateComment}
+                onSubmit={this.submitComment}
             />
         ) : (
             <p style={style.text}>{item.text}</p>
@@ -166,13 +163,9 @@ class Interpretation extends Component {
     };
 
     toggleEdit = commentId => {
-        !this.state.editing.includes(commentId)
-            ? this.setState({ editing: [...this.state.editing, commentId] })
-            : this.setState({
-                  editing: this.state.editing.filter(entry => {
-                      return entry !== commentId;
-                  }),
-              });
+        this.state.editId === commentId
+            ? this.setState({ editId: '' })
+            : this.setState({ editId: commentId });
     };
 
     deleteComment = commentId => {
@@ -311,8 +304,7 @@ class Interpretation extends Component {
                     <div style={{ marginLeft: '37px' }}>
                         <InputField
                             placeholder={i18n.t('Add your reply')}
-                            commentId={this.props.interpretation.id}
-                            onSubmit={this.postComment}
+                            onSubmit={this.submitComment}
                             postText={i18n.t('Reply')}
                         />
                     </div>
