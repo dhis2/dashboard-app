@@ -129,7 +129,7 @@ class Interpretation extends Component {
             : this.props.likeInterpretation(id);
     };
 
-    showCommentField = () => {
+    toggleCommentField = () => {
         this.setState({ showCommentField: !this.state.showCommentField });
     };
 
