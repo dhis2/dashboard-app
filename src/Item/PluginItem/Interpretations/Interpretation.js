@@ -136,7 +136,7 @@ class Interpretation extends Component {
     postComment = text => {
         const { id } = this.props.interpretation;
         this.props.addComment({ id, text });
-        this.setState({ showCommentField: false });
+        this.toggleCommentField();
     };
 
     editComment = (commentId, text) => {
@@ -158,7 +158,7 @@ class Interpretation extends Component {
                 placeholder={item.text}
                 commentId={item.id}
                 postText={i18n.t('Post')}
-                onEdit={this.editComment}
+                onUpdate={this.editComment}
             />
         ) : (
             <p style={style.text}>{item.text}</p>
@@ -229,7 +229,7 @@ class Interpretation extends Component {
                     )}
                 <button
                     className={actionButtonClass}
-                    onClick={this.showCommentField}
+                    onClick={this.toggleCommentField}
                 >
                     <SvgIcon style={style.icon} icon="Reply" />
                     {i18n.t('Reply')}
