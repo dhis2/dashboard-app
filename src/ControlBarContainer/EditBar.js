@@ -156,17 +156,24 @@ export class EditBar extends Component {
                         {updateAccess ? (
                             <div className="left-controls">
                                 <span style={{ marginRight: '15px' }}>
-                                    <PrimaryButton onClick={this.onSave}>
+                                    <PrimaryButton
+                                        className="save-button"
+                                        onClick={this.onSave}
+                                    >
                                         {i18n.t('Save changes')}
                                     </PrimaryButton>
                                 </span>
                                 {dashboardId && deleteAccess ? (
-                                    <FlatButton onClick={this.onConfirmDelete}>
+                                    <FlatButton
+                                        className="delete-button"
+                                        onClick={this.onConfirmDelete}
+                                    >
                                         {i18n.t('Delete')}
                                     </FlatButton>
                                 ) : null}
                                 {dashboardId ? (
                                     <FlatButton
+                                        className="translate-button"
                                         onClick={this.toggleTranslationDialog}
                                     >
                                         {i18n.t('Translate')}
@@ -176,7 +183,10 @@ export class EditBar extends Component {
                         ) : null}
 
                         <div className="right-controls">
-                            <FlatButton onClick={this.onDiscard}>
+                            <FlatButton
+                                className="discard-button"
+                                onClick={this.onDiscard}
+                            >
                                 {discardBtnText}
                             </FlatButton>
                         </div>

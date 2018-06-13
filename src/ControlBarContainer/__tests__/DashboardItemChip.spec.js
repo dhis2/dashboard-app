@@ -18,14 +18,14 @@ describe('DashboardItemChip', () => {
             context: getStubContext(),
         });
 
-    it('renders an anchor', () => {
+    it('renders a Link', () => {
         const chipWrapper = chip(defaultProps);
 
         const div = chipWrapper.find('Link');
         expect(div).toHaveLength(1);
     });
 
-    it('renders an anchor containing everything else', () => {
+    it('renders a Link containing everything else', () => {
         const chipWrapper = chip(defaultProps);
         const wrappingDiv = chipWrapper.find('Link').first();
 
@@ -56,14 +56,5 @@ describe('DashboardItemChip', () => {
         const muiChip = chip(defaultProps).find(MuiChip);
 
         expect(muiChip.childAt(0).text()).toBe(defaultProps.label);
-    });
-
-    it.skip('passes the onClick function to MuiChip', () => {
-        const onClick = jest.fn();
-        const props = Object.assign({}, defaultProps, { onClick });
-
-        const muiChip = chip(props).find(MuiChip);
-
-        expect(muiChip.props().onClick).toBe(onClick);
     });
 });

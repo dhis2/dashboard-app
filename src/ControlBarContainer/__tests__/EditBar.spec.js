@@ -61,6 +61,23 @@ describe('EditBar', () => {
         expect(editBar().find(ControlBar)).toHaveLength(1);
     });
 
+    describe('when update access is false', () => {
+        beforeEach(() => {
+            props.updateAccess = false;
+        });
+
+        it('renders the Discard button', () => {
+            expect(editBar().find('.discard-button')).toHaveLength(1);
+        });
+
+        it('does not render the Save, Translate or Delete buttons', () => {
+            const wrapper = editBar();
+            ['.translate-button', '.delete-button', '.save-button'].forEach(
+                btnClass => expect(wrapper.find(btnClass)).toHaveLength(0)
+            );
+        });
+    });
+
     describe('when update access is true', () => {
         beforeEach(() => {
             props.updateAccess = true;
@@ -73,27 +90,27 @@ describe('EditBar', () => {
             });
 
             it('renders Save button', () => {
-                const saveBtn = editBar().find(PrimaryButton);
+                const saveBtn = editBar().find('.save-button');
 
                 expect(saveBtn).toHaveLength(1);
             });
 
             it('triggers the save action', () => {
                 editBar()
-                    .find(PrimaryButton)
+                    .find('.save-button')
                     .simulate('click');
 
                 expect(props.onSave).toHaveBeenCalled();
             });
 
             it('renders Discard button', () => {
-                const discardBtn = editBar().find(FlatButton);
+                const discardBtn = editBar().find('.discard-button');
                 expect(discardBtn).toHaveLength(1);
             });
 
             it('triggers the discard action', () => {
                 editBar()
-                    .find(FlatButton)
+                    .find('.discard-button')
                     .simulate('click');
                 expect(props.onDiscardChanges).toHaveBeenCalled();
             });
@@ -109,7 +126,7 @@ describe('EditBar', () => {
             describe('when discard button clicked', () => {
                 it('triggers the onDiscardChanges function', () => {
                     editBar()
-                        .find(FlatButton)
+                        .find('.discard-button')
                         .filterWhere(n => {
                             return (
                                 n.childAt(0).text() === 'Exit without saving'
@@ -135,9 +152,14 @@ describe('EditBar', () => {
                 return asyncExpectComponentExists(ConfirmDeleteDialog, false);
             });
 
-            it('renders Translate and Discard buttons', () => {
-                const secondaryBtns = editBar().find(FlatButton);
-                expect(secondaryBtns).toHaveLength(2);
+            it('renders Translate button', () => {
+                const btn = editBar().find('.translate-button');
+                expect(btn).toHaveLength(1);
+            });
+
+            it('renders Discard button', () => {
+                const btn = editBar().find('.discard-button');
+                expect(btn).toHaveLength(1);
             });
 
             describe('when TRANSLATE button is clicked', () => {
@@ -157,7 +179,7 @@ describe('EditBar', () => {
                         ).toEqual(false);
 
                         wrapper
-                            .find(FlatButton)
+                            .find('.translate-button')
                             .filterWhere(n => {
                                 return n.childAt(0).text() === 'Translate';
                             })
@@ -205,8 +227,14 @@ describe('EditBar', () => {
                 });
 
                 it('renders Translate, Delete, and Discard buttons', () => {
-                    const secondaryBtns = editBar().find(FlatButton);
-                    expect(secondaryBtns).toHaveLength(3);
+                    const bar = editBar();
+                    [
+                        '.translate-button',
+                        '.delete-button',
+                        '.discard-button',
+                    ].forEach(btnClass =>
+                        expect(bar.find(btnClass)).toHaveLength(1)
+                    );
                 });
 
                 it('shows the confirm delete dialog', () => {
