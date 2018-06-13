@@ -38,28 +38,28 @@ class App extends Component {
                         <Route
                             exact
                             path="/"
-                            component={props => (
+                            render={props => (
                                 <Dashboard {...props} mode="view" />
                             )}
                         />
                         <Route
                             exact
                             path="/new"
-                            component={props => (
+                            render={props => (
                                 <Dashboard {...props} mode="new" />
                             )}
                         />
                         <Route
                             exact
                             path="/:dashboardId"
-                            component={props => (
+                            render={props => (
                                 <Dashboard {...props} mode="view" />
                             )}
                         />
                         <Route
                             exact
                             path="/:dashboardId/edit"
-                            component={props => (
+                            render={props => (
                                 <Dashboard {...props} mode="edit" />
                             )}
                         />
