@@ -70,11 +70,12 @@ class MessagesItem extends Component {
         this.setState({ uiLocale });
     }
 
-    messageHref = id => {
-        return this.props.editMode
+    messageHref = msg =>
+        this.props.editMode
             ? '#'
-            : `${this.context.baseUrl}/dhis-web-messaging/#/PRIVATE/${id}`;
-    };
+            : `${this.context.baseUrl}/dhis-web-messaging/#/${
+                  msg.messageType
+              }/${msg.id}`;
 
     filterAll = () => {
         this.setState({ filter: 'all' });
@@ -134,7 +135,7 @@ class MessagesItem extends Component {
                         <div style={style.date}>
                             {formatDate(msg.lastUpdated, this.state.uiLocale)}
                         </div>
-                        <a href={this.messageHref(msg.id)}>
+                        <a href={this.messageHref(msg)}>
                             <span style={style.title}>{msg.displayName}</span>
                         </a>
                     </div>
