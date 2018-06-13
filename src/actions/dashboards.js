@@ -51,11 +51,6 @@ export const tFetchDashboards = () => async dispatch => {
     dispatch(acSetDashboards(collection.toArray()));
 };
 
-export const tInitializeDashboards = id => async dispatch => {
-    await dispatch(tFetchDashboards());
-    dispatch(tSelectDashboard(id));
-};
-
 export const tSelectDashboard = id => async (dispatch, getState) => {
     const onError = error => {
         console.log('Error (apiFetchDashboards): ', error);
