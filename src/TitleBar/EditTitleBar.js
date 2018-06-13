@@ -6,6 +6,8 @@ import i18n from 'd2-i18n';
 import ItemSelect from '../ItemSelect/ItemSelect';
 import TextField from 'd2-ui/lib/text-field/TextField';
 import { fromEditDashboard } from '../actions';
+import * as fromReducers from '../reducers';
+import { orObject } from '../util';
 
 const EditTitleBar = ({
     name,
@@ -70,6 +72,22 @@ const EditTitleBar = ({
     );
 };
 
+const mapStateToProps = state => {
+    const selectedDashboard = orObject(
+        fromReducers.fromEditDashboard.sGetEditDashboard(state)
+    );
+
+    const dashboard = orObject(
+        fromReducers.fromDashboards.sGetById(state, selectedDashboard.id)
+    );
+
+    return {
+        name: selectedDashboard.name,
+        displayName: dashboard && dashboard.displayName,
+        description: selectedDashboard.description,
+    };
+};
+
 const mapDispatchToProps = dispatch => ({
     onChangeTitle: text =>
         dispatch(fromEditDashboard.acSetDashboardTitle(text)),
@@ -77,9 +95,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch(fromEditDashboard.acSetDashboardDescription(text)),
 });
 
-const TitleBarCt = connect(null, mapDispatchToProps)(EditTitleBar);
-
-export default TitleBarCt;
+export default connect(mapStateToProps, mapDispatchToProps)(EditTitleBar);
 
 EditTitleBar.propTypes = {
     name: PropTypes.string,

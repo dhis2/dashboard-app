@@ -10,12 +10,17 @@ import FilterDialog from '../ItemFilter/ItemFilter';
 import Info from './Info';
 import FlatButton from '../widgets/FlatButton';
 import * as fromReducers from '../reducers';
-import { fromSelected, fromDashboards } from '../actions';
 import { orObject } from '../util';
+import { tStarDashboard } from '../actions/dashboards';
+import { acSetSelectedShowDescription } from '../actions/selected';
 
 const NO_DESCRIPTION = i18n.t('No description');
 
 const viewStyle = {
+    titleBar: {
+        display: 'flex',
+        alignItems: 'flex-start',
+    },
     titleBarIcon: {
         marginLeft: 5,
         position: 'relative',
@@ -173,44 +178,36 @@ class ViewTitleBar extends Component {
 }
 
 const mapStateToProps = state => {
-    const selectedDashboard = orObject(
-        fromReducers.sGetSelectedDashboard(state)
-    );
+    const { fromSelected, fromDashboards, fromItemFilter } = fromReducers;
+    const id = fromSelected.sGetSelectedId(state);
+    const dashboard = orObject(fromDashboards.sGetById(state, id));
 
     return {
-        selectedDashboard,
-        dashboardItems: fromReducers.sGetCurrentDashboardItems(state),
-        showDescription: fromReducers.fromSelected.sGetSelectedShowDescription(
-            state
-        ),
-        starred: selectedDashboard.starred,
-        access: orObject(selectedDashboard.access),
-        itemFilterKeys: fromReducers.fromItemFilter.sGetFilterKeys(state),
+        id,
+        name: dashboard.displayName,
+        description: dashboard.displayDescription,
+        dashboardItems: fromDashboards.sGetItems(state),
+        showDescription: fromSelected.sGetSelectedShowDescription(state),
+        starred: dashboard.starred,
+        access: orObject(dashboard.access),
+        itemFilterKeys: fromItemFilter.sGetFilterKeys(state),
     };
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const selectedDashboard = orObject(stateProps.selectedDashboard);
-    const { starred, showDescription } = stateProps;
+    const { id, starred, showDescription } = stateProps;
     const { dispatch } = dispatchProps;
 
     return {
         ...stateProps,
         ...ownProps,
-        onStarClick: () =>
-            dispatch(
-                fromDashboards.tStarDashboard(selectedDashboard.id, !starred)
-            ),
+        onStarClick: () => dispatch(tStarDashboard(id, !starred)),
         onInfoClick: () =>
-            dispatch(
-                fromSelected.acSetSelectedShowDescription(!showDescription)
-            ),
+            dispatch(acSetSelectedShowDescription(!showDescription)),
     };
 };
 
-const ViewTitleBarCt = connect(mapStateToProps, null, mergeProps)(ViewTitleBar);
-
-export default ViewTitleBarCt;
+export default connect(mapStateToProps, null, mergeProps)(ViewTitleBar);
 
 ViewTitleBar.propTypes = {
     id: PropTypes.string,
