@@ -5,7 +5,10 @@ import i18n from 'd2-i18n';
 
 import ItemSelect from '../ItemSelect/ItemSelect';
 import TextField from 'd2-ui/lib/text-field/TextField';
-import { fromEditDashboard } from '../actions';
+import {
+    acSetDashboardTitle,
+    acSetDashboardDescription,
+} from '../actions/editDashboard';
 import * as fromReducers from '../reducers';
 import { orObject } from '../util';
 
@@ -89,10 +92,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    onChangeTitle: text =>
-        dispatch(fromEditDashboard.acSetDashboardTitle(text)),
-    onChangeDescription: text =>
-        dispatch(fromEditDashboard.acSetDashboardDescription(text)),
+    onChangeTitle: text => dispatch(acSetDashboardTitle(text)),
+    onChangeDescription: text => dispatch(acSetDashboardDescription(text)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditTitleBar);
