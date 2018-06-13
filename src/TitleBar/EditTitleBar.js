@@ -80,21 +80,21 @@ const mapStateToProps = state => {
         fromReducers.fromEditDashboard.sGetEditDashboard(state)
     );
 
-    const dashboard = orObject(
+    const displayName = orObject(
         fromReducers.fromDashboards.sGetById(state, selectedDashboard.id)
-    );
+    ).displayName;
 
     return {
         name: selectedDashboard.name,
-        displayName: dashboard && dashboard.displayName,
         description: selectedDashboard.description,
+        displayName,
     };
 };
 
-const mapDispatchToProps = dispatch => ({
-    onChangeTitle: text => dispatch(acSetDashboardTitle(text)),
-    onChangeDescription: text => dispatch(acSetDashboardDescription(text)),
-});
+const mapDispatchToProps = {
+    onChangeTitle: acSetDashboardTitle,
+    onChangeDescription: acSetDashboardDescription,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditTitleBar);
 
