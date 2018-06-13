@@ -1,3 +1,4 @@
+import i18n from 'd2-i18n';
 import {
     itemTypeMap,
     spacerContent,
@@ -23,19 +24,19 @@ export const singleItems = [
             {
                 type: TEXT,
                 icon: itemTypeMap[TEXT].icon,
-                name: 'Text box',
+                name: i18n.t('Text box'),
                 content: '',
             },
             {
                 type: MESSAGES,
-                icon: 'Email',
-                name: itemTypeMap[MESSAGES].icon,
+                icon: itemTypeMap[MESSAGES].icon,
+                name: i18n.t('Messages'),
                 content: 'true',
             },
             {
                 type: SPACER,
                 icon: itemTypeMap[SPACER].icon,
-                name: 'Spacer',
+                name: i18n.t('Spacer'),
                 content: spacerContent,
             },
         ],
