@@ -9,6 +9,17 @@ import TitleBar from '../TitleBar/TitleBar';
 import ItemGrid from '../ItemGrid/ItemGrid';
 import NoContentMessage from '../widgets/NoContentMessage';
 
+const Content = ({ hasDashboardContent, noContentMessage }) => {
+    return hasDashboardContent ? (
+        <Fragment>
+            <TitleBar edit={false} />
+            <ItemGrid edit={false} />
+        </Fragment>
+    ) : (
+        <NoContentMessage text={noContentMessage} />
+    );
+};
+
 export const ViewDashboardContent = ({
     selectedId,
     dashboardsIsEmpty,
@@ -22,20 +33,14 @@ export const ViewDashboardContent = ({
 
     const hasDashboardContent = selectedId && !dashboardsIsEmpty;
 
-    const Content = () => {
-        return hasDashboardContent ? (
-            <Fragment>
-                <TitleBar edit={false} />
-                <ItemGrid edit={false} />
-            </Fragment>
-        ) : (
-            <NoContentMessage text={noContentMessage} />
-        );
-    };
-
     return (
         <div className="dashboard-wrapper">
-            {!dashboardsLoaded || selectedId === null ? null : <Content />}
+            {!dashboardsLoaded || selectedId === null ? null : (
+                <Content
+                    hasDashboardContent={hasDashboardContent}
+                    noContentMessage={noContentMessage}
+                />
+            )}
         </div>
     );
 };
