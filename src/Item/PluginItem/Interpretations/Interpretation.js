@@ -133,9 +133,17 @@ class Interpretation extends Component {
         this.setState({ showCommentField: !this.state.showCommentField });
     };
 
-    submitComment = text => {
+    postComment = text => {
         const { id } = this.props.interpretation;
-        if (this.state.editId) {
+        this.props.addComment({ id, text });
+        this.toggleCommentField();
+    };
+
+    submitComment = text => {
+        if (this.state.editId === '') {
+            this.postComment(text);
+        } else {
+            const { id } = this.props.interpretation;
             id === this.state.editId
                 ? this.props.updateInterpretation({ id, text })
                 : this.props.updateInterpretationComment({
@@ -144,9 +152,6 @@ class Interpretation extends Component {
                       text,
                   });
             this.toggleEdit(this.state.editId);
-        } else {
-            this.props.addComment({ id, text });
-            this.toggleCommentField();
         }
     };
 
