@@ -22,7 +22,7 @@ const style = {
         lineHeight: '14px',
     },
     button: {
-        background: 'none !important',
+        background: 'transparent',
         border: 'none',
         color: colors.darkGrey,
         cursor: 'pointer',
@@ -73,9 +73,7 @@ class MessagesItem extends Component {
     messageHref = id => {
         return this.props.editMode
             ? '#'
-            : `${
-                  this.context.baseUrl
-              }/dhis-web-messaging/readMessage.action?id=${id}`;
+            : `${this.context.baseUrl}/dhis-web-messaging/#/PRIVATE/${id}`;
     };
 
     filterAll = () => {
@@ -86,20 +84,20 @@ class MessagesItem extends Component {
         this.setState({ filter: 'unread' });
     };
 
-    getActionButtons = () => {
-        const activeStyle = Object.assign({}, style.button, style.activeButton);
+    activeButtonStyle = Object.assign({}, style.button, style.activeButton);
 
-        const allButtonStyle =
-            this.state.filter === 'all' ? activeStyle : style.button;
-        const unreadButtonStyle =
-            this.state.filter === 'unread' ? activeStyle : style.button;
+    getActionButtonStyle = buttonName =>
+        buttonName === this.state.filter
+            ? this.activeButtonStyle
+            : style.button;
 
-        return !this.props.editMode ? (
+    getActionButtons = () =>
+        !this.props.editMode ? (
             <Fragment>
                 <button
                     className="messages-action-button"
                     type="button"
-                    style={allButtonStyle}
+                    style={this.getActionButtonStyle('all')}
                     onClick={this.filterAll}
                 >
                     {i18n.t('All')}
@@ -107,14 +105,13 @@ class MessagesItem extends Component {
                 <button
                     className="messages-action-button"
                     type="button"
-                    style={unreadButtonStyle}
+                    style={this.getActionButtonStyle('unread')}
                     onClick={this.filterUnread}
                 >
                     {i18n.t('Unread')}
                 </button>
             </Fragment>
         ) : null;
-    };
 
     getMessageItems = () => {
         const { messages } = this.props;
