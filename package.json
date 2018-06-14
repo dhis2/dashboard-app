@@ -96,7 +96,7 @@
     "husky": {
         "hooks": {
             "pre-commit":
-                "npm run extract-pot && npm run prettify && CI=true npm run test && git add -A ."
+                "yarn extract-pot && CI=true yarn test && git add ./i18n/"
         }
     },
     "manifest.webapp": {
