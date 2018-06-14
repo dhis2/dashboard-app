@@ -68,6 +68,7 @@ const style = {
         fontSize: '13px',
         lineHeight: '17px',
         whiteSpace: 'pre-line',
+        wordWrap: 'break-word',
     },
 };
 
@@ -158,7 +159,8 @@ class Interpretation extends Component {
     renderCommentOrEditField = item => {
         return this.state.editId === item.id ? (
             <InputField
-                placeholder={item.text}
+                text={item.text}
+                placeholder={i18n.t('Edit your interpretation')}
                 postText={i18n.t('Update')}
                 onSubmit={this.submitComment}
             />
@@ -187,6 +189,10 @@ class Interpretation extends Component {
         this.props.deleteInterpretation(data);
     };
 
+    hasDeleteAccess = ownerId => {
+        return this.userIsOwner(ownerId) || this.props.userIsSuperuser;
+    };
+
     userIsOwner = ownerId => ownerId === this.props.userId;
 
     renderActions() {
@@ -201,11 +207,6 @@ class Interpretation extends Component {
         const likeText = this.userLikesInterpretation()
             ? i18n.t('You like this')
             : i18n.t('Like');
-
-        const canDeleteInterpretation = () =>
-            this.userIsOwner(this.props.interpretation.user.id) ||
-            this.props.interpretation.access.delete ||
-            this.props.userIsSuperuser;
 
         return (
             <div>
@@ -242,7 +243,7 @@ class Interpretation extends Component {
                 <span style={style.likes}>
                     {this.props.interpretation.likedBy.length} {likes}
                 </span>
-                {canDeleteInterpretation() &&
+                {this.hasDeleteAccess(this.props.interpretation.user.id) &&
                     deleteButton(this.deleteInterpretation)}
             </div>
         );
@@ -252,8 +253,6 @@ class Interpretation extends Component {
         if (!this.props.interpretation.comments.length) {
             return null;
         }
-        const canDeleteComment = ownerId =>
-            this.userIsOwner(ownerId) || this.props.userIsSuperuser;
 
         const comments = sortByDate(
             this.props.interpretation.comments,
@@ -273,7 +272,7 @@ class Interpretation extends Component {
                 {this.renderCommentOrEditField(comment)}
                 {this.userIsOwner(comment.user.id) &&
                     editButton(() => this.toggleEdit(comment.id))}
-                {canDeleteComment(comment.user.id) &&
+                {this.hasDeleteAccess(comment.user.id) &&
                     deleteButton(() => this.deleteComment(comment.id))}
             </li>
         ));
