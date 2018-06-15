@@ -13,8 +13,10 @@ import {
     tLikeInterpretation,
     tUnlikeInterpretation,
     tAddInterpretationComment,
+    tUpdateInterpretation,
     tDeleteInterpretationComment,
     tDeleteInterpretation,
+    tUpdateInterpretationComment,
 } from './actions';
 
 import './Interpretation.css';
@@ -66,6 +68,7 @@ const style = {
         fontSize: '13px',
         lineHeight: '17px',
         whiteSpace: 'pre-line',
+        wordWrap: 'break-word',
     },
 };
 
@@ -79,7 +82,16 @@ const deleteButton = action => {
             onClick={action}
         >
             <SvgIcon style={iconStyle} icon="Delete" />
-            Delete
+            {i18n.t('Delete')}
+        </button>
+    );
+};
+
+const editButton = action => {
+    return (
+        <button className={actionButtonClass} onClick={action}>
+            <SvgIcon style={style.icon} icon="Create" />
+            {i18n.t('Edit')}
         </button>
     );
 };
@@ -89,6 +101,7 @@ class Interpretation extends Component {
         showCommentField: false,
         uiLocale: '',
         visualizerHref: '',
+        editId: '',
     };
 
     componentDidMount() {
@@ -117,14 +130,49 @@ class Interpretation extends Component {
             : this.props.likeInterpretation(id);
     };
 
-    showCommentField = () => {
-        this.setState({ showCommentField: true });
+    toggleCommentField = () => {
+        this.setState({ showCommentField: !this.state.showCommentField });
     };
 
     postComment = text => {
         const { id } = this.props.interpretation;
         this.props.addComment({ id, text });
-        this.setState({ showCommentField: false });
+        this.toggleCommentField();
+    };
+
+    submitComment = text => {
+        if (this.state.editId === '') {
+            this.postComment(text);
+        } else {
+            const { id } = this.props.interpretation;
+            id === this.state.editId
+                ? this.props.updateInterpretation({ id, text })
+                : this.props.updateInterpretationComment({
+                      id,
+                      commentId: this.state.editId,
+                      text,
+                  });
+            this.toggleEdit(this.state.editId);
+        }
+    };
+
+    renderCommentOrEditField = item => {
+        return this.state.editId === item.id ? (
+            <InputField
+                text={item.text}
+                placeholder={i18n.t('Edit your interpretation')}
+                postText={i18n.t('Update')}
+                onSubmit={this.submitComment}
+            />
+        ) : (
+            <p style={style.text}>{item.text}</p>
+        );
+    };
+
+    toggleEdit = commentId => {
+        this.state.editId === commentId
+            ? this.setState({ editId: '' })
+            : this.setState({ editId: commentId });
     };
 
     deleteComment = commentId => {
@@ -138,15 +186,20 @@ class Interpretation extends Component {
             objectId: this.props.objectId,
             objectType: this.props.object.type,
         };
-
         this.props.deleteInterpretation(data);
+    };
+
+    hasDeleteAccess = ownerId => {
+        return this.userIsOwner(ownerId) || this.props.userIsSuperuser;
     };
 
     userIsOwner = ownerId => ownerId === this.props.userId;
 
     renderActions() {
         const likes =
-            this.props.interpretation.likedBy.length === 1 ? 'like' : 'likes';
+            this.props.interpretation.likedBy.length === 1
+                ? i18n.t('like')
+                : i18n.t('likes');
 
         const thumbsUpIcon = this.userLikesInterpretation()
             ? Object.assign({}, style.icon, { fill: colors.lightGreen })
@@ -154,11 +207,6 @@ class Interpretation extends Component {
         const likeText = this.userLikesInterpretation()
             ? i18n.t('You like this')
             : i18n.t('Like');
-
-        const canDeleteInterpretation = () =>
-            this.userIsOwner(this.props.interpretation.user.id) ||
-            this.props.interpretation.access.delete ||
-            this.props.userIsSuperuser;
 
         return (
             <div>
@@ -172,11 +220,15 @@ class Interpretation extends Component {
                     }}
                 >
                     <SvgIcon style={style.icon} icon="Launch" />
-                    View in Visualizer
+                    {i18n.t('View in Visualizer')}
                 </a>
+                {this.userIsOwner(this.props.interpretation.user.id) &&
+                    editButton(() =>
+                        this.toggleEdit(this.props.interpretation.id)
+                    )}
                 <button
                     className={actionButtonClass}
-                    onClick={this.showCommentField}
+                    onClick={this.toggleCommentField}
                 >
                     <SvgIcon style={style.icon} icon="Reply" />
                     {i18n.t('Reply')}
@@ -191,9 +243,8 @@ class Interpretation extends Component {
                 <span style={style.likes}>
                     {this.props.interpretation.likedBy.length} {likes}
                 </span>
-                {canDeleteInterpretation()
-                    ? deleteButton(this.deleteInterpretation)
-                    : null}
+                {this.hasDeleteAccess(this.props.interpretation.user.id) &&
+                    deleteButton(this.deleteInterpretation)}
             </div>
         );
     }
@@ -203,12 +254,9 @@ class Interpretation extends Component {
             return null;
         }
 
-        const canDeleteComment = ownerId =>
-            this.userIsOwner(ownerId) || this.props.userIsSuperuser;
-
         const comments = sortByDate(
             this.props.interpretation.comments,
-            'created'
+            i18n.t('created')
         ).map(comment => (
             <li
                 className="comment-container"
@@ -221,10 +269,11 @@ class Interpretation extends Component {
                         {formatDate(comment.created, this.state.uiLocale)}
                     </span>
                 </div>
-                <p style={style.text}>{comment.text}</p>
-                {canDeleteComment(comment.user.id)
-                    ? deleteButton(() => this.deleteComment(comment.id))
-                    : null}
+                {this.renderCommentOrEditField(comment)}
+                {this.userIsOwner(comment.user.id) &&
+                    editButton(() => this.toggleEdit(comment.id))}
+                {this.hasDeleteAccess(comment.user.id) &&
+                    deleteButton(() => this.deleteComment(comment.id))}
             </li>
         ));
 
@@ -243,7 +292,7 @@ class Interpretation extends Component {
                             {formatDate(item.created, this.state.uiLocale)}
                         </span>
                     </div>
-                    <p style={style.text}>{item.text}</p>
+                    {this.renderCommentOrEditField(item)}
                 </div>
             );
         };
@@ -259,7 +308,7 @@ class Interpretation extends Component {
                     <div style={{ marginLeft: '37px' }}>
                         <InputField
                             placeholder={i18n.t('Add your reply')}
-                            onPost={this.postComment}
+                            onSubmit={this.submitComment}
                             postText={i18n.t('Reply')}
                         />
                     </div>
@@ -278,6 +327,9 @@ const mapDispatchToProps = dispatch => ({
     likeInterpretation: data => dispatch(tLikeInterpretation(data)),
     unlikeInterpretation: data => dispatch(tUnlikeInterpretation(data)),
     addComment: data => dispatch(tAddInterpretationComment(data)),
+    updateInterpretation: data => dispatch(tUpdateInterpretation(data)),
+    updateInterpretationComment: data =>
+        dispatch(tUpdateInterpretationComment(data)),
     deleteComment: data => dispatch(tDeleteInterpretationComment(data)),
     deleteInterpretation: data => dispatch(tDeleteInterpretation(data)),
 });

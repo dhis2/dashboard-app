@@ -22,7 +22,7 @@ const AppItem = ({ item }, context) => {
             <Line />
             <iframe
                 title={appDetails.name}
-                src={appDetails.launchUrl}
+                src={`${appDetails.launchUrl}?dashboardItemId=${item.id}`}
                 className="dashboard-item-content"
                 style={{
                     border: 'none',

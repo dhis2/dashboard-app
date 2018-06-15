@@ -7,6 +7,8 @@ const style = {
     button: {
         height: '30px',
         width: '16.84px',
+        top: '5px',
+        left: '10px',
         color: colors.charcoalGrey,
         fontFamily: 'inherit',
         fontSize: '13px',
@@ -14,6 +16,8 @@ const style = {
     },
     container: {
         marginBottom: '5px',
+        width: '100%',
+        display: 'inline-flex',
     },
     text: {
         fontSize: '14px',
@@ -27,7 +31,7 @@ const style = {
 
 class InputField extends Component {
     state = {
-        newText: '',
+        newText: this.props.text || '',
     };
 
     updateNewText = newText => {
@@ -35,7 +39,7 @@ class InputField extends Component {
     };
 
     onClick = () => {
-        this.props.onPost(this.state.newText);
+        this.props.onSubmit(this.state.newText);
         this.setState({ newText: '' });
     };
 
@@ -54,7 +58,11 @@ class InputField extends Component {
                         onChange={this.updateNewText}
                     />
                 </div>
-                <Button style={style.button} onClick={this.onClick}>
+                <Button
+                    disabled={!this.state.newText.length}
+                    style={style.button}
+                    onClick={this.onClick}
+                >
                     {this.props.postText}
                 </Button>
             </div>

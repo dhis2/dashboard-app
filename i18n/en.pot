@@ -5,8 +5,9 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-06-11T18:11:18.693Z\n"
-"PO-Revision-Date: 2018-06-11T18:11:18.693Z\n"
+"POT-Creation-Date: 2018-06-14T13:19:04.393Z\n"
+"PO-Revision-Date: 2018-06-14T13:19:04.393Z\n"
+
 
 msgid "Delete"
 msgstr ""
@@ -59,19 +60,46 @@ msgstr ""
 msgid "Messages"
 msgstr ""
 
+msgid "Edit"
+msgstr ""
+
+msgid "Edit your interpretation"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "like"
+msgstr ""
+
+msgid "likes"
+msgstr ""
+
 msgid "You like this"
 msgstr ""
 
 msgid "Like"
 msgstr ""
 
+msgid "View in Visualizer"
+msgstr ""
+
 msgid "Reply"
+msgstr ""
+
+msgid "created"
 msgstr ""
 
 msgid "Add your reply"
 msgstr ""
 
+msgid "Interpretations"
+msgstr ""
+
 msgid "Add your interpretation"
+msgstr ""
+
+msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "Spacer"
@@ -101,6 +129,15 @@ msgstr ""
 msgid "more"
 msgstr ""
 
+<<<<<<< HEAD
+=======
+msgid "Text box"
+msgstr ""
+
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+
+>>>>>>> origin/master
 msgid "Add title here"
 msgstr ""
 
