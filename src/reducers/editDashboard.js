@@ -110,5 +110,9 @@ export const sGetEditDashboard = state => state.editDashboard;
 
 export const sGetIsEditing = state => !isEmpty(state.editDashboard);
 
+export const sGetIsNewDashboard = state => {
+    return !isEmpty(state.editDashboard) && sGetEditDashboard(state).id === '';
+};
+
 export const sGetEditDashboardItems = state =>
     orObject(sGetEditDashboard(state)).dashboardItems;

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-
+import { Link, withRouter } from 'react-router-dom';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 import arraySort from 'd2-utilizr/lib/arraySort';
 import Chip from './DashboardItemChip';
@@ -12,20 +12,18 @@ import {
     CONTROL_BAR_OUTER_HEIGHT_DIFF,
     getInnerHeight,
     getOuterHeight,
-} from './ControlBarContainer';
+} from './controlBarDimensions';
 
 import * as fromActions from '../actions';
 import * as fromReducers from '../reducers';
 import { orObject, orArray } from '../util';
 import { sGetSelectedId } from '../reducers/selected';
 import { apiPostControlBarRows } from '../api/controlBar';
-import { colors } from '../colors';
+
+import './ControlBarContainer.css';
 
 export const MIN_ROW_COUNT = 1;
 export const MAX_ROW_COUNT = 10;
-
-const onDashboardSelectWrapper = (id, name, onClick) => () =>
-    id && onClick(id, name);
 
 export class DashboardsBar extends Component {
     state = {
@@ -73,16 +71,12 @@ export class DashboardsBar extends Component {
         this.setState({ rows, isMaxHeight: !this.state.isMaxHeight });
     };
 
+    onSelectDashboard = () => {
+        this.props.history.push(`/${this.props.dashboards[0].id}`);
+    };
+
     render() {
-        const {
-            controlsStyle,
-            dashboards,
-            name,
-            selectedId,
-            onNewClick,
-            onChangeFilterName,
-            onSelectDashboard,
-        } = this.props;
+        const { dashboards, name, selectedId, onChangeFilterName } = this.props;
 
         const rowCount = this.state.isMaxHeight
             ? MAX_ROW_COUNT
@@ -103,26 +97,22 @@ export class DashboardsBar extends Component {
                 expandable={true}
             >
                 <div style={contentWrapperStyle}>
-                    <div style={orObject(controlsStyle).leftControls}>
+                    <div className="left-controls">
                         <Fragment>
-                            <D2IconButton
+                            <Link
                                 style={{
-                                    width: 36,
-                                    height: 36,
+                                    display: 'inline-block',
+                                    textDecoration: 'none',
                                     marginRight: 10,
                                 }}
-                                iconColor={colors.mediumGreen}
-                                onClick={onNewClick}
-                            />
+                                to={'/new'}
+                            >
+                                <D2IconButton />
+                            </Link>
                             <Filter
                                 name={name}
                                 onChangeName={onChangeFilterName}
-                                onKeypressEnter={onDashboardSelectWrapper(
-                                    orObject(orArray(dashboards)[0]).id,
-                                    orObject(orArray(dashboards)[0])
-                                        .displayName,
-                                    onSelectDashboard
-                                )}
+                                onKeypressEnter={this.onSelectDashboard}
                             />
                         </Fragment>
                     </div>
@@ -131,12 +121,8 @@ export class DashboardsBar extends Component {
                             key={dashboard.id}
                             label={dashboard.displayName}
                             starred={dashboard.starred}
+                            dashboardId={dashboard.id}
                             selected={dashboard.id === selectedId}
-                            onClick={onDashboardSelectWrapper(
-                                dashboard.id,
-                                dashboard.displayName,
-                                onSelectDashboard
-                            )}
                         />
                     ))}
                 </div>
@@ -159,10 +145,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-    onNewClick: fromActions.fromEditDashboard.acSetEditNewDashboard,
     onChangeHeight: fromActions.fromControlBar.acSetControlBarUserRows,
     onChangeFilterName: fromActions.fromDashboardsFilter.acSetFilterName,
-    onSelectDashboard: fromActions.tSelectDashboardById,
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
@@ -186,6 +170,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(
-    DashboardsBar
+export default withRouter(
+    connect(mapStateToProps, mapDispatchToProps, mergeProps)(DashboardsBar)
 );

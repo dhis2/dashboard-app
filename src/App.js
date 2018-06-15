@@ -5,13 +5,10 @@ import i18n from 'd2-i18n';
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
-
-import PageContainer from './PageContainer/PageContainer';
-import PageContainerSpacer from './PageContainer/PageContainerSpacer';
-import ControlBarContainer from './ControlBarContainer/ControlBarContainer';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import Dashboard from './Dashboard/Dashboard';
 import SnackbarMessage from './SnackbarMessage';
-
-import { fromDashboards, fromUser, fromControlBar } from './actions';
+import { fromUser, fromDashboards, fromControlBar } from './actions';
 
 import './App.css';
 
@@ -21,7 +18,7 @@ class App extends Component {
     componentDidMount() {
         const { store, d2 } = this.context;
         store.dispatch(fromUser.acReceivedUser(d2.currentUser));
-        store.dispatch(fromDashboards.tSetDashboards());
+        store.dispatch(fromDashboards.tFetchDashboards());
         store.dispatch(fromControlBar.tSetControlBarRows());
     }
 
@@ -36,9 +33,38 @@ class App extends Component {
         return (
             <div className="app-wrapper">
                 <HeaderBar />
-                <ControlBarContainer />
-                <PageContainerSpacer />
-                <PageContainer />
+                <Router>
+                    <Switch>
+                        <Route
+                            exact
+                            path="/"
+                            render={props => (
+                                <Dashboard {...props} mode="view" />
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/new"
+                            render={props => (
+                                <Dashboard {...props} mode="new" />
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/:dashboardId"
+                            render={props => (
+                                <Dashboard {...props} mode="view" />
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/:dashboardId/edit"
+                            render={props => (
+                                <Dashboard {...props} mode="edit" />
+                            )}
+                        />
+                    </Switch>
+                </Router>
                 <SnackbarMessage />
             </div>
         );

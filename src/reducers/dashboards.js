@@ -110,6 +110,10 @@ export const sGetFromState = state => state.dashboards;
 export const sGetById = (state, id) =>
     id ? sGetFromState(state).byId[id] : sGetFromState(state).byId;
 
+export const sDashboardsIsFetching = state => {
+    return sGetFromState(state).byId === null;
+};
+
 /**
  * Selector which returns the current dashboard items
  *

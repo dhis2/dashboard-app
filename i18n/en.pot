@@ -8,6 +8,7 @@ msgstr ""
 "POT-Creation-Date: 2018-06-14T13:19:04.393Z\n"
 "PO-Revision-Date: 2018-06-14T13:19:04.393Z\n"
 
+
 msgid "Delete"
 msgstr ""
 
@@ -20,13 +21,16 @@ msgstr ""
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
 
+msgid "Exit without saving"
+msgstr ""
+
+msgid "Go to dashboards"
+msgstr ""
+
 msgid "Save changes"
 msgstr ""
 
 msgid "Translate"
-msgstr ""
-
-msgid "Exit without saving"
 msgstr ""
 
 msgid "Search for a dashboard"
@@ -36,6 +40,15 @@ msgid "Show less"
 msgstr ""
 
 msgid "Show more"
+msgstr ""
+
+msgid "No access"
+msgstr ""
+
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+
+msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "All"
@@ -116,12 +129,15 @@ msgstr ""
 msgid "more"
 msgstr ""
 
+<<<<<<< HEAD
+=======
 msgid "Text box"
 msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
 
+>>>>>>> origin/master
 msgid "Add title here"
 msgstr ""
 
