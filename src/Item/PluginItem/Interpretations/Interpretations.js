@@ -72,7 +72,10 @@ class Interpretations extends Component {
     renderItems() {
         let Items = null;
         if (this.interpretationsLoaded()) {
-            const sorted = sortByDate(this.props.interpretations, 'created');
+            const sorted = sortByDate(
+                this.props.interpretations,
+                i18n.t('created')
+            );
             Items = sorted.map(interpretation => {
                 return (
                     <li style={style.interpretation} key={interpretation.id}>
@@ -91,12 +94,12 @@ class Interpretations extends Component {
         return (
             <div style={style.container}>
                 <h3 style={style.title}>
-                    Interpretations ({this.props.ids.length})
+                    {i18n.t('Interpretations')} ({this.props.ids.length})
                 </h3>
                 <ul style={style.list}>{this.renderItems()}</ul>
                 <InputField
                     placeholder={i18n.t('Add your interpretation')}
-                    onPost={this.postInterpretation}
+                    onSubmit={this.postInterpretation}
                     postText="Post"
                 />
             </div>

@@ -3,6 +3,8 @@ import {
     postInterpretationLike,
     deleteInterpretationLike,
     postInterpretationComment,
+    updateInterpretation,
+    updateInterpretationComment,
     deleteInterpretationComment,
     getInterpretation,
     postInterpretation,
@@ -15,7 +17,7 @@ import {
 // action creators
 
 export const addInterpretation = value => ({
-    type: actionTypes.ADD_INTERPRETATION,
+    type: actionTypes.RECEIVED_INTERPRETATION,
     value,
 });
 
@@ -73,6 +75,24 @@ export const tAddInterpretationComment = data => async dispatch => {
         return updateInterpretationInStore(data.id, dispatch);
     } catch (err) {
         return onError('Add Interpretation Comment', err);
+    }
+};
+
+export const tUpdateInterpretation = data => async dispatch => {
+    try {
+        await updateInterpretation(data);
+        return updateInterpretationInStore(data.id, dispatch);
+    } catch (err) {
+        return onError('Update Interpretation', err);
+    }
+};
+
+export const tUpdateInterpretationComment = data => async dispatch => {
+    try {
+        await updateInterpretationComment(data);
+        return updateInterpretationInStore(data.id, dispatch);
+    } catch (err) {
+        return onError('Update Interpretation Comment', err);
     }
 };
 

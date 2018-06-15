@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import i18n from 'd2-i18n';
 import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import PluginItemHeaderButtons from './ItemHeaderButtons';
@@ -200,7 +201,7 @@ class Item extends Component {
                 >
                     {!pluginIsAvailable ? (
                         <div style={style.textDiv}>
-                            Unable to load the plugin for this item
+                            {i18n.t('Unable to load the plugin for this item')}
                         </div>
                     ) : null}
                 </div>
