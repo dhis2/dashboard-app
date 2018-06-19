@@ -1,11 +1,15 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import ItemHeader from '../ItemHeader';
 import Line from '../../widgets/Line';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
-const AppItem = ({ item }, context) => {
+import { fromItemFilter } from '../../reducers';
+import { FILTER_USER_ORG_UNIT } from '../../actions/itemFilter';
+
+const AppItem = ({ item, itemFilter }, context) => {
     let appDetails;
 
     const appKey = item.appKey;
@@ -16,13 +20,27 @@ const AppItem = ({ item }, context) => {
         );
     }
 
+    let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`;
+
+    if (
+        itemFilter &&
+        itemFilter[FILTER_USER_ORG_UNIT] &&
+        itemFilter[FILTER_USER_ORG_UNIT].length
+    ) {
+        const ouIds = itemFilter[FILTER_USER_ORG_UNIT].map(
+            ouPath => ouPath.split('/').slice(-1)[0]
+        );
+
+        iframeSrc += `&userOrgUnit=${ouIds.join(',')}`;
+    }
+
     return appDetails && appDetails.name && appDetails.launchUrl ? (
         <Fragment>
             <ItemHeader title={appDetails.name} />
             <Line />
             <iframe
                 title={appDetails.name}
-                src={`${appDetails.launchUrl}?dashboardItemId=${item.id}`}
+                src={iframeSrc}
                 className="dashboard-item-content"
                 style={{
                     border: 'none',
@@ -56,4 +74,8 @@ AppItem.contextTypes = {
     d2: PropTypes.object,
 };
 
-export default AppItem;
+const mapStateToProps = state => ({
+    itemFilter: fromItemFilter.sGetFromState(state),
+});
+
+export default connect(mapStateToProps)(AppItem);
