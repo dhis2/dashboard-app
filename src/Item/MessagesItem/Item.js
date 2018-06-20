@@ -109,6 +109,11 @@ class MessagesItem extends Component {
             </Fragment>
         ) : null;
 
+    getMessageSender = msg => {
+        const latestMsg = msg.messages.slice(-1)[0];
+        return latestMsg.sender ? latestMsg.sender.displayName : '';
+    };
+
     getMessageItems = () => {
         const { messages } = this.props;
         const filteredMessages = messages.filter(msg => {
@@ -117,10 +122,6 @@ class MessagesItem extends Component {
 
         return sortByDate(filteredMessages, 'lastUpdated', false).map(
             (msg, i) => {
-                if (i < 6) {
-                    console.log('msg', msg);
-                }
-
                 const redirectToMsg = () => {
                     if (!this.props.editMode) {
                         document.location.href = this.messageHref(msg.id);
@@ -130,7 +131,7 @@ class MessagesItem extends Component {
                 let from;
                 switch (msg.messageType) {
                     case 'PRIVATE':
-                        from = `${msg.userFirstname} ${msg.userSurname}`;
+                        from = this.getMessageSender(msg);
                         break;
                     case 'SYSTEM':
                         from = 'System';
@@ -147,28 +148,23 @@ class MessagesItem extends Component {
                 }
 
                 const editClass = !this.props.editMode ? 'view' : null;
-                const classes = ['message-item', editClass].join(' ');
                 const readClass = !msg.read ? 'unread' : null;
-                const titleClasses = ['message-title', readClass].join(' ');
-
                 const latestMsg = msg.messages.slice(-1)[0];
-
-                const snippet = latestMsg.text;
+                const msgDate = latestMsg.lastUpdated;
 
                 return (
                     <li
-                        className={classes}
+                        className={`message-item ${editClass}`}
                         key={msg.id}
                         onClick={redirectToMsg}
                     >
-                        <p className={titleClasses}>
+                        <p className={`message-title ${readClass}`}>
                             {msg.displayName} ({msg.messageCount})
                         </p>
                         <p className="message-sender">
-                            {from} -{' '}
-                            {formatDate(msg.lastUpdated, this.state.uiLocale)}
+                            {from} - {formatDate(msgDate, this.state.uiLocale)}
                         </p>
-                        <p className="message-snippet">{snippet}</p>
+                        <p className="message-snippet">{latestMsg.text}</p>
                     </li>
                 );
             }
