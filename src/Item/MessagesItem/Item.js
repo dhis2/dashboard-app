@@ -120,55 +120,53 @@ class MessagesItem extends Component {
             return this.state.filter === 'unread' ? msg.read === false : true;
         });
 
-        return sortByDate(filteredMessages, 'lastUpdated', false).map(
-            (msg, i) => {
-                const redirectToMsg = () => {
-                    if (!this.props.editMode) {
-                        document.location.href = this.messageHref(msg.id);
-                    }
-                };
-
-                let from;
-                switch (msg.messageType) {
-                    case 'PRIVATE':
-                        from = this.getMessageSender(msg);
-                        break;
-                    case 'SYSTEM':
-                        from = 'System';
-                        break;
-                    case 'TICKET':
-                        from = 'Ticket';
-                        break;
-                    case 'VALIDATION_RESULT':
-                        from = 'Validation';
-                        break;
-                    default:
-                        from = '';
-                        break;
+        return filteredMessages.map((msg, i) => {
+            const redirectToMsg = () => {
+                if (!this.props.editMode) {
+                    document.location.href = this.messageHref(msg.id);
                 }
+            };
 
-                const editClass = !this.props.editMode ? 'view' : null;
-                const readClass = !msg.read ? 'unread' : null;
-                const latestMsg = msg.messages.slice(-1)[0];
-                const msgDate = latestMsg.lastUpdated;
-
-                return (
-                    <li
-                        className={`message-item ${editClass}`}
-                        key={msg.id}
-                        onClick={redirectToMsg}
-                    >
-                        <p className={`message-title ${readClass}`}>
-                            {msg.displayName} ({msg.messageCount})
-                        </p>
-                        <p className="message-sender">
-                            {from} - {formatDate(msgDate, this.state.uiLocale)}
-                        </p>
-                        <p className="message-snippet">{latestMsg.text}</p>
-                    </li>
-                );
+            let from;
+            switch (msg.messageType) {
+                case 'PRIVATE':
+                    from = this.getMessageSender(msg);
+                    break;
+                case 'SYSTEM':
+                    from = 'System';
+                    break;
+                case 'TICKET':
+                    from = 'Ticket';
+                    break;
+                case 'VALIDATION_RESULT':
+                    from = 'Validation';
+                    break;
+                default:
+                    from = '';
+                    break;
             }
-        );
+
+            const editClass = !this.props.editMode ? 'view' : null;
+            const readClass = !msg.read ? 'unread' : null;
+            const latestMsg = msg.messages.slice(-1)[0];
+            const msgDate = latestMsg.lastUpdated;
+
+            return (
+                <li
+                    className={`message-item ${editClass}`}
+                    key={msg.id}
+                    onClick={redirectToMsg}
+                >
+                    <p className={`message-title ${readClass}`}>
+                        {msg.displayName} ({msg.messageCount})
+                    </p>
+                    <p className="message-sender">
+                        {from} - {formatDate(msgDate, this.state.uiLocale)}
+                    </p>
+                    <p className="message-snippet">{latestMsg.text}</p>
+                </li>
+            );
+        });
     };
 
     render() {
