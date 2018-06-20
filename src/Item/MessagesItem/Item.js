@@ -11,8 +11,10 @@ import { colors } from '../../colors';
 
 import './MessagesItem.css';
 
+const PRIVATE = 'PRIVATE';
+
 const messageTypes = {
-    PRIVATE: 'Private',
+    [PRIVATE]: 'Private',
     VALIDATION_RESULT: 'Validation',
     TICKET: 'Ticket',
     SYSTEM: 'System',
@@ -74,7 +76,7 @@ class MessagesItem extends Component {
                 (document.location.href = this.getMessageHref(msg));
 
             const sender =
-                msg.messageType === 'PRIVATE'
+                msg.messageType === PRIVATE
                     ? this.getMessageSender(msg)
                     : messageTypes[msg.messageType];
 
