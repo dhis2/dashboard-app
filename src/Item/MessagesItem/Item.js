@@ -6,55 +6,27 @@ import i18n from 'd2-i18n';
 import ItemHeader from '../ItemHeader';
 import { fromMessages } from '../../reducers';
 import Line from '../../widgets/Line';
-import { colors } from '../../colors';
-import { formatDate, sortByDate } from '../../util';
+import { formatDate } from '../../util';
 
 import './MessagesItem.css';
 
+const messageTypes = {
+    PRIVATE: 'Private',
+    VALIDATION_RESULT: 'Validation',
+    TICKET: 'Ticket',
+    SYSTEM: 'System',
+};
+
 const style = {
-    activeButton: {
-        fontWeight: 'bold',
-        textDecoration: 'underline',
-    },
-    author: {
-        color: colors.darkGrey,
-        fontSize: '12px',
-        lineHeight: '14px',
-    },
-    button: {
-        background: 'transparent',
-        border: 'none',
-        color: colors.darkGrey,
-        cursor: 'pointer',
-        font: 'inherit',
-        fontSize: '12px',
-        height: '14px',
-        lineJeight: '14px',
-        marginRight: '10px',
-        padding: '0 !important',
-    },
-    date: {
-        color: colors.mediumGrey,
-        float: 'right',
-        fontSize: '12px',
-        lineHeight: '14px',
-        textAlign: 'right',
-    },
     list: {
         listStyleType: 'none',
         paddingLeft: '0px',
-    },
-    title: {
-        color: colors.darkGrey,
-        fontSize: '13px',
-        lineHeight: '17px',
     },
 };
 
 class MessagesItem extends Component {
     state = {
         uiLocale: '',
-        filter: 'all',
     };
 
     async componentDidMount() {
@@ -66,48 +38,9 @@ class MessagesItem extends Component {
     }
 
     messageHref = msg =>
-        this.props.editMode
-            ? '#'
-            : `${this.context.baseUrl}/dhis-web-messaging/#/${
-                  msg.messageType
-              }/${msg.id}`;
-
-    filterAll = () => {
-        this.setState({ filter: 'all' });
-    };
-
-    filterUnread = () => {
-        this.setState({ filter: 'unread' });
-    };
-
-    activeButtonStyle = Object.assign({}, style.button, style.activeButton);
-
-    getActionButtonStyle = buttonName =>
-        buttonName === this.state.filter
-            ? this.activeButtonStyle
-            : style.button;
-
-    getActionButtons = () =>
-        !this.props.editMode ? (
-            <Fragment>
-                <button
-                    className="messages-action-button"
-                    type="button"
-                    style={this.getActionButtonStyle('all')}
-                    onClick={this.filterAll}
-                >
-                    {i18n.t('All')}
-                </button>
-                <button
-                    className="messages-action-button"
-                    type="button"
-                    style={this.getActionButtonStyle('unread')}
-                    onClick={this.filterUnread}
-                >
-                    {i18n.t('Unread')}
-                </button>
-            </Fragment>
-        ) : null;
+        `${this.context.baseUrl}/dhis-web-messaging/#/${msg.messageType}/${
+            msg.id
+        }`;
 
     getMessageSender = msg => {
         const latestMsg = msg.messages.slice(-1)[0];
@@ -115,36 +48,17 @@ class MessagesItem extends Component {
     };
 
     getMessageItems = () => {
-        const { messages } = this.props;
-        const filteredMessages = messages.filter(msg => {
-            return this.state.filter === 'unread' ? msg.read === false : true;
-        });
-
-        return filteredMessages.map((msg, i) => {
+        return this.props.messages.map((msg, i) => {
             const redirectToMsg = () => {
                 if (!this.props.editMode) {
                     document.location.href = this.messageHref(msg.id);
                 }
             };
 
-            let from;
-            switch (msg.messageType) {
-                case 'PRIVATE':
-                    from = this.getMessageSender(msg);
-                    break;
-                case 'SYSTEM':
-                    from = 'System';
-                    break;
-                case 'TICKET':
-                    from = 'Ticket';
-                    break;
-                case 'VALIDATION_RESULT':
-                    from = 'Validation';
-                    break;
-                default:
-                    from = '';
-                    break;
-            }
+            const from =
+                msg.messageType === 'PRIVATE'
+                    ? this.getMessageSender(msg)
+                    : messageTypes[msg.messageType];
 
             const editClass = !this.props.editMode ? 'view' : null;
             const readClass = !msg.read ? 'unread' : null;
@@ -170,15 +84,11 @@ class MessagesItem extends Component {
     };
 
     render() {
-        const actionButtons = this.getActionButtons();
         const messageItems = this.getMessageItems();
 
         return (
             <Fragment>
-                <ItemHeader
-                    title={i18n.t('Messages')}
-                    actionButtons={actionButtons}
-                />
+                <ItemHeader title={i18n.t('Messages')} />
                 <Line />
                 <div className="dashboard-item-content">
                     <ul style={style.list}>{messageItems}</ul>

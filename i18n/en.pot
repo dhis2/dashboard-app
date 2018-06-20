@@ -5,9 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-06-14T13:19:04.393Z\n"
-"PO-Revision-Date: 2018-06-14T13:19:04.393Z\n"
-
+"POT-Creation-Date: 2018-06-20T12:02:59.462Z\n"
+"PO-Revision-Date: 2018-06-20T12:02:59.462Z\n"
 
 msgid "Delete"
 msgstr ""
@@ -49,12 +48,6 @@ msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
 
 msgid "Requested dashboard not found"
-msgstr ""
-
-msgid "All"
-msgstr ""
-
-msgid "Unread"
 msgstr ""
 
 msgid "Messages"
@@ -129,15 +122,9 @@ msgstr ""
 msgid "more"
 msgstr ""
 
-<<<<<<< HEAD
-=======
 msgid "Text box"
 msgstr ""
 
-msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr ""
-
->>>>>>> origin/master
 msgid "Add title here"
 msgstr ""
 
