@@ -44,11 +44,6 @@ const style = {
         listStyleType: 'none',
         paddingLeft: '0px',
     },
-    listitem: {
-        borderBottom: `1px solid ${colors.lightGrey}`,
-        paddingBottom: '10px',
-        margin: '0 5px 10px 5px',
-    },
     title: {
         color: colors.darkGrey,
         fontSize: '13px',
@@ -120,28 +115,64 @@ class MessagesItem extends Component {
             return this.state.filter === 'unread' ? msg.read === false : true;
         });
 
-        return sortByDate(filteredMessages, 'lastUpdated', false).map(msg => {
-            const listItemStyle = Object.assign({}, style.listitem, {
-                fontWeight: msg.read ? 'normal' : 'bold',
-            });
-            return (
-                <li style={listItemStyle} key={msg.id}>
-                    <div>
-                        <div style={style.author}>
-                            {msg.userFirstname} {msg.userSurname} ({
-                                msg.messageCount
-                            })
-                        </div>
-                        <div style={style.date}>
+        return sortByDate(filteredMessages, 'lastUpdated', false).map(
+            (msg, i) => {
+                if (i < 6) {
+                    console.log('msg', msg);
+                }
+
+                const redirectToMsg = () => {
+                    if (!this.props.editMode) {
+                        document.location.href = this.messageHref(msg.id);
+                    }
+                };
+
+                let from;
+                switch (msg.messageType) {
+                    case 'PRIVATE':
+                        from = `${msg.userFirstname} ${msg.userSurname}`;
+                        break;
+                    case 'SYSTEM':
+                        from = 'System';
+                        break;
+                    case 'TICKET':
+                        from = 'Ticket';
+                        break;
+                    case 'VALIDATION_RESULT':
+                        from = 'Validation';
+                        break;
+                    default:
+                        from = '';
+                        break;
+                }
+
+                const editClass = !this.props.editMode ? 'view' : null;
+                const classes = ['message-item', editClass].join(' ');
+                const readClass = !msg.read ? 'unread' : null;
+                const titleClasses = ['message-title', readClass].join(' ');
+
+                const latestMsg = msg.messages.slice(-1)[0];
+
+                const snippet = latestMsg.text;
+
+                return (
+                    <li
+                        className={classes}
+                        key={msg.id}
+                        onClick={redirectToMsg}
+                    >
+                        <p className={titleClasses}>
+                            {msg.displayName} ({msg.messageCount})
+                        </p>
+                        <p className="message-sender">
+                            {from} -{' '}
                             {formatDate(msg.lastUpdated, this.state.uiLocale)}
-                        </div>
-                        <a href={this.messageHref(msg)}>
-                            <span style={style.title}>{msg.displayName}</span>
-                        </a>
-                    </div>
-                </li>
-            );
-        });
+                        </p>
+                        <p className="message-snippet">{snippet}</p>
+                    </li>
+                );
+            }
+        );
     };
 
     render() {
