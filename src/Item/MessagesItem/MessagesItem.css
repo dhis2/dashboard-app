@@ -1,7 +1,3 @@
-.messages-action-button:focus {
-    outline: 0;
-}
-
 .message-item {
     border-bottom: 1px solid #eceff1;
     padding-bottom: 10px;
@@ -10,18 +6,15 @@
     overflow: hidden;
 }
 
+.message-item.view:hover {
+    cursor: pointer;
+}
+
 .message-title {
     font-size: 15px;
     line-height: 18px;
     margin: 0 0 5px 0;
     color: #000000;
-}
-
-.message-sender {
-    font-size: 13px;
-    line-height: 15px;
-    margin: 0;
-    color: #494949;
 }
 
 .message-title.unread {
@@ -32,16 +25,4 @@
     content: '●';
     color: #48a999;
     margin-right: 5px;
-}
-
-.message-snippet {
-    color: #494949;
-    font-size: 13px;
-    line-height: 15px;
-    max-height: 30px;
-    overflow: hidden;
-}
-
-.message-item.view:hover {
-    cursor: pointer;
 }

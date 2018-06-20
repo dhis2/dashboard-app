@@ -7,6 +7,7 @@ import ItemHeader from '../ItemHeader';
 import { fromMessages } from '../../reducers';
 import Line from '../../widgets/Line';
 import { formatDate } from '../../util';
+import { colors } from '../../colors';
 
 import './MessagesItem.css';
 
@@ -27,6 +28,19 @@ const style = {
         fontSize: '13px',
         marginBottom: '5px',
     },
+    sender: {
+        fontSize: '13px',
+        lineHeight: '15px',
+        margin: 0,
+        color: colors.darkGrey,
+    },
+    snippet: {
+        color: colors.darkGrey,
+        fontSize: '13px',
+        lineHeight: '15px',
+        maxHeight: '30px',
+        overflow: 'hidden',
+    },
 };
 
 class MessagesItem extends Component {
@@ -42,7 +56,7 @@ class MessagesItem extends Component {
         this.setState({ uiLocale });
     }
 
-    messageHref = msg => {
+    getMessageHref = msg => {
         const msgIdentifier = msg ? `#/${msg.messageType}/${msg.id}` : '';
         return `${this.context.baseUrl}/dhis-web-messaging/${msgIdentifier}`;
     };
@@ -53,19 +67,20 @@ class MessagesItem extends Component {
     };
 
     getMessageItems = () => {
-        return this.props.messages.map((msg, i) => {
+        const editClass = !this.props.editMode ? 'view' : null;
+
+        return this.props.messages.map(msg => {
             const redirectToMsg = () => {
                 if (!this.props.editMode) {
-                    document.location.href = this.messageHref(msg.id);
+                    document.location.href = this.getMessageHref(msg.id);
                 }
             };
 
-            const from =
+            const sender =
                 msg.messageType === 'PRIVATE'
                     ? this.getMessageSender(msg)
                     : messageTypes[msg.messageType];
 
-            const editClass = !this.props.editMode ? 'view' : null;
             const readClass = !msg.read ? 'unread' : null;
             const latestMsg = msg.messages.slice(-1)[0];
             const msgDate = latestMsg.lastUpdated;
@@ -79,10 +94,10 @@ class MessagesItem extends Component {
                     <p className={`message-title ${readClass}`}>
                         {msg.displayName} ({msg.messageCount})
                     </p>
-                    <p className="message-sender">
-                        {from} - {formatDate(msgDate, this.state.uiLocale)}
+                    <p style={style.sender}>
+                        {sender} - {formatDate(msgDate, this.state.uiLocale)}
                     </p>
-                    <p className="message-snippet">{latestMsg.text}</p>
+                    <p style={style.snippet}>{latestMsg.text}</p>
                 </li>
             );
         });
@@ -97,7 +112,7 @@ class MessagesItem extends Component {
                     <div className="dashboard-item-content">
                         <ul style={style.list}>{this.getMessageItems()}</ul>
                         <div style={style.seeAll}>
-                            <a href={this.messageHref()}>
+                            <a href={this.getMessageHref()}>
                                 {i18n.t('See all messages')}
                             </a>
                         </div>
