@@ -22,6 +22,11 @@ const style = {
         listStyleType: 'none',
         paddingLeft: '0px',
     },
+    seeAll: {
+        textAlign: 'center',
+        fontSize: '13px',
+        marginBottom: '5px',
+    },
 };
 
 class MessagesItem extends Component {
@@ -37,10 +42,10 @@ class MessagesItem extends Component {
         this.setState({ uiLocale });
     }
 
-    messageHref = msg =>
-        `${this.context.baseUrl}/dhis-web-messaging/#/${msg.messageType}/${
-            msg.id
-        }`;
+    messageHref = msg => {
+        const msgIdentifier = msg ? `#/${msg.messageType}/${msg.id}` : '';
+        return `${this.context.baseUrl}/dhis-web-messaging/${msgIdentifier}`;
+    };
 
     getMessageSender = msg => {
         const latestMsg = msg.messages.slice(-1)[0];
@@ -84,15 +89,20 @@ class MessagesItem extends Component {
     };
 
     render() {
-        const messageItems = this.getMessageItems();
-
         return (
             <Fragment>
                 <ItemHeader title={i18n.t('Messages')} />
                 <Line />
-                <div className="dashboard-item-content">
-                    <ul style={style.list}>{messageItems}</ul>
-                </div>
+                {this.props.messages.length > 0 && (
+                    <div className="dashboard-item-content">
+                        <ul style={style.list}>{this.getMessageItems()}</ul>
+                        <div style={style.seeAll}>
+                            <a href={this.messageHref()}>
+                                {i18n.t('See all messages')}
+                            </a>
+                        </div>
+                    </div>
+                )}
             </Fragment>
         );
     }
