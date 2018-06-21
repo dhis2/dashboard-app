@@ -72,8 +72,11 @@ class MessagesItem extends Component {
         const editClass = !this.props.editMode ? 'view' : null;
 
         return this.props.messages.map(msg => {
-            const redirectToMsg = () =>
-                (document.location.href = this.getMessageHref(msg));
+            const redirectToMsg = () => {
+                if (!this.props.editMode) {
+                    document.location.href = this.getMessageHref(msg);
+                }
+            };
 
             const sender =
                 msg.messageType === PRIVATE
