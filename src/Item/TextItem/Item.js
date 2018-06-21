@@ -73,11 +73,14 @@ const TextItem = props => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-    const items = ownProps.edit
+    const items = ownProps.editMode
         ? fromEditDashboard.sGetEditDashboardItems(state)
         : fromDashboards.sGetItems(state);
+
+    const item = items.find(item => item.id === ownProps.item.id);
+
     return {
-        text: items.find(item => item.id === ownProps.item.id).text || '',
+        text: item ? item.text : '',
     };
 };
 
