@@ -6,60 +6,48 @@ import i18n from 'd2-i18n';
 import ItemHeader from '../ItemHeader';
 import { fromMessages } from '../../reducers';
 import Line from '../../widgets/Line';
+import { formatDate } from '../../util';
 import { colors } from '../../colors';
-import { formatDate, sortByDate } from '../../util';
 
 import './MessagesItem.css';
 
+const PRIVATE = 'PRIVATE';
+
+const messageTypes = {
+    [PRIVATE]: 'Private',
+    VALIDATION_RESULT: 'Validation',
+    TICKET: 'Ticket',
+    SYSTEM: 'System',
+};
+
 const style = {
-    activeButton: {
-        fontWeight: 'bold',
-        textDecoration: 'underline',
-    },
-    author: {
-        color: colors.darkGrey,
-        fontSize: '12px',
-        lineHeight: '14px',
-    },
-    button: {
-        background: 'transparent',
-        border: 'none',
-        color: colors.darkGrey,
-        cursor: 'pointer',
-        font: 'inherit',
-        fontSize: '12px',
-        height: '14px',
-        lineJeight: '14px',
-        marginRight: '10px',
-        padding: '0 !important',
-    },
-    date: {
-        color: colors.mediumGrey,
-        float: 'right',
-        fontSize: '12px',
-        lineHeight: '14px',
-        textAlign: 'right',
-    },
     list: {
         listStyleType: 'none',
         paddingLeft: '0px',
     },
-    listitem: {
-        borderBottom: `1px solid ${colors.lightGrey}`,
-        paddingBottom: '10px',
-        margin: '0 5px 10px 5px',
+    seeAll: {
+        textAlign: 'center',
+        fontSize: '13px',
+        marginBottom: '5px',
     },
-    title: {
+    sender: {
+        fontSize: '13px',
+        lineHeight: '15px',
+        margin: 0,
+        color: colors.darkGrey,
+    },
+    snippet: {
         color: colors.darkGrey,
         fontSize: '13px',
-        lineHeight: '17px',
+        lineHeight: '15px',
+        maxHeight: '30px',
+        overflow: 'hidden',
     },
 };
 
 class MessagesItem extends Component {
     state = {
         uiLocale: '',
-        filter: 'all',
     };
 
     async componentDidMount() {
@@ -70,94 +58,68 @@ class MessagesItem extends Component {
         this.setState({ uiLocale });
     }
 
-    messageHref = msg =>
-        this.props.editMode
-            ? '#'
-            : `${this.context.baseUrl}/dhis-web-messaging/#/${
-                  msg.messageType
-              }/${msg.id}`;
-
-    filterAll = () => {
-        this.setState({ filter: 'all' });
+    getMessageHref = msg => {
+        const msgIdentifier = msg ? `#/${msg.messageType}/${msg.id}` : '';
+        return `${this.context.baseUrl}/dhis-web-messaging/${msgIdentifier}`;
     };
 
-    filterUnread = () => {
-        this.setState({ filter: 'unread' });
+    getMessageSender = msg => {
+        const latestMsg = msg.messages.slice(-1)[0];
+        return latestMsg.sender ? latestMsg.sender.displayName : '';
     };
-
-    activeButtonStyle = Object.assign({}, style.button, style.activeButton);
-
-    getActionButtonStyle = buttonName =>
-        buttonName === this.state.filter
-            ? this.activeButtonStyle
-            : style.button;
-
-    getActionButtons = () =>
-        !this.props.editMode ? (
-            <Fragment>
-                <button
-                    className="messages-action-button"
-                    type="button"
-                    style={this.getActionButtonStyle('all')}
-                    onClick={this.filterAll}
-                >
-                    {i18n.t('All')}
-                </button>
-                <button
-                    className="messages-action-button"
-                    type="button"
-                    style={this.getActionButtonStyle('unread')}
-                    onClick={this.filterUnread}
-                >
-                    {i18n.t('Unread')}
-                </button>
-            </Fragment>
-        ) : null;
 
     getMessageItems = () => {
-        const { messages } = this.props;
-        const filteredMessages = messages.filter(msg => {
-            return this.state.filter === 'unread' ? msg.read === false : true;
-        });
+        const editClass = !this.props.editMode ? 'view' : null;
 
-        return sortByDate(filteredMessages, 'lastUpdated', false).map(msg => {
-            const listItemStyle = Object.assign({}, style.listitem, {
-                fontWeight: msg.read ? 'normal' : 'bold',
-            });
+        return this.props.messages.map(msg => {
+            const redirectToMsg = () => {
+                if (!this.props.editMode) {
+                    document.location.href = this.getMessageHref(msg);
+                }
+            };
+
+            const sender =
+                msg.messageType === PRIVATE
+                    ? this.getMessageSender(msg)
+                    : messageTypes[msg.messageType];
+
+            const readClass = !msg.read ? 'unread' : null;
+            const latestMsg = msg.messages.slice(-1)[0];
+            const msgDate = latestMsg.lastUpdated;
+
             return (
-                <li style={listItemStyle} key={msg.id}>
-                    <div>
-                        <div style={style.author}>
-                            {msg.userFirstname} {msg.userSurname} ({
-                                msg.messageCount
-                            })
-                        </div>
-                        <div style={style.date}>
-                            {formatDate(msg.lastUpdated, this.state.uiLocale)}
-                        </div>
-                        <a href={this.messageHref(msg)}>
-                            <span style={style.title}>{msg.displayName}</span>
-                        </a>
-                    </div>
+                <li
+                    className={`message-item ${editClass}`}
+                    key={msg.id}
+                    onClick={redirectToMsg}
+                >
+                    <p className={`message-title ${readClass}`}>
+                        {msg.displayName} ({msg.messageCount})
+                    </p>
+                    <p style={style.sender}>
+                        {sender} - {formatDate(msgDate, this.state.uiLocale)}
+                    </p>
+                    <p style={style.snippet}>{latestMsg.text}</p>
                 </li>
             );
         });
     };
 
     render() {
-        const actionButtons = this.getActionButtons();
-        const messageItems = this.getMessageItems();
-
         return (
             <Fragment>
-                <ItemHeader
-                    title={i18n.t('Messages')}
-                    actionButtons={actionButtons}
-                />
+                <ItemHeader title={i18n.t('Messages')} />
                 <Line />
-                <div className="dashboard-item-content">
-                    <ul style={style.list}>{messageItems}</ul>
-                </div>
+                {this.props.messages.length > 0 && (
+                    <div className="dashboard-item-content">
+                        <ul style={style.list}>{this.getMessageItems()}</ul>
+                        <div style={style.seeAll}>
+                            <a href={this.getMessageHref()}>
+                                {i18n.t('See all messages')}
+                            </a>
+                        </div>
+                    </div>
+                )}
             </Fragment>
         );
     }
