@@ -25,4 +25,6 @@
     content: '●';
     color: #48a999;
     margin-right: 5px;
+    position: relative;
+    top: -1px;
 }
