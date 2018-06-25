@@ -10,6 +10,7 @@ const GRID_LAYOUT = 'FLEXIBLE'; // FIXED | FLEXIBLE
 export const MARGIN = [10, 10];
 
 export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 };
+export const ITEM_MIN_HEIGHT = 4;
 
 // Dimensions for getShape
 
