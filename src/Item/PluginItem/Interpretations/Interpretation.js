@@ -158,7 +158,7 @@ class Interpretation extends Component {
         }
     };
 
-    // ReactHtmlParser /Done
+    // ReactHtmlParser
     createMarkupFromLib = text => {
         if (text.startsWith('<p>') && text.endsWith('</p>')) {
             function transform(node) {
@@ -174,7 +174,7 @@ class Interpretation extends Component {
         }
     };
 
-    //dangerouslySet /Done
+    //dangerouslySet with sanitizeHtml package
     sanitizeMarkup = text => {
         const sanitized = sanitizeHtml(text, {
             allowedTags: ['a', 'img', 'b', 'i', 'p'],
