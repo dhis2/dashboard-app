@@ -20,6 +20,7 @@ import DeleteItemButton from './DeleteItemButton';
 import {
     GRID_ROW_HEIGHT,
     GRID_COMPACT_TYPE,
+    ITEM_MIN_HEIGHT,
     MARGIN,
     getGridColumns,
     hasShape,
@@ -101,6 +102,7 @@ export class ItemGrid extends Component {
 
             return Object.assign({}, item, hProp, {
                 i: item.id,
+                minH: ITEM_MIN_HEIGHT,
             });
         });
 
