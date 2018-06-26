@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 import TranslationDialog from 'd2-ui/lib/i18n/TranslationDialog.component';
 import ConfirmDeleteDialog from '../ConfirmDeleteDialog';
+import PrimaryButton from '../../widgets/PrimaryButton';
 import FlatButton from '../../widgets/FlatButton';
 import { EditBar } from '../EditBar';
 import { getStubContext } from '../../../config/testsContext';
