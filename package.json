@@ -1,6 +1,6 @@
 {
     "name": "dashboards-app",
-    "version": "30.0.1",
+    "version": "30.0.2",
     "description": "DHIS2 Dashboards app",
     "private": true,
     "license": "BSD-3-Clause",
@@ -77,27 +77,23 @@
     },
     "scripts": {
         "documentation": "./node_modules/.bin/jsdoc -c jsdoc.json",
-        "prestart":
-            "npm run localize && d2-manifest package.json ./public/manifest.webapp",
+        "prestart": "npm run localize && d2-manifest package.json ./public/manifest.webapp",
         "start": "node scripts/start.js",
         "build": "npm run localize && node scripts/build.js",
         "coverage": "npm test -- --coverage",
         "test": "node scripts/test.js --env=jsdom",
         "lint": "eslint -c .eslintrc.json src",
-        "prebuild":
-            "rm -rf build && npm run lint && mkdir build && npm run manifest",
+        "prebuild": "rm -rf build && npm run lint && mkdir build && npm run manifest",
         "postbuild": "cp -r public/i18n build",
         "manifest": "d2-manifest package.json build/manifest.webapp",
         "deploy": "npm run build && mvn clean deploy",
         "prettify": "prettier \"src/{**/*,*}.js\" --write",
-        "localize":
-            "npm run extract-pot && d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/",
+        "localize": "npm run extract-pot && d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/",
         "extract-pot": "d2-i18n-extract -p src/ -o i18n/"
     },
     "husky": {
         "hooks": {
-            "pre-commit":
-                "yarn extract-pot && CI=true yarn test && git add ./i18n/"
+            "pre-commit": "yarn extract-pot && CI=true yarn test && git add ./i18n/"
         }
     },
     "manifest.webapp": {
@@ -124,7 +120,9 @@
         }
     },
     "jest": {
-        "collectCoverageFrom": ["src/**/*.{js,jsx,mjs}"],
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx,mjs}"
+        ],
         "setupFiles": [
             "<rootDir>/config/polyfills.js",
             "<rootDir>/config/shim.js"
@@ -139,10 +137,11 @@
         "transform": {
             "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
             "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-            "^(?!.*\\.(js|jsx|mjs|css|json)$)":
-                "<rootDir>/config/jest/fileTransform.js"
+            "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
         },
-        "transformIgnorePatterns": ["/node_modules/(?!d2-ui).+\\.js$"],
+        "transformIgnorePatterns": [
+            "/node_modules/(?!d2-ui).+\\.js$"
+        ],
         "moduleNameMapper": {
             "^react-native$": "react-native-web"
         },
@@ -157,7 +156,9 @@
         ]
     },
     "babel": {
-        "presets": ["react-app"]
+        "presets": [
+            "react-app"
+        ]
     },
     "eslintConfig": {
         "extends": "react-app"
