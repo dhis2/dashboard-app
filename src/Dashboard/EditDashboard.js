@@ -8,6 +8,13 @@ import DashboardContent from './DashboardContent';
 import NoContentMessage from '../widgets/NoContentMessage';
 import { acSetEditDashboard } from '../actions/editDashboard';
 
+const Content = ({ updateAccess }) => {
+    return updateAccess ? (
+        <DashboardContent editMode={true} />
+    ) : (
+        <NoContentMessage text={i18n.t('No access')} />
+    );
+};
 class EditDashboard extends Component {
     state = {
         initialized: false,
@@ -31,20 +38,14 @@ class EditDashboard extends Component {
     }
 
     getDashboardContent = () => {
-        const Content = () => {
-            return this.props.updateAccess ? (
-                <DashboardContent editMode={true} />
-            ) : (
-                <NoContentMessage text={i18n.t('No access')} />
-            );
-        };
-
         const contentNotReady =
             !this.props.dashboardsLoaded || this.props.selectedId === null;
 
         return (
             <div className="dashboard-wrapper">
-                {contentNotReady ? null : <Content />}
+                {contentNotReady ? null : (
+                    <Content updateAccess={this.props.updateAccess} />
+                )}
             </div>
         );
     };

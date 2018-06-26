@@ -1,10 +1,11 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ViewDashboard from './ViewDashboard';
 import EditDashboard from './EditDashboard';
 import NewDashboard from './NewDashboard';
 import { fromDashboards } from '../actions';
 import { sDashboardsIsFetching } from '../reducers/dashboards';
+import { EDIT, NEW } from './dashboardModes';
 
 class Dashboard extends Component {
     setDashboard = () => {
@@ -22,19 +23,15 @@ class Dashboard extends Component {
         this.setDashboard();
     }
 
-    getDashboard = () => {
+    render() {
         switch (this.props.mode) {
-            case 'edit':
+            case EDIT:
                 return <EditDashboard />;
-            case 'new':
+            case NEW:
                 return <NewDashboard />;
             default:
                 return <ViewDashboard />;
         }
-    };
-
-    render() {
-        return <Fragment>{this.getDashboard()}</Fragment>;
     }
 }
 
