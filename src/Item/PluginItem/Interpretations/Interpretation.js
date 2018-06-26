@@ -158,7 +158,7 @@ class Interpretation extends Component {
         }
     };
 
-    // ReactHtmlParser
+    // ReactHtmlParser (Interpretations made within the app with links/emoticons comes with a paragraph tag)
     createMarkupFromLib = text => {
         if (text.startsWith('<p>') && text.endsWith('</p>')) {
             function transform(node) {
@@ -170,6 +170,7 @@ class Interpretation extends Component {
             return ReactHtmlParser(text, { transform });
             //return ReactHtmlParser(text.substring(3, text.length - 4));
         } else {
+            // avoid nested <p> and the validateDOMnesting warning
             return <p style={style.text}> {text} </p>;
         }
     };
@@ -197,7 +198,7 @@ class Interpretation extends Component {
         ) : (
             /*<p
                 style={style.text}
-                dangerouslySetInnerHTML={this.createMarkup(item.text)}
+                dangerouslySetInnerHTML={this.sanitizeMarkup(item.text)}
             />*/
             this.createMarkupFromLib(item.text)
         );
