@@ -161,16 +161,17 @@ class Interpretation extends Component {
     // ReactHtmlParser (Interpretations made within the app with links/emoticons comes with a paragraph tag)
     createMarkupFromLib = text => {
         if (text.startsWith('<p>') && text.endsWith('</p>')) {
-            function transform(node) {
+            const transform = node => {
                 if (node.type === 'tag' && node.name === 'p') {
+                    //inject style to the existing paragraph tag
                     node.attribs.style =
                         'color:#494949;font-size:13px;line-height:17px;white-space:pre-line;word-wrap:break-word';
                 }
-            }
+            };
             return ReactHtmlParser(text, { transform });
             //return ReactHtmlParser(text.substring(3, text.length - 4));
         } else {
-            // avoid nested <p> and the validateDOMnesting warning
+            // avoid validateDOMnesting warning
             return <p style={style.text}> {text} </p>;
         }
     };
