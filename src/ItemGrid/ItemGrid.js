@@ -20,6 +20,7 @@ import DeleteItemButton from './DeleteItemButton';
 import {
     GRID_ROW_HEIGHT,
     GRID_COMPACT_TYPE,
+    ITEM_MIN_HEIGHT,
     MARGIN,
     getGridColumns,
     hasShape,
@@ -101,6 +102,7 @@ export class ItemGrid extends Component {
 
             return Object.assign({}, item, hProp, {
                 i: item.id,
+                minH: ITEM_MIN_HEIGHT,
             });
         });
 
@@ -162,21 +164,21 @@ ItemGrid.defaultProps = {
 
 // Container
 
-const mapStateToProps = state => {
-    const {
-        sGetSelectedDashboard,
-        sGetCurrentDashboardItems,
-        fromSelected,
-        fromEditDashboard,
-    } = fromReducers;
+const mapStateToProps = (state, ownProps) => {
+    const { fromSelected, fromEditDashboard, fromDashboards } = fromReducers;
 
-    const selectedDashboard = sGetSelectedDashboard(state);
+    const selectedDashboard = ownProps.edit
+        ? fromEditDashboard.sGetEditDashboard(state)
+        : fromDashboards.sGetById(state, fromSelected.sGetSelectedId(state));
+
+    const dashboardItems = ownProps.edit
+        ? fromEditDashboard.sGetEditDashboardItems(state)
+        : fromDashboards.sGetItems(state);
 
     return {
-        edit: fromEditDashboard.sGetIsEditing(state),
         isLoading:
             fromSelected.sGetSelectedIsLoading(state) || !selectedDashboard,
-        dashboardItems: sGetCurrentDashboardItems(state),
+        dashboardItems,
     };
 };
 
@@ -185,12 +187,12 @@ const mapDispatchToProps = {
     acRemoveDashboardItem,
 };
 
-const mergeProps = (stateProps, dispatchProps) => {
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const validItems = orArray(stateProps.dashboardItems).filter(hasShape);
 
     return {
         ...dispatchProps,
-        edit: stateProps.edit,
+        edit: ownProps.edit,
         isLoading: stateProps.isLoading,
         dashboardItems: validItems,
         onItemResize,
