@@ -1,13 +1,12 @@
 import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
+import i18n from 'd2-i18n';
 import { fromDashboards, fromSelected } from '../reducers';
-import EditDashboardContent from './EditDashboardContent';
 import DashboardVerticalOffset from './DashboardVerticalOffset';
 import EditBar from '../ControlBarContainer/EditBar';
-import {
-    acSetEditNewDashboard,
-    acSetEditDashboard,
-} from '../actions/editDashboard';
+import DashboardContent from './DashboardContent';
+import NoContentMessage from '../widgets/NoContentMessage';
+import { acSetEditDashboard } from '../actions/editDashboard';
 
 class EditDashboard extends Component {
     state = {
@@ -15,17 +14,9 @@ class EditDashboard extends Component {
     };
 
     initEditDashboard = () => {
-        if (this.props.mode === 'new') {
+        if (this.props.dashboard) {
             this.setState({ initialized: true });
-            this.props.setNewDashboard();
-        } else {
-            if (this.props.dashboard) {
-                this.setState({ initialized: true });
-                this.props.setEditDashboard(
-                    this.props.dashboard,
-                    this.props.items
-                );
-            }
+            this.props.setEditDashboard(this.props.dashboard, this.props.items);
         }
     };
 
@@ -39,12 +30,31 @@ class EditDashboard extends Component {
         }
     }
 
+    getDashboardContent = () => {
+        const Content = () => {
+            return this.props.updateAccess ? (
+                <DashboardContent editMode={true} />
+            ) : (
+                <NoContentMessage text={i18n.t('No access')} />
+            );
+        };
+
+        const contentNotReady =
+            !this.props.dashboardsLoaded || this.props.selectedId === null;
+
+        return (
+            <div className="dashboard-wrapper">
+                {contentNotReady ? null : <Content />}
+            </div>
+        );
+    };
+
     render() {
         return (
             <Fragment>
                 <EditBar />
                 <DashboardVerticalOffset />
-                <EditDashboardContent />
+                {this.getDashboardContent()}
             </Fragment>
         );
     }
@@ -56,15 +66,20 @@ const mapStateToProps = state => {
         ? fromDashboards.sGetById(state, selectedId)
         : null;
 
+    const updateAccess =
+        dashboard && dashboard.access ? dashboard.access.update : false;
+
     const items = fromDashboards.sGetItems(state);
 
     return {
         dashboard,
+        selectedId,
+        updateAccess,
         items,
+        dashboardsLoaded: !fromDashboards.sDashboardsIsFetching(state),
     };
 };
 
 export default connect(mapStateToProps, {
-    setNewDashboard: acSetEditNewDashboard,
     setEditDashboard: acSetEditDashboard,
 })(EditDashboard);
