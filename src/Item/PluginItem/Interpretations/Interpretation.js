@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import ReactHtmlParser from 'react-html-parser';
+import sanitizeHtml from 'sanitize-html';
 import i18n from 'd2-i18n';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import { fromUser } from '../../../reducers';
@@ -156,6 +158,34 @@ class Interpretation extends Component {
         }
     };
 
+    // ReactHtmlParser /Done
+    createMarkupFromLib = text => {
+        if (text.startsWith('<p>') && text.endsWith('</p>')) {
+            function transform(node) {
+                if (node.type === 'tag' && node.name === 'p') {
+                    node.attribs.style =
+                        'color:#494949;font-size:13px;line-height:17px;white-space:pre-line;word-wrap:break-word';
+                }
+            }
+            return ReactHtmlParser(text, { transform });
+            //return ReactHtmlParser(text.substring(3, text.length - 4));
+        } else {
+            return <p style={style.text}> {text} </p>;
+        }
+    };
+
+    //dangerouslySet /Done
+    sanitizeMarkup = text => {
+        const sanitized = sanitizeHtml(text, {
+            allowedTags: ['a', 'img', 'b', 'i', 'p'],
+            allowedAttributes: {
+                a: ['href'],
+                img: ['title', 'alt', 'width', 'height', 'src'],
+            },
+        });
+        return { __html: sanitized };
+    };
+
     renderCommentOrEditField = item => {
         return this.state.editId === item.id ? (
             <InputField
@@ -165,7 +195,11 @@ class Interpretation extends Component {
                 onSubmit={this.submitComment}
             />
         ) : (
-            <p style={style.text}>{item.text}</p>
+            /*<p
+                style={style.text}
+                dangerouslySetInnerHTML={this.createMarkup(item.text)}
+            />*/
+            this.createMarkupFromLib(item.text)
         );
     };
 
