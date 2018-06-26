@@ -6,8 +6,7 @@ import DashboardContent from './DashboardContent';
 import { acSetEditNewDashboard } from '../actions/editDashboard';
 
 class NewDashboard extends Component {
-    constructor(props) {
-        super(props);
+    componentDidMount() {
         this.props.setNewDashboard();
     }
 
