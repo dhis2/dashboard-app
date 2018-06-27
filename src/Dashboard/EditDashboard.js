@@ -15,7 +15,7 @@ const Content = ({ updateAccess }) => {
         <NoContentMessage text={i18n.t('No access')} />
     );
 };
-class EditDashboard extends Component {
+export class EditDashboard extends Component {
     state = {
         initialized: false,
     };
@@ -39,7 +39,7 @@ class EditDashboard extends Component {
 
     getDashboardContent = () => {
         const contentNotReady =
-            !this.props.dashboardsLoaded || this.props.selectedId === null;
+            !this.props.dashboardsLoaded || this.props.id === null;
 
         return (
             <div className="dashboard-wrapper">
@@ -62,21 +62,19 @@ class EditDashboard extends Component {
 }
 
 const mapStateToProps = state => {
-    const selectedId = fromSelected.sGetSelectedId(state);
-    const dashboard = selectedId
-        ? fromDashboards.sGetById(state, selectedId)
+    const id = fromSelected.sGetSelectedId(state);
+    const dashboard = id
+        ? fromDashboards.sGetById(state, id)
         : null;
 
     const updateAccess =
         dashboard && dashboard.access ? dashboard.access.update : false;
 
-    const items = fromDashboards.sGetItems(state);
-
     return {
         dashboard,
-        selectedId,
+        id,
         updateAccess,
-        items,
+        items: fromDashboards.sGetItems(state),
         dashboardsLoaded: !fromDashboards.sDashboardsIsFetching(state),
     };
 };
