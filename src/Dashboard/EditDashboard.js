@@ -63,9 +63,7 @@ export class EditDashboard extends Component {
 
 const mapStateToProps = state => {
     const id = fromSelected.sGetSelectedId(state);
-    const dashboard = id
-        ? fromDashboards.sGetById(state, id)
-        : null;
+    const dashboard = id ? fromDashboards.sGetById(state, id) : null;
 
     const updateAccess =
         dashboard && dashboard.access ? dashboard.access.update : false;

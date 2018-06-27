@@ -78,7 +78,6 @@ describe('EditDashboard', () => {
                 props.id = 'abc123';
             });
 
-
             describe('when updateAccess is true', () => {
                 it('renders DashboardContent', () => {
                     props.updateAccess = true;
