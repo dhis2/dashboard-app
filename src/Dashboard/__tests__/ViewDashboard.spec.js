@@ -1,56 +1,57 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ViewDashboardContent } from '../ViewDashboardContent';
-import TitleBar from '../../TitleBar/TitleBar';
-import ItemGrid from '../../ItemGrid/ItemGrid';
+import { ViewDashboard } from '../ViewDashboard';
+import { DashboardContent } from '../DashboardContent';
 import { NoContentMessage } from '../../widgets/NoContentMessage';
 
-describe('ViewDashboardContent', () => {
+describe('ViewDashboard', () => {
     let props;
-    let shallowViewDashboardContent;
-    const viewDashboardContent = () => {
-        if (!shallowViewDashboardContent) {
-            shallowViewDashboardContent = shallow(
-                <ViewDashboardContent {...props} />
-            );
+    let shallowViewDashboard;
+    const viewDashboard = () => {
+        if (!shallowViewDashboard) {
+            shallowViewDashboard = shallow(<ViewDashboard {...props} />);
         }
-        return shallowViewDashboardContent;
+        return shallowViewDashboard;
     };
 
-    const assertTitleAndGrid = () => {
-        const children = viewDashboardContent().children();
+    const assertDashboardContent = () => {
+        const children = viewDashboard()
+            .find('.dashboard-wrapper')
+            .children();
 
         expect(children.length).toBe(1);
         expect(children.dive().find(NoContentMessage)).toHaveLength(0);
-        expect(children.dive().find(TitleBar)).toHaveLength(1);
-        expect(children.dive().find(ItemGrid)).toHaveLength(1);
+        expect(children.dive().find(DashboardContent)).toHaveLength(1);
     };
 
     const assertNoContentMessage = () => {
-        const children = viewDashboardContent().children();
+        const children = viewDashboard()
+            .find('.dashboard-wrapper')
+            .children();
 
         expect(children.length).toBe(1);
         expect(children.dive().find(NoContentMessage)).toHaveLength(1);
-        expect(children.dive().find(ItemGrid)).toHaveLength(0);
+        expect(children.dive().find(DashboardContent)).toHaveLength(0);
     };
 
     beforeEach(() => {
         props = {
-            selectedId: undefined,
+            id: undefined,
             dashboardsIsEmpty: undefined,
             dashboardsLoaded: undefined,
         };
-        shallowViewDashboardContent = undefined;
-    });
-
-    it('renders a div', () => {
-        expect(viewDashboardContent().find('div').length).toBeGreaterThan(0);
+        shallowViewDashboard = undefined;
     });
 
     describe('when "dashboardsLoaded" is false', () => {
         it('does not render any children inside the div', () => {
             props.dashboardsLoaded = false;
-            expect(viewDashboardContent().children().length).toBe(0);
+
+            expect(
+                viewDashboard()
+                    .find('.dashboard-wrapper')
+                    .children().length
+            ).toBe(0);
         });
     });
 
@@ -59,10 +60,14 @@ describe('ViewDashboardContent', () => {
             props.dashboardsLoaded = true;
         });
 
-        describe('when "selectedId" is null', () => {
+        describe('when "id" is null', () => {
             it('does not render any children inside the div', () => {
-                props.selectedId = null;
-                expect(viewDashboardContent().children().length).toBe(0);
+                props.id = null;
+                expect(
+                    viewDashboard()
+                        .find('.dashboard-wrapper')
+                        .children().length
+                ).toBe(0);
             });
         });
 
@@ -81,19 +86,19 @@ describe('ViewDashboardContent', () => {
                 props.dashboardsIsEmpty = false;
             });
 
-            describe('when selectedId is not null or false', () => {
+            describe('when id is not null or false', () => {
                 beforeEach(() => {
-                    props.selectedId = '123xyz';
+                    props.id = '123xyz';
                 });
 
-                it('renders a TitleBar and ItemGrid', () => {
-                    assertTitleAndGrid();
+                it('renders DashboardContent', () => {
+                    assertDashboardContent();
                 });
             });
 
-            describe('when selectedId is false', () => {
+            describe('when id is false', () => {
                 beforeEach(() => {
-                    props.selectedId = false;
+                    props.id = false;
                 });
 
                 it('renders a NoContentMessage', () => {

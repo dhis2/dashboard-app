@@ -9,6 +9,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Dashboard from './Dashboard/Dashboard';
 import SnackbarMessage from './SnackbarMessage';
 import { fromUser, fromDashboards, fromControlBar } from './actions';
+import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes';
 
 import './App.css';
 
@@ -39,28 +40,28 @@ class App extends Component {
                             exact
                             path="/"
                             render={props => (
-                                <Dashboard {...props} mode="view" />
+                                <Dashboard {...props} mode={VIEW} />
                             )}
                         />
                         <Route
                             exact
                             path="/new"
                             render={props => (
-                                <Dashboard {...props} mode="new" />
+                                <Dashboard {...props} mode={NEW} />
                             )}
                         />
                         <Route
                             exact
                             path="/:dashboardId"
                             render={props => (
-                                <Dashboard {...props} mode="view" />
+                                <Dashboard {...props} mode={VIEW} />
                             )}
                         />
                         <Route
                             exact
                             path="/:dashboardId/edit"
                             render={props => (
-                                <Dashboard {...props} mode="edit" />
+                                <Dashboard {...props} mode={EDIT} />
                             )}
                         />
                     </Switch>

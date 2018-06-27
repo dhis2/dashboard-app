@@ -1,11 +1,11 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ViewDashboardContent from './ViewDashboardContent';
-import DashboardVerticalOffset from './DashboardVerticalOffset';
+import ViewDashboard from './ViewDashboard';
 import EditDashboard from './EditDashboard';
-import DashboardsBar from '../ControlBarContainer/DashboardsBar';
+import NewDashboard from './NewDashboard';
 import { fromDashboards } from '../actions';
 import { sDashboardsIsFetching } from '../reducers/dashboards';
+import { EDIT, NEW } from './dashboardModes';
 
 class Dashboard extends Component {
     setDashboard = () => {
@@ -24,17 +24,14 @@ class Dashboard extends Component {
     }
 
     render() {
-        return this.props.mode === 'view' ? (
-            <Fragment>
-                <DashboardsBar />
-                <DashboardVerticalOffset />
-                <ViewDashboardContent />
-            </Fragment>
-        ) : (
-            <Fragment>
-                <EditDashboard mode={this.props.mode} />
-            </Fragment>
-        );
+        switch (this.props.mode) {
+            case EDIT:
+                return <EditDashboard />;
+            case NEW:
+                return <NewDashboard />;
+            default:
+                return <ViewDashboard />;
+        }
     }
 }
 
