@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import TextField from 'd2-ui/lib/text-field/TextField';
 import Button from 'd2-ui/lib/button/Button';
 import { colors } from '../../../colors';
+
+import MentionsWrapper from '@dhis2/d2-ui-mentions-wrapper';
 
 const style = {
     button: {
@@ -47,16 +50,18 @@ class InputField extends Component {
         return (
             <div style={style.container}>
                 <div style={style.textField}>
-                    <TextField
-                        multiline
-                        value={this.state.newText}
-                        rows={1}
-                        rowsMax={8}
-                        fullWidth
-                        style={style.text}
-                        placeholder={this.props.placeholder}
-                        onChange={this.updateNewText}
-                    />
+                    <MentionsWrapper d2={this.context.d2}>
+                        <TextField
+                            multiline
+                            value={this.state.newText}
+                            rows={1}
+                            rowsMax={8}
+                            fullWidth
+                            style={style.text}
+                            placeholder={this.props.placeholder}
+                            onChange={this.updateNewText}
+                        />
+                    </MentionsWrapper>
                 </div>
                 <Button
                     disabled={!this.state.newText.length}
@@ -69,5 +74,23 @@ class InputField extends Component {
         );
     }
 }
+
+InputField.contextTypes = {
+    d2: PropTypes.object,
+};
+
+InputField.defaultProps = {
+    text: null,
+    placeholder: null,
+    postText: null,
+    onSubmit: null,
+};
+
+InputField.propTypes = {
+    text: PropTypes.string,
+    placeholder: PropTypes.string,
+    postText: PropTypes.string,
+    onSubmit: PropTypes.func,
+};
 
 export default InputField;
