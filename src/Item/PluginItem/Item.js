@@ -132,7 +132,15 @@ class Item extends Component {
         );
     };
 
+    getActiveType = () =>
+        this.props.visualization.activeType || this.props.item.type;
+
     onSelectVisualization = activeType => {
+        // Cancel request if type is already active
+        if (activeType === this.getActiveType()) {
+            return;
+        }
+
         pluginManager.unmount(
             this.props.item,
             this.props.visualization.activeType || this.props.item.type
