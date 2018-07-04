@@ -9,17 +9,7 @@ import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import { fromItemFilter } from '../../reducers';
 import { FILTER_USER_ORG_UNIT } from '../../actions/itemFilter';
 
-const AppItem = ({ item, itemFilter }, context) => {
-    let appDetails;
-
-    const appKey = item.appKey;
-
-    if (appKey) {
-        appDetails = context.d2.system.installedApps.find(
-            app => app.folderName === appKey
-        );
-    }
-
+const getIframeSrc = (appDetails, item, itemFilter) => {
     let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`;
 
     if (
@@ -34,13 +24,27 @@ const AppItem = ({ item, itemFilter }, context) => {
         iframeSrc += `&userOrgUnit=${ouIds.join(',')}`;
     }
 
+    return iframeSrc;
+};
+
+const AppItem = ({ item, itemFilter }, context) => {
+    let appDetails;
+
+    const appKey = item.appKey;
+
+    if (appKey) {
+        appDetails = context.d2.system.installedApps.find(
+            app => app.folderName === appKey
+        );
+    }
+
     return appDetails && appDetails.name && appDetails.launchUrl ? (
         <Fragment>
             <ItemHeader title={appDetails.name} />
             <Line />
             <iframe
                 title={appDetails.name}
-                src={iframeSrc}
+                src={getIframeSrc(appDetails, item, itemFilter)}
                 className="dashboard-item-content"
                 style={{
                     border: 'none',
