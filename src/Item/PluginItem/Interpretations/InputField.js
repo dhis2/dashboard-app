@@ -7,8 +7,8 @@ const style = {
     button: {
         height: '30px',
         width: '16.84px',
-        top: '5px',
-        left: '10px',
+        top: '10px',
+        left: '3px',
         color: colors.charcoalGrey,
         fontFamily: 'inherit',
         fontSize: '13px',
