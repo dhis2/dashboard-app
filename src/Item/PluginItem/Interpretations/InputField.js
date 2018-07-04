@@ -50,7 +50,10 @@ class InputField extends Component {
         return (
             <div style={style.container}>
                 <div style={style.textField}>
-                    <MentionsWrapper d2={this.context.d2}>
+                    <MentionsWrapper
+                        d2={this.context.d2}
+                        onUserSelect={this.updateNewText}
+                    >
                         <TextField
                             multiline
                             value={this.state.newText}
