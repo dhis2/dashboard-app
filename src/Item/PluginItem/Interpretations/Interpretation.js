@@ -283,8 +283,11 @@ class Interpretation extends Component {
                         text={this.getEditText(comment.id)}
                     />
                 )}
-                {this.hasDeleteAccess(comment.user.id) &&
-                    DeleteButton(() => this.deleteComment(comment.id))}
+                {this.hasDeleteAccess(comment.user.id) && (
+                    <DeleteButton
+                        action={() => this.deleteComment(comment.id)}
+                    />
+                )}
             </li>
         ));
 
