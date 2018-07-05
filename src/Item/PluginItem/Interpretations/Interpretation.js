@@ -72,29 +72,27 @@ const style = {
     },
 };
 
-const deleteButton = action => {
-    const iconStyle = Object.assign({}, style.icon, { fill: colors.red });
+const deleteButtonIconStyle = Object.assign({}, style.icon, {
+    fill: colors.red,
+});
 
-    return (
-        <button
-            className={actionButtonClass}
-            style={style.deleteButton}
-            onClick={action}
-        >
-            <SvgIcon style={iconStyle} icon="Delete" />
-            {i18n.t('Delete')}
-        </button>
-    );
-};
+const DeleteButton = ({ action }) => (
+    <button
+        className={actionButtonClass}
+        style={style.deleteButton}
+        onClick={action}
+    >
+        <SvgIcon style={deleteButtonIconStyle} icon="Delete" />
+        {i18n.t('Delete')}
+    </button>
+);
 
-const editButton = action => {
-    return (
-        <button className={actionButtonClass} onClick={action}>
-            <SvgIcon style={style.icon} icon="Create" />
-            {i18n.t('Edit')}
-        </button>
-    );
-};
+const EditButton = ({ action, text }) => (
+    <button className={actionButtonClass} onClick={action}>
+        <SvgIcon style={style.icon} icon="Create" />
+        {text}
+    </button>
+);
 
 class Interpretation extends Component {
     state = {
@@ -195,6 +193,9 @@ class Interpretation extends Component {
 
     userIsOwner = ownerId => ownerId === this.props.userId;
 
+    getEditText = id =>
+        id && id === this.state.editId ? i18n.t('Cancel edit') : i18n.t('Edit');
+
     renderActions() {
         const likes =
             this.props.interpretation.likedBy.length === 1
@@ -204,6 +205,7 @@ class Interpretation extends Component {
         const thumbsUpIcon = this.userLikesInterpretation()
             ? Object.assign({}, style.icon, { fill: colors.lightGreen })
             : style.icon;
+
         const likeText = this.userLikesInterpretation()
             ? i18n.t('You like this')
             : i18n.t('Like');
@@ -222,10 +224,14 @@ class Interpretation extends Component {
                     <SvgIcon style={style.icon} icon="Launch" />
                     {i18n.t('View in Visualizer')}
                 </a>
-                {this.userIsOwner(this.props.interpretation.user.id) &&
-                    editButton(() =>
-                        this.toggleEdit(this.props.interpretation.id)
-                    )}
+                {this.userIsOwner(this.props.interpretation.user.id) && (
+                    <EditButton
+                        action={() =>
+                            this.toggleEdit(this.props.interpretation.id)
+                        }
+                        text={this.getEditText(this.props.interpretation.id)}
+                    />
+                )}
                 <button
                     className={actionButtonClass}
                     onClick={this.toggleCommentField}
@@ -243,8 +249,9 @@ class Interpretation extends Component {
                 <span style={style.likes}>
                     {this.props.interpretation.likedBy.length} {likes}
                 </span>
-                {this.hasDeleteAccess(this.props.interpretation.user.id) &&
-                    deleteButton(this.deleteInterpretation)}
+                {this.hasDeleteAccess(this.props.interpretation.user.id) && (
+                    <DeleteButton action={this.deleteInterpretation} />
+                )}
             </div>
         );
     }
@@ -270,10 +277,17 @@ class Interpretation extends Component {
                     </span>
                 </div>
                 {this.renderCommentOrEditField(comment)}
-                {this.userIsOwner(comment.user.id) &&
-                    editButton(() => this.toggleEdit(comment.id))}
-                {this.hasDeleteAccess(comment.user.id) &&
-                    deleteButton(() => this.deleteComment(comment.id))}
+                {this.userIsOwner(comment.user.id) && (
+                    <EditButton
+                        action={() => this.toggleEdit(comment.id)}
+                        text={this.getEditText(comment.id)}
+                    />
+                )}
+                {this.hasDeleteAccess(comment.user.id) && (
+                    <DeleteButton
+                        action={() => this.deleteComment(comment.id)}
+                    />
+                )}
             </li>
         ));
 
