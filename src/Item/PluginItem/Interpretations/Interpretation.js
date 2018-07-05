@@ -72,7 +72,7 @@ const style = {
     },
 };
 
-const deleteButton = action => {
+const DeleteButton = action => {
     const iconStyle = Object.assign({}, style.icon, { fill: colors.red });
 
     return (
@@ -87,11 +87,11 @@ const deleteButton = action => {
     );
 };
 
-const editButton = action => {
+const EditButton = (action, text) => {
     return (
         <button className={actionButtonClass} onClick={action}>
             <SvgIcon style={style.icon} icon="Create" />
-            {i18n.t('Edit')}
+            {text}
         </button>
     );
 };
@@ -195,6 +195,9 @@ class Interpretation extends Component {
 
     userIsOwner = ownerId => ownerId === this.props.userId;
 
+    getEditText = id =>
+        id && id === this.state.editId ? i18n.t('Cancel edit') : i18n.t('Edit');
+
     renderActions() {
         const likes =
             this.props.interpretation.likedBy.length === 1
@@ -204,6 +207,7 @@ class Interpretation extends Component {
         const thumbsUpIcon = this.userLikesInterpretation()
             ? Object.assign({}, style.icon, { fill: colors.lightGreen })
             : style.icon;
+
         const likeText = this.userLikesInterpretation()
             ? i18n.t('You like this')
             : i18n.t('Like');
@@ -223,8 +227,9 @@ class Interpretation extends Component {
                     {i18n.t('View in Visualizer')}
                 </a>
                 {this.userIsOwner(this.props.interpretation.user.id) &&
-                    editButton(() =>
-                        this.toggleEdit(this.props.interpretation.id)
+                    EditButton(
+                        () => this.toggleEdit(this.props.interpretation.id),
+                        this.getEditText(this.props.interpretation.id)
                     )}
                 <button
                     className={actionButtonClass}
@@ -244,7 +249,7 @@ class Interpretation extends Component {
                     {this.props.interpretation.likedBy.length} {likes}
                 </span>
                 {this.hasDeleteAccess(this.props.interpretation.user.id) &&
-                    deleteButton(this.deleteInterpretation)}
+                    DeleteButton(this.deleteInterpretation)}
             </div>
         );
     }
@@ -271,9 +276,12 @@ class Interpretation extends Component {
                 </div>
                 {this.renderCommentOrEditField(comment)}
                 {this.userIsOwner(comment.user.id) &&
-                    editButton(() => this.toggleEdit(comment.id))}
+                    EditButton(
+                        () => this.toggleEdit(comment.id),
+                        this.getEditText(comment.id)
+                    )}
                 {this.hasDeleteAccess(comment.user.id) &&
-                    deleteButton(() => this.deleteComment(comment.id))}
+                    DeleteButton(() => this.deleteComment(comment.id))}
             </li>
         ));
 
