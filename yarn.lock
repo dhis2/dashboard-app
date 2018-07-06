@@ -29,9 +29,9 @@
   dependencies:
     i18next "^10.3"
 
-"@dhis2/d2-ui-mentions-wrapper@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-1.0.2.tgz#4fb85177c5fbac089380dd1326a95a43eb267698"
+"@dhis2/d2-ui-mentions-wrapper@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-1.0.3.tgz#e6baed67a53c3f8e71b92a99e21195f4a933d60b"
   dependencies:
     "@dhis2/d2-i18n" "^1.0.3"
     lodash "^4.17.10"
