@@ -4,6 +4,7 @@ import TextField from 'd2-ui/lib/text-field/TextField';
 import Button from 'd2-ui/lib/button/Button';
 import { colors } from '../../../colors';
 
+import RichTextEditor from '@dhis2/d2-ui-rich-text-editor';
 import MentionsWrapper from '@dhis2/d2-ui-mentions-wrapper';
 
 const style = {
@@ -54,16 +55,18 @@ class InputField extends Component {
                         d2={this.context.d2}
                         onUserSelect={this.updateNewText}
                     >
-                        <TextField
-                            multiline
-                            value={this.state.newText}
-                            rows={1}
-                            rowsMax={8}
-                            fullWidth
-                            style={style.text}
-                            placeholder={this.props.placeholder}
-                            onChange={this.updateNewText}
-                        />
+                        <RichTextEditor onEdit={this.updateNewText}>
+                            <TextField
+                                multiline
+                                value={this.state.newText}
+                                rows={1}
+                                rowsMax={8}
+                                fullWidth
+                                style={style.text}
+                                placeholder={this.props.placeholder}
+                                onChange={this.updateNewText}
+                            />
+                        </RichTextEditor>
                     </MentionsWrapper>
                 </div>
                 <Button
