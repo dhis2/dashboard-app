@@ -9,7 +9,7 @@ import { colors } from '../../../colors';
 import { formatDate, sortByDate } from '../../../util';
 import { getLink } from '../plugin';
 
-import RichTextWrapper from '@dhis2/d2-ui-rich-text-wrapper';
+import { Parser as RichTextParser } from '@dhis2/d2-ui-rich-text';
 
 import {
     tLikeInterpretation,
@@ -165,7 +165,7 @@ class Interpretation extends Component {
                 onSubmit={this.submitComment}
             />
         ) : (
-            <RichTextWrapper style={style.text}>{item.text}</RichTextWrapper>
+            <RichTextParser style={style.text}>{item.text}</RichTextParser>
         );
     };
 
