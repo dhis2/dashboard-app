@@ -86,9 +86,9 @@
         "test": "node scripts/test.js --env=jsdom",
         "lint": "eslint -c .eslintrc.json src",
         "prebuild": "rm -rf build && npm run lint && mkdir build && npm run manifest",
-        "postbuild": "cp -r public/i18n build",
+        "postbuild": "cp -r public/i18n build && cp ./package.json ./build/package.json",
         "manifest": "d2-manifest package.json build/manifest.webapp",
-        "deploy": "npm run build && mvn clean deploy",
+        "deploy": "deploy-build",
         "prettify": "prettier \"src/{**/*,*}.js\" --write",
         "localize": "npm run extract-pot && d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/",
         "extract-pot": "d2-i18n-extract -p src/ -o i18n/"
@@ -166,6 +166,7 @@
         "extends": "react-app"
     },
     "devDependencies": {
+        "@dhis2/deploy-build": "^1.0.4",
         "create-react-class": "^15.6.3",
         "d2-i18n-extract": "^1.x",
         "d2-i18n-generate": "^1.x",
