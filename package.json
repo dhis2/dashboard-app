@@ -1,5 +1,5 @@
 {
-    "name": "dashboards-app",
+    "name": "dashboard-app",
     "version": "30.0.10",
     "description": "DHIS2 Dashboards app",
     "private": true,
