@@ -273,11 +273,11 @@ module.exports = {
                 `${scriptPrefix}/dhis-web-core-resource/react-dom/16.2.0/umd/react-dom.production.min.js`,
                 `${scriptPrefix}/dhis-web-core-resource/jquery/3.2.1/dist/jquery.min.js`,
                 `${scriptPrefix}/dhis-web-core-resource/jquery-migrate/3.0.1/dist/jquery-migrate.min.js`,
-                `${scriptPrefix}/dhis-web-pivot-tables/reporttable.js`,
-                `${scriptPrefix}/dhis-web-charts/chart.js`,
+                `${scriptPrefix}/dhis-web-pivot/reporttable.js`,
+                `${scriptPrefix}/dhis-web-visualizer/chart.js`,
                 `${scriptPrefix}/dhis-web-maps/map.js`,
                 `${scriptPrefix}/dhis-web-event-reports/eventreport.js`,
-                `${scriptPrefix}/dhis-web-event-charts/eventchart.js`,
+                `${scriptPrefix}/dhis-web-event-visualizer/eventchart.js`,
             ]
                 .map(asset => {
                     return /\.js$/.test(asset)
