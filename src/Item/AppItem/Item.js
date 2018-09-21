@@ -34,7 +34,7 @@ const AppItem = ({ item, itemFilter }, context) => {
 
     if (appKey) {
         appDetails = context.d2.system.installedApps.find(
-            app => app.folderName === appKey
+            app => app.key === appKey
         );
     }
 
