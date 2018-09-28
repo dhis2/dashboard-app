@@ -10,10 +10,21 @@ before_script:
   > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
 - "./cc-test-reporter before-build"
+- npm install --global @dhis2/deploy-build
 script:
 - npm run lint
 - npm run coverage
 - npm run build
-- npm run deploy
 after_script:
 - "./cc-test-reporter after-build -d --exit-code $TRAVIS_TEST_RESULT"
+deploy:
+- provider: script
+  script: deploy-build
+  skip_cleanup: true
+  on:
+    all_branches: true
+- provider: script
+  script: publish-build
+  skip_cleanup: true
+  on:
+    tags: true
