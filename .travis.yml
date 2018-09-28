@@ -1,23 +1,30 @@
 language: node_js
 node_js:
-- 8.11.1
+- '8'
 env:
   global:
   - CC_TEST_REPORTER_ID=daeae58060a32f8d37e835457e8b2a1f9af55a38694826f4f6628a30383314f6
-  - secure: A+TbCIUGVS2iZZvVqsMtjxwswYbjielkltK4rgDKeOLRpGV6UNQK2Y6Zx6haNaNBQ3m+9AN/Ofz3Xt5BL6F4bGf9vwdyZy/CkUlqkqfr9lFgUnrA8Hw/w25/JM8k1P41VdDBMk83AfKNJgSmXHnQWhu239u9jVABYt2FRTBmGB14qv0kmIT16I2pAPrwl96KnH7KlIojgx/z1E2K07vmiZEKAO7f31fkKfoDGIjCpOHq6T0/VoGDjrQLvnpMVDHi0IAyuTkgtpz/nOHPiLSgEQD9ewlLhVVpt9jQcx4uwEvU5ZDpUxulOzN4v+o3IweTzMRCrr9NB0PAJlR9t840xCjfeU02hNU3XlsNx16HV68qXgsRZCSLIcvNT3lqhbv6+Nf44WFjc0HWAXQjPY60BHxLP2JgsIJxcIqeu79eQuZ2wZG0GjDiBZfFwlUbS3vNAHYecpyhEUUQoRTBrO4bp+YgC0a30S6eGvOdXq4ThGVK4wz8W6GN58Afu7+wj8c5/DFzQvCRcp4en3z2ZTj/1EHIVp9zFekPUq3Xw2+2U1t8qQ2hN+MJ4ymZYeZfEIB4iLiXs9t9WRzXxI8Pq5GaatKryAoAk0FYpbKRlw+LJ0hvmfLkKkAgDq45JXj0jLzgJsowqfQw85Olyathl4r6HbZw+r4+IFxJiwO2vymSwZ8=
-  - secure: xJqt1JEtBJ0W9ZW+vMwYsZRL5kP7AzhV0O1v7nrWsRP+OyHzWEPvZhVmR9jc+HYVcVbTGAbOSjyAy/T+7c//AgjkpsKcztRnQT8zcgl14RGg8h/9D2KX/sasu+J/ee+oY+RqtwjI1hNzVB0Sm+nIAXnRHaO+1NjRVM45tn0s/MYpA9PPFT/tOusorhZi8qlykweCn7MdsLU7IGT0+VOtfJkDbHVi3zrFV9mX96mQLsfWZTtLSkFvDSvr+MA2CNvm2BMhjELzIipDygT9IZI7o3VQeR/kZ6rmx6ueNN+HEkyw2l5lyg0iG/fX/Ii6SDyAldg2jK2BYW3oTv0ml54QP0mjvcsP2wNT8FUIFAb3BD4XE/UgrJu9QVyHsfj2Y119kjzODQGfTGcokSOKVQmX4KliLx1cg9nAWAXM+ouvSxzHsiJ7URmnRaqMzP5JnQsrtIgBPFdyltOjb2d0ytVdb3MmmF26KugorppIaaQBZxrDOhXc1UBrw3Ne4+Ju7bOU5fYDPIJ8c97GqaiP+m+KSpWV9ikfp+dnG1EjIli8oc2yqrTsHBkgZZhUaXLOyMyVGxSHswJi3aepvyPZT13eSLA/MskaAdMPme4ReT+Xj5zVKjkZtLn+KcFZXyWLeYFYp9caMuLbmP/+nYfh9JYEnVfN+jPQD7Bjn2C1E4lwwPQ=
+  - secure: L/VfchxLzvDlaUL3GDNiRXqA9UMkqIoXXs3FteMdoo07mOaWfqA0PN/MnOwwsw8UwC5J+2LstxLyi/AN1mjs+2vMUeZGMMZKf40My10XiPZCHp0/uxRjEa9nZuQ0OIZBAwTOqp60qGPbK/h4PAcit3Wk0XPPYpL/FXReVDubIeLn72rvr9BnnYrBsIBS6/3bfZUT1bpLr2nadB1NerdN+UPl1oOVq6VS6CQ/NmGL0lSqsZfk6q+g2X9tkjeO37UYL40+9MGDq5pLBX0r8jCdiXknQciFx/AvCitiZ0sme8pX7uIz8P5ikFQKIRlD9DNJe2/q7f7DjR30gzg4BOQotIKvcFAuucGWGZpEQKdqv5XheXG2C0M/0uGOSun+kgTzTpr5e1qpYqt6HXYfN9HXcaJ3bMcriS1qjgo33ipLJTUotI85xQUiRpUFczPJ20D5u65NpUvOpP9+QO1vp2HdLW8yF+TT1qAwjunKZUwKbKdtnEAWDJArmdWZbpd6gHRu1e1IdKSZo5b1P0wABHXfGZExduhu+N6/LYVe1WBffLBD33gaJvZvf1E4aonNSzkhYLVQ9QOV4K/YIv4lGiKZeNrLvK5Ws9+WJPGMLsn6nLTzpPPQY4JzuVJRHQnsvgW/VjhP0URsPxUzQCQdZkQcjyainz/7cO9W1jS3foouDpk=
 before_script:
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
   > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
 - "./cc-test-reporter before-build"
+- npm install --global @dhis2/deploy-build
 script:
-- yarn lint
-- yarn coverage
-- yarn build
+- npm run lint
+- npm run coverage
+- npm run build
 after_script:
 - "./cc-test-reporter after-build -d --exit-code $TRAVIS_TEST_RESULT"
-after_success:
-- if ( [ "$TRAVIS_BRANCH" == "master" ] || [ ! -z "$TRAVIS_TAG" ] ) && [ "$TRAVIS_REPO_SLUG"
-  == "dhis2/dashboards-app" ]  &&  [ "$TRAVIS_PULL_REQUEST" == "false" ] ; then
-  mvn clean deploy --settings deploy/settings.xml && exit 0; fi
+deploy:
+- provider: script
+  script: deploy-build
+  skip_cleanup: true
+  on:
+    all_branches: true
+- provider: script
+  script: publish-build
+  skip_cleanup: true
+  on:
+    tags: true

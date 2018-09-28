@@ -1,5 +1,5 @@
 {
-    "name": "dashboards-app",
+    "name": "dashboard-app",
     "version": "30.0.10",
     "description": "DHIS2 Dashboards app",
     "private": true,
@@ -86,9 +86,8 @@
         "test": "node scripts/test.js --env=jsdom",
         "lint": "eslint -c .eslintrc.json src",
         "prebuild": "rm -rf build && npm run lint && mkdir build && npm run manifest",
-        "postbuild": "cp -r public/i18n build",
+        "postbuild": "cp -r public/i18n build && cp ./package.json ./build/package.json",
         "manifest": "d2-manifest package.json build/manifest.webapp",
-        "deploy": "npm run build && mvn clean deploy",
         "prettify": "prettier \"src/{**/*,*}.js\" --write",
         "localize": "npm run extract-pot && d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/",
         "extract-pot": "d2-i18n-extract -p src/ -o i18n/"
