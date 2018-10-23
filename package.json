@@ -86,7 +86,7 @@
         "test": "node scripts/test.js --env=jsdom",
         "lint": "eslint -c .eslintrc.json src",
         "prebuild": "rm -rf build && npm run lint && mkdir build && npm run manifest",
-        "postbuild": "cp -r public/i18n build && cp ./package.json ./build/package.json",
+        "postbuild": "cp -r public/i18n build",
         "manifest": "d2-manifest package.json build/manifest.webapp",
         "prettify": "prettier \"src/{**/*,*}.js\" --write",
         "localize": "npm run extract-pot && d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/",
