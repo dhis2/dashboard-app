@@ -112,7 +112,7 @@ class Interpretation extends Component {
         const visualizerHref = `${getLink(
             this.props.object,
             this.context.d2
-        )}&interpretationid=${this.props.interpretation.id}`;
+        )}/interpretation/${this.props.interpretation.id}`;
         this.setState({ visualizerHref });
     }
 
