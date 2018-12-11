@@ -1,12 +1,12 @@
 import { actionTypes } from '../reducers';
 import { apiFetchDashboard } from '../api/dashboards';
 import { acSetDashboardItems, acAppendDashboards } from './dashboards';
-import { withShape } from '../ItemGrid/gridUtil';
-import { tGetMessages } from '../Item/MessagesItem/actions';
+import { withShape } from '../components/ItemGrid/gridUtil';
+import { tGetMessages } from '../components/Item/MessagesItem/actions';
 import { acReceivedSnackbarMessage, acCloseSnackbar } from './snackbar';
 import { storePreferredDashboardId } from '../api/localStorage';
 import { fromUser, fromSelected } from '../reducers';
-import { loadingDashboardMsg } from '../SnackbarMessage';
+import { loadingDashboardMsg } from '../components/SnackbarMessage/SnackbarMessage';
 import {
     REPORT_TABLE,
     CHART,
@@ -15,7 +15,7 @@ import {
     EVENT_CHART,
     MESSAGES,
 } from '../itemTypes';
-import { extractFavorite } from '../Item/PluginItem/plugin';
+import { extractFavorite } from '../components/Item/PluginItem/plugin';
 import { getCustomDashboards, sGetById } from '../reducers/dashboards';
 import { orObject } from '../util';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from '../App';
-import SnackbarMessage from '../SnackbarMessage';
+import SnackbarMessage from '../components/SnackbarMessage/SnackbarMessage';
 
 describe('App', () => {
     let props;
