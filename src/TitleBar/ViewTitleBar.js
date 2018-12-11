@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import i18n from 'd2-i18n';
-import SharingDialog from 'd2-ui-sharing';
+import SharingDialog from '@dhis2/d2-ui-sharing-dialog';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
 import FilterDialog from '../ItemFilter/ItemFilter';

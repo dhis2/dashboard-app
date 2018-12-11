@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import i18n from 'd2-i18n';
-import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
+import ControlBar from '@dhis2/d2-ui-core/control-bar/ControlBar';
 import PrimaryButton from '../widgets/PrimaryButton';
 import FlatButton from '../widgets/FlatButton';
-import TranslationDialog from 'd2-ui/lib/i18n/TranslationDialog.component';
+import TranslationDialog from '@dhis2/d2-ui-translation-dialog';
 import ConfirmDeleteDialog from './ConfirmDeleteDialog';
 import { tSaveDashboard, acClearEditDashboard } from '../actions/editDashboard';
 import {

@@ -1,4 +1,4 @@
-import { getInstance } from 'd2/lib/d2';
+import { getInstance } from 'd2';
 import { DEFAULT_ROWS } from '../reducers/controlBar';
 
 const NAMESPACE = 'dashboard';

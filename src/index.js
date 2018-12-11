@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import D2UIApp from 'd2-ui/lib/app/D2UIApp';
-import { config, getUserSettings } from 'd2/lib/d2';
+import { config, getUserSettings } from 'd2';
 
 import App from './App';
 import './index.css';
