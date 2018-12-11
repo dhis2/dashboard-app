@@ -57,7 +57,7 @@ export const itemTypeMap = {
         plugin: global.chartPlugin,
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_CHART,
-        appUrl: id => `dhis-web-visualizer/?id=${id}`,
+        appUrl: id => `dhis-web-data-visualizer/#/${id}`,
         appName: i18n.t('Visualizer'),
         icon: 'InsertChart',
     },

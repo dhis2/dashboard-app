@@ -75,21 +75,6 @@ export {
     fromSnackbar,
 };
 
-// selected dashboard
-export const sGetSelectedDashboard = state =>
-    fromEditDashboard.sGetIsEditing(state)
-        ? fromEditDashboard.sGetEditDashboard(state)
-        : fromDashboards.sGetDashboardById(
-              state,
-              fromSelected.sGetSelectedId(state)
-          );
-
-// get current dashboard items, normal or edit
-export const sGetCurrentDashboardItems = state =>
-    fromEditDashboard.sGetIsEditing(state)
-        ? fromEditDashboard.sGetEditDashboardItems(state)
-        : fromDashboards.sGetDashboardItems(state);
-
 // filter dashboards by name
 export const sFilterDashboardsByName = (dashboards, filter) =>
     dashboards.filter(d =>

@@ -1,19 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import EditTitleBar from './EditTitleBar';
 import ViewTitleBar from './ViewTitleBar';
-import * as fromReducers from '../reducers';
-import { orObject } from '../util';
 import { colors } from '../colors';
 
 import './TitleBar.css';
 
 const style = {
-    titleBar: {
-        display: 'flex',
-        alignItems: 'flex-start',
-    },
     title: {
         position: 'relative',
         fontSize: 21,
@@ -27,14 +20,7 @@ const style = {
     },
 };
 
-const TitleBar = ({
-    id,
-    name,
-    displayName,
-    description,
-    displayDescription,
-    edit,
-}) => {
+const TitleBar = ({ edit }) => {
     return (
         <div
             className="titlebar-wrapper"
@@ -43,45 +29,12 @@ const TitleBar = ({
             }}
         >
             {edit ? (
-                <EditTitleBar
-                    style={style}
-                    name={name}
-                    displayName={displayName}
-                    description={description}
-                />
+                <EditTitleBar style={style} />
             ) : (
-                <ViewTitleBar
-                    style={style}
-                    id={id}
-                    name={displayName}
-                    description={displayDescription}
-                />
+                <ViewTitleBar style={style} />
             )}
         </div>
     );
 };
 
-const mapStateToProps = state => {
-    const selectedDashboard = orObject(
-        fromReducers.sGetSelectedDashboard(state)
-    );
-    const dashboard = orObject(
-        fromReducers.fromDashboards.sGetDashboardById(
-            state,
-            selectedDashboard.id
-        )
-    );
-
-    return {
-        id: selectedDashboard.id,
-        name: selectedDashboard.name,
-        displayName: dashboard && dashboard.displayName,
-        description: selectedDashboard.description,
-        displayDescription: dashboard && dashboard.displayDescription,
-        edit: fromReducers.fromEditDashboard.sGetIsEditing(state),
-    };
-};
-
-const TitleBarCt = connect(mapStateToProps)(TitleBar);
-
-export default TitleBarCt;
+export default TitleBar;

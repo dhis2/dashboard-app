@@ -17,7 +17,7 @@ export const apiFetchDashboards = () =>
         .catch(onError);
 
 // Get more info about selected dashboard
-export const apiFetchSelected = id =>
+export const apiFetchDashboard = id =>
     getInstance()
         .then(d2 =>
             d2.models.dashboard.get(id, {

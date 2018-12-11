@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import MuiChip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
 import IconStar from 'material-ui/svg-icons/toggle/star';
+import { Link } from 'react-router-dom';
 import { colors } from '../colors';
 
 const chipTheme = {
@@ -32,10 +33,12 @@ const avatar = selected => {
     return <Avatar icon={<IconStar />} {...avatarProps} />;
 };
 
-const DashboardItemChip = ({ starred, selected, label, onClick }) => {
+const DashboardItemChip = ({ starred, selected, label, dashboardId }) => {
     const chipColorProps = selected
         ? chipTheme.accent
-        : starred ? chipTheme.primary : chipTheme.default;
+        : starred
+        ? chipTheme.primary
+        : chipTheme.default;
 
     const labelStyle = { fontSize: '14px', fontWeight: 400, lineHeight: d };
     const style = { margin: 3, height: d, cursor: 'pointer' };
@@ -43,17 +46,23 @@ const DashboardItemChip = ({ starred, selected, label, onClick }) => {
     const props = {
         style,
         labelStyle,
-        onClick,
         ...chipColorProps,
     };
 
     return (
-        <div style={{ display: 'inline-block', verticalAlign: 'top' }}>
+        <Link
+            style={{
+                display: 'inline-block',
+                verticalAlign: 'top',
+                textDecoration: 'none',
+            }}
+            to={`/${dashboardId}`}
+        >
             <MuiChip {...props}>
                 {starred ? avatar(selected) : null}
                 {label}
             </MuiChip>
-        </div>
+        </Link>
     );
 };
 
@@ -61,7 +70,6 @@ DashboardItemChip.propTypes = {
     starred: PropTypes.bool.isRequired,
     selected: PropTypes.bool.isRequired,
     label: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
 };
 
 export default DashboardItemChip;

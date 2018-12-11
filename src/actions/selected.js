@@ -1,5 +1,5 @@
 import { actionTypes } from '../reducers';
-import { apiFetchSelected } from '../api/dashboards';
+import { apiFetchDashboard } from '../api/dashboards';
 import { acSetDashboardItems, acAppendDashboards } from './dashboards';
 import { withShape } from '../ItemGrid/gridUtil';
 import { tGetMessages } from '../Item/MessagesItem/actions';
@@ -16,7 +16,8 @@ import {
     MESSAGES,
 } from '../itemTypes';
 import { extractFavorite } from '../Item/PluginItem/plugin';
-import { getCustomDashboards } from '../reducers/dashboards';
+import { getCustomDashboards, sGetDashboardById } from '../reducers/dashboards';
+import { orObject } from '../util';
 
 // actions
 
@@ -33,10 +34,6 @@ export const acSetSelectedIsLoading = value => ({
 export const acSetSelectedShowDescription = value => ({
     type: actionTypes.SET_SELECTED_SHOWDESCRIPTION,
     value,
-});
-
-export const acNewDashboard = () => ({
-    type: actionTypes.NEW_DASHBOARD,
 });
 
 export const acReceivedVisualization = value => ({
@@ -57,16 +54,27 @@ export const acReceivedActiveVisualization = (id, type, activeType) => {
     return action;
 };
 
+export const tLoadDashboard = id => async (dispatch, getState) => {
+    try {
+        const dash = await apiFetchDashboard(id);
+        dispatch(acAppendDashboards(dash));
+
+        return Promise.resolve(dash);
+    } catch (err) {
+        console.log('Error: ', err);
+        return err;
+    }
+};
+
 // thunks
-export const tSetSelectedDashboardById = (id, name = '') => async (
-    dispatch,
-    getState
-) => {
+export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
     dispatch(acSetSelectedIsLoading(true));
 
     const snackbarTimeout = setTimeout(() => {
-        if (fromSelected.sGetSelectedIsLoading(getState()) && name) {
-            loadingDashboardMsg.name = name;
+        const dashboardName = orObject(sGetDashboardById(getState(), id))
+            .displayName;
+        if (fromSelected.sGetSelectedIsLoading(getState()) && dashboardName) {
+            loadingDashboardMsg.name = dashboardName;
 
             dispatch(
                 acReceivedSnackbarMessage({
@@ -80,15 +88,10 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
     const onSuccess = selected => {
         const customDashboard = getCustomDashboards(selected)[0];
 
-        // set dashboard items
         dispatch(
             acSetDashboardItems(withShape(customDashboard.dashboardItems))
         );
 
-        // add dashboard
-        dispatch(acAppendDashboards(selected));
-
-        // store preferred dashboard
         storePreferredDashboardId(fromUser.sGetUsername(getState()), id);
 
         // add visualizations to store
@@ -114,10 +117,8 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
             }
         });
 
-        // set selected dashboard
         dispatch(acSetSelectedId(id));
 
-        // remove loading indicator
         dispatch(acSetSelectedIsLoading(false));
 
         clearTimeout(snackbarTimeout);
@@ -133,9 +134,9 @@ export const tSetSelectedDashboardById = (id, name = '') => async (
     };
 
     try {
-        const fetchedSelected = await apiFetchSelected(id);
+        const selected = await dispatch(tLoadDashboard(id));
 
-        return onSuccess(fetchedSelected);
+        return onSuccess(selected);
     } catch (err) {
         return onError(err);
     }

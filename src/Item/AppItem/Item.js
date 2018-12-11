@@ -1,18 +1,40 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import ItemHeader from '../ItemHeader';
 import Line from '../../widgets/Line';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
-const AppItem = ({ item }, context) => {
+import { fromItemFilter } from '../../reducers';
+import { FILTER_USER_ORG_UNIT } from '../../actions/itemFilter';
+
+const getIframeSrc = (appDetails, item, itemFilter) => {
+    let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`;
+
+    if (
+        itemFilter &&
+        itemFilter[FILTER_USER_ORG_UNIT] &&
+        itemFilter[FILTER_USER_ORG_UNIT].length
+    ) {
+        const ouIds = itemFilter[FILTER_USER_ORG_UNIT].map(
+            ouPath => ouPath.split('/').slice(-1)[0]
+        );
+
+        iframeSrc += `&userOrgUnit=${ouIds.join(',')}`;
+    }
+
+    return iframeSrc;
+};
+
+const AppItem = ({ item, itemFilter }, context) => {
     let appDetails;
 
     const appKey = item.appKey;
 
     if (appKey) {
         appDetails = context.d2.system.installedApps.find(
-            app => app.folderName === appKey
+            app => app.key === appKey
         );
     }
 
@@ -22,7 +44,7 @@ const AppItem = ({ item }, context) => {
             <Line />
             <iframe
                 title={appDetails.name}
-                src={appDetails.launchUrl}
+                src={getIframeSrc(appDetails, item, itemFilter)}
                 className="dashboard-item-content"
                 style={{
                     border: 'none',
@@ -56,4 +78,8 @@ AppItem.contextTypes = {
     d2: PropTypes.object,
 };
 
-export default AppItem;
+const mapStateToProps = state => ({
+    itemFilter: fromItemFilter.sGetFromState(state),
+});
+
+export default connect(mapStateToProps)(AppItem);

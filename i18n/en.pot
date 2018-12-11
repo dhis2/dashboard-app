@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-04-03T09:53:39.293Z\n"
-"PO-Revision-Date: 2018-04-03T09:53:39.293Z\n"
+"POT-Creation-Date: 2018-07-05T08:26:35.452Z\n"
+"PO-Revision-Date: 2018-07-05T08:26:35.452Z\n"
 
 msgid "Delete"
 msgstr ""
@@ -20,13 +20,16 @@ msgstr ""
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
 
+msgid "Exit without saving"
+msgstr ""
+
+msgid "Go to dashboards"
+msgstr ""
+
 msgid "Save changes"
 msgstr ""
 
 msgid "Translate"
-msgstr ""
-
-msgid "Exit without saving"
 msgstr ""
 
 msgid "Search for a dashboard"
@@ -38,13 +41,37 @@ msgstr ""
 msgid "Show more"
 msgstr ""
 
-msgid "All"
+msgid "No access"
 msgstr ""
 
-msgid "Unread"
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+
+msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "Messages"
+msgstr ""
+
+msgid "See all messages"
+msgstr ""
+
+msgid "Edit your interpretation"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "Cancel edit"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "like"
+msgstr ""
+
+msgid "likes"
 msgstr ""
 
 msgid "You like this"
@@ -53,13 +80,25 @@ msgstr ""
 msgid "Like"
 msgstr ""
 
+msgid "View in Visualizer"
+msgstr ""
+
 msgid "Reply"
+msgstr ""
+
+msgid "created"
 msgstr ""
 
 msgid "Add your reply"
 msgstr ""
 
+msgid "Interpretations"
+msgstr ""
+
 msgid "Add your interpretation"
+msgstr ""
+
+msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "Spacer"
@@ -89,7 +128,7 @@ msgstr ""
 msgid "more"
 msgstr ""
 
-msgid "No dashboards found. Use the + button to create a new dashboard."
+msgid "Text box"
 msgstr ""
 
 msgid "Add title here"

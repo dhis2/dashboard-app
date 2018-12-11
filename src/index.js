@@ -3,19 +3,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-
-import i18n from './locales';
-
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import D2UIApp from 'd2-ui/lib/app/D2UIApp';
-
 import { config, getUserSettings } from 'd2/lib/d2';
 
-import './index.css';
-
-import configureStore from './configureStore';
-
 import App from './App';
+import './index.css';
+import i18n from './locales';
+import configureStore from './configureStore';
 import { muiTheme } from './theme';
 
 const configI18n = userSettings => {
@@ -40,7 +35,7 @@ const init = () => {
         }`
     );
 
-    // d2-ui config
+    // api config
     const isProd = process.env.NODE_ENV === 'production';
     const baseUrl = isProd
         ? manifest.activities.dhis.href

@@ -109,6 +109,10 @@ export const sGetFromState = state => state.dashboards;
 export const sGetDashboardById = (state, id) =>
     orObject(sGetFromState(state).byId)[id];
 
+export const sDashboardsIsFetching = state => {
+    return sGetFromState(state).byId === null;
+};
+
 /**
  * Selector which returns all dashboards (the byId object)
  *
@@ -166,7 +170,9 @@ export const getCustomDashboards = data => {
         items.map(item => {
             const type = isSpacerType(item) ? SPACER : item.type;
             const text = isTextType(item)
-                ? item.text === emptyTextItemContent ? '' : item.text
+                ? item.text === emptyTextItemContent
+                    ? ''
+                    : item.text
                 : null;
 
             return {

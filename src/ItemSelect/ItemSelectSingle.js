@@ -7,38 +7,36 @@ import Button from 'd2-ui/lib/button/Button';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import { acAddDashboardItem } from '../actions/editDashboard';
 
-const SingleItem = ({ item, onAddToDashboard }) => {
-    return (
-        <ListItem
-            key={item.type}
-            leftIcon={<SvgIcon icon={item.icon} style={{ margin: '6px' }} />}
-            innerDivStyle={{ padding: '0px 0px 0px 42px' }}
-            hoverColor="transparent"
-            primaryText={
-                <p
+const SingleItem = ({ item, onAddToDashboard }) => (
+    <ListItem
+        key={item.type}
+        leftIcon={<SvgIcon icon={item.icon} style={{ margin: '6px' }} />}
+        innerDivStyle={{ padding: '0px 0px 0px 42px' }}
+        hoverColor="transparent"
+        primaryText={
+            <p
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    margin: 0,
+                }}
+            >
+                {item.name}
+                <Button
+                    color="primary"
+                    onClick={onAddToDashboard}
                     style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'flex-start',
-                        margin: 0,
+                        marginLeft: '5px',
+                        marginRight: '5px',
                     }}
                 >
-                    {item.name}
-                    <Button
-                        color="primary"
-                        onClick={onAddToDashboard}
-                        style={{
-                            marginLeft: '5px',
-                            marginRight: '5px',
-                        }}
-                    >
-                        + ADD
-                    </Button>
-                </p>
-            }
-        />
-    );
-};
+                    + ADD
+                </Button>
+            </p>
+        }
+    />
+);
 
 const ItemSelectSingle = ({ acAddDashboardItem, category }) => {
     const addToDashboard = ({ type, content }) => () => {

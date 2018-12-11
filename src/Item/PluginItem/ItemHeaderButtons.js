@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import arrayContains from 'd2-utilizr/lib/arrayContains';
 
+import { extractFavorite } from './plugin';
 import ItemHeaderButton from '../ItemHeaderButton';
 import {
     VISUALIZATION_TYPE_TABLE,
@@ -25,6 +26,11 @@ const style = {
     buttonBase: {
         padding: '5px 6px 3px 6px',
     },
+    buttonDisabled: {
+        padding: '5px 6px 3px 6px',
+        opacity: 0.5,
+        cursor: 'unset',
+    },
     toggleFooterPadding: {
         padding: '7px 6px 1px 6px',
     },
@@ -39,6 +45,11 @@ const baseStyle = {
     container: style.buttonBase,
 };
 
+const disabledStyle = {
+    icon: style.iconBase,
+    container: style.buttonDisabled,
+};
+
 const activeStyle = {
     icon: { ...style.iconBase, fill: colors.royalBlue },
     container: {
@@ -47,18 +58,26 @@ const activeStyle = {
     },
 };
 
-const getTableBtnStyle = activeVisualization =>
+const getTableBtnStyle = (activeVisualization, disabled) =>
     arrayContains([REPORT_TABLE, EVENT_REPORT], activeVisualization)
         ? activeStyle
+        : disabled
+        ? disabledStyle
         : baseStyle;
 
-const getChartBtnStyle = activeVisualization =>
+const getChartBtnStyle = (activeVisualization, disabled) =>
     arrayContains([CHART, EVENT_CHART], activeVisualization)
         ? activeStyle
+        : disabled
+        ? disabledStyle
         : baseStyle;
 
-const getMapBtnStyle = activeVisualization =>
-    arrayContains([MAP], activeVisualization) ? activeStyle : baseStyle;
+const getMapBtnStyle = (activeVisualization, disabled) =>
+    arrayContains([MAP], activeVisualization)
+        ? activeStyle
+        : disabled
+        ? disabledStyle
+        : baseStyle;
 
 export const getItemTypeId = (itemTypeMap, visualizationType, domainType) => {
     const item = Object.values(itemTypeMap).find(
@@ -107,6 +126,15 @@ class PluginItemHeaderButtons extends Component {
             },
         };
 
+        // disable toggle buttons
+        let disabled = false;
+
+        if (item.type === VISUALIZATION_TYPE_CHART) {
+            if (extractFavorite(item).type.match(/^YEAR_OVER_YEAR/)) {
+                disabled = true;
+            }
+        }
+
         return (
             <Fragment>
                 <div style={{ marginRight: 10 }}>
@@ -118,18 +146,24 @@ class PluginItemHeaderButtons extends Component {
                 </div>
                 <div style={style.border}>
                     <ItemHeaderButton
-                        style={getTableBtnStyle(activeVisualization)}
+                        disabled={disabled}
+                        style={getTableBtnStyle(activeVisualization, disabled)}
                         icon={'ViewList'}
                         onClick={onViewTable}
                     />
                     <ItemHeaderButton
-                        style={getChartBtnStyle(activeVisualization)}
+                        disabled={disabled}
+                        style={getChartBtnStyle(activeVisualization, disabled)}
                         icon={'InsertChart'}
                         onClick={onViewChart}
                     />
                     {domainType === DOMAIN_TYPE_AGGREGATE ? (
                         <ItemHeaderButton
-                            style={getMapBtnStyle(activeVisualization)}
+                            disabled={disabled}
+                            style={getMapBtnStyle(
+                                activeVisualization,
+                                disabled
+                            )}
                             icon={'Public'}
                             onClick={onViewMap}
                         />
