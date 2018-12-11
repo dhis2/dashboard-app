@@ -88,7 +88,7 @@ export const getItemTypeId = (itemTypeMap, visualizationType, domainType) => {
     return item.id;
 };
 
-class PluginItemHeaderButtons extends Component {
+class VisualizationItemHeaderButtons extends Component {
     render() {
         const {
             item,
@@ -174,4 +174,4 @@ class PluginItemHeaderButtons extends Component {
     }
 }
 
-export default PluginItemHeaderButtons;
+export default VisualizationItemHeaderButtons;

@@ -13,7 +13,7 @@ import { fromItemFilter } from '../../../reducers';
 import { itemTypeMap } from '../../../itemTypes';
 import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
 import ItemFooter from './ItemFooter';
-import PluginItemHeaderButtons from './ItemHeaderButtons';
+import VisualizationItemHeaderButtons from './ItemHeaderButtons';
 
 const style = {
     icon: {
@@ -176,7 +176,7 @@ class Item extends Component {
 
         const actionButtons =
             pluginIsAvailable && !this.props.editMode ? (
-                <PluginItemHeaderButtons
+                <VisualizationItemHeaderButtons
                     item={item}
                     activeFooter={this.state.showFooter}
                     activeVisualization={

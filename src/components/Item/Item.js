@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PluginItem from './PluginItem/Item';
+import VisualizationItem from './VisualizationItem/Item';
 import MessagesItem from './MessagesItem/Item';
 import NotSupportedItem from './NotSupportedItem/Item';
 import ListItem from './ListItem/Item';
@@ -30,7 +30,7 @@ const getGridItem = type => {
         case MAP:
         case EVENT_CHART:
         case EVENT_REPORT:
-            return PluginItem;
+            return VisualizationItem;
         case MESSAGES:
             return MessagesItem;
         case REPORTS:

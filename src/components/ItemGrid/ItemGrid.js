@@ -9,7 +9,7 @@ import {
     acRemoveDashboardItem,
 } from '../../actions/editDashboard';
 import { Item } from '../Item/Item';
-import { resize as pluginResize } from '../Item/PluginItem/plugin';
+import { resize as pluginResize } from '../Item/VisualizationItem/plugin';
 import { isPluginType } from '../../itemTypes';
 import {
     GRID_ROW_HEIGHT,

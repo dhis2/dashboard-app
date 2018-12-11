@@ -15,7 +15,7 @@ import {
     EVENT_CHART,
     MESSAGES,
 } from '../itemTypes';
-import { extractFavorite } from '../components/Item/PluginItem/plugin';
+import { extractFavorite } from '../components/Item/VisualizationItem/plugin';
 import { getCustomDashboards, sGetById } from '../reducers/dashboards';
 import { orObject } from '../util';
 
