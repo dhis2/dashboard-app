@@ -96,7 +96,10 @@ const mapDispatchToProps = {
     onChangeDescription: acSetDashboardDescription,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditTitleBar);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(EditTitleBar);
 
 EditTitleBar.propTypes = {
     name: PropTypes.string,

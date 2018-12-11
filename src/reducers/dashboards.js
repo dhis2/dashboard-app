@@ -177,7 +177,9 @@ export const getCustomDashboards = data => {
         items.map(item => {
             const type = isSpacerType(item) ? SPACER : item.type;
             const text = isTextType(item)
-                ? item.text === emptyTextItemContent ? '' : item.text
+                ? item.text === emptyTextItemContent
+                    ? ''
+                    : item.text
                 : null;
 
             return {

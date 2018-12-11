@@ -95,8 +95,11 @@ ListItem.contextTypes = {
     d2: PropTypes.object,
 };
 
-const ListItemContainer = connect(null, {
-    tRemoveListItemContent,
-})(ListItem);
+const ListItemContainer = connect(
+    null,
+    {
+        tRemoveListItemContent,
+    }
+)(ListItem);
 
 export default ListItemContainer;

@@ -36,7 +36,9 @@ const avatar = selected => {
 const DashboardItemChip = ({ starred, selected, label, dashboardId }) => {
     const chipColorProps = selected
         ? chipTheme.accent
-        : starred ? chipTheme.primary : chipTheme.default;
+        : starred
+        ? chipTheme.primary
+        : chipTheme.default;
 
     const labelStyle = { fontSize: '14px', fontWeight: 400, lineHeight: d };
     const style = { margin: 3, height: d, cursor: 'pointer' };
