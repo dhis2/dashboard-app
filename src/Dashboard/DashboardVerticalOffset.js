@@ -28,6 +28,8 @@ const mergeProps = (stateProps, dispatchProps, props) => {
     );
 };
 
-export default connect(mapStateToProps, null, mergeProps)(
-    DashboardVerticalOffset
-);
+export default connect(
+    mapStateToProps,
+    null,
+    mergeProps
+)(DashboardVerticalOffset);

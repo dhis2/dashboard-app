@@ -126,8 +126,9 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-const InterpretationsContainer = connect(mapStateToProps, mapDispatchToProps)(
-    Interpretations
-);
+const InterpretationsContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Interpretations);
 
 export default InterpretationsContainer;

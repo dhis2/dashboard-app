@@ -171,5 +171,9 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 };
 
 export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps, mergeProps)(DashboardsBar)
+    connect(
+        mapStateToProps,
+        mapDispatchToProps,
+        mergeProps
+    )(DashboardsBar)
 );
