@@ -6,10 +6,10 @@ import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 
-import { fromUser, fromDashboards, fromControlBar } from './actions';
-import Dashboard from './components/Dashboard/Dashboard';
-import SnackbarMessage from './components/SnackbarMessage/SnackbarMessage';
-import { EDIT, VIEW, NEW } from './components/Dashboard/dashboardModes';
+import { fromUser, fromDashboards, fromControlBar } from '../actions';
+import Dashboard from './Dashboard/Dashboard';
+import SnackbarMessage from './SnackbarMessage/SnackbarMessage';
+import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes';
 
 import './App.css';
 
