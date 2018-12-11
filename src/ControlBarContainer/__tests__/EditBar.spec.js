@@ -34,14 +34,9 @@ describe('EditBar', () => {
     const asyncExpectComponentExists = (Component, exists) => {
         const wrapper = editBar();
 
-        return Promise.resolve()
-            .then(() => {
-                expect(wrapper.find(Component)).toHaveLength(0);
-                wrapper.update();
-            })
-            .then(() => {
-                expect(wrapper.find(Component)).toHaveLength(exists ? 1 : 0);
-            });
+        return Promise.resolve().then(() => {
+            expect(wrapper.find(Component)).toHaveLength(exists ? 1 : 0);
+        });
     };
 
     beforeEach(() => {

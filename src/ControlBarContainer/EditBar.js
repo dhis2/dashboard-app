@@ -231,4 +231,7 @@ const mapDispatchToProps = dispatch => ({
     onTranslate: (id, value) => dispatch(acSetDashboardDisplayName(id, value)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditBar);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(EditBar);

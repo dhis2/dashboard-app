@@ -39,6 +39,9 @@ const mapStateToProps = state => {
     return { dashboardsLoaded: !sDashboardsIsFetching(state) };
 };
 
-export default connect(mapStateToProps, {
-    selectDashboard: fromDashboards.tSelectDashboard,
-})(Dashboard);
+export default connect(
+    mapStateToProps,
+    {
+        selectDashboard: fromDashboards.tSelectDashboard,
+    }
+)(Dashboard);

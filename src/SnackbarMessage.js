@@ -41,6 +41,9 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, {
-    onCloseSnackbar: acCloseSnackbar,
-})(SnackbarMessage);
+export default connect(
+    mapStateToProps,
+    {
+        onCloseSnackbar: acCloseSnackbar,
+    }
+)(SnackbarMessage);

@@ -207,7 +207,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     };
 };
 
-export default connect(mapStateToProps, null, mergeProps)(ViewTitleBar);
+export default connect(
+    mapStateToProps,
+    null,
+    mergeProps
+)(ViewTitleBar);
 
 ViewTitleBar.propTypes = {
     id: PropTypes.string,

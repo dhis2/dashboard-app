@@ -248,4 +248,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch(acReceivedActiveVisualization(id, type, activeType)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Item);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Item);
