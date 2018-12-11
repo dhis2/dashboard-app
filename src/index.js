@@ -3,9 +3,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import D2UIApp from 'd2-ui/lib/app/D2UIApp';
-import { config, getUserSettings } from 'd2';
+import { MuiThemeProvider as V0MuiThemeProvider } from 'material-ui';
+import { init as d2Init, config, getUserSettings } from 'd2';
 
 import App from './App';
 import './index.css';
@@ -24,10 +23,7 @@ const configI18n = userSettings => {
     i18n.changeLanguage(uiLocale);
 };
 
-const init = () => {
-    // init material-ui
-    injectTapEventPlugin();
-
+const init = async () => {
     // log app info
     console.info(
         `Dashboards app, v${manifest.version}, ${
@@ -45,17 +41,21 @@ const init = () => {
         ? null
         : { Authorization: DHIS_CONFIG.authorization };
 
+    const d2 = await d2Init({
+        baseUrl: config.baseUrl,
+    });
+
     getUserSettings()
         .then(configI18n)
         .then(() => {
             config.schemas = ['dashboard', 'organisationUnit'];
 
             ReactDOM.render(
-                <D2UIApp initConfig={config} muiTheme={muiTheme()}>
-                    <Provider store={configureStore()}>
-                        <App baseUrl={baseUrl} />
-                    </Provider>
-                </D2UIApp>,
+                <Provider store={configureStore()}>
+                    <V0MuiThemeProvider muiTheme={muiTheme()}>
+                        <App baseUrl={baseUrl} d2={d2} />
+                    </V0MuiThemeProvider>
+                </Provider>,
                 document.getElementById('root')
             );
         });

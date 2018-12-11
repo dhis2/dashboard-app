@@ -1,4 +1,4 @@
-import { generateUid } from 'd2/lib/uid';
+import { generateUid } from 'd2/uid';
 import { actionTypes } from '../reducers';
 import { fromEditDashboard } from '../reducers';
 import { updateDashboard, postDashboard } from '../api/editDashboard';

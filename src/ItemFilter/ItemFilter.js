@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from '../widgets/FlatButton';
 import PrimaryButton from '../widgets/PrimaryButton';
-import OrgUnitTree from 'd2-ui/lib/org-unit-tree/OrgUnitTreeMultipleRoots.component';
+import { OrgUnitTreeMultipleRoots } from '@dhis2/d2-ui-org-unit-tree';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 import { apiFetchOrgUnits } from '../api/orgUnits';
 import { acSetItemFilter, FILTER_USER_ORG_UNIT } from '../actions/itemFilter';
@@ -86,12 +86,10 @@ class ItemFilter extends Component {
                             text="Deselect all"
                             onClick={this.onDeselectAll}
                             style={{ color: '#006ed3' }}
-                            hoverStyle={{
-                                color: '#3399f8',
-                            }}
+                            hoverStyle={{ color: '#3399f8' }}
                         />
                     </div>
-                    <OrgUnitTree
+                    <OrgUnitTreeMultipleRoots
                         roots={this.state.roots}
                         selected={this.state.selected}
                         onSelectClick={this.onSelectOrgUnit}

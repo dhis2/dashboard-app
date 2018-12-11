@@ -249,12 +249,7 @@ module.exports = {
             },
         ],
     },
-    externals: [
-        {
-            react: 'var React',
-            'react-dom': 'var ReactDOM',
-        },
-    ],
+    externals: [],
     plugins: [
         // Makes some environment variables available in index.html.
         // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
@@ -269,8 +264,6 @@ module.exports = {
             vendorScripts: [
                 `${scriptPrefix}/dhis-web-core-resource/fonts/roboto.css`,
                 `${scriptPrefix}/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.min.js`,
-                `${scriptPrefix}/dhis-web-core-resource/react/16.2.0/umd/react.production.min.js`,
-                `${scriptPrefix}/dhis-web-core-resource/react-dom/16.2.0/umd/react-dom.production.min.js`,
                 `${scriptPrefix}/dhis-web-core-resource/jquery/3.2.1/dist/jquery.min.js`,
                 `${scriptPrefix}/dhis-web-core-resource/jquery-migrate/3.0.1/dist/jquery-migrate.min.js`,
                 `${scriptPrefix}/dhis-web-pivot/reporttable.js`,
