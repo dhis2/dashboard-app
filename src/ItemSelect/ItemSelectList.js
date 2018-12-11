@@ -95,8 +95,7 @@ class ItemSelectList extends Component {
                         );
 
                         return (
-                            <ListItem
-                                // apps don't have item.id
+                            <ListItem // apps don't have item.id
                                 key={item.id || item.key}
                                 leftIcon={
                                     <SvgIcon
@@ -129,6 +128,7 @@ class ItemSelectList extends Component {
                                         {itemUrl ? (
                                             <a
                                                 target="_blank"
+                                                rel="noopener noreferrer"
                                                 href={itemUrl}
                                                 style={{ display: 'flex' }}
                                             >
