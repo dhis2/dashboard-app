@@ -354,8 +354,9 @@ Interpretation.contextTypes = {
     d2: PropTypes.object,
 };
 
-const InterpretationContainer = connect(mapStateToProps, mapDispatchToProps)(
-    Interpretation
-);
+const InterpretationContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Interpretation);
 
 export default InterpretationContainer;

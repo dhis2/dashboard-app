@@ -136,12 +136,11 @@ class ItemSelect extends React.Component {
                 'max=' + [...this.state.maxOptions.values()].join('&max=');
         }
 
-        api
-            .get(
-                `dashboards/q/${this.state.filter || ''}${
-                    queryString ? `?${queryString}` : ''
-                }`
-            )
+        api.get(
+            `dashboards/q/${this.state.filter || ''}${
+                queryString ? `?${queryString}` : ''
+            }`
+        )
             .then(response => {
                 this.setState({ items: response });
             })

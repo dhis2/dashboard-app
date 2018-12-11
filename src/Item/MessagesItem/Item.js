@@ -136,6 +136,9 @@ const mapStateToProps = state => {
     };
 };
 
-const MessagesContainer = connect(mapStateToProps, null)(MessagesItem);
+const MessagesContainer = connect(
+    mapStateToProps,
+    null
+)(MessagesItem);
 
 export default MessagesContainer;

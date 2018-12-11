@@ -61,17 +61,23 @@ const activeStyle = {
 const getTableBtnStyle = (activeVisualization, disabled) =>
     arrayContains([REPORT_TABLE, EVENT_REPORT], activeVisualization)
         ? activeStyle
-        : disabled ? disabledStyle : baseStyle;
+        : disabled
+        ? disabledStyle
+        : baseStyle;
 
 const getChartBtnStyle = (activeVisualization, disabled) =>
     arrayContains([CHART, EVENT_CHART], activeVisualization)
         ? activeStyle
-        : disabled ? disabledStyle : baseStyle;
+        : disabled
+        ? disabledStyle
+        : baseStyle;
 
 const getMapBtnStyle = (activeVisualization, disabled) =>
     arrayContains([MAP], activeVisualization)
         ? activeStyle
-        : disabled ? disabledStyle : baseStyle;
+        : disabled
+        ? disabledStyle
+        : baseStyle;
 
 export const getItemTypeId = (itemTypeMap, visualizationType, domainType) => {
     const item = Object.values(itemTypeMap).find(

@@ -77,6 +77,9 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, {
-    setEditDashboard: acSetEditDashboard,
-})(EditDashboard);
+export default connect(
+    mapStateToProps,
+    {
+        setEditDashboard: acSetEditDashboard,
+    }
+)(EditDashboard);

@@ -23,6 +23,9 @@ class NewDashboard extends Component {
     }
 }
 
-export default connect(null, {
-    setNewDashboard: acSetEditNewDashboard,
-})(NewDashboard);
+export default connect(
+    null,
+    {
+        setNewDashboard: acSetEditNewDashboard,
+    }
+)(NewDashboard);
