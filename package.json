@@ -168,7 +168,10 @@
         "d2-i18n-generate": "^1.x",
         "enzyme-adapter-react-16": "^1.7.1",
         "husky": "^0.15.0-rc.12",
+        "jest-enzyme": "^6.0.0",
+        "url-parse": "^1.3.0",
         "jest-enzyme": "^7.0.1",
-        "url-parse": "^1.3.0"
+        "url-parse": "^1.3.0",
+        "webpack-bundle-analyzer": "^3.0.3"
     }
 }
