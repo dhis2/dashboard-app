@@ -180,13 +180,13 @@ class ViewTitleBar extends Component {
 const mapStateToProps = state => {
     const { fromSelected, fromDashboards, fromItemFilter } = fromReducers;
     const id = fromSelected.sGetSelectedId(state);
-    const dashboard = orObject(fromDashboards.sGetById(state, id));
+    const dashboard = orObject(fromDashboards.sGetDashboardById(state, id));
 
     return {
         id,
         name: dashboard.displayName,
         description: dashboard.displayDescription,
-        dashboardItems: fromDashboards.sGetItems(state),
+        dashboardItems: fromDashboards.sGetDashboardItems(state),
         showDescription: fromSelected.sGetSelectedShowDescription(state),
         starred: dashboard.starred,
         access: orObject(dashboard.access),

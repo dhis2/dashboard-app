@@ -168,11 +168,14 @@ const mapStateToProps = (state, ownProps) => {
 
     const selectedDashboard = ownProps.edit
         ? fromEditDashboard.sGetEditDashboard(state)
-        : fromDashboards.sGetById(state, fromSelected.sGetSelectedId(state));
+        : fromDashboards.sGetDashboardById(
+              state,
+              fromSelected.sGetSelectedId(state)
+          );
 
     const dashboardItems = ownProps.edit
         ? fromEditDashboard.sGetEditDashboardItems(state)
-        : fromDashboards.sGetItems(state);
+        : fromDashboards.sGetDashboardItems(state);
 
     return {
         isLoading:

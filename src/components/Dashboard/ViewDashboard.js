@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
 import i18n from 'd2-i18n';
 
-import { sGetById, sDashboardsIsFetching } from '../../reducers/dashboards';
+import {
+    sGetAllDashboards,
+    sDashboardsIsFetching,
+} from '../../reducers/dashboards';
 import { sGetSelectedId } from '../../reducers/selected';
 import DashboardsBar from '../ControlBarContainer/DashboardsBar';
 import DashboardVerticalOffset from './DashboardVerticalOffset';
@@ -45,7 +48,7 @@ export const ViewDashboard = ({ id, dashboardsIsEmpty, dashboardsLoaded }) => {
 };
 
 const mapStateToProps = state => {
-    const dashboards = sGetById(state);
+    const dashboards = sGetAllDashboards(state);
 
     return {
         id: sGetSelectedId(state),

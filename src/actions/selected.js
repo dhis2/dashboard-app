@@ -16,7 +16,7 @@ import {
     MESSAGES,
 } from '../itemTypes';
 import { extractFavorite } from '../components/Item/VisualizationItem/plugin';
-import { getCustomDashboards, sGetById } from '../reducers/dashboards';
+import { getCustomDashboards, sGetDashboardById } from '../reducers/dashboards';
 import { orObject } from '../util';
 
 // actions
@@ -71,7 +71,8 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
     dispatch(acSetSelectedIsLoading(true));
 
     const snackbarTimeout = setTimeout(() => {
-        const dashboardName = orObject(sGetById(getState(), id)).displayName;
+        const dashboardName = orObject(sGetDashboardById(getState(), id))
+            .displayName;
         if (fromSelected.sGetSelectedIsLoading(getState()) && dashboardName) {
             loadingDashboardMsg.name = dashboardName;
 

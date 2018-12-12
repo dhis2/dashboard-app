@@ -94,12 +94,11 @@ export const sGetFromState = state => state.dashboards;
 // selector level 1
 
 /**
- * Selector which returns dashboards by id from the state object
- * If no id is provided it returns all dashboards
+ * Selector which returns a dashboard by id from the state object
  * If no matching dashboard is found it returns undefined
  * If dashboards.byId is null, then the dashboards api request
  * has not yet completed. If dashboards.byId is an empty object
- * then the dashboards api request is complete, and no dashboards
+ * then the dashboards api request is complete, but no dashboards
  * were returned
  *
  * @function
@@ -107,12 +106,21 @@ export const sGetFromState = state => state.dashboards;
  * @param {Number} id The id of the dashboard
  * @returns {Object | undefined}
  */
-export const sGetById = (state, id) =>
-    id ? sGetFromState(state).byId[id] : sGetFromState(state).byId;
+export const sGetDashboardById = (state, id) =>
+    orObject(sGetFromState(state).byId)[id];
 
 export const sDashboardsIsFetching = state => {
     return sGetFromState(state).byId === null;
 };
+
+/**
+ * Selector which returns all dashboards (the byId object)
+ *
+ * @function
+ * @param {Object} state The current state
+ * @returns {Object | undefined}
+ */
+export const sGetAllDashboards = state => orObject(sGetFromState(state).byId);
 
 /**
  * Selector which returns the current dashboard items
@@ -121,33 +129,21 @@ export const sDashboardsIsFetching = state => {
  * @param {Object} state The current state
  * @returns {Array}
  */
-export const sGetItems = state => sGetFromState(state).items;
+export const sGetDashboardItems = state => sGetFromState(state).items;
 
 // selector level 2
 
-/**
- * Generic selector which returns filtered dashboards
- *
- * @function
- * @param {Object} state The current state
- * @param {Object} propName The name of the filter prop
- * @param {Object} value The value of the filter prop
- * @returns {Array}
- */
-const sGetDashboardsByProp = (state, propName, value) =>
-    Object.values(orObject(sGetById(state))).filter(
-        dashboard => dashboard[propName] === value
+export const sGetStarredDashboards = state =>
+    Object.values(sGetAllDashboards(state)).filter(
+        dashboard => dashboard.starred === true
+    );
+
+export const sGetUnstarredDashboards = state =>
+    Object.values(sGetAllDashboards(state)).filter(
+        dashboard => dashboard.starred === false
     );
 
 // selector level 3
-
-export const sGetStarredDashboards = state =>
-    sGetDashboardsByProp(state, 'starred', true);
-
-export const sGetUnstarredDashboards = state =>
-    sGetDashboardsByProp(state, 'starred', false);
-
-// selector level 4
 
 export const sGetStarredDashboardIds = state => {
     return sGetStarredDashboards(state).map(dashboard => dashboard.id);
@@ -156,13 +152,10 @@ export const sGetStarredDashboardIds = state => {
 export const sGetUnstarredDashboardIds = state =>
     sGetUnstarredDashboards(state).map(dashboard => dashboard.id);
 
-// selector level 5
-
-export const sGetSortedDashboards = state =>
-    [].concat(
-        arraySort(sGetStarredDashboards(state), 'ASC', 'displayName'),
-        arraySort(sGetUnstarredDashboards(state), 'ASC', 'displayName')
-    );
+export const sGetDashboardsSortedByStarred = state => [
+    ...arraySort(sGetStarredDashboards(state), 'ASC', 'displayName'),
+    ...arraySort(sGetUnstarredDashboards(state), 'ASC', 'displayName'),
+];
 
 // utils
 

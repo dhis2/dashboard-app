@@ -81,7 +81,10 @@ const mapStateToProps = state => {
     );
 
     const displayName = orObject(
-        fromReducers.fromDashboards.sGetById(state, selectedDashboard.id)
+        fromReducers.fromDashboards.sGetDashboardById(
+            state,
+            selectedDashboard.id
+        )
     ).displayName;
 
     return {
