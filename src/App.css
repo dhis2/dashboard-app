@@ -2,6 +2,14 @@ body {
     background-color: #f4f6f8;
 }
 
+.dashboard-header-bar {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
 .dashboard-wrapper {
     background-color: #f4f6f8;
     padding-left: 10px;

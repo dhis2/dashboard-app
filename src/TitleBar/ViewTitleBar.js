@@ -89,7 +89,7 @@ class ViewTitleBar extends Component {
         const titleStyle = Object.assign({}, style.title, {
             cursor: 'default',
             userSelect: 'text',
-            top: '5px',
+            top: '7px',
         });
 
         return (

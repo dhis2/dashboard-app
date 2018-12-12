@@ -27,7 +27,9 @@ class App extends Component {
         return (
             <UI>
                 <div className="app-wrapper">
-                    <HeaderBar appName={i18n.t('Dashboard')} />
+                    <div className="dashboard-header-bar">
+                        <HeaderBar appName={i18n.t('Dashboard')} />
+                    </div>
                     <Router>
                         <Switch>
                             <Route
