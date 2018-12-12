@@ -2,10 +2,6 @@ body {
     background-color: #f4f6f8;
 }
 
-.app-wrapper * {
-    font-family: Roboto;
-}
-
 .dashboard-wrapper {
     background-color: #f4f6f8;
     padding-left: 10px;
