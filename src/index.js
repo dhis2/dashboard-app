@@ -7,7 +7,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import D2UIApp from 'd2-ui/lib/app/D2UIApp';
 import { config, getUserSettings } from 'd2/lib/d2';
 
-import App from './App';
+import App from './components/App';
 import './index.css';
 import i18n from './locales';
 import configureStore from './configureStore';
