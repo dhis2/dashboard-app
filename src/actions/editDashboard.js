@@ -1,9 +1,10 @@
 import { generateUid } from 'd2/uid';
+
 import { actionTypes } from '../reducers';
 import { fromEditDashboard } from '../reducers';
 import { updateDashboard, postDashboard } from '../api/editDashboard';
 import { tSetSelectedDashboardById } from '../actions/selected';
-import { NEW_ITEM_SHAPE } from '../ItemGrid/gridUtil';
+import { NEW_ITEM_SHAPE } from '../components/ItemGrid/gridUtil';
 import {
     itemTypeMap,
     isSpacerType,

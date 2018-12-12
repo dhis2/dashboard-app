@@ -5,11 +5,16 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2018-12-11T14:16:32.939Z\n"
 "PO-Revision-Date: 2018-12-11T14:16:32.939Z\n"
 
 msgid "Dashboard"
 msgstr ""
+=======
+"POT-Creation-Date: 2018-12-11T14:13:30.740Z\n"
+"PO-Revision-Date: 2018-12-11T14:13:30.740Z\n"
+>>>>>>> master
 
 msgid "Delete"
 msgstr ""
@@ -59,6 +64,18 @@ msgstr ""
 msgid "See all messages"
 msgstr ""
 
+msgid "Spacer"
+msgstr ""
+
+msgid "Use a spacer to create empty vertical space between other dashboard items."
+msgstr ""
+
+msgid "Text item"
+msgstr ""
+
+msgid "Add text here"
+msgstr ""
+
 msgid "Edit your interpretation"
 msgstr ""
 
@@ -102,18 +119,6 @@ msgid "Add your interpretation"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
-
-msgid "Spacer"
-msgstr ""
-
-msgid "Use a spacer to create empty vertical space between other dashboard items."
-msgstr ""
-
-msgid "Text item"
-msgstr ""
-
-msgid "Add text here"
 msgstr ""
 
 msgid "There are no items on this dashboard"

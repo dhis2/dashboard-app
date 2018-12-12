@@ -1,41 +1,66 @@
-import reducer, { actionTypes, DEFAULT_DASHBOARDS } from '../dashboards';
+import reducer, {
+    actionTypes,
+    DEFAULT_DASHBOARDS,
+    sGetFromState,
+    sGetDashboardById,
+    sGetAllDashboards,
+    sGetStarredDashboards,
+    sGetUnstarredDashboards,
+    sGetStarredDashboardIds,
+    sGetUnstarredDashboardIds,
+    sGetDashboardsSortedByStarred,
+} from '../dashboards';
 
-describe('dashboards reducer', () => {
-    const currentBoards = {
-        dash1: {
-            id: 'dash1',
-            name: 'good stuff',
-            displayName: 'untranslated',
+const dashId1 = 'dash1';
+const dashId2 = 'dash2';
+const dashId3 = 'dash3';
+const dashId4 = 'dash4';
+
+const dashboardsState = {
+    byId: {
+        [dashId1]: {
+            id: dashId1,
+            name: 'an unstarred dashboard',
+            displayName: 'una cruscotto non stellato',
             starred: false,
         },
-    };
-
-    const boards = {
-        dash2: {
-            id: 'dash2',
-            name: 'ok stuff',
+        [dashId2]: {
+            id: dashId2,
+            name: 'a starred dashboard',
+            displayName: 'una cruscotto con stelle',
+            starred: true,
         },
-    };
-
-    const currentItems = [
+        [dashId3]: {
+            id: dashId3,
+            name: 'unstarred dashboard',
+            displayName: 'cruscotto non stellato',
+            starred: false,
+        },
+        [dashId4]: {
+            id: dashId4,
+            name: 'starred dashboard',
+            displayName: 'cruscotto con stelle',
+            starred: true,
+        },
+    },
+    items: [
         {
             id: 'item1',
-            type: 'CHART',
+            type: 'REPORT_TABLE',
         },
-    ];
+    ],
+};
 
-    const items = [
-        {
-            id: 'item2',
-            type: 'MAP',
-        },
-    ];
+const dashboards = {
+    someDash: {
+        id: 'someDash',
+        name: 'good stuff',
+        displayName: 'roba buona',
+        starred: false,
+    },
+};
 
-    const currentState = {
-        byId: currentBoards,
-        items: currentItems,
-    };
-
+describe('dashboards reducer', () => {
     it('should return the default state', () => {
         const actualState = reducer(undefined, { type: 'NO_MATCH' });
 
@@ -43,13 +68,13 @@ describe('dashboards reducer', () => {
     });
 
     it('SET_DASHBOARDS: should set the new list of dashboards and clear the items array', () => {
-        const actualState = reducer(currentState, {
+        const actualState = reducer(dashboardsState, {
             type: actionTypes.SET_DASHBOARDS,
-            value: boards,
+            value: dashboards,
         });
 
         const expectedState = {
-            byId: boards,
+            byId: dashboards,
             items: [],
         };
 
@@ -57,16 +82,16 @@ describe('dashboards reducer', () => {
     });
 
     it('APPEND_DASHBOARDS: should append to the list of dashboards and leave the items untouched', () => {
-        const actualState = reducer(currentState, {
+        const actualState = reducer(dashboardsState, {
             type: actionTypes.APPEND_DASHBOARDS,
-            value: boards,
+            value: dashboards,
         });
 
         const expectedState = {
-            ...currentState,
+            ...dashboardsState,
             byId: {
-                ...currentState.byId,
-                ...boards,
+                ...dashboardsState.byId,
+                ...dashboards,
             },
         };
 
@@ -74,18 +99,21 @@ describe('dashboards reducer', () => {
     });
 
     it('SET_DASHBOARD_STARRED: should set "starred" on a dashboard', () => {
-        const actualState = reducer(currentState, {
+        const starredValue = true;
+
+        const actualState = reducer(dashboardsState, {
             type: actionTypes.SET_DASHBOARD_STARRED,
-            dashboardId: 'dash1',
-            value: true,
+            dashboardId: dashId1,
+            value: starredValue,
         });
 
         const expectedState = {
-            ...currentState,
+            ...dashboardsState,
             byId: {
-                dash1: {
-                    ...currentBoards.dash1,
-                    starred: true,
+                ...dashboardsState.byId,
+                [dashId1]: {
+                    ...dashboardsState.byId[dashId1],
+                    starred: starredValue,
                 },
             },
         };
@@ -96,17 +124,18 @@ describe('dashboards reducer', () => {
     it('SET_DASHBOARD_DISPLAYNAME: should set "displayName" on a dashboard', () => {
         const displayName = 'nome tradotto';
 
-        const actualState = reducer(currentState, {
+        const actualState = reducer(dashboardsState, {
             type: actionTypes.SET_DASHBOARD_DISPLAY_NAME,
-            dashboardId: 'dash1',
+            dashboardId: dashId1,
             value: displayName,
         });
 
         const expectedState = {
-            ...currentState,
+            ...dashboardsState,
             byId: {
-                dash1: {
-                    ...currentBoards.dash1,
+                ...dashboardsState.byId,
+                [dashId1]: {
+                    ...dashboardsState.byId[dashId1],
                     displayName: displayName,
                 },
             },
@@ -116,16 +145,83 @@ describe('dashboards reducer', () => {
     });
 
     it('SET_DASHBOARD_ITEMS: should set the new list of dashboard items', () => {
-        const actualState = reducer(currentState, {
+        const items = [{ id: 'item2', type: 'CHART' }];
+
+        const actualState = reducer(dashboardsState, {
             type: actionTypes.SET_DASHBOARD_ITEMS,
             value: items,
         });
 
         const expectedState = {
-            ...currentState,
+            ...dashboardsState,
             items,
         };
 
         expect(actualState).toEqual(expectedState);
+    });
+});
+
+const testState = {
+    dashboards: dashboardsState,
+};
+
+const dash1 = dashboardsState.byId[dashId1];
+const dash2 = dashboardsState.byId[dashId2];
+const dash3 = dashboardsState.byId[dashId3];
+const dash4 = dashboardsState.byId[dashId4];
+
+describe('dashboards selectors', () => {
+    it('sGetFromState: should return the root prop', () => {
+        const actualState = sGetFromState(testState);
+
+        expect(actualState).toEqual(dashboardsState);
+    });
+
+    it('sGetDashboardById: should return dashboard with the provided id', () => {
+        const actualState = sGetDashboardById(testState, dashId1);
+
+        expect(actualState).toEqual(dashboardsState.byId[dashId1]);
+    });
+
+    it('sGetDashboardById: should return undefined', () => {
+        const actualState = sGetDashboardById(testState, 'NO_MATCH');
+
+        expect(actualState).toEqual(undefined);
+    });
+
+    it('sGetAllDashboards: should return an object with all dashboards', () => {
+        const actualState = sGetAllDashboards(testState);
+
+        expect(actualState).toEqual(dashboardsState.byId);
+    });
+
+    it('sGetStarredDashboards: should return an array of starred dashboards', () => {
+        const actualState = sGetStarredDashboards(testState);
+
+        expect(actualState).toEqual([dash2, dash4]);
+    });
+
+    it('sGetUnstarredDashboards: should return an array of unstarred dashboards', () => {
+        const actualState = sGetUnstarredDashboards(testState);
+
+        expect(actualState).toEqual([dash1, dash3]);
+    });
+
+    it('sGetStarredDashboardIds: should return an array of starred dashboard ids', () => {
+        const actualState = sGetStarredDashboardIds(testState);
+
+        expect(actualState).toEqual([dashId2, dashId4]);
+    });
+
+    it('sGetUnstarredDashboardIds: should return an array of unstarred dashboard ids', () => {
+        const actualState = sGetUnstarredDashboardIds(testState);
+
+        expect(actualState).toEqual([dashId1, dashId3]);
+    });
+
+    it('sGetDashboardsSortedByStarred: should return an array of dashboards sorted by starred/displayName-asc, then unstarred/displayName-asc', () => {
+        const actualState = sGetDashboardsSortedByStarred(testState);
+
+        expect(actualState).toEqual([dash4, dash2, dash3, dash1]);
     });
 });

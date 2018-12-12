@@ -69,9 +69,7 @@
         "react-tap-event-plugin": "^3.0.2",
         "redux": "^3.7.2",
         "redux-logger": "^3.0.6",
-        "redux-observable": "^0.17.0",
         "redux-thunk": "^2.2.0",
-        "rxjs": "^5.5.2",
         "style-loader": "0.19.0",
         "sw-precache-webpack-plugin": "0.11.4",
         "ui": "github:d2-ci/ui#a14c74a62a5baefe84786282b145ba20e19bc907",
@@ -174,7 +172,10 @@
         "d2-i18n-generate": "^1.x",
         "enzyme-adapter-react-16": "^1.7.1",
         "husky": "^0.15.0-rc.12",
+        "jest-enzyme": "^6.0.0",
+        "url-parse": "^1.3.0",
         "jest-enzyme": "^7.0.1",
-        "url-parse": "^1.3.0"
+        "url-parse": "^1.3.0",
+        "webpack-bundle-analyzer": "^3.0.3"
     }
 }
