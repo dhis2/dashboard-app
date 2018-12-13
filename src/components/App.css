@@ -25,3 +25,8 @@ table.pivot * {
     -o-user-select: none !important;
     user-select: none !important;
 }
+
+/* temporary workaround for headerbar */
+.secondary-light-bg {
+    background-color: #48a999;
+}

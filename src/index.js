@@ -3,14 +3,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { MuiThemeProvider as V0MuiThemeProvider } from 'material-ui';
 import { init as d2Init, config, getUserSettings } from 'd2';
+import dhis2theme from '@dhis2/d2-ui-core/theme/mui3.theme';
+
+// temporary workaround until new ui headerbar is ready
+import 'material-design-icons/iconfont/material-icons.css';
+import './reset.css';
 
 import App from './components/App';
 import './index.css';
 import i18n from './locales';
 import configureStore from './configureStore';
 import { muiTheme } from './theme';
+
+const v1Theme = () => {
+    const theme = {
+        ...dhis2theme,
+    };
+    return createMuiTheme(theme);
+};
 
 const configI18n = userSettings => {
     const uiLocale = userSettings.keyUiLocale;
@@ -49,9 +62,11 @@ const init = async () => {
         .then(initializedD2 => {
             ReactDOM.render(
                 <Provider store={configureStore()}>
-                    <V0MuiThemeProvider muiTheme={muiTheme()}>
-                        <App baseUrl={baseUrl} d2={initializedD2} />
-                    </V0MuiThemeProvider>
+                    <MuiThemeProvider theme={v1Theme()}>
+                        <V0MuiThemeProvider muiTheme={muiTheme()}>
+                            <App baseUrl={baseUrl} d2={initializedD2} />
+                        </V0MuiThemeProvider>
+                    </MuiThemeProvider>
                 </Provider>,
                 document.getElementById('root')
             );

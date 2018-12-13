@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import i18n from 'd2-i18n';
-import UI from 'ui/core/UI';
 import HeaderBar from 'ui/widgets/HeaderBar';
 
 import { fromUser, fromDashboards, fromControlBar } from '../actions';
@@ -26,46 +25,44 @@ class App extends Component {
 
     render() {
         return (
-            <UI>
-                <div className="app-wrapper">
-                    <div className="dashboard-header-bar">
-                        <HeaderBar appName={i18n.t('Dashboard')} />
-                    </div>
-                    <Router>
-                        <Switch>
-                            <Route
-                                exact
-                                path="/"
-                                render={props => (
-                                    <Dashboard {...props} mode={VIEW} />
-                                )}
-                            />
-                            <Route
-                                exact
-                                path="/new"
-                                render={props => (
-                                    <Dashboard {...props} mode={NEW} />
-                                )}
-                            />
-                            <Route
-                                exact
-                                path="/:dashboardId"
-                                render={props => (
-                                    <Dashboard {...props} mode={VIEW} />
-                                )}
-                            />
-                            <Route
-                                exact
-                                path="/:dashboardId/edit"
-                                render={props => (
-                                    <Dashboard {...props} mode={EDIT} />
-                                )}
-                            />
-                        </Switch>
-                    </Router>
-                    <SnackbarMessage />
+            <div className="app-wrapper">
+                <div className="dashboard-header-bar">
+                    <HeaderBar appName={i18n.t('Dashboard')} />
                 </div>
-            </UI>
+                <Router>
+                    <Switch>
+                        <Route
+                            exact
+                            path="/"
+                            render={props => (
+                                <Dashboard {...props} mode={VIEW} />
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/new"
+                            render={props => (
+                                <Dashboard {...props} mode={NEW} />
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/:dashboardId"
+                            render={props => (
+                                <Dashboard {...props} mode={VIEW} />
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/:dashboardId/edit"
+                            render={props => (
+                                <Dashboard {...props} mode={EDIT} />
+                            )}
+                        />
+                    </Switch>
+                </Router>
+                <SnackbarMessage />
+            </div>
         );
     }
 }
