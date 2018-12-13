@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-12-11T14:13:30.740Z\n"
-"PO-Revision-Date: 2018-12-11T14:13:30.740Z\n"
+"POT-Creation-Date: 2018-12-13T20:18:29.537Z\n"
+"PO-Revision-Date: 2018-12-13T20:18:29.537Z\n"
 
 msgid "Delete"
 msgstr ""
@@ -68,6 +68,9 @@ msgstr ""
 msgid "Add text here"
 msgstr ""
 
+msgid "Unable to load the plugin for this item"
+msgstr ""
+
 msgid "Edit your interpretation"
 msgstr ""
 
@@ -108,9 +111,6 @@ msgid "Interpretations"
 msgstr ""
 
 msgid "Add your interpretation"
-msgstr ""
-
-msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "There are no items on this dashboard"
