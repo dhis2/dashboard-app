@@ -1,22 +1,25 @@
 import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import ItemHeaderButton from '../Item/ItemHeaderButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 
-import { colors } from '../../colors';
+const styles = theme => ({
+    deleteIcon: {
+        fill: theme.palette.status.negative,
+    },
+});
 
-const style = {
-    container: {
-        position: 'absolute',
-        top: '7px',
-        right: '7px',
-        zIndex: '1000',
-    },
-    icon: {
-        fill: colors.red,
-    },
+const containerStyle = {
+    position: 'absolute',
+    top: '7px',
+    right: '7px',
+    zIndex: '1000',
 };
 
-const DeleteItemHeaderButton = ({ onClick }) => (
-    <ItemHeaderButton style={style} onClick={onClick} icon={'Delete'} />
+const DeleteItemHeaderButton = ({ classes, onClick }) => (
+    <ItemHeaderButton onClick={onClick} style={containerStyle}>
+        <DeleteIcon className={classes.deleteIcon} />
+    </ItemHeaderButton>
 );
 
-export default DeleteItemHeaderButton;
+export default withStyles(styles)(DeleteItemHeaderButton);

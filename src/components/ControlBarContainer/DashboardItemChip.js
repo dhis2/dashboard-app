@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MuiChip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
-import IconStar from 'material-ui/svg-icons/toggle/star';
+import IconStar from '@material-ui/icons/Star';
 import { Link } from 'react-router-dom';
 
 import { colors } from '../../colors';

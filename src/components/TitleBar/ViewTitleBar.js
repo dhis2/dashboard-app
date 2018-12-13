@@ -1,10 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import i18n from 'd2-i18n';
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import Star from '@material-ui/icons/Star';
+import StarBorder from '@material-ui/icons/StarBorder';
 
 import * as fromReducers from '../../reducers';
 import { orObject } from '../../util';
@@ -16,7 +18,24 @@ import Info from './Info';
 
 const NO_DESCRIPTION = i18n.t('No description');
 
-const viewStyle = {
+const styles = theme => ({
+    actions: {
+        display: 'flex',
+        alignItems: 'center',
+        marginLeft: '20px',
+    },
+    starIcon: {
+        fill: theme.palette.shadow,
+    },
+    textButton: {
+        minWidth: '30px',
+        top: '1px',
+    },
+    editLink: {
+        display: 'inline-block',
+        verticalAlign: 'top',
+        textDecoration: 'none',
+    },
     titleBar: {
         display: 'flex',
         alignItems: 'flex-start',
@@ -27,10 +46,7 @@ const viewStyle = {
         top: 1,
         cursor: 'pointer',
     },
-    noDescription: {
-        color: '#888',
-    },
-};
+});
 
 class ViewTitleBar extends Component {
     constructor(props) {
@@ -84,8 +100,9 @@ class ViewTitleBar extends Component {
             starred,
             onStarClick,
             onInfoClick,
+            classes,
         } = this.props;
-        const styles = Object.assign({}, style, viewStyle);
+
         const titleStyle = Object.assign({}, style.title, {
             cursor: 'default',
             userSelect: 'text',
@@ -94,34 +111,29 @@ class ViewTitleBar extends Component {
 
         return (
             <Fragment>
-                <div className="titlebar" style={styles.titleBar}>
+                <div className={classes.titleBar}>
                     <span style={titleStyle}>{name}</span>
-                    <div
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            marginLeft: '20px',
-                        }}
-                    >
-                        <div style={styles.titleBarIcon} onClick={onStarClick}>
-                            <SvgIcon icon={starred ? 'Star' : 'StarBorder'} />
+                    <div className={classes.actions}>
+                        <div
+                            className={classes.titleBarIcon}
+                            onClick={onStarClick}
+                        >
+                            {starred ? (
+                                <Star className={classes.starIcon} />
+                            ) : (
+                                <StarBorder className={classes.starIcon} />
+                            )}
                         </div>
-                        <div style={styles.titleBarIcon}>
+                        <div className={classes.titleBarIcon}>
                             <Info onClick={onInfoClick} />
                         </div>
                         <span style={{ marginLeft: '10px' }}>
                             {access.update ? (
                                 <Link
-                                    style={{
-                                        display: 'inline-block',
-                                        verticalAlign: 'top',
-                                        textDecoration: 'none',
-                                    }}
+                                    className={classes.editLink}
                                     to={`/${id}/edit`}
                                 >
-                                    <FlatButton
-                                        style={{ minWidth: '30px', top: '1px' }}
-                                    >
+                                    <FlatButton className={classes.textButton}>
                                         Edit
                                     </FlatButton>
                                 </Link>
@@ -129,15 +141,15 @@ class ViewTitleBar extends Component {
 
                             {access.manage ? (
                                 <FlatButton
-                                    style={{ minWidth: '30px', top: '1px' }}
+                                    className={classes.textButton}
                                     onClick={this.toggleSharingDialog}
                                 >
                                     Share
                                 </FlatButton>
                             ) : null}
                             <FlatButton
+                                className={classes.textButton}
                                 onClick={this.toggleFilterDialog}
-                                style={{ minWidth: '30px', top: '1px' }}
                             >
                                 Filter
                             </FlatButton>
@@ -150,8 +162,8 @@ class ViewTitleBar extends Component {
                         className="dashboard-description"
                         style={Object.assign(
                             { paddingTop: '5px', paddingBottom: '5px' },
-                            styles.description,
-                            !description ? styles.noDescription : {}
+                            style.description,
+                            !description ? { color: '#888' } : {}
                         )}
                     >
                         {description || NO_DESCRIPTION}
@@ -211,7 +223,7 @@ export default connect(
     mapStateToProps,
     null,
     mergeProps
-)(ViewTitleBar);
+)(withStyles(styles)(ViewTitleBar));
 
 ViewTitleBar.propTypes = {
     id: PropTypes.string,
