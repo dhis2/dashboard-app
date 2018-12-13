@@ -36,24 +36,21 @@ const init = async () => {
     const baseUrl = isProd
         ? manifest.activities.dhis.href
         : DHIS_CONFIG.baseUrl;
+
     config.baseUrl = `${baseUrl}/api/${manifest.dhis2.apiVersion}`;
+    config.schemas = ['dashboard', 'organisationUnit'];
     config.headers = isProd
         ? null
         : { Authorization: DHIS_CONFIG.authorization };
 
-    const d2 = await d2Init({
-        baseUrl: config.baseUrl,
-    });
-
     getUserSettings()
         .then(configI18n)
-        .then(() => {
-            config.schemas = ['dashboard', 'organisationUnit'];
-
+        .then(() => d2Init(config))
+        .then(initializedD2 => {
             ReactDOM.render(
                 <Provider store={configureStore()}>
                     <V0MuiThemeProvider muiTheme={muiTheme()}>
-                        <App baseUrl={baseUrl} d2={d2} />
+                        <App baseUrl={baseUrl} d2={initializedD2} />
                     </V0MuiThemeProvider>
                 </Provider>,
                 document.getElementById('root')
