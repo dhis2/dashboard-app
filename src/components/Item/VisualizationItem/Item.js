@@ -12,6 +12,7 @@ import ItemHeader from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
 import DefaultVisualizationItem from './DefaultVisualizationItem/Item';
+import ChartPlugin from 'data-visualizer-plugin';
 
 const style = {
     icon: {
@@ -33,9 +34,6 @@ const style = {
         lineHeight: '20px',
     },
 };
-
-// Import the new component
-const ChartVisualizationItem = props => <div>{props.config.id}</div>;
 
 class Item extends Component {
     state = {
@@ -122,8 +120,9 @@ class Item extends Component {
             case CHART: {
                 return (
                     // Import new component
-                    <ChartVisualizationItem
+                    <ChartPlugin
                         config={{ id: this.props.visualization.id }}
+                        filters={this.props.itemFilter}
                     />
                 );
             }
