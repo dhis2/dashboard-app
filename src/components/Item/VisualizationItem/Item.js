@@ -12,7 +12,6 @@ import ItemHeader from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
 import DefaultVisualizationItem from './DefaultVisualizationItem/Item';
-import ChartVisualizationItem from './ChartVisualizationItem/Item';
 
 const style = {
     icon: {
@@ -34,6 +33,9 @@ const style = {
         lineHeight: '20px',
     },
 };
+
+// Import the new component
+const ChartVisualizationItem = props => <div>props.config.id</div>;
 
 class Item extends Component {
     state = {
