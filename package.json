@@ -168,9 +168,9 @@
         "extends": "react-app"
     },
     "devDependencies": {
+        "@dhis2/d2-i18n-generate": "^1.0.19",
         "create-react-class": "^15.6.3",
         "d2-i18n-extract": "^1.x",
-        "d2-i18n-generate": "^1.x",
         "enzyme-adapter-react-16": "^1.7.1",
         "husky": "^0.15.0-rc.12",
         "jest-enzyme": "^7.0.1",
