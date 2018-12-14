@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { EditDashboard } from '../EditDashboard';
+import { EditDashboard, Content } from '../EditDashboard';
 import { NoContentMessage } from '../../../widgets/NoContentMessage';
 
 jest.mock('../DashboardContent', () => () => (
@@ -19,12 +19,10 @@ describe('EditDashboard', () => {
     };
 
     const assertContent = hasContent => {
-        const children = editDashboard()
-            .find('.dashboard-wrapper')
-            .children();
+        const content = editDashboard().find(Content);
 
-        expect(children.length).toBe(1);
-        expect(children.dive().find(NoContentMessage)).toHaveLength(
+        expect(content.length).toBe(1);
+        expect(content.dive().find(NoContentMessage)).toHaveLength(
             hasContent ? 0 : 1
         );
     };
