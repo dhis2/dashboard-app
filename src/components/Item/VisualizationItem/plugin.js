@@ -15,7 +15,6 @@ import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 
 export const pluginIsAvailable = (item = {}, visualization = {}) => {
     const type = visualization.activeType || item.type;
-    console.log(item, visualization);
     return !!itemTypeMap[type].plugin;
 };
 

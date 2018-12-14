@@ -119,6 +119,7 @@ class Item extends Component {
         switch (this.props.item.type) {
             case CHART: {
                 return (
+                    // Import new component
                     <ChartVisualizationItem
                         config={{ id: this.props.visualization.id }}
                     />

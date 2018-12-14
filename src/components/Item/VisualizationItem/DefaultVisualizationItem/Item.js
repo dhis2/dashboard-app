@@ -9,7 +9,6 @@ import { getBaseUrl, orObject } from '../../../../util';
 import { sGetVisualization } from '../../../../reducers/visualizations';
 import { acReceivedActiveVisualization } from '../../../../actions/selected';
 import { fromItemFilter } from '../../../../reducers';
-import { itemTypeMap } from '../../../../itemTypes';
 import { HEADER_HEIGHT } from '../../ItemHeader';
 
 const style = {
@@ -67,7 +66,7 @@ class Item1 extends Component {
     reloadPlugin = prevProps => {
         if (
             pluginManager.pluginIsAvailable(
-                this.props.items,
+                this.props.item,
                 this.props.visualization
             ) &&
             this.shouldPluginReload(prevProps)
