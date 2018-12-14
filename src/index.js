@@ -46,7 +46,7 @@ const init = () => {
         : DHIS_CONFIG.baseUrl;
 
     config.baseUrl = `${baseUrl}/api/${manifest.dhis2.apiVersion}`;
-    config.schemas = ['dashboard', 'organisationUnit'];
+    config.schemas = ['dashboard', 'organisationUnit', 'chart'];
     config.headers = isProd
         ? null
         : { Authorization: DHIS_CONFIG.authorization };
