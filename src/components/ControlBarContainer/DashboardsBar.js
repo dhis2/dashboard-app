@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
+import ControlBar from '@dhis2/d2-ui-core/control-bar/ControlBar';
 import arraySort from 'd2-utilizr/lib/arraySort';
 
 import Chip from './DashboardItemChip';

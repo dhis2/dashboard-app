@@ -1,8 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ViewDashboard } from '../ViewDashboard';
-import { DashboardContent } from '../DashboardContent';
+import { ViewDashboard, Content } from '../ViewDashboard';
 import { NoContentMessage } from '../../../widgets/NoContentMessage';
+
+jest.mock('../DashboardContent', () => () => (
+    <div id="mockDashboardContent">mockDashboardContent</div>
+));
 
 describe('ViewDashboard', () => {
     let props;
@@ -14,24 +17,13 @@ describe('ViewDashboard', () => {
         return shallowViewDashboard;
     };
 
-    const assertDashboardContent = () => {
-        const children = viewDashboard()
-            .find('.dashboard-wrapper')
-            .children();
+    const assertContent = hasContent => {
+        const content = viewDashboard().find(Content);
 
-        expect(children.length).toBe(1);
-        expect(children.dive().find(NoContentMessage)).toHaveLength(0);
-        expect(children.dive().find(DashboardContent)).toHaveLength(1);
-    };
-
-    const assertNoContentMessage = () => {
-        const children = viewDashboard()
-            .find('.dashboard-wrapper')
-            .children();
-
-        expect(children.length).toBe(1);
-        expect(children.dive().find(NoContentMessage)).toHaveLength(1);
-        expect(children.dive().find(DashboardContent)).toHaveLength(0);
+        expect(content.length).toBe(1);
+        expect(content.dive().find(NoContentMessage)).toHaveLength(
+            hasContent ? 0 : 1
+        );
     };
 
     beforeEach(() => {
@@ -77,7 +69,7 @@ describe('ViewDashboard', () => {
             });
 
             it('renders a NoContentMessage', () => {
-                assertNoContentMessage();
+                assertContent(false);
             });
         });
 
@@ -92,7 +84,7 @@ describe('ViewDashboard', () => {
                 });
 
                 it('renders DashboardContent', () => {
-                    assertDashboardContent();
+                    assertContent(true);
                 });
             });
 
@@ -102,7 +94,7 @@ describe('ViewDashboard', () => {
                 });
 
                 it('renders a NoContentMessage', () => {
-                    assertNoContentMessage();
+                    assertContent(false);
                 });
             });
         });
