@@ -39,7 +39,7 @@ const pluginCredentials = d2 => {
     };
 };
 
-class Item1 extends Component {
+class Item extends Component {
     state = {
         showFooter: false,
     };
@@ -182,16 +182,16 @@ class Item1 extends Component {
     }
 }
 
-Item1.contextTypes = {
+Item.contextTypes = {
     d2: PropTypes.object,
 };
 
-Item1.propTypes = {
+Item.propTypes = {
     itemFilter: PropTypes.object,
     visualization: PropTypes.object,
 };
 
-Item1.defaultProps = {
+Item.defaultProps = {
     itemFilter: {},
     visualization: {},
 };
@@ -212,4 +212,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Item1);
+)(Item);
