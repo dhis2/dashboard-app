@@ -31,7 +31,7 @@ const configI18n = userSettings => {
     i18n.changeLanguage(uiLocale);
 };
 
-const init = async () => {
+const init = () => {
     // log app info
     console.info(
         `Dashboards app, v${manifest.version}, ${
