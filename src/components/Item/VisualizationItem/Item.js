@@ -35,7 +35,7 @@ const style = {
 };
 
 // Import the new component
-const ChartVisualizationItem = props => <div>props.config.id</div>;
+const ChartVisualizationItem = props => <div>{props.config.id}</div>;
 
 class Item extends Component {
     state = {
