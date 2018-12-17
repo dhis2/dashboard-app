@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
+import ControlBar from '@dhis2/d2-ui-core/control-bar/ControlBar';
 import arraySort from 'd2-utilizr/lib/arraySort';
 
 import Chip from './DashboardItemChip';
@@ -101,23 +101,21 @@ export class DashboardsBar extends Component {
             >
                 <div style={contentWrapperStyle}>
                     <div className="left-controls">
-                        <Fragment>
-                            <Link
-                                style={{
-                                    display: 'inline-block',
-                                    textDecoration: 'none',
-                                    marginRight: 10,
-                                }}
-                                to={'/new'}
-                            >
-                                <D2IconButton />
-                            </Link>
-                            <Filter
-                                name={name}
-                                onChangeName={onChangeFilterName}
-                                onKeypressEnter={this.onSelectDashboard}
-                            />
-                        </Fragment>
+                        <Link
+                            style={{
+                                display: 'inline-block',
+                                textDecoration: 'none',
+                                marginRight: 10,
+                            }}
+                            to={'/new'}
+                        >
+                            <D2IconButton />
+                        </Link>
+                        <Filter
+                            name={name}
+                            onChangeName={onChangeFilterName}
+                            onKeypressEnter={this.onSelectDashboard}
+                        />
                     </div>
                     {orArray(dashboards).map(dashboard => (
                         <Chip

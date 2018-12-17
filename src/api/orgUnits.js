@@ -1,4 +1,4 @@
-import { getInstance } from 'd2/lib/d2';
+import { getInstance } from 'd2';
 
 export const apiFetchOrgUnits = () => {
     return getInstance().then(d2 => {
