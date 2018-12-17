@@ -1,7 +1,17 @@
 import { generateUid } from 'd2/lib/uid';
 
-import { actionTypes } from '../reducers';
-import { fromEditDashboard } from '../reducers';
+import {
+    RECEIVED_EDIT_DASHBOARD,
+    START_NEW_DASHBOARD,
+    RECEIVED_NOT_EDITING,
+    RECEIVED_TITLE,
+    RECEIVED_DESCRIPTION,
+    RECEIVED_DASHBOARD_LAYOUT,
+    ADD_DASHBOARD_ITEM,
+    UPDATE_DASHBOARD_ITEM,
+    REMOVE_DASHBOARD_ITEM,
+} from '../reducers/editDashboard';
+import { sGetEditDashboardRoot } from '../reducers/editDashboard';
 import { updateDashboard, postDashboard } from '../api/editDashboard';
 import { tSetSelectedDashboardById } from '../actions/selected';
 import { NEW_ITEM_SHAPE } from '../components/ItemGrid/gridUtil';
@@ -27,31 +37,31 @@ export const acSetEditDashboard = (dashboard, items) => {
     };
 
     return {
-        type: actionTypes.RECEIVED_EDIT_DASHBOARD,
+        type: RECEIVED_EDIT_DASHBOARD,
         value: val,
     };
 };
 
 export const acSetEditNewDashboard = () => ({
-    type: actionTypes.START_NEW_DASHBOARD,
+    type: START_NEW_DASHBOARD,
 });
 
 export const acClearEditDashboard = () => ({
-    type: actionTypes.RECEIVED_NOT_EDITING,
+    type: RECEIVED_NOT_EDITING,
 });
 
 export const acSetDashboardTitle = value => ({
-    type: actionTypes.RECEIVED_TITLE,
+    type: RECEIVED_TITLE,
     value,
 });
 
 export const acSetDashboardDescription = value => ({
-    type: actionTypes.RECEIVED_DESCRIPTION,
+    type: RECEIVED_DESCRIPTION,
     value,
 });
 
 export const acUpdateDashboardLayout = value => ({
-    type: actionTypes.RECEIVED_DASHBOARD_LAYOUT,
+    type: RECEIVED_DASHBOARD_LAYOUT,
     value,
 });
 
@@ -61,7 +71,7 @@ export const acAddDashboardItem = item => {
     const itemPropName = itemTypeMap[type].propName;
 
     return {
-        type: actionTypes.ADD_DASHBOARD_ITEM,
+        type: ADD_DASHBOARD_ITEM,
         value: {
             id: generateUid(),
             type,
@@ -72,19 +82,19 @@ export const acAddDashboardItem = item => {
 };
 
 export const acUpdateDashboardItem = item => ({
-    type: actionTypes.UPDATE_DASHBOARD_ITEM,
+    type: UPDATE_DASHBOARD_ITEM,
     value: item,
 });
 
 export const acRemoveDashboardItem = value => ({
-    type: actionTypes.REMOVE_DASHBOARD_ITEM,
+    type: REMOVE_DASHBOARD_ITEM,
     value,
 });
 
 // thunks
 
 export const tSaveDashboard = () => async (dispatch, getState) => {
-    const dashboard = fromEditDashboard.sGetEditDashboard(getState());
+    const dashboard = sGetEditDashboardRoot(getState());
 
     const dashboardItems = dashboard.dashboardItems.map(item => {
         const text = isTextType(item)

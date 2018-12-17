@@ -11,7 +11,7 @@ import {
     acSetItemFilter,
     FILTER_USER_ORG_UNIT,
 } from '../../actions/itemFilter';
-import { sGetFromState } from '../../reducers/itemFilter';
+import { sGetItemFilterRoot } from '../../reducers/itemFilter';
 import D2TextLink from '../../widgets/D2TextLink';
 
 const style = {
@@ -127,7 +127,7 @@ class ItemFilter extends Component {
 }
 
 const mapStateToProps = state => ({
-    selected: sGetFromState(state)[FILTER_USER_ORG_UNIT] || [],
+    selected: sGetItemFilterRoot(state)[FILTER_USER_ORG_UNIT] || [],
 });
 
 const ItemFilterCt = connect(

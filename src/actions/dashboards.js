@@ -1,10 +1,16 @@
-import { actionTypes } from '../reducers';
+import {
+    SET_DASHBOARDS,
+    ADD_DASHBOARDS,
+    SET_DASHBOARD_STARRED,
+    SET_DASHBOARD_DISPLAY_NAME,
+    SET_DASHBOARD_ITEMS,
+} from '../reducers/dashboards';
 import {
     getCustomDashboards,
     sGetDashboardById,
     sGetDashboardsSortedByStarred,
 } from '../reducers/dashboards';
-import { sGetUsername } from '../reducers/user';
+import { sGetUserUsername } from '../reducers/user';
 import { tSetSelectedDashboardById, acSetSelectedId } from './selected';
 import { acClearEditDashboard } from './editDashboard';
 import {
@@ -18,29 +24,29 @@ import { arrayToIdMap } from '../util';
 // actions
 
 export const acSetDashboards = dashboards => ({
-    type: actionTypes.SET_DASHBOARDS,
+    type: SET_DASHBOARDS,
     value: arrayToIdMap(getCustomDashboards(dashboards)),
 });
 
 export const acAppendDashboards = dashboards => ({
-    type: actionTypes.APPEND_DASHBOARDS,
+    type: ADD_DASHBOARDS,
     value: arrayToIdMap(getCustomDashboards(dashboards)),
 });
 
 export const acSetDashboardStarred = (dashboardId, isStarred) => ({
-    type: actionTypes.SET_DASHBOARD_STARRED,
+    type: SET_DASHBOARD_STARRED,
     dashboardId: dashboardId,
     value: isStarred,
 });
 
 export const acSetDashboardDisplayName = (dashboardId, value) => ({
-    type: actionTypes.SET_DASHBOARD_DISPLAY_NAME,
+    type: SET_DASHBOARD_DISPLAY_NAME,
     dashboardId,
     value,
 });
 
 export const acSetDashboardItems = value => ({
-    type: actionTypes.SET_DASHBOARD_ITEMS,
+    type: SET_DASHBOARD_ITEMS,
     value,
 });
 
@@ -64,7 +70,9 @@ export const tSelectDashboard = id => async (dispatch, getState) => {
         if (id) {
             dashboardToSelect = sGetDashboardById(state, id) || null;
         } else {
-            const preferredId = getPreferredDashboardId(sGetUsername(state));
+            const preferredId = getPreferredDashboardId(
+                sGetUserUsername(state)
+            );
             const dash = sGetDashboardById(state, preferredId);
             dashboardToSelect =
                 preferredId && dash

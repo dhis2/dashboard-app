@@ -1,4 +1,4 @@
-import reducer, { actionTypes } from '../messages';
+import reducer, { RECEIVED_MESSAGES } from '../messages';
 
 describe('messages reducer', () => {
     const currentState = {
@@ -25,7 +25,7 @@ describe('messages reducer', () => {
         ];
 
         const actualState = reducer(currentState, {
-            type: actionTypes.RECEIVED_MESSAGES,
+            type: RECEIVED_MESSAGES,
             value: newMessages,
         });
 
@@ -42,7 +42,7 @@ describe('messages reducer', () => {
         const newMessages = [{ id: 'msg1', text: 'mooo' }];
 
         const actualState = reducer(currentState, {
-            type: actionTypes.RECEIVED_MESSAGES,
+            type: RECEIVED_MESSAGES,
             value: newMessages,
         });
 

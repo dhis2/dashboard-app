@@ -1,10 +1,14 @@
-import reducer, { actionTypes, DEFAULT_STATE } from '../snackbar';
+import reducer, {
+    DEFAULT_STATE_SNACKBAR,
+    RECEIVED_SNACKBAR_MESSAGE,
+    CLOSE_SNACKBAR,
+} from '../snackbar';
 
 describe('snackbar reducer', () => {
     it('should return the default state', () => {
         const actualState = reducer(undefined, {});
 
-        expect(actualState).toEqual(DEFAULT_STATE);
+        expect(actualState).toEqual(DEFAULT_STATE_SNACKBAR);
     });
 
     it('should handle RECEIVED_SNACKBAR_MESSAGE action with message object containing only message text', () => {
@@ -14,7 +18,7 @@ describe('snackbar reducer', () => {
         };
 
         const action = {
-            type: actionTypes.RECEIVED_SNACKBAR_MESSAGE,
+            type: RECEIVED_SNACKBAR_MESSAGE,
             value: {
                 message,
             },
@@ -26,7 +30,7 @@ describe('snackbar reducer', () => {
             open: false,
         };
 
-        const actualState = reducer(DEFAULT_STATE, action);
+        const actualState = reducer(DEFAULT_STATE_SNACKBAR, action);
         expect(actualState).toEqual(expectedState);
     });
 
@@ -38,7 +42,7 @@ describe('snackbar reducer', () => {
         const duration = 3000;
 
         const action = {
-            type: actionTypes.RECEIVED_SNACKBAR_MESSAGE,
+            type: RECEIVED_SNACKBAR_MESSAGE,
             value: {
                 message,
             },
@@ -69,7 +73,7 @@ describe('snackbar reducer', () => {
         const open = true;
 
         const action = {
-            type: actionTypes.RECEIVED_SNACKBAR_MESSAGE,
+            type: RECEIVED_SNACKBAR_MESSAGE,
             value: {
                 message,
                 duration,
@@ -83,7 +87,7 @@ describe('snackbar reducer', () => {
             open,
         };
 
-        const actualState = reducer(DEFAULT_STATE, action);
+        const actualState = reducer(DEFAULT_STATE_SNACKBAR, action);
         expect(actualState).toEqual(expectedState);
     });
 
@@ -93,7 +97,7 @@ describe('snackbar reducer', () => {
         const open = true;
 
         const action = {
-            type: actionTypes.RECEIVED_SNACKBAR_MESSAGE,
+            type: RECEIVED_SNACKBAR_MESSAGE,
             value: {
                 message,
                 duration,
@@ -107,13 +111,13 @@ describe('snackbar reducer', () => {
             open,
         };
 
-        const actualState = reducer(DEFAULT_STATE, action);
+        const actualState = reducer(DEFAULT_STATE_SNACKBAR, action);
         expect(actualState).toEqual(expectedState);
     });
 
     it('should handle the CLOSE_SNACKBAR action', () => {
         const action = {
-            type: actionTypes.CLOSE_SNACKBAR,
+            type: CLOSE_SNACKBAR,
         };
 
         const currentState = {
@@ -124,6 +128,6 @@ describe('snackbar reducer', () => {
 
         const actualState = reducer(currentState, action);
 
-        expect(actualState).toEqual(DEFAULT_STATE);
+        expect(actualState).toEqual(DEFAULT_STATE_SNACKBAR);
     });
 });

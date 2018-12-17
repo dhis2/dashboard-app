@@ -6,10 +6,12 @@ import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 
-import { fromUser, fromDashboards, fromControlBar } from '../actions';
+import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes';
+import { acReceivedUser } from '../actions/user';
+import { tFetchDashboards } from '../actions/dashboards';
+import { tSetControlBarRows } from '../actions/controlBar';
 import Dashboard from './Dashboard/Dashboard';
 import SnackbarMessage from './SnackbarMessage/SnackbarMessage';
-import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes';
 
 import './App.css';
 
@@ -18,9 +20,9 @@ const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 class App extends Component {
     componentDidMount() {
         const { store, d2 } = this.context;
-        store.dispatch(fromUser.acReceivedUser(d2.currentUser));
-        store.dispatch(fromDashboards.tFetchDashboards());
-        store.dispatch(fromControlBar.tSetControlBarRows());
+        store.dispatch(acReceivedUser(d2.currentUser));
+        store.dispatch(tFetchDashboards());
+        store.dispatch(tSetControlBarRows());
     }
 
     getChildContext() {

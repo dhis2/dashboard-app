@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
 import { FILTER_USER_ORG_UNIT } from '../../../actions/itemFilter';
-import { fromItemFilter } from '../../../reducers';
+import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
 import ItemHeader from '../ItemHeader';
 import Line from '../../../widgets/Line';
 
@@ -78,7 +78,7 @@ AppItem.contextTypes = {
 };
 
 const mapStateToProps = state => ({
-    itemFilter: fromItemFilter.sGetFromState(state),
+    itemFilter: sGetItemFilterRoot(state),
 });
 
 export default connect(mapStateToProps)(AppItem);
