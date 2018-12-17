@@ -119,11 +119,13 @@ class Item extends Component {
         switch (this.props.item.type) {
             case CHART: {
                 return (
-                    // Import new component
-                    <ChartPlugin
-                        config={{ id: this.props.visualization.id }}
-                        filters={this.props.itemFilter}
-                    />
+                    <div className="dashboard-item-content">
+                        <ChartPlugin
+                            config={{ id: this.props.visualization.id }}
+                            filters={this.props.itemFilter}
+                            forDashboard={true}
+                        />
+                    </div>
                 );
             }
             default: {
