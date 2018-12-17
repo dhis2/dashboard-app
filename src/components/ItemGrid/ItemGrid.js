@@ -21,7 +21,6 @@ import {
     onItemResize,
 } from './gridUtil';
 import { orArray } from '../../util';
-import * as fromReducers from '../../reducers';
 import DeleteItemButton from './DeleteItemButton';
 import ModalLoadingMask from '../../widgets/ModalLoadingMask';
 import NoContentMessage from '../../widgets/NoContentMessage';
@@ -30,6 +29,15 @@ import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 
 import './ItemGrid.css';
+import { sGetSelectedId, sGetSelectedIsLoading } from '../../reducers/selected';
+import {
+    sGetEditDashboard,
+    sGetEditDashboardItems,
+} from '../../reducers/editDashboard';
+import {
+    sGetDashboardById,
+    sGetDashboardItems,
+} from '../../reducers/dashboards';
 
 // Component
 
@@ -164,22 +172,16 @@ ItemGrid.defaultProps = {
 // Container
 
 const mapStateToProps = (state, ownProps) => {
-    const { fromSelected, fromEditDashboard, fromDashboards } = fromReducers;
-
     const selectedDashboard = ownProps.edit
-        ? fromEditDashboard.sGetEditDashboard(state)
-        : fromDashboards.sGetDashboardById(
-              state,
-              fromSelected.sGetSelectedId(state)
-          );
+        ? sGetEditDashboard(state)
+        : sGetDashboardById(state, sGetSelectedId(state));
 
     const dashboardItems = ownProps.edit
-        ? fromEditDashboard.sGetEditDashboardItems(state)
-        : fromDashboards.sGetDashboardItems(state);
+        ? sGetEditDashboardItems(state)
+        : sGetDashboardItems(state);
 
     return {
-        isLoading:
-            fromSelected.sGetSelectedIsLoading(state) || !selectedDashboard,
+        isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
         dashboardItems,
     };
 };
