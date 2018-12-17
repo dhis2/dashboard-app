@@ -16,7 +16,7 @@ import './App.css';
 class App extends Component {
     componentDidMount() {
         const { store } = this.context;
-        store.dispatch(acReceivedUser(d2.currentUser));
+        store.dispatch(acReceivedUser(this.props.d2.currentUser));
         store.dispatch(tFetchDashboards());
         store.dispatch(tSetControlBarRows());
     }
