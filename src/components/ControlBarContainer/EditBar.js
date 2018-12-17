@@ -18,7 +18,7 @@ import {
     acSetDashboardDisplayName,
 } from '../../actions/dashboards';
 import {
-    sGetEditDashboard,
+    sGetEditDashboardRoot,
     sGetIsNewDashboard,
 } from '../../reducers/editDashboard';
 import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './controlBarDimensions';
@@ -208,7 +208,7 @@ EditBar.contextTypes = {
 };
 
 const mapStateToProps = state => {
-    const dashboard = sGetEditDashboard(state);
+    const dashboard = sGetEditDashboardRoot(state);
 
     let deleteAccess;
     let updateAccess;

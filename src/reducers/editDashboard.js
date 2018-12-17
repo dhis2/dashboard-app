@@ -104,15 +104,17 @@ export default (state = DEFAULT_STATE, action) => {
 
 // root selector
 
-export const sGetEditDashboard = state => state.editDashboard;
+export const sGetEditDashboardRoot = state => state.editDashboard;
 
 // selectors
 
 export const sGetIsEditing = state => !isEmpty(state.editDashboard);
 
 export const sGetIsNewDashboard = state => {
-    return !isEmpty(state.editDashboard) && sGetEditDashboard(state).id === '';
+    return (
+        !isEmpty(state.editDashboard) && sGetEditDashboardRoot(state).id === ''
+    );
 };
 
 export const sGetEditDashboardItems = state =>
-    orObject(sGetEditDashboard(state)).dashboardItems;
+    orObject(sGetEditDashboardRoot(state)).dashboardItems;

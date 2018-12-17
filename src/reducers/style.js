@@ -30,4 +30,4 @@ export default style;
  * @param {Object} state
  * @returns {Object}
  */
-export const sGetFromState = state => state.style;
+export const sGetStyleRoot = state => state.style;

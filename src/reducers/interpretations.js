@@ -37,18 +37,18 @@ export default (state = {}, action) => {
 
 // Selectors
 
-export const sGetInterpretation = (state, id) => {
-    return state.interpretations[id] || null;
-};
+export const sGetInterpretationsRoot = state => state.interpretations;
 
-export const sGetInterpretations = (state, ids) => {
-    const interpretations = {};
+export const sGetInterpretation = (state, id) =>
+    sGetInterpretationsRoot(state)[id] || null;
 
-    ids.forEach(id => {
-        if (state.interpretations[id]) {
-            interpretations[id] = Object.assign({}, state.interpretations[id]);
+export const sGetInterpretations = (state, ids) =>
+    ids.reduce((ipts, id) => {
+        const ipt = sGetInterpretationsRoot(state)[id];
+
+        if (ipt) {
+            ipts[id] = Object.assign({}, ipt);
         }
-    });
 
-    return interpretations;
-};
+        return ipts;
+    }, {});

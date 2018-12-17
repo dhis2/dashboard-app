@@ -1,7 +1,7 @@
 import reducer, {
     actionTypes,
     DEFAULT_DASHBOARDS,
-    sGetFromState,
+    sGetDashboardsRoot,
     sGetDashboardById,
     sGetAllDashboards,
     sGetStarredDashboards,
@@ -81,9 +81,9 @@ describe('dashboards reducer', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it('APPEND_DASHBOARDS: should append to the list of dashboards and leave the items untouched', () => {
+    it('ADD_DASHBOARDS: should append to the list of dashboards and leave the items untouched', () => {
         const actualState = reducer(dashboardsState, {
-            type: actionTypes.APPEND_DASHBOARDS,
+            type: actionTypes.ADD_DASHBOARDS,
             value: dashboards,
         });
 
@@ -171,8 +171,8 @@ const dash3 = dashboardsState.byId[dashId3];
 const dash4 = dashboardsState.byId[dashId4];
 
 describe('dashboards selectors', () => {
-    it('sGetFromState: should return the root prop', () => {
-        const actualState = sGetFromState(testState);
+    it('sGetDashboardsRoot: should return the root prop', () => {
+        const actualState = sGetDashboardsRoot(testState);
 
         expect(actualState).toEqual(dashboardsState);
     });

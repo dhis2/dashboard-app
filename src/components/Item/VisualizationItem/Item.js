@@ -8,8 +8,8 @@ import * as pluginManager from './plugin';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { getBaseUrl, orObject } from '../../../util';
 import { sGetVisualization } from '../../../reducers/visualizations';
+import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
 import { acReceivedActiveVisualization } from '../../../actions/selected';
-import { fromItemFilter } from '../../../reducers';
 import { itemTypeMap } from '../../../itemTypes';
 import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
 import ItemFooter from './ItemFooter';
@@ -235,7 +235,7 @@ Item.defaultProps = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-    itemFilter: fromItemFilter.sGetFromState(state),
+    itemFilter: sGetItemFilterRoot(state),
     visualization: sGetVisualization(
         state,
         pluginManager.extractFavorite(ownProps.item).id

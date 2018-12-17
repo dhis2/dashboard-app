@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from 'd2-i18n';
 
-import { fromMessages } from '../../../reducers';
+import { sGetMessagesRoot } from '../../../reducers/messages';
 import { formatDate } from '../../../util';
 import { colors } from '../../../colors';
 import ItemHeader from '../ItemHeader';
@@ -132,7 +132,7 @@ MessagesItem.contextTypes = {
 
 const mapStateToProps = state => {
     return {
-        messages: Object.values(fromMessages.sGetMessages(state)),
+        messages: Object.values(sGetMessagesRoot(state)),
     };
 };
 

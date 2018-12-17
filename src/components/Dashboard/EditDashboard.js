@@ -2,8 +2,13 @@ import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
 import i18n from 'd2-i18n';
 
-import { fromDashboards, fromSelected } from '../../reducers';
 import { acSetEditDashboard } from '../../actions/editDashboard';
+import { sGetSelectedId } from '../../reducers/selected';
+import {
+    sGetDashboardById,
+    sGetDashboardItems,
+    sDashboardsIsFetching,
+} from '../../reducers/dashboards';
 import DashboardVerticalOffset from './DashboardVerticalOffset';
 import DashboardContent from './DashboardContent';
 import EditBar from '../ControlBarContainer/EditBar';
@@ -63,8 +68,8 @@ export class EditDashboard extends Component {
 }
 
 const mapStateToProps = state => {
-    const id = fromSelected.sGetSelectedId(state);
-    const dashboard = id ? fromDashboards.sGetDashboardById(state, id) : null;
+    const id = sGetSelectedId(state);
+    const dashboard = id ? sGetDashboardById(state, id) : null;
 
     const updateAccess =
         dashboard && dashboard.access ? dashboard.access.update : false;
@@ -73,8 +78,8 @@ const mapStateToProps = state => {
         dashboard,
         id,
         updateAccess,
-        items: fromDashboards.sGetDashboardItems(state),
-        dashboardsLoaded: !fromDashboards.sDashboardsIsFetching(state),
+        items: sGetDashboardItems(state),
+        dashboardsLoaded: !sDashboardsIsFetching(state),
     };
 };
 

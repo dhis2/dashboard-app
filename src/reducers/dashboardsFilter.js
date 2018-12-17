@@ -70,10 +70,10 @@ export default combineReducers({
 
 // selectors
 
-export const sGetFromState = state => state.dashboardsFilter;
+export const sGetDashboardsFilterRoot = state => state.dashboardsFilter;
 
 // selector dependency level 2
 
-export const sGetFilterName = state => sGetFromState(state).name;
-export const sGetFilterOwner = state => sGetFromState(state).owner;
-export const sGetFilterOrder = state => sGetFromState(state).order;
+export const sGetFilterName = state => sGetDashboardsFilterRoot(state).name;
+export const sGetFilterOwner = state => sGetDashboardsFilterRoot(state).owner;
+export const sGetFilterOrder = state => sGetDashboardsFilterRoot(state).order;

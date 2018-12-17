@@ -55,14 +55,13 @@ export default combineReducers({
     showDescription,
 });
 
-// Selector level 1
-export const sGetFromState = state => state.selected;
+// Selectors
 
-// Selector dependency level 2
+export const sGetSelectedRoot = state => state.selected;
 
-export const sGetSelectedId = state => sGetFromState(state).id;
+export const sGetSelectedId = state => sGetSelectedRoot(state).id;
 
-export const sGetSelectedIsLoading = state => sGetFromState(state).isLoading;
+export const sGetSelectedIsLoading = state => sGetSelectedRoot(state).isLoading;
 
 export const sGetSelectedShowDescription = state =>
-    sGetFromState(state).showDescription;
+    sGetSelectedRoot(state).showDescription;

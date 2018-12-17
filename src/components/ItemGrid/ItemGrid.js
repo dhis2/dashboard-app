@@ -31,7 +31,7 @@ import 'react-resizable/css/styles.css';
 import './ItemGrid.css';
 import { sGetSelectedId, sGetSelectedIsLoading } from '../../reducers/selected';
 import {
-    sGetEditDashboard,
+    sGetEditDashboardRoot,
     sGetEditDashboardItems,
 } from '../../reducers/editDashboard';
 import {
@@ -173,7 +173,7 @@ ItemGrid.defaultProps = {
 
 const mapStateToProps = (state, ownProps) => {
     const selectedDashboard = ownProps.edit
-        ? sGetEditDashboard(state)
+        ? sGetEditDashboardRoot(state)
         : sGetDashboardById(state, sGetSelectedId(state));
 
     const dashboardItems = ownProps.edit

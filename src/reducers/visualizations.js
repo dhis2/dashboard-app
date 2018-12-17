@@ -38,11 +38,11 @@ export default (state = DEFAULT_STATE, action) => {
 };
 
 // root selector
-export const sGetFromState = state => state.visualizations;
+export const sGetVisualizationsRoot = state => state.visualizations;
 
 // selectors level 1
 export const sGetVisualization = (state, id) => {
-    return sGetFromState(state)[id];
+    return sGetVisualizationsRoot(state)[id];
 };
 
 // selectors level 2

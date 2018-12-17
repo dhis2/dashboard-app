@@ -12,7 +12,7 @@ import {
 
 export const actionTypes = {
     SET_DASHBOARDS: 'SET_DASHBOARDS',
-    APPEND_DASHBOARDS: 'APPEND_DASHBOARDS',
+    ADD_DASHBOARDS: 'ADD_DASHBOARDS',
     SET_DASHBOARD_STARRED: 'SET_DASHBOARD_STARRED',
     SET_DASHBOARD_DISPLAY_NAME: 'SET_DASHBOARD_DISPLAY_NAME',
     SET_DASHBOARD_ITEMS: 'SET_DASHBOARD_ITEMS',
@@ -51,7 +51,7 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
                 items: [],
             };
         }
-        case actionTypes.APPEND_DASHBOARDS: {
+        case actionTypes.ADD_DASHBOARDS: {
             return {
                 ...state,
                 byId: {
@@ -89,7 +89,7 @@ export default (state = DEFAULT_DASHBOARDS, action) => {
 
 // root selector
 
-export const sGetFromState = state => state.dashboards;
+export const sGetDashboardsRoot = state => state.dashboards;
 
 // selector level 1
 
@@ -107,10 +107,10 @@ export const sGetFromState = state => state.dashboards;
  * @returns {Object | undefined}
  */
 export const sGetDashboardById = (state, id) =>
-    orObject(sGetFromState(state).byId)[id];
+    orObject(sGetDashboardsRoot(state).byId)[id];
 
 export const sDashboardsIsFetching = state => {
-    return sGetFromState(state).byId === null;
+    return sGetDashboardsRoot(state).byId === null;
 };
 
 /**
@@ -120,7 +120,8 @@ export const sDashboardsIsFetching = state => {
  * @param {Object} state The current state
  * @returns {Object | undefined}
  */
-export const sGetAllDashboards = state => orObject(sGetFromState(state).byId);
+export const sGetAllDashboards = state =>
+    orObject(sGetDashboardsRoot(state).byId);
 
 /**
  * Selector which returns the current dashboard items
@@ -129,7 +130,7 @@ export const sGetAllDashboards = state => orObject(sGetFromState(state).byId);
  * @param {Object} state The current state
  * @returns {Array}
  */
-export const sGetDashboardItems = state => sGetFromState(state).items;
+export const sGetDashboardItems = state => sGetDashboardsRoot(state).items;
 
 // selector level 2
 

@@ -21,4 +21,4 @@ export default (state = {}, action) => {
 
 // selectors
 
-export const sGetMessages = state => state.messages;
+export const sGetMessagesRoot = state => state.messages;

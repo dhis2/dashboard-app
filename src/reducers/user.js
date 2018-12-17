@@ -31,6 +31,6 @@ function fromD2ToUserObj(d2Object) {
 // selectors
 
 export const sGetUserId = state => state.user.id;
-export const sGetUsername = state => state.user.username;
+export const sGetUserUsername = state => state.user.username;
 export const sGetIsSuperuser = state => state.user.isSuperuser;
 export const sGetUiLocale = state => state.user.uiLocale;

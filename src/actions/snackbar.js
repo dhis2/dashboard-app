@@ -1,10 +1,13 @@
-import { actionTypes } from '../reducers';
+import {
+    RECEIVED_SNACKBAR_MESSAGE,
+    CLOSE_SNACKBAR,
+} from '../reducers/snackbar';
 
 export const acReceivedSnackbarMessage = value => ({
-    type: actionTypes.RECEIVED_SNACKBAR_MESSAGE,
+    type: RECEIVED_SNACKBAR_MESSAGE,
     value,
 });
 
 export const acCloseSnackbar = () => ({
-    type: actionTypes.CLOSE_SNACKBAR,
+    type: CLOSE_SNACKBAR,
 });
