@@ -14,7 +14,6 @@ import {
     getInnerHeight,
     getOuterHeight,
 } from './controlBarDimensions';
-
 import { sGetControlBarUserRows } from '../../reducers/controlBar';
 import { sGetAllDashboards } from '../../reducers/dashboards';
 import { sGetFilterName } from '../../reducers/dashboardsFilter';
