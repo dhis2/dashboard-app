@@ -36,7 +36,7 @@ const init = () => {
     console.info(
         `Dashboards app, v${manifest.version}, ${
             manifest.manifest_generated_at
-        }`
+        }`, manifest, process.env.NODE_ENV
     );
 
     // api config
