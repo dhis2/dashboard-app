@@ -2,8 +2,12 @@ body {
     background-color: #f4f6f8;
 }
 
-.app-wrapper * {
-    font-family: Roboto;
+.dashboard-header-bar {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .dashboard-wrapper {
@@ -20,4 +24,9 @@ table.pivot * {
     -ms-user-select: none !important;
     -o-user-select: none !important;
     user-select: none !important;
+}
+
+/* temporary workaround for headerbar */
+.secondary-light-bg {
+    background-color: #48a999;
 }
