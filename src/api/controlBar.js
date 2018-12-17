@@ -1,5 +1,5 @@
 import { getInstance } from 'd2';
-import { DEFAULT_ROWS } from '../reducers/controlBar';
+import { DEFAULT_STATE_CONTROLBAR_ROWS } from '../reducers/controlBar';
 
 const NAMESPACE = 'dashboard';
 const KEY = 'controlBarRows';
@@ -19,11 +19,11 @@ export const apiGetControlBarRows = async () => {
     if (hasKey) {
         return await namespace.get(KEY);
     } else {
-        await apiPostControlBarRows(DEFAULT_ROWS, namespace);
+        await apiPostControlBarRows(DEFAULT_STATE_CONTROLBAR_ROWS, namespace);
         console.log(
             '(These errors to /userDataStore/dashboard can be ignored)'
         );
-        return DEFAULT_ROWS;
+        return DEFAULT_STATE_CONTROLBAR_ROWS;
     }
 };
 

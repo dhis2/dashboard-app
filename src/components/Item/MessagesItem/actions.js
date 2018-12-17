@@ -1,4 +1,4 @@
-import { actionTypes } from '../../../reducers';
+import { RECEIVED_MESSAGES } from '../../../reducers/messages';
 import { getMessages } from '../../../api/messages';
 
 const onError = (action, error) => {
@@ -7,7 +7,7 @@ const onError = (action, error) => {
 };
 
 export const receivedMessages = value => ({
-    type: actionTypes.RECEIVED_MESSAGES,
+    type: RECEIVED_MESSAGES,
     value,
 });
 

@@ -1,4 +1,7 @@
-import reducer, { actionTypes, DEFAULT_STATE } from '../itemFilter';
+import reducer, {
+    DEFAULT_STATE_ITEM_FILTER,
+    SET_ITEM_FILTER,
+} from '../itemFilter';
 
 const testKey = 'userOrgUnit';
 const testValue = ['uid'];
@@ -10,14 +13,14 @@ const testState = {
 describe('item filter reducer', () => {
     describe('reducer', () => {
         it('should return the default state', () => {
-            const actualState = reducer(DEFAULT_STATE, {});
+            const actualState = reducer(DEFAULT_STATE_ITEM_FILTER, {});
 
-            expect(actualState).toEqual(DEFAULT_STATE);
+            expect(actualState).toEqual(DEFAULT_STATE_ITEM_FILTER);
         });
 
         it('should set a filter', () => {
             const action = {
-                type: actionTypes.SET_ITEM_FILTER,
+                type: SET_ITEM_FILTER,
                 key: testKey,
                 value: testValue,
             };
@@ -31,11 +34,11 @@ describe('item filter reducer', () => {
 
         it('should remove a filter', () => {
             const action = {
-                type: actionTypes.SET_ITEM_FILTER,
+                type: SET_ITEM_FILTER,
                 key: testKey,
             };
 
-            const expectedState = DEFAULT_STATE;
+            const expectedState = DEFAULT_STATE_ITEM_FILTER;
 
             const actualState = reducer(testState, action);
 

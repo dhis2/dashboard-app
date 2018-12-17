@@ -1,38 +1,27 @@
 import { combineReducers } from 'redux';
 import arraySort from 'd2-utilizr/lib/arraySort';
-import dashboards, * as fromDashboards from './dashboards';
-import selected, * as fromSelected from './selected';
-import dashboardsFilter, * as fromDashboardsFilter from './dashboardsFilter';
-import controlBar, * as fromControlBar from './controlBar';
-import interpretations, * as fromInterpretations from './interpretations';
-import visualizations, * as fromVisualizations from './visualizations';
-import editDashboard, * as fromEditDashboard from './editDashboard';
-import messages, * as fromMessages from './messages';
-import user, * as fromUser from './user';
-import snackbar, * as fromSnackbar from './snackbar';
-import itemFilter, * as fromItemFilter from './itemFilter';
-import style, * as fromStyle from './style';
+
+import dashboards, { sGetDashboardsRoot } from './dashboards';
+import selected from './selected';
+import dashboardsFilter, {
+    ownerData,
+    sGetFilterName,
+    sGetFilterOrder,
+    sGetFilterOwner,
+} from './dashboardsFilter';
+import controlBar from './controlBar';
+import interpretations from './interpretations';
+import visualizations from './visualizations';
+import editDashboard from './editDashboard';
+import messages from './messages';
+import user from './user';
+import snackbar from './snackbar';
+import itemFilter from './itemFilter';
+import style from './style';
 
 const USER = 'system';
 
-// action types
-
-export const actionTypes = {
-    ...fromDashboards.actionTypes,
-    ...fromSelected.actionTypes,
-    ...fromDashboardsFilter.actionTypes,
-    ...fromControlBar.actionTypes,
-    ...fromInterpretations.actionTypes,
-    ...fromVisualizations.actionTypes,
-    ...fromMessages.actionTypes,
-    ...fromUser.actionTypes,
-    ...fromEditDashboard.actionTypes,
-    ...fromItemFilter.actionTypes,
-    ...fromStyle.actionTypes,
-    ...fromSnackbar.actionTypes,
-};
-
-// reducers
+// Reducers
 
 export default combineReducers({
     dashboards,
@@ -49,8 +38,7 @@ export default combineReducers({
     snackbar,
 });
 
-// map constants to data
-
+// Map constants to data
 const mapConstToData = {
     NAME: 'name',
     ITEMS: 'numberOfItems',
@@ -58,33 +46,18 @@ const mapConstToData = {
     OWNER: 'owner',
 };
 
-// selectors
+// Selectors
 
-export {
-    fromDashboards,
-    fromSelected,
-    fromDashboardsFilter,
-    fromControlBar,
-    fromInterpretations,
-    fromVisualizations,
-    fromMessages,
-    fromEditDashboard,
-    fromUser,
-    fromItemFilter,
-    fromStyle,
-    fromSnackbar,
-};
-
-// filter dashboards by name
+// Filter dashboards by name
 export const sFilterDashboardsByName = (dashboards, filter) =>
     dashboards.filter(d =>
         d.displayName.toLowerCase().includes(filter.toLowerCase())
     );
 
-// filter dashboards by owner
+// Filter dashboards by owner, TODO FIXME
 export const sFilterDashboardsByOwner = (dashboards, filter) => {
-    const ME = fromDashboardsFilter.ownerData[1]; // TODO
-    const OTHERS = fromDashboardsFilter.ownerData[2]; // TODO
+    const ME = ownerData[1]; // TODO
+    const OTHERS = ownerData[2]; // TODO
 
     switch (filter) {
         case ME:
@@ -96,7 +69,7 @@ export const sFilterDashboardsByOwner = (dashboards, filter) => {
     }
 };
 
-// filter dashboards by order
+// Filter dashboards by order
 export const sFilterDashboardsByOrder = (dashboards, filter) => {
     const filterValues = filter.split(':');
 
@@ -106,15 +79,15 @@ export const sFilterDashboardsByOrder = (dashboards, filter) => {
     return arraySort(dashboards, direction, mapConstToData[key]);
 };
 
-// selectors dependency level 2
+// Selectors dependency level 2
 
-// get filtered dashboards
+// Get filtered dashboards
 export const sGetFilteredDashboards = state => {
-    const dashboards = fromDashboards.sGetFromState(state);
+    const dashboards = sGetDashboardsRoot(state);
 
-    const nameFilter = fromDashboardsFilter.sGetFilterName(state);
-    const ownerFilter = fromDashboardsFilter.sGetFilterOwner(state);
-    const orderFilter = fromDashboardsFilter.sGetFilterOrder(state);
+    const nameFilter = sGetFilterName(state);
+    const ownerFilter = sGetFilterOwner(state);
+    const orderFilter = sGetFilterOrder(state);
 
     return sFilterDashboardsByOrder(
         sFilterDashboardsByName(
