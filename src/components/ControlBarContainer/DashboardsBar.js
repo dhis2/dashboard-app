@@ -15,10 +15,13 @@ import {
     getOuterHeight,
 } from './controlBarDimensions';
 
-import * as fromActions from '../../actions';
-import * as fromReducers from '../../reducers';
-import { orObject, orArray } from '../../util';
+import { sGetControlBarUserRows } from '../../reducers/controlBar';
+import { sGetAllDashboards } from '../../reducers/dashboards';
+import { sGetFilterName } from '../../reducers/dashboardsFilter';
 import { sGetSelectedId } from '../../reducers/selected';
+import { acSetControlBarUserRows } from '../../actions/controlBar';
+import { acSetFilterName } from '../../actions/dashboardsFilter';
+import { orObject, orArray } from '../../util';
 import { apiPostControlBarRows } from '../../api/controlBar';
 
 import './ControlBarContainer.css';
@@ -139,17 +142,16 @@ export class DashboardsBar extends Component {
 }
 
 const mapStateToProps = state => ({
-    dashboards: fromReducers.fromDashboards.sGetAllDashboards(state),
-    name: fromReducers.fromDashboardsFilter.sGetFilterName(state),
-    userRows: (state.controlBar && state.controlBar.userRows) || MIN_ROW_COUNT,
+    dashboards: sGetAllDashboards(state),
+    name: sGetFilterName(state),
+    userRows: sGetControlBarUserRows(state),
     selectedId: sGetSelectedId(state),
 });
 
 const mapDispatchToProps = {
-    onChangeHeight: fromActions.fromControlBar.acSetControlBarUserRows,
-    onChangeFilterName: fromActions.fromDashboardsFilter.acSetFilterName,
+    onChangeHeight: acSetControlBarUserRows,
+    onChangeFilterName: acSetFilterName,
 };
-
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const dashboards = Object.values(orObject(stateProps.dashboards));
     const displayDashboards = arraySort(

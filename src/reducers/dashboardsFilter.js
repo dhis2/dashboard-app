@@ -22,32 +22,41 @@ export const orderData = [
     { id: 'CREATED:ASC', value: 'Created date (desc)' },
 ];
 
-export const DEFAULT_NAME = '';
-export const DEFAULT_OWNER = ownerData[0].id;
-export const DEFAULT_ORDER = orderData[0].id;
+export const DEFAULT_DASHBOARDS_FILTER_NAME = '';
+export const DEFAULT_DASHBOARDS_FILTER_OWNER = ownerData[0].id;
+export const DEFAULT_DASHBOARDS_FILTER_ORDER = orderData[0].id;
 
-const name = (state = DEFAULT_NAME, action) => {
+const name = (state = DEFAULT_DASHBOARDS_FILTER_NAME, action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDS_FILTER_NAME:
-            return validateReducer(action.value, DEFAULT_NAME);
+            return validateReducer(
+                action.value,
+                DEFAULT_DASHBOARDS_FILTER_NAME
+            );
         default:
             return state;
     }
 };
 
-const owner = (state = DEFAULT_OWNER, action) => {
+const owner = (state = DEFAULT_DASHBOARDS_FILTER_OWNER, action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDS_FILTER_OWNER:
-            return validateReducer(action.value, DEFAULT_NAME);
+            return validateReducer(
+                action.value,
+                DEFAULT_DASHBOARDS_FILTER_NAME
+            );
         default:
             return state;
     }
 };
 
-const order = (state = DEFAULT_ORDER, action) => {
+const order = (state = DEFAULT_DASHBOARDS_FILTER_ORDER, action) => {
     switch (action.type) {
         case actionTypes.SET_DASHBOARDS_FILTER_ORDER:
-            return validateReducer(action.value, DEFAULT_ORDER);
+            return validateReducer(
+                action.value,
+                DEFAULT_DASHBOARDS_FILTER_ORDER
+            );
         default:
             return state;
     }
