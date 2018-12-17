@@ -126,10 +126,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@dhis2/d2-i18n-generate@^1.0.19":
-  version "1.0.19"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n-generate/-/d2-i18n-generate-1.0.19.tgz#263bce81d7cd0f58d33fcce9703481046f3c8e93"
-  integrity sha512-zkUr7WNk9mVhrc4uvwRzmAgLgKKPfhgEcGVycJ9LQBqZ1zR8EIU9LfGB5Zl3OGEX8/BpAxyXuCOdfeU6LhwP5A==
+"@dhis2/d2-i18n-generate@^v1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n-generate/-/d2-i18n-generate-1.1.0.tgz#d31ef228d0ffc234e5f38a48db817fa3f1769153"
+  integrity sha512-1zqmBskqvg+gPCdqHPDcr7Sy1s9mWpZ5uE3SmrOBJqoThUlLwcxk8yE9n6vJzlXA2WAwGNXIrZJ/oLLbuCuvzg==
   dependencies:
     argparse "^1.0.10"
     handlebars "^4.0.11"
