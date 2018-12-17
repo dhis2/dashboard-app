@@ -1,4 +1,4 @@
-import { orObject } from '../util';
+import { orObject } from '../modules/util';
 import objectClean from 'd2-utilizr/lib/objectClean';
 
 /** @module reducers/visualizations */

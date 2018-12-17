@@ -5,7 +5,7 @@ import Avatar from 'material-ui/Avatar';
 import IconStar from 'material-ui/svg-icons/toggle/star';
 import { Link } from 'react-router-dom';
 
-import { colors } from '../../colors';
+import { colors } from '../../modules/colors';
 
 const chipTheme = {
     default: {

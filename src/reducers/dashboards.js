@@ -3,13 +3,13 @@
 import arrayFrom from 'd2-utilizr/lib/arrayFrom';
 import arraySort from 'd2-utilizr/lib/arraySort';
 
-import { orArray, orObject } from '../util';
+import { orArray, orObject } from '../modules/util';
 import {
     SPACER,
     isSpacerType,
     isTextType,
     emptyTextItemContent,
-} from '../itemTypes';
+} from '../modules/itemTypes';
 
 export const SET_DASHBOARDS = 'SET_DASHBOARDS';
 export const ADD_DASHBOARDS = 'ADD_DASHBOARDS';

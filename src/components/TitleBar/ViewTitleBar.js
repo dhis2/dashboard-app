@@ -6,7 +6,7 @@ import i18n from 'd2-i18n';
 import SharingDialog from 'd2-ui-sharing';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
-import { orObject } from '../../util';
+import { orObject } from '../../modules/util';
 import { tStarDashboard } from '../../actions/dashboards';
 import { acSetSelectedShowDescription } from '../../actions/selected';
 import FilterDialog from '../ItemFilter/ItemFilter';

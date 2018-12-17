@@ -1,7 +1,7 @@
 /** @module reducers/editDashboard */
 import update from 'immutability-helper';
 import isEmpty from 'lodash/isEmpty';
-import { orArray, orObject } from '../util';
+import { orArray, orObject } from '../modules/util';
 
 export const RECEIVED_EDIT_DASHBOARD = 'RECEIVED_EDIT_DASHBOARD';
 export const RECEIVED_NOT_EDITING = 'RECEIVED_NOT_EDITING';

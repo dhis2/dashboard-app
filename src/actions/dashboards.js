@@ -19,7 +19,7 @@ import {
     apiDeleteDashboard,
 } from '../api/dashboards';
 import { getPreferredDashboardId } from '../api/localStorage';
-import { arrayToIdMap } from '../util';
+import { arrayToIdMap } from '../modules/util';
 
 // actions
 

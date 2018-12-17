@@ -20,7 +20,7 @@ import {
     USERS,
     TEXT,
     SPACER,
-} from '../../itemTypes';
+} from '../../modules/itemTypes';
 import { DEFAULT_STATE_ITEM_FILTER } from '../../reducers/itemFilter';
 
 const getGridItem = type => {

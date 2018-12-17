@@ -1,7 +1,7 @@
 /** @module reducers/selected */
 import { combineReducers } from 'redux';
 
-import { validateReducer } from '../util';
+import { validateReducer } from '../modules/util';
 
 export const SET_SELECTED_ID = 'SET_SELECTED_ID';
 export const SET_SELECTED_ISLOADING = 'SET_SELECTED_ISLOADING';

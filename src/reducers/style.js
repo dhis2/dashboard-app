@@ -1,5 +1,5 @@
 /** @module reducers/selected */
-import { validateReducer } from '../util';
+import { validateReducer } from '../modules/util';
 
 export const SET_STYLE = 'SET_STYLE';
 

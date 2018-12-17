@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import i18n from 'd2-i18n';
 
-import { colors } from '../../../colors';
+import { colors } from '../../../modules/colors';
 import ItemHeader from '../ItemHeader';
 
 const style = {

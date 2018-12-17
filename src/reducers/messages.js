@@ -1,5 +1,5 @@
 import update from 'immutability-helper';
-import { arrayToIdMap } from '../util';
+import { arrayToIdMap } from '../modules/util';
 
 export const RECEIVED_MESSAGES = 'RECEIVED_MESSAGES';
 

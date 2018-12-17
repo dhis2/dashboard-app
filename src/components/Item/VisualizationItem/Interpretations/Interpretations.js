@@ -5,8 +5,8 @@ import i18n from 'd2-i18n';
 import { sGetInterpretations } from '../../../../reducers/interpretations';
 import { sGetVisInterpretations } from '../../../../reducers/visualizations';
 import { tGetInterpretations, tPostInterpretation } from './actions';
-import { colors } from '../../../../colors';
-import { sortByDate } from '../../../../util';
+import { colors } from '../../../../modules/colors';
+import { sortByDate } from '../../../../modules/util';
 import Interpretation from './Interpretation';
 import InputField from './InputField';
 

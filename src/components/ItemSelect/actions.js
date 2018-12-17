@@ -1,5 +1,5 @@
 import { sGetEditDashboardRoot } from '../../reducers/editDashboard';
-import { itemTypeMap } from '../../itemTypes';
+import { itemTypeMap } from '../../modules/itemTypes';
 import {
     acAddDashboardItem,
     acUpdateDashboardItem,

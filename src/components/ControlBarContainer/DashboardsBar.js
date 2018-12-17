@@ -20,7 +20,7 @@ import { sGetFilterName } from '../../reducers/dashboardsFilter';
 import { sGetSelectedId } from '../../reducers/selected';
 import { acSetControlBarUserRows } from '../../actions/controlBar';
 import { acSetFilterName } from '../../actions/dashboardsFilter';
-import { orObject, orArray } from '../../util';
+import { orObject, orArray } from '../../modules/util';
 import { apiPostControlBarRows } from '../../api/controlBar';
 
 import './ControlBarContainer.css';

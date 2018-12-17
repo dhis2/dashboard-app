@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import i18n from 'd2-i18n';
 
 import { sGetMessagesRoot } from '../../../reducers/messages';
-import { formatDate } from '../../../util';
-import { colors } from '../../../colors';
+import { formatDate } from '../../../modules/util';
+import { colors } from '../../../modules/colors';
 import ItemHeader from '../ItemHeader';
 import Line from '../../../widgets/Line';
 

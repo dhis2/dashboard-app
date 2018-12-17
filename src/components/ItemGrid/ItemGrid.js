@@ -10,7 +10,7 @@ import {
 } from '../../actions/editDashboard';
 import { Item } from '../Item/Item';
 import { resize as pluginResize } from '../Item/VisualizationItem/plugin';
-import { isPluginType } from '../../itemTypes';
+import { isPluginType } from '../../modules/itemTypes';
 import {
     GRID_ROW_HEIGHT,
     GRID_COMPACT_TYPE,
@@ -20,7 +20,7 @@ import {
     hasShape,
     onItemResize,
 } from './gridUtil';
-import { orArray } from '../../util';
+import { orArray } from '../../modules/util';
 import DeleteItemButton from './DeleteItemButton';
 import ModalLoadingMask from '../../widgets/ModalLoadingMask';
 import NoContentMessage from '../../widgets/NoContentMessage';

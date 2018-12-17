@@ -1,5 +1,5 @@
 import { getInstance } from 'd2/lib/d2';
-import { itemTypeMap } from '../itemTypes';
+import { itemTypeMap } from '../modules/itemTypes';
 
 const onError = error => console.log('Error: ', error);
 

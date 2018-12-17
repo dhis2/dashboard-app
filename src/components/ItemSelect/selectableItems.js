@@ -14,7 +14,7 @@ import {
     MESSAGES,
     TEXT,
     SPACER,
-} from '../../itemTypes';
+} from '../../modules/itemTypes';
 
 export const singleItems = [
     {

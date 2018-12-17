@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { validateReducer } from '../util';
+import { validateReducer } from '../modules/util';
 
 export const SET_DASHBOARDS_FILTER_NAME = 'SET_DASHBOARDS_FILTER_NAME';
 export const SET_DASHBOARDS_FILTER_OWNER = 'SET_DASHBOARDS_FILTER_OWNER';
