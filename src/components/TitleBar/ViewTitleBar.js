@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import i18n from 'd2-i18n';
-import SharingDialog from 'd2-ui-sharing';
+import SharingDialog from '@dhis2/d2-ui-sharing-dialog';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
 import { orObject } from '../../util';
@@ -97,7 +97,7 @@ class ViewTitleBar extends Component {
         const titleStyle = Object.assign({}, style.title, {
             cursor: 'default',
             userSelect: 'text',
-            top: '5px',
+            top: '7px',
         });
 
         return (

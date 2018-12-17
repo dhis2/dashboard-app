@@ -14,7 +14,7 @@ import DashboardContent from './DashboardContent';
 import EditBar from '../ControlBarContainer/EditBar';
 import NoContentMessage from '../../widgets/NoContentMessage';
 
-const Content = ({ updateAccess }) => {
+export const Content = ({ updateAccess }) => {
     return updateAccess ? (
         <DashboardContent editMode={true} />
     ) : (

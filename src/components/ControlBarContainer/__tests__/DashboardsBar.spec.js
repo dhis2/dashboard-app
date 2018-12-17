@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
+import ControlBar from '@dhis2/d2-ui-core/control-bar/ControlBar';
 
 import { getStubContext } from '../../../../config/testsContext';
 import { DashboardsBar, MAX_ROW_COUNT, MIN_ROW_COUNT } from '../DashboardsBar';
