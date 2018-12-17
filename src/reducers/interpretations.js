@@ -2,22 +2,20 @@
 
 import update from 'immutability-helper';
 
-export const actionTypes = {
-    RECEIVED_INTERPRETATION: 'RECEIVED_INTERPRETATION',
-    ADD_INTERPRETATIONS: 'ADD_INTERPRETATIONS',
-    REMOVE_INTERPRETATION: 'REMOVE_INTERPRETATION',
-};
+export const RECEIVED_INTERPRETATION = 'RECEIVED_INTERPRETATION';
+export const ADD_INTERPRETATIONS = 'ADD_INTERPRETATIONS';
+export const REMOVE_INTERPRETATION = 'REMOVE_INTERPRETATION';
 
 // Reducer
 
 export default (state = {}, action) => {
     switch (action.type) {
-        case actionTypes.RECEIVED_INTERPRETATION: {
+        case RECEIVED_INTERPRETATION: {
             return Object.assign({}, state, {
                 [action.value.id]: action.value,
             });
         }
-        case actionTypes.ADD_INTERPRETATIONS: {
+        case ADD_INTERPRETATIONS: {
             const newInterpretations = action.value.reduce((acc, curr) => {
                 return {
                     ...acc,
@@ -27,7 +25,7 @@ export default (state = {}, action) => {
 
             return Object.assign({}, state, newInterpretations);
         }
-        case actionTypes.REMOVE_INTERPRETATION: {
+        case REMOVE_INTERPRETATION: {
             return update(state, { $unset: [action.value] });
         }
         default:

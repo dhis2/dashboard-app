@@ -1,6 +1,5 @@
 import reducer, {
-    actionTypes,
-    DEFAULT_DASHBOARDS,
+    DEFAULT_STATE_DASHBOARDS,
     sGetDashboardsRoot,
     sGetDashboardById,
     sGetAllDashboards,
@@ -9,6 +8,11 @@ import reducer, {
     sGetStarredDashboardIds,
     sGetUnstarredDashboardIds,
     sGetDashboardsSortedByStarred,
+    SET_DASHBOARDS,
+    ADD_DASHBOARDS,
+    SET_DASHBOARD_STARRED,
+    SET_DASHBOARD_DISPLAY_NAME,
+    SET_DASHBOARD_ITEMS,
 } from '../dashboards';
 
 const dashId1 = 'dash1';
@@ -64,12 +68,12 @@ describe('dashboards reducer', () => {
     it('should return the default state', () => {
         const actualState = reducer(undefined, { type: 'NO_MATCH' });
 
-        expect(actualState).toEqual(DEFAULT_DASHBOARDS);
+        expect(actualState).toEqual(DEFAULT_STATE_DASHBOARDS);
     });
 
     it('SET_DASHBOARDS: should set the new list of dashboards and clear the items array', () => {
         const actualState = reducer(dashboardsState, {
-            type: actionTypes.SET_DASHBOARDS,
+            type: SET_DASHBOARDS,
             value: dashboards,
         });
 
@@ -83,7 +87,7 @@ describe('dashboards reducer', () => {
 
     it('ADD_DASHBOARDS: should append to the list of dashboards and leave the items untouched', () => {
         const actualState = reducer(dashboardsState, {
-            type: actionTypes.ADD_DASHBOARDS,
+            type: ADD_DASHBOARDS,
             value: dashboards,
         });
 
@@ -102,7 +106,7 @@ describe('dashboards reducer', () => {
         const starredValue = true;
 
         const actualState = reducer(dashboardsState, {
-            type: actionTypes.SET_DASHBOARD_STARRED,
+            type: SET_DASHBOARD_STARRED,
             dashboardId: dashId1,
             value: starredValue,
         });
@@ -125,7 +129,7 @@ describe('dashboards reducer', () => {
         const displayName = 'nome tradotto';
 
         const actualState = reducer(dashboardsState, {
-            type: actionTypes.SET_DASHBOARD_DISPLAY_NAME,
+            type: SET_DASHBOARD_DISPLAY_NAME,
             dashboardId: dashId1,
             value: displayName,
         });
@@ -148,7 +152,7 @@ describe('dashboards reducer', () => {
         const items = [{ id: 'item2', type: 'CHART' }];
 
         const actualState = reducer(dashboardsState, {
-            type: actionTypes.SET_DASHBOARD_ITEMS,
+            type: SET_DASHBOARD_ITEMS,
             value: items,
         });
 

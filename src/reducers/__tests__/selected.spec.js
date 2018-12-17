@@ -1,4 +1,8 @@
-import reducer, { actionTypes } from '../selected';
+import reducer, {
+    SET_SELECTED_ID,
+    SET_SELECTED_ISLOADING,
+    SET_SELECTED_SHOWDESCRIPTION,
+} from '../selected';
 
 describe('selected dashboard reducer', () => {
     const defaultState = {
@@ -13,7 +17,7 @@ describe('selected dashboard reducer', () => {
             const expectedState = Object.assign({}, defaultState, { id });
 
             const actualState = reducer(defaultState, {
-                type: actionTypes.SET_SELECTED_ID,
+                type: SET_SELECTED_ID,
                 value: id,
             });
 
@@ -27,7 +31,7 @@ describe('selected dashboard reducer', () => {
             });
 
             const actualState = reducer(defaultState, {
-                type: actionTypes.SET_SELECTED_ISLOADING,
+                type: SET_SELECTED_ISLOADING,
                 value: isLoading,
             });
 
@@ -41,7 +45,7 @@ describe('selected dashboard reducer', () => {
             });
 
             const actualState = reducer(defaultState, {
-                type: actionTypes.SET_SELECTED_SHOWDESCRIPTION,
+                type: SET_SELECTED_SHOWDESCRIPTION,
                 value: showDescription,
             });
 

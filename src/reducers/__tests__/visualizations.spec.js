@@ -1,4 +1,8 @@
-import reducer, { actionTypes, DEFAULT_STATE } from '../visualizations';
+import reducer, {
+    DEFAULT_STATE_VISUALIZATIONS,
+    RECEIVED_VISUALIZATION,
+    RECEIVED_ACTIVE_VISUALIZATION,
+} from '../visualizations';
 
 describe('visualizations reducer', () => {
     const activeType = 'CHART';
@@ -24,18 +28,18 @@ describe('visualizations reducer', () => {
 
     it('should return the default state', () => {
         const actualState = reducer(undefined, { type: 'NO_MATCH' });
-        const expectedState = DEFAULT_STATE;
+        const expectedState = DEFAULT_STATE_VISUALIZATIONS;
 
         expect(actualState).toEqual(expectedState);
     });
 
     it('should add a visualization (RECEIVED_VISUALIZATION)', () => {
         const action = {
-            type: actionTypes.RECEIVED_VISUALIZATION,
+            type: RECEIVED_VISUALIZATION,
             value: visualization,
         };
 
-        const actualState = reducer(DEFAULT_STATE, action);
+        const actualState = reducer(DEFAULT_STATE_VISUALIZATIONS, action);
         const expectedState = state;
 
         expect(actualState).toEqual(expectedState);
@@ -43,7 +47,7 @@ describe('visualizations reducer', () => {
 
     it('should update a visualization with activeType (RECEIVED_ACTIVE_VISUALIZATION)', () => {
         const action = {
-            type: actionTypes.RECEIVED_ACTIVE_VISUALIZATION,
+            type: RECEIVED_ACTIVE_VISUALIZATION,
             id: visualization.id,
             activeType,
         };
@@ -57,7 +61,7 @@ describe('visualizations reducer', () => {
 
     it('should update a visualization with removed activeType (RECEIVED_ACTIVE_VISUALIZATION)', () => {
         const action = {
-            type: actionTypes.RECEIVED_ACTIVE_VISUALIZATION,
+            type: RECEIVED_ACTIVE_VISUALIZATION,
             id: visualization.id,
         };
 

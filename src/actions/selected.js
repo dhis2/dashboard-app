@@ -2,9 +2,14 @@ import {
     SET_SELECTED_ID,
     SET_SELECTED_ISLOADING,
     SET_SELECTED_SHOWDESCRIPTION,
+} from '../reducers/selected';
+import {
     RECEIVED_VISUALIZATION,
     RECEIVED_ACTIVE_VISUALIZATION,
-} from '../reducers/selected';
+} from '../reducers/visualizations';
+import { sGetSelectedIsLoading } from '../reducers/selected';
+import { sGetUserUsername } from '../reducers/user';
+import { getCustomDashboards, sGetDashboardById } from '../reducers/dashboards';
 import { apiFetchDashboard } from '../api/dashboards';
 import { acSetDashboardItems, acAppendDashboards } from './dashboards';
 import { withShape } from '../components/ItemGrid/gridUtil';
@@ -21,10 +26,7 @@ import {
     MESSAGES,
 } from '../itemTypes';
 import { extractFavorite } from '../components/Item/VisualizationItem/plugin';
-import { getCustomDashboards, sGetDashboardById } from '../reducers/dashboards';
 import { orObject } from '../util';
-import { sGetSelectedIsLoading } from '../reducers/selected';
-import { sGetUserUsername } from '../reducers/user';
 
 // actions
 

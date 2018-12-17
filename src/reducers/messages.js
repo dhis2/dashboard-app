@@ -1,13 +1,11 @@
 import update from 'immutability-helper';
 import { arrayToIdMap } from '../util';
 
-export const actionTypes = {
-    RECEIVED_MESSAGES: 'RECEIVED_MESSAGES',
-};
+export const RECEIVED_MESSAGES = 'RECEIVED_MESSAGES';
 
 export default (state = {}, action) => {
     switch (action.type) {
-        case actionTypes.RECEIVED_MESSAGES: {
+        case RECEIVED_MESSAGES: {
             const conversations = arrayToIdMap(action.value);
 
             const newState = update(state, { $merge: conversations });

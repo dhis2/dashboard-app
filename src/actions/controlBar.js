@@ -1,4 +1,4 @@
-import { SET_CONTROLBAR_USER_ROWS } from '../reducers/user';
+import { SET_CONTROLBAR_USER_ROWS } from '../reducers/controlBar';
 import { apiGetControlBarRows } from '../api/controlBar';
 
 // actions

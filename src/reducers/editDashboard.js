@@ -3,19 +3,17 @@ import update from 'immutability-helper';
 import isEmpty from 'lodash/isEmpty';
 import { orArray, orObject } from '../util';
 
-export const actionTypes = {
-    RECEIVED_EDIT_DASHBOARD: 'RECEIVED_EDIT_DASHBOARD',
-    RECEIVED_NOT_EDITING: 'RECEIVED_NOT_EDITING',
-    START_NEW_DASHBOARD: 'START_NEW_DASHBOARD',
-    RECEIVED_TITLE: 'RECEIVED_TITLE',
-    RECEIVED_DESCRIPTION: 'RECEIVED_DESCRIPTION',
-    ADD_DASHBOARD_ITEM: 'ADD_DASHBOARD_ITEM',
-    REMOVE_DASHBOARD_ITEM: 'REMOVE_DASHBOARD_ITEM',
-    UPDATE_DASHBOARD_ITEM: 'UPDATE_DASHBOARD_ITEM',
-    RECEIVED_DASHBOARD_LAYOUT: 'RECEIVED_DASHBOARD_LAYOUT',
-};
+export const RECEIVED_EDIT_DASHBOARD = 'RECEIVED_EDIT_DASHBOARD';
+export const RECEIVED_NOT_EDITING = 'RECEIVED_NOT_EDITING';
+export const START_NEW_DASHBOARD = 'START_NEW_DASHBOARD';
+export const RECEIVED_TITLE = 'RECEIVED_TITLE';
+export const RECEIVED_DESCRIPTION = 'RECEIVED_DESCRIPTION';
+export const ADD_DASHBOARD_ITEM = 'ADD_DASHBOARD_ITEM';
+export const REMOVE_DASHBOARD_ITEM = 'REMOVE_DASHBOARD_ITEM';
+export const UPDATE_DASHBOARD_ITEM = 'UPDATE_DASHBOARD_ITEM';
+export const RECEIVED_DASHBOARD_LAYOUT = 'RECEIVED_DASHBOARD_LAYOUT';
 
-export const DEFAULT_STATE = {};
+export const DEFAULT_STATE_EDIT_DASHBOARD = {};
 export const NEW_DASHBOARD_STATE = {
     id: '',
     name: '',
@@ -24,31 +22,31 @@ export const NEW_DASHBOARD_STATE = {
     dashboardItems: [],
 };
 
-export default (state = DEFAULT_STATE, action) => {
+export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
     switch (action.type) {
-        case actionTypes.RECEIVED_EDIT_DASHBOARD:
+        case RECEIVED_EDIT_DASHBOARD:
             const newState = {};
             Object.keys(NEW_DASHBOARD_STATE).map(
                 k => (newState[k] = action.value[k])
             );
             return newState;
-        case actionTypes.RECEIVED_NOT_EDITING:
-            return DEFAULT_STATE;
-        case actionTypes.START_NEW_DASHBOARD:
+        case RECEIVED_NOT_EDITING:
+            return DEFAULT_STATE_EDIT_DASHBOARD;
+        case START_NEW_DASHBOARD:
             return NEW_DASHBOARD_STATE;
-        case actionTypes.RECEIVED_TITLE: {
+        case RECEIVED_TITLE: {
             return Object.assign({}, state, { name: action.value });
         }
-        case actionTypes.RECEIVED_DESCRIPTION: {
+        case RECEIVED_DESCRIPTION: {
             return Object.assign({}, state, {
                 description: action.value,
             });
         }
-        case actionTypes.ADD_DASHBOARD_ITEM:
+        case ADD_DASHBOARD_ITEM:
             return update(state, {
                 dashboardItems: { $unshift: [action.value] },
             });
-        case actionTypes.REMOVE_DASHBOARD_ITEM: {
+        case REMOVE_DASHBOARD_ITEM: {
             const idToRemove = action.value;
 
             const dashboardItemIndex = state.dashboardItems.findIndex(
@@ -65,7 +63,7 @@ export default (state = DEFAULT_STATE, action) => {
 
             return state;
         }
-        case actionTypes.RECEIVED_DASHBOARD_LAYOUT: {
+        case RECEIVED_DASHBOARD_LAYOUT: {
             const stateItems = orArray(state.dashboardItems);
 
             const newStateItems = action.value.map(({ x, y, w, h, i }) => {
@@ -78,7 +76,7 @@ export default (state = DEFAULT_STATE, action) => {
                 dashboardItems: { $set: newStateItems },
             });
         }
-        case actionTypes.UPDATE_DASHBOARD_ITEM: {
+        case UPDATE_DASHBOARD_ITEM: {
             const dashboardItem = action.value;
 
             const dashboardItemIndex = state.dashboardItems.findIndex(

@@ -3,8 +3,8 @@ import {
     RECEIVED_INTERPRETATION,
     ADD_INTERPRETATIONS,
     REMOVE_INTERPRETATION,
-    RECEIVED_VISUALIZATION,
 } from '../../../../reducers/interpretations';
+import { RECEIVED_VISUALIZATION } from '../../../../reducers/visualizations';
 import {
     postInterpretationLike,
     deleteInterpretationLike,
