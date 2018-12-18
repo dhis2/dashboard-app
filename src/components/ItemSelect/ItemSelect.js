@@ -6,7 +6,7 @@ import Popover from 'material-ui/Popover';
 import TextField from 'material-ui/TextField';
 
 import { singleItems, listItems } from './selectableItems';
-import { itemTypeMap } from '../../itemTypes';
+import { itemTypeMap } from '../../modules/itemTypes';
 import ItemSelectList from './ItemSelectList';
 import ItemSelectSingle from './ItemSelectSingle';
 

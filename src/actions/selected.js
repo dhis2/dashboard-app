@@ -24,9 +24,9 @@ import {
     EVENT_REPORT,
     EVENT_CHART,
     MESSAGES,
-} from '../itemTypes';
+} from '../modules/itemTypes';
 import { extractFavorite } from '../components/Item/VisualizationItem/plugin';
-import { orObject } from '../util';
+import { orObject } from '../modules/util';
 
 // actions
 

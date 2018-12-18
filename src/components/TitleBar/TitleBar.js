@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { colors } from '../../colors';
+import { colors } from '../../modules/colors';
 import EditTitleBar from './EditTitleBar';
 import ViewTitleBar from './ViewTitleBar';
 

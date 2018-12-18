@@ -8,7 +8,7 @@ import {
     acSetDashboardTitle,
     acSetDashboardDescription,
 } from '../../actions/editDashboard';
-import { orObject } from '../../util';
+import { orObject } from '../../modules/util';
 import { sGetEditDashboardRoot } from '../../reducers/editDashboard';
 import { sGetDashboardById } from '../../reducers/dashboards';
 import ItemSelect from '../ItemSelect/ItemSelect';

@@ -6,10 +6,10 @@ import IconButton from 'material-ui/IconButton';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
 import Line from '../../../widgets/Line';
-import { itemTypeMap, getItemUrl } from '../../../itemTypes';
-import { orArray } from '../../../util';
+import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes';
+import { orArray } from '../../../modules/util';
 import { tRemoveListItemContent } from './actions';
-import { colors } from '../../../colors';
+import { colors } from '../../../modules/colors';
 import ItemHeader from '../ItemHeader';
 
 const getItemTitle = item => {

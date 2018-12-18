@@ -1,7 +1,7 @@
 import React from 'react';
 import ItemHeaderButton from '../Item/ItemHeaderButton';
 
-import { colors } from '../../colors';
+import { colors } from '../../modules/colors';
 
 const style = {
     container: {

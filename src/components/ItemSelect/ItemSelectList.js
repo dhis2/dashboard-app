@@ -22,7 +22,7 @@ import {
     REPORTS,
     RESOURCES,
     USERS,
-} from '../../itemTypes';
+} from '../../modules/itemTypes';
 
 class ItemSelectList extends Component {
     constructor(props) {

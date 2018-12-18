@@ -1,4 +1,4 @@
-import isObject from 'd2-utilizr/lib/isObject';
+import isObject from 'lodash/isObject';
 
 import { apiFetchFavorite, getMapFields } from '../../../api/metadata';
 import { FILTER_USER_ORG_UNIT } from '../../../actions/itemFilter';
@@ -9,8 +9,8 @@ import {
     EVENT_REPORT,
     EVENT_CHART,
     itemTypeMap,
-} from '../../../itemTypes';
-import { getBaseUrl, orObject } from '../../../util';
+} from '../../../modules/itemTypes';
+import { getBaseUrl, orObject } from '../../../modules/util';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 
 export const extractFavorite = item => {

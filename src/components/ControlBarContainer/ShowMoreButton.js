@@ -1,7 +1,7 @@
 import React from 'react';
 import i18n from 'd2-i18n';
 
-import { colors } from '../../colors';
+import { colors } from '../../modules/colors';
 
 const ShowMoreButton = ({ onClick, isMaxHeight }) => (
     <div style={{ textAlign: 'center' }}>

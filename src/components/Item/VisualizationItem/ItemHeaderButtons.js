@@ -14,8 +14,8 @@ import {
     EVENT_CHART,
     EVENT_REPORT,
     DOMAIN_TYPE_AGGREGATE,
-} from '../../../itemTypes';
-import { colors } from '../../../colors';
+} from '../../../modules/itemTypes';
+import { colors } from '../../../modules/colors';
 
 const style = {
     iconBase: {

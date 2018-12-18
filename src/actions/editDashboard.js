@@ -21,7 +21,7 @@ import {
     TEXT,
     emptyTextItemContent,
     isTextType,
-} from '../itemTypes';
+} from '../modules/itemTypes';
 
 const onError = error => {
     console.log('Error (Saving Dashboard): ', error);
