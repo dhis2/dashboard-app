@@ -16,14 +16,9 @@ import App from './components/App';
 import './index.css';
 import i18n from './locales';
 import configureStore from './configureStore';
-import { muiTheme } from './theme';
+import { muiTheme } from './modules/theme';
 
-const v1Theme = () => {
-    const theme = {
-        ...dhis2theme,
-    };
-    return createMuiTheme(theme);
-};
+const v1Theme = () => createMuiTheme({ ...dhis2theme });
 
 const configI18n = userSettings => {
     const uiLocale = userSettings.keyUiLocale;

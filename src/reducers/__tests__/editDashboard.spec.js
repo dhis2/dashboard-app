@@ -1,9 +1,17 @@
 import update from 'immutability-helper';
 import reducer, {
-    actionTypes,
-    sGetIsEditing,
-    DEFAULT_STATE,
+    DEFAULT_STATE_EDIT_DASHBOARD,
     NEW_DASHBOARD_STATE,
+    sGetIsEditing,
+    RECEIVED_DASHBOARD_LAYOUT,
+    RECEIVED_NOT_EDITING,
+    START_NEW_DASHBOARD,
+    RECEIVED_EDIT_DASHBOARD,
+    RECEIVED_TITLE,
+    RECEIVED_DESCRIPTION,
+    ADD_DASHBOARD_ITEM,
+    UPDATE_DASHBOARD_ITEM,
+    REMOVE_DASHBOARD_ITEM,
 } from '../editDashboard';
 
 describe('editDashboard', () => {
@@ -43,7 +51,7 @@ describe('editDashboard', () => {
             ];
 
             const actualState = reducer(initialState, {
-                type: actionTypes.RECEIVED_DASHBOARD_LAYOUT,
+                type: RECEIVED_DASHBOARD_LAYOUT,
                 value: newLayout,
             });
 
@@ -74,20 +82,20 @@ describe('editDashboard', () => {
         it('should return the default state', () => {
             const actualState = reducer(undefined, {});
 
-            expect(actualState).toEqual(DEFAULT_STATE);
+            expect(actualState).toEqual(DEFAULT_STATE_EDIT_DASHBOARD);
         });
 
         it('should handle the action RECEIVED_NOT_EDITING', () => {
             const actualState = reducer(initialState, {
-                type: actionTypes.RECEIVED_NOT_EDITING,
+                type: RECEIVED_NOT_EDITING,
             });
 
-            expect(actualState).toEqual(DEFAULT_STATE);
+            expect(actualState).toEqual(DEFAULT_STATE_EDIT_DASHBOARD);
         });
 
         it('should return the state for a new dashboard', () => {
-            const actualState = reducer(DEFAULT_STATE, {
-                type: actionTypes.START_NEW_DASHBOARD,
+            const actualState = reducer(DEFAULT_STATE_EDIT_DASHBOARD, {
+                type: START_NEW_DASHBOARD,
             });
 
             expect(actualState).toEqual(NEW_DASHBOARD_STATE);
@@ -95,7 +103,7 @@ describe('editDashboard', () => {
 
         it('should set the dashboard to be edited', () => {
             const actualState = reducer(initialState, {
-                type: actionTypes.RECEIVED_EDIT_DASHBOARD,
+                type: RECEIVED_EDIT_DASHBOARD,
                 value: newState,
             });
 
@@ -111,7 +119,7 @@ describe('editDashboard', () => {
             const title = 'moohaha scary dashboard';
 
             const actualState = reducer(initialState, {
-                type: actionTypes.RECEIVED_TITLE,
+                type: RECEIVED_TITLE,
                 value: title,
             });
 
@@ -128,7 +136,7 @@ describe('editDashboard', () => {
             const description = 'moohaha scary dashboard dashboard';
 
             const actualState = reducer(initialState, {
-                type: actionTypes.RECEIVED_DESCRIPTION,
+                type: RECEIVED_DESCRIPTION,
                 value: description,
             });
 
@@ -150,7 +158,7 @@ describe('editDashboard', () => {
             };
 
             const actualState = reducer(initialState, {
-                type: actionTypes.ADD_DASHBOARD_ITEM,
+                type: ADD_DASHBOARD_ITEM,
                 value: newItem,
             });
 
@@ -180,7 +188,7 @@ describe('editDashboard', () => {
             };
 
             const actualState = reducer(initialState, {
-                type: actionTypes.UPDATE_DASHBOARD_ITEM,
+                type: UPDATE_DASHBOARD_ITEM,
                 value: updatedDashboardItem,
             });
 
@@ -195,7 +203,7 @@ describe('editDashboard', () => {
             const itemToRemove = initialState.dashboardItems[removeIdx];
 
             const actualState = reducer(initialState, {
-                type: actionTypes.REMOVE_DASHBOARD_ITEM,
+                type: REMOVE_DASHBOARD_ITEM,
                 value: itemToRemove.id,
             });
 

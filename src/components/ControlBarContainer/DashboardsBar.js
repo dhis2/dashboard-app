@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
+import ControlBar from '@dhis2/d2-ui-core/control-bar/ControlBar';
 import arraySort from 'd2-utilizr/lib/arraySort';
 
 import Chip from './DashboardItemChip';
@@ -14,11 +14,13 @@ import {
     getInnerHeight,
     getOuterHeight,
 } from './controlBarDimensions';
-
-import * as fromActions from '../../actions';
-import * as fromReducers from '../../reducers';
-import { orObject, orArray } from '../../util';
+import { sGetControlBarUserRows } from '../../reducers/controlBar';
+import { sGetAllDashboards } from '../../reducers/dashboards';
+import { sGetFilterName } from '../../reducers/dashboardsFilter';
 import { sGetSelectedId } from '../../reducers/selected';
+import { acSetControlBarUserRows } from '../../actions/controlBar';
+import { acSetFilterName } from '../../actions/dashboardsFilter';
+import { orObject, orArray } from '../../modules/util';
 import { apiPostControlBarRows } from '../../api/controlBar';
 
 import './ControlBarContainer.css';
@@ -137,17 +139,16 @@ export class DashboardsBar extends Component {
 }
 
 const mapStateToProps = state => ({
-    dashboards: fromReducers.fromDashboards.sGetAllDashboards(state),
-    name: fromReducers.fromDashboardsFilter.sGetFilterName(state),
-    userRows: (state.controlBar && state.controlBar.userRows) || MIN_ROW_COUNT,
+    dashboards: sGetAllDashboards(state),
+    name: sGetFilterName(state),
+    userRows: sGetControlBarUserRows(state),
     selectedId: sGetSelectedId(state),
 });
 
 const mapDispatchToProps = {
-    onChangeHeight: fromActions.fromControlBar.acSetControlBarUserRows,
-    onChangeFilterName: fromActions.fromDashboardsFilter.acSetFilterName,
+    onChangeHeight: acSetControlBarUserRows,
+    onChangeFilterName: acSetFilterName,
 };
-
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const dashboards = Object.values(orObject(stateProps.dashboards));
     const displayDashboards = arraySort(

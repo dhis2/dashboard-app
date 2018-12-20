@@ -1,11 +1,9 @@
 /** @module reducers/selected */
-import { validateReducer } from '../util';
+import { validateReducer } from '../modules/util';
 
-export const actionTypes = {
-    SET_STYLE: 'SET_STYLE',
-};
+export const SET_STYLE = 'SET_STYLE';
 
-export const DEFAULT_STYLE = 'LIST';
+export const DEFAULT_STATE_STYLE = 'LIST';
 
 /**
  * Reducer functions that computes and returns the new state based on the given action
@@ -13,10 +11,10 @@ export const DEFAULT_STYLE = 'LIST';
  * @param {Object} state The current state
  * @param {Object} action The action to be evaluated
  */
-const style = (state = DEFAULT_STYLE, action) => {
+const style = (state = DEFAULT_STATE_STYLE, action) => {
     switch (action.type) {
-        case actionTypes.SET_STYLE:
-            return validateReducer(action.value, DEFAULT_STYLE);
+        case SET_STYLE:
+            return validateReducer(action.value, DEFAULT_STATE_STYLE);
         default:
             return state;
     }
@@ -30,4 +28,4 @@ export default style;
  * @param {Object} state
  * @returns {Object}
  */
-export const sGetFromState = state => state.style;
+export const sGetStyleRoot = state => state.style;

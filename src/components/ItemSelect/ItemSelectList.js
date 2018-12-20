@@ -9,7 +9,7 @@ import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
 import { tAddListItemContent } from './actions';
 import { acAddDashboardItem } from '../../actions/editDashboard';
-import { sGetEditDashboard } from '../../reducers/editDashboard';
+import { sGetEditDashboardRoot } from '../../reducers/editDashboard';
 import {
     itemTypeMap,
     getItemUrl,
@@ -22,7 +22,7 @@ import {
     REPORTS,
     RESOURCES,
     USERS,
-} from '../../itemTypes';
+} from '../../modules/itemTypes';
 
 class ItemSelectList extends Component {
     constructor(props) {
@@ -175,7 +175,7 @@ ItemSelectList.contextTypes = {
 
 export default connect(
     state => ({
-        dashboardId: sGetEditDashboard(state).id,
+        dashboardId: sGetEditDashboardRoot(state).id,
     }),
     {
         acAddDashboardItem,

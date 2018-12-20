@@ -8,8 +8,9 @@ import {
     acSetDashboardTitle,
     acSetDashboardDescription,
 } from '../../actions/editDashboard';
-import * as fromReducers from '../../reducers';
-import { orObject } from '../../util';
+import { orObject } from '../../modules/util';
+import { sGetEditDashboardRoot } from '../../reducers/editDashboard';
+import { sGetDashboardById } from '../../reducers/dashboards';
 import ItemSelect from '../ItemSelect/ItemSelect';
 
 const EditTitleBar = ({
@@ -76,16 +77,10 @@ const EditTitleBar = ({
 };
 
 const mapStateToProps = state => {
-    const selectedDashboard = orObject(
-        fromReducers.fromEditDashboard.sGetEditDashboard(state)
-    );
+    const selectedDashboard = orObject(sGetEditDashboardRoot(state));
 
-    const displayName = orObject(
-        fromReducers.fromDashboards.sGetDashboardById(
-            state,
-            selectedDashboard.id
-        )
-    ).displayName;
+    const displayName = orObject(sGetDashboardById(state, selectedDashboard.id))
+        .displayName;
 
     return {
         name: selectedDashboard.name,

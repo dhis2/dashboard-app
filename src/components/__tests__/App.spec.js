@@ -1,7 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from '../components/App';
-import SnackbarMessage from '../components/SnackbarMessage/SnackbarMessage';
+import App from '../App';
+import SnackbarMessage from '../SnackbarMessage/SnackbarMessage';
+
+jest.mock('ui/widgets/HeaderBar', () => () => (
+    <div id="mockHeaderBar">mockHeaderBar</div>
+));
+
+jest.mock('../Dashboard/Dashboard', () => () => (
+    <div id="mockDashboard">mockDashboard</div>
+));
 
 describe('App', () => {
     let props;
@@ -17,13 +25,12 @@ describe('App', () => {
     };
 
     beforeEach(() => {
-        props = {};
+        props = { d2: {} };
         shallowApp = undefined;
         context = {
             store: {
                 dispatch: jest.fn(),
             },
-            d2: {},
         };
     });
 

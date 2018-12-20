@@ -7,11 +7,11 @@ import LaunchIcon from '@material-ui/icons/Launch';
 
 import * as pluginManager from './plugin';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
-import { getBaseUrl, orObject } from '../../../util';
+import { getBaseUrl, orObject } from '../../../modules/util';
 import { sGetVisualization } from '../../../reducers/visualizations';
+import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
 import { acReceivedActiveVisualization } from '../../../actions/selected';
-import { fromItemFilter } from '../../../reducers';
-import { itemTypeMap } from '../../../itemTypes';
+import { itemTypeMap } from '../../../modules/itemTypes';
 import ItemHeader from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
@@ -241,7 +241,7 @@ Item.defaultProps = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-    itemFilter: fromItemFilter.sGetFromState(state),
+    itemFilter: sGetItemFilterRoot(state),
     visualization: sGetVisualization(
         state,
         pluginManager.extractFavorite(ownProps.item).id

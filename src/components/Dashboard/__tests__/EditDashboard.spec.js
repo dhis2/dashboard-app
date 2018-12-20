@@ -1,9 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { EditDashboard } from '../EditDashboard';
-import { DashboardContent } from '../DashboardContent';
+import { EditDashboard, Content } from '../EditDashboard';
 import { NoContentMessage } from '../../../widgets/NoContentMessage';
+
+jest.mock('../DashboardContent', () => () => (
+    <div id="mockDashboardContent">mockDashboardContent</div>
+));
 
 describe('EditDashboard', () => {
     let props;
@@ -15,24 +18,13 @@ describe('EditDashboard', () => {
         return shallowEditDashboard;
     };
 
-    const assertDashboardContent = () => {
-        const children = editDashboard()
-            .find('.dashboard-wrapper')
-            .children();
+    const assertContent = hasContent => {
+        const content = editDashboard().find(Content);
 
-        expect(children.length).toBe(1);
-        expect(children.dive().find(NoContentMessage)).toHaveLength(0);
-        expect(children.dive().find(DashboardContent)).toHaveLength(1);
-    };
-
-    const assertNoContentMessage = () => {
-        const children = editDashboard()
-            .find('.dashboard-wrapper')
-            .children();
-
-        expect(children.length).toBe(1);
-        expect(children.dive().find(NoContentMessage)).toHaveLength(1);
-        expect(children.dive().find(DashboardContent)).toHaveLength(0);
+        expect(content.length).toBe(1);
+        expect(content.dive().find(NoContentMessage)).toHaveLength(
+            hasContent ? 0 : 1
+        );
     };
 
     beforeEach(() => {
@@ -82,14 +74,14 @@ describe('EditDashboard', () => {
             describe('when updateAccess is true', () => {
                 it('renders DashboardContent', () => {
                     props.updateAccess = true;
-                    assertDashboardContent();
+                    assertContent(true);
                 });
             });
 
             describe('when updateAccess is false', () => {
                 it('renders a NoContentMessage', () => {
                     props.updateAccess = false;
-                    assertNoContentMessage();
+                    assertContent(false);
                 });
             });
         });

@@ -8,13 +8,21 @@ import SharingDialog from '@dhis2/d2-ui-sharing-dialog';
 import Star from '@material-ui/icons/Star';
 import StarBorder from '@material-ui/icons/StarBorder';
 
-import * as fromReducers from '../../reducers';
-import { orObject } from '../../util';
+import { orObject } from '../../modules/util';
 import { tStarDashboard } from '../../actions/dashboards';
 import { acSetSelectedShowDescription } from '../../actions/selected';
 import FilterDialog from '../ItemFilter/ItemFilter';
 import FlatButton from '../../widgets/FlatButton';
 import Info from './Info';
+import {
+    sGetSelectedId,
+    sGetSelectedShowDescription,
+} from '../../reducers/selected';
+import {
+    sGetDashboardById,
+    sGetDashboardItems,
+} from '../../reducers/dashboards';
+import { sGetFilterKeys } from '../../reducers/itemFilter';
 
 const NO_DESCRIPTION = i18n.t('No description');
 
@@ -190,19 +198,18 @@ class ViewTitleBar extends Component {
 }
 
 const mapStateToProps = state => {
-    const { fromSelected, fromDashboards, fromItemFilter } = fromReducers;
-    const id = fromSelected.sGetSelectedId(state);
-    const dashboard = orObject(fromDashboards.sGetDashboardById(state, id));
+    const id = sGetSelectedId(state);
+    const dashboard = orObject(sGetDashboardById(state, id));
 
     return {
         id,
         name: dashboard.displayName,
         description: dashboard.displayDescription,
-        dashboardItems: fromDashboards.sGetDashboardItems(state),
-        showDescription: fromSelected.sGetSelectedShowDescription(state),
+        dashboardItems: sGetDashboardItems(state),
+        showDescription: sGetSelectedShowDescription(state),
         starred: dashboard.starred,
         access: orObject(dashboard.access),
-        itemFilterKeys: fromItemFilter.sGetFilterKeys(state),
+        itemFilterKeys: sGetFilterKeys(state),
     };
 };
 

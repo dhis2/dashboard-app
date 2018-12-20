@@ -1,4 +1,10 @@
-import { actionTypes, fromInterpretations } from '../../../../reducers';
+import {
+    sGetInterpretation,
+    RECEIVED_INTERPRETATION,
+    ADD_INTERPRETATIONS,
+    REMOVE_INTERPRETATION,
+} from '../../../../reducers/interpretations';
+import { RECEIVED_VISUALIZATION } from '../../../../reducers/visualizations';
 import {
     postInterpretationLike,
     deleteInterpretationLike,
@@ -17,22 +23,22 @@ import {
 // action creators
 
 export const addInterpretation = value => ({
-    type: actionTypes.RECEIVED_INTERPRETATION,
+    type: RECEIVED_INTERPRETATION,
     value,
 });
 
 export const addInterpretations = value => ({
-    type: actionTypes.ADD_INTERPRETATIONS,
+    type: ADD_INTERPRETATIONS,
     value,
 });
 
 export const removeInterpretation = value => ({
-    type: actionTypes.REMOVE_INTERPRETATION,
+    type: REMOVE_INTERPRETATION,
     value,
 });
 
 export const acReceivedVisualization = value => ({
-    type: actionTypes.RECEIVED_VISUALIZATION,
+    type: RECEIVED_VISUALIZATION,
     value,
 });
 
@@ -143,10 +149,7 @@ export const tPostInterpretation = data => async (dispatch, getState) => {
         const vis = await fetchVisualization(data);
 
         const newInterpretation = vis.interpretations.find(interpretation => {
-            const exists = !!fromInterpretations.sGetInterpretation(
-                getState(),
-                interpretation.id
-            );
+            const exists = !!sGetInterpretation(getState(), interpretation.id);
             return !exists;
         });
         await updateInterpretationInStore([newInterpretation.id], dispatch);
