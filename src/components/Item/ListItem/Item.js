@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { List, ListItem as MUIListItem } from 'material-ui/List';
 import IconButton from 'material-ui/IconButton';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 import Line from '../../../widgets/Line';
-import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes';
+import {
+    itemTypeMap,
+    getItemUrl,
+    getItemIcon,
+} from '../../../modules/itemTypes';
 import { orArray } from '../../../modules/util';
 import { tRemoveListItemContent } from './actions';
 import { colors } from '../../../modules/colors';
@@ -51,7 +55,7 @@ const ListItem = (props, context) => {
                     contentItem
                 )}
             >
-                <SvgIcon icon="Delete" />
+                <DeleteIcon />
             </IconButton>
         );
 
@@ -68,6 +72,8 @@ const ListItem = (props, context) => {
         );
     };
 
+    const ItemIcon = getItemIcon(item.type);
+
     return (
         <Fragment>
             <ItemHeader title={getItemTitle(item)} />
@@ -77,12 +83,7 @@ const ListItem = (props, context) => {
                     <MUIListItem
                         key={contentItem.id}
                         primaryText={primaryText(contentItem)}
-                        leftIcon={
-                            <SvgIcon
-                                icon={itemTypeMap[item.type].icon}
-                                style={{ margin: 0 }}
-                            />
-                        }
+                        leftIcon={<ItemIcon style={{ margin: 0 }} />}
                         disabled={true}
                         innerDivStyle={{ padding: '4px 4px 4px 32px' }}
                     />
