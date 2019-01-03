@@ -20,8 +20,6 @@ import { muiTheme } from './modules/theme';
 
 const v1Theme = () => createMuiTheme({ ...dhis2theme });
 
-const v1Theme = () => createMuiTheme({ ...dhis2theme });
-
 const configI18n = userSettings => {
     const uiLocale = userSettings.keyUiLocale;
 
