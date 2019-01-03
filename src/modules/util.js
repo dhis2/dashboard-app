@@ -1,4 +1,4 @@
-import isObject from 'd2-utilizr/lib/isObject';
+import isObject from 'lodash/isObject';
 
 // validation
 export function orNull(param) {

@@ -1,15 +1,10 @@
-import { actionTypes } from '../reducers';
+import { SET_CONTROLBAR_USER_ROWS } from '../reducers/controlBar';
 import { apiGetControlBarRows } from '../api/controlBar';
 
 // actions
 
-export const acSetControlBarRows = rows => ({
-    type: actionTypes.SET_CONTROLBAR_ROWS,
-    value: rows,
-});
-
 export const acSetControlBarUserRows = rows => ({
-    type: actionTypes.SET_CONTROLBAR_USER_ROWS,
+    type: SET_CONTROLBAR_USER_ROWS,
     value: rows,
 });
 

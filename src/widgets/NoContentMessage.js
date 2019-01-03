@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors } from '../colors';
+import { colors } from '../modules/colors';
 
 export const NoContentMessage = ({ text }) => (
     <div

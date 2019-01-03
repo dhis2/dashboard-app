@@ -1,10 +1,10 @@
-import reducer, { actionTypes, defaultState } from '../user';
+import reducer, { DEFAULT_STATE_USER, RECEIVED_USER } from '../user';
 
 describe('user reducer', () => {
     it('should return the default state', () => {
         const actualState = reducer(undefined, {});
 
-        expect(actualState).toEqual(defaultState);
+        expect(actualState).toEqual(DEFAULT_STATE_USER);
     });
 
     it('should handle RECEIVED_USER action', () => {
@@ -13,7 +13,7 @@ describe('user reducer', () => {
         const uiLocale = 'teletubbie';
 
         const action = {
-            type: actionTypes.RECEIVED_USER,
+            type: RECEIVED_USER,
             value: {
                 id,
                 username,
@@ -33,7 +33,7 @@ describe('user reducer', () => {
             isSuperuser: true,
         };
 
-        const actualState = reducer(defaultState, action);
+        const actualState = reducer(DEFAULT_STATE_USER, action);
         expect(actualState).toEqual(expectedState);
     });
 });

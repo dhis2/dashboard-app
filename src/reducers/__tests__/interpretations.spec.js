@@ -1,4 +1,8 @@
-import reducer, { actionTypes } from '../interpretations';
+import reducer, {
+    ADD_INTERPRETATIONS,
+    REMOVE_INTERPRETATION,
+    RECEIVED_INTERPRETATION,
+} from '../interpretations';
 import update from 'immutability-helper';
 
 describe('interpretations reducer', () => {
@@ -22,7 +26,7 @@ describe('interpretations reducer', () => {
         const newInterpretation = { id: 'int2', text: 'woot' };
 
         const actualState = reducer(currentState, {
-            type: actionTypes.RECEIVED_INTERPRETATION,
+            type: RECEIVED_INTERPRETATION,
             value: newInterpretation,
         });
 
@@ -43,7 +47,7 @@ describe('interpretations reducer', () => {
         ];
 
         const actualState = reducer(currentState, {
-            type: actionTypes.ADD_INTERPRETATIONS,
+            type: ADD_INTERPRETATIONS,
             value: newInterpretations,
         });
 
@@ -57,7 +61,7 @@ describe('interpretations reducer', () => {
 
     it('should remove an interpretation', () => {
         const actualState = reducer(currentState, {
-            type: actionTypes.REMOVE_INTERPRETATION,
+            type: REMOVE_INTERPRETATION,
             value: 'int1',
         });
 
@@ -72,7 +76,7 @@ describe('interpretations reducer', () => {
         const updatedInterpretation = { id: 'int1', text: 'edit, edit' };
 
         const actualState = reducer(currentState, {
-            type: actionTypes.RECEIVED_INTERPRETATION,
+            type: RECEIVED_INTERPRETATION,
             value: updatedInterpretation,
         });
 

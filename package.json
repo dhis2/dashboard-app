@@ -61,7 +61,6 @@
         "prop-types": "^15.6.1",
         "raf": "3.4.0",
         "react": "^16.6.3",
-        "react-contenteditable": "^2.0.5",
         "react-dev-utils": "^4.2.1",
         "react-dom": "^16.6.3",
         "react-grid-layout": "^0.16.0",
@@ -168,9 +167,9 @@
         "extends": "react-app"
     },
     "devDependencies": {
+        "@dhis2/d2-i18n-generate": "^v1.1.0",
         "create-react-class": "^15.6.3",
         "d2-i18n-extract": "^1.x",
-        "d2-i18n-generate": "^1.x",
         "enzyme-adapter-react-16": "^1.7.1",
         "husky": "^0.15.0-rc.12",
         "jest-enzyme": "^7.0.1",

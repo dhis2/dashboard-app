@@ -1,15 +1,13 @@
 import objectClean from 'd2-utilizr/lib/objectClean';
 import isEmpty from 'd2-utilizr/lib/isEmpty';
 
-export const actionTypes = {
-    SET_ITEM_FILTER: 'SET_ITEM_FILTER',
-};
+export const SET_ITEM_FILTER = 'SET_ITEM_FILTER';
 
-export const DEFAULT_STATE = {};
+export const DEFAULT_STATE_ITEM_FILTER = {};
 
-export default (state = DEFAULT_STATE, action) => {
+export default (state = DEFAULT_STATE_ITEM_FILTER, action) => {
     switch (action.type) {
-        case actionTypes.SET_ITEM_FILTER: {
+        case SET_ITEM_FILTER: {
             return objectClean(
                 {
                     ...state,
@@ -23,10 +21,8 @@ export default (state = DEFAULT_STATE, action) => {
     }
 };
 
-// root selector
-
-export const sGetFromState = state => state.itemFilter;
-
 // selectors
 
-export const sGetFilterKeys = state => Object.keys(sGetFromState(state));
+export const sGetItemFilterRoot = state => state.itemFilter;
+
+export const sGetFilterKeys = state => Object.keys(sGetItemFilterRoot(state));

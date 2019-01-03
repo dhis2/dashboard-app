@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import IconButton from 'material-ui/IconButton';
 import IconAdd from 'material-ui/svg-icons/content/add-circle';
-import { colors } from '../colors';
+import { colors } from '../modules/colors';
 
 const styles = {
     button: {

@@ -6,8 +6,8 @@ import IconButton from 'material-ui/IconButton';
 import IconClear from 'material-ui/svg-icons/content/clear';
 import isEmpty from 'd2-utilizr/lib/isEmpty';
 
-import { colors } from '../../colors';
-import * as fromReducers from '../../reducers';
+import { colors } from '../../modules/colors';
+import { DEFAULT_STATE_DASHBOARDS_FILTER_NAME } from '../../reducers/dashboardsFilter';
 
 export const KEYCODE_ENTER = 13;
 export const KEYCODE_ESCAPE = 27;
@@ -48,7 +48,7 @@ export class Filter extends Component {
         super(props);
 
         this.state = {
-            value: fromReducers.fromDashboardsFilter.DEFAULT_NAME,
+            value: DEFAULT_STATE_DASHBOARDS_FILTER_NAME,
         };
     }
 

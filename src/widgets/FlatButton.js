@@ -1,6 +1,6 @@
 import React from 'react';
 import MuiFlatButton from 'material-ui/FlatButton';
-import { colors } from '../colors';
+import { colors } from '../modules/colors';
 
 const defaultStyles = {
     color: colors.royalBlue,

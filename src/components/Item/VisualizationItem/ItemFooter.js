@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { colors } from '../../../colors';
+import { colors } from '../../../modules/colors';
 import { getId, getDescription } from './plugin';
 import Interpretations from './Interpretations/Interpretations';
 

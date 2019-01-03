@@ -1,11 +1,21 @@
-import { actionTypes } from '../reducers';
+import {
+    SET_SELECTED_ID,
+    SET_SELECTED_ISLOADING,
+    SET_SELECTED_SHOWDESCRIPTION,
+} from '../reducers/selected';
+import {
+    RECEIVED_VISUALIZATION,
+    RECEIVED_ACTIVE_VISUALIZATION,
+} from '../reducers/visualizations';
+import { sGetSelectedIsLoading } from '../reducers/selected';
+import { sGetUserUsername } from '../reducers/user';
+import { getCustomDashboards, sGetDashboardById } from '../reducers/dashboards';
 import { apiFetchDashboard } from '../api/dashboards';
 import { acSetDashboardItems, acAppendDashboards } from './dashboards';
 import { withShape } from '../components/ItemGrid/gridUtil';
 import { tGetMessages } from '../components/Item/MessagesItem/actions';
 import { acReceivedSnackbarMessage, acCloseSnackbar } from './snackbar';
 import { storePreferredDashboardId } from '../api/localStorage';
-import { fromUser, fromSelected } from '../reducers';
 import { loadingDashboardMsg } from '../components/SnackbarMessage/SnackbarMessage';
 import {
     REPORT_TABLE,
@@ -14,36 +24,35 @@ import {
     EVENT_REPORT,
     EVENT_CHART,
     MESSAGES,
-} from '../itemTypes';
+} from '../modules/itemTypes';
 import { extractFavorite } from '../components/Item/VisualizationItem/plugin';
-import { getCustomDashboards, sGetDashboardById } from '../reducers/dashboards';
-import { orObject } from '../util';
+import { orObject } from '../modules/util';
 
 // actions
 
 export const acSetSelectedId = value => ({
-    type: actionTypes.SET_SELECTED_ID,
+    type: SET_SELECTED_ID,
     value,
 });
 
 export const acSetSelectedIsLoading = value => ({
-    type: actionTypes.SET_SELECTED_ISLOADING,
+    type: SET_SELECTED_ISLOADING,
     value,
 });
 
 export const acSetSelectedShowDescription = value => ({
-    type: actionTypes.SET_SELECTED_SHOWDESCRIPTION,
+    type: SET_SELECTED_SHOWDESCRIPTION,
     value,
 });
 
 export const acReceivedVisualization = value => ({
-    type: actionTypes.RECEIVED_VISUALIZATION,
+    type: RECEIVED_VISUALIZATION,
     value,
 });
 
 export const acReceivedActiveVisualization = (id, type, activeType) => {
     const action = {
-        type: actionTypes.RECEIVED_ACTIVE_VISUALIZATION,
+        type: RECEIVED_ACTIVE_VISUALIZATION,
         id,
     };
 
@@ -73,7 +82,7 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
     const snackbarTimeout = setTimeout(() => {
         const dashboardName = orObject(sGetDashboardById(getState(), id))
             .displayName;
-        if (fromSelected.sGetSelectedIsLoading(getState()) && dashboardName) {
+        if (sGetSelectedIsLoading(getState()) && dashboardName) {
             loadingDashboardMsg.name = dashboardName;
 
             dispatch(
@@ -92,7 +101,7 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
             acSetDashboardItems(withShape(customDashboard.dashboardItems))
         );
 
-        storePreferredDashboardId(fromUser.sGetUsername(getState()), id);
+        storePreferredDashboardId(sGetUserUsername(getState()), id);
 
         // add visualizations to store
         customDashboard.dashboardItems.forEach(item => {

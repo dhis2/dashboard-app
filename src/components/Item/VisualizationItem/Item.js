@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
 import * as pluginManager from './plugin';
+import { getGridItemDomId } from '../../ItemGrid/gridUtil';
+import { getBaseUrl, orObject } from '../../../modules/util';
 import { sGetVisualization } from '../../../reducers/visualizations';
+import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
 import { acReceivedActiveVisualization } from '../../../actions/selected';
-import { fromItemFilter } from '../../../reducers';
-import { itemTypeMap, CHART } from '../../../itemTypes';
-import ItemHeader from '../ItemHeader';
+import { itemTypeMap } from '../../../modules/itemTypes';
+import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
 import DefaultVisualizationItem from './DefaultVisualizationItem/Item';
@@ -166,7 +168,7 @@ Item.defaultProps = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-    itemFilter: fromItemFilter.sGetFromState(state),
+    itemFilter: sGetItemFilterRoot(state),
     visualization: sGetVisualization(
         state,
         pluginManager.extractFavorite(ownProps.item).id

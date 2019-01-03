@@ -4,19 +4,21 @@ import PropTypes from 'prop-types';
 import i18n from 'd2-i18n';
 import HeaderBar from 'ui/widgets/HeaderBar';
 
-import { fromUser, fromDashboards, fromControlBar } from '../actions';
+import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes';
+import { acReceivedUser } from '../actions/user';
+import { tFetchDashboards } from '../actions/dashboards';
+import { tSetControlBarRows } from '../actions/controlBar';
 import Dashboard from './Dashboard/Dashboard';
 import SnackbarMessage from './SnackbarMessage/SnackbarMessage';
-import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes';
 
 import './App.css';
 
 class App extends Component {
     componentDidMount() {
         const { store } = this.context;
-        store.dispatch(fromUser.acReceivedUser(this.props.d2.currentUser));
-        store.dispatch(fromDashboards.tFetchDashboards());
-        store.dispatch(fromControlBar.tSetControlBarRows());
+        store.dispatch(acReceivedUser(this.props.d2.currentUser));
+        store.dispatch(tFetchDashboards());
+        store.dispatch(tSetControlBarRows());
     }
 
     getChildContext() {

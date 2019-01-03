@@ -1,6 +1,6 @@
 import isFunction from 'd2-utilizr/lib/isFunction';
 
-import { orObject } from '../../util';
+import { orObject } from '../../modules/util';
 
 // Dimensions for the react-grid-layout
 
