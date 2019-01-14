@@ -1,13 +1,7 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import ItemHeaderButton from '../Item/ItemHeaderButton';
 import DeleteIcon from '@material-ui/icons/Delete';
-
-const styles = theme => ({
-    deleteIcon: {
-        fill: theme.palette.status.negative,
-    },
-});
+import { colors } from '@material-ui/core';
 
 const containerStyle = {
     position: 'absolute',
@@ -18,8 +12,8 @@ const containerStyle = {
 
 const DeleteItemHeaderButton = ({ classes, onClick }) => (
     <ItemHeaderButton onClick={onClick} style={containerStyle}>
-        <DeleteIcon className={classes.deleteIcon} />
+        <DeleteIcon style={{ fill: colors.red }} />
     </ItemHeaderButton>
 );
 
-export default withStyles(styles)(DeleteItemHeaderButton);
+export default DeleteItemHeaderButton;

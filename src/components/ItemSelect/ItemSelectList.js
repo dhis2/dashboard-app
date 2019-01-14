@@ -61,56 +61,6 @@ class ItemSelectList extends Component {
         this.props.onChangeItemsLimit(this.props.type);
     };
 
-    getListItem = item => {
-        const itemUrl = getItemUrl(this.props.type, item, this.context.d2);
-
-        const ItemIcon = getItemIcon(this.props.type);
-
-        return (
-            <ListItem // apps don't have item.id
-                key={item.id || item.key}
-                leftIcon={<ItemIcon color="action" style={{ margin: '6px' }} />}
-                innerDivStyle={{ padding: '0px 0px 0px 42px' }}
-                hoverColor="transparent"
-                primaryText={
-                    <p
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'flex-start',
-                            margin: 0,
-                        }}
-                    >
-                        {item.displayName || item.name}
-                        <Button
-                            color="primary"
-                            onClick={this.addItem(item)}
-                            style={{
-                                marginLeft: '5px',
-                                marginRight: '5px',
-                            }}
-                        >
-                            + ADD
-                        </Button>
-                        {itemUrl && (
-                            <a
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href={itemUrl}
-                                style={{ display: 'flex' }}
-                            >
-                                <LaunchIcon
-                                    color="action"
-                                    style={{ width: '16px', height: '16px' }}
-                                />
-                            </a>
-                        )}
-                    </p>
-                }
-            />
-        );
-    };
-
     render() {
         return (
             <Fragment>
@@ -137,7 +87,65 @@ class ItemSelectList extends Component {
                 <Divider />
                 <List>
                     {this.props.items.map(item => {
-                        return this.getListItem(item);
+                        const itemUrl = getItemUrl(
+                            this.props.type,
+                            item,
+                            this.context.d2
+                        );
+
+                        const ItemIcon = getItemIcon(this.props.type);
+
+                        return (
+                            <ListItem // apps don't have item.id
+                                key={item.id || item.key}
+                                leftIcon={
+                                    <ItemIcon
+                                        color="action"
+                                        style={{ margin: '6px' }}
+                                    />
+                                }
+                                innerDivStyle={{ padding: '0px 0px 0px 42px' }}
+                                hoverColor="transparent"
+                                primaryText={
+                                    <p
+                                        style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'flex-start',
+                                            margin: 0,
+                                        }}
+                                    >
+                                        {item.displayName || item.name}
+                                        <Button
+                                            color="primary"
+                                            onClick={this.addItem(item)}
+                                            style={{
+                                                marginLeft: '5px',
+                                                marginRight: '5px',
+                                            }}
+                                        >
+                                            + ADD
+                                        </Button>
+                                        {itemUrl && (
+                                            <a
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                href={itemUrl}
+                                                style={{ display: 'flex' }}
+                                            >
+                                                <LaunchIcon
+                                                    color="action"
+                                                    style={{
+                                                        width: '16px',
+                                                        height: '16px',
+                                                    }}
+                                                />
+                                            </a>
+                                        )}
+                                    </p>
+                                }
+                            />
+                        );
                     })}
                 </List>
             </Fragment>

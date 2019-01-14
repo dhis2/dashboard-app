@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import MessageIcon from '@material-ui/icons/Message';
-import ViewListIcon from '@material-ui/icons/ViewList';
-import InsertChartIcon from '@material-ui/icons/InsertChart';
-import PublicIcon from '@material-ui/icons/Public';
+import TableIcon from '@material-ui/icons/ViewList';
+import ChartIcon from '@material-ui/icons/InsertChart';
+import MapIcon from '@material-ui/icons/Public';
 
 import { extractFavorite } from './plugin';
 import ItemHeaderButton from '../ItemHeaderButton';
@@ -152,14 +152,14 @@ class VisualizationItemHeaderButtons extends Component {
                         style={tableButtonStyle.container}
                         onClick={onViewTable}
                     >
-                        <ViewListIcon style={tableButtonStyle.icon} />
+                        <TableIcon style={tableButtonStyle.icon} />
                     </ItemHeaderButton>
                     <ItemHeaderButton
                         disabled={disabled}
                         style={chartButtonStyle.container}
                         onClick={onViewChart}
                     >
-                        <InsertChartIcon style={chartButtonStyle.icon} />
+                        <ChartIcon style={chartButtonStyle.icon} />
                     </ItemHeaderButton>
                     {domainType === DOMAIN_TYPE_AGGREGATE ? (
                         <ItemHeaderButton
@@ -167,7 +167,7 @@ class VisualizationItemHeaderButtons extends Component {
                             style={mapButtonStyle.container}
                             onClick={onViewMap}
                         >
-                            <PublicIcon style={mapButtonStyle.icon} />
+                            <MapIcon style={mapButtonStyle.icon} />
                         </ItemHeaderButton>
                     ) : null}
                 </div>

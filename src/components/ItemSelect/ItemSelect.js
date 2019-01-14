@@ -29,11 +29,14 @@ const styles = {
         borderColor: '#aaa',
         borderWidth: '1px',
     },
+    searchIcon: {
+        fill: '#757575',
+    },
 };
 
 const ItemSearchField = props => (
     <div style={{ display: 'flex', alignItems: 'baseline' }}>
-        <SearchIcon />
+        <SearchIcon style={styles.searchIcon} />
         <TextField
             hintText={i18n.t('Search for items to add to this dashboard')}
             fullWidth={true}
