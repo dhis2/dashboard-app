@@ -24,6 +24,7 @@ const styles = {
         height: 16,
         marginLeft: 3,
         cursor: 'pointer',
+        fill: '#757575',
     },
     title: {
         overflow: 'hidden',
@@ -174,7 +175,7 @@ class Item extends Component {
                         style={{ height: 16 }}
                         title={`View in ${itemTypeMap[item.type].appName} app`}
                     >
-                        <LaunchIcon className={classes.icon} color="action" />
+                        <LaunchIcon className={classes.icon} />
                     </a>
                 ) : null}
             </div>
