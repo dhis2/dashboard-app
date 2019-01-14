@@ -100,8 +100,10 @@ class ItemSelectList extends Component {
                                 key={item.id || item.key}
                                 leftIcon={
                                     <ItemIcon
-                                        color="action"
-                                        style={{ margin: '6px' }}
+                                        style={{
+                                            margin: '6px',
+                                            fill: '#757575',
+                                        }}
                                     />
                                 }
                                 innerDivStyle={{ padding: '0px 0px 0px 42px' }}
@@ -134,10 +136,10 @@ class ItemSelectList extends Component {
                                                 style={{ display: 'flex' }}
                                             >
                                                 <LaunchIcon
-                                                    color="action"
                                                     style={{
                                                         width: '16px',
                                                         height: '16px',
+                                                        fill: '#757575',
                                                     }}
                                                 />
                                             </a>
