@@ -8892,7 +8892,7 @@ react-stub-context@^0.8.1:
   resolved "https://registry.yarnpkg.com/react-stub-context/-/react-stub-context-0.8.1.tgz#278d370f0d8e717cb8e0456ced62bb3f97ba24c6"
   integrity sha1-J403Dw2OcXy44EVs7WK7P5e6JMY=
 
-react-test-renderer@^16.0.0-0:
+react-test-renderer@^16.0.0-0, react-test-renderer@^16.7.0:
   version "16.7.0"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.7.0.tgz#1ca96c2b450ab47c36ba92cd8c03fcefc52ea01c"
   integrity sha512-tFbhSjknSQ6+ttzmuGdv+SjQfmvGcq3PFKyPItohwhhOBmRoTf1We3Mlt3rJtIn85mjPXOkKV+TaKK4irvk9Yg==
