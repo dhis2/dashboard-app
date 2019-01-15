@@ -104,6 +104,8 @@ const configureFavorite = async (item, activeType) => {
 };
 
 const configureFilter = (filter = {}) => {
+    console.log('configureFilter', filter);
+
     const ouIds = getUserOrgUnitIds(filter[FILTER_USER_ORG_UNIT]);
     const userOrgUnitFilter = ouIds.length
         ? { [FILTER_USER_ORG_UNIT]: ouIds }
