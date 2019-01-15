@@ -3,7 +3,7 @@ import ItemHeaderButton from '../Item/ItemHeaderButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { colors } from '../../modules/colors';
 
-const styles = {
+const style = {
     button: {
         position: 'absolute',
         top: '7px',
@@ -16,8 +16,8 @@ const styles = {
 };
 
 const DeleteItemHeaderButton = ({ onClick }) => (
-    <ItemHeaderButton onClick={onClick} style={styles.button}>
-        <DeleteIcon style={styles.icon} />
+    <ItemHeaderButton onClick={onClick} style={style.button}>
+        <DeleteIcon style={style.icon} />
     </ItemHeaderButton>
 );
 

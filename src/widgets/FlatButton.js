@@ -5,6 +5,7 @@ import { colors } from '../modules/colors';
 const defaultStyles = {
     color: colors.royalBlue,
     backgroundColor: 'transparent',
+    minWidth: '30px',
 };
 
 const FlatButton = ({ onClick, children, style, disabled }) => {

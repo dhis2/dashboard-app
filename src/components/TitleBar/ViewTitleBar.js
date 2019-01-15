@@ -117,6 +117,8 @@ class ViewTitleBar extends Component {
             top: '7px',
         });
 
+        const StarIcon = starred ? Star : StarBorder;
+
         return (
             <Fragment>
                 <div className={classes.titleBar}>
@@ -126,11 +128,7 @@ class ViewTitleBar extends Component {
                             className={classes.titleBarIcon}
                             onClick={onStarClick}
                         >
-                            {starred ? (
-                                <Star className={classes.starIcon} />
-                            ) : (
-                                <StarBorder className={classes.starIcon} />
-                            )}
+                            <StarIcon className={classes.starIcon} />
                         </div>
                         <div className={classes.titleBarIcon}>
                             <Info onClick={onInfoClick} />

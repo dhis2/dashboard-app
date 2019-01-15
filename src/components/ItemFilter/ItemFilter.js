@@ -127,9 +127,7 @@ const mapStateToProps = state => ({
     selected: sGetItemFilterRoot(state)[FILTER_USER_ORG_UNIT] || [],
 });
 
-const ItemFilterCt = connect(
+export default connect(
     mapStateToProps,
     { acSetItemFilter }
 )(withStyles(styles)(ItemFilter));
-
-export default ItemFilterCt;
