@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withStyles } from '@material-ui/core/styles';
 import i18n from 'd2-i18n';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import LaunchIcon from '@material-ui/icons/Launch';
 
 import * as pluginManager from './plugin';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
@@ -11,16 +12,20 @@ import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
 import { acReceivedActiveVisualization } from '../../../actions/selected';
 import { itemTypeMap } from '../../../modules/itemTypes';
-import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
+import ItemHeader from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
+import { colors } from '../../../modules/colors';
 
-const style = {
+const HEADER_HEIGHT = 45;
+
+const styles = {
     icon: {
         width: 16,
         height: 16,
         marginLeft: 3,
         cursor: 'pointer',
+        fill: colors.muiDefaultGrey,
     },
     title: {
         overflow: 'hidden',
@@ -153,13 +158,16 @@ class Item extends Component {
     };
 
     render() {
-        const item = this.props.item;
+        const { item, classes } = this.props;
         const elementId = getGridItemDomId(item.id);
         const pluginIsAvailable = this.pluginIsAvailable();
 
         const title = (
             <div style={{ display: 'flex', alignItems: 'center' }}>
-                <span title={pluginManager.getName(item)} style={style.title}>
+                <span
+                    className={classes.title}
+                    title={pluginManager.getName(item)}
+                >
                     {pluginManager.getName(item)}
                 </span>
                 {!this.props.editMode && pluginIsAvailable ? (
@@ -168,7 +176,7 @@ class Item extends Component {
                         style={{ height: 16 }}
                         title={`View in ${itemTypeMap[item.type].appName} app`}
                     >
-                        <SvgIcon icon="Launch" style={style.icon} />
+                        <LaunchIcon className={classes.icon} />
                     </a>
                 ) : null}
             </div>
@@ -179,7 +187,7 @@ class Item extends Component {
                 <VisualizationItemHeaderButtons
                     item={item}
                     activeFooter={this.state.showFooter}
-                    activeVisualization={
+                    activeType={
                         this.props.visualization.activeType || item.type
                     }
                     onSelectVisualization={this.onSelectVisualization}
@@ -207,7 +215,7 @@ class Item extends Component {
                     style={contentStyle}
                 >
                     {!pluginIsAvailable ? (
-                        <div style={style.textDiv}>
+                        <div className={classes.textDiv}>
                             {i18n.t('Unable to load the plugin for this item')}
                         </div>
                     ) : null}
@@ -250,4 +258,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Item);
+)(withStyles(styles)(Item));

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import InfoOutlineIcon from '@material-ui/icons/InfoOutlined';
+import { colors } from '../../modules/colors';
 
 class Info extends Component {
     show = false;
@@ -12,7 +13,7 @@ class Info extends Component {
     render() {
         return (
             <div onClick={() => this.props.onClick(this.toggle())}>
-                <SvgIcon icon={'InfoOutline'} />
+                <InfoOutlineIcon style={{ fill: colors.muiDefaultGrey }} />
             </div>
         );
     }

@@ -3,40 +3,43 @@ import { connect } from 'react-redux';
 import Divider from 'material-ui/Divider';
 import { List, ListItem } from 'material-ui/List';
 import Button from 'd2-ui/lib/button/Button';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import { getItemIcon } from '../../modules/itemTypes';
 
 import { acAddDashboardItem } from '../../actions/editDashboard';
 
-const SingleItem = ({ item, onAddToDashboard }) => (
-    <ListItem
-        key={item.type}
-        leftIcon={<SvgIcon icon={item.icon} style={{ margin: '6px' }} />}
-        innerDivStyle={{ padding: '0px 0px 0px 42px' }}
-        hoverColor="transparent"
-        primaryText={
-            <p
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'flex-start',
-                    margin: 0,
-                }}
-            >
-                {item.name}
-                <Button
-                    color="primary"
-                    onClick={onAddToDashboard}
+const SingleItem = ({ item, onAddToDashboard }) => {
+    const ItemIcon = getItemIcon(item.type);
+    return (
+        <ListItem
+            key={item.type}
+            leftIcon={<ItemIcon style={{ margin: '6px' }} />}
+            innerDivStyle={{ padding: '0px 0px 0px 42px' }}
+            hoverColor="transparent"
+            primaryText={
+                <p
                     style={{
-                        marginLeft: '5px',
-                        marginRight: '5px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'flex-start',
+                        margin: 0,
                     }}
                 >
-                    + ADD
-                </Button>
-            </p>
-        }
-    />
-);
+                    {item.name}
+                    <Button
+                        color="primary"
+                        onClick={onAddToDashboard}
+                        style={{
+                            marginLeft: '5px',
+                            marginRight: '5px',
+                        }}
+                    >
+                        + ADD
+                    </Button>
+                </p>
+            }
+        />
+    );
+};
 
 const ItemSelectSingle = ({ acAddDashboardItem, category }) => {
     const addToDashboard = ({ type, content }) => () => {

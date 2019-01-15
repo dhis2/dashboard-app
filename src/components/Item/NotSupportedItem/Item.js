@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import ItemHeader from '../ItemHeader';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import NotInterestedIcon from '@material-ui/icons/NotInterested';
 
 const NotSupportedItem = props => (
     <Fragment>
@@ -13,10 +13,9 @@ const NotSupportedItem = props => (
                 height: '90%',
             }}
         >
-            <SvgIcon
-                icon="NotInterested"
+            <NotInterestedIcon
                 style={{ width: 100, height: 100, align: 'center' }}
-                disabled
+                color="disabled"
             />
         </div>
     </Fragment>
