@@ -23,6 +23,7 @@ import {
     sGetDashboardItems,
 } from '../../reducers/dashboards';
 import { sGetFilterKeys } from '../../reducers/itemFilter';
+import { colors } from '../../modules/colors';
 
 const NO_DESCRIPTION = i18n.t('No description');
 
@@ -33,7 +34,7 @@ const styles = {
         marginLeft: '20px',
     },
     starIcon: {
-        fill: '#757575',
+        fill: colors.muiDefaultGrey,
     },
     textButton: {
         minWidth: '30px',
@@ -81,7 +82,7 @@ class ViewTitleBar extends Component {
                 style={{
                     marginLeft: '20px',
                     cursor: 'pointer',
-                    color: '#fff',
+                    color: colors.white,
                     fontWeight: 500,
                     backgroundColor: '#444',
                     padding: '6px 8px',

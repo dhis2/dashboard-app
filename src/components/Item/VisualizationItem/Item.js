@@ -15,6 +15,7 @@ import { itemTypeMap } from '../../../modules/itemTypes';
 import ItemHeader from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
+import { colors } from '../../../modules/colors';
 
 const HEADER_HEIGHT = 45;
 
@@ -24,7 +25,7 @@ const styles = {
         height: 16,
         marginLeft: 3,
         cursor: 'pointer',
-        fill: '#757575',
+        fill: colors.muiDefaultGrey,
     },
     title: {
         overflow: 'hidden',

@@ -9,6 +9,7 @@ import { singleItems, listItems } from './selectableItems';
 import { itemTypeMap } from '../../modules/itemTypes';
 import ItemSelectList from './ItemSelectList';
 import ItemSelectSingle from './ItemSelectSingle';
+import { colors } from '../../modules/colors';
 
 import './ItemSelect.css';
 
@@ -30,7 +31,7 @@ const styles = {
         borderWidth: '1px',
     },
     searchIcon: {
-        fill: '#757575',
+        fill: colors.muiDefaultGrey,
     },
 };
 

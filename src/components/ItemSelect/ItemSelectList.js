@@ -22,6 +22,7 @@ import {
     RESOURCES,
     USERS,
 } from '../../modules/itemTypes';
+import { colors } from '../../modules/colors';
 
 class ItemSelectList extends Component {
     constructor(props) {
@@ -102,7 +103,7 @@ class ItemSelectList extends Component {
                                     <ItemIcon
                                         style={{
                                             margin: '6px',
-                                            fill: '#757575',
+                                            fill: colors.muiDefaultGrey,
                                         }}
                                     />
                                 }
@@ -139,7 +140,8 @@ class ItemSelectList extends Component {
                                                     style={{
                                                         width: '16px',
                                                         height: '16px',
-                                                        fill: '#757575',
+                                                        fill:
+                                                            colors.muiDefaultGrey,
                                                     }}
                                                 />
                                             </a>
