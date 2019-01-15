@@ -6,7 +6,7 @@ it('renders correctly', () => {
     const tree = renderer
         .create(
             <ItemHeaderButton
-                onClick={() => console.log('Rainbow Dash')}
+                onClick={Function.prototype}
                 style={{ fill: 'purple' }}
             >
                 My Little Pony
