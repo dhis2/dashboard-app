@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import InfoOutlineIcon from '@material-ui/icons/InfoOutlined';
-
-const styles = theme => ({
-    icon: {
-        fill: theme.palette.shadow,
-    },
-});
 
 class Info extends Component {
     show = false;
@@ -19,10 +12,10 @@ class Info extends Component {
     render() {
         return (
             <div onClick={() => this.props.onClick(this.toggle())}>
-                <InfoOutlineIcon className={this.props.classes.icon} />
+                <InfoOutlineIcon style={{ fill: '#757575' }} />
             </div>
         );
     }
 }
 
-export default withStyles(styles)(Info);
+export default Info;

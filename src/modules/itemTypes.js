@@ -1,6 +1,6 @@
 import i18n from 'd2-i18n';
-import ViewListIcon from '@material-ui/icons/ViewList';
-import InsertChartIcon from '@material-ui/icons/InsertChart';
+import TableIcon from '@material-ui/icons/ViewList';
+import ChartIcon from '@material-ui/icons/InsertChart';
 import MapIcon from '@material-ui/icons/Public';
 import ExtensionIcon from '@material-ui/icons/Extension';
 import DescriptionIcon from '@material-ui/icons/Description';
@@ -168,10 +168,10 @@ export const getItemIcon = type => {
         case REPORT_TABLE:
         case EVENT_REPORT:
         case REPORTS:
-            return ViewListIcon;
+            return TableIcon;
         case CHART:
         case EVENT_CHART:
-            return InsertChartIcon;
+            return ChartIcon;
         case MAP:
             return MapIcon;
         case APP:

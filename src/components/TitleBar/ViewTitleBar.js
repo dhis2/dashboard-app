@@ -26,14 +26,14 @@ import { sGetFilterKeys } from '../../reducers/itemFilter';
 
 const NO_DESCRIPTION = i18n.t('No description');
 
-const styles = theme => ({
+const styles = {
     actions: {
         display: 'flex',
         alignItems: 'center',
         marginLeft: '20px',
     },
     starIcon: {
-        fill: theme.palette.shadow,
+        fill: '#757575',
     },
     textButton: {
         minWidth: '30px',
@@ -54,7 +54,7 @@ const styles = theme => ({
         top: 1,
         cursor: 'pointer',
     },
-});
+};
 
 class ViewTitleBar extends Component {
     constructor(props) {
