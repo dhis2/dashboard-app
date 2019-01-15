@@ -104,14 +104,12 @@ const configureFavorite = async (item, activeType) => {
 };
 
 const configureFilter = (filter = {}) => {
-    console.log('configureFilter', filter);
-
     const ouIds = getUserOrgUnitIds(filter[FILTER_USER_ORG_UNIT]);
     const userOrgUnitFilter = ouIds.length
         ? { [FILTER_USER_ORG_UNIT]: ouIds }
         : {};
 
-    return Object.assign({}, ...filter, userOrgUnitFilter);
+    return Object.assign({}, filter, userOrgUnitFilter);
 };
 
 export const load = async (item, credentials, activeType, filter = {}) => {
