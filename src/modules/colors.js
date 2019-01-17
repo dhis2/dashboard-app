@@ -3,6 +3,7 @@ const lightMediumGrey = '#9E9E9E';
 const mediumGrey = '#393939';
 const charcoalGrey = '#8C8C8C';
 const darkGrey = '#494949';
+const muiDefaultGrey = '#757575';
 
 const red = '#E53935';
 
@@ -26,6 +27,7 @@ export const colors = {
     mediumGrey,
     charcoalGrey,
     darkGrey,
+    muiDefaultGrey,
     red,
     paleBlue,
     lightBlue,

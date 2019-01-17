@@ -1,4 +1,15 @@
 import i18n from 'd2-i18n';
+import TableIcon from '@material-ui/icons/ViewList';
+import ChartIcon from '@material-ui/icons/InsertChart';
+import MapIcon from '@material-ui/icons/Public';
+import ExtensionIcon from '@material-ui/icons/Extension';
+import DescriptionIcon from '@material-ui/icons/Description';
+import PersonIcon from '@material-ui/icons/Person';
+import FontDownloadIcon from '@material-ui/icons/FontDownload';
+import EmailIcon from '@material-ui/icons/Email';
+import CropFreeIcon from '@material-ui/icons/CropFree';
+import NotInterestedIcon from '@material-ui/icons/NotInterested';
+
 import { getBaseUrl } from './util';
 
 // Item types
@@ -46,7 +57,6 @@ export const itemTypeMap = {
         visualizationType: VISUALIZATION_TYPE_TABLE,
         appUrl: id => `dhis-web-pivot/?id=${id}`,
         appName: i18n.t('Pivot Tables'),
-        icon: 'ViewList',
     },
     [CHART]: {
         id: CHART,
@@ -59,7 +69,6 @@ export const itemTypeMap = {
         visualizationType: VISUALIZATION_TYPE_CHART,
         appUrl: id => `dhis-web-data-visualizer/#/${id}`,
         appName: i18n.t('Visualizer'),
-        icon: 'InsertChart',
     },
     [MAP]: {
         id: MAP,
@@ -72,7 +81,6 @@ export const itemTypeMap = {
         visualizationType: VISUALIZATION_TYPE_MAP,
         appUrl: id => `dhis-web-maps/?id=${id}`,
         appName: i18n.t('Maps'),
-        icon: 'Public',
     },
     [EVENT_REPORT]: {
         id: EVENT_REPORT,
@@ -85,7 +93,6 @@ export const itemTypeMap = {
         visualizationType: VISUALIZATION_TYPE_TABLE,
         appUrl: id => `dhis-web-event-reports/?id=${id}`,
         appName: i18n.t('Event Reports'),
-        icon: 'ViewList',
     },
     [EVENT_CHART]: {
         id: EVENT_CHART,
@@ -98,14 +105,12 @@ export const itemTypeMap = {
         visualizationType: VISUALIZATION_TYPE_CHART,
         appUrl: id => `dhis-web-event-visualizer/?id=${id}`,
         appName: i18n.t('Event Visualizer'),
-        icon: 'InsertChart',
     },
     [APP]: {
         endPointName: 'apps',
         propName: 'appKey',
         countName: 'appCount',
         pluralTitle: 'Apps',
-        icon: 'Extension',
     },
     [REPORTS]: {
         id: REPORTS,
@@ -115,7 +120,6 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Reports'),
         appUrl: id =>
             `dhis-web-reporting/getReportParams.action?mode=report&uid=${id}`,
-        icon: 'ViewList',
     },
     [RESOURCES]: {
         id: RESOURCES,
@@ -124,7 +128,6 @@ export const itemTypeMap = {
         countName: 'resourceCount',
         pluralTitle: i18n.t('Resources'),
         appUrl: id => `api/documents/${id}/data`,
-        icon: 'Description',
     },
     [USERS]: {
         id: USERS,
@@ -133,20 +136,16 @@ export const itemTypeMap = {
         countName: 'userCount',
         pluralTitle: i18n.t('Users'),
         appUrl: id => `dhis-web-dashboard-integration/profile.action?id=${id}`,
-        icon: 'Person',
     },
     [TEXT]: {
         id: TEXT,
         propName: 'text',
-        icon: 'FontDownload',
     },
     [MESSAGES]: {
         propName: 'messages',
-        icon: 'Email',
     },
     [SPACER]: {
         propName: 'text',
-        icon: 'CropFree',
     },
 };
 
@@ -162,4 +161,32 @@ export const getItemUrl = (type, item, d2) => {
     }
 
     return url;
+};
+
+export const getItemIcon = type => {
+    switch (type) {
+        case REPORT_TABLE:
+        case EVENT_REPORT:
+        case REPORTS:
+            return TableIcon;
+        case CHART:
+        case EVENT_CHART:
+            return ChartIcon;
+        case MAP:
+            return MapIcon;
+        case APP:
+            return ExtensionIcon;
+        case RESOURCES:
+            return DescriptionIcon;
+        case USERS:
+            return PersonIcon;
+        case TEXT:
+            return FontDownloadIcon;
+        case MESSAGES:
+            return EmailIcon;
+        case SPACER:
+            return CropFreeIcon;
+        default:
+            return NotInterestedIcon;
+    }
 };

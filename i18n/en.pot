@@ -5,50 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-12-14T15:40:23.132Z\n"
-"PO-Revision-Date: 2018-12-14T15:40:23.132Z\n"
-
-msgid "Column"
-msgstr ""
-
-msgid "Stacked column"
-msgstr ""
-
-msgid "Bar"
-msgstr ""
-
-msgid "Stacked bar"
-msgstr ""
-
-msgid "Line"
-msgstr ""
-
-msgid "Area"
-msgstr ""
-
-msgid "Pie"
-msgstr ""
-
-msgid "Radar"
-msgstr ""
-
-msgid "Gauge"
-msgstr ""
-
-msgid "Year over year (line)"
-msgstr ""
-
-msgid "Year over year (column)"
-msgstr ""
-
-msgid "Data"
-msgstr ""
-
-msgid "Period"
-msgstr ""
-
-msgid "Organisation Unit"
-msgstr ""
+"POT-Creation-Date: 2019-01-17T11:34:38.580Z\n"
+"PO-Revision-Date: 2019-01-17T11:34:38.580Z\n"
 
 msgid "Dashboard"
 msgstr ""

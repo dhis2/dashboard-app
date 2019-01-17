@@ -3,10 +3,9 @@ import i18n from 'd2-i18n';
 import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
-import IconClear from 'material-ui/svg-icons/content/clear';
+import IconClear from '@material-ui/icons/Clear';
 import isEmpty from 'd2-utilizr/lib/isEmpty';
 
-import { colors } from '../../modules/colors';
 import { DEFAULT_STATE_DASHBOARDS_FILTER_NAME } from '../../reducers/dashboardsFilter';
 
 export const KEYCODE_ENTER = 13;
@@ -119,7 +118,7 @@ export const ClearButton = ({ name, onChangeName }) => {
             onClick={clearFilter}
             disabled={disabled}
         >
-            <IconClear color={colors.mediumGrey} />
+            <IconClear color="action" />
         </IconButton>
     );
 };

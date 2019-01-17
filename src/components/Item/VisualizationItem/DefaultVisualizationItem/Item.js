@@ -5,32 +5,11 @@ import i18n from 'd2-i18n';
 
 import * as pluginManager from '../plugin';
 import { getGridItemDomId } from '../../../ItemGrid/gridUtil';
-import { getBaseUrl, orObject } from '../../../../util';
+import { getBaseUrl, orObject } from '../../../../modules/util';
 import { sGetVisualization } from '../../../../reducers/visualizations';
 import { acReceivedActiveVisualization } from '../../../../actions/selected';
-import { fromItemFilter } from '../../../../reducers';
+import { sGetItemFilterRoot } from '../../../../reducers/itemFilter';
 import { HEADER_HEIGHT } from '../../ItemHeader';
-
-const style = {
-    icon: {
-        width: 16,
-        height: 16,
-        marginLeft: 3,
-        cursor: 'pointer',
-    },
-    title: {
-        overflow: 'hidden',
-        maxWidth: '85%',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-    },
-    textDiv: {
-        fontSize: '14px',
-        fontStretch: 'normal',
-        padding: '10px',
-        lineHeight: '20px',
-    },
-};
 
 const pluginCredentials = d2 => {
     return {
@@ -152,7 +131,7 @@ class Item extends Component {
     };
 
     render() {
-        const item = this.props.item;
+        const { item, classes } = this.props;
         const elementId = getGridItemDomId(item.id);
         const pluginIsAvailable = pluginManager.pluginIsAvailable(
             item,
@@ -173,7 +152,7 @@ class Item extends Component {
                 style={contentStyle}
             >
                 {!pluginIsAvailable ? (
-                    <div style={style.textDiv}>
+                    <div className={classes.textDiv}>
                         {i18n.t('Unable to load the plugin for this item')}
                     </div>
                 ) : null}
@@ -197,7 +176,7 @@ Item.defaultProps = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-    itemFilter: fromItemFilter.sGetFromState(state),
+    itemFilter: sGetItemFilterRoot(state),
     visualization: sGetVisualization(
         state,
         pluginManager.extractFavorite(ownProps.item).id
