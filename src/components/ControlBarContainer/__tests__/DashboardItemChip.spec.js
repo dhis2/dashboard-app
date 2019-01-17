@@ -1,6 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import MuiChip from 'material-ui/Chip';
+// import MuiChip from 'material-ui/Chip';
+// import MuiChip from '@dhis2/d2-ui-core/chip/Chip';
+import MuiChip from '@dhis2/ui/core/Chip';
 import Avatar from 'material-ui/Avatar';
 import { getStubContext } from '../../../../config/testsContext';
 import DashboardItemChip from '../DashboardItemChip';
@@ -18,7 +20,7 @@ describe('DashboardItemChip', () => {
             context: getStubContext(),
         });
 
-    it('renders a Link', () => {
+    it.only('renders a Link', () => {
         const chipWrapper = chip(defaultProps);
 
         const div = chipWrapper.find('Link');

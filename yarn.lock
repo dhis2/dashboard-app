@@ -1012,6 +1012,15 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
+"@dhis2/ui@^1.0.0-beta.7":
+  version "1.0.0-beta.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-1.0.0-beta.7.tgz#3b524020b01e9a596c965c69239cd14236231c0a"
+  integrity sha512-bLyGbxH0qO60C9TOVOxnykN70rY6nnwZ+tLj4zqmyaT88kox9ZexCTtxQE44JkXymQ9lCxWhsxD19wIypoSohg==
+  dependencies:
+    "@babel/runtime-corejs2" "^7.1.5"
+    classnames "^2.2.6"
+    material-design-icons-iconfont "^4.0.2"
+
 "@emotion/babel-utils@^0.6.4":
   version "0.6.10"
   resolved "https://registry.yarnpkg.com/@emotion/babel-utils/-/babel-utils-0.6.10.tgz#83dbf3dfa933fae9fc566e54fbb45f14674c6ccc"
@@ -7233,6 +7242,11 @@ marked@~0.3.6:
   version "0.3.19"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.19.tgz#5d47f709c4c9fc3c216b6d46127280f40b39d790"
   integrity sha512-ea2eGWOqNxPcXv8dyERdSr/6FmzvWwzjMxpfGB/sbMccXoct+xY+YukPD+QTUZwyvK7BZwcr4m21WBOW41pAkg==
+
+material-design-icons-iconfont@^4.0.2:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/material-design-icons-iconfont/-/material-design-icons-iconfont-4.0.4.tgz#8f1eb68bd59a42944209907bfd1eb997405bf162"
+  integrity sha512-jz4P9uLPrbEbzhEsEKuN+5N1TgBFdc4Dslzx/wc22D7FKT/Aelgs/HP8mB3LGI893NND5Rw6xpvZoiXtukB5zw==
 
 material-design-icons@^3.0.1:
   version "3.0.1"

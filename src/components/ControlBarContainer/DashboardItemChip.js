@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MuiChip from 'material-ui/Chip';
+// import MuiChip from 'material-ui/Chip';
+// import MuiChip from '@dhis2/d2-ui-core/chip/Chip';
+import Chip from '@dhis2/ui/core/Chip';
 import Avatar from 'material-ui/Avatar';
 import IconStar from '@material-ui/icons/Star';
 import { Link } from 'react-router-dom';
@@ -59,10 +61,11 @@ const DashboardItemChip = ({ starred, selected, label, dashboardId }) => {
             }}
             to={`/${dashboardId}`}
         >
-            <MuiChip {...props}>
+            {/* <MuiChip {...props}>
                 {starred ? avatar(selected) : null}
                 {label}
-            </MuiChip>
+            </MuiChip> */}
+            <Chip label={label} />
         </Link>
     );
 };
