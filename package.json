@@ -9,6 +9,7 @@
         "@babel/plugin-proposal-class-properties": "^7.2.3",
         "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
         "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+        "@babel/polyfill": "^7.2.5",
         "@babel/preset-env": "^7.2.3",
         "@babel/preset-react": "^7.0.0",
         "@babel/runtime-corejs2": "^7.2.0",
@@ -24,7 +25,6 @@
         "babel-eslint": "^10.0.1",
         "babel-jest": "^23.6.0",
         "babel-loader": "8.0.5",
-        "babel-polyfill": "^6.26.0",
         "babel-preset-react-app": "7.0.0",
         "babel-runtime": "6.26.0",
         "case-sensitive-paths-webpack-plugin": "2.1.1",
@@ -75,6 +75,7 @@
         "redux": "^3.7.2",
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.2.0",
+        "regenerator-runtime": "^0.13.1",
         "style-loader": "0.19.0",
         "sw-precache-webpack-plugin": "0.11.4",
         "ui": "github:d2-ci/ui#a14c74a62a5baefe84786282b145ba20e19bc907",
@@ -126,42 +127,6 @@
         "/dhis-web-core-resource": {
             "target": "http://localhost:8080"
         }
-    },
-    "jest": {
-        "collectCoverageFrom": [
-            "src/**/*.{js,jsx,mjs}"
-        ],
-        "setupFiles": [
-            "<rootDir>/config/polyfills.js",
-            "<rootDir>/config/shim.js"
-        ],
-        "setupTestFrameworkScriptFile": "<rootDir>/config/testSetup.js",
-        "testMatch": [
-            "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
-            "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
-        ],
-        "testEnvironment": "node",
-        "testURL": "http://localhost",
-        "transform": {
-            "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
-            "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-            "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
-        },
-        "transformIgnorePatterns": [
-            "node_modules/(?!(@dhis2/d2-ui-[a-z-]+)/)"
-        ],
-        "moduleNameMapper": {
-            "^react-native$": "react-native-web"
-        },
-        "moduleFileExtensions": [
-            "web.js",
-            "mjs",
-            "js",
-            "json",
-            "web.jsx",
-            "jsx",
-            "node"
-        ]
     },
     "eslintConfig": {
         "extends": "react-app"
