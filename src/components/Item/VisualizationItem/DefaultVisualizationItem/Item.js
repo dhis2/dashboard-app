@@ -152,7 +152,7 @@ class Item extends Component {
     };
 
     render() {
-        const item = this.props.item;
+        const { item, classes } = this.props;
         const elementId = getGridItemDomId(item.id);
         const pluginIsAvailable = pluginManager.pluginIsAvailable(
             item,
@@ -173,7 +173,7 @@ class Item extends Component {
                 style={contentStyle}
             >
                 {!pluginIsAvailable ? (
-                    <div style={style.textDiv}>
+                    <div className={classes.textDiv}>
                         {i18n.t('Unable to load the plugin for this item')}
                     </div>
                 ) : null}
