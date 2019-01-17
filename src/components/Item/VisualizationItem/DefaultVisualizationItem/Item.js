@@ -5,10 +5,10 @@ import i18n from 'd2-i18n';
 
 import * as pluginManager from '../plugin';
 import { getGridItemDomId } from '../../../ItemGrid/gridUtil';
-import { getBaseUrl, orObject } from '../../../../util';
+import { getBaseUrl, orObject } from '../../../../modules/util';
 import { sGetVisualization } from '../../../../reducers/visualizations';
 import { acReceivedActiveVisualization } from '../../../../actions/selected';
-import { fromItemFilter } from '../../../../reducers';
+import { sGetItemFilterRoot } from '../../../../reducers/itemFilter';
 import { HEADER_HEIGHT } from '../../ItemHeader';
 
 const pluginCredentials = d2 => {
@@ -176,7 +176,7 @@ Item.defaultProps = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-    itemFilter: fromItemFilter.sGetFromState(state),
+    itemFilter: sGetItemFilterRoot(state),
     visualization: sGetVisualization(
         state,
         pluginManager.extractFavorite(ownProps.item).id
