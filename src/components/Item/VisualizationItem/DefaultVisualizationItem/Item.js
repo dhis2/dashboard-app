@@ -11,27 +11,6 @@ import { acReceivedActiveVisualization } from '../../../../actions/selected';
 import { fromItemFilter } from '../../../../reducers';
 import { HEADER_HEIGHT } from '../../ItemHeader';
 
-const style = {
-    icon: {
-        width: 16,
-        height: 16,
-        marginLeft: 3,
-        cursor: 'pointer',
-    },
-    title: {
-        overflow: 'hidden',
-        maxWidth: '85%',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-    },
-    textDiv: {
-        fontSize: '14px',
-        fontStretch: 'normal',
-        padding: '10px',
-        lineHeight: '20px',
-    },
-};
-
 const pluginCredentials = d2 => {
     return {
         baseUrl: getBaseUrl(d2),

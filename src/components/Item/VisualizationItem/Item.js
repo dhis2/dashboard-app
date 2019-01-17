@@ -8,7 +8,7 @@ import * as pluginManager from './plugin';
 import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
 import { acReceivedActiveVisualization } from '../../../actions/selected';
-import { itemTypeMap, CHART } from '../../../itemTypes';
+import { itemTypeMap, CHART } from '../../../modules/itemTypes';
 import ItemHeader from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
