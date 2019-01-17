@@ -1,4 +1,4 @@
-import { getInstance } from 'd2/lib/d2';
+import { getInstance } from 'd2';
 import arrayClean from 'd2-utilizr/lib/arrayClean';
 
 import { interpretationFields } from './interpretations';

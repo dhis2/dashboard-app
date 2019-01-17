@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import i18n from 'd2-i18n';
 
+import { sGetInterpretations } from '../../../../reducers/interpretations';
+import { sGetVisInterpretations } from '../../../../reducers/visualizations';
+import { tGetInterpretations, tPostInterpretation } from './actions';
+import { colors } from '../../../../modules/colors';
+import { sortByDate } from '../../../../modules/util';
 import Interpretation from './Interpretation';
 import InputField from './InputField';
-import { tGetInterpretations, tPostInterpretation } from './actions';
-import * as fromReducers from '../../../../reducers';
-import { colors } from '../../../../colors';
-import { sortByDate } from '../../../../util';
 
 const style = {
     container: {
@@ -108,14 +109,11 @@ class Interpretations extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const { fromVisualizations, fromInterpretations } = fromReducers;
-    const ids = fromVisualizations
-        .sGetVisInterpretations(state, ownProps.objectId)
-        .map(i => i.id);
+    const ids = sGetVisInterpretations(state, ownProps.objectId).map(i => i.id);
 
     return {
         ids,
-        interpretations: fromInterpretations.sGetInterpretations(state, ids),
+        interpretations: sGetInterpretations(state, ids),
     };
 };
 

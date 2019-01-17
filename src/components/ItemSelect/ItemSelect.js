@@ -1,14 +1,15 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import i18n from 'd2-i18n';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import SearchIcon from '@material-ui/icons/Search';
 import Popover from 'material-ui/Popover';
 import TextField from 'material-ui/TextField';
 
 import { singleItems, listItems } from './selectableItems';
-import { itemTypeMap } from '../../itemTypes';
+import { itemTypeMap } from '../../modules/itemTypes';
 import ItemSelectList from './ItemSelectList';
 import ItemSelectSingle from './ItemSelectSingle';
+import { colors } from '../../modules/colors';
 
 import './ItemSelect.css';
 
@@ -29,11 +30,14 @@ const styles = {
         borderColor: '#aaa',
         borderWidth: '1px',
     },
+    searchIcon: {
+        fill: colors.muiDefaultGrey,
+    },
 };
 
 const ItemSearchField = props => (
     <div style={{ display: 'flex', alignItems: 'baseline' }}>
-        <SvgIcon icon="Search" />
+        <SearchIcon style={styles.searchIcon} />
         <TextField
             hintText={i18n.t('Search for items to add to this dashboard')}
             fullWidth={true}

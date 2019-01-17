@@ -3,7 +3,7 @@ import { getInnerHeight, getOuterHeight } from '../controlBarDimensions';
 describe('controlBarDimensions', () => {
     describe('getInnerHeight', () => {
         it('calculates the inner height', () => {
-            expect(getInnerHeight(2)).toEqual(72);
+            expect(getInnerHeight(2)).toEqual(92);
         });
     });
 

@@ -2,38 +2,35 @@ import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import i18n from 'd2-i18n';
-import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
-import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
-import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
+import HeaderBar from 'ui/widgets/HeaderBar';
 
-import { fromUser, fromDashboards, fromControlBar } from '../actions';
+import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes';
+import { acReceivedUser } from '../actions/user';
+import { tFetchDashboards } from '../actions/dashboards';
+import { tSetControlBarRows } from '../actions/controlBar';
 import Dashboard from './Dashboard/Dashboard';
 import SnackbarMessage from './SnackbarMessage/SnackbarMessage';
-import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes';
 
 import './App.css';
 
-const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
-
 class App extends Component {
     componentDidMount() {
-        const { store, d2 } = this.context;
-        store.dispatch(fromUser.acReceivedUser(d2.currentUser));
-        store.dispatch(fromDashboards.tFetchDashboards());
-        store.dispatch(fromControlBar.tSetControlBarRows());
+        const { store } = this.context;
+        store.dispatch(acReceivedUser(this.props.d2.currentUser));
+        store.dispatch(tFetchDashboards());
+        store.dispatch(tSetControlBarRows());
     }
 
     getChildContext() {
-        return {
-            baseUrl: this.props.baseUrl,
-            i18n,
-        };
+        return { baseUrl: this.props.baseUrl, i18n, d2: this.props.d2 };
     }
 
     render() {
         return (
             <div className="app-wrapper">
-                <HeaderBar />
+                <div className="dashboard-header-bar">
+                    <HeaderBar appName={i18n.t('Dashboard')} />
+                </div>
                 <Router>
                     <Switch>
                         <Route
@@ -73,13 +70,13 @@ class App extends Component {
 }
 
 App.contextTypes = {
-    d2: PropTypes.object,
     store: PropTypes.object,
 };
 
 App.childContextTypes = {
     baseUrl: PropTypes.string,
     i18n: PropTypes.object,
+    d2: PropTypes.object,
 };
 
 export default App;

@@ -1,17 +1,15 @@
-export const actionTypes = {
-    RECEIVED_USER: 'RECEIVED_USER',
-};
+export const RECEIVED_USER = 'RECEIVED_USER';
 
-export const defaultState = {
+export const DEFAULT_STATE_USER = {
     id: '',
     username: '',
     uiLocale: '',
     isSuperuser: false,
 };
 
-export default (state = defaultState, action) => {
+export default (state = DEFAULT_STATE_USER, action) => {
     switch (action.type) {
-        case actionTypes.RECEIVED_USER: {
+        case RECEIVED_USER: {
             return fromD2ToUserObj(action.value);
         }
         default:
@@ -31,6 +29,6 @@ function fromD2ToUserObj(d2Object) {
 // selectors
 
 export const sGetUserId = state => state.user.id;
-export const sGetUsername = state => state.user.username;
+export const sGetUserUsername = state => state.user.username;
 export const sGetIsSuperuser = state => state.user.isSuperuser;
 export const sGetUiLocale = state => state.user.uiLocale;

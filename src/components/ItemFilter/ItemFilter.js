@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import { withStyles } from '@material-ui/core/styles';
 import Dialog from 'material-ui/Dialog';
-import OrgUnitTree from 'd2-ui/lib/org-unit-tree/OrgUnitTreeMultipleRoots.component';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import { OrgUnitTreeMultipleRoots } from '@dhis2/d2-ui-org-unit-tree';
+import InfoIcon from '@material-ui/icons/Info';
 
 import FlatButton from '../../widgets/FlatButton';
 import PrimaryButton from '../../widgets/PrimaryButton';
@@ -11,17 +12,23 @@ import {
     acSetItemFilter,
     FILTER_USER_ORG_UNIT,
 } from '../../actions/itemFilter';
-import { sGetFromState } from '../../reducers/itemFilter';
+import { sGetItemFilterRoot } from '../../reducers/itemFilter';
 import D2TextLink from '../../widgets/D2TextLink';
 
-const style = {
+const styles = theme => ({
     container: {
         height: '500px',
         overflowY: 'auto',
         border: '1px solid #eee',
         padding: '10px 7px',
     },
-};
+    infoIcon: {
+        fill: '#888',
+        position: 'relative',
+        top: '7px',
+        marginRight: '5px',
+    },
+});
 
 class ItemFilter extends Component {
     state = {
@@ -62,7 +69,7 @@ class ItemFilter extends Component {
         this.props.onRequestClose();
     };
 
-    renderOrgUnitTree = () => {
+    renderOrgUnitTree = classes => {
         return (
             <Fragment>
                 <div
@@ -72,30 +79,20 @@ class ItemFilter extends Component {
                         marginBottom: '16px',
                     }}
                 >
-                    <SvgIcon
-                        icon="Info"
-                        style={{
-                            fill: '#888',
-                            position: 'relative',
-                            top: '7px',
-                            marginRight: '5px',
-                        }}
-                    />
+                    <InfoIcon className={classes.infoIcon} />
                     Filtering only applies to favorites with "User org units"
                     set
                 </div>
-                <div style={style.container}>
+                <div className={classes.container}>
                     <div style={{ padding: '1px 0 12px 6px' }}>
                         <D2TextLink
                             text="Deselect all"
                             onClick={this.onDeselectAll}
                             style={{ color: '#006ed3' }}
-                            hoverStyle={{
-                                color: '#3399f8',
-                            }}
+                            hoverStyle={{ color: '#3399f8' }}
                         />
                     </div>
-                    <OrgUnitTree
+                    <OrgUnitTreeMultipleRoots
                         roots={this.state.roots}
                         selected={this.state.selected}
                         onSelectClick={this.onSelectOrgUnit}
@@ -120,19 +117,17 @@ class ItemFilter extends Component {
                 open={this.props.open}
                 onRequestClose={this.props.onRequestClose}
             >
-                {this.renderOrgUnitTree()}
+                {this.renderOrgUnitTree(this.props.classes)}
             </Dialog>
         );
     }
 }
 
 const mapStateToProps = state => ({
-    selected: sGetFromState(state)[FILTER_USER_ORG_UNIT] || [],
+    selected: sGetItemFilterRoot(state)[FILTER_USER_ORG_UNIT] || [],
 });
 
-const ItemFilterCt = connect(
+export default connect(
     mapStateToProps,
     { acSetItemFilter }
-)(ItemFilter);
-
-export default ItemFilterCt;
+)(withStyles(styles)(ItemFilter));

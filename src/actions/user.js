@@ -1,6 +1,6 @@
-import { actionTypes } from '../reducers';
+import { RECEIVED_USER } from '../reducers/user';
 
 export const acReceivedUser = value => ({
-    type: actionTypes.RECEIVED_USER,
+    type: RECEIVED_USER,
     value,
 });

@@ -13,7 +13,7 @@ import DashboardVerticalOffset from './DashboardVerticalOffset';
 import DashboardContent from './DashboardContent';
 import NoContentMessage from '../../widgets/NoContentMessage';
 
-const Content = ({ hasDashboardContent, dashboardsIsEmpty }) => {
+export const Content = ({ hasDashboardContent, dashboardsIsEmpty }) => {
     const msg = dashboardsIsEmpty
         ? i18n.t(
               'No dashboards found. Use the + button to create a new dashboard.'

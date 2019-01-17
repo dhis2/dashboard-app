@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
-import TranslationDialog from 'd2-ui/lib/i18n/TranslationDialog.component';
+import ControlBar from '@dhis2/d2-ui-core/control-bar/ControlBar';
+import TranslationDialog from '@dhis2/d2-ui-translation-dialog';
 
 import ConfirmDeleteDialog from '../ConfirmDeleteDialog';
 import FlatButton from '../../../widgets/FlatButton';

@@ -1,18 +1,22 @@
-import { actionTypes } from '../reducers';
+import {
+    SET_DASHBOARDS_FILTER_NAME,
+    SET_DASHBOARDS_FILTER_OWNER,
+    SET_DASHBOARDS_FILTER_ORDER,
+} from '../reducers/dashboardsFilter';
 
 // actions
 
 export const acSetFilterName = value => ({
-    type: actionTypes.SET_DASHBOARDS_FILTER_NAME,
+    type: SET_DASHBOARDS_FILTER_NAME,
     value,
 });
 
 export const acSetFilterOwner = value => ({
-    type: actionTypes.SET_DASHBOARDS_FILTER_OWNER,
+    type: SET_DASHBOARDS_FILTER_OWNER,
     value,
 });
 
 export const acSetFilterOrder = value => ({
-    type: actionTypes.SET_DASHBOARDS_FILTER_ORDER,
+    type: SET_DASHBOARDS_FILTER_ORDER,
     value,
 });

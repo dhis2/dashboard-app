@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import arrayContains from 'd2-utilizr/lib/arrayContains';
+import MessageIcon from '@material-ui/icons/Message';
+import TableIcon from '@material-ui/icons/ViewList';
+import ChartIcon from '@material-ui/icons/InsertChart';
+import MapIcon from '@material-ui/icons/Public';
 
 import { extractFavorite } from './plugin';
 import ItemHeaderButton from '../ItemHeaderButton';
@@ -14,8 +17,8 @@ import {
     EVENT_CHART,
     EVENT_REPORT,
     DOMAIN_TYPE_AGGREGATE,
-} from '../../../itemTypes';
-import { colors } from '../../../colors';
+} from '../../../modules/itemTypes';
+import { colors } from '../../../modules/colors';
 
 const style = {
     iconBase: {
@@ -58,26 +61,20 @@ const activeStyle = {
     },
 };
 
-const getTableBtnStyle = (activeVisualization, disabled) =>
-    arrayContains([REPORT_TABLE, EVENT_REPORT], activeVisualization)
-        ? activeStyle
-        : disabled
-        ? disabledStyle
-        : baseStyle;
+const inactiveStyle = disabled => (disabled ? disabledStyle : baseStyle);
 
-const getChartBtnStyle = (activeVisualization, disabled) =>
-    arrayContains([CHART, EVENT_CHART], activeVisualization)
+const tableBtnStyle = (activeType, disabled) =>
+    [REPORT_TABLE, EVENT_REPORT].includes(activeType)
         ? activeStyle
-        : disabled
-        ? disabledStyle
-        : baseStyle;
+        : inactiveStyle(disabled);
 
-const getMapBtnStyle = (activeVisualization, disabled) =>
-    arrayContains([MAP], activeVisualization)
+const chartBtnStyle = (activeType, disabled) =>
+    [CHART, EVENT_CHART].includes(activeType)
         ? activeStyle
-        : disabled
-        ? disabledStyle
-        : baseStyle;
+        : inactiveStyle(disabled);
+
+const mapBtnStyle = (activeType, disabled) =>
+    [MAP].includes(activeType) ? activeStyle : inactiveStyle(disabled);
 
 export const getItemTypeId = (itemTypeMap, visualizationType, domainType) => {
     const item = Object.values(itemTypeMap).find(
@@ -94,7 +91,7 @@ class VisualizationItemHeaderButtons extends Component {
             item,
             onSelectVisualization,
             activeFooter,
-            activeVisualization,
+            activeType,
             onToggleFooter,
         } = this.props;
 
@@ -135,38 +132,43 @@ class VisualizationItemHeaderButtons extends Component {
             }
         }
 
+        const tableButtonStyle = tableBtnStyle(activeType, disabled);
+        const chartButtonStyle = chartBtnStyle(activeType, disabled);
+        const mapButtonStyle = mapBtnStyle(activeType, disabled);
+
         return (
             <Fragment>
                 <div style={{ marginRight: 10 }}>
                     <ItemHeaderButton
-                        style={toggleFooter}
-                        icon={'Message'}
+                        style={toggleFooter.container}
                         onClick={onToggleFooter}
-                    />
+                    >
+                        <MessageIcon style={toggleFooter.icon} />
+                    </ItemHeaderButton>
                 </div>
                 <div style={style.border}>
                     <ItemHeaderButton
                         disabled={disabled}
-                        style={getTableBtnStyle(activeVisualization, disabled)}
-                        icon={'ViewList'}
+                        style={tableButtonStyle.container}
                         onClick={onViewTable}
-                    />
+                    >
+                        <TableIcon style={tableButtonStyle.icon} />
+                    </ItemHeaderButton>
                     <ItemHeaderButton
                         disabled={disabled}
-                        style={getChartBtnStyle(activeVisualization, disabled)}
-                        icon={'InsertChart'}
+                        style={chartButtonStyle.container}
                         onClick={onViewChart}
-                    />
+                    >
+                        <ChartIcon style={chartButtonStyle.icon} />
+                    </ItemHeaderButton>
                     {domainType === DOMAIN_TYPE_AGGREGATE ? (
                         <ItemHeaderButton
                             disabled={disabled}
-                            style={getMapBtnStyle(
-                                activeVisualization,
-                                disabled
-                            )}
-                            icon={'Public'}
+                            style={mapButtonStyle.container}
                             onClick={onViewMap}
-                        />
+                        >
+                            <MapIcon style={mapButtonStyle.icon} />
+                        </ItemHeaderButton>
                     ) : null}
                 </div>
             </Fragment>

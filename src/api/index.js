@@ -1,5 +1,5 @@
 import arrayClean from 'd2-utilizr/lib/arrayClean';
-import { itemTypeMap } from '../itemTypes';
+import { itemTypeMap } from '../modules/itemTypes';
 import {
     getListItemFields,
     getFavoritesFields,

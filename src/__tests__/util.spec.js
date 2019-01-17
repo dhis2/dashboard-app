@@ -1,4 +1,4 @@
-import { validateReducer, getBaseUrl } from '../util';
+import { validateReducer, getBaseUrl } from '../modules/util';
 
 describe('util', () => {
     describe('validateReducer', () => {

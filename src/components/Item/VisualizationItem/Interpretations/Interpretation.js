@@ -5,12 +5,10 @@ import { Parser as RichTextParser } from '@dhis2/d2-ui-rich-text';
 import i18n from 'd2-i18n';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
-import { fromUser } from '../../../../reducers';
-import { colors } from '../../../../colors';
-import { formatDate, sortByDate } from '../../../../util';
+import { sGetUserId, sGetIsSuperuser } from '../../../../reducers/user';
+import { colors } from '../../../../modules/colors';
+import { formatDate, sortByDate } from '../../../../modules/util';
 import { getLink } from '../plugin';
-import InputField from './InputField';
-
 import {
     tLikeInterpretation,
     tUnlikeInterpretation,
@@ -20,6 +18,7 @@ import {
     tDeleteInterpretation,
     tUpdateInterpretationComment,
 } from './actions';
+import InputField from './InputField';
 
 import './Interpretation.css';
 
@@ -335,8 +334,8 @@ class Interpretation extends Component {
 }
 
 const mapStateToProps = state => ({
-    userId: fromUser.sGetUserId(state),
-    userIsSuperuser: fromUser.sGetIsSuperuser(state),
+    userId: sGetUserId(state),
+    userIsSuperuser: sGetIsSuperuser(state),
 });
 
 const mapDispatchToProps = dispatch => ({

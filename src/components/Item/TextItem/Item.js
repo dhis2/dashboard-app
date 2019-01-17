@@ -4,7 +4,8 @@ import i18n from 'd2-i18n';
 import TextField from 'd2-ui/lib/text-field/TextField';
 
 import { acUpdateDashboardItem } from '../../../actions/editDashboard';
-import { fromEditDashboard, fromDashboards } from '../../../reducers';
+import { sGetEditDashboardItems } from '../../../reducers/editDashboard';
+import { sGetDashboardItems } from '../../../reducers/dashboards';
 import ItemHeader from '../ItemHeader';
 import Line from '../../../widgets/Line';
 
@@ -74,8 +75,8 @@ const TextItem = props => {
 
 const mapStateToProps = (state, ownProps) => {
     const items = ownProps.editMode
-        ? fromEditDashboard.sGetEditDashboardItems(state)
-        : fromDashboards.sGetDashboardItems(state);
+        ? sGetEditDashboardItems(state)
+        : sGetDashboardItems(state);
 
     const item = items.find(item => item.id === ownProps.item.id);
 

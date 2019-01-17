@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { tSelectDashboard } from '../../actions/dashboards';
+import { sDashboardsIsFetching } from '../../reducers/dashboards';
+import { EDIT, NEW } from './dashboardModes';
 import ViewDashboard from './ViewDashboard';
 import EditDashboard from './EditDashboard';
 import NewDashboard from './NewDashboard';
-import { fromDashboards } from '../../actions';
-import { sDashboardsIsFetching } from '../../reducers/dashboards';
-import { EDIT, NEW } from './dashboardModes';
 
 class Dashboard extends Component {
     setDashboard = () => {
@@ -43,6 +43,6 @@ const mapStateToProps = state => {
 export default connect(
     mapStateToProps,
     {
-        selectDashboard: fromDashboards.tSelectDashboard,
+        selectDashboard: tSelectDashboard,
     }
 )(Dashboard);

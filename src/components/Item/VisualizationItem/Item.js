@@ -1,24 +1,30 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import { withStyles } from '@material-ui/core/styles';
+import LaunchIcon from '@material-ui/icons/Launch';
 
 import * as pluginManager from './plugin';
 import { sGetVisualization } from '../../../reducers/visualizations';
+import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
 import { acReceivedActiveVisualization } from '../../../actions/selected';
-import { fromItemFilter } from '../../../reducers';
 import { itemTypeMap, CHART } from '../../../itemTypes';
 import ItemHeader from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
 import DefaultVisualizationItem from './DefaultVisualizationItem/Item';
+import { colors } from '../../../modules/colors';
 
-const style = {
+// TODO: Import the new component
+const ChartVisualizationItem = props => <div>{props.config.id}</div>;
+
+const styles = {
     icon: {
         width: 16,
         height: 16,
         marginLeft: 3,
         cursor: 'pointer',
+        fill: colors.muiDefaultGrey,
     },
     title: {
         overflow: 'hidden',
@@ -33,9 +39,6 @@ const style = {
         lineHeight: '20px',
     },
 };
-
-// Import the new component
-const ChartVisualizationItem = props => <div>{props.config.id}</div>;
 
 class Item extends Component {
     state = {
@@ -72,34 +75,38 @@ class Item extends Component {
     getActiveType = () =>
         this.props.visualization.activeType || this.props.item.type;
 
-    getTitle = () => (
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span
-                title={pluginManager.getName(this.props.item)}
-                style={style.title}
-            >
-                {pluginManager.getName(this.props.item)}
-            </span>
-            {!this.props.editMode &&
-            pluginManager.pluginIsAvailable(
-                this.props.item,
-                this.props.visualization
-            ) ? (
-                <a
-                    href={pluginManager.getLink(
-                        this.props.item,
-                        this.context.d2
-                    )}
-                    style={{ height: 16 }}
-                    title={`View in ${
-                        itemTypeMap[this.props.item.type].appName
-                    } app`}
-                >
-                    <SvgIcon icon="Launch" style={style.icon} />
-                </a>
-            ) : null}
-        </div>
-    );
+    pluginIsAvailable = () =>
+        pluginManager.pluginIsAvailable(
+            this.props.item,
+            this.props.visualization
+        );
+
+    getTitle = () => {
+        const { item, editMode, classes } = this.props;
+        const itemName = pluginManager.getName(item);
+
+        return (
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+                <span className={classes.title} title={itemName}>
+                    {itemName}
+                </span>
+                {!editMode && this.pluginIsAvailable() ? (
+                    <a
+                        href={pluginManager.getLink(
+                            this.props.item,
+                            this.context.d2
+                        )}
+                        style={{ height: 16 }}
+                        title={`View in ${
+                            itemTypeMap[this.props.item.type].appName
+                        } app`}
+                    >
+                        <LaunchIcon className={classes.icon} />
+                    </a>
+                ) : null}
+            </div>
+        );
+    };
 
     getActionButtons = () =>
         pluginManager.pluginIsAvailable(
@@ -109,7 +116,7 @@ class Item extends Component {
             <VisualizationItemHeaderButtons
                 item={this.props.item}
                 activeFooter={this.state.showFooter}
-                activeVisualization={
+                activeType={
                     this.props.visualization.activeType || this.props.item.type
                 }
                 onSelectVisualization={this.onSelectVisualization}
@@ -134,17 +141,18 @@ class Item extends Component {
     };
 
     render() {
+        const { item, editMode } = this.props;
+        const { showFooter } = this.state;
+
         return (
             <Fragment>
                 <ItemHeader
                     title={this.getTitle()}
                     actionButtons={this.getActionButtons()}
-                    editMode={this.props.editMode}
+                    editMode={editMode}
                 />
                 {this.getPluginComponent()}
-                {!this.props.editMode && this.state.showFooter ? (
-                    <ItemFooter item={this.props.item} />
-                ) : null}
+                {!editMode && showFooter ? <ItemFooter item={item} /> : null}
             </Fragment>
         );
     }
@@ -165,7 +173,7 @@ Item.defaultProps = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-    itemFilter: fromItemFilter.sGetFromState(state),
+    itemFilter: sGetItemFilterRoot(state),
     visualization: sGetVisualization(
         state,
         pluginManager.extractFavorite(ownProps.item).id
@@ -180,4 +188,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Item);
+)(withStyles(styles)(Item));

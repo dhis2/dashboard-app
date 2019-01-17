@@ -5,14 +5,13 @@ import i18n from 'd2-i18n';
 import Divider from 'material-ui/Divider';
 import { List, ListItem } from 'material-ui/List';
 import Button from 'd2-ui/lib/button/Button';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
-
+import LaunchIcon from '@material-ui/icons/Launch';
 import { tAddListItemContent } from './actions';
 import { acAddDashboardItem } from '../../actions/editDashboard';
-import { sGetEditDashboard } from '../../reducers/editDashboard';
+import { sGetEditDashboardRoot } from '../../reducers/editDashboard';
 import {
-    itemTypeMap,
     getItemUrl,
+    getItemIcon,
     APP,
     CHART,
     EVENT_CHART,
@@ -22,7 +21,8 @@ import {
     REPORTS,
     RESOURCES,
     USERS,
-} from '../../itemTypes';
+} from '../../modules/itemTypes';
+import { colors } from '../../modules/colors';
 
 class ItemSelectList extends Component {
     constructor(props) {
@@ -94,13 +94,17 @@ class ItemSelectList extends Component {
                             this.context.d2
                         );
 
+                        const ItemIcon = getItemIcon(this.props.type);
+
                         return (
                             <ListItem // apps don't have item.id
                                 key={item.id || item.key}
                                 leftIcon={
-                                    <SvgIcon
-                                        icon={itemTypeMap[this.props.type].icon}
-                                        style={{ margin: '6px' }}
+                                    <ItemIcon
+                                        style={{
+                                            margin: '6px',
+                                            fill: colors.muiDefaultGrey,
+                                        }}
                                     />
                                 }
                                 innerDivStyle={{ padding: '0px 0px 0px 42px' }}
@@ -125,22 +129,23 @@ class ItemSelectList extends Component {
                                         >
                                             + ADD
                                         </Button>
-                                        {itemUrl ? (
+                                        {itemUrl && (
                                             <a
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 href={itemUrl}
                                                 style={{ display: 'flex' }}
                                             >
-                                                <SvgIcon
-                                                    icon="Launch"
+                                                <LaunchIcon
                                                     style={{
                                                         width: '16px',
                                                         height: '16px',
+                                                        fill:
+                                                            colors.muiDefaultGrey,
                                                     }}
                                                 />
                                             </a>
-                                        ) : null}
+                                        )}
                                     </p>
                                 }
                             />
@@ -175,7 +180,7 @@ ItemSelectList.contextTypes = {
 
 export default connect(
     state => ({
-        dashboardId: sGetEditDashboard(state).id,
+        dashboardId: sGetEditDashboardRoot(state).id,
     }),
     {
         acAddDashboardItem,

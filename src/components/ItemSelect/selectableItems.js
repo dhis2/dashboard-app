@@ -14,7 +14,7 @@ import {
     MESSAGES,
     TEXT,
     SPACER,
-} from '../../itemTypes';
+} from '../../modules/itemTypes';
 
 export const singleItems = [
     {
@@ -23,19 +23,16 @@ export const singleItems = [
         items: [
             {
                 type: TEXT,
-                icon: itemTypeMap[TEXT].icon,
                 name: i18n.t('Text box'),
                 content: '',
             },
             {
                 type: MESSAGES,
-                icon: itemTypeMap[MESSAGES].icon,
                 name: i18n.t('Messages'),
                 content: 'true',
             },
             {
                 type: SPACER,
-                icon: itemTypeMap[SPACER].icon,
                 name: i18n.t('Spacer'),
                 content: spacerContent,
             },

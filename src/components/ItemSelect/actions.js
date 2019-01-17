@@ -1,5 +1,5 @@
-import { sGetEditDashboard } from '../../reducers/editDashboard';
-import { itemTypeMap } from '../../itemTypes';
+import { sGetEditDashboardRoot } from '../../reducers/editDashboard';
+import { itemTypeMap } from '../../modules/itemTypes';
 import {
     acAddDashboardItem,
     acUpdateDashboardItem,
@@ -11,7 +11,7 @@ export const tAddListItemContent = (dashboardId, type, content) => (
 ) => {
     const state = getState();
     const listItemType = itemTypeMap[type].propName;
-    const dashboardItems = sGetEditDashboard(state).dashboardItems;
+    const dashboardItems = sGetEditDashboardRoot(state).dashboardItems;
     const dashboardItemIndex = dashboardItems.findIndex(
         item => item.type === type
     );

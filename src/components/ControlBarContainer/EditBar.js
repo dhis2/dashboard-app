@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import i18n from 'd2-i18n';
-import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
-import TranslationDialog from 'd2-ui/lib/i18n/TranslationDialog.component';
+import ControlBar from '@dhis2/d2-ui-core/control-bar/ControlBar';
+import TranslationDialog from '@dhis2/d2-ui-translation-dialog';
 
 import PrimaryButton from '../../widgets/PrimaryButton';
 import FlatButton from '../../widgets/FlatButton';
@@ -18,7 +18,7 @@ import {
     acSetDashboardDisplayName,
 } from '../../actions/dashboards';
 import {
-    sGetEditDashboard,
+    sGetEditDashboardRoot,
     sGetIsNewDashboard,
 } from '../../reducers/editDashboard';
 import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './controlBarDimensions';
@@ -125,6 +125,7 @@ export class EditBar extends Component {
     translationDialog = () =>
         this.state.dashboardModel && this.state.dashboardModel.id ? (
             <TranslationDialog
+                d2={this.context.d2}
                 open={this.state.translationDialogIsOpen}
                 onRequestClose={this.toggleTranslationDialog}
                 objectToTranslate={this.state.dashboardModel}
@@ -208,7 +209,7 @@ EditBar.contextTypes = {
 };
 
 const mapStateToProps = state => {
-    const dashboard = sGetEditDashboard(state);
+    const dashboard = sGetEditDashboardRoot(state);
 
     let deleteAccess;
     let updateAccess;

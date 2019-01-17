@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
+import NotInterestedIcon from '@material-ui/icons/NotInterested';
 
 import { FILTER_USER_ORG_UNIT } from '../../../actions/itemFilter';
-import { fromItemFilter } from '../../../reducers';
+import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
 import ItemHeader from '../ItemHeader';
 import Line from '../../../widgets/Line';
 
@@ -45,9 +45,7 @@ const AppItem = ({ item, itemFilter }, context) => {
                 title={appDetails.name}
                 src={getIframeSrc(appDetails, item, itemFilter)}
                 className="dashboard-item-content"
-                style={{
-                    border: 'none',
-                }}
+                style={{ border: 'none' }}
             />
         </Fragment>
     ) : (
@@ -63,10 +61,10 @@ const AppItem = ({ item, itemFilter }, context) => {
                     height: '90%',
                 }}
             >
-                <SvgIcon
-                    icon="NotInterested"
-                    style={{ width: 100, height: 100, align: 'center' }}
+                <NotInterestedIcon
+                    color="disabled"
                     disabled
+                    style={{ width: 100, height: 100, align: 'center' }}
                 />
             </div>
         </Fragment>
@@ -78,7 +76,7 @@ AppItem.contextTypes = {
 };
 
 const mapStateToProps = state => ({
-    itemFilter: fromItemFilter.sGetFromState(state),
+    itemFilter: sGetItemFilterRoot(state),
 });
 
 export default connect(mapStateToProps)(AppItem);
