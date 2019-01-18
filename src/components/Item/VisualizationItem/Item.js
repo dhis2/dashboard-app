@@ -9,15 +9,12 @@ import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
 import { acReceivedActiveVisualization } from '../../../actions/selected';
 import { itemTypeMap, CHART } from '../../../modules/itemTypes';
-import ItemHeader from '../ItemHeader';
+import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
 import DefaultVisualizationItem from './DefaultVisualizationItem/Item';
 import { colors } from '../../../modules/colors';
 import ChartPlugin from 'data-visualizer-plugin';
-
-// TODO: Import the new component
-const ChartVisualizationItem = props => <div>{props.config.id}</div>;
 
 const styles = {
     icon: {
@@ -128,12 +125,23 @@ class Item extends Component {
     getPluginComponent = () => {
         switch (this.props.item.type) {
             case CHART: {
+                const PADDING_BOTTOM = 4;
+                const contentStyle = !this.props.editMode
+                    ? {
+                          height:
+                              this.props.item.originalHeight -
+                              HEADER_HEIGHT -
+                              PADDING_BOTTOM,
+                      }
+                    : null;
+
                 return (
                     <div className="dashboard-item-content">
                         <ChartPlugin
                             config={{ id: this.props.visualization.id }}
                             filters={this.props.itemFilter}
                             forDashboard={true}
+                            style={contentStyle}
                         />
                     </div>
                 );
