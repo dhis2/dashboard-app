@@ -2,6 +2,10 @@ body {
     background-color: #f4f6f8;
 }
 
+.app-wrapper {
+    font-family: Roboto;
+}
+
 .dashboard-header-bar {
     left: 0;
     position: fixed;

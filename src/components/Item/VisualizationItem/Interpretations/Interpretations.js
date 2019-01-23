@@ -75,7 +75,8 @@ class Interpretations extends Component {
         if (this.interpretationsLoaded()) {
             const sorted = sortByDate(
                 this.props.interpretations,
-                i18n.t('created')
+                'created',
+                false
             );
             Items = sorted.map(interpretation => {
                 return (
