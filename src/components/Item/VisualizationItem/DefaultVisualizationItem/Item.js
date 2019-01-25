@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import i18n from 'd2-i18n';
 
 import * as pluginManager from '../plugin';
-import { getGridItemDomId } from '../../../ItemGrid/gridUtil';
 import { getBaseUrl, orObject } from '../../../../modules/util';
-import { sGetVisualization } from '../../../../reducers/visualizations';
-import { acReceivedActiveVisualization } from '../../../../actions/selected';
-import { sGetItemFilterRoot } from '../../../../reducers/itemFilter';
-import { HEADER_HEIGHT } from '../../ItemHeader';
 
 const pluginCredentials = d2 => {
     return {
@@ -19,10 +13,6 @@ const pluginCredentials = d2 => {
 };
 
 class Item extends Component {
-    state = {
-        showFooter: false,
-    };
-
     pluginCredentials = null;
 
     shouldPluginReload = prevProps => {
@@ -102,13 +92,6 @@ class Item extends Component {
         this.reloadPlugin(prevProps);
     }
 
-    onToggleFooter = () => {
-        this.setState(
-            { showFooter: !this.state.showFooter },
-            this.props.onToggleItemExpanded(this.props.item.id)
-        );
-    };
-
     getActiveType = () =>
         this.props.visualization.activeType || this.props.item.type;
 
@@ -131,33 +114,17 @@ class Item extends Component {
     };
 
     render() {
-        const { item, classes } = this.props;
-        const elementId = getGridItemDomId(item.id);
+        const { classes, item, visualization } = this.props;
         const pluginIsAvailable = pluginManager.pluginIsAvailable(
             item,
-            this.props.visualization
+            visualization
         );
 
-        const PADDING_BOTTOM = 4;
-        const contentStyle = !this.props.editMode
-            ? {
-                  height: item.originalHeight - HEADER_HEIGHT - PADDING_BOTTOM,
-              }
-            : null;
-
-        return (
-            <div
-                id={elementId}
-                className="dashboard-item-content"
-                style={contentStyle}
-            >
-                {!pluginIsAvailable ? (
-                    <div className={classes.textDiv}>
-                        {i18n.t('Unable to load the plugin for this item')}
-                    </div>
-                ) : null}
+        return !pluginIsAvailable ? (
+            <div className={classes.textDiv}>
+                {i18n.t('Unable to load the plugin for this item')}
             </div>
-        );
+        ) : null;
     }
 }
 
@@ -175,20 +142,4 @@ Item.defaultProps = {
     visualization: {},
 };
 
-const mapStateToProps = (state, ownProps) => ({
-    itemFilter: sGetItemFilterRoot(state),
-    visualization: sGetVisualization(
-        state,
-        pluginManager.extractFavorite(ownProps.item).id
-    ),
-});
-
-const mapDispatchToProps = dispatch => ({
-    onSelectVisualization: (id, type, activeType) =>
-        dispatch(acReceivedActiveVisualization(id, type, activeType)),
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Item);
+export default Item;

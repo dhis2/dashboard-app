@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import LaunchIcon from '@material-ui/icons/Launch';
 
 import * as pluginManager from './plugin';
+import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
 import { acReceivedActiveVisualization } from '../../../actions/selected';
@@ -123,20 +124,20 @@ class Item extends Component {
         ) : null;
 
     getPluginComponent = () => {
-        switch (this.props.item.type) {
-            case CHART: {
-                const PADDING_BOTTOM = 4;
-                const contentStyle = !this.props.editMode
-                    ? {
-                          height:
-                              this.props.item.originalHeight -
-                              HEADER_HEIGHT -
-                              PADDING_BOTTOM,
-                      }
-                    : null;
+        const { item } = this.props;
+        const elementId = getGridItemDomId(item.id);
 
+        const PADDING_BOTTOM = 4;
+        const contentStyle = !this.props.editMode
+            ? {
+                  height: item.originalHeight - HEADER_HEIGHT - PADDING_BOTTOM,
+              }
+            : null;
+
+        switch (item.type) {
+            case CHART: {
                 return (
-                    <div className="dashboard-item-content">
+                    <div id={elementId} className="dashboard-item-content">
                         <ChartPlugin
                             config={{ id: this.props.visualization.id }}
                             filters={this.props.itemFilter}
@@ -147,7 +148,15 @@ class Item extends Component {
                 );
             }
             default: {
-                return <DefaultVisualizationItem {...this.props} />;
+                return (
+                    <div
+                        id={elementId}
+                        className="dashboard-item-content"
+                        style={contentStyle}
+                    >
+                        <DefaultVisualizationItem {...this.props} />
+                    </div>
+                );
             }
         }
     };
