@@ -265,7 +265,7 @@ class Interpretation extends Component {
 
         const comments = sortByDate(
             this.props.interpretation.comments,
-            i18n.t('created')
+            'created'
         ).map(comment => (
             <li
                 className="comment-container"
