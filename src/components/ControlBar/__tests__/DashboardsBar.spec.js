@@ -41,7 +41,7 @@ describe('DashboardsBar', () => {
         expect(dashboardsBar().find('ControlBar')).toHaveLength(1);
     });
 
-    describe.only('when userRows is MAX_ROW_COUNT', () => {
+    describe('when userRows is MAX_ROW_COUNT', () => {
         beforeEach(() => {
             props.userRows = MAX_ROW_COUNT;
         });
