@@ -13,7 +13,7 @@ const styles = {
         fontSize: 11,
         fontWeight: 700,
         height: SHOWMORE_BAR_HEIGHT,
-        paddingTop: 3,
+        paddingTop: 5,
         textTransform: 'uppercase',
         visibility: 'visible',
     },
