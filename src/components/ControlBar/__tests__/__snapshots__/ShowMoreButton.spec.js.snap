@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShowMoreButton renders correctly when at maxHeight 1`] = `
+<div
+  style={
+    Object {
+      "textAlign": "center",
+    }
+  }
+>
+  <div
+    className={Object {}}
+    onClick={[Function]}
+  >
+    Show less
+  </div>
+</div>
+`;
+
+exports[`ShowMoreButton renders correctly when not at maxHeight 1`] = `
+<div
+  style={
+    Object {
+      "textAlign": "center",
+    }
+  }
+>
+  <div
+    className={Object {}}
+    onClick={[Function]}
+  >
+    Show more
+  </div>
+</div>
+`;

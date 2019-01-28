@@ -3,13 +3,11 @@
 }
 
 .left-controls {
-    display: inline-block;
     font-size: 16px;
     float: left;
     height: 36px;
 }
 
 .right-controls {
-    display: inline-block;
     float: right;
 }

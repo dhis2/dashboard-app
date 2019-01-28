@@ -8,7 +8,7 @@ import {
     sDashboardsIsFetching,
 } from '../../reducers/dashboards';
 import { sGetSelectedId } from '../../reducers/selected';
-import DashboardsBar from '../ControlBarContainer/DashboardsBar';
+import DashboardsBar from '../ControlBar/DashboardsBar';
 import DashboardVerticalOffset from './DashboardVerticalOffset';
 import DashboardContent from './DashboardContent';
 import NoContentMessage from '../../widgets/NoContentMessage';

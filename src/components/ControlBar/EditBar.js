@@ -21,11 +21,14 @@ import {
     sGetEditDashboardRoot,
     sGetIsNewDashboard,
 } from '../../reducers/editDashboard';
-import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './controlBarDimensions';
-import { MIN_ROW_COUNT } from './DashboardsBar';
+import {
+    CONTROL_BAR_ROW_HEIGHT,
+    MIN_ROW_COUNT,
+    getControlBarHeight,
+} from './controlBarDimensions';
 import { apiFetchDashboard } from '../../api/dashboards';
 
-import './ControlBarContainer.css';
+import './ControlBar.css';
 
 const buttonBarStyle = {
     height: CONTROL_BAR_ROW_HEIGHT,
@@ -144,7 +147,7 @@ export class EditBar extends Component {
         }
 
         const { dashboardId, deleteAccess, updateAccess } = this.props;
-        const controlBarHeight = getOuterHeight(MIN_ROW_COUNT, false);
+        const controlBarHeight = getControlBarHeight(MIN_ROW_COUNT, false);
 
         const discardBtnText = updateAccess
             ? i18n.t('Exit without saving')
