@@ -15,7 +15,7 @@ class NewDashboard extends Component {
         return (
             <Fragment>
                 <EditBar />
-                <DashboardVerticalOffset />
+                <DashboardVerticalOffset editMode={true} />
                 <div className="dashboard-wrapper">
                     <DashboardContent editMode={true} />
                 </div>

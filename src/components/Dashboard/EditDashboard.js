@@ -60,7 +60,7 @@ export class EditDashboard extends Component {
         return (
             <Fragment>
                 <EditBar />
-                <DashboardVerticalOffset />
+                <DashboardVerticalOffset editMode={true} />
                 {this.getDashboardContent()}
             </Fragment>
         );

@@ -9,7 +9,7 @@ import {
 import { sGetControlBarUserRows } from '../../reducers/controlBar';
 
 const DashboardVerticalOffset = props => {
-    const rows = props.edit ? MIN_ROW_COUNT : props.userRows;
+    const rows = props.editMode ? MIN_ROW_COUNT : props.userRows;
     const marginTop = HEADERBAR_HEIGHT + getControlBarHeight(rows, false);
 
     return <div className="page-container-top-margin" style={{ marginTop }} />;
