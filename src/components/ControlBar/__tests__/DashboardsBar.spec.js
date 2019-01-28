@@ -3,7 +3,8 @@ import { shallow } from 'enzyme';
 import ControlBar from '@dhis2/d2-ui-core/control-bar/ControlBar';
 
 import { getStubContext } from '../../../../config/testsContext';
-import { DashboardsBar, MAX_ROW_COUNT, MIN_ROW_COUNT } from '../DashboardsBar';
+import { MIN_ROW_COUNT } from '../controlBarDimensions';
+import { DashboardsBar, MAX_ROW_COUNT } from '../DashboardsBar';
 import ShowMoreButton from '../ShowMoreButton';
 import DashboardItemChip from '../DashboardItemChip';
 import * as api from '../../../api/controlBar';
@@ -40,7 +41,7 @@ describe('DashboardsBar', () => {
         expect(dashboardsBar().find('ControlBar')).toHaveLength(1);
     });
 
-    describe('when userRows is MAX_ROW_COUNT', () => {
+    describe.only('when userRows is MAX_ROW_COUNT', () => {
         beforeEach(() => {
             props.userRows = MAX_ROW_COUNT;
         });

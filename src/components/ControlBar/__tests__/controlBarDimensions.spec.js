@@ -1,9 +1,13 @@
-import { getRowsHeight, getControlBarHeight } from '../controlBarDimensions';
+import {
+    getRowsHeight,
+    getControlBarHeight,
+    getNumRowsFromHeight,
+} from '../controlBarDimensions';
 
 describe('controlBarDimensions', () => {
     describe('getRowsHeight', () => {
         it('calculates the inner height', () => {
-            expect(getRowsHeight(2)).toEqual(92);
+            expect(getRowsHeight(2)).toEqual(72);
         });
     });
 
@@ -12,6 +16,13 @@ describe('controlBarDimensions', () => {
             expect(getControlBarHeight(2, false)).toBeGreaterThan(
                 getControlBarHeight(2, true)
             );
+        });
+    });
+
+    describe('getNumRowsFromHeight', () => {
+        it('returns an integer', () => {
+            const res = getNumRowsFromHeight(100);
+            expect(Number.isInteger(res)).toBeTruthy();
         });
     });
 });

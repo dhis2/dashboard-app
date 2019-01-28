@@ -39,10 +39,12 @@ describe('ShowMoreButton', () => {
             }
             return shallowShowMoreButton;
         };
+
         beforeEach(() => {
             props = {
                 onClick: undefined,
                 isMaxHeight: undefined,
+                classes: { showMore: {} },
             };
             shallowShowMoreButton = undefined;
         });

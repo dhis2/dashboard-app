@@ -4,13 +4,15 @@ import { withStyles } from '@material-ui/core/styles';
 
 import { colors } from '../../modules/colors';
 
+export const SHOWMORE_BAR_HEIGHT = 16;
+
 const styles = {
     showMore: {
         color: colors.royalBlue,
         cursor: 'pointer',
         fontSize: 11,
         fontWeight: 700,
-        height: 16,
+        height: SHOWMORE_BAR_HEIGHT,
         paddingTop: 3,
         textTransform: 'uppercase',
         visibility: 'visible',

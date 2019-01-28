@@ -9,11 +9,11 @@ import D2IconButton from '../../widgets/D2IconButton';
 import Filter from './Filter';
 import ShowMoreButton from './ShowMoreButton';
 import {
-    CONTROL_BAR_ROW_HEIGHT,
-    CONTROL_BAR_OUTER_HEIGHT_DIFF,
     FIRST_ROW_PADDING_HEIGHT,
+    MIN_ROW_COUNT,
     getRowsHeight,
     getControlBarHeight,
+    getNumRowsFromHeight,
 } from './controlBarDimensions';
 import { sGetControlBarUserRows } from '../../reducers/controlBar';
 import { sGetAllDashboards } from '../../reducers/dashboards';
@@ -26,7 +26,6 @@ import { apiPostControlBarRows } from '../../api/controlBar';
 
 import './ControlBar.css';
 
-export const MIN_ROW_COUNT = 1;
 export const MAX_ROW_COUNT = 10;
 
 export class DashboardsBar extends Component {
@@ -49,10 +48,7 @@ export class DashboardsBar extends Component {
     onChangeHeight = newHeight => {
         const newRows = Math.max(
             MIN_ROW_COUNT,
-            Math.floor(
-                (newHeight - CONTROL_BAR_OUTER_HEIGHT_DIFF) /
-                    CONTROL_BAR_ROW_HEIGHT
-            )
+            getNumRowsFromHeight(newHeight)
         );
 
         if (newRows !== this.state.rows) {

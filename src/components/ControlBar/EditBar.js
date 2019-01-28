@@ -23,9 +23,9 @@ import {
 } from '../../reducers/editDashboard';
 import {
     CONTROL_BAR_ROW_HEIGHT,
+    MIN_ROW_COUNT,
     getControlBarHeight,
 } from './controlBarDimensions';
-import { MIN_ROW_COUNT } from './DashboardsBar';
 import { apiFetchDashboard } from '../../api/dashboards';
 
 import './ControlBar.css';
