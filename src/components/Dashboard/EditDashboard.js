@@ -11,7 +11,7 @@ import {
 } from '../../reducers/dashboards';
 import DashboardVerticalOffset from './DashboardVerticalOffset';
 import DashboardContent from './DashboardContent';
-import EditBar from '../ControlBarContainer/EditBar';
+import EditBar from '../ControlBar/EditBar';
 import NoContentMessage from '../../widgets/NoContentMessage';
 
 export const Content = ({ updateAccess }) => {

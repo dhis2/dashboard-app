@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { acSetEditNewDashboard } from '../../actions/editDashboard';
 import DashboardVerticalOffset from './DashboardVerticalOffset';
-import EditBar from '../ControlBarContainer/EditBar';
+import EditBar from '../ControlBar/EditBar';
 import DashboardContent from './DashboardContent';
 
 class NewDashboard extends Component {

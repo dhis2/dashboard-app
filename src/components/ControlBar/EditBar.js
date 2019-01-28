@@ -25,7 +25,7 @@ import { CONTROL_BAR_ROW_HEIGHT, getOuterHeight } from './controlBarDimensions';
 import { MIN_ROW_COUNT } from './DashboardsBar';
 import { apiFetchDashboard } from '../../api/dashboards';
 
-import './ControlBarContainer.css';
+import './ControlBar.css';
 
 const buttonBarStyle = {
     height: CONTROL_BAR_ROW_HEIGHT,

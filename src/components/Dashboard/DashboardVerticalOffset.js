@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { CONTROL_BAR_ROW_HEIGHT } from '../ControlBarContainer/controlBarDimensions';
+import { CONTROL_BAR_ROW_HEIGHT } from '../ControlBar/controlBarDimensions';
 import { sGetControlBarUserRows } from '../../reducers/controlBar';
 
 const DEFAULT_TOP_MARGIN = 70;

@@ -23,7 +23,7 @@ import { acSetFilterName } from '../../actions/dashboardsFilter';
 import { orObject, orArray } from '../../modules/util';
 import { apiPostControlBarRows } from '../../api/controlBar';
 
-import './ControlBarContainer.css';
+import './ControlBar.css';
 
 export const MIN_ROW_COUNT = 1;
 export const MAX_ROW_COUNT = 10;
@@ -45,7 +45,7 @@ export class DashboardsBar extends Component {
         this.setInitialDashboardState(nextProps.userRows);
     }
 
-    onChangeHeight = (newHeight, onEndDrag) => {
+    onChangeHeight = newHeight => {
         const newRows = Math.max(
             MIN_ROW_COUNT,
             Math.floor(
