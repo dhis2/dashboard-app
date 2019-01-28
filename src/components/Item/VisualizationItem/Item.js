@@ -13,7 +13,7 @@ import { itemTypeMap, CHART } from '../../../modules/itemTypes';
 import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
-import DefaultVisualizationItem from './DefaultVisualizationItem/Item';
+import DefaultPlugin from './DefaultPlugin';
 import { colors } from '../../../modules/colors';
 import ChartPlugin from 'data-visualizer-plugin';
 
@@ -154,7 +154,7 @@ class Item extends Component {
                         className="dashboard-item-content"
                         style={contentStyle}
                     >
-                        <DefaultVisualizationItem {...this.props} />
+                        <DefaultPlugin {...this.props} />
                     </div>
                 );
             }

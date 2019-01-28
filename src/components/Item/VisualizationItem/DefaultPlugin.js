@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import i18n from 'd2-i18n';
 
-import * as pluginManager from '../plugin';
-import { getBaseUrl, orObject } from '../../../../modules/util';
+import * as pluginManager from './plugin';
+import { getBaseUrl, orObject } from '../../../modules/util';
 
 const pluginCredentials = d2 => {
     return {
@@ -12,7 +12,7 @@ const pluginCredentials = d2 => {
     };
 };
 
-class Item extends Component {
+class DefaultPlugin extends Component {
     pluginCredentials = null;
 
     shouldPluginReload = prevProps => {
@@ -128,18 +128,18 @@ class Item extends Component {
     }
 }
 
-Item.contextTypes = {
+DefaultPlugin.contextTypes = {
     d2: PropTypes.object,
 };
 
-Item.propTypes = {
+DefaultPlugin.propTypes = {
     itemFilter: PropTypes.object,
     visualization: PropTypes.object,
 };
 
-Item.defaultProps = {
+DefaultPlugin.defaultProps = {
     itemFilter: {},
     visualization: {},
 };
 
-export default Item;
+export default DefaultPlugin;
