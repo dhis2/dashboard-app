@@ -1,16 +1,16 @@
-import { getInnerHeight, getOuterHeight } from '../controlBarDimensions';
+import { getRowsHeight, getControlBarHeight } from '../controlBarDimensions';
 
 describe('controlBarDimensions', () => {
-    describe('getInnerHeight', () => {
+    describe('getRowsHeight', () => {
         it('calculates the inner height', () => {
-            expect(getInnerHeight(2)).toEqual(92);
+            expect(getRowsHeight(2)).toEqual(92);
         });
     });
 
-    describe('getOuterHeight', () => {
+    describe('getControlBarHeight', () => {
         it('is greater when bar not expandable', () => {
-            expect(getOuterHeight(2, false)).toBeGreaterThan(
-                getOuterHeight(2, true)
+            expect(getControlBarHeight(2, false)).toBeGreaterThan(
+                getControlBarHeight(2, true)
             );
         });
     });

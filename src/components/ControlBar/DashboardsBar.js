@@ -11,8 +11,9 @@ import ShowMoreButton from './ShowMoreButton';
 import {
     CONTROL_BAR_ROW_HEIGHT,
     CONTROL_BAR_OUTER_HEIGHT_DIFF,
-    getInnerHeight,
-    getOuterHeight,
+    FIRST_ROW_PADDING_HEIGHT,
+    getRowsHeight,
+    getControlBarHeight,
 } from './controlBarDimensions';
 import { sGetControlBarUserRows } from '../../reducers/controlBar';
 import { sGetAllDashboards } from '../../reducers/dashboards';
@@ -84,11 +85,11 @@ export class DashboardsBar extends Component {
         const rowCount = this.state.isMaxHeight
             ? MAX_ROW_COUNT
             : this.state.rows;
-        const controlBarHeight = getOuterHeight(rowCount, true);
+        const controlBarHeight = getControlBarHeight(rowCount, true);
         const contentWrapperStyle = {
-            padding: '10px 6px 0 6px',
+            padding: `${FIRST_ROW_PADDING_HEIGHT}px 6px 0 6px`,
             overflowY: this.state.isMaxHeight ? 'auto' : 'hidden',
-            height: getInnerHeight(rowCount),
+            height: getRowsHeight(rowCount) + FIRST_ROW_PADDING_HEIGHT,
         };
 
         return (
