@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 import i18n from 'd2-i18n';
 import TextField from 'd2-ui/lib/text-field/TextField';
 
@@ -13,13 +14,30 @@ import { sGetEditDashboardRoot } from '../../reducers/editDashboard';
 import { sGetDashboardById } from '../../reducers/dashboards';
 import ItemSelect from '../ItemSelect/ItemSelect';
 
-const EditTitleBar = ({
+const styles = {
+    section: { display: 'flex', justifyContent: 'space-between' },
+    titleDescription: {
+        flex: '3',
+        marginRight: '20px',
+    },
+    title: { padding: '6px 0' },
+    itemSelect: {
+        flex: '2',
+        minWidth: '300px',
+        maxWidth: '730px',
+        position: 'relative',
+        top: '33px',
+    },
+};
+
+export const EditTitleBar = ({
     name,
     displayName,
     description,
     style,
     onChangeTitle,
     onChangeDescription,
+    classes,
 }) => {
     const titleStyle = Object.assign({}, style.title, {
         top: '-2px',
@@ -28,16 +46,16 @@ const EditTitleBar = ({
     const translatedName = () => {
         return displayName ? (
             <span style={style.description}>
-                Current translation: {displayName}
+                {i18n.t('Current translation')}: {displayName}
             </span>
         ) : null;
     };
 
     return (
-        <section style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <div style={{ flex: '3', marginRight: '20px' }}>
-                <span>Currently editing</span>
-                <div style={{ padding: '6px 0' }}>
+        <section className={classes.section}>
+            <div className={classes.titleDescription}>
+                <span>{i18n.t('Currently editing')}</span>
+                <div className={classes.title}>
                     <TextField
                         multiline
                         fullWidth
@@ -61,15 +79,7 @@ const EditTitleBar = ({
                     onChange={onChangeDescription}
                 />
             </div>
-            <div
-                style={{
-                    flex: '2',
-                    minWidth: '300px',
-                    maxWidth: '730px',
-                    position: 'relative',
-                    top: '33px',
-                }}
-            >
+            <div className={classes.itemSelect}>
                 <ItemSelect />
             </div>
         </section>
@@ -78,14 +88,13 @@ const EditTitleBar = ({
 
 const mapStateToProps = state => {
     const selectedDashboard = orObject(sGetEditDashboardRoot(state));
-
     const displayName = orObject(sGetDashboardById(state, selectedDashboard.id))
         .displayName;
 
     return {
         name: selectedDashboard.name,
-        description: selectedDashboard.description,
         displayName,
+        description: selectedDashboard.description,
     };
 };
 
@@ -97,16 +106,20 @@ const mapDispatchToProps = {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(EditTitleBar);
+)(withStyles(styles)(EditTitleBar));
 
 EditTitleBar.propTypes = {
     name: PropTypes.string,
     displayName: PropTypes.string,
     description: PropTypes.string,
+    onChangeTitle: PropTypes.func.isRequired,
+    onChangeDescription: PropTypes.func.isRequired,
+    style: PropTypes.object,
 };
 
 EditTitleBar.defaultProps = {
     name: '',
     displayName: '',
     description: '',
+    style: {},
 };
