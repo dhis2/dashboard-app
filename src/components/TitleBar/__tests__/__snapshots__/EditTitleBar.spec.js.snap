@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditTitleBar renders correctly when displayName is provided 1`] = `
+<section>
+  <div>
+    <span>
+      Currently editing
+    </span>
+    <div>
+      <textfield
+        fullWidth={true}
+        multiline={true}
+        onChange={[Function]}
+        placeholder="Add title here"
+        rows={1}
+        rowsMax={3}
+        style={
+          Object {
+            "top": "-2px",
+            "xyz": "890",
+          }
+        }
+        value="Rainbow Dash"
+      />
+      <span
+        style={
+          Object {
+            "abc": "123",
+          }
+        }
+      >
+        Current translation
+        : 
+        Regnbue Dash
+      </span>
+    </div>
+    <textfield
+      fullWidth={true}
+      multiline={true}
+      onChange={[Function]}
+      placeholder="Add description here"
+      rows={1}
+      rowsMax={3}
+      style={
+        Object {
+          "abc": "123",
+        }
+      }
+      value="The blue one"
+    />
+  </div>
+  <div>
+    <itemselect />
+  </div>
+</section>
+`;
+
+exports[`EditTitleBar renders correctly when displayName not provided 1`] = `
+<section>
+  <div>
+    <span>
+      Currently editing
+    </span>
+    <div>
+      <textfield
+        fullWidth={true}
+        multiline={true}
+        onChange={[Function]}
+        placeholder="Add title here"
+        rows={1}
+        rowsMax={3}
+        style={
+          Object {
+            "top": "-2px",
+            "xyz": "890",
+          }
+        }
+        value="Rainbow Dash"
+      />
+    </div>
+    <textfield
+      fullWidth={true}
+      multiline={true}
+      onChange={[Function]}
+      placeholder="Add description here"
+      rows={1}
+      rowsMax={3}
+      style={
+        Object {
+          "abc": "123",
+        }
+      }
+      value="The blue one"
+    />
+  </div>
+  <div>
+    <itemselect />
+  </div>
+</section>
+`;

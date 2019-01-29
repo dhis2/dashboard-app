@@ -5,3 +5,7 @@
 .dashboard-description:focus {
     color: #777;
 }
+
+textarea {
+    overflow: auto;
+}
