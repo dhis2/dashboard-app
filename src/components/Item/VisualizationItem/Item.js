@@ -139,7 +139,7 @@ class Item extends Component {
                 return (
                     <div id={elementId} className="dashboard-item-content">
                         <ChartPlugin
-                            config={{ id: this.props.visualization.id }}
+                            config={this.props.visualization}
                             filters={this.props.itemFilter}
                             forDashboard={true}
                             style={contentStyle}
