@@ -1,12 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EditTitleBar renders correctly when displayName is provided 1`] = `
-<section>
-  <div>
+<section
+  className={
+    Object {
+      "sectionStyle": "section",
+    }
+  }
+>
+  <div
+    className={
+      Object {
+        "titleDescStyle": "titleDesc",
+      }
+    }
+  >
     <span>
       Currently editing
     </span>
-    <div>
+    <div
+      className={
+        Object {
+          "titleStyle": "title",
+        }
+      }
+    >
       <textfield
         fullWidth={true}
         multiline={true}
@@ -49,19 +67,43 @@ exports[`EditTitleBar renders correctly when displayName is provided 1`] = `
       value="The blue one"
     />
   </div>
-  <div>
+  <div
+    className={
+      Object {
+        "itemSelStyle": "itemSel",
+      }
+    }
+  >
     <itemselect />
   </div>
 </section>
 `;
 
 exports[`EditTitleBar renders correctly when displayName not provided 1`] = `
-<section>
-  <div>
+<section
+  className={
+    Object {
+      "sectionStyle": "section",
+    }
+  }
+>
+  <div
+    className={
+      Object {
+        "titleDescStyle": "titleDesc",
+      }
+    }
+  >
     <span>
       Currently editing
     </span>
-    <div>
+    <div
+      className={
+        Object {
+          "titleStyle": "title",
+        }
+      }
+    >
       <textfield
         fullWidth={true}
         multiline={true}
@@ -93,7 +135,13 @@ exports[`EditTitleBar renders correctly when displayName not provided 1`] = `
       value="The blue one"
     />
   </div>
-  <div>
+  <div
+    className={
+      Object {
+        "itemSelStyle": "itemSel",
+      }
+    }
+  >
     <itemselect />
   </div>
 </section>
