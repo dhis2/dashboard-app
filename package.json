@@ -145,7 +145,7 @@
             "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
         },
         "transformIgnorePatterns": [
-            "node_modules/(?!(@dhis2/d2-ui-[a-z-]+)/)"
+            "node_modules/(?!(d2-ui|lodash-es|@dhis2/d2-ui-[a-z-]+)/)"
         ],
         "moduleNameMapper": {
             "^react-native$": "react-native-web"

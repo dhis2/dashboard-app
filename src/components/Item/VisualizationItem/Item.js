@@ -39,7 +39,7 @@ const styles = {
     },
 };
 
-class Item extends Component {
+export class Item extends Component {
     state = {
         showFooter: false,
     };
@@ -184,11 +184,17 @@ Item.contextTypes = {
 };
 
 Item.propTypes = {
+    item: PropTypes.object,
+    editMode: PropTypes.bool,
+    onToggleItemExpanded: PropTypes.func,
     itemFilter: PropTypes.object,
     visualization: PropTypes.object,
 };
 
 Item.defaultProps = {
+    item: {},
+    editMode: false,
+    onToggleItemExpanded: Function.prototype,
     itemFilter: {},
     visualization: {},
 };
