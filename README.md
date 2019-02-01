@@ -35,7 +35,7 @@ The webpack-dev-server will start up on localhost:3000, by default.
 This repo is configured to deploy all branches to netlify. This makes it simple to share a running implementation with others (e.g., tester, product manager, ux, fellow developers) prior
 to merging to master.
 
-All netlfiy deployments run against play.dhis2.org/dev, so in order to use them, you must configure CORS for your particular branch:
+All netlify deployments run against play.dhis2.org/dev, so in order to use them, you must configure CORS for your particular branch:
 
 1. Copy the URL of the deployment you want to enable, i.e. `https://dhis2-dashboards.netlify.com`
 2. Visit the play/dev [system settings -- access](https://play.dhis2.org/dev/dhis-web-settings/index.html#/access) page
