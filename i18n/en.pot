@@ -71,6 +71,9 @@ msgstr ""
 msgid "Add text here"
 msgstr ""
 
+msgid "Unable to load the plugin for this item"
+msgstr ""
+
 msgid "Edit your interpretation"
 msgstr ""
 
@@ -108,9 +111,6 @@ msgid "Interpretations"
 msgstr ""
 
 msgid "Add your interpretation"
-msgstr ""
-
-msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "There are no items on this dashboard"

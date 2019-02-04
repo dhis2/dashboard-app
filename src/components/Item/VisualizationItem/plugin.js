@@ -13,6 +13,11 @@ import {
 import { getBaseUrl, orObject } from '../../../modules/util';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 
+export const pluginIsAvailable = (item = {}, visualization = {}) => {
+    const type = visualization.activeType || item.type;
+    return !!itemTypeMap[type].plugin;
+};
+
 export const extractFavorite = item => {
     if (!isObject(item)) {
         return null;

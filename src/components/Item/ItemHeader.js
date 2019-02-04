@@ -1,5 +1,7 @@
 import React from 'react';
 
+export const HEADER_HEIGHT = 45;
+
 const ItemHeader = props => {
     const { title, actionButtons, editMode } = props;
 

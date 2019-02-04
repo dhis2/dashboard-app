@@ -2,22 +2,20 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
-import i18n from 'd2-i18n';
 import LaunchIcon from '@material-ui/icons/Launch';
 
 import * as pluginManager from './plugin';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
-import { getBaseUrl, orObject } from '../../../modules/util';
 import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
 import { acReceivedActiveVisualization } from '../../../actions/selected';
-import { itemTypeMap } from '../../../modules/itemTypes';
-import ItemHeader from '../ItemHeader';
+import { itemTypeMap, CHART } from '../../../modules/itemTypes';
+import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
+import DefaultPlugin from './DefaultPlugin';
 import { colors } from '../../../modules/colors';
-
-const HEADER_HEIGHT = 45;
+import ChartPlugin from 'data-visualizer-plugin';
 
 const styles = {
     icon: {
@@ -41,93 +39,12 @@ const styles = {
     },
 };
 
-const pluginCredentials = d2 => {
-    return {
-        baseUrl: getBaseUrl(d2),
-        auth: d2.Api.getApi().defaultHeaders.Authorization,
-    };
-};
-
-class Item extends Component {
+export class Item extends Component {
     state = {
         showFooter: false,
     };
 
     pluginCredentials = null;
-
-    pluginIsAvailable = () => {
-        const type =
-            orObject(this.props.visualization).activeType ||
-            this.props.item.type;
-
-        return !!itemTypeMap[type].plugin;
-    };
-
-    shouldPluginReload = prevProps => {
-        // TODO - fix this hack, to handle bug with multiple
-        // rerendering while switching between dashboards.
-        //
-        // To determine if the rendering is happening because of a
-        // dashboard switch, check if the item reference has changed.
-        const reloadAllowed = this.props.item === prevProps.item;
-
-        const filterChanged = prevProps.itemFilter !== this.props.itemFilter;
-        const vis = orObject(this.props.visualization);
-        const prevVis = orObject(prevProps.visualization);
-        const visChanged =
-            vis.id !== prevVis.id || vis.activeType !== prevVis.activeType;
-
-        return reloadAllowed && (visChanged || filterChanged);
-    };
-
-    reloadPlugin = prevProps => {
-        if (this.pluginIsAvailable() && this.shouldPluginReload(prevProps)) {
-            const prevVis = orObject(prevProps.visualization);
-            const currentVis = this.props.visualization;
-
-            const useActiveType =
-                currentVis.activeType !== prevVis.activeType ||
-                currentVis.activeType !== this.props.item.type
-                    ? true
-                    : false;
-
-            if (
-                useActiveType ||
-                this.props.itemFilter !== prevProps.itemFilter
-            ) {
-                pluginManager.unmount(
-                    this.props.item,
-                    prevVis.activeType || this.props.item.type
-                );
-
-                pluginManager.load(
-                    this.props.item,
-                    this.pluginCredentials,
-                    useActiveType ? currentVis.activeType : null,
-                    this.props.itemFilter
-                );
-            }
-        }
-    };
-
-    componentDidMount() {
-        this.pluginCredentials = pluginCredentials(this.context.d2);
-
-        if (this.pluginIsAvailable()) {
-            pluginManager.load(
-                this.props.item,
-                this.pluginCredentials,
-                !this.props.editMode
-                    ? orObject(this.props.visualization).activeType
-                    : null,
-                this.props.itemFilter
-            );
-        }
-    }
-
-    componentDidUpdate(prevProps) {
-        this.reloadPlugin(prevProps);
-    }
 
     onToggleFooter = () => {
         this.setState(
@@ -135,9 +52,6 @@ class Item extends Component {
             this.props.onToggleItemExpanded(this.props.item.id)
         );
     };
-
-    getActiveType = () =>
-        this.props.visualization.activeType || this.props.item.type;
 
     onSelectVisualization = activeType => {
         // Cancel request if type is already active
@@ -157,43 +71,61 @@ class Item extends Component {
         );
     };
 
-    render() {
-        const { item, classes } = this.props;
-        const elementId = getGridItemDomId(item.id);
-        const pluginIsAvailable = this.pluginIsAvailable();
+    getActiveType = () =>
+        this.props.visualization.activeType || this.props.item.type;
 
-        const title = (
+    pluginIsAvailable = () =>
+        pluginManager.pluginIsAvailable(
+            this.props.item,
+            this.props.visualization
+        );
+
+    getTitle = () => {
+        const { item, editMode, classes } = this.props;
+        const itemName = pluginManager.getName(item);
+
+        return (
             <div style={{ display: 'flex', alignItems: 'center' }}>
-                <span
-                    className={classes.title}
-                    title={pluginManager.getName(item)}
-                >
-                    {pluginManager.getName(item)}
+                <span className={classes.title} title={itemName}>
+                    {itemName}
                 </span>
-                {!this.props.editMode && pluginIsAvailable ? (
+                {!editMode && this.pluginIsAvailable() ? (
                     <a
-                        href={pluginManager.getLink(item, this.context.d2)}
+                        href={pluginManager.getLink(
+                            this.props.item,
+                            this.context.d2
+                        )}
                         style={{ height: 16 }}
-                        title={`View in ${itemTypeMap[item.type].appName} app`}
+                        title={`View in ${
+                            itemTypeMap[this.props.item.type].appName
+                        } app`}
                     >
                         <LaunchIcon className={classes.icon} />
                     </a>
                 ) : null}
             </div>
         );
+    };
 
-        const actionButtons =
-            pluginIsAvailable && !this.props.editMode ? (
-                <VisualizationItemHeaderButtons
-                    item={item}
-                    activeFooter={this.state.showFooter}
-                    activeType={
-                        this.props.visualization.activeType || item.type
-                    }
-                    onSelectVisualization={this.onSelectVisualization}
-                    onToggleFooter={this.onToggleFooter}
-                />
-            ) : null;
+    getActionButtons = () =>
+        pluginManager.pluginIsAvailable(
+            this.props.item,
+            this.props.visualization
+        ) && !this.props.editMode ? (
+            <VisualizationItemHeaderButtons
+                item={this.props.item}
+                activeFooter={this.state.showFooter}
+                activeType={
+                    this.props.visualization.activeType || this.props.item.type
+                }
+                onSelectVisualization={this.onSelectVisualization}
+                onToggleFooter={this.onToggleFooter}
+            />
+        ) : null;
+
+    getPluginComponent = () => {
+        const { item } = this.props;
+        const elementId = getGridItemDomId(item.id);
 
         const PADDING_BOTTOM = 4;
         const contentStyle = !this.props.editMode
@@ -202,27 +134,46 @@ class Item extends Component {
               }
             : null;
 
+        switch (item.type) {
+            case CHART: {
+                return (
+                    <div id={elementId} className="dashboard-item-content">
+                        <ChartPlugin
+                            config={this.props.visualization}
+                            filters={this.props.itemFilter}
+                            forDashboard={true}
+                            style={contentStyle}
+                        />
+                    </div>
+                );
+            }
+            default: {
+                return (
+                    <div
+                        id={elementId}
+                        className="dashboard-item-content"
+                        style={contentStyle}
+                    >
+                        <DefaultPlugin {...this.props} />
+                    </div>
+                );
+            }
+        }
+    };
+
+    render() {
+        const { item, editMode } = this.props;
+        const { showFooter } = this.state;
+
         return (
             <Fragment>
                 <ItemHeader
-                    title={title}
-                    actionButtons={actionButtons}
-                    editMode={this.props.editMode}
+                    title={this.getTitle()}
+                    actionButtons={this.getActionButtons()}
+                    editMode={editMode}
                 />
-                <div
-                    id={elementId}
-                    className="dashboard-item-content"
-                    style={contentStyle}
-                >
-                    {!pluginIsAvailable ? (
-                        <div className={classes.textDiv}>
-                            {i18n.t('Unable to load the plugin for this item')}
-                        </div>
-                    ) : null}
-                </div>
-                {!this.props.editMode && this.state.showFooter ? (
-                    <ItemFooter item={item} />
-                ) : null}
+                {this.getPluginComponent()}
+                {!editMode && showFooter ? <ItemFooter item={item} /> : null}
             </Fragment>
         );
     }
@@ -233,11 +184,17 @@ Item.contextTypes = {
 };
 
 Item.propTypes = {
+    item: PropTypes.object,
+    editMode: PropTypes.bool,
+    onToggleItemExpanded: PropTypes.func,
     itemFilter: PropTypes.object,
     visualization: PropTypes.object,
 };
 
 Item.defaultProps = {
+    item: {},
+    editMode: false,
+    onToggleItemExpanded: Function.prototype,
     itemFilter: {},
     visualization: {},
 };
