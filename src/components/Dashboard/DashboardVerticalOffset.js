@@ -1,35 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { CONTROL_BAR_ROW_HEIGHT } from '../ControlBarContainer/controlBarDimensions';
+import {
+    HEADERBAR_HEIGHT,
+    getControlBarHeight,
+    MIN_ROW_COUNT,
+} from '../ControlBar/controlBarDimensions';
 import { sGetControlBarUserRows } from '../../reducers/controlBar';
 
-const DEFAULT_TOP_MARGIN = 70;
+const DashboardVerticalOffset = props => {
+    const rows = props.editMode ? MIN_ROW_COUNT : props.userRows;
+    const marginTop = HEADERBAR_HEIGHT + getControlBarHeight(rows, false);
 
-const DashboardVerticalOffset = props => (
-    <div
-        className="page-container-top-margin"
-        style={{ marginTop: props.marginTop }}
-    />
-);
-
-const mapStateToProps = state => ({
-    rows: sGetControlBarUserRows(state),
-});
-
-const mergeProps = (stateProps, dispatchProps, props) => {
-    return Object.assign(
-        {},
-        {
-            marginTop:
-                DEFAULT_TOP_MARGIN +
-                CONTROL_BAR_ROW_HEIGHT * (props.edit ? 1 : stateProps.rows),
-        }
-    );
+    return <div className="page-container-top-margin" style={{ marginTop }} />;
 };
 
-export default connect(
-    mapStateToProps,
-    null,
-    mergeProps
-)(DashboardVerticalOffset);
+const mapStateToProps = state => ({
+    userRows: sGetControlBarUserRows(state),
+});
+
+export default connect(mapStateToProps)(DashboardVerticalOffset);

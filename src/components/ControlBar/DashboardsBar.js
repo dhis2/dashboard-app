@@ -9,10 +9,11 @@ import D2IconButton from '../../widgets/D2IconButton';
 import Filter from './Filter';
 import ShowMoreButton from './ShowMoreButton';
 import {
-    CONTROL_BAR_ROW_HEIGHT,
-    CONTROL_BAR_OUTER_HEIGHT_DIFF,
-    getInnerHeight,
-    getOuterHeight,
+    FIRST_ROW_PADDING_HEIGHT,
+    MIN_ROW_COUNT,
+    getRowsHeight,
+    getControlBarHeight,
+    getNumRowsFromHeight,
 } from './controlBarDimensions';
 import { sGetControlBarUserRows } from '../../reducers/controlBar';
 import { sGetAllDashboards } from '../../reducers/dashboards';
@@ -23,9 +24,8 @@ import { acSetFilterName } from '../../actions/dashboardsFilter';
 import { orObject, orArray } from '../../modules/util';
 import { apiPostControlBarRows } from '../../api/controlBar';
 
-import './ControlBarContainer.css';
+import './ControlBar.css';
 
-export const MIN_ROW_COUNT = 1;
 export const MAX_ROW_COUNT = 10;
 
 export class DashboardsBar extends Component {
@@ -45,13 +45,10 @@ export class DashboardsBar extends Component {
         this.setInitialDashboardState(nextProps.userRows);
     }
 
-    onChangeHeight = (newHeight, onEndDrag) => {
+    onChangeHeight = newHeight => {
         const newRows = Math.max(
             MIN_ROW_COUNT,
-            Math.floor(
-                (newHeight - CONTROL_BAR_OUTER_HEIGHT_DIFF) /
-                    CONTROL_BAR_ROW_HEIGHT
-            )
+            getNumRowsFromHeight(newHeight)
         );
 
         if (newRows !== this.state.rows) {
@@ -84,11 +81,11 @@ export class DashboardsBar extends Component {
         const rowCount = this.state.isMaxHeight
             ? MAX_ROW_COUNT
             : this.state.rows;
-        const controlBarHeight = getOuterHeight(rowCount, true);
+        const controlBarHeight = getControlBarHeight(rowCount, true);
         const contentWrapperStyle = {
-            padding: '10px 6px 0 6px',
+            padding: `${FIRST_ROW_PADDING_HEIGHT}px 6px 0 6px`,
             overflowY: this.state.isMaxHeight ? 'auto' : 'hidden',
-            height: getInnerHeight(rowCount),
+            height: getRowsHeight(rowCount) + FIRST_ROW_PADDING_HEIGHT,
         };
 
         return (
