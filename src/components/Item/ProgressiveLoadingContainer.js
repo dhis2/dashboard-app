@@ -2,33 +2,40 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
 
-const defaultDebounceThresholdMs = 100;
-const defaultWindowBufferPx = 0;
+const defaultDebounceMs = 100;
+const defaultBufferPx = 0;
+const defaultInitialBufferFactor = 0.5;
 
 class ProgressiveLoadingContainer extends Component {
     static propTypes = {
         children: PropTypes.node.isRequired,
-        debounceThresholdMs: PropTypes.number,
-        windowBufferPx: PropTypes.number,
+        debounceMs: PropTypes.number,
+        bufferPx: PropTypes.number,
+        initialBufferFactor: PropTypes.number,
     };
     static defaultProps = {
-        debounceThresholdMs: defaultDebounceThresholdMs,
-        windowBufferPx: defaultWindowBufferPx,
+        debounceMs: defaultDebounceMs,
+        bufferPx: defaultBufferPx,
+        initialBufferFactor: defaultInitialBufferFactor,
     };
 
     state = {
         shouldLoad: false,
     };
     containerRef = null;
-    checkShouldLoad = () => {
+    shouldLoadHandler = null;
+
+    checkShouldLoad(customBufferPx) {
+        const bufferPx = customBufferPx || this.props.bufferPx;
+
         if (!this.containerRef) {
             return;
         }
-        console.log(this.containerRef.getBoundingClientRect());
+
         const rect = this.containerRef.getBoundingClientRect();
         if (
-            rect.bottom > -this.props.windowBufferPx &&
-            rect.top < window.innerHeight + this.props.windowBufferPx
+            rect.bottom > -bufferPx &&
+            rect.top < window.innerHeight + bufferPx
         ) {
             this.setState({
                 shouldLoad: true,
@@ -36,23 +43,27 @@ class ProgressiveLoadingContainer extends Component {
 
             this.removeHandler();
         }
-    };
+    }
 
     registerHandler() {
-        this.checkShouldLoad = debounce(
-            this.checkShouldLoad,
-            this.props.debounceThresholdMs
+        this.shouldLoadHandler = debounce(
+            () => this.checkShouldLoad(),
+            this.props.debounceMs
         );
 
-        window.addEventListener('scroll', this.checkShouldLoad);
+        window.addEventListener('scroll', this.shouldLoadHandler);
     }
     removeHandler() {
-        window.removeEventListener('scroll', this.checkShouldLoad);
+        window.removeEventListener('scroll', this.shouldLoadHandler);
     }
 
     componentDidMount() {
         this.registerHandler();
-        this.checkShouldLoad();
+
+        const initialBufferPx = this.props.initialBufferFactor
+            ? this.props.initialBufferFactor * window.innerHeight
+            : undefined;
+        this.checkShouldLoad(initialBufferPx);
     }
 
     componentWillUnmount() {
