@@ -83,3 +83,25 @@ export const getBaseUrl = d2 => {
     const idx = api.baseUrl.indexOf('/api');
     return idx > -1 ? api.baseUrl.slice(0, idx) : api.baseUrl;
 };
+
+// This is useful instead of lodash/memoize when we only need to memoize a single value
+// Note that this ignores discrepancies in 'this', so shouldn't be used with bound functions
+// Inspiration: https://github.com/alexreardon/memoize-one
+
+export const memoizeOne = fn => {
+    let lastArgs = undefined;
+    let lastValue = undefined;
+
+    return (...args) => {
+        if (
+            lastArgs &&
+            args.length === lastArgs.length &&
+            args.every((arg, i) => arg === lastArgs[i])
+        ) {
+            return lastValue;
+        }
+        lastArgs = args;
+        lastValue = fn(...args);
+        return lastValue;
+    };
+};

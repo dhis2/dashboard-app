@@ -17,6 +17,8 @@ import DefaultPlugin from './DefaultPlugin';
 import { colors } from '../../../modules/colors';
 import ChartPlugin from 'data-visualizer-plugin';
 import ProgressiveLoadingContainer from '../ProgressiveLoadingContainer';
+import uniqueId from 'lodash/uniqueId';
+import { memoizeOne } from '../../../modules/util';
 
 const styles = {
     icon: {
@@ -44,6 +46,8 @@ export class Item extends Component {
     state = {
         showFooter: false,
     };
+
+    getUniqueKey = memoizeOne(filter => uniqueId());
 
     pluginCredentials = null;
 
@@ -147,7 +151,7 @@ export class Item extends Component {
         );
 
     render() {
-        const { item, editMode } = this.props;
+        const { item, editMode, itemFilter } = this.props;
         const { showFooter } = this.state;
 
         return (
@@ -159,6 +163,11 @@ export class Item extends Component {
                 />
                 <ProgressiveLoadingContainer
                     id={getGridItemDomId(item.id)}
+                    key={
+                        this.getUniqueKey(
+                            itemFilter
+                        ) /* remount the progressive loader every time itemFilter changes */
+                    }
                     className="dashboard-item-content"
                     style={this.getContentStyle()}
                 >
