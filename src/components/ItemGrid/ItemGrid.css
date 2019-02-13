@@ -71,7 +71,7 @@
 /* dashboard item - content */
 
 .dashboard-item-content {
-    padding: 0 4px 4px;
+    margin: 0 4px 4px;
     overflow: auto;
 }
 
