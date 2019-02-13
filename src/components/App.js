@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import i18n from 'd2-i18n';
-import HeaderBar from 'ui/widgets/HeaderBar';
+import HeaderBar from '@dhis2/ui/widgets/HeaderBar';
 
 import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes';
 import { acReceivedUser } from '../actions/user';
