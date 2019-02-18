@@ -18,7 +18,7 @@ import { colors } from '../../../modules/colors';
 import ChartPlugin from 'data-visualizer-plugin';
 import ProgressiveLoadingContainer from '../ProgressiveLoadingContainer';
 import uniqueId from 'lodash/uniqueId';
-import { memoizeOne } from '../../../modules/util';
+import memoizeOne from '../../../modules/memoizeOne';
 
 const styles = {
     icon: {
