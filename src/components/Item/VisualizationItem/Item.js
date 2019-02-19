@@ -16,6 +16,9 @@ import VisualizationItemHeaderButtons from './ItemHeaderButtons';
 import DefaultPlugin from './DefaultPlugin';
 import { colors } from '../../../modules/colors';
 import ChartPlugin from 'data-visualizer-plugin';
+import ProgressiveLoadingContainer from '../ProgressiveLoadingContainer';
+import uniqueId from 'lodash/uniqueId';
+import memoizeOne from '../../../modules/memoizeOne';
 
 const styles = {
     icon: {
@@ -43,6 +46,8 @@ export class Item extends Component {
     state = {
         showFooter: false,
     };
+
+    getUniqueKey = memoizeOne(filter => uniqueId());
 
     pluginCredentials = null;
 
@@ -123,46 +128,30 @@ export class Item extends Component {
             />
         ) : null;
 
-    getPluginComponent = () => {
-        const { item } = this.props;
-        const elementId = getGridItemDomId(item.id);
-
+    getContentStyle = () => {
+        const { item, editMode } = this.props;
         const PADDING_BOTTOM = 4;
-        const contentStyle = !this.props.editMode
+        return !editMode
             ? {
                   height: item.originalHeight - HEADER_HEIGHT - PADDING_BOTTOM,
               }
             : null;
-
-        switch (item.type) {
-            case CHART: {
-                return (
-                    <div id={elementId} className="dashboard-item-content">
-                        <ChartPlugin
-                            config={this.props.visualization}
-                            filters={this.props.itemFilter}
-                            forDashboard={true}
-                            style={contentStyle}
-                        />
-                    </div>
-                );
-            }
-            default: {
-                return (
-                    <div
-                        id={elementId}
-                        className="dashboard-item-content"
-                        style={contentStyle}
-                    >
-                        <DefaultPlugin {...this.props} />
-                    </div>
-                );
-            }
-        }
     };
 
+    getPluginComponent = () =>
+        this.props.item.type === CHART ? (
+            <ChartPlugin
+                config={this.props.visualization}
+                filters={this.props.itemFilter}
+                forDashboard={true}
+                style={this.getContentStyle()}
+            />
+        ) : (
+            <DefaultPlugin {...this.props} />
+        );
+
     render() {
-        const { item, editMode } = this.props;
+        const { item, editMode, itemFilter } = this.props;
         const { showFooter } = this.state;
 
         return (
@@ -172,7 +161,18 @@ export class Item extends Component {
                     actionButtons={this.getActionButtons()}
                     editMode={editMode}
                 />
-                {this.getPluginComponent()}
+                <ProgressiveLoadingContainer
+                    id={getGridItemDomId(item.id)}
+                    key={
+                        this.getUniqueKey(
+                            itemFilter
+                        ) /* remount the progressive loader every time itemFilter changes */
+                    }
+                    className="dashboard-item-content"
+                    style={this.getContentStyle()}
+                >
+                    {this.getPluginComponent()}
+                </ProgressiveLoadingContainer>
                 {!editMode && showFooter ? <ItemFooter item={item} /> : null}
             </Fragment>
         );
