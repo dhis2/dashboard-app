@@ -1,8 +1,6 @@
 # Dashboards-app
 
-[![Build Status](https://travis-ci.org/dhis2/dashboards-app.svg)](https://travis-ci.org/dhis2/dashboards-app)
-[![Test Coverage](https://codeclimate.com/github/dhis2/dashboards-app/badges/coverage.svg)](https://codeclimate.com/github/dhis2/dashboards-app/coverage)
-[![Code Climate](https://codeclimate.com/github/dhis2/dashboards-app/badges/gpa.svg)](https://codeclimate.com/github/dhis2/dashboards-app)
+[![Build Status](https://travis-ci.com/dhis2/dashboards-app.svg)](https://travis-ci.com/dhis2/dashboards-app)
 
 This repo contains the dashboards app first released in DHIS2 version 2.29.
 
