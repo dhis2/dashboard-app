@@ -11,7 +11,7 @@
         "@dhis2/d2-ui-rich-text": "^5.0.17",
         "@dhis2/d2-ui-sharing-dialog": "^5.0.17",
         "@dhis2/d2-ui-translation-dialog": "^5.0.17",
-        "@dhis2/ui": "^1.0.0-beta.9",
+        "@dhis2/ui": "^1.0.0-beta.12",
         "@material-ui/core": "^3.6.2",
         "@material-ui/icons": "^3.0.1",
         "autoprefixer": "7.1.6",
