@@ -1,6 +1,6 @@
 # Dashboards-app
 
-[![Build Status](https://travis-ci.com/dhis2/dashboards-app.svg)](https://travis-ci.com/dhis2/dashboards-app)
+[![Build Status](https://travis-ci.com/dhis2/dashboards-app.svg)](https://travis-ci.com/dhis2/dashboards-app) [![Greenkeeper badge](https://badges.greenkeeper.io/dhis2/dashboards-app.svg)](https://greenkeeper.io/)
 
 This repo contains the dashboards app first released in DHIS2 version 2.29.
 
