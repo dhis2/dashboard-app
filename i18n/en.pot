@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-01-28T15:36:13.698Z\n"
-"PO-Revision-Date: 2019-01-28T15:36:13.698Z\n"
+"POT-Creation-Date: 2019-03-01T11:56:20.216Z\n"
+"PO-Revision-Date: 2019-03-01T11:56:20.216Z\n"
 
 msgid "Dashboard"
 msgstr ""
@@ -72,45 +72,6 @@ msgid "Add text here"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
-
-msgid "Edit your interpretation"
-msgstr ""
-
-msgid "Update"
-msgstr ""
-
-msgid "Cancel edit"
-msgstr ""
-
-msgid "Edit"
-msgstr ""
-
-msgid "like"
-msgstr ""
-
-msgid "likes"
-msgstr ""
-
-msgid "You like this"
-msgstr ""
-
-msgid "Like"
-msgstr ""
-
-msgid "View in Visualizer"
-msgstr ""
-
-msgid "Reply"
-msgstr ""
-
-msgid "Add your reply"
-msgstr ""
-
-msgid "Interpretations"
-msgstr ""
-
-msgid "Add your interpretation"
 msgstr ""
 
 msgid "There are no items on this dashboard"
