@@ -49,6 +49,9 @@ const init = () => {
     config.schemas = [
         'chart',
         'map',
+        'report',
+        'eventChart',
+        'eventReport',
         'dashboard',
         'organisationUnit',
         'userGroup',
