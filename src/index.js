@@ -10,7 +10,7 @@ import dhis2theme from '@dhis2/d2-ui-core/theme/mui3.theme';
 
 // temporary workaround until new ui headerbar is ready
 import 'material-design-icons/iconfont/material-icons.css';
-import '@dhis2/ui/defaults/reset.css';
+import './reset.css';
 
 import App from './components/App';
 import './index.css';
@@ -46,7 +46,13 @@ const init = () => {
         : DHIS_CONFIG.baseUrl;
 
     config.baseUrl = `${baseUrl}/api/${manifest.dhis2.apiVersion}`;
-    config.schemas = ['dashboard', 'organisationUnit', 'chart'];
+    config.schemas = [
+        'chart',
+        'map',
+        'dashboard',
+        'organisationUnit',
+        'userGroup',
+    ];
     config.headers = isProd
         ? null
         : { Authorization: DHIS_CONFIG.authorization };
