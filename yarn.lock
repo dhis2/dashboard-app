@@ -7290,9 +7290,9 @@ marked@~0.3.6:
   integrity sha512-ea2eGWOqNxPcXv8dyERdSr/6FmzvWwzjMxpfGB/sbMccXoct+xY+YukPD+QTUZwyvK7BZwcr4m21WBOW41pAkg==
 
 material-design-icons-iconfont@^4.0.2:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/material-design-icons-iconfont/-/material-design-icons-iconfont-4.0.4.tgz#8f1eb68bd59a42944209907bfd1eb997405bf162"
-  integrity sha512-jz4P9uLPrbEbzhEsEKuN+5N1TgBFdc4Dslzx/wc22D7FKT/Aelgs/HP8mB3LGI893NND5Rw6xpvZoiXtukB5zw==
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/material-design-icons-iconfont/-/material-design-icons-iconfont-4.0.5.tgz#4107ba3b8a9d688a3d9325fc7363af51b17d3aee"
+  integrity sha512-ByJJ1yz8+RfCx2uNiC5WjVCR7K3UWRb8ytWV3RMaoFRzQLNr/J5x7+Wg1+3OlIZahNXrId9Hu+BfXfQIo01v7g==
 
 material-design-icons@^3.0.1:
   version "3.0.1"
