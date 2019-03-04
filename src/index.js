@@ -45,7 +45,7 @@ const init = () => {
         ? manifest.activities.dhis.href
         : DHIS_CONFIG.baseUrl;
 
-    config.baseUrl = `${baseUrl}/api/${31}`;
+    config.baseUrl = `${baseUrl}/api/${manifest.dhis2.apiVersion}`;
     config.schemas = [
         'chart',
         'map',
