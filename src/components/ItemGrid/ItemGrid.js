@@ -41,7 +41,7 @@ import {
 
 // Component
 
-const EXPANDED_HEIGHT = 20;
+const EXPANDED_HEIGHT = 17;
 
 export class ItemGrid extends Component {
     state = {

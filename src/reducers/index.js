@@ -10,7 +10,6 @@ import dashboardsFilter, {
     sGetFilterOwner,
 } from './dashboardsFilter';
 import controlBar from './controlBar';
-import interpretations from './interpretations';
 import visualizations from './visualizations';
 import editDashboard from './editDashboard';
 import messages from './messages';
@@ -28,7 +27,6 @@ export default combineReducers({
     selected,
     dashboardsFilter,
     controlBar,
-    interpretations,
     visualizations,
     messages,
     user,

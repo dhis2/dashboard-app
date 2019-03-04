@@ -10,7 +10,6 @@ describe('visualizations reducer', () => {
     const visualization = {
         id: 'abc',
         name: 'funny name',
-        interpretations: [],
     };
 
     const visualizationWithActiveType = {
