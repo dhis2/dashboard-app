@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Parser as RichTextParser } from '@dhis2/d2-ui-rich-text';
 import Interpretations from './Interpretations/Interpretations';
 import { colors } from '../../colors';
 import { getId, getDescription } from './plugin';
@@ -30,6 +31,7 @@ const style = {
     descriptionText: {
         fontSize: '13px',
         lineHeight: '17px',
+        whiteSpace: 'pre-line',
     },
 };
 
@@ -37,7 +39,9 @@ const ItemDescription = ({ description }) => {
     return (
         <div style={style.descriptionContainer}>
             <h3 style={style.descriptionTitle}>Description</h3>
-            <p style={style.descriptionText}>{description}</p>
+            <RichTextParser style={style.descriptionText}>
+                {description}
+            </RichTextParser>
         </div>
     );
 };
