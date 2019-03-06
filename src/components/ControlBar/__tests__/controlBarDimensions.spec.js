@@ -4,6 +4,10 @@ import {
     getNumRowsFromHeight,
 } from '../controlBarDimensions';
 
+jest.mock('@dhis2/d2-ui-core/control-bar/ControlBar', () => ({
+    END_FLAP_HEIGHT: 7,
+}));
+
 describe('controlBarDimensions', () => {
     describe('getRowsHeight', () => {
         it('calculates the inner height', () => {

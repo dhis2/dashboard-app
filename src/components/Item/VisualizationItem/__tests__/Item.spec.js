@@ -2,8 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { CHART, REPORT_TABLE } from '../../../../modules/itemTypes';
 import { Item } from '../Item';
-import DefaultPlugin from '../DefaultPlugin';
-import ChartPlugin from 'data-visualizer-plugin';
+
+jest.mock('data-visualizer-plugin', () => () => <div />);
+jest.mock('../DefaultPlugin', () => () => <div />);
+jest.mock('../ItemFooter', () => () => <div />);
 
 describe('VisualizationItem/Item', () => {
     let props;
@@ -51,13 +53,7 @@ describe('VisualizationItem/Item', () => {
             },
         };
 
-        const chartPlugin = canvas().find(ChartPlugin);
-
-        expect(chartPlugin.exists()).toBeTruthy();
-
-        expect(chartPlugin.prop('config')).toEqual(props.visualization);
-        expect(chartPlugin.prop('filters')).toEqual(props.itemFilter);
-        expect(chartPlugin.prop('forDashboard')).toBeTruthy();
+        expect(canvas()).toMatchSnapshot();
     });
 
     it('renders a DefaultPlugin when a item different from chart is passed', () => {
@@ -75,13 +71,6 @@ describe('VisualizationItem/Item', () => {
             },
         };
 
-        const defaultPlugin = canvas().find(DefaultPlugin);
-
-        expect(defaultPlugin.exists()).toBeTruthy();
-
-        expect(defaultPlugin.prop('visualization')).toEqual(
-            props.visualization
-        );
-        expect(defaultPlugin.prop('itemFilter')).toEqual(props.itemFilter);
+        expect(canvas()).toMatchSnapshot();
     });
 });

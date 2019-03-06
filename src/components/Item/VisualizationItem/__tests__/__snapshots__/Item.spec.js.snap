@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VisualizationItem/Item renders a ChartPlugin when a chart item is passed 1`] = `
+<Fragment>
+  <ItemHeader
+    actionButtons={null}
+    editMode={false}
+    title={
+      <div
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+          }
+        }
+      >
+        <span
+          title="Test chart"
+        >
+          Test chart
+        </span>
+      </div>
+    }
+  />
+  <ProgressiveLoadingContainer
+    bufferPx={0}
+    className="dashboard-item-content"
+    debounceMs={100}
+    id="item-testItem1"
+    initialBufferFactor={0.5}
+    key="1"
+    style={
+      Object {
+        "height": NaN,
+      }
+    }
+  >
+    <Component
+      config={
+        Object {
+          "description": "Test chart mock",
+          "name": "Test chart",
+        }
+      }
+      filters={
+        Object {
+          "brilliance": 100,
+        }
+      }
+      forDashboard={true}
+      style={
+        Object {
+          "height": NaN,
+        }
+      }
+    />
+  </ProgressiveLoadingContainer>
+</Fragment>
+`;
+
+exports[`VisualizationItem/Item renders a DefaultPlugin when a item different from chart is passed 1`] = `
+<Fragment>
+  <ItemHeader
+    actionButtons={null}
+    editMode={false}
+    title={
+      <div
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+          }
+        }
+      >
+        <span
+          title="Test pivot"
+        >
+          Test pivot
+        </span>
+      </div>
+    }
+  />
+  <ProgressiveLoadingContainer
+    bufferPx={0}
+    className="dashboard-item-content"
+    debounceMs={100}
+    id="item-testItem2"
+    initialBufferFactor={0.5}
+    key="2"
+    style={
+      Object {
+        "height": NaN,
+      }
+    }
+  >
+    <Component
+      classes={Object {}}
+      editMode={false}
+      item={
+        Object {
+          "id": "testItem2",
+          "reportTable": Object {
+            "id": "pivot1",
+            "name": "Test pivot",
+          },
+          "type": "REPORT_TABLE",
+        }
+      }
+      itemFilter={
+        Object {
+          "brilliance": 100,
+        }
+      }
+      onToggleItemExpanded={[MockFunction]}
+      visualization={
+        Object {
+          "description": "Test pivot mock",
+          "name": "Test pivot",
+        }
+      }
+    />
+  </ProgressiveLoadingContainer>
+</Fragment>
+`;

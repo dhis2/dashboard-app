@@ -3,21 +3,22 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import LaunchIcon from '@material-ui/icons/Launch';
+import uniqueId from 'lodash/uniqueId';
+import ChartPlugin from 'data-visualizer-plugin';
 
+import DefaultPlugin from './DefaultPlugin';
+import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
+import ItemFooter from './ItemFooter';
+import VisualizationItemHeaderButtons from './ItemHeaderButtons';
+import ProgressiveLoadingContainer from '../ProgressiveLoadingContainer';
 import * as pluginManager from './plugin';
+
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
 import { acReceivedActiveVisualization } from '../../../actions/selected';
 import { itemTypeMap, CHART } from '../../../modules/itemTypes';
-import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
-import ItemFooter from './ItemFooter';
-import VisualizationItemHeaderButtons from './ItemHeaderButtons';
-import DefaultPlugin from './DefaultPlugin';
 import { colors } from '../../../modules/colors';
-import ChartPlugin from 'data-visualizer-plugin';
-import ProgressiveLoadingContainer from '../ProgressiveLoadingContainer';
-import uniqueId from 'lodash/uniqueId';
 import memoizeOne from '../../../modules/memoizeOne';
 
 const styles = {
