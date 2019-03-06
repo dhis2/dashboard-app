@@ -1,7 +1,6 @@
 import { getInstance } from 'd2/lib/d2';
 import arrayClean from 'd2-utilizr/lib/arrayClean';
 
-import { interpretationFields } from './interpretations';
 import { getEndPointName } from './index';
 
 // Id, name
@@ -36,7 +35,6 @@ export const getFavoriteFields = ({ withDimensions, withOptions }) => {
     return arrayClean([
         `${getIdNameFields({ rename: true }).join(',')}`,
         'displayDescription~rename(description)',
-        interpretationFields(),
         withDimensions ? `${getAxesFields({ withItems: true }).join(',')}` : ``,
         withOptions
             ? [
