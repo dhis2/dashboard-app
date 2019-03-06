@@ -27,6 +27,7 @@ import {
 } from '../modules/itemTypes';
 import { extractFavorite } from '../components/Item/VisualizationItem/plugin';
 import { orObject } from '../modules/util';
+import { apiPostDataStatistics } from '../api/dataStatistics';
 
 // actions
 
@@ -67,6 +68,8 @@ export const tLoadDashboard = id => async (dispatch, getState) => {
     try {
         const dash = await apiFetchDashboard(id);
         dispatch(acAppendDashboards(dash));
+
+        apiPostDataStatistics('DASHBOARD_VIEW', id);
 
         return Promise.resolve(dash);
     } catch (err) {
