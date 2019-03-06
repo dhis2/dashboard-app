@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DashboardsBar does not render ShowMoreButton when userRows is MAX_ROW_COUNT 1`] = `
+<Component
+  editMode={false}
+  expandable={true}
+  height={384}
+  onChangeHeight={[Function]}
+  onEndDrag={[Function]}
+>
+  <div
+    style={
+      Object {
+        "height": 370,
+        "overflowY": "auto",
+        "padding": "10px 6px 0 6px",
+      }
+    }
+  >
+    <div
+      className="left-controls"
+    >
+      <Link
+        replace={false}
+        style={
+          Object {
+            "display": "inline-block",
+            "marginRight": 10,
+            "textDecoration": "none",
+          }
+        }
+        to="/new"
+      >
+        <D2IconButton
+          icon={null}
+          iconColor=""
+          iconStyle={null}
+          onClick={[Function]}
+          style={null}
+        />
+      </Link>
+      <_default
+        onKeypressEnter={[Function]}
+      />
+    </div>
+  </div>
+</Component>
+`;
+
+exports[`DashboardsBar renders ShowMoreButton when userRows is less than MAX_ROW_COUNT 1`] = `
+<Component
+  editMode={false}
+  expandable={true}
+  height={348}
+  onChangeHeight={[Function]}
+  onEndDrag={[Function]}
+>
+  <div
+    style={
+      Object {
+        "height": 334,
+        "overflowY": "hidden",
+        "padding": "10px 6px 0 6px",
+      }
+    }
+  >
+    <div
+      className="left-controls"
+    >
+      <Link
+        replace={false}
+        style={
+          Object {
+            "display": "inline-block",
+            "marginRight": 10,
+            "textDecoration": "none",
+          }
+        }
+        to="/new"
+      >
+        <D2IconButton
+          icon={null}
+          iconColor=""
+          iconStyle={null}
+          onClick={[Function]}
+          style={null}
+        />
+      </Link>
+      <_default
+        onKeypressEnter={[Function]}
+      />
+    </div>
+  </div>
+  <WithStyles(ShowMoreButton)
+    isMaxHeight={false}
+    onClick={[Function]}
+  />
+</Component>
+`;
+
+exports[`DashboardsBar renders a DashboardsBar with no items 1`] = `
+<Component
+  editMode={false}
+  expandable={true}
+  height={60}
+  onChangeHeight={[Function]}
+  onEndDrag={[Function]}
+>
+  <div
+    style={
+      Object {
+        "height": 46,
+        "overflowY": "hidden",
+        "padding": "10px 6px 0 6px",
+      }
+    }
+  >
+    <div
+      className="left-controls"
+    >
+      <Link
+        replace={false}
+        style={
+          Object {
+            "display": "inline-block",
+            "marginRight": 10,
+            "textDecoration": "none",
+          }
+        }
+        to="/new"
+      >
+        <D2IconButton
+          icon={null}
+          iconColor=""
+          iconStyle={null}
+          onClick={[Function]}
+          style={null}
+        />
+      </Link>
+      <_default
+        onKeypressEnter={[Function]}
+      />
+    </div>
+  </div>
+  <WithStyles(ShowMoreButton)
+    isMaxHeight={false}
+    onClick={[Function]}
+  />
+</Component>
+`;
+
+exports[`DashboardsBar when dashboards are provided renders DashboardItemChips for each item on dashboard 1`] = `
+<Component
+  editMode={false}
+  expandable={true}
+  height={60}
+  onChangeHeight={[Function]}
+  onEndDrag={[Function]}
+>
+  <div
+    style={
+      Object {
+        "height": 46,
+        "overflowY": "hidden",
+        "padding": "10px 6px 0 6px",
+      }
+    }
+  >
+    <div
+      className="left-controls"
+    >
+      <Link
+        replace={false}
+        style={
+          Object {
+            "display": "inline-block",
+            "marginRight": 10,
+            "textDecoration": "none",
+          }
+        }
+        to="/new"
+      >
+        <D2IconButton
+          icon={null}
+          iconColor=""
+          iconStyle={null}
+          onClick={[Function]}
+          style={null}
+        />
+      </Link>
+      <_default
+        onKeypressEnter={[Function]}
+      />
+    </div>
+    <DashboardItemChip
+      dashboardId="rainbow123"
+      key="rainbow123"
+      label="Rainbow Dash"
+      selected={false}
+      starred={false}
+    />
+    <DashboardItemChip
+      dashboardId="fluttershy123"
+      key="fluttershy123"
+      label="Fluttershy"
+      selected={false}
+      starred={true}
+    />
+  </div>
+  <WithStyles(ShowMoreButton)
+    isMaxHeight={false}
+    onClick={[Function]}
+  />
+</Component>
+`;

@@ -128,6 +128,7 @@ export class EditBar extends Component {
     translationDialog = () =>
         this.state.dashboardModel && this.state.dashboardModel.id ? (
             <TranslationDialog
+                className="translation-dialog"
                 d2={this.context.d2}
                 open={this.state.translationDialogIsOpen}
                 onRequestClose={this.toggleTranslationDialog}

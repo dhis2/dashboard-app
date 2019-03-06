@@ -1,0 +1,437 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditBar renders the EditBar 1`] = `
+<Fragment>
+  <Component
+    editMode={true}
+    expandable={false}
+    height={NaN}
+  >
+    <div
+      style={
+        Object {
+          "height": 36,
+          "marginLeft": "15px",
+          "marginRight": "15px",
+          "paddingTop": "15px",
+        }
+      }
+    >
+      <div
+        className="right-controls"
+      >
+        <FlatButton
+          className="discard-button"
+          onClick={[Function]}
+        >
+          Go to dashboards
+        </FlatButton>
+      </div>
+    </div>
+  </Component>
+</Fragment>
+`;
+
+exports[`EditBar when update access is false renders only the Discard button 1`] = `
+<Fragment>
+  <Component
+    editMode={true}
+    expandable={false}
+    height={NaN}
+  >
+    <div
+      style={
+        Object {
+          "height": 36,
+          "marginLeft": "15px",
+          "marginRight": "15px",
+          "paddingTop": "15px",
+        }
+      }
+    >
+      <div
+        className="right-controls"
+      >
+        <FlatButton
+          className="discard-button"
+          onClick={[Function]}
+        >
+          Go to dashboards
+        </FlatButton>
+      </div>
+    </div>
+  </Component>
+</Fragment>
+`;
+
+exports[`EditBar when update access is true when dashboard id property provided renders Save, Translate and Discard buttons and the TranslationDialog but not ConfirmDeleteDialog 1`] = `
+<Fragment>
+  <Component
+    editMode={true}
+    expandable={false}
+    height={NaN}
+  >
+    <div
+      style={
+        Object {
+          "height": 36,
+          "marginLeft": "15px",
+          "marginRight": "15px",
+          "paddingTop": "15px",
+        }
+      }
+    >
+      <div
+        className="left-controls"
+      >
+        <span
+          style={
+            Object {
+              "marginRight": "15px",
+            }
+          }
+        >
+          <PrimaryButton
+            className="save-button"
+            onClick={[Function]}
+          >
+            Save changes
+          </PrimaryButton>
+        </span>
+        <FlatButton
+          className="translate-button"
+          onClick={[Function]}
+        >
+          Translate
+        </FlatButton>
+      </div>
+      <div
+        className="right-controls"
+      >
+        <FlatButton
+          className="discard-button"
+          onClick={[Function]}
+        >
+          Exit without saving
+        </FlatButton>
+      </div>
+    </div>
+  </Component>
+  <Component
+    className="translation-dialog"
+    d2={
+      Object {
+        "currentUser": Object {
+          "firstName": "Mark the Ghost",
+          "surname": "Polak",
+          "userSettings": Object {
+            "get": [Function],
+          },
+        },
+      }
+    }
+    fieldsToTranslate={
+      Array [
+        "name",
+        "description",
+      ]
+    }
+    objectToTranslate={
+      Object {
+        "id": "rainbow123",
+      }
+    }
+    onRequestClose={[Function]}
+    onTranslationError={[Function]}
+    onTranslationSaved={[Function]}
+    open={false}
+  />
+</Fragment>
+`;
+
+exports[`EditBar when update access is true when dashboard id property provided when TRANSLATE button is clicked shows the translate dialog 1`] = `
+<Fragment>
+  <Component
+    editMode={true}
+    expandable={false}
+    height={NaN}
+  >
+    <div
+      style={
+        Object {
+          "height": 36,
+          "marginLeft": "15px",
+          "marginRight": "15px",
+          "paddingTop": "15px",
+        }
+      }
+    >
+      <div
+        className="left-controls"
+      >
+        <span
+          style={
+            Object {
+              "marginRight": "15px",
+            }
+          }
+        >
+          <PrimaryButton
+            className="save-button"
+            onClick={[Function]}
+          >
+            Save changes
+          </PrimaryButton>
+        </span>
+        <FlatButton
+          className="translate-button"
+          onClick={[Function]}
+        >
+          Translate
+        </FlatButton>
+      </div>
+      <div
+        className="right-controls"
+      >
+        <FlatButton
+          className="discard-button"
+          onClick={[Function]}
+        >
+          Exit without saving
+        </FlatButton>
+      </div>
+    </div>
+  </Component>
+  <Component
+    className="translation-dialog"
+    d2={
+      Object {
+        "currentUser": Object {
+          "firstName": "Mark the Ghost",
+          "surname": "Polak",
+          "userSettings": Object {
+            "get": [Function],
+          },
+        },
+      }
+    }
+    fieldsToTranslate={
+      Array [
+        "name",
+        "description",
+      ]
+    }
+    objectToTranslate={
+      Object {
+        "id": "rainbow123",
+      }
+    }
+    onRequestClose={[Function]}
+    onTranslationError={[Function]}
+    onTranslationSaved={[Function]}
+    open={false}
+  />
+</Fragment>
+`;
+
+exports[`EditBar when update access is true when dashboard id property provided when TRANSLATE button is clicked shows the translate dialog 2`] = `
+<Fragment>
+  <Component
+    editMode={true}
+    expandable={false}
+    height={NaN}
+  >
+    <div
+      style={
+        Object {
+          "height": 36,
+          "marginLeft": "15px",
+          "marginRight": "15px",
+          "paddingTop": "15px",
+        }
+      }
+    >
+      <div
+        className="left-controls"
+      >
+        <span
+          style={
+            Object {
+              "marginRight": "15px",
+            }
+          }
+        >
+          <PrimaryButton
+            className="save-button"
+            onClick={[Function]}
+          >
+            Save changes
+          </PrimaryButton>
+        </span>
+        <FlatButton
+          className="translate-button"
+          onClick={[Function]}
+        >
+          Translate
+        </FlatButton>
+      </div>
+      <div
+        className="right-controls"
+      >
+        <FlatButton
+          className="discard-button"
+          onClick={[Function]}
+        >
+          Exit without saving
+        </FlatButton>
+      </div>
+    </div>
+  </Component>
+  <Component
+    className="translation-dialog"
+    d2={
+      Object {
+        "currentUser": Object {
+          "firstName": "Mark the Ghost",
+          "surname": "Polak",
+          "userSettings": Object {
+            "get": [Function],
+          },
+        },
+      }
+    }
+    fieldsToTranslate={
+      Array [
+        "name",
+        "description",
+      ]
+    }
+    objectToTranslate={
+      Object {
+        "id": "rainbow123",
+      }
+    }
+    onRequestClose={[Function]}
+    onTranslationError={[Function]}
+    onTranslationSaved={[Function]}
+    open={true}
+  />
+</Fragment>
+`;
+
+exports[`EditBar when update access is true when dashboard id property provided when deleteAccess is true renders Translate, Delete, and Discard buttons and ConfirmDeleteDialog 1`] = `
+<Fragment>
+  <Component
+    editMode={true}
+    expandable={false}
+    height={NaN}
+  >
+    <div
+      style={
+        Object {
+          "height": 36,
+          "marginLeft": "15px",
+          "marginRight": "15px",
+          "paddingTop": "15px",
+        }
+      }
+    >
+      <div
+        className="left-controls"
+      >
+        <span
+          style={
+            Object {
+              "marginRight": "15px",
+            }
+          }
+        >
+          <PrimaryButton
+            className="save-button"
+            onClick={[Function]}
+          >
+            Save changes
+          </PrimaryButton>
+        </span>
+        <FlatButton
+          className="delete-button"
+          onClick={[Function]}
+        >
+          Delete
+        </FlatButton>
+        <FlatButton
+          className="translate-button"
+          onClick={[Function]}
+        >
+          Translate
+        </FlatButton>
+      </div>
+      <div
+        className="right-controls"
+      >
+        <FlatButton
+          className="discard-button"
+          onClick={[Function]}
+        >
+          Exit without saving
+        </FlatButton>
+      </div>
+    </div>
+  </Component>
+  <ConfirmDeleteDialog
+    onContinueEditing={[Function]}
+    onDeleteConfirmed={[Function]}
+    open={false}
+  />
+</Fragment>
+`;
+
+exports[`EditBar when update access is true when no dashboard id property renders Save and Discard buttons but no dialogs 1`] = `
+<Fragment>
+  <Component
+    editMode={true}
+    expandable={false}
+    height={NaN}
+  >
+    <div
+      style={
+        Object {
+          "height": 36,
+          "marginLeft": "15px",
+          "marginRight": "15px",
+          "paddingTop": "15px",
+        }
+      }
+    >
+      <div
+        className="left-controls"
+      >
+        <span
+          style={
+            Object {
+              "marginRight": "15px",
+            }
+          }
+        >
+          <PrimaryButton
+            className="save-button"
+            onClick={[Function]}
+          >
+            Save changes
+          </PrimaryButton>
+        </span>
+      </div>
+      <div
+        className="right-controls"
+      >
+        <FlatButton
+          className="discard-button"
+          onClick={[Function]}
+        >
+          Exit without saving
+        </FlatButton>
+      </div>
+    </div>
+  </Component>
+</Fragment>
+`;
