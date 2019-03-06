@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-01-23T12:54:26.213Z\n"
-"PO-Revision-Date: 2019-01-23T12:54:26.213Z\n"
+"POT-Creation-Date: 2019-03-06T17:24:20.929Z\n"
+"PO-Revision-Date: 2019-03-06T17:24:20.930Z\n"
 
 msgid "Delete"
 msgstr ""
@@ -54,45 +54,6 @@ msgid "Messages"
 msgstr ""
 
 msgid "See all messages"
-msgstr ""
-
-msgid "Edit your interpretation"
-msgstr ""
-
-msgid "Update"
-msgstr ""
-
-msgid "Cancel edit"
-msgstr ""
-
-msgid "Edit"
-msgstr ""
-
-msgid "like"
-msgstr ""
-
-msgid "likes"
-msgstr ""
-
-msgid "You like this"
-msgstr ""
-
-msgid "Like"
-msgstr ""
-
-msgid "View in Visualizer"
-msgstr ""
-
-msgid "Reply"
-msgstr ""
-
-msgid "Add your reply"
-msgstr ""
-
-msgid "Interpretations"
-msgstr ""
-
-msgid "Add your interpretation"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"

@@ -3,11 +3,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 import D2UIApp from 'd2-ui/lib/app/D2UIApp';
 import { config, getUserSettings } from 'd2/lib/d2';
 
 import App from './App';
+import './reset.css';
 import './index.css';
 import i18n from './locales';
 import configureStore from './configureStore';
@@ -26,7 +26,6 @@ const configI18n = userSettings => {
 
 const init = () => {
     // init material-ui
-    injectTapEventPlugin();
 
     // log app info
     console.info(
@@ -48,7 +47,17 @@ const init = () => {
     getUserSettings()
         .then(configI18n)
         .then(() => {
-            config.schemas = ['dashboard', 'organisationUnit'];
+            config.schemas = [
+                'chart',
+                'map',
+                'report',
+                'reportTable',
+                'eventChart',
+                'eventReport',
+                'dashboard',
+                'organisationUnit',
+                'userGroup',
+            ];
 
             ReactDOM.render(
                 <D2UIApp initConfig={config} muiTheme={muiTheme()}>
