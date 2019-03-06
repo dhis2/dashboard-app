@@ -27,7 +27,6 @@ import {
 } from '../modules/itemTypes';
 import { extractFavorite } from '../components/Item/VisualizationItem/plugin';
 import { orObject } from '../modules/util';
-import { apiPostDataStatistics } from '../api/dataStatistics';
 
 // actions
 
