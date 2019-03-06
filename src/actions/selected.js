@@ -69,8 +69,6 @@ export const tLoadDashboard = id => async (dispatch, getState) => {
         const dash = await apiFetchDashboard(id);
         dispatch(acAppendDashboards(dash));
 
-        apiPostDataStatistics('DASHBOARD_VIEW', id);
-
         return Promise.resolve(dash);
     } catch (err) {
         console.log('Error: ', err);
