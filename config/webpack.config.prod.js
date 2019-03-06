@@ -4,7 +4,8 @@ const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
@@ -21,7 +22,7 @@ const getClientEnvironment = require('./env');
 const publicPath = paths.servedPath;
 // Some apps do not use client-side routing with pushState.
 // For these, "homepage" can be set to "." to enable relative asset paths.
-const shouldUseRelativeAssetPaths = publicPath === './';
+// const shouldUseRelativeAssetPaths = publicPath === './';
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
@@ -50,14 +51,14 @@ if (env.stringified['process.env'].NODE_ENV !== '"production"') {
 // Note: defined here because it will be used more than once.
 const cssFilename = 'static/css/[name].[contenthash:8].css';
 
-// ExtractTextPlugin expects the build output to be flat.
-// (See https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27)
-// However, our output is structured with css, js and media folders.
-// To have this structure working with relative paths, we have to use custom options.
-const extractTextPluginOptions = shouldUseRelativeAssetPaths
-    ? // Making sure that the publicPath goes back to to build folder.
-      { publicPath: Array(cssFilename.split('/').length).join('../') }
-    : {};
+// // ExtractTextPlugin expects the build output to be flat.
+// // (See https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27)
+// // However, our output is structured with css, js and media folders.
+// // To have this structure working with relative paths, we have to use custom options.
+// const extractTextPluginOptions = shouldUseRelativeAssetPaths
+//     ? // Making sure that the publicPath goes back to to build folder.
+//       { publicPath: Array(cssFilename.split('/').length).join('../') }
+//     : {};
 
 const scriptPrefix = '..';
 
@@ -66,6 +67,18 @@ const scriptPrefix = '..';
 // The development configuration is different and lives in a separate file.
 module.exports = {
     mode: 'production',
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                styles: {
+                    name: 'styles',
+                    test: /\.css$/,
+                    chunks: 'all',
+                    enforce: true,
+                },
+            },
+        },
+    },
     // Don't attempt to continue if there are any errors.
     bail: true,
     // We generate sourcemaps in production. This is slow but gives good results.
@@ -127,8 +140,7 @@ module.exports = {
             // We are waiting for https://github.com/facebookincubator/create-react-app/issues/2176.
             // { parser: { requireEnsure: false } },
 
-            // First, run the linter.
-            // It's important to do this before Babel processes the JS.
+            // It's important to lint before Babel processes the JS.
             {
                 test: /\.(js|jsx|mjs)$/,
                 enforce: 'pre',
@@ -144,9 +156,6 @@ module.exports = {
                 include: paths.appSrc,
             },
             {
-                // "oneOf" will traverse all following loaders until one will
-                // match the requirements. When no loader matches it will fall
-                // back to the "file" loader at the end of the loader list.
                 oneOf: [
                     // "url" loader works just like "file" loader but it also embeds
                     // assets smaller than specified size as data URLs to avoid requests.
@@ -181,60 +190,37 @@ module.exports = {
                     // in the main CSS file.
                     {
                         test: /\.css$/,
-                        loader: ExtractTextPlugin.extract(
-                            Object.assign(
-                                {
-                                    fallback: {
-                                        loader: require.resolve('style-loader'),
-                                        options: {
-                                            hmr: false,
-                                        },
-                                    },
-                                    use: [
-                                        {
-                                            loader: require.resolve(
-                                                'css-loader'
-                                            ),
-                                            options: {
-                                                importLoaders: 1,
-                                                minimize: true,
-                                                sourceMap: shouldUseSourceMap,
-                                            },
-                                        },
-                                        {
-                                            loader: require.resolve(
-                                                'postcss-loader'
-                                            ),
-                                            options: {
-                                                // Necessary for external CSS imports to work
-                                                // https://github.com/facebookincubator/create-react-app/issues/2677
-                                                ident: 'postcss',
-                                                plugins: () => [
-                                                    require('postcss-rtl'),
-                                                    require('postcss-flexbugs-fixes'),
-                                                    autoprefixer({
-                                                        browsers: [
-                                                            '>1%',
-                                                            'last 4 versions',
-                                                            'Firefox ESR',
-                                                            'not ie < 9', // React doesn't support IE8 anyway
-                                                        ],
-                                                        flexbox: 'no-2009',
-                                                    }),
-                                                ],
-                                            },
-                                        },
+                        use: [
+                            MiniCssExtractPlugin.loader,
+                            {
+                                loader: require.resolve('css-loader'),
+                                options: {
+                                    sourceMap: shouldUseSourceMap,
+                                },
+                            },
+                            {
+                                loader: require.resolve('postcss-loader'),
+                                options: {
+                                    // Necessary for external CSS imports to work
+                                    // https://github.com/facebookincubator/create-react-app/issues/2677
+                                    ident: 'postcss',
+                                    plugins: () => [
+                                        require('postcss-rtl'),
+                                        require('postcss-flexbugs-fixes'),
+                                        autoprefixer({
+                                            browsers: [
+                                                '>1%',
+                                                'last 4 versions',
+                                                'Firefox ESR',
+                                                'not ie < 9',
+                                            ],
+                                            flexbox: 'no-2009',
+                                        }),
                                     ],
                                 },
-                                extractTextPluginOptions
-                            )
-                        ),
-                        // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+                            },
+                        ],
                     },
-                    // "file" loader makes sure assets end up in the `build` folder.
-                    // When you `import` an asset, you get its filename.
-                    // This loader doesn't use a "test" so it will catch all modules
-                    // that fall through the other loaders.
                     {
                         loader: require.resolve('file-loader'),
                         // Exclude `js` files to keep "css" loader working as it injects
@@ -295,10 +281,15 @@ module.exports = {
         }),
         // Generates an `index.html` file with the <script> injected.
 
-        // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
-        new ExtractTextPlugin({
+        new MiniCssExtractPlugin({
             filename: cssFilename,
         }),
+
+        // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
+        // new ExtractTextPlugin({
+        //     filename: cssFilename,
+        // }),
+
         // Generate a manifest file which contains a mapping of all asset filenames
         // to their corresponding output file so that tools can pick it up without
         // having to parse `index.html`.
