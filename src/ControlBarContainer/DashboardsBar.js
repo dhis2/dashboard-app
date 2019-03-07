@@ -26,9 +26,6 @@ import { apiPostDataStatistics } from '../api/dataStatistics';
 export const MIN_ROW_COUNT = 1;
 export const MAX_ROW_COUNT = 10;
 
-const onDashboardSelectWrapper = (id, name, onClick) => () =>
-    id && onClick(id, name);
-
 export class DashboardsBar extends Component {
     state = {
         rows: MIN_ROW_COUNT,
@@ -129,7 +126,7 @@ export class DashboardsBar extends Component {
                             <Filter
                                 name={name}
                                 onChangeName={onChangeFilterName}
-                                onKeypressEnter={onDashboardSelectWrapper(
+                                onKeypressEnter={this.getDashboardSelectHandler(
                                     orObject(orArray(dashboards)[0]).id,
                                     orObject(orArray(dashboards)[0])
                                         .displayName,
@@ -144,7 +141,7 @@ export class DashboardsBar extends Component {
                             label={dashboard.displayName}
                             starred={dashboard.starred}
                             selected={dashboard.id === selectedId}
-                            onClick={onDashboardSelectWrapper(
+                            onClick={this.getDashboardSelectHandler(
                                 dashboard.id,
                                 dashboard.displayName,
                                 onSelectDashboard
