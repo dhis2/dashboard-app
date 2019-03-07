@@ -130,9 +130,8 @@ class MessagesItem extends Component {
                 <li style={listItemStyle} key={msg.id}>
                     <div>
                         <div style={style.author}>
-                            {msg.userFirstname} {msg.userSurname} ({
-                                msg.messageCount
-                            })
+                            {msg.userFirstname} {msg.userSurname} (
+                            {msg.messageCount})
                         </div>
                         <div style={style.date}>
                             {formatDate(msg.lastUpdated, this.state.uiLocale)}

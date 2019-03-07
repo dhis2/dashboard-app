@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 import arraySort from 'd2-utilizr/lib/arraySort';
+import debounce from 'lodash/debounce';
+
 import Chip from './DashboardItemChip';
 import D2IconButton from '../widgets/D2IconButton';
 import Filter from './Filter';
@@ -20,6 +21,7 @@ import { orObject, orArray } from '../util';
 import { sGetSelectedId } from '../reducers/selected';
 import { apiPostControlBarRows } from '../api/controlBar';
 import { colors } from '../colors';
+import { apiPostDataStatistics } from '../api/dataStatistics';
 
 export const MIN_ROW_COUNT = 1;
 export const MAX_ROW_COUNT = 10;
@@ -72,6 +74,16 @@ export class DashboardsBar extends Component {
 
         this.setState({ rows, isMaxHeight: !this.state.isMaxHeight });
     };
+
+    getPostDataStatisticsFn = id => () =>
+        apiPostDataStatistics('DASHBOARD_VIEW', id);
+
+    getDashboardSelectHandler = (id, name, onClick) => () =>
+        id &&
+        (() => {
+            onClick(id, name);
+            debounce(this.getPostDataStatisticsFn(id), 500)();
+        })();
 
     render() {
         const {
