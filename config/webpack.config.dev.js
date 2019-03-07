@@ -12,7 +12,6 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const fs = require('fs');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
-const parse = require('url-parse');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -34,7 +33,8 @@ try {
     // Failed to load config file - use default config
     console.warn(`\nWARNING! Failed to load DHIS config:`, e.message);
     dhisConfig = {
-        baseUrl: 'http://localhost:8080',
+        baseUrl:
+            process.env.REACT_APP_DHIS2_BASE_URL || 'http://localhost:8080',
         authorization: 'Basic YWRtaW46ZGlzdHJpY3Q=', // admin:district
     };
 }
@@ -53,7 +53,6 @@ const globals = Object.assign(
 );
 
 const scriptPrefix = dhisConfig.baseUrl;
-const pathnamePrefix = parse(scriptPrefix).pathname;
 
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
@@ -255,7 +254,7 @@ module.exports = {
             inject: true,
             template: paths.appHtml,
             vendorScripts: [
-                `.${pathnamePrefix}/dhis-web-core-resource/fonts/roboto.css`,
+                `${scriptPrefix}/dhis-web-core-resource/fonts/roboto.css`,
                 `${scriptPrefix}/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.js`,
                 `${scriptPrefix}/dhis-web-core-resource/jquery/3.2.1/dist/jquery.js`,
                 `${scriptPrefix}/dhis-web-core-resource/jquery-migrate/3.0.1/dist/jquery-migrate.js`,

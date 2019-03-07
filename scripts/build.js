@@ -104,13 +104,11 @@ function build(previousFileSizes) {
     console.log('Creating an optimized production build...');
 
     let compiler = webpack(config);
-
     return new Promise((resolve, reject) => {
         compiler.run((err, stats) => {
             if (err) {
                 return reject(err);
             }
-
             const messages = formatWebpackMessages(stats.toJson({}, true));
             if (messages.errors.length) {
                 // Only keep the first error. Others are often indicative
