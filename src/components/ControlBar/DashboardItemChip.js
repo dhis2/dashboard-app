@@ -4,10 +4,8 @@ import MuiChip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
 import IconStar from '@material-ui/icons/Star';
 import { Link } from 'react-router-dom';
-import debounce from 'lodash/debounce';
 
 import { colors } from '../../modules/colors';
-import { apiPostDataStatistics } from '../../api/dataStatistics';
 
 const chipTheme = {
     default: {
@@ -36,7 +34,13 @@ const avatar = selected => {
     return <Avatar icon={<IconStar />} {...avatarProps} />;
 };
 
-const DashboardItemChip = ({ starred, selected, label, dashboardId }) => {
+const DashboardItemChip = ({
+    starred,
+    selected,
+    label,
+    dashboardId,
+    onClick,
+}) => {
     const chipColorProps = selected
         ? chipTheme.accent
         : starred
@@ -60,10 +64,7 @@ const DashboardItemChip = ({ starred, selected, label, dashboardId }) => {
                 textDecoration: 'none',
             }}
             to={`/${dashboardId}`}
-            onClick={debounce(
-                () => apiPostDataStatistics('DASHBOARD_VIEW', dashboardId),
-                500
-            )}
+            onClick={onClick}
         >
             <MuiChip {...props}>
                 {starred ? avatar(selected) : null}
