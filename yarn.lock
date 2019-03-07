@@ -952,6 +952,48 @@
     lodash "^4.17.10"
     material-ui "^0.20.0"
 
+"@dhis2/d2-ui-core@5.2.9":
+  version "5.2.9"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-5.2.9.tgz#7a182d911a0570493dc87febe29bc7ee5ced6503"
+  integrity sha512-+dpnJ1uTigANCnbUYGAxf9+AYu37UhbREKJhbeZvgZJmsZpa4eRaFFySS+2Y2N+luLeMaN4HaOEiZnQF8Mvv5w==
+  dependencies:
+    babel-runtime "^6.26.0"
+    d2 "~31.4"
+    lodash "^4.17.10"
+    material-ui "^0.20.0"
+
+"@dhis2/d2-ui-interpretations@5.2.9":
+  version "5.2.9"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-5.2.9.tgz#a9aba53f4fa0bfdad11002dd6fa8addace9d0d1b"
+  integrity sha512-5qEhKY+IvfkDsza9ac74tkYiewKfeQz3ZfA4mZFeT7rbQVIn4g1bI2Hxal2sAkSVxx2Gvc4BcEH1EVUEw8xvMw==
+  dependencies:
+    "@dhis2/d2-i18n" "^1.0.3"
+    "@dhis2/d2-i18n-extract" "^1.0.7"
+    "@dhis2/d2-i18n-generate" "^1.0.18"
+    "@dhis2/d2-ui-mentions-wrapper" "5.2.9"
+    "@dhis2/d2-ui-rich-text" "5.2.9"
+    "@dhis2/d2-ui-sharing-dialog" "5.2.9"
+    "@material-ui/core" "^3.3.1"
+    "@material-ui/icons" "^3.0.1"
+    babel-runtime "^6.26.0"
+    classnames "^2.2.6"
+    husky "^1.0.0-rc.8"
+    postcss-rtl "^1.3.0"
+    prop-types "^15.5.10"
+    react-portal "^4.1.5"
+    recompose "^0.26.0"
+    rxjs "^5.5.7"
+
+"@dhis2/d2-ui-mentions-wrapper@5.2.9":
+  version "5.2.9"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-5.2.9.tgz#507f89824b8c2c3ffdacec3759bb98095a631603"
+  integrity sha512-QVdv5w72FEgrPm83blXAUHVxY97d9KYK1VEBxSKstsHpQZcdAIbjORHj7Uv2yP978+kfUVjxba5UH0M7GkaLWQ==
+  dependencies:
+    "@dhis2/d2-i18n" "^1.0.3"
+    "@material-ui/core" "^3.3.1"
+    lodash "^4.17.10"
+    prop-types "^15.6.2"
+
 "@dhis2/d2-ui-mentions-wrapper@^5.0.17":
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-5.1.1.tgz#b1b831ec8626043e01d5ece5fdfcf8cd61f79054"
@@ -974,6 +1016,15 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
+"@dhis2/d2-ui-rich-text@5.2.9":
+  version "5.2.9"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-5.2.9.tgz#67cabce3b001495f53be4f5fb3b3973265e19eb6"
+  integrity sha512-Gv+ULAmZzVIr7d/S+menDjhawU+JwLhRn1IDOmdlwtUpoiQhi20gXLbxHoCIWt1AmiVTxQRqiEHbHTxv5vFW7w==
+  dependencies:
+    babel-runtime "^6.26.0"
+    markdown-it "^8.4.2"
+    prop-types "^15.6.2"
+
 "@dhis2/d2-ui-rich-text@^5.0.17":
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-5.1.1.tgz#03ddf968842946242d95bfe625edd5153a58d653"
@@ -982,6 +1033,20 @@
     babel-runtime "^6.26.0"
     markdown-it "^8.4.2"
     prop-types "^15.6.2"
+
+"@dhis2/d2-ui-sharing-dialog@5.2.9":
+  version "5.2.9"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-5.2.9.tgz#db2586067473ef07ff21e3d962c4db8b528ac595"
+  integrity sha512-pYAZGazIq760nSHAOH6gO2IpP/sqTc7MFS0RHFgFgFr9l6UvHpy7fEXkFkHYoKbVi7pQLTRRQquBoBdzRcm/Kg==
+  dependencies:
+    "@dhis2/d2-ui-core" "5.2.9"
+    "@material-ui/core" "^3.3.1"
+    "@material-ui/icons" "^3.0.1"
+    babel-runtime "^6.26.0"
+    downshift "^2.2.2"
+    prop-types "^15.5.10"
+    recompose "^0.26.0"
+    rxjs "^5.5.7"
 
 "@dhis2/d2-ui-sharing-dialog@^5.0.17":
   version "5.1.1"
@@ -1011,6 +1076,15 @@
     react-select "^2.0.0"
     recompose "^0.26.0"
     rxjs "^5.5.7"
+
+"@dhis2/ui@^1.0.0-beta.12":
+  version "1.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-1.0.0-beta.12.tgz#bd78835a1e165d1879e12be93790948016819c90"
+  integrity sha512-bpeDxVXqj4R6YqguH5Jt9i3pLtg5VpAWiwNmb/Cf7YqFDJHJ4RNTW01qYB+oV5SHwbAYNKmPpvYfpPOtiOFuuQ==
+  dependencies:
+    classnames "^2.2.6"
+    material-design-icons-iconfont "^4.0.2"
+    typeface-roboto "^0.0.54"
 
 "@emotion/babel-utils@^0.6.4":
   version "0.6.10"
@@ -3268,6 +3342,13 @@ d2@~31.1:
     jsdoc "^3.5.5"
     whatwg-fetch "^2.0.3"
 
+d2@~31.4:
+  version "31.4.0"
+  resolved "https://registry.yarnpkg.com/d2/-/d2-31.4.0.tgz#761e297d0f6a5b4b1d6043de176d887ee5faa09b"
+  integrity sha512-8Bw4W4XVc6jDlZ/+g2TJW6iuxcLAi8ii8Iv0tRBe1M+WjH+x6UWfQuMKxXL/hZtOaa0TNiRouyp50pVBuXawIw==
+  dependencies:
+    whatwg-fetch "^2.0.3"
+
 d3-color@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/d3-color/-/d3-color-1.0.1.tgz#73cc91f4ee3f12e00ca06b1596a7c83cf104723a"
@@ -4231,6 +4312,19 @@ execa@^1.0.0:
     signal-exit "^3.0.0"
     strip-eof "^1.0.0"
 
+execa@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/execa/-/execa-1.0.0.tgz#c6236a5bb4df6d6f15e88e7f017798216749ddd8"
+  integrity sha512-adbxcyWV46qiHyvSp50TKt05tB4tK3HcmF7/nxfAdhnox83seTDbwnaqKO4sXRy7roHAIFqJP/Rw/AuEbX61LA==
+  dependencies:
+    cross-spawn "^6.0.0"
+    get-stream "^4.0.0"
+    is-stream "^1.1.0"
+    npm-run-path "^2.0.0"
+    p-finally "^1.0.0"
+    signal-exit "^3.0.0"
+    strip-eof "^1.0.0"
+
 exit@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/exit/-/exit-0.1.2.tgz#0632638f8d877cc82107d30a0fff1a17cba1cd0c"
@@ -4593,6 +4687,13 @@ find-up@^2.0.0, find-up@^2.1.0:
   integrity sha1-RdG35QbHF93UgndaK3eSCjwMV6c=
   dependencies:
     locate-path "^2.0.0"
+
+find-up@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/find-up/-/find-up-3.0.0.tgz#49169f1d7993430646da61ecc5ae355c21c97b73"
+  integrity sha512-1yD6RmLI1XBfxugvORwlck6f75tYL+iR0jqwsOrOxMZyGYqUuDhJ0l4AXdO1iX/FTs9cBAMEk1gWSEx1kSbylg==
+  dependencies:
+    locate-path "^3.0.0"
 
 findup@^0.1.5:
   version "0.1.5"
@@ -5279,6 +5380,22 @@ https-browserify@^1.0.0:
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
 
 husky@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/husky/-/husky-1.3.1.tgz#26823e399300388ca2afff11cfa8a86b0033fae0"
+  integrity sha512-86U6sVVVf4b5NYSZ0yvv88dRgBSSXXmHaiq5pP4KDj5JVzdwKgBjEtUPOm8hcoytezFwbU+7gotXNhpHdystlg==
+  dependencies:
+    cosmiconfig "^5.0.7"
+    execa "^1.0.0"
+    find-up "^3.0.0"
+    get-stdin "^6.0.0"
+    is-ci "^2.0.0"
+    pkg-dir "^3.0.0"
+    please-upgrade-node "^3.1.1"
+    read-pkg "^4.0.1"
+    run-node "^1.0.0"
+    slash "^2.0.0"
+
+husky@^1.0.0-rc.8:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/husky/-/husky-1.3.1.tgz#26823e399300388ca2afff11cfa8a86b0033fae0"
   integrity sha512-86U6sVVVf4b5NYSZ0yvv88dRgBSSXXmHaiq5pP4KDj5JVzdwKgBjEtUPOm8hcoytezFwbU+7gotXNhpHdystlg==
@@ -8398,7 +8515,7 @@ pkg-up@2.0.0:
   integrity sha1-yBmscoBZpGHKscOImivjxJoATX8=
   dependencies:
     find-up "^2.1.0"
-
+    
 please-upgrade-node@^3.0.2, please-upgrade-node@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/please-upgrade-node/-/please-upgrade-node-3.1.1.tgz#ed320051dfcc5024fae696712c8288993595e8ac"
@@ -8487,7 +8604,7 @@ postcss-modules-values@^2.0.0:
     icss-replace-symbols "^1.1.0"
     postcss "^7.0.6"
 
-postcss-rtl@^1.2.3:
+postcss-rtl@^1.2.3, postcss-rtl@^1.3.0:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/postcss-rtl/-/postcss-rtl-1.3.3.tgz#9ded22ba783cce5516640072f3cee0d28b746eaf"
   integrity sha512-iKdSko4zSvchZSPplz0iLD4dQyd4RiiARivMwboknD2eHu4tde1K7BqZ4CizZmnxrfhi4fvS774YSQPX6LJfMQ==

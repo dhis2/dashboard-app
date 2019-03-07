@@ -42,7 +42,3 @@ export const sGetVisualizationsRoot = state => state.visualizations;
 export const sGetVisualization = (state, id) => {
     return sGetVisualizationsRoot(state)[id];
 };
-
-// selectors level 2
-export const sGetVisInterpretations = (state, id) =>
-    orObject(sGetVisualization(state, id)).interpretations;

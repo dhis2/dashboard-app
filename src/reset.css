@@ -88,9 +88,17 @@ video {
     margin: 0 /* rtl:ignore */;
     padding: 0 /* rtl:ignore */;
     border: 0 /* rtl:ignore */;
-    font-size: 100%;
     font: inherit;
+    font-size: 100%;
     vertical-align: baseline;
+}
+b,
+strong {
+    font-weight: bold;
+}
+i,
+em {
+    font-style: italic;
 }
 /* HTML5 display-role reset for older browsers */
 article,
