@@ -54,8 +54,6 @@ measureFileSizesBeforeBuild(paths.appBuild)
     })
     .then(
         ({ stats, previousFileSizes, warnings }) => {
-            console.log('jjj');
-
             if (warnings.length) {
                 console.log(chalk.yellow('Compiled with warnings.\n'));
                 console.log(warnings.join('\n\n'));
@@ -81,7 +79,6 @@ measureFileSizesBeforeBuild(paths.appBuild)
                 WARN_AFTER_BUNDLE_GZIP_SIZE,
                 WARN_AFTER_CHUNK_GZIP_SIZE
             );
-            console.log();
 
             const appPackage = require(paths.appPackageJson);
             const publicUrl = paths.publicUrl;
@@ -107,18 +104,12 @@ function build(previousFileSizes) {
     console.log('Creating an optimized production build...');
 
     let compiler = webpack(config);
-    console.log('aaa');
 
     return new Promise((resolve, reject) => {
-        console.log('ggg');
-
         compiler.run((err, stats) => {
-            console.log('bbb');
-
             if (err) {
                 return reject(err);
             }
-            console.log('ccc');
 
             const messages = formatWebpackMessages(stats.toJson({}, true));
             if (messages.errors.length) {
