@@ -75,6 +75,10 @@ export class DashboardsBar extends Component {
     };
 
     onSelectDashboard = () => {
+        if (!this.props.dashboards.length) {
+            return;
+        }
+
         this.props.history.push(`/${this.props.dashboards[0].id}`);
 
         this.getPostDataStatisticsFn(this.props.selectedId)();
