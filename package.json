@@ -41,6 +41,7 @@
         "prestart": "npm run localize && d2-manifest package.json ./public/manifest.webapp",
         "start": "react-scripts start",
         "lint": "eslint -c .eslintrc.json src",
+        "coverage": "npm test -- --coverage",
         "prebuild": "rm -rf build && mkdir build && npm run manifest",
         "build": "PUBLIC_URL=. react-scripts build",
         "test": "react-scripts test",
