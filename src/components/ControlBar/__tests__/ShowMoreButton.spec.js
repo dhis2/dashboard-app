@@ -4,21 +4,25 @@ import { ShowMoreButton } from '../ShowMoreButton';
 
 describe('ShowMoreButton', () => {
     it('renders correctly when at maxHeight', () => {
-        const button = shallow(<ShowMoreButton
-            onClick={() => {}}
-            isMaxHeight={true}
-            classes={{ showMore: {} }}
-        />);
+        const button = shallow(
+            <ShowMoreButton
+                onClick={() => {}}
+                isMaxHeight={true}
+                classes={{ showMore: {} }}
+            />
+        );
         expect(button).toMatchSnapshot();
     });
 
     it('renders correctly when not at maxHeight', () => {
-        const tree = shallow(<ShowMoreButton
-            onClick={() => {}}
-            isMaxHeight={false}
-            classes={{ showMore: {} }}
-        />);
-                
+        const tree = shallow(
+            <ShowMoreButton
+                onClick={() => {}}
+                isMaxHeight={false}
+                classes={{ showMore: {} }}
+            />
+        );
+
         expect(tree).toMatchSnapshot();
     });
 

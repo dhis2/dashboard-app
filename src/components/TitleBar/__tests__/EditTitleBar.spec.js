@@ -29,7 +29,9 @@ describe('EditTitleBar', () => {
     });
 
     it('renders correctly when displayName is provided', () => {
-        const tree = shallow(<EditTitleBar displayName="Regnbue Dash" {...props} />);
+        const tree = shallow(
+            <EditTitleBar displayName="Regnbue Dash" {...props} />
+        );
         expect(tree).toMatchSnapshot();
     });
 });

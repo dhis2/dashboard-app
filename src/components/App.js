@@ -63,7 +63,7 @@ export class App extends Component {
                         />
                     </Switch>
                 </Router>
-                <SnackbarMessage />
+                <SnackbarMessage />.
             </div>
         );
     }
