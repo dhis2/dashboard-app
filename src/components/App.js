@@ -14,7 +14,7 @@ import SnackbarMessage from './SnackbarMessage/SnackbarMessage';
 
 import './App.css';
 
-class App extends Component {
+export class App extends Component {
     componentDidMount() {
         this.props.setCurrentUser(this.props.d2.currentUser);
         this.props.fetchDashboards();
