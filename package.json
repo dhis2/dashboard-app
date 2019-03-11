@@ -38,12 +38,14 @@
     },
     "scripts": {
         "analyze": "source-map-explorer 'build/static/js/*.js'",
+        "prestart": "npm run localize && d2-manifest package.json ./public/manifest.webapp",
         "start": "react-scripts start",
         "prebuild": "rm -rf build && mkdir build && npm run manifest",
         "build": "PUBLIC_URL=. react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "manifest": "d2-manifest package.json public/manifest.webapp"
+        "manifest": "d2-manifest package.json public/manifest.webapp",
+        "localize": "npm run extract-pot && d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/"
     },
     "manifest.webapp": {
         "name": "Dashboards app",
@@ -77,7 +79,6 @@
         "d2-manifest": "^1.0.0",
         "enzyme": "^3.9.0",
         "enzyme-adapter-react-16": "^1.10.0",
-        "immutability-helper": "^3.0.0",
-        "react-test-renderer": "^16.8.4"
+        "immutability-helper": "^3.0.0"
     }
 }
