@@ -45,6 +45,7 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "manifest": "d2-manifest package.json public/manifest.webapp",
+        "extract-pot": "d2-i18n-extract -p src/ -o i18n/",
         "localize": "npm run extract-pot && d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/"
     },
     "manifest.webapp": {
@@ -76,9 +77,11 @@
         "not op_mini all"
     ],
     "devDependencies": {
+        "@dhis2/d2-i18n-extract": "^1.0.7",
         "d2-manifest": "^1.0.0",
         "enzyme": "^3.9.0",
         "enzyme-adapter-react-16": "^1.10.0",
-        "immutability-helper": "^3.0.0"
+        "immutability-helper": "^3.0.0",
+        "prettier": "^1.16.4"
     }
 }
