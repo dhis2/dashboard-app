@@ -1,35 +1,219 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ShowMoreButton renders correctly when at maxHeight 1`] = `
-<div
-  style={
-    Object {
-      "textAlign": "center",
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ShowMoreButton
+    classes={
+      Object {
+        "showMore": Object {},
+      }
     }
-  }
->
-  <div
-    className={Object {}}
+    isMaxHeight={true}
     onClick={[Function]}
-  >
-    Show less
-  </div>
-</div>
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className={Object {}}
+        onClick={[Function]}
+      >
+        Show less
+      </div>,
+      "style": Object {
+        "textAlign": "center",
+      },
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": "Show less",
+        "className": Object {},
+        "onClick": [Function],
+      },
+      "ref": null,
+      "rendered": "Show less",
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className={Object {}}
+          onClick={[Function]}
+        >
+          Show less
+        </div>,
+        "style": Object {
+          "textAlign": "center",
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Show less",
+          "className": Object {},
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Show less",
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
 `;
 
 exports[`ShowMoreButton renders correctly when not at maxHeight 1`] = `
-<div
-  style={
-    Object {
-      "textAlign": "center",
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ShowMoreButton
+    classes={
+      Object {
+        "showMore": Object {},
+      }
     }
-  }
->
-  <div
-    className={Object {}}
+    isMaxHeight={false}
     onClick={[Function]}
-  >
-    Show more
-  </div>
-</div>
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className={Object {}}
+        onClick={[Function]}
+      >
+        Show more
+      </div>,
+      "style": Object {
+        "textAlign": "center",
+      },
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": "Show more",
+        "className": Object {},
+        "onClick": [Function],
+      },
+      "ref": null,
+      "rendered": "Show more",
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className={Object {}}
+          onClick={[Function]}
+        >
+          Show more
+        </div>,
+        "style": Object {
+          "textAlign": "center",
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Show more",
+          "className": Object {},
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Show more",
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
 `;

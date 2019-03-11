@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import i18n from 'd2-i18n';
+import i18n from '@dhis2/d2-i18n';
 import HeaderBar from '@dhis2/ui/widgets/HeaderBar';
 
 import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes';
@@ -15,10 +16,9 @@ import './App.css';
 
 class App extends Component {
     componentDidMount() {
-        const { store } = this.context;
-        store.dispatch(acReceivedUser(this.props.d2.currentUser));
-        store.dispatch(tFetchDashboards());
-        store.dispatch(tSetControlBarRows());
+        this.props.setCurrentUser(this.props.d2.currentUser);
+        this.props.fetchDashboards();
+        this.props.setControlBarRows();
     }
 
     getChildContext() {
@@ -69,14 +69,21 @@ class App extends Component {
     }
 }
 
-App.contextTypes = {
-    store: PropTypes.object,
-};
-
 App.childContextTypes = {
     baseUrl: PropTypes.string,
     i18n: PropTypes.object,
     d2: PropTypes.object,
 };
 
-export default App;
+const mapDispatchToProps = dispatch => {
+    return {
+        setCurrentUser: currentUser => dispatch(acReceivedUser(currentUser)),
+        fetchDashboards: () => dispatch(tFetchDashboards()),
+        setControlBarRows: () => dispatch(tSetControlBarRows()),
+    };
+};
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(App);

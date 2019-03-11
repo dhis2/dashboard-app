@@ -1,16 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<button
-  className="item-action-button"
-  onClick={[Function]}
-  style={
-    Object {
-      "fill": "purple",
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ItemHeaderButton
+    onClick={[Function]}
+    style={
+      Object {
+        "fill": "purple",
+      }
     }
-  }
-  type="button"
->
-  My Little Pony
-</button>
+  >
+    My Little Pony
+  </ItemHeaderButton>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": "My Little Pony",
+      "className": "item-action-button",
+      "disabled": undefined,
+      "onClick": [Function],
+      "style": Object {
+        "fill": "purple",
+      },
+      "type": "button",
+    },
+    "ref": null,
+    "rendered": "My Little Pony",
+    "type": "button",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": "My Little Pony",
+        "className": "item-action-button",
+        "disabled": undefined,
+        "onClick": [Function],
+        "style": Object {
+          "fill": "purple",
+        },
+        "type": "button",
+      },
+      "ref": null,
+      "rendered": "My Little Pony",
+      "type": "button",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
 `;

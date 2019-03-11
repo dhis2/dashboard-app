@@ -1,4 +1,4 @@
-import i18n from 'd2-i18n';
+import i18n from '@dhis2/d2-i18n';
 import TableIcon from '@material-ui/icons/ViewList';
 import ChartIcon from '@material-ui/icons/InsertChart';
 import MapIcon from '@material-ui/icons/Public';
@@ -44,6 +44,12 @@ export const isTextType = item =>
 export const isPluginType = item =>
     itemTypeMap[item.type].hasOwnProperty('plugin');
 
+export const getPlugin = type => {
+    const pluginName = itemTypeMap[type].plugin;
+
+    return global[pluginName];
+};
+
 // Item type map
 export const itemTypeMap = {
     [REPORT_TABLE]: {
@@ -52,7 +58,7 @@ export const itemTypeMap = {
         propName: 'reportTable',
         countName: 'reportTableCount',
         pluralTitle: i18n.t('Pivot tables'),
-        plugin: global.reportTablePlugin,
+        plugin: 'reportTablePlugin',
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_TABLE,
         appUrl: id => `dhis-web-pivot/?id=${id}`,
@@ -64,7 +70,7 @@ export const itemTypeMap = {
         propName: 'chart',
         countName: 'chartCount',
         pluralTitle: i18n.t('Charts'),
-        plugin: global.chartPlugin,
+        plugin: 'chartPlugin',
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_CHART,
         appUrl: id => `dhis-web-data-visualizer/#/${id}`,
@@ -76,7 +82,7 @@ export const itemTypeMap = {
         propName: 'map',
         countName: 'mapCount',
         pluralTitle: i18n.t('Maps'),
-        plugin: global.mapPlugin,
+        plugin: 'mapPlugin',
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_MAP,
         appUrl: id => `dhis-web-maps/?id=${id}`,
@@ -88,7 +94,7 @@ export const itemTypeMap = {
         propName: 'eventReport',
         countName: 'eventReportCount',
         pluralTitle: i18n.t('Event reports'),
-        plugin: global.eventReportPlugin,
+        plugin: 'eventReportPlugin',
         domainType: DOMAIN_TYPE_TRACKER,
         visualizationType: VISUALIZATION_TYPE_TABLE,
         appUrl: id => `dhis-web-event-reports/?id=${id}`,
@@ -100,7 +106,7 @@ export const itemTypeMap = {
         propName: 'eventChart',
         countName: 'eventChartCount',
         pluralTitle: i18n.t('Event charts'),
-        plugin: global.eventChartPlugin,
+        plugin: 'eventChartPlugin',
         domainType: DOMAIN_TYPE_TRACKER,
         visualizationType: VISUALIZATION_TYPE_CHART,
         appUrl: id => `dhis-web-event-visualizer/?id=${id}`,

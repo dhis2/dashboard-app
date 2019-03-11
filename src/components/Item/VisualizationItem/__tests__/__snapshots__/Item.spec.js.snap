@@ -1,0 +1,773 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VisualizationItem/Item renders a ChartPlugin when a chart item is passed 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Item
+    classes={Object {}}
+    editMode={false}
+    item={
+      Object {
+        "chart": Object {
+          "id": "chart1",
+          "name": "Test chart",
+        },
+        "id": "testItem1",
+        "type": "CHART",
+      }
+    }
+    itemFilter={
+      Object {
+        "brilliance": 100,
+      }
+    }
+    onToggleItemExpanded={[MockFunction]}
+    visualization={
+      Object {
+        "description": "Test chart mock",
+        "name": "Test chart",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <ItemHeader
+          actionButtons={null}
+          editMode={false}
+          title={
+            <div
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                }
+              }
+            >
+              <span
+                title="Test chart"
+              >
+                Test chart
+              </span>
+            </div>
+          }
+        />,
+        <ProgressiveLoadingContainer
+          bufferPx={0}
+          className="dashboard-item-content"
+          debounceMs={100}
+          id="item-testItem1"
+          initialBufferFactor={0.5}
+          style={
+            Object {
+              "height": NaN,
+            }
+          }
+        >
+          <Unknown
+            config={
+              Object {
+                "description": "Test chart mock",
+                "name": "Test chart",
+              }
+            }
+            filters={
+              Object {
+                "brilliance": 100,
+              }
+            }
+            forDashboard={true}
+            style={
+              Object {
+                "height": NaN,
+              }
+            }
+          />
+        </ProgressiveLoadingContainer>,
+        null,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "actionButtons": null,
+          "editMode": false,
+          "title": <div
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+              }
+            }
+          >
+            <span
+              title="Test chart"
+            >
+              Test chart
+            </span>
+          </div>,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "class",
+        "props": Object {
+          "bufferPx": 0,
+          "children": <Unknown
+            config={
+              Object {
+                "description": "Test chart mock",
+                "name": "Test chart",
+              }
+            }
+            filters={
+              Object {
+                "brilliance": 100,
+              }
+            }
+            forDashboard={true}
+            style={
+              Object {
+                "height": NaN,
+              }
+            }
+          />,
+          "className": "dashboard-item-content",
+          "debounceMs": 100,
+          "id": "item-testItem1",
+          "initialBufferFactor": 0.5,
+          "style": Object {
+            "height": NaN,
+          },
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "config": Object {
+              "description": "Test chart mock",
+              "name": "Test chart",
+            },
+            "filters": Object {
+              "brilliance": 100,
+            },
+            "forDashboard": true,
+            "style": Object {
+              "height": NaN,
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      null,
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <ItemHeader
+            actionButtons={null}
+            editMode={false}
+            title={
+              <div
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                  }
+                }
+              >
+                <span
+                  title="Test chart"
+                >
+                  Test chart
+                </span>
+              </div>
+            }
+          />,
+          <ProgressiveLoadingContainer
+            bufferPx={0}
+            className="dashboard-item-content"
+            debounceMs={100}
+            id="item-testItem1"
+            initialBufferFactor={0.5}
+            style={
+              Object {
+                "height": NaN,
+              }
+            }
+          >
+            <Unknown
+              config={
+                Object {
+                  "description": "Test chart mock",
+                  "name": "Test chart",
+                }
+              }
+              filters={
+                Object {
+                  "brilliance": 100,
+                }
+              }
+              forDashboard={true}
+              style={
+                Object {
+                  "height": NaN,
+                }
+              }
+            />
+          </ProgressiveLoadingContainer>,
+          null,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "actionButtons": null,
+            "editMode": false,
+            "title": <div
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                }
+              }
+            >
+              <span
+                title="Test chart"
+              >
+                Test chart
+              </span>
+            </div>,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "class",
+          "props": Object {
+            "bufferPx": 0,
+            "children": <Unknown
+              config={
+                Object {
+                  "description": "Test chart mock",
+                  "name": "Test chart",
+                }
+              }
+              filters={
+                Object {
+                  "brilliance": 100,
+                }
+              }
+              forDashboard={true}
+              style={
+                Object {
+                  "height": NaN,
+                }
+              }
+            />,
+            "className": "dashboard-item-content",
+            "debounceMs": 100,
+            "id": "item-testItem1",
+            "initialBufferFactor": 0.5,
+            "style": Object {
+              "height": NaN,
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "config": Object {
+                "description": "Test chart mock",
+                "name": "Test chart",
+              },
+              "filters": Object {
+                "brilliance": 100,
+              },
+              "forDashboard": true,
+              "style": Object {
+                "height": NaN,
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        null,
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;
+
+exports[`VisualizationItem/Item renders a DefaultPlugin when a item different from chart is passed 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Item
+    classes={Object {}}
+    editMode={false}
+    item={
+      Object {
+        "id": "testItem2",
+        "reportTable": Object {
+          "id": "pivot1",
+          "name": "Test pivot",
+        },
+        "type": "REPORT_TABLE",
+      }
+    }
+    itemFilter={
+      Object {
+        "brilliance": 100,
+      }
+    }
+    onToggleItemExpanded={[MockFunction]}
+    visualization={
+      Object {
+        "description": "Test pivot mock",
+        "name": "Test pivot",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <ItemHeader
+          actionButtons={null}
+          editMode={false}
+          title={
+            <div
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                }
+              }
+            >
+              <span
+                title="Test pivot"
+              >
+                Test pivot
+              </span>
+            </div>
+          }
+        />,
+        <ProgressiveLoadingContainer
+          bufferPx={0}
+          className="dashboard-item-content"
+          debounceMs={100}
+          id="item-testItem2"
+          initialBufferFactor={0.5}
+          style={
+            Object {
+              "height": NaN,
+            }
+          }
+        >
+          <Unknown
+            classes={Object {}}
+            editMode={false}
+            item={
+              Object {
+                "id": "testItem2",
+                "reportTable": Object {
+                  "id": "pivot1",
+                  "name": "Test pivot",
+                },
+                "type": "REPORT_TABLE",
+              }
+            }
+            itemFilter={
+              Object {
+                "brilliance": 100,
+              }
+            }
+            onToggleItemExpanded={[MockFunction]}
+            visualization={
+              Object {
+                "description": "Test pivot mock",
+                "name": "Test pivot",
+              }
+            }
+          />
+        </ProgressiveLoadingContainer>,
+        null,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "actionButtons": null,
+          "editMode": false,
+          "title": <div
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+              }
+            }
+          >
+            <span
+              title="Test pivot"
+            >
+              Test pivot
+            </span>
+          </div>,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "class",
+        "props": Object {
+          "bufferPx": 0,
+          "children": <Unknown
+            classes={Object {}}
+            editMode={false}
+            item={
+              Object {
+                "id": "testItem2",
+                "reportTable": Object {
+                  "id": "pivot1",
+                  "name": "Test pivot",
+                },
+                "type": "REPORT_TABLE",
+              }
+            }
+            itemFilter={
+              Object {
+                "brilliance": 100,
+              }
+            }
+            onToggleItemExpanded={[MockFunction]}
+            visualization={
+              Object {
+                "description": "Test pivot mock",
+                "name": "Test pivot",
+              }
+            }
+          />,
+          "className": "dashboard-item-content",
+          "debounceMs": 100,
+          "id": "item-testItem2",
+          "initialBufferFactor": 0.5,
+          "style": Object {
+            "height": NaN,
+          },
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "classes": Object {},
+            "editMode": false,
+            "item": Object {
+              "id": "testItem2",
+              "reportTable": Object {
+                "id": "pivot1",
+                "name": "Test pivot",
+              },
+              "type": "REPORT_TABLE",
+            },
+            "itemFilter": Object {
+              "brilliance": 100,
+            },
+            "onToggleItemExpanded": [MockFunction],
+            "visualization": Object {
+              "description": "Test pivot mock",
+              "name": "Test pivot",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      null,
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <ItemHeader
+            actionButtons={null}
+            editMode={false}
+            title={
+              <div
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                  }
+                }
+              >
+                <span
+                  title="Test pivot"
+                >
+                  Test pivot
+                </span>
+              </div>
+            }
+          />,
+          <ProgressiveLoadingContainer
+            bufferPx={0}
+            className="dashboard-item-content"
+            debounceMs={100}
+            id="item-testItem2"
+            initialBufferFactor={0.5}
+            style={
+              Object {
+                "height": NaN,
+              }
+            }
+          >
+            <Unknown
+              classes={Object {}}
+              editMode={false}
+              item={
+                Object {
+                  "id": "testItem2",
+                  "reportTable": Object {
+                    "id": "pivot1",
+                    "name": "Test pivot",
+                  },
+                  "type": "REPORT_TABLE",
+                }
+              }
+              itemFilter={
+                Object {
+                  "brilliance": 100,
+                }
+              }
+              onToggleItemExpanded={[MockFunction]}
+              visualization={
+                Object {
+                  "description": "Test pivot mock",
+                  "name": "Test pivot",
+                }
+              }
+            />
+          </ProgressiveLoadingContainer>,
+          null,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "actionButtons": null,
+            "editMode": false,
+            "title": <div
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                }
+              }
+            >
+              <span
+                title="Test pivot"
+              >
+                Test pivot
+              </span>
+            </div>,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "class",
+          "props": Object {
+            "bufferPx": 0,
+            "children": <Unknown
+              classes={Object {}}
+              editMode={false}
+              item={
+                Object {
+                  "id": "testItem2",
+                  "reportTable": Object {
+                    "id": "pivot1",
+                    "name": "Test pivot",
+                  },
+                  "type": "REPORT_TABLE",
+                }
+              }
+              itemFilter={
+                Object {
+                  "brilliance": 100,
+                }
+              }
+              onToggleItemExpanded={[MockFunction]}
+              visualization={
+                Object {
+                  "description": "Test pivot mock",
+                  "name": "Test pivot",
+                }
+              }
+            />,
+            "className": "dashboard-item-content",
+            "debounceMs": 100,
+            "id": "item-testItem2",
+            "initialBufferFactor": 0.5,
+            "style": Object {
+              "height": NaN,
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "classes": Object {},
+              "editMode": false,
+              "item": Object {
+                "id": "testItem2",
+                "reportTable": Object {
+                  "id": "pivot1",
+                  "name": "Test pivot",
+                },
+                "type": "REPORT_TABLE",
+              },
+              "itemFilter": Object {
+                "brilliance": 100,
+              },
+              "onToggleItemExpanded": [MockFunction],
+              "visualization": Object {
+                "description": "Test pivot mock",
+                "name": "Test pivot",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        null,
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;

@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import { EditTitleBar } from '../EditTitleBar';
 
 jest.mock('d2-ui/lib/text-field/TextField', () => 'textfield');
@@ -24,14 +24,12 @@ describe('EditTitleBar', () => {
     };
 
     it('renders correctly when displayName not provided', () => {
-        const tree = renderer.create(<EditTitleBar {...props} />).toJSON();
+        const tree = shallow(<EditTitleBar {...props} />);
         expect(tree).toMatchSnapshot();
     });
 
     it('renders correctly when displayName is provided', () => {
-        const tree = renderer
-            .create(<EditTitleBar displayName="Regnbue Dash" {...props} />)
-            .toJSON();
+        const tree = shallow(<EditTitleBar displayName="Regnbue Dash" {...props} />);
         expect(tree).toMatchSnapshot();
     });
 });
