@@ -4,7 +4,6 @@ import dashboards, * as fromDashboards from './dashboards';
 import selected, * as fromSelected from './selected';
 import dashboardsFilter, * as fromDashboardsFilter from './dashboardsFilter';
 import controlBar, * as fromControlBar from './controlBar';
-import interpretations, * as fromInterpretations from './interpretations';
 import visualizations, * as fromVisualizations from './visualizations';
 import editDashboard, * as fromEditDashboard from './editDashboard';
 import messages, * as fromMessages from './messages';
@@ -22,7 +21,6 @@ export const actionTypes = {
     ...fromSelected.actionTypes,
     ...fromDashboardsFilter.actionTypes,
     ...fromControlBar.actionTypes,
-    ...fromInterpretations.actionTypes,
     ...fromVisualizations.actionTypes,
     ...fromMessages.actionTypes,
     ...fromUser.actionTypes,
@@ -39,7 +37,6 @@ export default combineReducers({
     selected,
     dashboardsFilter,
     controlBar,
-    interpretations,
     visualizations,
     messages,
     user,
@@ -65,7 +62,6 @@ export {
     fromSelected,
     fromDashboardsFilter,
     fromControlBar,
-    fromInterpretations,
     fromVisualizations,
     fromMessages,
     fromEditDashboard,

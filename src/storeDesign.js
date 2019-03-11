@@ -62,39 +62,5 @@ const customDashboard = {
 const visualizations = {
     abc12345: {
         id: 'abc12345',
-        interpretations: ['xyzpdq123', 'defghi346'],
-    },
-};
-
-const interpretations = {
-    xyzpdq123: {
-        id: 'xyzpdq123',
-        author: {
-            id: 'pgra9g323',
-            name: 'Sally Sense',
-        },
-        created: 'new Date()', //Date type
-        text: 'This is the interpretation text',
-        likedBy: [
-            {
-                id: 'pqrm135',
-                name: 'Terry Turnbull',
-            },
-            {
-                id: 'defg4632',
-                name: 'William Wilcox',
-            },
-        ],
-        comments: [
-            {
-                id: 'abc123def',
-                created: 'new Date()', //Date type
-                author: {
-                    id: '135rgar',
-                    name: 'Mary Merryweather',
-                },
-                text: 'This is the comment text',
-            },
-        ],
     },
 };
