@@ -5,6 +5,13 @@ const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMi
 const path = require('path');
 const config = require('./webpack.config.dev');
 const paths = require('./paths');
+const cors = require('cors');
+
+
+const publicUrl = '.';
+// Get environment variables to inject into our app.
+const getClientEnvironment = require('./env')
+const env = getClientEnvironment(publicUrl);
 
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 const host = process.env.HOST || '0.0.0.0';
@@ -86,7 +93,12 @@ module.exports = function(proxy, allowedHost) {
     },
     public: allowedHost,
     proxy,
+    headers: {
+        "Access-Control-Allow-Origin": "*",
+        'X-Frame-Options': `allow-from localhost:3000`
+    },
     before(app) {
+      app.use(cors())
       // This lets us open files from the runtime error overlay.
       app.use(errorOverlayMiddleware());
       // This service worker file is effectively a 'no-op' that will reset any

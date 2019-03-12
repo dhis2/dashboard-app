@@ -1,7 +1,7 @@
 /* global DHIS_CONFIG, manifest */
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { Provider } from 'react-redux';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { MuiThemeProvider as V0MuiThemeProvider } from 'material-ui';
@@ -9,14 +9,15 @@ import { init as d2Init, config, getUserSettings } from 'd2';
 import dhis2theme from '@dhis2/d2-ui-core/theme/mui3.theme';
 
 // temporary workaround until new ui headerbar is ready
-import 'material-design-icons/iconfont/material-icons.css';
-import './reset.css';
+//import './reset.css';
 
 import App from './components/App';
 import './index.css';
 import i18n from './locales';
 import configureStore from './configureStore';
 import { muiTheme } from './modules/theme';
+
+import 'typeface-roboto';
 
 const v1Theme = () => createMuiTheme({ ...dhis2theme });
 

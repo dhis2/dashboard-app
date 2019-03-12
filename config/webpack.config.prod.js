@@ -71,7 +71,11 @@ module.exports = {
     // You can exclude the *.map files from the build during deployment.
     devtool: shouldUseSourceMap ? 'source-map' : false,
     // In production, we only want to load the polyfills and the app code.
-    entry: [require.resolve('./polyfills'), paths.appIndexJs],
+    entry: [
+        "babel-polyfill", 
+        require.resolve('./polyfills'),
+        paths.appIndexJs
+    ],
     output: {
         // The build folder.
         path: paths.appBuild,
@@ -230,6 +234,23 @@ module.exports = {
                         ),
                         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
                     },
+                    {
+                        test: require.resolve('jquery'),
+                        use: [
+                            {
+                                loader: 'expose-loader',
+                                options: 'jQuery'
+                            },
+                            {
+                                loader: 'expose-loader',
+                                options: '$'
+                            },
+                            {
+                                loader: 'expose-loader',
+                                options: 'window.jQuery'
+                            },
+                        ]
+                    },
                     // "file" loader makes sure assets end up in the `build` folder.
                     // When you `import` an asset, you get its filename.
                     // This loader doesn't use a "test" so it will catch all modules
@@ -264,10 +285,6 @@ module.exports = {
             inject: true,
             template: paths.appHtml,
             vendorScripts: [
-                `${scriptPrefix}/dhis-web-core-resource/fonts/roboto.css`,
-                `${scriptPrefix}/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.min.js`,
-                `${scriptPrefix}/dhis-web-core-resource/jquery/3.2.1/dist/jquery.min.js`,
-                `${scriptPrefix}/dhis-web-core-resource/jquery-migrate/3.0.1/dist/jquery-migrate.min.js`,
                 `${scriptPrefix}/dhis-web-pivot/reporttable.js`,
                 `${scriptPrefix}/dhis-web-visualizer/chart.js`,
                 `${scriptPrefix}/dhis-web-maps/map.js`,

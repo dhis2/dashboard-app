@@ -7,6 +7,22 @@ const paths = require('./paths');
 // Make sure that including paths.js after env.js will read .env variables.
 delete require.cache[require.resolve('./paths')];
 
+const dhisConfigPath =
+    process.env.DHIS2_HOME && `${process.env.DHIS2_HOME}/config`;
+
+let dhisConfig;
+try {
+    dhisConfig = require(dhisConfigPath);
+} catch (e) {
+    // Failed to load config file - use default config
+    console.warn(`\nWARNING! Failed to load DHIS config:`, e.message);
+    dhisConfig = {
+        baseUrl:
+            process.env.REACT_APP_DHIS2_BASE_URL || 'http://localhost:8080',
+        authorization: 'Basic YWRtaW46ZGlzdHJpY3Q=', // admin:district
+    };
+}
+
 const NODE_ENV = process.env.NODE_ENV;
 if (!NODE_ENV) {
   throw new Error(
@@ -84,7 +100,7 @@ function getClientEnvironment(publicUrl) {
     }, {}),
   };
 
-  return { raw, stringified };
+  return { raw, stringified, dhisConfig };
 }
 
 module.exports = getClientEnvironment;

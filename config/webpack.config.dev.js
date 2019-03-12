@@ -19,25 +19,9 @@ const publicPath = '/';
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing slash as %PUBLIC_PATH%/xyz looks better than %PUBLIC_PATH%xyz.
-const publicUrl = '';
+const publicUrl = '.';
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
-
-const dhisConfigPath =
-    process.env.DHIS2_HOME && `${process.env.DHIS2_HOME}/config`;
-
-let dhisConfig;
-try {
-    dhisConfig = require(dhisConfigPath);
-} catch (e) {
-    // Failed to load config file - use default config
-    console.warn(`\nWARNING! Failed to load DHIS config:`, e.message);
-    dhisConfig = {
-        baseUrl:
-            process.env.REACT_APP_DHIS2_BASE_URL || 'http://localhost:8080',
-        authorization: 'Basic YWRtaW46ZGlzdHJpY3Q=', // admin:district
-    };
-}
 
 const manifest = JSON.parse(
     fs.readFileSync(`${paths.appPublic}/manifest.webapp`, 'utf8')
@@ -46,13 +30,13 @@ const manifest = JSON.parse(
 const globals = Object.assign(
     {},
     {
-        DHIS_CONFIG: JSON.stringify(dhisConfig),
+        DHIS_CONFIG: JSON.stringify(env.dhisConfig),
         manifest: JSON.stringify(manifest),
     },
     env.stringified
 );
 
-const scriptPrefix = dhisConfig.baseUrl;
+const scriptPrefix = env.dhisConfig.baseUrl;
 
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
@@ -65,7 +49,7 @@ module.exports = {
     // This means they will be the "root" imports that are included in JS bundle.
     // The first two entry points enable "hot" CSS and auto-refreshes for JS.
     entry: [
-        // We ship a few polyfills by default:
+        "babel-polyfill",
         require.resolve('./polyfills'),
         // Include an alternative client for WebpackDevServer. A client's job is to
         // connect to WebpackDevServer by a socket and get notified about changes.
@@ -219,6 +203,23 @@ module.exports = {
                             },
                         ],
                     },
+                    {
+                        test: require.resolve('jquery'),
+                        use: [
+                            {
+                                loader: 'expose-loader',
+                                options: 'jQuery'
+                            },
+                            {
+                                loader: 'expose-loader',
+                                options: '$'
+                            },
+                            {
+                                loader: 'expose-loader',
+                                options: 'window.jQuery'
+                            },
+                        ]
+                    },
                     // "file" loader makes sure those assets get served by WebpackDevServer.
                     // When you `import` an asset, you get its (virtual) filename.
                     // In production, they would get copied to the `build` folder.
@@ -253,10 +254,6 @@ module.exports = {
             inject: true,
             template: paths.appHtml,
             vendorScripts: [
-                `${scriptPrefix}/dhis-web-core-resource/fonts/roboto.css`,
-                `${scriptPrefix}/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.js`,
-                `${scriptPrefix}/dhis-web-core-resource/jquery/3.2.1/dist/jquery.js`,
-                `${scriptPrefix}/dhis-web-core-resource/jquery-migrate/3.0.1/dist/jquery-migrate.js`,
                 `${scriptPrefix}/dhis-web-pivot/reporttable.js`,
                 `${scriptPrefix}/dhis-web-visualizer/chart.js`,
                 `${scriptPrefix}/dhis-web-maps/map.js`,
