@@ -39,9 +39,11 @@ const ItemDescription = ({ description }) => {
     return (
         <div style={style.descriptionContainer}>
             <h3 style={style.descriptionTitle}>Description</h3>
-            <RichTextParser style={style.descriptionText}>
-                {description}
-            </RichTextParser>
+            {!!description && (
+                <RichTextParser style={style.descriptionText}>
+                    {description}
+                </RichTextParser>
+            )}
         </div>
     );
 };
