@@ -34,21 +34,22 @@
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.3.0",
         "source-map-explorer": "^1.7.0",
+        "typeface-roboto": "^0.0.54",
         "whatwg-fetch": "^3.0.0"
     },
     "scripts": {
         "analyze": "source-map-explorer 'build/static/js/*.js'",
-        "prestart": "npm run localize && d2-manifest package.json ./public/manifest.webapp",
+        "prestart": "npm run extract-pot && npm run localize && npm run manifest",
         "start": "react-scripts start",
         "lint": "eslint -c .eslintrc.json src",
         "coverage": "npm test -- --coverage",
-        "prebuild": "rm -rf build && mkdir build && npm run manifest",
+        "prebuild": "rm -rf build && mkdir build && npm run manifest && npm run localize",
         "build": "PUBLIC_URL=. react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "manifest": "d2-manifest package.json public/manifest.webapp",
+        "manifest": "d2-manifest package.json ./public/manifest.webapp",
         "extract-pot": "d2-i18n-extract -p src/ -o i18n/",
-        "localize": "npm run extract-pot && d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/"
+        "localize": "d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/"
     },
     "husky": {
         "hooks": {

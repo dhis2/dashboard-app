@@ -29,34 +29,24 @@ const configI18n = userSettings => {
     i18n.changeLanguage(uiLocale);
 };
 
-const injectScriptsIntoBody = scriptPrefix => {
+const injectScripts = scriptPrefix => {
     const head = document.getElementsByTagName('head')[0];
 
     [
-        `${scriptPrefix}/dhis-web-core-resource/fonts/roboto.css`,
         `${scriptPrefix}/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.min.js`,
         `${scriptPrefix}/dhis-web-core-resource/jquery/3.2.1/dist/jquery.min.js`,
         `${scriptPrefix}/dhis-web-core-resource/jquery-migrate/3.0.1/dist/jquery-migrate.min.js`,
         `${scriptPrefix}/dhis-web-pivot/reporttable.js`,
-        `${scriptPrefix}/dhis-web-visualizer/chart.js`,
         // `${scriptPrefix}/dhis-web-maps/map.js`,
         `${scriptPrefix}/dhis-web-event-reports/eventreport.js`,
         `${scriptPrefix}/dhis-web-event-visualizer/eventchart.js`,
     ].forEach(asset => {
-        if (/\.js$/.test(asset)) {
-            const script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.async = false;
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.async = false;
 
-            script.src = asset;
-            head.appendChild(script);
-        } else {
-            const linkEl = document.createElement('link');
-            linkEl.type = 'text/css';
-            linkEl.rel = 'stylesheet';
-            linkEl.href = asset;
-            head.appendChild(linkEl);
-        }
+        script.src = asset;
+        head.appendChild(script);
     });
 };
 
@@ -88,7 +78,7 @@ const init = async () => {
         : process.env.REACT_APP_DHIS2_BASE_URL;
     const authorization = process.env.REACT_APP_DHIS2_AUTHORIZATION;
 
-    injectScriptsIntoBody(baseUrl);
+    injectScripts(baseUrl);
 
     config.baseUrl = `${baseUrl}/api/${manifest.dhis2.apiVersion}`;
     config.headers = isProd ? null : { Authorization: authorization };
