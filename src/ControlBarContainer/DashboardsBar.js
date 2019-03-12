@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import ControlBar from 'd2-ui/lib/controlbar/ControlBar';
 import arraySort from 'd2-utilizr/lib/arraySort';
+import debounce from 'lodash/debounce';
+
 import Chip from './DashboardItemChip';
 import D2IconButton from '../widgets/D2IconButton';
 import Filter from './Filter';
@@ -19,6 +21,7 @@ import * as fromReducers from '../reducers';
 import { orObject, orArray } from '../util';
 import { sGetSelectedId } from '../reducers/selected';
 import { apiPostControlBarRows } from '../api/controlBar';
+import { apiPostDataStatistics } from '../api/dataStatistics';
 
 import './ControlBarContainer.css';
 
@@ -72,8 +75,17 @@ export class DashboardsBar extends Component {
     };
 
     onSelectDashboard = () => {
+        if (!this.props.dashboards.length) {
+            return;
+        }
+
         this.props.history.push(`/${this.props.dashboards[0].id}`);
+
+        this.getPostDataStatisticsFn(this.props.selectedId)();
     };
+
+    getPostDataStatisticsFn = id =>
+        debounce(() => apiPostDataStatistics('DASHBOARD_VIEW', id), 500);
 
     render() {
         const { dashboards, name, selectedId, onChangeFilterName } = this.props;
@@ -123,6 +135,7 @@ export class DashboardsBar extends Component {
                             starred={dashboard.starred}
                             dashboardId={dashboard.id}
                             selected={dashboard.id === selectedId}
+                            onClick={this.getPostDataStatisticsFn(selectedId)}
                         />
                     ))}
                 </div>
