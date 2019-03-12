@@ -6,7 +6,7 @@
     "license": "BSD-3-Clause",
     "dependencies": {
         "@dhis2/d2-ui-core": "^5.0.17",
-        "@dhis2/d2-ui-interpretations": "5.2.9",
+        "@dhis2/d2-ui-interpretations": "5.2.10",
         "@dhis2/d2-ui-mentions-wrapper": "^5.0.17",
         "@dhis2/d2-ui-org-unit-tree": "^5.0.17",
         "@dhis2/d2-ui-rich-text": "^5.0.17",
