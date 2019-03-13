@@ -47,6 +47,10 @@ export const isPluginType = item =>
 export const getPlugin = type => {
     const pluginName = itemTypeMap[type].plugin;
 
+    if (type === CHART) {
+        return true;
+    }
+
     return global[pluginName];
 };
 

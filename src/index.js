@@ -37,7 +37,7 @@ const injectScripts = scriptPrefix => {
         `${scriptPrefix}/dhis-web-core-resource/jquery/3.2.1/dist/jquery.min.js`,
         `${scriptPrefix}/dhis-web-core-resource/jquery-migrate/3.0.1/dist/jquery-migrate.min.js`,
         `${scriptPrefix}/dhis-web-pivot/reporttable.js`,
-        // `${scriptPrefix}/dhis-web-maps/map.js`,
+        `${scriptPrefix}/dhis-web-maps/map.js`,
         `${scriptPrefix}/dhis-web-event-reports/eventreport.js`,
         `${scriptPrefix}/dhis-web-event-visualizer/eventchart.js`,
     ].forEach(asset => {
