@@ -64,10 +64,7 @@ export class Item extends Component {
             return;
         }
 
-        pluginManager.unmount(
-            this.props.item,
-            this.props.visualization.activeType || this.props.item.type
-        );
+        pluginManager.unmount(this.props.item, this.getActiveType());
 
         this.props.onSelectVisualization(
             this.props.visualization.id,
@@ -120,9 +117,7 @@ export class Item extends Component {
             <VisualizationItemHeaderButtons
                 item={this.props.item}
                 activeFooter={this.state.showFooter}
-                activeType={
-                    this.props.visualization.activeType || this.props.item.type
-                }
+                activeType={this.getActiveType()}
                 onSelectVisualization={this.onSelectVisualization}
                 onToggleFooter={this.onToggleFooter}
             />
@@ -139,7 +134,7 @@ export class Item extends Component {
     };
 
     getPluginComponent = () =>
-        this.props.item.type === CHART ? (
+        this.getActiveType() === CHART ? (
             <ChartPlugin
                 config={this.props.visualization}
                 filters={this.props.itemFilter}
