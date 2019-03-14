@@ -142,6 +142,7 @@ export class Item extends Component {
     getPluginComponent = () =>
         this.props.item.type === CHART ? (
             <ChartPlugin
+                d2={this.context.d2}
                 config={this.props.visualization}
                 filters={this.props.itemFilter}
                 forDashboard={true}

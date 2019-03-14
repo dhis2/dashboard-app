@@ -13,7 +13,7 @@ describe('VisualizationItem/Item', () => {
 
     const canvas = () => {
         if (!shallowItem) {
-            shallowItem = shallow(<Item {...props} />);
+            shallowItem = shallow(<Item {...props} />, { context: { d2: {} } });
         }
         return shallowItem;
     };
