@@ -7,7 +7,7 @@
     "dependencies": {
         "@dhis2/d2-i18n": "^1.0.4",
         "@dhis2/d2-ui-core": "^5.2.9",
-        "@dhis2/d2-ui-interpretations": "^5.2.9",
+        "@dhis2/d2-ui-interpretations": "^5.2.10",
         "@dhis2/d2-ui-mentions-wrapper": "^5.2.9",
         "@dhis2/d2-ui-org-unit-tree": "^5.2.9",
         "@dhis2/d2-ui-rich-text": "^5.2.9",
