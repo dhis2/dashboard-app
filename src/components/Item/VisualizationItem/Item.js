@@ -5,7 +5,6 @@ import { withStyles } from '@material-ui/core/styles';
 import LaunchIcon from '@material-ui/icons/Launch';
 
 import * as pluginManager from './plugin';
-import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
 import { acReceivedActiveVisualization } from '../../../actions/selected';
@@ -42,12 +41,19 @@ const styles = {
     },
 };
 
-export class Item extends Component {
-    state = {
-        showFooter: false,
-    };
+export const defaultState = {
+    showFooter: false,
+};
 
-    getUniqueKey = memoizeOne(filter => uniqueId());
+export class Item extends Component {
+    constructor(props, context) {
+        super(props);
+
+        this.state = defaultState;
+        this.d2 = context.d2;
+    }
+
+    getUniqueKey = memoizeOne(() => uniqueId());
 
     pluginCredentials = null;
 
@@ -93,10 +99,7 @@ export class Item extends Component {
                 </span>
                 {!editMode && this.pluginIsAvailable() ? (
                     <a
-                        href={pluginManager.getLink(
-                            this.props.item,
-                            this.context.d2
-                        )}
+                        href={pluginManager.getLink(this.props.item, this.d2)}
                         style={{ height: 16 }}
                         title={`View in ${
                             itemTypeMap[this.props.item.type].appName
@@ -157,7 +160,6 @@ export class Item extends Component {
                     editMode={editMode}
                 />
                 <ProgressiveLoadingContainer
-                    id={getGridItemDomId(item.id)}
                     key={
                         this.getUniqueKey(
                             itemFilter

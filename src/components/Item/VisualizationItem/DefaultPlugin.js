@@ -4,6 +4,7 @@ import i18n from 'd2-i18n';
 
 import * as pluginManager from './plugin';
 import { getBaseUrl, orObject } from '../../../modules/util';
+import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 
 const pluginCredentials = d2 => {
     return {
@@ -120,11 +121,13 @@ class DefaultPlugin extends Component {
             visualization
         );
 
-        return !pluginIsAvailable ? (
+        return pluginIsAvailable ? (
+            <div id={getGridItemDomId(item.id)} />
+        ) : (
             <div className={classes.textDiv}>
                 {i18n.t('Unable to load the plugin for this item')}
             </div>
-        ) : null;
+        );
     }
 }
 
