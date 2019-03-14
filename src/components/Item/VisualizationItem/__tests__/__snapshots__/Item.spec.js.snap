@@ -45,7 +45,24 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <ItemHeader
-          actionButtons={null}
+          actionButtons={
+            <VisualizationItemHeaderButtons
+              activeFooter={false}
+              activeType="CHART"
+              item={
+                Object {
+                  "chart": Object {
+                    "id": "chart1",
+                    "name": "Test chart",
+                  },
+                  "id": "testItem1",
+                  "type": "CHART",
+                }
+              }
+              onSelectVisualization={[Function]}
+              onToggleFooter={[Function]}
+            />
+          }
           editMode={false}
           title={
             <div
@@ -57,10 +74,20 @@ ShallowWrapper {
               }
             >
               <span
-                title="Test chart"
+                title="rainbow"
               >
-                Test chart
+                rainbow
               </span>
+              <a
+                style={
+                  Object {
+                    "height": 16,
+                  }
+                }
+                title="View in Visualizer app"
+              >
+                <pure(LaunchIcon) />
+              </a>
             </div>
           }
         />,
@@ -83,6 +110,7 @@ ShallowWrapper {
                 "name": "Test chart",
               }
             }
+            d2={Object {}}
             filters={
               Object {
                 "brilliance": 100,
@@ -106,7 +134,22 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "actionButtons": null,
+          "actionButtons": <VisualizationItemHeaderButtons
+            activeFooter={false}
+            activeType="CHART"
+            item={
+              Object {
+                "chart": Object {
+                  "id": "chart1",
+                  "name": "Test chart",
+                },
+                "id": "testItem1",
+                "type": "CHART",
+              }
+            }
+            onSelectVisualization={[Function]}
+            onToggleFooter={[Function]}
+          />,
           "editMode": false,
           "title": <div
             style={
@@ -117,10 +160,20 @@ ShallowWrapper {
             }
           >
             <span
-              title="Test chart"
+              title="rainbow"
             >
-              Test chart
+              rainbow
             </span>
+            <a
+              style={
+                Object {
+                  "height": 16,
+                }
+              }
+              title="View in Visualizer app"
+            >
+              <pure(LaunchIcon) />
+            </a>
           </div>,
         },
         "ref": null,
@@ -140,6 +193,7 @@ ShallowWrapper {
                 "name": "Test chart",
               }
             }
+            d2={Object {}}
             filters={
               Object {
                 "brilliance": 100,
@@ -170,6 +224,7 @@ ShallowWrapper {
               "description": "Test chart mock",
               "name": "Test chart",
             },
+            "d2": Object {},
             "filters": Object {
               "brilliance": 100,
             },
@@ -196,7 +251,24 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <ItemHeader
-            actionButtons={null}
+            actionButtons={
+              <VisualizationItemHeaderButtons
+                activeFooter={false}
+                activeType="CHART"
+                item={
+                  Object {
+                    "chart": Object {
+                      "id": "chart1",
+                      "name": "Test chart",
+                    },
+                    "id": "testItem1",
+                    "type": "CHART",
+                  }
+                }
+                onSelectVisualization={[Function]}
+                onToggleFooter={[Function]}
+              />
+            }
             editMode={false}
             title={
               <div
@@ -208,10 +280,20 @@ ShallowWrapper {
                 }
               >
                 <span
-                  title="Test chart"
+                  title="rainbow"
                 >
-                  Test chart
+                  rainbow
                 </span>
+                <a
+                  style={
+                    Object {
+                      "height": 16,
+                    }
+                  }
+                  title="View in Visualizer app"
+                >
+                  <pure(LaunchIcon) />
+                </a>
               </div>
             }
           />,
@@ -234,6 +316,7 @@ ShallowWrapper {
                   "name": "Test chart",
                 }
               }
+              d2={Object {}}
               filters={
                 Object {
                   "brilliance": 100,
@@ -257,7 +340,22 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "actionButtons": null,
+            "actionButtons": <VisualizationItemHeaderButtons
+              activeFooter={false}
+              activeType="CHART"
+              item={
+                Object {
+                  "chart": Object {
+                    "id": "chart1",
+                    "name": "Test chart",
+                  },
+                  "id": "testItem1",
+                  "type": "CHART",
+                }
+              }
+              onSelectVisualization={[Function]}
+              onToggleFooter={[Function]}
+            />,
             "editMode": false,
             "title": <div
               style={
@@ -268,10 +366,20 @@ ShallowWrapper {
               }
             >
               <span
-                title="Test chart"
+                title="rainbow"
               >
-                Test chart
+                rainbow
               </span>
+              <a
+                style={
+                  Object {
+                    "height": 16,
+                  }
+                }
+                title="View in Visualizer app"
+              >
+                <pure(LaunchIcon) />
+              </a>
             </div>,
           },
           "ref": null,
@@ -291,6 +399,7 @@ ShallowWrapper {
                   "name": "Test chart",
                 }
               }
+              d2={Object {}}
               filters={
                 Object {
                   "brilliance": 100,
@@ -321,6 +430,7 @@ ShallowWrapper {
                 "description": "Test chart mock",
                 "name": "Test chart",
               },
+              "d2": Object {},
               "filters": Object {
                 "brilliance": 100,
               },
@@ -352,13 +462,18 @@ ShallowWrapper {
           "getChildContext": Object {
             "calledByRenderer": false,
           },
-          "getDerivedStateFromProps": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
           "getSnapshotBeforeUpdate": true,
           "setState": Object {
             "skipsComponentDidUpdateOnNullish": true,
           },
         },
       },
+    },
+    "context": Object {
+      "d2": Object {},
     },
   },
   Symbol(enzyme.__childContext__): null,
@@ -410,7 +525,24 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <ItemHeader
-          actionButtons={null}
+          actionButtons={
+            <VisualizationItemHeaderButtons
+              activeFooter={false}
+              activeType="REPORT_TABLE"
+              item={
+                Object {
+                  "id": "testItem2",
+                  "reportTable": Object {
+                    "id": "pivot1",
+                    "name": "Test pivot",
+                  },
+                  "type": "REPORT_TABLE",
+                }
+              }
+              onSelectVisualization={[Function]}
+              onToggleFooter={[Function]}
+            />
+          }
           editMode={false}
           title={
             <div
@@ -422,10 +554,20 @@ ShallowWrapper {
               }
             >
               <span
-                title="Test pivot"
+                title="rainbow"
               >
-                Test pivot
+                rainbow
               </span>
+              <a
+                style={
+                  Object {
+                    "height": 16,
+                  }
+                }
+                title="View in Pivot Tables app"
+              >
+                <pure(LaunchIcon) />
+              </a>
             </div>
           }
         />,
@@ -478,7 +620,22 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "actionButtons": null,
+          "actionButtons": <VisualizationItemHeaderButtons
+            activeFooter={false}
+            activeType="REPORT_TABLE"
+            item={
+              Object {
+                "id": "testItem2",
+                "reportTable": Object {
+                  "id": "pivot1",
+                  "name": "Test pivot",
+                },
+                "type": "REPORT_TABLE",
+              }
+            }
+            onSelectVisualization={[Function]}
+            onToggleFooter={[Function]}
+          />,
           "editMode": false,
           "title": <div
             style={
@@ -489,10 +646,20 @@ ShallowWrapper {
             }
           >
             <span
-              title="Test pivot"
+              title="rainbow"
             >
-              Test pivot
+              rainbow
             </span>
+            <a
+              style={
+                Object {
+                  "height": 16,
+                }
+              }
+              title="View in Pivot Tables app"
+            >
+              <pure(LaunchIcon) />
+            </a>
           </div>,
         },
         "ref": null,
@@ -582,7 +749,24 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <ItemHeader
-            actionButtons={null}
+            actionButtons={
+              <VisualizationItemHeaderButtons
+                activeFooter={false}
+                activeType="REPORT_TABLE"
+                item={
+                  Object {
+                    "id": "testItem2",
+                    "reportTable": Object {
+                      "id": "pivot1",
+                      "name": "Test pivot",
+                    },
+                    "type": "REPORT_TABLE",
+                  }
+                }
+                onSelectVisualization={[Function]}
+                onToggleFooter={[Function]}
+              />
+            }
             editMode={false}
             title={
               <div
@@ -594,10 +778,20 @@ ShallowWrapper {
                 }
               >
                 <span
-                  title="Test pivot"
+                  title="rainbow"
                 >
-                  Test pivot
+                  rainbow
                 </span>
+                <a
+                  style={
+                    Object {
+                      "height": 16,
+                    }
+                  }
+                  title="View in Pivot Tables app"
+                >
+                  <pure(LaunchIcon) />
+                </a>
               </div>
             }
           />,
@@ -650,7 +844,22 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "actionButtons": null,
+            "actionButtons": <VisualizationItemHeaderButtons
+              activeFooter={false}
+              activeType="REPORT_TABLE"
+              item={
+                Object {
+                  "id": "testItem2",
+                  "reportTable": Object {
+                    "id": "pivot1",
+                    "name": "Test pivot",
+                  },
+                  "type": "REPORT_TABLE",
+                }
+              }
+              onSelectVisualization={[Function]}
+              onToggleFooter={[Function]}
+            />,
             "editMode": false,
             "title": <div
               style={
@@ -661,10 +870,20 @@ ShallowWrapper {
               }
             >
               <span
-                title="Test pivot"
+                title="rainbow"
               >
-                Test pivot
+                rainbow
               </span>
+              <a
+                style={
+                  Object {
+                    "height": 16,
+                  }
+                }
+                title="View in Pivot Tables app"
+              >
+                <pure(LaunchIcon) />
+              </a>
             </div>,
           },
           "ref": null,
@@ -759,13 +978,18 @@ ShallowWrapper {
           "getChildContext": Object {
             "calledByRenderer": false,
           },
-          "getDerivedStateFromProps": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
           "getSnapshotBeforeUpdate": true,
           "setState": Object {
             "skipsComponentDidUpdateOnNullish": true,
           },
         },
       },
+    },
+    "context": Object {
+      "d2": Object {},
     },
   },
   Symbol(enzyme.__childContext__): null,

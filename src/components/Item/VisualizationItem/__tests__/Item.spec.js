@@ -6,6 +6,14 @@ import { Item } from '../Item';
 jest.mock('data-visualizer-plugin', () => () => <div />);
 jest.mock('../DefaultPlugin', () => () => <div />);
 jest.mock('../ItemFooter', () => () => <div />);
+jest.mock('../plugin', () => {
+    return {
+        getLink: jest.fn(),
+        unmount: jest.fn(),
+        pluginIsAvailable: () => true,
+        getName: () => 'rainbow',
+    };
+});
 
 describe('VisualizationItem/Item', () => {
     let props;

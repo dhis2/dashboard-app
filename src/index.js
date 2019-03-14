@@ -29,27 +29,6 @@ const configI18n = userSettings => {
     i18n.changeLanguage(uiLocale);
 };
 
-const injectScripts = scriptPrefix => {
-    const head = document.getElementsByTagName('head')[0];
-
-    [
-        `${scriptPrefix}/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.min.js`,
-        `${scriptPrefix}/dhis-web-core-resource/jquery/3.2.1/dist/jquery.min.js`,
-        `${scriptPrefix}/dhis-web-core-resource/jquery-migrate/3.0.1/dist/jquery-migrate.min.js`,
-        `${scriptPrefix}/dhis-web-pivot/reporttable.js`,
-        `${scriptPrefix}/dhis-web-maps/map.js`,
-        `${scriptPrefix}/dhis-web-event-reports/eventreport.js`,
-        `${scriptPrefix}/dhis-web-event-visualizer/eventchart.js`,
-    ].forEach(asset => {
-        const script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.async = false;
-
-        script.src = asset;
-        head.appendChild(script);
-    });
-};
-
 const init = async () => {
     const manifest = await getManifest('./manifest.webapp');
 
@@ -77,8 +56,6 @@ const init = async () => {
         ? manifest.activities.dhis.href
         : process.env.REACT_APP_DHIS2_BASE_URL;
     const authorization = process.env.REACT_APP_DHIS2_AUTHORIZATION;
-
-    injectScripts(baseUrl);
 
     config.baseUrl = `${baseUrl}/api/${manifest.dhis2.apiVersion}`;
     config.headers = isProd ? null : { Authorization: authorization };

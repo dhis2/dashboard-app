@@ -56,6 +56,7 @@
             "pre-commit": "yarn extract-pot && CI=true yarn test && git add ./i18n/"
         }
     },
+    "proxy": "http://localhost:8080",
     "manifest.webapp": {
         "name": "Dashboards app",
         "description": "DHIS2 core dashboard",
