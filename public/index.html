@@ -23,13 +23,13 @@
         <script src="../dhis-web-event-reports/eventreport.js"></script>
         <script src="../dhis-web-event-visualizer/eventchart.js"></script>
         <% } %> <% if (process.env.NODE_ENV !== 'production') { %>
-        <script src="/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.min.js"></script>
-        <script src="/dhis-web-core-resource/jquery/3.2.1/dist/jquery.min.js"></script>
-        <script src="/dhis-web-core-resource/jquery-migrate/3.0.1/dist/jquery-migrate.min.js"></script>
-        <script src="/dhis-web-pivot/reporttable.js"></script>
-        <script src="/dhis-web-maps/map.js"></script>
-        <script src="/dhis-web-event-reports/eventreport.js"></script>
-        <script src="/dhis-web-event-visualizer/eventchart.js"></script>
+        <script src="%REACT_APP_DHIS2_BASE_URL%/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.min.js"></script>
+        <script src="%REACT_APP_DHIS2_BASE_URL%/dhis-web-core-resource/jquery/3.2.1/dist/jquery.min.js"></script>
+        <script src="%REACT_APP_DHIS2_BASE_URL%/dhis-web-core-resource/jquery-migrate/3.0.1/dist/jquery-migrate.min.js"></script>
+        <script src="%REACT_APP_DHIS2_BASE_URL%/dhis-web-pivot/reporttable.js"></script>
+        <script src="%REACT_APP_DHIS2_BASE_URL%/dhis-web-maps/map.js"></script>
+        <script src="%REACT_APP_DHIS2_BASE_URL%/dhis-web-event-reports/eventreport.js"></script>
+        <script src="%REACT_APP_DHIS2_BASE_URL%/dhis-web-event-visualizer/eventchart.js"></script>
         <% } %>
         <title>Dashboards app</title>
     </head>
