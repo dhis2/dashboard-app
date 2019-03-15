@@ -15,17 +15,22 @@
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
         <% if (process.env.NODE_ENV === 'production') { %>
-        <script src="../dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.min.js"></script>
-        <script src="../dhis-web-core-resource/jquery/3.2.1/dist/jquery.min.js"></script>
-        <script src="../dhis-web-core-resource/jquery-migrate/3.0.1/dist/jquery-migrate.min.js"></script>
+        <!-- TODO: Remove these global script dependencies or bundle them with their respective plugins -->
+        <script src="%PUBLIC_URL%/vendor/babel-polyfill-6.26.0.min.js"></script>
+        <script src="%PUBLIC_URL%/vendor/jquery-3.3.1.min.js"></script>
+        <script src="%PUBLIC_URL%/vendor/jquery-migrate-3.0.1.min.js"></script>
+
+        <!-- TODO: Don't assume ../relative paths -->
         <script src="../dhis-web-pivot/reporttable.js"></script>
         <script src="../dhis-web-maps/map.js"></script>
         <script src="../dhis-web-event-reports/eventreport.js"></script>
         <script src="../dhis-web-event-visualizer/eventchart.js"></script>
         <% } %> <% if (process.env.NODE_ENV !== 'production') { %>
-        <script src="%REACT_APP_DHIS2_BASE_URL%/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.min.js"></script>
-        <script src="%REACT_APP_DHIS2_BASE_URL%/dhis-web-core-resource/jquery/3.2.1/dist/jquery.min.js"></script>
-        <script src="%REACT_APP_DHIS2_BASE_URL%/dhis-web-core-resource/jquery-migrate/3.0.1/dist/jquery-migrate.min.js"></script>
+        <!-- TODO: Remove these global script dependencies or bundle them with their respective plugins -->
+        <script src="%PUBLIC_URL%/vendor/babel-polyfill-6.26.0.js"></script>
+        <script src="%PUBLIC_URL%/vendor/jquery-3.3.1.js"></script>
+        <script src="%PUBLIC_URL%/vendor/jquery-migrate-3.0.1.js"></script>
+
         <script src="%REACT_APP_DHIS2_BASE_URL%/dhis-web-pivot/reporttable.js"></script>
         <script src="%REACT_APP_DHIS2_BASE_URL%/dhis-web-maps/map.js"></script>
         <script src="%REACT_APP_DHIS2_BASE_URL%/dhis-web-event-reports/eventreport.js"></script>
