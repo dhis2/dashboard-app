@@ -3422,6 +3422,17 @@ d2-charts-api@^31.0.12:
     highcharts-no-data-to-display "^0.1.7"
     highcharts-solid-gauge "^0.1.7"
 
+d2-i18n-generate@^1.0.15:
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/d2-i18n-generate/-/d2-i18n-generate-1.0.15.tgz#c6403df3c4296af74b75e7f07a0c3f8b87af3901"
+  integrity sha512-50s16p/5MHdpYP3AlBDHGPRr3qZY+wcupgp8LiMctYxN7+ClJi5jmnbLXlvZBdVSW1OUboln9mFYdCktfRPfcw==
+  dependencies:
+    argparse "^1.0.10"
+    handlebars "^4.0.11"
+    i18next-conv "^6.0.0"
+    moment "^2.22.1"
+    rimraf "^2.6.2"
+
 d2-manifest@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/d2-manifest/-/d2-manifest-1.0.0.tgz#19d4a4c4e8151442ab730e932c9c2170be9ebcc9"

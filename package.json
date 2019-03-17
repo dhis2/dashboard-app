@@ -86,6 +86,7 @@
     ],
     "devDependencies": {
         "@dhis2/d2-i18n-extract": "^1.0.7",
+        "d2-i18n-generate": "^1.0.15",
         "d2-manifest": "^1.0.0",
         "enzyme": "^3.9.0",
         "enzyme-adapter-react-16": "^1.10.0",
