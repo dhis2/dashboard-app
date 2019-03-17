@@ -46,6 +46,7 @@
         "coverage": "npm test -- --coverage",
         "prebuild": "rm -rf build && mkdir build && npm run manifest && npm run localize",
         "build": "PUBLIC_URL=. react-scripts build",
+        "build-netlify": "npm run build && d2-manifest package.json build/manifest.webapp --manifest.activities.dhis.href=\"https://play.dhis2.org/dev\"",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "manifest": "d2-manifest package.json ./public/manifest.webapp",

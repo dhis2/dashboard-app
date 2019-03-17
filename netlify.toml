@@ -13,10 +13,7 @@ ID = "c19afad0-317d-4612-a81d-950c23f62da7"
   publish = "build"
 
   # Default build command.
-  command = """
-yarn run build && \
-yarn run manifest package.json build/manifest.webapp --manifest.activities.dhis.href=\"https://play.dhis2.org/dev\"
-"""
+  command = "yarn run build-netlify"
 
 # /dhis-web-core-resource/react/16.2.0/umd/react.production.min.js            https://unpkg.com/react@16.5/umd/react.production.min.js
 # /dhis-web-core-resource/react-dom/16.2.0/umd/react-dom.production.min.js    https://unpkg.com/react-dom@16.5/umd/react-dom.production.min.js
