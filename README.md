@@ -17,6 +17,9 @@ The following env vars need to be set when running in dev mode:
 -   REACT_APP_DHIS2_BASE_URL (e.g., http://localhost:8080)
 -   REACT_APP_DHIS2_AUTHORIZATION (base64 encoded username and password)
 
+The defaults for these values (for development) are set in the `.env` and can be overriden in `.env.local` (which should not be checked into source control)
+When creating a production build, the REACT_APP_DHIS2_BASE_URL is set to `..` in `.env.production`. `REACT_APP_DHIS2_AUTHORIZATION` is unset by default.
+
 ### Installation
 
 First clone the repo, then:

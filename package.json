@@ -46,10 +46,10 @@
         "coverage": "npm test -- --coverage",
         "prebuild": "rm -rf build && mkdir build && npm run manifest && npm run localize",
         "build": "PUBLIC_URL=. react-scripts build",
-        "build-netlify": "npm run build && d2-manifest package.json build/manifest.webapp --manifest.activities.dhis.href=\"https://play.dhis2.org/dev\"",
+        "build-netlify": "REACT_APP_DHIS2_BASE_URL=\"https://play.dhis2.org/dev\" npm run build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "manifest": "d2-manifest package.json ./public/manifest.webapp",
+        "manifest": "d2-manifest package.json ./public/manifest.webapp --manifest.activities.dhis.href=${REACT_APP_DHIS2_BASE_URL:=..}",
         "extract-pot": "d2-i18n-extract -p src/ -o i18n/",
         "localize": "d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/"
     },
