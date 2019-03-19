@@ -9,13 +9,12 @@ import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
 import { acReceivedActiveVisualization } from '../../../actions/selected';
-import { itemTypeMap, CHART } from '../../../modules/itemTypes';
+import { itemTypeMap } from '../../../modules/itemTypes';
 import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
 import DefaultPlugin from './DefaultPlugin';
 import { colors } from '../../../modules/colors';
-import ChartPlugin from 'data-visualizer-plugin';
 import ProgressiveLoadingContainer from '../ProgressiveLoadingContainer';
 import uniqueId from 'lodash/uniqueId';
 import memoizeOne from '../../../modules/memoizeOne';
@@ -47,7 +46,13 @@ export class Item extends Component {
         showFooter: false,
     };
 
-    getUniqueKey = memoizeOne(filter => uniqueId());
+    constructor(props, context) {
+        super(props);
+
+        this.d2 = context.d2;
+    }
+
+    getUniqueKey = memoizeOne(() => uniqueId());
 
     pluginCredentials = null;
 
@@ -64,10 +69,7 @@ export class Item extends Component {
             return;
         }
 
-        pluginManager.unmount(
-            this.props.item,
-            this.props.visualization.activeType || this.props.item.type
-        );
+        pluginManager.unmount(this.props.item, this.getActiveType());
 
         this.props.onSelectVisualization(
             this.props.visualization.id,
@@ -96,10 +98,7 @@ export class Item extends Component {
                 </span>
                 {!editMode && this.pluginIsAvailable() ? (
                     <a
-                        href={pluginManager.getLink(
-                            this.props.item,
-                            this.context.d2
-                        )}
+                        href={pluginManager.getLink(this.props.item, this.d2)}
                         style={{ height: 16 }}
                         title={`View in ${
                             itemTypeMap[this.props.item.type].appName
@@ -120,9 +119,7 @@ export class Item extends Component {
             <VisualizationItemHeaderButtons
                 item={this.props.item}
                 activeFooter={this.state.showFooter}
-                activeType={
-                    this.props.visualization.activeType || this.props.item.type
-                }
+                activeType={this.getActiveType()}
                 onSelectVisualization={this.onSelectVisualization}
                 onToggleFooter={this.onToggleFooter}
             />
@@ -137,19 +134,6 @@ export class Item extends Component {
               }
             : null;
     };
-
-    getPluginComponent = () =>
-        this.props.item.type === CHART ? (
-            <ChartPlugin
-                d2={this.context.d2}
-                config={this.props.visualization}
-                filters={this.props.itemFilter}
-                forDashboard={true}
-                style={this.getContentStyle()}
-            />
-        ) : (
-            <DefaultPlugin {...this.props} />
-        );
 
     render() {
         const { item, editMode, itemFilter } = this.props;
@@ -172,7 +156,7 @@ export class Item extends Component {
                     className="dashboard-item-content"
                     style={this.getContentStyle()}
                 >
-                    {this.getPluginComponent()}
+                    <DefaultPlugin {...this.props} />
                 </ProgressiveLoadingContainer>
                 {!editMode && showFooter ? <ItemFooter item={item} /> : null}
             </Fragment>
