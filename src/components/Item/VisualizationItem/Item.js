@@ -147,7 +147,6 @@ export class Item extends Component {
                     editMode={editMode}
                 />
                 <ProgressiveLoadingContainer
-                    id={getGridItemDomId(item.id)}
                     key={
                         this.getUniqueKey(
                             itemFilter
