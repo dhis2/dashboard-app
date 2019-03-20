@@ -130,6 +130,22 @@ export const load = async (item, credentials, activeType, filter = {}) => {
     loadPlugin(plugin, config, credentials);
 };
 
+export const fetch = async (item, activeType, filter = {}) => {
+    const fetchedFavorite = await apiFetchFavorite(getId(item), item.type, {
+        fields: item.type === MAP ? getMapFields() : null,
+    });
+    const favorite =
+        item.type === MAP
+            ? orObject(extractMapView(fetchedFavorite))
+            : fetchedFavorite;
+
+    return {
+        ...favorite,
+        ...configureFilter(filter),
+        el: getGridItemDomId(item.id),
+    };
+};
+
 export const resize = item => {
     const plugin = itemTypeMap[item.type].plugin;
 
