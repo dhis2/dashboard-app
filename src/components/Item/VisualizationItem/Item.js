@@ -5,7 +5,6 @@ import { withStyles } from '@material-ui/core/styles';
 import LaunchIcon from '@material-ui/icons/Launch';
 
 import * as pluginManager from './plugin';
-import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
 import { acReceivedActiveVisualization } from '../../../actions/selected';
@@ -15,7 +14,6 @@ import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
 import DefaultPlugin from './DefaultPlugin';
 import { colors } from '../../../modules/colors';
-import ProgressiveLoadingContainer from '../ProgressiveLoadingContainer';
 import uniqueId from 'lodash/uniqueId';
 import memoizeOne from '../../../modules/memoizeOne';
 
@@ -146,17 +144,13 @@ export class Item extends Component {
                     actionButtons={this.getActionButtons()}
                     editMode={editMode}
                 />
-                <ProgressiveLoadingContainer
-                    key={
-                        this.getUniqueKey(
-                            itemFilter
-                        ) /* remount the progressive loader every time itemFilter changes */
-                    }
+                <div
+                    key={this.getUniqueKey(itemFilter)}
                     className="dashboard-item-content"
                     style={this.getContentStyle()}
                 >
                     <DefaultPlugin {...this.props} />
-                </ProgressiveLoadingContainer>
+                </div>
                 {!editMode && showFooter ? <ItemFooter item={item} /> : null}
             </Fragment>
         );
