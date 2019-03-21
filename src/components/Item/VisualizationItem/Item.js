@@ -154,18 +154,14 @@ export class Item extends Component {
 
     getPluginComponent = () =>
         this.getActiveType() === CHART ? (
-            <div>
-                <ChartPlugin
-                    d2={this.d2}
-                    config={this.props.visualization}
-                    filters={this.props.itemFilter}
-                    style={this.getContentStyle()}
-                />
-            </div>
+            <ChartPlugin
+                d2={this.d2}
+                config={this.props.visualization}
+                filters={this.props.itemFilter}
+                style={this.getContentStyle()}
+            />
         ) : (
-            <div>
-                <DefaultPlugin {...this.props} />
-            </div>
+            <DefaultPlugin {...this.props} />
         );
 
     render() {

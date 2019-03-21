@@ -66,7 +66,7 @@ class DefaultPlugin extends Component {
 
                 pluginManager.loadPlugin(
                     itemTypeMap[this.getActiveType()].plugin,
-                    this.getChartConfig(),
+                    this.getConfig(),
                     this.pluginCredentials
                 );
             }
@@ -84,7 +84,7 @@ class DefaultPlugin extends Component {
         ) {
             pluginManager.loadPlugin(
                 itemTypeMap[this.getActiveType()].plugin,
-                this.getChartConfig(),
+                this.getConfig(),
                 this.pluginCredentials
             );
         }
@@ -97,7 +97,7 @@ class DefaultPlugin extends Component {
     getActiveType = () =>
         this.props.visualization.activeType || this.props.item.type;
 
-    getChartConfig = () => {
+    getConfig = () => {
         // Remove ID to prevent redundant network request in plugin
         return withoutId(this.props.visualization);
     };
@@ -142,14 +142,12 @@ DefaultPlugin.contextTypes = {
 };
 
 DefaultPlugin.propTypes = {
-    editMode: PropTypes.bool,
     item: PropTypes.object,
     itemFilter: PropTypes.object,
     visualization: PropTypes.object,
 };
 
 DefaultPlugin.defaultProps = {
-    editMode: false,
     item: {},
     itemFilter: {},
     visualization: {},
