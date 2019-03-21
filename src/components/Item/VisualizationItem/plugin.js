@@ -49,7 +49,7 @@ export const extractFavorite = item => {
 export const extractMapView = map =>
     map.mapViews && map.mapViews.find(mv => mv.layer.includes('thematic'));
 
-const loadPlugin = (plugin, config, credentials) => {
+export const loadPlugin = (plugin, config, credentials) => {
     if (!(plugin && plugin.load)) {
         return;
     }

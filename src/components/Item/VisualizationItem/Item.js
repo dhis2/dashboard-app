@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import LaunchIcon from '@material-ui/icons/Launch';
+import ChartPlugin from 'data-visualizer-plugin';
 
 import * as pluginManager from './plugin';
 import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
-import { acReceivedActiveVisualization } from '../../../actions/selected';
-import { itemTypeMap } from '../../../modules/itemTypes';
+import {
+    acReceivedActiveVisualization,
+    acReceivedVisualization,
+} from '../../../actions/selected';
+import { CHART, itemTypeMap } from '../../../modules/itemTypes';
 import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
@@ -42,12 +46,27 @@ const styles = {
 export class Item extends Component {
     state = {
         showFooter: false,
+        configLoaded: false,
     };
 
     constructor(props, context) {
         super(props);
 
         this.d2 = context.d2;
+    }
+
+    async componentDidMount() {
+        this.props.onVisualizationLoaded(
+            await pluginManager.fetch(
+                this.props.item,
+                this.props.item.type,
+                this.props.itemFilter
+            )
+        );
+
+        this.setState({
+            configLoaded: true,
+        });
     }
 
     getUniqueKey = memoizeOne(() => uniqueId());
@@ -133,6 +152,22 @@ export class Item extends Component {
             : null;
     };
 
+    getPluginComponent = () =>
+        this.getActiveType() === CHART ? (
+            <div>
+                <ChartPlugin
+                    d2={this.d2}
+                    config={this.props.visualization}
+                    filters={this.props.itemFilter}
+                    style={this.getContentStyle()}
+                />
+            </div>
+        ) : (
+            <div>
+                <DefaultPlugin {...this.props} />
+            </div>
+        );
+
     render() {
         const { item, editMode, itemFilter } = this.props;
         const { showFooter } = this.state;
@@ -149,7 +184,7 @@ export class Item extends Component {
                     className="dashboard-item-content"
                     style={this.getContentStyle()}
                 >
-                    <DefaultPlugin {...this.props} />
+                    {this.state.configLoaded && this.getPluginComponent()}
                 </div>
                 {!editMode && showFooter ? <ItemFooter item={item} /> : null}
             </Fragment>
@@ -186,6 +221,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+    onVisualizationLoaded: visualization =>
+        dispatch(acReceivedVisualization(visualization)),
     onSelectVisualization: (id, type, activeType) =>
         dispatch(acReceivedActiveVisualization(id, type, activeType)),
 });

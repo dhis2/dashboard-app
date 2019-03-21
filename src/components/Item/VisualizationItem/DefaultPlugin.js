@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import i18n from 'd2-i18n';
 
 import * as pluginManager from './plugin';
-import { getBaseUrl, orObject } from '../../../modules/util';
+import { getBaseUrl, orObject, withoutId } from '../../../modules/util';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
+import { itemTypeMap } from '../../../modules/itemTypes';
 
 const pluginCredentials = d2 => {
     return {
@@ -15,6 +16,12 @@ const pluginCredentials = d2 => {
 
 class DefaultPlugin extends Component {
     pluginCredentials = null;
+
+    constructor(props, context) {
+        super(props);
+
+        this.d2 = context.d2;
+    }
 
     shouldPluginReload = prevProps => {
         // TODO - fix this hack, to handle bug with multiple
@@ -46,9 +53,7 @@ class DefaultPlugin extends Component {
 
             const useActiveType =
                 currentVis.activeType !== prevVis.activeType ||
-                currentVis.activeType !== this.props.item.type
-                    ? true
-                    : false;
+                currentVis.activeType !== this.props.item.type;
 
             if (
                 useActiveType ||
@@ -59,18 +64,17 @@ class DefaultPlugin extends Component {
                     prevVis.activeType || this.props.item.type
                 );
 
-                pluginManager.load(
-                    this.props.item,
-                    this.pluginCredentials,
-                    useActiveType ? currentVis.activeType : null,
-                    this.props.itemFilter
+                pluginManager.loadPlugin(
+                    itemTypeMap[this.getActiveType()].plugin,
+                    this.getChartConfig(),
+                    this.pluginCredentials
                 );
             }
         }
     };
 
     componentDidMount() {
-        this.pluginCredentials = pluginCredentials(this.context.d2);
+        this.pluginCredentials = pluginCredentials(this.d2);
 
         if (
             pluginManager.pluginIsAvailable(
@@ -78,13 +82,10 @@ class DefaultPlugin extends Component {
                 this.props.visualization
             )
         ) {
-            pluginManager.load(
-                this.props.item,
-                this.pluginCredentials,
-                !this.props.editMode
-                    ? orObject(this.props.visualization).activeType
-                    : null,
-                this.props.itemFilter
+            pluginManager.loadPlugin(
+                itemTypeMap[this.getActiveType()].plugin,
+                this.getChartConfig(),
+                this.pluginCredentials
             );
         }
     }
@@ -95,6 +96,11 @@ class DefaultPlugin extends Component {
 
     getActiveType = () =>
         this.props.visualization.activeType || this.props.item.type;
+
+    getChartConfig = () => {
+        // Remove ID to prevent redundant network request in plugin
+        return withoutId(this.props.visualization);
+    };
 
     onSelectVisualization = activeType => {
         // Cancel request if type is already active
@@ -136,11 +142,15 @@ DefaultPlugin.contextTypes = {
 };
 
 DefaultPlugin.propTypes = {
+    editMode: PropTypes.bool,
+    item: PropTypes.object,
     itemFilter: PropTypes.object,
     visualization: PropTypes.object,
 };
 
 DefaultPlugin.defaultProps = {
+    editMode: false,
+    item: {},
     itemFilter: {},
     visualization: {},
 };
