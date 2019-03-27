@@ -22,7 +22,7 @@ import {
     sGetDashboardById,
     sGetDashboardItems,
 } from '../../reducers/dashboards';
-import { sGetFilterKeys } from '../../reducers/itemFilter';
+import { sGetFiltersKeys } from '../../reducers/itemFilters';
 import { colors } from '../../modules/colors';
 
 const NO_DESCRIPTION = i18n.t('No description');
@@ -74,7 +74,7 @@ class ViewTitleBar extends Component {
         this.setState({ filterDialogIsOpen: !this.state.filterDialogIsOpen });
 
     renderItemFilterLabel = () => {
-        const len = this.props.itemFilterKeys.length;
+        const len = this.props.itemFiltersKeys.length;
 
         return len ? (
             <span
@@ -208,7 +208,7 @@ const mapStateToProps = state => {
         showDescription: sGetSelectedShowDescription(state),
         starred: dashboard.starred,
         access: orObject(dashboard.access),
-        itemFilterKeys: sGetFilterKeys(state),
+        itemFiltersKeys: sGetFiltersKeys(state),
     };
 };
 

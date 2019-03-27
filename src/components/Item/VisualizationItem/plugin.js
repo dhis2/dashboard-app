@@ -1,7 +1,7 @@
 import isObject from 'lodash/isObject';
 
 import { apiFetchFavorite, getMapFields } from '../../../api/metadata';
-import { FILTER_USER_ORG_UNIT } from '../../../actions/itemFilter';
+import { FILTER_ORG_UNIT } from '../../../actions/itemFilters';
 import {
     REPORT_TABLE,
     CHART,
@@ -108,13 +108,11 @@ const configureFavorite = async (item, activeType) => {
     return favorite;
 };
 
-const configureFilter = (filter = {}) => {
-    const ouIds = getUserOrgUnitIds(filter[FILTER_USER_ORG_UNIT]);
-    const userOrgUnitFilter = ouIds.length
-        ? { [FILTER_USER_ORG_UNIT]: ouIds }
-        : {};
+const configureFilter = (filters = {}) => {
+    const ouIds = getUserOrgUnitIds(filters[FILTER_ORG_UNIT]);
+    const userOrgUnitFilter = ouIds.length ? { [FILTER_ORG_UNIT]: ouIds } : {};
 
-    return Object.assign({}, ...filter, userOrgUnitFilter);
+    return Object.assign({}, ...filters, userOrgUnitFilter);
 };
 
 export const load = async (item, credentials, activeType, filter = {}) => {

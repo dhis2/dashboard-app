@@ -23,13 +23,13 @@ class DefaultPlugin extends Component {
         // dashboard switch, check if the item reference has changed.
         const reloadAllowed = this.props.item === prevProps.item;
 
-        const filterChanged = prevProps.itemFilter !== this.props.itemFilter;
+        const filtersChanged = prevProps.itemFilters !== this.props.itemFilters;
         const vis = orObject(this.props.visualization);
         const prevVis = orObject(prevProps.visualization);
         const visChanged =
             vis.id !== prevVis.id || vis.activeType !== prevVis.activeType;
 
-        return reloadAllowed && (visChanged || filterChanged);
+        return reloadAllowed && (visChanged || filtersChanged);
     };
 
     reloadPlugin = prevProps => {
@@ -51,7 +51,7 @@ class DefaultPlugin extends Component {
 
             if (
                 useActiveType ||
-                this.props.itemFilter !== prevProps.itemFilter
+                this.props.itemFilters !== prevProps.itemFilters
             ) {
                 pluginManager.unmount(
                     this.props.item,
@@ -62,7 +62,7 @@ class DefaultPlugin extends Component {
                     this.props.item,
                     this.pluginCredentials,
                     useActiveType ? currentVis.activeType : null,
-                    this.props.itemFilter
+                    this.props.itemFilters
                 );
             }
         }
@@ -83,7 +83,7 @@ class DefaultPlugin extends Component {
                 !this.props.editMode
                     ? orObject(this.props.visualization).activeType
                     : null,
-                this.props.itemFilter
+                this.props.itemFilters
             );
         }
     }
@@ -133,12 +133,12 @@ DefaultPlugin.contextTypes = {
 };
 
 DefaultPlugin.propTypes = {
-    itemFilter: PropTypes.object,
+    itemFilters: PropTypes.object,
     visualization: PropTypes.object,
 };
 
 DefaultPlugin.defaultProps = {
-    itemFilter: {},
+    itemFilters: {},
     visualization: {},
 };
 

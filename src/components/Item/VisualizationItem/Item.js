@@ -7,7 +7,7 @@ import LaunchIcon from '@material-ui/icons/Launch';
 import * as pluginManager from './plugin';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { sGetVisualization } from '../../../reducers/visualizations';
-import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
+import { sGetItemFiltersRoot } from '../../../reducers/itemFilters';
 import { acReceivedActiveVisualization } from '../../../actions/selected';
 import { itemTypeMap } from '../../../modules/itemTypes';
 import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
@@ -136,7 +136,7 @@ export class Item extends Component {
     };
 
     render() {
-        const { item, editMode, itemFilter } = this.props;
+        const { item, editMode, itemFilters } = this.props;
         const { showFooter } = this.state;
 
         return (
@@ -150,8 +150,8 @@ export class Item extends Component {
                     id={getGridItemDomId(item.id)}
                     key={
                         this.getUniqueKey(
-                            itemFilter
-                        ) /* remount the progressive loader every time itemFilter changes */
+                            itemFilters
+                        ) /* remount the progressive loader every time itemFilters changes */
                     }
                     className="dashboard-item-content"
                     style={this.getContentStyle()}
@@ -172,7 +172,7 @@ Item.propTypes = {
     item: PropTypes.object,
     editMode: PropTypes.bool,
     onToggleItemExpanded: PropTypes.func,
-    itemFilter: PropTypes.object,
+    itemFilters: PropTypes.object,
     visualization: PropTypes.object,
 };
 
@@ -180,12 +180,12 @@ Item.defaultProps = {
     item: {},
     editMode: false,
     onToggleItemExpanded: Function.prototype,
-    itemFilter: {},
+    itemFilters: {},
     visualization: {},
 };
 
 const mapStateToProps = (state, ownProps) => ({
-    itemFilter: sGetItemFilterRoot(state),
+    itemFilters: sGetItemFiltersRoot(state),
     visualization: sGetVisualization(
         state,
         pluginManager.extractFavorite(ownProps.item).id
