@@ -134,13 +134,9 @@ export const fetch = async (item, activeType, filter = {}) => {
     const fetchedFavorite = await apiFetchFavorite(getId(item), item.type, {
         fields: item.type === MAP ? getMapFields() : null,
     });
-    const favorite =
-        item.type === MAP
-            ? orObject(extractMapView(fetchedFavorite))
-            : fetchedFavorite;
 
     return {
-        ...favorite,
+        ...fetchedFavorite,
         ...configureFilter(filter),
         el: getGridItemDomId(item.id),
     };
