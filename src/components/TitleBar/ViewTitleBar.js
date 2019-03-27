@@ -11,7 +11,7 @@ import StarBorder from '@material-ui/icons/StarBorder';
 import { orObject } from '../../modules/util';
 import { tStarDashboard } from '../../actions/dashboards';
 import { acSetSelectedShowDescription } from '../../actions/selected';
-import FilterDialog from '../ItemFilter/ItemFilter';
+import FilterSelector from '../ItemFilter/FilterSelector';
 import FlatButton from '../../widgets/FlatButton';
 import Info from './Info';
 import {
@@ -22,7 +22,6 @@ import {
     sGetDashboardById,
     sGetDashboardItems,
 } from '../../reducers/dashboards';
-import { sGetFiltersKeys } from '../../reducers/itemFilters';
 import { colors } from '../../modules/colors';
 
 const NO_DESCRIPTION = i18n.t('No description');
@@ -63,40 +62,11 @@ class ViewTitleBar extends Component {
 
         this.state = {
             sharingDialogIsOpen: false,
-            filterDialogIsOpen: false,
         };
     }
 
     toggleSharingDialog = () =>
         this.setState({ sharingDialogIsOpen: !this.state.sharingDialogIsOpen });
-
-    toggleFilterDialog = () =>
-        this.setState({ filterDialogIsOpen: !this.state.filterDialogIsOpen });
-
-    renderItemFilterLabel = () => {
-        const len = this.props.itemFiltersKeys.length;
-
-        return len ? (
-            <span
-                onClick={this.toggleFilterDialog}
-                style={{
-                    marginLeft: '20px',
-                    cursor: 'pointer',
-                    color: colors.white,
-                    fontWeight: 500,
-                    backgroundColor: '#444',
-                    padding: '6px 8px',
-                    borderRadius: '3px',
-                    position: 'relative',
-                    top: '1px',
-                }}
-            >
-                {len} {len > 1 ? 'filters' : 'filter'} applied
-            </span>
-        ) : (
-            ''
-        );
-    };
 
     render() {
         const {
@@ -145,7 +115,6 @@ class ViewTitleBar extends Component {
                                     </FlatButton>
                                 </Link>
                             ) : null}
-
                             {access.manage ? (
                                 <FlatButton
                                     className={classes.textButton}
@@ -154,13 +123,7 @@ class ViewTitleBar extends Component {
                                     Share
                                 </FlatButton>
                             ) : null}
-                            <FlatButton
-                                className={classes.textButton}
-                                onClick={this.toggleFilterDialog}
-                            >
-                                Filter
-                            </FlatButton>
-                            {this.renderItemFilterLabel()}
+                            <FilterSelector />
                         </span>
                     </div>
                 </div>
@@ -185,12 +148,6 @@ class ViewTitleBar extends Component {
                         onRequestClose={this.toggleSharingDialog}
                     />
                 ) : null}
-                {id ? (
-                    <FilterDialog
-                        open={this.state.filterDialogIsOpen}
-                        onRequestClose={this.toggleFilterDialog}
-                    />
-                ) : null}
             </Fragment>
         );
     }
@@ -208,7 +165,6 @@ const mapStateToProps = state => {
         showDescription: sGetSelectedShowDescription(state),
         starred: dashboard.starred,
         access: orObject(dashboard.access),
-        itemFiltersKeys: sGetFiltersKeys(state),
     };
 };
 
