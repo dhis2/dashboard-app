@@ -8,6 +8,7 @@ import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes';
 import { acReceivedUser } from '../actions/user';
 import { tFetchDashboards } from '../actions/dashboards';
 import { tSetControlBarRows } from '../actions/controlBar';
+import { tSetDimensions } from '../actions/dimensions';
 import Dashboard from './Dashboard/Dashboard';
 import SnackbarMessage from './SnackbarMessage/SnackbarMessage';
 
@@ -19,6 +20,7 @@ class App extends Component {
         store.dispatch(acReceivedUser(this.props.d2.currentUser));
         store.dispatch(tFetchDashboards());
         store.dispatch(tSetControlBarRows());
+        store.dispatch(tSetDimensions(this.props.d2));
     }
 
     getChildContext() {

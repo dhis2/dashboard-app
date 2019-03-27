@@ -15,8 +15,11 @@ import editDashboard from './editDashboard';
 import messages from './messages';
 import user from './user';
 import snackbar from './snackbar';
-import itemFilter from './itemFilter';
+import itemFilters from './itemFilters';
+import editItemFilters from './editItemFilters';
 import style from './style';
+import dimensions from './dimensions';
+import settings from './settings';
 
 const USER = 'system';
 
@@ -31,9 +34,12 @@ export default combineReducers({
     messages,
     user,
     editDashboard,
-    itemFilter,
+    itemFilters,
+    editItemFilters,
     style,
     snackbar,
+    dimensions,
+    settings,
 });
 
 // Map constants to data
