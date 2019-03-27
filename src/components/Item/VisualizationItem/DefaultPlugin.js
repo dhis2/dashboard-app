@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import i18n from 'd2-i18n';
 
 import * as pluginManager from './plugin';
-import { getBaseUrl, orObject, withoutId } from '../../../modules/util';
+import { getBaseUrl, orObject } from '../../../modules/util';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { itemTypeMap } from '../../../modules/itemTypes';
 
@@ -66,7 +66,7 @@ class DefaultPlugin extends Component {
 
                 pluginManager.loadPlugin(
                     itemTypeMap[this.getActiveType()].plugin,
-                    this.getConfig(),
+                    this.props.visualization,
                     this.pluginCredentials
                 );
             }
@@ -84,7 +84,7 @@ class DefaultPlugin extends Component {
         ) {
             pluginManager.loadPlugin(
                 itemTypeMap[this.getActiveType()].plugin,
-                this.getConfig(),
+                this.props.visualization,
                 this.pluginCredentials
             );
         }
@@ -96,11 +96,6 @@ class DefaultPlugin extends Component {
 
     getActiveType = () =>
         this.props.visualization.activeType || this.props.item.type;
-
-    getConfig = () => {
-        // Remove ID to prevent redundant network request in plugin
-        return withoutId(this.props.visualization);
-    };
 
     onSelectVisualization = activeType => {
         // Cancel request if type is already active
