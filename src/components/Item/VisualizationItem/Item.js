@@ -20,6 +20,7 @@ import DefaultPlugin from './DefaultPlugin';
 import { colors } from '../../../modules/colors';
 import uniqueId from 'lodash/uniqueId';
 import memoizeOne from '../../../modules/memoizeOne';
+import { getVisualizationConfig } from './plugin';
 
 const styles = {
     icon: {
@@ -128,6 +129,13 @@ export class Item extends Component {
         );
     };
 
+    getConfig = () =>
+        getVisualizationConfig(
+            this.props.visualization,
+            this.props.item.type,
+            this.getActiveType()
+        );
+
     getActionButtons = () =>
         pluginManager.pluginIsAvailable(
             this.props.item,
@@ -152,16 +160,24 @@ export class Item extends Component {
             : null;
     };
 
+    onError = error => console.log(error);
+
     getPluginComponent = () =>
         this.getActiveType() === CHART ? (
             <ChartPlugin
                 d2={this.d2}
-                config={this.props.visualization}
+                config={this.getConfig()}
                 filters={this.props.itemFilter}
                 style={this.getContentStyle()}
+                onError={this.onError}
             />
         ) : (
-            <DefaultPlugin {...this.props} />
+            <DefaultPlugin
+                activeType={this.getActiveType()}
+                item={this.props.item}
+                visualization={this.getConfig()}
+                itemFilter={this.props.itemFilter}
+            />
         );
 
     render() {

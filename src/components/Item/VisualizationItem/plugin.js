@@ -1,5 +1,4 @@
 import isObject from 'lodash/isObject';
-
 import { apiFetchFavorite, getMapFields } from '../../../api/metadata';
 import { FILTER_USER_ORG_UNIT } from '../../../actions/itemFilter';
 import {
@@ -10,8 +9,10 @@ import {
     EVENT_CHART,
     itemTypeMap,
 } from '../../../modules/itemTypes';
-import { getBaseUrl, orObject } from '../../../modules/util';
+import { getBaseUrl, orObject, withoutId } from '../../../modules/util';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
+
+export const THEMATIC_LAYER = 'thematic';
 
 export const pluginIsAvailable = (item = {}, visualization = {}) => {
     const type = visualization.activeType || item.type;
@@ -47,7 +48,18 @@ export const extractFavorite = item => {
 };
 
 export const extractMapView = map =>
-    map.mapViews && map.mapViews.find(mv => mv.layer.includes('thematic'));
+    map.mapViews && map.mapViews.find(mv => mv.layer.includes(THEMATIC_LAYER));
+
+export const fixMapThematicLayers = map => ({
+    ...map,
+    mapViews: map.mapViews.map(mapView => ({
+        ...mapView,
+        layer:
+            mapView.layer && mapView.layer.includes(THEMATIC_LAYER)
+                ? THEMATIC_LAYER
+                : mapView.layer,
+    })),
+});
 
 export const loadPlugin = (plugin, config, credentials) => {
     if (!(plugin && plugin.load)) {
@@ -156,4 +168,30 @@ export const unmount = (item, activeType) => {
     if (plugin && plugin.unmount) {
         plugin.unmount(getGridItemDomId(item.id));
     }
+};
+
+export const getVisualizationConfig = (
+    visualization,
+    originalType,
+    activeType
+) => {
+    const getDefaultVisualization = () => withoutId(visualization);
+
+    if (originalType === activeType) {
+        if (originalType === MAP) {
+            return fixMapThematicLayers(getDefaultVisualization());
+        }
+
+        return getDefaultVisualization();
+    }
+
+    if (originalType === MAP) {
+        return withoutId({
+            ...visualization,
+            ...orObject(extractMapView(visualization)),
+            mapViews: undefined,
+        });
+    }
+
+    return getDefaultVisualization();
 };
