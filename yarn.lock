@@ -978,10 +978,10 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/ui@1.0.0-beta.14":
-  version "1.0.0-beta.14"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-1.0.0-beta.14.tgz#79e987975644029eb4937c3be34bd27e6cfd169e"
-  integrity sha512-5MoD5Eiha0iRuqfIJBEbXBJKNot/WdhoEMb6fcmZ5b29JZ4iTmtzaf8C7T06DJmIaBdHSeAF/4hIohO/VUojNQ==
+"@dhis2/ui@1.0.0-beta.15":
+  version "1.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-1.0.0-beta.15.tgz#3dc7484174f1db686dd6f10cbad8271d84f3a0b9"
+  integrity sha512-VT+XbhFiVpVjLlX1/MkLsb0fWAdVOu0GcHCKa+s6olh5TnhZKdU8zwIZXiPaYng0oqFfufYIqBsJi9139l1zyQ==
   dependencies:
     classnames "^2.2.6"
     styled-jsx "^3.2.1"
