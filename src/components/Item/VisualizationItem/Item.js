@@ -129,12 +129,17 @@ export class Item extends Component {
         );
     };
 
-    getConfig = () =>
-        getVisualizationConfig(
+    getConfig = () => {
+        const result = getVisualizationConfig(
             this.props.visualization,
             this.props.item.type,
             this.getActiveType()
         );
+
+        console.log(result);
+
+        return result;
+    };
 
     getActionButtons = () =>
         pluginManager.pluginIsAvailable(
