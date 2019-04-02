@@ -165,9 +165,15 @@ export const getVisualizationConfig = (
     activeType
 ) => {
     if (originalType === MAP && originalType !== activeType) {
+        const extractedMapView = extractMapView(visualization);
+
+        if (extractedMapView === undefined) {
+            return null;
+        }
+
         return getWithoutId({
             ...visualization,
-            ...orObject(extractMapView(visualization)),
+            ...extractedMapView,
             mapViews: undefined,
         });
     }
