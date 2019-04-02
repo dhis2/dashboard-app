@@ -129,17 +129,12 @@ export class Item extends Component {
         );
     };
 
-    getConfig = () => {
-        const result = getVisualizationConfig(
+    getConfig = () =>
+        getVisualizationConfig(
             this.props.visualization,
             this.props.item.type,
             this.getActiveType()
         );
-
-        console.log(result);
-
-        return result;
-    };
 
     getActionButtons = () =>
         pluginManager.pluginIsAvailable(
@@ -180,6 +175,7 @@ export class Item extends Component {
             <DefaultPlugin
                 activeType={this.getActiveType()}
                 item={this.props.item}
+                style={this.getContentStyle()}
                 visualization={this.getConfig()}
                 itemFilter={this.props.itemFilter}
             />
@@ -199,7 +195,6 @@ export class Item extends Component {
                 <div
                     key={this.getUniqueKey(itemFilter)}
                     className="dashboard-item-content"
-                    style={this.getContentStyle()}
                 >
                     {this.state.configLoaded && this.getPluginComponent()}
                 </div>

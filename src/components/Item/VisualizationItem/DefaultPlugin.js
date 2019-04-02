@@ -116,14 +116,14 @@ class DefaultPlugin extends Component {
     };
 
     render() {
-        const { classes, item, visualization } = this.props;
+        const { classes, item, visualization, style } = this.props;
         const pluginIsAvailable = pluginManager.pluginIsAvailable(
             item,
             visualization
         );
 
         return pluginIsAvailable ? (
-            <div id={getGridItemDomId(item.id)} />
+            <div id={getGridItemDomId(item.id)} style={style} />
         ) : (
             <div className={classes.textDiv}>
                 {i18n.t('Unable to load the plugin for this item')}
@@ -137,12 +137,14 @@ DefaultPlugin.contextTypes = {
 };
 
 DefaultPlugin.propTypes = {
+    style: PropTypes.object,
     item: PropTypes.object,
     itemFilter: PropTypes.object,
     visualization: PropTypes.object,
 };
 
 DefaultPlugin.defaultProps = {
+    style: {},
     item: {},
     itemFilter: {},
     visualization: {},
