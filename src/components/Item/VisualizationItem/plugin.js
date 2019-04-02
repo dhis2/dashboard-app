@@ -50,17 +50,6 @@ export const extractFavorite = item => {
 export const extractMapView = map =>
     map.mapViews && map.mapViews.find(mv => mv.layer.includes(THEMATIC_LAYER));
 
-export const fixMapThematicLayers = map => ({
-    ...map,
-    mapViews: map.mapViews.map(mapView => ({
-        ...mapView,
-        layer:
-            mapView.layer && mapView.layer.includes(THEMATIC_LAYER)
-                ? THEMATIC_LAYER
-                : mapView.layer,
-    })),
-});
-
 export const loadPlugin = (plugin, config, credentials) => {
     if (!(plugin && plugin.load)) {
         return;
@@ -175,17 +164,7 @@ export const getVisualizationConfig = (
     originalType,
     activeType
 ) => {
-    const getDefaultVisualization = () => withoutId(visualization);
-
-    if (originalType === activeType) {
-        if (originalType === MAP) {
-            return fixMapThematicLayers(getDefaultVisualization());
-        }
-
-        return getDefaultVisualization();
-    }
-
-    if (originalType === MAP) {
+    if (originalType === MAP && originalType !== activeType) {
         return withoutId({
             ...visualization,
             ...orObject(extractMapView(visualization)),
@@ -193,5 +172,5 @@ export const getVisualizationConfig = (
         });
     }
 
-    return getDefaultVisualization();
+    return withoutId(visualization);
 };
