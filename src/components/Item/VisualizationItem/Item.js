@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import LaunchIcon from '@material-ui/icons/Launch';
 import ChartPlugin from 'data-visualizer-plugin';
+import i18n from '@dhis2/d2-i18n';
 
 import * as pluginManager from './plugin';
 import { sGetVisualization } from '../../../reducers/visualizations';
@@ -156,23 +157,37 @@ export class Item extends Component {
             : null;
     };
 
-    getPluginComponent = () =>
-        this.getActiveType() === CHART ? (
-            <ChartPlugin
-                d2={this.d2}
-                config={this.getConfig()}
-                filters={this.props.itemFilter}
-                style={this.getContentStyle()}
-            />
-        ) : (
-            <DefaultPlugin
-                activeType={this.getActiveType()}
-                item={this.props.item}
-                style={this.getContentStyle()}
-                visualization={this.getConfig()}
-                itemFilter={this.props.itemFilter}
-            />
+    getPluginComponent = () => {
+        const config = this.getConfig();
+        const style = this.getContentStyle();
+        const activeType = this.getActiveType();
+        const { item, itemFilter, classes } = this.props;
+
+        if (config) {
+            return activeType === CHART ? (
+                <ChartPlugin
+                    d2={this.d2}
+                    config={config}
+                    filters={itemFilter}
+                    style={style}
+                />
+            ) : (
+                <DefaultPlugin
+                    activeType={activeType}
+                    item={item}
+                    style={style}
+                    visualization={config}
+                    itemFilter={itemFilter}
+                />
+            );
+        }
+
+        return (
+            <div className={classes.textDiv}>
+                {i18n.t('No data to display')}
+            </div>
         );
+    };
 
     render() {
         const { item, editMode, itemFilter } = this.props;
