@@ -9,7 +9,7 @@ import {
     EVENT_CHART,
     itemTypeMap,
 } from '../../../modules/itemTypes';
-import { getBaseUrl, orObject, withoutId } from '../../../modules/util';
+import { getBaseUrl, orObject, getWithoutId } from '../../../modules/util';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 
 export const THEMATIC_LAYER = 'thematic';
@@ -165,12 +165,12 @@ export const getVisualizationConfig = (
     activeType
 ) => {
     if (originalType === MAP && originalType !== activeType) {
-        return withoutId({
+        return getWithoutId({
             ...visualization,
             ...orObject(extractMapView(visualization)),
             mapViews: undefined,
         });
     }
 
-    return withoutId(visualization);
+    return getWithoutId(visualization);
 };

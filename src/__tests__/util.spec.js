@@ -1,4 +1,4 @@
-import { validateReducer, getBaseUrl } from '../modules/util';
+import { validateReducer, getBaseUrl, getWithoutId } from '../modules/util';
 
 describe('util', () => {
     describe('validateReducer', () => {
@@ -48,6 +48,16 @@ describe('util', () => {
 
             const actual = getBaseUrl(d2);
             expect(actual).toEqual(baseUrl);
+        });
+    });
+
+    describe('getWithoutId', () => {
+        it('removes id property from an object', () => {
+            const object = { id: 'SOME_ID', someProp: 'someValue' };
+            const expectedResult = { someProp: 'someValue' };
+            const actualResult = getWithoutId(object);
+
+            expect(actualResult).toEqual(expectedResult);
         });
     });
 });

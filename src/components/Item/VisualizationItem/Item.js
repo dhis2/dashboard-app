@@ -156,8 +156,6 @@ export class Item extends Component {
             : null;
     };
 
-    onError = error => console.log(error);
-
     getPluginComponent = () =>
         this.getActiveType() === CHART ? (
             <ChartPlugin
@@ -165,7 +163,6 @@ export class Item extends Component {
                 config={this.getConfig()}
                 filters={this.props.itemFilter}
                 style={this.getContentStyle()}
-                onError={this.onError}
             />
         ) : (
             <DefaultPlugin
