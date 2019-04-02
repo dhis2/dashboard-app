@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import LaunchIcon from '@material-ui/icons/Launch';
 import ChartPlugin from 'data-visualizer-plugin';
-import i18n from '@dhis2/d2-i18n';
+import i18n from 'd2-i18n';
 
 import * as pluginManager from './plugin';
 import { sGetVisualization } from '../../../reducers/visualizations';
