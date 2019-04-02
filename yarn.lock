@@ -2695,9 +2695,10 @@ d2-i18n-extract@^1.x:
     i18next-conv "^6.0.0"
     i18next-scanner "^2.4.4"
 
-d2-i18n-generate@^1.x:
+d2-i18n-generate@1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/d2-i18n-generate/-/d2-i18n-generate-1.0.6.tgz#75d17b266c01071aed92115cc3d516813bf21171"
+  integrity sha512-sOVhbjA6zy1uXabN7sLtg0w2js2c/BSDDBAznMZ9tuj25Ei/plOSkKSHB0UyGmyRpFsauyuu5JIwB4+3UWTM0w==
   dependencies:
     argparse "^1.0.10"
     handlebars "^4.0.11"
@@ -8490,9 +8491,10 @@ react-dev-utils@^4.2.1:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
-react-dom@^16.1.1:
-  version "16.3.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.3.0.tgz#b318e52184188ecb5c3e81117420cca40618643e"
+react-dom@~16.3:
+  version "16.3.3"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.3.3.tgz#af4c2aef9f6a66251a46da50253c860a67ae66d9"
+  integrity sha512-ALCp7ZbSGkqRDtQoZozKVNgwXMxbxf/IGOUMC2A0yF6JHeZrS8e2cOotPT87Vf4b7PKCuUVKU4/RDEXxToA/yA==
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
@@ -8668,9 +8670,10 @@ react-transition-group@^2.2.1:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react@^16.1.1:
-  version "16.3.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.3.0.tgz#fc5a01c68f91e9b38e92cf83f7b795ebdca8ddff"
+react@~16.3:
+  version "16.3.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.3.2.tgz#fdc8420398533a1e58872f59091b272ce2f91ea9"
+  integrity sha512-o5GPdkhciQ3cEph6qgvYB7LTOHw/GB0qRI6ZFNugj49qJCFfgHwVNjZ5u+b7nif4vOeMIOuYj3CeYe2IBD74lg==
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
@@ -10306,8 +10309,9 @@ unzip-response@^2.0.1:
   resolved "https://registry.yarnpkg.com/unzip-response/-/unzip-response-2.0.1.tgz#d2f0f737d16b0615e72a6935ed04214572d56f97"
 
 upath@^1.0.0:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/upath/-/upath-1.0.4.tgz#ee2321ba0a786c50973db043a50b7bcba822361d"
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/upath/-/upath-1.1.2.tgz#3db658600edaeeccbe6db5e684d67ee8c2acd068"
+  integrity sha512-kXpym8nmDmlCBr7nKdIx8P2jNBa+pBpIUFRnKJ4dr8htyYGJFokkr2ZvERRtUN+9SY+JqXouNgUPtv6JQva/2Q==
 
 update-notifier@^2.3.0:
   version "2.4.0"
