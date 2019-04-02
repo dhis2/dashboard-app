@@ -69,5 +69,23 @@ describe('plugin', () => {
 
             expect(actualResult).toEqual(expectedResult);
         });
+
+        it('returns null if extracting mapview results undefined', () => {
+            visualization = {
+                mapViews: [
+                    {
+                        ...visualization,
+                        layer: 'event',
+                    },
+                ],
+            };
+            const actualResult = getVisualizationConfig(
+                visualization,
+                MAP,
+                CHART
+            );
+
+            expect(actualResult).toEqual(null);
+        });
     });
 });
