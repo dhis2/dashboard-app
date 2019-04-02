@@ -131,7 +131,7 @@ export const load = async (item, credentials, activeType, filter = {}) => {
     loadPlugin(plugin, config, credentials);
 };
 
-export const fetch = async (item, activeType, filter = {}) => {
+export const fetch = async (item, filter = {}) => {
     const fetchedFavorite = await apiFetchFavorite(getId(item), item.type, {
         fields: item.type === MAP ? getMapFields() : null,
     });

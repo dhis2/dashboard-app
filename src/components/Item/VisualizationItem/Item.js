@@ -58,11 +58,7 @@ export class Item extends Component {
 
     async componentDidMount() {
         this.props.onVisualizationLoaded(
-            await pluginManager.fetch(
-                this.props.item,
-                this.props.item.type,
-                this.props.itemFilter
-            )
+            await pluginManager.fetch(this.props.item, this.props.itemFilter)
         );
 
         this.setState({
