@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-03-01T11:56:20.216Z\n"
-"PO-Revision-Date: 2019-03-01T11:56:20.216Z\n"
+"POT-Creation-Date: 2019-04-03T11:26:47.287Z\n"
+"PO-Revision-Date: 2019-04-03T11:26:47.287Z\n"
 
 msgid "Dashboard"
 msgstr ""
@@ -53,6 +53,14 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr ""
 
+msgid "{{count}} selected"
+msgid_plural "{{count}} selected"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Remove"
+msgstr ""
+
 msgid "Messages"
 msgstr ""
 
@@ -72,6 +80,15 @@ msgid "Add text here"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Confirm"
+msgstr ""
+
+msgid "Add filter"
 msgstr ""
 
 msgid "There are no items on this dashboard"
