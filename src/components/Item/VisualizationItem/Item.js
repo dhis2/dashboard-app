@@ -3,19 +3,21 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import LaunchIcon from '@material-ui/icons/Launch';
+import ChartPlugin from 'data-visualizer-plugin';
 
 import * as pluginManager from './plugin';
-import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters';
-import { acReceivedActiveVisualization } from '../../../actions/selected';
-import { itemTypeMap } from '../../../modules/itemTypes';
+import {
+    acReceivedActiveVisualization,
+    acReceivedVisualization,
+} from '../../../actions/selected';
+import { CHART, MAP, itemTypeMap } from '../../../modules/itemTypes';
 import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
 import DefaultPlugin from './DefaultPlugin';
 import { colors } from '../../../modules/colors';
-import ProgressiveLoadingContainer from '../ProgressiveLoadingContainer';
 import uniqueId from 'lodash/uniqueId';
 import memoizeOne from '../../../modules/memoizeOne';
 
@@ -41,9 +43,54 @@ const styles = {
     },
 };
 
+const applyFilters = (vis, filters) => {
+    // remove id to avoid the plugin fetching the AO
+    const visualization = { ...vis, id: undefined };
+
+    if (!Object.keys(filters).length) {
+        return visualization;
+    }
+
+    // deep clone objects in filters to avoid changing the visualization in the Redux store
+    const visRows = visualization.rows.map(obj => ({ ...obj }));
+    const visColumns = visualization.columns.map(obj => ({ ...obj }));
+    const visFilters = visualization.filters.map(obj => ({ ...obj }));
+
+    Object.keys(filters).forEach(dimensionId => {
+        if (filters[dimensionId]) {
+            let dimensionFound = false;
+
+            [visRows, visColumns, visFilters].forEach(dimensionObjects =>
+                dimensionObjects
+                    .filter(obj => obj.dimension === dimensionId)
+                    .forEach(obj => {
+                        dimensionFound = true;
+                        obj.items = filters[dimensionId];
+                    })
+            );
+
+            // add dimension to filters if not already present elsewhere
+            if (!dimensionFound) {
+                visFilters.push({
+                    dimension: dimensionId,
+                    items: filters[dimensionId],
+                });
+            }
+        }
+    });
+
+    return {
+        ...visualization,
+        rows: visRows,
+        columns: visColumns,
+        filters: visFilters,
+    };
+};
+
 export class Item extends Component {
     state = {
         showFooter: false,
+        configLoaded: false,
     };
 
     constructor(props, context) {
@@ -52,9 +99,71 @@ export class Item extends Component {
         this.d2 = context.d2;
     }
 
+    async componentDidMount() {
+        this.props.onVisualizationLoaded(
+            // TODO do not call fetch on the pluginManager, do it here as the manager will eventually be removed...
+            await pluginManager.fetch(this.props.item, this.props.item.type)
+        );
+
+        this.setState({
+            configLoaded: true,
+        });
+    }
+
     getUniqueKey = memoizeOne(() => uniqueId());
 
     pluginCredentials = null;
+
+    getPluginComponent = () => {
+        const props = {
+            ...this.props,
+            style: this.getContentStyle(),
+        };
+
+        switch (this.getActiveType()) {
+            case CHART: {
+                return (
+                    <ChartPlugin
+                        d2={this.d2}
+                        config={applyFilters(
+                            props.visualization,
+                            props.itemFilters
+                        )}
+                        forDashboard={true}
+                        style={props.style}
+                    />
+                );
+            }
+            case MAP: {
+                // apply filters only to thematic and event layers
+                const mapViews = props.visualization.mapViews.map(obj => {
+                    if (
+                        obj.layer.includes('thematic') ||
+                        obj.layer.includes('event')
+                    ) {
+                        return applyFilters(obj, props.itemFilters);
+                    }
+
+                    return obj;
+                });
+
+                props.visualization = {
+                    ...props.visualization,
+                    mapViews,
+                };
+
+                return <DefaultPlugin {...props} />;
+            }
+            default: {
+                props.visualization = applyFilters(
+                    props.visualization,
+                    props.itemFilters
+                );
+
+                return <DefaultPlugin {...props} />;
+            }
+        }
+    };
 
     onToggleFooter = () => {
         this.setState(
@@ -146,18 +255,12 @@ export class Item extends Component {
                     actionButtons={this.getActionButtons()}
                     editMode={editMode}
                 />
-                <ProgressiveLoadingContainer
-                    id={getGridItemDomId(item.id)}
-                    key={
-                        this.getUniqueKey(
-                            itemFilters
-                        ) /* remount the progressive loader every time itemFilters changes */
-                    }
+                <div
+                    key={this.getUniqueKey(itemFilters)}
                     className="dashboard-item-content"
-                    style={this.getContentStyle()}
                 >
-                    <DefaultPlugin {...this.props} />
-                </ProgressiveLoadingContainer>
+                    {this.state.configLoaded && this.getPluginComponent()}
+                </div>
                 {!editMode && showFooter ? <ItemFooter item={item} /> : null}
             </Fragment>
         );
@@ -193,6 +296,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+    onVisualizationLoaded: visualization =>
+        dispatch(acReceivedVisualization(visualization)),
     onSelectVisualization: (id, type, activeType) =>
         dispatch(acReceivedActiveVisualization(id, type, activeType)),
 });

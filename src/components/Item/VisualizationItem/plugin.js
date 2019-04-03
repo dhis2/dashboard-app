@@ -1,7 +1,6 @@
 import isObject from 'lodash/isObject';
 
 import { apiFetchFavorite, getMapFields } from '../../../api/metadata';
-import { FILTER_ORG_UNIT } from '../../../actions/itemFilters';
 import {
     REPORT_TABLE,
     CHART,
@@ -10,7 +9,7 @@ import {
     EVENT_CHART,
     itemTypeMap,
 } from '../../../modules/itemTypes';
-import { getBaseUrl, orObject } from '../../../modules/util';
+import { getBaseUrl } from '../../../modules/util';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 
 export const pluginIsAvailable = (item = {}, visualization = {}) => {
@@ -60,7 +59,6 @@ const loadPlugin = (plugin, config, credentials) => {
     if (credentials.auth) {
         plugin.auth = credentials.auth;
     }
-
     plugin.load(config);
 };
 
@@ -74,51 +72,15 @@ export const getLink = (item, d2) => {
     return `${baseUrl}/${appUrl}`;
 };
 
-const getUserOrgUnitIds = (ouPaths = []) => {
-    return ouPaths.map(ouPath => ouPath.split('/').slice(-1)[0]);
-};
-
-// if original visualisation, set id and let the plugin handle it
-// otherwise fetch and pass the correct config to the plugin
-const configureFavorite = async (item, activeType) => {
-    const isOriginalVisualisation = activeType
-        ? item.type === activeType
-        : true;
-    let favorite;
-
-    if (isOriginalVisualisation) {
-        const fullFavorite = extractFavorite(item);
-
-        favorite = {
-            id: fullFavorite.id,
-        };
-    } else {
-        const fetchedFavorite = await apiFetchFavorite(getId(item), item.type, {
-            fields: item.type === MAP ? getMapFields() : null,
-        });
-
-        favorite =
-            item.type === MAP
-                ? orObject(extractMapView(fetchedFavorite))
-                : fetchedFavorite;
-
-        favorite.id = null;
-    }
-
-    return favorite;
-};
-
-const configureFilter = (filters = {}) => {
-    const ouIds = getUserOrgUnitIds(filters[FILTER_ORG_UNIT]);
-    const userOrgUnitFilter = ouIds.length ? { [FILTER_ORG_UNIT]: ouIds } : {};
-
-    return Object.assign({}, ...filters, userOrgUnitFilter);
-};
-
-export const load = async (item, credentials, activeType, filter = {}) => {
+export const load = async (
+    item,
+    visualization,
+    credentials,
+    activeType,
+    filter = {}
+) => {
     const config = {
-        ...(await configureFavorite(item, activeType)),
-        ...configureFilter(filter),
+        ...visualization,
         el: getGridItemDomId(item.id),
     };
 
@@ -126,6 +88,14 @@ export const load = async (item, credentials, activeType, filter = {}) => {
     const plugin = itemTypeMap[type].plugin;
 
     loadPlugin(plugin, config, credentials);
+};
+
+export const fetch = async (item, activeType, filter = {}) => {
+    const fetchedFavorite = await apiFetchFavorite(getId(item), item.type, {
+        fields: item.type === MAP ? getMapFields() : null,
+    });
+
+    return fetchedFavorite;
 };
 
 export const resize = item => {

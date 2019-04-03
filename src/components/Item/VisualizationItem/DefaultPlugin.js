@@ -4,6 +4,7 @@ import i18n from 'd2-i18n';
 
 import * as pluginManager from './plugin';
 import { getBaseUrl, orObject } from '../../../modules/util';
+import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 
 const pluginCredentials = d2 => {
     return {
@@ -60,9 +61,9 @@ class DefaultPlugin extends Component {
 
                 pluginManager.load(
                     this.props.item,
+                    this.props.visualization,
                     this.pluginCredentials,
-                    useActiveType ? currentVis.activeType : null,
-                    this.props.itemFilters
+                    useActiveType ? currentVis.activeType : null
                 );
             }
         }
@@ -79,11 +80,9 @@ class DefaultPlugin extends Component {
         ) {
             pluginManager.load(
                 this.props.item,
+                this.props.visualization,
                 this.pluginCredentials,
-                !this.props.editMode
-                    ? orObject(this.props.visualization).activeType
-                    : null,
-                this.props.itemFilters
+                !this.props.editMode ? this.getActiveType() : null
             );
         }
     }
@@ -95,36 +94,20 @@ class DefaultPlugin extends Component {
     getActiveType = () =>
         this.props.visualization.activeType || this.props.item.type;
 
-    onSelectVisualization = activeType => {
-        // Cancel request if type is already active
-        if (activeType === this.getActiveType()) {
-            return;
-        }
-
-        pluginManager.unmount(
-            this.props.item,
-            this.props.visualization.activeType || this.props.item.type
-        );
-
-        this.props.onSelectVisualization(
-            this.props.visualization.id,
-            this.props.item.type,
-            activeType
-        );
-    };
-
     render() {
-        const { classes, item, visualization } = this.props;
+        const { classes, item, visualization, style } = this.props;
         const pluginIsAvailable = pluginManager.pluginIsAvailable(
             item,
             visualization
         );
 
-        return !pluginIsAvailable ? (
+        return pluginIsAvailable ? (
+            <div id={getGridItemDomId(item.id)} style={style} />
+        ) : (
             <div className={classes.textDiv}>
                 {i18n.t('Unable to load the plugin for this item')}
             </div>
-        ) : null;
+        );
     }
 }
 
@@ -133,11 +116,14 @@ DefaultPlugin.contextTypes = {
 };
 
 DefaultPlugin.propTypes = {
+    style: PropTypes.object,
+    item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,
 };
 
 DefaultPlugin.defaultProps = {
+    style: {},
     itemFilters: {},
     visualization: {},
 };
