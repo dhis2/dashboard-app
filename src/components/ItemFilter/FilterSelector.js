@@ -13,7 +13,10 @@ import { sGetDimensions } from '../../reducers/dimensions';
 import { sGetFiltersKeys } from '../../reducers/itemFilters';
 import { sGetEditItemFiltersRoot } from '../../reducers/editItemFilters';
 import { acSetItemFilters } from '../../actions/itemFilters';
-import { acSetEditItemFilters } from '../../actions/editItemFilters';
+import {
+    acRemoveEditItemFilter,
+    acSetEditItemFilters,
+} from '../../actions/editItemFilters';
 
 class FilterSelector extends Component {
     constructor(props) {
@@ -42,8 +45,6 @@ class FilterSelector extends Component {
     };
 
     onSelectItems = ({ dimensionType: dimensionId, value: items }) => {
-        console.log('onSelect', dimensionId, items);
-
         const oldList = this.props.selectedItems[dimensionId] || [];
         const newList = [
             ...oldList,
@@ -57,21 +58,21 @@ class FilterSelector extends Component {
     };
 
     onDeselectItems = ({ dimensionType: dimensionId, value: idsToRemove }) => {
-        console.log('onDeselect', idsToRemove);
-
         const newList = this.props.selectedItems[dimensionId].filter(
             item => !idsToRemove.includes(item.id)
         );
-        console.log('new list', newList);
-        this.props.setEditItemFilters({
-            ...this.props.selectedItems,
-            [dimensionId]: newList.length ? newList : undefined,
-        });
+
+        if (newList.length) {
+            this.props.setEditItemFilters({
+                ...this.props.selectedItems,
+                [dimensionId]: newList,
+            });
+        } else {
+            this.props.removeEditItemFilter(dimensionId);
+        }
     };
 
     onReorderItems = ({ dimensionType: dimensionId, value: ids }) => {
-        console.log('onReorder', ids);
-
         const items = this.props.selectedItems[dimensionId];
         const reorderedList = ids.map(id => items.find(item => item.id === id));
 
@@ -82,9 +83,7 @@ class FilterSelector extends Component {
     };
 
     saveFilter = () => {
-        console.log('saveFilters', this.props.selectesItems);
-
-        this.props.setItemFilters(this.props.selectedItems);
+        this.props.setItemFilters({ ...this.props.selectedItems });
 
         this.closeDialog();
     };
@@ -92,7 +91,7 @@ class FilterSelector extends Component {
     render() {
         const { dimensions, selectedDimensions, selectedItems } = this.props;
         const { dimension } = this.state;
-        console.log('render selector', selectedDimensions, selectedItems);
+
         return (
             <Fragment>
                 <FlatButton onClick={this.openPanel}>
@@ -138,6 +137,7 @@ export default connect(
     mapStateToProps,
     {
         setItemFilters: acSetItemFilters,
+        removeEditItemFilter: acRemoveEditItemFilter,
         setEditItemFilters: acSetEditItemFilters,
     }
 )(FilterSelector);
