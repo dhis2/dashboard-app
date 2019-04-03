@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-03-01T11:56:20.216Z\n"
-"PO-Revision-Date: 2019-03-01T11:56:20.216Z\n"
+"POT-Creation-Date: 2019-04-02T12:31:20.966Z\n"
+"PO-Revision-Date: 2019-04-02T12:31:20.966Z\n"
 
 msgid "Dashboard"
 msgstr ""
@@ -72,6 +72,9 @@ msgid "Add text here"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
+msgstr ""
+
+msgid "No data to display"
 msgstr ""
 
 msgid "There are no items on this dashboard"
