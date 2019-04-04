@@ -18,6 +18,8 @@ const peId = FIXED_DIMENSIONS.pe.id;
 const ouId = FIXED_DIMENSIONS.ou.id;
 
 class FilterDialog extends Component {
+    onConfirm = id => () => this.props.onConfirm(id);
+
     dialogContent() {
         const {
             dimension,
@@ -67,7 +69,7 @@ class FilterDialog extends Component {
     }
 
     render() {
-        const { dimension, onClose, onConfirm } = this.props;
+        const { dimension, onClose } = this.props;
         const dialogId = dimension.id;
 
         return (
@@ -80,7 +82,9 @@ class FilterDialog extends Component {
                 {dialogId && this.dialogContent()}
                 <DialogActions>
                     <Button onClick={onClose}>{i18n.t('Cancel')}</Button>
-                    <Button onClick={onConfirm}>{i18n.t('Confirm')}</Button>
+                    <Button onClick={this.onConfirm(dialogId)}>
+                        {i18n.t('Confirm')}
+                    </Button>
                 </DialogActions>
             </Dialog>
         );

@@ -12,7 +12,7 @@ import FilterDialog from './FilterDialog';
 import { sGetDimensions } from '../../reducers/dimensions';
 import { sGetFiltersKeys } from '../../reducers/itemFilters';
 import { sGetEditItemFiltersRoot } from '../../reducers/editItemFilters';
-import { acSetItemFilters } from '../../actions/itemFilters';
+import { acAddItemFilter, acSetItemFilters } from '../../actions/itemFilters';
 import {
     acRemoveEditItemFilter,
     acSetEditItemFilters,
@@ -82,8 +82,11 @@ class FilterSelector extends Component {
         });
     };
 
-    saveFilter = () => {
-        this.props.setItemFilters({ ...this.props.selectedItems });
+    saveFilter = id => {
+        this.props.addItemFilter({
+            id,
+            value: [...this.props.selectedItems[id]],
+        });
 
         this.closeDialog();
     };
@@ -136,6 +139,7 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     {
+        addItemFilter: acAddItemFilter,
         setItemFilters: acSetItemFilters,
         removeEditItemFilter: acRemoveEditItemFilter,
         setEditItemFilters: acSetEditItemFilters,
