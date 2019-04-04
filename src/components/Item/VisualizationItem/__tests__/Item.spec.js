@@ -14,6 +14,10 @@ jest.mock('../plugin', () => {
         unmount: jest.fn(),
         pluginIsAvailable: () => true,
         getName: () => 'rainbow',
+        fetch: () => {},
+        getVisualizationConfig: () => ({
+            someProp: 'someValue',
+        }),
     };
 });
 
@@ -45,6 +49,7 @@ describe('VisualizationItem/Item', () => {
             },
             visualization: {},
             onToggleItemExpanded: jest.fn(),
+            onVisualizationLoaded: jest.fn(),
         };
         shallowItem = undefined;
     });
@@ -57,6 +62,7 @@ describe('VisualizationItem/Item', () => {
         };
         props.item = {
             id: 'testItem1',
+            type: CHART,
             chart: {
                 id: 'chart1',
                 name: 'Test chart',
@@ -71,7 +77,6 @@ describe('VisualizationItem/Item', () => {
         const chartPlugin = component.find(ChartPlugin);
 
         expect(chartPlugin.exists()).toBeTruthy();
-        expect(chartPlugin.prop('config')).toEqual(props.visualization);
         expect(chartPlugin.prop('filters')).toEqual(props.itemFilter);
     });
 
@@ -99,10 +104,6 @@ describe('VisualizationItem/Item', () => {
         const defaultPlugin = canvas().find(DefaultPlugin);
 
         expect(defaultPlugin.exists()).toBeTruthy();
-
-        expect(defaultPlugin.prop('visualization')).toEqual(
-            props.visualization
-        );
         expect(defaultPlugin.prop('itemFilter')).toEqual(props.itemFilter);
     });
 });
