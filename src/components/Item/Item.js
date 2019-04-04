@@ -7,6 +7,7 @@ import ListItem from './ListItem/Item';
 import TextItem from './TextItem/Item';
 import AppItem from './AppItem/Item';
 import SpacerItem from './SpacerItem/Item';
+import ProgressiveLoadingContainer from './ProgressiveLoadingContainer';
 import {
     APP,
     REPORT_TABLE,
@@ -52,13 +53,17 @@ export const Item = props => {
     const GridItem = getGridItem(props.item.type);
 
     return (
-        <GridItem
-            item={props.item}
-            editMode={props.editMode}
-            itemFilter={
-                props.editMode ? DEFAULT_STATE_ITEM_FILTER : props.itemFilter
-            }
-            onToggleItemExpanded={props.onToggleItemExpanded}
-        />
+        <ProgressiveLoadingContainer>
+            <GridItem
+                item={props.item}
+                editMode={props.editMode}
+                itemFilter={
+                    props.editMode
+                        ? DEFAULT_STATE_ITEM_FILTER
+                        : props.itemFilter
+                }
+                onToggleItemExpanded={props.onToggleItemExpanded}
+            />
+        </ProgressiveLoadingContainer>
     );
 };

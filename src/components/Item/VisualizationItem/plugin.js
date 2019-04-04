@@ -1,5 +1,4 @@
 import isObject from 'lodash/isObject';
-
 import { apiFetchFavorite, getMapFields } from '../../../api/metadata';
 import { FILTER_USER_ORG_UNIT } from '../../../actions/itemFilter';
 import {
@@ -11,8 +10,10 @@ import {
     itemTypeMap,
     getPlugin,
 } from '../../../modules/itemTypes';
-import { getBaseUrl, orObject } from '../../../modules/util';
+import { getBaseUrl, orObject, getWithoutId } from '../../../modules/util';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
+
+export const THEMATIC_LAYER = 'thematic';
 
 export const pluginIsAvailable = (item = {}, visualization = {}) => {
     const type = visualization.activeType || item.type;
@@ -49,9 +50,9 @@ export const extractFavorite = item => {
 };
 
 export const extractMapView = map =>
-    map.mapViews && map.mapViews.find(mv => mv.layer.includes('thematic'));
+    map.mapViews && map.mapViews.find(mv => mv.layer.includes(THEMATIC_LAYER));
 
-const loadPlugin = (plugin, config, credentials) => {
+export const loadPlugin = (plugin, config, credentials) => {
     if (!(plugin && plugin.load)) {
         return;
     }
@@ -132,6 +133,18 @@ export const load = async (item, credentials, activeType, filter = {}) => {
     loadPlugin(plugin, config, credentials);
 };
 
+export const fetch = async (item, filter = {}) => {
+    const fetchedFavorite = await apiFetchFavorite(getId(item), item.type, {
+        fields: item.type === MAP ? getMapFields() : null,
+    });
+
+    return {
+        ...fetchedFavorite,
+        ...configureFilter(filter),
+        el: getGridItemDomId(item.id),
+    };
+};
+
 export const resize = item => {
     const plugin = getPlugin(item.type);
 
@@ -146,4 +159,26 @@ export const unmount = (item, activeType) => {
     if (plugin && plugin.unmount) {
         plugin.unmount(getGridItemDomId(item.id));
     }
+};
+
+export const getVisualizationConfig = (
+    visualization,
+    originalType,
+    activeType
+) => {
+    if (originalType === MAP && originalType !== activeType) {
+        const extractedMapView = extractMapView(visualization);
+
+        if (extractedMapView === undefined) {
+            return null;
+        }
+
+        return getWithoutId({
+            ...visualization,
+            ...extractedMapView,
+            mapViews: undefined,
+        });
+    }
+
+    return getWithoutId(visualization);
 };

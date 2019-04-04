@@ -3,20 +3,22 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import LaunchIcon from '@material-ui/icons/Launch';
+import ChartPlugin from 'data-visualizer-plugin';
+import i18n from '@dhis2/d2-i18n';
 import uniqueId from 'lodash/uniqueId';
 
 import DefaultPlugin from './DefaultPlugin';
 import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
-import ProgressiveLoadingContainer from '../ProgressiveLoadingContainer';
 import * as pluginManager from './plugin';
-
-import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
-import { acReceivedActiveVisualization } from '../../../actions/selected';
-import { itemTypeMap } from '../../../modules/itemTypes';
+import {
+    acReceivedVisualization,
+    acReceivedActiveVisualization,
+} from '../../../actions/selected';
+import { CHART, itemTypeMap } from '../../../modules/itemTypes';
 import { colors } from '../../../modules/colors';
 import memoizeOne from '../../../modules/memoizeOne';
 
@@ -45,12 +47,23 @@ const styles = {
 export class Item extends Component {
     state = {
         showFooter: false,
+        configLoaded: false,
     };
 
     constructor(props, context) {
         super(props);
 
         this.d2 = context.d2;
+    }
+
+    async componentDidMount() {
+        this.props.onVisualizationLoaded(
+            await pluginManager.fetch(this.props.item, this.props.itemFilter)
+        );
+
+        this.setState({
+            configLoaded: true,
+        });
     }
 
     getUniqueKey = memoizeOne(() => uniqueId());
@@ -112,6 +125,13 @@ export class Item extends Component {
         );
     };
 
+    getConfig = () =>
+        pluginManager.getVisualizationConfig(
+            this.props.visualization,
+            this.props.item.type,
+            this.getActiveType()
+        );
+
     getActionButtons = () =>
         pluginManager.pluginIsAvailable(
             this.props.item,
@@ -136,6 +156,38 @@ export class Item extends Component {
             : null;
     };
 
+    getPluginComponent = () => {
+        const config = this.getConfig();
+        const style = this.getContentStyle();
+        const activeType = this.getActiveType();
+        const { item, itemFilter, classes } = this.props;
+
+        if (config) {
+            return activeType === CHART ? (
+                <ChartPlugin
+                    d2={this.d2}
+                    config={config}
+                    filters={itemFilter}
+                    style={style}
+                />
+            ) : (
+                <DefaultPlugin
+                    activeType={activeType}
+                    item={item}
+                    style={style}
+                    visualization={config}
+                    itemFilter={itemFilter}
+                />
+            );
+        }
+
+        return (
+            <div className={classes.textDiv}>
+                {i18n.t('No data to display')}
+            </div>
+        );
+    };
+
     render() {
         const { item, editMode, itemFilter } = this.props;
         const { showFooter } = this.state;
@@ -147,18 +199,12 @@ export class Item extends Component {
                     actionButtons={this.getActionButtons()}
                     editMode={editMode}
                 />
-                <ProgressiveLoadingContainer
-                    id={getGridItemDomId(item.id)}
-                    key={
-                        this.getUniqueKey(
-                            itemFilter
-                        ) /* remount the progressive loader every time itemFilter changes */
-                    }
+                <div
+                    key={this.getUniqueKey(itemFilter)}
                     className="dashboard-item-content"
-                    style={this.getContentStyle()}
                 >
-                    <DefaultPlugin {...this.props} />
-                </ProgressiveLoadingContainer>
+                    {this.state.configLoaded && this.getPluginComponent()}
+                </div>
                 {!editMode && showFooter ? <ItemFooter item={item} /> : null}
             </Fragment>
         );
@@ -194,6 +240,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+    onVisualizationLoaded: visualization =>
+        dispatch(acReceivedVisualization(visualization)),
     onSelectVisualization: (id, type, activeType) =>
         dispatch(acReceivedActiveVisualization(id, type, activeType)),
 });

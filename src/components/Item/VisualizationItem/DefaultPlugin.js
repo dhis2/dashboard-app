@@ -4,6 +4,8 @@ import i18n from '@dhis2/d2-i18n';
 
 import * as pluginManager from './plugin';
 import { getBaseUrl, orObject } from '../../../modules/util';
+import { getGridItemDomId } from '../../ItemGrid/gridUtil';
+import { itemTypeMap } from '../../../modules/itemTypes';
 
 const pluginCredentials = d2 => {
     return {
@@ -14,6 +16,12 @@ const pluginCredentials = d2 => {
 
 class DefaultPlugin extends Component {
     pluginCredentials = null;
+
+    constructor(props, context) {
+        super(props);
+
+        this.d2 = context.d2;
+    }
 
     shouldPluginReload = prevProps => {
         // TODO - fix this hack, to handle bug with multiple
@@ -45,9 +53,7 @@ class DefaultPlugin extends Component {
 
             const useActiveType =
                 currentVis.activeType !== prevVis.activeType ||
-                currentVis.activeType !== this.props.item.type
-                    ? true
-                    : false;
+                currentVis.activeType !== this.props.item.type;
 
             if (
                 useActiveType ||
@@ -58,18 +64,17 @@ class DefaultPlugin extends Component {
                     prevVis.activeType || this.props.item.type
                 );
 
-                pluginManager.load(
-                    this.props.item,
-                    this.pluginCredentials,
-                    useActiveType ? currentVis.activeType : null,
-                    this.props.itemFilter
+                pluginManager.loadPlugin(
+                    itemTypeMap[this.getActiveType()].plugin,
+                    this.props.visualization,
+                    this.pluginCredentials
                 );
             }
         }
     };
 
     componentDidMount() {
-        this.pluginCredentials = pluginCredentials(this.context.d2);
+        this.pluginCredentials = pluginCredentials(this.d2);
 
         if (
             pluginManager.pluginIsAvailable(
@@ -77,13 +82,10 @@ class DefaultPlugin extends Component {
                 this.props.visualization
             )
         ) {
-            pluginManager.load(
-                this.props.item,
-                this.pluginCredentials,
-                !this.props.editMode
-                    ? orObject(this.props.visualization).activeType
-                    : null,
-                this.props.itemFilter
+            pluginManager.loadPlugin(
+                itemTypeMap[this.getActiveType()].plugin,
+                this.props.visualization,
+                this.pluginCredentials
             );
         }
     }
@@ -114,17 +116,19 @@ class DefaultPlugin extends Component {
     };
 
     render() {
-        const { classes, item, visualization } = this.props;
+        const { classes, item, visualization, style } = this.props;
         const pluginIsAvailable = pluginManager.pluginIsAvailable(
             item,
             visualization
         );
 
-        return !pluginIsAvailable ? (
+        return pluginIsAvailable ? (
+            <div id={getGridItemDomId(item.id)} style={style} />
+        ) : (
             <div className={classes.textDiv}>
                 {i18n.t('Unable to load the plugin for this item')}
             </div>
-        ) : null;
+        );
     }
 }
 
@@ -133,11 +137,15 @@ DefaultPlugin.contextTypes = {
 };
 
 DefaultPlugin.propTypes = {
+    style: PropTypes.object,
+    item: PropTypes.object,
     itemFilter: PropTypes.object,
     visualization: PropTypes.object,
 };
 
 DefaultPlugin.defaultProps = {
+    style: {},
+    item: {},
     itemFilter: {},
     visualization: {},
 };
