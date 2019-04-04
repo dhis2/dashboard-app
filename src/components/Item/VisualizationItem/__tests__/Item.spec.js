@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import ChartPlugin from 'data-visualizer-plugin';
 import { CHART, REPORT_TABLE } from '../../../../modules/itemTypes';
 import { Item } from '../Item';
+import DefaultPlugin from '../DefaultPlugin';
 
 jest.mock('data-visualizer-plugin', () => () => <div />);
 jest.mock('../DefaultPlugin', () => () => <div />);
@@ -48,26 +49,6 @@ describe('VisualizationItem/Item', () => {
         shallowItem = undefined;
     });
 
-<<<<<<< HEAD
-    // TODO uncomment this test once we implement data fetching on app level
-    // and pass complete analytical objects to plugins.
-    // it('renders a ChartPlugin when a chart item is passed', () => {
-    //     props.visualization = {
-    //         name: 'Test chart',
-    //         description: 'Test chart mock',
-    //     };
-    //     props.item = {
-    //         type: CHART,
-    //         id: 'testItem1',
-    //         chart: {
-    //             id: 'chart1',
-    //             name: 'Test chart',
-    //         },
-    //     };
-    //
-    //     expect(canvas()).toMatchSnapshot();
-    // });
-=======
     it('renders a ChartPlugin when a chart item is passed', () => {
         props.visualization = {
             name: 'Test chart',
@@ -93,7 +74,6 @@ describe('VisualizationItem/Item', () => {
         expect(chartPlugin.prop('config')).toEqual(props.visualization);
         expect(chartPlugin.prop('filters')).toEqual(props.itemFilter);
     });
->>>>>>> master
 
     it('renders a DefaultPlugin when a item different from chart is passed', () => {
         props.visualization = {
@@ -110,9 +90,8 @@ describe('VisualizationItem/Item', () => {
             },
         };
 
-<<<<<<< HEAD
         expect(canvas()).toMatchSnapshot();
-=======
+
         const component = canvas();
 
         component.setState({ configLoaded: true });
@@ -125,6 +104,5 @@ describe('VisualizationItem/Item', () => {
             props.visualization
         );
         expect(defaultPlugin.prop('itemFilter')).toEqual(props.itemFilter);
->>>>>>> master
     });
 });
