@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createSelector } from 'reselect';
 
-import i18n from 'd2-i18n';
-
 import { sGetDimensions } from '../../reducers/dimensions';
 import { sGetItemFiltersRoot } from '../../reducers/itemFilters';
 import { acRemoveItemFilter } from '../../actions/itemFilters';
 import { acRemoveEditItemFilter } from '../../actions/editItemFilters';
-import { colors } from '../../modules/colors';
+
+import FilterBadge from './FilterBadge';
 
 const styles = {
     bar: {
@@ -20,57 +19,6 @@ const styles = {
         display: 'flex',
         justifyContent: 'center',
     },
-    badgeContainer: {
-        margin: '0 4px',
-        padding: '0 16px',
-        borderRadius: '4px',
-        color: colors.white,
-        backgroundColor: '#212934',
-        fontSize: '13px',
-        height: 36,
-        display: 'flex',
-        alignItems: 'center',
-    },
-    badge: {
-        fontSize: '12px',
-        textDecoration: 'underline',
-        marginLeft: '24px',
-        cursor: 'pointer',
-    },
-};
-
-class FilterBadge extends Component {
-    onRemove = id => () => this.props.onRemove(id);
-
-    render() {
-        const { data } = this.props;
-
-        return (
-            <div style={styles.badgeContainer}>
-                <span>
-                    {`${data.name}: ${
-                        data.values.length > 1
-                            ? i18n.t('{{count}} selected', {
-                                  count: data.values.length,
-                              })
-                            : data.values[0].name
-                    }`}
-                </span>
-                <span style={styles.badge} onClick={this.onRemove(data.id)}>
-                    {i18n.t('Remove')}
-                </span>
-            </div>
-        );
-    }
-}
-
-FilterBadge.propTypes = {
-    data: PropTypes.object.isRequired,
-    onRemove: PropTypes.func.isRequired,
-};
-
-FilterBadge.defaultProps = {
-    onRemove: Function.prototype,
 };
 
 export class FilterBar extends Component {
