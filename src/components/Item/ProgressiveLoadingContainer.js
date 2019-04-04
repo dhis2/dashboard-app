@@ -3,20 +3,17 @@ import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
 
 const defaultDebounceMs = 100;
-const defaultBufferPx = 0;
-const defaultInitialBufferFactor = 0.5;
+const defaultBufferFactor = 0.25;
 
 class ProgressiveLoadingContainer extends Component {
     static propTypes = {
         children: PropTypes.node.isRequired,
         debounceMs: PropTypes.number,
-        bufferPx: PropTypes.number,
-        initialBufferFactor: PropTypes.number,
+        bufferFactor: PropTypes.number,
     };
     static defaultProps = {
         debounceMs: defaultDebounceMs,
-        bufferPx: defaultBufferPx,
-        initialBufferFactor: defaultInitialBufferFactor,
+        bufferFactor: defaultBufferFactor,
     };
 
     state = {
@@ -25,8 +22,8 @@ class ProgressiveLoadingContainer extends Component {
     containerRef = null;
     shouldLoadHandler = null;
 
-    checkShouldLoad(customBufferPx) {
-        const bufferPx = customBufferPx || this.props.bufferPx;
+    checkShouldLoad() {
+        const bufferPx = this.props.bufferFactor * window.innerHeight;
 
         if (!this.containerRef) {
             return;
@@ -59,11 +56,7 @@ class ProgressiveLoadingContainer extends Component {
 
     componentDidMount() {
         this.registerHandler();
-
-        const initialBufferPx = this.props.initialBufferFactor
-            ? this.props.initialBufferFactor * window.innerHeight
-            : undefined;
-        this.checkShouldLoad(initialBufferPx);
+        this.checkShouldLoad();
     }
 
     componentWillUnmount() {
@@ -71,13 +64,7 @@ class ProgressiveLoadingContainer extends Component {
     }
 
     render() {
-        const {
-            children,
-            debounceMs,
-            bufferPx,
-            initialBufferFactor,
-            ...props
-        } = this.props;
+        const { children, debounceMs, bufferFactor, ...props } = this.props;
         const { shouldLoad } = this.state;
 
         return (

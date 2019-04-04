@@ -91,6 +91,9 @@ msgstr ""
 msgid "Add filter"
 msgstr ""
 
+msgid "No data to display"
+msgstr ""
+
 msgid "There are no items on this dashboard"
 msgstr ""
 

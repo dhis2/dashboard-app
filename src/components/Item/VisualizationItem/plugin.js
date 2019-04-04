@@ -1,5 +1,4 @@
 import isObject from 'lodash/isObject';
-
 import { apiFetchFavorite, getMapFields } from '../../../api/metadata';
 import {
     REPORT_TABLE,
@@ -9,8 +8,10 @@ import {
     EVENT_CHART,
     itemTypeMap,
 } from '../../../modules/itemTypes';
-import { getBaseUrl } from '../../../modules/util';
+import { getBaseUrl, getWithoutId } from '../../../modules/util';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
+
+export const THEMATIC_LAYER = 'thematic';
 
 export const pluginIsAvailable = (item = {}, visualization = {}) => {
     const type = visualization.activeType || item.type;
@@ -46,9 +47,9 @@ export const extractFavorite = item => {
 };
 
 export const extractMapView = map =>
-    map.mapViews && map.mapViews.find(mv => mv.layer.includes('thematic'));
+    map.mapViews && map.mapViews.find(mv => mv.layer.includes(THEMATIC_LAYER));
 
-const loadPlugin = (plugin, config, credentials) => {
+export const loadPlugin = (plugin, config, credentials) => {
     if (!(plugin && plugin.load)) {
         return;
     }
@@ -90,7 +91,7 @@ export const load = async (
     loadPlugin(plugin, config, credentials);
 };
 
-export const fetch = async (item, activeType, filter = {}) => {
+export const fetch = async item => {
     const fetchedFavorite = await apiFetchFavorite(getId(item), item.type, {
         fields: item.type === MAP ? getMapFields() : null,
     });
@@ -112,4 +113,26 @@ export const unmount = (item, activeType) => {
     if (plugin && plugin.unmount) {
         plugin.unmount(getGridItemDomId(item.id));
     }
+};
+
+export const getVisualizationConfig = (
+    visualization,
+    originalType,
+    activeType
+) => {
+    if (originalType === MAP && originalType !== activeType) {
+        const extractedMapView = extractMapView(visualization);
+
+        if (extractedMapView === undefined) {
+            return null;
+        }
+
+        return getWithoutId({
+            ...visualization,
+            ...extractedMapView,
+            mapViews: undefined,
+        });
+    }
+
+    return getWithoutId(visualization);
 };

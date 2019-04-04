@@ -16,6 +16,12 @@ const pluginCredentials = d2 => {
 class DefaultPlugin extends Component {
     pluginCredentials = null;
 
+    constructor(props, context) {
+        super(props);
+
+        this.d2 = context.d2;
+    }
+
     shouldPluginReload = prevProps => {
         // TODO - fix this hack, to handle bug with multiple
         // rerendering while switching between dashboards.
@@ -46,9 +52,7 @@ class DefaultPlugin extends Component {
 
             const useActiveType =
                 currentVis.activeType !== prevVis.activeType ||
-                currentVis.activeType !== this.props.item.type
-                    ? true
-                    : false;
+                currentVis.activeType !== this.props.item.type;
 
             if (
                 useActiveType ||
@@ -70,7 +74,7 @@ class DefaultPlugin extends Component {
     };
 
     componentDidMount() {
-        this.pluginCredentials = pluginCredentials(this.context.d2);
+        this.pluginCredentials = pluginCredentials(this.d2);
 
         if (
             pluginManager.pluginIsAvailable(
@@ -124,6 +128,7 @@ DefaultPlugin.propTypes = {
 
 DefaultPlugin.defaultProps = {
     style: {},
+    item: {},
     itemFilters: {},
     visualization: {},
 };

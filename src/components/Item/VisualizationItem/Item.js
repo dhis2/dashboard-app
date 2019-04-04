@@ -5,6 +5,8 @@ import { withStyles } from '@material-ui/core/styles';
 import LaunchIcon from '@material-ui/icons/Launch';
 import ChartPlugin from 'data-visualizer-plugin';
 
+import i18n from 'd2-i18n';
+
 import * as pluginManager from './plugin';
 import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters';
@@ -20,6 +22,7 @@ import DefaultPlugin from './DefaultPlugin';
 import { colors } from '../../../modules/colors';
 import uniqueId from 'lodash/uniqueId';
 import memoizeOne from '../../../modules/memoizeOne';
+import { getVisualizationConfig } from './plugin';
 
 const styles = {
     icon: {
@@ -102,7 +105,7 @@ export class Item extends Component {
     async componentDidMount() {
         this.props.onVisualizationLoaded(
             // TODO do not call fetch on the pluginManager, do it here as the manager will eventually be removed...
-            await pluginManager.fetch(this.props.item, this.props.item.type)
+            await pluginManager.fetch(this.props.item)
         );
 
         this.setState({
@@ -220,6 +223,13 @@ export class Item extends Component {
         );
     };
 
+    getConfig = () =>
+        getVisualizationConfig(
+            this.props.visualization,
+            this.props.item.type,
+            this.getActiveType()
+        );
+
     getActionButtons = () =>
         pluginManager.pluginIsAvailable(
             this.props.item,
@@ -242,6 +252,38 @@ export class Item extends Component {
                   height: item.originalHeight - HEADER_HEIGHT - PADDING_BOTTOM,
               }
             : null;
+    };
+
+    getPluginComponent = () => {
+        const config = this.getConfig();
+        const style = this.getContentStyle();
+        const activeType = this.getActiveType();
+        const { item, itemFilter, classes } = this.props;
+
+        if (config) {
+            return activeType === CHART ? (
+                <ChartPlugin
+                    d2={this.d2}
+                    config={config}
+                    filters={itemFilter}
+                    style={style}
+                />
+            ) : (
+                <DefaultPlugin
+                    activeType={activeType}
+                    item={item}
+                    style={style}
+                    visualization={config}
+                    itemFilter={itemFilter}
+                />
+            );
+        }
+
+        return (
+            <div className={classes.textDiv}>
+                {i18n.t('No data to display')}
+            </div>
+        );
     };
 
     render() {
