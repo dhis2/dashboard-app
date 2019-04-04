@@ -5,7 +5,7 @@ import i18n from '@dhis2/d2-i18n';
 import * as pluginManager from './plugin';
 import { getBaseUrl, orObject } from '../../../modules/util';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
-import { itemTypeMap } from '../../../modules/itemTypes';
+import { getPlugin } from '../../../modules/itemTypes';
 
 const pluginCredentials = d2 => {
     return {
@@ -65,7 +65,7 @@ class DefaultPlugin extends Component {
                 );
 
                 pluginManager.loadPlugin(
-                    itemTypeMap[this.getActiveType()].plugin,
+                    getPlugin(this.props.activeType),
                     this.props.visualization,
                     this.pluginCredentials
                 );
@@ -83,7 +83,7 @@ class DefaultPlugin extends Component {
             )
         ) {
             pluginManager.loadPlugin(
-                itemTypeMap[this.getActiveType()].plugin,
+                getPlugin(this.props.activeType),
                 this.props.visualization,
                 this.pluginCredentials
             );
@@ -94,12 +94,9 @@ class DefaultPlugin extends Component {
         this.reloadPlugin(prevProps);
     }
 
-    getActiveType = () =>
-        this.props.visualization.activeType || this.props.item.type;
-
     onSelectVisualization = activeType => {
         // Cancel request if type is already active
-        if (activeType === this.getActiveType()) {
+        if (activeType === this.props.activeType) {
             return;
         }
 
@@ -141,6 +138,7 @@ DefaultPlugin.propTypes = {
     item: PropTypes.object,
     itemFilter: PropTypes.object,
     visualization: PropTypes.object,
+    activeType: PropTypes.string.isRequired,
 };
 
 DefaultPlugin.defaultProps = {
