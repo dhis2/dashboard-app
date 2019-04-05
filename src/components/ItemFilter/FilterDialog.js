@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '@material-ui/core/Button';
+import { Button } from '@dhis2/ui-core';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 
@@ -81,8 +81,10 @@ class FilterDialog extends Component {
             >
                 {dialogId && this.dialogContent()}
                 <DialogActions>
-                    <Button onClick={onClose}>{i18n.t('Cancel')}</Button>
-                    <Button onClick={this.onConfirm(dialogId)}>
+                    <Button kind="secondary" onClick={onClose}>
+                        {i18n.t('Cancel')}
+                    </Button>
+                    <Button kind="primary" onClick={this.onConfirm(dialogId)}>
                         {i18n.t('Confirm')}
                     </Button>
                 </DialogActions>

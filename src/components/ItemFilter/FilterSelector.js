@@ -6,7 +6,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import i18n from '@dhis2/d2-i18n';
 import { DimensionsPanel } from '@dhis2/d2-ui-analytics';
 
-import FlatButton from '../../widgets/FlatButton';
+import { Button } from '@dhis2/ui-core';
 import FilterDialog from './FilterDialog';
 
 import { sGetDimensions } from '../../reducers/dimensions';
@@ -97,10 +97,10 @@ class FilterSelector extends Component {
 
         return (
             <Fragment>
-                <FlatButton onClick={this.openPanel}>
+                <Button onClick={this.openPanel}>
                     {i18n.t('Add filter')}
                     <ArrowDropDownIcon />
-                </FlatButton>
+                </Button>
                 <Popover
                     open={Boolean(this.state.anchorEl)}
                     anchorEl={this.state.anchorEl}

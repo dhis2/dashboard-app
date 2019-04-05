@@ -12,7 +12,7 @@ import { orObject } from '../../modules/util';
 import { tStarDashboard } from '../../actions/dashboards';
 import { acSetSelectedShowDescription } from '../../actions/selected';
 import FilterSelector from '../ItemFilter/FilterSelector';
-import FlatButton from '../../widgets/FlatButton';
+import { Button } from '@dhis2/ui-core';
 import Info from './Info';
 import {
     sGetSelectedId,
@@ -43,6 +43,7 @@ const styles = {
         display: 'inline-block',
         verticalAlign: 'top',
         textDecoration: 'none',
+        marginRight: '4px',
     },
     titleBar: {
         display: 'flex',
@@ -104,27 +105,26 @@ class ViewTitleBar extends Component {
                         <div className={classes.titleBarIcon}>
                             <Info onClick={onInfoClick} />
                         </div>
-                        <span style={{ marginLeft: '10px' }}>
+                        <div style={{ marginLeft: '10px' }}>
                             {access.update ? (
                                 <Link
                                     className={classes.editLink}
                                     to={`/${id}/edit`}
                                 >
-                                    <FlatButton className={classes.textButton}>
-                                        Edit
-                                    </FlatButton>
+                                    <Button>{i18n.t('Edit')}</Button>
                                 </Link>
                             ) : null}
                             {access.manage ? (
-                                <FlatButton
-                                    className={classes.textButton}
-                                    onClick={this.toggleSharingDialog}
-                                >
-                                    Share
-                                </FlatButton>
+                                <span style={{ marginRight: '4px' }}>
+                                    <Button onClick={this.toggleSharingDialog}>
+                                        {i18n.t('Share')}
+                                    </Button>
+                                </span>
                             ) : null}
-                            <FilterSelector />
-                        </span>
+                            <span style={{ marginRight: '4px' }}>
+                                <FilterSelector />
+                            </span>
+                        </div>
                     </div>
                 </div>
                 {showDescription ? (

@@ -303,6 +303,14 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
+"@dhis2/ui-core@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-1.1.3.tgz#9adbdf56c2035cd628b7053d080604a88a63c102"
+  integrity sha512-rWcYGgUW1asQWckG48I6kr8vZKS+LPDlGnmmIJd7t5H5b/PdbORlcl9Cp4iAa3J5hszgxA8kbs+JcW9NbVG7Zg==
+  dependencies:
+    classnames "^2.2.6"
+    styled-jsx "^3.2.1"
+
 "@dhis2/ui@1.0.0-beta.15":
   version "1.0.0-beta.15"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-1.0.0-beta.15.tgz#3dc7484174f1db686dd6f10cbad8271d84f3a0b9"
@@ -3340,7 +3348,8 @@ data-urls@^1.0.0:
   resolved "https://codeload.github.com/d2-ci/data-visualizer-plugin/tar.gz/176c8d28499dde80fd324c252edacf8712019331"
   dependencies:
     "@material-ui/core" "^3.1.2"
-    d2-charts-api "^31.0.14"
+    d2 "31.2.1"
+    d2-charts-api "^31.0.12"
     lodash-es "^4.17.11"
     react "^16.6.0"
     react-dom "^16.6.0"
