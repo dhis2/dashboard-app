@@ -9,6 +9,7 @@ import { DimensionsPanel } from '@dhis2/d2-ui-analytics';
 import { Button } from '@dhis2/ui-core';
 import FilterDialog from './FilterDialog';
 
+import { sGetSettingsDisplayNameProperty } from '../../reducers/settings';
 import { sGetDimensions } from '../../reducers/dimensions';
 import { sGetFiltersKeys } from '../../reducers/itemFilters';
 import { sGetEditItemFiltersRoot } from '../../reducers/editItemFilters';
@@ -92,7 +93,12 @@ class FilterSelector extends Component {
     };
 
     render() {
-        const { dimensions, selectedDimensions, selectedItems } = this.props;
+        const {
+            displayNameProperty,
+            dimensions,
+            selectedDimensions,
+            selectedItems,
+        } = this.props;
         const { dimension } = this.state;
 
         return (
@@ -116,6 +122,7 @@ class FilterSelector extends Component {
                 </Popover>
                 {dimension ? (
                     <FilterDialog
+                        displayNameProperty={displayNameProperty}
                         dimension={dimension}
                         selectedItems={selectedItems[dimension.id] || []}
                         onSelect={this.onSelectItems}
@@ -131,6 +138,7 @@ class FilterSelector extends Component {
 }
 
 const mapStateToProps = state => ({
+    displayNameProperty: sGetSettingsDisplayNameProperty(state),
     dimensions: sGetDimensions(state),
     selectedDimensions: sGetFiltersKeys(state),
     selectedItems: sGetEditItemFiltersRoot(state),

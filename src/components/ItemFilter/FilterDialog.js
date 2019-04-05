@@ -22,6 +22,7 @@ class FilterDialog extends Component {
 
     dialogContent() {
         const {
+            displayNameProperty,
             dimension,
             selectedItems,
             onSelect,
@@ -47,6 +48,7 @@ class FilterDialog extends Component {
                 return (
                     <OrgUnitDimension
                         d2={d2}
+                        displayNameProperty={displayNameProperty}
                         ouItems={selectedItems}
                         onSelect={onSelect}
                         onDeselect={onDeselect}
@@ -94,6 +96,7 @@ class FilterDialog extends Component {
 }
 
 FilterDialog.propTypes = {
+    displayNameProperty: PropTypes.string,
     dimension: PropTypes.object,
     selectedItems: PropTypes.array,
     onSelect: PropTypes.func,
