@@ -46,10 +46,7 @@ const styles = {
     },
 };
 
-const applyFilters = (vis, filters) => {
-    // remove id to avoid the plugin fetching the AO
-    const visualization = { ...vis, id: undefined };
-
+const applyFilters = (visualization, filters) => {
     if (!Object.keys(filters).length) {
         return visualization;
     }
@@ -118,8 +115,23 @@ export class Item extends Component {
     pluginCredentials = null;
 
     getPluginComponent = () => {
+        const visualization = getVisualizationConfig(
+            this.props.visualization,
+            this.props.item.type,
+            this.getActiveType()
+        );
+
+        if (!visualization) {
+            return (
+                <div className={this.props.classes.textDiv}>
+                    {i18n.t('No data to display')}
+                </div>
+            );
+        }
+
         const props = {
             ...this.props,
+            visualization,
             style: this.getContentStyle(),
         };
 
@@ -138,22 +150,33 @@ export class Item extends Component {
                 );
             }
             case MAP: {
-                // apply filters only to thematic and event layers
-                const mapViews = props.visualization.mapViews.map(obj => {
-                    if (
-                        obj.layer.includes('thematic') ||
-                        obj.layer.includes('event')
-                    ) {
-                        return applyFilters(obj, props.itemFilters);
-                    }
+                if (props.item.type === MAP) {
+                    // apply filters only to thematic and event layers
+                    // for maps AO
+                    const mapViews = props.visualization.mapViews.map(obj => {
+                        if (
+                            obj.layer.includes('thematic') ||
+                            obj.layer.includes('event')
+                        ) {
+                            return applyFilters(obj, props.itemFilters);
+                        }
 
-                    return obj;
-                });
+                        return obj;
+                    });
 
-                props.visualization = {
-                    ...props.visualization,
-                    mapViews,
-                };
+                    props.visualization = {
+                        ...props.visualization,
+                        mapViews,
+                    };
+                } else {
+                    // this is the case of a non map AO passed to the maps plugin
+                    // due to a visualization type switch in dashboard item
+                    // maps plugin takes care of converting the AO to a suitable format
+                    props.visualization = applyFilters(
+                        props.visualization,
+                        props.itemFilters
+                    );
+                }
 
                 return <DefaultPlugin {...props} />;
             }
@@ -223,13 +246,6 @@ export class Item extends Component {
         );
     };
 
-    getConfig = () =>
-        getVisualizationConfig(
-            this.props.visualization,
-            this.props.item.type,
-            this.getActiveType()
-        );
-
     getActionButtons = () =>
         pluginManager.pluginIsAvailable(
             this.props.item,
@@ -252,38 +268,6 @@ export class Item extends Component {
                   height: item.originalHeight - HEADER_HEIGHT - PADDING_BOTTOM,
               }
             : null;
-    };
-
-    getPluginComponent = () => {
-        const config = this.getConfig();
-        const style = this.getContentStyle();
-        const activeType = this.getActiveType();
-        const { item, itemFilter, classes } = this.props;
-
-        if (config) {
-            return activeType === CHART ? (
-                <ChartPlugin
-                    d2={this.d2}
-                    config={config}
-                    filters={itemFilter}
-                    style={style}
-                />
-            ) : (
-                <DefaultPlugin
-                    activeType={activeType}
-                    item={item}
-                    style={style}
-                    visualization={config}
-                    itemFilter={itemFilter}
-                />
-            );
-        }
-
-        return (
-            <div className={classes.textDiv}>
-                {i18n.t('No data to display')}
-            </div>
-        );
     };
 
     render() {
