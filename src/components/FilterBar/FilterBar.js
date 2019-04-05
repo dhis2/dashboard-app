@@ -7,6 +7,7 @@ import { sGetDimensions } from '../../reducers/dimensions';
 import { sGetItemFiltersRoot } from '../../reducers/itemFilters';
 import { acRemoveItemFilter } from '../../actions/itemFilters';
 import { acRemoveEditItemFilter } from '../../actions/editItemFilters';
+import { acSetActiveModalDimension } from '../../actions/activeModalDimension';
 
 import FilterBadge from './FilterBadge';
 
@@ -14,7 +15,7 @@ const styles = {
     bar: {
         position: 'sticky',
         top: 130,
-        zIndex: 9000,
+        zIndex: 7,
         padding: '8px 0',
         display: 'flex',
         justifyContent: 'center',
@@ -22,9 +23,16 @@ const styles = {
 };
 
 export class FilterBar extends Component {
-    onRemove = id => {
+    onBadgeRemove = id => {
         this.props.removeItemFilter(id);
         this.props.removeEditItemFilter(id);
+    };
+
+    onBadgeClick = id => {
+        this.props.setActiveModalDimension({
+            id,
+            name: this.props.filters.find(item => item.id === id).name,
+        });
     };
 
     render() {
@@ -36,7 +44,8 @@ export class FilterBar extends Component {
                     <FilterBadge
                         key={filter.id}
                         data={filter}
-                        onRemove={this.onRemove}
+                        onClick={this.onBadgeClick}
+                        onRemove={this.onBadgeRemove}
                     />
                 ))}
             </div>
@@ -82,6 +91,7 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     {
+        setActiveModalDimension: acSetActiveModalDimension,
         removeItemFilter: acRemoveItemFilter,
         removeEditItemFilter: acRemoveEditItemFilter,
     }

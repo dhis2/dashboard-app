@@ -12,12 +12,15 @@ const styles = {
         borderRadius: '4px',
         color: colors.white,
         backgroundColor: '#212934',
-        fontSize: '13px',
         height: 36,
         display: 'flex',
         alignItems: 'center',
     },
     badge: {
+        fontSize: '13px',
+        cursor: 'pointer',
+    },
+    badgeRemove: {
         fontSize: '12px',
         textDecoration: 'underline',
         marginLeft: '24px',
@@ -34,7 +37,7 @@ class FilterBadge extends Component {
 
         return (
             <div style={styles.badgeContainer}>
-                <span onClick={this.onClick(data.id)}>
+                <span style={styles.badge} onClick={this.onClick(data.id)}>
                     {`${data.name}: ${
                         data.values.length > 1
                             ? i18n.t('{{count}} selected', {
@@ -43,7 +46,10 @@ class FilterBadge extends Component {
                             : data.values[0].name
                     }`}
                 </span>
-                <span style={styles.badge} onClick={this.onRemove(data.id)}>
+                <span
+                    style={styles.badgeRemove}
+                    onClick={this.onRemove(data.id)}
+                >
                     {i18n.t('Remove')}
                 </span>
             </div>

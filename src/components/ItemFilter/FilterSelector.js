@@ -10,6 +10,7 @@ import { Button } from '@dhis2/ui-core';
 import FilterDialog from './FilterDialog';
 
 import { sGetSettingsDisplayNameProperty } from '../../reducers/settings';
+import { sGetActiveModalDimension } from '../../reducers/activeModalDimension';
 import { sGetDimensions } from '../../reducers/dimensions';
 import { sGetFiltersKeys } from '../../reducers/itemFilters';
 import { sGetEditItemFiltersRoot } from '../../reducers/editItemFilters';
@@ -18,6 +19,10 @@ import {
     acRemoveEditItemFilter,
     acSetEditItemFilters,
 } from '../../actions/editItemFilters';
+import {
+    acClearActiveModalDimension,
+    acSetActiveModalDimension,
+} from '../../actions/activeModalDimension';
 
 class FilterSelector extends Component {
     constructor(props) {
@@ -25,7 +30,6 @@ class FilterSelector extends Component {
 
         this.state = {
             anchorEl: null,
-            dimension: {},
         };
     }
 
@@ -38,11 +42,16 @@ class FilterSelector extends Component {
     };
 
     closeDialog = () => {
-        this.setState({ dimension: null, anchorEl: null });
+        this.setState({ anchorEl: null });
+
+        this.props.clearActiveModalDimension();
     };
 
     selectDimension = id => {
-        this.setState({ dimension: this.props.dimensions[id] });
+        this.props.setActiveModalDimension({
+            id,
+            name: this.props.dimensions[id].name,
+        });
     };
 
     onSelectItems = ({ dimensionType: dimensionId, value: items }) => {
@@ -95,11 +104,11 @@ class FilterSelector extends Component {
     render() {
         const {
             displayNameProperty,
+            dimension,
             dimensions,
             selectedDimensions,
             selectedItems,
         } = this.props;
-        const { dimension } = this.state;
 
         return (
             <Fragment>
@@ -139,6 +148,7 @@ class FilterSelector extends Component {
 
 const mapStateToProps = state => ({
     displayNameProperty: sGetSettingsDisplayNameProperty(state),
+    dimension: sGetActiveModalDimension(state),
     dimensions: sGetDimensions(state),
     selectedDimensions: sGetFiltersKeys(state),
     selectedItems: sGetEditItemFiltersRoot(state),
@@ -147,6 +157,8 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     {
+        clearActiveModalDimension: acClearActiveModalDimension,
+        setActiveModalDimension: acSetActiveModalDimension,
         addItemFilter: acAddItemFilter,
         setItemFilters: acSetItemFilters,
         removeEditItemFilter: acRemoveEditItemFilter,

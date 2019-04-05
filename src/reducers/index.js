@@ -20,6 +20,7 @@ import editItemFilters from './editItemFilters';
 import style from './style';
 import dimensions from './dimensions';
 import settings from './settings';
+import activeModalDimension from './activeModalDimension';
 
 const USER = 'system';
 
@@ -40,6 +41,7 @@ export default combineReducers({
     snackbar,
     dimensions,
     settings,
+    activeModalDimension,
 });
 
 // Map constants to data
