@@ -22,6 +22,7 @@ ShallowWrapper {
       }
     }
     onToggleItemExpanded={[MockFunction]}
+    onVisualizationLoaded={[MockFunction]}
     visualization={
       Object {
         "description": "Test pivot mock",
@@ -91,45 +92,9 @@ ShallowWrapper {
             </div>
           }
         />,
-        <ProgressiveLoadingContainer
-          bufferPx={0}
+        <div
           className="dashboard-item-content"
-          debounceMs={100}
-          id="item-testItem2"
-          initialBufferFactor={0.5}
-          style={
-            Object {
-              "height": NaN,
-            }
-          }
-        >
-          <Unknown
-            classes={Object {}}
-            editMode={false}
-            item={
-              Object {
-                "id": "testItem2",
-                "reportTable": Object {
-                  "id": "pivot1",
-                  "name": "Test pivot",
-                },
-                "type": "REPORT_TABLE",
-              }
-            }
-            itemFilter={
-              Object {
-                "brilliance": 100,
-              }
-            }
-            onToggleItemExpanded={[MockFunction]}
-            visualization={
-              Object {
-                "description": "Test pivot mock",
-                "name": "Test pivot",
-              }
-            }
-          />
-        </ProgressiveLoadingContainer>,
+        />,
         null,
       ],
     },
@@ -188,74 +153,15 @@ ShallowWrapper {
       },
       Object {
         "instance": null,
-        "key": "1",
-        "nodeType": "class",
+        "key": "2",
+        "nodeType": "host",
         "props": Object {
-          "bufferPx": 0,
-          "children": <Unknown
-            classes={Object {}}
-            editMode={false}
-            item={
-              Object {
-                "id": "testItem2",
-                "reportTable": Object {
-                  "id": "pivot1",
-                  "name": "Test pivot",
-                },
-                "type": "REPORT_TABLE",
-              }
-            }
-            itemFilter={
-              Object {
-                "brilliance": 100,
-              }
-            }
-            onToggleItemExpanded={[MockFunction]}
-            visualization={
-              Object {
-                "description": "Test pivot mock",
-                "name": "Test pivot",
-              }
-            }
-          />,
+          "children": false,
           "className": "dashboard-item-content",
-          "debounceMs": 100,
-          "id": "item-testItem2",
-          "initialBufferFactor": 0.5,
-          "style": Object {
-            "height": NaN,
-          },
         },
         "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "classes": Object {},
-            "editMode": false,
-            "item": Object {
-              "id": "testItem2",
-              "reportTable": Object {
-                "id": "pivot1",
-                "name": "Test pivot",
-              },
-              "type": "REPORT_TABLE",
-            },
-            "itemFilter": Object {
-              "brilliance": 100,
-            },
-            "onToggleItemExpanded": [MockFunction],
-            "visualization": Object {
-              "description": "Test pivot mock",
-              "name": "Test pivot",
-            },
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        "type": [Function],
+        "rendered": false,
+        "type": "div",
       },
       null,
     ],
@@ -315,45 +221,9 @@ ShallowWrapper {
               </div>
             }
           />,
-          <ProgressiveLoadingContainer
-            bufferPx={0}
+          <div
             className="dashboard-item-content"
-            debounceMs={100}
-            id="item-testItem2"
-            initialBufferFactor={0.5}
-            style={
-              Object {
-                "height": NaN,
-              }
-            }
-          >
-            <Unknown
-              classes={Object {}}
-              editMode={false}
-              item={
-                Object {
-                  "id": "testItem2",
-                  "reportTable": Object {
-                    "id": "pivot1",
-                    "name": "Test pivot",
-                  },
-                  "type": "REPORT_TABLE",
-                }
-              }
-              itemFilter={
-                Object {
-                  "brilliance": 100,
-                }
-              }
-              onToggleItemExpanded={[MockFunction]}
-              visualization={
-                Object {
-                  "description": "Test pivot mock",
-                  "name": "Test pivot",
-                }
-              }
-            />
-          </ProgressiveLoadingContainer>,
+          />,
           null,
         ],
       },
@@ -412,74 +282,15 @@ ShallowWrapper {
         },
         Object {
           "instance": null,
-          "key": "1",
-          "nodeType": "class",
+          "key": "2",
+          "nodeType": "host",
           "props": Object {
-            "bufferPx": 0,
-            "children": <Unknown
-              classes={Object {}}
-              editMode={false}
-              item={
-                Object {
-                  "id": "testItem2",
-                  "reportTable": Object {
-                    "id": "pivot1",
-                    "name": "Test pivot",
-                  },
-                  "type": "REPORT_TABLE",
-                }
-              }
-              itemFilter={
-                Object {
-                  "brilliance": 100,
-                }
-              }
-              onToggleItemExpanded={[MockFunction]}
-              visualization={
-                Object {
-                  "description": "Test pivot mock",
-                  "name": "Test pivot",
-                }
-              }
-            />,
+            "children": false,
             "className": "dashboard-item-content",
-            "debounceMs": 100,
-            "id": "item-testItem2",
-            "initialBufferFactor": 0.5,
-            "style": Object {
-              "height": NaN,
-            },
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "classes": Object {},
-              "editMode": false,
-              "item": Object {
-                "id": "testItem2",
-                "reportTable": Object {
-                  "id": "pivot1",
-                  "name": "Test pivot",
-                },
-                "type": "REPORT_TABLE",
-              },
-              "itemFilter": Object {
-                "brilliance": 100,
-              },
-              "onToggleItemExpanded": [MockFunction],
-              "visualization": Object {
-                "description": "Test pivot mock",
-                "name": "Test pivot",
-              },
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          "type": [Function],
+          "rendered": false,
+          "type": "div",
         },
         null,
       ],
