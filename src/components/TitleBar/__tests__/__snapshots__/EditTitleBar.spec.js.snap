@@ -1,148 +1,1197 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EditTitleBar renders correctly when displayName is provided 1`] = `
-<section
-  className={
-    Object {
-      "sectionStyle": "section",
-    }
-  }
->
-  <div
-    className={
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <EditTitleBar
+    classes={
       Object {
-        "titleDescStyle": "titleDesc",
-      }
-    }
-  >
-    <span>
-      Currently editing
-    </span>
-    <div
-      className={
-        Object {
+        "itemSelect": Object {
+          "itemSelStyle": "itemSel",
+        },
+        "section": Object {
+          "sectionStyle": "section",
+        },
+        "title": Object {
           "titleStyle": "title",
-        }
-      }
-    >
-      <textfield
-        fullWidth={true}
-        multiline={true}
-        onChange={[Function]}
-        placeholder="Add title here"
-        rows={1}
-        rowsMax={3}
-        style={
-          Object {
-            "top": "-2px",
-            "xyz": "890",
-          }
-        }
-        value="Rainbow Dash"
-      />
-      <span
-        style={
-          Object {
-            "abc": "123",
-          }
-        }
-      >
-        Current translation
-        : 
-        Regnbue Dash
-      </span>
-    </div>
-    <textfield
-      fullWidth={true}
-      multiline={true}
-      onChange={[Function]}
-      placeholder="Add description here"
-      rows={1}
-      rowsMax={3}
-      style={
-        Object {
-          "abc": "123",
-        }
-      }
-      value="The blue one"
-    />
-  </div>
-  <div
-    className={
-      Object {
-        "itemSelStyle": "itemSel",
+        },
+        "titleDescription": Object {
+          "titleDescStyle": "titleDesc",
+        },
       }
     }
-  >
-    <itemselect />
-  </div>
-</section>
+    description="The blue one"
+    displayName="Regnbue Dash"
+    name="Rainbow Dash"
+    onChangeDescription={[Function]}
+    onChangeTitle={[Function]}
+    style={
+      Object {
+        "description": Object {
+          "abc": "123",
+        },
+        "title": Object {
+          "xyz": "890",
+        },
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className={
+            Object {
+              "titleDescStyle": "titleDesc",
+            }
+          }
+        >
+          <span>
+            Currently editing
+          </span>
+          <div
+            className={
+              Object {
+                "titleStyle": "title",
+              }
+            }
+          >
+            <textfield
+              fullWidth={true}
+              multiline={true}
+              onChange={[Function]}
+              placeholder="Add title here"
+              rows={1}
+              rowsMax={3}
+              style={
+                Object {
+                  "top": "-2px",
+                  "xyz": "890",
+                }
+              }
+              value="Rainbow Dash"
+            />
+            <span
+              style={
+                Object {
+                  "abc": "123",
+                }
+              }
+            >
+              Current translation
+              : 
+              Regnbue Dash
+            </span>
+          </div>
+          <textfield
+            fullWidth={true}
+            multiline={true}
+            onChange={[Function]}
+            placeholder="Add description here"
+            rows={1}
+            rowsMax={3}
+            style={
+              Object {
+                "abc": "123",
+              }
+            }
+            value="The blue one"
+          />
+        </div>,
+        <div
+          className={
+            Object {
+              "itemSelStyle": "itemSel",
+            }
+          }
+        >
+          <itemselect />
+        </div>,
+      ],
+      "className": Object {
+        "sectionStyle": "section",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <span>
+              Currently editing
+            </span>,
+            <div
+              className={
+                Object {
+                  "titleStyle": "title",
+                }
+              }
+            >
+              <textfield
+                fullWidth={true}
+                multiline={true}
+                onChange={[Function]}
+                placeholder="Add title here"
+                rows={1}
+                rowsMax={3}
+                style={
+                  Object {
+                    "top": "-2px",
+                    "xyz": "890",
+                  }
+                }
+                value="Rainbow Dash"
+              />
+              <span
+                style={
+                  Object {
+                    "abc": "123",
+                  }
+                }
+              >
+                Current translation
+                : 
+                Regnbue Dash
+              </span>
+            </div>,
+            <textfield
+              fullWidth={true}
+              multiline={true}
+              onChange={[Function]}
+              placeholder="Add description here"
+              rows={1}
+              rowsMax={3}
+              style={
+                Object {
+                  "abc": "123",
+                }
+              }
+              value="The blue one"
+            />,
+          ],
+          "className": Object {
+            "titleDescStyle": "titleDesc",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Currently editing",
+            },
+            "ref": null,
+            "rendered": "Currently editing",
+            "type": "span",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <textfield
+                  fullWidth={true}
+                  multiline={true}
+                  onChange={[Function]}
+                  placeholder="Add title here"
+                  rows={1}
+                  rowsMax={3}
+                  style={
+                    Object {
+                      "top": "-2px",
+                      "xyz": "890",
+                    }
+                  }
+                  value="Rainbow Dash"
+                />,
+                <span
+                  style={
+                    Object {
+                      "abc": "123",
+                    }
+                  }
+                >
+                  Current translation
+                  : 
+                  Regnbue Dash
+                </span>,
+              ],
+              "className": Object {
+                "titleStyle": "title",
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "fullWidth": true,
+                  "multiline": true,
+                  "onChange": [Function],
+                  "placeholder": "Add title here",
+                  "rows": 1,
+                  "rowsMax": 3,
+                  "style": Object {
+                    "top": "-2px",
+                    "xyz": "890",
+                  },
+                  "value": "Rainbow Dash",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "textfield",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Current translation",
+                    ": ",
+                    "Regnbue Dash",
+                  ],
+                  "style": Object {
+                    "abc": "123",
+                  },
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Current translation",
+                  ": ",
+                  "Regnbue Dash",
+                ],
+                "type": "span",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "fullWidth": true,
+              "multiline": true,
+              "onChange": [Function],
+              "placeholder": "Add description here",
+              "rows": 1,
+              "rowsMax": 3,
+              "style": Object {
+                "abc": "123",
+              },
+              "value": "The blue one",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "textfield",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <itemselect />,
+          "className": Object {
+            "itemSelStyle": "itemSel",
+          },
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "itemselect",
+        },
+        "type": "div",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className={
+              Object {
+                "titleDescStyle": "titleDesc",
+              }
+            }
+          >
+            <span>
+              Currently editing
+            </span>
+            <div
+              className={
+                Object {
+                  "titleStyle": "title",
+                }
+              }
+            >
+              <textfield
+                fullWidth={true}
+                multiline={true}
+                onChange={[Function]}
+                placeholder="Add title here"
+                rows={1}
+                rowsMax={3}
+                style={
+                  Object {
+                    "top": "-2px",
+                    "xyz": "890",
+                  }
+                }
+                value="Rainbow Dash"
+              />
+              <span
+                style={
+                  Object {
+                    "abc": "123",
+                  }
+                }
+              >
+                Current translation
+                : 
+                Regnbue Dash
+              </span>
+            </div>
+            <textfield
+              fullWidth={true}
+              multiline={true}
+              onChange={[Function]}
+              placeholder="Add description here"
+              rows={1}
+              rowsMax={3}
+              style={
+                Object {
+                  "abc": "123",
+                }
+              }
+              value="The blue one"
+            />
+          </div>,
+          <div
+            className={
+              Object {
+                "itemSelStyle": "itemSel",
+              }
+            }
+          >
+            <itemselect />
+          </div>,
+        ],
+        "className": Object {
+          "sectionStyle": "section",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <span>
+                Currently editing
+              </span>,
+              <div
+                className={
+                  Object {
+                    "titleStyle": "title",
+                  }
+                }
+              >
+                <textfield
+                  fullWidth={true}
+                  multiline={true}
+                  onChange={[Function]}
+                  placeholder="Add title here"
+                  rows={1}
+                  rowsMax={3}
+                  style={
+                    Object {
+                      "top": "-2px",
+                      "xyz": "890",
+                    }
+                  }
+                  value="Rainbow Dash"
+                />
+                <span
+                  style={
+                    Object {
+                      "abc": "123",
+                    }
+                  }
+                >
+                  Current translation
+                  : 
+                  Regnbue Dash
+                </span>
+              </div>,
+              <textfield
+                fullWidth={true}
+                multiline={true}
+                onChange={[Function]}
+                placeholder="Add description here"
+                rows={1}
+                rowsMax={3}
+                style={
+                  Object {
+                    "abc": "123",
+                  }
+                }
+                value="The blue one"
+              />,
+            ],
+            "className": Object {
+              "titleDescStyle": "titleDesc",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Currently editing",
+              },
+              "ref": null,
+              "rendered": "Currently editing",
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <textfield
+                    fullWidth={true}
+                    multiline={true}
+                    onChange={[Function]}
+                    placeholder="Add title here"
+                    rows={1}
+                    rowsMax={3}
+                    style={
+                      Object {
+                        "top": "-2px",
+                        "xyz": "890",
+                      }
+                    }
+                    value="Rainbow Dash"
+                  />,
+                  <span
+                    style={
+                      Object {
+                        "abc": "123",
+                      }
+                    }
+                  >
+                    Current translation
+                    : 
+                    Regnbue Dash
+                  </span>,
+                ],
+                "className": Object {
+                  "titleStyle": "title",
+                },
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "fullWidth": true,
+                    "multiline": true,
+                    "onChange": [Function],
+                    "placeholder": "Add title here",
+                    "rows": 1,
+                    "rowsMax": 3,
+                    "style": Object {
+                      "top": "-2px",
+                      "xyz": "890",
+                    },
+                    "value": "Rainbow Dash",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "textfield",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Current translation",
+                      ": ",
+                      "Regnbue Dash",
+                    ],
+                    "style": Object {
+                      "abc": "123",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Current translation",
+                    ": ",
+                    "Regnbue Dash",
+                  ],
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "fullWidth": true,
+                "multiline": true,
+                "onChange": [Function],
+                "placeholder": "Add description here",
+                "rows": 1,
+                "rowsMax": 3,
+                "style": Object {
+                  "abc": "123",
+                },
+                "value": "The blue one",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "textfield",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <itemselect />,
+            "className": Object {
+              "itemSelStyle": "itemSel",
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "itemselect",
+          },
+          "type": "div",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
 `;
 
 exports[`EditTitleBar renders correctly when displayName not provided 1`] = `
-<section
-  className={
-    Object {
-      "sectionStyle": "section",
-    }
-  }
->
-  <div
-    className={
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <EditTitleBar
+    classes={
       Object {
-        "titleDescStyle": "titleDesc",
-      }
-    }
-  >
-    <span>
-      Currently editing
-    </span>
-    <div
-      className={
-        Object {
+        "itemSelect": Object {
+          "itemSelStyle": "itemSel",
+        },
+        "section": Object {
+          "sectionStyle": "section",
+        },
+        "title": Object {
           "titleStyle": "title",
-        }
-      }
-    >
-      <textfield
-        fullWidth={true}
-        multiline={true}
-        onChange={[Function]}
-        placeholder="Add title here"
-        rows={1}
-        rowsMax={3}
-        style={
-          Object {
-            "top": "-2px",
-            "xyz": "890",
-          }
-        }
-        value="Rainbow Dash"
-      />
-    </div>
-    <textfield
-      fullWidth={true}
-      multiline={true}
-      onChange={[Function]}
-      placeholder="Add description here"
-      rows={1}
-      rowsMax={3}
-      style={
-        Object {
-          "abc": "123",
-        }
-      }
-      value="The blue one"
-    />
-  </div>
-  <div
-    className={
-      Object {
-        "itemSelStyle": "itemSel",
+        },
+        "titleDescription": Object {
+          "titleDescStyle": "titleDesc",
+        },
       }
     }
-  >
-    <itemselect />
-  </div>
-</section>
+    description="The blue one"
+    displayName=""
+    name="Rainbow Dash"
+    onChangeDescription={[Function]}
+    onChangeTitle={[Function]}
+    style={
+      Object {
+        "description": Object {
+          "abc": "123",
+        },
+        "title": Object {
+          "xyz": "890",
+        },
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className={
+            Object {
+              "titleDescStyle": "titleDesc",
+            }
+          }
+        >
+          <span>
+            Currently editing
+          </span>
+          <div
+            className={
+              Object {
+                "titleStyle": "title",
+              }
+            }
+          >
+            <textfield
+              fullWidth={true}
+              multiline={true}
+              onChange={[Function]}
+              placeholder="Add title here"
+              rows={1}
+              rowsMax={3}
+              style={
+                Object {
+                  "top": "-2px",
+                  "xyz": "890",
+                }
+              }
+              value="Rainbow Dash"
+            />
+          </div>
+          <textfield
+            fullWidth={true}
+            multiline={true}
+            onChange={[Function]}
+            placeholder="Add description here"
+            rows={1}
+            rowsMax={3}
+            style={
+              Object {
+                "abc": "123",
+              }
+            }
+            value="The blue one"
+          />
+        </div>,
+        <div
+          className={
+            Object {
+              "itemSelStyle": "itemSel",
+            }
+          }
+        >
+          <itemselect />
+        </div>,
+      ],
+      "className": Object {
+        "sectionStyle": "section",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <span>
+              Currently editing
+            </span>,
+            <div
+              className={
+                Object {
+                  "titleStyle": "title",
+                }
+              }
+            >
+              <textfield
+                fullWidth={true}
+                multiline={true}
+                onChange={[Function]}
+                placeholder="Add title here"
+                rows={1}
+                rowsMax={3}
+                style={
+                  Object {
+                    "top": "-2px",
+                    "xyz": "890",
+                  }
+                }
+                value="Rainbow Dash"
+              />
+            </div>,
+            <textfield
+              fullWidth={true}
+              multiline={true}
+              onChange={[Function]}
+              placeholder="Add description here"
+              rows={1}
+              rowsMax={3}
+              style={
+                Object {
+                  "abc": "123",
+                }
+              }
+              value="The blue one"
+            />,
+          ],
+          "className": Object {
+            "titleDescStyle": "titleDesc",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Currently editing",
+            },
+            "ref": null,
+            "rendered": "Currently editing",
+            "type": "span",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <textfield
+                  fullWidth={true}
+                  multiline={true}
+                  onChange={[Function]}
+                  placeholder="Add title here"
+                  rows={1}
+                  rowsMax={3}
+                  style={
+                    Object {
+                      "top": "-2px",
+                      "xyz": "890",
+                    }
+                  }
+                  value="Rainbow Dash"
+                />,
+                null,
+              ],
+              "className": Object {
+                "titleStyle": "title",
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "fullWidth": true,
+                  "multiline": true,
+                  "onChange": [Function],
+                  "placeholder": "Add title here",
+                  "rows": 1,
+                  "rowsMax": 3,
+                  "style": Object {
+                    "top": "-2px",
+                    "xyz": "890",
+                  },
+                  "value": "Rainbow Dash",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "textfield",
+              },
+              null,
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "fullWidth": true,
+              "multiline": true,
+              "onChange": [Function],
+              "placeholder": "Add description here",
+              "rows": 1,
+              "rowsMax": 3,
+              "style": Object {
+                "abc": "123",
+              },
+              "value": "The blue one",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "textfield",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <itemselect />,
+          "className": Object {
+            "itemSelStyle": "itemSel",
+          },
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "itemselect",
+        },
+        "type": "div",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className={
+              Object {
+                "titleDescStyle": "titleDesc",
+              }
+            }
+          >
+            <span>
+              Currently editing
+            </span>
+            <div
+              className={
+                Object {
+                  "titleStyle": "title",
+                }
+              }
+            >
+              <textfield
+                fullWidth={true}
+                multiline={true}
+                onChange={[Function]}
+                placeholder="Add title here"
+                rows={1}
+                rowsMax={3}
+                style={
+                  Object {
+                    "top": "-2px",
+                    "xyz": "890",
+                  }
+                }
+                value="Rainbow Dash"
+              />
+            </div>
+            <textfield
+              fullWidth={true}
+              multiline={true}
+              onChange={[Function]}
+              placeholder="Add description here"
+              rows={1}
+              rowsMax={3}
+              style={
+                Object {
+                  "abc": "123",
+                }
+              }
+              value="The blue one"
+            />
+          </div>,
+          <div
+            className={
+              Object {
+                "itemSelStyle": "itemSel",
+              }
+            }
+          >
+            <itemselect />
+          </div>,
+        ],
+        "className": Object {
+          "sectionStyle": "section",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <span>
+                Currently editing
+              </span>,
+              <div
+                className={
+                  Object {
+                    "titleStyle": "title",
+                  }
+                }
+              >
+                <textfield
+                  fullWidth={true}
+                  multiline={true}
+                  onChange={[Function]}
+                  placeholder="Add title here"
+                  rows={1}
+                  rowsMax={3}
+                  style={
+                    Object {
+                      "top": "-2px",
+                      "xyz": "890",
+                    }
+                  }
+                  value="Rainbow Dash"
+                />
+              </div>,
+              <textfield
+                fullWidth={true}
+                multiline={true}
+                onChange={[Function]}
+                placeholder="Add description here"
+                rows={1}
+                rowsMax={3}
+                style={
+                  Object {
+                    "abc": "123",
+                  }
+                }
+                value="The blue one"
+              />,
+            ],
+            "className": Object {
+              "titleDescStyle": "titleDesc",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Currently editing",
+              },
+              "ref": null,
+              "rendered": "Currently editing",
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <textfield
+                    fullWidth={true}
+                    multiline={true}
+                    onChange={[Function]}
+                    placeholder="Add title here"
+                    rows={1}
+                    rowsMax={3}
+                    style={
+                      Object {
+                        "top": "-2px",
+                        "xyz": "890",
+                      }
+                    }
+                    value="Rainbow Dash"
+                  />,
+                  null,
+                ],
+                "className": Object {
+                  "titleStyle": "title",
+                },
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "fullWidth": true,
+                    "multiline": true,
+                    "onChange": [Function],
+                    "placeholder": "Add title here",
+                    "rows": 1,
+                    "rowsMax": 3,
+                    "style": Object {
+                      "top": "-2px",
+                      "xyz": "890",
+                    },
+                    "value": "Rainbow Dash",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "textfield",
+                },
+                null,
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "fullWidth": true,
+                "multiline": true,
+                "onChange": [Function],
+                "placeholder": "Add description here",
+                "rows": 1,
+                "rowsMax": 3,
+                "style": Object {
+                  "abc": "123",
+                },
+                "value": "The blue one",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "textfield",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <itemselect />,
+            "className": Object {
+              "itemSelStyle": "itemSel",
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "itemselect",
+          },
+          "type": "div",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
 `;

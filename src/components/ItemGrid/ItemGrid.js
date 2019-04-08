@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import i18n from 'd2-i18n';
+import i18n from '@dhis2/d2-i18n';
 import ReactGridLayout from 'react-grid-layout';
 
 import {

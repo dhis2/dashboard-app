@@ -1,32 +1,28 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import renderer from 'react-test-renderer';
 import { ShowMoreButton } from '../ShowMoreButton';
 
 describe('ShowMoreButton', () => {
     it('renders correctly when at maxHeight', () => {
-        const tree = renderer
-            .create(
-                <ShowMoreButton
-                    onClick={() => {}}
-                    isMaxHeight={true}
-                    classes={{ showMore: {} }}
-                />
-            )
-            .toJSON();
-        expect(tree).toMatchSnapshot();
+        const button = shallow(
+            <ShowMoreButton
+                onClick={() => {}}
+                isMaxHeight={true}
+                classes={{ showMore: {} }}
+            />
+        );
+        expect(button).toMatchSnapshot();
     });
 
     it('renders correctly when not at maxHeight', () => {
-        const tree = renderer
-            .create(
-                <ShowMoreButton
-                    onClick={() => {}}
-                    isMaxHeight={false}
-                    classes={{ showMore: {} }}
-                />
-            )
-            .toJSON();
+        const tree = shallow(
+            <ShowMoreButton
+                onClick={() => {}}
+                isMaxHeight={false}
+                classes={{ showMore: {} }}
+            />
+        );
+
         expect(tree).toMatchSnapshot();
     });
 

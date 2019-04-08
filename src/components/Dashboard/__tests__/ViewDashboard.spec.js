@@ -3,9 +3,9 @@ import { shallow } from 'enzyme';
 import { ViewDashboard, Content } from '../ViewDashboard';
 import { NoContentMessage } from '../../../widgets/NoContentMessage';
 
-jest.mock('../DashboardContent', () => () => (
-    <div id="mockDashboardContent">mockDashboardContent</div>
-));
+jest.mock('../DashboardContent', () => () => <div />);
+jest.mock('../../ControlBar/DashboardsBar', () => () => <div />);
+jest.mock('../DashboardVerticalOffset', () => () => <div />);
 
 describe('ViewDashboard', () => {
     let props;

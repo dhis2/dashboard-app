@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from '../App';
+import { App } from '../App';
 import SnackbarMessage from '../SnackbarMessage/SnackbarMessage';
 
 jest.mock('@dhis2/ui/widgets/HeaderBar', () => () => (
@@ -25,7 +25,12 @@ describe('App', () => {
     };
 
     beforeEach(() => {
-        props = { d2: {} };
+        props = {
+            d2: {},
+            setCurrentUser: jest.fn(),
+            fetchDashboards: jest.fn(),
+            setControlBarRows: jest.fn(),
+        };
         shallowApp = undefined;
         context = {
             store: {
@@ -38,9 +43,9 @@ describe('App', () => {
         expect(app(context).find(SnackbarMessage)).toHaveLength(1);
     });
 
-    it('dispatches some actions', () => {
+    it('fetches the dashboards', () => {
         app(context);
 
-        expect(context.store.dispatch).toHaveBeenCalledTimes(3);
+        expect(props.fetchDashboards).toHaveBeenCalledTimes(1);
     });
 });

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import MuiChip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
-import { getStubContext } from '../../../../config/testsContext';
+import { getStubContext } from '../../../setupTests';
 import DashboardItemChip from '../DashboardItemChip';
 
 describe('DashboardItemChip', () => {

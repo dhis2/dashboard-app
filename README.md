@@ -10,8 +10,15 @@ It was bootstrapped with [Create React App](https://github.com/facebookincubator
 
 ### Prerequisites
 
-To use the dashboards-app in development mode, it is necessary to have a running DHIS2 instance, and be logged in to it. This is because the app requests resources, like react and react-dom, from the DHIS2 core resources. Most developers use their local DHIS2 instance. If you haven't configured your DHIS2_HOME env variable and set up a config.json, then the app will default to using localhost:8080 with the admin user (see
-[config/webpack.config.dev.js](config/webpack.config.dev.js#L35)).
+To use the dashboards-app in development mode, it is necessary to have a running DHIS2 instance, and be logged in to it. This is because the app requests resources, like maps plugin, from the DHIS2 core resources. Most developers use their local DHIS2 instance.
+
+The following env vars need to be set when running in dev mode:
+
+-   REACT_APP_DHIS2_BASE_URL (e.g., http://localhost:8080)
+-   REACT_APP_DHIS2_AUTHORIZATION (base64 encoded username and password)
+
+The defaults for these values (for development) are set in the `.env` and can be overriden in `.env.local` (which should not be checked into source control)
+When creating a production build, the REACT_APP_DHIS2_BASE_URL is set to `..` in `.env.production`. `REACT_APP_DHIS2_AUTHORIZATION` is unset by default.
 
 ### Installation
 
@@ -61,12 +68,7 @@ The dashboards-app uses **eslint** for code correctness checking, and **prettier
 
 ```
 yarn lint
-yarn prettify
 ```
-
-#### d2/d2-ui
-
-The dashboards-app uses the d2 library for communicating with the DHIS2 api. And as much as possible, we use d2-ui components, rather than using material-ui directly. Make sure to upgrade these dependencies regularly, and contribute to them.
 
 ### Deploy
 

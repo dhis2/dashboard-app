@@ -1,13 +1,24 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ControlBar from '@dhis2/d2-ui-core/control-bar/ControlBar';
 
-import { getStubContext } from '../../../../config/testsContext';
+import { getStubContext } from '../../../setupTests';
 import { MIN_ROW_COUNT } from '../controlBarDimensions';
 import { DashboardsBar, MAX_ROW_COUNT } from '../DashboardsBar';
 import ShowMoreButton from '../ShowMoreButton';
 import DashboardItemChip from '../DashboardItemChip';
 import * as api from '../../../api/controlBar';
+
+jest.mock('@dhis2/d2-ui-core/control-bar/ControlBar', () => props => {
+    return (
+        <div
+            className="mock-dhis2-controlbar"
+            onChangeHeight={val => props.onChangeHeight(val)}
+            onEndDrag={props.onEndDrag}
+        >
+            {props.children}
+        </div>
+    );
+});
 
 describe('DashboardsBar', () => {
     let props;
@@ -37,27 +48,18 @@ describe('DashboardsBar', () => {
         shallowDashboardsBar = undefined;
     });
 
-    it('renders a DashboardsBar', () => {
-        expect(dashboardsBar().find('ControlBar')).toHaveLength(1);
+    it('renders a DashboardsBar with no items', () => {
+        expect(dashboardsBar()).toMatchSnapshot();
     });
 
-    describe('when userRows is MAX_ROW_COUNT', () => {
-        beforeEach(() => {
-            props.userRows = MAX_ROW_COUNT;
-        });
-
-        it('does not render ShowMoreButton', () => {
-            expect(dashboardsBar().find(ShowMoreButton).length).toBe(0);
-        });
+    it('does not render ShowMoreButton when userRows is MAX_ROW_COUNT', () => {
+        props.userRows = MAX_ROW_COUNT;
+        expect(dashboardsBar()).toMatchSnapshot();
     });
 
-    describe('when userRows is less than MAX_ROW_COUNT', () => {
-        beforeEach(() => {
-            props.userRows = MAX_ROW_COUNT - 1;
-        });
-        it('renders ShowMoreButton', () => {
-            expect(dashboardsBar().find(ShowMoreButton).length).toBe(1);
-        });
+    it('renders ShowMoreButton when userRows is less than MAX_ROW_COUNT', () => {
+        props.userRows = MAX_ROW_COUNT - 1;
+        expect(dashboardsBar()).toMatchSnapshot();
     });
 
     describe('when ShowMore button is toggled', () => {
@@ -73,43 +75,35 @@ describe('DashboardsBar', () => {
         });
     });
 
-    describe('when drag ends', () => {
-        it('calls the api to post user rows', () => {
-            const spy = jest.spyOn(api, 'apiPostControlBarRows');
+    it('calls the api to post user rows when drag ends', () => {
+        const spy = jest.spyOn(api, 'apiPostControlBarRows');
 
-            const controlBar = dashboardsBar().find(ControlBar);
-            controlBar.simulate('endDrag');
+        const controlBar = dashboardsBar();
+        controlBar.simulate('endDrag');
 
-            expect(spy).toHaveBeenCalled();
-        });
+        expect(spy).toHaveBeenCalled();
     });
 
-    describe('when controlbar height is changed', () => {
-        beforeEach(() => {
-            props.onChangeHeight = jest.fn();
-            props.userRows = MAX_ROW_COUNT - 1;
-        });
+    it('triggers onChangeHeight when controlbar height is changed', () => {
+        props.onChangeHeight = jest.fn();
+        props.userRows = MAX_ROW_COUNT - 1;
+        const dbr = dashboardsBar();
 
-        it('triggers onChangeHeight with correct value', () => {
-            const controlBar = dashboardsBar().find(ControlBar);
-            const impossiblySmallHeightPxls = 0;
-            controlBar.simulate('changeHeight', impossiblySmallHeightPxls);
-            expect(props.onChangeHeight).toHaveBeenCalled();
-        });
+        const newPixelHeight = 200; // should be equivalent to 4 rows
+        dbr.simulate('changeHeight', newPixelHeight);
+        expect(props.onChangeHeight).toHaveBeenCalled();
+        expect(props.onChangeHeight).toHaveBeenCalledWith(4);
     });
 
-    describe('when controlbar height is changed to same value', () => {
-        beforeEach(() => {
-            props.onChangeHeight = jest.fn();
-            props.userRows = MIN_ROW_COUNT;
-        });
+    it('does not trigger onChangeHeight when controlbar height is changed to similar value', () => {
+        props.onChangeHeight = jest.fn();
+        props.userRows = MIN_ROW_COUNT;
 
-        it('does not trigger onChangeHeight', () => {
-            const controlBar = dashboardsBar().find(ControlBar);
-            const impossiblySmallHeightPxls = 0;
-            controlBar.simulate('changeHeight', impossiblySmallHeightPxls);
-            expect(props.onChangeHeight).not.toHaveBeenCalled();
-        });
+        const dbr = dashboardsBar();
+
+        const newPixelHeight = 50; //should result in 1 row, same as current
+        dbr.simulate('changeHeight', newPixelHeight);
+        expect(props.onChangeHeight).not.toHaveBeenCalled();
     });
 
     describe('when dashboards are provided', () => {
@@ -128,8 +122,8 @@ describe('DashboardsBar', () => {
             ];
         });
 
-        it('renders a DashboardItemChip for each dashboard', () => {
-            expect(dashboardsBar().find(DashboardItemChip).length).toBe(2);
+        it('renders DashboardItemChips for each item on dashboard', () => {
+            expect(dashboardsBar()).toMatchSnapshot();
         });
 
         describe('when selected ID is provided', () => {

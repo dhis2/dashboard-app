@@ -8,6 +8,7 @@ import {
     EVENT_REPORT,
     EVENT_CHART,
     itemTypeMap,
+    getPlugin,
 } from '../../../modules/itemTypes';
 import { getBaseUrl, orObject, getWithoutId } from '../../../modules/util';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
@@ -16,7 +17,8 @@ export const THEMATIC_LAYER = 'thematic';
 
 export const pluginIsAvailable = (item = {}, visualization = {}) => {
     const type = visualization.activeType || item.type;
-    return !!itemTypeMap[type].plugin;
+
+    return !!getPlugin(type);
 };
 
 export const extractFavorite = item => {
@@ -115,7 +117,7 @@ const configureFilter = (filter = {}) => {
         ? { [FILTER_USER_ORG_UNIT]: ouIds }
         : {};
 
-    return Object.assign({}, ...filter, userOrgUnitFilter);
+    return Object.assign({}, filter, userOrgUnitFilter);
 };
 
 export const load = async (item, credentials, activeType, filter = {}) => {
@@ -126,7 +128,7 @@ export const load = async (item, credentials, activeType, filter = {}) => {
     };
 
     const type = activeType || item.type;
-    const plugin = itemTypeMap[type].plugin;
+    const plugin = getPlugin(type);
 
     loadPlugin(plugin, config, credentials);
 };
@@ -144,7 +146,7 @@ export const fetch = async (item, filter = {}) => {
 };
 
 export const resize = item => {
-    const plugin = itemTypeMap[item.type].plugin;
+    const plugin = getPlugin(item.type);
 
     if (plugin && plugin.resize) {
         plugin.resize(getGridItemDomId(item.id));
@@ -152,7 +154,7 @@ export const resize = item => {
 };
 
 export const unmount = (item, activeType) => {
-    const plugin = itemTypeMap[activeType].plugin;
+    const plugin = getPlugin(activeType);
 
     if (plugin && plugin.unmount) {
         plugin.unmount(getGridItemDomId(item.id));

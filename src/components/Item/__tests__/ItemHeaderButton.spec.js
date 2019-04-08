@@ -1,17 +1,15 @@
 import React from 'react';
+import { shallow } from 'enzyme';
 import ItemHeaderButton from '../ItemHeaderButton';
-import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-    const tree = renderer
-        .create(
-            <ItemHeaderButton
-                onClick={Function.prototype}
-                style={{ fill: 'purple' }}
-            >
-                My Little Pony
-            </ItemHeaderButton>
-        )
-        .toJSON();
-    expect(tree).toMatchSnapshot();
+    const button = shallow(
+        <ItemHeaderButton
+            onClick={Function.prototype}
+            style={{ fill: 'purple' }}
+        >
+            My Little Pony
+        </ItemHeaderButton>
+    );
+    expect(button).toMatchSnapshot();
 });

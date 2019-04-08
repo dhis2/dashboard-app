@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import i18n from 'd2-i18n';
+import i18n from '@dhis2/d2-i18n';
 import ControlBar from '@dhis2/d2-ui-core/control-bar/ControlBar';
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog';
 
@@ -128,6 +128,7 @@ export class EditBar extends Component {
     translationDialog = () =>
         this.state.dashboardModel && this.state.dashboardModel.id ? (
             <TranslationDialog
+                className="translation-dialog"
                 d2={this.context.d2}
                 open={this.state.translationDialogIsOpen}
                 onRequestClose={this.toggleTranslationDialog}

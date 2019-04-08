@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Dialog from 'material-ui/Dialog';
 
 import { ConfirmDeleteDialog } from '../ConfirmDeleteDialog';
-import { getStubContext } from '../../../../config/testsContext';
+import { getStubContext } from '../../../setupTests';
 import FlatButton from '../../../widgets/FlatButton';
 import PrimaryButton from '../../../widgets/PrimaryButton';
 

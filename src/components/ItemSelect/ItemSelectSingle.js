@@ -73,12 +73,5 @@ const ItemSelectSingle = ({ acAddDashboardItem, category }) => {
 
 export default connect(
     null,
-    {
-        acAddDashboardItem,
-    },
-    (stateProps, dispatchProps, ownProps) => ({
-        ...ownProps,
-        ...stateProps,
-        ...dispatchProps,
-    })
+    { acAddDashboardItem }
 )(ItemSelectSingle);

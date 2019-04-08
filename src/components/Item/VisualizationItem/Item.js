@@ -4,24 +4,23 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import LaunchIcon from '@material-ui/icons/Launch';
 import ChartPlugin from 'data-visualizer-plugin';
-import i18n from 'd2-i18n';
+import i18n from '@dhis2/d2-i18n';
+import uniqueId from 'lodash/uniqueId';
 
+import DefaultPlugin from './DefaultPlugin';
+import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
+import ItemFooter from './ItemFooter';
+import VisualizationItemHeaderButtons from './ItemHeaderButtons';
 import * as pluginManager from './plugin';
 import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
 import {
-    acReceivedActiveVisualization,
     acReceivedVisualization,
+    acReceivedActiveVisualization,
 } from '../../../actions/selected';
 import { CHART, itemTypeMap } from '../../../modules/itemTypes';
-import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
-import ItemFooter from './ItemFooter';
-import VisualizationItemHeaderButtons from './ItemHeaderButtons';
-import DefaultPlugin from './DefaultPlugin';
 import { colors } from '../../../modules/colors';
-import uniqueId from 'lodash/uniqueId';
 import memoizeOne from '../../../modules/memoizeOne';
-import { getVisualizationConfig } from './plugin';
 
 const styles = {
     icon: {
@@ -127,7 +126,7 @@ export class Item extends Component {
     };
 
     getConfig = () =>
-        getVisualizationConfig(
+        pluginManager.getVisualizationConfig(
             this.props.visualization,
             this.props.item.type,
             this.getActiveType()
