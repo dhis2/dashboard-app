@@ -1,11 +1,9 @@
-/* global DHIS_CONFIG, manifest */
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { MuiThemeProvider as V0MuiThemeProvider } from 'material-ui';
-import { init as d2Init, config, getUserSettings } from 'd2';
+import { init as d2Init, config, getManifest, getUserSettings } from 'd2';
 import dhis2theme from '@dhis2/d2-ui-core/theme/mui3.theme';
 
 // temporary workaround until new ui headerbar is ready
@@ -31,7 +29,9 @@ const configI18n = userSettings => {
     i18n.changeLanguage(uiLocale);
 };
 
-const init = () => {
+const init = async () => {
+    const manifest = await getManifest('./manifest.webapp');
+
     // log app info
     console.info(
         `Dashboards app, v${manifest.version}, ${
@@ -39,13 +39,26 @@ const init = () => {
         }`
     );
 
-    // api config
     const isProd = process.env.NODE_ENV === 'production';
+
+    if (
+        !isProd &&
+        (!process.env.REACT_APP_DHIS2_BASE_URL ||
+            !process.env.REACT_APP_DHIS2_AUTHORIZATION)
+    ) {
+        throw new Error(
+            'Missing env variables REACT_APP_DHIS2_BASE_URL and REACT_APP_DHIS2_AUTHORIZATION'
+        );
+    }
+
+    // api config
     const baseUrl = isProd
         ? manifest.activities.dhis.href
-        : DHIS_CONFIG.baseUrl;
+        : process.env.REACT_APP_DHIS2_BASE_URL;
+    const authorization = process.env.REACT_APP_DHIS2_AUTHORIZATION;
 
     config.baseUrl = `${baseUrl}/api/${manifest.dhis2.apiVersion}`;
+    config.headers = isProd ? null : { Authorization: authorization };
     config.schemas = [
         'chart',
         'map',
@@ -57,9 +70,6 @@ const init = () => {
         'organisationUnit',
         'userGroup',
     ];
-    config.headers = isProd
-        ? null
-        : { Authorization: DHIS_CONFIG.authorization };
 
     getUserSettings()
         .then(configI18n)

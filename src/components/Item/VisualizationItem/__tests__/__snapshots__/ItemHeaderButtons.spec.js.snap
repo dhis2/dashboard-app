@@ -1,161 +1,797 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-Array [
-  <div
-    style={
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <VisualizationItemHeaderButtons
+    activeFooter={false}
+    activeType="CHART"
+    item={
       Object {
-        "marginRight": 10,
+        "chart": Object {
+          "domainType": "AGGREGATE",
+          "type": "NOT_YOY",
+        },
+        "type": "CHART",
       }
     }
+    onSelectVisualization={[Function]}
+    onToggleFooter={[Function]}
   >
-    <button
-      className="item-action-button"
-      onClick={[Function]}
-      style={
-        Object {
-          "border": "1px solid #ECEFF1",
-          "borderRadius": "2px",
-          "padding": "7px 6px 1px 6px",
-        }
-      }
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        className="MuiSvgIcon-root-1"
-        focusable="false"
-        role="presentation"
-        style={
-          Object {
-            "fill": "#9E9E9E",
-            "height": "24px",
-            "width": "24px",
+    My Little Pony
+  </VisualizationItemHeaderButtons>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <div
+          style={
+            Object {
+              "marginRight": 10,
+            }
           }
-        }
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"
-        />
-        <path
-          d="M0 0h24v24H0z"
-          fill="none"
-        />
-      </svg>
-    </button>
-  </div>,
-  <div
-    style={
+        >
+          <ItemHeaderButton
+            onClick={[Function]}
+            style={
+              Object {
+                "border": "1px solid #ECEFF1",
+                "borderRadius": "2px",
+                "padding": "7px 6px 1px 6px",
+              }
+            }
+          >
+            <pure(MessageIcon)
+              style={
+                Object {
+                  "fill": "#9E9E9E",
+                  "height": "24px",
+                  "width": "24px",
+                }
+              }
+            />
+          </ItemHeaderButton>
+        </div>,
+        <div
+          style={
+            Object {
+              "border": "1px solid #ECEFF1",
+              "borderRadius": "2px",
+            }
+          }
+        >
+          <ItemHeaderButton
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "padding": "5px 6px 3px 6px",
+              }
+            }
+          >
+            <pure(ViewListIcon)
+              style={
+                Object {
+                  "fill": "#9E9E9E",
+                  "height": "24px",
+                  "width": "24px",
+                }
+              }
+            />
+          </ItemHeaderButton>
+          <ItemHeaderButton
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#EAF4FF",
+                "padding": "5px 6px 3px 6px",
+              }
+            }
+          >
+            <pure(InsertChartIcon)
+              style={
+                Object {
+                  "fill": "#004BA0",
+                  "height": "24px",
+                  "width": "24px",
+                }
+              }
+            />
+          </ItemHeaderButton>
+          <ItemHeaderButton
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "padding": "5px 6px 3px 6px",
+              }
+            }
+          >
+            <pure(PublicIcon)
+              style={
+                Object {
+                  "fill": "#9E9E9E",
+                  "height": "24px",
+                  "width": "24px",
+                }
+              }
+            />
+          </ItemHeaderButton>
+        </div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
       Object {
-        "border": "1px solid #ECEFF1",
-        "borderRadius": "2px",
-      }
-    }
-  >
-    <button
-      className="item-action-button"
-      disabled={false}
-      onClick={[Function]}
-      style={
-        Object {
-          "padding": "5px 6px 3px 6px",
-        }
-      }
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        className="MuiSvgIcon-root-1"
-        focusable="false"
-        role="presentation"
-        style={
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <ItemHeaderButton
+            onClick={[Function]}
+            style={
+              Object {
+                "border": "1px solid #ECEFF1",
+                "borderRadius": "2px",
+                "padding": "7px 6px 1px 6px",
+              }
+            }
+          >
+            <pure(MessageIcon)
+              style={
+                Object {
+                  "fill": "#9E9E9E",
+                  "height": "24px",
+                  "width": "24px",
+                }
+              }
+            />
+          </ItemHeaderButton>,
+          "style": Object {
+            "marginRight": 10,
+          },
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <pure(MessageIcon)
+              style={
+                Object {
+                  "fill": "#9E9E9E",
+                  "height": "24px",
+                  "width": "24px",
+                }
+              }
+            />,
+            "onClick": [Function],
+            "style": Object {
+              "border": "1px solid #ECEFF1",
+              "borderRadius": "2px",
+              "padding": "7px 6px 1px 6px",
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "style": Object {
+                "fill": "#9E9E9E",
+                "height": "24px",
+                "width": "24px",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <ItemHeaderButton
+              disabled={false}
+              onClick={[Function]}
+              style={
+                Object {
+                  "padding": "5px 6px 3px 6px",
+                }
+              }
+            >
+              <pure(ViewListIcon)
+                style={
+                  Object {
+                    "fill": "#9E9E9E",
+                    "height": "24px",
+                    "width": "24px",
+                  }
+                }
+              />
+            </ItemHeaderButton>,
+            <ItemHeaderButton
+              disabled={false}
+              onClick={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "#EAF4FF",
+                  "padding": "5px 6px 3px 6px",
+                }
+              }
+            >
+              <pure(InsertChartIcon)
+                style={
+                  Object {
+                    "fill": "#004BA0",
+                    "height": "24px",
+                    "width": "24px",
+                  }
+                }
+              />
+            </ItemHeaderButton>,
+            <ItemHeaderButton
+              disabled={false}
+              onClick={[Function]}
+              style={
+                Object {
+                  "padding": "5px 6px 3px 6px",
+                }
+              }
+            >
+              <pure(PublicIcon)
+                style={
+                  Object {
+                    "fill": "#9E9E9E",
+                    "height": "24px",
+                    "width": "24px",
+                  }
+                }
+              />
+            </ItemHeaderButton>,
+          ],
+          "style": Object {
+            "border": "1px solid #ECEFF1",
+            "borderRadius": "2px",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
           Object {
-            "fill": "#9E9E9E",
-            "height": "24px",
-            "width": "24px",
-          }
-        }
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M4 14h4v-4H4v4zm0 5h4v-4H4v4zM4 9h4V5H4v4zm5 5h12v-4H9v4zm0 5h12v-4H9v4zM9 5v4h12V5H9z"
-        />
-        <path
-          d="M0 0h24v24H0z"
-          fill="none"
-        />
-      </svg>
-    </button>
-    <button
-      className="item-action-button"
-      disabled={false}
-      onClick={[Function]}
-      style={
-        Object {
-          "backgroundColor": "#EAF4FF",
-          "padding": "5px 6px 3px 6px",
-        }
-      }
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        className="MuiSvgIcon-root-1"
-        focusable="false"
-        role="presentation"
-        style={
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <pure(ViewListIcon)
+                style={
+                  Object {
+                    "fill": "#9E9E9E",
+                    "height": "24px",
+                    "width": "24px",
+                  }
+                }
+              />,
+              "disabled": false,
+              "onClick": [Function],
+              "style": Object {
+                "padding": "5px 6px 3px 6px",
+              },
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "style": Object {
+                  "fill": "#9E9E9E",
+                  "height": "24px",
+                  "width": "24px",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
           Object {
-            "fill": "#004BA0",
-            "height": "24px",
-            "width": "24px",
-          }
-        }
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"
-        />
-        <path
-          d="M0 0h24v24H0z"
-          fill="none"
-        />
-      </svg>
-    </button>
-    <button
-      className="item-action-button"
-      disabled={false}
-      onClick={[Function]}
-      style={
-        Object {
-          "padding": "5px 6px 3px 6px",
-        }
-      }
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        className="MuiSvgIcon-root-1"
-        focusable="false"
-        role="presentation"
-        style={
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <pure(InsertChartIcon)
+                style={
+                  Object {
+                    "fill": "#004BA0",
+                    "height": "24px",
+                    "width": "24px",
+                  }
+                }
+              />,
+              "disabled": false,
+              "onClick": [Function],
+              "style": Object {
+                "backgroundColor": "#EAF4FF",
+                "padding": "5px 6px 3px 6px",
+              },
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "style": Object {
+                  "fill": "#004BA0",
+                  "height": "24px",
+                  "width": "24px",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
           Object {
-            "fill": "#9E9E9E",
-            "height": "24px",
-            "width": "24px",
-          }
-        }
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M0 0h24v24H0z"
-          fill="none"
-        />
-        <path
-          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
-        />
-      </svg>
-    </button>
-  </div>,
-]
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <pure(PublicIcon)
+                style={
+                  Object {
+                    "fill": "#9E9E9E",
+                    "height": "24px",
+                    "width": "24px",
+                  }
+                }
+              />,
+              "disabled": false,
+              "onClick": [Function],
+              "style": Object {
+                "padding": "5px 6px 3px 6px",
+              },
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "style": Object {
+                  "fill": "#9E9E9E",
+                  "height": "24px",
+                  "width": "24px",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <div
+            style={
+              Object {
+                "marginRight": 10,
+              }
+            }
+          >
+            <ItemHeaderButton
+              onClick={[Function]}
+              style={
+                Object {
+                  "border": "1px solid #ECEFF1",
+                  "borderRadius": "2px",
+                  "padding": "7px 6px 1px 6px",
+                }
+              }
+            >
+              <pure(MessageIcon)
+                style={
+                  Object {
+                    "fill": "#9E9E9E",
+                    "height": "24px",
+                    "width": "24px",
+                  }
+                }
+              />
+            </ItemHeaderButton>
+          </div>,
+          <div
+            style={
+              Object {
+                "border": "1px solid #ECEFF1",
+                "borderRadius": "2px",
+              }
+            }
+          >
+            <ItemHeaderButton
+              disabled={false}
+              onClick={[Function]}
+              style={
+                Object {
+                  "padding": "5px 6px 3px 6px",
+                }
+              }
+            >
+              <pure(ViewListIcon)
+                style={
+                  Object {
+                    "fill": "#9E9E9E",
+                    "height": "24px",
+                    "width": "24px",
+                  }
+                }
+              />
+            </ItemHeaderButton>
+            <ItemHeaderButton
+              disabled={false}
+              onClick={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "#EAF4FF",
+                  "padding": "5px 6px 3px 6px",
+                }
+              }
+            >
+              <pure(InsertChartIcon)
+                style={
+                  Object {
+                    "fill": "#004BA0",
+                    "height": "24px",
+                    "width": "24px",
+                  }
+                }
+              />
+            </ItemHeaderButton>
+            <ItemHeaderButton
+              disabled={false}
+              onClick={[Function]}
+              style={
+                Object {
+                  "padding": "5px 6px 3px 6px",
+                }
+              }
+            >
+              <pure(PublicIcon)
+                style={
+                  Object {
+                    "fill": "#9E9E9E",
+                    "height": "24px",
+                    "width": "24px",
+                  }
+                }
+              />
+            </ItemHeaderButton>
+          </div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <ItemHeaderButton
+              onClick={[Function]}
+              style={
+                Object {
+                  "border": "1px solid #ECEFF1",
+                  "borderRadius": "2px",
+                  "padding": "7px 6px 1px 6px",
+                }
+              }
+            >
+              <pure(MessageIcon)
+                style={
+                  Object {
+                    "fill": "#9E9E9E",
+                    "height": "24px",
+                    "width": "24px",
+                  }
+                }
+              />
+            </ItemHeaderButton>,
+            "style": Object {
+              "marginRight": 10,
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <pure(MessageIcon)
+                style={
+                  Object {
+                    "fill": "#9E9E9E",
+                    "height": "24px",
+                    "width": "24px",
+                  }
+                }
+              />,
+              "onClick": [Function],
+              "style": Object {
+                "border": "1px solid #ECEFF1",
+                "borderRadius": "2px",
+                "padding": "7px 6px 1px 6px",
+              },
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "style": Object {
+                  "fill": "#9E9E9E",
+                  "height": "24px",
+                  "width": "24px",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <ItemHeaderButton
+                disabled={false}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "padding": "5px 6px 3px 6px",
+                  }
+                }
+              >
+                <pure(ViewListIcon)
+                  style={
+                    Object {
+                      "fill": "#9E9E9E",
+                      "height": "24px",
+                      "width": "24px",
+                    }
+                  }
+                />
+              </ItemHeaderButton>,
+              <ItemHeaderButton
+                disabled={false}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#EAF4FF",
+                    "padding": "5px 6px 3px 6px",
+                  }
+                }
+              >
+                <pure(InsertChartIcon)
+                  style={
+                    Object {
+                      "fill": "#004BA0",
+                      "height": "24px",
+                      "width": "24px",
+                    }
+                  }
+                />
+              </ItemHeaderButton>,
+              <ItemHeaderButton
+                disabled={false}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "padding": "5px 6px 3px 6px",
+                  }
+                }
+              >
+                <pure(PublicIcon)
+                  style={
+                    Object {
+                      "fill": "#9E9E9E",
+                      "height": "24px",
+                      "width": "24px",
+                    }
+                  }
+                />
+              </ItemHeaderButton>,
+            ],
+            "style": Object {
+              "border": "1px solid #ECEFF1",
+              "borderRadius": "2px",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <pure(ViewListIcon)
+                  style={
+                    Object {
+                      "fill": "#9E9E9E",
+                      "height": "24px",
+                      "width": "24px",
+                    }
+                  }
+                />,
+                "disabled": false,
+                "onClick": [Function],
+                "style": Object {
+                  "padding": "5px 6px 3px 6px",
+                },
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "style": Object {
+                    "fill": "#9E9E9E",
+                    "height": "24px",
+                    "width": "24px",
+                  },
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <pure(InsertChartIcon)
+                  style={
+                    Object {
+                      "fill": "#004BA0",
+                      "height": "24px",
+                      "width": "24px",
+                    }
+                  }
+                />,
+                "disabled": false,
+                "onClick": [Function],
+                "style": Object {
+                  "backgroundColor": "#EAF4FF",
+                  "padding": "5px 6px 3px 6px",
+                },
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "style": Object {
+                    "fill": "#004BA0",
+                    "height": "24px",
+                    "width": "24px",
+                  },
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <pure(PublicIcon)
+                  style={
+                    Object {
+                      "fill": "#9E9E9E",
+                      "height": "24px",
+                      "width": "24px",
+                    }
+                  }
+                />,
+                "disabled": false,
+                "onClick": [Function],
+                "style": Object {
+                  "padding": "5px 6px 3px 6px",
+                },
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "style": Object {
+                    "fill": "#9E9E9E",
+                    "height": "24px",
+                    "width": "24px",
+                  },
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
 `;

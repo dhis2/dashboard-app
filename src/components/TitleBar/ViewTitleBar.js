@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
-import i18n from 'd2-i18n';
+import i18n from '@dhis2/d2-i18n';
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog';
 import Star from '@material-ui/icons/Star';
 import StarBorder from '@material-ui/icons/StarBorder';

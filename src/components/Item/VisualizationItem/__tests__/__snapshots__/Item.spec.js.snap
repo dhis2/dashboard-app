@@ -1,0 +1,328 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VisualizationItem/Item renders a DefaultPlugin when a item different from chart is passed 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Item
+    classes={Object {}}
+    editMode={false}
+    item={
+      Object {
+        "id": "testItem2",
+        "reportTable": Object {
+          "id": "pivot1",
+          "name": "Test pivot",
+        },
+        "type": "REPORT_TABLE",
+      }
+    }
+    itemFilter={
+      Object {
+        "brilliance": 100,
+      }
+    }
+    onToggleItemExpanded={[MockFunction]}
+    onVisualizationLoaded={[MockFunction]}
+    visualization={
+      Object {
+        "description": "Test pivot mock",
+        "name": "Test pivot",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <ItemHeader
+          actionButtons={
+            <VisualizationItemHeaderButtons
+              activeFooter={false}
+              activeType="REPORT_TABLE"
+              item={
+                Object {
+                  "id": "testItem2",
+                  "reportTable": Object {
+                    "id": "pivot1",
+                    "name": "Test pivot",
+                  },
+                  "type": "REPORT_TABLE",
+                }
+              }
+              onSelectVisualization={[Function]}
+              onToggleFooter={[Function]}
+            />
+          }
+          editMode={false}
+          title={
+            <div
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                }
+              }
+            >
+              <span
+                title="rainbow"
+              >
+                rainbow
+              </span>
+              <a
+                style={
+                  Object {
+                    "height": 16,
+                  }
+                }
+                title="View in Pivot Tables app"
+              >
+                <pure(LaunchIcon) />
+              </a>
+            </div>
+          }
+        />,
+        <div
+          className="dashboard-item-content"
+        />,
+        null,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "actionButtons": <VisualizationItemHeaderButtons
+            activeFooter={false}
+            activeType="REPORT_TABLE"
+            item={
+              Object {
+                "id": "testItem2",
+                "reportTable": Object {
+                  "id": "pivot1",
+                  "name": "Test pivot",
+                },
+                "type": "REPORT_TABLE",
+              }
+            }
+            onSelectVisualization={[Function]}
+            onToggleFooter={[Function]}
+          />,
+          "editMode": false,
+          "title": <div
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+              }
+            }
+          >
+            <span
+              title="rainbow"
+            >
+              rainbow
+            </span>
+            <a
+              style={
+                Object {
+                  "height": 16,
+                }
+              }
+              title="View in Pivot Tables app"
+            >
+              <pure(LaunchIcon) />
+            </a>
+          </div>,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "host",
+        "props": Object {
+          "children": false,
+          "className": "dashboard-item-content",
+        },
+        "ref": null,
+        "rendered": false,
+        "type": "div",
+      },
+      null,
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <ItemHeader
+            actionButtons={
+              <VisualizationItemHeaderButtons
+                activeFooter={false}
+                activeType="REPORT_TABLE"
+                item={
+                  Object {
+                    "id": "testItem2",
+                    "reportTable": Object {
+                      "id": "pivot1",
+                      "name": "Test pivot",
+                    },
+                    "type": "REPORT_TABLE",
+                  }
+                }
+                onSelectVisualization={[Function]}
+                onToggleFooter={[Function]}
+              />
+            }
+            editMode={false}
+            title={
+              <div
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                  }
+                }
+              >
+                <span
+                  title="rainbow"
+                >
+                  rainbow
+                </span>
+                <a
+                  style={
+                    Object {
+                      "height": 16,
+                    }
+                  }
+                  title="View in Pivot Tables app"
+                >
+                  <pure(LaunchIcon) />
+                </a>
+              </div>
+            }
+          />,
+          <div
+            className="dashboard-item-content"
+          />,
+          null,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "actionButtons": <VisualizationItemHeaderButtons
+              activeFooter={false}
+              activeType="REPORT_TABLE"
+              item={
+                Object {
+                  "id": "testItem2",
+                  "reportTable": Object {
+                    "id": "pivot1",
+                    "name": "Test pivot",
+                  },
+                  "type": "REPORT_TABLE",
+                }
+              }
+              onSelectVisualization={[Function]}
+              onToggleFooter={[Function]}
+            />,
+            "editMode": false,
+            "title": <div
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                }
+              }
+            >
+              <span
+                title="rainbow"
+              >
+                rainbow
+              </span>
+              <a
+                style={
+                  Object {
+                    "height": 16,
+                  }
+                }
+                title="View in Pivot Tables app"
+              >
+                <pure(LaunchIcon) />
+              </a>
+            </div>,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "host",
+          "props": Object {
+            "children": false,
+            "className": "dashboard-item-content",
+          },
+          "ref": null,
+          "rendered": false,
+          "type": "div",
+        },
+        null,
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {
+      "d2": Object {},
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;

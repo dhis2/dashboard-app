@@ -5,6 +5,22 @@ import { CHART, REPORT_TABLE } from '../../../../modules/itemTypes';
 import { Item } from '../Item';
 import DefaultPlugin from '../DefaultPlugin';
 
+jest.mock('data-visualizer-plugin', () => () => <div />);
+jest.mock('../DefaultPlugin', () => () => <div />);
+jest.mock('../ItemFooter', () => () => <div />);
+jest.mock('../plugin', () => {
+    return {
+        getLink: jest.fn(),
+        unmount: jest.fn(),
+        pluginIsAvailable: () => true,
+        getName: () => 'rainbow',
+        fetch: () => {},
+        getVisualizationConfig: () => ({
+            someProp: 'someValue',
+        }),
+    };
+});
+
 describe('VisualizationItem/Item', () => {
     let props;
     let shallowItem;
@@ -39,6 +55,7 @@ describe('VisualizationItem/Item', () => {
                 filters: [],
             },
             onToggleItemExpanded: jest.fn(),
+            onVisualizationLoaded: jest.fn(),
         };
         shallowItem = undefined;
     });
@@ -54,6 +71,7 @@ describe('VisualizationItem/Item', () => {
         props.item = {
             type: CHART,
             id: 'testItem1',
+            type: CHART,
             chart: {
                 id: 'chart1',
                 name: 'Test chart',
@@ -93,6 +111,8 @@ describe('VisualizationItem/Item', () => {
             ],
         };
 
+        expect(canvas()).toMatchSnapshot();
+
         const component = canvas();
 
         component.setState({ configLoaded: true });
@@ -100,7 +120,6 @@ describe('VisualizationItem/Item', () => {
         const defaultPlugin = canvas().find(DefaultPlugin);
 
         expect(defaultPlugin.exists()).toBeTruthy();
-
         expect(defaultPlugin.prop('visualization')).toEqual(expectedConfig);
     });
 });

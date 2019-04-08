@@ -1,29 +1,49 @@
-<!doctype html>
-<html lang="en" dir="ltr">
-
-<head>
-    <title>Dashboards app</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-
-    <%= htmlWebpackPlugin.options.vendorScripts %>
-
-
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <meta name="theme-color" content="#000000" />
         <!--
-  Notice the use of %PUBLIC_URL% in the tag above.
-  It will be replaced with the URL of the `public` folder during the build.
-  Only files inside the `public` folder can be referenced from the HTML.
-
-  Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-  work correctly both with client-side routing and a non-root public URL.
-  Learn how to configure a non-root public URL by running `npm run build`.
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-</head>
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.webapp" />
 
-<body>
-    <div id="root"></div>
-    <script>jQuery.migrateMute = true;</script>
-</body>
+        <!-- TODO: Remove these global script dependencies or bundle them with their respective plugins -->
 
+        <% if (process.env.NODE_ENV === 'production') { %>
+        <script src="%PUBLIC_URL%/vendor/babel-polyfill-6.26.0.min.js"></script>
+        <script src="%PUBLIC_URL%/vendor/jquery-3.3.1.min.js"></script>
+        <script src="%PUBLIC_URL%/vendor/jquery-migrate-3.0.1.min.js"></script>
+        <% } %> <% if (process.env.NODE_ENV !== 'production') { %>
+        <script src="%PUBLIC_URL%/vendor/babel-polyfill-6.26.0.js"></script>
+        <script src="%PUBLIC_URL%/vendor/jquery-3.3.1.js"></script>
+        <script src="%PUBLIC_URL%/vendor/jquery-migrate-3.0.1.js"></script>
+        <% } %>
+
+        <script src="%REACT_APP_DHIS2_BASE_URL%/dhis-web-pivot/reporttable.js"></script>
+        <script src="%REACT_APP_DHIS2_BASE_URL%/dhis-web-maps/map.js"></script>
+        <script src="%REACT_APP_DHIS2_BASE_URL%/dhis-web-event-reports/eventreport.js"></script>
+        <script src="%REACT_APP_DHIS2_BASE_URL%/dhis-web-event-visualizer/eventchart.js"></script>
+
+        <title>Dashboards app</title>
+    </head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root"></div>
+        <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    --></body>
 </html>

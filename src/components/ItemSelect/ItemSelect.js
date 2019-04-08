@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import i18n from 'd2-i18n';
+import i18n from '@dhis2/d2-i18n';
+import Popover from '@material-ui/core/Popover';
 import SearchIcon from '@material-ui/icons/Search';
-import Popover from 'material-ui/Popover';
 import TextField from 'material-ui/TextField';
 
 import { singleItems, listItems } from './selectableItems';
@@ -162,17 +162,12 @@ class ItemSelect extends React.Component {
                 <Popover
                     className="dashboard-item-select"
                     open={this.state.open}
-                    onRequestClose={this.closeList}
+                    onClose={this.closeList}
                     anchorEl={this.state.anchorEl}
-                    anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-                    targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-                    canAutoPosition={false}
-                    autoCloseWhenOffScreen={false}
-                    style={{
-                        width: 700,
-                        height: '70vh',
-                        left: -1000,
-                    }}
+                    anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
+                    transformOrigin={{ horizontal: 'left', vertical: 'top' }}
+                    style={{ height: '70vh' }}
+                    PaperProps={{ style: { width: '700px' } }}
                 >
                     {this.popoverChildren(this.state.items)}
                 </Popover>

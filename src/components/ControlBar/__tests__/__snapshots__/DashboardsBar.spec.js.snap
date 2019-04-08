@@ -1,0 +1,1945 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DashboardsBar does not render ShowMoreButton when userRows is MAX_ROW_COUNT 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DashboardsBar
+    isMaxHeight={false}
+    userRows={10}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <div
+          style={
+            Object {
+              "height": 370,
+              "overflowY": "auto",
+              "padding": "10px 6px 0 6px",
+            }
+          }
+        >
+          <div
+            className="left-controls"
+          >
+            <Link
+              replace={false}
+              style={
+                Object {
+                  "display": "inline-block",
+                  "marginRight": 10,
+                  "textDecoration": "none",
+                }
+              }
+              to="/new"
+            >
+              <D2IconButton
+                icon={null}
+                iconColor=""
+                iconStyle={null}
+                onClick={[Function]}
+                style={null}
+              />
+            </Link>
+            <_default
+              onKeypressEnter={[Function]}
+            />
+          </div>
+        </div>,
+        null,
+      ],
+      "editMode": false,
+      "expandable": true,
+      "height": 384,
+      "onChangeHeight": [Function],
+      "onEndDrag": [Function],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="left-controls"
+            >
+              <Link
+                replace={false}
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "marginRight": 10,
+                    "textDecoration": "none",
+                  }
+                }
+                to="/new"
+              >
+                <D2IconButton
+                  icon={null}
+                  iconColor=""
+                  iconStyle={null}
+                  onClick={[Function]}
+                  style={null}
+                />
+              </Link>
+              <_default
+                onKeypressEnter={[Function]}
+              />
+            </div>,
+            Array [],
+          ],
+          "style": Object {
+            "height": 370,
+            "overflowY": "auto",
+            "padding": "10px 6px 0 6px",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Link
+                  replace={false}
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "marginRight": 10,
+                      "textDecoration": "none",
+                    }
+                  }
+                  to="/new"
+                >
+                  <D2IconButton
+                    icon={null}
+                    iconColor=""
+                    iconStyle={null}
+                    onClick={[Function]}
+                    style={null}
+                  />
+                </Link>,
+                <_default
+                  onKeypressEnter={[Function]}
+                />,
+              ],
+              "className": "left-controls",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <D2IconButton
+                    icon={null}
+                    iconColor=""
+                    iconStyle={null}
+                    onClick={[Function]}
+                    style={null}
+                  />,
+                  "replace": false,
+                  "style": Object {
+                    "display": "inline-block",
+                    "marginRight": 10,
+                    "textDecoration": "none",
+                  },
+                  "to": "/new",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "icon": null,
+                    "iconColor": "",
+                    "iconStyle": null,
+                    "onClick": [Function],
+                    "style": null,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "name": undefined,
+                  "onChangeName": undefined,
+                  "onKeypressEnter": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      null,
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <div
+            style={
+              Object {
+                "height": 370,
+                "overflowY": "auto",
+                "padding": "10px 6px 0 6px",
+              }
+            }
+          >
+            <div
+              className="left-controls"
+            >
+              <Link
+                replace={false}
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "marginRight": 10,
+                    "textDecoration": "none",
+                  }
+                }
+                to="/new"
+              >
+                <D2IconButton
+                  icon={null}
+                  iconColor=""
+                  iconStyle={null}
+                  onClick={[Function]}
+                  style={null}
+                />
+              </Link>
+              <_default
+                onKeypressEnter={[Function]}
+              />
+            </div>
+          </div>,
+          null,
+        ],
+        "editMode": false,
+        "expandable": true,
+        "height": 384,
+        "onChangeHeight": [Function],
+        "onEndDrag": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="left-controls"
+              >
+                <Link
+                  replace={false}
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "marginRight": 10,
+                      "textDecoration": "none",
+                    }
+                  }
+                  to="/new"
+                >
+                  <D2IconButton
+                    icon={null}
+                    iconColor=""
+                    iconStyle={null}
+                    onClick={[Function]}
+                    style={null}
+                  />
+                </Link>
+                <_default
+                  onKeypressEnter={[Function]}
+                />
+              </div>,
+              Array [],
+            ],
+            "style": Object {
+              "height": 370,
+              "overflowY": "auto",
+              "padding": "10px 6px 0 6px",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <Link
+                    replace={false}
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "marginRight": 10,
+                        "textDecoration": "none",
+                      }
+                    }
+                    to="/new"
+                  >
+                    <D2IconButton
+                      icon={null}
+                      iconColor=""
+                      iconStyle={null}
+                      onClick={[Function]}
+                      style={null}
+                    />
+                  </Link>,
+                  <_default
+                    onKeypressEnter={[Function]}
+                  />,
+                ],
+                "className": "left-controls",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <D2IconButton
+                      icon={null}
+                      iconColor=""
+                      iconStyle={null}
+                      onClick={[Function]}
+                      style={null}
+                    />,
+                    "replace": false,
+                    "style": Object {
+                      "display": "inline-block",
+                      "marginRight": 10,
+                      "textDecoration": "none",
+                    },
+                    "to": "/new",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "icon": null,
+                      "iconColor": "",
+                      "iconStyle": null,
+                      "onClick": [Function],
+                      "style": null,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "name": undefined,
+                    "onChangeName": undefined,
+                    "onKeypressEnter": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        null,
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {
+      "d2": Object {
+        "currentUser": Object {
+          "firstName": "Mark the Ghost",
+          "surname": "Polak",
+          "userSettings": Object {
+            "get": [Function],
+          },
+        },
+      },
+      "i18n": Object {
+        "t": [Function],
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;
+
+exports[`DashboardsBar renders ShowMoreButton when userRows is less than MAX_ROW_COUNT 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DashboardsBar
+    isMaxHeight={false}
+    userRows={9}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <div
+          style={
+            Object {
+              "height": 334,
+              "overflowY": "hidden",
+              "padding": "10px 6px 0 6px",
+            }
+          }
+        >
+          <div
+            className="left-controls"
+          >
+            <Link
+              replace={false}
+              style={
+                Object {
+                  "display": "inline-block",
+                  "marginRight": 10,
+                  "textDecoration": "none",
+                }
+              }
+              to="/new"
+            >
+              <D2IconButton
+                icon={null}
+                iconColor=""
+                iconStyle={null}
+                onClick={[Function]}
+                style={null}
+              />
+            </Link>
+            <_default
+              onKeypressEnter={[Function]}
+            />
+          </div>
+        </div>,
+        <WithStyles(ShowMoreButton)
+          isMaxHeight={false}
+          onClick={[Function]}
+        />,
+      ],
+      "editMode": false,
+      "expandable": true,
+      "height": 348,
+      "onChangeHeight": [Function],
+      "onEndDrag": [Function],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="left-controls"
+            >
+              <Link
+                replace={false}
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "marginRight": 10,
+                    "textDecoration": "none",
+                  }
+                }
+                to="/new"
+              >
+                <D2IconButton
+                  icon={null}
+                  iconColor=""
+                  iconStyle={null}
+                  onClick={[Function]}
+                  style={null}
+                />
+              </Link>
+              <_default
+                onKeypressEnter={[Function]}
+              />
+            </div>,
+            Array [],
+          ],
+          "style": Object {
+            "height": 334,
+            "overflowY": "hidden",
+            "padding": "10px 6px 0 6px",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Link
+                  replace={false}
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "marginRight": 10,
+                      "textDecoration": "none",
+                    }
+                  }
+                  to="/new"
+                >
+                  <D2IconButton
+                    icon={null}
+                    iconColor=""
+                    iconStyle={null}
+                    onClick={[Function]}
+                    style={null}
+                  />
+                </Link>,
+                <_default
+                  onKeypressEnter={[Function]}
+                />,
+              ],
+              "className": "left-controls",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <D2IconButton
+                    icon={null}
+                    iconColor=""
+                    iconStyle={null}
+                    onClick={[Function]}
+                    style={null}
+                  />,
+                  "replace": false,
+                  "style": Object {
+                    "display": "inline-block",
+                    "marginRight": 10,
+                    "textDecoration": "none",
+                  },
+                  "to": "/new",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "icon": null,
+                    "iconColor": "",
+                    "iconStyle": null,
+                    "onClick": [Function],
+                    "style": null,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "name": undefined,
+                  "onChangeName": undefined,
+                  "onKeypressEnter": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "isMaxHeight": false,
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <div
+            style={
+              Object {
+                "height": 334,
+                "overflowY": "hidden",
+                "padding": "10px 6px 0 6px",
+              }
+            }
+          >
+            <div
+              className="left-controls"
+            >
+              <Link
+                replace={false}
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "marginRight": 10,
+                    "textDecoration": "none",
+                  }
+                }
+                to="/new"
+              >
+                <D2IconButton
+                  icon={null}
+                  iconColor=""
+                  iconStyle={null}
+                  onClick={[Function]}
+                  style={null}
+                />
+              </Link>
+              <_default
+                onKeypressEnter={[Function]}
+              />
+            </div>
+          </div>,
+          <WithStyles(ShowMoreButton)
+            isMaxHeight={false}
+            onClick={[Function]}
+          />,
+        ],
+        "editMode": false,
+        "expandable": true,
+        "height": 348,
+        "onChangeHeight": [Function],
+        "onEndDrag": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="left-controls"
+              >
+                <Link
+                  replace={false}
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "marginRight": 10,
+                      "textDecoration": "none",
+                    }
+                  }
+                  to="/new"
+                >
+                  <D2IconButton
+                    icon={null}
+                    iconColor=""
+                    iconStyle={null}
+                    onClick={[Function]}
+                    style={null}
+                  />
+                </Link>
+                <_default
+                  onKeypressEnter={[Function]}
+                />
+              </div>,
+              Array [],
+            ],
+            "style": Object {
+              "height": 334,
+              "overflowY": "hidden",
+              "padding": "10px 6px 0 6px",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <Link
+                    replace={false}
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "marginRight": 10,
+                        "textDecoration": "none",
+                      }
+                    }
+                    to="/new"
+                  >
+                    <D2IconButton
+                      icon={null}
+                      iconColor=""
+                      iconStyle={null}
+                      onClick={[Function]}
+                      style={null}
+                    />
+                  </Link>,
+                  <_default
+                    onKeypressEnter={[Function]}
+                  />,
+                ],
+                "className": "left-controls",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <D2IconButton
+                      icon={null}
+                      iconColor=""
+                      iconStyle={null}
+                      onClick={[Function]}
+                      style={null}
+                    />,
+                    "replace": false,
+                    "style": Object {
+                      "display": "inline-block",
+                      "marginRight": 10,
+                      "textDecoration": "none",
+                    },
+                    "to": "/new",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "icon": null,
+                      "iconColor": "",
+                      "iconStyle": null,
+                      "onClick": [Function],
+                      "style": null,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "name": undefined,
+                    "onChangeName": undefined,
+                    "onKeypressEnter": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "isMaxHeight": false,
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {
+      "d2": Object {
+        "currentUser": Object {
+          "firstName": "Mark the Ghost",
+          "surname": "Polak",
+          "userSettings": Object {
+            "get": [Function],
+          },
+        },
+      },
+      "i18n": Object {
+        "t": [Function],
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;
+
+exports[`DashboardsBar renders a DashboardsBar with no items 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DashboardsBar
+    isMaxHeight={false}
+    userRows={1}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <div
+          style={
+            Object {
+              "height": 46,
+              "overflowY": "hidden",
+              "padding": "10px 6px 0 6px",
+            }
+          }
+        >
+          <div
+            className="left-controls"
+          >
+            <Link
+              replace={false}
+              style={
+                Object {
+                  "display": "inline-block",
+                  "marginRight": 10,
+                  "textDecoration": "none",
+                }
+              }
+              to="/new"
+            >
+              <D2IconButton
+                icon={null}
+                iconColor=""
+                iconStyle={null}
+                onClick={[Function]}
+                style={null}
+              />
+            </Link>
+            <_default
+              onKeypressEnter={[Function]}
+            />
+          </div>
+        </div>,
+        <WithStyles(ShowMoreButton)
+          isMaxHeight={false}
+          onClick={[Function]}
+        />,
+      ],
+      "editMode": false,
+      "expandable": true,
+      "height": 60,
+      "onChangeHeight": [Function],
+      "onEndDrag": [Function],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="left-controls"
+            >
+              <Link
+                replace={false}
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "marginRight": 10,
+                    "textDecoration": "none",
+                  }
+                }
+                to="/new"
+              >
+                <D2IconButton
+                  icon={null}
+                  iconColor=""
+                  iconStyle={null}
+                  onClick={[Function]}
+                  style={null}
+                />
+              </Link>
+              <_default
+                onKeypressEnter={[Function]}
+              />
+            </div>,
+            Array [],
+          ],
+          "style": Object {
+            "height": 46,
+            "overflowY": "hidden",
+            "padding": "10px 6px 0 6px",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Link
+                  replace={false}
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "marginRight": 10,
+                      "textDecoration": "none",
+                    }
+                  }
+                  to="/new"
+                >
+                  <D2IconButton
+                    icon={null}
+                    iconColor=""
+                    iconStyle={null}
+                    onClick={[Function]}
+                    style={null}
+                  />
+                </Link>,
+                <_default
+                  onKeypressEnter={[Function]}
+                />,
+              ],
+              "className": "left-controls",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <D2IconButton
+                    icon={null}
+                    iconColor=""
+                    iconStyle={null}
+                    onClick={[Function]}
+                    style={null}
+                  />,
+                  "replace": false,
+                  "style": Object {
+                    "display": "inline-block",
+                    "marginRight": 10,
+                    "textDecoration": "none",
+                  },
+                  "to": "/new",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "icon": null,
+                    "iconColor": "",
+                    "iconStyle": null,
+                    "onClick": [Function],
+                    "style": null,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "name": undefined,
+                  "onChangeName": undefined,
+                  "onKeypressEnter": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "isMaxHeight": false,
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <div
+            style={
+              Object {
+                "height": 46,
+                "overflowY": "hidden",
+                "padding": "10px 6px 0 6px",
+              }
+            }
+          >
+            <div
+              className="left-controls"
+            >
+              <Link
+                replace={false}
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "marginRight": 10,
+                    "textDecoration": "none",
+                  }
+                }
+                to="/new"
+              >
+                <D2IconButton
+                  icon={null}
+                  iconColor=""
+                  iconStyle={null}
+                  onClick={[Function]}
+                  style={null}
+                />
+              </Link>
+              <_default
+                onKeypressEnter={[Function]}
+              />
+            </div>
+          </div>,
+          <WithStyles(ShowMoreButton)
+            isMaxHeight={false}
+            onClick={[Function]}
+          />,
+        ],
+        "editMode": false,
+        "expandable": true,
+        "height": 60,
+        "onChangeHeight": [Function],
+        "onEndDrag": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="left-controls"
+              >
+                <Link
+                  replace={false}
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "marginRight": 10,
+                      "textDecoration": "none",
+                    }
+                  }
+                  to="/new"
+                >
+                  <D2IconButton
+                    icon={null}
+                    iconColor=""
+                    iconStyle={null}
+                    onClick={[Function]}
+                    style={null}
+                  />
+                </Link>
+                <_default
+                  onKeypressEnter={[Function]}
+                />
+              </div>,
+              Array [],
+            ],
+            "style": Object {
+              "height": 46,
+              "overflowY": "hidden",
+              "padding": "10px 6px 0 6px",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <Link
+                    replace={false}
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "marginRight": 10,
+                        "textDecoration": "none",
+                      }
+                    }
+                    to="/new"
+                  >
+                    <D2IconButton
+                      icon={null}
+                      iconColor=""
+                      iconStyle={null}
+                      onClick={[Function]}
+                      style={null}
+                    />
+                  </Link>,
+                  <_default
+                    onKeypressEnter={[Function]}
+                  />,
+                ],
+                "className": "left-controls",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <D2IconButton
+                      icon={null}
+                      iconColor=""
+                      iconStyle={null}
+                      onClick={[Function]}
+                      style={null}
+                    />,
+                    "replace": false,
+                    "style": Object {
+                      "display": "inline-block",
+                      "marginRight": 10,
+                      "textDecoration": "none",
+                    },
+                    "to": "/new",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "icon": null,
+                      "iconColor": "",
+                      "iconStyle": null,
+                      "onClick": [Function],
+                      "style": null,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "name": undefined,
+                    "onChangeName": undefined,
+                    "onKeypressEnter": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "isMaxHeight": false,
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {
+      "d2": Object {
+        "currentUser": Object {
+          "firstName": "Mark the Ghost",
+          "surname": "Polak",
+          "userSettings": Object {
+            "get": [Function],
+          },
+        },
+      },
+      "i18n": Object {
+        "t": [Function],
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;
+
+exports[`DashboardsBar when dashboards are provided renders DashboardItemChips for each item on dashboard 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DashboardsBar
+    dashboards={
+      Array [
+        Object {
+          "displayName": "Rainbow Dash",
+          "id": "rainbow123",
+          "starred": false,
+        },
+        Object {
+          "displayName": "Fluttershy",
+          "id": "fluttershy123",
+          "starred": true,
+        },
+      ]
+    }
+    isMaxHeight={false}
+    userRows={1}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <div
+          style={
+            Object {
+              "height": 46,
+              "overflowY": "hidden",
+              "padding": "10px 6px 0 6px",
+            }
+          }
+        >
+          <div
+            className="left-controls"
+          >
+            <Link
+              replace={false}
+              style={
+                Object {
+                  "display": "inline-block",
+                  "marginRight": 10,
+                  "textDecoration": "none",
+                }
+              }
+              to="/new"
+            >
+              <D2IconButton
+                icon={null}
+                iconColor=""
+                iconStyle={null}
+                onClick={[Function]}
+                style={null}
+              />
+            </Link>
+            <_default
+              onKeypressEnter={[Function]}
+            />
+          </div>
+          <DashboardItemChip
+            dashboardId="rainbow123"
+            label="Rainbow Dash"
+            selected={false}
+            starred={false}
+          />
+          <DashboardItemChip
+            dashboardId="fluttershy123"
+            label="Fluttershy"
+            selected={false}
+            starred={true}
+          />
+        </div>,
+        <WithStyles(ShowMoreButton)
+          isMaxHeight={false}
+          onClick={[Function]}
+        />,
+      ],
+      "editMode": false,
+      "expandable": true,
+      "height": 60,
+      "onChangeHeight": [Function],
+      "onEndDrag": [Function],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="left-controls"
+            >
+              <Link
+                replace={false}
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "marginRight": 10,
+                    "textDecoration": "none",
+                  }
+                }
+                to="/new"
+              >
+                <D2IconButton
+                  icon={null}
+                  iconColor=""
+                  iconStyle={null}
+                  onClick={[Function]}
+                  style={null}
+                />
+              </Link>
+              <_default
+                onKeypressEnter={[Function]}
+              />
+            </div>,
+            Array [
+              <DashboardItemChip
+                dashboardId="rainbow123"
+                label="Rainbow Dash"
+                selected={false}
+                starred={false}
+              />,
+              <DashboardItemChip
+                dashboardId="fluttershy123"
+                label="Fluttershy"
+                selected={false}
+                starred={true}
+              />,
+            ],
+          ],
+          "style": Object {
+            "height": 46,
+            "overflowY": "hidden",
+            "padding": "10px 6px 0 6px",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Link
+                  replace={false}
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "marginRight": 10,
+                      "textDecoration": "none",
+                    }
+                  }
+                  to="/new"
+                >
+                  <D2IconButton
+                    icon={null}
+                    iconColor=""
+                    iconStyle={null}
+                    onClick={[Function]}
+                    style={null}
+                  />
+                </Link>,
+                <_default
+                  onKeypressEnter={[Function]}
+                />,
+              ],
+              "className": "left-controls",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <D2IconButton
+                    icon={null}
+                    iconColor=""
+                    iconStyle={null}
+                    onClick={[Function]}
+                    style={null}
+                  />,
+                  "replace": false,
+                  "style": Object {
+                    "display": "inline-block",
+                    "marginRight": 10,
+                    "textDecoration": "none",
+                  },
+                  "to": "/new",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "icon": null,
+                    "iconColor": "",
+                    "iconStyle": null,
+                    "onClick": [Function],
+                    "style": null,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "name": undefined,
+                  "onChangeName": undefined,
+                  "onKeypressEnter": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": "rainbow123",
+            "nodeType": "function",
+            "props": Object {
+              "dashboardId": "rainbow123",
+              "label": "Rainbow Dash",
+              "selected": false,
+              "starred": false,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "fluttershy123",
+            "nodeType": "function",
+            "props": Object {
+              "dashboardId": "fluttershy123",
+              "label": "Fluttershy",
+              "selected": false,
+              "starred": true,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "isMaxHeight": false,
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <div
+            style={
+              Object {
+                "height": 46,
+                "overflowY": "hidden",
+                "padding": "10px 6px 0 6px",
+              }
+            }
+          >
+            <div
+              className="left-controls"
+            >
+              <Link
+                replace={false}
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "marginRight": 10,
+                    "textDecoration": "none",
+                  }
+                }
+                to="/new"
+              >
+                <D2IconButton
+                  icon={null}
+                  iconColor=""
+                  iconStyle={null}
+                  onClick={[Function]}
+                  style={null}
+                />
+              </Link>
+              <_default
+                onKeypressEnter={[Function]}
+              />
+            </div>
+            <DashboardItemChip
+              dashboardId="rainbow123"
+              label="Rainbow Dash"
+              selected={false}
+              starred={false}
+            />
+            <DashboardItemChip
+              dashboardId="fluttershy123"
+              label="Fluttershy"
+              selected={false}
+              starred={true}
+            />
+          </div>,
+          <WithStyles(ShowMoreButton)
+            isMaxHeight={false}
+            onClick={[Function]}
+          />,
+        ],
+        "editMode": false,
+        "expandable": true,
+        "height": 60,
+        "onChangeHeight": [Function],
+        "onEndDrag": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="left-controls"
+              >
+                <Link
+                  replace={false}
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "marginRight": 10,
+                      "textDecoration": "none",
+                    }
+                  }
+                  to="/new"
+                >
+                  <D2IconButton
+                    icon={null}
+                    iconColor=""
+                    iconStyle={null}
+                    onClick={[Function]}
+                    style={null}
+                  />
+                </Link>
+                <_default
+                  onKeypressEnter={[Function]}
+                />
+              </div>,
+              Array [
+                <DashboardItemChip
+                  dashboardId="rainbow123"
+                  label="Rainbow Dash"
+                  selected={false}
+                  starred={false}
+                />,
+                <DashboardItemChip
+                  dashboardId="fluttershy123"
+                  label="Fluttershy"
+                  selected={false}
+                  starred={true}
+                />,
+              ],
+            ],
+            "style": Object {
+              "height": 46,
+              "overflowY": "hidden",
+              "padding": "10px 6px 0 6px",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <Link
+                    replace={false}
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "marginRight": 10,
+                        "textDecoration": "none",
+                      }
+                    }
+                    to="/new"
+                  >
+                    <D2IconButton
+                      icon={null}
+                      iconColor=""
+                      iconStyle={null}
+                      onClick={[Function]}
+                      style={null}
+                    />
+                  </Link>,
+                  <_default
+                    onKeypressEnter={[Function]}
+                  />,
+                ],
+                "className": "left-controls",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <D2IconButton
+                      icon={null}
+                      iconColor=""
+                      iconStyle={null}
+                      onClick={[Function]}
+                      style={null}
+                    />,
+                    "replace": false,
+                    "style": Object {
+                      "display": "inline-block",
+                      "marginRight": 10,
+                      "textDecoration": "none",
+                    },
+                    "to": "/new",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "icon": null,
+                      "iconColor": "",
+                      "iconStyle": null,
+                      "onClick": [Function],
+                      "style": null,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "name": undefined,
+                    "onChangeName": undefined,
+                    "onKeypressEnter": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": "rainbow123",
+              "nodeType": "function",
+              "props": Object {
+                "dashboardId": "rainbow123",
+                "label": "Rainbow Dash",
+                "selected": false,
+                "starred": false,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "fluttershy123",
+              "nodeType": "function",
+              "props": Object {
+                "dashboardId": "fluttershy123",
+                "label": "Fluttershy",
+                "selected": false,
+                "starred": true,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "isMaxHeight": false,
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {
+      "d2": Object {
+        "currentUser": Object {
+          "firstName": "Mark the Ghost",
+          "surname": "Polak",
+          "userSettings": Object {
+            "get": [Function],
+          },
+        },
+      },
+      "i18n": Object {
+        "t": [Function],
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;

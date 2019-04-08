@@ -1,12 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ControlBar from '@dhis2/d2-ui-core/control-bar/ControlBar';
-import TranslationDialog from '@dhis2/d2-ui-translation-dialog';
 
+import { EditBar } from '../EditBar';
 import ConfirmDeleteDialog from '../ConfirmDeleteDialog';
 import FlatButton from '../../../widgets/FlatButton';
-import { EditBar } from '../EditBar';
-import { getStubContext } from '../../../../config/testsContext';
+import { getStubContext } from '../../../setupTests';
 
 const mockDashboardModels = {
     rainbow: {
@@ -17,6 +15,14 @@ const mockDashboardModels = {
 jest.mock('../../../api/dashboards', () => ({
     apiFetchDashboard: id => Promise.resolve(mockDashboardModels[id]),
 }));
+
+jest.mock('@dhis2/d2-ui-translation-dialog', () => () => {
+    return <div className="mock-dhis2-translation-dialog" />;
+});
+
+jest.mock('@dhis2/d2-ui-core/control-bar/ControlBar', () => props => {
+    return <div className="mock-dhis2-controlbar">{props.children}</div>;
+});
 
 describe('EditBar', () => {
     let props;
@@ -32,14 +38,6 @@ describe('EditBar', () => {
         return shallowEditBar;
     };
 
-    const asyncExpectComponentExists = (Component, exists) => {
-        const wrapper = editBar();
-
-        return Promise.resolve().then(() => {
-            expect(wrapper.find(Component)).toHaveLength(exists ? 1 : 0);
-        });
-    };
-
     beforeEach(() => {
         props = {
             style: {},
@@ -52,8 +50,8 @@ describe('EditBar', () => {
         shallowEditBar = undefined;
     });
 
-    it('renders a ControlBar', () => {
-        expect(editBar().find(ControlBar)).toHaveLength(1);
+    it('renders the EditBar', () => {
+        expect(editBar()).toMatchSnapshot();
     });
 
     describe('when update access is false', () => {
@@ -61,15 +59,8 @@ describe('EditBar', () => {
             props.updateAccess = false;
         });
 
-        it('renders the Discard button', () => {
-            expect(editBar().find('.discard-button')).toHaveLength(1);
-        });
-
-        it('does not render the Save, Translate or Delete buttons', () => {
-            const wrapper = editBar();
-            ['.translate-button', '.delete-button', '.save-button'].forEach(
-                btnClass => expect(wrapper.find(btnClass)).toHaveLength(0)
-            );
+        it('renders only the Discard button', () => {
+            expect(editBar()).toMatchSnapshot();
         });
     });
 
@@ -84,10 +75,12 @@ describe('EditBar', () => {
                 props.onDiscardChanges = jest.fn();
             });
 
-            it('renders Save button', () => {
-                const saveBtn = editBar().find('.save-button');
+            it('renders Save and Discard buttons but no dialogs', () => {
+                const wrapper = editBar();
 
-                expect(saveBtn).toHaveLength(1);
+                return Promise.resolve().then(() => {
+                    expect(wrapper).toMatchSnapshot();
+                });
             });
 
             it('triggers the save action', () => {
@@ -98,24 +91,11 @@ describe('EditBar', () => {
                 expect(props.onSave).toHaveBeenCalled();
             });
 
-            it('renders Discard button', () => {
-                const discardBtn = editBar().find('.discard-button');
-                expect(discardBtn).toHaveLength(1);
-            });
-
             it('triggers the discard action', () => {
                 editBar()
                     .find('.discard-button')
                     .simulate('click');
                 expect(props.onDiscardChanges).toHaveBeenCalled();
-            });
-
-            it('does not render a TranslationDialog', () => {
-                return asyncExpectComponentExists(TranslationDialog, false);
-            });
-
-            it('does not render a ConfirmDeleteDialog', () => {
-                return asyncExpectComponentExists(ConfirmDeleteDialog, false);
             });
 
             describe('when discard button clicked', () => {
@@ -139,22 +119,12 @@ describe('EditBar', () => {
                 props.dashboardId = 'rainbow';
             });
 
-            it('renders a TranslationDialog', () => {
-                return asyncExpectComponentExists(TranslationDialog, true);
-            });
+            it('renders Save, Translate and Discard buttons and the TranslationDialog but not ConfirmDeleteDialog', () => {
+                const wrapper = editBar();
 
-            it('does not render a ConfirmDeleteDialog', () => {
-                return asyncExpectComponentExists(ConfirmDeleteDialog, false);
-            });
-
-            it('renders Translate button', () => {
-                const btn = editBar().find('.translate-button');
-                expect(btn).toHaveLength(1);
-            });
-
-            it('renders Discard button', () => {
-                const btn = editBar().find('.discard-button');
-                expect(btn).toHaveLength(1);
+                return Promise.resolve().then(() => {
+                    expect(wrapper).toMatchSnapshot();
+                });
             });
 
             describe('when TRANSLATE button is clicked', () => {
@@ -167,11 +137,9 @@ describe('EditBar', () => {
                     });
                 };
 
-                it('shows the translate dialog', () => {
+                it('shows the translate dialog', done => {
                     getAsyncWrapper().then(wrapper => {
-                        expect(
-                            wrapper.find(TranslationDialog).prop('open')
-                        ).toEqual(false);
+                        expect(wrapper).toMatchSnapshot();
 
                         wrapper
                             .find('.translate-button')
@@ -180,9 +148,8 @@ describe('EditBar', () => {
                             })
                             .simulate('click');
 
-                        expect(
-                            wrapper.find(TranslationDialog).prop('open')
-                        ).toEqual(true);
+                        expect(wrapper).toMatchSnapshot();
+                        done();
                     });
                 });
 
@@ -191,11 +158,11 @@ describe('EditBar', () => {
                         props.onTranslate = jest.fn();
                     });
 
-                    it('triggers onTranslationsSaved', () => {
+                    it('triggers onTranslationsSaved', done => {
                         getAsyncWrapper()
                             .then(wrapper => {
                                 wrapper
-                                    .find(TranslationDialog)
+                                    .find('.translation-dialog')
                                     .simulate('translationSaved', [
                                         {
                                             locale: 'ponyLang',
@@ -206,6 +173,11 @@ describe('EditBar', () => {
                             })
                             .then(() => {
                                 expect(props.onTranslate).toHaveBeenCalled();
+                                expect(props.onTranslate).toHaveBeenCalledWith(
+                                    'rainbow',
+                                    'Regnbue'
+                                );
+                                done();
                             });
                     });
                 });
@@ -217,22 +189,11 @@ describe('EditBar', () => {
                     props.onDelete = jest.fn(() => ({ then: () => {} }));
                 });
 
-                it('renders a ConfirmDeleteDialog', () => {
-                    expect(editBar().find(ConfirmDeleteDialog)).toHaveLength(1);
+                it('renders Translate, Delete, and Discard buttons and ConfirmDeleteDialog', () => {
+                    expect(editBar()).toMatchSnapshot();
                 });
 
-                it('renders Translate, Delete, and Discard buttons', () => {
-                    const bar = editBar();
-                    [
-                        '.translate-button',
-                        '.delete-button',
-                        '.discard-button',
-                    ].forEach(btnClass =>
-                        expect(bar.find(btnClass)).toHaveLength(1)
-                    );
-                });
-
-                it('shows the confirm delete dialog', () => {
+                it('shows the confirm delete dialog when delete button clicked', () => {
                     const wrapper = editBar();
                     expect(
                         wrapper.find(ConfirmDeleteDialog).prop('open')
