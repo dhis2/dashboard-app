@@ -45,7 +45,7 @@
         "lint": "eslint -c .eslintrc.json src",
         "coverage": "npm test -- --coverage",
         "prebuild": "rm -rf build && mkdir build && npm run manifest && npm run localize",
-        "build": "PUBLIC_URL=. react-scripts build",
+        "build": "GENERATE_SOURCEMAP=false PUBLIC_URL=. react-scripts build",
         "build-netlify": "REACT_APP_DHIS2_BASE_URL=\"https://play.dhis2.org/dev\" npm run build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
