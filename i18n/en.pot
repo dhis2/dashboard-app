@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-04-03T11:26:47.287Z\n"
-"PO-Revision-Date: 2019-04-03T11:26:47.287Z\n"
+"POT-Creation-Date: 2019-04-08T11:33:46.174Z\n"
+"PO-Revision-Date: 2019-04-08T11:33:46.174Z\n"
 
 msgid "Dashboard"
 msgstr ""
@@ -82,6 +82,9 @@ msgstr ""
 msgid "Unable to load the plugin for this item"
 msgstr ""
 
+msgid "No data to display"
+msgstr ""
+
 msgid "Cancel"
 msgstr ""
 
@@ -89,9 +92,6 @@ msgid "Confirm"
 msgstr ""
 
 msgid "Add filter"
-msgstr ""
-
-msgid "No data to display"
 msgstr ""
 
 msgid "There are no items on this dashboard"
@@ -125,6 +125,12 @@ msgid "Add description here"
 msgstr ""
 
 msgid "No description"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Share"
 msgstr ""
 
 msgid "Pivot tables"
