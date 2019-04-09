@@ -11,6 +11,8 @@ jest.mock('../Dashboard/Dashboard', () => () => (
     <div id="mockDashboard">mockDashboard</div>
 ));
 
+jest.mock('../../actions/dimensions', () => ({ tSetDimensions: () => null }));
+
 describe('App', () => {
     let props;
     let shallowApp;
