@@ -125,7 +125,6 @@ DefaultPlugin.propTypes = {
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,
-    activeType: PropTypes.string.isRequired,
 };
 
 DefaultPlugin.defaultProps = {
