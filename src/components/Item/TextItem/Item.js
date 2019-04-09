@@ -2,6 +2,10 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import TextField from '@dhis2/d2-ui-core/text-field/TextField';
+import {
+    Parser as RichTextParser,
+    Editor as RichTextEditor,
+} from '@dhis2/d2-ui-rich-text';
 
 import { acUpdateDashboardItem } from '../../../actions/editDashboard';
 import { sGetEditDashboardItems } from '../../../reducers/editDashboard';
@@ -44,7 +48,7 @@ const TextItem = props => {
         const textDivStyle = Object.assign({}, style.textField, style.textDiv);
         return (
             <div className="dashboard-item-content" style={style.container}>
-                <div style={textDivStyle}>{text}</div>
+                <RichTextParser style={textDivStyle}>{text}</RichTextParser>
             </div>
         );
     };
@@ -55,16 +59,18 @@ const TextItem = props => {
                 <ItemHeader title={i18n.t('Text item')} />
                 <Line />
                 <div className="dashboard-item-content">
-                    <TextField
-                        value={text}
-                        multiline
-                        rows={1}
-                        rowsMax={8}
-                        fullWidth
-                        style={style.textField}
-                        placeholder={i18n.t('Add text here')}
-                        onChange={onChangeText}
-                    />
+                    <RichTextEditor onEdit={onChangeText}>
+                        <TextField
+                            value={text}
+                            multiline
+                            rows={1}
+                            rowsMax={8}
+                            fullWidth
+                            style={style.textField}
+                            placeholder={i18n.t('Add text here')}
+                            onChange={onChangeText}
+                        />
+                    </RichTextEditor>
                 </div>
             </Fragment>
         );
