@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import Divider from 'material-ui/Divider';
 import { List, ListItem } from 'material-ui/List';
-import Button from 'd2-ui/lib/button/Button';
+import Button from '@dhis2/d2-ui-core/button/Button';
 import LaunchIcon from '@material-ui/icons/Launch';
 import { tAddListItemContent } from './actions';
 import { acAddDashboardItem } from '../../actions/editDashboard';

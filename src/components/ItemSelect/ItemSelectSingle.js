@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import Divider from 'material-ui/Divider';
 import { List, ListItem } from 'material-ui/List';
-import Button from 'd2-ui/lib/button/Button';
+import Button from '@dhis2/d2-ui-core/button/Button';
 import { getItemIcon } from '../../modules/itemTypes';
 
 import { acAddDashboardItem } from '../../actions/editDashboard';

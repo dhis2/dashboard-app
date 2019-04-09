@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { EditTitleBar } from '../EditTitleBar';
 
-jest.mock('d2-ui/lib/text-field/TextField', () => 'textfield');
+jest.mock('@dhis2/d2-ui-core/text-field/TextField', () => 'textfield');
 jest.mock('../../ItemSelect/ItemSelect', () => 'itemselect');
 
 describe('EditTitleBar', () => {
