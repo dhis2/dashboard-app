@@ -1,5 +1,5 @@
-import keyBy from 'lodash-es/keyBy';
-import sortBy from 'lodash-es/sortBy';
+import keyBy from 'lodash/keyBy';
+import sortBy from 'lodash/sortBy';
 import { SET_DIMENSIONS } from '../reducers/dimensions';
 import { apiFetchDimensions } from '@dhis2/d2-ui-analytics';
 import { sGetSettingsDisplayNameProperty } from '../reducers/settings';

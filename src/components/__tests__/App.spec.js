@@ -30,6 +30,7 @@ describe('App', () => {
             setCurrentUser: jest.fn(),
             fetchDashboards: jest.fn(),
             setControlBarRows: jest.fn(),
+            setDimensions: jest.fn(),
         };
         shallowApp = undefined;
         context = {
