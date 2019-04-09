@@ -984,18 +984,6 @@
     lodash "^4.17.10"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-org-unit-tree@^5.2.9":
-  version "5.2.10"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-5.2.10.tgz#0a7cd45c55715a617d92fd3a97e0ca499d9d5473"
-  integrity sha512-Ba0a6gMkwHClZwERe9QK+MwUXW6TDSdfUFsGRF9p6FYhIpBB5AEd1iRPaidEDJR7+63nPFIs4s50BDS647W9jw==
-  dependencies:
-    "@dhis2/d2-ui-core" "5.2.10"
-    "@material-ui/core" "^3.3.1"
-    babel-runtime "^6.26.0"
-    prop-types "^15.5.10"
-    recompose "^0.26.0"
-    rxjs "^5.5.7"
-
 "@dhis2/d2-ui-rich-text@5.2.10", "@dhis2/d2-ui-rich-text@^5.2.9":
   version "5.2.10"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-5.2.10.tgz#ce636dcb0e1a571d1ad96494e305ce13b1fb8654"
