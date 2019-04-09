@@ -15,9 +15,7 @@ jest.mock('../plugin', () => {
         pluginIsAvailable: () => true,
         getName: () => 'rainbow',
         fetch: () => {},
-        getVisualizationConfig: () => ({
-            someProp: 'someValue',
-        }),
+        getVisualizationConfig: visualization => visualization,
     };
 });
 
@@ -71,7 +69,6 @@ describe('VisualizationItem/Item', () => {
         props.item = {
             type: CHART,
             id: 'testItem1',
-            type: CHART,
             chart: {
                 id: 'chart1',
                 name: 'Test chart',

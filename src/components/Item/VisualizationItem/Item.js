@@ -153,18 +153,16 @@ export class Item extends Component {
                 if (props.item.type === MAP) {
                     // apply filters only to thematic and event layers
                     // for maps AO
-                    const mapViews = this.props.visualization.mapViews.map(
-                        obj => {
-                            if (
-                                obj.layer.includes('thematic') ||
-                                obj.layer.includes('event')
-                            ) {
-                                return applyFilters(obj, props.itemFilters);
-                            }
-
-                            return obj;
+                    const mapViews = props.visualization.mapViews.map(obj => {
+                        if (
+                            obj.layer.includes('thematic') ||
+                            obj.layer.includes('event')
+                        ) {
+                            return applyFilters(obj, props.itemFilters);
                         }
-                    );
+
+                        return obj;
+                    });
 
                     props.visualization = {
                         ...props.visualization,
