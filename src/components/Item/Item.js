@@ -22,7 +22,7 @@ import {
     TEXT,
     SPACER,
 } from '../../modules/itemTypes';
-import { DEFAULT_STATE_ITEM_FILTER } from '../../reducers/itemFilter';
+import { DEFAULT_STATE_ITEM_FILTERS } from '../../reducers/itemFilters';
 
 const getGridItem = type => {
     switch (type) {
@@ -57,10 +57,10 @@ export const Item = props => {
             <GridItem
                 item={props.item}
                 editMode={props.editMode}
-                itemFilter={
+                itemFilters={
                     props.editMode
-                        ? DEFAULT_STATE_ITEM_FILTER
-                        : props.itemFilter
+                        ? DEFAULT_STATE_ITEM_FILTERS
+                        : props.itemFilters
                 }
                 onToggleItemExpanded={props.onToggleItemExpanded}
             />

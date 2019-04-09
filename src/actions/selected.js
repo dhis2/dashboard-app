@@ -111,12 +111,7 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
                 case MAP:
                 case EVENT_REPORT:
                 case EVENT_CHART:
-                    dispatch(
-                        acReceivedVisualization(
-                            extractFavorite(item),
-                            item.type
-                        )
-                    );
+                    dispatch(acReceivedVisualization(extractFavorite(item)));
                     break;
                 case MESSAGES:
                     dispatch(tGetMessages(id));

@@ -11,8 +11,8 @@ import StarBorder from '@material-ui/icons/StarBorder';
 import { orObject } from '../../modules/util';
 import { tStarDashboard } from '../../actions/dashboards';
 import { acSetSelectedShowDescription } from '../../actions/selected';
-import FilterDialog from '../ItemFilter/ItemFilter';
-import FlatButton from '../../widgets/FlatButton';
+import FilterSelector from '../ItemFilter/FilterSelector';
+import { Button } from '@dhis2/ui-core';
 import Info from './Info';
 import {
     sGetSelectedId,
@@ -22,7 +22,6 @@ import {
     sGetDashboardById,
     sGetDashboardItems,
 } from '../../reducers/dashboards';
-import { sGetFilterKeys } from '../../reducers/itemFilter';
 import { colors } from '../../modules/colors';
 
 const NO_DESCRIPTION = i18n.t('No description');
@@ -44,6 +43,7 @@ const styles = {
         display: 'inline-block',
         verticalAlign: 'top',
         textDecoration: 'none',
+        marginRight: '4px',
     },
     titleBar: {
         display: 'flex',
@@ -63,40 +63,11 @@ class ViewTitleBar extends Component {
 
         this.state = {
             sharingDialogIsOpen: false,
-            filterDialogIsOpen: false,
         };
     }
 
     toggleSharingDialog = () =>
         this.setState({ sharingDialogIsOpen: !this.state.sharingDialogIsOpen });
-
-    toggleFilterDialog = () =>
-        this.setState({ filterDialogIsOpen: !this.state.filterDialogIsOpen });
-
-    renderItemFilterLabel = () => {
-        const len = this.props.itemFilterKeys.length;
-
-        return len ? (
-            <span
-                onClick={this.toggleFilterDialog}
-                style={{
-                    marginLeft: '20px',
-                    cursor: 'pointer',
-                    color: colors.white,
-                    fontWeight: 500,
-                    backgroundColor: '#444',
-                    padding: '6px 8px',
-                    borderRadius: '3px',
-                    position: 'relative',
-                    top: '1px',
-                }}
-            >
-                {len} {len > 1 ? 'filters' : 'filter'} applied
-            </span>
-        ) : (
-            ''
-        );
-    };
 
     render() {
         const {
@@ -134,34 +105,26 @@ class ViewTitleBar extends Component {
                         <div className={classes.titleBarIcon}>
                             <Info onClick={onInfoClick} />
                         </div>
-                        <span style={{ marginLeft: '10px' }}>
+                        <div style={{ marginLeft: '10px' }}>
                             {access.update ? (
                                 <Link
                                     className={classes.editLink}
                                     to={`/${id}/edit`}
                                 >
-                                    <FlatButton className={classes.textButton}>
-                                        Edit
-                                    </FlatButton>
+                                    <Button>{i18n.t('Edit')}</Button>
                                 </Link>
                             ) : null}
-
                             {access.manage ? (
-                                <FlatButton
-                                    className={classes.textButton}
-                                    onClick={this.toggleSharingDialog}
-                                >
-                                    Share
-                                </FlatButton>
+                                <span style={{ marginRight: '4px' }}>
+                                    <Button onClick={this.toggleSharingDialog}>
+                                        {i18n.t('Share')}
+                                    </Button>
+                                </span>
                             ) : null}
-                            <FlatButton
-                                className={classes.textButton}
-                                onClick={this.toggleFilterDialog}
-                            >
-                                Filter
-                            </FlatButton>
-                            {this.renderItemFilterLabel()}
-                        </span>
+                            <span style={{ marginRight: '4px' }}>
+                                <FilterSelector />
+                            </span>
+                        </div>
                     </div>
                 </div>
                 {showDescription ? (
@@ -185,12 +148,6 @@ class ViewTitleBar extends Component {
                         onRequestClose={this.toggleSharingDialog}
                     />
                 ) : null}
-                {id ? (
-                    <FilterDialog
-                        open={this.state.filterDialogIsOpen}
-                        onRequestClose={this.toggleFilterDialog}
-                    />
-                ) : null}
             </Fragment>
         );
     }
@@ -208,7 +165,6 @@ const mapStateToProps = state => {
         showDescription: sGetSelectedShowDescription(state),
         starred: dashboard.starred,
         access: orObject(dashboard.access),
-        itemFilterKeys: sGetFilterKeys(state),
     };
 };
 

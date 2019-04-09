@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import LaunchIcon from '@material-ui/icons/Launch';
 import ChartPlugin from 'data-visualizer-plugin';
+
 import i18n from '@dhis2/d2-i18n';
 import uniqueId from 'lodash/uniqueId';
 
@@ -13,14 +14,15 @@ import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
 import * as pluginManager from './plugin';
 import { sGetVisualization } from '../../../reducers/visualizations';
-import { sGetItemFilterRoot } from '../../../reducers/itemFilter';
+import { sGetItemFiltersRoot } from '../../../reducers/itemFilters';
 import {
     acReceivedVisualization,
     acReceivedActiveVisualization,
 } from '../../../actions/selected';
-import { CHART, itemTypeMap } from '../../../modules/itemTypes';
+import { CHART, MAP, itemTypeMap } from '../../../modules/itemTypes';
 import { colors } from '../../../modules/colors';
 import memoizeOne from '../../../modules/memoizeOne';
+import { getVisualizationConfig } from './plugin';
 
 const styles = {
     icon: {
@@ -44,6 +46,47 @@ const styles = {
     },
 };
 
+const applyFilters = (visualization, filters) => {
+    if (!Object.keys(filters).length) {
+        return visualization;
+    }
+
+    // deep clone objects in filters to avoid changing the visualization in the Redux store
+    const visRows = visualization.rows.map(obj => ({ ...obj }));
+    const visColumns = visualization.columns.map(obj => ({ ...obj }));
+    const visFilters = visualization.filters.map(obj => ({ ...obj }));
+
+    Object.keys(filters).forEach(dimensionId => {
+        if (filters[dimensionId]) {
+            let dimensionFound = false;
+
+            [visRows, visColumns, visFilters].forEach(dimensionObjects =>
+                dimensionObjects
+                    .filter(obj => obj.dimension === dimensionId)
+                    .forEach(obj => {
+                        dimensionFound = true;
+                        obj.items = filters[dimensionId];
+                    })
+            );
+
+            // add dimension to filters if not already present elsewhere
+            if (!dimensionFound) {
+                visFilters.push({
+                    dimension: dimensionId,
+                    items: filters[dimensionId],
+                });
+            }
+        }
+    });
+
+    return {
+        ...visualization,
+        rows: visRows,
+        columns: visColumns,
+        filters: visFilters,
+    };
+};
+
 export class Item extends Component {
     state = {
         showFooter: false,
@@ -58,7 +101,8 @@ export class Item extends Component {
 
     async componentDidMount() {
         this.props.onVisualizationLoaded(
-            await pluginManager.fetch(this.props.item, this.props.itemFilter)
+            // TODO do not call fetch on the pluginManager, do it here as the manager will eventually be removed...
+            await pluginManager.fetch(this.props.item)
         );
 
         this.setState({
@@ -69,6 +113,83 @@ export class Item extends Component {
     getUniqueKey = memoizeOne(() => uniqueId());
 
     pluginCredentials = null;
+
+    getPluginComponent = () => {
+        const visualization = getVisualizationConfig(
+            this.props.visualization,
+            this.props.item.type,
+            this.getActiveType()
+        );
+
+        if (!visualization) {
+            return (
+                <div className={this.props.classes.textDiv}>
+                    {i18n.t('No data to display')}
+                </div>
+            );
+        }
+
+        const props = {
+            ...this.props,
+            visualization,
+            style: this.getContentStyle(),
+        };
+
+        switch (this.getActiveType()) {
+            case CHART: {
+                return (
+                    <ChartPlugin
+                        d2={this.d2}
+                        config={applyFilters(
+                            props.visualization,
+                            props.itemFilters
+                        )}
+                        forDashboard={true}
+                        style={props.style}
+                    />
+                );
+            }
+            case MAP: {
+                if (props.item.type === MAP) {
+                    // apply filters only to thematic and event layers
+                    // for maps AO
+                    const mapViews = props.visualization.mapViews.map(obj => {
+                        if (
+                            obj.layer.includes('thematic') ||
+                            obj.layer.includes('event')
+                        ) {
+                            return applyFilters(obj, props.itemFilters);
+                        }
+
+                        return obj;
+                    });
+
+                    props.visualization = {
+                        ...props.visualization,
+                        mapViews,
+                    };
+                } else {
+                    // this is the case of a non map AO passed to the maps plugin
+                    // due to a visualization type switch in dashboard item
+                    // maps plugin takes care of converting the AO to a suitable format
+                    props.visualization = applyFilters(
+                        props.visualization,
+                        props.itemFilters
+                    );
+                }
+
+                return <DefaultPlugin {...props} />;
+            }
+            default: {
+                props.visualization = applyFilters(
+                    props.visualization,
+                    props.itemFilters
+                );
+
+                return <DefaultPlugin {...props} />;
+            }
+        }
+    };
 
     onToggleFooter = () => {
         this.setState(
@@ -125,13 +246,6 @@ export class Item extends Component {
         );
     };
 
-    getConfig = () =>
-        pluginManager.getVisualizationConfig(
-            this.props.visualization,
-            this.props.item.type,
-            this.getActiveType()
-        );
-
     getActionButtons = () =>
         pluginManager.pluginIsAvailable(
             this.props.item,
@@ -156,40 +270,8 @@ export class Item extends Component {
             : null;
     };
 
-    getPluginComponent = () => {
-        const config = this.getConfig();
-        const style = this.getContentStyle();
-        const activeType = this.getActiveType();
-        const { item, itemFilter, classes } = this.props;
-
-        if (config) {
-            return activeType === CHART ? (
-                <ChartPlugin
-                    d2={this.d2}
-                    config={config}
-                    filters={itemFilter}
-                    style={style}
-                />
-            ) : (
-                <DefaultPlugin
-                    activeType={activeType}
-                    item={item}
-                    style={style}
-                    visualization={config}
-                    itemFilter={itemFilter}
-                />
-            );
-        }
-
-        return (
-            <div className={classes.textDiv}>
-                {i18n.t('No data to display')}
-            </div>
-        );
-    };
-
     render() {
-        const { item, editMode, itemFilter } = this.props;
+        const { item, editMode, itemFilters } = this.props;
         const { showFooter } = this.state;
 
         return (
@@ -200,7 +282,7 @@ export class Item extends Component {
                     editMode={editMode}
                 />
                 <div
-                    key={this.getUniqueKey(itemFilter)}
+                    key={this.getUniqueKey(itemFilters)}
                     className="dashboard-item-content"
                 >
                     {this.state.configLoaded && this.getPluginComponent()}
@@ -219,7 +301,7 @@ Item.propTypes = {
     item: PropTypes.object,
     editMode: PropTypes.bool,
     onToggleItemExpanded: PropTypes.func,
-    itemFilter: PropTypes.object,
+    itemFilters: PropTypes.object,
     visualization: PropTypes.object,
 };
 
@@ -227,12 +309,12 @@ Item.defaultProps = {
     item: {},
     editMode: false,
     onToggleItemExpanded: Function.prototype,
-    itemFilter: {},
+    itemFilters: {},
     visualization: {},
 };
 
 const mapStateToProps = (state, ownProps) => ({
-    itemFilter: sGetItemFilterRoot(state),
+    itemFilters: sGetItemFiltersRoot(state),
     visualization: sGetVisualization(
         state,
         pluginManager.extractFavorite(ownProps.item).id

@@ -15,9 +15,7 @@ jest.mock('../plugin', () => {
         pluginIsAvailable: () => true,
         getName: () => 'rainbow',
         fetch: () => {},
-        getVisualizationConfig: () => ({
-            someProp: 'someValue',
-        }),
+        getVisualizationConfig: visualization => visualization,
     };
 });
 
@@ -44,10 +42,16 @@ describe('VisualizationItem/Item', () => {
                 },
             },
             editMode: false,
-            itemFilter: {
-                brilliance: 100,
+            itemFilters: {
+                brilliance: [{ id: 100, name: '100' }],
             },
-            visualization: {},
+            visualization: {
+                name: 'Test pivot',
+                description: 'Test pivot mock',
+                rows: [],
+                columns: [],
+                filters: [],
+            },
             onToggleItemExpanded: jest.fn(),
             onVisualizationLoaded: jest.fn(),
         };
@@ -58,16 +62,28 @@ describe('VisualizationItem/Item', () => {
         props.visualization = {
             name: 'Test chart',
             description: 'Test chart mock',
-            activeType: CHART,
+            rows: [],
+            columns: [],
+            filters: [],
         };
         props.item = {
-            id: 'testItem1',
             type: CHART,
+            id: 'testItem1',
             chart: {
                 id: 'chart1',
                 name: 'Test chart',
-                type: CHART,
             },
+        };
+
+        const expectedConfig = {
+            ...props.visualization,
+            id: undefined,
+            filters: [
+                {
+                    dimension: 'brilliance',
+                    items: props.itemFilters.brilliance,
+                },
+            ],
         };
 
         const component = canvas();
@@ -77,22 +93,19 @@ describe('VisualizationItem/Item', () => {
         const chartPlugin = component.find(ChartPlugin);
 
         expect(chartPlugin.exists()).toBeTruthy();
-        expect(chartPlugin.prop('filters')).toEqual(props.itemFilter);
+        expect(chartPlugin.prop('config')).toEqual(expectedConfig);
     });
 
     it('renders a DefaultPlugin when a item different from chart is passed', () => {
-        props.visualization = {
-            name: 'Test pivot',
-            description: 'Test pivot mock',
-        };
-
-        props.item = {
-            type: REPORT_TABLE,
-            id: 'testItem2',
-            reportTable: {
-                id: 'pivot1',
-                name: 'Test pivot',
-            },
+        const expectedConfig = {
+            ...props.visualization,
+            id: undefined,
+            filters: [
+                {
+                    dimension: 'brilliance',
+                    items: props.itemFilters.brilliance,
+                },
+            ],
         };
 
         expect(canvas()).toMatchSnapshot();
@@ -104,6 +117,6 @@ describe('VisualizationItem/Item', () => {
         const defaultPlugin = canvas().find(DefaultPlugin);
 
         expect(defaultPlugin.exists()).toBeTruthy();
-        expect(defaultPlugin.prop('itemFilter')).toEqual(props.itemFilter);
+        expect(defaultPlugin.prop('visualization')).toEqual(expectedConfig);
     });
 });

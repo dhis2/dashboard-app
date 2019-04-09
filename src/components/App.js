@@ -9,6 +9,7 @@ import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes';
 import { acReceivedUser } from '../actions/user';
 import { tFetchDashboards } from '../actions/dashboards';
 import { tSetControlBarRows } from '../actions/controlBar';
+import { tSetDimensions } from '../actions/dimensions';
 import Dashboard from './Dashboard/Dashboard';
 import SnackbarMessage from './SnackbarMessage/SnackbarMessage';
 
@@ -20,6 +21,7 @@ export class App extends Component {
         this.props.setCurrentUser(this.props.d2.currentUser);
         this.props.fetchDashboards();
         this.props.setControlBarRows();
+        this.props.setDimensions(this.props.d2);
     }
 
     getChildContext() {
@@ -81,6 +83,7 @@ const mapDispatchToProps = dispatch => {
         setCurrentUser: currentUser => dispatch(acReceivedUser(currentUser)),
         fetchDashboards: () => dispatch(tFetchDashboards()),
         setControlBarRows: () => dispatch(tSetControlBarRows()),
+        setDimensions: d2 => dispatch(tSetDimensions(d2)),
     };
 };
 

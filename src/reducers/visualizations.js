@@ -15,7 +15,13 @@ export default (state = DEFAULT_STATE_VISUALIZATIONS, action) => {
         case RECEIVED_VISUALIZATION: {
             return {
                 ...state,
-                [action.value.id]: action.value,
+                [action.value.id]: objectClean(
+                    {
+                        ...orObject(state[action.value.id]),
+                        ...action.value,
+                    },
+                    isEmpty
+                ),
             };
         }
         case RECEIVED_ACTIVE_VISUALIZATION: {

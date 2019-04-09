@@ -11,6 +11,8 @@ jest.mock('../Dashboard/Dashboard', () => () => (
     <div id="mockDashboard">mockDashboard</div>
 ));
 
+jest.mock('../../actions/dimensions', () => ({ tSetDimensions: () => null }));
+
 describe('App', () => {
     let props;
     let shallowApp;
@@ -30,6 +32,7 @@ describe('App', () => {
             setCurrentUser: jest.fn(),
             fetchDashboards: jest.fn(),
             setControlBarRows: jest.fn(),
+            setDimensions: jest.fn(),
         };
         shallowApp = undefined;
         context = {

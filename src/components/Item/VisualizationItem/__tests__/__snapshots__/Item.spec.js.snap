@@ -16,17 +16,25 @@ ShallowWrapper {
         "type": "REPORT_TABLE",
       }
     }
-    itemFilter={
+    itemFilters={
       Object {
-        "brilliance": 100,
+        "brilliance": Array [
+          Object {
+            "id": 100,
+            "name": "100",
+          },
+        ],
       }
     }
     onToggleItemExpanded={[MockFunction]}
     onVisualizationLoaded={[MockFunction]}
     visualization={
       Object {
+        "columns": Array [],
         "description": "Test pivot mock",
+        "filters": Array [],
         "name": "Test pivot",
+        "rows": Array [],
       }
     }
   />,

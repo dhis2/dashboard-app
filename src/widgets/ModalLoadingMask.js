@@ -1,5 +1,5 @@
 import React from 'react';
-import LoadingMask from 'd2-ui/lib/loading-mask/LoadingMask.component';
+import LoadingMask from '@dhis2/d2-ui-core/loading-mask/LoadingMask.component';
 
 const styles = {
     modal: {
