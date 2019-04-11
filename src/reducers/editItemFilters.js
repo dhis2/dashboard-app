@@ -1,3 +1,4 @@
+export const CLEAR_EDIT_ITEM_FILTERS = 'CLEAR_EDIT_ITEM_FILTERS';
 export const REMOVE_EDIT_ITEM_FILTER = 'REMOVE_EDIT_ITEM_FILTER';
 export const SET_EDIT_ITEM_FILTERS = 'SET_EDIT_ITEM_FILTERS';
 
@@ -14,6 +15,9 @@ export default (state = DEFAULT_STATE_EDIT_ITEM_FILTERS, action) => {
         }
         case SET_EDIT_ITEM_FILTERS: {
             return action.filters;
+        }
+        case CLEAR_EDIT_ITEM_FILTERS: {
+            return DEFAULT_STATE_EDIT_ITEM_FILTERS;
         }
         default:
             return state;
