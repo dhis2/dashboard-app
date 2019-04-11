@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ChartPlugin from 'data-visualizer-plugin';
+import ChartPlugin from '@dhis2/data-visualizer-plugin';
 import { CHART, REPORT_TABLE } from '../../../../modules/itemTypes';
 import { Item } from '../Item';
 import DefaultPlugin from '../DefaultPlugin';
 
-jest.mock('data-visualizer-plugin', () => () => <div />);
+jest.mock('@dhis2/data-visualizer-plugin', () => () => <div />);
 jest.mock('../DefaultPlugin', () => () => <div />);
 jest.mock('../ItemFooter', () => () => <div />);
 jest.mock('../plugin', () => {
