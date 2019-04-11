@@ -14,7 +14,7 @@ import { sGetActiveModalDimension } from '../../reducers/activeModalDimension';
 import { sGetDimensions } from '../../reducers/dimensions';
 import { sGetFiltersKeys } from '../../reducers/itemFilters';
 import { sGetEditItemFiltersRoot } from '../../reducers/editItemFilters';
-import { acAddItemFilter, acSetItemFilters } from '../../actions/itemFilters';
+import { acAddItemFilter, acRemoveItemFilter } from '../../actions/itemFilters';
 import {
     acRemoveEditItemFilter,
     acSetEditItemFilters,
@@ -55,22 +55,15 @@ class FilterSelector extends Component {
     };
 
     onSelectItems = ({ dimensionType: dimensionId, value: items }) => {
-        const oldList = this.props.selectedItems[dimensionId] || [];
-        const newList = [
-            ...oldList,
-            ...items.filter(item => !oldList.find(i => i.id === item.id)),
-        ];
-
         this.props.setEditItemFilters({
             ...this.props.selectedItems,
-            [dimensionId]: newList,
+            [dimensionId]: items,
         });
     };
 
     onDeselectItems = ({ dimensionType: dimensionId, value: idsToRemove }) => {
-        const newList = this.props.selectedItems[dimensionId].filter(
-            item => !idsToRemove.includes(item.id)
-        );
+        const oldList = this.props.selectedItems[dimensionId] || [];
+        const newList = oldList.filter(item => !idsToRemove.includes(item.id));
 
         if (newList.length) {
             this.props.setEditItemFilters({
@@ -83,8 +76,10 @@ class FilterSelector extends Component {
     };
 
     onReorderItems = ({ dimensionType: dimensionId, value: ids }) => {
-        const items = this.props.selectedItems[dimensionId];
-        const reorderedList = ids.map(id => items.find(item => item.id === id));
+        const oldList = this.props.selectedItems[dimensionId] || [];
+        const reorderedList = ids.map(id =>
+            oldList.find(item => item.id === id)
+        );
 
         this.props.setEditItemFilters({
             ...this.props.selectedItems,
@@ -93,10 +88,16 @@ class FilterSelector extends Component {
     };
 
     saveFilter = id => {
-        this.props.addItemFilter({
-            id,
-            value: [...this.props.selectedItems[id]],
-        });
+        const filterItems = this.props.selectedItems[id];
+
+        if (filterItems && filterItems.length) {
+            this.props.addItemFilter({
+                id,
+                value: [...filterItems],
+            });
+        } else {
+            this.props.removeItemFilter(id);
+        }
 
         this.closeDialog();
     };
@@ -160,7 +161,7 @@ export default connect(
         clearActiveModalDimension: acClearActiveModalDimension,
         setActiveModalDimension: acSetActiveModalDimension,
         addItemFilter: acAddItemFilter,
-        setItemFilters: acSetItemFilters,
+        removeItemFilter: acRemoveItemFilter,
         removeEditItemFilter: acRemoveEditItemFilter,
         setEditItemFilters: acSetEditItemFilters,
     }
