@@ -38,6 +38,7 @@ import {
     sGetDashboardById,
     sGetDashboardItems,
 } from '../../reducers/dashboards';
+import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer';
 
 // Component
 
@@ -137,7 +138,10 @@ export class ItemGrid extends Component {
                         ].join(' ');
 
                         return (
-                            <div key={item.i} className={itemClassNames}>
+                            <ProgressiveLoadingContainer
+                                key={item.i}
+                                className={itemClassNames}
+                            >
                                 {edit ? (
                                     <DeleteItemButton
                                         onClick={this.onRemoveItemWrapper(
@@ -152,7 +156,7 @@ export class ItemGrid extends Component {
                                         this.onToggleItemExpanded
                                     }
                                 />
-                            </div>
+                            </ProgressiveLoadingContainer>
                         );
                     })}
                 </ReactGridLayout>
