@@ -7,7 +7,7 @@ import { colors } from '../../modules/colors';
 
 const styles = {
     badgeContainer: {
-        margin: '0 4px',
+        margin: '2px',
         padding: '0 16px',
         borderRadius: '4px',
         color: colors.white,
@@ -19,6 +19,7 @@ const styles = {
     badge: {
         fontSize: '13px',
         cursor: 'pointer',
+        whiteSpace: 'nowrap',
     },
     badgeRemove: {
         fontSize: '12px',

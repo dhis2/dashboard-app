@@ -19,6 +19,7 @@ const styles = {
         padding: '8px 0',
         display: 'flex',
         justifyContent: 'center',
+        flexWrap: 'wrap',
     },
 };
 
