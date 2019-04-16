@@ -66,6 +66,15 @@ export class ItemGrid extends Component {
         this.props.acRemoveDashboardItem(clickedId);
     };
 
+    shouldComponentUpdate(nextProps) {
+        return (
+            nextProps.dashboardItems.length !==
+                this.props.dashboardItems.length ||
+            nextProps.edit !== this.props.edit ||
+            nextProps.isLoading !== this.props.isLoading
+        );
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.edit) {
             this.setState({ expandedItems: {} });
@@ -166,10 +175,14 @@ export class ItemGrid extends Component {
 }
 
 ItemGrid.propTypes = {
+    edit: PropTypes.bool,
+    isLoading: PropTypes.bool,
     dashboardItems: PropTypes.array,
 };
 
 ItemGrid.defaultProps = {
+    edit: false,
+    isLoading: false,
     dashboardItems: [],
 };
 
