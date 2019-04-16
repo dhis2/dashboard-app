@@ -58,7 +58,6 @@ const TextItem = props => {
                         value={text}
                         multiline
                         rows={1}
-                        rowsMax={8}
                         fullWidth
                         style={style.textField}
                         placeholder={i18n.t('Add text here')}
@@ -84,6 +83,9 @@ const mapStateToProps = (state, ownProps) => {
     };
 };
 
-export default connect(mapStateToProps, {
-    acUpdateDashboardItem,
-})(TextItem);
+export default connect(
+    mapStateToProps,
+    {
+        acUpdateDashboardItem,
+    }
+)(TextItem);
