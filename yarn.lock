@@ -950,10 +950,10 @@
   dependencies:
     i18next "^10.3"
 
-"@dhis2/d2-ui-analytics@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-analytics/-/d2-ui-analytics-0.0.9.tgz#4c2baa7dc941f9219d35da08287b676a57eb2cb8"
-  integrity sha512-wwfu9SPhJrbxgbmICKVX2WE6EphTovA8up8EBBSW5+2BgYV1262VVssXj5XboCsXxxbA35x6zvGa1KxT0+yHog==
+"@dhis2/d2-ui-analytics@^0.0.17":
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-analytics/-/d2-ui-analytics-0.0.17.tgz#0ab6043d3403cbf965aab20f8569b57559585bdb"
+  integrity sha512-S0Y9yH3wH0HhJoLrNZzTlNIUBYSi81crqjZHKKYqsxtIpeTgkbWpV2wzE9G10odK8FcK4PmjZHFq/fg4wCT7bA==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "5.3.1"
