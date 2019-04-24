@@ -22,7 +22,15 @@ export const tSetDimensions = d2 => async (dispatch, getState) => {
     try {
         const displayNameProp = sGetSettingsDisplayNameProperty(getState());
         const dimensions = await apiFetchDimensions(d2, displayNameProp);
-        return onSuccess(dimensions);
+
+        // filter out CATEGORY that are not of type ATTRIBUTE
+        const filteredDimensions = dimensions.filter(
+            dim =>
+                dim.dimensionType !== 'CATEGORY' ||
+                (dim.dimensionType === 'CATEGORY' &&
+                    dim.dataDimensionType === 'ATTRIBUTE')
+        );
+        return onSuccess(filteredDimensions);
     } catch (err) {
         return onError(err);
     }
