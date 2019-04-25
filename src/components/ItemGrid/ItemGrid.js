@@ -69,7 +69,10 @@ export class ItemGrid extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         return (
-            !isEqual(this.props.dashboardItems, nextProps.dashboardItems) ||
+            !isEqual(
+                this.props.dashboardItems.length,
+                nextProps.dashboardItems.length
+            ) ||
             !isEqual(this.props.edit, nextProps.edit) ||
             !isEqual(this.props.isLoading, nextProps.isLoading) ||
             !isEqual(this.state.expandedItems, nextState.expandedItems)
