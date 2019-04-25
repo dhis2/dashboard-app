@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import ReactGridLayout from 'react-grid-layout';
+import isEqual from 'lodash/isEqual';
 
 import {
     acUpdateDashboardLayout,
@@ -66,12 +67,12 @@ export class ItemGrid extends Component {
         this.props.acRemoveDashboardItem(clickedId);
     };
 
-    shouldComponentUpdate(nextProps) {
+    shouldComponentUpdate(nextProps, nextState) {
         return (
-            nextProps.dashboardItems.length !==
-                this.props.dashboardItems.length ||
-            nextProps.edit !== this.props.edit ||
-            nextProps.isLoading !== this.props.isLoading
+            !isEqual(this.props.dashboardItems, nextProps.dashboardItems) ||
+            !isEqual(this.props.edit, nextProps.edit) ||
+            !isEqual(this.props.isLoading, nextProps.isLoading) ||
+            !isEqual(this.state.expandedItems, nextState.expandedItems)
         );
     }
 
