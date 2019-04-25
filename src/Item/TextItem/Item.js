@@ -83,9 +83,6 @@ const mapStateToProps = (state, ownProps) => {
     };
 };
 
-export default connect(
-    mapStateToProps,
-    {
-        acUpdateDashboardItem,
-    }
-)(TextItem);
+export default connect(mapStateToProps, {
+    acUpdateDashboardItem,
+})(TextItem);
