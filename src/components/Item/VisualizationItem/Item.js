@@ -263,11 +263,12 @@ export class Item extends Component {
     getContentStyle = () => {
         const { item, editMode } = this.props;
         const PADDING_BOTTOM = 4;
+
         return !editMode
             ? {
                   height: item.originalHeight - HEADER_HEIGHT - PADDING_BOTTOM,
               }
-            : null;
+            : { height: '100%' };
     };
 
     render() {
