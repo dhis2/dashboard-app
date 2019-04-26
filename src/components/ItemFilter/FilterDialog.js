@@ -21,50 +21,40 @@ class FilterDialog extends Component {
     onConfirm = id => () => this.props.onConfirm(id);
 
     dialogContent() {
-        const {
-            displayNameProperty,
-            dimension,
-            selectedItems,
-            onSelect,
-            onDeselect,
-            onReorder,
-        } = this.props;
-        const { d2 } = this.context;
+        const { displayNameProperty, dimension, selectedItems } = this.props;
         const dialogId = dimension.id;
+
+        const commonProps = {
+            d2: this.context.d2,
+            onSelect: this.props.onSelect,
+            onDeselect: this.props.onDeselect,
+            onReorder: this.props.onReorder,
+        };
 
         switch (dialogId) {
             case peId: {
                 return (
                     <PeriodDimension
-                        d2={d2}
                         selectedPeriods={selectedItems}
-                        onSelect={onSelect}
-                        onDeselect={onDeselect}
-                        onReorder={onReorder}
+                        {...commonProps}
                     />
                 );
             }
             case ouId:
                 return (
                     <OrgUnitDimension
-                        d2={d2}
                         displayNameProperty={displayNameProperty}
                         ouItems={selectedItems}
-                        onSelect={onSelect}
-                        onDeselect={onDeselect}
-                        onReorder={onReorder}
+                        {...commonProps}
                     />
                 );
             default:
                 return (
                     <DynamicDimension
-                        d2={d2}
                         selectedItems={selectedItems}
-                        onSelect={onSelect}
-                        onDeselect={onDeselect}
-                        onReorder={onReorder}
                         dialogId={dialogId}
                         dialogTitle={dimension.name}
+                        {...commonProps}
                     />
                 );
         }
