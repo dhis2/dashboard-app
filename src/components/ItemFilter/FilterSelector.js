@@ -54,16 +54,18 @@ class FilterSelector extends Component {
         });
     };
 
-    onSelectItems = ({ dimensionType: dimensionId, value: items }) => {
+    onSelectItems = ({ dimensionId, items }) => {
         this.props.setEditItemFilters({
             ...this.props.selectedItems,
             [dimensionId]: items,
         });
     };
 
-    onDeselectItems = ({ dimensionType: dimensionId, value: idsToRemove }) => {
+    onDeselectItems = ({ dimensionId, itemIdsToRemove }) => {
         const oldList = this.props.selectedItems[dimensionId] || [];
-        const newList = oldList.filter(item => !idsToRemove.includes(item.id));
+        const newList = oldList.filter(
+            item => !itemIdsToRemove.includes(item.id)
+        );
 
         if (newList.length) {
             this.props.setEditItemFilters({
@@ -75,9 +77,9 @@ class FilterSelector extends Component {
         }
     };
 
-    onReorderItems = ({ dimensionType: dimensionId, value: ids }) => {
+    onReorderItems = ({ dimensionId, itemIds }) => {
         const oldList = this.props.selectedItems[dimensionId] || [];
-        const reorderedList = ids.map(id =>
+        const reorderedList = itemIds.map(id =>
             oldList.find(item => item.id === id)
         );
 
