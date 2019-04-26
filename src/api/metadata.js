@@ -13,6 +13,7 @@ export const getIdNameFields = ({ rename } = {}) => [
 export const getItemFields = () => [
     'dimensionItem~rename(id)',
     'displayName~rename(name)',
+    'dimensionItemType',
 ];
 
 // Dimension
@@ -20,6 +21,7 @@ export const getDimensionFields = ({ withItems }) =>
     arrayClean([
         'dimension',
         'legendSet[id]',
+        'filter',
         withItems ? `items[${getItemFields().join(',')}]` : ``,
     ]);
 
