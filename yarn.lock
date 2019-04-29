@@ -1096,13 +1096,13 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^32.0.3":
-  version "32.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-32.0.3.tgz#70552cb7b4f3240d4eebb14f685788b49dd5d145"
-  integrity sha512-1aFTOz7KiCcEmyZNGJDjpdbIW2kUrQTXPTCGjHXFF8EorTXBPf4Avw+rEKajGuhlJ9f1+gCGr21BP6rQOgZOUA==
+"@dhis2/data-visualizer-plugin@^33.0.1":
+  version "33.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-33.0.1.tgz#3ac996f4deac0284f0a94057b8f656c3682f696f"
+  integrity sha512-e/eVjdT4R1EXSQ4C/X9HXcETKHszc0oyMRCkkcR1oO8nkmn28eV9qydsHW444vzsppsq9qRQlG1qjoyoom55IQ==
   dependencies:
     "@material-ui/core" "^3.1.2"
-    d2-charts-api "32.0.1"
+    d2-charts-api "32.0.5"
     lodash-es "^4.17.11"
     react "^16.6.0"
     react-dom "^16.6.0"
@@ -3601,10 +3601,10 @@ cyclist@~0.2.2:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
-d2-charts-api@32.0.1:
-  version "32.0.1"
-  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-32.0.1.tgz#f402a5352a08fe3281a437652afc2dc8fd7fd22e"
-  integrity sha512-s6VlDLCkcjNluOXwUp1csa/6ZaNDBtbu9RWmaa8kb5gPpc1BDovwx0lE34FPrEUIefF5JNpisl3fwlrLrH592Q==
+d2-charts-api@32.0.5:
+  version "32.0.5"
+  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-32.0.5.tgz#ff2f0dccdfc0f1ca0a60685ccb74ad87008002f4"
+  integrity sha512-2ZjnJoPptNZDc3K/UFJ/KAYDCKXShK0iENC6v6hshEc16TAwTDpV1Ke1kmjfV7aDXM/Reg5HT0vs6cckTno8Dg==
   dependencies:
     d2-utilizr "0.2.13"
     d3-color "1.0.1"
