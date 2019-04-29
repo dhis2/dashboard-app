@@ -168,6 +168,8 @@ class ItemSelect extends React.Component {
                     transformOrigin={{ horizontal: 'left', vertical: 'top' }}
                     style={{ height: '70vh' }}
                     PaperProps={{ style: { width: '700px' } }}
+                    disableAutoFocus={true}
+                    disableRestoreFocus={true}
                 >
                     {this.popoverChildren(this.state.items)}
                 </Popover>
