@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
-import Divider from 'material-ui/Divider';
+import Divider from '@material-ui/core/Divider';
 import { List, ListItem } from 'material-ui/List';
 import Button from '@dhis2/d2-ui-core/button/Button';
 import LaunchIcon from '@material-ui/icons/Launch';
