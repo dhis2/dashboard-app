@@ -97,6 +97,8 @@ export class Item extends Component {
         super(props);
 
         this.d2 = context.d2;
+
+        this.contentRef = React.createRef();
     }
 
     async componentDidMount() {
@@ -268,7 +270,7 @@ export class Item extends Component {
             ? {
                   height: item.originalHeight - HEADER_HEIGHT - PADDING_BOTTOM,
               }
-            : { height: '100%' };
+            : { height: this.contentRef.offsetHeight };
     };
 
     render() {
@@ -285,6 +287,7 @@ export class Item extends Component {
                 <div
                     key={this.getUniqueKey(itemFilters)}
                     className="dashboard-item-content"
+                    ref={ref => (this.contentRef = ref)}
                 >
                     {this.state.configLoaded && this.getPluginComponent()}
                 </div>
