@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import Divider from 'material-ui/Divider';
+import Divider from '@material-ui/core/Divider';
 import { List, ListItem } from 'material-ui/List';
 import Button from '@dhis2/d2-ui-core/button/Button';
 import { getItemIcon } from '../../modules/itemTypes';
