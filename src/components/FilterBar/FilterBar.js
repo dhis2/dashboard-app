@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createSelector } from 'reselect';
+import { withStyles } from '@material-ui/core/styles';
 
 import { sGetDimensions } from '../../reducers/dimensions';
 import { sGetItemFiltersRoot } from '../../reducers/itemFilters';
+import { sGetControlBarUserRows } from '../../reducers/controlBar';
+import { getTopOffset } from '../ControlBar/controlBarDimensions';
 import { acRemoveItemFilter } from '../../actions/itemFilters';
 import { acRemoveEditItemFilter } from '../../actions/editItemFilters';
 import { acSetActiveModalDimension } from '../../actions/activeModalDimension';
@@ -14,7 +17,6 @@ import FilterBadge from './FilterBadge';
 const styles = {
     bar: {
         position: 'sticky',
-        top: 130,
         zIndex: 7,
         padding: '8px 0',
         display: 'flex',
@@ -37,10 +39,11 @@ export class FilterBar extends Component {
     };
 
     render() {
-        const { filters } = this.props;
+        const { filters, userRows, classes } = this.props;
+        const top = getTopOffset(userRows) + 10;
 
         return filters.length ? (
-            <div style={styles.bar}>
+            <div className={classes.bar} style={{ top }}>
                 {filters.map(filter => (
                     <FilterBadge
                         key={filter.id}
@@ -87,6 +90,7 @@ const filtersSelector = createSelector(
 
 const mapStateToProps = state => ({
     filters: filtersSelector(state),
+    userRows: sGetControlBarUserRows(state),
 });
 
 export default connect(
@@ -96,4 +100,4 @@ export default connect(
         removeItemFilter: acRemoveItemFilter,
         removeEditItemFilter: acRemoveEditItemFilter,
     }
-)(FilterBar);
+)(withStyles(styles)(FilterBar));
