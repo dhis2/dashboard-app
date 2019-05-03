@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { List, ListItem as MUIListItem } from 'material-ui/List';
-import IconButton from 'material-ui/IconButton';
+import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 import Line from '../../../widgets/Line';
@@ -44,18 +44,19 @@ const ListItem = (props, context) => {
                     padding: '0 12px',
                     height: 20,
                 }}
-                iconStyle={{
-                    width: 20,
-                    height: 20,
-                    fill: colors.red,
-                }}
                 onClick={removeContent(
                     tRemoveListItemContent,
                     item,
                     contentItem
                 )}
             >
-                <DeleteIcon />
+                <DeleteIcon
+                    style={{
+                        width: 20,
+                        height: 20,
+                        fill: colors.red,
+                    }}
+                />
             </IconButton>
         );
 
