@@ -12,8 +12,15 @@ class Dashboard extends Component {
     setDashboard = () => {
         if (this.props.dashboardsLoaded) {
             const id = this.props.match.params.dashboardId || null;
+
             this.props.selectDashboard(id);
+
+            this.scrollToTop();
         }
+    };
+
+    scrollToTop = () => {
+        window.scrollTo(0, 0);
     };
 
     componentDidMount() {
