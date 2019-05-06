@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import {
+    MuiThemeProvider,
+    createMuiTheme,
+    createGenerateClassName,
+    jssPreset,
+} from '@material-ui/core/styles';
 import { MuiThemeProvider as V0MuiThemeProvider } from 'material-ui';
+import JssProvider from 'react-jss/lib/JssProvider';
+import { create } from 'jss';
 import { init as d2Init, config, getManifest, getUserSettings } from 'd2';
 import dhis2theme from '@dhis2/d2-ui-core/theme/mui3.theme';
 
@@ -15,6 +22,12 @@ import './index.css';
 import i18n from './locales';
 import configureStore from './configureStore';
 import { muiTheme } from './modules/theme';
+
+const generateClassName = createGenerateClassName();
+const jss = create({
+    ...jssPreset(),
+    insertionPoint: document.getElementById('jss-insertion-point'),
+});
 
 const v1Theme = () => createMuiTheme({ ...dhis2theme });
 
@@ -76,13 +89,15 @@ const init = async () => {
         .then(() => d2Init(config))
         .then(initializedD2 => {
             ReactDOM.render(
-                <Provider store={configureStore()}>
-                    <MuiThemeProvider theme={v1Theme()}>
-                        <V0MuiThemeProvider muiTheme={muiTheme()}>
-                            <App baseUrl={baseUrl} d2={initializedD2} />
-                        </V0MuiThemeProvider>
-                    </MuiThemeProvider>
-                </Provider>,
+                <JssProvider jss={jss} generateClassName={generateClassName}>
+                    <Provider store={configureStore()}>
+                        <MuiThemeProvider theme={v1Theme()}>
+                            <V0MuiThemeProvider muiTheme={muiTheme()}>
+                                <App baseUrl={baseUrl} d2={initializedD2} />
+                            </V0MuiThemeProvider>
+                        </MuiThemeProvider>
+                    </Provider>
+                </JssProvider>,
                 document.getElementById('root')
             );
         });

@@ -5,7 +5,7 @@ import ControlBar from '@dhis2/d2-ui-core/control-bar/ControlBar';
 import arraySort from 'd2-utilizr/lib/arraySort';
 
 import Chip from './DashboardItemChip';
-import AddDashboardButton from '../../widgets/AddDashboardButton';
+import AddDashboardButton from './AddDashboardButton';
 import Filter from './Filter';
 import ShowMoreButton from './ShowMoreButton';
 import {
