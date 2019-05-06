@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Snackbar from 'material-ui/Snackbar';
+import Snackbar from '@material-ui/core/Snackbar';
 
 import { sGetSnackbar } from '../../reducers/snackbar';
 import { acCloseSnackbar } from '../../actions/snackbar';
@@ -27,7 +27,7 @@ export const SnackbarMessage = props => {
             open={props.snackbarOpen}
             message={<SnackbarMessageContent message={props.snackbarMessage} />}
             autoHideDuration={props.snackbarDuration}
-            onRequestClose={props.onCloseSnackbar}
+            onClose={props.onCloseSnackbar}
         />
     );
 };
