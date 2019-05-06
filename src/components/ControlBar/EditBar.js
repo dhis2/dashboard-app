@@ -164,10 +164,7 @@ export class EditBar extends Component {
                         {updateAccess ? (
                             <div className="left-controls">
                                 <span style={{ marginRight: '15px' }}>
-                                    <Button
-                                        kind="primary"
-                                        onClick={this.onSave}
-                                    >
+                                    <Button primary onClick={this.onSave}>
                                         {i18n.t('Save changes')}
                                     </Button>
                                 </span>
@@ -189,7 +186,7 @@ export class EditBar extends Component {
                         ) : null}
 
                         <div className="right-controls">
-                            <Button kind="secondary" onClick={this.onDiscard}>
+                            <Button secondary onClick={this.onDiscard}>
                                 {discardBtnText}
                             </Button>
                         </div>

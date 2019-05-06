@@ -11,11 +11,11 @@ export const ConfirmDeleteDialog = ({
 }) => {
     const actions = [
         <span style={{ marginRight: '15px' }}>
-            <Button kind="primary" onClick={onDeleteConfirmed}>
+            <Button primary onClick={onDeleteConfirmed}>
                 {i18n.t('Delete')}
             </Button>
         </span>,
-        <Button kind="secondary" onClick={onContinueEditing}>
+        <Button secondary onClick={onContinueEditing}>
             {i18n.t('Continue editing')}
         </Button>,
     ];
