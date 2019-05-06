@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { Button } from '@dhis2/ui-core';
 
 import { EditBar } from '../EditBar';
 import ConfirmDeleteDialog from '../ConfirmDeleteDialog';
-import FlatButton from '../../../widgets/FlatButton';
 import { getStubContext } from '../../../setupTests';
 
 const mockDashboardModels = {
@@ -85,7 +85,8 @@ describe('EditBar', () => {
 
             it('triggers the save action', () => {
                 editBar()
-                    .find('.save-button')
+                    .find(Button)
+                    .filterWhere(n => n.childAt(0).text() === 'Save changes')
                     .simulate('click');
 
                 expect(props.onSave).toHaveBeenCalled();
@@ -93,24 +94,12 @@ describe('EditBar', () => {
 
             it('triggers the discard action', () => {
                 editBar()
-                    .find('.discard-button')
+                    .find(Button)
+                    .filterWhere(
+                        n => n.childAt(0).text() === 'Exit without saving'
+                    )
                     .simulate('click');
                 expect(props.onDiscardChanges).toHaveBeenCalled();
-            });
-
-            describe('when discard button clicked', () => {
-                it('triggers the onDiscardChanges function', () => {
-                    editBar()
-                        .find('.discard-button')
-                        .filterWhere(n => {
-                            return (
-                                n.childAt(0).text() === 'Exit without saving'
-                            );
-                        })
-                        .simulate('click');
-
-                    expect(props.onDiscardChanges).toHaveBeenCalled();
-                });
             });
         });
 
@@ -142,10 +131,10 @@ describe('EditBar', () => {
                         expect(wrapper).toMatchSnapshot();
 
                         wrapper
-                            .find('.translate-button')
-                            .filterWhere(n => {
-                                return n.childAt(0).text() === 'Translate';
-                            })
+                            .find(Button)
+                            .filterWhere(
+                                n => n.childAt(0).text() === 'Translate'
+                            )
                             .simulate('click');
 
                         expect(wrapper).toMatchSnapshot();
@@ -200,10 +189,8 @@ describe('EditBar', () => {
                     ).toEqual(false);
 
                     wrapper
-                        .find(FlatButton)
-                        .filterWhere(n => {
-                            return n.childAt(0).text() === 'Delete';
-                        })
+                        .find(Button)
+                        .filterWhere(n => n.childAt(0).text() === 'Delete')
                         .simulate('click');
 
                     expect(
