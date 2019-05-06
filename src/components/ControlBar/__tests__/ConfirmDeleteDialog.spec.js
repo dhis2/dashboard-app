@@ -1,11 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Dialog from 'material-ui/Dialog';
+import { Button } from '@dhis2/ui-core';
 
 import { ConfirmDeleteDialog } from '../ConfirmDeleteDialog';
 import { getStubContext } from '../../../setupTests';
-import FlatButton from '../../../widgets/FlatButton';
-import PrimaryButton from '../../../widgets/PrimaryButton';
 
 describe('ConfirmDeleteDialog', () => {
     let props;
@@ -37,13 +36,20 @@ describe('ConfirmDeleteDialog', () => {
         expect(dialog().prop('actions')).toHaveLength(2);
     });
 
-    it('renders a Primary button with action onContinueEditing', () => {
-        expect.assertions(1);
+    it.only('renders a Primary button with action onContinueEditing', () => {
+        // expect.assertions(1);
         dialog()
             .prop('actions')
             .forEach(button => {
-                if (button.type === PrimaryButton) {
-                    expect(button.props.onClick).toBe(props.onContinueEditing);
+                console.log('button', button);
+
+                if (button.type === 'span') {
+                    console.log('its a span');
+                    // console.log(button.find(Button).props);
+
+                    // expect(button.dive().find(Button).props.onClick).toBe(
+                    //     props.onContinueEditing
+                    // );
                 }
             });
     });
@@ -53,7 +59,7 @@ describe('ConfirmDeleteDialog', () => {
         dialog()
             .prop('actions')
             .forEach(button => {
-                if (button.type === FlatButton) {
+                if (button.type === Button) {
                     expect(button.props.onClick).toBe(props.onDeleteConfirmed);
                 }
             });

@@ -5,9 +5,8 @@ import { Redirect } from 'react-router-dom';
 import i18n from '@dhis2/d2-i18n';
 import ControlBar from '@dhis2/d2-ui-core/control-bar/ControlBar';
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog';
+import { Button } from '@dhis2/ui-core';
 
-import PrimaryButton from '../../widgets/PrimaryButton';
-import FlatButton from '../../widgets/FlatButton';
 import ConfirmDeleteDialog from './ConfirmDeleteDialog';
 import {
     tSaveDashboard,
@@ -165,39 +164,34 @@ export class EditBar extends Component {
                         {updateAccess ? (
                             <div className="left-controls">
                                 <span style={{ marginRight: '15px' }}>
-                                    <PrimaryButton
-                                        className="save-button"
+                                    <Button
+                                        kind="primary"
                                         onClick={this.onSave}
                                     >
                                         {i18n.t('Save changes')}
-                                    </PrimaryButton>
+                                    </Button>
                                 </span>
                                 {dashboardId && deleteAccess ? (
-                                    <FlatButton
-                                        className="delete-button"
-                                        onClick={this.onConfirmDelete}
-                                    >
-                                        {i18n.t('Delete')}
-                                    </FlatButton>
+                                    <span style={{ marginRight: '15px' }}>
+                                        <Button onClick={this.onConfirmDelete}>
+                                            {i18n.t('Delete')}
+                                        </Button>
+                                    </span>
                                 ) : null}
                                 {dashboardId ? (
-                                    <FlatButton
-                                        className="translate-button"
+                                    <Button
                                         onClick={this.toggleTranslationDialog}
                                     >
                                         {i18n.t('Translate')}
-                                    </FlatButton>
+                                    </Button>
                                 ) : null}
                             </div>
                         ) : null}
 
                         <div className="right-controls">
-                            <FlatButton
-                                className="discard-button"
-                                onClick={this.onDiscard}
-                            >
+                            <Button kind="secondary" onClick={this.onDiscard}>
                                 {discardBtnText}
-                            </FlatButton>
+                            </Button>
                         </div>
                     </div>
                 </ControlBar>
