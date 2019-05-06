@@ -32,20 +32,16 @@ ShallowWrapper {
           }
         >
           <Button
-            disabled={false}
-            kind="primary"
             onClick={[MockFunction]}
-            size="medium"
+            primary={true}
             type="button"
           >
             Delete
           </Button>
         </span>,
         <Button
-          disabled={false}
-          kind="secondary"
           onClick={[MockFunction]}
-          size="medium"
+          secondary={true}
           type="button"
         >
           Continue editing
@@ -78,20 +74,16 @@ ShallowWrapper {
             }
           >
             <Button
-              disabled={false}
-              kind="primary"
               onClick={[MockFunction]}
-              size="medium"
+              primary={true}
               type="button"
             >
               Delete
             </Button>
           </span>,
           <Button
-            disabled={false}
-            kind="secondary"
             onClick={[MockFunction]}
-            size="medium"
+            secondary={true}
             type="button"
           >
             Continue editing

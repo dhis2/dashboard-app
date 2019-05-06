@@ -40,10 +40,8 @@ ShallowWrapper {
               className="right-controls"
             >
               <Button
-                disabled={false}
-                kind="secondary"
                 onClick={[Function]}
-                size="medium"
+                secondary={true}
                 type="button"
               >
                 Go to dashboards
@@ -76,10 +74,8 @@ ShallowWrapper {
               className="right-controls"
             >
               <Button
-                disabled={false}
-                kind="secondary"
                 onClick={[Function]}
-                size="medium"
+                secondary={true}
                 type="button"
               >
                 Go to dashboards
@@ -102,10 +98,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Go to dashboards
@@ -128,10 +122,8 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Go to dashboards
@@ -145,10 +137,8 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "children": "Go to dashboards",
-                  "disabled": false,
-                  "kind": "secondary",
                   "onClick": [Function],
-                  "size": "medium",
+                  "secondary": true,
                   "type": "button",
                 },
                 "ref": null,
@@ -193,10 +183,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Go to dashboards
@@ -229,10 +217,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Go to dashboards
@@ -255,10 +241,8 @@ ShallowWrapper {
                   className="right-controls"
                 >
                   <Button
-                    disabled={false}
-                    kind="secondary"
                     onClick={[Function]}
-                    size="medium"
+                    secondary={true}
                     type="button"
                   >
                     Go to dashboards
@@ -281,10 +265,8 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <Button
-                    disabled={false}
-                    kind="secondary"
                     onClick={[Function]}
-                    size="medium"
+                    secondary={true}
                     type="button"
                   >
                     Go to dashboards
@@ -298,10 +280,8 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Go to dashboards",
-                    "disabled": false,
-                    "kind": "secondary",
                     "onClick": [Function],
-                    "size": "medium",
+                    "secondary": true,
                     "type": "button",
                   },
                   "ref": null,
@@ -403,10 +383,8 @@ ShallowWrapper {
               className="right-controls"
             >
               <Button
-                disabled={false}
-                kind="secondary"
                 onClick={[Function]}
-                size="medium"
+                secondary={true}
                 type="button"
               >
                 Go to dashboards
@@ -439,10 +417,8 @@ ShallowWrapper {
               className="right-controls"
             >
               <Button
-                disabled={false}
-                kind="secondary"
                 onClick={[Function]}
-                size="medium"
+                secondary={true}
                 type="button"
               >
                 Go to dashboards
@@ -465,10 +441,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Go to dashboards
@@ -491,10 +465,8 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Go to dashboards
@@ -508,10 +480,8 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "children": "Go to dashboards",
-                  "disabled": false,
-                  "kind": "secondary",
                   "onClick": [Function],
-                  "size": "medium",
+                  "secondary": true,
                   "type": "button",
                 },
                 "ref": null,
@@ -556,10 +526,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Go to dashboards
@@ -592,10 +560,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Go to dashboards
@@ -618,10 +584,8 @@ ShallowWrapper {
                   className="right-controls"
                 >
                   <Button
-                    disabled={false}
-                    kind="secondary"
                     onClick={[Function]}
-                    size="medium"
+                    secondary={true}
                     type="button"
                   >
                     Go to dashboards
@@ -644,10 +608,8 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <Button
-                    disabled={false}
-                    kind="secondary"
                     onClick={[Function]}
-                    size="medium"
+                    secondary={true}
                     type="button"
                   >
                     Go to dashboards
@@ -661,10 +623,8 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Go to dashboards",
-                    "disabled": false,
-                    "kind": "secondary",
                     "onClick": [Function],
-                    "size": "medium",
+                    "secondary": true,
                     "type": "button",
                   },
                   "ref": null,
@@ -774,20 +734,15 @@ ShallowWrapper {
                 }
               >
                 <Button
-                  disabled={false}
-                  kind="primary"
                   onClick={[Function]}
-                  size="medium"
+                  primary={true}
                   type="button"
                 >
                   Save changes
                 </Button>
               </span>
               <Button
-                disabled={false}
-                kind="basic"
                 onClick={[Function]}
-                size="medium"
                 type="button"
               >
                 Translate
@@ -797,10 +752,8 @@ ShallowWrapper {
               className="right-controls"
             >
               <Button
-                disabled={false}
-                kind="secondary"
                 onClick={[Function]}
-                size="medium"
+                secondary={true}
                 type="button"
               >
                 Exit without saving
@@ -868,20 +821,15 @@ ShallowWrapper {
                 }
               >
                 <Button
-                  disabled={false}
-                  kind="primary"
                   onClick={[Function]}
-                  size="medium"
+                  primary={true}
                   type="button"
                 >
                   Save changes
                 </Button>
               </span>
               <Button
-                disabled={false}
-                kind="basic"
                 onClick={[Function]}
-                size="medium"
                 type="button"
               >
                 Translate
@@ -891,10 +839,8 @@ ShallowWrapper {
               className="right-controls"
             >
               <Button
-                disabled={false}
-                kind="secondary"
                 onClick={[Function]}
-                size="medium"
+                secondary={true}
                 type="button"
               >
                 Exit without saving
@@ -923,20 +869,15 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="primary"
                     onClick={[Function]}
-                    size="medium"
+                    primary={true}
                     type="button"
                   >
                     Save changes
                   </Button>
                 </span>
                 <Button
-                  disabled={false}
-                  kind="basic"
                   onClick={[Function]}
-                  size="medium"
                   type="button"
                 >
                   Translate
@@ -946,10 +887,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -979,10 +918,8 @@ ShallowWrapper {
                     }
                   >
                     <Button
-                      disabled={false}
-                      kind="primary"
                       onClick={[Function]}
-                      size="medium"
+                      primary={true}
                       type="button"
                     >
                       Save changes
@@ -990,10 +927,7 @@ ShallowWrapper {
                   </span>,
                   null,
                   <Button
-                    disabled={false}
-                    kind="basic"
                     onClick={[Function]}
-                    size="medium"
                     type="button"
                   >
                     Translate
@@ -1009,10 +943,8 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": <Button
-                      disabled={false}
-                      kind="primary"
                       onClick={[Function]}
-                      size="medium"
+                      primary={true}
                       type="button"
                     >
                       Save changes
@@ -1028,10 +960,8 @@ ShallowWrapper {
                     "nodeType": "function",
                     "props": Object {
                       "children": "Save changes",
-                      "disabled": false,
-                      "kind": "primary",
                       "onClick": [Function],
-                      "size": "medium",
+                      "primary": true,
                       "type": "button",
                     },
                     "ref": null,
@@ -1047,10 +977,7 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Translate",
-                    "disabled": false,
-                    "kind": "basic",
                     "onClick": [Function],
-                    "size": "medium",
                     "type": "button",
                   },
                   "ref": null,
@@ -1066,10 +993,8 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -1083,10 +1008,8 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "children": "Exit without saving",
-                  "disabled": false,
-                  "kind": "secondary",
                   "onClick": [Function],
-                  "size": "medium",
+                  "secondary": true,
                   "type": "button",
                 },
                 "ref": null,
@@ -1168,20 +1091,15 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="primary"
                     onClick={[Function]}
-                    size="medium"
+                    primary={true}
                     type="button"
                   >
                     Save changes
                   </Button>
                 </span>
                 <Button
-                  disabled={false}
-                  kind="basic"
                   onClick={[Function]}
-                  size="medium"
                   type="button"
                 >
                   Translate
@@ -1191,10 +1109,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -1262,20 +1178,15 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="primary"
                     onClick={[Function]}
-                    size="medium"
+                    primary={true}
                     type="button"
                   >
                     Save changes
                   </Button>
                 </span>
                 <Button
-                  disabled={false}
-                  kind="basic"
                   onClick={[Function]}
-                  size="medium"
                   type="button"
                 >
                   Translate
@@ -1285,10 +1196,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -1317,20 +1226,15 @@ ShallowWrapper {
                     }
                   >
                     <Button
-                      disabled={false}
-                      kind="primary"
                       onClick={[Function]}
-                      size="medium"
+                      primary={true}
                       type="button"
                     >
                       Save changes
                     </Button>
                   </span>
                   <Button
-                    disabled={false}
-                    kind="basic"
                     onClick={[Function]}
-                    size="medium"
                     type="button"
                   >
                     Translate
@@ -1340,10 +1244,8 @@ ShallowWrapper {
                   className="right-controls"
                 >
                   <Button
-                    disabled={false}
-                    kind="secondary"
                     onClick={[Function]}
-                    size="medium"
+                    secondary={true}
                     type="button"
                   >
                     Exit without saving
@@ -1373,10 +1275,8 @@ ShallowWrapper {
                       }
                     >
                       <Button
-                        disabled={false}
-                        kind="primary"
                         onClick={[Function]}
-                        size="medium"
+                        primary={true}
                         type="button"
                       >
                         Save changes
@@ -1384,10 +1284,7 @@ ShallowWrapper {
                     </span>,
                     null,
                     <Button
-                      disabled={false}
-                      kind="basic"
                       onClick={[Function]}
-                      size="medium"
                       type="button"
                     >
                       Translate
@@ -1403,10 +1300,8 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "children": <Button
-                        disabled={false}
-                        kind="primary"
                         onClick={[Function]}
-                        size="medium"
+                        primary={true}
                         type="button"
                       >
                         Save changes
@@ -1422,10 +1317,8 @@ ShallowWrapper {
                       "nodeType": "function",
                       "props": Object {
                         "children": "Save changes",
-                        "disabled": false,
-                        "kind": "primary",
                         "onClick": [Function],
-                        "size": "medium",
+                        "primary": true,
                         "type": "button",
                       },
                       "ref": null,
@@ -1441,10 +1334,7 @@ ShallowWrapper {
                     "nodeType": "function",
                     "props": Object {
                       "children": "Translate",
-                      "disabled": false,
-                      "kind": "basic",
                       "onClick": [Function],
-                      "size": "medium",
                       "type": "button",
                     },
                     "ref": null,
@@ -1460,10 +1350,8 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <Button
-                    disabled={false}
-                    kind="secondary"
                     onClick={[Function]}
-                    size="medium"
+                    secondary={true}
                     type="button"
                   >
                     Exit without saving
@@ -1477,10 +1365,8 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Exit without saving",
-                    "disabled": false,
-                    "kind": "secondary",
                     "onClick": [Function],
-                    "size": "medium",
+                    "secondary": true,
                     "type": "button",
                   },
                   "ref": null,
@@ -1620,20 +1506,15 @@ ShallowWrapper {
                 }
               >
                 <Button
-                  disabled={false}
-                  kind="primary"
                   onClick={[Function]}
-                  size="medium"
+                  primary={true}
                   type="button"
                 >
                   Save changes
                 </Button>
               </span>
               <Button
-                disabled={false}
-                kind="basic"
                 onClick={[Function]}
-                size="medium"
                 type="button"
               >
                 Translate
@@ -1643,10 +1524,8 @@ ShallowWrapper {
               className="right-controls"
             >
               <Button
-                disabled={false}
-                kind="secondary"
                 onClick={[Function]}
-                size="medium"
+                secondary={true}
                 type="button"
               >
                 Exit without saving
@@ -1714,20 +1593,15 @@ ShallowWrapper {
                 }
               >
                 <Button
-                  disabled={false}
-                  kind="primary"
                   onClick={[Function]}
-                  size="medium"
+                  primary={true}
                   type="button"
                 >
                   Save changes
                 </Button>
               </span>
               <Button
-                disabled={false}
-                kind="basic"
                 onClick={[Function]}
-                size="medium"
                 type="button"
               >
                 Translate
@@ -1737,10 +1611,8 @@ ShallowWrapper {
               className="right-controls"
             >
               <Button
-                disabled={false}
-                kind="secondary"
                 onClick={[Function]}
-                size="medium"
+                secondary={true}
                 type="button"
               >
                 Exit without saving
@@ -1769,20 +1641,15 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="primary"
                     onClick={[Function]}
-                    size="medium"
+                    primary={true}
                     type="button"
                   >
                     Save changes
                   </Button>
                 </span>
                 <Button
-                  disabled={false}
-                  kind="basic"
                   onClick={[Function]}
-                  size="medium"
                   type="button"
                 >
                   Translate
@@ -1792,10 +1659,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -1825,10 +1690,8 @@ ShallowWrapper {
                     }
                   >
                     <Button
-                      disabled={false}
-                      kind="primary"
                       onClick={[Function]}
-                      size="medium"
+                      primary={true}
                       type="button"
                     >
                       Save changes
@@ -1836,10 +1699,7 @@ ShallowWrapper {
                   </span>,
                   null,
                   <Button
-                    disabled={false}
-                    kind="basic"
                     onClick={[Function]}
-                    size="medium"
                     type="button"
                   >
                     Translate
@@ -1855,10 +1715,8 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": <Button
-                      disabled={false}
-                      kind="primary"
                       onClick={[Function]}
-                      size="medium"
+                      primary={true}
                       type="button"
                     >
                       Save changes
@@ -1874,10 +1732,8 @@ ShallowWrapper {
                     "nodeType": "function",
                     "props": Object {
                       "children": "Save changes",
-                      "disabled": false,
-                      "kind": "primary",
                       "onClick": [Function],
-                      "size": "medium",
+                      "primary": true,
                       "type": "button",
                     },
                     "ref": null,
@@ -1893,10 +1749,7 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Translate",
-                    "disabled": false,
-                    "kind": "basic",
                     "onClick": [Function],
-                    "size": "medium",
                     "type": "button",
                   },
                   "ref": null,
@@ -1912,10 +1765,8 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -1929,10 +1780,8 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "children": "Exit without saving",
-                  "disabled": false,
-                  "kind": "secondary",
                   "onClick": [Function],
-                  "size": "medium",
+                  "secondary": true,
                   "type": "button",
                 },
                 "ref": null,
@@ -2014,20 +1863,15 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="primary"
                     onClick={[Function]}
-                    size="medium"
+                    primary={true}
                     type="button"
                   >
                     Save changes
                   </Button>
                 </span>
                 <Button
-                  disabled={false}
-                  kind="basic"
                   onClick={[Function]}
-                  size="medium"
                   type="button"
                 >
                   Translate
@@ -2037,10 +1881,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -2108,20 +1950,15 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="primary"
                     onClick={[Function]}
-                    size="medium"
+                    primary={true}
                     type="button"
                   >
                     Save changes
                   </Button>
                 </span>
                 <Button
-                  disabled={false}
-                  kind="basic"
                   onClick={[Function]}
-                  size="medium"
                   type="button"
                 >
                   Translate
@@ -2131,10 +1968,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -2163,20 +1998,15 @@ ShallowWrapper {
                     }
                   >
                     <Button
-                      disabled={false}
-                      kind="primary"
                       onClick={[Function]}
-                      size="medium"
+                      primary={true}
                       type="button"
                     >
                       Save changes
                     </Button>
                   </span>
                   <Button
-                    disabled={false}
-                    kind="basic"
                     onClick={[Function]}
-                    size="medium"
                     type="button"
                   >
                     Translate
@@ -2186,10 +2016,8 @@ ShallowWrapper {
                   className="right-controls"
                 >
                   <Button
-                    disabled={false}
-                    kind="secondary"
                     onClick={[Function]}
-                    size="medium"
+                    secondary={true}
                     type="button"
                   >
                     Exit without saving
@@ -2219,10 +2047,8 @@ ShallowWrapper {
                       }
                     >
                       <Button
-                        disabled={false}
-                        kind="primary"
                         onClick={[Function]}
-                        size="medium"
+                        primary={true}
                         type="button"
                       >
                         Save changes
@@ -2230,10 +2056,7 @@ ShallowWrapper {
                     </span>,
                     null,
                     <Button
-                      disabled={false}
-                      kind="basic"
                       onClick={[Function]}
-                      size="medium"
                       type="button"
                     >
                       Translate
@@ -2249,10 +2072,8 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "children": <Button
-                        disabled={false}
-                        kind="primary"
                         onClick={[Function]}
-                        size="medium"
+                        primary={true}
                         type="button"
                       >
                         Save changes
@@ -2268,10 +2089,8 @@ ShallowWrapper {
                       "nodeType": "function",
                       "props": Object {
                         "children": "Save changes",
-                        "disabled": false,
-                        "kind": "primary",
                         "onClick": [Function],
-                        "size": "medium",
+                        "primary": true,
                         "type": "button",
                       },
                       "ref": null,
@@ -2287,10 +2106,7 @@ ShallowWrapper {
                     "nodeType": "function",
                     "props": Object {
                       "children": "Translate",
-                      "disabled": false,
-                      "kind": "basic",
                       "onClick": [Function],
-                      "size": "medium",
                       "type": "button",
                     },
                     "ref": null,
@@ -2306,10 +2122,8 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <Button
-                    disabled={false}
-                    kind="secondary"
                     onClick={[Function]}
-                    size="medium"
+                    secondary={true}
                     type="button"
                   >
                     Exit without saving
@@ -2323,10 +2137,8 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Exit without saving",
-                    "disabled": false,
-                    "kind": "secondary",
                     "onClick": [Function],
-                    "size": "medium",
+                    "secondary": true,
                     "type": "button",
                   },
                   "ref": null,
@@ -2466,20 +2278,15 @@ ShallowWrapper {
                 }
               >
                 <Button
-                  disabled={false}
-                  kind="primary"
                   onClick={[Function]}
-                  size="medium"
+                  primary={true}
                   type="button"
                 >
                   Save changes
                 </Button>
               </span>
               <Button
-                disabled={false}
-                kind="basic"
                 onClick={[Function]}
-                size="medium"
                 type="button"
               >
                 Translate
@@ -2489,10 +2296,8 @@ ShallowWrapper {
               className="right-controls"
             >
               <Button
-                disabled={false}
-                kind="secondary"
                 onClick={[Function]}
-                size="medium"
+                secondary={true}
                 type="button"
               >
                 Exit without saving
@@ -2560,20 +2365,15 @@ ShallowWrapper {
                 }
               >
                 <Button
-                  disabled={false}
-                  kind="primary"
                   onClick={[Function]}
-                  size="medium"
+                  primary={true}
                   type="button"
                 >
                   Save changes
                 </Button>
               </span>
               <Button
-                disabled={false}
-                kind="basic"
                 onClick={[Function]}
-                size="medium"
                 type="button"
               >
                 Translate
@@ -2583,10 +2383,8 @@ ShallowWrapper {
               className="right-controls"
             >
               <Button
-                disabled={false}
-                kind="secondary"
                 onClick={[Function]}
-                size="medium"
+                secondary={true}
                 type="button"
               >
                 Exit without saving
@@ -2615,20 +2413,15 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="primary"
                     onClick={[Function]}
-                    size="medium"
+                    primary={true}
                     type="button"
                   >
                     Save changes
                   </Button>
                 </span>
                 <Button
-                  disabled={false}
-                  kind="basic"
                   onClick={[Function]}
-                  size="medium"
                   type="button"
                 >
                   Translate
@@ -2638,10 +2431,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -2671,10 +2462,8 @@ ShallowWrapper {
                     }
                   >
                     <Button
-                      disabled={false}
-                      kind="primary"
                       onClick={[Function]}
-                      size="medium"
+                      primary={true}
                       type="button"
                     >
                       Save changes
@@ -2682,10 +2471,7 @@ ShallowWrapper {
                   </span>,
                   null,
                   <Button
-                    disabled={false}
-                    kind="basic"
                     onClick={[Function]}
-                    size="medium"
                     type="button"
                   >
                     Translate
@@ -2701,10 +2487,8 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": <Button
-                      disabled={false}
-                      kind="primary"
                       onClick={[Function]}
-                      size="medium"
+                      primary={true}
                       type="button"
                     >
                       Save changes
@@ -2720,10 +2504,8 @@ ShallowWrapper {
                     "nodeType": "function",
                     "props": Object {
                       "children": "Save changes",
-                      "disabled": false,
-                      "kind": "primary",
                       "onClick": [Function],
-                      "size": "medium",
+                      "primary": true,
                       "type": "button",
                     },
                     "ref": null,
@@ -2739,10 +2521,7 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Translate",
-                    "disabled": false,
-                    "kind": "basic",
                     "onClick": [Function],
-                    "size": "medium",
                     "type": "button",
                   },
                   "ref": null,
@@ -2758,10 +2537,8 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -2775,10 +2552,8 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "children": "Exit without saving",
-                  "disabled": false,
-                  "kind": "secondary",
                   "onClick": [Function],
-                  "size": "medium",
+                  "secondary": true,
                   "type": "button",
                 },
                 "ref": null,
@@ -2860,20 +2635,15 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="primary"
                     onClick={[Function]}
-                    size="medium"
+                    primary={true}
                     type="button"
                   >
                     Save changes
                   </Button>
                 </span>
                 <Button
-                  disabled={false}
-                  kind="basic"
                   onClick={[Function]}
-                  size="medium"
                   type="button"
                 >
                   Translate
@@ -2883,10 +2653,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -2954,20 +2722,15 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="primary"
                     onClick={[Function]}
-                    size="medium"
+                    primary={true}
                     type="button"
                   >
                     Save changes
                   </Button>
                 </span>
                 <Button
-                  disabled={false}
-                  kind="basic"
                   onClick={[Function]}
-                  size="medium"
                   type="button"
                 >
                   Translate
@@ -2977,10 +2740,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -3009,20 +2770,15 @@ ShallowWrapper {
                     }
                   >
                     <Button
-                      disabled={false}
-                      kind="primary"
                       onClick={[Function]}
-                      size="medium"
+                      primary={true}
                       type="button"
                     >
                       Save changes
                     </Button>
                   </span>
                   <Button
-                    disabled={false}
-                    kind="basic"
                     onClick={[Function]}
-                    size="medium"
                     type="button"
                   >
                     Translate
@@ -3032,10 +2788,8 @@ ShallowWrapper {
                   className="right-controls"
                 >
                   <Button
-                    disabled={false}
-                    kind="secondary"
                     onClick={[Function]}
-                    size="medium"
+                    secondary={true}
                     type="button"
                   >
                     Exit without saving
@@ -3065,10 +2819,8 @@ ShallowWrapper {
                       }
                     >
                       <Button
-                        disabled={false}
-                        kind="primary"
                         onClick={[Function]}
-                        size="medium"
+                        primary={true}
                         type="button"
                       >
                         Save changes
@@ -3076,10 +2828,7 @@ ShallowWrapper {
                     </span>,
                     null,
                     <Button
-                      disabled={false}
-                      kind="basic"
                       onClick={[Function]}
-                      size="medium"
                       type="button"
                     >
                       Translate
@@ -3095,10 +2844,8 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "children": <Button
-                        disabled={false}
-                        kind="primary"
                         onClick={[Function]}
-                        size="medium"
+                        primary={true}
                         type="button"
                       >
                         Save changes
@@ -3114,10 +2861,8 @@ ShallowWrapper {
                       "nodeType": "function",
                       "props": Object {
                         "children": "Save changes",
-                        "disabled": false,
-                        "kind": "primary",
                         "onClick": [Function],
-                        "size": "medium",
+                        "primary": true,
                         "type": "button",
                       },
                       "ref": null,
@@ -3133,10 +2878,7 @@ ShallowWrapper {
                     "nodeType": "function",
                     "props": Object {
                       "children": "Translate",
-                      "disabled": false,
-                      "kind": "basic",
                       "onClick": [Function],
-                      "size": "medium",
                       "type": "button",
                     },
                     "ref": null,
@@ -3152,10 +2894,8 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <Button
-                    disabled={false}
-                    kind="secondary"
                     onClick={[Function]}
-                    size="medium"
+                    secondary={true}
                     type="button"
                   >
                     Exit without saving
@@ -3169,10 +2909,8 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Exit without saving",
-                    "disabled": false,
-                    "kind": "secondary",
                     "onClick": [Function],
-                    "size": "medium",
+                    "secondary": true,
                     "type": "button",
                   },
                   "ref": null,
@@ -3314,10 +3052,8 @@ ShallowWrapper {
                 }
               >
                 <Button
-                  disabled={false}
-                  kind="primary"
                   onClick={[Function]}
-                  size="medium"
+                  primary={true}
                   type="button"
                 >
                   Save changes
@@ -3331,20 +3067,14 @@ ShallowWrapper {
                 }
               >
                 <Button
-                  disabled={false}
-                  kind="basic"
                   onClick={[Function]}
-                  size="medium"
                   type="button"
                 >
                   Delete
                 </Button>
               </span>
               <Button
-                disabled={false}
-                kind="basic"
                 onClick={[Function]}
-                size="medium"
                 type="button"
               >
                 Translate
@@ -3354,10 +3084,8 @@ ShallowWrapper {
               className="right-controls"
             >
               <Button
-                disabled={false}
-                kind="secondary"
                 onClick={[Function]}
-                size="medium"
+                secondary={true}
                 type="button"
               >
                 Exit without saving
@@ -3401,10 +3129,8 @@ ShallowWrapper {
                 }
               >
                 <Button
-                  disabled={false}
-                  kind="primary"
                   onClick={[Function]}
-                  size="medium"
+                  primary={true}
                   type="button"
                 >
                   Save changes
@@ -3418,20 +3144,14 @@ ShallowWrapper {
                 }
               >
                 <Button
-                  disabled={false}
-                  kind="basic"
                   onClick={[Function]}
-                  size="medium"
                   type="button"
                 >
                   Delete
                 </Button>
               </span>
               <Button
-                disabled={false}
-                kind="basic"
                 onClick={[Function]}
-                size="medium"
                 type="button"
               >
                 Translate
@@ -3441,10 +3161,8 @@ ShallowWrapper {
               className="right-controls"
             >
               <Button
-                disabled={false}
-                kind="secondary"
                 onClick={[Function]}
-                size="medium"
+                secondary={true}
                 type="button"
               >
                 Exit without saving
@@ -3473,10 +3191,8 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="primary"
                     onClick={[Function]}
-                    size="medium"
+                    primary={true}
                     type="button"
                   >
                     Save changes
@@ -3490,20 +3206,14 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="basic"
                     onClick={[Function]}
-                    size="medium"
                     type="button"
                   >
                     Delete
                   </Button>
                 </span>
                 <Button
-                  disabled={false}
-                  kind="basic"
                   onClick={[Function]}
-                  size="medium"
                   type="button"
                 >
                   Translate
@@ -3513,10 +3223,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -3546,10 +3254,8 @@ ShallowWrapper {
                     }
                   >
                     <Button
-                      disabled={false}
-                      kind="primary"
                       onClick={[Function]}
-                      size="medium"
+                      primary={true}
                       type="button"
                     >
                       Save changes
@@ -3563,20 +3269,14 @@ ShallowWrapper {
                     }
                   >
                     <Button
-                      disabled={false}
-                      kind="basic"
                       onClick={[Function]}
-                      size="medium"
                       type="button"
                     >
                       Delete
                     </Button>
                   </span>,
                   <Button
-                    disabled={false}
-                    kind="basic"
                     onClick={[Function]}
-                    size="medium"
                     type="button"
                   >
                     Translate
@@ -3592,10 +3292,8 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": <Button
-                      disabled={false}
-                      kind="primary"
                       onClick={[Function]}
-                      size="medium"
+                      primary={true}
                       type="button"
                     >
                       Save changes
@@ -3611,10 +3309,8 @@ ShallowWrapper {
                     "nodeType": "function",
                     "props": Object {
                       "children": "Save changes",
-                      "disabled": false,
-                      "kind": "primary",
                       "onClick": [Function],
-                      "size": "medium",
+                      "primary": true,
                       "type": "button",
                     },
                     "ref": null,
@@ -3629,10 +3325,7 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": <Button
-                      disabled={false}
-                      kind="basic"
                       onClick={[Function]}
-                      size="medium"
                       type="button"
                     >
                       Delete
@@ -3648,10 +3341,7 @@ ShallowWrapper {
                     "nodeType": "function",
                     "props": Object {
                       "children": "Delete",
-                      "disabled": false,
-                      "kind": "basic",
                       "onClick": [Function],
-                      "size": "medium",
                       "type": "button",
                     },
                     "ref": null,
@@ -3666,10 +3356,7 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Translate",
-                    "disabled": false,
-                    "kind": "basic",
                     "onClick": [Function],
-                    "size": "medium",
                     "type": "button",
                   },
                   "ref": null,
@@ -3685,10 +3372,8 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -3702,10 +3387,8 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "children": "Exit without saving",
-                  "disabled": false,
-                  "kind": "secondary",
                   "onClick": [Function],
-                  "size": "medium",
+                  "secondary": true,
                   "type": "button",
                 },
                 "ref": null,
@@ -3770,10 +3453,8 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="primary"
                     onClick={[Function]}
-                    size="medium"
+                    primary={true}
                     type="button"
                   >
                     Save changes
@@ -3787,20 +3468,14 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="basic"
                     onClick={[Function]}
-                    size="medium"
                     type="button"
                   >
                     Delete
                   </Button>
                 </span>
                 <Button
-                  disabled={false}
-                  kind="basic"
                   onClick={[Function]}
-                  size="medium"
                   type="button"
                 >
                   Translate
@@ -3810,10 +3485,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -3857,10 +3530,8 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="primary"
                     onClick={[Function]}
-                    size="medium"
+                    primary={true}
                     type="button"
                   >
                     Save changes
@@ -3874,20 +3545,14 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="basic"
                     onClick={[Function]}
-                    size="medium"
                     type="button"
                   >
                     Delete
                   </Button>
                 </span>
                 <Button
-                  disabled={false}
-                  kind="basic"
                   onClick={[Function]}
-                  size="medium"
                   type="button"
                 >
                   Translate
@@ -3897,10 +3562,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -3929,10 +3592,8 @@ ShallowWrapper {
                     }
                   >
                     <Button
-                      disabled={false}
-                      kind="primary"
                       onClick={[Function]}
-                      size="medium"
+                      primary={true}
                       type="button"
                     >
                       Save changes
@@ -3946,20 +3607,14 @@ ShallowWrapper {
                     }
                   >
                     <Button
-                      disabled={false}
-                      kind="basic"
                       onClick={[Function]}
-                      size="medium"
                       type="button"
                     >
                       Delete
                     </Button>
                   </span>
                   <Button
-                    disabled={false}
-                    kind="basic"
                     onClick={[Function]}
-                    size="medium"
                     type="button"
                   >
                     Translate
@@ -3969,10 +3624,8 @@ ShallowWrapper {
                   className="right-controls"
                 >
                   <Button
-                    disabled={false}
-                    kind="secondary"
                     onClick={[Function]}
-                    size="medium"
+                    secondary={true}
                     type="button"
                   >
                     Exit without saving
@@ -4002,10 +3655,8 @@ ShallowWrapper {
                       }
                     >
                       <Button
-                        disabled={false}
-                        kind="primary"
                         onClick={[Function]}
-                        size="medium"
+                        primary={true}
                         type="button"
                       >
                         Save changes
@@ -4019,20 +3670,14 @@ ShallowWrapper {
                       }
                     >
                       <Button
-                        disabled={false}
-                        kind="basic"
                         onClick={[Function]}
-                        size="medium"
                         type="button"
                       >
                         Delete
                       </Button>
                     </span>,
                     <Button
-                      disabled={false}
-                      kind="basic"
                       onClick={[Function]}
-                      size="medium"
                       type="button"
                     >
                       Translate
@@ -4048,10 +3693,8 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "children": <Button
-                        disabled={false}
-                        kind="primary"
                         onClick={[Function]}
-                        size="medium"
+                        primary={true}
                         type="button"
                       >
                         Save changes
@@ -4067,10 +3710,8 @@ ShallowWrapper {
                       "nodeType": "function",
                       "props": Object {
                         "children": "Save changes",
-                        "disabled": false,
-                        "kind": "primary",
                         "onClick": [Function],
-                        "size": "medium",
+                        "primary": true,
                         "type": "button",
                       },
                       "ref": null,
@@ -4085,10 +3726,7 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "children": <Button
-                        disabled={false}
-                        kind="basic"
                         onClick={[Function]}
-                        size="medium"
                         type="button"
                       >
                         Delete
@@ -4104,10 +3742,7 @@ ShallowWrapper {
                       "nodeType": "function",
                       "props": Object {
                         "children": "Delete",
-                        "disabled": false,
-                        "kind": "basic",
                         "onClick": [Function],
-                        "size": "medium",
                         "type": "button",
                       },
                       "ref": null,
@@ -4122,10 +3757,7 @@ ShallowWrapper {
                     "nodeType": "function",
                     "props": Object {
                       "children": "Translate",
-                      "disabled": false,
-                      "kind": "basic",
                       "onClick": [Function],
-                      "size": "medium",
                       "type": "button",
                     },
                     "ref": null,
@@ -4141,10 +3773,8 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <Button
-                    disabled={false}
-                    kind="secondary"
                     onClick={[Function]}
-                    size="medium"
+                    secondary={true}
                     type="button"
                   >
                     Exit without saving
@@ -4158,10 +3788,8 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Exit without saving",
-                    "disabled": false,
-                    "kind": "secondary",
                     "onClick": [Function],
-                    "size": "medium",
+                    "secondary": true,
                     "type": "button",
                   },
                   "ref": null,
@@ -4285,10 +3913,8 @@ ShallowWrapper {
                 }
               >
                 <Button
-                  disabled={false}
-                  kind="primary"
                   onClick={[Function]}
-                  size="medium"
+                  primary={true}
                   type="button"
                 >
                   Save changes
@@ -4299,10 +3925,8 @@ ShallowWrapper {
               className="right-controls"
             >
               <Button
-                disabled={false}
-                kind="secondary"
                 onClick={[Function]}
-                size="medium"
+                secondary={true}
                 type="button"
               >
                 Exit without saving
@@ -4342,10 +3966,8 @@ ShallowWrapper {
                 }
               >
                 <Button
-                  disabled={false}
-                  kind="primary"
                   onClick={[Function]}
-                  size="medium"
+                  primary={true}
                   type="button"
                 >
                   Save changes
@@ -4356,10 +3978,8 @@ ShallowWrapper {
               className="right-controls"
             >
               <Button
-                disabled={false}
-                kind="secondary"
                 onClick={[Function]}
-                size="medium"
+                secondary={true}
                 type="button"
               >
                 Exit without saving
@@ -4388,10 +4008,8 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="primary"
                     onClick={[Function]}
-                    size="medium"
+                    primary={true}
                     type="button"
                   >
                     Save changes
@@ -4402,10 +4020,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -4435,10 +4051,8 @@ ShallowWrapper {
                     }
                   >
                     <Button
-                      disabled={false}
-                      kind="primary"
                       onClick={[Function]}
-                      size="medium"
+                      primary={true}
                       type="button"
                     >
                       Save changes
@@ -4457,10 +4071,8 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": <Button
-                      disabled={false}
-                      kind="primary"
                       onClick={[Function]}
-                      size="medium"
+                      primary={true}
                       type="button"
                     >
                       Save changes
@@ -4476,10 +4088,8 @@ ShallowWrapper {
                     "nodeType": "function",
                     "props": Object {
                       "children": "Save changes",
-                      "disabled": false,
-                      "kind": "primary",
                       "onClick": [Function],
-                      "size": "medium",
+                      "primary": true,
                       "type": "button",
                     },
                     "ref": null,
@@ -4499,10 +4109,8 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -4516,10 +4124,8 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "children": "Exit without saving",
-                  "disabled": false,
-                  "kind": "secondary",
                   "onClick": [Function],
-                  "size": "medium",
+                  "secondary": true,
                   "type": "button",
                 },
                 "ref": null,
@@ -4571,10 +4177,8 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="primary"
                     onClick={[Function]}
-                    size="medium"
+                    primary={true}
                     type="button"
                   >
                     Save changes
@@ -4585,10 +4189,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -4628,10 +4230,8 @@ ShallowWrapper {
                   }
                 >
                   <Button
-                    disabled={false}
-                    kind="primary"
                     onClick={[Function]}
-                    size="medium"
+                    primary={true}
                     type="button"
                   >
                     Save changes
@@ -4642,10 +4242,8 @@ ShallowWrapper {
                 className="right-controls"
               >
                 <Button
-                  disabled={false}
-                  kind="secondary"
                   onClick={[Function]}
-                  size="medium"
+                  secondary={true}
                   type="button"
                 >
                   Exit without saving
@@ -4674,10 +4272,8 @@ ShallowWrapper {
                     }
                   >
                     <Button
-                      disabled={false}
-                      kind="primary"
                       onClick={[Function]}
-                      size="medium"
+                      primary={true}
                       type="button"
                     >
                       Save changes
@@ -4688,10 +4284,8 @@ ShallowWrapper {
                   className="right-controls"
                 >
                   <Button
-                    disabled={false}
-                    kind="secondary"
                     onClick={[Function]}
-                    size="medium"
+                    secondary={true}
                     type="button"
                   >
                     Exit without saving
@@ -4721,10 +4315,8 @@ ShallowWrapper {
                       }
                     >
                       <Button
-                        disabled={false}
-                        kind="primary"
                         onClick={[Function]}
-                        size="medium"
+                        primary={true}
                         type="button"
                       >
                         Save changes
@@ -4743,10 +4335,8 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "children": <Button
-                        disabled={false}
-                        kind="primary"
                         onClick={[Function]}
-                        size="medium"
+                        primary={true}
                         type="button"
                       >
                         Save changes
@@ -4762,10 +4352,8 @@ ShallowWrapper {
                       "nodeType": "function",
                       "props": Object {
                         "children": "Save changes",
-                        "disabled": false,
-                        "kind": "primary",
                         "onClick": [Function],
-                        "size": "medium",
+                        "primary": true,
                         "type": "button",
                       },
                       "ref": null,
@@ -4785,10 +4373,8 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <Button
-                    disabled={false}
-                    kind="secondary"
                     onClick={[Function]}
-                    size="medium"
+                    secondary={true}
                     type="button"
                   >
                     Exit without saving
@@ -4802,10 +4388,8 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Exit without saving",
-                    "disabled": false,
-                    "kind": "secondary",
                     "onClick": [Function],
-                    "size": "medium",
+                    "secondary": true,
                     "type": "button",
                   },
                   "ref": null,
