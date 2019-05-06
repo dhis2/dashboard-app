@@ -45,7 +45,7 @@ ShallowWrapper {
               }
               to="/new"
             >
-              <AddDashboardButton />
+              <AddCircleIcon />
             </Link>
             <_default
               onKeypressEnter={[Function]}
@@ -82,7 +82,7 @@ ShallowWrapper {
                 }
                 to="/new"
               >
-                <AddDashboardButton />
+                <AddCircleIcon />
               </Link>
               <_default
                 onKeypressEnter={[Function]}
@@ -115,7 +115,7 @@ ShallowWrapper {
                   }
                   to="/new"
                 >
-                  <AddDashboardButton />
+                  <AddCircleIcon />
                 </Link>,
                 <_default
                   onKeypressEnter={[Function]}
@@ -130,7 +130,7 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "children": <AddDashboardButton />,
+                  "children": <AddCircleIcon />,
                   "replace": false,
                   "style": Object {
                     "display": "inline-block",
@@ -204,7 +204,7 @@ ShallowWrapper {
                 }
                 to="/new"
               >
-                <AddDashboardButton />
+                <AddCircleIcon />
               </Link>
               <_default
                 onKeypressEnter={[Function]}
@@ -241,7 +241,7 @@ ShallowWrapper {
                   }
                   to="/new"
                 >
-                  <AddDashboardButton />
+                  <AddCircleIcon />
                 </Link>
                 <_default
                   onKeypressEnter={[Function]}
@@ -274,7 +274,7 @@ ShallowWrapper {
                     }
                     to="/new"
                   >
-                    <AddDashboardButton />
+                    <AddCircleIcon />
                   </Link>,
                   <_default
                     onKeypressEnter={[Function]}
@@ -289,7 +289,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": <AddDashboardButton />,
+                    "children": <AddCircleIcon />,
                     "replace": false,
                     "style": Object {
                       "display": "inline-block",
@@ -420,7 +420,7 @@ ShallowWrapper {
               }
               to="/new"
             >
-              <AddDashboardButton />
+              <AddCircleIcon />
             </Link>
             <_default
               onKeypressEnter={[Function]}
@@ -460,7 +460,7 @@ ShallowWrapper {
                 }
                 to="/new"
               >
-                <AddDashboardButton />
+                <AddCircleIcon />
               </Link>
               <_default
                 onKeypressEnter={[Function]}
@@ -493,7 +493,7 @@ ShallowWrapper {
                   }
                   to="/new"
                 >
-                  <AddDashboardButton />
+                  <AddCircleIcon />
                 </Link>,
                 <_default
                   onKeypressEnter={[Function]}
@@ -508,7 +508,7 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "children": <AddDashboardButton />,
+                  "children": <AddCircleIcon />,
                   "replace": false,
                   "style": Object {
                     "display": "inline-block",
@@ -593,7 +593,7 @@ ShallowWrapper {
                 }
                 to="/new"
               >
-                <AddDashboardButton />
+                <AddCircleIcon />
               </Link>
               <_default
                 onKeypressEnter={[Function]}
@@ -633,7 +633,7 @@ ShallowWrapper {
                   }
                   to="/new"
                 >
-                  <AddDashboardButton />
+                  <AddCircleIcon />
                 </Link>
                 <_default
                   onKeypressEnter={[Function]}
@@ -666,7 +666,7 @@ ShallowWrapper {
                     }
                     to="/new"
                   >
-                    <AddDashboardButton />
+                    <AddCircleIcon />
                   </Link>,
                   <_default
                     onKeypressEnter={[Function]}
@@ -681,7 +681,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": <AddDashboardButton />,
+                    "children": <AddCircleIcon />,
                     "replace": false,
                     "style": Object {
                       "display": "inline-block",
@@ -823,7 +823,7 @@ ShallowWrapper {
               }
               to="/new"
             >
-              <AddDashboardButton />
+              <AddCircleIcon />
             </Link>
             <_default
               onKeypressEnter={[Function]}
@@ -863,7 +863,7 @@ ShallowWrapper {
                 }
                 to="/new"
               >
-                <AddDashboardButton />
+                <AddCircleIcon />
               </Link>
               <_default
                 onKeypressEnter={[Function]}
@@ -896,7 +896,7 @@ ShallowWrapper {
                   }
                   to="/new"
                 >
-                  <AddDashboardButton />
+                  <AddCircleIcon />
                 </Link>,
                 <_default
                   onKeypressEnter={[Function]}
@@ -911,7 +911,7 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "children": <AddDashboardButton />,
+                  "children": <AddCircleIcon />,
                   "replace": false,
                   "style": Object {
                     "display": "inline-block",
@@ -996,7 +996,7 @@ ShallowWrapper {
                 }
                 to="/new"
               >
-                <AddDashboardButton />
+                <AddCircleIcon />
               </Link>
               <_default
                 onKeypressEnter={[Function]}
@@ -1036,7 +1036,7 @@ ShallowWrapper {
                   }
                   to="/new"
                 >
-                  <AddDashboardButton />
+                  <AddCircleIcon />
                 </Link>
                 <_default
                   onKeypressEnter={[Function]}
@@ -1069,7 +1069,7 @@ ShallowWrapper {
                     }
                     to="/new"
                   >
-                    <AddDashboardButton />
+                    <AddCircleIcon />
                   </Link>,
                   <_default
                     onKeypressEnter={[Function]}
@@ -1084,7 +1084,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": <AddDashboardButton />,
+                    "children": <AddCircleIcon />,
                     "replace": false,
                     "style": Object {
                       "display": "inline-block",
@@ -1240,7 +1240,7 @@ ShallowWrapper {
               }
               to="/new"
             >
-              <AddDashboardButton />
+              <AddCircleIcon />
             </Link>
             <_default
               onKeypressEnter={[Function]}
@@ -1292,7 +1292,7 @@ ShallowWrapper {
                 }
                 to="/new"
               >
-                <AddDashboardButton />
+                <AddCircleIcon />
               </Link>
               <_default
                 onKeypressEnter={[Function]}
@@ -1338,7 +1338,7 @@ ShallowWrapper {
                   }
                   to="/new"
                 >
-                  <AddDashboardButton />
+                  <AddCircleIcon />
                 </Link>,
                 <_default
                   onKeypressEnter={[Function]}
@@ -1353,7 +1353,7 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "children": <AddDashboardButton />,
+                  "children": <AddCircleIcon />,
                   "replace": false,
                   "style": Object {
                     "display": "inline-block",
@@ -1466,7 +1466,7 @@ ShallowWrapper {
                 }
                 to="/new"
               >
-                <AddDashboardButton />
+                <AddCircleIcon />
               </Link>
               <_default
                 onKeypressEnter={[Function]}
@@ -1518,7 +1518,7 @@ ShallowWrapper {
                   }
                   to="/new"
                 >
-                  <AddDashboardButton />
+                  <AddCircleIcon />
                 </Link>
                 <_default
                   onKeypressEnter={[Function]}
@@ -1564,7 +1564,7 @@ ShallowWrapper {
                     }
                     to="/new"
                   >
-                    <AddDashboardButton />
+                    <AddCircleIcon />
                   </Link>,
                   <_default
                     onKeypressEnter={[Function]}
@@ -1579,7 +1579,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": <AddDashboardButton />,
+                    "children": <AddCircleIcon />,
                     "replace": false,
                     "style": Object {
                       "display": "inline-block",

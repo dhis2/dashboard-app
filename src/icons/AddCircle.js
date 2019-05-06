@@ -1,7 +1,7 @@
 import React from 'react';
 import { colors } from '../modules/colors';
 
-const AddDashboardButton = () => (
+const AddCircleIcon = () => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="32"
@@ -13,4 +13,4 @@ const AddDashboardButton = () => (
     </svg>
 );
 
-export default AddDashboardButton;
+export default AddCircleIcon;
