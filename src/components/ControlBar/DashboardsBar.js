@@ -5,7 +5,7 @@ import ControlBar from '@dhis2/d2-ui-core/control-bar/ControlBar';
 import arraySort from 'd2-utilizr/lib/arraySort';
 
 import Chip from './DashboardItemChip';
-import D2IconButton from '../../widgets/D2IconButton';
+import AddCircleIcon from '../../icons/AddCircle';
 import Filter from './Filter';
 import ShowMoreButton from './ShowMoreButton';
 import {
@@ -106,7 +106,7 @@ export class DashboardsBar extends Component {
                             }}
                             to={'/new'}
                         >
-                            <D2IconButton />
+                            <AddCircleIcon />
                         </Link>
                         <Filter
                             name={name}

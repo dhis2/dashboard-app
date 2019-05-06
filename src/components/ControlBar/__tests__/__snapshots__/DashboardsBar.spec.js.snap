@@ -45,13 +45,7 @@ ShallowWrapper {
               }
               to="/new"
             >
-              <D2IconButton
-                icon={null}
-                iconColor=""
-                iconStyle={null}
-                onClick={[Function]}
-                style={null}
-              />
+              <AddCircleIcon />
             </Link>
             <_default
               onKeypressEnter={[Function]}
@@ -88,13 +82,7 @@ ShallowWrapper {
                 }
                 to="/new"
               >
-                <D2IconButton
-                  icon={null}
-                  iconColor=""
-                  iconStyle={null}
-                  onClick={[Function]}
-                  style={null}
-                />
+                <AddCircleIcon />
               </Link>
               <_default
                 onKeypressEnter={[Function]}
@@ -127,13 +115,7 @@ ShallowWrapper {
                   }
                   to="/new"
                 >
-                  <D2IconButton
-                    icon={null}
-                    iconColor=""
-                    iconStyle={null}
-                    onClick={[Function]}
-                    style={null}
-                  />
+                  <AddCircleIcon />
                 </Link>,
                 <_default
                   onKeypressEnter={[Function]}
@@ -148,13 +130,7 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "children": <D2IconButton
-                    icon={null}
-                    iconColor=""
-                    iconStyle={null}
-                    onClick={[Function]}
-                    style={null}
-                  />,
+                  "children": <AddCircleIcon />,
                   "replace": false,
                   "style": Object {
                     "display": "inline-block",
@@ -168,13 +144,7 @@ ShallowWrapper {
                   "instance": null,
                   "key": undefined,
                   "nodeType": "function",
-                  "props": Object {
-                    "icon": null,
-                    "iconColor": "",
-                    "iconStyle": null,
-                    "onClick": [Function],
-                    "style": null,
-                  },
+                  "props": Object {},
                   "ref": null,
                   "rendered": null,
                   "type": [Function],
@@ -234,13 +204,7 @@ ShallowWrapper {
                 }
                 to="/new"
               >
-                <D2IconButton
-                  icon={null}
-                  iconColor=""
-                  iconStyle={null}
-                  onClick={[Function]}
-                  style={null}
-                />
+                <AddCircleIcon />
               </Link>
               <_default
                 onKeypressEnter={[Function]}
@@ -277,13 +241,7 @@ ShallowWrapper {
                   }
                   to="/new"
                 >
-                  <D2IconButton
-                    icon={null}
-                    iconColor=""
-                    iconStyle={null}
-                    onClick={[Function]}
-                    style={null}
-                  />
+                  <AddCircleIcon />
                 </Link>
                 <_default
                   onKeypressEnter={[Function]}
@@ -316,13 +274,7 @@ ShallowWrapper {
                     }
                     to="/new"
                   >
-                    <D2IconButton
-                      icon={null}
-                      iconColor=""
-                      iconStyle={null}
-                      onClick={[Function]}
-                      style={null}
-                    />
+                    <AddCircleIcon />
                   </Link>,
                   <_default
                     onKeypressEnter={[Function]}
@@ -337,13 +289,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": <D2IconButton
-                      icon={null}
-                      iconColor=""
-                      iconStyle={null}
-                      onClick={[Function]}
-                      style={null}
-                    />,
+                    "children": <AddCircleIcon />,
                     "replace": false,
                     "style": Object {
                       "display": "inline-block",
@@ -357,13 +303,7 @@ ShallowWrapper {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "function",
-                    "props": Object {
-                      "icon": null,
-                      "iconColor": "",
-                      "iconStyle": null,
-                      "onClick": [Function],
-                      "style": null,
-                    },
+                    "props": Object {},
                     "ref": null,
                     "rendered": null,
                     "type": [Function],
@@ -480,13 +420,7 @@ ShallowWrapper {
               }
               to="/new"
             >
-              <D2IconButton
-                icon={null}
-                iconColor=""
-                iconStyle={null}
-                onClick={[Function]}
-                style={null}
-              />
+              <AddCircleIcon />
             </Link>
             <_default
               onKeypressEnter={[Function]}
@@ -526,13 +460,7 @@ ShallowWrapper {
                 }
                 to="/new"
               >
-                <D2IconButton
-                  icon={null}
-                  iconColor=""
-                  iconStyle={null}
-                  onClick={[Function]}
-                  style={null}
-                />
+                <AddCircleIcon />
               </Link>
               <_default
                 onKeypressEnter={[Function]}
@@ -565,13 +493,7 @@ ShallowWrapper {
                   }
                   to="/new"
                 >
-                  <D2IconButton
-                    icon={null}
-                    iconColor=""
-                    iconStyle={null}
-                    onClick={[Function]}
-                    style={null}
-                  />
+                  <AddCircleIcon />
                 </Link>,
                 <_default
                   onKeypressEnter={[Function]}
@@ -586,13 +508,7 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "children": <D2IconButton
-                    icon={null}
-                    iconColor=""
-                    iconStyle={null}
-                    onClick={[Function]}
-                    style={null}
-                  />,
+                  "children": <AddCircleIcon />,
                   "replace": false,
                   "style": Object {
                     "display": "inline-block",
@@ -606,13 +522,7 @@ ShallowWrapper {
                   "instance": null,
                   "key": undefined,
                   "nodeType": "function",
-                  "props": Object {
-                    "icon": null,
-                    "iconColor": "",
-                    "iconStyle": null,
-                    "onClick": [Function],
-                    "style": null,
-                  },
+                  "props": Object {},
                   "ref": null,
                   "rendered": null,
                   "type": [Function],
@@ -683,13 +593,7 @@ ShallowWrapper {
                 }
                 to="/new"
               >
-                <D2IconButton
-                  icon={null}
-                  iconColor=""
-                  iconStyle={null}
-                  onClick={[Function]}
-                  style={null}
-                />
+                <AddCircleIcon />
               </Link>
               <_default
                 onKeypressEnter={[Function]}
@@ -729,13 +633,7 @@ ShallowWrapper {
                   }
                   to="/new"
                 >
-                  <D2IconButton
-                    icon={null}
-                    iconColor=""
-                    iconStyle={null}
-                    onClick={[Function]}
-                    style={null}
-                  />
+                  <AddCircleIcon />
                 </Link>
                 <_default
                   onKeypressEnter={[Function]}
@@ -768,13 +666,7 @@ ShallowWrapper {
                     }
                     to="/new"
                   >
-                    <D2IconButton
-                      icon={null}
-                      iconColor=""
-                      iconStyle={null}
-                      onClick={[Function]}
-                      style={null}
-                    />
+                    <AddCircleIcon />
                   </Link>,
                   <_default
                     onKeypressEnter={[Function]}
@@ -789,13 +681,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": <D2IconButton
-                      icon={null}
-                      iconColor=""
-                      iconStyle={null}
-                      onClick={[Function]}
-                      style={null}
-                    />,
+                    "children": <AddCircleIcon />,
                     "replace": false,
                     "style": Object {
                       "display": "inline-block",
@@ -809,13 +695,7 @@ ShallowWrapper {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "function",
-                    "props": Object {
-                      "icon": null,
-                      "iconColor": "",
-                      "iconStyle": null,
-                      "onClick": [Function],
-                      "style": null,
-                    },
+                    "props": Object {},
                     "ref": null,
                     "rendered": null,
                     "type": [Function],
@@ -943,13 +823,7 @@ ShallowWrapper {
               }
               to="/new"
             >
-              <D2IconButton
-                icon={null}
-                iconColor=""
-                iconStyle={null}
-                onClick={[Function]}
-                style={null}
-              />
+              <AddCircleIcon />
             </Link>
             <_default
               onKeypressEnter={[Function]}
@@ -989,13 +863,7 @@ ShallowWrapper {
                 }
                 to="/new"
               >
-                <D2IconButton
-                  icon={null}
-                  iconColor=""
-                  iconStyle={null}
-                  onClick={[Function]}
-                  style={null}
-                />
+                <AddCircleIcon />
               </Link>
               <_default
                 onKeypressEnter={[Function]}
@@ -1028,13 +896,7 @@ ShallowWrapper {
                   }
                   to="/new"
                 >
-                  <D2IconButton
-                    icon={null}
-                    iconColor=""
-                    iconStyle={null}
-                    onClick={[Function]}
-                    style={null}
-                  />
+                  <AddCircleIcon />
                 </Link>,
                 <_default
                   onKeypressEnter={[Function]}
@@ -1049,13 +911,7 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "children": <D2IconButton
-                    icon={null}
-                    iconColor=""
-                    iconStyle={null}
-                    onClick={[Function]}
-                    style={null}
-                  />,
+                  "children": <AddCircleIcon />,
                   "replace": false,
                   "style": Object {
                     "display": "inline-block",
@@ -1069,13 +925,7 @@ ShallowWrapper {
                   "instance": null,
                   "key": undefined,
                   "nodeType": "function",
-                  "props": Object {
-                    "icon": null,
-                    "iconColor": "",
-                    "iconStyle": null,
-                    "onClick": [Function],
-                    "style": null,
-                  },
+                  "props": Object {},
                   "ref": null,
                   "rendered": null,
                   "type": [Function],
@@ -1146,13 +996,7 @@ ShallowWrapper {
                 }
                 to="/new"
               >
-                <D2IconButton
-                  icon={null}
-                  iconColor=""
-                  iconStyle={null}
-                  onClick={[Function]}
-                  style={null}
-                />
+                <AddCircleIcon />
               </Link>
               <_default
                 onKeypressEnter={[Function]}
@@ -1192,13 +1036,7 @@ ShallowWrapper {
                   }
                   to="/new"
                 >
-                  <D2IconButton
-                    icon={null}
-                    iconColor=""
-                    iconStyle={null}
-                    onClick={[Function]}
-                    style={null}
-                  />
+                  <AddCircleIcon />
                 </Link>
                 <_default
                   onKeypressEnter={[Function]}
@@ -1231,13 +1069,7 @@ ShallowWrapper {
                     }
                     to="/new"
                   >
-                    <D2IconButton
-                      icon={null}
-                      iconColor=""
-                      iconStyle={null}
-                      onClick={[Function]}
-                      style={null}
-                    />
+                    <AddCircleIcon />
                   </Link>,
                   <_default
                     onKeypressEnter={[Function]}
@@ -1252,13 +1084,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": <D2IconButton
-                      icon={null}
-                      iconColor=""
-                      iconStyle={null}
-                      onClick={[Function]}
-                      style={null}
-                    />,
+                    "children": <AddCircleIcon />,
                     "replace": false,
                     "style": Object {
                       "display": "inline-block",
@@ -1272,13 +1098,7 @@ ShallowWrapper {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "function",
-                    "props": Object {
-                      "icon": null,
-                      "iconColor": "",
-                      "iconStyle": null,
-                      "onClick": [Function],
-                      "style": null,
-                    },
+                    "props": Object {},
                     "ref": null,
                     "rendered": null,
                     "type": [Function],
@@ -1420,13 +1240,7 @@ ShallowWrapper {
               }
               to="/new"
             >
-              <D2IconButton
-                icon={null}
-                iconColor=""
-                iconStyle={null}
-                onClick={[Function]}
-                style={null}
-              />
+              <AddCircleIcon />
             </Link>
             <_default
               onKeypressEnter={[Function]}
@@ -1478,13 +1292,7 @@ ShallowWrapper {
                 }
                 to="/new"
               >
-                <D2IconButton
-                  icon={null}
-                  iconColor=""
-                  iconStyle={null}
-                  onClick={[Function]}
-                  style={null}
-                />
+                <AddCircleIcon />
               </Link>
               <_default
                 onKeypressEnter={[Function]}
@@ -1530,13 +1338,7 @@ ShallowWrapper {
                   }
                   to="/new"
                 >
-                  <D2IconButton
-                    icon={null}
-                    iconColor=""
-                    iconStyle={null}
-                    onClick={[Function]}
-                    style={null}
-                  />
+                  <AddCircleIcon />
                 </Link>,
                 <_default
                   onKeypressEnter={[Function]}
@@ -1551,13 +1353,7 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "children": <D2IconButton
-                    icon={null}
-                    iconColor=""
-                    iconStyle={null}
-                    onClick={[Function]}
-                    style={null}
-                  />,
+                  "children": <AddCircleIcon />,
                   "replace": false,
                   "style": Object {
                     "display": "inline-block",
@@ -1571,13 +1367,7 @@ ShallowWrapper {
                   "instance": null,
                   "key": undefined,
                   "nodeType": "function",
-                  "props": Object {
-                    "icon": null,
-                    "iconColor": "",
-                    "iconStyle": null,
-                    "onClick": [Function],
-                    "style": null,
-                  },
+                  "props": Object {},
                   "ref": null,
                   "rendered": null,
                   "type": [Function],
@@ -1676,13 +1466,7 @@ ShallowWrapper {
                 }
                 to="/new"
               >
-                <D2IconButton
-                  icon={null}
-                  iconColor=""
-                  iconStyle={null}
-                  onClick={[Function]}
-                  style={null}
-                />
+                <AddCircleIcon />
               </Link>
               <_default
                 onKeypressEnter={[Function]}
@@ -1734,13 +1518,7 @@ ShallowWrapper {
                   }
                   to="/new"
                 >
-                  <D2IconButton
-                    icon={null}
-                    iconColor=""
-                    iconStyle={null}
-                    onClick={[Function]}
-                    style={null}
-                  />
+                  <AddCircleIcon />
                 </Link>
                 <_default
                   onKeypressEnter={[Function]}
@@ -1786,13 +1564,7 @@ ShallowWrapper {
                     }
                     to="/new"
                   >
-                    <D2IconButton
-                      icon={null}
-                      iconColor=""
-                      iconStyle={null}
-                      onClick={[Function]}
-                      style={null}
-                    />
+                    <AddCircleIcon />
                   </Link>,
                   <_default
                     onKeypressEnter={[Function]}
@@ -1807,13 +1579,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": <D2IconButton
-                      icon={null}
-                      iconColor=""
-                      iconStyle={null}
-                      onClick={[Function]}
-                      style={null}
-                    />,
+                    "children": <AddCircleIcon />,
                     "replace": false,
                     "style": Object {
                       "display": "inline-block",
@@ -1827,13 +1593,7 @@ ShallowWrapper {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "function",
-                    "props": Object {
-                      "icon": null,
-                      "iconColor": "",
-                      "iconStyle": null,
-                      "onClick": [Function],
-                      "style": null,
-                    },
+                    "props": Object {},
                     "ref": null,
                     "rendered": null,
                     "type": [Function],
