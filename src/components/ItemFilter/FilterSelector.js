@@ -125,6 +125,7 @@ class FilterSelector extends Component {
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                     onClose={this.closePanel}
                     style={{ height: '100%' }}
+                    container={document.querySelector('#app-wrapper')}
                 >
                     <DimensionsPanel
                         dimensions={dimensions}
