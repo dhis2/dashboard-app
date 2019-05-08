@@ -168,18 +168,21 @@ export class EditBar extends Component {
                                         {i18n.t('Save changes')}
                                     </Button>
                                 </span>
-                                {dashboardId && deleteAccess ? (
+
+                                {dashboardId ? (
                                     <span style={{ marginRight: '15px' }}>
-                                        <Button onClick={this.onConfirmDelete}>
-                                            {i18n.t('Delete')}
+                                        <Button
+                                            onClick={
+                                                this.toggleTranslationDialog
+                                            }
+                                        >
+                                            {i18n.t('Translate')}
                                         </Button>
                                     </span>
                                 ) : null}
-                                {dashboardId ? (
-                                    <Button
-                                        onClick={this.toggleTranslationDialog}
-                                    >
-                                        {i18n.t('Translate')}
+                                {dashboardId && deleteAccess ? (
+                                    <Button onClick={this.onConfirmDelete}>
+                                        {i18n.t('Delete')}
                                     </Button>
                                 ) : null}
                             </div>

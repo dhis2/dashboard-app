@@ -741,12 +741,20 @@ ShallowWrapper {
                   Save changes
                 </Button>
               </span>
-              <Button
-                onClick={[Function]}
-                type="button"
+              <span
+                style={
+                  Object {
+                    "marginRight": "15px",
+                  }
+                }
               >
-                Translate
-              </Button>
+                <Button
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Translate
+                </Button>
+              </span>
             </div>
             <div
               className="right-controls"
@@ -828,12 +836,20 @@ ShallowWrapper {
                   Save changes
                 </Button>
               </span>
-              <Button
-                onClick={[Function]}
-                type="button"
+              <span
+                style={
+                  Object {
+                    "marginRight": "15px",
+                  }
+                }
               >
-                Translate
-              </Button>
+                <Button
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Translate
+                </Button>
+              </span>
             </div>
             <div
               className="right-controls"
@@ -876,12 +892,20 @@ ShallowWrapper {
                     Save changes
                   </Button>
                 </span>
-                <Button
-                  onClick={[Function]}
-                  type="button"
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </Button>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>,
               <div
                 className="right-controls"
@@ -925,13 +949,21 @@ ShallowWrapper {
                       Save changes
                     </Button>
                   </span>,
-                  null,
-                  <Button
-                    onClick={[Function]}
-                    type="button"
+                  <span
+                    style={
+                      Object {
+                        "marginRight": "15px",
+                      }
+                    }
                   >
-                    Translate
-                  </Button>,
+                    <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>
+                  </span>,
+                  null,
                 ],
                 "className": "left-controls",
               },
@@ -970,20 +1002,38 @@ ShallowWrapper {
                   },
                   "type": "span",
                 },
-                null,
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "function",
+                  "nodeType": "host",
                   "props": Object {
-                    "children": "Translate",
-                    "onClick": [Function],
-                    "type": "button",
+                    "children": <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>,
+                    "style": Object {
+                      "marginRight": "15px",
+                    },
                   },
                   "ref": null,
-                  "rendered": "Translate",
-                  "type": [Function],
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": "Translate",
+                      "onClick": [Function],
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": "Translate",
+                    "type": [Function],
+                  },
+                  "type": "span",
                 },
+                null,
               ],
               "type": "div",
             },
@@ -1098,12 +1148,20 @@ ShallowWrapper {
                     Save changes
                   </Button>
                 </span>
-                <Button
-                  onClick={[Function]}
-                  type="button"
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </Button>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>
               <div
                 className="right-controls"
@@ -1185,12 +1243,20 @@ ShallowWrapper {
                     Save changes
                   </Button>
                 </span>
-                <Button
-                  onClick={[Function]}
-                  type="button"
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </Button>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>
               <div
                 className="right-controls"
@@ -1233,12 +1299,20 @@ ShallowWrapper {
                       Save changes
                     </Button>
                   </span>
-                  <Button
-                    onClick={[Function]}
-                    type="button"
+                  <span
+                    style={
+                      Object {
+                        "marginRight": "15px",
+                      }
+                    }
                   >
-                    Translate
-                  </Button>
+                    <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>
+                  </span>
                 </div>,
                 <div
                   className="right-controls"
@@ -1282,13 +1356,21 @@ ShallowWrapper {
                         Save changes
                       </Button>
                     </span>,
-                    null,
-                    <Button
-                      onClick={[Function]}
-                      type="button"
+                    <span
+                      style={
+                        Object {
+                          "marginRight": "15px",
+                        }
+                      }
                     >
-                      Translate
-                    </Button>,
+                      <Button
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Translate
+                      </Button>
+                    </span>,
+                    null,
                   ],
                   "className": "left-controls",
                 },
@@ -1327,20 +1409,38 @@ ShallowWrapper {
                     },
                     "type": "span",
                   },
-                  null,
                   Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "host",
                     "props": Object {
-                      "children": "Translate",
-                      "onClick": [Function],
-                      "type": "button",
+                      "children": <Button
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Translate
+                      </Button>,
+                      "style": Object {
+                        "marginRight": "15px",
+                      },
                     },
                     "ref": null,
-                    "rendered": "Translate",
-                    "type": [Function],
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "children": "Translate",
+                        "onClick": [Function],
+                        "type": "button",
+                      },
+                      "ref": null,
+                      "rendered": "Translate",
+                      "type": [Function],
+                    },
+                    "type": "span",
                   },
+                  null,
                 ],
                 "type": "div",
               },
@@ -1513,12 +1613,20 @@ ShallowWrapper {
                   Save changes
                 </Button>
               </span>
-              <Button
-                onClick={[Function]}
-                type="button"
+              <span
+                style={
+                  Object {
+                    "marginRight": "15px",
+                  }
+                }
               >
-                Translate
-              </Button>
+                <Button
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Translate
+                </Button>
+              </span>
             </div>
             <div
               className="right-controls"
@@ -1600,12 +1708,20 @@ ShallowWrapper {
                   Save changes
                 </Button>
               </span>
-              <Button
-                onClick={[Function]}
-                type="button"
+              <span
+                style={
+                  Object {
+                    "marginRight": "15px",
+                  }
+                }
               >
-                Translate
-              </Button>
+                <Button
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Translate
+                </Button>
+              </span>
             </div>
             <div
               className="right-controls"
@@ -1648,12 +1764,20 @@ ShallowWrapper {
                     Save changes
                   </Button>
                 </span>
-                <Button
-                  onClick={[Function]}
-                  type="button"
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </Button>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>,
               <div
                 className="right-controls"
@@ -1697,13 +1821,21 @@ ShallowWrapper {
                       Save changes
                     </Button>
                   </span>,
-                  null,
-                  <Button
-                    onClick={[Function]}
-                    type="button"
+                  <span
+                    style={
+                      Object {
+                        "marginRight": "15px",
+                      }
+                    }
                   >
-                    Translate
-                  </Button>,
+                    <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>
+                  </span>,
+                  null,
                 ],
                 "className": "left-controls",
               },
@@ -1742,20 +1874,38 @@ ShallowWrapper {
                   },
                   "type": "span",
                 },
-                null,
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "function",
+                  "nodeType": "host",
                   "props": Object {
-                    "children": "Translate",
-                    "onClick": [Function],
-                    "type": "button",
+                    "children": <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>,
+                    "style": Object {
+                      "marginRight": "15px",
+                    },
                   },
                   "ref": null,
-                  "rendered": "Translate",
-                  "type": [Function],
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": "Translate",
+                      "onClick": [Function],
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": "Translate",
+                    "type": [Function],
+                  },
+                  "type": "span",
                 },
+                null,
               ],
               "type": "div",
             },
@@ -1870,12 +2020,20 @@ ShallowWrapper {
                     Save changes
                   </Button>
                 </span>
-                <Button
-                  onClick={[Function]}
-                  type="button"
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </Button>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>
               <div
                 className="right-controls"
@@ -1957,12 +2115,20 @@ ShallowWrapper {
                     Save changes
                   </Button>
                 </span>
-                <Button
-                  onClick={[Function]}
-                  type="button"
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </Button>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>
               <div
                 className="right-controls"
@@ -2005,12 +2171,20 @@ ShallowWrapper {
                       Save changes
                     </Button>
                   </span>
-                  <Button
-                    onClick={[Function]}
-                    type="button"
+                  <span
+                    style={
+                      Object {
+                        "marginRight": "15px",
+                      }
+                    }
                   >
-                    Translate
-                  </Button>
+                    <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>
+                  </span>
                 </div>,
                 <div
                   className="right-controls"
@@ -2054,13 +2228,21 @@ ShallowWrapper {
                         Save changes
                       </Button>
                     </span>,
-                    null,
-                    <Button
-                      onClick={[Function]}
-                      type="button"
+                    <span
+                      style={
+                        Object {
+                          "marginRight": "15px",
+                        }
+                      }
                     >
-                      Translate
-                    </Button>,
+                      <Button
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Translate
+                      </Button>
+                    </span>,
+                    null,
                   ],
                   "className": "left-controls",
                 },
@@ -2099,20 +2281,38 @@ ShallowWrapper {
                     },
                     "type": "span",
                   },
-                  null,
                   Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "host",
                     "props": Object {
-                      "children": "Translate",
-                      "onClick": [Function],
-                      "type": "button",
+                      "children": <Button
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Translate
+                      </Button>,
+                      "style": Object {
+                        "marginRight": "15px",
+                      },
                     },
                     "ref": null,
-                    "rendered": "Translate",
-                    "type": [Function],
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "children": "Translate",
+                        "onClick": [Function],
+                        "type": "button",
+                      },
+                      "ref": null,
+                      "rendered": "Translate",
+                      "type": [Function],
+                    },
+                    "type": "span",
                   },
+                  null,
                 ],
                 "type": "div",
               },
@@ -2285,12 +2485,20 @@ ShallowWrapper {
                   Save changes
                 </Button>
               </span>
-              <Button
-                onClick={[Function]}
-                type="button"
+              <span
+                style={
+                  Object {
+                    "marginRight": "15px",
+                  }
+                }
               >
-                Translate
-              </Button>
+                <Button
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Translate
+                </Button>
+              </span>
             </div>
             <div
               className="right-controls"
@@ -2372,12 +2580,20 @@ ShallowWrapper {
                   Save changes
                 </Button>
               </span>
-              <Button
-                onClick={[Function]}
-                type="button"
+              <span
+                style={
+                  Object {
+                    "marginRight": "15px",
+                  }
+                }
               >
-                Translate
-              </Button>
+                <Button
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Translate
+                </Button>
+              </span>
             </div>
             <div
               className="right-controls"
@@ -2420,12 +2636,20 @@ ShallowWrapper {
                     Save changes
                   </Button>
                 </span>
-                <Button
-                  onClick={[Function]}
-                  type="button"
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </Button>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>,
               <div
                 className="right-controls"
@@ -2469,13 +2693,21 @@ ShallowWrapper {
                       Save changes
                     </Button>
                   </span>,
-                  null,
-                  <Button
-                    onClick={[Function]}
-                    type="button"
+                  <span
+                    style={
+                      Object {
+                        "marginRight": "15px",
+                      }
+                    }
                   >
-                    Translate
-                  </Button>,
+                    <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>
+                  </span>,
+                  null,
                 ],
                 "className": "left-controls",
               },
@@ -2514,20 +2746,38 @@ ShallowWrapper {
                   },
                   "type": "span",
                 },
-                null,
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "function",
+                  "nodeType": "host",
                   "props": Object {
-                    "children": "Translate",
-                    "onClick": [Function],
-                    "type": "button",
+                    "children": <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>,
+                    "style": Object {
+                      "marginRight": "15px",
+                    },
                   },
                   "ref": null,
-                  "rendered": "Translate",
-                  "type": [Function],
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": "Translate",
+                      "onClick": [Function],
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": "Translate",
+                    "type": [Function],
+                  },
+                  "type": "span",
                 },
+                null,
               ],
               "type": "div",
             },
@@ -2642,12 +2892,20 @@ ShallowWrapper {
                     Save changes
                   </Button>
                 </span>
-                <Button
-                  onClick={[Function]}
-                  type="button"
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </Button>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>
               <div
                 className="right-controls"
@@ -2729,12 +2987,20 @@ ShallowWrapper {
                     Save changes
                   </Button>
                 </span>
-                <Button
-                  onClick={[Function]}
-                  type="button"
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </Button>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>
               <div
                 className="right-controls"
@@ -2777,12 +3043,20 @@ ShallowWrapper {
                       Save changes
                     </Button>
                   </span>
-                  <Button
-                    onClick={[Function]}
-                    type="button"
+                  <span
+                    style={
+                      Object {
+                        "marginRight": "15px",
+                      }
+                    }
                   >
-                    Translate
-                  </Button>
+                    <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>
+                  </span>
                 </div>,
                 <div
                   className="right-controls"
@@ -2826,13 +3100,21 @@ ShallowWrapper {
                         Save changes
                       </Button>
                     </span>,
-                    null,
-                    <Button
-                      onClick={[Function]}
-                      type="button"
+                    <span
+                      style={
+                        Object {
+                          "marginRight": "15px",
+                        }
+                      }
                     >
-                      Translate
-                    </Button>,
+                      <Button
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Translate
+                      </Button>
+                    </span>,
+                    null,
                   ],
                   "className": "left-controls",
                 },
@@ -2871,20 +3153,38 @@ ShallowWrapper {
                     },
                     "type": "span",
                   },
-                  null,
                   Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "host",
                     "props": Object {
-                      "children": "Translate",
-                      "onClick": [Function],
-                      "type": "button",
+                      "children": <Button
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Translate
+                      </Button>,
+                      "style": Object {
+                        "marginRight": "15px",
+                      },
                     },
                     "ref": null,
-                    "rendered": "Translate",
-                    "type": [Function],
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "children": "Translate",
+                        "onClick": [Function],
+                        "type": "button",
+                      },
+                      "ref": null,
+                      "rendered": "Translate",
+                      "type": [Function],
+                    },
+                    "type": "span",
                   },
+                  null,
                 ],
                 "type": "div",
               },
@@ -3070,14 +3370,14 @@ ShallowWrapper {
                   onClick={[Function]}
                   type="button"
                 >
-                  Delete
+                  Translate
                 </Button>
               </span>
               <Button
                 onClick={[Function]}
                 type="button"
               >
-                Translate
+                Delete
               </Button>
             </div>
             <div
@@ -3147,14 +3447,14 @@ ShallowWrapper {
                   onClick={[Function]}
                   type="button"
                 >
-                  Delete
+                  Translate
                 </Button>
               </span>
               <Button
                 onClick={[Function]}
                 type="button"
               >
-                Translate
+                Delete
               </Button>
             </div>
             <div
@@ -3209,14 +3509,14 @@ ShallowWrapper {
                     onClick={[Function]}
                     type="button"
                   >
-                    Delete
+                    Translate
                   </Button>
                 </span>
                 <Button
                   onClick={[Function]}
                   type="button"
                 >
-                  Translate
+                  Delete
                 </Button>
               </div>,
               <div
@@ -3272,14 +3572,14 @@ ShallowWrapper {
                       onClick={[Function]}
                       type="button"
                     >
-                      Delete
+                      Translate
                     </Button>
                   </span>,
                   <Button
                     onClick={[Function]}
                     type="button"
                   >
-                    Translate
+                    Delete
                   </Button>,
                 ],
                 "className": "left-controls",
@@ -3328,7 +3628,7 @@ ShallowWrapper {
                       onClick={[Function]}
                       type="button"
                     >
-                      Delete
+                      Translate
                     </Button>,
                     "style": Object {
                       "marginRight": "15px",
@@ -3340,12 +3640,12 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "function",
                     "props": Object {
-                      "children": "Delete",
+                      "children": "Translate",
                       "onClick": [Function],
                       "type": "button",
                     },
                     "ref": null,
-                    "rendered": "Delete",
+                    "rendered": "Translate",
                     "type": [Function],
                   },
                   "type": "span",
@@ -3355,12 +3655,12 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "function",
                   "props": Object {
-                    "children": "Translate",
+                    "children": "Delete",
                     "onClick": [Function],
                     "type": "button",
                   },
                   "ref": null,
-                  "rendered": "Translate",
+                  "rendered": "Delete",
                   "type": [Function],
                 },
               ],
@@ -3471,14 +3771,14 @@ ShallowWrapper {
                     onClick={[Function]}
                     type="button"
                   >
-                    Delete
+                    Translate
                   </Button>
                 </span>
                 <Button
                   onClick={[Function]}
                   type="button"
                 >
-                  Translate
+                  Delete
                 </Button>
               </div>
               <div
@@ -3548,14 +3848,14 @@ ShallowWrapper {
                     onClick={[Function]}
                     type="button"
                   >
-                    Delete
+                    Translate
                   </Button>
                 </span>
                 <Button
                   onClick={[Function]}
                   type="button"
                 >
-                  Translate
+                  Delete
                 </Button>
               </div>
               <div
@@ -3610,14 +3910,14 @@ ShallowWrapper {
                       onClick={[Function]}
                       type="button"
                     >
-                      Delete
+                      Translate
                     </Button>
                   </span>
                   <Button
                     onClick={[Function]}
                     type="button"
                   >
-                    Translate
+                    Delete
                   </Button>
                 </div>,
                 <div
@@ -3673,14 +3973,14 @@ ShallowWrapper {
                         onClick={[Function]}
                         type="button"
                       >
-                        Delete
+                        Translate
                       </Button>
                     </span>,
                     <Button
                       onClick={[Function]}
                       type="button"
                     >
-                      Translate
+                      Delete
                     </Button>,
                   ],
                   "className": "left-controls",
@@ -3729,7 +4029,7 @@ ShallowWrapper {
                         onClick={[Function]}
                         type="button"
                       >
-                        Delete
+                        Translate
                       </Button>,
                       "style": Object {
                         "marginRight": "15px",
@@ -3741,12 +4041,12 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "function",
                       "props": Object {
-                        "children": "Delete",
+                        "children": "Translate",
                         "onClick": [Function],
                         "type": "button",
                       },
                       "ref": null,
-                      "rendered": "Delete",
+                      "rendered": "Translate",
                       "type": [Function],
                     },
                     "type": "span",
@@ -3756,12 +4056,12 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "function",
                     "props": Object {
-                      "children": "Translate",
+                      "children": "Delete",
                       "onClick": [Function],
                       "type": "button",
                     },
                     "ref": null,
-                    "rendered": "Translate",
+                    "rendered": "Delete",
                     "type": [Function],
                   },
                 ],
