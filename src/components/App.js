@@ -30,7 +30,7 @@ export class App extends Component {
 
     render() {
         return (
-            <div className="app-wrapper" id="app-wrapper">
+            <div className="app-wrapper">
                 <div className="dashboard-header-bar">
                     <HeaderBar appName={i18n.t('Dashboard')} />
                 </div>
