@@ -124,7 +124,7 @@ class FilterSelector extends Component {
                     anchorEl={this.state.anchorEl}
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                     onClose={this.closePanel}
-                    style={{ height: '100%' }}
+                    style={{ height: '100%', fontFamily: 'Roboto' }}
                 >
                     <DimensionsPanel
                         dimensions={dimensions}
