@@ -41,7 +41,7 @@ const ListItem = (props, context) => {
                     contentItem
                 )}
             >
-                <DeleteIcon style={{ verticalAlign: 'bottom' }} />
+                <DeleteIcon className={classes.deleteicon} />
             </button>
         );
 
