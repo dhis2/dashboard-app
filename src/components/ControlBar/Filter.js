@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from 'react';
-import i18n from '@dhis2/d2-i18n';
 import PropTypes from 'prop-types';
-import TextField from 'material-ui/TextField';
-import IconButton from 'material-ui/IconButton';
-import IconClear from '@material-ui/icons/Clear';
-import isEmpty from 'd2-utilizr/lib/isEmpty';
+import { withStyles } from '@material-ui/core/styles';
+import i18n from '@dhis2/d2-i18n';
+import InputField from '@material-ui/core/Input';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import SearchIcon from '@material-ui/icons/Search';
+import { colors } from '@dhis2/ui-core';
 
+import ClearButton from './ClearButton';
 import { DEFAULT_STATE_DASHBOARDS_FILTER_NAME } from '../../reducers/dashboardsFilter';
 
 export const KEYCODE_ENTER = 13;
@@ -16,29 +18,12 @@ const styles = {
         fontSize: '14px',
         width: '200px',
         height: '30px',
-        top: '-1px',
+        top: '-4px',
     },
-    filterFieldInput: {
-        top: '-9px',
-        left: '1px',
-    },
-    filterFieldUnderline: {
-        bottom: '10px',
-    },
-    filterFieldUnderlineFocus: {
-        borderColor: '#aaa',
-        borderWidth: '1px',
-    },
-    clearButton: {
+    searchIcon: {
+        color: colors.grey700,
         width: '20px',
-        height: '24px',
-        padding: 0,
-        top: '-5px',
-        left: '-18px',
-    },
-    clearButtonIcon: {
-        width: '16px',
-        height: '16px',
+        height: '20px',
     },
 };
 
@@ -77,19 +62,32 @@ export class Filter extends Component {
     };
 
     render() {
+        const { classes } = this.props;
+
+        const startAdornment = (
+            <InputAdornment position="start">
+                <SearchIcon className={classes.searchIcon} />
+            </InputAdornment>
+        );
+
+        const endAdornment = (
+            <InputAdornment position="end">
+                <ClearButton {...this.props} />
+            </InputAdornment>
+        );
+
         return (
-            <TextField
-                className="FilterField"
-                value={this.state.value}
-                onChange={this.setFilterValue}
-                onKeyUp={this.handleKeyUp}
-                hintText={i18n.t('Search for a dashboard')}
-                style={styles.filterField}
-                inputStyle={styles.filterFieldInput}
-                hintStyle={styles.filterFieldHint}
-                underlineStyle={styles.filterFieldUnderline}
-                underlineFocusStyle={styles.filterFieldUnderlineFocus}
-            />
+            <Fragment>
+                <InputField
+                    placeholder={i18n.t('Search for a dashboard')}
+                    className={classes.filterField}
+                    startAdornment={startAdornment}
+                    endAdornment={endAdornment}
+                    value={this.state.value}
+                    onChange={this.setFilterValue}
+                    onKeyUp={this.handleKeyUp}
+                />
+            </Fragment>
         );
     }
 }
@@ -104,33 +102,4 @@ Filter.defaultProps = {
     onChangeName: Function.prototype,
 };
 
-export const ClearButton = ({ name, onChangeName }) => {
-    const disabled = isEmpty(name);
-
-    const clearFilter = () => onChangeName();
-
-    return (
-        <IconButton
-            style={Object.assign({}, styles.clearButton, {
-                opacity: disabled ? 0 : 1,
-            })}
-            iconStyle={styles.clearButtonIcon}
-            onClick={clearFilter}
-            disabled={disabled}
-        >
-            <IconClear color="action" />
-        </IconButton>
-    );
-};
-
-ClearButton.propTypes = {
-    name: PropTypes.string.isRequired,
-    onChangeName: PropTypes.func.isRequired,
-};
-
-export default props => (
-    <Fragment>
-        <Filter {...props} />
-        <ClearButton {...props} />
-    </Fragment>
-);
+export default withStyles(styles)(Filter);

@@ -27,7 +27,7 @@ import {
 } from './controlBarDimensions';
 import { apiFetchDashboard } from '../../api/dashboards';
 
-import './ControlBar.css';
+import './styles/ControlBar.css';
 
 const buttonBarStyle = {
     height: CONTROL_BAR_ROW_HEIGHT,

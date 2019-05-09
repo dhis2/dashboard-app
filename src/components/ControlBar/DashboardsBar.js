@@ -24,7 +24,7 @@ import { acSetFilterName } from '../../actions/dashboardsFilter';
 import { orObject, orArray } from '../../modules/util';
 import { apiPostControlBarRows } from '../../api/controlBar';
 
-import './ControlBar.css';
+import './styles/ControlBar.css';
 
 export const MAX_ROW_COUNT = 10;
 
