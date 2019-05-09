@@ -2,14 +2,11 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { colors } from '@dhis2/ui-core';
+import DescriptionIcon from '../../../icons/Description';
 
 import DeleteIcon from '../../../icons/Delete';
 import Line from '../../../widgets/Line';
-import {
-    itemTypeMap,
-    getItemUrl,
-    getItemIcon,
-} from '../../../modules/itemTypes';
+import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes';
 import { orArray } from '../../../modules/util';
 import { tRemoveListItemContent } from './actions';
 import ItemHeader from '../ItemHeader';
@@ -59,8 +56,6 @@ const ListItem = (props, context) => {
         );
     };
 
-    const ItemIcon = getItemIcon(item.type);
-
     return (
         <Fragment>
             <ItemHeader title={getItemTitle(item)} />
@@ -69,7 +64,7 @@ const ListItem = (props, context) => {
                 <ul className={classes.list}>
                     {contentItems.map(contentItem => (
                         <li className={classes.item} key={contentItem.id}>
-                            <ItemIcon className={classes.itemicon} />
+                            <DescriptionIcon className={classes.itemicon} />
                             {getLink(contentItem)}
                         </li>
                     ))}

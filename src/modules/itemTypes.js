@@ -3,7 +3,7 @@ import TableIcon from '@material-ui/icons/ViewList';
 import ChartIcon from '@material-ui/icons/InsertChart';
 import MapIcon from '@material-ui/icons/Public';
 import ExtensionIcon from '@material-ui/icons/Extension';
-import DescriptionIcon from '../icons/Description';
+import DescriptionIcon from '@material-ui/icons/Description';
 import PersonIcon from '@material-ui/icons/Person';
 import FontDownloadIcon from '@material-ui/icons/FontDownload';
 import EmailIcon from '@material-ui/icons/Email';
