@@ -1,0 +1,36 @@
+.list {
+    margin-top: 10px;
+}
+
+.item {
+    margin-bottom: 8px;
+}
+
+.itemicon {
+    vertical-align: text-bottom;
+    width: 18px;
+    height: 18px;
+}
+
+.link {
+    font-size: 14px;
+    margin-left: 5px;
+    text-decoration: underline;
+}
+
+.deleteicon {
+    vertical-align: text-bottom;
+}
+
+.deletebutton {
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 5px;
+    padding: 0px 5px;
+    vertical-align: text-bottom;
+}
+
+.deletebutton:focus {
+    outline: none;
+}

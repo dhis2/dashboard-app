@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import Popover from '@material-ui/core/Popover';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import { withTheme } from '@material-ui/core/styles';
 
 import i18n from '@dhis2/d2-i18n';
 import { DimensionsPanel } from '@dhis2/d2-ui-analytics';
@@ -106,6 +107,7 @@ class FilterSelector extends Component {
 
     render() {
         const {
+            theme,
             displayNameProperty,
             dimension,
             dimensions,
@@ -124,7 +126,10 @@ class FilterSelector extends Component {
                     anchorEl={this.state.anchorEl}
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                     onClose={this.closePanel}
-                    style={{ height: '100%' }}
+                    style={{
+                        height: '100%',
+                        fontFamily: theme.typography.fontFamily,
+                    }}
                 >
                     <DimensionsPanel
                         dimensions={dimensions}
@@ -167,4 +172,4 @@ export default connect(
         removeEditItemFilter: acRemoveEditItemFilter,
         setEditItemFilters: acSetEditItemFilters,
     }
-)(FilterSelector);
+)(withTheme()(FilterSelector));

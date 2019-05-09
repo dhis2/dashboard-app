@@ -977,10 +977,10 @@
   dependencies:
     i18next "^10.3"
 
-"@dhis2/d2-ui-analytics@^1.0.0":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-analytics/-/d2-ui-analytics-1.0.1.tgz#af33771c203c3c4125cdf7327031b5b5f6599a92"
-  integrity sha512-gEASO8FC5e/uFgIjANfaz8xeB/RyUvklt4Gc1klivy7qzzqevcieJwZtxPReKAnd1wVj849cF3ZAoBC5J0bdIA==
+"@dhis2/d2-ui-analytics@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-analytics/-/d2-ui-analytics-1.0.3.tgz#93234b179fbfb37c1300c364b7cd032215043baa"
+  integrity sha512-O9IjAJH7nyMGjtcKUHz+MgqMyALJOVXgYcwu86sx8zQ0JNCddySx4FgiYobSV2kf5Uzfad+Q7iOBL4OzgB7+mQ==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^5.3.10"
@@ -992,10 +992,10 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/d2-ui-analytics@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-analytics/-/d2-ui-analytics-1.0.2.tgz#fdd3f105695db91e8fc04b4aaa1f311ac0de060e"
-  integrity sha512-kEgXw5ha8rNpbtobjINVSf3dh4DgKD4wLABMjFTNdyUL2x1x0W5UzRJfUz07+TFr+AZ44NFrdTJr2JM5yP4TKA==
+"@dhis2/d2-ui-analytics@^1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-analytics/-/d2-ui-analytics-1.0.1.tgz#af33771c203c3c4125cdf7327031b5b5f6599a92"
+  integrity sha512-gEASO8FC5e/uFgIjANfaz8xeB/RyUvklt4Gc1klivy7qzzqevcieJwZtxPReKAnd1wVj849cF3ZAoBC5J0bdIA==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^5.3.10"
