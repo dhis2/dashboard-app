@@ -27,7 +27,7 @@ const styles = {
         fill: colors.white,
     },
     unselected: {
-        fill: colors.grey900,
+        fill: colors.grey700,
     },
 };
 
