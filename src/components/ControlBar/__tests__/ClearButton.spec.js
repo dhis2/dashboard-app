@@ -14,7 +14,7 @@ describe('ClearButton', () => {
 
     beforeEach(() => {
         props = {
-            onChange: jest.fn(),
+            onClear: jest.fn(),
         };
         shallowClearButton = undefined;
     });
@@ -23,10 +23,10 @@ describe('ClearButton', () => {
         expect(clearButton().find('button').length).toBeGreaterThan(0);
     });
 
-    it('triggers onChange when clicked', () => {
+    it('triggers onClear when clicked', () => {
         clearButton()
             .find('button')
             .simulate('click');
-        expect(props.onChange).toHaveBeenCalled();
+        expect(props.onClear).toHaveBeenCalled();
     });
 });

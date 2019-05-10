@@ -27,7 +27,7 @@ ShallowWrapper {
         position="end"
       >
         <ClearButton
-          onChange={[MockFunction]}
+          onClear={[Function]}
         />
       </WithStyles(WithFormControlContext(InputAdornment))>,
       "onChange": [Function],
@@ -55,7 +55,7 @@ ShallowWrapper {
           position="end"
         >
           <ClearButton
-            onChange={[MockFunction]}
+            onClear={[Function]}
           />
         </WithStyles(WithFormControlContext(InputAdornment))>,
         "onChange": [Function],

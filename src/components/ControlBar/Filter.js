@@ -73,7 +73,7 @@ export class Filter extends Component {
         const endAdornment =
             name !== '' && name !== null ? (
                 <InputAdornment position="end">
-                    <ClearButton onChange={onChangeName} />
+                    <ClearButton onClear={() => onChangeName()} />
                 </InputAdornment>
             ) : null;
 
