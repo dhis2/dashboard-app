@@ -1,7 +1,6 @@
 import React from 'react';
-import { colors } from '@dhis2/ui-core';
 
-const DeleteIcon = ({ className }) => (
+const StarIcon = ({ className }) => (
     <svg
         className={className}
         xmlns="http://www.w3.org/2000/svg"
@@ -13,4 +12,4 @@ const DeleteIcon = ({ className }) => (
     </svg>
 );
 
-export default DeleteIcon;
+export default StarIcon;
