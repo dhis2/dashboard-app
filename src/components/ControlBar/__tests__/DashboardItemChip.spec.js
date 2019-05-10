@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Chip } from '@dhis2/ui-core';
 import { DashboardItemChip } from '../DashboardItemChip';
-// import { getStubContext } from '../../../setupTests';
 
 describe('DashboardItemChip', () => {
     const defaultProps = {
