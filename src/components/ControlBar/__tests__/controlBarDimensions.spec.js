@@ -11,7 +11,7 @@ jest.mock('@dhis2/d2-ui-core/control-bar/ControlBar', () => ({
 describe('controlBarDimensions', () => {
     describe('getRowsHeight', () => {
         it('calculates the inner height', () => {
-            expect(getRowsHeight(2)).toEqual(72);
+            expect(getRowsHeight(2)).toEqual(80);
         });
     });
 

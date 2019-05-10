@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { Chip } from '@dhis2/ui-core';
-import IconStar from '@material-ui/icons/Star';
+import { Chip, colors } from '@dhis2/ui-core';
 import { Link } from 'react-router-dom';
 import debounce from 'lodash/debounce';
 
-import { colors } from '../../modules/colors';
+import StarIcon from '../../icons/Star';
 import { apiPostDataStatistics } from '../../api/dataStatistics';
 
 const styles = {
@@ -14,14 +13,25 @@ const styles = {
         margin: '3px',
     },
     link: {
+        color: colors.grey600,
         display: 'inline-block',
-        verticalAlign: 'top',
         textDecoration: 'none',
-        color: colors.mediumGrey,
+        verticalAlign: 'top',
+    },
+    icon: {
+        height: '20px',
+        marginTop: '2px',
+        width: '20px',
+    },
+    selected: {
+        fill: colors.white,
+    },
+    unselected: {
+        fill: colors.grey900,
     },
 };
 
-const DashboardItemChip = ({
+export const DashboardItemChip = ({
     starred,
     selected,
     label,
@@ -29,13 +39,15 @@ const DashboardItemChip = ({
     classes,
 }) => {
     const chipProps = {
-        label,
         selected,
         className: classes.chip,
     };
 
     if (starred) {
-        chipProps.icon = <IconStar fontSize="small" />;
+        const selectedState = selected ? classes.selected : classes.unselected;
+        chipProps.icon = (
+            <StarIcon className={`${classes.icon} ${selectedState}`} />
+        );
     }
 
     return (
@@ -47,7 +59,7 @@ const DashboardItemChip = ({
                 500
             )}
         >
-            <Chip {...chipProps} />
+            <Chip {...chipProps}>{label}</Chip>
         </Link>
     );
 };
