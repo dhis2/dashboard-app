@@ -1,4 +1,4 @@
-.clearbutton {
+.button {
     border: none;
     border-radius: 50%;
     cursor: pointer;
@@ -9,6 +9,12 @@
     height: 20px;
 }
 
-.clearbutton:focus {
+.button:focus {
     outline: none;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    margin-top: 4px;
 }
