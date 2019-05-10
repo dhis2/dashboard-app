@@ -1,0 +1,20 @@
+.button {
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 5px;
+    padding: 0px 5px;
+    vertical-align: text-bottom;
+    width: 20px;
+    height: 20px;
+}
+
+.button:focus {
+    outline: none;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    margin-top: 4px;
+}

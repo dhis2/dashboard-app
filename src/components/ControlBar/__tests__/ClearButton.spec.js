@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import IconButton from 'material-ui/IconButton';
-import { ClearButton } from '../Filter';
+import { ClearButton } from '../ClearButton';
 
 describe('ClearButton', () => {
     let props;
@@ -15,37 +14,19 @@ describe('ClearButton', () => {
 
     beforeEach(() => {
         props = {
-            name: '',
-            onChangeName: jest.fn(),
+            onClear: jest.fn(),
         };
         shallowClearButton = undefined;
     });
 
-    it('renders an IconButton', () => {
-        expect(clearButton().find(IconButton).length).toBeGreaterThan(0);
+    it('renders a button', () => {
+        expect(clearButton().find('button').length).toBeGreaterThan(0);
     });
 
-    it('renders a disabled button when no name property', () => {
-        expect(
-            clearButton()
-                .find(IconButton)
-                .props().disabled
-        ).toEqual(true);
-    });
-
-    it('renders an enabled button when name property contains non-empty value', () => {
-        props.name = 'fluttershy';
-        expect(
-            clearButton()
-                .find(IconButton)
-                .props().disabled
-        ).toEqual(false);
-    });
-
-    it('triggers onChangeName when clicked', () => {
+    it('triggers onClear when clicked', () => {
         clearButton()
-            .find(IconButton)
+            .find('button')
             .simulate('click');
-        expect(props.onChangeName).toHaveBeenCalled();
+        expect(props.onClear).toHaveBeenCalled();
     });
 });
