@@ -1,74 +1,65 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MuiChip from 'material-ui/Chip';
-import Avatar from 'material-ui/Avatar';
-import IconStar from '@material-ui/icons/Star';
+import { withStyles } from '@material-ui/core/styles';
+import { Chip, colors } from '@dhis2/ui-core';
 import { Link } from 'react-router-dom';
 import debounce from 'lodash/debounce';
 
-import { colors } from '../../modules/colors';
+import StarIcon from '../../icons/Star';
 import { apiPostDataStatistics } from '../../api/dataStatistics';
 
-const chipTheme = {
-    default: {
-        labelColor: colors.black,
-        backgroundColor: colors.lightGrey,
+const styles = {
+    chip: {
+        margin: '3px',
     },
-    primary: {
-        labelColor: colors.black,
-        backgroundColor: colors.lightGrey,
+    link: {
+        color: colors.grey600,
+        display: 'inline-block',
+        textDecoration: 'none',
+        verticalAlign: 'top',
     },
-    accent: {
-        labelColor: colors.white,
-        backgroundColor: colors.mediumGreen,
+    icon: {
+        height: '20px',
+        marginTop: '2px',
+        width: '20px',
+    },
+    selected: {
+        fill: colors.white,
+    },
+    unselected: {
+        fill: colors.grey700,
     },
 };
 
-const d = '30px';
-
-const avatar = selected => {
-    const avatarProps = {
-        color: colors.white,
-        backgroundColor: selected ? 'transparent' : colors.lightMediumGrey,
-        style: { height: d, width: d },
+export const DashboardItemChip = ({
+    starred,
+    selected,
+    label,
+    dashboardId,
+    classes,
+}) => {
+    const chipProps = {
+        selected,
+        className: classes.chip,
     };
 
-    return <Avatar icon={<IconStar />} {...avatarProps} />;
-};
-
-const DashboardItemChip = ({ starred, selected, label, dashboardId }) => {
-    const chipColorProps = selected
-        ? chipTheme.accent
-        : starred
-        ? chipTheme.primary
-        : chipTheme.default;
-
-    const labelStyle = { fontSize: '14px', fontWeight: 400, lineHeight: d };
-    const style = { margin: 3, height: d, cursor: 'pointer' };
-
-    const props = {
-        style,
-        labelStyle,
-        ...chipColorProps,
-    };
+    if (starred) {
+        const selectedState = selected ? classes.selected : classes.unselected;
+        chipProps.icon = (
+            <StarIcon className={`${classes.icon} ${selectedState}`} />
+        );
+    }
 
     return (
         <Link
-            style={{
-                display: 'inline-block',
-                verticalAlign: 'top',
-                textDecoration: 'none',
-            }}
+            className={classes.link}
             to={`/${dashboardId}`}
             onClick={debounce(
                 () => apiPostDataStatistics('DASHBOARD_VIEW', dashboardId),
                 500
             )}
         >
-            <MuiChip {...props}>
-                {starred ? avatar(selected) : null}
-                {label}
-            </MuiChip>
+            <Chip {...chipProps}>{label}</Chip>
         </Link>
     );
 };
@@ -77,6 +68,7 @@ DashboardItemChip.propTypes = {
     starred: PropTypes.bool.isRequired,
     selected: PropTypes.bool.isRequired,
     label: PropTypes.string.isRequired,
+    dashboardId: PropTypes.string.isRequired,
 };
 
-export default DashboardItemChip;
+export default withStyles(styles)(DashboardItemChip);
