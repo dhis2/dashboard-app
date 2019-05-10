@@ -5,22 +5,25 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-04-08T11:33:46.174Z\n"
-"PO-Revision-Date: 2019-04-08T11:33:46.174Z\n"
+"POT-Creation-Date: 2019-05-07T10:46:49.139Z\n"
+"PO-Revision-Date: 2019-05-07T10:46:49.139Z\n"
 
 msgid "Dashboard"
+msgstr ""
+
+msgid "Cancel"
 msgstr ""
 
 msgid "Delete"
 msgstr ""
 
-msgid "Continue editing"
+msgid "Delete dashboard"
 msgstr ""
 
-msgid "Confirm delete dashboard"
-msgstr ""
-
-msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
 msgstr ""
 
 msgid "Exit without saving"
@@ -83,9 +86,6 @@ msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "No data to display"
-msgstr ""
-
-msgid "Cancel"
 msgstr ""
 
 msgid "Confirm"

@@ -16,7 +16,7 @@ const styles = {
         fontSize: '14px',
         width: '200px',
         height: '30px',
-        top: '-2px',
+        top: '-1px',
     },
     filterFieldInput: {
         top: '-9px',

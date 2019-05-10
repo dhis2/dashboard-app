@@ -1,24 +1,18 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { List, ListItem as MUIListItem } from 'material-ui/List';
-import IconButton from 'material-ui/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { colors } from '@dhis2/ui-core';
+import DescriptionIcon from '../../../icons/Description';
 
+import DeleteIcon from '../../../icons/Delete';
 import Line from '../../../widgets/Line';
-import {
-    itemTypeMap,
-    getItemUrl,
-    getItemIcon,
-} from '../../../modules/itemTypes';
+import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes';
 import { orArray } from '../../../modules/util';
 import { tRemoveListItemContent } from './actions';
-import { colors } from '../../../modules/colors';
 import ItemHeader from '../ItemHeader';
+import classes from './Item.module.css';
 
-const getItemTitle = item => {
-    return itemTypeMap[item.type].pluralTitle;
-};
+const getItemTitle = item => itemTypeMap[item.type].pluralTitle;
 
 const getContentItems = item =>
     orArray(item[itemTypeMap[item.type].propName]).filter(
@@ -32,63 +26,50 @@ const removeContent = (handler, item, contentToRemove) => () => {
 
 const ListItem = (props, context) => {
     const { item, editMode, tRemoveListItemContent } = props;
-
-    // avoid showing duplicates
     const contentItems = getContentItems(item);
 
-    const primaryText = contentItem => {
+    const getLink = contentItem => {
         const deleteButton = (
-            <IconButton
-                style={{
-                    verticalAlign: 'text-bottom',
-                    padding: '0 12px',
-                    height: 20,
-                }}
-                iconStyle={{
-                    width: 20,
-                    height: 20,
-                    fill: colors.red,
-                }}
+            <button
+                className={classes.deletebutton}
                 onClick={removeContent(
                     tRemoveListItemContent,
                     item,
                     contentItem
                 )}
             >
-                <DeleteIcon />
-            </IconButton>
+                <DeleteIcon className={classes.deleteicon} />
+            </button>
         );
 
         return (
-            <div>
+            <Fragment>
                 <a
-                    style={{ textDecoration: 'none' }}
+                    className={classes.link}
+                    style={{ color: colors.grey900 }}
                     href={getItemUrl(item.type, contentItem, context.d2)}
                 >
                     {contentItem.name}
                 </a>
                 {editMode ? deleteButton : null}
-            </div>
+            </Fragment>
         );
     };
-
-    const ItemIcon = getItemIcon(item.type);
 
     return (
         <Fragment>
             <ItemHeader title={getItemTitle(item)} />
             <Line />
-            <List className="dashboard-item-content">
-                {contentItems.map(contentItem => (
-                    <MUIListItem
-                        key={contentItem.id}
-                        primaryText={primaryText(contentItem)}
-                        leftIcon={<ItemIcon style={{ margin: 0 }} />}
-                        disabled={true}
-                        innerDivStyle={{ padding: '4px 4px 4px 32px' }}
-                    />
-                ))}
-            </List>
+            <div className="dashboard-item-content">
+                <ul className={classes.list}>
+                    {contentItems.map(contentItem => (
+                        <li className={classes.item} key={contentItem.id}>
+                            <DescriptionIcon className={classes.itemicon} />
+                            {getLink(contentItem)}
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </Fragment>
     );
 };
@@ -97,11 +78,9 @@ ListItem.contextTypes = {
     d2: PropTypes.object,
 };
 
-const ListItemContainer = connect(
+export default connect(
     null,
     {
         tRemoveListItemContent,
     }
 )(ListItem);
-
-export default ListItemContainer;

@@ -1,11 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Dialog from 'material-ui/Dialog';
-
+import { Button } from '@dhis2/ui-core';
+import DialogActions from '@material-ui/core/DialogActions';
 import { ConfirmDeleteDialog } from '../ConfirmDeleteDialog';
 import { getStubContext } from '../../../setupTests';
-import FlatButton from '../../../widgets/FlatButton';
-import PrimaryButton from '../../../widgets/PrimaryButton';
 
 describe('ConfirmDeleteDialog', () => {
     let props;
@@ -29,32 +27,34 @@ describe('ConfirmDeleteDialog', () => {
         shallowDialog = undefined;
     });
 
-    it('renders a Dialog', () => {
-        expect(dialog().find(Dialog).length).toBeGreaterThan(0);
+    it('matches the snapshot', () => {
+        expect(dialog()).toMatchSnapshot();
     });
 
-    it('renders two buttons', () => {
-        expect(dialog().prop('actions')).toHaveLength(2);
-    });
-
-    it('renders a Primary button with action onContinueEditing', () => {
+    it('renders a Button with action onContinueEditing', () => {
         expect.assertions(1);
         dialog()
-            .prop('actions')
-            .forEach(button => {
-                if (button.type === PrimaryButton) {
-                    expect(button.props.onClick).toBe(props.onContinueEditing);
+            .find(DialogActions)
+            .children()
+            .forEach(actionEl => {
+                if (actionEl.key() === 'cancel') {
+                    expect(actionEl.prop('onClick')).toBe(
+                        props.onContinueEditing
+                    );
                 }
             });
     });
 
-    it('renders a Secondary button with action onDeleteConfirmed', () => {
+    it('renders a Button with action onDeleteConfirmed', () => {
         expect.assertions(1);
         dialog()
-            .prop('actions')
-            .forEach(button => {
-                if (button.type === FlatButton) {
-                    expect(button.props.onClick).toBe(props.onDeleteConfirmed);
+            .find(DialogActions)
+            .children()
+            .forEach(actionEl => {
+                if (actionEl.key() === 'delete') {
+                    expect(actionEl.prop('onClick')).toBe(
+                        props.onDeleteConfirmed
+                    );
                 }
             });
     });

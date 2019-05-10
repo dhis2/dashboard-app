@@ -39,12 +39,13 @@ ShallowWrapper {
             <div
               className="right-controls"
             >
-              <FlatButton
-                className="discard-button"
+              <Button
                 onClick={[Function]}
+                secondary={true}
+                type="button"
               >
                 Go to dashboards
-              </FlatButton>
+              </Button>
             </div>
           </div>
         </Unknown>,
@@ -72,12 +73,13 @@ ShallowWrapper {
             <div
               className="right-controls"
             >
-              <FlatButton
-                className="discard-button"
+              <Button
                 onClick={[Function]}
+                secondary={true}
+                type="button"
               >
                 Go to dashboards
-              </FlatButton>
+              </Button>
             </div>
           </div>,
           "editMode": true,
@@ -95,12 +97,13 @@ ShallowWrapper {
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Go to dashboards
-                </FlatButton>
+                </Button>
               </div>,
             ],
             "style": Object {
@@ -118,12 +121,13 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <FlatButton
-                  className="discard-button"
+                "children": <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Go to dashboards
-                </FlatButton>,
+                </Button>,
                 "className": "right-controls",
               },
               "ref": null,
@@ -133,8 +137,9 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "children": "Go to dashboards",
-                  "className": "discard-button",
                   "onClick": [Function],
+                  "secondary": true,
+                  "type": "button",
                 },
                 "ref": null,
                 "rendered": "Go to dashboards",
@@ -177,12 +182,13 @@ ShallowWrapper {
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Go to dashboards
-                </FlatButton>
+                </Button>
               </div>
             </div>
           </Unknown>,
@@ -210,12 +216,13 @@ ShallowWrapper {
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Go to dashboards
-                </FlatButton>
+                </Button>
               </div>
             </div>,
             "editMode": true,
@@ -233,12 +240,13 @@ ShallowWrapper {
                 <div
                   className="right-controls"
                 >
-                  <FlatButton
-                    className="discard-button"
+                  <Button
                     onClick={[Function]}
+                    secondary={true}
+                    type="button"
                   >
                     Go to dashboards
-                  </FlatButton>
+                  </Button>
                 </div>,
               ],
               "style": Object {
@@ -256,12 +264,13 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": <FlatButton
-                    className="discard-button"
+                  "children": <Button
                     onClick={[Function]}
+                    secondary={true}
+                    type="button"
                   >
                     Go to dashboards
-                  </FlatButton>,
+                  </Button>,
                   "className": "right-controls",
                 },
                 "ref": null,
@@ -271,8 +280,9 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Go to dashboards",
-                    "className": "discard-button",
                     "onClick": [Function],
+                    "secondary": true,
+                    "type": "button",
                   },
                   "ref": null,
                   "rendered": "Go to dashboards",
@@ -372,12 +382,13 @@ ShallowWrapper {
             <div
               className="right-controls"
             >
-              <FlatButton
-                className="discard-button"
+              <Button
                 onClick={[Function]}
+                secondary={true}
+                type="button"
               >
                 Go to dashboards
-              </FlatButton>
+              </Button>
             </div>
           </div>
         </Unknown>,
@@ -405,12 +416,13 @@ ShallowWrapper {
             <div
               className="right-controls"
             >
-              <FlatButton
-                className="discard-button"
+              <Button
                 onClick={[Function]}
+                secondary={true}
+                type="button"
               >
                 Go to dashboards
-              </FlatButton>
+              </Button>
             </div>
           </div>,
           "editMode": true,
@@ -428,12 +440,13 @@ ShallowWrapper {
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Go to dashboards
-                </FlatButton>
+                </Button>
               </div>,
             ],
             "style": Object {
@@ -451,12 +464,13 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <FlatButton
-                  className="discard-button"
+                "children": <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Go to dashboards
-                </FlatButton>,
+                </Button>,
                 "className": "right-controls",
               },
               "ref": null,
@@ -466,8 +480,9 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "children": "Go to dashboards",
-                  "className": "discard-button",
                   "onClick": [Function],
+                  "secondary": true,
+                  "type": "button",
                 },
                 "ref": null,
                 "rendered": "Go to dashboards",
@@ -510,12 +525,13 @@ ShallowWrapper {
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Go to dashboards
-                </FlatButton>
+                </Button>
               </div>
             </div>
           </Unknown>,
@@ -543,12 +559,13 @@ ShallowWrapper {
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Go to dashboards
-                </FlatButton>
+                </Button>
               </div>
             </div>,
             "editMode": true,
@@ -566,12 +583,13 @@ ShallowWrapper {
                 <div
                   className="right-controls"
                 >
-                  <FlatButton
-                    className="discard-button"
+                  <Button
                     onClick={[Function]}
+                    secondary={true}
+                    type="button"
                   >
                     Go to dashboards
-                  </FlatButton>
+                  </Button>
                 </div>,
               ],
               "style": Object {
@@ -589,12 +607,13 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": <FlatButton
-                    className="discard-button"
+                  "children": <Button
                     onClick={[Function]}
+                    secondary={true}
+                    type="button"
                   >
                     Go to dashboards
-                  </FlatButton>,
+                  </Button>,
                   "className": "right-controls",
                 },
                 "ref": null,
@@ -604,8 +623,9 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Go to dashboards",
-                    "className": "discard-button",
                     "onClick": [Function],
+                    "secondary": true,
+                    "type": "button",
                   },
                   "ref": null,
                   "rendered": "Go to dashboards",
@@ -713,29 +733,39 @@ ShallowWrapper {
                   }
                 }
               >
-                <PrimaryButton
-                  className="save-button"
+                <Button
                   onClick={[Function]}
+                  primary={true}
+                  type="button"
                 >
                   Save changes
-                </PrimaryButton>
+                </Button>
               </span>
-              <FlatButton
-                className="translate-button"
-                onClick={[Function]}
+              <span
+                style={
+                  Object {
+                    "marginRight": "15px",
+                  }
+                }
               >
-                Translate
-              </FlatButton>
+                <Button
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Translate
+                </Button>
+              </span>
             </div>
             <div
               className="right-controls"
             >
-              <FlatButton
-                className="discard-button"
+              <Button
                 onClick={[Function]}
+                secondary={true}
+                type="button"
               >
                 Exit without saving
-              </FlatButton>
+              </Button>
             </div>
           </div>
         </Unknown>,
@@ -798,29 +828,39 @@ ShallowWrapper {
                   }
                 }
               >
-                <PrimaryButton
-                  className="save-button"
+                <Button
                   onClick={[Function]}
+                  primary={true}
+                  type="button"
                 >
                   Save changes
-                </PrimaryButton>
+                </Button>
               </span>
-              <FlatButton
-                className="translate-button"
-                onClick={[Function]}
+              <span
+                style={
+                  Object {
+                    "marginRight": "15px",
+                  }
+                }
               >
-                Translate
-              </FlatButton>
+                <Button
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Translate
+                </Button>
+              </span>
             </div>
             <div
               className="right-controls"
             >
-              <FlatButton
-                className="discard-button"
+              <Button
                 onClick={[Function]}
+                secondary={true}
+                type="button"
               >
                 Exit without saving
-              </FlatButton>
+              </Button>
             </div>
           </div>,
           "editMode": true,
@@ -844,29 +884,39 @@ ShallowWrapper {
                     }
                   }
                 >
-                  <PrimaryButton
-                    className="save-button"
+                  <Button
                     onClick={[Function]}
+                    primary={true}
+                    type="button"
                   >
                     Save changes
-                  </PrimaryButton>
+                  </Button>
                 </span>
-                <FlatButton
-                  className="translate-button"
-                  onClick={[Function]}
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </FlatButton>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>,
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>
+                </Button>
               </div>,
             ],
             "style": Object {
@@ -891,20 +941,29 @@ ShallowWrapper {
                       }
                     }
                   >
-                    <PrimaryButton
-                      className="save-button"
+                    <Button
                       onClick={[Function]}
+                      primary={true}
+                      type="button"
                     >
                       Save changes
-                    </PrimaryButton>
+                    </Button>
+                  </span>,
+                  <span
+                    style={
+                      Object {
+                        "marginRight": "15px",
+                      }
+                    }
+                  >
+                    <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>
                   </span>,
                   null,
-                  <FlatButton
-                    className="translate-button"
-                    onClick={[Function]}
-                  >
-                    Translate
-                  </FlatButton>,
                 ],
                 "className": "left-controls",
               },
@@ -915,12 +974,13 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": <PrimaryButton
-                      className="save-button"
+                    "children": <Button
                       onClick={[Function]}
+                      primary={true}
+                      type="button"
                     >
                       Save changes
-                    </PrimaryButton>,
+                    </Button>,
                     "style": Object {
                       "marginRight": "15px",
                     },
@@ -932,8 +992,9 @@ ShallowWrapper {
                     "nodeType": "function",
                     "props": Object {
                       "children": "Save changes",
-                      "className": "save-button",
                       "onClick": [Function],
+                      "primary": true,
+                      "type": "button",
                     },
                     "ref": null,
                     "rendered": "Save changes",
@@ -941,20 +1002,38 @@ ShallowWrapper {
                   },
                   "type": "span",
                 },
-                null,
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "function",
+                  "nodeType": "host",
                   "props": Object {
-                    "children": "Translate",
-                    "className": "translate-button",
-                    "onClick": [Function],
+                    "children": <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>,
+                    "style": Object {
+                      "marginRight": "15px",
+                    },
                   },
                   "ref": null,
-                  "rendered": "Translate",
-                  "type": [Function],
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": "Translate",
+                      "onClick": [Function],
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": "Translate",
+                    "type": [Function],
+                  },
+                  "type": "span",
                 },
+                null,
               ],
               "type": "div",
             },
@@ -963,12 +1042,13 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <FlatButton
-                  className="discard-button"
+                "children": <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>,
+                </Button>,
                 "className": "right-controls",
               },
               "ref": null,
@@ -978,8 +1058,9 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "children": "Exit without saving",
-                  "className": "discard-button",
                   "onClick": [Function],
+                  "secondary": true,
+                  "type": "button",
                 },
                 "ref": null,
                 "rendered": "Exit without saving",
@@ -1059,29 +1140,39 @@ ShallowWrapper {
                     }
                   }
                 >
-                  <PrimaryButton
-                    className="save-button"
+                  <Button
                     onClick={[Function]}
+                    primary={true}
+                    type="button"
                   >
                     Save changes
-                  </PrimaryButton>
+                  </Button>
                 </span>
-                <FlatButton
-                  className="translate-button"
-                  onClick={[Function]}
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </FlatButton>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>
+                </Button>
               </div>
             </div>
           </Unknown>,
@@ -1144,29 +1235,39 @@ ShallowWrapper {
                     }
                   }
                 >
-                  <PrimaryButton
-                    className="save-button"
+                  <Button
                     onClick={[Function]}
+                    primary={true}
+                    type="button"
                   >
                     Save changes
-                  </PrimaryButton>
+                  </Button>
                 </span>
-                <FlatButton
-                  className="translate-button"
-                  onClick={[Function]}
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </FlatButton>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>
+                </Button>
               </div>
             </div>,
             "editMode": true,
@@ -1190,29 +1291,39 @@ ShallowWrapper {
                       }
                     }
                   >
-                    <PrimaryButton
-                      className="save-button"
+                    <Button
                       onClick={[Function]}
+                      primary={true}
+                      type="button"
                     >
                       Save changes
-                    </PrimaryButton>
+                    </Button>
                   </span>
-                  <FlatButton
-                    className="translate-button"
-                    onClick={[Function]}
+                  <span
+                    style={
+                      Object {
+                        "marginRight": "15px",
+                      }
+                    }
                   >
-                    Translate
-                  </FlatButton>
+                    <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>
+                  </span>
                 </div>,
                 <div
                   className="right-controls"
                 >
-                  <FlatButton
-                    className="discard-button"
+                  <Button
                     onClick={[Function]}
+                    secondary={true}
+                    type="button"
                   >
                     Exit without saving
-                  </FlatButton>
+                  </Button>
                 </div>,
               ],
               "style": Object {
@@ -1237,20 +1348,29 @@ ShallowWrapper {
                         }
                       }
                     >
-                      <PrimaryButton
-                        className="save-button"
+                      <Button
                         onClick={[Function]}
+                        primary={true}
+                        type="button"
                       >
                         Save changes
-                      </PrimaryButton>
+                      </Button>
+                    </span>,
+                    <span
+                      style={
+                        Object {
+                          "marginRight": "15px",
+                        }
+                      }
+                    >
+                      <Button
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Translate
+                      </Button>
                     </span>,
                     null,
-                    <FlatButton
-                      className="translate-button"
-                      onClick={[Function]}
-                    >
-                      Translate
-                    </FlatButton>,
                   ],
                   "className": "left-controls",
                 },
@@ -1261,12 +1381,13 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": <PrimaryButton
-                        className="save-button"
+                      "children": <Button
                         onClick={[Function]}
+                        primary={true}
+                        type="button"
                       >
                         Save changes
-                      </PrimaryButton>,
+                      </Button>,
                       "style": Object {
                         "marginRight": "15px",
                       },
@@ -1278,8 +1399,9 @@ ShallowWrapper {
                       "nodeType": "function",
                       "props": Object {
                         "children": "Save changes",
-                        "className": "save-button",
                         "onClick": [Function],
+                        "primary": true,
+                        "type": "button",
                       },
                       "ref": null,
                       "rendered": "Save changes",
@@ -1287,20 +1409,38 @@ ShallowWrapper {
                     },
                     "type": "span",
                   },
-                  null,
                   Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "host",
                     "props": Object {
-                      "children": "Translate",
-                      "className": "translate-button",
-                      "onClick": [Function],
+                      "children": <Button
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Translate
+                      </Button>,
+                      "style": Object {
+                        "marginRight": "15px",
+                      },
                     },
                     "ref": null,
-                    "rendered": "Translate",
-                    "type": [Function],
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "children": "Translate",
+                        "onClick": [Function],
+                        "type": "button",
+                      },
+                      "ref": null,
+                      "rendered": "Translate",
+                      "type": [Function],
+                    },
+                    "type": "span",
                   },
+                  null,
                 ],
                 "type": "div",
               },
@@ -1309,12 +1449,13 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": <FlatButton
-                    className="discard-button"
+                  "children": <Button
                     onClick={[Function]}
+                    secondary={true}
+                    type="button"
                   >
                     Exit without saving
-                  </FlatButton>,
+                  </Button>,
                   "className": "right-controls",
                 },
                 "ref": null,
@@ -1324,8 +1465,9 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Exit without saving",
-                    "className": "discard-button",
                     "onClick": [Function],
+                    "secondary": true,
+                    "type": "button",
                   },
                   "ref": null,
                   "rendered": "Exit without saving",
@@ -1463,29 +1605,39 @@ ShallowWrapper {
                   }
                 }
               >
-                <PrimaryButton
-                  className="save-button"
+                <Button
                   onClick={[Function]}
+                  primary={true}
+                  type="button"
                 >
                   Save changes
-                </PrimaryButton>
+                </Button>
               </span>
-              <FlatButton
-                className="translate-button"
-                onClick={[Function]}
+              <span
+                style={
+                  Object {
+                    "marginRight": "15px",
+                  }
+                }
               >
-                Translate
-              </FlatButton>
+                <Button
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Translate
+                </Button>
+              </span>
             </div>
             <div
               className="right-controls"
             >
-              <FlatButton
-                className="discard-button"
+              <Button
                 onClick={[Function]}
+                secondary={true}
+                type="button"
               >
                 Exit without saving
-              </FlatButton>
+              </Button>
             </div>
           </div>
         </Unknown>,
@@ -1548,29 +1700,39 @@ ShallowWrapper {
                   }
                 }
               >
-                <PrimaryButton
-                  className="save-button"
+                <Button
                   onClick={[Function]}
+                  primary={true}
+                  type="button"
                 >
                   Save changes
-                </PrimaryButton>
+                </Button>
               </span>
-              <FlatButton
-                className="translate-button"
-                onClick={[Function]}
+              <span
+                style={
+                  Object {
+                    "marginRight": "15px",
+                  }
+                }
               >
-                Translate
-              </FlatButton>
+                <Button
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Translate
+                </Button>
+              </span>
             </div>
             <div
               className="right-controls"
             >
-              <FlatButton
-                className="discard-button"
+              <Button
                 onClick={[Function]}
+                secondary={true}
+                type="button"
               >
                 Exit without saving
-              </FlatButton>
+              </Button>
             </div>
           </div>,
           "editMode": true,
@@ -1594,29 +1756,39 @@ ShallowWrapper {
                     }
                   }
                 >
-                  <PrimaryButton
-                    className="save-button"
+                  <Button
                     onClick={[Function]}
+                    primary={true}
+                    type="button"
                   >
                     Save changes
-                  </PrimaryButton>
+                  </Button>
                 </span>
-                <FlatButton
-                  className="translate-button"
-                  onClick={[Function]}
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </FlatButton>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>,
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>
+                </Button>
               </div>,
             ],
             "style": Object {
@@ -1641,20 +1813,29 @@ ShallowWrapper {
                       }
                     }
                   >
-                    <PrimaryButton
-                      className="save-button"
+                    <Button
                       onClick={[Function]}
+                      primary={true}
+                      type="button"
                     >
                       Save changes
-                    </PrimaryButton>
+                    </Button>
+                  </span>,
+                  <span
+                    style={
+                      Object {
+                        "marginRight": "15px",
+                      }
+                    }
+                  >
+                    <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>
                   </span>,
                   null,
-                  <FlatButton
-                    className="translate-button"
-                    onClick={[Function]}
-                  >
-                    Translate
-                  </FlatButton>,
                 ],
                 "className": "left-controls",
               },
@@ -1665,12 +1846,13 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": <PrimaryButton
-                      className="save-button"
+                    "children": <Button
                       onClick={[Function]}
+                      primary={true}
+                      type="button"
                     >
                       Save changes
-                    </PrimaryButton>,
+                    </Button>,
                     "style": Object {
                       "marginRight": "15px",
                     },
@@ -1682,8 +1864,9 @@ ShallowWrapper {
                     "nodeType": "function",
                     "props": Object {
                       "children": "Save changes",
-                      "className": "save-button",
                       "onClick": [Function],
+                      "primary": true,
+                      "type": "button",
                     },
                     "ref": null,
                     "rendered": "Save changes",
@@ -1691,20 +1874,38 @@ ShallowWrapper {
                   },
                   "type": "span",
                 },
-                null,
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "function",
+                  "nodeType": "host",
                   "props": Object {
-                    "children": "Translate",
-                    "className": "translate-button",
-                    "onClick": [Function],
+                    "children": <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>,
+                    "style": Object {
+                      "marginRight": "15px",
+                    },
                   },
                   "ref": null,
-                  "rendered": "Translate",
-                  "type": [Function],
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": "Translate",
+                      "onClick": [Function],
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": "Translate",
+                    "type": [Function],
+                  },
+                  "type": "span",
                 },
+                null,
               ],
               "type": "div",
             },
@@ -1713,12 +1914,13 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <FlatButton
-                  className="discard-button"
+                "children": <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>,
+                </Button>,
                 "className": "right-controls",
               },
               "ref": null,
@@ -1728,8 +1930,9 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "children": "Exit without saving",
-                  "className": "discard-button",
                   "onClick": [Function],
+                  "secondary": true,
+                  "type": "button",
                 },
                 "ref": null,
                 "rendered": "Exit without saving",
@@ -1809,29 +2012,39 @@ ShallowWrapper {
                     }
                   }
                 >
-                  <PrimaryButton
-                    className="save-button"
+                  <Button
                     onClick={[Function]}
+                    primary={true}
+                    type="button"
                   >
                     Save changes
-                  </PrimaryButton>
+                  </Button>
                 </span>
-                <FlatButton
-                  className="translate-button"
-                  onClick={[Function]}
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </FlatButton>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>
+                </Button>
               </div>
             </div>
           </Unknown>,
@@ -1894,29 +2107,39 @@ ShallowWrapper {
                     }
                   }
                 >
-                  <PrimaryButton
-                    className="save-button"
+                  <Button
                     onClick={[Function]}
+                    primary={true}
+                    type="button"
                   >
                     Save changes
-                  </PrimaryButton>
+                  </Button>
                 </span>
-                <FlatButton
-                  className="translate-button"
-                  onClick={[Function]}
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </FlatButton>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>
+                </Button>
               </div>
             </div>,
             "editMode": true,
@@ -1940,29 +2163,39 @@ ShallowWrapper {
                       }
                     }
                   >
-                    <PrimaryButton
-                      className="save-button"
+                    <Button
                       onClick={[Function]}
+                      primary={true}
+                      type="button"
                     >
                       Save changes
-                    </PrimaryButton>
+                    </Button>
                   </span>
-                  <FlatButton
-                    className="translate-button"
-                    onClick={[Function]}
+                  <span
+                    style={
+                      Object {
+                        "marginRight": "15px",
+                      }
+                    }
                   >
-                    Translate
-                  </FlatButton>
+                    <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>
+                  </span>
                 </div>,
                 <div
                   className="right-controls"
                 >
-                  <FlatButton
-                    className="discard-button"
+                  <Button
                     onClick={[Function]}
+                    secondary={true}
+                    type="button"
                   >
                     Exit without saving
-                  </FlatButton>
+                  </Button>
                 </div>,
               ],
               "style": Object {
@@ -1987,20 +2220,29 @@ ShallowWrapper {
                         }
                       }
                     >
-                      <PrimaryButton
-                        className="save-button"
+                      <Button
                         onClick={[Function]}
+                        primary={true}
+                        type="button"
                       >
                         Save changes
-                      </PrimaryButton>
+                      </Button>
+                    </span>,
+                    <span
+                      style={
+                        Object {
+                          "marginRight": "15px",
+                        }
+                      }
+                    >
+                      <Button
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Translate
+                      </Button>
                     </span>,
                     null,
-                    <FlatButton
-                      className="translate-button"
-                      onClick={[Function]}
-                    >
-                      Translate
-                    </FlatButton>,
                   ],
                   "className": "left-controls",
                 },
@@ -2011,12 +2253,13 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": <PrimaryButton
-                        className="save-button"
+                      "children": <Button
                         onClick={[Function]}
+                        primary={true}
+                        type="button"
                       >
                         Save changes
-                      </PrimaryButton>,
+                      </Button>,
                       "style": Object {
                         "marginRight": "15px",
                       },
@@ -2028,8 +2271,9 @@ ShallowWrapper {
                       "nodeType": "function",
                       "props": Object {
                         "children": "Save changes",
-                        "className": "save-button",
                         "onClick": [Function],
+                        "primary": true,
+                        "type": "button",
                       },
                       "ref": null,
                       "rendered": "Save changes",
@@ -2037,20 +2281,38 @@ ShallowWrapper {
                     },
                     "type": "span",
                   },
-                  null,
                   Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "host",
                     "props": Object {
-                      "children": "Translate",
-                      "className": "translate-button",
-                      "onClick": [Function],
+                      "children": <Button
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Translate
+                      </Button>,
+                      "style": Object {
+                        "marginRight": "15px",
+                      },
                     },
                     "ref": null,
-                    "rendered": "Translate",
-                    "type": [Function],
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "children": "Translate",
+                        "onClick": [Function],
+                        "type": "button",
+                      },
+                      "ref": null,
+                      "rendered": "Translate",
+                      "type": [Function],
+                    },
+                    "type": "span",
                   },
+                  null,
                 ],
                 "type": "div",
               },
@@ -2059,12 +2321,13 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": <FlatButton
-                    className="discard-button"
+                  "children": <Button
                     onClick={[Function]}
+                    secondary={true}
+                    type="button"
                   >
                     Exit without saving
-                  </FlatButton>,
+                  </Button>,
                   "className": "right-controls",
                 },
                 "ref": null,
@@ -2074,8 +2337,9 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Exit without saving",
-                    "className": "discard-button",
                     "onClick": [Function],
+                    "secondary": true,
+                    "type": "button",
                   },
                   "ref": null,
                   "rendered": "Exit without saving",
@@ -2213,29 +2477,39 @@ ShallowWrapper {
                   }
                 }
               >
-                <PrimaryButton
-                  className="save-button"
+                <Button
                   onClick={[Function]}
+                  primary={true}
+                  type="button"
                 >
                   Save changes
-                </PrimaryButton>
+                </Button>
               </span>
-              <FlatButton
-                className="translate-button"
-                onClick={[Function]}
+              <span
+                style={
+                  Object {
+                    "marginRight": "15px",
+                  }
+                }
               >
-                Translate
-              </FlatButton>
+                <Button
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Translate
+                </Button>
+              </span>
             </div>
             <div
               className="right-controls"
             >
-              <FlatButton
-                className="discard-button"
+              <Button
                 onClick={[Function]}
+                secondary={true}
+                type="button"
               >
                 Exit without saving
-              </FlatButton>
+              </Button>
             </div>
           </div>
         </Unknown>,
@@ -2298,29 +2572,39 @@ ShallowWrapper {
                   }
                 }
               >
-                <PrimaryButton
-                  className="save-button"
+                <Button
                   onClick={[Function]}
+                  primary={true}
+                  type="button"
                 >
                   Save changes
-                </PrimaryButton>
+                </Button>
               </span>
-              <FlatButton
-                className="translate-button"
-                onClick={[Function]}
+              <span
+                style={
+                  Object {
+                    "marginRight": "15px",
+                  }
+                }
               >
-                Translate
-              </FlatButton>
+                <Button
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Translate
+                </Button>
+              </span>
             </div>
             <div
               className="right-controls"
             >
-              <FlatButton
-                className="discard-button"
+              <Button
                 onClick={[Function]}
+                secondary={true}
+                type="button"
               >
                 Exit without saving
-              </FlatButton>
+              </Button>
             </div>
           </div>,
           "editMode": true,
@@ -2344,29 +2628,39 @@ ShallowWrapper {
                     }
                   }
                 >
-                  <PrimaryButton
-                    className="save-button"
+                  <Button
                     onClick={[Function]}
+                    primary={true}
+                    type="button"
                   >
                     Save changes
-                  </PrimaryButton>
+                  </Button>
                 </span>
-                <FlatButton
-                  className="translate-button"
-                  onClick={[Function]}
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </FlatButton>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>,
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>
+                </Button>
               </div>,
             ],
             "style": Object {
@@ -2391,20 +2685,29 @@ ShallowWrapper {
                       }
                     }
                   >
-                    <PrimaryButton
-                      className="save-button"
+                    <Button
                       onClick={[Function]}
+                      primary={true}
+                      type="button"
                     >
                       Save changes
-                    </PrimaryButton>
+                    </Button>
+                  </span>,
+                  <span
+                    style={
+                      Object {
+                        "marginRight": "15px",
+                      }
+                    }
+                  >
+                    <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>
                   </span>,
                   null,
-                  <FlatButton
-                    className="translate-button"
-                    onClick={[Function]}
-                  >
-                    Translate
-                  </FlatButton>,
                 ],
                 "className": "left-controls",
               },
@@ -2415,12 +2718,13 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": <PrimaryButton
-                      className="save-button"
+                    "children": <Button
                       onClick={[Function]}
+                      primary={true}
+                      type="button"
                     >
                       Save changes
-                    </PrimaryButton>,
+                    </Button>,
                     "style": Object {
                       "marginRight": "15px",
                     },
@@ -2432,8 +2736,9 @@ ShallowWrapper {
                     "nodeType": "function",
                     "props": Object {
                       "children": "Save changes",
-                      "className": "save-button",
                       "onClick": [Function],
+                      "primary": true,
+                      "type": "button",
                     },
                     "ref": null,
                     "rendered": "Save changes",
@@ -2441,20 +2746,38 @@ ShallowWrapper {
                   },
                   "type": "span",
                 },
-                null,
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "function",
+                  "nodeType": "host",
                   "props": Object {
-                    "children": "Translate",
-                    "className": "translate-button",
-                    "onClick": [Function],
+                    "children": <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>,
+                    "style": Object {
+                      "marginRight": "15px",
+                    },
                   },
                   "ref": null,
-                  "rendered": "Translate",
-                  "type": [Function],
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": "Translate",
+                      "onClick": [Function],
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": "Translate",
+                    "type": [Function],
+                  },
+                  "type": "span",
                 },
+                null,
               ],
               "type": "div",
             },
@@ -2463,12 +2786,13 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <FlatButton
-                  className="discard-button"
+                "children": <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>,
+                </Button>,
                 "className": "right-controls",
               },
               "ref": null,
@@ -2478,8 +2802,9 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "children": "Exit without saving",
-                  "className": "discard-button",
                   "onClick": [Function],
+                  "secondary": true,
+                  "type": "button",
                 },
                 "ref": null,
                 "rendered": "Exit without saving",
@@ -2559,29 +2884,39 @@ ShallowWrapper {
                     }
                   }
                 >
-                  <PrimaryButton
-                    className="save-button"
+                  <Button
                     onClick={[Function]}
+                    primary={true}
+                    type="button"
                   >
                     Save changes
-                  </PrimaryButton>
+                  </Button>
                 </span>
-                <FlatButton
-                  className="translate-button"
-                  onClick={[Function]}
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </FlatButton>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>
+                </Button>
               </div>
             </div>
           </Unknown>,
@@ -2644,29 +2979,39 @@ ShallowWrapper {
                     }
                   }
                 >
-                  <PrimaryButton
-                    className="save-button"
+                  <Button
                     onClick={[Function]}
+                    primary={true}
+                    type="button"
                   >
                     Save changes
-                  </PrimaryButton>
+                  </Button>
                 </span>
-                <FlatButton
-                  className="translate-button"
-                  onClick={[Function]}
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
                 >
-                  Translate
-                </FlatButton>
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
               </div>
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>
+                </Button>
               </div>
             </div>,
             "editMode": true,
@@ -2690,29 +3035,39 @@ ShallowWrapper {
                       }
                     }
                   >
-                    <PrimaryButton
-                      className="save-button"
+                    <Button
                       onClick={[Function]}
+                      primary={true}
+                      type="button"
                     >
                       Save changes
-                    </PrimaryButton>
+                    </Button>
                   </span>
-                  <FlatButton
-                    className="translate-button"
-                    onClick={[Function]}
+                  <span
+                    style={
+                      Object {
+                        "marginRight": "15px",
+                      }
+                    }
                   >
-                    Translate
-                  </FlatButton>
+                    <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>
+                  </span>
                 </div>,
                 <div
                   className="right-controls"
                 >
-                  <FlatButton
-                    className="discard-button"
+                  <Button
                     onClick={[Function]}
+                    secondary={true}
+                    type="button"
                   >
                     Exit without saving
-                  </FlatButton>
+                  </Button>
                 </div>,
               ],
               "style": Object {
@@ -2737,20 +3092,29 @@ ShallowWrapper {
                         }
                       }
                     >
-                      <PrimaryButton
-                        className="save-button"
+                      <Button
                         onClick={[Function]}
+                        primary={true}
+                        type="button"
                       >
                         Save changes
-                      </PrimaryButton>
+                      </Button>
+                    </span>,
+                    <span
+                      style={
+                        Object {
+                          "marginRight": "15px",
+                        }
+                      }
+                    >
+                      <Button
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Translate
+                      </Button>
                     </span>,
                     null,
-                    <FlatButton
-                      className="translate-button"
-                      onClick={[Function]}
-                    >
-                      Translate
-                    </FlatButton>,
                   ],
                   "className": "left-controls",
                 },
@@ -2761,12 +3125,13 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": <PrimaryButton
-                        className="save-button"
+                      "children": <Button
                         onClick={[Function]}
+                        primary={true}
+                        type="button"
                       >
                         Save changes
-                      </PrimaryButton>,
+                      </Button>,
                       "style": Object {
                         "marginRight": "15px",
                       },
@@ -2778,8 +3143,9 @@ ShallowWrapper {
                       "nodeType": "function",
                       "props": Object {
                         "children": "Save changes",
-                        "className": "save-button",
                         "onClick": [Function],
+                        "primary": true,
+                        "type": "button",
                       },
                       "ref": null,
                       "rendered": "Save changes",
@@ -2787,20 +3153,38 @@ ShallowWrapper {
                     },
                     "type": "span",
                   },
-                  null,
                   Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "host",
                     "props": Object {
-                      "children": "Translate",
-                      "className": "translate-button",
-                      "onClick": [Function],
+                      "children": <Button
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Translate
+                      </Button>,
+                      "style": Object {
+                        "marginRight": "15px",
+                      },
                     },
                     "ref": null,
-                    "rendered": "Translate",
-                    "type": [Function],
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "children": "Translate",
+                        "onClick": [Function],
+                        "type": "button",
+                      },
+                      "ref": null,
+                      "rendered": "Translate",
+                      "type": [Function],
+                    },
+                    "type": "span",
                   },
+                  null,
                 ],
                 "type": "div",
               },
@@ -2809,12 +3193,13 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": <FlatButton
-                    className="discard-button"
+                  "children": <Button
                     onClick={[Function]}
+                    secondary={true}
+                    type="button"
                   >
                     Exit without saving
-                  </FlatButton>,
+                  </Button>,
                   "className": "right-controls",
                 },
                 "ref": null,
@@ -2824,8 +3209,9 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Exit without saving",
-                    "className": "discard-button",
                     "onClick": [Function],
+                    "secondary": true,
+                    "type": "button",
                   },
                   "ref": null,
                   "rendered": "Exit without saving",
@@ -2965,35 +3351,45 @@ ShallowWrapper {
                   }
                 }
               >
-                <PrimaryButton
-                  className="save-button"
+                <Button
                   onClick={[Function]}
+                  primary={true}
+                  type="button"
                 >
                   Save changes
-                </PrimaryButton>
+                </Button>
               </span>
-              <FlatButton
-                className="delete-button"
+              <span
+                style={
+                  Object {
+                    "marginRight": "15px",
+                  }
+                }
+              >
+                <Button
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Translate
+                </Button>
+              </span>
+              <Button
                 onClick={[Function]}
+                type="button"
               >
                 Delete
-              </FlatButton>
-              <FlatButton
-                className="translate-button"
-                onClick={[Function]}
-              >
-                Translate
-              </FlatButton>
+              </Button>
             </div>
             <div
               className="right-controls"
             >
-              <FlatButton
-                className="discard-button"
+              <Button
                 onClick={[Function]}
+                secondary={true}
+                type="button"
               >
                 Exit without saving
-              </FlatButton>
+              </Button>
             </div>
           </div>
         </Unknown>,
@@ -3032,35 +3428,45 @@ ShallowWrapper {
                   }
                 }
               >
-                <PrimaryButton
-                  className="save-button"
+                <Button
                   onClick={[Function]}
+                  primary={true}
+                  type="button"
                 >
                   Save changes
-                </PrimaryButton>
+                </Button>
               </span>
-              <FlatButton
-                className="delete-button"
+              <span
+                style={
+                  Object {
+                    "marginRight": "15px",
+                  }
+                }
+              >
+                <Button
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Translate
+                </Button>
+              </span>
+              <Button
                 onClick={[Function]}
+                type="button"
               >
                 Delete
-              </FlatButton>
-              <FlatButton
-                className="translate-button"
-                onClick={[Function]}
-              >
-                Translate
-              </FlatButton>
+              </Button>
             </div>
             <div
               className="right-controls"
             >
-              <FlatButton
-                className="discard-button"
+              <Button
                 onClick={[Function]}
+                secondary={true}
+                type="button"
               >
                 Exit without saving
-              </FlatButton>
+              </Button>
             </div>
           </div>,
           "editMode": true,
@@ -3084,35 +3490,45 @@ ShallowWrapper {
                     }
                   }
                 >
-                  <PrimaryButton
-                    className="save-button"
+                  <Button
                     onClick={[Function]}
+                    primary={true}
+                    type="button"
                   >
                     Save changes
-                  </PrimaryButton>
+                  </Button>
                 </span>
-                <FlatButton
-                  className="delete-button"
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
+                >
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
+                <Button
                   onClick={[Function]}
+                  type="button"
                 >
                   Delete
-                </FlatButton>
-                <FlatButton
-                  className="translate-button"
-                  onClick={[Function]}
-                >
-                  Translate
-                </FlatButton>
+                </Button>
               </div>,
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>
+                </Button>
               </div>,
             ],
             "style": Object {
@@ -3137,25 +3553,34 @@ ShallowWrapper {
                       }
                     }
                   >
-                    <PrimaryButton
-                      className="save-button"
+                    <Button
                       onClick={[Function]}
+                      primary={true}
+                      type="button"
                     >
                       Save changes
-                    </PrimaryButton>
+                    </Button>
                   </span>,
-                  <FlatButton
-                    className="delete-button"
+                  <span
+                    style={
+                      Object {
+                        "marginRight": "15px",
+                      }
+                    }
+                  >
+                    <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>
+                  </span>,
+                  <Button
                     onClick={[Function]}
+                    type="button"
                   >
                     Delete
-                  </FlatButton>,
-                  <FlatButton
-                    className="translate-button"
-                    onClick={[Function]}
-                  >
-                    Translate
-                  </FlatButton>,
+                  </Button>,
                 ],
                 "className": "left-controls",
               },
@@ -3166,12 +3591,13 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": <PrimaryButton
-                      className="save-button"
+                    "children": <Button
                       onClick={[Function]}
+                      primary={true}
+                      type="button"
                     >
                       Save changes
-                    </PrimaryButton>,
+                    </Button>,
                     "style": Object {
                       "marginRight": "15px",
                     },
@@ -3183,8 +3609,9 @@ ShallowWrapper {
                     "nodeType": "function",
                     "props": Object {
                       "children": "Save changes",
-                      "className": "save-button",
                       "onClick": [Function],
+                      "primary": true,
+                      "type": "button",
                     },
                     "ref": null,
                     "rendered": "Save changes",
@@ -3195,27 +3622,45 @@ ShallowWrapper {
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "function",
+                  "nodeType": "host",
                   "props": Object {
-                    "children": "Delete",
-                    "className": "delete-button",
-                    "onClick": [Function],
+                    "children": <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>,
+                    "style": Object {
+                      "marginRight": "15px",
+                    },
                   },
                   "ref": null,
-                  "rendered": "Delete",
-                  "type": [Function],
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": "Translate",
+                      "onClick": [Function],
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": "Translate",
+                    "type": [Function],
+                  },
+                  "type": "span",
                 },
                 Object {
                   "instance": null,
                   "key": undefined,
                   "nodeType": "function",
                   "props": Object {
-                    "children": "Translate",
-                    "className": "translate-button",
+                    "children": "Delete",
                     "onClick": [Function],
+                    "type": "button",
                   },
                   "ref": null,
-                  "rendered": "Translate",
+                  "rendered": "Delete",
                   "type": [Function],
                 },
               ],
@@ -3226,12 +3671,13 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <FlatButton
-                  className="discard-button"
+                "children": <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>,
+                </Button>,
                 "className": "right-controls",
               },
               "ref": null,
@@ -3241,8 +3687,9 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "children": "Exit without saving",
-                  "className": "discard-button",
                   "onClick": [Function],
+                  "secondary": true,
+                  "type": "button",
                 },
                 "ref": null,
                 "rendered": "Exit without saving",
@@ -3305,35 +3752,45 @@ ShallowWrapper {
                     }
                   }
                 >
-                  <PrimaryButton
-                    className="save-button"
+                  <Button
                     onClick={[Function]}
+                    primary={true}
+                    type="button"
                   >
                     Save changes
-                  </PrimaryButton>
+                  </Button>
                 </span>
-                <FlatButton
-                  className="delete-button"
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
+                >
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
+                <Button
                   onClick={[Function]}
+                  type="button"
                 >
                   Delete
-                </FlatButton>
-                <FlatButton
-                  className="translate-button"
-                  onClick={[Function]}
-                >
-                  Translate
-                </FlatButton>
+                </Button>
               </div>
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>
+                </Button>
               </div>
             </div>
           </Unknown>,
@@ -3372,35 +3829,45 @@ ShallowWrapper {
                     }
                   }
                 >
-                  <PrimaryButton
-                    className="save-button"
+                  <Button
                     onClick={[Function]}
+                    primary={true}
+                    type="button"
                   >
                     Save changes
-                  </PrimaryButton>
+                  </Button>
                 </span>
-                <FlatButton
-                  className="delete-button"
+                <span
+                  style={
+                    Object {
+                      "marginRight": "15px",
+                    }
+                  }
+                >
+                  <Button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Translate
+                  </Button>
+                </span>
+                <Button
                   onClick={[Function]}
+                  type="button"
                 >
                   Delete
-                </FlatButton>
-                <FlatButton
-                  className="translate-button"
-                  onClick={[Function]}
-                >
-                  Translate
-                </FlatButton>
+                </Button>
               </div>
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>
+                </Button>
               </div>
             </div>,
             "editMode": true,
@@ -3424,35 +3891,45 @@ ShallowWrapper {
                       }
                     }
                   >
-                    <PrimaryButton
-                      className="save-button"
+                    <Button
                       onClick={[Function]}
+                      primary={true}
+                      type="button"
                     >
                       Save changes
-                    </PrimaryButton>
+                    </Button>
                   </span>
-                  <FlatButton
-                    className="delete-button"
+                  <span
+                    style={
+                      Object {
+                        "marginRight": "15px",
+                      }
+                    }
+                  >
+                    <Button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Translate
+                    </Button>
+                  </span>
+                  <Button
                     onClick={[Function]}
+                    type="button"
                   >
                     Delete
-                  </FlatButton>
-                  <FlatButton
-                    className="translate-button"
-                    onClick={[Function]}
-                  >
-                    Translate
-                  </FlatButton>
+                  </Button>
                 </div>,
                 <div
                   className="right-controls"
                 >
-                  <FlatButton
-                    className="discard-button"
+                  <Button
                     onClick={[Function]}
+                    secondary={true}
+                    type="button"
                   >
                     Exit without saving
-                  </FlatButton>
+                  </Button>
                 </div>,
               ],
               "style": Object {
@@ -3477,25 +3954,34 @@ ShallowWrapper {
                         }
                       }
                     >
-                      <PrimaryButton
-                        className="save-button"
+                      <Button
                         onClick={[Function]}
+                        primary={true}
+                        type="button"
                       >
                         Save changes
-                      </PrimaryButton>
+                      </Button>
                     </span>,
-                    <FlatButton
-                      className="delete-button"
+                    <span
+                      style={
+                        Object {
+                          "marginRight": "15px",
+                        }
+                      }
+                    >
+                      <Button
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Translate
+                      </Button>
+                    </span>,
+                    <Button
                       onClick={[Function]}
+                      type="button"
                     >
                       Delete
-                    </FlatButton>,
-                    <FlatButton
-                      className="translate-button"
-                      onClick={[Function]}
-                    >
-                      Translate
-                    </FlatButton>,
+                    </Button>,
                   ],
                   "className": "left-controls",
                 },
@@ -3506,12 +3992,13 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": <PrimaryButton
-                        className="save-button"
+                      "children": <Button
                         onClick={[Function]}
+                        primary={true}
+                        type="button"
                       >
                         Save changes
-                      </PrimaryButton>,
+                      </Button>,
                       "style": Object {
                         "marginRight": "15px",
                       },
@@ -3523,8 +4010,9 @@ ShallowWrapper {
                       "nodeType": "function",
                       "props": Object {
                         "children": "Save changes",
-                        "className": "save-button",
                         "onClick": [Function],
+                        "primary": true,
+                        "type": "button",
                       },
                       "ref": null,
                       "rendered": "Save changes",
@@ -3535,27 +4023,45 @@ ShallowWrapper {
                   Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "host",
                     "props": Object {
-                      "children": "Delete",
-                      "className": "delete-button",
-                      "onClick": [Function],
+                      "children": <Button
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Translate
+                      </Button>,
+                      "style": Object {
+                        "marginRight": "15px",
+                      },
                     },
                     "ref": null,
-                    "rendered": "Delete",
-                    "type": [Function],
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "children": "Translate",
+                        "onClick": [Function],
+                        "type": "button",
+                      },
+                      "ref": null,
+                      "rendered": "Translate",
+                      "type": [Function],
+                    },
+                    "type": "span",
                   },
                   Object {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "function",
                     "props": Object {
-                      "children": "Translate",
-                      "className": "translate-button",
+                      "children": "Delete",
                       "onClick": [Function],
+                      "type": "button",
                     },
                     "ref": null,
-                    "rendered": "Translate",
+                    "rendered": "Delete",
                     "type": [Function],
                   },
                 ],
@@ -3566,12 +4072,13 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": <FlatButton
-                    className="discard-button"
+                  "children": <Button
                     onClick={[Function]}
+                    secondary={true}
+                    type="button"
                   >
                     Exit without saving
-                  </FlatButton>,
+                  </Button>,
                   "className": "right-controls",
                 },
                 "ref": null,
@@ -3581,8 +4088,9 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Exit without saving",
-                    "className": "discard-button",
                     "onClick": [Function],
+                    "secondary": true,
+                    "type": "button",
                   },
                   "ref": null,
                   "rendered": "Exit without saving",
@@ -3704,23 +4212,25 @@ ShallowWrapper {
                   }
                 }
               >
-                <PrimaryButton
-                  className="save-button"
+                <Button
                   onClick={[Function]}
+                  primary={true}
+                  type="button"
                 >
                   Save changes
-                </PrimaryButton>
+                </Button>
               </span>
             </div>
             <div
               className="right-controls"
             >
-              <FlatButton
-                className="discard-button"
+              <Button
                 onClick={[Function]}
+                secondary={true}
+                type="button"
               >
                 Exit without saving
-              </FlatButton>
+              </Button>
             </div>
           </div>
         </Unknown>,
@@ -3755,23 +4265,25 @@ ShallowWrapper {
                   }
                 }
               >
-                <PrimaryButton
-                  className="save-button"
+                <Button
                   onClick={[Function]}
+                  primary={true}
+                  type="button"
                 >
                   Save changes
-                </PrimaryButton>
+                </Button>
               </span>
             </div>
             <div
               className="right-controls"
             >
-              <FlatButton
-                className="discard-button"
+              <Button
                 onClick={[Function]}
+                secondary={true}
+                type="button"
               >
                 Exit without saving
-              </FlatButton>
+              </Button>
             </div>
           </div>,
           "editMode": true,
@@ -3795,23 +4307,25 @@ ShallowWrapper {
                     }
                   }
                 >
-                  <PrimaryButton
-                    className="save-button"
+                  <Button
                     onClick={[Function]}
+                    primary={true}
+                    type="button"
                   >
                     Save changes
-                  </PrimaryButton>
+                  </Button>
                 </span>
               </div>,
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>
+                </Button>
               </div>,
             ],
             "style": Object {
@@ -3836,12 +4350,13 @@ ShallowWrapper {
                       }
                     }
                   >
-                    <PrimaryButton
-                      className="save-button"
+                    <Button
                       onClick={[Function]}
+                      primary={true}
+                      type="button"
                     >
                       Save changes
-                    </PrimaryButton>
+                    </Button>
                   </span>,
                   null,
                   null,
@@ -3855,12 +4370,13 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": <PrimaryButton
-                      className="save-button"
+                    "children": <Button
                       onClick={[Function]}
+                      primary={true}
+                      type="button"
                     >
                       Save changes
-                    </PrimaryButton>,
+                    </Button>,
                     "style": Object {
                       "marginRight": "15px",
                     },
@@ -3872,8 +4388,9 @@ ShallowWrapper {
                     "nodeType": "function",
                     "props": Object {
                       "children": "Save changes",
-                      "className": "save-button",
                       "onClick": [Function],
+                      "primary": true,
+                      "type": "button",
                     },
                     "ref": null,
                     "rendered": "Save changes",
@@ -3891,12 +4408,13 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <FlatButton
-                  className="discard-button"
+                "children": <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>,
+                </Button>,
                 "className": "right-controls",
               },
               "ref": null,
@@ -3906,8 +4424,9 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "children": "Exit without saving",
-                  "className": "discard-button",
                   "onClick": [Function],
+                  "secondary": true,
+                  "type": "button",
                 },
                 "ref": null,
                 "rendered": "Exit without saving",
@@ -3957,23 +4476,25 @@ ShallowWrapper {
                     }
                   }
                 >
-                  <PrimaryButton
-                    className="save-button"
+                  <Button
                     onClick={[Function]}
+                    primary={true}
+                    type="button"
                   >
                     Save changes
-                  </PrimaryButton>
+                  </Button>
                 </span>
               </div>
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>
+                </Button>
               </div>
             </div>
           </Unknown>,
@@ -4008,23 +4529,25 @@ ShallowWrapper {
                     }
                   }
                 >
-                  <PrimaryButton
-                    className="save-button"
+                  <Button
                     onClick={[Function]}
+                    primary={true}
+                    type="button"
                   >
                     Save changes
-                  </PrimaryButton>
+                  </Button>
                 </span>
               </div>
               <div
                 className="right-controls"
               >
-                <FlatButton
-                  className="discard-button"
+                <Button
                   onClick={[Function]}
+                  secondary={true}
+                  type="button"
                 >
                   Exit without saving
-                </FlatButton>
+                </Button>
               </div>
             </div>,
             "editMode": true,
@@ -4048,23 +4571,25 @@ ShallowWrapper {
                       }
                     }
                   >
-                    <PrimaryButton
-                      className="save-button"
+                    <Button
                       onClick={[Function]}
+                      primary={true}
+                      type="button"
                     >
                       Save changes
-                    </PrimaryButton>
+                    </Button>
                   </span>
                 </div>,
                 <div
                   className="right-controls"
                 >
-                  <FlatButton
-                    className="discard-button"
+                  <Button
                     onClick={[Function]}
+                    secondary={true}
+                    type="button"
                   >
                     Exit without saving
-                  </FlatButton>
+                  </Button>
                 </div>,
               ],
               "style": Object {
@@ -4089,12 +4614,13 @@ ShallowWrapper {
                         }
                       }
                     >
-                      <PrimaryButton
-                        className="save-button"
+                      <Button
                         onClick={[Function]}
+                        primary={true}
+                        type="button"
                       >
                         Save changes
-                      </PrimaryButton>
+                      </Button>
                     </span>,
                     null,
                     null,
@@ -4108,12 +4634,13 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": <PrimaryButton
-                        className="save-button"
+                      "children": <Button
                         onClick={[Function]}
+                        primary={true}
+                        type="button"
                       >
                         Save changes
-                      </PrimaryButton>,
+                      </Button>,
                       "style": Object {
                         "marginRight": "15px",
                       },
@@ -4125,8 +4652,9 @@ ShallowWrapper {
                       "nodeType": "function",
                       "props": Object {
                         "children": "Save changes",
-                        "className": "save-button",
                         "onClick": [Function],
+                        "primary": true,
+                        "type": "button",
                       },
                       "ref": null,
                       "rendered": "Save changes",
@@ -4144,12 +4672,13 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": <FlatButton
-                    className="discard-button"
+                  "children": <Button
                     onClick={[Function]}
+                    secondary={true}
+                    type="button"
                   >
                     Exit without saving
-                  </FlatButton>,
+                  </Button>,
                   "className": "right-controls",
                 },
                 "ref": null,
@@ -4159,8 +4688,9 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "children": "Exit without saving",
-                    "className": "discard-button",
                     "onClick": [Function],
+                    "secondary": true,
+                    "type": "button",
                   },
                   "ref": null,
                   "rendered": "Exit without saving",
