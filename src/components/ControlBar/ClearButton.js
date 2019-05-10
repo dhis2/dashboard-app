@@ -1,39 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
 import IconClear from '@material-ui/icons/Clear';
 
-const styles = {
-    clearButton: {
-        width: '20px',
-        height: '20px',
-        padding: '2px',
-    },
-    clearButtonIcon: {
-        width: '16px',
-        height: '16px',
-    },
-};
+import classes from './styles/ClearButton.module.css';
 
-export const ClearButton = ({ name, onChangeName, classes }) => {
-    const disabled = name === null || name === '';
-
+export const ClearButton = ({ onChange }) => {
     return (
-        <IconButton
-            className={classes.clearButton}
-            style={{ opacity: disabled ? 0 : 1 }}
-            onClick={() => onChangeName()}
-            disabled={disabled}
-        >
-            <IconClear className={classes.clearButtonIcon} color="action" />
-        </IconButton>
+        <button className={classes.clearbutton} onClick={onChange}>
+            <IconClear
+                style={{ width: '16px', height: '16px' }}
+                color="action"
+            />
+        </button>
     );
 };
 
 ClearButton.propTypes = {
-    name: PropTypes.string.isRequired,
-    onChangeName: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(ClearButton);
+export default ClearButton;

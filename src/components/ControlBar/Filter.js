@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import i18n from '@dhis2/d2-i18n';
@@ -62,7 +62,7 @@ export class Filter extends Component {
     };
 
     render() {
-        const { classes } = this.props;
+        const { classes, name, onChangeName } = this.props;
 
         const startAdornment = (
             <InputAdornment position="start">
@@ -70,24 +70,23 @@ export class Filter extends Component {
             </InputAdornment>
         );
 
-        const endAdornment = (
-            <InputAdornment position="end">
-                <ClearButton {...this.props} />
-            </InputAdornment>
-        );
+        const endAdornment =
+            name !== '' && name !== null ? (
+                <InputAdornment position="end">
+                    <ClearButton onChange={onChangeName} />
+                </InputAdornment>
+            ) : null;
 
         return (
-            <Fragment>
-                <InputField
-                    placeholder={i18n.t('Search for a dashboard')}
-                    className={classes.filterField}
-                    startAdornment={startAdornment}
-                    endAdornment={endAdornment}
-                    value={this.state.value}
-                    onChange={this.setFilterValue}
-                    onKeyUp={this.handleKeyUp}
-                />
-            </Fragment>
+            <InputField
+                className={classes.filterField}
+                placeholder={i18n.t('Search for a dashboard')}
+                startAdornment={startAdornment}
+                endAdornment={endAdornment}
+                value={this.state.value}
+                onChange={this.setFilterValue}
+                onKeyUp={this.handleKeyUp}
+            />
         );
     }
 }
