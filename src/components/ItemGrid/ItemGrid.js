@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import ReactGridLayout from 'react-grid-layout';
+import { CircularProgress } from '@dhis2/ui-core';
 
 import {
     acUpdateDashboardLayout,
@@ -22,7 +23,6 @@ import {
 } from './gridUtil';
 import { orArray } from '../../modules/util';
 import DeleteItemButton from './DeleteItemButton';
-import ModalLoadingMask from '../../widgets/ModalLoadingMask';
 import NoContentMessage from '../../widgets/NoContentMessage';
 
 import 'react-grid-layout/css/styles.css';
@@ -116,7 +116,7 @@ export class ItemGrid extends Component {
 
         return (
             <div className="grid-wrapper">
-                <ModalLoadingMask isLoading={isLoading} />
+                {isLoading ? <CircularProgress overlay /> : null}
                 <ReactGridLayout
                     onLayoutChange={this.onLayoutChange}
                     onResizeStop={this.onResizeStop}
