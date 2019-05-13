@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import i18n from '@dhis2/d2-i18n';
-import TextField from '@dhis2/d2-ui-core/text-field/TextField';
+import InputField from '@material-ui/core/TextField';
+import { colors } from '@dhis2/ui-core';
 
 import {
     acSetDashboardTitle,
@@ -18,15 +19,24 @@ const styles = {
     section: { display: 'flex', justifyContent: 'space-between' },
     titleDescription: {
         flex: '3',
-        marginRight: '20px',
+        marginRight: '50px',
     },
-    title: { padding: '6px 0' },
+    titleContainer: {
+        display: 'block',
+        clear: 'both',
+    },
+    descContainer: {
+        display: 'block',
+        clear: 'both',
+        marginTop: '15px',
+    },
+    input: {
+        backgroundColor: 'rgba(0, 0, 10, 0.05)',
+        width: '100%',
+    },
     itemSelect: {
         flex: '2',
-        minWidth: '300px',
-        maxWidth: '730px',
         position: 'relative',
-        top: '33px',
     },
 };
 
@@ -39,10 +49,6 @@ export const EditTitleBar = ({
     onChangeDescription,
     classes,
 }) => {
-    const titleStyle = Object.assign({}, style.title, {
-        top: '-2px',
-    });
-
     const translatedName = () => {
         return displayName ? (
             <span style={style.description}>
@@ -51,32 +57,37 @@ export const EditTitleBar = ({
         ) : null;
     };
 
+    const updateTitle = e => {
+        onChangeTitle(e.target.value);
+    };
+
+    const updateDescription = e => {
+        onChangeDescription(e.target.value);
+    };
+
     return (
         <section className={classes.section}>
             <div className={classes.titleDescription}>
-                <span>{i18n.t('Currently editing')}</span>
-                <div className={classes.title}>
-                    <TextField
-                        multiline
-                        fullWidth
-                        rows={1}
-                        rowsMax={3}
-                        style={titleStyle}
-                        value={name}
-                        placeholder={i18n.t('Add title here')}
-                        onChange={onChangeTitle}
-                    />
-                    {translatedName()}
-                </div>
-                <TextField
+                <InputField
+                    variant="filled"
+                    name="Dashboard title input"
+                    label={i18n.t('Dashboard title')}
+                    onChange={updateTitle}
+                    value={name}
                     multiline
-                    fullWidth
-                    rows={1}
-                    rowsMax={3}
-                    style={style.description}
+                    className={classes.titleContainer}
+                    InputProps={{ style: styles.input }}
+                />
+                <InputField
+                    name="Dashboard description input"
+                    label={i18n.t('Dashboard description')}
+                    onChange={updateDescription}
                     value={description}
-                    placeholder={i18n.t('Add description here')}
-                    onChange={onChangeDescription}
+                    variant="filled"
+                    multiline
+                    rows="2"
+                    className={classes.descContainer}
+                    InputProps={{ style: styles.input }}
                 />
             </div>
             <div className={classes.itemSelect}>

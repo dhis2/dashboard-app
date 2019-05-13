@@ -2,55 +2,25 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import Popover from '@material-ui/core/Popover';
-import SearchIcon from '@material-ui/icons/Search';
-import TextField from 'material-ui/TextField';
+import { InputField } from '@dhis2/ui-core';
 
 import { singleItems, listItems } from './selectableItems';
 import { itemTypeMap } from '../../modules/itemTypes';
 import ItemSelectList from './ItemSelectList';
 import ItemSelectSingle from './ItemSelectSingle';
-import { colors } from '../../modules/colors';
 
 import './ItemSelect.css';
 
-const styles = {
-    filterField: {
-        fontSize: '14px',
-        height: '30px',
-        marginLeft: '10px',
-    },
-    filterFieldInput: {
-        top: '-9px',
-        left: '1px',
-    },
-    filterFieldUnderline: {
-        bottom: '10px',
-    },
-    filterFieldUnderlineFocus: {
-        borderColor: '#aaa',
-        borderWidth: '1px',
-    },
-    searchIcon: {
-        fill: colors.muiDefaultGrey,
-    },
-};
-
 const ItemSearchField = props => (
-    <div style={{ display: 'flex', alignItems: 'baseline' }}>
-        <SearchIcon style={styles.searchIcon} />
-        <TextField
-            hintText={i18n.t('Search for items to add to this dashboard')}
-            fullWidth={true}
-            value={props.value}
-            onClick={props.onClick}
-            onChange={props.onChange}
-            style={styles.filterField}
-            inputStyle={styles.filterFieldInput}
-            hintStyle={styles.filterFieldHint}
-            underlineStyle={styles.filterFieldUnderline}
-            underlineFocusStyle={styles.filterFieldUnderlineFocus}
-        />
-    </div>
+    <InputField
+        filled
+        name="Dashboard item search"
+        label={i18n.t('Search for items to add to this dashboard')}
+        type="text"
+        onChange={props.onChange}
+        onFocus={props.onFocus}
+        value={props.value}
+    />
 );
 
 class ItemSelect extends React.Component {
@@ -156,8 +126,8 @@ class ItemSelect extends React.Component {
             <Fragment>
                 <ItemSearchField
                     value={this.state.filter}
-                    onClick={this.openList}
                     onChange={this.setFilter}
+                    onFocus={this.openList}
                 />
                 <Popover
                     className="dashboard-item-select"
