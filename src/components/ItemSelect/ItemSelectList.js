@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import { MenuItem, Divider, colors } from '@dhis2/ui-core';
 import LaunchIcon from '../../icons/Launch';
+
 import { tAddListItemContent } from './actions';
 import { acAddDashboardItem } from '../../actions/editDashboard';
 import { sGetEditDashboardRoot } from '../../reducers/editDashboard';
@@ -14,7 +15,7 @@ import {
     APP,
 } from '../../modules/itemTypes';
 
-import classes from './styles/ItemSelectList.module.css';
+import classes from './styles/MenuItem.module.css';
 
 class ItemSelectList extends Component {
     constructor(props) {
@@ -54,20 +55,20 @@ class ItemSelectList extends Component {
         this.props.onChangeItemsLimit(this.props.type);
     };
 
-    headerMenuItem = () => {};
-
     render() {
         return (
             <Fragment>
                 <MenuItem
                     dense
                     disabled
+                    key={this.props.title}
                     label={
-                        <p className={classes.itemLabel}>{this.props.title}</p>
+                        <p className={classes.sectionHeader}>
+                            {this.props.title}
+                        </p>
                     }
                 />
                 {this.props.items.map(item => {
-                    // const actions = this.itemActions(item);
                     const ItemIcon = getItemIcon(this.props.type);
                     const itemUrl = getItemUrl(
                         this.props.type,
@@ -80,42 +81,42 @@ class ItemSelectList extends Component {
                             dense
                             key={item.id || item.key}
                             label={
-                                <Fragment>
-                                    <ItemIcon
-                                        style={{
-                                            margin: '6px',
-                                            fill: colors.grey600,
-                                            verticalAlign: 'middle',
-                                        }}
-                                    />
-                                    <span>{item.displayName || item.name}</span>
-                                    {itemUrl && (
-                                        <a
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            href={itemUrl}
+                                <div className={classes.menuItem}>
+                                    <div className={classes.itemTitle}>
+                                        <ItemIcon
                                             style={{
-                                                verticalAlign: 'middle',
-                                                marginLeft: '5px',
+                                                marginRight: '6px',
+                                                fill: colors.grey600,
                                             }}
-                                        >
-                                            <LaunchIcon />
-                                        </a>
-                                    )}
-
+                                        />
+                                        <span>
+                                            {item.displayName || item.name}
+                                        </span>
+                                        {itemUrl && (
+                                            <a
+                                                className={classes.launchLink}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                href={itemUrl}
+                                            >
+                                                <LaunchIcon />
+                                            </a>
+                                        )}
+                                    </div>
                                     <button
                                         className={classes.buttonInsert}
                                         onClick={this.addItem(item)}
                                     >
                                         {i18n.t('Insert')}
                                     </button>
-                                </Fragment>
+                                </div>
                             }
                         />
                     );
                 })}
                 <MenuItem
                     dense
+                    key={`showmore${this.props.title}`}
                     label={
                         <button
                             className={classes.showMoreButton}

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-05-13T08:13:50.139Z\n"
-"PO-Revision-Date: 2019-05-13T08:13:50.140Z\n"
+"POT-Creation-Date: 2019-05-13T08:42:29.686Z\n"
+"PO-Revision-Date: 2019-05-13T08:42:29.686Z\n"
 
 msgid "Dashboard"
 msgstr ""
@@ -103,13 +103,7 @@ msgstr ""
 msgid "Insert"
 msgstr ""
 
-msgid "Show"
-msgstr ""
-
-msgid "fewer"
-msgstr ""
-
-msgid "more"
+msgid "Show fewer"
 msgstr ""
 
 msgid "Additional items"

@@ -61,6 +61,7 @@ ShallowWrapper {
           <TextField
             InputProps={
               Object {
+                "disableUnderline": true,
                 "style": Object {
                   "backgroundColor": "rgba(0, 0, 10, 0.05)",
                   "width": "100%",
@@ -79,6 +80,7 @@ ShallowWrapper {
           <TextField
             InputProps={
               Object {
+                "disableUnderline": true,
                 "style": Object {
                   "backgroundColor": "rgba(0, 0, 10, 0.05)",
                   "width": "100%",
@@ -121,6 +123,7 @@ ShallowWrapper {
             <TextField
               InputProps={
                 Object {
+                  "disableUnderline": true,
                   "style": Object {
                     "backgroundColor": "rgba(0, 0, 10, 0.05)",
                     "width": "100%",
@@ -139,6 +142,7 @@ ShallowWrapper {
             <TextField
               InputProps={
                 Object {
+                  "disableUnderline": true,
                   "style": Object {
                     "backgroundColor": "rgba(0, 0, 10, 0.05)",
                     "width": "100%",
@@ -168,6 +172,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "InputProps": Object {
+                "disableUnderline": true,
                 "style": Object {
                   "backgroundColor": "rgba(0, 0, 10, 0.05)",
                   "width": "100%",
@@ -193,6 +198,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "InputProps": Object {
+                "disableUnderline": true,
                 "style": Object {
                   "backgroundColor": "rgba(0, 0, 10, 0.05)",
                   "width": "100%",
@@ -258,6 +264,7 @@ ShallowWrapper {
             <TextField
               InputProps={
                 Object {
+                  "disableUnderline": true,
                   "style": Object {
                     "backgroundColor": "rgba(0, 0, 10, 0.05)",
                     "width": "100%",
@@ -276,6 +283,7 @@ ShallowWrapper {
             <TextField
               InputProps={
                 Object {
+                  "disableUnderline": true,
                   "style": Object {
                     "backgroundColor": "rgba(0, 0, 10, 0.05)",
                     "width": "100%",
@@ -318,6 +326,7 @@ ShallowWrapper {
               <TextField
                 InputProps={
                   Object {
+                    "disableUnderline": true,
                     "style": Object {
                       "backgroundColor": "rgba(0, 0, 10, 0.05)",
                       "width": "100%",
@@ -336,6 +345,7 @@ ShallowWrapper {
               <TextField
                 InputProps={
                   Object {
+                    "disableUnderline": true,
                     "style": Object {
                       "backgroundColor": "rgba(0, 0, 10, 0.05)",
                       "width": "100%",
@@ -365,6 +375,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "InputProps": Object {
+                  "disableUnderline": true,
                   "style": Object {
                     "backgroundColor": "rgba(0, 0, 10, 0.05)",
                     "width": "100%",
@@ -390,6 +401,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "InputProps": Object {
+                  "disableUnderline": true,
                   "style": Object {
                     "backgroundColor": "rgba(0, 0, 10, 0.05)",
                     "width": "100%",
@@ -526,6 +538,7 @@ ShallowWrapper {
           <TextField
             InputProps={
               Object {
+                "disableUnderline": true,
                 "style": Object {
                   "backgroundColor": "rgba(0, 0, 10, 0.05)",
                   "width": "100%",
@@ -544,6 +557,7 @@ ShallowWrapper {
           <TextField
             InputProps={
               Object {
+                "disableUnderline": true,
                 "style": Object {
                   "backgroundColor": "rgba(0, 0, 10, 0.05)",
                   "width": "100%",
@@ -586,6 +600,7 @@ ShallowWrapper {
             <TextField
               InputProps={
                 Object {
+                  "disableUnderline": true,
                   "style": Object {
                     "backgroundColor": "rgba(0, 0, 10, 0.05)",
                     "width": "100%",
@@ -604,6 +619,7 @@ ShallowWrapper {
             <TextField
               InputProps={
                 Object {
+                  "disableUnderline": true,
                   "style": Object {
                     "backgroundColor": "rgba(0, 0, 10, 0.05)",
                     "width": "100%",
@@ -633,6 +649,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "InputProps": Object {
+                "disableUnderline": true,
                 "style": Object {
                   "backgroundColor": "rgba(0, 0, 10, 0.05)",
                   "width": "100%",
@@ -658,6 +675,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "InputProps": Object {
+                "disableUnderline": true,
                 "style": Object {
                   "backgroundColor": "rgba(0, 0, 10, 0.05)",
                   "width": "100%",
@@ -723,6 +741,7 @@ ShallowWrapper {
             <TextField
               InputProps={
                 Object {
+                  "disableUnderline": true,
                   "style": Object {
                     "backgroundColor": "rgba(0, 0, 10, 0.05)",
                     "width": "100%",
@@ -741,6 +760,7 @@ ShallowWrapper {
             <TextField
               InputProps={
                 Object {
+                  "disableUnderline": true,
                   "style": Object {
                     "backgroundColor": "rgba(0, 0, 10, 0.05)",
                     "width": "100%",
@@ -783,6 +803,7 @@ ShallowWrapper {
               <TextField
                 InputProps={
                   Object {
+                    "disableUnderline": true,
                     "style": Object {
                       "backgroundColor": "rgba(0, 0, 10, 0.05)",
                       "width": "100%",
@@ -801,6 +822,7 @@ ShallowWrapper {
               <TextField
                 InputProps={
                   Object {
+                    "disableUnderline": true,
                     "style": Object {
                       "backgroundColor": "rgba(0, 0, 10, 0.05)",
                       "width": "100%",
@@ -830,6 +852,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "InputProps": Object {
+                  "disableUnderline": true,
                   "style": Object {
                     "backgroundColor": "rgba(0, 0, 10, 0.05)",
                     "width": "100%",
@@ -855,6 +878,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "InputProps": Object {
+                  "disableUnderline": true,
                   "style": Object {
                     "backgroundColor": "rgba(0, 0, 10, 0.05)",
                     "width": "100%",

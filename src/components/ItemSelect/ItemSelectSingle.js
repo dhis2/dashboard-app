@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { MenuItem, Divider } from '@dhis2/ui-core';
-import Button from '@dhis2/d2-ui-core/button/Button';
+import i18n from '@dhis2/d2-i18n';
+import { MenuItem, colors } from '@dhis2/ui-core';
 import { getItemIcon } from '../../modules/itemTypes';
 
 import { acAddDashboardItem } from '../../actions/editDashboard';
+
+import classes from './styles/MenuItem.module.css';
 
 const SingleItem = ({ item, onAddToDashboard }) => {
     const ItemIcon = getItemIcon(item.type);
@@ -13,27 +15,20 @@ const SingleItem = ({ item, onAddToDashboard }) => {
             dense
             key={item.type}
             label={
-                <p
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'flex-start',
-                        margin: 0,
-                    }}
-                >
-                    <ItemIcon style={{ margin: '6px' }} />
-                    {item.name}
-                    <Button
-                        color="primary"
+                <div className={classes.menuItem}>
+                    <div className={classes.itemTitle}>
+                        <ItemIcon
+                            style={{ margin: '6px', fill: colors.grey600 }}
+                        />
+                        <span>{item.name}</span>
+                    </div>
+                    <button
+                        className={classes.buttonInsert}
                         onClick={onAddToDashboard}
-                        style={{
-                            marginLeft: '5px',
-                            marginRight: '5px',
-                        }}
                     >
-                        Insert
-                    </Button>
-                </p>
+                        {i18n.t('Insert')}
+                    </button>
+                </div>
             }
         />
     );
@@ -46,8 +41,13 @@ const ItemSelectSingle = ({ acAddDashboardItem, category }) => {
 
     return (
         <Fragment>
-            <MenuItem dense label={<p>{category.header}</p>} />
-            <Divider style={{ margin: '8px 0' }} />
+            <MenuItem
+                dense
+                disabled
+                label={
+                    <p className={classes.sectionHeader}>{category.header}</p>
+                }
+            />
             {category.items.map(item => (
                 <SingleItem
                     key={item.type}

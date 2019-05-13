@@ -75,7 +75,10 @@ export const EditTitleBar = ({
                     value={name}
                     multiline
                     className={classes.titleContainer}
-                    InputProps={{ style: styles.input }}
+                    InputProps={{
+                        style: styles.input,
+                        disableUnderline: true,
+                    }}
                 />
                 <InputField
                     name="Dashboard description input"
@@ -86,7 +89,10 @@ export const EditTitleBar = ({
                     multiline
                     rows="2"
                     className={classes.descContainer}
-                    InputProps={{ style: styles.input }}
+                    InputProps={{
+                        style: styles.input,
+                        disableUnderline: true,
+                    }}
                 />
             </div>
             <div className={classes.itemSelect}>

@@ -130,7 +130,7 @@ class ItemSelect extends React.Component {
                     onFocus={this.openList}
                 />
                 <Popover
-                    className="dashboard-item-select"
+                    className="dashboard-item-selector"
                     open={this.state.open}
                     onClose={this.closeList}
                     anchorEl={this.state.anchorEl}
