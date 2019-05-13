@@ -1,7 +1,7 @@
 import { END_FLAP_HEIGHT } from '@dhis2/d2-ui-core/control-bar/ControlBar';
 import { SHOWMORE_BAR_HEIGHT } from './ShowMoreButton';
 
-export const CONTROL_BAR_ROW_HEIGHT = 36;
+export const CONTROL_BAR_ROW_HEIGHT = 40;
 export const FIRST_ROW_PADDING_HEIGHT = 10;
 export const MIN_ROW_COUNT = 1;
 
