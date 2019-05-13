@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import Divider from '@material-ui/core/Divider';
-import { List, ListItem } from 'material-ui/List';
+import { MenuItem, Divider } from '@dhis2/ui-core';
 import Button from '@dhis2/d2-ui-core/button/Button';
 import { getItemIcon } from '../../modules/itemTypes';
 
@@ -10,12 +9,10 @@ import { acAddDashboardItem } from '../../actions/editDashboard';
 const SingleItem = ({ item, onAddToDashboard }) => {
     const ItemIcon = getItemIcon(item.type);
     return (
-        <ListItem
+        <MenuItem
+            dense
             key={item.type}
-            leftIcon={<ItemIcon style={{ margin: '6px' }} />}
-            innerDivStyle={{ padding: '0px 0px 0px 42px' }}
-            hoverColor="transparent"
-            primaryText={
+            label={
                 <p
                     style={{
                         display: 'flex',
@@ -24,6 +21,7 @@ const SingleItem = ({ item, onAddToDashboard }) => {
                         margin: 0,
                     }}
                 >
+                    <ItemIcon style={{ margin: '6px' }} />
                     {item.name}
                     <Button
                         color="primary"
@@ -33,7 +31,7 @@ const SingleItem = ({ item, onAddToDashboard }) => {
                             marginRight: '5px',
                         }}
                     >
-                        + ADD
+                        Insert
                     </Button>
                 </p>
             }
@@ -48,25 +46,15 @@ const ItemSelectSingle = ({ acAddDashboardItem, category }) => {
 
     return (
         <Fragment>
-            <div
-                style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    paddingLeft: '16px',
-                }}
-            >
-                <h3>{category.header}</h3>
-            </div>
-            <Divider />
-            <List>
-                {category.items.map(item => (
-                    <SingleItem
-                        key={item.type}
-                        item={item}
-                        onAddToDashboard={addToDashboard(item)}
-                    />
-                ))}
-            </List>
+            <MenuItem dense label={<p>{category.header}</p>} />
+            <Divider style={{ margin: '8px 0' }} />
+            {category.items.map(item => (
+                <SingleItem
+                    key={item.type}
+                    item={item}
+                    onAddToDashboard={addToDashboard(item)}
+                />
+            ))}
         </Fragment>
     );
 };

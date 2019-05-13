@@ -2,14 +2,14 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import Popover from '@material-ui/core/Popover';
-import { InputField } from '@dhis2/ui-core';
+import { InputField, Menu } from '@dhis2/ui-core';
 
 import { singleItems, listItems } from './selectableItems';
 import { itemTypeMap } from '../../modules/itemTypes';
 import ItemSelectList from './ItemSelectList';
 import ItemSelectSingle from './ItemSelectSingle';
 
-import './ItemSelect.css';
+import './styles/ItemSelect.css';
 
 const ItemSearchField = props => (
     <InputField
@@ -141,7 +141,7 @@ class ItemSelect extends React.Component {
                     disableAutoFocus={true}
                     disableRestoreFocus={true}
                 >
-                    {this.popoverChildren(this.state.items)}
+                    <Menu>{this.popoverChildren(this.state.items)}</Menu>
                 </Popover>
             </Fragment>
         );

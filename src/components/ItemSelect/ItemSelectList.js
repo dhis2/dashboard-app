@@ -2,27 +2,19 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
-import Divider from '@material-ui/core/Divider';
-import { List, ListItem } from 'material-ui/List';
-import Button from '@dhis2/d2-ui-core/button/Button';
-import LaunchIcon from '@material-ui/icons/Launch';
+import { MenuItem, Divider, colors } from '@dhis2/ui-core';
+import LaunchIcon from '../../icons/Launch';
 import { tAddListItemContent } from './actions';
 import { acAddDashboardItem } from '../../actions/editDashboard';
 import { sGetEditDashboardRoot } from '../../reducers/editDashboard';
 import {
     getItemUrl,
     getItemIcon,
+    listItemTypes,
     APP,
-    CHART,
-    EVENT_CHART,
-    REPORT_TABLE,
-    EVENT_REPORT,
-    MAP,
-    REPORTS,
-    RESOURCES,
-    USERS,
 } from '../../modules/itemTypes';
-import { colors } from '../../modules/colors';
+
+import classes from './styles/ItemSelectList.module.css';
 
 class ItemSelectList extends Component {
     constructor(props) {
@@ -62,113 +54,87 @@ class ItemSelectList extends Component {
         this.props.onChangeItemsLimit(this.props.type);
     };
 
+    headerMenuItem = () => {};
+
     render() {
         return (
             <Fragment>
-                <div
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        paddingLeft: '16px',
-                    }}
-                >
-                    <h3>{this.props.title}</h3>
-                    <Button
-                        color="primary"
-                        style={{ textTransform: 'uppercase' }}
-                        onClick={this.toggleSeeMore}
-                    >
-                        {`${i18n.t('See')} ${
-                            this.state.seeMore
-                                ? i18n.t('fewer')
-                                : i18n.t('more')
-                        } ${this.props.title}`}
-                    </Button>
-                </div>
-                <Divider />
-                <List>
-                    {this.props.items.map(item => {
-                        const itemUrl = getItemUrl(
-                            this.props.type,
-                            item,
-                            this.context.d2
-                        );
+                <MenuItem
+                    dense
+                    disabled
+                    label={
+                        <p className={classes.itemLabel}>{this.props.title}</p>
+                    }
+                />
+                {this.props.items.map(item => {
+                    // const actions = this.itemActions(item);
+                    const ItemIcon = getItemIcon(this.props.type);
+                    const itemUrl = getItemUrl(
+                        this.props.type,
+                        item,
+                        this.context.d2
+                    );
 
-                        const ItemIcon = getItemIcon(this.props.type);
-
-                        return (
-                            <ListItem // apps don't have item.id
-                                key={item.id || item.key}
-                                leftIcon={
+                    return (
+                        <MenuItem // apps don't have item.id
+                            dense
+                            key={item.id || item.key}
+                            label={
+                                <Fragment>
                                     <ItemIcon
                                         style={{
                                             margin: '6px',
-                                            fill: colors.muiDefaultGrey,
+                                            fill: colors.grey600,
+                                            verticalAlign: 'middle',
                                         }}
                                     />
-                                }
-                                innerDivStyle={{ padding: '0px 0px 0px 42px' }}
-                                hoverColor="transparent"
-                                primaryText={
-                                    <p
-                                        style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'flex-start',
-                                            margin: 0,
-                                        }}
-                                    >
-                                        {item.displayName || item.name}
-                                        <Button
-                                            color="primary"
-                                            onClick={this.addItem(item)}
+                                    <span>{item.displayName || item.name}</span>
+                                    {itemUrl && (
+                                        <a
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            href={itemUrl}
                                             style={{
+                                                verticalAlign: 'middle',
                                                 marginLeft: '5px',
-                                                marginRight: '5px',
                                             }}
                                         >
-                                            + ADD
-                                        </Button>
-                                        {itemUrl && (
-                                            <a
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                href={itemUrl}
-                                                style={{ display: 'flex' }}
-                                            >
-                                                <LaunchIcon
-                                                    style={{
-                                                        width: '16px',
-                                                        height: '16px',
-                                                        fill:
-                                                            colors.muiDefaultGrey,
-                                                    }}
-                                                />
-                                            </a>
-                                        )}
-                                    </p>
-                                }
-                            />
-                        );
-                    })}
-                </List>
+                                            <LaunchIcon />
+                                        </a>
+                                    )}
+
+                                    <button
+                                        className={classes.buttonInsert}
+                                        onClick={this.addItem(item)}
+                                    >
+                                        {i18n.t('Insert')}
+                                    </button>
+                                </Fragment>
+                            }
+                        />
+                    );
+                })}
+                <MenuItem
+                    dense
+                    label={
+                        <button
+                            className={classes.showMoreButton}
+                            onClick={this.toggleSeeMore}
+                        >
+                            {this.state.seeMore
+                                ? i18n.t('Show fewer')
+                                : i18n.t('Show more')}
+                        </button>
+                    }
+                />
+                <Divider margin="8px 0px" />
             </Fragment>
         );
     }
 }
 
 ItemSelectList.propTypes = {
-    type: PropTypes.oneOf([
-        APP,
-        CHART,
-        EVENT_CHART,
-        REPORT_TABLE,
-        EVENT_REPORT,
-        MAP,
-        REPORTS,
-        RESOURCES,
-        USERS,
-    ]).isRequired,
+    type: PropTypes.oneOf(listItemTypes).isRequired,
     title: PropTypes.string.isRequired,
     items: PropTypes.array.isRequired,
     onChangeItemsLimit: PropTypes.func.isRequired,

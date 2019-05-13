@@ -19,7 +19,7 @@ import {
 export const singleItems = [
     {
         id: 'additional',
-        header: 'Additional items',
+        header: i18n.t('Additional items'),
         items: [
             {
                 type: TEXT,

@@ -26,6 +26,20 @@ export const MESSAGES = 'MESSAGES';
 export const TEXT = 'TEXT';
 export const SPACER = 'SPACER';
 
+export const listItemTypes = [
+    APP,
+    CHART,
+    EVENT_CHART,
+    EVENT_REPORT,
+    REPORT_TABLE,
+    MAP,
+    REPORTS,
+    RESOURCES,
+    USERS,
+];
+
+export const singleItemTypes = [MESSAGES, TEXT, SPACER];
+
 // Domain types
 export const DOMAIN_TYPE_AGGREGATE = 'AGGREGATE';
 export const DOMAIN_TYPE_TRACKER = 'TRACKER';

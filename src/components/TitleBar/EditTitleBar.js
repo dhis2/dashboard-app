@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import i18n from '@dhis2/d2-i18n';
 import InputField from '@material-ui/core/TextField';
-import { colors } from '@dhis2/ui-core';
 
 import {
     acSetDashboardTitle,
