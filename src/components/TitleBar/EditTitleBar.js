@@ -11,7 +11,6 @@ import {
 } from '../../actions/editDashboard';
 import { orObject } from '../../modules/util';
 import { sGetEditDashboardRoot } from '../../reducers/editDashboard';
-import { sGetDashboardById } from '../../reducers/dashboards';
 import ItemSelect from '../ItemSelect/ItemSelect';
 
 const styles = {
@@ -41,21 +40,11 @@ const styles = {
 
 export const EditTitleBar = ({
     name,
-    displayName,
     description,
-    style,
     onChangeTitle,
     onChangeDescription,
     classes,
 }) => {
-    const translatedName = () => {
-        return displayName ? (
-            <span style={style.description}>
-                {i18n.t('Current translation')}: {displayName}
-            </span>
-        ) : null;
-    };
-
     const updateTitle = e => {
         onChangeTitle(e.target.value);
     };
@@ -104,12 +93,9 @@ export const EditTitleBar = ({
 
 const mapStateToProps = state => {
     const selectedDashboard = orObject(sGetEditDashboardRoot(state));
-    const displayName = orObject(sGetDashboardById(state, selectedDashboard.id))
-        .displayName;
 
     return {
         name: selectedDashboard.name,
-        displayName,
         description: selectedDashboard.description,
     };
 };
@@ -126,16 +112,13 @@ export default connect(
 
 EditTitleBar.propTypes = {
     name: PropTypes.string,
-    displayName: PropTypes.string,
     description: PropTypes.string,
     onChangeTitle: PropTypes.func.isRequired,
     onChangeDescription: PropTypes.func.isRequired,
-    style: PropTypes.object,
 };
 
 EditTitleBar.defaultProps = {
     name: '',
-    displayName: '',
     description: '',
     style: {},
 };

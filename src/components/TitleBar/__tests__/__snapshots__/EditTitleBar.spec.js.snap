@@ -498,7 +498,6 @@ ShallowWrapper {
       }
     }
     description="The blue one"
-    displayName=""
     name="Rainbow Dash"
     onChangeDescription={[Function]}
     onChangeTitle={[Function]}
