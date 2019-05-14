@@ -5,7 +5,7 @@ import HeaderMenuItem from './HeaderMenuItem';
 import ContentMenuItem from './ContentMenuItem';
 import { acAddDashboardItem } from '../../actions/editDashboard';
 
-const ItemSelectSingle = ({ acAddDashboardItem, category }) => {
+const SinglesMenuGroup = ({ acAddDashboardItem, category }) => {
     const addToDashboard = ({ type, content }) => () => {
         acAddDashboardItem({ type, content });
     };
@@ -28,4 +28,4 @@ const ItemSelectSingle = ({ acAddDashboardItem, category }) => {
 export default connect(
     null,
     { acAddDashboardItem }
-)(ItemSelectSingle);
+)(SinglesMenuGroup);

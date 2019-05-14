@@ -16,7 +16,6 @@ import {
     SPACER,
 } from '../../modules/itemTypes';
 
-// singleItems are grouped in the "Additional items" group
 export const singleItems = [
     {
         id: 'additional',

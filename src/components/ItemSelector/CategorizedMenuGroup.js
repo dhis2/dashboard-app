@@ -9,13 +9,12 @@ import ContentMenuItem from './ContentMenuItem';
 
 import { tAddListItemContent } from './actions';
 import { acAddDashboardItem } from '../../actions/editDashboard';
-import { sGetEditDashboardRoot } from '../../reducers/editDashboard';
 import { getItemUrl, APP } from '../../modules/itemTypes';
 import { groupItems, listItemTypes } from './selectableItems';
 
-import classes from './styles/ItemSelectList.module.css';
+import classes from './styles/CategorizedMenuGroup.module.css';
 
-class ItemSelectList extends Component {
+class CategorizedMenuGroup extends Component {
     constructor(props) {
         super(props);
 
@@ -25,12 +24,7 @@ class ItemSelectList extends Component {
     }
 
     addItem = item => () => {
-        const {
-            type,
-            dashboardId,
-            acAddDashboardItem,
-            tAddListItemContent,
-        } = this.props;
+        const { type, acAddDashboardItem, tAddListItemContent } = this.props;
 
         if (type === APP) {
             acAddDashboardItem({ type, content: item.key });
@@ -41,7 +35,7 @@ class ItemSelectList extends Component {
             };
 
             if (listItemTypes.includes(type)) {
-                tAddListItemContent(dashboardId, type, newItem);
+                tAddListItemContent(type, newItem);
             } else {
                 acAddDashboardItem({ type, content: newItem });
             }
@@ -89,23 +83,21 @@ class ItemSelectList extends Component {
     }
 }
 
-ItemSelectList.propTypes = {
+CategorizedMenuGroup.propTypes = {
     type: PropTypes.oneOf(groupItems.map(i => i.id)).isRequired,
     title: PropTypes.string.isRequired,
     items: PropTypes.array.isRequired,
     onChangeItemsLimit: PropTypes.func.isRequired,
 };
 
-ItemSelectList.contextTypes = {
+CategorizedMenuGroup.contextTypes = {
     d2: PropTypes.object.isRequired,
 };
 
 export default connect(
-    state => ({
-        dashboardId: sGetEditDashboardRoot(state).id,
-    }),
+    null,
     {
         acAddDashboardItem,
         tAddListItemContent,
     }
-)(ItemSelectList);
+)(CategorizedMenuGroup);

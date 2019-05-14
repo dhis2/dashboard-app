@@ -4,8 +4,8 @@ import i18n from '@dhis2/d2-i18n';
 import Popover from '@material-ui/core/Popover';
 import { InputField, Menu } from '@dhis2/ui-core';
 
-import ItemSelectList from './ItemSelectList';
-import ItemSelectSingle from './ItemSelectSingle';
+import CategorizedMenuGroup from './CategorizedMenuGroup';
+import SinglesMenuGroup from './SinglesMenuGroup';
 import { singleItems, groupItems } from './selectableItems';
 import { itemTypeMap } from '../../modules/itemTypes';
 
@@ -53,13 +53,13 @@ class ItemSelector extends React.Component {
         this.setState({ filter: event.target.value }, this.fetchItems);
     };
 
-    getGroupItems = items => {
+    getCatetorizedMenuGroups = items => {
         return groupItems.map(type => {
             const itemType = itemTypeMap[type.id];
 
             if (items && items[itemType.countName] > 0) {
                 return (
-                    <ItemSelectList
+                    <CategorizedMenuGroup
                         key={type.id}
                         type={type.id}
                         title={type.title}
@@ -73,13 +73,16 @@ class ItemSelector extends React.Component {
         });
     };
 
-    popoverChildren = items => {
-        const SingleItems = singleItems.map(category => (
-            <ItemSelectSingle key={category.id} category={category} />
+    getSinglesMenuGroups = items => {
+        return items.map(category => (
+            <SinglesMenuGroup key={category.id} category={category} />
         ));
-        const grpItems = this.getGroupItems(items);
+    };
 
-        return grpItems.concat(SingleItems);
+    getMenuGroups = items => {
+        return this.getCatetorizedMenuGroups(items).concat(
+            this.getSinglesMenuGroups(singleItems)
+        );
     };
 
     fetchItems = async type => {
@@ -133,7 +136,7 @@ class ItemSelector extends React.Component {
                     disableAutoFocus={true}
                     disableRestoreFocus={true}
                 >
-                    <Menu>{this.popoverChildren(this.state.items)}</Menu>
+                    <Menu>{this.getMenuGroups(this.state.items)}</Menu>
                 </Popover>
             </Fragment>
         );
