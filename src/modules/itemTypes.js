@@ -26,7 +26,7 @@ export const MESSAGES = 'MESSAGES';
 export const TEXT = 'TEXT';
 export const SPACER = 'SPACER';
 
-export const listItemTypes = [
+export const categorizedItemTypes = [
     APP,
     CHART,
     EVENT_CHART,
@@ -38,7 +38,9 @@ export const listItemTypes = [
     USERS,
 ];
 
-export const singleItemTypes = [MESSAGES, TEXT, SPACER];
+export const uncategorizedItemTypes = [MESSAGES, TEXT, SPACER];
+
+export const listItemTypes = [REPORTS, RESOURCES, USERS];
 
 // Domain types
 export const DOMAIN_TYPE_AGGREGATE = 'AGGREGATE';

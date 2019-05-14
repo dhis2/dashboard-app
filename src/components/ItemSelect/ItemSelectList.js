@@ -2,20 +2,22 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
-import { MenuItem, Divider, colors } from '@dhis2/ui-core';
-import LaunchIcon from '../../icons/Launch';
+import { MenuItem, Divider } from '@dhis2/ui-core';
+
+import HeaderMenuItem from './HeaderMenuItem';
+import ContentMenuItem from './ContentMenuItem';
 
 import { tAddListItemContent } from './actions';
 import { acAddDashboardItem } from '../../actions/editDashboard';
 import { sGetEditDashboardRoot } from '../../reducers/editDashboard';
 import {
     getItemUrl,
-    getItemIcon,
+    categorizedItemTypes,
     listItemTypes,
     APP,
 } from '../../modules/itemTypes';
 
-import classes from './styles/MenuItem.module.css';
+import classes from './styles/ItemSelectList.module.css';
 
 class ItemSelectList extends Component {
     constructor(props) {
@@ -34,18 +36,19 @@ class ItemSelectList extends Component {
             tAddListItemContent,
         } = this.props;
 
-        const newItem = {
-            id: item.id,
-            name: item.displayName || item.name,
-        };
-
-        // special handling for ListItem types
-        if (type.match(/(REPORTS|RESOURCES|USERS)/)) {
-            tAddListItemContent(dashboardId, type, newItem);
-        } else if (type === APP) {
+        if (type === APP) {
             acAddDashboardItem({ type, content: item.key });
         } else {
-            acAddDashboardItem({ type, content: newItem });
+            const newItem = {
+                id: item.id,
+                name: item.displayName || item.name,
+            };
+
+            if (listItemTypes.includes(type)) {
+                tAddListItemContent(dashboardId, type, newItem);
+            } else {
+                acAddDashboardItem({ type, content: newItem });
+            }
         }
     };
 
@@ -56,67 +59,25 @@ class ItemSelectList extends Component {
     };
 
     render() {
+        const { title, type, items } = this.props;
         return (
             <Fragment>
-                <MenuItem
-                    dense
-                    disabled
-                    key={this.props.title}
-                    label={
-                        <p style={{ color: colors.grey800, fontWeight: '600' }}>
-                            {this.props.title}
-                        </p>
-                    }
-                />
-                {this.props.items.map(item => {
-                    const ItemIcon = getItemIcon(this.props.type);
-                    const itemUrl = getItemUrl(
-                        this.props.type,
-                        item,
-                        this.context.d2
-                    );
-
+                <HeaderMenuItem title={title} />
+                {items.map(item => {
+                    const itemUrl = getItemUrl(type, item, this.context.d2);
                     return (
-                        <MenuItem // apps don't have item.id
-                            dense
+                        <ContentMenuItem
                             key={item.id || item.key}
-                            label={
-                                <div className={classes.menuItem}>
-                                    <div className={classes.itemTitle}>
-                                        <ItemIcon
-                                            style={{
-                                                marginRight: '6px',
-                                                fill: colors.grey600,
-                                            }}
-                                        />
-                                        <span>
-                                            {item.displayName || item.name}
-                                        </span>
-                                        {itemUrl && (
-                                            <a
-                                                className={classes.launchLink}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                href={itemUrl}
-                                            >
-                                                <LaunchIcon />
-                                            </a>
-                                        )}
-                                    </div>
-                                    <button
-                                        className={classes.buttonInsert}
-                                        onClick={this.addItem(item)}
-                                    >
-                                        {i18n.t('Insert')}
-                                    </button>
-                                </div>
-                            }
+                            type={type}
+                            name={item.displayName || item.name}
+                            onInsert={this.addItem(item)}
+                            url={itemUrl}
                         />
                     );
                 })}
                 <MenuItem
                     dense
-                    key={`showmore${this.props.title}`}
+                    key={`showmore${title}`}
                     onClick={this.toggleSeeMore}
                     label={
                         <button className={classes.showMoreButton}>
@@ -133,7 +94,7 @@ class ItemSelectList extends Component {
 }
 
 ItemSelectList.propTypes = {
-    type: PropTypes.oneOf(listItemTypes).isRequired,
+    type: PropTypes.oneOf(categorizedItemTypes).isRequired,
     title: PropTypes.string.isRequired,
     items: PropTypes.array.isRequired,
     onChangeItemsLimit: PropTypes.func.isRequired,
