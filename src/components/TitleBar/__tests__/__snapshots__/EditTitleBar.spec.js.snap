@@ -6,7 +6,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <EditTitleBar
     classes={
       Object {
-        "itemSelect": Object {
+        "itemSelector": Object {
           "itemSelStyle": "itemSel",
         },
         "section": Object {
@@ -96,7 +96,7 @@ ShallowWrapper {
             }
           }
         >
-          <itemselect />
+          <itemselector />
         </div>,
       ],
       "className": Object {
@@ -202,7 +202,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <itemselect />,
+          "children": <itemselector />,
           "className": Object {
             "itemSelStyle": "itemSel",
           },
@@ -215,7 +215,7 @@ ShallowWrapper {
           "props": Object {},
           "ref": null,
           "rendered": null,
-          "type": "itemselect",
+          "type": "itemselector",
         },
         "type": "div",
       },
@@ -274,7 +274,7 @@ ShallowWrapper {
               }
             }
           >
-            <itemselect />
+            <itemselector />
           </div>,
         ],
         "className": Object {
@@ -380,7 +380,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <itemselect />,
+            "children": <itemselector />,
             "className": Object {
               "itemSelStyle": "itemSel",
             },
@@ -393,7 +393,7 @@ ShallowWrapper {
             "props": Object {},
             "ref": null,
             "rendered": null,
-            "type": "itemselect",
+            "type": "itemselector",
           },
           "type": "div",
         },
@@ -433,7 +433,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <EditTitleBar
     classes={
       Object {
-        "itemSelect": Object {
+        "itemSelector": Object {
           "itemSelStyle": "itemSel",
         },
         "section": Object {
@@ -522,7 +522,7 @@ ShallowWrapper {
             }
           }
         >
-          <itemselect />
+          <itemselector />
         </div>,
       ],
       "className": Object {
@@ -628,7 +628,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <itemselect />,
+          "children": <itemselector />,
           "className": Object {
             "itemSelStyle": "itemSel",
           },
@@ -641,7 +641,7 @@ ShallowWrapper {
           "props": Object {},
           "ref": null,
           "rendered": null,
-          "type": "itemselect",
+          "type": "itemselector",
         },
         "type": "div",
       },
@@ -700,7 +700,7 @@ ShallowWrapper {
               }
             }
           >
-            <itemselect />
+            <itemselector />
           </div>,
         ],
         "className": Object {
@@ -806,7 +806,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <itemselect />,
+            "children": <itemselector />,
             "className": Object {
               "itemSelStyle": "itemSel",
             },
@@ -819,7 +819,7 @@ ShallowWrapper {
             "props": Object {},
             "ref": null,
             "rendered": null,
-            "type": "itemselect",
+            "type": "itemselector",
           },
           "type": "div",
         },

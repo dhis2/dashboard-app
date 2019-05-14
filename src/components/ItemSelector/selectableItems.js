@@ -16,6 +16,7 @@ import {
     SPACER,
 } from '../../modules/itemTypes';
 
+// singleItems are grouped in the "Additional items" group
 export const singleItems = [
     {
         id: 'additional',
@@ -40,7 +41,8 @@ export const singleItems = [
     },
 ];
 
-export const listItems = [
+// groupItems are grouped in the item selector
+export const groupItems = [
     {
         id: REPORT_TABLE,
         title: itemTypeMap[REPORT_TABLE].pluralTitle,
@@ -72,3 +74,6 @@ export const listItems = [
     },
     { id: APP, title: itemTypeMap[APP].pluralTitle },
 ];
+
+// listItemTypes are included in a single dashboard item
+export const listItemTypes = [REPORTS, RESOURCES, USERS];

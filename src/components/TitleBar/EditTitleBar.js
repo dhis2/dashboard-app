@@ -6,13 +6,13 @@ import i18n from '@dhis2/d2-i18n';
 import MuiInputField from '@material-ui/core/TextField';
 import { InputField } from '@dhis2/ui-core';
 
+import ItemSelector from '../ItemSelector/ItemSelector';
 import {
     acSetDashboardTitle,
     acSetDashboardDescription,
 } from '../../actions/editDashboard';
 import { orObject } from '../../modules/util';
 import { sGetEditDashboardRoot } from '../../reducers/editDashboard';
-import ItemSelect from '../ItemSelect/ItemSelect';
 
 const styles = {
     section: { display: 'flex', justifyContent: 'space-between' },
@@ -33,7 +33,7 @@ const styles = {
         backgroundColor: 'rgba(0, 0, 10, 0.05)',
         width: '100%',
     },
-    itemSelect: {
+    itemSelector: {
         flex: '2',
         position: 'relative',
     },
@@ -81,8 +81,8 @@ export const EditTitleBar = ({
                     }}
                 />
             </div>
-            <div className={classes.itemSelect}>
-                <ItemSelect />
+            <div className={classes.itemSelector}>
+                <ItemSelector />
             </div>
         </section>
     );

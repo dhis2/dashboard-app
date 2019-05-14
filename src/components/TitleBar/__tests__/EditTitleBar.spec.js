@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { EditTitleBar } from '../EditTitleBar';
 
 jest.mock('@dhis2/d2-ui-core/text-field/TextField', () => 'textfield');
-jest.mock('../../ItemSelect/ItemSelect', () => 'itemselect');
+jest.mock('../../ItemSelector/ItemSelector', () => 'itemselector');
 
 describe('EditTitleBar', () => {
     const props = {
@@ -19,7 +19,7 @@ describe('EditTitleBar', () => {
             section: { sectionStyle: 'section' },
             titleDescription: { titleDescStyle: 'titleDesc' },
             title: { titleStyle: 'title' },
-            itemSelect: { itemSelStyle: 'itemSel' },
+            itemSelector: { itemSelStyle: 'itemSel' },
         },
     };
 

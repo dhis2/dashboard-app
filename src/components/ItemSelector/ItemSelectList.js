@@ -10,12 +10,8 @@ import ContentMenuItem from './ContentMenuItem';
 import { tAddListItemContent } from './actions';
 import { acAddDashboardItem } from '../../actions/editDashboard';
 import { sGetEditDashboardRoot } from '../../reducers/editDashboard';
-import {
-    getItemUrl,
-    categorizedItemTypes,
-    listItemTypes,
-    APP,
-} from '../../modules/itemTypes';
+import { getItemUrl, APP } from '../../modules/itemTypes';
+import { groupItems, listItemTypes } from './selectableItems';
 
 import classes from './styles/ItemSelectList.module.css';
 
@@ -94,7 +90,7 @@ class ItemSelectList extends Component {
 }
 
 ItemSelectList.propTypes = {
-    type: PropTypes.oneOf(categorizedItemTypes).isRequired,
+    type: PropTypes.oneOf(groupItems.map(i => i.id)).isRequired,
     title: PropTypes.string.isRequired,
     items: PropTypes.array.isRequired,
     onChangeItemsLimit: PropTypes.func.isRequired,

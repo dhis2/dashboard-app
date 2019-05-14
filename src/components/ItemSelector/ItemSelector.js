@@ -4,12 +4,12 @@ import i18n from '@dhis2/d2-i18n';
 import Popover from '@material-ui/core/Popover';
 import { InputField, Menu } from '@dhis2/ui-core';
 
-import { singleItems, listItems } from './selectableItems';
-import { itemTypeMap } from '../../modules/itemTypes';
 import ItemSelectList from './ItemSelectList';
 import ItemSelectSingle from './ItemSelectSingle';
+import { singleItems, groupItems } from './selectableItems';
+import { itemTypeMap } from '../../modules/itemTypes';
 
-import './styles/ItemSelect.css';
+import './styles/ItemSelector.css';
 
 const ItemSearchField = props => (
     <InputField
@@ -23,7 +23,7 @@ const ItemSearchField = props => (
     />
 );
 
-class ItemSelect extends React.Component {
+class ItemSelector extends React.Component {
     constructor(props) {
         super(props);
 
@@ -53,8 +53,8 @@ class ItemSelect extends React.Component {
         this.setState({ filter: event.target.value }, this.fetchItems);
     };
 
-    getListItems = items => {
-        return listItems.map(type => {
+    getGroupItems = items => {
+        return groupItems.map(type => {
             const itemType = itemTypeMap[type.id];
 
             if (items && items[itemType.countName] > 0) {
@@ -77,44 +77,36 @@ class ItemSelect extends React.Component {
         const SingleItems = singleItems.map(category => (
             <ItemSelectSingle key={category.id} category={category} />
         ));
-        const ListItems = this.getListItems(items);
+        const grpItems = this.getGroupItems(items);
 
-        return ListItems.concat(SingleItems);
+        return grpItems.concat(SingleItems);
     };
 
-    fetchItems = async maxOption => {
-        const api = this.context.d2.Api.getApi();
-
-        let queryString;
-
-        if (maxOption) {
+    fetchItems = async type => {
+        if (type) {
             const maxOptions = this.state.maxOptions;
 
-            if (maxOptions.has(maxOption)) {
-                maxOptions.delete(maxOption);
+            if (maxOptions.has(type)) {
+                maxOptions.delete(type);
             } else {
-                maxOptions.add(maxOption);
+                maxOptions.add(type);
             }
 
-            this.setState({
-                maxOptions,
-            });
+            this.setState({ maxOptions });
         } else {
             this.setState({
                 maxOptions: new Set(),
             });
         }
 
+        let queryString = '';
         if ([...this.state.maxOptions.values()].length) {
             queryString =
                 'max=' + [...this.state.maxOptions.values()].join('&max=');
         }
 
-        api.get(
-            `dashboards/q/${this.state.filter || ''}${
-                queryString ? `?${queryString}` : ''
-            }`
-        )
+        this.context.d2.Api.getApi()
+            .get(`dashboards/q/${this.state.filter || ''}${queryString}`)
             .then(response => {
                 this.setState({ items: response });
             })
@@ -148,8 +140,8 @@ class ItemSelect extends React.Component {
     }
 }
 
-ItemSelect.contextTypes = {
+ItemSelector.contextTypes = {
     d2: PropTypes.object.isRequired,
 };
 
-export default ItemSelect;
+export default ItemSelector;
