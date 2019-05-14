@@ -40,8 +40,8 @@ export const singleItems = [
     },
 ];
 
-// groupItems are grouped in the item selector
-export const groupItems = [
+// categorizedItems are grouped in the item selector menu
+export const categorizedItems = [
     {
         id: REPORT_TABLE,
         title: itemTypeMap[REPORT_TABLE].pluralTitle,

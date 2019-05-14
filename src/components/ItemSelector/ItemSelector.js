@@ -6,7 +6,7 @@ import { InputField, Menu } from '@dhis2/ui-core';
 
 import CategorizedMenuGroup from './CategorizedMenuGroup';
 import SinglesMenuGroup from './SinglesMenuGroup';
-import { singleItems, groupItems } from './selectableItems';
+import { singleItems, categorizedItems } from './selectableItems';
 import { itemTypeMap } from '../../modules/itemTypes';
 
 import './styles/ItemSelector.css';
@@ -54,7 +54,7 @@ class ItemSelector extends React.Component {
     };
 
     getCatetorizedMenuGroups = items => {
-        return groupItems.map(type => {
+        return categorizedItems.map(type => {
             const itemType = itemTypeMap[type.id];
 
             if (items && items[itemType.countName] > 0) {

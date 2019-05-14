@@ -10,7 +10,7 @@ import ContentMenuItem from './ContentMenuItem';
 import { tAddListItemContent } from './actions';
 import { acAddDashboardItem } from '../../actions/editDashboard';
 import { getItemUrl, APP } from '../../modules/itemTypes';
-import { groupItems, listItemTypes } from './selectableItems';
+import { categorizedItems, listItemTypes } from './selectableItems';
 
 import classes from './styles/CategorizedMenuGroup.module.css';
 
@@ -84,7 +84,7 @@ class CategorizedMenuGroup extends Component {
 }
 
 CategorizedMenuGroup.propTypes = {
-    type: PropTypes.oneOf(groupItems.map(i => i.id)).isRequired,
+    type: PropTypes.oneOf(categorizedItems.map(i => i.id)).isRequired,
     title: PropTypes.string.isRequired,
     items: PropTypes.array.isRequired,
     onChangeItemsLimit: PropTypes.func.isRequired,
