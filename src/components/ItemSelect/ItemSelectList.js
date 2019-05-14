@@ -63,7 +63,7 @@ class ItemSelectList extends Component {
                     disabled
                     key={this.props.title}
                     label={
-                        <p className={classes.sectionHeader}>
+                        <p style={{ color: colors.grey800, fontWeight: '600' }}>
                             {this.props.title}
                         </p>
                     }
