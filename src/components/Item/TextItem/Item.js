@@ -64,8 +64,6 @@ const TextItem = props => {
                         <Input
                             value={text}
                             multiline
-                            rows={1}
-                            rowsMax={15}
                             fullWidth
                             style={style.textField}
                             placeholder={i18n.t('Add text here')}
