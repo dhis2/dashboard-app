@@ -45,7 +45,9 @@ const ItemSelectSingle = ({ acAddDashboardItem, category }) => {
                 dense
                 disabled
                 label={
-                    <p className={classes.sectionHeader}>{category.header}</p>
+                    <p style={{ color: colors.grey800, fontWeight: '600' }}>
+                        {category.header}
+                    </p>
                 }
             />
             {category.items.map(item => (
