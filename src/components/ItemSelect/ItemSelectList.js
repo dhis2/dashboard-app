@@ -117,11 +117,9 @@ class ItemSelectList extends Component {
                 <MenuItem
                     dense
                     key={`showmore${this.props.title}`}
+                    onClick={this.toggleSeeMore}
                     label={
-                        <button
-                            className={classes.showMoreButton}
-                            onClick={this.toggleSeeMore}
-                        >
+                        <button className={classes.showMoreButton}>
                             {this.state.seeMore
                                 ? i18n.t('Show fewer')
                                 : i18n.t('Show more')}

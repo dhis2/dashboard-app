@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import i18n from '@dhis2/d2-i18n';
-import InputField from '@material-ui/core/TextField';
+import MuiInputField from '@material-ui/core/TextField';
+import { InputField } from '@dhis2/ui-core';
 
 import {
     acSetDashboardTitle,
@@ -57,19 +58,15 @@ export const EditTitleBar = ({
         <section className={classes.section}>
             <div className={classes.titleDescription}>
                 <InputField
-                    variant="filled"
+                    className={classes.titleContainer}
+                    filled
                     name="Dashboard title input"
                     label={i18n.t('Dashboard title')}
+                    type="text"
                     onChange={updateTitle}
                     value={name}
-                    multiline
-                    className={classes.titleContainer}
-                    InputProps={{
-                        style: styles.input,
-                        disableUnderline: true,
-                    }}
                 />
-                <InputField
+                <MuiInputField
                     name="Dashboard description input"
                     label={i18n.t('Dashboard description')}
                     onChange={updateDescription}

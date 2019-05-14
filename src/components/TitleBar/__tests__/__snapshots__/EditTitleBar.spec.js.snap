@@ -58,24 +58,15 @@ ShallowWrapper {
             }
           }
         >
-          <TextField
-            InputProps={
-              Object {
-                "disableUnderline": true,
-                "style": Object {
-                  "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                  "width": "100%",
-                },
-              }
-            }
+          <InputField
+            filled={true}
             label="Dashboard title"
-            multiline={true}
             name="Dashboard title input"
+            onBlur={[Function]}
             onChange={[Function]}
-            required={false}
-            select={false}
+            onFocus={[Function]}
+            type="text"
             value="Rainbow Dash"
-            variant="filled"
           />
           <TextField
             InputProps={
@@ -120,24 +111,15 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <TextField
-              InputProps={
-                Object {
-                  "disableUnderline": true,
-                  "style": Object {
-                    "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                    "width": "100%",
-                  },
-                }
-              }
+            <InputField
+              filled={true}
               label="Dashboard title"
-              multiline={true}
               name="Dashboard title input"
+              onBlur={[Function]}
               onChange={[Function]}
-              required={false}
-              select={false}
+              onFocus={[Function]}
+              type="text"
               value="Rainbow Dash"
-              variant="filled"
             />,
             <TextField
               InputProps={
@@ -171,22 +153,15 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "InputProps": Object {
-                "disableUnderline": true,
-                "style": Object {
-                  "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                  "width": "100%",
-                },
-              },
               "className": undefined,
+              "filled": true,
               "label": "Dashboard title",
-              "multiline": true,
               "name": "Dashboard title input",
+              "onBlur": [Function],
               "onChange": [Function],
-              "required": false,
-              "select": false,
+              "onFocus": [Function],
+              "type": "text",
               "value": "Rainbow Dash",
-              "variant": "filled",
             },
             "ref": null,
             "rendered": null,
@@ -261,24 +236,15 @@ ShallowWrapper {
               }
             }
           >
-            <TextField
-              InputProps={
-                Object {
-                  "disableUnderline": true,
-                  "style": Object {
-                    "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                    "width": "100%",
-                  },
-                }
-              }
+            <InputField
+              filled={true}
               label="Dashboard title"
-              multiline={true}
               name="Dashboard title input"
+              onBlur={[Function]}
               onChange={[Function]}
-              required={false}
-              select={false}
+              onFocus={[Function]}
+              type="text"
               value="Rainbow Dash"
-              variant="filled"
             />
             <TextField
               InputProps={
@@ -323,24 +289,15 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <TextField
-                InputProps={
-                  Object {
-                    "disableUnderline": true,
-                    "style": Object {
-                      "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                      "width": "100%",
-                    },
-                  }
-                }
+              <InputField
+                filled={true}
                 label="Dashboard title"
-                multiline={true}
                 name="Dashboard title input"
+                onBlur={[Function]}
                 onChange={[Function]}
-                required={false}
-                select={false}
+                onFocus={[Function]}
+                type="text"
                 value="Rainbow Dash"
-                variant="filled"
               />,
               <TextField
                 InputProps={
@@ -374,22 +331,15 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "InputProps": Object {
-                  "disableUnderline": true,
-                  "style": Object {
-                    "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                    "width": "100%",
-                  },
-                },
                 "className": undefined,
+                "filled": true,
                 "label": "Dashboard title",
-                "multiline": true,
                 "name": "Dashboard title input",
+                "onBlur": [Function],
                 "onChange": [Function],
-                "required": false,
-                "select": false,
+                "onFocus": [Function],
+                "type": "text",
                 "value": "Rainbow Dash",
-                "variant": "filled",
               },
               "ref": null,
               "rendered": null,
@@ -534,24 +484,15 @@ ShallowWrapper {
             }
           }
         >
-          <TextField
-            InputProps={
-              Object {
-                "disableUnderline": true,
-                "style": Object {
-                  "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                  "width": "100%",
-                },
-              }
-            }
+          <InputField
+            filled={true}
             label="Dashboard title"
-            multiline={true}
             name="Dashboard title input"
+            onBlur={[Function]}
             onChange={[Function]}
-            required={false}
-            select={false}
+            onFocus={[Function]}
+            type="text"
             value="Rainbow Dash"
-            variant="filled"
           />
           <TextField
             InputProps={
@@ -596,24 +537,15 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <TextField
-              InputProps={
-                Object {
-                  "disableUnderline": true,
-                  "style": Object {
-                    "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                    "width": "100%",
-                  },
-                }
-              }
+            <InputField
+              filled={true}
               label="Dashboard title"
-              multiline={true}
               name="Dashboard title input"
+              onBlur={[Function]}
               onChange={[Function]}
-              required={false}
-              select={false}
+              onFocus={[Function]}
+              type="text"
               value="Rainbow Dash"
-              variant="filled"
             />,
             <TextField
               InputProps={
@@ -647,22 +579,15 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "InputProps": Object {
-                "disableUnderline": true,
-                "style": Object {
-                  "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                  "width": "100%",
-                },
-              },
               "className": undefined,
+              "filled": true,
               "label": "Dashboard title",
-              "multiline": true,
               "name": "Dashboard title input",
+              "onBlur": [Function],
               "onChange": [Function],
-              "required": false,
-              "select": false,
+              "onFocus": [Function],
+              "type": "text",
               "value": "Rainbow Dash",
-              "variant": "filled",
             },
             "ref": null,
             "rendered": null,
@@ -737,24 +662,15 @@ ShallowWrapper {
               }
             }
           >
-            <TextField
-              InputProps={
-                Object {
-                  "disableUnderline": true,
-                  "style": Object {
-                    "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                    "width": "100%",
-                  },
-                }
-              }
+            <InputField
+              filled={true}
               label="Dashboard title"
-              multiline={true}
               name="Dashboard title input"
+              onBlur={[Function]}
               onChange={[Function]}
-              required={false}
-              select={false}
+              onFocus={[Function]}
+              type="text"
               value="Rainbow Dash"
-              variant="filled"
             />
             <TextField
               InputProps={
@@ -799,24 +715,15 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <TextField
-                InputProps={
-                  Object {
-                    "disableUnderline": true,
-                    "style": Object {
-                      "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                      "width": "100%",
-                    },
-                  }
-                }
+              <InputField
+                filled={true}
                 label="Dashboard title"
-                multiline={true}
                 name="Dashboard title input"
+                onBlur={[Function]}
                 onChange={[Function]}
-                required={false}
-                select={false}
+                onFocus={[Function]}
+                type="text"
                 value="Rainbow Dash"
-                variant="filled"
               />,
               <TextField
                 InputProps={
@@ -850,22 +757,15 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "InputProps": Object {
-                  "disableUnderline": true,
-                  "style": Object {
-                    "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                    "width": "100%",
-                  },
-                },
                 "className": undefined,
+                "filled": true,
                 "label": "Dashboard title",
-                "multiline": true,
                 "name": "Dashboard title input",
+                "onBlur": [Function],
                 "onChange": [Function],
-                "required": false,
-                "select": false,
+                "onFocus": [Function],
+                "type": "text",
                 "value": "Rainbow Dash",
-                "variant": "filled",
               },
               "ref": null,
               "rendered": null,
