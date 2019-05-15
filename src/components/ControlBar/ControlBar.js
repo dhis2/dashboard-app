@@ -5,7 +5,7 @@ import { HEADERBAR_HEIGHT } from './controlBarDimensions';
 
 import classes from './styles/ControlBar.module.css';
 
-const END_FLAP_HEIGHT = 7;
+const DRAG_HANDLE_HEIGHT = 7;
 
 class ControlBar extends React.Component {
     constructor(props) {
@@ -53,14 +53,14 @@ class ControlBar extends React.Component {
         return typeof this.props.onChangeHeight === 'function' ? (
             <div
                 className={classes.draghandle}
-                style={{ height: END_FLAP_HEIGHT }}
+                style={{ height: DRAG_HANDLE_HEIGHT }}
                 onMouseDown={this.onStartDrag}
             />
         ) : null;
     }
 
     render() {
-        const height = Math.max(this.props.height, 0) + END_FLAP_HEIGHT;
+        const height = Math.max(this.props.height, 0) + DRAG_HANDLE_HEIGHT;
 
         const rootStyle = Object.assign(
             {
@@ -69,7 +69,7 @@ class ControlBar extends React.Component {
                 backgroundColor: this.props.editMode
                     ? colors.yellow050
                     : colors.white,
-                paddingBottom: END_FLAP_HEIGHT,
+                paddingBottom: DRAG_HANDLE_HEIGHT,
             },
             // Disable animations while dragging
             this.state.dragging ? { transition: 'none' } : {}
@@ -84,32 +84,16 @@ class ControlBar extends React.Component {
     }
 }
 
-const positiveIntegerPropValidator = (props, propName, componentName) => {
-    const propValue = props[propName];
-    if (
-        isNaN(parseFloat(propValue)) ||
-        !isFinite(propValue) ||
-        !Number.isInteger(propValue) ||
-        props[propName] < 1
-    ) {
-        // eslint-disable-next-line max-len
-        return new Error(
-            `Invalid prop '${propName}' with value '${propValue}' supplied to component '${componentName}': Must be a positive integer`
-        );
-    }
-    return undefined;
-};
-
 ControlBar.propTypes = {
     /**
      * The height of the control bar in number of lines. Must be a positive integer.
      */
-    height: positiveIntegerPropValidator,
+    height: PropTypes.number.isRequired,
 
     /**
      * If true, the background color of the control bar changes to indicate that edit mode is active.
      */
-    editMode: PropTypes.bool,
+    editMode: PropTypes.bool.isRequired,
 
     /**
      * Callback function that is called when the control bar is resized.
@@ -134,8 +118,6 @@ ControlBar.propTypes = {
 };
 
 ControlBar.defaultProps = {
-    height: 32,
-    editMode: false,
     onChangeHeight: null,
     onEndDrag: null,
 };
