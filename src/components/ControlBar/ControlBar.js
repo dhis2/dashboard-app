@@ -26,7 +26,7 @@ class ControlBar extends React.Component {
         event.preventDefault();
         event.stopPropagation();
 
-        const newHeight = event.clientY - 52;
+        const newHeight = event.clientY;
 
         if (
             this.props.onChangeHeight &&

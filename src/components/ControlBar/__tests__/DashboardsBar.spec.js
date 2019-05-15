@@ -77,10 +77,10 @@ describe('DashboardsBar', () => {
         props.userRows = MAX_ROW_COUNT - 1;
         const dbr = dashboardsBar();
 
-        const newPixelHeight = 200; // should be equivalent to 4 rows
+        const newPixelHeight = 200; // should be equivalent to 3 rows
         dbr.simulate('changeHeight', newPixelHeight);
         expect(props.onChangeHeight).toHaveBeenCalled();
-        expect(props.onChangeHeight).toHaveBeenCalledWith(4);
+        expect(props.onChangeHeight).toHaveBeenCalledWith(3);
     });
 
     it('does not trigger onChangeHeight when controlbar height is changed to similar value', () => {

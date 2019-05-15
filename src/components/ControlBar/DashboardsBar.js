@@ -46,9 +46,10 @@ export class DashboardsBar extends Component {
     }
 
     onChangeHeight = newHeight => {
+        const adjustedHeight = newHeight - 52; // don't rush the transition to a bigger row count
         const newRows = Math.max(
             MIN_ROW_COUNT,
-            getNumRowsFromHeight(newHeight)
+            getNumRowsFromHeight(adjustedHeight)
         );
 
         if (newRows !== this.state.rows) {
