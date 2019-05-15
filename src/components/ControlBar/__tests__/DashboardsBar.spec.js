@@ -8,18 +8,6 @@ import ShowMoreButton from '../ShowMoreButton';
 import DashboardItemChip from '../DashboardItemChip';
 import * as api from '../../../api/controlBar';
 
-jest.mock('@dhis2/d2-ui-core/control-bar/ControlBar', () => props => {
-    return (
-        <div
-            className="mock-dhis2-controlbar"
-            onChangeHeight={val => props.onChangeHeight(val)}
-            onEndDrag={props.onEndDrag}
-        >
-            {props.children}
-        </div>
-    );
-});
-
 describe('DashboardsBar', () => {
     let props;
     let shallowDashboardsBar;

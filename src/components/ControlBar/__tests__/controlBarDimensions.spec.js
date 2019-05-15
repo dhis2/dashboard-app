@@ -1,25 +1,9 @@
-import {
-    getRowsHeight,
-    getControlBarHeight,
-    getNumRowsFromHeight,
-} from '../controlBarDimensions';
-
-jest.mock('@dhis2/d2-ui-core/control-bar/ControlBar', () => ({
-    END_FLAP_HEIGHT: 7,
-}));
+import { getRowsHeight, getNumRowsFromHeight } from '../controlBarDimensions';
 
 describe('controlBarDimensions', () => {
     describe('getRowsHeight', () => {
         it('calculates the inner height', () => {
             expect(getRowsHeight(2)).toEqual(80);
-        });
-    });
-
-    describe('getControlBarHeight', () => {
-        it('is greater when bar not expandable', () => {
-            expect(getControlBarHeight(2, false)).toBeGreaterThan(
-                getControlBarHeight(2, true)
-            );
         });
     });
 
