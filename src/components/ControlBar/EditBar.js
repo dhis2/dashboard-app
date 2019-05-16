@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import i18n from '@dhis2/d2-i18n';
-import ControlBar from '@dhis2/d2-ui-core/control-bar/ControlBar';
+import ControlBar from './ControlBar';
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog';
 
 import PrimaryButton from '../../widgets/PrimaryButton';
@@ -28,7 +28,7 @@ import {
 } from './controlBarDimensions';
 import { apiFetchDashboard } from '../../api/dashboards';
 
-import './ControlBar.css';
+import classes from './styles/DashboardsBar.module.css';
 
 const buttonBarStyle = {
     height: CONTROL_BAR_ROW_HEIGHT,
@@ -148,7 +148,7 @@ export class EditBar extends Component {
         }
 
         const { dashboardId, deleteAccess, updateAccess } = this.props;
-        const controlBarHeight = getControlBarHeight(MIN_ROW_COUNT, false);
+        const controlBarHeight = getControlBarHeight(MIN_ROW_COUNT);
 
         const discardBtnText = updateAccess
             ? i18n.t('Exit without saving')
@@ -156,14 +156,10 @@ export class EditBar extends Component {
 
         return (
             <Fragment>
-                <ControlBar
-                    height={controlBarHeight}
-                    editMode={true}
-                    expandable={false}
-                >
+                <ControlBar height={controlBarHeight} editMode={true}>
                     <div style={buttonBarStyle}>
                         {updateAccess ? (
-                            <div className="left-controls">
+                            <div className={classes.leftControls}>
                                 <span style={{ marginRight: '15px' }}>
                                     <PrimaryButton
                                         className="save-button"
@@ -191,7 +187,7 @@ export class EditBar extends Component {
                             </div>
                         ) : null}
 
-                        <div className="right-controls">
+                        <div className={classes.rightControls}>
                             <FlatButton
                                 className="discard-button"
                                 onClick={this.onDiscard}
