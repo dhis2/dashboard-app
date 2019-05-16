@@ -116,55 +116,55 @@ export class ItemGrid extends Component {
 
         return (
             <div className="grid-wrapper">
-                {/* {isLoading ? ( */}
-                <ScreenCover>
-                    <CircularProgress />
-                </ScreenCover>
-                {/* ) : ( */}
-                <ReactGridLayout
-                    onLayoutChange={this.onLayoutChange}
-                    onResizeStop={this.onResizeStop}
-                    className="layout"
-                    layout={items}
-                    margin={MARGIN}
-                    cols={getGridColumns()}
-                    rowHeight={GRID_ROW_HEIGHT}
-                    width={window.innerWidth}
-                    compactType={GRID_COMPACT_TYPE}
-                    isDraggable={edit}
-                    isResizable={edit}
-                    draggableCancel="input,textarea"
-                >
-                    {items.map(item => {
-                        const itemClassNames = [
-                            item.type,
-                            edit ? 'edit' : 'view',
-                        ].join(' ');
+                {isLoading ? (
+                    <ScreenCover>
+                        <CircularProgress />
+                    </ScreenCover>
+                ) : (
+                    <ReactGridLayout
+                        onLayoutChange={this.onLayoutChange}
+                        onResizeStop={this.onResizeStop}
+                        className="layout"
+                        layout={items}
+                        margin={MARGIN}
+                        cols={getGridColumns()}
+                        rowHeight={GRID_ROW_HEIGHT}
+                        width={window.innerWidth}
+                        compactType={GRID_COMPACT_TYPE}
+                        isDraggable={edit}
+                        isResizable={edit}
+                        draggableCancel="input,textarea"
+                    >
+                        {items.map(item => {
+                            const itemClassNames = [
+                                item.type,
+                                edit ? 'edit' : 'view',
+                            ].join(' ');
 
-                        return (
-                            <ProgressiveLoadingContainer
-                                key={item.i}
-                                className={itemClassNames}
-                            >
-                                {edit ? (
-                                    <DeleteItemButton
-                                        onClick={this.onRemoveItemWrapper(
-                                            item.id
-                                        )}
+                            return (
+                                <ProgressiveLoadingContainer
+                                    key={item.i}
+                                    className={itemClassNames}
+                                >
+                                    {edit ? (
+                                        <DeleteItemButton
+                                            onClick={this.onRemoveItemWrapper(
+                                                item.id
+                                            )}
+                                        />
+                                    ) : null}
+                                    <Item
+                                        item={item}
+                                        editMode={edit}
+                                        onToggleItemExpanded={
+                                            this.onToggleItemExpanded
+                                        }
                                     />
-                                ) : null}
-                                <Item
-                                    item={item}
-                                    editMode={edit}
-                                    onToggleItemExpanded={
-                                        this.onToggleItemExpanded
-                                    }
-                                />
-                            </ProgressiveLoadingContainer>
-                        );
-                    })}
-                </ReactGridLayout>
-                {/* )} */}
+                                </ProgressiveLoadingContainer>
+                            );
+                        })}
+                    </ReactGridLayout>
+                )}
             </div>
         );
     }
