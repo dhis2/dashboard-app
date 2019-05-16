@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-import ControlBar from '@dhis2/d2-ui-core/control-bar/ControlBar';
+import ControlBar from './ControlBar';
 import arraySort from 'd2-utilizr/lib/arraySort';
 
 import Chip from './DashboardItemChip';
@@ -24,7 +24,7 @@ import { acSetFilterName } from '../../actions/dashboardsFilter';
 import { orObject, orArray } from '../../modules/util';
 import { apiPostControlBarRows } from '../../api/controlBar';
 
-import './styles/ControlBar.css';
+import classes from './styles/DashboardsBar.module.css';
 
 export const MAX_ROW_COUNT = 10;
 
@@ -46,9 +46,10 @@ export class DashboardsBar extends Component {
     }
 
     onChangeHeight = newHeight => {
+        const adjustedHeight = newHeight - 52; // don't rush the transition to a bigger row count
         const newRows = Math.max(
             MIN_ROW_COUNT,
-            getNumRowsFromHeight(newHeight)
+            getNumRowsFromHeight(adjustedHeight)
         );
 
         if (newRows !== this.state.rows) {
@@ -81,7 +82,7 @@ export class DashboardsBar extends Component {
         const rowCount = this.state.isMaxHeight
             ? MAX_ROW_COUNT
             : this.state.rows;
-        const controlBarHeight = getControlBarHeight(rowCount, true);
+        const controlBarHeight = getControlBarHeight(rowCount);
         const contentWrapperStyle = {
             padding: `${FIRST_ROW_PADDING_HEIGHT}px 6px 0 6px`,
             overflowY: this.state.isMaxHeight ? 'auto' : 'hidden',
@@ -94,10 +95,9 @@ export class DashboardsBar extends Component {
                 onChangeHeight={this.onChangeHeight}
                 onEndDrag={this.onEndDrag}
                 editMode={false}
-                expandable={true}
             >
                 <div style={contentWrapperStyle}>
-                    <div className="left-controls">
+                    <div className={classes.leftControls}>
                         <Link
                             style={{
                                 display: 'inline-block',

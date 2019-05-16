@@ -20,10 +20,6 @@ jest.mock('@dhis2/d2-ui-translation-dialog', () => () => {
     return <div className="mock-dhis2-translation-dialog" />;
 });
 
-jest.mock('@dhis2/d2-ui-core/control-bar/ControlBar', () => props => {
-    return <div className="mock-dhis2-controlbar">{props.children}</div>;
-});
-
 describe('EditBar', () => {
     let props;
     let shallowEditBar;

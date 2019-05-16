@@ -21,10 +21,11 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
-        <Unknown
+        <ControlBar
           editMode={true}
-          expandable={false}
-          height={NaN}
+          height={64}
+          onChangeHeight={null}
+          onEndDrag={null}
         >
           <div
             style={
@@ -37,7 +38,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="right-controls"
+              className="rightControls"
             >
               <Button
                 onClick={[Function]}
@@ -48,7 +49,7 @@ ShallowWrapper {
               </Button>
             </div>
           </div>
-        </Unknown>,
+        </ControlBar>,
         null,
         null,
       ],
@@ -58,7 +59,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "children": <div
             style={
@@ -71,7 +72,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="right-controls"
+              className="rightControls"
             >
               <Button
                 onClick={[Function]}
@@ -83,8 +84,9 @@ ShallowWrapper {
             </div>
           </div>,
           "editMode": true,
-          "expandable": false,
-          "height": NaN,
+          "height": 64,
+          "onChangeHeight": null,
+          "onEndDrag": null,
         },
         "ref": null,
         "rendered": Object {
@@ -95,7 +97,7 @@ ShallowWrapper {
             "children": Array [
               null,
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -128,7 +130,7 @@ ShallowWrapper {
                 >
                   Go to dashboards
                 </Button>,
-                "className": "right-controls",
+                "className": "rightControls",
               },
               "ref": null,
               "rendered": Object {
@@ -164,10 +166,11 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
-          <Unknown
+          <ControlBar
             editMode={true}
-            expandable={false}
-            height={NaN}
+            height={64}
+            onChangeHeight={null}
+            onEndDrag={null}
           >
             <div
               style={
@@ -180,7 +183,7 @@ ShallowWrapper {
               }
             >
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -191,7 +194,7 @@ ShallowWrapper {
                 </Button>
               </div>
             </div>
-          </Unknown>,
+          </ControlBar>,
           null,
           null,
         ],
@@ -201,7 +204,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "children": <div
               style={
@@ -214,7 +217,7 @@ ShallowWrapper {
               }
             >
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -226,8 +229,9 @@ ShallowWrapper {
               </div>
             </div>,
             "editMode": true,
-            "expandable": false,
-            "height": NaN,
+            "height": 64,
+            "onChangeHeight": null,
+            "onEndDrag": null,
           },
           "ref": null,
           "rendered": Object {
@@ -238,7 +242,7 @@ ShallowWrapper {
               "children": Array [
                 null,
                 <div
-                  className="right-controls"
+                  className="rightControls"
                 >
                   <Button
                     onClick={[Function]}
@@ -271,7 +275,7 @@ ShallowWrapper {
                   >
                     Go to dashboards
                   </Button>,
-                  "className": "right-controls",
+                  "className": "rightControls",
                 },
                 "ref": null,
                 "rendered": Object {
@@ -364,10 +368,11 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
-        <Unknown
+        <ControlBar
           editMode={true}
-          expandable={false}
-          height={NaN}
+          height={64}
+          onChangeHeight={null}
+          onEndDrag={null}
         >
           <div
             style={
@@ -380,7 +385,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="right-controls"
+              className="rightControls"
             >
               <Button
                 onClick={[Function]}
@@ -391,7 +396,7 @@ ShallowWrapper {
               </Button>
             </div>
           </div>
-        </Unknown>,
+        </ControlBar>,
         null,
         null,
       ],
@@ -401,7 +406,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "children": <div
             style={
@@ -414,7 +419,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="right-controls"
+              className="rightControls"
             >
               <Button
                 onClick={[Function]}
@@ -426,8 +431,9 @@ ShallowWrapper {
             </div>
           </div>,
           "editMode": true,
-          "expandable": false,
-          "height": NaN,
+          "height": 64,
+          "onChangeHeight": null,
+          "onEndDrag": null,
         },
         "ref": null,
         "rendered": Object {
@@ -438,7 +444,7 @@ ShallowWrapper {
             "children": Array [
               null,
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -471,7 +477,7 @@ ShallowWrapper {
                 >
                   Go to dashboards
                 </Button>,
-                "className": "right-controls",
+                "className": "rightControls",
               },
               "ref": null,
               "rendered": Object {
@@ -507,10 +513,11 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
-          <Unknown
+          <ControlBar
             editMode={true}
-            expandable={false}
-            height={NaN}
+            height={64}
+            onChangeHeight={null}
+            onEndDrag={null}
           >
             <div
               style={
@@ -523,7 +530,7 @@ ShallowWrapper {
               }
             >
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -534,7 +541,7 @@ ShallowWrapper {
                 </Button>
               </div>
             </div>
-          </Unknown>,
+          </ControlBar>,
           null,
           null,
         ],
@@ -544,7 +551,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "children": <div
               style={
@@ -557,7 +564,7 @@ ShallowWrapper {
               }
             >
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -569,8 +576,9 @@ ShallowWrapper {
               </div>
             </div>,
             "editMode": true,
-            "expandable": false,
-            "height": NaN,
+            "height": 64,
+            "onChangeHeight": null,
+            "onEndDrag": null,
           },
           "ref": null,
           "rendered": Object {
@@ -581,7 +589,7 @@ ShallowWrapper {
               "children": Array [
                 null,
                 <div
-                  className="right-controls"
+                  className="rightControls"
                 >
                   <Button
                     onClick={[Function]}
@@ -614,7 +622,7 @@ ShallowWrapper {
                   >
                     Go to dashboards
                   </Button>,
-                  "className": "right-controls",
+                  "className": "rightControls",
                 },
                 "ref": null,
                 "rendered": Object {
@@ -708,10 +716,11 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
-        <Unknown
+        <ControlBar
           editMode={true}
-          expandable={false}
-          height={NaN}
+          height={64}
+          onChangeHeight={null}
+          onEndDrag={null}
         >
           <div
             style={
@@ -724,7 +733,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <span
                 style={
@@ -757,7 +766,7 @@ ShallowWrapper {
               </span>
             </div>
             <div
-              className="right-controls"
+              className="rightControls"
             >
               <Button
                 onClick={[Function]}
@@ -768,7 +777,7 @@ ShallowWrapper {
               </Button>
             </div>
           </div>
-        </Unknown>,
+        </ControlBar>,
         <Unknown
           className="translation-dialog"
           d2={
@@ -806,7 +815,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "children": <div
             style={
@@ -819,7 +828,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <span
                 style={
@@ -852,7 +861,7 @@ ShallowWrapper {
               </span>
             </div>
             <div
-              className="right-controls"
+              className="rightControls"
             >
               <Button
                 onClick={[Function]}
@@ -864,8 +873,9 @@ ShallowWrapper {
             </div>
           </div>,
           "editMode": true,
-          "expandable": false,
-          "height": NaN,
+          "height": 64,
+          "onChangeHeight": null,
+          "onEndDrag": null,
         },
         "ref": null,
         "rendered": Object {
@@ -875,7 +885,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <span
                   style={
@@ -908,7 +918,7 @@ ShallowWrapper {
                 </span>
               </div>,
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -965,7 +975,7 @@ ShallowWrapper {
                   </span>,
                   null,
                 ],
-                "className": "left-controls",
+                "className": "leftControls",
               },
               "ref": null,
               "rendered": Array [
@@ -1049,7 +1059,7 @@ ShallowWrapper {
                 >
                   Exit without saving
                 </Button>,
-                "className": "right-controls",
+                "className": "rightControls",
               },
               "ref": null,
               "rendered": Object {
@@ -1115,10 +1125,11 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
-          <Unknown
+          <ControlBar
             editMode={true}
-            expandable={false}
-            height={NaN}
+            height={64}
+            onChangeHeight={null}
+            onEndDrag={null}
           >
             <div
               style={
@@ -1131,7 +1142,7 @@ ShallowWrapper {
               }
             >
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <span
                   style={
@@ -1164,7 +1175,7 @@ ShallowWrapper {
                 </span>
               </div>
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -1175,7 +1186,7 @@ ShallowWrapper {
                 </Button>
               </div>
             </div>
-          </Unknown>,
+          </ControlBar>,
           <Unknown
             className="translation-dialog"
             d2={
@@ -1213,7 +1224,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "children": <div
               style={
@@ -1226,7 +1237,7 @@ ShallowWrapper {
               }
             >
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <span
                   style={
@@ -1259,7 +1270,7 @@ ShallowWrapper {
                 </span>
               </div>
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -1271,8 +1282,9 @@ ShallowWrapper {
               </div>
             </div>,
             "editMode": true,
-            "expandable": false,
-            "height": NaN,
+            "height": 64,
+            "onChangeHeight": null,
+            "onEndDrag": null,
           },
           "ref": null,
           "rendered": Object {
@@ -1282,7 +1294,7 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <div
-                  className="left-controls"
+                  className="leftControls"
                 >
                   <span
                     style={
@@ -1315,7 +1327,7 @@ ShallowWrapper {
                   </span>
                 </div>,
                 <div
-                  className="right-controls"
+                  className="rightControls"
                 >
                   <Button
                     onClick={[Function]}
@@ -1372,7 +1384,7 @@ ShallowWrapper {
                     </span>,
                     null,
                   ],
-                  "className": "left-controls",
+                  "className": "leftControls",
                 },
                 "ref": null,
                 "rendered": Array [
@@ -1456,7 +1468,7 @@ ShallowWrapper {
                   >
                     Exit without saving
                   </Button>,
-                  "className": "right-controls",
+                  "className": "rightControls",
                 },
                 "ref": null,
                 "rendered": Object {
@@ -1580,10 +1592,11 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
-        <Unknown
+        <ControlBar
           editMode={true}
-          expandable={false}
-          height={NaN}
+          height={64}
+          onChangeHeight={null}
+          onEndDrag={null}
         >
           <div
             style={
@@ -1596,7 +1609,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <span
                 style={
@@ -1629,7 +1642,7 @@ ShallowWrapper {
               </span>
             </div>
             <div
-              className="right-controls"
+              className="rightControls"
             >
               <Button
                 onClick={[Function]}
@@ -1640,7 +1653,7 @@ ShallowWrapper {
               </Button>
             </div>
           </div>
-        </Unknown>,
+        </ControlBar>,
         <Unknown
           className="translation-dialog"
           d2={
@@ -1678,7 +1691,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "children": <div
             style={
@@ -1691,7 +1704,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <span
                 style={
@@ -1724,7 +1737,7 @@ ShallowWrapper {
               </span>
             </div>
             <div
-              className="right-controls"
+              className="rightControls"
             >
               <Button
                 onClick={[Function]}
@@ -1736,8 +1749,9 @@ ShallowWrapper {
             </div>
           </div>,
           "editMode": true,
-          "expandable": false,
-          "height": NaN,
+          "height": 64,
+          "onChangeHeight": null,
+          "onEndDrag": null,
         },
         "ref": null,
         "rendered": Object {
@@ -1747,7 +1761,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <span
                   style={
@@ -1780,7 +1794,7 @@ ShallowWrapper {
                 </span>
               </div>,
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -1837,7 +1851,7 @@ ShallowWrapper {
                   </span>,
                   null,
                 ],
-                "className": "left-controls",
+                "className": "leftControls",
               },
               "ref": null,
               "rendered": Array [
@@ -1921,7 +1935,7 @@ ShallowWrapper {
                 >
                   Exit without saving
                 </Button>,
-                "className": "right-controls",
+                "className": "rightControls",
               },
               "ref": null,
               "rendered": Object {
@@ -1987,10 +2001,11 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
-          <Unknown
+          <ControlBar
             editMode={true}
-            expandable={false}
-            height={NaN}
+            height={64}
+            onChangeHeight={null}
+            onEndDrag={null}
           >
             <div
               style={
@@ -2003,7 +2018,7 @@ ShallowWrapper {
               }
             >
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <span
                   style={
@@ -2036,7 +2051,7 @@ ShallowWrapper {
                 </span>
               </div>
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -2047,7 +2062,7 @@ ShallowWrapper {
                 </Button>
               </div>
             </div>
-          </Unknown>,
+          </ControlBar>,
           <Unknown
             className="translation-dialog"
             d2={
@@ -2085,7 +2100,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "children": <div
               style={
@@ -2098,7 +2113,7 @@ ShallowWrapper {
               }
             >
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <span
                   style={
@@ -2131,7 +2146,7 @@ ShallowWrapper {
                 </span>
               </div>
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -2143,8 +2158,9 @@ ShallowWrapper {
               </div>
             </div>,
             "editMode": true,
-            "expandable": false,
-            "height": NaN,
+            "height": 64,
+            "onChangeHeight": null,
+            "onEndDrag": null,
           },
           "ref": null,
           "rendered": Object {
@@ -2154,7 +2170,7 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <div
-                  className="left-controls"
+                  className="leftControls"
                 >
                   <span
                     style={
@@ -2187,7 +2203,7 @@ ShallowWrapper {
                   </span>
                 </div>,
                 <div
-                  className="right-controls"
+                  className="rightControls"
                 >
                   <Button
                     onClick={[Function]}
@@ -2244,7 +2260,7 @@ ShallowWrapper {
                     </span>,
                     null,
                   ],
-                  "className": "left-controls",
+                  "className": "leftControls",
                 },
                 "ref": null,
                 "rendered": Array [
@@ -2328,7 +2344,7 @@ ShallowWrapper {
                   >
                     Exit without saving
                   </Button>,
-                  "className": "right-controls",
+                  "className": "rightControls",
                 },
                 "ref": null,
                 "rendered": Object {
@@ -2452,10 +2468,11 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
-        <Unknown
+        <ControlBar
           editMode={true}
-          expandable={false}
-          height={NaN}
+          height={64}
+          onChangeHeight={null}
+          onEndDrag={null}
         >
           <div
             style={
@@ -2468,7 +2485,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <span
                 style={
@@ -2501,7 +2518,7 @@ ShallowWrapper {
               </span>
             </div>
             <div
-              className="right-controls"
+              className="rightControls"
             >
               <Button
                 onClick={[Function]}
@@ -2512,7 +2529,7 @@ ShallowWrapper {
               </Button>
             </div>
           </div>
-        </Unknown>,
+        </ControlBar>,
         <Unknown
           className="translation-dialog"
           d2={
@@ -2550,7 +2567,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "children": <div
             style={
@@ -2563,7 +2580,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <span
                 style={
@@ -2596,7 +2613,7 @@ ShallowWrapper {
               </span>
             </div>
             <div
-              className="right-controls"
+              className="rightControls"
             >
               <Button
                 onClick={[Function]}
@@ -2608,8 +2625,9 @@ ShallowWrapper {
             </div>
           </div>,
           "editMode": true,
-          "expandable": false,
-          "height": NaN,
+          "height": 64,
+          "onChangeHeight": null,
+          "onEndDrag": null,
         },
         "ref": null,
         "rendered": Object {
@@ -2619,7 +2637,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <span
                   style={
@@ -2652,7 +2670,7 @@ ShallowWrapper {
                 </span>
               </div>,
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -2709,7 +2727,7 @@ ShallowWrapper {
                   </span>,
                   null,
                 ],
-                "className": "left-controls",
+                "className": "leftControls",
               },
               "ref": null,
               "rendered": Array [
@@ -2793,7 +2811,7 @@ ShallowWrapper {
                 >
                   Exit without saving
                 </Button>,
-                "className": "right-controls",
+                "className": "rightControls",
               },
               "ref": null,
               "rendered": Object {
@@ -2859,10 +2877,11 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
-          <Unknown
+          <ControlBar
             editMode={true}
-            expandable={false}
-            height={NaN}
+            height={64}
+            onChangeHeight={null}
+            onEndDrag={null}
           >
             <div
               style={
@@ -2875,7 +2894,7 @@ ShallowWrapper {
               }
             >
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <span
                   style={
@@ -2908,7 +2927,7 @@ ShallowWrapper {
                 </span>
               </div>
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -2919,7 +2938,7 @@ ShallowWrapper {
                 </Button>
               </div>
             </div>
-          </Unknown>,
+          </ControlBar>,
           <Unknown
             className="translation-dialog"
             d2={
@@ -2957,7 +2976,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "children": <div
               style={
@@ -2970,7 +2989,7 @@ ShallowWrapper {
               }
             >
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <span
                   style={
@@ -3003,7 +3022,7 @@ ShallowWrapper {
                 </span>
               </div>
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -3015,8 +3034,9 @@ ShallowWrapper {
               </div>
             </div>,
             "editMode": true,
-            "expandable": false,
-            "height": NaN,
+            "height": 64,
+            "onChangeHeight": null,
+            "onEndDrag": null,
           },
           "ref": null,
           "rendered": Object {
@@ -3026,7 +3046,7 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <div
-                  className="left-controls"
+                  className="leftControls"
                 >
                   <span
                     style={
@@ -3059,7 +3079,7 @@ ShallowWrapper {
                   </span>
                 </div>,
                 <div
-                  className="right-controls"
+                  className="rightControls"
                 >
                   <Button
                     onClick={[Function]}
@@ -3116,7 +3136,7 @@ ShallowWrapper {
                     </span>,
                     null,
                   ],
-                  "className": "left-controls",
+                  "className": "leftControls",
                 },
                 "ref": null,
                 "rendered": Array [
@@ -3200,7 +3220,7 @@ ShallowWrapper {
                   >
                     Exit without saving
                   </Button>,
-                  "className": "right-controls",
+                  "className": "rightControls",
                 },
                 "ref": null,
                 "rendered": Object {
@@ -3326,10 +3346,11 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
-        <Unknown
+        <ControlBar
           editMode={true}
-          expandable={false}
-          height={NaN}
+          height={64}
+          onChangeHeight={null}
+          onEndDrag={null}
         >
           <div
             style={
@@ -3342,7 +3363,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <span
                 style={
@@ -3381,7 +3402,7 @@ ShallowWrapper {
               </Button>
             </div>
             <div
-              className="right-controls"
+              className="rightControls"
             >
               <Button
                 onClick={[Function]}
@@ -3392,7 +3413,7 @@ ShallowWrapper {
               </Button>
             </div>
           </div>
-        </Unknown>,
+        </ControlBar>,
         null,
         <ConfirmDeleteDialog
           onContinueEditing={[Function]}
@@ -3406,7 +3427,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "children": <div
             style={
@@ -3419,7 +3440,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <span
                 style={
@@ -3458,7 +3479,7 @@ ShallowWrapper {
               </Button>
             </div>
             <div
-              className="right-controls"
+              className="rightControls"
             >
               <Button
                 onClick={[Function]}
@@ -3470,8 +3491,9 @@ ShallowWrapper {
             </div>
           </div>,
           "editMode": true,
-          "expandable": false,
-          "height": NaN,
+          "height": 64,
+          "onChangeHeight": null,
+          "onEndDrag": null,
         },
         "ref": null,
         "rendered": Object {
@@ -3481,7 +3503,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <span
                   style={
@@ -3520,7 +3542,7 @@ ShallowWrapper {
                 </Button>
               </div>,
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -3582,7 +3604,7 @@ ShallowWrapper {
                     Delete
                   </Button>,
                 ],
-                "className": "left-controls",
+                "className": "leftControls",
               },
               "ref": null,
               "rendered": Array [
@@ -3678,7 +3700,7 @@ ShallowWrapper {
                 >
                   Exit without saving
                 </Button>,
-                "className": "right-controls",
+                "className": "rightControls",
               },
               "ref": null,
               "rendered": Object {
@@ -3727,10 +3749,11 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
-          <Unknown
+          <ControlBar
             editMode={true}
-            expandable={false}
-            height={NaN}
+            height={64}
+            onChangeHeight={null}
+            onEndDrag={null}
           >
             <div
               style={
@@ -3743,7 +3766,7 @@ ShallowWrapper {
               }
             >
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <span
                   style={
@@ -3782,7 +3805,7 @@ ShallowWrapper {
                 </Button>
               </div>
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -3793,7 +3816,7 @@ ShallowWrapper {
                 </Button>
               </div>
             </div>
-          </Unknown>,
+          </ControlBar>,
           null,
           <ConfirmDeleteDialog
             onContinueEditing={[Function]}
@@ -3807,7 +3830,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "children": <div
               style={
@@ -3820,7 +3843,7 @@ ShallowWrapper {
               }
             >
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <span
                   style={
@@ -3859,7 +3882,7 @@ ShallowWrapper {
                 </Button>
               </div>
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -3871,8 +3894,9 @@ ShallowWrapper {
               </div>
             </div>,
             "editMode": true,
-            "expandable": false,
-            "height": NaN,
+            "height": 64,
+            "onChangeHeight": null,
+            "onEndDrag": null,
           },
           "ref": null,
           "rendered": Object {
@@ -3882,7 +3906,7 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <div
-                  className="left-controls"
+                  className="leftControls"
                 >
                   <span
                     style={
@@ -3921,7 +3945,7 @@ ShallowWrapper {
                   </Button>
                 </div>,
                 <div
-                  className="right-controls"
+                  className="rightControls"
                 >
                   <Button
                     onClick={[Function]}
@@ -3983,7 +4007,7 @@ ShallowWrapper {
                       Delete
                     </Button>,
                   ],
-                  "className": "left-controls",
+                  "className": "leftControls",
                 },
                 "ref": null,
                 "rendered": Array [
@@ -4079,7 +4103,7 @@ ShallowWrapper {
                   >
                     Exit without saving
                   </Button>,
-                  "className": "right-controls",
+                  "className": "rightControls",
                 },
                 "ref": null,
                 "rendered": Object {
@@ -4187,10 +4211,11 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
-        <Unknown
+        <ControlBar
           editMode={true}
-          expandable={false}
-          height={NaN}
+          height={64}
+          onChangeHeight={null}
+          onEndDrag={null}
         >
           <div
             style={
@@ -4203,7 +4228,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <span
                 style={
@@ -4222,7 +4247,7 @@ ShallowWrapper {
               </span>
             </div>
             <div
-              className="right-controls"
+              className="rightControls"
             >
               <Button
                 onClick={[Function]}
@@ -4233,7 +4258,7 @@ ShallowWrapper {
               </Button>
             </div>
           </div>
-        </Unknown>,
+        </ControlBar>,
         null,
         null,
       ],
@@ -4243,7 +4268,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "children": <div
             style={
@@ -4256,7 +4281,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <span
                 style={
@@ -4275,7 +4300,7 @@ ShallowWrapper {
               </span>
             </div>
             <div
-              className="right-controls"
+              className="rightControls"
             >
               <Button
                 onClick={[Function]}
@@ -4287,8 +4312,9 @@ ShallowWrapper {
             </div>
           </div>,
           "editMode": true,
-          "expandable": false,
-          "height": NaN,
+          "height": 64,
+          "onChangeHeight": null,
+          "onEndDrag": null,
         },
         "ref": null,
         "rendered": Object {
@@ -4298,7 +4324,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <span
                   style={
@@ -4317,7 +4343,7 @@ ShallowWrapper {
                 </span>
               </div>,
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -4361,7 +4387,7 @@ ShallowWrapper {
                   null,
                   null,
                 ],
-                "className": "left-controls",
+                "className": "leftControls",
               },
               "ref": null,
               "rendered": Array [
@@ -4415,7 +4441,7 @@ ShallowWrapper {
                 >
                   Exit without saving
                 </Button>,
-                "className": "right-controls",
+                "className": "rightControls",
               },
               "ref": null,
               "rendered": Object {
@@ -4451,10 +4477,11 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
-          <Unknown
+          <ControlBar
             editMode={true}
-            expandable={false}
-            height={NaN}
+            height={64}
+            onChangeHeight={null}
+            onEndDrag={null}
           >
             <div
               style={
@@ -4467,7 +4494,7 @@ ShallowWrapper {
               }
             >
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <span
                   style={
@@ -4486,7 +4513,7 @@ ShallowWrapper {
                 </span>
               </div>
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -4497,7 +4524,7 @@ ShallowWrapper {
                 </Button>
               </div>
             </div>
-          </Unknown>,
+          </ControlBar>,
           null,
           null,
         ],
@@ -4507,7 +4534,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "children": <div
               style={
@@ -4520,7 +4547,7 @@ ShallowWrapper {
               }
             >
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <span
                   style={
@@ -4539,7 +4566,7 @@ ShallowWrapper {
                 </span>
               </div>
               <div
-                className="right-controls"
+                className="rightControls"
               >
                 <Button
                   onClick={[Function]}
@@ -4551,8 +4578,9 @@ ShallowWrapper {
               </div>
             </div>,
             "editMode": true,
-            "expandable": false,
-            "height": NaN,
+            "height": 64,
+            "onChangeHeight": null,
+            "onEndDrag": null,
           },
           "ref": null,
           "rendered": Object {
@@ -4562,7 +4590,7 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <div
-                  className="left-controls"
+                  className="leftControls"
                 >
                   <span
                     style={
@@ -4581,7 +4609,7 @@ ShallowWrapper {
                   </span>
                 </div>,
                 <div
-                  className="right-controls"
+                  className="rightControls"
                 >
                   <Button
                     onClick={[Function]}
@@ -4625,7 +4653,7 @@ ShallowWrapper {
                     null,
                     null,
                   ],
-                  "className": "left-controls",
+                  "className": "leftControls",
                 },
                 "ref": null,
                 "rendered": Array [
@@ -4679,7 +4707,7 @@ ShallowWrapper {
                   >
                     Exit without saving
                   </Button>,
-                  "className": "right-controls",
+                  "className": "rightControls",
                 },
                 "ref": null,
                 "rendered": Object {
