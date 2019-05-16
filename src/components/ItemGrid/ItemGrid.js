@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import ReactGridLayout from 'react-grid-layout';
-import { CircularProgress } from '@dhis2/ui-core';
+import { CircularProgress, ScreenCover } from '@dhis2/ui-core';
 
 import {
     acUpdateDashboardLayout,
@@ -116,7 +116,11 @@ export class ItemGrid extends Component {
 
         return (
             <div className="grid-wrapper">
-                {isLoading ? <CircularProgress overlay /> : null}
+                {/* {isLoading ? ( */}
+                <ScreenCover>
+                    <CircularProgress />
+                </ScreenCover>
+                {/* ) : ( */}
                 <ReactGridLayout
                     onLayoutChange={this.onLayoutChange}
                     onResizeStop={this.onResizeStop}
@@ -160,6 +164,7 @@ export class ItemGrid extends Component {
                         );
                     })}
                 </ReactGridLayout>
+                {/* )} */}
             </div>
         );
     }
