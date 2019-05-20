@@ -49,8 +49,6 @@ export class ItemGrid extends Component {
         expandedItems: {},
     };
 
-    NO_ITEMS_MESSAGE = i18n.t('There are no items on this dashboard');
-
     onToggleItemExpanded = clickedId => {
         const isExpanded =
             typeof this.state.expandedItems[clickedId] === 'boolean'
@@ -97,10 +95,14 @@ export class ItemGrid extends Component {
         const { edit, isLoading, dashboardItems } = this.props;
 
         if (!isLoading && !dashboardItems.length) {
-            return <NoContentMessage text={this.NO_ITEMS_MESSAGE} />;
+            return (
+                <NoContentMessage
+                    text={i18n.t('There are no items on this dashboard')}
+                />
+            );
         }
 
-        const items = dashboardItems.map((item, index) => {
+        const items = dashboardItems.map(item => {
             const expandedItem = this.state.expandedItems[item.id];
             let hProp = { h: item.h };
 
