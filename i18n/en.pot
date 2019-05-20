@@ -5,16 +5,10 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-05-07T10:46:49.139Z\n"
-"PO-Revision-Date: 2019-05-07T10:46:49.139Z\n"
+"POT-Creation-Date: 2019-05-20T11:57:08.798Z\n"
+"PO-Revision-Date: 2019-05-20T11:57:08.798Z\n"
 
 msgid "Dashboard"
-msgstr ""
-
-msgid "Cancel"
-msgstr ""
-
-msgid "Delete"
 msgstr ""
 
 msgid "Delete dashboard"
@@ -24,6 +18,12 @@ msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Delete"
 msgstr ""
 
 msgid "Exit without saving"

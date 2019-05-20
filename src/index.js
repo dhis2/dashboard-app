@@ -8,10 +8,8 @@ import dhis2theme from '@dhis2/d2-ui-core/theme/mui3.theme';
 
 // temporary workaround until new ui headerbar is ready
 import 'material-design-icons/iconfont/material-icons.css';
-import './reset.css';
 
 import App from './components/App';
-import './index.css';
 import i18n from './locales';
 import configureStore from './configureStore';
 import { muiTheme } from './modules/theme';

@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
+import { CssReset } from '@dhis2/ui-core';
 import HeaderBar from '@dhis2/ui/widgets/HeaderBar';
 
 import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes';
@@ -31,6 +32,7 @@ export class App extends Component {
     render() {
         return (
             <div className="app-wrapper">
+                <CssReset />
                 <div className="dashboard-header-bar">
                     <HeaderBar appName={i18n.t('Dashboard')} />
                 </div>

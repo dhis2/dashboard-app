@@ -21,31 +21,25 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "class",
+    "nodeType": "function",
     "props": Object {
       "children": Array [
-        <WithStyles(DialogTitle)
-          style={
-            Object {
-              "fontSize": "1.25rem",
-              "fontWeight": "450",
-            }
-          }
-        >
+        <Title>
           Delete dashboard
-        </WithStyles(DialogTitle)>,
-        <WithStyles(DialogContent)>
-          <WithStyles(DialogContentText)
+        </Title>,
+        <Content>
+          <span
             style={
               Object {
-                "fontSize": "0.875rem",
+                "fontSize": "14px",
+                "lineHeight": "1.4",
               }
             }
           >
             Deleting dashboard "" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?
-          </WithStyles(DialogContentText)>
-        </WithStyles(DialogContent)>,
-        <WithStyles(DialogActions)>
+          </span>
+        </Content>,
+        <Actions>
           <Button
             onClick={[MockFunction]}
             secondary={true}
@@ -53,14 +47,22 @@ ShallowWrapper {
           >
             Cancel
           </Button>
-          <Button
-            destructive={true}
-            onClick={[MockFunction]}
-            type="button"
+          <span
+            style={
+              Object {
+                "marginLeft": "8px",
+              }
+            }
           >
-            Delete
-          </Button>
-        </WithStyles(DialogActions)>,
+            <Button
+              destructive={true}
+              onClick={[MockFunction]}
+              type="button"
+            >
+              Delete
+            </Button>
+          </span>
+        </Actions>,
       ],
       "onClose": [MockFunction],
       "open": false,
@@ -70,13 +72,9 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
           "children": "Delete dashboard",
-          "style": Object {
-            "fontSize": "1.25rem",
-            "fontWeight": "450",
-          },
         },
         "ref": null,
         "rendered": "Delete dashboard",
@@ -85,39 +83,41 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
-          "children": <WithStyles(DialogContentText)
+          "children": <span
             style={
               Object {
-                "fontSize": "0.875rem",
+                "fontSize": "14px",
+                "lineHeight": "1.4",
               }
             }
           >
             Deleting dashboard "" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?
-          </WithStyles(DialogContentText)>,
+          </span>,
         },
         "ref": null,
         "rendered": Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "host",
           "props": Object {
             "children": "Deleting dashboard \\"\\" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?",
             "style": Object {
-              "fontSize": "0.875rem",
+              "fontSize": "14px",
+              "lineHeight": "1.4",
             },
           },
           "ref": null,
           "rendered": "Deleting dashboard \\"\\" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?",
-          "type": [Function],
+          "type": "span",
         },
         "type": [Function],
       },
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
           "children": Array [
             <Button
@@ -127,13 +127,21 @@ ShallowWrapper {
             >
               Cancel
             </Button>,
-            <Button
-              destructive={true}
-              onClick={[MockFunction]}
-              type="button"
+            <span
+              style={
+                Object {
+                  "marginLeft": "8px",
+                }
+              }
             >
-              Delete
-            </Button>,
+              <Button
+                destructive={true}
+                onClick={[MockFunction]}
+                type="button"
+              >
+                Delete
+              </Button>
+            </span>,
           ],
         },
         "ref": null,
@@ -154,17 +162,36 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": "delete",
-            "nodeType": "function",
+            "key": undefined,
+            "nodeType": "host",
             "props": Object {
-              "children": "Delete",
-              "destructive": true,
-              "onClick": [MockFunction],
-              "type": "button",
+              "children": <Button
+                destructive={true}
+                onClick={[MockFunction]}
+                type="button"
+              >
+                Delete
+              </Button>,
+              "style": Object {
+                "marginLeft": "8px",
+              },
             },
             "ref": null,
-            "rendered": "Delete",
-            "type": [Function],
+            "rendered": Object {
+              "instance": null,
+              "key": "delete",
+              "nodeType": "function",
+              "props": Object {
+                "children": "Delete",
+                "destructive": true,
+                "onClick": [MockFunction],
+                "type": "button",
+              },
+              "ref": null,
+              "rendered": "Delete",
+              "type": [Function],
+            },
+            "type": "span",
           },
         ],
         "type": [Function],
@@ -176,31 +203,25 @@ ShallowWrapper {
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "function",
       "props": Object {
         "children": Array [
-          <WithStyles(DialogTitle)
-            style={
-              Object {
-                "fontSize": "1.25rem",
-                "fontWeight": "450",
-              }
-            }
-          >
+          <Title>
             Delete dashboard
-          </WithStyles(DialogTitle)>,
-          <WithStyles(DialogContent)>
-            <WithStyles(DialogContentText)
+          </Title>,
+          <Content>
+            <span
               style={
                 Object {
-                  "fontSize": "0.875rem",
+                  "fontSize": "14px",
+                  "lineHeight": "1.4",
                 }
               }
             >
               Deleting dashboard "" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?
-            </WithStyles(DialogContentText)>
-          </WithStyles(DialogContent)>,
-          <WithStyles(DialogActions)>
+            </span>
+          </Content>,
+          <Actions>
             <Button
               onClick={[MockFunction]}
               secondary={true}
@@ -208,14 +229,22 @@ ShallowWrapper {
             >
               Cancel
             </Button>
-            <Button
-              destructive={true}
-              onClick={[MockFunction]}
-              type="button"
+            <span
+              style={
+                Object {
+                  "marginLeft": "8px",
+                }
+              }
             >
-              Delete
-            </Button>
-          </WithStyles(DialogActions)>,
+              <Button
+                destructive={true}
+                onClick={[MockFunction]}
+                type="button"
+              >
+                Delete
+              </Button>
+            </span>
+          </Actions>,
         ],
         "onClose": [MockFunction],
         "open": false,
@@ -225,13 +254,9 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "children": "Delete dashboard",
-            "style": Object {
-              "fontSize": "1.25rem",
-              "fontWeight": "450",
-            },
           },
           "ref": null,
           "rendered": "Delete dashboard",
@@ -240,39 +265,41 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
-            "children": <WithStyles(DialogContentText)
+            "children": <span
               style={
                 Object {
-                  "fontSize": "0.875rem",
+                  "fontSize": "14px",
+                  "lineHeight": "1.4",
                 }
               }
             >
               Deleting dashboard "" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?
-            </WithStyles(DialogContentText)>,
+            </span>,
           },
           "ref": null,
           "rendered": Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "class",
+            "nodeType": "host",
             "props": Object {
               "children": "Deleting dashboard \\"\\" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?",
               "style": Object {
-                "fontSize": "0.875rem",
+                "fontSize": "14px",
+                "lineHeight": "1.4",
               },
             },
             "ref": null,
             "rendered": "Deleting dashboard \\"\\" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?",
-            "type": [Function],
+            "type": "span",
           },
           "type": [Function],
         },
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "children": Array [
               <Button
@@ -282,13 +309,21 @@ ShallowWrapper {
               >
                 Cancel
               </Button>,
-              <Button
-                destructive={true}
-                onClick={[MockFunction]}
-                type="button"
+              <span
+                style={
+                  Object {
+                    "marginLeft": "8px",
+                  }
+                }
               >
-                Delete
-              </Button>,
+                <Button
+                  destructive={true}
+                  onClick={[MockFunction]}
+                  type="button"
+                >
+                  Delete
+                </Button>
+              </span>,
             ],
           },
           "ref": null,
@@ -309,17 +344,36 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": "delete",
-              "nodeType": "function",
+              "key": undefined,
+              "nodeType": "host",
               "props": Object {
-                "children": "Delete",
-                "destructive": true,
-                "onClick": [MockFunction],
-                "type": "button",
+                "children": <Button
+                  destructive={true}
+                  onClick={[MockFunction]}
+                  type="button"
+                >
+                  Delete
+                </Button>,
+                "style": Object {
+                  "marginLeft": "8px",
+                },
               },
               "ref": null,
-              "rendered": "Delete",
-              "type": [Function],
+              "rendered": Object {
+                "instance": null,
+                "key": "delete",
+                "nodeType": "function",
+                "props": Object {
+                  "children": "Delete",
+                  "destructive": true,
+                  "onClick": [MockFunction],
+                  "type": "button",
+                },
+                "ref": null,
+                "rendered": "Delete",
+                "type": [Function],
+              },
+              "type": "span",
             },
           ],
           "type": [Function],
