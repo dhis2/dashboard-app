@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Button } from '@dhis2/ui-core';
 import DialogActions from '@material-ui/core/DialogActions';
 import { ConfirmDeleteDialog } from '../ConfirmDeleteDialog';
 import { getStubContext } from '../../../setupTests';
