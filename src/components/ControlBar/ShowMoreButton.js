@@ -10,17 +10,14 @@ const styles = {
         color: colors.grey700,
         cursor: 'pointer',
         fontSize: 11,
-        fontWeight: 400,
-        height: SHOWMORE_BAR_HEIGHT,
         paddingTop: 5,
-        visibility: 'visible',
         '&:hover': {
             textDecoration: 'underline',
         },
     },
     disabled: {
         paddingTop: 5,
-        color: colors.grey700,
+        color: colors.grey500,
         fontSize: 11,
         cursor: 'not-allowed',
     },
