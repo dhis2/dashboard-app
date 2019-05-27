@@ -19,7 +19,7 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
+    "nodeType": "class",
     "props": Object {
       "children": Array [
         <div
@@ -32,7 +32,7 @@ ShallowWrapper {
           }
         >
           <div
-            className="left-controls"
+            className="leftControls"
           >
             <Link
               replace={false}
@@ -52,10 +52,13 @@ ShallowWrapper {
             />
           </div>
         </div>,
-        null,
+        <WithStyles(ShowMoreButton)
+          disabled={true}
+          isMaxHeight={true}
+          onClick={[Function]}
+        />,
       ],
       "editMode": false,
-      "expandable": true,
       "height": 424,
       "onChangeHeight": [Function],
       "onEndDrag": [Function],
@@ -69,7 +72,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <Link
                 replace={false}
@@ -121,7 +124,7 @@ ShallowWrapper {
                   onKeypressEnter={[Function]}
                 />,
               ],
-              "className": "left-controls",
+              "className": "leftControls",
             },
             "ref": null,
             "rendered": Array [
@@ -170,7 +173,19 @@ ShallowWrapper {
         ],
         "type": "div",
       },
-      null,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "disabled": true,
+          "isMaxHeight": true,
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
     ],
     "type": [Function],
   },
@@ -178,7 +193,7 @@ ShallowWrapper {
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
+      "nodeType": "class",
       "props": Object {
         "children": Array [
           <div
@@ -191,7 +206,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <Link
                 replace={false}
@@ -211,10 +226,13 @@ ShallowWrapper {
               />
             </div>
           </div>,
-          null,
+          <WithStyles(ShowMoreButton)
+            disabled={true}
+            isMaxHeight={true}
+            onClick={[Function]}
+          />,
         ],
         "editMode": false,
-        "expandable": true,
         "height": 424,
         "onChangeHeight": [Function],
         "onEndDrag": [Function],
@@ -228,7 +246,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <Link
                   replace={false}
@@ -280,7 +298,7 @@ ShallowWrapper {
                     onKeypressEnter={[Function]}
                   />,
                 ],
-                "className": "left-controls",
+                "className": "leftControls",
               },
               "ref": null,
               "rendered": Array [
@@ -329,7 +347,19 @@ ShallowWrapper {
           ],
           "type": "div",
         },
-        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "disabled": true,
+            "isMaxHeight": true,
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
       ],
       "type": [Function],
     },
@@ -394,7 +424,7 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
+    "nodeType": "class",
     "props": Object {
       "children": Array [
         <div
@@ -407,7 +437,7 @@ ShallowWrapper {
           }
         >
           <div
-            className="left-controls"
+            className="leftControls"
           >
             <Link
               replace={false}
@@ -428,12 +458,12 @@ ShallowWrapper {
           </div>
         </div>,
         <WithStyles(ShowMoreButton)
+          disabled={false}
           isMaxHeight={false}
           onClick={[Function]}
         />,
       ],
       "editMode": false,
-      "expandable": true,
       "height": 384,
       "onChangeHeight": [Function],
       "onEndDrag": [Function],
@@ -447,7 +477,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <Link
                 replace={false}
@@ -499,7 +529,7 @@ ShallowWrapper {
                   onKeypressEnter={[Function]}
                 />,
               ],
-              "className": "left-controls",
+              "className": "leftControls",
             },
             "ref": null,
             "rendered": Array [
@@ -553,6 +583,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
+          "disabled": false,
           "isMaxHeight": false,
           "onClick": [Function],
         },
@@ -567,7 +598,7 @@ ShallowWrapper {
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
+      "nodeType": "class",
       "props": Object {
         "children": Array [
           <div
@@ -580,7 +611,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <Link
                 replace={false}
@@ -601,12 +632,12 @@ ShallowWrapper {
             </div>
           </div>,
           <WithStyles(ShowMoreButton)
+            disabled={false}
             isMaxHeight={false}
             onClick={[Function]}
           />,
         ],
         "editMode": false,
-        "expandable": true,
         "height": 384,
         "onChangeHeight": [Function],
         "onEndDrag": [Function],
@@ -620,7 +651,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <Link
                   replace={false}
@@ -672,7 +703,7 @@ ShallowWrapper {
                     onKeypressEnter={[Function]}
                   />,
                 ],
-                "className": "left-controls",
+                "className": "leftControls",
               },
               "ref": null,
               "rendered": Array [
@@ -726,6 +757,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
+            "disabled": false,
             "isMaxHeight": false,
             "onClick": [Function],
           },
@@ -797,7 +829,7 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
+    "nodeType": "class",
     "props": Object {
       "children": Array [
         <div
@@ -810,7 +842,7 @@ ShallowWrapper {
           }
         >
           <div
-            className="left-controls"
+            className="leftControls"
           >
             <Link
               replace={false}
@@ -831,12 +863,12 @@ ShallowWrapper {
           </div>
         </div>,
         <WithStyles(ShowMoreButton)
+          disabled={false}
           isMaxHeight={false}
           onClick={[Function]}
         />,
       ],
       "editMode": false,
-      "expandable": true,
       "height": 64,
       "onChangeHeight": [Function],
       "onEndDrag": [Function],
@@ -850,7 +882,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <Link
                 replace={false}
@@ -902,7 +934,7 @@ ShallowWrapper {
                   onKeypressEnter={[Function]}
                 />,
               ],
-              "className": "left-controls",
+              "className": "leftControls",
             },
             "ref": null,
             "rendered": Array [
@@ -956,6 +988,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
+          "disabled": false,
           "isMaxHeight": false,
           "onClick": [Function],
         },
@@ -970,7 +1003,7 @@ ShallowWrapper {
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
+      "nodeType": "class",
       "props": Object {
         "children": Array [
           <div
@@ -983,7 +1016,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <Link
                 replace={false}
@@ -1004,12 +1037,12 @@ ShallowWrapper {
             </div>
           </div>,
           <WithStyles(ShowMoreButton)
+            disabled={false}
             isMaxHeight={false}
             onClick={[Function]}
           />,
         ],
         "editMode": false,
-        "expandable": true,
         "height": 64,
         "onChangeHeight": [Function],
         "onEndDrag": [Function],
@@ -1023,7 +1056,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <Link
                   replace={false}
@@ -1075,7 +1108,7 @@ ShallowWrapper {
                     onKeypressEnter={[Function]}
                   />,
                 ],
-                "className": "left-controls",
+                "className": "leftControls",
               },
               "ref": null,
               "rendered": Array [
@@ -1129,6 +1162,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
+            "disabled": false,
             "isMaxHeight": false,
             "onClick": [Function],
           },
@@ -1214,7 +1248,7 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
+    "nodeType": "class",
     "props": Object {
       "children": Array [
         <div
@@ -1227,7 +1261,7 @@ ShallowWrapper {
           }
         >
           <div
-            className="left-controls"
+            className="leftControls"
           >
             <Link
               replace={false}
@@ -1260,12 +1294,12 @@ ShallowWrapper {
           />
         </div>,
         <WithStyles(ShowMoreButton)
+          disabled={false}
           isMaxHeight={false}
           onClick={[Function]}
         />,
       ],
       "editMode": false,
-      "expandable": true,
       "height": 64,
       "onChangeHeight": [Function],
       "onEndDrag": [Function],
@@ -1279,7 +1313,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <Link
                 replace={false}
@@ -1344,7 +1378,7 @@ ShallowWrapper {
                   onKeypressEnter={[Function]}
                 />,
               ],
-              "className": "left-controls",
+              "className": "leftControls",
             },
             "ref": null,
             "rendered": Array [
@@ -1426,6 +1460,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
+          "disabled": false,
           "isMaxHeight": false,
           "onClick": [Function],
         },
@@ -1440,7 +1475,7 @@ ShallowWrapper {
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
+      "nodeType": "class",
       "props": Object {
         "children": Array [
           <div
@@ -1453,7 +1488,7 @@ ShallowWrapper {
             }
           >
             <div
-              className="left-controls"
+              className="leftControls"
             >
               <Link
                 replace={false}
@@ -1486,12 +1521,12 @@ ShallowWrapper {
             />
           </div>,
           <WithStyles(ShowMoreButton)
+            disabled={false}
             isMaxHeight={false}
             onClick={[Function]}
           />,
         ],
         "editMode": false,
-        "expandable": true,
         "height": 64,
         "onChangeHeight": [Function],
         "onEndDrag": [Function],
@@ -1505,7 +1540,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <div
-                className="left-controls"
+                className="leftControls"
               >
                 <Link
                   replace={false}
@@ -1570,7 +1605,7 @@ ShallowWrapper {
                     onKeypressEnter={[Function]}
                   />,
                 ],
-                "className": "left-controls",
+                "className": "leftControls",
               },
               "ref": null,
               "rendered": Array [
@@ -1652,6 +1687,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
+            "disabled": false,
             "isMaxHeight": false,
             "onClick": [Function],
           },
