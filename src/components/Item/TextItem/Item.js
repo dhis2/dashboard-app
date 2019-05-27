@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
-import TextField from '@dhis2/d2-ui-core/text-field/TextField';
+import Input from '@material-ui/core/Input';
 import {
     Parser as RichTextParser,
     Editor as RichTextEditor,
@@ -25,6 +25,7 @@ const style = {
         width: '90%',
         margin: '0 auto',
         display: 'block',
+        lineHeight: '24px',
     },
     container: {
         marginBottom: '20px',
@@ -35,10 +36,10 @@ const style = {
 const TextItem = props => {
     const { item, editMode, text, acUpdateDashboardItem } = props;
 
-    const onChangeText = text => {
+    const onChangeText = event => {
         const updatedItem = {
             ...item,
-            text,
+            text: event.target.value,
         };
 
         acUpdateDashboardItem(updatedItem);
@@ -60,10 +61,9 @@ const TextItem = props => {
                 <Line />
                 <div className="dashboard-item-content">
                     <RichTextEditor onEdit={onChangeText}>
-                        <TextField
+                        <Input
                             value={text}
                             multiline
-                            rows={1}
                             fullWidth
                             style={style.textField}
                             placeholder={i18n.t('Add text here')}
