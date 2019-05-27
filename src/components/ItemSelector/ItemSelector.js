@@ -109,7 +109,7 @@ class ItemSelector extends React.Component {
         }
 
         this.context.d2.Api.getApi()
-            .get(`dashboards/q/${this.state.filter || ''}${queryString}`)
+            .get(`dashboards/q?${this.state.filter || ''}${queryString}`)
             .then(response => {
                 this.setState({ items: response });
             })
