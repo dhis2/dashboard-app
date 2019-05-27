@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import i18n from '@dhis2/d2-i18n';
 import MuiInputField from '@material-ui/core/TextField';
-import { InputField, colors } from '@dhis2/ui-core';
+import { InputField } from '@dhis2/ui-core';
 
 import ItemSelector from '../ItemSelector/ItemSelector';
 import {
@@ -130,5 +130,4 @@ EditTitleBar.propTypes = {
 EditTitleBar.defaultProps = {
     name: '',
     description: '',
-    style: {},
 };

@@ -11,15 +11,14 @@ describe('EditTitleBar', () => {
         description: 'The blue one',
         onChangeTitle: Function.prototype,
         onChangeDescription: Function.prototype,
-        style: {
-            title: { xyz: '890' },
-            description: { abc: '123' },
-        },
         classes: {
-            section: { sectionStyle: 'section' },
-            titleDescription: { titleDescStyle: 'titleDesc' },
-            title: { titleStyle: 'title' },
-            itemSelector: { itemSelStyle: 'itemSel' },
+            section: 'section',
+            titleDescription: 'titledesc',
+            title: 'title',
+            description: 'description',
+            underline: 'underline',
+            input: 'input',
+            itemSelector: 'itemSelector',
         },
     };
 

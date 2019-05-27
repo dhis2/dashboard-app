@@ -6,18 +6,13 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <EditTitleBar
     classes={
       Object {
-        "itemSelector": Object {
-          "itemSelStyle": "itemSel",
-        },
-        "section": Object {
-          "sectionStyle": "section",
-        },
-        "title": Object {
-          "titleStyle": "title",
-        },
-        "titleDescription": Object {
-          "titleDescStyle": "titleDesc",
-        },
+        "description": "description",
+        "input": "input",
+        "itemSelector": "itemSelector",
+        "section": "section",
+        "title": "title",
+        "titleDescription": "titledesc",
+        "underline": "underline",
       }
     }
     description="The blue one"
@@ -25,16 +20,6 @@ ShallowWrapper {
     name="Rainbow Dash"
     onChangeDescription={[Function]}
     onChangeTitle={[Function]}
-    style={
-      Object {
-        "description": Object {
-          "abc": "123",
-        },
-        "title": Object {
-          "xyz": "890",
-        },
-      }
-    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -52,18 +37,10 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <div
-          className={
-            Object {
-              "titleDescStyle": "titleDesc",
-            }
-          }
+          className="titledesc"
         >
           <InputField
-            className={
-              Object {
-                "titleStyle": "title",
-              }
-            }
+            className="title"
             filled={true}
             label="Dashboard title"
             name="Dashboard title input"
@@ -77,11 +54,12 @@ ShallowWrapper {
             InputProps={
               Object {
                 "classes": Object {
-                  "root": undefined,
-                  "underline": undefined,
+                  "root": "input",
+                  "underline": "underline",
                 },
               }
             }
+            className="description"
             label="Dashboard description"
             multiline={true}
             name="Dashboard description input"
@@ -93,18 +71,12 @@ ShallowWrapper {
           />
         </div>,
         <div
-          className={
-            Object {
-              "itemSelStyle": "itemSel",
-            }
-          }
+          className="itemSelector"
         >
           <itemselector />
         </div>,
       ],
-      "className": Object {
-        "sectionStyle": "section",
-      },
+      "className": "section",
     },
     "ref": null,
     "rendered": Array [
@@ -115,11 +87,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <InputField
-              className={
-                Object {
-                  "titleStyle": "title",
-                }
-              }
+              className="title"
               filled={true}
               label="Dashboard title"
               name="Dashboard title input"
@@ -133,11 +101,12 @@ ShallowWrapper {
               InputProps={
                 Object {
                   "classes": Object {
-                    "root": undefined,
-                    "underline": undefined,
+                    "root": "input",
+                    "underline": "underline",
                   },
                 }
               }
+              className="description"
               label="Dashboard description"
               multiline={true}
               name="Dashboard description input"
@@ -148,9 +117,7 @@ ShallowWrapper {
               variant="filled"
             />,
           ],
-          "className": Object {
-            "titleDescStyle": "titleDesc",
-          },
+          "className": "titledesc",
         },
         "ref": null,
         "rendered": Array [
@@ -159,9 +126,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "className": Object {
-                "titleStyle": "title",
-              },
+              "className": "title",
               "filled": true,
               "label": "Dashboard title",
               "name": "Dashboard title input",
@@ -182,11 +147,11 @@ ShallowWrapper {
             "props": Object {
               "InputProps": Object {
                 "classes": Object {
-                  "root": undefined,
-                  "underline": undefined,
+                  "root": "input",
+                  "underline": "underline",
                 },
               },
-              "className": undefined,
+              "className": "description",
               "label": "Dashboard description",
               "multiline": true,
               "name": "Dashboard description input",
@@ -209,9 +174,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": <itemselector />,
-          "className": Object {
-            "itemSelStyle": "itemSel",
-          },
+          "className": "itemSelector",
         },
         "ref": null,
         "rendered": Object {
@@ -236,18 +199,10 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <div
-            className={
-              Object {
-                "titleDescStyle": "titleDesc",
-              }
-            }
+            className="titledesc"
           >
             <InputField
-              className={
-                Object {
-                  "titleStyle": "title",
-                }
-              }
+              className="title"
               filled={true}
               label="Dashboard title"
               name="Dashboard title input"
@@ -261,11 +216,12 @@ ShallowWrapper {
               InputProps={
                 Object {
                   "classes": Object {
-                    "root": undefined,
-                    "underline": undefined,
+                    "root": "input",
+                    "underline": "underline",
                   },
                 }
               }
+              className="description"
               label="Dashboard description"
               multiline={true}
               name="Dashboard description input"
@@ -277,18 +233,12 @@ ShallowWrapper {
             />
           </div>,
           <div
-            className={
-              Object {
-                "itemSelStyle": "itemSel",
-              }
-            }
+            className="itemSelector"
           >
             <itemselector />
           </div>,
         ],
-        "className": Object {
-          "sectionStyle": "section",
-        },
+        "className": "section",
       },
       "ref": null,
       "rendered": Array [
@@ -299,11 +249,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <InputField
-                className={
-                  Object {
-                    "titleStyle": "title",
-                  }
-                }
+                className="title"
                 filled={true}
                 label="Dashboard title"
                 name="Dashboard title input"
@@ -317,11 +263,12 @@ ShallowWrapper {
                 InputProps={
                   Object {
                     "classes": Object {
-                      "root": undefined,
-                      "underline": undefined,
+                      "root": "input",
+                      "underline": "underline",
                     },
                   }
                 }
+                className="description"
                 label="Dashboard description"
                 multiline={true}
                 name="Dashboard description input"
@@ -332,9 +279,7 @@ ShallowWrapper {
                 variant="filled"
               />,
             ],
-            "className": Object {
-              "titleDescStyle": "titleDesc",
-            },
+            "className": "titledesc",
           },
           "ref": null,
           "rendered": Array [
@@ -343,9 +288,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "className": Object {
-                  "titleStyle": "title",
-                },
+                "className": "title",
                 "filled": true,
                 "label": "Dashboard title",
                 "name": "Dashboard title input",
@@ -366,11 +309,11 @@ ShallowWrapper {
               "props": Object {
                 "InputProps": Object {
                   "classes": Object {
-                    "root": undefined,
-                    "underline": undefined,
+                    "root": "input",
+                    "underline": "underline",
                   },
                 },
-                "className": undefined,
+                "className": "description",
                 "label": "Dashboard description",
                 "multiline": true,
                 "name": "Dashboard description input",
@@ -393,9 +336,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": <itemselector />,
-            "className": Object {
-              "itemSelStyle": "itemSel",
-            },
+            "className": "itemSelector",
           },
           "ref": null,
           "rendered": Object {
@@ -446,34 +387,19 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <EditTitleBar
     classes={
       Object {
-        "itemSelector": Object {
-          "itemSelStyle": "itemSel",
-        },
-        "section": Object {
-          "sectionStyle": "section",
-        },
-        "title": Object {
-          "titleStyle": "title",
-        },
-        "titleDescription": Object {
-          "titleDescStyle": "titleDesc",
-        },
+        "description": "description",
+        "input": "input",
+        "itemSelector": "itemSelector",
+        "section": "section",
+        "title": "title",
+        "titleDescription": "titledesc",
+        "underline": "underline",
       }
     }
     description="The blue one"
     name="Rainbow Dash"
     onChangeDescription={[Function]}
     onChangeTitle={[Function]}
-    style={
-      Object {
-        "description": Object {
-          "abc": "123",
-        },
-        "title": Object {
-          "xyz": "890",
-        },
-      }
-    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -491,18 +417,10 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <div
-          className={
-            Object {
-              "titleDescStyle": "titleDesc",
-            }
-          }
+          className="titledesc"
         >
           <InputField
-            className={
-              Object {
-                "titleStyle": "title",
-              }
-            }
+            className="title"
             filled={true}
             label="Dashboard title"
             name="Dashboard title input"
@@ -516,11 +434,12 @@ ShallowWrapper {
             InputProps={
               Object {
                 "classes": Object {
-                  "root": undefined,
-                  "underline": undefined,
+                  "root": "input",
+                  "underline": "underline",
                 },
               }
             }
+            className="description"
             label="Dashboard description"
             multiline={true}
             name="Dashboard description input"
@@ -532,18 +451,12 @@ ShallowWrapper {
           />
         </div>,
         <div
-          className={
-            Object {
-              "itemSelStyle": "itemSel",
-            }
-          }
+          className="itemSelector"
         >
           <itemselector />
         </div>,
       ],
-      "className": Object {
-        "sectionStyle": "section",
-      },
+      "className": "section",
     },
     "ref": null,
     "rendered": Array [
@@ -554,11 +467,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <InputField
-              className={
-                Object {
-                  "titleStyle": "title",
-                }
-              }
+              className="title"
               filled={true}
               label="Dashboard title"
               name="Dashboard title input"
@@ -572,11 +481,12 @@ ShallowWrapper {
               InputProps={
                 Object {
                   "classes": Object {
-                    "root": undefined,
-                    "underline": undefined,
+                    "root": "input",
+                    "underline": "underline",
                   },
                 }
               }
+              className="description"
               label="Dashboard description"
               multiline={true}
               name="Dashboard description input"
@@ -587,9 +497,7 @@ ShallowWrapper {
               variant="filled"
             />,
           ],
-          "className": Object {
-            "titleDescStyle": "titleDesc",
-          },
+          "className": "titledesc",
         },
         "ref": null,
         "rendered": Array [
@@ -598,9 +506,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "className": Object {
-                "titleStyle": "title",
-              },
+              "className": "title",
               "filled": true,
               "label": "Dashboard title",
               "name": "Dashboard title input",
@@ -621,11 +527,11 @@ ShallowWrapper {
             "props": Object {
               "InputProps": Object {
                 "classes": Object {
-                  "root": undefined,
-                  "underline": undefined,
+                  "root": "input",
+                  "underline": "underline",
                 },
               },
-              "className": undefined,
+              "className": "description",
               "label": "Dashboard description",
               "multiline": true,
               "name": "Dashboard description input",
@@ -648,9 +554,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": <itemselector />,
-          "className": Object {
-            "itemSelStyle": "itemSel",
-          },
+          "className": "itemSelector",
         },
         "ref": null,
         "rendered": Object {
@@ -675,18 +579,10 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <div
-            className={
-              Object {
-                "titleDescStyle": "titleDesc",
-              }
-            }
+            className="titledesc"
           >
             <InputField
-              className={
-                Object {
-                  "titleStyle": "title",
-                }
-              }
+              className="title"
               filled={true}
               label="Dashboard title"
               name="Dashboard title input"
@@ -700,11 +596,12 @@ ShallowWrapper {
               InputProps={
                 Object {
                   "classes": Object {
-                    "root": undefined,
-                    "underline": undefined,
+                    "root": "input",
+                    "underline": "underline",
                   },
                 }
               }
+              className="description"
               label="Dashboard description"
               multiline={true}
               name="Dashboard description input"
@@ -716,18 +613,12 @@ ShallowWrapper {
             />
           </div>,
           <div
-            className={
-              Object {
-                "itemSelStyle": "itemSel",
-              }
-            }
+            className="itemSelector"
           >
             <itemselector />
           </div>,
         ],
-        "className": Object {
-          "sectionStyle": "section",
-        },
+        "className": "section",
       },
       "ref": null,
       "rendered": Array [
@@ -738,11 +629,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <InputField
-                className={
-                  Object {
-                    "titleStyle": "title",
-                  }
-                }
+                className="title"
                 filled={true}
                 label="Dashboard title"
                 name="Dashboard title input"
@@ -756,11 +643,12 @@ ShallowWrapper {
                 InputProps={
                   Object {
                     "classes": Object {
-                      "root": undefined,
-                      "underline": undefined,
+                      "root": "input",
+                      "underline": "underline",
                     },
                   }
                 }
+                className="description"
                 label="Dashboard description"
                 multiline={true}
                 name="Dashboard description input"
@@ -771,9 +659,7 @@ ShallowWrapper {
                 variant="filled"
               />,
             ],
-            "className": Object {
-              "titleDescStyle": "titleDesc",
-            },
+            "className": "titledesc",
           },
           "ref": null,
           "rendered": Array [
@@ -782,9 +668,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "className": Object {
-                  "titleStyle": "title",
-                },
+                "className": "title",
                 "filled": true,
                 "label": "Dashboard title",
                 "name": "Dashboard title input",
@@ -805,11 +689,11 @@ ShallowWrapper {
               "props": Object {
                 "InputProps": Object {
                   "classes": Object {
-                    "root": undefined,
-                    "underline": undefined,
+                    "root": "input",
+                    "underline": "underline",
                   },
                 },
-                "className": undefined,
+                "className": "description",
                 "label": "Dashboard description",
                 "multiline": true,
                 "name": "Dashboard description input",
@@ -832,9 +716,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": <itemselector />,
-            "className": Object {
-              "itemSelStyle": "itemSel",
-            },
+            "className": "itemSelector",
           },
           "ref": null,
           "rendered": Object {
