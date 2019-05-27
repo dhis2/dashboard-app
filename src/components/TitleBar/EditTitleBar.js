@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import i18n from '@dhis2/d2-i18n';
 import MuiInputField from '@material-ui/core/TextField';
-import { InputField } from '@dhis2/ui-core';
+import { InputField, colors } from '@dhis2/ui-core';
 
 import ItemSelector from '../ItemSelector/ItemSelector';
 import {
@@ -20,18 +20,30 @@ const styles = {
         flex: '3',
         marginRight: '50px',
     },
-    titleContainer: {
+    title: {
         display: 'block',
         clear: 'both',
     },
-    descContainer: {
+    description: {
         display: 'block',
         clear: 'both',
         marginTop: '15px',
     },
+    underline: {
+        '&::before': {
+            borderBottom: `none`,
+        },
+        '&:hover::before': {
+            borderBottom: `none!important`,
+        },
+    },
     input: {
         backgroundColor: 'rgba(0, 0, 10, 0.05)',
+        borderRadius: '4px',
         width: '100%',
+        '&:hover': {
+            backgroundColor: 'rgba(0, 0, 10, 0.08)',
+        },
     },
     itemSelector: {
         flex: '2',
@@ -58,7 +70,7 @@ export const EditTitleBar = ({
         <section className={classes.section}>
             <div className={classes.titleDescription}>
                 <InputField
-                    className={classes.titleContainer}
+                    className={classes.title}
                     filled
                     name="Dashboard title input"
                     label={i18n.t('Dashboard title')}
@@ -67,17 +79,18 @@ export const EditTitleBar = ({
                     value={name}
                 />
                 <MuiInputField
+                    className={classes.description}
                     name="Dashboard description input"
                     label={i18n.t('Dashboard description')}
                     onChange={updateDescription}
                     value={description}
                     variant="filled"
                     multiline
-                    rows="2"
-                    className={classes.descContainer}
                     InputProps={{
-                        style: styles.input,
-                        disableUnderline: true,
+                        classes: {
+                            root: classes.input,
+                            underline: classes.underline,
+                        },
                     }}
                 />
             </div>

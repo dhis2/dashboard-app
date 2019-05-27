@@ -5,6 +5,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { MuiThemeProvider as V0MuiThemeProvider } from 'material-ui';
 import { init as d2Init, config, getManifest, getUserSettings } from 'd2';
 import dhis2theme from '@dhis2/d2-ui-core/theme/mui3.theme';
+import { colors } from '@dhis2/ui-core';
 
 // temporary workaround until new ui headerbar is ready
 import 'material-design-icons/iconfont/material-icons.css';
@@ -16,7 +17,10 @@ import i18n from './locales';
 import configureStore from './configureStore';
 import { muiTheme } from './modules/theme';
 
-const v1Theme = () => createMuiTheme({ ...dhis2theme });
+// small workaround until ui-core textarea is ready
+dhis2theme.palette.primary.dark = colors.teal600;
+
+const v1Theme = () => createMuiTheme(dhis2theme);
 
 const configI18n = userSettings => {
     const uiLocale = userSettings.keyUiLocale;
