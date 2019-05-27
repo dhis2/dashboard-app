@@ -1031,7 +1031,7 @@
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-6.0.1.tgz#bcfa9efda51c90879b32209272808057d342d6f0"
   integrity sha512-GiQTB/j/0PqhK01ov5eGd6C3+anT7v0GMJO7XIZ041o7iWw6mPmFuksgETylHVbpDN9CesRPpDJtUB3IM1KL+w==
-  dependencies:
+dependencies:
     "@dhis2/d2-i18n" "^1.0.3"
     "@dhis2/d2-i18n-extract" "^1.0.7"
     "@dhis2/d2-i18n-generate" "^1.0.18"
@@ -1051,7 +1051,7 @@
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-6.0.1.tgz#cb547cd9d662f4e54ca37221ada33b77e0e228e8"
   integrity sha512-XCEeOM42THUM6AB3jFrNHSFp9LwxTHKMI2TeSi9Pjqi/TAD2UpKo3StmgwFruxlUDzQ/S5aDcZhwPYdPMklkjA==
-  dependencies:
+dependencies:
     "@dhis2/d2-i18n" "^1.0.3"
     "@material-ui/core" "^3.3.1"
     lodash "^4.17.10"
@@ -1106,7 +1106,7 @@
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-6.0.1.tgz#784da1ea6f302151e809694f743f29e708bb0975"
   integrity sha512-oSuhRJPJckbzJFpeh51YlFWdjm9f1u48A68q0KIRgm+FuIa3Gb+fRRlOiSJJD3iYR+BHEmeHJTKo8Tq8wfxIfw==
-  dependencies:
+dependencies:
     "@dhis2/d2-ui-core" "6.0.1"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
@@ -1120,7 +1120,7 @@
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-6.0.1.tgz#3ffc12cef12d74ca1123dc8b5338cae374f63f51"
   integrity sha512-s26xmjzJxQEzHujDZq6aewCzdc6L7honmchdW3ye8ReU+e2vCE90TTydLVGIESqRElRB1FNeGd4pF0kEOfuXig==
-  dependencies:
+dependencies:
     "@dhis2/d2-ui-core" "6.0.1"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
@@ -1141,10 +1141,10 @@
     react "^16.6.0"
     react-dom "^16.6.0"
 
-"@dhis2/ui-core@2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-2.0.1.tgz#7818b4834f5ce3046c3b21353d26a70b78c57982"
-  integrity sha512-/W+qGJVNBOAxhs0Fhe9jzCxlEDvLPjVOqJCS+laYOWqdlwvT2HMbTzu8L40+vwgblLPGsfLVwIrE4LG7bIHKHA==
+"@dhis2/ui-core@2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-2.2.0.tgz#9122403623c9f84127ad3e89134b6d08948e550a"
+  integrity sha512-uhu9WUDyYY+v5nnO0Nhu/x0Rey6okZHFTNKvndvHk4Gm/qSrpNvINHOFAC930I5MdVvCP0UHKrqas1JXAJ3nqg==
   dependencies:
     classnames "^2.2.6"
     styled-jsx "^3.2.1"
