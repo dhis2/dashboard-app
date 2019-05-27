@@ -105,11 +105,13 @@ class ItemSelector extends React.Component {
         let queryString = '';
         if ([...this.state.maxOptions.values()].length) {
             queryString =
-                'max=' + [...this.state.maxOptions.values()].join('&max=');
+                '?max=' + [...this.state.maxOptions.values()].join('&max=');
         }
 
+        const filter = this.state.filter ? `/${this.state.filter}` : '';
+
         this.context.d2.Api.getApi()
-            .get(`dashboards/q?${this.state.filter || ''}${queryString}`)
+            .get(`dashboards/q${filter}${queryString}`)
             .then(response => {
                 this.setState({ items: response });
             })
