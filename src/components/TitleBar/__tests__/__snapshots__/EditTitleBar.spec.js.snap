@@ -59,6 +59,11 @@ ShallowWrapper {
           }
         >
           <InputField
+            className={
+              Object {
+                "titleStyle": "title",
+              }
+            }
             filled={true}
             label="Dashboard title"
             name="Dashboard title input"
@@ -71,10 +76,9 @@ ShallowWrapper {
           <TextField
             InputProps={
               Object {
-                "disableUnderline": true,
-                "style": Object {
-                  "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                  "width": "100%",
+                "classes": Object {
+                  "root": undefined,
+                  "underline": undefined,
                 },
               }
             }
@@ -83,7 +87,6 @@ ShallowWrapper {
             name="Dashboard description input"
             onChange={[Function]}
             required={false}
-            rows="2"
             select={false}
             value="The blue one"
             variant="filled"
@@ -112,6 +115,11 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <InputField
+              className={
+                Object {
+                  "titleStyle": "title",
+                }
+              }
               filled={true}
               label="Dashboard title"
               name="Dashboard title input"
@@ -124,10 +132,9 @@ ShallowWrapper {
             <TextField
               InputProps={
                 Object {
-                  "disableUnderline": true,
-                  "style": Object {
-                    "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                    "width": "100%",
+                  "classes": Object {
+                    "root": undefined,
+                    "underline": undefined,
                   },
                 }
               }
@@ -136,7 +143,6 @@ ShallowWrapper {
               name="Dashboard description input"
               onChange={[Function]}
               required={false}
-              rows="2"
               select={false}
               value="The blue one"
               variant="filled"
@@ -153,7 +159,9 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "className": undefined,
+              "className": Object {
+                "titleStyle": "title",
+              },
               "filled": true,
               "label": "Dashboard title",
               "name": "Dashboard title input",
@@ -173,10 +181,9 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "InputProps": Object {
-                "disableUnderline": true,
-                "style": Object {
-                  "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                  "width": "100%",
+                "classes": Object {
+                  "root": undefined,
+                  "underline": undefined,
                 },
               },
               "className": undefined,
@@ -185,7 +192,6 @@ ShallowWrapper {
               "name": "Dashboard description input",
               "onChange": [Function],
               "required": false,
-              "rows": "2",
               "select": false,
               "value": "The blue one",
               "variant": "filled",
@@ -237,6 +243,11 @@ ShallowWrapper {
             }
           >
             <InputField
+              className={
+                Object {
+                  "titleStyle": "title",
+                }
+              }
               filled={true}
               label="Dashboard title"
               name="Dashboard title input"
@@ -249,10 +260,9 @@ ShallowWrapper {
             <TextField
               InputProps={
                 Object {
-                  "disableUnderline": true,
-                  "style": Object {
-                    "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                    "width": "100%",
+                  "classes": Object {
+                    "root": undefined,
+                    "underline": undefined,
                   },
                 }
               }
@@ -261,7 +271,6 @@ ShallowWrapper {
               name="Dashboard description input"
               onChange={[Function]}
               required={false}
-              rows="2"
               select={false}
               value="The blue one"
               variant="filled"
@@ -290,6 +299,11 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <InputField
+                className={
+                  Object {
+                    "titleStyle": "title",
+                  }
+                }
                 filled={true}
                 label="Dashboard title"
                 name="Dashboard title input"
@@ -302,10 +316,9 @@ ShallowWrapper {
               <TextField
                 InputProps={
                   Object {
-                    "disableUnderline": true,
-                    "style": Object {
-                      "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                      "width": "100%",
+                    "classes": Object {
+                      "root": undefined,
+                      "underline": undefined,
                     },
                   }
                 }
@@ -314,7 +327,6 @@ ShallowWrapper {
                 name="Dashboard description input"
                 onChange={[Function]}
                 required={false}
-                rows="2"
                 select={false}
                 value="The blue one"
                 variant="filled"
@@ -331,7 +343,9 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "className": undefined,
+                "className": Object {
+                  "titleStyle": "title",
+                },
                 "filled": true,
                 "label": "Dashboard title",
                 "name": "Dashboard title input",
@@ -351,10 +365,9 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "InputProps": Object {
-                  "disableUnderline": true,
-                  "style": Object {
-                    "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                    "width": "100%",
+                  "classes": Object {
+                    "root": undefined,
+                    "underline": undefined,
                   },
                 },
                 "className": undefined,
@@ -363,7 +376,6 @@ ShallowWrapper {
                 "name": "Dashboard description input",
                 "onChange": [Function],
                 "required": false,
-                "rows": "2",
                 "select": false,
                 "value": "The blue one",
                 "variant": "filled",
@@ -413,6 +425,7 @@ ShallowWrapper {
           "getChildContext": Object {
             "calledByRenderer": false,
           },
+          "getDerivedStateFromError": true,
           "getDerivedStateFromProps": Object {
             "hasShouldComponentUpdateBug": false,
           },
@@ -485,6 +498,11 @@ ShallowWrapper {
           }
         >
           <InputField
+            className={
+              Object {
+                "titleStyle": "title",
+              }
+            }
             filled={true}
             label="Dashboard title"
             name="Dashboard title input"
@@ -497,10 +515,9 @@ ShallowWrapper {
           <TextField
             InputProps={
               Object {
-                "disableUnderline": true,
-                "style": Object {
-                  "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                  "width": "100%",
+                "classes": Object {
+                  "root": undefined,
+                  "underline": undefined,
                 },
               }
             }
@@ -509,7 +526,6 @@ ShallowWrapper {
             name="Dashboard description input"
             onChange={[Function]}
             required={false}
-            rows="2"
             select={false}
             value="The blue one"
             variant="filled"
@@ -538,6 +554,11 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <InputField
+              className={
+                Object {
+                  "titleStyle": "title",
+                }
+              }
               filled={true}
               label="Dashboard title"
               name="Dashboard title input"
@@ -550,10 +571,9 @@ ShallowWrapper {
             <TextField
               InputProps={
                 Object {
-                  "disableUnderline": true,
-                  "style": Object {
-                    "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                    "width": "100%",
+                  "classes": Object {
+                    "root": undefined,
+                    "underline": undefined,
                   },
                 }
               }
@@ -562,7 +582,6 @@ ShallowWrapper {
               name="Dashboard description input"
               onChange={[Function]}
               required={false}
-              rows="2"
               select={false}
               value="The blue one"
               variant="filled"
@@ -579,7 +598,9 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "className": undefined,
+              "className": Object {
+                "titleStyle": "title",
+              },
               "filled": true,
               "label": "Dashboard title",
               "name": "Dashboard title input",
@@ -599,10 +620,9 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "InputProps": Object {
-                "disableUnderline": true,
-                "style": Object {
-                  "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                  "width": "100%",
+                "classes": Object {
+                  "root": undefined,
+                  "underline": undefined,
                 },
               },
               "className": undefined,
@@ -611,7 +631,6 @@ ShallowWrapper {
               "name": "Dashboard description input",
               "onChange": [Function],
               "required": false,
-              "rows": "2",
               "select": false,
               "value": "The blue one",
               "variant": "filled",
@@ -663,6 +682,11 @@ ShallowWrapper {
             }
           >
             <InputField
+              className={
+                Object {
+                  "titleStyle": "title",
+                }
+              }
               filled={true}
               label="Dashboard title"
               name="Dashboard title input"
@@ -675,10 +699,9 @@ ShallowWrapper {
             <TextField
               InputProps={
                 Object {
-                  "disableUnderline": true,
-                  "style": Object {
-                    "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                    "width": "100%",
+                  "classes": Object {
+                    "root": undefined,
+                    "underline": undefined,
                   },
                 }
               }
@@ -687,7 +710,6 @@ ShallowWrapper {
               name="Dashboard description input"
               onChange={[Function]}
               required={false}
-              rows="2"
               select={false}
               value="The blue one"
               variant="filled"
@@ -716,6 +738,11 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <InputField
+                className={
+                  Object {
+                    "titleStyle": "title",
+                  }
+                }
                 filled={true}
                 label="Dashboard title"
                 name="Dashboard title input"
@@ -728,10 +755,9 @@ ShallowWrapper {
               <TextField
                 InputProps={
                   Object {
-                    "disableUnderline": true,
-                    "style": Object {
-                      "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                      "width": "100%",
+                    "classes": Object {
+                      "root": undefined,
+                      "underline": undefined,
                     },
                   }
                 }
@@ -740,7 +766,6 @@ ShallowWrapper {
                 name="Dashboard description input"
                 onChange={[Function]}
                 required={false}
-                rows="2"
                 select={false}
                 value="The blue one"
                 variant="filled"
@@ -757,7 +782,9 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "className": undefined,
+                "className": Object {
+                  "titleStyle": "title",
+                },
                 "filled": true,
                 "label": "Dashboard title",
                 "name": "Dashboard title input",
@@ -777,10 +804,9 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "InputProps": Object {
-                  "disableUnderline": true,
-                  "style": Object {
-                    "backgroundColor": "rgba(0, 0, 10, 0.05)",
-                    "width": "100%",
+                  "classes": Object {
+                    "root": undefined,
+                    "underline": undefined,
                   },
                 },
                 "className": undefined,
@@ -789,7 +815,6 @@ ShallowWrapper {
                 "name": "Dashboard description input",
                 "onChange": [Function],
                 "required": false,
-                "rows": "2",
                 "select": false,
                 "value": "The blue one",
                 "variant": "filled",
@@ -839,6 +864,7 @@ ShallowWrapper {
           "getChildContext": Object {
             "calledByRenderer": false,
           },
+          "getDerivedStateFromError": true,
           "getDerivedStateFromProps": Object {
             "hasShouldComponentUpdateBug": false,
           },

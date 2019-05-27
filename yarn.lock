@@ -1141,10 +1141,10 @@ dependencies:
     react "^16.6.0"
     react-dom "^16.6.0"
 
-"@dhis2/ui-core@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-2.1.0.tgz#2902164e4c4b8b5daca1890f23d159e74603a39b"
-  integrity sha512-b59304F/q0RsgpSr/LuGQU/oV2zxRblg+ojWFQVPU/l4x7l0fMcbvvGp2ij8X0hmpIv/wIXOAA2iyuOcw1yoXg==
+"@dhis2/ui-core@2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-2.2.0.tgz#9122403623c9f84127ad3e89134b6d08948e550a"
+  integrity sha512-uhu9WUDyYY+v5nnO0Nhu/x0Rey6okZHFTNKvndvHk4Gm/qSrpNvINHOFAC930I5MdVvCP0UHKrqas1JXAJ3nqg==
   dependencies:
     classnames "^2.2.6"
     styled-jsx "^3.2.1"

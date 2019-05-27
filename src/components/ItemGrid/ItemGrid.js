@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import ReactGridLayout from 'react-grid-layout';
+import { CircularProgress, ScreenCover } from '@dhis2/ui-core';
 
 import {
     acUpdateDashboardLayout,
@@ -22,7 +23,6 @@ import {
 } from './gridUtil';
 import { orArray } from '../../modules/util';
 import DeleteItemButton from './DeleteItemButton';
-import ModalLoadingMask from '../../widgets/ModalLoadingMask';
 import NoContentMessage from '../../widgets/NoContentMessage';
 
 import 'react-grid-layout/css/styles.css';
@@ -48,8 +48,6 @@ export class ItemGrid extends Component {
     state = {
         expandedItems: {},
     };
-
-    NO_ITEMS_MESSAGE = i18n.t('There are no items on this dashboard');
 
     onToggleItemExpanded = clickedId => {
         const isExpanded =
@@ -97,10 +95,14 @@ export class ItemGrid extends Component {
         const { edit, isLoading, dashboardItems } = this.props;
 
         if (!isLoading && !dashboardItems.length) {
-            return <NoContentMessage text={this.NO_ITEMS_MESSAGE} />;
+            return (
+                <NoContentMessage
+                    text={i18n.t('There are no items on this dashboard')}
+                />
+            );
         }
 
-        const items = dashboardItems.map((item, index) => {
+        const items = dashboardItems.map(item => {
             const expandedItem = this.state.expandedItems[item.id];
             let hProp = { h: item.h };
 
@@ -116,7 +118,11 @@ export class ItemGrid extends Component {
 
         return (
             <div className="grid-wrapper">
-                <ModalLoadingMask isLoading={isLoading} />
+                {isLoading ? (
+                    <ScreenCover>
+                        <CircularProgress />
+                    </ScreenCover>
+                ) : null}
                 <ReactGridLayout
                     onLayoutChange={this.onLayoutChange}
                     onResizeStop={this.onResizeStop}
