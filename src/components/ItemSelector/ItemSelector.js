@@ -53,37 +53,30 @@ class ItemSelector extends React.Component {
         this.setState({ filter: event.target.value }, this.fetchItems);
     };
 
-    getCatetorizedMenuGroups = items => {
-        return categorizedItems.map(type => {
+    getCatetorizedMenuGroups = items =>
+        categorizedItems.map(type => {
             const itemType = itemTypeMap[type.id];
 
-            if (items && items[itemType.countName] > 0) {
-                return (
-                    <CategorizedMenuGroup
-                        key={type.id}
-                        type={type.id}
-                        title={type.title}
-                        items={items[itemType.endPointName]}
-                        onChangeItemsLimit={this.fetchItems}
-                    />
-                );
-            } else {
-                return null;
-            }
+            return items && items[itemType.countName] > 0 ? (
+                <CategorizedMenuGroup
+                    key={type.id}
+                    type={type.id}
+                    title={type.title}
+                    items={items[itemType.endPointName]}
+                    onChangeItemsLimit={this.fetchItems}
+                />
+            ) : null;
         });
-    };
 
-    getSinglesMenuGroups = items => {
-        return items.map(category => (
+    getSinglesMenuGroups = items =>
+        items.map(category => (
             <SinglesMenuGroup key={category.id} category={category} />
         ));
-    };
 
-    getMenuGroups = items => {
-        return this.getCatetorizedMenuGroups(items).concat(
+    getMenuGroups = items =>
+        this.getCatetorizedMenuGroups(items).concat(
             this.getSinglesMenuGroups(singleItems)
         );
-    };
 
     fetchItems = async type => {
         if (type) {
