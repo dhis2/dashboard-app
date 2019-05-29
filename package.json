@@ -23,7 +23,6 @@
         "i18next": "^15.0.6",
         "lodash": "^4.17.11",
         "material-design-icons": "^3.0.1",
-        "material-ui": "^0.20.2",
         "moment": "^2.24.0",
         "react": "^16.8.4",
         "react-dom": "^16.8.4",
