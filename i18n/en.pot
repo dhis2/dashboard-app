@@ -97,31 +97,25 @@ msgstr ""
 msgid "There are no items on this dashboard"
 msgstr ""
 
+msgid "Show fewer"
+msgstr ""
+
+msgid "Insert"
+msgstr ""
+
 msgid "Search for items to add to this dashboard"
 msgstr ""
 
-msgid "See"
-msgstr ""
-
-msgid "fewer"
-msgstr ""
-
-msgid "more"
+msgid "Additional items"
 msgstr ""
 
 msgid "Text box"
 msgstr ""
 
-msgid "Current translation"
+msgid "Dashboard title"
 msgstr ""
 
-msgid "Currently editing"
-msgstr ""
-
-msgid "Add title here"
-msgstr ""
-
-msgid "Add description here"
+msgid "Dashboard description"
 msgstr ""
 
 msgid "No description"

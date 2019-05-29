@@ -1,0 +1,13 @@
+.showMoreButton {
+    text-decoration: underline;
+    border: none;
+    background-color: transparent;
+}
+
+.showMoreButton:hover {
+    cursor: pointer;
+}
+
+.showMoreButton:focus {
+    outline: none;
+}

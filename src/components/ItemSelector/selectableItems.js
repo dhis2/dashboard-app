@@ -19,7 +19,7 @@ import {
 export const singleItems = [
     {
         id: 'additional',
-        header: 'Additional items',
+        header: i18n.t('Additional items'),
         items: [
             {
                 type: TEXT,
@@ -40,7 +40,8 @@ export const singleItems = [
     },
 ];
 
-export const listItems = [
+// categorizedItems are grouped in the item selector menu
+export const categorizedItems = [
     {
         id: REPORT_TABLE,
         title: itemTypeMap[REPORT_TABLE].pluralTitle,
@@ -72,3 +73,6 @@ export const listItems = [
     },
     { id: APP, title: itemTypeMap[APP].pluralTitle },
 ];
+
+// listItemTypes are included in a single dashboard item
+export const listItemTypes = [REPORTS, RESOURCES, USERS];
