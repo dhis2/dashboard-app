@@ -53,7 +53,7 @@ class ItemSelector extends React.Component {
         this.setState({ filter: event.target.value }, this.fetchItems);
     };
 
-    getCatetorizedMenuGroups = items =>
+    getCategorizedMenuGroups = items =>
         categorizedItems.map(type => {
             const itemType = itemTypeMap[type.id];
 
@@ -74,7 +74,7 @@ class ItemSelector extends React.Component {
         ));
 
     getMenuGroups = items =>
-        this.getCatetorizedMenuGroups(items).concat(
+        this.getCategorizedMenuGroups(items).concat(
             this.getSinglesMenuGroups(singleItems)
         );
 

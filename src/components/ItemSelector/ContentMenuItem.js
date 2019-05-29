@@ -25,6 +25,7 @@ const InsertButton = () => (
 
 const ContentMenuItem = ({ type, name, onInsert, url }) => {
     const ItemIcon = getItemIcon(type);
+
     return (
         <MenuItem
             dense
