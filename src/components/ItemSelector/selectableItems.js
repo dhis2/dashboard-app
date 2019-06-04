@@ -1,6 +1,5 @@
 import i18n from '@dhis2/d2-i18n';
 import {
-    itemTypeMap,
     spacerContent,
     REPORT_TABLE,
     CHART,
@@ -42,36 +41,15 @@ export const singleItems = [
 
 // categorizedItems are grouped in the item selector menu
 export const categorizedItems = [
-    {
-        id: REPORT_TABLE,
-        title: itemTypeMap[REPORT_TABLE].pluralTitle,
-    },
-    {
-        id: CHART,
-        title: itemTypeMap[CHART].pluralTitle,
-    },
-    { id: MAP, title: itemTypeMap[MAP].pluralTitle },
-    {
-        id: EVENT_REPORT,
-        title: itemTypeMap[EVENT_REPORT].pluralTitle,
-    },
-    {
-        id: EVENT_CHART,
-        title: itemTypeMap[EVENT_CHART].pluralTitle,
-    },
-    {
-        id: USERS,
-        title: itemTypeMap[USERS].pluralTitle,
-    },
-    {
-        id: REPORTS,
-        title: itemTypeMap[REPORTS].pluralTitle,
-    },
-    {
-        id: RESOURCES,
-        title: itemTypeMap[RESOURCES].pluralTitle,
-    },
-    { id: APP, title: itemTypeMap[APP].pluralTitle },
+    REPORT_TABLE,
+    CHART,
+    MAP,
+    EVENT_REPORT,
+    EVENT_CHART,
+    USERS,
+    REPORTS,
+    RESOURCES,
+    APP,
 ];
 
 // listItemTypes are included in a single dashboard item

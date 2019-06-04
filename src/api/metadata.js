@@ -1,7 +1,7 @@
 import { getInstance } from 'd2';
 import arrayClean from 'd2-utilizr/lib/arrayClean';
 
-import { getEndPointName } from './index';
+import { getEndPointName } from '../modules/itemTypes';
 
 // Id, name
 export const getIdNameFields = ({ rename } = {}) => [
