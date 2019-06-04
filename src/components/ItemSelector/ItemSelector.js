@@ -53,30 +53,38 @@ class ItemSelector extends React.Component {
         this.setState({ filter: event.target.value }, this.fetchItems);
     };
 
-    getCategorizedMenuGroups = items =>
+    getCategorizedMenuGroups = () =>
         categorizedItems.map(type => {
-            const itemType = itemTypeMap[type.id];
+            const itemType = itemTypeMap[type];
 
-            return items && items[itemType.countName] > 0 ? (
-                <CategorizedMenuGroup
-                    key={type.id}
-                    type={type.id}
-                    title={type.title}
-                    items={items[itemType.endPointName]}
-                    onChangeItemsLimit={this.fetchItems}
-                />
-            ) : null;
+            if (this.state.items && this.state.items[itemType.endPointName]) {
+                const allItems = this.state.items[itemType.endPointName];
+                const hasMore = allItems.length > 5;
+                const items = this.state.maxOptions.has(type)
+                    ? allItems
+                    : allItems.slice(0, 5);
+
+                return (
+                    <CategorizedMenuGroup
+                        key={type}
+                        type={type}
+                        title={itemType.pluralTitle}
+                        items={items}
+                        onChangeItemsLimit={this.fetchItems}
+                        hasMore={hasMore}
+                    />
+                );
+            }
+            return null;
         });
 
-    getSinglesMenuGroups = items =>
-        items.map(category => (
+    getSinglesMenuGroups = () =>
+        singleItems.map(category => (
             <SinglesMenuGroup key={category.id} category={category} />
         ));
 
-    getMenuGroups = items =>
-        this.getCategorizedMenuGroups(items).concat(
-            this.getSinglesMenuGroups(singleItems)
-        );
+    getMenuGroups = () =>
+        this.getCategorizedMenuGroups().concat(this.getSinglesMenuGroups());
 
     fetchItems = async type => {
         if (type) {
@@ -95,19 +103,17 @@ class ItemSelector extends React.Component {
             });
         }
 
-        let queryString = '';
+        let queryString = '?count=6';
         if ([...this.state.maxOptions.values()].length) {
-            queryString =
-                '?max=' + [...this.state.maxOptions.values()].join('&max=');
+            queryString +=
+                '&max=' + [...this.state.maxOptions.values()].join('&max=');
         }
 
         const filter = this.state.filter ? `/${this.state.filter}` : '';
 
         this.context.d2.Api.getApi()
             .get(`dashboards/q${filter}${queryString}`)
-            .then(response => {
-                this.setState({ items: response });
-            })
+            .then(response => this.setState({ items: response }))
             .catch(console.error);
     };
 
@@ -131,7 +137,7 @@ class ItemSelector extends React.Component {
                     disableAutoFocus={true}
                     disableRestoreFocus={true}
                 >
-                    <Menu>{this.getMenuGroups(this.state.items)}</Menu>
+                    <Menu>{this.getMenuGroups()}</Menu>
                 </Popover>
             </Fragment>
         );

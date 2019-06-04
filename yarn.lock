@@ -1274,10 +1274,10 @@
     react "^16.6.0"
     react-dom "^16.6.0"
 
-"@dhis2/ui-core@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-2.2.0.tgz#9122403623c9f84127ad3e89134b6d08948e550a"
-  integrity sha512-uhu9WUDyYY+v5nnO0Nhu/x0Rey6okZHFTNKvndvHk4Gm/qSrpNvINHOFAC930I5MdVvCP0UHKrqas1JXAJ3nqg==
+"@dhis2/ui-core@2.5.1":
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-2.5.1.tgz#da24154f6ca02659ecc6725dfafc5a16c77dfb12"
+  integrity sha512-WnfVTxACo/Y9Iy1o5Usj+wbRYpgWePEuRFZ067VAPZhwVp6uekj7V2ONa1DpvUOLcRP8Z/DtlSN6EAaKzKhF+A==
   dependencies:
     classnames "^2.2.6"
     styled-jsx "^3.2.1"

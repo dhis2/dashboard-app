@@ -1,5 +1,4 @@
 import arrayClean from 'd2-utilizr/lib/arrayClean';
-import { itemTypeMap } from '../modules/itemTypes';
 import {
     getListItemFields,
     getFavoritesFields,
@@ -9,8 +8,6 @@ import {
 // Helper functions
 
 export const onError = error => console.log('Error: ', error);
-
-export const getEndPointName = type => itemTypeMap[type].endPointName;
 
 // Dashboard item
 export const getDashboardItemsFields = ({ withFavorite } = {}) =>

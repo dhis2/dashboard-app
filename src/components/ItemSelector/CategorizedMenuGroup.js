@@ -49,7 +49,7 @@ class CategorizedMenuGroup extends Component {
     };
 
     render() {
-        const { title, type, items } = this.props;
+        const { title, type, items, hasMore } = this.props;
         return (
             <Fragment>
                 <HeaderMenuItem title={title} />
@@ -65,18 +65,20 @@ class CategorizedMenuGroup extends Component {
                         />
                     );
                 })}
-                <MenuItem
-                    dense
-                    key={`showmore${title}`}
-                    onClick={this.toggleSeeMore}
-                    label={
-                        <button className={classes.showMoreButton}>
-                            {this.state.seeMore
-                                ? i18n.t('Show fewer')
-                                : i18n.t('Show more')}
-                        </button>
-                    }
-                />
+                {hasMore ? (
+                    <MenuItem
+                        dense
+                        key={`showmore${title}`}
+                        onClick={this.toggleSeeMore}
+                        label={
+                            <button className={classes.showMoreButton}>
+                                {this.state.seeMore
+                                    ? i18n.t('Show fewer')
+                                    : i18n.t('Show more')}
+                            </button>
+                        }
+                    />
+                ) : null}
                 <Divider margin="8px 0px" />
             </Fragment>
         );
@@ -84,7 +86,7 @@ class CategorizedMenuGroup extends Component {
 }
 
 CategorizedMenuGroup.propTypes = {
-    type: PropTypes.oneOf(categorizedItems.map(i => i.id)).isRequired,
+    type: PropTypes.oneOf(categorizedItems).isRequired,
     title: PropTypes.string.isRequired,
     items: PropTypes.array.isRequired,
     onChangeItemsLimit: PropTypes.func.isRequired,
