@@ -54,13 +54,18 @@ class ItemSelector extends React.Component {
     };
 
     getCategorizedMenuGroups = () =>
-        categorizedItems.map(type => {
-            const itemType = itemTypeMap[type];
-
-            if (this.state.items && this.state.items[itemType.endPointName]) {
+        categorizedItems
+            .filter(type => {
+                const itemType = itemTypeMap[type];
+                return (
+                    this.state.items && this.state.items[itemType.endPointName]
+                );
+            })
+            .map(type => {
+                const itemType = itemTypeMap[type];
                 const allItems = this.state.items[itemType.endPointName];
                 const hasMore = allItems.length > 5;
-                const items = this.state.maxOptions.has(type)
+                const items = this.state.maxOptions.has(itemType.id)
                     ? allItems
                     : allItems.slice(0, 5);
 
@@ -74,9 +79,7 @@ class ItemSelector extends React.Component {
                         hasMore={hasMore}
                     />
                 );
-            }
-            return null;
-        });
+            });
 
     getSinglesMenuGroups = () =>
         singleItems.map(category => (
