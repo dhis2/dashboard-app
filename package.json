@@ -5,7 +5,7 @@
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/d2-ui-interpretations": "5.2.10",
+        "@dhis2/d2-ui-interpretations": "6.1.0",
         "@dhis2/d2-ui-mentions-wrapper": "1.0.3",
         "@dhis2/d2-ui-rich-text": "^1.0.0",
         "autoprefixer": "7.1.6",
