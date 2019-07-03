@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { colors } from '../../modules/colors';
+import { colors } from '@dhis2/ui-core';
 import EditTitleBar from './EditTitleBar';
 import ViewTitleBar from './ViewTitleBar';
 
@@ -16,7 +16,7 @@ const style = {
     },
     description: {
         fontSize: 14,
-        color: colors.darkGrey,
+        color: colors.grey800,
     },
 };
 
