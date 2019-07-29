@@ -20,7 +20,7 @@ import {
     acReceivedActiveVisualization,
 } from '../../../actions/selected';
 import { CHART, MAP, itemTypeMap } from '../../../modules/itemTypes';
-import { colors } from '../../../modules/colors';
+import { colors } from '@dhis2/ui-core';
 import memoizeOne from '../../../modules/memoizeOne';
 import { getVisualizationConfig } from './plugin';
 
@@ -30,7 +30,7 @@ const styles = {
         height: 16,
         marginLeft: 3,
         cursor: 'pointer',
-        fill: colors.muiDefaultGrey,
+        fill: colors.grey600,
     },
     title: {
         overflow: 'hidden',

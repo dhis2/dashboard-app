@@ -1,7 +1,7 @@
 import React from 'react';
 import ItemHeaderButton from '../Item/ItemHeaderButton';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { colors } from '../../modules/colors';
+import { colors } from '@dhis2/ui-core';
 
 const style = {
     button: {
@@ -11,7 +11,7 @@ const style = {
         zIndex: '1000',
     },
     icon: {
-        fill: colors.red,
+        fill: colors.red500,
     },
 };
 

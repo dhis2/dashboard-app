@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import InfoOutlineIcon from '@material-ui/icons/InfoOutlined';
-import { colors } from '../../modules/colors';
+import { colors } from '@dhis2/ui-core';
 
 class Info extends Component {
     show = false;
@@ -13,7 +13,7 @@ class Info extends Component {
     render() {
         return (
             <div onClick={() => this.props.onClick(this.toggle())}>
-                <InfoOutlineIcon style={{ fill: colors.muiDefaultGrey }} />
+                <InfoOutlineIcon style={{ fill: colors.grey600 }} />
             </div>
         );
     }

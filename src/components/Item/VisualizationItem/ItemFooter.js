@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { colors } from '../../../modules/colors';
+import { colors } from '@dhis2/ui-core';
 import { getId } from './plugin';
 import InterpretationsComponent from '@dhis2/d2-ui-interpretations';
 
@@ -13,7 +13,7 @@ const style = {
         margin: '-1px 0px 0px',
         height: '1px',
         border: 'none',
-        backgroundColor: colors.lightGrey,
+        backgroundColor: colors.grey100,
     },
 };
 

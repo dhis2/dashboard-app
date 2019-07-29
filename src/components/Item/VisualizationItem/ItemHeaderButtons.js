@@ -18,13 +18,13 @@ import {
     EVENT_REPORT,
     DOMAIN_TYPE_AGGREGATE,
 } from '../../../modules/itemTypes';
-import { colors } from '../../../modules/colors';
+import { colors, theme } from '@dhis2/ui-core';
 
 const style = {
     iconBase: {
         width: '24px',
         height: '24px',
-        fill: colors.lightMediumGrey,
+        fill: colors.grey500,
     },
     buttonBase: {
         padding: '5px 6px 3px 6px',
@@ -39,7 +39,7 @@ const style = {
     },
     border: {
         borderRadius: '2px',
-        border: `1px solid ${colors.lightGrey}`,
+        border: `1px solid ${colors.grey200}`,
     },
 };
 
@@ -54,10 +54,10 @@ const disabledStyle = {
 };
 
 const activeStyle = {
-    icon: { ...style.iconBase, fill: colors.royalBlue },
+    icon: { ...style.iconBase, fill: theme.primary800 },
     container: {
         ...style.buttonBase,
-        backgroundColor: colors.lightBlue,
+        backgroundColor: theme.primary100,
     },
 };
 

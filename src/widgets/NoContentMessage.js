@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors } from '../modules/colors';
+import { colors } from '@dhis2/ui-core';
 
 export const NoContentMessage = ({ text }) => (
     <div
@@ -8,7 +8,7 @@ export const NoContentMessage = ({ text }) => (
             textAlign: 'center',
             fontSize: '15px',
             fontWeight: 500,
-            color: colors.charcoalGrey,
+            color: colors.grey600,
         }}
     >
         {text}
