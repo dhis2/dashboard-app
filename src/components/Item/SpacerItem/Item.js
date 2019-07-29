@@ -8,7 +8,7 @@ const style = {
     margin: '21px 28px',
     fontSize: '14px',
     lineHeight: '18px',
-    color: colors.grey400,
+    color: colors.grey600,
 };
 
 const SpacerItem = () => {
