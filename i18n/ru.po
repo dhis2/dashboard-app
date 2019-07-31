@@ -1,0 +1,154 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-03-01T11:56:20.216Z\n"
+"PO-Revision-Date: 2019-04-03 05:19-0400\n"
+"Last-Translator: Pootle <pootle@translate.dhis2.net>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Dashboard"
+msgstr "Информационная панель"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Continue editing"
+msgstr "Продолжить редактирование"
+
+msgid "Confirm delete dashboard"
+msgstr "Подтверждение удаления информационной панели"
+
+msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
+msgstr ""
+"Вы уверены, что хотите удалить информационную панель \"{{dashboardName}}\"?"
+
+msgid "Exit without saving"
+msgstr "Выйти без сохранения"
+
+msgid "Go to dashboards"
+msgstr "Перейти на информационную панель"
+
+msgid "Save changes"
+msgstr "Сохранить изменения"
+
+msgid "Translate"
+msgstr "Перевести"
+
+msgid "Search for a dashboard"
+msgstr "Поиск информационной панели"
+
+msgid "Show less"
+msgstr "Показать меньше информации"
+
+msgid "Show more"
+msgstr "Показать больше информации"
+
+msgid "No access"
+msgstr "Нет доступа"
+
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+"Информационные Панели не найдены. Используйте кнопку + для создания новой "
+"информационной панели."
+
+msgid "Requested dashboard not found"
+msgstr "Запрашиваемая информационная панель не найдена"
+
+msgid "Messages"
+msgstr "Сообщения"
+
+msgid "See all messages"
+msgstr "Посмотреть все сообщения"
+
+msgid "Spacer"
+msgstr "Разделитель"
+
+msgid ""
+"Use a spacer to create empty vertical space between other dashboard items."
+msgstr ""
+"Используйте разделитель для того, чтобы создать пустое вертикальное "
+"пространство между элементами информационной панели."
+
+msgid "Text item"
+msgstr "Текстовый элемент"
+
+msgid "Add text here"
+msgstr "Добавить текст сюда"
+
+msgid "Unable to load the plugin for this item"
+msgstr "Невозможно загрузить плагин для этого элемента"
+
+msgid "There are no items on this dashboard"
+msgstr "На этой информационной панели нет элементов"
+
+msgid "Search for items to add to this dashboard"
+msgstr "Поиск элементов для добавления на эту информационную панель"
+
+msgid "See"
+msgstr "Посмотреть"
+
+msgid "fewer"
+msgstr "меньше"
+
+msgid "more"
+msgstr "больше"
+
+msgid "Text box"
+msgstr "Текстовое окно"
+
+msgid "Current translation"
+msgstr "Текущий перевод"
+
+msgid "Currently editing"
+msgstr "Редактируется в настоящее время"
+
+msgid "Add title here"
+msgstr "Добавить заголовок"
+
+msgid "Add description here"
+msgstr "Добавить описание"
+
+msgid "No description"
+msgstr "Нет описания"
+
+msgid "Pivot tables"
+msgstr "Сводные таблицы"
+
+msgid "Pivot Tables"
+msgstr "Сводные таблицы"
+
+msgid "Charts"
+msgstr "Диаграммы"
+
+msgid "Visualizer"
+msgstr "Визуализатор"
+
+msgid "Maps"
+msgstr "Карты"
+
+msgid "Event reports"
+msgstr "Отчеты по событиям"
+
+msgid "Event Reports"
+msgstr "Отчеты по событиям"
+
+msgid "Event charts"
+msgstr "Диаграммы событий"
+
+msgid "Event Visualizer"
+msgstr "Визуализатор Событий"
+
+msgid "Reports"
+msgstr "Отчеты"
+
+msgid "Resources"
+msgstr "Ресурсы"
+
+msgid "Users"
+msgstr "Пользователи"
