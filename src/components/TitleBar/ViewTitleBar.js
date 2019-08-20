@@ -73,7 +73,7 @@ class ViewTitleBar extends Component {
                         <div className={classes.titleBarIcon}>
                             <Info onClick={onInfoClick} />
                         </div>
-                        <div style={{ marginLeft: '10px' }}>
+                        <div className={classes.buttons}>
                             {access.update ? (
                                 <Link
                                     className={classes.editLink}
@@ -173,8 +173,25 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     };
 };
 
-export default connect(
-    mapStateToProps,
-    null,
-    mergeProps
-)(ViewTitleBar);
+export default connect(mapStateToProps, null, mergeProps)(ViewTitleBar);
+
+ViewTitleBar.propTypes = {
+    description: PropTypes.string,
+    id: PropTypes.string,
+    name: PropTypes.string,
+    showDescription: PropTypes.bool,
+    starred: PropTypes.bool,
+    onInfoClick: PropTypes.func,
+};
+
+ViewTitleBar.defaultProps = {
+    name: '',
+    description: '',
+    starred: false,
+    showDescription: false,
+    onInfoClick: null,
+};
+
+ViewTitleBar.contextTypes = {
+    d2: PropTypes.object,
+};

@@ -34,3 +34,46 @@ table.pivot * {
 .secondary-light-bg {
     background-color: #48a999;
 }
+
+@media print {
+    .dashboard-header-bar,
+    .dashboard-control-bar,
+    .page-container-top-margin {
+        display: none;
+    }
+
+    body {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    * {
+        -webkit-transition: none !important;
+        transition: none !important;
+    }
+}
+
+/* .page-break {
+    position: absolute;
+    top: 200px;
+    left: 0px;
+} */
+
+.print-single-page .react-grid-item {
+    position: static !important;
+    transform: none !important;
+    margin-top: 3vh;
+    /* width: vw !important; */
+    max-height: 95vh !important;
+    -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+    page-break-inside: avoid; /* Firefox */
+    break-inside: avoid; /* IE 10+ */
+    page-break-before: always;
+    break-before: page;
+}
+
+@page {
+    size: landscape;
+    margin: 5%;
+}

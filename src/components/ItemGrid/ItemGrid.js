@@ -111,16 +111,18 @@ export class ItemGrid extends Component {
         ].join(' ');
 
         return (
-            <ProgressiveLoadingContainer
-                key={item.i}
-                className={itemClassNames}
-            >
-                <Item
-                    item={item}
-                    editMode={this.props.edit}
-                    onToggleItemExpanded={this.onToggleItemExpanded}
-                />
-            </ProgressiveLoadingContainer>
+            <div key={item.i}>
+                <ProgressiveLoadingContainer
+                    key={item.i}
+                    className={itemClassNames}
+                >
+                    <Item
+                        item={item}
+                        editMode={this.props.edit}
+                        onToggleItemExpanded={this.onToggleItemExpanded}
+                    />
+                </ProgressiveLoadingContainer>
+            </div>
         );
     };
 
@@ -137,9 +139,21 @@ export class ItemGrid extends Component {
             );
         }
 
-        const items = edit
+        const unsortedItems = edit
             ? dashboardItems
             : dashboardItems.map(this.adjustHeightForExpanded);
+
+        const items = unsortedItems.sort((a, b) => {
+            if (a.y < b.y) {
+                return -2;
+            } else if (a.y === b.y) {
+                if (a.x < b.x) {
+                    return -1;
+                }
+            }
+
+            return 1;
+        });
 
         return (
             <div className="grid-wrapper">
@@ -191,6 +205,8 @@ const mapStateToProps = (state, ownProps) => {
     const dashboardItems = ownProps.edit
         ? sGetEditDashboardItems(state)
         : sGetDashboardItems(state);
+
+    console.log('dashboardItems', dashboardItems);
 
     return {
         isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,

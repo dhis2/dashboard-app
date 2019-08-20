@@ -76,7 +76,10 @@ class ControlBar extends React.Component {
         );
 
         return (
-            <div style={rootStyle} className={classes.root}>
+            <div
+                style={rootStyle}
+                className={`dashboard-control-bar ${classes.root}`}
+            >
                 <div className={classes.content}>{this.props.children}</div>
                 {this.renderDragHandle()}
             </div>

@@ -7,6 +7,7 @@ import FilterBar from '../FilterBar/FilterBar';
 export const DashboardContent = props => (
     <>
         <TitleBar edit={props.editMode} />
+        <hr className="page-break" />
         <FilterBar />
         <ItemGrid edit={props.editMode} />
     </>
