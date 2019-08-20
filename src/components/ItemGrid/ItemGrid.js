@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import ReactGridLayout from 'react-grid-layout';
 import { CircularProgress, ScreenCover } from '@dhis2/ui-core';
+import sortBy from 'lodash/sortBy';
 
 import {
     acUpdateDashboardLayout,
@@ -102,7 +103,7 @@ export class ItemGrid extends Component {
             );
         }
 
-        const items = dashboardItems.map(item => {
+        const unsorteditems = dashboardItems.map(item => {
             const expandedItem = this.state.expandedItems[item.id];
             let hProp = { h: item.h };
 
@@ -114,6 +115,18 @@ export class ItemGrid extends Component {
                 i: item.id,
                 minH: ITEM_MIN_HEIGHT,
             });
+        });
+
+        const items = unsorteditems.sort((a, b) => {
+            if (a.y < b.y) {
+                return -2;
+            } else if (a.y === b.y) {
+                if (a.x < b.x) {
+                    return -1;
+                }
+            }
+
+            return 1;
         });
 
         return (
@@ -144,25 +157,27 @@ export class ItemGrid extends Component {
                         ].join(' ');
 
                         return (
-                            <ProgressiveLoadingContainer
-                                key={item.i}
-                                className={itemClassNames}
-                            >
-                                {edit ? (
-                                    <DeleteItemButton
-                                        onClick={this.onRemoveItemWrapper(
-                                            item.id
-                                        )}
+                            <div key={item.i}>
+                                <ProgressiveLoadingContainer
+                                    key={item.i}
+                                    className={itemClassNames}
+                                >
+                                    {edit ? (
+                                        <DeleteItemButton
+                                            onClick={this.onRemoveItemWrapper(
+                                                item.id
+                                            )}
+                                        />
+                                    ) : null}
+                                    <Item
+                                        item={item}
+                                        editMode={edit}
+                                        onToggleItemExpanded={
+                                            this.onToggleItemExpanded
+                                        }
                                     />
-                                ) : null}
-                                <Item
-                                    item={item}
-                                    editMode={edit}
-                                    onToggleItemExpanded={
-                                        this.onToggleItemExpanded
-                                    }
-                                />
-                            </ProgressiveLoadingContainer>
+                                </ProgressiveLoadingContainer>
+                            </div>
                         );
                     })}
                 </ReactGridLayout>
@@ -189,6 +204,8 @@ const mapStateToProps = (state, ownProps) => {
     const dashboardItems = ownProps.edit
         ? sGetEditDashboardItems(state)
         : sGetDashboardItems(state);
+
+    console.log('dashboardItems', dashboardItems);
 
     return {
         isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,

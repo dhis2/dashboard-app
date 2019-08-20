@@ -22,6 +22,44 @@ export class App extends Component {
         this.props.fetchDashboards();
         this.props.setControlBarRows();
         this.props.setDimensions(this.props.d2);
+
+        window.addEventListener('beforeprint', event => {
+            if (
+                window.confirm(`Print as single pages? ${window.innerHeight}`)
+            ) {
+                const appComponent = document.getElementsByClassName(
+                    'app-wrapper'
+                )[0];
+                appComponent.classList.add('print-single-page');
+                setTimeout(() => {}, 500);
+            } else {
+                const gridItems = document.getElementsByClassName(
+                    'react-grid-item'
+                );
+
+                const finalItems = [].slice.call(gridItems);
+                // console.log('gridItems', finalItems);
+
+                const coords = finalItems.map((item, i) => {
+                    return `${item.clientHeight} ${item.clientWidth}`;
+                });
+
+                console.log('coords', coords.join(', '));
+            }
+        });
+
+        window.addEventListener('afterprint', event => {
+            // alert('after print', event);
+            const appComponent = document.getElementsByClassName(
+                'app-wrapper'
+            )[0];
+            appComponent.classList.remove('print-single-page');
+        });
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('beforeprint');
+        window.removeEventListener('afterprint');
     }
 
     getChildContext() {

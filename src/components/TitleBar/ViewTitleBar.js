@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import i18n from '@dhis2/d2-i18n';
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog';
@@ -24,38 +23,9 @@ import {
 } from '../../reducers/dashboards';
 import { colors } from '@dhis2/ui-core';
 
-const NO_DESCRIPTION = i18n.t('No description');
+import classes from './styles/ViewTitleBar.module.css';
 
-const styles = {
-    actions: {
-        display: 'flex',
-        alignItems: 'center',
-        marginLeft: '20px',
-    },
-    starIcon: {
-        fill: colors.grey600,
-    },
-    textButton: {
-        minWidth: '30px',
-        top: '1px',
-    },
-    editLink: {
-        display: 'inline-block',
-        verticalAlign: 'top',
-        textDecoration: 'none',
-        marginRight: '4px',
-    },
-    titleBar: {
-        display: 'flex',
-        alignItems: 'flex-start',
-    },
-    titleBarIcon: {
-        marginLeft: 5,
-        position: 'relative',
-        top: 1,
-        cursor: 'pointer',
-    },
-};
+const NO_DESCRIPTION = i18n.t('No description');
 
 class ViewTitleBar extends Component {
     constructor(props) {
@@ -80,7 +50,6 @@ class ViewTitleBar extends Component {
             starred,
             onStarClick,
             onInfoClick,
-            classes,
         } = this.props;
 
         const titleStyle = Object.assign({}, style.title, {
@@ -100,12 +69,12 @@ class ViewTitleBar extends Component {
                             className={classes.titleBarIcon}
                             onClick={onStarClick}
                         >
-                            <StarIcon className={classes.starIcon} />
+                            <StarIcon style={{ fill: colors.grey600 }} />
                         </div>
                         <div className={classes.titleBarIcon}>
                             <Info onClick={onInfoClick} />
                         </div>
-                        <div style={{ marginLeft: '10px' }}>
+                        <div className={classes.buttons}>
                             {access.update ? (
                                 <Link
                                     className={classes.editLink}
@@ -185,7 +154,7 @@ export default connect(
     mapStateToProps,
     null,
     mergeProps
-)(withStyles(styles)(ViewTitleBar));
+)(ViewTitleBar);
 
 ViewTitleBar.propTypes = {
     id: PropTypes.string,

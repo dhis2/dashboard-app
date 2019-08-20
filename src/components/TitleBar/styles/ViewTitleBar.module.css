@@ -1,0 +1,39 @@
+.actions {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.textButton {
+    min-width: 30px;
+    top: 1px;
+}
+
+.buttons {
+    margin-left: 10px;
+}
+
+@media print {
+    .buttons {
+        display: none;
+    }
+}
+
+.editLink {
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    margin-right: 4px;
+}
+
+.titleBar {
+    display: flex;
+    align-items: flex-start;
+}
+
+.titleBarIcon {
+    margin-left: 5px;
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+}
