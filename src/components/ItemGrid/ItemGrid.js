@@ -36,6 +36,7 @@ import {
 import {
     sGetDashboardById,
     sGetDashboardItems,
+    sGetForceLoadAll,
 } from '../../reducers/dashboards';
 import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer';
 
@@ -115,6 +116,7 @@ export class ItemGrid extends Component {
                 <ProgressiveLoadingContainer
                     key={item.i}
                     className={itemClassNames}
+                    forceLoad={this.props.forceLoadAll}
                 >
                     <Item
                         item={item}
@@ -129,6 +131,8 @@ export class ItemGrid extends Component {
     getItemComponents = items => items.map(item => this.getItemComponent(item));
 
     render() {
+        console.log('render ItemGrid', this.props);
+
         const { edit, isLoading, dashboardItems } = this.props;
 
         if (!isLoading && !dashboardItems.length) {
@@ -188,6 +192,7 @@ ItemGrid.propTypes = {
     acUpdateDashboardLayout: PropTypes.func,
     dashboardItems: PropTypes.array,
     edit: PropTypes.bool,
+    forceLoadAll: PropTypes.bool,
     isLoading: PropTypes.bool,
 };
 
@@ -198,6 +203,8 @@ ItemGrid.defaultProps = {
 // Container
 
 const mapStateToProps = (state, ownProps) => {
+    console.log('MSTP');
+
     const selectedDashboard = ownProps.edit
         ? sGetEditDashboardRoot(state)
         : sGetDashboardById(state, sGetSelectedId(state));
@@ -206,11 +213,10 @@ const mapStateToProps = (state, ownProps) => {
         ? sGetEditDashboardItems(state)
         : sGetDashboardItems(state);
 
-    console.log('dashboardItems', dashboardItems);
-
     return {
         isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
         dashboardItems,
+        forceLoadAll: sGetForceLoadAll(state),
     };
 };
 
@@ -227,6 +233,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         edit: ownProps.edit,
         isLoading: stateProps.isLoading,
         dashboardItems: validItems,
+        forceLoadAll: stateProps.forceLoadAll,
         onItemResize,
     };
 };

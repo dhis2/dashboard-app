@@ -12,6 +12,7 @@ class ProgressiveLoadingContainer extends Component {
         bufferFactor: PropTypes.number,
         className: PropTypes.string,
         debounceMs: PropTypes.number,
+        forceLoad: PropTypes.bool,
         style: PropTypes.object,
     };
     static defaultProps = {
@@ -67,8 +68,10 @@ class ProgressiveLoadingContainer extends Component {
     }
 
     render() {
-        const { children, className, style, ...props } = this.props;
+        const { children, className, style, forceLoad, ...props } = this.props;
         const { shouldLoad } = this.state;
+
+        const loadit = forceLoad || shouldLoad;
 
         const eventProps = pick(props, [
             'onMouseDown',
@@ -84,7 +87,7 @@ class ProgressiveLoadingContainer extends Component {
                 className={className}
                 {...eventProps}
             >
-                {shouldLoad && children}
+                {loadit && children}
             </div>
         );
     }
