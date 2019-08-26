@@ -16,10 +16,12 @@ export const ADD_DASHBOARDS = 'ADD_DASHBOARDS';
 export const SET_DASHBOARD_STARRED = 'SET_DASHBOARD_STARRED';
 export const SET_DASHBOARD_DISPLAY_NAME = 'SET_DASHBOARD_DISPLAY_NAME';
 export const SET_DASHBOARD_ITEMS = 'SET_DASHBOARD_ITEMS';
+export const SET_ITEMS_FORCE_LOAD_ALL = 'SET_ITEMS_FORCE_LOAD_ALL';
 
 export const DEFAULT_STATE_DASHBOARDS = {
     byId: null,
     items: [],
+    forceLoadAll: false,
 };
 
 // reducer helper functions
@@ -33,6 +35,7 @@ const updateDashboardProp = (state, dashboardId, prop, value) => ({
         },
     },
     items: state.items,
+    forceLoadAll: state.forceLoadAll,
 });
 
 /**
@@ -48,6 +51,7 @@ export default (state = DEFAULT_STATE_DASHBOARDS, action) => {
             return {
                 byId: action.value,
                 items: [],
+                forceLoadAll: false,
             };
         }
         case ADD_DASHBOARDS: {
@@ -79,6 +83,14 @@ export default (state = DEFAULT_STATE_DASHBOARDS, action) => {
             return {
                 ...state,
                 items: action.value,
+            };
+        }
+        case SET_ITEMS_FORCE_LOAD_ALL: {
+            console.log('set forceLoadAll', action.value);
+
+            return {
+                ...state,
+                forceLoadAll: action.value,
             };
         }
         default:
@@ -142,6 +154,8 @@ export const sGetUnstarredDashboards = state =>
     Object.values(sGetAllDashboards(state)).filter(
         dashboard => dashboard.starred === false
     );
+
+export const sGetForceLoadAll = state => sGetDashboardsRoot(state).forceLoadAll;
 
 // selector level 3
 

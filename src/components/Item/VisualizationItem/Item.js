@@ -117,6 +117,8 @@ export class Item extends Component {
     pluginCredentials = null;
 
     getPluginComponent = () => {
+        console.log('getPluginComponent');
+
         const visualization = getVisualizationConfig(
             this.props.visualization,
             this.props.item.type,

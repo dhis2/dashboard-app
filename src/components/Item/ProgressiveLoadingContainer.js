@@ -64,12 +64,20 @@ class ProgressiveLoadingContainer extends Component {
     }
 
     render() {
-        const { children, debounceMs, bufferFactor, ...props } = this.props;
+        const {
+            children,
+            debounceMs,
+            bufferFactor,
+            forceLoad,
+            ...props
+        } = this.props;
         const { shouldLoad } = this.state;
+
+        const loadit = forceLoad || shouldLoad;
 
         return (
             <div ref={ref => (this.containerRef = ref)} {...props}>
-                {shouldLoad && children}
+                {loadit && children}
             </div>
         );
     }

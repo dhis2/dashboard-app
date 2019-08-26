@@ -4,6 +4,7 @@ import {
     SET_DASHBOARD_STARRED,
     SET_DASHBOARD_DISPLAY_NAME,
     SET_DASHBOARD_ITEMS,
+    SET_ITEMS_FORCE_LOAD_ALL,
 } from '../reducers/dashboards';
 import {
     getCustomDashboards,
@@ -52,6 +53,10 @@ export const acSetDashboardDisplayName = (dashboardId, value) => ({
 
 export const acSetDashboardItems = value => ({
     type: SET_DASHBOARD_ITEMS,
+    value,
+});
+export const acSetForceLoadAll = value => ({
+    type: SET_ITEMS_FORCE_LOAD_ALL,
     value,
 });
 

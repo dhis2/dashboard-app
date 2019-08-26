@@ -48,29 +48,25 @@ table.pivot * {
         margin: 0 !important;
     }
 
+    .react-grid-item {
+        position: static !important;
+        transform: none !important;
+        margin-top: 3vh;
+        border: 1px solid #d3d4d6;
+        box-shadow: none;
+        width: 100vw !important;
+        max-height: 95vh !important;
+        -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+        /*page-break-inside: avoid;*/
+        break-inside: avoid; /* IE 10+ */
+        /* page-break-before: always;
+        break-before: page; */
+    }
+
     * {
         -webkit-transition: none !important;
         transition: none !important;
     }
-}
-
-/* .page-break {
-    position: absolute;
-    top: 200px;
-    left: 0px;
-} */
-
-.print-single-page .react-grid-item {
-    position: static !important;
-    transform: none !important;
-    margin-top: 3vh;
-    /* width: vw !important; */
-    max-height: 95vh !important;
-    -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
-    page-break-inside: avoid; /* Firefox */
-    break-inside: avoid; /* IE 10+ */
-    page-break-before: always;
-    break-before: page;
 }
 
 @page {

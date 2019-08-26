@@ -7,7 +7,7 @@ import HeaderBar from '@dhis2/ui/widgets/HeaderBar';
 
 import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes';
 import { acReceivedUser } from '../actions/user';
-import { tFetchDashboards } from '../actions/dashboards';
+import { tFetchDashboards, acSetForceLoadAll } from '../actions/dashboards';
 import { tSetControlBarRows } from '../actions/controlBar';
 import { tSetDimensions } from '../actions/dimensions';
 import Dashboard from './Dashboard/Dashboard';
@@ -16,6 +16,21 @@ import SnackbarMessage from './SnackbarMessage/SnackbarMessage';
 import 'typeface-roboto';
 import './App.css';
 
+const handleBeforePrint = fn => {
+    // check edit mode?
+    fn(true);
+
+    if (window.confirm(`Print as single pages? ${window.innerHeight}`)) {
+        const appComponent = document.getElementsByClassName('app-wrapper')[0];
+        appComponent.classList.add('print-single-page');
+    }
+};
+
+const handleAfterPrint = () => {
+    const appComponent = document.getElementsByClassName('app-wrapper')[0];
+    appComponent.classList.remove('print-single-page');
+};
+
 export class App extends Component {
     componentDidMount() {
         this.props.setCurrentUser(this.props.d2.currentUser);
@@ -23,43 +38,15 @@ export class App extends Component {
         this.props.setControlBarRows();
         this.props.setDimensions(this.props.d2);
 
-        window.addEventListener('beforeprint', event => {
-            if (
-                window.confirm(`Print as single pages? ${window.innerHeight}`)
-            ) {
-                const appComponent = document.getElementsByClassName(
-                    'app-wrapper'
-                )[0];
-                appComponent.classList.add('print-single-page');
-                setTimeout(() => {}, 500);
-            } else {
-                const gridItems = document.getElementsByClassName(
-                    'react-grid-item'
-                );
-
-                const finalItems = [].slice.call(gridItems);
-                // console.log('gridItems', finalItems);
-
-                const coords = finalItems.map((item, i) => {
-                    return `${item.clientHeight} ${item.clientWidth}`;
-                });
-
-                console.log('coords', coords.join(', '));
-            }
-        });
-
-        window.addEventListener('afterprint', event => {
-            // alert('after print', event);
-            const appComponent = document.getElementsByClassName(
-                'app-wrapper'
-            )[0];
-            appComponent.classList.remove('print-single-page');
-        });
+        window.addEventListener('beforeprint', () =>
+            handleBeforePrint(this.props.setForceLoadAll)
+        );
+        window.addEventListener('afterprint', handleAfterPrint);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('beforeprint');
-        window.removeEventListener('afterprint');
+        window.removeEventListener('beforeprint', handleBeforePrint);
+        window.removeEventListener('afterprint', handleAfterPrint);
     }
 
     getChildContext() {
@@ -122,6 +109,7 @@ const mapDispatchToProps = dispatch => {
         fetchDashboards: () => dispatch(tFetchDashboards()),
         setControlBarRows: () => dispatch(tSetControlBarRows()),
         setDimensions: d2 => dispatch(tSetDimensions(d2)),
+        setForceLoadAll: val => dispatch(acSetForceLoadAll(val)),
     };
 };
 

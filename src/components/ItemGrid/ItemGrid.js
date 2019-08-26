@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import ReactGridLayout from 'react-grid-layout';
 import { CircularProgress, ScreenCover } from '@dhis2/ui-core';
-import sortBy from 'lodash/sortBy';
 
 import {
     acUpdateDashboardLayout,
@@ -38,6 +37,7 @@ import {
 import {
     sGetDashboardById,
     sGetDashboardItems,
+    sGetForceLoadAll,
 } from '../../reducers/dashboards';
 import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer';
 
@@ -93,7 +93,10 @@ export class ItemGrid extends Component {
     onRemoveItemWrapper = id => () => this.onRemoveItem(id);
 
     render() {
+        console.log('render ItemGrid', this.props);
+
         const { edit, isLoading, dashboardItems } = this.props;
+        const forceLoadAll = this.props.forceLoadAll;
 
         if (!isLoading && !dashboardItems.length) {
             return (
@@ -161,6 +164,7 @@ export class ItemGrid extends Component {
                                 <ProgressiveLoadingContainer
                                     key={item.i}
                                     className={itemClassNames}
+                                    forceLoad={forceLoadAll}
                                 >
                                     {edit ? (
                                         <DeleteItemButton
@@ -197,6 +201,8 @@ ItemGrid.defaultProps = {
 // Container
 
 const mapStateToProps = (state, ownProps) => {
+    console.log('MSTP');
+
     const selectedDashboard = ownProps.edit
         ? sGetEditDashboardRoot(state)
         : sGetDashboardById(state, sGetSelectedId(state));
@@ -205,11 +211,10 @@ const mapStateToProps = (state, ownProps) => {
         ? sGetEditDashboardItems(state)
         : sGetDashboardItems(state);
 
-    console.log('dashboardItems', dashboardItems);
-
     return {
         isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
         dashboardItems,
+        forceLoadAll: sGetForceLoadAll(state),
     };
 };
 
@@ -226,6 +231,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         edit: ownProps.edit,
         isLoading: stateProps.isLoading,
         dashboardItems: validItems,
+        forceLoadAll: stateProps.forceLoadAll,
         onItemResize,
     };
 };
