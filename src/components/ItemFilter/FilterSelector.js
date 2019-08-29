@@ -5,7 +5,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { withTheme } from '@material-ui/core/styles';
 
 import i18n from '@dhis2/d2-i18n';
-import { DimensionsPanel } from '@dhis2/d2-ui-analytics';
+import { DimensionsPanel } from '@dhis2/analytics';
 
 import { Button } from '@dhis2/ui-core';
 import FilterDialog from './FilterDialog';

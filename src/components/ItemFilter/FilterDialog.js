@@ -12,7 +12,7 @@ import {
     DynamicDimension,
     OrgUnitDimension,
     FIXED_DIMENSIONS,
-} from '@dhis2/d2-ui-analytics';
+} from '@dhis2/analytics';
 
 const peId = FIXED_DIMENSIONS.pe.id;
 const ouId = FIXED_DIMENSIONS.ou.id;
