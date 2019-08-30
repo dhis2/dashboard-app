@@ -22,14 +22,26 @@ const handleBeforePrint = fn => {
     fn(true);
 
     if (window.confirm(`Print as single pages? ${window.innerHeight}`)) {
-        const appComponent = document.getElementsByClassName('app-wrapper')[0];
-        appComponent.classList.add('print-single-page');
+        const appComponent = document.getElementsByClassName(
+            'react-grid-item'
+        )[0];
+        console.log(
+            'style',
+            appComponent.style.transform,
+            appComponent.style.height
+        );
+        appComponent.style.transform = 'translate(10px, 250px)';
+
+        // appComponent.classList.add('print-single-page');
     }
 };
 
-const handleAfterPrint = () => {
-    const appComponent = document.getElementsByClassName('app-wrapper')[0];
-    appComponent.classList.remove('print-single-page');
+const handleAfterPrint = fn => {
+    console.log('handleAfterPrint');
+
+    fn(false);
+    // const appComponent = document.getElementsByClassName('app-wrapper')[0];
+    // appComponent.classList.remove('print-single-page');
 };
 
 export class App extends Component {
@@ -42,7 +54,9 @@ export class App extends Component {
         window.addEventListener('beforeprint', () =>
             handleBeforePrint(this.props.setForceLoadAll)
         );
-        window.addEventListener('afterprint', handleAfterPrint);
+        window.addEventListener('afterprint', () =>
+            handleAfterPrint(this.props.setForceLoadAll)
+        );
     }
 
     componentWillUnmount() {

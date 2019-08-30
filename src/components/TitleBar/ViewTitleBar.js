@@ -21,6 +21,7 @@ import {
     sGetDashboardById,
     sGetDashboardItems,
 } from '../../reducers/dashboards';
+import { acSetForceLoadAll } from '../../actions/dashboards';
 
 import classes from './styles/ViewTitleBar.module.css';
 
@@ -34,6 +35,40 @@ class ViewTitleBar extends Component {
             sharingDialogIsOpen: false,
         };
     }
+
+    showPrintSPView = () => {
+        this.props.setForceLoadAll(true);
+        const appComponent = document.getElementsByClassName('app-wrapper')[0];
+        appComponent.classList.add('printview');
+    };
+
+    showPrintLayoutView = () => {
+        this.props.setForceLoadAll(true);
+        // const unsorteditems = Array.from(
+        //     document.getElementsByClassName('react-grid-item')
+        // );
+        // const items = unsorteditems.sort((a, b) => {
+        //     if (a.y < b.y) {
+        //         return -2;
+        //     } else if (a.y === b.y) {
+        //         if (a.x < b.x) {
+        //             return -1;
+        //         }
+        //     }
+
+        //     return 1;
+        // });
+
+        // const pageList = [{ y: 200 }, { y: 800 }, { y: 1400 }];
+        // const pageHeight = 600;
+        // items.forEach(i =>
+        //     console.log(
+        //         'item.style',
+        //         i.style.getPropertyValue('transform'),
+        //         i.style.getPropertyValue('height')
+        //     )
+        // );
+    };
 
     toggleSharingDialog = () =>
         this.setState({ sharingDialogIsOpen: !this.state.sharingDialogIsOpen });
@@ -92,6 +127,12 @@ class ViewTitleBar extends Component {
                             <span style={{ marginRight: '4px' }}>
                                 <FilterSelector />
                             </span>
+                            <button onClick={this.showPrintSPView}>
+                                Print SP view
+                            </button>
+                            <button onClick={this.showPrintLayoutView}>
+                                Print Layout view
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -126,6 +167,7 @@ ViewTitleBar.propTypes = {
     description: PropTypes.string,
     id: PropTypes.string,
     name: PropTypes.string,
+    setForceLoadAll: PropTypes.bool,
     showDescription: PropTypes.bool,
     starred: PropTypes.bool,
     style: PropTypes.object,
@@ -160,38 +202,30 @@ const mapStateToProps = state => {
     };
 };
 
+const mapDispatchToProps = dispatch => {
+    return {
+        setForceLoadAll: val => dispatch(acSetForceLoadAll(val)),
+    };
+};
+
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const { id, starred, showDescription } = stateProps;
-    const { dispatch } = dispatchProps;
+    const { dispatch, setForceLoadAll } = dispatchProps;
+
+    console.log('dispatch', dispatchProps);
 
     return {
         ...stateProps,
         ...ownProps,
+        setForceLoadAll,
         onStarClick: () => dispatch(tStarDashboard(id, !starred)),
         onInfoClick: () =>
             dispatch(acSetSelectedShowDescription(!showDescription)),
     };
 };
 
-export default connect(mapStateToProps, null, mergeProps)(ViewTitleBar);
-
-ViewTitleBar.propTypes = {
-    description: PropTypes.string,
-    id: PropTypes.string,
-    name: PropTypes.string,
-    showDescription: PropTypes.bool,
-    starred: PropTypes.bool,
-    onInfoClick: PropTypes.func,
-};
-
-ViewTitleBar.defaultProps = {
-    name: '',
-    description: '',
-    starred: false,
-    showDescription: false,
-    onInfoClick: null,
-};
-
-ViewTitleBar.contextTypes = {
-    d2: PropTypes.object,
-};
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+    mergeProps
+)(ViewTitleBar);
