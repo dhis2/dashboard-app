@@ -117,8 +117,6 @@ export class Item extends Component {
     pluginCredentials = null;
 
     getPluginComponent = () => {
-        console.log('getPluginComponent');
-
         const visualization = getVisualizationConfig(
             this.props.visualization,
             this.props.item.type,
@@ -268,6 +266,15 @@ export class Item extends Component {
         const { item, editMode } = this.props;
         const PADDING_BOTTOM = 4;
 
+        // console.log(
+        //     'getContentStyle',
+        //     item.originalHeight,
+        //     item.h,
+        //     item.w,
+        //     item.x,
+        //     item.y
+        // );
+
         return !editMode
             ? {
                   height: item.originalHeight - HEADER_HEIGHT - PADDING_BOTTOM,
@@ -276,6 +283,8 @@ export class Item extends Component {
     };
 
     render() {
+        // console.log('Item render');
+
         const { item, editMode, itemFilters } = this.props;
         const { showFooter } = this.state;
 

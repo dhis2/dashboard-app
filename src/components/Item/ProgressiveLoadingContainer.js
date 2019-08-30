@@ -75,6 +75,8 @@ class ProgressiveLoadingContainer extends Component {
 
         const loadit = forceLoad || shouldLoad;
 
+        // console.log('PLC render forceLoad?', forceLoad);
+
         return (
             <div ref={ref => (this.containerRef = ref)} {...props}>
                 {loadit && children}

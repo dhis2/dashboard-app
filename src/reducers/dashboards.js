@@ -86,8 +86,6 @@ export default (state = DEFAULT_STATE_DASHBOARDS, action) => {
             };
         }
         case SET_ITEMS_FORCE_LOAD_ALL: {
-            console.log('set forceLoadAll', action.value);
-
             return {
                 ...state,
                 forceLoadAll: action.value,

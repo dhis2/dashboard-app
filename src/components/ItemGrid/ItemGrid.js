@@ -93,7 +93,7 @@ export class ItemGrid extends Component {
     onRemoveItemWrapper = id => () => this.onRemoveItem(id);
 
     render() {
-        console.log('render ItemGrid', this.props);
+        console.log('ItemGrid render forceLoadAll', this.props.forceLoadAll);
 
         const { edit, isLoading, dashboardItems } = this.props;
         const forceLoadAll = this.props.forceLoadAll;
@@ -131,6 +131,12 @@ export class ItemGrid extends Component {
 
             return 1;
         });
+
+        if (forceLoadAll) {
+            items.forEach(item => {
+                console.log('item', item);
+            });
+        }
 
         return (
             <div className="grid-wrapper">
@@ -201,8 +207,6 @@ ItemGrid.defaultProps = {
 // Container
 
 const mapStateToProps = (state, ownProps) => {
-    console.log('MSTP');
-
     const selectedDashboard = ownProps.edit
         ? sGetEditDashboardRoot(state)
         : sGetDashboardById(state, sGetSelectedId(state));
