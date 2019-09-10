@@ -124,12 +124,11 @@ export class DashboardsBar extends Component {
                         />
                     ))}
                 </div>
-                {this.props.userRows !== MAX_ROW_COUNT ? (
-                    <ShowMoreButton
-                        onClick={this.onToggleMaxHeight}
-                        isMaxHeight={this.state.isMaxHeight}
-                    />
-                ) : null}
+                <ShowMoreButton
+                    onClick={this.onToggleMaxHeight}
+                    isMaxHeight={this.state.isMaxHeight}
+                    disabled={this.props.userRows === MAX_ROW_COUNT}
+                />
             </ControlBar>
         );
     }

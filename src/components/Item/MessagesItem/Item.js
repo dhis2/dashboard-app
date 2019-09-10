@@ -5,7 +5,7 @@ import i18n from '@dhis2/d2-i18n';
 
 import { sGetMessagesRoot } from '../../../reducers/messages';
 import { formatDate } from '../../../modules/util';
-import { colors } from '../../../modules/colors';
+import { colors } from '@dhis2/ui-core';
 import ItemHeader from '../ItemHeader';
 import Line from '../../../widgets/Line';
 
@@ -34,10 +34,10 @@ const style = {
         fontSize: '13px',
         lineHeight: '15px',
         margin: 0,
-        color: colors.darkGrey,
+        color: colors.grey800,
     },
     snippet: {
-        color: colors.darkGrey,
+        color: colors.grey800,
         fontSize: '13px',
         lineHeight: '15px',
         maxHeight: '30px',

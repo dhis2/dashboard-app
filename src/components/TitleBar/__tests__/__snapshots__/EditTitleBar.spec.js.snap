@@ -6,18 +6,13 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <EditTitleBar
     classes={
       Object {
-        "itemSelect": Object {
-          "itemSelStyle": "itemSel",
-        },
-        "section": Object {
-          "sectionStyle": "section",
-        },
-        "title": Object {
-          "titleStyle": "title",
-        },
-        "titleDescription": Object {
-          "titleDescStyle": "titleDesc",
-        },
+        "description": "description",
+        "input": "input",
+        "itemSelector": "itemSelector",
+        "section": "section",
+        "title": "title",
+        "titleDescription": "titledesc",
+        "underline": "underline",
       }
     }
     description="The blue one"
@@ -25,16 +20,6 @@ ShallowWrapper {
     name="Rainbow Dash"
     onChangeDescription={[Function]}
     onChangeTitle={[Function]}
-    style={
-      Object {
-        "description": Object {
-          "abc": "123",
-        },
-        "title": Object {
-          "xyz": "890",
-        },
-      }
-    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -52,77 +37,46 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <div
-          className={
-            Object {
-              "titleDescStyle": "titleDesc",
-            }
-          }
+          className="titledesc"
         >
-          <span>
-            Currently editing
-          </span>
-          <div
-            className={
-              Object {
-                "titleStyle": "title",
-              }
-            }
-          >
-            <textfield
-              fullWidth={true}
-              multiline={true}
-              onChange={[Function]}
-              placeholder="Add title here"
-              rows={1}
-              rowsMax={3}
-              style={
-                Object {
-                  "top": "-2px",
-                  "xyz": "890",
-                }
-              }
-              value="Rainbow Dash"
-            />
-            <span
-              style={
-                Object {
-                  "abc": "123",
-                }
-              }
-            >
-              Current translation
-              : 
-              Regnbue Dash
-            </span>
-          </div>
-          <textfield
-            fullWidth={true}
-            multiline={true}
+          <InputField
+            className="title"
+            filled={true}
+            label="Dashboard title"
+            name="Dashboard title input"
+            onBlur={[Function]}
             onChange={[Function]}
-            placeholder="Add description here"
-            rows={1}
-            rowsMax={3}
-            style={
+            onFocus={[Function]}
+            type="text"
+            value="Rainbow Dash"
+          />
+          <TextField
+            InputProps={
               Object {
-                "abc": "123",
+                "classes": Object {
+                  "root": "input",
+                  "underline": "underline",
+                },
               }
             }
+            className="description"
+            label="Dashboard description"
+            multiline={true}
+            name="Dashboard description input"
+            onChange={[Function]}
+            required={false}
+            select={false}
             value="The blue one"
+            variant="filled"
           />
         </div>,
         <div
-          className={
-            Object {
-              "itemSelStyle": "itemSel",
-            }
-          }
+          className="itemSelector"
         >
-          <itemselect />
+          <itemselector />
         </div>,
       ],
-      "className": Object {
-        "sectionStyle": "section",
-      },
+      "className": "section",
     },
     "ref": null,
     "rendered": Array [
@@ -132,179 +86,84 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <span>
-              Currently editing
-            </span>,
-            <div
-              className={
-                Object {
-                  "titleStyle": "title",
-                }
-              }
-            >
-              <textfield
-                fullWidth={true}
-                multiline={true}
-                onChange={[Function]}
-                placeholder="Add title here"
-                rows={1}
-                rowsMax={3}
-                style={
-                  Object {
-                    "top": "-2px",
-                    "xyz": "890",
-                  }
-                }
-                value="Rainbow Dash"
-              />
-              <span
-                style={
-                  Object {
-                    "abc": "123",
-                  }
-                }
-              >
-                Current translation
-                : 
-                Regnbue Dash
-              </span>
-            </div>,
-            <textfield
-              fullWidth={true}
-              multiline={true}
+            <InputField
+              className="title"
+              filled={true}
+              label="Dashboard title"
+              name="Dashboard title input"
+              onBlur={[Function]}
               onChange={[Function]}
-              placeholder="Add description here"
-              rows={1}
-              rowsMax={3}
-              style={
+              onFocus={[Function]}
+              type="text"
+              value="Rainbow Dash"
+            />,
+            <TextField
+              InputProps={
                 Object {
-                  "abc": "123",
+                  "classes": Object {
+                    "root": "input",
+                    "underline": "underline",
+                  },
                 }
               }
+              className="description"
+              label="Dashboard description"
+              multiline={true}
+              name="Dashboard description input"
+              onChange={[Function]}
+              required={false}
+              select={false}
               value="The blue one"
+              variant="filled"
             />,
           ],
-          "className": Object {
-            "titleDescStyle": "titleDesc",
-          },
+          "className": "titledesc",
         },
         "ref": null,
         "rendered": Array [
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "class",
             "props": Object {
-              "children": "Currently editing",
-            },
-            "ref": null,
-            "rendered": "Currently editing",
-            "type": "span",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <textfield
-                  fullWidth={true}
-                  multiline={true}
-                  onChange={[Function]}
-                  placeholder="Add title here"
-                  rows={1}
-                  rowsMax={3}
-                  style={
-                    Object {
-                      "top": "-2px",
-                      "xyz": "890",
-                    }
-                  }
-                  value="Rainbow Dash"
-                />,
-                <span
-                  style={
-                    Object {
-                      "abc": "123",
-                    }
-                  }
-                >
-                  Current translation
-                  : 
-                  Regnbue Dash
-                </span>,
-              ],
-              "className": Object {
-                "titleStyle": "title",
-              },
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "fullWidth": true,
-                  "multiline": true,
-                  "onChange": [Function],
-                  "placeholder": "Add title here",
-                  "rows": 1,
-                  "rowsMax": 3,
-                  "style": Object {
-                    "top": "-2px",
-                    "xyz": "890",
-                  },
-                  "value": "Rainbow Dash",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": "textfield",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    "Current translation",
-                    ": ",
-                    "Regnbue Dash",
-                  ],
-                  "style": Object {
-                    "abc": "123",
-                  },
-                },
-                "ref": null,
-                "rendered": Array [
-                  "Current translation",
-                  ": ",
-                  "Regnbue Dash",
-                ],
-                "type": "span",
-              },
-            ],
-            "type": "div",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "fullWidth": true,
-              "multiline": true,
+              "className": "title",
+              "filled": true,
+              "label": "Dashboard title",
+              "name": "Dashboard title input",
+              "onBlur": [Function],
               "onChange": [Function],
-              "placeholder": "Add description here",
-              "rows": 1,
-              "rowsMax": 3,
-              "style": Object {
-                "abc": "123",
-              },
-              "value": "The blue one",
+              "onFocus": [Function],
+              "type": "text",
+              "value": "Rainbow Dash",
             },
             "ref": null,
             "rendered": null,
-            "type": "textfield",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "InputProps": Object {
+                "classes": Object {
+                  "root": "input",
+                  "underline": "underline",
+                },
+              },
+              "className": "description",
+              "label": "Dashboard description",
+              "multiline": true,
+              "name": "Dashboard description input",
+              "onChange": [Function],
+              "required": false,
+              "select": false,
+              "value": "The blue one",
+              "variant": "filled",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
           },
         ],
         "type": "div",
@@ -314,10 +173,8 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <itemselect />,
-          "className": Object {
-            "itemSelStyle": "itemSel",
-          },
+          "children": <itemselector />,
+          "className": "itemSelector",
         },
         "ref": null,
         "rendered": Object {
@@ -327,7 +184,7 @@ ShallowWrapper {
           "props": Object {},
           "ref": null,
           "rendered": null,
-          "type": "itemselect",
+          "type": "itemselector",
         },
         "type": "div",
       },
@@ -342,77 +199,46 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <div
-            className={
-              Object {
-                "titleDescStyle": "titleDesc",
-              }
-            }
+            className="titledesc"
           >
-            <span>
-              Currently editing
-            </span>
-            <div
-              className={
-                Object {
-                  "titleStyle": "title",
-                }
-              }
-            >
-              <textfield
-                fullWidth={true}
-                multiline={true}
-                onChange={[Function]}
-                placeholder="Add title here"
-                rows={1}
-                rowsMax={3}
-                style={
-                  Object {
-                    "top": "-2px",
-                    "xyz": "890",
-                  }
-                }
-                value="Rainbow Dash"
-              />
-              <span
-                style={
-                  Object {
-                    "abc": "123",
-                  }
-                }
-              >
-                Current translation
-                : 
-                Regnbue Dash
-              </span>
-            </div>
-            <textfield
-              fullWidth={true}
-              multiline={true}
+            <InputField
+              className="title"
+              filled={true}
+              label="Dashboard title"
+              name="Dashboard title input"
+              onBlur={[Function]}
               onChange={[Function]}
-              placeholder="Add description here"
-              rows={1}
-              rowsMax={3}
-              style={
+              onFocus={[Function]}
+              type="text"
+              value="Rainbow Dash"
+            />
+            <TextField
+              InputProps={
                 Object {
-                  "abc": "123",
+                  "classes": Object {
+                    "root": "input",
+                    "underline": "underline",
+                  },
                 }
               }
+              className="description"
+              label="Dashboard description"
+              multiline={true}
+              name="Dashboard description input"
+              onChange={[Function]}
+              required={false}
+              select={false}
               value="The blue one"
+              variant="filled"
             />
           </div>,
           <div
-            className={
-              Object {
-                "itemSelStyle": "itemSel",
-              }
-            }
+            className="itemSelector"
           >
-            <itemselect />
+            <itemselector />
           </div>,
         ],
-        "className": Object {
-          "sectionStyle": "section",
-        },
+        "className": "section",
       },
       "ref": null,
       "rendered": Array [
@@ -422,179 +248,84 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <span>
-                Currently editing
-              </span>,
-              <div
-                className={
-                  Object {
-                    "titleStyle": "title",
-                  }
-                }
-              >
-                <textfield
-                  fullWidth={true}
-                  multiline={true}
-                  onChange={[Function]}
-                  placeholder="Add title here"
-                  rows={1}
-                  rowsMax={3}
-                  style={
-                    Object {
-                      "top": "-2px",
-                      "xyz": "890",
-                    }
-                  }
-                  value="Rainbow Dash"
-                />
-                <span
-                  style={
-                    Object {
-                      "abc": "123",
-                    }
-                  }
-                >
-                  Current translation
-                  : 
-                  Regnbue Dash
-                </span>
-              </div>,
-              <textfield
-                fullWidth={true}
-                multiline={true}
+              <InputField
+                className="title"
+                filled={true}
+                label="Dashboard title"
+                name="Dashboard title input"
+                onBlur={[Function]}
                 onChange={[Function]}
-                placeholder="Add description here"
-                rows={1}
-                rowsMax={3}
-                style={
+                onFocus={[Function]}
+                type="text"
+                value="Rainbow Dash"
+              />,
+              <TextField
+                InputProps={
                   Object {
-                    "abc": "123",
+                    "classes": Object {
+                      "root": "input",
+                      "underline": "underline",
+                    },
                   }
                 }
+                className="description"
+                label="Dashboard description"
+                multiline={true}
+                name="Dashboard description input"
+                onChange={[Function]}
+                required={false}
+                select={false}
                 value="The blue one"
+                variant="filled"
               />,
             ],
-            "className": Object {
-              "titleDescStyle": "titleDesc",
-            },
+            "className": "titledesc",
           },
           "ref": null,
           "rendered": Array [
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
-                "children": "Currently editing",
-              },
-              "ref": null,
-              "rendered": "Currently editing",
-              "type": "span",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  <textfield
-                    fullWidth={true}
-                    multiline={true}
-                    onChange={[Function]}
-                    placeholder="Add title here"
-                    rows={1}
-                    rowsMax={3}
-                    style={
-                      Object {
-                        "top": "-2px",
-                        "xyz": "890",
-                      }
-                    }
-                    value="Rainbow Dash"
-                  />,
-                  <span
-                    style={
-                      Object {
-                        "abc": "123",
-                      }
-                    }
-                  >
-                    Current translation
-                    : 
-                    Regnbue Dash
-                  </span>,
-                ],
-                "className": Object {
-                  "titleStyle": "title",
-                },
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "fullWidth": true,
-                    "multiline": true,
-                    "onChange": [Function],
-                    "placeholder": "Add title here",
-                    "rows": 1,
-                    "rowsMax": 3,
-                    "style": Object {
-                      "top": "-2px",
-                      "xyz": "890",
-                    },
-                    "value": "Rainbow Dash",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": "textfield",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [
-                      "Current translation",
-                      ": ",
-                      "Regnbue Dash",
-                    ],
-                    "style": Object {
-                      "abc": "123",
-                    },
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    "Current translation",
-                    ": ",
-                    "Regnbue Dash",
-                  ],
-                  "type": "span",
-                },
-              ],
-              "type": "div",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "fullWidth": true,
-                "multiline": true,
+                "className": "title",
+                "filled": true,
+                "label": "Dashboard title",
+                "name": "Dashboard title input",
+                "onBlur": [Function],
                 "onChange": [Function],
-                "placeholder": "Add description here",
-                "rows": 1,
-                "rowsMax": 3,
-                "style": Object {
-                  "abc": "123",
-                },
-                "value": "The blue one",
+                "onFocus": [Function],
+                "type": "text",
+                "value": "Rainbow Dash",
               },
               "ref": null,
               "rendered": null,
-              "type": "textfield",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "InputProps": Object {
+                  "classes": Object {
+                    "root": "input",
+                    "underline": "underline",
+                  },
+                },
+                "className": "description",
+                "label": "Dashboard description",
+                "multiline": true,
+                "name": "Dashboard description input",
+                "onChange": [Function],
+                "required": false,
+                "select": false,
+                "value": "The blue one",
+                "variant": "filled",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
             },
           ],
           "type": "div",
@@ -604,10 +335,8 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <itemselect />,
-            "className": Object {
-              "itemSelStyle": "itemSel",
-            },
+            "children": <itemselector />,
+            "className": "itemSelector",
           },
           "ref": null,
           "rendered": Object {
@@ -617,7 +346,7 @@ ShallowWrapper {
             "props": Object {},
             "ref": null,
             "rendered": null,
-            "type": "itemselect",
+            "type": "itemselector",
           },
           "type": "div",
         },
@@ -637,6 +366,7 @@ ShallowWrapper {
           "getChildContext": Object {
             "calledByRenderer": false,
           },
+          "getDerivedStateFromError": true,
           "getDerivedStateFromProps": Object {
             "hasShouldComponentUpdateBug": false,
           },
@@ -657,35 +387,19 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <EditTitleBar
     classes={
       Object {
-        "itemSelect": Object {
-          "itemSelStyle": "itemSel",
-        },
-        "section": Object {
-          "sectionStyle": "section",
-        },
-        "title": Object {
-          "titleStyle": "title",
-        },
-        "titleDescription": Object {
-          "titleDescStyle": "titleDesc",
-        },
+        "description": "description",
+        "input": "input",
+        "itemSelector": "itemSelector",
+        "section": "section",
+        "title": "title",
+        "titleDescription": "titledesc",
+        "underline": "underline",
       }
     }
     description="The blue one"
-    displayName=""
     name="Rainbow Dash"
     onChangeDescription={[Function]}
     onChangeTitle={[Function]}
-    style={
-      Object {
-        "description": Object {
-          "abc": "123",
-        },
-        "title": Object {
-          "xyz": "890",
-        },
-      }
-    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -703,66 +417,46 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <div
-          className={
-            Object {
-              "titleDescStyle": "titleDesc",
-            }
-          }
+          className="titledesc"
         >
-          <span>
-            Currently editing
-          </span>
-          <div
-            className={
-              Object {
-                "titleStyle": "title",
-              }
-            }
-          >
-            <textfield
-              fullWidth={true}
-              multiline={true}
-              onChange={[Function]}
-              placeholder="Add title here"
-              rows={1}
-              rowsMax={3}
-              style={
-                Object {
-                  "top": "-2px",
-                  "xyz": "890",
-                }
-              }
-              value="Rainbow Dash"
-            />
-          </div>
-          <textfield
-            fullWidth={true}
-            multiline={true}
+          <InputField
+            className="title"
+            filled={true}
+            label="Dashboard title"
+            name="Dashboard title input"
+            onBlur={[Function]}
             onChange={[Function]}
-            placeholder="Add description here"
-            rows={1}
-            rowsMax={3}
-            style={
+            onFocus={[Function]}
+            type="text"
+            value="Rainbow Dash"
+          />
+          <TextField
+            InputProps={
               Object {
-                "abc": "123",
+                "classes": Object {
+                  "root": "input",
+                  "underline": "underline",
+                },
               }
             }
+            className="description"
+            label="Dashboard description"
+            multiline={true}
+            name="Dashboard description input"
+            onChange={[Function]}
+            required={false}
+            select={false}
             value="The blue one"
+            variant="filled"
           />
         </div>,
         <div
-          className={
-            Object {
-              "itemSelStyle": "itemSel",
-            }
-          }
+          className="itemSelector"
         >
-          <itemselect />
+          <itemselector />
         </div>,
       ],
-      "className": Object {
-        "sectionStyle": "section",
-      },
+      "className": "section",
     },
     "ref": null,
     "rendered": Array [
@@ -772,137 +466,84 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <span>
-              Currently editing
-            </span>,
-            <div
-              className={
-                Object {
-                  "titleStyle": "title",
-                }
-              }
-            >
-              <textfield
-                fullWidth={true}
-                multiline={true}
-                onChange={[Function]}
-                placeholder="Add title here"
-                rows={1}
-                rowsMax={3}
-                style={
-                  Object {
-                    "top": "-2px",
-                    "xyz": "890",
-                  }
-                }
-                value="Rainbow Dash"
-              />
-            </div>,
-            <textfield
-              fullWidth={true}
-              multiline={true}
+            <InputField
+              className="title"
+              filled={true}
+              label="Dashboard title"
+              name="Dashboard title input"
+              onBlur={[Function]}
               onChange={[Function]}
-              placeholder="Add description here"
-              rows={1}
-              rowsMax={3}
-              style={
+              onFocus={[Function]}
+              type="text"
+              value="Rainbow Dash"
+            />,
+            <TextField
+              InputProps={
                 Object {
-                  "abc": "123",
+                  "classes": Object {
+                    "root": "input",
+                    "underline": "underline",
+                  },
                 }
               }
+              className="description"
+              label="Dashboard description"
+              multiline={true}
+              name="Dashboard description input"
+              onChange={[Function]}
+              required={false}
+              select={false}
               value="The blue one"
+              variant="filled"
             />,
           ],
-          "className": Object {
-            "titleDescStyle": "titleDesc",
-          },
+          "className": "titledesc",
         },
         "ref": null,
         "rendered": Array [
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "class",
             "props": Object {
-              "children": "Currently editing",
-            },
-            "ref": null,
-            "rendered": "Currently editing",
-            "type": "span",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <textfield
-                  fullWidth={true}
-                  multiline={true}
-                  onChange={[Function]}
-                  placeholder="Add title here"
-                  rows={1}
-                  rowsMax={3}
-                  style={
-                    Object {
-                      "top": "-2px",
-                      "xyz": "890",
-                    }
-                  }
-                  value="Rainbow Dash"
-                />,
-                null,
-              ],
-              "className": Object {
-                "titleStyle": "title",
-              },
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "fullWidth": true,
-                  "multiline": true,
-                  "onChange": [Function],
-                  "placeholder": "Add title here",
-                  "rows": 1,
-                  "rowsMax": 3,
-                  "style": Object {
-                    "top": "-2px",
-                    "xyz": "890",
-                  },
-                  "value": "Rainbow Dash",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": "textfield",
-              },
-              null,
-            ],
-            "type": "div",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "fullWidth": true,
-              "multiline": true,
+              "className": "title",
+              "filled": true,
+              "label": "Dashboard title",
+              "name": "Dashboard title input",
+              "onBlur": [Function],
               "onChange": [Function],
-              "placeholder": "Add description here",
-              "rows": 1,
-              "rowsMax": 3,
-              "style": Object {
-                "abc": "123",
-              },
-              "value": "The blue one",
+              "onFocus": [Function],
+              "type": "text",
+              "value": "Rainbow Dash",
             },
             "ref": null,
             "rendered": null,
-            "type": "textfield",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "InputProps": Object {
+                "classes": Object {
+                  "root": "input",
+                  "underline": "underline",
+                },
+              },
+              "className": "description",
+              "label": "Dashboard description",
+              "multiline": true,
+              "name": "Dashboard description input",
+              "onChange": [Function],
+              "required": false,
+              "select": false,
+              "value": "The blue one",
+              "variant": "filled",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
           },
         ],
         "type": "div",
@@ -912,10 +553,8 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <itemselect />,
-          "className": Object {
-            "itemSelStyle": "itemSel",
-          },
+          "children": <itemselector />,
+          "className": "itemSelector",
         },
         "ref": null,
         "rendered": Object {
@@ -925,7 +564,7 @@ ShallowWrapper {
           "props": Object {},
           "ref": null,
           "rendered": null,
-          "type": "itemselect",
+          "type": "itemselector",
         },
         "type": "div",
       },
@@ -940,66 +579,46 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <div
-            className={
-              Object {
-                "titleDescStyle": "titleDesc",
-              }
-            }
+            className="titledesc"
           >
-            <span>
-              Currently editing
-            </span>
-            <div
-              className={
-                Object {
-                  "titleStyle": "title",
-                }
-              }
-            >
-              <textfield
-                fullWidth={true}
-                multiline={true}
-                onChange={[Function]}
-                placeholder="Add title here"
-                rows={1}
-                rowsMax={3}
-                style={
-                  Object {
-                    "top": "-2px",
-                    "xyz": "890",
-                  }
-                }
-                value="Rainbow Dash"
-              />
-            </div>
-            <textfield
-              fullWidth={true}
-              multiline={true}
+            <InputField
+              className="title"
+              filled={true}
+              label="Dashboard title"
+              name="Dashboard title input"
+              onBlur={[Function]}
               onChange={[Function]}
-              placeholder="Add description here"
-              rows={1}
-              rowsMax={3}
-              style={
+              onFocus={[Function]}
+              type="text"
+              value="Rainbow Dash"
+            />
+            <TextField
+              InputProps={
                 Object {
-                  "abc": "123",
+                  "classes": Object {
+                    "root": "input",
+                    "underline": "underline",
+                  },
                 }
               }
+              className="description"
+              label="Dashboard description"
+              multiline={true}
+              name="Dashboard description input"
+              onChange={[Function]}
+              required={false}
+              select={false}
               value="The blue one"
+              variant="filled"
             />
           </div>,
           <div
-            className={
-              Object {
-                "itemSelStyle": "itemSel",
-              }
-            }
+            className="itemSelector"
           >
-            <itemselect />
+            <itemselector />
           </div>,
         ],
-        "className": Object {
-          "sectionStyle": "section",
-        },
+        "className": "section",
       },
       "ref": null,
       "rendered": Array [
@@ -1009,137 +628,84 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <span>
-                Currently editing
-              </span>,
-              <div
-                className={
-                  Object {
-                    "titleStyle": "title",
-                  }
-                }
-              >
-                <textfield
-                  fullWidth={true}
-                  multiline={true}
-                  onChange={[Function]}
-                  placeholder="Add title here"
-                  rows={1}
-                  rowsMax={3}
-                  style={
-                    Object {
-                      "top": "-2px",
-                      "xyz": "890",
-                    }
-                  }
-                  value="Rainbow Dash"
-                />
-              </div>,
-              <textfield
-                fullWidth={true}
-                multiline={true}
+              <InputField
+                className="title"
+                filled={true}
+                label="Dashboard title"
+                name="Dashboard title input"
+                onBlur={[Function]}
                 onChange={[Function]}
-                placeholder="Add description here"
-                rows={1}
-                rowsMax={3}
-                style={
+                onFocus={[Function]}
+                type="text"
+                value="Rainbow Dash"
+              />,
+              <TextField
+                InputProps={
                   Object {
-                    "abc": "123",
+                    "classes": Object {
+                      "root": "input",
+                      "underline": "underline",
+                    },
                   }
                 }
+                className="description"
+                label="Dashboard description"
+                multiline={true}
+                name="Dashboard description input"
+                onChange={[Function]}
+                required={false}
+                select={false}
                 value="The blue one"
+                variant="filled"
               />,
             ],
-            "className": Object {
-              "titleDescStyle": "titleDesc",
-            },
+            "className": "titledesc",
           },
           "ref": null,
           "rendered": Array [
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
-                "children": "Currently editing",
-              },
-              "ref": null,
-              "rendered": "Currently editing",
-              "type": "span",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  <textfield
-                    fullWidth={true}
-                    multiline={true}
-                    onChange={[Function]}
-                    placeholder="Add title here"
-                    rows={1}
-                    rowsMax={3}
-                    style={
-                      Object {
-                        "top": "-2px",
-                        "xyz": "890",
-                      }
-                    }
-                    value="Rainbow Dash"
-                  />,
-                  null,
-                ],
-                "className": Object {
-                  "titleStyle": "title",
-                },
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "fullWidth": true,
-                    "multiline": true,
-                    "onChange": [Function],
-                    "placeholder": "Add title here",
-                    "rows": 1,
-                    "rowsMax": 3,
-                    "style": Object {
-                      "top": "-2px",
-                      "xyz": "890",
-                    },
-                    "value": "Rainbow Dash",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": "textfield",
-                },
-                null,
-              ],
-              "type": "div",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "fullWidth": true,
-                "multiline": true,
+                "className": "title",
+                "filled": true,
+                "label": "Dashboard title",
+                "name": "Dashboard title input",
+                "onBlur": [Function],
                 "onChange": [Function],
-                "placeholder": "Add description here",
-                "rows": 1,
-                "rowsMax": 3,
-                "style": Object {
-                  "abc": "123",
-                },
-                "value": "The blue one",
+                "onFocus": [Function],
+                "type": "text",
+                "value": "Rainbow Dash",
               },
               "ref": null,
               "rendered": null,
-              "type": "textfield",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "InputProps": Object {
+                  "classes": Object {
+                    "root": "input",
+                    "underline": "underline",
+                  },
+                },
+                "className": "description",
+                "label": "Dashboard description",
+                "multiline": true,
+                "name": "Dashboard description input",
+                "onChange": [Function],
+                "required": false,
+                "select": false,
+                "value": "The blue one",
+                "variant": "filled",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
             },
           ],
           "type": "div",
@@ -1149,10 +715,8 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <itemselect />,
-            "className": Object {
-              "itemSelStyle": "itemSel",
-            },
+            "children": <itemselector />,
+            "className": "itemSelector",
           },
           "ref": null,
           "rendered": Object {
@@ -1162,7 +726,7 @@ ShallowWrapper {
             "props": Object {},
             "ref": null,
             "rendered": null,
-            "type": "itemselect",
+            "type": "itemselector",
           },
           "type": "div",
         },
@@ -1182,6 +746,7 @@ ShallowWrapper {
           "getChildContext": Object {
             "calledByRenderer": false,
           },
+          "getDerivedStateFromError": true,
           "getDerivedStateFromProps": Object {
             "hasShouldComponentUpdateBug": false,
           },

@@ -5,10 +5,7 @@ import {
     acUpdateDashboardItem,
 } from '../../actions/editDashboard';
 
-export const tAddListItemContent = (dashboardId, type, content) => (
-    dispatch,
-    getState
-) => {
+export const tAddListItemContent = (type, content) => (dispatch, getState) => {
     const state = getState();
     const listItemType = itemTypeMap[type].propName;
     const dashboardItems = sGetEditDashboardRoot(state).dashboardItems;

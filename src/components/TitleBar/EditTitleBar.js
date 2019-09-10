@@ -3,84 +3,99 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import i18n from '@dhis2/d2-i18n';
-import TextField from '@dhis2/d2-ui-core/text-field/TextField';
+import MuiInputField from '@material-ui/core/TextField';
+import { InputField } from '@dhis2/ui-core';
 
+import ItemSelector from '../ItemSelector/ItemSelector';
 import {
     acSetDashboardTitle,
     acSetDashboardDescription,
 } from '../../actions/editDashboard';
 import { orObject } from '../../modules/util';
 import { sGetEditDashboardRoot } from '../../reducers/editDashboard';
-import { sGetDashboardById } from '../../reducers/dashboards';
-import ItemSelect from '../ItemSelect/ItemSelect';
 
 const styles = {
     section: { display: 'flex', justifyContent: 'space-between' },
     titleDescription: {
         flex: '3',
-        marginRight: '20px',
+        marginRight: '50px',
     },
-    title: { padding: '6px 0' },
-    itemSelect: {
+    title: {
+        display: 'block',
+        clear: 'both',
+    },
+    description: {
+        display: 'block',
+        clear: 'both',
+        marginTop: '15px',
+    },
+    underline: {
+        '&::before': {
+            borderBottom: `none`,
+        },
+        '&:hover::before': {
+            borderBottom: `none!important`,
+        },
+    },
+    input: {
+        backgroundColor: 'rgba(0, 0, 10, 0.05)',
+        borderRadius: '4px',
+        width: '100%',
+        '&:hover': {
+            backgroundColor: 'rgba(0, 0, 10, 0.08)',
+        },
+    },
+    itemSelector: {
         flex: '2',
-        minWidth: '300px',
-        maxWidth: '730px',
         position: 'relative',
-        top: '33px',
     },
 };
 
 export const EditTitleBar = ({
     name,
-    displayName,
     description,
-    style,
     onChangeTitle,
     onChangeDescription,
     classes,
 }) => {
-    const titleStyle = Object.assign({}, style.title, {
-        top: '-2px',
-    });
+    const updateTitle = e => {
+        onChangeTitle(e.target.value);
+    };
 
-    const translatedName = () => {
-        return displayName ? (
-            <span style={style.description}>
-                {i18n.t('Current translation')}: {displayName}
-            </span>
-        ) : null;
+    const updateDescription = e => {
+        onChangeDescription(e.target.value);
     };
 
     return (
         <section className={classes.section}>
             <div className={classes.titleDescription}>
-                <span>{i18n.t('Currently editing')}</span>
-                <div className={classes.title}>
-                    <TextField
-                        multiline
-                        fullWidth
-                        rows={1}
-                        rowsMax={3}
-                        style={titleStyle}
-                        value={name}
-                        placeholder={i18n.t('Add title here')}
-                        onChange={onChangeTitle}
-                    />
-                    {translatedName()}
-                </div>
-                <TextField
-                    multiline
-                    fullWidth
-                    rows={1}
-                    rowsMax={3}
-                    style={style.description}
+                <InputField
+                    className={classes.title}
+                    filled
+                    name="Dashboard title input"
+                    label={i18n.t('Dashboard title')}
+                    type="text"
+                    onChange={updateTitle}
+                    value={name}
+                />
+                <MuiInputField
+                    className={classes.description}
+                    name="Dashboard description input"
+                    label={i18n.t('Dashboard description')}
+                    onChange={updateDescription}
                     value={description}
-                    placeholder={i18n.t('Add description here')}
-                    onChange={onChangeDescription}
+                    variant="filled"
+                    multiline
+                    InputProps={{
+                        classes: {
+                            root: classes.input,
+                            underline: classes.underline,
+                        },
+                    }}
                 />
             </div>
-            <div className={classes.itemSelect}>
-                <ItemSelect />
+            <div className={classes.itemSelector}>
+                <ItemSelector />
             </div>
         </section>
     );
@@ -88,12 +103,9 @@ export const EditTitleBar = ({
 
 const mapStateToProps = state => {
     const selectedDashboard = orObject(sGetEditDashboardRoot(state));
-    const displayName = orObject(sGetDashboardById(state, selectedDashboard.id))
-        .displayName;
 
     return {
         name: selectedDashboard.name,
-        displayName,
         description: selectedDashboard.description,
     };
 };
@@ -110,16 +122,12 @@ export default connect(
 
 EditTitleBar.propTypes = {
     name: PropTypes.string,
-    displayName: PropTypes.string,
     description: PropTypes.string,
     onChangeTitle: PropTypes.func.isRequired,
     onChangeDescription: PropTypes.func.isRequired,
-    style: PropTypes.object,
 };
 
 EditTitleBar.defaultProps = {
     name: '',
-    displayName: '',
     description: '',
-    style: {},
 };

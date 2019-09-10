@@ -24,6 +24,7 @@ const SnackbarMessageContent = ({ message }) => {
 export const SnackbarMessage = props => {
     return (
         <Snackbar
+            style={{ zIndex: 10001 }}
             open={props.snackbarOpen}
             message={<SnackbarMessageContent message={props.snackbarMessage} />}
             autoHideDuration={props.snackbarDuration}

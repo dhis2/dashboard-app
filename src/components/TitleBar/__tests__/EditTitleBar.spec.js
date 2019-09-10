@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { EditTitleBar } from '../EditTitleBar';
 
 jest.mock('@dhis2/d2-ui-core/text-field/TextField', () => 'textfield');
-jest.mock('../../ItemSelect/ItemSelect', () => 'itemselect');
+jest.mock('../../ItemSelector/ItemSelector', () => 'itemselector');
 
 describe('EditTitleBar', () => {
     const props = {
@@ -11,15 +11,14 @@ describe('EditTitleBar', () => {
         description: 'The blue one',
         onChangeTitle: Function.prototype,
         onChangeDescription: Function.prototype,
-        style: {
-            title: { xyz: '890' },
-            description: { abc: '123' },
-        },
         classes: {
-            section: { sectionStyle: 'section' },
-            titleDescription: { titleDescStyle: 'titleDesc' },
-            title: { titleStyle: 'title' },
-            itemSelect: { itemSelStyle: 'itemSel' },
+            section: 'section',
+            titleDescription: 'titledesc',
+            title: 'title',
+            description: 'description',
+            underline: 'underline',
+            input: 'input',
+            itemSelector: 'itemSelector',
         },
     };
 

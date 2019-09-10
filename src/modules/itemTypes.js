@@ -60,7 +60,6 @@ export const itemTypeMap = {
         id: REPORT_TABLE,
         endPointName: 'reportTables',
         propName: 'reportTable',
-        countName: 'reportTableCount',
         pluralTitle: i18n.t('Pivot tables'),
         plugin: 'reportTablePlugin',
         domainType: DOMAIN_TYPE_AGGREGATE,
@@ -72,7 +71,6 @@ export const itemTypeMap = {
         id: CHART,
         endPointName: 'charts',
         propName: 'chart',
-        countName: 'chartCount',
         pluralTitle: i18n.t('Charts'),
         plugin: 'chartPlugin',
         domainType: DOMAIN_TYPE_AGGREGATE,
@@ -84,7 +82,6 @@ export const itemTypeMap = {
         id: MAP,
         endPointName: 'maps',
         propName: 'map',
-        countName: 'mapCount',
         pluralTitle: i18n.t('Maps'),
         plugin: 'mapPlugin',
         domainType: DOMAIN_TYPE_AGGREGATE,
@@ -96,7 +93,6 @@ export const itemTypeMap = {
         id: EVENT_REPORT,
         endPointName: 'eventReports',
         propName: 'eventReport',
-        countName: 'eventReportCount',
         pluralTitle: i18n.t('Event reports'),
         plugin: 'eventReportPlugin',
         domainType: DOMAIN_TYPE_TRACKER,
@@ -108,7 +104,6 @@ export const itemTypeMap = {
         id: EVENT_CHART,
         endPointName: 'eventCharts',
         propName: 'eventChart',
-        countName: 'eventChartCount',
         pluralTitle: i18n.t('Event charts'),
         plugin: 'eventChartPlugin',
         domainType: DOMAIN_TYPE_TRACKER,
@@ -119,14 +114,12 @@ export const itemTypeMap = {
     [APP]: {
         endPointName: 'apps',
         propName: 'appKey',
-        countName: 'appCount',
-        pluralTitle: 'Apps',
+        pluralTitle: i18n.t('Apps'),
     },
     [REPORTS]: {
         id: REPORTS,
         endPointName: 'reports',
         propName: 'reports',
-        countName: 'reportCount',
         pluralTitle: i18n.t('Reports'),
         appUrl: id =>
             `dhis-web-reporting/getReportParams.action?mode=report&uid=${id}`,
@@ -135,7 +128,6 @@ export const itemTypeMap = {
         id: RESOURCES,
         endPointName: 'resources',
         propName: 'resources',
-        countName: 'resourceCount',
         pluralTitle: i18n.t('Resources'),
         appUrl: id => `api/documents/${id}/data`,
     },
@@ -143,7 +135,6 @@ export const itemTypeMap = {
         id: USERS,
         endPointName: 'users',
         propName: 'users',
-        countName: 'userCount',
         pluralTitle: i18n.t('Users'),
         appUrl: id => `dhis-web-dashboard-integration/profile.action?id=${id}`,
     },
@@ -158,6 +149,8 @@ export const itemTypeMap = {
         propName: 'text',
     },
 };
+
+export const getEndPointName = type => itemTypeMap[type].endPointName;
 
 export const getItemUrl = (type, item, d2) => {
     let url;

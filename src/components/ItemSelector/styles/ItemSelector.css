@@ -1,0 +1,13 @@
+.dashboard-item-selector div.label {
+    width: 100%;
+}
+
+/*
+* override for global styles that are leaking
+* in to the ui-core MenuItem component
+* (global styles are coming from the analytics
+* plugins)
+*/
+.dashboard-item-selector li.disabled {
+    opacity: 1;
+}

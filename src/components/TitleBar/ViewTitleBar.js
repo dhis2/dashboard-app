@@ -22,7 +22,7 @@ import {
     sGetDashboardById,
     sGetDashboardItems,
 } from '../../reducers/dashboards';
-import { colors } from '../../modules/colors';
+import { colors } from '@dhis2/ui-core';
 
 const NO_DESCRIPTION = i18n.t('No description');
 
@@ -33,7 +33,7 @@ const styles = {
         marginLeft: '20px',
     },
     starIcon: {
-        fill: colors.muiDefaultGrey,
+        fill: colors.grey600,
     },
     textButton: {
         minWidth: '30px',
