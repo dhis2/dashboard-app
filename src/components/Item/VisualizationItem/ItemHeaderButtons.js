@@ -86,6 +86,7 @@ export const getItemTypeId = (itemTypeMap, visualizationType, domainType) => {
     return item.id;
 };
 
+// TODO: Import this from @dhis2/analytics when available
 const isSingleValue = (itemType, chartType) =>
     itemType === VISUALIZATION_TYPE_CHART &&
     chartType === CHART_TYPE_SINGLE_VALUE;
