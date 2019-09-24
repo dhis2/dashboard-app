@@ -35,7 +35,7 @@ export const VISUALIZATION_TYPE_TABLE = 'TABLE';
 export const VISUALIZATION_TYPE_CHART = 'CHART';
 export const VISUALIZATION_TYPE_MAP = 'MAP';
 
-// Chart type (separate module when moved from data visualizer app)
+// TODO: Import this from @dhis2/analytics when available
 export const CHART_TYPE_SINGLE_VALUE = 'SINGLE_VALUE';
 
 // Dashboard helpers
