@@ -254,21 +254,20 @@ export class Item extends Component {
         );
     };
 
-    getActionButtons = () => {
-        const { item, visualization } = this.props;
-
-        return pluginManager.pluginIsAvailable(item, visualization) &&
-            !this.props.editMode ? (
+    getActionButtons = () =>
+        pluginManager.pluginIsAvailable(
+            this.props.item,
+            this.props.visualization
+        ) && !this.props.editMode ? (
             <VisualizationItemHeaderButtons
-                item={item}
-                visualization={visualization}
+                item={this.props.item}
+                visualization={this.props.visualization}
                 activeFooter={this.state.showFooter}
                 activeType={this.getActiveType()}
                 onSelectVisualization={this.onSelectVisualization}
                 onToggleFooter={this.onToggleFooter}
             />
         ) : null;
-    };
 
     getContentStyle = () => {
         const { item, editMode } = this.props;
