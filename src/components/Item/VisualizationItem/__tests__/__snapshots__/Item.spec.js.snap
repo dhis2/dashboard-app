@@ -70,6 +70,15 @@ ShallowWrapper {
               }
               onSelectVisualization={[Function]}
               onToggleFooter={[Function]}
+              visualization={
+                Object {
+                  "columns": Array [],
+                  "description": "Test pivot mock",
+                  "filters": Array [],
+                  "name": "Test pivot",
+                  "rows": Array [],
+                }
+              }
             />
           }
           editMode={false}
@@ -128,6 +137,15 @@ ShallowWrapper {
             }
             onSelectVisualization={[Function]}
             onToggleFooter={[Function]}
+            visualization={
+              Object {
+                "columns": Array [],
+                "description": "Test pivot mock",
+                "filters": Array [],
+                "name": "Test pivot",
+                "rows": Array [],
+              }
+            }
           />,
           "editMode": false,
           "title": <div
@@ -199,6 +217,15 @@ ShallowWrapper {
                 }
                 onSelectVisualization={[Function]}
                 onToggleFooter={[Function]}
+                visualization={
+                  Object {
+                    "columns": Array [],
+                    "description": "Test pivot mock",
+                    "filters": Array [],
+                    "name": "Test pivot",
+                    "rows": Array [],
+                  }
+                }
               />
             }
             editMode={false}
@@ -257,6 +284,15 @@ ShallowWrapper {
               }
               onSelectVisualization={[Function]}
               onToggleFooter={[Function]}
+              visualization={
+                Object {
+                  "columns": Array [],
+                  "description": "Test pivot mock",
+                  "filters": Array [],
+                  "name": "Test pivot",
+                  "rows": Array [],
+                }
+              }
             />,
             "editMode": false,
             "title": <div

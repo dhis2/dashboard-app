@@ -19,7 +19,13 @@ import {
     acReceivedVisualization,
     acReceivedActiveVisualization,
 } from '../../../actions/selected';
-import { CHART, MAP, itemTypeMap } from '../../../modules/itemTypes';
+import {
+    CHART,
+    MAP,
+    itemTypeMap,
+    CHART_TYPE_SINGLE_VALUE,
+    VISUALIZATION_TYPE_CHART,
+} from '../../../modules/itemTypes';
 import { colors } from '@dhis2/ui-core';
 import memoizeOne from '../../../modules/memoizeOne';
 import { getVisualizationConfig } from './plugin';
@@ -248,19 +254,21 @@ export class Item extends Component {
         );
     };
 
-    getActionButtons = () =>
-        pluginManager.pluginIsAvailable(
-            this.props.item,
-            this.props.visualization
-        ) && !this.props.editMode ? (
+    getActionButtons = () => {
+        const { item, visualization } = this.props;
+
+        return pluginManager.pluginIsAvailable(item, visualization) &&
+            !this.props.editMode ? (
             <VisualizationItemHeaderButtons
-                item={this.props.item}
+                item={item}
+                visualization={visualization}
                 activeFooter={this.state.showFooter}
                 activeType={this.getActiveType()}
                 onSelectVisualization={this.onSelectVisualization}
                 onToggleFooter={this.onToggleFooter}
             />
         ) : null;
+    };
 
     getContentStyle = () => {
         const { item, editMode } = this.props;

@@ -35,6 +35,10 @@ export const VISUALIZATION_TYPE_TABLE = 'TABLE';
 export const VISUALIZATION_TYPE_CHART = 'CHART';
 export const VISUALIZATION_TYPE_MAP = 'MAP';
 
+// Chart type (separate module when moved from data visualizer app)
+export const CHART_TYPE_SINGLE_VALUE = 'SINGLE_VALUE';
+
+// Dashboard helpers
 export const spacerContent = 'SPACER_ITEM_FOR_DASHBOARD_LAYOUT_CONVENIENCE';
 export const emptyTextItemContent = 'TEXT_ITEM_WITH_NO_CONTENT';
 export const isSpacerType = item =>
