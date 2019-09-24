@@ -235,7 +235,7 @@ export class Item extends Component {
         const itemName = pluginManager.getName(item);
 
         return (
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div style={{ display: 'flex' }}>
                 <span className={classes.title} title={itemName}>
                     {itemName}
                 </span>

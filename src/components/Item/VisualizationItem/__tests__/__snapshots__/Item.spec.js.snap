@@ -86,7 +86,6 @@ ShallowWrapper {
             <div
               style={
                 Object {
-                  "alignItems": "center",
                   "display": "flex",
                 }
               }
@@ -151,7 +150,6 @@ ShallowWrapper {
           "title": <div
             style={
               Object {
-                "alignItems": "center",
                 "display": "flex",
               }
             }
@@ -233,7 +231,6 @@ ShallowWrapper {
               <div
                 style={
                   Object {
-                    "alignItems": "center",
                     "display": "flex",
                   }
                 }
@@ -298,7 +295,6 @@ ShallowWrapper {
             "title": <div
               style={
                 Object {
-                  "alignItems": "center",
                   "display": "flex",
                 }
               }
