@@ -147,10 +147,6 @@ class VisualizationItemHeaderButtons extends Component {
                 getItemTypeId(itemTypeMap, VISUALIZATION_TYPE_MAP, domainType)
             );
 
-        const tableButtonStyle = tableBtnStyle(activeType, disabled);
-        const chartButtonStyle = chartBtnStyle(activeType, disabled);
-        const mapButtonStyle = mapBtnStyle(activeType, disabled);
-
         // disable toggle buttons
         let disabled = false;
 
@@ -159,6 +155,10 @@ class VisualizationItemHeaderButtons extends Component {
                 disabled = true;
             }
         }
+
+        const tableButtonStyle = tableBtnStyle(activeType, disabled);
+        const chartButtonStyle = chartBtnStyle(activeType, disabled);
+        const mapButtonStyle = mapBtnStyle(activeType, disabled);
 
         return (
             <div style={{ marginLeft: 10 }}>

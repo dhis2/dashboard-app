@@ -19,13 +19,7 @@ import {
     acReceivedVisualization,
     acReceivedActiveVisualization,
 } from '../../../actions/selected';
-import {
-    CHART,
-    MAP,
-    itemTypeMap,
-    CHART_TYPE_SINGLE_VALUE,
-    VISUALIZATION_TYPE_CHART,
-} from '../../../modules/itemTypes';
+import { CHART, MAP, itemTypeMap } from '../../../modules/itemTypes';
 import { colors } from '@dhis2/ui-core';
 import memoizeOne from '../../../modules/memoizeOne';
 import { getVisualizationConfig } from './plugin';
