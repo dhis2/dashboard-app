@@ -229,7 +229,7 @@ export class Item extends Component {
         const itemName = pluginManager.getName(item);
 
         return (
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div style={{ display: 'flex' }}>
                 <span className={classes.title} title={itemName}>
                     {itemName}
                 </span>
@@ -255,6 +255,7 @@ export class Item extends Component {
         ) && !this.props.editMode ? (
             <VisualizationItemHeaderButtons
                 item={this.props.item}
+                visualization={this.props.visualization}
                 activeFooter={this.state.showFooter}
                 activeType={this.getActiveType()}
                 onSelectVisualization={this.onSelectVisualization}

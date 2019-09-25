@@ -17,6 +17,7 @@ import {
     EVENT_CHART,
     EVENT_REPORT,
     DOMAIN_TYPE_AGGREGATE,
+    CHART_TYPE_SINGLE_VALUE,
 } from '../../../modules/itemTypes';
 import { colors, theme } from '@dhis2/ui-core';
 
@@ -85,15 +86,49 @@ export const getItemTypeId = (itemTypeMap, visualizationType, domainType) => {
     return item.id;
 };
 
+// TODO: Import this from @dhis2/analytics when available
+const isSingleValue = (itemType, chartType) =>
+    itemType === VISUALIZATION_TYPE_CHART &&
+    chartType === CHART_TYPE_SINGLE_VALUE;
+
 class VisualizationItemHeaderButtons extends Component {
-    render() {
+    renderInterpretationButton() {
+        const { activeFooter, onToggleFooter } = this.props;
+
+        const toggleFooterBase = activeFooter ? activeStyle : baseStyle;
+
+        const toggleFooter = {
+            ...toggleFooterBase,
+            container: {
+                ...toggleFooterBase.container,
+                ...style.toggleFooterPadding,
+                ...style.border,
+            },
+        };
+
+        return (
+            <Fragment>
+                <ItemHeaderButton
+                    style={toggleFooter.container}
+                    onClick={onToggleFooter}
+                >
+                    <MessageIcon style={toggleFooter.icon} />
+                </ItemHeaderButton>
+            </Fragment>
+        );
+    }
+
+    renderVisualizationButtons() {
         const {
             item,
+            visualization,
             onSelectVisualization,
-            activeFooter,
             activeType,
-            onToggleFooter,
         } = this.props;
+
+        if (isSingleValue(item.type, visualization.type)) {
+            return null;
+        }
 
         const domainType = itemTypeMap[item.type].domainType;
 
@@ -112,17 +147,6 @@ class VisualizationItemHeaderButtons extends Component {
                 getItemTypeId(itemTypeMap, VISUALIZATION_TYPE_MAP, domainType)
             );
 
-        const toggleFooterBase = activeFooter ? activeStyle : baseStyle;
-
-        const toggleFooter = {
-            ...toggleFooterBase,
-            container: {
-                ...toggleFooterBase.container,
-                ...style.toggleFooterPadding,
-                ...style.border,
-            },
-        };
-
         // disable toggle buttons
         let disabled = false;
 
@@ -137,15 +161,7 @@ class VisualizationItemHeaderButtons extends Component {
         const mapButtonStyle = mapBtnStyle(activeType, disabled);
 
         return (
-            <Fragment>
-                <div style={{ marginRight: 10 }}>
-                    <ItemHeaderButton
-                        style={toggleFooter.container}
-                        onClick={onToggleFooter}
-                    >
-                        <MessageIcon style={toggleFooter.icon} />
-                    </ItemHeaderButton>
-                </div>
+            <div style={{ marginLeft: 10 }}>
                 <div style={style.border}>
                     <ItemHeaderButton
                         disabled={disabled}
@@ -171,6 +187,15 @@ class VisualizationItemHeaderButtons extends Component {
                         </ItemHeaderButton>
                     ) : null}
                 </div>
+            </div>
+        );
+    }
+
+    render() {
+        return (
+            <Fragment>
+                {this.renderInterpretationButton()}
+                {this.renderVisualizationButtons()}
             </Fragment>
         );
     }
