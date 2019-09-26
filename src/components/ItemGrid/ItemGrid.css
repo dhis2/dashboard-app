@@ -75,6 +75,10 @@
     overflow: auto;
 }
 
+.CHART .dashboard-item-content {
+    overflow: hidden;
+}
+
 .react-grid-item.edit .dashboard-item-content,
 .react-grid-item.RESOURCES .dashboard-item-content,
 .react-grid-item.TEXT .dashboard-item-content,
