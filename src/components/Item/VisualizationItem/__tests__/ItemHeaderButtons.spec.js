@@ -9,6 +9,9 @@ it('renders correctly', () => {
                 type: 'CHART',
                 chart: { type: 'NOT_YOY', domainType: 'AGGREGATE' },
             }}
+            visualization={{
+                type: 'SINGLE_VALUE',
+            }}
             onSelectVisualization={Function.prototype}
             activeFooter={false}
             activeType={'CHART'}
