@@ -40,7 +40,9 @@ ShallowWrapper {
                 Object {
                   "display": "inline-block",
                   "marginRight": 10,
+                  "position": "relative",
                   "textDecoration": "none",
+                  "top": "2px",
                 }
               }
               to="/new"
@@ -80,7 +82,9 @@ ShallowWrapper {
                   Object {
                     "display": "inline-block",
                     "marginRight": 10,
+                    "position": "relative",
                     "textDecoration": "none",
+                    "top": "2px",
                   }
                 }
                 to="/new"
@@ -113,7 +117,9 @@ ShallowWrapper {
                     Object {
                       "display": "inline-block",
                       "marginRight": 10,
+                      "position": "relative",
                       "textDecoration": "none",
+                      "top": "2px",
                     }
                   }
                   to="/new"
@@ -138,7 +144,9 @@ ShallowWrapper {
                   "style": Object {
                     "display": "inline-block",
                     "marginRight": 10,
+                    "position": "relative",
                     "textDecoration": "none",
+                    "top": "2px",
                   },
                   "to": "/new",
                 },
@@ -214,7 +222,9 @@ ShallowWrapper {
                   Object {
                     "display": "inline-block",
                     "marginRight": 10,
+                    "position": "relative",
                     "textDecoration": "none",
+                    "top": "2px",
                   }
                 }
                 to="/new"
@@ -254,7 +264,9 @@ ShallowWrapper {
                     Object {
                       "display": "inline-block",
                       "marginRight": 10,
+                      "position": "relative",
                       "textDecoration": "none",
+                      "top": "2px",
                     }
                   }
                   to="/new"
@@ -287,7 +299,9 @@ ShallowWrapper {
                       Object {
                         "display": "inline-block",
                         "marginRight": 10,
+                        "position": "relative",
                         "textDecoration": "none",
+                        "top": "2px",
                       }
                     }
                     to="/new"
@@ -312,7 +326,9 @@ ShallowWrapper {
                     "style": Object {
                       "display": "inline-block",
                       "marginRight": 10,
+                      "position": "relative",
                       "textDecoration": "none",
+                      "top": "2px",
                     },
                     "to": "/new",
                   },
@@ -446,7 +462,9 @@ ShallowWrapper {
                 Object {
                   "display": "inline-block",
                   "marginRight": 10,
+                  "position": "relative",
                   "textDecoration": "none",
+                  "top": "2px",
                 }
               }
               to="/new"
@@ -486,7 +504,9 @@ ShallowWrapper {
                   Object {
                     "display": "inline-block",
                     "marginRight": 10,
+                    "position": "relative",
                     "textDecoration": "none",
+                    "top": "2px",
                   }
                 }
                 to="/new"
@@ -519,7 +539,9 @@ ShallowWrapper {
                     Object {
                       "display": "inline-block",
                       "marginRight": 10,
+                      "position": "relative",
                       "textDecoration": "none",
+                      "top": "2px",
                     }
                   }
                   to="/new"
@@ -544,7 +566,9 @@ ShallowWrapper {
                   "style": Object {
                     "display": "inline-block",
                     "marginRight": 10,
+                    "position": "relative",
                     "textDecoration": "none",
+                    "top": "2px",
                   },
                   "to": "/new",
                 },
@@ -620,7 +644,9 @@ ShallowWrapper {
                   Object {
                     "display": "inline-block",
                     "marginRight": 10,
+                    "position": "relative",
                     "textDecoration": "none",
+                    "top": "2px",
                   }
                 }
                 to="/new"
@@ -660,7 +686,9 @@ ShallowWrapper {
                     Object {
                       "display": "inline-block",
                       "marginRight": 10,
+                      "position": "relative",
                       "textDecoration": "none",
+                      "top": "2px",
                     }
                   }
                   to="/new"
@@ -693,7 +721,9 @@ ShallowWrapper {
                       Object {
                         "display": "inline-block",
                         "marginRight": 10,
+                        "position": "relative",
                         "textDecoration": "none",
+                        "top": "2px",
                       }
                     }
                     to="/new"
@@ -718,7 +748,9 @@ ShallowWrapper {
                     "style": Object {
                       "display": "inline-block",
                       "marginRight": 10,
+                      "position": "relative",
                       "textDecoration": "none",
+                      "top": "2px",
                     },
                     "to": "/new",
                   },
@@ -852,7 +884,9 @@ ShallowWrapper {
                 Object {
                   "display": "inline-block",
                   "marginRight": 10,
+                  "position": "relative",
                   "textDecoration": "none",
+                  "top": "2px",
                 }
               }
               to="/new"
@@ -892,7 +926,9 @@ ShallowWrapper {
                   Object {
                     "display": "inline-block",
                     "marginRight": 10,
+                    "position": "relative",
                     "textDecoration": "none",
+                    "top": "2px",
                   }
                 }
                 to="/new"
@@ -925,7 +961,9 @@ ShallowWrapper {
                     Object {
                       "display": "inline-block",
                       "marginRight": 10,
+                      "position": "relative",
                       "textDecoration": "none",
+                      "top": "2px",
                     }
                   }
                   to="/new"
@@ -950,7 +988,9 @@ ShallowWrapper {
                   "style": Object {
                     "display": "inline-block",
                     "marginRight": 10,
+                    "position": "relative",
                     "textDecoration": "none",
+                    "top": "2px",
                   },
                   "to": "/new",
                 },
@@ -1026,7 +1066,9 @@ ShallowWrapper {
                   Object {
                     "display": "inline-block",
                     "marginRight": 10,
+                    "position": "relative",
                     "textDecoration": "none",
+                    "top": "2px",
                   }
                 }
                 to="/new"
@@ -1066,7 +1108,9 @@ ShallowWrapper {
                     Object {
                       "display": "inline-block",
                       "marginRight": 10,
+                      "position": "relative",
                       "textDecoration": "none",
+                      "top": "2px",
                     }
                   }
                   to="/new"
@@ -1099,7 +1143,9 @@ ShallowWrapper {
                       Object {
                         "display": "inline-block",
                         "marginRight": 10,
+                        "position": "relative",
                         "textDecoration": "none",
+                        "top": "2px",
                       }
                     }
                     to="/new"
@@ -1124,7 +1170,9 @@ ShallowWrapper {
                     "style": Object {
                       "display": "inline-block",
                       "marginRight": 10,
+                      "position": "relative",
                       "textDecoration": "none",
+                      "top": "2px",
                     },
                     "to": "/new",
                   },
@@ -1272,7 +1320,9 @@ ShallowWrapper {
                 Object {
                   "display": "inline-block",
                   "marginRight": 10,
+                  "position": "relative",
                   "textDecoration": "none",
+                  "top": "2px",
                 }
               }
               to="/new"
@@ -1324,7 +1374,9 @@ ShallowWrapper {
                   Object {
                     "display": "inline-block",
                     "marginRight": 10,
+                    "position": "relative",
                     "textDecoration": "none",
+                    "top": "2px",
                   }
                 }
                 to="/new"
@@ -1370,7 +1422,9 @@ ShallowWrapper {
                     Object {
                       "display": "inline-block",
                       "marginRight": 10,
+                      "position": "relative",
                       "textDecoration": "none",
+                      "top": "2px",
                     }
                   }
                   to="/new"
@@ -1395,7 +1449,9 @@ ShallowWrapper {
                   "style": Object {
                     "display": "inline-block",
                     "marginRight": 10,
+                    "position": "relative",
                     "textDecoration": "none",
+                    "top": "2px",
                   },
                   "to": "/new",
                 },
@@ -1499,7 +1555,9 @@ ShallowWrapper {
                   Object {
                     "display": "inline-block",
                     "marginRight": 10,
+                    "position": "relative",
                     "textDecoration": "none",
+                    "top": "2px",
                   }
                 }
                 to="/new"
@@ -1551,7 +1609,9 @@ ShallowWrapper {
                     Object {
                       "display": "inline-block",
                       "marginRight": 10,
+                      "position": "relative",
                       "textDecoration": "none",
+                      "top": "2px",
                     }
                   }
                   to="/new"
@@ -1597,7 +1657,9 @@ ShallowWrapper {
                       Object {
                         "display": "inline-block",
                         "marginRight": 10,
+                        "position": "relative",
                         "textDecoration": "none",
+                        "top": "2px",
                       }
                     }
                     to="/new"
@@ -1622,7 +1684,9 @@ ShallowWrapper {
                     "style": Object {
                       "display": "inline-block",
                       "marginRight": 10,
+                      "position": "relative",
                       "textDecoration": "none",
+                      "top": "2px",
                     },
                     "to": "/new",
                   },

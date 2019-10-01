@@ -103,6 +103,8 @@ export class DashboardsBar extends Component {
                                 display: 'inline-block',
                                 textDecoration: 'none',
                                 marginRight: 10,
+                                position: 'relative',
+                                top: '2px',
                             }}
                             to={'/new'}
                         >
