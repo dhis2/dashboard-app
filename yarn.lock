@@ -1041,10 +1041,10 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^2.4.2":
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.4.2.tgz#e50039490556a5f9c4f04ecbc4d21088f4ec7482"
-  integrity sha512-h53jRynldSS23uU/r4LR2tQkuCGIHEkkh/KmzDgpKR8gGfc6a8V4aRr8KHR8MqvewWYMWh/Y4DGLLgruDda1Iw==
+"@dhis2/analytics@^2.4.3":
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.4.3.tgz#d9822530f29c2efa735f50154894a6620b589254"
+  integrity sha512-4kGAAKfxqYg+ZcN+VGPYRbVYyDttPStNtJMUUYALOIATzboKzhCmKuAW1EEQBmM8ETPFwUnaRhNAPUElTjD7BA==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.1.0"
@@ -1056,7 +1056,7 @@
     d2-utilizr "^0.2.16"
     d3-color "^1.2.3"
     highcharts "^7.1.2"
-    lodash "^4.17.11"
+    lodash "^4.17.13"
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
@@ -1232,12 +1232,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^33.1.3":
-  version "33.1.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-33.1.3.tgz#aabeaf2e92f7d199fd1b7cea12ea9798846bf261"
-  integrity sha512-wQ7MhRmzXvX9kYm1ctuwUV5PYw2M/KlFwoVFHvxm2rRhJXBpHqzlTpERH0hN0az1SDhHdbFybCXtP1Y8IC8oTA==
+"@dhis2/data-visualizer-plugin@^33.1.4":
+  version "33.1.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-33.1.4.tgz#1924751cb37d9ca47e8cbdf39b6cc7f3444e6ee7"
+  integrity sha512-Qj0CY4Afdwq9SLNvR6Bx9rB+98ZTwGCCN1i5wRWA/VYtHqOF0Fg3pIqVjYIVj+6pe9atHEbEyVz+N/EjTMHGjw==
   dependencies:
-    "@dhis2/analytics" "^2.4.2"
+    "@dhis2/analytics" "^2.4.3"
     "@material-ui/core" "^3.1.2"
     lodash-es "^4.17.11"
     react "^16.6.0"
@@ -7433,6 +7433,11 @@ lodash.uniq@^4.5.0:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
+
+lodash@^4.17.13:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
+  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
 loglevel@^1.4.0, loglevel@^1.4.1:
   version "1.6.1"
