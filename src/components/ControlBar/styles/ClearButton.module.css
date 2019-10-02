@@ -2,11 +2,14 @@
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    margin-left: 5px;
-    padding: 0px 5px;
-    vertical-align: text-bottom;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
+}
+
+.button > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .button:focus {
@@ -16,5 +19,4 @@
 .icon {
     width: 16px;
     height: 16px;
-    margin-top: 4px;
 }
