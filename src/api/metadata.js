@@ -22,6 +22,7 @@ export const getDimensionFields = ({ withItems }) =>
         'dimension',
         'legendSet[id]',
         'filter',
+        'programStage',
         withItems ? `items[${getItemFields().join(',')}]` : ``,
     ]);
 
