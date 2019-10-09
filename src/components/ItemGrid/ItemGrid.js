@@ -67,12 +67,6 @@ export const ItemGrid = props => {
         props.acRemoveDashboardItem(clickedId);
     };
 
-    // componentWillReceiveProps(nextProps) {
-    //     if (nextProps.edit) {
-    //         this.setState({ expandedItems: {} });
-    //     }
-    // }
-
     const onLayoutChange = newLayout =>
         props.edit && props.acUpdateDashboardLayout(newLayout);
 
