@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import i18n from '@dhis2/d2-i18n';
@@ -27,69 +27,57 @@ const styles = {
     },
 };
 
-export class Filter extends Component {
-    constructor(props) {
-        super(props);
+export const Filter = props => {
+    const [value, setValue] = useState(DEFAULT_STATE_DASHBOARDS_FILTER_NAME);
 
-        this.state = {
-            value: DEFAULT_STATE_DASHBOARDS_FILTER_NAME,
-        };
-    }
+    useEffect(() => {
+        setValue(props.name);
+    }, [props.name]);
 
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            value: nextProps.name,
-        });
-    }
-
-    setFilterValue = event => {
+    const setFilterValue = event => {
         event.preventDefault();
 
-        this.props.onChangeName(event.target.value);
+        props.onChangeName(event.target.value);
     };
 
-    handleKeyUp = event => {
+    const handleKeyUp = event => {
         switch (event.keyCode) {
             case KEYCODE_ENTER:
-                this.props.onKeypressEnter();
+                props.onKeypressEnter();
                 break;
             case KEYCODE_ESCAPE:
-                this.props.onChangeName();
+                props.onChangeName();
                 break;
             default:
                 break;
         }
     };
 
-    render() {
-        const { classes, name, onChangeName } = this.props;
+    const startAdornment = (
+        <InputAdornment position="start">
+            <SearchIcon className={props.classes.searchIcon} />
+        </InputAdornment>
+    );
 
-        const startAdornment = (
-            <InputAdornment position="start">
-                <SearchIcon className={classes.searchIcon} />
+    const endAdornment =
+        props.name !== '' && props.name !== null ? (
+            <InputAdornment position="end">
+                <ClearButton onClear={() => props.onChangeName()} />
             </InputAdornment>
-        );
+        ) : null;
 
-        const endAdornment =
-            name !== '' && name !== null ? (
-                <InputAdornment position="end">
-                    <ClearButton onClear={() => onChangeName()} />
-                </InputAdornment>
-            ) : null;
-
-        return (
-            <InputField
-                className={classes.filterField}
-                placeholder={i18n.t('Search for a dashboard')}
-                startAdornment={startAdornment}
-                endAdornment={endAdornment}
-                value={this.state.value}
-                onChange={this.setFilterValue}
-                onKeyUp={this.handleKeyUp}
-            />
-        );
-    }
-}
+    return (
+        <InputField
+            className={props.classes.filterField}
+            placeholder={i18n.t('Search for a dashboard')}
+            startAdornment={startAdornment}
+            endAdornment={endAdornment}
+            value={value}
+            onChange={setFilterValue}
+            onKeyUp={handleKeyUp}
+        />
+    );
+};
 
 Filter.propTypes = {
     name: PropTypes.string,

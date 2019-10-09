@@ -27,18 +27,6 @@ describe('Filter', () => {
         expect(filter()).toMatchSnapshot();
     });
 
-    describe('when updated name property is provided', () => {
-        it('renders a InputField with correct value property', () => {
-            const filterWrapper = filter();
-            filterWrapper.setProps({ name: 'rainbow' });
-
-            expect(filterWrapper.find(InputField).props().value).toEqual(
-                'rainbow'
-            );
-            expect(props.onChangeName).not.toHaveBeenCalled();
-        });
-    });
-
     describe('when InputField value is changed', () => {
         beforeEach(() => {
             props.onChangeName = jest.fn();

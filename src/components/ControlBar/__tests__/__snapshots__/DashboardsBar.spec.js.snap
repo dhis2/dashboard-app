@@ -25,429 +25,7 @@ ShallowWrapper {
         <div
           style={
             Object {
-              "height": 410,
-              "overflowY": "auto",
-              "padding": "10px 6px 0 6px",
-            }
-          }
-        >
-          <div
-            className="leftControls"
-          >
-            <Link
-              replace={false}
-              style={
-                Object {
-                  "display": "inline-block",
-                  "marginRight": 10,
-                  "position": "relative",
-                  "textDecoration": "none",
-                  "top": "2px",
-                }
-              }
-              to="/new"
-            >
-              <AddCircleIcon />
-            </Link>
-            <WithStyles(Filter)
-              onKeypressEnter={[Function]}
-            />
-          </div>
-        </div>,
-        <WithStyles(ShowMoreButton)
-          disabled={true}
-          isMaxHeight={true}
-          onClick={[Function]}
-        />,
-      ],
-      "editMode": false,
-      "height": 424,
-      "onChangeHeight": [Function],
-      "onEndDrag": [Function],
-    },
-    "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <div
-              className="leftControls"
-            >
-              <Link
-                replace={false}
-                style={
-                  Object {
-                    "display": "inline-block",
-                    "marginRight": 10,
-                    "position": "relative",
-                    "textDecoration": "none",
-                    "top": "2px",
-                  }
-                }
-                to="/new"
-              >
-                <AddCircleIcon />
-              </Link>
-              <WithStyles(Filter)
-                onKeypressEnter={[Function]}
-              />
-            </div>,
-            Array [],
-          ],
-          "style": Object {
-            "height": 410,
-            "overflowY": "auto",
-            "padding": "10px 6px 0 6px",
-          },
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <Link
-                  replace={false}
-                  style={
-                    Object {
-                      "display": "inline-block",
-                      "marginRight": 10,
-                      "position": "relative",
-                      "textDecoration": "none",
-                      "top": "2px",
-                    }
-                  }
-                  to="/new"
-                >
-                  <AddCircleIcon />
-                </Link>,
-                <WithStyles(Filter)
-                  onKeypressEnter={[Function]}
-                />,
-              ],
-              "className": "leftControls",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "children": <AddCircleIcon />,
-                  "replace": false,
-                  "style": Object {
-                    "display": "inline-block",
-                    "marginRight": 10,
-                    "position": "relative",
-                    "textDecoration": "none",
-                    "top": "2px",
-                  },
-                  "to": "/new",
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "function",
-                  "props": Object {},
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "name": undefined,
-                  "onChangeName": undefined,
-                  "onKeypressEnter": [Function],
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-            ],
-            "type": "div",
-          },
-        ],
-        "type": "div",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "disabled": true,
-          "isMaxHeight": true,
-          "onClick": [Function],
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-    ],
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "children": Array [
-          <div
-            style={
-              Object {
-                "height": 410,
-                "overflowY": "auto",
-                "padding": "10px 6px 0 6px",
-              }
-            }
-          >
-            <div
-              className="leftControls"
-            >
-              <Link
-                replace={false}
-                style={
-                  Object {
-                    "display": "inline-block",
-                    "marginRight": 10,
-                    "position": "relative",
-                    "textDecoration": "none",
-                    "top": "2px",
-                  }
-                }
-                to="/new"
-              >
-                <AddCircleIcon />
-              </Link>
-              <WithStyles(Filter)
-                onKeypressEnter={[Function]}
-              />
-            </div>
-          </div>,
-          <WithStyles(ShowMoreButton)
-            disabled={true}
-            isMaxHeight={true}
-            onClick={[Function]}
-          />,
-        ],
-        "editMode": false,
-        "height": 424,
-        "onChangeHeight": [Function],
-        "onEndDrag": [Function],
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <div
-                className="leftControls"
-              >
-                <Link
-                  replace={false}
-                  style={
-                    Object {
-                      "display": "inline-block",
-                      "marginRight": 10,
-                      "position": "relative",
-                      "textDecoration": "none",
-                      "top": "2px",
-                    }
-                  }
-                  to="/new"
-                >
-                  <AddCircleIcon />
-                </Link>
-                <WithStyles(Filter)
-                  onKeypressEnter={[Function]}
-                />
-              </div>,
-              Array [],
-            ],
-            "style": Object {
-              "height": 410,
-              "overflowY": "auto",
-              "padding": "10px 6px 0 6px",
-            },
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  <Link
-                    replace={false}
-                    style={
-                      Object {
-                        "display": "inline-block",
-                        "marginRight": 10,
-                        "position": "relative",
-                        "textDecoration": "none",
-                        "top": "2px",
-                      }
-                    }
-                    to="/new"
-                  >
-                    <AddCircleIcon />
-                  </Link>,
-                  <WithStyles(Filter)
-                    onKeypressEnter={[Function]}
-                  />,
-                ],
-                "className": "leftControls",
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "children": <AddCircleIcon />,
-                    "replace": false,
-                    "style": Object {
-                      "display": "inline-block",
-                      "marginRight": 10,
-                      "position": "relative",
-                      "textDecoration": "none",
-                      "top": "2px",
-                    },
-                    "to": "/new",
-                  },
-                  "ref": null,
-                  "rendered": Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "function",
-                    "props": Object {},
-                    "ref": null,
-                    "rendered": null,
-                    "type": [Function],
-                  },
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "name": undefined,
-                    "onChangeName": undefined,
-                    "onKeypressEnter": [Function],
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-              ],
-              "type": "div",
-            },
-          ],
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "disabled": true,
-            "isMaxHeight": true,
-            "onClick": [Function],
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-      ],
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "legacyContextMode": "parent",
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getChildContext": Object {
-            "calledByRenderer": false,
-          },
-          "getDerivedStateFromError": true,
-          "getDerivedStateFromProps": Object {
-            "hasShouldComponentUpdateBug": false,
-          },
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-    "context": Object {
-      "d2": Object {
-        "currentUser": Object {
-          "firstName": "Mark the Ghost",
-          "surname": "Polak",
-          "userSettings": Object {
-            "get": [Function],
-          },
-        },
-      },
-      "i18n": Object {
-        "t": [Function],
-      },
-    },
-  },
-  Symbol(enzyme.__childContext__): null,
-}
-`;
-
-exports[`DashboardsBar renders ShowMoreButton when userRows is less than MAX_ROW_COUNT 1`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DashboardsBar
-    isMaxHeight={false}
-    userRows={9}
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "checkPropTypes": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "class",
-    "props": Object {
-      "children": Array [
-        <div
-          style={
-            Object {
-              "height": 370,
+              "height": 50,
               "overflowY": "hidden",
               "padding": "10px 6px 0 6px",
             }
@@ -477,13 +55,13 @@ ShallowWrapper {
           </div>
         </div>,
         <WithStyles(ShowMoreButton)
-          disabled={false}
-          isMaxHeight={false}
+          disabled={true}
+          isMaxHeight={null}
           onClick={[Function]}
         />,
       ],
       "editMode": false,
-      "height": 384,
+      "height": 64,
       "onChangeHeight": [Function],
       "onEndDrag": [Function],
     },
@@ -520,7 +98,7 @@ ShallowWrapper {
             Array [],
           ],
           "style": Object {
-            "height": 370,
+            "height": 50,
             "overflowY": "hidden",
             "padding": "10px 6px 0 6px",
           },
@@ -608,8 +186,8 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "disabled": false,
-          "isMaxHeight": false,
+          "disabled": true,
+          "isMaxHeight": null,
           "onClick": [Function],
         },
         "ref": null,
@@ -629,7 +207,7 @@ ShallowWrapper {
           <div
             style={
               Object {
-                "height": 370,
+                "height": 50,
                 "overflowY": "hidden",
                 "padding": "10px 6px 0 6px",
               }
@@ -659,13 +237,13 @@ ShallowWrapper {
             </div>
           </div>,
           <WithStyles(ShowMoreButton)
-            disabled={false}
-            isMaxHeight={false}
+            disabled={true}
+            isMaxHeight={null}
             onClick={[Function]}
           />,
         ],
         "editMode": false,
-        "height": 384,
+        "height": 64,
         "onChangeHeight": [Function],
         "onEndDrag": [Function],
       },
@@ -702,7 +280,7 @@ ShallowWrapper {
               Array [],
             ],
             "style": Object {
-              "height": 370,
+              "height": 50,
               "overflowY": "hidden",
               "padding": "10px 6px 0 6px",
             },
@@ -790,8 +368,8 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "disabled": false,
-            "isMaxHeight": false,
+            "disabled": true,
+            "isMaxHeight": null,
             "onClick": [Function],
           },
           "ref": null,
@@ -840,16 +418,15 @@ ShallowWrapper {
       },
     },
   },
-  Symbol(enzyme.__childContext__): null,
 }
 `;
 
-exports[`DashboardsBar renders a DashboardsBar with no items 1`] = `
+exports[`DashboardsBar renders ShowMoreButton when userRows is less than MAX_ROW_COUNT 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DashboardsBar
     isMaxHeight={false}
-    userRows={1}
+    userRows={9}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -900,7 +477,7 @@ ShallowWrapper {
         </div>,
         <WithStyles(ShowMoreButton)
           disabled={false}
-          isMaxHeight={false}
+          isMaxHeight={null}
           onClick={[Function]}
         />,
       ],
@@ -1031,7 +608,7 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "disabled": false,
-          "isMaxHeight": false,
+          "isMaxHeight": null,
           "onClick": [Function],
         },
         "ref": null,
@@ -1082,7 +659,7 @@ ShallowWrapper {
           </div>,
           <WithStyles(ShowMoreButton)
             disabled={false}
-            isMaxHeight={false}
+            isMaxHeight={null}
             onClick={[Function]}
           />,
         ],
@@ -1213,7 +790,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "disabled": false,
-            "isMaxHeight": false,
+            "isMaxHeight": null,
             "onClick": [Function],
           },
           "ref": null,
@@ -1262,7 +839,427 @@ ShallowWrapper {
       },
     },
   },
-  Symbol(enzyme.__childContext__): null,
+}
+`;
+
+exports[`DashboardsBar renders a DashboardsBar with no items 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DashboardsBar
+    isMaxHeight={false}
+    userRows={1}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <div
+          style={
+            Object {
+              "height": 50,
+              "overflowY": "hidden",
+              "padding": "10px 6px 0 6px",
+            }
+          }
+        >
+          <div
+            className="leftControls"
+          >
+            <Link
+              replace={false}
+              style={
+                Object {
+                  "display": "inline-block",
+                  "marginRight": 10,
+                  "position": "relative",
+                  "textDecoration": "none",
+                  "top": "2px",
+                }
+              }
+              to="/new"
+            >
+              <AddCircleIcon />
+            </Link>
+            <WithStyles(Filter)
+              onKeypressEnter={[Function]}
+            />
+          </div>
+        </div>,
+        <WithStyles(ShowMoreButton)
+          disabled={false}
+          isMaxHeight={null}
+          onClick={[Function]}
+        />,
+      ],
+      "editMode": false,
+      "height": 64,
+      "onChangeHeight": [Function],
+      "onEndDrag": [Function],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="leftControls"
+            >
+              <Link
+                replace={false}
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "marginRight": 10,
+                    "position": "relative",
+                    "textDecoration": "none",
+                    "top": "2px",
+                  }
+                }
+                to="/new"
+              >
+                <AddCircleIcon />
+              </Link>
+              <WithStyles(Filter)
+                onKeypressEnter={[Function]}
+              />
+            </div>,
+            Array [],
+          ],
+          "style": Object {
+            "height": 50,
+            "overflowY": "hidden",
+            "padding": "10px 6px 0 6px",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Link
+                  replace={false}
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "marginRight": 10,
+                      "position": "relative",
+                      "textDecoration": "none",
+                      "top": "2px",
+                    }
+                  }
+                  to="/new"
+                >
+                  <AddCircleIcon />
+                </Link>,
+                <WithStyles(Filter)
+                  onKeypressEnter={[Function]}
+                />,
+              ],
+              "className": "leftControls",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <AddCircleIcon />,
+                  "replace": false,
+                  "style": Object {
+                    "display": "inline-block",
+                    "marginRight": 10,
+                    "position": "relative",
+                    "textDecoration": "none",
+                    "top": "2px",
+                  },
+                  "to": "/new",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "name": undefined,
+                  "onChangeName": undefined,
+                  "onKeypressEnter": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "disabled": false,
+          "isMaxHeight": null,
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <div
+            style={
+              Object {
+                "height": 50,
+                "overflowY": "hidden",
+                "padding": "10px 6px 0 6px",
+              }
+            }
+          >
+            <div
+              className="leftControls"
+            >
+              <Link
+                replace={false}
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "marginRight": 10,
+                    "position": "relative",
+                    "textDecoration": "none",
+                    "top": "2px",
+                  }
+                }
+                to="/new"
+              >
+                <AddCircleIcon />
+              </Link>
+              <WithStyles(Filter)
+                onKeypressEnter={[Function]}
+              />
+            </div>
+          </div>,
+          <WithStyles(ShowMoreButton)
+            disabled={false}
+            isMaxHeight={null}
+            onClick={[Function]}
+          />,
+        ],
+        "editMode": false,
+        "height": 64,
+        "onChangeHeight": [Function],
+        "onEndDrag": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="leftControls"
+              >
+                <Link
+                  replace={false}
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "marginRight": 10,
+                      "position": "relative",
+                      "textDecoration": "none",
+                      "top": "2px",
+                    }
+                  }
+                  to="/new"
+                >
+                  <AddCircleIcon />
+                </Link>
+                <WithStyles(Filter)
+                  onKeypressEnter={[Function]}
+                />
+              </div>,
+              Array [],
+            ],
+            "style": Object {
+              "height": 50,
+              "overflowY": "hidden",
+              "padding": "10px 6px 0 6px",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <Link
+                    replace={false}
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "marginRight": 10,
+                        "position": "relative",
+                        "textDecoration": "none",
+                        "top": "2px",
+                      }
+                    }
+                    to="/new"
+                  >
+                    <AddCircleIcon />
+                  </Link>,
+                  <WithStyles(Filter)
+                    onKeypressEnter={[Function]}
+                  />,
+                ],
+                "className": "leftControls",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <AddCircleIcon />,
+                    "replace": false,
+                    "style": Object {
+                      "display": "inline-block",
+                      "marginRight": 10,
+                      "position": "relative",
+                      "textDecoration": "none",
+                      "top": "2px",
+                    },
+                    "to": "/new",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {},
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "name": undefined,
+                    "onChangeName": undefined,
+                    "onKeypressEnter": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "disabled": false,
+            "isMaxHeight": null,
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {
+      "d2": Object {
+        "currentUser": Object {
+          "firstName": "Mark the Ghost",
+          "surname": "Polak",
+          "userSettings": Object {
+            "get": [Function],
+          },
+        },
+      },
+      "i18n": Object {
+        "t": [Function],
+      },
+    },
+  },
 }
 `;
 
@@ -1348,7 +1345,7 @@ ShallowWrapper {
         </div>,
         <WithStyles(ShowMoreButton)
           disabled={false}
-          isMaxHeight={false}
+          isMaxHeight={null}
           onClick={[Function]}
         />,
       ],
@@ -1520,7 +1517,7 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "disabled": false,
-          "isMaxHeight": false,
+          "isMaxHeight": null,
           "onClick": [Function],
         },
         "ref": null,
@@ -1583,7 +1580,7 @@ ShallowWrapper {
           </div>,
           <WithStyles(ShowMoreButton)
             disabled={false}
-            isMaxHeight={false}
+            isMaxHeight={null}
             onClick={[Function]}
           />,
         ],
@@ -1755,7 +1752,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "disabled": false,
-            "isMaxHeight": false,
+            "isMaxHeight": null,
             "onClick": [Function],
           },
           "ref": null,
@@ -1804,6 +1801,5 @@ ShallowWrapper {
       },
     },
   },
-  Symbol(enzyme.__childContext__): null,
 }
 `;
