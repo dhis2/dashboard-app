@@ -1041,10 +1041,10 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^2.4.4":
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.4.4.tgz#f0839a61c1919d6a4d0b482d2f02aa27d984707d"
-  integrity sha512-QePnnMBygpJHlihdidrKOl/KQWcwpsGqzVqPYPFb0azWbVQd5L/wz1q0S17tRvf3aN7hqelmklZ6/tNEiiOoRg==
+"@dhis2/analytics@^2.4.5":
+  version "2.4.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.4.5.tgz#56db1331b70af718664c7b823af60661f2afa88c"
+  integrity sha512-bf4hXCnDiWdT/S5uoVQ9vb2kaIVlkeJMlolVxIbidg5XDCsoC7TDGnL7RaImsxR54IrLZ8rW6uediqPeP4BWHw==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.3.0"
@@ -1275,12 +1275,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^33.1.5":
-  version "33.1.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-33.1.5.tgz#dcb7e7285c6c651bf11d048f137a37cf42c00123"
-  integrity sha512-JVxU5uF49byu3X40XzX3hzFgTtAmMrJ3LW8F4all+8zwYBrjnB+jaM3ZIvUz7boALiCioDYoh2DniEIXgAWs3g==
+"@dhis2/data-visualizer-plugin@^33.1.6":
+  version "33.1.6"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-33.1.6.tgz#e92febc963755e1f7f95e7c57aef9acf17d9791c"
+  integrity sha512-BuuTMeQ1xNVS38X9cJnCnA3evqgyoB6aATfTOnb0LOGSH+ar9mGnif5LJfiaqemgNDQOTueLIMMYyeewnDAV1Q==
   dependencies:
-    "@dhis2/analytics" "^2.4.4"
+    "@dhis2/analytics" "^2.4.5"
     "@material-ui/core" "^3.1.2"
     lodash-es "^4.17.11"
     react "^16.6.0"
