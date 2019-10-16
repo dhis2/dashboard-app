@@ -939,12 +939,6 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-<<<<<<< HEAD
-"@dhis2/analytics@^2.1.0", "@dhis2/analytics@^2.4.4":
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.4.4.tgz#f0839a61c1919d6a4d0b482d2f02aa27d984707d"
-  integrity sha512-QePnnMBygpJHlihdidrKOl/KQWcwpsGqzVqPYPFb0azWbVQd5L/wz1q0S17tRvf3aN7hqelmklZ6/tNEiiOoRg==
-=======
 "@dhis2/analytics@^2.1.0":
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.3.4.tgz#7132738b957f7342423f039f31b871465c9f4966"
@@ -968,7 +962,6 @@
   version "2.4.5"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.4.5.tgz#56db1331b70af718664c7b823af60661f2afa88c"
   integrity sha512-bf4hXCnDiWdT/S5uoVQ9vb2kaIVlkeJMlolVxIbidg5XDCsoC7TDGnL7RaImsxR54IrLZ8rW6uediqPeP4BWHw==
->>>>>>> fab7ab86e7380ce82fad9af4452e4851ae0e534a
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.3.0"
@@ -1052,7 +1045,7 @@
     lodash "^4.17.10"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-org-unit-dialog@^6.3.0":
+"@dhis2/d2-ui-org-unit-dialog@^6.1.0", "@dhis2/d2-ui-org-unit-dialog@^6.3.0":
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-6.3.0.tgz#6f12b73fab2ce0448b92267a19aa6a1e9c363c70"
   integrity sha512-wgjs1Av9cQzpCThug8uVu5uc61dwcLpfiWcK7Vr046rsw4iH+iMaCk5FE5nIC06LZWsLkENzVEdxo6DYskuq6w==
@@ -1073,7 +1066,7 @@
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
 
-"@dhis2/d2-ui-period-selector-dialog@^6.3.0":
+"@dhis2/d2-ui-period-selector-dialog@^6.2.0", "@dhis2/d2-ui-period-selector-dialog@^6.3.0":
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-6.3.0.tgz#56bba56d8a7e914364e94e3d025dda8f03a3622f"
   integrity sha512-JOofPyx+h45PsVi/0Ubf4xQurBwnnq+wTSOtibKfWSvxNgrNUug08F8+LYxoP/+IUogmkzuFD0uQs9pW3pYa0g==

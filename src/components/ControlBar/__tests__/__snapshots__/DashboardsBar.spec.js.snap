@@ -417,7 +417,9 @@ ShallowWrapper {
         "t": [Function],
       },
     },
+    Symbol(enzyme.__providerValues__): undefined,
   },
+  Symbol(enzyme.__providerValues__): Map {},
 }
 `;
 
@@ -838,7 +840,9 @@ ShallowWrapper {
         "t": [Function],
       },
     },
+    Symbol(enzyme.__providerValues__): undefined,
   },
+  Symbol(enzyme.__providerValues__): Map {},
 }
 `;
 
@@ -1259,7 +1263,9 @@ ShallowWrapper {
         "t": [Function],
       },
     },
+    Symbol(enzyme.__providerValues__): undefined,
   },
+  Symbol(enzyme.__providerValues__): Map {},
 }
 `;
 
@@ -1800,6 +1806,8 @@ ShallowWrapper {
         "t": [Function],
       },
     },
+    Symbol(enzyme.__providerValues__): undefined,
   },
+  Symbol(enzyme.__providerValues__): Map {},
 }
 `;
