@@ -36,9 +36,7 @@ const init = async () => {
 
     // log app info
     console.info(
-        `Dashboards app, v${manifest.version}, ${
-            manifest.manifest_generated_at
-        }`
+        `Dashboards app, v${manifest.version}, ${manifest.manifest_generated_at}`
     );
 
     const isProd = process.env.NODE_ENV === 'production';
