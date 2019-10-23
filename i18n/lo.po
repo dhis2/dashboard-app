@@ -1,36 +1,37 @@
+# Translators:
+# phil_dhis2, 2019
+# Viktor Varland <viktor@dhis2.org>, 2019
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-20 09:24+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: lo\n"
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2018-04-03T09:53:39.293Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 2.2.5\n"
-"X-Pootle-Path: /lo/dashboards-app/lo.po\n"
-"X-Pootle-Revision: 29458\n"
+"Language: lo\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Delete"
-msgstr "ລຶບ"
+msgstr "Delete"
 
 msgid "Continue editing"
-msgstr "ດຳເນີນການແກ້ໄຂ"
+msgstr ""
 
 msgid "Confirm delete dashboard"
-msgstr "ຢືນຢັນລຶບກະດານຂ່າວ"
+msgstr ""
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr "ທ່ານຕ້ອງການລຶບກະດານຂ່າວແທ້ບໍ \"{{ dashboardName }}\"?"
+msgstr ""
 
 msgid "Save changes"
 msgstr "ບັນທຶກ"
 
 msgid "Translate"
-msgstr "ແປພາສາ"
+msgstr "Translate"
 
 msgid "Exit without saving"
 msgstr "ອອກໂດຍບໍ່ບັນທຶກ"
@@ -39,49 +40,22 @@ msgid "Search for a dashboard"
 msgstr "ຄົນຫາກະດານຂ່າວ"
 
 msgid "Show less"
-msgstr "ສະແດງໜ້ອຍ"
+msgstr "ສະແດງໃຫ້ເຫັນໜ້ອຍລົງ"
 
 msgid "Show more"
-msgstr "ສະແດງຫຼາຍ"
-
-msgid "Home"
-msgstr "ໜ້າຫຼັກ"
-
-msgid "Manage dashboards"
-msgstr "ຈັດການກະດານຂ່າວ"
-
-msgid "Loading dashboards"
-msgstr "ກຳລັງໂຫຼດກະດານຂ່າວ"
-
-msgid "Starred"
-msgstr "ຕິດດາວ"
-
-msgid "Name"
-msgstr "ຊື່"
-
-msgid "Items"
-msgstr "ລາຍການ"
-
-msgid "Owner"
-msgstr "ເຈົ້າຂອງ"
-
-msgid "Created"
-msgstr "ສ້າງ"
-
-msgid "Modified"
-msgstr "ແກ້ໄຂ"
+msgstr "ສະແດງໃຫ້ເຫັນຫຼາຍຂຶ້ນ"
 
 msgid "All"
-msgstr "ທ່ັງໝົດ"
+msgstr "All"
 
 msgid "Unread"
-msgstr "ບໍ່ທັນໄດ້ອ່ານ"
+msgstr ""
 
 msgid "Messages"
 msgstr "ຂໍ້ຄວາມ"
 
 msgid "You like this"
-msgstr "ເຈົົ້າມັກສິ່ງນີ້"
+msgstr ""
 
 msgid "Like"
 msgstr "ມັກ"
@@ -90,17 +64,17 @@ msgid "Reply"
 msgstr "ຕອບກັບ"
 
 msgid "Add your reply"
-msgstr "ເພີ້ມຕອບກັບ"
+msgstr ""
 
 msgid "Add your interpretation"
-msgstr "ເພີ້ມອະທິບາຍ"
+msgstr ""
 
 msgid "Spacer"
 msgstr "ເວັນວັກ"
 
 msgid ""
-"Use a spacer to create empty vertical space between other dashboard items"
-msgstr "ໃຊ້ເວັ້ນວັກໃນການກຳນົດໄລຍະຫ່າງຂອງລາຍການໃນກະດານຂ່າວ"
+"Use a spacer to create empty vertical space between other dashboard items."
+msgstr ""
 
 msgid "Text item"
 msgstr "ລາຍການທີ່ເປັນໜັງສື"
@@ -115,25 +89,25 @@ msgid "Search for items to add to this dashboard"
 msgstr "ຄົ້ນຫາລາຍການແລະບັນທຶກລົງກະດານຂ່າວ"
 
 msgid "See"
-msgstr "ເຫັນ"
+msgstr ""
 
 msgid "fewer"
-msgstr "ໜ້ອຍລົງ"
+msgstr ""
 
 msgid "more"
-msgstr "ຫຼາຍຂື້ນ"
+msgstr ""
 
-msgid "No dashboards found"
-msgstr "ບໍ່ພົບກະດານຂ່າວ"
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
 
 msgid "Add title here"
-msgstr "ເພີ້ມໜ້ອຍໜື່ງບ່ອນນີ້"
+msgstr ""
 
 msgid "Add description here"
-msgstr "ເພີ້ມອະທິບາຍ"
+msgstr ""
 
 msgid "No description"
-msgstr "ບໍ່ມີຄຳອະທິບາຍ"
+msgstr "ບໍ່ມີລາຍລະອຽດ"
 
 msgid "Pivot tables"
 msgstr "ຕາຕະລາງຂໍ້ມູນ"
@@ -154,19 +128,19 @@ msgid "Event reports"
 msgstr "ບົດລາຍງານເຫດການຕ່າງໆ"
 
 msgid "Event Reports"
-msgstr "ບົດລາຍງານເຫດການຕ່າງໆ"
+msgstr "​ບົດ​ລາຍ​ງານ​ເຫດ​ການ​ຕ່າງໆ"
 
 msgid "Event charts"
 msgstr "ບົດລາຍງານເຫດການແບບແຜ່ນວາດ"
 
 msgid "Event Visualizer"
-msgstr "ບົດລາຍງານເຫດການແບບຮູບພາຍ"
+msgstr "​ສະ​ພາບ​ກ່ຽວ​ກັບ​ການ​ສະ​ແດງ​ຮູບ​ພາບ"
 
 msgid "Reports"
-msgstr "ລາຍງານ"
+msgstr "ລາຍ​ງານ​"
 
 msgid "Resources"
 msgstr "ແຫຼ່ງ"
 
 msgid "Users"
-msgstr "ຜູ້ໃຊ້"
+msgstr "Users"
