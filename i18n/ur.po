@@ -1,24 +1,37 @@
+# Translators:
+# phil_dhis2, 2019
+# Viktor Varland <viktor@dhis2.org>, 2019
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-03-06T17:24:20.929Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-06-19T14:04:31.567Z\n"
-"PO-Revision-Date: 2018-06-19T14:04:31.567Z\n"
-
-msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr "کیا آپ واقعی ڈیشبورڈ ایپ \"{{ dashboardName }}\" کو حذف کرنا چاہتے ہیں؟"
+"Language: ur\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Delete"
 msgstr "حذف"
 
 msgid "Continue editing"
-msgstr "ترمیم جاری رکھیں"
+msgstr ""
 
 msgid "Confirm delete dashboard"
-msgstr "ڈیشبورڈ حذف کریں"
+msgstr ""
+
+msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
+msgstr ""
+
+msgid "Exit without saving"
+msgstr "محفوظ کیے بغیر واپسی"
+
+msgid "Go to dashboards"
+msgstr "دیشبورڈ پر جاؤ"
 
 msgid "Save changes"
 msgstr "تبدیلیاں محفوظ کریں"
@@ -30,66 +43,35 @@ msgid "Search for a dashboard"
 msgstr "ڈیشبورڈ ڈھونڈو"
 
 msgid "Show less"
-msgstr "کم دیکھاؤ"
+msgstr "کم دکھائیں"
 
 msgid "Show more"
-msgstr "زیادہ دیکھاؤ"
+msgstr "اور دیکھاو"
 
-msgid "Home"
-msgstr "سرورق"
+msgid "No access"
+msgstr "داخلہ ممنوع ہے"
 
-msgid "Manage dashboards"
-msgstr "ڈیشبورڈز میجمنٹ"
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
 
-msgid "Loading dashboards"
-msgstr "ڈیشبورڈز لوڈ ہو رہے ہیں"
-
-msgid "Starred"
-msgstr "ستارہ شدہ"
-
-msgid "Name"
-msgstr "نام"
-
-msgid "Items"
-msgstr "آیٹمز"
-
-msgid "Owner"
-msgstr "مالک"
-
-msgid "Created"
-msgstr "تخلیق"
-
-msgid "Modified"
-msgstr "تغیر"
-
-msgid "All"
-msgstr "تمام"
+msgid "Requested dashboard not found"
+msgstr ""
 
 msgid "Messages"
 msgstr "پیغامات"
 
-msgid "You like this"
-msgstr "آپ کو پسند"
+msgid "See all messages"
+msgstr ""
 
-msgid "Like"
-msgstr "پسند"
-
-msgid "Reply"
-msgstr "جوابدہ"
-
-msgid "Add your reply"
-msgstr "آپ کو جواب"
-
-msgid "Add your interpretation"
-msgstr "آپ کی تشریح"
+msgid "Unable to load the plugin for this item"
+msgstr ""
 
 msgid "Spacer"
 msgstr "سپیسر"
 
-msgid "Use a spacer to create empty vertical space between other dashboard items"
+msgid ""
+"Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
-"دیگر ڈیش بورڈ اشیاء کے درمیان خالی عمودی جگہ بنانے کے لئے سپیسر کا استعمال "
-"کریں"
 
 msgid "Text item"
 msgstr "ٹیکسٹ آیٹم"
@@ -100,29 +82,35 @@ msgstr "یہاں ٹیکسٹ لکھیے"
 msgid "There are no items on this dashboard"
 msgstr "ڈیشبورڈ پر کوءی آیٹم موجود نہیں"
 
+msgid "Search for items to add to this dashboard"
+msgstr "اس ڈیش بورڈ میں شامل کرنے کے لئے اشیاء تلاش کریں"
+
 msgid "See"
-msgstr "دیکھو"
+msgstr ""
 
 msgid "fewer"
-msgstr "کم"
+msgstr ""
 
 msgid "more"
-msgstr "زیادہ"
+msgstr ""
+
+msgid "Text box"
+msgstr ""
 
 msgid "Add title here"
-msgstr "یہاں ٹاءٹل لکھو"
+msgstr ""
 
 msgid "Add description here"
-msgstr "یہاں تفصیل لکھو"
+msgstr ""
 
 msgid "No description"
 msgstr "کوئی وضاحت نہیں"
 
 msgid "Pivot tables"
-msgstr "پیوٹ میزیں"
+msgstr "پیوٹ ٹیبلز"
 
 msgid "Pivot Tables"
-msgstr "پیوٹ میزیں"
+msgstr "محور میزیں"
 
 msgid "Charts"
 msgstr "چارٹس"
@@ -131,19 +119,19 @@ msgid "Visualizer"
 msgstr "وزیولاءزر"
 
 msgid "Maps"
-msgstr "نقشے"
+msgstr "نقسے"
 
 msgid "Event reports"
 msgstr "ایونٹ رپورٹیں"
 
 msgid "Event Reports"
-msgstr "ایونٹ رپورٹیں"
+msgstr "ایونٹ ریپورٹ"
 
 msgid "Event charts"
 msgstr "ایونٹ چارٹس"
 
 msgid "Event Visualizer"
-msgstr "ایونٹ وزیولاءزر"
+msgstr "ایونٹ ویزوئلائزر"
 
 msgid "Reports"
 msgstr "رپورٹس"
@@ -152,16 +140,4 @@ msgid "Resources"
 msgstr "ریسورسس"
 
 msgid "Users"
-msgstr "صارفين"
-
-msgid "Search for items to add to this dashboard"
-msgstr "اس ڈیش بورڈ میں شامل کرنے کے لئے اشیاء تلاش کریں"
-
-msgid "Unread"
-msgstr "غیر پڑھے ہوئے"
-
-msgid "Exit without saving"
-msgstr "محفوظ کیے بغیر واپسی"
-
-msgid "Go to dashboards"
-msgstr "دیشبورڈ پر جاؤ"
+msgstr "صارف"
