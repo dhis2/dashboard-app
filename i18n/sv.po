@@ -1,39 +1,44 @@
+# Translators:
+# phil_dhis2, 2019
+# Jason Pickering <jason@dhis2.org>, 2019
+# Viktor Varland <viktor@dhis2.org>, 2019
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-20 09:24+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: sv\n"
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"Language-Team: Swedish (https://www.transifex.com/hisp-uio/teams/100509/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 2.2.5\n"
-"X-Pootle-Path: /sv/dashboards-app/sv.po\n"
-"X-Pootle-Revision: 29460\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Delete"
-msgstr "Ta bort"
+msgstr "Radera"
 
 msgid "Continue editing"
-msgstr "Fortsätt redigera"
+msgstr ""
 
 msgid "Confirm delete dashboard"
-msgstr "Bekräfta att radera dashboard"
+msgstr ""
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr "Är du säker på att du vill radera dashboard \"{{ dashboardName }}\"?"
+msgstr ""
+
+msgid "Exit without saving"
+msgstr "Avsluta utan att spara"
+
+msgid "Go to dashboards"
+msgstr ""
 
 msgid "Save changes"
 msgstr "Spara ändringar"
 
 msgid "Translate"
-msgstr "Översätt"
-
-msgid "Exit without saving"
-msgstr "Avsluta utan att spara"
+msgstr "Översätta"
 
 msgid "Search for a dashboard"
 msgstr "Sök efter en dashboard"
@@ -44,64 +49,69 @@ msgstr "Visa mindre"
 msgid "Show more"
 msgstr "Visa mer"
 
-msgid "Home"
-msgstr "Hem"
+msgid "No access"
+msgstr ""
 
-msgid "Manage dashboards"
-msgstr "Hantera dashboards"
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
 
-msgid "Loading dashboards"
-msgstr "Ladda dashboards"
-
-msgid "Starred"
-msgstr "Stjärnmärkt"
-
-msgid "Name"
-msgstr "Namn"
-
-msgid "Items"
-msgstr "Föremål"
-
-msgid "Owner"
-msgstr "Ägare"
-
-msgid "Created"
-msgstr "Skapad"
-
-msgid "Modified"
-msgstr "Ändrad"
-
-msgid "All"
-msgstr "Alla"
-
-msgid "Unread"
-msgstr "Olästa"
+msgid "Requested dashboard not found"
+msgstr ""
 
 msgid "Messages"
-msgstr "Meddelanden"
+msgstr "meddelanden"
+
+msgid "See all messages"
+msgstr ""
+
+msgid "Edit your interpretation"
+msgstr ""
+
+msgid "Update"
+msgstr "Uppdatering"
+
+msgid "Cancel edit"
+msgstr ""
+
+msgid "Edit"
+msgstr "Redigera"
+
+msgid "like"
+msgstr ""
+
+msgid "likes"
+msgstr ""
 
 msgid "You like this"
-msgstr "Du gilla detta"
+msgstr ""
 
 msgid "Like"
-msgstr "Gilla"
+msgstr ""
+
+msgid "View in Visualizer"
+msgstr ""
 
 msgid "Reply"
-msgstr "Svara"
+msgstr "Svar"
 
 msgid "Add your reply"
-msgstr "Lägg till ditt svar"
+msgstr ""
+
+msgid "Interpretations"
+msgstr "tolkningar"
 
 msgid "Add your interpretation"
-msgstr "Lägg till din tolkning"
+msgstr ""
+
+msgid "Unable to load the plugin for this item"
+msgstr ""
 
 msgid "Spacer"
 msgstr "Utrymme"
 
 msgid ""
-"Use a spacer to create empty vertical space between other dashboard items"
+"Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
-"Använd en spacer för att skapa tomt vertikalt utrymme mellan andra dashboards"
 
 msgid "Text item"
 msgstr "Textobjekt"
@@ -116,34 +126,34 @@ msgid "Search for items to add to this dashboard"
 msgstr "Sök föremål att lägga till denna dashboard"
 
 msgid "See"
-msgstr "Se"
+msgstr ""
 
 msgid "fewer"
-msgstr "färre"
+msgstr ""
 
 msgid "more"
-msgstr "mera"
+msgstr ""
 
-msgid "No dashboards found"
-msgstr "Ingen dashboards hittade"
+msgid "Text box"
+msgstr ""
 
 msgid "Add title here"
-msgstr "Lägg till titel här"
+msgstr ""
 
 msgid "Add description here"
-msgstr "Lägg till en beskrivning här"
+msgstr ""
 
 msgid "No description"
 msgstr "Ingen beskrivning"
 
 msgid "Pivot tables"
-msgstr "Pivottabeller"
+msgstr "pivottabeller"
 
 msgid "Pivot Tables"
 msgstr "Pivottabeller"
 
 msgid "Charts"
-msgstr "Diagram"
+msgstr "diagram"
 
 msgid "Visualizer"
 msgstr "Visualisering"
@@ -155,19 +165,19 @@ msgid "Event reports"
 msgstr "Händelsesrapporter"
 
 msgid "Event Reports"
-msgstr "Händelsesrapporter"
+msgstr "händelserapporter"
 
 msgid "Event charts"
 msgstr "Händelsesgrafiker"
 
 msgid "Event Visualizer"
-msgstr "Händelsesevisualisering"
+msgstr "händelse Visualizer"
 
 msgid "Reports"
-msgstr "Rapporter"
+msgstr "rapporter"
 
 msgid "Resources"
 msgstr "Resurser"
 
 msgid "Users"
-msgstr "Användare"
+msgstr "användare"
