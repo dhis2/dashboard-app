@@ -5,7 +5,7 @@
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/d2-i18n": "^1.0.4",
+        "@dhis2/d2-i18n": "^1.0.6",
         "@dhis2/d2-ui-analytics": "^1.0.2",
         "@dhis2/d2-ui-core": "^6.0.1",
         "@dhis2/d2-ui-interpretations": "^6.0.1",
@@ -89,7 +89,7 @@
     ],
     "devDependencies": {
         "@dhis2/d2-i18n-extract": "^1.0.7",
-        "@dhis2/d2-i18n-generate": "^1.1.0",
+        "@dhis2/d2-i18n-generate": "^1.1.1",
         "d2-manifest": "^1.0.0",
         "enzyme": "^3.9.0",
         "enzyme-adapter-react-16": "^1.10.0",
