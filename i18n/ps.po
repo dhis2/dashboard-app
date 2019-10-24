@@ -1,0 +1,146 @@
+# Translators:
+# phil_dhis2, 2019
+# Viktor Varland <viktor@dhis2.org>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2018-04-03T09:53:39.293Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"Language-Team: Pushto (https://www.transifex.com/hisp-uio/teams/100509/ps/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ps\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Delete"
+msgstr "خذف یې کړئ"
+
+msgid "Continue editing"
+msgstr ""
+
+msgid "Confirm delete dashboard"
+msgstr ""
+
+msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
+msgstr ""
+
+msgid "Save changes"
+msgstr ""
+
+msgid "Translate"
+msgstr "ژباړه"
+
+msgid "Exit without saving"
+msgstr ""
+
+msgid "Search for a dashboard"
+msgstr ""
+
+msgid "Show less"
+msgstr "لږ ښکاره کړئ"
+
+msgid "Show more"
+msgstr "ډېر ښکاره کړئ"
+
+msgid "All"
+msgstr "ټول"
+
+msgid "Unread"
+msgstr ""
+
+msgid "Messages"
+msgstr "پېغامونه"
+
+msgid "You like this"
+msgstr ""
+
+msgid "Like"
+msgstr "د خوښې وړ."
+
+msgid "Reply"
+msgstr "ځواب ورکړئ"
+
+msgid "Add your reply"
+msgstr ""
+
+msgid "Add your interpretation"
+msgstr ""
+
+msgid "Spacer"
+msgstr ""
+
+msgid ""
+"Use a spacer to create empty vertical space between other dashboard items."
+msgstr ""
+
+msgid "Text item"
+msgstr ""
+
+msgid "Add text here"
+msgstr ""
+
+msgid "There are no items on this dashboard"
+msgstr ""
+
+msgid "Search for items to add to this dashboard"
+msgstr ""
+
+msgid "See"
+msgstr ""
+
+msgid "fewer"
+msgstr ""
+
+msgid "more"
+msgstr ""
+
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+
+msgid "Add title here"
+msgstr ""
+
+msgid "Add description here"
+msgstr ""
+
+msgid "No description"
+msgstr "هېڅ ډول تشریح نه لري"
+
+msgid "Pivot tables"
+msgstr "محوري جدولونه"
+
+msgid "Pivot Tables"
+msgstr "محوري جدول"
+
+msgid "Charts"
+msgstr "چارټونه"
+
+msgid "Visualizer"
+msgstr ""
+
+msgid "Maps"
+msgstr "نخشې"
+
+msgid "Event reports"
+msgstr ""
+
+msgid "Event Reports"
+msgstr "د پېښې اړوند راپورونه"
+
+msgid "Event charts"
+msgstr ""
+
+msgid "Event Visualizer"
+msgstr "د پېښې انځوروونکی"
+
+msgid "Reports"
+msgstr "راپورونه"
+
+msgid "Resources"
+msgstr ""
+
+msgid "Users"
+msgstr "کاروونکي [ کاروونکي ]"
