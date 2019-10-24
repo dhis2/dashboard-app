@@ -1,30 +1,43 @@
+# Translators:
+# phil_dhis2, 2019
+# Viktor Varland <viktor@dhis2.org>, 2019
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-21 14:37+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: vi\n"
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-06-04T08:23:22.661Z\n"
+"PO-Revision-Date: 2019-09-01 20:37+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 2.2.5\n"
-"X-Pootle-Path: /vi/dashboards-app/vi.po\n"
-"X-Pootle-Revision: 37053\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Dashboard"
+msgstr "Bảng điều khiển"
+
+msgid "Cancel"
+msgstr "Hủy"
 
 msgid "Delete"
-msgstr "Xoá"
+msgstr "Xóa"
 
-msgid "Continue editing"
-msgstr "Tiếp tục sửa"
+msgid "Delete dashboard"
+msgstr ""
 
-msgid "Confirm delete dashboard"
-msgstr "Xác nhận xóa bảng điều khiển"
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
 
-msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr "Bạn có chắc muốn xóa bảng điều khiển \"{{ dashboardName }}\" không?"
+msgid "Exit without saving"
+msgstr "Đóng và không lưu"
+
+msgid "Go to dashboards"
+msgstr ""
 
 msgid "Save changes"
 msgstr "Lưu các thay đổi"
@@ -32,76 +45,43 @@ msgstr "Lưu các thay đổi"
 msgid "Translate"
 msgstr "Dịch"
 
-msgid "Exit without saving"
-msgstr "Đóng và không lưu"
-
 msgid "Search for a dashboard"
 msgstr "Tìm kiếm bảng điều khiển"
-
-msgid "Show less"
-msgstr "Ẩn bớt"
 
 msgid "Show more"
 msgstr "Hiện thêm"
 
-msgid "Home"
-msgstr "Trang chủ"
+msgid "Show less"
+msgstr "Ẩn bớt"
 
-msgid "Manage dashboards"
-msgstr "Quản lý Bảng Điều Khiển"
+msgid "No access"
+msgstr ""
 
-msgid "Loading dashboards"
-msgstr "Đang tải Bảng Điều Khiển"
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
 
-msgid "Starred"
-msgstr "Đã đánh dấu"
+msgid "Requested dashboard not found"
+msgstr ""
 
-msgid "Name"
-msgstr "Tên"
+msgid "{{count}} selected"
+msgid_plural "{{count}} selected"
+msgstr[0] ""
 
-msgid "Items"
-msgstr "Mục"
-
-msgid "Owner"
-msgstr "Người sở hữu"
-
-msgid "Created"
-msgstr "Đã tạo"
-
-msgid "Modified"
-msgstr "Được sửa đổi"
-
-msgid "All"
-msgstr "Tất cả"
-
-msgid "Unread"
-msgstr "Chưa đọc"
+msgid "Remove"
+msgstr "Tháo ra"
 
 msgid "Messages"
-msgstr "Hộp thư"
+msgstr "Tin nhắn"
 
-msgid "You like this"
-msgstr "Bạn thích điều này"
-
-msgid "Like"
-msgstr "Thích"
-
-msgid "Reply"
-msgstr "Trả lời"
-
-msgid "Add your reply"
-msgstr "Thêm trả lời của bạn"
-
-msgid "Add your interpretation"
-msgstr "Thêm diễn giải của bạn"
+msgid "See all messages"
+msgstr ""
 
 msgid "Spacer"
 msgstr "Dấu cách"
 
 msgid ""
-"Use a spacer to create empty vertical space between other dashboard items"
+"Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
-"Sử dụng dấu cách để tạo khoảng cách dọc giữa các mục trong bảng điều khiển"
 
 msgid "Text item"
 msgstr "Mục văn bản"
@@ -109,62 +89,83 @@ msgstr "Mục văn bản"
 msgid "Add text here"
 msgstr "Thêm văn bản tại đây"
 
+msgid "Unable to load the plugin for this item"
+msgstr ""
+
+msgid "No data to display"
+msgstr ""
+
+msgid "Confirm"
+msgstr "Xác nhận"
+
+msgid "Add filter"
+msgstr ""
+
 msgid "There are no items on this dashboard"
 msgstr "Không có mục nào trong bảng điều khiển này"
+
+msgid "Show fewer"
+msgstr ""
+
+msgid "Insert"
+msgstr "Chèn vào"
 
 msgid "Search for items to add to this dashboard"
 msgstr "Tìm mục để thêm vào bảng điều khiển này"
 
-msgid "See"
-msgstr "Xem"
+msgid "Additional items"
+msgstr ""
 
-msgid "fewer"
-msgstr "giảm bớt"
+msgid "Text box"
+msgstr ""
 
-msgid "more"
-msgstr "thêm"
+msgid "Dashboard title"
+msgstr ""
 
-msgid "No dashboards found"
-msgstr "Không tìm thấy bảng điều khiển"
-
-msgid "Add title here"
-msgstr "Thêm tiêu đề tại đây"
-
-msgid "Add description here"
-msgstr "Thêm mô tả tại đây"
+msgid "Dashboard description"
+msgstr ""
 
 msgid "No description"
-msgstr "Không có mô tả"
+msgstr "Không mô tả"
+
+msgid "Edit"
+msgstr "Chỉnh sửa"
+
+msgid "Share"
+msgstr "Chia sẻ"
 
 msgid "Pivot tables"
-msgstr "Bảng Xoay"
+msgstr "Bảng xoay"
 
 msgid "Pivot Tables"
-msgstr "Bảng Xoay"
+msgstr "Bảng xoay"
 
 msgid "Charts"
-msgstr "Biểu Đồ"
+msgstr "Biểu đồ"
 
 msgid "Visualizer"
 msgstr "Biểu Đồ"
 
 msgid "Maps"
-msgstr "Bản Đồ"
+msgstr "Bản đồ"
 
 msgid "Event reports"
 msgstr "Báo Cáo Sự Kiện"
 
 msgid "Event Reports"
-msgstr "Báo Cáo Sự Kiện"
+msgstr "Báo cáo sự kiện"
 
 msgid "Event charts"
 msgstr "Biểu Đồ Sự Kiện"
 
 msgid "Event Visualizer"
-msgstr "Biểu Đồ Sự Kiện"
+msgstr "Biểu đồ sự kiện"
+
+msgid "Apps"
+msgstr "Ứng dụng"
 
 msgid "Reports"
-msgstr "Báo Cáo"
+msgstr "Báo cáo tổng hợp"
 
 msgid "Resources"
 msgstr "Tài Nguyên"
