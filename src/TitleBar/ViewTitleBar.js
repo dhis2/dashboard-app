@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import i18n from 'd2-i18n';
+import i18n from '@dhis2/d2-i18n';
 import SharingDialog from 'd2-ui-sharing';
 import SvgIcon from 'd2-ui/lib/svg-icon/SvgIcon';
 
