@@ -1069,6 +1069,15 @@
     i18next-conv "^6.0.0"
     i18next-scanner "^2.4.4"
 
+"@dhis2/d2-i18n-extract@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n-extract/-/d2-i18n-extract-1.0.8.tgz#9d98690d522a51895c8ef3fe7136f026b0f8dacd"
+  integrity sha512-wjQ5J0v8Td12+KcQYSuuZ1tQLReXJ1gBSqkyImf2aNtLwJKERaTOjZ71da+GXdHtd6ph/DP1ezQvFDFKhBHa/A==
+  dependencies:
+    argparse "^1.0.10"
+    i18next-conv "^6.0.0"
+    i18next-scanner "^2.4.4"
+
 "@dhis2/d2-i18n-generate@^1.0.18", "@dhis2/d2-i18n-generate@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n-generate/-/d2-i18n-generate-1.1.1.tgz#e800fa39e85a71c23040b6378de1c9439f69fef7"
