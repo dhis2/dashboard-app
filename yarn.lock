@@ -2288,10 +2288,6 @@ currently-unhandled@^0.4.1:
   dependencies:
     array-find-index "^1.0.1"
 
-d2-i18n@^1.x:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/d2-i18n/-/d2-i18n-1.0.2.tgz#011197c2ab2d789f6b76c621fe8665ba52f91d00"
-
 d2-manifest@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/d2-manifest/-/d2-manifest-1.0.0.tgz#19d4a4c4e8151442ab730e932c9c2170be9ebcc9"
