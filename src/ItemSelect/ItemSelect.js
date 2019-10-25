@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import i18n from 'd2-i18n';
+import i18n from '@dhis2/d2-i18n';
 import Popover from 'material-ui/Popover';
 import TextField from 'material-ui/TextField';
 
