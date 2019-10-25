@@ -127,6 +127,15 @@
     i18next-conv "^6.0.0"
     i18next-scanner "^2.4.4"
 
+"@dhis2/d2-i18n-extract@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n-extract/-/d2-i18n-extract-1.0.8.tgz#9d98690d522a51895c8ef3fe7136f026b0f8dacd"
+  integrity sha512-wjQ5J0v8Td12+KcQYSuuZ1tQLReXJ1gBSqkyImf2aNtLwJKERaTOjZ71da+GXdHtd6ph/DP1ezQvFDFKhBHa/A==
+  dependencies:
+    argparse "^1.0.10"
+    i18next-conv "^6.0.0"
+    i18next-scanner "^2.4.4"
+
 "@dhis2/d2-i18n-generate@^1.0.18":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n-generate/-/d2-i18n-generate-1.1.0.tgz#d31ef228d0ffc234e5f38a48db817fa3f1769153"
@@ -2703,28 +2712,6 @@ currently-unhandled@^0.4.1:
   resolved "https://registry.yarnpkg.com/currently-unhandled/-/currently-unhandled-0.4.1.tgz#988df33feab191ef799a61369dd76c17adf957ea"
   dependencies:
     array-find-index "^1.0.1"
-
-d2-i18n-extract@^1.x:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/d2-i18n-extract/-/d2-i18n-extract-1.0.4.tgz#883f54746840f25a9d99e6cd7213ccdb9fa0983b"
-  dependencies:
-    argparse "^1.0.10"
-    i18next-conv "^6.0.0"
-    i18next-scanner "^2.4.4"
-
-d2-i18n-generate@1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/d2-i18n-generate/-/d2-i18n-generate-1.0.6.tgz#75d17b266c01071aed92115cc3d516813bf21171"
-  integrity sha512-sOVhbjA6zy1uXabN7sLtg0w2js2c/BSDDBAznMZ9tuj25Ei/plOSkKSHB0UyGmyRpFsauyuu5JIwB4+3UWTM0w==
-  dependencies:
-    argparse "^1.0.10"
-    handlebars "^4.0.11"
-    i18next-conv "^6.0.0"
-    rimraf "^2.6.2"
-
-d2-i18n@^1.x:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/d2-i18n/-/d2-i18n-1.0.2.tgz#011197c2ab2d789f6b76c621fe8665ba52f91d00"
 
 d2-manifest@^1.0.0:
   version "1.0.0"
