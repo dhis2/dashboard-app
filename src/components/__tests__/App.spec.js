@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { App } from '../App';
 import SnackbarMessage from '../SnackbarMessage/SnackbarMessage';
 
-jest.mock('@dhis2/ui/widgets/HeaderBar', () => () => (
+jest.mock('@dhis2/ui-widgets', () => () => (
     <div id="mockHeaderBar">mockHeaderBar</div>
 ));
 

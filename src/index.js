@@ -6,9 +6,8 @@ import { init as d2Init, config, getManifest, getUserSettings } from 'd2';
 import dhis2theme from '@dhis2/d2-ui-core/theme/mui3.theme';
 import { colors } from '@dhis2/ui-core';
 
-// temporary workaround until new ui headerbar is ready
-import 'material-design-icons/iconfont/material-icons.css';
-import './reset.css';
+import { Provider as RuntimeProvider } from '@dhis2/app-runtime';
+import { CssReset } from '@dhis2/ui-core';
 
 import App from './components/App';
 import './index.css';
@@ -78,11 +77,17 @@ const init = async () => {
         .then(() => d2Init(config))
         .then(initializedD2 => {
             ReactDOM.render(
-                <Provider store={configureStore()}>
-                    <MuiThemeProvider theme={muiTheme()}>
-                        <App baseUrl={baseUrl} d2={initializedD2} />
-                    </MuiThemeProvider>
-                </Provider>,
+                <RuntimeProvider config={{
+                    baseUrl: baseUrl,
+                    apiVersion: manifest.dhis2.apiVersion,
+                }}>
+                    <CssReset />
+                    <Provider store={configureStore()}>
+                        <MuiThemeProvider theme={muiTheme()}>
+                            <App baseUrl={baseUrl} d2={initializedD2} />
+                        </MuiThemeProvider>
+                    </Provider>
+                </RuntimeProvider>,
                 document.getElementById('root')
             );
         });
