@@ -136,7 +136,7 @@ ShallowWrapper {
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "function",
+                "nodeType": "class",
                 "props": Object {
                   "children": "Go to dashboards",
                   "onClick": [Function],
@@ -281,7 +281,7 @@ ShallowWrapper {
                 "rendered": Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "function",
+                  "nodeType": "class",
                   "props": Object {
                     "children": "Go to dashboards",
                     "onClick": [Function],
@@ -484,7 +484,7 @@ ShallowWrapper {
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "function",
+                "nodeType": "class",
                 "props": Object {
                   "children": "Go to dashboards",
                   "onClick": [Function],
@@ -629,7 +629,7 @@ ShallowWrapper {
                 "rendered": Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "function",
+                  "nodeType": "class",
                   "props": Object {
                     "children": "Go to dashboards",
                     "onClick": [Function],
@@ -1001,7 +1001,7 @@ ShallowWrapper {
                   "rendered": Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "class",
                     "props": Object {
                       "children": "Save changes",
                       "onClick": [Function],
@@ -1033,7 +1033,7 @@ ShallowWrapper {
                   "rendered": Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "class",
                     "props": Object {
                       "children": "Translate",
                       "onClick": [Function],
@@ -1067,7 +1067,7 @@ ShallowWrapper {
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "function",
+                "nodeType": "class",
                 "props": Object {
                   "children": "Exit without saving",
                   "onClick": [Function],
@@ -1410,7 +1410,7 @@ ShallowWrapper {
                     "rendered": Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "function",
+                      "nodeType": "class",
                       "props": Object {
                         "children": "Save changes",
                         "onClick": [Function],
@@ -1442,7 +1442,7 @@ ShallowWrapper {
                     "rendered": Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "function",
+                      "nodeType": "class",
                       "props": Object {
                         "children": "Translate",
                         "onClick": [Function],
@@ -1476,7 +1476,7 @@ ShallowWrapper {
                 "rendered": Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "function",
+                  "nodeType": "class",
                   "props": Object {
                     "children": "Exit without saving",
                     "onClick": [Function],
@@ -1878,7 +1878,7 @@ ShallowWrapper {
                   "rendered": Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "class",
                     "props": Object {
                       "children": "Save changes",
                       "onClick": [Function],
@@ -1910,7 +1910,7 @@ ShallowWrapper {
                   "rendered": Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "class",
                     "props": Object {
                       "children": "Translate",
                       "onClick": [Function],
@@ -1944,7 +1944,7 @@ ShallowWrapper {
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "function",
+                "nodeType": "class",
                 "props": Object {
                   "children": "Exit without saving",
                   "onClick": [Function],
@@ -2287,7 +2287,7 @@ ShallowWrapper {
                     "rendered": Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "function",
+                      "nodeType": "class",
                       "props": Object {
                         "children": "Save changes",
                         "onClick": [Function],
@@ -2319,7 +2319,7 @@ ShallowWrapper {
                     "rendered": Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "function",
+                      "nodeType": "class",
                       "props": Object {
                         "children": "Translate",
                         "onClick": [Function],
@@ -2353,7 +2353,7 @@ ShallowWrapper {
                 "rendered": Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "function",
+                  "nodeType": "class",
                   "props": Object {
                     "children": "Exit without saving",
                     "onClick": [Function],
@@ -2755,7 +2755,7 @@ ShallowWrapper {
                   "rendered": Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "class",
                     "props": Object {
                       "children": "Save changes",
                       "onClick": [Function],
@@ -2787,7 +2787,7 @@ ShallowWrapper {
                   "rendered": Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "class",
                     "props": Object {
                       "children": "Translate",
                       "onClick": [Function],
@@ -2821,7 +2821,7 @@ ShallowWrapper {
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "function",
+                "nodeType": "class",
                 "props": Object {
                   "children": "Exit without saving",
                   "onClick": [Function],
@@ -3164,7 +3164,7 @@ ShallowWrapper {
                     "rendered": Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "function",
+                      "nodeType": "class",
                       "props": Object {
                         "children": "Save changes",
                         "onClick": [Function],
@@ -3196,7 +3196,7 @@ ShallowWrapper {
                     "rendered": Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "function",
+                      "nodeType": "class",
                       "props": Object {
                         "children": "Translate",
                         "onClick": [Function],
@@ -3230,7 +3230,7 @@ ShallowWrapper {
                 "rendered": Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "function",
+                  "nodeType": "class",
                   "props": Object {
                     "children": "Exit without saving",
                     "onClick": [Function],
@@ -3633,7 +3633,7 @@ ShallowWrapper {
                   "rendered": Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "class",
                     "props": Object {
                       "children": "Save changes",
                       "onClick": [Function],
@@ -3665,7 +3665,7 @@ ShallowWrapper {
                   "rendered": Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "class",
                     "props": Object {
                       "children": "Translate",
                       "onClick": [Function],
@@ -3680,7 +3680,7 @@ ShallowWrapper {
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "function",
+                  "nodeType": "class",
                   "props": Object {
                     "children": "Delete",
                     "onClick": [Function],
@@ -3711,7 +3711,7 @@ ShallowWrapper {
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "function",
+                "nodeType": "class",
                 "props": Object {
                   "children": "Exit without saving",
                   "onClick": [Function],
@@ -4036,7 +4036,7 @@ ShallowWrapper {
                     "rendered": Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "function",
+                      "nodeType": "class",
                       "props": Object {
                         "children": "Save changes",
                         "onClick": [Function],
@@ -4068,7 +4068,7 @@ ShallowWrapper {
                     "rendered": Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "function",
+                      "nodeType": "class",
                       "props": Object {
                         "children": "Translate",
                         "onClick": [Function],
@@ -4083,7 +4083,7 @@ ShallowWrapper {
                   Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "class",
                     "props": Object {
                       "children": "Delete",
                       "onClick": [Function],
@@ -4114,7 +4114,7 @@ ShallowWrapper {
                 "rendered": Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "function",
+                  "nodeType": "class",
                   "props": Object {
                     "children": "Exit without saving",
                     "onClick": [Function],
@@ -4417,7 +4417,7 @@ ShallowWrapper {
                   "rendered": Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "class",
                     "props": Object {
                       "children": "Save changes",
                       "onClick": [Function],
@@ -4453,7 +4453,7 @@ ShallowWrapper {
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "function",
+                "nodeType": "class",
                 "props": Object {
                   "children": "Exit without saving",
                   "onClick": [Function],
@@ -4683,7 +4683,7 @@ ShallowWrapper {
                     "rendered": Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "function",
+                      "nodeType": "class",
                       "props": Object {
                         "children": "Save changes",
                         "onClick": [Function],
@@ -4719,7 +4719,7 @@ ShallowWrapper {
                 "rendered": Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "function",
+                  "nodeType": "class",
                   "props": Object {
                     "children": "Exit without saving",
                     "onClick": [Function],
