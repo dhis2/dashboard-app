@@ -77,10 +77,12 @@ const init = async () => {
         .then(() => d2Init(config))
         .then(initializedD2 => {
             ReactDOM.render(
-                <RuntimeProvider config={{
-                    baseUrl: baseUrl,
-                    apiVersion: manifest.dhis2.apiVersion,
-                }}>
+                <RuntimeProvider
+                    config={{
+                        baseUrl: baseUrl,
+                        apiVersion: manifest.dhis2.apiVersion,
+                    }}
+                >
                     <CssReset />
                     <Provider store={configureStore()}>
                         <MuiThemeProvider theme={muiTheme()}>
