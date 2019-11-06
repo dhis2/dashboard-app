@@ -141,7 +141,7 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": "cancel",
-            "nodeType": "function",
+            "nodeType": "class",
             "props": Object {
               "children": "Cancel",
               "onClick": [MockFunction],
@@ -155,7 +155,7 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": "delete",
-            "nodeType": "function",
+            "nodeType": "class",
             "props": Object {
               "children": "Delete",
               "destructive": true,
@@ -296,7 +296,7 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": "cancel",
-              "nodeType": "function",
+              "nodeType": "class",
               "props": Object {
                 "children": "Cancel",
                 "onClick": [MockFunction],
@@ -310,7 +310,7 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": "delete",
-              "nodeType": "function",
+              "nodeType": "class",
               "props": Object {
                 "children": "Delete",
                 "destructive": true,
