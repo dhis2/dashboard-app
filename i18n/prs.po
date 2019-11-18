@@ -51,7 +51,7 @@ msgid "Show more"
 msgstr "نمایش دادن بیشتر"
 
 msgid "No access"
-msgstr ""
+msgstr "دسترسی وجود ندارد"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -68,7 +68,7 @@ msgid "Remove"
 msgstr "حذف"
 
 msgid "Messages"
-msgstr ""
+msgstr "پیام ها"
 
 msgid "See all messages"
 msgstr ""
@@ -96,7 +96,7 @@ msgid "Cancel"
 msgstr "انصراف"
 
 msgid "Confirm"
-msgstr ""
+msgstr "تائید"
 
 msgid "Add filter"
 msgstr ""
@@ -141,31 +141,31 @@ msgid "Share"
 msgstr "اشتراک"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "جداول محوری"
 
 msgid "Pivot Tables"
-msgstr ""
+msgstr "محوري جدول"
 
 msgid "Charts"
-msgstr ""
+msgstr "چارت ها"
 
 msgid "Visualizer"
 msgstr ""
 
 msgid "Maps"
-msgstr ""
+msgstr "نقشه ها"
 
 msgid "Event reports"
 msgstr ""
 
 msgid "Event Reports"
-msgstr ""
+msgstr "گزارشات رویداد"
 
 msgid "Event charts"
 msgstr ""
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "نمایش رویداد"
 
 msgid "Reports"
 msgstr "گزارش ها"
@@ -174,4 +174,4 @@ msgid "Resources"
 msgstr ""
 
 msgid "Users"
-msgstr ""
+msgstr "استفاده کننده گان"
