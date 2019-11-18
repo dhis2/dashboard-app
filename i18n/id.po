@@ -70,7 +70,7 @@ msgid "Add your interpretation"
 msgstr ""
 
 msgid "Spacer"
-msgstr "Spacer"
+msgstr ""
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
@@ -122,7 +122,7 @@ msgid "Charts"
 msgstr "Grafik"
 
 msgid "Visualizer"
-msgstr "Visualizer"
+msgstr ""
 
 msgid "Maps"
 msgstr "Peta"
