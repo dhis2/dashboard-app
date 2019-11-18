@@ -168,7 +168,7 @@ msgid "Event Visualizer"
 msgstr "Визуализатор Событий"
 
 msgid "Apps"
-msgstr "Apps"
+msgstr ""
 
 msgid "Reports"
 msgstr "Отчеты"
