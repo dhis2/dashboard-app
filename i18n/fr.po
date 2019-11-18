@@ -76,13 +76,13 @@ msgid "Remove"
 msgstr "Supprimer"
 
 msgid "Messages"
-msgstr "Messages"
+msgstr ""
 
 msgid "See all messages"
 msgstr ""
 
 msgid "Spacer"
-msgstr "Spacer"
+msgstr ""
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
