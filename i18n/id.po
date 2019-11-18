@@ -68,7 +68,7 @@ msgid "Unable to load the plugin for this item"
 msgstr "Tidak dapat memuat plugin untuk item ini"
 
 msgid "Spacer"
-msgstr "Spacer"
+msgstr ""
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
@@ -119,7 +119,7 @@ msgid "Charts"
 msgstr "Grafik"
 
 msgid "Visualizer"
-msgstr "Visualizer"
+msgstr ""
 
 msgid "Maps"
 msgstr "Peta"
