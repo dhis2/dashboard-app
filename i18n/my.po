@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Dashboard"
-msgstr "Dashboard"
+msgstr "အချက်အလက်များလေ့လာဆန်းစစ်ခြင်း"
 
 msgid "Delete"
 msgstr "ဖျက်ဆီးသည်"
@@ -158,13 +158,13 @@ msgid "Event reports"
 msgstr ""
 
 msgid "Event Reports"
-msgstr "Event Reports"
+msgstr ""
 
 msgid "Event charts"
 msgstr ""
 
 msgid "Event Visualizer"
-msgstr "Event Visualizer"
+msgstr ""
 
 msgid "Reports"
 msgstr "အစီရင်ခံစာများ"
