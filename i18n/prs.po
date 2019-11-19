@@ -1,0 +1,145 @@
+# Translators:
+# phil_dhis2, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2018-04-03T09:53:39.293Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
+"Last-Translator: phil_dhis2, 2019\n"
+"Language-Team: Persian (Afghanistan) (https://www.transifex.com/hisp-uio/teams/100509/fa_AF/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fa_AF\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Continue editing"
+msgstr ""
+
+msgid "Confirm delete dashboard"
+msgstr ""
+
+msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
+msgstr ""
+
+msgid "Save changes"
+msgstr ""
+
+msgid "Translate"
+msgstr "ترجمه"
+
+msgid "Exit without saving"
+msgstr ""
+
+msgid "Search for a dashboard"
+msgstr ""
+
+msgid "Show less"
+msgstr "نمایش دادن کم"
+
+msgid "Show more"
+msgstr "نمایش دادن بیشتر"
+
+msgid "All"
+msgstr "همه"
+
+msgid "Unread"
+msgstr ""
+
+msgid "Messages"
+msgstr "پیام ها"
+
+msgid "You like this"
+msgstr ""
+
+msgid "Like"
+msgstr "موافق"
+
+msgid "Reply"
+msgstr "پاسخ"
+
+msgid "Add your reply"
+msgstr ""
+
+msgid "Add your interpretation"
+msgstr ""
+
+msgid "Spacer"
+msgstr ""
+
+msgid ""
+"Use a spacer to create empty vertical space between other dashboard items."
+msgstr ""
+
+msgid "Text item"
+msgstr ""
+
+msgid "Add text here"
+msgstr ""
+
+msgid "There are no items on this dashboard"
+msgstr ""
+
+msgid "Search for items to add to this dashboard"
+msgstr ""
+
+msgid "See"
+msgstr ""
+
+msgid "fewer"
+msgstr ""
+
+msgid "more"
+msgstr ""
+
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+
+msgid "Add title here"
+msgstr ""
+
+msgid "Add description here"
+msgstr ""
+
+msgid "No description"
+msgstr "بدون شرح"
+
+msgid "Pivot tables"
+msgstr "جداول محوری"
+
+msgid "Pivot Tables"
+msgstr "محوري جدول"
+
+msgid "Charts"
+msgstr "چارت ها"
+
+msgid "Visualizer"
+msgstr ""
+
+msgid "Maps"
+msgstr "نقشه ها"
+
+msgid "Event reports"
+msgstr ""
+
+msgid "Event Reports"
+msgstr "گزارشات رویداد"
+
+msgid "Event charts"
+msgstr ""
+
+msgid "Event Visualizer"
+msgstr "نمایش رویداد"
+
+msgid "Reports"
+msgstr "گزارش ها"
+
+msgid "Resources"
+msgstr ""
+
+msgid "Users"
+msgstr "استفاده کننده گان"
