@@ -1,15 +1,15 @@
 # Translators:
 # mrwine <matthieu@pinard.no>, 2019
-# phil_dhis2, 2019
 # a270031086f2a0d3514bc0cb507b48f6, 2019
 # Viktor Varland <viktor@dhis2.org>, 2019
+# phil_dhis2, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,7 +63,7 @@ msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "Messages"
-msgstr "Messages"
+msgstr ""
 
 msgid "See all messages"
 msgstr ""
@@ -90,7 +90,7 @@ msgid "You like this"
 msgstr "Tu aimes ça"
 
 msgid "Like"
-msgstr "Like"
+msgstr "J'aime"
 
 msgid "View in Visualizer"
 msgstr ""
@@ -111,7 +111,7 @@ msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "Spacer"
-msgstr "Spacer"
+msgstr ""
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
