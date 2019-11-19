@@ -63,7 +63,7 @@ msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "Messages"
-msgstr "Messages"
+msgstr ""
 
 msgid "See all messages"
 msgstr ""
@@ -72,7 +72,7 @@ msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "Spacer"
-msgstr "Spacer"
+msgstr ""
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
