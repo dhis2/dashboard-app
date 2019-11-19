@@ -55,7 +55,7 @@ msgid "Show less"
 msgstr "إظهار الأقل"
 
 msgid "No access"
-msgstr "No access"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
