@@ -41,12 +41,9 @@ ShallowWrapper {
         >
           <InputField
             className="title"
-            filled={true}
             label="Dashboard title"
             name="Dashboard title input"
-            onBlur={[Function]}
             onChange={[Function]}
-            onFocus={[Function]}
             type="text"
             value="Rainbow Dash"
           />
@@ -88,12 +85,9 @@ ShallowWrapper {
           "children": Array [
             <InputField
               className="title"
-              filled={true}
               label="Dashboard title"
               name="Dashboard title input"
-              onBlur={[Function]}
               onChange={[Function]}
-              onFocus={[Function]}
               type="text"
               value="Rainbow Dash"
             />,
@@ -127,12 +121,9 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "className": "title",
-              "filled": true,
               "label": "Dashboard title",
               "name": "Dashboard title input",
-              "onBlur": [Function],
               "onChange": [Function],
-              "onFocus": [Function],
               "type": "text",
               "value": "Rainbow Dash",
             },
@@ -203,12 +194,9 @@ ShallowWrapper {
           >
             <InputField
               className="title"
-              filled={true}
               label="Dashboard title"
               name="Dashboard title input"
-              onBlur={[Function]}
               onChange={[Function]}
-              onFocus={[Function]}
               type="text"
               value="Rainbow Dash"
             />
@@ -250,12 +238,9 @@ ShallowWrapper {
             "children": Array [
               <InputField
                 className="title"
-                filled={true}
                 label="Dashboard title"
                 name="Dashboard title input"
-                onBlur={[Function]}
                 onChange={[Function]}
-                onFocus={[Function]}
                 type="text"
                 value="Rainbow Dash"
               />,
@@ -289,12 +274,9 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "className": "title",
-                "filled": true,
                 "label": "Dashboard title",
                 "name": "Dashboard title input",
-                "onBlur": [Function],
                 "onChange": [Function],
-                "onFocus": [Function],
                 "type": "text",
                 "value": "Rainbow Dash",
               },
@@ -421,12 +403,9 @@ ShallowWrapper {
         >
           <InputField
             className="title"
-            filled={true}
             label="Dashboard title"
             name="Dashboard title input"
-            onBlur={[Function]}
             onChange={[Function]}
-            onFocus={[Function]}
             type="text"
             value="Rainbow Dash"
           />
@@ -468,12 +447,9 @@ ShallowWrapper {
           "children": Array [
             <InputField
               className="title"
-              filled={true}
               label="Dashboard title"
               name="Dashboard title input"
-              onBlur={[Function]}
               onChange={[Function]}
-              onFocus={[Function]}
               type="text"
               value="Rainbow Dash"
             />,
@@ -507,12 +483,9 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "className": "title",
-              "filled": true,
               "label": "Dashboard title",
               "name": "Dashboard title input",
-              "onBlur": [Function],
               "onChange": [Function],
-              "onFocus": [Function],
               "type": "text",
               "value": "Rainbow Dash",
             },
@@ -583,12 +556,9 @@ ShallowWrapper {
           >
             <InputField
               className="title"
-              filled={true}
               label="Dashboard title"
               name="Dashboard title input"
-              onBlur={[Function]}
               onChange={[Function]}
-              onFocus={[Function]}
               type="text"
               value="Rainbow Dash"
             />
@@ -630,12 +600,9 @@ ShallowWrapper {
             "children": Array [
               <InputField
                 className="title"
-                filled={true}
                 label="Dashboard title"
                 name="Dashboard title input"
-                onBlur={[Function]}
                 onChange={[Function]}
-                onFocus={[Function]}
                 type="text"
                 value="Rainbow Dash"
               />,
@@ -669,12 +636,9 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "className": "title",
-                "filled": true,
                 "label": "Dashboard title",
                 "name": "Dashboard title input",
-                "onBlur": [Function],
                 "onChange": [Function],
-                "onFocus": [Function],
                 "type": "text",
                 "value": "Rainbow Dash",
               },

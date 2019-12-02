@@ -13,7 +13,6 @@ import './styles/ItemSelector.css';
 
 const ItemSearchField = props => (
     <InputField
-        filled
         name="Dashboard item search"
         label={i18n.t('Search for items to add to this dashboard')}
         type="text"

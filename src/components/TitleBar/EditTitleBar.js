@@ -58,7 +58,7 @@ export const EditTitleBar = ({
     onChangeDescription,
     classes,
 }) => {
-    const updateTitle = e => {
+    const updateTitle = (_, e) => {
         onChangeTitle(e.target.value);
     };
 
@@ -71,7 +71,6 @@ export const EditTitleBar = ({
             <div className={classes.titleDescription}>
                 <InputField
                     className={classes.title}
-                    filled
                     name="Dashboard title input"
                     label={i18n.t('Dashboard title')}
                     type="text"
