@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { init as d2Init, config, getManifest, getUserSettings } from 'd2';
 import dhis2theme from '@dhis2/d2-ui-core/theme/mui3.theme';
-import { colors } from '@dhis2/ui-core';
 
 import { Provider as RuntimeProvider } from '@dhis2/app-runtime';
 import { CssReset } from '@dhis2/ui-core';

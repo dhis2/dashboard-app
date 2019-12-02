@@ -61,7 +61,7 @@ export const EditTitleBar = ({
         onChangeTitle(e.target.value);
     };
 
-    const updateDescription = e => {
+    const updateDescription = (_, e) => {
         onChangeDescription(e.target.value);
     };
 

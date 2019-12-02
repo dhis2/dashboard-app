@@ -39,7 +39,7 @@ class ItemSelector extends React.Component {
         this.setState({ open: false, filter: '' });
     };
 
-    openList = event => {
+    openList = (_, event) => {
         this.fetchItems();
 
         this.setState({
@@ -48,7 +48,7 @@ class ItemSelector extends React.Component {
         });
     };
 
-    setFilter = event => {
+    setFilter = (_, event) => {
         this.setState({ filter: event.target.value }, this.fetchItems);
     };
 
