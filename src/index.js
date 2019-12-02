@@ -14,9 +14,6 @@ import './index.css';
 import i18n from './locales';
 import configureStore from './configureStore';
 
-// small workaround until ui-core textarea is ready
-dhis2theme.palette.primary.dark = colors.teal600;
-
 const muiTheme = () => createMuiTheme(dhis2theme);
 
 const configI18n = userSettings => {

@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import i18n from '@dhis2/d2-i18n';
-import MuiInputField from '@material-ui/core/TextField';
-import { InputField } from '@dhis2/ui-core';
+import { InputField, TextAreaField } from '@dhis2/ui-core';
 
 import ItemSelector from '../ItemSelector/ItemSelector';
 import {
@@ -77,20 +76,12 @@ export const EditTitleBar = ({
                     onChange={updateTitle}
                     value={name}
                 />
-                <MuiInputField
+                <TextAreaField
                     className={classes.description}
                     name="Dashboard description input"
                     label={i18n.t('Dashboard description')}
                     onChange={updateDescription}
                     value={description}
-                    variant="filled"
-                    multiline
-                    InputProps={{
-                        classes: {
-                            root: classes.input,
-                            underline: classes.underline,
-                        },
-                    }}
                 />
             </div>
             <div className={classes.itemSelector}>
