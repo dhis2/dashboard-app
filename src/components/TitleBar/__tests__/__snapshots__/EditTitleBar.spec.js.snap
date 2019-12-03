@@ -41,33 +41,21 @@ ShallowWrapper {
         >
           <InputField
             className="title"
-            filled={true}
             label="Dashboard title"
             name="Dashboard title input"
-            onBlur={[Function]}
             onChange={[Function]}
-            onFocus={[Function]}
             type="text"
             value="Rainbow Dash"
           />
-          <TextField
-            InputProps={
-              Object {
-                "classes": Object {
-                  "root": "input",
-                  "underline": "underline",
-                },
-              }
-            }
+          <TextAreaField
             className="description"
             label="Dashboard description"
-            multiline={true}
             name="Dashboard description input"
             onChange={[Function]}
-            required={false}
-            select={false}
+            resize="vertical"
+            rows={4}
             value="The blue one"
-            variant="filled"
+            width="100%"
           />
         </div>,
         <div
@@ -88,33 +76,21 @@ ShallowWrapper {
           "children": Array [
             <InputField
               className="title"
-              filled={true}
               label="Dashboard title"
               name="Dashboard title input"
-              onBlur={[Function]}
               onChange={[Function]}
-              onFocus={[Function]}
               type="text"
               value="Rainbow Dash"
             />,
-            <TextField
-              InputProps={
-                Object {
-                  "classes": Object {
-                    "root": "input",
-                    "underline": "underline",
-                  },
-                }
-              }
+            <TextAreaField
               className="description"
               label="Dashboard description"
-              multiline={true}
               name="Dashboard description input"
               onChange={[Function]}
-              required={false}
-              select={false}
+              resize="vertical"
+              rows={4}
               value="The blue one"
-              variant="filled"
+              width="100%"
             />,
           ],
           "className": "titledesc",
@@ -127,12 +103,9 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "className": "title",
-              "filled": true,
               "label": "Dashboard title",
               "name": "Dashboard title input",
-              "onBlur": [Function],
               "onChange": [Function],
-              "onFocus": [Function],
               "type": "text",
               "value": "Rainbow Dash",
             },
@@ -143,23 +116,16 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "class",
+            "nodeType": "function",
             "props": Object {
-              "InputProps": Object {
-                "classes": Object {
-                  "root": "input",
-                  "underline": "underline",
-                },
-              },
               "className": "description",
               "label": "Dashboard description",
-              "multiline": true,
               "name": "Dashboard description input",
               "onChange": [Function],
-              "required": false,
-              "select": false,
+              "resize": "vertical",
+              "rows": 4,
               "value": "The blue one",
-              "variant": "filled",
+              "width": "100%",
             },
             "ref": null,
             "rendered": null,
@@ -203,33 +169,21 @@ ShallowWrapper {
           >
             <InputField
               className="title"
-              filled={true}
               label="Dashboard title"
               name="Dashboard title input"
-              onBlur={[Function]}
               onChange={[Function]}
-              onFocus={[Function]}
               type="text"
               value="Rainbow Dash"
             />
-            <TextField
-              InputProps={
-                Object {
-                  "classes": Object {
-                    "root": "input",
-                    "underline": "underline",
-                  },
-                }
-              }
+            <TextAreaField
               className="description"
               label="Dashboard description"
-              multiline={true}
               name="Dashboard description input"
               onChange={[Function]}
-              required={false}
-              select={false}
+              resize="vertical"
+              rows={4}
               value="The blue one"
-              variant="filled"
+              width="100%"
             />
           </div>,
           <div
@@ -250,33 +204,21 @@ ShallowWrapper {
             "children": Array [
               <InputField
                 className="title"
-                filled={true}
                 label="Dashboard title"
                 name="Dashboard title input"
-                onBlur={[Function]}
                 onChange={[Function]}
-                onFocus={[Function]}
                 type="text"
                 value="Rainbow Dash"
               />,
-              <TextField
-                InputProps={
-                  Object {
-                    "classes": Object {
-                      "root": "input",
-                      "underline": "underline",
-                    },
-                  }
-                }
+              <TextAreaField
                 className="description"
                 label="Dashboard description"
-                multiline={true}
                 name="Dashboard description input"
                 onChange={[Function]}
-                required={false}
-                select={false}
+                resize="vertical"
+                rows={4}
                 value="The blue one"
-                variant="filled"
+                width="100%"
               />,
             ],
             "className": "titledesc",
@@ -289,12 +231,9 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "className": "title",
-                "filled": true,
                 "label": "Dashboard title",
                 "name": "Dashboard title input",
-                "onBlur": [Function],
                 "onChange": [Function],
-                "onFocus": [Function],
                 "type": "text",
                 "value": "Rainbow Dash",
               },
@@ -305,23 +244,16 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "class",
+              "nodeType": "function",
               "props": Object {
-                "InputProps": Object {
-                  "classes": Object {
-                    "root": "input",
-                    "underline": "underline",
-                  },
-                },
                 "className": "description",
                 "label": "Dashboard description",
-                "multiline": true,
                 "name": "Dashboard description input",
                 "onChange": [Function],
-                "required": false,
-                "select": false,
+                "resize": "vertical",
+                "rows": 4,
                 "value": "The blue one",
-                "variant": "filled",
+                "width": "100%",
               },
               "ref": null,
               "rendered": null,
@@ -421,33 +353,21 @@ ShallowWrapper {
         >
           <InputField
             className="title"
-            filled={true}
             label="Dashboard title"
             name="Dashboard title input"
-            onBlur={[Function]}
             onChange={[Function]}
-            onFocus={[Function]}
             type="text"
             value="Rainbow Dash"
           />
-          <TextField
-            InputProps={
-              Object {
-                "classes": Object {
-                  "root": "input",
-                  "underline": "underline",
-                },
-              }
-            }
+          <TextAreaField
             className="description"
             label="Dashboard description"
-            multiline={true}
             name="Dashboard description input"
             onChange={[Function]}
-            required={false}
-            select={false}
+            resize="vertical"
+            rows={4}
             value="The blue one"
-            variant="filled"
+            width="100%"
           />
         </div>,
         <div
@@ -468,33 +388,21 @@ ShallowWrapper {
           "children": Array [
             <InputField
               className="title"
-              filled={true}
               label="Dashboard title"
               name="Dashboard title input"
-              onBlur={[Function]}
               onChange={[Function]}
-              onFocus={[Function]}
               type="text"
               value="Rainbow Dash"
             />,
-            <TextField
-              InputProps={
-                Object {
-                  "classes": Object {
-                    "root": "input",
-                    "underline": "underline",
-                  },
-                }
-              }
+            <TextAreaField
               className="description"
               label="Dashboard description"
-              multiline={true}
               name="Dashboard description input"
               onChange={[Function]}
-              required={false}
-              select={false}
+              resize="vertical"
+              rows={4}
               value="The blue one"
-              variant="filled"
+              width="100%"
             />,
           ],
           "className": "titledesc",
@@ -507,12 +415,9 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "className": "title",
-              "filled": true,
               "label": "Dashboard title",
               "name": "Dashboard title input",
-              "onBlur": [Function],
               "onChange": [Function],
-              "onFocus": [Function],
               "type": "text",
               "value": "Rainbow Dash",
             },
@@ -523,23 +428,16 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "class",
+            "nodeType": "function",
             "props": Object {
-              "InputProps": Object {
-                "classes": Object {
-                  "root": "input",
-                  "underline": "underline",
-                },
-              },
               "className": "description",
               "label": "Dashboard description",
-              "multiline": true,
               "name": "Dashboard description input",
               "onChange": [Function],
-              "required": false,
-              "select": false,
+              "resize": "vertical",
+              "rows": 4,
               "value": "The blue one",
-              "variant": "filled",
+              "width": "100%",
             },
             "ref": null,
             "rendered": null,
@@ -583,33 +481,21 @@ ShallowWrapper {
           >
             <InputField
               className="title"
-              filled={true}
               label="Dashboard title"
               name="Dashboard title input"
-              onBlur={[Function]}
               onChange={[Function]}
-              onFocus={[Function]}
               type="text"
               value="Rainbow Dash"
             />
-            <TextField
-              InputProps={
-                Object {
-                  "classes": Object {
-                    "root": "input",
-                    "underline": "underline",
-                  },
-                }
-              }
+            <TextAreaField
               className="description"
               label="Dashboard description"
-              multiline={true}
               name="Dashboard description input"
               onChange={[Function]}
-              required={false}
-              select={false}
+              resize="vertical"
+              rows={4}
               value="The blue one"
-              variant="filled"
+              width="100%"
             />
           </div>,
           <div
@@ -630,33 +516,21 @@ ShallowWrapper {
             "children": Array [
               <InputField
                 className="title"
-                filled={true}
                 label="Dashboard title"
                 name="Dashboard title input"
-                onBlur={[Function]}
                 onChange={[Function]}
-                onFocus={[Function]}
                 type="text"
                 value="Rainbow Dash"
               />,
-              <TextField
-                InputProps={
-                  Object {
-                    "classes": Object {
-                      "root": "input",
-                      "underline": "underline",
-                    },
-                  }
-                }
+              <TextAreaField
                 className="description"
                 label="Dashboard description"
-                multiline={true}
                 name="Dashboard description input"
                 onChange={[Function]}
-                required={false}
-                select={false}
+                resize="vertical"
+                rows={4}
                 value="The blue one"
-                variant="filled"
+                width="100%"
               />,
             ],
             "className": "titledesc",
@@ -669,12 +543,9 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "className": "title",
-                "filled": true,
                 "label": "Dashboard title",
                 "name": "Dashboard title input",
-                "onBlur": [Function],
                 "onChange": [Function],
-                "onFocus": [Function],
                 "type": "text",
                 "value": "Rainbow Dash",
               },
@@ -685,23 +556,16 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "class",
+              "nodeType": "function",
               "props": Object {
-                "InputProps": Object {
-                  "classes": Object {
-                    "root": "input",
-                    "underline": "underline",
-                  },
-                },
                 "className": "description",
                 "label": "Dashboard description",
-                "multiline": true,
                 "name": "Dashboard description input",
                 "onChange": [Function],
-                "required": false,
-                "select": false,
+                "resize": "vertical",
+                "rows": 4,
                 "value": "The blue one",
-                "variant": "filled",
+                "width": "100%",
               },
               "ref": null,
               "rendered": null,

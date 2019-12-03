@@ -34,7 +34,7 @@ class FilterSelector extends Component {
         };
     }
 
-    openPanel = event => {
+    openPanel = (_, event) => {
         this.setState({ anchorEl: event.currentTarget });
     };
 

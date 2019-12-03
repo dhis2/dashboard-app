@@ -13,7 +13,6 @@ import './styles/ItemSelector.css';
 
 const ItemSearchField = props => (
     <InputField
-        filled
         name="Dashboard item search"
         label={i18n.t('Search for items to add to this dashboard')}
         type="text"
@@ -40,7 +39,7 @@ class ItemSelector extends React.Component {
         this.setState({ open: false, filter: '' });
     };
 
-    openList = event => {
+    openList = (_, event) => {
         this.fetchItems();
 
         this.setState({
@@ -49,7 +48,7 @@ class ItemSelector extends React.Component {
         });
     };
 
-    setFilter = event => {
+    setFilter = (_, event) => {
         this.setState({ filter: event.target.value }, this.fetchItems);
     };
 
