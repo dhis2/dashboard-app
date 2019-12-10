@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { colors } from '@dhis2/ui-core';
 import EditTitleBar from './EditTitleBar';
@@ -35,6 +36,10 @@ const TitleBar = ({ edit }) => {
             )}
         </div>
     );
+};
+
+TitleBar.propTypes = {
+    edit: PropTypes.bool,
 };
 
 export default TitleBar;

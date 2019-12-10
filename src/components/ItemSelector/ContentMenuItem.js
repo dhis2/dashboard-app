@@ -1,6 +1,7 @@
 import React from 'react';
 import { MenuItem, colors } from '@dhis2/ui-core';
 import i18n from '@dhis2/d2-i18n';
+import PropTypes from 'prop-types';
 
 import { getItemIcon } from '../../modules/itemTypes';
 import LaunchIcon from '../../icons/Launch';
@@ -18,6 +19,10 @@ const LaunchLink = ({ url }) => (
         <LaunchIcon />
     </a>
 );
+
+LaunchLink.propTypes = {
+    url: PropTypes.string,
+};
 
 const InsertButton = () => (
     <button className={classes.buttonInsert}>{i18n.t('Insert')}</button>
@@ -44,6 +49,13 @@ const ContentMenuItem = ({ type, name, onInsert, url }) => {
             }
         />
     );
+};
+
+ContentMenuItem.propTypes = {
+    name: PropTypes.string,
+    type: PropTypes.string,
+    url: PropTypes.string,
+    onInsert: PropTypes.func,
 };
 
 export default ContentMenuItem;

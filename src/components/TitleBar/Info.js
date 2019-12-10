@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import InfoOutlineIcon from '@material-ui/icons/InfoOutlined';
 import { colors } from '@dhis2/ui-core';
+import PropTypes from 'prop-types';
 
 class Info extends Component {
     show = false;
@@ -18,5 +19,9 @@ class Info extends Component {
         );
     }
 }
+
+Info.propTypes = {
+    onClick: PropTypes.func,
+};
 
 export default Info;

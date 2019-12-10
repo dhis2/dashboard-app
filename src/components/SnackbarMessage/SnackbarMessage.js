@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Snackbar from '@material-ui/core/Snackbar';
+import PropTypes from 'prop-types';
 
 import { sGetSnackbar } from '../../reducers/snackbar';
 import { acCloseSnackbar } from '../../actions/snackbar';
@@ -40,6 +41,13 @@ const mapStateToProps = state => {
         snackbarMessage: message,
         snackbarDuration: duration,
     };
+};
+
+SnackbarMessage.propTypes = {
+    snackbarDuration: PropTypes.string,
+    snackbarMessage: PropTypes.string,
+    snackbarOpen: PropTypes.bool,
+    onCloseSnackbar: PropTypes.func,
 };
 
 export default connect(

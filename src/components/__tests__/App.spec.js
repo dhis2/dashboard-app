@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import { App } from '../App';
 import SnackbarMessage from '../SnackbarMessage/SnackbarMessage';
 
+/* eslint-disable react/display-name */
 jest.mock('@dhis2/ui-widgets', () => () => (
     <div id="mockHeaderBar">mockHeaderBar</div>
 ));
@@ -10,6 +11,7 @@ jest.mock('@dhis2/ui-widgets', () => () => (
 jest.mock('../Dashboard/Dashboard', () => () => (
     <div id="mockDashboard">mockDashboard</div>
 ));
+/* eslint-enable react/display-name */
 
 jest.mock('../../actions/dimensions', () => ({ tSetDimensions: () => null }));
 

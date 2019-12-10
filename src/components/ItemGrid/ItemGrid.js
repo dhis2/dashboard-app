@@ -172,7 +172,11 @@ export class ItemGrid extends Component {
 }
 
 ItemGrid.propTypes = {
+    acRemoveDashboardItem: PropTypes.func,
+    acUpdateDashboardLayout: PropTypes.func,
     dashboardItems: PropTypes.array,
+    edit: PropTypes.bool,
+    isLoading: PropTypes.bool,
 };
 
 ItemGrid.defaultProps = {

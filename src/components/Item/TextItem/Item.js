@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
+import PropTypes from 'prop-types';
+
 import Input from '@material-ui/core/Input';
 import {
     Parser as RichTextParser,
@@ -88,6 +90,13 @@ const mapStateToProps = (state, ownProps) => {
     return {
         text: item ? item.text : '',
     };
+};
+
+TextItem.propTypes = {
+    acUpdateDashboardItem: PropTypes.func,
+    editMode: PropTypes.bool,
+    item: PropTypes.object,
+    text: PropTypes.string,
 };
 
 export default connect(

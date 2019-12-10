@@ -1,5 +1,6 @@
 import React from 'react';
 import { colors } from '@dhis2/ui-core';
+import PropTypes from 'prop-types';
 
 const ClearIcon = ({ className }) => (
     <svg
@@ -12,5 +13,9 @@ const ClearIcon = ({ className }) => (
         <path d="M0 0h24v24H0z" fill="none" />
     </svg>
 );
+
+ClearIcon.propTypes = {
+    className: PropTypes.string,
+};
 
 export default ClearIcon;

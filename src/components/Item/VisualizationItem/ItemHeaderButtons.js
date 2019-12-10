@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import MessageIcon from '@material-ui/icons/Message';
 import TableIcon from '@material-ui/icons/ViewList';
 import ChartIcon from '@material-ui/icons/InsertChart';
@@ -200,5 +201,14 @@ class VisualizationItemHeaderButtons extends Component {
         );
     }
 }
+
+VisualizationItemHeaderButtons.propTypes = {
+    activeFooter: PropTypes.bool,
+    activeType: PropTypes.string,
+    item: PropTypes.object,
+    visualization: PropTypes.object,
+    onSelectVisualization: PropTypes.func,
+    onToggleFooter: PropTypes.func,
+};
 
 export default VisualizationItemHeaderButtons;

@@ -113,6 +113,7 @@ export default connect(
 EditTitleBar.propTypes = {
     onChangeDescription: PropTypes.func.isRequired,
     onChangeTitle: PropTypes.func.isRequired,
+    classes: PropTypes.object,
     description: PropTypes.string,
     name: PropTypes.string,
 };

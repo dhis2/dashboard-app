@@ -90,6 +90,9 @@ CategorizedMenuGroup.propTypes = {
     title: PropTypes.string.isRequired,
     type: PropTypes.oneOf(categorizedItems).isRequired,
     onChangeItemsLimit: PropTypes.func.isRequired,
+    acAddDashboardItem: PropTypes.func,
+    hasMore: PropTypes.bool,
+    tAddListItemContent: PropTypes.func,
 };
 
 CategorizedMenuGroup.contextTypes = {

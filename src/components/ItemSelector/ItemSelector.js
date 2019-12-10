@@ -146,6 +146,12 @@ class ItemSelector extends React.Component {
     }
 }
 
+ItemSearchField.propTypes = {
+    value: PropTypes.string,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+};
+
 ItemSelector.contextTypes = {
     d2: PropTypes.object.isRequired,
 };

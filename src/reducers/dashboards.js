@@ -24,7 +24,7 @@ export const DEFAULT_STATE_DASHBOARDS = {
 
 // reducer helper functions
 
-const updateDashboardProp = (state, dashboardId, prop, value) => ({
+const updateDashboardProp = ({ state, dashboardId, prop, value }) => ({
     byId: {
         ...state.byId,
         [dashboardId]: {
@@ -60,20 +60,20 @@ export default (state = DEFAULT_STATE_DASHBOARDS, action) => {
             };
         }
         case SET_DASHBOARD_STARRED: {
-            return updateDashboardProp(
+            return updateDashboardProp({
                 state,
-                action.dashboardId,
-                'starred',
-                action.value
-            );
+                dashboardId: action.dashboardId,
+                prop: 'starred',
+                value: action.value,
+            });
         }
         case SET_DASHBOARD_DISPLAY_NAME: {
-            return updateDashboardProp(
+            return updateDashboardProp({
                 state,
-                action.dashboardId,
-                'displayName',
-                action.value
-            );
+                dashboardId: action.dashboardId,
+                prop: 'displayName',
+                value: action.value,
+            });
         }
         case SET_DASHBOARD_ITEMS: {
             return {
@@ -182,7 +182,7 @@ export const getCustomDashboards = data => {
             };
         });
 
-    return arrayFrom(data).map((d, index) => ({
+    return arrayFrom(data).map(d => ({
         id: d.id,
         name: d.name,
         displayName: d.displayName,

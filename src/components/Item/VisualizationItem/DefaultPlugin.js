@@ -121,6 +121,8 @@ DefaultPlugin.contextTypes = {
 };
 
 DefaultPlugin.propTypes = {
+    classes: PropTypes.object,
+    editMode: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     style: PropTypes.object,

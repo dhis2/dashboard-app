@@ -4,9 +4,9 @@ import { shallow } from 'enzyme';
 import { EditDashboard, Content } from '../EditDashboard';
 import { NoContentMessage } from '../../../widgets/NoContentMessage';
 
-jest.mock('../DashboardContent', () => () => <div />);
-jest.mock('../../ControlBar/EditBar', () => () => <div />);
-jest.mock('../DashboardVerticalOffset', () => () => <div />);
+jest.mock('../DashboardContent', () => () => <div />); // eslint-disable-line react/display-name
+jest.mock('../../ControlBar/EditBar', () => () => <div />); // eslint-disable-line react/display-name
+jest.mock('../DashboardVerticalOffset', () => () => <div />); // eslint-disable-line react/display-name
 
 describe('EditDashboard', () => {
     let props;

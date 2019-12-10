@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Popover from '@material-ui/core/Popover';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
@@ -161,6 +162,21 @@ const mapStateToProps = state => ({
     selectedDimensions: sGetFiltersKeys(state),
     selectedItems: sGetEditItemFiltersRoot(state),
 });
+
+FilterSelector.propTypes = {
+    addItemFilter: PropTypes.func,
+    clearActiveModalDimension: PropTypes.func,
+    dimension: PropTypes.object,
+    dimensions: PropTypes.array,
+    displayNameProperty: PropTypes.string,
+    removeEditItemFilter: PropTypes.func,
+    removeItemFilter: PropTypes.func,
+    selectedDimensions: PropTypes.array,
+    selectedItems: PropTypes.array,
+    setActiveModalDimension: PropTypes.func,
+    setEditItemFilters: PropTypes.func,
+    theme: PropTypes.object,
+};
 
 export default connect(
     mapStateToProps,

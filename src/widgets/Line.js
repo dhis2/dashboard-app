@@ -8,6 +8,6 @@ const style = {
     margin: '0px 0px 5px 0px',
 };
 
-const Line = props => <hr style={style} />;
+const Line = () => <hr style={style} />;
 
 export default Line;
