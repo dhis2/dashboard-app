@@ -69,6 +69,7 @@ DashboardItemChip.propTypes = {
     label: PropTypes.string.isRequired,
     selected: PropTypes.bool.isRequired,
     starred: PropTypes.bool.isRequired,
+    classes: PropTypes.object,
 };
 
 export default withStyles(styles)(DashboardItemChip);

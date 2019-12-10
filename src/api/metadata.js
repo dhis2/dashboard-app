@@ -71,7 +71,7 @@ export const getFavoriteFields = ({ withDimensions, withOptions }) => {
     ]);
 };
 
-export const getFavoritesFields = ({ withDimensions, withOptions }) => [
+export const getFavoritesFields = ({ withDimensions }) => [
     `reportTable[${getFavoriteFields({ withDimensions }).join(',')}]`,
     `chart[${['type', ...getFavoriteFields({ withDimensions })].join(',')}]`,
     `map[${getFavoriteFields({ withDimensions }).join(',')}]`,

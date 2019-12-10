@@ -10,7 +10,7 @@ export const acSetControlBarUserRows = rows => ({
 
 // thunks
 
-export const tSetControlBarRows = () => async (dispatch, getState) => {
+export const tSetControlBarRows = () => async dispatch => {
     const onSuccess = rows => {
         dispatch(acSetControlBarUserRows(rows));
     };

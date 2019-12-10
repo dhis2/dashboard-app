@@ -198,6 +198,17 @@ export class EditBar extends Component {
     }
 }
 
+EditBar.propTypes = {
+    dashboardId: PropTypes.string,
+    dashboardName: PropTypes.string,
+    deleteAccess: PropTypes.bool,
+    updateAccess: PropTypes.bool,
+    onDelete: PropTypes.func,
+    onDiscardChanges: PropTypes.func,
+    onSave: PropTypes.func,
+    onTranslate: PropTypes.func,
+};
+
 EditBar.contextTypes = {
     d2: PropTypes.object,
 };
