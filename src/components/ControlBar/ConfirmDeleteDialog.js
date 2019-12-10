@@ -43,7 +43,7 @@ export const ConfirmDeleteDialog = ({
 
 ConfirmDeleteDialog.propTypes = {
     dashboardName: PropTypes.string,
-    open: PropTypes.func,
+    open: PropTypes.bool,
     onContinueEditing: PropTypes.func,
     onDeleteConfirmed: PropTypes.func,
 };
