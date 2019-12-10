@@ -303,11 +303,11 @@ Item.contextTypes = {
 };
 
 Item.propTypes = {
-    item: PropTypes.object,
     editMode: PropTypes.bool,
-    onToggleItemExpanded: PropTypes.func,
+    item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,
+    onToggleItemExpanded: PropTypes.func,
 };
 
 Item.defaultProps = {

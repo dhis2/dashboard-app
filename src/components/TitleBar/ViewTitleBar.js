@@ -188,11 +188,11 @@ export default connect(
 )(withStyles(styles)(ViewTitleBar));
 
 ViewTitleBar.propTypes = {
+    description: PropTypes.string,
     id: PropTypes.string,
     name: PropTypes.string,
-    description: PropTypes.string,
-    starred: PropTypes.bool,
     showDescription: PropTypes.bool,
+    starred: PropTypes.bool,
     onInfoClick: PropTypes.func,
 };
 

@@ -59,8 +59,8 @@ export class FilterBar extends Component {
 
 FilterBar.propTypes = {
     filters: PropTypes.array.isRequired,
-    removeItemFilter: PropTypes.func.isRequired,
     removeEditItemFilter: PropTypes.func.isRequired,
+    removeItemFilter: PropTypes.func.isRequired,
 };
 
 FilterBar.defaultProps = {

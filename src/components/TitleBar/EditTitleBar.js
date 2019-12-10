@@ -111,10 +111,10 @@ export default connect(
 )(withStyles(styles)(EditTitleBar));
 
 EditTitleBar.propTypes = {
-    name: PropTypes.string,
-    description: PropTypes.string,
-    onChangeTitle: PropTypes.func.isRequired,
     onChangeDescription: PropTypes.func.isRequired,
+    onChangeTitle: PropTypes.func.isRequired,
+    description: PropTypes.string,
+    name: PropTypes.string,
 };
 
 EditTitleBar.defaultProps = {

@@ -104,7 +104,7 @@ export class ItemGrid extends Component {
 
         const items = dashboardItems.map(item => {
             const expandedItem = this.state.expandedItems[item.id];
-            let hProp = { h: item.h };
+            const hProp = { h: item.h };
 
             if (expandedItem && expandedItem === true) {
                 hProp.h = item.h + EXPANDED_HEIGHT;

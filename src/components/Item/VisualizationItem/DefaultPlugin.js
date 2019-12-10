@@ -121,9 +121,9 @@ DefaultPlugin.contextTypes = {
 };
 
 DefaultPlugin.propTypes = {
-    style: PropTypes.object,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
+    style: PropTypes.object,
     visualization: PropTypes.object,
 };
 

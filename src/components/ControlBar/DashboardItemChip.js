@@ -65,10 +65,10 @@ export const DashboardItemChip = ({
 };
 
 DashboardItemChip.propTypes = {
-    starred: PropTypes.bool.isRequired,
-    selected: PropTypes.bool.isRequired,
-    label: PropTypes.string.isRequired,
     dashboardId: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    selected: PropTypes.bool.isRequired,
+    starred: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(DashboardItemChip);
