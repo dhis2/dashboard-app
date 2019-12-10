@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { acSetEditNewDashboard } from '../../actions/editDashboard';
 import DashboardVerticalOffset from './DashboardVerticalOffset';
@@ -23,6 +24,10 @@ class NewDashboard extends Component {
         );
     }
 }
+
+NewDashboard.propTypes = {
+    setNewDashboard: PropTypes.func,
+};
 
 export default connect(
     null,

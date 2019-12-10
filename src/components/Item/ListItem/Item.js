@@ -20,10 +20,6 @@ const getContentItems = item =>
             array.findIndex(el => el.id === item.id) === index
     );
 
-const removeContent = (handler, item, contentToRemove) => () => {
-    handler(item, contentToRemove);
-};
-
 const ListItem = (props, context) => {
     const { item, editMode, tRemoveListItemContent } = props;
     const contentItems = getContentItems(item);
@@ -32,11 +28,7 @@ const ListItem = (props, context) => {
         const deleteButton = (
             <button
                 className={classes.deletebutton}
-                onClick={removeContent(
-                    tRemoveListItemContent,
-                    item,
-                    contentItem
-                )}
+                onClick={() => tRemoveListItemContent(item, contentItem)}
             >
                 <DeleteIcon className={classes.deleteicon} />
             </button>
@@ -72,6 +64,12 @@ const ListItem = (props, context) => {
             </div>
         </Fragment>
     );
+};
+
+ListItem.propTypes = {
+    editMode: PropTypes.bool,
+    item: PropTypes.object,
+    tRemoveListItemContent: PropTypes.func,
 };
 
 ListItem.contextTypes = {

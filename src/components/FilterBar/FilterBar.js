@@ -61,6 +61,9 @@ FilterBar.propTypes = {
     filters: PropTypes.array.isRequired,
     removeEditItemFilter: PropTypes.func.isRequired,
     removeItemFilter: PropTypes.func.isRequired,
+    classes: PropTypes.object,
+    setActiveModalDimension: PropTypes.func,
+    userRows: PropTypes.number,
 };
 
 FilterBar.defaultProps = {

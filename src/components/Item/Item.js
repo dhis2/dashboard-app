@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import VisualizationItem from './VisualizationItem/Item';
 import MessagesItem from './MessagesItem/Item';
@@ -61,4 +62,11 @@ export const Item = props => {
             onToggleItemExpanded={props.onToggleItemExpanded}
         />
     );
+};
+
+Item.propTypes = {
+    editMode: PropTypes.bool,
+    item: PropTypes.object,
+    itemFilters: PropTypes.object,
+    onToggleItemExpanded: PropTypes.func,
 };

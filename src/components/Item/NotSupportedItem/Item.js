@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import ItemHeader from '../ItemHeader';
 import NotInterestedIcon from '@material-ui/icons/NotInterested';
 
@@ -20,5 +21,9 @@ const NotSupportedItem = props => (
         </div>
     </Fragment>
 );
+
+NotSupportedItem.propTypes = {
+    item: PropTypes.object,
+};
 
 export default NotSupportedItem;

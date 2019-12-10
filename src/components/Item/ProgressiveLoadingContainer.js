@@ -64,7 +64,7 @@ class ProgressiveLoadingContainer extends Component {
     }
 
     render() {
-        const { children, debounceMs, bufferFactor, ...props } = this.props;
+        const { children, ...props } = this.props;
         const { shouldLoad } = this.state;
 
         return (

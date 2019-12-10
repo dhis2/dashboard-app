@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import {
     getTopOffset,
@@ -17,5 +18,10 @@ const DashboardVerticalOffset = props => {
 const mapStateToProps = state => ({
     userRows: sGetControlBarUserRows(state),
 });
+
+DashboardVerticalOffset.propTypes = {
+    editMode: PropTypes.bool,
+    userRows: PropTypes.number,
+};
 
 export default connect(mapStateToProps)(DashboardVerticalOffset);
