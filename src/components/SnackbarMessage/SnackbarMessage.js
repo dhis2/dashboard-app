@@ -45,7 +45,7 @@ const mapStateToProps = state => {
 
 SnackbarMessage.propTypes = {
     snackbarDuration: PropTypes.string,
-    snackbarMessage: PropTypes.string,
+    snackbarMessage: PropTypes.object,
     snackbarOpen: PropTypes.bool,
     onCloseSnackbar: PropTypes.func,
 };

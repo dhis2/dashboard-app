@@ -6,7 +6,7 @@ import { SnackbarMessage } from '../SnackbarMessage';
 describe('SnackbarMessage', () => {
     let props;
     let shallowSnackbarMessage;
-    const theMessage = 'Luke, I am your father';
+    const testMessage = { name: 'Luke, I am your father', type: 'Test' };
     const snackbarMessage = () => {
         if (!shallowSnackbarMessage) {
             shallowSnackbarMessage = shallow(<SnackbarMessage {...props} />);
@@ -18,7 +18,7 @@ describe('SnackbarMessage', () => {
         props = {
             snackbarOpen: false,
             onCloseSnackbar: jest.fn(),
-            snackbarMessage: theMessage,
+            snackbarMessage: testMessage,
         };
         shallowSnackbarMessage = undefined;
     });
@@ -33,7 +33,7 @@ describe('SnackbarMessage', () => {
 
     it('renders a MUI Snackbar with given message', () => {
         expect(snackbarMessage().prop('message').props.message).toEqual(
-            theMessage
+            testMessage
         );
     });
 });

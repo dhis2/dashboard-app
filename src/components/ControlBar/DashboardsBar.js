@@ -171,7 +171,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 
 DashboardsBar.propTypes = {
     dashboards: PropTypes.array,
-    history: PropTypes.array,
+    history: PropTypes.object,
     name: PropTypes.string,
     selectedId: PropTypes.string,
     userRows: PropTypes.number,
