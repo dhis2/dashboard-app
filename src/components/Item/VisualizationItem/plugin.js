@@ -78,9 +78,7 @@ export const getLink = (item, d2) => {
 export const load = async (
     item,
     visualization,
-    credentials,
-    activeType,
-    filter = {}
+    { credentials, activeType }
 ) => {
     const config = {
         ...visualization,

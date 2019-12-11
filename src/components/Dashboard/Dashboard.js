@@ -46,6 +46,7 @@ class Dashboard extends Component {
 
 Dashboard.propTypes = {
     dashboardsLoaded: PropTypes.bool,
+    match: PropTypes.object,
     mode: PropTypes.string,
     selectDashboard: PropTypes.func,
 };

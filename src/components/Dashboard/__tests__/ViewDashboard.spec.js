@@ -78,23 +78,13 @@ describe('ViewDashboard', () => {
                 props.dashboardsIsEmpty = false;
             });
 
-            describe('when id is not null or false', () => {
+            describe('when id is not null', () => {
                 beforeEach(() => {
                     props.id = '123xyz';
                 });
 
                 it('renders DashboardContent', () => {
                     assertContent(true);
-                });
-            });
-
-            describe('when id is false', () => {
-                beforeEach(() => {
-                    props.id = false;
-                });
-
-                it('renders a NoContentMessage', () => {
-                    assertContent(false);
                 });
             });
         });

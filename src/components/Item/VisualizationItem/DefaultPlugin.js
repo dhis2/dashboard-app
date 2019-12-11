@@ -64,12 +64,10 @@ class DefaultPlugin extends Component {
                     prevVis.activeType || this.props.item.type
                 );
 
-                pluginManager.load(
-                    this.props.item,
-                    this.props.visualization,
-                    this.pluginCredentials,
-                    useActiveType ? currentVis.activeType : null
-                );
+                pluginManager.load(this.props.item, this.props.visualization, {
+                    credentials: this.pluginCredentials,
+                    activeType: useActiveType ? currentVis.activeType : null,
+                });
             }
         }
     };
@@ -83,12 +81,10 @@ class DefaultPlugin extends Component {
                 this.props.visualization
             )
         ) {
-            pluginManager.load(
-                this.props.item,
-                this.props.visualization,
-                this.pluginCredentials,
-                !this.props.editMode ? this.getActiveType() : null
-            );
+            pluginManager.load(this.props.item, this.props.visualization, {
+                credentials: this.pluginCredentials,
+                activeType: !this.props.editMode ? this.getActiveType() : null,
+            });
         }
     }
 
