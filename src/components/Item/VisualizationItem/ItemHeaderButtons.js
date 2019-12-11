@@ -18,9 +18,9 @@ import {
     EVENT_CHART,
     EVENT_REPORT,
     DOMAIN_TYPE_AGGREGATE,
-    CHART_TYPE_SINGLE_VALUE,
 } from '../../../modules/itemTypes';
 import { colors, theme } from '@dhis2/ui-core';
+import { isSingleValue } from '@dhis2/analytics';
 
 const style = {
     iconBase: {
@@ -87,11 +87,6 @@ export const getItemTypeId = (itemTypeMap, visualizationType, domainType) => {
     return item.id;
 };
 
-// TODO: Import this from @dhis2/analytics when available
-const isSingleValue = (itemType, chartType) =>
-    itemType === VISUALIZATION_TYPE_CHART &&
-    chartType === CHART_TYPE_SINGLE_VALUE;
-
 class VisualizationItemHeaderButtons extends Component {
     renderInterpretationButton() {
         const { activeFooter, onToggleFooter } = this.props;
@@ -127,7 +122,7 @@ class VisualizationItemHeaderButtons extends Component {
             activeType,
         } = this.props;
 
-        if (isSingleValue(item.type, visualization.type)) {
+        if (isSingleValue(visualization.type)) {
             return null;
         }
 
