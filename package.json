@@ -43,7 +43,7 @@
         "analyze": "source-map-explorer 'build/static/js/*.js'",
         "prestart": "npm run extract-pot && npm run localize && npm run manifest",
         "start": "react-scripts start",
-        "lint": "eslint -c .eslintrc.json src",
+        "lint": "eslint -c .eslintrc.js src",
         "coverage": "npm test -- --coverage",
         "prebuild": "rm -rf build && mkdir build && npm run manifest && npm run localize",
         "build": "PUBLIC_URL=. react-scripts build",
