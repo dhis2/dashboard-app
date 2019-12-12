@@ -8,8 +8,10 @@ const defaultBufferFactor = 0.25;
 class ProgressiveLoadingContainer extends Component {
     static propTypes = {
         children: PropTypes.node.isRequired,
-        debounceMs: PropTypes.number,
         bufferFactor: PropTypes.number,
+        className: PropTypes.string,
+        debounceMs: PropTypes.number,
+        style: PropTypes.object,
     };
     static defaultProps = {
         debounceMs: defaultDebounceMs,
@@ -64,11 +66,15 @@ class ProgressiveLoadingContainer extends Component {
     }
 
     render() {
-        const { children, debounceMs, bufferFactor, ...props } = this.props;
+        const { children, className, style } = this.props;
         const { shouldLoad } = this.state;
 
         return (
-            <div ref={ref => (this.containerRef = ref)} {...props}>
+            <div
+                ref={ref => (this.containerRef = ref)}
+                style={style}
+                className={className}
+            >
                 {shouldLoad && children}
             </div>
         );

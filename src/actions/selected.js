@@ -63,7 +63,7 @@ export const acReceivedActiveVisualization = (id, type, activeType) => {
     return action;
 };
 
-export const tLoadDashboard = id => async (dispatch, getState) => {
+export const tLoadDashboard = id => async dispatch => {
     try {
         const dash = await apiFetchDashboard(id);
         dispatch(acAppendDashboards(dash));

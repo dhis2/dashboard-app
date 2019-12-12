@@ -1,5 +1,6 @@
 import React from 'react';
 import { colors } from '@dhis2/ui-core';
+import PropTypes from 'prop-types';
 
 const DeleteIcon = ({ className }) => (
     <svg
@@ -14,5 +15,9 @@ const DeleteIcon = ({ className }) => (
         <path d="M0 0h24v24H0z" fill="none" />
     </svg>
 );
+
+DeleteIcon.propTypes = {
+    className: PropTypes.string,
+};
 
 export default DeleteIcon;

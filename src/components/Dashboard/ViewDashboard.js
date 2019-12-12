@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
 import i18n from '@dhis2/d2-i18n';
+import PropTypes from 'prop-types';
 
 import {
     sGetAllDashboards,
@@ -27,6 +28,11 @@ export const Content = ({ hasDashboardContent, dashboardsIsEmpty }) => {
     );
 };
 
+Content.propTypes = {
+    dashboardsIsEmpty: PropTypes.bool,
+    hasDashboardContent: PropTypes.bool,
+};
+
 export const ViewDashboard = ({ id, dashboardsIsEmpty, dashboardsLoaded }) => {
     const hasDashboardContent = id && !dashboardsIsEmpty;
     const contentNotReady = !dashboardsLoaded || id === null;
@@ -45,6 +51,12 @@ export const ViewDashboard = ({ id, dashboardsIsEmpty, dashboardsLoaded }) => {
             </div>
         </Fragment>
     );
+};
+
+ViewDashboard.propTypes = {
+    dashboardsIsEmpty: PropTypes.bool,
+    dashboardsLoaded: PropTypes.bool,
+    id: PropTypes.string,
 };
 
 const mapStateToProps = state => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { colors } from '@dhis2/ui-core';
+import PropTypes from 'prop-types';
 
 export const NoContentMessage = ({ text }) => (
     <div
@@ -14,5 +15,9 @@ export const NoContentMessage = ({ text }) => (
         {text}
     </div>
 );
+
+NoContentMessage.propTypes = {
+    text: PropTypes.string,
+};
 
 export default NoContentMessage;

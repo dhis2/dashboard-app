@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ItemHeaderButton from '../Item/ItemHeaderButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { colors } from '@dhis2/ui-core';
@@ -20,5 +21,9 @@ const DeleteItemHeaderButton = ({ onClick }) => (
         <DeleteIcon style={style.icon} />
     </ItemHeaderButton>
 );
+
+DeleteItemHeaderButton.propTypes = {
+    onClick: PropTypes.func,
+};
 
 export default DeleteItemHeaderButton;

@@ -86,10 +86,13 @@ class CategorizedMenuGroup extends Component {
 }
 
 CategorizedMenuGroup.propTypes = {
-    type: PropTypes.oneOf(categorizedItems).isRequired,
-    title: PropTypes.string.isRequired,
     items: PropTypes.array.isRequired,
+    title: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(categorizedItems).isRequired,
     onChangeItemsLimit: PropTypes.func.isRequired,
+    acAddDashboardItem: PropTypes.func,
+    hasMore: PropTypes.bool,
+    tAddListItemContent: PropTypes.func,
 };
 
 CategorizedMenuGroup.contextTypes = {

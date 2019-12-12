@@ -71,6 +71,11 @@ const AppItem = ({ item, itemFilters }, context) => {
     );
 };
 
+AppItem.propTypes = {
+    item: PropTypes.object,
+    itemFilters: PropTypes.object,
+};
+
 AppItem.contextTypes = {
     d2: PropTypes.object,
 };

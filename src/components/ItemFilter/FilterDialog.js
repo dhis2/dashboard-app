@@ -86,14 +86,14 @@ class FilterDialog extends Component {
 }
 
 FilterDialog.propTypes = {
-    displayNameProperty: PropTypes.string,
     dimension: PropTypes.object,
+    displayNameProperty: PropTypes.string,
     selectedItems: PropTypes.array,
-    onSelect: PropTypes.func,
-    onDeselect: PropTypes.func,
-    onReorder: PropTypes.func,
     onClose: PropTypes.func,
     onConfirm: PropTypes.func,
+    onDeselect: PropTypes.func,
+    onReorder: PropTypes.func,
+    onSelect: PropTypes.func,
 };
 
 FilterDialog.contextTypes = {

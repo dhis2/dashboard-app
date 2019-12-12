@@ -16,9 +16,11 @@ jest.mock('../../../api/dashboards', () => ({
     apiFetchDashboard: id => Promise.resolve(mockDashboardModels[id]),
 }));
 
+/* eslint-disable react/display-name */
 jest.mock('@dhis2/d2-ui-translation-dialog', () => () => {
     return <div className="mock-dhis2-translation-dialog" />;
 });
+/* eslint-enable react/display-name */
 
 describe('EditBar', () => {
     let props;

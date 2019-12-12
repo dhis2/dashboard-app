@@ -3,9 +3,9 @@ import { shallow } from 'enzyme';
 import { ViewDashboard, Content } from '../ViewDashboard';
 import { NoContentMessage } from '../../../widgets/NoContentMessage';
 
-jest.mock('../DashboardContent', () => () => <div />);
-jest.mock('../../ControlBar/DashboardsBar', () => () => <div />);
-jest.mock('../DashboardVerticalOffset', () => () => <div />);
+jest.mock('../DashboardContent', () => () => <div />); // eslint-disable-line react/display-name
+jest.mock('../../ControlBar/DashboardsBar', () => () => <div />); // eslint-disable-line react/display-name
+jest.mock('../DashboardVerticalOffset', () => () => <div />); // eslint-disable-line react/display-name
 
 describe('ViewDashboard', () => {
     let props;
@@ -78,23 +78,13 @@ describe('ViewDashboard', () => {
                 props.dashboardsIsEmpty = false;
             });
 
-            describe('when id is not null or false', () => {
+            describe('when id is not null', () => {
                 beforeEach(() => {
                     props.id = '123xyz';
                 });
 
                 it('renders DashboardContent', () => {
                     assertContent(true);
-                });
-            });
-
-            describe('when id is false', () => {
-                beforeEach(() => {
-                    props.id = false;
-                });
-
-                it('renders a NoContentMessage', () => {
-                    assertContent(false);
                 });
             });
         });

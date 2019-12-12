@@ -88,7 +88,7 @@ ControlBar.propTypes = {
     /**
      * The height of the control bar in number of lines. Must be a positive integer.
      */
-    height: PropTypes.number.isRequired,
+    children: PropTypes.node.isRequired,
 
     /**
      * If true, the background color of the control bar changes to indicate that edit mode is active.
@@ -101,7 +101,7 @@ ControlBar.propTypes = {
      *
      * If no callback is specified the control bar will not have a drag handle.
      */
-    onChangeHeight: PropTypes.func,
+    height: PropTypes.number.isRequired,
 
     /**
      * Callback function that is called when the control bar is dropped after being dragged.
@@ -109,12 +109,12 @@ ControlBar.propTypes = {
      *
      * Ignored if no "onChangeHeight" function is provided.
      */
-    onEndDrag: PropTypes.func,
+    onChangeHeight: PropTypes.func,
 
     /**
      * The contents of the control bar.
      */
-    children: PropTypes.node.isRequired,
+    onEndDrag: PropTypes.func,
 };
 
 ControlBar.defaultProps = {

@@ -104,7 +104,7 @@ export class ItemGrid extends Component {
 
         const items = dashboardItems.map(item => {
             const expandedItem = this.state.expandedItems[item.id];
-            let hProp = { h: item.h };
+            const hProp = { h: item.h };
 
             if (expandedItem && expandedItem === true) {
                 hProp.h = item.h + EXPANDED_HEIGHT;
@@ -172,7 +172,11 @@ export class ItemGrid extends Component {
 }
 
 ItemGrid.propTypes = {
+    acRemoveDashboardItem: PropTypes.func,
+    acUpdateDashboardLayout: PropTypes.func,
     dashboardItems: PropTypes.array,
+    edit: PropTypes.bool,
+    isLoading: PropTypes.bool,
 };
 
 ItemGrid.defaultProps = {

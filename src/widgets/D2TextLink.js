@@ -66,10 +66,10 @@ class D2TextLink extends Component {
 }
 
 D2TextLink.propTypes = {
+    hoverStyle: PropTypes.object,
+    style: PropTypes.object,
     text: PropTypes.string,
     onClick: PropTypes.func,
-    style: PropTypes.object,
-    hoverStyle: PropTypes.object,
 };
 
 D2TextLink.defaultProps = {

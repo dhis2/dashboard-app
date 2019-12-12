@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const StarIcon = ({ className }) => (
     <svg
@@ -11,5 +12,9 @@ const StarIcon = ({ className }) => (
         <path d="M0 0h24v24H0z" fill="none" />
     </svg>
 );
+
+StarIcon.propTypes = {
+    className: PropTypes.string,
+};
 
 export default StarIcon;

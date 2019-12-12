@@ -72,6 +72,15 @@ export class App extends Component {
     }
 }
 
+App.propTypes = {
+    fetchDashboards: PropTypes.func.isRequired,
+    setControlBarRows: PropTypes.func.isRequired,
+    setCurrentUser: PropTypes.func.isRequired,
+    setDimensions: PropTypes.func.isRequired,
+    baseUrl: PropTypes.string,
+    d2: PropTypes.object,
+};
+
 App.childContextTypes = {
     baseUrl: PropTypes.string,
     i18n: PropTypes.object,

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import HeaderMenuItem from './HeaderMenuItem';
 import ContentMenuItem from './ContentMenuItem';
@@ -23,6 +24,11 @@ export const SinglesMenuGroup = ({ acAddDashboardItem, category }) => {
             ))}
         </Fragment>
     );
+};
+
+SinglesMenuGroup.propTypes = {
+    acAddDashboardItem: PropTypes.func,
+    category: PropTypes.object,
 };
 
 export default connect(

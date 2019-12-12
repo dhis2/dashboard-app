@@ -35,9 +35,6 @@ export const VISUALIZATION_TYPE_TABLE = 'TABLE';
 export const VISUALIZATION_TYPE_CHART = 'CHART';
 export const VISUALIZATION_TYPE_MAP = 'MAP';
 
-// TODO: Import this from @dhis2/analytics when available
-export const CHART_TYPE_SINGLE_VALUE = 'SINGLE_VALUE';
-
 // Dashboard helpers
 export const spacerContent = 'SPACER_ITEM_FOR_DASHBOARD_LAYOUT_CONVENIENCE';
 export const emptyTextItemContent = 'TEXT_ITEM_WITH_NO_CONTENT';
@@ -45,8 +42,7 @@ export const isSpacerType = item =>
     item.type === TEXT && item.text === spacerContent;
 export const isTextType = item =>
     item.type === TEXT && item.text !== spacerContent;
-export const isPluginType = item =>
-    itemTypeMap[item.type].hasOwnProperty('plugin');
+export const isPluginType = item => 'plugin' in itemTypeMap[item.type];
 
 export const getPlugin = type => {
     const pluginName = itemTypeMap[type].plugin;

@@ -11,7 +11,7 @@ export const receivedMessages = value => ({
     value,
 });
 
-export const tGetMessages = dashboardItemId => async dispatch => {
+export const tGetMessages = () => async dispatch => {
     try {
         const messages = await getMessages();
         const { messageConversations } = messages;

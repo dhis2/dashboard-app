@@ -92,8 +92,10 @@ export class Filter extends Component {
 }
 
 Filter.propTypes = {
+    classes: PropTypes.object,
     name: PropTypes.string,
     onChangeName: PropTypes.func,
+    onKeypressEnter: PropTypes.func,
 };
 
 Filter.defaultProps = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -38,6 +39,13 @@ export const ConfirmDeleteDialog = ({
             <DialogActions>{actions}</DialogActions>
         </Dialog>
     );
+};
+
+ConfirmDeleteDialog.propTypes = {
+    dashboardName: PropTypes.string,
+    open: PropTypes.bool,
+    onContinueEditing: PropTypes.func,
+    onDeleteConfirmed: PropTypes.func,
 };
 
 export default ConfirmDeleteDialog;

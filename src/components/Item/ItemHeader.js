@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const HEADER_HEIGHT = 45;
 
@@ -16,6 +17,12 @@ const ItemHeader = props => {
             {actionButtons}
         </div>
     );
+};
+
+ItemHeader.propTypes = {
+    actionButtons: PropTypes.node,
+    editMode: PropTypes.bool,
+    title: PropTypes.object,
 };
 
 export default ItemHeader;

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import ControlBar from './ControlBar';
 import arraySort from 'd2-utilizr/lib/arraySort';
+import PropTypes from 'prop-types';
 
 import Chip from './DashboardItemChip';
 import AddCircleIcon from '../../icons/AddCircle';
@@ -166,6 +167,16 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             ...displayDashboards.filter(d => !d.starred),
         ],
     };
+};
+
+DashboardsBar.propTypes = {
+    dashboards: PropTypes.array,
+    history: PropTypes.object,
+    name: PropTypes.string,
+    selectedId: PropTypes.string,
+    userRows: PropTypes.number,
+    onChangeFilterName: PropTypes.func,
+    onChangeHeight: PropTypes.func,
 };
 
 export default withRouter(

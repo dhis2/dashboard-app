@@ -109,7 +109,7 @@ export const tSelectDashboard = id => async (dispatch, getState) => {
     }
 };
 
-export const tStarDashboard = (id, isStarred) => async (dispatch, getState) => {
+export const tStarDashboard = (id, isStarred) => async dispatch => {
     const onSuccess = id => {
         dispatch(acSetDashboardStarred(id, isStarred));
         return id;
@@ -127,7 +127,7 @@ export const tStarDashboard = (id, isStarred) => async (dispatch, getState) => {
     }
 };
 
-export const tDeleteDashboard = id => async (dispatch, getState) => {
+export const tDeleteDashboard = id => async dispatch => {
     try {
         await apiDeleteDashboard(id);
         dispatch(acClearEditDashboard());

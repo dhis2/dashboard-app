@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { tSelectDashboard } from '../../actions/dashboards';
 import { sDashboardsIsFetching } from '../../reducers/dashboards';
@@ -42,6 +43,13 @@ class Dashboard extends Component {
         }
     }
 }
+
+Dashboard.propTypes = {
+    dashboardsLoaded: PropTypes.bool,
+    match: PropTypes.object,
+    mode: PropTypes.string,
+    selectDashboard: PropTypes.func,
+};
 
 const mapStateToProps = state => {
     return { dashboardsLoaded: !sDashboardsIsFetching(state) };

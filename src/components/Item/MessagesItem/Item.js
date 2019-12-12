@@ -125,6 +125,11 @@ class MessagesItem extends Component {
     }
 }
 
+MessagesItem.propTypes = {
+    editMode: PropTypes.bool,
+    messages: PropTypes.array,
+};
+
 MessagesItem.contextTypes = {
     d2: PropTypes.object,
     baseUrl: PropTypes.string,
