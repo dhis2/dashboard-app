@@ -43,7 +43,8 @@
         "analyze": "source-map-explorer 'build/static/js/*.js'",
         "prestart": "npm run extract-pot && npm run localize && npm run manifest",
         "start": "react-scripts start",
-        "lint": "eslint -c .eslintrc.js src",
+        "lint": "d2-style js check || d2-style text check",
+        "format": "d2-style js apply || d2-style text apply",
         "coverage": "npm test -- --coverage",
         "prebuild": "rm -rf build && mkdir build && npm run manifest && npm run localize",
         "build": "PUBLIC_URL=. react-scripts build",
@@ -52,12 +53,8 @@
         "eject": "react-scripts eject",
         "manifest": "d2-manifest package.json ./public/manifest.webapp --manifest.activities.dhis.href=${REACT_APP_DHIS2_BASE_URL:=..}",
         "extract-pot": "d2-i18n-extract -p src/ -o i18n/",
-        "localize": "d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "yarn extract-pot && CI=true yarn test && git add ./i18n/"
-        }
+        "localize": "d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/",
+        "validate-commit": "d2-style js check --staged && d2-style text check --staged && yarn extract-pot && CI=true yarn test && git add ./i18n/"
     },
     "manifest.webapp": {
         "name": "Dashboards app",
