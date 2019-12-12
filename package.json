@@ -54,7 +54,8 @@
         "manifest": "d2-manifest package.json ./public/manifest.webapp --manifest.activities.dhis.href=${REACT_APP_DHIS2_BASE_URL:=..}",
         "extract-pot": "d2-i18n-extract -p src/ -o i18n/",
         "localize": "d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/",
-        "validate-commit": "d2-style js check --staged && d2-style text check --staged && yarn extract-pot && CI=true yarn test && git add ./i18n/"
+        "validate-commit": "d2-style js check --staged && d2-style text check --staged && yarn extract-pot && git add ./i18n/",
+        "validate-push": "CI=true yarn test"
     },
     "manifest.webapp": {
         "name": "Dashboards app",
