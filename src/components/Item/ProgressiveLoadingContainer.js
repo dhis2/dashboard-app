@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
+import pick from 'lodash/pick';
 
 const defaultDebounceMs = 100;
 const defaultBufferFactor = 0.25;
@@ -66,14 +67,22 @@ class ProgressiveLoadingContainer extends Component {
     }
 
     render() {
-        const { children, className, style } = this.props;
+        const { children, style, className, ...props } = this.props;
         const { shouldLoad } = this.state;
+
+        const eventProps = pick(props, [
+            'onMouseDown',
+            'onTouchStart',
+            'onMouseUp',
+            'onTouchEnd',
+        ]);
 
         return (
             <div
                 ref={ref => (this.containerRef = ref)}
                 style={style}
                 className={className}
+                {...eventProps}
             >
                 {shouldLoad && children}
             </div>
