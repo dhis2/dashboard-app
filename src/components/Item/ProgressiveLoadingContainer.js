@@ -67,7 +67,7 @@ class ProgressiveLoadingContainer extends Component {
     }
 
     render() {
-        const { children, style, className, ...props } = this.props;
+        const { children, className, style, ...props } = this.props;
         const { shouldLoad } = this.state;
 
         const eventProps = pick(props, [
