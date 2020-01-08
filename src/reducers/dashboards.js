@@ -9,6 +9,9 @@ import {
     isSpacerType,
     isTextType,
     emptyTextItemContent,
+    REPORT_TABLE,
+    CHART,
+    VISUALIZATION,
 } from '../modules/itemTypes';
 
 export const SET_DASHBOARDS = 'SET_DASHBOARDS';
@@ -168,7 +171,18 @@ export const sGetDashboardsSortedByStarred = state => [
 export const getCustomDashboards = data => {
     const uiItems = items =>
         items.map(item => {
-            const type = isSpacerType(item) ? SPACER : item.type;
+            let type = isSpacerType(item) ? SPACER : item.type;
+
+            // TODO: temporary fix before 2.34 epic branch is merged
+            // if "VISUALIZATION", reset to "REPORT_TABLE" or "CHART"
+            if (type === VISUALIZATION) {
+                type = item.reportTable
+                    ? REPORT_TABLE
+                    : item.chart
+                    ? CHART
+                    : type;
+            }
+
             const text = isTextType(item)
                 ? item.text === emptyTextItemContent
                     ? ''
