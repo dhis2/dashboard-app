@@ -22,7 +22,7 @@ const ItemHeader = props => {
 ItemHeader.propTypes = {
     actionButtons: PropTypes.node,
     editMode: PropTypes.bool,
-    title: PropTypes.object,
+    title: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 };
 
 export default ItemHeader;
