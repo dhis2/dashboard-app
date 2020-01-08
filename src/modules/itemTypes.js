@@ -13,6 +13,7 @@ import NotInterestedIcon from '@material-ui/icons/NotInterested';
 import { getBaseUrl } from './util';
 
 // Item types
+export const VISUALIZATION = 'VISUALIZATION';
 export const REPORT_TABLE = 'REPORT_TABLE';
 export const CHART = 'CHART';
 export const MAP = 'MAP';
