@@ -11,11 +11,12 @@ import {
     PeriodDimension,
     DynamicDimension,
     OrgUnitDimension,
-    FIXED_DIMENSIONS,
+    DIMENSION_ID_PERIOD,
+    DIMENSION_ID_ORGUNIT,
 } from '@dhis2/analytics';
 
-const peId = FIXED_DIMENSIONS.pe.id;
-const ouId = FIXED_DIMENSIONS.ou.id;
+const peId = DIMENSION_ID_PERIOD;
+const ouId = DIMENSION_ID_ORGUNIT;
 
 class FilterDialog extends Component {
     onConfirm = id => () => this.props.onConfirm(id);

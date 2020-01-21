@@ -50,10 +50,9 @@ class FilterSelector extends Component {
     };
 
     selectDimension = id => {
-        this.props.setActiveModalDimension({
-            id,
-            name: this.props.dimensions[id].name,
-        });
+        this.props.setActiveModalDimension(
+            this.props.dimensions.find(dimension => dimension.id === id)
+        );
     };
 
     onSelectItems = ({ dimensionId, items }) => {
