@@ -1022,6 +1022,25 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@dhis2/analytics@2.4.7":
+  version "2.4.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.4.7.tgz#0cbe4e44db69e690b08a2b284ce08b630142d73f"
+  integrity sha512-mESuLf4x224WacDRGju6i5GIVQgtEghHR/tCxtqref1kT1o4NN+ZGjbBn7+fmE7FqIjBt7J0/1/IR58Fq0+GRg==
+  dependencies:
+    "@dhis2/d2-i18n" "^1.0.4"
+    "@dhis2/d2-ui-org-unit-dialog" "^6.3.0"
+    "@dhis2/d2-ui-period-selector-dialog" "^6.3.0"
+    "@dhis2/ui-core" "^3.4.0"
+    "@material-ui/core" "^3.9.3"
+    "@material-ui/icons" "^3.0.2"
+    classnames "^2.2.6"
+    d2-utilizr "^0.2.16"
+    d3-color "^1.2.3"
+    highcharts "^7.1.2"
+    lodash "^4.17.13"
+    react-beautiful-dnd "^10.1.1"
+    styled-jsx "^3.2.1"
+
 "@dhis2/analytics@^2.1.0":
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.3.4.tgz#7132738b957f7342423f039f31b871465c9f4966"
