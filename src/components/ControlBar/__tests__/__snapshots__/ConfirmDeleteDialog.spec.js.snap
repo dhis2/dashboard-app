@@ -47,6 +47,7 @@ ShallowWrapper {
         </WithStyles(DialogContent)>,
         <WithStyles(DialogActions)>
           <Button
+            dataTest="dhis2-uicore-button"
             onClick={[MockFunction]}
             secondary={true}
             type="button"
@@ -54,6 +55,7 @@ ShallowWrapper {
             Cancel
           </Button>
           <Button
+            dataTest="dhis2-uicore-button"
             destructive={true}
             onClick={[MockFunction]}
             type="button"
@@ -121,6 +123,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <Button
+              dataTest="dhis2-uicore-button"
               onClick={[MockFunction]}
               secondary={true}
               type="button"
@@ -128,6 +131,7 @@ ShallowWrapper {
               Cancel
             </Button>,
             <Button
+              dataTest="dhis2-uicore-button"
               destructive={true}
               onClick={[MockFunction]}
               type="button"
@@ -144,6 +148,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": "Cancel",
+              "dataTest": "dhis2-uicore-button",
               "onClick": [MockFunction],
               "secondary": true,
               "type": "button",
@@ -158,6 +163,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": "Delete",
+              "dataTest": "dhis2-uicore-button",
               "destructive": true,
               "onClick": [MockFunction],
               "type": "button",
@@ -202,6 +208,7 @@ ShallowWrapper {
           </WithStyles(DialogContent)>,
           <WithStyles(DialogActions)>
             <Button
+              dataTest="dhis2-uicore-button"
               onClick={[MockFunction]}
               secondary={true}
               type="button"
@@ -209,6 +216,7 @@ ShallowWrapper {
               Cancel
             </Button>
             <Button
+              dataTest="dhis2-uicore-button"
               destructive={true}
               onClick={[MockFunction]}
               type="button"
@@ -276,6 +284,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <Button
+                dataTest="dhis2-uicore-button"
                 onClick={[MockFunction]}
                 secondary={true}
                 type="button"
@@ -283,6 +292,7 @@ ShallowWrapper {
                 Cancel
               </Button>,
               <Button
+                dataTest="dhis2-uicore-button"
                 destructive={true}
                 onClick={[MockFunction]}
                 type="button"
@@ -299,6 +309,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "children": "Cancel",
+                "dataTest": "dhis2-uicore-button",
                 "onClick": [MockFunction],
                 "secondary": true,
                 "type": "button",
@@ -313,6 +324,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "children": "Delete",
+                "dataTest": "dhis2-uicore-button",
                 "destructive": true,
                 "onClick": [MockFunction],
                 "type": "button",

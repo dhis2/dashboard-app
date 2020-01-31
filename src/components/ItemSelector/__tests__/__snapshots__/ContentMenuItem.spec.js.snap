@@ -22,6 +22,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "function",
     "props": Object {
+      "dataTest": "dhis2-uicore-menuitem",
       "dense": true,
       "label": <div
         className="menuItem"
@@ -55,6 +56,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
+        "dataTest": "dhis2-uicore-menuitem",
         "dense": true,
         "label": <div
           className="menuItem"
@@ -133,6 +135,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "function",
     "props": Object {
+      "dataTest": "dhis2-uicore-menuitem",
       "dense": true,
       "label": <div
         className="menuItem"
@@ -169,6 +172,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
+        "dataTest": "dhis2-uicore-menuitem",
         "dense": true,
         "label": <div
           className="menuItem"

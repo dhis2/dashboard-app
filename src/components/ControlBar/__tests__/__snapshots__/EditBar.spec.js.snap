@@ -41,6 +41,7 @@ ShallowWrapper {
               className="rightControls"
             >
               <Button
+                dataTest="dhis2-uicore-button"
                 onClick={[Function]}
                 secondary={true}
                 type="button"
@@ -75,6 +76,7 @@ ShallowWrapper {
               className="rightControls"
             >
               <Button
+                dataTest="dhis2-uicore-button"
                 onClick={[Function]}
                 secondary={true}
                 type="button"
@@ -100,6 +102,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -124,6 +127,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -139,6 +143,7 @@ ShallowWrapper {
                 "nodeType": "class",
                 "props": Object {
                   "children": "Go to dashboards",
+                  "dataTest": "dhis2-uicore-button",
                   "onClick": [Function],
                   "secondary": true,
                   "type": "button",
@@ -186,6 +191,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -220,6 +226,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -245,6 +252,7 @@ ShallowWrapper {
                   className="rightControls"
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     secondary={true}
                     type="button"
@@ -269,6 +277,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     secondary={true}
                     type="button"
@@ -284,6 +293,7 @@ ShallowWrapper {
                   "nodeType": "class",
                   "props": Object {
                     "children": "Go to dashboards",
+                    "dataTest": "dhis2-uicore-button",
                     "onClick": [Function],
                     "secondary": true,
                     "type": "button",
@@ -389,6 +399,7 @@ ShallowWrapper {
               className="rightControls"
             >
               <Button
+                dataTest="dhis2-uicore-button"
                 onClick={[Function]}
                 secondary={true}
                 type="button"
@@ -423,6 +434,7 @@ ShallowWrapper {
               className="rightControls"
             >
               <Button
+                dataTest="dhis2-uicore-button"
                 onClick={[Function]}
                 secondary={true}
                 type="button"
@@ -448,6 +460,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -472,6 +485,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -487,6 +501,7 @@ ShallowWrapper {
                 "nodeType": "class",
                 "props": Object {
                   "children": "Go to dashboards",
+                  "dataTest": "dhis2-uicore-button",
                   "onClick": [Function],
                   "secondary": true,
                   "type": "button",
@@ -534,6 +549,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -568,6 +584,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -593,6 +610,7 @@ ShallowWrapper {
                   className="rightControls"
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     secondary={true}
                     type="button"
@@ -617,6 +635,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     secondary={true}
                     type="button"
@@ -632,6 +651,7 @@ ShallowWrapper {
                   "nodeType": "class",
                   "props": Object {
                     "children": "Go to dashboards",
+                    "dataTest": "dhis2-uicore-button",
                     "onClick": [Function],
                     "secondary": true,
                     "type": "button",
@@ -745,6 +765,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   primary={true}
                   type="button"
@@ -760,6 +781,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   type="button"
                 >
@@ -771,6 +793,7 @@ ShallowWrapper {
               className="rightControls"
             >
               <Button
+                dataTest="dhis2-uicore-button"
                 onClick={[Function]}
                 secondary={true}
                 type="button"
@@ -840,6 +863,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   primary={true}
                   type="button"
@@ -855,6 +879,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   type="button"
                 >
@@ -866,6 +891,7 @@ ShallowWrapper {
               className="rightControls"
             >
               <Button
+                dataTest="dhis2-uicore-button"
                 onClick={[Function]}
                 secondary={true}
                 type="button"
@@ -897,6 +923,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     primary={true}
                     type="button"
@@ -912,6 +939,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     type="button"
                   >
@@ -923,6 +951,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -954,6 +983,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       primary={true}
                       type="button"
@@ -969,6 +999,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       type="button"
                     >
@@ -987,6 +1018,7 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       primary={true}
                       type="button"
@@ -1004,6 +1036,7 @@ ShallowWrapper {
                     "nodeType": "class",
                     "props": Object {
                       "children": "Save changes",
+                      "dataTest": "dhis2-uicore-button",
                       "onClick": [Function],
                       "primary": true,
                       "type": "button",
@@ -1020,6 +1053,7 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       type="button"
                     >
@@ -1036,6 +1070,7 @@ ShallowWrapper {
                     "nodeType": "class",
                     "props": Object {
                       "children": "Translate",
+                      "dataTest": "dhis2-uicore-button",
                       "onClick": [Function],
                       "type": "button",
                     },
@@ -1055,6 +1090,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -1070,6 +1106,7 @@ ShallowWrapper {
                 "nodeType": "class",
                 "props": Object {
                   "children": "Exit without saving",
+                  "dataTest": "dhis2-uicore-button",
                   "onClick": [Function],
                   "secondary": true,
                   "type": "button",
@@ -1154,6 +1191,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     primary={true}
                     type="button"
@@ -1169,6 +1207,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     type="button"
                   >
@@ -1180,6 +1219,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -1249,6 +1289,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     primary={true}
                     type="button"
@@ -1264,6 +1305,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     type="button"
                   >
@@ -1275,6 +1317,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -1306,6 +1349,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       primary={true}
                       type="button"
@@ -1321,6 +1365,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       type="button"
                     >
@@ -1332,6 +1377,7 @@ ShallowWrapper {
                   className="rightControls"
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     secondary={true}
                     type="button"
@@ -1363,6 +1409,7 @@ ShallowWrapper {
                       }
                     >
                       <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         primary={true}
                         type="button"
@@ -1378,6 +1425,7 @@ ShallowWrapper {
                       }
                     >
                       <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         type="button"
                       >
@@ -1396,6 +1444,7 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "children": <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         primary={true}
                         type="button"
@@ -1413,6 +1462,7 @@ ShallowWrapper {
                       "nodeType": "class",
                       "props": Object {
                         "children": "Save changes",
+                        "dataTest": "dhis2-uicore-button",
                         "onClick": [Function],
                         "primary": true,
                         "type": "button",
@@ -1429,6 +1479,7 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "children": <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         type="button"
                       >
@@ -1445,6 +1496,7 @@ ShallowWrapper {
                       "nodeType": "class",
                       "props": Object {
                         "children": "Translate",
+                        "dataTest": "dhis2-uicore-button",
                         "onClick": [Function],
                         "type": "button",
                       },
@@ -1464,6 +1516,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     secondary={true}
                     type="button"
@@ -1479,6 +1532,7 @@ ShallowWrapper {
                   "nodeType": "class",
                   "props": Object {
                     "children": "Exit without saving",
+                    "dataTest": "dhis2-uicore-button",
                     "onClick": [Function],
                     "secondary": true,
                     "type": "button",
@@ -1622,6 +1676,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   primary={true}
                   type="button"
@@ -1637,6 +1692,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   type="button"
                 >
@@ -1648,6 +1704,7 @@ ShallowWrapper {
               className="rightControls"
             >
               <Button
+                dataTest="dhis2-uicore-button"
                 onClick={[Function]}
                 secondary={true}
                 type="button"
@@ -1717,6 +1774,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   primary={true}
                   type="button"
@@ -1732,6 +1790,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   type="button"
                 >
@@ -1743,6 +1802,7 @@ ShallowWrapper {
               className="rightControls"
             >
               <Button
+                dataTest="dhis2-uicore-button"
                 onClick={[Function]}
                 secondary={true}
                 type="button"
@@ -1774,6 +1834,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     primary={true}
                     type="button"
@@ -1789,6 +1850,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     type="button"
                   >
@@ -1800,6 +1862,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -1831,6 +1894,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       primary={true}
                       type="button"
@@ -1846,6 +1910,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       type="button"
                     >
@@ -1864,6 +1929,7 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       primary={true}
                       type="button"
@@ -1881,6 +1947,7 @@ ShallowWrapper {
                     "nodeType": "class",
                     "props": Object {
                       "children": "Save changes",
+                      "dataTest": "dhis2-uicore-button",
                       "onClick": [Function],
                       "primary": true,
                       "type": "button",
@@ -1897,6 +1964,7 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       type="button"
                     >
@@ -1913,6 +1981,7 @@ ShallowWrapper {
                     "nodeType": "class",
                     "props": Object {
                       "children": "Translate",
+                      "dataTest": "dhis2-uicore-button",
                       "onClick": [Function],
                       "type": "button",
                     },
@@ -1932,6 +2001,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -1947,6 +2017,7 @@ ShallowWrapper {
                 "nodeType": "class",
                 "props": Object {
                   "children": "Exit without saving",
+                  "dataTest": "dhis2-uicore-button",
                   "onClick": [Function],
                   "secondary": true,
                   "type": "button",
@@ -2031,6 +2102,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     primary={true}
                     type="button"
@@ -2046,6 +2118,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     type="button"
                   >
@@ -2057,6 +2130,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -2126,6 +2200,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     primary={true}
                     type="button"
@@ -2141,6 +2216,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     type="button"
                   >
@@ -2152,6 +2228,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -2183,6 +2260,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       primary={true}
                       type="button"
@@ -2198,6 +2276,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       type="button"
                     >
@@ -2209,6 +2288,7 @@ ShallowWrapper {
                   className="rightControls"
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     secondary={true}
                     type="button"
@@ -2240,6 +2320,7 @@ ShallowWrapper {
                       }
                     >
                       <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         primary={true}
                         type="button"
@@ -2255,6 +2336,7 @@ ShallowWrapper {
                       }
                     >
                       <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         type="button"
                       >
@@ -2273,6 +2355,7 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "children": <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         primary={true}
                         type="button"
@@ -2290,6 +2373,7 @@ ShallowWrapper {
                       "nodeType": "class",
                       "props": Object {
                         "children": "Save changes",
+                        "dataTest": "dhis2-uicore-button",
                         "onClick": [Function],
                         "primary": true,
                         "type": "button",
@@ -2306,6 +2390,7 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "children": <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         type="button"
                       >
@@ -2322,6 +2407,7 @@ ShallowWrapper {
                       "nodeType": "class",
                       "props": Object {
                         "children": "Translate",
+                        "dataTest": "dhis2-uicore-button",
                         "onClick": [Function],
                         "type": "button",
                       },
@@ -2341,6 +2427,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     secondary={true}
                     type="button"
@@ -2356,6 +2443,7 @@ ShallowWrapper {
                   "nodeType": "class",
                   "props": Object {
                     "children": "Exit without saving",
+                    "dataTest": "dhis2-uicore-button",
                     "onClick": [Function],
                     "secondary": true,
                     "type": "button",
@@ -2499,6 +2587,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   primary={true}
                   type="button"
@@ -2514,6 +2603,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   type="button"
                 >
@@ -2525,6 +2615,7 @@ ShallowWrapper {
               className="rightControls"
             >
               <Button
+                dataTest="dhis2-uicore-button"
                 onClick={[Function]}
                 secondary={true}
                 type="button"
@@ -2594,6 +2685,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   primary={true}
                   type="button"
@@ -2609,6 +2701,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   type="button"
                 >
@@ -2620,6 +2713,7 @@ ShallowWrapper {
               className="rightControls"
             >
               <Button
+                dataTest="dhis2-uicore-button"
                 onClick={[Function]}
                 secondary={true}
                 type="button"
@@ -2651,6 +2745,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     primary={true}
                     type="button"
@@ -2666,6 +2761,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     type="button"
                   >
@@ -2677,6 +2773,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -2708,6 +2805,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       primary={true}
                       type="button"
@@ -2723,6 +2821,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       type="button"
                     >
@@ -2741,6 +2840,7 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       primary={true}
                       type="button"
@@ -2758,6 +2858,7 @@ ShallowWrapper {
                     "nodeType": "class",
                     "props": Object {
                       "children": "Save changes",
+                      "dataTest": "dhis2-uicore-button",
                       "onClick": [Function],
                       "primary": true,
                       "type": "button",
@@ -2774,6 +2875,7 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       type="button"
                     >
@@ -2790,6 +2892,7 @@ ShallowWrapper {
                     "nodeType": "class",
                     "props": Object {
                       "children": "Translate",
+                      "dataTest": "dhis2-uicore-button",
                       "onClick": [Function],
                       "type": "button",
                     },
@@ -2809,6 +2912,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -2824,6 +2928,7 @@ ShallowWrapper {
                 "nodeType": "class",
                 "props": Object {
                   "children": "Exit without saving",
+                  "dataTest": "dhis2-uicore-button",
                   "onClick": [Function],
                   "secondary": true,
                   "type": "button",
@@ -2908,6 +3013,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     primary={true}
                     type="button"
@@ -2923,6 +3029,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     type="button"
                   >
@@ -2934,6 +3041,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -3003,6 +3111,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     primary={true}
                     type="button"
@@ -3018,6 +3127,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     type="button"
                   >
@@ -3029,6 +3139,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -3060,6 +3171,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       primary={true}
                       type="button"
@@ -3075,6 +3187,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       type="button"
                     >
@@ -3086,6 +3199,7 @@ ShallowWrapper {
                   className="rightControls"
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     secondary={true}
                     type="button"
@@ -3117,6 +3231,7 @@ ShallowWrapper {
                       }
                     >
                       <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         primary={true}
                         type="button"
@@ -3132,6 +3247,7 @@ ShallowWrapper {
                       }
                     >
                       <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         type="button"
                       >
@@ -3150,6 +3266,7 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "children": <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         primary={true}
                         type="button"
@@ -3167,6 +3284,7 @@ ShallowWrapper {
                       "nodeType": "class",
                       "props": Object {
                         "children": "Save changes",
+                        "dataTest": "dhis2-uicore-button",
                         "onClick": [Function],
                         "primary": true,
                         "type": "button",
@@ -3183,6 +3301,7 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "children": <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         type="button"
                       >
@@ -3199,6 +3318,7 @@ ShallowWrapper {
                       "nodeType": "class",
                       "props": Object {
                         "children": "Translate",
+                        "dataTest": "dhis2-uicore-button",
                         "onClick": [Function],
                         "type": "button",
                       },
@@ -3218,6 +3338,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     secondary={true}
                     type="button"
@@ -3233,6 +3354,7 @@ ShallowWrapper {
                   "nodeType": "class",
                   "props": Object {
                     "children": "Exit without saving",
+                    "dataTest": "dhis2-uicore-button",
                     "onClick": [Function],
                     "secondary": true,
                     "type": "button",
@@ -3378,6 +3500,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   primary={true}
                   type="button"
@@ -3393,6 +3516,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   type="button"
                 >
@@ -3400,6 +3524,7 @@ ShallowWrapper {
                 </Button>
               </span>
               <Button
+                dataTest="dhis2-uicore-button"
                 onClick={[Function]}
                 type="button"
               >
@@ -3410,6 +3535,7 @@ ShallowWrapper {
               className="rightControls"
             >
               <Button
+                dataTest="dhis2-uicore-button"
                 onClick={[Function]}
                 secondary={true}
                 type="button"
@@ -3455,6 +3581,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   primary={true}
                   type="button"
@@ -3470,6 +3597,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   type="button"
                 >
@@ -3477,6 +3605,7 @@ ShallowWrapper {
                 </Button>
               </span>
               <Button
+                dataTest="dhis2-uicore-button"
                 onClick={[Function]}
                 type="button"
               >
@@ -3487,6 +3616,7 @@ ShallowWrapper {
               className="rightControls"
             >
               <Button
+                dataTest="dhis2-uicore-button"
                 onClick={[Function]}
                 secondary={true}
                 type="button"
@@ -3518,6 +3648,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     primary={true}
                     type="button"
@@ -3533,6 +3664,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     type="button"
                   >
@@ -3540,6 +3672,7 @@ ShallowWrapper {
                   </Button>
                 </span>
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   type="button"
                 >
@@ -3550,6 +3683,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -3581,6 +3715,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       primary={true}
                       type="button"
@@ -3596,6 +3731,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       type="button"
                     >
@@ -3603,6 +3739,7 @@ ShallowWrapper {
                     </Button>
                   </span>,
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     type="button"
                   >
@@ -3619,6 +3756,7 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       primary={true}
                       type="button"
@@ -3636,6 +3774,7 @@ ShallowWrapper {
                     "nodeType": "class",
                     "props": Object {
                       "children": "Save changes",
+                      "dataTest": "dhis2-uicore-button",
                       "onClick": [Function],
                       "primary": true,
                       "type": "button",
@@ -3652,6 +3791,7 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       type="button"
                     >
@@ -3668,6 +3808,7 @@ ShallowWrapper {
                     "nodeType": "class",
                     "props": Object {
                       "children": "Translate",
+                      "dataTest": "dhis2-uicore-button",
                       "onClick": [Function],
                       "type": "button",
                     },
@@ -3683,6 +3824,7 @@ ShallowWrapper {
                   "nodeType": "class",
                   "props": Object {
                     "children": "Delete",
+                    "dataTest": "dhis2-uicore-button",
                     "onClick": [Function],
                     "type": "button",
                   },
@@ -3699,6 +3841,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -3714,6 +3857,7 @@ ShallowWrapper {
                 "nodeType": "class",
                 "props": Object {
                   "children": "Exit without saving",
+                  "dataTest": "dhis2-uicore-button",
                   "onClick": [Function],
                   "secondary": true,
                   "type": "button",
@@ -3781,6 +3925,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     primary={true}
                     type="button"
@@ -3796,6 +3941,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     type="button"
                   >
@@ -3803,6 +3949,7 @@ ShallowWrapper {
                   </Button>
                 </span>
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   type="button"
                 >
@@ -3813,6 +3960,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -3858,6 +4006,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     primary={true}
                     type="button"
@@ -3873,6 +4022,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     type="button"
                   >
@@ -3880,6 +4030,7 @@ ShallowWrapper {
                   </Button>
                 </span>
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   type="button"
                 >
@@ -3890,6 +4041,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -3921,6 +4073,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       primary={true}
                       type="button"
@@ -3936,6 +4089,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       type="button"
                     >
@@ -3943,6 +4097,7 @@ ShallowWrapper {
                     </Button>
                   </span>
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     type="button"
                   >
@@ -3953,6 +4108,7 @@ ShallowWrapper {
                   className="rightControls"
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     secondary={true}
                     type="button"
@@ -3984,6 +4140,7 @@ ShallowWrapper {
                       }
                     >
                       <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         primary={true}
                         type="button"
@@ -3999,6 +4156,7 @@ ShallowWrapper {
                       }
                     >
                       <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         type="button"
                       >
@@ -4006,6 +4164,7 @@ ShallowWrapper {
                       </Button>
                     </span>,
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       type="button"
                     >
@@ -4022,6 +4181,7 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "children": <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         primary={true}
                         type="button"
@@ -4039,6 +4199,7 @@ ShallowWrapper {
                       "nodeType": "class",
                       "props": Object {
                         "children": "Save changes",
+                        "dataTest": "dhis2-uicore-button",
                         "onClick": [Function],
                         "primary": true,
                         "type": "button",
@@ -4055,6 +4216,7 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "children": <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         type="button"
                       >
@@ -4071,6 +4233,7 @@ ShallowWrapper {
                       "nodeType": "class",
                       "props": Object {
                         "children": "Translate",
+                        "dataTest": "dhis2-uicore-button",
                         "onClick": [Function],
                         "type": "button",
                       },
@@ -4086,6 +4249,7 @@ ShallowWrapper {
                     "nodeType": "class",
                     "props": Object {
                       "children": "Delete",
+                      "dataTest": "dhis2-uicore-button",
                       "onClick": [Function],
                       "type": "button",
                     },
@@ -4102,6 +4266,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     secondary={true}
                     type="button"
@@ -4117,6 +4282,7 @@ ShallowWrapper {
                   "nodeType": "class",
                   "props": Object {
                     "children": "Exit without saving",
+                    "dataTest": "dhis2-uicore-button",
                     "onClick": [Function],
                     "secondary": true,
                     "type": "button",
@@ -4244,6 +4410,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   primary={true}
                   type="button"
@@ -4256,6 +4423,7 @@ ShallowWrapper {
               className="rightControls"
             >
               <Button
+                dataTest="dhis2-uicore-button"
                 onClick={[Function]}
                 secondary={true}
                 type="button"
@@ -4297,6 +4465,7 @@ ShallowWrapper {
                 }
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   primary={true}
                   type="button"
@@ -4309,6 +4478,7 @@ ShallowWrapper {
               className="rightControls"
             >
               <Button
+                dataTest="dhis2-uicore-button"
                 onClick={[Function]}
                 secondary={true}
                 type="button"
@@ -4340,6 +4510,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     primary={true}
                     type="button"
@@ -4352,6 +4523,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -4383,6 +4555,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       primary={true}
                       type="button"
@@ -4403,6 +4576,7 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       primary={true}
                       type="button"
@@ -4420,6 +4594,7 @@ ShallowWrapper {
                     "nodeType": "class",
                     "props": Object {
                       "children": "Save changes",
+                      "dataTest": "dhis2-uicore-button",
                       "onClick": [Function],
                       "primary": true,
                       "type": "button",
@@ -4441,6 +4616,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -4456,6 +4632,7 @@ ShallowWrapper {
                 "nodeType": "class",
                 "props": Object {
                   "children": "Exit without saving",
+                  "dataTest": "dhis2-uicore-button",
                   "onClick": [Function],
                   "secondary": true,
                   "type": "button",
@@ -4510,6 +4687,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     primary={true}
                     type="button"
@@ -4522,6 +4700,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -4563,6 +4742,7 @@ ShallowWrapper {
                   }
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     primary={true}
                     type="button"
@@ -4575,6 +4755,7 @@ ShallowWrapper {
                 className="rightControls"
               >
                 <Button
+                  dataTest="dhis2-uicore-button"
                   onClick={[Function]}
                   secondary={true}
                   type="button"
@@ -4606,6 +4787,7 @@ ShallowWrapper {
                     }
                   >
                     <Button
+                      dataTest="dhis2-uicore-button"
                       onClick={[Function]}
                       primary={true}
                       type="button"
@@ -4618,6 +4800,7 @@ ShallowWrapper {
                   className="rightControls"
                 >
                   <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     secondary={true}
                     type="button"
@@ -4649,6 +4832,7 @@ ShallowWrapper {
                       }
                     >
                       <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         primary={true}
                         type="button"
@@ -4669,6 +4853,7 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "children": <Button
+                        dataTest="dhis2-uicore-button"
                         onClick={[Function]}
                         primary={true}
                         type="button"
@@ -4686,6 +4871,7 @@ ShallowWrapper {
                       "nodeType": "class",
                       "props": Object {
                         "children": "Save changes",
+                        "dataTest": "dhis2-uicore-button",
                         "onClick": [Function],
                         "primary": true,
                         "type": "button",
@@ -4707,6 +4893,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <Button
+                    dataTest="dhis2-uicore-button"
                     onClick={[Function]}
                     secondary={true}
                     type="button"
@@ -4722,6 +4909,7 @@ ShallowWrapper {
                   "nodeType": "class",
                   "props": Object {
                     "children": "Exit without saving",
+                    "dataTest": "dhis2-uicore-button",
                     "onClick": [Function],
                     "secondary": true,
                     "type": "button",
