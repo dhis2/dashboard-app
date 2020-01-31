@@ -1192,15 +1192,15 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^2.8.3":
-  version "2.8.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.8.3.tgz#062118d257c29d5e28cf4bf035842f112b9eef41"
-  integrity sha512-bF38HNa6vL9JcJApSPE1KvLAb8M3p1nh/ymtcD6ULIhnTTqKy9eOaiz8hulH2NYRG+aJkXFNtp46OhmQGTZ7Ng==
+"@dhis2/analytics@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-3.0.1.tgz#2713078c2fef0bea63a3909280be8b9200e47ef6"
+  integrity sha512-e5fzfoaqixtEOBfA9OAXqobz67R+gmn2JZUJpLv0KlgE3Ifhz54DrcPvAhKhbSctzf2c8tCbuSvfdR+bJb9PTw==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.3.2"
     "@dhis2/d2-ui-period-selector-dialog" "^6.3.2"
-    "@dhis2/ui-core" "^4.1.1"
+    "@dhis2/ui-core" "^4.7.1"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
     classnames "^2.2.6"
@@ -1536,13 +1536,6 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/prop-types@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.4.0.tgz#921e733bf55a03617414f60d303fa7eacee3ac52"
-  integrity sha512-vQomZH0sBLNrTVRMlwQ6HM8rn0kFiw6zt/Z8d6flTAuDuZrwD0Wi505dvbqbf7/bHDwpMnp4xz6v6ky1l+jfeg==
-  dependencies:
-    prop-types "^15"
-
 "@dhis2/prop-types@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.5.0.tgz#7e69919f66698be373dd21940a8a770234ded6a1"
@@ -1559,19 +1552,10 @@
     classnames "^2.2.6"
     styled-jsx "^3.2.1"
 
-"@dhis2/ui-core@^4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.0.3.tgz#1afd57dcb11f1f7a382846eccf06e5490026d002"
-  integrity sha512-DpgT/9UYAsuuI2yLAbIueGmo8WOrFwQLJ40UuKSSEHjtYGYp+XIZE0Py5ZSk87eMG2yzc3EwcmtqD2UpAAn2qg==
-  dependencies:
-    "@dhis2/prop-types" "^1.4.0"
-    classnames "^2.2.6"
-    styled-jsx "^3.2.4"
-
-"@dhis2/ui-core@^4.1.1":
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.6.1.tgz#62677590b3b32322dfa014b006e6226b637f0162"
-  integrity sha512-85ubddhmSRjDFPZqtSoTOZiPnfzHU1CyFyTXYmar/3lr8zl4mzY7aKScsEsTtJRWpN8ie86LWRqdGpbrV98VcQ==
+"@dhis2/ui-core@^4.7.1":
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.7.1.tgz#62f663896b67f8a2b1a557b5cb32f1352cf056bc"
+  integrity sha512-CHfesGZ15Gs08mCifqmW4LiOM+MpS2spkbdr3P27Yn0uPYjCOG9QbX0UIrdifIqraUSHqTgwtD2HAA4aG2IXEw==
   dependencies:
     "@dhis2/prop-types" "^1.5.0"
     classnames "^2.2.6"
