@@ -57,6 +57,17 @@ export const getPlugin = type => {
 
 // Item type map
 export const itemTypeMap = {
+    [VISUALIZATION]: {
+        id: VISUALIZATION,
+        endPointName: 'visualizations',
+        propName: 'visualization',
+        pluralTitle: i18n.t('Visualizations'),
+        plugin: 'visualizationPlugin',
+        domainType: DOMAIN_TYPE_AGGREGATE,
+        visualizationType: VISUALIZATION_TYPE_TABLE,
+        appUrl: id => `dhis-web-pivot/?id=${id}`,
+        appName: i18n.t('Pivot Tables'),
+    },
     [REPORT_TABLE]: {
         id: REPORT_TABLE,
         endPointName: 'reportTables',

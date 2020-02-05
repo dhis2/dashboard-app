@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-06-04T08:23:22.661Z\n"
-"PO-Revision-Date: 2019-06-04T08:23:22.661Z\n"
+"POT-Creation-Date: 2020-02-05T17:40:22.268Z\n"
+"PO-Revision-Date: 2020-02-05T17:40:22.268Z\n"
 
 msgid "Dashboard"
 msgstr ""
@@ -127,10 +127,13 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-msgid "Pivot tables"
+msgid "Visualizations"
 msgstr ""
 
 msgid "Pivot Tables"
+msgstr ""
+
+msgid "Pivot tables"
 msgstr ""
 
 msgid "Charts"

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import LaunchIcon from '@material-ui/icons/Launch';
-import ChartPlugin from '@dhis2/data-visualizer-plugin';
+import VisualizationPlugin from '@dhis2/data-visualizer-plugin';
 
 import i18n from '@dhis2/d2-i18n';
 import uniqueId from 'lodash/uniqueId';
@@ -140,12 +140,16 @@ export class Item extends Component {
         switch (this.getActiveType()) {
             case CHART: {
                 return (
-                    <ChartPlugin
+                    <VisualizationPlugin
                         d2={this.d2}
                         config={applyFilters(
                             props.visualization,
                             props.itemFilters
                         )}
+                        // filters={visFilters}
+                        // onChartGenerated={this.onChartGenerated}
+                        // onResponsesReceived={this.onResponsesReceived}
+                        // onError={this.onError}
                         forDashboard={true}
                         style={props.style}
                     />

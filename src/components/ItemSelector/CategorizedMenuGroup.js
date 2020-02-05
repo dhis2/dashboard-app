@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
@@ -9,7 +9,7 @@ import ContentMenuItem from './ContentMenuItem';
 
 import { tAddListItemContent } from './actions';
 import { acAddDashboardItem } from '../../actions/editDashboard';
-import { getItemUrl, APP } from '../../modules/itemTypes';
+import { getItemUrl, APP, VISUALIZATION } from '../../modules/itemTypes';
 import { categorizedItems, listItemTypes } from './selectableItems';
 
 import classes from './styles/CategorizedMenuGroup.module.css';
@@ -51,7 +51,7 @@ class CategorizedMenuGroup extends Component {
     render() {
         const { title, type, items, hasMore } = this.props;
         return (
-            <Fragment>
+            <>
                 <HeaderMenuItem title={title} />
                 {items.map(item => {
                     const itemUrl = getItemUrl(type, item, this.context.d2);
@@ -59,6 +59,7 @@ class CategorizedMenuGroup extends Component {
                         <ContentMenuItem
                             key={item.id || item.key}
                             type={type}
+                            visType={type === VISUALIZATION ? item.type : type}
                             name={item.displayName || item.name}
                             onInsert={this.addItem(item)}
                             url={itemUrl}
@@ -80,7 +81,7 @@ class CategorizedMenuGroup extends Component {
                     />
                 ) : null}
                 <Divider margin="8px 0px" />
-            </Fragment>
+            </>
         );
     }
 }
