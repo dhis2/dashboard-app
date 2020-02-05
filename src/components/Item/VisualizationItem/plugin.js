@@ -1,6 +1,7 @@
 import isObject from 'lodash/isObject';
 import { apiFetchFavorite, getMapFields } from '../../../api/metadata';
 import {
+    VISUALIZATION,
     REPORT_TABLE,
     CHART,
     MAP,
@@ -26,6 +27,8 @@ export const extractFavorite = item => {
     }
 
     switch (item.type) {
+        case VISUALIZATION:
+            return item.visualization;
         case REPORT_TABLE:
             return item.reportTable;
         case CHART:
