@@ -65,8 +65,8 @@ export const itemTypeMap = {
         plugin: 'visualizationPlugin',
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_TABLE,
-        appUrl: id => `dhis-web-pivot/?id=${id}`,
-        appName: i18n.t('Pivot Tables'),
+        appUrl: id => `dhis-web-data-visualizer/#/${id}`,
+        appName: i18n.t('Visualizer'),
     },
     [REPORT_TABLE]: {
         id: REPORT_TABLE,

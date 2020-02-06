@@ -1173,25 +1173,6 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^2.4.5":
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.4.5.tgz#56db1331b70af718664c7b823af60661f2afa88c"
-  integrity sha512-bf4hXCnDiWdT/S5uoVQ9vb2kaIVlkeJMlolVxIbidg5XDCsoC7TDGnL7RaImsxR54IrLZ8rW6uediqPeP4BWHw==
-  dependencies:
-    "@dhis2/d2-i18n" "^1.0.4"
-    "@dhis2/d2-ui-org-unit-dialog" "^6.3.0"
-    "@dhis2/d2-ui-period-selector-dialog" "^6.3.0"
-    "@dhis2/ui-core" "^3.4.0"
-    "@material-ui/core" "^3.9.3"
-    "@material-ui/icons" "^3.0.2"
-    classnames "^2.2.6"
-    d2-utilizr "^0.2.16"
-    d3-color "^1.2.3"
-    highcharts "^7.1.2"
-    lodash "^4.17.13"
-    react-beautiful-dnd "^10.1.1"
-    styled-jsx "^3.2.1"
-
 "@dhis2/analytics@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-3.0.1.tgz#2713078c2fef0bea63a3909280be8b9200e47ef6"
@@ -1209,6 +1190,26 @@
     highcharts "^7.1.2"
     lodash "^4.17.13"
     react-beautiful-dnd "^10.1.1"
+    styled-jsx "^3.2.1"
+
+"@dhis2/analytics@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-3.1.1.tgz#d1748b169b36e90ee71550c179900c8962b752b8"
+  integrity sha512-64p818t8hst1nu/+xWVsaWO/gs9CxLgbE9MerHwYgmxjTlqCYvNaEuWwxeorb6lnjGnd+LPiH1k+AN7Fsh0JYg==
+  dependencies:
+    "@dhis2/d2-i18n" "^1.0.4"
+    "@dhis2/d2-ui-org-unit-dialog" "^6.3.2"
+    "@dhis2/d2-ui-period-selector-dialog" "^6.3.2"
+    "@dhis2/ui-core" "^4.7.1"
+    "@material-ui/core" "^3.9.3"
+    "@material-ui/icons" "^3.0.2"
+    classnames "^2.2.6"
+    d2-utilizr "^0.2.16"
+    d3-color "^1.2.3"
+    highcharts "^7.1.2"
+    lodash "^4.17.13"
+    react-beautiful-dnd "^10.1.1"
+    resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.2.1"
 
 "@dhis2/app-runtime@^2.0.3":
@@ -1313,16 +1314,6 @@
     lodash "^4.17.10"
     material-ui "^0.20.0"
 
-"@dhis2/d2-ui-core@6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.3.0.tgz#ec0ef63978a34d5b2330303c426bf7d59e0836fc"
-  integrity sha512-ZFthluJBkmbi1F0vNaIvx2Zbjioapo+Ewn1vNqb2MsUadTHOlPcrWQjDz3JCB0qce2ZW2avZ+spasEOytPNsFA==
-  dependencies:
-    babel-runtime "^6.26.0"
-    d2 "~31.7"
-    lodash "^4.17.10"
-    material-ui "^0.20.0"
-
 "@dhis2/d2-ui-core@6.5.0":
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.5.0.tgz#fe83f664343f631525fa8c6046bcdfcd640ac4ca"
@@ -1374,17 +1365,6 @@
     "@material-ui/icons" "^3.0.1"
     prop-types "^15.5.10"
 
-"@dhis2/d2-ui-org-unit-dialog@^6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-6.3.0.tgz#6f12b73fab2ce0448b92267a19aa6a1e9c363c70"
-  integrity sha512-wgjs1Av9cQzpCThug8uVu5uc61dwcLpfiWcK7Vr046rsw4iH+iMaCk5FE5nIC06LZWsLkENzVEdxo6DYskuq6w==
-  dependencies:
-    "@dhis2/d2-i18n" "^1.0.3"
-    "@dhis2/d2-ui-org-unit-tree" "6.3.0"
-    "@material-ui/core" "^3.3.1"
-    "@material-ui/icons" "^3.0.1"
-    prop-types "^15.5.10"
-
 "@dhis2/d2-ui-org-unit-dialog@^6.3.2":
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-6.5.0.tgz#e0027fbb0c7fb977061b0ea9a55d454766bbc8bf"
@@ -1402,16 +1382,6 @@
   integrity sha512-l4OnCkhzF8V/4GhS5gbFdsFyMBjmFyt2ECfbootafUh0jegMRE4vWLFdk88h6X3jwcRSD6d/gjnkB8Li1rGikQ==
   dependencies:
     "@dhis2/d2-ui-core" "6.1.0"
-    "@material-ui/core" "^3.3.1"
-    babel-runtime "^6.26.0"
-    prop-types "^15.5.10"
-
-"@dhis2/d2-ui-org-unit-tree@6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-6.3.0.tgz#5c80074a38987f853383aa12f10ecd11127332ef"
-  integrity sha512-KzO+ZnyN6vQjogFnK4ZWW/fcha40D0g+Vjc6IVS5U1kBiHdpmqngo+6K6DqCaHRkl/7oUyOUkEvrzbWdnkodVA==
-  dependencies:
-    "@dhis2/d2-ui-core" "6.3.0"
     "@material-ui/core" "^3.3.1"
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
@@ -1438,18 +1408,6 @@
     babel-runtime "^6.26.0"
     prop-types "^15.6.0"
 
-"@dhis2/d2-ui-period-selector-dialog@^6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-6.3.0.tgz#56bba56d8a7e914364e94e3d025dda8f03a3622f"
-  integrity sha512-JOofPyx+h45PsVi/0Ubf4xQurBwnnq+wTSOtibKfWSvxNgrNUug08F8+LYxoP/+IUogmkzuFD0uQs9pW3pYa0g==
-  dependencies:
-    "@dhis2/analytics" "^2.1.0"
-    "@dhis2/d2-i18n" "^1.0.4"
-    "@material-ui/core" "^3.3.1"
-    "@material-ui/icons" "^3.0.1"
-    babel-runtime "^6.26.0"
-    prop-types "^15.6.0"
-
 "@dhis2/d2-ui-period-selector-dialog@^6.3.2":
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-6.5.0.tgz#41ee143bf2e014fd001130655f26bcbc825cdc9b"
@@ -1466,6 +1424,15 @@
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-6.0.1.tgz#6a57dbbc6586161cd64eda9b4f24a8de67c92dea"
   integrity sha512-lxb8zDee/F/O5oleRepx4T7hTWrdPL7WGIyxoBhi0aoHCMLbypwdMEjK05/qZu9BIrMPLi1kMr+s2tqWX1w2RQ==
+  dependencies:
+    babel-runtime "^6.26.0"
+    markdown-it "^8.4.2"
+    prop-types "^15.6.2"
+
+"@dhis2/d2-ui-rich-text@^5.1.0":
+  version "5.3.11"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-5.3.11.tgz#47fca559b2d364bc318429dc14c479c8aa4f7839"
+  integrity sha512-17VK0akErL765dOxwQPCq5ORGLRJkxY9g58bZSLpz7FVGw5FvJX/OMrAKXqh3K+AkrWlVd7xoo5rykPFNafYhQ==
   dependencies:
     babel-runtime "^6.26.0"
     markdown-it "^8.4.2"
@@ -1513,16 +1480,15 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^33.1.6":
-  version "33.1.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-33.1.6.tgz#e92febc963755e1f7f95e7c57aef9acf17d9791c"
-  integrity sha512-BuuTMeQ1xNVS38X9cJnCnA3evqgyoB6aATfTOnb0LOGSH+ar9mGnif5LJfiaqemgNDQOTueLIMMYyeewnDAV1Q==
+"@dhis2/data-visualizer-plugin@34.0.0-alpha.1":
+  version "34.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-34.0.0-alpha.1.tgz#4e0f313b1a5f5d16c5b93089ee43e1215291662b"
+  integrity sha512-SeTAHttYFRL1KdD1lI59Y+rXVSDZkSAzJtKOlbURlAq4hBw9ykFjdtJzb8XPS6yw2AlPl+8qb4rNGAWbh7bNLg==
   dependencies:
-    "@dhis2/analytics" "^2.4.5"
+    "@dhis2/analytics" "^3.1.1"
     "@material-ui/core" "^3.1.2"
+    d2-analysis "33.2.11"
     lodash-es "^4.17.11"
-    react "^16.6.0"
-    react-dom "^16.6.0"
 
 "@dhis2/prop-types@^1.0.3":
   version "1.0.4"
@@ -4326,6 +4292,15 @@ cyclist@~0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
+
+d2-analysis@33.2.11:
+  version "33.2.11"
+  resolved "https://registry.yarnpkg.com/d2-analysis/-/d2-analysis-33.2.11.tgz#11d430df739fdbed60e5c22422b62f081f2e4048"
+  integrity sha512-nkAGQbGquEOBDA1o0f75tHKPhZjAiibdTMmeB25PZkqaZD7PeWp8gSuExLXSoBJAWhPCg5lJJRANelY67y8MeQ==
+  dependencies:
+    "@dhis2/d2-ui-rich-text" "^5.1.0"
+    d2-utilizr "^0.2.16"
+    jquery "2.1.4"
 
 d2-manifest@^1.0.0:
   version "1.0.0"
@@ -7960,6 +7935,11 @@ joi@^11.1.1:
     isemail "3.x.x"
     topo "2.x.x"
 
+jquery@2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.1.4.tgz#228bde698a0c61431dc2630a6a154f15890d2317"
+  integrity sha1-IoveaYoMYUMdwmMKahVPFYkNIxc=
+
 js-levenshtein@^1.1.3:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/js-levenshtein/-/js-levenshtein-1.1.6.tgz#c6cee58eb3550372df8deb85fad5ce66ce01d59d"
@@ -11036,16 +11016,6 @@ react-dev-utils@^8.0.0:
     strip-ansi "5.0.0"
     text-table "0.2.0"
 
-react-dom@^16.6.0:
-  version "16.9.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.9.0.tgz#5e65527a5e26f22ae3701131bcccaee9fb0d3962"
-  integrity sha512-YFT2rxO9hM70ewk9jq0y6sQk8cL02xm4+IzYBz75CQGlClQQ1Bxq0nhHF6OtSbit+AIahujJgb/CPRibFkMNJQ==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.2"
-    scheduler "^0.15.0"
-
 react-dom@^16.8.4:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.6.tgz#71d6303f631e8b0097f56165ef608f051ff6e10f"
@@ -11273,15 +11243,6 @@ react-transition-group@^2.2.1:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
-
-react@^16.6.0:
-  version "16.9.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.9.0.tgz#40ba2f9af13bc1a38d75dbf2f4359a5185c4f7aa"
-  integrity sha512-+7LQnFBwkiw+BobzOF6N//BdoNw0ouwmSJTEm9cglOOmsg/TMiFHZLe2sEoN5M7LgJTj9oHH0gxklfnQe66S1w==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.2"
 
 react@^16.8.4:
   version "16.8.6"
@@ -11733,6 +11694,11 @@ reselect@^4.0.0:
   resolved "https://registry.yarnpkg.com/reselect/-/reselect-4.0.0.tgz#f2529830e5d3d0e021408b246a206ef4ea4437f7"
   integrity sha512-qUgANli03jjAyGlnbYVAV5vvnOmJnODyABz51RdBN7M4WaVu8mecZWgyQNkG8Yqe3KRGRt0l4K4B3XVEULC4CA==
 
+resize-observer-polyfill@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
+
 resolve-cwd@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/resolve-cwd/-/resolve-cwd-2.0.0.tgz#00a9f7387556e27038eae232caa372a6a59b665a"
@@ -11986,14 +11952,6 @@ scheduler@^0.13.6:
   version "0.13.6"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.13.6.tgz#466a4ec332467b31a91b9bf74e5347072e4cd889"
   integrity sha512-IWnObHt413ucAYKsD9J1QShUKkbKLQQHdxRyw73sw4FN26iWr3DY/H34xGPe4nmL1DwXyWmSWmMrA9TfQbE/XQ==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-
-scheduler@^0.15.0:
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.15.0.tgz#6bfcf80ff850b280fed4aeecc6513bc0b4f17f8e"
-  integrity sha512-xAefmSfN6jqAa7Kuq7LIJY0bwAPG3xlCj0HMEBQk1lxYiDKZscY2xJ5U/61ZTrYbmNQbXa+gc7czPkVo11tnCg==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
