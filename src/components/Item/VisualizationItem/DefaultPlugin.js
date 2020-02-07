@@ -102,6 +102,8 @@ class DefaultPlugin extends Component {
             visualization
         );
 
+        console.log('render ');
+
         return pluginIsAvailable ? (
             <div id={getGridItemDomId(item.id)} style={style} />
         ) : (

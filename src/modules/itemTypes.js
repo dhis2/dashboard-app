@@ -48,7 +48,7 @@ export const isPluginType = item => 'plugin' in itemTypeMap[item.type];
 export const getPlugin = type => {
     const pluginName = itemTypeMap[type].plugin;
 
-    if (type === CHART) {
+    if (type === CHART || type === REPORT_TABLE) {
         return true;
     }
 
@@ -73,11 +73,11 @@ export const itemTypeMap = {
         endPointName: 'reportTables',
         propName: 'reportTable',
         pluralTitle: i18n.t('Pivot tables'),
-        plugin: 'reportTablePlugin',
+        plugin: 'visualizationPlugin',
         domainType: DOMAIN_TYPE_AGGREGATE,
         visualizationType: VISUALIZATION_TYPE_TABLE,
-        appUrl: id => `dhis-web-pivot/?id=${id}`,
-        appName: i18n.t('Pivot Tables'),
+        appUrl: id => `dhis-web-data-visualizer/#/${id}`,
+        appName: i18n.t('Visualizer'),
     },
     [CHART]: {
         id: CHART,

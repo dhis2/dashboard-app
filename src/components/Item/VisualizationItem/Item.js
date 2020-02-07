@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
@@ -21,6 +21,7 @@ import {
 } from '../../../actions/selected';
 import {
     VISUALIZATION,
+    REPORT_TABLE,
     CHART,
     MAP,
     itemTypeMap,
@@ -144,6 +145,7 @@ export class Item extends Component {
 
         switch (this.getActiveType()) {
             case VISUALIZATION:
+            case REPORT_TABLE:
             case CHART: {
                 return (
                     <VisualizationPlugin
@@ -289,7 +291,7 @@ export class Item extends Component {
         const { showFooter } = this.state;
 
         return (
-            <>
+            <Fragment>
                 <ItemHeader
                     title={this.getTitle()}
                     actionButtons={this.getActionButtons()}
@@ -303,7 +305,7 @@ export class Item extends Component {
                     {this.state.configLoaded && this.getPluginComponent()}
                 </div>
                 {!editMode && showFooter ? <ItemFooter item={item} /> : null}
-            </>
+            </Fragment>
         );
     }
 }
