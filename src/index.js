@@ -51,8 +51,7 @@ const init = async () => {
     // api config
     const baseUrl = isProd
         ? manifest.activities.dhis.href
-        : 'https://debug.dhis2.org/dev';
-    // : process.env.REACT_APP_DHIS2_BASE_URL;
+        : process.env.REACT_APP_DHIS2_BASE_URL;
     const authorization = process.env.REACT_APP_DHIS2_AUTHORIZATION;
 
     config.baseUrl = `${baseUrl}/api/${manifest.dhis2.apiVersion}`;
