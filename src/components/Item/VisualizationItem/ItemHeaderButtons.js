@@ -7,19 +7,21 @@ import MapIcon from '@material-ui/icons/Public';
 
 import { extractFavorite } from './plugin';
 import ItemHeaderButton from '../ItemHeaderButton';
+// import {
+//     CHART,
+//     MAP,
+//     REPORT_TABLE,
+//     EVENT_CHART,
+//     EVENT_REPORT,
+// } from '../../../modules/itemTypes';
 import {
-    CHART,
-    MAP,
-    REPORT_TABLE,
-    EVENT_CHART,
-    EVENT_REPORT,
-} from '../../../modules/itemTypes';
-import {
-    getViewTypeId,
+    // getViewTypeId,
     hasMapView,
     VIEW_TYPE_TABLE,
     VIEW_TYPE_CHART,
     VIEW_TYPE_MAP,
+    VIEW_TYPE_EV_TABLE,
+    VIEW_TYPE_EV_CHART,
 } from '../../../modules/visualizationViewTypes';
 import { colors, theme } from '@dhis2/ui-core';
 import { isSingleValue } from '@dhis2/analytics';
@@ -68,17 +70,19 @@ const activeStyle = {
 const inactiveStyle = disabled => (disabled ? disabledStyle : baseStyle);
 
 const tableBtnStyle = (activeView, disabled) =>
-    [REPORT_TABLE, EVENT_REPORT].includes(activeView)
+    [VIEW_TYPE_TABLE, VIEW_TYPE_EV_TABLE].includes(activeView)
         ? activeStyle
         : inactiveStyle(disabled);
 
 const chartBtnStyle = (activeView, disabled) =>
-    [CHART, EVENT_CHART].includes(activeView)
+    [VIEW_TYPE_CHART, VIEW_TYPE_EV_CHART].includes(activeView)
         ? activeStyle
         : inactiveStyle(disabled);
 
 const mapBtnStyle = (activeView, disabled) =>
-    [MAP].includes(activeView) ? activeStyle : inactiveStyle(disabled);
+    [VIEW_TYPE_MAP].includes(activeView)
+        ? activeStyle
+        : inactiveStyle(disabled);
 
 class VisualizationItemHeaderButtons extends Component {
     renderInterpretationButton() {
@@ -114,11 +118,11 @@ class VisualizationItemHeaderButtons extends Component {
             return null;
         }
 
-        const onViewTable = () => onSelectView(getViewTypeId(VIEW_TYPE_TABLE));
+        const onViewTable = () => onSelectView(VIEW_TYPE_TABLE);
 
-        const onViewChart = () => onSelectView(getViewTypeId(VIEW_TYPE_CHART));
+        const onViewChart = () => onSelectView(VIEW_TYPE_CHART);
 
-        const onViewMap = () => onSelectView(getViewTypeId(VIEW_TYPE_MAP));
+        const onViewMap = () => onSelectView(VIEW_TYPE_MAP);
 
         // disable toggle buttons
         let disabled = false;

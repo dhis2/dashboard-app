@@ -3,10 +3,7 @@ import {
     SET_SELECTED_ISLOADING,
     SET_SELECTED_SHOWDESCRIPTION,
 } from '../reducers/selected';
-import {
-    RECEIVED_VISUALIZATION,
-    RECEIVED_ACTIVE_VISUALIZATION,
-} from '../reducers/visualizations';
+import { acAddVisualization } from '../actions/visualizations';
 import { sGetSelectedIsLoading } from '../reducers/selected';
 import { sGetUserUsername } from '../reducers/user';
 import { getCustomDashboards, sGetDashboardById } from '../reducers/dashboards';
@@ -44,24 +41,6 @@ export const acSetSelectedShowDescription = value => ({
     type: SET_SELECTED_SHOWDESCRIPTION,
     value,
 });
-
-export const acReceivedVisualization = value => ({
-    type: RECEIVED_VISUALIZATION,
-    value,
-});
-
-export const acReceivedActiveVisualization = (id, type, activeType) => {
-    const action = {
-        type: RECEIVED_ACTIVE_VISUALIZATION,
-        id,
-    };
-
-    if (activeType !== type) {
-        action.activeType = activeType;
-    }
-
-    return action;
-};
 
 export const tLoadDashboard = id => async dispatch => {
     try {
@@ -111,7 +90,7 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
                 case MAP:
                 case EVENT_REPORT:
                 case EVENT_CHART:
-                    dispatch(acReceivedVisualization(extractFavorite(item)));
+                    dispatch(acAddVisualization(extractFavorite(item)));
                     break;
                 case MESSAGES:
                     dispatch(tGetMessages(id));

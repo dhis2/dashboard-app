@@ -3,8 +3,8 @@ import objectClean from 'd2-utilizr/lib/objectClean';
 
 /** @module reducers/visualizations */
 
-export const RECEIVED_VISUALIZATION = 'RECEIVED_VISUALIZATION';
-export const RECEIVED_ACTIVE_VISUALIZATION = 'RECEIVED_ACTIVE_VISUALIZATION';
+export const ADD_VISUALIZATION = 'ADD_VISUALIZATION';
+export const SET_ACTIVE_VISUALIZATION_VIEW = 'SET_ACTIVE_VISUALIZATION_VIEW';
 
 export const DEFAULT_STATE_VISUALIZATIONS = {};
 
@@ -12,7 +12,7 @@ const isEmpty = p => p === undefined || p === null;
 
 export default (state = DEFAULT_STATE_VISUALIZATIONS, action) => {
     switch (action.type) {
-        case RECEIVED_VISUALIZATION: {
+        case ADD_VISUALIZATION: {
             return {
                 ...state,
                 [action.value.id]: objectClean(
@@ -24,7 +24,7 @@ export default (state = DEFAULT_STATE_VISUALIZATIONS, action) => {
                 ),
             };
         }
-        case RECEIVED_ACTIVE_VISUALIZATION: {
+        case SET_ACTIVE_VISUALIZATION_VIEW: {
             return {
                 ...state,
                 [action.id]: objectClean(

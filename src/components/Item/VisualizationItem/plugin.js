@@ -7,15 +7,19 @@ import {
     EVENT_REPORT,
     EVENT_CHART,
     itemTypeMap,
-    getPlugin,
+    // getPlugin,
 } from '../../../modules/itemTypes';
+import {
+    getDefaultView,
+    getPlugin,
+} from '../../../modules/visualizationViewTypes';
 import { getBaseUrl, getWithoutId } from '../../../modules/util';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 
 export const THEMATIC_LAYER = 'thematic';
 
 export const pluginIsAvailable = (item = {}, visualization = {}) => {
-    const type = visualization.activeType || item.type;
+    const type = visualization.activeType || getDefaultView(item.type);
 
     return !!getPlugin(type);
 };
