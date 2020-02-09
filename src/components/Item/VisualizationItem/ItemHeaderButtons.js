@@ -8,17 +8,19 @@ import MapIcon from '@material-ui/icons/Public';
 import { extractFavorite } from './plugin';
 import ItemHeaderButton from '../ItemHeaderButton';
 import {
-    VISUALIZATION_TYPE_TABLE,
-    VISUALIZATION_TYPE_CHART,
-    VISUALIZATION_TYPE_MAP,
-    itemTypeMap,
     CHART,
     MAP,
     REPORT_TABLE,
     EVENT_CHART,
     EVENT_REPORT,
-    DOMAIN_TYPE_AGGREGATE,
 } from '../../../modules/itemTypes';
+import {
+    getViewTypeId,
+    hasMapView,
+    VIEW_TYPE_TABLE,
+    VIEW_TYPE_CHART,
+    VIEW_TYPE_MAP,
+} from '../../../modules/visualizationViewTypes';
 import { colors, theme } from '@dhis2/ui-core';
 import { isSingleValue } from '@dhis2/analytics';
 
@@ -65,27 +67,18 @@ const activeStyle = {
 
 const inactiveStyle = disabled => (disabled ? disabledStyle : baseStyle);
 
-const tableBtnStyle = (activeType, disabled) =>
-    [REPORT_TABLE, EVENT_REPORT].includes(activeType)
+const tableBtnStyle = (activeView, disabled) =>
+    [REPORT_TABLE, EVENT_REPORT].includes(activeView)
         ? activeStyle
         : inactiveStyle(disabled);
 
-const chartBtnStyle = (activeType, disabled) =>
-    [CHART, EVENT_CHART].includes(activeType)
+const chartBtnStyle = (activeView, disabled) =>
+    [CHART, EVENT_CHART].includes(activeView)
         ? activeStyle
         : inactiveStyle(disabled);
 
-const mapBtnStyle = (activeType, disabled) =>
-    [MAP].includes(activeType) ? activeStyle : inactiveStyle(disabled);
-
-export const getItemTypeId = (itemTypeMap, visualizationType, domainType) => {
-    const item = Object.values(itemTypeMap).find(
-        item =>
-            item.visualizationType === visualizationType &&
-            item.domainType === domainType
-    );
-    return item.id;
-};
+const mapBtnStyle = (activeView, disabled) =>
+    [MAP].includes(activeView) ? activeStyle : inactiveStyle(disabled);
 
 class VisualizationItemHeaderButtons extends Component {
     renderInterpretationButton() {
@@ -115,46 +108,30 @@ class VisualizationItemHeaderButtons extends Component {
     }
 
     renderVisualizationButtons() {
-        const {
-            item,
-            visualization,
-            onSelectVisualization,
-            activeType,
-        } = this.props;
+        const { item, visualization, onSelectView, activeView } = this.props;
 
         if (isSingleValue(visualization.type)) {
             return null;
         }
 
-        const domainType = itemTypeMap[item.type].domainType;
+        const onViewTable = () => onSelectView(getViewTypeId(VIEW_TYPE_TABLE));
 
-        const onViewTable = () =>
-            onSelectVisualization(
-                getItemTypeId(itemTypeMap, VISUALIZATION_TYPE_TABLE, domainType)
-            );
+        const onViewChart = () => onSelectView(getViewTypeId(VIEW_TYPE_CHART));
 
-        const onViewChart = () =>
-            onSelectVisualization(
-                getItemTypeId(itemTypeMap, VISUALIZATION_TYPE_CHART, domainType)
-            );
-
-        const onViewMap = () =>
-            onSelectVisualization(
-                getItemTypeId(itemTypeMap, VISUALIZATION_TYPE_MAP, domainType)
-            );
+        const onViewMap = () => onSelectView(getViewTypeId(VIEW_TYPE_MAP));
 
         // disable toggle buttons
         let disabled = false;
 
-        if (item.type === VISUALIZATION_TYPE_CHART) {
+        if (item.type === VIEW_TYPE_CHART) {
             if (extractFavorite(item).type.match(/^YEAR_OVER_YEAR/)) {
                 disabled = true;
             }
         }
 
-        const tableButtonStyle = tableBtnStyle(activeType, disabled);
-        const chartButtonStyle = chartBtnStyle(activeType, disabled);
-        const mapButtonStyle = mapBtnStyle(activeType, disabled);
+        const tableButtonStyle = tableBtnStyle(activeView, disabled);
+        const chartButtonStyle = chartBtnStyle(activeView, disabled);
+        const mapButtonStyle = mapBtnStyle(activeView, disabled);
 
         return (
             <div style={{ marginLeft: 10 }}>
@@ -173,7 +150,7 @@ class VisualizationItemHeaderButtons extends Component {
                     >
                         <ChartIcon style={chartButtonStyle.icon} />
                     </ItemHeaderButton>
-                    {domainType === DOMAIN_TYPE_AGGREGATE ? (
+                    {hasMapView(item.type) ? (
                         <ItemHeaderButton
                             disabled={disabled}
                             style={mapButtonStyle.container}
@@ -199,10 +176,10 @@ class VisualizationItemHeaderButtons extends Component {
 
 VisualizationItemHeaderButtons.propTypes = {
     activeFooter: PropTypes.bool,
-    activeType: PropTypes.string,
+    activeView: PropTypes.string,
     item: PropTypes.object,
     visualization: PropTypes.object,
-    onSelectVisualization: PropTypes.func,
+    onSelectView: PropTypes.func,
     onToggleFooter: PropTypes.func,
 };
 

@@ -200,7 +200,7 @@ export class Item extends Component {
         );
     };
 
-    onSelectVisualization = activeType => {
+    onSelectView = activeType => {
         // Cancel request if type is already active
         if (activeType === this.getActiveType()) {
             return;
@@ -208,7 +208,7 @@ export class Item extends Component {
 
         pluginManager.unmount(this.props.item, this.getActiveType());
 
-        this.props.onSelectVisualization(
+        this.props.onSelectView(
             this.props.visualization.id,
             this.props.item.type,
             activeType
@@ -257,8 +257,8 @@ export class Item extends Component {
                 item={this.props.item}
                 visualization={this.props.visualization}
                 activeFooter={this.state.showFooter}
-                activeType={this.getActiveType()}
-                onSelectVisualization={this.onSelectVisualization}
+                activeView={this.getActiveType()}
+                onSelectView={this.onSelectView}
                 onToggleFooter={this.onToggleFooter}
             />
         ) : null;
@@ -308,7 +308,7 @@ Item.propTypes = {
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,
-    onSelectVisualization: PropTypes.func,
+    onSelectView: PropTypes.func,
     onToggleItemExpanded: PropTypes.func,
     onVisualizationLoaded: PropTypes.func,
 };
@@ -332,7 +332,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
     onVisualizationLoaded: visualization =>
         dispatch(acReceivedVisualization(visualization)),
-    onSelectVisualization: (id, type, activeType) =>
+    onSelectView: (id, type, activeType) =>
         dispatch(acReceivedActiveVisualization(id, type, activeType)),
 });
 
