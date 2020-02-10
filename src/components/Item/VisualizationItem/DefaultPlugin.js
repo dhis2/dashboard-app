@@ -5,6 +5,7 @@ import i18n from '@dhis2/d2-i18n';
 
 import * as pluginManager from './plugin';
 import { getBaseUrl, orObject } from '../../../modules/util';
+import { getDefaultView } from '../../../modules/visualizationViewTypes';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 
 const pluginCredentials = d2 => {
@@ -53,7 +54,7 @@ class DefaultPlugin extends Component {
 
             const useActiveType =
                 currentVis.activeType !== prevVis.activeType ||
-                currentVis.activeType !== this.props.item.type;
+                currentVis.activeType !== getDefaultView(this.props.item.type);
 
             if (
                 useActiveType ||
@@ -61,7 +62,7 @@ class DefaultPlugin extends Component {
             ) {
                 pluginManager.unmount(
                     this.props.item,
-                    prevVis.activeType || this.props.item.type
+                    prevVis.activeType || getDefaultView(this.props.item.type)
                 );
 
                 pluginManager.load(this.props.item, this.props.visualization, {
@@ -101,8 +102,6 @@ class DefaultPlugin extends Component {
             item,
             visualization
         );
-
-        console.log('pluginIsAvailable', pluginIsAvailable);
 
         return pluginIsAvailable ? (
             <div id={getGridItemDomId(item.id)} style={style} />

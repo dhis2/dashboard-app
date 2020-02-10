@@ -3,7 +3,23 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import LaunchIcon from '@material-ui/icons/Launch';
-import ChartPlugin from '@dhis2/data-visualizer-plugin';
+import VisualizationPlugin from '@dhis2/data-visualizer-plugin';
+import {
+    VIS_TYPE_COLUMN,
+    VIS_TYPE_STACKED_COLUMN,
+    VIS_TYPE_BAR,
+    VIS_TYPE_STACKED_BAR,
+    VIS_TYPE_LINE,
+    VIS_TYPE_AREA,
+    VIS_TYPE_PIE,
+    VIS_TYPE_RADAR,
+    VIS_TYPE_GAUGE,
+    VIS_TYPE_BUBBLE,
+    VIS_TYPE_YEAR_OVER_YEAR_LINE,
+    VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
+    VIS_TYPE_SINGLE_VALUE,
+    VIS_TYPE_PIVOT_TABLE,
+} from '@dhis2/analytics';
 
 import i18n from '@dhis2/d2-i18n';
 import uniqueId from 'lodash/uniqueId';
@@ -23,12 +39,30 @@ import { MAP, itemTypeMap } from '../../../modules/itemTypes';
 import {
     VIEW_TYPE_CHART,
     VIEW_TYPE_MAP,
+    VIEW_TYPE_TABLE,
 } from '../../../modules/visualizationViewTypes';
 
 import { getDefaultView } from '../../../modules/visualizationViewTypes';
 import { colors } from '@dhis2/ui-core';
 import memoizeOne from '../../../modules/memoizeOne';
 import { getVisualizationConfig } from './plugin';
+
+const CHART_TYPES = [
+    VIS_TYPE_COLUMN,
+    VIS_TYPE_STACKED_COLUMN,
+    VIS_TYPE_BAR,
+    VIS_TYPE_STACKED_BAR,
+    VIS_TYPE_LINE,
+    VIS_TYPE_AREA,
+    VIS_TYPE_PIE,
+    VIS_TYPE_RADAR,
+    VIS_TYPE_GAUGE,
+    VIS_TYPE_BUBBLE,
+    VIS_TYPE_YEAR_OVER_YEAR_LINE,
+    VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
+    VIS_TYPE_SINGLE_VALUE,
+    VIS_TYPE_PIVOT_TABLE,
+];
 
 const styles = {
     icon: {
@@ -143,15 +177,38 @@ export class Item extends Component {
             style: this.getContentStyle(),
         };
 
+        let vis = props.visualization;
+        if (
+            props.visualization.type === undefined ||
+            props.visualization.type === VIS_TYPE_PIVOT_TABLE
+        ) {
+            if (this.getActiveView() === VIEW_TYPE_CHART) {
+                //a table is being shown as a chart - default to column
+                vis = Object.assign({}, props.visualization, {
+                    type: VIS_TYPE_COLUMN,
+                });
+            }
+        } else if (
+            props.visualization.type !== undefined &&
+            props.visualization.type !== VIS_TYPE_PIVOT_TABLE
+        ) {
+            //originally a chart type
+            if (CHART_TYPES.includes(props.visualization.type)) {
+                if (this.getActiveView() === VIEW_TYPE_TABLE) {
+                    vis = Object.assign({}, props.visualization, {
+                        type: VIS_TYPE_PIVOT_TABLE,
+                    });
+                }
+            }
+        }
+
         switch (this.getActiveView()) {
-            case VIEW_TYPE_CHART: {
+            case VIEW_TYPE_CHART:
+            case VIEW_TYPE_TABLE: {
                 return (
-                    <ChartPlugin
+                    <VisualizationPlugin
                         d2={this.d2}
-                        config={applyFilters(
-                            props.visualization,
-                            props.itemFilters
-                        )}
+                        config={applyFilters(vis, props.itemFilters)}
                         forDashboard={true}
                         style={props.style}
                     />
@@ -194,8 +251,6 @@ export class Item extends Component {
                     props.itemFilters
                 );
 
-                console.log('use DefaultPlugin');
-
                 return <DefaultPlugin {...props} />;
             }
         }
@@ -220,13 +275,6 @@ export class Item extends Component {
     };
 
     getActiveView = () => {
-        // console.log('getActiveView', this.props.item.type);
-        // console.log('defaultView', getDefaultView(this.props.item.type));
-        // console.log(
-        //     'final answer',
-        //     this.props.visualization.activeType ||
-        //         getDefaultView(this.props.item.type)
-        // );
         return (
             this.props.visualization.activeType ||
             getDefaultView(this.props.item.type)

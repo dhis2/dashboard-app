@@ -46,7 +46,6 @@ export const getPlugin = viewType => {
     if (viewType === VIEW_TYPE_CHART) {
         return true;
     }
-    console.log('getPlugin', pluginName);
 
     return global[pluginName];
 };

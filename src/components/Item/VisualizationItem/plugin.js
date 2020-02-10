@@ -19,9 +19,9 @@ import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 export const THEMATIC_LAYER = 'thematic';
 
 export const pluginIsAvailable = (item = {}, visualization = {}) => {
-    const type = visualization.activeType || getDefaultView(item.type);
+    const view = visualization.activeType || getDefaultView(item.type);
 
-    return !!getPlugin(type);
+    return !!getPlugin(view);
 };
 
 export const extractFavorite = item => {
