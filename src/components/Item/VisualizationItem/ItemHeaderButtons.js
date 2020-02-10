@@ -7,21 +7,14 @@ import MapIcon from '@material-ui/icons/Public';
 
 import { extractFavorite } from './plugin';
 import ItemHeaderButton from '../ItemHeaderButton';
-// import {
-//     CHART,
-//     MAP,
-//     REPORT_TABLE,
-//     EVENT_CHART,
-//     EVENT_REPORT,
-// } from '../../../modules/itemTypes';
 import {
-    // getViewTypeId,
     hasMapView,
     VIEW_TYPE_TABLE,
     VIEW_TYPE_CHART,
     VIEW_TYPE_MAP,
     VIEW_TYPE_EV_TABLE,
     VIEW_TYPE_EV_CHART,
+    getDefaultView,
 } from '../../../modules/visualizationViewTypes';
 import { colors, theme } from '@dhis2/ui-core';
 import { isSingleValue } from '@dhis2/analytics';
@@ -127,7 +120,7 @@ class VisualizationItemHeaderButtons extends Component {
         // disable toggle buttons
         let disabled = false;
 
-        if (item.type === VIEW_TYPE_CHART) {
+        if (getDefaultView(item.type) === VIEW_TYPE_CHART) {
             if (extractFavorite(item).type.match(/^YEAR_OVER_YEAR/)) {
                 disabled = true;
             }
