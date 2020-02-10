@@ -12,6 +12,7 @@ import {
 import {
     getDefaultView,
     getPlugin,
+    VIEW_TYPE_MAP,
 } from '../../../modules/visualizationViewTypes';
 import { getBaseUrl, getWithoutId } from '../../../modules/util';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
@@ -122,9 +123,10 @@ export const unmount = (item, activeType) => {
 export const getVisualizationConfig = (
     visualization,
     originalType,
-    activeType
+    activeView
 ) => {
-    if (originalType === MAP && originalType !== activeType) {
+    //Is a map being displayed as a chart or table?
+    if (originalType === MAP && activeView !== VIEW_TYPE_MAP) {
         const extractedMapView = extractMapView(visualization);
 
         if (extractedMapView === undefined) {

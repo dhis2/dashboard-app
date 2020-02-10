@@ -94,7 +94,8 @@ class DefaultPlugin extends Component {
     }
 
     getActiveType = () =>
-        this.props.visualization.activeType || this.props.item.type;
+        this.props.visualization.activeType ||
+        getDefaultView(this.props.item.type);
 
     render() {
         const { classes, item, visualization, style } = this.props;
