@@ -1,0 +1,181 @@
+# Translators:
+# easylin <lin_xd@126.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2020\n"
+"Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Continue editing"
+msgstr "继续编辑"
+
+msgid "Confirm delete dashboard"
+msgstr "确认删除仪表盘"
+
+msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
+msgstr "你确认要删除仪表盘： \"{{ dashboardName }}\"?"
+
+msgid "Exit without saving"
+msgstr "不保存退出"
+
+msgid "Go to dashboards"
+msgstr "进到仪表盘"
+
+msgid "Save changes"
+msgstr "保存更改"
+
+msgid "Translate"
+msgstr "翻译"
+
+msgid "Search for a dashboard"
+msgstr "搜索仪表盘"
+
+msgid "Show less"
+msgstr "较少"
+
+msgid "Show more"
+msgstr "更多"
+
+msgid "No access"
+msgstr "不能访问"
+
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr "没有找到仪表盘条目，使用+ 按钮创建新的仪表盘条目。"
+
+msgid "Requested dashboard not found"
+msgstr "请求的仪表盘条目没有找到"
+
+msgid "Messages"
+msgstr "消息"
+
+msgid "See all messages"
+msgstr "发送所有消息"
+
+msgid "Edit your interpretation"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "Cancel edit"
+msgstr ""
+
+msgid "Edit"
+msgstr "编辑<br>"
+
+msgid "like"
+msgstr ""
+
+msgid "likes"
+msgstr ""
+
+msgid "You like this"
+msgstr ""
+
+msgid "Like"
+msgstr ""
+
+msgid "View in Visualizer"
+msgstr ""
+
+msgid "Reply"
+msgstr ""
+
+msgid "Add your reply"
+msgstr ""
+
+msgid "Interpretations"
+msgstr ""
+
+msgid "Add your interpretation"
+msgstr ""
+
+msgid "Unable to load the plugin for this item"
+msgstr "不能该条目的插件"
+
+msgid "Spacer"
+msgstr "空分割栏"
+
+msgid ""
+"Use a spacer to create empty vertical space between other dashboard items."
+msgstr "使用空白在条目间创建垂直分割栏"
+
+msgid "Text item"
+msgstr "文本条目"
+
+msgid "Add text here"
+msgstr "添加文本到这里"
+
+msgid "There are no items on this dashboard"
+msgstr "该仪表盘没有条目"
+
+msgid "Search for items to add to this dashboard"
+msgstr "搜索条目添加到仪表盘"
+
+msgid "See"
+msgstr "查看"
+
+msgid "fewer"
+msgstr "较少"
+
+msgid "more"
+msgstr "更多"
+
+msgid "Text box"
+msgstr "文本框"
+
+msgid "Add title here"
+msgstr "这儿添加标题"
+
+msgid "Add description here"
+msgstr "这儿添加描述"
+
+msgid "No description"
+msgstr "没有描述"
+
+msgid "Pivot tables"
+msgstr "透视表"
+
+msgid "Pivot Tables"
+msgstr "图表"
+
+msgid "Charts"
+msgstr "图表"
+
+msgid "Visualizer"
+msgstr "可视图"
+
+msgid "Maps"
+msgstr "地图"
+
+msgid "Event reports"
+msgstr "事件报表"
+
+msgid "Event Reports"
+msgstr "事件报表"
+
+msgid "Event charts"
+msgstr "事件图表"
+
+msgid "Event Visualizer"
+msgstr "事件可视化"
+
+msgid "Reports"
+msgstr "报表"
+
+msgid "Resources"
+msgstr "资源"
+
+msgid "Users"
+msgstr "用户"
