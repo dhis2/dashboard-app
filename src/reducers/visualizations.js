@@ -30,7 +30,7 @@ export default (state = DEFAULT_STATE_VISUALIZATIONS, action) => {
                 [action.id]: objectClean(
                     {
                         ...orObject(state[action.id]),
-                        activeType: action.activeType,
+                        activeView: action.activeView,
                     },
                     isEmpty
                 ),

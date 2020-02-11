@@ -36,7 +36,7 @@ class DefaultPlugin extends Component {
         const vis = orObject(this.props.visualization);
         const prevVis = orObject(prevProps.visualization);
         const visChanged =
-            vis.id !== prevVis.id || vis.activeType !== prevVis.activeType;
+            vis.id !== prevVis.id || vis.activeView !== prevVis.activeView;
 
         return reloadAllowed && (visChanged || filtersChanged);
     };
@@ -52,22 +52,22 @@ class DefaultPlugin extends Component {
             const prevVis = orObject(prevProps.visualization);
             const currentVis = this.props.visualization;
 
-            const useActiveType =
-                currentVis.activeType !== prevVis.activeType ||
-                currentVis.activeType !== getDefaultView(this.props.item.type);
+            const useActiveView =
+                currentVis.activeView !== prevVis.activeView ||
+                currentVis.activeView !== getDefaultView(this.props.item.type);
 
             if (
-                useActiveType ||
+                useActiveView ||
                 this.props.itemFilters !== prevProps.itemFilters
             ) {
                 pluginManager.unmount(
                     this.props.item,
-                    prevVis.activeType || getDefaultView(this.props.item.type)
+                    prevVis.activeView || getDefaultView(this.props.item.type)
                 );
 
                 pluginManager.load(this.props.item, this.props.visualization, {
                     credentials: this.pluginCredentials,
-                    activeType: useActiveType ? currentVis.activeType : null,
+                    activeView: useActiveView ? currentVis.activeView : null,
                 });
             }
         }
@@ -84,7 +84,7 @@ class DefaultPlugin extends Component {
         ) {
             pluginManager.load(this.props.item, this.props.visualization, {
                 credentials: this.pluginCredentials,
-                activeType: !this.props.editMode ? this.getActiveType() : null,
+                activeView: !this.props.editMode ? this.getActiveView() : null,
             });
         }
     }
@@ -93,8 +93,8 @@ class DefaultPlugin extends Component {
         this.reloadPlugin(prevProps);
     }
 
-    getActiveType = () =>
-        this.props.visualization.activeType ||
+    getActiveView = () =>
+        this.props.visualization.activeView ||
         getDefaultView(this.props.item.type);
 
     render() {

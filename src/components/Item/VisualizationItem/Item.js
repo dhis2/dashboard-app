@@ -200,6 +200,12 @@ export class Item extends Component {
                 }
             }
         }
+        console.log(
+            'vis.type',
+            this.props.item.id,
+            vis.type ? vis.type : 'no visType'
+        );
+        console.log('activeView', this.getActiveView());
 
         switch (this.getActiveView()) {
             case VIEW_TYPE_CHART:
@@ -275,7 +281,7 @@ export class Item extends Component {
 
     getActiveView = () => {
         return (
-            this.props.visualization.activeType ||
+            this.props.visualization.activeView ||
             getDefaultView(this.props.item.type)
         );
     };
@@ -394,8 +400,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
     onVisualizationLoaded: visualization =>
         dispatch(acAddVisualization(visualization)),
-    onSelectView: (id, type, activeType) =>
-        dispatch(acSetActiveVisualizationView(id, type, activeType)),
+    onSelectView: (id, type, activeView) =>
+        dispatch(acSetActiveVisualizationView(id, type, activeView)),
 });
 
 export default connect(

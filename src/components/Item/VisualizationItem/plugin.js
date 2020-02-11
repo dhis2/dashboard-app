@@ -83,15 +83,15 @@ export const getLink = (item, d2) => {
 export const load = async (
     item,
     visualization,
-    { credentials, activeType }
+    { credentials, activeView }
 ) => {
     const config = {
         ...visualization,
         el: getGridItemDomId(item.id),
     };
 
-    const type = activeType || item.type;
-    const plugin = getPlugin(type);
+    const view = activeView || getDefaultView(item.type);
+    const plugin = getPlugin(view);
 
     loadPlugin(plugin, config, credentials);
 };
@@ -105,28 +105,24 @@ export const fetch = async item => {
 };
 
 export const resize = item => {
-    const plugin = getPlugin(item.type);
+    const plugin = getPlugin(getDefaultView(item.type));
 
     if (plugin && plugin.resize) {
         plugin.resize(getGridItemDomId(item.id));
     }
 };
 
-export const unmount = (item, activeType) => {
-    const plugin = getPlugin(activeType);
+export const unmount = (item, activeView) => {
+    const plugin = getPlugin(activeView);
 
     if (plugin && plugin.unmount) {
         plugin.unmount(getGridItemDomId(item.id));
     }
 };
 
-export const getVisualizationConfig = (
-    visualization,
-    originalType,
-    activeView
-) => {
+export const getVisualizationConfig = (visualization, type, activeView) => {
     //Is a map being displayed as a chart or table?
-    if (originalType === MAP && activeView !== VIEW_TYPE_MAP) {
+    if (type === MAP && activeView !== VIEW_TYPE_MAP) {
         const extractedMapView = extractMapView(visualization);
 
         if (extractedMapView === undefined) {

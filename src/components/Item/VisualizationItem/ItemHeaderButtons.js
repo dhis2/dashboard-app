@@ -106,6 +106,7 @@ class VisualizationItemHeaderButtons extends Component {
 
     renderVisualizationButtons() {
         const { item, visualization, onSelectView, activeView } = this.props;
+        // console.log('vis buttons for', item.id, item.type, activeView);
 
         if (isSingleValue(visualization.type)) {
             return null;

@@ -41,9 +41,10 @@ export const getDefaultView = itemType => {
 };
 
 export const getPlugin = viewType => {
+    // console.log('getPlugin', viewType);
     const pluginName = viewToPluginMap[viewType];
 
-    if (viewType === VIEW_TYPE_CHART) {
+    if (viewType === VIEW_TYPE_CHART || viewType === VIEW_TYPE_TABLE) {
         return true;
     }
 

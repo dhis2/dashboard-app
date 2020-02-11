@@ -8,11 +8,11 @@ export const acAddVisualization = value => ({
     value,
 });
 
-export const acSetActiveVisualizationView = (id, view) => {
+export const acSetActiveVisualizationView = (id, activeView) => {
     const action = {
         type: SET_ACTIVE_VISUALIZATION_VIEW,
         id,
-        activeType: view,
+        activeView,
     };
 
     return action;
