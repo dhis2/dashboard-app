@@ -68,7 +68,7 @@ ShallowWrapper {
                   "type": "REPORT_TABLE",
                 }
               }
-              onSelectVisualization={[Function]}
+              onSelectActiveType={[Function]}
               onToggleFooter={[Function]}
               visualization={
                 Object {
@@ -101,7 +101,7 @@ ShallowWrapper {
                     "height": 16,
                   }
                 }
-                title="View in Pivot Tables app"
+                title="View in Visualizer app"
               >
                 <pure(LaunchIcon) />
               </a>
@@ -134,7 +134,7 @@ ShallowWrapper {
                 "type": "REPORT_TABLE",
               }
             }
-            onSelectVisualization={[Function]}
+            onSelectActiveType={[Function]}
             onToggleFooter={[Function]}
             visualization={
               Object {
@@ -165,7 +165,7 @@ ShallowWrapper {
                   "height": 16,
                 }
               }
-              title="View in Pivot Tables app"
+              title="View in Visualizer app"
             >
               <pure(LaunchIcon) />
             </a>
@@ -213,7 +213,7 @@ ShallowWrapper {
                     "type": "REPORT_TABLE",
                   }
                 }
-                onSelectVisualization={[Function]}
+                onSelectActiveType={[Function]}
                 onToggleFooter={[Function]}
                 visualization={
                   Object {
@@ -246,7 +246,7 @@ ShallowWrapper {
                       "height": 16,
                     }
                   }
-                  title="View in Pivot Tables app"
+                  title="View in Visualizer app"
                 >
                   <pure(LaunchIcon) />
                 </a>
@@ -279,7 +279,7 @@ ShallowWrapper {
                   "type": "REPORT_TABLE",
                 }
               }
-              onSelectVisualization={[Function]}
+              onSelectActiveType={[Function]}
               onToggleFooter={[Function]}
               visualization={
                 Object {
@@ -310,7 +310,7 @@ ShallowWrapper {
                     "height": 16,
                   }
                 }
-                title="View in Pivot Tables app"
+                title="View in Visualizer app"
               >
                 <pure(LaunchIcon) />
               </a>
