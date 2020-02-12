@@ -42,27 +42,17 @@ export const extractFavorite = item => {
         return null;
     }
 
-    switch (item.type) {
-        case REPORT_TABLE:
-            return item.reportTable;
-        case CHART:
-            return item.chart;
-        case MAP:
-            return item.map;
-        case EVENT_REPORT:
-            return item.eventReport;
-        case EVENT_CHART:
-            return item.eventChart;
-        default:
-            return (
-                item.reportTable ||
-                item.chart ||
-                item.map ||
-                item.eventReport ||
-                item.eventChart ||
-                {}
-            );
-    }
+    const propName = itemTypeMap[item.type].propName;
+
+    return (
+        item[propName] ||
+        (item.reportTable ||
+            item.chart ||
+            item.map ||
+            item.eventReport ||
+            item.eventChart ||
+            {})
+    );
 };
 
 export const extractMapView = map =>
