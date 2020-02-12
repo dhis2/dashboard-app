@@ -30,14 +30,21 @@ ShallowWrapper {
         <div
           className="label"
         >
-          <pure(NotInterestedIcon)
+          <span
             style={
               Object {
-                "fill": "#6e7a8a",
                 "margin": "6px",
               }
             }
-          />
+          >
+            <pure(NotInterestedIcon)
+              style={
+                Object {
+                  "fill": "#6e7a8a",
+                }
+              }
+            />
+          </span>
           <span>
             Pinkie Pie
           </span>
@@ -64,14 +71,21 @@ ShallowWrapper {
           <div
             className="label"
           >
-            <pure(NotInterestedIcon)
+            <span
               style={
                 Object {
-                  "fill": "#6e7a8a",
                   "margin": "6px",
                 }
               }
-            />
+            >
+              <pure(NotInterestedIcon)
+                style={
+                  Object {
+                    "fill": "#6e7a8a",
+                  }
+                }
+              />
+            </span>
             <span>
               Pinkie Pie
             </span>
@@ -143,14 +157,21 @@ ShallowWrapper {
         <div
           className="label"
         >
-          <pure(NotInterestedIcon)
+          <span
             style={
               Object {
-                "fill": "#6e7a8a",
                 "margin": "6px",
               }
             }
-          />
+          >
+            <pure(NotInterestedIcon)
+              style={
+                Object {
+                  "fill": "#6e7a8a",
+                }
+              }
+            />
+          </span>
           <span>
             Pinkie Pie
           </span>
@@ -180,14 +201,21 @@ ShallowWrapper {
           <div
             className="label"
           >
-            <pure(NotInterestedIcon)
+            <span
               style={
                 Object {
-                  "fill": "#6e7a8a",
                   "margin": "6px",
                 }
               }
-            />
+            >
+              <pure(NotInterestedIcon)
+                style={
+                  Object {
+                    "fill": "#6e7a8a",
+                  }
+                }
+              />
+            </span>
             <span>
               Pinkie Pie
             </span>
