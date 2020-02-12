@@ -1192,10 +1192,10 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^3.1.1":
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-3.1.3.tgz#44ea6812ad74620b26e43b8062e7f8e4cfaaabd8"
-  integrity sha512-8gGKivu6SxShvFbI6Md9NMqBKSjbQx4/9DdvUfqPZQ8w1vcC//kEuzMX+GBHBEvMuKfWJk0jzqYSj7mWXBhvUA==
+"@dhis2/analytics@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-3.2.0.tgz#f0566c629f4c50272a4df0332fd26eda1e738ba4"
+  integrity sha512-qt6Qm6jZMx+kDY1/kRJ9SGL5U5d32GXfWw7m3GF+I7t0LOgV0k39MmG/c6+d/VLfga/ZgYCKJ8vlPlhy3V8G0Q==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.3.2"
@@ -1206,7 +1206,7 @@
     classnames "^2.2.6"
     d2-utilizr "^0.2.16"
     d3-color "^1.2.3"
-    highcharts "^7.1.2"
+    highcharts "^7.2.1"
     lodash "^4.17.13"
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
@@ -1480,12 +1480,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@34.0.0-alpha.1":
-  version "34.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-34.0.0-alpha.1.tgz#4e0f313b1a5f5d16c5b93089ee43e1215291662b"
-  integrity sha512-SeTAHttYFRL1KdD1lI59Y+rXVSDZkSAzJtKOlbURlAq4hBw9ykFjdtJzb8XPS6yw2AlPl+8qb4rNGAWbh7bNLg==
+"@dhis2/data-visualizer-plugin@^34.0.0":
+  version "34.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-34.0.0.tgz#da9bd2d23982956bf9c3d714a2d301fc386632ee"
+  integrity sha512-ALV90YdjCVczoLeje5oHbZDG+MZFmXNgYuFiOpi4Mp12OviG96croxD31Eckkb8vSXQ7EL7bLHRMU9gNNC3Zfw==
   dependencies:
-    "@dhis2/analytics" "^3.1.1"
+    "@dhis2/analytics" "^3.2.0"
     "@material-ui/core" "^3.1.2"
     d2-analysis "33.2.11"
     lodash-es "^4.17.11"
@@ -6487,6 +6487,11 @@ highcharts@^7.1.2:
   version "7.1.3"
   resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-7.1.3.tgz#ea3bb16dcdd780e757ab10e90466c64a82b6d285"
   integrity sha512-aHAzlSf/czqJlpVt96jYkirWrIV1ZNHgxsTAyk2R5CcG/0V1G8Ge65p76eFqZQp7C8+cA8e6g1xsAPj51MsJ3Q==
+
+highcharts@^7.2.1:
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-7.2.1.tgz#313c434bbfd4525a72b76c6bfbd9c39dfe2d1993"
+  integrity sha512-/fSUZiONmM+x49IQJNf8XwZGiNGOPRmxEOcd0xdJP9Xc3OlG46ZiUWgSLfhYQ9Oyhmzc3V3SKYCLud8+rKLi+w==
 
 history@^4.7.2:
   version "4.9.0"

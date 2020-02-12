@@ -150,7 +150,10 @@ export class Item extends Component {
                 return (
                     <VisualizationPlugin
                         d2={this.d2}
-                        config={applyFilters(visualization, props.itemFilters)}
+                        visualization={applyFilters(
+                            visualization,
+                            props.itemFilters
+                        )}
                         forDashboard={true}
                         style={props.style}
                     />

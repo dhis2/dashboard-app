@@ -80,7 +80,7 @@ describe('VisualizationItem/Item', () => {
         const visPlugin = component.find(VisualizationPlugin);
 
         expect(visPlugin.exists()).toBeTruthy();
-        expect(visPlugin.prop('config')).toEqual(expectedConfig);
+        expect(visPlugin.prop('visualization')).toEqual(expectedConfig);
     });
 
     it('renders a VisualizationPlugin when a REPORT_TABLE is passed', () => {
@@ -107,7 +107,7 @@ describe('VisualizationItem/Item', () => {
         const visPlugin = component.find(VisualizationPlugin);
 
         expect(visPlugin.exists()).toBeTruthy();
-        expect(visPlugin.prop('config')).toEqual(expectedConfig);
+        expect(visPlugin.prop('visualization')).toEqual(expectedConfig);
     });
 
     it('renders a DefaultPlugin when an EVENT_CHART is passed', () => {
