@@ -137,7 +137,7 @@ export const getVisualizationConfig = (
     originalType,
     activeType
 ) => {
-    if (originalType === MAP && activeType !== MAP) {
+    if (originalType === MAP && originalType !== activeType) {
         const extractedMapView = extractMapView(visualization);
 
         if (extractedMapView === undefined) {
@@ -148,7 +148,7 @@ export const getVisualizationConfig = (
             ...visualization,
             ...extractedMapView,
             mapViews: undefined,
-            type: activeType === CHART ? VIS_TYPE_COLUMN : undefined,
+            type: activeType === CHART ? VIS_TYPE_COLUMN : VIS_TYPE_PIVOT_TABLE,
         });
     } else if (originalType === REPORT_TABLE && activeType === CHART) {
         return getWithoutId({ ...visualization, type: VIS_TYPE_COLUMN });
