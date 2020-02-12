@@ -11,7 +11,7 @@ import {
 import { getBaseUrl, getWithoutId } from '../../../modules/util';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 
-//legacy plugins
+//external plugins
 const itemTypeToExternalPlugin = {
     [MAP]: 'mapPlugin',
     [EVENT_REPORT]: 'eventReportPlugin',
@@ -133,10 +133,10 @@ export const unmount = (item, activeType) => {
 
 export const getVisualizationConfig = (
     visualization,
-    originType,
+    originalType,
     activeType
 ) => {
-    if (originType === MAP && originType !== activeType) {
+    if (originalType === MAP && originalType !== activeType) {
         const extractedMapView = extractMapView(visualization);
 
         if (extractedMapView === undefined) {

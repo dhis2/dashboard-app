@@ -27,6 +27,9 @@ export const MESSAGES = 'MESSAGES';
 export const TEXT = 'TEXT';
 export const SPACER = 'SPACER';
 
+const DOMAIN_TYPE_AGGREGATE = 'AGGREGATE';
+const DOMAIN_TYPE_TRACKER = 'TRACKER';
+
 // Dashboard helpers
 export const spacerContent = 'SPACER_ITEM_FOR_DASHBOARD_LAYOUT_CONVENIENCE';
 export const emptyTextItemContent = 'TEXT_ITEM_WITH_NO_CONTENT';
@@ -37,13 +40,11 @@ export const isTextType = item =>
 export const isVisualizationType = item =>
     !!itemTypeMap[item.type].isVisualizationType;
 
-export const hasMapView = itemType => !!itemTypeMap[itemType].hasMapView;
+export const hasMapView = itemType =>
+    itemTypeMap[itemType].domainType === DOMAIN_TYPE_AGGREGATE;
 
 export const isTrackerDomainType = itemType =>
     itemTypeMap[itemType].domainType === DOMAIN_TYPE_TRACKER;
-
-const DOMAIN_TYPE_AGGREGATE = 'AGGREGATE';
-const DOMAIN_TYPE_TRACKER = 'TRACKER';
 
 // Item type map
 export const itemTypeMap = {
@@ -54,7 +55,6 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Pivot tables'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
-        hasMapView: true,
         appUrl: id => `dhis-web-data-visualizer/#/${id}`,
         appName: i18n.t('Visualizer'),
     },
@@ -65,7 +65,6 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Charts'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
-        hasMapView: true,
         appUrl: id => `dhis-web-data-visualizer/#/${id}`,
         appName: i18n.t('Visualizer'),
     },
@@ -76,7 +75,6 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Maps'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
-        hasMapView: true,
         appUrl: id => `dhis-web-maps/?id=${id}`,
         appName: i18n.t('Maps'),
     },
