@@ -34,10 +34,11 @@ const ContentMenuItem = ({ type, name, onInsert, url, visType }) => {
 
     const renderedItemIcon =
         type === VISUALIZATION ? (
-            <span style={{ margin: '6px' }}>{visTypeIcons[visType]}</span>
+            visTypeIcons[visType]
         ) : (
-            <ItemIcon style={{ margin: '6px', fill: colors.grey600 }} />
+            <ItemIcon style={{ fill: colors.grey600 }} />
         );
+
     return (
         <MenuItem
             dense
@@ -45,7 +46,9 @@ const ContentMenuItem = ({ type, name, onInsert, url, visType }) => {
             label={
                 <div className={classes.menuItem}>
                     <div className={classes.label}>
-                        {renderedItemIcon}
+                        <span style={{ margin: '6px' }}>
+                            {renderedItemIcon}
+                        </span>
                         <span>{name}</span>
                         {url ? <LaunchLink url={url} /> : null}
                     </div>
