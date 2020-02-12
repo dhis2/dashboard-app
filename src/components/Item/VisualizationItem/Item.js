@@ -263,7 +263,6 @@ export class Item extends Component {
     };
 
     onSelectActiveType = type => {
-        // Cancel request if type is already active
         if (type === this.getActiveType()) {
             return;
         }
@@ -273,9 +272,8 @@ export class Item extends Component {
         this.props.onSelectActiveType(this.props.visualization.id, type);
     };
 
-    getActiveType = () => {
-        return this.props.visualization.activeType || this.props.item.type;
-    };
+    getActiveType = () =>
+        this.props.visualization.activeType || this.props.item.type;
 
     pluginIsAvailable = () =>
         pluginManager.pluginIsAvailable(

@@ -8,13 +8,14 @@ import MapIcon from '@material-ui/icons/Public';
 import { extractFavorite } from './plugin';
 import ItemHeaderButton from '../ItemHeaderButton';
 import {
-    EVENT_REPORT,
-    EVENT_CHART,
-    REPORT_TABLE,
     CHART,
     MAP,
+    REPORT_TABLE,
+    EVENT_CHART,
+    EVENT_REPORT,
+    isTrackerDomainType,
+    hasMapView,
 } from '../../../modules/itemTypes';
-import { hasMapView, isEvent } from '../../../modules/visualizationViewTypes';
 import { colors, theme } from '@dhis2/ui-core';
 import { isSingleValue } from '@dhis2/analytics';
 
@@ -115,11 +116,13 @@ class VisualizationItemHeaderButtons extends Component {
 
         const onViewTable = () =>
             onSelectActiveType(
-                isEvent(item.type) ? EVENT_REPORT : REPORT_TABLE
+                isTrackerDomainType(item.type) ? EVENT_REPORT : REPORT_TABLE
             );
 
         const onViewChart = () =>
-            onSelectActiveType(isEvent(item.type) ? EVENT_CHART : CHART);
+            onSelectActiveType(
+                isTrackerDomainType(item.type) ? EVENT_CHART : CHART
+            );
 
         const onViewMap = () => onSelectActiveType(MAP);
 

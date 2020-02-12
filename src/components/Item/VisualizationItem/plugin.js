@@ -12,17 +12,18 @@ import { getBaseUrl, getWithoutId } from '../../../modules/util';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 
 //legacy plugins
-const itemTypeToPluginMap = {
+const itemTypeToExternalPlugin = {
     [MAP]: 'mapPlugin',
     [EVENT_REPORT]: 'eventReportPlugin',
     [EVENT_CHART]: 'eventChartPlugin',
 };
+const hasIntegratedPlugin = type => [CHART, REPORT_TABLE].includes(type);
 
-const getPlugin = viewType => {
-    if (viewType === CHART || viewType === REPORT_TABLE) {
+const getPlugin = type => {
+    if (hasIntegratedPlugin(type)) {
         return true;
     }
-    const pluginName = itemTypeToPluginMap[viewType];
+    const pluginName = itemTypeToExternalPlugin[type];
 
     return global[pluginName];
 };
@@ -122,17 +123,20 @@ export const resize = item => {
     }
 };
 
-export const unmount = (item, activeView) => {
-    const plugin = getPlugin(activeView);
+export const unmount = (item, activeType) => {
+    const plugin = getPlugin(activeType);
 
     if (plugin && plugin.unmount) {
         plugin.unmount(getGridItemDomId(item.id));
     }
 };
 
-export const getVisualizationConfig = (visualization, type, activeType) => {
-    //Is a map being displayed as a chart or table?
-    if (type === MAP && activeType !== MAP) {
+export const getVisualizationConfig = (
+    visualization,
+    originType,
+    activeType
+) => {
+    if (originType === MAP && originType !== activeType) {
         const extractedMapView = extractMapView(visualization);
 
         if (extractedMapView === undefined) {
