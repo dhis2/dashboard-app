@@ -1,7 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ChartPlugin from '@dhis2/data-visualizer-plugin';
-import { CHART, REPORT_TABLE } from '../../../../modules/itemTypes';
+import VisualizationPlugin from '@dhis2/data-visualizer-plugin';
+import {
+    CHART,
+    REPORT_TABLE,
+    EVENT_CHART,
+} from '../../../../modules/itemTypes';
 import { Item } from '../Item';
 import DefaultPlugin from '../DefaultPlugin';
 
@@ -33,21 +37,15 @@ describe('VisualizationItem/Item', () => {
     beforeEach(() => {
         props = {
             classes: {},
-            item: {
-                type: REPORT_TABLE,
-                id: 'testItem2',
-                reportTable: {
-                    id: 'pivot1',
-                    name: 'Test pivot',
-                },
-            },
+            item: {},
             editMode: false,
             itemFilters: {
                 brilliance: [{ id: 100, name: '100' }],
             },
             visualization: {
-                name: 'Test pivot',
-                description: 'Test pivot mock',
+                name: 'vis name',
+                id: 'vis id',
+                description: 'vis description',
                 rows: [],
                 columns: [],
                 filters: [],
@@ -58,26 +56,15 @@ describe('VisualizationItem/Item', () => {
         shallowItem = undefined;
     });
 
-    it('renders a ChartPlugin when a chart item is passed', () => {
-        props.visualization = {
+    it('renders a VisualizationPlugin when a CHART is passed', () => {
+        props.item.type = CHART;
+        props.item.chart = {
+            id: 'chart1',
             name: 'Test chart',
-            description: 'Test chart mock',
-            rows: [],
-            columns: [],
-            filters: [],
-        };
-        props.item = {
-            type: CHART,
-            id: 'testItem1',
-            chart: {
-                id: 'chart1',
-                name: 'Test chart',
-            },
         };
 
         const expectedConfig = {
             ...props.visualization,
-            id: undefined,
             filters: [
                 {
                     dimension: 'brilliance',
@@ -90,16 +77,47 @@ describe('VisualizationItem/Item', () => {
 
         component.setState({ configLoaded: true });
 
-        const chartPlugin = component.find(ChartPlugin);
+        const visPlugin = component.find(VisualizationPlugin);
 
-        expect(chartPlugin.exists()).toBeTruthy();
-        expect(chartPlugin.prop('config')).toEqual(expectedConfig);
+        expect(visPlugin.exists()).toBeTruthy();
+        expect(visPlugin.prop('config')).toEqual(expectedConfig);
     });
 
-    it('renders a DefaultPlugin when a item different from chart is passed', () => {
+    it('renders a VisualizationPlugin when a REPORT_TABLE is passed', () => {
+        props.item.type = REPORT_TABLE;
+        props.item.reportTable = {
+            id: 'table1',
+            name: 'Test table',
+        };
+
         const expectedConfig = {
             ...props.visualization,
-            id: undefined,
+            filters: [
+                {
+                    dimension: 'brilliance',
+                    items: props.itemFilters.brilliance,
+                },
+            ],
+        };
+
+        const component = canvas();
+
+        component.setState({ configLoaded: true });
+
+        const visPlugin = component.find(VisualizationPlugin);
+
+        expect(visPlugin.exists()).toBeTruthy();
+        expect(visPlugin.prop('config')).toEqual(expectedConfig);
+    });
+
+    it('renders a DefaultPlugin when an EVENT_CHART is passed', () => {
+        props.item.type = EVENT_CHART;
+        props.item.eventChart = {
+            id: 'evchart1',
+            name: 'Test evchart',
+        };
+        const expectedConfig = {
+            ...props.visualization,
             filters: [
                 {
                     dimension: 'brilliance',
