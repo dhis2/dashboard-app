@@ -1,4 +1,5 @@
 import isObject from 'lodash/isObject';
+import { VIS_TYPE_COLUMN, VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics';
 import { apiFetchFavorite, getMapFields } from '../../../api/metadata';
 import {
     REPORT_TABLE,
@@ -136,7 +137,7 @@ export const getVisualizationConfig = (
     originalType,
     activeType
 ) => {
-    if (originalType === MAP && originalType !== activeType) {
+    if (originalType === MAP && activeType !== MAP) {
         const extractedMapView = extractMapView(visualization);
 
         if (extractedMapView === undefined) {
@@ -147,6 +148,14 @@ export const getVisualizationConfig = (
             ...visualization,
             ...extractedMapView,
             mapViews: undefined,
+            type: activeType === CHART ? VIS_TYPE_COLUMN : undefined,
+        });
+    } else if (originalType === REPORT_TABLE && activeType === CHART) {
+        return getWithoutId({ ...visualization, type: VIS_TYPE_COLUMN });
+    } else if (originalType === CHART && activeType === REPORT_TABLE) {
+        return getWithoutId({
+            ...visualization,
+            type: VIS_TYPE_PIVOT_TABLE,
         });
     }
 
