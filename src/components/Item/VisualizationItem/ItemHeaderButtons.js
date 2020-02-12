@@ -8,14 +8,13 @@ import MapIcon from '@material-ui/icons/Public';
 import { extractFavorite } from './plugin';
 import ItemHeaderButton from '../ItemHeaderButton';
 import {
-    hasMapView,
-    VIEW_TYPE_TABLE,
-    VIEW_TYPE_CHART,
-    VIEW_TYPE_MAP,
-    VIEW_TYPE_EV_TABLE,
-    VIEW_TYPE_EV_CHART,
-    getDefaultView,
-} from '../../../modules/visualizationViewTypes';
+    EVENT_REPORT,
+    EVENT_CHART,
+    REPORT_TABLE,
+    CHART,
+    MAP,
+} from '../../../modules/itemTypes';
+import { hasMapView, isEvent } from '../../../modules/visualizationViewTypes';
 import { colors, theme } from '@dhis2/ui-core';
 import { isSingleValue } from '@dhis2/analytics';
 
@@ -62,20 +61,18 @@ const activeStyle = {
 
 const inactiveStyle = disabled => (disabled ? disabledStyle : baseStyle);
 
-const tableBtnStyle = (activeView, disabled) =>
-    [VIEW_TYPE_TABLE, VIEW_TYPE_EV_TABLE].includes(activeView)
+const tableBtnStyle = (activeType, disabled) =>
+    [REPORT_TABLE, EVENT_REPORT].includes(activeType)
         ? activeStyle
         : inactiveStyle(disabled);
 
-const chartBtnStyle = (activeView, disabled) =>
-    [VIEW_TYPE_CHART, VIEW_TYPE_EV_CHART].includes(activeView)
+const chartBtnStyle = (activeType, disabled) =>
+    [CHART, EVENT_CHART].includes(activeType)
         ? activeStyle
         : inactiveStyle(disabled);
 
-const mapBtnStyle = (activeView, disabled) =>
-    [VIEW_TYPE_MAP].includes(activeView)
-        ? activeStyle
-        : inactiveStyle(disabled);
+const mapBtnStyle = (activeType, disabled) =>
+    [MAP].includes(activeType) ? activeStyle : inactiveStyle(disabled);
 
 class VisualizationItemHeaderButtons extends Component {
     renderInterpretationButton() {
@@ -105,31 +102,39 @@ class VisualizationItemHeaderButtons extends Component {
     }
 
     renderVisualizationButtons() {
-        const { item, visualization, onSelectView, activeView } = this.props;
-        // console.log('vis buttons for', item.id, item.type, activeView);
+        const {
+            item,
+            visualization,
+            onSelectActiveType,
+            activeType,
+        } = this.props;
 
         if (isSingleValue(visualization.type)) {
             return null;
         }
 
-        const onViewTable = () => onSelectView(VIEW_TYPE_TABLE);
+        const onViewTable = () =>
+            onSelectActiveType(
+                isEvent(item.type) ? EVENT_REPORT : REPORT_TABLE
+            );
 
-        const onViewChart = () => onSelectView(VIEW_TYPE_CHART);
+        const onViewChart = () =>
+            onSelectActiveType(isEvent(item.type) ? EVENT_CHART : CHART);
 
-        const onViewMap = () => onSelectView(VIEW_TYPE_MAP);
+        const onViewMap = () => onSelectActiveType(MAP);
 
         // disable toggle buttons
         let disabled = false;
 
-        if (getDefaultView(item.type) === VIEW_TYPE_CHART) {
+        if (item.type === CHART) {
             if (extractFavorite(item).type.match(/^YEAR_OVER_YEAR/)) {
                 disabled = true;
             }
         }
 
-        const tableButtonStyle = tableBtnStyle(activeView, disabled);
-        const chartButtonStyle = chartBtnStyle(activeView, disabled);
-        const mapButtonStyle = mapBtnStyle(activeView, disabled);
+        const tableButtonStyle = tableBtnStyle(activeType, disabled);
+        const chartButtonStyle = chartBtnStyle(activeType, disabled);
+        const mapButtonStyle = mapBtnStyle(activeType, disabled);
 
         return (
             <div style={{ marginLeft: 10 }}>
@@ -174,10 +179,10 @@ class VisualizationItemHeaderButtons extends Component {
 
 VisualizationItemHeaderButtons.propTypes = {
     activeFooter: PropTypes.bool,
-    activeView: PropTypes.string,
+    activeType: PropTypes.string,
     item: PropTypes.object,
     visualization: PropTypes.object,
-    onSelectView: PropTypes.func,
+    onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,
 };
 

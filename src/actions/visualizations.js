@@ -1,6 +1,6 @@
 import {
     ADD_VISUALIZATION,
-    SET_ACTIVE_VISUALIZATION_VIEW,
+    SET_ACTIVE_VISUALIZATION_TYPE,
 } from '../reducers/visualizations';
 
 export const acAddVisualization = value => ({
@@ -8,11 +8,11 @@ export const acAddVisualization = value => ({
     value,
 });
 
-export const acSetActiveVisualizationView = (id, activeView) => {
+export const acSetActiveVisualizationType = (id, activeType) => {
     const action = {
-        type: SET_ACTIVE_VISUALIZATION_VIEW,
+        type: SET_ACTIVE_VISUALIZATION_TYPE,
         id,
-        activeView,
+        activeType,
     };
 
     return action;

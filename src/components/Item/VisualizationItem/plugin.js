@@ -7,22 +7,32 @@ import {
     EVENT_REPORT,
     EVENT_CHART,
     itemTypeMap,
-    // getPlugin,
 } from '../../../modules/itemTypes';
-import {
-    getDefaultView,
-    getPlugin,
-    VIEW_TYPE_MAP,
-} from '../../../modules/visualizationViewTypes';
 import { getBaseUrl, getWithoutId } from '../../../modules/util';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
+
+//legacy plugins
+const itemTypeToPluginMap = {
+    [MAP]: 'mapPlugin',
+    [EVENT_REPORT]: 'eventReportPlugin',
+    [EVENT_CHART]: 'eventChartPlugin',
+};
+
+const getPlugin = viewType => {
+    if (viewType === CHART || viewType === REPORT_TABLE) {
+        return true;
+    }
+    const pluginName = itemTypeToPluginMap[viewType];
+
+    return global[pluginName];
+};
 
 export const THEMATIC_LAYER = 'thematic';
 
 export const pluginIsAvailable = (item = {}, visualization = {}) => {
-    const view = visualization.activeType || getDefaultView(item.type);
+    const type = visualization.activeType || item.type;
 
-    return !!getPlugin(view);
+    return !!getPlugin(type);
 };
 
 export const extractFavorite = item => {
@@ -83,15 +93,15 @@ export const getLink = (item, d2) => {
 export const load = async (
     item,
     visualization,
-    { credentials, activeView }
+    { credentials, activeType }
 ) => {
     const config = {
         ...visualization,
         el: getGridItemDomId(item.id),
     };
 
-    const view = activeView || getDefaultView(item.type);
-    const plugin = getPlugin(view);
+    const type = activeType || item.type;
+    const plugin = getPlugin(type);
 
     loadPlugin(plugin, config, credentials);
 };
@@ -105,7 +115,7 @@ export const fetch = async item => {
 };
 
 export const resize = item => {
-    const plugin = getPlugin(getDefaultView(item.type));
+    const plugin = getPlugin(item.type);
 
     if (plugin && plugin.resize) {
         plugin.resize(getGridItemDomId(item.id));
@@ -120,9 +130,9 @@ export const unmount = (item, activeView) => {
     }
 };
 
-export const getVisualizationConfig = (visualization, type, activeView) => {
+export const getVisualizationConfig = (visualization, type, activeType) => {
     //Is a map being displayed as a chart or table?
-    if (type === MAP && activeView !== VIEW_TYPE_MAP) {
+    if (type === MAP && activeType !== MAP) {
         const extractedMapView = extractMapView(visualization);
 
         if (extractedMapView === undefined) {

@@ -5,7 +5,6 @@ import i18n from '@dhis2/d2-i18n';
 
 import * as pluginManager from './plugin';
 import { getBaseUrl, orObject } from '../../../modules/util';
-import { getDefaultView } from '../../../modules/visualizationViewTypes';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
 
 const pluginCredentials = d2 => {
@@ -36,7 +35,7 @@ class DefaultPlugin extends Component {
         const vis = orObject(this.props.visualization);
         const prevVis = orObject(prevProps.visualization);
         const visChanged =
-            vis.id !== prevVis.id || vis.activeView !== prevVis.activeView;
+            vis.id !== prevVis.id || vis.activeType !== prevVis.activeType;
 
         return reloadAllowed && (visChanged || filtersChanged);
     };
@@ -52,22 +51,22 @@ class DefaultPlugin extends Component {
             const prevVis = orObject(prevProps.visualization);
             const currentVis = this.props.visualization;
 
-            const useActiveView =
-                currentVis.activeView !== prevVis.activeView ||
-                currentVis.activeView !== getDefaultView(this.props.item.type);
+            const useActiveType =
+                currentVis.activeType !== prevVis.activeType ||
+                currentVis.activeType !== this.props.item.type;
 
             if (
-                useActiveView ||
+                useActiveType ||
                 this.props.itemFilters !== prevProps.itemFilters
             ) {
                 pluginManager.unmount(
                     this.props.item,
-                    prevVis.activeView || getDefaultView(this.props.item.type)
+                    prevVis.activeType || this.props.item.type
                 );
 
                 pluginManager.load(this.props.item, this.props.visualization, {
                     credentials: this.pluginCredentials,
-                    activeView: useActiveView ? currentVis.activeView : null,
+                    activeType: useActiveType ? currentVis.activeType : null,
                 });
             }
         }
@@ -84,7 +83,7 @@ class DefaultPlugin extends Component {
         ) {
             pluginManager.load(this.props.item, this.props.visualization, {
                 credentials: this.pluginCredentials,
-                activeView: !this.props.editMode ? this.getActiveView() : null,
+                activeType: !this.props.editMode ? this.getActiveType() : null,
             });
         }
     }
@@ -93,9 +92,8 @@ class DefaultPlugin extends Component {
         this.reloadPlugin(prevProps);
     }
 
-    getActiveView = () =>
-        this.props.visualization.activeView ||
-        getDefaultView(this.props.item.type);
+    getActiveType = () =>
+        this.props.visualization.activeType || this.props.item.type;
 
     render() {
         const { classes, item, visualization, style } = this.props;

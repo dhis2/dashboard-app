@@ -33,16 +33,15 @@ import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters';
 import {
     acAddVisualization,
-    acSetActiveVisualizationView,
+    acSetActiveVisualizationType,
 } from '../../../actions/visualizations';
-import { MAP, itemTypeMap } from '../../../modules/itemTypes';
 import {
-    VIEW_TYPE_CHART,
-    VIEW_TYPE_MAP,
-    VIEW_TYPE_TABLE,
-} from '../../../modules/visualizationViewTypes';
+    MAP,
+    CHART,
+    REPORT_TABLE,
+    itemTypeMap,
+} from '../../../modules/itemTypes';
 
-import { getDefaultView } from '../../../modules/visualizationViewTypes';
 import { colors } from '@dhis2/ui-core';
 import memoizeOne from '../../../modules/memoizeOne';
 import { getVisualizationConfig } from './plugin';
@@ -159,7 +158,7 @@ export class Item extends Component {
         const visualization = getVisualizationConfig(
             this.props.visualization,
             this.props.item.type,
-            this.getActiveView()
+            this.getActiveType()
         );
 
         if (!visualization) {
@@ -176,12 +175,13 @@ export class Item extends Component {
             style: this.getContentStyle(),
         };
 
+        // if the active type is CHART or REPORT_TABLE, then set the vis.type for the plugin
         let vis = props.visualization;
         if (
             props.visualization.type === undefined ||
             props.visualization.type === VIS_TYPE_PIVOT_TABLE
         ) {
-            if (this.getActiveView() === VIEW_TYPE_CHART) {
+            if (this.getActiveType() === CHART) {
                 //a table is being shown as a chart - default to column
                 vis = Object.assign({}, props.visualization, {
                     type: VIS_TYPE_COLUMN,
@@ -193,23 +193,17 @@ export class Item extends Component {
         ) {
             //originally a chart type
             if (CHART_TYPES.includes(props.visualization.type)) {
-                if (this.getActiveView() === VIEW_TYPE_TABLE) {
+                if (this.getActiveType() === REPORT_TABLE) {
                     vis = Object.assign({}, props.visualization, {
                         type: VIS_TYPE_PIVOT_TABLE,
                     });
                 }
             }
         }
-        console.log(
-            'vis.type',
-            this.props.item.id,
-            vis.type ? vis.type : 'no visType'
-        );
-        console.log('activeView', this.getActiveView());
 
-        switch (this.getActiveView()) {
-            case VIEW_TYPE_CHART:
-            case VIEW_TYPE_TABLE: {
+        switch (this.getActiveType()) {
+            case CHART:
+            case REPORT_TABLE: {
                 return (
                     <VisualizationPlugin
                         d2={this.d2}
@@ -219,7 +213,7 @@ export class Item extends Component {
                     />
                 );
             }
-            case VIEW_TYPE_MAP: {
+            case MAP: {
                 if (props.item.type === MAP) {
                     // apply filters only to thematic and event layers
                     // for maps AO
@@ -268,22 +262,19 @@ export class Item extends Component {
         );
     };
 
-    onSelectView = view => {
+    onSelectActiveType = type => {
         // Cancel request if type is already active
-        if (view === this.getActiveView()) {
+        if (type === this.getActiveType()) {
             return;
         }
 
-        pluginManager.unmount(this.props.item, this.getActiveView());
+        pluginManager.unmount(this.props.item, this.getActiveType());
 
-        this.props.onSelectView(this.props.visualization.id, view);
+        this.props.onSelectActiveType(this.props.visualization.id, type);
     };
 
-    getActiveView = () => {
-        return (
-            this.props.visualization.activeView ||
-            getDefaultView(this.props.item.type)
-        );
+    getActiveType = () => {
+        return this.props.visualization.activeType || this.props.item.type;
     };
 
     pluginIsAvailable = () =>
@@ -325,8 +316,8 @@ export class Item extends Component {
                 item={this.props.item}
                 visualization={this.props.visualization}
                 activeFooter={this.state.showFooter}
-                activeView={this.getActiveView()}
-                onSelectView={this.onSelectView}
+                activeType={this.getActiveType()}
+                onSelectActiveType={this.onSelectActiveType}
                 onToggleFooter={this.onToggleFooter}
             />
         ) : null;
@@ -376,7 +367,7 @@ Item.propTypes = {
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,
-    onSelectView: PropTypes.func,
+    onSelectActiveType: PropTypes.func,
     onToggleItemExpanded: PropTypes.func,
     onVisualizationLoaded: PropTypes.func,
 };
@@ -400,8 +391,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
     onVisualizationLoaded: visualization =>
         dispatch(acAddVisualization(visualization)),
-    onSelectView: (id, type, activeView) =>
-        dispatch(acSetActiveVisualizationView(id, type, activeView)),
+    onSelectActiveType: (id, type, activeType) =>
+        dispatch(acSetActiveVisualizationType(id, type, activeType)),
 });
 
 export default connect(
