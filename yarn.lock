@@ -1041,6 +1041,25 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
+"@dhis2/analytics@2.4.9":
+  version "2.4.9"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.4.9.tgz#e30513e3ba2d71c213146367123b83a977d9ad96"
+  integrity sha512-OwWKiwNvWy5U7bCQwk/1855hKoS74a8Lg0ptODY4kkuhAnq9p7OhGAI1YZ2kFAMnq1vIhx9PZK5IlLbDeRKCxw==
+  dependencies:
+    "@dhis2/d2-i18n" "^1.0.4"
+    "@dhis2/d2-ui-org-unit-dialog" "^6.3.0"
+    "@dhis2/d2-ui-period-selector-dialog" "^6.3.0"
+    "@dhis2/ui-core" "^3.4.0"
+    "@material-ui/core" "^3.9.3"
+    "@material-ui/icons" "^3.0.2"
+    classnames "^2.2.6"
+    d2-utilizr "^0.2.16"
+    d3-color "^1.2.3"
+    highcharts "^7.1.2"
+    lodash "^4.17.13"
+    react-beautiful-dnd "^10.1.1"
+    styled-jsx "^3.2.1"
+
 "@dhis2/analytics@^2.1.0":
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.3.4.tgz#7132738b957f7342423f039f31b871465c9f4966"
@@ -1057,25 +1076,6 @@
     d3-color "^1.2.3"
     highcharts "^7.1.2"
     lodash "^4.17.11"
-    react-beautiful-dnd "^10.1.1"
-    styled-jsx "^3.2.1"
-
-"@dhis2/analytics@^2.4.6":
-  version "2.4.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.4.6.tgz#ceec5185d54d3db80ffa5f1ffca93e6a50e523db"
-  integrity sha512-yKEIz1p3HmMQaL220oXsz2m+BO4DqyPtohO8B6fhfZNaA7BeGkxRv7eraQu4VX7GSPgw/6jeEy8q29GGVPPLVw==
-  dependencies:
-    "@dhis2/d2-i18n" "^1.0.4"
-    "@dhis2/d2-ui-org-unit-dialog" "^6.3.0"
-    "@dhis2/d2-ui-period-selector-dialog" "^6.3.0"
-    "@dhis2/ui-core" "^3.4.0"
-    "@material-ui/core" "^3.9.3"
-    "@material-ui/icons" "^3.0.2"
-    classnames "^2.2.6"
-    d2-utilizr "^0.2.16"
-    d3-color "^1.2.3"
-    highcharts "^7.1.2"
-    lodash "^4.17.13"
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
@@ -1300,12 +1300,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^33.1.7":
-  version "33.1.7"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-33.1.7.tgz#00a67423f0c18508950ecddc2e5925a98949f274"
-  integrity sha512-LIjwVyl/6sd42Y44ijXO7Y0+wKdqqDkLbeR3/m1QNb2S6+XRnyLRWj4I8qoblsnRGO5akM2F2M++5Cg7TfuvLw==
+"@dhis2/data-visualizer-plugin@^33.1.8":
+  version "33.1.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-33.1.8.tgz#17c06d06a3b2967575e3f94f2fb203989288534e"
+  integrity sha512-D3CqoeQ1LcBu3oHdwZDKDWiINi2yPOXMj6y8yJXhbxI4a8obtK1CU/Q6vQ+OI4tWnZcN0XYONBVZo4al/i6LTg==
   dependencies:
-    "@dhis2/analytics" "^2.4.6"
+    "@dhis2/analytics" "2.4.9"
     "@material-ui/core" "^3.1.2"
     lodash-es "^4.17.11"
     react "^16.6.0"
