@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-04T08:23:22.661Z\n"
+"POT-Creation-Date: 2020-02-09T01:43:57.112Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -136,13 +136,10 @@ msgstr "Chia sẻ"
 msgid "Pivot tables"
 msgstr "Bảng Xoay"
 
-msgid "Pivot Tables"
-msgstr "Bảng Xoay"
-
-msgid "Charts"
+msgid "Visualizer"
 msgstr "Biểu Đồ"
 
-msgid "Visualizer"
+msgid "Charts"
 msgstr "Biểu Đồ"
 
 msgid "Maps"
