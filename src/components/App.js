@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import { HeaderBar } from '@dhis2/ui-widgets';
+import { CssVariables } from '@dhis2/ui-core';
 
 import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes';
 import { acReceivedUser } from '../actions/user';
@@ -30,44 +31,47 @@ export class App extends Component {
 
     render() {
         return (
-            <div className="app-wrapper">
-                <div className="dashboard-header-bar">
-                    <HeaderBar appName={i18n.t('Dashboard')} />
+            <>
+                <CssVariables colors spacers />
+                <div className="app-wrapper">
+                    <div className="dashboard-header-bar">
+                        <HeaderBar appName={i18n.t('Dashboard')} />
+                    </div>
+                    <Router>
+                        <Switch>
+                            <Route
+                                exact
+                                path="/"
+                                render={props => (
+                                    <Dashboard {...props} mode={VIEW} />
+                                )}
+                            />
+                            <Route
+                                exact
+                                path="/new"
+                                render={props => (
+                                    <Dashboard {...props} mode={NEW} />
+                                )}
+                            />
+                            <Route
+                                exact
+                                path="/:dashboardId"
+                                render={props => (
+                                    <Dashboard {...props} mode={VIEW} />
+                                )}
+                            />
+                            <Route
+                                exact
+                                path="/:dashboardId/edit"
+                                render={props => (
+                                    <Dashboard {...props} mode={EDIT} />
+                                )}
+                            />
+                        </Switch>
+                    </Router>
+                    <SnackbarMessage />
                 </div>
-                <Router>
-                    <Switch>
-                        <Route
-                            exact
-                            path="/"
-                            render={props => (
-                                <Dashboard {...props} mode={VIEW} />
-                            )}
-                        />
-                        <Route
-                            exact
-                            path="/new"
-                            render={props => (
-                                <Dashboard {...props} mode={NEW} />
-                            )}
-                        />
-                        <Route
-                            exact
-                            path="/:dashboardId"
-                            render={props => (
-                                <Dashboard {...props} mode={VIEW} />
-                            )}
-                        />
-                        <Route
-                            exact
-                            path="/:dashboardId/edit"
-                            render={props => (
-                                <Dashboard {...props} mode={EDIT} />
-                            )}
-                        />
-                    </Switch>
-                </Router>
-                <SnackbarMessage />
-            </div>
+            </>
         );
     }
 }

@@ -9,7 +9,8 @@ import i18n from '@dhis2/d2-i18n';
 import uniqueId from 'lodash/uniqueId';
 
 import DefaultPlugin from './DefaultPlugin';
-import ItemHeader, { HEADER_HEIGHT } from '../ItemHeader';
+import { HEADER_HEIGHT } from '../ItemHeader';
+import NewItemHeader from './NewItemHeader';
 import ItemFooter from './ItemFooter';
 import VisualizationItemHeaderButtons from './ItemHeaderButtons';
 import * as pluginManager from './plugin';
@@ -283,11 +284,19 @@ export class Item extends Component {
 
         return (
             <Fragment>
-                <ItemHeader
+                <NewItemHeader
+                    item={item}
+                    visualization={this.props.visualization}
+                    onSelectActiveType={this.onSelectActiveType}
+                    d2={this.d2}
+                    editMode={editMode}
+                    activeType={this.getActiveType()}
+                />
+                {/* <ItemHeader
                     title={this.getTitle()}
                     actionButtons={this.getActionButtons()}
                     editMode={editMode}
-                />
+                /> */}
                 <div
                     key={this.getUniqueKey(itemFilters)}
                     className="dashboard-item-content"
