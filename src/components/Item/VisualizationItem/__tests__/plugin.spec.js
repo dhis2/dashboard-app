@@ -1,6 +1,7 @@
 import * as d2lib from 'd2';
+import { VIS_TYPE_COLUMN, VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics';
 import { fetch, getVisualizationConfig, THEMATIC_LAYER } from '../plugin';
-import { CHART, MAP } from '../../../../modules/itemTypes';
+import { CHART, MAP, REPORT_TABLE } from '../../../../modules/itemTypes';
 import * as apiMetadata from '../../../../api/metadata';
 
 describe('plugin', () => {
@@ -33,7 +34,7 @@ describe('plugin', () => {
             visualization = { id: 'SOME_ID', someProp: 'someValue' };
         });
 
-        it('returns default visualization when original type equals to active type', () => {
+        it('returns default visualization when original type equals active type', () => {
             const actualResult = getVisualizationConfig(
                 visualization,
                 MAP,
@@ -42,6 +43,36 @@ describe('plugin', () => {
             const expectedResult = {
                 ...visualization,
                 id: undefined,
+            };
+
+            expect(actualResult).toEqual(expectedResult);
+        });
+
+        it('returns correct config when switching from CHART to REPORT_TABLE', () => {
+            const actualResult = getVisualizationConfig(
+                visualization,
+                CHART,
+                REPORT_TABLE
+            );
+            const expectedResult = {
+                ...visualization,
+                id: undefined,
+                type: VIS_TYPE_PIVOT_TABLE,
+            };
+
+            expect(actualResult).toEqual(expectedResult);
+        });
+
+        it('returns correct config when switching from REPORT_TABLE to CHART', () => {
+            const actualResult = getVisualizationConfig(
+                visualization,
+                REPORT_TABLE,
+                CHART
+            );
+            const expectedResult = {
+                ...visualization,
+                id: undefined,
+                type: VIS_TYPE_COLUMN,
             };
 
             expect(actualResult).toEqual(expectedResult);
@@ -65,6 +96,7 @@ describe('plugin', () => {
                 ...visualization.mapViews[0],
                 mapViews: undefined,
                 id: undefined,
+                type: VIS_TYPE_COLUMN,
             };
 
             expect(actualResult).toEqual(expectedResult);

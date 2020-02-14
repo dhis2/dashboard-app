@@ -27,14 +27,8 @@ export const MESSAGES = 'MESSAGES';
 export const TEXT = 'TEXT';
 export const SPACER = 'SPACER';
 
-// Domain types
-export const DOMAIN_TYPE_AGGREGATE = 'AGGREGATE';
-export const DOMAIN_TYPE_TRACKER = 'TRACKER';
-
-// Visualization types
-export const VISUALIZATION_TYPE_TABLE = 'TABLE';
-export const VISUALIZATION_TYPE_CHART = 'CHART';
-export const VISUALIZATION_TYPE_MAP = 'MAP';
+const DOMAIN_TYPE_AGGREGATE = 'AGGREGATE';
+const DOMAIN_TYPE_TRACKER = 'TRACKER';
 
 // Dashboard helpers
 export const spacerContent = 'SPACER_ITEM_FOR_DASHBOARD_LAYOUT_CONVENIENCE';
@@ -43,17 +37,14 @@ export const isSpacerType = item =>
     item.type === TEXT && item.text === spacerContent;
 export const isTextType = item =>
     item.type === TEXT && item.text !== spacerContent;
-export const isPluginType = item => 'plugin' in itemTypeMap[item.type];
+export const isVisualizationType = item =>
+    !!itemTypeMap[item.type].isVisualizationType;
 
-export const getPlugin = type => {
-    const pluginName = itemTypeMap[type].plugin;
+export const hasMapView = itemType =>
+    itemTypeMap[itemType].domainType === DOMAIN_TYPE_AGGREGATE;
 
-    if (type === CHART) {
-        return true;
-    }
-
-    return global[pluginName];
-};
+export const isTrackerDomainType = itemType =>
+    itemTypeMap[itemType].domainType === DOMAIN_TYPE_TRACKER;
 
 // Item type map
 export const itemTypeMap = {
@@ -62,20 +53,18 @@ export const itemTypeMap = {
         endPointName: 'reportTables',
         propName: 'reportTable',
         pluralTitle: i18n.t('Pivot tables'),
-        plugin: 'reportTablePlugin',
         domainType: DOMAIN_TYPE_AGGREGATE,
-        visualizationType: VISUALIZATION_TYPE_TABLE,
-        appUrl: id => `dhis-web-pivot/?id=${id}`,
-        appName: i18n.t('Pivot Tables'),
+        isVisualizationType: true,
+        appUrl: id => `dhis-web-data-visualizer/#/${id}`,
+        appName: i18n.t('Visualizer'),
     },
     [CHART]: {
         id: CHART,
         endPointName: 'charts',
         propName: 'chart',
         pluralTitle: i18n.t('Charts'),
-        plugin: 'chartPlugin',
         domainType: DOMAIN_TYPE_AGGREGATE,
-        visualizationType: VISUALIZATION_TYPE_CHART,
+        isVisualizationType: true,
         appUrl: id => `dhis-web-data-visualizer/#/${id}`,
         appName: i18n.t('Visualizer'),
     },
@@ -84,9 +73,8 @@ export const itemTypeMap = {
         endPointName: 'maps',
         propName: 'map',
         pluralTitle: i18n.t('Maps'),
-        plugin: 'mapPlugin',
         domainType: DOMAIN_TYPE_AGGREGATE,
-        visualizationType: VISUALIZATION_TYPE_MAP,
+        isVisualizationType: true,
         appUrl: id => `dhis-web-maps/?id=${id}`,
         appName: i18n.t('Maps'),
     },
@@ -95,9 +83,8 @@ export const itemTypeMap = {
         endPointName: 'eventReports',
         propName: 'eventReport',
         pluralTitle: i18n.t('Event reports'),
-        plugin: 'eventReportPlugin',
         domainType: DOMAIN_TYPE_TRACKER,
-        visualizationType: VISUALIZATION_TYPE_TABLE,
+        isVisualizationType: true,
         appUrl: id => `dhis-web-event-reports/?id=${id}`,
         appName: i18n.t('Event Reports'),
     },
@@ -106,9 +93,8 @@ export const itemTypeMap = {
         endPointName: 'eventCharts',
         propName: 'eventChart',
         pluralTitle: i18n.t('Event charts'),
-        plugin: 'eventChartPlugin',
         domainType: DOMAIN_TYPE_TRACKER,
-        visualizationType: VISUALIZATION_TYPE_CHART,
+        isVisualizationType: true,
         appUrl: id => `dhis-web-event-visualizer/?id=${id}`,
         appName: i18n.t('Event Visualizer'),
     },

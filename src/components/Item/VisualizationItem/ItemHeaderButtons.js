@@ -8,16 +8,13 @@ import MapIcon from '@material-ui/icons/Public';
 import { extractFavorite } from './plugin';
 import ItemHeaderButton from '../ItemHeaderButton';
 import {
-    VISUALIZATION_TYPE_TABLE,
-    VISUALIZATION_TYPE_CHART,
-    VISUALIZATION_TYPE_MAP,
-    itemTypeMap,
     CHART,
     MAP,
     REPORT_TABLE,
     EVENT_CHART,
     EVENT_REPORT,
-    DOMAIN_TYPE_AGGREGATE,
+    isTrackerDomainType,
+    hasMapView,
 } from '../../../modules/itemTypes';
 import { colors, theme } from '@dhis2/ui-core';
 import { isSingleValue } from '@dhis2/analytics';
@@ -78,15 +75,6 @@ const chartBtnStyle = (activeType, disabled) =>
 const mapBtnStyle = (activeType, disabled) =>
     [MAP].includes(activeType) ? activeStyle : inactiveStyle(disabled);
 
-export const getItemTypeId = (itemTypeMap, visualizationType, domainType) => {
-    const item = Object.values(itemTypeMap).find(
-        item =>
-            item.visualizationType === visualizationType &&
-            item.domainType === domainType
-    );
-    return item.id;
-};
-
 class VisualizationItemHeaderButtons extends Component {
     renderInterpretationButton() {
         const { activeFooter, onToggleFooter } = this.props;
@@ -118,7 +106,7 @@ class VisualizationItemHeaderButtons extends Component {
         const {
             item,
             visualization,
-            onSelectVisualization,
+            onSelectActiveType,
             activeType,
         } = this.props;
 
@@ -126,27 +114,22 @@ class VisualizationItemHeaderButtons extends Component {
             return null;
         }
 
-        const domainType = itemTypeMap[item.type].domainType;
-
         const onViewTable = () =>
-            onSelectVisualization(
-                getItemTypeId(itemTypeMap, VISUALIZATION_TYPE_TABLE, domainType)
+            onSelectActiveType(
+                isTrackerDomainType(item.type) ? EVENT_REPORT : REPORT_TABLE
             );
 
         const onViewChart = () =>
-            onSelectVisualization(
-                getItemTypeId(itemTypeMap, VISUALIZATION_TYPE_CHART, domainType)
+            onSelectActiveType(
+                isTrackerDomainType(item.type) ? EVENT_CHART : CHART
             );
 
-        const onViewMap = () =>
-            onSelectVisualization(
-                getItemTypeId(itemTypeMap, VISUALIZATION_TYPE_MAP, domainType)
-            );
+        const onViewMap = () => onSelectActiveType(MAP);
 
         // disable toggle buttons
         let disabled = false;
 
-        if (item.type === VISUALIZATION_TYPE_CHART) {
+        if (item.type === CHART) {
             if (extractFavorite(item).type.match(/^YEAR_OVER_YEAR/)) {
                 disabled = true;
             }
@@ -173,7 +156,7 @@ class VisualizationItemHeaderButtons extends Component {
                     >
                         <ChartIcon style={chartButtonStyle.icon} />
                     </ItemHeaderButton>
-                    {domainType === DOMAIN_TYPE_AGGREGATE ? (
+                    {hasMapView(item.type) ? (
                         <ItemHeaderButton
                             disabled={disabled}
                             style={mapButtonStyle.container}
@@ -202,7 +185,7 @@ VisualizationItemHeaderButtons.propTypes = {
     activeType: PropTypes.string,
     item: PropTypes.object,
     visualization: PropTypes.object,
-    onSelectVisualization: PropTypes.func,
+    onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,
 };
 

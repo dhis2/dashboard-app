@@ -11,7 +11,7 @@ import {
 } from '../../actions/editDashboard';
 import { Item } from '../Item/Item';
 import { resize as pluginResize } from '../Item/VisualizationItem/plugin';
-import { isPluginType } from '../../modules/itemTypes';
+import { isVisualizationType } from '../../modules/itemTypes';
 import {
     GRID_ROW_HEIGHT,
     GRID_COMPACT_TYPE,
@@ -84,7 +84,7 @@ export class ItemGrid extends Component {
         );
 
         // call resize on the item component if it's a plugin type
-        if (dashboardItem && isPluginType(dashboardItem)) {
+        if (dashboardItem && isVisualizationType(dashboardItem)) {
             pluginResize(dashboardItem);
         }
     };

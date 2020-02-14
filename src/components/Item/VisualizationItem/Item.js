@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import LaunchIcon from '@material-ui/icons/Launch';
-import ChartPlugin from '@dhis2/data-visualizer-plugin';
+import VisualizationPlugin from '@dhis2/data-visualizer-plugin';
 
 import i18n from '@dhis2/d2-i18n';
 import uniqueId from 'lodash/uniqueId';
@@ -16,10 +16,16 @@ import * as pluginManager from './plugin';
 import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters';
 import {
-    acReceivedVisualization,
-    acReceivedActiveVisualization,
-} from '../../../actions/selected';
-import { CHART, MAP, itemTypeMap } from '../../../modules/itemTypes';
+    acAddVisualization,
+    acSetActiveVisualizationType,
+} from '../../../actions/visualizations';
+import {
+    MAP,
+    CHART,
+    REPORT_TABLE,
+    itemTypeMap,
+} from '../../../modules/itemTypes';
+
 import { colors } from '@dhis2/ui-core';
 import memoizeOne from '../../../modules/memoizeOne';
 import { getVisualizationConfig } from './plugin';
@@ -117,10 +123,11 @@ export class Item extends Component {
     pluginCredentials = null;
 
     getPluginComponent = () => {
+        const activeType = this.getActiveType();
         const visualization = getVisualizationConfig(
             this.props.visualization,
             this.props.item.type,
-            this.getActiveType()
+            activeType
         );
 
         if (!visualization) {
@@ -137,13 +144,14 @@ export class Item extends Component {
             style: this.getContentStyle(),
         };
 
-        switch (this.getActiveType()) {
-            case CHART: {
+        switch (activeType) {
+            case CHART:
+            case REPORT_TABLE: {
                 return (
-                    <ChartPlugin
+                    <VisualizationPlugin
                         d2={this.d2}
-                        config={applyFilters(
-                            props.visualization,
+                        visualization={applyFilters(
+                            visualization,
                             props.itemFilters
                         )}
                         forDashboard={true}
@@ -200,19 +208,14 @@ export class Item extends Component {
         );
     };
 
-    onSelectVisualization = activeType => {
-        // Cancel request if type is already active
-        if (activeType === this.getActiveType()) {
+    onSelectActiveType = type => {
+        if (type === this.getActiveType()) {
             return;
         }
 
         pluginManager.unmount(this.props.item, this.getActiveType());
 
-        this.props.onSelectVisualization(
-            this.props.visualization.id,
-            this.props.item.type,
-            activeType
-        );
+        this.props.onSelectActiveType(this.props.visualization.id, type);
     };
 
     getActiveType = () =>
@@ -258,7 +261,7 @@ export class Item extends Component {
                 visualization={this.props.visualization}
                 activeFooter={this.state.showFooter}
                 activeType={this.getActiveType()}
-                onSelectVisualization={this.onSelectVisualization}
+                onSelectActiveType={this.onSelectActiveType}
                 onToggleFooter={this.onToggleFooter}
             />
         ) : null;
@@ -308,7 +311,7 @@ Item.propTypes = {
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,
-    onSelectVisualization: PropTypes.func,
+    onSelectActiveType: PropTypes.func,
     onToggleItemExpanded: PropTypes.func,
     onVisualizationLoaded: PropTypes.func,
 };
@@ -331,9 +334,9 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
     onVisualizationLoaded: visualization =>
-        dispatch(acReceivedVisualization(visualization)),
-    onSelectVisualization: (id, type, activeType) =>
-        dispatch(acReceivedActiveVisualization(id, type, activeType)),
+        dispatch(acAddVisualization(visualization)),
+    onSelectActiveType: (id, type, activeType) =>
+        dispatch(acSetActiveVisualizationType(id, type, activeType)),
 });
 
 export default connect(

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`VisualizationItem/Item renders a DefaultPlugin when a item different from chart is passed 1`] = `
+exports[`VisualizationItem/Item renders a DefaultPlugin when an EVENT_CHART is passed 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Item
@@ -8,12 +8,11 @@ ShallowWrapper {
     editMode={false}
     item={
       Object {
-        "id": "testItem2",
-        "reportTable": Object {
-          "id": "pivot1",
-          "name": "Test pivot",
+        "eventChart": Object {
+          "id": "evchart1",
+          "name": "Test evchart",
         },
-        "type": "REPORT_TABLE",
+        "type": "EVENT_CHART",
       }
     }
     itemFilters={
@@ -31,9 +30,10 @@ ShallowWrapper {
     visualization={
       Object {
         "columns": Array [],
-        "description": "Test pivot mock",
+        "description": "vis description",
         "filters": Array [],
-        "name": "Test pivot",
+        "id": "vis id",
+        "name": "vis name",
         "rows": Array [],
       }
     }
@@ -57,25 +57,25 @@ ShallowWrapper {
           actionButtons={
             <VisualizationItemHeaderButtons
               activeFooter={false}
-              activeType="REPORT_TABLE"
+              activeType="EVENT_CHART"
               item={
                 Object {
-                  "id": "testItem2",
-                  "reportTable": Object {
-                    "id": "pivot1",
-                    "name": "Test pivot",
+                  "eventChart": Object {
+                    "id": "evchart1",
+                    "name": "Test evchart",
                   },
-                  "type": "REPORT_TABLE",
+                  "type": "EVENT_CHART",
                 }
               }
-              onSelectVisualization={[Function]}
+              onSelectActiveType={[Function]}
               onToggleFooter={[Function]}
               visualization={
                 Object {
                   "columns": Array [],
-                  "description": "Test pivot mock",
+                  "description": "vis description",
                   "filters": Array [],
-                  "name": "Test pivot",
+                  "id": "vis id",
+                  "name": "vis name",
                   "rows": Array [],
                 }
               }
@@ -101,7 +101,7 @@ ShallowWrapper {
                     "height": 16,
                   }
                 }
-                title="View in Pivot Tables app"
+                title="View in Event Visualizer app"
               >
                 <pure(LaunchIcon) />
               </a>
@@ -123,25 +123,25 @@ ShallowWrapper {
         "props": Object {
           "actionButtons": <VisualizationItemHeaderButtons
             activeFooter={false}
-            activeType="REPORT_TABLE"
+            activeType="EVENT_CHART"
             item={
               Object {
-                "id": "testItem2",
-                "reportTable": Object {
-                  "id": "pivot1",
-                  "name": "Test pivot",
+                "eventChart": Object {
+                  "id": "evchart1",
+                  "name": "Test evchart",
                 },
-                "type": "REPORT_TABLE",
+                "type": "EVENT_CHART",
               }
             }
-            onSelectVisualization={[Function]}
+            onSelectActiveType={[Function]}
             onToggleFooter={[Function]}
             visualization={
               Object {
                 "columns": Array [],
-                "description": "Test pivot mock",
+                "description": "vis description",
                 "filters": Array [],
-                "name": "Test pivot",
+                "id": "vis id",
+                "name": "vis name",
                 "rows": Array [],
               }
             }
@@ -165,7 +165,7 @@ ShallowWrapper {
                   "height": 16,
                 }
               }
-              title="View in Pivot Tables app"
+              title="View in Event Visualizer app"
             >
               <pure(LaunchIcon) />
             </a>
@@ -177,7 +177,7 @@ ShallowWrapper {
       },
       Object {
         "instance": null,
-        "key": "2",
+        "key": "3",
         "nodeType": "host",
         "props": Object {
           "children": false,
@@ -202,25 +202,25 @@ ShallowWrapper {
             actionButtons={
               <VisualizationItemHeaderButtons
                 activeFooter={false}
-                activeType="REPORT_TABLE"
+                activeType="EVENT_CHART"
                 item={
                   Object {
-                    "id": "testItem2",
-                    "reportTable": Object {
-                      "id": "pivot1",
-                      "name": "Test pivot",
+                    "eventChart": Object {
+                      "id": "evchart1",
+                      "name": "Test evchart",
                     },
-                    "type": "REPORT_TABLE",
+                    "type": "EVENT_CHART",
                   }
                 }
-                onSelectVisualization={[Function]}
+                onSelectActiveType={[Function]}
                 onToggleFooter={[Function]}
                 visualization={
                   Object {
                     "columns": Array [],
-                    "description": "Test pivot mock",
+                    "description": "vis description",
                     "filters": Array [],
-                    "name": "Test pivot",
+                    "id": "vis id",
+                    "name": "vis name",
                     "rows": Array [],
                   }
                 }
@@ -246,7 +246,7 @@ ShallowWrapper {
                       "height": 16,
                     }
                   }
-                  title="View in Pivot Tables app"
+                  title="View in Event Visualizer app"
                 >
                   <pure(LaunchIcon) />
                 </a>
@@ -268,25 +268,25 @@ ShallowWrapper {
           "props": Object {
             "actionButtons": <VisualizationItemHeaderButtons
               activeFooter={false}
-              activeType="REPORT_TABLE"
+              activeType="EVENT_CHART"
               item={
                 Object {
-                  "id": "testItem2",
-                  "reportTable": Object {
-                    "id": "pivot1",
-                    "name": "Test pivot",
+                  "eventChart": Object {
+                    "id": "evchart1",
+                    "name": "Test evchart",
                   },
-                  "type": "REPORT_TABLE",
+                  "type": "EVENT_CHART",
                 }
               }
-              onSelectVisualization={[Function]}
+              onSelectActiveType={[Function]}
               onToggleFooter={[Function]}
               visualization={
                 Object {
                   "columns": Array [],
-                  "description": "Test pivot mock",
+                  "description": "vis description",
                   "filters": Array [],
-                  "name": "Test pivot",
+                  "id": "vis id",
+                  "name": "vis name",
                   "rows": Array [],
                 }
               }
@@ -310,7 +310,7 @@ ShallowWrapper {
                     "height": 16,
                   }
                 }
-                title="View in Pivot Tables app"
+                title="View in Event Visualizer app"
               >
                 <pure(LaunchIcon) />
               </a>
@@ -322,7 +322,7 @@ ShallowWrapper {
         },
         Object {
           "instance": null,
-          "key": "2",
+          "key": "3",
           "nodeType": "host",
           "props": Object {
             "children": false,

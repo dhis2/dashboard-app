@@ -1,4 +1,5 @@
 import isObject from 'lodash/isObject';
+import { VIS_TYPE_COLUMN, VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics';
 import { apiFetchFavorite, getMapFields } from '../../../api/metadata';
 import {
     REPORT_TABLE,
@@ -7,10 +8,26 @@ import {
     EVENT_REPORT,
     EVENT_CHART,
     itemTypeMap,
-    getPlugin,
 } from '../../../modules/itemTypes';
 import { getBaseUrl, getWithoutId } from '../../../modules/util';
 import { getGridItemDomId } from '../../ItemGrid/gridUtil';
+
+//external plugins
+const itemTypeToExternalPlugin = {
+    [MAP]: 'mapPlugin',
+    [EVENT_REPORT]: 'eventReportPlugin',
+    [EVENT_CHART]: 'eventChartPlugin',
+};
+const hasIntegratedPlugin = type => [CHART, REPORT_TABLE].includes(type);
+
+const getPlugin = type => {
+    if (hasIntegratedPlugin(type)) {
+        return true;
+    }
+    const pluginName = itemTypeToExternalPlugin[type];
+
+    return global[pluginName];
+};
 
 export const THEMATIC_LAYER = 'thematic';
 
@@ -131,6 +148,14 @@ export const getVisualizationConfig = (
             ...visualization,
             ...extractedMapView,
             mapViews: undefined,
+            type: activeType === CHART ? VIS_TYPE_COLUMN : VIS_TYPE_PIVOT_TABLE,
+        });
+    } else if (originalType === REPORT_TABLE && activeType === CHART) {
+        return getWithoutId({ ...visualization, type: VIS_TYPE_COLUMN });
+    } else if (originalType === CHART && activeType === REPORT_TABLE) {
+        return getWithoutId({
+            ...visualization,
+            type: VIS_TYPE_PIVOT_TABLE,
         });
     }
 

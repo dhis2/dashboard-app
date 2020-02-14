@@ -1,7 +1,7 @@
 import reducer, {
     DEFAULT_STATE_VISUALIZATIONS,
-    RECEIVED_VISUALIZATION,
-    RECEIVED_ACTIVE_VISUALIZATION,
+    ADD_VISUALIZATION,
+    SET_ACTIVE_VISUALIZATION_TYPE,
 } from '../visualizations';
 
 describe('visualizations reducer', () => {
@@ -32,9 +32,9 @@ describe('visualizations reducer', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it('should add a visualization (RECEIVED_VISUALIZATION)', () => {
+    it('should add a visualization (ADD_VISUALIZATION)', () => {
         const action = {
-            type: RECEIVED_VISUALIZATION,
+            type: ADD_VISUALIZATION,
             value: visualization,
         };
 
@@ -44,9 +44,9 @@ describe('visualizations reducer', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it('should update a visualization with activeType (RECEIVED_ACTIVE_VISUALIZATION)', () => {
+    it('should update a visualization with activeType (SET_ACTIVE_VISUALIZATION_TYPE)', () => {
         const action = {
-            type: RECEIVED_ACTIVE_VISUALIZATION,
+            type: SET_ACTIVE_VISUALIZATION_TYPE,
             id: visualization.id,
             activeType,
         };
@@ -58,9 +58,9 @@ describe('visualizations reducer', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it('should update a visualization with removed activeType (RECEIVED_ACTIVE_VISUALIZATION)', () => {
+    it('should update a visualization with removed activeType (SET_ACTIVE_VISUALIZATION_TYPE)', () => {
         const action = {
-            type: RECEIVED_ACTIVE_VISUALIZATION,
+            type: SET_ACTIVE_VISUALIZATION_TYPE,
             id: visualization.id,
         };
 
