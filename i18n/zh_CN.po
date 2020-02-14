@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-04T08:23:22.661Z\n"
+"POT-Creation-Date: 2020-02-09T01:43:57.112Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -136,14 +136,11 @@ msgstr "共享"
 msgid "Pivot tables"
 msgstr "透视表"
 
-msgid "Pivot Tables"
-msgstr "图表"
+msgid "Visualizer"
+msgstr "可视图"
 
 msgid "Charts"
 msgstr "图表"
-
-msgid "Visualizer"
-msgstr "可视图"
 
 msgid "Maps"
 msgstr "地图"
