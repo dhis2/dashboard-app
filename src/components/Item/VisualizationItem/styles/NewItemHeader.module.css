@@ -25,3 +25,9 @@
     margin: 0;
     align-self: center;
 }
+
+.launchIcon {
+    width: 16px;
+    height: 16px;
+    fill: colors.grey600;
+}
