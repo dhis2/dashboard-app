@@ -163,7 +163,7 @@ msgid "Event Visualizer"
 msgstr ""
 
 msgid "Apps"
-msgstr ""
+msgstr "Apps"
 
 msgid "Reports"
 msgstr "报表管理"
