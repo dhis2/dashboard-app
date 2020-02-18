@@ -1173,10 +1173,10 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-3.0.1.tgz#2713078c2fef0bea63a3909280be8b9200e47ef6"
-  integrity sha512-e5fzfoaqixtEOBfA9OAXqobz67R+gmn2JZUJpLv0KlgE3Ifhz54DrcPvAhKhbSctzf2c8tCbuSvfdR+bJb9PTw==
+"@dhis2/analytics@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-3.2.0.tgz#f0566c629f4c50272a4df0332fd26eda1e738ba4"
+  integrity sha512-qt6Qm6jZMx+kDY1/kRJ9SGL5U5d32GXfWw7m3GF+I7t0LOgV0k39MmG/c6+d/VLfga/ZgYCKJ8vlPlhy3V8G0Q==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.3.2"
@@ -1187,20 +1187,21 @@
     classnames "^2.2.6"
     d2-utilizr "^0.2.16"
     d3-color "^1.2.3"
-    highcharts "^7.1.2"
+    highcharts "^7.2.1"
     lodash "^4.17.13"
     react-beautiful-dnd "^10.1.1"
+    resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-3.2.0.tgz#f0566c629f4c50272a4df0332fd26eda1e738ba4"
-  integrity sha512-qt6Qm6jZMx+kDY1/kRJ9SGL5U5d32GXfWw7m3GF+I7t0LOgV0k39MmG/c6+d/VLfga/ZgYCKJ8vlPlhy3V8G0Q==
+"@dhis2/analytics@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.0.0.tgz#3f3ff2f32640033a21acb62f1e6b27fbcec3c245"
+  integrity sha512-4b5lXGLpHYGcKhUl4wKli5QYkAvxDOzCZCGn5moEoYjm3nK1JvSO1ZG1Ujp8nLVkQMe5Z3/YZHdaPXrrYZGOcw==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.3.2"
     "@dhis2/d2-ui-period-selector-dialog" "^6.3.2"
-    "@dhis2/ui-core" "^4.7.1"
+    "@dhis2/ui-core" "^4.9.1"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
     classnames "^2.2.6"
@@ -1526,6 +1527,15 @@
     "@dhis2/prop-types" "^1.5.0"
     classnames "^2.2.6"
 
+"@dhis2/ui-core@^4.9.1":
+  version "4.9.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.9.1.tgz#13ebaa43deceb5c3fa2955668c183131241847fa"
+  integrity sha512-ejKHYNiY49QIqgu6auLk6fL9It9+eZL1mmBk4Tqpst1u6YrSlnCyxfi/zV+UYqJLATAQX2aEAuB2ibRG5InZJA==
+  dependencies:
+    "@dhis2/prop-types" "^1.5.0"
+    "@popperjs/core" "^2.0.6"
+    classnames "^2.2.6"
+
 "@dhis2/ui-widgets@^2.0.5":
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-2.0.5.tgz#78cc6300d57b633e796bff7856c27445ea315767"
@@ -1685,6 +1695,11 @@
   dependencies:
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
+
+"@popperjs/core@^2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.0.6.tgz#5a39ac118811ca844155b0ad5190b8c24f35e533"
+  integrity sha512-zj7Gw8QC4jmR92eKUvtrZUEpl2ypRbq+qlE4pwf9n2hnUO9BOAcWUs4/Ht+gNIbFt98xtqhLvccdCfD469MzpQ==
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
