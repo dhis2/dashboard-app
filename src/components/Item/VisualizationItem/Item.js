@@ -9,10 +9,8 @@ import i18n from '@dhis2/d2-i18n';
 import uniqueId from 'lodash/uniqueId';
 
 import DefaultPlugin from './DefaultPlugin';
-import { HEADER_HEIGHT } from '../ItemHeader';
-import NewItemHeader from './NewItemHeader';
+import ItemHeader from './NewItemHeader';
 import ItemFooter from './ItemFooter';
-import VisualizationItemHeaderButtons from './ItemHeaderButtons';
 import * as pluginManager from './plugin';
 import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters';
@@ -30,6 +28,8 @@ import {
 import { colors } from '@dhis2/ui-core';
 import memoizeOne from '../../../modules/memoizeOne';
 import { getVisualizationConfig } from './plugin';
+
+const HEADER_HEIGHT = 45;
 
 const styles = {
     icon: {
@@ -252,21 +252,6 @@ export class Item extends Component {
         );
     };
 
-    getActionButtons = () =>
-        pluginManager.pluginIsAvailable(
-            this.props.item,
-            this.props.visualization
-        ) && !this.props.editMode ? (
-            <VisualizationItemHeaderButtons
-                item={this.props.item}
-                visualization={this.props.visualization}
-                activeFooter={this.state.showFooter}
-                activeType={this.getActiveType()}
-                onSelectActiveType={this.onSelectActiveType}
-                onToggleFooter={this.onToggleFooter}
-            />
-        ) : null;
-
     getContentStyle = () => {
         const { item, editMode } = this.props;
         const PADDING_BOTTOM = 4;
@@ -284,19 +269,16 @@ export class Item extends Component {
 
         return (
             <Fragment>
-                <NewItemHeader
+                <ItemHeader
                     item={item}
                     visualization={this.props.visualization}
                     onSelectActiveType={this.onSelectActiveType}
+                    onToggleFooter={this.onToggleFooter}
                     d2={this.d2}
                     editMode={editMode}
                     activeType={this.getActiveType()}
+                    activeFooter={this.state.showFooter}
                 />
-                {/* <ItemHeader
-                    title={this.getTitle()}
-                    actionButtons={this.getActionButtons()}
-                    editMode={editMode}
-                /> */}
                 <div
                     key={this.getUniqueKey(itemFilters)}
                     className="dashboard-item-content"

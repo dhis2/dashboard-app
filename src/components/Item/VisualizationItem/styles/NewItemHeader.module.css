@@ -5,7 +5,8 @@
 .itemHeaderWrap {
     display: flex;
     align-items: top;
-    margin-bottom: var(--spacers-dp8);
+    margin: var(--spacers-dp4) var(--spacers-dp4) var(--spacers-dp8)
+        var(--spacers-dp4);
 }
 
 .itemActionsWrap {

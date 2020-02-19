@@ -9,7 +9,7 @@ import ChartIcon from '@material-ui/icons/InsertChart';
 import MapIcon from '@material-ui/icons/Public';
 import LaunchIcon from '@material-ui/icons/Launch';
 
-import { ThreeDots } from './assets/icons.js';
+import { ThreeDots, SpeechBubble } from './assets/icons.js';
 import { pluginIsAvailable, getLink, getName } from './plugin';
 import {
     CHART,
@@ -84,6 +84,9 @@ const NewItemHeader = props => {
 
                 {!editMode && pluginIsAvailable(item, visualization) ? (
                     <div className={classes.itemActionsWrap}>
+                        <Button small secondary onClick={props.onToggleFooter}>
+                            <SpeechBubble />
+                        </Button>
                         <Button small secondary onClick={handleClick}>
                             <ThreeDots />
                         </Button>
@@ -108,6 +111,7 @@ const NewItemHeader = props => {
                             <Menu>
                                 <MenuItem
                                     dense
+                                    active={activeType === CHART}
                                     label={i18n.t('View as Chart')}
                                     onClick={onViewChart}
                                     icon={<ChartIcon />}
@@ -115,6 +119,10 @@ const NewItemHeader = props => {
                                 {hasTableView() && (
                                     <MenuItem
                                         dense
+                                        active={[
+                                            REPORT_TABLE,
+                                            EVENT_REPORT,
+                                        ].includes(activeType)}
                                         label={i18n.t('View as Table')}
                                         onClick={onViewTable}
                                         icon={<TableIcon />}
@@ -123,6 +131,7 @@ const NewItemHeader = props => {
                                 {itemHasMapView() && (
                                     <MenuItem
                                         dense
+                                        active={activeType === MAP}
                                         label={i18n.t('View as Map')}
                                         onClick={onViewMap}
                                         icon={<MapIcon />}
@@ -142,6 +151,15 @@ const NewItemHeader = props => {
                                     href={getLink(item, d2)}
                                     target="_blank"
                                 />
+                                <MenuItem
+                                    dense
+                                    active
+                                    icon={<SpeechBubble />}
+                                    label={i18n.t(
+                                        `View interpretations and details`
+                                    )}
+                                    onClick={props.onToggleFooter}
+                                />
                             </Menu>
                         </Popover>
                     </div>
@@ -158,6 +176,7 @@ NewItemHeader.propTypes = {
     item: PropTypes.object,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
+    onToggleFooter: PropTypes.func,
 };
 
 export default NewItemHeader;

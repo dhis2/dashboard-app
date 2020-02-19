@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-02-09T01:43:57.112Z\n"
-"PO-Revision-Date: 2020-02-09T01:43:57.112Z\n"
+"POT-Creation-Date: 2020-02-19T18:25:41.480Z\n"
+"PO-Revision-Date: 2020-02-19T18:25:41.480Z\n"
 
 msgid "Dashboard"
 msgstr ""
@@ -88,6 +88,18 @@ msgstr ""
 msgid "No data to display"
 msgstr ""
 
+msgid "View as"
+msgstr ""
+
+msgid "Chart"
+msgstr ""
+
+msgid "Table"
+msgstr ""
+
+msgid "Map"
+msgstr ""
+
 msgid "Confirm"
 msgstr ""
 
@@ -127,10 +139,10 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-msgid "Pivot tables"
+msgid "Visualizations"
 msgstr ""
 
-msgid "Visualizer"
+msgid "Pivot tables"
 msgstr ""
 
 msgid "Charts"
@@ -142,13 +154,7 @@ msgstr ""
 msgid "Event reports"
 msgstr ""
 
-msgid "Event Reports"
-msgstr ""
-
 msgid "Event charts"
-msgstr ""
-
-msgid "Event Visualizer"
 msgstr ""
 
 msgid "Apps"
