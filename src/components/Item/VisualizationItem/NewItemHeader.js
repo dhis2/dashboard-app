@@ -73,18 +73,65 @@ const NewItemHeader = props => {
         setAnchorEl(event.currentTarget);
     };
 
+    const handleInterpretationClick = () => {
+        props.onToggleFooter();
+        if (anchorEl !== null) {
+            handleClose();
+        }
+    };
+
     const handleClose = () => {
         setAnchorEl(null);
+    };
+
+    const canViewAs = !isSingleValue(props.visualization.type);
+
+    const ViewAsMenuItems = () => {
+        return (
+            <>
+                <MenuItem
+                    dense
+                    active={activeType === CHART}
+                    label={i18n.t('View as Chart')}
+                    onClick={onViewChart}
+                    icon={<ChartIcon />}
+                />
+                {hasTableView() && (
+                    <MenuItem
+                        dense
+                        active={[REPORT_TABLE, EVENT_REPORT].includes(
+                            activeType
+                        )}
+                        label={i18n.t('View as Table')}
+                        onClick={onViewTable}
+                        icon={<TableIcon />}
+                    />
+                )}
+                {itemHasMapView() && (
+                    <MenuItem
+                        dense
+                        active={activeType === MAP}
+                        label={i18n.t('View as Map')}
+                        onClick={onViewMap}
+                        icon={<MapIcon />}
+                    />
+                )}
+                <Divider />
+            </>
+        );
     };
 
     return (
         <>
             <div className={classes.itemHeaderWrap}>
                 <p className={classes.itemTitle}>{getName(item)}</p>
-
                 {!editMode && pluginIsAvailable(item, visualization) ? (
                     <div className={classes.itemActionsWrap}>
-                        <Button small secondary onClick={props.onToggleFooter}>
+                        <Button
+                            small
+                            secondary
+                            onClick={handleInterpretationClick}
+                        >
                             <SpeechBubble />
                         </Button>
                         <Button small secondary onClick={handleClick}>
@@ -103,48 +150,14 @@ const NewItemHeader = props => {
                                 horizontal: 'left',
                                 vertical: 'top',
                             }}
-                            // style={{ height: '70vh' }}
-                            // PaperProps={{ style: { width: '700px' } }}
                             disableAutoFocus={true}
                             disableRestoreFocus={true}
                         >
                             <Menu>
+                                {canViewAs ? <ViewAsMenuItems /> : null}
                                 <MenuItem
                                     dense
-                                    active={activeType === CHART}
-                                    label={i18n.t('View as Chart')}
-                                    onClick={onViewChart}
-                                    icon={<ChartIcon />}
-                                />
-                                {hasTableView() && (
-                                    <MenuItem
-                                        dense
-                                        active={[
-                                            REPORT_TABLE,
-                                            EVENT_REPORT,
-                                        ].includes(activeType)}
-                                        label={i18n.t('View as Table')}
-                                        onClick={onViewTable}
-                                        icon={<TableIcon />}
-                                    />
-                                )}
-                                {itemHasMapView() && (
-                                    <MenuItem
-                                        dense
-                                        active={activeType === MAP}
-                                        label={i18n.t('View as Map')}
-                                        onClick={onViewMap}
-                                        icon={<MapIcon />}
-                                    />
-                                )}
-                                <Divider />
-                                <MenuItem
-                                    dense
-                                    icon={
-                                        <LaunchIcon
-                                            className={classes.launchIcon}
-                                        />
-                                    }
+                                    icon={<LaunchIcon />}
                                     label={i18n.t(
                                         `View in ${getAppName(item.type)} app`
                                     )}
@@ -153,12 +166,11 @@ const NewItemHeader = props => {
                                 />
                                 <MenuItem
                                     dense
-                                    active
                                     icon={<SpeechBubble />}
                                     label={i18n.t(
                                         `View interpretations and details`
                                     )}
-                                    onClick={props.onToggleFooter}
+                                    onClick={handleInterpretationClick}
                                 />
                             </Menu>
                         </Popover>
