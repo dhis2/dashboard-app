@@ -1256,7 +1256,7 @@
   dependencies:
     i18next "^10.3"
 
-"@dhis2/d2-ui-core@6.5.7", "@dhis2/d2-ui-core@^6.5.7":
+"@dhis2/d2-ui-core@6.5.7", "@dhis2/d2-ui-core@^6.0.1":
   version "6.5.7"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.5.7.tgz#16e49bfd889e13589ddf11c2fe3206926f2da85a"
   integrity sha512-R+2KAiPzrNW9poBgqboIlpjfqkT8jddjobtNizLAIqAmkD235/xCexj0g4cIOFgfVjk80UHKquJ658qVPHhx+w==
@@ -1286,7 +1286,7 @@
     prop-types "^15.5.10"
     react-portal "^4.1.5"
 
-"@dhis2/d2-ui-mentions-wrapper@6.5.7", "@dhis2/d2-ui-mentions-wrapper@^6.5.7":
+"@dhis2/d2-ui-mentions-wrapper@6.5.7", "@dhis2/d2-ui-mentions-wrapper@^6.0.1":
   version "6.5.7"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-6.5.7.tgz#64db360f33f511ea78c0bd593a5948c7c3aac4e9"
   integrity sha512-LgN3vwf9e7tZiw4aw8/AuQRS5MtCzrpCRPlW2MdzVfMkOM9Gl6tvm8lp0anX+5zW0vPOg6qHI8NsuOBlah3Qfg==
@@ -1329,7 +1329,7 @@
     babel-runtime "^6.26.0"
     prop-types "^15.6.0"
 
-"@dhis2/d2-ui-rich-text@6.5.7", "@dhis2/d2-ui-rich-text@^6.5.7":
+"@dhis2/d2-ui-rich-text@6.5.7", "@dhis2/d2-ui-rich-text@^6.0.1":
   version "6.5.7"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-6.5.7.tgz#daabf22b78a149a4c3c2023930eeefafbb97e8e6"
   integrity sha512-FGt8wquMzdgxqc/30mtiH04cVsdmiPotwiKN+4qlca76GCEwOt8aycRcuPRLkmXH9YnjoRL4m1AHHvXXjxq3Uw==
@@ -1347,7 +1347,7 @@
     markdown-it "^8.4.2"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-sharing-dialog@6.5.7", "@dhis2/d2-ui-sharing-dialog@^6.5.7":
+"@dhis2/d2-ui-sharing-dialog@6.5.7", "@dhis2/d2-ui-sharing-dialog@^6.0.1":
   version "6.5.7"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-6.5.7.tgz#8ef8eba2e8864dce306739f273001af4dcb727c8"
   integrity sha512-X6aMShLAmPAFyS1fJHtqdvuCoJ41qzZC58d+F32dZPmvbz9cwcgus1YfmnrG3sWTAxs+jXz9t4+Q+jUpOlWH0Q==
@@ -1361,7 +1361,7 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-translation-dialog@^6.5.7":
+"@dhis2/d2-ui-translation-dialog@^6.0.1":
   version "6.5.7"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-6.5.7.tgz#eca4fd4b07d28d3879be5bfaf1dfa310516c9bb5"
   integrity sha512-wI0kPvAHJqIrQIVxmkNzg22/CvZNymdpBWMSNAcdLkaKQq3n4whNF0KWfFZm0gqVTkWjbAw4Jbtm8rO/T4VbLA==
