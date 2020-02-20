@@ -86,40 +86,39 @@ const NewItemHeader = props => {
 
     const canViewAs = !isSingleValue(props.visualization.type);
 
-    const ViewAsMenuItems = () => {
-        return (
-            <>
-                <MenuItem
-                    dense
-                    active={activeType === CHART}
-                    label={i18n.t('View as Chart')}
-                    onClick={onViewChart}
-                    icon={<ChartIcon />}
-                />
-                {hasTableView() && (
-                    <MenuItem
-                        dense
-                        active={[REPORT_TABLE, EVENT_REPORT].includes(
-                            activeType
-                        )}
-                        label={i18n.t('View as Table')}
-                        onClick={onViewTable}
-                        icon={<TableIcon />}
-                    />
-                )}
-                {itemHasMapView() && (
-                    <MenuItem
-                        dense
-                        active={activeType === MAP}
-                        label={i18n.t('View as Map')}
-                        onClick={onViewMap}
-                        icon={<MapIcon />}
-                    />
-                )}
-                <Divider />
-            </>
-        );
-    };
+    // const ViewAsMenuItems = () => {
+    //     return (
+    //         <Menu>
+    //             <MenuItem
+    //                 dense
+    //                 active={activeType === CHART}
+    //                 label={i18n.t('View as Chart')}
+    //                 onClick={onViewChart}
+    //                 icon={<ChartIcon />}
+    //             />
+    //             {hasTableView() && (
+    //                 <MenuItem
+    //                     dense
+    //                     active={[REPORT_TABLE, EVENT_REPORT].includes(
+    //                         activeType
+    //                     )}
+    //                     label={i18n.t('View as Table')}
+    //                     onClick={onViewTable}
+    //                     icon={<TableIcon />}
+    //                 />
+    //             )}
+    //             {itemHasMapView() && (
+    //                 <MenuItem
+    //                     dense
+    //                     active={activeType === MAP}
+    //                     label={i18n.t('View as Map')}
+    //                     onClick={onViewMap}
+    //                     icon={<MapIcon />}
+    //                 />
+    //             )}
+    //         </Menu>
+    //     );
+    // };
 
     return (
         <>
@@ -154,7 +153,53 @@ const NewItemHeader = props => {
                             disableRestoreFocus={true}
                         >
                             <Menu>
-                                {canViewAs ? <ViewAsMenuItems /> : null}
+                                {canViewAs ? (
+                                    <>
+                                        <MenuItem dense label="View as">
+                                            <Menu>
+                                                <MenuItem
+                                                    dense
+                                                    active={
+                                                        activeType === CHART
+                                                    }
+                                                    label={i18n.t(
+                                                        'View as Chart'
+                                                    )}
+                                                    onClick={onViewChart}
+                                                    icon={<ChartIcon />}
+                                                />
+                                                {hasTableView() && (
+                                                    <MenuItem
+                                                        dense
+                                                        active={[
+                                                            REPORT_TABLE,
+                                                            EVENT_REPORT,
+                                                        ].includes(activeType)}
+                                                        label={i18n.t(
+                                                            'View as Table'
+                                                        )}
+                                                        onClick={onViewTable}
+                                                        icon={<TableIcon />}
+                                                    />
+                                                )}
+                                                {itemHasMapView() && (
+                                                    <MenuItem
+                                                        dense
+                                                        active={
+                                                            activeType === MAP
+                                                        }
+                                                        label={i18n.t(
+                                                            'View as Map'
+                                                        )}
+                                                        onClick={onViewMap}
+                                                        icon={<MapIcon />}
+                                                    />
+                                                )}
+                                            </Menu>
+                                        </MenuItem>
+                                        <Divider />
+                                    </>
+                                ) : null}
                                 <MenuItem
                                     dense
                                     icon={<LaunchIcon />}
