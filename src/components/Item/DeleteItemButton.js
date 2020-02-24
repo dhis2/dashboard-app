@@ -5,9 +5,8 @@ import { colors } from '@dhis2/ui-core';
 
 import classes from './styles/DeleteItemButton.module.css';
 
-const DeleteItemHeaderButton = ({ onClick }) => (
+const DeleteItemButton = ({ onClick }) => (
     <button
-        // disabled={disabled}
         type="button"
         className={classes.deleteItemButton}
         onClick={onClick}
@@ -16,8 +15,8 @@ const DeleteItemHeaderButton = ({ onClick }) => (
     </button>
 );
 
-DeleteItemHeaderButton.propTypes = {
+DeleteItemButton.propTypes = {
     onClick: PropTypes.func,
 };
 
-export default DeleteItemHeaderButton;
+export default DeleteItemButton;
