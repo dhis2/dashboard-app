@@ -58,7 +58,6 @@ const ItemHeaderButtons = props => {
     };
 
     const handleMenuClick = (_, event) => {
-        console.log('event.current', event.currentTarget);
         setAnchorEl(event.currentTarget);
     };
 
@@ -109,58 +108,62 @@ const ItemHeaderButtons = props => {
         </>
     );
 
-    const Actions = () => (
-        <>
-            <Button
-                small
-                secondary
-                active={props.activeFooter}
-                onClick={handleInterpretationClick}
-            >
-                <SpeechBubble />
-            </Button>
-            <Button small secondary onClick={handleMenuClick}>
-                <ThreeDots />
-            </Button>
-            <Popover
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                    horizontal: 'left',
-                    vertical: 'bottom',
-                }}
-                transformOrigin={{
-                    horizontal: 'left',
-                    vertical: 'top',
-                }}
-                disableAutoFocus={true}
-                disableRestoreFocus={true}
-            >
-                <Menu>
-                    {canViewAs && (
-                        <>
-                            <ViewAsMenuItems />
-                            <Divider />
-                        </>
-                    )}
-                    <MenuItem
-                        dense
-                        icon={<LaunchIcon />}
-                        label={i18n.t(`View in ${getAppName(item.type)} app`)}
-                        href={getLink(item, d2)}
-                        target="_blank"
-                    />
-                    <MenuItem
-                        dense
-                        icon={<SpeechBubble />}
-                        label={interpretationMenuLabel}
-                        onClick={handleInterpretationClick}
-                    />
-                </Menu>
-            </Popover>
-        </>
-    );
+    const Actions = () => {
+        return (
+            <>
+                <Button
+                    small
+                    secondary
+                    active={props.activeFooter}
+                    onClick={handleInterpretationClick}
+                >
+                    <SpeechBubble />
+                </Button>
+                <Button small secondary onClick={handleMenuClick}>
+                    <ThreeDots />
+                </Button>
+                <Popover
+                    open={Boolean(anchorEl)}
+                    onClose={handleClose}
+                    anchorEl={anchorEl}
+                    anchorOrigin={{
+                        horizontal: 'left',
+                        vertical: 'bottom',
+                    }}
+                    transformOrigin={{
+                        horizontal: 'left',
+                        vertical: 'top',
+                    }}
+                    disableAutoFocus={true}
+                    disableRestoreFocus={true}
+                >
+                    <Menu>
+                        {canViewAs && (
+                            <>
+                                <ViewAsMenuItems />
+                                <Divider />
+                            </>
+                        )}
+                        <MenuItem
+                            dense
+                            icon={<LaunchIcon />}
+                            label={i18n.t(
+                                `View in ${getAppName(item.type)} app`
+                            )}
+                            href={getLink(item, d2)}
+                            target="_blank"
+                        />
+                        <MenuItem
+                            dense
+                            icon={<SpeechBubble />}
+                            label={interpretationMenuLabel}
+                            onClick={handleInterpretationClick}
+                        />
+                    </Menu>
+                </Popover>
+            </>
+        );
+    };
 
     return <>{pluginIsAvailable(item, visualization) ? <Actions /> : null}</>;
 };
