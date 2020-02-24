@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
-import LaunchIcon from '@material-ui/icons/Launch';
 import VisualizationPlugin from '@dhis2/data-visualizer-plugin';
 
 import i18n from '@dhis2/d2-i18n';

@@ -22,13 +22,17 @@ const ItemHeader = props => {
     return (
         <div className={classes.itemHeaderWrap}>
             <p className={classes.itemTitle}>{title}</p>
-            <div className={classes.itemActionsWrap}>
-                {editMode ? (
+            {editMode ? (
+                <div className={classes.itemActionsWrap}>
                     <DeleteItemButton onClick={handleDeleteItem} />
-                ) : (
-                    actionButtons
-                )}
-            </div>
+                </div>
+            ) : (
+                actionButtons && (
+                    <div className={classes.itemActionsWrap}>
+                        {actionButtons}
+                    </div>
+                )
+            )}
         </div>
     );
 };

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { isSingleValue } from '@dhis2/analytics';
-import { Button, Menu, MenuItem, Divider } from '@dhis2/ui-core';
+import { Button, Menu, MenuItem, Divider, colors } from '@dhis2/ui-core';
 import i18n from '@dhis2/d2-i18n';
 import Popover from '@material-ui/core/Popover';
 import TableIcon from '@material-ui/icons/ViewList';
@@ -23,22 +23,22 @@ import {
     getAppName,
 } from '../../../modules/itemTypes';
 
+const iconFill = { fill: colors.grey600 };
+
 const ItemHeaderButtons = props => {
     const [anchorEl, setAnchorEl] = useState(null);
 
     const { item, visualization, onSelectActiveType, d2, activeType } = props;
 
+    const isTrackerType = isTrackerDomainType(item.type);
+
     const onViewTable = () => {
-        onSelectActiveType(
-            isTrackerDomainType(item.type) ? EVENT_REPORT : REPORT_TABLE
-        );
+        onSelectActiveType(isTrackerType ? EVENT_REPORT : REPORT_TABLE);
         handleClose();
     };
 
     const onViewChart = () => {
-        onSelectActiveType(
-            isTrackerDomainType(item.type) ? EVENT_CHART : CHART
-        );
+        onSelectActiveType(isTrackerType ? EVENT_CHART : CHART);
         handleClose();
     };
 
@@ -47,19 +47,9 @@ const ItemHeaderButtons = props => {
         handleClose();
     };
 
-    const itemHasTableView = () => {
-        const type = visualization.type || item.type;
-        return !type.match(/^YEAR_OVER_YEAR/);
-    };
+    const itemHasMapView = () => hasMapView(item.type);
 
-    const itemHasMapView = () => {
-        const type = visualization.type || item.type;
-        return hasMapView(item.type) && !type.match(/^YEAR_OVER_YEAR/);
-    };
-
-    const handleMenuClick = (_, event) => {
-        setAnchorEl(event.currentTarget);
-    };
+    const handleMenuClick = (_, event) => setAnchorEl(event.currentTarget);
 
     const handleInterpretationClick = () => {
         props.onToggleFooter();
@@ -68,11 +58,12 @@ const ItemHeaderButtons = props => {
         }
     };
 
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    const handleClose = () => setAnchorEl(null);
 
-    const canViewAs = !isSingleValue(props.visualization.type);
+    const type = visualization.type || item.type;
+    const canViewAs =
+        !isSingleValue(props.visualization.type) &&
+        !type.match(/^YEAR_OVER_YEAR/);
 
     const interpretationMenuLabel = props.activeFooter
         ? i18n.t(`Hide interpretations and details`)
@@ -85,79 +76,61 @@ const ItemHeaderButtons = props => {
                 active={activeType === CHART}
                 label={i18n.t('View as Chart')}
                 onClick={onViewChart}
-                icon={<ChartIcon />}
+                icon={<ChartIcon style={iconFill} />}
             />
-            {itemHasTableView() && (
-                <MenuItem
-                    dense
-                    active={[REPORT_TABLE, EVENT_REPORT].includes(activeType)}
-                    label={i18n.t('View as Table')}
-                    onClick={onViewTable}
-                    icon={<TableIcon />}
-                />
-            )}
+            <MenuItem
+                dense
+                active={[REPORT_TABLE, EVENT_REPORT].includes(activeType)}
+                label={i18n.t('View as Table')}
+                onClick={onViewTable}
+                icon={<TableIcon style={iconFill} />}
+            />
             {itemHasMapView() && (
                 <MenuItem
                     dense
                     active={activeType === MAP}
                     label={i18n.t('View as Map')}
                     onClick={onViewMap}
-                    icon={<MapIcon />}
+                    icon={<MapIcon style={iconFill} />}
                 />
             )}
         </>
     );
 
-    const Actions = () => {
-        return (
-            <>
-                <Button small secondary onClick={handleMenuClick}>
-                    <ThreeDots />
-                </Button>
-                <Popover
-                    open={Boolean(anchorEl)}
-                    onClose={handleClose}
-                    anchorEl={anchorEl}
-                    anchorOrigin={{
-                        horizontal: 'left',
-                        vertical: 'bottom',
-                    }}
-                    transformOrigin={{
-                        horizontal: 'left',
-                        vertical: 'top',
-                    }}
-                    disableAutoFocus={true}
-                    disableRestoreFocus={true}
-                >
-                    <Menu>
-                        {canViewAs && (
-                            <>
-                                <ViewAsMenuItems />
-                                <Divider />
-                            </>
-                        )}
-                        <MenuItem
-                            dense
-                            icon={<LaunchIcon />}
-                            label={i18n.t(
-                                `View in ${getAppName(item.type)} app`
-                            )}
-                            href={getLink(item, d2)}
-                            target="_blank"
-                        />
-                        <MenuItem
-                            dense
-                            icon={<SpeechBubble />}
-                            label={interpretationMenuLabel}
-                            onClick={handleInterpretationClick}
-                        />
-                    </Menu>
-                </Popover>
-            </>
-        );
-    };
-
-    return <>{pluginIsAvailable(item, visualization) ? <Actions /> : null}</>;
+    return pluginIsAvailable(item, visualization) ? (
+        <>
+            <Button small secondary onClick={handleMenuClick}>
+                <ThreeDots />
+            </Button>
+            <Popover
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+                anchorEl={anchorEl}
+            >
+                <Menu>
+                    {canViewAs && (
+                        <>
+                            <ViewAsMenuItems />
+                            <Divider />
+                        </>
+                    )}
+                    <MenuItem
+                        dense
+                        icon={<LaunchIcon style={{ fill: '#6e7a8a' }} />}
+                        label={i18n.t(`View in ${getAppName(item.type)} app`)}
+                        href={getLink(item, d2)}
+                        target="_blank"
+                    />
+                    <MenuItem
+                        dense
+                        icon={<SpeechBubble />}
+                        label={interpretationMenuLabel}
+                        onClick={handleInterpretationClick}
+                    />
+                </Menu>
+            </Popover>
+        </>
+    ) : null;
 };
 
 ItemHeaderButtons.propTypes = {
