@@ -58,6 +58,7 @@ const ItemHeaderButtons = props => {
     };
 
     const handleMenuClick = (_, event) => {
+        console.log('event.current', event.currentTarget);
         setAnchorEl(event.currentTarget);
     };
 
@@ -108,7 +109,7 @@ const ItemHeaderButtons = props => {
         </>
     );
 
-    const ViewModeActions = () => (
+    const Actions = () => (
         <>
             <Button
                 small
@@ -161,13 +162,7 @@ const ItemHeaderButtons = props => {
         </>
     );
 
-    return (
-        <>
-            {pluginIsAvailable(item, visualization) ? (
-                <ViewModeActions />
-            ) : null}
-        </>
-    );
+    return <>{pluginIsAvailable(item, visualization) ? <Actions /> : null}</>;
 };
 
 ItemHeaderButtons.propTypes = {
