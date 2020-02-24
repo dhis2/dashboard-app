@@ -14,10 +14,10 @@ import { ThreeDots, SpeechBubble } from './assets/icons';
 import { pluginIsAvailable, getLink } from './plugin';
 import {
     CHART,
-    REPORT_TABLE,
     MAP,
-    EVENT_REPORT,
+    REPORT_TABLE,
     EVENT_CHART,
+    EVENT_REPORT,
     isTrackerDomainType,
     hasMapView,
     getAppName,
@@ -66,7 +66,7 @@ const ItemHeaderButtons = props => {
         !type.match(/^YEAR_OVER_YEAR/);
 
     const interpretationMenuLabel = props.activeFooter
-        ? i18n.t(`Hide interpretations and details`)
+        ? i18n.t(`Show interpretations and details`)
         : i18n.t(`View interpretations and details`);
 
     const ViewAsMenuItems = () => (
@@ -117,7 +117,7 @@ const ItemHeaderButtons = props => {
                     <MenuItem
                         dense
                         icon={<LaunchIcon style={{ fill: '#6e7a8a' }} />}
-                        label={i18n.t(`View in ${getAppName(item.type)} app`)}
+                        label={i18n.t(`Open in ${getAppName(item.type)} app`)}
                         href={getLink(item, d2)}
                         target="_blank"
                     />
