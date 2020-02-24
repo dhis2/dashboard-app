@@ -22,7 +22,7 @@ import {
     onItemResize,
 } from './gridUtil';
 import { orArray } from '../../modules/util';
-import DeleteItemButton from './DeleteItemButton';
+
 import NoContentMessage from '../../widgets/NoContentMessage';
 
 import 'react-grid-layout/css/styles.css';
@@ -148,13 +148,6 @@ export class ItemGrid extends Component {
                                 key={item.i}
                                 className={itemClassNames}
                             >
-                                {edit ? (
-                                    <DeleteItemButton
-                                        onClick={this.onRemoveItemWrapper(
-                                            item.id
-                                        )}
-                                    />
-                                ) : null}
                                 <Item
                                     item={item}
                                     editMode={edit}

@@ -9,7 +9,7 @@ import i18n from '@dhis2/d2-i18n';
 import uniqueId from 'lodash/uniqueId';
 
 import DefaultPlugin from './DefaultPlugin';
-import ItemHeader from './NewItemHeader';
+import ItemHeader from '../ItemHeader';
 import ItemFooter from './ItemFooter';
 import * as pluginManager from './plugin';
 import { sGetVisualization } from '../../../reducers/visualizations';

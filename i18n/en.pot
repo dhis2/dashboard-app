@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-02-23T20:45:31.827Z\n"
-"PO-Revision-Date: 2020-02-23T20:45:31.827Z\n"
+"POT-Creation-Date: 2020-02-24T05:43:02.589Z\n"
+"PO-Revision-Date: 2020-02-24T05:43:02.589Z\n"
 
 msgid "Dashboard"
 msgstr ""
@@ -64,6 +64,21 @@ msgstr[1] ""
 msgid "Remove"
 msgstr ""
 
+msgid "View as Chart"
+msgstr ""
+
+msgid "View as Table"
+msgstr ""
+
+msgid "View as Map"
+msgstr ""
+
+msgid "Hide interpretations and details"
+msgstr ""
+
+msgid "View interpretations and details"
+msgstr ""
+
 msgid "Messages"
 msgstr ""
 
@@ -86,21 +101,6 @@ msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "No data to display"
-msgstr ""
-
-msgid "View as Chart"
-msgstr ""
-
-msgid "View as Table"
-msgstr ""
-
-msgid "View as Map"
-msgstr ""
-
-msgid "Hide interpretations and details"
-msgstr ""
-
-msgid "View interpretations and details"
 msgstr ""
 
 msgid "Confirm"

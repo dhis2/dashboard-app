@@ -9,14 +9,6 @@
         var(--spacers-dp4);
 }
 
-.itemActionsWrap {
-    margin-left: auto;
-    flex-shrink: 0;
-}
-.itemActionsWrap button {
-    margin-left: var(--spacers-dp8);
-}
-
 .itemTitle {
     font-weight: 500;
     color: var(--colors-grey800);

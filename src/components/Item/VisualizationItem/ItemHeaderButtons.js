@@ -1,192 +1,210 @@
-import React, { Component, Fragment } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import MessageIcon from '@material-ui/icons/Message';
+import { connect } from 'react-redux';
+
+import Popover from '@material-ui/core/Popover';
+import { isSingleValue } from '@dhis2/analytics';
+import { Button, Menu, MenuItem, Divider } from '@dhis2/ui-core';
+import i18n from '@dhis2/d2-i18n';
 import TableIcon from '@material-ui/icons/ViewList';
 import ChartIcon from '@material-ui/icons/InsertChart';
 import MapIcon from '@material-ui/icons/Public';
+import LaunchIcon from '@material-ui/icons/Launch';
 
-import { extractFavorite } from './plugin';
-import ItemHeaderButton from '../ItemHeaderButton';
+import { acRemoveDashboardItem } from '../../actions/editDashboard';
+import DeleteItemButton from './DeleteItemButton';
+import { ThreeDots, SpeechBubble } from './assets/icons';
+import { pluginIsAvailable, getLink } from './VisualizationItem/plugin';
 import {
     CHART,
-    MAP,
     REPORT_TABLE,
-    EVENT_CHART,
+    MAP,
     EVENT_REPORT,
+    EVENT_CHART,
     isTrackerDomainType,
     hasMapView,
-} from '../../../modules/itemTypes';
-import { colors, theme } from '@dhis2/ui-core';
-import { isSingleValue } from '@dhis2/analytics';
+    getAppName,
+} from '../../modules/itemTypes';
 
-const style = {
-    iconBase: {
-        width: '24px',
-        height: '24px',
-        fill: colors.grey500,
-    },
-    buttonBase: {
-        padding: '5px 6px 3px 6px',
-    },
-    buttonDisabled: {
-        padding: '5px 6px 3px 6px',
-        opacity: 0.5,
-        cursor: 'unset',
-    },
-    toggleFooterPadding: {
-        padding: '7px 6px 1px 6px',
-    },
-    border: {
-        borderRadius: '2px',
-        border: `1px solid ${colors.grey200}`,
-    },
-};
+import classes from './styles/ItemHeaderButtons.module.css';
 
-const baseStyle = {
-    icon: style.iconBase,
-    container: style.buttonBase,
-};
+const ItemHeaderButtons = props => {
+    const [anchorEl, setAnchorEl] = useState(null);
 
-const disabledStyle = {
-    icon: style.iconBase,
-    container: style.buttonDisabled,
-};
+    const {
+        item,
+        visualization,
+        onSelectActiveType,
+        d2,
+        editMode,
+        activeType,
+        acRemoveDashboardItem,
+    } = props;
 
-const activeStyle = {
-    icon: { ...style.iconBase, fill: theme.primary800 },
-    container: {
-        ...style.buttonBase,
-        backgroundColor: theme.primary100,
-    },
-};
-
-const inactiveStyle = disabled => (disabled ? disabledStyle : baseStyle);
-
-const tableBtnStyle = (activeType, disabled) =>
-    [REPORT_TABLE, EVENT_REPORT].includes(activeType)
-        ? activeStyle
-        : inactiveStyle(disabled);
-
-const chartBtnStyle = (activeType, disabled) =>
-    [CHART, EVENT_CHART].includes(activeType)
-        ? activeStyle
-        : inactiveStyle(disabled);
-
-const mapBtnStyle = (activeType, disabled) =>
-    [MAP].includes(activeType) ? activeStyle : inactiveStyle(disabled);
-
-class VisualizationItemHeaderButtons extends Component {
-    renderInterpretationButton() {
-        const { activeFooter, onToggleFooter } = this.props;
-
-        const toggleFooterBase = activeFooter ? activeStyle : baseStyle;
-
-        const toggleFooter = {
-            ...toggleFooterBase,
-            container: {
-                ...toggleFooterBase.container,
-                ...style.toggleFooterPadding,
-                ...style.border,
-            },
-        };
-
-        return (
-            <Fragment>
-                <ItemHeaderButton
-                    style={toggleFooter.container}
-                    onClick={onToggleFooter}
-                >
-                    <MessageIcon style={toggleFooter.icon} />
-                </ItemHeaderButton>
-            </Fragment>
+    const onViewTable = () => {
+        onSelectActiveType(
+            isTrackerDomainType(item.type) ? EVENT_REPORT : REPORT_TABLE
         );
-    }
+        handleClose();
+    };
 
-    renderVisualizationButtons() {
-        const {
-            item,
-            visualization,
-            onSelectActiveType,
-            activeType,
-        } = this.props;
+    const onViewChart = () => {
+        onSelectActiveType(
+            isTrackerDomainType(item.type) ? EVENT_CHART : CHART
+        );
+        handleClose();
+    };
 
-        if (isSingleValue(visualization.type)) {
-            return null;
+    const onViewMap = () => {
+        onSelectActiveType(MAP);
+        handleClose();
+    };
+
+    const itemHasTableView = () => {
+        const type = visualization.type || item.type;
+        return !type.match(/^YEAR_OVER_YEAR/);
+    };
+
+    const itemHasMapView = () => {
+        const type = visualization.type || item.type;
+        return hasMapView(item.type) && !type.match(/^YEAR_OVER_YEAR/);
+    };
+
+    const handleMenuClick = (_, event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleInterpretationClick = () => {
+        props.onToggleFooter();
+        if (anchorEl !== null) {
+            handleClose();
         }
+    };
 
-        const onViewTable = () =>
-            onSelectActiveType(
-                isTrackerDomainType(item.type) ? EVENT_REPORT : REPORT_TABLE
-            );
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
-        const onViewChart = () =>
-            onSelectActiveType(
-                isTrackerDomainType(item.type) ? EVENT_CHART : CHART
-            );
+    const canViewAs = !isSingleValue(props.visualization.type);
 
-        const onViewMap = () => onSelectActiveType(MAP);
+    const ViewAsMenuItems = () => (
+        <>
+            <MenuItem
+                dense
+                active={activeType === CHART}
+                label={i18n.t('View as Chart')}
+                onClick={onViewChart}
+                icon={<ChartIcon />}
+            />
+            {itemHasTableView() && (
+                <MenuItem
+                    dense
+                    active={[REPORT_TABLE, EVENT_REPORT].includes(activeType)}
+                    label={i18n.t('View as Table')}
+                    onClick={onViewTable}
+                    icon={<TableIcon />}
+                />
+            )}
+            {itemHasMapView() && (
+                <MenuItem
+                    dense
+                    active={activeType === MAP}
+                    label={i18n.t('View as Map')}
+                    onClick={onViewMap}
+                    icon={<MapIcon />}
+                />
+            )}
+        </>
+    );
 
-        // disable toggle buttons
-        let disabled = false;
+    const ViewModeActions = () => (
+        <>
+            <Button
+                small
+                secondary
+                active={props.activeFooter}
+                onClick={handleInterpretationClick}
+            >
+                <SpeechBubble />
+            </Button>
+            <Button small secondary onClick={handleMenuClick}>
+                <ThreeDots />
+            </Button>
+            <Popover
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                    horizontal: 'left',
+                    vertical: 'bottom',
+                }}
+                transformOrigin={{
+                    horizontal: 'left',
+                    vertical: 'top',
+                }}
+                disableAutoFocus={true}
+                disableRestoreFocus={true}
+            >
+                <Menu>
+                    {canViewAs && (
+                        <>
+                            <ViewAsMenuItems />
+                            <Divider />
+                        </>
+                    )}
+                    <MenuItem
+                        dense
+                        icon={<LaunchIcon />}
+                        label={i18n.t(`View in ${getAppName(item.type)} app`)}
+                        href={getLink(item, d2)}
+                        target="_blank"
+                    />
+                    <MenuItem
+                        dense
+                        icon={<SpeechBubble />}
+                        label={interpretationMenuLabel}
+                        onClick={handleInterpretationClick}
+                    />
+                </Menu>
+            </Popover>
+        </>
+    );
 
-        if (item.type === CHART) {
-            if (extractFavorite(item).type.match(/^YEAR_OVER_YEAR/)) {
-                disabled = true;
-            }
-        }
+    const handleDeleteItem = () => acRemoveDashboardItem(item.id);
 
-        const tableButtonStyle = tableBtnStyle(activeType, disabled);
-        const chartButtonStyle = chartBtnStyle(activeType, disabled);
-        const mapButtonStyle = mapBtnStyle(activeType, disabled);
+    const interpretationMenuLabel = props.activeFooter
+        ? i18n.t(`Hide interpretations and details`)
+        : i18n.t(`View interpretations and details`);
 
-        return (
-            <div style={{ marginLeft: 10 }}>
-                <div style={style.border}>
-                    <ItemHeaderButton
-                        disabled={disabled}
-                        style={tableButtonStyle.container}
-                        onClick={onViewTable}
-                    >
-                        <TableIcon style={tableButtonStyle.icon} />
-                    </ItemHeaderButton>
-                    <ItemHeaderButton
-                        disabled={disabled}
-                        style={chartButtonStyle.container}
-                        onClick={onViewChart}
-                    >
-                        <ChartIcon style={chartButtonStyle.icon} />
-                    </ItemHeaderButton>
-                    {hasMapView(item.type) ? (
-                        <ItemHeaderButton
-                            disabled={disabled}
-                            style={mapButtonStyle.container}
-                            onClick={onViewMap}
-                        >
-                            <MapIcon style={mapButtonStyle.icon} />
-                        </ItemHeaderButton>
-                    ) : null}
-                </div>
+    return (
+        <>
+            <div className={classes.itemActionsWrap}>
+                {!editMode && pluginIsAvailable(item, visualization) && (
+                    <ViewModeActions />
+                )}
+                {editMode && <DeleteItemButton onClick={handleDeleteItem} />}
             </div>
-        );
-    }
+        </>
+    );
+};
 
-    render() {
-        return (
-            <Fragment>
-                {this.renderInterpretationButton()}
-                {this.renderVisualizationButtons()}
-            </Fragment>
-        );
-    }
-}
-
-VisualizationItemHeaderButtons.propTypes = {
+ItemHeaderButtons.propTypes = {
+    acRemoveDashboardItem: PropTypes.func,
     activeFooter: PropTypes.bool,
     activeType: PropTypes.string,
+    d2: PropTypes.object,
+    editMode: PropTypes.bool,
     item: PropTypes.object,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,
 };
 
-export default VisualizationItemHeaderButtons;
+const mapDispatchToProps = {
+    acRemoveDashboardItem,
+};
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(ItemHeaderButtons);

@@ -1,9 +1,9 @@
-.item-action-button {
+.deleteItemButton {
     border: none;
     background: transparent;
     cursor: pointer;
 }
 
-.item-action-button:focus {
+.deleteItemButton:focus {
     outline: 0;
 }
