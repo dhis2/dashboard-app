@@ -111,14 +111,6 @@ const ItemHeaderButtons = props => {
     const Actions = () => {
         return (
             <>
-                <Button
-                    small
-                    secondary
-                    active={props.activeFooter}
-                    onClick={handleInterpretationClick}
-                >
-                    <SpeechBubble />
-                </Button>
                 <Button small secondary onClick={handleMenuClick}>
                     <ThreeDots />
                 </Button>
