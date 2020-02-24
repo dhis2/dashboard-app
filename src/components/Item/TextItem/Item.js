@@ -59,7 +59,7 @@ const TextItem = props => {
     const editItem = () => {
         return (
             <Fragment>
-                <ItemHeader title={i18n.t('Text item')} />
+                <ItemHeader title={i18n.t('Text item')} itemId={item.id} />
                 <Line />
                 <div className="dashboard-item-content">
                     <RichTextEditor onEdit={onChangeText}>

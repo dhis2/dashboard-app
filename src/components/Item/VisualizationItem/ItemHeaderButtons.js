@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
-import Popover from '@material-ui/core/Popover';
 import { isSingleValue } from '@dhis2/analytics';
 import { Button, Menu, MenuItem, Divider } from '@dhis2/ui-core';
 import i18n from '@dhis2/d2-i18n';
+import Popover from '@material-ui/core/Popover';
 import TableIcon from '@material-ui/icons/ViewList';
 import ChartIcon from '@material-ui/icons/InsertChart';
 import MapIcon from '@material-ui/icons/Public';
 import LaunchIcon from '@material-ui/icons/Launch';
 
-import { acRemoveDashboardItem } from '../../actions/editDashboard';
-import DeleteItemButton from './DeleteItemButton';
 import { ThreeDots, SpeechBubble } from './assets/icons';
-import { pluginIsAvailable, getLink } from './VisualizationItem/plugin';
+import { pluginIsAvailable, getLink } from './plugin';
 import {
     CHART,
     REPORT_TABLE,
@@ -24,22 +21,12 @@ import {
     isTrackerDomainType,
     hasMapView,
     getAppName,
-} from '../../modules/itemTypes';
-
-import classes from './styles/ItemHeaderButtons.module.css';
+} from '../../../modules/itemTypes';
 
 const ItemHeaderButtons = props => {
     const [anchorEl, setAnchorEl] = useState(null);
 
-    const {
-        item,
-        visualization,
-        onSelectActiveType,
-        d2,
-        editMode,
-        activeType,
-        acRemoveDashboardItem,
-    } = props;
+    const { item, visualization, onSelectActiveType, d2, activeType } = props;
 
     const onViewTable = () => {
         onSelectActiveType(
@@ -86,6 +73,10 @@ const ItemHeaderButtons = props => {
     };
 
     const canViewAs = !isSingleValue(props.visualization.type);
+
+    const interpretationMenuLabel = props.activeFooter
+        ? i18n.t(`Hide interpretations and details`)
+        : i18n.t(`View interpretations and details`);
 
     const ViewAsMenuItems = () => (
         <>
@@ -170,41 +161,23 @@ const ItemHeaderButtons = props => {
         </>
     );
 
-    const handleDeleteItem = () => acRemoveDashboardItem(item.id);
-
-    const interpretationMenuLabel = props.activeFooter
-        ? i18n.t(`Hide interpretations and details`)
-        : i18n.t(`View interpretations and details`);
-
     return (
         <>
-            <div className={classes.itemActionsWrap}>
-                {!editMode && pluginIsAvailable(item, visualization) && (
-                    <ViewModeActions />
-                )}
-                {editMode && <DeleteItemButton onClick={handleDeleteItem} />}
-            </div>
+            {pluginIsAvailable(item, visualization) ? (
+                <ViewModeActions />
+            ) : null}
         </>
     );
 };
 
 ItemHeaderButtons.propTypes = {
-    acRemoveDashboardItem: PropTypes.func,
     activeFooter: PropTypes.bool,
     activeType: PropTypes.string,
     d2: PropTypes.object,
-    editMode: PropTypes.bool,
     item: PropTypes.object,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,
 };
 
-const mapDispatchToProps = {
-    acRemoveDashboardItem,
-};
-
-export default connect(
-    null,
-    mapDispatchToProps
-)(ItemHeaderButtons);
+export default ItemHeaderButtons;

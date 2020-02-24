@@ -18,3 +18,11 @@
     margin: 0;
     align-self: center;
 }
+
+.itemActionsWrap {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+.itemActionsWrap button {
+    margin-left: var(--spacers-dp8);
+}

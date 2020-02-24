@@ -5,7 +5,10 @@ import NotInterestedIcon from '@material-ui/icons/NotInterested';
 
 const NotSupportedItem = props => (
     <Fragment>
-        <ItemHeader title={`Item type not supported: ${props.item.type}`} />
+        <ItemHeader
+            title={`Item type not supported: ${props.item.type}`}
+            itemId={props.item.id}
+        />
         <div
             style={{
                 display: 'flex',

@@ -108,7 +108,10 @@ class MessagesItem extends Component {
     render() {
         return (
             <Fragment>
-                <ItemHeader title={i18n.t('Messages')} />
+                <ItemHeader
+                    title={i18n.t('Messages')}
+                    itemId={this.props.item.id}
+                />
                 <Line />
                 {this.props.messages.length > 0 && (
                     <div className="dashboard-item-content">
@@ -127,6 +130,7 @@ class MessagesItem extends Component {
 
 MessagesItem.propTypes = {
     editMode: PropTypes.bool,
+    item: PropTypes.object,
     messages: PropTypes.array,
 };
 

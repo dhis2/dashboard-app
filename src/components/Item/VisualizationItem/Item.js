@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
@@ -10,6 +10,7 @@ import uniqueId from 'lodash/uniqueId';
 
 import DefaultPlugin from './DefaultPlugin';
 import ItemHeader from '../ItemHeader';
+import ItemHeaderButtons from './ItemHeaderButtons';
 import ItemFooter from './ItemFooter';
 import * as pluginManager from './plugin';
 import { sGetVisualization } from '../../../reducers/visualizations';
@@ -18,12 +19,7 @@ import {
     acAddVisualization,
     acSetActiveVisualizationType,
 } from '../../../actions/visualizations';
-import {
-    MAP,
-    CHART,
-    REPORT_TABLE,
-    itemTypeMap,
-} from '../../../modules/itemTypes';
+import { MAP, CHART, REPORT_TABLE } from '../../../modules/itemTypes';
 
 import { colors } from '@dhis2/ui-core';
 import memoizeOne from '../../../modules/memoizeOne';
@@ -228,30 +224,6 @@ export class Item extends Component {
             this.props.visualization
         );
 
-    getTitle = () => {
-        const { item, editMode, classes } = this.props;
-        const itemName = pluginManager.getName(item);
-
-        return (
-            <div style={{ display: 'flex' }}>
-                <span className={classes.title} title={itemName}>
-                    {itemName}
-                </span>
-                {!editMode && this.pluginIsAvailable() ? (
-                    <a
-                        href={pluginManager.getLink(this.props.item, this.d2)}
-                        style={{ height: 16 }}
-                        title={`View in ${
-                            itemTypeMap[this.props.item.type].appName
-                        } app`}
-                    >
-                        <LaunchIcon className={classes.icon} />
-                    </a>
-                ) : null}
-            </div>
-        );
-    };
-
     getContentStyle = () => {
         const { item, editMode } = this.props;
         const PADDING_BOTTOM = 4;
@@ -267,17 +239,24 @@ export class Item extends Component {
         const { item, editMode, itemFilters } = this.props;
         const { showFooter } = this.state;
 
+        const actionButtons = (
+            <ItemHeaderButtons
+                item={item}
+                visualization={this.props.visualization}
+                onSelectActiveType={this.onSelectActiveType}
+                onToggleFooter={this.onToggleFooter}
+                d2={this.d2}
+                activeType={this.getActiveType()}
+                activeFooter={this.state.showFooter}
+            />
+        );
+
         return (
-            <Fragment>
+            <>
                 <ItemHeader
-                    item={item}
-                    visualization={this.props.visualization}
-                    onSelectActiveType={this.onSelectActiveType}
-                    onToggleFooter={this.onToggleFooter}
-                    d2={this.d2}
-                    editMode={editMode}
-                    activeType={this.getActiveType()}
-                    activeFooter={this.state.showFooter}
+                    title={pluginManager.getName(item)}
+                    itemId={item.id}
+                    actionButtons={actionButtons}
                 />
                 <div
                     key={this.getUniqueKey(itemFilters)}
@@ -287,7 +266,7 @@ export class Item extends Component {
                     {this.state.configLoaded && this.getPluginComponent()}
                 </div>
                 {!editMode && showFooter ? <ItemFooter item={item} /> : null}
-            </Fragment>
+            </>
         );
     }
 }

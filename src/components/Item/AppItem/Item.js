@@ -39,7 +39,7 @@ const AppItem = ({ item, itemFilters }, context) => {
 
     return appDetails && appDetails.name && appDetails.launchUrl ? (
         <Fragment>
-            <ItemHeader title={appDetails.name} />
+            <ItemHeader title={appDetails.name} itemId={item.id} />
             <Line />
             <iframe
                 title={appDetails.name}
