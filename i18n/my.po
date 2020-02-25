@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-04T08:23:22.661Z\n"
+"POT-Creation-Date: 2020-02-09T01:43:57.112Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: Burmese (https://www.transifex.com/hisp-uio/teams/100509/my/)\n"
@@ -136,14 +136,11 @@ msgstr ""
 msgid "Pivot tables"
 msgstr "ကိန်းဂဏန်းပြဇယားကွက်"
 
-msgid "Pivot Tables"
+msgid "Visualizer"
 msgstr ""
 
 msgid "Charts"
 msgstr "ဂရပ် ပုံစံများ"
-
-msgid "Visualizer"
-msgstr ""
 
 msgid "Maps"
 msgstr "Maps"

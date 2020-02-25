@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-04T08:23:22.661Z\n"
+"POT-Creation-Date: 2020-02-09T01:43:57.112Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -143,14 +143,11 @@ msgstr "Partager"
 msgid "Pivot tables"
 msgstr "Tableaux croisés dynamiques"
 
-msgid "Pivot Tables"
-msgstr ""
+msgid "Visualizer"
+msgstr "Visualiseur"
 
 msgid "Charts"
 msgstr "Graphiques"
-
-msgid "Visualizer"
-msgstr "Visualiseur"
 
 msgid "Maps"
 msgstr "Cartes"
