@@ -1154,7 +1154,7 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@dhis2/analytics@^4.0.1", "@dhis2/analytics@^4.0.2":
+"@dhis2/analytics@^4.0.1":
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.0.2.tgz#fa874ce93c2499c6466b746a2ee4e9e75a61ebd8"
   integrity sha512-cJVsxPt5rWDv+TOpP6qNcUxJe4my+e+1/NqKj/jm+rxF5XvlK1RovCNFlLvoIVekgw6acI4y6+KYIGznC65d5w==
@@ -1178,6 +1178,26 @@
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.1.0.tgz#7296350c3b35192ddf9912ee6a619a95ae786cd2"
   integrity sha512-+S0fW+jLQtoNwqlVes8dnePr0MIoSgh0sqW2wMK+lPBu9cAmKkI8MFf6DGfxjVBidZ9bE+fWS8SMVYIk1Ve5Yw==
+  dependencies:
+    "@dhis2/d2-i18n" "^1.0.4"
+    "@dhis2/d2-ui-org-unit-dialog" "^6.5.6"
+    "@dhis2/d2-ui-period-selector-dialog" "^6.5.7"
+    "@dhis2/ui-core" "^4.9.1"
+    "@material-ui/core" "^3.9.3"
+    "@material-ui/icons" "^3.0.2"
+    classnames "^2.2.6"
+    d2-utilizr "^0.2.16"
+    d3-color "^1.2.3"
+    highcharts "^7.2.1"
+    lodash "^4.17.13"
+    react-beautiful-dnd "^10.1.1"
+    resize-observer-polyfill "^1.5.1"
+    styled-jsx "^3.2.1"
+
+"@dhis2/analytics@^4.1.2":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.1.2.tgz#15f6ca682a3370bdea0379adf705d1a48dc9a96d"
+  integrity sha512-nHxoXpKtVoTLpFiqSfoyYZa0yiFIZgtMdD0sgRXe+oYet8ZV8eKdzfFEoLFghzmuI7mmV/3zUTCNgTBXVBRypg==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.5.6"
