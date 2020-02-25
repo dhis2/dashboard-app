@@ -20,6 +20,7 @@ import {
     acSetActiveVisualizationType,
 } from '../../../actions/visualizations';
 import {
+    VISUALIZATION,
     MAP,
     CHART,
     REPORT_TABLE,
@@ -145,6 +146,7 @@ export class Item extends Component {
         };
 
         switch (activeType) {
+            case VISUALIZATION:
             case CHART:
             case REPORT_TABLE: {
                 return (

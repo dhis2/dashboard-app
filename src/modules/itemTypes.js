@@ -39,15 +39,24 @@ export const isTextType = item =>
     item.type === TEXT && item.text !== spacerContent;
 export const isVisualizationType = item =>
     !!itemTypeMap[item.type].isVisualizationType;
-
 export const hasMapView = itemType =>
     itemTypeMap[itemType].domainType === DOMAIN_TYPE_AGGREGATE;
-
 export const isTrackerDomainType = itemType =>
     itemTypeMap[itemType].domainType === DOMAIN_TYPE_TRACKER;
+export const getDefaultItemCount = itemType =>
+    itemTypeMap[itemType].defaultItemCount || 5;
 
 // Item type map
 export const itemTypeMap = {
+    [VISUALIZATION]: {
+        id: VISUALIZATION,
+        endPointName: 'visualizations',
+        propName: 'visualization',
+        pluralTitle: i18n.t('Visualizations'),
+        appUrl: id => `dhis-web-data-visualizer/#/${id}`,
+        appName: i18n.t('Visualizer'),
+        defaultItemCount: 10,
+    },
     [REPORT_TABLE]: {
         id: REPORT_TABLE,
         endPointName: 'reportTables',
