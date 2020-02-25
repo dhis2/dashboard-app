@@ -10,6 +10,7 @@ import AppItem from './AppItem/Item';
 import SpacerItem from './SpacerItem/Item';
 import {
     APP,
+    VISUALIZATION,
     REPORT_TABLE,
     CHART,
     MAP,
@@ -26,6 +27,7 @@ import { DEFAULT_STATE_ITEM_FILTERS } from '../../reducers/itemFilters';
 
 const getGridItem = type => {
     switch (type) {
+        case VISUALIZATION:
         case REPORT_TABLE:
         case CHART:
         case MAP:

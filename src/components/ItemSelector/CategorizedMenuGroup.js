@@ -9,7 +9,7 @@ import ContentMenuItem from './ContentMenuItem';
 
 import { tAddListItemContent } from './actions';
 import { acAddDashboardItem } from '../../actions/editDashboard';
-import { getItemUrl, APP } from '../../modules/itemTypes';
+import { getItemUrl, APP, VISUALIZATION } from '../../modules/itemTypes';
 import { categorizedItems, listItemTypes } from './selectableItems';
 
 import classes from './styles/CategorizedMenuGroup.module.css';
@@ -59,6 +59,7 @@ class CategorizedMenuGroup extends Component {
                         <ContentMenuItem
                             key={item.id || item.key}
                             type={type}
+                            visType={type === VISUALIZATION ? item.type : type}
                             name={item.displayName || item.name}
                             onInsert={this.addItem(item)}
                             url={itemUrl}

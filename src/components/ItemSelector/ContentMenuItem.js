@@ -2,8 +2,9 @@ import React from 'react';
 import { MenuItem, colors } from '@dhis2/ui-core';
 import i18n from '@dhis2/d2-i18n';
 import PropTypes from 'prop-types';
+import { visTypeIcons } from '@dhis2/analytics';
 
-import { getItemIcon } from '../../modules/itemTypes';
+import { getItemIcon, VISUALIZATION } from '../../modules/itemTypes';
 import LaunchIcon from '../../icons/Launch';
 
 import classes from './styles/ContentMenuItem.module.css';
@@ -28,8 +29,15 @@ const InsertButton = () => (
     <button className={classes.buttonInsert}>{i18n.t('Insert')}</button>
 );
 
-const ContentMenuItem = ({ type, name, onInsert, url }) => {
+const ContentMenuItem = ({ type, name, onInsert, url, visType }) => {
     const ItemIcon = getItemIcon(type);
+
+    const renderedItemIcon =
+        type === VISUALIZATION ? (
+            visTypeIcons[visType]
+        ) : (
+            <ItemIcon style={{ fill: colors.grey600 }} />
+        );
 
     return (
         <MenuItem
@@ -38,9 +46,9 @@ const ContentMenuItem = ({ type, name, onInsert, url }) => {
             label={
                 <div className={classes.menuItem}>
                     <div className={classes.label}>
-                        <ItemIcon
-                            style={{ margin: '6px', fill: colors.grey600 }}
-                        />
+                        <span style={{ margin: '6px' }}>
+                            {renderedItemIcon}
+                        </span>
                         <span>{name}</span>
                         {url ? <LaunchLink url={url} /> : null}
                     </div>
@@ -55,6 +63,7 @@ ContentMenuItem.propTypes = {
     name: PropTypes.string,
     type: PropTypes.string,
     url: PropTypes.string,
+    visType: PropTypes.string,
     onInsert: PropTypes.func,
 };
 
