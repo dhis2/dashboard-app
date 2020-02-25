@@ -45,10 +45,6 @@ export const isTrackerDomainType = itemType =>
     itemTypeMap[itemType].domainType === DOMAIN_TYPE_TRACKER;
 export const getDefaultItemCount = itemType =>
     itemTypeMap[itemType].defaultItemCount || 5;
-
-export const getDefaultItemCount = itemType =>
-    itemTypeMap[itemType].defaultItemCount || 5;
-
 export const getAppName = itemType => itemTypeMap[itemType].appName || '';
 
 // Item type map
