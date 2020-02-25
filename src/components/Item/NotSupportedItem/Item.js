@@ -1,12 +1,16 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import i18n from '@dhis2/d2-i18n';
+
 import ItemHeader from '../ItemHeader';
 import NotInterestedIcon from '@material-ui/icons/NotInterested';
 
 const NotSupportedItem = props => (
     <Fragment>
         <ItemHeader
-            title={`Item type not supported: ${props.item.type}`}
+            title={i18n.t('Item type not supported: {{itemType}}', {
+                itemType: props.item.type,
+            })}
             itemId={props.item.id}
         />
         <div

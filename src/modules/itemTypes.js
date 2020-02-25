@@ -59,7 +59,7 @@ export const itemTypeMap = {
         propName: 'visualization',
         pluralTitle: i18n.t('Visualizations'),
         appUrl: id => `dhis-web-data-visualizer/#/${id}`,
-        appName: 'Visualizer',
+        appName: 'Data Visualizer',
         defaultItemCount: 10,
     },
     [REPORT_TABLE]: {
@@ -70,7 +70,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
         appUrl: id => `dhis-web-data-visualizer/#/${id}`,
-        appName: 'Visualizer',
+        appName: 'Data Visualizer',
     },
     [CHART]: {
         id: CHART,
@@ -80,7 +80,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
         appUrl: id => `dhis-web-data-visualizer/#/${id}`,
-        appName: 'Visualizer',
+        appName: 'Data Visualizer',
     },
     [MAP]: {
         id: MAP,

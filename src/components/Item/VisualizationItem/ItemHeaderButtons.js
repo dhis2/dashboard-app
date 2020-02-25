@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { isSingleValue } from '@dhis2/analytics';
+import { isSingleValue, isYearOverYear } from '@dhis2/analytics';
 import { Button, Menu, MenuItem, Divider, colors } from '@dhis2/ui-core';
 import i18n from '@dhis2/d2-i18n';
 import Popover from '@material-ui/core/Popover';
@@ -61,13 +61,11 @@ const ItemHeaderButtons = props => {
     const handleClose = () => setAnchorEl(null);
 
     const type = visualization.type || item.type;
-    const canViewAs =
-        !isSingleValue(props.visualization.type) &&
-        !type.match(/^YEAR_OVER_YEAR/);
+    const canViewAs = !isSingleValue(type) && !isYearOverYear(type);
 
     const interpretationMenuLabel = props.activeFooter
-        ? i18n.t(`Show interpretations and details`)
-        : i18n.t(`View interpretations and details`);
+        ? i18n.t(`Hide interpretations and details`)
+        : i18n.t(`Show interpretations and details`);
 
     const ViewAsMenuItems = () => (
         <>
@@ -117,7 +115,9 @@ const ItemHeaderButtons = props => {
                     <MenuItem
                         dense
                         icon={<LaunchIcon style={{ fill: '#6e7a8a' }} />}
-                        label={i18n.t(`Open in ${getAppName(item.type)} app`)}
+                        label={i18n.t('Open in {{appName}} app', {
+                            appName: getAppName(item.type),
+                        })}
                         href={getLink(item, d2)}
                         target="_blank"
                     />

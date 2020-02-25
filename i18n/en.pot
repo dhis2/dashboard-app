@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-02-24T17:25:35.841Z\n"
-"PO-Revision-Date: 2020-02-24T17:25:35.841Z\n"
+"POT-Creation-Date: 2020-02-25T15:10:00.122Z\n"
+"PO-Revision-Date: 2020-02-25T15:10:00.122Z\n"
 
 msgid "Dashboard"
 msgstr ""
@@ -64,6 +64,9 @@ msgstr[1] ""
 msgid "Remove"
 msgstr ""
 
+msgid "Delete item"
+msgstr ""
+
 msgid "Messages"
 msgstr ""
 
@@ -88,10 +91,10 @@ msgstr ""
 msgid "No data to display"
 msgstr ""
 
-msgid "Show interpretations and details"
+msgid "Hide interpretations and details"
 msgstr ""
 
-msgid "View interpretations and details"
+msgid "Show interpretations and details"
 msgstr ""
 
 msgid "View as Chart"
@@ -101,6 +104,9 @@ msgid "View as Table"
 msgstr ""
 
 msgid "View as Map"
+msgstr ""
+
+msgid "Open in {{appName}} app"
 msgstr ""
 
 msgid "Confirm"

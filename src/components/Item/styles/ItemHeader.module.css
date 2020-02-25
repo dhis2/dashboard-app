@@ -6,7 +6,7 @@
     display: flex;
     align-items: top;
     margin: var(--spacers-dp4) var(--spacers-dp4) var(--spacers-dp8)
-        var(--spacers-dp4);
+        var(--spacers-dp8);
 }
 
 .itemTitle {
