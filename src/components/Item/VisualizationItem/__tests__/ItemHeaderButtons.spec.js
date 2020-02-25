@@ -2,6 +2,11 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ItemHeaderButtons from '../ItemHeaderButtons';
 
+jest.mock('../plugin', () => ({
+    getLink: () => 'http://rainbowdash',
+    pluginIsAvailable: () => true,
+}));
+
 it('renders correctly', () => {
     const buttons = shallow(
         <ItemHeaderButtons
@@ -15,7 +20,7 @@ it('renders correctly', () => {
             onSelectActiveType={Function.prototype}
             activeFooter={false}
             activeType={'CHART'}
-            d2={}
+            d2={{}}
             onToggleFooter={Function.prototype}
         />
     );

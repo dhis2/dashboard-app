@@ -1,0 +1,451 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ItemHeaderButtons
+    activeFooter={false}
+    activeType="CHART"
+    d2={Object {}}
+    item={
+      Object {
+        "chart": Object {
+          "domainType": "AGGREGATE",
+          "type": "NOT_YOY",
+        },
+        "type": "CHART",
+      }
+    }
+    onSelectActiveType={[Function]}
+    onToggleFooter={[Function]}
+    visualization={
+      Object {
+        "type": "SINGLE_VALUE",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          secondary={true}
+          small={true}
+          type="button"
+        >
+          <ThreeDots />
+        </Button>,
+        <WithStyles(Popover)
+          anchorEl={null}
+          onClose={[Function]}
+          open={false}
+        >
+          <Menu
+            dataTest="dhis2-uicore-menu"
+          >
+            <MenuItem
+              dataTest="dhis2-uicore-menuitem"
+              dense={true}
+              href="http://rainbowdash"
+              icon={
+                <pure(LaunchIcon)
+                  style={
+                    Object {
+                      "fill": "#6e7a8a",
+                    }
+                  }
+                />
+              }
+              label="Open in Data Visualizer app"
+              target="_blank"
+            />
+            <MenuItem
+              dataTest="dhis2-uicore-menuitem"
+              dense={true}
+              icon={<SpeechBubble />}
+              label="Show interpretations and details"
+              onClick={[Function]}
+            />
+          </Menu>
+        </WithStyles(Popover)>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <ThreeDots />,
+          "dataTest": "dhis2-uicore-button",
+          "onClick": [Function],
+          "secondary": true,
+          "small": true,
+          "type": "button",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "anchorEl": null,
+          "children": <Menu
+            dataTest="dhis2-uicore-menu"
+          >
+            <MenuItem
+              dataTest="dhis2-uicore-menuitem"
+              dense={true}
+              href="http://rainbowdash"
+              icon={
+                <pure(LaunchIcon)
+                  style={
+                    Object {
+                      "fill": "#6e7a8a",
+                    }
+                  }
+                />
+              }
+              label="Open in Data Visualizer app"
+              target="_blank"
+            />
+            <MenuItem
+              dataTest="dhis2-uicore-menuitem"
+              dense={true}
+              icon={<SpeechBubble />}
+              label="Show interpretations and details"
+              onClick={[Function]}
+            />
+          </Menu>,
+          "onClose": [Function],
+          "open": false,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              false,
+              <MenuItem
+                dataTest="dhis2-uicore-menuitem"
+                dense={true}
+                href="http://rainbowdash"
+                icon={
+                  <pure(LaunchIcon)
+                    style={
+                      Object {
+                        "fill": "#6e7a8a",
+                      }
+                    }
+                  />
+                }
+                label="Open in Data Visualizer app"
+                target="_blank"
+              />,
+              <MenuItem
+                dataTest="dhis2-uicore-menuitem"
+                dense={true}
+                icon={<SpeechBubble />}
+                label="Show interpretations and details"
+                onClick={[Function]}
+              />,
+            ],
+            "dataTest": "dhis2-uicore-menu",
+          },
+          "ref": null,
+          "rendered": Array [
+            false,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "dataTest": "dhis2-uicore-menuitem",
+                "dense": true,
+                "href": "http://rainbowdash",
+                "icon": <pure(LaunchIcon)
+                  style={
+                    Object {
+                      "fill": "#6e7a8a",
+                    }
+                  }
+                />,
+                "label": "Open in Data Visualizer app",
+                "target": "_blank",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "dataTest": "dhis2-uicore-menuitem",
+                "dense": true,
+                "icon": <SpeechBubble />,
+                "label": "Show interpretations and details",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <Button
+            dataTest="dhis2-uicore-button"
+            onClick={[Function]}
+            secondary={true}
+            small={true}
+            type="button"
+          >
+            <ThreeDots />
+          </Button>,
+          <WithStyles(Popover)
+            anchorEl={null}
+            onClose={[Function]}
+            open={false}
+          >
+            <Menu
+              dataTest="dhis2-uicore-menu"
+            >
+              <MenuItem
+                dataTest="dhis2-uicore-menuitem"
+                dense={true}
+                href="http://rainbowdash"
+                icon={
+                  <pure(LaunchIcon)
+                    style={
+                      Object {
+                        "fill": "#6e7a8a",
+                      }
+                    }
+                  />
+                }
+                label="Open in Data Visualizer app"
+                target="_blank"
+              />
+              <MenuItem
+                dataTest="dhis2-uicore-menuitem"
+                dense={true}
+                icon={<SpeechBubble />}
+                label="Show interpretations and details"
+                onClick={[Function]}
+              />
+            </Menu>
+          </WithStyles(Popover)>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <ThreeDots />,
+            "dataTest": "dhis2-uicore-button",
+            "onClick": [Function],
+            "secondary": true,
+            "small": true,
+            "type": "button",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "anchorEl": null,
+            "children": <Menu
+              dataTest="dhis2-uicore-menu"
+            >
+              <MenuItem
+                dataTest="dhis2-uicore-menuitem"
+                dense={true}
+                href="http://rainbowdash"
+                icon={
+                  <pure(LaunchIcon)
+                    style={
+                      Object {
+                        "fill": "#6e7a8a",
+                      }
+                    }
+                  />
+                }
+                label="Open in Data Visualizer app"
+                target="_blank"
+              />
+              <MenuItem
+                dataTest="dhis2-uicore-menuitem"
+                dense={true}
+                icon={<SpeechBubble />}
+                label="Show interpretations and details"
+                onClick={[Function]}
+              />
+            </Menu>,
+            "onClose": [Function],
+            "open": false,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                false,
+                <MenuItem
+                  dataTest="dhis2-uicore-menuitem"
+                  dense={true}
+                  href="http://rainbowdash"
+                  icon={
+                    <pure(LaunchIcon)
+                      style={
+                        Object {
+                          "fill": "#6e7a8a",
+                        }
+                      }
+                    />
+                  }
+                  label="Open in Data Visualizer app"
+                  target="_blank"
+                />,
+                <MenuItem
+                  dataTest="dhis2-uicore-menuitem"
+                  dense={true}
+                  icon={<SpeechBubble />}
+                  label="Show interpretations and details"
+                  onClick={[Function]}
+                />,
+              ],
+              "dataTest": "dhis2-uicore-menu",
+            },
+            "ref": null,
+            "rendered": Array [
+              false,
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "dataTest": "dhis2-uicore-menuitem",
+                  "dense": true,
+                  "href": "http://rainbowdash",
+                  "icon": <pure(LaunchIcon)
+                    style={
+                      Object {
+                        "fill": "#6e7a8a",
+                      }
+                    }
+                  />,
+                  "label": "Open in Data Visualizer app",
+                  "target": "_blank",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "dataTest": "dhis2-uicore-menuitem",
+                  "dense": true,
+                  "icon": <SpeechBubble />,
+                  "label": "Show interpretations and details",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
