@@ -1,8 +1,7 @@
 import i18n from '@dhis2/d2-i18n';
 import {
     spacerContent,
-    REPORT_TABLE,
-    CHART,
+    VISUALIZATION,
     MAP,
     EVENT_CHART,
     EVENT_REPORT,
@@ -41,8 +40,7 @@ export const singleItems = [
 
 // categorizedItems are grouped in the item selector menu
 export const categorizedItems = [
-    REPORT_TABLE,
-    CHART,
+    VISUALIZATION,
     MAP,
     EVENT_REPORT,
     EVENT_CHART,
