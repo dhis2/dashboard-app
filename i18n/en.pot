@@ -157,6 +157,9 @@ msgstr ""
 msgid "Pivot tables"
 msgstr ""
 
+msgid "Pivot tables"
+msgstr ""
+
 msgid "Charts"
 msgstr ""
 

@@ -7,7 +7,7 @@ import { InputField, Menu } from '@dhis2/ui-core';
 import CategorizedMenuGroup from './CategorizedMenuGroup';
 import SinglesMenuGroup from './SinglesMenuGroup';
 import { singleItems, categorizedItems } from './selectableItems';
-import { itemTypeMap } from '../../modules/itemTypes';
+import { itemTypeMap, getDefaultItemCount } from '../../modules/itemTypes';
 
 import './styles/ItemSelector.css';
 
@@ -62,11 +62,12 @@ class ItemSelector extends React.Component {
             })
             .map(type => {
                 const itemType = itemTypeMap[type];
+                const itemCount = getDefaultItemCount(type);
                 const allItems = this.state.items[itemType.endPointName];
-                const hasMore = allItems.length > 5;
+                const hasMore = allItems.length > itemCount;
                 const items = this.state.maxOptions.has(itemType.id)
                     ? allItems
-                    : allItems.slice(0, 5);
+                    : allItems.slice(0, itemCount);
 
                 return (
                     <CategorizedMenuGroup
@@ -105,7 +106,7 @@ class ItemSelector extends React.Component {
             });
         }
 
-        let queryString = '?count=6';
+        let queryString = '?count=11';
         if ([...this.state.maxOptions.values()].length) {
             queryString +=
                 '&max=' + [...this.state.maxOptions.values()].join('&max=');

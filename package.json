@@ -8,13 +8,13 @@
         "@dhis2/analytics": "^4.0.2",
         "@dhis2/app-runtime": "^2.0.3",
         "@dhis2/d2-i18n": "^1.0.6",
-        "@dhis2/d2-ui-core": "^6.0.1",
-        "@dhis2/d2-ui-interpretations": "^6.0.1",
+        "@dhis2/d2-ui-core": "^6.5.8",
+        "@dhis2/d2-ui-interpretations": "^6.5.7",
         "@dhis2/d2-ui-mentions-wrapper": "^6.0.1",
         "@dhis2/d2-ui-rich-text": "^6.0.1",
         "@dhis2/d2-ui-sharing-dialog": "^6.0.1",
         "@dhis2/d2-ui-translation-dialog": "^6.0.1",
-        "@dhis2/data-visualizer-plugin": "^34.2.1",
+        "@dhis2/data-visualizer-plugin": "^34.2.5",
         "@dhis2/prop-types": "^1.2.1",
         "@dhis2/ui-core": "^4.11.0",
         "@dhis2/ui-widgets": "^2.0.5",
@@ -68,7 +68,7 @@
             "name": "DHIS2"
         },
         "dhis2": {
-            "apiVersion": "31"
+            "apiVersion": "34"
         },
         "activities": {
             "dhis": {

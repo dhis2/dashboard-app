@@ -18,7 +18,7 @@ import {
     acAddVisualization,
     acSetActiveVisualizationType,
 } from '../../../actions/visualizations';
-import { MAP, CHART, REPORT_TABLE } from '../../../modules/itemTypes';
+import { VISUALIZATION, MAP, CHART, REPORT_TABLE } from '../../../modules/itemTypes';
 
 import { colors } from '@dhis2/ui-core';
 import memoizeOne from '../../../modules/memoizeOne';
@@ -141,6 +141,7 @@ export class Item extends Component {
         };
 
         switch (activeType) {
+            case VISUALIZATION:
             case CHART:
             case REPORT_TABLE: {
                 return (
