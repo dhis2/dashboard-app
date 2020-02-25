@@ -102,7 +102,7 @@ export const tSelectDashboard = id => async (dispatch, getState) => {
                 dispatch(acClearItemFilters());
             }
         } else {
-            dispatch(acSetSelectedId(false));
+            dispatch(acSetSelectedId());
         }
     } catch (err) {
         return onError(err);

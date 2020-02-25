@@ -166,7 +166,7 @@ FilterSelector.propTypes = {
     addItemFilter: PropTypes.func,
     clearActiveModalDimension: PropTypes.func,
     dimension: PropTypes.object,
-    dimensions: PropTypes.object,
+    dimensions: PropTypes.array,
     displayNameProperty: PropTypes.string,
     removeEditItemFilter: PropTypes.func,
     removeItemFilter: PropTypes.func,
