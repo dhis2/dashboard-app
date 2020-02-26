@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-09T01:43:57.112Z\n"
+"POT-Creation-Date: 2020-02-12T20:02:08.021Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
 "Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
@@ -134,11 +134,14 @@ msgstr "ترمیم"
 msgid "Share"
 msgstr "بانٹیں"
 
-msgid "Pivot tables"
-msgstr "پیوٹ میزیں"
+msgid "Visualizations"
+msgstr ""
 
 msgid "Visualizer"
 msgstr "وزیولاءزر"
+
+msgid "Pivot tables"
+msgstr "پیوٹ میزیں"
 
 msgid "Charts"
 msgstr "چارٹس"

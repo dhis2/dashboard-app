@@ -132,6 +132,7 @@ class FilterSelector extends Component {
                     }}
                 >
                     <DimensionsPanel
+                        style={{ width: '320px' }}
                         dimensions={dimensions}
                         onDimensionClick={this.selectDimension}
                         selectedIds={selectedDimensions}
@@ -166,7 +167,7 @@ FilterSelector.propTypes = {
     addItemFilter: PropTypes.func,
     clearActiveModalDimension: PropTypes.func,
     dimension: PropTypes.object,
-    dimensions: PropTypes.object,
+    dimensions: PropTypes.array,
     displayNameProperty: PropTypes.string,
     removeEditItemFilter: PropTypes.func,
     removeItemFilter: PropTypes.func,

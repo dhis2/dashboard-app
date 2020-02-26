@@ -1154,7 +1154,7 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@dhis2/analytics@^4.0.1", "@dhis2/analytics@^4.0.2":
+"@dhis2/analytics@^4.0.1":
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.0.2.tgz#fa874ce93c2499c6466b746a2ee4e9e75a61ebd8"
   integrity sha512-cJVsxPt5rWDv+TOpP6qNcUxJe4my+e+1/NqKj/jm+rxF5XvlK1RovCNFlLvoIVekgw6acI4y6+KYIGznC65d5w==
@@ -1174,10 +1174,30 @@
     resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.1.0.tgz#7296350c3b35192ddf9912ee6a619a95ae786cd2"
-  integrity sha512-+S0fW+jLQtoNwqlVes8dnePr0MIoSgh0sqW2wMK+lPBu9cAmKkI8MFf6DGfxjVBidZ9bE+fWS8SMVYIk1Ve5Yw==
+"@dhis2/analytics@^4.1.4":
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.1.4.tgz#bcd6d4d99b41720dd99e895c874119881eebd58c"
+  integrity sha512-5sU7pNE2mj0/jVYjso2T+Ujd6dFtC6+hAOJAT4KjeOGbMhmT9TzhRA0ToasYLyu/jQGTLK5s1oTcVnxzk1pFvg==
+  dependencies:
+    "@dhis2/d2-i18n" "^1.0.4"
+    "@dhis2/d2-ui-org-unit-dialog" "^6.5.6"
+    "@dhis2/d2-ui-period-selector-dialog" "^6.5.7"
+    "@dhis2/ui-core" "^4.9.1"
+    "@material-ui/core" "^3.9.3"
+    "@material-ui/icons" "^3.0.2"
+    classnames "^2.2.6"
+    d2-utilizr "^0.2.16"
+    d3-color "^1.2.3"
+    highcharts "^7.2.1"
+    lodash "^4.17.13"
+    react-beautiful-dnd "^10.1.1"
+    resize-observer-polyfill "^1.5.1"
+    styled-jsx "^3.2.1"
+
+"@dhis2/analytics@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.1.5.tgz#c16f0c9de24c0635b950cbfd25a6fc42a08ff74a"
+  integrity sha512-pHUwZ9CFvCxNZmrS3tnkfZc+P26UulsxOXmxVxD9weDIeY5+5hnfOMqd+x6QKZSlfPz4HQXRZ2XBSKBtAQ7DWg==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.5.6"
@@ -1406,12 +1426,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^34.2.5":
-  version "34.2.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-34.2.5.tgz#2a7f523bd7c5adf006261a939297b665bd47273f"
-  integrity sha512-kA7McKH3KjgaDeuFH50mrnIjGB4ISLkQaQ3OiSmsaQOtuUuzdMQngXzY4yfLPnpvr3pnv9kb+xgDXSBbzfanJA==
+"@dhis2/data-visualizer-plugin@^34.3.3":
+  version "34.3.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-34.3.3.tgz#926d58d19d6eedb3b381ab759a212ef15a278735"
+  integrity sha512-aOtZsZcuKEMFbNZXzkinOqlf3/P9ylM5Sc5dNdHUW/h84HuSTQtcZorlSM4T2piGoKLgfxOEWQUmPsSW1kk6/Q==
   dependencies:
-    "@dhis2/analytics" "^4.1.0"
+    "@dhis2/analytics" "^4.1.4"
     "@material-ui/core" "^3.1.2"
     d2-analysis "33.2.11"
     lodash-es "^4.17.11"
