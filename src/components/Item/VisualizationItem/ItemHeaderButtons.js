@@ -1,12 +1,17 @@
-import React, { Component, Fragment } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import MessageIcon from '@material-ui/icons/Message';
+
+import { isSingleValue, isYearOverYear } from '@dhis2/analytics';
+import { Button, Menu, MenuItem, Divider, colors } from '@dhis2/ui-core';
+import i18n from '@dhis2/d2-i18n';
+import Popover from '@material-ui/core/Popover';
 import TableIcon from '@material-ui/icons/ViewList';
 import ChartIcon from '@material-ui/icons/InsertChart';
 import MapIcon from '@material-ui/icons/Public';
+import LaunchIcon from '@material-ui/icons/Launch';
 
-import { extractFavorite } from './plugin';
-import ItemHeaderButton from '../ItemHeaderButton';
+import { ThreeDots, SpeechBubble } from './assets/icons';
+import { pluginIsAvailable, getLink } from './plugin';
 import {
     CHART,
     MAP,
@@ -15,178 +20,127 @@ import {
     EVENT_REPORT,
     isTrackerDomainType,
     hasMapView,
+    getAppName,
 } from '../../../modules/itemTypes';
-import { colors, theme } from '@dhis2/ui-core';
-import { isSingleValue } from '@dhis2/analytics';
 
-const style = {
-    iconBase: {
-        width: '24px',
-        height: '24px',
-        fill: colors.grey500,
-    },
-    buttonBase: {
-        padding: '5px 6px 3px 6px',
-    },
-    buttonDisabled: {
-        padding: '5px 6px 3px 6px',
-        opacity: 0.5,
-        cursor: 'unset',
-    },
-    toggleFooterPadding: {
-        padding: '7px 6px 1px 6px',
-    },
-    border: {
-        borderRadius: '2px',
-        border: `1px solid ${colors.grey200}`,
-    },
-};
+const iconFill = { fill: colors.grey600 };
 
-const baseStyle = {
-    icon: style.iconBase,
-    container: style.buttonBase,
-};
+const ItemHeaderButtons = props => {
+    const [anchorEl, setAnchorEl] = useState(null);
 
-const disabledStyle = {
-    icon: style.iconBase,
-    container: style.buttonDisabled,
-};
+    const { item, visualization, onSelectActiveType, d2, activeType } = props;
 
-const activeStyle = {
-    icon: { ...style.iconBase, fill: theme.primary800 },
-    container: {
-        ...style.buttonBase,
-        backgroundColor: theme.primary100,
-    },
-};
+    const isTrackerType = isTrackerDomainType(item.type);
 
-const inactiveStyle = disabled => (disabled ? disabledStyle : baseStyle);
+    const onViewTable = () => {
+        onSelectActiveType(isTrackerType ? EVENT_REPORT : REPORT_TABLE);
+        handleClose();
+    };
 
-const tableBtnStyle = (activeType, disabled) =>
-    [REPORT_TABLE, EVENT_REPORT].includes(activeType)
-        ? activeStyle
-        : inactiveStyle(disabled);
+    const onViewChart = () => {
+        onSelectActiveType(isTrackerType ? EVENT_CHART : CHART);
+        handleClose();
+    };
 
-const chartBtnStyle = (activeType, disabled) =>
-    [CHART, EVENT_CHART].includes(activeType)
-        ? activeStyle
-        : inactiveStyle(disabled);
+    const onViewMap = () => {
+        onSelectActiveType(MAP);
+        handleClose();
+    };
 
-const mapBtnStyle = (activeType, disabled) =>
-    [MAP].includes(activeType) ? activeStyle : inactiveStyle(disabled);
+    const itemHasMapView = () => hasMapView(item.type);
 
-class VisualizationItemHeaderButtons extends Component {
-    renderInterpretationButton() {
-        const { activeFooter, onToggleFooter } = this.props;
+    const handleMenuClick = (_, event) => setAnchorEl(event.currentTarget);
 
-        const toggleFooterBase = activeFooter ? activeStyle : baseStyle;
-
-        const toggleFooter = {
-            ...toggleFooterBase,
-            container: {
-                ...toggleFooterBase.container,
-                ...style.toggleFooterPadding,
-                ...style.border,
-            },
-        };
-
-        return (
-            <Fragment>
-                <ItemHeaderButton
-                    style={toggleFooter.container}
-                    onClick={onToggleFooter}
-                >
-                    <MessageIcon style={toggleFooter.icon} />
-                </ItemHeaderButton>
-            </Fragment>
-        );
-    }
-
-    renderVisualizationButtons() {
-        const {
-            item,
-            visualization,
-            onSelectActiveType,
-            activeType,
-        } = this.props;
-
-        if (isSingleValue(visualization.type)) {
-            return null;
+    const handleInterpretationClick = () => {
+        props.onToggleFooter();
+        if (anchorEl !== null) {
+            handleClose();
         }
+    };
 
-        const onViewTable = () =>
-            onSelectActiveType(
-                isTrackerDomainType(item.type) ? EVENT_REPORT : REPORT_TABLE
-            );
+    const handleClose = () => setAnchorEl(null);
 
-        const onViewChart = () =>
-            onSelectActiveType(
-                isTrackerDomainType(item.type) ? EVENT_CHART : CHART
-            );
+    const type = visualization.type || item.type;
+    const canViewAs = !isSingleValue(type) && !isYearOverYear(type);
 
-        const onViewMap = () => onSelectActiveType(MAP);
+    const interpretationMenuLabel = props.activeFooter
+        ? i18n.t(`Hide interpretations and details`)
+        : i18n.t(`Show interpretations and details`);
 
-        // disable toggle buttons
-        let disabled = false;
+    const ViewAsMenuItems = () => (
+        <>
+            <MenuItem
+                dense
+                active={activeType === CHART}
+                label={i18n.t('View as Chart')}
+                onClick={onViewChart}
+                icon={<ChartIcon style={iconFill} />}
+            />
+            <MenuItem
+                dense
+                active={[REPORT_TABLE, EVENT_REPORT].includes(activeType)}
+                label={i18n.t('View as Table')}
+                onClick={onViewTable}
+                icon={<TableIcon style={iconFill} />}
+            />
+            {itemHasMapView() && (
+                <MenuItem
+                    dense
+                    active={activeType === MAP}
+                    label={i18n.t('View as Map')}
+                    onClick={onViewMap}
+                    icon={<MapIcon style={iconFill} />}
+                />
+            )}
+        </>
+    );
 
-        if (item.type === CHART) {
-            if (extractFavorite(item).type.match(/^YEAR_OVER_YEAR/)) {
-                disabled = true;
-            }
-        }
+    return pluginIsAvailable(item, visualization) ? (
+        <>
+            <Button small secondary onClick={handleMenuClick}>
+                <ThreeDots />
+            </Button>
+            <Popover
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+                anchorEl={anchorEl}
+            >
+                <Menu>
+                    {canViewAs && (
+                        <>
+                            <ViewAsMenuItems />
+                            <Divider />
+                        </>
+                    )}
+                    <MenuItem
+                        dense
+                        icon={<LaunchIcon style={{ fill: '#6e7a8a' }} />}
+                        label={i18n.t('Open in {{appName}} app', {
+                            appName: getAppName(item.type),
+                        })}
+                        href={getLink(item, d2)}
+                        target="_blank"
+                    />
+                    <MenuItem
+                        dense
+                        icon={<SpeechBubble />}
+                        label={interpretationMenuLabel}
+                        onClick={handleInterpretationClick}
+                    />
+                </Menu>
+            </Popover>
+        </>
+    ) : null;
+};
 
-        const tableButtonStyle = tableBtnStyle(activeType, disabled);
-        const chartButtonStyle = chartBtnStyle(activeType, disabled);
-        const mapButtonStyle = mapBtnStyle(activeType, disabled);
-
-        return (
-            <div style={{ marginLeft: 10 }}>
-                <div style={style.border}>
-                    <ItemHeaderButton
-                        disabled={disabled}
-                        style={tableButtonStyle.container}
-                        onClick={onViewTable}
-                    >
-                        <TableIcon style={tableButtonStyle.icon} />
-                    </ItemHeaderButton>
-                    <ItemHeaderButton
-                        disabled={disabled}
-                        style={chartButtonStyle.container}
-                        onClick={onViewChart}
-                    >
-                        <ChartIcon style={chartButtonStyle.icon} />
-                    </ItemHeaderButton>
-                    {hasMapView(item.type) ? (
-                        <ItemHeaderButton
-                            disabled={disabled}
-                            style={mapButtonStyle.container}
-                            onClick={onViewMap}
-                        >
-                            <MapIcon style={mapButtonStyle.icon} />
-                        </ItemHeaderButton>
-                    ) : null}
-                </div>
-            </div>
-        );
-    }
-
-    render() {
-        return (
-            <Fragment>
-                {this.renderInterpretationButton()}
-                {this.renderVisualizationButtons()}
-            </Fragment>
-        );
-    }
-}
-
-VisualizationItemHeaderButtons.propTypes = {
+ItemHeaderButtons.propTypes = {
     activeFooter: PropTypes.bool,
     activeType: PropTypes.string,
+    d2: PropTypes.object,
     item: PropTypes.object,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,
 };
 
-export default VisualizationItemHeaderButtons;
+export default ItemHeaderButtons;

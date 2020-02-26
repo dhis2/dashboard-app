@@ -1,0 +1,28 @@
+.itemWrap {
+    padding: var(--spacers-dp8);
+}
+
+.itemHeaderWrap {
+    display: flex;
+    align-items: top;
+    margin: var(--spacers-dp4) var(--spacers-dp4) var(--spacers-dp8)
+        var(--spacers-dp8);
+}
+
+.itemTitle {
+    font-weight: 500;
+    color: var(--colors-grey800);
+    font-size: 14px;
+    line-height: 19px;
+    padding: 0;
+    margin: 0;
+    align-self: center;
+}
+
+.itemActionsWrap {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+.itemActionsWrap button {
+    margin-left: var(--spacers-dp8);
+}

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-02-12T20:02:08.021Z\n"
-"PO-Revision-Date: 2020-02-12T20:02:08.021Z\n"
+"POT-Creation-Date: 2020-02-25T15:24:49.055Z\n"
+"PO-Revision-Date: 2020-02-25T15:24:49.055Z\n"
 
 msgid "Dashboard"
 msgstr ""
@@ -64,10 +64,16 @@ msgstr[1] ""
 msgid "Remove"
 msgstr ""
 
+msgid "Delete item"
+msgstr ""
+
 msgid "Messages"
 msgstr ""
 
 msgid "See all messages"
+msgstr ""
+
+msgid "Item type \"{{type}}\" not supported"
 msgstr ""
 
 msgid "Spacer"
@@ -86,6 +92,24 @@ msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "No data to display"
+msgstr ""
+
+msgid "Hide interpretations and details"
+msgstr ""
+
+msgid "Show interpretations and details"
+msgstr ""
+
+msgid "View as Chart"
+msgstr ""
+
+msgid "View as Table"
+msgstr ""
+
+msgid "View as Map"
+msgstr ""
+
+msgid "Open in {{appName}} app"
 msgstr ""
 
 msgid "Confirm"
@@ -130,7 +154,7 @@ msgstr ""
 msgid "Visualizations"
 msgstr ""
 
-msgid "Visualizer"
+msgid "Pivot tables"
 msgstr ""
 
 msgid "Pivot tables"
@@ -145,13 +169,7 @@ msgstr ""
 msgid "Event reports"
 msgstr ""
 
-msgid "Event Reports"
-msgstr ""
-
 msgid "Event charts"
-msgstr ""
-
-msgid "Event Visualizer"
 msgstr ""
 
 msgid "Apps"

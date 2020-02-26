@@ -1,28 +1,59 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-export const HEADER_HEIGHT = 45;
+import { sGetIsEditing } from '../../reducers/editDashboard';
+import { acRemoveDashboardItem } from '../../actions/editDashboard';
+import DeleteItemButton from './DeleteItemButton';
+
+import classes from './styles/ItemHeader.module.css';
 
 const ItemHeader = props => {
-    const { title, actionButtons, editMode } = props;
+    const {
+        title,
+        editMode,
+        actionButtons,
+        itemId,
+        acRemoveDashboardItem,
+    } = props;
+
+    const handleDeleteItem = () => acRemoveDashboardItem(itemId);
 
     return (
-        <div className="dashboard-item-header">
-            <div
-                className="dashboard-item-header-title"
-                style={{ userSelect: editMode ? 'none' : 'text' }}
-            >
-                {title}
-            </div>
-            {actionButtons}
+        <div className={classes.itemHeaderWrap}>
+            <p className={classes.itemTitle}>{title}</p>
+            {editMode ? (
+                <div className={classes.itemActionsWrap}>
+                    <DeleteItemButton onClick={handleDeleteItem} />
+                </div>
+            ) : (
+                actionButtons && (
+                    <div className={classes.itemActionsWrap}>
+                        {actionButtons}
+                    </div>
+                )
+            )}
         </div>
     );
 };
 
 ItemHeader.propTypes = {
+    acRemoveDashboardItem: PropTypes.func,
     actionButtons: PropTypes.node,
     editMode: PropTypes.bool,
-    title: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    itemId: PropTypes.string,
+    title: PropTypes.string,
 };
 
-export default ItemHeader;
+const mapStateToProps = state => ({
+    editMode: sGetIsEditing(state),
+});
+
+const mapDispatchToProps = {
+    acRemoveDashboardItem,
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ItemHeader);

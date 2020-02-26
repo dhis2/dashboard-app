@@ -53,11 +53,12 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
-        <ItemHeader
+        <Connect(ItemHeader)
           actionButtons={
-            <VisualizationItemHeaderButtons
+            <ItemHeaderButtons
               activeFooter={false}
               activeType="EVENT_CHART"
+              d2={Object {}}
               item={
                 Object {
                   "eventChart": Object {
@@ -81,32 +82,7 @@ ShallowWrapper {
               }
             />
           }
-          editMode={false}
-          title={
-            <div
-              style={
-                Object {
-                  "display": "flex",
-                }
-              }
-            >
-              <span
-                title="rainbow"
-              >
-                rainbow
-              </span>
-              <a
-                style={
-                  Object {
-                    "height": 16,
-                  }
-                }
-                title="View in Event Visualizer app"
-              >
-                <pure(LaunchIcon) />
-              </a>
-            </div>
-          }
+          title="rainbow"
         />,
         <div
           className="dashboard-item-content"
@@ -119,11 +95,12 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
-          "actionButtons": <VisualizationItemHeaderButtons
+          "actionButtons": <ItemHeaderButtons
             activeFooter={false}
             activeType="EVENT_CHART"
+            d2={Object {}}
             item={
               Object {
                 "eventChart": Object {
@@ -146,30 +123,8 @@ ShallowWrapper {
               }
             }
           />,
-          "editMode": false,
-          "title": <div
-            style={
-              Object {
-                "display": "flex",
-              }
-            }
-          >
-            <span
-              title="rainbow"
-            >
-              rainbow
-            </span>
-            <a
-              style={
-                Object {
-                  "height": 16,
-                }
-              }
-              title="View in Event Visualizer app"
-            >
-              <pure(LaunchIcon) />
-            </a>
-          </div>,
+          "itemId": undefined,
+          "title": "rainbow",
         },
         "ref": null,
         "rendered": null,
@@ -198,11 +153,12 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
-          <ItemHeader
+          <Connect(ItemHeader)
             actionButtons={
-              <VisualizationItemHeaderButtons
+              <ItemHeaderButtons
                 activeFooter={false}
                 activeType="EVENT_CHART"
+                d2={Object {}}
                 item={
                   Object {
                     "eventChart": Object {
@@ -226,32 +182,7 @@ ShallowWrapper {
                 }
               />
             }
-            editMode={false}
-            title={
-              <div
-                style={
-                  Object {
-                    "display": "flex",
-                  }
-                }
-              >
-                <span
-                  title="rainbow"
-                >
-                  rainbow
-                </span>
-                <a
-                  style={
-                    Object {
-                      "height": 16,
-                    }
-                  }
-                  title="View in Event Visualizer app"
-                >
-                  <pure(LaunchIcon) />
-                </a>
-              </div>
-            }
+            title="rainbow"
           />,
           <div
             className="dashboard-item-content"
@@ -264,11 +195,12 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
-            "actionButtons": <VisualizationItemHeaderButtons
+            "actionButtons": <ItemHeaderButtons
               activeFooter={false}
               activeType="EVENT_CHART"
+              d2={Object {}}
               item={
                 Object {
                   "eventChart": Object {
@@ -291,30 +223,8 @@ ShallowWrapper {
                 }
               }
             />,
-            "editMode": false,
-            "title": <div
-              style={
-                Object {
-                  "display": "flex",
-                }
-              }
-            >
-              <span
-                title="rainbow"
-              >
-                rainbow
-              </span>
-              <a
-                style={
-                  Object {
-                    "height": 16,
-                  }
-                }
-                title="View in Event Visualizer app"
-              >
-                <pure(LaunchIcon) />
-              </a>
-            </div>,
+            "itemId": undefined,
+            "title": "rainbow",
           },
           "ref": null,
           "rendered": null,

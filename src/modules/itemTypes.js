@@ -45,6 +45,7 @@ export const isTrackerDomainType = itemType =>
     itemTypeMap[itemType].domainType === DOMAIN_TYPE_TRACKER;
 export const getDefaultItemCount = itemType =>
     itemTypeMap[itemType].defaultItemCount || 5;
+export const getAppName = itemType => itemTypeMap[itemType].appName || '';
 
 // Item type map
 export const itemTypeMap = {
@@ -54,7 +55,7 @@ export const itemTypeMap = {
         propName: 'visualization',
         pluralTitle: i18n.t('Visualizations'),
         appUrl: id => `dhis-web-data-visualizer/#/${id}`,
-        appName: i18n.t('Visualizer'),
+        appName: 'Data Visualizer',
         defaultItemCount: 10,
     },
     [REPORT_TABLE]: {
@@ -65,7 +66,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
         appUrl: id => `dhis-web-data-visualizer/#/${id}`,
-        appName: i18n.t('Visualizer'),
+        appName: 'Data Visualizer',
     },
     [CHART]: {
         id: CHART,
@@ -75,7 +76,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
         appUrl: id => `dhis-web-data-visualizer/#/${id}`,
-        appName: i18n.t('Visualizer'),
+        appName: 'Data Visualizer',
     },
     [MAP]: {
         id: MAP,
@@ -85,7 +86,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
         appUrl: id => `dhis-web-maps/?id=${id}`,
-        appName: i18n.t('Maps'),
+        appName: 'Maps',
     },
     [EVENT_REPORT]: {
         id: EVENT_REPORT,
@@ -95,7 +96,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
         appUrl: id => `dhis-web-event-reports/?id=${id}`,
-        appName: i18n.t('Event Reports'),
+        appName: 'Event Reports',
     },
     [EVENT_CHART]: {
         id: EVENT_CHART,
@@ -105,7 +106,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
         appUrl: id => `dhis-web-event-visualizer/?id=${id}`,
-        appName: i18n.t('Event Visualizer'),
+        appName: 'Event Visualizer',
     },
     [APP]: {
         endPointName: 'apps',

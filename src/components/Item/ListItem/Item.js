@@ -50,7 +50,7 @@ const ListItem = (props, context) => {
 
     return (
         <Fragment>
-            <ItemHeader title={getItemTitle(item)} />
+            <ItemHeader title={getItemTitle(item)} itemId={item.id} />
             <Line />
             <div className="dashboard-item-content">
                 <ul className={classes.list}>

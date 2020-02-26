@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 
 import { colors } from '@dhis2/ui-core';
@@ -11,10 +12,10 @@ const style = {
     color: colors.grey600,
 };
 
-const SpacerItem = () => {
+const SpacerItem = props => {
     return (
         <Fragment>
-            <ItemHeader title={i18n.t('Spacer')} />
+            <ItemHeader title={i18n.t('Spacer')} itemId={props.item.id} />
             <p style={style}>
                 {i18n.t(
                     'Use a spacer to create empty vertical space between other dashboard items.'
@@ -22,6 +23,10 @@ const SpacerItem = () => {
             </p>
         </Fragment>
     );
+};
+
+SpacerItem.propTypes = {
+    item: PropTypes.object,
 };
 
 export default SpacerItem;
