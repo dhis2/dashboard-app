@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-09T01:43:57.112Z\n"
+"POT-Creation-Date: 2020-02-12T20:02:08.021Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
@@ -137,11 +137,14 @@ msgstr "Редагувати"
 msgid "Share"
 msgstr "Поділитися"
 
-msgid "Pivot tables"
-msgstr "Зведені таблиці"
+msgid "Visualizations"
+msgstr ""
 
 msgid "Visualizer"
 msgstr ""
+
+msgid "Pivot tables"
+msgstr "Зведені таблиці"
 
 msgid "Charts"
 msgstr "Діаграми"
