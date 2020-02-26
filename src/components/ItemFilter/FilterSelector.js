@@ -132,6 +132,7 @@ class FilterSelector extends Component {
                     }}
                 >
                     <DimensionsPanel
+                        style={{ width: '320px' }}
                         dimensions={dimensions}
                         onDimensionClick={this.selectDimension}
                         selectedIds={selectedDimensions}

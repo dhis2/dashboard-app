@@ -1194,6 +1194,26 @@
     resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.2.1"
 
+"@dhis2/analytics@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.1.5.tgz#c16f0c9de24c0635b950cbfd25a6fc42a08ff74a"
+  integrity sha512-pHUwZ9CFvCxNZmrS3tnkfZc+P26UulsxOXmxVxD9weDIeY5+5hnfOMqd+x6QKZSlfPz4HQXRZ2XBSKBtAQ7DWg==
+  dependencies:
+    "@dhis2/d2-i18n" "^1.0.4"
+    "@dhis2/d2-ui-org-unit-dialog" "^6.5.6"
+    "@dhis2/d2-ui-period-selector-dialog" "^6.5.7"
+    "@dhis2/ui-core" "^4.9.1"
+    "@material-ui/core" "^3.9.3"
+    "@material-ui/icons" "^3.0.2"
+    classnames "^2.2.6"
+    d2-utilizr "^0.2.16"
+    d3-color "^1.2.3"
+    highcharts "^7.2.1"
+    lodash "^4.17.13"
+    react-beautiful-dnd "^10.1.1"
+    resize-observer-polyfill "^1.5.1"
+    styled-jsx "^3.2.1"
+
 "@dhis2/app-runtime@^2.0.3":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.0.3.tgz#ababc8494420b4f16cbfdc3fef8f9a2707008a4c"
