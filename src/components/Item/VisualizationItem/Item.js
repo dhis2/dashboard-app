@@ -19,7 +19,7 @@ import {
     acAddVisualization,
     acSetActiveVisualizationType,
 } from '../../../actions/visualizations';
-import { acAddCurrentVisualizationView } from '../../../actions/currentVisualizationViews';
+import { acSetCurrentVisualizationView } from '../../../actions/currentVisualizationViews';
 import {
     VISUALIZATION,
     MAP,
@@ -114,8 +114,7 @@ export class Item extends Component {
         const vis = await pluginManager.fetch(this.props.item);
         // TODO do not call fetch on the pluginManager, do it here as the manager will eventually be removed...
         this.props.onVisualizationLoaded(vis);
-        console.log('Item CDM', vis);
-        this.props.onSelectVisualizationView(vis);
+        this.props.onSelectVisualizationView(this.props.visualization.id, vis);
 
         this.setState({
             configLoaded: true,
@@ -127,37 +126,48 @@ export class Item extends Component {
     pluginCredentials = null;
 
     getPluginComponent = () => {
-        const activeType = this.getActiveType();
-        let visualization = getVisualizationConfig(
-            this.props.visualization,
-            this.props.item.type,
-            activeType
-        );
+        const {
+            itemFilters,
+            editMode,
+            item,
+            classes,
+            visualization,
+            currentVisualizationView,
+        } = this.props;
 
-        if (!visualization) {
+        if (!currentVisualizationView) {
             return (
                 <div className={this.props.classes.textDiv}>
                     {i18n.t('No data to display')}
                 </div>
             );
         }
-        const { itemFilters, editMode, item, classes } = this.props;
         const style = this.getContentStyle();
 
-        switch (activeType) {
+        // console.log(
+        //     'current',
+        //     currentVisualizationView.name,
+        //     currentVisualizationView.type
+        // );
+
+        switch (this.getActiveType()) {
             case VISUALIZATION:
             case CHART:
             case REPORT_TABLE: {
                 return (
                     <VisualizationPlugin
                         d2={this.d2}
-                        visualization={applyFilters(visualization, itemFilters)}
+                        visualization={applyFilters(
+                            currentVisualizationView,
+                            itemFilters
+                        )}
                         forDashboard={true}
                         style={style}
                     />
                 );
             }
             case MAP: {
+                let vis = currentVisualizationView;
                 if (item.type === MAP) {
                     // apply filters only to thematic and event layers
                     // for maps AO
@@ -172,20 +182,26 @@ export class Item extends Component {
                         return obj;
                     });
 
-                    visualization = {
-                        ...visualization,
+                    vis = {
+                        ...currentVisualizationView,
                         mapViews,
                     };
                 } else {
                     // this is the case of a non map AO passed to the maps plugin
                     // due to a visualization type switch in dashboard item
                     // maps plugin takes care of converting the AO to a suitable format
-                    visualization = applyFilters(visualization, itemFilters);
+                    vis = applyFilters(
+                        {
+                            currentVisualizationView,
+                            itemFilters,
+                        },
+                        itemFilters
+                    );
                 }
 
                 return (
                     <DefaultPlugin
-                        visualization={visualization}
+                        visualization={vis}
                         itemFilters={itemFilters}
                         item={item}
                         editMode={editMode}
@@ -195,11 +211,11 @@ export class Item extends Component {
                 );
             }
             default: {
-                visualization = applyFilters(visualization, itemFilters);
+                const vis = applyFilters(currentVisualizationView, itemFilters);
 
                 return (
                     <DefaultPlugin
-                        visualization={visualization}
+                        visualization={vis}
                         itemFilters={itemFilters}
                         item={item}
                         editMode={editMode}
@@ -225,13 +241,17 @@ export class Item extends Component {
 
         pluginManager.unmount(this.props.item, this.getActiveType());
 
-        const updatedVis = this.props.visualization;
-
         this.props.onSelectActiveType(this.props.visualization.id, type);
 
+        const visualization = getVisualizationConfig(
+            this.props.visualization,
+            this.props.item.type,
+            type
+        );
+
         this.props.onSelectVisualizationView(
-            // this.props.visualization.id,
-            updatedVis
+            this.props.visualization.id,
+            visualization
         );
     };
 
@@ -297,6 +317,7 @@ Item.contextTypes = {
 
 Item.propTypes = {
     classes: PropTypes.object,
+    currentVisualizationView: PropTypes.object,
     editMode: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
@@ -332,8 +353,9 @@ const mapDispatchToProps = dispatch => ({
         dispatch(acAddVisualization(visualization)),
     onSelectActiveType: (id, type) =>
         dispatch(acSetActiveVisualizationType(id, type)),
-    onSelectVisualizationView: (id, visualization) =>
-        dispatch(acAddCurrentVisualizationView(id, visualization)),
+    onSelectVisualizationView: (id, visualization) => {
+        dispatch(acSetCurrentVisualizationView({ id, visualization }));
+    },
 });
 
 export default connect(
