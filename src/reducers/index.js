@@ -11,6 +11,7 @@ import dashboardsFilter, {
 } from './dashboardsFilter';
 import controlBar from './controlBar';
 import visualizations from './visualizations';
+import currentVisualizationViews from './currentVisualizationViews';
 import editDashboard from './editDashboard';
 import messages from './messages';
 import user from './user';
@@ -32,6 +33,7 @@ export default combineReducers({
     dashboardsFilter,
     controlBar,
     visualizations,
+    currentVisualizationViews,
     messages,
     user,
     editDashboard,

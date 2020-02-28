@@ -60,7 +60,7 @@ export const itemTypeMap = {
     },
     [REPORT_TABLE]: {
         id: REPORT_TABLE,
-        endPointName: 'reportTables',
+        endPointName: 'visualizations',
         propName: 'reportTable',
         pluralTitle: i18n.t('Pivot tables'),
         domainType: DOMAIN_TYPE_AGGREGATE,
@@ -70,7 +70,7 @@ export const itemTypeMap = {
     },
     [CHART]: {
         id: CHART,
-        endPointName: 'charts',
+        endPointName: 'visualizations',
         propName: 'chart',
         pluralTitle: i18n.t('Charts'),
         domainType: DOMAIN_TYPE_AGGREGATE,

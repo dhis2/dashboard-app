@@ -4,6 +4,7 @@ import {
     SET_SELECTED_SHOWDESCRIPTION,
 } from '../reducers/selected';
 import { acAddVisualization } from '../actions/visualizations';
+import { acAddCurrentVisualizationView } from '../actions/currentVisualizationViews';
 import { sGetSelectedIsLoading } from '../reducers/selected';
 import { sGetUserUsername } from '../reducers/user';
 import { getCustomDashboards, sGetDashboardById } from '../reducers/dashboards';
@@ -91,6 +92,9 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
                 case EVENT_REPORT:
                 case EVENT_CHART:
                     dispatch(acAddVisualization(extractFavorite(item)));
+                    dispatch(
+                        acAddCurrentVisualizationView(extractFavorite(item))
+                    );
                     break;
                 case MESSAGES:
                     dispatch(tGetMessages(id));

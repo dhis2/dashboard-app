@@ -13,12 +13,19 @@ import ItemHeaderButtons from './ItemHeaderButtons';
 import ItemFooter from './ItemFooter';
 import * as pluginManager from './plugin';
 import { sGetVisualization } from '../../../reducers/visualizations';
+import { sGetCurrentVisualizationView } from '../../../reducers/currentVisualizationViews';
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters';
 import {
     acAddVisualization,
     acSetActiveVisualizationType,
 } from '../../../actions/visualizations';
-import { VISUALIZATION, MAP, CHART, REPORT_TABLE } from '../../../modules/itemTypes';
+import { acAddCurrentVisualizationView } from '../../../actions/currentVisualizationViews';
+import {
+    VISUALIZATION,
+    MAP,
+    CHART,
+    REPORT_TABLE,
+} from '../../../modules/itemTypes';
 
 import { colors } from '@dhis2/ui-core';
 import memoizeOne from '../../../modules/memoizeOne';
@@ -104,10 +111,11 @@ export class Item extends Component {
     }
 
     async componentDidMount() {
-        this.props.onVisualizationLoaded(
-            // TODO do not call fetch on the pluginManager, do it here as the manager will eventually be removed...
-            await pluginManager.fetch(this.props.item)
-        );
+        const vis = await pluginManager.fetch(this.props.item);
+        // TODO do not call fetch on the pluginManager, do it here as the manager will eventually be removed...
+        this.props.onVisualizationLoaded(vis);
+        console.log('Item CDM', vis);
+        this.props.onSelectVisualizationView(vis);
 
         this.setState({
             configLoaded: true,
@@ -120,7 +128,7 @@ export class Item extends Component {
 
     getPluginComponent = () => {
         const activeType = this.getActiveType();
-        const visualization = getVisualizationConfig(
+        let visualization = getVisualizationConfig(
             this.props.visualization,
             this.props.item.type,
             activeType
@@ -133,12 +141,8 @@ export class Item extends Component {
                 </div>
             );
         }
-
-        const props = {
-            ...this.props,
-            visualization,
-            style: this.getContentStyle(),
-        };
+        const { itemFilters, editMode, item, classes } = this.props;
+        const style = this.getContentStyle();
 
         switch (activeType) {
             case VISUALIZATION:
@@ -147,53 +151,62 @@ export class Item extends Component {
                 return (
                     <VisualizationPlugin
                         d2={this.d2}
-                        visualization={applyFilters(
-                            visualization,
-                            props.itemFilters
-                        )}
+                        visualization={applyFilters(visualization, itemFilters)}
                         forDashboard={true}
-                        style={props.style}
+                        style={style}
                     />
                 );
             }
             case MAP: {
-                if (props.item.type === MAP) {
+                if (item.type === MAP) {
                     // apply filters only to thematic and event layers
                     // for maps AO
-                    const mapViews = props.visualization.mapViews.map(obj => {
+                    const mapViews = visualization.mapViews.map(obj => {
                         if (
                             obj.layer.includes('thematic') ||
                             obj.layer.includes('event')
                         ) {
-                            return applyFilters(obj, props.itemFilters);
+                            return applyFilters(obj, itemFilters);
                         }
 
                         return obj;
                     });
 
-                    props.visualization = {
-                        ...props.visualization,
+                    visualization = {
+                        ...visualization,
                         mapViews,
                     };
                 } else {
                     // this is the case of a non map AO passed to the maps plugin
                     // due to a visualization type switch in dashboard item
                     // maps plugin takes care of converting the AO to a suitable format
-                    props.visualization = applyFilters(
-                        props.visualization,
-                        props.itemFilters
-                    );
+                    visualization = applyFilters(visualization, itemFilters);
                 }
 
-                return <DefaultPlugin {...props} />;
+                return (
+                    <DefaultPlugin
+                        visualization={visualization}
+                        itemFilters={itemFilters}
+                        item={item}
+                        editMode={editMode}
+                        classes={classes}
+                        style={style}
+                    />
+                );
             }
             default: {
-                props.visualization = applyFilters(
-                    props.visualization,
-                    props.itemFilters
-                );
+                visualization = applyFilters(visualization, itemFilters);
 
-                return <DefaultPlugin {...props} />;
+                return (
+                    <DefaultPlugin
+                        visualization={visualization}
+                        itemFilters={itemFilters}
+                        item={item}
+                        editMode={editMode}
+                        classes={classes}
+                        style={style}
+                    />
+                );
             }
         }
     };
@@ -212,7 +225,14 @@ export class Item extends Component {
 
         pluginManager.unmount(this.props.item, this.getActiveType());
 
+        const updatedVis = this.props.visualization;
+
         this.props.onSelectActiveType(this.props.visualization.id, type);
+
+        this.props.onSelectVisualizationView(
+            // this.props.visualization.id,
+            updatedVis
+        );
     };
 
     getActiveType = () =>
@@ -282,6 +302,7 @@ Item.propTypes = {
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
+    onSelectVisualizationView: PropTypes.func,
     onToggleItemExpanded: PropTypes.func,
     onVisualizationLoaded: PropTypes.func,
 };
@@ -300,13 +321,19 @@ const mapStateToProps = (state, ownProps) => ({
         state,
         pluginManager.extractFavorite(ownProps.item).id
     ),
+    currentVisualizationView: sGetCurrentVisualizationView(
+        state,
+        pluginManager.extractFavorite(ownProps.item).id
+    ),
 });
 
 const mapDispatchToProps = dispatch => ({
     onVisualizationLoaded: visualization =>
         dispatch(acAddVisualization(visualization)),
-    onSelectActiveType: (id, type, activeType) =>
-        dispatch(acSetActiveVisualizationType(id, type, activeType)),
+    onSelectActiveType: (id, type) =>
+        dispatch(acSetActiveVisualizationType(id, type)),
+    onSelectVisualizationView: (id, visualization) =>
+        dispatch(acAddCurrentVisualizationView(id, visualization)),
 });
 
 export default connect(
