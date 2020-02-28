@@ -144,12 +144,6 @@ export class Item extends Component {
         }
         const style = this.getContentStyle();
 
-        // console.log(
-        //     'current',
-        //     currentVisualizationView.name,
-        //     currentVisualizationView.type
-        // );
-
         switch (this.getActiveType()) {
             case VISUALIZATION:
             case CHART:
@@ -190,13 +184,7 @@ export class Item extends Component {
                     // this is the case of a non map AO passed to the maps plugin
                     // due to a visualization type switch in dashboard item
                     // maps plugin takes care of converting the AO to a suitable format
-                    vis = applyFilters(
-                        {
-                            currentVisualizationView,
-                            itemFilters,
-                        },
-                        itemFilters
-                    );
+                    vis = applyFilters(currentVisualizationView, itemFilters);
                 }
 
                 return (
@@ -234,25 +222,29 @@ export class Item extends Component {
         );
     };
 
-    onSelectActiveType = type => {
-        if (type === this.getActiveType()) {
+    onSelectActiveType = newActiveType => {
+        const currentActiveType = this.getActiveType();
+        if (newActiveType === currentActiveType) {
             return;
         }
 
-        pluginManager.unmount(this.props.item, this.getActiveType());
+        pluginManager.unmount(this.props.item, currentActiveType);
 
-        this.props.onSelectActiveType(this.props.visualization.id, type);
+        this.props.onSelectActiveType(
+            this.props.visualization.id,
+            newActiveType
+        );
 
         const visualization = getVisualizationConfig(
             this.props.visualization,
             this.props.item.type,
-            type
+            newActiveType
         );
 
-        this.props.onSelectVisualizationView(
-            this.props.visualization.id,
-            visualization
-        );
+        this.props.onSelectVisualizationView(this.props.visualization.id, {
+            ...visualization,
+            activeType: newActiveType,
+        });
     };
 
     getActiveType = () =>
