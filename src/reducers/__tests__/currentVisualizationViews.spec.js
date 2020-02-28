@@ -27,7 +27,7 @@ describe('current vis reducer', () => {
         };
 
         const currentState = state;
-        const expectedState = { [visId]: newVis };
+        const expectedState = { ...state, [visId]: newVis };
         const actualState = reducer(currentState, action);
 
         expect(actualState).toEqual(expectedState);

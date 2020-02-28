@@ -50,6 +50,13 @@ describe('VisualizationItem/Item', () => {
                 columns: [],
                 filters: [],
             },
+            currentVisualizationView: {
+                name: 'vis name',
+                description: 'vis description',
+                rows: [],
+                columns: [],
+                filters: [],
+            },
             onToggleItemExpanded: jest.fn(),
             onVisualizationLoaded: jest.fn(),
         };
@@ -64,7 +71,7 @@ describe('VisualizationItem/Item', () => {
         };
 
         const expectedConfig = {
-            ...props.visualization,
+            ...props.currentVisualizationView,
             filters: [
                 {
                     dimension: 'brilliance',
@@ -91,7 +98,7 @@ describe('VisualizationItem/Item', () => {
         };
 
         const expectedConfig = {
-            ...props.visualization,
+            ...props.currentVisualizationView,
             filters: [
                 {
                     dimension: 'brilliance',
@@ -117,7 +124,7 @@ describe('VisualizationItem/Item', () => {
             name: 'Test evchart',
         };
         const expectedConfig = {
-            ...props.visualization,
+            ...props.currentVisualizationView,
             filters: [
                 {
                     dimension: 'brilliance',

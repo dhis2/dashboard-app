@@ -5,6 +5,15 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Item
     classes={Object {}}
+    currentVisualizationView={
+      Object {
+        "columns": Array [],
+        "description": "vis description",
+        "filters": Array [],
+        "name": "vis name",
+        "rows": Array [],
+      }
+    }
     editMode={false}
     item={
       Object {

@@ -131,7 +131,6 @@ export class Item extends Component {
             editMode,
             item,
             classes,
-            visualization,
             currentVisualizationView,
         } = this.props;
 
@@ -165,16 +164,18 @@ export class Item extends Component {
                 if (item.type === MAP) {
                     // apply filters only to thematic and event layers
                     // for maps AO
-                    const mapViews = visualization.mapViews.map(obj => {
-                        if (
-                            obj.layer.includes('thematic') ||
-                            obj.layer.includes('event')
-                        ) {
-                            return applyFilters(obj, itemFilters);
-                        }
+                    const mapViews = currentVisualizationView.mapViews.map(
+                        obj => {
+                            if (
+                                obj.layer.includes('thematic') ||
+                                obj.layer.includes('event')
+                            ) {
+                                return applyFilters(obj, itemFilters);
+                            }
 
-                        return obj;
-                    });
+                            return obj;
+                        }
+                    );
 
                     vis = {
                         ...currentVisualizationView,
