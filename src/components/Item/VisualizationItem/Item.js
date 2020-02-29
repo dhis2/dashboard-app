@@ -108,10 +108,12 @@ export class Item extends Component {
     }
 
     async componentDidMount() {
-        const vis = await pluginManager.fetch(this.props.item);
-        // TODO do not call fetch on the pluginManager, do it here as the manager will eventually be removed...
-        this.props.onVisualizationLoaded(vis);
-        this.props.onSelectVisualizationView(this.props.visualization.id, vis);
+        const visualization = await pluginManager.fetch(this.props.item);
+        this.props.onVisualizationLoaded(visualization);
+        this.props.onSelectVisualizationView(
+            this.props.visualization.id,
+            visualization
+        );
 
         this.setState({
             configLoaded: true,
@@ -139,10 +141,9 @@ export class Item extends Component {
             );
         }
         const style = this.getContentStyle();
+        const props = { itemFilters, editMode, item, classes, style };
 
-        const activeType = this.getActiveType();
-
-        switch (activeType) {
+        switch (this.getActiveType()) {
             case VISUALIZATION:
             case CHART:
             case REPORT_TABLE: {
@@ -159,10 +160,9 @@ export class Item extends Component {
                 );
             }
             case MAP: {
-                let vis = currentVisualizationView;
+                let visualization = currentVisualizationView;
                 if (item.type === MAP) {
-                    // apply filters only to thematic and event layers
-                    // for maps AO
+                    // apply filters only to thematic and event layers for map
                     const mapViews = currentVisualizationView.mapViews.map(
                         obj => {
                             if (
@@ -176,40 +176,30 @@ export class Item extends Component {
                         }
                     );
 
-                    vis = {
+                    visualization = {
                         ...currentVisualizationView,
                         mapViews,
                     };
                 } else {
-                    // this is the case of a non map AO passed to the maps plugin
-                    // due to a visualization type switch in dashboard item
-                    // maps plugin takes care of converting the AO to a suitable format
-                    vis = applyFilters(currentVisualizationView, itemFilters);
+                    // Non-map AO passed to the maps plugin. Maps plugin will handle it
+                    visualization = applyFilters(
+                        currentVisualizationView,
+                        itemFilters
+                    );
                 }
 
                 return (
-                    <DefaultPlugin
-                        visualization={vis}
-                        itemFilters={itemFilters}
-                        item={item}
-                        editMode={editMode}
-                        classes={classes}
-                        style={style}
-                    />
+                    <DefaultPlugin {...props} visualization={visualization} />
                 );
             }
             default: {
-                const vis = applyFilters(currentVisualizationView, itemFilters);
+                const visualization = applyFilters(
+                    currentVisualizationView,
+                    itemFilters
+                );
 
                 return (
-                    <DefaultPlugin
-                        visualization={vis}
-                        itemFilters={itemFilters}
-                        item={item}
-                        editMode={editMode}
-                        classes={classes}
-                        style={style}
-                    />
+                    <DefaultPlugin {...props} visualization={visualization} />
                 );
             }
         }
