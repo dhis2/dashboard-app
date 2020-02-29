@@ -4,7 +4,6 @@ import objectClean from 'd2-utilizr/lib/objectClean';
 /** @module reducers/visualizations */
 
 export const ADD_VISUALIZATION = 'ADD_VISUALIZATION';
-export const SET_ACTIVE_VISUALIZATION_TYPE = 'SET_ACTIVE_VISUALIZATION_TYPE';
 
 export const DEFAULT_STATE_VISUALIZATIONS = {};
 
@@ -24,18 +23,7 @@ export default (state = DEFAULT_STATE_VISUALIZATIONS, action) => {
                 ),
             };
         }
-        case SET_ACTIVE_VISUALIZATION_TYPE: {
-            return {
-                ...state,
-                [action.id]: objectClean(
-                    {
-                        ...orObject(state[action.id]),
-                        activeType: action.activeType,
-                    },
-                    isEmpty
-                ),
-            };
-        }
+
         default:
             return state;
     }

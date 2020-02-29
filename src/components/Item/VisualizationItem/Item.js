@@ -15,10 +15,7 @@ import * as pluginManager from './plugin';
 import { sGetVisualization } from '../../../reducers/visualizations';
 import { sGetCurrentVisualizationView } from '../../../reducers/currentVisualizationViews';
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters';
-import {
-    acAddVisualization,
-    acSetActiveVisualizationType,
-} from '../../../actions/visualizations';
+import { acAddVisualization } from '../../../actions/visualizations';
 import { acSetCurrentVisualizationView } from '../../../actions/currentVisualizationViews';
 import {
     VISUALIZATION,
@@ -143,7 +140,9 @@ export class Item extends Component {
         }
         const style = this.getContentStyle();
 
-        switch (this.getActiveType()) {
+        const activeType = this.getActiveType();
+
+        switch (activeType) {
             case VISUALIZATION:
             case CHART:
             case REPORT_TABLE: {
@@ -231,11 +230,6 @@ export class Item extends Component {
 
         pluginManager.unmount(this.props.item, currentActiveType);
 
-        this.props.onSelectActiveType(
-            this.props.visualization.id,
-            newActiveType
-        );
-
         const visualization = getVisualizationConfig(
             this.props.visualization,
             this.props.item.type,
@@ -249,7 +243,9 @@ export class Item extends Component {
     };
 
     getActiveType = () =>
-        this.props.visualization.activeType || this.props.item.type;
+        (this.props.currentVisualizationView &&
+            this.props.currentVisualizationView.activeType) ||
+        this.props.item.type;
 
     pluginIsAvailable = () =>
         pluginManager.pluginIsAvailable(
@@ -315,7 +311,6 @@ Item.propTypes = {
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,
-    onSelectActiveType: PropTypes.func,
     onSelectVisualizationView: PropTypes.func,
     onToggleItemExpanded: PropTypes.func,
     onVisualizationLoaded: PropTypes.func,
@@ -344,8 +339,6 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
     onVisualizationLoaded: visualization =>
         dispatch(acAddVisualization(visualization)),
-    onSelectActiveType: (id, type) =>
-        dispatch(acSetActiveVisualizationType(id, type)),
     onSelectVisualizationView: (id, visualization) => {
         dispatch(acSetCurrentVisualizationView({ id, visualization }));
     },

@@ -46,6 +46,5 @@ export const sGetCurrentVisualizationViewsRoot = state =>
     state.currentVisualizationViews;
 
 // selectors level 1
-export const sGetCurrentVisualizationView = (state, id) => {
-    return sGetCurrentVisualizationViewsRoot(state)[id];
-};
+export const sGetCurrentVisualizationView = (state, id) =>
+    sGetCurrentVisualizationViewsRoot(state)[id];
