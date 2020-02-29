@@ -4,7 +4,7 @@ import {
     SET_SELECTED_SHOWDESCRIPTION,
 } from '../reducers/selected';
 import { acAddVisualization } from '../actions/visualizations';
-import { acAddCurrentVisualizationView } from '../actions/currentVisualizationViews';
+import { acSetCurrentVisualizationView } from '../actions/currentVisualizationViews';
 import { sGetSelectedIsLoading } from '../reducers/selected';
 import { sGetUserUsername } from '../reducers/user';
 import { getCustomDashboards, sGetDashboardById } from '../reducers/dashboards';
@@ -15,14 +15,7 @@ import { tGetMessages } from '../components/Item/MessagesItem/actions';
 import { acReceivedSnackbarMessage, acCloseSnackbar } from './snackbar';
 import { storePreferredDashboardId } from '../api/localStorage';
 import { loadingDashboardMsg } from '../components/SnackbarMessage/SnackbarMessage';
-import {
-    REPORT_TABLE,
-    CHART,
-    MAP,
-    EVENT_REPORT,
-    EVENT_CHART,
-    MESSAGES,
-} from '../modules/itemTypes';
+import { MESSAGES, isVisualizationType } from '../modules/itemTypes';
 import { extractFavorite } from '../components/Item/VisualizationItem/plugin';
 import { orObject } from '../modules/util';
 
@@ -85,22 +78,19 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
 
         // add visualizations to store
         customDashboard.dashboardItems.forEach(item => {
-            switch (item.type) {
-                case REPORT_TABLE:
-                case CHART:
-                case MAP:
-                case EVENT_REPORT:
-                case EVENT_CHART:
-                    dispatch(acAddVisualization(extractFavorite(item)));
-                    dispatch(
-                        acAddCurrentVisualizationView(extractFavorite(item))
-                    );
-                    break;
-                case MESSAGES:
-                    dispatch(tGetMessages(id));
-                    break;
-                default:
-                    break;
+            if (isVisualizationType(item)) {
+                const visualization = extractFavorite(item);
+                dispatch(acAddVisualization(visualization));
+                dispatch(
+                    acSetCurrentVisualizationView(
+                        visualization.id,
+                        visualization
+                    )
+                );
+            }
+
+            if (item.type === MESSAGES) {
+                dispatch(tGetMessages(id));
             }
         });
 

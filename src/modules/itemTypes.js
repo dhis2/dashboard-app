@@ -56,6 +56,7 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Visualizations'),
         appUrl: id => `dhis-web-data-visualizer/#/${id}`,
         appName: 'Data Visualizer',
+        isVisualizationType: true,
         defaultItemCount: 10,
     },
     [REPORT_TABLE]: {

@@ -26,7 +26,6 @@ import {
 
 import { colors } from '@dhis2/ui-core';
 import memoizeOne from '../../../modules/memoizeOne';
-import { getVisualizationConfig } from './plugin';
 
 const HEADER_HEIGHT = 45;
 
@@ -220,7 +219,7 @@ export class Item extends Component {
 
         pluginManager.unmount(this.props.item, currentActiveType);
 
-        const visualization = getVisualizationConfig(
+        const visualization = pluginManager.getVisualizationConfig(
             this.props.visualization,
             this.props.item.type,
             newActiveType

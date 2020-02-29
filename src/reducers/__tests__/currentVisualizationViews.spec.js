@@ -1,5 +1,5 @@
 import reducer, {
-    // ADD_CURRENT_VISUALIZATION_VIEW,
+    ADD_CURRENT_VISUALIZATION_VIEW,
     SET_CURRENT_VISUALIZATION_VIEW,
 } from '../currentVisualizationViews';
 
@@ -20,7 +20,7 @@ describe('current vis reducer', () => {
         pinkie: { name: 'pinkie pie', type: 'SINGLE_VALUE' },
     };
 
-    it('should update a visualization with current vis (SET_CURRENT_VISUALIZATION_VIEW)', () => {
+    it('updates a visualization with current vis (SET_CURRENT_VISUALIZATION_VIEW)', () => {
         const action = {
             type: SET_CURRENT_VISUALIZATION_VIEW,
             value: { id: visId, visualization: newVis },
