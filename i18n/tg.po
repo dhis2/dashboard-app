@@ -1,13 +1,13 @@
 # Translators:
-# phil_dhis2, 2019
-# Viktor Varland <viktor@dhis2.org>, 2019
+# phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-12T20:02:08.021Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"POT-Creation-Date: 2020-02-25T15:24:49.055Z\n"
+"PO-Revision-Date: 2020-03-02 13:27+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Tajik (https://www.transifex.com/hisp-uio/teams/100509/tg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -71,10 +71,16 @@ msgstr[1] ""
 msgid "Remove"
 msgstr "Тоза кардан"
 
+msgid "Delete item"
+msgstr ""
+
 msgid "Messages"
 msgstr "Паёмҳо"
 
 msgid "See all messages"
+msgstr ""
+
+msgid "Item type \"{{type}}\" not supported"
 msgstr ""
 
 msgid "Spacer"
@@ -94,6 +100,24 @@ msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "No data to display"
+msgstr ""
+
+msgid "Hide interpretations and details"
+msgstr ""
+
+msgid "Show interpretations and details"
+msgstr ""
+
+msgid "View as Chart"
+msgstr ""
+
+msgid "View as Table"
+msgstr ""
+
+msgid "View as Map"
+msgstr ""
+
+msgid "Open in {{appName}} app"
 msgstr ""
 
 msgid "Confirm"
@@ -138,9 +162,6 @@ msgstr "Мубодила"
 msgid "Visualizations"
 msgstr ""
 
-msgid "Visualizer"
-msgstr ""
-
 msgid "Pivot tables"
 msgstr ""
 
@@ -153,13 +174,7 @@ msgstr ""
 msgid "Event reports"
 msgstr ""
 
-msgid "Event Reports"
-msgstr ""
-
 msgid "Event charts"
-msgstr ""
-
-msgid "Event Visualizer"
 msgstr ""
 
 msgid "Apps"
