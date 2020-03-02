@@ -1,14 +1,15 @@
 # Translators:
-# a270031086f2a0d3514bc0cb507b48f6, 2019
-# mrwine <matthieu@pinard.no>, 2019
-# Viktor Varland <viktor@dhis2.org>, 2019
+# mrwine <matthieu@pinard.no>, 2020
+# phil_dhis2, 2020
+# a270031086f2a0d3514bc0cb507b48f6, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-12T20:02:08.021Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"POT-Creation-Date: 2020-02-25T15:24:49.055Z\n"
+"PO-Revision-Date: 2020-03-02 13:27+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,10 +51,10 @@ msgid "Search for a dashboard"
 msgstr "Rechercher un tableau de bord"
 
 msgid "Show more"
-msgstr "Montre plus"
+msgstr "Afficher plus"
 
 msgid "Show less"
-msgstr "Montre moins"
+msgstr "Afficher moins"
 
 msgid "No access"
 msgstr ""
@@ -74,10 +75,16 @@ msgstr[1] ""
 msgid "Remove"
 msgstr "Supprimer"
 
-msgid "Messages"
+msgid "Delete item"
 msgstr ""
 
+msgid "Messages"
+msgstr "Messages"
+
 msgid "See all messages"
+msgstr ""
+
+msgid "Item type \"{{type}}\" not supported"
 msgstr ""
 
 msgid "Spacer"
@@ -99,6 +106,24 @@ msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "No data to display"
+msgstr ""
+
+msgid "Hide interpretations and details"
+msgstr ""
+
+msgid "Show interpretations and details"
+msgstr ""
+
+msgid "View as Chart"
+msgstr ""
+
+msgid "View as Table"
+msgstr ""
+
+msgid "View as Map"
+msgstr ""
+
+msgid "Open in {{appName}} app"
 msgstr ""
 
 msgid "Confirm"
@@ -132,7 +157,7 @@ msgid "Dashboard description"
 msgstr ""
 
 msgid "No description"
-msgstr "Pas de description"
+msgstr "Aucune description"
 
 msgid "Edit"
 msgstr "Modifier"
@@ -142,9 +167,6 @@ msgstr "Partager"
 
 msgid "Visualizations"
 msgstr ""
-
-msgid "Visualizer"
-msgstr "Visualiseur"
 
 msgid "Pivot tables"
 msgstr "Tableaux croisés dynamiques"
@@ -158,14 +180,8 @@ msgstr "Cartes"
 msgid "Event reports"
 msgstr "Rapports d'événements"
 
-msgid "Event Reports"
-msgstr "Rapports d'évènements"
-
 msgid "Event charts"
 msgstr "Tableaux d'événements"
-
-msgid "Event Visualizer"
-msgstr "Visualiseur d'évènements"
 
 msgid "Apps"
 msgstr "Applications"
