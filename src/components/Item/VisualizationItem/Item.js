@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
@@ -18,11 +18,17 @@ import {
     acAddVisualization,
     acSetActiveVisualizationType,
 } from '../../../actions/visualizations';
-import { VISUALIZATION, MAP, CHART, REPORT_TABLE } from '../../../modules/itemTypes';
+import {
+    VISUALIZATION,
+    MAP,
+    CHART,
+    REPORT_TABLE,
+} from '../../../modules/itemTypes';
 
 import { colors } from '@dhis2/ui-core';
 import memoizeOne from '../../../modules/memoizeOne';
 import { getVisualizationConfig } from './plugin';
+import LoadingMask from './LoadingMask';
 
 const HEADER_HEIGHT = 45;
 
@@ -45,6 +51,15 @@ const styles = {
         fontStretch: 'normal',
         padding: '10px',
         lineHeight: '20px',
+    },
+    loadingCover: {
+        position: 'absolute',
+        height: '100%',
+        width: '100%',
+        left: 0,
+        top: 0,
+        zIndex: 100,
+        background: '#ffffffab',
     },
 };
 
@@ -93,6 +108,7 @@ export class Item extends Component {
     state = {
         showFooter: false,
         configLoaded: false,
+        pluginIsLoaded: false,
     };
 
     constructor(props, context) {
@@ -145,15 +161,23 @@ export class Item extends Component {
             case CHART:
             case REPORT_TABLE: {
                 return (
-                    <VisualizationPlugin
-                        d2={this.d2}
-                        visualization={applyFilters(
-                            visualization,
-                            props.itemFilters
-                        )}
-                        forDashboard={true}
-                        style={props.style}
-                    />
+                    <Fragment>
+                        {!this.state.pluginIsLoaded ? (
+                            <div style={styles.loadingCover}>
+                                <LoadingMask />
+                            </div>
+                        ) : null}
+                        <VisualizationPlugin
+                            d2={this.d2}
+                            visualization={applyFilters(
+                                visualization,
+                                props.itemFilters
+                            )}
+                            onLoadingComplete={this.onLoadingComplete}
+                            forDashboard={true}
+                            style={props.style}
+                        />
+                    </Fragment>
                 );
             }
             case MAP: {
@@ -196,6 +220,12 @@ export class Item extends Component {
                 return <DefaultPlugin {...props} />;
             }
         }
+    };
+
+    onLoadingComplete = () => {
+        this.setState({
+            pluginIsLoaded: true,
+        });
     };
 
     onToggleFooter = () => {
