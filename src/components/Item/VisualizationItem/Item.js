@@ -29,6 +29,7 @@ import { colors } from '@dhis2/ui-core';
 import memoizeOne from '../../../modules/memoizeOne';
 import { getVisualizationConfig } from './plugin';
 import LoadingMask from './LoadingMask';
+import { createSelector } from 'reselect';
 
 const HEADER_HEIGHT = 45;
 
@@ -63,7 +64,14 @@ const styles = {
     },
 };
 
+let testCounter = 0;
+let previousVisualization = {};
+
 const applyFilters = (visualization, filters) => {
+    console.log('applyFilters was called #' + ++testCounter);
+    debugger;
+    const test = previousVisualization === visualization;
+    previousVisualization = visualization;
     if (!Object.keys(filters).length) {
         return visualization;
     }
@@ -103,6 +111,8 @@ const applyFilters = (visualization, filters) => {
         filters: visFilters,
     };
 };
+
+const memoizedApplyFilters = memoizeOne(applyFilters);
 
 export class Item extends Component {
     state = {
@@ -169,7 +179,7 @@ export class Item extends Component {
                         ) : null}
                         <VisualizationPlugin
                             d2={this.d2}
-                            visualization={applyFilters(
+                            visualization={memoizedApplyFilters(
                                 visualization,
                                 props.itemFilters
                             )}
@@ -189,7 +199,7 @@ export class Item extends Component {
                             obj.layer.includes('thematic') ||
                             obj.layer.includes('event')
                         ) {
-                            return applyFilters(obj, props.itemFilters);
+                            return memoizedApplyFilters(obj, props.itemFilters);
                         }
 
                         return obj;
@@ -203,7 +213,7 @@ export class Item extends Component {
                     // this is the case of a non map AO passed to the maps plugin
                     // due to a visualization type switch in dashboard item
                     // maps plugin takes care of converting the AO to a suitable format
-                    props.visualization = applyFilters(
+                    props.visualization = memoizedApplyFilters(
                         props.visualization,
                         props.itemFilters
                     );
@@ -212,7 +222,7 @@ export class Item extends Component {
                 return <DefaultPlugin {...props} />;
             }
             default: {
-                props.visualization = applyFilters(
+                props.visualization = memoizedApplyFilters(
                     props.visualization,
                     props.itemFilters
                 );
@@ -331,6 +341,26 @@ const mapStateToProps = (state, ownProps) => ({
         pluginManager.extractFavorite(ownProps.item).id
     ),
 });
+
+// const getVisualizationMemo = createSelector(
+//     [sGetVisualization],
+//     (state, ownProps) =>
+//         sGetVisualization(
+//             state,
+//             pluginManager.extractFavorite(ownProps.item).id
+//         )
+// );
+
+// const mapStateToProps = (state, ownProps) => ({
+//     itemFilters: sGetItemFiltersRoot(state),
+//     visualization: getVisualizationMemo(state, ownProps),
+// });
+
+/*
+
+mount -> item render -> applyFilters -> plugin renders -> plugin loading finished -> state.pluginIsLoaded update -> item rerender -> 
+
+*/
 
 const mapDispatchToProps = dispatch => ({
     onVisualizationLoaded: visualization =>
