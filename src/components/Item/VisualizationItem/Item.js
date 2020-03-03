@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import VisualizationPlugin from '@dhis2/data-visualizer-plugin';
+import memoizeOne from 'memoize-one';
 
 import i18n from '@dhis2/d2-i18n';
 import uniqueId from 'lodash/uniqueId';
@@ -26,7 +27,6 @@ import {
 } from '../../../modules/itemTypes';
 
 import { colors } from '@dhis2/ui-core';
-import memoizeOne from '../../../modules/memoizeOne';
 import { getVisualizationConfig } from './plugin';
 import LoadingMask from './LoadingMask';
 
@@ -63,51 +63,6 @@ const styles = {
     },
 };
 
-const applyFilters = (visualization, filters) => {
-    if (!Object.keys(filters).length) {
-        return visualization;
-    }
-
-    // deep clone objects in filters to avoid changing the visualization in the Redux store
-    const visRows = visualization.rows.map(obj => ({ ...obj }));
-    const visColumns = visualization.columns.map(obj => ({ ...obj }));
-    const visFilters = visualization.filters.map(obj => ({ ...obj }));
-
-    Object.keys(filters).forEach(dimensionId => {
-        if (filters[dimensionId]) {
-            let dimensionFound = false;
-
-            [visRows, visColumns, visFilters].forEach(dimensionObjects =>
-                dimensionObjects
-                    .filter(obj => obj.dimension === dimensionId)
-                    .forEach(obj => {
-                        dimensionFound = true;
-                        obj.items = filters[dimensionId];
-                    })
-            );
-
-            // add dimension to filters if not already present elsewhere
-            if (!dimensionFound) {
-                visFilters.push({
-                    dimension: dimensionId,
-                    items: filters[dimensionId],
-                });
-            }
-        }
-    });
-
-    return {
-        ...visualization,
-        rows: visRows,
-        columns: visColumns,
-        filters: visFilters,
-    };
-};
-
-const memoizedApplyFilters = memoizeOne(applyFilters);
-
-const memoizedGetVisualizationConfig = memoizeOne(getVisualizationConfig);
-
 export class Item extends Component {
     state = {
         showFooter: false,
@@ -121,6 +76,12 @@ export class Item extends Component {
         this.d2 = context.d2;
 
         this.contentRef = React.createRef();
+
+        this.memoizedApplyFilters = memoizeOne(this.applyFilters);
+
+        this.memoizedGetVisualizationConfig = memoizeOne(
+            getVisualizationConfig
+        );
     }
 
     async componentDidMount() {
@@ -146,13 +107,54 @@ export class Item extends Component {
         }
     }
 
+    applyFilters = (visualization, filters) => {
+        if (!Object.keys(filters).length) {
+            return visualization;
+        }
+
+        // deep clone objects in filters to avoid changing the visualization in the Redux store
+        const visRows = visualization.rows.map(obj => ({ ...obj }));
+        const visColumns = visualization.columns.map(obj => ({ ...obj }));
+        const visFilters = visualization.filters.map(obj => ({ ...obj }));
+
+        Object.keys(filters).forEach(dimensionId => {
+            if (filters[dimensionId]) {
+                let dimensionFound = false;
+
+                [visRows, visColumns, visFilters].forEach(dimensionObjects =>
+                    dimensionObjects
+                        .filter(obj => obj.dimension === dimensionId)
+                        .forEach(obj => {
+                            dimensionFound = true;
+                            obj.items = filters[dimensionId];
+                        })
+                );
+
+                // add dimension to filters if not already present elsewhere
+                if (!dimensionFound) {
+                    visFilters.push({
+                        dimension: dimensionId,
+                        items: filters[dimensionId],
+                    });
+                }
+            }
+        });
+
+        return {
+            ...visualization,
+            rows: visRows,
+            columns: visColumns,
+            filters: visFilters,
+        };
+    };
+
     getUniqueKey = memoizeOne(() => uniqueId());
 
     pluginCredentials = null;
 
     getPluginComponent = () => {
         const activeType = this.getActiveType();
-        const visualization = memoizedGetVisualizationConfig(
+        const visualization = this.memoizedGetVisualizationConfig(
             this.props.visualization,
             this.props.item.type,
             activeType
@@ -185,7 +187,7 @@ export class Item extends Component {
                         ) : null}
                         <VisualizationPlugin
                             d2={this.d2}
-                            visualization={memoizedApplyFilters(
+                            visualization={this.memoizedApplyFilters(
                                 visualization,
                                 props.itemFilters
                             )}
@@ -205,7 +207,10 @@ export class Item extends Component {
                             obj.layer.includes('thematic') ||
                             obj.layer.includes('event')
                         ) {
-                            return memoizedApplyFilters(obj, props.itemFilters);
+                            return this.memoizedApplyFilters(
+                                obj,
+                                props.itemFilters
+                            );
                         }
 
                         return obj;
@@ -219,7 +224,7 @@ export class Item extends Component {
                     // this is the case of a non map AO passed to the maps plugin
                     // due to a visualization type switch in dashboard item
                     // maps plugin takes care of converting the AO to a suitable format
-                    props.visualization = memoizedApplyFilters(
+                    props.visualization = this.memoizedApplyFilters(
                         props.visualization,
                         props.itemFilters
                     );
@@ -228,7 +233,7 @@ export class Item extends Component {
                 return <DefaultPlugin {...props} />;
             }
             default: {
-                props.visualization = memoizedApplyFilters(
+                props.visualization = this.memoizedApplyFilters(
                     props.visualization,
                     props.itemFilters
                 );
