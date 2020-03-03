@@ -349,7 +349,21 @@ const mapStateToProps = (state, ownProps) => ({
         state,
         pluginManager.extractFavorite(ownProps.item).id
     ),
+    // filteredVisualization: sGetFilteredVisualization,
 });
+
+/* 
+utan state
+mount -> item render (med applyFilter) -> plugin render in DOM -> plugin loading -> plugin loading finished (update item state.pluginIsLoaded)
+-> item gets new state -> item rerender (med applyFilter) -> applyFilter returns new vis object -> plugin hook finds new vis -> loop....
+
+
+change -> item rerender -> applyFilter -> plugin rerender -> item rerender -> loop
+
+med state
+change -> rerender -> applyFilter -> rerender
+itemFilters + visualization = filteredVisualization 
+*/
 
 const mapDispatchToProps = dispatch => ({
     onVisualizationLoaded: visualization =>
