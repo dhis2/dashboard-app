@@ -29,7 +29,6 @@ import { colors } from '@dhis2/ui-core';
 import memoizeOne from '../../../modules/memoizeOne';
 import { getVisualizationConfig } from './plugin';
 import LoadingMask from './LoadingMask';
-import { createSelector } from 'reselect';
 
 const HEADER_HEIGHT = 45;
 
@@ -64,14 +63,7 @@ const styles = {
     },
 };
 
-let testCounter = 0;
-let previousVisualization = {};
-
 const applyFilters = (visualization, filters) => {
-    console.log('applyFilters was called #' + ++testCounter);
-    debugger;
-    const test = previousVisualization === visualization;
-    previousVisualization = visualization;
     if (!Object.keys(filters).length) {
         return visualization;
     }
@@ -114,6 +106,8 @@ const applyFilters = (visualization, filters) => {
 
 const memoizedApplyFilters = memoizeOne(applyFilters);
 
+const memoizedGetVisualizationConfig = memoizeOne(getVisualizationConfig);
+
 export class Item extends Component {
     state = {
         showFooter: false,
@@ -140,13 +134,25 @@ export class Item extends Component {
         });
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (
+            prevState.pluginIsLoaded &&
+            (prevProps.visualization !== this.props.visualization ||
+                prevProps.itemFilters !== this.props.itemFilters)
+        ) {
+            this.setState({
+                pluginIsLoaded: false,
+            });
+        }
+    }
+
     getUniqueKey = memoizeOne(() => uniqueId());
 
     pluginCredentials = null;
 
     getPluginComponent = () => {
         const activeType = this.getActiveType();
-        const visualization = getVisualizationConfig(
+        const visualization = memoizedGetVisualizationConfig(
             this.props.visualization,
             this.props.item.type,
             activeType
@@ -341,26 +347,6 @@ const mapStateToProps = (state, ownProps) => ({
         pluginManager.extractFavorite(ownProps.item).id
     ),
 });
-
-// const getVisualizationMemo = createSelector(
-//     [sGetVisualization],
-//     (state, ownProps) =>
-//         sGetVisualization(
-//             state,
-//             pluginManager.extractFavorite(ownProps.item).id
-//         )
-// );
-
-// const mapStateToProps = (state, ownProps) => ({
-//     itemFilters: sGetItemFiltersRoot(state),
-//     visualization: getVisualizationMemo(state, ownProps),
-// });
-
-/*
-
-mount -> item render -> applyFilters -> plugin renders -> plugin loading finished -> state.pluginIsLoaded update -> item rerender -> 
-
-*/
 
 const mapDispatchToProps = dispatch => ({
     onVisualizationLoaded: visualization =>
