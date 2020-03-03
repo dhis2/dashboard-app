@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-12T20:02:08.021Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
+"POT-Creation-Date: 2020-02-25T15:24:49.055Z\n"
+"PO-Revision-Date: 2020-03-02 13:27+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -69,11 +69,17 @@ msgstr[0] ""
 msgid "Remove"
 msgstr "移除"
 
+msgid "Delete item"
+msgstr ""
+
 msgid "Messages"
 msgstr "消息"
 
 msgid "See all messages"
 msgstr "发送所有消息"
+
+msgid "Item type \"{{type}}\" not supported"
+msgstr ""
 
 msgid "Spacer"
 msgstr "空分割栏"
@@ -93,6 +99,24 @@ msgstr "不能该条目的插件"
 
 msgid "No data to display"
 msgstr "没有数据可显示"
+
+msgid "Hide interpretations and details"
+msgstr ""
+
+msgid "Show interpretations and details"
+msgstr ""
+
+msgid "View as Chart"
+msgstr ""
+
+msgid "View as Table"
+msgstr ""
+
+msgid "View as Map"
+msgstr ""
+
+msgid "Open in {{appName}} app"
+msgstr ""
 
 msgid "Confirm"
 msgstr "确认"
@@ -136,9 +160,6 @@ msgstr "共享"
 msgid "Visualizations"
 msgstr ""
 
-msgid "Visualizer"
-msgstr "可视图"
-
 msgid "Pivot tables"
 msgstr "透视表"
 
@@ -151,14 +172,8 @@ msgstr "地图"
 msgid "Event reports"
 msgstr "事件报表"
 
-msgid "Event Reports"
-msgstr "事件报表"
-
 msgid "Event charts"
 msgstr "事件图表"
-
-msgid "Event Visualizer"
-msgstr "事件可视化"
 
 msgid "Apps"
 msgstr ""
