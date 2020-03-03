@@ -109,6 +109,7 @@ export class Item extends Component {
         showFooter: false,
         configLoaded: false,
         pluginIsLoaded: false,
+        visualization: {},
     };
 
     constructor(props, context) {
@@ -119,14 +120,43 @@ export class Item extends Component {
         this.contentRef = React.createRef();
     }
 
+    componentDidUpdate(prevProps) {
+        if (
+            this.props.visualization !== prevProps.visualization ||
+            this.props.itemFilters !== prevProps.itemFilters
+        ) {
+            console.log('update with new vis or filter');
+            const visualization = getVisualizationConfig(
+                this.props.visualization,
+                this.props.item.type,
+                this.getActiveType()
+            );
+
+            this.setState({
+                visualization: applyFilters(
+                    visualization,
+                    this.props.itemFilters
+                ),
+                pluginIsLoaded: false,
+            });
+        }
+    }
+
     async componentDidMount() {
         this.props.onVisualizationLoaded(
             // TODO do not call fetch on the pluginManager, do it here as the manager will eventually be removed...
             await pluginManager.fetch(this.props.item)
         );
 
+        const visualization = getVisualizationConfig(
+            this.props.visualization,
+            this.props.item.type,
+            this.getActiveType()
+        );
+
         this.setState({
             configLoaded: true,
+            visualization: applyFilters(visualization, this.props.itemFilters),
         });
     }
 
@@ -135,14 +165,7 @@ export class Item extends Component {
     pluginCredentials = null;
 
     getPluginComponent = () => {
-        const activeType = this.getActiveType();
-        const visualization = getVisualizationConfig(
-            this.props.visualization,
-            this.props.item.type,
-            activeType
-        );
-
-        if (!visualization) {
+        if (!this.props.visualization) {
             return (
                 <div className={this.props.classes.textDiv}>
                     {i18n.t('No data to display')}
@@ -152,11 +175,10 @@ export class Item extends Component {
 
         const props = {
             ...this.props,
-            visualization,
             style: this.getContentStyle(),
         };
 
-        switch (activeType) {
+        switch (this.getActiveType()) {
             case VISUALIZATION:
             case CHART:
             case REPORT_TABLE: {
@@ -169,12 +191,9 @@ export class Item extends Component {
                         ) : null}
                         <VisualizationPlugin
                             d2={this.d2}
-                            visualization={applyFilters(
-                                visualization,
-                                props.itemFilters
-                            )}
-                            onLoadingComplete={this.onLoadingComplete}
-                            forDashboard={true}
+                            visualization={this.state.visualization}
+                            onLoadingComplete={() => this.onLoadingComplete()}
+                            forDashboard={false}
                             style={props.style}
                         />
                     </Fragment>
