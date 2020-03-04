@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import VisualizationPlugin from '@dhis2/data-visualizer-plugin';
-import memoizeOne from 'memoize-one';
 
 import i18n from '@dhis2/d2-i18n';
 import uniqueId from 'lodash/uniqueId';
@@ -29,6 +28,7 @@ import {
 import { colors } from '@dhis2/ui-core';
 import { getVisualizationConfig } from './plugin';
 import LoadingMask from './LoadingMask';
+import memoizeOne from '../../../modules/memoizeOne';
 
 const HEADER_HEIGHT = 45;
 
