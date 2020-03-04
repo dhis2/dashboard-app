@@ -1,19 +1,29 @@
+import { getCustomDashboards, sGetDashboardById } from '../reducers/dashboards';
+import { sGetIsEditing } from '../reducers/editDashboard';
+import { sGetEditItemFiltersRoot } from '../reducers/editItemFilters';
 import {
     SET_SELECTED_ID,
     SET_SELECTED_ISLOADING,
     SET_SELECTED_SHOWDESCRIPTION,
+    sGetSelectedIsLoading,
+    sGetSelectedId,
 } from '../reducers/selected';
-import { acAddVisualization } from '../actions/visualizations';
-import { sGetSelectedIsLoading } from '../reducers/selected';
 import { sGetUserUsername } from '../reducers/user';
-import { getCustomDashboards, sGetDashboardById } from '../reducers/dashboards';
-import { apiFetchDashboard } from '../api/dashboards';
+
 import { acSetDashboardItems, acAppendDashboards } from './dashboards';
-import { withShape } from '../components/ItemGrid/gridUtil';
+import { acClearEditItemFilters } from './editItemFilters';
+import { acClearItemFilters, acSetItemFilters } from './itemFilters';
 import { tGetMessages } from '../components/Item/MessagesItem/actions';
 import { acReceivedSnackbarMessage, acCloseSnackbar } from './snackbar';
+import { acAddVisualization } from './visualizations';
+
+import { apiFetchDashboard } from '../api/dashboards';
 import { storePreferredDashboardId } from '../api/localStorage';
+
+import { withShape } from '../components/ItemGrid/gridUtil';
 import { loadingDashboardMsg } from '../components/SnackbarMessage/SnackbarMessage';
+import { extractFavorite } from '../components/Item/VisualizationItem/plugin';
+
 import {
     REPORT_TABLE,
     CHART,
@@ -22,7 +32,6 @@ import {
     EVENT_CHART,
     MESSAGES,
 } from '../modules/itemTypes';
-import { extractFavorite } from '../components/Item/VisualizationItem/plugin';
 import { orObject } from '../modules/util';
 
 // actions
@@ -45,6 +54,7 @@ export const acSetSelectedShowDescription = value => ({
 export const tLoadDashboard = id => async dispatch => {
     try {
         const dash = await apiFetchDashboard(id);
+
         dispatch(acAppendDashboards(dash));
 
         return Promise.resolve(dash);
@@ -99,6 +109,21 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
                     break;
             }
         });
+
+        const state = getState();
+        if (id === sGetSelectedId(state)) {
+            if (sGetIsEditing(state)) {
+                // disable filters when switching to edit mode
+                dispatch(acClearItemFilters());
+            } else {
+                // enable filters when switching to view mode
+                dispatch(acSetItemFilters(sGetEditItemFiltersRoot(state)));
+            }
+        } else {
+            // clear filters when switching dashboard
+            dispatch(acClearEditItemFilters());
+            dispatch(acClearItemFilters());
+        }
 
         dispatch(acSetSelectedId(id));
 
