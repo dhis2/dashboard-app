@@ -13,6 +13,7 @@ import { sGetUserUsername } from '../reducers/user';
 import { acSetDashboardItems, acAppendDashboards } from './dashboards';
 import { acClearEditItemFilters } from './editItemFilters';
 import { acClearItemFilters, acSetItemFilters } from './itemFilters';
+import { tGetMessages } from '../components/Item/MessagesItem/actions';
 import { acReceivedSnackbarMessage, acCloseSnackbar } from './snackbar';
 import { acAddVisualization } from './visualizations';
 
@@ -20,7 +21,6 @@ import { apiFetchDashboard } from '../api/dashboards';
 import { storePreferredDashboardId } from '../api/localStorage';
 
 import { withShape } from '../components/ItemGrid/gridUtil';
-import { tGetMessages } from '../components/Item/MessagesItem/actions';
 import { loadingDashboardMsg } from '../components/SnackbarMessage/SnackbarMessage';
 import { extractFavorite } from '../components/Item/VisualizationItem/plugin';
 
@@ -110,13 +110,14 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
             }
         });
 
-        if (id === sGetSelectedId(getState())) {
-            if (sGetIsEditing(getState())) {
+        const state = getState();
+        if (id === sGetSelectedId(state)) {
+            if (sGetIsEditing(state)) {
                 // disable filters when switching to edit mode
                 dispatch(acClearItemFilters());
             } else {
                 // enable filters when switching to view mode
-                dispatch(acSetItemFilters(sGetEditItemFiltersRoot(getState())));
+                dispatch(acSetItemFilters(sGetEditItemFiltersRoot(state)));
             }
         } else {
             // clear filters when switching dashboard
