@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { isSingleValue, isYearOverYear } from '@dhis2/analytics';
+import {
+    isSingleValue,
+    isYearOverYear,
+    VIS_TYPE_GAUGE,
+    VIS_TYPE_PIE,
+} from '@dhis2/analytics';
 import { Button, Menu, MenuItem, Divider, colors } from '@dhis2/ui-core';
 import i18n from '@dhis2/d2-i18n';
 import Popover from '@material-ui/core/Popover';
@@ -61,7 +66,11 @@ const ItemHeaderButtons = props => {
     const handleClose = () => setAnchorEl(null);
 
     const type = visualization.type || item.type;
-    const canViewAs = !isSingleValue(type) && !isYearOverYear(type);
+    const canViewAs =
+        !isSingleValue(type) &&
+        !isYearOverYear(type) &&
+        type != VIS_TYPE_GAUGE &&
+        type != VIS_TYPE_PIE;
 
     const interpretationMenuLabel = props.activeFooter
         ? i18n.t(`Hide interpretations and details`)
