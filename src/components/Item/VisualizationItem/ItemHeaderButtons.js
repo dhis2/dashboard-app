@@ -69,8 +69,8 @@ const ItemHeaderButtons = props => {
     const canViewAs =
         !isSingleValue(type) &&
         !isYearOverYear(type) &&
-        type != VIS_TYPE_GAUGE &&
-        type != VIS_TYPE_PIE;
+        type !== VIS_TYPE_GAUGE &&
+        type !== VIS_TYPE_PIE;
 
     const interpretationMenuLabel = props.activeFooter
         ? i18n.t(`Hide interpretations and details`)
