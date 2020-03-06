@@ -12,11 +12,6 @@ import {
 } from '../reducers/dashboards';
 import { sGetUserUsername } from '../reducers/user';
 import { tSetSelectedDashboardById, acSetSelectedId } from './selected';
-import { sGetSelectedId } from '../reducers/selected';
-import { sGetIsEditing } from '../reducers/editDashboard';
-import { sGetEditItemFiltersRoot } from '../reducers/editItemFilters';
-import { acSetItemFilters, acClearItemFilters } from './itemFilters';
-import { acClearEditItemFilters } from './editItemFilters';
 import { acClearEditDashboard } from './editDashboard';
 import {
     apiFetchDashboards,
@@ -87,20 +82,6 @@ export const tSelectDashboard = id => async (dispatch, getState) => {
 
         if (dashboardToSelect) {
             dispatch(tSetSelectedDashboardById(dashboardToSelect.id));
-
-            if (dashboardToSelect.id === sGetSelectedId(state)) {
-                if (sGetIsEditing(state)) {
-                    // disable filters when switching to edit mode
-                    dispatch(acClearItemFilters());
-                } else {
-                    // enable filters when switching to view mode
-                    dispatch(acSetItemFilters(sGetEditItemFiltersRoot(state)));
-                }
-            } else {
-                // clear filters when switching dashboard
-                dispatch(acClearEditItemFilters());
-                dispatch(acClearItemFilters());
-            }
         } else {
             dispatch(acSetSelectedId());
         }
