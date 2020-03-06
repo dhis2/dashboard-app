@@ -20,7 +20,7 @@ export const SpeechBubble = () => (
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ margin: '3px 2px 0 2px' }}
+        style={{ margin: '3px 2px 0 2px' }} // Temporary fix for the misaligned icon, should be removed once the icon is replaced
     >
         <path
             d="m20 2h-16c-1.1 0-1.99.9-1.99 2l-.01 18 4-4h14c1.1 0 2-.9 2-2v-12c0-1.1-.9-2-2-2zm-2 12h-12v-2h12zm0-3h-12v-2h12zm0-3h-12v-2h12z"
