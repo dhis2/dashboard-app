@@ -38,18 +38,18 @@ const ItemHeaderButtons = props => {
     const isTrackerType = isTrackerDomainType(item.type);
 
     const onViewTable = () => {
-        onSelectActiveType(isTrackerType ? EVENT_REPORT : REPORT_TABLE);
         handleClose();
+        onSelectActiveType(isTrackerType ? EVENT_REPORT : REPORT_TABLE);
     };
 
     const onViewChart = () => {
-        onSelectActiveType(isTrackerType ? EVENT_CHART : CHART);
         handleClose();
+        onSelectActiveType(isTrackerType ? EVENT_CHART : CHART);
     };
 
     const onViewMap = () => {
-        onSelectActiveType(MAP);
         handleClose();
+        onSelectActiveType(MAP);
     };
 
     const itemHasMapView = () => hasMapView(item.type);
@@ -110,35 +110,37 @@ const ItemHeaderButtons = props => {
             <Button small secondary onClick={handleMenuClick}>
                 <ThreeDots />
             </Button>
-            <Popover
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-                anchorEl={anchorEl}
-            >
-                <Menu>
-                    {canViewAs && (
-                        <>
-                            <ViewAsMenuItems />
-                            <Divider />
-                        </>
-                    )}
-                    <MenuItem
-                        dense
-                        icon={<LaunchIcon style={{ fill: '#6e7a8a' }} />}
-                        label={i18n.t('Open in {{appName}} app', {
-                            appName: getAppName(item.type),
-                        })}
-                        href={getLink(item, d2)}
-                        target="_blank"
-                    />
-                    <MenuItem
-                        dense
-                        icon={<SpeechBubble />}
-                        label={interpretationMenuLabel}
-                        onClick={handleInterpretationClick}
-                    />
-                </Menu>
-            </Popover>
+            {anchorEl && (
+                <Popover
+                    open={Boolean(anchorEl)}
+                    onClose={handleClose}
+                    anchorEl={anchorEl}
+                >
+                    <Menu>
+                        {canViewAs && (
+                            <>
+                                <ViewAsMenuItems />
+                                <Divider />
+                            </>
+                        )}
+                        <MenuItem
+                            dense
+                            icon={<LaunchIcon style={{ fill: '#6e7a8a' }} />}
+                            label={i18n.t('Open in {{appName}} app', {
+                                appName: getAppName(item.type),
+                            })}
+                            href={getLink(item, d2)}
+                            target="_blank"
+                        />
+                        <MenuItem
+                            dense
+                            icon={<SpeechBubble />}
+                            label={interpretationMenuLabel}
+                            onClick={handleInterpretationClick}
+                        />
+                    </Menu>
+                </Popover>
+            )}
         </>
     ) : null;
 };
