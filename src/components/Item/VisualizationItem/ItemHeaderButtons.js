@@ -78,7 +78,7 @@ const ItemHeaderButtons = props => {
 
     const ViewAsMenuItems = () => (
         <>
-            {activeType !== CHART && (
+            {activeType !== CHART && activeType !== EVENT_CHART && (
                 <MenuItem
                     dense
                     label={i18n.t('View as Chart')}
