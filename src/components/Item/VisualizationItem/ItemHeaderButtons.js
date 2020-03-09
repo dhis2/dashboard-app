@@ -38,18 +38,18 @@ const ItemHeaderButtons = props => {
     const isTrackerType = isTrackerDomainType(item.type);
 
     const onViewTable = () => {
-        onSelectActiveType(isTrackerType ? EVENT_REPORT : REPORT_TABLE);
         handleClose();
+        onSelectActiveType(isTrackerType ? EVENT_REPORT : REPORT_TABLE);
     };
 
     const onViewChart = () => {
-        onSelectActiveType(isTrackerType ? EVENT_CHART : CHART);
         handleClose();
+        onSelectActiveType(isTrackerType ? EVENT_CHART : CHART);
     };
 
     const onViewMap = () => {
-        onSelectActiveType(MAP);
         handleClose();
+        onSelectActiveType(MAP);
     };
 
     const itemHasMapView = () => hasMapView(item.type);
@@ -78,24 +78,25 @@ const ItemHeaderButtons = props => {
 
     const ViewAsMenuItems = () => (
         <>
-            <MenuItem
-                dense
-                active={activeType === CHART}
-                label={i18n.t('View as Chart')}
-                onClick={onViewChart}
-                icon={<ChartIcon style={iconFill} />}
-            />
-            <MenuItem
-                dense
-                active={[REPORT_TABLE, EVENT_REPORT].includes(activeType)}
-                label={i18n.t('View as Table')}
-                onClick={onViewTable}
-                icon={<TableIcon style={iconFill} />}
-            />
-            {itemHasMapView() && (
+            {activeType !== CHART && activeType !== EVENT_CHART && (
                 <MenuItem
                     dense
-                    active={activeType === MAP}
+                    label={i18n.t('View as Chart')}
+                    onClick={onViewChart}
+                    icon={<ChartIcon style={iconFill} />}
+                />
+            )}
+            {activeType !== REPORT_TABLE && activeType !== EVENT_REPORT && (
+                <MenuItem
+                    dense
+                    label={i18n.t('View as Table')}
+                    onClick={onViewTable}
+                    icon={<TableIcon style={iconFill} />}
+                />
+            )}
+            {itemHasMapView() && activeType !== MAP && (
+                <MenuItem
+                    dense
                     label={i18n.t('View as Map')}
                     onClick={onViewMap}
                     icon={<MapIcon style={iconFill} />}
@@ -109,35 +110,37 @@ const ItemHeaderButtons = props => {
             <Button small secondary onClick={handleMenuClick}>
                 <ThreeDots />
             </Button>
-            <Popover
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-                anchorEl={anchorEl}
-            >
-                <Menu>
-                    {canViewAs && (
-                        <>
-                            <ViewAsMenuItems />
-                            <Divider />
-                        </>
-                    )}
-                    <MenuItem
-                        dense
-                        icon={<LaunchIcon style={{ fill: '#6e7a8a' }} />}
-                        label={i18n.t('Open in {{appName}} app', {
-                            appName: getAppName(item.type),
-                        })}
-                        href={getLink(item, d2)}
-                        target="_blank"
-                    />
-                    <MenuItem
-                        dense
-                        icon={<SpeechBubble />}
-                        label={interpretationMenuLabel}
-                        onClick={handleInterpretationClick}
-                    />
-                </Menu>
-            </Popover>
+            {anchorEl && (
+                <Popover
+                    open={Boolean(anchorEl)}
+                    onClose={handleClose}
+                    anchorEl={anchorEl}
+                >
+                    <Menu>
+                        {canViewAs && (
+                            <>
+                                <ViewAsMenuItems />
+                                <Divider />
+                            </>
+                        )}
+                        <MenuItem
+                            dense
+                            icon={<LaunchIcon style={{ fill: '#6e7a8a' }} />}
+                            label={i18n.t('Open in {{appName}} app', {
+                                appName: getAppName(item.type),
+                            })}
+                            href={getLink(item, d2)}
+                            target="_blank"
+                        />
+                        <MenuItem
+                            dense
+                            icon={<SpeechBubble />}
+                            label={interpretationMenuLabel}
+                            onClick={handleInterpretationClick}
+                        />
+                    </Menu>
+                </Popover>
+            )}
         </>
     ) : null;
 };
