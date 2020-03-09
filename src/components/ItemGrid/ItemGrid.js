@@ -153,7 +153,9 @@ export class ItemGrid extends Component {
             );
         }
 
-        const items = this.getMemoizedItems(dashboardItems);
+        const items = edit
+            ? this.getMemoizedItems(dashboardItems)
+            : dashboardItems.map(this.getItem);
 
         return (
             <div className="grid-wrapper">
