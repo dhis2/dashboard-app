@@ -66,16 +66,32 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
         }
         case RECEIVED_DASHBOARD_LAYOUT: {
             const stateItems = orArray(state.dashboardItems);
+            let layoutHasChanged = false;
 
             const newStateItems = action.value.map(({ x, y, w, h, i }) => {
                 const stateItem = stateItems.find(si => si.id === i);
 
-                return Object.assign({}, stateItem, { w, h, x, y });
+                if (
+                    !(
+                        stateItem.x === x &&
+                        stateItem.y === y &&
+                        stateItem.w === w &&
+                        stateItem.h === h
+                    )
+                ) {
+                    layoutHasChanged = true;
+                    return Object.assign({}, stateItem, { w, h, x, y });
+                }
+
+                return stateItem;
             });
 
-            return update(state, {
-                dashboardItems: { $set: newStateItems },
-            });
+            return layoutHasChanged
+                ? {
+                      ...state,
+                      dashboardItems: newStateItems,
+                  }
+                : state;
         }
         case UPDATE_DASHBOARD_ITEM: {
             const dashboardItem = action.value;
