@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import memoize from 'lodash/memoize';
 import { withStyles } from '@material-ui/core/styles';
 import VisualizationPlugin from '@dhis2/data-visualizer-plugin';
 
@@ -28,7 +29,6 @@ import {
 import { colors } from '@dhis2/ui-core';
 import { getVisualizationConfig } from './plugin';
 import LoadingMask from './LoadingMask';
-import memoizeOne from '../../../modules/memoizeOne';
 
 const HEADER_HEIGHT = 45;
 
@@ -77,11 +77,9 @@ export class Item extends Component {
 
         this.contentRef = React.createRef();
 
-        this.memoizedApplyFilters = memoizeOne(this.applyFilters);
+        this.memoizedApplyFilters = memoize(this.applyFilters);
 
-        this.memoizedGetVisualizationConfig = memoizeOne(
-            getVisualizationConfig
-        );
+        this.memoizedGetVisualizationConfig = memoize(getVisualizationConfig);
     }
 
     async componentDidMount() {
@@ -148,7 +146,7 @@ export class Item extends Component {
         };
     };
 
-    getUniqueKey = memoizeOne(() => uniqueId());
+    getUniqueKey = memoize(() => uniqueId());
 
     pluginCredentials = null;
 
