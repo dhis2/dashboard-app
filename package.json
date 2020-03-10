@@ -20,7 +20,7 @@
         "@dhis2/ui-widgets": "^2.0.5",
         "@material-ui/core": "^3.9.2",
         "@material-ui/icons": "^3.0.2",
-        "d2": "^31.6.0",
+        "d2": "^31.8.1",
         "d2-utilizr": "^0.2.16",
         "i18next": "^15.0.6",
         "lodash": "^4.17.11",
