@@ -2,10 +2,9 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
-import VisualizationPlugin from '@dhis2/data-visualizer-plugin';
-
-import i18n from '@dhis2/d2-i18n';
 import uniqueId from 'lodash/uniqueId';
+import VisualizationPlugin from '@dhis2/data-visualizer-plugin';
+import i18n from '@dhis2/d2-i18n';
 
 import DefaultPlugin from './DefaultPlugin';
 import ItemHeader from '../ItemHeader';
@@ -24,11 +23,11 @@ import {
     CHART,
     REPORT_TABLE,
 } from '../../../modules/itemTypes';
+import memoizeOne from '../../../modules/memoizeOne';
 
 import { colors } from '@dhis2/ui-core';
 import { getVisualizationConfig } from './plugin';
 import LoadingMask from './LoadingMask';
-import memoizeOne from '../../../modules/memoizeOne';
 
 const HEADER_HEIGHT = 45;
 

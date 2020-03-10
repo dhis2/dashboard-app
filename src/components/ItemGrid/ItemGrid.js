@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import memoize from 'lodash/memoize';
 import i18n from '@dhis2/d2-i18n';
 import ReactGridLayout from 'react-grid-layout';
 import { CircularLoader, ScreenCover } from '@dhis2/ui-core';
@@ -49,6 +50,12 @@ export class ItemGrid extends Component {
         expandedItems: {},
     };
 
+    constructor(props) {
+        super(props);
+
+        this.getMemoizedItem = memoize(this.getItem);
+    }
+
     onToggleItemExpanded = clickedId => {
         const isExpanded =
             typeof this.state.expandedItems[clickedId] === 'boolean'
@@ -91,6 +98,46 @@ export class ItemGrid extends Component {
 
     onRemoveItemWrapper = id => () => this.onRemoveItem(id);
 
+    getItem = dashboardItem => {
+        const expandedItem = this.state.expandedItems[dashboardItem.id];
+        const hProp = { h: dashboardItem.h };
+
+        if (expandedItem && expandedItem === true) {
+            hProp.h = dashboardItem.h + EXPANDED_HEIGHT;
+        }
+
+        return Object.assign({}, dashboardItem, hProp, {
+            i: dashboardItem.id,
+            minH: ITEM_MIN_HEIGHT,
+            randomNumber: Math.random(),
+        });
+    };
+
+    getItems = dashboardItems =>
+        dashboardItems.map(item => this.getMemoizedItem(item));
+
+    getItemComponent = item => {
+        const itemClassNames = [
+            item.type,
+            this.props.edit ? 'edit' : 'view',
+        ].join(' ');
+
+        return (
+            <ProgressiveLoadingContainer
+                key={item.i}
+                className={itemClassNames}
+            >
+                <Item
+                    item={item}
+                    editMode={this.props.edit}
+                    onToggleItemExpanded={this.onToggleItemExpanded}
+                />
+            </ProgressiveLoadingContainer>
+        );
+    };
+
+    getItemComponents = items => items.map(item => this.getItemComponent(item));
+
     render() {
         const { edit, isLoading, dashboardItems } = this.props;
 
@@ -102,19 +149,9 @@ export class ItemGrid extends Component {
             );
         }
 
-        const items = dashboardItems.map(item => {
-            const expandedItem = this.state.expandedItems[item.id];
-            const hProp = { h: item.h };
-
-            if (expandedItem && expandedItem === true) {
-                hProp.h = item.h + EXPANDED_HEIGHT;
-            }
-
-            return Object.assign({}, item, hProp, {
-                i: item.id,
-                minH: ITEM_MIN_HEIGHT,
-            });
-        });
+        const items = edit
+            ? this.getItems(dashboardItems)
+            : dashboardItems.map(this.getItem);
 
         return (
             <div className="grid-wrapper">
@@ -137,27 +174,7 @@ export class ItemGrid extends Component {
                     isResizable={edit}
                     draggableCancel="input,textarea"
                 >
-                    {items.map(item => {
-                        const itemClassNames = [
-                            item.type,
-                            edit ? 'edit' : 'view',
-                        ].join(' ');
-
-                        return (
-                            <ProgressiveLoadingContainer
-                                key={item.i}
-                                className={itemClassNames}
-                            >
-                                <Item
-                                    item={item}
-                                    editMode={edit}
-                                    onToggleItemExpanded={
-                                        this.onToggleItemExpanded
-                                    }
-                                />
-                            </ProgressiveLoadingContainer>
-                        );
-                    })}
+                    {this.getItemComponents(items)}
                 </ReactGridLayout>
             </div>
         );
