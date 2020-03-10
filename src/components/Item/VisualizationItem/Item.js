@@ -1,12 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import memoize from 'lodash/memoize';
 import { withStyles } from '@material-ui/core/styles';
-import VisualizationPlugin from '@dhis2/data-visualizer-plugin';
-
-import i18n from '@dhis2/d2-i18n';
 import uniqueId from 'lodash/uniqueId';
+import VisualizationPlugin from '@dhis2/data-visualizer-plugin';
+import i18n from '@dhis2/d2-i18n';
 
 import DefaultPlugin from './DefaultPlugin';
 import ItemHeader from '../ItemHeader';
@@ -25,6 +23,7 @@ import {
     CHART,
     REPORT_TABLE,
 } from '../../../modules/itemTypes';
+import memoizeOne from '../../../modules/memoizeOne';
 
 import { colors } from '@dhis2/ui-core';
 import { getVisualizationConfig } from './plugin';
@@ -77,9 +76,11 @@ export class Item extends Component {
 
         this.contentRef = React.createRef();
 
-        this.memoizedApplyFilters = memoize(this.applyFilters);
+        this.memoizedApplyFilters = memoizeOne(this.applyFilters);
 
-        this.memoizedGetVisualizationConfig = memoize(getVisualizationConfig);
+        this.memoizedGetVisualizationConfig = memoizeOne(
+            getVisualizationConfig
+        );
     }
 
     async componentDidMount() {
@@ -146,7 +147,7 @@ export class Item extends Component {
         };
     };
 
-    getUniqueKey = memoize(() => uniqueId());
+    getUniqueKey = memoizeOne(() => uniqueId());
 
     pluginCredentials = null;
 

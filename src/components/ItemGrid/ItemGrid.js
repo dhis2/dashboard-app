@@ -54,9 +54,6 @@ export class ItemGrid extends Component {
         super(props);
 
         this.getMemoizedItem = memoize(this.getItem);
-        this.getMemoizedItems = memoize(this.getItems);
-        this.getMemoizedItemComponent = memoize(this.getItemComponent);
-        this.getMemoizedItemComponents = memoize(this.getItemComponents);
     }
 
     onToggleItemExpanded = clickedId => {
@@ -139,8 +136,7 @@ export class ItemGrid extends Component {
         );
     };
 
-    getItemComponents = items =>
-        items.map(item => this.getMemoizedItemComponent(item));
+    getItemComponents = items => items.map(item => this.getItemComponent(item));
 
     render() {
         const { edit, isLoading, dashboardItems } = this.props;
@@ -154,7 +150,7 @@ export class ItemGrid extends Component {
         }
 
         const items = edit
-            ? this.getMemoizedItems(dashboardItems)
+            ? this.getItems(dashboardItems)
             : dashboardItems.map(this.getItem);
 
         return (
@@ -178,7 +174,7 @@ export class ItemGrid extends Component {
                     isResizable={edit}
                     draggableCancel="input,textarea"
                 >
-                    {this.getMemoizedItemComponents(items)}
+                    {this.getItemComponents(items)}
                 </ReactGridLayout>
             </div>
         );
