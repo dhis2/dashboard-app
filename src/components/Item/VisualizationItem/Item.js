@@ -7,6 +7,7 @@ import VisualizationPlugin from '@dhis2/data-visualizer-plugin';
 import i18n from '@dhis2/d2-i18n';
 
 import DefaultPlugin from './DefaultPlugin';
+import FatalErrorBoundary from './FatalErrorBoundary';
 import ItemHeader from '../ItemHeader';
 import ItemHeaderButtons from './ItemHeaderButtons';
 import ItemFooter from './ItemFooter';
@@ -282,7 +283,11 @@ export class Item extends Component {
             ? {
                   height: item.originalHeight - HEADER_HEIGHT - PADDING_BOTTOM,
               }
-            : { height: this.contentRef.offsetHeight };
+            : {
+                  height: this.contentRef
+                      ? this.contentRef.offsetHeight
+                      : item.originalHeight - HEADER_HEIGHT - PADDING_BOTTOM,
+              };
     };
 
     render() {
@@ -308,13 +313,15 @@ export class Item extends Component {
                     itemId={item.id}
                     actionButtons={actionButtons}
                 />
-                <div
-                    key={this.getUniqueKey(itemFilters)}
-                    className="dashboard-item-content"
-                    ref={ref => (this.contentRef = ref)}
-                >
-                    {this.state.configLoaded && this.getPluginComponent()}
-                </div>
+                <FatalErrorBoundary>
+                    <div
+                        key={this.getUniqueKey(itemFilters)}
+                        className="dashboard-item-content"
+                        ref={ref => (this.contentRef = ref)}
+                    >
+                        {this.state.configLoaded && this.getPluginComponent()}
+                    </div>
+                </FatalErrorBoundary>
                 {!editMode && showFooter ? <ItemFooter item={item} /> : null}
             </>
         );
