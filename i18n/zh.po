@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-12T20:02:08.021Z\n"
+"POT-Creation-Date: 2020-03-11T02:00:02.349Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -71,10 +71,16 @@ msgstr[0] ""
 msgid "Remove"
 msgstr "移除"
 
+msgid "Delete item"
+msgstr ""
+
 msgid "Messages"
 msgstr ""
 
 msgid "See all messages"
+msgstr ""
+
+msgid "Item type \"{{type}}\" not supported"
 msgstr ""
 
 msgid "Spacer"
@@ -93,7 +99,28 @@ msgstr ""
 msgid "Unable to load the plugin for this item"
 msgstr ""
 
+msgid "There was a problem loading this dashboard item"
+msgstr ""
+
 msgid "No data to display"
+msgstr ""
+
+msgid "Hide interpretations and details"
+msgstr ""
+
+msgid "Show interpretations and details"
+msgstr ""
+
+msgid "View as Chart"
+msgstr ""
+
+msgid "View as Table"
+msgstr ""
+
+msgid "View as Map"
+msgstr ""
+
+msgid "Open in {{appName}} app"
 msgstr ""
 
 msgid "Confirm"
@@ -138,9 +165,6 @@ msgstr "分享"
 msgid "Visualizations"
 msgstr ""
 
-msgid "Visualizer"
-msgstr ""
-
 msgid "Pivot tables"
 msgstr ""
 
@@ -153,13 +177,7 @@ msgstr ""
 msgid "Event reports"
 msgstr ""
 
-msgid "Event Reports"
-msgstr ""
-
 msgid "Event charts"
-msgstr ""
-
-msgid "Event Visualizer"
 msgstr ""
 
 msgid "Apps"
