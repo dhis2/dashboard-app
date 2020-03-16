@@ -1194,6 +1194,26 @@
     resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.2.1"
 
+"@dhis2/analytics@^4.3.20":
+  version "4.3.20"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.20.tgz#9bf6f55f3e01c430fbd701cb95bde11ffa7edf60"
+  integrity sha512-MdDXBVTVBNrAap76j2GjyoryeOeqK5zsHACMvYte8vk9OZK351vlxzSmOniabmj1Vr+rUUNLlP2xwIWtbHgtkQ==
+  dependencies:
+    "@dhis2/d2-i18n" "^1.0.4"
+    "@dhis2/d2-ui-org-unit-dialog" "^6.5.9"
+    "@dhis2/d2-ui-period-selector-dialog" "^6.5.7"
+    "@dhis2/ui-core" "^4.9.1"
+    "@material-ui/core" "^3.9.3"
+    "@material-ui/icons" "^3.0.2"
+    classnames "^2.2.6"
+    d2-utilizr "^0.2.16"
+    d3-color "^1.2.3"
+    highcharts "^7.2.1"
+    lodash "^4.17.13"
+    react-beautiful-dnd "^10.1.1"
+    resize-observer-polyfill "^1.5.1"
+    styled-jsx "^3.2.1"
+
 "@dhis2/app-runtime@^2.0.3":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.0.3.tgz#ababc8494420b4f16cbfdc3fef8f9a2707008a4c"
@@ -1438,12 +1458,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^34.3.28":
-  version "34.3.28"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-34.3.28.tgz#5b614a40bc3dff8a03b8b8f4ef957a5b72385b84"
-  integrity sha512-NeFCySsibBXvfS6WcFDlpI0LU2O9j9rGVYXhT6WSasvNPYpXgU2vkRp8mmnjz0lURAkv4SVyp/ZYp/W9aHZU/A==
+"@dhis2/data-visualizer-plugin@^34.3.29":
+  version "34.3.29"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-34.3.29.tgz#67880b1109eb1f3aa55a444f343f3f03e2dc2894"
+  integrity sha512-SxtJCHljqgetREJqDYrlLDKVGmLKmBvcGpDLsr+tEokxYrModjum3H87vl0JBV54YnY9JDK2fCentv7SaK2LaA==
   dependencies:
-    "@dhis2/analytics" "^4.3.18"
+    "@dhis2/analytics" "^4.3.20"
     "@material-ui/core" "^3.1.2"
     d2-analysis "33.2.11"
     lodash-es "^4.17.11"
