@@ -1194,10 +1194,10 @@
     resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^4.3.20":
-  version "4.3.20"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.20.tgz#9bf6f55f3e01c430fbd701cb95bde11ffa7edf60"
-  integrity sha512-MdDXBVTVBNrAap76j2GjyoryeOeqK5zsHACMvYte8vk9OZK351vlxzSmOniabmj1Vr+rUUNLlP2xwIWtbHgtkQ==
+"@dhis2/analytics@^4.3.21":
+  version "4.3.21"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.21.tgz#9e73d4c3a22f2ac35a24e2e014d9a14aa098381d"
+  integrity sha512-YGvRc0i/fau4YwIGyhkG0znNoGyQOsvkY3ZYs2W/EQ35Bbe3oUdFqI/FkWgMk8X4HHwEtXByAi0CvrfE2Ze6jA==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.5.9"
@@ -1458,12 +1458,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^34.3.29":
-  version "34.3.29"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-34.3.29.tgz#67880b1109eb1f3aa55a444f343f3f03e2dc2894"
-  integrity sha512-SxtJCHljqgetREJqDYrlLDKVGmLKmBvcGpDLsr+tEokxYrModjum3H87vl0JBV54YnY9JDK2fCentv7SaK2LaA==
+"@dhis2/data-visualizer-plugin@^34.3.30":
+  version "34.3.30"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-34.3.30.tgz#0a8cbff6d708cdc340141b456a474dbe2d8b6ff4"
+  integrity sha512-lvIijnuZUf3Fc4GKZVGzK0hNC8QlGFh7n+XzLig/ZMG36FcCHcg5cQlj8yD8y6qKTL3JKNv4PTiYOYA17xgT0Q==
   dependencies:
-    "@dhis2/analytics" "^4.3.20"
+    "@dhis2/analytics" "^4.3.21"
     "@material-ui/core" "^3.1.2"
     d2-analysis "33.2.11"
     lodash-es "^4.17.11"
