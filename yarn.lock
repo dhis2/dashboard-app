@@ -1174,30 +1174,10 @@
     resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^4.3.18":
-  version "4.3.18"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.18.tgz#887c2cfc88d1404e0e2f5b14194769e4b5ce9f3a"
-  integrity sha512-5Fl1tPicYf/emuKfY33ibbGFYKNruI2Z/SIF2rir6V429Qu3HwZ4Kj6m1g1y92Y7lEqK2ymkCIozseVMC24oXA==
-  dependencies:
-    "@dhis2/d2-i18n" "^1.0.4"
-    "@dhis2/d2-ui-org-unit-dialog" "^6.5.9"
-    "@dhis2/d2-ui-period-selector-dialog" "^6.5.7"
-    "@dhis2/ui-core" "^4.9.1"
-    "@material-ui/core" "^3.9.3"
-    "@material-ui/icons" "^3.0.2"
-    classnames "^2.2.6"
-    d2-utilizr "^0.2.16"
-    d3-color "^1.2.3"
-    highcharts "^7.2.1"
-    lodash "^4.17.13"
-    react-beautiful-dnd "^10.1.1"
-    resize-observer-polyfill "^1.5.1"
-    styled-jsx "^3.2.1"
-
-"@dhis2/analytics@^4.3.21":
-  version "4.3.21"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.21.tgz#9e73d4c3a22f2ac35a24e2e014d9a14aa098381d"
-  integrity sha512-YGvRc0i/fau4YwIGyhkG0znNoGyQOsvkY3ZYs2W/EQ35Bbe3oUdFqI/FkWgMk8X4HHwEtXByAi0CvrfE2Ze6jA==
+"@dhis2/analytics@^4.3.22":
+  version "4.3.22"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.22.tgz#6d335b73171dcccef8fae731ceeda2c701abafa4"
+  integrity sha512-uthq8zDCVyRJpWj9DyyDozapzspnH4/ZrX7JNcq7q+KYIEpB0WdFrnyhNfK4t9uyGIpIiVlihv5vXGv0TdCE0g==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.5.9"
@@ -1458,12 +1438,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^34.3.30":
-  version "34.3.30"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-34.3.30.tgz#0a8cbff6d708cdc340141b456a474dbe2d8b6ff4"
-  integrity sha512-lvIijnuZUf3Fc4GKZVGzK0hNC8QlGFh7n+XzLig/ZMG36FcCHcg5cQlj8yD8y6qKTL3JKNv4PTiYOYA17xgT0Q==
+"@dhis2/data-visualizer-plugin@^34.3.31":
+  version "34.3.31"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-34.3.31.tgz#4ba70738e94bb4cab57046e9d01d54db2f2d60aa"
+  integrity sha512-jYe9wRAes8J86Y3fJh8vAqgznnkDEoaFtmt+LkOXjwNachaVHOagORW6AHyZYv5dercUYx81NKvx6LovGa7r1Q==
   dependencies:
-    "@dhis2/analytics" "^4.3.21"
+    "@dhis2/analytics" "^4.3.22"
     "@material-ui/core" "^3.1.2"
     d2-analysis "33.2.11"
     lodash-es "^4.17.11"
