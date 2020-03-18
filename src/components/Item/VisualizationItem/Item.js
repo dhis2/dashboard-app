@@ -280,15 +280,12 @@ export class Item extends Component {
             this.props.visualization
         );
 
-    getContentStyle = (originalHeight, headerHeight, offsetHeight) => {
-        const height = originalHeight - headerHeight - HEADER_MARGIN_HEIGHT;
-
-        if (!this.props.editMode) {
-            return { height };
-        }
+    getContentStyle = (originalHeight, headerHeight, measuredHeight) => {
+        const calculatedHeight =
+            originalHeight - headerHeight - HEADER_MARGIN_HEIGHT;
 
         return {
-            height: offsetHeight || height,
+            height: measuredHeight || calculatedHeight,
         };
     };
 
