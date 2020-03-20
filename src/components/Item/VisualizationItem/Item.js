@@ -8,7 +8,7 @@ import i18n from '@dhis2/d2-i18n';
 
 import DefaultPlugin from './DefaultPlugin';
 import FatalErrorBoundary from './FatalErrorBoundary';
-import ItemHeader from '../ItemHeader';
+import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader';
 import ItemHeaderButtons from './ItemHeaderButtons';
 import ItemFooter from './ItemFooter';
 import * as pluginManager from './plugin';
@@ -29,8 +29,6 @@ import memoizeOne from '../../../modules/memoizeOne';
 import { colors } from '@dhis2/ui-core';
 import { getVisualizationConfig } from './plugin';
 import LoadingMask from './LoadingMask';
-
-const HEADER_HEIGHT = 45;
 
 const styles = {
     icon: {
@@ -76,12 +74,15 @@ export class Item extends Component {
         this.d2 = context.d2;
 
         this.contentRef = React.createRef();
+        this.headerRef = React.createRef();
 
         this.memoizedApplyFilters = memoizeOne(this.applyFilters);
 
         this.memoizedGetVisualizationConfig = memoizeOne(
             getVisualizationConfig
         );
+
+        this.memoizedGetContentStyle = memoizeOne(this.getContentStyle);
     }
 
     async componentDidMount() {
@@ -171,7 +172,11 @@ export class Item extends Component {
         const props = {
             ...this.props,
             visualization,
-            style: this.getContentStyle(),
+            style: this.memoizedGetContentStyle(
+                this.props.item.originalHeight,
+                this.headerRef.current.clientHeight,
+                this.contentRef ? this.contentRef.offsetHeight : null
+            ),
         };
 
         switch (activeType) {
@@ -275,19 +280,13 @@ export class Item extends Component {
             this.props.visualization
         );
 
-    getContentStyle = () => {
-        const { item, editMode } = this.props;
-        const PADDING_BOTTOM = 4;
+    getContentStyle = (originalHeight, headerHeight, measuredHeight) => {
+        const calculatedHeight =
+            originalHeight - headerHeight - HEADER_MARGIN_HEIGHT;
 
-        return !editMode
-            ? {
-                  height: item.originalHeight - HEADER_HEIGHT - PADDING_BOTTOM,
-              }
-            : {
-                  height: this.contentRef
-                      ? this.contentRef.offsetHeight
-                      : item.originalHeight - HEADER_HEIGHT - PADDING_BOTTOM,
-              };
+        return {
+            height: measuredHeight || calculatedHeight,
+        };
     };
 
     render() {
@@ -312,6 +311,7 @@ export class Item extends Component {
                     title={pluginManager.getName(item)}
                     itemId={item.id}
                     actionButtons={actionButtons}
+                    ref={this.headerRef}
                 />
                 <FatalErrorBoundary>
                     <div

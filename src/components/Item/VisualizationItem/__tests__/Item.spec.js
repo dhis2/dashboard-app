@@ -23,6 +23,8 @@ jest.mock('../plugin', () => {
     };
 });
 
+const mockHeaderRef = { clientHeight: 50 };
+
 describe('VisualizationItem/Item', () => {
     let props;
     let shallowItem;
@@ -75,6 +77,8 @@ describe('VisualizationItem/Item', () => {
 
         const component = canvas();
 
+        component.instance().headerRef.current = mockHeaderRef;
+
         component.setState({ configLoaded: true });
 
         const visPlugin = component.find(VisualizationPlugin);
@@ -101,6 +105,7 @@ describe('VisualizationItem/Item', () => {
         };
 
         const component = canvas();
+        component.instance().headerRef.current = mockHeaderRef;
 
         component.setState({ configLoaded: true });
 
@@ -129,6 +134,7 @@ describe('VisualizationItem/Item', () => {
         expect(canvas()).toMatchSnapshot();
 
         const component = canvas();
+        component.instance().headerRef.current = mockHeaderRef;
 
         component.setState({ configLoaded: true });
 
