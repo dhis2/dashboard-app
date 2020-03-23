@@ -1,13 +1,14 @@
 # Translators:
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# Hamza Assada <7amza.it@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-03-11T02:00:02.349Z\n"
 "PO-Revision-Date: 2020-03-02 13:27+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +26,7 @@ msgid "Delete"
 msgstr "حذف"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "حذف لوحة المعلومات"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
@@ -34,19 +35,19 @@ msgid ""
 msgstr ""
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "الخروج من غير حفظ التغيرات"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "الذهاب إلى لوحة المعلومات"
 
 msgid "Save changes"
-msgstr ""
+msgstr "حفظ التغيرات"
 
 msgid "Translate"
 msgstr "ترجمة"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "البحث عن لوحة معلومات"
 
 msgid "Show more"
 msgstr "إظهار المزيد"
@@ -76,38 +77,38 @@ msgid "Remove"
 msgstr "إزالة"
 
 msgid "Delete item"
-msgstr ""
+msgstr "حذف العنصر"
 
 msgid "Messages"
 msgstr "الرسائل"
 
 msgid "See all messages"
-msgstr ""
+msgstr "رؤية كافة الرسائل"
 
 msgid "Item type \"{{type}}\" not supported"
 msgstr ""
 
 msgid "Spacer"
-msgstr ""
+msgstr "مسافة فاصلة"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
-msgstr ""
+msgstr "استخدم فاصل لإنشاء مساحة رأسية فارغة بين عناصر لوحة المعلومات الأخرى"
 
 msgid "Text item"
-msgstr ""
+msgstr "عنصر نصي"
 
 msgid "Add text here"
-msgstr ""
+msgstr "اضف نص هنا"
 
 msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "حدثت مشكلة أثناء تحميل عنصر لوحة المعلومات هذا"
 
 msgid "No data to display"
-msgstr ""
+msgstr "لا توجد بيانات للعرض"
 
 msgid "Hide interpretations and details"
 msgstr ""
@@ -116,13 +117,13 @@ msgid "Show interpretations and details"
 msgstr ""
 
 msgid "View as Chart"
-msgstr ""
+msgstr "عرض كمخطط بياني"
 
 msgid "View as Table"
-msgstr ""
+msgstr "عرض كجدول"
 
 msgid "View as Map"
-msgstr ""
+msgstr "عرض كخريطة"
 
 msgid "Open in {{appName}} app"
 msgstr ""
@@ -131,31 +132,31 @@ msgid "Confirm"
 msgstr "تأكيد"
 
 msgid "Add filter"
-msgstr ""
+msgstr "إضافة عامل تصفية"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "لايوجد عناصر في لوحة المعلومات هذه"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "عرض أقل"
 
 msgid "Insert"
 msgstr "إدراج"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "ابحث عن عناصر لإضافتها إلى لوحة المعلومات هذه"
 
 msgid "Additional items"
-msgstr ""
+msgstr "عناصر إضافية"
 
 msgid "Text box"
-msgstr ""
+msgstr "مربع نص"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "عنوان لوحة العرض"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "وصف لوحة المعلومات"
 
 msgid "No description"
 msgstr "لا يوجد وصف"
@@ -167,7 +168,7 @@ msgid "Share"
 msgstr "مشاركة"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "مخططات بيانية"
 
 msgid "Pivot tables"
 msgstr "الجداول المحورية"
