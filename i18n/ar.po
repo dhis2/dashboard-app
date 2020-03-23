@@ -1,13 +1,14 @@
 # Translators:
 # phil_dhis2, 2019
 # Viktor Varland <viktor@dhis2.org>, 2019
+# Hamza Assada <7amza.it@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-04-08T11:33:46.174Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,19 +32,19 @@ msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "الخروج من غير حفظ التغيرات"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "الذهاب إلى لوحة المعلومات"
 
 msgid "Save changes"
-msgstr ""
+msgstr "حفظ التغيرات"
 
 msgid "Translate"
 msgstr "ترجمة"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "البحث عن لوحة معلومات"
 
 msgid "Show less"
 msgstr "إظهار الأقل"
@@ -76,26 +77,26 @@ msgid "Messages"
 msgstr "الرسائل"
 
 msgid "See all messages"
-msgstr ""
+msgstr "رؤية كافة الرسائل"
 
 msgid "Spacer"
-msgstr ""
+msgstr "مسافة فاصلة"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
-msgstr ""
+msgstr "استخدم فاصل لإنشاء مساحة رأسية فارغة بين عناصر لوحة المعلومات الأخرى"
 
 msgid "Text item"
-msgstr ""
+msgstr "عنصر نصي"
 
 msgid "Add text here"
-msgstr ""
+msgstr "اضف نص هنا"
 
 msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "No data to display"
-msgstr ""
+msgstr "لا توجد بيانات للعرض"
 
 msgid "Cancel"
 msgstr "إلغاء"
@@ -104,13 +105,13 @@ msgid "Confirm"
 msgstr "تأكيد"
 
 msgid "Add filter"
-msgstr ""
+msgstr "إضافة عامل تصفية"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "لايوجد عناصر في لوحة المعلومات هذه"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "ابحث عن عناصر لإضافتها إلى لوحة المعلومات هذه"
 
 msgid "See"
 msgstr ""
@@ -122,7 +123,7 @@ msgid "more"
 msgstr ""
 
 msgid "Text box"
-msgstr ""
+msgstr "مربع نص"
 
 msgid "Current translation"
 msgstr ""
