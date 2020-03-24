@@ -1448,13 +1448,6 @@
     d2-analysis "33.2.11"
     lodash-es "^4.17.11"
 
-"@dhis2/prop-types@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.2.1.tgz#acd62fc65f7c2f55126844289e601e2b842d3421"
-  integrity sha512-L3y0x8TOFwn12oBin4pkfTOn7CqGrKIN73Q4qLooA4/lM1qlM6GE3Qm7zB5p1Ko8rCThjEiHKSb9CfMGoo/GzQ==
-  dependencies:
-    prop-types "^15"
-
 "@dhis2/prop-types@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.5.0.tgz#7e69919f66698be373dd21940a8a770234ded6a1"
