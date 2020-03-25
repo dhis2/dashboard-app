@@ -44,6 +44,8 @@ import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer';
 // Component
 
 const EXPANDED_HEIGHT = 17;
+// this is set in the .dashboard-item-content css
+export const ITEM_CONTENT_PADDING_BOTTOM = 4;
 
 export class ItemGrid extends Component {
     state = {
