@@ -169,13 +169,18 @@ export class Item extends Component {
             );
         }
 
+        const calculatedHeight =
+            this.props.item.originalHeight -
+            this.headerRef.current.clientHeight -
+            HEADER_MARGIN_HEIGHT;
+
         const props = {
             ...this.props,
             visualization,
             style: this.memoizedGetContentStyle(
-                this.props.item.originalHeight,
-                this.headerRef.current.clientHeight,
-                this.contentRef ? this.contentRef.offsetHeight : null
+                calculatedHeight,
+                this.contentRef ? this.contentRef.offsetHeight : null,
+                this.props.editMode
             ),
         };
 
@@ -280,13 +285,12 @@ export class Item extends Component {
             this.props.visualization
         );
 
-    getContentStyle = (originalHeight, headerHeight, measuredHeight) => {
-        const calculatedHeight =
-            originalHeight - headerHeight - HEADER_MARGIN_HEIGHT;
+    getContentStyle = (calculatedHeight, measuredHeight, editMode) => {
+        const height = editMode
+            ? measuredHeight || calculatedHeight
+            : calculatedHeight;
 
-        return {
-            height: measuredHeight || calculatedHeight,
-        };
+        return { height };
     };
 
     render() {
