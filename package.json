@@ -23,7 +23,6 @@
         "@material-ui/icons": "^3.0.2",
         "d2": "^31.8.1",
         "d2-utilizr": "^0.2.16",
-        "husky": "^4.2.3",
         "i18next": "^15.0.6",
         "lodash": "^4.17.11",
         "moment": "^2.24.0",
@@ -96,7 +95,6 @@
         "eslint-config-prettier": "^4.1.0",
         "eslint-plugin-prettier": "^3.0.1",
         "eslint-plugin-react-hooks": "^2.3.0",
-        "immutability-helper": "^3.0.0",
-        "prettier": "^1.16.4"
+        "immutability-helper": "^3.0.0"
     }
 }
