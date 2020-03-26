@@ -34,12 +34,10 @@
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.3.0",
         "reselect": "^4.0.0",
-        "source-map-explorer": "^1.7.0",
         "typeface-roboto": "^0.0.54",
         "whatwg-fetch": "^3.0.0"
     },
     "scripts": {
-        "analyze": "source-map-explorer 'build/static/js/*.js'",
         "prestart": "npm run extract-pot && npm run localize && npm run manifest",
         "start": "react-scripts start",
         "lint": "d2-style js check || d2-style text check",
