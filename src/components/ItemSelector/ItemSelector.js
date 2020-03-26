@@ -138,9 +138,10 @@ class ItemSelector extends React.Component {
                     style={{ height: '70vh' }}
                     PaperProps={{ style: { width: '700px' } }}
                     disableAutoFocus={true}
+                    disableEnforceFocus={true}
                     disableRestoreFocus={true}
                 >
-                    <Menu>{this.getMenuGroups()}</Menu>
+                    <Menu maxWidth={'700px'}>{this.getMenuGroups()}</Menu>
                 </Popover>
             </Fragment>
         );
