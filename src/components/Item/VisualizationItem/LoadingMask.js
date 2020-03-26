@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const styles = theme => ({
+const styles = {
     progress: {
-        margin: theme.spacing.unit * 2,
+        margin: 16,
         maxWidth: 200,
         textAlign: 'center',
         alignSelf: 'center',
@@ -15,7 +15,7 @@ const styles = theme => ({
         justifyContent: 'center',
         height: '100%',
     },
-});
+};
 
 function CircularIndeterminate(props) {
     const { classes } = props;
