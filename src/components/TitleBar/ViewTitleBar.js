@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import i18n from '@dhis2/d2-i18n';
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog';
@@ -22,40 +21,10 @@ import {
     sGetDashboardById,
     sGetDashboardItems,
 } from '../../reducers/dashboards';
-import { colors } from '@dhis2/ui-core';
+
+import classes from './styles/ViewTitleBar.module.css';
 
 const NO_DESCRIPTION = i18n.t('No description');
-
-const styles = {
-    actions: {
-        display: 'flex',
-        alignItems: 'center',
-        marginLeft: '20px',
-    },
-    starIcon: {
-        fill: colors.grey600,
-    },
-    textButton: {
-        minWidth: '30px',
-        top: '1px',
-    },
-    editLink: {
-        display: 'inline-block',
-        verticalAlign: 'top',
-        textDecoration: 'none',
-        marginRight: '4px',
-    },
-    titleBar: {
-        display: 'flex',
-        alignItems: 'flex-start',
-    },
-    titleBarIcon: {
-        marginLeft: 5,
-        position: 'relative',
-        top: 1,
-        cursor: 'pointer',
-    },
-};
 
 class ViewTitleBar extends Component {
     constructor(props) {
@@ -80,7 +49,6 @@ class ViewTitleBar extends Component {
             starred,
             onStarClick,
             onInfoClick,
-            classes,
         } = this.props;
 
         const titleStyle = Object.assign({}, style.title, {
@@ -92,7 +60,7 @@ class ViewTitleBar extends Component {
         const StarIcon = starred ? Star : StarBorder;
 
         return (
-            <Fragment>
+            <>
                 <div className={classes.titleBar}>
                     <span style={titleStyle}>{name}</span>
                     <div className={classes.actions}>
@@ -148,10 +116,34 @@ class ViewTitleBar extends Component {
                         onRequestClose={this.toggleSharingDialog}
                     />
                 ) : null}
-            </Fragment>
+            </>
         );
     }
 }
+
+ViewTitleBar.propTypes = {
+    access: PropTypes.object,
+    description: PropTypes.string,
+    id: PropTypes.string,
+    name: PropTypes.string,
+    showDescription: PropTypes.bool,
+    starred: PropTypes.bool,
+    style: PropTypes.object,
+    onInfoClick: PropTypes.func,
+    onStarClick: PropTypes.func,
+};
+
+ViewTitleBar.defaultProps = {
+    name: '',
+    description: '',
+    starred: false,
+    showDescription: false,
+    onInfoClick: null,
+};
+
+ViewTitleBar.contextTypes = {
+    d2: PropTypes.object,
+};
 
 const mapStateToProps = state => {
     const id = sGetSelectedId(state);
@@ -185,29 +177,4 @@ export default connect(
     mapStateToProps,
     null,
     mergeProps
-)(withStyles(styles)(ViewTitleBar));
-
-ViewTitleBar.propTypes = {
-    access: PropTypes.object,
-    classes: PropTypes.object,
-    description: PropTypes.string,
-    id: PropTypes.string,
-    name: PropTypes.string,
-    showDescription: PropTypes.bool,
-    starred: PropTypes.bool,
-    style: PropTypes.object,
-    onInfoClick: PropTypes.func,
-    onStarClick: PropTypes.func,
-};
-
-ViewTitleBar.defaultProps = {
-    name: '',
-    description: '',
-    starred: false,
-    showDescription: false,
-    onInfoClick: null,
-};
-
-ViewTitleBar.contextTypes = {
-    d2: PropTypes.object,
-};
+)(ViewTitleBar);

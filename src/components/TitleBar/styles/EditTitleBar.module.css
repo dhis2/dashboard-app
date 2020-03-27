@@ -1,0 +1,35 @@
+.section {
+    display: flex;
+    justify-content: space-between;
+}
+.title-description {
+    flex: 3;
+    margin-right: 50px;
+}
+.title {
+    display: block;
+    clear: both;
+}
+.description {
+    display: block;
+    clear: both;
+    margin-top: 15px;
+}
+.underline:before {
+    border-bottom: none;
+}
+.underline:hover::before {
+    border-bottom: none !important;
+}
+.input {
+    background-color: rgba(0 0 10 0.05);
+    border-radius: 4px;
+    width: 100%;
+    &:hover {
+        background-color: rgba(0 0 10 0.08);
+    }
+}
+.item-selector {
+    flex: 2;
+    position: relative;
+}

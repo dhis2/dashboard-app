@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withStyles } from '@material-ui/core/styles';
 import uniqueId from 'lodash/uniqueId';
 import VisualizationPlugin from '@dhis2/data-visualizer-plugin';
 import i18n from '@dhis2/d2-i18n';
@@ -26,41 +25,11 @@ import {
 } from '../../../modules/itemTypes';
 import memoizeOne from '../../../modules/memoizeOne';
 
-import { colors } from '@dhis2/ui-core';
 import { getVisualizationConfig } from './plugin';
 import LoadingMask from './LoadingMask';
 import { ITEM_CONTENT_PADDING_BOTTOM } from '../../ItemGrid/ItemGrid';
 
-const styles = {
-    icon: {
-        width: 16,
-        height: 16,
-        marginLeft: 3,
-        cursor: 'pointer',
-        fill: colors.grey600,
-    },
-    title: {
-        overflow: 'hidden',
-        maxWidth: '85%',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-    },
-    textDiv: {
-        fontSize: '14px',
-        fontStretch: 'normal',
-        padding: '10px',
-        lineHeight: '20px',
-    },
-    loadingCover: {
-        position: 'absolute',
-        height: '100%',
-        width: '100%',
-        left: 0,
-        top: 0,
-        zIndex: 100,
-        background: '#ffffffab',
-    },
-};
+import classes from './styles/Item.module.css';
 
 export class Item extends Component {
     state = {
@@ -164,7 +133,7 @@ export class Item extends Component {
 
         if (!visualization) {
             return (
-                <div className={this.props.classes.textDiv}>
+                <div className={classes.textDiv}>
                     {i18n.t('No data to display')}
                 </div>
             );
@@ -191,9 +160,9 @@ export class Item extends Component {
             case CHART:
             case REPORT_TABLE: {
                 return (
-                    <Fragment>
+                    <>
                         {!this.state.pluginIsLoaded ? (
-                            <div style={styles.loadingCover}>
+                            <div className={classes.loadingCover}>
                                 <LoadingMask />
                             </div>
                         ) : null}
@@ -207,7 +176,7 @@ export class Item extends Component {
                             forDashboard={true}
                             style={props.style}
                         />
-                    </Fragment>
+                    </>
                 );
             }
             case MAP: {
@@ -339,7 +308,6 @@ Item.contextTypes = {
 };
 
 Item.propTypes = {
-    classes: PropTypes.object,
     editMode: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
@@ -375,4 +343,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(withStyles(styles)(Item));
+)(Item);

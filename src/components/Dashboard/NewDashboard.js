@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -14,13 +14,13 @@ class NewDashboard extends Component {
 
     render() {
         return (
-            <Fragment>
+            <>
                 <EditBar />
                 <DashboardVerticalOffset editMode={true} />
                 <div className="dashboard-wrapper">
                     <DashboardContent editMode={true} />
                 </div>
-            </Fragment>
+            </>
         );
     }
 }

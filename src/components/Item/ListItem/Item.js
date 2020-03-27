@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { colors } from '@dhis2/ui-core';
@@ -35,7 +35,7 @@ const ListItem = (props, context) => {
         );
 
         return (
-            <Fragment>
+            <>
                 <a
                     className={classes.link}
                     style={{ color: colors.grey900 }}
@@ -44,12 +44,12 @@ const ListItem = (props, context) => {
                     {contentItem.name}
                 </a>
                 {editMode ? deleteButton : null}
-            </Fragment>
+            </>
         );
     };
 
     return (
-        <Fragment>
+        <>
             <ItemHeader title={getItemTitle(item)} itemId={item.id} />
             <Line />
             <div className="dashboard-item-content">
@@ -62,7 +62,7 @@ const ListItem = (props, context) => {
                     ))}
                 </ul>
             </div>
-        </Fragment>
+        </>
     );
 };
 
