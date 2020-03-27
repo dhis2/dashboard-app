@@ -33,7 +33,7 @@ ShallowWrapper {
           <span
             style={
               Object {
-                "margin": "6px",
+                "marginRight": "6px",
               }
             }
           >
@@ -74,7 +74,7 @@ ShallowWrapper {
             <span
               style={
                 Object {
-                  "margin": "6px",
+                  "marginRight": "6px",
                 }
               }
             >
@@ -162,7 +162,7 @@ ShallowWrapper {
           <span
             style={
               Object {
-                "margin": "6px",
+                "marginRight": "6px",
               }
             }
           >
@@ -206,7 +206,7 @@ ShallowWrapper {
             <span
               style={
                 Object {
-                  "margin": "6px",
+                  "marginRight": "6px",
                 }
               }
             >
