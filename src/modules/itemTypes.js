@@ -31,7 +31,6 @@ const DOMAIN_TYPE_AGGREGATE = 'AGGREGATE';
 const DOMAIN_TYPE_TRACKER = 'TRACKER';
 
 // Dashboard helpers
-export const spacerContent = 'SPACER_ITEM_FOR_DASHBOARD_LAYOUT_CONVENIENCE';
 export const isVisualizationType = item =>
     !!itemTypeMap[item.type].isVisualizationType;
 export const hasMapView = itemType =>

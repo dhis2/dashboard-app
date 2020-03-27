@@ -1,6 +1,5 @@
 import i18n from '@dhis2/d2-i18n';
 import {
-    spacerContent,
     VISUALIZATION,
     MAP,
     EVENT_CHART,
@@ -13,6 +12,7 @@ import {
     TEXT,
     SPACER,
 } from '../../modules/itemTypes';
+// import { spacerContent } from '../../modules/uiBackendItemConverter';
 
 export const singleItems = [
     {
@@ -32,7 +32,7 @@ export const singleItems = [
             {
                 type: SPACER,
                 name: i18n.t('Spacer'),
-                content: spacerContent,
+                content: '',
             },
         ],
     },
