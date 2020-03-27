@@ -12,7 +12,6 @@ import {
     TEXT,
     SPACER,
 } from '../../modules/itemTypes';
-// import { spacerContent } from '../../modules/uiBackendItemConverter';
 
 export const singleItems = [
     {
