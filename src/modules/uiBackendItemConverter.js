@@ -8,8 +8,8 @@ const isBackendSpacerType = item =>
 const isUiSpacerType = item => item.type === SPACER;
 const isTextType = item => item.type === TEXT && item.text !== spacerContent;
 
-export const convertUiItemsToBackend = items => {
-    return items.map(item => {
+export const convertUiItemsToBackend = items =>
+    items.map(item => {
         let text = null;
         if (isUiSpacerType(item)) {
             text = spacerContent;
@@ -22,10 +22,9 @@ export const convertUiItemsToBackend = items => {
             ...(text ? { text } : {}),
         };
     });
-};
 
-export const convertBackendItemsToUi = items => {
-    return items.map(item => {
+export const convertBackendItemsToUi = items =>
+    items.map(item => {
         const type = isBackendSpacerType(item) ? SPACER : item.type;
 
         const text = isTextType(item)
@@ -40,4 +39,3 @@ export const convertBackendItemsToUi = items => {
             type,
         };
     });
-};
