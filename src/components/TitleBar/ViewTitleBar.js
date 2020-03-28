@@ -11,7 +11,7 @@ import { orObject } from '../../modules/util';
 import { tStarDashboard } from '../../actions/dashboards';
 import { acSetSelectedShowDescription } from '../../actions/selected';
 import FilterSelector from '../ItemFilter/FilterSelector';
-import { Button } from '@dhis2/ui-core';
+import { Button, colors } from '@dhis2/ui-core';
 import Info from './Info';
 import {
     sGetSelectedId,
@@ -68,7 +68,7 @@ class ViewTitleBar extends Component {
                             className={classes.titleBarIcon}
                             onClick={onStarClick}
                         >
-                            <StarIcon className={classes.starIcon} />
+                            <StarIcon style={{ fill: colors.grey600 }} />
                         </div>
                         <div className={classes.titleBarIcon}>
                             <Info onClick={onInfoClick} />
