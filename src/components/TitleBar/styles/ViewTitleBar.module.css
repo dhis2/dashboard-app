@@ -3,10 +3,6 @@
     align-items: center;
     margin-left: 20px;
 }
-.textButton {
-    min-width: 30px;
-    top: 1px;
-}
 .editLink {
     display: inline-block;
     vertical-align: top;

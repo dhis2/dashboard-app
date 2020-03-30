@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
 }
-.title-description {
+.titleDescription {
     flex: 3;
     margin-right: 50px;
 }
@@ -15,21 +15,7 @@
     clear: both;
     margin-top: 15px;
 }
-.underline:before {
-    border-bottom: none;
-}
-.underline:hover::before {
-    border-bottom: none !important;
-}
-.input {
-    background-color: rgba(0 0 10 0.05);
-    border-radius: 4px;
-    width: 100%;
-    &:hover {
-        background-color: rgba(0 0 10 0.08);
-    }
-}
-.item-selector {
+.itemSelector {
     flex: 2;
     position: relative;
 }
