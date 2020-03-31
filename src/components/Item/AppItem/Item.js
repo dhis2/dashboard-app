@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import NotInterestedIcon from '@material-ui/icons/NotInterested';
@@ -38,7 +38,7 @@ const AppItem = ({ item, itemFilters }, context) => {
     }
 
     return appDetails && appDetails.name && appDetails.launchUrl ? (
-        <Fragment>
+        <>
             <ItemHeader title={appDetails.name} itemId={item.id} />
             <Line />
             <iframe
@@ -47,9 +47,9 @@ const AppItem = ({ item, itemFilters }, context) => {
                 className="dashboard-item-content"
                 style={{ border: 'none' }}
             />
-        </Fragment>
+        </>
     ) : (
-        <Fragment>
+        <>
             <ItemHeader title={`${appKey} app not found`} />
             <Line />
             <div
@@ -67,7 +67,7 @@ const AppItem = ({ item, itemFilters }, context) => {
                     style={{ width: 100, height: 100, align: 'center' }}
                 />
             </div>
-        </Fragment>
+        </>
     );
 };
 

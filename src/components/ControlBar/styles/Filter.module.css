@@ -1,0 +1,11 @@
+.filterField {
+    font-size: 14px;
+    width: 200px;
+    height: 30px;
+    top: -4px;
+}
+.searchIcon {
+    color: var(--colors-grey700);
+    width: 20px;
+    height: 20px;
+}

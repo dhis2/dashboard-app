@@ -1,0 +1,20 @@
+.chip {
+    margin: 3px;
+}
+.link {
+    color: var(--colors-grey600);
+    display: inline-block;
+    text-decoration: none;
+    vertical-align: top;
+}
+.icon {
+    height: 20px;
+    margin-top: 2px;
+    width: 20px;
+}
+.selected {
+    fill: var(--colors-white);
+}
+.unselected {
+    fill: var(--colors-grey700);
+}

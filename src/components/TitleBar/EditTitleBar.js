@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import i18n from '@dhis2/d2-i18n';
 import { InputField, TextAreaField } from '@dhis2/ui-core';
 
@@ -13,49 +12,13 @@ import {
 import { orObject } from '../../modules/util';
 import { sGetEditDashboardRoot } from '../../reducers/editDashboard';
 
-const styles = {
-    section: { display: 'flex', justifyContent: 'space-between' },
-    titleDescription: {
-        flex: '3',
-        marginRight: '50px',
-    },
-    title: {
-        display: 'block',
-        clear: 'both',
-    },
-    description: {
-        display: 'block',
-        clear: 'both',
-        marginTop: '15px',
-    },
-    underline: {
-        '&::before': {
-            borderBottom: `none`,
-        },
-        '&:hover::before': {
-            borderBottom: `none!important`,
-        },
-    },
-    input: {
-        backgroundColor: 'rgba(0, 0, 10, 0.05)',
-        borderRadius: '4px',
-        width: '100%',
-        '&:hover': {
-            backgroundColor: 'rgba(0, 0, 10, 0.08)',
-        },
-    },
-    itemSelector: {
-        flex: '2',
-        position: 'relative',
-    },
-};
+import classes from './styles/EditTitleBar.module.css';
 
 export const EditTitleBar = ({
     name,
     description,
     onChangeTitle,
     onChangeDescription,
-    classes,
 }) => {
     const updateTitle = (_, e) => {
         onChangeTitle(e.target.value);
@@ -91,6 +54,18 @@ export const EditTitleBar = ({
     );
 };
 
+EditTitleBar.propTypes = {
+    onChangeDescription: PropTypes.func.isRequired,
+    onChangeTitle: PropTypes.func.isRequired,
+    description: PropTypes.string,
+    name: PropTypes.string,
+};
+
+EditTitleBar.defaultProps = {
+    name: '',
+    description: '',
+};
+
 const mapStateToProps = state => {
     const selectedDashboard = orObject(sGetEditDashboardRoot(state));
 
@@ -108,17 +83,4 @@ const mapDispatchToProps = {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(withStyles(styles)(EditTitleBar));
-
-EditTitleBar.propTypes = {
-    onChangeDescription: PropTypes.func.isRequired,
-    onChangeTitle: PropTypes.func.isRequired,
-    classes: PropTypes.object,
-    description: PropTypes.string,
-    name: PropTypes.string,
-};
-
-EditTitleBar.defaultProps = {
-    name: '',
-    description: '',
-};
+)(EditTitleBar);

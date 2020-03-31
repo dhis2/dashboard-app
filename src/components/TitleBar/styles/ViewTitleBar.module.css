@@ -1,0 +1,21 @@
+.actions {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+.editLink {
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    margin-right: 4px;
+}
+.titleBar {
+    display: flex;
+    align-items: flex-start;
+}
+.titleBarIcon {
+    margin-left: 5;
+    position: relative;
+    top: 1;
+    cursor: pointer;
+}

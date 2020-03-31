@@ -53,7 +53,7 @@ describe('DashboardItemChip', () => {
             .props.className.split(' ');
 
         expect(iconClasses.length).toEqual(2);
-        expect(iconClasses).toContain('unselectedClass');
+        expect(iconClasses).toContain('unselected');
     });
 
     it('sets the selected class on icon when chip is selected', () => {
@@ -67,7 +67,7 @@ describe('DashboardItemChip', () => {
             .props.className.split(' ');
 
         expect(iconClasses.length).toEqual(2);
-        expect(iconClasses).toContain('selectedClass');
+        expect(iconClasses).toContain('selected');
     });
 
     it('passes "label" property to Chip as children', () => {
