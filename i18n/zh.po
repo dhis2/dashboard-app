@@ -27,108 +27,108 @@ msgid "Delete"
 msgstr "删除"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "删除仪表盘"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
-msgstr ""
+msgstr "删除仪表盘 \"{{ dashboardName }}\" 将从所有用户仪表盘中移除。该操作不能撤销，你确信要永久删除该仪表盘条目？"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "不保存退出"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "进到仪表盘"
 
 msgid "Save changes"
-msgstr ""
+msgstr "保存改变"
 
 msgid "Translate"
 msgstr "翻译"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "搜索仪表盘"
 
 msgid "Show more"
-msgstr ""
+msgstr "显示更多"
 
 msgid "Show less"
-msgstr ""
+msgstr "显示更少"
 
 msgid "No access"
 msgstr "不能访问"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr ""
+msgstr "没有发现仪表盘，使用+按钮创建新的仪表盘"
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "请求的仪表盘没有找到"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
+msgstr[0] "选择了{{count}}个"
 
 msgid "Remove"
 msgstr "移除"
 
 msgid "Messages"
-msgstr ""
+msgstr "消息"
 
 msgid "See all messages"
-msgstr ""
+msgstr "查看所有消息"
 
 msgid "Spacer"
-msgstr ""
+msgstr "空白隔断"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
-msgstr ""
+msgstr "使用空白隔断在不同条目间创建垂直的空白区"
 
 msgid "Text item"
-msgstr ""
+msgstr "文本条目"
 
 msgid "Add text here"
-msgstr ""
+msgstr "在这里添加文本"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "不能载入该条目的插件"
 
 msgid "No data to display"
-msgstr ""
+msgstr "没有数据可显示"
 
 msgid "Confirm"
 msgstr "确认"
 
 msgid "Add filter"
-msgstr ""
+msgstr "添加过滤器"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "该仪表盘没有条目"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "显示较少"
 
 msgid "Insert"
 msgstr "插入"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "搜索条目添加到仪表盘"
 
 msgid "Additional items"
-msgstr ""
+msgstr "其它条目"
 
 msgid "Text box"
-msgstr ""
+msgstr "文本框"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "仪表盘标题"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "仪表盘描述"
 
 msgid "No description"
-msgstr ""
+msgstr "没有描述"
 
 msgid "Edit"
 msgstr "编辑"
@@ -137,31 +137,31 @@ msgid "Share"
 msgstr "分享"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "透视表"
 
 msgid "Pivot Tables"
 msgstr "透视表"
 
 msgid "Charts"
-msgstr ""
+msgstr "图表"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "可视化图"
 
 msgid "Maps"
-msgstr ""
+msgstr "地图"
 
 msgid "Event reports"
-msgstr ""
+msgstr "事件报表"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "事件报表"
 
 msgid "Event charts"
-msgstr ""
+msgstr "事件图表"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "事件可视化"
 
 msgid "Apps"
 msgstr "Apps"
@@ -170,7 +170,7 @@ msgid "Reports"
 msgstr "报表管理"
 
 msgid "Resources"
-msgstr ""
+msgstr "资源"
 
 msgid "Users"
 msgstr "用户"
