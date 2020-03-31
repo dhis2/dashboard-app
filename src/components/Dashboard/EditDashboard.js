@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import PropTypes from 'prop-types';
@@ -63,11 +63,11 @@ export class EditDashboard extends Component {
 
     render() {
         return (
-            <Fragment>
+            <>
                 <EditBar />
                 <DashboardVerticalOffset editMode={true} />
                 {this.getDashboardContent()}
-            </Fragment>
+            </>
         );
     }
 }

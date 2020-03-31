@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -12,7 +12,7 @@ export const SinglesMenuGroup = ({ acAddDashboardItem, category }) => {
     };
 
     return (
-        <Fragment>
+        <>
             <HeaderMenuItem title={category.header} />
             {category.items.map(item => (
                 <ContentMenuItem
@@ -22,7 +22,7 @@ export const SinglesMenuGroup = ({ acAddDashboardItem, category }) => {
                     onInsert={addToDashboard(item)}
                 />
             ))}
-        </Fragment>
+        </>
     );
 };
 

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import PropTypes from 'prop-types';
@@ -58,7 +58,7 @@ const TextItem = props => {
 
     const editItem = () => {
         return (
-            <Fragment>
+            <>
                 <ItemHeader title={i18n.t('Text item')} itemId={item.id} />
                 <Line />
                 <div className="dashboard-item-content">
@@ -73,11 +73,11 @@ const TextItem = props => {
                         />
                     </RichTextEditor>
                 </div>
-            </Fragment>
+            </>
         );
     };
 
-    return <Fragment>{editMode ? editItem() : viewItem()}</Fragment>;
+    return <>{editMode ? editItem() : viewItem()}</>;
 };
 
 const mapStateToProps = (state, ownProps) => {

@@ -1,0 +1,21 @@
+.section {
+    display: flex;
+    justify-content: space-between;
+}
+.titleDescription {
+    flex: 3;
+    margin-right: 50px;
+}
+.title {
+    display: block;
+    clear: both;
+}
+.description {
+    display: block;
+    clear: both;
+    margin-top: 15px;
+}
+.itemSelector {
+    flex: 2;
+    position: relative;
+}

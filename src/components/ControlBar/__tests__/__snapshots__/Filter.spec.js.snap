@@ -22,7 +22,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "className": undefined,
+      "className": "filterField",
       "endAdornment": <WithStyles(WithFormControlContext(InputAdornment))
         position="end"
       >
@@ -36,7 +36,9 @@ ShallowWrapper {
       "startAdornment": <WithStyles(WithFormControlContext(InputAdornment))
         position="start"
       >
-        <UNDEFINED />
+        <pure(SearchIcon)
+          className="searchIcon"
+        />
       </WithStyles(WithFormControlContext(InputAdornment))>,
       "value": "",
     },
@@ -50,7 +52,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "className": undefined,
+        "className": "filterField",
         "endAdornment": <WithStyles(WithFormControlContext(InputAdornment))
           position="end"
         >
@@ -64,7 +66,9 @@ ShallowWrapper {
         "startAdornment": <WithStyles(WithFormControlContext(InputAdornment))
           position="start"
         >
-          <UNDEFINED />
+          <pure(SearchIcon)
+            className="searchIcon"
+          />
         </WithStyles(WithFormControlContext(InputAdornment))>,
         "value": "",
       },
@@ -96,9 +100,7 @@ ShallowWrapper {
         },
       },
     },
-    Symbol(enzyme.__providerValues__): undefined,
   },
-  Symbol(enzyme.__providerValues__): Map {},
   Symbol(enzyme.__childContext__): null,
 }
 `;

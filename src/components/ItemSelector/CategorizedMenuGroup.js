@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
@@ -51,7 +51,7 @@ class CategorizedMenuGroup extends Component {
     render() {
         const { title, type, items, hasMore } = this.props;
         return (
-            <Fragment>
+            <>
                 <HeaderMenuItem title={title} />
                 {items.map(item => {
                     const itemUrl = getItemUrl(type, item, this.context.d2);
@@ -81,7 +81,7 @@ class CategorizedMenuGroup extends Component {
                     />
                 ) : null}
                 <Divider margin="8px 0px" />
-            </Fragment>
+            </>
         );
     }
 }

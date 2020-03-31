@@ -37,7 +37,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <div
-          className="titledesc"
+          className="titleDescription"
         >
           <InputField
             className="title"
@@ -97,7 +97,7 @@ ShallowWrapper {
               width="100%"
             />,
           ],
-          "className": "titledesc",
+          "className": "titleDescription",
         },
         "ref": null,
         "rendered": Array [
@@ -171,7 +171,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <div
-            className="titledesc"
+            className="titleDescription"
           >
             <InputField
               className="title"
@@ -231,7 +231,7 @@ ShallowWrapper {
                 width="100%"
               />,
             ],
-            "className": "titledesc",
+            "className": "titleDescription",
           },
           "ref": null,
           "rendered": Array [
@@ -321,9 +321,7 @@ ShallowWrapper {
         },
       },
     },
-    Symbol(enzyme.__providerValues__): undefined,
   },
-  Symbol(enzyme.__providerValues__): Map {},
 }
 `;
 
@@ -363,7 +361,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <div
-          className="titledesc"
+          className="titleDescription"
         >
           <InputField
             className="title"
@@ -423,7 +421,7 @@ ShallowWrapper {
               width="100%"
             />,
           ],
-          "className": "titledesc",
+          "className": "titleDescription",
         },
         "ref": null,
         "rendered": Array [
@@ -497,7 +495,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <div
-            className="titledesc"
+            className="titleDescription"
           >
             <InputField
               className="title"
@@ -557,7 +555,7 @@ ShallowWrapper {
                 width="100%"
               />,
             ],
-            "className": "titledesc",
+            "className": "titleDescription",
           },
           "ref": null,
           "rendered": Array [
@@ -647,8 +645,6 @@ ShallowWrapper {
         },
       },
     },
-    Symbol(enzyme.__providerValues__): undefined,
   },
-  Symbol(enzyme.__providerValues__): Map {},
 }
 `;

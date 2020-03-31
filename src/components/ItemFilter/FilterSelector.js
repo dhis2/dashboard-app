@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Popover from '@material-ui/core/Popover';
@@ -114,7 +114,7 @@ class FilterSelector extends Component {
         } = this.props;
 
         return (
-            <Fragment>
+            <>
                 <Button onClick={this.openPanel}>
                     {i18n.t('Add filter')}
                     <ArrowDropDownIcon />
@@ -145,7 +145,7 @@ class FilterSelector extends Component {
                         onConfirm={this.saveFilter}
                     />
                 ) : null}
-            </Fragment>
+            </>
         );
     }
 }
