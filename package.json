@@ -46,6 +46,11 @@
         "test": "d2-app-scripts test",
         "validate-push": "CI=true yarn test"
     },
+    "jest": {
+        "setupFilesAfterEnv": [
+            "<rootDir>/src/setupTests.js"
+        ]
+    },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^3.2.9",
         "@dhis2/cli-style": "^5.0.3",
