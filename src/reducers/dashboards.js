@@ -13,6 +13,7 @@ import {
     CHART,
     VISUALIZATION,
 } from '../modules/itemTypes';
+import { getGridItemProperties } from '../components/ItemGrid/gridUtil';
 
 export const SET_DASHBOARDS = 'SET_DASHBOARDS';
 export const ADD_DASHBOARDS = 'ADD_DASHBOARDS';
@@ -189,10 +190,13 @@ export const getCustomDashboards = data => {
                     : item.text
                 : null;
 
+            const gridProperties = getGridItemProperties(item.id);
+
             return {
                 ...item,
                 ...(text !== null ? { text } : {}),
                 type,
+                ...gridProperties,
             };
         });
 

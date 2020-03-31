@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import memoize from 'lodash/memoize';
 import i18n from '@dhis2/d2-i18n';
 import ReactGridLayout from 'react-grid-layout';
 import { CircularLoader, ScreenCover } from '@dhis2/ui-core';
@@ -16,7 +15,6 @@ import { isVisualizationType } from '../../modules/itemTypes';
 import {
     GRID_ROW_HEIGHT,
     GRID_COMPACT_TYPE,
-    ITEM_MIN_HEIGHT,
     MARGIN,
     getGridColumns,
     hasShape,
@@ -51,12 +49,6 @@ export class ItemGrid extends Component {
     state = {
         expandedItems: {},
     };
-
-    constructor(props) {
-        super(props);
-
-        this.getMemoizedItem = memoize(this.getItem);
-    }
 
     onToggleItemExpanded = clickedId => {
         const isExpanded =
@@ -100,7 +92,7 @@ export class ItemGrid extends Component {
 
     onRemoveItemWrapper = id => () => this.onRemoveItem(id);
 
-    getItem = dashboardItem => {
+    adjustHeightForExpanded = dashboardItem => {
         const expandedItem = this.state.expandedItems[dashboardItem.id];
         const hProp = { h: dashboardItem.h };
 
@@ -108,15 +100,8 @@ export class ItemGrid extends Component {
             hProp.h = dashboardItem.h + EXPANDED_HEIGHT;
         }
 
-        return Object.assign({}, dashboardItem, hProp, {
-            i: dashboardItem.id,
-            minH: ITEM_MIN_HEIGHT,
-            randomNumber: Math.random(),
-        });
+        return Object.assign({}, dashboardItem, hProp);
     };
-
-    getItems = dashboardItems =>
-        dashboardItems.map(item => this.getMemoizedItem(item));
 
     getItemComponent = item => {
         const itemClassNames = [
@@ -152,8 +137,8 @@ export class ItemGrid extends Component {
         }
 
         const items = edit
-            ? this.getItems(dashboardItems)
-            : dashboardItems.map(this.getItem);
+            ? dashboardItems
+            : dashboardItems.map(this.adjustHeightForExpanded);
 
         return (
             <div className="grid-wrapper">
