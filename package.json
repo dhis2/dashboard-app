@@ -1,12 +1,12 @@
 {
     "name": "dashboard-app",
-    "version": "31.0.1",
+    "version": "35.0.0",
     "description": "DHIS2 Dashboards app",
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
         "@dhis2/analytics": "^4.3.22",
-        "@dhis2/app-runtime": "^2.0.3",
+        "@dhis2/app-runtime": "^2.1.1",
         "@dhis2/d2-i18n": "^1.0.6",
         "@dhis2/d2-ui-core": "^6.5.8",
         "@dhis2/d2-ui-interpretations": "^6.5.7",
@@ -29,7 +29,6 @@
         "react-grid-layout": "^0.16.6",
         "react-redux": "^6.0.1",
         "react-router-dom": "^4.3.1",
-        "react-scripts": "2.1.8",
         "redux": "^4.0.1",
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.3.0",
@@ -38,62 +37,20 @@
         "whatwg-fetch": "^3.0.0"
     },
     "scripts": {
-        "prestart": "npm run extract-pot && npm run localize && npm run manifest",
-        "start": "react-scripts start",
+        "start": "d2-app-scripts start",
         "lint": "d2-style js check || d2-style text check",
         "format": "d2-style js apply || d2-style text apply",
         "coverage": "npm test -- --coverage",
-        "prebuild": "rm -rf build && mkdir build && npm run manifest && npm run localize",
-        "build": "PUBLIC_URL=. react-scripts build",
-        "build-netlify": "REACT_APP_DHIS2_BASE_URL=\"https://play.dhis2.org/dev\" npm run build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "manifest": "d2-manifest package.json ./public/manifest.webapp --manifest.activities.dhis.href=${REACT_APP_DHIS2_BASE_URL:=..}",
-        "extract-pot": "d2-i18n-extract -p src/ -o i18n/",
-        "localize": "d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/",
-        "validate-commit": "d2-style js check --staged && d2-style text check --staged && yarn extract-pot && git add ./i18n/",
+        "build": "d2-app-scripts build",
+        "build:netlify": "yarn build --standalone",
+        "test": "d2-app-scripts test",
         "validate-push": "CI=true yarn test"
     },
-    "manifest.webapp": {
-        "name": "Dashboards app",
-        "description": "DHIS2 core dashboard",
-        "icons": {
-            "48": "icon.png"
-        },
-        "developer": {
-            "url": "",
-            "name": "DHIS2"
-        },
-        "dhis2": {
-            "apiVersion": "34"
-        },
-        "activities": {
-            "dhis": {
-                "href": ".."
-            }
-        }
-    },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
-    "browserslist": [
-        ">0.2%",
-        "not dead",
-        "not ie <= 11",
-        "not op_mini all"
-    ],
     "devDependencies": {
+        "@dhis2/cli-app-scripts": "^3.2.9",
         "@dhis2/cli-style": "^5.0.3",
-        "@dhis2/d2-i18n-extract": "^1.0.8",
-        "@dhis2/d2-i18n-generate": "^1.1.1",
-        "d2-manifest": "^1.0.0",
         "enzyme": "^3.9.0",
         "enzyme-adapter-react-16": "^1.10.0",
-        "eslint-config-prettier": "^4.1.0",
-        "eslint-plugin-prettier": "^3.0.1",
-        "eslint-plugin-react-hooks": "^2.3.0",
-        "husky": "^1.3.1",
-        "immutability-helper": "^3.0.0",
-        "prettier": "^1.16.4"
+        "immutability-helper": "^3.0.0"
     }
 }
