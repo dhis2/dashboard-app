@@ -11,7 +11,6 @@ const GRID_LAYOUT = 'FLEXIBLE'; // FIXED | FLEXIBLE
 export const MARGIN = [10, 10];
 
 export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 };
-export const ITEM_MIN_HEIGHT = 4;
 
 // Dimensions for getShape
 
@@ -58,6 +57,13 @@ export const getShape = i => {
         y: row * itemHeight,
         w: itemWidth,
         h: itemHeight,
+    };
+};
+
+export const getGridItemProperties = itemId => {
+    return {
+        i: itemId,
+        minH: 4, // minimum height for item
     };
 };
 
