@@ -14,7 +14,6 @@ import { tSetDimensions } from '../actions/dimensions';
 import Dashboard from './Dashboard/Dashboard';
 import SnackbarMessage from './SnackbarMessage/SnackbarMessage';
 
-import 'typeface-roboto';
 import './App.css';
 
 export class App extends Component {
