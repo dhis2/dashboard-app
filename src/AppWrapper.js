@@ -2,6 +2,7 @@ import React from 'react'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import dhis2theme from '@dhis2/d2-ui-core/theme/mui3.theme'
 import { Provider } from '@dhis2/app-runtime'
+// import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
 
 import { D2Shim } from './D2Shim'
 import App from './components/App'
@@ -22,6 +23,9 @@ const schemas = [
     'organisationUnit',
     'userGroup',
 ]
+const d2Config = {
+    schemas,
+}
 
 const AppWrapper = () => {
     return (

@@ -7,6 +7,7 @@
     "dependencies": {
         "@dhis2/analytics": "^4.3.22",
         "@dhis2/app-runtime": "^2.1.1",
+        "@dhis2/app-runtime-adapter-d2": "file:../app-runtime-adapter-d2",
         "@dhis2/d2-i18n": "^1.0.6",
         "@dhis2/d2-ui-core": "^6.5.8",
         "@dhis2/d2-ui-interpretations": "^6.5.7",
@@ -24,8 +25,8 @@
         "i18next": "^15.0.6",
         "lodash": "^4.17.11",
         "moment": "^2.24.0",
-        "react": "^16.8.4",
-        "react-dom": "^16.8.4",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
         "react-grid-layout": "^0.16.6",
         "react-redux": "^6.0.1",
         "react-router-dom": "^4.3.1",

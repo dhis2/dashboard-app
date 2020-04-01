@@ -36,8 +36,15 @@ const initD2 = async ({ baseUrl, apiVersion }, initConfig) => {
 }
 
 export const D2Shim = ({ children, ...initConfig }) => {
-    const appConfig = useConfig()
+    // const appConfig = useConfig()
+    const appConfig = {
+        baseUrl: '..',
+        apiVersion: 32,
+    }
     const [params, setParams] = useState(null)
+
+    console.log('appConfig', appConfig)
+    console.log('initConfig', initConfig)
 
     useEffect(() => {
         initD2(appConfig, initConfig).then(setParams)
