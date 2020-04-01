@@ -92,13 +92,14 @@ export class ItemGrid extends Component {
 
     adjustHeightForExpanded = dashboardItem => {
         const expandedItem = this.state.expandedItems[dashboardItem.id];
-        const hProp = { h: dashboardItem.h };
 
         if (expandedItem && expandedItem === true) {
-            hProp.h = dashboardItem.h + EXPANDED_HEIGHT;
+            return Object.assign({}, dashboardItem, {
+                h: dashboardItem.h + EXPANDED_HEIGHT,
+            });
         }
 
-        return Object.assign({}, dashboardItem, hProp);
+        return dashboardItem;
     };
 
     getItemComponent = item => {
