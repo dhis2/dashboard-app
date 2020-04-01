@@ -96,10 +96,11 @@ msgid "fewer"
 msgstr ""
 
 msgid "more"
-msgstr ""
+msgstr "أكثر"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
+"لم يتم العثور على لوحات معلومات. استخدم الزر + لإنشاء لوحة معلومات جديدة."
 
 msgid "Add title here"
 msgstr ""
@@ -120,7 +121,7 @@ msgid "Charts"
 msgstr "المخططات البيانية"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "التحليل المرئي"
 
 msgid "Maps"
 msgstr "الخرائط"
