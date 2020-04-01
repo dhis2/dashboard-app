@@ -50,13 +50,14 @@ msgid "Show more"
 msgstr "إظهار المزيد"
 
 msgid "No access"
-msgstr ""
+msgstr "ممنوع الدخول"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
+"لم يتم العثور على لوحات معلومات. استخدم الزر + لإنشاء لوحة معلومات جديدة."
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "لم يتم العثور على لوحة المعلومات التي طلبتها"
 
 msgid "Messages"
 msgstr "الرسائل"
@@ -77,10 +78,10 @@ msgid "Edit"
 msgstr "تعديل"
 
 msgid "like"
-msgstr ""
+msgstr "إعجاب"
 
 msgid "likes"
-msgstr ""
+msgstr "الإعجابات"
 
 msgid "You like this"
 msgstr ""
@@ -132,7 +133,7 @@ msgid "fewer"
 msgstr ""
 
 msgid "more"
-msgstr ""
+msgstr "أكثر"
 
 msgid "Text box"
 msgstr "مربع نص"
@@ -156,7 +157,7 @@ msgid "Charts"
 msgstr "المخططات البيانية"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "التحليل المرئي"
 
 msgid "Maps"
 msgstr "الخرائط"
