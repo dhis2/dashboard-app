@@ -49,7 +49,10 @@
     "jest": {
         "setupFilesAfterEnv": [
             "<rootDir>/src/setupTests.js"
-        ]
+        ],
+        "moduleNameMapper": {
+            "^.+\\.(css|sass|scss)$": "identity-obj-proxy"
+        }
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^3.2.9",
