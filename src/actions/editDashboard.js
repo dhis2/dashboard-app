@@ -18,13 +18,8 @@ import {
     NEW_ITEM_SHAPE,
     getGridItemProperties,
 } from '../components/ItemGrid/gridUtil';
-import {
-    itemTypeMap,
-    isSpacerType,
-    TEXT,
-    emptyTextItemContent,
-    isTextType,
-} from '../modules/itemTypes';
+import { itemTypeMap } from '../modules/itemTypes';
+import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter';
 
 const onError = error => {
     console.log('Error (Saving Dashboard): ', error);
@@ -103,23 +98,9 @@ export const acRemoveDashboardItem = value => ({
 export const tSaveDashboard = () => async (dispatch, getState) => {
     const dashboard = sGetEditDashboardRoot(getState());
 
-    const dashboardItems = dashboard.dashboardItems.map(item => {
-        const text = isTextType(item)
-            ? item.text || emptyTextItemContent
-            : null;
-
-        const type = isSpacerType(item) ? TEXT : item.type;
-
-        return {
-            ...item,
-            ...(text ? { text } : {}),
-            type,
-        };
-    });
-
     const dashboardToSave = {
         ...dashboard,
-        dashboardItems,
+        dashboardItems: convertUiItemsToBackend(dashboard.dashboardItems),
     };
 
     try {

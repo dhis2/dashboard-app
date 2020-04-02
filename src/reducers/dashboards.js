@@ -4,16 +4,7 @@ import arrayFrom from 'd2-utilizr/lib/arrayFrom';
 import arraySort from 'd2-utilizr/lib/arraySort';
 
 import { orArray, orObject } from '../modules/util';
-import {
-    SPACER,
-    isSpacerType,
-    isTextType,
-    emptyTextItemContent,
-    REPORT_TABLE,
-    CHART,
-    VISUALIZATION,
-} from '../modules/itemTypes';
-import { getGridItemProperties } from '../components/ItemGrid/gridUtil';
+import { convertBackendItemsToUi } from '../modules/uiBackendItemConverter';
 
 export const SET_DASHBOARDS = 'SET_DASHBOARDS';
 export const ADD_DASHBOARDS = 'ADD_DASHBOARDS';
@@ -169,38 +160,8 @@ export const sGetDashboardsSortedByStarred = state => [
  * @param {Array} data The original dashboard list
  * @returns {Array}
  */
-export const getCustomDashboards = data => {
-    const uiItems = items =>
-        items.map(item => {
-            let type = isSpacerType(item) ? SPACER : item.type;
-
-            // TODO: temporary fix before 2.34 epic branch is merged
-            // if "VISUALIZATION", reset to "REPORT_TABLE" or "CHART"
-            if (type === VISUALIZATION) {
-                type = item.reportTable
-                    ? REPORT_TABLE
-                    : item.chart
-                    ? CHART
-                    : type;
-            }
-
-            const text = isTextType(item)
-                ? item.text === emptyTextItemContent
-                    ? ''
-                    : item.text
-                : null;
-
-            const gridProperties = getGridItemProperties(item.id);
-
-            return {
-                ...item,
-                ...(text !== null ? { text } : {}),
-                type,
-                ...gridProperties,
-            };
-        });
-
-    return arrayFrom(data).map(d => ({
+export const getCustomDashboards = data =>
+    arrayFrom(data).map(d => ({
         id: d.id,
         name: d.name,
         displayName: d.displayName,
@@ -218,6 +179,5 @@ export const getCustomDashboards = data => {
             .substr(0, 16),
         access: d.access,
         numberOfItems: orArray(d.dashboardItems).length,
-        dashboardItems: uiItems(d.dashboardItems),
+        dashboardItems: convertBackendItemsToUi(d.dashboardItems),
     }));
-};
