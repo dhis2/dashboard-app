@@ -1,5 +1,6 @@
 const config = {
     type: 'app',
+    coreApp: true,
 
     entryPoints: {
         app: './src/AppWrapper',

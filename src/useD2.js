@@ -5,13 +5,7 @@ import { useConfig } from '@dhis2/app-runtime'
 let theD2 = null
 
 export const useD2 = ({ d2Config = {}, onInitialized = () => {} }) => {
-    // console.log('d2Config', d2Config)
-    // const res = useConfig()
-    // console.log('res', res)
-    // const { baseUrl, apiVersion } = res
-    // console.log('baseUrl', baseUrl)
-    const baseUrl = '..'
-    const apiVersion = 32
+    const { baseUrl, apiVersion } = useConfig()
     const [d2, setD2] = useState(theD2)
     const [d2Error, setError] = useState(undefined)
 

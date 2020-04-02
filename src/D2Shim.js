@@ -36,11 +36,7 @@ const initD2 = async ({ baseUrl, apiVersion }, initConfig) => {
 }
 
 export const D2Shim = ({ children, ...initConfig }) => {
-    // const appConfig = useConfig()
-    const appConfig = {
-        baseUrl: '..',
-        apiVersion: 32,
-    }
+    const appConfig = useConfig()
     const [params, setParams] = useState(null)
 
     console.log('appConfig', appConfig)

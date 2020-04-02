@@ -7,7 +7,6 @@
     "dependencies": {
         "@dhis2/analytics": "^4.3.22",
         "@dhis2/app-runtime": "^2.1.1",
-        "@dhis2/app-runtime-adapter-d2": "file:../app-runtime-adapter-d2",
         "@dhis2/d2-i18n": "^1.0.6",
         "@dhis2/d2-ui-core": "^6.5.8",
         "@dhis2/d2-ui-interpretations": "^6.5.7",
@@ -41,7 +40,7 @@
         "start": "d2-app-scripts start",
         "lint": "d2-style js check || d2-style text check",
         "format": "d2-style js apply || d2-style text apply",
-        "coverage": "npm test -- --coverage",
+        "coverage": "yarn test --coverage",
         "build": "d2-app-scripts build",
         "build:netlify": "yarn build --standalone",
         "test": "d2-app-scripts test",

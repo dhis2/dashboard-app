@@ -1,10 +1,10 @@
 import React from 'react'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import dhis2theme from '@dhis2/d2-ui-core/theme/mui3.theme'
-import { Provider } from '@dhis2/app-runtime'
+import { Provider } from 'react-redux'
 // import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
 
-import { D2Shim } from './D2Shim'
+import { D2Shim } from './D2Shim2'
 import App from './components/App'
 import configureStore from './configureStore'
 
@@ -31,8 +31,14 @@ const AppWrapper = () => {
     return (
         <Provider store={configureStore()}>
             <MuiThemeProvider theme={muiTheme()}>
-                <D2Shim schemas={schemas}>
-                    {params => <App {...params} />}
+                <D2Shim d2Config={d2Config}>
+                    {({ d2, d2error }) => {
+                        if (!d2) {
+                            // TODO: Handle errors in d2 initialization
+                            return null;
+                        }
+                        return <App d2={d2} />
+                    }}
                 </D2Shim>
             </MuiThemeProvider>
         </Provider>
