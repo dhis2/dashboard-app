@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
 import i18n from '@dhis2/d2-i18n';
@@ -38,7 +38,7 @@ export const ViewDashboard = ({ id, dashboardsIsEmpty, dashboardsLoaded }) => {
     const contentNotReady = !dashboardsLoaded || id === null;
 
     return (
-        <Fragment>
+        <>
             <DashboardsBar />
             <DashboardVerticalOffset />
             <div className="dashboard-wrapper">
@@ -49,7 +49,7 @@ export const ViewDashboard = ({ id, dashboardsIsEmpty, dashboardsLoaded }) => {
                     />
                 )}
             </div>
-        </Fragment>
+        </>
     );
 };
 

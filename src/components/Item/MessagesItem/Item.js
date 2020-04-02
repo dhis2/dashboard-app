@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
@@ -107,7 +107,7 @@ class MessagesItem extends Component {
 
     render() {
         return (
-            <Fragment>
+            <>
                 <ItemHeader
                     title={i18n.t('Messages')}
                     itemId={this.props.item.id}
@@ -123,7 +123,7 @@ class MessagesItem extends Component {
                         </div>
                     </div>
                 )}
-            </Fragment>
+            </>
         );
     }
 }

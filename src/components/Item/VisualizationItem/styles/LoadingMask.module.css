@@ -1,0 +1,11 @@
+.progress {
+    margin: 16;
+    max-width: 200;
+    text-align: center;
+    align-self: center;
+}
+.outer {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}

@@ -1,0 +1,8 @@
+.bar {
+    position: sticky;
+    z-index: 7;
+    padding: 8px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
