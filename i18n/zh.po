@@ -1,0 +1,144 @@
+# Translators:
+# phil_dhis2, 2019
+# easylin <lin_xd@126.com>, 2020
+# 晓东 林 <13981924470@126.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-03-06T17:24:20.929Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
+"Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Continue editing"
+msgstr ""
+
+msgid "Confirm delete dashboard"
+msgstr ""
+
+msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
+msgstr ""
+
+msgid "Exit without saving"
+msgstr "不保存退出"
+
+msgid "Go to dashboards"
+msgstr "进到仪表盘"
+
+msgid "Save changes"
+msgstr "保存改变"
+
+msgid "Translate"
+msgstr "翻译"
+
+msgid "Search for a dashboard"
+msgstr "搜索仪表盘"
+
+msgid "Show less"
+msgstr "显示更少"
+
+msgid "Show more"
+msgstr "显示更多"
+
+msgid "No access"
+msgstr "不能访问"
+
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr "没有发现仪表盘，使用+按钮创建新的仪表盘"
+
+msgid "Requested dashboard not found"
+msgstr "请求的仪表盘没有找到"
+
+msgid "Messages"
+msgstr "消息"
+
+msgid "See all messages"
+msgstr "查看所有消息"
+
+msgid "Unable to load the plugin for this item"
+msgstr "不能载入该条目的插件"
+
+msgid "Spacer"
+msgstr "空白隔断"
+
+msgid ""
+"Use a spacer to create empty vertical space between other dashboard items."
+msgstr "使用空白隔断在不同条目间创建垂直的空白区"
+
+msgid "Text item"
+msgstr "文本条目"
+
+msgid "Add text here"
+msgstr "在这里添加文本"
+
+msgid "There are no items on this dashboard"
+msgstr "该仪表盘没有条目"
+
+msgid "Search for items to add to this dashboard"
+msgstr "搜索条目添加到仪表盘"
+
+msgid "See"
+msgstr ""
+
+msgid "fewer"
+msgstr ""
+
+msgid "more"
+msgstr ""
+
+msgid "Text box"
+msgstr "文本框"
+
+msgid "Add title here"
+msgstr ""
+
+msgid "Add description here"
+msgstr ""
+
+msgid "No description"
+msgstr "没有描述"
+
+msgid "Pivot tables"
+msgstr "透视表"
+
+msgid "Pivot Tables"
+msgstr "透视表"
+
+msgid "Charts"
+msgstr "图表"
+
+msgid "Visualizer"
+msgstr "可视化图"
+
+msgid "Maps"
+msgstr "地图"
+
+msgid "Event reports"
+msgstr "事件报表"
+
+msgid "Event Reports"
+msgstr "事件报表"
+
+msgid "Event charts"
+msgstr "事件图表"
+
+msgid "Event Visualizer"
+msgstr "事件可视化"
+
+msgid "Reports"
+msgstr "报表管理"
+
+msgid "Resources"
+msgstr "资源"
+
+msgid "Users"
+msgstr "用户"
