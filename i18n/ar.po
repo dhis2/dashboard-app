@@ -33,6 +33,9 @@ msgid ""
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"سيؤدي حذف لوحة المعلومات \"{{dashboardName}}\" إلى إزالتها لجميع المستخدمين."
+" لا يمكن التراجع عن هذا الإجراء. هل تريد بالتأكيد حذف لوحة المعلومات هذه "
+"نهائياً؟"
 
 msgid "Exit without saving"
 msgstr "الخروج من غير حفظ التغيرات"
@@ -56,13 +59,14 @@ msgid "Show less"
 msgstr "إظهار الأقل"
 
 msgid "No access"
-msgstr ""
+msgstr "ممنوع الدخول"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
+"لم يتم العثور على لوحات معلومات. استخدم الزر + لإنشاء لوحة معلومات جديدة."
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "لم يتم العثور على لوحة المعلومات التي طلبتها"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -150,7 +154,7 @@ msgid "Charts"
 msgstr "المخططات البيانية"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "التحليل المرئي"
 
 msgid "Maps"
 msgstr "الخرائط"
