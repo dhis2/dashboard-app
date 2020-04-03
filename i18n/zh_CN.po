@@ -85,7 +85,7 @@ msgid "You like this"
 msgstr ""
 
 msgid "Like"
-msgstr ""
+msgstr "Like"
 
 msgid "View in Visualizer"
 msgstr ""
