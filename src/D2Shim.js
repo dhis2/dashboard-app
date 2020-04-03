@@ -1,61 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
-import { useConfig } from '@dhis2/app-runtime'
+import React from 'react'
+import * as PropTypes from 'prop-types'
+import { useD2 } from './useD2'
 
-import { init as d2Init, config as d2Config, getUserSettings } from 'd2'
+export const D2Shim = ({ children, onInitialized, d2Config }) => {
+    const { d2, d2Error } = useD2({ onInitialized, d2Config })
 
-import { ScreenCover, CircularLoader } from '@dhis2/ui-core'
-
-const configI18n = async userSettings => {
-    const uiLocale = userSettings.uiLocale
-
-    // TODO: Remove and port to modern i18n
-    if (uiLocale && uiLocale !== 'en') {
-        d2Config.i18n.sources.add(
-            `./i18n_old/i18n_module_${uiLocale}.properties`
-        )
-    }
-
-    d2Config.i18n.sources.add('./i18n_old/i18n_module_en.properties')
-}
-
-const initD2 = async ({ baseUrl, apiVersion }, initConfig) => {
-    const apiUrl = `${baseUrl}/api/${apiVersion}`
-
-    d2Config.baseUrl = apiUrl
-
-    const userSettings = await getUserSettings()
-    await configI18n(userSettings)
-
-    const d2 = await d2Init({
-        ...initConfig,
-        baseUrl: apiUrl,
-    })
-
-    return { baseUrl, d2, userSettings }
-}
-
-export const D2Shim = ({ children, ...initConfig }) => {
-    const appConfig = useConfig()
-    const [params, setParams] = useState(null)
-
-    console.log('appConfig', appConfig)
-    console.log('initConfig', initConfig)
-
-    useEffect(() => {
-        initD2(appConfig, initConfig).then(setParams)
-    }, []) /* eslint-disable-line react-hooks/exhaustive-deps */
-
-    if (!params) {
-        return (
-            <ScreenCover>
-                <CircularLoader />
-            </ScreenCover>
-        )
-    }
-    return children(params)
+    return children({ d2, d2Error })
 }
 
 D2Shim.propTypes = {
-    children: PropTypes.func,
+    onInitialized: PropTypes.func,
+    d2Config: PropTypes.object,
+    children: PropTypes.func.isRequired,
 }

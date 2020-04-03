@@ -4,7 +4,7 @@ import dhis2theme from '@dhis2/d2-ui-core/theme/mui3.theme'
 import { Provider } from 'react-redux'
 // import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
 
-import { D2Shim } from './D2Shim2'
+import { D2Shim } from './D2Shim'
 import App from './components/App'
 import configureStore from './configureStore'
 
@@ -23,8 +23,17 @@ const schemas = [
     'organisationUnit',
     'userGroup',
 ]
+
 const d2Config = {
     schemas,
+}
+
+const authorization = process.env.REACT_APP_DHIS2_AUTHORIZATION || null
+
+// TODO - ER and EV plugins require the auth header. Remove this when
+// these plugins are rewritten
+if (authorization) {
+    d2Config.headers = { Authorization: authorization }
 }
 
 const AppWrapper = () => {
@@ -35,7 +44,7 @@ const AppWrapper = () => {
                     {({ d2, d2error }) => {
                         if (!d2) {
                             // TODO: Handle errors in d2 initialization
-                            return null;
+                            return null
                         }
                         return <App d2={d2} />
                     }}
