@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import {
-    getTopOffset,
+    getControlBarHeight,
     MIN_ROW_COUNT,
 } from '../ControlBar/controlBarDimensions';
 import { sGetControlBarUserRows } from '../../reducers/controlBar';
 
 const DashboardVerticalOffset = props => {
     const rows = props.editMode ? MIN_ROW_COUNT : props.userRows;
-    const marginTop = getTopOffset(rows);
+    const marginTop = getControlBarHeight(rows);
 
     return <div className="page-container-top-margin" style={{ marginTop }} />;
 };
