@@ -118,8 +118,7 @@ export const itemTypeMap = {
         endPointName: 'reports',
         propName: 'reports',
         pluralTitle: i18n.t('Reports'),
-        appUrl: id =>
-            `dhis-web-reporting/getReportParams.action?mode=report&uid=${id}`,
+        appUrl: id => `dhis-web-reports/#/standard-report/view/${id}`,
     },
     [RESOURCES]: {
         id: RESOURCES,
