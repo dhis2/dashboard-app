@@ -103,7 +103,13 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
             if (dashboardItemIndex > -1) {
                 const newState = update(state, {
                     dashboardItems: {
-                        $splice: [[dashboardItemIndex, 1, dashboardItem]],
+                        $splice: [
+                            [
+                                dashboardItemIndex,
+                                1,
+                                Object.assign({}, dashboardItem),
+                            ],
+                        ],
                     },
                 });
 
