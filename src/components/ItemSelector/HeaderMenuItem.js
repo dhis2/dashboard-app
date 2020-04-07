@@ -8,7 +8,9 @@ const HeaderMenuItem = ({ title }) => (
         key={title}
         disabled
         label={
-            <p style={{ color: colors.grey800, fontWeight: '600' }}>{title}</p>
+            <span style={{ color: colors.grey800, fontWeight: '600' }}>
+                {title}
+            </span>
         }
     />
 );

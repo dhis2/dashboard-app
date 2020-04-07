@@ -34,8 +34,7 @@ ShallowWrapper {
           <div
             className="leftControls"
           >
-            <Link
-              replace={false}
+            <ForwardRef
               style={
                 Object {
                   "display": "inline-block",
@@ -48,7 +47,7 @@ ShallowWrapper {
               to="/new"
             >
               <AddCircleIcon />
-            </Link>
+            </ForwardRef>
             <Filter
               name=""
               onChangeName={[Function]}
@@ -78,8 +77,7 @@ ShallowWrapper {
             <div
               className="leftControls"
             >
-              <Link
-                replace={false}
+              <ForwardRef
                 style={
                   Object {
                     "display": "inline-block",
@@ -92,7 +90,7 @@ ShallowWrapper {
                 to="/new"
               >
                 <AddCircleIcon />
-              </Link>
+              </ForwardRef>
               <Filter
                 name=""
                 onChangeName={[Function]}
@@ -115,8 +113,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                <Link
-                  replace={false}
+                <ForwardRef
                   style={
                     Object {
                       "display": "inline-block",
@@ -129,7 +126,7 @@ ShallowWrapper {
                   to="/new"
                 >
                   <AddCircleIcon />
-                </Link>,
+                </ForwardRef>,
                 <Filter
                   name=""
                   onChangeName={[Function]}
@@ -143,10 +140,9 @@ ShallowWrapper {
               Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "class",
+                "nodeType": "function",
                 "props": Object {
                   "children": <AddCircleIcon />,
-                  "replace": false,
                   "style": Object {
                     "display": "inline-block",
                     "marginRight": 10,
@@ -166,7 +162,18 @@ ShallowWrapper {
                   "rendered": null,
                   "type": [Function],
                 },
-                "type": [Function],
+                "type": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "displayName": "Link",
+                  "propTypes": Object {
+                    "innerRef": [Function],
+                    "onClick": [Function],
+                    "replace": [Function],
+                    "target": [Function],
+                    "to": [Function],
+                  },
+                  "render": [Function],
+                },
               },
               Object {
                 "instance": null,
@@ -222,8 +229,7 @@ ShallowWrapper {
             <div
               className="leftControls"
             >
-              <Link
-                replace={false}
+              <ForwardRef
                 style={
                   Object {
                     "display": "inline-block",
@@ -236,7 +242,7 @@ ShallowWrapper {
                 to="/new"
               >
                 <AddCircleIcon />
-              </Link>
+              </ForwardRef>
               <Filter
                 name=""
                 onChangeName={[Function]}
@@ -266,8 +272,7 @@ ShallowWrapper {
               <div
                 className="leftControls"
               >
-                <Link
-                  replace={false}
+                <ForwardRef
                   style={
                     Object {
                       "display": "inline-block",
@@ -280,7 +285,7 @@ ShallowWrapper {
                   to="/new"
                 >
                   <AddCircleIcon />
-                </Link>
+                </ForwardRef>
                 <Filter
                   name=""
                   onChangeName={[Function]}
@@ -303,8 +308,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  <Link
-                    replace={false}
+                  <ForwardRef
                     style={
                       Object {
                         "display": "inline-block",
@@ -317,7 +321,7 @@ ShallowWrapper {
                     to="/new"
                   >
                     <AddCircleIcon />
-                  </Link>,
+                  </ForwardRef>,
                   <Filter
                     name=""
                     onChangeName={[Function]}
@@ -331,10 +335,9 @@ ShallowWrapper {
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "class",
+                  "nodeType": "function",
                   "props": Object {
                     "children": <AddCircleIcon />,
-                    "replace": false,
                     "style": Object {
                       "display": "inline-block",
                       "marginRight": 10,
@@ -354,7 +357,18 @@ ShallowWrapper {
                     "rendered": null,
                     "type": [Function],
                   },
-                  "type": [Function],
+                  "type": Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "displayName": "Link",
+                    "propTypes": Object {
+                      "innerRef": [Function],
+                      "onClick": [Function],
+                      "replace": [Function],
+                      "target": [Function],
+                      "to": [Function],
+                    },
+                    "render": [Function],
+                  },
                 },
                 Object {
                   "instance": null,
@@ -429,7 +443,9 @@ ShallowWrapper {
         "t": [Function],
       },
     },
+    Symbol(enzyme.__providerValues__): undefined,
   },
+  Symbol(enzyme.__providerValues__): Map {},
   Symbol(enzyme.__childContext__): null,
 }
 `;
@@ -468,8 +484,7 @@ ShallowWrapper {
           <div
             className="leftControls"
           >
-            <Link
-              replace={false}
+            <ForwardRef
               style={
                 Object {
                   "display": "inline-block",
@@ -482,7 +497,7 @@ ShallowWrapper {
               to="/new"
             >
               <AddCircleIcon />
-            </Link>
+            </ForwardRef>
             <Filter
               name=""
               onChangeName={[Function]}
@@ -512,8 +527,7 @@ ShallowWrapper {
             <div
               className="leftControls"
             >
-              <Link
-                replace={false}
+              <ForwardRef
                 style={
                   Object {
                     "display": "inline-block",
@@ -526,7 +540,7 @@ ShallowWrapper {
                 to="/new"
               >
                 <AddCircleIcon />
-              </Link>
+              </ForwardRef>
               <Filter
                 name=""
                 onChangeName={[Function]}
@@ -549,8 +563,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                <Link
-                  replace={false}
+                <ForwardRef
                   style={
                     Object {
                       "display": "inline-block",
@@ -563,7 +576,7 @@ ShallowWrapper {
                   to="/new"
                 >
                   <AddCircleIcon />
-                </Link>,
+                </ForwardRef>,
                 <Filter
                   name=""
                   onChangeName={[Function]}
@@ -577,10 +590,9 @@ ShallowWrapper {
               Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "class",
+                "nodeType": "function",
                 "props": Object {
                   "children": <AddCircleIcon />,
-                  "replace": false,
                   "style": Object {
                     "display": "inline-block",
                     "marginRight": 10,
@@ -600,7 +612,18 @@ ShallowWrapper {
                   "rendered": null,
                   "type": [Function],
                 },
-                "type": [Function],
+                "type": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "displayName": "Link",
+                  "propTypes": Object {
+                    "innerRef": [Function],
+                    "onClick": [Function],
+                    "replace": [Function],
+                    "target": [Function],
+                    "to": [Function],
+                  },
+                  "render": [Function],
+                },
               },
               Object {
                 "instance": null,
@@ -656,8 +679,7 @@ ShallowWrapper {
             <div
               className="leftControls"
             >
-              <Link
-                replace={false}
+              <ForwardRef
                 style={
                   Object {
                     "display": "inline-block",
@@ -670,7 +692,7 @@ ShallowWrapper {
                 to="/new"
               >
                 <AddCircleIcon />
-              </Link>
+              </ForwardRef>
               <Filter
                 name=""
                 onChangeName={[Function]}
@@ -700,8 +722,7 @@ ShallowWrapper {
               <div
                 className="leftControls"
               >
-                <Link
-                  replace={false}
+                <ForwardRef
                   style={
                     Object {
                       "display": "inline-block",
@@ -714,7 +735,7 @@ ShallowWrapper {
                   to="/new"
                 >
                   <AddCircleIcon />
-                </Link>
+                </ForwardRef>
                 <Filter
                   name=""
                   onChangeName={[Function]}
@@ -737,8 +758,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  <Link
-                    replace={false}
+                  <ForwardRef
                     style={
                       Object {
                         "display": "inline-block",
@@ -751,7 +771,7 @@ ShallowWrapper {
                     to="/new"
                   >
                     <AddCircleIcon />
-                  </Link>,
+                  </ForwardRef>,
                   <Filter
                     name=""
                     onChangeName={[Function]}
@@ -765,10 +785,9 @@ ShallowWrapper {
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "class",
+                  "nodeType": "function",
                   "props": Object {
                     "children": <AddCircleIcon />,
-                    "replace": false,
                     "style": Object {
                       "display": "inline-block",
                       "marginRight": 10,
@@ -788,7 +807,18 @@ ShallowWrapper {
                     "rendered": null,
                     "type": [Function],
                   },
-                  "type": [Function],
+                  "type": Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "displayName": "Link",
+                    "propTypes": Object {
+                      "innerRef": [Function],
+                      "onClick": [Function],
+                      "replace": [Function],
+                      "target": [Function],
+                      "to": [Function],
+                    },
+                    "render": [Function],
+                  },
                 },
                 Object {
                   "instance": null,
@@ -863,7 +893,9 @@ ShallowWrapper {
         "t": [Function],
       },
     },
+    Symbol(enzyme.__providerValues__): undefined,
   },
+  Symbol(enzyme.__providerValues__): Map {},
   Symbol(enzyme.__childContext__): null,
 }
 `;
@@ -902,8 +934,7 @@ ShallowWrapper {
           <div
             className="leftControls"
           >
-            <Link
-              replace={false}
+            <ForwardRef
               style={
                 Object {
                   "display": "inline-block",
@@ -916,7 +947,7 @@ ShallowWrapper {
               to="/new"
             >
               <AddCircleIcon />
-            </Link>
+            </ForwardRef>
             <Filter
               name=""
               onChangeName={[Function]}
@@ -946,8 +977,7 @@ ShallowWrapper {
             <div
               className="leftControls"
             >
-              <Link
-                replace={false}
+              <ForwardRef
                 style={
                   Object {
                     "display": "inline-block",
@@ -960,7 +990,7 @@ ShallowWrapper {
                 to="/new"
               >
                 <AddCircleIcon />
-              </Link>
+              </ForwardRef>
               <Filter
                 name=""
                 onChangeName={[Function]}
@@ -983,8 +1013,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                <Link
-                  replace={false}
+                <ForwardRef
                   style={
                     Object {
                       "display": "inline-block",
@@ -997,7 +1026,7 @@ ShallowWrapper {
                   to="/new"
                 >
                   <AddCircleIcon />
-                </Link>,
+                </ForwardRef>,
                 <Filter
                   name=""
                   onChangeName={[Function]}
@@ -1011,10 +1040,9 @@ ShallowWrapper {
               Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "class",
+                "nodeType": "function",
                 "props": Object {
                   "children": <AddCircleIcon />,
-                  "replace": false,
                   "style": Object {
                     "display": "inline-block",
                     "marginRight": 10,
@@ -1034,7 +1062,18 @@ ShallowWrapper {
                   "rendered": null,
                   "type": [Function],
                 },
-                "type": [Function],
+                "type": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "displayName": "Link",
+                  "propTypes": Object {
+                    "innerRef": [Function],
+                    "onClick": [Function],
+                    "replace": [Function],
+                    "target": [Function],
+                    "to": [Function],
+                  },
+                  "render": [Function],
+                },
               },
               Object {
                 "instance": null,
@@ -1090,8 +1129,7 @@ ShallowWrapper {
             <div
               className="leftControls"
             >
-              <Link
-                replace={false}
+              <ForwardRef
                 style={
                   Object {
                     "display": "inline-block",
@@ -1104,7 +1142,7 @@ ShallowWrapper {
                 to="/new"
               >
                 <AddCircleIcon />
-              </Link>
+              </ForwardRef>
               <Filter
                 name=""
                 onChangeName={[Function]}
@@ -1134,8 +1172,7 @@ ShallowWrapper {
               <div
                 className="leftControls"
               >
-                <Link
-                  replace={false}
+                <ForwardRef
                   style={
                     Object {
                       "display": "inline-block",
@@ -1148,7 +1185,7 @@ ShallowWrapper {
                   to="/new"
                 >
                   <AddCircleIcon />
-                </Link>
+                </ForwardRef>
                 <Filter
                   name=""
                   onChangeName={[Function]}
@@ -1171,8 +1208,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  <Link
-                    replace={false}
+                  <ForwardRef
                     style={
                       Object {
                         "display": "inline-block",
@@ -1185,7 +1221,7 @@ ShallowWrapper {
                     to="/new"
                   >
                     <AddCircleIcon />
-                  </Link>,
+                  </ForwardRef>,
                   <Filter
                     name=""
                     onChangeName={[Function]}
@@ -1199,10 +1235,9 @@ ShallowWrapper {
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "class",
+                  "nodeType": "function",
                   "props": Object {
                     "children": <AddCircleIcon />,
-                    "replace": false,
                     "style": Object {
                       "display": "inline-block",
                       "marginRight": 10,
@@ -1222,7 +1257,18 @@ ShallowWrapper {
                     "rendered": null,
                     "type": [Function],
                   },
-                  "type": [Function],
+                  "type": Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "displayName": "Link",
+                    "propTypes": Object {
+                      "innerRef": [Function],
+                      "onClick": [Function],
+                      "replace": [Function],
+                      "target": [Function],
+                      "to": [Function],
+                    },
+                    "render": [Function],
+                  },
                 },
                 Object {
                   "instance": null,
@@ -1297,7 +1343,9 @@ ShallowWrapper {
         "t": [Function],
       },
     },
+    Symbol(enzyme.__providerValues__): undefined,
   },
+  Symbol(enzyme.__providerValues__): Map {},
   Symbol(enzyme.__childContext__): null,
 }
 `;
@@ -1350,8 +1398,7 @@ ShallowWrapper {
           <div
             className="leftControls"
           >
-            <Link
-              replace={false}
+            <ForwardRef
               style={
                 Object {
                   "display": "inline-block",
@@ -1364,7 +1411,7 @@ ShallowWrapper {
               to="/new"
             >
               <AddCircleIcon />
-            </Link>
+            </ForwardRef>
             <Filter
               name=""
               onChangeName={[Function]}
@@ -1406,8 +1453,7 @@ ShallowWrapper {
             <div
               className="leftControls"
             >
-              <Link
-                replace={false}
+              <ForwardRef
                 style={
                   Object {
                     "display": "inline-block",
@@ -1420,7 +1466,7 @@ ShallowWrapper {
                 to="/new"
               >
                 <AddCircleIcon />
-              </Link>
+              </ForwardRef>
               <Filter
                 name=""
                 onChangeName={[Function]}
@@ -1456,8 +1502,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                <Link
-                  replace={false}
+                <ForwardRef
                   style={
                     Object {
                       "display": "inline-block",
@@ -1470,7 +1515,7 @@ ShallowWrapper {
                   to="/new"
                 >
                   <AddCircleIcon />
-                </Link>,
+                </ForwardRef>,
                 <Filter
                   name=""
                   onChangeName={[Function]}
@@ -1484,10 +1529,9 @@ ShallowWrapper {
               Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "class",
+                "nodeType": "function",
                 "props": Object {
                   "children": <AddCircleIcon />,
-                  "replace": false,
                   "style": Object {
                     "display": "inline-block",
                     "marginRight": 10,
@@ -1507,7 +1551,18 @@ ShallowWrapper {
                   "rendered": null,
                   "type": [Function],
                 },
-                "type": [Function],
+                "type": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "displayName": "Link",
+                  "propTypes": Object {
+                    "innerRef": [Function],
+                    "onClick": [Function],
+                    "replace": [Function],
+                    "target": [Function],
+                    "to": [Function],
+                  },
+                  "render": [Function],
+                },
               },
               Object {
                 "instance": null,
@@ -1591,8 +1646,7 @@ ShallowWrapper {
             <div
               className="leftControls"
             >
-              <Link
-                replace={false}
+              <ForwardRef
                 style={
                   Object {
                     "display": "inline-block",
@@ -1605,7 +1659,7 @@ ShallowWrapper {
                 to="/new"
               >
                 <AddCircleIcon />
-              </Link>
+              </ForwardRef>
               <Filter
                 name=""
                 onChangeName={[Function]}
@@ -1647,8 +1701,7 @@ ShallowWrapper {
               <div
                 className="leftControls"
               >
-                <Link
-                  replace={false}
+                <ForwardRef
                   style={
                     Object {
                       "display": "inline-block",
@@ -1661,7 +1714,7 @@ ShallowWrapper {
                   to="/new"
                 >
                   <AddCircleIcon />
-                </Link>
+                </ForwardRef>
                 <Filter
                   name=""
                   onChangeName={[Function]}
@@ -1697,8 +1750,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  <Link
-                    replace={false}
+                  <ForwardRef
                     style={
                       Object {
                         "display": "inline-block",
@@ -1711,7 +1763,7 @@ ShallowWrapper {
                     to="/new"
                   >
                     <AddCircleIcon />
-                  </Link>,
+                  </ForwardRef>,
                   <Filter
                     name=""
                     onChangeName={[Function]}
@@ -1725,10 +1777,9 @@ ShallowWrapper {
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "class",
+                  "nodeType": "function",
                   "props": Object {
                     "children": <AddCircleIcon />,
-                    "replace": false,
                     "style": Object {
                       "display": "inline-block",
                       "marginRight": 10,
@@ -1748,7 +1799,18 @@ ShallowWrapper {
                     "rendered": null,
                     "type": [Function],
                   },
-                  "type": [Function],
+                  "type": Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "displayName": "Link",
+                    "propTypes": Object {
+                      "innerRef": [Function],
+                      "onClick": [Function],
+                      "replace": [Function],
+                      "target": [Function],
+                      "to": [Function],
+                    },
+                    "render": [Function],
+                  },
                 },
                 Object {
                   "instance": null,
@@ -1851,7 +1913,9 @@ ShallowWrapper {
         "t": [Function],
       },
     },
+    Symbol(enzyme.__providerValues__): undefined,
   },
+  Symbol(enzyme.__providerValues__): Map {},
   Symbol(enzyme.__childContext__): null,
 }
 `;
