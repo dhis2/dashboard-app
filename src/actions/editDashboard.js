@@ -14,7 +14,10 @@ import {
 import { sGetEditDashboardRoot } from '../reducers/editDashboard';
 import { updateDashboard, postDashboard } from '../api/editDashboard';
 import { tSetSelectedDashboardById } from '../actions/selected';
-import { NEW_ITEM_SHAPE } from '../components/ItemGrid/gridUtil';
+import {
+    NEW_ITEM_SHAPE,
+    getGridItemProperties,
+} from '../components/ItemGrid/gridUtil';
 import {
     itemTypeMap,
     isSpacerType,
@@ -70,13 +73,17 @@ export const acAddDashboardItem = item => {
     delete item.type;
     const itemPropName = itemTypeMap[type].propName;
 
+    const id = generateUid();
+    const gridItemProperties = getGridItemProperties(id);
+
     return {
         type: ADD_DASHBOARD_ITEM,
         value: {
-            id: generateUid(),
+            id,
             type,
             [itemPropName]: item.content,
             ...NEW_ITEM_SHAPE,
+            ...gridItemProperties,
         },
     };
 };
