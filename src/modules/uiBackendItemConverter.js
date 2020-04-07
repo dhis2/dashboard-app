@@ -1,4 +1,5 @@
 import { TEXT, SPACER } from './itemTypes';
+import { getGridItemProperties } from '../components/ItemGrid/gridUtil';
 
 export const spacerContent = 'SPACER_ITEM_FOR_DASHBOARD_LAYOUT_CONVENIENCE';
 export const emptyTextItemContent = 'TEXT_ITEM_WITH_NO_CONTENT';
@@ -26,6 +27,7 @@ export const convertUiItemsToBackend = items =>
 export const convertBackendItemsToUi = items =>
     items.map(item => {
         const type = isBackendSpacerType(item) ? SPACER : item.type;
+        const gridProperties = getGridItemProperties(item.id);
 
         const text = isTextType(item)
             ? item.text === emptyTextItemContent
@@ -37,5 +39,6 @@ export const convertBackendItemsToUi = items =>
             ...item,
             ...(text !== null ? { text } : {}),
             type,
+            ...gridProperties,
         };
     });
