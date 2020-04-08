@@ -48,9 +48,7 @@ ShallowWrapper {
             >
               <AddCircleIcon />
             </ForwardRef>
-            <Filter
-              name=""
-              onChangeName={[Function]}
+            <WithStyles(Filter)
               onKeypressEnter={[Function]}
             />
           </div>
@@ -91,9 +89,7 @@ ShallowWrapper {
               >
                 <AddCircleIcon />
               </ForwardRef>
-              <Filter
-                name=""
-                onChangeName={[Function]}
+              <WithStyles(Filter)
                 onKeypressEnter={[Function]}
               />
             </div>,
@@ -127,9 +123,7 @@ ShallowWrapper {
                 >
                   <AddCircleIcon />
                 </ForwardRef>,
-                <Filter
-                  name=""
-                  onChangeName={[Function]}
+                <WithStyles(Filter)
                   onKeypressEnter={[Function]}
                 />,
               ],
@@ -180,8 +174,8 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "name": "",
-                  "onChangeName": [Function],
+                  "name": undefined,
+                  "onChangeName": undefined,
                   "onKeypressEnter": [Function],
                 },
                 "ref": null,
@@ -243,9 +237,7 @@ ShallowWrapper {
               >
                 <AddCircleIcon />
               </ForwardRef>
-              <Filter
-                name=""
-                onChangeName={[Function]}
+              <WithStyles(Filter)
                 onKeypressEnter={[Function]}
               />
             </div>
@@ -286,9 +278,7 @@ ShallowWrapper {
                 >
                   <AddCircleIcon />
                 </ForwardRef>
-                <Filter
-                  name=""
-                  onChangeName={[Function]}
+                <WithStyles(Filter)
                   onKeypressEnter={[Function]}
                 />
               </div>,
@@ -322,9 +312,7 @@ ShallowWrapper {
                   >
                     <AddCircleIcon />
                   </ForwardRef>,
-                  <Filter
-                    name=""
-                    onChangeName={[Function]}
+                  <WithStyles(Filter)
                     onKeypressEnter={[Function]}
                   />,
                 ],
@@ -375,8 +363,8 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "name": "",
-                    "onChangeName": [Function],
+                    "name": undefined,
+                    "onChangeName": undefined,
                     "onKeypressEnter": [Function],
                   },
                   "ref": null,
@@ -498,9 +486,7 @@ ShallowWrapper {
             >
               <AddCircleIcon />
             </ForwardRef>
-            <Filter
-              name=""
-              onChangeName={[Function]}
+            <WithStyles(Filter)
               onKeypressEnter={[Function]}
             />
           </div>
@@ -541,9 +527,7 @@ ShallowWrapper {
               >
                 <AddCircleIcon />
               </ForwardRef>
-              <Filter
-                name=""
-                onChangeName={[Function]}
+              <WithStyles(Filter)
                 onKeypressEnter={[Function]}
               />
             </div>,
@@ -577,9 +561,7 @@ ShallowWrapper {
                 >
                   <AddCircleIcon />
                 </ForwardRef>,
-                <Filter
-                  name=""
-                  onChangeName={[Function]}
+                <WithStyles(Filter)
                   onKeypressEnter={[Function]}
                 />,
               ],
@@ -630,8 +612,8 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "name": "",
-                  "onChangeName": [Function],
+                  "name": undefined,
+                  "onChangeName": undefined,
                   "onKeypressEnter": [Function],
                 },
                 "ref": null,
@@ -693,9 +675,7 @@ ShallowWrapper {
               >
                 <AddCircleIcon />
               </ForwardRef>
-              <Filter
-                name=""
-                onChangeName={[Function]}
+              <WithStyles(Filter)
                 onKeypressEnter={[Function]}
               />
             </div>
@@ -736,9 +716,7 @@ ShallowWrapper {
                 >
                   <AddCircleIcon />
                 </ForwardRef>
-                <Filter
-                  name=""
-                  onChangeName={[Function]}
+                <WithStyles(Filter)
                   onKeypressEnter={[Function]}
                 />
               </div>,
@@ -772,9 +750,7 @@ ShallowWrapper {
                   >
                     <AddCircleIcon />
                   </ForwardRef>,
-                  <Filter
-                    name=""
-                    onChangeName={[Function]}
+                  <WithStyles(Filter)
                     onKeypressEnter={[Function]}
                   />,
                 ],
@@ -825,8 +801,8 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "name": "",
-                    "onChangeName": [Function],
+                    "name": undefined,
+                    "onChangeName": undefined,
                     "onKeypressEnter": [Function],
                   },
                   "ref": null,
@@ -948,9 +924,7 @@ ShallowWrapper {
             >
               <AddCircleIcon />
             </ForwardRef>
-            <Filter
-              name=""
-              onChangeName={[Function]}
+            <WithStyles(Filter)
               onKeypressEnter={[Function]}
             />
           </div>
@@ -991,9 +965,7 @@ ShallowWrapper {
               >
                 <AddCircleIcon />
               </ForwardRef>
-              <Filter
-                name=""
-                onChangeName={[Function]}
+              <WithStyles(Filter)
                 onKeypressEnter={[Function]}
               />
             </div>,
@@ -1027,9 +999,7 @@ ShallowWrapper {
                 >
                   <AddCircleIcon />
                 </ForwardRef>,
-                <Filter
-                  name=""
-                  onChangeName={[Function]}
+                <WithStyles(Filter)
                   onKeypressEnter={[Function]}
                 />,
               ],
@@ -1080,8 +1050,8 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "name": "",
-                  "onChangeName": [Function],
+                  "name": undefined,
+                  "onChangeName": undefined,
                   "onKeypressEnter": [Function],
                 },
                 "ref": null,
@@ -1143,9 +1113,7 @@ ShallowWrapper {
               >
                 <AddCircleIcon />
               </ForwardRef>
-              <Filter
-                name=""
-                onChangeName={[Function]}
+              <WithStyles(Filter)
                 onKeypressEnter={[Function]}
               />
             </div>
@@ -1186,9 +1154,7 @@ ShallowWrapper {
                 >
                   <AddCircleIcon />
                 </ForwardRef>
-                <Filter
-                  name=""
-                  onChangeName={[Function]}
+                <WithStyles(Filter)
                   onKeypressEnter={[Function]}
                 />
               </div>,
@@ -1222,9 +1188,7 @@ ShallowWrapper {
                   >
                     <AddCircleIcon />
                   </ForwardRef>,
-                  <Filter
-                    name=""
-                    onChangeName={[Function]}
+                  <WithStyles(Filter)
                     onKeypressEnter={[Function]}
                   />,
                 ],
@@ -1275,8 +1239,8 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "name": "",
-                    "onChangeName": [Function],
+                    "name": undefined,
+                    "onChangeName": undefined,
                     "onKeypressEnter": [Function],
                   },
                   "ref": null,
@@ -1412,9 +1376,7 @@ ShallowWrapper {
             >
               <AddCircleIcon />
             </ForwardRef>
-            <Filter
-              name=""
-              onChangeName={[Function]}
+            <WithStyles(Filter)
               onKeypressEnter={[Function]}
             />
           </div>
@@ -1467,9 +1429,7 @@ ShallowWrapper {
               >
                 <AddCircleIcon />
               </ForwardRef>
-              <Filter
-                name=""
-                onChangeName={[Function]}
+              <WithStyles(Filter)
                 onKeypressEnter={[Function]}
               />
             </div>,
@@ -1516,9 +1476,7 @@ ShallowWrapper {
                 >
                   <AddCircleIcon />
                 </ForwardRef>,
-                <Filter
-                  name=""
-                  onChangeName={[Function]}
+                <WithStyles(Filter)
                   onKeypressEnter={[Function]}
                 />,
               ],
@@ -1569,8 +1527,8 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "name": "",
-                  "onChangeName": [Function],
+                  "name": undefined,
+                  "onChangeName": undefined,
                   "onKeypressEnter": [Function],
                 },
                 "ref": null,
@@ -1660,9 +1618,7 @@ ShallowWrapper {
               >
                 <AddCircleIcon />
               </ForwardRef>
-              <Filter
-                name=""
-                onChangeName={[Function]}
+              <WithStyles(Filter)
                 onKeypressEnter={[Function]}
               />
             </div>
@@ -1715,9 +1671,7 @@ ShallowWrapper {
                 >
                   <AddCircleIcon />
                 </ForwardRef>
-                <Filter
-                  name=""
-                  onChangeName={[Function]}
+                <WithStyles(Filter)
                   onKeypressEnter={[Function]}
                 />
               </div>,
@@ -1764,9 +1718,7 @@ ShallowWrapper {
                   >
                     <AddCircleIcon />
                   </ForwardRef>,
-                  <Filter
-                    name=""
-                    onChangeName={[Function]}
+                  <WithStyles(Filter)
                     onKeypressEnter={[Function]}
                   />,
                 ],
@@ -1817,8 +1769,8 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "name": "",
-                    "onChangeName": [Function],
+                    "name": undefined,
+                    "onChangeName": undefined,
                     "onKeypressEnter": [Function],
                   },
                   "ref": null,
