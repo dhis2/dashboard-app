@@ -17,7 +17,6 @@ export const DashboardItemChip = ({
 }) => {
     const chipProps = {
         selected,
-        className: classes.chip,
     };
 
     if (starred) {

@@ -1,8 +1,4 @@
-.chip {
-    margin: 3px;
-}
 .link {
-    color: var(--colors-grey600);
     display: inline-block;
     text-decoration: none;
     vertical-align: top;
