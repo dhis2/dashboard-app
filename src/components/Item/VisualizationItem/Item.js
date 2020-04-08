@@ -181,6 +181,7 @@ export class Item extends Component {
                 );
             }
             case MAP: {
+                props.visualization.hideTitle = true;
                 if (props.item.type === MAP) {
                     // apply filters only to thematic and event layers
                     // for maps AO
