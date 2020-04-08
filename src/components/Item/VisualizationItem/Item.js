@@ -148,6 +148,7 @@ export class Item extends Component {
         const props = {
             ...this.props,
             visualization,
+            classes,
             style: this.memoizedGetContentStyle(
                 calculatedHeight,
                 this.contentRef ? this.contentRef.offsetHeight : null,

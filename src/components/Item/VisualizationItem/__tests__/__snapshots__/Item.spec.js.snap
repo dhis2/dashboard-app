@@ -53,7 +53,7 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
-        <ForwardRef
+        <ForwardRef(forwardConnectRef)
           actionButtons={
             <ItemHeaderButtons
               activeFooter={false}
@@ -134,6 +134,18 @@ ShallowWrapper {
         "rendered": null,
         "type": Object {
           "$$typeof": Symbol(react.forward_ref),
+          "WrappedComponent": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "propTypes": Object {
+              "acRemoveDashboardItem": [Function],
+              "actionButtons": [Function],
+              "editMode": [Function],
+              "itemId": [Function],
+              "title": [Function],
+            },
+            "render": [Function],
+          },
+          "displayName": "Connect(Component)",
           "render": [Function],
         },
       },
@@ -172,7 +184,7 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
-          <ForwardRef
+          <ForwardRef(forwardConnectRef)
             actionButtons={
               <ItemHeaderButtons
                 activeFooter={false}
@@ -253,6 +265,18 @@ ShallowWrapper {
           "rendered": null,
           "type": Object {
             "$$typeof": Symbol(react.forward_ref),
+            "WrappedComponent": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "propTypes": Object {
+                "acRemoveDashboardItem": [Function],
+                "actionButtons": [Function],
+                "editMode": [Function],
+                "itemId": [Function],
+                "title": [Function],
+              },
+              "render": [Function],
+            },
+            "displayName": "Connect(Component)",
             "render": [Function],
           },
         },
@@ -311,7 +335,9 @@ ShallowWrapper {
     "context": Object {
       "d2": Object {},
     },
+    Symbol(enzyme.__providerValues__): undefined,
   },
+  Symbol(enzyme.__providerValues__): Map {},
   Symbol(enzyme.__childContext__): null,
 }
 `;

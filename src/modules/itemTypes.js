@@ -31,12 +31,6 @@ const DOMAIN_TYPE_AGGREGATE = 'AGGREGATE';
 const DOMAIN_TYPE_TRACKER = 'TRACKER';
 
 // Dashboard helpers
-export const spacerContent = 'SPACER_ITEM_FOR_DASHBOARD_LAYOUT_CONVENIENCE';
-export const emptyTextItemContent = 'TEXT_ITEM_WITH_NO_CONTENT';
-export const isSpacerType = item =>
-    item.type === TEXT && item.text === spacerContent;
-export const isTextType = item =>
-    item.type === TEXT && item.text !== spacerContent;
 export const isVisualizationType = item =>
     !!itemTypeMap[item.type].isVisualizationType;
 export const hasMapView = itemType =>
@@ -118,8 +112,7 @@ export const itemTypeMap = {
         endPointName: 'reports',
         propName: 'reports',
         pluralTitle: i18n.t('Reports'),
-        appUrl: id =>
-            `dhis-web-reporting/getReportParams.action?mode=report&uid=${id}`,
+        appUrl: id => `dhis-web-reports/#/standard-report/view/${id}`,
     },
     [RESOURCES]: {
         id: RESOURCES,
