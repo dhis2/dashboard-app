@@ -14,8 +14,8 @@
     align-items: flex-start;
 }
 .titleBarIcon {
-    margin-left: 5;
+    margin-left: 5px;
     position: relative;
-    top: 1;
+    top: 1px;
     cursor: pointer;
 }

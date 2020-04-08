@@ -1,6 +1,6 @@
 .progress {
-    margin: 16;
-    max-width: 200;
+    margin: var(--spacers-dp16);
+    max-width: 200px;
     text-align: center;
     align-self: center;
 }
