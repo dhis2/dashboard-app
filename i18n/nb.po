@@ -32,69 +32,74 @@ msgid ""
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"Hvis du sletter dashbordet \"{{dashboardName}}\", fjernes det for alle "
+"brukere. Denne handlingen kan ikke angres. Er du sikker på at du vil slette "
+"dette dashbordet permanent?"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Avslutte uten å lagre"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Gå til dashbordene"
 
 msgid "Save changes"
-msgstr ""
+msgstr "Lagre endringer"
 
 msgid "Translate"
-msgstr ""
+msgstr "Oversett"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Søk etter et dashbord"
 
 msgid "Show more"
 msgstr "Vis mer"
 
 msgid "Show less"
-msgstr ""
+msgstr "Vis mindre"
 
 msgid "No access"
-msgstr ""
+msgstr "Ingen tilgang"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr ""
+msgstr "Ingen dashbord funnet. Bruk + -knappen for å lage et nytt dashbord."
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "Forespurt dashbord ikke funnet"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{{count}} valgt"
+msgstr[1] "{{count}} valgt"
 
 msgid "Remove"
 msgstr "Fjern"
 
 msgid "Messages"
-msgstr ""
+msgstr "Meldinger"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Se alle meldinger"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Avstandsholder"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Bruk mellomrom for å lage tom vertikal plass mellom andre elementer i "
+"dashbordet."
 
 msgid "Text item"
-msgstr ""
+msgstr "Tekstelement"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Legg til tekst her"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Kan ikke laste inn plugin-modulen for dette elementet"
 
 msgid "No data to display"
-msgstr ""
+msgstr "Ingen data å vise"
 
 msgid "Confirm"
 msgstr "Bekreft"
@@ -103,64 +108,64 @@ msgid "Add filter"
 msgstr "Legg til filter"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "Det er ingen elementer på dette dashbordet"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "Vis færre"
 
 msgid "Insert"
-msgstr ""
+msgstr "Sett inn"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Søk etter elementer du vil legge til i dette dashbordet"
 
 msgid "Additional items"
-msgstr ""
+msgstr "Ytterligere elementer"
 
 msgid "Text box"
-msgstr ""
+msgstr "Tekstboks"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "Dashbordtittel"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "Beskrivelse av dashbord"
 
 msgid "No description"
-msgstr ""
+msgstr "Ingen beskrivelse"
 
 msgid "Edit"
 msgstr "Rediger"
 
 msgid "Share"
-msgstr ""
+msgstr "Del"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "Pivottabeller"
 
 msgid "Pivot Tables"
-msgstr ""
+msgstr "Pivottabeller"
 
 msgid "Charts"
-msgstr ""
+msgstr "Diagrammer"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "Visualiserer"
 
 msgid "Maps"
-msgstr ""
+msgstr "Kart"
 
 msgid "Event reports"
-msgstr ""
+msgstr "Hendelsesrapporter"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Hendelsesrapporter"
 
 msgid "Event charts"
-msgstr ""
+msgstr "Hendelsesdiagrammer"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "Hendelsesvisualiserer"
 
 msgid "Apps"
 msgstr "Applikasjoner"
@@ -169,7 +174,7 @@ msgid "Reports"
 msgstr "Rapporter"
 
 msgid "Resources"
-msgstr ""
+msgstr "Ressurser"
 
 msgid "Users"
-msgstr ""
+msgstr "Brukere"
