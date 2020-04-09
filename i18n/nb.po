@@ -1,0 +1,184 @@
+# Translators:
+# Caroline Hesthagen Holen <carolinehholen@gmail.com>, 2020
+# Karoline Tufte Lien <karoline@dhis2.org>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
+"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
+"Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nb\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Delete"
+msgstr "Slett"
+
+msgid "Continue editing"
+msgstr "Fortsett redigering"
+
+msgid "Confirm delete dashboard"
+msgstr "Bekreft sletting av dashbord"
+
+msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
+msgstr "Er du sikker på at du vil slette dashbordet \"{{dashboardName}}\"?"
+
+msgid "Exit without saving"
+msgstr "Avslutte uten å lagre"
+
+msgid "Go to dashboards"
+msgstr "Gå til dashbordene"
+
+msgid "Save changes"
+msgstr "Lagre endringer"
+
+msgid "Translate"
+msgstr "Oversett"
+
+msgid "Search for a dashboard"
+msgstr "Søk etter et dashbord"
+
+msgid "Show less"
+msgstr "Vis mindre"
+
+msgid "Show more"
+msgstr "Vis mer"
+
+msgid "No access"
+msgstr "Ingen tilgang"
+
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr "Ingen dashbord funnet. Bruk + -knappen for å lage et nytt dashbord."
+
+msgid "Requested dashboard not found"
+msgstr "Forespurt dashbord ikke funnet"
+
+msgid "Messages"
+msgstr "Meldinger"
+
+msgid "See all messages"
+msgstr "Se alle meldinger"
+
+msgid "Edit your interpretation"
+msgstr "Rediger din tolkning"
+
+msgid "Update"
+msgstr "Oppdater"
+
+msgid "Cancel edit"
+msgstr "Avbryt redigering"
+
+msgid "Edit"
+msgstr "Rediger"
+
+msgid "like"
+msgstr "like"
+
+msgid "likes"
+msgstr "likes"
+
+msgid "You like this"
+msgstr "Du liker dette"
+
+msgid "Like"
+msgstr "Like"
+
+msgid "View in Visualizer"
+msgstr "Vis i Visualizer"
+
+msgid "Reply"
+msgstr "Svar"
+
+msgid "Add your reply"
+msgstr "Legg til ditt svar"
+
+msgid "Interpretations"
+msgstr "Tolkninger"
+
+msgid "Add your interpretation"
+msgstr "Legg til din tolkning"
+
+msgid "Unable to load the plugin for this item"
+msgstr "Kan ikke laste inn plugin-modulen for dette elementet"
+
+msgid "Spacer"
+msgstr "Avstandsholder"
+
+msgid ""
+"Use a spacer to create empty vertical space between other dashboard items."
+msgstr ""
+"Bruk mellomrom for å lage tom vertikal plass mellom andre elementer i "
+"dashbordet."
+
+msgid "Text item"
+msgstr "Tekstelement"
+
+msgid "Add text here"
+msgstr "Legg til tekst her"
+
+msgid "There are no items on this dashboard"
+msgstr "Det er ingen elementer på dette dashbordet"
+
+msgid "Search for items to add to this dashboard"
+msgstr "Søk etter elementer du vil legge til i dette dashbordet"
+
+msgid "See"
+msgstr "Vis"
+
+msgid "fewer"
+msgstr "færre"
+
+msgid "more"
+msgstr "mer"
+
+msgid "Text box"
+msgstr "Tekstboks"
+
+msgid "Add title here"
+msgstr "Legg til tittel her"
+
+msgid "Add description here"
+msgstr "Legg til beskrivelse her"
+
+msgid "No description"
+msgstr "Ingen beskrivelse"
+
+msgid "Pivot tables"
+msgstr "Pivottabeller"
+
+msgid "Pivot Tables"
+msgstr "Pivottabeller"
+
+msgid "Charts"
+msgstr "Diagrammer"
+
+msgid "Visualizer"
+msgstr "Visualiserer"
+
+msgid "Maps"
+msgstr "Kart"
+
+msgid "Event reports"
+msgstr "Hendelsesrapporter"
+
+msgid "Event Reports"
+msgstr "Hendelsesrapporter"
+
+msgid "Event charts"
+msgstr "Hendelsesdiagrammer"
+
+msgid "Event Visualizer"
+msgstr "Hendelsesvisualiserer"
+
+msgid "Reports"
+msgstr "Rapporter"
+
+msgid "Resources"
+msgstr "Ressurser"
+
+msgid "Users"
+msgstr "Brukere"
