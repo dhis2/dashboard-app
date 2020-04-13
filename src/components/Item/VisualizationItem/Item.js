@@ -202,10 +202,6 @@ export class Item extends Component {
                         ...props.visualization,
                         mapViews,
                     };
-
-                    props.options = {
-                        hideTitle: true,
-                    };
                 } else {
                     // this is the case of a non map AO passed to the maps plugin
                     // due to a visualization type switch in dashboard item
@@ -215,6 +211,11 @@ export class Item extends Component {
                         props.itemFilters
                     );
                 }
+
+                props.options = {
+                    ...props.options,
+                    hideTitle: true,
+                };
 
                 return <DefaultPlugin {...props} />;
             }
