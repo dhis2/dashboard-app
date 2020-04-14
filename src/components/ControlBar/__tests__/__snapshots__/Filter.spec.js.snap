@@ -22,7 +22,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "className": "filterField",
+      "className": undefined,
       "endAdornment": <WithStyles(WithFormControlContext(InputAdornment))
         position="end"
       >
@@ -36,9 +36,7 @@ ShallowWrapper {
       "startAdornment": <WithStyles(WithFormControlContext(InputAdornment))
         position="start"
       >
-        <UNDEFINED
-          className="searchIcon"
-        />
+        <UNDEFINED />
       </WithStyles(WithFormControlContext(InputAdornment))>,
       "value": "",
     },
@@ -52,7 +50,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "className": "filterField",
+        "className": undefined,
         "endAdornment": <WithStyles(WithFormControlContext(InputAdornment))
           position="end"
         >
@@ -66,9 +64,7 @@ ShallowWrapper {
         "startAdornment": <WithStyles(WithFormControlContext(InputAdornment))
           position="start"
         >
-          <UNDEFINED
-            className="searchIcon"
-          />
+          <UNDEFINED />
         </WithStyles(WithFormControlContext(InputAdornment))>,
         "value": "",
       },

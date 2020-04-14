@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
+import { withStyles } from '@material-ui/core/styles';
 import InputField from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
+import { colors } from '@dhis2/ui-core';
 
 import ClearButton from './ClearButton';
 import { DEFAULT_STATE_DASHBOARDS_FILTER_NAME } from '../../reducers/dashboardsFilter';
 
-import classes from './styles/Filter.module.css';
+const styles = {
+    filterField: {
+        fontSize: '14px',
+        width: '200px',
+        height: '30px',
+        top: '-4px',
+    },
+    searchIcon: {
+        color: colors.grey700,
+        width: '20px',
+        height: '20px',
+    },
+};
 
 export const KEYCODE_ENTER = 13;
 export const KEYCODE_ESCAPE = 27;
@@ -48,7 +62,7 @@ export class Filter extends Component {
     };
 
     render() {
-        const { name, onChangeName } = this.props;
+        const { classes, name, onChangeName } = this.props;
 
         const startAdornment = (
             <InputAdornment position="start">
@@ -78,6 +92,7 @@ export class Filter extends Component {
 }
 
 Filter.propTypes = {
+    classes: PropTypes.object,
     name: PropTypes.string,
     onChangeName: PropTypes.func,
     onKeypressEnter: PropTypes.func,
@@ -88,4 +103,4 @@ Filter.defaultProps = {
     onChangeName: Function.prototype,
 };
 
-export default Filter;
+export default withStyles(styles)(Filter);

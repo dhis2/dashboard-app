@@ -85,10 +85,11 @@ export const getLink = (item, d2) => {
 export const load = async (
     item,
     visualization,
-    { credentials, activeType }
+    { credentials, activeType, options = {} }
 ) => {
     const config = {
         ...visualization,
+        ...options,
         el: getGridItemDomId(item.id),
     };
 

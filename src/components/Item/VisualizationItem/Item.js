@@ -213,6 +213,11 @@ export class Item extends Component {
                     );
                 }
 
+                props.options = {
+                    ...props.options,
+                    hideTitle: true,
+                };
+
                 return <DefaultPlugin {...props} />;
             }
             default: {

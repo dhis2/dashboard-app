@@ -1,5 +1,7 @@
 .list {
     margin-top: 10px;
+    list-style: none;
+    padding-inline-start: 0px;
 }
 
 .item {
