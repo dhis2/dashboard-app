@@ -157,7 +157,7 @@ msgid "Charts"
 msgstr "Diagrammer"
 
 msgid "Visualizer"
-msgstr "Visualiserer"
+msgstr "Visualizer"
 
 msgid "Maps"
 msgstr "Kart"
