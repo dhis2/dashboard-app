@@ -20,13 +20,13 @@ msgid "Delete"
 msgstr "删除"
 
 msgid "Continue editing"
-msgstr ""
+msgstr "继续编辑"
 
 msgid "Confirm delete dashboard"
-msgstr ""
+msgstr "确认删除仪表盘"
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr ""
+msgstr "你确定要删除这个仪表盘 \"{{ dashboardName }}\"吗？"
 
 msgid "Exit without saving"
 msgstr "不保存退出"
@@ -65,43 +65,43 @@ msgid "See all messages"
 msgstr "查看所有消息"
 
 msgid "Edit your interpretation"
-msgstr ""
+msgstr "编辑你的注释"
 
 msgid "Update"
 msgstr "更新"
 
 msgid "Cancel edit"
-msgstr ""
+msgstr "取消编辑"
 
 msgid "Edit"
 msgstr "编辑"
 
 msgid "like"
-msgstr ""
+msgstr "喜欢"
 
 msgid "likes"
-msgstr ""
+msgstr "喜欢"
 
 msgid "You like this"
-msgstr ""
+msgstr "你喜欢这个"
 
 msgid "Like"
 msgstr "如"
 
 msgid "View in Visualizer"
-msgstr ""
+msgstr "在可视化器中查看"
 
 msgid "Reply"
 msgstr "回复"
 
 msgid "Add your reply"
-msgstr ""
+msgstr "添加你的应答"
 
 msgid "Interpretations"
 msgstr "注释"
 
 msgid "Add your interpretation"
-msgstr ""
+msgstr "添加你的注释"
 
 msgid "Unable to load the plugin for this item"
 msgstr "不能载入该条目的插件"
@@ -126,22 +126,22 @@ msgid "Search for items to add to this dashboard"
 msgstr "搜索条目添加到仪表盘"
 
 msgid "See"
-msgstr ""
+msgstr "查看"
 
 msgid "fewer"
-msgstr ""
+msgstr "较少"
 
 msgid "more"
-msgstr ""
+msgstr "较多"
 
 msgid "Text box"
 msgstr "文本框"
 
 msgid "Add title here"
-msgstr ""
+msgstr "添加标题"
 
 msgid "Add description here"
-msgstr ""
+msgstr "添加描述"
 
 msgid "No description"
 msgstr "没有描述"
