@@ -36,7 +36,7 @@ ShallowWrapper {
       "startAdornment": <WithStyles(WithFormControlContext(InputAdornment))
         position="start"
       >
-        <pure(SearchIcon) />
+        <UNDEFINED />
       </WithStyles(WithFormControlContext(InputAdornment))>,
       "value": "",
     },
@@ -64,7 +64,7 @@ ShallowWrapper {
         "startAdornment": <WithStyles(WithFormControlContext(InputAdornment))
           position="start"
         >
-          <pure(SearchIcon) />
+          <UNDEFINED />
         </WithStyles(WithFormControlContext(InputAdornment))>,
         "value": "",
       },
@@ -96,7 +96,9 @@ ShallowWrapper {
         },
       },
     },
+    Symbol(enzyme.__providerValues__): undefined,
   },
+  Symbol(enzyme.__providerValues__): Map {},
   Symbol(enzyme.__childContext__): null,
 }
 `;
