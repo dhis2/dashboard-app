@@ -100,7 +100,7 @@ msgid "Add text here"
 msgstr "اضف نص هنا"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "تعذر تحميل المكوّن الإضافي لهذا العنصر"
 
 msgid "No data to display"
 msgstr "لا توجد بيانات للعرض"
@@ -160,13 +160,13 @@ msgid "Maps"
 msgstr "الخرائط"
 
 msgid "Event reports"
-msgstr ""
+msgstr "تقارير الحدث"
 
 msgid "Event Reports"
 msgstr "تقارير الحدث"
 
 msgid "Event charts"
-msgstr ""
+msgstr "المخطط البياني للأحداث"
 
 msgid "Event Visualizer"
 msgstr "التحليل المرئي للأحداث"
@@ -178,7 +178,7 @@ msgid "Reports"
 msgstr "التقارير"
 
 msgid "Resources"
-msgstr ""
+msgstr "المصادر"
 
 msgid "Users"
 msgstr "المستخدمون"
