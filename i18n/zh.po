@@ -73,7 +73,7 @@ msgid "Remove"
 msgstr "移除"
 
 msgid "Delete item"
-msgstr ""
+msgstr "删除条目"
 
 msgid "Messages"
 msgstr "消息"
@@ -82,7 +82,7 @@ msgid "See all messages"
 msgstr "查看所有消息"
 
 msgid "Item type \"{{type}}\" not supported"
-msgstr ""
+msgstr "条目类型 \"{{type}}\" 不支持"
 
 msgid "Spacer"
 msgstr "空白隔断"
@@ -101,28 +101,28 @@ msgid "Unable to load the plugin for this item"
 msgstr "不能载入该条目的插件"
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "载入仪表盘有问题"
 
 msgid "No data to display"
 msgstr "没有数据可显示"
 
 msgid "Hide interpretations and details"
-msgstr ""
+msgstr "隐藏注释和详情"
 
 msgid "Show interpretations and details"
-msgstr ""
+msgstr "显示注释和详情"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "查看图表"
 
 msgid "View as Table"
-msgstr ""
+msgstr "查看表格"
 
 msgid "View as Map"
-msgstr ""
+msgstr "查看地图"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "在{{appName}} 应用中打开"
 
 msgid "Confirm"
 msgstr "确认"
