@@ -20,13 +20,13 @@ msgid "Delete"
 msgstr "حذف"
 
 msgid "Continue editing"
-msgstr ""
+msgstr "استمر في التعديل"
 
 msgid "Confirm delete dashboard"
-msgstr ""
+msgstr "تأكيد حذف لوحة المعلومات"
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr ""
+msgstr "هل تريد بالتأكيد حذف لوحة المعلومات \"{{dashboardName}}\"؟"
 
 msgid "Save changes"
 msgstr "حفظ التغيرات"
@@ -50,13 +50,13 @@ msgid "All"
 msgstr "الجميع"
 
 msgid "Unread"
-msgstr ""
+msgstr "غير مقروء"
 
 msgid "Messages"
 msgstr "الرسائل"
 
 msgid "You like this"
-msgstr ""
+msgstr "يعجبك هذا"
 
 msgid "Like"
 msgstr "إعجاب"
@@ -65,10 +65,10 @@ msgid "Reply"
 msgstr "رد"
 
 msgid "Add your reply"
-msgstr ""
+msgstr "إضافة ردك"
 
 msgid "Add your interpretation"
-msgstr ""
+msgstr "إضافة تفسيرك"
 
 msgid "Spacer"
 msgstr "مسافة فاصلة"
@@ -90,10 +90,10 @@ msgid "Search for items to add to this dashboard"
 msgstr "ابحث عن عناصر لإضافتها إلى لوحة المعلومات هذه"
 
 msgid "See"
-msgstr ""
+msgstr "إنظر"
 
 msgid "fewer"
-msgstr ""
+msgstr "أقل"
 
 msgid "more"
 msgstr "أكثر"
@@ -103,10 +103,10 @@ msgstr ""
 "لم يتم العثور على لوحات معلومات. استخدم الزر + لإنشاء لوحة معلومات جديدة."
 
 msgid "Add title here"
-msgstr ""
+msgstr "أضف عنواناً هنا"
 
 msgid "Add description here"
-msgstr ""
+msgstr "أضف وصفاً هنا"
 
 msgid "No description"
 msgstr "لا يوجد وصف"
@@ -127,13 +127,13 @@ msgid "Maps"
 msgstr "الخرائط"
 
 msgid "Event reports"
-msgstr ""
+msgstr "تقارير الحدث"
 
 msgid "Event Reports"
 msgstr "تقارير الحدث"
 
 msgid "Event charts"
-msgstr ""
+msgstr "المخطط البياني للأحداث"
 
 msgid "Event Visualizer"
 msgstr "التحليل المرئي للأحداث"
@@ -142,7 +142,7 @@ msgid "Reports"
 msgstr "التقارير"
 
 msgid "Resources"
-msgstr ""
+msgstr "المصادر"
 
 msgid "Users"
 msgstr "المستخدمون"
