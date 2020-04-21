@@ -97,7 +97,7 @@ msgid "Add your reply"
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "注释"
 
 msgid "Add your interpretation"
 msgstr ""
