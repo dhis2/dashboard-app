@@ -1,12 +1,16 @@
 import React from 'react';
-import { ComponentCover, CircularLoader } from '@dhis2/ui-core';
+import { CircularLoader } from '@dhis2/ui-core';
 
-function LoadingMask() {
+import classes from './styles/LoadingMask.module.css';
+
+const LoadingMask = () => {
     return (
-        <ComponentCover>
-            <CircularLoader />
-        </ComponentCover>
+        <div className={classes.vertical}>
+            <div className={classes.horizontal}>
+                <CircularLoader />
+            </div>
+        </div>
     );
-}
+};
 
 export default LoadingMask;

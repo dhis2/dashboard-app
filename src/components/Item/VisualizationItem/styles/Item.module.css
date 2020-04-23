@@ -4,8 +4,12 @@
     padding: 10px;
     line-height: 20px;
 }
-.loadingCover {
-    height: 100%;
+
+.cover {
+    position: absolute;
+    top: auto;
+    left: 0;
     width: 100%;
-    margin-left: -4px;
+    z-index: 100;
+    background-color: var(--colors-white);
 }

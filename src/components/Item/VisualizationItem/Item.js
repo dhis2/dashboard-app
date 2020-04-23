@@ -163,7 +163,7 @@ export class Item extends Component {
                 return (
                     <>
                         {!this.state.pluginIsLoaded && (
-                            <div className={classes.loadingCover}>
+                            <div style={props.style} className={classes.cover}>
                                 <LoadingMask />
                             </div>
                         )}
