@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import { Button } from '@dhis2/ui-core';
+import {
+    Button,
+    Modal,
+    ModalContent,
+    ModalActions,
+    ButtonStrip,
+    ModalTitle,
+} from '@dhis2/ui-core';
+
+import classes from './styles/ConfirmDeleteDialog.module.css';
 
 export const ConfirmDeleteDialog = ({
     dashboardName,
@@ -24,20 +28,22 @@ export const ConfirmDeleteDialog = ({
     ];
 
     return (
-        <Dialog open={open} onClose={onContinueEditing}>
-            <DialogTitle style={{ fontSize: '1.25rem', fontWeight: '450' }}>
-                {i18n.t('Delete dashboard')}
-            </DialogTitle>
-            <DialogContent>
-                <DialogContentText style={{ fontSize: '0.875rem' }}>
-                    {i18n.t(
-                        'Deleting dashboard "{{ dashboardName }}" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?',
-                        { dashboardName }
-                    )}
-                </DialogContentText>
-            </DialogContent>
-            <DialogActions>{actions}</DialogActions>
-        </Dialog>
+        open && (
+            <Modal onClose={onContinueEditing} small position="middle">
+                <ModalTitle>{i18n.t('Delete dashboard')}</ModalTitle>
+                <ModalContent>
+                    <span className={classes.content}>
+                        {i18n.t(
+                            'Deleting dashboard "{{ dashboardName }}" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?',
+                            { dashboardName }
+                        )}
+                    </span>
+                </ModalContent>
+                <ModalActions>
+                    <ButtonStrip>{actions}</ButtonStrip>
+                </ModalActions>
+            </Modal>
+        )
     );
 };
 

@@ -112,7 +112,17 @@ export const itemTypeMap = {
         endPointName: 'reports',
         propName: 'reports',
         pluralTitle: i18n.t('Reports'),
-        appUrl: id => `dhis-web-reports/#/standard-report/view/${id}`,
+        appUrl: (id, type) => {
+            switch(type) {
+                case 'HTML':
+                    return `dhis-web-reports/#/standard-report/view/${id}`;
+
+                case 'JASPER_REPORT_TABLE':
+                case 'JASPER_JDBC':
+                default:
+                    return `api/reports/${id}/data.pdf?t=${(new Date()).getTime()}`;
+            }
+        },
     },
     [RESOURCES]: {
         id: RESOURCES,
@@ -150,7 +160,7 @@ export const getItemUrl = (type, item, d2) => {
     }
 
     if (itemTypeMap[type] && itemTypeMap[type].appUrl) {
-        url = `${getBaseUrl(d2)}/${itemTypeMap[type].appUrl(item.id)}`;
+        url = `${getBaseUrl(d2)}/${itemTypeMap[type].appUrl(item.id, item.type)}`;
     }
 
     return url;
