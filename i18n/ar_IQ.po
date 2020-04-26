@@ -1,0 +1,144 @@
+# 
+# Translators:
+# KRG HIS <antonia.bezenchek@informa.pro>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-03-06T17:24:20.929Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
+"Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
+"Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar_IQ\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Continue editing"
+msgstr ""
+
+msgid "Confirm delete dashboard"
+msgstr ""
+
+msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
+msgstr ""
+
+msgid "Exit without saving"
+msgstr "الخروج من غير حفظ التغييرات"
+
+msgid "Go to dashboards"
+msgstr "الذهاب إلى لوحة المعلومات"
+
+msgid "Save changes"
+msgstr "احفظ التغييرات"
+
+msgid "Translate"
+msgstr "ترجمة"
+
+msgid "Search for a dashboard"
+msgstr "البحث عن لوحة معلومات"
+
+msgid "Show less"
+msgstr "إظهار الأقل"
+
+msgid "Show more"
+msgstr "إظهار المزيد"
+
+msgid "No access"
+msgstr "ممنوع الدخول"
+
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+"لم يتم العثور على لوحات معلومات. استخدم الزر + لإنشاء لوحة معلومات جديدة."
+
+msgid "Requested dashboard not found"
+msgstr "لم يتم العثور على لوحة المعلومات التي طلبتها"
+
+msgid "Messages"
+msgstr "الرسائل"
+
+msgid "See all messages"
+msgstr "رؤية كافة الرسائل"
+
+msgid "Unable to load the plugin for this item"
+msgstr "تعذر تحميل المكوّن الإضافي لهذا العنصر"
+
+msgid "Spacer"
+msgstr "مسافة فاصلة"
+
+msgid ""
+"Use a spacer to create empty vertical space between other dashboard items."
+msgstr "استخدم فاصل لإنشاء مساحة رأسية فارغة بين عناصر لوحة المعلومات الأخرى"
+
+msgid "Text item"
+msgstr "عنصر نصي"
+
+msgid "Add text here"
+msgstr "اضف نص هنا"
+
+msgid "There are no items on this dashboard"
+msgstr "لايوجد عناصر في لوحة المعلومات هذه"
+
+msgid "Search for items to add to this dashboard"
+msgstr "ابحث عن عناصر لإضافتها إلى لوحة المعلومات هذه"
+
+msgid "See"
+msgstr ""
+
+msgid "fewer"
+msgstr ""
+
+msgid "more"
+msgstr ""
+
+msgid "Text box"
+msgstr "مربع نص"
+
+msgid "Add title here"
+msgstr ""
+
+msgid "Add description here"
+msgstr ""
+
+msgid "No description"
+msgstr "لا يوجد وصف"
+
+msgid "Pivot tables"
+msgstr "الجداول المحورية"
+
+msgid "Pivot Tables"
+msgstr "الجداول المحورية"
+
+msgid "Charts"
+msgstr "المخططات البيانية"
+
+msgid "Visualizer"
+msgstr "التحليل المرئي"
+
+msgid "Maps"
+msgstr "الخرائط"
+
+msgid "Event reports"
+msgstr "تقارير الحدث"
+
+msgid "Event Reports"
+msgstr "تقارير الحدث"
+
+msgid "Event charts"
+msgstr "المخطط البياني للأحداث"
+
+msgid "Event Visualizer"
+msgstr "التحليل المرئي للأحداث"
+
+msgid "Reports"
+msgstr "التقارير"
+
+msgid "Resources"
+msgstr "المصادر"
+
+msgid "Users"
+msgstr "المستخدمون"
