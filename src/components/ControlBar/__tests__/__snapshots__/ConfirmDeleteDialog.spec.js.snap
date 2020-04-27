@@ -1,5 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConfirmDeleteDialog matches the snapshot when open = false 1`] = `ShallowWrapper {}`;
+exports[`ConfirmDeleteDialog matches the snapshot when open = false 1`] = `""`;
 
-exports[`ConfirmDeleteDialog when open = true matches the snapshot 1`] = `ShallowWrapper {}`;
+exports[`ConfirmDeleteDialog when open = true matches the snapshot 1`] = `
+<Modal
+  dataTest="dhis2-uicore-modal"
+  onClose={[MockFunction]}
+  position="middle"
+  small={true}
+>
+  <ModalTitle
+    dataTest="dhis2-uicore-modaltitle"
+  >
+    Delete dashboard
+  </ModalTitle>
+  <ModalContent
+    dataTest="dhis2-uicore-modalcontent"
+  >
+    <span
+      className="content"
+    >
+      Deleting dashboard "RainbowDash" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?
+    </span>
+  </ModalContent>
+  <ModalActions
+    dataTest="dhis2-uicore-modalactions"
+  >
+    <ButtonStrip
+      dataTest="dhis2-uicore-buttonstrip"
+    >
+      <Button
+        dataTest="dhis2-uicore-button"
+        key="cancel"
+        onClick={[MockFunction]}
+        secondary={true}
+        type="button"
+      >
+        Cancel
+      </Button>
+      <Button
+        dataTest="dhis2-uicore-button"
+        destructive={true}
+        key="delete"
+        onClick={[MockFunction]}
+        type="button"
+      >
+        Delete
+      </Button>
+    </ButtonStrip>
+  </ModalActions>
+</Modal>
+`;

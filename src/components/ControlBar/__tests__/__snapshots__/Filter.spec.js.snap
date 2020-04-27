@@ -1,3 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Filter matches the snapshot when name property is empty 1`] = `ShallowWrapper {}`;
+exports[`Filter matches the snapshot when name property is empty 1`] = `
+<WithStyles(Input)
+  endAdornment={
+    <WithStyles(WithFormControlContext(InputAdornment))
+      position="end"
+    >
+      <ClearButton
+        onClear={[Function]}
+      />
+    </WithStyles(WithFormControlContext(InputAdornment))>
+  }
+  onChange={[Function]}
+  onKeyUp={[Function]}
+  placeholder="Search for a dashboard"
+  startAdornment={
+    <WithStyles(WithFormControlContext(InputAdornment))
+      position="start"
+    >
+      <UNDEFINED />
+    </WithStyles(WithFormControlContext(InputAdornment))>
+  }
+  value=""
+/>
+`;

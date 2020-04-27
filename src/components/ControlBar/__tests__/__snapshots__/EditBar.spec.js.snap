@@ -1,15 +1,505 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EditBar renders the EditBar 1`] = `ShallowWrapper {}`;
+exports[`EditBar renders the EditBar 1`] = `
+<Fragment>
+  <ControlBar
+    editMode={true}
+    height={64}
+    onChangeHeight={null}
+    onEndDrag={null}
+  >
+    <div
+      style={
+        Object {
+          "height": 40,
+          "marginLeft": "15px",
+          "marginRight": "15px",
+          "paddingTop": "15px",
+        }
+      }
+    >
+      <div
+        className="rightControls"
+      >
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          secondary={true}
+          type="button"
+        >
+          Go to dashboards
+        </Button>
+      </div>
+    </div>
+  </ControlBar>
+</Fragment>
+`;
 
-exports[`EditBar when update access is false renders only the Discard button 1`] = `ShallowWrapper {}`;
+exports[`EditBar when update access is false renders only the Discard button 1`] = `
+<Fragment>
+  <ControlBar
+    editMode={true}
+    height={64}
+    onChangeHeight={null}
+    onEndDrag={null}
+  >
+    <div
+      style={
+        Object {
+          "height": 40,
+          "marginLeft": "15px",
+          "marginRight": "15px",
+          "paddingTop": "15px",
+        }
+      }
+    >
+      <div
+        className="rightControls"
+      >
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          secondary={true}
+          type="button"
+        >
+          Go to dashboards
+        </Button>
+      </div>
+    </div>
+  </ControlBar>
+</Fragment>
+`;
 
-exports[`EditBar when update access is true when dashboard id property provided renders Save, Translate and Discard buttons and the TranslationDialog but not ConfirmDeleteDialog 1`] = `ShallowWrapper {}`;
+exports[`EditBar when update access is true when dashboard id property provided renders Save, Translate and Discard buttons and the TranslationDialog but not ConfirmDeleteDialog 1`] = `
+<Fragment>
+  <ControlBar
+    editMode={true}
+    height={64}
+    onChangeHeight={null}
+    onEndDrag={null}
+  >
+    <div
+      style={
+        Object {
+          "height": 40,
+          "marginLeft": "15px",
+          "marginRight": "15px",
+          "paddingTop": "15px",
+        }
+      }
+    >
+      <div
+        className="leftControls"
+      >
+        <span
+          style={
+            Object {
+              "marginRight": "15px",
+            }
+          }
+        >
+          <Button
+            dataTest="dhis2-uicore-button"
+            onClick={[Function]}
+            primary={true}
+            type="button"
+          >
+            Save changes
+          </Button>
+        </span>
+        <span
+          style={
+            Object {
+              "marginRight": "15px",
+            }
+          }
+        >
+          <Button
+            dataTest="dhis2-uicore-button"
+            onClick={[Function]}
+            type="button"
+          >
+            Translate
+          </Button>
+        </span>
+      </div>
+      <div
+        className="rightControls"
+      >
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          secondary={true}
+          type="button"
+        >
+          Exit without saving
+        </Button>
+      </div>
+    </div>
+  </ControlBar>
+  <Component
+    className="translation-dialog"
+    d2={
+      Object {
+        "currentUser": Object {
+          "firstName": "Mark the Ghost",
+          "surname": "Polak",
+          "userSettings": Object {
+            "get": [Function],
+          },
+        },
+      }
+    }
+    fieldsToTranslate={
+      Array [
+        "name",
+        "description",
+      ]
+    }
+    objectToTranslate={
+      Object {
+        "id": "rainbow123",
+      }
+    }
+    onRequestClose={[Function]}
+    onTranslationError={[Function]}
+    onTranslationSaved={[Function]}
+    open={false}
+  />
+</Fragment>
+`;
 
-exports[`EditBar when update access is true when dashboard id property provided when TRANSLATE button is clicked shows the translate dialog 1`] = `ShallowWrapper {}`;
+exports[`EditBar when update access is true when dashboard id property provided when TRANSLATE button is clicked shows the translate dialog 1`] = `
+<Fragment>
+  <ControlBar
+    editMode={true}
+    height={64}
+    onChangeHeight={null}
+    onEndDrag={null}
+  >
+    <div
+      style={
+        Object {
+          "height": 40,
+          "marginLeft": "15px",
+          "marginRight": "15px",
+          "paddingTop": "15px",
+        }
+      }
+    >
+      <div
+        className="leftControls"
+      >
+        <span
+          style={
+            Object {
+              "marginRight": "15px",
+            }
+          }
+        >
+          <Button
+            dataTest="dhis2-uicore-button"
+            onClick={[Function]}
+            primary={true}
+            type="button"
+          >
+            Save changes
+          </Button>
+        </span>
+        <span
+          style={
+            Object {
+              "marginRight": "15px",
+            }
+          }
+        >
+          <Button
+            dataTest="dhis2-uicore-button"
+            onClick={[Function]}
+            type="button"
+          >
+            Translate
+          </Button>
+        </span>
+      </div>
+      <div
+        className="rightControls"
+      >
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          secondary={true}
+          type="button"
+        >
+          Exit without saving
+        </Button>
+      </div>
+    </div>
+  </ControlBar>
+  <Component
+    className="translation-dialog"
+    d2={
+      Object {
+        "currentUser": Object {
+          "firstName": "Mark the Ghost",
+          "surname": "Polak",
+          "userSettings": Object {
+            "get": [Function],
+          },
+        },
+      }
+    }
+    fieldsToTranslate={
+      Array [
+        "name",
+        "description",
+      ]
+    }
+    objectToTranslate={
+      Object {
+        "id": "rainbow123",
+      }
+    }
+    onRequestClose={[Function]}
+    onTranslationError={[Function]}
+    onTranslationSaved={[Function]}
+    open={false}
+  />
+</Fragment>
+`;
 
-exports[`EditBar when update access is true when dashboard id property provided when TRANSLATE button is clicked shows the translate dialog 2`] = `ShallowWrapper {}`;
+exports[`EditBar when update access is true when dashboard id property provided when TRANSLATE button is clicked shows the translate dialog 2`] = `
+<Fragment>
+  <ControlBar
+    editMode={true}
+    height={64}
+    onChangeHeight={null}
+    onEndDrag={null}
+  >
+    <div
+      style={
+        Object {
+          "height": 40,
+          "marginLeft": "15px",
+          "marginRight": "15px",
+          "paddingTop": "15px",
+        }
+      }
+    >
+      <div
+        className="leftControls"
+      >
+        <span
+          style={
+            Object {
+              "marginRight": "15px",
+            }
+          }
+        >
+          <Button
+            dataTest="dhis2-uicore-button"
+            onClick={[Function]}
+            primary={true}
+            type="button"
+          >
+            Save changes
+          </Button>
+        </span>
+        <span
+          style={
+            Object {
+              "marginRight": "15px",
+            }
+          }
+        >
+          <Button
+            dataTest="dhis2-uicore-button"
+            onClick={[Function]}
+            type="button"
+          >
+            Translate
+          </Button>
+        </span>
+      </div>
+      <div
+        className="rightControls"
+      >
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          secondary={true}
+          type="button"
+        >
+          Exit without saving
+        </Button>
+      </div>
+    </div>
+  </ControlBar>
+  <Component
+    className="translation-dialog"
+    d2={
+      Object {
+        "currentUser": Object {
+          "firstName": "Mark the Ghost",
+          "surname": "Polak",
+          "userSettings": Object {
+            "get": [Function],
+          },
+        },
+      }
+    }
+    fieldsToTranslate={
+      Array [
+        "name",
+        "description",
+      ]
+    }
+    objectToTranslate={
+      Object {
+        "id": "rainbow123",
+      }
+    }
+    onRequestClose={[Function]}
+    onTranslationError={[Function]}
+    onTranslationSaved={[Function]}
+    open={true}
+  />
+</Fragment>
+`;
 
-exports[`EditBar when update access is true when dashboard id property provided when deleteAccess is true renders Translate, Delete, and Discard buttons and ConfirmDeleteDialog 1`] = `ShallowWrapper {}`;
+exports[`EditBar when update access is true when dashboard id property provided when deleteAccess is true renders Translate, Delete, and Discard buttons and ConfirmDeleteDialog 1`] = `
+<Fragment>
+  <ControlBar
+    editMode={true}
+    height={64}
+    onChangeHeight={null}
+    onEndDrag={null}
+  >
+    <div
+      style={
+        Object {
+          "height": 40,
+          "marginLeft": "15px",
+          "marginRight": "15px",
+          "paddingTop": "15px",
+        }
+      }
+    >
+      <div
+        className="leftControls"
+      >
+        <span
+          style={
+            Object {
+              "marginRight": "15px",
+            }
+          }
+        >
+          <Button
+            dataTest="dhis2-uicore-button"
+            onClick={[Function]}
+            primary={true}
+            type="button"
+          >
+            Save changes
+          </Button>
+        </span>
+        <span
+          style={
+            Object {
+              "marginRight": "15px",
+            }
+          }
+        >
+          <Button
+            dataTest="dhis2-uicore-button"
+            onClick={[Function]}
+            type="button"
+          >
+            Translate
+          </Button>
+        </span>
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Delete
+        </Button>
+      </div>
+      <div
+        className="rightControls"
+      >
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          secondary={true}
+          type="button"
+        >
+          Exit without saving
+        </Button>
+      </div>
+    </div>
+  </ControlBar>
+  <ConfirmDeleteDialog
+    onContinueEditing={[Function]}
+    onDeleteConfirmed={[Function]}
+    open={false}
+  />
+</Fragment>
+`;
 
-exports[`EditBar when update access is true when no dashboard id property renders Save and Discard buttons but no dialogs 1`] = `ShallowWrapper {}`;
+exports[`EditBar when update access is true when no dashboard id property renders Save and Discard buttons but no dialogs 1`] = `
+<Fragment>
+  <ControlBar
+    editMode={true}
+    height={64}
+    onChangeHeight={null}
+    onEndDrag={null}
+  >
+    <div
+      style={
+        Object {
+          "height": 40,
+          "marginLeft": "15px",
+          "marginRight": "15px",
+          "paddingTop": "15px",
+        }
+      }
+    >
+      <div
+        className="leftControls"
+      >
+        <span
+          style={
+            Object {
+              "marginRight": "15px",
+            }
+          }
+        >
+          <Button
+            dataTest="dhis2-uicore-button"
+            onClick={[Function]}
+            primary={true}
+            type="button"
+          >
+            Save changes
+          </Button>
+        </span>
+      </div>
+      <div
+        className="rightControls"
+      >
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          secondary={true}
+          type="button"
+        >
+          Exit without saving
+        </Button>
+      </div>
+    </div>
+  </ControlBar>
+</Fragment>
+`;
