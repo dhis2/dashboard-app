@@ -1,14 +1,14 @@
 import React from 'react';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import { CircularLoader } from '@dhis2/ui-core';
 
 import classes from './styles/LoadingMask.module.css';
 
-function CircularIndeterminate() {
+const LoadingMask = () => {
     return (
-        <div className={classes.outer}>
-            <CircularProgress className={classes.progress} />
+        <div className={classes.center}>
+            <CircularLoader />
         </div>
     );
-}
+};
 
-export default CircularIndeterminate;
+export default LoadingMask;
