@@ -162,8 +162,8 @@ export class Item extends Component {
             case REPORT_TABLE: {
                 return (
                     <>
-                        {!this.state.pluginIsLoaded && (
-                            <div style={props.style} className={classes.cover}>
+                        {this.state.pluginIsLoaded && (
+                            <div style={props.style}>
                                 <LoadingMask />
                             </div>
                         )}

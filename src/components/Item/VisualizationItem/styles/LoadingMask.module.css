@@ -1,10 +1,6 @@
-.vertical {
+.center {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     height: 100%;
-}
-
-.horizontal {
-    margin: 0 auto;
+    align-items: center;
 }

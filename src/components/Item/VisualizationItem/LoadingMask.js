@@ -5,10 +5,8 @@ import classes from './styles/LoadingMask.module.css';
 
 const LoadingMask = () => {
     return (
-        <div className={classes.vertical}>
-            <div className={classes.horizontal}>
-                <CircularLoader />
-            </div>
+        <div className={classes.center}>
+            <CircularLoader />
         </div>
     );
 };
