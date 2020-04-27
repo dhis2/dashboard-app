@@ -1,4 +1,6 @@
+# 
 # Translators:
+# 晓东 林 <13981924470@126.com>, 2020
 # easylin <lin_xd@126.com>, 2020
 # 
 msgid ""
@@ -134,7 +136,7 @@ msgid "Show fewer"
 msgstr ""
 
 msgid "Insert"
-msgstr ""
+msgstr "插入"
 
 msgid "Search for items to add to this dashboard"
 msgstr "搜索条目添加到仪表盘"
@@ -179,7 +181,7 @@ msgid "Event charts"
 msgstr "事件图表"
 
 msgid "Apps"
-msgstr ""
+msgstr "应用"
 
 msgid "Reports"
 msgstr "报表"

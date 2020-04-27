@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import i18n from '@dhis2/d2-i18n';
+import { withStyles } from '@material-ui/core/styles';
 import InputField from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
@@ -9,9 +9,6 @@ import { colors } from '@dhis2/ui-core';
 
 import ClearButton from './ClearButton';
 import { DEFAULT_STATE_DASHBOARDS_FILTER_NAME } from '../../reducers/dashboardsFilter';
-
-export const KEYCODE_ENTER = 13;
-export const KEYCODE_ESCAPE = 27;
 
 const styles = {
     filterField: {
@@ -26,6 +23,9 @@ const styles = {
         height: '20px',
     },
 };
+
+export const KEYCODE_ENTER = 13;
+export const KEYCODE_ESCAPE = 27;
 
 export class Filter extends Component {
     constructor(props) {

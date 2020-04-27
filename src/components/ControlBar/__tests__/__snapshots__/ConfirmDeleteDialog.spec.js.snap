@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConfirmDeleteDialog matches the snapshot 1`] = `ShallowWrapper {}`;
+exports[`ConfirmDeleteDialog matches the snapshot when open = false 1`] = `ShallowWrapper {}`;
+
+exports[`ConfirmDeleteDialog when open = true matches the snapshot 1`] = `ShallowWrapper {}`;

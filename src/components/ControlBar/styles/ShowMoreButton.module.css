@@ -1,0 +1,17 @@
+.showMore {
+    color: var(--colors-grey700);
+    cursor: pointer;
+    font-size: 11px;
+    padding-top: 5px;
+}
+
+.showMore:hover {
+    text-decoration: underline;
+}
+
+.disabled {
+    padding-top: 5px;
+    color: var(--colors-grey500);
+    font-size: 11px;
+    cursor: not-allowed;
+}

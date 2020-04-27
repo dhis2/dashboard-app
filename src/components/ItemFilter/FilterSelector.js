@@ -1,9 +1,8 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Popover from '@material-ui/core/Popover';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import { withTheme } from '@material-ui/core/styles';
 
 import i18n from '@dhis2/d2-i18n';
 import { DimensionsPanel } from '@dhis2/analytics';
@@ -107,7 +106,6 @@ class FilterSelector extends Component {
 
     render() {
         const {
-            theme,
             displayNameProperty,
             dimension,
             dimensions,
@@ -116,7 +114,7 @@ class FilterSelector extends Component {
         } = this.props;
 
         return (
-            <Fragment>
+            <>
                 <Button onClick={this.openPanel}>
                     {i18n.t('Add filter')}
                     <ArrowDropDownIcon />
@@ -126,10 +124,7 @@ class FilterSelector extends Component {
                     anchorEl={this.state.anchorEl}
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                     onClose={this.closePanel}
-                    style={{
-                        height: '100%',
-                        fontFamily: theme.typography.fontFamily,
-                    }}
+                    style={{ height: '100%' }}
                 >
                     <DimensionsPanel
                         style={{ width: '320px' }}
@@ -150,7 +145,7 @@ class FilterSelector extends Component {
                         onConfirm={this.saveFilter}
                     />
                 ) : null}
-            </Fragment>
+            </>
         );
     }
 }
@@ -175,7 +170,6 @@ FilterSelector.propTypes = {
     selectedItems: PropTypes.object,
     setActiveModalDimension: PropTypes.func,
     setEditItemFilters: PropTypes.func,
-    theme: PropTypes.object,
 };
 
 export default connect(
@@ -188,4 +182,4 @@ export default connect(
         removeEditItemFilter: acRemoveEditItemFilter,
         setEditItemFilters: acSetEditItemFilters,
     }
-)(withTheme()(FilterSelector));
+)(FilterSelector);

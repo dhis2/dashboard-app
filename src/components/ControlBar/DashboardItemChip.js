@@ -1,46 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import { Chip, colors } from '@dhis2/ui-core';
+import { Chip } from '@dhis2/ui-core';
 import { Link } from 'react-router-dom';
 import debounce from 'lodash/debounce';
 
 import StarIcon from '../../icons/Star';
 import { apiPostDataStatistics } from '../../api/dataStatistics';
 
-const styles = {
-    chip: {
-        margin: '3px',
-    },
-    link: {
-        color: colors.grey600,
-        display: 'inline-block',
-        textDecoration: 'none',
-        verticalAlign: 'top',
-    },
-    icon: {
-        height: '20px',
-        marginTop: '2px',
-        width: '20px',
-    },
-    selected: {
-        fill: colors.white,
-    },
-    unselected: {
-        fill: colors.grey700,
-    },
-};
+import classes from './styles/DashboardItemChip.module.css';
 
 export const DashboardItemChip = ({
     starred,
     selected,
     label,
     dashboardId,
-    classes,
 }) => {
     const chipProps = {
         selected,
-        className: classes.chip,
     };
 
     if (starred) {
@@ -72,4 +48,4 @@ DashboardItemChip.propTypes = {
     classes: PropTypes.object,
 };
 
-export default withStyles(styles)(DashboardItemChip);
+export default DashboardItemChip;

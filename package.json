@@ -1,64 +1,64 @@
 {
-    "name": "dashboard-app",
-    "version": "35.0.0",
-    "description": "DHIS2 Dashboards app",
-    "private": true,
-    "license": "BSD-3-Clause",
-    "dependencies": {
-        "@dhis2/analytics": "^4.3.22",
-        "@dhis2/app-runtime": "^2.1.1",
-        "@dhis2/d2-i18n": "^1.0.6",
-        "@dhis2/d2-ui-core": "^6.5.8",
-        "@dhis2/d2-ui-interpretations": "^6.5.7",
-        "@dhis2/d2-ui-mentions-wrapper": "^6.0.1",
-        "@dhis2/d2-ui-rich-text": "^6.0.1",
-        "@dhis2/d2-ui-sharing-dialog": "^6.0.1",
-        "@dhis2/d2-ui-translation-dialog": "^6.0.1",
-        "@dhis2/data-visualizer-plugin": "^34.3.31",
-        "@dhis2/ui-core": "^4.11.0",
-        "@dhis2/ui-widgets": "^2.0.5",
-        "@material-ui/core": "^3.9.2",
-        "@material-ui/icons": "^3.0.2",
-        "d2": "^31.8.1",
-        "d2-utilizr": "^0.2.16",
-        "i18next": "^15.0.6",
-        "lodash": "^4.17.11",
-        "moment": "^2.24.0",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1",
-        "react-grid-layout": "^0.16.6",
-        "react-redux": "^6.0.1",
-        "react-router-dom": "^4.3.1",
-        "redux": "^4.0.1",
-        "redux-logger": "^3.0.6",
-        "redux-thunk": "^2.3.0",
-        "reselect": "^4.0.0",
-        "typeface-roboto": "^0.0.54",
-        "whatwg-fetch": "^3.0.0"
-    },
-    "scripts": {
-        "start": "d2-app-scripts start",
-        "lint": "d2-style js check || d2-style text check",
-        "format": "d2-style js apply || d2-style text apply",
-        "coverage": "yarn test --coverage",
-        "build": "d2-app-scripts build",
-        "build:netlify": "yarn build --standalone",
-        "test": "d2-app-scripts test",
-        "validate-push": "CI=true yarn test"
-    },
-    "jest": {
-        "setupFilesAfterEnv": [
-            "<rootDir>/src/setupTests.js"
-        ],
-        "moduleNameMapper": {
-            "^.+\\.(css|sass|scss)$": "identity-obj-proxy"
+        "name": "dashboard-app",
+        "version": "35.0.0",
+        "description": "DHIS2 Dashboards app",
+        "private": true,
+        "license": "BSD-3-Clause",
+        "dependencies": {
+                "@dhis2/analytics": "^4.3.25",
+                "@dhis2/app-runtime": "^2.1.1",
+                "@dhis2/d2-i18n": "^1.0.6",
+                "@dhis2/d2-ui-core": "^6.5.8",
+                "@dhis2/d2-ui-interpretations": "^6.5.7",
+                "@dhis2/d2-ui-mentions-wrapper": "^6.0.1",
+                "@dhis2/d2-ui-rich-text": "^6.0.1",
+                "@dhis2/d2-ui-sharing-dialog": "^6.0.1",
+                "@dhis2/d2-ui-translation-dialog": "^6.0.1",
+                "@dhis2/data-visualizer-plugin": "^34.3.34",
+                "@dhis2/ui-core": "^4.16.0",
+                "@dhis2/ui-widgets": "^2.1.0",
+                "@material-ui/core": "^3.9.2",
+                "@material-ui/icons": "^4.9.1",
+                "d2": "^31.8.1",
+                "d2-utilizr": "^0.2.16",
+                "i18next": "^19.3.4",
+                "lodash": "^4.17.15",
+                "moment": "^2.24.0",
+                "react": "^16.13.1",
+                "react-dom": "^16.13.1",
+                "react-grid-layout": "^0.18.3",
+                "react-redux": "^7.2.0",
+                "react-router-dom": "^5.1.2",
+                "redux": "^4.0.5",
+                "redux-logger": "^3.0.6",
+                "redux-thunk": "^2.3.0",
+                "reselect": "^4.0.0",
+                "typeface-roboto": "^0.0.75",
+                "whatwg-fetch": "^3.0.0"
+        },
+        "scripts": {
+                "start": "d2-app-scripts start",
+                "lint": "d2-style js check || d2-style text check",
+                "format": "d2-style js apply || d2-style text apply",
+                "coverage": "yarn test --coverage",
+                "build": "d2-app-scripts build",
+                "build:netlify": "yarn build --standalone",
+                "test": "d2-app-scripts test",
+                "validate-push": "CI=true yarn test"
+        },
+        "jest": {
+                "setupFilesAfterEnv": [
+                        "<rootDir>/src/setupTests.js"
+                ],
+                "moduleNameMapper": {
+                        "^.+\\.(css|sass|scss)$": "identity-obj-proxy"
+                }
+        },
+        "devDependencies": {
+                "@dhis2/cli-app-scripts": "^3.2.9",
+                "@dhis2/cli-style": "^5.0.3",
+                "enzyme": "^3.9.0",
+                "enzyme-adapter-react-16": "^1.15.2",
+                "immutability-helper": "^3.0.1"
         }
-    },
-    "devDependencies": {
-        "@dhis2/cli-app-scripts": "^3.2.9",
-        "@dhis2/cli-style": "^5.0.3",
-        "enzyme": "^3.9.0",
-        "enzyme-adapter-react-16": "^1.10.0",
-        "immutability-helper": "^3.0.0"
-    }
 }

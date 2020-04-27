@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -154,7 +154,7 @@ export class EditBar extends Component {
             : i18n.t('Go to dashboards');
 
         return (
-            <Fragment>
+            <>
                 <ControlBar height={controlBarHeight} editMode={true}>
                     <div style={buttonBarStyle}>
                         {updateAccess ? (
@@ -193,7 +193,7 @@ export class EditBar extends Component {
                 </ControlBar>
                 {this.translationDialog()}
                 {this.confirmDeleteDialog()}
-            </Fragment>
+            </>
         );
     }
 }

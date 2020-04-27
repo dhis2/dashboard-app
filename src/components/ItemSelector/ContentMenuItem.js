@@ -46,7 +46,7 @@ const ContentMenuItem = ({ type, name, onInsert, url, visType }) => {
             label={
                 <div className={classes.menuItem}>
                     <div className={classes.label}>
-                        <span style={{ margin: '6px' }}>
+                        <span style={{ marginRight: '6px' }}>
                             {renderedItemIcon}
                         </span>
                         <span>{name}</span>

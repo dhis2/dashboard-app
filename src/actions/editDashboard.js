@@ -14,14 +14,12 @@ import {
 import { sGetEditDashboardRoot } from '../reducers/editDashboard';
 import { updateDashboard, postDashboard } from '../api/editDashboard';
 import { tSetSelectedDashboardById } from '../actions/selected';
-import { NEW_ITEM_SHAPE } from '../components/ItemGrid/gridUtil';
 import {
-    itemTypeMap,
-    isSpacerType,
-    TEXT,
-    emptyTextItemContent,
-    isTextType,
-} from '../modules/itemTypes';
+    NEW_ITEM_SHAPE,
+    getGridItemProperties,
+} from '../components/ItemGrid/gridUtil';
+import { itemTypeMap } from '../modules/itemTypes';
+import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter';
 
 const onError = error => {
     console.log('Error (Saving Dashboard): ', error);
@@ -70,13 +68,17 @@ export const acAddDashboardItem = item => {
     delete item.type;
     const itemPropName = itemTypeMap[type].propName;
 
+    const id = generateUid();
+    const gridItemProperties = getGridItemProperties(id);
+
     return {
         type: ADD_DASHBOARD_ITEM,
         value: {
-            id: generateUid(),
+            id,
             type,
             [itemPropName]: item.content,
             ...NEW_ITEM_SHAPE,
+            ...gridItemProperties,
         },
     };
 };
@@ -96,23 +98,9 @@ export const acRemoveDashboardItem = value => ({
 export const tSaveDashboard = () => async (dispatch, getState) => {
     const dashboard = sGetEditDashboardRoot(getState());
 
-    const dashboardItems = dashboard.dashboardItems.map(item => {
-        const text = isTextType(item)
-            ? item.text || emptyTextItemContent
-            : null;
-
-        const type = isSpacerType(item) ? TEXT : item.type;
-
-        return {
-            ...item,
-            ...(text ? { text } : {}),
-            type,
-        };
-    });
-
     const dashboardToSave = {
         ...dashboard,
-        dashboardItems,
+        dashboardItems: convertUiItemsToBackend(dashboard.dashboardItems),
     };
 
     try {

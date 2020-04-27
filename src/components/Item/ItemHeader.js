@@ -11,47 +11,38 @@ import classes from './styles/ItemHeader.module.css';
 // This is the margin-top + margin-bottom defined in the css file
 export const HEADER_MARGIN_HEIGHT = 12;
 
-const ItemHeader = props => {
-    const {
-        title,
-        editMode,
-        actionButtons,
-        itemId,
-        acRemoveDashboardItem,
-        forwardedRef,
-    } = props;
+const ItemHeader = React.forwardRef(
+    (
+        { itemId, acRemoveDashboardItem, actionButtons, title, editMode },
+        ref
+    ) => {
+        const handleDeleteItem = () => acRemoveDashboardItem(itemId);
 
-    const handleDeleteItem = () => acRemoveDashboardItem(itemId);
-
-    return (
-        <div className={classes.itemHeaderWrap} ref={forwardedRef}>
-            <p className={classes.itemTitle}>{title}</p>
-            {editMode ? (
-                <div className={classes.itemActionsWrap}>
-                    <DeleteItemButton onClick={handleDeleteItem} />
-                </div>
-            ) : (
-                actionButtons && (
+        return (
+            <div className={classes.itemHeaderWrap} ref={ref}>
+                <p className={classes.itemTitle}>{title}</p>
+                {editMode ? (
                     <div className={classes.itemActionsWrap}>
-                        {actionButtons}
+                        <DeleteItemButton onClick={handleDeleteItem} />
                     </div>
-                )
-            )}
-        </div>
-    );
-};
+                ) : (
+                    actionButtons && (
+                        <div className={classes.itemActionsWrap}>
+                            {actionButtons}
+                        </div>
+                    )
+                )}
+            </div>
+        );
+    }
+);
 
 ItemHeader.propTypes = {
     acRemoveDashboardItem: PropTypes.func,
     actionButtons: PropTypes.node,
     editMode: PropTypes.bool,
-    forwardedRef: PropTypes.object,
     itemId: PropTypes.string,
     title: PropTypes.string,
-};
-
-ItemHeader.defaultProps = {
-    forwardedRef: {},
 };
 
 const mapStateToProps = state => ({
@@ -62,15 +53,9 @@ const mapDispatchToProps = {
     acRemoveDashboardItem,
 };
 
-const ConnectedItemHeader = connect(
+export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
+    null,
+    { forwardRef: true }
 )(ItemHeader);
-
-// TODO this is a false positive that is fixed in eslint-plugin-react v7.15
-// github.com/yannickcr/eslint-plugin-react/blob/master/CHANGELOG.md
-/* eslint-disable react/display-name */
-export default React.forwardRef((props, ref) => (
-    <ConnectedItemHeader {...props} forwardedRef={ref} />
-));
-/* eslint-enable react/display-name */

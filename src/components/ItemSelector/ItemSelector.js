@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import Popover from '@material-ui/core/Popover';
@@ -122,7 +122,7 @@ class ItemSelector extends React.Component {
 
     render() {
         return (
-            <Fragment>
+            <>
                 <ItemSearchField
                     value={this.state.filter}
                     onChange={this.setFilter}
@@ -138,11 +138,12 @@ class ItemSelector extends React.Component {
                     style={{ height: '70vh' }}
                     PaperProps={{ style: { width: '700px' } }}
                     disableAutoFocus={true}
+                    disableEnforceFocus={true}
                     disableRestoreFocus={true}
                 >
-                    <Menu>{this.getMenuGroups()}</Menu>
+                    <Menu maxWidth={'700px'}>{this.getMenuGroups()}</Menu>
                 </Popover>
-            </Fragment>
+            </>
         );
     }
 }

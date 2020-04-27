@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createSelector } from 'reselect';
-import { withStyles } from '@material-ui/core/styles';
 
 import { sGetDimensions } from '../../reducers/dimensions';
 import { sGetItemFiltersRoot } from '../../reducers/itemFilters';
@@ -14,16 +13,7 @@ import { acSetActiveModalDimension } from '../../actions/activeModalDimension';
 
 import FilterBadge from './FilterBadge';
 
-const styles = {
-    bar: {
-        position: 'sticky',
-        zIndex: 7,
-        padding: '8px 0',
-        display: 'flex',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-    },
-};
+import classes from './styles/FilterBar.module.css';
 
 export class FilterBar extends Component {
     onBadgeRemove = id => {
@@ -39,7 +29,7 @@ export class FilterBar extends Component {
     };
 
     render() {
-        const { filters, userRows, classes } = this.props;
+        const { filters, userRows } = this.props;
         const top = getControlBarHeight(userRows) + 10;
 
         return filters.length ? (
@@ -61,7 +51,6 @@ FilterBar.propTypes = {
     filters: PropTypes.array.isRequired,
     removeEditItemFilter: PropTypes.func.isRequired,
     removeItemFilter: PropTypes.func.isRequired,
-    classes: PropTypes.object,
     setActiveModalDimension: PropTypes.func,
     userRows: PropTypes.number,
 };
@@ -103,4 +92,4 @@ export default connect(
         removeItemFilter: acRemoveItemFilter,
         removeEditItemFilter: acRemoveEditItemFilter,
     }
-)(withStyles(styles)(FilterBar));
+)(FilterBar);
