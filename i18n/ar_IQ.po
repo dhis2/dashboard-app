@@ -86,19 +86,19 @@ msgid "You like this"
 msgstr ""
 
 msgid "Like"
-msgstr ""
+msgstr "إعجاب"
 
 msgid "View in Visualizer"
 msgstr ""
 
 msgid "Reply"
-msgstr ""
+msgstr "رد"
 
 msgid "Add your reply"
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "التفسيرات"
 
 msgid "Add your interpretation"
 msgstr ""
