@@ -162,11 +162,11 @@ export class Item extends Component {
             case REPORT_TABLE: {
                 return (
                     <>
-                        {!this.state.pluginIsLoaded ? (
-                            <div className={classes.loadingCover}>
+                        {!this.state.pluginIsLoaded && (
+                            <div style={props.style}>
                                 <LoadingMask />
                             </div>
-                        ) : null}
+                        )}
                         <VisualizationPlugin
                             d2={this.d2}
                             visualization={this.memoizedApplyFilters(
