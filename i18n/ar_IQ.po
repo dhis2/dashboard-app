@@ -46,7 +46,7 @@ msgid "Show more"
 msgstr "إظهار المزيد"
 
 msgid "All"
-msgstr ""
+msgstr "الجميع"
 
 msgid "Unread"
 msgstr ""
@@ -58,10 +58,10 @@ msgid "You like this"
 msgstr ""
 
 msgid "Like"
-msgstr ""
+msgstr "إعجاب"
 
 msgid "Reply"
-msgstr ""
+msgstr "رد"
 
 msgid "Add your reply"
 msgstr ""
