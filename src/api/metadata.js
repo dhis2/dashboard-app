@@ -81,7 +81,7 @@ export const getFavoritesFields = ({ withDimensions }) => [
 
 // List item
 export const getListItemFields = () => [
-    `reports[${getIdNameFields({ rename: true }).join(',')}]`,
+    `reports[${['type', ...getIdNameFields({ rename: true })].join(',')}]`,
     `resources[${getIdNameFields({ rename: true }).join(',')}]`,
     `users[${getIdNameFields({ rename: true }).join(',')}]`,
 ];
