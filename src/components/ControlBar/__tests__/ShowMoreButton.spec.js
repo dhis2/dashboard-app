@@ -1,75 +1,75 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
-import { ShowMoreButton } from '../ShowMoreButton';
+import React from 'react'
+import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
+import { ShowMoreButton } from '../ShowMoreButton'
 
 describe('ShowMoreButton', () => {
     it('renders correctly when at maxHeight', () => {
         const button = shallow(
             <ShowMoreButton
-                onClick={() => { }}
+                onClick={() => {}}
                 isMaxHeight={true}
                 classes={{ showMore: {} }}
             />
-        );
-        expect(toJson(button)).toMatchSnapshot();
-    });
+        )
+        expect(toJson(button)).toMatchSnapshot()
+    })
 
     it('renders correctly when not at maxHeight', () => {
         const tree = shallow(
             <ShowMoreButton
-                onClick={() => { }}
+                onClick={() => {}}
                 isMaxHeight={false}
                 classes={{ showMore: {} }}
             />
-        );
+        )
 
-        expect(toJson(tree)).toMatchSnapshot();
-    });
+        expect(toJson(tree)).toMatchSnapshot()
+    })
 
     describe('actions', () => {
-        let props;
-        let shallowShowMoreButton;
+        let props
+        let shallowShowMoreButton
         const showMoreButton = () => {
             if (!shallowShowMoreButton) {
-                shallowShowMoreButton = shallow(<ShowMoreButton {...props} />);
+                shallowShowMoreButton = shallow(<ShowMoreButton {...props} />)
             }
-            return shallowShowMoreButton;
-        };
+            return shallowShowMoreButton
+        }
 
         beforeEach(() => {
             props = {
                 onClick: undefined,
                 isMaxHeight: undefined,
                 classes: { showMore: {} },
-            };
-            shallowShowMoreButton = undefined;
-        });
+            }
+            shallowShowMoreButton = undefined
+        })
 
         it('changes text when isMaxHeight is changed', () => {
-            props.isMaxHeight = true;
-            const button1Text = showMoreButton().text();
+            props.isMaxHeight = true
+            const button1Text = showMoreButton().text()
 
-            shallowShowMoreButton = undefined;
-            props.isMaxHeight = false;
-            const button2Text = showMoreButton().text();
+            shallowShowMoreButton = undefined
+            props.isMaxHeight = false
+            const button2Text = showMoreButton().text()
 
-            expect(button1Text.length).toBeGreaterThan(0);
-            expect(button2Text.length).toBeGreaterThan(0);
-            expect(button1Text).not.toEqual(button2Text);
-        });
+            expect(button1Text.length).toBeGreaterThan(0)
+            expect(button2Text.length).toBeGreaterThan(0)
+            expect(button1Text).not.toEqual(button2Text)
+        })
 
         describe('when onClick is defined', () => {
             beforeEach(() => {
-                props.onClick = jest.fn();
-            });
+                props.onClick = jest.fn()
+            })
 
             it('triggers onClick when div clicked', () => {
                 showMoreButton()
                     .childAt(0)
-                    .simulate('click');
-                expect(props.onClick).toHaveBeenCalled();
-            });
-        });
-    });
-});
+                    .simulate('click')
+                expect(props.onClick).toHaveBeenCalled()
+            })
+        })
+    })
+})

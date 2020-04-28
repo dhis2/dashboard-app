@@ -1,24 +1,24 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import i18n from '@dhis2/d2-i18n';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import i18n from '@dhis2/d2-i18n'
 
-import { sGetMessagesRoot } from '../../../reducers/messages';
-import { formatDate } from '../../../modules/util';
-import { colors } from '@dhis2/ui-core';
-import ItemHeader from '../ItemHeader';
-import Line from '../../../widgets/Line';
+import { sGetMessagesRoot } from '../../../reducers/messages'
+import { formatDate } from '../../../modules/util'
+import { colors } from '@dhis2/ui-core'
+import ItemHeader from '../ItemHeader'
+import Line from '../../../widgets/Line'
 
-import './MessagesItem.css';
+import './MessagesItem.css'
 
-const PRIVATE = 'PRIVATE';
+const PRIVATE = 'PRIVATE'
 
 const messageTypes = {
     [PRIVATE]: 'Private',
     VALIDATION_RESULT: 'Validation',
     TICKET: 'Ticket',
     SYSTEM: 'System',
-};
+}
 
 const style = {
     list: {
@@ -43,49 +43,49 @@ const style = {
         maxHeight: '30px',
         overflow: 'hidden',
     },
-};
+}
 
 class MessagesItem extends Component {
     state = {
         uiLocale: '',
-    };
+    }
 
     async componentDidMount() {
         const uiLocale = await this.context.d2.currentUser.userSettings.get(
             'keyUiLocale'
-        );
+        )
 
-        this.setState({ uiLocale });
+        this.setState({ uiLocale })
     }
 
     getMessageHref = msg => {
-        const msgIdentifier = msg ? `#/${msg.messageType}/${msg.id}` : '';
-        return `${this.context.baseUrl}/dhis-web-messaging/${msgIdentifier}`;
-    };
+        const msgIdentifier = msg ? `#/${msg.messageType}/${msg.id}` : ''
+        return `${this.context.baseUrl}/dhis-web-messaging/${msgIdentifier}`
+    }
 
     getMessageSender = msg => {
-        const latestMsg = msg.messages.slice(-1)[0];
-        return latestMsg.sender ? latestMsg.sender.displayName : '';
-    };
+        const latestMsg = msg.messages.slice(-1)[0]
+        return latestMsg.sender ? latestMsg.sender.displayName : ''
+    }
 
     getMessageItems = () => {
-        const editClass = !this.props.editMode ? 'view' : null;
+        const editClass = !this.props.editMode ? 'view' : null
 
         return this.props.messages.map(msg => {
             const redirectToMsg = () => {
                 if (!this.props.editMode) {
-                    document.location.href = this.getMessageHref(msg);
+                    document.location.href = this.getMessageHref(msg)
                 }
-            };
+            }
 
             const sender =
                 msg.messageType === PRIVATE
                     ? this.getMessageSender(msg)
-                    : messageTypes[msg.messageType];
+                    : messageTypes[msg.messageType]
 
-            const readClass = !msg.read ? 'unread' : null;
-            const latestMsg = msg.messages.slice(-1)[0];
-            const msgDate = latestMsg.lastUpdated;
+            const readClass = !msg.read ? 'unread' : null
+            const latestMsg = msg.messages.slice(-1)[0]
+            const msgDate = latestMsg.lastUpdated
 
             return (
                 <li
@@ -101,9 +101,9 @@ class MessagesItem extends Component {
                     </p>
                     <p style={style.snippet}>{latestMsg.text}</p>
                 </li>
-            );
-        });
-    };
+            )
+        })
+    }
 
     render() {
         return (
@@ -124,7 +124,7 @@ class MessagesItem extends Component {
                     </div>
                 )}
             </>
-        );
+        )
     }
 }
 
@@ -132,22 +132,19 @@ MessagesItem.propTypes = {
     editMode: PropTypes.bool,
     item: PropTypes.object,
     messages: PropTypes.array,
-};
+}
 
 MessagesItem.contextTypes = {
     d2: PropTypes.object,
     baseUrl: PropTypes.string,
-};
+}
 
 const mapStateToProps = state => {
     return {
         messages: Object.values(sGetMessagesRoot(state)),
-    };
-};
+    }
+}
 
-const MessagesContainer = connect(
-    mapStateToProps,
-    null
-)(MessagesItem);
+const MessagesContainer = connect(mapStateToProps, null)(MessagesItem)
 
-export default MessagesContainer;
+export default MessagesContainer

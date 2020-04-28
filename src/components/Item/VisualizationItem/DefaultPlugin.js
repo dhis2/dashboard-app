@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 
-import * as pluginManager from './plugin';
-import { getBaseUrl, orObject } from '../../../modules/util';
-import { getGridItemDomId } from '../../ItemGrid/gridUtil';
+import * as pluginManager from './plugin'
+import { getBaseUrl, orObject } from '../../../modules/util'
+import { getGridItemDomId } from '../../ItemGrid/gridUtil'
 
 const pluginCredentials = d2 => {
     return {
         baseUrl: getBaseUrl(d2),
         auth: d2.Api.getApi().defaultHeaders.Authorization,
-    };
-};
+    }
+}
 
 class DefaultPlugin extends Component {
-    pluginCredentials = null;
+    pluginCredentials = null
 
     constructor(props, context) {
-        super(props);
+        super(props)
 
-        this.d2 = context.d2;
+        this.d2 = context.d2
     }
 
     shouldPluginReload = prevProps => {
@@ -29,16 +29,16 @@ class DefaultPlugin extends Component {
         //
         // To determine if the rendering is happening because of a
         // dashboard switch, check if the item reference has changed.
-        const reloadAllowed = this.props.item === prevProps.item;
+        const reloadAllowed = this.props.item === prevProps.item
 
-        const filtersChanged = prevProps.itemFilters !== this.props.itemFilters;
-        const vis = orObject(this.props.visualization);
-        const prevVis = orObject(prevProps.visualization);
+        const filtersChanged = prevProps.itemFilters !== this.props.itemFilters
+        const vis = orObject(this.props.visualization)
+        const prevVis = orObject(prevProps.visualization)
         const visChanged =
-            vis.id !== prevVis.id || vis.activeType !== prevVis.activeType;
+            vis.id !== prevVis.id || vis.activeType !== prevVis.activeType
 
-        return reloadAllowed && (visChanged || filtersChanged);
-    };
+        return reloadAllowed && (visChanged || filtersChanged)
+    }
 
     reloadPlugin = prevProps => {
         if (
@@ -48,12 +48,12 @@ class DefaultPlugin extends Component {
             ) &&
             this.shouldPluginReload(prevProps)
         ) {
-            const prevVis = orObject(prevProps.visualization);
-            const currentVis = this.props.visualization;
+            const prevVis = orObject(prevProps.visualization)
+            const currentVis = this.props.visualization
 
             const useActiveType =
                 currentVis.activeType !== prevVis.activeType ||
-                currentVis.activeType !== this.props.item.type;
+                currentVis.activeType !== this.props.item.type
 
             if (
                 useActiveType ||
@@ -62,18 +62,18 @@ class DefaultPlugin extends Component {
                 pluginManager.unmount(
                     this.props.item,
                     prevVis.activeType || this.props.item.type
-                );
+                )
 
                 pluginManager.load(this.props.item, this.props.visualization, {
                     credentials: this.pluginCredentials,
                     activeType: useActiveType ? currentVis.activeType : null,
-                });
+                })
             }
         }
-    };
+    }
 
     componentDidMount() {
-        this.pluginCredentials = pluginCredentials(this.d2);
+        this.pluginCredentials = pluginCredentials(this.d2)
 
         if (
             pluginManager.pluginIsAvailable(
@@ -85,23 +85,23 @@ class DefaultPlugin extends Component {
                 credentials: this.pluginCredentials,
                 activeType: !this.props.editMode ? this.getActiveType() : null,
                 options: this.props.options,
-            });
+            })
         }
     }
 
     componentDidUpdate(prevProps) {
-        this.reloadPlugin(prevProps);
+        this.reloadPlugin(prevProps)
     }
 
     getActiveType = () =>
-        this.props.visualization.activeType || this.props.item.type;
+        this.props.visualization.activeType || this.props.item.type
 
     render() {
-        const { classes, item, visualization, style } = this.props;
+        const { classes, item, visualization, style } = this.props
         const pluginIsAvailable = pluginManager.pluginIsAvailable(
             item,
             visualization
-        );
+        )
 
         return pluginIsAvailable ? (
             <div id={getGridItemDomId(item.id)} style={style} />
@@ -109,13 +109,13 @@ class DefaultPlugin extends Component {
             <div className={classes.textDiv}>
                 {i18n.t('Unable to load the plugin for this item')}
             </div>
-        );
+        )
     }
 }
 
 DefaultPlugin.contextTypes = {
     d2: PropTypes.object,
-};
+}
 
 DefaultPlugin.propTypes = {
     classes: PropTypes.object,
@@ -125,7 +125,7 @@ DefaultPlugin.propTypes = {
     options: PropTypes.object,
     style: PropTypes.object,
     visualization: PropTypes.object,
-};
+}
 
 DefaultPlugin.defaultProps = {
     style: {},
@@ -133,6 +133,6 @@ DefaultPlugin.defaultProps = {
     itemFilters: {},
     options: {},
     visualization: {},
-};
+}
 
-export default DefaultPlugin;
+export default DefaultPlugin

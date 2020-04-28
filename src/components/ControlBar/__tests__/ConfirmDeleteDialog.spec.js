@@ -1,18 +1,18 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
-import { ButtonStrip } from '@dhis2/ui-core';
-import { ConfirmDeleteDialog } from '../ConfirmDeleteDialog';
+import React from 'react'
+import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
+import { ButtonStrip } from '@dhis2/ui-core'
+import { ConfirmDeleteDialog } from '../ConfirmDeleteDialog'
 
 describe('ConfirmDeleteDialog', () => {
-    let props;
-    let shallowDialog;
+    let props
+    let shallowDialog
     const dialog = () => {
         if (!shallowDialog) {
-            shallowDialog = shallow(<ConfirmDeleteDialog {...props} />);
+            shallowDialog = shallow(<ConfirmDeleteDialog {...props} />)
         }
-        return shallowDialog;
-    };
+        return shallowDialog
+    }
 
     beforeEach(() => {
         props = {
@@ -20,26 +20,26 @@ describe('ConfirmDeleteDialog', () => {
             onDeleteConfirmed: jest.fn(),
             onContinueEditing: jest.fn(),
             open: false,
-        };
-        shallowDialog = undefined;
-    });
+        }
+        shallowDialog = undefined
+    })
 
     it('matches the snapshot when open = false', () => {
-        expect(toJson(dialog())).toMatchSnapshot();
-    });
+        expect(toJson(dialog())).toMatchSnapshot()
+    })
 
     describe('when open = true', () => {
         beforeEach(() => {
-            props.open = true;
-        });
+            props.open = true
+        })
 
         it('matches the snapshot', () => {
-            expect(toJson(dialog())).toMatchSnapshot();
-        });
+            expect(toJson(dialog())).toMatchSnapshot()
+        })
 
         it('renders a Button with action onContinueEditing', () => {
-            props.open = true;
-            expect.assertions(1);
+            props.open = true
+            expect.assertions(1)
             dialog()
                 .find(ButtonStrip)
                 .children()
@@ -47,14 +47,14 @@ describe('ConfirmDeleteDialog', () => {
                     if (actionEl.key() === 'cancel') {
                         expect(actionEl.prop('onClick')).toBe(
                             props.onContinueEditing
-                        );
+                        )
                     }
-                });
-        });
+                })
+        })
 
         it('renders a Button with action onDeleteConfirmed', () => {
-            props.open = true;
-            expect.assertions(1);
+            props.open = true
+            expect.assertions(1)
             dialog()
                 .find(ButtonStrip)
                 .children()
@@ -62,9 +62,9 @@ describe('ConfirmDeleteDialog', () => {
                     if (actionEl.key() === 'delete') {
                         expect(actionEl.prop('onClick')).toBe(
                             props.onDeleteConfirmed
-                        );
+                        )
                     }
-                });
-        });
-    });
-});
+                })
+        })
+    })
+})

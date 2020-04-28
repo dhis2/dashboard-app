@@ -1,11 +1,11 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import ItemHeaderButtons from '../ItemHeaderButtons';
+import React from 'react'
+import { shallow } from 'enzyme'
+import ItemHeaderButtons from '../ItemHeaderButtons'
 
 jest.mock('../plugin', () => ({
     getLink: () => 'http://rainbowdash',
     pluginIsAvailable: () => true,
-}));
+}))
 
 it('renders correctly', () => {
     const buttons = shallow(
@@ -23,6 +23,6 @@ it('renders correctly', () => {
             d2={{}}
             onToggleFooter={Function.prototype}
         />
-    );
-    expect(buttons).toMatchSnapshot();
-});
+    )
+    expect(buttons).toMatchSnapshot()
+})

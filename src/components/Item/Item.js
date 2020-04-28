@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import VisualizationItem from './VisualizationItem/Item';
-import MessagesItem from './MessagesItem/Item';
-import NotSupportedItem from './NotSupportedItem/Item';
-import ListItem from './ListItem/Item';
-import TextItem from './TextItem/Item';
-import AppItem from './AppItem/Item';
-import SpacerItem from './SpacerItem/Item';
+import VisualizationItem from './VisualizationItem/Item'
+import MessagesItem from './MessagesItem/Item'
+import NotSupportedItem from './NotSupportedItem/Item'
+import ListItem from './ListItem/Item'
+import TextItem from './TextItem/Item'
+import AppItem from './AppItem/Item'
+import SpacerItem from './SpacerItem/Item'
 import {
     APP,
     VISUALIZATION,
@@ -22,8 +22,8 @@ import {
     USERS,
     TEXT,
     SPACER,
-} from '../../modules/itemTypes';
-import { DEFAULT_STATE_ITEM_FILTERS } from '../../reducers/itemFilters';
+} from '../../modules/itemTypes'
+import { DEFAULT_STATE_ITEM_FILTERS } from '../../reducers/itemFilters'
 
 const getGridItem = type => {
     switch (type) {
@@ -33,26 +33,26 @@ const getGridItem = type => {
         case MAP:
         case EVENT_CHART:
         case EVENT_REPORT:
-            return VisualizationItem;
+            return VisualizationItem
         case MESSAGES:
-            return MessagesItem;
+            return MessagesItem
         case REPORTS:
         case RESOURCES:
         case USERS:
-            return ListItem;
+            return ListItem
         case TEXT:
-            return TextItem;
+            return TextItem
         case SPACER:
-            return SpacerItem;
+            return SpacerItem
         case APP:
-            return AppItem;
+            return AppItem
         default:
-            return NotSupportedItem;
+            return NotSupportedItem
     }
-};
+}
 
 export const Item = props => {
-    const GridItem = getGridItem(props.item.type);
+    const GridItem = getGridItem(props.item.type)
 
     return (
         <GridItem
@@ -63,12 +63,12 @@ export const Item = props => {
             }
             onToggleItemExpanded={props.onToggleItemExpanded}
         />
-    );
-};
+    )
+}
 
 Item.propTypes = {
     editMode: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
-};
+}

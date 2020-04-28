@@ -1,31 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { colors } from '@dhis2/ui-core';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { colors } from '@dhis2/ui-core'
 
-import classes from './styles/ControlBar.module.css';
+import classes from './styles/ControlBar.module.css'
 
-const DRAG_HANDLE_HEIGHT = 7;
+const DRAG_HANDLE_HEIGHT = 7
 
 class ControlBar extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
 
         this.state = {
             dragging: false,
-        };
+        }
     }
 
     onStartDrag = () => {
-        this.setState({ dragging: true });
-        window.addEventListener('mousemove', this.onDrag);
-        window.addEventListener('mouseup', this.onEndDrag);
-    };
+        this.setState({ dragging: true })
+        window.addEventListener('mousemove', this.onDrag)
+        window.addEventListener('mouseup', this.onEndDrag)
+    }
 
     onDrag = event => {
-        event.preventDefault();
-        event.stopPropagation();
+        event.preventDefault()
+        event.stopPropagation()
 
-        const newHeight = event.clientY;
+        const newHeight = event.clientY
 
         if (
             this.props.onChangeHeight &&
@@ -33,20 +33,20 @@ class ControlBar extends React.Component {
             newHeight > 0
         ) {
             requestAnimationFrame(() => {
-                this.props.onChangeHeight(newHeight);
-            });
+                this.props.onChangeHeight(newHeight)
+            })
         }
-    };
+    }
 
     onEndDrag = () => {
-        this.setState({ dragging: false });
-        window.removeEventListener('mousemove', this.onDrag);
-        window.removeEventListener('mouseup', this.onEndDrag);
+        this.setState({ dragging: false })
+        window.removeEventListener('mousemove', this.onDrag)
+        window.removeEventListener('mouseup', this.onEndDrag)
 
         if (this.props.onEndDrag) {
-            this.props.onEndDrag();
+            this.props.onEndDrag()
         }
-    };
+    }
 
     renderDragHandle() {
         return typeof this.props.onChangeHeight === 'function' ? (
@@ -55,11 +55,11 @@ class ControlBar extends React.Component {
                 style={{ height: DRAG_HANDLE_HEIGHT }}
                 onMouseDown={this.onStartDrag}
             />
-        ) : null;
+        ) : null
     }
 
     render() {
-        const height = Math.max(this.props.height, 0) + DRAG_HANDLE_HEIGHT;
+        const height = Math.max(this.props.height, 0) + DRAG_HANDLE_HEIGHT
 
         const rootStyle = Object.assign(
             {
@@ -71,14 +71,14 @@ class ControlBar extends React.Component {
             },
             // Disable animations while dragging
             this.state.dragging ? { transition: 'none' } : {}
-        );
+        )
 
         return (
             <div style={rootStyle} className={classes.root}>
                 <div className={classes.content}>{this.props.children}</div>
                 {this.renderDragHandle()}
             </div>
-        );
+        )
     }
 }
 
@@ -113,11 +113,11 @@ ControlBar.propTypes = {
      * The contents of the control bar.
      */
     onEndDrag: PropTypes.func,
-};
+}
 
 ControlBar.defaultProps = {
     onChangeHeight: null,
     onEndDrag: null,
-};
+}
 
-export default ControlBar;
+export default ControlBar

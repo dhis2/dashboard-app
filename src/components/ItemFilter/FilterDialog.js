@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-import { Button } from '@dhis2/ui-core';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
+import { Button } from '@dhis2/ui-core'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
 
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 
 import {
     PeriodDimension,
@@ -13,24 +13,24 @@ import {
     OrgUnitDimension,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
-} from '@dhis2/analytics';
+} from '@dhis2/analytics'
 
-const peId = DIMENSION_ID_PERIOD;
-const ouId = DIMENSION_ID_ORGUNIT;
+const peId = DIMENSION_ID_PERIOD
+const ouId = DIMENSION_ID_ORGUNIT
 
 class FilterDialog extends Component {
-    onConfirm = id => () => this.props.onConfirm(id);
+    onConfirm = id => () => this.props.onConfirm(id)
 
     dialogContent() {
-        const { displayNameProperty, dimension, selectedItems } = this.props;
-        const dialogId = dimension.id;
+        const { displayNameProperty, dimension, selectedItems } = this.props
+        const dialogId = dimension.id
 
         const commonProps = {
             d2: this.context.d2,
             onSelect: this.props.onSelect,
             onDeselect: this.props.onDeselect,
             onReorder: this.props.onReorder,
-        };
+        }
 
         switch (dialogId) {
             case peId: {
@@ -39,7 +39,7 @@ class FilterDialog extends Component {
                         selectedPeriods={selectedItems}
                         {...commonProps}
                     />
-                );
+                )
             }
             case ouId:
                 return (
@@ -48,7 +48,7 @@ class FilterDialog extends Component {
                         ouItems={selectedItems}
                         {...commonProps}
                     />
-                );
+                )
             default:
                 return (
                     <DynamicDimension
@@ -57,13 +57,13 @@ class FilterDialog extends Component {
                         dialogTitle={dimension.name}
                         {...commonProps}
                     />
-                );
+                )
         }
     }
 
     render() {
-        const { dimension, onClose } = this.props;
-        const dialogId = dimension.id;
+        const { dimension, onClose } = this.props
+        const dialogId = dimension.id
 
         return (
             <Dialog
@@ -82,7 +82,7 @@ class FilterDialog extends Component {
                     </Button>
                 </DialogActions>
             </Dialog>
-        );
+        )
     }
 }
 
@@ -95,10 +95,10 @@ FilterDialog.propTypes = {
     onDeselect: PropTypes.func,
     onReorder: PropTypes.func,
     onSelect: PropTypes.func,
-};
+}
 
 FilterDialog.contextTypes = {
     d2: PropTypes.object,
-};
+}
 
-export default FilterDialog;
+export default FilterDialog

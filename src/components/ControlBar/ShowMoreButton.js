@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import i18n from '@dhis2/d2-i18n';
+import React from 'react'
+import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
 
-import classes from './styles/ShowMoreButton.module.css';
+import classes from './styles/ShowMoreButton.module.css'
 
-export const SHOWMORE_BAR_HEIGHT = 16;
+export const SHOWMORE_BAR_HEIGHT = 16
 
 export const ShowMoreButton = ({ onClick, isMaxHeight, disabled }) => {
     return (
@@ -17,13 +17,13 @@ export const ShowMoreButton = ({ onClick, isMaxHeight, disabled }) => {
                 </div>
             )}
         </div>
-    );
-};
+    )
+}
 
 ShowMoreButton.propTypes = {
     disabled: PropTypes.bool,
     isMaxHeight: PropTypes.bool,
     onClick: PropTypes.func,
-};
+}
 
-export default ShowMoreButton;
+export default ShowMoreButton
