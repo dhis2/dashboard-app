@@ -3,8 +3,8 @@
 // Inspiration: https://github.com/alexreardon/memoize-one
 
 const memoizeOne = fn => {
-    let lastArgs = undefined;
-    let lastValue = undefined;
+    let lastArgs = undefined
+    let lastValue = undefined
 
     return (...args) => {
         if (
@@ -12,12 +12,12 @@ const memoizeOne = fn => {
             args.length === lastArgs.length &&
             args.every((arg, i) => arg === lastArgs[i])
         ) {
-            return lastValue;
+            return lastValue
         }
-        lastArgs = args;
-        lastValue = fn(...args);
-        return lastValue;
-    };
-};
+        lastArgs = args
+        lastValue = fn(...args)
+        return lastValue
+    }
+}
 
-export default memoizeOne;
+export default memoizeOne

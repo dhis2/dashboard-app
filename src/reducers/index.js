@@ -1,28 +1,28 @@
-import { combineReducers } from 'redux';
-import arraySort from 'd2-utilizr/lib/arraySort';
+import { combineReducers } from 'redux'
+import arraySort from 'd2-utilizr/lib/arraySort'
 
-import dashboards, { sGetDashboardsRoot } from './dashboards';
-import selected from './selected';
+import dashboards, { sGetDashboardsRoot } from './dashboards'
+import selected from './selected'
 import dashboardsFilter, {
     ownerData,
     sGetFilterName,
     sGetFilterOrder,
     sGetFilterOwner,
-} from './dashboardsFilter';
-import controlBar from './controlBar';
-import visualizations from './visualizations';
-import editDashboard from './editDashboard';
-import messages from './messages';
-import user from './user';
-import snackbar from './snackbar';
-import itemFilters from './itemFilters';
-import editItemFilters from './editItemFilters';
-import style from './style';
-import dimensions from './dimensions';
-import settings from './settings';
-import activeModalDimension from './activeModalDimension';
+} from './dashboardsFilter'
+import controlBar from './controlBar'
+import visualizations from './visualizations'
+import editDashboard from './editDashboard'
+import messages from './messages'
+import user from './user'
+import snackbar from './snackbar'
+import itemFilters from './itemFilters'
+import editItemFilters from './editItemFilters'
+import style from './style'
+import dimensions from './dimensions'
+import settings from './settings'
+import activeModalDimension from './activeModalDimension'
 
-const USER = 'system';
+const USER = 'system'
 
 // Reducers
 
@@ -42,7 +42,7 @@ export default combineReducers({
     dimensions,
     settings,
     activeModalDimension,
-});
+})
 
 // Map constants to data
 const mapConstToData = {
@@ -50,7 +50,7 @@ const mapConstToData = {
     ITEMS: 'numberOfItems',
     CREATED: 'created',
     OWNER: 'owner',
-};
+}
 
 // Selectors
 
@@ -58,42 +58,42 @@ const mapConstToData = {
 export const sFilterDashboardsByName = (dashboards, filter) =>
     dashboards.filter(d =>
         d.displayName.toLowerCase().includes(filter.toLowerCase())
-    );
+    )
 
 // Filter dashboards by owner, TODO FIXME
 export const sFilterDashboardsByOwner = (dashboards, filter) => {
-    const ME = ownerData[1]; // TODO
-    const OTHERS = ownerData[2]; // TODO
+    const ME = ownerData[1] // TODO
+    const OTHERS = ownerData[2] // TODO
 
     switch (filter) {
         case ME:
-            return dashboards.filter(d => d.owner === USER);
+            return dashboards.filter(d => d.owner === USER)
         case OTHERS:
-            return dashboards.filter(d => d.owner !== USER);
+            return dashboards.filter(d => d.owner !== USER)
         default:
-            return dashboards;
+            return dashboards
     }
-};
+}
 
 // Filter dashboards by order
 export const sFilterDashboardsByOrder = (dashboards, filter) => {
-    const filterValues = filter.split(':');
+    const filterValues = filter.split(':')
 
-    const key = filterValues[0];
-    const direction = filterValues[1];
+    const key = filterValues[0]
+    const direction = filterValues[1]
 
-    return arraySort(dashboards, direction, mapConstToData[key]);
-};
+    return arraySort(dashboards, direction, mapConstToData[key])
+}
 
 // Selectors dependency level 2
 
 // Get filtered dashboards
 export const sGetFilteredDashboards = state => {
-    const dashboards = sGetDashboardsRoot(state);
+    const dashboards = sGetDashboardsRoot(state)
 
-    const nameFilter = sGetFilterName(state);
-    const ownerFilter = sGetFilterOwner(state);
-    const orderFilter = sGetFilterOrder(state);
+    const nameFilter = sGetFilterName(state)
+    const ownerFilter = sGetFilterOwner(state)
+    const orderFilter = sGetFilterOrder(state)
 
     return sFilterDashboardsByOrder(
         sFilterDashboardsByName(
@@ -101,5 +101,5 @@ export const sGetFilteredDashboards = state => {
             nameFilter
         ),
         orderFilter
-    );
-};
+    )
+}

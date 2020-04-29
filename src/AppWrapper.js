@@ -41,7 +41,7 @@ const AppWrapper = () => {
         <Provider store={configureStore()}>
             <MuiThemeProvider theme={muiTheme()}>
                 <D2Shim d2Config={d2Config}>
-                    {({ d2, d2error }) => {
+                    {({ d2 /*, d2error */ }) => {
                         if (!d2) {
                             // TODO: Handle errors in d2 initialization
                             return null

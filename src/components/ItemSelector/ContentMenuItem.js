@@ -1,13 +1,13 @@
-import React from 'react';
-import { MenuItem, colors } from '@dhis2/ui-core';
-import i18n from '@dhis2/d2-i18n';
-import PropTypes from 'prop-types';
-import { visTypeIcons } from '@dhis2/analytics';
+import React from 'react'
+import { MenuItem, colors } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
+import PropTypes from 'prop-types'
+import { visTypeIcons } from '@dhis2/analytics'
 
-import { getItemIcon, VISUALIZATION } from '../../modules/itemTypes';
-import LaunchIcon from '../../icons/Launch';
+import { getItemIcon, VISUALIZATION } from '../../modules/itemTypes'
+import LaunchIcon from '../../icons/Launch'
 
-import classes from './styles/ContentMenuItem.module.css';
+import classes from './styles/ContentMenuItem.module.css'
 
 const LaunchLink = ({ url }) => (
     <a
@@ -19,25 +19,25 @@ const LaunchLink = ({ url }) => (
     >
         <LaunchIcon />
     </a>
-);
+)
 
 LaunchLink.propTypes = {
     url: PropTypes.string,
-};
+}
 
 const InsertButton = () => (
     <button className={classes.buttonInsert}>{i18n.t('Insert')}</button>
-);
+)
 
 const ContentMenuItem = ({ type, name, onInsert, url, visType }) => {
-    const ItemIcon = getItemIcon(type);
+    const ItemIcon = getItemIcon(type)
 
     const renderedItemIcon =
         type === VISUALIZATION ? (
             visTypeIcons[visType]
         ) : (
             <ItemIcon style={{ fill: colors.grey600 }} />
-        );
+        )
 
     return (
         <MenuItem
@@ -56,8 +56,8 @@ const ContentMenuItem = ({ type, name, onInsert, url, visType }) => {
                 </div>
             }
         />
-    );
-};
+    )
+}
 
 ContentMenuItem.propTypes = {
     name: PropTypes.string,
@@ -65,6 +65,6 @@ ContentMenuItem.propTypes = {
     url: PropTypes.string,
     visType: PropTypes.string,
     onInsert: PropTypes.func,
-};
+}
 
-export default ContentMenuItem;
+export default ContentMenuItem

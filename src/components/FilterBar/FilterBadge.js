@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-core'
 
 const styles = {
     badgeContainer: {
@@ -27,14 +27,14 @@ const styles = {
         marginLeft: '24px',
         cursor: 'pointer',
     },
-};
+}
 
 class FilterBadge extends Component {
-    onClick = id => () => this.props.onClick(id);
-    onRemove = id => () => this.props.onRemove(id);
+    onClick = id => () => this.props.onClick(id)
+    onRemove = id => () => this.props.onRemove(id)
 
     render() {
-        const { data } = this.props;
+        const { data } = this.props
 
         return (
             <div style={styles.badgeContainer}>
@@ -54,7 +54,7 @@ class FilterBadge extends Component {
                     {i18n.t('Remove')}
                 </span>
             </div>
-        );
+        )
     }
 }
 
@@ -62,11 +62,11 @@ FilterBadge.propTypes = {
     data: PropTypes.object.isRequired,
     onClick: PropTypes.func.isRequired,
     onRemove: PropTypes.func.isRequired,
-};
+}
 
 FilterBadge.defaultProps = {
     onClick: Function.prototype,
     onRemove: Function.prototype,
-};
+}
 
-export default FilterBadge;
+export default FilterBadge

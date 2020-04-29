@@ -1,9 +1,9 @@
-export const CLEAR_ITEM_FILTERS = 'CLEAR_ITEM_FILTERS';
-export const SET_ITEM_FILTERS = 'SET_ITEM_FILTERS';
-export const ADD_ITEM_FILTER = 'ADD_ITEM_FILTER';
-export const REMOVE_ITEM_FILTER = 'REMOVE_ITEM_FILTER';
+export const CLEAR_ITEM_FILTERS = 'CLEAR_ITEM_FILTERS'
+export const SET_ITEM_FILTERS = 'SET_ITEM_FILTERS'
+export const ADD_ITEM_FILTER = 'ADD_ITEM_FILTER'
+export const REMOVE_ITEM_FILTER = 'REMOVE_ITEM_FILTER'
 
-export const DEFAULT_STATE_ITEM_FILTERS = {};
+export const DEFAULT_STATE_ITEM_FILTERS = {}
 
 export default (state = DEFAULT_STATE_ITEM_FILTERS, action) => {
     switch (action.type) {
@@ -11,28 +11,28 @@ export default (state = DEFAULT_STATE_ITEM_FILTERS, action) => {
             return {
                 ...state,
                 [action.filter.id]: action.filter.value,
-            };
+            }
         }
         case REMOVE_ITEM_FILTER: {
-            const newState = { ...state };
+            const newState = { ...state }
 
-            delete newState[action.id];
+            delete newState[action.id]
 
-            return newState;
+            return newState
         }
         case SET_ITEM_FILTERS: {
-            return action.filters;
+            return action.filters
         }
         case CLEAR_ITEM_FILTERS: {
-            return DEFAULT_STATE_ITEM_FILTERS;
+            return DEFAULT_STATE_ITEM_FILTERS
         }
         default:
-            return state;
+            return state
     }
-};
+}
 
 // selectors
 
-export const sGetItemFiltersRoot = state => state.itemFilters;
+export const sGetItemFiltersRoot = state => state.itemFilters
 
-export const sGetFiltersKeys = state => Object.keys(sGetItemFiltersRoot(state));
+export const sGetFiltersKeys = state => Object.keys(sGetItemFiltersRoot(state))

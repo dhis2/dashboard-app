@@ -1,22 +1,22 @@
-import update from 'immutability-helper';
-import { arrayToIdMap } from '../modules/util';
+import update from 'immutability-helper'
+import { arrayToIdMap } from '../modules/util'
 
-export const RECEIVED_MESSAGES = 'RECEIVED_MESSAGES';
+export const RECEIVED_MESSAGES = 'RECEIVED_MESSAGES'
 
 export default (state = {}, action) => {
     switch (action.type) {
         case RECEIVED_MESSAGES: {
-            const conversations = arrayToIdMap(action.value);
+            const conversations = arrayToIdMap(action.value)
 
-            const newState = update(state, { $merge: conversations });
+            const newState = update(state, { $merge: conversations })
 
-            return newState;
+            return newState
         }
         default:
-            return state;
+            return state
     }
-};
+}
 
 // selectors
 
-export const sGetMessagesRoot = state => state.messages;
+export const sGetMessagesRoot = state => state.messages

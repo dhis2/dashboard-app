@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ClearIcon from '../../icons/Clear';
+import React from 'react'
+import PropTypes from 'prop-types'
+import ClearIcon from '../../icons/Clear'
 
-import classes from './styles/ClearButton.module.css';
+import classes from './styles/ClearButton.module.css'
 
 export const ClearButton = ({ onClear }) => (
     <button className={classes.button} onClick={onClear}>
@@ -10,10 +10,10 @@ export const ClearButton = ({ onClear }) => (
             <ClearIcon className={classes.icon} color="action" />
         </span>
     </button>
-);
+)
 
 ClearButton.propTypes = {
     onClear: PropTypes.func.isRequired,
-};
+}
 
-export default ClearButton;
+export default ClearButton
