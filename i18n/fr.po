@@ -4,13 +4,14 @@
 # mrwine <matthieu@pinard.no>, 2019
 # Viktor Varland <viktor@dhis2.org>, 2019
 # Karoline Tufte Lien <karoline@dhis2.org>, 2020
+# Edem Kossi <ekossi@hispwca.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-03-11T02:00:02.349Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
+"Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,19 +29,22 @@ msgid "Delete"
 msgstr "Supprimer"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "Supprimer le tableau de bord"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"La suppression du tableau de bord \"{{ dashboardName }}\" affectera tous les"
+" utilisateurs qui y ont accès.  Cette action ne peut pas être annulée. "
+"Voulez-vous vraiment supprimer définitivement ce tableau de bord?"
 
 msgid "Exit without saving"
 msgstr "Quitter sans sauvegarder"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Aller aux tableaux de bord"
 
 msgid "Save changes"
 msgstr "Enregistrer les modifications"
@@ -58,7 +62,7 @@ msgid "Show less"
 msgstr "Montre moins"
 
 msgid "No access"
-msgstr ""
+msgstr "Pas d'accès"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -66,7 +70,7 @@ msgstr ""
 "tableau de bord."
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "Tableau de bord demandé introuvable"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -77,19 +81,19 @@ msgid "Remove"
 msgstr "Supprimer"
 
 msgid "Delete item"
-msgstr ""
+msgstr "Supprimer l'item"
 
 msgid "Messages"
 msgstr "Messages"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Voir tous les messages"
 
 msgid "Item type \"{{type}}\" not supported"
-msgstr ""
+msgstr "Type d'objet \"{{type}}\" non pris en charge"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Espaceur"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
@@ -104,31 +108,32 @@ msgid "Add text here"
 msgstr "Ajouter du texte ici"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Impossible de charger le plugin pour cet objet"
 
 msgid "There was a problem loading this dashboard item"
 msgstr ""
+"Un problème est survenu lors du chargement de cet objet du tableau de bord"
 
 msgid "No data to display"
-msgstr ""
+msgstr "Aucune donnée à afficher"
 
 msgid "Hide interpretations and details"
-msgstr ""
+msgstr "Masquer les interprétations et les détails"
 
 msgid "Show interpretations and details"
-msgstr ""
+msgstr "Afficher les interprétations et les détails"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "Afficher comme graphique"
 
 msgid "View as Table"
-msgstr ""
+msgstr "Afficher comme tableau"
 
 msgid "View as Map"
-msgstr ""
+msgstr "Afficher comme carte"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "Ouvrir dans l'app {{appName}}"
 
 msgid "Confirm"
 msgstr "Confirmer"
@@ -140,7 +145,7 @@ msgid "There are no items on this dashboard"
 msgstr "Il n'y a aucun élément sur ce tableau de bord"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "Afficher moins"
 
 msgid "Insert"
 msgstr "Insérer"
@@ -149,16 +154,16 @@ msgid "Search for items to add to this dashboard"
 msgstr "Rechercher des éléments à ajouter à ce tableau de bord"
 
 msgid "Additional items"
-msgstr ""
+msgstr "Objets additionnels"
 
 msgid "Text box"
-msgstr ""
+msgstr "Zone de texte"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "Titre du tableau de bord"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "Description du tableau de bord"
 
 msgid "No description"
 msgstr "Pas de description"
@@ -170,7 +175,7 @@ msgid "Share"
 msgstr "Partager"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "Visualisations"
 
 msgid "Pivot tables"
 msgstr "Tableaux croisés dynamiques"
