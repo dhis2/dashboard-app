@@ -24,7 +24,7 @@ msgid "Continue editing"
 msgstr "继续编辑"
 
 msgid "Confirm delete dashboard"
-msgstr ""
+msgstr "确认删除仪表盘"
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr "你确定要删除这个仪表盘 \"{{ dashboardName }}\"吗？"
@@ -69,7 +69,7 @@ msgid "Add your reply"
 msgstr "添加你的应答"
 
 msgid "Add your interpretation"
-msgstr ""
+msgstr "添加你的注释"
 
 msgid "Spacer"
 msgstr "空白隔断"
