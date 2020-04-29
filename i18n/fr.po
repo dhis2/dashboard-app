@@ -5,13 +5,14 @@
 # Viktor Varland <viktor@dhis2.org>, 2019
 # phil_dhis2, 2019
 # Karoline Tufte Lien <karoline@dhis2.org>, 2020
+# Edem Kossi <ekossi@hispwca.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
+"Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +37,7 @@ msgid "Exit without saving"
 msgstr "Quitter sans sauvegarder"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Aller aux tableaux de bord"
 
 msgid "Save changes"
 msgstr "Enregistrer les modifications"
@@ -54,7 +55,7 @@ msgid "Show more"
 msgstr "Afficher plus"
 
 msgid "No access"
-msgstr ""
+msgstr "Pas d'accès"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -62,13 +63,13 @@ msgstr ""
 "tableau de bord."
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "Tableau de bord demandé introuvable"
 
 msgid "Messages"
 msgstr "Messages"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Voir tous les messages"
 
 msgid "Edit your interpretation"
 msgstr ""
@@ -110,10 +111,10 @@ msgid "Add your interpretation"
 msgstr "Ajoutez votre interprétation"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Impossible de charger le plugin pour cet objet"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Espaceur"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
@@ -143,7 +144,7 @@ msgid "more"
 msgstr "plus"
 
 msgid "Text box"
-msgstr ""
+msgstr "Zone de texte"
 
 msgid "Add title here"
 msgstr "Ajouter un titre ici"
