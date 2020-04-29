@@ -33,6 +33,7 @@ class ProgressiveLoadingContainer extends Component {
         }
 
         const rect = this.containerRef.getBoundingClientRect();
+        console.log(rect)
         if (
             rect.bottom > -bufferPx &&
             rect.top < window.innerHeight + bufferPx
@@ -51,10 +52,22 @@ class ProgressiveLoadingContainer extends Component {
             this.props.debounceMs
         );
 
-        window.addEventListener('scroll', this.shouldLoadHandler);
+        const containers = [
+            window, // this is probably unnecessary
+            ...document.getElementsByClassName('app-shell-app')
+        ]
+        containers.forEach(container => {
+            container.addEventListener('scroll', this.shouldLoadHandler)
+        })
     }
     removeHandler() {
-        window.removeEventListener('scroll', this.shouldLoadHandler);
+        const containers = [
+            window, // this is probably unnecessary
+            ...document.getElementsByClassName('app-shell-app')
+        ]
+        containers.forEach(container => {
+            container.removeEventListener('scroll', this.shouldLoadHandler);
+        })
     }
 
     componentDidMount() {

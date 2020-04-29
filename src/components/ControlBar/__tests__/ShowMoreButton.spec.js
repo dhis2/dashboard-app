@@ -1,29 +1,30 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import { ShowMoreButton } from '../ShowMoreButton';
 
 describe('ShowMoreButton', () => {
     it('renders correctly when at maxHeight', () => {
         const button = shallow(
             <ShowMoreButton
-                onClick={() => {}}
+                onClick={() => { }}
                 isMaxHeight={true}
                 classes={{ showMore: {} }}
             />
         );
-        expect(button).toMatchSnapshot();
+        expect(toJson(button)).toMatchSnapshot();
     });
 
     it('renders correctly when not at maxHeight', () => {
         const tree = shallow(
             <ShowMoreButton
-                onClick={() => {}}
+                onClick={() => { }}
                 isMaxHeight={false}
                 classes={{ showMore: {} }}
             />
         );
 
-        expect(tree).toMatchSnapshot();
+        expect(toJson(tree)).toMatchSnapshot();
     });
 
     describe('actions', () => {

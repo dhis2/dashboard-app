@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 import { getStubContext } from '../../../setupTests';
 import { MIN_ROW_COUNT } from '../controlBarDimensions';
@@ -37,17 +38,17 @@ describe('DashboardsBar', () => {
     });
 
     it('renders a DashboardsBar with no items', () => {
-        expect(dashboardsBar()).toMatchSnapshot();
+        expect(toJson(dashboardsBar())).toMatchSnapshot();
     });
 
     it('does not render ShowMoreButton when userRows is MAX_ROW_COUNT', () => {
         props.userRows = MAX_ROW_COUNT;
-        expect(dashboardsBar()).toMatchSnapshot();
+        expect(toJson(dashboardsBar())).toMatchSnapshot();
     });
 
     it('renders ShowMoreButton when userRows is less than MAX_ROW_COUNT', () => {
         props.userRows = MAX_ROW_COUNT - 1;
-        expect(dashboardsBar()).toMatchSnapshot();
+        expect(toJson(dashboardsBar())).toMatchSnapshot();
     });
 
     describe('when ShowMore button is toggled', () => {
@@ -111,7 +112,7 @@ describe('DashboardsBar', () => {
         });
 
         it('renders DashboardItemChips for each item on dashboard', () => {
-            expect(dashboardsBar()).toMatchSnapshot();
+            expect(toJson(dashboardsBar())).toMatchSnapshot();
         });
 
         describe('when selected ID is provided', () => {
