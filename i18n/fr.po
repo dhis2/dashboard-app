@@ -1,6 +1,6 @@
 # 
 # Translators:
-# mrwine <matthieu@pinard.no>, 2020
+# Matthieu Pinard <matthieu@pinard.no>, 2020
 # phil_dhis2, 2020
 # a270031086f2a0d3514bc0cb507b48f6, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
