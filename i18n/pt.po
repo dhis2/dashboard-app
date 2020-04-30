@@ -10,15 +10,15 @@ msgstr ""
 "POT-Creation-Date: 2019-03-06T17:24:20.929Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
-"Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
+"Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
+"Language: pt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Delete"
-msgstr "Borrar"
+msgstr "Apagar"
 
 msgid "Continue editing"
 msgstr ""
@@ -39,7 +39,7 @@ msgid "Save changes"
 msgstr ""
 
 msgid "Translate"
-msgstr "Traducir"
+msgstr "Traduzir"
 
 msgid "Search for a dashboard"
 msgstr ""
@@ -48,7 +48,7 @@ msgid "Show less"
 msgstr "Mostrar menos"
 
 msgid "Show more"
-msgstr "Mostrar más"
+msgstr "Mostrar mais"
 
 msgid "No access"
 msgstr ""
@@ -60,7 +60,7 @@ msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "Messages"
-msgstr "Mensajes"
+msgstr "Mensagens"
 
 msgid "See all messages"
 msgstr ""
@@ -94,7 +94,7 @@ msgid "fewer"
 msgstr ""
 
 msgid "more"
-msgstr "más"
+msgstr ""
 
 msgid "Text box"
 msgstr ""
@@ -106,40 +106,40 @@ msgid "Add description here"
 msgstr ""
 
 msgid "No description"
-msgstr "Sin descripción"
+msgstr "Sem descrição"
 
 msgid "Pivot tables"
-msgstr "Tablas dinámicas"
+msgstr ""
 
 msgid "Pivot Tables"
-msgstr "Tablas dinamicas"
+msgstr "Tabelas dinâmicas"
 
 msgid "Charts"
-msgstr "Gráficas"
+msgstr ""
 
 msgid "Visualizer"
-msgstr "Visualizador"
+msgstr ""
 
 msgid "Maps"
-msgstr "Mapas"
+msgstr ""
 
 msgid "Event reports"
 msgstr ""
 
 msgid "Event Reports"
-msgstr "Informes de eventos"
+msgstr ""
 
 msgid "Event charts"
 msgstr ""
 
 msgid "Event Visualizer"
-msgstr "Visualizador de eventos"
+msgstr ""
 
 msgid "Reports"
-msgstr "Informes"
+msgstr "Relatórios"
 
 msgid "Resources"
 msgstr ""
 
 msgid "Users"
-msgstr "Usuarios"
+msgstr "Utilizadores"
