@@ -97,7 +97,7 @@ msgid "fewer"
 msgstr ""
 
 msgid "more"
-msgstr ""
+msgstr "mais"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -121,22 +121,22 @@ msgid "Charts"
 msgstr ""
 
 msgid "Visualizer"
-msgstr ""
+msgstr "Visualizar"
 
 msgid "Maps"
-msgstr ""
+msgstr "Mapas"
 
 msgid "Event reports"
 msgstr ""
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Relatórios de Eventos"
 
 msgid "Event charts"
 msgstr ""
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "Visualizador de Eventos"
 
 msgid "Reports"
 msgstr "Relatórios"
