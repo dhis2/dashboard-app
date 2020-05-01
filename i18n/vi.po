@@ -2,13 +2,14 @@
 # Translators:
 # phil_dhis2, 2019
 # Viktor Varland <viktor@dhis2.org>, 2019
+# Mai Nguyen <thanhmai.jica@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +33,7 @@ msgid "Exit without saving"
 msgstr "Đóng và không lưu"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Di chuyển tới bảng điều khiển"
 
 msgid "Save changes"
 msgstr "Lưu các thay đổi"
@@ -50,19 +51,20 @@ msgid "Show more"
 msgstr "Hiện thêm"
 
 msgid "No access"
-msgstr ""
+msgstr "Không truy cập"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
+"Không thấy bảng điều khiển. Nhấn vào dấu cộng để tạo bảng điều khiến mới"
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "Không tìm thấy bảng điều khiển được yêu cầu"
 
 msgid "Messages"
 msgstr "Tin nhắn"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Xem tất cả tin nhắn"
 
 msgid "Edit your interpretation"
 msgstr ""
@@ -104,7 +106,7 @@ msgid "Add your interpretation"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Không thể tải plugin cho mục này"
 
 msgid "Spacer"
 msgstr "Dấu cách"
@@ -112,6 +114,8 @@ msgstr "Dấu cách"
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Sử dụng dấu cách để tạo không gian dọc trống giữa các mục bảng điều khiển "
+"khác."
 
 msgid "Text item"
 msgstr "Mục văn bản"
@@ -135,7 +139,7 @@ msgid "more"
 msgstr ""
 
 msgid "Text box"
-msgstr ""
+msgstr "Hộp văn bản"
 
 msgid "Add title here"
 msgstr ""
