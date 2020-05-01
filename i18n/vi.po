@@ -36,7 +36,7 @@ msgid "Exit without saving"
 msgstr "Đóng và không lưu"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Di chuyển tới bảng điều khiển"
 
 msgid "Save changes"
 msgstr "Lưu các thay đổi"
@@ -54,13 +54,14 @@ msgid "Show more"
 msgstr "Hiện thêm"
 
 msgid "No access"
-msgstr ""
+msgstr "Không truy cập"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
+"Không thấy bảng điều khiển. Nhấn vào dấu cộng để tạo bảng điều khiến mới"
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "Không tìm thấy bảng điều khiển được yêu cầu"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -73,7 +74,7 @@ msgid "Messages"
 msgstr "Tin nhắn"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Xem tất cả tin nhắn"
 
 msgid "Spacer"
 msgstr "Dấu cách"
@@ -81,6 +82,8 @@ msgstr "Dấu cách"
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Sử dụng dấu cách để tạo không gian dọc trống giữa các mục bảng điều khiển "
+"khác."
 
 msgid "Text item"
 msgstr "Mục văn bản"
@@ -89,10 +92,10 @@ msgid "Add text here"
 msgstr "Thêm văn bản tại đây"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Không thể tải plugin cho mục này"
 
 msgid "No data to display"
-msgstr ""
+msgstr "Không có dữ liệu hiển thị"
 
 msgid "Cancel"
 msgstr "Hủy"
@@ -119,7 +122,7 @@ msgid "more"
 msgstr ""
 
 msgid "Text box"
-msgstr ""
+msgstr "Hộp văn bản"
 
 msgid "Current translation"
 msgstr ""
