@@ -38,7 +38,7 @@ msgid "Exit without saving"
 msgstr "Đóng và không lưu"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Di chuyển tới bảng điều khiển"
 
 msgid "Save changes"
 msgstr "Lưu các thay đổi"
@@ -56,13 +56,14 @@ msgid "Show less"
 msgstr "Ẩn bớt"
 
 msgid "No access"
-msgstr ""
+msgstr "Không truy cập"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
+"Không thấy bảng điều khiển. Nhấn vào dấu cộng để tạo bảng điều khiến mới"
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "Không tìm thấy bảng điều khiển được yêu cầu"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -72,13 +73,13 @@ msgid "Remove"
 msgstr "Tháo ra"
 
 msgid "Delete item"
-msgstr ""
+msgstr "Xóa mục"
 
 msgid "Messages"
 msgstr "Hộp thư"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Xem tất cả tin nhắn"
 
 msgid "Item type \"{{type}}\" not supported"
 msgstr ""
@@ -89,6 +90,8 @@ msgstr "Dấu cách"
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Sử dụng dấu cách để tạo không gian dọc trống giữa các mục bảng điều khiển "
+"khác."
 
 msgid "Text item"
 msgstr "Mục văn bản"
@@ -97,28 +100,28 @@ msgid "Add text here"
 msgstr "Thêm văn bản tại đây"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Không thể tải plugin cho mục này"
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "Đã xảy ra sự cố khi tải mục bảng điều khiển này"
 
 msgid "No data to display"
-msgstr ""
+msgstr "Không có dữ liệu hiển thị"
 
 msgid "Hide interpretations and details"
-msgstr ""
+msgstr "Ẩn các diễn giải và chi tiết"
 
 msgid "Show interpretations and details"
-msgstr ""
+msgstr "Hiện các diễn giải và chi tiết"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "Xem dưới dạng biểu đồ"
 
 msgid "View as Table"
-msgstr ""
+msgstr "Xem dưới dạng bảng"
 
 msgid "View as Map"
-msgstr ""
+msgstr "Xem dưới dạng bản đồ"
 
 msgid "Open in {{appName}} app"
 msgstr ""
@@ -133,7 +136,7 @@ msgid "There are no items on this dashboard"
 msgstr "Không có mục nào trong bảng điều khiển này"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "Hiển thị ít hơn"
 
 msgid "Insert"
 msgstr "Chèn vào"
@@ -142,16 +145,16 @@ msgid "Search for items to add to this dashboard"
 msgstr "Tìm mục để thêm vào bảng điều khiển này"
 
 msgid "Additional items"
-msgstr ""
+msgstr "Hạng mục bổ sung"
 
 msgid "Text box"
-msgstr ""
+msgstr "Hộp văn bản"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "Tiêu đề bảng điều khiển"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "Mô tả bảng điều khiển"
 
 msgid "No description"
 msgstr "Không có mô tả"
@@ -163,7 +166,7 @@ msgid "Share"
 msgstr "Chia sẻ"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "Mô hình hóa"
 
 msgid "Pivot tables"
 msgstr "Bảng Xoay"
