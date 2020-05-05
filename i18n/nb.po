@@ -154,7 +154,7 @@ msgid "Charts"
 msgstr "Diagrammer"
 
 msgid "Visualizer"
-msgstr "Visualiserer"
+msgstr "Visualizer"
 
 msgid "Maps"
 msgstr "Kart"
@@ -169,7 +169,7 @@ msgid "Event charts"
 msgstr "Hendelsesdiagrammer"
 
 msgid "Event Visualizer"
-msgstr "Hendelsesvisualiserer"
+msgstr "Hendelsesvisualizer"
 
 msgid "Reports"
 msgstr "Rapporter"
