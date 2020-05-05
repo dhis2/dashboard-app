@@ -137,7 +137,7 @@ msgid "Event charts"
 msgstr "Hendelsesdiagrammer"
 
 msgid "Event Visualizer"
-msgstr "Hendelsesvisualiserer"
+msgstr "Hendelsesvisualizer"
 
 msgid "Reports"
 msgstr "Rapporter"
