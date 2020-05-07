@@ -1262,7 +1262,7 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/d2-ui-core@6.5.10":
+"@dhis2/d2-ui-core@6.5.10", "@dhis2/d2-ui-core@^6.5.8":
   version "6.5.10"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.5.10.tgz#cbe1f1a9edcfa1e7cc7c482b1f2197280e545bac"
   integrity sha512-mAsO91UjW0zdSOntz0/YnbjmUlHSAhwJMqMoKZMhsKDsJeeeZly18NYLjqztQH6uBRgBFFaHcMROsPAlSI0XUQ==
@@ -1283,10 +1283,10 @@
     lodash "^4.17.10"
     material-ui "^0.20.0"
 
-"@dhis2/d2-ui-core@^6.5.8":
-  version "6.5.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.5.8.tgz#ab64ef131b6af867bd0baf7304b0d564354702d2"
-  integrity sha512-rjWU8uqZKG+q4cHU9J8XJrcVvqhU/6HvTKuxOBGMSNi8IsTqGu3NBtBNm+NwigdgogLuc+kCBPatEb91+relQg==
+"@dhis2/d2-ui-core@7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.0.1.tgz#6325f3c41fc19a6586222e0cbb7a58cd46c1757a"
+  integrity sha512-TAcFGbNInlwfpQvucCB9UQCKSqvH7AdU9ByZg8kUbH9+/twnl5BqBK2KiGYJ6cpVkfgU4bb9DNeyt1K04NupLw==
   dependencies:
     babel-runtime "^6.26.0"
     d2 "~31.7"
@@ -1396,12 +1396,26 @@
     markdown-it "^8.4.2"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-sharing-dialog@6.5.7", "@dhis2/d2-ui-sharing-dialog@^6.0.1":
+"@dhis2/d2-ui-sharing-dialog@6.5.7":
   version "6.5.7"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-6.5.7.tgz#8ef8eba2e8864dce306739f273001af4dcb727c8"
   integrity sha512-X6aMShLAmPAFyS1fJHtqdvuCoJ41qzZC58d+F32dZPmvbz9cwcgus1YfmnrG3sWTAxs+jXz9t4+Q+jUpOlWH0Q==
   dependencies:
     "@dhis2/d2-ui-core" "6.5.7"
+    "@material-ui/core" "^3.3.1"
+    "@material-ui/icons" "^3.0.1"
+    babel-runtime "^6.26.0"
+    downshift "^2.2.2"
+    prop-types "^15.5.10"
+    recompose "^0.26.0"
+    rxjs "^5.5.7"
+
+"@dhis2/d2-ui-sharing-dialog@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-7.0.1.tgz#36749bf3f7128f717a7f4fbad847652293454af3"
+  integrity sha512-esbJA2I523esy1HwrEO7H5OgK5L3bpY5vD4srHJ2ar514P5v7iTSmOE5ZZ7GcWIpWAVFrBZJ+4wmtBiaYlYMUA==
+  dependencies:
+    "@dhis2/d2-ui-core" "7.0.1"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -1523,40 +1537,7 @@
     mkdirp "^0.5.1"
     rimraf "^2.5.2"
 
-"@material-ui/core@^3.1.2", "@material-ui/core@^3.3.1", "@material-ui/core@^3.9.3":
-  version "3.9.3"
-  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-3.9.3.tgz#d378c1f4beb18df9a534ca7258c2c33fb8e0e51f"
-  integrity sha512-REIj62+zEvTgI/C//YL4fZxrCVIySygmpZglsu/Nl5jPqy3CDjZv1F9ubBYorHqmRgeVPh64EghMMWqk4egmfg==
-  dependencies:
-    "@babel/runtime" "^7.2.0"
-    "@material-ui/system" "^3.0.0-alpha.0"
-    "@material-ui/utils" "^3.0.0-alpha.2"
-    "@types/jss" "^9.5.6"
-    "@types/react-transition-group" "^2.0.8"
-    brcast "^3.0.1"
-    classnames "^2.2.5"
-    csstype "^2.5.2"
-    debounce "^1.1.0"
-    deepmerge "^3.0.0"
-    dom-helpers "^3.2.1"
-    hoist-non-react-statics "^3.2.1"
-    is-plain-object "^2.0.4"
-    jss "^9.8.7"
-    jss-camel-case "^6.0.0"
-    jss-default-unit "^8.0.2"
-    jss-global "^3.0.0"
-    jss-nested "^6.0.1"
-    jss-props-sort "^6.0.0"
-    jss-vendor-prefixer "^7.0.0"
-    normalize-scroll-left "^0.1.2"
-    popper.js "^1.14.1"
-    prop-types "^15.6.0"
-    react-event-listener "^0.6.2"
-    react-transition-group "^2.2.1"
-    recompose "0.28.0 - 0.30.0"
-    warning "^4.0.1"
-
-"@material-ui/core@^3.9.2":
+"@material-ui/core@^3.1.2", "@material-ui/core@^3.3.1", "@material-ui/core@^3.9.2", "@material-ui/core@^3.9.3":
   version "3.9.4"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-3.9.4.tgz#5297fd4ad9e739a87da4a6d34fc4af5396886e13"
   integrity sha512-r8QFLSexcYZbnqy/Hn4v8xzmAJV41yaodUVjmbGLi1iGDLG3+W941hEtEiBmxTRRqv2BdK3r4ijILcqKmDv/Sw==
