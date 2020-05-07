@@ -8,7 +8,7 @@
         "@dhis2/analytics": "^4.3.25",
         "@dhis2/app-runtime": "^2.0.3",
         "@dhis2/d2-i18n": "^1.0.6",
-        "@dhis2/d2-ui-core": "^6.5.8",
+        "@dhis2/d2-ui-core": "^7.0.1",
         "@dhis2/d2-ui-interpretations": "^6.5.7",
         "@dhis2/d2-ui-mentions-wrapper": "^6.0.1",
         "@dhis2/d2-ui-rich-text": "^6.0.1",
