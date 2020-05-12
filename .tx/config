@@ -8,3 +8,10 @@ minimum_perc = 0
 source_file = i18n/en.pot
 source_lang = en
 type = PO
+
+[app-dashboards-app.i18n_module_en-properties]
+file_filter = public/i18n/i18n_module_<lang>.properties
+minimum_perc = 0
+source_file = public/i18n/i18n_module_en.properties
+source_lang = en
+type = PROPERTIES
