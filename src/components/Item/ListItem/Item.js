@@ -12,7 +12,7 @@ import { tRemoveListItemContent } from './actions';
 import ItemHeader from '../ItemHeader';
 import classes from './Item.module.css';
 
-const getItemTitle = item => itemTypeMap[item.type].pluralTitle;
+const getItemTitle = item => itemTypeMap[item.type].pluralTitle();
 
 const getContentItems = item =>
     orArray(item[itemTypeMap[item.type].propName]).filter(

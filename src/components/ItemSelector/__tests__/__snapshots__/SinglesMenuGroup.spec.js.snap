@@ -7,14 +7,14 @@ ShallowWrapper {
     acAddDashboardItem={[MockFunction]}
     category={
       Object {
-        "header": "ponies",
+        "header": [Function],
         "items": Array [
           Object {
-            "name": "Rainbow Dash",
+            "name": [Function],
             "type": "colorful",
           },
           Object {
-            "name": "B&W",
+            "name": [Function],
             "type": "greytone",
           },
         ],
@@ -41,12 +41,10 @@ ShallowWrapper {
         />,
         Array [
           <ContentMenuItem
-            name="Rainbow Dash"
             onInsert={[Function]}
             type="colorful"
           />,
           <ContentMenuItem
-            name="B&W"
             onInsert={[Function]}
             type="greytone"
           />,
@@ -71,7 +69,7 @@ ShallowWrapper {
         "key": "colorful",
         "nodeType": "function",
         "props": Object {
-          "name": "Rainbow Dash",
+          "name": undefined,
           "onInsert": [Function],
           "type": "colorful",
         },
@@ -84,7 +82,7 @@ ShallowWrapper {
         "key": "greytone",
         "nodeType": "function",
         "props": Object {
-          "name": "B&W",
+          "name": undefined,
           "onInsert": [Function],
           "type": "greytone",
         },
@@ -107,12 +105,10 @@ ShallowWrapper {
           />,
           Array [
             <ContentMenuItem
-              name="Rainbow Dash"
               onInsert={[Function]}
               type="colorful"
             />,
             <ContentMenuItem
-              name="B&W"
               onInsert={[Function]}
               type="greytone"
             />,
@@ -137,7 +133,7 @@ ShallowWrapper {
           "key": "colorful",
           "nodeType": "function",
           "props": Object {
-            "name": "Rainbow Dash",
+            "name": undefined,
             "onInsert": [Function],
             "type": "colorful",
           },
@@ -150,7 +146,7 @@ ShallowWrapper {
           "key": "greytone",
           "nodeType": "function",
           "props": Object {
-            "name": "B&W",
+            "name": undefined,
             "onInsert": [Function],
             "type": "greytone",
           },

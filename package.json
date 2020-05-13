@@ -5,15 +5,15 @@
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/analytics": "2.4.7",
+        "@dhis2/analytics": "2.4.12",
         "@dhis2/d2-i18n": "^1.0.6",
-        "@dhis2/d2-ui-core": "^6.0.1",
-        "@dhis2/d2-ui-interpretations": "^6.0.1",
-        "@dhis2/d2-ui-mentions-wrapper": "^6.0.1",
-        "@dhis2/d2-ui-rich-text": "^6.0.1",
-        "@dhis2/d2-ui-sharing-dialog": "^6.0.1",
-        "@dhis2/d2-ui-translation-dialog": "^6.0.1",
-        "@dhis2/data-visualizer-plugin": "^33.1.8",
+        "@dhis2/d2-ui-core": "^7.0.2",
+        "@dhis2/d2-ui-interpretations": "^7.0.2",
+        "@dhis2/d2-ui-mentions-wrapper": "^7.0.2",
+        "@dhis2/d2-ui-rich-text": "^7.0.2",
+        "@dhis2/d2-ui-sharing-dialog": "^7.0.2",
+        "@dhis2/d2-ui-translation-dialog": "^7.0.2",
+        "@dhis2/data-visualizer-plugin": "^33.1.11",
         "@dhis2/ui": "1.0.0-beta.15",
         "@dhis2/ui-core": "2.5.1",
         "@material-ui/core": "^3.9.2",
@@ -51,7 +51,7 @@
         "eject": "react-scripts eject",
         "manifest": "d2-manifest package.json ./public/manifest.webapp --manifest.activities.dhis.href=${REACT_APP_DHIS2_BASE_URL:=..}",
         "extract-pot": "d2-i18n-extract -p src/ -o i18n/",
-        "localize": "d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/"
+        "localize": "d2-i18n-generate -n default -p ./i18n/ -o ./src/locales/"
     },
     "husky": {
         "hooks": {

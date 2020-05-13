@@ -12,12 +12,12 @@ export const SinglesMenuGroup = ({ acAddDashboardItem, category }) => {
 
     return (
         <Fragment>
-            <HeaderMenuItem title={category.header} />
+            <HeaderMenuItem title={category.header()} />
             {category.items.map(item => (
                 <ContentMenuItem
                     key={item.type}
                     type={item.type}
-                    name={item.name}
+                    name={item.name()}
                     onInsert={addToDashboard(item)}
                 />
             ))}

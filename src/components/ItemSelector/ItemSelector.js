@@ -73,7 +73,7 @@ class ItemSelector extends React.Component {
                     <CategorizedMenuGroup
                         key={type}
                         type={type}
-                        title={itemType.pluralTitle}
+                        title={itemType.pluralTitle()}
                         items={items}
                         onChangeItemsLimit={this.fetchItems}
                         hasMore={hasMore}

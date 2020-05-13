@@ -9,15 +9,15 @@ describe('SinglesMenuGroup', () => {
         const props = {
             acAddDashboardItem: jest.fn(),
             category: {
-                header: 'ponies',
+                header: () => 'ponies',
                 items: [
                     {
                         type: 'colorful',
-                        name: 'Rainbow Dash',
+                        name: Function.prototype,
                     },
                     {
                         type: 'greytone',
-                        name: 'B&W',
+                        name: Function.prototype,
                     },
                 ],
             },
