@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Caroline Hesthagen Holen <carolinehholen@gmail.com>, 2020
+# Caroline Hesthagen Holen <caroline@devotta.no>, 2020
 # Karoline Tufte Lien <karoline@dhis2.org>, 2020
 # 
 msgid ""
