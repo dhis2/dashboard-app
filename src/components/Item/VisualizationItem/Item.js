@@ -237,9 +237,11 @@ export class Item extends Component {
                     <a
                         href={pluginManager.getLink(this.props.item, this.d2)}
                         style={{ height: 16 }}
-                        title={`View in ${itemTypeMap[
-                            this.props.item.type
-                        ].appName()} app`}
+                        title={i18n.t('View in {{appName}} app', {
+                            appName: itemTypeMap[
+                                this.props.item.type
+                            ].appName(),
+                        })}
                     >
                         <LaunchIcon className={classes.icon} />
                     </a>
