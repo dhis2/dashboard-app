@@ -3,13 +3,14 @@
 # phil_dhis2, 2019
 # Viktor Varland <viktor@dhis2.org>, 2019
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
+# Sheila André <sandre@saudigitus.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-03-06T17:24:20.929Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
+"Last-Translator: Sheila André <sandre@saudigitus.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,28 +22,28 @@ msgid "Delete"
 msgstr "Apagar"
 
 msgid "Continue editing"
-msgstr ""
+msgstr "Continue a editar"
 
 msgid "Confirm delete dashboard"
-msgstr ""
+msgstr "Confirmar a eliminação do painel"
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr ""
+msgstr "Tem certeza de que deseja apagar o painel \"{{dashboardName}}\"?"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Sair sem gravar"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Ir para o painel"
 
 msgid "Save changes"
-msgstr ""
+msgstr "Gravar alterações"
 
 msgid "Translate"
 msgstr "Traduzir"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Pesquisar por um painel"
 
 msgid "Show less"
 msgstr "Mostrar menos"
@@ -51,71 +52,73 @@ msgid "Show more"
 msgstr "Mostrar mais"
 
 msgid "No access"
-msgstr ""
+msgstr "Sem acesso"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr ""
+msgstr "Painel não encontrado. Use o botão + para criar um novo painel."
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "Painel solicitado não encontrado"
 
 msgid "Messages"
 msgstr "Mensagens"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Ver todas as mensagens"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Não foi possível carregar o plug-in para este item"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Espaçador"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Use um espaçador para criar espaço vertical vazio entre outros itens do "
+"painel."
 
 msgid "Text item"
-msgstr ""
+msgstr "Item do texto"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Adicione texto aqui"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "Não há itens neste painel"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Procurar itens para adicionar a este painel"
 
 msgid "See"
-msgstr ""
+msgstr "Ver"
 
 msgid "fewer"
-msgstr ""
+msgstr "menos"
 
 msgid "more"
 msgstr "mais"
 
 msgid "Text box"
-msgstr ""
+msgstr "Caixa de texto"
 
 msgid "Add title here"
-msgstr ""
+msgstr "Adicionar título aqui"
 
 msgid "Add description here"
-msgstr ""
+msgstr "Adicionar a descrição aqui"
 
 msgid "No description"
 msgstr "Sem descrição"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "Tabelas Pivô"
 
 msgid "Pivot Tables"
 msgstr "Tabelas dinâmicas"
 
 msgid "Charts"
-msgstr ""
+msgstr "Gráficos"
 
 msgid "Visualizer"
 msgstr "Visualizar"
@@ -124,13 +127,13 @@ msgid "Maps"
 msgstr "Mapas"
 
 msgid "Event reports"
-msgstr ""
+msgstr "Relatórios de eventos"
 
 msgid "Event Reports"
 msgstr "Relatórios de Eventos"
 
 msgid "Event charts"
-msgstr ""
+msgstr "Gráficos de eventos"
 
 msgid "Event Visualizer"
 msgstr "Visualizador de Eventos"
@@ -139,7 +142,7 @@ msgid "Reports"
 msgstr "Relatórios"
 
 msgid "Resources"
-msgstr ""
+msgstr "Recursos"
 
 msgid "Users"
 msgstr "Utilizadores"
