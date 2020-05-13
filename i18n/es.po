@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-04T08:23:22.661Z\n"
+"POT-Creation-Date: 2020-05-13T19:58:24.142Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: William Aviles <waviles@clintonhealthaccess.org>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -99,6 +99,9 @@ msgstr ""
 msgid "No data to display"
 msgstr ""
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Confirm"
 msgstr "Confirmar"
 
@@ -129,14 +132,14 @@ msgstr ""
 msgid "Dashboard description"
 msgstr ""
 
-msgid "No description"
-msgstr "Sin descripción"
-
 msgid "Edit"
 msgstr "Editar"
 
 msgid "Share"
 msgstr "Compartir"
+
+msgid "No description"
+msgstr "Sin descripción"
 
 msgid "Pivot tables"
 msgstr "Tablas dinámicas"

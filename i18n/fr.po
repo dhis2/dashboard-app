@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-04T08:23:22.661Z\n"
+"POT-Creation-Date: 2020-05-13T19:58:24.142Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -108,6 +108,9 @@ msgstr "Impossible de charger le plugin pour cet objet"
 msgid "No data to display"
 msgstr "Aucune donnée à afficher"
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Confirm"
 msgstr "Confirmer"
 
@@ -138,14 +141,14 @@ msgstr "Titre du tableau de bord"
 msgid "Dashboard description"
 msgstr "Description du tableau de bord"
 
-msgid "No description"
-msgstr "Aucune description"
-
 msgid "Edit"
 msgstr "Modifier"
 
 msgid "Share"
 msgstr "Partager"
+
+msgid "No description"
+msgstr "Aucune description"
 
 msgid "Pivot tables"
 msgstr "Tableaux croisés dynamiques"
