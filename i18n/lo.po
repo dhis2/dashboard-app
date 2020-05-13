@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-04T08:23:22.661Z\n"
+"POT-Creation-Date: 2020-05-13T19:58:24.142Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
@@ -96,6 +96,9 @@ msgstr ""
 msgid "No data to display"
 msgstr ""
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Confirm"
 msgstr "Confirm"
 
@@ -126,14 +129,14 @@ msgstr ""
 msgid "Dashboard description"
 msgstr ""
 
-msgid "No description"
-msgstr "ບໍ່ມີລາຍລະອຽດ"
-
 msgid "Edit"
 msgstr "ແກ້ໄຂ"
 
 msgid "Share"
 msgstr "ແຈກ"
+
+msgid "No description"
+msgstr "ບໍ່ມີລາຍລະອຽດ"
 
 msgid "Pivot tables"
 msgstr "ຕາຕະລາງຂໍ້ມູນ"

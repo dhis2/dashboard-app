@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-04T08:23:22.661Z\n"
+"POT-Creation-Date: 2020-05-13T19:58:24.142Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -100,6 +100,9 @@ msgstr "Không thể tải plugin cho mục này"
 msgid "No data to display"
 msgstr "Không có dữ liệu hiển thị"
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Confirm"
 msgstr "Xác nhận"
 
@@ -130,14 +133,14 @@ msgstr "Tiêu đề bảng điều khiển"
 msgid "Dashboard description"
 msgstr "Mô tả bảng điều khiển"
 
-msgid "No description"
-msgstr "Không mô tả"
-
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
 msgid "Share"
 msgstr "Chia sẻ"
+
+msgid "No description"
+msgstr "Không mô tả"
 
 msgid "Pivot tables"
 msgstr "Bảng xoay"

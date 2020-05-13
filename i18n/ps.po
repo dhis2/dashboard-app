@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-04T08:23:22.661Z\n"
+"POT-Creation-Date: 2020-05-13T19:58:24.142Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
 "Language-Team: Pushto (https://www.transifex.com/hisp-uio/teams/100509/ps/)\n"
@@ -97,6 +97,9 @@ msgstr ""
 msgid "No data to display"
 msgstr ""
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Confirm"
 msgstr ""
 
@@ -127,14 +130,14 @@ msgstr ""
 msgid "Dashboard description"
 msgstr ""
 
-msgid "No description"
-msgstr "هېڅ ډول تشریح نه لري"
-
 msgid "Edit"
 msgstr "درست یې کړئ"
 
 msgid "Share"
 msgstr "شریک یې کړئ"
+
+msgid "No description"
+msgstr "هېڅ ډول تشریح نه لري"
 
 msgid "Pivot tables"
 msgstr "محوري جدولونه"

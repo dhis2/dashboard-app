@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-04T08:23:22.661Z\n"
+"POT-Creation-Date: 2020-05-13T19:58:24.142Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -103,6 +103,9 @@ msgstr "Tidak dapat memuat plugin untuk item ini"
 msgid "No data to display"
 msgstr "Tidak ada data untuk ditampilkan"
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Confirm"
 msgstr "Konfirmasi"
 
@@ -133,14 +136,14 @@ msgstr "Judul dashboard"
 msgid "Dashboard description"
 msgstr "Deskripsi dashboard"
 
-msgid "No description"
-msgstr "Tidak ada deskripsi"
-
 msgid "Edit"
 msgstr "Edit"
 
 msgid "Share"
 msgstr "Bagikan"
+
+msgid "No description"
+msgstr "Tidak ada deskripsi"
 
 msgid "Pivot tables"
 msgstr "Tabel pivot"

@@ -3,13 +3,14 @@
 # phil_dhis2, 2019
 # Viktor Varland <viktor@dhis2.org>, 2019
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
+# Sheila André <sandre@saudigitus.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-04T08:23:22.661Z\n"
+"POT-Creation-Date: 2020-05-13T19:58:24.142Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
-"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
+"Last-Translator: Sheila André <sandre@saudigitus.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,28 +28,31 @@ msgid "Delete"
 msgstr "Apagar"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "Apagar painel"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"Ao apagar o painel \"{{dashboardName}}\" sera removido de todos os usuários "
+". Essa ação não pode ser desfeita. Tem certeza de que deseja apagar "
+"permanentemente este painel?"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Sair sem gravar"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Ir para o painel"
 
 msgid "Save changes"
-msgstr ""
+msgstr "Gravar alterações"
 
 msgid "Translate"
 msgstr "Traduzir"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Pesquisar por um painel"
 
 msgid "Show more"
 msgstr "Mostrar mais"
@@ -57,13 +61,13 @@ msgid "Show less"
 msgstr "Mostrar menos"
 
 msgid "No access"
-msgstr ""
+msgstr "Sem acesso"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr ""
+msgstr "Painel não encontrado. Use o botão + para criar um novo painel."
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "Painel solicitado não encontrado"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -77,59 +81,61 @@ msgid "Messages"
 msgstr "Mensagens"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Ver todas as mensagens"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Espaçador"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Use um espaçador para criar espaço vertical vazio entre outros itens do "
+"painel."
 
 msgid "Text item"
-msgstr ""
+msgstr "Item do texto"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Adicione texto aqui"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Não foi possível carregar o plug-in para este item"
 
 msgid "No data to display"
+msgstr "Não há dados para exibir"
+
+msgid "View in {{appName}} app"
 msgstr ""
 
 msgid "Confirm"
 msgstr "Confirmar"
 
 msgid "Add filter"
-msgstr ""
+msgstr "Adicionar filtros"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "Não há itens neste painel"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "Mostrar menos"
 
 msgid "Insert"
 msgstr "Inserir"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Procurar itens para adicionar a este painel"
 
 msgid "Additional items"
-msgstr ""
+msgstr "Itens adicionais"
 
 msgid "Text box"
-msgstr ""
+msgstr "Caixa de texto"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "Título do painel"
 
 msgid "Dashboard description"
-msgstr ""
-
-msgid "No description"
-msgstr "Sem descrição"
+msgstr "Descrição do painel"
 
 msgid "Edit"
 msgstr "Editar"
@@ -137,14 +143,17 @@ msgstr "Editar"
 msgid "Share"
 msgstr "Partilha"
 
+msgid "No description"
+msgstr "Sem descrição"
+
 msgid "Pivot tables"
-msgstr ""
+msgstr "Tabelas Pivô"
 
 msgid "Pivot Tables"
 msgstr "Tabelas dinâmicas"
 
 msgid "Charts"
-msgstr ""
+msgstr "Gráficos"
 
 msgid "Visualizer"
 msgstr "Visualizar"
@@ -153,13 +162,13 @@ msgid "Maps"
 msgstr "Mapas"
 
 msgid "Event reports"
-msgstr ""
+msgstr "Relatórios de eventos"
 
 msgid "Event Reports"
 msgstr "Relatórios de Eventos"
 
 msgid "Event charts"
-msgstr ""
+msgstr "Gráficos de eventos"
 
 msgid "Event Visualizer"
 msgstr "Visualizador de Eventos"
@@ -171,7 +180,7 @@ msgid "Reports"
 msgstr "Relatórios"
 
 msgid "Resources"
-msgstr ""
+msgstr "Recursos"
 
 msgid "Users"
 msgstr "Utilizadores"

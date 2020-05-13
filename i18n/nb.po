@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-04T08:23:22.661Z\n"
+"POT-Creation-Date: 2020-05-13T19:58:24.142Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -102,6 +102,9 @@ msgstr "Kan ikke laste inn plugin-modulen for dette elementet"
 msgid "No data to display"
 msgstr "Ingen data å vise"
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Confirm"
 msgstr "Bekreft"
 
@@ -132,14 +135,14 @@ msgstr "Dashbordtittel"
 msgid "Dashboard description"
 msgstr "Beskrivelse av dashbord"
 
-msgid "No description"
-msgstr "Ingen beskrivelse"
-
 msgid "Edit"
 msgstr "Rediger"
 
 msgid "Share"
 msgstr "Del"
+
+msgid "No description"
+msgstr "Ingen beskrivelse"
 
 msgid "Pivot tables"
 msgstr "Pivottabeller"

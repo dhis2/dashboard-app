@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-04T08:23:22.661Z\n"
+"POT-Creation-Date: 2020-05-13T19:58:24.142Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
@@ -104,6 +104,9 @@ msgstr "تعذر تحميل المكوّن الإضافي لهذا العنصر"
 msgid "No data to display"
 msgstr "لا توجد بيانات للعرض"
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Confirm"
 msgstr "تأكيد"
 
@@ -134,14 +137,14 @@ msgstr "عنوان لوحة المعلومات"
 msgid "Dashboard description"
 msgstr "وصف لوحة المعلومات"
 
-msgid "No description"
-msgstr "لا يوجد وصف"
-
 msgid "Edit"
 msgstr "تعديل"
 
 msgid "Share"
 msgstr "مشاركة"
+
+msgid "No description"
+msgstr "لا يوجد وصف"
 
 msgid "Pivot tables"
 msgstr "الجداول المحورية"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-04T08:23:22.661Z\n"
+"POT-Creation-Date: 2020-05-13T19:58:24.142Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
@@ -99,6 +99,9 @@ msgstr ""
 msgid "No data to display"
 msgstr ""
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Confirm"
 msgstr ""
 
@@ -129,14 +132,14 @@ msgstr ""
 msgid "Dashboard description"
 msgstr ""
 
-msgid "No description"
-msgstr "Немає змалювання"
-
 msgid "Edit"
 msgstr "Редагувати"
 
 msgid "Share"
 msgstr "Поділитися"
+
+msgid "No description"
+msgstr "Немає змалювання"
 
 msgid "Pivot tables"
 msgstr "Зведені таблиці"
