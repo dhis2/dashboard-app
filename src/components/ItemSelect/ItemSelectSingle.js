@@ -4,6 +4,7 @@ import Divider from 'material-ui/Divider';
 import { List, ListItem } from 'material-ui/List';
 import Button from '@dhis2/d2-ui-core/button/Button';
 import { getItemIcon } from '../../modules/itemTypes';
+import i18n from '@dhis2/d2-i18n';
 
 import { acAddDashboardItem } from '../../actions/editDashboard';
 
@@ -24,7 +25,7 @@ const SingleItem = ({ item, onAddToDashboard }) => {
                         margin: 0,
                     }}
                 >
-                    {item.name}
+                    {item.name()}
                     <Button
                         color="primary"
                         onClick={onAddToDashboard}
@@ -33,7 +34,7 @@ const SingleItem = ({ item, onAddToDashboard }) => {
                             marginRight: '5px',
                         }}
                     >
-                        + ADD
+                        {i18n.t('+ ADD')}
                     </Button>
                 </p>
             }
@@ -55,7 +56,7 @@ const ItemSelectSingle = ({ acAddDashboardItem, category }) => {
                     paddingLeft: '16px',
                 }}
             >
-                <h3>{category.header}</h3>
+                <h3>{category.header()}</h3>
             </div>
             <Divider />
             <List>

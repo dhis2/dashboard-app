@@ -63,6 +63,13 @@ class ItemSelectList extends Component {
     };
 
     render() {
+        const seeMoreLessText = this.state.seeMore
+            ? i18n.t('See fewer {{itemTypes}}', {
+                  itemTypes: this.props.title,
+              })
+            : i18n.t('See more {{itemTypes}}', {
+                  itemTypes: this.props.title,
+              });
         return (
             <Fragment>
                 <div
@@ -78,11 +85,7 @@ class ItemSelectList extends Component {
                         style={{ textTransform: 'uppercase' }}
                         onClick={this.toggleSeeMore}
                     >
-                        {`${i18n.t('See')} ${
-                            this.state.seeMore
-                                ? i18n.t('fewer')
-                                : i18n.t('more')
-                        } ${this.props.title}`}
+                        {seeMoreLessText}
                     </Button>
                 </div>
                 <Divider />
@@ -107,7 +110,9 @@ class ItemSelectList extends Component {
                                         }}
                                     />
                                 }
-                                innerDivStyle={{ padding: '0px 0px 0px 42px' }}
+                                innerDivStyle={{
+                                    padding: '0px 0px 0px 42px',
+                                }}
                                 hoverColor="transparent"
                                 primaryText={
                                     <p
@@ -127,14 +132,16 @@ class ItemSelectList extends Component {
                                                 marginRight: '5px',
                                             }}
                                         >
-                                            + ADD
+                                            {i18n.t('+ ADD')}
                                         </Button>
                                         {itemUrl && (
                                             <a
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 href={itemUrl}
-                                                style={{ display: 'flex' }}
+                                                style={{
+                                                    display: 'flex',
+                                                }}
                                             >
                                                 <LaunchIcon
                                                     style={{
