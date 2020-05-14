@@ -179,15 +179,3 @@ msgstr "Ressurser"
 
 msgid "Users"
 msgstr "Brukere"
-
-msgid "+ ADD"
-msgstr "+ LEGG TIL"
-
-msgid "Additional items"
-msgstr "Ytterlig elementer"
-
-msgid "See fewer {{itemTypes}}"
-msgstr "Vis faerre {{itemTypes}}"
-
-msgid "See more {{itemTypes}}"
-msgstr "Vis flere {{itemTypes}}"
