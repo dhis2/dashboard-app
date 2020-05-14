@@ -103,7 +103,7 @@ msgid "No data to display"
 msgstr "Ingen data å vise"
 
 msgid "View in {{appName}} app"
-msgstr ""
+msgstr "Vis i {{appName}} -app"
 
 msgid "Confirm"
 msgstr "Bekreft"
