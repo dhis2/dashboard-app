@@ -132,7 +132,7 @@ class ItemSelectList extends Component {
                                                 marginRight: '5px',
                                             }}
                                         >
-                                            {i18n.t('+ ADD')}
+                                            {`+ ${i18n.t('Add')}`}
                                         </Button>
                                         {itemUrl && (
                                             <a
