@@ -1252,15 +1252,6 @@
     semver "^6.3.0"
     yargs "^14.2.0"
 
-"@dhis2/d2-i18n-extract@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n-extract/-/d2-i18n-extract-1.0.7.tgz#805c92c75f5d3678a047374a551bda5f7571d7f3"
-  integrity sha512-i78pbGGA8q73dEShzvYkEP0gzmkytMdUgcPf8qEFIWS1H5ftiu3ErN2aRC2VgB6Jv+Kioc7oJ6nWVLmy67Dtsg==
-  dependencies:
-    argparse "^1.0.10"
-    i18next-conv "^6.0.0"
-    i18next-scanner "^2.4.4"
-
 "@dhis2/d2-i18n-extract@^1.0.8":
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n-extract/-/d2-i18n-extract-1.0.8.tgz#9d98690d522a51895c8ef3fe7136f026b0f8dacd"
@@ -1317,10 +1308,10 @@
     lodash "^4.17.10"
     material-ui "^0.20.0"
 
-"@dhis2/d2-ui-core@^6.5.8":
-  version "6.5.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.5.8.tgz#ab64ef131b6af867bd0baf7304b0d564354702d2"
-  integrity sha512-rjWU8uqZKG+q4cHU9J8XJrcVvqhU/6HvTKuxOBGMSNi8IsTqGu3NBtBNm+NwigdgogLuc+kCBPatEb91+relQg==
+"@dhis2/d2-ui-core@7.0.3", "@dhis2/d2-ui-core@^7.0.3":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.0.3.tgz#75cf0bc7dfadfa6b000bcf61b17fb76f5efb7b1d"
+  integrity sha512-l2uFWjK8Te473B2p6wxaVi+gniN6bMGAMjX6t/qJKQtWMVK9wfF/tZmwWvypP8UlShMvn+MHSdLOZxQF2bINfg==
   dependencies:
     babel-runtime "^6.26.0"
     d2 "~31.7"
@@ -1328,17 +1319,14 @@
     material-ui "^0.20.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-interpretations@^6.5.7":
-  version "6.5.7"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-6.5.7.tgz#2090213ed0ebc46012e871977003bd2c4bcfddbf"
-  integrity sha512-NrpvjCqfg6fm8tuqiI9e6EHI1lnzAOeB7qSNjJBtGDlIxaxE5s2zkHZc5bdE7bbql5BpXRzFTzIMq3b/aw3Atw==
+"@dhis2/d2-ui-interpretations@^7.0.3":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-7.0.3.tgz#b8d2099315e4140354193d18dda0ab7848385eb7"
+  integrity sha512-KiHb/Q5WKM2YuLH0fLQW3PpiX2rx3quGpTPoBHIEWruihZvo7cPqkZNTEn4YHR+8YmQ+Dcbeqh3n6NIjzkDe3Q==
   dependencies:
-    "@dhis2/d2-i18n" "^1.0.3"
-    "@dhis2/d2-i18n-extract" "^1.0.7"
-    "@dhis2/d2-i18n-generate" "^1.1.1"
-    "@dhis2/d2-ui-mentions-wrapper" "6.5.7"
-    "@dhis2/d2-ui-rich-text" "6.5.7"
-    "@dhis2/d2-ui-sharing-dialog" "6.5.7"
+    "@dhis2/d2-ui-mentions-wrapper" "7.0.3"
+    "@dhis2/d2-ui-rich-text" "7.0.3"
+    "@dhis2/d2-ui-sharing-dialog" "7.0.3"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -1348,12 +1336,11 @@
     prop-types "^15.5.10"
     react-portal "^4.1.5"
 
-"@dhis2/d2-ui-mentions-wrapper@6.5.7", "@dhis2/d2-ui-mentions-wrapper@^6.0.1":
-  version "6.5.7"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-6.5.7.tgz#64db360f33f511ea78c0bd593a5948c7c3aac4e9"
-  integrity sha512-LgN3vwf9e7tZiw4aw8/AuQRS5MtCzrpCRPlW2MdzVfMkOM9Gl6tvm8lp0anX+5zW0vPOg6qHI8NsuOBlah3Qfg==
+"@dhis2/d2-ui-mentions-wrapper@7.0.3", "@dhis2/d2-ui-mentions-wrapper@^7.0.3":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-7.0.3.tgz#ea67c6a920cf015542b6acb50a1441142eb47b7f"
+  integrity sha512-hFxUYnub3p4DjsREKv4gZgrSi/NCfOOoIQT+DJOOj9ZwhVCGZPnOLgXamwdT2kBar9yFXy7AHppBYqwBGBKokQ==
   dependencies:
-    "@dhis2/d2-i18n" "^1.0.3"
     "@material-ui/core" "^3.3.1"
     lodash "^4.17.10"
     prop-types "^15.6.2"
@@ -1412,10 +1399,10 @@
     babel-runtime "^6.26.0"
     prop-types "^15.6.0"
 
-"@dhis2/d2-ui-rich-text@6.5.7", "@dhis2/d2-ui-rich-text@^6.0.1":
-  version "6.5.7"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-6.5.7.tgz#daabf22b78a149a4c3c2023930eeefafbb97e8e6"
-  integrity sha512-FGt8wquMzdgxqc/30mtiH04cVsdmiPotwiKN+4qlca76GCEwOt8aycRcuPRLkmXH9YnjoRL4m1AHHvXXjxq3Uw==
+"@dhis2/d2-ui-rich-text@7.0.3", "@dhis2/d2-ui-rich-text@^7.0.3":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.0.3.tgz#26c3e4ecf5dddfb3445476c56c87a62448ce229d"
+  integrity sha512-AiX6yf+AsYzSXjyXtuk7QtS/fx18vKcGvgFRaJvf7QV8HFxgkE2S8Owayj5mnTUFX6KFndTqjiXmsxn9jlKvhw==
   dependencies:
     babel-runtime "^6.26.0"
     markdown-it "^8.4.2"
@@ -1430,12 +1417,12 @@
     markdown-it "^8.4.2"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-sharing-dialog@6.5.7", "@dhis2/d2-ui-sharing-dialog@^6.0.1":
-  version "6.5.7"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-6.5.7.tgz#8ef8eba2e8864dce306739f273001af4dcb727c8"
-  integrity sha512-X6aMShLAmPAFyS1fJHtqdvuCoJ41qzZC58d+F32dZPmvbz9cwcgus1YfmnrG3sWTAxs+jXz9t4+Q+jUpOlWH0Q==
+"@dhis2/d2-ui-sharing-dialog@7.0.3", "@dhis2/d2-ui-sharing-dialog@^7.0.3":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-7.0.3.tgz#585b6e20ce991517b83a4a30e770f7f74b29de8e"
+  integrity sha512-Q33Rp/csZPSyEeVj7ZjN9+GrPow1D4ghf23kFYJCMvvvXUhOjkImj49XTxfxEMQwPZ+BSmNTDJeQQzYy2jV/RA==
   dependencies:
-    "@dhis2/d2-ui-core" "6.5.7"
+    "@dhis2/d2-ui-core" "7.0.3"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -1444,12 +1431,12 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-translation-dialog@^6.0.1":
-  version "6.5.7"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-6.5.7.tgz#eca4fd4b07d28d3879be5bfaf1dfa310516c9bb5"
-  integrity sha512-wI0kPvAHJqIrQIVxmkNzg22/CvZNymdpBWMSNAcdLkaKQq3n4whNF0KWfFZm0gqVTkWjbAw4Jbtm8rO/T4VbLA==
+"@dhis2/d2-ui-translation-dialog@^7.0.3":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-7.0.3.tgz#d018861b00c72f6e4fa759c6579385f300c9873c"
+  integrity sha512-da6Y6HUZI5O9A8P2rN2Kp5ESl0feqE/n5HNYk2WsyLoAg18LicYw/lBrOOfziFl2DPy44a741pEyy5U8J0PXMQ==
   dependencies:
-    "@dhis2/d2-ui-core" "6.5.7"
+    "@dhis2/d2-ui-core" "7.0.3"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -6750,7 +6737,7 @@ i18next-scanner@^2.4.4:
     vinyl "^2.2.0"
     vinyl-fs "^3.0.1"
 
-i18next@*, i18next@^15.0.6:
+i18next@*:
   version "15.1.3"
   resolved "https://registry.yarnpkg.com/i18next/-/i18next-15.1.3.tgz#f1984cbee0e3cb00cff9008b037264289ce8840a"
   integrity sha512-hN2DZLoRSY2h/RYeNqth5XxV4N1ekKGSJDCGhFmmuXkOCAfK5CkUG4VBv9OBXrvf93xApv0KKBVrb0zJP31EKg==
