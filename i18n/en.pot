@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-04-08T11:33:46.174Z\n"
-"PO-Revision-Date: 2019-04-08T11:33:46.174Z\n"
+"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
+"PO-Revision-Date: 2020-05-18T21:32:56.881Z\n"
 
 msgid "Dashboard"
 msgstr ""
@@ -85,6 +85,9 @@ msgstr ""
 msgid "No data to display"
 msgstr ""
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Cancel"
 msgstr ""
 
@@ -100,13 +103,19 @@ msgstr ""
 msgid "Search for items to add to this dashboard"
 msgstr ""
 
-msgid "See"
+msgid "See fewer {{itemTypes}}"
 msgstr ""
 
-msgid "fewer"
+msgid "See more {{itemTypes}}"
 msgstr ""
 
-msgid "more"
+msgid "Add"
+msgstr ""
+
+msgid "+ ADD"
+msgstr ""
+
+msgid "Additional items"
 msgstr ""
 
 msgid "Text box"
@@ -124,13 +133,13 @@ msgstr ""
 msgid "Add description here"
 msgstr ""
 
-msgid "No description"
-msgstr ""
-
 msgid "Edit"
 msgstr ""
 
 msgid "Share"
+msgstr ""
+
+msgid "No description"
 msgstr ""
 
 msgid "Pivot tables"
@@ -158,6 +167,9 @@ msgid "Event charts"
 msgstr ""
 
 msgid "Event Visualizer"
+msgstr ""
+
+msgid "Apps"
 msgstr ""
 
 msgid "Reports"

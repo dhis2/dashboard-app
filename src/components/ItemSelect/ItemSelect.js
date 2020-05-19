@@ -92,7 +92,7 @@ class ItemSelect extends React.Component {
                     <ItemSelectList
                         key={type.id}
                         type={type.id}
-                        title={type.title}
+                        title={type.title()}
                         items={items[itemType.endPointName]}
                         onChangeItemsLimit={this.fetchItems}
                     />

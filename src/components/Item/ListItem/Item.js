@@ -17,7 +17,7 @@ import { colors } from '../../../modules/colors';
 import ItemHeader from '../ItemHeader';
 
 const getItemTitle = item => {
-    return itemTypeMap[item.type].pluralTitle;
+    return itemTypeMap[item.type].pluralTitle();
 };
 
 const getContentItems = item =>

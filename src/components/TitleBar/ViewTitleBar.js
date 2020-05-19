@@ -24,8 +24,6 @@ import {
 } from '../../reducers/dashboards';
 import { colors } from '../../modules/colors';
 
-const NO_DESCRIPTION = i18n.t('No description');
-
 const styles = {
     actions: {
         display: 'flex',
@@ -136,7 +134,7 @@ class ViewTitleBar extends Component {
                             !description ? { color: '#888' } : {}
                         )}
                     >
-                        {description || NO_DESCRIPTION}
+                        {description || i18n.t('No description')}
                     </div>
                 ) : null}
                 {id ? (
