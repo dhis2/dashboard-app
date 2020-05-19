@@ -17,21 +17,21 @@ import {
 export const singleItems = [
     {
         id: 'additional',
-        header: i18n.t('Additional items'),
+        header: () => i18n.t('Additional items'),
         items: [
             {
                 type: TEXT,
-                name: i18n.t('Text box'),
+                name: () => i18n.t('Text box'),
                 content: '',
             },
             {
                 type: MESSAGES,
-                name: i18n.t('Messages'),
+                name: () => i18n.t('Messages'),
                 content: 'true',
             },
             {
                 type: SPACER,
-                name: i18n.t('Spacer'),
+                name: () => i18n.t('Spacer'),
                 content: spacerContent,
             },
         ],

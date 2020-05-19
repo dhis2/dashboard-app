@@ -13,11 +13,11 @@ describe('SinglesMenuGroup', () => {
                 items: [
                     {
                         type: 'colorful',
-                        name: 'Rainbow Dash',
+                        name: Function.prototype,
                     },
                     {
                         type: 'greytone',
-                        name: 'B&W',
+                        name: Function.prototype,
                     },
                 ],
             },
