@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-08T11:33:46.174Z\n"
+"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
 "Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
@@ -94,6 +94,9 @@ msgstr ""
 msgid "No data to display"
 msgstr ""
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Cancel"
 msgstr "منسوخ"
 
@@ -109,13 +112,19 @@ msgstr "ڈیشبورڈ پر کوءی آیٹم موجود نہیں"
 msgid "Search for items to add to this dashboard"
 msgstr "اس ڈیش بورڈ میں شامل کرنے کے لئے اشیاء تلاش کریں"
 
-msgid "See"
+msgid "See fewer {{itemTypes}}"
 msgstr ""
 
-msgid "fewer"
+msgid "See more {{itemTypes}}"
 msgstr ""
 
-msgid "more"
+msgid "Add"
+msgstr ""
+
+msgid "+ ADD"
+msgstr ""
+
+msgid "Additional items"
 msgstr ""
 
 msgid "Text box"
@@ -133,14 +142,14 @@ msgstr ""
 msgid "Add description here"
 msgstr ""
 
-msgid "No description"
-msgstr "کوئی وضاحت نہیں"
-
 msgid "Edit"
 msgstr "ترمیم"
 
 msgid "Share"
 msgstr "بانٹیں"
+
+msgid "No description"
+msgstr "کوئی وضاحت نہیں"
 
 msgid "Pivot tables"
 msgstr "پیوٹ ٹیبلز"
@@ -168,6 +177,9 @@ msgstr "ایونٹ چارٹس"
 
 msgid "Event Visualizer"
 msgstr "ایونٹ ویزوئلائزر"
+
+msgid "Apps"
+msgstr ""
 
 msgid "Reports"
 msgstr "رپورٹس"

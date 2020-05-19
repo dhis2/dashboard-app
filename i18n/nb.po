@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-08T11:33:46.174Z\n"
+"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -96,6 +96,9 @@ msgstr "Kan ikke laste inn plugin-modulen for dette elementet"
 msgid "No data to display"
 msgstr "Ingen data å vise"
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -111,14 +114,20 @@ msgstr "Det er ingen elementer på dette dashbordet"
 msgid "Search for items to add to this dashboard"
 msgstr "Søk etter elementer du vil legge til i dette dashbordet"
 
-msgid "See"
-msgstr "Vis"
+msgid "See fewer {{itemTypes}}"
+msgstr ""
 
-msgid "fewer"
-msgstr "færre"
+msgid "See more {{itemTypes}}"
+msgstr ""
 
-msgid "more"
-msgstr "mer"
+msgid "Add"
+msgstr ""
+
+msgid "+ ADD"
+msgstr ""
+
+msgid "Additional items"
+msgstr ""
 
 msgid "Text box"
 msgstr "Tekstboks"
@@ -135,14 +144,14 @@ msgstr "Legg til tittel her"
 msgid "Add description here"
 msgstr "Legg til beskrivelse her"
 
-msgid "No description"
-msgstr "Ingen beskrivelse"
-
 msgid "Edit"
 msgstr "Rediger"
 
 msgid "Share"
 msgstr "Del"
+
+msgid "No description"
+msgstr "Ingen beskrivelse"
 
 msgid "Pivot tables"
 msgstr "Pivottabeller"
@@ -170,6 +179,9 @@ msgstr "Hendelsesdiagrammer"
 
 msgid "Event Visualizer"
 msgstr "Hendelsesvisualizer"
+
+msgid "Apps"
+msgstr ""
 
 msgid "Reports"
 msgstr "Rapporter"

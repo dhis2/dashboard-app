@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-08T11:33:46.174Z\n"
+"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -100,6 +100,9 @@ msgstr "تعذر تحميل المكوّن الإضافي لهذا العنصر"
 msgid "No data to display"
 msgstr "لا توجد بيانات للعرض"
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Cancel"
 msgstr "إلغاء"
 
@@ -115,14 +118,20 @@ msgstr "لايوجد عناصر في لوحة المعلومات هذه"
 msgid "Search for items to add to this dashboard"
 msgstr "ابحث عن عناصر لإضافتها إلى لوحة المعلومات هذه"
 
-msgid "See"
-msgstr "إنظر"
+msgid "See fewer {{itemTypes}}"
+msgstr ""
 
-msgid "fewer"
-msgstr "أقل"
+msgid "See more {{itemTypes}}"
+msgstr ""
 
-msgid "more"
-msgstr "أكثر"
+msgid "Add"
+msgstr ""
+
+msgid "+ ADD"
+msgstr ""
+
+msgid "Additional items"
+msgstr ""
 
 msgid "Text box"
 msgstr "مربع نص"
@@ -139,14 +148,14 @@ msgstr "أضف عنواناً هنا"
 msgid "Add description here"
 msgstr "أضف وصفاً هنا"
 
-msgid "No description"
-msgstr "لا يوجد وصف"
-
 msgid "Edit"
 msgstr "تعديل"
 
 msgid "Share"
 msgstr "مشاركة"
+
+msgid "No description"
+msgstr "لا يوجد وصف"
 
 msgid "Pivot tables"
 msgstr "الجداول المحورية"
@@ -174,6 +183,9 @@ msgstr "المخطط البياني للأحداث"
 
 msgid "Event Visualizer"
 msgstr "التحليل المرئي للأحداث"
+
+msgid "Apps"
+msgstr ""
 
 msgid "Reports"
 msgstr "التقارير"
