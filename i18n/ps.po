@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-08T11:33:46.174Z\n"
+"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
 "Language-Team: Pushto (https://www.transifex.com/hisp-uio/teams/100509/ps/)\n"
@@ -94,6 +94,9 @@ msgstr ""
 msgid "No data to display"
 msgstr ""
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Cancel"
 msgstr "رد یې کړئ [ ژباړه ـ ردول ]"
 
@@ -109,13 +112,19 @@ msgstr ""
 msgid "Search for items to add to this dashboard"
 msgstr ""
 
-msgid "See"
+msgid "See fewer {{itemTypes}}"
 msgstr ""
 
-msgid "fewer"
+msgid "See more {{itemTypes}}"
 msgstr ""
 
-msgid "more"
+msgid "Add"
+msgstr ""
+
+msgid "+ ADD"
+msgstr ""
+
+msgid "Additional items"
 msgstr ""
 
 msgid "Text box"
@@ -133,14 +142,14 @@ msgstr ""
 msgid "Add description here"
 msgstr ""
 
-msgid "No description"
-msgstr "هېڅ ډول تشریح نه لري"
-
 msgid "Edit"
 msgstr "درست یې کړئ"
 
 msgid "Share"
 msgstr "شریک یې کړئ"
+
+msgid "No description"
+msgstr "هېڅ ډول تشریح نه لري"
 
 msgid "Pivot tables"
 msgstr "محوري جدولونه"
@@ -168,6 +177,9 @@ msgstr ""
 
 msgid "Event Visualizer"
 msgstr "د پېښې انځوروونکی"
+
+msgid "Apps"
+msgstr ""
 
 msgid "Reports"
 msgstr "راپورونه"

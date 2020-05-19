@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-08T11:33:46.174Z\n"
+"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: William Aviles <waviles@clintonhealthaccess.org>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -96,6 +96,9 @@ msgstr ""
 msgid "No data to display"
 msgstr ""
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -111,14 +114,20 @@ msgstr ""
 msgid "Search for items to add to this dashboard"
 msgstr ""
 
-msgid "See"
+msgid "See fewer {{itemTypes}}"
 msgstr ""
 
-msgid "fewer"
+msgid "See more {{itemTypes}}"
 msgstr ""
 
-msgid "more"
-msgstr "más"
+msgid "Add"
+msgstr ""
+
+msgid "+ ADD"
+msgstr ""
+
+msgid "Additional items"
+msgstr ""
 
 msgid "Text box"
 msgstr ""
@@ -135,14 +144,14 @@ msgstr ""
 msgid "Add description here"
 msgstr ""
 
-msgid "No description"
-msgstr "Sin descripción"
-
 msgid "Edit"
 msgstr "Editar"
 
 msgid "Share"
 msgstr "Compartir"
+
+msgid "No description"
+msgstr "Sin descripción"
 
 msgid "Pivot tables"
 msgstr "Tablas dinámicas"
@@ -170,6 +179,9 @@ msgstr ""
 
 msgid "Event Visualizer"
 msgstr "Visualizador de eventos"
+
+msgid "Apps"
+msgstr ""
 
 msgid "Reports"
 msgstr "Informes"

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-08T11:33:46.174Z\n"
+"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: Swedish (https://www.transifex.com/hisp-uio/teams/100509/sv/)\n"
@@ -95,6 +95,9 @@ msgstr ""
 msgid "No data to display"
 msgstr ""
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Annullera"
 
@@ -110,13 +113,19 @@ msgstr "Det finns inga föremål på dashboarden"
 msgid "Search for items to add to this dashboard"
 msgstr "Sök föremål att lägga till denna dashboard"
 
-msgid "See"
+msgid "See fewer {{itemTypes}}"
 msgstr ""
 
-msgid "fewer"
+msgid "See more {{itemTypes}}"
 msgstr ""
 
-msgid "more"
+msgid "Add"
+msgstr ""
+
+msgid "+ ADD"
+msgstr ""
+
+msgid "Additional items"
 msgstr ""
 
 msgid "Text box"
@@ -134,14 +143,14 @@ msgstr ""
 msgid "Add description here"
 msgstr ""
 
-msgid "No description"
-msgstr "Ingen beskrivning"
-
 msgid "Edit"
 msgstr "Redigera"
 
 msgid "Share"
 msgstr "Dela med sig"
+
+msgid "No description"
+msgstr "Ingen beskrivning"
 
 msgid "Pivot tables"
 msgstr "pivottabeller"
@@ -169,6 +178,9 @@ msgstr "Händelsesgrafiker"
 
 msgid "Event Visualizer"
 msgstr "händelse Visualizer"
+
+msgid "Apps"
+msgstr ""
 
 msgid "Reports"
 msgstr "rapporter"

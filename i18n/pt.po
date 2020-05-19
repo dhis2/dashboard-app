@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-08T11:33:46.174Z\n"
+"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Sheila André <sandre@saudigitus.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -98,6 +98,9 @@ msgstr "Não foi possível carregar o plug-in para este item"
 msgid "No data to display"
 msgstr "Não há dados para exibir"
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -113,14 +116,20 @@ msgstr "Não há itens neste painel"
 msgid "Search for items to add to this dashboard"
 msgstr "Procurar itens para adicionar a este painel"
 
-msgid "See"
-msgstr "Ver"
+msgid "See fewer {{itemTypes}}"
+msgstr ""
 
-msgid "fewer"
-msgstr "menos"
+msgid "See more {{itemTypes}}"
+msgstr ""
 
-msgid "more"
-msgstr "mais"
+msgid "Add"
+msgstr ""
+
+msgid "+ ADD"
+msgstr ""
+
+msgid "Additional items"
+msgstr ""
 
 msgid "Text box"
 msgstr "Caixa de texto"
@@ -137,14 +146,14 @@ msgstr "Adicionar título aqui"
 msgid "Add description here"
 msgstr "Adicionar a descrição aqui"
 
-msgid "No description"
-msgstr "Sem descrição"
-
 msgid "Edit"
 msgstr "Editar"
 
 msgid "Share"
 msgstr "Partilha"
+
+msgid "No description"
+msgstr "Sem descrição"
 
 msgid "Pivot tables"
 msgstr "Tabelas Pivô"
@@ -172,6 +181,9 @@ msgstr "Gráficos de eventos"
 
 msgid "Event Visualizer"
 msgstr "Visualizador de Eventos"
+
+msgid "Apps"
+msgstr ""
 
 msgid "Reports"
 msgstr "Relatórios"

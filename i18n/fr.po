@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-08T11:33:46.174Z\n"
+"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -103,6 +103,9 @@ msgstr "Impossible de charger le plugin pour cet objet"
 msgid "No data to display"
 msgstr "Aucune donnée à afficher"
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -118,14 +121,20 @@ msgstr "Il n'y a aucun élément sur ce tableau de bord"
 msgid "Search for items to add to this dashboard"
 msgstr "Rechercher des éléments à ajouter à ce tableau de bord"
 
-msgid "See"
-msgstr "Voir"
+msgid "See fewer {{itemTypes}}"
+msgstr ""
 
-msgid "fewer"
-msgstr "moins"
+msgid "See more {{itemTypes}}"
+msgstr ""
 
-msgid "more"
-msgstr "plus"
+msgid "Add"
+msgstr ""
+
+msgid "+ ADD"
+msgstr ""
+
+msgid "Additional items"
+msgstr ""
 
 msgid "Text box"
 msgstr "Zone de texte"
@@ -142,14 +151,14 @@ msgstr "Ajouter un titre ici"
 msgid "Add description here"
 msgstr "Ajouter une description ici"
 
-msgid "No description"
-msgstr "Aucune description"
-
 msgid "Edit"
 msgstr "Modifier"
 
 msgid "Share"
 msgstr "Partager"
+
+msgid "No description"
+msgstr "Aucune description"
 
 msgid "Pivot tables"
 msgstr "Tableaux croisés dynamiques"
@@ -177,6 +186,9 @@ msgstr "Tableaux d'événements"
 
 msgid "Event Visualizer"
 msgstr "Visualiseur d'évènements"
+
+msgid "Apps"
+msgstr ""
 
 msgid "Reports"
 msgstr "Rapports"

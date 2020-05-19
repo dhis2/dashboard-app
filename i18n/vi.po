@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-08T11:33:46.174Z\n"
+"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -97,6 +97,9 @@ msgstr "Không thể tải plugin cho mục này"
 msgid "No data to display"
 msgstr "Không có dữ liệu hiển thị"
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Hủy"
 
@@ -112,13 +115,19 @@ msgstr "Không có mục nào trong bảng điều khiển này"
 msgid "Search for items to add to this dashboard"
 msgstr "Tìm mục để thêm vào bảng điều khiển này"
 
-msgid "See"
+msgid "See fewer {{itemTypes}}"
 msgstr ""
 
-msgid "fewer"
+msgid "See more {{itemTypes}}"
 msgstr ""
 
-msgid "more"
+msgid "Add"
+msgstr ""
+
+msgid "+ ADD"
+msgstr ""
+
+msgid "Additional items"
 msgstr ""
 
 msgid "Text box"
@@ -136,14 +145,14 @@ msgstr ""
 msgid "Add description here"
 msgstr ""
 
-msgid "No description"
-msgstr "Không mô tả"
-
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
 msgid "Share"
 msgstr "Chia sẻ"
+
+msgid "No description"
+msgstr "Không mô tả"
 
 msgid "Pivot tables"
 msgstr "Bảng xoay"
@@ -171,6 +180,9 @@ msgstr "Biểu Đồ Sự Kiện"
 
 msgid "Event Visualizer"
 msgstr "Biểu đồ sự kiện"
+
+msgid "Apps"
+msgstr ""
 
 msgid "Reports"
 msgstr "Báo cáo tổng hợp"

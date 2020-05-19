@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-08T11:33:46.174Z\n"
+"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
@@ -93,6 +93,9 @@ msgstr ""
 msgid "No data to display"
 msgstr ""
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Cancel"
 msgstr "ຍົກເລີກ"
 
@@ -108,13 +111,19 @@ msgstr "ບໍ່່ທັນມີລາຍການໃນກະດານຂ່
 msgid "Search for items to add to this dashboard"
 msgstr "ຄົ້ນຫາລາຍການແລະບັນທຶກລົງກະດານຂ່າວ"
 
-msgid "See"
+msgid "See fewer {{itemTypes}}"
 msgstr ""
 
-msgid "fewer"
+msgid "See more {{itemTypes}}"
 msgstr ""
 
-msgid "more"
+msgid "Add"
+msgstr ""
+
+msgid "+ ADD"
+msgstr ""
+
+msgid "Additional items"
 msgstr ""
 
 msgid "Text box"
@@ -132,14 +141,14 @@ msgstr ""
 msgid "Add description here"
 msgstr ""
 
-msgid "No description"
-msgstr "ບໍ່ມີລາຍລະອຽດ"
-
 msgid "Edit"
 msgstr "ແກ້ໄຂ"
 
 msgid "Share"
 msgstr "ແຈກ"
+
+msgid "No description"
+msgstr "ບໍ່ມີລາຍລະອຽດ"
 
 msgid "Pivot tables"
 msgstr "ຕາຕະລາງຂໍ້ມູນ"
@@ -167,6 +176,9 @@ msgstr "ບົດລາຍງານເຫດການແບບແຜ່ນວາ
 
 msgid "Event Visualizer"
 msgstr "​ສະ​ພາບ​ກ່ຽວ​ກັບ​ການ​ສະ​ແດງ​ຮູບ​ພາບ"
+
+msgid "Apps"
+msgstr ""
 
 msgid "Reports"
 msgstr "ລາຍ​ງານ​"

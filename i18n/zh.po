@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-08T11:33:46.174Z\n"
+"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -95,6 +95,9 @@ msgstr "不能载入该条目的插件"
 msgid "No data to display"
 msgstr "没有数据可显示"
 
+msgid "View in {{appName}} app"
+msgstr ""
+
 msgid "Cancel"
 msgstr "取消"
 
@@ -110,14 +113,20 @@ msgstr "该仪表盘没有条目"
 msgid "Search for items to add to this dashboard"
 msgstr "搜索条目添加到仪表盘"
 
-msgid "See"
-msgstr "查看"
+msgid "See fewer {{itemTypes}}"
+msgstr ""
 
-msgid "fewer"
-msgstr "较少"
+msgid "See more {{itemTypes}}"
+msgstr ""
 
-msgid "more"
-msgstr "较多"
+msgid "Add"
+msgstr ""
+
+msgid "+ ADD"
+msgstr ""
+
+msgid "Additional items"
+msgstr ""
 
 msgid "Text box"
 msgstr "文本框"
@@ -134,14 +143,14 @@ msgstr "添加标题"
 msgid "Add description here"
 msgstr "添加描述"
 
-msgid "No description"
-msgstr "没有描述"
-
 msgid "Edit"
 msgstr "编辑"
 
 msgid "Share"
 msgstr "分享"
+
+msgid "No description"
+msgstr "没有描述"
 
 msgid "Pivot tables"
 msgstr "透视表"
@@ -169,6 +178,9 @@ msgstr "事件图表"
 
 msgid "Event Visualizer"
 msgstr "事件可视化"
+
+msgid "Apps"
+msgstr ""
 
 msgid "Reports"
 msgstr "报表管理"
