@@ -1,14 +1,15 @@
 # 
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2019
+# phil_dhis2, 2020
+# Wanda <wanda@frontlineaids.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: Wanda <wanda@frontlineaids.org>, 2020\n"
 "Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,7 +122,7 @@ msgid "See more {{itemTypes}}"
 msgstr ""
 
 msgid "Add"
-msgstr ""
+msgstr "Додати"
 
 msgid "+ ADD"
 msgstr ""
@@ -181,7 +182,7 @@ msgid "Event Visualizer"
 msgstr "Візуалізатор подій"
 
 msgid "Apps"
-msgstr ""
+msgstr "Застосунки"
 
 msgid "Reports"
 msgstr "Звіти"

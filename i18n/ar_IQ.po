@@ -129,7 +129,7 @@ msgid "+ ADD"
 msgstr ""
 
 msgid "Additional items"
-msgstr ""
+msgstr "عناصر إضافية"
 
 msgid "Text box"
 msgstr "مربع نص"
@@ -183,7 +183,7 @@ msgid "Event Visualizer"
 msgstr "التحليل المرئي للأحداث"
 
 msgid "Apps"
-msgstr ""
+msgstr "التطبيقات"
 
 msgid "Reports"
 msgstr "التقارير"

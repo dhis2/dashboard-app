@@ -1,7 +1,7 @@
 # 
 # Translators:
-# phil_dhis2, 2019
 # Viktor Varland <viktor@dhis2.org>, 2019
+# phil_dhis2, 2020
 # Hamza Assada <7amza.it@gmail.com>, 2020
 # 
 msgid ""
@@ -125,13 +125,13 @@ msgid "See more {{itemTypes}}"
 msgstr ""
 
 msgid "Add"
-msgstr ""
+msgstr "إضافة"
 
 msgid "+ ADD"
 msgstr ""
 
 msgid "Additional items"
-msgstr ""
+msgstr "عناصر إضافية"
 
 msgid "Text box"
 msgstr "مربع نص"
@@ -185,7 +185,7 @@ msgid "Event Visualizer"
 msgstr "التحليل المرئي للأحداث"
 
 msgid "Apps"
-msgstr ""
+msgstr "التطبيقات"
 
 msgid "Reports"
 msgstr "التقارير"

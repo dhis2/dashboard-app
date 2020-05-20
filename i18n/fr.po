@@ -1,10 +1,10 @@
 # 
 # Translators:
 # Matthieu Pinard <matthieu@pinard.no>, 2019
-# phil_dhis2, 2019
 # a270031086f2a0d3514bc0cb507b48f6, 2019
 # Viktor Varland <viktor@dhis2.org>, 2019
 # Karoline Tufte Lien <karoline@dhis2.org>, 2020
+# phil_dhis2, 2020
 # Edem Kossi <ekossi@hispwca.org>, 2020
 # 
 msgid ""
@@ -128,13 +128,13 @@ msgid "See more {{itemTypes}}"
 msgstr ""
 
 msgid "Add"
-msgstr ""
+msgstr "Add"
 
 msgid "+ ADD"
 msgstr ""
 
 msgid "Additional items"
-msgstr ""
+msgstr "Objets additionnels"
 
 msgid "Text box"
 msgstr "Zone de texte"
@@ -188,7 +188,7 @@ msgid "Event Visualizer"
 msgstr "Visualiseur d'évènements"
 
 msgid "Apps"
-msgstr ""
+msgstr "Apps"
 
 msgid "Reports"
 msgstr "Rapports"

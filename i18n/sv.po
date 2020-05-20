@@ -2,14 +2,14 @@
 # Translators:
 # Jason Pickering <jason@dhis2.org>, 2019
 # Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2019
+# phil_dhis2, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Swedish (https://www.transifex.com/hisp-uio/teams/100509/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -120,7 +120,7 @@ msgid "See more {{itemTypes}}"
 msgstr ""
 
 msgid "Add"
-msgstr ""
+msgstr "Lägg till"
 
 msgid "+ ADD"
 msgstr ""
@@ -180,7 +180,7 @@ msgid "Event Visualizer"
 msgstr "händelse Visualizer"
 
 msgid "Apps"
-msgstr ""
+msgstr "appar"
 
 msgid "Reports"
 msgstr "rapporter"

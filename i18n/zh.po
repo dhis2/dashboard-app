@@ -1,8 +1,8 @@
 # 
 # Translators:
-# phil_dhis2, 2019
 # Viktor Varland <viktor@dhis2.org>, 2019
 # easylin <lin_xd@126.com>, 2020
+# phil_dhis2, 2020
 # 晓东 林 <13981924470@126.com>, 2020
 # 
 msgid ""
@@ -120,13 +120,13 @@ msgid "See more {{itemTypes}}"
 msgstr ""
 
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 msgid "+ ADD"
 msgstr ""
 
 msgid "Additional items"
-msgstr ""
+msgstr "其它条目"
 
 msgid "Text box"
 msgstr "文本框"
@@ -180,7 +180,7 @@ msgid "Event Visualizer"
 msgstr "事件可视化"
 
 msgid "Apps"
-msgstr ""
+msgstr "应用"
 
 msgid "Reports"
 msgstr "报表管理"
