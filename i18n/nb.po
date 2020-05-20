@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Caroline Hesthagen Holen <caroline@devotta.no>, 2020
 # Karoline Tufte Lien <karoline@dhis2.org>, 2020
+# Caroline Hesthagen Holen <caroline@devotta.no>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
-"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
+"Last-Translator: Caroline Hesthagen Holen <caroline@devotta.no>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -97,7 +97,7 @@ msgid "No data to display"
 msgstr "Ingen data å vise"
 
 msgid "View in {{appName}} app"
-msgstr ""
+msgstr "Vis i {{appName}} -app"
 
 msgid "Cancel"
 msgstr "Avbryt"
@@ -121,13 +121,13 @@ msgid "See more {{itemTypes}}"
 msgstr ""
 
 msgid "Add"
-msgstr ""
+msgstr "Legg til"
 
 msgid "+ ADD"
 msgstr ""
 
 msgid "Additional items"
-msgstr ""
+msgstr "Ytterligere elementer"
 
 msgid "Text box"
 msgstr "Tekstboks"
@@ -181,7 +181,7 @@ msgid "Event Visualizer"
 msgstr "Hendelsesvisualizer"
 
 msgid "Apps"
-msgstr ""
+msgstr "Applikasjoner"
 
 msgid "Reports"
 msgstr "Rapporter"

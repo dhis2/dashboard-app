@@ -1,8 +1,8 @@
 # 
 # Translators:
-# phil_dhis2, 2019
-# Viktor Varland <viktor@dhis2.org>, 2019
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
+# phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # Sheila André <sandre@saudigitus.org>, 2020
 # 
 msgid ""
@@ -123,13 +123,13 @@ msgid "See more {{itemTypes}}"
 msgstr ""
 
 msgid "Add"
-msgstr ""
+msgstr "Adicionar"
 
 msgid "+ ADD"
 msgstr ""
 
 msgid "Additional items"
-msgstr ""
+msgstr "Itens adicionais"
 
 msgid "Text box"
 msgstr "Caixa de texto"
@@ -183,7 +183,7 @@ msgid "Event Visualizer"
 msgstr "Visualizador de Eventos"
 
 msgid "Apps"
-msgstr ""
+msgstr "Aplicações"
 
 msgid "Reports"
 msgstr "Relatórios"
