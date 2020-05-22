@@ -999,10 +999,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@dhis2/analytics@^4.0.1", "@dhis2/analytics@^4.3.25":
-  version "4.3.26"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.26.tgz#93213eb908d85afe067ecb64ae3b281364626e24"
-  integrity sha512-39klE4G4CkO1vDezdUNTy4dXJA85g8KRGUduFROrLbJGbU+EtqIllzc5TsW08lZK2LaHqq6FmJNd0CF5iL1SLw==
+"@dhis2/analytics@^4.0.1", "@dhis2/analytics@^4.3.25", "@dhis2/analytics@^4.3.28":
+  version "4.3.29"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.29.tgz#4bcfe025c4ffccb1f2ff59c7097318781231ef3a"
+  integrity sha512-MgMIEioNL90P9BVix0u27SAL/0qe+GxE0Zk3vSyBYue3iQs3UrqPonbP0LPGKwoIjmxdL9/CSkeD8SWgS8BeWA==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.5.9"
@@ -1257,14 +1257,13 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^34.3.34":
-  version "34.3.34"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-34.3.34.tgz#6eeef5d6033100f6b897cfba3ae4a45ee238332f"
-  integrity sha512-/IXaIBzWDwbyqFxKSPKuXg/NPGdiydz+U+zaXJTCj9DHKkJmDeIoGj06KD7UhG4yZHpjWYOhcV5Fj/ywcJ5ckw==
+"@dhis2/data-visualizer-plugin@^34.3.49":
+  version "34.3.49"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-34.3.49.tgz#78e4b3b98df47f53530342e946dbf02193a2b25b"
+  integrity sha512-bm5RfZWFmzDAoWiQynpUwyj+WQLGcrRQC2fuhJI+HpO6tu83jb97peVeW+Gqp2H59I0nAI+CyVDXt8gx5jQEng==
   dependencies:
-    "@dhis2/analytics" "^4.3.25"
-    "@material-ui/core" "^3.1.2"
-    d2-analysis "33.2.11"
+    "@dhis2/analytics" "^4.3.28"
+    d2-analysis "33.2.15"
     lodash-es "^4.17.11"
 
 "@dhis2/prop-types@^1.6", "@dhis2/prop-types@^1.6.4":
@@ -1349,7 +1348,7 @@
     mkdirp "^0.5.1"
     rimraf "^2.5.2"
 
-"@material-ui/core@^3.1.2", "@material-ui/core@^3.3.1", "@material-ui/core@^3.9.2", "@material-ui/core@^3.9.3":
+"@material-ui/core@^3.3.1", "@material-ui/core@^3.9.2", "@material-ui/core@^3.9.3":
   version "3.9.4"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-3.9.4.tgz#5297fd4ad9e739a87da4a6d34fc4af5396886e13"
   integrity sha512-r8QFLSexcYZbnqy/Hn4v8xzmAJV41yaodUVjmbGLi1iGDLG3+W941hEtEiBmxTRRqv2BdK3r4ijILcqKmDv/Sw==
@@ -4029,10 +4028,10 @@ cyclist@~0.2.2:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
-d2-analysis@33.2.11:
-  version "33.2.11"
-  resolved "https://registry.yarnpkg.com/d2-analysis/-/d2-analysis-33.2.11.tgz#11d430df739fdbed60e5c22422b62f081f2e4048"
-  integrity sha512-nkAGQbGquEOBDA1o0f75tHKPhZjAiibdTMmeB25PZkqaZD7PeWp8gSuExLXSoBJAWhPCg5lJJRANelY67y8MeQ==
+d2-analysis@33.2.15:
+  version "33.2.15"
+  resolved "https://registry.yarnpkg.com/d2-analysis/-/d2-analysis-33.2.15.tgz#6320e1b7d4a245a09785803992d01cffc14c5c67"
+  integrity sha512-oMMzwC58UEcFiLR+q/c1r5pdaiFE11AnIswkOhnqAtYIMUOMiMkjrjt413Z6c0cpUNJz8myvRgHk6GUfd7RsEA==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^5.1.0"
     d2-utilizr "^0.2.16"
