@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Karoline Tufte Lien <karoline@dhis2.org>, 2020
 # Caroline Hesthagen Holen <caroline@devotta.no>, 2020
+# Karoline Tufte Lien <karoline@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
-"Last-Translator: Caroline Hesthagen Holen <caroline@devotta.no>, 2020\n"
+"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -115,16 +115,16 @@ msgid "Search for items to add to this dashboard"
 msgstr "Søk etter elementer du vil legge til i dette dashbordet"
 
 msgid "See fewer {{itemTypes}}"
-msgstr ""
+msgstr "Se færre {{itemTypes}}"
 
 msgid "See more {{itemTypes}}"
-msgstr ""
+msgstr "Se flere {{itemTypes}}"
 
 msgid "Add"
 msgstr "Legg til"
 
 msgid "+ ADD"
-msgstr ""
+msgstr "+ LEGG TIL"
 
 msgid "Additional items"
 msgstr "Ytterligere elementer"
