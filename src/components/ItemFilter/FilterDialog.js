@@ -37,7 +37,7 @@ class FilterDialog extends Component {
                 return (
                     <PeriodDimension
                         selectedPeriods={selectedItems}
-                        {...commonProps}
+                        onSelect={commonProps.onSelect}
                     />
                 );
             }
