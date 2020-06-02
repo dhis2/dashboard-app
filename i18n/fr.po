@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-03-11T02:00:02.349Z\n"
+"POT-Creation-Date: 2020-05-19T19:20:59.404Z\n"
 "PO-Revision-Date: 2020-03-02 13:27+0000\n"
 "Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -165,17 +165,20 @@ msgstr "Titre du tableau de bord"
 msgid "Dashboard description"
 msgstr "Description du tableau de bord"
 
-msgid "No description"
-msgstr "Aucune description"
-
 msgid "Edit"
 msgstr "Modifier"
 
 msgid "Share"
 msgstr "Partager"
 
+msgid "No description"
+msgstr "Aucune description"
+
 msgid "Visualizations"
 msgstr "Visualisations"
+
+msgid "Data Visualizer"
+msgstr ""
 
 msgid "Pivot tables"
 msgstr "Tableaux croisés dynamiques"
@@ -189,8 +192,14 @@ msgstr "Cartes"
 msgid "Event reports"
 msgstr "Rapports d'événements"
 
+msgid "Event Reports"
+msgstr ""
+
 msgid "Event charts"
 msgstr "Graphiques d'événements"
+
+msgid "Event Visualizer"
+msgstr ""
 
 msgid "Apps"
 msgstr "Apps"
