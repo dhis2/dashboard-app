@@ -5,15 +5,21 @@ import {
 } from '@dhis2/analytics';
 
 export const SET_DIMENSIONS = 'SET_DIMENSIONS';
-export const DEFAULT_DIMENSIONS = [
-    getDimensionById(DIMENSION_ID_PERIOD),
-    getDimensionById(DIMENSION_ID_ORGUNIT),
-];
 
-export default (state = DEFAULT_DIMENSIONS, action) => {
+export const getDefaultDimensions = () =>
+    [DIMENSION_ID_PERIOD, DIMENSION_ID_ORGUNIT].map(dimensionId => {
+        const { id, iconName, name } = getDimensionById(dimensionId);
+        return {
+            id,
+            iconName,
+            name: name(),
+        };
+    });
+
+export default (state = getDefaultDimensions(), action) => {
     switch (action.type) {
         case SET_DIMENSIONS: {
-            return [...DEFAULT_DIMENSIONS, ...action.value];
+            return [...getDefaultDimensions(), ...action.value];
         }
         default:
             return state;

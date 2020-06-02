@@ -45,7 +45,7 @@ export const isTrackerDomainType = itemType =>
     itemTypeMap[itemType].domainType === DOMAIN_TYPE_TRACKER;
 export const getDefaultItemCount = itemType =>
     itemTypeMap[itemType].defaultItemCount || 5;
-export const getAppName = itemType => itemTypeMap[itemType].appName || '';
+export const getAppName = itemType => itemTypeMap[itemType].appName() || '';
 
 // Item type map
 export const itemTypeMap = {
@@ -53,96 +53,100 @@ export const itemTypeMap = {
         id: VISUALIZATION,
         endPointName: 'visualizations',
         propName: 'visualization',
-        pluralTitle: i18n.t('Visualizations'),
+        pluralTitle: () => i18n.t('Visualizations'),
         appUrl: id => `dhis-web-data-visualizer/#/${id}`,
-        appName: 'Data Visualizer',
+        appName: () => i18n.t('Data Visualizer'),
         defaultItemCount: 10,
     },
     [REPORT_TABLE]: {
         id: REPORT_TABLE,
         endPointName: 'visualizations',
         propName: 'visualization',
-        pluralTitle: i18n.t('Pivot tables'),
+        pluralTitle: () => i18n.t('Pivot tables'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
         appUrl: id => `dhis-web-data-visualizer/#/${id}`,
-        appName: 'Data Visualizer',
+        appName: () => i18n.t('Data Visualizer'),
     },
     [CHART]: {
         id: CHART,
         endPointName: 'visualizations',
         propName: 'visualization',
-        pluralTitle: i18n.t('Charts'),
+        pluralTitle: () => i18n.t('Charts'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
         appUrl: id => `dhis-web-data-visualizer/#/${id}`,
-        appName: 'Data Visualizer',
+        appName: () => i18n.t('Data Visualizer'),
     },
     [MAP]: {
         id: MAP,
         endPointName: 'maps',
         propName: 'map',
-        pluralTitle: i18n.t('Maps'),
+        pluralTitle: () => i18n.t('Maps'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
         appUrl: id => `dhis-web-maps/?id=${id}`,
-        appName: 'Maps',
+        appName: () => i18n.t('Maps'),
     },
     [EVENT_REPORT]: {
         id: EVENT_REPORT,
         endPointName: 'eventReports',
         propName: 'eventReport',
-        pluralTitle: i18n.t('Event reports'),
+        pluralTitle: () => i18n.t('Event reports'),
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
         appUrl: id => `dhis-web-event-reports/?id=${id}`,
-        appName: 'Event Reports',
+        appName: () => i18n.t('Event Reports'),
     },
     [EVENT_CHART]: {
         id: EVENT_CHART,
         endPointName: 'eventCharts',
         propName: 'eventChart',
-        pluralTitle: i18n.t('Event charts'),
+        pluralTitle: () => i18n.t('Event charts'),
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
         appUrl: id => `dhis-web-event-visualizer/?id=${id}`,
-        appName: 'Event Visualizer',
+        appName: () => i18n.t('Event Visualizer'),
     },
     [APP]: {
         endPointName: 'apps',
         propName: 'appKey',
-        pluralTitle: i18n.t('Apps'),
+        pluralTitle: () => i18n.t('Apps'),
+        appName: Function.prototype,
     },
     [REPORTS]: {
         id: REPORTS,
         endPointName: 'reports',
         propName: 'reports',
-        pluralTitle: i18n.t('Reports'),
+        pluralTitle: () => i18n.t('Reports'),
         appUrl: (id, type) => {
-            switch(type) {
+            switch (type) {
                 case 'HTML':
                     return `dhis-web-reports/#/standard-report/view/${id}`;
 
                 case 'JASPER_REPORT_TABLE':
                 case 'JASPER_JDBC':
                 default:
-                    return `api/reports/${id}/data.pdf?t=${(new Date()).getTime()}`;
+                    return `api/reports/${id}/data.pdf?t=${new Date().getTime()}`;
             }
         },
+        appName: Function.prototype,
     },
     [RESOURCES]: {
         id: RESOURCES,
         endPointName: 'resources',
         propName: 'resources',
-        pluralTitle: i18n.t('Resources'),
+        pluralTitle: () => i18n.t('Resources'),
         appUrl: id => `api/documents/${id}/data`,
+        appName: Function.prototype,
     },
     [USERS]: {
         id: USERS,
         endPointName: 'users',
         propName: 'users',
-        pluralTitle: i18n.t('Users'),
+        pluralTitle: () => i18n.t('Users'),
         appUrl: id => `dhis-web-dashboard-integration/profile.action?id=${id}`,
+        appName: Function.prototype,
     },
     [TEXT]: {
         id: TEXT,
@@ -166,7 +170,10 @@ export const getItemUrl = (type, item, d2) => {
     }
 
     if (itemTypeMap[type] && itemTypeMap[type].appUrl) {
-        url = `${getBaseUrl(d2)}/${itemTypeMap[type].appUrl(item.id, item.type)}`;
+        url = `${getBaseUrl(d2)}/${itemTypeMap[type].appUrl(
+            item.id,
+            item.type
+        )}`;
     }
 
     return url;
