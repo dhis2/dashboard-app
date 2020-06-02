@@ -1295,12 +1295,12 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-translation-dialog@^6.0.1":
-  version "6.5.7"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-6.5.7.tgz#eca4fd4b07d28d3879be5bfaf1dfa310516c9bb5"
-  integrity sha512-wI0kPvAHJqIrQIVxmkNzg22/CvZNymdpBWMSNAcdLkaKQq3n4whNF0KWfFZm0gqVTkWjbAw4Jbtm8rO/T4VbLA==
+"@dhis2/d2-ui-translation-dialog@^7.0.3":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-7.0.3.tgz#d018861b00c72f6e4fa759c6579385f300c9873c"
+  integrity sha512-da6Y6HUZI5O9A8P2rN2Kp5ESl0feqE/n5HNYk2WsyLoAg18LicYw/lBrOOfziFl2DPy44a741pEyy5U8J0PXMQ==
   dependencies:
-    "@dhis2/d2-ui-core" "6.5.7"
+    "@dhis2/d2-ui-core" "7.0.3"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
