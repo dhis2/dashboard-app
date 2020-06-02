@@ -1099,7 +1099,7 @@
     semver "^6.3.0"
     yargs "^14.2.0"
 
-"@dhis2/d2-i18n-extract@^1.0.7", "@dhis2/d2-i18n-extract@^1.0.8":
+"@dhis2/d2-i18n-extract@^1.0.8":
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n-extract/-/d2-i18n-extract-1.0.8.tgz#9d98690d522a51895c8ef3fe7136f026b0f8dacd"
   integrity sha512-wjQ5J0v8Td12+KcQYSuuZ1tQLReXJ1gBSqkyImf2aNtLwJKERaTOjZ71da+GXdHtd6ph/DP1ezQvFDFKhBHa/A==
@@ -1108,7 +1108,7 @@
     i18next-conv "^6.0.0"
     i18next-scanner "^2.4.4"
 
-"@dhis2/d2-i18n-generate@^1.1.1", "@dhis2/d2-i18n-generate@^1.2.0":
+"@dhis2/d2-i18n-generate@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n-generate/-/d2-i18n-generate-1.2.0.tgz#4b7944eb4046bb1452b9ce7598b13b5c5b80c984"
   integrity sha512-1jdcRs6ZA+WvK2h93y4nGSPAnvqlhAMR5YMEv4+c7bs6fjcG7UHevIK8xdm95hRATYGVhbegQRIuNWWAQ8/ylw==
@@ -1159,17 +1159,14 @@
     material-ui "^0.20.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-interpretations@^6.5.7":
-  version "6.5.7"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-6.5.7.tgz#2090213ed0ebc46012e871977003bd2c4bcfddbf"
-  integrity sha512-NrpvjCqfg6fm8tuqiI9e6EHI1lnzAOeB7qSNjJBtGDlIxaxE5s2zkHZc5bdE7bbql5BpXRzFTzIMq3b/aw3Atw==
+"@dhis2/d2-ui-interpretations@^7.0.3":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-7.0.3.tgz#b8d2099315e4140354193d18dda0ab7848385eb7"
+  integrity sha512-KiHb/Q5WKM2YuLH0fLQW3PpiX2rx3quGpTPoBHIEWruihZvo7cPqkZNTEn4YHR+8YmQ+Dcbeqh3n6NIjzkDe3Q==
   dependencies:
-    "@dhis2/d2-i18n" "^1.0.3"
-    "@dhis2/d2-i18n-extract" "^1.0.7"
-    "@dhis2/d2-i18n-generate" "^1.1.1"
-    "@dhis2/d2-ui-mentions-wrapper" "6.5.7"
-    "@dhis2/d2-ui-rich-text" "6.5.7"
-    "@dhis2/d2-ui-sharing-dialog" "6.5.7"
+    "@dhis2/d2-ui-mentions-wrapper" "7.0.3"
+    "@dhis2/d2-ui-rich-text" "7.0.3"
+    "@dhis2/d2-ui-sharing-dialog" "7.0.3"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -1179,17 +1176,7 @@
     prop-types "^15.5.10"
     react-portal "^4.1.5"
 
-"@dhis2/d2-ui-mentions-wrapper@6.5.7":
-  version "6.5.7"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-6.5.7.tgz#64db360f33f511ea78c0bd593a5948c7c3aac4e9"
-  integrity sha512-LgN3vwf9e7tZiw4aw8/AuQRS5MtCzrpCRPlW2MdzVfMkOM9Gl6tvm8lp0anX+5zW0vPOg6qHI8NsuOBlah3Qfg==
-  dependencies:
-    "@dhis2/d2-i18n" "^1.0.3"
-    "@material-ui/core" "^3.3.1"
-    lodash "^4.17.10"
-    prop-types "^15.6.2"
-
-"@dhis2/d2-ui-mentions-wrapper@^7.0.3":
+"@dhis2/d2-ui-mentions-wrapper@7.0.3", "@dhis2/d2-ui-mentions-wrapper@^7.0.3":
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-7.0.3.tgz#ea67c6a920cf015542b6acb50a1441142eb47b7f"
   integrity sha512-hFxUYnub3p4DjsREKv4gZgrSi/NCfOOoIQT+DJOOj9ZwhVCGZPnOLgXamwdT2kBar9yFXy7AHppBYqwBGBKokQ==
@@ -1262,10 +1249,10 @@
     babel-runtime "^6.26.0"
     prop-types "^15.6.0"
 
-"@dhis2/d2-ui-rich-text@6.5.7":
-  version "6.5.7"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-6.5.7.tgz#daabf22b78a149a4c3c2023930eeefafbb97e8e6"
-  integrity sha512-FGt8wquMzdgxqc/30mtiH04cVsdmiPotwiKN+4qlca76GCEwOt8aycRcuPRLkmXH9YnjoRL4m1AHHvXXjxq3Uw==
+"@dhis2/d2-ui-rich-text@7.0.3", "@dhis2/d2-ui-rich-text@^7.0.3":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.0.3.tgz#26c3e4ecf5dddfb3445476c56c87a62448ce229d"
+  integrity sha512-AiX6yf+AsYzSXjyXtuk7QtS/fx18vKcGvgFRaJvf7QV8HFxgkE2S8Owayj5mnTUFX6KFndTqjiXmsxn9jlKvhw==
   dependencies:
     babel-runtime "^6.26.0"
     markdown-it "^8.4.2"
@@ -1280,16 +1267,21 @@
     markdown-it "^8.4.2"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-rich-text@^7.0.3":
+"@dhis2/d2-ui-sharing-dialog@7.0.3":
   version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.0.3.tgz#26c3e4ecf5dddfb3445476c56c87a62448ce229d"
-  integrity sha512-AiX6yf+AsYzSXjyXtuk7QtS/fx18vKcGvgFRaJvf7QV8HFxgkE2S8Owayj5mnTUFX6KFndTqjiXmsxn9jlKvhw==
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-7.0.3.tgz#585b6e20ce991517b83a4a30e770f7f74b29de8e"
+  integrity sha512-Q33Rp/csZPSyEeVj7ZjN9+GrPow1D4ghf23kFYJCMvvvXUhOjkImj49XTxfxEMQwPZ+BSmNTDJeQQzYy2jV/RA==
   dependencies:
+    "@dhis2/d2-ui-core" "7.0.3"
+    "@material-ui/core" "^3.3.1"
+    "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
-    markdown-it "^8.4.2"
-    prop-types "^15.6.2"
+    downshift "^2.2.2"
+    prop-types "^15.5.10"
+    recompose "^0.26.0"
+    rxjs "^5.5.7"
 
-"@dhis2/d2-ui-sharing-dialog@6.5.7", "@dhis2/d2-ui-sharing-dialog@^6.0.1":
+"@dhis2/d2-ui-sharing-dialog@^6.0.1":
   version "6.5.7"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-6.5.7.tgz#8ef8eba2e8864dce306739f273001af4dcb727c8"
   integrity sha512-X6aMShLAmPAFyS1fJHtqdvuCoJ41qzZC58d+F32dZPmvbz9cwcgus1YfmnrG3sWTAxs+jXz9t4+Q+jUpOlWH0Q==
