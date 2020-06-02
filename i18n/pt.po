@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-03-11T02:00:02.349Z\n"
+"POT-Creation-Date: 2020-05-19T19:20:59.404Z\n"
 "PO-Revision-Date: 2020-03-02 13:27+0000\n"
 "Last-Translator: Sheila André <sandre@saudigitus.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -161,17 +161,20 @@ msgstr "Título do painel"
 msgid "Dashboard description"
 msgstr "Descrição do painel"
 
-msgid "No description"
-msgstr "Sem descrição"
-
 msgid "Edit"
 msgstr "Editar"
 
 msgid "Share"
 msgstr "Partilha"
 
+msgid "No description"
+msgstr "Sem descrição"
+
 msgid "Visualizations"
 msgstr "Visualizações"
+
+msgid "Data Visualizer"
+msgstr ""
 
 msgid "Pivot tables"
 msgstr "Tabelas Pivô"
@@ -185,8 +188,14 @@ msgstr "Mapas"
 msgid "Event reports"
 msgstr "Relatórios de eventos"
 
+msgid "Event Reports"
+msgstr ""
+
 msgid "Event charts"
 msgstr "Gráficos de eventos"
+
+msgid "Event Visualizer"
+msgstr ""
 
 msgid "Apps"
 msgstr "Aplicações"
