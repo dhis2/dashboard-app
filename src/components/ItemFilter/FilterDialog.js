@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Button } from '@dhis2/ui-core';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
+import {
+    Button,
+    Modal,
+    ModalTitle,
+    ModalContent,
+    ModalActions,
+    ButtonStrip,
+} from '@dhis2/ui-core';
 
 import i18n from '@dhis2/d2-i18n';
 
@@ -15,13 +20,10 @@ import {
     DIMENSION_ID_ORGUNIT,
 } from '@dhis2/analytics';
 
-const peId = DIMENSION_ID_PERIOD;
-const ouId = DIMENSION_ID_ORGUNIT;
-
 class FilterDialog extends Component {
     onConfirm = id => () => this.props.onConfirm(id);
 
-    dialogContent() {
+    renderDialogContent() {
         const { displayNameProperty, dimension, selectedItems } = this.props;
         const dialogId = dimension.id;
 
@@ -33,15 +35,15 @@ class FilterDialog extends Component {
         };
 
         switch (dialogId) {
-            case peId: {
+            case DIMENSION_ID_PERIOD: {
                 return (
                     <PeriodDimension
                         selectedPeriods={selectedItems}
-                        {...commonProps}
+                        onSelect={commonProps.onSelect}
                     />
                 );
             }
-            case ouId:
+            case DIMENSION_ID_ORGUNIT:
                 return (
                     <OrgUnitDimension
                         displayNameProperty={displayNameProperty}
@@ -54,7 +56,6 @@ class FilterDialog extends Component {
                     <DynamicDimension
                         selectedItems={selectedItems}
                         dialogId={dialogId}
-                        dialogTitle={dimension.name}
                         {...commonProps}
                     />
                 );
@@ -66,22 +67,29 @@ class FilterDialog extends Component {
         const dialogId = dimension.id;
 
         return (
-            <Dialog
-                open={!!dialogId}
-                maxWidth="lg"
-                disableEnforceFocus
-                onClose={onClose}
-            >
-                {dialogId && this.dialogContent()}
-                <DialogActions>
-                    <Button kind="secondary" onClick={onClose}>
-                        {i18n.t('Cancel')}
-                    </Button>
-                    <Button kind="primary" onClick={this.onConfirm(dialogId)}>
-                        {i18n.t('Confirm')}
-                    </Button>
-                </DialogActions>
-            </Dialog>
+            <>
+                {dialogId && (
+                    <Modal onClose={onClose} position="top" large>
+                        <ModalTitle>{dimension.name}</ModalTitle>
+                        <ModalContent>
+                            {this.renderDialogContent()}
+                        </ModalContent>
+                        <ModalActions>
+                            <ButtonStrip>
+                                <Button secondary onClick={onClose}>
+                                    {i18n.t('Cancel')}
+                                </Button>
+                                <Button
+                                    primary
+                                    onClick={this.onConfirm(dialogId)}
+                                >
+                                    {i18n.t('Confirm')}
+                                </Button>
+                            </ButtonStrip>
+                        </ModalActions>
+                    </Modal>
+                )}
+            </>
         );
     }
 }
