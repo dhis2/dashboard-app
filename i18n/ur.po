@@ -167,7 +167,7 @@ msgid "Visualizations"
 msgstr ""
 
 msgid "Data Visualizer"
-msgstr ""
+msgstr "ڈیٹا ویزوئلائزر"
 
 msgid "Pivot tables"
 msgstr "پیوٹ ٹیبلز"
@@ -182,13 +182,13 @@ msgid "Event reports"
 msgstr "ایونٹ رپورٹیں"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "ایونٹ ریپورٹ"
 
 msgid "Event charts"
 msgstr "ایونٹ چارٹس"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "ایونٹ ویزوئلائزر"
 
 msgid "Apps"
 msgstr "اپیز"

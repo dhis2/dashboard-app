@@ -181,13 +181,13 @@ msgid "Event reports"
 msgstr "事件报表"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "事件报表"
 
 msgid "Event charts"
 msgstr "事件图表"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "事件可视化"
 
 msgid "Apps"
 msgstr "应用"

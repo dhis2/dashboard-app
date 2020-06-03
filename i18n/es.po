@@ -1,15 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # William Aviles <waviles@clintonhealthaccess.org>, 2020
+# phil_dhis2, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-19T19:20:59.404Z\n"
 "PO-Revision-Date: 2020-03-02 13:27+0000\n"
-"Last-Translator: William Aviles <waviles@clintonhealthaccess.org>, 2020\n"
+"Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -168,7 +168,7 @@ msgid "Visualizations"
 msgstr ""
 
 msgid "Data Visualizer"
-msgstr ""
+msgstr "Visualizador de Datos"
 
 msgid "Pivot tables"
 msgstr "Tablas dinámicas"
@@ -183,13 +183,13 @@ msgid "Event reports"
 msgstr ""
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Informes de eventos"
 
 msgid "Event charts"
 msgstr ""
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "Visualizador de eventos"
 
 msgid "Apps"
 msgstr "Aplicaciones"

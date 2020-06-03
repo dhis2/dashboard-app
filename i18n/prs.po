@@ -166,7 +166,7 @@ msgid "Visualizations"
 msgstr ""
 
 msgid "Data Visualizer"
-msgstr ""
+msgstr "نمایش معلومات"
 
 msgid "Pivot tables"
 msgstr "جداول محوری"
@@ -181,13 +181,13 @@ msgid "Event reports"
 msgstr ""
 
 msgid "Event Reports"
-msgstr ""
+msgstr "گزارشات رویداد"
 
 msgid "Event charts"
 msgstr ""
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "نمایش رویداد"
 
 msgid "Apps"
 msgstr "نرم افزار"

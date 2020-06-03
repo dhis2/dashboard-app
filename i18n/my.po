@@ -165,7 +165,7 @@ msgid "Visualizations"
 msgstr ""
 
 msgid "Data Visualizer"
-msgstr ""
+msgstr "ဂရပ် ပုံစံများ"
 
 msgid "Pivot tables"
 msgstr "ကိန်းဂဏန်းပြဇယားကွက်"

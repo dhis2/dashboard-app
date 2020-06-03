@@ -172,7 +172,7 @@ msgid "Visualizations"
 msgstr "Visualiseringer"
 
 msgid "Data Visualizer"
-msgstr ""
+msgstr "Data Visualizer"
 
 msgid "Pivot tables"
 msgstr "Pivottabeller"
@@ -187,13 +187,13 @@ msgid "Event reports"
 msgstr "Hendelsesrapporter"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Hendelsesrapporter"
 
 msgid "Event charts"
 msgstr "Hendelsesdiagrammer"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "Hendelsesvisualizer"
 
 msgid "Apps"
 msgstr "Applikasjoner"

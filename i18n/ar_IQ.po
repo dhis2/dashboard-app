@@ -189,13 +189,13 @@ msgid "Event reports"
 msgstr "تقارير الحدث"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "تقارير الحدث"
 
 msgid "Event charts"
 msgstr "المخطط البياني للأحداث"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "التحليل المرئي للأحداث"
 
 msgid "Apps"
 msgstr "التطبيقات"

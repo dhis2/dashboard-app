@@ -1,7 +1,7 @@
 # 
 # Translators:
-# phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2020
 # Mai Nguyen <thanhmai.jica@gmail.com>, 2020
 # 
 msgid ""
@@ -170,7 +170,7 @@ msgid "Visualizations"
 msgstr "Mô hình hóa"
 
 msgid "Data Visualizer"
-msgstr ""
+msgstr "Trực quan hóa dữ liệu"
 
 msgid "Pivot tables"
 msgstr "Bảng xoay"
@@ -185,13 +185,13 @@ msgid "Event reports"
 msgstr "Báo Cáo Sự Kiện"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Báo cáo sự kiện"
 
 msgid "Event charts"
 msgstr "Biểu Đồ Sự Kiện"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "Biểu đồ sự kiện"
 
 msgid "Apps"
 msgstr "Ứng dụng"
