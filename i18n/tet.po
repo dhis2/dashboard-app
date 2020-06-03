@@ -1,13 +1,14 @@
+# 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2019
+# Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-12T20:02:08.021Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"POT-Creation-Date: 2020-05-19T19:20:59.404Z\n"
+"PO-Revision-Date: 2020-03-02 13:27+0000\n"
+"Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Tetum (Tetun) (https://www.transifex.com/hisp-uio/teams/100509/tet/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,10 +71,16 @@ msgstr[0] ""
 msgid "Remove"
 msgstr "Hasai"
 
+msgid "Delete item"
+msgstr ""
+
 msgid "Messages"
 msgstr "Mensajens"
 
 msgid "See all messages"
+msgstr ""
+
+msgid "Item type \"{{type}}\" not supported"
 msgstr ""
 
 msgid "Spacer"
@@ -92,7 +99,28 @@ msgstr ""
 msgid "Unable to load the plugin for this item"
 msgstr ""
 
+msgid "There was a problem loading this dashboard item"
+msgstr ""
+
 msgid "No data to display"
+msgstr ""
+
+msgid "Hide interpretations and details"
+msgstr ""
+
+msgid "Show interpretations and details"
+msgstr ""
+
+msgid "View as Chart"
+msgstr ""
+
+msgid "View as Table"
+msgstr ""
+
+msgid "View as Map"
+msgstr ""
+
+msgid "Open in {{appName}} app"
 msgstr ""
 
 msgid "Confirm"
@@ -125,20 +153,20 @@ msgstr ""
 msgid "Dashboard description"
 msgstr ""
 
-msgid "No description"
-msgstr ""
-
 msgid "Edit"
 msgstr "Edita"
 
 msgid "Share"
 msgstr "Partilla"
 
+msgid "No description"
+msgstr ""
+
 msgid "Visualizations"
 msgstr ""
 
-msgid "Visualizer"
-msgstr ""
+msgid "Data Visualizer"
+msgstr "Vizualizador Dadus"
 
 msgid "Pivot tables"
 msgstr ""
