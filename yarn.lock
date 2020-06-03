@@ -1314,22 +1314,22 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/ui-constants@5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-5.0.0.tgz#1b0ce52dc7cbe30f07554b0541887e2964a87102"
-  integrity sha512-cWyynitH9msbaBxL6i1YaUceEq4dlaU5WVzSuoR/4gqwYoAtg9Q/4kCZijEdyMJeYtEz9FP+Oi2ih4u5Whlpiw==
+"@dhis2/ui-constants@5.0.1", "@dhis2/ui-constants@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-5.0.1.tgz#6e85e8aa1790c4cb37edd7218edfe57b5de13c33"
+  integrity sha512-9YKKUUSLX4vI/StkhxmRnXglMCcWkBun0dNNQUFWV28RyJIeu9YeWlpdxHEPRvCVgcguoFwHQxJ6ULdFqYO65A==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
 
-"@dhis2/ui-core@5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-5.0.0.tgz#8fa3c163bac9f75190e3810147e807aea6d1337c"
-  integrity sha512-i58CxB92KnDyt5qAk1crsx6jGXAYJnhGNAPxApuUcW1DSynnZJGXOrdJUsELCFgmhnpeYmvbGTS8HevscD967A==
+"@dhis2/ui-core@5.0.1", "@dhis2/ui-core@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-5.0.1.tgz#cf0fc11e826c919bcb25270d1a808d6a4597ee3f"
+  integrity sha512-lZ7FC1F+LSQvYWOR2VwoOw28B98rOKT1T4YhPKzOlBkGO6TlOE5V2+VwDOFA8mPr7I0ZanQfSnmMJRoLbo4Bog==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
-    "@dhis2/ui-constants" "5.0.0"
-    "@dhis2/ui-icons" "5.0.0"
-    "@popperjs/core" "^2.1.0"
+    "@dhis2/ui-constants" "5.0.1"
+    "@dhis2/ui-icons" "5.0.1"
+    "@popperjs/core" "^2.4.0"
     classnames "^2.2.6"
     react-popper "^2.2.3"
     resize-observer-polyfill "^1.5.1"
@@ -1345,24 +1345,24 @@
     react-popper "^2.2.3"
     resize-observer-polyfill "^1.5.1"
 
-"@dhis2/ui-icons@5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-5.0.0.tgz#dfa78ca5b3fd3710a8da288f7ee009134812358d"
-  integrity sha512-FKohI/tPPoPXI03q5CsXNVXZnUSpxR1kiKD6AJtYnZjCU8tPH7LG6lNpqSouPS0HwqKBt7FM9mHl6g+fObY8VA==
+"@dhis2/ui-icons@5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-5.0.1.tgz#67ca1f0ec3b98c08986758527917df0d4aa4e78f"
+  integrity sha512-Gmh+nRsRiK3JNCB7BY/pBQAStBCX7/c/EOovUY0UzdYXhoA88pwDpRDtfhFhwaDx63rdWzs45AjEMng5DxqQNw==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
 
-"@dhis2/ui-widgets@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-5.0.0.tgz#126011c4e635aa4528e01b6238fc736b7e349095"
-  integrity sha512-Fdd4vvElhD3TM78Hj+6lY6M9CH1QLM3RzPv5BeYkZDaa/9LSm6mtV/2DYkj9f7u7BJSAmfLjKonEwsQUCFB3tw==
+"@dhis2/ui-widgets@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-5.0.1.tgz#ecb5a2ae3319cd5345450bb11dc85a3b0956b709"
+  integrity sha512-v5fRMEyXHVLvZ7dsHMFSn3HQSO0t4E6/Fd630/ja+oOw/GbDnyGfK8xayr62vu4zpjUZu14NbP5o5THTBpnSTw==
   dependencies:
     "@dhis2/app-runtime" "^2.2.1"
     "@dhis2/d2-i18n" "^1"
     "@dhis2/prop-types" "^1.6.4"
-    "@dhis2/ui-constants" "5.0.0"
-    "@dhis2/ui-core" "5.0.0"
-    "@dhis2/ui-icons" "5.0.0"
+    "@dhis2/ui-constants" "5.0.1"
+    "@dhis2/ui-core" "5.0.1"
+    "@dhis2/ui-icons" "5.0.1"
     classnames "^2.2.6"
     resize-observer-polyfill "^1.5.1"
 
@@ -1523,7 +1523,7 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@popperjs/core@^2.1.0", "@popperjs/core@^2.4.0":
+"@popperjs/core@^2.4.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.4.0.tgz#0e1bdf8d021e7ea58affade33d9d607e11365915"
   integrity sha512-NMrDy6EWh9TPdSRiHmHH2ye1v5U0gBD7pRYwSwJvomx7Bm4GG04vu63dYiVzebLOx2obPpJugew06xVP0Nk7hA==

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-constants';
 import DescriptionIcon from '../../../icons/Description';
 
 import DeleteIcon from '../../../icons/Delete';
@@ -76,9 +76,6 @@ ListItem.contextTypes = {
     d2: PropTypes.object,
 };
 
-export default connect(
-    null,
-    {
-        tRemoveListItemContent,
-    }
-)(ListItem);
+export default connect(null, {
+    tRemoveListItemContent,
+})(ListItem);

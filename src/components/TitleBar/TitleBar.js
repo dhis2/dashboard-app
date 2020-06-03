@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-constants';
 import EditTitleBar from './EditTitleBar';
 import ViewTitleBar from './ViewTitleBar';
 

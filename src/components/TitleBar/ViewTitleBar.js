@@ -6,12 +6,13 @@ import i18n from '@dhis2/d2-i18n';
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog';
 import Star from '@material-ui/icons/Star';
 import StarBorder from '@material-ui/icons/StarBorder';
+import { Button } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-constants';
 
 import { orObject } from '../../modules/util';
 import { tStarDashboard } from '../../actions/dashboards';
 import { acSetSelectedShowDescription } from '../../actions/selected';
 import FilterSelector from '../ItemFilter/FilterSelector';
-import { Button, colors } from '@dhis2/ui-core';
 import Info from './Info';
 import {
     sGetSelectedId,
@@ -173,8 +174,4 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     };
 };
 
-export default connect(
-    mapStateToProps,
-    null,
-    mergeProps
-)(ViewTitleBar);
+export default connect(mapStateToProps, null, mergeProps)(ViewTitleBar);

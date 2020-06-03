@@ -1,5 +1,6 @@
 import React from 'react';
-import { MenuItem, colors } from '@dhis2/ui-core';
+import { MenuItem } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-constants';
 import i18n from '@dhis2/d2-i18n';
 import PropTypes from 'prop-types';
 import { visTypeIcons } from '@dhis2/analytics';

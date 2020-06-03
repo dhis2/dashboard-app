@@ -7,7 +7,8 @@ import {
     VIS_TYPE_GAUGE,
     VIS_TYPE_PIE,
 } from '@dhis2/analytics';
-import { Button, Menu, MenuItem, Divider, colors } from '@dhis2/ui-core';
+import { Button, Menu, MenuItem, Divider } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-constants';
 import i18n from '@dhis2/d2-i18n';
 import Popover from '@material-ui/core/Popover';
 import TableIcon from '@material-ui/icons/ViewList';

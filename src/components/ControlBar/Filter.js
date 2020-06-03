@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import InputField from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-constants';
 
 import ClearButton from './ClearButton';
 import { DEFAULT_STATE_DASHBOARDS_FILTER_NAME } from '../../reducers/dashboardsFilter';

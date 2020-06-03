@@ -5,7 +5,7 @@ import i18n from '@dhis2/d2-i18n';
 
 import { sGetMessagesRoot } from '../../../reducers/messages';
 import { formatDate } from '../../../modules/util';
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-constants';
 import ItemHeader from '../ItemHeader';
 import Line from '../../../widgets/Line';
 
@@ -145,9 +145,6 @@ const mapStateToProps = state => {
     };
 };
 
-const MessagesContainer = connect(
-    mapStateToProps,
-    null
-)(MessagesItem);
+const MessagesContainer = connect(mapStateToProps, null)(MessagesItem);
 
 export default MessagesContainer;
