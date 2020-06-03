@@ -12,7 +12,7 @@
         "@dhis2/d2-ui-interpretations": "^7.0.3",
         "@dhis2/d2-ui-mentions-wrapper": "^7.0.3",
         "@dhis2/d2-ui-rich-text": "^7.0.3",
-        "@dhis2/d2-ui-sharing-dialog": "^6.0.1",
+        "@dhis2/d2-ui-sharing-dialog": "^7.0.3",
         "@dhis2/d2-ui-translation-dialog": "^7.0.3",
         "@dhis2/data-visualizer-plugin": "^34.4.1",
         "@dhis2/ui-core": "^4.21.1",
