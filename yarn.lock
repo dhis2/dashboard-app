@@ -1028,14 +1028,12 @@
     resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^5.1.3":
-  version "5.1.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-5.1.6.tgz#4ea54a8ac7f0f942c6e77b1343c400277952aeff"
-  integrity sha512-ivf3yYQ3w64IBMvXuxTjMU4/lbGWDXPyskVnkQp2XVn724S2feM1rZhyKwU4B5U+4MYR8xMMgTzU5tJ8mno4tQ==
+"@dhis2/analytics@^6.0.2":
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-6.0.3.tgz#5875621a5ae92565f23603b156f86253c582740a"
+  integrity sha512-ctLGJpHLI5cCn+9ryA5m1B7euH7Hgofl4rFKTLjyKUCIAprojgDKf/9BuDby33ym5qN03ljj84wy/EtgcsXP2w==
   dependencies:
-    "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.3"
-    "@dhis2/d2-ui-period-selector-dialog" "^7.0.3"
     "@dhis2/ui-core" "^4.21.1"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
@@ -1228,30 +1226,10 @@
     babel-runtime "^6.26.0"
     prop-types "^15.6.0"
 
-"@dhis2/d2-ui-period-selector-dialog@^7.0.3":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-7.0.3.tgz#95a6d9a470d04287484578d0db8dfa9083d87f36"
-  integrity sha512-uTqsKu6PsXb/MN8FxlGJeNZFrr1GkCbt/SQho0EvF1M62pvqI6dhYsrrusW3LWhiiVoTyNVZdF6NxUgGvMZMvQ==
-  dependencies:
-    "@dhis2/analytics" "^4.0.1"
-    "@material-ui/core" "^3.3.1"
-    "@material-ui/icons" "^3.0.1"
-    babel-runtime "^6.26.0"
-    prop-types "^15.6.0"
-
 "@dhis2/d2-ui-rich-text@7.0.3", "@dhis2/d2-ui-rich-text@^7.0.3":
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.0.3.tgz#26c3e4ecf5dddfb3445476c56c87a62448ce229d"
   integrity sha512-AiX6yf+AsYzSXjyXtuk7QtS/fx18vKcGvgFRaJvf7QV8HFxgkE2S8Owayj5mnTUFX6KFndTqjiXmsxn9jlKvhw==
-  dependencies:
-    babel-runtime "^6.26.0"
-    markdown-it "^8.4.2"
-    prop-types "^15.6.2"
-
-"@dhis2/d2-ui-rich-text@^5.1.0":
-  version "5.3.11"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-5.3.11.tgz#47fca559b2d364bc318429dc14c479c8aa4f7839"
-  integrity sha512-17VK0akErL765dOxwQPCq5ORGLRJkxY9g58bZSLpz7FVGw5FvJX/OMrAKXqh3K+AkrWlVd7xoo5rykPFNafYhQ==
   dependencies:
     babel-runtime "^6.26.0"
     markdown-it "^8.4.2"
@@ -1285,14 +1263,13 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^34.4.1":
-  version "34.4.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-34.4.1.tgz#3b4a423a36e57dffda355109f8acf04d7819fb59"
-  integrity sha512-K/EGvjEsvJz/2x04ncu1K3EILyWNE1nCdMZLDprCV53A7MDvp19qJT7KiTTfa6YbLmVy62t0XX7vA2MTK/n+AQ==
+"@dhis2/data-visualizer-plugin@^35.0.1":
+  version "35.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.0.1.tgz#417bb435b43329beaaccbaa5dd29da4b4f9bdf97"
+  integrity sha512-PkBJTmQ3gbwsAKjOCX1nWGka5dYQXP6hBfQIZLemqFCFQJ1Mqswe0ZmYJqnKx81b382zATlua//gbzXrLGJYQQ==
   dependencies:
-    "@dhis2/analytics" "^5.1.3"
+    "@dhis2/analytics" "^6.0.2"
     "@dhis2/ui-core" "^4.21.1"
-    d2-analysis "33.2.15"
     lodash-es "^4.17.11"
 
 "@dhis2/prop-types@^1.6", "@dhis2/prop-types@^1.6.4":
@@ -4092,15 +4069,6 @@ cyclist@~0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
-
-d2-analysis@33.2.15:
-  version "33.2.15"
-  resolved "https://registry.yarnpkg.com/d2-analysis/-/d2-analysis-33.2.15.tgz#6320e1b7d4a245a09785803992d01cffc14c5c67"
-  integrity sha512-oMMzwC58UEcFiLR+q/c1r5pdaiFE11AnIswkOhnqAtYIMUOMiMkjrjt413Z6c0cpUNJz8myvRgHk6GUfd7RsEA==
-  dependencies:
-    "@dhis2/d2-ui-rich-text" "^5.1.0"
-    d2-utilizr "^0.2.16"
-    jquery "2.1.4"
 
 d2-manifest@^1.0.0:
   version "1.0.0"
@@ -7734,11 +7702,6 @@ joi@^11.1.1:
     hoek "4.x.x"
     isemail "3.x.x"
     topo "2.x.x"
-
-jquery@2.1.4:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.1.4.tgz#228bde698a0c61431dc2630a6a154f15890d2317"
-  integrity sha1-IoveaYoMYUMdwmMKahVPFYkNIxc=
 
 js-levenshtein@^1.1.3:
   version "1.1.6"
