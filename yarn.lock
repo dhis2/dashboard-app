@@ -1321,7 +1321,7 @@
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
 
-"@dhis2/ui-core@5.0.1":
+"@dhis2/ui-core@5.0.1", "@dhis2/ui-core@^5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-5.0.1.tgz#cf0fc11e826c919bcb25270d1a808d6a4597ee3f"
   integrity sha512-lZ7FC1F+LSQvYWOR2VwoOw28B98rOKT1T4YhPKzOlBkGO6TlOE5V2+VwDOFA8mPr7I0ZanQfSnmMJRoLbo4Bog==
