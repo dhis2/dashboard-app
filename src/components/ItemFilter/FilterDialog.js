@@ -55,8 +55,9 @@ class FilterDialog extends Component {
                 return (
                     <DynamicDimension
                         selectedItems={selectedItems}
-                        dialogId={dialogId}
-                        {...commonProps}
+                        dimensionId={dialogId}
+                        onSelect={commonProps.onSelect}
+                        context={commonProps.d2}
                     />
                 );
         }
