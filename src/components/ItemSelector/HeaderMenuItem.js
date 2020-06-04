@@ -13,7 +13,6 @@ const HeaderMenuItem = ({ title }) => (
                 {title}
             </span>
         }
-        onClick={undefined}
     />
 );
 
