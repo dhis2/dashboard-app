@@ -144,7 +144,7 @@ export class ItemGrid extends Component {
         return (
             <div className="grid-wrapper">
                 {isLoading ? (
-                    <Layer>
+                    <Layer translucent>
                         <CenteredContent>
                             <CircularLoader />
                         </CenteredContent>
