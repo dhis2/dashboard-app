@@ -8,7 +8,7 @@ import {
     ModalActions,
     ButtonStrip,
     ModalTitle,
-} from '@dhis2/ui-core';
+} from '@dhis2/ui';
 
 import classes from './styles/ConfirmDeleteDialog.module.css';
 

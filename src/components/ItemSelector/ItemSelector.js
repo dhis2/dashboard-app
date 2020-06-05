@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import Popover from '@material-ui/core/Popover';
-import { InputField } from '@dhis2/ui-widgets';
-import { Menu } from '@dhis2/ui-core';
+import { InputField, Menu } from '@dhis2/ui';
 
 import CategorizedMenuGroup from './CategorizedMenuGroup';
 import SinglesMenuGroup from './SinglesMenuGroup';

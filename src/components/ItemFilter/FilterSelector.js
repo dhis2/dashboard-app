@@ -6,7 +6,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import i18n from '@dhis2/d2-i18n';
 import { DimensionsPanel } from '@dhis2/analytics';
 
-import { Button, Popover } from '@dhis2/ui-core';
+import { Button, Popover } from '@dhis2/ui';
 import FilterDialog from './FilterDialog';
 
 import { sGetSettingsDisplayNameProperty } from '../../reducers/settings';

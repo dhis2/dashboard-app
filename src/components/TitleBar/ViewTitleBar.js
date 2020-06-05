@@ -6,8 +6,7 @@ import i18n from '@dhis2/d2-i18n';
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog';
 import Star from '@material-ui/icons/Star';
 import StarBorder from '@material-ui/icons/StarBorder';
-import { Button } from '@dhis2/ui-core';
-import { colors } from '@dhis2/ui-constants';
+import { Button, colors } from '@dhis2/ui';
 
 import { orObject } from '../../modules/util';
 import { tStarDashboard } from '../../actions/dashboards';

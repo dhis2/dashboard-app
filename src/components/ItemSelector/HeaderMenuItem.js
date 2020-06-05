@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MenuItem } from '@dhis2/ui-core';
-import { colors } from '@dhis2/ui-constants';
+import { MenuItem, colors } from '@dhis2/ui';
 
 const HeaderMenuItem = ({ title }) => (
     <MenuItem

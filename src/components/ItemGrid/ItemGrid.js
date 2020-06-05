@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import ReactGridLayout from 'react-grid-layout';
-import { CircularLoader, Layer } from '@dhis2/ui-core';
+import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui';
 
 import {
     acUpdateDashboardLayout,
@@ -145,7 +145,9 @@ export class ItemGrid extends Component {
             <div className="grid-wrapper">
                 {isLoading ? (
                     <Layer>
-                        <CircularLoader />
+                        <CenteredContent>
+                            <CircularLoader />
+                        </CenteredContent>
                     </Layer>
                 ) : null}
                 <ReactGridLayout

@@ -41,7 +41,7 @@ ShallowWrapper {
         >
           <InputField
             className="title"
-            dataTest="dhis2-uicore-inputfield"
+            dataTest="dhis2-uiwidgets-inputfield"
             label="Dashboard title"
             name="Dashboard title input"
             onChange={[Function]}
@@ -50,7 +50,7 @@ ShallowWrapper {
           />
           <TextAreaField
             className="description"
-            dataTest="dhis2-uicore-textareafield"
+            dataTest="dhis2-uiwidgets-textareafield"
             label="Dashboard description"
             name="Dashboard description input"
             onChange={[Function]}
@@ -78,7 +78,7 @@ ShallowWrapper {
           "children": Array [
             <InputField
               className="title"
-              dataTest="dhis2-uicore-inputfield"
+              dataTest="dhis2-uiwidgets-inputfield"
               label="Dashboard title"
               name="Dashboard title input"
               onChange={[Function]}
@@ -87,7 +87,7 @@ ShallowWrapper {
             />,
             <TextAreaField
               className="description"
-              dataTest="dhis2-uicore-textareafield"
+              dataTest="dhis2-uiwidgets-textareafield"
               label="Dashboard description"
               name="Dashboard description input"
               onChange={[Function]}
@@ -107,7 +107,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "className": "title",
-              "dataTest": "dhis2-uicore-inputfield",
+              "dataTest": "dhis2-uiwidgets-inputfield",
               "label": "Dashboard title",
               "name": "Dashboard title input",
               "onChange": [Function],
@@ -124,7 +124,7 @@ ShallowWrapper {
             "nodeType": "function",
             "props": Object {
               "className": "description",
-              "dataTest": "dhis2-uicore-textareafield",
+              "dataTest": "dhis2-uiwidgets-textareafield",
               "label": "Dashboard description",
               "name": "Dashboard description input",
               "onChange": [Function],
@@ -175,7 +175,7 @@ ShallowWrapper {
           >
             <InputField
               className="title"
-              dataTest="dhis2-uicore-inputfield"
+              dataTest="dhis2-uiwidgets-inputfield"
               label="Dashboard title"
               name="Dashboard title input"
               onChange={[Function]}
@@ -184,7 +184,7 @@ ShallowWrapper {
             />
             <TextAreaField
               className="description"
-              dataTest="dhis2-uicore-textareafield"
+              dataTest="dhis2-uiwidgets-textareafield"
               label="Dashboard description"
               name="Dashboard description input"
               onChange={[Function]}
@@ -212,7 +212,7 @@ ShallowWrapper {
             "children": Array [
               <InputField
                 className="title"
-                dataTest="dhis2-uicore-inputfield"
+                dataTest="dhis2-uiwidgets-inputfield"
                 label="Dashboard title"
                 name="Dashboard title input"
                 onChange={[Function]}
@@ -221,7 +221,7 @@ ShallowWrapper {
               />,
               <TextAreaField
                 className="description"
-                dataTest="dhis2-uicore-textareafield"
+                dataTest="dhis2-uiwidgets-textareafield"
                 label="Dashboard description"
                 name="Dashboard description input"
                 onChange={[Function]}
@@ -241,7 +241,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "className": "title",
-                "dataTest": "dhis2-uicore-inputfield",
+                "dataTest": "dhis2-uiwidgets-inputfield",
                 "label": "Dashboard title",
                 "name": "Dashboard title input",
                 "onChange": [Function],
@@ -258,7 +258,7 @@ ShallowWrapper {
               "nodeType": "function",
               "props": Object {
                 "className": "description",
-                "dataTest": "dhis2-uicore-textareafield",
+                "dataTest": "dhis2-uiwidgets-textareafield",
                 "label": "Dashboard description",
                 "name": "Dashboard description input",
                 "onChange": [Function],
@@ -367,7 +367,7 @@ ShallowWrapper {
         >
           <InputField
             className="title"
-            dataTest="dhis2-uicore-inputfield"
+            dataTest="dhis2-uiwidgets-inputfield"
             label="Dashboard title"
             name="Dashboard title input"
             onChange={[Function]}
@@ -376,7 +376,7 @@ ShallowWrapper {
           />
           <TextAreaField
             className="description"
-            dataTest="dhis2-uicore-textareafield"
+            dataTest="dhis2-uiwidgets-textareafield"
             label="Dashboard description"
             name="Dashboard description input"
             onChange={[Function]}
@@ -404,7 +404,7 @@ ShallowWrapper {
           "children": Array [
             <InputField
               className="title"
-              dataTest="dhis2-uicore-inputfield"
+              dataTest="dhis2-uiwidgets-inputfield"
               label="Dashboard title"
               name="Dashboard title input"
               onChange={[Function]}
@@ -413,7 +413,7 @@ ShallowWrapper {
             />,
             <TextAreaField
               className="description"
-              dataTest="dhis2-uicore-textareafield"
+              dataTest="dhis2-uiwidgets-textareafield"
               label="Dashboard description"
               name="Dashboard description input"
               onChange={[Function]}
@@ -433,7 +433,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "className": "title",
-              "dataTest": "dhis2-uicore-inputfield",
+              "dataTest": "dhis2-uiwidgets-inputfield",
               "label": "Dashboard title",
               "name": "Dashboard title input",
               "onChange": [Function],
@@ -450,7 +450,7 @@ ShallowWrapper {
             "nodeType": "function",
             "props": Object {
               "className": "description",
-              "dataTest": "dhis2-uicore-textareafield",
+              "dataTest": "dhis2-uiwidgets-textareafield",
               "label": "Dashboard description",
               "name": "Dashboard description input",
               "onChange": [Function],
@@ -501,7 +501,7 @@ ShallowWrapper {
           >
             <InputField
               className="title"
-              dataTest="dhis2-uicore-inputfield"
+              dataTest="dhis2-uiwidgets-inputfield"
               label="Dashboard title"
               name="Dashboard title input"
               onChange={[Function]}
@@ -510,7 +510,7 @@ ShallowWrapper {
             />
             <TextAreaField
               className="description"
-              dataTest="dhis2-uicore-textareafield"
+              dataTest="dhis2-uiwidgets-textareafield"
               label="Dashboard description"
               name="Dashboard description input"
               onChange={[Function]}
@@ -538,7 +538,7 @@ ShallowWrapper {
             "children": Array [
               <InputField
                 className="title"
-                dataTest="dhis2-uicore-inputfield"
+                dataTest="dhis2-uiwidgets-inputfield"
                 label="Dashboard title"
                 name="Dashboard title input"
                 onChange={[Function]}
@@ -547,7 +547,7 @@ ShallowWrapper {
               />,
               <TextAreaField
                 className="description"
-                dataTest="dhis2-uicore-textareafield"
+                dataTest="dhis2-uiwidgets-textareafield"
                 label="Dashboard description"
                 name="Dashboard description input"
                 onChange={[Function]}
@@ -567,7 +567,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "className": "title",
-                "dataTest": "dhis2-uicore-inputfield",
+                "dataTest": "dhis2-uiwidgets-inputfield",
                 "label": "Dashboard title",
                 "name": "Dashboard title input",
                 "onChange": [Function],
@@ -584,7 +584,7 @@ ShallowWrapper {
               "nodeType": "function",
               "props": Object {
                 "className": "description",
-                "dataTest": "dhis2-uicore-textareafield",
+                "dataTest": "dhis2-uiwidgets-textareafield",
                 "label": "Dashboard description",
                 "name": "Dashboard description input",
                 "onChange": [Function],

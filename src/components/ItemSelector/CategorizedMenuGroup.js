@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
-import { MenuItem, Divider } from '@dhis2/ui-core';
+import { MenuItem, Divider } from '@dhis2/ui';
 
 import HeaderMenuItem from './HeaderMenuItem';
 import ContentMenuItem from './ContentMenuItem';
@@ -100,10 +100,7 @@ CategorizedMenuGroup.contextTypes = {
     d2: PropTypes.object.isRequired,
 };
 
-export default connect(
-    null,
-    {
-        acAddDashboardItem,
-        tAddListItemContent,
-    }
-)(CategorizedMenuGroup);
+export default connect(null, {
+    acAddDashboardItem,
+    tAddListItemContent,
+})(CategorizedMenuGroup);

@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import i18n from '@dhis2/d2-i18n';
 import ControlBar from './ControlBar';
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog';
-import { Button } from '@dhis2/ui-core';
+import { Button } from '@dhis2/ui';
 
 import ConfirmDeleteDialog from './ConfirmDeleteDialog';
 import {
@@ -241,7 +241,4 @@ const mapDispatchToProps = dispatch => ({
     onTranslate: (id, value) => dispatch(acSetDashboardDisplayName(id, value)),
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(EditBar);
+export default connect(mapStateToProps, mapDispatchToProps)(EditBar);

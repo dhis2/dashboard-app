@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { colors } from '@dhis2/ui-constants';
+import { colors } from '@dhis2/ui';
 import DescriptionIcon from '../../../icons/Description';
 
 import DeleteIcon from '../../../icons/Delete';
