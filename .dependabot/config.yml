@@ -8,5 +8,9 @@ update_configs:
       target_branch: 'master'
       automerged_updates:
           - match:
+                dependency_name: '@dhis2/*'
                 dependency_type: 'all'
                 update_type: 'semver:minor'
+          - match:
+                dependency_type: 'all'
+                update_type: 'security:patch'
