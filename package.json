@@ -39,8 +39,6 @@
     },
     "scripts": {
         "start": "d2-app-scripts start",
-        "lint": "d2-style js check || d2-style text check",
-        "format": "d2-style js apply || d2-style text apply",
         "coverage": "npm test -- --coverage",
         "build": "d2-app-scripts build",
         "build:netlify": "yarn build --standalone",
