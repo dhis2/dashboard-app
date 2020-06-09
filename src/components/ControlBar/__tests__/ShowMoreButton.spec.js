@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 import { ShowMoreButton } from '../ShowMoreButton'
 
 describe('ShowMoreButton', () => {
@@ -11,7 +12,7 @@ describe('ShowMoreButton', () => {
                 classes={{ showMore: {} }}
             />
         )
-        expect(button).toMatchSnapshot()
+        expect(toJson(button)).toMatchSnapshot()
     })
 
     it('renders correctly when not at maxHeight', () => {
@@ -23,7 +24,7 @@ describe('ShowMoreButton', () => {
             />
         )
 
-        expect(tree).toMatchSnapshot()
+        expect(toJson(tree)).toMatchSnapshot()
     })
 
     describe('actions', () => {

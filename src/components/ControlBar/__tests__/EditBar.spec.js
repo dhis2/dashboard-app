@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 import { Button } from '@dhis2/ui-core'
 
 import { EditBar } from '../EditBar'
@@ -49,7 +50,7 @@ describe('EditBar', () => {
     })
 
     it('renders the EditBar', () => {
-        expect(editBar()).toMatchSnapshot()
+        expect(toJson(editBar())).toMatchSnapshot()
     })
 
     describe('when update access is false', () => {
@@ -58,7 +59,7 @@ describe('EditBar', () => {
         })
 
         it('renders only the Discard button', () => {
-            expect(editBar()).toMatchSnapshot()
+            expect(toJson(editBar())).toMatchSnapshot()
         })
     })
 
@@ -77,7 +78,7 @@ describe('EditBar', () => {
                 const wrapper = editBar()
 
                 return Promise.resolve().then(() => {
-                    expect(wrapper).toMatchSnapshot()
+                    expect(toJson(wrapper)).toMatchSnapshot()
                 })
             })
 
@@ -110,7 +111,7 @@ describe('EditBar', () => {
                 const wrapper = editBar()
 
                 return Promise.resolve().then(() => {
-                    expect(wrapper).toMatchSnapshot()
+                    expect(toJson(wrapper)).toMatchSnapshot()
                 })
             })
 
@@ -126,7 +127,7 @@ describe('EditBar', () => {
 
                 it('shows the translate dialog', done => {
                     getAsyncWrapper().then(wrapper => {
-                        expect(wrapper).toMatchSnapshot()
+                        expect(toJson(wrapper)).toMatchSnapshot()
 
                         wrapper
                             .find(Button)
@@ -135,7 +136,7 @@ describe('EditBar', () => {
                             )
                             .simulate('click')
 
-                        expect(wrapper).toMatchSnapshot()
+                        expect(toJson(wrapper)).toMatchSnapshot()
                         done()
                     })
                 })
@@ -177,7 +178,7 @@ describe('EditBar', () => {
                 })
 
                 it('renders Translate, Delete, and Discard buttons and ConfirmDeleteDialog', () => {
-                    expect(editBar()).toMatchSnapshot()
+                    expect(toJson(editBar())).toMatchSnapshot()
                 })
 
                 it('shows the confirm delete dialog when delete button clicked', () => {

@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
 import { CHART, REPORT_TABLE, EVENT_CHART } from '../../../../modules/itemTypes'
 import { Item } from '../Item'
@@ -127,7 +128,7 @@ describe('VisualizationItem/Item', () => {
             ],
         }
 
-        expect(canvas()).toMatchSnapshot()
+        expect(toJson(canvas())).toMatchSnapshot()
 
         const component = canvas()
         component.instance().headerRef.current = mockHeaderRef

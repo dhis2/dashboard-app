@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 import ContentMenuItem from '../ContentMenuItem'
 
 describe('ContentMenuItem', () => {
@@ -23,10 +24,10 @@ describe('ContentMenuItem', () => {
     it('has a LaunchLink when url is provided', () => {
         props.url = 'http://ponies-r-us.com'
 
-        expect(wrapper()).toMatchSnapshot()
+        expect(toJson(wrapper())).toMatchSnapshot()
     })
 
     it('does not have LaunchLink if no url provided', () => {
-        expect(wrapper()).toMatchSnapshot()
+        expect(toJson(wrapper())).toMatchSnapshot()
     })
 })

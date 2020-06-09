@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 import InputField from '@material-ui/core/Input'
 import { Filter, KEYCODE_ENTER, KEYCODE_ESCAPE } from '../Filter'
 
@@ -24,7 +25,7 @@ describe('Filter', () => {
     })
 
     it('matches the snapshot when name property is empty', () => {
-        expect(filter()).toMatchSnapshot()
+        expect(toJson(filter())).toMatchSnapshot()
     })
 
     describe('when updated name property is provided', () => {

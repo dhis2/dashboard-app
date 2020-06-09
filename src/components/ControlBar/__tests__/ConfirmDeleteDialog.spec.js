@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 import { ButtonStrip } from '@dhis2/ui-core'
 import { ConfirmDeleteDialog } from '../ConfirmDeleteDialog'
 import { getStubContext } from '../../../setupTests'
@@ -27,7 +28,7 @@ describe('ConfirmDeleteDialog', () => {
     })
 
     it('matches the snapshot when open = false', () => {
-        expect(dialog()).toMatchSnapshot()
+        expect(toJson(dialog())).toMatchSnapshot()
     })
 
     describe('when open = true', () => {
@@ -36,7 +37,7 @@ describe('ConfirmDeleteDialog', () => {
         })
 
         it('matches the snapshot', () => {
-            expect(dialog()).toMatchSnapshot()
+            expect(toJson(dialog())).toMatchSnapshot()
         })
 
         it('renders a Button with action onContinueEditing', () => {

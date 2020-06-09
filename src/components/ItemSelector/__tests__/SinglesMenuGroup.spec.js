@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 import { SinglesMenuGroup } from '../SinglesMenuGroup'
 
 describe('SinglesMenuGroup', () => {
@@ -22,6 +23,6 @@ describe('SinglesMenuGroup', () => {
                 ],
             },
         }
-        expect(wrapper(props)).toMatchSnapshot()
+        expect(toJson(wrapper(props))).toMatchSnapshot()
     })
 })

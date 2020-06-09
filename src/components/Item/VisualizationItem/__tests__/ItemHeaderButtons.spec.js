@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 import ItemHeaderButtons from '../ItemHeaderButtons'
 
 jest.mock('../plugin', () => ({
@@ -24,5 +25,5 @@ it('renders correctly', () => {
             onToggleFooter={Function.prototype}
         />
     )
-    expect(buttons).toMatchSnapshot()
+    expect(toJson(buttons)).toMatchSnapshot()
 })
