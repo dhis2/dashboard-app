@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import i18n from '@dhis2/d2-i18n';
-import ItemHeader from '../ItemHeader';
-import NotInterestedIcon from '@material-ui/icons/NotInterested';
+import React from 'react'
+import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
+import ItemHeader from '../ItemHeader'
+import NotInterestedIcon from '@material-ui/icons/NotInterested'
 
 const NotSupportedItem = props => (
     <>
@@ -26,10 +26,10 @@ const NotSupportedItem = props => (
             />
         </div>
     </>
-);
+)
 
 NotSupportedItem.propTypes = {
     item: PropTypes.object,
-};
+}
 
-export default NotSupportedItem;
+export default NotSupportedItem

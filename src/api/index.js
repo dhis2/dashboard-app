@@ -1,13 +1,13 @@
-import arrayClean from 'd2-utilizr/lib/arrayClean';
+import arrayClean from 'd2-utilizr/lib/arrayClean'
 import {
     getListItemFields,
     getFavoritesFields,
     getIdNameFields,
-} from './metadata';
+} from './metadata'
 
 // Helper functions
 
-export const onError = error => console.log('Error: ', error);
+export const onError = error => console.log('Error: ', error)
 
 // Dashboard item
 export const getDashboardItemsFields = ({ withFavorite } = {}) =>
@@ -28,7 +28,7 @@ export const getDashboardItemsFields = ({ withFavorite } = {}) =>
                   withDimensions: withFavorite.withDimensions,
               }).join(',')}`
             : ``,
-    ]);
+    ])
 
 // Dashboard
 export const getDashboardFields = ({ withItems, withFavorite } = {}) =>
@@ -46,4 +46,4 @@ export const getDashboardFields = ({ withItems, withFavorite } = {}) =>
                   withFavorite,
               }).join(',')}]`
             : ``,
-    ]);
+    ])

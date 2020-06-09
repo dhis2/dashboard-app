@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import i18n from '@dhis2/d2-i18n';
-import ReactGridLayout from 'react-grid-layout';
-import { CircularLoader, ScreenCover } from '@dhis2/ui-core';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
+import ReactGridLayout from 'react-grid-layout'
+import { CircularLoader, ScreenCover } from '@dhis2/ui-core'
 
 import {
     acUpdateDashboardLayout,
     acRemoveDashboardItem,
-} from '../../actions/editDashboard';
-import { Item } from '../Item/Item';
-import { resize as pluginResize } from '../Item/VisualizationItem/plugin';
-import { isVisualizationType } from '../../modules/itemTypes';
+} from '../../actions/editDashboard'
+import { Item } from '../Item/Item'
+import { resize as pluginResize } from '../Item/VisualizationItem/plugin'
+import { isVisualizationType } from '../../modules/itemTypes'
 import {
     GRID_ROW_HEIGHT,
     GRID_COMPACT_TYPE,
@@ -19,96 +19,96 @@ import {
     getGridColumns,
     hasShape,
     onItemResize,
-} from './gridUtil';
-import { orArray } from '../../modules/util';
+} from './gridUtil'
+import { orArray } from '../../modules/util'
 
-import NoContentMessage from '../../widgets/NoContentMessage';
+import NoContentMessage from '../../widgets/NoContentMessage'
 
-import 'react-grid-layout/css/styles.css';
-import 'react-resizable/css/styles.css';
+import 'react-grid-layout/css/styles.css'
+import 'react-resizable/css/styles.css'
 
-import './ItemGrid.css';
-import { sGetSelectedId, sGetSelectedIsLoading } from '../../reducers/selected';
+import './ItemGrid.css'
+import { sGetSelectedId, sGetSelectedIsLoading } from '../../reducers/selected'
 import {
     sGetEditDashboardRoot,
     sGetEditDashboardItems,
-} from '../../reducers/editDashboard';
+} from '../../reducers/editDashboard'
 import {
     sGetDashboardById,
     sGetDashboardItems,
-} from '../../reducers/dashboards';
-import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer';
+} from '../../reducers/dashboards'
+import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer'
 
 // Component
 
-const EXPANDED_HEIGHT = 17;
+const EXPANDED_HEIGHT = 17
 // this is set in the .dashboard-item-content css
-export const ITEM_CONTENT_PADDING_BOTTOM = 4;
+export const ITEM_CONTENT_PADDING_BOTTOM = 4
 
 export class ItemGrid extends Component {
     state = {
         expandedItems: {},
-    };
+    }
 
     onToggleItemExpanded = clickedId => {
         const isExpanded =
             typeof this.state.expandedItems[clickedId] === 'boolean'
                 ? this.state.expandedItems[clickedId]
-                : false;
+                : false
 
-        const expandedItems = { ...this.state.expandedItems };
-        expandedItems[clickedId] = !isExpanded;
-        this.setState({ expandedItems });
-    };
+        const expandedItems = { ...this.state.expandedItems }
+        expandedItems[clickedId] = !isExpanded
+        this.setState({ expandedItems })
+    }
 
     onRemoveItem = clickedId => {
-        this.props.acRemoveDashboardItem(clickedId);
-    };
+        this.props.acRemoveDashboardItem(clickedId)
+    }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.edit) {
-            this.setState({ expandedItems: {} });
+            this.setState({ expandedItems: {} })
         }
     }
 
     onLayoutChange = newLayout => {
         if (this.props.edit) {
-            this.props.acUpdateDashboardLayout(newLayout);
+            this.props.acUpdateDashboardLayout(newLayout)
         }
-    };
+    }
 
     onResizeStop = (layout, oldItem, newItem) => {
-        onItemResize(newItem.i);
+        onItemResize(newItem.i)
 
         const dashboardItem = this.props.dashboardItems.find(
             item => item.id === newItem.i
-        );
+        )
 
         // call resize on the item component if it's a plugin type
         if (dashboardItem && isVisualizationType(dashboardItem)) {
-            pluginResize(dashboardItem);
+            pluginResize(dashboardItem)
         }
-    };
+    }
 
-    onRemoveItemWrapper = id => () => this.onRemoveItem(id);
+    onRemoveItemWrapper = id => () => this.onRemoveItem(id)
 
     adjustHeightForExpanded = dashboardItem => {
-        const expandedItem = this.state.expandedItems[dashboardItem.id];
+        const expandedItem = this.state.expandedItems[dashboardItem.id]
 
         if (expandedItem && expandedItem === true) {
             return Object.assign({}, dashboardItem, {
                 h: dashboardItem.h + EXPANDED_HEIGHT,
-            });
+            })
         }
 
-        return dashboardItem;
-    };
+        return dashboardItem
+    }
 
     getItemComponent = item => {
         const itemClassNames = [
             item.type,
             this.props.edit ? 'edit' : 'view',
-        ].join(' ');
+        ].join(' ')
 
         return (
             <ProgressiveLoadingContainer
@@ -121,25 +121,25 @@ export class ItemGrid extends Component {
                     onToggleItemExpanded={this.onToggleItemExpanded}
                 />
             </ProgressiveLoadingContainer>
-        );
-    };
+        )
+    }
 
-    getItemComponents = items => items.map(item => this.getItemComponent(item));
+    getItemComponents = items => items.map(item => this.getItemComponent(item))
 
     render() {
-        const { edit, isLoading, dashboardItems } = this.props;
+        const { edit, isLoading, dashboardItems } = this.props
 
         if (!isLoading && !dashboardItems.length) {
             return (
                 <NoContentMessage
                     text={i18n.t('There are no items on this dashboard')}
                 />
-            );
+            )
         }
 
         const items = edit
             ? dashboardItems
-            : dashboardItems.map(this.adjustHeightForExpanded);
+            : dashboardItems.map(this.adjustHeightForExpanded)
 
         return (
             <div className="grid-wrapper">
@@ -165,7 +165,7 @@ export class ItemGrid extends Component {
                     {this.getItemComponents(items)}
                 </ReactGridLayout>
             </div>
-        );
+        )
     }
 }
 
@@ -175,36 +175,36 @@ ItemGrid.propTypes = {
     dashboardItems: PropTypes.array,
     edit: PropTypes.bool,
     isLoading: PropTypes.bool,
-};
+}
 
 ItemGrid.defaultProps = {
     dashboardItems: [],
-};
+}
 
 // Container
 
 const mapStateToProps = (state, ownProps) => {
     const selectedDashboard = ownProps.edit
         ? sGetEditDashboardRoot(state)
-        : sGetDashboardById(state, sGetSelectedId(state));
+        : sGetDashboardById(state, sGetSelectedId(state))
 
     const dashboardItems = ownProps.edit
         ? sGetEditDashboardItems(state)
-        : sGetDashboardItems(state);
+        : sGetDashboardItems(state)
 
     return {
         isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
         dashboardItems,
-    };
-};
+    }
+}
 
 const mapDispatchToProps = {
     acUpdateDashboardLayout,
     acRemoveDashboardItem,
-};
+}
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const validItems = orArray(stateProps.dashboardItems).filter(hasShape);
+    const validItems = orArray(stateProps.dashboardItems).filter(hasShape)
 
     return {
         ...dispatchProps,
@@ -212,11 +212,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         isLoading: stateProps.isLoading,
         dashboardItems: validItems,
         onItemResize,
-    };
-};
+    }
+}
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps,
     mergeProps
-)(ItemGrid);
+)(ItemGrid)

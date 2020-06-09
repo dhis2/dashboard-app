@@ -1,20 +1,20 @@
-import { getInstance } from 'd2';
-import arrayClean from 'd2-utilizr/lib/arrayClean';
+import { getInstance } from 'd2'
+import arrayClean from 'd2-utilizr/lib/arrayClean'
 
-import { getEndPointName } from '../modules/itemTypes';
+import { getEndPointName } from '../modules/itemTypes'
 
 // Id, name
 export const getIdNameFields = ({ rename } = {}) => [
     'id',
     `${rename ? 'displayName~rename(name)' : 'name,displayName'}`,
-];
+]
 
 // Item
 export const getItemFields = () => [
     'dimensionItem~rename(id)',
     'displayName~rename(name)',
     'dimensionItemType',
-];
+]
 
 // Dimension
 export const getDimensionFields = ({ withItems }) =>
@@ -24,14 +24,14 @@ export const getDimensionFields = ({ withItems }) =>
         'filter',
         'programStage',
         withItems ? `items[${getItemFields().join(',')}]` : ``,
-    ]);
+    ])
 
 // Axis
 export const getAxesFields = ({ withItems }) => [
     `columns[${getDimensionFields({ withItems }).join(',')}]`,
     `rows[${getDimensionFields({ withItems }).join(',')}]`,
     `filters[${getDimensionFields({ withItems }).join(',')}]`,
-];
+]
 
 // Favorite
 export const getFavoriteFields = ({ withDimensions, withOptions }) => {
@@ -68,8 +68,8 @@ export const getFavoriteFields = ({ withDimensions, withOptions }) => {
                   '!userOrganisationUnitGrandChildren',
               ].join(',')
             : '',
-    ]);
-};
+    ])
+}
 
 export const getFavoritesFields = ({ withDimensions }) => [
     `reportTable[${getFavoriteFields({ withDimensions }).join(',')}]`,
@@ -77,14 +77,14 @@ export const getFavoritesFields = ({ withDimensions }) => [
     `map[${getFavoriteFields({ withDimensions }).join(',')}]`,
     `eventReport[${getFavoriteFields({ withDimensions }).join(',')}]`,
     `eventChart[${getFavoriteFields({ withDimensions }).join(',')}]`,
-];
+]
 
 // List item
 export const getListItemFields = () => [
     `reports[${['type', ...getIdNameFields({ rename: true })].join(',')}]`,
     `resources[${getIdNameFields({ rename: true }).join(',')}]`,
     `users[${getIdNameFields({ rename: true }).join(',')}]`,
-];
+]
 
 // Map
 export const getMapFields = () => [
@@ -94,7 +94,7 @@ export const getMapFields = () => [
         withDimensions: true,
         withOptions: true,
     })}]`,
-];
+]
 
 // Api
 
@@ -109,4 +109,4 @@ export const apiFetchFavorite = (id, type, { fields }) =>
                     withOptions: true,
                 }),
         })
-    );
+    )

@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import i18n from '@dhis2/d2-i18n';
-import { withStyles } from '@material-ui/core/styles';
-import InputField from '@material-ui/core/Input';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import SearchIcon from '@material-ui/icons/Search';
-import { colors } from '@dhis2/ui-core';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
+import { withStyles } from '@material-ui/core/styles'
+import InputField from '@material-ui/core/Input'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import SearchIcon from '@material-ui/icons/Search'
+import { colors } from '@dhis2/ui-core'
 
-import ClearButton from './ClearButton';
-import { DEFAULT_STATE_DASHBOARDS_FILTER_NAME } from '../../reducers/dashboardsFilter';
+import ClearButton from './ClearButton'
+import { DEFAULT_STATE_DASHBOARDS_FILTER_NAME } from '../../reducers/dashboardsFilter'
 
 const styles = {
     filterField: {
@@ -22,60 +22,60 @@ const styles = {
         width: '20px',
         height: '20px',
     },
-};
+}
 
-export const KEYCODE_ENTER = 13;
-export const KEYCODE_ESCAPE = 27;
+export const KEYCODE_ENTER = 13
+export const KEYCODE_ESCAPE = 27
 
 export class Filter extends Component {
     constructor(props) {
-        super(props);
+        super(props)
 
         this.state = {
             value: DEFAULT_STATE_DASHBOARDS_FILTER_NAME,
-        };
+        }
     }
 
     componentWillReceiveProps(nextProps) {
         this.setState({
             value: nextProps.name,
-        });
+        })
     }
 
     setFilterValue = event => {
-        event.preventDefault();
+        event.preventDefault()
 
-        this.props.onChangeName(event.target.value);
-    };
+        this.props.onChangeName(event.target.value)
+    }
 
     handleKeyUp = event => {
         switch (event.keyCode) {
             case KEYCODE_ENTER:
-                this.props.onKeypressEnter();
-                break;
+                this.props.onKeypressEnter()
+                break
             case KEYCODE_ESCAPE:
-                this.props.onChangeName();
-                break;
+                this.props.onChangeName()
+                break
             default:
-                break;
+                break
         }
-    };
+    }
 
     render() {
-        const { classes, name, onChangeName } = this.props;
+        const { classes, name, onChangeName } = this.props
 
         const startAdornment = (
             <InputAdornment position="start">
                 <SearchIcon className={classes.searchIcon} />
             </InputAdornment>
-        );
+        )
 
         const endAdornment =
             name !== '' && name !== null ? (
                 <InputAdornment position="end">
                     <ClearButton onClear={() => onChangeName()} />
                 </InputAdornment>
-            ) : null;
+            ) : null
 
         return (
             <InputField
@@ -87,7 +87,7 @@ export class Filter extends Component {
                 onChange={this.setFilterValue}
                 onKeyUp={this.handleKeyUp}
             />
-        );
+        )
     }
 }
 
@@ -96,11 +96,11 @@ Filter.propTypes = {
     name: PropTypes.string,
     onChangeName: PropTypes.func,
     onKeypressEnter: PropTypes.func,
-};
+}
 
 Filter.defaultProps = {
     name: '',
     onChangeName: Function.prototype,
-};
+}
 
-export default withStyles(styles)(Filter);
+export default withStyles(styles)(Filter)

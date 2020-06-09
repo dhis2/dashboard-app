@@ -1,32 +1,32 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import ContentMenuItem from '../ContentMenuItem';
+import React from 'react'
+import { shallow } from 'enzyme'
+import ContentMenuItem from '../ContentMenuItem'
 
 describe('ContentMenuItem', () => {
-    let props;
-    const wrapper = () => shallow(<ContentMenuItem {...props} />);
+    let props
+    const wrapper = () => shallow(<ContentMenuItem {...props} />)
 
     beforeEach(() => {
         props = {
             type: 'pony',
             name: 'Pinkie Pie',
             onInsert: jest.fn(),
-        };
-    });
+        }
+    })
 
     it('has onClick action on the Menu Item', () => {
-        const menuItem = wrapper();
+        const menuItem = wrapper()
 
-        expect(menuItem.prop('onClick')).toEqual(props.onInsert);
-    });
+        expect(menuItem.prop('onClick')).toEqual(props.onInsert)
+    })
 
     it('has a LaunchLink when url is provided', () => {
-        props.url = 'http://ponies-r-us.com';
+        props.url = 'http://ponies-r-us.com'
 
-        expect(wrapper()).toMatchSnapshot();
-    });
+        expect(wrapper()).toMatchSnapshot()
+    })
 
     it('does not have LaunchLink if no url provided', () => {
-        expect(wrapper()).toMatchSnapshot();
-    });
-});
+        expect(wrapper()).toMatchSnapshot()
+    })
+})

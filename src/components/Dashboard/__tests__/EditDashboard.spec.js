@@ -1,31 +1,31 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from 'react'
+import { shallow } from 'enzyme'
 
-import { EditDashboard, Content } from '../EditDashboard';
-import { NoContentMessage } from '../../../widgets/NoContentMessage';
+import { EditDashboard, Content } from '../EditDashboard'
+import { NoContentMessage } from '../../../widgets/NoContentMessage'
 
-jest.mock('../DashboardContent', () => () => <div />); // eslint-disable-line react/display-name
-jest.mock('../../ControlBar/EditBar', () => () => <div />); // eslint-disable-line react/display-name
-jest.mock('../DashboardVerticalOffset', () => () => <div />); // eslint-disable-line react/display-name
+jest.mock('../DashboardContent', () => () => <div />) // eslint-disable-line react/display-name
+jest.mock('../../ControlBar/EditBar', () => () => <div />) // eslint-disable-line react/display-name
+jest.mock('../DashboardVerticalOffset', () => () => <div />) // eslint-disable-line react/display-name
 
 describe('EditDashboard', () => {
-    let props;
-    let shallowEditDashboard;
+    let props
+    let shallowEditDashboard
     const editDashboard = () => {
         if (!shallowEditDashboard) {
-            shallowEditDashboard = shallow(<EditDashboard {...props} />);
+            shallowEditDashboard = shallow(<EditDashboard {...props} />)
         }
-        return shallowEditDashboard;
-    };
+        return shallowEditDashboard
+    }
 
     const assertContent = hasContent => {
-        const content = editDashboard().find(Content);
+        const content = editDashboard().find(Content)
 
-        expect(content.length).toBe(1);
+        expect(content.length).toBe(1)
         expect(content.dive().find(NoContentMessage)).toHaveLength(
             hasContent ? 0 : 1
-        );
-    };
+        )
+    }
 
     beforeEach(() => {
         props = {
@@ -34,56 +34,56 @@ describe('EditDashboard', () => {
             updateAccess: undefined,
             items: undefined,
             dashboardsLoaded: undefined,
-        };
-        shallowEditDashboard = undefined;
-    });
+        }
+        shallowEditDashboard = undefined
+    })
 
     describe('when "dashboardsLoaded" is false', () => {
         it('does not render any children inside the div', () => {
-            props.dashboardsLoaded = false;
+            props.dashboardsLoaded = false
 
             expect(
                 editDashboard()
                     .find('.dashboard-wrapper')
                     .children().length
-            ).toBe(0);
-        });
-    });
+            ).toBe(0)
+        })
+    })
 
     describe('when "dashboardsLoaded" is true', () => {
         beforeEach(() => {
-            props.dashboardsLoaded = true;
-        });
+            props.dashboardsLoaded = true
+        })
 
         describe('when "id" is null', () => {
             it('does not render any children inside the div', () => {
-                props.id = null;
+                props.id = null
                 expect(
                     editDashboard()
                         .find('.dashboard-wrapper')
                         .children().length
-                ).toBe(0);
-            });
-        });
+                ).toBe(0)
+            })
+        })
 
         describe('when id is not null', () => {
             beforeEach(() => {
-                props.id = 'abc123';
-            });
+                props.id = 'abc123'
+            })
 
             describe('when updateAccess is true', () => {
                 it('renders DashboardContent', () => {
-                    props.updateAccess = true;
-                    assertContent(true);
-                });
-            });
+                    props.updateAccess = true
+                    assertContent(true)
+                })
+            })
 
             describe('when updateAccess is false', () => {
                 it('renders a NoContentMessage', () => {
-                    props.updateAccess = false;
-                    assertContent(false);
-                });
-            });
-        });
-    });
-});
+                    props.updateAccess = false
+                    assertContent(false)
+                })
+            })
+        })
+    })
+})

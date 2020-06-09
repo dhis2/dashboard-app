@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { colors } from '@dhis2/ui-core';
-import EditTitleBar from './EditTitleBar';
-import ViewTitleBar from './ViewTitleBar';
+import { colors } from '@dhis2/ui-core'
+import EditTitleBar from './EditTitleBar'
+import ViewTitleBar from './ViewTitleBar'
 
-import './TitleBar.css';
+import './TitleBar.css'
 
 const style = {
     title: {
@@ -19,7 +19,7 @@ const style = {
         fontSize: 14,
         color: colors.grey800,
     },
-};
+}
 
 const TitleBar = ({ edit }) => {
     return (
@@ -35,11 +35,11 @@ const TitleBar = ({ edit }) => {
                 <ViewTitleBar style={style} />
             )}
         </div>
-    );
-};
+    )
+}
 
 TitleBar.propTypes = {
     edit: PropTypes.bool,
-};
+}
 
-export default TitleBar;
+export default TitleBar

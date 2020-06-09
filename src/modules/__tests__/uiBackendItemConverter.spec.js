@@ -3,14 +3,14 @@ import {
     convertUiItemsToBackend,
     spacerContent,
     emptyTextItemContent,
-} from '../uiBackendItemConverter';
-import { VISUALIZATION, SPACER, TEXT } from '../itemTypes';
+} from '../uiBackendItemConverter'
+import { VISUALIZATION, SPACER, TEXT } from '../itemTypes'
 
 const visualizationItem = {
     id: 'visualization item',
     type: VISUALIZATION,
     visualization: {},
-};
+}
 
 describe('convertUiItemsToBackend', () => {
     it('sets content for SPACER type', () => {
@@ -19,15 +19,15 @@ describe('convertUiItemsToBackend', () => {
                 id: 'spacer item',
                 type: SPACER,
             },
-        ];
+        ]
         expect(convertUiItemsToBackend(uiItems)).toMatchObject([
             {
                 id: 'spacer item',
                 type: SPACER,
                 text: spacerContent,
             },
-        ]);
-    });
+        ])
+    })
 
     it('sets empty content for empty TEXT type', () => {
         const uiItems = [
@@ -36,24 +36,24 @@ describe('convertUiItemsToBackend', () => {
                 type: TEXT,
                 text: '',
             },
-        ];
+        ]
         expect(convertUiItemsToBackend(uiItems)).toMatchObject([
             {
                 id: 'empty text item',
                 type: TEXT,
                 text: emptyTextItemContent,
             },
-        ]);
-    });
+        ])
+    })
 
     it('does not add text property to VISUALIZATION type', () => {
-        const uiItems = [visualizationItem];
+        const uiItems = [visualizationItem]
 
         expect(convertUiItemsToBackend(uiItems)).toMatchObject([
             visualizationItem,
-        ]);
-    });
-});
+        ])
+    })
+})
 
 describe('convertBackendItemsToUi', () => {
     it('converts backend spacer item to SPACER type', () => {
@@ -63,7 +63,7 @@ describe('convertBackendItemsToUi', () => {
                 type: TEXT,
                 text: spacerContent,
             },
-        ];
+        ]
 
         expect(convertBackendItemsToUi(backendItems)).toMatchObject([
             {
@@ -71,8 +71,8 @@ describe('convertBackendItemsToUi', () => {
                 type: SPACER,
                 text: spacerContent,
             },
-        ]);
-    });
+        ])
+    })
 
     it('converts content of empty TEXT type to empty string', () => {
         const backendItems = [
@@ -81,7 +81,7 @@ describe('convertBackendItemsToUi', () => {
                 type: TEXT,
                 text: emptyTextItemContent,
             },
-        ];
+        ]
 
         expect(convertBackendItemsToUi(backendItems)).toMatchObject([
             {
@@ -89,14 +89,14 @@ describe('convertBackendItemsToUi', () => {
                 type: TEXT,
                 text: '',
             },
-        ]);
-    });
+        ])
+    })
 
     it('does not change VISUALIZATION type', () => {
-        const backendItems = [visualizationItem];
+        const backendItems = [visualizationItem]
 
         expect(convertBackendItemsToUi(backendItems)).toMatchObject([
             visualizationItem,
-        ]);
-    });
-});
+        ])
+    })
+})

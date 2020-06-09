@@ -1,75 +1,75 @@
 /** @module reducers/editDashboard */
-import update from 'immutability-helper';
-import isEmpty from 'lodash/isEmpty';
-import { orArray, orObject } from '../modules/util';
+import update from 'immutability-helper'
+import isEmpty from 'lodash/isEmpty'
+import { orArray, orObject } from '../modules/util'
 
-export const RECEIVED_EDIT_DASHBOARD = 'RECEIVED_EDIT_DASHBOARD';
-export const RECEIVED_NOT_EDITING = 'RECEIVED_NOT_EDITING';
-export const START_NEW_DASHBOARD = 'START_NEW_DASHBOARD';
-export const RECEIVED_TITLE = 'RECEIVED_TITLE';
-export const RECEIVED_DESCRIPTION = 'RECEIVED_DESCRIPTION';
-export const ADD_DASHBOARD_ITEM = 'ADD_DASHBOARD_ITEM';
-export const REMOVE_DASHBOARD_ITEM = 'REMOVE_DASHBOARD_ITEM';
-export const UPDATE_DASHBOARD_ITEM = 'UPDATE_DASHBOARD_ITEM';
-export const RECEIVED_DASHBOARD_LAYOUT = 'RECEIVED_DASHBOARD_LAYOUT';
+export const RECEIVED_EDIT_DASHBOARD = 'RECEIVED_EDIT_DASHBOARD'
+export const RECEIVED_NOT_EDITING = 'RECEIVED_NOT_EDITING'
+export const START_NEW_DASHBOARD = 'START_NEW_DASHBOARD'
+export const RECEIVED_TITLE = 'RECEIVED_TITLE'
+export const RECEIVED_DESCRIPTION = 'RECEIVED_DESCRIPTION'
+export const ADD_DASHBOARD_ITEM = 'ADD_DASHBOARD_ITEM'
+export const REMOVE_DASHBOARD_ITEM = 'REMOVE_DASHBOARD_ITEM'
+export const UPDATE_DASHBOARD_ITEM = 'UPDATE_DASHBOARD_ITEM'
+export const RECEIVED_DASHBOARD_LAYOUT = 'RECEIVED_DASHBOARD_LAYOUT'
 
-export const DEFAULT_STATE_EDIT_DASHBOARD = {};
+export const DEFAULT_STATE_EDIT_DASHBOARD = {}
 export const NEW_DASHBOARD_STATE = {
     id: '',
     name: '',
     access: {},
     description: '',
     dashboardItems: [],
-};
+}
 
 export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
     switch (action.type) {
         case RECEIVED_EDIT_DASHBOARD: {
-            const newState = {};
+            const newState = {}
             Object.keys(NEW_DASHBOARD_STATE).map(
                 k => (newState[k] = action.value[k])
-            );
-            return newState;
+            )
+            return newState
         }
         case RECEIVED_NOT_EDITING:
-            return DEFAULT_STATE_EDIT_DASHBOARD;
+            return DEFAULT_STATE_EDIT_DASHBOARD
         case START_NEW_DASHBOARD:
-            return NEW_DASHBOARD_STATE;
+            return NEW_DASHBOARD_STATE
         case RECEIVED_TITLE: {
-            return Object.assign({}, state, { name: action.value });
+            return Object.assign({}, state, { name: action.value })
         }
         case RECEIVED_DESCRIPTION: {
             return Object.assign({}, state, {
                 description: action.value,
-            });
+            })
         }
         case ADD_DASHBOARD_ITEM:
             return update(state, {
                 dashboardItems: { $unshift: [action.value] },
-            });
+            })
         case REMOVE_DASHBOARD_ITEM: {
-            const idToRemove = action.value;
+            const idToRemove = action.value
 
             const dashboardItemIndex = state.dashboardItems.findIndex(
                 item => item.id === idToRemove
-            );
+            )
 
             if (dashboardItemIndex > -1) {
                 return update(state, {
                     dashboardItems: {
                         $splice: [[dashboardItemIndex, 1]],
                     },
-                });
+                })
             }
 
-            return state;
+            return state
         }
         case RECEIVED_DASHBOARD_LAYOUT: {
-            const stateItems = orArray(state.dashboardItems);
-            let layoutHasChanged = false;
+            const stateItems = orArray(state.dashboardItems)
+            let layoutHasChanged = false
 
             const newStateItems = action.value.map(({ x, y, w, h, i }) => {
-                const stateItem = stateItems.find(si => si.id === i);
+                const stateItem = stateItems.find(si => si.id === i)
 
                 if (
                     !(
@@ -79,26 +79,26 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                         stateItem.h === h
                     )
                 ) {
-                    layoutHasChanged = true;
-                    return Object.assign({}, stateItem, { w, h, x, y });
+                    layoutHasChanged = true
+                    return Object.assign({}, stateItem, { w, h, x, y })
                 }
 
-                return stateItem;
-            });
+                return stateItem
+            })
 
             return layoutHasChanged
                 ? {
                       ...state,
                       dashboardItems: newStateItems,
                   }
-                : state;
+                : state
         }
         case UPDATE_DASHBOARD_ITEM: {
-            const dashboardItem = action.value;
+            const dashboardItem = action.value
 
             const dashboardItemIndex = state.dashboardItems.findIndex(
                 item => item.id === dashboardItem.id
-            );
+            )
 
             if (dashboardItemIndex > -1) {
                 const newState = update(state, {
@@ -111,31 +111,31 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                             ],
                         ],
                     },
-                });
+                })
 
-                return newState;
+                return newState
             }
 
-            return state;
+            return state
         }
         default:
-            return state;
+            return state
     }
-};
+}
 
 // root selector
 
-export const sGetEditDashboardRoot = state => state.editDashboard;
+export const sGetEditDashboardRoot = state => state.editDashboard
 
 // selectors
 
-export const sGetIsEditing = state => !isEmpty(state.editDashboard);
+export const sGetIsEditing = state => !isEmpty(state.editDashboard)
 
 export const sGetIsNewDashboard = state => {
     return (
         !isEmpty(state.editDashboard) && sGetEditDashboardRoot(state).id === ''
-    );
-};
+    )
+}
 
 export const sGetEditDashboardItems = state =>
-    orObject(sGetEditDashboardRoot(state)).dashboardItems;
+    orObject(sGetEditDashboardRoot(state)).dashboardItems

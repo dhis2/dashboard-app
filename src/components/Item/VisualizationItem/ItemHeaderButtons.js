@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
 import {
     isSingleValue,
     isYearOverYear,
     VIS_TYPE_GAUGE,
     VIS_TYPE_PIE,
-} from '@dhis2/analytics';
-import { Button, Menu, MenuItem, Divider, colors } from '@dhis2/ui-core';
-import i18n from '@dhis2/d2-i18n';
-import Popover from '@material-ui/core/Popover';
-import TableIcon from '@material-ui/icons/ViewList';
-import ChartIcon from '@material-ui/icons/InsertChart';
-import MapIcon from '@material-ui/icons/Public';
-import LaunchIcon from '@material-ui/icons/Launch';
+} from '@dhis2/analytics'
+import { Button, Menu, MenuItem, Divider, colors } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
+import Popover from '@material-ui/core/Popover'
+import TableIcon from '@material-ui/icons/ViewList'
+import ChartIcon from '@material-ui/icons/InsertChart'
+import MapIcon from '@material-ui/icons/Public'
+import LaunchIcon from '@material-ui/icons/Launch'
 
-import { ThreeDots, SpeechBubble } from './assets/icons';
-import { pluginIsAvailable, getLink } from './plugin';
+import { ThreeDots, SpeechBubble } from './assets/icons'
+import { pluginIsAvailable, getLink } from './plugin'
 import {
     CHART,
     MAP,
@@ -26,55 +26,55 @@ import {
     isTrackerDomainType,
     hasMapView,
     getAppName,
-} from '../../../modules/itemTypes';
+} from '../../../modules/itemTypes'
 
-const iconFill = { fill: colors.grey600 };
+const iconFill = { fill: colors.grey600 }
 
 const ItemHeaderButtons = props => {
-    const [anchorEl, setAnchorEl] = useState(null);
+    const [anchorEl, setAnchorEl] = useState(null)
 
-    const { item, visualization, onSelectActiveType, d2, activeType } = props;
+    const { item, visualization, onSelectActiveType, d2, activeType } = props
 
-    const isTrackerType = isTrackerDomainType(item.type);
+    const isTrackerType = isTrackerDomainType(item.type)
 
     const onViewTable = () => {
-        handleClose();
-        onSelectActiveType(isTrackerType ? EVENT_REPORT : REPORT_TABLE);
-    };
+        handleClose()
+        onSelectActiveType(isTrackerType ? EVENT_REPORT : REPORT_TABLE)
+    }
 
     const onViewChart = () => {
-        handleClose();
-        onSelectActiveType(isTrackerType ? EVENT_CHART : CHART);
-    };
+        handleClose()
+        onSelectActiveType(isTrackerType ? EVENT_CHART : CHART)
+    }
 
     const onViewMap = () => {
-        handleClose();
-        onSelectActiveType(MAP);
-    };
+        handleClose()
+        onSelectActiveType(MAP)
+    }
 
-    const itemHasMapView = () => hasMapView(item.type);
+    const itemHasMapView = () => hasMapView(item.type)
 
-    const handleMenuClick = (_, event) => setAnchorEl(event.currentTarget);
+    const handleMenuClick = (_, event) => setAnchorEl(event.currentTarget)
 
     const handleInterpretationClick = () => {
-        props.onToggleFooter();
+        props.onToggleFooter()
         if (anchorEl !== null) {
-            handleClose();
+            handleClose()
         }
-    };
+    }
 
-    const handleClose = () => setAnchorEl(null);
+    const handleClose = () => setAnchorEl(null)
 
-    const type = visualization.type || item.type;
+    const type = visualization.type || item.type
     const canViewAs =
         !isSingleValue(type) &&
         !isYearOverYear(type) &&
         type !== VIS_TYPE_GAUGE &&
-        type !== VIS_TYPE_PIE;
+        type !== VIS_TYPE_PIE
 
     const interpretationMenuLabel = props.activeFooter
         ? i18n.t(`Hide interpretations and details`)
-        : i18n.t(`Show interpretations and details`);
+        : i18n.t(`Show interpretations and details`)
 
     const ViewAsMenuItems = () => (
         <>
@@ -103,7 +103,7 @@ const ItemHeaderButtons = props => {
                 />
             )}
         </>
-    );
+    )
 
     return pluginIsAvailable(item, visualization) ? (
         <>
@@ -142,8 +142,8 @@ const ItemHeaderButtons = props => {
                 </Popover>
             )}
         </>
-    ) : null;
-};
+    ) : null
+}
 
 ItemHeaderButtons.propTypes = {
     activeFooter: PropTypes.bool,
@@ -153,6 +153,6 @@ ItemHeaderButtons.propTypes = {
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,
-};
+}
 
-export default ItemHeaderButtons;
+export default ItemHeaderButtons

@@ -1,28 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { colors } from '@dhis2/ui-core';
-import DescriptionIcon from '../../../icons/Description';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { colors } from '@dhis2/ui-core'
+import DescriptionIcon from '../../../icons/Description'
 
-import DeleteIcon from '../../../icons/Delete';
-import Line from '../../../widgets/Line';
-import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes';
-import { orArray } from '../../../modules/util';
-import { tRemoveListItemContent } from './actions';
-import ItemHeader from '../ItemHeader';
-import classes from './Item.module.css';
+import DeleteIcon from '../../../icons/Delete'
+import Line from '../../../widgets/Line'
+import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes'
+import { orArray } from '../../../modules/util'
+import { tRemoveListItemContent } from './actions'
+import ItemHeader from '../ItemHeader'
+import classes from './Item.module.css'
 
-const getItemTitle = item => itemTypeMap[item.type].pluralTitle;
+const getItemTitle = item => itemTypeMap[item.type].pluralTitle
 
 const getContentItems = item =>
     orArray(item[itemTypeMap[item.type].propName]).filter(
         (item, index, array) =>
             array.findIndex(el => el.id === item.id) === index
-    );
+    )
 
 const ListItem = (props, context) => {
-    const { item, editMode, tRemoveListItemContent } = props;
-    const contentItems = getContentItems(item);
+    const { item, editMode, tRemoveListItemContent } = props
+    const contentItems = getContentItems(item)
 
     const getLink = contentItem => {
         const deleteButton = (
@@ -32,7 +32,7 @@ const ListItem = (props, context) => {
             >
                 <DeleteIcon className={classes.deleteicon} />
             </button>
-        );
+        )
 
         return (
             <>
@@ -45,8 +45,8 @@ const ListItem = (props, context) => {
                 </a>
                 {editMode ? deleteButton : null}
             </>
-        );
-    };
+        )
+    }
 
     return (
         <>
@@ -63,22 +63,19 @@ const ListItem = (props, context) => {
                 </ul>
             </div>
         </>
-    );
-};
+    )
+}
 
 ListItem.propTypes = {
     editMode: PropTypes.bool,
     item: PropTypes.object,
     tRemoveListItemContent: PropTypes.func,
-};
+}
 
 ListItem.contextTypes = {
     d2: PropTypes.object,
-};
+}
 
-export default connect(
-    null,
-    {
-        tRemoveListItemContent,
-    }
-)(ListItem);
+export default connect(null, {
+    tRemoveListItemContent,
+})(ListItem)

@@ -1,9 +1,9 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { SinglesMenuGroup } from '../SinglesMenuGroup';
+import React from 'react'
+import { shallow } from 'enzyme'
+import { SinglesMenuGroup } from '../SinglesMenuGroup'
 
 describe('SinglesMenuGroup', () => {
-    const wrapper = props => shallow(<SinglesMenuGroup {...props} />);
+    const wrapper = props => shallow(<SinglesMenuGroup {...props} />)
 
     it('matches snapshot', () => {
         const props = {
@@ -21,7 +21,7 @@ describe('SinglesMenuGroup', () => {
                     },
                 ],
             },
-        };
-        expect(wrapper(props)).toMatchSnapshot();
-    });
-});
+        }
+        expect(wrapper(props)).toMatchSnapshot()
+    })
+})

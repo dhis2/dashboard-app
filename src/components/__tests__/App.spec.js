@@ -1,32 +1,32 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { App } from '../App';
-import SnackbarMessage from '../SnackbarMessage/SnackbarMessage';
+import React from 'react'
+import { shallow } from 'enzyme'
+import { App } from '../App'
+import SnackbarMessage from '../SnackbarMessage/SnackbarMessage'
 
 /* eslint-disable react/display-name */
 jest.mock('@dhis2/ui-widgets', () => () => (
     <div id="mockHeaderBar">mockHeaderBar</div>
-));
+))
 
 jest.mock('../Dashboard/Dashboard', () => () => (
     <div id="mockDashboard">mockDashboard</div>
-));
+))
 /* eslint-enable react/display-name */
 
-jest.mock('../../actions/dimensions', () => ({ tSetDimensions: () => null }));
+jest.mock('../../actions/dimensions', () => ({ tSetDimensions: () => null }))
 
 describe('App', () => {
-    let props;
-    let shallowApp;
-    let context;
+    let props
+    let shallowApp
+    let context
     const app = context => {
         if (!shallowApp) {
             shallowApp = shallow(<App {...props} />, {
                 context,
-            });
+            })
         }
-        return shallowApp;
-    };
+        return shallowApp
+    }
 
     beforeEach(() => {
         props = {
@@ -35,22 +35,22 @@ describe('App', () => {
             fetchDashboards: jest.fn(),
             setControlBarRows: jest.fn(),
             setDimensions: jest.fn(),
-        };
-        shallowApp = undefined;
+        }
+        shallowApp = undefined
         context = {
             store: {
                 dispatch: jest.fn(),
             },
-        };
-    });
+        }
+    })
 
     it('renders a SnackbarMessage', () => {
-        expect(app(context).find(SnackbarMessage)).toHaveLength(1);
-    });
+        expect(app(context).find(SnackbarMessage)).toHaveLength(1)
+    })
 
     it('fetches the dashboards', () => {
-        app(context);
+        app(context)
 
-        expect(props.fetchDashboards).toHaveBeenCalledTimes(1);
-    });
-});
+        expect(props.fetchDashboards).toHaveBeenCalledTimes(1)
+    })
+})
