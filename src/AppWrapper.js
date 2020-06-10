@@ -9,6 +9,7 @@ import App from './components/App'
 import configureStore from './configureStore'
 
 import './index.css'
+import './locales'
 
 const muiTheme = () => createMuiTheme(dhis2theme)
 
