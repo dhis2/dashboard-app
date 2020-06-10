@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { colors } from '@dhis2/ui-core'
-import { HEADERBAR_HEIGHT } from './controlBarDimensions'
 
 import classes from './styles/ControlBar.module.css'
 
@@ -65,7 +64,6 @@ class ControlBar extends React.Component {
         const rootStyle = Object.assign(
             {
                 height,
-                top: HEADERBAR_HEIGHT,
                 backgroundColor: this.props.editMode
                     ? colors.yellow050
                     : colors.white,

@@ -6,7 +6,7 @@ import { createSelector } from 'reselect'
 import { sGetDimensions } from '../../reducers/dimensions'
 import { sGetItemFiltersRoot } from '../../reducers/itemFilters'
 import { sGetControlBarUserRows } from '../../reducers/controlBar'
-import { getTopOffset } from '../ControlBar/controlBarDimensions'
+import { getControlBarHeight } from '../ControlBar/controlBarDimensions'
 import { acRemoveItemFilter } from '../../actions/itemFilters'
 import { acRemoveEditItemFilter } from '../../actions/editItemFilters'
 import { acSetActiveModalDimension } from '../../actions/activeModalDimension'
@@ -30,7 +30,7 @@ export class FilterBar extends Component {
 
     render() {
         const { filters, userRows } = this.props
-        const top = getTopOffset(userRows) + 10
+        const top = getControlBarHeight(userRows) + 10
 
         return filters.length ? (
             <div className={classes.bar} style={{ top }}>
