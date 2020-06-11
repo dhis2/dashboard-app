@@ -25,8 +25,9 @@ const schemas = [
     'userGroup',
 ]
 
-const d2Config = {
+const appConfig = {
     schemas,
+    i18nRoot: './i18n',
 }
 
 const authorization = process.env.REACT_APP_DHIS2_AUTHORIZATION || null
@@ -34,14 +35,14 @@ const authorization = process.env.REACT_APP_DHIS2_AUTHORIZATION || null
 // TODO: ER and EV plugins require the auth header in development mode.
 // Remove this when these plugins are rewritten
 if (authorization) {
-    d2Config.headers = { Authorization: authorization }
+    appConfig.headers = { Authorization: authorization }
 }
 
 const AppWrapper = () => {
     return (
         <ReduxProvider store={configureStore()}>
             <MuiThemeProvider theme={muiTheme()}>
-                <D2Shim d2Config={d2Config}>
+                <D2Shim appConfig={appConfig}>
                     {({ d2 }) => {
                         if (!d2) {
                             // TODO: Handle errors in d2 initialization
