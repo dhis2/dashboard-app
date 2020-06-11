@@ -1025,12 +1025,12 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@dhis2/analytics@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-7.0.0.tgz#1e2d11875fa06e88b2549ba01bf10b595c77a280"
-  integrity sha512-t6l4gxhhPUjL4EkJrBs8ThHdop52LvUiwJxIvQRESo5kC9hswbODe3siTLyfPugonWw8V5HbN8ew/lt8TX6Frw==
+"@dhis2/analytics@^7.0.2", "@dhis2/analytics@^7.0.3":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-7.0.3.tgz#c63453864476218028a622fbfc40482bf1df3aa4"
+  integrity sha512-tdH7x7CCgZpNWIsi+kYzhQux6eKc1FY8oxPY6wn1WvEXBYj5PbnjZ3NSEEjiCrAidZsL+PKqejGlMuTHQe1pAg==
   dependencies:
-    "@dhis2/d2-ui-org-unit-dialog" "^7.0.3"
+    "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
     "@dhis2/ui-core" "^4.21.1"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
@@ -1123,17 +1123,6 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/d2-ui-core@7.0.3":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.0.3.tgz#75cf0bc7dfadfa6b000bcf61b17fb76f5efb7b1d"
-  integrity sha512-l2uFWjK8Te473B2p6wxaVi+gniN6bMGAMjX6t/qJKQtWMVK9wfF/tZmwWvypP8UlShMvn+MHSdLOZxQF2bINfg==
-  dependencies:
-    babel-runtime "^6.26.0"
-    d2 "~31.7"
-    lodash "^4.17.10"
-    material-ui "^0.20.0"
-    rxjs "^5.5.7"
-
 "@dhis2/d2-ui-core@7.0.4", "@dhis2/d2-ui-core@^7.0.3":
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.0.4.tgz#18c9858ac5adda54593d3f575128eb8b9df6da68"
@@ -1171,22 +1160,22 @@
     lodash "^4.17.10"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-org-unit-dialog@^7.0.3":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-7.0.3.tgz#2eec30a569d5fb07f256d4727fa8986c7d91c047"
-  integrity sha512-+TkjfXXat2GIZRWDJqFqB+rF8CO6bA1If3tq7//1v3wuyznVA0kPvYqOC22JIxpDZ+tuEROGY1h1gt214buHzQ==
+"@dhis2/d2-ui-org-unit-dialog@^7.0.4":
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-7.0.4.tgz#6a358a2e9c37a16d2d3c5ec082955220e7b61050"
+  integrity sha512-IkxJn3pbkxCEmKaa2QWjlXEwAQT/Kb5d+YzZyW3T3nNABSiJvxcOcwsR3pI7oAiBER0Cjpw0/O3rawuiyBWtGw==
   dependencies:
-    "@dhis2/d2-ui-org-unit-tree" "7.0.3"
+    "@dhis2/d2-ui-org-unit-tree" "7.0.4"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     prop-types "^15.5.10"
 
-"@dhis2/d2-ui-org-unit-tree@7.0.3":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-7.0.3.tgz#df16c7591a2c6b0dae22971604ffc653118b87ae"
-  integrity sha512-PI6nf94A/RjrQOIWwckXAgB8oQNstBVTidvfm//IzhPmQG3BGH7WF/74NKAVVeZ3Vr6QUAKiJr1PU+OEdnes4A==
+"@dhis2/d2-ui-org-unit-tree@7.0.4":
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-7.0.4.tgz#97321a7e6bdf882f1c305d0b7dbda60cf7363ebc"
+  integrity sha512-qZN4tgigNYDEe9Qvb13zjfY0w2c1DzZ+TpWND4LA1ozNqI/EAAHzxF8822rWbgsc2SKeCVwxifjjNWe+2o1XBg==
   dependencies:
-    "@dhis2/d2-ui-core" "7.0.3"
+    "@dhis2/d2-ui-core" "7.0.4"
     "@material-ui/core" "^3.3.1"
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
@@ -1228,12 +1217,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^35.1.0":
-  version "35.1.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.1.0.tgz#d899510f07bf560801099dd63b2029ad970d3c2c"
-  integrity sha512-/+L3y7X+i/K/rgKkTl9dv0OwApS6KWIGtuqeWW5sHUJqg57boDYLXqtigH3QcBgcEm4tftT8nH1kx/FXkRK1gA==
+"@dhis2/data-visualizer-plugin@^35.1.5":
+  version "35.1.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.1.5.tgz#566c3ecaaa17474b37481cacaeeb1c7688d5c2b7"
+  integrity sha512-llwSxCTmoi8YHv2QY0fN18RFXpTiXwTzje0mD3OuajZnuajqmx+gllIJdXmbBxNWofALaR1qMmNP+oDT5sEPzg==
   dependencies:
-    "@dhis2/analytics" "^7.0.0"
+    "@dhis2/analytics" "^7.0.2"
     "@dhis2/ui-core" "^4.21.1"
     lodash-es "^4.17.11"
 
@@ -1244,21 +1233,21 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/ui-constants@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-5.0.1.tgz#6e85e8aa1790c4cb37edd7218edfe57b5de13c33"
-  integrity sha512-9YKKUUSLX4vI/StkhxmRnXglMCcWkBun0dNNQUFWV28RyJIeu9YeWlpdxHEPRvCVgcguoFwHQxJ6ULdFqYO65A==
+"@dhis2/ui-constants@5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-5.0.3.tgz#8d6e6adc5c7ac3de92236dd97f9be01cc18c3ed5"
+  integrity sha512-9dnnmc+ztKmstM/AftGs+att4qShZUJWjeLRGMbnFE/fDwAwqvNCgGzmOM3K6YWXrrvJXjQC5TVOzhmqS0jReQ==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
 
-"@dhis2/ui-core@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-5.0.1.tgz#cf0fc11e826c919bcb25270d1a808d6a4597ee3f"
-  integrity sha512-lZ7FC1F+LSQvYWOR2VwoOw28B98rOKT1T4YhPKzOlBkGO6TlOE5V2+VwDOFA8mPr7I0ZanQfSnmMJRoLbo4Bog==
+"@dhis2/ui-core@5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-5.0.3.tgz#6098eb547d8cbe3453cb6f8e425512c14d7e68ef"
+  integrity sha512-lh6WhLq0mi9+AX7U9ScfzaPxk3nCl4yNc8LPYt/87AdM/OB7gBytDEg4qjdXlKpvstcytzV0AAUWvvkTqk7N5w==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
-    "@dhis2/ui-constants" "5.0.1"
-    "@dhis2/ui-icons" "5.0.1"
+    "@dhis2/ui-constants" "5.0.3"
+    "@dhis2/ui-icons" "5.0.3"
     "@popperjs/core" "^2.4.0"
     classnames "^2.2.6"
     react-popper "^2.2.3"
@@ -1275,35 +1264,24 @@
     react-popper "^2.2.3"
     resize-observer-polyfill "^1.5.1"
 
-"@dhis2/ui-forms@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-forms/-/ui-forms-5.0.1.tgz#4f9be1cd9d220c16ce236b786c2c59f69b1dac46"
-  integrity sha512-iRkjn01gfjss1R8Y4ogwgB48seLKG/zwkafk+0TwP/CVl5AdRRIb3p9XHInBGCwbvEg3XchvmD/5eg8ueTzBJg==
-  dependencies:
-    "@dhis2/prop-types" "^1.6.4"
-    "@dhis2/ui-core" "5.0.1"
-    classnames "^2.2.6"
-    final-form "^4.20.0"
-    react-final-form "^6.5.0"
-
-"@dhis2/ui-icons@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-5.0.1.tgz#67ca1f0ec3b98c08986758527917df0d4aa4e78f"
-  integrity sha512-Gmh+nRsRiK3JNCB7BY/pBQAStBCX7/c/EOovUY0UzdYXhoA88pwDpRDtfhFhwaDx63rdWzs45AjEMng5DxqQNw==
+"@dhis2/ui-icons@5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-5.0.3.tgz#73618454633cc7c76d7683e0c1f7820ab2da7945"
+  integrity sha512-KzWr6AZAPI7nXlsZOsJgf+5htDrHnQFYc16YwpkaeW7fMh+6LT4QqlVayKAqme/4KidVb9UeOGEqF5nMyl2quw==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
 
-"@dhis2/ui-widgets@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-5.0.1.tgz#ecb5a2ae3319cd5345450bb11dc85a3b0956b709"
-  integrity sha512-v5fRMEyXHVLvZ7dsHMFSn3HQSO0t4E6/Fd630/ja+oOw/GbDnyGfK8xayr62vu4zpjUZu14NbP5o5THTBpnSTw==
+"@dhis2/ui-widgets@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-5.0.3.tgz#1c7836892a9394ee0b78ee57e6d972f34769c582"
+  integrity sha512-ABjZiJ0ZGrKzDFiDfGizTYdTJvsmqf6fMywr9qUS+AR2p0xDtCfZsi+lURlV9yh35rWm9+/kEgMEet3T5gfHxQ==
   dependencies:
     "@dhis2/app-runtime" "^2.2.1"
     "@dhis2/d2-i18n" "^1"
     "@dhis2/prop-types" "^1.6.4"
-    "@dhis2/ui-constants" "5.0.1"
-    "@dhis2/ui-core" "5.0.1"
-    "@dhis2/ui-icons" "5.0.1"
+    "@dhis2/ui-constants" "5.0.3"
+    "@dhis2/ui-core" "5.0.3"
+    "@dhis2/ui-icons" "5.0.3"
     classnames "^2.2.6"
     resize-observer-polyfill "^1.5.1"
 
@@ -13447,9 +13425,9 @@ websocket-driver@>=0.5.1:
     websocket-extensions ">=0.1.1"
 
 websocket-extensions@>=0.1.1:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
-  integrity sha512-nqHUnMXmBzT0w570r2JpJxfiSD1IzoI+HGVdd3aZ0yNi3ngvQ4jv1dtHt5VGxfI2yj5yqImPhOK4vmIh2xMbGg==
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.4.tgz#7f8473bc839dfd87608adb95d7eb075211578a42"
+  integrity sha512-OqedPIGOfsDlo31UNwYbCFMSaO9m9G/0faIHj5/dZFDMFqPTcx6UwqyOy3COEaEOg/9VsGIpdqn62W5KhoKSpg==
 
 whatwg-encoding@^1.0.1, whatwg-encoding@^1.0.3:
   version "1.0.5"
