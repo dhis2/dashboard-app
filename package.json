@@ -40,6 +40,7 @@
     "scripts": {
         "start": "d2-app-scripts start",
         "coverage": "npm test -- --coverage",
+        "lint": "d2-style js check || d2-style text check",
         "build": "d2-app-scripts build",
         "build:netlify": "yarn build --standalone",
         "test": "d2-app-scripts test",
