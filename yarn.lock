@@ -1025,13 +1025,13 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@dhis2/analytics@7.1.0-alpha.3":
-  version "7.1.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-7.1.0-alpha.3.tgz#73aee6fc7ae9710c182678959d12f6627bb4a10a"
-  integrity sha512-Fdj9JhTCQc7JGeyErgvChsGzgrzKJ6Wz9EkcNTduhBTpjNF90mUU7SxJ0oqNOX4PdIgKKItjA38u1odSJrIuEw==
+"@dhis2/analytics@^7.0.2":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-7.0.3.tgz#c63453864476218028a622fbfc40482bf1df3aa4"
+  integrity sha512-tdH7x7CCgZpNWIsi+kYzhQux6eKc1FY8oxPY6wn1WvEXBYj5PbnjZ3NSEEjiCrAidZsL+PKqejGlMuTHQe1pAg==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
-    "@dhis2/ui" "^5.0.3"
+    "@dhis2/ui-core" "^4.21.1"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
     classnames "^2.2.6"
@@ -1043,13 +1043,13 @@
     resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.3.0"
 
-"@dhis2/analytics@^7.0.2":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-7.0.3.tgz#c63453864476218028a622fbfc40482bf1df3aa4"
-  integrity sha512-tdH7x7CCgZpNWIsi+kYzhQux6eKc1FY8oxPY6wn1WvEXBYj5PbnjZ3NSEEjiCrAidZsL+PKqejGlMuTHQe1pAg==
+"@dhis2/analytics@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-7.1.0.tgz#bf73019e562e96d46d5ebe5c8933750d914085ef"
+  integrity sha512-xgTZgPtYPa4iSfeN2FJ2th2MgDWtbb0dmrVPbrAkEp5mGxg/4/rS5zgOb1CJ5/XUB4VN5qKeuzx4xFv++4bsYw==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
-    "@dhis2/ui-core" "^4.21.1"
+    "@dhis2/ui" "^5.0.3"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
     classnames "^2.2.6"

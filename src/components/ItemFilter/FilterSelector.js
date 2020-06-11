@@ -25,17 +25,13 @@ import {
 } from '../../actions/activeModalDimension';
 
 const FilterSelector = props => {
-    const [anchorEl, setAnchorEl] = useState(null);
+    const [showPopover, setShowPopover] = useState(false);
     const ref = useRef(null);
 
-    const openPanel = (_, event) => {
-        setAnchorEl(event.currentTarget);
-    };
+    const closePanel = () => setShowPopover(false);
 
-    const closePanel = () => setAnchorEl(null);
-
-    const closeDialog = () => {
-        setAnchorEl(null);
+    const onCloseDialog = () => {
+        closePanel();
 
         props.clearActiveModalDimension();
     };
@@ -93,18 +89,18 @@ const FilterSelector = props => {
             props.removeItemFilter(id);
         }
 
-        closeDialog();
+        onCloseDialog();
     };
 
     return (
         <>
             <span ref={ref}>
-                <Button onClick={openPanel}>
+                <Button onClick={() => setShowPopover(true)}>
                     {i18n.t('Add filter')}
                     <ArrowDropDownIcon />
                 </Button>
             </span>
-            {anchorEl && (
+            {showPopover && (
                 <Popover
                     onClickOutside={closePanel}
                     reference={ref}
@@ -129,7 +125,7 @@ const FilterSelector = props => {
                     onSelect={onSelectItems}
                     onDeselect={onDeselectItems}
                     onReorder={onReorderItems}
-                    onClose={closeDialog}
+                    onClose={onCloseDialog}
                     onConfirm={saveFilter}
                 />
             ) : null}
