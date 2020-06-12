@@ -14,8 +14,8 @@ before_script:
     - npm install --global @dhis2/deploy-build
 script:
     - npm run lint
-    - npm run coverage
     - npm run build
+    - npm run coverage
 after_script:
     - './cc-test-reporter after-build -d --exit-code $TRAVIS_TEST_RESULT'
 deploy:
