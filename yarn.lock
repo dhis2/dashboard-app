@@ -1470,7 +1470,7 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@dhis2/analytics@^7.0.3":
+"@dhis2/analytics@^7.0.3", "@dhis2/analytics@^7.1.1":
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-7.1.1.tgz#1db32e9e383271ff364c1653537ac6c92a69c38d"
   integrity sha512-nqqzaF3Dl/A4nd+Aowi2CnyD4tYgPXog694h0F1WmNM4gxZf9AMHlUT1zb3Wk2se6413n+KJhCQYrb9JPGRrbA==
@@ -1496,7 +1496,7 @@
     "@dhis2/ui-widgets" "^2.1.1"
     moment "^2.24.0"
 
-"@dhis2/app-runtime@^2.0.4", "@dhis2/app-runtime@^2.2.1":
+"@dhis2/app-runtime@^2.0.4", "@dhis2/app-runtime@^2.2.1", "@dhis2/app-runtime@^2.2.2":
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.2.2.tgz#c2129c03d4ff3bca4eb3811d82f24d3acea07e5a"
   integrity sha512-0890q1deNT/aJtjtxkDROViZBrA0EP00HVMht8YAfM+uJsnvADrtjizP53r68uamZWpCZmLQsi+2xiVAQZmvXA==
@@ -1714,7 +1714,7 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^35.1.5":
+"@dhis2/data-visualizer-plugin@^35.1.6":
   version "35.1.6"
   resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.1.6.tgz#e081f63a1cac7277c4910d3335deca2adcac4be3"
   integrity sha512-nz7nJr89TPosQXLjF5sGOdsTJKqh16jaGtnfcLd0Rrm8pYeXyd9CwDCYche8lVzo1d98XLSWnt/9ReNHn4h9cw==
@@ -6051,9 +6051,9 @@ ejs@^3.0.2:
     jake "^10.6.1"
 
 electron-to-chromium@^1.3.103, electron-to-chromium@^1.3.378, electron-to-chromium@^1.3.413:
-  version "1.3.467"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.467.tgz#84eeb332134d49f0e49b88588824e56b20af9e27"
-  integrity sha512-U+QgsL8TZDU/n+rDnYDa3hY5uy3C4iry9mrJS0PNBBGwnocuQ+aHSfgY44mdlaK9744X5YqrrGUvD9PxCLY1HA==
+  version "1.3.469"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.469.tgz#05a06ec9c915127ed6c9f5b657cd1d7e11a3f944"
+  integrity sha512-O9JM6ZsFhS0uy0S2Y3G8EoNfqio3srdxCuwuJh8tKgQKa6rf7je/xQ3TIoiEaEtpf2/qFFLAGt/xB4MjuUZqRw==
 
 elliptic@^6.0.0, elliptic@^6.5.2:
   version "6.5.2"
@@ -10244,9 +10244,9 @@ jss@^9.8.7:
     warning "^3.0.0"
 
 jsx-ast-utils@^2.0.1, jsx-ast-utils@^2.2.1, jsx-ast-utils@^2.2.3:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/jsx-ast-utils/-/jsx-ast-utils-2.4.0.tgz#90b61f903850824f776ed354f2fdd735c40b3e36"
-  integrity sha512-OXNyNkAO/haJvlonYturZKaeN3Is7yuYMmELsxQ8za2tvH+WhEdTh8Zm5ydlj2IEPAQgClV6SLqwqLPjoTUqJg==
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/jsx-ast-utils/-/jsx-ast-utils-2.4.1.tgz#1114a4c1209481db06c690c2b4f488cc665f657e"
+  integrity sha512-z1xSldJ6imESSzOjd3NNkieVJKRlKYSOtMG8SFyCj2FIrvSaSuli/WjpBkEzCBoR9bYYYFgqJw61Xhu7Lcgk+w==
   dependencies:
     array-includes "^3.1.1"
     object.assign "^4.1.0"
