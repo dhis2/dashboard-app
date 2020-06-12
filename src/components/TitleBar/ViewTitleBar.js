@@ -44,30 +44,30 @@ class ViewTitleBar extends Component {
 
     showPrintLayoutView = () => {
         this.props.setForceLoadAll(true);
-        // const unsorteditems = Array.from(
-        //     document.getElementsByClassName('react-grid-item')
-        // );
-        // const items = unsorteditems.sort((a, b) => {
-        //     if (a.y < b.y) {
-        //         return -2;
-        //     } else if (a.y === b.y) {
-        //         if (a.x < b.x) {
-        //             return -1;
-        //         }
-        //     }
+        const unsorteditems = Array.from(
+            document.getElementsByClassName('react-grid-item')
+        );
+        const items = unsorteditems.sort((a, b) => {
+            if (a.y < b.y) {
+                return -2;
+            } else if (a.y === b.y) {
+                if (a.x < b.x) {
+                    return -1;
+                }
+            }
 
-        //     return 1;
-        // });
+            return 1;
+        });
 
-        // const pageList = [{ y: 200 }, { y: 800 }, { y: 1400 }];
-        // const pageHeight = 600;
-        // items.forEach(i =>
-        //     console.log(
-        //         'item.style',
-        //         i.style.getPropertyValue('transform'),
-        //         i.style.getPropertyValue('height')
-        //     )
-        // );
+        const pageList = [{ y: 200 }, { y: 800 }, { y: 1400 }];
+        const pageHeight = 600;
+        items.forEach(i =>
+            console.log(
+                'item.style',
+                i.style.getPropertyValue('transform'),
+                i.style.getPropertyValue('height')
+            )
+        );
     };
 
     toggleSharingDialog = () =>
@@ -101,12 +101,14 @@ class ViewTitleBar extends Component {
                     <div className={classes.actions}>
                         <div
                             className={classes.titleBarIcon}
-                            onClick={onStarClick}
+                            onClick={() => onStarClick(id, starred)}
                         >
                             <StarIcon style={{ fill: colors.grey600 }} />
                         </div>
                         <div className={classes.titleBarIcon}>
-                            <Info onClick={onInfoClick} />
+                            <Info
+                                onClick={() => onInfoClick(showDescription)}
+                            />
                         </div>
                         <div className={classes.buttons}>
                             {access.update ? (
@@ -167,7 +169,7 @@ ViewTitleBar.propTypes = {
     description: PropTypes.string,
     id: PropTypes.string,
     name: PropTypes.string,
-    setForceLoadAll: PropTypes.bool,
+    setForceLoadAll: PropTypes.func,
     showDescription: PropTypes.bool,
     starred: PropTypes.bool,
     style: PropTypes.object,
@@ -205,27 +207,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         setForceLoadAll: val => dispatch(acSetForceLoadAll(val)),
-    };
-};
-
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const { id, starred, showDescription } = stateProps;
-    const { dispatch, setForceLoadAll } = dispatchProps;
-
-    console.log('dispatch', dispatchProps);
-
-    return {
-        ...stateProps,
-        ...ownProps,
-        setForceLoadAll,
-        onStarClick: () => dispatch(tStarDashboard(id, !starred)),
-        onInfoClick: () =>
+        onStarClick: (id, starred) => dispatch(tStarDashboard(id, !starred)),
+        onInfoClick: showDescription =>
             dispatch(acSetSelectedShowDescription(!showDescription)),
     };
 };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-    mergeProps
-)(ViewTitleBar);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewTitleBar);
