@@ -65,7 +65,7 @@ msgstr "请求的仪表盘没有找到"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
+msgstr[0] "{{count}} 个已经选择"
 
 msgid "Remove"
 msgstr "移除"
@@ -96,7 +96,7 @@ msgid "No data to display"
 msgstr "没有数据可显示"
 
 msgid "View in {{appName}} app"
-msgstr ""
+msgstr "在{{appName}} 应用中查看"
 
 msgid "Cancel"
 msgstr "取消"
@@ -114,16 +114,16 @@ msgid "Search for items to add to this dashboard"
 msgstr "搜索条目添加到仪表盘"
 
 msgid "See fewer {{itemTypes}}"
-msgstr ""
+msgstr "查看较少的 {{itemTypes}}"
 
 msgid "See more {{itemTypes}}"
-msgstr ""
+msgstr "查看较多的 {{itemTypes}}"
 
 msgid "Add"
 msgstr "添加"
 
 msgid "+ ADD"
-msgstr ""
+msgstr "+ 添加"
 
 msgid "Additional items"
 msgstr "其它条目"
@@ -132,10 +132,10 @@ msgid "Text box"
 msgstr "文本框"
 
 msgid "Current translation"
-msgstr ""
+msgstr "当前方言"
 
 msgid "Currently editing"
-msgstr ""
+msgstr "当前编辑的"
 
 msgid "Add title here"
 msgstr "添加标题"
