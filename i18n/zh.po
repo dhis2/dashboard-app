@@ -99,7 +99,7 @@ msgid "No data to display"
 msgstr "没有数据可显示"
 
 msgid "View in {{appName}} app"
-msgstr ""
+msgstr "在{{appName}} 应用中查看"
 
 msgid "Confirm"
 msgstr "确认"
