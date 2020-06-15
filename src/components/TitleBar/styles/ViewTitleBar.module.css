@@ -14,10 +14,7 @@
 }
 
 @media print {
-    .buttons {
-        display: none;
-    }
-
+    .buttons,
     .actions {
         display: none;
     }

@@ -37,7 +37,6 @@ table.pivot * {
 
 @media print {
     .dashboard-header-bar,
-    .dashboard-control-bar,
     .page-container-top-margin {
         display: none;
     }

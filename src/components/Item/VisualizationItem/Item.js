@@ -271,8 +271,6 @@ export class Item extends Component {
     };
 
     render() {
-        // console.log('Item render');
-
         const { item, editMode, itemFilters } = this.props;
         const { showFooter } = this.state;
 
