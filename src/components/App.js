@@ -17,51 +17,12 @@ import SnackbarMessage from './SnackbarMessage/SnackbarMessage';
 import 'typeface-roboto';
 import './App.css';
 
-const handleBeforePrint = fn => {
-    // check edit mode?
-    fn(true);
-
-    if (window.confirm(`Print as single pages? ${window.innerHeight}`)) {
-        const appComponent = document.getElementsByClassName(
-            'react-grid-item'
-        )[0];
-        console.log(
-            'style',
-            appComponent.style.transform,
-            appComponent.style.height
-        );
-        appComponent.style.transform = 'translate(10px, 250px)';
-
-        // appComponent.classList.add('print-single-page');
-    }
-};
-
-const handleAfterPrint = fn => {
-    console.log('handleAfterPrint');
-
-    fn(false);
-    // const appComponent = document.getElementsByClassName('app-wrapper')[0];
-    // appComponent.classList.remove('print-single-page');
-};
-
 export class App extends Component {
     componentDidMount() {
         this.props.setCurrentUser(this.props.d2.currentUser);
         this.props.fetchDashboards();
         this.props.setControlBarRows();
         this.props.setDimensions(this.props.d2);
-
-        window.addEventListener('beforeprint', () =>
-            handleBeforePrint(this.props.setForceLoadAll)
-        );
-        window.addEventListener('afterprint', () =>
-            handleAfterPrint(this.props.setForceLoadAll)
-        );
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('beforeprint', handleBeforePrint);
-        window.removeEventListener('afterprint', handleAfterPrint);
     }
 
     getChildContext() {

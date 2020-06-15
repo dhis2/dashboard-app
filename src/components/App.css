@@ -46,11 +46,16 @@ table.pivot * {
         width: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
+        background-color: white;
     }
 
     * {
         -webkit-transition: none !important;
         transition: none !important;
+    }
+
+    .dashboard-wrapper {
+        background-color: white;
     }
 }
 
@@ -61,14 +66,10 @@ table.pivot * {
     margin-bottom: 10px;
     border: 1px solid #d3d4d6;
     box-shadow: none;
-    width: 80vw !important;
-    height: 80vw !important;
+    /* width: 80vw !important;
+    height: 80vh !important; */
     max-height: 95vh !important;
-    -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
-    /*page-break-inside: avoid;*/
-    break-inside: avoid; /* IE 10+ */
-    /* page-break-before: always;
-        break-before: page; */
+    break-after: page;
 }
 
 @page {

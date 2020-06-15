@@ -17,6 +17,10 @@
     .buttons {
         display: none;
     }
+
+    .actions {
+        display: none;
+    }
 }
 
 .editLink {

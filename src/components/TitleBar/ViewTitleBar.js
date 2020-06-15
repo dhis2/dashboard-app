@@ -42,34 +42,6 @@ class ViewTitleBar extends Component {
         appComponent.classList.add('printview');
     };
 
-    showPrintLayoutView = () => {
-        this.props.setForceLoadAll(true);
-        const unsorteditems = Array.from(
-            document.getElementsByClassName('react-grid-item')
-        );
-        const items = unsorteditems.sort((a, b) => {
-            if (a.y < b.y) {
-                return -2;
-            } else if (a.y === b.y) {
-                if (a.x < b.x) {
-                    return -1;
-                }
-            }
-
-            return 1;
-        });
-
-        const pageList = [{ y: 200 }, { y: 800 }, { y: 1400 }];
-        const pageHeight = 600;
-        items.forEach(i =>
-            console.log(
-                'item.style',
-                i.style.getPropertyValue('transform'),
-                i.style.getPropertyValue('height')
-            )
-        );
-    };
-
     toggleSharingDialog = () =>
         this.setState({ sharingDialogIsOpen: !this.state.sharingDialogIsOpen });
 
@@ -129,12 +101,9 @@ class ViewTitleBar extends Component {
                             <span style={{ marginRight: '4px' }}>
                                 <FilterSelector />
                             </span>
-                            <button onClick={this.showPrintSPView}>
-                                Print SP view
-                            </button>
-                            <button onClick={this.showPrintLayoutView}>
-                                Print Layout view
-                            </button>
+                            <Button onClick={this.showPrintSPView}>
+                                {i18n.t('Print preview')}
+                            </Button>
                         </div>
                     </div>
                 </div>

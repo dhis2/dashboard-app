@@ -131,8 +131,6 @@ export class ItemGrid extends Component {
     getItemComponents = items => items.map(item => this.getItemComponent(item));
 
     render() {
-        console.log('ItemGrid render forceLoadAll', this.props.forceLoadAll);
-
         const { edit, isLoading, dashboardItems } = this.props;
 
         if (!isLoading && !dashboardItems.length) {
@@ -158,12 +156,6 @@ export class ItemGrid extends Component {
 
             return 1;
         });
-
-        if (this.props.forceLoadAll) {
-            items.forEach(item => {
-                console.log('item', item);
-            });
-        }
 
         return (
             <div className="grid-wrapper">

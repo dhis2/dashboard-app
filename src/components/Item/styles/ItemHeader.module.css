@@ -9,6 +9,12 @@
         var(--spacers-dp8);
 }
 
+@media print {
+    .itemActionsWrap {
+        display: none;
+    }
+}
+
 .itemTitle {
     font-weight: 700;
     color: var(--colors-grey800);
