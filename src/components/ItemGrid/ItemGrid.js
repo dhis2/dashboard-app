@@ -23,6 +23,7 @@ import {
 import { orArray } from '../../modules/util';
 
 import NoContentMessage from '../../widgets/NoContentMessage';
+import PageBreakRuler from './PageBreakRuler';
 
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
@@ -73,12 +74,14 @@ export class ItemGrid extends Component {
     }
 
     onLayoutChange = newLayout => {
+        console.log('onLayoutChange');
         if (this.props.edit) {
             this.props.acUpdateDashboardLayout(newLayout);
         }
     };
 
     onResizeStop = (layout, oldItem, newItem) => {
+        console.log('onResizeStop', layout, oldItem, newItem);
         onItemResize(newItem.i);
 
         const dashboardItem = this.props.dashboardItems.find(
@@ -111,29 +114,31 @@ export class ItemGrid extends Component {
             this.props.edit ? 'edit' : 'view',
         ].join(' ');
 
+        // console.log('item', item);
+
         return (
-            <div key={item.i}>
-                <ProgressiveLoadingContainer
-                    key={item.i}
-                    className={itemClassNames}
-                    forceLoad={this.props.forceLoadAll}
-                >
-                    <Item
-                        item={item}
-                        editMode={this.props.edit}
-                        onToggleItemExpanded={this.onToggleItemExpanded}
-                    />
-                </ProgressiveLoadingContainer>
-            </div>
+            // <div key={item.i}>
+            <ProgressiveLoadingContainer
+                key={item.i}
+                className={itemClassNames}
+                forceLoad={this.props.forceLoadAll}
+            >
+                <Item
+                    item={item}
+                    editMode={this.props.edit}
+                    onToggleItemExpanded={this.onToggleItemExpanded}
+                />
+            </ProgressiveLoadingContainer>
+            // </div>
         );
     };
 
     getItemComponents = items => items.map(item => this.getItemComponent(item));
 
     render() {
-        console.log('ItemGrid render forceLoadAll', this.props.forceLoadAll);
+        // console.log('ItemGrid render forceLoadAll', this.props.forceLoadAll);
 
-        const { edit, isLoading, dashboardItems } = this.props;
+        const { edit, print, isLoading, dashboardItems } = this.props;
 
         if (!isLoading && !dashboardItems.length) {
             return (
@@ -147,6 +152,8 @@ export class ItemGrid extends Component {
             ? dashboardItems
             : dashboardItems.map(this.adjustHeightForExpanded);
 
+        //sorting the items is so that the print, with one item per page
+        //prints in the order of top to bottom of the dashboard
         const items = unsortedItems.sort((a, b) => {
             if (a.y < b.y) {
                 return -2;
@@ -159,11 +166,17 @@ export class ItemGrid extends Component {
             return 1;
         });
 
-        if (this.props.forceLoadAll) {
-            items.forEach(item => {
-                console.log('item', item);
-            });
-        }
+        // console.log(
+        //     'gridProps',
+        //     'margin',
+        //     MARGIN,
+        //     'cols',
+        //     getGridColumns(),
+        //     'rowheight',
+        //     GRID_ROW_HEIGHT,
+        //     'width',
+        //     window.innerWidth
+        // );
 
         return (
             <div className="grid-wrapper">
@@ -172,6 +185,7 @@ export class ItemGrid extends Component {
                         <CircularLoader />
                     </ScreenCover>
                 ) : null}
+                {print && <PageBreakRuler />}
                 <ReactGridLayout
                     onLayoutChange={this.onLayoutChange}
                     onResizeStop={this.onResizeStop}
@@ -200,6 +214,7 @@ ItemGrid.propTypes = {
     edit: PropTypes.bool,
     forceLoadAll: PropTypes.bool,
     isLoading: PropTypes.bool,
+    print: PropTypes.bool,
 };
 
 ItemGrid.defaultProps = {
@@ -235,6 +250,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     return {
         ...dispatchProps,
         edit: ownProps.edit,
+        print: ownProps.print,
         isLoading: stateProps.isLoading,
         dashboardItems: validItems,
         forceLoadAll: stateProps.forceLoadAll,

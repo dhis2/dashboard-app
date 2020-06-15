@@ -16,9 +16,10 @@ import { updateDashboard, postDashboard } from '../api/editDashboard';
 import { tSetSelectedDashboardById } from '../actions/selected';
 import {
     NEW_ITEM_SHAPE,
+    NEW_PAGEBREAK_ITEM_SHAPE,
     getGridItemProperties,
 } from '../components/ItemGrid/gridUtil';
-import { itemTypeMap } from '../modules/itemTypes';
+import { itemTypeMap, PAGEBREAK } from '../modules/itemTypes';
 import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter';
 
 const onError = error => {
@@ -71,13 +72,20 @@ export const acAddDashboardItem = item => {
     const id = generateUid();
     const gridItemProperties = getGridItemProperties(id);
 
+    let newItemShape = {};
+    if (type === PAGEBREAK) {
+        newItemShape = NEW_PAGEBREAK_ITEM_SHAPE;
+    } else {
+        newItemShape = NEW_ITEM_SHAPE;
+    }
+
     return {
         type: ADD_DASHBOARD_ITEM,
         value: {
             id,
             type,
             [itemPropName]: item.content,
-            ...NEW_ITEM_SHAPE,
+            ...newItemShape,
             ...gridItemProperties,
         },
     };

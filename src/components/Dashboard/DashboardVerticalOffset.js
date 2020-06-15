@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {
     getTopOffset,
     MIN_ROW_COUNT,
+    HEADERBAR_HEIGHT,
 } from '../ControlBar/controlBarDimensions';
 import { sGetControlBarUserRows } from '../../reducers/controlBar';
 

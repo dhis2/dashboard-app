@@ -8,6 +8,7 @@ import ListItem from './ListItem/Item';
 import TextItem from './TextItem/Item';
 import AppItem from './AppItem/Item';
 import SpacerItem from './SpacerItem/Item';
+import PageBreakItem from './PageBreakItem/Item';
 import {
     APP,
     VISUALIZATION,
@@ -22,6 +23,7 @@ import {
     USERS,
     TEXT,
     SPACER,
+    PAGEBREAK,
 } from '../../modules/itemTypes';
 import { DEFAULT_STATE_ITEM_FILTERS } from '../../reducers/itemFilters';
 
@@ -44,6 +46,8 @@ const getGridItem = type => {
             return TextItem;
         case SPACER:
             return SpacerItem;
+        case PAGEBREAK:
+            return PageBreakItem;
         case APP:
             return AppItem;
         default:

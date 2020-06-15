@@ -26,6 +26,7 @@ export const USERS = 'USERS';
 export const MESSAGES = 'MESSAGES';
 export const TEXT = 'TEXT';
 export const SPACER = 'SPACER';
+export const PAGEBREAK = 'PAGEBREAK';
 
 const DOMAIN_TYPE_AGGREGATE = 'AGGREGATE';
 const DOMAIN_TYPE_TRACKER = 'TRACKER';
@@ -113,14 +114,14 @@ export const itemTypeMap = {
         propName: 'reports',
         pluralTitle: i18n.t('Reports'),
         appUrl: (id, type) => {
-            switch(type) {
+            switch (type) {
                 case 'HTML':
                     return `dhis-web-reports/#/standard-report/view/${id}`;
 
                 case 'JASPER_REPORT_TABLE':
                 case 'JASPER_JDBC':
                 default:
-                    return `api/reports/${id}/data.pdf?t=${(new Date()).getTime()}`;
+                    return `api/reports/${id}/data.pdf?t=${new Date().getTime()}`;
             }
         },
     },
@@ -148,6 +149,10 @@ export const itemTypeMap = {
     [SPACER]: {
         propName: 'text',
     },
+
+    [PAGEBREAK]: {
+        propName: 'text',
+    },
 };
 
 export const getEndPointName = type => itemTypeMap[type].endPointName;
@@ -160,7 +165,10 @@ export const getItemUrl = (type, item, d2) => {
     }
 
     if (itemTypeMap[type] && itemTypeMap[type].appUrl) {
-        url = `${getBaseUrl(d2)}/${itemTypeMap[type].appUrl(item.id, item.type)}`;
+        url = `${getBaseUrl(d2)}/${itemTypeMap[type].appUrl(
+            item.id,
+            item.type
+        )}`;
     }
 
     return url;

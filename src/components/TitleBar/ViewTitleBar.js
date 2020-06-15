@@ -36,39 +36,39 @@ class ViewTitleBar extends Component {
         };
     }
 
-    showPrintSPView = () => {
-        this.props.setForceLoadAll(true);
-        const appComponent = document.getElementsByClassName('app-wrapper')[0];
-        appComponent.classList.add('printview');
-    };
+    // showPrintSPView = () => {
+    //     this.props.setForceLoadAll(true);
+    //     const appComponent = document.getElementsByClassName('app-wrapper')[0];
+    //     appComponent.classList.add('printview');
+    // };
 
-    showPrintLayoutView = () => {
-        this.props.setForceLoadAll(true);
-        const unsorteditems = Array.from(
-            document.getElementsByClassName('react-grid-item')
-        );
-        const items = unsorteditems.sort((a, b) => {
-            if (a.y < b.y) {
-                return -2;
-            } else if (a.y === b.y) {
-                if (a.x < b.x) {
-                    return -1;
-                }
-            }
+    // showPrintLayoutView = () => {
+    //     this.props.setForceLoadAll(true);
+    //     const unsorteditems = Array.from(
+    //         document.getElementsByClassName('react-grid-item')
+    //     );
+    //     const items = unsorteditems.sort((a, b) => {
+    //         if (a.y < b.y) {
+    //             return -2;
+    //         } else if (a.y === b.y) {
+    //             if (a.x < b.x) {
+    //                 return -1;
+    //             }
+    //         }
 
-            return 1;
-        });
+    //         return 1;
+    //     });
 
-        const pageList = [{ y: 200 }, { y: 800 }, { y: 1400 }];
-        const pageHeight = 600;
-        items.forEach(i =>
-            console.log(
-                'item.style',
-                i.style.getPropertyValue('transform'),
-                i.style.getPropertyValue('height')
-            )
-        );
-    };
+    //     const pageList = [{ y: 200 }, { y: 800 }, { y: 1400 }];
+    //     const pageHeight = 600;
+    //     items.forEach(i =>
+    //         console.log(
+    //             'item.style',
+    //             i.style.getPropertyValue('transform'),
+    //             i.style.getPropertyValue('height')
+    //         )
+    //     );
+    // };
 
     toggleSharingDialog = () =>
         this.setState({ sharingDialogIsOpen: !this.state.sharingDialogIsOpen });
@@ -129,12 +129,15 @@ class ViewTitleBar extends Component {
                             <span style={{ marginRight: '4px' }}>
                                 <FilterSelector />
                             </span>
-                            <button onClick={this.showPrintSPView}>
+                            {/* <button onClick={this.showPrintSPView}>
                                 Print SP view
-                            </button>
-                            <button onClick={this.showPrintLayoutView}>
-                                Print Layout view
-                            </button>
+                            </button> */}
+                            <Link
+                                className={classes.editLink}
+                                to={`/${id}/print`}
+                            >
+                                <Button>{i18n.t('Print')}</Button>
+                            </Link>
                         </div>
                     </div>
                 </div>

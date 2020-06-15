@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 
 import { tSelectDashboard } from '../../actions/dashboards';
 import { sDashboardsIsFetching } from '../../reducers/dashboards';
-import { EDIT, NEW } from './dashboardModes';
+import { EDIT, NEW, PRINT } from './dashboardModes';
 import ViewDashboard from './ViewDashboard';
 import EditDashboard from './EditDashboard';
+import PrintDashboard from './PrintDashboard';
 import NewDashboard from './NewDashboard';
 
 class Dashboard extends Component {
@@ -38,6 +39,8 @@ class Dashboard extends Component {
                 return <EditDashboard />;
             case NEW:
                 return <NewDashboard />;
+            case PRINT:
+                return <PrintDashboard />;
             default:
                 return <ViewDashboard />;
         }
@@ -55,9 +58,6 @@ const mapStateToProps = state => {
     return { dashboardsLoaded: !sDashboardsIsFetching(state) };
 };
 
-export default connect(
-    mapStateToProps,
-    {
-        selectDashboard: tSelectDashboard,
-    }
-)(Dashboard);
+export default connect(mapStateToProps, {
+    selectDashboard: tSelectDashboard,
+})(Dashboard);

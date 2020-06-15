@@ -6,6 +6,7 @@ import EditTitleBar from './EditTitleBar';
 import ViewTitleBar from './ViewTitleBar';
 
 import './TitleBar.css';
+import PrintTitleBar from './PrintTitleBar';
 
 const style = {
     title: {
@@ -21,7 +22,19 @@ const style = {
     },
 };
 
-const TitleBar = ({ edit }) => {
+const getTitleBar = (edit, print) => {
+    if (print) {
+        return <PrintTitleBar style={style} />;
+    }
+
+    if (edit) {
+        return <EditTitleBar style={style} />;
+    }
+
+    return <ViewTitleBar style={style} />;
+};
+
+const TitleBar = ({ edit, print }) => {
     return (
         <div
             className="titlebar-wrapper"
@@ -29,17 +42,14 @@ const TitleBar = ({ edit }) => {
                 padding: '20px 15px 5px 10px',
             }}
         >
-            {edit ? (
-                <EditTitleBar style={style} />
-            ) : (
-                <ViewTitleBar style={style} />
-            )}
+            {getTitleBar(edit, print)}
         </div>
     );
 };
 
 TitleBar.propTypes = {
     edit: PropTypes.bool,
+    print: PropTypes.bool,
 };
 
 export default TitleBar;

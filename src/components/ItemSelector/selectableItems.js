@@ -11,6 +11,7 @@ import {
     MESSAGES,
     TEXT,
     SPACER,
+    PAGEBREAK,
 } from '../../modules/itemTypes';
 
 export const singleItems = [
@@ -31,6 +32,11 @@ export const singleItems = [
             {
                 type: SPACER,
                 name: i18n.t('Spacer'),
+                content: '',
+            },
+            {
+                type: PAGEBREAK,
+                name: i18n.t('Page break'),
                 content: '',
             },
         ],

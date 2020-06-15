@@ -30,6 +30,7 @@ export class FilterBar extends Component {
 
     render() {
         const { filters, userRows } = this.props;
+        console.log('filters', filters);
         const top = getTopOffset(userRows) + 10;
 
         return filters.length ? (
@@ -85,11 +86,8 @@ const mapStateToProps = state => ({
     userRows: sGetControlBarUserRows(state),
 });
 
-export default connect(
-    mapStateToProps,
-    {
-        setActiveModalDimension: acSetActiveModalDimension,
-        removeItemFilter: acRemoveItemFilter,
-        removeEditItemFilter: acRemoveEditItemFilter,
-    }
-)(FilterBar);
+export default connect(mapStateToProps, {
+    setActiveModalDimension: acSetActiveModalDimension,
+    removeItemFilter: acRemoveItemFilter,
+    removeEditItemFilter: acRemoveEditItemFilter,
+})(FilterBar);

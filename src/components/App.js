@@ -6,9 +6,10 @@ import i18n from '@dhis2/d2-i18n';
 import { HeaderBar } from '@dhis2/ui-widgets';
 import { CssVariables } from '@dhis2/ui-core';
 
-import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes';
+import { EDIT, VIEW, NEW, PRINT } from './Dashboard/dashboardModes';
 import { acReceivedUser } from '../actions/user';
 import { tFetchDashboards, acSetForceLoadAll } from '../actions/dashboards';
+import { sGetIsPrintMode } from '../reducers/selected';
 import { tSetControlBarRows } from '../actions/controlBar';
 import { tSetDimensions } from '../actions/dimensions';
 import Dashboard from './Dashboard/Dashboard';
@@ -17,32 +18,32 @@ import SnackbarMessage from './SnackbarMessage/SnackbarMessage';
 import 'typeface-roboto';
 import './App.css';
 
-const handleBeforePrint = fn => {
-    // check edit mode?
-    fn(true);
+// const handleBeforePrint = fn => {
+//     // check edit mode?
+//     fn(true);
 
-    if (window.confirm(`Print as single pages? ${window.innerHeight}`)) {
-        const appComponent = document.getElementsByClassName(
-            'react-grid-item'
-        )[0];
-        console.log(
-            'style',
-            appComponent.style.transform,
-            appComponent.style.height
-        );
-        appComponent.style.transform = 'translate(10px, 250px)';
+//     if (window.confirm(`Print as single pages? ${window.innerHeight}`)) {
+//         const appComponent = document.getElementsByClassName(
+//             'react-grid-item'
+//         )[0];
+//         console.log(
+//             'style',
+//             appComponent.style.transform,
+//             appComponent.style.height
+//         );
+//         appComponent.style.transform = 'translate(10px, 250px)';
 
-        // appComponent.classList.add('print-single-page');
-    }
-};
+//         // appComponent.classList.add('print-single-page');
+//     }
+// };
 
-const handleAfterPrint = fn => {
-    console.log('handleAfterPrint');
+// const handleAfterPrint = fn => {
+//     console.log('handleAfterPrint');
 
-    fn(false);
-    // const appComponent = document.getElementsByClassName('app-wrapper')[0];
-    // appComponent.classList.remove('print-single-page');
-};
+//     fn(false);
+//     // const appComponent = document.getElementsByClassName('app-wrapper')[0];
+//     // appComponent.classList.remove('print-single-page');
+// };
 
 export class App extends Component {
     componentDidMount() {
@@ -51,18 +52,18 @@ export class App extends Component {
         this.props.setControlBarRows();
         this.props.setDimensions(this.props.d2);
 
-        window.addEventListener('beforeprint', () =>
-            handleBeforePrint(this.props.setForceLoadAll)
-        );
-        window.addEventListener('afterprint', () =>
-            handleAfterPrint(this.props.setForceLoadAll)
-        );
+        // window.addEventListener('beforeprint', () =>
+        //     handleBeforePrint(this.props.setForceLoadAll)
+        // );
+        // window.addEventListener('afterprint', () =>
+        //     handleAfterPrint(this.props.setForceLoadAll)
+        // );
     }
 
-    componentWillUnmount() {
-        window.removeEventListener('beforeprint', handleBeforePrint);
-        window.removeEventListener('afterprint', handleAfterPrint);
-    }
+    // componentWillUnmount() {
+    //     window.removeEventListener('beforeprint', handleBeforePrint);
+    //     window.removeEventListener('afterprint', handleAfterPrint);
+    // }
 
     getChildContext() {
         return { baseUrl: this.props.baseUrl, i18n, d2: this.props.d2 };
@@ -73,9 +74,11 @@ export class App extends Component {
             <>
                 <CssVariables colors spacers />
                 <div className="app-wrapper">
-                    <div className="dashboard-header-bar">
-                        <HeaderBar appName={i18n.t('Dashboard')} />
-                    </div>
+                    {!this.props.isPrintMode && (
+                        <div className="dashboard-header-bar">
+                            <HeaderBar appName={i18n.t('Dashboard')} />
+                        </div>
+                    )}
                     <Router>
                         <Switch>
                             <Route
@@ -106,6 +109,13 @@ export class App extends Component {
                                     <Dashboard {...props} mode={EDIT} />
                                 )}
                             />
+                            <Route
+                                exact
+                                path="/:dashboardId/print"
+                                render={props => (
+                                    <Dashboard {...props} mode={PRINT} />
+                                )}
+                            />
                         </Switch>
                     </Router>
                     <SnackbarMessage />
@@ -123,12 +133,17 @@ App.propTypes = {
     setForceLoadAll: PropTypes.func.isRequired,
     baseUrl: PropTypes.string,
     d2: PropTypes.object,
+    isPrintMode: PropTypes.bool,
 };
 
 App.childContextTypes = {
     baseUrl: PropTypes.string,
     i18n: PropTypes.object,
     d2: PropTypes.object,
+};
+
+const mapStateToProps = state => {
+    return { isPrintMode: sGetIsPrintMode(state) };
 };
 
 const mapDispatchToProps = dispatch => {
@@ -141,4 +156,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

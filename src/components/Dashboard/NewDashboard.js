@@ -6,6 +6,7 @@ import { acSetEditNewDashboard } from '../../actions/editDashboard';
 import DashboardVerticalOffset from './DashboardVerticalOffset';
 import EditBar from '../ControlBar/EditBar';
 import DashboardContent from './DashboardContent';
+import { NEW } from './dashboardModes';
 
 class NewDashboard extends Component {
     componentDidMount() {
@@ -18,7 +19,7 @@ class NewDashboard extends Component {
                 <EditBar />
                 <DashboardVerticalOffset editMode={true} />
                 <div className="dashboard-wrapper">
-                    <DashboardContent editMode={true} />
+                    <DashboardContent mode={NEW} />
                 </div>
             </>
         );
@@ -29,9 +30,6 @@ NewDashboard.propTypes = {
     setNewDashboard: PropTypes.func,
 };
 
-export default connect(
-    null,
-    {
-        setNewDashboard: acSetEditNewDashboard,
-    }
-)(NewDashboard);
+export default connect(null, {
+    setNewDashboard: acSetEditNewDashboard,
+})(NewDashboard);

@@ -6,10 +6,12 @@ import { validateReducer } from '../modules/util';
 export const SET_SELECTED_ID = 'SET_SELECTED_ID';
 export const SET_SELECTED_ISLOADING = 'SET_SELECTED_ISLOADING';
 export const SET_SELECTED_SHOWDESCRIPTION = 'SET_SELECTED_SHOWDESCRIPTION';
+export const SET_SELECTED_PRINT_MODE = 'SET_SELECTED_PRINT_MODE';
 
 export const DEFAULT_STATE_SELECTED_ID = null;
 export const DEFAULT_STATE_SELECTED_ISLOADING = false;
 export const DEFAULT_STATE_SELECTED_SHOWDESCRIPTION = false;
+export const DEFAULT_STATE_SELECTED_PRINT_MODE = false;
 
 /**
  * Reducer functions that computes and returns the new state based on the given action
@@ -53,10 +55,23 @@ const showDescription = (
     }
 };
 
+const isPrintMode = (state = DEFAULT_STATE_SELECTED_PRINT_MODE, action) => {
+    switch (action.type) {
+        case SET_SELECTED_PRINT_MODE:
+            return validateReducer(
+                action.value,
+                DEFAULT_STATE_SELECTED_PRINT_MODE
+            );
+        default:
+            return state;
+    }
+};
+
 export default combineReducers({
     id,
     isLoading,
     showDescription,
+    isPrintMode,
 });
 
 // Selectors
@@ -69,3 +84,5 @@ export const sGetSelectedIsLoading = state => sGetSelectedRoot(state).isLoading;
 
 export const sGetSelectedShowDescription = state =>
     sGetSelectedRoot(state).showDescription;
+
+export const sGetIsPrintMode = state => sGetSelectedRoot(state).isPrintMode;

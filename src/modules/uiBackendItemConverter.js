@@ -1,12 +1,17 @@
-import { TEXT, SPACER } from './itemTypes';
+import { TEXT, SPACER, PAGEBREAK } from './itemTypes';
 import { getGridItemProperties } from '../components/ItemGrid/gridUtil';
 
 export const spacerContent = 'SPACER_ITEM_FOR_DASHBOARD_LAYOUT_CONVENIENCE';
 export const emptyTextItemContent = 'TEXT_ITEM_WITH_NO_CONTENT';
 
+export const pagebreakContent = 'PAGEBREAK_ITEM_FOR_DASHBOARD_PRINTING';
+
 const isBackendSpacerType = item =>
     item.type === TEXT && item.text === spacerContent;
+const isBackendPagebreakType = item =>
+    item.type === TEXT && item.text === pagebreakContent;
 const isUiSpacerType = item => item.type === SPACER;
+const isUiPagebreakType = item => item.type === PAGEBREAK;
 const isTextType = item => item.type === TEXT && item.text !== spacerContent;
 
 export const convertUiItemsToBackend = items =>
@@ -14,6 +19,8 @@ export const convertUiItemsToBackend = items =>
         let text = null;
         if (isUiSpacerType(item)) {
             text = spacerContent;
+        } else if (isUiPagebreakType(item)) {
+            text = pagebreakContent;
         } else if (isTextType(item)) {
             text = item.text || emptyTextItemContent;
         }
@@ -26,7 +33,15 @@ export const convertUiItemsToBackend = items =>
 
 export const convertBackendItemsToUi = items =>
     items.map(item => {
-        const type = isBackendSpacerType(item) ? SPACER : item.type;
+        let type;
+        if (isBackendSpacerType(item)) {
+            type = SPACER;
+        } else if (isBackendPagebreakType(item)) {
+            type = PAGEBREAK;
+        } else {
+            type = item.type;
+        }
+        //    const type = isBackendSpacerType(item) ? SPACER : item.type;
         const gridProperties = getGridItemProperties(item.id);
 
         const text = isTextType(item)
@@ -35,10 +50,14 @@ export const convertBackendItemsToUi = items =>
                 : item.text
             : null;
 
-        return {
+        const props = {
             ...item,
             ...(text !== null ? { text } : {}),
             type,
             ...gridProperties,
         };
+        // if (type === PAGEBREAK) {
+        //     props.isResizable = false;
+        // }
+        return props;
     });

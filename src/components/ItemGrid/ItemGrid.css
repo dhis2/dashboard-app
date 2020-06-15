@@ -26,7 +26,13 @@
     visibility: hidden;
 }
 
-.react-grid-item.SPACER.edit {
+.react-grid-item.PAGEBREAK.view {
+    /* visibility: hidden; */
+    height: 10px;
+}
+
+.react-grid-item.SPACER.edit,
+.react-grid-item.PAGEBREAK.edit {
     background-color: rgba(255, 255, 255, 0.3);
 }
 

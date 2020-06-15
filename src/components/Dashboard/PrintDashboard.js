@@ -5,20 +5,19 @@ import PropTypes from 'prop-types';
 
 import { acSetEditDashboard } from '../../actions/editDashboard';
 import { sGetSelectedId } from '../../reducers/selected';
+import { acSetSelectedPrintMode } from '../../actions/selected';
 import {
     sGetDashboardById,
     sGetDashboardItems,
     sDashboardsIsFetching,
 } from '../../reducers/dashboards';
-import DashboardVerticalOffset from './DashboardVerticalOffset';
 import DashboardContent from './DashboardContent';
-import EditBar from '../ControlBar/EditBar';
+import { PRINT } from './dashboardModes';
 import NoContentMessage from '../../widgets/NoContentMessage';
-import { EDIT } from './dashboardModes';
 
 export const Content = ({ updateAccess }) => {
     return updateAccess ? (
-        <DashboardContent mode={EDIT} />
+        <DashboardContent mode={PRINT} />
     ) : (
         <NoContentMessage text={i18n.t('No access')} />
     );
@@ -27,29 +26,33 @@ export const Content = ({ updateAccess }) => {
 Content.propTypes = {
     updateAccess: PropTypes.bool,
 };
-export class EditDashboard extends Component {
+export class PrintDashboard extends Component {
     state = {
         initialized: false,
     };
 
-    initEditDashboard = () => {
+    initPrintDashboard = () => {
         if (this.props.dashboard) {
             this.setState({ initialized: true });
-            this.props.setEditDashboard(this.props.dashboard, this.props.items);
+            this.props.setPrintDashboard(
+                this.props.dashboard,
+                this.props.items
+            );
         }
+        this.props.setSelectedPrintMode(true);
     };
 
     componentDidMount() {
-        this.initEditDashboard();
+        this.initPrintDashboard();
     }
 
     componentDidUpdate() {
         if (!this.state.initialized) {
-            this.initEditDashboard();
+            this.initPrintDashboard();
         }
     }
 
-    getDashboardContent = () => {
+    render() {
         const contentNotReady =
             !this.props.dashboardsLoaded || this.props.id === null;
 
@@ -60,25 +63,15 @@ export class EditDashboard extends Component {
                 )}
             </div>
         );
-    };
-
-    render() {
-        return (
-            <>
-                <EditBar />
-                <DashboardVerticalOffset editMode={true} />
-                {this.getDashboardContent()}
-            </>
-        );
     }
 }
 
-EditDashboard.propTypes = {
+PrintDashboard.propTypes = {
     dashboard: PropTypes.object,
     dashboardsLoaded: PropTypes.bool,
     id: PropTypes.string,
     items: PropTypes.array,
-    setEditDashboard: PropTypes.func,
+    setPrintDashboard: PropTypes.func,
     updateAccess: PropTypes.bool,
 };
 
@@ -99,5 +92,6 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, {
-    setEditDashboard: acSetEditDashboard,
-})(EditDashboard);
+    setPrintDashboard: acSetEditDashboard,
+    setSelectedPrintMode: acSetSelectedPrintMode,
+})(PrintDashboard);

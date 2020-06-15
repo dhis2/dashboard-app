@@ -48,6 +48,16 @@ table.pivot * {
         margin: 0 !important;
     }
 
+    .PAGEBREAK {
+        visibility: hidden;
+        break-after: page;
+        page-break-after: always;
+    }
+
+    .page-break-button {
+        visibility: hidden;
+    }
+
     * {
         -webkit-transition: none !important;
         transition: none !important;
@@ -74,4 +84,23 @@ table.pivot * {
 @page {
     size: landscape;
     margin: 5%;
+}
+
+.blue,
+.green,
+.orange {
+    height: 200px;
+    width: 90%;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.orange {
+    background-color: orange;
 }

@@ -13,6 +13,7 @@ import DashboardsBar from '../ControlBar/DashboardsBar';
 import DashboardVerticalOffset from './DashboardVerticalOffset';
 import DashboardContent from './DashboardContent';
 import NoContentMessage from '../../widgets/NoContentMessage';
+import { VIEW } from './dashboardModes';
 
 export const Content = ({ hasDashboardContent, dashboardsIsEmpty }) => {
     const msg = dashboardsIsEmpty
@@ -22,7 +23,7 @@ export const Content = ({ hasDashboardContent, dashboardsIsEmpty }) => {
         : i18n.t('Requested dashboard not found');
 
     return hasDashboardContent ? (
-        <DashboardContent editMode={false} />
+        <DashboardContent mode={VIEW} />
     ) : (
         <NoContentMessage text={msg} />
     );

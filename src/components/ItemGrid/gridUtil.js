@@ -10,12 +10,18 @@ const GRID_COLUMN_WIDTH_PX = 20;
 const GRID_LAYOUT = 'FLEXIBLE'; // FIXED | FLEXIBLE
 export const MARGIN = [10, 10];
 
-export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 };
-
 // Dimensions for getShape
 
 const NUMBER_OF_ITEM_COLS = 2;
 const GRID_COLUMNS = 60;
+
+export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 };
+export const NEW_PAGEBREAK_ITEM_SHAPE = {
+    x: 0,
+    y: 0,
+    w: GRID_COLUMNS - 1,
+    h: 5,
+};
 
 export const getGridColumns = () => {
     switch (GRID_LAYOUT) {
