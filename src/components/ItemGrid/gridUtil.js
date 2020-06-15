@@ -113,3 +113,17 @@ export function onItemResize(id) {
             10
         );
 }
+
+export const sortItemsByGridPosition = items => {
+    return items.sort((a, b) => {
+        if (a.y < b.y) {
+            return -2;
+        } else if (a.y === b.y) {
+            if (a.x < b.x) {
+                return -1;
+            }
+        }
+
+        return 1;
+    });
+};

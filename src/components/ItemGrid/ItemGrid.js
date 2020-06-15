@@ -19,6 +19,7 @@ import {
     getGridColumns,
     hasShape,
     onItemResize,
+    sortItemsByGridPosition,
 } from './gridUtil';
 import { orArray } from '../../modules/util';
 
@@ -45,7 +46,6 @@ import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer';
 const EXPANDED_HEIGHT = 17;
 // this is set in the .dashboard-item-content css
 export const ITEM_CONTENT_PADDING_BOTTOM = 4;
-
 export class ItemGrid extends Component {
     state = {
         expandedItems: {},
@@ -145,17 +145,8 @@ export class ItemGrid extends Component {
             ? dashboardItems
             : dashboardItems.map(this.adjustHeightForExpanded);
 
-        const items = unsortedItems.sort((a, b) => {
-            if (a.y < b.y) {
-                return -2;
-            } else if (a.y === b.y) {
-                if (a.x < b.x) {
-                    return -1;
-                }
-            }
-
-            return 1;
-        });
+        //Sort the items by position, for printing one item per page
+        const items = sortItemsByGridPosition(unsortedItems);
 
         return (
             <div className="grid-wrapper">
