@@ -848,7 +848,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/template@^7.1.0", "@babel/template@^7.10.1", "@babel/template@^7.2.2", "@babel/template@^7.4.4":
+"@babel/template@^7.1.0", "@babel/template@^7.10.1", "@babel/template@^7.2.2", "@babel/template@^7.4.4"
   version "7.10.1"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.10.1.tgz#e167154a94cb5f14b28dc58f5356d2162f539811"
   integrity sha512-OQDg6SqvFSsc9A0ej6SKINWrpJiNonRIniYondK2ViKhB06i3c0s+76XUft71iqBEe9S1OKsHwPAjfHnuvnCig==
@@ -1025,10 +1025,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@dhis2/analytics@^7.1.1":
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-7.1.1.tgz#1db32e9e383271ff364c1653537ac6c92a69c38d"
-  integrity sha512-nqqzaF3Dl/A4nd+Aowi2CnyD4tYgPXog694h0F1WmNM4gxZf9AMHlUT1zb3Wk2se6413n+KJhCQYrb9JPGRrbA==
+"@dhis2/analytics@^7.1.1", "@dhis2/analytics@^7.1.3":
+  version "7.1.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-7.1.3.tgz#2d088efa418783f285b3059f42b89b8d9e03f7c1"
+  integrity sha512-oMVILs/Q5z9cQB5lUbo9aPT1EslXDAugAzUqiXlbpximvFKMpKvCPLEBD+ZT56LGpOnGW6ZPP7YlaBAk5P43Hg==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
     "@dhis2/ui" "^5.0.3"
@@ -1043,23 +1043,23 @@
     resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.3.0"
 
-"@dhis2/app-runtime@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.2.1.tgz#9c2192c247bbca44e721c2ece1a0d6f8bcdf00d6"
-  integrity sha512-rX4+Dz31zov0OZNKxcOBbVdXwac5nxX0a4e6G0MKE2OCuHZtvASNbahl86IAasCjuNOclUSgLmIJpEhqlnUxpw==
+"@dhis2/app-runtime@^2.2.1", "@dhis2/app-runtime@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.2.2.tgz#c2129c03d4ff3bca4eb3811d82f24d3acea07e5a"
+  integrity sha512-0890q1deNT/aJtjtxkDROViZBrA0EP00HVMht8YAfM+uJsnvADrtjizP53r68uamZWpCZmLQsi+2xiVAQZmvXA==
   dependencies:
-    "@dhis2/app-service-config" "2.2.1"
-    "@dhis2/app-service-data" "2.2.1"
+    "@dhis2/app-service-config" "2.2.2"
+    "@dhis2/app-service-data" "2.2.2"
 
-"@dhis2/app-service-config@2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-2.2.1.tgz#5417b6ec266fa0e3d84a9405010cee43ed6a0027"
-  integrity sha512-o841GSzjg/VaucWN/9Axo42Dv6CS4Wra3BAw+qFsMtZ7agFKbSssbxyloDiB0/TDv9moR8xivfAHn8kfcVwuNQ==
+"@dhis2/app-service-config@2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-2.2.2.tgz#9de0bc717ede669ee810fb7d4d84c0d35532a426"
+  integrity sha512-ohPCNX1hBMh/+0L5gxrSrfH/Bz787x60L4GMWODO0WEO73M6kGCjzaYZ0vjgmSCSUYJxZ6cBeybr0FBArxHjbw==
 
-"@dhis2/app-service-data@2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-2.2.1.tgz#b418a9624761cedded3ebddc3459db90bdaa3c16"
-  integrity sha512-XeAmjjt8sL1sbu8rsEEQDBQyc//cHww79kCGXpuFHR5tytzhT31cQ457/zNqU3DW61xKgv+bCWk845kuD26UbQ==
+"@dhis2/app-service-data@2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-2.2.2.tgz#093d45b8bb71b5b1e81876281379cda52b6632a7"
+  integrity sha512-QJrYTFj+vINcqvr27yLIKunbNJTVmDPGr9fUliUdmTkCikTwlnK8fu6TPz3rhkOUYX0VrwzFJXp3ofKQajZ9mQ==
 
 "@dhis2/cli-helpers-engine@1.5.0":
   version "1.5.0"
@@ -1264,6 +1264,17 @@
     final-form "^4.20.0"
     react-final-form "^6.5.0"
 
+"@dhis2/ui-forms@5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-forms/-/ui-forms-5.0.3.tgz#ccfd3d7b2d157eae408c6efcf5f9448e95573855"
+  integrity sha512-+x+9XsT7ChdmXsnE6BM/1J2/Z/1SUH45aUid8XA1wS0I31VUAwG+2g0VKqszqGHke+wKgMRwPAKNbGfChuQv1w==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+    "@dhis2/ui-core" "5.0.3"
+    classnames "^2.2.6"
+    final-form "^4.20.0"
+    react-final-form "^6.5.0"
+
 "@dhis2/ui-icons@5.0.3":
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-5.0.3.tgz#73618454633cc7c76d7683e0c1f7820ab2da7945"
@@ -1271,7 +1282,7 @@
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
 
-"@dhis2/ui-widgets@5.0.3":
+"@dhis2/ui-widgets@5.0.3", "@dhis2/ui-widgets@^5.0.3":
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-5.0.3.tgz#1c7836892a9394ee0b78ee57e6d972f34769c582"
   integrity sha512-ABjZiJ0ZGrKzDFiDfGizTYdTJvsmqf6fMywr9qUS+AR2p0xDtCfZsi+lURlV9yh35rWm9+/kEgMEet3T5gfHxQ==
@@ -1459,9 +1470,9 @@
   integrity sha512-NMrDy6EWh9TPdSRiHmHH2ye1v5U0gBD7pRYwSwJvomx7Bm4GG04vu63dYiVzebLOx2obPpJugew06xVP0Nk7hA==
 
 "@scarf/scarf@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@scarf/scarf/-/scarf-1.0.5.tgz#accee0bce88a9047672f7c8faf3cada59c996b81"
-  integrity sha512-9WKaGVpQH905Aqkk+BczFEeLQxS07rl04afFRPUG9IcSlOwmo5EVVuuNu0d4M9LMYucObvK0LoAe+5HfMW2QhQ==
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@scarf/scarf/-/scarf-1.0.6.tgz#52011dfb19187b53b75b7b6eac20da0810ddd88f"
+  integrity sha512-y4+DuXrAd1W5UIY3zTcsosi/1GyYT8k5jGnZ/wG7UUHVrU+MHlH4Mp87KK2/lvMW4+H7HVcdB+aJhqywgXksjA==
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
@@ -4872,10 +4883,10 @@ eslint-plugin-jsx-a11y@6.1.2:
     has "^1.0.3"
     jsx-ast-utils "^2.0.1"
 
-eslint-plugin-prettier@^3.1.2, eslint-plugin-prettier@^3.1.3:
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.1.3.tgz#ae116a0fc0e598fdae48743a4430903de5b4e6ca"
-  integrity sha512-+HG5jmu/dN3ZV3T6eCD7a4BlAySdN7mLIbJYo0z1cFQuI+r2DiTJEFeF68ots93PsnrMxbzIZ2S/ieX+mkrBeQ==
+eslint-plugin-prettier@^3.1.2, eslint-plugin-prettier@^3.1.4:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.1.4.tgz#168ab43154e2ea57db992a2cd097c828171f75c2"
+  integrity sha512-jZDa8z76klRqo+TdGDTFJSavwbnWK2ZpqGKNZ+VvweMW516pDUMmQ2koXvxEE4JhzNvTv+radye/bWGBmA6jmg==
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
