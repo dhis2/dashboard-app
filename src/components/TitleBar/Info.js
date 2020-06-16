@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import InfoOutlineIcon from '@material-ui/icons/InfoOutlined';
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui';
 import PropTypes from 'prop-types';
 
 class Info extends Component {

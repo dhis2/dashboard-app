@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Chip } from '@dhis2/ui-core';
+import { Chip } from '@dhis2/ui';
 import { DashboardItemChip } from '../DashboardItemChip';
 
 describe('DashboardItemChip', () => {

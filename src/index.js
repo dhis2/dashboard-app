@@ -6,7 +6,7 @@ import { init as d2Init, config, getManifest, getUserSettings } from 'd2';
 import dhis2theme from '@dhis2/d2-ui-core/theme/mui3.theme';
 
 import { Provider as RuntimeProvider } from '@dhis2/app-runtime';
-import { CssReset } from '@dhis2/ui-core';
+import { CssReset } from '@dhis2/ui';
 
 import App from './components/App';
 import './index.css';
@@ -31,9 +31,7 @@ const init = async () => {
 
     // log app info
     console.info(
-        `Dashboards app, v${manifest.version}, ${
-            manifest.manifest_generated_at
-        }`
+        `Dashboards app, v${manifest.version}, ${manifest.manifest_generated_at}`
     );
 
     const isProd = process.env.NODE_ENV === 'production';

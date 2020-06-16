@@ -15,8 +15,7 @@
         "@dhis2/d2-ui-sharing-dialog": "^7.0.4",
         "@dhis2/d2-ui-translation-dialog": "^7.0.4",
         "@dhis2/data-visualizer-plugin": "^35.2.0",
-        "@dhis2/ui-core": "^4.21.1",
-        "@dhis2/ui-widgets": "^5.0.3",
+        "@dhis2/ui": "^5.0.3",
         "@material-ui/core": "^3.9.2",
         "@material-ui/icons": "^4.9.1",
         "d2": "^31.8.1",
@@ -34,6 +33,7 @@
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.3.0",
         "reselect": "^4.0.0",
+        "styled-jsx": "^3.3.0",
         "typeface-roboto": "^0.0.75",
         "whatwg-fetch": "^3.0.0"
     },

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ButtonStrip } from '@dhis2/ui-core';
+import { ButtonStrip } from '@dhis2/ui';
 import { ConfirmDeleteDialog } from '../ConfirmDeleteDialog';
 import { getStubContext } from '../../../setupTests';
 

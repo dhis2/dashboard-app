@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui';
 import { HEADERBAR_HEIGHT } from './controlBarDimensions';
 
 import classes from './styles/ControlBar.module.css';
