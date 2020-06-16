@@ -1,13 +1,12 @@
-import React, { Component } from 'react'
+import React, { useState, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import Popover from '@material-ui/core/Popover'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 
 import i18n from '@dhis2/d2-i18n'
 import { DimensionsPanel } from '@dhis2/analytics'
 
-import { Button } from '@dhis2/ui-core'
+import { Button, Popover } from '@dhis2/ui'
 import FilterDialog from './FilterDialog'
 
 import { sGetSettingsDisplayNameProperty } from '../../reducers/settings'
@@ -25,129 +24,113 @@ import {
     acSetActiveModalDimension,
 } from '../../actions/activeModalDimension'
 
-class FilterSelector extends Component {
-    constructor(props) {
-        super(props)
+const FilterSelector = props => {
+    const [showPopover, setShowPopover] = useState(false)
+    const ref = useRef(null)
 
-        this.state = {
-            anchorEl: null,
-        }
+    const closePanel = () => setShowPopover(false)
+
+    const onCloseDialog = () => {
+        closePanel()
+
+        props.clearActiveModalDimension()
     }
 
-    openPanel = (_, event) => {
-        this.setState({ anchorEl: event.currentTarget })
-    }
-
-    closePanel = () => {
-        this.setState({ anchorEl: null })
-    }
-
-    closeDialog = () => {
-        this.setState({ anchorEl: null })
-
-        this.props.clearActiveModalDimension()
-    }
-
-    selectDimension = id => {
-        this.props.setActiveModalDimension(
-            this.props.dimensions.find(dimension => dimension.id === id)
+    const selectDimension = id => {
+        props.setActiveModalDimension(
+            props.dimensions.find(dimension => dimension.id === id)
         )
     }
 
-    onSelectItems = ({ dimensionId, items }) => {
-        this.props.setEditItemFilters({
-            ...this.props.selectedItems,
+    const onSelectItems = ({ dimensionId, items }) => {
+        props.setEditItemFilters({
+            ...props.selectedItems,
             [dimensionId]: items,
         })
     }
 
-    onDeselectItems = ({ dimensionId, itemIdsToRemove }) => {
-        const oldList = this.props.selectedItems[dimensionId] || []
+    const onDeselectItems = ({ dimensionId, itemIdsToRemove }) => {
+        const oldList = props.selectedItems[dimensionId] || []
         const newList = oldList.filter(
             item => !itemIdsToRemove.includes(item.id)
         )
 
         if (newList.length) {
-            this.props.setEditItemFilters({
-                ...this.props.selectedItems,
+            props.setEditItemFilters({
+                ...props.selectedItems,
                 [dimensionId]: newList,
             })
         } else {
-            this.props.removeEditItemFilter(dimensionId)
+            props.removeEditItemFilter(dimensionId)
         }
     }
 
-    onReorderItems = ({ dimensionId, itemIds }) => {
-        const oldList = this.props.selectedItems[dimensionId] || []
+    const onReorderItems = ({ dimensionId, itemIds }) => {
+        const oldList = props.selectedItems[dimensionId] || []
         const reorderedList = itemIds.map(id =>
             oldList.find(item => item.id === id)
         )
 
-        this.props.setEditItemFilters({
-            ...this.props.selectedItems,
+        props.setEditItemFilters({
+            ...props.selectedItems,
             [dimensionId]: reorderedList,
         })
     }
 
-    saveFilter = id => {
-        const filterItems = this.props.selectedItems[id]
+    const saveFilter = id => {
+        const filterItems = props.selectedItems[id]
 
         if (filterItems && filterItems.length) {
-            this.props.addItemFilter({
+            props.addItemFilter({
                 id,
                 value: [...filterItems],
             })
         } else {
-            this.props.removeItemFilter(id)
+            props.removeItemFilter(id)
         }
 
-        this.closeDialog()
+        onCloseDialog()
     }
 
-    render() {
-        const {
-            displayNameProperty,
-            dimension,
-            dimensions,
-            selectedDimensions,
-            selectedItems,
-        } = this.props
-
-        return (
-            <>
-                <Button onClick={this.openPanel}>
+    return (
+        <>
+            <span ref={ref}>
+                <Button onClick={() => setShowPopover(true)}>
                     {i18n.t('Add filter')}
                     <ArrowDropDownIcon />
                 </Button>
+            </span>
+            {showPopover && (
                 <Popover
-                    open={Boolean(this.state.anchorEl)}
-                    anchorEl={this.state.anchorEl}
-                    anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-                    onClose={this.closePanel}
-                    style={{ height: '100%' }}
+                    onClickOutside={closePanel}
+                    reference={ref}
+                    arrow={true}
+                    placement="bottom-start"
                 >
                     <DimensionsPanel
                         style={{ width: '320px' }}
-                        dimensions={dimensions}
-                        onDimensionClick={this.selectDimension}
-                        selectedIds={selectedDimensions}
+                        dimensions={props.dimensions}
+                        onDimensionClick={selectDimension}
+                        selectedIds={props.selectedDimensions}
                     />
                 </Popover>
-                {dimension ? (
-                    <FilterDialog
-                        displayNameProperty={displayNameProperty}
-                        dimension={dimension}
-                        selectedItems={selectedItems[dimension.id] || []}
-                        onSelect={this.onSelectItems}
-                        onDeselect={this.onDeselectItems}
-                        onReorder={this.onReorderItems}
-                        onClose={this.closeDialog}
-                        onConfirm={this.saveFilter}
-                    />
-                ) : null}
-            </>
-        )
-    }
+            )}
+            {props.dimension ? (
+                <FilterDialog
+                    displayNameProperty={props.displayNameProperty}
+                    dimension={props.dimension}
+                    selectedItems={
+                        props.selectedItems[props.dimension.id] || []
+                    }
+                    onSelect={onSelectItems}
+                    onDeselect={onDeselectItems}
+                    onReorder={onReorderItems}
+                    onClose={onCloseDialog}
+                    onConfirm={saveFilter}
+                />
+            ) : null}
+        </>
+    )
 }
 
 const mapStateToProps = state => ({

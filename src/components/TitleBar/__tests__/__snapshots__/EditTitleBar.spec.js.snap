@@ -9,7 +9,7 @@ exports[`EditTitleBar renders correctly when displayName is provided 1`] = `
   >
     <InputField
       className="title"
-      dataTest="dhis2-uicore-inputfield"
+      dataTest="dhis2-uiwidgets-inputfield"
       label="Dashboard title"
       name="Dashboard title input"
       onChange={[Function]}
@@ -18,7 +18,7 @@ exports[`EditTitleBar renders correctly when displayName is provided 1`] = `
     />
     <TextAreaField
       className="description"
-      dataTest="dhis2-uicore-textareafield"
+      dataTest="dhis2-uiwidgets-textareafield"
       label="Dashboard description"
       name="Dashboard description input"
       onChange={[Function]}
@@ -45,7 +45,7 @@ exports[`EditTitleBar renders correctly when displayName not provided 1`] = `
   >
     <InputField
       className="title"
-      dataTest="dhis2-uicore-inputfield"
+      dataTest="dhis2-uiwidgets-inputfield"
       label="Dashboard title"
       name="Dashboard title input"
       onChange={[Function]}
@@ -54,7 +54,7 @@ exports[`EditTitleBar renders correctly when displayName not provided 1`] = `
     />
     <TextAreaField
       className="description"
-      dataTest="dhis2-uicore-textareafield"
+      dataTest="dhis2-uiwidgets-textareafield"
       label="Dashboard description"
       name="Dashboard description input"
       onChange={[Function]}

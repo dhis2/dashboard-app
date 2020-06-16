@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { CssVariables } from '@dhis2/ui-core'
+import { CssVariables } from '@dhis2/ui'
 
 import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes'
 import { acReceivedUser } from '../actions/user'

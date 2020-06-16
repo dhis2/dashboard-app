@@ -1,5 +1,5 @@
 import React from 'react'
-import { colors } from '@dhis2/ui-core'
+import { colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 
 const DescriptionIcon = ({ className }) => (

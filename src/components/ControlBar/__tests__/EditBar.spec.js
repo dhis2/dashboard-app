@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { Button } from '@dhis2/ui-core'
+import { Button } from '@dhis2/ui'
 
 import { EditBar } from '../EditBar'
 import ConfirmDeleteDialog from '../ConfirmDeleteDialog'

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 
 import ControlBar from '../ControlBar'
 
-jest.mock('@dhis2/ui-core', () => {
+jest.mock('@dhis2/ui', () => {
     return {
         colors: { white: 'white', yellow050: 'yellow' },
     }

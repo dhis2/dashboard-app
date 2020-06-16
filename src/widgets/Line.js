@@ -1,5 +1,5 @@
 import React from 'react'
-import { colors } from '@dhis2/ui-core'
+import { colors } from '@dhis2/ui'
 
 const style = {
     backgroundColor: colors.grey200,
