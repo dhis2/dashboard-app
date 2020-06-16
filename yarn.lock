@@ -1025,7 +1025,7 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@dhis2/analytics@^7.0.2", "@dhis2/analytics@^7.1.1":
+"@dhis2/analytics@^7.1.1":
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-7.1.1.tgz#1db32e9e383271ff364c1653537ac6c92a69c38d"
   integrity sha512-nqqzaF3Dl/A4nd+Aowi2CnyD4tYgPXog694h0F1WmNM4gxZf9AMHlUT1zb3Wk2se6413n+KJhCQYrb9JPGRrbA==
@@ -1217,13 +1217,13 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^35.1.5":
-  version "35.1.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.1.5.tgz#566c3ecaaa17474b37481cacaeeb1c7688d5c2b7"
-  integrity sha512-llwSxCTmoi8YHv2QY0fN18RFXpTiXwTzje0mD3OuajZnuajqmx+gllIJdXmbBxNWofALaR1qMmNP+oDT5sEPzg==
+"@dhis2/data-visualizer-plugin@^35.2.0":
+  version "35.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.2.0.tgz#068bc0ee82123fd07407b92337482184cf4fd69f"
+  integrity sha512-dYwet1ypoRNNONQza7viQFE8zvmHbO4md7axMsElinqwYIwqYBuzEwVyNj/ADFA3P/k97R0U5ssFKdyJfgELDg==
   dependencies:
-    "@dhis2/analytics" "^7.0.2"
-    "@dhis2/ui-core" "^4.21.1"
+    "@dhis2/analytics" "^7.1.1"
+    "@dhis2/ui" "^5.0.3"
     lodash-es "^4.17.11"
 
 "@dhis2/prop-types@^1.6.4":
@@ -1248,17 +1248,6 @@
     "@dhis2/prop-types" "^1.6.4"
     "@dhis2/ui-constants" "5.0.3"
     "@dhis2/ui-icons" "5.0.3"
-    "@popperjs/core" "^2.4.0"
-    classnames "^2.2.6"
-    react-popper "^2.2.3"
-    resize-observer-polyfill "^1.5.1"
-
-"@dhis2/ui-core@^4.21.1":
-  version "4.21.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.21.1.tgz#2b5518f6bd5de75404df3eefa83452e0c40852aa"
-  integrity sha512-dpK4UwktLw9qcRkDe5wU76j35ntoulqKpcaBoxXZ1+/rzR2FeaJ+w4l+I+bg45jcK9WjLLsFClc1zi+O/MG1MA==
-  dependencies:
-    "@dhis2/prop-types" "^1.6.4"
     "@popperjs/core" "^2.4.0"
     classnames "^2.2.6"
     react-popper "^2.2.3"
