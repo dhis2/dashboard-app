@@ -4,6 +4,7 @@ import i18n from '@dhis2/d2-i18n';
 import PropTypes from 'prop-types';
 
 import { acSetEditDashboard } from '../../actions/editDashboard';
+import { acSetForceLoadAll } from '../../actions/dashboards';
 import { sGetSelectedId } from '../../reducers/selected';
 import { acSetSelectedPrintMode } from '../../actions/selected';
 import {
@@ -39,7 +40,7 @@ export class PrintDashboard extends Component {
                 this.props.items
             );
         }
-        this.props.setSelectedPrintMode(true);
+        this.props.setForceLoadAll(true);
     };
 
     componentDidMount() {
@@ -71,6 +72,7 @@ PrintDashboard.propTypes = {
     dashboardsLoaded: PropTypes.bool,
     id: PropTypes.string,
     items: PropTypes.array,
+    setForceLoadAll: PropTypes.func,
     setPrintDashboard: PropTypes.func,
     updateAccess: PropTypes.bool,
 };
@@ -94,4 +96,5 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
     setPrintDashboard: acSetEditDashboard,
     setSelectedPrintMode: acSetSelectedPrintMode,
+    setForceLoadAll: acSetForceLoadAll,
 })(PrintDashboard);
