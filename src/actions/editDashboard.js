@@ -18,6 +18,7 @@ import {
     NEW_ITEM_SHAPE,
     NEW_PAGEBREAK_ITEM_SHAPE,
     getGridItemProperties,
+    getPageBreakItemShape,
 } from '../components/ItemGrid/gridUtil';
 import { itemTypeMap, PAGEBREAK } from '../modules/itemTypes';
 import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter';
@@ -67,6 +68,7 @@ export const acUpdateDashboardLayout = value => ({
 export const acAddDashboardItem = item => {
     const type = item.type;
     delete item.type;
+    const yPos = item.yPos || 0;
     const itemPropName = itemTypeMap[type].propName;
 
     const id = generateUid();
@@ -74,7 +76,7 @@ export const acAddDashboardItem = item => {
 
     let newItemShape = {};
     if (type === PAGEBREAK) {
-        newItemShape = NEW_PAGEBREAK_ITEM_SHAPE;
+        newItemShape = getPageBreakItemShape(yPos);
     } else {
         newItemShape = NEW_ITEM_SHAPE;
     }

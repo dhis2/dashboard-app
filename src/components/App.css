@@ -4,6 +4,7 @@ body {
 
 .app-wrapper {
     font-family: Roboto;
+    position: relative;
 }
 
 .dashboard-header-bar {
@@ -82,25 +83,11 @@ table.pivot * {
 }
 
 @page {
-    size: landscape;
-    margin: 5%;
+    size: 8.5in 11in landscape;
+    margin: 10pt;
 }
 
-.blue,
-.green,
-.orange {
-    height: 200px;
-    width: 90%;
-}
-
-.blue {
-    background-color: blue;
-}
-
-.green {
-    background-color: green;
-}
-
-.orange {
-    background-color: orange;
+@page:first {
+    size: 8.5in 11in landscape;
+    margin: 50px 10pt 10pt 10pt;
 }

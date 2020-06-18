@@ -23,6 +23,15 @@ export const NEW_PAGEBREAK_ITEM_SHAPE = {
     h: 5,
 };
 
+export const getPageBreakItemShape = yPos => {
+    return {
+        x: 0,
+        y: yPos,
+        w: GRID_COLUMNS - 1,
+        h: 5,
+    };
+};
+
 export const getGridColumns = () => {
     switch (GRID_LAYOUT) {
         case 'FLEXIBLE':
@@ -80,12 +89,35 @@ export const getGridItemProperties = itemId => {
  *
  * @param {Object} item item containing shape (x, y, w, h)
  */
-const getOriginalHeight = item => {
+export const getOriginalHeight = item => {
     const originalHeight = Math.round(
         GRID_ROW_HEIGHT * item.h + Math.max(0, item.h - 1) * MARGIN[1]
     );
 
+    // console.log('originalHeight', originalHeight, item.h);
+    // console.log(
+    //     GRID_ROW_HEIGHT,
+    //     ' * ',
+    //     item.h,
+    //     ' + ',
+    //     Math.max(0, item.h - 1),
+    //     ' * ',
+    //     MARGIN[1]
+    // );
+
     return { originalHeight };
+};
+
+export const getGridYFromPixels = yPixels => {
+    // const newH = NEW_PAGEBREAK_ITEM_SHAPE.h;
+    // const factor = GRID_ROW_HEIGHT * 4;
+    // return Math.round(yPos / factor);
+    // const numerator = yPixels / GRID_ROW_HEIGHT;
+    // const denominator = 4;
+    // const result = Math.ceil(numerator / denominator);
+    const y = Math.round((yPixels - MARGIN[1]) / (GRID_ROW_HEIGHT + MARGIN[1]));
+    console.log('y', y);
+    return y;
 };
 
 /**

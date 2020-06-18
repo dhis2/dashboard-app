@@ -11,8 +11,6 @@ import { acAddDashboardItem } from '../../actions/editDashboard';
 
 import { PAGEBREAK } from '../../modules/itemTypes';
 
-import classes from './styles/PrintTitleBar.module.css';
-
 const PrintTitleBar = props => {
     const { name, style } = props;
 
@@ -22,21 +20,24 @@ const PrintTitleBar = props => {
         top: '7px',
     });
 
-    const addPageBreak = () => {
+    const addPageBreak = (event, other) => {
+        console.log('event', event.clientX, event.clientY);
+        console.log('other', other.target);
         props.addDashboardItem({ type: PAGEBREAK });
     };
 
     return (
-        <div className={classes.titleBar}>
+        <>
             <span style={titleStyle}>{name}</span>
             <Button className="page-break-button" onClick={addPageBreak}>
                 {i18n.t('Add page break')}
             </Button>
-        </div>
+        </>
     );
 };
 
 PrintTitleBar.propTypes = {
+    addDashboardItem: PropTypes.func,
     name: PropTypes.string,
     style: PropTypes.object,
 };

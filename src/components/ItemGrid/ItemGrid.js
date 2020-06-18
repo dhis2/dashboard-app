@@ -19,6 +19,7 @@ import {
     getGridColumns,
     hasShape,
     onItemResize,
+    getOriginalHeight,
 } from './gridUtil';
 import { orArray } from '../../modules/util';
 
@@ -52,6 +53,8 @@ export class ItemGrid extends Component {
         expandedItems: {},
     };
 
+    gridRef = null;
+
     onToggleItemExpanded = clickedId => {
         const isExpanded =
             typeof this.state.expandedItems[clickedId] === 'boolean'
@@ -74,14 +77,12 @@ export class ItemGrid extends Component {
     }
 
     onLayoutChange = newLayout => {
-        console.log('onLayoutChange');
         if (this.props.edit) {
             this.props.acUpdateDashboardLayout(newLayout);
         }
     };
 
     onResizeStop = (layout, oldItem, newItem) => {
-        console.log('onResizeStop', layout, oldItem, newItem);
         onItemResize(newItem.i);
 
         const dashboardItem = this.props.dashboardItems.find(
@@ -114,8 +115,6 @@ export class ItemGrid extends Component {
             this.props.edit ? 'edit' : 'view',
         ].join(' ');
 
-        // console.log('item', item);
-
         return (
             // <div key={item.i}>
             <ProgressiveLoadingContainer
@@ -136,8 +135,6 @@ export class ItemGrid extends Component {
     getItemComponents = items => items.map(item => this.getItemComponent(item));
 
     render() {
-        // console.log('ItemGrid render forceLoadAll', this.props.forceLoadAll);
-
         const { edit, print, isLoading, dashboardItems } = this.props;
 
         if (!isLoading && !dashboardItems.length) {
@@ -166,20 +163,8 @@ export class ItemGrid extends Component {
             return 1;
         });
 
-        // console.log(
-        //     'gridProps',
-        //     'margin',
-        //     MARGIN,
-        //     'cols',
-        //     getGridColumns(),
-        //     'rowheight',
-        //     GRID_ROW_HEIGHT,
-        //     'width',
-        //     window.innerWidth
-        // );
-
         return (
-            <div className="grid-wrapper">
+            <div>
                 {isLoading ? (
                     <ScreenCover>
                         <CircularLoader />
