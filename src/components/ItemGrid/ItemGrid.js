@@ -19,7 +19,10 @@ import {
     getGridColumns,
     hasShape,
     onItemResize,
-    getOriginalHeight,
+    // getOriginalHeight,
+    getItemPageHeightRows,
+    getItemPageColumns,
+    getPageBreakItemShape,
 } from './gridUtil';
 import { orArray } from '../../modules/util';
 
@@ -115,6 +118,11 @@ export class ItemGrid extends Component {
             this.props.edit ? 'edit' : 'view',
         ].join(' ');
 
+        if (this.props.onePerPage) {
+            item.w = getItemPageColumns(1102);
+            item.h = getItemPageHeightRows(700);
+        }
+
         return (
             // <div key={item.i}>
             <ProgressiveLoadingContainer
@@ -163,6 +171,11 @@ export class ItemGrid extends Component {
             return 1;
         });
 
+        const opp = this.props.onePerPage && 'printview';
+        const classNames = print ? 'print layout '.concat(opp) : 'layout';
+        const printWidth = 1102 < window.innerWidth ? 1102 : window.innerWidth;
+        const width = print ? printWidth : window.innerWidth;
+
         return (
             <div>
                 {isLoading ? (
@@ -170,16 +183,16 @@ export class ItemGrid extends Component {
                         <CircularLoader />
                     </ScreenCover>
                 ) : null}
-                {print && <PageBreakRuler />}
+                {print && !this.props.onePerPage && <PageBreakRuler />}
                 <ReactGridLayout
                     onLayoutChange={this.onLayoutChange}
                     onResizeStop={this.onResizeStop}
-                    className="layout"
+                    className={classNames}
                     layout={items}
                     margin={MARGIN}
                     cols={getGridColumns()}
                     rowHeight={GRID_ROW_HEIGHT}
-                    width={window.innerWidth}
+                    width={width}
                     compactType={GRID_COMPACT_TYPE}
                     isDraggable={edit}
                     isResizable={edit}
@@ -236,6 +249,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         ...dispatchProps,
         edit: ownProps.edit,
         print: ownProps.print,
+        onePerPage: ownProps.onePerPage,
         isLoading: stateProps.isLoading,
         dashboardItems: validItems,
         forceLoadAll: stateProps.forceLoadAll,

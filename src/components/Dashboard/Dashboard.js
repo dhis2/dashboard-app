@@ -40,7 +40,7 @@ class Dashboard extends Component {
             case NEW:
                 return <NewDashboard />;
             case PRINT:
-                return <PrintDashboard />;
+                return <PrintDashboard onePerPage={this.props.onePerPage} />;
             default:
                 return <ViewDashboard />;
         }

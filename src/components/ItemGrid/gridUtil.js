@@ -43,6 +43,16 @@ export const getGridColumns = () => {
     }
 };
 
+export const getItemPageColumns = pageWidthPx => {
+    return Math.floor((pageWidthPx - 20) / GRID_COLUMN_WIDTH_PX);
+};
+
+export const getItemPageHeightRows = pageHeightPx => {
+    return Math.round(
+        (pageHeightPx + MARGIN[1]) / (GRID_ROW_HEIGHT + MARGIN[1])
+    );
+};
+
 // isNonNegativeInteger
 
 const isNonNegativeInteger = x => Number.isInteger(x) && x >= 0;
@@ -116,8 +126,9 @@ export const getGridYFromPixels = yPixels => {
     // const denominator = 4;
     // const result = Math.ceil(numerator / denominator);
     const y = Math.round((yPixels - MARGIN[1]) / (GRID_ROW_HEIGHT + MARGIN[1]));
-    console.log('y', y);
-    return y;
+    // y = Math.max(Math.min(y, maxRows - h), 0);
+    // console.log('y', y);
+    return Math.round(y / 2);
 };
 
 /**

@@ -72,14 +72,8 @@ table.pivot * {
     margin-bottom: 10px;
     border: 1px solid #d3d4d6;
     box-shadow: none;
-    width: 80vw !important;
-    height: 80vw !important;
-    max-height: 95vh !important;
-    -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
-    /*page-break-inside: avoid;*/
-    break-inside: avoid; /* IE 10+ */
-    /* page-break-before: always;
-        break-before: page; */
+    break-inside: avoid;
+    break-after: page;
 }
 
 @page {

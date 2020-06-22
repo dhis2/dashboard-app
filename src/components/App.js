@@ -116,6 +116,17 @@ export class App extends Component {
                                     <Dashboard {...props} mode={PRINT} />
                                 )}
                             />
+                            <Route
+                                exact
+                                path="/:dashboardId/printone"
+                                render={props => (
+                                    <Dashboard
+                                        {...props}
+                                        onePerPage={true}
+                                        mode={PRINT}
+                                    />
+                                )}
+                            />
                         </Switch>
                     </Router>
                     <SnackbarMessage />

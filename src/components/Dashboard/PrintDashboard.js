@@ -16,9 +16,9 @@ import DashboardContent from './DashboardContent';
 import { PRINT } from './dashboardModes';
 import NoContentMessage from '../../widgets/NoContentMessage';
 
-export const Content = ({ updateAccess }) => {
+export const Content = ({ updateAccess, onePerPage }) => {
     return updateAccess ? (
-        <DashboardContent mode={PRINT} />
+        <DashboardContent mode={PRINT} onePerPage={onePerPage} />
     ) : (
         <NoContentMessage text={i18n.t('No access')} />
     );
@@ -35,6 +35,7 @@ export class PrintDashboard extends Component {
     initPrintDashboard = () => {
         if (this.props.dashboard) {
             this.setState({ initialized: true });
+            this.props.setSelectedPrintMode(true);
             this.props.setPrintDashboard(
                 this.props.dashboard,
                 this.props.items
@@ -60,7 +61,10 @@ export class PrintDashboard extends Component {
         return (
             <div className="dashboard-wrapper">
                 {contentNotReady ? null : (
-                    <Content updateAccess={this.props.updateAccess} />
+                    <Content
+                        updateAccess={this.props.updateAccess}
+                        onePerPage={this.props.onePerPage}
+                    />
                 )}
             </div>
         );
@@ -72,6 +76,7 @@ PrintDashboard.propTypes = {
     dashboardsLoaded: PropTypes.bool,
     id: PropTypes.string,
     items: PropTypes.array,
+    onePerPage: PropTypes.bool,
     setForceLoadAll: PropTypes.func,
     setPrintDashboard: PropTypes.func,
     updateAccess: PropTypes.bool,

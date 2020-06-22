@@ -15,10 +15,15 @@ export const DashboardContent = props => {
         );
     }
     if (props.mode === PRINT) {
+        // console.log('content for PRINT', props);
         return (
             <>
                 <TitleBar edit={true} print={true} />
-                <ItemGrid edit={true} print={true} />
+                <ItemGrid
+                    edit={true}
+                    print={true}
+                    onePerPage={props.onePerPage}
+                />
             </>
         );
     }

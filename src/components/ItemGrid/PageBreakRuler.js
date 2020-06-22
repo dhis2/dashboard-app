@@ -9,9 +9,12 @@ import { PAGEBREAK } from '../../modules/itemTypes';
 const PageBreakRuler = ({ dashboardItems, addDashboardItem }) => {
     // for A4 landscape (297x210mm)
     // 794 px = (21cm / 2.54) * 96 pixels/inch
+    // 1122 px = 29.7 /2.54 * 96 pixels/inch
     // then subtract the top and bottom margins
     const margin = 10 * 2;
     const pageHeight = 794 - margin;
+    const pageWidth = 1122 - margin;
+    const pageWidthPx = `${pageWidth}px`;
 
     const lastItem = dashboardItems[dashboardItems.length - 1];
     const h = lastItem.y + lastItem.h;
@@ -21,11 +24,11 @@ const PageBreakRuler = ({ dashboardItems, addDashboardItem }) => {
     // console.log('pages', numPages);
 
     const divClicked = ev => {
-        console.log('ev', ev);
-        console.log('ev', ev.pageY, ev.screenY, ev.clientY);
+        // console.log('ev', ev);
+        // console.log('ev', ev.pageY, ev.screenY, ev.clientY);
 
         const y = getGridYFromPixels(ev.pageY);
-        console.log('y', y);
+        // console.log('y', y);
         addDashboardItem({ type: PAGEBREAK, yPos: y });
     };
 
@@ -39,7 +42,7 @@ const PageBreakRuler = ({ dashboardItems, addDashboardItem }) => {
                     style={{
                         position: 'absolute',
                         top: pageHeight * (i + 1),
-                        width: '100%',
+                        width: pageWidthPx,
                         height: '5px',
                         backgroundColor: 'green',
                         zIndex: '10000',
@@ -48,10 +51,29 @@ const PageBreakRuler = ({ dashboardItems, addDashboardItem }) => {
             );
         });
 
-    return <>{pageBreaks}</>;
+    const rightMargin = (
+        <div
+            style={{
+                position: 'absolute',
+                top: 0,
+                left: pageWidthPx,
+                height: '3750px',
+                borderRight: '5px solid green',
+                zIndex: '10000',
+            }}
+        />
+    );
+
+    return (
+        <>
+            {pageBreaks}
+            {rightMargin}
+        </>
+    );
 };
 
 PageBreakRuler.propTypes = {
+    addDashboardItem: PropTypes.func,
     dashboardItems: PropTypes.array,
 };
 
