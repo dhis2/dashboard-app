@@ -35,7 +35,7 @@
         "reselect": "^4.0.0",
         "styled-jsx": "^3.3.0",
         "typeface-roboto": "^0.0.75",
-        "whatwg-fetch": "^3.0.0"
+        "whatwg-fetch": "^3.1.0"
     },
     "scripts": {
         "prestart": "npm run extract-pot && npm run localize && npm run manifest",
