@@ -11,13 +11,17 @@ import {
     sDashboardsIsFetching,
 } from '../../reducers/dashboards'
 import DashboardVerticalOffset from './DashboardVerticalOffset'
-import DashboardContent from './DashboardContent'
-import EditBar from '../ControlBar/EditBar'
+import EditControlBar from '../ControlBar/EditControlBar'
+import TitleBar from '../TitleBar/TitleBar'
+import ItemGrid from '../ItemGrid/ItemGrid'
 import NoContentMessage from '../../widgets/NoContentMessage'
 
 export const Content = ({ updateAccess }) => {
     return updateAccess ? (
-        <DashboardContent editMode={true} />
+        <>
+            <TitleBar edit={true} />
+            <ItemGrid edit={true} />
+        </>
     ) : (
         <NoContentMessage text={i18n.t('No access')} />
     )
@@ -64,7 +68,7 @@ export class EditDashboard extends Component {
     render() {
         return (
             <>
-                <EditBar />
+                <EditControlBar />
                 <DashboardVerticalOffset editMode={true} />
                 {this.getDashboardContent()}
             </>

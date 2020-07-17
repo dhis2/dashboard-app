@@ -4,8 +4,9 @@ import PropTypes from 'prop-types'
 
 import { acSetEditNewDashboard } from '../../actions/editDashboard'
 import DashboardVerticalOffset from './DashboardVerticalOffset'
-import EditBar from '../ControlBar/EditBar'
-import DashboardContent from './DashboardContent'
+import EditControlBar from '../ControlBar/EditControlBar'
+import TitleBar from '../TitleBar/TitleBar'
+import ItemGrid from '../ItemGrid/ItemGrid'
 
 class NewDashboard extends Component {
     componentDidMount() {
@@ -15,10 +16,11 @@ class NewDashboard extends Component {
     render() {
         return (
             <>
-                <EditBar />
+                <EditControlBar />
                 <DashboardVerticalOffset editMode={true} />
                 <div className="dashboard-wrapper">
-                    <DashboardContent editMode={true} />
+                    <TitleBar edit={true} />
+                    <ItemGrid edit={true} />
                 </div>
             </>
         )

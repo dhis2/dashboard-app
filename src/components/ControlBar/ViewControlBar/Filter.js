@@ -8,7 +8,7 @@ import SearchIcon from '@material-ui/icons/Search'
 import { colors } from '@dhis2/ui'
 
 import ClearButton from './ClearButton'
-import { DEFAULT_STATE_DASHBOARDS_FILTER_NAME } from '../../reducers/dashboardsFilter'
+import { DEFAULT_STATE_DASHBOARDS_FILTER_NAME } from '../../../reducers/dashboardsFilter'
 
 const styles = {
     filterField: {

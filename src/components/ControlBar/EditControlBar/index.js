@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
-import ControlBar from './ControlBar'
+import ControlBar from '../ControlBar'
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
 import { Button } from '@dhis2/ui'
 
@@ -11,23 +11,23 @@ import ConfirmDeleteDialog from './ConfirmDeleteDialog'
 import {
     tSaveDashboard,
     acClearEditDashboard,
-} from '../../actions/editDashboard'
+} from '../../../actions/editDashboard'
 import {
     tDeleteDashboard,
     acSetDashboardDisplayName,
-} from '../../actions/dashboards'
+} from '../../../actions/dashboards'
 import {
     sGetEditDashboardRoot,
     sGetIsNewDashboard,
-} from '../../reducers/editDashboard'
+} from '../../../reducers/editDashboard'
 import {
     CONTROL_BAR_ROW_HEIGHT,
     MIN_ROW_COUNT,
     getControlBarHeight,
-} from './controlBarDimensions'
-import { apiFetchDashboard } from '../../api/dashboards'
+} from '../controlBarDimensions'
+import { apiFetchDashboard } from '../../../api/dashboards'
 
-import classes from './styles/DashboardsBar.module.css'
+import classes from './styles/index.module.css'
 
 const buttonBarStyle = {
     height: CONTROL_BAR_ROW_HEIGHT,
@@ -36,7 +36,7 @@ const buttonBarStyle = {
     marginRight: '15px',
 }
 
-export class EditBar extends Component {
+export class EditControlBar extends Component {
     state = {
         translationDialogIsOpen: false,
         dashboardModel: undefined,
@@ -198,7 +198,7 @@ export class EditBar extends Component {
     }
 }
 
-EditBar.propTypes = {
+EditControlBar.propTypes = {
     dashboardId: PropTypes.string,
     dashboardName: PropTypes.string,
     deleteAccess: PropTypes.bool,
@@ -209,7 +209,7 @@ EditBar.propTypes = {
     onTranslate: PropTypes.func,
 }
 
-EditBar.contextTypes = {
+EditControlBar.contextTypes = {
     d2: PropTypes.object,
 }
 
@@ -241,4 +241,4 @@ const mapDispatchToProps = dispatch => ({
     onTranslate: (id, value) => dispatch(acSetDashboardDisplayName(id, value)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditBar)
+export default connect(mapStateToProps, mapDispatchToProps)(EditControlBar)

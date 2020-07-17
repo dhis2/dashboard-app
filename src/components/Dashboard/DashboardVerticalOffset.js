@@ -10,9 +10,8 @@ import { sGetControlBarUserRows } from '../../reducers/controlBar'
 
 const DashboardVerticalOffset = props => {
     const rows = props.editMode ? MIN_ROW_COUNT : props.userRows
-    const marginTop = getControlBarHeight(rows)
 
-    return <div className="page-container-top-margin" style={{ marginTop }} />
+    return <div style={{ marginTop: getControlBarHeight(rows) }} />
 }
 
 const mapStateToProps = state => ({

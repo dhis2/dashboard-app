@@ -9,9 +9,12 @@ import {
     sDashboardsIsFetching,
 } from '../../reducers/dashboards'
 import { sGetSelectedId } from '../../reducers/selected'
-import DashboardsBar from '../ControlBar/DashboardsBar'
+import DashboardsBar from '../ControlBar/ViewControlBar'
 import DashboardVerticalOffset from './DashboardVerticalOffset'
-import DashboardContent from './DashboardContent'
+import TitleBar from '../TitleBar/TitleBar'
+import ItemGrid from '../ItemGrid/ItemGrid'
+import FilterBar from '../FilterBar/FilterBar'
+
 import NoContentMessage from '../../widgets/NoContentMessage'
 
 export const Content = ({ hasDashboardContent, dashboardsIsEmpty }) => {
@@ -22,7 +25,11 @@ export const Content = ({ hasDashboardContent, dashboardsIsEmpty }) => {
         : i18n.t('Requested dashboard not found')
 
     return hasDashboardContent ? (
-        <DashboardContent editMode={false} />
+        <>
+            <TitleBar edit={false} />
+            <FilterBar />
+            <ItemGrid edit={false} />
+        </>
     ) : (
         <NoContentMessage text={msg} />
     )

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
-import ControlBar from './ControlBar'
+import ControlBar from '../ControlBar'
 import arraySort from 'd2-utilizr/lib/arraySort'
 import PropTypes from 'prop-types'
 
 import Chip from './DashboardItemChip'
-import AddCircleIcon from '../../icons/AddCircle'
+import AddCircleIcon from '../../../icons/AddCircle'
 import Filter from './Filter'
 import ShowMoreButton from './ShowMoreButton'
 import {
@@ -15,21 +15,21 @@ import {
     getRowsHeight,
     getControlBarHeight,
     getNumRowsFromHeight,
-} from './controlBarDimensions'
-import { sGetControlBarUserRows } from '../../reducers/controlBar'
-import { sGetAllDashboards } from '../../reducers/dashboards'
-import { sGetFilterName } from '../../reducers/dashboardsFilter'
-import { sGetSelectedId } from '../../reducers/selected'
-import { acSetControlBarUserRows } from '../../actions/controlBar'
-import { acSetFilterName } from '../../actions/dashboardsFilter'
-import { orObject, orArray } from '../../modules/util'
-import { apiPostControlBarRows } from '../../api/controlBar'
+} from '../controlBarDimensions'
+import { sGetControlBarUserRows } from '../../../reducers/controlBar'
+import { sGetAllDashboards } from '../../../reducers/dashboards'
+import { sGetFilterName } from '../../../reducers/dashboardsFilter'
+import { sGetSelectedId } from '../../../reducers/selected'
+import { acSetControlBarUserRows } from '../../../actions/controlBar'
+import { acSetFilterName } from '../../../actions/dashboardsFilter'
+import { orObject, orArray } from '../../../modules/util'
+import { apiPostControlBarRows } from '../../../api/controlBar'
 
-import classes from './styles/DashboardsBar.module.css'
+import classes from './styles/index.module.css'
 
 export const MAX_ROW_COUNT = 10
 
-export class DashboardsBar extends Component {
+export class ViewControlBar extends Component {
     state = {
         rows: MIN_ROW_COUNT,
     }
@@ -169,7 +169,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     }
 }
 
-DashboardsBar.propTypes = {
+ViewControlBar.propTypes = {
     dashboards: PropTypes.array,
     history: PropTypes.object,
     name: PropTypes.string,
@@ -180,5 +180,5 @@ DashboardsBar.propTypes = {
 }
 
 export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps, mergeProps)(DashboardsBar)
+    connect(mapStateToProps, mapDispatchToProps, mergeProps)(ViewControlBar)
 )

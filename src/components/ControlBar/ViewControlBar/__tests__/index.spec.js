@@ -2,23 +2,23 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 
-import { getStubContext } from '../../../setupTests'
-import { MIN_ROW_COUNT } from '../controlBarDimensions'
-import { DashboardsBar, MAX_ROW_COUNT } from '../DashboardsBar'
+import { getStubContext } from '../../../../setupTests'
+import { MIN_ROW_COUNT } from '../../controlBarDimensions'
+import { ViewControlBar, MAX_ROW_COUNT } from '..'
 import ShowMoreButton from '../ShowMoreButton'
 import DashboardItemChip from '../DashboardItemChip'
-import * as api from '../../../api/controlBar'
+import * as api from '../../../../api/controlBar'
 
-describe('DashboardsBar', () => {
+describe('ViewControlBar', () => {
     let props
-    let shallowDashboardsBar
+    let shallowViewControlBar
     const dashboardsBar = () => {
-        if (!shallowDashboardsBar) {
-            shallowDashboardsBar = shallow(<DashboardsBar {...props} />, {
+        if (!shallowViewControlBar) {
+            shallowViewControlBar = shallow(<ViewControlBar {...props} />, {
                 context: getStubContext(),
             })
         }
-        return shallowDashboardsBar
+        return shallowViewControlBar
     }
 
     beforeEach(() => {
@@ -34,10 +34,10 @@ describe('DashboardsBar', () => {
             onToggleMaxHeight: undefined,
             onChangeFilterName: undefined,
         }
-        shallowDashboardsBar = undefined
+        shallowViewControlBar = undefined
     })
 
-    it('renders a DashboardsBar with no items', () => {
+    it('renders a ViewControlBar with no items', () => {
         expect(toJson(dashboardsBar())).toMatchSnapshot()
     })
 

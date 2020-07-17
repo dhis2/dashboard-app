@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ClearIcon from '../../icons/Clear'
+import ClearIcon from '../../../icons/Clear'
 
 import classes from './styles/ClearButton.module.css'
 

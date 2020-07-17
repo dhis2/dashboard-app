@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EditBar renders the EditBar 1`] = `
+exports[`EditControlBar renders the EditControlBar 1`] = `
 <Fragment>
   <ControlBar
     editMode={true}
@@ -35,7 +35,7 @@ exports[`EditBar renders the EditBar 1`] = `
 </Fragment>
 `;
 
-exports[`EditBar when update access is false renders only the Discard button 1`] = `
+exports[`EditControlBar when update access is false renders only the Discard button 1`] = `
 <Fragment>
   <ControlBar
     editMode={true}
@@ -70,7 +70,7 @@ exports[`EditBar when update access is false renders only the Discard button 1`]
 </Fragment>
 `;
 
-exports[`EditBar when update access is true when dashboard id property provided renders Save, Translate and Discard buttons and the TranslationDialog but not ConfirmDeleteDialog 1`] = `
+exports[`EditControlBar when update access is true when dashboard id property provided renders Save, Translate and Discard buttons and the TranslationDialog but not ConfirmDeleteDialog 1`] = `
 <Fragment>
   <ControlBar
     editMode={true}
@@ -169,7 +169,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
 </Fragment>
 `;
 
-exports[`EditBar when update access is true when dashboard id property provided when TRANSLATE button is clicked shows the translate dialog 1`] = `
+exports[`EditControlBar when update access is true when dashboard id property provided when TRANSLATE button is clicked shows the translate dialog 1`] = `
 <Fragment>
   <ControlBar
     editMode={true}
@@ -268,7 +268,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
 </Fragment>
 `;
 
-exports[`EditBar when update access is true when dashboard id property provided when TRANSLATE button is clicked shows the translate dialog 2`] = `
+exports[`EditControlBar when update access is true when dashboard id property provided when TRANSLATE button is clicked shows the translate dialog 2`] = `
 <Fragment>
   <ControlBar
     editMode={true}
@@ -367,7 +367,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
 </Fragment>
 `;
 
-exports[`EditBar when update access is true when dashboard id property provided when deleteAccess is true renders Translate, Delete, and Discard buttons and ConfirmDeleteDialog 1`] = `
+exports[`EditControlBar when update access is true when dashboard id property provided when deleteAccess is true renders Translate, Delete, and Discard buttons and ConfirmDeleteDialog 1`] = `
 <Fragment>
   <ControlBar
     editMode={true}
@@ -449,7 +449,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
 </Fragment>
 `;
 
-exports[`EditBar when update access is true when no dashboard id property renders Save and Discard buttons but no dialogs 1`] = `
+exports[`EditControlBar when update access is true when no dashboard id property renders Save and Discard buttons but no dialogs 1`] = `
 <Fragment>
   <ControlBar
     editMode={true}

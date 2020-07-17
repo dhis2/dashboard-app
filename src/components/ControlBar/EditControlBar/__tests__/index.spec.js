@@ -3,9 +3,9 @@ import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { Button } from '@dhis2/ui'
 
-import { EditBar } from '../EditBar'
+import { EditControlBar } from '../index'
 import ConfirmDeleteDialog from '../ConfirmDeleteDialog'
-import { getStubContext } from '../../../setupTests'
+import { getStubContext } from '../../../../setupTests'
 
 const mockDashboardModels = {
     rainbow: {
@@ -13,7 +13,7 @@ const mockDashboardModels = {
     },
 }
 
-jest.mock('../../../api/dashboards', () => ({
+jest.mock('../../../../api/dashboards', () => ({
     apiFetchDashboard: id => Promise.resolve(mockDashboardModels[id]),
 }))
 
@@ -23,14 +23,14 @@ jest.mock('@dhis2/d2-ui-translation-dialog', () => () => {
 })
 /* eslint-enable react/display-name */
 
-describe('EditBar', () => {
+describe('EditControlBar', () => {
     let props
     let shallowEditBar
     const editBar = () => {
         const context = getStubContext()
 
         if (!shallowEditBar) {
-            shallowEditBar = shallow(<EditBar {...props} />, {
+            shallowEditBar = shallow(<EditControlBar {...props} />, {
                 context,
             })
         }
@@ -49,7 +49,7 @@ describe('EditBar', () => {
         shallowEditBar = undefined
     })
 
-    it('renders the EditBar', () => {
+    it('renders the EditControlBar', () => {
         expect(toJson(editBar())).toMatchSnapshot()
     })
 

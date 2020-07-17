@@ -1,4 +1,4 @@
-import { SHOWMORE_BAR_HEIGHT } from './ShowMoreButton'
+import { SHOWMORE_BAR_HEIGHT } from './ViewControlBar/ShowMoreButton'
 
 export const CONTROL_BAR_ROW_HEIGHT = 40
 export const FIRST_ROW_PADDING_HEIGHT = 10
