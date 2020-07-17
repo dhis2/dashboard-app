@@ -44,25 +44,22 @@ class ViewTitleBar extends Component {
             name,
             description,
             access,
-            style,
             showDescription,
             starred,
             onStarClick,
             onInfoClick,
         } = this.props
 
-        const titleStyle = Object.assign({}, style.title, {
-            cursor: 'default',
-            userSelect: 'text',
-            top: '7px',
-        })
-
         const StarIcon = starred ? Star : StarBorder
 
         return (
-            <>
+            <div
+                style={{
+                    padding: '20px 15px 5px 10px',
+                }}
+            >
                 <div className={classes.titleBar}>
-                    <span style={titleStyle}>{name}</span>
+                    <span className={classes.title}>{name}</span>
                     <div className={classes.actions}>
                         <div
                             className={classes.titleBarIcon}
@@ -97,12 +94,8 @@ class ViewTitleBar extends Component {
                 </div>
                 {showDescription ? (
                     <div
-                        className="dashboard-description"
-                        style={Object.assign(
-                            { paddingTop: '5px', paddingBottom: '5px' },
-                            style.description,
-                            !description ? { color: '#888' } : {}
-                        )}
+                        className={classes.description}
+                        style={!description ? { color: '#888' } : {}}
                     >
                         {description || NO_DESCRIPTION}
                     </div>
@@ -116,7 +109,7 @@ class ViewTitleBar extends Component {
                         onRequestClose={this.toggleSharingDialog}
                     />
                 ) : null}
-            </>
+            </div>
         )
     }
 }
@@ -128,7 +121,6 @@ ViewTitleBar.propTypes = {
     name: PropTypes.string,
     showDescription: PropTypes.bool,
     starred: PropTypes.bool,
-    style: PropTypes.object,
     onInfoClick: PropTypes.func,
     onStarClick: PropTypes.func,
 }

@@ -16,12 +16,9 @@ class Dashboard extends Component {
 
             this.props.selectDashboard(id)
 
-            this.scrollToTop()
+            // scroll to the top when a dashboard is loaded
+            window.scrollTo(0, 0)
         }
-    }
-
-    scrollToTop = () => {
-        window.scrollTo(0, 0)
     }
 
     componentDidMount() {

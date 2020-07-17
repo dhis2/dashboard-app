@@ -11,7 +11,7 @@ import {
 import { sGetSelectedId } from '../../reducers/selected'
 import DashboardsBar from '../ControlBar/ViewControlBar'
 import DashboardVerticalOffset from './DashboardVerticalOffset'
-import TitleBar from '../TitleBar/TitleBar'
+import ViewTitleBar from '../TitleBar/ViewTitleBar'
 import ItemGrid from '../ItemGrid/ItemGrid'
 import FilterBar from '../FilterBar/FilterBar'
 
@@ -26,7 +26,7 @@ export const Content = ({ hasDashboardContent, dashboardsIsEmpty }) => {
 
     return hasDashboardContent ? (
         <>
-            <TitleBar edit={false} />
+            <ViewTitleBar />
             <FilterBar />
             <ItemGrid edit={false} />
         </>

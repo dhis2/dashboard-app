@@ -1,7 +1,10 @@
 .section {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 14px;
+    margin-bottom: 19px;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 15px;
 }
 .titleDescription {
     flex: 3;

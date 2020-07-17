@@ -12,14 +12,14 @@ import {
 } from '../../reducers/dashboards'
 import DashboardVerticalOffset from './DashboardVerticalOffset'
 import EditControlBar from '../ControlBar/EditControlBar'
-import TitleBar from '../TitleBar/TitleBar'
+import EditTitleBar from '../TitleBar/EditTitleBar'
 import ItemGrid from '../ItemGrid/ItemGrid'
 import NoContentMessage from '../../widgets/NoContentMessage'
 
 export const Content = ({ updateAccess }) => {
     return updateAccess ? (
         <>
-            <TitleBar edit={true} />
+            <EditTitleBar />
             <ItemGrid edit={true} />
         </>
     ) : (
