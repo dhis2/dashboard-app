@@ -50,20 +50,13 @@ const getGridItem = type => {
     }
 }
 
-export const Item = ({ item, editMode, onToggleItemExpanded }) => {
+export const Item = ({ item, onToggleItemExpanded }) => {
     const GridItem = getGridItem(item.type)
 
-    return (
-        <GridItem
-            item={item}
-            editMode={editMode}
-            onToggleItemExpanded={onToggleItemExpanded}
-        />
-    )
+    return <GridItem item={item} onToggleItemExpanded={onToggleItemExpanded} />
 }
 
 Item.propTypes = {
-    editMode: PropTypes.bool,
     item: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
 }

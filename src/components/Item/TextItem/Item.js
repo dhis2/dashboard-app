@@ -11,9 +11,11 @@ import {
 
 import { acUpdateDashboardItem } from '../../../actions/editDashboard'
 import { sGetEditDashboardItems } from '../../../reducers/editDashboard'
+import { sGetSelectedDashboardMode } from '../../../reducers/selected'
 import { sGetDashboardItems } from '../../../reducers/dashboards'
-import ItemHeader from '../ItemHeader'
+import ItemHeader from '../ItemHeader/ItemHeader'
 import Line from '../../../widgets/Line'
+import { isEditMode, isViewMode } from '../../Dashboard/dashboardModes'
 
 const style = {
     textDiv: {
@@ -36,7 +38,7 @@ const style = {
 }
 
 const TextItem = props => {
-    const { item, editMode, text, acUpdateDashboardItem } = props
+    const { item, dashboardMode, text, acUpdateDashboardItem } = props
 
     const onChangeText = event => {
         const updatedItem = {
@@ -77,24 +79,26 @@ const TextItem = props => {
         )
     }
 
-    return <>{editMode ? editItem() : viewItem()}</>
+    return <>{isEditMode(dashboardMode) ? editItem() : viewItem()}</>
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const items = ownProps.editMode
+    const dashboardMode = sGetSelectedDashboardMode(state)
+    const items = !isViewMode(dashboardMode)
         ? sGetEditDashboardItems(state)
         : sGetDashboardItems(state)
 
     const item = items.find(item => item.id === ownProps.item.id)
 
     return {
+        dashboardMode,
         text: item ? item.text : '',
     }
 }
 
 TextItem.propTypes = {
     acUpdateDashboardItem: PropTypes.func,
-    editMode: PropTypes.bool,
+    dashboardMode: PropTypes.string,
     item: PropTypes.object,
     text: PropTypes.string,
 }

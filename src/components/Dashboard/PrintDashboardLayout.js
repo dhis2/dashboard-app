@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
@@ -10,16 +10,14 @@ import {
     sGetDashboardItems,
     sDashboardsIsFetching,
 } from '../../reducers/dashboards'
-import DashboardVerticalOffset from './DashboardVerticalOffset'
-import EditControlBar from '../ControlBar/EditControlBar'
-import EditTitleBar from '../TitleBar/EditTitleBar'
+import PrintTitleBar from '../TitleBar/PrintTitleBar'
 import ItemGrid from '../ItemGrid/ItemGrid'
 import NoContentMessage from '../../widgets/NoContentMessage'
 
 export const Content = ({ updateAccess }) => {
     return updateAccess ? (
         <>
-            <EditTitleBar />
+            <PrintTitleBar />
             <ItemGrid />
         </>
     ) : (
@@ -30,53 +28,28 @@ export const Content = ({ updateAccess }) => {
 Content.propTypes = {
     updateAccess: PropTypes.bool,
 }
-export class EditDashboard extends Component {
-    state = {
-        initialized: false,
-    }
+const PrintDashboardLayout = props => {
+    const [initialized, setInitialized] = useState(false)
 
-    initEditDashboard = () => {
-        if (this.props.dashboard) {
-            this.setState({ initialized: true })
-            this.props.setEditDashboard(this.props.dashboard, this.props.items)
+    useEffect(() => {
+        if (props.dashboard) {
+            setInitialized(true)
+            props.setEditDashboard(props.dashboard, props.items)
         }
-    }
+    }, [initialized])
 
-    componentDidMount() {
-        this.initEditDashboard()
-    }
+    const contentNotReady = !props.dashboardsLoaded || props.id === null
 
-    componentDidUpdate() {
-        if (!this.state.initialized) {
-            this.initEditDashboard()
-        }
-    }
-
-    getDashboardContent = () => {
-        const contentNotReady =
-            !this.props.dashboardsLoaded || this.props.id === null
-
-        return (
-            <div className="dashboard-wrapper">
-                {contentNotReady ? null : (
-                    <Content updateAccess={this.props.updateAccess} />
-                )}
-            </div>
-        )
-    }
-
-    render() {
-        return (
-            <>
-                <EditControlBar />
-                <DashboardVerticalOffset editMode={true} />
-                {this.getDashboardContent()}
-            </>
-        )
-    }
+    return (
+        <div className="dashboard-wrapper">
+            {contentNotReady ? null : (
+                <Content updateAccess={props.updateAccess} />
+            )}
+        </div>
+    )
 }
 
-EditDashboard.propTypes = {
+PrintDashboardLayout.propTypes = {
     dashboard: PropTypes.object,
     dashboardsLoaded: PropTypes.bool,
     id: PropTypes.string,
@@ -103,4 +76,4 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
     setEditDashboard: acSetEditDashboard,
-})(EditDashboard)
+})(PrintDashboardLayout)

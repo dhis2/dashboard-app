@@ -9,6 +9,7 @@ describe('selected dashboard reducer', () => {
         id: null,
         isLoading: false,
         showDescription: false,
+        dashboardMode: 'view',
     }
 
     describe('reducer', () => {

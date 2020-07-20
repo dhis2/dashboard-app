@@ -20,7 +20,7 @@ class NewDashboard extends Component {
                 <DashboardVerticalOffset editMode={true} />
                 <div className="dashboard-wrapper">
                     <EditTitleBar />
-                    <ItemGrid edit={true} />
+                    <ItemGrid />
                 </div>
             </>
         )

@@ -5,7 +5,12 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { CssVariables } from '@dhis2/ui'
 
-import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes'
+import {
+    DASHBOARD_MODE_EDIT,
+    DASHBOARD_MODE_VIEW,
+    DASHBOARD_MODE_NEW,
+    DASHBOARD_MODE_PRINT_LAYOUT,
+} from './Dashboard/dashboardModes'
 import { acReceivedUser } from '../actions/user'
 import { tFetchDashboards } from '../actions/dashboards'
 import { tSetControlBarRows } from '../actions/controlBar'
@@ -37,28 +42,50 @@ export class App extends Component {
                             exact
                             path="/"
                             render={props => (
-                                <Dashboard {...props} mode={VIEW} />
+                                <Dashboard
+                                    {...props}
+                                    mode={DASHBOARD_MODE_VIEW}
+                                />
                             )}
                         />
                         <Route
                             exact
                             path="/new"
                             render={props => (
-                                <Dashboard {...props} mode={NEW} />
+                                <Dashboard
+                                    {...props}
+                                    mode={DASHBOARD_MODE_NEW}
+                                />
                             )}
                         />
                         <Route
                             exact
                             path="/:dashboardId"
                             render={props => (
-                                <Dashboard {...props} mode={VIEW} />
+                                <Dashboard
+                                    {...props}
+                                    mode={DASHBOARD_MODE_VIEW}
+                                />
                             )}
                         />
                         <Route
                             exact
                             path="/:dashboardId/edit"
                             render={props => (
-                                <Dashboard {...props} mode={EDIT} />
+                                <Dashboard
+                                    {...props}
+                                    mode={DASHBOARD_MODE_EDIT}
+                                />
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/:dashboardId/printlayout"
+                            render={props => (
+                                <Dashboard
+                                    {...props}
+                                    mode={DASHBOARD_MODE_PRINT_LAYOUT}
+                                />
                             )}
                         />
                     </Switch>

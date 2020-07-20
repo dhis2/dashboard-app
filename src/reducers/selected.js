@@ -2,14 +2,17 @@
 import { combineReducers } from 'redux'
 
 import { validateReducer } from '../modules/util'
+import { DASHBOARD_MODE_VIEW } from '../components/Dashboard/dashboardModes'
 
 export const SET_SELECTED_ID = 'SET_SELECTED_ID'
 export const SET_SELECTED_ISLOADING = 'SET_SELECTED_ISLOADING'
 export const SET_SELECTED_SHOWDESCRIPTION = 'SET_SELECTED_SHOWDESCRIPTION'
+export const SET_SELECTED_DASHBOARD_MODE = 'SET_SELECTED_DASHBOARD_MODE'
 
 export const DEFAULT_STATE_SELECTED_ID = null
 export const DEFAULT_STATE_SELECTED_ISLOADING = false
 export const DEFAULT_STATE_SELECTED_SHOWDESCRIPTION = false
+export const DEFAULT_STATE_SELECTED_DASHBOARD_MODE = DASHBOARD_MODE_VIEW
 
 /**
  * Reducer functions that computes and returns the new state based on the given action
@@ -53,10 +56,26 @@ const showDescription = (
     }
 }
 
+const dashboardMode = (
+    state = DEFAULT_STATE_SELECTED_DASHBOARD_MODE,
+    action
+) => {
+    switch (action.type) {
+        case SET_SELECTED_DASHBOARD_MODE:
+            return validateReducer(
+                action.value,
+                DEFAULT_STATE_SELECTED_DASHBOARD_MODE
+            )
+        default:
+            return state
+    }
+}
+
 export default combineReducers({
     id,
     isLoading,
     showDescription,
+    dashboardMode,
 })
 
 // Selectors
@@ -69,3 +88,6 @@ export const sGetSelectedIsLoading = state => sGetSelectedRoot(state).isLoading
 
 export const sGetSelectedShowDescription = state =>
     sGetSelectedRoot(state).showDescription
+
+export const sGetSelectedDashboardMode = state =>
+    sGetSelectedRoot(state).dashboardMode

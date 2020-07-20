@@ -4,10 +4,12 @@ import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 
 import { sGetMessagesRoot } from '../../../reducers/messages'
+import { sGetSelectedDashboardMode } from '../../../reducers/selected'
 import { formatDate } from '../../../modules/util'
 import { colors } from '@dhis2/ui'
-import ItemHeader from '../ItemHeader'
+import ItemHeader from '../ItemHeader/ItemHeader'
 import Line from '../../../widgets/Line'
+import { isViewMode } from '../../Dashboard/dashboardModes'
 
 import './MessagesItem.css'
 
@@ -69,11 +71,12 @@ class MessagesItem extends Component {
     }
 
     getMessageItems = () => {
-        const editClass = !this.props.editMode ? 'view' : null
+        const isViewing = isViewMode(this.props.dashboardMode)
+        const editClass = isViewing ? 'view' : null
 
         return this.props.messages.map(msg => {
             const redirectToMsg = () => {
-                if (!this.props.editMode) {
+                if (isViewing) {
                     document.location.href = this.getMessageHref(msg)
                 }
             }
@@ -129,7 +132,7 @@ class MessagesItem extends Component {
 }
 
 MessagesItem.propTypes = {
-    editMode: PropTypes.bool,
+    dashboardMode: PropTypes.string,
     item: PropTypes.object,
     messages: PropTypes.array,
 }
@@ -141,6 +144,7 @@ MessagesItem.contextTypes = {
 
 const mapStateToProps = state => {
     return {
+        dashboardMode: sGetSelectedDashboardMode(state),
         messages: Object.values(sGetMessagesRoot(state)),
     }
 }

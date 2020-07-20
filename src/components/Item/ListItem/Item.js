@@ -9,7 +9,9 @@ import Line from '../../../widgets/Line'
 import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes'
 import { orArray } from '../../../modules/util'
 import { tRemoveListItemContent } from './actions'
-import ItemHeader from '../ItemHeader'
+import { sGetSelectedDashboardMode } from '../../../reducers/selected'
+import ItemHeader from '../ItemHeader/ItemHeader'
+import { isViewMode } from '../../Dashboard/dashboardModes'
 import classes from './Item.module.css'
 
 const getItemTitle = item => itemTypeMap[item.type].pluralTitle
@@ -21,7 +23,7 @@ const getContentItems = item =>
     )
 
 const ListItem = (props, context) => {
-    const { item, editMode, tRemoveListItemContent } = props
+    const { item, dashboardMode, tRemoveListItemContent } = props
     const contentItems = getContentItems(item)
 
     const getLink = contentItem => {
@@ -43,7 +45,7 @@ const ListItem = (props, context) => {
                 >
                     {contentItem.name}
                 </a>
-                {editMode ? deleteButton : null}
+                {!isViewMode(dashboardMode) ? deleteButton : null}
             </>
         )
     }
@@ -67,7 +69,7 @@ const ListItem = (props, context) => {
 }
 
 ListItem.propTypes = {
-    editMode: PropTypes.bool,
+    dashboardMode: PropTypes.string,
     item: PropTypes.object,
     tRemoveListItemContent: PropTypes.func,
 }
@@ -76,6 +78,10 @@ ListItem.contextTypes = {
     d2: PropTypes.object,
 }
 
-export default connect(null, {
+const mapStateToProps = state => ({
+    dashboardMode: sGetSelectedDashboardMode(state),
+})
+
+export default connect(mapStateToProps, {
     tRemoveListItemContent,
 })(ListItem)

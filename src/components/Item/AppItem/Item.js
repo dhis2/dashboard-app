@@ -5,7 +5,7 @@ import NotInterestedIcon from '@material-ui/icons/NotInterested'
 
 import { FILTER_ORG_UNIT } from '../../../actions/itemFilters'
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
-import ItemHeader from '../ItemHeader'
+import ItemHeader from '../ItemHeader/ItemHeader'
 import Line from '../../../widgets/Line'
 
 const getIframeSrc = (appDetails, item, itemFilters) => {

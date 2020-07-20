@@ -21,6 +21,11 @@ import {
     onItemResize,
 } from './gridUtil'
 import { orArray } from '../../modules/util'
+import {
+    isViewMode,
+    isEditMode,
+    isPrintLayoutMode,
+} from '../Dashboard/dashboardModes'
 
 import NoContentMessage from '../../widgets/NoContentMessage'
 
@@ -28,7 +33,11 @@ import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 
 import './ItemGrid.css'
-import { sGetSelectedId, sGetSelectedIsLoading } from '../../reducers/selected'
+import {
+    sGetSelectedId,
+    sGetSelectedIsLoading,
+    sGetSelectedDashboardMode,
+} from '../../reducers/selected'
 import {
     sGetEditDashboardRoot,
     sGetEditDashboardItems,
@@ -66,13 +75,13 @@ export class ItemGrid extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.edit) {
+        if (!isViewMode(nextProps.dashboardMode)) {
             this.setState({ expandedItems: {} })
         }
     }
 
     onLayoutChange = newLayout => {
-        if (this.props.edit) {
+        if (!isViewMode(this.props.dashboardMode)) {
             this.props.acUpdateDashboardLayout(newLayout)
         }
     }
@@ -105,10 +114,17 @@ export class ItemGrid extends Component {
     }
 
     getItemComponent = item => {
-        const itemClassNames = [
-            item.type,
-            this.props.edit ? 'edit' : 'view',
-        ].join(' ')
+        let modeClass = ''
+        if (
+            isEditMode(this.props.dashboardMode) ||
+            isPrintLayoutMode(this.props.dashboardMode)
+        ) {
+            modeClass = 'edit'
+        } else if (isViewMode(this.props.dashboardMode)) {
+            modeClass = 'view'
+        }
+
+        const itemClassNames = [item.type, modeClass].join(' ')
 
         return (
             <ProgressiveLoadingContainer
@@ -117,7 +133,6 @@ export class ItemGrid extends Component {
             >
                 <Item
                     item={item}
-                    editMode={this.props.edit}
                     onToggleItemExpanded={this.onToggleItemExpanded}
                 />
             </ProgressiveLoadingContainer>
@@ -127,7 +142,7 @@ export class ItemGrid extends Component {
     getItemComponents = items => items.map(item => this.getItemComponent(item))
 
     render() {
-        const { edit, isLoading, dashboardItems } = this.props
+        const { dashboardMode, isLoading, dashboardItems } = this.props
 
         if (!isLoading && !dashboardItems.length) {
             return (
@@ -137,9 +152,11 @@ export class ItemGrid extends Component {
             )
         }
 
-        const items = edit
+        const items = !isViewMode(dashboardMode)
             ? dashboardItems
             : dashboardItems.map(this.adjustHeightForExpanded)
+
+        const allowResize = !isViewMode(dashboardMode)
 
         return (
             <div className="grid-wrapper">
@@ -160,8 +177,8 @@ export class ItemGrid extends Component {
                     rowHeight={GRID_ROW_HEIGHT}
                     width={window.innerWidth}
                     compactType={GRID_COMPACT_TYPE}
-                    isDraggable={edit}
-                    isResizable={edit}
+                    isDraggable={allowResize}
+                    isResizable={allowResize}
                     draggableCancel="input,textarea"
                 >
                     {this.getItemComponents(items)}
@@ -175,7 +192,7 @@ ItemGrid.propTypes = {
     acRemoveDashboardItem: PropTypes.func,
     acUpdateDashboardLayout: PropTypes.func,
     dashboardItems: PropTypes.array,
-    edit: PropTypes.bool,
+    dashboardMode: PropTypes.string,
     isLoading: PropTypes.bool,
 }
 
@@ -185,18 +202,21 @@ ItemGrid.defaultProps = {
 
 // Container
 
-const mapStateToProps = (state, ownProps) => {
-    const selectedDashboard = ownProps.edit
+const mapStateToProps = state => {
+    const dashboardMode = sGetSelectedDashboardMode(state)
+
+    const selectedDashboard = !isViewMode(dashboardMode)
         ? sGetEditDashboardRoot(state)
         : sGetDashboardById(state, sGetSelectedId(state))
 
-    const dashboardItems = ownProps.edit
+    const dashboardItems = !isViewMode(dashboardMode)
         ? sGetEditDashboardItems(state)
         : sGetDashboardItems(state)
 
     return {
         isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
         dashboardItems,
+        dashboardMode,
     }
 }
 
@@ -205,12 +225,12 @@ const mapDispatchToProps = {
     acRemoveDashboardItem,
 }
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
+const mergeProps = (stateProps, dispatchProps) => {
     const validItems = orArray(stateProps.dashboardItems).filter(hasShape)
 
     return {
         ...dispatchProps,
-        edit: ownProps.edit,
+        dashboardMode: stateProps.dashboardMode,
         isLoading: stateProps.isLoading,
         dashboardItems: validItems,
         onItemResize,

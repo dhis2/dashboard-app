@@ -5,6 +5,7 @@ import {
     SET_SELECTED_ID,
     SET_SELECTED_ISLOADING,
     SET_SELECTED_SHOWDESCRIPTION,
+    SET_SELECTED_DASHBOARD_MODE,
     sGetSelectedIsLoading,
     sGetSelectedId,
 } from '../reducers/selected'
@@ -48,6 +49,11 @@ export const acSetSelectedIsLoading = value => ({
 
 export const acSetSelectedShowDescription = value => ({
     type: SET_SELECTED_SHOWDESCRIPTION,
+    value,
+})
+
+export const acSetSelectedDashboardMode = value => ({
+    type: SET_SELECTED_DASHBOARD_MODE,
     value,
 })
 

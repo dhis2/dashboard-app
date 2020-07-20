@@ -28,7 +28,7 @@ export const Content = ({ hasDashboardContent, dashboardsIsEmpty }) => {
         <>
             <ViewTitleBar />
             <FilterBar />
-            <ItemGrid edit={false} />
+            <ItemGrid />
         </>
     ) : (
         <NoContentMessage text={msg} />
