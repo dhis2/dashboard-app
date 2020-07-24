@@ -34,7 +34,7 @@ const Dashboard = props => {
             // scroll to the top when a dashboard is loaded
             window.scrollTo(0, 0)
         }
-    })
+    }, [props.dashboardsLoaded, props.mode, props.match.params.dashboardId])
 
     const ActiveDashboard = dashboardMap[props.mode]
 

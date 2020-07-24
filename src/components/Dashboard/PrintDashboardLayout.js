@@ -36,7 +36,7 @@ const PrintDashboardLayout = props => {
             setInitialized(true)
             props.setEditDashboard(props.dashboard, props.items)
         }
-    }, [initialized])
+    }, [props.dashboard, props.items, initialized])
 
     const contentNotReady = !props.dashboardsLoaded || props.id === null
 

@@ -1,6 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
+import { Button } from '@dhis2/ui'
+import i18n from '@dhis2/d2-i18n'
 
 import { orObject } from '../../modules/util'
 
@@ -8,15 +11,12 @@ import {
     sGetSelectedId,
     sGetSelectedShowDescription,
 } from '../../reducers/selected'
-import {
-    sGetDashboardById,
-    sGetDashboardItems,
-} from '../../reducers/dashboards'
+import { sGetDashboardById } from '../../reducers/dashboards'
 
 import classes from './styles/PrintTitleBar.module.css'
 
 const PrintTitleBar = props => {
-    const { name, description, showDescription } = props
+    const { id, name, description, showDescription } = props
 
     return (
         <div
@@ -30,11 +30,15 @@ const PrintTitleBar = props => {
             {showDescription && description ? (
                 <div className={classes.description}>{description}</div>
             ) : null}
+            <Link className={classes.editLink} to={`/${id}`}>
+                <Button>{i18n.t('Return to View')}</Button>
+            </Link>
         </div>
     )
 }
 
 PrintTitleBar.propTypes = {
+    id: PropTypes.string.isRequired,
     description: PropTypes.string,
     name: PropTypes.string,
     showDescription: PropTypes.bool,
@@ -54,7 +58,6 @@ const mapStateToProps = state => {
         id,
         name: dashboard.displayName,
         description: dashboard.displayDescription,
-        dashboardItems: sGetDashboardItems(state),
         showDescription: sGetSelectedShowDescription(state),
     }
 }

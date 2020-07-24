@@ -26,7 +26,7 @@ const ItemHeader = React.forwardRef(
         return (
             <div className={classes.itemHeaderWrap} ref={ref}>
                 <p className={classes.itemTitle}>{title}</p>
-                <Actions {...rest} />
+                {Actions ? <Actions {...rest} /> : null}
             </div>
         )
     }

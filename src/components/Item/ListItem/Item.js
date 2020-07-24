@@ -11,7 +11,7 @@ import { orArray } from '../../../modules/util'
 import { tRemoveListItemContent } from './actions'
 import { sGetSelectedDashboardMode } from '../../../reducers/selected'
 import ItemHeader from '../ItemHeader/ItemHeader'
-import { isViewMode } from '../../Dashboard/dashboardModes'
+import { isEditMode } from '../../Dashboard/dashboardModes'
 import classes from './Item.module.css'
 
 const getItemTitle = item => itemTypeMap[item.type].pluralTitle
@@ -45,7 +45,7 @@ const ListItem = (props, context) => {
                 >
                     {contentItem.name}
                 </a>
-                {!isViewMode(dashboardMode) ? deleteButton : null}
+                {isEditMode(dashboardMode) ? deleteButton : null}
             </>
         )
     }
