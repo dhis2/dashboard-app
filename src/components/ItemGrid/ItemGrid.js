@@ -130,6 +130,7 @@ export class ItemGrid extends Component {
             <ProgressiveLoadingContainer
                 key={item.i}
                 className={itemClassNames}
+                forceLoad={isPrintLayoutMode(this.props.dashboardMode)}
             >
                 <Item
                     item={item}
