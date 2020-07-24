@@ -26,13 +26,13 @@ const PrintTitleBar = props => {
         >
             <div className={classes.titleBar}>
                 <span className={classes.title}>{name}</span>
+                <Link className={classes.link} to={`/${id}`}>
+                    <Button>{i18n.t('Return to View')}</Button>
+                </Link>
             </div>
             {showDescription && description ? (
                 <div className={classes.description}>{description}</div>
             ) : null}
-            <Link className={classes.editLink} to={`/${id}`}>
-                <Button>{i18n.t('Return to View')}</Button>
-            </Link>
         </div>
     )
 }

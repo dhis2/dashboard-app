@@ -1,8 +1,9 @@
 .titleBar {
     display: flex;
     align-items: flex-start;
+    justify-content: space-between;
 }
-.editLink {
+.link {
     display: inline-block;
     vertical-align: top;
     text-decoration: none;
@@ -23,4 +24,10 @@
     color: var(--colors-grey800);
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+@media print {
+    .link {
+        display: none;
+    }
 }
