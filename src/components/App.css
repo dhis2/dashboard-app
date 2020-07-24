@@ -22,3 +22,7 @@ table.pivot * {
 .secondary-light-bg {
     background-color: #48a999;
 }
+
+header.printMode {
+    display: none;
+}

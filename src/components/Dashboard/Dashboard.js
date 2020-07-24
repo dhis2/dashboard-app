@@ -10,6 +10,7 @@ import {
     DASHBOARD_MODE_EDIT,
     DASHBOARD_MODE_NEW,
     DASHBOARD_MODE_PRINT_LAYOUT,
+    isPrintLayoutMode,
 } from './dashboardModes'
 import ViewDashboard from './ViewDashboard'
 import EditDashboard from './EditDashboard'
@@ -30,6 +31,14 @@ const Dashboard = props => {
 
             props.selectDashboard(id)
             props.setDashboardMode(props.mode)
+
+            const header = document.getElementsByTagName('header')[0]
+
+            if (isPrintLayoutMode(props.mode)) {
+                header.classList.add('printMode')
+            } else {
+                header.classList.remove('printMode')
+            }
 
             // scroll to the top when a dashboard is loaded
             window.scrollTo(0, 0)
