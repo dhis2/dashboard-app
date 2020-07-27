@@ -19,7 +19,7 @@ import {
     getGridColumns,
     hasShape,
     onItemResize,
-} from './gridUtil'
+} from '../../modules/gridUtil'
 import { orArray } from '../../modules/util'
 import {
     isViewMode,
@@ -159,6 +159,11 @@ export class ItemGrid extends Component {
 
         const allowResize = !isViewMode(dashboardMode)
 
+        const printWidth = 1102 < window.innerWidth ? 1102 : window.innerWidth
+        const width = isPrintLayoutMode(dashboardMode)
+            ? printWidth
+            : window.innerWidth
+
         return (
             <div className="grid-wrapper">
                 {isLoading ? (
@@ -176,7 +181,7 @@ export class ItemGrid extends Component {
                     margin={MARGIN}
                     cols={getGridColumns()}
                     rowHeight={GRID_ROW_HEIGHT}
-                    width={window.innerWidth}
+                    width={width}
                     compactType={GRID_COMPACT_TYPE}
                     isDraggable={allowResize}
                     isResizable={allowResize}

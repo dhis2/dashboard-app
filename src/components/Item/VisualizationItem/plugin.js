@@ -10,7 +10,7 @@ import {
     itemTypeMap,
 } from '../../../modules/itemTypes'
 import { getBaseUrl, getWithoutId } from '../../../modules/util'
-import { getGridItemDomId } from '../../ItemGrid/gridUtil'
+import { getGridItemDomId } from '../../../modules/gridUtil'
 
 //external plugins
 const itemTypeToExternalPlugin = {

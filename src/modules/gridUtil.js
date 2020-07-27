@@ -1,6 +1,6 @@
 import isFunction from 'd2-utilizr/lib/isFunction'
 
-import { orObject } from '../../modules/util'
+import { orObject } from './util'
 
 // Dimensions for the react-grid-layout
 
@@ -11,6 +11,16 @@ const GRID_LAYOUT = 'FLEXIBLE' // FIXED | FLEXIBLE
 export const MARGIN = [10, 10]
 
 export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 }
+
+export const getPageBreakItemShape = yPos => {
+    return {
+        x: 0,
+        y: yPos,
+        w: GRID_COLUMNS - 1,
+        h: 5,
+        static: true,
+    }
+}
 
 // Dimensions for getShape
 
@@ -74,12 +84,22 @@ export const getGridItemProperties = itemId => {
  *
  * @param {Object} item item containing shape (x, y, w, h)
  */
-const getOriginalHeight = item => {
+export const getOriginalHeight = item => {
     const originalHeight = Math.round(
         GRID_ROW_HEIGHT * item.h + Math.max(0, item.h - 1) * MARGIN[1]
     )
 
     return { originalHeight }
+}
+
+export const getItemPageColumns = pageWidthPx => {
+    return Math.floor((pageWidthPx - 20) / GRID_COLUMN_WIDTH_PX)
+}
+
+export const getItemPageHeightRows = pageHeightPx => {
+    return Math.round(
+        (pageHeightPx + MARGIN[1]) / (GRID_ROW_HEIGHT + MARGIN[1])
+    )
 }
 
 /**

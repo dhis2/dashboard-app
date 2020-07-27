@@ -26,3 +26,26 @@ table.pivot * {
 header.printMode {
     display: none;
 }
+
+@media print {
+    body {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .app-shell-app {
+        overflow: visible !important;
+    }
+
+    /* .PAGEBREAK {
+        visibility: hidden;
+        break-after: page;
+        page-break-after: always;
+    } */
+}
+
+@page {
+    size: A4 landscape;
+    margin: 10pt;
+}

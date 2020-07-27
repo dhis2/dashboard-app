@@ -5,7 +5,7 @@ import i18n from '@dhis2/d2-i18n'
 
 import * as pluginManager from './plugin'
 import { getBaseUrl, orObject } from '../../../modules/util'
-import { getGridItemDomId } from '../../ItemGrid/gridUtil'
+import { getGridItemDomId } from '../../../modules/gridUtil'
 
 const pluginCredentials = d2 => {
     return {

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
-import { acSetEditDashboard } from '../../actions/editDashboard'
+import {
+    acSetEditDashboard,
+    acAddDashboardItem,
+} from '../../actions/editDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
 import {
     sGetDashboardById,
@@ -12,22 +14,22 @@ import {
 } from '../../reducers/dashboards'
 import PrintTitleBar from '../TitleBar/PrintTitleBar'
 import ItemGrid from '../ItemGrid/ItemGrid'
-import NoContentMessage from '../../widgets/NoContentMessage'
+// import { getGridYFromPixels } from '../../modules/gridUtil'
+import { getNumPrintPages } from '../../modules/printUtils'
+import { PAGEBREAK } from '../../modules/itemTypes'
 
-export const Content = ({ updateAccess }) => {
-    return updateAccess ? (
-        <>
-            <PrintTitleBar />
-            <ItemGrid />
-        </>
-    ) : (
-        <NoContentMessage text={i18n.t('No access')} />
-    )
+const addPageBreaks = ({ items, addDashboardItem }) => {
+    // TODO: this is not accurate bc adding the static page
+    // breaks can increase the number of actual pages
+    const pageCount = getNumPrintPages(items) + 1
+    const yList = [33, 72, 110, 149, 187, 226, 264]
+    for (let i = 0; i < pageCount; ++i) {
+        addDashboardItem({ type: PAGEBREAK, yPos: yList[i] })
+    }
+
+    return items
 }
 
-Content.propTypes = {
-    updateAccess: PropTypes.bool,
-}
 const PrintDashboardLayout = props => {
     const [initialized, setInitialized] = useState(false)
 
@@ -35,6 +37,9 @@ const PrintDashboardLayout = props => {
         if (props.dashboard) {
             setInitialized(true)
             props.setEditDashboard(props.dashboard, props.items)
+            if (props.items.length > 0) {
+                addPageBreaks(props)
+            }
         }
     }, [props.dashboard, props.items, initialized])
 
@@ -43,7 +48,10 @@ const PrintDashboardLayout = props => {
     return (
         <div className="dashboard-wrapper">
             {contentNotReady ? null : (
-                <Content updateAccess={props.updateAccess} />
+                <>
+                    <PrintTitleBar />
+                    <ItemGrid />
+                </>
             )}
         </div>
     )
@@ -55,20 +63,15 @@ PrintDashboardLayout.propTypes = {
     id: PropTypes.string,
     items: PropTypes.array,
     setEditDashboard: PropTypes.func,
-    updateAccess: PropTypes.bool,
 }
 
 const mapStateToProps = state => {
     const id = sGetSelectedId(state)
     const dashboard = id ? sGetDashboardById(state, id) : null
 
-    const updateAccess =
-        dashboard && dashboard.access ? dashboard.access.update : false
-
     return {
         dashboard,
         id,
-        updateAccess,
         items: sGetDashboardItems(state),
         dashboardsLoaded: !sDashboardsIsFetching(state),
     }
@@ -76,4 +79,5 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
     setEditDashboard: acSetEditDashboard,
+    addDashboardItem: acAddDashboardItem,
 })(PrintDashboardLayout)

@@ -21,7 +21,7 @@ import { acAddVisualization } from './visualizations'
 import { apiFetchDashboard } from '../api/dashboards'
 import { storePreferredDashboardId } from '../api/localStorage'
 
-import { withShape } from '../components/ItemGrid/gridUtil'
+import { withShape } from '../modules/gridUtil'
 import { loadingDashboardMsg } from '../components/SnackbarMessage/SnackbarMessage'
 import { extractFavorite } from '../components/Item/VisualizationItem/plugin'
 

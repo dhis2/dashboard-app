@@ -8,6 +8,7 @@ import ListItem from './ListItem/Item'
 import TextItem from './TextItem/Item'
 import AppItem from './AppItem/Item'
 import SpacerItem from './SpacerItem/Item'
+import PageBreakItem from './PageBreakItem/Item'
 import {
     APP,
     VISUALIZATION,
@@ -22,6 +23,7 @@ import {
     USERS,
     TEXT,
     SPACER,
+    PAGEBREAK,
 } from '../../modules/itemTypes'
 
 const getGridItem = type => {
@@ -45,6 +47,8 @@ const getGridItem = type => {
             return SpacerItem
         case APP:
             return AppItem
+        case PAGEBREAK:
+            return PageBreakItem
         default:
             return NotSupportedItem
     }
