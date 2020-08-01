@@ -1,0 +1,16 @@
+.rightMargin {
+    position: absolute;
+    top: 0;
+    left: 1102px;
+    height: 3750px;
+    border-right: 5px solid gray;
+    opacity: 0.4;
+}
+
+.horizontalBreak {
+    position: absolute;
+    background-color: gray;
+    height: 10px;
+    width: 1102px;
+    opacity: 0.4;
+}

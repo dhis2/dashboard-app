@@ -21,6 +21,9 @@ const sortItemsByYPosition = items => {
 }
 
 export const getNumPrintPages = items => {
+    if (!items.length) {
+        return 1
+    }
     const sortedItems = sortItemsByYPosition(items)
 
     // then subtract the top and bottom margins

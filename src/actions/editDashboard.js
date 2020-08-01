@@ -83,8 +83,8 @@ export const acAddDashboardItem = item => {
             id,
             type,
             [itemPropName]: item.content,
-            ...shape,
             ...gridItemProperties,
+            ...shape,
         },
     }
 }

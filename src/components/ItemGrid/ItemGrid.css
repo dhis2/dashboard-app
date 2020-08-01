@@ -71,3 +71,7 @@
 .EVENT_CHART.resizing .dashboard-item-content {
     overflow: hidden;
 }
+
+.grid-wrapper {
+    position: relative;
+}

@@ -17,8 +17,9 @@ export const getPageBreakItemShape = yPos => {
         x: 0,
         y: yPos,
         w: GRID_COLUMNS - 1,
-        h: 5,
+        h: 1,
         static: true,
+        minH: 1,
     }
 }
 

@@ -10,6 +10,7 @@ import {
     acRemoveDashboardItem,
 } from '../../actions/editDashboard'
 import { Item } from '../Item/Item'
+import PageBreakRuler from './PageBreakRuler'
 import { resize as pluginResize } from '../Item/VisualizationItem/plugin'
 import { isVisualizationType } from '../../modules/itemTypes'
 import {
@@ -20,6 +21,7 @@ import {
     hasShape,
     onItemResize,
 } from '../../modules/gridUtil'
+import { getNumPrintPages } from '../../modules/printUtils'
 import { orArray } from '../../modules/util'
 import {
     isViewMode,
@@ -164,6 +166,13 @@ export class ItemGrid extends Component {
             ? printWidth
             : window.innerWidth
 
+        const getPageBreakRuler = () => {
+            // TODO: fix bc it mutates the array items due to sorting
+            const pageCount = getNumPrintPages(items)
+
+            return <PageBreakRuler pageCount={pageCount} />
+        }
+
         return (
             <div className="grid-wrapper">
                 {isLoading ? (
@@ -173,6 +182,7 @@ export class ItemGrid extends Component {
                         </CenteredContent>
                     </Layer>
                 ) : null}
+                {isEditMode(dashboardMode) && getPageBreakRuler()}
                 <ReactGridLayout
                     onLayoutChange={this.onLayoutChange}
                     onResizeStop={this.onResizeStop}

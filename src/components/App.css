@@ -6,6 +6,7 @@ body {
     background-color: #f4f6f8;
     padding-left: 10px;
     padding-right: 10px;
+    position: relative;
 }
 
 /* plugin TODO */
