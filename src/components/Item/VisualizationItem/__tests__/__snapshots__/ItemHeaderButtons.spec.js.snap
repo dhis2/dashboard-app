@@ -56,7 +56,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
           "children": <ThreeDots />,
           "dataTest": "dhis2-uicore-button",
@@ -105,7 +105,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "children": <ThreeDots />,
             "dataTest": "dhis2-uicore-button",
