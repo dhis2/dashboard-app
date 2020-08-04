@@ -29,7 +29,7 @@ export const PrintOippItemGrid = ({ isLoading, dashboardItems }) => {
         item.h = getItemPageHeightRows(700)
 
         return (
-            <div key={item.i} className={itemClassNames} forceLoad={true}>
+            <div key={item.i} className={itemClassNames}>
                 <Item item={item} />
             </div>
         )
