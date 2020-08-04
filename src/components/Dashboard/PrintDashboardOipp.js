@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
@@ -13,35 +13,15 @@ import {
     sDashboardsIsFetching,
 } from '../../reducers/dashboards'
 import PrintTitleBar from '../TitleBar/PrintTitleBar'
-import PrintLayoutItemGrid from '../ItemGrid/PrintLayoutItemGrid'
-// import { getGridYFromPixels } from '../../modules/gridUtil'
-import { getNumPrintPages } from '../../modules/printUtils'
-import { PAGEBREAK } from '../../modules/itemTypes'
+import PrintOippItemGrid from '../ItemGrid/PrintOippItemGrid'
 
-const addPageBreaks = ({ items, addDashboardItem }) => {
-    // TODO: this is not accurate bc adding the static page
-    // breaks can increase the number of actual pages
-    const pageCount = getNumPrintPages(items) + 1
-    const yList = [33, 72, 110, 149, 187, 226, 264]
-    for (let i = 0; i < pageCount; ++i) {
-        addDashboardItem({ type: PAGEBREAK, yPos: yList[i] })
-    }
-
-    return items
-}
-
-const PrintDashboardLayout = props => {
-    const [initialized, setInitialized] = useState(false)
-
+const PrintOneItemPerPage = props => {
     useEffect(() => {
+        // console.log('jj initPrintDashboard items', props.items)
         if (props.dashboard) {
-            setInitialized(true)
             props.setEditDashboard(props.dashboard, props.items)
-            if (props.items.length > 0) {
-                addPageBreaks(props)
-            }
         }
-    }, [props.dashboard, props.items, initialized])
+    }, [props.dashboard])
 
     const contentNotReady = !props.dashboardsLoaded || props.id === null
 
@@ -50,14 +30,14 @@ const PrintDashboardLayout = props => {
             {contentNotReady ? null : (
                 <>
                     <PrintTitleBar />
-                    <PrintLayoutItemGrid />
+                    <PrintOippItemGrid />
                 </>
             )}
         </div>
     )
 }
 
-PrintDashboardLayout.propTypes = {
+PrintOneItemPerPage.propTypes = {
     dashboard: PropTypes.object,
     dashboardsLoaded: PropTypes.bool,
     id: PropTypes.string,
@@ -80,4 +60,4 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
     setEditDashboard: acSetEditDashboard,
     addDashboardItem: acAddDashboardItem,
-})(PrintDashboardLayout)
+})(PrintOneItemPerPage)

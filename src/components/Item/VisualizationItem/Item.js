@@ -145,17 +145,23 @@ export class Item extends Component {
             HEADER_MARGIN_HEIGHT -
             ITEM_CONTENT_PADDING_BOTTOM
 
+        // console.log('jj calculatedHeight', this.props.item.i, calculatedHeight)
+
+        // console.log('jj contentRef', this.contentRef.offsetHeight)
+        // console.log('jj vis item w h', this.props.item.w, this.props.item.h)
         const props = {
             item: this.props.item,
             useActiveType: isViewMode(this.props.dashboardMode),
             visualization,
             classes,
-            style: this.memoizedGetContentStyle(
+            style: this.getContentStyle(
                 calculatedHeight,
                 this.contentRef ? this.contentRef.offsetHeight : null,
                 !isViewMode(this.props.dashboardMode)
             ),
         }
+
+        console.log('jj vis style', props.style)
 
         switch (activeType) {
             case VISUALIZATION:

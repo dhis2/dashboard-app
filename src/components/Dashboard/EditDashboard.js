@@ -13,14 +13,14 @@ import {
 import DashboardVerticalOffset from './DashboardVerticalOffset'
 import EditControlBar from '../ControlBar/EditControlBar'
 import EditTitleBar from '../TitleBar/EditTitleBar'
-import ItemGrid from '../ItemGrid/ItemGrid'
+import EditItemGrid from '../ItemGrid/EditItemGrid'
 import NoContentMessage from '../../widgets/NoContentMessage'
 
 export const Content = ({ updateAccess }) => {
     return updateAccess ? (
         <>
             <EditTitleBar />
-            <ItemGrid />
+            <EditItemGrid />
         </>
     ) : (
         <NoContentMessage text={i18n.t('No access')} />

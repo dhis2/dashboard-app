@@ -10,6 +10,7 @@ import {
     DASHBOARD_MODE_VIEW,
     DASHBOARD_MODE_NEW,
     DASHBOARD_MODE_PRINT_LAYOUT,
+    DASHBOARD_MODE_PRINT_OIPP,
 } from './Dashboard/dashboardModes'
 import { acReceivedUser } from '../actions/user'
 import { tFetchDashboards } from '../actions/dashboards'
@@ -85,6 +86,16 @@ export class App extends Component {
                                 <Dashboard
                                     {...props}
                                     mode={DASHBOARD_MODE_PRINT_LAYOUT}
+                                />
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/:dashboardId/printoipp"
+                            render={props => (
+                                <Dashboard
+                                    {...props}
+                                    mode={DASHBOARD_MODE_PRINT_OIPP}
                                 />
                             )}
                         />

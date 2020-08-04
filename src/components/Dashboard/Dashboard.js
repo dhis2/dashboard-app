@@ -10,18 +10,21 @@ import {
     DASHBOARD_MODE_EDIT,
     DASHBOARD_MODE_NEW,
     DASHBOARD_MODE_PRINT_LAYOUT,
-    isPrintLayoutMode,
+    DASHBOARD_MODE_PRINT_OIPP,
+    isPrintMode,
 } from './dashboardModes'
 import ViewDashboard from './ViewDashboard'
 import EditDashboard from './EditDashboard'
 import NewDashboard from './NewDashboard'
 import PrintDashboardLayout from './PrintDashboardLayout'
+import PrintDashboardOipp from './PrintDashboardOipp'
 
 const dashboardMap = {
     [DASHBOARD_MODE_VIEW]: ViewDashboard,
     [DASHBOARD_MODE_EDIT]: EditDashboard,
     [DASHBOARD_MODE_NEW]: NewDashboard,
     [DASHBOARD_MODE_PRINT_LAYOUT]: PrintDashboardLayout,
+    [DASHBOARD_MODE_PRINT_OIPP]: PrintDashboardOipp,
 }
 
 const Dashboard = props => {
@@ -34,7 +37,7 @@ const Dashboard = props => {
 
             const header = document.getElementsByTagName('header')[0]
 
-            if (isPrintLayoutMode(props.mode)) {
+            if (isPrintMode(props.mode)) {
                 header.classList.add('printMode')
             } else {
                 header.classList.remove('printMode')

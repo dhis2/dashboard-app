@@ -44,6 +44,22 @@ header.printMode {
         break-after: page;
         page-break-after: always;
     } */
+
+    * {
+        -webkit-transition: none !important;
+        transition: none !important;
+    }
+}
+
+.printoipp .react-grid-item {
+    position: static !important;
+    transform: none !important;
+    margin-top: 3vh;
+    margin-bottom: 10px;
+    border: 1px solid #d3d4d6;
+    box-shadow: none;
+    break-inside: avoid;
+    break-after: page;
 }
 
 @page {

@@ -4,9 +4,9 @@ import { getOriginalHeight, MARGIN } from './gridUtil'
 // 794 px = (21cm / 2.54) * 96 pixels/inch
 // 1122 px = 29.7 /2.54 * 96 pixels/inch
 const a4LandscapeHeightPx = 794
-// const a4LandscapeWidthPx = 1122
+export const a4LandscapeWidthPx = 1102
 
-const sortItemsByYPosition = items => {
+export const sortItemsByYPosition = items => {
     return items.sort((a, b) => {
         if (a.y < b.y) {
             return -2

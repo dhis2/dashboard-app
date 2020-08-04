@@ -14,7 +14,7 @@ import { sGetSelectedId } from '../../reducers/selected'
 import DashboardsBar from '../ControlBar/ViewControlBar'
 import DashboardVerticalOffset from './DashboardVerticalOffset'
 import ViewTitleBar from '../TitleBar/ViewTitleBar'
-import ItemGrid from '../ItemGrid/ItemGrid'
+import ViewItemGrid from '../ItemGrid/ViewItemGrid'
 import FilterBar from '../FilterBar/FilterBar'
 
 import NoContentMessage from '../../widgets/NoContentMessage'
@@ -30,7 +30,7 @@ export const Content = ({ hasDashboardContent, dashboardsIsEmpty }) => {
         <>
             <ViewTitleBar />
             <FilterBar />
-            <ItemGrid />
+            <ViewItemGrid />
         </>
     ) : (
         <NoContentMessage text={msg} />
