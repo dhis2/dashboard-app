@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
@@ -31,17 +31,14 @@ const addPageBreaks = ({ items, addDashboardItem }) => {
 }
 
 const PrintDashboardLayout = props => {
-    const [initialized, setInitialized] = useState(false)
-
     useEffect(() => {
         if (props.dashboard) {
-            setInitialized(true)
             props.setEditDashboard(props.dashboard, props.items)
             if (props.items.length > 0) {
                 addPageBreaks(props)
             }
         }
-    }, [props.dashboard, props.items, initialized])
+    }, [props.dashboard])
 
     const contentNotReady = !props.dashboardsLoaded || props.id === null
 
