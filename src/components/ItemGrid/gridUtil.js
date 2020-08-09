@@ -84,7 +84,7 @@ export const getGridItemProperties = itemId => {
  *
  * @param {Object} item item containing shape (x, y, w, h)
  */
-const getOriginalHeight = item => {
+export const getOriginalHeight = item => {
     const originalHeight = Math.round(
         GRID_ROW_HEIGHT * item.h + Math.max(0, item.h - 1) * MARGIN[1]
     )
