@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
+import PrintTitleBar from '../TitleBar/PrintTitleBar'
+import PrintItemGrid from '../ItemGrid/PrintItemGrid'
 import { acSetEditDashboard } from '../../actions/editDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
 // import { acSetSelectedPrintMode } from '../../actions/selected'
@@ -11,13 +13,14 @@ import {
     sGetDashboardItems,
     sDashboardsIsFetching,
 } from '../../reducers/dashboards'
-import DashboardContent from './DashboardContent'
-import { PRINT } from './dashboardModes'
 import NoContentMessage from '../../widgets/NoContentMessage'
 
 export const Content = ({ updateAccess, onePerPage }) => {
     return updateAccess ? (
-        <DashboardContent mode={PRINT} onePerPage={onePerPage} />
+        <>
+            <PrintTitleBar />
+            <PrintItemGrid edit={true} />
+        </>
     ) : (
         <NoContentMessage text={i18n.t('No access')} />
     )
