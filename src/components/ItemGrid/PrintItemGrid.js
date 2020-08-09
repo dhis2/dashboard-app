@@ -15,39 +15,22 @@ import {
     sGetEditDashboardItems,
 } from '../../reducers/editDashboard'
 
-import { resize as pluginResize } from '../Item/VisualizationItem/plugin'
-import { isVisualizationType } from '../../modules/itemTypes'
 import {
     GRID_ROW_HEIGHT,
     GRID_COMPACT_TYPE,
     MARGIN,
     getGridColumns,
     hasShape,
-    onItemResize,
 } from './gridUtil'
 import { orArray } from '../../modules/util'
 
 import 'react-grid-layout/css/styles.css'
-import 'react-resizable/css/styles.css'
 
 import './ItemGrid.css'
 
 export class ItemGrid extends Component {
     onLayoutChange = newLayout => {
         this.props.acUpdateDashboardLayout(newLayout)
-    }
-
-    onResizeStop = (layout, oldItem, newItem) => {
-        onItemResize(newItem.i)
-
-        const dashboardItem = this.props.dashboardItems.find(
-            item => item.id === newItem.i
-        )
-
-        // call resize on the item component if it's a plugin type
-        if (dashboardItem && isVisualizationType(dashboardItem)) {
-            pluginResize(dashboardItem)
-        }
     }
 
     getItemComponent = item => {
@@ -90,7 +73,6 @@ export class ItemGrid extends Component {
                 ) : null}
                 <ReactGridLayout
                     onLayoutChange={this.onLayoutChange}
-                    onResizeStop={this.onResizeStop}
                     className="layout print printview"
                     layout={items}
                     margin={MARGIN}
@@ -144,7 +126,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         edit: ownProps.edit,
         isLoading: stateProps.isLoading,
         dashboardItems: validItems,
-        onItemResize,
     }
 }
 
