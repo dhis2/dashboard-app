@@ -92,6 +92,14 @@ class ViewTitleBar extends Component {
                             <span style={{ marginRight: '4px' }}>
                                 <FilterSelector />
                             </span>
+                            <Link
+                                className={classes.editLink}
+                                to={`/${id}/printoipp`}
+                            >
+                                <Button>
+                                    {i18n.t('Print one item per page')}
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                 </div>
