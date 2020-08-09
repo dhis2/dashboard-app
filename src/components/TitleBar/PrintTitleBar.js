@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
+import { Link } from 'react-router-dom'
+import { Button, colors } from '@dhis2/ui'
 
 import { orObject } from '../../modules/util'
 
@@ -10,7 +12,6 @@ import {
     sGetSelectedShowDescription,
 } from '../../reducers/selected'
 import { sGetDashboardById } from '../../reducers/dashboards'
-import { colors } from '@dhis2/ui'
 
 import classes from './styles/PrintTitleBar.module.css'
 
@@ -30,7 +31,7 @@ const style = {
 
 class PrintTitleBar extends Component {
     render() {
-        const { name, description, showDescription } = this.props
+        const { id, name, description, showDescription } = this.props
 
         const titleStyle = Object.assign({}, style.title, {
             cursor: 'default',
@@ -42,7 +43,9 @@ class PrintTitleBar extends Component {
             <>
                 <div className={classes.titleBar}>
                     <span style={titleStyle}>{name}</span>
-                    <div className={classes.actions}></div>
+                    <Link className={classes.link} to={`/${id}`}>
+                        <Button>{i18n.t('Return to View')}</Button>
+                    </Link>
                 </div>
                 {showDescription ? (
                     <div
@@ -62,6 +65,7 @@ class PrintTitleBar extends Component {
 }
 
 PrintTitleBar.propTypes = {
+    id: PropTypes.string.isRequired,
     description: PropTypes.string,
     name: PropTypes.string,
     showDescription: PropTypes.bool,
@@ -78,6 +82,7 @@ const mapStateToProps = state => {
     const dashboard = orObject(sGetDashboardById(state, id))
 
     return {
+        id,
         name: dashboard.displayName,
         description: dashboard.displayDescription,
         showDescription: sGetSelectedShowDescription(state),
