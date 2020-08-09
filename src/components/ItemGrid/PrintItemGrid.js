@@ -21,6 +21,8 @@ import {
     MARGIN,
     getGridColumns,
     hasShape,
+    getItemPageColumns,
+    getItemPageHeightRows,
 } from './gridUtil'
 import { orArray } from '../../modules/util'
 
@@ -36,13 +38,13 @@ export class ItemGrid extends Component {
     getItemComponent = item => {
         const itemClassNames = [item.type, 'edit'].join(' ')
 
+        // TODO: this mutates the redux store
+        item.w = getItemPageColumns(1102)
+        item.h = getItemPageHeightRows(700)
+
         return (
             <div key={item.i} className={itemClassNames}>
-                <Item
-                    item={item}
-                    editMode={true}
-                    onToggleItemExpanded={this.onToggleItemExpanded}
-                />
+                <Item item={item} editMode={true} />
             </div>
         )
     }
