@@ -8,7 +8,6 @@ import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import { Item } from '../Item/Item'
 import NoContentMessage from '../../widgets/NoContentMessage'
 
-import { acUpdateDashboardLayout } from '../../actions/editDashboard'
 import { sGetSelectedIsLoading } from '../../reducers/selected'
 import {
     sGetEditDashboardRoot,
@@ -31,10 +30,6 @@ import 'react-grid-layout/css/styles.css'
 import './ItemGrid.css'
 
 export class ItemGrid extends Component {
-    onLayoutChange = newLayout => {
-        this.props.acUpdateDashboardLayout(newLayout)
-    }
-
     getItemComponent = item => {
         const itemClassNames = [item.type, 'edit'].join(' ')
 
@@ -62,7 +57,19 @@ export class ItemGrid extends Component {
             )
         }
 
-        const items = dashboardItems
+        //sorting the items is so that the print, with one item per page
+        //prints in the order of top to bottom of the dashboard
+        const sortedItems = dashboardItems.sort((a, b) => {
+            if (a.y < b.y) {
+                return -2
+            } else if (a.y === b.y) {
+                if (a.x < b.x) {
+                    return -1
+                }
+            }
+
+            return 1
+        })
 
         return (
             <div className="grid-wrapper">
@@ -74,9 +81,8 @@ export class ItemGrid extends Component {
                     </Layer>
                 ) : null}
                 <ReactGridLayout
-                    onLayoutChange={this.onLayoutChange}
                     className="layout print printview"
-                    layout={items}
+                    layout={sortedItems}
                     margin={MARGIN}
                     cols={getGridColumns()}
                     rowHeight={GRID_ROW_HEIGHT}
@@ -86,7 +92,7 @@ export class ItemGrid extends Component {
                     isResizable={false}
                     draggableCancel="input,textarea"
                 >
-                    {this.getItemComponents(items)}
+                    {this.getItemComponents(sortedItems)}
                 </ReactGridLayout>
             </div>
         )
@@ -94,7 +100,6 @@ export class ItemGrid extends Component {
 }
 
 ItemGrid.propTypes = {
-    acUpdateDashboardLayout: PropTypes.func,
     dashboardItems: PropTypes.array,
     isLoading: PropTypes.bool,
 }
@@ -116,10 +121,6 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = {
-    acUpdateDashboardLayout,
-}
-
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const validItems = orArray(stateProps.dashboardItems).filter(hasShape)
 
@@ -131,8 +132,4 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     }
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-    mergeProps
-)(ItemGrid)
+export default connect(mapStateToProps, null, mergeProps)(ItemGrid)
