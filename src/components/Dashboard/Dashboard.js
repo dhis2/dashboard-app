@@ -17,6 +17,13 @@ class Dashboard extends Component {
 
             this.props.selectDashboard(id)
 
+            const header = document.getElementsByTagName('header')[0]
+            if (this.props.mode === PRINT) {
+                header.classList.add('printMode')
+            } else {
+                header.classList.remove('printMode')
+            }
+
             this.scrollToTop()
         }
     }
