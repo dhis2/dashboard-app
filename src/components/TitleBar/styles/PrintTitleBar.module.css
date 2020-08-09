@@ -1,0 +1,33 @@
+.titleBar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.link {
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    margin-right: 4px;
+}
+.title {
+    position: relative;
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--colors-black);
+    min-width: 50px;
+    cursor: default;
+    user-select: text;
+    top: 7px;
+}
+.description {
+    font-size: 14px;
+    color: var(--colors-grey800);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+@media print {
+    .link {
+        display: none;
+    }
+}
