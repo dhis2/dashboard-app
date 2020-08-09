@@ -23,18 +23,22 @@ import {
     getItemPageColumns,
     getItemPageHeightRows,
 } from './gridUtil'
+import {
+    a4LandscapeWidthPx,
+    sortItemsByYPosition,
+} from '../../modules/printUtils'
 import { orArray } from '../../modules/util'
 
 import 'react-grid-layout/css/styles.css'
 
 import './ItemGrid.css'
 
-export class ItemGrid extends Component {
+export class PrintItemGrid extends Component {
     getItemComponent = item => {
         const itemClassNames = [item.type, 'edit'].join(' ')
 
         // TODO: this mutates the redux store
-        item.w = getItemPageColumns(1102)
+        item.w = getItemPageColumns(a4LandscapeWidthPx)
         item.h = getItemPageHeightRows(700)
 
         return (
@@ -59,17 +63,12 @@ export class ItemGrid extends Component {
 
         //sorting the items is so that the print, with one item per page
         //prints in the order of top to bottom of the dashboard
-        const sortedItems = dashboardItems.sort((a, b) => {
-            if (a.y < b.y) {
-                return -2
-            } else if (a.y === b.y) {
-                if (a.x < b.x) {
-                    return -1
-                }
-            }
+        sortItemsByYPosition(dashboardItems)
 
-            return 1
-        })
+        const width =
+            a4LandscapeWidthPx < window.innerWidth
+                ? a4LandscapeWidthPx
+                : window.innerWidth
 
         return (
             <div className="grid-wrapper">
@@ -82,54 +81,39 @@ export class ItemGrid extends Component {
                 ) : null}
                 <ReactGridLayout
                     className="layout print printview"
-                    layout={sortedItems}
+                    layout={dashboardItems}
                     margin={MARGIN}
                     cols={getGridColumns()}
                     rowHeight={GRID_ROW_HEIGHT}
-                    width={window.innerWidth}
+                    width={width}
                     compactType={GRID_COMPACT_TYPE}
                     isDraggable={false}
                     isResizable={false}
                     draggableCancel="input,textarea"
                 >
-                    {this.getItemComponents(sortedItems)}
+                    {this.getItemComponents(dashboardItems)}
                 </ReactGridLayout>
             </div>
         )
     }
 }
 
-ItemGrid.propTypes = {
+PrintItemGrid.propTypes = {
     dashboardItems: PropTypes.array,
     isLoading: PropTypes.bool,
 }
 
-ItemGrid.defaultProps = {
+PrintItemGrid.defaultProps = {
     dashboardItems: [],
 }
-
-// Container
 
 const mapStateToProps = state => {
     const selectedDashboard = sGetEditDashboardRoot(state)
 
-    const dashboardItems = sGetEditDashboardItems(state)
-
     return {
         isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
-        dashboardItems,
+        dashboardItems: orArray(sGetEditDashboardItems(state)).filter(hasShape),
     }
 }
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const validItems = orArray(stateProps.dashboardItems).filter(hasShape)
-
-    return {
-        ...dispatchProps,
-        edit: ownProps.edit,
-        isLoading: stateProps.isLoading,
-        dashboardItems: validItems,
-    }
-}
-
-export default connect(mapStateToProps, null, mergeProps)(ItemGrid)
+export default connect(mapStateToProps)(PrintItemGrid)

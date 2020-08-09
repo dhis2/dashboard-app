@@ -15,11 +15,11 @@ import {
 } from '../../reducers/dashboards'
 import NoContentMessage from '../../widgets/NoContentMessage'
 
-export const Content = ({ updateAccess, onePerPage }) => {
+export const Content = ({ updateAccess }) => {
     return updateAccess ? (
         <>
             <PrintTitleBar />
-            <PrintItemGrid edit={true} />
+            <PrintItemGrid />
         </>
     ) : (
         <NoContentMessage text={i18n.t('No access')} />
@@ -76,7 +76,6 @@ PrintDashboard.propTypes = {
     items: PropTypes.array,
     onePerPage: PropTypes.bool,
     setEditDashboard: PropTypes.func,
-    setForceLoadAll: PropTypes.func,
     updateAccess: PropTypes.bool,
 }
 
