@@ -91,7 +91,7 @@ export class ItemGrid extends Component {
                 <ReactGridLayout
                     onLayoutChange={this.onLayoutChange}
                     onResizeStop={this.onResizeStop}
-                    className="layout"
+                    className="layout print printview"
                     layout={items}
                     margin={MARGIN}
                     cols={getGridColumns()}
