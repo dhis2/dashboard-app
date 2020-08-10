@@ -4,11 +4,27 @@ import PropTypes from 'prop-types'
 
 import { tSelectDashboard } from '../../actions/dashboards'
 import { sDashboardsIsFetching } from '../../reducers/dashboards'
-import { EDIT, NEW, PRINT } from './dashboardModes'
+import {
+    EDIT,
+    NEW,
+    VIEW,
+    PRINT,
+    PRINT_LAYOUT,
+    isPrintMode,
+} from './dashboardModes'
 import ViewDashboard from './ViewDashboard'
 import EditDashboard from './EditDashboard'
 import NewDashboard from './NewDashboard'
 import PrintDashboard from './PrintDashboard'
+import PrintLayoutDashboard from './PrintLayoutDashboard'
+
+const dashboardMap = {
+    [VIEW]: ViewDashboard,
+    [EDIT]: EditDashboard,
+    [NEW]: NewDashboard,
+    [PRINT]: PrintDashboard,
+    [PRINT_LAYOUT]: PrintLayoutDashboard,
+}
 
 class Dashboard extends Component {
     setDashboard = () => {
@@ -18,7 +34,7 @@ class Dashboard extends Component {
             this.props.selectDashboard(id)
 
             const header = document.getElementsByTagName('header')[0]
-            if (this.props.mode === PRINT) {
+            if (isPrintMode(this.props.mode)) {
                 header.classList.add('printMode')
             } else {
                 header.classList.remove('printMode')
@@ -41,16 +57,9 @@ class Dashboard extends Component {
     }
 
     render() {
-        switch (this.props.mode) {
-            case EDIT:
-                return <EditDashboard />
-            case NEW:
-                return <NewDashboard />
-            case PRINT:
-                return <PrintDashboard />
-            default:
-                return <ViewDashboard />
-        }
+        const ActiveDashboard = dashboardMap[this.props.mode]
+
+        return <ActiveDashboard />
     }
 }
 

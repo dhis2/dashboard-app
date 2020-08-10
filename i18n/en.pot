@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-08-10T10:23:00.165Z\n"
-"PO-Revision-Date: 2020-08-10T10:23:00.165Z\n"
+"POT-Creation-Date: 2020-08-10T16:08:52.046Z\n"
+"PO-Revision-Date: 2020-08-10T16:08:52.046Z\n"
 
 msgid "Cancel"
 msgstr ""
@@ -71,6 +71,9 @@ msgid "See all messages"
 msgstr ""
 
 msgid "Item type \"{{type}}\" not supported"
+msgstr ""
+
+msgid "Page Break"
 msgstr ""
 
 msgid "Spacer"
@@ -158,6 +161,9 @@ msgid "Share"
 msgstr ""
 
 msgid "Print one item per page"
+msgstr ""
+
+msgid "Print layout"
 msgstr ""
 
 msgid "Visualizations"

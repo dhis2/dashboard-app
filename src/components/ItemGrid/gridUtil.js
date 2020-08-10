@@ -77,6 +77,17 @@ export const getGridItemProperties = itemId => {
     }
 }
 
+export const getPageBreakItemShape = yPos => {
+    return {
+        x: 0,
+        y: yPos,
+        w: GRID_COLUMNS - 1,
+        h: 5,
+        static: true,
+        minH: 1,
+    }
+}
+
 /**
  * Calculates the grid item's original height in pixels based
  * on the height in grid units. This calculation

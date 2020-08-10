@@ -5,7 +5,13 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { CssVariables } from '@dhis2/ui'
 
-import { EDIT, VIEW, NEW, PRINT } from './Dashboard/dashboardModes'
+import {
+    EDIT,
+    VIEW,
+    NEW,
+    PRINT,
+    PRINT_LAYOUT,
+} from './Dashboard/dashboardModes'
 import { acReceivedUser } from '../actions/user'
 import { tFetchDashboards } from '../actions/dashboards'
 import { tSetControlBarRows } from '../actions/controlBar'
@@ -66,6 +72,13 @@ export class App extends Component {
                             path="/:dashboardId/printoipp"
                             render={props => (
                                 <Dashboard {...props} mode={PRINT} />
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/:dashboardId/printlayout"
+                            render={props => (
+                                <Dashboard {...props} mode={PRINT_LAYOUT} />
                             )}
                         />
                     </Switch>

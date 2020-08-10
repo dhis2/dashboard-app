@@ -17,8 +17,9 @@ import { tSetSelectedDashboardById } from '../actions/selected'
 import {
     NEW_ITEM_SHAPE,
     getGridItemProperties,
+    getPageBreakItemShape,
 } from '../components/ItemGrid/gridUtil'
-import { itemTypeMap } from '../modules/itemTypes'
+import { itemTypeMap, PAGEBREAK } from '../modules/itemTypes'
 import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
 
 const onError = error => {
@@ -67,9 +68,12 @@ export const acAddDashboardItem = item => {
     const type = item.type
     delete item.type
     const itemPropName = itemTypeMap[type].propName
-
+    const yPos = item.yPos || 0
     const id = generateUid()
     const gridItemProperties = getGridItemProperties(id)
+
+    const shape =
+        type === PAGEBREAK ? getPageBreakItemShape(yPos) : NEW_ITEM_SHAPE
 
     return {
         type: ADD_DASHBOARD_ITEM,
@@ -79,6 +83,7 @@ export const acAddDashboardItem = item => {
             [itemPropName]: item.content,
             ...NEW_ITEM_SHAPE,
             ...gridItemProperties,
+            ...shape,
         },
     }
 }

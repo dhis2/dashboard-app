@@ -83,7 +83,9 @@ class DefaultPlugin extends Component {
         ) {
             pluginManager.load(this.props.item, this.props.visualization, {
                 credentials: this.pluginCredentials,
-                activeType: !this.props.editMode ? this.getActiveType() : null,
+                activeType: this.props.useActiveType
+                    ? this.getActiveType()
+                    : null,
                 options: this.props.options,
             })
         }
@@ -119,7 +121,7 @@ DefaultPlugin.contextTypes = {
 
 DefaultPlugin.propTypes = {
     classes: PropTypes.object,
-    editMode: PropTypes.bool,
+    useActiveType: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     options: PropTypes.object,
