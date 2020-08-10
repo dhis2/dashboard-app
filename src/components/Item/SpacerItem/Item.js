@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 
 import { colors } from '@dhis2/ui'
-import ItemHeader from '../ItemHeader'
+import ItemHeader from '../ItemHeader/ItemHeader'
 
 const style = {
     margin: '21px 28px',
@@ -15,7 +15,11 @@ const style = {
 const SpacerItem = props => {
     return (
         <>
-            <ItemHeader title={i18n.t('Spacer')} itemId={props.item.id} />
+            <ItemHeader
+                title={i18n.t('Spacer')}
+                itemId={props.item.id}
+                dashboardMode={props.dashboardMode}
+            />
             <p style={style}>
                 {i18n.t(
                     'Use a spacer to create empty vertical space between other dashboard items.'
@@ -26,6 +30,7 @@ const SpacerItem = props => {
 }
 
 SpacerItem.propTypes = {
+    dashboardMode: PropTypes.string,
     item: PropTypes.object,
 }
 

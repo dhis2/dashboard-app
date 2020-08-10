@@ -38,6 +38,7 @@ import {
     sGetDashboardItems,
 } from '../../reducers/dashboards'
 import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer'
+import { VIEW, EDIT } from '../Dashboard/dashboardModes'
 
 // Component
 
@@ -117,7 +118,7 @@ export class ItemGrid extends Component {
             >
                 <Item
                     item={item}
-                    editMode={this.props.edit}
+                    dashboardMode={this.props.edit ? EDIT : VIEW}
                     onToggleItemExpanded={this.onToggleItemExpanded}
                 />
             </ProgressiveLoadingContainer>

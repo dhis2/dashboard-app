@@ -9,7 +9,9 @@ import Line from '../../../widgets/Line'
 import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes'
 import { orArray } from '../../../modules/util'
 import { tRemoveListItemContent } from './actions'
-import ItemHeader from '../ItemHeader'
+import ItemHeader from '../ItemHeader/ItemHeader'
+import { isEditMode } from '../../Dashboard/dashboardModes'
+
 import classes from './Item.module.css'
 
 const getItemTitle = item => itemTypeMap[item.type].pluralTitle
@@ -21,7 +23,7 @@ const getContentItems = item =>
     )
 
 const ListItem = (props, context) => {
-    const { item, editMode, tRemoveListItemContent } = props
+    const { item, dashboardMode, tRemoveListItemContent } = props
     const contentItems = getContentItems(item)
 
     const getLink = contentItem => {
@@ -43,14 +45,18 @@ const ListItem = (props, context) => {
                 >
                     {contentItem.name}
                 </a>
-                {editMode ? deleteButton : null}
+                {isEditMode(dashboardMode) ? deleteButton : null}
             </>
         )
     }
 
     return (
         <>
-            <ItemHeader title={getItemTitle(item)} itemId={item.id} />
+            <ItemHeader
+                title={getItemTitle(item)}
+                itemId={item.id}
+                dashboardMode={dashboardMode}
+            />
             <Line />
             <div className="dashboard-item-content">
                 <ul className={classes.list}>
@@ -67,7 +73,7 @@ const ListItem = (props, context) => {
 }
 
 ListItem.propTypes = {
-    editMode: PropTypes.bool,
+    dashboardMode: PropTypes.string,
     item: PropTypes.object,
     tRemoveListItemContent: PropTypes.func,
 }

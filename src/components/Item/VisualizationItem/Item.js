@@ -7,7 +7,7 @@ import i18n from '@dhis2/d2-i18n'
 
 import DefaultPlugin from './DefaultPlugin'
 import FatalErrorBoundary from './FatalErrorBoundary'
-import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader'
+import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader/ItemHeader'
 import ItemHeaderButtons from './ItemHeaderButtons'
 import ItemFooter from './ItemFooter'
 import * as pluginManager from './plugin'
@@ -24,6 +24,11 @@ import {
     REPORT_TABLE,
 } from '../../../modules/itemTypes'
 import memoizeOne from '../../../modules/memoizeOne'
+import {
+    isEditMode,
+    isPrintMode,
+    isViewMode,
+} from '../../Dashboard/dashboardModes'
 
 import { getVisualizationConfig } from './plugin'
 import LoadingMask from './LoadingMask'
@@ -150,7 +155,8 @@ export class Item extends Component {
             style: this.memoizedGetContentStyle(
                 calculatedHeight,
                 this.contentRef ? this.contentRef.offsetHeight : null,
-                this.props.editMode
+                isEditMode(this.props.dashboardMode) ||
+                    isPrintMode(this.props.dashboardMode)
             ),
         }
 
@@ -260,8 +266,12 @@ export class Item extends Component {
             this.props.visualization
         )
 
-    getContentStyle = (calculatedHeight, measuredHeight, editMode) => {
-        const height = editMode
+    getContentStyle = (
+        calculatedHeight,
+        measuredHeight,
+        preferMeasuredHeight
+    ) => {
+        const height = preferMeasuredHeight
             ? measuredHeight || calculatedHeight
             : calculatedHeight
 
@@ -269,7 +279,7 @@ export class Item extends Component {
     }
 
     render() {
-        const { item, editMode, itemFilters } = this.props
+        const { item, dashboardMode, itemFilters } = this.props
         const { showFooter } = this.state
 
         const actionButtons = (
@@ -291,6 +301,7 @@ export class Item extends Component {
                     itemId={item.id}
                     actionButtons={actionButtons}
                     ref={this.headerRef}
+                    dashboardMode={dashboardMode}
                 />
                 <FatalErrorBoundary>
                     <div
@@ -301,7 +312,9 @@ export class Item extends Component {
                         {this.state.configLoaded && this.getPluginComponent()}
                     </div>
                 </FatalErrorBoundary>
-                {!editMode && showFooter ? <ItemFooter item={item} /> : null}
+                {isViewMode(dashboardMode) && showFooter ? (
+                    <ItemFooter item={item} />
+                ) : null}
             </>
         )
     }
@@ -312,7 +325,7 @@ Item.contextTypes = {
 }
 
 Item.propTypes = {
-    editMode: PropTypes.bool,
+    dashboardMode: PropTypes.string,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,
@@ -323,7 +336,6 @@ Item.propTypes = {
 
 Item.defaultProps = {
     item: {},
-    editMode: false,
     onToggleItemExpanded: Function.prototype,
     itemFilters: {},
     visualization: {},

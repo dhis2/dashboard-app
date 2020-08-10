@@ -8,6 +8,7 @@ import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import { Item } from '../Item/Item'
 import NoContentMessage from '../../widgets/NoContentMessage'
 
+import { PRINT } from '../Dashboard/dashboardModes'
 import { sGetSelectedIsLoading } from '../../reducers/selected'
 import {
     sGetEditDashboardRoot,
@@ -43,7 +44,7 @@ export class PrintItemGrid extends Component {
 
         return (
             <div key={item.i} className={itemClassNames}>
-                <Item item={item} editMode={true} />
+                <Item item={item} dashboardMode={PRINT} />
             </div>
         )
     }
