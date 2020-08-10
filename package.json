@@ -88,7 +88,7 @@
         "@dhis2/d2-i18n-generate": "^1.2.0",
         "d2-manifest": "^1.0.0",
         "enzyme": "^3.11.0",
-        "enzyme-adapter-react-16": "^1.15.2",
+        "enzyme-adapter-react-16": "^1.15.3",
         "eslint-config-prettier": "^4.1.0",
         "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-react-hooks": "^2.3.0",
