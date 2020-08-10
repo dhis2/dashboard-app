@@ -8,6 +8,7 @@ import ListItem from './ListItem/Item'
 import TextItem from './TextItem/Item'
 import AppItem from './AppItem/Item'
 import SpacerItem from './SpacerItem/Item'
+import { isEditMode } from '../Dashboard/dashboardModes'
 import {
     APP,
     VISUALIZATION,
@@ -57,9 +58,11 @@ export const Item = props => {
     return (
         <GridItem
             item={props.item}
-            editMode={props.editMode}
+            dashboardMode={props.dashboardMode}
             itemFilters={
-                props.editMode ? DEFAULT_STATE_ITEM_FILTERS : props.itemFilters
+                !isEditMode(props.dashboardMode)
+                    ? props.itemFilters
+                    : DEFAULT_STATE_ITEM_FILTERS
             }
             onToggleItemExpanded={props.onToggleItemExpanded}
         />
@@ -67,7 +70,7 @@ export const Item = props => {
 }
 
 Item.propTypes = {
-    editMode: PropTypes.bool,
+    dashboardMode: PropTypes.string,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,

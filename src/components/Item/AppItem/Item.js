@@ -5,7 +5,7 @@ import NotInterestedIcon from '@material-ui/icons/NotInterested'
 
 import { FILTER_ORG_UNIT } from '../../../actions/itemFilters'
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
-import ItemHeader from '../ItemHeader'
+import ItemHeader from '../ItemHeader/ItemHeader'
 import Line from '../../../widgets/Line'
 
 const getIframeSrc = (appDetails, item, itemFilters) => {
@@ -26,7 +26,7 @@ const getIframeSrc = (appDetails, item, itemFilters) => {
     return iframeSrc
 }
 
-const AppItem = ({ item, itemFilters }, context) => {
+const AppItem = ({ dashboardMode, item, itemFilters }, context) => {
     let appDetails
 
     const appKey = item.appKey
@@ -39,7 +39,11 @@ const AppItem = ({ item, itemFilters }, context) => {
 
     return appDetails && appDetails.name && appDetails.launchUrl ? (
         <>
-            <ItemHeader title={appDetails.name} itemId={item.id} />
+            <ItemHeader
+                title={appDetails.name}
+                itemId={item.id}
+                dashboardMode={dashboardMode}
+            />
             <Line />
             <iframe
                 title={appDetails.name}
@@ -72,6 +76,7 @@ const AppItem = ({ item, itemFilters }, context) => {
 }
 
 AppItem.propTypes = {
+    dashboardMode: PropTypes.string,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
 }
