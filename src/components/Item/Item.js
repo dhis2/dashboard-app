@@ -8,6 +8,7 @@ import ListItem from './ListItem/Item'
 import TextItem from './TextItem/Item'
 import AppItem from './AppItem/Item'
 import SpacerItem from './SpacerItem/Item'
+import PageBreakItem from './PageBreakItem/Item'
 import { isEditMode } from '../Dashboard/dashboardModes'
 import {
     APP,
@@ -23,6 +24,7 @@ import {
     USERS,
     TEXT,
     SPACER,
+    PAGEBREAK,
 } from '../../modules/itemTypes'
 import { DEFAULT_STATE_ITEM_FILTERS } from '../../reducers/itemFilters'
 
@@ -47,6 +49,8 @@ const getGridItem = type => {
             return SpacerItem
         case APP:
             return AppItem
+        case PAGEBREAK:
+            return PageBreakItem
         default:
             return NotSupportedItem
     }

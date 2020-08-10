@@ -150,6 +150,7 @@ export class Item extends Component {
 
         const props = {
             ...this.props,
+            useActiveType: !isEditMode(this.props.dashboardMode),
             visualization,
             classes,
             style: this.memoizedGetContentStyle(

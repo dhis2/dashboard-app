@@ -100,6 +100,12 @@ class ViewTitleBar extends Component {
                                     {i18n.t('Print one item per page')}
                                 </Button>
                             </Link>
+                            <Link
+                                className={classes.editLink}
+                                to={`/${id}/printlayout`}
+                            >
+                                <Button>{i18n.t('Print layout')}</Button>
+                            </Link>
                         </div>
                     </div>
                 </div>

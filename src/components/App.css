@@ -37,6 +37,10 @@ header.printMode {
     .app-shell-app {
         overflow: visible !important;
     }
+
+    .PAGEBREAK {
+        display: none !important;
+    }
 }
 
 .printview .react-grid-item {
