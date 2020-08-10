@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-08-09T11:44:02.889Z\n"
-"PO-Revision-Date: 2020-08-09T11:44:02.889Z\n"
+"POT-Creation-Date: 2020-08-10T10:23:00.165Z\n"
+"PO-Revision-Date: 2020-08-10T10:23:00.165Z\n"
 
 msgid "Cancel"
 msgstr ""
@@ -140,6 +140,9 @@ msgid "Dashboard title"
 msgstr ""
 
 msgid "Dashboard description"
+msgstr ""
+
+msgid "Return to View"
 msgstr ""
 
 msgid "No Description"
