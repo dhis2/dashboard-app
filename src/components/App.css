@@ -27,6 +27,18 @@ header.printMode {
     display: none;
 }
 
+@media print {
+    body {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .app-shell-app {
+        overflow: visible !important;
+    }
+}
+
 .printview .react-grid-item {
     position: static !important;
     transform: none !important;
