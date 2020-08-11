@@ -4,10 +4,7 @@
     margin-left: 20px;
 }
 .editLink {
-    display: inline-block;
-    vertical-align: top;
     text-decoration: none;
-    margin-right: 4px;
 }
 .titleBar {
     display: flex;
@@ -18,4 +15,11 @@
     position: relative;
     top: 1px;
     cursor: pointer;
+}
+.strip {
+    display: flex;
+}
+
+.strip > * {
+    margin-left: 6px;
 }

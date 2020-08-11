@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-08-10T16:08:52.046Z\n"
-"PO-Revision-Date: 2020-08-10T16:08:52.046Z\n"
+"POT-Creation-Date: 2020-08-11T08:37:58.800Z\n"
+"PO-Revision-Date: 2020-08-11T08:37:58.800Z\n"
 
 msgid "Cancel"
 msgstr ""
@@ -160,10 +160,13 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-msgid "Print one item per page"
+msgid "More"
 msgstr ""
 
 msgid "Print layout"
+msgstr ""
+
+msgid "Print one item per page"
 msgstr ""
 
 msgid "Visualizations"
