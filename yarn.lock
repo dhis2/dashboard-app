@@ -1261,28 +1261,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@dhis2/analytics@^7.1.5":
-  version "7.1.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-7.1.5.tgz#f4716305d23f46c77c48c00b41de92f900ec8402"
-  integrity sha512-16I5H4decyDIcuPoNcqz9hlJgyERNyqvyPAgUMarzSpT6luKHc37CFhgoF9J4RTvWx1BXIE8U6vGg+aiJSIPXg==
-  dependencies:
-    "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
-    "@dhis2/ui" "^5.0.3"
-    "@material-ui/core" "^3.9.3"
-    "@material-ui/icons" "^3.0.2"
-    classnames "^2.2.6"
-    d2-utilizr "^0.2.16"
-    d3-color "^1.2.3"
-    highcharts "^8.1.0"
-    lodash "^4.17.13"
-    react-beautiful-dnd "^10.1.1"
-    resize-observer-polyfill "^1.5.1"
-    styled-jsx "^3.3.0"
-
-"@dhis2/analytics@^8.1.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-8.1.0.tgz#fea90bb51930efbcc97bb9d14297e767613e65fa"
-  integrity sha512-8h4mN1HNFclGRm8JH0H9lvLCULvUxd5+O4VC0SPDa8uAGqs424Jj2g8/5x1ytwAKew30xkxyESSYyGysh8SEVg==
+"@dhis2/analytics@^8.1.0", "@dhis2/analytics@^8.1.1":
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-8.1.1.tgz#01e97ce40122d44ca97c9ca8c72982f2a4bdaf8b"
+  integrity sha512-AtcXxW+s9fbHrgzjE0BI1x9YtY46AF9iQJiysjF585e1RTVKMAD5BNdIIvriZWigSTVEvYr0gy/3krQ3lnZnUw==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
     "@dhis2/ui" "^5.3.0"
@@ -1539,7 +1521,7 @@
     classnames "^2.2.6"
     resize-observer-polyfill "^1.5.1"
 
-"@dhis2/ui@^5.0.3", "@dhis2/ui@^5.3.0", "@dhis2/ui@^5.3.1":
+"@dhis2/ui@^5.3.0", "@dhis2/ui@^5.3.1":
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.3.1.tgz#349b0ef3638fdfd2f70360413e19948d199b922d"
   integrity sha512-2i8CIQrmu1ooFKFJXiDkkFmcRNEQWjSP3sCU9pDZBZlMYHiRfBaT+mNg2j3bzhsIYPrmfDXtMpIc6BkIzJp1KA==
@@ -6528,7 +6510,7 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
-highcharts@^8.1.0, highcharts@^8.1.2:
+highcharts@^8.1.2:
   version "8.1.2"
   resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-8.1.2.tgz#a4e7d74a6140028e676a3a54f5fd0ea6ccbcc90e"
   integrity sha512-Q124Lj+2+bVY2MKMd7d8uSVAmhZVzWgknUUzUBEC27S94dCyK6PBgahuwiMP/ET4w7qSFBBi4OC77ZUb0Vnuyg==
