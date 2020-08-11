@@ -15,7 +15,6 @@ import { orObject } from '../../modules/util'
 import { tStarDashboard } from '../../actions/dashboards'
 import { acSetSelectedShowDescription } from '../../actions/selected'
 import FilterSelector from '../ItemFilter/FilterSelector'
-import Info from './Info'
 import {
     sGetSelectedId,
     sGetSelectedShowDescription,
@@ -34,16 +33,6 @@ const ViewTitleBar = (props, context) => {
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
 
-    const toggleSharingDialog = () =>
-        setSharingDialogIsOpen(!sharingDialogIsOpen)
-
-    const openMoreOptions = (_, event) => setAnchorEl(event.currentTarget)
-
-    const closeMoreOptions = () => setAnchorEl(null)
-
-    const printLayout = () => setRedirectUrl(`${props.id}/printlayout`)
-    const printOipp = () => setRedirectUrl(`${props.id}/printoipp`)
-
     const {
         id,
         name,
@@ -53,8 +42,18 @@ const ViewTitleBar = (props, context) => {
         showDescription,
         starred,
         onStarClick,
-        onInfoClick,
+        onShowHideDescription,
     } = props
+
+    const toggleSharingDialog = () =>
+        setSharingDialogIsOpen(!sharingDialogIsOpen)
+
+    const openMoreOptions = (_, event) => setAnchorEl(event.currentTarget)
+
+    const closeMoreOptions = () => setAnchorEl(null)
+
+    const printLayout = () => setRedirectUrl(`${props.id}/printlayout`)
+    const printOipp = () => setRedirectUrl(`${props.id}/printoipp`)
 
     const titleStyle = Object.assign({}, style.title, {
         cursor: 'default',
@@ -68,6 +67,15 @@ const ViewTitleBar = (props, context) => {
         return <Redirect to={redirectUrl} />
     }
 
+    const showHideDescriptionLabel = showDescription
+        ? i18n.t('Hide description')
+        : i18n.t('Show description')
+
+    const showHideDescription = () => {
+        onShowHideDescription()
+        closeMoreOptions()
+    }
+
     return (
         <>
             <div className={classes.titleBar}>
@@ -75,9 +83,6 @@ const ViewTitleBar = (props, context) => {
                 <div className={classes.actions}>
                     <div className={classes.titleBarIcon} onClick={onStarClick}>
                         <StarIcon style={{ fill: colors.grey600 }} />
-                    </div>
-                    <div className={classes.titleBarIcon}>
-                        <Info onClick={onInfoClick} />
                     </div>
                     <div className={classes.strip}>
                         {access.update ? (
@@ -112,6 +117,11 @@ const ViewTitleBar = (props, context) => {
                             }}
                         >
                             <Menu>
+                                <MenuItem
+                                    dense
+                                    label={showHideDescriptionLabel}
+                                    onClick={showHideDescription}
+                                />
                                 <MenuItem
                                     dense
                                     label={i18n.t('Print layout')}
@@ -160,7 +170,7 @@ ViewTitleBar.propTypes = {
     showDescription: PropTypes.bool,
     starred: PropTypes.bool,
     style: PropTypes.object,
-    onInfoClick: PropTypes.func,
+    onShowHideDescription: PropTypes.func,
     onStarClick: PropTypes.func,
 }
 
@@ -169,7 +179,6 @@ ViewTitleBar.defaultProps = {
     description: '',
     starred: false,
     showDescription: false,
-    onInfoClick: null,
 }
 
 ViewTitleBar.contextTypes = {
@@ -199,7 +208,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         ...stateProps,
         ...ownProps,
         onStarClick: () => dispatch(tStarDashboard(id, !starred)),
-        onInfoClick: () =>
+        onShowHideDescription: () =>
             dispatch(acSetSelectedShowDescription(!showDescription)),
     }
 }
