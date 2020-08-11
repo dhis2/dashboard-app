@@ -18,8 +18,9 @@
 }
 .strip {
     display: flex;
+    margin-left: var(--spacers-dp8);
 }
 
 .strip > * {
-    margin-left: 6px;
+    margin-left: var(--spacers-dp8);
 }
