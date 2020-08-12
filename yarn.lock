@@ -1496,6 +1496,14 @@
     "@dhis2/ui-widgets" "^2.1.1"
     moment "^2.24.0"
 
+"@dhis2/app-runtime-adapter-d2@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime-adapter-d2/-/app-runtime-adapter-d2-1.0.0.tgz#65b54a3d12ed97f776bf9e17ba3b1dfae639e242"
+  integrity sha512-wTNE+X9Lh2fdNEMiQu373q+KjN+kAbludWLcbmmFrXogFw+1JVFZrOIT1UG/MeGuLKvYBCTwVhEM8BiIhNe7eA==
+  dependencies:
+    "@dhis2/ui-core" "^4.6.1"
+    prop-types "^15.7.2"
+
 "@dhis2/app-runtime@^2.0.4", "@dhis2/app-runtime@^2.2.1", "@dhis2/app-runtime@^2.2.2":
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.2.2.tgz#c2129c03d4ff3bca4eb3811d82f24d3acea07e5a"
