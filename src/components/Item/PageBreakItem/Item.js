@@ -1,24 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 
-import ItemHeader from '../ItemHeader/ItemHeader'
-import { PRINT } from '../../Dashboard/dashboardModes'
+import classes from './styles/PageBreakItem.module.css'
 
-const PageBreakItem = props => {
-    return (
-        <>
-            <ItemHeader
-                title={i18n.t('Page Break')}
-                itemId={props.item.id}
-                dashboardMode={PRINT}
-            />
-        </>
-    )
-}
-
-PageBreakItem.propTypes = {
-    item: PropTypes.object,
-}
+const PageBreakItem = () => (
+    <p className={classes.text}>
+        {i18n.t('Page break marker - will not appear on the printed dashboard')}
+    </p>
+)
 
 export default PageBreakItem

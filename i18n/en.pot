@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-08-11T08:37:58.800Z\n"
-"PO-Revision-Date: 2020-08-11T08:37:58.800Z\n"
+"POT-Creation-Date: 2020-08-12T07:09:50.301Z\n"
+"PO-Revision-Date: 2020-08-12T07:09:50.301Z\n"
 
 msgid "Cancel"
 msgstr ""
@@ -44,13 +44,13 @@ msgstr ""
 msgid "Show less"
 msgstr ""
 
-msgid "No access"
-msgstr ""
-
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
 
 msgid "Requested dashboard not found"
+msgstr ""
+
+msgid "No access"
 msgstr ""
 
 msgid "{{count}} selected"
@@ -73,7 +73,7 @@ msgstr ""
 msgid "Item type \"{{type}}\" not supported"
 msgstr ""
 
-msgid "Page Break"
+msgid "Page break marker - will not appear on the printed dashboard"
 msgstr ""
 
 msgid "Spacer"
@@ -152,6 +152,12 @@ msgid "No Description"
 msgstr ""
 
 msgid "No description"
+msgstr ""
+
+msgid "Hide description"
+msgstr ""
+
+msgid "Show description"
 msgstr ""
 
 msgid "Edit"
