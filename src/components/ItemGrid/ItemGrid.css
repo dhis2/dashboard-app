@@ -18,6 +18,16 @@
     flex-direction: column;
 }
 
+.react-grid-item.PAGEBREAK {
+    border: 2px dashed #a0adba;
+    border-radius: 5px;
+    background-color: transparent;
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .react-grid-item.edit:hover {
     cursor: move;
 }
