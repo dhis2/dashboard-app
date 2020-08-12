@@ -1369,7 +1369,7 @@
     moment "^2.22.1"
     rimraf "^2.6.2"
 
-"@dhis2/d2-i18n@^1", "@dhis2/d2-i18n@^1.0.6":
+"@dhis2/d2-i18n@^1.0.6":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n/-/d2-i18n-1.0.6.tgz#2914be8acf296f3a6bf7b51c76c46da6a120b0ff"
   integrity sha512-7YdA4ppFosjuyf7ZMm47BrdsA5TWLM9lmS0lUPgjcCVeeWfUgagqzf4W5JGB9XQ3w1vzK+yy5zH2Ij8IgRAGhA==
@@ -1487,68 +1487,59 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/ui-constants@5.3.1":
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-5.3.1.tgz#246e73b08306c9379f54a5c7326303bdeafab190"
-  integrity sha512-N/RFW2QMt9NZ8spOoi1VcRGglHqbxdz2ys2isXsyMc/fBx2/2nZX1hJGbseqIyHcM+6Mhe+piKnTjnoAB6z4nA==
+"@dhis2/ui-constants@5.3.3":
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-5.3.3.tgz#14aa2cdf6c510156dcda5ea36a3bf73571a0855b"
+  integrity sha512-WnMAwJ/kqtTaknfP47CNMchML9LCsBsgAKn3U7HaQVi+ZPmXINgKH52esHldkJhGnUrtlsNaarjauWkLSBFvQg==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
 
-"@dhis2/ui-core@5.3.1":
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-5.3.1.tgz#c9262121c0bca89acfad975f4d66e77239f6880b"
-  integrity sha512-2fCg6gEqrKCOETmuVvuhzoaZb48BDbFxGAmNSZ+edmg94X3VgtzjNa5QFZBZ4rkI847/3zSI/p5U83w6AXom7g==
+"@dhis2/ui-core@5.3.3":
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-5.3.3.tgz#34a1c6e64ed6919e3c6c50304ac3872a0faaef94"
+  integrity sha512-wuqHGFFb33rP90nmBNC9VtuaF8qWuipnAs+KLWDGHqiTrA3vGpTyIB62TfvUdmZukH4+mOeVusXcfNJQbIy3Zw==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
-    "@dhis2/ui-constants" "5.3.1"
-    "@dhis2/ui-icons" "5.3.1"
     "@popperjs/core" "^2.4.2"
     classnames "^2.2.6"
     react-popper "^2.2.3"
     resize-observer-polyfill "^1.5.1"
 
-"@dhis2/ui-forms@5.3.1":
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-forms/-/ui-forms-5.3.1.tgz#b617140eea910dd0ee40cf1648bdeec4d1171969"
-  integrity sha512-8FUdIggUfgJvnzZNzxbP0FcDDGJxwt0QNUfFRKz0qjsgBomszwy6tNJO0nhXikDfnb8catygZ2J4CKHMvS6wuA==
+"@dhis2/ui-forms@5.3.3":
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-forms/-/ui-forms-5.3.3.tgz#eea1851f607c50732ef01855c3b1b33f1badd3ba"
+  integrity sha512-ykJ5ePXXDfDb6e7cEUxSq6MpUs9Axa2m6S1dekpkgTvN/o97GOq0Xz3/MdZGeQ0ioVwJblQnSQXGQeD9IYuMyQ==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
-    "@dhis2/ui-core" "5.3.1"
     classnames "^2.2.6"
     final-form "^4.20.0"
     react-final-form "^6.5.0"
 
-"@dhis2/ui-icons@5.3.1":
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-5.3.1.tgz#65db9ffdd1fac868806ab31c469e37d37e3623eb"
-  integrity sha512-uFcFsFsIXqnFQzjU6J1F77e/v8CIvoPEeneAbcljfPvQgJQIF9ASpxcVCHIFiwmW00mbmL0UAahLX55kWo/0OA==
+"@dhis2/ui-icons@5.3.3":
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-5.3.3.tgz#50a015bdc0a9a2cfa8e994aa93a20c2e6c7d2639"
+  integrity sha512-WTskxAB0UQH7QErrg5MJWEOt1Aj5kTqu/8ESiEU5rdpqIa2y1a68CgkkZy50C92wW8cxUji0OneGwpLtruPz5g==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
 
-"@dhis2/ui-widgets@5.3.1":
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-5.3.1.tgz#484857dc11dbe563670cf4e45358a5ff1591e896"
-  integrity sha512-xBveY+rAjbIVaq94zCHkso8t1msT1wdu1c5aZ3Io+tPKVR0sus3b9HyFchTM26wYWU3+9997PuELRlBn+jtuVw==
+"@dhis2/ui-widgets@5.3.3":
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-5.3.3.tgz#e690f4344dca1bedf8d7ac72188083f1f710d0ca"
+  integrity sha512-Z14I//1/q3wN16otRiR7gWgkWV3VJU5mloYc9TRw4Tb03t+0Y28ANc96b6wybNHBohV80/g0ObvEMQJc2h1F9Q==
   dependencies:
-    "@dhis2/app-runtime" "^2.2.2"
-    "@dhis2/d2-i18n" "^1"
     "@dhis2/prop-types" "^1.6.4"
-    "@dhis2/ui-constants" "5.3.1"
-    "@dhis2/ui-core" "5.3.1"
-    "@dhis2/ui-icons" "5.3.1"
     classnames "^2.2.6"
-    resize-observer-polyfill "^1.5.1"
 
-"@dhis2/ui@^5.0.3", "@dhis2/ui@^5.3.0", "@dhis2/ui@^5.3.1":
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.3.1.tgz#349b0ef3638fdfd2f70360413e19948d199b922d"
-  integrity sha512-2i8CIQrmu1ooFKFJXiDkkFmcRNEQWjSP3sCU9pDZBZlMYHiRfBaT+mNg2j3bzhsIYPrmfDXtMpIc6BkIzJp1KA==
+"@dhis2/ui@^5.0.3", "@dhis2/ui@^5.3.0", "@dhis2/ui@^5.3.1", "@dhis2/ui@^5.3.3":
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.3.3.tgz#68ed5351e029e2bc2a977759dd05051a038ba187"
+  integrity sha512-mEg9lZ+4F9lUmEEpnqxzt8dlzDvE6q7OR5Jd2uA9ccTS1bPQna1lyhp8j2IgWSJUV5N760lXdyD4Q25pxba9NA==
   dependencies:
-    "@dhis2/ui-constants" "5.3.1"
-    "@dhis2/ui-core" "5.3.1"
-    "@dhis2/ui-forms" "5.3.1"
-    "@dhis2/ui-icons" "5.3.1"
-    "@dhis2/ui-widgets" "5.3.1"
+    "@dhis2/ui-constants" "5.3.3"
+    "@dhis2/ui-core" "5.3.3"
+    "@dhis2/ui-forms" "5.3.3"
+    "@dhis2/ui-icons" "5.3.3"
+    "@dhis2/ui-widgets" "5.3.3"
 
 "@emotion/babel-utils@^0.6.4":
   version "0.6.10"
