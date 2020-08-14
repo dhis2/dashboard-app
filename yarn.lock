@@ -1261,10 +1261,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@dhis2/analytics@^8.3.0", "@dhis2/analytics@^8.5.1":
-  version "8.5.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-8.5.1.tgz#6bbfd03278355846ba951e1d516bcade628d963e"
-  integrity sha512-2nhmNQw6co/Ib9AFQqKjVnATjNAKXihRjmaKAokMSk7tS99DOsWEmUHWw18q2VrFkFwjB9HiD4UHiA/EkIUuhA==
+"@dhis2/analytics@^8.5.0", "@dhis2/analytics@^8.5.1":
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-8.6.0.tgz#9b28b898ff033a01dde081fd25066c1d0c23893c"
+  integrity sha512-1KgYsFm75AJrNtAdUsa6vlQBTr7jpi+l0F2LNz5lXVRQM6S5tONBWkRAp4z49aeqlSNxZtpF3r3u9G2qy8CxSQ==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
     "@dhis2/ui" "^5.3.0"
@@ -1453,12 +1453,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^35.5.1":
-  version "35.5.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.5.1.tgz#22f36d8a481f009e8025231abef76676934e754c"
-  integrity sha512-lJvNWFLKCNSQsvtMHSPxzRdb0l1nPwtYmHx4sjB8MsPQg4dReGGv1SGGQyRUTL6Ia7dxDWJUT1C0H8XpQXGDvw==
+"@dhis2/data-visualizer-plugin@^35.6.1":
+  version "35.6.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.6.1.tgz#7a6e2ee5201dd6197b8772f078ac081b58e33301"
+  integrity sha512-PJEYXCqmUlv+Fb0J1Wmm3H5WwXb4HqFlulDCIO1jOmJZe+m7FonSR+DheA3Ey4X26pSyTJVuytT4ePMja7w2Vw==
   dependencies:
-    "@dhis2/analytics" "^8.3.0"
+    "@dhis2/analytics" "^8.5.0"
     "@dhis2/ui" "^5.3.2"
     lodash-es "^4.17.11"
 
