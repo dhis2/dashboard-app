@@ -1261,10 +1261,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@dhis2/analytics@^8.3.0", "@dhis2/analytics@^8.4.0":
-  version "8.4.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-8.4.0.tgz#6940cf1db190eb10bc452cff5e2e0470751d7625"
-  integrity sha512-OZza4wflahLSYK+2KjbJT2eJDIds/ERpQCDyCbDKanNK01LsEFVzS8bBXPpI9Ng9AFWlKi6HQewHYxrSeV0hvA==
+"@dhis2/analytics@^8.3.0", "@dhis2/analytics@^8.5.1":
+  version "8.5.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-8.5.1.tgz#6bbfd03278355846ba951e1d516bcade628d963e"
+  integrity sha512-2nhmNQw6co/Ib9AFQqKjVnATjNAKXihRjmaKAokMSk7tS99DOsWEmUHWw18q2VrFkFwjB9HiD4UHiA/EkIUuhA==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
     "@dhis2/ui" "^5.3.0"
