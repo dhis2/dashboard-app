@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import PrintTitleBar from '../TitleBar/PrintTitleBar'
+import PrintInfo from './PrintInfo'
+import PrintActionsBar from './PrintActionsBar'
 import PrintLayoutItemGrid from '../ItemGrid/PrintLayoutItemGrid'
 import {
     acSetEditDashboard,
@@ -15,6 +17,8 @@ import {
 } from '../../reducers/dashboards'
 import { getNumPrintPages } from '../../modules/printUtils'
 import { PAGEBREAK } from '../../modules/itemTypes'
+
+import classes from './PrintLayoutDashboard.module.css'
 
 const addPageBreaks = ({ items, addDashboardItem }) => {
     // TODO: this is not accurate bc adding the static page
@@ -63,10 +67,16 @@ export class PrintLayoutDashboard extends Component {
 
     render() {
         return (
-            <div className="dashboard-wrapper">
-                <PrintTitleBar />
-                <PrintLayoutItemGrid />
-            </div>
+            <>
+                <PrintActionsBar id={this.props.dashboard.id} />
+                <div className={classes.wrapper}>
+                    <PrintInfo />
+                    <div className={classes.pageOuter}>
+                        <PrintTitleBar />
+                        <PrintLayoutItemGrid />
+                    </div>
+                </div>
+            </>
         )
     }
 }
