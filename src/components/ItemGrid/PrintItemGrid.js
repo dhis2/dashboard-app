@@ -36,7 +36,7 @@ import './ItemGrid.css'
 
 export class PrintItemGrid extends Component {
     getItemComponent = item => {
-        const itemClassNames = [item.type, 'edit'].join(' ')
+        const itemClassNames = [item.type, 'print'].join(' ')
 
         // TODO: this mutates the redux store
         item.w = getItemPageColumns(a4LandscapeWidthPx)

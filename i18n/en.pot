@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-08-12T07:09:50.301Z\n"
-"PO-Revision-Date: 2020-08-12T07:09:50.301Z\n"
+"POT-Creation-Date: 2020-08-17T09:18:58.159Z\n"
+"PO-Revision-Date: 2020-08-17T09:18:58.159Z\n"
 
 msgid "Cancel"
 msgstr ""
@@ -160,6 +160,12 @@ msgstr ""
 msgid "Show description"
 msgstr ""
 
+msgid "Unstar dashboard"
+msgstr ""
+
+msgid "Star dashboard"
+msgstr ""
+
 msgid "Edit"
 msgstr ""
 
@@ -169,10 +175,13 @@ msgstr ""
 msgid "More"
 msgstr ""
 
-msgid "Print layout"
+msgid "Print"
 msgstr ""
 
-msgid "Print one item per page"
+msgid "Layout"
+msgstr ""
+
+msgid "One item per page"
 msgstr ""
 
 msgid "Visualizations"
