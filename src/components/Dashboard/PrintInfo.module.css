@@ -1,0 +1,25 @@
+.infoWrapper {
+    width: 1105px;
+    margin-bottom: 15px;
+}
+
+.infoHeader {
+    font-size: 18px;
+    font-weight: 600;
+    color: #3e4a59;
+}
+
+.info {
+    font-size: 14px;
+    width: 600px;
+    line-height: 1.3;
+    color: #3e4a59;
+}
+
+@media print {
+    .infoHeader,
+    .info,
+    .divider {
+        display: none;
+    }
+}
