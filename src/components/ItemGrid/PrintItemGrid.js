@@ -72,7 +72,7 @@ export class PrintItemGrid extends Component {
                 : window.innerWidth
 
         return (
-            <div className="grid-wrapper">
+            <>
                 {isLoading ? (
                     <Layer translucent>
                         <CenteredContent>
@@ -94,7 +94,7 @@ export class PrintItemGrid extends Component {
                 >
                     {this.getItemComponents(dashboardItems)}
                 </ReactGridLayout>
-            </div>
+            </>
         )
     }
 }
