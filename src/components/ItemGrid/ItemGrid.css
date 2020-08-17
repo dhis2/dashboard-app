@@ -46,6 +46,10 @@
     visibility: hidden;
 }
 
+.react-grid-item.SPACER.print.oipp {
+    display: none;
+}
+
 .react-grid-item.SPACER.edit {
     background-color: rgba(255, 255, 255, 0.3);
 }
