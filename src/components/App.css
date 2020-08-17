@@ -42,17 +42,25 @@ header.printMode {
     .PAGEBREAK {
         display: none !important;
     }
+
+    .react-grid-layout.print {
+        display: block !important;
+    }
 }
 
 .printview .react-grid-item {
     position: static !important;
     transform: none !important;
-    margin-top: 3vh;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
     border: 1px solid #d3d4d6;
     box-shadow: none;
     break-inside: avoid;
     break-after: page;
+}
+
+.react-grid-layout.print {
+    display: flex;
+    flex-direction: column;
 }
 
 @page {

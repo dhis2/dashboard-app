@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { Link } from 'react-router-dom'
-import { Button, colors } from '@dhis2/ui'
+import { colors } from '@dhis2/ui'
 
 import { orObject } from '../../modules/util'
 
@@ -16,13 +15,6 @@ import { sGetDashboardById } from '../../reducers/dashboards'
 import classes from './styles/PrintTitleBar.module.css'
 
 const style = {
-    title: {
-        position: 'relative',
-        fontSize: 21,
-        fontWeight: 500,
-        color: colors.black,
-        minWidth: 50,
-    },
     description: {
         fontSize: 14,
         color: colors.grey800,
@@ -31,22 +23,11 @@ const style = {
 
 class PrintTitleBar extends Component {
     render() {
-        const { id, name, description, showDescription } = this.props
-
-        const titleStyle = Object.assign({}, style.title, {
-            cursor: 'default',
-            userSelect: 'text',
-            top: '7px',
-        })
+        const { name, description, showDescription } = this.props
 
         return (
             <>
-                <div className={classes.titleBar}>
-                    <span style={titleStyle}>{name}</span>
-                    <Link className={classes.link} to={`/${id}`}>
-                        <Button>{i18n.t('Return to View')}</Button>
-                    </Link>
-                </div>
+                <span className={classes.title}>{name}</span>
                 {showDescription ? (
                     <div
                         className="dashboard-description"
@@ -65,7 +46,6 @@ class PrintTitleBar extends Component {
 }
 
 PrintTitleBar.propTypes = {
-    id: PropTypes.string.isRequired,
     description: PropTypes.string,
     name: PropTypes.string,
     showDescription: PropTypes.bool,
@@ -82,7 +62,6 @@ const mapStateToProps = state => {
     const dashboard = orObject(sGetDashboardById(state, id))
 
     return {
-        id,
         name: dashboard.displayName,
         description: dashboard.displayDescription,
         showDescription: sGetSelectedShowDescription(state),

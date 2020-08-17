@@ -145,7 +145,9 @@ const ViewTitleBar = (props, context) => {
                                             <FlyoutMenu>
                                                 <MenuItem
                                                     dense
-                                                    label={i18n.t('Layout')}
+                                                    label={i18n.t(
+                                                        'Dashboard layout'
+                                                    )}
                                                     onClick={printLayout}
                                                 />
                                                 <MenuItem
