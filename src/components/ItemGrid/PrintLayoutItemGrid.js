@@ -55,7 +55,7 @@ export class PrintLayoutItemGrid extends Component {
     }
 
     getItemComponent = item => {
-        const itemClassNames = [item.type, 'edit'].join(' ')
+        const itemClassNames = [item.type, 'print'].join(' ')
 
         return (
             <div key={item.i} className={itemClassNames}>
@@ -101,8 +101,8 @@ export class PrintLayoutItemGrid extends Component {
                     rowHeight={GRID_ROW_HEIGHT}
                     width={width}
                     compactType={GRID_COMPACT_TYPE}
-                    isDraggable={true}
-                    isResizable={true}
+                    isDraggable={false}
+                    isResizable={false}
                     draggableCancel="input,textarea"
                 >
                     {this.getItemComponents(dashboardItems)}

@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, createRef } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import { createPortal } from 'react-dom'
 import i18n from '@dhis2/d2-i18n'
 import { Redirect } from 'react-router-dom'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import Star from '@material-ui/icons/Star'
 import StarBorder from '@material-ui/icons/StarBorder'
-import Popover from '@material-ui/core/Popover'
-import { Button, Menu, MenuItem, colors } from '@dhis2/ui'
+import { Button, FlyoutMenu, Popper, MenuItem, colors } from '@dhis2/ui'
 
 import { ThreeDots } from '../Item/VisualizationItem/assets/icons'
 import { orObject } from '../../modules/util'
@@ -29,7 +29,7 @@ import classes from './styles/ViewTitleBar.module.css'
 const NO_DESCRIPTION = i18n.t('No description')
 
 const ViewTitleBar = (props, context) => {
-    const [anchorEl, setAnchorEl] = useState(null)
+    const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
 
@@ -41,19 +41,17 @@ const ViewTitleBar = (props, context) => {
         style,
         showDescription,
         starred,
-        onStarClick,
+        onToggleStarredDashboard,
         onShowHideDescription,
     } = props
 
     const toggleSharingDialog = () =>
         setSharingDialogIsOpen(!sharingDialogIsOpen)
 
-    const openMoreOptions = (_, event) => setAnchorEl(event.currentTarget)
+    const toggleMoreOptions = () => setMoreOptionsIsOpen(!moreOptionsIsOpen)
 
-    const closeMoreOptions = () => setAnchorEl(null)
-
-    const printLayout = () => setRedirectUrl(`${props.id}/printlayout`)
-    const printOipp = () => setRedirectUrl(`${props.id}/printoipp`)
+    const printLayout = () => setRedirectUrl(`${id}/printlayout`)
+    const printOipp = () => setRedirectUrl(`${id}/printoipp`)
 
     const titleStyle = Object.assign({}, style.title, {
         cursor: 'default',
@@ -73,15 +71,29 @@ const ViewTitleBar = (props, context) => {
 
     const showHideDescription = () => {
         onShowHideDescription()
-        closeMoreOptions()
+        toggleMoreOptions()
     }
+
+    const toggleStarredDashboardLabel = starred
+        ? i18n.t('Unstar dashboard')
+        : i18n.t('Star dashboard')
+
+    const toggleStarredDashboard = () => {
+        onToggleStarredDashboard()
+        toggleMoreOptions()
+    }
+
+    const buttonRef = createRef()
 
     return (
         <>
             <div className={classes.titleBar}>
                 <span style={titleStyle}>{name}</span>
                 <div className={classes.actions}>
-                    <div className={classes.titleBarIcon} onClick={onStarClick}>
+                    <div
+                        className={classes.titleBarIcon}
+                        onClick={onToggleStarredDashboard}
+                    >
                         <StarIcon style={{ fill: colors.grey600 }} />
                     </div>
                     <div className={classes.strip}>
@@ -99,42 +111,57 @@ const ViewTitleBar = (props, context) => {
                             </Button>
                         ) : null}
                         <FilterSelector />
-                        <Button onClick={openMoreOptions}>
-                            <ThreeDots />
-                            <span style={{ marginLeft: '5px' }}>
-                                {i18n.t('More')}
-                            </span>
-                        </Button>
+                        <div ref={buttonRef}>
+                            <Button onClick={toggleMoreOptions}>
+                                <ThreeDots />
+                                <span style={{ marginLeft: '5px' }}>
+                                    {i18n.t('More')}
+                                </span>
+                            </Button>
+                        </div>
                     </div>
-                    {anchorEl && (
-                        <Popover
-                            open={Boolean(anchorEl)}
-                            onClose={closeMoreOptions}
-                            anchorEl={anchorEl}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                        >
-                            <Menu>
-                                <MenuItem
-                                    dense
-                                    label={showHideDescriptionLabel}
-                                    onClick={showHideDescription}
-                                />
-                                <MenuItem
-                                    dense
-                                    label={i18n.t('Print layout')}
-                                    onClick={printLayout}
-                                />
-                                <MenuItem
-                                    dense
-                                    label={i18n.t('Print one item per page')}
-                                    onClick={printOipp}
-                                />
-                            </Menu>
-                        </Popover>
-                    )}
+                    {moreOptionsIsOpen &&
+                        createPortal(
+                            <div
+                                onClick={toggleMoreOptions}
+                                className={classes.backdrop}
+                            >
+                                <Popper
+                                    reference={buttonRef}
+                                    placement="bottom-start"
+                                >
+                                    <FlyoutMenu>
+                                        <MenuItem
+                                            dense
+                                            label={toggleStarredDashboardLabel}
+                                            onClick={toggleStarredDashboard}
+                                        />
+                                        <MenuItem
+                                            dense
+                                            label={showHideDescriptionLabel}
+                                            onClick={showHideDescription}
+                                        />
+                                        <MenuItem dense label={i18n.t('Print')}>
+                                            <FlyoutMenu>
+                                                <MenuItem
+                                                    dense
+                                                    label={i18n.t('Layout')}
+                                                    onClick={printLayout}
+                                                />
+                                                <MenuItem
+                                                    dense
+                                                    label={i18n.t(
+                                                        'One item per page'
+                                                    )}
+                                                    onClick={printOipp}
+                                                />
+                                            </FlyoutMenu>
+                                        </MenuItem>
+                                    </FlyoutMenu>
+                                </Popper>
+                            </div>,
+                            document.body
+                        )}
                 </div>
             </div>
             {showDescription ? (
@@ -171,7 +198,7 @@ ViewTitleBar.propTypes = {
     starred: PropTypes.bool,
     style: PropTypes.object,
     onShowHideDescription: PropTypes.func,
-    onStarClick: PropTypes.func,
+    onToggleStarredDashboard: PropTypes.func,
 }
 
 ViewTitleBar.defaultProps = {
@@ -207,7 +234,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     return {
         ...stateProps,
         ...ownProps,
-        onStarClick: () => dispatch(tStarDashboard(id, !starred)),
+        onToggleStarredDashboard: () => dispatch(tStarDashboard(id, !starred)),
         onShowHideDescription: () =>
             dispatch(acSetSelectedShowDescription(!showDescription)),
     }

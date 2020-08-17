@@ -10,12 +10,21 @@
 }
 
 .react-grid-item.edit,
+.react-grid-item.print,
 .react-grid-item.RESOURCES,
 .react-grid-item.TEXT,
 .react-grid-item.MESSAGES,
 .react-grid-item.APP {
     display: flex;
     flex-direction: column;
+}
+
+.react-grid-item.print .mapboxgl-control-container {
+    display: none;
+}
+
+.react-grid-item.print .dhis2-map-legend {
+    display: none;
 }
 
 .react-grid-item.PAGEBREAK {
@@ -32,7 +41,8 @@
     cursor: move;
 }
 
-.react-grid-item.SPACER.view {
+.react-grid-item.SPACER.view,
+.react-grid-item.SPACER.print {
     visibility: hidden;
 }
 
