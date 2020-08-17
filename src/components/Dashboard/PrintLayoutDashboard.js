@@ -36,9 +36,16 @@ export class PrintLayoutDashboard extends Component {
     initPrintLayoutDashboard = () => {
         if (this.props.dashboard) {
             this.setState({ initialized: true })
-            this.props.setEditDashboard(this.props.dashboard, this.props.items)
 
-            if (this.props.items.length > 0) {
+            const items = this.props.items.map(item => {
+                if (item.h > 30) {
+                    item.h = 30
+                }
+                return item
+            })
+            this.props.setEditDashboard(this.props.dashboard, items)
+
+            if (items.length > 1) {
                 addPageBreaks(this.props)
             }
         }
