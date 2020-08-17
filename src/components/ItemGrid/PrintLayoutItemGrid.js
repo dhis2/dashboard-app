@@ -7,15 +7,12 @@ import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 
 import { acUpdateDashboardLayout } from '../../actions/editDashboard'
 import { Item } from '../Item/Item'
-import { resize as pluginResize } from '../Item/VisualizationItem/plugin'
-import { isVisualizationType } from '../../modules/itemTypes'
 import {
     GRID_ROW_HEIGHT,
     GRID_COMPACT_TYPE,
     MARGIN,
     getGridColumns,
     hasShape,
-    onItemResize,
 } from './gridUtil'
 import { orArray } from '../../modules/util'
 import { a4LandscapeWidthPx } from '../../modules/printUtils'
@@ -39,19 +36,6 @@ export const ITEM_CONTENT_PADDING_BOTTOM = 4
 export class PrintLayoutItemGrid extends Component {
     onLayoutChange = newLayout => {
         this.props.acUpdateDashboardLayout(newLayout)
-    }
-
-    onResizeStop = (layout, oldItem, newItem) => {
-        onItemResize(newItem.i)
-
-        const dashboardItem = this.props.dashboardItems.find(
-            item => item.id === newItem.i
-        )
-
-        // call resize on the item component if it's a plugin type
-        if (dashboardItem && isVisualizationType(dashboardItem)) {
-            pluginResize(dashboardItem)
-        }
     }
 
     getItemComponent = item => {
@@ -93,7 +77,6 @@ export class PrintLayoutItemGrid extends Component {
                 ) : null}
                 <ReactGridLayout
                     onLayoutChange={this.onLayoutChange}
-                    onResizeStop={this.onResizeStop}
                     className="layout"
                     layout={dashboardItems}
                     margin={MARGIN}
