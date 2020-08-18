@@ -6,7 +6,6 @@
 .pageOuter {
     padding: 10px;
     background-color: white;
-    width: 1100px;
 }
 
 @media print {

@@ -3,6 +3,13 @@
     width: 100%;
     padding: 3px;
 }
+
+.inner {
+    margin-left: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .link {
     display: inline-block;
     text-decoration: none;

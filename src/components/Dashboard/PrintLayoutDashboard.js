@@ -7,6 +7,7 @@ import PrintTitleBar from '../TitleBar/PrintTitleBar'
 import PrintInfo from './PrintInfo'
 import PrintActionsBar from './PrintActionsBar'
 import PrintLayoutItemGrid from '../ItemGrid/PrintLayoutItemGrid'
+import { a4LandscapeWidthPx } from '../../modules/printUtils'
 import {
     acSetEditDashboard,
     acAddDashboardItem,
@@ -72,7 +73,10 @@ export class PrintLayoutDashboard extends Component {
                 <PrintActionsBar id={this.props.dashboard.id} />
                 <div className={classes.wrapper}>
                     <PrintInfo type={i18n.t('dashboard layout')} />
-                    <div className={classes.pageOuter}>
+                    <div
+                        className={classes.pageOuter}
+                        style={{ width: a4LandscapeWidthPx }}
+                    >
                         <PrintTitleBar />
                         <PrintLayoutItemGrid />
                     </div>
