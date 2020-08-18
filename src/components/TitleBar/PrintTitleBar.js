@@ -38,7 +38,7 @@ class PrintTitleBar extends Component {
                 {showDescription && description && (
                     <div className={classes.description}>{description}</div>
                 )}
-                {itemFilterString.length && (
+                {itemFilterString.length > 0 && (
                     <p className={classes.filters}>{itemFilterString}</p>
                 )}
             </>

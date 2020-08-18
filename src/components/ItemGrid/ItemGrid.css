@@ -28,13 +28,11 @@
 }
 
 .react-grid-item.PAGEBREAK {
-    border: 2px dashed #a0adba;
-    border-radius: 5px;
-    background-color: transparent;
+    width: 1108px !important;
+    margin-left: -23px;
+    border: none;
     box-shadow: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #f4f6f8;
 }
 
 .react-grid-item.edit:hover {
