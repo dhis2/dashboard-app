@@ -1261,13 +1261,13 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@dhis2/analytics@^8.5.1", "@dhis2/analytics@^8.6.1":
-  version "8.6.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-8.6.1.tgz#8fc042ce741b4e61c24e3f18280ea61d639f94c1"
-  integrity sha512-FeI9NQMBw9GpJ+OsCQXkxl98iPwyZn7xbLjU+5COhU6OjCllTfzKtNIAdWRwgSMlit2mPe8KDw+ohJJScueLxA==
+"@dhis2/analytics@^8.6.1", "@dhis2/analytics@^8.7.0":
+  version "8.7.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-8.7.0.tgz#afbc8ee9c8aeb2229ca586195922e50244d7eb83"
+  integrity sha512-/TJVBr0mdlp+asD5WVWm05kQindgySUiMsQ1vwNv2evL/0MkyLAzmDAeIIXreD8uQVdi2ZIFp6E18qviPGf1yg==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
-    "@dhis2/ui" "^5.3.0"
+    "@dhis2/ui" "^5.5.0"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
     classnames "^2.2.6"
@@ -1512,7 +1512,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@^5.3.0", "@dhis2/ui@^5.3.2", "@dhis2/ui@^5.5.0":
+"@dhis2/ui@^5.3.2", "@dhis2/ui@^5.5.0":
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.5.0.tgz#f013c4aa78c625fd2dacbd640dfb445dabfec692"
   integrity sha512-F319H+MozGqRo6i4iS6gS4yxZsW60MnmVPUzbWB/UxmB6hWXB3QFQpVnuH8sZA5jx3/NoW1Qm6F7uKEqmjVkdQ==
