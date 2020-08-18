@@ -10,6 +10,8 @@ import FatalErrorBoundary from './FatalErrorBoundary'
 import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader/ItemHeader'
 import ItemHeaderButtons from './ItemHeaderButtons'
 import ItemFooter from './ItemFooter'
+import LoadingMask from './LoadingMask'
+
 import * as pluginManager from './plugin'
 import { sGetVisualization } from '../../../reducers/visualizations'
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
@@ -30,8 +32,6 @@ import {
     isViewMode,
 } from '../../Dashboard/dashboardModes'
 
-import { getVisualizationConfig } from './plugin'
-import LoadingMask from './LoadingMask'
 import { ITEM_CONTENT_PADDING_BOTTOM } from '../../ItemGrid/ItemGrid'
 
 import classes from './styles/Item.module.css'
@@ -53,7 +53,9 @@ export class Item extends Component {
 
         this.memoizedApplyFilters = memoizeOne(this.applyFilters)
 
-        this.memoizedGetVisualizationConfig = memoizeOne(getVisualizationConfig)
+        this.memoizedGetVisualizationConfig = memoizeOne(
+            pluginManager.getVisualizationConfig
+        )
 
         this.memoizedGetContentStyle = memoizeOne(this.getContentStyle)
     }
@@ -338,17 +340,22 @@ Item.propTypes = {
 Item.defaultProps = {
     item: {},
     onToggleItemExpanded: Function.prototype,
-    itemFilters: {},
     visualization: {},
 }
 
-const mapStateToProps = (state, ownProps) => ({
-    itemFilters: sGetItemFiltersRoot(state),
-    visualization: sGetVisualization(
-        state,
-        pluginManager.extractFavorite(ownProps.item).id
-    ),
-})
+const mapStateToProps = (state, ownProps) => {
+    const itemFilters = !isEditMode(ownProps.dashboardMode)
+        ? sGetItemFiltersRoot(state)
+        : {}
+
+    return {
+        itemFilters,
+        visualization: sGetVisualization(
+            state,
+            pluginManager.extractFavorite(ownProps.item).id
+        ),
+    }
+}
 
 const mapDispatchToProps = dispatch => ({
     onVisualizationLoaded: visualization =>

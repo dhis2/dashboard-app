@@ -8,7 +8,6 @@ import { sGetItemFiltersRoot } from '../../reducers/itemFilters'
 import { sGetControlBarUserRows } from '../../reducers/controlBar'
 import { getControlBarHeight } from '../ControlBar/controlBarDimensions'
 import { acRemoveItemFilter } from '../../actions/itemFilters'
-import { acRemoveEditItemFilter } from '../../actions/editItemFilters'
 import { acSetActiveModalDimension } from '../../actions/activeModalDimension'
 
 import FilterBadge from './FilterBadge'
@@ -18,7 +17,6 @@ import classes from './styles/FilterBar.module.css'
 export class FilterBar extends Component {
     onBadgeRemove = id => {
         this.props.removeItemFilter(id)
-        this.props.removeEditItemFilter(id)
     }
 
     onBadgeClick = id => {
@@ -49,7 +47,6 @@ export class FilterBar extends Component {
 
 FilterBar.propTypes = {
     filters: PropTypes.array.isRequired,
-    removeEditItemFilter: PropTypes.func.isRequired,
     removeItemFilter: PropTypes.func.isRequired,
     setActiveModalDimension: PropTypes.func,
     userRows: PropTypes.number,
@@ -58,7 +55,6 @@ FilterBar.propTypes = {
 FilterBar.defaultProps = {
     filters: [],
     removeItemFIlter: Function.prototype,
-    removeEditItemFilter: Function.prototype,
 }
 
 // simplify the filters structure to:
@@ -88,5 +84,4 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, {
     setActiveModalDimension: acSetActiveModalDimension,
     removeItemFilter: acRemoveItemFilter,
-    removeEditItemFilter: acRemoveEditItemFilter,
 })(FilterBar)
