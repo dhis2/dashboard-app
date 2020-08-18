@@ -1,13 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 
 import classes from './PrintInfo.module.css'
 
-const PrintInfo = () => {
+const PrintInfo = ({ type }) => {
     return (
         <div className={classes.infoWrapper}>
             <p className={classes.infoHeader}>
-                {i18n.t('Print Preview: one item per page')}
+                {`${i18n.t('Print Preview')}: ${type}`}
             </p>
             <p className={classes.info}>
                 {i18n.t(
@@ -17,6 +18,10 @@ const PrintInfo = () => {
             <hr className={classes.divider} />
         </div>
     )
+}
+
+PrintInfo.propTypes = {
+    type: PropTypes.string,
 }
 
 export default PrintInfo

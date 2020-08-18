@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
 
 import PrintTitleBar from '../TitleBar/PrintTitleBar'
 import PrintInfo from './PrintInfo'
@@ -70,7 +71,7 @@ export class PrintLayoutDashboard extends Component {
             <>
                 <PrintActionsBar id={this.props.dashboard.id} />
                 <div className={classes.wrapper}>
-                    <PrintInfo />
+                    <PrintInfo type={i18n.t('dashboard layout')} />
                     <div className={classes.pageOuter}>
                         <PrintTitleBar />
                         <PrintLayoutItemGrid />
