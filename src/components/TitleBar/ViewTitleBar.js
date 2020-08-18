@@ -2,13 +2,12 @@ import React, { useState, createRef } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import { createPortal } from 'react-dom'
 import i18n from '@dhis2/d2-i18n'
 import { Redirect } from 'react-router-dom'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import Star from '@material-ui/icons/Star'
 import StarBorder from '@material-ui/icons/StarBorder'
-import { Button, FlyoutMenu, Popper, MenuItem, colors } from '@dhis2/ui'
+import { Button, FlyoutMenu, Popover, MenuItem, colors } from '@dhis2/ui'
 
 import { ThreeDots } from '../Item/VisualizationItem/assets/icons'
 import { orObject } from '../../modules/util'
@@ -111,59 +110,49 @@ const ViewTitleBar = (props, context) => {
                             </Button>
                         ) : null}
                         <FilterSelector />
-                        <div ref={buttonRef}>
+                        <span ref={buttonRef}>
                             <Button onClick={toggleMoreOptions}>
                                 <ThreeDots />
                                 <span style={{ marginLeft: '5px' }}>
                                     {i18n.t('More')}
                                 </span>
                             </Button>
-                        </div>
+                        </span>
                     </div>
-                    {moreOptionsIsOpen &&
-                        createPortal(
-                            <div
-                                onClick={toggleMoreOptions}
-                                className={classes.backdrop}
-                            >
-                                <Popper
-                                    reference={buttonRef}
-                                    placement="bottom-start"
-                                >
+                    {moreOptionsIsOpen && (
+                        <Popover
+                            reference={buttonRef}
+                            placement="bottom-start"
+                            onClickOutside={toggleMoreOptions}
+                        >
+                            <FlyoutMenu>
+                                <MenuItem
+                                    dense
+                                    label={toggleStarredDashboardLabel}
+                                    onClick={toggleStarredDashboard}
+                                />
+                                <MenuItem
+                                    dense
+                                    label={showHideDescriptionLabel}
+                                    onClick={showHideDescription}
+                                />
+                                <MenuItem dense label={i18n.t('Print')}>
                                     <FlyoutMenu>
                                         <MenuItem
                                             dense
-                                            label={toggleStarredDashboardLabel}
-                                            onClick={toggleStarredDashboard}
+                                            label={i18n.t('Dashboard layout')}
+                                            onClick={printLayout}
                                         />
                                         <MenuItem
                                             dense
-                                            label={showHideDescriptionLabel}
-                                            onClick={showHideDescription}
+                                            label={i18n.t('One item per page')}
+                                            onClick={printOipp}
                                         />
-                                        <MenuItem dense label={i18n.t('Print')}>
-                                            <FlyoutMenu>
-                                                <MenuItem
-                                                    dense
-                                                    label={i18n.t(
-                                                        'Dashboard layout'
-                                                    )}
-                                                    onClick={printLayout}
-                                                />
-                                                <MenuItem
-                                                    dense
-                                                    label={i18n.t(
-                                                        'One item per page'
-                                                    )}
-                                                    onClick={printOipp}
-                                                />
-                                            </FlyoutMenu>
-                                        </MenuItem>
                                     </FlyoutMenu>
-                                </Popper>
-                            </div>,
-                            document.body
-                        )}
+                                </MenuItem>
+                            </FlyoutMenu>
+                        </Popover>
+                    )}
                 </div>
             </div>
             {showDescription ? (
