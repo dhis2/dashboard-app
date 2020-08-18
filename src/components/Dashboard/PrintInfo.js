@@ -1,12 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
+import { a4LandscapeWidthPx } from '../../modules/printUtils'
 
 import classes from './PrintInfo.module.css'
 
 const PrintInfo = ({ type }) => {
+    const width =
+        a4LandscapeWidthPx < window.innerWidth
+            ? a4LandscapeWidthPx
+            : window.innerWidth
+
     return (
-        <div className={classes.infoWrapper}>
+        <div className={classes.infoWrapper} style={{ width }}>
             <p className={classes.infoHeader}>
                 {`${i18n.t('Print Preview')}: ${type}`}
             </p>
