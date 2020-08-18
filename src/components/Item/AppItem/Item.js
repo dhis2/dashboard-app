@@ -8,6 +8,8 @@ import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
 import ItemHeader from '../ItemHeader/ItemHeader'
 import Line from '../../../widgets/Line'
 
+import { isEditMode } from '../../Dashboard/dashboardModes'
+
 const getIframeSrc = (appDetails, item, itemFilters) => {
     let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`
 
@@ -85,8 +87,12 @@ AppItem.contextTypes = {
     d2: PropTypes.object,
 }
 
-const mapStateToProps = state => ({
-    itemFilters: sGetItemFiltersRoot(state),
-})
+const mapStateToProps = (state, ownProps) => {
+    const itemFilters = !isEditMode(ownProps.dashboardMode)
+        ? sGetItemFiltersRoot(state)
+        : {}
+
+    return { itemFilters }
+}
 
 export default connect(mapStateToProps)(AppItem)

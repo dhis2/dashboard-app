@@ -12,13 +12,11 @@ import FilterDialog from './FilterDialog'
 import { sGetSettingsDisplayNameProperty } from '../../reducers/settings'
 import { sGetActiveModalDimension } from '../../reducers/activeModalDimension'
 import { sGetDimensions } from '../../reducers/dimensions'
-import { sGetFiltersKeys } from '../../reducers/itemFilters'
-import { sGetEditItemFiltersRoot } from '../../reducers/editItemFilters'
-import { acAddItemFilter, acRemoveItemFilter } from '../../actions/itemFilters'
 import {
-    acRemoveEditItemFilter,
-    acSetEditItemFilters,
-} from '../../actions/editItemFilters'
+    sGetItemFiltersRoot,
+    sGetFiltersKeys,
+} from '../../reducers/itemFilters'
+import { acAddItemFilter, acRemoveItemFilter } from '../../actions/itemFilters'
 import {
     acClearActiveModalDimension,
     acSetActiveModalDimension,
@@ -26,6 +24,8 @@ import {
 
 const FilterSelector = props => {
     const [showPopover, setShowPopover] = useState(false)
+    const [filters, setFilters] = useState(props.initiallySelectedItems)
+
     const ref = useRef(null)
 
     const closePanel = () => setShowPopover(false)
@@ -43,42 +43,31 @@ const FilterSelector = props => {
     }
 
     const onSelectItems = ({ dimensionId, items }) => {
-        props.setEditItemFilters({
-            ...props.selectedItems,
-            [dimensionId]: items,
-        })
+        setFilters({ ...filters, [dimensionId]: items })
     }
 
     const onDeselectItems = ({ dimensionId, itemIdsToRemove }) => {
-        const oldList = props.selectedItems[dimensionId] || []
+        const oldList = filters[dimensionId] || []
         const newList = oldList.filter(
             item => !itemIdsToRemove.includes(item.id)
         )
 
-        if (newList.length) {
-            props.setEditItemFilters({
-                ...props.selectedItems,
-                [dimensionId]: newList,
-            })
-        } else {
-            props.removeEditItemFilter(dimensionId)
-        }
+        const list = newList.length ? newList : []
+
+        setFilters({ ...filters, [dimensionId]: list })
     }
 
     const onReorderItems = ({ dimensionId, itemIds }) => {
-        const oldList = props.selectedItems[dimensionId] || []
+        const oldList = filters[dimensionId] || []
         const reorderedList = itemIds.map(id =>
             oldList.find(item => item.id === id)
         )
 
-        props.setEditItemFilters({
-            ...props.selectedItems,
-            [dimensionId]: reorderedList,
-        })
+        setFilters({ ...filters, [dimensionId]: reorderedList })
     }
 
     const saveFilter = id => {
-        const filterItems = props.selectedItems[id]
+        const filterItems = filters[id]
 
         if (filterItems && filterItems.length) {
             props.addItemFilter({
@@ -119,9 +108,7 @@ const FilterSelector = props => {
                 <FilterDialog
                     displayNameProperty={props.displayNameProperty}
                     dimension={props.dimension}
-                    selectedItems={
-                        props.selectedItems[props.dimension.id] || []
-                    }
+                    selectedItems={filters[props.dimension.id] || []}
                     onSelect={onSelectItems}
                     onDeselect={onDeselectItems}
                     onReorder={onReorderItems}
@@ -137,8 +124,8 @@ const mapStateToProps = state => ({
     displayNameProperty: sGetSettingsDisplayNameProperty(state),
     dimension: sGetActiveModalDimension(state),
     dimensions: sGetDimensions(state),
+    initiallySelectedItems: sGetItemFiltersRoot(state),
     selectedDimensions: sGetFiltersKeys(state),
-    selectedItems: sGetEditItemFiltersRoot(state),
 })
 
 FilterSelector.propTypes = {
@@ -147,12 +134,10 @@ FilterSelector.propTypes = {
     dimension: PropTypes.object,
     dimensions: PropTypes.array,
     displayNameProperty: PropTypes.string,
-    removeEditItemFilter: PropTypes.func,
+    initiallySelectedItems: PropTypes.object,
     removeItemFilter: PropTypes.func,
     selectedDimensions: PropTypes.array,
-    selectedItems: PropTypes.object,
     setActiveModalDimension: PropTypes.func,
-    setEditItemFilters: PropTypes.func,
 }
 
 export default connect(mapStateToProps, {
@@ -160,6 +145,4 @@ export default connect(mapStateToProps, {
     setActiveModalDimension: acSetActiveModalDimension,
     addItemFilter: acAddItemFilter,
     removeItemFilter: acRemoveItemFilter,
-    removeEditItemFilter: acRemoveEditItemFilter,
-    setEditItemFilters: acSetEditItemFilters,
 })(FilterSelector)

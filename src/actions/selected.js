@@ -1,6 +1,4 @@
 import { getCustomDashboards, sGetDashboardById } from '../reducers/dashboards'
-import { sGetIsEditing } from '../reducers/editDashboard'
-import { sGetEditItemFiltersRoot } from '../reducers/editItemFilters'
 import {
     SET_SELECTED_ID,
     SET_SELECTED_ISLOADING,
@@ -11,8 +9,7 @@ import {
 import { sGetUserUsername } from '../reducers/user'
 
 import { acSetDashboardItems, acAppendDashboards } from './dashboards'
-import { acClearEditItemFilters } from './editItemFilters'
-import { acClearItemFilters, acSetItemFilters } from './itemFilters'
+import { acClearItemFilters } from './itemFilters'
 import { tGetMessages } from '../components/Item/MessagesItem/actions'
 import { acReceivedSnackbarMessage, acCloseSnackbar } from './snackbar'
 import { acAddVisualization } from './visualizations'
@@ -51,19 +48,6 @@ export const acSetSelectedShowDescription = value => ({
     value,
 })
 
-export const tLoadDashboard = id => async dispatch => {
-    try {
-        const dash = await apiFetchDashboard(id)
-
-        dispatch(acAppendDashboards(dash))
-
-        return Promise.resolve(dash)
-    } catch (err) {
-        console.log('Error: ', err)
-        return err
-    }
-}
-
 // thunks
 export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
     dispatch(acSetSelectedIsLoading(true))
@@ -84,13 +68,14 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
     }, 500)
 
     const onSuccess = selected => {
+        dispatch(acAppendDashboards(selected))
+
         const customDashboard = getCustomDashboards(selected)[0]
 
         dispatch(acSetDashboardItems(withShape(customDashboard.dashboardItems)))
 
         storePreferredDashboardId(sGetUserUsername(getState()), id)
 
-        // add visualizations to store
         customDashboard.dashboardItems.forEach(item => {
             switch (item.type) {
                 case REPORT_TABLE:
@@ -108,18 +93,7 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
             }
         })
 
-        const state = getState()
-        if (id === sGetSelectedId(state)) {
-            if (sGetIsEditing(state)) {
-                // disable filters when switching to edit mode
-                dispatch(acClearItemFilters())
-            } else {
-                // enable filters when switching to view mode
-                dispatch(acSetItemFilters(sGetEditItemFiltersRoot(state)))
-            }
-        } else {
-            // clear filters when switching dashboard
-            dispatch(acClearEditItemFilters())
+        if (id !== sGetSelectedId(getState())) {
             dispatch(acClearItemFilters())
         }
 
@@ -140,9 +114,9 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
     }
 
     try {
-        const selected = await dispatch(tLoadDashboard(id))
+        const dashboard = await apiFetchDashboard(id)
 
-        return onSuccess(selected)
+        return onSuccess(dashboard)
     } catch (err) {
         return onError(err)
     }

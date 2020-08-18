@@ -9,7 +9,6 @@ import TextItem from './TextItem/Item'
 import AppItem from './AppItem/Item'
 import SpacerItem from './SpacerItem/Item'
 import PageBreakItem from './PageBreakItem/Item'
-import { isEditMode } from '../Dashboard/dashboardModes'
 import {
     APP,
     VISUALIZATION,
@@ -26,7 +25,6 @@ import {
     SPACER,
     PAGEBREAK,
 } from '../../modules/itemTypes'
-import { DEFAULT_STATE_ITEM_FILTERS } from '../../reducers/itemFilters'
 
 const getGridItem = type => {
     switch (type) {
@@ -63,11 +61,6 @@ export const Item = props => {
         <GridItem
             item={props.item}
             dashboardMode={props.dashboardMode}
-            itemFilters={
-                !isEditMode(props.dashboardMode)
-                    ? props.itemFilters
-                    : DEFAULT_STATE_ITEM_FILTERS
-            }
             onToggleItemExpanded={props.onToggleItemExpanded}
         />
     )
@@ -76,6 +69,5 @@ export const Item = props => {
 Item.propTypes = {
     dashboardMode: PropTypes.string,
     item: PropTypes.object,
-    itemFilters: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
 }
