@@ -7,16 +7,21 @@
 .title {
     font-size: 20px;
     font-weight: 500;
-    color: #1b2431;
+    color: var(--colors-grey700);
     cursor: default;
     user-select: text;
     margin: 0px 0px 0px 10px;
 }
 .description {
+    margin: 15px 0px 0px 10px;
     font-size: 14px;
-    color: var(--colors-grey800);
-    padding-top: 5px;
-    padding-bottom: 5px;
+    color: var(--colors-grey700);
+}
+
+.filters {
+    margin: 10px;
+    font-size: 14px;
+    color: var(--colors-grey700);
 }
 
 @media print {

@@ -19,4 +19,9 @@
     .wrapper {
         background-color: white;
     }
+
+    .pageOuter {
+        box-shadow: none;
+        border-radius: none;
+    }
 }
