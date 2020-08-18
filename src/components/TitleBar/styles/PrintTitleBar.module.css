@@ -10,7 +10,7 @@
     color: #1b2431;
     cursor: default;
     user-select: text;
-    margin: 0px;
+    margin: 0px 0px 0px 10px;
 }
 .description {
     font-size: 14px;
