@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
-import { colors } from '@dhis2/ui'
 
 import { orObject } from '../../modules/util'
 
@@ -11,35 +9,38 @@ import {
     sGetSelectedShowDescription,
 } from '../../reducers/selected'
 import { sGetDashboardById } from '../../reducers/dashboards'
+import { sGetNamedItemFilters } from '../../reducers/itemFilters'
 
 import classes from './styles/PrintTitleBar.module.css'
 
-const style = {
-    description: {
-        fontSize: 14,
-        color: colors.grey800,
-    },
-}
-
 class PrintTitleBar extends Component {
     render() {
-        const { name, description, showDescription } = this.props
+        const { name, description, itemFilters, showDescription } = this.props
+
+        let itemFilterString = ''
+        if (itemFilters.length) {
+            const tmp = itemFilters
+                .map(({ name, values }) => {
+                    const filterItems = values.map(val => val.name).join(', ')
+                    return `${name}: ${filterItems}`
+                })
+                .join('; ')
+
+            itemFilterString =
+                itemFilters.length === 1
+                    ? `${tmp} applied as filter`
+                    : `${tmp} applied as filters`
+        }
 
         return (
             <>
                 <span className={classes.title}>{name}</span>
-                {showDescription ? (
-                    <div
-                        className="dashboard-description"
-                        style={Object.assign(
-                            { paddingTop: '5px', paddingBottom: '5px' },
-                            style.description,
-                            !description ? { color: '#888' } : {}
-                        )}
-                    >
-                        {description || i18n.t('No Description')}
-                    </div>
-                ) : null}
+                {showDescription && description && (
+                    <div className={classes.description}>{description}</div>
+                )}
+                {itemFilterString.length && (
+                    <p className={classes.filters}>{itemFilterString}</p>
+                )}
             </>
         )
     }
@@ -47,6 +48,7 @@ class PrintTitleBar extends Component {
 
 PrintTitleBar.propTypes = {
     description: PropTypes.string,
+    itemFilters: PropTypes.array,
     name: PropTypes.string,
     showDescription: PropTypes.bool,
 }
@@ -63,6 +65,7 @@ const mapStateToProps = state => {
 
     return {
         name: dashboard.displayName,
+        itemFilters: sGetNamedItemFilters(state),
         description: dashboard.displayDescription,
         showDescription: sGetSelectedShowDescription(state),
     }
