@@ -18,8 +18,9 @@ import {
     NEW_ITEM_SHAPE,
     getGridItemProperties,
     getPageBreakItemShape,
+    getPrintTitlePageItemShape,
 } from '../components/ItemGrid/gridUtil'
-import { itemTypeMap, PAGEBREAK } from '../modules/itemTypes'
+import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
 import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
 
 const onError = error => {
@@ -68,12 +69,19 @@ export const acAddDashboardItem = item => {
     const type = item.type
     delete item.type
     const itemPropName = itemTypeMap[type].propName
-    const yPos = item.yPos || 0
+
     const id = generateUid()
     const gridItemProperties = getGridItemProperties(id)
 
-    const shape =
-        type === PAGEBREAK ? getPageBreakItemShape(yPos) : NEW_ITEM_SHAPE
+    let shape
+    if (type === PAGEBREAK) {
+        const yPos = item.yPos || 0
+        shape = getPageBreakItemShape(yPos)
+    } else if (type === PRINT_TITLE_PAGE) {
+        shape = getPrintTitlePageItemShape()
+    } else {
+        shape = NEW_ITEM_SHAPE
+    }
 
     return {
         type: ADD_DASHBOARD_ITEM,

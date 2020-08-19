@@ -58,6 +58,10 @@ header.printMode {
     break-after: page;
 }
 
+.printview .react-grid-item.PRINT_TITLE_PAGE {
+    border: none;
+}
+
 .react-grid-layout.print {
     display: flex;
     flex-direction: column;

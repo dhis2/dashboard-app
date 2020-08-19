@@ -27,6 +27,7 @@ export const MESSAGES = 'MESSAGES'
 export const TEXT = 'TEXT'
 export const SPACER = 'SPACER'
 export const PAGEBREAK = 'PAGEBREAK'
+export const PRINT_TITLE_PAGE = 'PRINT_TITLE_PAGE'
 
 const DOMAIN_TYPE_AGGREGATE = 'AGGREGATE'
 const DOMAIN_TYPE_TRACKER = 'TRACKER'
@@ -152,6 +153,9 @@ export const itemTypeMap = {
     [PAGEBREAK]: {
         propName: 'text',
     },
+    [PRINT_TITLE_PAGE]: {
+        propName: 'text',
+    },
 }
 
 export const getEndPointName = type => itemTypeMap[type].endPointName
@@ -195,7 +199,6 @@ export const getItemIcon = type => {
         case MESSAGES:
             return EmailIcon
         case SPACER:
-        case PAGEBREAK:
             return CropFreeIcon
         default:
             return NotInterestedIcon

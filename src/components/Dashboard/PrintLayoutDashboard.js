@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 
-import PrintTitleBar from '../TitleBar/PrintTitleBar'
 import PrintInfo from './PrintInfo'
 import PrintActionsBar from './PrintActionsBar'
 import PrintLayoutItemGrid from '../ItemGrid/PrintLayoutItemGrid'
@@ -18,7 +17,7 @@ import {
     sGetDashboardItems,
 } from '../../reducers/dashboards'
 import { getNumPrintPages } from '../../modules/printUtils'
-import { PAGEBREAK } from '../../modules/itemTypes'
+import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
 
 import classes from './PrintLayoutDashboard.module.css'
 
@@ -51,6 +50,8 @@ export class PrintLayoutDashboard extends Component {
             })
             this.props.setEditDashboard(this.props.dashboard, items)
 
+            this.props.addDashboardItem({ type: PRINT_TITLE_PAGE })
+
             if (items.length > 1) {
                 addPageBreaks(this.props)
             }
@@ -77,7 +78,6 @@ export class PrintLayoutDashboard extends Component {
                         className={classes.pageOuter}
                         style={{ width: a4LandscapeWidthPx }}
                     >
-                        <PrintTitleBar />
                         <PrintLayoutItemGrid />
                     </div>
                 </div>
@@ -87,6 +87,7 @@ export class PrintLayoutDashboard extends Component {
 }
 
 PrintLayoutDashboard.propTypes = {
+    addDashboardItem: PropTypes.func,
     dashboard: PropTypes.object,
     items: PropTypes.array,
     setEditDashboard: PropTypes.func,
