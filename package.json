@@ -29,7 +29,6 @@
         "react-grid-layout": "^0.18.3",
         "react-redux": "^7.2.1",
         "react-router-dom": "^5.2.0",
-        "react-scripts": "2.1.8",
         "redux": "^4.0.5",
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.3.0",
@@ -48,7 +47,7 @@
         "validate-push": "CI=true yarn test"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^4.0.7",
+        "@dhis2/cli-app-scripts": "^5",
         "@dhis2/cli-style": "^7.0.0",
         "d2-manifest": "^1.0.0",
         "enzyme": "^3.11.0",
