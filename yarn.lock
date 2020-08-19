@@ -1506,13 +1506,13 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@dhis2/analytics@^8.5.1", "@dhis2/analytics@^8.6.1":
-  version "8.6.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-8.6.1.tgz#8fc042ce741b4e61c24e3f18280ea61d639f94c1"
-  integrity sha512-FeI9NQMBw9GpJ+OsCQXkxl98iPwyZn7xbLjU+5COhU6OjCllTfzKtNIAdWRwgSMlit2mPe8KDw+ohJJScueLxA==
+"@dhis2/analytics@^8.7.0", "@dhis2/analytics@^8.9.1":
+  version "8.9.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-8.9.1.tgz#f32143dfd9dc488c5a0922102661d6c9060b0faf"
+  integrity sha512-ZRynmyMo57ArcCOkepQ2wqWSIx7YFilO/+bpfVoMG5e2dHPBiMy4tClTKR9yNf6boVlqEiFfXFueTa2IzbmWog==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
-    "@dhis2/ui" "^5.3.0"
+    "@dhis2/ui" "^5.5.0"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
     classnames "^2.2.6"
@@ -1758,13 +1758,13 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^35.7.2":
-  version "35.7.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.7.2.tgz#3727da093e39dfac0cee60b2f45fb875dd92ce93"
-  integrity sha512-GKhh1CIz6M62sUiGGIytKLcuXDB5jQftcCCYvbzTORjEzH3q7vq9dF9uQQHadm5VCUBcSTNdBhhaERracs2+IQ==
+"@dhis2/data-visualizer-plugin@^35.8.1":
+  version "35.8.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.8.1.tgz#599410e104cbbbc1bfd990eda6ddbaf7102e5f9e"
+  integrity sha512-RuvPLVu1ZRFlDYPs/bmFYoLBpEKj2YX1GI+oAfyrxwN7ytpsi2TGDAaIAF2JOkr8//AsSzbTNbh/sl2s7nw+iQ==
   dependencies:
-    "@dhis2/analytics" "^8.6.1"
-    "@dhis2/ui" "^5.3.2"
+    "@dhis2/analytics" "^8.7.0"
+    "@dhis2/ui" "^5.5.0"
     lodash-es "^4.17.11"
 
 "@dhis2/prop-types@^1.6", "@dhis2/prop-types@^1.6.4":
@@ -1817,7 +1817,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@^5.3.0", "@dhis2/ui@^5.3.2", "@dhis2/ui@^5.5.0":
+"@dhis2/ui@^5.5.0":
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.5.0.tgz#f013c4aa78c625fd2dacbd640dfb445dabfec692"
   integrity sha512-F319H+MozGqRo6i4iS6gS4yxZsW60MnmVPUzbWB/UxmB6hWXB3QFQpVnuH8sZA5jx3/NoW1Qm6F7uKEqmjVkdQ==
@@ -8300,10 +8300,10 @@ i18next-scanner@^2.10.3:
     vinyl "^2.2.0"
     vinyl-fs "^3.0.1"
 
-i18next@*, i18next@^19.6.3:
-  version "19.6.3"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-19.6.3.tgz#ce2346161b35c4c5ab691b0674119c7b349c0817"
-  integrity sha512-eYr98kw/C5z6kY21ti745p4IvbOJwY8F2T9tf/Lvy5lFnYRqE45+bppSgMPmcZZqYNT+xO0N0x6rexVR2wtZZQ==
+i18next@*, i18next@^19.7.0:
+  version "19.7.0"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-19.7.0.tgz#e637bbbf36481d34b7d5e6d3b04e1bb654bf2a26"
+  integrity sha512-sxZhj6u7HbEYOMx81oGwq5MiXISRBVg2wRY3n6YIbe+HtU8ydzlGzv6ErHdrRKYxATBFssVXYbc3lNZoyB4vfA==
   dependencies:
     "@babel/runtime" "^7.10.1"
 
