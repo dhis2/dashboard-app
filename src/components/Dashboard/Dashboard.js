@@ -13,7 +13,10 @@ import {
     sDashboardsIsFetching,
     sGetAllDashboards,
 } from '../../reducers/dashboards'
-import { sGetSelectedId } from '../../reducers/selected'
+import {
+    sGetSelectedId,
+    NON_EXISTING_DASHBOARD_ID,
+} from '../../reducers/selected'
 import {
     EDIT,
     NEW,
@@ -67,7 +70,7 @@ class Dashboard extends Component {
     }
 
     render() {
-        if (!this.props.dashboardsLoaded) {
+        if (!this.props.dashboardsLoaded || this.props.id === null) {
             return (
                 <Layer translucent>
                     <CenteredContent>
@@ -91,7 +94,7 @@ class Dashboard extends Component {
             )
         }
 
-        if (this.props.id === null) {
+        if (this.props.id === NON_EXISTING_DASHBOARD_ID) {
             return (
                 <>
                     <DashboardsBar />
