@@ -35,6 +35,12 @@
     background-color: #f4f6f8;
 }
 
+.react-grid-item.PRINT_TITLE_PAGE {
+    border: none;
+    box-shadow: none;
+    justify-content: center;
+}
+
 .react-grid-item.edit:hover {
     cursor: move;
 }

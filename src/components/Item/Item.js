@@ -9,6 +9,7 @@ import TextItem from './TextItem/Item'
 import AppItem from './AppItem/Item'
 import SpacerItem from './SpacerItem/Item'
 import PageBreakItem from './PageBreakItem/Item'
+import PrintTitlePageItem from './PrintTitlePageItem/Item'
 import {
     APP,
     VISUALIZATION,
@@ -24,6 +25,7 @@ import {
     TEXT,
     SPACER,
     PAGEBREAK,
+    PRINT_TITLE_PAGE,
 } from '../../modules/itemTypes'
 
 const getGridItem = type => {
@@ -49,6 +51,8 @@ const getGridItem = type => {
             return AppItem
         case PAGEBREAK:
             return PageBreakItem
+        case PRINT_TITLE_PAGE:
+            return PrintTitlePageItem
         default:
             return NotSupportedItem
     }

@@ -3,12 +3,15 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 
-import PrintTitleBar from '../TitleBar/PrintTitleBar'
 import PrintInfo from './PrintInfo'
 import PrintActionsBar from './PrintActionsBar'
 import PrintItemGrid from '../ItemGrid/PrintItemGrid'
+import { PRINT_TITLE_PAGE } from '../../modules/itemTypes'
 import { a4LandscapeWidthPx } from '../../modules/printUtils'
-import { acSetEditDashboard } from '../../actions/editDashboard'
+import {
+    acSetEditDashboard,
+    acAddDashboardItem,
+} from '../../actions/editDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
 import {
     sGetDashboardById,
@@ -26,6 +29,7 @@ export class PrintDashboard extends Component {
         if (this.props.dashboard) {
             this.setState({ initialized: true })
             this.props.setEditDashboard(this.props.dashboard, this.props.items)
+            this.props.addDashboardItem({ type: PRINT_TITLE_PAGE })
         }
     }
 
@@ -49,7 +53,6 @@ export class PrintDashboard extends Component {
                         className={classes.pageOuter}
                         style={{ width: a4LandscapeWidthPx }}
                     >
-                        <PrintTitleBar />
                         <PrintItemGrid />
                     </div>
                 </div>
@@ -59,6 +62,7 @@ export class PrintDashboard extends Component {
 }
 
 PrintDashboard.propTypes = {
+    addDashboardItem: PropTypes.func,
     dashboard: PropTypes.object,
     items: PropTypes.array,
     setEditDashboard: PropTypes.func,
@@ -77,4 +81,5 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
     setEditDashboard: acSetEditDashboard,
+    addDashboardItem: acAddDashboardItem,
 })(PrintDashboard)
