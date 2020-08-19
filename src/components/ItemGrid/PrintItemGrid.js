@@ -24,11 +24,9 @@ import {
     getItemPageColumns,
     getItemPageHeightRows,
 } from './gridUtil'
-import {
-    a4LandscapeWidthPx,
-    sortItemsByYPosition,
-} from '../../modules/printUtils'
+import { a4LandscapeWidthPx } from '../../modules/printUtils'
 import { orArray } from '../../modules/util'
+import { PAGEBREAK } from '../../modules/itemTypes'
 
 import 'react-grid-layout/css/styles.css'
 
@@ -40,7 +38,12 @@ export class PrintItemGrid extends Component {
 
         // TODO: this mutates the redux store
         item.w = getItemPageColumns(a4LandscapeWidthPx)
-        item.h = getItemPageHeightRows(700)
+
+        if (item.type === PAGEBREAK) {
+            item.h = 5
+        } else {
+            item.h = getItemPageHeightRows(700)
+        }
 
         return (
             <div key={item.i} className={itemClassNames}>
@@ -61,10 +64,6 @@ export class PrintItemGrid extends Component {
                 />
             )
         }
-
-        //sorting the items is so that the print, with one item per page
-        //prints in the order of top to bottom of the dashboard
-        sortItemsByYPosition(dashboardItems)
 
         const width =
             a4LandscapeWidthPx < window.innerWidth

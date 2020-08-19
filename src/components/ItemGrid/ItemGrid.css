@@ -30,9 +30,13 @@
 .react-grid-item.PAGEBREAK {
     width: 1108px !important;
     margin-left: -23px;
-    border: none;
-    box-shadow: none;
+    border: none !important;
+    box-shadow: none !important;
     background-color: #f4f6f8;
+}
+
+.react-grid-item.oipp.PAGEBREAK {
+    margin-left: -14px;
 }
 
 .react-grid-item.PRINT_TITLE_PAGE {
@@ -88,6 +92,7 @@
 }
 
 .react-grid-item.edit .dashboard-item-content,
+.react-grid-item.print .dashboard-item-content,
 .react-grid-item.RESOURCES .dashboard-item-content,
 .react-grid-item.TEXT .dashboard-item-content,
 .react-grid-item.MESSAGES .dashboard-item-content,
