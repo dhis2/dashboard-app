@@ -44,9 +44,20 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
             })
         }
         case ADD_DASHBOARD_ITEM:
+            if (!action.value.position) {
+                return update(state, {
+                    dashboardItems: { $unshift: [action.value] },
+                })
+            }
+
             return update(state, {
-                dashboardItems: { $unshift: [action.value] },
+                dashboardItems: {
+                    $splice: [
+                        [parseInt(action.value.position), 0, action.value],
+                    ],
+                },
             })
+
         case REMOVE_DASHBOARD_ITEM: {
             const idToRemove = action.value
 

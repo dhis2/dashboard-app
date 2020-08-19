@@ -88,6 +88,7 @@ export const acAddDashboardItem = item => {
         value: {
             id,
             type,
+            position: item.position || null,
             [itemPropName]: item.content,
             ...NEW_ITEM_SHAPE,
             ...gridItemProperties,

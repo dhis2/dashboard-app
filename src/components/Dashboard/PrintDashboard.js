@@ -6,8 +6,13 @@ import i18n from '@dhis2/d2-i18n'
 import PrintInfo from './PrintInfo'
 import PrintActionsBar from './PrintActionsBar'
 import PrintItemGrid from '../ItemGrid/PrintItemGrid'
-import { PRINT_TITLE_PAGE } from '../../modules/itemTypes'
-import { a4LandscapeWidthPx } from '../../modules/printUtils'
+import { PRINT_TITLE_PAGE, PAGEBREAK } from '../../modules/itemTypes'
+
+import {
+    a4LandscapeWidthPx,
+    sortItemsByYPosition,
+} from '../../modules/printUtils'
+
 import {
     acSetEditDashboard,
     acAddDashboardItem,
@@ -29,6 +34,15 @@ export class PrintDashboard extends Component {
         if (this.props.dashboard) {
             this.setState({ initialized: true })
             this.props.setEditDashboard(this.props.dashboard, this.props.items)
+
+            //sorting the items is so that the print, with one item per page
+            //prints in the order of top to bottom of the dashboard
+            sortItemsByYPosition(this.props.items)
+
+            for (let i = 0; i < this.props.items.length * 2; i += 2) {
+                this.props.addDashboardItem({ type: PAGEBREAK, position: i })
+            }
+
             this.props.addDashboardItem({ type: PRINT_TITLE_PAGE })
         }
     }
