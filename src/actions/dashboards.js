@@ -10,6 +10,7 @@ import {
     sGetDashboardById,
     sGetDashboardsSortedByStarred,
 } from '../reducers/dashboards'
+import { NON_EXISTING_DASHBOARD_ID } from '../reducers/selected'
 import { sGetUserUsername } from '../reducers/user'
 import { tSetSelectedDashboardById, acSetSelectedId } from './selected'
 import { acClearEditDashboard } from './editDashboard'
@@ -81,7 +82,7 @@ export const tSelectDashboard = id => async (dispatch, getState) => {
         if (dashboardToSelect) {
             dispatch(tSetSelectedDashboardById(dashboardToSelect.id))
         } else {
-            dispatch(acSetSelectedId())
+            dispatch(acSetSelectedId(NON_EXISTING_DASHBOARD_ID))
         }
     } catch (err) {
         return onError(err)

@@ -11,6 +11,8 @@ export const DEFAULT_STATE_SELECTED_ID = null
 export const DEFAULT_STATE_SELECTED_ISLOADING = false
 export const DEFAULT_STATE_SELECTED_SHOWDESCRIPTION = false
 
+export const NON_EXISTING_DASHBOARD_ID = '0'
+
 /**
  * Reducer functions that computes and returns the new state based on the given action
  * @function
