@@ -25,7 +25,8 @@ const addPageBreaks = ({ items, addDashboardItem }) => {
     // TODO: this is not accurate bc adding the static page
     // breaks can increase the number of actual pages
     const pageCount = getNumPrintPages(items) + 1
-    const yList = [33, 72, 110, 149, 187, 226, 264]
+    const yList = [34, 74, 113, 153, 192, 232, 271]
+    //
     for (let i = 0; i < pageCount; ++i) {
         addDashboardItem({ type: PAGEBREAK, yPos: yList[i] })
     }
@@ -43,8 +44,8 @@ export class PrintLayoutDashboard extends Component {
             this.setState({ initialized: true })
 
             const items = this.props.items.map(item => {
-                if (item.h > 30) {
-                    item.h = 30
+                if (item.h > 34) {
+                    item.h = 34
                 }
                 return item
             })
@@ -52,9 +53,7 @@ export class PrintLayoutDashboard extends Component {
 
             this.props.addDashboardItem({ type: PRINT_TITLE_PAGE })
 
-            if (items.length > 1) {
-                addPageBreaks(this.props)
-            }
+            addPageBreaks(this.props)
         }
     }
 
