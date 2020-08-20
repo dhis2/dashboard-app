@@ -80,7 +80,7 @@ export class PrintItemGrid extends Component {
                     </Layer>
                 ) : null}
                 <ReactGridLayout
-                    className="layout print printview"
+                    className="layout print"
                     layout={dashboardItems}
                     margin={MARGIN}
                     cols={getGridColumns()}

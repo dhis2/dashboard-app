@@ -39,7 +39,7 @@ export class PrintLayoutItemGrid extends Component {
     }
 
     getItemComponent = item => {
-        const itemClassNames = [item.type, 'print'].join(' ')
+        const itemClassNames = [item.type, 'print', 'layout'].join(' ')
 
         return (
             <div key={item.i} className={itemClassNames}>
