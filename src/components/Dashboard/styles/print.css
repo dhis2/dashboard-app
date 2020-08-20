@@ -48,7 +48,7 @@ header.printMode {
 }
 
 .react-grid-item.PAGEBREAK {
-    width: 1108px !important;
+    width: 1120px !important;
     border: none !important;
     box-shadow: none !important;
     background-color: #f4f6f8;
@@ -59,8 +59,8 @@ header.printMode {
     content: '';
     position: absolute;
     top: -3px;
-    left: 5;
-    width: 100%;
+    left: 3px;
+    width: 1102px;
     height: 3px;
     box-shadow: 0px 0px 3px 0px #6e7a8a;
     z-index: 100;
@@ -70,8 +70,8 @@ header.printMode {
     content: '';
     position: absolute;
     bottom: -3px;
-    left: 5;
-    width: 100%;
+    left: 3px;
+    width: 1102px;
     height: 3px;
     box-shadow: 0px 0px 3px 0px #6e7a8a;
     z-index: 100;
