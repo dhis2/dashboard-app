@@ -16,9 +16,7 @@
 }
 
 @media print {
-    .infoHeader,
-    .info,
-    .divider {
+    .infoWrapper {
         display: none;
     }
 }

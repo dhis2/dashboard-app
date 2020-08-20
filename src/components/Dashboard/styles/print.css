@@ -12,6 +12,7 @@ header.printMode {
 
     .app-shell-app {
         overflow: visible !important;
+        background-color: white;
     }
 
     .PAGEBREAK {
