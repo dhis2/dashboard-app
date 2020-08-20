@@ -10,7 +10,6 @@
 }
 
 .react-grid-item.edit,
-.react-grid-item.print,
 .react-grid-item.RESOURCES,
 .react-grid-item.TEXT,
 .react-grid-item.MESSAGES,
@@ -19,43 +18,12 @@
     flex-direction: column;
 }
 
-.react-grid-item.print .mapboxgl-control-container {
-    display: none;
-}
-
-.react-grid-item.print .dhis2-map-legend {
-    display: none;
-}
-
-.react-grid-item.PAGEBREAK {
-    width: 1108px !important;
-    margin-left: -23px;
-    border: none !important;
-    box-shadow: none !important;
-    background-color: #f4f6f8;
-}
-
-.react-grid-item.oipp.PAGEBREAK {
-    margin-left: -14px;
-}
-
-.react-grid-item.PRINT_TITLE_PAGE {
-    border: none;
-    box-shadow: none;
-    justify-content: center;
-}
-
 .react-grid-item.edit:hover {
     cursor: move;
 }
 
-.react-grid-item.SPACER.view,
-.react-grid-item.SPACER.print {
+.react-grid-item.SPACER.view {
     visibility: hidden;
-}
-
-.react-grid-item.SPACER.print.oipp {
-    display: none;
 }
 
 .react-grid-item.SPACER.edit {
@@ -92,7 +60,6 @@
 }
 
 .react-grid-item.edit .dashboard-item-content,
-.react-grid-item.print .dashboard-item-content,
 .react-grid-item.RESOURCES .dashboard-item-content,
 .react-grid-item.TEXT .dashboard-item-content,
 .react-grid-item.MESSAGES .dashboard-item-content,

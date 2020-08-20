@@ -6,13 +6,6 @@ import i18n from '@dhis2/d2-i18n'
 import PrintInfo from './PrintInfo'
 import PrintActionsBar from './PrintActionsBar'
 import PrintItemGrid from '../ItemGrid/PrintItemGrid'
-import { PRINT_TITLE_PAGE, PAGEBREAK } from '../../modules/itemTypes'
-
-import {
-    a4LandscapeWidthPx,
-    sortItemsByYPosition,
-} from '../../modules/printUtils'
-
 import {
     acSetEditDashboard,
     acAddDashboardItem,
@@ -22,8 +15,15 @@ import {
     sGetDashboardById,
     sGetDashboardItems,
 } from '../../reducers/dashboards'
+import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
+import {
+    a4LandscapeWidthPx,
+    sortItemsByYPosition,
+} from '../../modules/printUtils'
 
 import classes from './PrintDashboard.module.css'
+
+import './styles/print.css'
 
 export class PrintDashboard extends Component {
     state = {

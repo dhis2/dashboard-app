@@ -6,7 +6,6 @@ import i18n from '@dhis2/d2-i18n'
 import PrintInfo from './PrintInfo'
 import PrintActionsBar from './PrintActionsBar'
 import PrintLayoutItemGrid from '../ItemGrid/PrintLayoutItemGrid'
-import { a4LandscapeWidthPx } from '../../modules/printUtils'
 import {
     acSetEditDashboard,
     acAddDashboardItem,
@@ -16,10 +15,12 @@ import {
     sGetDashboardById,
     sGetDashboardItems,
 } from '../../reducers/dashboards'
-import { getNumPrintPages } from '../../modules/printUtils'
 import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
+import { getNumPrintPages, a4LandscapeWidthPx } from '../../modules/printUtils'
 
 import classes from './PrintLayoutDashboard.module.css'
+
+import './styles/print.css'
 
 const addPageBreaks = ({ items, addDashboardItem }) => {
     // TODO: this is not accurate bc adding the static page
