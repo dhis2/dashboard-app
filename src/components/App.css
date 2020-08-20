@@ -2,6 +2,19 @@ body {
     background-color: #f4f6f8;
 }
 
+@media print {
+    body {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background-color: white;
+    }
+
+    .app-shell-app {
+        overflow: visible !important;
+    }
+}
+
 .dashboard-wrapper {
     background-color: #f4f6f8;
     padding-left: 10px;
