@@ -9,13 +9,14 @@ import PrintItemGrid from '../ItemGrid/PrintItemGrid'
 import {
     acSetEditDashboard,
     acAddDashboardItem,
+    acRemoveDashboardItem,
 } from '../../actions/editDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
 import {
     sGetDashboardById,
     sGetDashboardItems,
 } from '../../reducers/dashboards'
-import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
+import { PAGEBREAK, PRINT_TITLE_PAGE, SPACER } from '../../modules/itemTypes'
 import {
     a4LandscapeWidthPx,
     sortItemsByYPosition,
@@ -37,9 +38,22 @@ export class PrintDashboard extends Component {
 
             //sorting the items is so that the print, with one item per page
             //prints in the order of top to bottom of the dashboard
+
             sortItemsByYPosition(this.props.items)
 
-            for (let i = 0; i < this.props.items.length * 2; i += 2) {
+            let spacerCount = 0
+            this.props.items.forEach(item => {
+                if (item.type === SPACER) {
+                    spacerCount += 1
+                    this.props.removeDashboardItem(item.id)
+                }
+            })
+
+            for (
+                let i = 0;
+                i < (this.props.items.length - spacerCount) * 2;
+                i += 2
+            ) {
                 this.props.addDashboardItem({ type: PAGEBREAK, position: i })
             }
 
@@ -79,6 +93,7 @@ PrintDashboard.propTypes = {
     addDashboardItem: PropTypes.func,
     dashboard: PropTypes.object,
     items: PropTypes.array,
+    removeDashboardItem: PropTypes.func,
     setEditDashboard: PropTypes.func,
 }
 
@@ -96,4 +111,5 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
     setEditDashboard: acSetEditDashboard,
     addDashboardItem: acAddDashboardItem,
+    removeDashboardItem: acRemoveDashboardItem,
 })(PrintDashboard)
