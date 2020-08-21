@@ -77,13 +77,13 @@ export const getGridItemProperties = itemId => {
     }
 }
 
-export const getPageBreakItemShape = yPos => {
+export const getPageBreakItemShape = (yPos, isStatic = true) => {
     return {
         x: 0,
         y: yPos,
         w: GRID_COLUMNS - 1,
         h: 5,
-        static: true,
+        static: !!isStatic,
         minH: 1,
     }
 }
