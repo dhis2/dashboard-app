@@ -76,25 +76,44 @@ export class PrintLayoutItemGrid extends Component {
         })
         const sortedItems = sortBy(items, ['y'])
 
-        let maxHeight = 0
+        let pageBreakBottom = 0
+        let lastItemBottom = 0
         let foundNonPageBreak = false
+
         for (let i = sortedItems.length - 1; i >= 0; --i) {
             const item = sortedItems[i]
-            if (!foundNonPageBreak && item.type === PAGEBREAK) {
-                item.el.classList.add('removed')
-            } else {
-                const transform = item.el.style.transform.split(' ')[1]
-                console.log('jj', item.type, item.y, transform)
+            if (item.type === PAGEBREAK) {
+                if (!foundNonPageBreak) {
+                    item.el.classList.add('removed')
+                } else {
+                    const y = item.el.style.transform
+                        ? item.el.style.transform.split(' ')[1].slice(0, -3)
+                        : item.y
 
+                    pageBreakBottom = parseInt(y) + parseInt(item.h)
+                    break
+                }
+            } else {
                 foundNonPageBreak = true
-                const bottomPos = item.y + item.h
-                if (bottomPos > maxHeight) {
-                    maxHeight = bottomPos
+                const y = item.el.style.transform
+                    ? item.el.style.transform.split(' ')[1].slice(0, -3)
+                    : item.y
+
+                const thisItemBottom = parseInt(y) + parseInt(item.h)
+                if (thisItemBottom > lastItemBottom) {
+                    lastItemBottom = thisItemBottom
                 }
             }
         }
 
+        const pageHeight = 720
         const gridElement = document.querySelector('.react-grid-layout')
+        const maxHeight = pageBreakBottom + pageHeight
+
+        if (maxHeight < lastItemBottom) {
+            // there is a problem - this should not happen
+            console.log('jj PROBLEM! items extend beyond page bottom')
+        }
         if (gridElement) {
             gridElement.style.height = `${maxHeight}px`
         }

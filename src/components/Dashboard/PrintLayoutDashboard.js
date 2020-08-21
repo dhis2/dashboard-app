@@ -32,6 +32,8 @@ const addPageBreaks = ({ items, addDashboardItem }) => {
     for (let i = 0; i < items.length; ++i) {
         if (i === 0) {
             yPos += 34
+        } else if (i === 4 || i === 10) {
+            yPos += 40
         } else if (isEven(i)) {
             yPos += 39
         } else {
