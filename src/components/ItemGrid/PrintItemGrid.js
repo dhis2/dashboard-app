@@ -21,8 +21,6 @@ import {
     MARGIN,
     getGridColumns,
     hasShape,
-    getItemPageColumns,
-    getItemPageHeightRows,
 } from './gridUtil'
 import { a4LandscapeWidthPx } from '../../modules/printUtils'
 import { orArray } from '../../modules/util'
@@ -37,12 +35,12 @@ export class PrintItemGrid extends Component {
         const itemClassNames = [item.type, 'print', 'oipp'].join(' ')
 
         // TODO: this mutates the redux store
-        item.w = getItemPageColumns(a4LandscapeWidthPx)
+        item.w = 56
 
         if (item.type === PAGEBREAK) {
-            item.h = 5
+            item.h = 3
         } else {
-            item.h = getItemPageHeightRows(700)
+            item.h = 37
         }
 
         return (
