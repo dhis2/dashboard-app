@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import ReactGridLayout from 'react-grid-layout'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
+import sortBy from 'lodash/sortBy'
 
 import { acUpdateDashboardLayout } from '../../actions/editDashboard'
 import { Item } from '../Item/Item'
@@ -17,6 +18,7 @@ import {
 import { orArray } from '../../modules/util'
 import { a4LandscapeWidthPx } from '../../modules/printUtils'
 import { PRINT_LAYOUT } from '../Dashboard/dashboardModes'
+import { itemTypeMap, PAGEBREAK } from '../../modules/itemTypes'
 
 import NoContentMessage from '../../widgets/NoContentMessage'
 
@@ -49,6 +51,62 @@ export class PrintLayoutItemGrid extends Component {
     }
 
     getItemComponents = items => items.map(item => this.getItemComponent(item))
+
+    hideExtraPageBreaks() {
+        const elements = Array.from(
+            document.querySelectorAll('.react-grid-item')
+        )
+
+        const types = Object.keys(itemTypeMap)
+        const items = elements.map(el => {
+            const classNames = el.className.split(' ')
+
+            const type = classNames.find(
+                className => types.indexOf(className) > -1
+            )
+
+            const rect = el.getBoundingClientRect()
+
+            return {
+                type,
+                el,
+                y: rect.y,
+                h: rect.height,
+            }
+        })
+        const sortedItems = sortBy(items, ['y'])
+
+        let maxHeight = 0
+        let foundNonPageBreak = false
+        for (let i = sortedItems.length - 1; i >= 0; --i) {
+            const item = sortedItems[i]
+            if (!foundNonPageBreak && item.type === PAGEBREAK) {
+                item.el.classList.add('removed')
+            } else {
+                const transform = item.el.style.transform.split(' ')[1]
+                console.log('jj', item.type, item.y, transform)
+
+                foundNonPageBreak = true
+                const bottomPos = item.y + item.h
+                if (bottomPos > maxHeight) {
+                    maxHeight = bottomPos
+                }
+            }
+        }
+
+        const gridElement = document.querySelector('.react-grid-layout')
+        if (gridElement) {
+            gridElement.style.height = `${maxHeight}px`
+        }
+    }
+
+    componentDidMount() {
+        this.hideExtraPageBreaks()
+    }
+
+    componentDidUpdate() {
+        this.hideExtraPageBreaks()
+    }
 
     render() {
         const { isLoading, dashboardItems } = this.props
