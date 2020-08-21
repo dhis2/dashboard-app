@@ -54,7 +54,11 @@ export class PrintDashboard extends Component {
                 i < (this.props.items.length - spacerCount) * 2;
                 i += 2
             ) {
-                this.props.addDashboardItem({ type: PAGEBREAK, position: i })
+                this.props.addDashboardItem({
+                    type: PAGEBREAK,
+                    position: i,
+                    isStatic: false,
+                })
             }
 
             this.props.addDashboardItem({ type: PRINT_TITLE_PAGE })

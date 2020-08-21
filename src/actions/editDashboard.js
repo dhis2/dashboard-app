@@ -76,7 +76,7 @@ export const acAddDashboardItem = item => {
     let shape
     if (type === PAGEBREAK) {
         const yPos = item.yPos || 0
-        shape = getPageBreakItemShape(yPos)
+        shape = getPageBreakItemShape(yPos, item.isStatic)
     } else if (type === PRINT_TITLE_PAGE) {
         shape = getPrintTitlePageItemShape()
     } else {
