@@ -6,19 +6,6 @@ header.printMode {
     .PAGEBREAK {
         display: none !important;
     }
-
-    .react-grid-layout.print {
-        display: block !important;
-    }
-}
-
-.react-grid-item.PAGEBREAK.removed {
-    display: none !important;
-}
-
-.react-grid-layout.print {
-    display: flex;
-    flex-direction: column;
 }
 
 .react-grid-item.print {
@@ -30,14 +17,8 @@ header.printMode {
     flex: 1;
 }
 
-.react-grid-item.oipp {
-    position: static !important;
-    transform: none !important;
-    margin: 30px;
-    border: 1px solid #d3d4d6;
-    box-shadow: none;
-    break-inside: avoid;
-    break-after: page;
+.react-grid-item.PAGEBREAK.removed {
+    display: none !important;
 }
 
 .react-grid-item.PAGEBREAK {
@@ -67,32 +48,10 @@ header.printMode {
     box-shadow: 0px 0px 3px 0px #6e7a8a;
 }
 
-.react-grid-item.PAGEBREAK.oipp {
-    position: relative !important;
-    margin-left: -14px;
-    min-height: 50px !important;
-    height: 50px !important;
-}
-
-.react-grid-item.PAGEBREAK.layout {
-    margin-left: -23px;
-    min-height: 50px !important;
-    height: 50px !important;
-    margin-bottom: 40px !important;
-}
-
 .react-grid-item.PRINT_TITLE_PAGE {
     border: none;
     box-shadow: none;
     justify-content: center;
-}
-
-.react-grid-item.SPACER.oipp {
-    display: none;
-}
-
-.react-grid-item.SPACER.layout {
-    visibility: hidden;
 }
 
 .react-grid-item.print .mapboxgl-control-container {
