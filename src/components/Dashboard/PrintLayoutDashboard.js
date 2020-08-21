@@ -21,6 +21,7 @@ import { a4LandscapeWidthPx } from '../../modules/printUtils'
 import classes from './PrintLayoutDashboard.module.css'
 
 import './styles/print.css'
+import './styles/print-layout.css'
 
 const isEven = n => n % 2 == 0
 

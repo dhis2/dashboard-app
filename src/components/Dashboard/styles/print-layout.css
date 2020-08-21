@@ -1,0 +1,10 @@
+.react-grid-item.layout.PAGEBREAK {
+    margin-left: -23px;
+    min-height: 50px !important;
+    height: 50px !important;
+    margin-bottom: 40px !important;
+}
+
+.react-grid-item.layout.SPACER {
+    visibility: hidden;
+}

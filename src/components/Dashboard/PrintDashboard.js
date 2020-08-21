@@ -25,6 +25,7 @@ import {
 import classes from './PrintDashboard.module.css'
 
 import './styles/print.css'
+import './styles/print-oipp.css'
 
 export class PrintDashboard extends Component {
     state = {
