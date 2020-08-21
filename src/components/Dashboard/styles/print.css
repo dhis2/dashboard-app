@@ -12,6 +12,10 @@ header.printMode {
     }
 }
 
+.react-grid-item.PAGEBREAK.removed {
+    display: none !important;
+}
+
 .react-grid-layout.print {
     display: flex;
     flex-direction: column;

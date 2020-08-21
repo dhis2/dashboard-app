@@ -16,23 +16,33 @@ import {
     sGetDashboardItems,
 } from '../../reducers/dashboards'
 import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
-import { getNumPrintPages, a4LandscapeWidthPx } from '../../modules/printUtils'
+import { a4LandscapeWidthPx } from '../../modules/printUtils'
 
 import classes from './PrintLayoutDashboard.module.css'
 
 import './styles/print.css'
 
+const isEven = n => n % 2 == 0
+
 const addPageBreaks = ({ items, addDashboardItem }) => {
-    // TODO: this is not accurate bc adding the static page
-    // breaks can increase the number of actual pages
-    const pageCount = getNumPrintPages(items) + 1
-    const yList = [34, 74, 113, 153, 192, 232, 271]
-    //
-    for (let i = 0; i < pageCount; ++i) {
-        addDashboardItem({ type: PAGEBREAK, yPos: yList[i] })
+    // add enough page breaks so that each item could
+    // be put on its own page
+    let yPos = 0
+    const yPosList = []
+    for (let i = 0; i < items.length; ++i) {
+        if (i === 0) {
+            yPos += 34
+        } else if (isEven(i)) {
+            yPos += 39
+        } else {
+            yPos += 40
+        }
+        yPosList.push(yPos)
     }
 
-    return items
+    for (let i = 0; i < items.length; ++i) {
+        addDashboardItem({ type: PAGEBREAK, yPos: yPosList[i] })
+    }
 }
 
 export class PrintLayoutDashboard extends Component {
@@ -50,6 +60,7 @@ export class PrintLayoutDashboard extends Component {
                 }
                 return item
             })
+
             this.props.setEditDashboard(this.props.dashboard, items)
 
             addPageBreaks(this.props)
