@@ -1359,10 +1359,21 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/d2-ui-core@7.0.4", "@dhis2/d2-ui-core@^7.0.3":
+"@dhis2/d2-ui-core@7.0.4":
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.0.4.tgz#18c9858ac5adda54593d3f575128eb8b9df6da68"
   integrity sha512-yTBhJ53xvAGBh49/HDPLmAH2LlWkGtGj8RfhEuN64Z8GsKAo1YS6tAmB79srMnUF91dCFaqAtLx80NqAZ4fHCQ==
+  dependencies:
+    babel-runtime "^6.26.0"
+    d2 "~31.7"
+    lodash "^4.17.10"
+    material-ui "^0.20.0"
+    rxjs "^5.5.7"
+
+"@dhis2/d2-ui-core@7.0.5", "@dhis2/d2-ui-core@^7.0.3":
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.0.5.tgz#bfedb815ebc0edb2901c0b1f4b59a856e9d18c34"
+  integrity sha512-ALK1vVe1yE+4mPnBBIdVNi3aAG7yVeLHjxAcEX/1XvCfK0CKnGas2I8K+KcxZMB0FHBr4+hzKzP4NkE4b+a4gQ==
   dependencies:
     babel-runtime "^6.26.0"
     d2 "~31.7"
@@ -1439,12 +1450,12 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-translation-dialog@^7.0.4":
-  version "7.0.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-7.0.4.tgz#cbdf3d5c6a22edda89560f7fbbe17f387a353699"
-  integrity sha512-I+rqNbrAXWxtaKkFlH1vhqUUc4HXYPP2a+k0YtLJ56r6Ew3dcVkkz3ypIbAtzFe8x2xdTBmvC4IiSPAh/6c4Rw==
+"@dhis2/d2-ui-translation-dialog@^7.0.5":
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-7.0.5.tgz#69330895f9d23890c0147f85a2931990f4c89a7a"
+  integrity sha512-DopAyROaMIrvXvsPVo3LOGenVFt3+hoeMhvkEA5/qlLsfZZVmcB+UsdX2gh6z7PuTY/jZ0eHGZkJf+Dow7x5ng==
   dependencies:
-    "@dhis2/d2-ui-core" "7.0.4"
+    "@dhis2/d2-ui-core" "7.0.5"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
