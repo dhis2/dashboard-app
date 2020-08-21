@@ -33,7 +33,7 @@ header.printMode {
 .react-grid-item.oipp {
     position: static !important;
     transform: none !important;
-    margin-bottom: 50px;
+    margin: 30px;
     border: 1px solid #d3d4d6;
     box-shadow: none;
     break-inside: avoid;
@@ -70,10 +70,15 @@ header.printMode {
 .react-grid-item.PAGEBREAK.oipp {
     position: relative !important;
     margin-left: -14px;
+    min-height: 50px !important;
+    height: 50px !important;
 }
 
 .react-grid-item.PAGEBREAK.layout {
     margin-left: -23px;
+    min-height: 50px !important;
+    height: 50px !important;
+    margin-bottom: 40px !important;
 }
 
 .react-grid-item.PRINT_TITLE_PAGE {
