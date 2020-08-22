@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { colors } from '@dhis2/ui';
-import { getId } from './plugin';
-import InterpretationsComponent from '@dhis2/d2-ui-interpretations';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { colors } from '@dhis2/ui'
+import { getId } from './plugin'
+import InterpretationsComponent from '@dhis2/d2-ui-interpretations'
 
 const style = {
     scrollContainer: {
@@ -15,11 +15,11 @@ const style = {
         border: 'none',
         backgroundColor: colors.grey100,
     },
-};
+}
 
 class ItemFooter extends Component {
     render() {
-        const objectId = getId(this.props.item);
+        const objectId = getId(this.props.item)
 
         return (
             <div className="dashboard-item-footer">
@@ -34,16 +34,16 @@ class ItemFooter extends Component {
                     />
                 </div>
             </div>
-        );
+        )
     }
 }
 
 ItemFooter.contextTypes = {
     d2: PropTypes.object.isRequired,
-};
+}
 
 ItemFooter.propTypes = {
     item: PropTypes.object.isRequired,
-};
+}
 
-export default ItemFooter;
+export default ItemFooter

@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Chip } from '@dhis2/ui';
-import { Link } from 'react-router-dom';
-import debounce from 'lodash/debounce';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Chip } from '@dhis2/ui'
+import { Link } from 'react-router-dom'
+import debounce from 'lodash/debounce'
 
-import StarIcon from '../../icons/Star';
-import { apiPostDataStatistics } from '../../api/dataStatistics';
+import StarIcon from '../../icons/Star'
+import { apiPostDataStatistics } from '../../api/dataStatistics'
 
-import classes from './styles/DashboardItemChip.module.css';
+import classes from './styles/DashboardItemChip.module.css'
 
 export const DashboardItemChip = ({
     starred,
@@ -17,13 +17,13 @@ export const DashboardItemChip = ({
 }) => {
     const chipProps = {
         selected,
-    };
+    }
 
     if (starred) {
-        const selectedState = selected ? classes.selected : classes.unselected;
+        const selectedState = selected ? classes.selected : classes.unselected
         chipProps.icon = (
             <StarIcon className={`${classes.icon} ${selectedState}`} />
-        );
+        )
     }
 
     return (
@@ -37,8 +37,8 @@ export const DashboardItemChip = ({
         >
             <Chip {...chipProps}>{label}</Chip>
         </Link>
-    );
-};
+    )
+}
 
 DashboardItemChip.propTypes = {
     dashboardId: PropTypes.string.isRequired,
@@ -46,6 +46,6 @@ DashboardItemChip.propTypes = {
     selected: PropTypes.bool.isRequired,
     starred: PropTypes.bool.isRequired,
     classes: PropTypes.object,
-};
+}
 
-export default DashboardItemChip;
+export default DashboardItemChip

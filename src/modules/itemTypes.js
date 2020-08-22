@@ -1,45 +1,45 @@
-import i18n from '@dhis2/d2-i18n';
-import TableIcon from '@material-ui/icons/ViewList';
-import ChartIcon from '@material-ui/icons/InsertChart';
-import MapIcon from '@material-ui/icons/Public';
-import ExtensionIcon from '@material-ui/icons/Extension';
-import DescriptionIcon from '@material-ui/icons/Description';
-import PersonIcon from '@material-ui/icons/Person';
-import FontDownloadIcon from '@material-ui/icons/FontDownload';
-import EmailIcon from '@material-ui/icons/Email';
-import CropFreeIcon from '@material-ui/icons/CropFree';
-import NotInterestedIcon from '@material-ui/icons/NotInterested';
+import i18n from '@dhis2/d2-i18n'
+import TableIcon from '@material-ui/icons/ViewList'
+import ChartIcon from '@material-ui/icons/InsertChart'
+import MapIcon from '@material-ui/icons/Public'
+import ExtensionIcon from '@material-ui/icons/Extension'
+import DescriptionIcon from '@material-ui/icons/Description'
+import PersonIcon from '@material-ui/icons/Person'
+import FontDownloadIcon from '@material-ui/icons/FontDownload'
+import EmailIcon from '@material-ui/icons/Email'
+import CropFreeIcon from '@material-ui/icons/CropFree'
+import NotInterestedIcon from '@material-ui/icons/NotInterested'
 
-import { getBaseUrl } from './util';
+import { getBaseUrl } from './util'
 
 // Item types
-export const VISUALIZATION = 'VISUALIZATION';
-export const REPORT_TABLE = 'REPORT_TABLE';
-export const CHART = 'CHART';
-export const MAP = 'MAP';
-export const EVENT_REPORT = 'EVENT_REPORT';
-export const EVENT_CHART = 'EVENT_CHART';
-export const APP = 'APP';
-export const REPORTS = 'REPORTS';
-export const RESOURCES = 'RESOURCES';
-export const USERS = 'USERS';
-export const MESSAGES = 'MESSAGES';
-export const TEXT = 'TEXT';
-export const SPACER = 'SPACER';
+export const VISUALIZATION = 'VISUALIZATION'
+export const REPORT_TABLE = 'REPORT_TABLE'
+export const CHART = 'CHART'
+export const MAP = 'MAP'
+export const EVENT_REPORT = 'EVENT_REPORT'
+export const EVENT_CHART = 'EVENT_CHART'
+export const APP = 'APP'
+export const REPORTS = 'REPORTS'
+export const RESOURCES = 'RESOURCES'
+export const USERS = 'USERS'
+export const MESSAGES = 'MESSAGES'
+export const TEXT = 'TEXT'
+export const SPACER = 'SPACER'
 
-const DOMAIN_TYPE_AGGREGATE = 'AGGREGATE';
-const DOMAIN_TYPE_TRACKER = 'TRACKER';
+const DOMAIN_TYPE_AGGREGATE = 'AGGREGATE'
+const DOMAIN_TYPE_TRACKER = 'TRACKER'
 
 // Dashboard helpers
 export const isVisualizationType = item =>
-    !!itemTypeMap[item.type].isVisualizationType;
+    !!itemTypeMap[item.type].isVisualizationType
 export const hasMapView = itemType =>
-    itemTypeMap[itemType].domainType === DOMAIN_TYPE_AGGREGATE;
+    itemTypeMap[itemType].domainType === DOMAIN_TYPE_AGGREGATE
 export const isTrackerDomainType = itemType =>
-    itemTypeMap[itemType].domainType === DOMAIN_TYPE_TRACKER;
+    itemTypeMap[itemType].domainType === DOMAIN_TYPE_TRACKER
 export const getDefaultItemCount = itemType =>
-    itemTypeMap[itemType].defaultItemCount || 5;
-export const getAppName = itemType => itemTypeMap[itemType].appName || '';
+    itemTypeMap[itemType].defaultItemCount || 5
+export const getAppName = itemType => itemTypeMap[itemType].appName || ''
 
 // Item type map
 export const itemTypeMap = {
@@ -113,14 +113,14 @@ export const itemTypeMap = {
         propName: 'reports',
         pluralTitle: i18n.t('Reports'),
         appUrl: (id, type) => {
-            switch(type) {
+            switch (type) {
                 case 'HTML':
-                    return `dhis-web-reports/#/standard-report/view/${id}`;
+                    return `dhis-web-reports/#/standard-report/view/${id}`
 
                 case 'JASPER_REPORT_TABLE':
                 case 'JASPER_JDBC':
                 default:
-                    return `api/reports/${id}/data.pdf?t=${(new Date()).getTime()}`;
+                    return `api/reports/${id}/data.pdf?t=${new Date().getTime()}`
             }
         },
     },
@@ -148,48 +148,51 @@ export const itemTypeMap = {
     [SPACER]: {
         propName: 'text',
     },
-};
+}
 
-export const getEndPointName = type => itemTypeMap[type].endPointName;
+export const getEndPointName = type => itemTypeMap[type].endPointName
 
 export const getItemUrl = (type, item, d2) => {
-    let url;
+    let url
 
     if (type === APP) {
-        url = item.launchUrl;
+        url = item.launchUrl
     }
 
     if (itemTypeMap[type] && itemTypeMap[type].appUrl) {
-        url = `${getBaseUrl(d2)}/${itemTypeMap[type].appUrl(item.id, item.type)}`;
+        url = `${getBaseUrl(d2)}/${itemTypeMap[type].appUrl(
+            item.id,
+            item.type
+        )}`
     }
 
-    return url;
-};
+    return url
+}
 
 export const getItemIcon = type => {
     switch (type) {
         case REPORT_TABLE:
         case EVENT_REPORT:
         case REPORTS:
-            return TableIcon;
+            return TableIcon
         case CHART:
         case EVENT_CHART:
-            return ChartIcon;
+            return ChartIcon
         case MAP:
-            return MapIcon;
+            return MapIcon
         case APP:
-            return ExtensionIcon;
+            return ExtensionIcon
         case RESOURCES:
-            return DescriptionIcon;
+            return DescriptionIcon
         case USERS:
-            return PersonIcon;
+            return PersonIcon
         case TEXT:
-            return FontDownloadIcon;
+            return FontDownloadIcon
         case MESSAGES:
-            return EmailIcon;
+            return EmailIcon
         case SPACER:
-            return CropFreeIcon;
+            return CropFreeIcon
         default:
-            return NotInterestedIcon;
+            return NotInterestedIcon
     }
-};
+}

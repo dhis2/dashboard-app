@@ -1,4 +1,4 @@
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 import {
     VISUALIZATION,
     MAP,
@@ -11,7 +11,7 @@ import {
     MESSAGES,
     TEXT,
     SPACER,
-} from '../../modules/itemTypes';
+} from '../../modules/itemTypes'
 
 export const singleItems = [
     {
@@ -35,7 +35,7 @@ export const singleItems = [
             },
         ],
     },
-];
+]
 
 // categorizedItems are grouped in the item selector menu
 export const categorizedItems = [
@@ -47,7 +47,7 @@ export const categorizedItems = [
     REPORTS,
     RESOURCES,
     APP,
-];
+]
 
 // listItemTypes are included in a single dashboard item
-export const listItemTypes = [REPORTS, RESOURCES, USERS];
+export const listItemTypes = [REPORTS, RESOURCES, USERS]

@@ -1,19 +1,19 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import i18n from '@dhis2/d2-i18n';
-import PropTypes from 'prop-types';
+import React from 'react'
+import { connect } from 'react-redux'
+import i18n from '@dhis2/d2-i18n'
+import PropTypes from 'prop-types'
 
-import Input from '@material-ui/core/Input';
+import Input from '@material-ui/core/Input'
 import {
     Parser as RichTextParser,
     Editor as RichTextEditor,
-} from '@dhis2/d2-ui-rich-text';
+} from '@dhis2/d2-ui-rich-text'
 
-import { acUpdateDashboardItem } from '../../../actions/editDashboard';
-import { sGetEditDashboardItems } from '../../../reducers/editDashboard';
-import { sGetDashboardItems } from '../../../reducers/dashboards';
-import ItemHeader from '../ItemHeader';
-import Line from '../../../widgets/Line';
+import { acUpdateDashboardItem } from '../../../actions/editDashboard'
+import { sGetEditDashboardItems } from '../../../reducers/editDashboard'
+import { sGetDashboardItems } from '../../../reducers/dashboards'
+import ItemHeader from '../ItemHeader'
+import Line from '../../../widgets/Line'
 
 const style = {
     textDiv: {
@@ -33,28 +33,28 @@ const style = {
         marginBottom: '20px',
         marginTop: '20px',
     },
-};
+}
 
 const TextItem = props => {
-    const { item, editMode, text, acUpdateDashboardItem } = props;
+    const { item, editMode, text, acUpdateDashboardItem } = props
 
     const onChangeText = event => {
         const updatedItem = {
             ...item,
             text: event.target.value,
-        };
+        }
 
-        acUpdateDashboardItem(updatedItem);
-    };
+        acUpdateDashboardItem(updatedItem)
+    }
 
     const viewItem = () => {
-        const textDivStyle = Object.assign({}, style.textField, style.textDiv);
+        const textDivStyle = Object.assign({}, style.textField, style.textDiv)
         return (
             <div className="dashboard-item-content" style={style.container}>
                 <RichTextParser style={textDivStyle}>{text}</RichTextParser>
             </div>
-        );
-    };
+        )
+    }
 
     const editItem = () => {
         return (
@@ -74,34 +74,31 @@ const TextItem = props => {
                     </RichTextEditor>
                 </div>
             </>
-        );
-    };
+        )
+    }
 
-    return <>{editMode ? editItem() : viewItem()}</>;
-};
+    return <>{editMode ? editItem() : viewItem()}</>
+}
 
 const mapStateToProps = (state, ownProps) => {
     const items = ownProps.editMode
         ? sGetEditDashboardItems(state)
-        : sGetDashboardItems(state);
+        : sGetDashboardItems(state)
 
-    const item = items.find(item => item.id === ownProps.item.id);
+    const item = items.find(item => item.id === ownProps.item.id)
 
     return {
         text: item ? item.text : '',
-    };
-};
+    }
+}
 
 TextItem.propTypes = {
     acUpdateDashboardItem: PropTypes.func,
     editMode: PropTypes.bool,
     item: PropTypes.object,
     text: PropTypes.string,
-};
+}
 
-export default connect(
-    mapStateToProps,
-    {
-        acUpdateDashboardItem,
-    }
-)(TextItem);
+export default connect(mapStateToProps, {
+    acUpdateDashboardItem,
+})(TextItem)

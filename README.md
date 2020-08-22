@@ -1,109 +1,37 @@
-# Dashboards-app
+This project was bootstrapped with [DHIS2 Application Platform](https://github.com/dhis2/app-platform).
 
-[![Build Status](https://travis-ci.com/dhis2/dashboards-app.svg)](https://travis-ci.com/dhis2/dashboards-app)
+## Available Scripts
 
-This repo contains the dashboards app first released in DHIS2 version 2.29.
+In the project directory, you can run:
 
-It was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app), and later ejected.
+### `yarn start`
 
-## Developer guide
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### Prerequisites
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-To use the dashboards-app in development mode, it is necessary to have a running DHIS2 instance, and be logged in to it. This is because the app requests resources, like maps plugin, from the DHIS2 core resources. Most developers use their local DHIS2 instance.
+### `yarn test`
 
-The following env vars need to be set when running in dev mode:
+Launches the test runner and runs all available tests found in `/src`.<br />
 
--   REACT_APP_DHIS2_BASE_URL (e.g., http://localhost:8080)
--   REACT_APP_DHIS2_AUTHORIZATION (base64 encoded username and password)
+See the section about [running tests](https://platform.dhis2.nu/#/scripts/test) for more information.
 
-The defaults for these values (for development) are set in the `.env` and can be overriden in `.env.local` (which should not be checked into source control)
-When creating a production build, the REACT_APP_DHIS2_BASE_URL is set to `..` in `.env.production`. `REACT_APP_DHIS2_AUTHORIZATION` is unset by default.
+### `yarn build`
 
-### Installation
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-First clone the repo, then:
+The build is minified and the filenames include the hashes.<br />
+A deployable `.zip` file can be found in `build/bundle`!
 
-```
-yarn install
-yarn start
-```
+See the section about [building](https://platform.dhis2.nu/#/scripts/build) for more information.
 
-The webpack-dev-server will start up on localhost:3000, by default.
+## Learn More
 
-### Running tests
+You can learn more about the platform in the [DHIS2 Application Platform Documentation](https://platform.dhis2.nu/).
 
-`yarn test or yarn coverage`
+You can learn more about the runtime in the [DHIS2 Application Runtime Documentation](https://runtime.dhis2.nu/).
 
-### Manual testing with Netlify
-
-This repo is configured to deploy all branches to netlify. This makes it simple to share a running implementation with others (e.g., tester, product manager, ux, fellow developers) prior
-to merging to master.
-
-All netlify deployments run against play.dhis2.org/dev, so in order to use them, you must configure CORS for your particular branch:
-
-1. Copy the URL of the deployment you want to enable, i.e. `https://dhis2-dashboards.netlify.com`
-2. Visit the play/dev [system settings -- access](https://play.dhis2.org/dev/dhis-web-settings/index.html#/access) page
-3. Add the copied URL on a new line the in CORS Whitelist textbox **NOTE**: do NOT include a trailing slash
-
-The master branch is always available at:
-
-`https://dhis2-dashboards.netlify.com`
-
-Branches are available at (replace `/` and other special characters in `{branchname}` with `-`):
-
-`https://{branchname}--dhis2-dashboards.netlify.com`
-
-Pull requests (e.g., #209) are available at:
-
-`https://deploy-preview-209--dhis2-dashboards.netlify.com`
-
-Netlify will also add a status check to each PR which links directly to the PR deployment.
-
-### Other useful things to know
-
-#### eslint/prettier
-
-The dashboards-app uses **eslint** for code correctness checking, and **prettier** for formatting, and the build will fail if any of the checks fail. To make life easier, we suggest that you add the eslint and prettier plugins to your editor. But if you prefer, you can run the following before pushing your code:
-
-```
-yarn lint
-```
-
-### Deploy
-
-#### Local deployment
-
-In order to test the build of the dashboards-app (rather than just the dev server), deploy it to your local dhis2 build. The instructions here assume a good understanding of building DHIS2 locally.
-
-From the root of the dashboards-app, build the dashboards-app locally
-
-```
-yarn build
-```
-
-Then copy the contents of the /build folder to your .m2 directory. Then run:
-
-```
-mvn install
-```
-
-Navigate to your local dhis2 repo, dhis-web-apps directory. Then run
-
-```
-mvn clean install -o
-```
-
-#### Deploy to production
-
-Every commit to master is automatically deployed. To deploy a build to an older dashboards-app version, e.g., 2.29, a tag needs to be created. Do the following:
-
-```
-git checkout 2.29
-git pull
-yarn version (interactive, will ask you for a new version number, eg. 29.0.22)
-git push origin master
-git push origin v29.0.22 (pushes the v29.0.22 tag)
-```
-
-To deploy a major upgrade, it is necessary to branch the current version, and update the pom.xml on master. Details of this will be provided elsewhere.
+To learn React, check out the [React documentation](https://reactjs.org/).

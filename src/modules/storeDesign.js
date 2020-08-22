@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
-const { bool, string, oneOf, oneOfType } = PropTypes;
+const { bool, string, oneOf, oneOfType } = PropTypes
 
 const storeDesign = {
     // default: null, has not been set, show loading indicator
@@ -43,7 +43,7 @@ const storeDesign = {
         rows: 1,
         expanded: bool, // default: false
     },
-};
+}
 
 const customDashboard = {
     created: '2013-09-08 21:47',
@@ -57,10 +57,10 @@ const customDashboard = {
     dashboardItems: [
         // 'undefined ("loading" if defined) | error: null (hide "loading", show error) | [items]',
     ],
-};
+}
 
 const visualizations = {
     abc12345: {
         id: 'abc12345',
     },
-};
+}

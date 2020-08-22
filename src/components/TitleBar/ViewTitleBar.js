@@ -1,42 +1,42 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import i18n from '@dhis2/d2-i18n';
-import SharingDialog from '@dhis2/d2-ui-sharing-dialog';
-import Star from '@material-ui/icons/Star';
-import StarBorder from '@material-ui/icons/StarBorder';
-import { Button, colors } from '@dhis2/ui';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
+import i18n from '@dhis2/d2-i18n'
+import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
+import Star from '@material-ui/icons/Star'
+import StarBorder from '@material-ui/icons/StarBorder'
 
-import { orObject } from '../../modules/util';
-import { tStarDashboard } from '../../actions/dashboards';
-import { acSetSelectedShowDescription } from '../../actions/selected';
-import FilterSelector from '../ItemFilter/FilterSelector';
-import Info from './Info';
+import { orObject } from '../../modules/util'
+import { tStarDashboard } from '../../actions/dashboards'
+import { acSetSelectedShowDescription } from '../../actions/selected'
+import FilterSelector from '../ItemFilter/FilterSelector'
+import { Button, colors } from '@dhis2/ui'
+import Info from './Info'
 import {
     sGetSelectedId,
     sGetSelectedShowDescription,
-} from '../../reducers/selected';
+} from '../../reducers/selected'
 import {
     sGetDashboardById,
     sGetDashboardItems,
-} from '../../reducers/dashboards';
+} from '../../reducers/dashboards'
 
-import classes from './styles/ViewTitleBar.module.css';
+import classes from './styles/ViewTitleBar.module.css'
 
-const NO_DESCRIPTION = i18n.t('No description');
+const NO_DESCRIPTION = i18n.t('No description')
 
 class ViewTitleBar extends Component {
     constructor(props) {
-        super(props);
+        super(props)
 
         this.state = {
             sharingDialogIsOpen: false,
-        };
+        }
     }
 
     toggleSharingDialog = () =>
-        this.setState({ sharingDialogIsOpen: !this.state.sharingDialogIsOpen });
+        this.setState({ sharingDialogIsOpen: !this.state.sharingDialogIsOpen })
 
     render() {
         const {
@@ -49,15 +49,15 @@ class ViewTitleBar extends Component {
             starred,
             onStarClick,
             onInfoClick,
-        } = this.props;
+        } = this.props
 
         const titleStyle = Object.assign({}, style.title, {
             cursor: 'default',
             userSelect: 'text',
             top: '7px',
-        });
+        })
 
-        const StarIcon = starred ? Star : StarBorder;
+        const StarIcon = starred ? Star : StarBorder
 
         return (
             <>
@@ -117,7 +117,7 @@ class ViewTitleBar extends Component {
                     />
                 ) : null}
             </>
-        );
+        )
     }
 }
 
@@ -131,7 +131,7 @@ ViewTitleBar.propTypes = {
     style: PropTypes.object,
     onInfoClick: PropTypes.func,
     onStarClick: PropTypes.func,
-};
+}
 
 ViewTitleBar.defaultProps = {
     name: '',
@@ -139,15 +139,15 @@ ViewTitleBar.defaultProps = {
     starred: false,
     showDescription: false,
     onInfoClick: null,
-};
+}
 
 ViewTitleBar.contextTypes = {
     d2: PropTypes.object,
-};
+}
 
 const mapStateToProps = state => {
-    const id = sGetSelectedId(state);
-    const dashboard = orObject(sGetDashboardById(state, id));
+    const id = sGetSelectedId(state)
+    const dashboard = orObject(sGetDashboardById(state, id))
 
     return {
         id,
@@ -157,12 +157,12 @@ const mapStateToProps = state => {
         showDescription: sGetSelectedShowDescription(state),
         starred: dashboard.starred,
         access: orObject(dashboard.access),
-    };
-};
+    }
+}
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const { id, starred, showDescription } = stateProps;
-    const { dispatch } = dispatchProps;
+    const { id, starred, showDescription } = stateProps
+    const { dispatch } = dispatchProps
 
     return {
         ...stateProps,
@@ -170,7 +170,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         onStarClick: () => dispatch(tStarDashboard(id, !starred)),
         onInfoClick: () =>
             dispatch(acSetSelectedShowDescription(!showDescription)),
-    };
-};
+    }
+}
 
-export default connect(mapStateToProps, null, mergeProps)(ViewTitleBar);
+export default connect(mapStateToProps, null, mergeProps)(ViewTitleBar)

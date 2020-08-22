@@ -13,5 +13,5 @@ ID = "c19afad0-317d-4612-a81d-950c23f62da7"
   publish = "build"
 
   # Default build command.
-  command = "yarn run build-netlify"
+  command = "yarn build:netlify"
   

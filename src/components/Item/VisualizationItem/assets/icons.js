@@ -1,5 +1,5 @@
-import React from 'react';
-import { colors } from '@dhis2/ui';
+import React from 'react'
+import { colors } from '@dhis2/ui'
 
 export const ThreeDots = () => (
     <svg
@@ -13,7 +13,7 @@ export const ThreeDots = () => (
             fill="#6e7a8a"
         />
     </svg>
-);
+)
 
 export const SpeechBubble = () => (
     <svg
@@ -30,7 +30,7 @@ export const SpeechBubble = () => (
             transform="translate(-2 -2)"
         />
     </svg>
-);
+)
 
 export const Warning = () => (
     <svg
@@ -43,4 +43,4 @@ export const Warning = () => (
         <path d="M0 0h24v24H0z" fill="none" />
         <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
     </svg>
-);
+)

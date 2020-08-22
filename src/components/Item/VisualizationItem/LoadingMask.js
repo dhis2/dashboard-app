@@ -1,14 +1,14 @@
-import React from 'react';
-import { CircularLoader } from '@dhis2/ui';
+import React from 'react'
+import { CircularLoader } from '@dhis2/ui'
 
-import classes from './styles/LoadingMask.module.css';
+import classes from './styles/LoadingMask.module.css'
 
 const LoadingMask = () => {
     return (
         <div className={classes.center}>
             <CircularLoader />
         </div>
-    );
-};
+    )
+}
 
-export default LoadingMask;
+export default LoadingMask

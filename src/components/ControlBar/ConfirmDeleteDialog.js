@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import i18n from '@dhis2/d2-i18n';
+import React from 'react'
+import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
 import {
     Button,
     Modal,
@@ -8,9 +8,9 @@ import {
     ModalActions,
     ButtonStrip,
     ModalTitle,
-} from '@dhis2/ui';
+} from '@dhis2/ui'
 
-import classes from './styles/ConfirmDeleteDialog.module.css';
+import classes from './styles/ConfirmDeleteDialog.module.css'
 
 export const ConfirmDeleteDialog = ({
     dashboardName,
@@ -25,7 +25,7 @@ export const ConfirmDeleteDialog = ({
         <Button key="delete" destructive onClick={onDeleteConfirmed}>
             {i18n.t('Delete')}
         </Button>,
-    ];
+    ]
 
     return (
         open && (
@@ -44,14 +44,14 @@ export const ConfirmDeleteDialog = ({
                 </ModalActions>
             </Modal>
         )
-    );
-};
+    )
+}
 
 ConfirmDeleteDialog.propTypes = {
     dashboardName: PropTypes.string,
     open: PropTypes.bool,
     onContinueEditing: PropTypes.func,
     onDeleteConfirmed: PropTypes.func,
-};
+}
 
-export default ConfirmDeleteDialog;
+export default ConfirmDeleteDialog

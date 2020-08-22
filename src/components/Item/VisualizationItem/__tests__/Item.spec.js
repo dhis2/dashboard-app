@@ -1,17 +1,14 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import VisualizationPlugin from '@dhis2/data-visualizer-plugin';
-import {
-    CHART,
-    REPORT_TABLE,
-    EVENT_CHART,
-} from '../../../../modules/itemTypes';
-import { Item } from '../Item';
-import DefaultPlugin from '../DefaultPlugin';
+import React from 'react'
+import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
+import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
+import { CHART, REPORT_TABLE, EVENT_CHART } from '../../../../modules/itemTypes'
+import { Item } from '../Item'
+import DefaultPlugin from '../DefaultPlugin'
 
-jest.mock('@dhis2/data-visualizer-plugin', () => () => <div />); // eslint-disable-line react/display-name
-jest.mock('../DefaultPlugin', () => () => <div />); // eslint-disable-line react/display-name
-jest.mock('../ItemFooter', () => () => <div />); // eslint-disable-line react/display-name
+jest.mock('@dhis2/data-visualizer-plugin', () => () => <div />) // eslint-disable-line react/display-name
+jest.mock('../DefaultPlugin', () => () => <div />) // eslint-disable-line react/display-name
+jest.mock('../ItemFooter', () => () => <div />) // eslint-disable-line react/display-name
 jest.mock('../plugin', () => {
     return {
         getLink: jest.fn(),
@@ -20,21 +17,21 @@ jest.mock('../plugin', () => {
         getName: () => 'rainbow',
         fetch: () => {},
         getVisualizationConfig: visualization => visualization,
-    };
-});
+    }
+})
 
-const mockHeaderRef = { clientHeight: 50 };
+const mockHeaderRef = { clientHeight: 50 }
 
 describe('VisualizationItem/Item', () => {
-    let props;
-    let shallowItem;
+    let props
+    let shallowItem
 
     const canvas = () => {
         if (!shallowItem) {
-            shallowItem = shallow(<Item {...props} />, { context: { d2: {} } });
+            shallowItem = shallow(<Item {...props} />, { context: { d2: {} } })
         }
-        return shallowItem;
-    };
+        return shallowItem
+    }
 
     beforeEach(() => {
         props = {
@@ -54,16 +51,16 @@ describe('VisualizationItem/Item', () => {
             },
             onToggleItemExpanded: jest.fn(),
             onVisualizationLoaded: jest.fn(),
-        };
-        shallowItem = undefined;
-    });
+        }
+        shallowItem = undefined
+    })
 
     it('renders a VisualizationPlugin when a CHART is passed', () => {
-        props.item.type = CHART;
+        props.item.type = CHART
         props.item.chart = {
             id: 'chart1',
             name: 'Test chart',
-        };
+        }
 
         const expectedConfig = {
             ...props.visualization,
@@ -73,26 +70,26 @@ describe('VisualizationItem/Item', () => {
                     items: props.itemFilters.brilliance,
                 },
             ],
-        };
+        }
 
-        const component = canvas();
+        const component = canvas()
 
-        component.instance().headerRef.current = mockHeaderRef;
+        component.instance().headerRef.current = mockHeaderRef
 
-        component.setState({ configLoaded: true });
+        component.setState({ configLoaded: true })
 
-        const visPlugin = component.find(VisualizationPlugin);
+        const visPlugin = component.find(VisualizationPlugin)
 
-        expect(visPlugin.exists()).toBeTruthy();
-        expect(visPlugin.prop('visualization')).toEqual(expectedConfig);
-    });
+        expect(visPlugin.exists()).toBeTruthy()
+        expect(visPlugin.prop('visualization')).toEqual(expectedConfig)
+    })
 
     it('renders a VisualizationPlugin when a REPORT_TABLE is passed', () => {
-        props.item.type = REPORT_TABLE;
+        props.item.type = REPORT_TABLE
         props.item.reportTable = {
             id: 'table1',
             name: 'Test table',
-        };
+        }
 
         const expectedConfig = {
             ...props.visualization,
@@ -102,25 +99,25 @@ describe('VisualizationItem/Item', () => {
                     items: props.itemFilters.brilliance,
                 },
             ],
-        };
+        }
 
-        const component = canvas();
-        component.instance().headerRef.current = mockHeaderRef;
+        const component = canvas()
+        component.instance().headerRef.current = mockHeaderRef
 
-        component.setState({ configLoaded: true });
+        component.setState({ configLoaded: true })
 
-        const visPlugin = component.find(VisualizationPlugin);
+        const visPlugin = component.find(VisualizationPlugin)
 
-        expect(visPlugin.exists()).toBeTruthy();
-        expect(visPlugin.prop('visualization')).toEqual(expectedConfig);
-    });
+        expect(visPlugin.exists()).toBeTruthy()
+        expect(visPlugin.prop('visualization')).toEqual(expectedConfig)
+    })
 
     it('renders a DefaultPlugin when an EVENT_CHART is passed', () => {
-        props.item.type = EVENT_CHART;
+        props.item.type = EVENT_CHART
         props.item.eventChart = {
             id: 'evchart1',
             name: 'Test evchart',
-        };
+        }
         const expectedConfig = {
             ...props.visualization,
             filters: [
@@ -129,18 +126,18 @@ describe('VisualizationItem/Item', () => {
                     items: props.itemFilters.brilliance,
                 },
             ],
-        };
+        }
 
-        expect(canvas()).toMatchSnapshot();
+        expect(toJson(canvas())).toMatchSnapshot()
 
-        const component = canvas();
-        component.instance().headerRef.current = mockHeaderRef;
+        const component = canvas()
+        component.instance().headerRef.current = mockHeaderRef
 
-        component.setState({ configLoaded: true });
+        component.setState({ configLoaded: true })
 
-        const defaultPlugin = canvas().find(DefaultPlugin);
+        const defaultPlugin = canvas().find(DefaultPlugin)
 
-        expect(defaultPlugin.exists()).toBeTruthy();
-        expect(defaultPlugin.prop('visualization')).toEqual(expectedConfig);
-    });
-});
+        expect(defaultPlugin.exists()).toBeTruthy()
+        expect(defaultPlugin.prop('visualization')).toEqual(expectedConfig)
+    })
+})

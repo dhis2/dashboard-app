@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { MenuItem, colors } from '@dhis2/ui';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { MenuItem, colors } from '@dhis2/ui'
 
 const HeaderMenuItem = ({ title }) => (
     <MenuItem
@@ -13,10 +13,10 @@ const HeaderMenuItem = ({ title }) => (
             </span>
         }
     />
-);
+)
 
 HeaderMenuItem.propTypes = {
     title: PropTypes.string.isRequired,
-};
+}
 
-export default HeaderMenuItem;
+export default HeaderMenuItem

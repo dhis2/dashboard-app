@@ -1,14 +1,14 @@
-import { orObject } from '../modules/util';
-import objectClean from 'd2-utilizr/lib/objectClean';
+import { orObject } from '../modules/util'
+import objectClean from 'd2-utilizr/lib/objectClean'
 
 /** @module reducers/visualizations */
 
-export const ADD_VISUALIZATION = 'ADD_VISUALIZATION';
-export const SET_ACTIVE_VISUALIZATION_TYPE = 'SET_ACTIVE_VISUALIZATION_TYPE';
+export const ADD_VISUALIZATION = 'ADD_VISUALIZATION'
+export const SET_ACTIVE_VISUALIZATION_TYPE = 'SET_ACTIVE_VISUALIZATION_TYPE'
 
-export const DEFAULT_STATE_VISUALIZATIONS = {};
+export const DEFAULT_STATE_VISUALIZATIONS = {}
 
-const isEmpty = p => p === undefined || p === null;
+const isEmpty = p => p === undefined || p === null
 
 export default (state = DEFAULT_STATE_VISUALIZATIONS, action) => {
     switch (action.type) {
@@ -22,7 +22,7 @@ export default (state = DEFAULT_STATE_VISUALIZATIONS, action) => {
                     },
                     isEmpty
                 ),
-            };
+            }
         }
         case SET_ACTIVE_VISUALIZATION_TYPE: {
             return {
@@ -34,17 +34,17 @@ export default (state = DEFAULT_STATE_VISUALIZATIONS, action) => {
                     },
                     isEmpty
                 ),
-            };
+            }
         }
         default:
-            return state;
+            return state
     }
-};
+}
 
 // root selector
-export const sGetVisualizationsRoot = state => state.visualizations;
+export const sGetVisualizationsRoot = state => state.visualizations
 
 // selectors level 1
 export const sGetVisualization = (state, id) => {
-    return sGetVisualizationsRoot(state)[id];
-};
+    return sGetVisualizationsRoot(state)[id]
+}

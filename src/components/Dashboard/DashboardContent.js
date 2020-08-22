@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import TitleBar from '../TitleBar/TitleBar';
-import ItemGrid from '../ItemGrid/ItemGrid';
-import FilterBar from '../FilterBar/FilterBar';
+import React from 'react'
+import PropTypes from 'prop-types'
+import TitleBar from '../TitleBar/TitleBar'
+import ItemGrid from '../ItemGrid/ItemGrid'
+import FilterBar from '../FilterBar/FilterBar'
 
 export const DashboardContent = props => (
     <>
@@ -10,10 +10,10 @@ export const DashboardContent = props => (
         <FilterBar />
         <ItemGrid edit={props.editMode} />
     </>
-);
+)
 
 DashboardContent.propTypes = {
     editMode: PropTypes.bool,
-};
+}
 
-export default DashboardContent;
+export default DashboardContent
