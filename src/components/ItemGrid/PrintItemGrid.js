@@ -40,7 +40,7 @@ export class PrintItemGrid extends Component {
         if (item.type === PAGEBREAK) {
             item.h = 3
         } else {
-            item.h = 37
+            item.h = 35
         }
 
         return (

@@ -4,7 +4,7 @@ header.printMode {
 
 @media print {
     .PAGEBREAK {
-        display: none !important;
+        visibility: hidden;
     }
 }
 
