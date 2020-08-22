@@ -7,7 +7,7 @@ import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
 import App from './components/App'
 import configureStore from './configureStore'
 
-import './index.css'
+import './AppWrapper.css'
 import './locales'
 
 const muiTheme = () => createMuiTheme(dhis2theme)
