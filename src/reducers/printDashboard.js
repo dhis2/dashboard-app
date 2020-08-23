@@ -1,11 +1,12 @@
 /** @module reducers/editDashboard */
 import update from 'immutability-helper'
 import isEmpty from 'lodash/isEmpty'
-import { orObject } from '../modules/util'
+import { orArray, orObject } from '../modules/util'
 
 export const SET_PRINT_DASHBOARD = 'SET_PRINT_DASHBOARD'
 export const CLEAR_PRINT_DASHBOARD = 'CLEAR_PRINT_DASHBOARD'
 export const ADD_PRINT_DASHBOARD_ITEM = 'ADD_PRINT_DASHBOARD_ITEM'
+export const SET_PRINT_DASHBOARD_LAYOUT = 'SET_PRINT_DASHBOARD_LAYOUT'
 export const REMOVE_PRINT_DASHBOARD_ITEM = 'REMOVE_PRINT_DASHBOARD_ITEM'
 export const UPDATE_PRINT_DASHBOARD_ITEM = 'UPDATE_PRINT_DASHBOARD_ITEM'
 
@@ -85,6 +86,35 @@ export default (state = DEFAULT_STATE_PRINT_DASHBOARD, action) => {
             }
 
             return state
+        }
+        case SET_PRINT_DASHBOARD_LAYOUT: {
+            const stateItems = orArray(state.dashboardItems)
+            let layoutHasChanged = false
+
+            const newStateItems = action.value.map(({ x, y, w, h, i }) => {
+                const stateItem = stateItems.find(si => si.id === i)
+
+                if (
+                    !(
+                        stateItem.x === x &&
+                        stateItem.y === y &&
+                        stateItem.w === w &&
+                        stateItem.h === h
+                    )
+                ) {
+                    layoutHasChanged = true
+                    return Object.assign({}, stateItem, { w, h, x, y })
+                }
+
+                return stateItem
+            })
+
+            return layoutHasChanged
+                ? {
+                      ...state,
+                      dashboardItems: newStateItems,
+                  }
+                : state
         }
         default:
             return state

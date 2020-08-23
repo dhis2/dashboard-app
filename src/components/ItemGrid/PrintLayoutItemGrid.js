@@ -7,6 +7,8 @@ import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import sortBy from 'lodash/sortBy'
 
 import { Item } from '../Item/Item'
+
+import { acUpdatePrintDashboardLayout } from '../../actions/printDashboard'
 import {
     GRID_ROW_HEIGHT,
     GRID_COMPACT_TYPE,
@@ -35,6 +37,9 @@ import {
 export const ITEM_CONTENT_PADDING_BOTTOM = 4
 
 export class PrintLayoutItemGrid extends Component {
+    onLayoutChange = newLayout => {
+        this.props.updateDashboardLayout(newLayout)
+    }
     getItemComponent = item => {
         const itemClassNames = [item.type, 'print', 'layout'].join(' ')
 
@@ -153,6 +158,7 @@ export class PrintLayoutItemGrid extends Component {
                     </Layer>
                 ) : null}
                 <ReactGridLayout
+                    onLayoutChange={this.onLayoutChange}
                     className="layout"
                     layout={dashboardItems}
                     margin={MARGIN}
@@ -174,6 +180,7 @@ export class PrintLayoutItemGrid extends Component {
 PrintLayoutItemGrid.propTypes = {
     dashboardItems: PropTypes.array,
     isLoading: PropTypes.bool,
+    updateDashboardLayout: PropTypes.func,
 }
 
 PrintLayoutItemGrid.defaultProps = {
@@ -191,4 +198,6 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(PrintLayoutItemGrid)
+export default connect(mapStateToProps, {
+    updateDashboardLayout: acUpdatePrintDashboardLayout,
+})(PrintLayoutItemGrid)

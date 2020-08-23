@@ -3,6 +3,7 @@ import { generateUid } from 'd2/uid'
 import {
     SET_PRINT_DASHBOARD,
     CLEAR_PRINT_DASHBOARD,
+    SET_PRINT_DASHBOARD_LAYOUT,
     ADD_PRINT_DASHBOARD_ITEM,
     REMOVE_PRINT_DASHBOARD_ITEM,
     UPDATE_PRINT_DASHBOARD_ITEM,
@@ -31,6 +32,11 @@ export const acSetPrintDashboard = (dashboard, items) => {
 
 export const acClearPrintDashboard = () => ({
     type: CLEAR_PRINT_DASHBOARD,
+})
+
+export const acUpdatePrintDashboardLayout = value => ({
+    type: SET_PRINT_DASHBOARD_LAYOUT,
+    value,
 })
 
 export const acAddPrintDashboardItem = item => {
