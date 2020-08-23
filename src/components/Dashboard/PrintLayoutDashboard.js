@@ -91,12 +91,13 @@ export class PrintLayoutDashboard extends Component {
     }
 
     render() {
+        const style = this.props.fromEdit ? { marginTop: '100px' } : {}
         return (
             <>
                 {!this.props.fromEdit && (
                     <PrintActionsBar id={this.props.dashboard.id} />
                 )}
-                <div className={classes.wrapper}>
+                <div className={classes.wrapper} style={style}>
                     {!this.props.fromEdit && (
                         <PrintInfo type={i18n.t('dashboard layout')} />
                     )}
