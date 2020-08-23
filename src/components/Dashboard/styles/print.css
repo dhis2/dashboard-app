@@ -2,12 +2,6 @@ header.printMode {
     display: none;
 }
 
-@media print {
-    .PAGEBREAK {
-        visibility: hidden;
-    }
-}
-
 .react-grid-item.print {
     display: flex;
     flex-direction: column;

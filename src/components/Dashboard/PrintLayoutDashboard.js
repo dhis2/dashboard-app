@@ -32,7 +32,7 @@ const addPageBreaks = ({ items, addDashboardItem }) => {
     const yPosList = []
     for (let i = 0; i < items.length; ++i) {
         if (i === 0) {
-            yPos += 34
+            yPos += 35
         } else if (i === 4 || i === 10) {
             yPos += 40
         } else if (isEven(i)) {
@@ -61,6 +61,7 @@ export class PrintLayoutDashboard extends Component {
                 if (item.h > 34) {
                     item.h = 34
                 }
+
                 return item
             })
 

@@ -1,3 +1,9 @@
+@media print {
+    .react-grid-item.layout.PAGEBREAK {
+        display: none !important;
+    }
+}
+
 .react-grid-item.layout.PAGEBREAK {
     margin-left: -23px;
     min-height: 50px !important;

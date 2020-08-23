@@ -3,8 +3,9 @@
         display: block !important;
     }
 
-    .react-grid-item.PAGEBREAK {
+    .react-grid-item.oipp.PAGEBREAK {
         height: 20px !important;
+        visibility: hidden;
     }
 
     .react-grid-item.oipp:not(.PAGEBREAK) {
