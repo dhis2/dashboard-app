@@ -3,17 +3,19 @@ import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
+import DashboardVerticalOffset from './DashboardVerticalOffset'
+import TitleBar from '../TitleBar/TitleBar'
+import ItemGrid from '../ItemGrid/ItemGrid'
+import EditBar from '../ControlBar/EditBar'
+import PrintLayoutDashboard from './PrintLayoutDashboard'
+import NoContentMessage from '../../widgets/NoContentMessage'
 import { acSetEditDashboard } from '../../actions/editDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
 import {
     sGetDashboardById,
     sGetDashboardItems,
 } from '../../reducers/dashboards'
-import DashboardVerticalOffset from './DashboardVerticalOffset'
-import TitleBar from '../TitleBar/TitleBar'
-import ItemGrid from '../ItemGrid/ItemGrid'
-import EditBar from '../ControlBar/EditBar'
-import NoContentMessage from '../../widgets/NoContentMessage'
+import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
 
 export class EditDashboard extends Component {
     state = {
@@ -36,21 +38,31 @@ export class EditDashboard extends Component {
             this.initEditDashboard()
         }
     }
+
+    renderGrid = () => {
+        if (!this.props.isPrintPreviewView) {
+            return (
+                <>
+                    <TitleBar edit={true} />
+                    <ItemGrid edit={true} />
+                </>
+            )
+        } else {
+            return <PrintLayoutDashboard fromEdit={true} />
+        }
+    }
+
     render() {
         return (
             <>
                 <EditBar />
                 <DashboardVerticalOffset editMode={true} />
-                <div className="dashboard-wrapper">
-                    {this.props.updateAccess ? (
-                        <>
-                            <TitleBar edit={true} />
-                            <ItemGrid edit={true} />
-                        </>
-                    ) : (
-                        <NoContentMessage text={i18n.t('No access')} />
-                    )}
-                </div>
+                {this.props.updateAccess ? (
+                    this.renderGrid()
+                ) : (
+                    <NoContentMessage text={i18n.t('No access')} />
+                )}
+                <div className="dashboard-wrapper">{}</div>
             </>
         )
     }
@@ -58,6 +70,7 @@ export class EditDashboard extends Component {
 
 EditDashboard.propTypes = {
     dashboard: PropTypes.object,
+    isPrintPreviewView: PropTypes.bool,
     items: PropTypes.array,
     setEditDashboard: PropTypes.func,
     updateAccess: PropTypes.bool,
@@ -74,6 +87,7 @@ const mapStateToProps = state => {
         dashboard,
         updateAccess,
         items: sGetDashboardItems(state),
+        isPrintPreviewView: sGetIsPrintPreviewView(state),
     }
 }
 

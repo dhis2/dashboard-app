@@ -107,7 +107,12 @@ export class PrintLayoutItemGrid extends Component {
 
         if (maxHeight < lastItemBottom) {
             // there is a problem - this should not happen
-            console.log('jj PROBLEM! items extend beyond page bottom')
+            console.log(
+                'jj PROBLEM! items extend beyond page bottom',
+                maxHeight,
+                '<',
+                lastItemBottom
+            )
         }
         if (gridElement) {
             gridElement.style.height = `${maxHeight}px`

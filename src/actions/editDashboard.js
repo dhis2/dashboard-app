@@ -10,6 +10,8 @@ import {
     ADD_DASHBOARD_ITEM,
     UPDATE_DASHBOARD_ITEM,
     REMOVE_DASHBOARD_ITEM,
+    SET_PRINT_PREVIEW_VIEW,
+    CLEAR_PRINT_PREVIEW_VIEW,
 } from '../reducers/editDashboard'
 import { sGetEditDashboardRoot } from '../reducers/editDashboard'
 import { updateDashboard, postDashboard } from '../api/editDashboard'
@@ -48,6 +50,14 @@ export const acSetEditNewDashboard = () => ({
 
 export const acClearEditDashboard = () => ({
     type: RECEIVED_NOT_EDITING,
+})
+
+export const acSetPrintPreviewView = () => ({
+    type: SET_PRINT_PREVIEW_VIEW,
+})
+
+export const acClearPrintPreviewView = () => ({
+    type: CLEAR_PRINT_PREVIEW_VIEW,
 })
 
 export const acSetDashboardTitle = value => ({

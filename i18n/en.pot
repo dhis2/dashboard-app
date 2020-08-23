@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-08-19T19:19:03.495Z\n"
-"PO-Revision-Date: 2020-08-19T19:19:03.495Z\n"
+"POT-Creation-Date: 2020-08-23T14:23:56.323Z\n"
+"PO-Revision-Date: 2020-08-23T14:23:56.323Z\n"
 
 msgid "Cancel"
 msgstr ""
@@ -23,16 +23,19 @@ msgid ""
 "this dashboard?"
 msgstr ""
 
+msgid "Save changes"
+msgstr ""
+
+msgid "Print preview"
+msgstr ""
+
+msgid "Translate"
+msgstr ""
+
 msgid "Exit without saving"
 msgstr ""
 
 msgid "Go to dashboards"
-msgstr ""
-
-msgid "Save changes"
-msgstr ""
-
-msgid "Translate"
 msgstr ""
 
 msgid "Search for a dashboard"

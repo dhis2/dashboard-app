@@ -13,6 +13,10 @@ import {
 } from '../../actions/printDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
 import {
+    sGetEditDashboardRoot,
+    sGetEditDashboardItems,
+} from '../../reducers/editDashboard'
+import {
     sGetDashboardById,
     sGetDashboardItems,
 } from '../../reducers/dashboards'
@@ -69,7 +73,10 @@ export class PrintLayoutDashboard extends Component {
             })
 
             addPageBreaks(this.props)
-            this.props.addDashboardItem({ type: PRINT_TITLE_PAGE })
+
+            if (!this.props.fromEdit) {
+                this.props.addDashboardItem({ type: PRINT_TITLE_PAGE })
+            }
         }
     }
 
@@ -86,9 +93,13 @@ export class PrintLayoutDashboard extends Component {
     render() {
         return (
             <>
-                <PrintActionsBar id={this.props.dashboard.id} />
+                {!this.props.fromEdit && (
+                    <PrintActionsBar id={this.props.dashboard.id} />
+                )}
                 <div className={classes.wrapper}>
-                    <PrintInfo type={i18n.t('dashboard layout')} />
+                    {!this.props.fromEdit && (
+                        <PrintInfo type={i18n.t('dashboard layout')} />
+                    )}
                     <div
                         className={classes.pageOuter}
                         style={{ width: a4LandscapeWidthPx }}
@@ -104,13 +115,25 @@ export class PrintLayoutDashboard extends Component {
 PrintLayoutDashboard.propTypes = {
     addDashboardItem: PropTypes.func,
     dashboard: PropTypes.object,
+    fromEdit: PropTypes.bool,
     items: PropTypes.array,
     setPrintDashboard: PropTypes.func,
     updateDashboardItem: PropTypes.func,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     const id = sGetSelectedId(state)
+
+    if (ownProps.fromEdit) {
+        const dashboard = sGetEditDashboardRoot(state)
+
+        return {
+            dashboard,
+            id,
+            items: sGetEditDashboardItems(state),
+        }
+    }
+
     const dashboard = id ? sGetDashboardById(state, id) : null
 
     return {

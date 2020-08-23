@@ -12,6 +12,8 @@ export const ADD_DASHBOARD_ITEM = 'ADD_DASHBOARD_ITEM'
 export const REMOVE_DASHBOARD_ITEM = 'REMOVE_DASHBOARD_ITEM'
 export const UPDATE_DASHBOARD_ITEM = 'UPDATE_DASHBOARD_ITEM'
 export const RECEIVED_DASHBOARD_LAYOUT = 'RECEIVED_DASHBOARD_LAYOUT'
+export const SET_PRINT_PREVIEW_VIEW = 'SET_PRINT_PREVIEW_VIEW'
+export const CLEAR_PRINT_PREVIEW_VIEW = 'CLEAR_PRINT_PREVIEW_VIEW'
 
 export const DEFAULT_STATE_EDIT_DASHBOARD = {}
 export const NEW_DASHBOARD_STATE = {
@@ -20,6 +22,7 @@ export const NEW_DASHBOARD_STATE = {
     access: {},
     description: '',
     dashboardItems: [],
+    printPreviewView: false,
 }
 
 export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
@@ -29,10 +32,15 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
             Object.keys(NEW_DASHBOARD_STATE).map(
                 k => (newState[k] = action.value[k])
             )
+            newState.printPreviewView = false
             return newState
         }
         case RECEIVED_NOT_EDITING:
             return DEFAULT_STATE_EDIT_DASHBOARD
+        case SET_PRINT_PREVIEW_VIEW:
+            return Object.assign({}, state, { printPreviewView: true })
+        case CLEAR_PRINT_PREVIEW_VIEW:
+            return Object.assign({}, state, { printPreviewView: false })
         case START_NEW_DASHBOARD:
             return NEW_DASHBOARD_STATE
         case RECEIVED_TITLE: {
@@ -142,11 +150,18 @@ export const sGetEditDashboardRoot = state => state.editDashboard
 
 export const sGetIsEditing = state => !isEmpty(state.editDashboard)
 
+export const sGetIsPrintPreviewView = state =>
+    sGetEditDashboardRoot(state).printPreviewView
+
 export const sGetIsNewDashboard = state => {
     return (
         !isEmpty(state.editDashboard) && sGetEditDashboardRoot(state).id === ''
     )
 }
+
+export const sGetEditDashboardName = state => sGetEditDashboardRoot(state).name
+export const sGetEditDashboardDescription = state =>
+    sGetEditDashboardRoot(state).description
 
 export const sGetEditDashboardItems = state =>
     orObject(sGetEditDashboardRoot(state)).dashboardItems
