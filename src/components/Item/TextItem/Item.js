@@ -14,6 +14,10 @@ import {
 import { acUpdateDashboardItem } from '../../../actions/editDashboard'
 import { sGetEditDashboardItems } from '../../../reducers/editDashboard'
 import { sGetDashboardItems } from '../../../reducers/dashboards'
+import {
+    sGetIsPrinting,
+    sGetPrintDashboardItems,
+} from '../../../reducers/printDashboard'
 import { isEditMode } from '../../Dashboard/dashboardModes'
 
 const style = {
@@ -86,9 +90,15 @@ const TextItem = props => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const items = isEditMode(ownProps.dashboardMode)
-        ? sGetEditDashboardItems(state)
-        : sGetDashboardItems(state)
+    const isPrintPreview = sGetIsPrinting(state)
+    let items
+    if (isPrintPreview) {
+        items = sGetPrintDashboardItems(state)
+    } else if (isEditMode(ownProps.dashboardMode)) {
+        items = sGetEditDashboardItems(state)
+    } else {
+        items = sGetDashboardItems(state)
+    }
 
     const item = items.find(item => item.id === ownProps.item.id)
 
