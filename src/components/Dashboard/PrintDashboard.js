@@ -7,10 +7,10 @@ import PrintInfo from './PrintInfo'
 import PrintActionsBar from './PrintActionsBar'
 import PrintItemGrid from '../ItemGrid/PrintItemGrid'
 import {
-    acSetEditDashboard,
-    acAddDashboardItem,
-    acRemoveDashboardItem,
-} from '../../actions/editDashboard'
+    acSetPrintDashboard,
+    acAddPrintDashboardItem,
+    acRemovePrintDashboardItem,
+} from '../../actions/printDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
 import {
     sGetDashboardById,
@@ -35,7 +35,7 @@ export class PrintDashboard extends Component {
     initPrintDashboard = () => {
         if (this.props.dashboard) {
             this.setState({ initialized: true })
-            this.props.setEditDashboard(this.props.dashboard, this.props.items)
+            this.props.setPrintDashboard(this.props.dashboard, this.props.items)
 
             //sorting the items is so that the print, with one item per page
             //prints in the order of top to bottom of the dashboard
@@ -99,7 +99,7 @@ PrintDashboard.propTypes = {
     dashboard: PropTypes.object,
     items: PropTypes.array,
     removeDashboardItem: PropTypes.func,
-    setEditDashboard: PropTypes.func,
+    setPrintDashboard: PropTypes.func,
 }
 
 const mapStateToProps = state => {
@@ -114,7 +114,7 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
-    setEditDashboard: acSetEditDashboard,
-    addDashboardItem: acAddDashboardItem,
-    removeDashboardItem: acRemoveDashboardItem,
+    setPrintDashboard: acSetPrintDashboard,
+    addDashboardItem: acAddPrintDashboardItem,
+    removeDashboardItem: acRemovePrintDashboardItem,
 })(PrintDashboard)

@@ -12,6 +12,7 @@ import dashboardsFilter, {
 import controlBar from './controlBar'
 import visualizations from './visualizations'
 import editDashboard from './editDashboard'
+import printDashboard from './printDashboard'
 import messages from './messages'
 import user from './user'
 import snackbar from './snackbar'
@@ -34,6 +35,7 @@ export default combineReducers({
     messages,
     user,
     editDashboard,
+    printDashboard,
     itemFilters,
     style,
     snackbar,

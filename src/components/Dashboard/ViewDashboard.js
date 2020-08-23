@@ -8,14 +8,18 @@ import FilterBar from '../FilterBar/FilterBar'
 import DashboardsBar from '../ControlBar/DashboardsBar'
 import DashboardVerticalOffset from './DashboardVerticalOffset'
 import { sGetIsEditing } from '../../reducers/editDashboard'
+import { sGetIsPrinting } from '../../reducers/printDashboard'
 import { acClearEditDashboard } from '../../actions/editDashboard'
+import { acClearPrintDashboard } from '../../actions/printDashboard'
 
-export const ViewDashboard = ({ dashboardIsEditing, clearEditDashboard }) => {
+export const ViewDashboard = props => {
     useEffect(() => {
-        if (dashboardIsEditing) {
-            clearEditDashboard()
+        if (props.dashboardIsEditing) {
+            props.clearEditDashboard()
+        } else if (props.dashboardIsPrinting) {
+            props.clearPrintDashboard()
         }
-    }, [dashboardIsEditing])
+    }, [props.dashboardIsEditing, props.dashboardIsPrinting])
 
     return (
         <>
@@ -32,15 +36,19 @@ export const ViewDashboard = ({ dashboardIsEditing, clearEditDashboard }) => {
 
 ViewDashboard.propTypes = {
     clearEditDashboard: PropTypes.func,
+    clearPrintDashboard: PropTypes.func,
     dashboardIsEditing: PropTypes.bool,
+    dashboardIsPrinting: PropTypes.bool,
 }
 
 const mapStateToProps = state => {
     return {
         dashboardIsEditing: sGetIsEditing(state),
+        dashboardIsPrinting: sGetIsPrinting(state),
     }
 }
 
 export default connect(mapStateToProps, {
     clearEditDashboard: acClearEditDashboard,
+    clearPrintDashboard: acClearPrintDashboard,
 })(ViewDashboard)

@@ -6,7 +6,6 @@ import ReactGridLayout from 'react-grid-layout'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import sortBy from 'lodash/sortBy'
 
-import { acUpdateDashboardLayout } from '../../actions/editDashboard'
 import { Item } from '../Item/Item'
 import {
     GRID_ROW_HEIGHT,
@@ -28,18 +27,14 @@ import 'react-resizable/css/styles.css'
 import './ItemGrid.css'
 import { sGetSelectedIsLoading } from '../../reducers/selected'
 import {
-    sGetEditDashboardRoot,
-    sGetEditDashboardItems,
-} from '../../reducers/editDashboard'
+    sGetPrintDashboardRoot,
+    sGetPrintDashboardItems,
+} from '../../reducers/printDashboard'
 
 // this is set in the .dashboard-item-content css
 export const ITEM_CONTENT_PADDING_BOTTOM = 4
 
 export class PrintLayoutItemGrid extends Component {
-    onLayoutChange = newLayout => {
-        this.props.acUpdateDashboardLayout(newLayout)
-    }
-
     getItemComponent = item => {
         const itemClassNames = [item.type, 'print', 'layout'].join(' ')
 
@@ -153,7 +148,6 @@ export class PrintLayoutItemGrid extends Component {
                     </Layer>
                 ) : null}
                 <ReactGridLayout
-                    onLayoutChange={this.onLayoutChange}
                     className="layout"
                     layout={dashboardItems}
                     margin={MARGIN}
@@ -173,7 +167,6 @@ export class PrintLayoutItemGrid extends Component {
 }
 
 PrintLayoutItemGrid.propTypes = {
-    acUpdateDashboardLayout: PropTypes.func,
     dashboardItems: PropTypes.array,
     isLoading: PropTypes.bool,
 }
@@ -183,16 +176,14 @@ PrintLayoutItemGrid.defaultProps = {
 }
 
 const mapStateToProps = state => {
-    const selectedDashboard = sGetEditDashboardRoot(state)
+    const selectedDashboard = sGetPrintDashboardRoot(state)
 
     return {
         isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
-        dashboardItems: orArray(sGetEditDashboardItems(state)).filter(hasShape),
+        dashboardItems: orArray(sGetPrintDashboardItems(state)).filter(
+            hasShape
+        ),
     }
 }
 
-const mapDispatchToProps = {
-    acUpdateDashboardLayout,
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PrintLayoutItemGrid)
+export default connect(mapStateToProps)(PrintLayoutItemGrid)

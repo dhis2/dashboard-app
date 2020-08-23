@@ -11,9 +11,9 @@ import NoContentMessage from '../../widgets/NoContentMessage'
 import { PRINT } from '../Dashboard/dashboardModes'
 import { sGetSelectedIsLoading } from '../../reducers/selected'
 import {
-    sGetEditDashboardRoot,
-    sGetEditDashboardItems,
-} from '../../reducers/editDashboard'
+    sGetPrintDashboardRoot,
+    sGetPrintDashboardItems,
+} from '../../reducers/printDashboard'
 
 import {
     GRID_ROW_HEIGHT,
@@ -106,11 +106,13 @@ PrintItemGrid.defaultProps = {
 }
 
 const mapStateToProps = state => {
-    const selectedDashboard = sGetEditDashboardRoot(state)
+    const selectedDashboard = sGetPrintDashboardRoot(state)
 
     return {
         isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
-        dashboardItems: orArray(sGetEditDashboardItems(state)).filter(hasShape),
+        dashboardItems: orArray(sGetPrintDashboardItems(state)).filter(
+            hasShape
+        ),
     }
 }
 
