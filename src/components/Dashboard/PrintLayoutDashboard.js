@@ -9,6 +9,7 @@ import PrintLayoutItemGrid from '../ItemGrid/PrintLayoutItemGrid'
 import {
     acSetPrintDashboard,
     acAddPrintDashboardItem,
+    acUpdatePrintDashboardItem,
 } from '../../actions/printDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
 import {
@@ -57,15 +58,15 @@ export class PrintLayoutDashboard extends Component {
         if (this.props.dashboard) {
             this.setState({ initialized: true })
 
-            const items = this.props.items.map(item => {
+            this.props.setPrintDashboard(this.props.dashboard, this.props.items)
+
+            this.props.items.forEach(item => {
                 if (item.h > 34) {
-                    item.h = 34
+                    this.props.updateDashboardItem(
+                        Object.assign({}, item, { h: 34 })
+                    )
                 }
-
-                return item
             })
-
-            this.props.setPrintDashboard(this.props.dashboard, items)
 
             addPageBreaks(this.props)
             this.props.addDashboardItem({ type: PRINT_TITLE_PAGE })
@@ -105,6 +106,7 @@ PrintLayoutDashboard.propTypes = {
     dashboard: PropTypes.object,
     items: PropTypes.array,
     setPrintDashboard: PropTypes.func,
+    updateDashboardItem: PropTypes.func,
 }
 
 const mapStateToProps = state => {
@@ -121,4 +123,5 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
     setPrintDashboard: acSetPrintDashboard,
     addDashboardItem: acAddPrintDashboardItem,
+    updateDashboardItem: acUpdatePrintDashboardItem,
 })(PrintLayoutDashboard)

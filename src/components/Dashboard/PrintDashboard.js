@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
+import sortBy from 'lodash/sortBy'
 
 import PrintInfo from './PrintInfo'
 import PrintActionsBar from './PrintActionsBar'
@@ -17,10 +18,7 @@ import {
     sGetDashboardItems,
 } from '../../reducers/dashboards'
 import { PAGEBREAK, PRINT_TITLE_PAGE, SPACER } from '../../modules/itemTypes'
-import {
-    a4LandscapeWidthPx,
-    sortItemsByYPosition,
-} from '../../modules/printUtils'
+import { a4LandscapeWidthPx } from '../../modules/printUtils'
 
 import classes from './PrintDashboard.module.css'
 
@@ -35,12 +33,12 @@ export class PrintDashboard extends Component {
     initPrintDashboard = () => {
         if (this.props.dashboard) {
             this.setState({ initialized: true })
-            this.props.setPrintDashboard(this.props.dashboard, this.props.items)
 
             //sorting the items is so that the print, with one item per page
             //prints in the order of top to bottom of the dashboard
+            const sortedItems = sortBy(this.props.items, ['y', 'x'])
 
-            sortItemsByYPosition(this.props.items)
+            this.props.setPrintDashboard(this.props.dashboard, sortedItems)
 
             let spacerCount = 0
             this.props.items.forEach(item => {
