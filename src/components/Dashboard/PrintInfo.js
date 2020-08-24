@@ -6,7 +6,7 @@ import { a4LandscapeWidthPx } from '../../modules/printUtils'
 import classes from './PrintInfo.module.css'
 
 const PrintInfo = ({ isLayout }) => {
-    const width =
+    const maxWidth =
         a4LandscapeWidthPx < window.innerWidth
             ? a4LandscapeWidthPx
             : window.innerWidth
@@ -20,7 +20,7 @@ const PrintInfo = ({ isLayout }) => {
           )
 
     const infoPartTwo = i18n.t(
-        'Use the default printer settings for best results. This text will not be printed.'
+        'Use the default printer settings for best results and check that all dashboard items have finished loading before printing. This text will not be printed.'
     )
 
     const infoHeader = isLayout
@@ -28,11 +28,15 @@ const PrintInfo = ({ isLayout }) => {
         : i18n.t('one item per page')
 
     return (
-        <div className={classes.infoWrapper} style={{ width }}>
+        <div className={classes.infoWrapper}>
             <p className={classes.infoHeader}>
                 {`${i18n.t('Print Preview')}: ${infoHeader}`}
             </p>
-            <p className={classes.info}>{`${infoPartOne} ${infoPartTwo}`}</p>
+            <div style={{ maxWidth }}>
+                <p
+                    className={classes.info}
+                >{`${infoPartOne} ${infoPartTwo}`}</p>
+            </div>
             <hr className={classes.divider} />
         </div>
     )
