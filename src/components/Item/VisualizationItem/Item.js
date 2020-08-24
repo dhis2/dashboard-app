@@ -14,7 +14,10 @@ import LoadingMask from './LoadingMask'
 
 import * as pluginManager from './plugin'
 import { sGetVisualization } from '../../../reducers/visualizations'
-import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
+import {
+    sGetItemFiltersRoot,
+    DEFAULT_STATE_ITEM_FILTERS,
+} from '../../../reducers/itemFilters'
 import {
     acAddVisualization,
     acSetActiveVisualizationType,
@@ -346,7 +349,7 @@ Item.defaultProps = {
 const mapStateToProps = (state, ownProps) => {
     const itemFilters = !isEditMode(ownProps.dashboardMode)
         ? sGetItemFiltersRoot(state)
-        : {}
+        : DEFAULT_STATE_ITEM_FILTERS
 
     return {
         itemFilters,

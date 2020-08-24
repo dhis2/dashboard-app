@@ -4,7 +4,10 @@ import { connect } from 'react-redux'
 import NotInterestedIcon from '@material-ui/icons/NotInterested'
 
 import { FILTER_ORG_UNIT } from '../../../actions/itemFilters'
-import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
+import {
+    sGetItemFiltersRoot,
+    DEFAULT_STATE_ITEM_FILTERS,
+} from '../../../reducers/itemFilters'
 import ItemHeader from '../ItemHeader/ItemHeader'
 import Line from '../../../widgets/Line'
 
@@ -90,7 +93,7 @@ AppItem.contextTypes = {
 const mapStateToProps = (state, ownProps) => {
     const itemFilters = !isEditMode(ownProps.dashboardMode)
         ? sGetItemFiltersRoot(state)
-        : {}
+        : DEFAULT_STATE_ITEM_FILTERS
 
     return { itemFilters }
 }
