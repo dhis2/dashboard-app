@@ -46,14 +46,18 @@ class Dashboard extends Component {
 
             this.props.selectDashboard(id)
 
-            const header = document.getElementsByTagName('header')[0]
-            if (isPrintMode(this.props.mode)) {
-                header.classList.add('printMode')
-            } else {
-                header.classList.remove('printMode')
-            }
+            this.setHeaderbarVisibility()
 
             this.scrollToTop()
+        }
+    }
+
+    setHeaderbarVisibility = () => {
+        const header = document.getElementsByTagName('header')[0]
+        if (isPrintMode(this.props.mode)) {
+            header.classList.add('hidden')
+        } else {
+            header.classList.remove('hidden')
         }
     }
 

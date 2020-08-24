@@ -193,7 +193,7 @@ export class EditBar extends Component {
         const { updateAccess } = this.props
         const controlBarHeight = getControlBarHeight(MIN_ROW_COUNT)
 
-        const discardBtnText = this.props.updateAccess
+        const discardBtnText = updateAccess
             ? i18n.t('Exit without saving')
             : i18n.t('Go to dashboards')
 
