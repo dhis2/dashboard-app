@@ -1,6 +1,6 @@
 const config = {
     type: 'app',
-
+    coreApp: true,
     title: 'Dashboard',
 
     entryPoints: {
