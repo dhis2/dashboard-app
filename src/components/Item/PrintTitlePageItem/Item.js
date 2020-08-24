@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
 
 import { orObject } from '../../../modules/util'
 
@@ -19,29 +20,29 @@ const PrintTitlePageItem = ({
     itemFilters,
     showDescription,
 }) => {
-    let itemFilterString = ''
-    if (itemFilters.length) {
-        const tmp = itemFilters
-            .map(({ name, values }) => {
-                const filterItems = values.map(val => val.name).join(', ')
-                return `${name}: ${filterItems}`
-            })
-            .join('; ')
+    const getItemFilterList = () => {
+        const listItems = itemFilters.map(({ name, values }) => (
+            <li className={classes.filterListItem} key={name}>
+                {name}: {values.map(val => val.name).join(', ')}
+            </li>
+        ))
 
-        itemFilterString =
-            itemFilters.length === 1
-                ? `${tmp} applied as filter`
-                : `${tmp} applied as filters`
+        return <ul className={classes.filterList}>{listItems}</ul>
     }
 
     return (
-        <div className={classes.container}>
-            <span className={classes.title}>{name}</span>
+        <div className={classes.titlePage}>
+            <p className={classes.name}>{name}</p>
             {showDescription && description && (
                 <p className={classes.description}>{description}</p>
             )}
-            {itemFilterString.length > 0 && (
-                <p className={classes.filters}>{itemFilterString}</p>
+            {itemFilters.length > 0 && (
+                <>
+                    <p className={classes.filterTitle}>
+                        {i18n.t('Filters applied')}
+                    </p>
+                    {getItemFilterList()}
+                </>
             )}
         </div>
     )

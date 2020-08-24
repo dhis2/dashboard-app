@@ -1,24 +1,40 @@
-.container {
+.titlePage {
     margin-left: 30px;
+    padding-left: 10px;
 }
 
-.title {
+.name {
     font-size: 20px;
     font-weight: 500;
     color: var(--colors-grey700);
     cursor: default;
     user-select: text;
-    margin: 0px 0px 0px 10px;
 }
 
 .description {
-    margin: 15px 0px 0px 10px;
+    margin-right: 10px;
     font-size: 14px;
     color: var(--colors-grey700);
 }
 
-.filters {
-    margin: 10px;
+.filterTitle {
     font-size: 14px;
+    color: var(--colors-grey700);
+    margin-top: 25px;
+}
+
+.filterList {
+    line-height: 18px;
+    letter-spacing: 0.1px;
+    list-style-position: outside;
+    margin: 0 0 0 var(--spacers-dp12);
+    padding: 0 0 0 var(--spacers-dp12);
+}
+
+.filterListItem {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.1px;
+    margin-bottom: var(--spacers-dp12);
     color: var(--colors-grey700);
 }
