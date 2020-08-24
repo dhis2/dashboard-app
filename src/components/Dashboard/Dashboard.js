@@ -84,6 +84,12 @@ class Dashboard extends Component {
             )
         }
 
+        if (this.props.mode === NEW) {
+            const NewDashboard = dashboardMap[this.props.mode]
+
+            return <NewDashboard />
+        }
+
         if (this.props.dashboardsIsEmpty) {
             return (
                 <>
