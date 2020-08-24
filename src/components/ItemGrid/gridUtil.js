@@ -28,16 +28,6 @@ export const getGridColumns = () => {
     }
 }
 
-export const getItemPageColumns = pageWidthPx => {
-    return Math.floor((pageWidthPx - 20) / GRID_COLUMN_WIDTH_PX)
-}
-
-export const getItemPageHeightRows = pageHeightPx => {
-    return Math.round(
-        (pageHeightPx + MARGIN[1]) / (GRID_ROW_HEIGHT + MARGIN[1])
-    )
-}
-
 // isNonNegativeInteger
 
 const isNonNegativeInteger = x => Number.isInteger(x) && x >= 0
