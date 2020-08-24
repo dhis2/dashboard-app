@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-08-24T06:09:13.188Z\n"
-"PO-Revision-Date: 2020-08-24T06:09:13.188Z\n"
+"POT-Creation-Date: 2020-08-24T08:20:16.737Z\n"
+"PO-Revision-Date: 2020-08-24T08:20:16.737Z\n"
 
 msgid "Cancel"
 msgstr ""
@@ -65,19 +65,26 @@ msgstr ""
 msgid "Print"
 msgstr ""
 
+msgid "The pages below are a preview of how the dashboard layout will be printed."
+msgstr ""
+
+msgid ""
+"The pages below are a preview of how each dashboard item will be printed on "
+"a separate page."
+msgstr ""
+
+msgid ""
+"Use the default printer settings for best results. This text will not be "
+"printed."
+msgstr ""
+
+msgid "dashboard layout"
+msgstr ""
+
 msgid "one item per page"
 msgstr ""
 
 msgid "Print Preview"
-msgstr ""
-
-msgid ""
-"The pages below are a preview of how the dashboard items will be printed on "
-"a single page. Use the default printer settings for best results. This text "
-"will not be printed."
-msgstr ""
-
-msgid "dashboard layout"
 msgstr ""
 
 msgid "{{count}} selected"
@@ -169,9 +176,6 @@ msgstr ""
 msgid "Dashboard description"
 msgstr ""
 
-msgid "No description"
-msgstr ""
-
 msgid "Hide description"
 msgstr ""
 
@@ -197,6 +201,9 @@ msgid "Dashboard layout"
 msgstr ""
 
 msgid "One item per page"
+msgstr ""
+
+msgid "No description"
 msgstr ""
 
 msgid "Visualizations"
