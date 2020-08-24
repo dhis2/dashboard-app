@@ -91,12 +91,8 @@ exports[`EditBar when update access is true when dashboard id property provided 
       <div
         className="leftControls"
       >
-        <span
-          style={
-            Object {
-              "marginRight": "15px",
-            }
-          }
+        <ButtonStrip
+          dataTest="dhis2-uicore-buttonstrip"
         >
           <Button
             dataTest="dhis2-uicore-button"
@@ -106,14 +102,13 @@ exports[`EditBar when update access is true when dashboard id property provided 
           >
             Save changes
           </Button>
-        </span>
-        <span
-          style={
-            Object {
-              "marginRight": "15px",
-            }
-          }
-        >
+          <Button
+            dataTest="dhis2-uicore-button"
+            onClick={[Function]}
+            type="button"
+          >
+            Print preview
+          </Button>
           <Button
             dataTest="dhis2-uicore-button"
             onClick={[Function]}
@@ -121,7 +116,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
           >
             Translate
           </Button>
-        </span>
+        </ButtonStrip>
       </div>
       <div
         className="rightControls"
@@ -190,12 +185,8 @@ exports[`EditBar when update access is true when dashboard id property provided 
       <div
         className="leftControls"
       >
-        <span
-          style={
-            Object {
-              "marginRight": "15px",
-            }
-          }
+        <ButtonStrip
+          dataTest="dhis2-uicore-buttonstrip"
         >
           <Button
             dataTest="dhis2-uicore-button"
@@ -205,14 +196,13 @@ exports[`EditBar when update access is true when dashboard id property provided 
           >
             Save changes
           </Button>
-        </span>
-        <span
-          style={
-            Object {
-              "marginRight": "15px",
-            }
-          }
-        >
+          <Button
+            dataTest="dhis2-uicore-button"
+            onClick={[Function]}
+            type="button"
+          >
+            Print preview
+          </Button>
           <Button
             dataTest="dhis2-uicore-button"
             onClick={[Function]}
@@ -220,7 +210,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
           >
             Translate
           </Button>
-        </span>
+        </ButtonStrip>
       </div>
       <div
         className="rightControls"
@@ -289,12 +279,8 @@ exports[`EditBar when update access is true when dashboard id property provided 
       <div
         className="leftControls"
       >
-        <span
-          style={
-            Object {
-              "marginRight": "15px",
-            }
-          }
+        <ButtonStrip
+          dataTest="dhis2-uicore-buttonstrip"
         >
           <Button
             dataTest="dhis2-uicore-button"
@@ -304,14 +290,13 @@ exports[`EditBar when update access is true when dashboard id property provided 
           >
             Save changes
           </Button>
-        </span>
-        <span
-          style={
-            Object {
-              "marginRight": "15px",
-            }
-          }
-        >
+          <Button
+            dataTest="dhis2-uicore-button"
+            onClick={[Function]}
+            type="button"
+          >
+            Print preview
+          </Button>
           <Button
             dataTest="dhis2-uicore-button"
             onClick={[Function]}
@@ -319,7 +304,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
           >
             Translate
           </Button>
-        </span>
+        </ButtonStrip>
       </div>
       <div
         className="rightControls"
@@ -388,12 +373,8 @@ exports[`EditBar when update access is true when dashboard id property provided 
       <div
         className="leftControls"
       >
-        <span
-          style={
-            Object {
-              "marginRight": "15px",
-            }
-          }
+        <ButtonStrip
+          dataTest="dhis2-uicore-buttonstrip"
         >
           <Button
             dataTest="dhis2-uicore-button"
@@ -403,14 +384,13 @@ exports[`EditBar when update access is true when dashboard id property provided 
           >
             Save changes
           </Button>
-        </span>
-        <span
-          style={
-            Object {
-              "marginRight": "15px",
-            }
-          }
-        >
+          <Button
+            dataTest="dhis2-uicore-button"
+            onClick={[Function]}
+            type="button"
+          >
+            Print preview
+          </Button>
           <Button
             dataTest="dhis2-uicore-button"
             onClick={[Function]}
@@ -418,14 +398,14 @@ exports[`EditBar when update access is true when dashboard id property provided 
           >
             Translate
           </Button>
-        </span>
-        <Button
-          dataTest="dhis2-uicore-button"
-          onClick={[Function]}
-          type="button"
-        >
-          Delete
-        </Button>
+          <Button
+            dataTest="dhis2-uicore-button"
+            onClick={[Function]}
+            type="button"
+          >
+            Delete
+          </Button>
+        </ButtonStrip>
       </div>
       <div
         className="rightControls"
@@ -470,12 +450,8 @@ exports[`EditBar when update access is true when no dashboard id property render
       <div
         className="leftControls"
       >
-        <span
-          style={
-            Object {
-              "marginRight": "15px",
-            }
-          }
+        <ButtonStrip
+          dataTest="dhis2-uicore-buttonstrip"
         >
           <Button
             dataTest="dhis2-uicore-button"
@@ -485,7 +461,14 @@ exports[`EditBar when update access is true when no dashboard id property render
           >
             Save changes
           </Button>
-        </span>
+          <Button
+            dataTest="dhis2-uicore-button"
+            onClick={[Function]}
+            type="button"
+          >
+            Print preview
+          </Button>
+        </ButtonStrip>
       </div>
       <div
         className="rightControls"
