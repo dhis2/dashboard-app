@@ -25,8 +25,6 @@ import {
 
 import classes from './styles/ViewTitleBar.module.css'
 
-const NO_DESCRIPTION = i18n.t('No description')
-
 const ViewTitleBar = (props, context) => {
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
@@ -164,7 +162,7 @@ const ViewTitleBar = (props, context) => {
                         !description ? { color: '#888' } : {}
                     )}
                 >
-                    {description || NO_DESCRIPTION}
+                    {description || i18n.t('No description')}
                 </div>
             ) : null}
             {id ? (
