@@ -1346,10 +1346,10 @@
   dependencies:
     moment "^2.24.0"
 
-"@dhis2/app-runtime-adapter-d2@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime-adapter-d2/-/app-runtime-adapter-d2-1.0.0.tgz#65b54a3d12ed97f776bf9e17ba3b1dfae639e242"
-  integrity sha512-wTNE+X9Lh2fdNEMiQu373q+KjN+kAbludWLcbmmFrXogFw+1JVFZrOIT1UG/MeGuLKvYBCTwVhEM8BiIhNe7eA==
+"@dhis2/app-runtime-adapter-d2@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime-adapter-d2/-/app-runtime-adapter-d2-1.0.1.tgz#25181152b61545772b2016481570cf08f2c1290e"
+  integrity sha512-+B2eifeRfG4DpuIHjIu16p06qNxjz5WJf0EMQoFIg9/X/mUlF6qPd+YND0z355PjpStLCVMLrg2NshNhMZPA7w==
   dependencies:
     "@dhis2/ui-core" "^4.6.1"
     prop-types "^15.7.2"
