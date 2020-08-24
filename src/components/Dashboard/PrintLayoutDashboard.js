@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
 
 import PrintInfo from './PrintInfo'
 import PrintActionsBar from './PrintActionsBar'
@@ -98,9 +97,7 @@ export class PrintLayoutDashboard extends Component {
                     <PrintActionsBar id={this.props.dashboard.id} />
                 )}
                 <div className={classes.wrapper} style={style}>
-                    {!this.props.fromEdit && (
-                        <PrintInfo type={i18n.t('dashboard layout')} />
-                    )}
+                    {!this.props.fromEdit && <PrintInfo isLayout={true} />}
                     <div
                         className={classes.pageOuter}
                         style={{ width: a4LandscapeWidthPx }}

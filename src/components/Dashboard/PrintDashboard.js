@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
 import sortBy from 'lodash/sortBy'
 
 import PrintInfo from './PrintInfo'
@@ -79,7 +78,7 @@ export class PrintDashboard extends Component {
             <>
                 <PrintActionsBar id={this.props.dashboard.id} />
                 <div className={classes.wrapper}>
-                    <PrintInfo type={i18n.t('one item per page')} />
+                    <PrintInfo isLayout={false} />
                     <div
                         className={classes.pageOuter}
                         style={{ width: a4LandscapeWidthPx }}
