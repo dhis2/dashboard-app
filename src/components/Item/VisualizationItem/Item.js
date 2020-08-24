@@ -272,12 +272,8 @@ export class Item extends Component {
             this.props.visualization
         )
 
-    getContentStyle = (
-        calculatedHeight,
-        measuredHeight,
-        preferMeasuredHeight
-    ) => {
-        const height = preferMeasuredHeight
+    getContentStyle = (calculatedHeight, measuredHeight, preferMeasured) => {
+        const height = preferMeasured
             ? measuredHeight || calculatedHeight
             : calculatedHeight
 
