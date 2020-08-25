@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2019
+# phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-06-10T01:32:16.274Z\n"
+"POT-Creation-Date: 2020-08-25T05:26:00.043Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,10 +31,10 @@ msgid ""
 "this dashboard?"
 msgstr ""
 
-msgid "Exit without saving"
+msgid "Exit Print preview"
 msgstr ""
 
-msgid "Go to dashboards"
+msgid "Print preview"
 msgstr ""
 
 msgid "Save changes"
@@ -42,6 +42,12 @@ msgstr ""
 
 msgid "Translate"
 msgstr "Перекласти"
+
+msgid "Exit without saving"
+msgstr ""
+
+msgid "Go to dashboards"
+msgstr ""
 
 msgid "Search for a dashboard"
 msgstr ""
@@ -52,13 +58,43 @@ msgstr "Показати більше"
 msgid "Show less"
 msgstr "Показати менше"
 
-msgid "No access"
-msgstr ""
-
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
 
 msgid "Requested dashboard not found"
+msgstr ""
+
+msgid "No access"
+msgstr ""
+
+msgid "Exit print preview"
+msgstr ""
+
+msgid "Print"
+msgstr "Друк"
+
+msgid ""
+"The pages below are a preview of how the dashboard layout will be printed."
+msgstr ""
+
+msgid ""
+"The pages below are a preview of how each dashboard item will be printed on "
+"a separate page."
+msgstr ""
+
+msgid ""
+"Use the default printer settings for best results and check that all "
+"dashboard items have finished loading before printing. This text will not be"
+" printed."
+msgstr ""
+
+msgid "dashboard layout"
+msgstr ""
+
+msgid "one item per page"
+msgstr ""
+
+msgid "Print Preview"
 msgstr ""
 
 msgid "{{count}} selected"
@@ -81,6 +117,9 @@ msgid "See all messages"
 msgstr ""
 
 msgid "Item type \"{{type}}\" not supported"
+msgstr ""
+
+msgid "Filters applied"
 msgstr ""
 
 msgid "Spacer"
@@ -153,14 +192,35 @@ msgstr ""
 msgid "Dashboard description"
 msgstr ""
 
-msgid "No description"
-msgstr "Немає змалювання"
+msgid "Hide description"
+msgstr ""
+
+msgid "Show description"
+msgstr ""
+
+msgid "Unstar dashboard"
+msgstr ""
+
+msgid "Star dashboard"
+msgstr ""
 
 msgid "Edit"
 msgstr "Редагувати"
 
 msgid "Share"
 msgstr "Поділитися"
+
+msgid "More"
+msgstr "Більше"
+
+msgid "Dashboard layout"
+msgstr ""
+
+msgid "One item per page"
+msgstr ""
+
+msgid "No description"
+msgstr "Немає змалювання"
 
 msgid "Visualizations"
 msgstr ""

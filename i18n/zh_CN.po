@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-06-10T01:32:16.274Z\n"
+"POT-Creation-Date: 2020-08-25T05:26:00.043Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -31,17 +31,23 @@ msgid ""
 "this dashboard?"
 msgstr ""
 
-msgid "Exit without saving"
-msgstr "不保存退出"
+msgid "Exit Print preview"
+msgstr ""
 
-msgid "Go to dashboards"
-msgstr "进到仪表盘"
+msgid "Print preview"
+msgstr ""
 
 msgid "Save changes"
 msgstr "保存更改"
 
 msgid "Translate"
 msgstr "翻译"
+
+msgid "Exit without saving"
+msgstr "不保存退出"
+
+msgid "Go to dashboards"
+msgstr "进到仪表盘"
 
 msgid "Search for a dashboard"
 msgstr "搜索仪表盘"
@@ -52,14 +58,44 @@ msgstr "更多"
 msgid "Show less"
 msgstr "较少"
 
-msgid "No access"
-msgstr "不能访问"
-
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "没有找到仪表盘条目，使用+ 按钮创建新的仪表盘条目。"
 
 msgid "Requested dashboard not found"
 msgstr "请求的仪表盘条目没有找到"
+
+msgid "No access"
+msgstr "不能访问"
+
+msgid "Exit print preview"
+msgstr ""
+
+msgid "Print"
+msgstr ""
+
+msgid ""
+"The pages below are a preview of how the dashboard layout will be printed."
+msgstr ""
+
+msgid ""
+"The pages below are a preview of how each dashboard item will be printed on "
+"a separate page."
+msgstr ""
+
+msgid ""
+"Use the default printer settings for best results and check that all "
+"dashboard items have finished loading before printing. This text will not be"
+" printed."
+msgstr ""
+
+msgid "dashboard layout"
+msgstr ""
+
+msgid "one item per page"
+msgstr ""
+
+msgid "Print Preview"
+msgstr ""
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -78,6 +114,9 @@ msgid "See all messages"
 msgstr "发送所有消息"
 
 msgid "Item type \"{{type}}\" not supported"
+msgstr ""
+
+msgid "Filters applied"
 msgstr ""
 
 msgid "Spacer"
@@ -150,14 +189,35 @@ msgstr ""
 msgid "Dashboard description"
 msgstr ""
 
-msgid "No description"
-msgstr "没有描述"
+msgid "Hide description"
+msgstr ""
+
+msgid "Show description"
+msgstr ""
+
+msgid "Unstar dashboard"
+msgstr ""
+
+msgid "Star dashboard"
+msgstr ""
 
 msgid "Edit"
 msgstr "编辑<br>"
 
 msgid "Share"
 msgstr "共享"
+
+msgid "More"
+msgstr ""
+
+msgid "Dashboard layout"
+msgstr ""
+
+msgid "One item per page"
+msgstr ""
+
+msgid "No description"
+msgstr "没有描述"
 
 msgid "Visualizations"
 msgstr ""

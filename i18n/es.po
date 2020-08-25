@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-06-10T01:32:16.274Z\n"
+"POT-Creation-Date: 2020-08-25T05:26:00.043Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: William Aviles <waviles@clintonhealthaccess.org>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -32,10 +32,10 @@ msgid ""
 "this dashboard?"
 msgstr ""
 
-msgid "Exit without saving"
+msgid "Exit Print preview"
 msgstr ""
 
-msgid "Go to dashboards"
+msgid "Print preview"
 msgstr ""
 
 msgid "Save changes"
@@ -43,6 +43,12 @@ msgstr ""
 
 msgid "Translate"
 msgstr "Traducir"
+
+msgid "Exit without saving"
+msgstr ""
+
+msgid "Go to dashboards"
+msgstr ""
 
 msgid "Search for a dashboard"
 msgstr ""
@@ -53,13 +59,43 @@ msgstr "Mostrar más"
 msgid "Show less"
 msgstr "Mostrar menos"
 
-msgid "No access"
-msgstr "Sin acceso"
-
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
 
 msgid "Requested dashboard not found"
+msgstr ""
+
+msgid "No access"
+msgstr "Sin acceso"
+
+msgid "Exit print preview"
+msgstr ""
+
+msgid "Print"
+msgstr ""
+
+msgid ""
+"The pages below are a preview of how the dashboard layout will be printed."
+msgstr ""
+
+msgid ""
+"The pages below are a preview of how each dashboard item will be printed on "
+"a separate page."
+msgstr ""
+
+msgid ""
+"Use the default printer settings for best results and check that all "
+"dashboard items have finished loading before printing. This text will not be"
+" printed."
+msgstr ""
+
+msgid "dashboard layout"
+msgstr ""
+
+msgid "one item per page"
+msgstr ""
+
+msgid "Print Preview"
 msgstr ""
 
 msgid "{{count}} selected"
@@ -80,6 +116,9 @@ msgid "See all messages"
 msgstr ""
 
 msgid "Item type \"{{type}}\" not supported"
+msgstr ""
+
+msgid "Filters applied"
 msgstr ""
 
 msgid "Spacer"
@@ -152,14 +191,35 @@ msgstr ""
 msgid "Dashboard description"
 msgstr ""
 
-msgid "No description"
-msgstr "Sin descripción"
+msgid "Hide description"
+msgstr ""
+
+msgid "Show description"
+msgstr ""
+
+msgid "Unstar dashboard"
+msgstr ""
+
+msgid "Star dashboard"
+msgstr ""
 
 msgid "Edit"
 msgstr "Editar"
 
 msgid "Share"
 msgstr "Compartir"
+
+msgid "More"
+msgstr ""
+
+msgid "Dashboard layout"
+msgstr ""
+
+msgid "One item per page"
+msgstr ""
+
+msgid "No description"
+msgstr "Sin descripción"
 
 msgid "Visualizations"
 msgstr ""
