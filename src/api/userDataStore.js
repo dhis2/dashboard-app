@@ -20,7 +20,7 @@ export const apiPostUserDataStoreValue = async (key, value) => {
 export const apiGetUserDataStoreValue = async (key, defaultValue) => {
     const d2 = await getInstance()
     const namespace = await getNamespace(d2, await hasNamespace(d2))
-    const hasKey = namespace.keys && namespace.keys.find(k => k === key)
+    const hasKey = namespace?.keys?.find(k => k === key)
 
     if (hasKey) {
         return await namespace.get(key)
