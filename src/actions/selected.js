@@ -19,6 +19,7 @@ import { acAddVisualization } from './visualizations'
 
 import { apiFetchDashboard } from '../api/dashboards'
 import { storePreferredDashboardId } from '../api/localStorage'
+import { apiGetShowDescription } from '../api/description'
 
 import { withShape } from '../components/ItemGrid/gridUtil'
 import { loadingDashboardMsg } from '../components/SnackbarMessage/SnackbarMessage'
@@ -51,6 +52,8 @@ export const acSetSelectedShowDescription = value => ({
     value,
 })
 
+// thunks
+
 export const tLoadDashboard = id => async dispatch => {
     try {
         const dash = await apiFetchDashboard(id)
@@ -64,7 +67,6 @@ export const tLoadDashboard = id => async dispatch => {
     }
 }
 
-// thunks
 export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
     dispatch(acSetSelectedIsLoading(true))
 
@@ -143,6 +145,24 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
         const selected = await dispatch(tLoadDashboard(id))
 
         return onSuccess(selected)
+    } catch (err) {
+        return onError(err)
+    }
+}
+
+export const tSetShowDescription = () => async dispatch => {
+    const onSuccess = value => {
+        dispatch(acSetSelectedShowDescription(value))
+    }
+
+    const onError = error => {
+        console.log('Error (apiGetShowDescription): ', error)
+        return error
+    }
+
+    try {
+        const showDescription = await apiGetShowDescription()
+        return onSuccess(showDescription)
     } catch (err) {
         return onError(err)
     }
