@@ -33,12 +33,12 @@ export class PrintDashboard extends Component {
         if (this.props.dashboard) {
             this.setState({ initialized: true })
 
-            //sorting the items is so that the print, with one item per page
-            //prints in the order of top to bottom of the dashboard
+            //sort the items by Y pos so they print in order of top to bottom
             const sortedItems = sortBy(this.props.items, ['y', 'x'])
 
             this.props.setPrintDashboard(this.props.dashboard, sortedItems)
 
+            // remove spacers - don't want empty pages
             let spacerCount = 0
             this.props.items.forEach(item => {
                 if (item.type === SPACER) {
@@ -47,6 +47,8 @@ export class PrintDashboard extends Component {
                 }
             })
 
+            // insert page breaks into the document flow to create the "pages"
+            // when previewing the print
             for (
                 let i = 0;
                 i < (this.props.items.length - spacerCount) * 2;
