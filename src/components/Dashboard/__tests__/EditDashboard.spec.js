@@ -1,89 +1,44 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 
-import { EditDashboard, Content } from '../EditDashboard'
-import { NoContentMessage } from '../../../widgets/NoContentMessage'
+import { EditDashboard } from '../EditDashboard'
 
-jest.mock('../DashboardContent', () => () => <div />) // eslint-disable-line react/display-name
-jest.mock('../../ControlBar/EditBar', () => () => <div />) // eslint-disable-line react/display-name
-jest.mock('../DashboardVerticalOffset', () => () => <div />) // eslint-disable-line react/display-name
+jest.mock('../DashboardVerticalOffset', () => 'DashboardVerticalOffset')
+jest.mock('../../ControlBar/EditBar', () => 'EditBar')
+jest.mock('../../TitleBar/TitleBar', () => 'TitleBar')
+jest.mock('../../ItemGrid/ItemGrid', () => 'ItemGrid')
+jest.mock('../../../widgets/NoContentMessage', () => 'NoContentMessage')
+jest.mock('../PrintLayoutDashboard', () => 'LayoutPrintPreview')
 
 describe('EditDashboard', () => {
     let props
-    let shallowEditDashboard
-    const editDashboard = () => {
-        if (!shallowEditDashboard) {
-            shallowEditDashboard = shallow(<EditDashboard {...props} />)
-        }
-        return shallowEditDashboard
-    }
-
-    const assertContent = hasContent => {
-        const content = editDashboard().find(Content)
-
-        expect(content.length).toBe(1)
-        expect(content.dive().find(NoContentMessage)).toHaveLength(
-            hasContent ? 0 : 1
-        )
-    }
 
     beforeEach(() => {
         props = {
             dashboard: undefined,
             id: undefined,
-            updateAccess: undefined,
+            updateAccess: true,
             items: undefined,
             dashboardsLoaded: undefined,
+            isPrintPreviewView: undefined,
         }
-        shallowEditDashboard = undefined
     })
 
-    describe('when "dashboardsLoaded" is false', () => {
-        it('does not render any children inside the div', () => {
-            props.dashboardsLoaded = false
-
-            expect(
-                editDashboard()
-                    .find('.dashboard-wrapper')
-                    .children().length
-            ).toBe(0)
-        })
+    it('renders message when not enough access', () => {
+        props.updateAccess = false
+        const tree = shallow(<EditDashboard {...props} />)
+        expect(toJson(tree)).toMatchSnapshot()
     })
 
-    describe('when "dashboardsLoaded" is true', () => {
-        beforeEach(() => {
-            props.dashboardsLoaded = true
-        })
+    it('renders message when enough access', () => {
+        const tree = shallow(<EditDashboard {...props} />)
+        expect(toJson(tree)).toMatchSnapshot()
+    })
 
-        describe('when "id" is null', () => {
-            it('does not render any children inside the div', () => {
-                props.id = null
-                expect(
-                    editDashboard()
-                        .find('.dashboard-wrapper')
-                        .children().length
-                ).toBe(0)
-            })
-        })
-
-        describe('when id is not null', () => {
-            beforeEach(() => {
-                props.id = 'abc123'
-            })
-
-            describe('when updateAccess is true', () => {
-                it('renders DashboardContent', () => {
-                    props.updateAccess = true
-                    assertContent(true)
-                })
-            })
-
-            describe('when updateAccess is false', () => {
-                it('renders a NoContentMessage', () => {
-                    props.updateAccess = false
-                    assertContent(false)
-                })
-            })
-        })
+    it('renders print preview', () => {
+        props.isPrintPreviewView = true
+        const tree = shallow(<EditDashboard {...props} />)
+        expect(toJson(tree)).toMatchSnapshot()
     })
 })
