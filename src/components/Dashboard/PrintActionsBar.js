@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import LessHorizontalIcon from '../../icons/LessHorizontal'
 import { a4LandscapeWidthPx } from '../../modules/printUtils'
 
-import classes from './PrintActionsBar.module.css'
+import classes from './styles/PrintActionsBar.module.css'
 
 const PrintActionsBar = ({ id }) => {
     const width =

@@ -19,7 +19,7 @@ import {
 import { PAGEBREAK, PRINT_TITLE_PAGE, SPACER } from '../../modules/itemTypes'
 import { a4LandscapeWidthPx } from '../../modules/printUtils'
 
-import classes from './PrintDashboard.module.css'
+import classes from './styles/PrintDashboard.module.css'
 
 import './styles/print.css'
 import './styles/print-oipp.css'

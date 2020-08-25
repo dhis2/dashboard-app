@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { a4LandscapeWidthPx } from '../../modules/printUtils'
 
-import classes from './PrintInfo.module.css'
+import classes from './styles/PrintInfo.module.css'
 
 const PrintInfo = ({ isLayout }) => {
     const maxWidth =

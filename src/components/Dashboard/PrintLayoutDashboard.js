@@ -22,7 +22,7 @@ import {
 import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
 import { a4LandscapeWidthPx } from '../../modules/printUtils'
 
-import classes from './PrintLayoutDashboard.module.css'
+import classes from './styles/PrintLayoutDashboard.module.css'
 
 import './styles/print.css'
 import './styles/print-layout.css'
