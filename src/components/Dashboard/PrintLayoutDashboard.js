@@ -65,6 +65,8 @@ export class PrintLayoutDashboard extends Component {
 
             this.props.setPrintDashboard(this.props.dashboard, this.props.items)
 
+            // If any items are taller than one page, reduce it to one
+            // page (react-grid-layout units)
             this.props.items.forEach(item => {
                 if (item.h > 34) {
                     this.props.updateDashboardItem(
