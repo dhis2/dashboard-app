@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-08-24T09:06:40.816Z\n"
-"PO-Revision-Date: 2020-08-24T09:06:40.816Z\n"
+"POT-Creation-Date: 2020-08-25T05:26:00.043Z\n"
+"PO-Revision-Date: 2020-08-25T05:26:00.043Z\n"
 
 msgid "Cancel"
 msgstr ""
@@ -106,6 +106,9 @@ msgid "See all messages"
 msgstr ""
 
 msgid "Item type \"{{type}}\" not supported"
+msgstr ""
+
+msgid "Filters applied"
 msgstr ""
 
 msgid "Spacer"
