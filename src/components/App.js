@@ -9,6 +9,7 @@ import { EDIT, VIEW, NEW } from './Dashboard/dashboardModes'
 import { acReceivedUser } from '../actions/user'
 import { tFetchDashboards } from '../actions/dashboards'
 import { tSetControlBarRows } from '../actions/controlBar'
+import { tSetShowDescription } from '../actions/selected'
 import { tSetDimensions } from '../actions/dimensions'
 import Dashboard from './Dashboard/Dashboard'
 import SnackbarMessage from './SnackbarMessage/SnackbarMessage'
@@ -20,6 +21,7 @@ export class App extends Component {
         this.props.setCurrentUser(this.props.d2.currentUser)
         this.props.fetchDashboards()
         this.props.setControlBarRows()
+        this.props.setShowDescription()
         this.props.setDimensions(this.props.d2)
     }
 
@@ -74,6 +76,7 @@ App.propTypes = {
     setControlBarRows: PropTypes.func.isRequired,
     setCurrentUser: PropTypes.func.isRequired,
     setDimensions: PropTypes.func.isRequired,
+    setShowDescription: PropTypes.func.isRequired,
     baseUrl: PropTypes.string,
     d2: PropTypes.object,
 }
@@ -86,10 +89,11 @@ App.childContextTypes = {
 
 const mapDispatchToProps = dispatch => {
     return {
-        setCurrentUser: currentUser => dispatch(acReceivedUser(currentUser)),
         fetchDashboards: () => dispatch(tFetchDashboards()),
         setControlBarRows: () => dispatch(tSetControlBarRows()),
+        setCurrentUser: currentUser => dispatch(acReceivedUser(currentUser)),
         setDimensions: d2 => dispatch(tSetDimensions(d2)),
+        setShowDescription: () => dispatch(tSetShowDescription()),
     }
 }
 

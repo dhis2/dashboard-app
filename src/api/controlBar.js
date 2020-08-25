@@ -1,8 +1,8 @@
-import { DEFAULT_STATE_CONTROLBAR_ROWS } from '../reducers/controlBar'
 import {
     apiGetUserDataStoreValue,
     apiPostUserDataStoreValue,
 } from './userDataStore'
+import { DEFAULT_STATE_CONTROLBAR_ROWS } from '../reducers/controlBar'
 
 const KEY_CONTROLBAR_ROWS = 'controlBarRows'
 
