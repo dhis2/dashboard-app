@@ -135,18 +135,16 @@ const ViewTitleBar = (props, context) => {
                                     onClick={showHideDescription}
                                 />
                                 <MenuItem dense label={i18n.t('Print')}>
-                                    <FlyoutMenu>
-                                        <MenuItem
-                                            dense
-                                            label={i18n.t('Dashboard layout')}
-                                            onClick={printLayout}
-                                        />
-                                        <MenuItem
-                                            dense
-                                            label={i18n.t('One item per page')}
-                                            onClick={printOipp}
-                                        />
-                                    </FlyoutMenu>
+                                    <MenuItem
+                                        dense
+                                        label={i18n.t('Dashboard layout')}
+                                        onClick={printLayout}
+                                    />
+                                    <MenuItem
+                                        dense
+                                        label={i18n.t('One item per page')}
+                                        onClick={printOipp}
+                                    />
                                 </MenuItem>
                             </FlyoutMenu>
                         </Popover>
