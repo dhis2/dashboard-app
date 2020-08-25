@@ -8,6 +8,12 @@ import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import DashboardsBar from '../ControlBar/DashboardsBar'
 import DashboardVerticalOffset from './DashboardVerticalOffset'
 import NoContentMessage from '../../widgets/NoContentMessage'
+import ViewDashboard from './ViewDashboard'
+import EditDashboard from './EditDashboard'
+import NewDashboard from './NewDashboard'
+import PrintDashboard from './PrintDashboard'
+import PrintLayoutDashboard from './PrintLayoutDashboard'
+
 import { tSelectDashboard } from '../../actions/dashboards'
 import {
     sDashboardsIsFetching,
@@ -25,24 +31,19 @@ import {
     PRINT_LAYOUT,
     isPrintMode,
 } from './dashboardModes'
-import ViewDashboard from './ViewDashboard'
-import EditDashboard from './EditDashboard'
-import NewDashboard from './NewDashboard'
-import PrintDashboard from './PrintDashboard'
-import PrintLayoutDashboard from './PrintLayoutDashboard'
 
 const dashboardMap = {
-    [VIEW]: ViewDashboard,
-    [EDIT]: EditDashboard,
-    [NEW]: NewDashboard,
-    [PRINT]: PrintDashboard,
-    [PRINT_LAYOUT]: PrintLayoutDashboard,
+    [VIEW]: <ViewDashboard />,
+    [EDIT]: <EditDashboard />,
+    [NEW]: <NewDashboard />,
+    [PRINT]: <PrintDashboard />,
+    [PRINT_LAYOUT]: <PrintLayoutDashboard />,
 }
 
-class Dashboard extends Component {
+export class Dashboard extends Component {
     setDashboard = () => {
         if (this.props.dashboardsLoaded) {
-            const id = this.props.match.params.dashboardId || null
+            const id = this.props.id || null
 
             this.props.selectDashboard(id)
 
@@ -74,7 +75,9 @@ class Dashboard extends Component {
     }
 
     render() {
-        if (!this.props.dashboardsLoaded || this.props.id === null) {
+        const { id, mode, dashboardsLoaded, dashboardsIsEmpty } = this.props
+
+        if (!dashboardsLoaded || id === null) {
             return (
                 <Layer translucent>
                     <CenteredContent>
@@ -84,13 +87,11 @@ class Dashboard extends Component {
             )
         }
 
-        if (this.props.mode === NEW) {
-            const NewDashboard = dashboardMap[this.props.mode]
-
-            return <NewDashboard />
+        if (mode === NEW) {
+            return dashboardMap[mode]
         }
 
-        if (this.props.dashboardsIsEmpty) {
+        if (dashboardsIsEmpty) {
             return (
                 <>
                     <DashboardsBar />
@@ -104,7 +105,7 @@ class Dashboard extends Component {
             )
         }
 
-        if (this.props.id === NON_EXISTING_DASHBOARD_ID) {
+        if (id === NON_EXISTING_DASHBOARD_ID) {
             return (
                 <>
                     <DashboardsBar />
@@ -116,9 +117,7 @@ class Dashboard extends Component {
             )
         }
 
-        const ActiveDashboard = dashboardMap[this.props.mode]
-
-        return <ActiveDashboard />
+        return dashboardMap[mode]
     }
 }
 
@@ -126,17 +125,16 @@ Dashboard.propTypes = {
     dashboardsIsEmpty: PropTypes.bool,
     dashboardsLoaded: PropTypes.bool,
     id: PropTypes.string,
-    match: PropTypes.object,
     mode: PropTypes.string,
     selectDashboard: PropTypes.func,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     const dashboards = sGetAllDashboards(state)
     return {
         dashboardsIsEmpty: isEmpty(dashboards),
         dashboardsLoaded: !sDashboardsIsFetching(state),
-        id: sGetSelectedId(state),
+        id: ownProps.match?.params?.dashboardId || sGetSelectedId(state),
     }
 }
 

@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard renders EDIT dashboard 1`] = `<EditDashboard />`;
+
+exports[`Dashboard renders NEW dashboard 1`] = `<NewDashboard />`;
+
+exports[`Dashboard renders PRINT dashboard 1`] = `<PrintDashboard />`;
+
+exports[`Dashboard renders PRINT_LAYOUT dashboard 1`] = `<PrintLayoutDashboard />`;
+
+exports[`Dashboard renders correctly when dashboard id is not valid 1`] = `
+<Fragment>
+  <DashboardsBar />
+  <DashboardVerticalOffset />
+  <NoContentMessage
+    text="Requested dashboard not found"
+  />
+</Fragment>
+`;
+
+exports[`Dashboard renders correctly when dashboards loaded and id is null 1`] = `
+<Layer
+  dataTest="dhis2-uicore-layer"
+  level={2000}
+  position="fixed"
+  translucent={true}
+>
+  <CenteredContent
+    dataTest="dhis2-uicore-centeredcontent"
+    position="middle"
+  >
+    <CircularLoader
+      dataTest="dhis2-uicore-circularloader"
+    />
+  </CenteredContent>
+</Layer>
+`;
+
+exports[`Dashboard renders correctly when dashboards not loaded and id is not null 1`] = `
+<Layer
+  dataTest="dhis2-uicore-layer"
+  level={2000}
+  position="fixed"
+  translucent={true}
+>
+  <CenteredContent
+    dataTest="dhis2-uicore-centeredcontent"
+    position="middle"
+  >
+    <CircularLoader
+      dataTest="dhis2-uicore-circularloader"
+    />
+  </CenteredContent>
+</Layer>
+`;
+
+exports[`Dashboard renders correctly when dashboards not loaded and id is null 1`] = `
+<Layer
+  dataTest="dhis2-uicore-layer"
+  level={2000}
+  position="fixed"
+  translucent={true}
+>
+  <CenteredContent
+    dataTest="dhis2-uicore-centeredcontent"
+    position="middle"
+  >
+    <CircularLoader
+      dataTest="dhis2-uicore-circularloader"
+    />
+  </CenteredContent>
+</Layer>
+`;
+
+exports[`Dashboard renders correctly when no dashboards found 1`] = `
+<Fragment>
+  <DashboardsBar />
+  <DashboardVerticalOffset />
+  <NoContentMessage
+    text="No dashboards found. Use the + button to create a new dashboard."
+  />
+</Fragment>
+`;
