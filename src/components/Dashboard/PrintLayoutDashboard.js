@@ -31,7 +31,9 @@ const isEven = n => n % 2 == 0
 
 const addPageBreaks = ({ items, addDashboardItem }) => {
     // add enough page breaks so that each item could
-    // be put on its own page
+    // be put on its own page. Due to the react-grid-layout
+    // unit system, we have to estimate roughly the size of each
+    // page. At regular intervals adding an extra unit, like a leap year :P
     let yPos = 0
     const yPosList = []
     for (let i = 0; i < items.length; ++i) {
