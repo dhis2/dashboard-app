@@ -1,0 +1,28 @@
+.infoWrapper {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.infoHeader {
+    font-size: 18px;
+    font-weight: 600;
+    color: #3e4a59;
+}
+
+.info {
+    font-size: 14px;
+    line-height: 1.3;
+    color: #3e4a59;
+    max-width: 800px;
+}
+
+.divider {
+    width: 1102px;
+    margin-left: 0px;
+}
+
+@media print {
+    .infoWrapper {
+        display: none;
+    }
+}

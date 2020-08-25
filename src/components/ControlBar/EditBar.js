@@ -5,13 +5,14 @@ import { Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import ControlBar from './ControlBar'
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
-import { Button } from '@dhis2/ui'
+import { Button, ButtonStrip } from '@dhis2/ui'
 
 import ConfirmDeleteDialog from './ConfirmDeleteDialog'
 import {
     tSaveDashboard,
     acClearEditDashboard,
 } from '../../actions/editDashboard'
+import { acClearPrintDashboard } from '../../actions/printDashboard'
 import {
     tDeleteDashboard,
     acSetDashboardDisplayName,
@@ -19,7 +20,12 @@ import {
 import {
     sGetEditDashboardRoot,
     sGetIsNewDashboard,
+    sGetIsPrintPreviewView,
 } from '../../reducers/editDashboard'
+import {
+    acSetPrintPreviewView,
+    acClearPrintPreviewView,
+} from '../../actions/editDashboard'
 import {
     CONTROL_BAR_ROW_HEIGHT,
     MIN_ROW_COUNT,
@@ -52,6 +58,15 @@ export class EditBar extends Component {
         this.props.onSave().then(newId => {
             this.setState({ redirectUrl: `/${newId}` })
         })
+    }
+
+    onPrintPreview = () => {
+        if (this.props.isPrintPreviewView) {
+            this.props.clearPrintPreview()
+            this.props.clearPrintDashboard()
+        } else {
+            this.props.showPrintPreview()
+        }
     }
 
     onDiscard = () => {
@@ -141,12 +156,41 @@ export class EditBar extends Component {
             />
         ) : null
 
+    renderActionButtons = () => {
+        const printPreviewText = this.props.isPrintPreviewView
+            ? i18n.t('Exit Print preview')
+            : i18n.t('Print preview')
+        return (
+            <div className={classes.leftControls}>
+                <ButtonStrip>
+                    <Button primary onClick={this.onSave}>
+                        {i18n.t('Save changes')}
+                    </Button>
+                    <Button onClick={this.onPrintPreview}>
+                        {printPreviewText}
+                    </Button>
+
+                    {this.props.dashboardId ? (
+                        <Button onClick={this.toggleTranslationDialog}>
+                            {i18n.t('Translate')}
+                        </Button>
+                    ) : null}
+                    {this.props.dashboardId && this.props.deleteAccess ? (
+                        <Button onClick={this.onConfirmDelete}>
+                            {i18n.t('Delete')}
+                        </Button>
+                    ) : null}
+                </ButtonStrip>
+            </div>
+        )
+    }
+
     render() {
         if (this.state.redirectUrl) {
             return <Redirect to={this.state.redirectUrl} />
         }
 
-        const { dashboardId, deleteAccess, updateAccess } = this.props
+        const { updateAccess } = this.props
         const controlBarHeight = getControlBarHeight(MIN_ROW_COUNT)
 
         const discardBtnText = updateAccess
@@ -157,32 +201,7 @@ export class EditBar extends Component {
             <>
                 <ControlBar height={controlBarHeight} editMode={true}>
                     <div style={buttonBarStyle}>
-                        {updateAccess ? (
-                            <div className={classes.leftControls}>
-                                <span style={{ marginRight: '15px' }}>
-                                    <Button primary onClick={this.onSave}>
-                                        {i18n.t('Save changes')}
-                                    </Button>
-                                </span>
-
-                                {dashboardId ? (
-                                    <span style={{ marginRight: '15px' }}>
-                                        <Button
-                                            onClick={
-                                                this.toggleTranslationDialog
-                                            }
-                                        >
-                                            {i18n.t('Translate')}
-                                        </Button>
-                                    </span>
-                                ) : null}
-                                {dashboardId && deleteAccess ? (
-                                    <Button onClick={this.onConfirmDelete}>
-                                        {i18n.t('Delete')}
-                                    </Button>
-                                ) : null}
-                            </div>
-                        ) : null}
+                        {updateAccess ? this.renderActionButtons() : null}
 
                         <div className={classes.rightControls}>
                             <Button secondary onClick={this.onDiscard}>
@@ -199,9 +218,13 @@ export class EditBar extends Component {
 }
 
 EditBar.propTypes = {
+    clearPrintDashboard: PropTypes.func,
+    clearPrintPreview: PropTypes.func,
     dashboardId: PropTypes.string,
     dashboardName: PropTypes.string,
     deleteAccess: PropTypes.bool,
+    isPrintPreviewView: PropTypes.bool,
+    showPrintPreview: PropTypes.func,
     updateAccess: PropTypes.bool,
     onDelete: PropTypes.func,
     onDiscardChanges: PropTypes.func,
@@ -230,15 +253,19 @@ const mapStateToProps = state => {
         dashboardId: dashboard.id,
         dashboardName: dashboard.name,
         deleteAccess,
+        isPrintPreviewView: sGetIsPrintPreviewView(state),
         updateAccess,
     }
 }
 
 const mapDispatchToProps = dispatch => ({
+    clearPrintDashboard: () => dispatch(acClearPrintDashboard()),
+    clearPrintPreview: () => dispatch(acClearPrintPreviewView()),
     onSave: () => dispatch(tSaveDashboard()).then(id => id),
     onDelete: id => dispatch(tDeleteDashboard(id)),
     onDiscardChanges: () => dispatch(acClearEditDashboard()),
     onTranslate: (id, value) => dispatch(acSetDashboardDisplayName(id, value)),
+    showPrintPreview: () => dispatch(acSetPrintPreviewView()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditBar)

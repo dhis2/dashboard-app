@@ -2,7 +2,7 @@
 
 exports[`VisualizationItem/Item renders a DefaultPlugin when an EVENT_CHART is passed 1`] = `
 <Fragment>
-  <Connect(Component)
+  <Connect(ItemHeader)
     actionButtons={
       <ItemHeaderButtons
         activeFooter={false}

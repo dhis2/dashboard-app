@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
+import { colors } from '@dhis2/ui'
+
+import ItemHeader from '../ItemHeader/ItemHeader'
+import Line from '../../../widgets/Line'
 
 import { sGetMessagesRoot } from '../../../reducers/messages'
 import { formatDate } from '../../../modules/util'
-import { colors } from '@dhis2/ui'
-import ItemHeader from '../ItemHeader'
-import Line from '../../../widgets/Line'
+import { isViewMode } from '../../Dashboard/dashboardModes'
 
 import './MessagesItem.css'
 
@@ -69,11 +71,11 @@ class MessagesItem extends Component {
     }
 
     getMessageItems = () => {
-        const editClass = !this.props.editMode ? 'view' : null
+        const modeClass = isViewMode(this.props.dashboardMode) ? 'view' : null
 
         return this.props.messages.map(msg => {
             const redirectToMsg = () => {
-                if (!this.props.editMode) {
+                if (isViewMode(this.props.dashboardMode)) {
                     document.location.href = this.getMessageHref(msg)
                 }
             }
@@ -89,7 +91,7 @@ class MessagesItem extends Component {
 
             return (
                 <li
-                    className={`message-item ${editClass}`}
+                    className={`message-item ${modeClass}`}
                     key={msg.id}
                     onClick={redirectToMsg}
                 >
@@ -111,6 +113,7 @@ class MessagesItem extends Component {
                 <ItemHeader
                     title={i18n.t('Messages')}
                     itemId={this.props.item.id}
+                    dashboardMode={this.props.dashboardMode}
                 />
                 <Line />
                 {this.props.messages.length > 0 && (
@@ -129,7 +132,7 @@ class MessagesItem extends Component {
 }
 
 MessagesItem.propTypes = {
-    editMode: PropTypes.bool,
+    dashboardMode: PropTypes.string,
     item: PropTypes.object,
     messages: PropTypes.array,
 }

@@ -2,12 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { App } from '../App'
 
-/* eslint-disable react/display-name */
-jest.mock('../Dashboard/Dashboard', () => () => (
-    <div id="mockDashboard">mockDashboard</div>
-))
-/* eslint-enable react/display-name */
-
+jest.mock('../Dashboard/Dashboard', () => 'Dashboard')
 jest.mock('../../actions/dimensions', () => ({ tSetDimensions: () => null }))
 jest.mock('../../actions/dashboards', () => ({ tFetchDashboards: () => null }))
 

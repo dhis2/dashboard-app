@@ -67,6 +67,28 @@ export const getGridItemProperties = itemId => {
     }
 }
 
+export const getPageBreakItemShape = (yPos, isStatic = true) => {
+    return {
+        x: 0,
+        y: yPos,
+        w: GRID_COLUMNS - 1,
+        h: 5,
+        static: !!isStatic,
+        minH: 1,
+    }
+}
+
+export const getPrintTitlePageItemShape = () => {
+    return {
+        x: 0,
+        y: 0,
+        w: GRID_COLUMNS - 1,
+        h: 30,
+        static: true,
+        minH: 1,
+    }
+}
+
 /**
  * Calculates the grid item's original height in pixels based
  * on the height in grid units. This calculation
@@ -74,7 +96,7 @@ export const getGridItemProperties = itemId => {
  *
  * @param {Object} item item containing shape (x, y, w, h)
  */
-const getOriginalHeight = item => {
+export const getOriginalHeight = item => {
     const originalHeight = Math.round(
         GRID_ROW_HEIGHT * item.h + Math.max(0, item.h - 1) * MARGIN[1]
     )

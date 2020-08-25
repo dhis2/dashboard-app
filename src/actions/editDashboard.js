@@ -10,6 +10,8 @@ import {
     ADD_DASHBOARD_ITEM,
     UPDATE_DASHBOARD_ITEM,
     REMOVE_DASHBOARD_ITEM,
+    SET_PRINT_PREVIEW_VIEW,
+    CLEAR_PRINT_PREVIEW_VIEW,
 } from '../reducers/editDashboard'
 import { sGetEditDashboardRoot } from '../reducers/editDashboard'
 import { updateDashboard, postDashboard } from '../api/editDashboard'
@@ -17,8 +19,10 @@ import { tSetSelectedDashboardById } from '../actions/selected'
 import {
     NEW_ITEM_SHAPE,
     getGridItemProperties,
+    getPageBreakItemShape,
+    getPrintTitlePageItemShape,
 } from '../components/ItemGrid/gridUtil'
-import { itemTypeMap } from '../modules/itemTypes'
+import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
 import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
 
 const onError = error => {
@@ -48,6 +52,14 @@ export const acClearEditDashboard = () => ({
     type: RECEIVED_NOT_EDITING,
 })
 
+export const acSetPrintPreviewView = () => ({
+    type: SET_PRINT_PREVIEW_VIEW,
+})
+
+export const acClearPrintPreviewView = () => ({
+    type: CLEAR_PRINT_PREVIEW_VIEW,
+})
+
 export const acSetDashboardTitle = value => ({
     type: RECEIVED_TITLE,
     value,
@@ -71,14 +83,26 @@ export const acAddDashboardItem = item => {
     const id = generateUid()
     const gridItemProperties = getGridItemProperties(id)
 
+    let shape
+    if (type === PAGEBREAK) {
+        const yPos = item.yPos || 0
+        shape = getPageBreakItemShape(yPos, item.isStatic)
+    } else if (type === PRINT_TITLE_PAGE) {
+        shape = getPrintTitlePageItemShape()
+    } else {
+        shape = NEW_ITEM_SHAPE
+    }
+
     return {
         type: ADD_DASHBOARD_ITEM,
         value: {
             id,
             type,
+            position: item.position || null,
             [itemPropName]: item.content,
             ...NEW_ITEM_SHAPE,
             ...gridItemProperties,
+            ...shape,
         },
     }
 }

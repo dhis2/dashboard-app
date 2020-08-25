@@ -1,0 +1,31 @@
+.link {
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    margin-right: 4px;
+}
+.title {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--colors-grey700);
+    cursor: default;
+    user-select: text;
+    margin: 0px 0px 0px 10px;
+}
+.description {
+    margin: 15px 0px 0px 10px;
+    font-size: 14px;
+    color: var(--colors-grey700);
+}
+
+.filters {
+    margin: 10px;
+    font-size: 14px;
+    color: var(--colors-grey700);
+}
+
+@media print {
+    .link {
+        display: none;
+    }
+}

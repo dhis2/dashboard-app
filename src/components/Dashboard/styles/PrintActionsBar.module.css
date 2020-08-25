@@ -1,0 +1,23 @@
+.container {
+    background-color: var(--colors-grey600);
+    width: 100%;
+    padding: 3px;
+}
+
+.inner {
+    margin-left: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.link {
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 4px;
+}
+
+@media print {
+    .container {
+        display: none;
+    }
+}

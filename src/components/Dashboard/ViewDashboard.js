@@ -1,72 +1,54 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import isEmpty from 'lodash/isEmpty'
-import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
-import {
-    sGetAllDashboards,
-    sDashboardsIsFetching,
-} from '../../reducers/dashboards'
-import { sGetSelectedId } from '../../reducers/selected'
+import TitleBar from '../TitleBar/TitleBar'
+import ItemGrid from '../ItemGrid/ItemGrid'
+import FilterBar from '../FilterBar/FilterBar'
 import DashboardsBar from '../ControlBar/DashboardsBar'
 import DashboardVerticalOffset from './DashboardVerticalOffset'
-import DashboardContent from './DashboardContent'
-import NoContentMessage from '../../widgets/NoContentMessage'
+import { sGetIsEditing } from '../../reducers/editDashboard'
+import { sGetIsPrinting } from '../../reducers/printDashboard'
+import { acClearEditDashboard } from '../../actions/editDashboard'
+import { acClearPrintDashboard } from '../../actions/printDashboard'
 
-export const Content = ({ hasDashboardContent, dashboardsIsEmpty }) => {
-    const msg = dashboardsIsEmpty
-        ? i18n.t(
-              'No dashboards found. Use the + button to create a new dashboard.'
-          )
-        : i18n.t('Requested dashboard not found')
-
-    return hasDashboardContent ? (
-        <DashboardContent editMode={false} />
-    ) : (
-        <NoContentMessage text={msg} />
-    )
-}
-
-Content.propTypes = {
-    dashboardsIsEmpty: PropTypes.bool,
-    hasDashboardContent: PropTypes.bool,
-}
-
-export const ViewDashboard = ({ id, dashboardsIsEmpty, dashboardsLoaded }) => {
-    const hasDashboardContent = id && !dashboardsIsEmpty
-    const contentNotReady = !dashboardsLoaded || id === null
+export const ViewDashboard = props => {
+    useEffect(() => {
+        if (props.dashboardIsEditing) {
+            props.clearEditDashboard()
+        } else if (props.dashboardIsPrinting) {
+            props.clearPrintDashboard()
+        }
+    }, [props.dashboardIsEditing, props.dashboardIsPrinting])
 
     return (
         <>
             <DashboardsBar />
             <DashboardVerticalOffset />
             <div className="dashboard-wrapper">
-                {contentNotReady ? null : (
-                    <Content
-                        hasDashboardContent={hasDashboardContent}
-                        dashboardsIsEmpty={dashboardsIsEmpty}
-                    />
-                )}
+                <TitleBar edit={false} />
+                <FilterBar />
+                <ItemGrid edit={false} />
             </div>
         </>
     )
 }
 
 ViewDashboard.propTypes = {
-    dashboardsIsEmpty: PropTypes.bool,
-    dashboardsLoaded: PropTypes.bool,
-    id: PropTypes.string,
+    clearEditDashboard: PropTypes.func,
+    clearPrintDashboard: PropTypes.func,
+    dashboardIsEditing: PropTypes.bool,
+    dashboardIsPrinting: PropTypes.bool,
 }
 
 const mapStateToProps = state => {
-    const dashboards = sGetAllDashboards(state)
-
     return {
-        id: sGetSelectedId(state),
-        dashboardsIsEmpty: isEmpty(dashboards),
-        dashboardsLoaded: !sDashboardsIsFetching(state),
+        dashboardIsEditing: sGetIsEditing(state),
+        dashboardIsPrinting: sGetIsPrinting(state),
     }
 }
 
-export default connect(mapStateToProps)(ViewDashboard)
+export default connect(mapStateToProps, {
+    clearEditDashboard: acClearEditDashboard,
+    clearPrintDashboard: acClearPrintDashboard,
+})(ViewDashboard)

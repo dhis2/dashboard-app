@@ -3,29 +3,20 @@ import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
+import DashboardVerticalOffset from './DashboardVerticalOffset'
+import TitleBar from '../TitleBar/TitleBar'
+import ItemGrid from '../ItemGrid/ItemGrid'
+import EditBar from '../ControlBar/EditBar'
+import LayoutPrintPreview from './PrintLayoutDashboard'
+import NoContentMessage from '../../widgets/NoContentMessage'
 import { acSetEditDashboard } from '../../actions/editDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
 import {
     sGetDashboardById,
     sGetDashboardItems,
-    sDashboardsIsFetching,
 } from '../../reducers/dashboards'
-import DashboardVerticalOffset from './DashboardVerticalOffset'
-import DashboardContent from './DashboardContent'
-import EditBar from '../ControlBar/EditBar'
-import NoContentMessage from '../../widgets/NoContentMessage'
+import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
 
-export const Content = ({ updateAccess }) => {
-    return updateAccess ? (
-        <DashboardContent editMode={true} />
-    ) : (
-        <NoContentMessage text={i18n.t('No access')} />
-    )
-}
-
-Content.propTypes = {
-    updateAccess: PropTypes.bool,
-}
 export class EditDashboard extends Component {
     state = {
         initialized: false,
@@ -48,15 +39,15 @@ export class EditDashboard extends Component {
         }
     }
 
-    getDashboardContent = () => {
-        const contentNotReady =
-            !this.props.dashboardsLoaded || this.props.id === null
+    renderGrid = () => {
+        if (this.props.isPrintPreviewView) {
+            return <LayoutPrintPreview fromEdit={true} />
+        }
 
         return (
             <div className="dashboard-wrapper">
-                {contentNotReady ? null : (
-                    <Content updateAccess={this.props.updateAccess} />
-                )}
+                <TitleBar edit={true} />
+                <ItemGrid edit={true} />
             </div>
         )
     }
@@ -66,7 +57,11 @@ export class EditDashboard extends Component {
             <>
                 <EditBar />
                 <DashboardVerticalOffset editMode={true} />
-                {this.getDashboardContent()}
+                {this.props.updateAccess ? (
+                    this.renderGrid()
+                ) : (
+                    <NoContentMessage text={i18n.t('No access')} />
+                )}
             </>
         )
     }
@@ -74,8 +69,7 @@ export class EditDashboard extends Component {
 
 EditDashboard.propTypes = {
     dashboard: PropTypes.object,
-    dashboardsLoaded: PropTypes.bool,
-    id: PropTypes.string,
+    isPrintPreviewView: PropTypes.bool,
     items: PropTypes.array,
     setEditDashboard: PropTypes.func,
     updateAccess: PropTypes.bool,
@@ -90,10 +84,9 @@ const mapStateToProps = state => {
 
     return {
         dashboard,
-        id,
         updateAccess,
         items: sGetDashboardItems(state),
-        dashboardsLoaded: !sDashboardsIsFetching(state),
+        isPrintPreviewView: sGetIsPrintPreviewView(state),
     }
 }
 

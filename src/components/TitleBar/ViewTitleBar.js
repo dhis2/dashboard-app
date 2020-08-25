@@ -1,18 +1,19 @@
-import React, { Component } from 'react'
+import React, { useState, createRef } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
+import { Redirect } from 'react-router-dom'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import Star from '@material-ui/icons/Star'
 import StarBorder from '@material-ui/icons/StarBorder'
+import { Button, FlyoutMenu, Popover, MenuItem, colors } from '@dhis2/ui'
 
+import { ThreeDots } from '../Item/VisualizationItem/assets/icons'
 import { orObject } from '../../modules/util'
 import { tStarDashboard } from '../../actions/dashboards'
-import { acSetSelectedShowDescription } from '../../actions/selected'
+import { tUpdateShowDescription } from '../../actions/selected'
 import FilterSelector from '../ItemFilter/FilterSelector'
-import { Button, colors } from '@dhis2/ui'
-import Info from './Info'
 import {
     sGetSelectedId,
     sGetSelectedShowDescription,
@@ -24,101 +25,155 @@ import {
 
 import classes from './styles/ViewTitleBar.module.css'
 
-const NO_DESCRIPTION = i18n.t('No description')
+const ViewTitleBar = (props, context) => {
+    const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
+    const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
+    const [redirectUrl, setRedirectUrl] = useState(null)
 
-class ViewTitleBar extends Component {
-    constructor(props) {
-        super(props)
+    const {
+        id,
+        name,
+        description,
+        access,
+        style,
+        showDescription,
+        starred,
+        onToggleStarredDashboard,
+        onShowHideDescription,
+    } = props
 
-        this.state = {
-            sharingDialogIsOpen: false,
-        }
+    const toggleSharingDialog = () =>
+        setSharingDialogIsOpen(!sharingDialogIsOpen)
+
+    const toggleMoreOptions = () => setMoreOptionsIsOpen(!moreOptionsIsOpen)
+
+    const printLayout = () => setRedirectUrl(`${id}/printlayout`)
+    const printOipp = () => setRedirectUrl(`${id}/printoipp`)
+
+    const titleStyle = Object.assign({}, style.title, {
+        cursor: 'default',
+        userSelect: 'text',
+        top: '7px',
+    })
+
+    const StarIcon = starred ? Star : StarBorder
+
+    if (redirectUrl) {
+        return <Redirect to={redirectUrl} />
     }
 
-    toggleSharingDialog = () =>
-        this.setState({ sharingDialogIsOpen: !this.state.sharingDialogIsOpen })
+    const showHideDescriptionLabel = showDescription
+        ? i18n.t('Hide description')
+        : i18n.t('Show description')
 
-    render() {
-        const {
-            id,
-            name,
-            description,
-            access,
-            style,
-            showDescription,
-            starred,
-            onStarClick,
-            onInfoClick,
-        } = this.props
+    const showHideDescription = () => {
+        onShowHideDescription()
+        toggleMoreOptions()
+    }
 
-        const titleStyle = Object.assign({}, style.title, {
-            cursor: 'default',
-            userSelect: 'text',
-            top: '7px',
-        })
+    const toggleStarredDashboardLabel = starred
+        ? i18n.t('Unstar dashboard')
+        : i18n.t('Star dashboard')
 
-        const StarIcon = starred ? Star : StarBorder
+    const toggleStarredDashboard = () => {
+        onToggleStarredDashboard()
+        toggleMoreOptions()
+    }
 
-        return (
-            <>
-                <div className={classes.titleBar}>
-                    <span style={titleStyle}>{name}</span>
-                    <div className={classes.actions}>
-                        <div
-                            className={classes.titleBarIcon}
-                            onClick={onStarClick}
-                        >
-                            <StarIcon style={{ fill: colors.grey600 }} />
-                        </div>
-                        <div className={classes.titleBarIcon}>
-                            <Info onClick={onInfoClick} />
-                        </div>
-                        <div style={{ marginLeft: '10px' }}>
-                            {access.update ? (
-                                <Link
-                                    className={classes.editLink}
-                                    to={`/${id}/edit`}
-                                >
-                                    <Button>{i18n.t('Edit')}</Button>
-                                </Link>
-                            ) : null}
-                            {access.manage ? (
-                                <span style={{ marginRight: '4px' }}>
-                                    <Button onClick={this.toggleSharingDialog}>
-                                        {i18n.t('Share')}
-                                    </Button>
-                                </span>
-                            ) : null}
-                            <span style={{ marginRight: '4px' }}>
-                                <FilterSelector />
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                {showDescription ? (
+    const buttonRef = createRef()
+
+    return (
+        <>
+            <div className={classes.titleBar}>
+                <span style={titleStyle}>{name}</span>
+                <div className={classes.actions}>
                     <div
-                        className="dashboard-description"
-                        style={Object.assign(
-                            { paddingTop: '10px', paddingBottom: '5px' },
-                            style.description,
-                            !description ? { color: '#888' } : {}
-                        )}
+                        className={classes.titleBarIcon}
+                        onClick={onToggleStarredDashboard}
                     >
-                        {description || NO_DESCRIPTION}
+                        <StarIcon style={{ fill: colors.grey600 }} />
                     </div>
-                ) : null}
-                {id ? (
-                    <SharingDialog
-                        d2={this.context.d2}
-                        id={id}
-                        type="dashboard"
-                        open={this.state.sharingDialogIsOpen}
-                        onRequestClose={this.toggleSharingDialog}
-                    />
-                ) : null}
-            </>
-        )
-    }
+                    <div className={classes.strip}>
+                        {access.update ? (
+                            <Link
+                                className={classes.editLink}
+                                to={`/${id}/edit`}
+                            >
+                                <Button>{i18n.t('Edit')}</Button>
+                            </Link>
+                        ) : null}
+                        {access.manage ? (
+                            <Button onClick={toggleSharingDialog}>
+                                {i18n.t('Share')}
+                            </Button>
+                        ) : null}
+                        <FilterSelector />
+                        <span ref={buttonRef}>
+                            <Button onClick={toggleMoreOptions}>
+                                <ThreeDots />
+                                <span style={{ marginLeft: '5px' }}>
+                                    {i18n.t('More')}
+                                </span>
+                            </Button>
+                        </span>
+                    </div>
+                    {moreOptionsIsOpen && (
+                        <Popover
+                            reference={buttonRef}
+                            placement="bottom-start"
+                            onClickOutside={toggleMoreOptions}
+                        >
+                            <FlyoutMenu>
+                                <MenuItem
+                                    dense
+                                    label={toggleStarredDashboardLabel}
+                                    onClick={toggleStarredDashboard}
+                                />
+                                <MenuItem
+                                    dense
+                                    label={showHideDescriptionLabel}
+                                    onClick={showHideDescription}
+                                />
+                                <MenuItem dense label={i18n.t('Print')}>
+                                    <MenuItem
+                                        dense
+                                        label={i18n.t('Dashboard layout')}
+                                        onClick={printLayout}
+                                    />
+                                    <MenuItem
+                                        dense
+                                        label={i18n.t('One item per page')}
+                                        onClick={printOipp}
+                                    />
+                                </MenuItem>
+                            </FlyoutMenu>
+                        </Popover>
+                    )}
+                </div>
+            </div>
+            {showDescription ? (
+                <div
+                    className="dashboard-description"
+                    style={Object.assign(
+                        { paddingTop: '5px', paddingBottom: '5px' },
+                        style.description,
+                        !description ? { color: '#888' } : {}
+                    )}
+                >
+                    {description || i18n.t('No description')}
+                </div>
+            ) : null}
+            {id ? (
+                <SharingDialog
+                    d2={context.d2}
+                    id={id}
+                    type="dashboard"
+                    open={sharingDialogIsOpen}
+                    onRequestClose={toggleSharingDialog}
+                />
+            ) : null}
+        </>
+    )
 }
 
 ViewTitleBar.propTypes = {
@@ -129,8 +184,8 @@ ViewTitleBar.propTypes = {
     showDescription: PropTypes.bool,
     starred: PropTypes.bool,
     style: PropTypes.object,
-    onInfoClick: PropTypes.func,
-    onStarClick: PropTypes.func,
+    onShowHideDescription: PropTypes.func,
+    onToggleStarredDashboard: PropTypes.func,
 }
 
 ViewTitleBar.defaultProps = {
@@ -138,7 +193,6 @@ ViewTitleBar.defaultProps = {
     description: '',
     starred: false,
     showDescription: false,
-    onInfoClick: null,
 }
 
 ViewTitleBar.contextTypes = {
@@ -167,9 +221,9 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     return {
         ...stateProps,
         ...ownProps,
-        onStarClick: () => dispatch(tStarDashboard(id, !starred)),
-        onInfoClick: () =>
-            dispatch(acSetSelectedShowDescription(!showDescription)),
+        onToggleStarredDashboard: () => dispatch(tStarDashboard(id, !starred)),
+        onShowHideDescription: () =>
+            dispatch(tUpdateShowDescription(!showDescription)),
     }
 }
 

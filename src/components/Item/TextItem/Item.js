@@ -4,6 +4,8 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
 import Input from '@material-ui/core/Input'
+import ItemHeader from '../ItemHeader/ItemHeader'
+import Line from '../../../widgets/Line'
 import {
     Parser as RichTextParser,
     Editor as RichTextEditor,
@@ -12,8 +14,11 @@ import {
 import { acUpdateDashboardItem } from '../../../actions/editDashboard'
 import { sGetEditDashboardItems } from '../../../reducers/editDashboard'
 import { sGetDashboardItems } from '../../../reducers/dashboards'
-import ItemHeader from '../ItemHeader'
-import Line from '../../../widgets/Line'
+import {
+    sGetIsPrinting,
+    sGetPrintDashboardItems,
+} from '../../../reducers/printDashboard'
+import { isEditMode } from '../../Dashboard/dashboardModes'
 
 const style = {
     textDiv: {
@@ -36,7 +41,7 @@ const style = {
 }
 
 const TextItem = props => {
-    const { item, editMode, text, acUpdateDashboardItem } = props
+    const { item, dashboardMode, text, acUpdateDashboardItem } = props
 
     const onChangeText = event => {
         const updatedItem = {
@@ -59,7 +64,11 @@ const TextItem = props => {
     const editItem = () => {
         return (
             <>
-                <ItemHeader title={i18n.t('Text item')} itemId={item.id} />
+                <ItemHeader
+                    title={i18n.t('Text item')}
+                    itemId={item.id}
+                    dashboardMode={dashboardMode}
+                />
                 <Line />
                 <div className="dashboard-item-content">
                     <RichTextEditor onEdit={onChangeText}>
@@ -77,13 +86,19 @@ const TextItem = props => {
         )
     }
 
-    return <>{editMode ? editItem() : viewItem()}</>
+    return <>{isEditMode(dashboardMode) ? editItem() : viewItem()}</>
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const items = ownProps.editMode
-        ? sGetEditDashboardItems(state)
-        : sGetDashboardItems(state)
+    const isPrintPreview = sGetIsPrinting(state)
+    let items
+    if (isPrintPreview) {
+        items = sGetPrintDashboardItems(state)
+    } else if (isEditMode(ownProps.dashboardMode)) {
+        items = sGetEditDashboardItems(state)
+    } else {
+        items = sGetDashboardItems(state)
+    }
 
     const item = items.find(item => item.id === ownProps.item.id)
 
@@ -94,7 +109,7 @@ const mapStateToProps = (state, ownProps) => {
 
 TextItem.propTypes = {
     acUpdateDashboardItem: PropTypes.func,
-    editMode: PropTypes.bool,
+    dashboardMode: PropTypes.string,
     item: PropTypes.object,
     text: PropTypes.string,
 }

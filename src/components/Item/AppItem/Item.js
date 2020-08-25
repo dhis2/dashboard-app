@@ -4,9 +4,14 @@ import { connect } from 'react-redux'
 import NotInterestedIcon from '@material-ui/icons/NotInterested'
 
 import { FILTER_ORG_UNIT } from '../../../actions/itemFilters'
-import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
-import ItemHeader from '../ItemHeader'
+import {
+    sGetItemFiltersRoot,
+    DEFAULT_STATE_ITEM_FILTERS,
+} from '../../../reducers/itemFilters'
+import ItemHeader from '../ItemHeader/ItemHeader'
 import Line from '../../../widgets/Line'
+
+import { isEditMode } from '../../Dashboard/dashboardModes'
 
 const getIframeSrc = (appDetails, item, itemFilters) => {
     let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`
@@ -26,7 +31,7 @@ const getIframeSrc = (appDetails, item, itemFilters) => {
     return iframeSrc
 }
 
-const AppItem = ({ item, itemFilters }, context) => {
+const AppItem = ({ dashboardMode, item, itemFilters }, context) => {
     let appDetails
 
     const appKey = item.appKey
@@ -39,7 +44,11 @@ const AppItem = ({ item, itemFilters }, context) => {
 
     return appDetails && appDetails.name && appDetails.launchUrl ? (
         <>
-            <ItemHeader title={appDetails.name} itemId={item.id} />
+            <ItemHeader
+                title={appDetails.name}
+                itemId={item.id}
+                dashboardMode={dashboardMode}
+            />
             <Line />
             <iframe
                 title={appDetails.name}
@@ -72,6 +81,7 @@ const AppItem = ({ item, itemFilters }, context) => {
 }
 
 AppItem.propTypes = {
+    dashboardMode: PropTypes.string,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
 }
@@ -80,8 +90,12 @@ AppItem.contextTypes = {
     d2: PropTypes.object,
 }
 
-const mapStateToProps = state => ({
-    itemFilters: sGetItemFiltersRoot(state),
-})
+const mapStateToProps = (state, ownProps) => {
+    const itemFilters = !isEditMode(ownProps.dashboardMode)
+        ? sGetItemFiltersRoot(state)
+        : DEFAULT_STATE_ITEM_FILTERS
+
+    return { itemFilters }
+}
 
 export default connect(mapStateToProps)(AppItem)

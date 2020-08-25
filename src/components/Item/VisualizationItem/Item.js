@@ -7,12 +7,17 @@ import i18n from '@dhis2/d2-i18n'
 
 import DefaultPlugin from './DefaultPlugin'
 import FatalErrorBoundary from './FatalErrorBoundary'
-import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader'
+import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader/ItemHeader'
 import ItemHeaderButtons from './ItemHeaderButtons'
 import ItemFooter from './ItemFooter'
+import LoadingMask from './LoadingMask'
+
 import * as pluginManager from './plugin'
 import { sGetVisualization } from '../../../reducers/visualizations'
-import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
+import {
+    sGetItemFiltersRoot,
+    DEFAULT_STATE_ITEM_FILTERS,
+} from '../../../reducers/itemFilters'
 import {
     acAddVisualization,
     acSetActiveVisualizationType,
@@ -24,9 +29,12 @@ import {
     REPORT_TABLE,
 } from '../../../modules/itemTypes'
 import memoizeOne from '../../../modules/memoizeOne'
+import {
+    isEditMode,
+    isPrintMode,
+    isViewMode,
+} from '../../Dashboard/dashboardModes'
 
-import { getVisualizationConfig } from './plugin'
-import LoadingMask from './LoadingMask'
 import { ITEM_CONTENT_PADDING_BOTTOM } from '../../ItemGrid/ItemGrid'
 
 import classes from './styles/Item.module.css'
@@ -48,7 +56,9 @@ export class Item extends Component {
 
         this.memoizedApplyFilters = memoizeOne(this.applyFilters)
 
-        this.memoizedGetVisualizationConfig = memoizeOne(getVisualizationConfig)
+        this.memoizedGetVisualizationConfig = memoizeOne(
+            pluginManager.getVisualizationConfig
+        )
 
         this.memoizedGetContentStyle = memoizeOne(this.getContentStyle)
     }
@@ -145,12 +155,14 @@ export class Item extends Component {
 
         const props = {
             ...this.props,
+            useActiveType: !isEditMode(this.props.dashboardMode),
             visualization,
             classes,
             style: this.memoizedGetContentStyle(
                 calculatedHeight,
                 this.contentRef ? this.contentRef.offsetHeight : null,
-                this.props.editMode
+                isEditMode(this.props.dashboardMode) ||
+                    isPrintMode(this.props.dashboardMode)
             ),
         }
 
@@ -260,8 +272,8 @@ export class Item extends Component {
             this.props.visualization
         )
 
-    getContentStyle = (calculatedHeight, measuredHeight, editMode) => {
-        const height = editMode
+    getContentStyle = (calculatedHeight, measuredHeight, preferMeasured) => {
+        const height = preferMeasured
             ? measuredHeight || calculatedHeight
             : calculatedHeight
 
@@ -269,7 +281,7 @@ export class Item extends Component {
     }
 
     render() {
-        const { item, editMode, itemFilters } = this.props
+        const { item, dashboardMode, itemFilters } = this.props
         const { showFooter } = this.state
 
         const actionButtons = (
@@ -291,6 +303,7 @@ export class Item extends Component {
                     itemId={item.id}
                     actionButtons={actionButtons}
                     ref={this.headerRef}
+                    dashboardMode={dashboardMode}
                 />
                 <FatalErrorBoundary>
                     <div
@@ -301,7 +314,9 @@ export class Item extends Component {
                         {this.state.configLoaded && this.getPluginComponent()}
                     </div>
                 </FatalErrorBoundary>
-                {!editMode && showFooter ? <ItemFooter item={item} /> : null}
+                {isViewMode(dashboardMode) && showFooter ? (
+                    <ItemFooter item={item} />
+                ) : null}
             </>
         )
     }
@@ -312,7 +327,7 @@ Item.contextTypes = {
 }
 
 Item.propTypes = {
-    editMode: PropTypes.bool,
+    dashboardMode: PropTypes.string,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,
@@ -323,19 +338,23 @@ Item.propTypes = {
 
 Item.defaultProps = {
     item: {},
-    editMode: false,
     onToggleItemExpanded: Function.prototype,
-    itemFilters: {},
     visualization: {},
 }
 
-const mapStateToProps = (state, ownProps) => ({
-    itemFilters: sGetItemFiltersRoot(state),
-    visualization: sGetVisualization(
-        state,
-        pluginManager.extractFavorite(ownProps.item).id
-    ),
-})
+const mapStateToProps = (state, ownProps) => {
+    const itemFilters = !isEditMode(ownProps.dashboardMode)
+        ? sGetItemFiltersRoot(state)
+        : DEFAULT_STATE_ITEM_FILTERS
+
+    return {
+        itemFilters,
+        visualization: sGetVisualization(
+            state,
+            pluginManager.extractFavorite(ownProps.item).id
+        ),
+    }
+}
 
 const mapDispatchToProps = dispatch => ({
     onVisualizationLoaded: visualization =>

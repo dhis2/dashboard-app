@@ -12,11 +12,11 @@ import dashboardsFilter, {
 import controlBar from './controlBar'
 import visualizations from './visualizations'
 import editDashboard from './editDashboard'
+import printDashboard from './printDashboard'
 import messages from './messages'
 import user from './user'
 import snackbar from './snackbar'
 import itemFilters from './itemFilters'
-import editItemFilters from './editItemFilters'
 import style from './style'
 import dimensions from './dimensions'
 import settings from './settings'
@@ -35,8 +35,8 @@ export default combineReducers({
     messages,
     user,
     editDashboard,
+    printDashboard,
     itemFilters,
-    editItemFilters,
     style,
     snackbar,
     dimensions,

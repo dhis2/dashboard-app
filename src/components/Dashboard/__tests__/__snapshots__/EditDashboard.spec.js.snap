@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditDashboard renders message when enough access 1`] = `
+<Fragment>
+  <EditBar />
+  <DashboardVerticalOffset
+    editMode={true}
+  />
+  <div
+    className="dashboard-wrapper"
+  >
+    <TitleBar
+      edit={true}
+    />
+    <ItemGrid
+      edit={true}
+    />
+  </div>
+</Fragment>
+`;
+
+exports[`EditDashboard renders message when not enough access 1`] = `
+<Fragment>
+  <EditBar />
+  <DashboardVerticalOffset
+    editMode={true}
+  />
+  <NoContentMessage
+    text="No access"
+  />
+</Fragment>
+`;
+
+exports[`EditDashboard renders print preview 1`] = `
+<Fragment>
+  <EditBar />
+  <DashboardVerticalOffset
+    editMode={true}
+  />
+  <LayoutPrintPreview
+    fromEdit={true}
+  />
+</Fragment>
+`;

@@ -8,6 +8,8 @@ import ListItem from './ListItem/Item'
 import TextItem from './TextItem/Item'
 import AppItem from './AppItem/Item'
 import SpacerItem from './SpacerItem/Item'
+import PageBreakItem from './PageBreakItem/Item'
+import PrintTitlePageItem from './PrintTitlePageItem/Item'
 import {
     APP,
     VISUALIZATION,
@@ -22,8 +24,9 @@ import {
     USERS,
     TEXT,
     SPACER,
+    PAGEBREAK,
+    PRINT_TITLE_PAGE,
 } from '../../modules/itemTypes'
-import { DEFAULT_STATE_ITEM_FILTERS } from '../../reducers/itemFilters'
 
 const getGridItem = type => {
     switch (type) {
@@ -46,6 +49,10 @@ const getGridItem = type => {
             return SpacerItem
         case APP:
             return AppItem
+        case PAGEBREAK:
+            return PageBreakItem
+        case PRINT_TITLE_PAGE:
+            return PrintTitlePageItem
         default:
             return NotSupportedItem
     }
@@ -57,18 +64,14 @@ export const Item = props => {
     return (
         <GridItem
             item={props.item}
-            editMode={props.editMode}
-            itemFilters={
-                props.editMode ? DEFAULT_STATE_ITEM_FILTERS : props.itemFilters
-            }
+            dashboardMode={props.dashboardMode}
             onToggleItemExpanded={props.onToggleItemExpanded}
         />
     )
 }
 
 Item.propTypes = {
-    editMode: PropTypes.bool,
+    dashboardMode: PropTypes.string,
     item: PropTypes.object,
-    itemFilters: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
 }

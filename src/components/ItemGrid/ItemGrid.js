@@ -5,10 +5,7 @@ import i18n from '@dhis2/d2-i18n'
 import ReactGridLayout from 'react-grid-layout'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 
-import {
-    acUpdateDashboardLayout,
-    acRemoveDashboardItem,
-} from '../../actions/editDashboard'
+import { acUpdateDashboardLayout } from '../../actions/editDashboard'
 import { Item } from '../Item/Item'
 import { resize as pluginResize } from '../Item/VisualizationItem/plugin'
 import { isVisualizationType } from '../../modules/itemTypes'
@@ -38,6 +35,7 @@ import {
     sGetDashboardItems,
 } from '../../reducers/dashboards'
 import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer'
+import { VIEW, EDIT } from '../Dashboard/dashboardModes'
 
 // Component
 
@@ -59,10 +57,6 @@ export class ItemGrid extends Component {
         const expandedItems = { ...this.state.expandedItems }
         expandedItems[clickedId] = !isExpanded
         this.setState({ expandedItems })
-    }
-
-    onRemoveItem = clickedId => {
-        this.props.acRemoveDashboardItem(clickedId)
     }
 
     componentWillReceiveProps(nextProps) {
@@ -90,8 +84,6 @@ export class ItemGrid extends Component {
         }
     }
 
-    onRemoveItemWrapper = id => () => this.onRemoveItem(id)
-
     adjustHeightForExpanded = dashboardItem => {
         const expandedItem = this.state.expandedItems[dashboardItem.id]
 
@@ -117,7 +109,7 @@ export class ItemGrid extends Component {
             >
                 <Item
                     item={item}
-                    editMode={this.props.edit}
+                    dashboardMode={this.props.edit ? EDIT : VIEW}
                     onToggleItemExpanded={this.onToggleItemExpanded}
                 />
             </ProgressiveLoadingContainer>
@@ -172,7 +164,6 @@ export class ItemGrid extends Component {
 }
 
 ItemGrid.propTypes = {
-    acRemoveDashboardItem: PropTypes.func,
     acUpdateDashboardLayout: PropTypes.func,
     dashboardItems: PropTypes.array,
     edit: PropTypes.bool,
@@ -202,7 +193,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = {
     acUpdateDashboardLayout,
-    acRemoveDashboardItem,
 }
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {

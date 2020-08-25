@@ -26,6 +26,8 @@ export const USERS = 'USERS'
 export const MESSAGES = 'MESSAGES'
 export const TEXT = 'TEXT'
 export const SPACER = 'SPACER'
+export const PAGEBREAK = 'PAGEBREAK'
+export const PRINT_TITLE_PAGE = 'PRINT_TITLE_PAGE'
 
 const DOMAIN_TYPE_AGGREGATE = 'AGGREGATE'
 const DOMAIN_TYPE_TRACKER = 'TRACKER'
@@ -146,6 +148,12 @@ export const itemTypeMap = {
         propName: 'messages',
     },
     [SPACER]: {
+        propName: 'text',
+    },
+    [PAGEBREAK]: {
+        propName: 'text',
+    },
+    [PRINT_TITLE_PAGE]: {
         propName: 'text',
     },
 }
