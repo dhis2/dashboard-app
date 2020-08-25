@@ -43,7 +43,7 @@ const dashboardMap = {
 export class Dashboard extends Component {
     setDashboard = () => {
         if (this.props.dashboardsLoaded) {
-            const id = this.props.id || null
+            const id = this.props.match.params.dashboardId || null || null
 
             this.props.selectDashboard(id)
 
@@ -125,16 +125,17 @@ Dashboard.propTypes = {
     dashboardsIsEmpty: PropTypes.bool,
     dashboardsLoaded: PropTypes.bool,
     id: PropTypes.string,
+    match: PropTypes.object,
     mode: PropTypes.string,
     selectDashboard: PropTypes.func,
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
     const dashboards = sGetAllDashboards(state)
     return {
         dashboardsIsEmpty: isEmpty(dashboards),
         dashboardsLoaded: !sDashboardsIsFetching(state),
-        id: ownProps.match?.params?.dashboardId || sGetSelectedId(state),
+        id: sGetSelectedId(state),
     }
 }
 
