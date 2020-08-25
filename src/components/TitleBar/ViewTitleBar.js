@@ -12,7 +12,7 @@ import { Button, FlyoutMenu, Popover, MenuItem, colors } from '@dhis2/ui'
 import { ThreeDots } from '../Item/VisualizationItem/assets/icons'
 import { orObject } from '../../modules/util'
 import { tStarDashboard } from '../../actions/dashboards'
-import { acSetSelectedShowDescription } from '../../actions/selected'
+import { tUpdateShowDescription } from '../../actions/selected'
 import FilterSelector from '../ItemFilter/FilterSelector'
 import {
     sGetSelectedId,
@@ -223,7 +223,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         ...ownProps,
         onToggleStarredDashboard: () => dispatch(tStarDashboard(id, !starred)),
         onShowHideDescription: () =>
-            dispatch(acSetSelectedShowDescription(!showDescription)),
+            dispatch(tUpdateShowDescription(!showDescription)),
     }
 }
 
