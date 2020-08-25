@@ -26,11 +26,12 @@ describe('App', () => {
 
     beforeEach(() => {
         props = {
-            d2: {},
-            setCurrentUser: jest.fn(),
             fetchDashboards: jest.fn(),
+            setCurrentUser: jest.fn(),
             setControlBarRows: jest.fn(),
             setDimensions: jest.fn(),
+            setShowDescription: jest.fn(),
+            d2: {},
         }
         shallowApp = undefined
         context = {
