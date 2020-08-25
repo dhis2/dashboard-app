@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-06-10T01:32:16.274Z\n"
+"POT-Creation-Date: 2020-08-25T05:26:00.043Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -35,17 +35,23 @@ msgstr ""
 "المستخدمين. لا يمكن التراجع عن هذا الإجراء. هل تريد بالتأكيد حذف لوحة "
 "المعلومات هذه نهائياً؟"
 
-msgid "Exit without saving"
-msgstr "الخروج من غير الحفظ"
+msgid "Exit Print preview"
+msgstr ""
 
-msgid "Go to dashboards"
-msgstr "الذهاب إلى لوحة المعلومات"
+msgid "Print preview"
+msgstr ""
 
 msgid "Save changes"
 msgstr "احفظ التغييرات"
 
 msgid "Translate"
 msgstr "ترجمة"
+
+msgid "Exit without saving"
+msgstr "الخروج من غير الحفظ"
+
+msgid "Go to dashboards"
+msgstr "الذهاب إلى لوحة المعلومات"
 
 msgid "Search for a dashboard"
 msgstr "البحث عن لوحة معلومات"
@@ -56,15 +62,45 @@ msgstr "إظهار المزيد"
 msgid "Show less"
 msgstr "إظهار الأقل"
 
-msgid "No access"
-msgstr "الوصول غير ممكن"
-
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
 "لم يتم العثور على لوحات معلومات. استخدم الزر + لإنشاء لوحة معلومات جديدة."
 
 msgid "Requested dashboard not found"
 msgstr "لم يتم العثور على لوحة المعلومات التي طلبتها"
+
+msgid "No access"
+msgstr "الوصول غير ممكن"
+
+msgid "Exit print preview"
+msgstr ""
+
+msgid "Print"
+msgstr ""
+
+msgid ""
+"The pages below are a preview of how the dashboard layout will be printed."
+msgstr ""
+
+msgid ""
+"The pages below are a preview of how each dashboard item will be printed on "
+"a separate page."
+msgstr ""
+
+msgid ""
+"Use the default printer settings for best results and check that all "
+"dashboard items have finished loading before printing. This text will not be"
+" printed."
+msgstr ""
+
+msgid "dashboard layout"
+msgstr ""
+
+msgid "one item per page"
+msgstr ""
+
+msgid "Print Preview"
+msgstr ""
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -89,6 +125,9 @@ msgstr "رؤية كافة الرسائل"
 
 msgid "Item type \"{{type}}\" not supported"
 msgstr "نوع العنصر \"{{type}}\" غير مدعوم"
+
+msgid "Filters applied"
+msgstr ""
 
 msgid "Spacer"
 msgstr "مسافة فاصلة"
@@ -160,14 +199,35 @@ msgstr "عنوان لوحة المعلومات"
 msgid "Dashboard description"
 msgstr "وصف لوحة المعلومات"
 
-msgid "No description"
-msgstr "لا يوجد وصف"
+msgid "Hide description"
+msgstr ""
+
+msgid "Show description"
+msgstr ""
+
+msgid "Unstar dashboard"
+msgstr ""
+
+msgid "Star dashboard"
+msgstr ""
 
 msgid "Edit"
 msgstr "تعديل"
 
 msgid "Share"
 msgstr "مشاركة"
+
+msgid "More"
+msgstr ""
+
+msgid "Dashboard layout"
+msgstr ""
+
+msgid "One item per page"
+msgstr ""
+
+msgid "No description"
+msgstr "لا يوجد وصف"
 
 msgid "Visualizations"
 msgstr "مخططات بيانية"
