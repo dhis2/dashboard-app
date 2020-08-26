@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-25T05:26:00.043Z\n"
+"POT-Creation-Date: 2020-08-26T05:58:25.332Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
@@ -184,6 +184,9 @@ msgid "Text box"
 msgstr ""
 
 msgid "Dashboard title"
+msgstr ""
+
+msgid "Untitled dashboard"
 msgstr ""
 
 msgid "Dashboard description"
