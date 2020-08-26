@@ -63,7 +63,7 @@ export const EditTitleBar = ({
                         rowsMax={3}
                         style={titleStyle}
                         value={name}
-                        placeholder={i18n.t('Add title here')}
+                        placeholder={i18n.t('Untitled dashboard')}
                         onChange={onChangeTitle}
                     />
                     {translatedName()}

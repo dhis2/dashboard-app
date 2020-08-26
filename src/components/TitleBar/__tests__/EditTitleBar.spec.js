@@ -27,6 +27,11 @@ describe('EditTitleBar', () => {
         const tree = shallow(<EditTitleBar {...props} />);
         expect(tree).toMatchSnapshot();
     });
+    it('renders correctly when no name', () => {
+        props.name = '';
+        const tree = shallow(<EditTitleBar {...props} />);
+        expect(tree).toMatchSnapshot();
+    });
 
     it('renders correctly when displayName is provided', () => {
         const tree = shallow(
