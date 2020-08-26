@@ -5,8 +5,11 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-05-19T19:20:59.404Z\n"
-"PO-Revision-Date: 2020-05-19T19:20:59.404Z\n"
+"POT-Creation-Date: 2020-08-26T13:20:39.720Z\n"
+"PO-Revision-Date: 2020-08-26T13:20:39.720Z\n"
+
+msgid "Untitled dashboard"
+msgstr ""
 
 msgid "Dashboard"
 msgstr ""

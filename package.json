@@ -22,6 +22,7 @@
         "@material-ui/icons": "^3.0.2",
         "d2": "^31.8.1",
         "d2-utilizr": "^0.2.16",
+        "enzyme-to-json": "^3.5.0",
         "lodash": "^4.17.11",
         "moment": "^2.24.0",
         "react": "^16.8.4",
