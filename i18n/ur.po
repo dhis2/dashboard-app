@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-25T05:26:00.043Z\n"
+"POT-Creation-Date: 2020-08-26T05:58:25.332Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,7 +70,7 @@ msgid "Exit print preview"
 msgstr ""
 
 msgid "Print"
-msgstr ""
+msgstr "پرنٹ کریں"
 
 msgid ""
 "The pages below are a preview of how the dashboard layout will be printed."
@@ -186,6 +186,9 @@ msgstr ""
 msgid "Dashboard title"
 msgstr ""
 
+msgid "Untitled dashboard"
+msgstr ""
+
 msgid "Dashboard description"
 msgstr ""
 
@@ -208,7 +211,7 @@ msgid "Share"
 msgstr "بانٹیں"
 
 msgid "More"
-msgstr ""
+msgstr "مزید"
 
 msgid "Dashboard layout"
 msgstr ""
