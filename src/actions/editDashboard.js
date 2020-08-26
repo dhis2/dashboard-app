@@ -126,7 +126,7 @@ export const tSaveDashboard = () => async (dispatch, getState) => {
     const dashboardToSave = {
         ...dashboard,
         dashboardItems: convertUiItemsToBackend(dashboard.dashboardItems),
-        name: dashboard.name ? dashboard.name : i18n.t('Untitled dashboard'),
+        name: dashboard.name || i18n.t('Untitled dashboard'),
     }
 
     try {
