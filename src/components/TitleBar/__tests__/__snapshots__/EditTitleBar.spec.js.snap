@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EditTitleBar renders correctly when displayName is provided 1`] = `
+exports[`EditTitleBar renders correctly 1`] = `
 <section
   className="section"
 >
@@ -13,6 +13,7 @@ exports[`EditTitleBar renders correctly when displayName is provided 1`] = `
       label="Dashboard title"
       name="Dashboard title input"
       onChange={[Function]}
+      placeholder="Untitled dashboard"
       type="text"
       value="Rainbow Dash"
     />
@@ -31,12 +32,12 @@ exports[`EditTitleBar renders correctly when displayName is provided 1`] = `
   <div
     className="itemSelector"
   >
-    <itemselector />
+    <ItemSelector />
   </div>
 </section>
 `;
 
-exports[`EditTitleBar renders correctly when displayName not provided 1`] = `
+exports[`EditTitleBar renders correctly when no name 1`] = `
 <section
   className="section"
 >
@@ -49,8 +50,9 @@ exports[`EditTitleBar renders correctly when displayName not provided 1`] = `
       label="Dashboard title"
       name="Dashboard title input"
       onChange={[Function]}
+      placeholder="Untitled dashboard"
       type="text"
-      value="Rainbow Dash"
+      value=""
     />
     <TextAreaField
       className="description"
@@ -67,7 +69,7 @@ exports[`EditTitleBar renders correctly when displayName not provided 1`] = `
   <div
     className="itemSelector"
   >
-    <itemselector />
+    <ItemSelector />
   </div>
 </section>
 `;
