@@ -13,7 +13,6 @@ import {
 import { NON_EXISTING_DASHBOARD_ID } from '../reducers/selected'
 import { sGetUserUsername } from '../reducers/user'
 import { tSetSelectedDashboardById, acSetSelectedId } from './selected'
-import { acClearEditDashboard } from './editDashboard'
 import {
     apiFetchDashboards,
     apiStarDashboard,
@@ -110,10 +109,6 @@ export const tStarDashboard = (id, isStarred) => async dispatch => {
 export const tDeleteDashboard = id => async dispatch => {
     try {
         await apiDeleteDashboard(id)
-        dispatch(acClearEditDashboard())
-        dispatch(acSetSelectedId())
-        dispatch(acSetDashboardItems([]))
-
         await dispatch(tFetchDashboards())
 
         return Promise.resolve()
