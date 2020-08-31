@@ -1,7 +1,7 @@
 /** @module reducers/editDashboard */
 import update from 'immutability-helper'
 import isEmpty from 'lodash/isEmpty'
-import { orArray, orObject } from '../modules/util'
+import { orArray } from '../modules/util'
 
 export const SET_PRINT_DASHBOARD = 'SET_PRINT_DASHBOARD'
 export const CLEAR_PRINT_DASHBOARD = 'CLEAR_PRINT_DASHBOARD'
@@ -11,12 +11,13 @@ export const REMOVE_PRINT_DASHBOARD_ITEM = 'REMOVE_PRINT_DASHBOARD_ITEM'
 export const UPDATE_PRINT_DASHBOARD_ITEM = 'UPDATE_PRINT_DASHBOARD_ITEM'
 
 export const DEFAULT_STATE_PRINT_DASHBOARD = {}
+const DEFAULT_DASHBOARD_ITEMS = []
 export const NEW_PRINT_DASHBOARD_STATE = {
     id: '',
     name: '',
     access: {},
     description: '',
-    dashboardItems: [],
+    dashboardItems: DEFAULT_DASHBOARD_ITEMS,
 }
 
 export default (state = DEFAULT_STATE_PRINT_DASHBOARD, action) => {
@@ -129,5 +130,8 @@ export const sGetPrintDashboardRoot = state => state.printDashboard
 
 export const sGetIsPrinting = state => !isEmpty(state.printDashboard)
 
-export const sGetPrintDashboardItems = state =>
-    orObject(sGetPrintDashboardRoot(state)).dashboardItems
+export const sGetPrintDashboardItems = state => {
+    return (
+        sGetPrintDashboardRoot(state)?.dashboardItems || DEFAULT_DASHBOARD_ITEMS
+    )
+}
