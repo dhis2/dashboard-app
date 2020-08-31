@@ -1321,24 +1321,6 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@dhis2/analytics@^8.9.1":
-  version "8.9.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-8.9.6.tgz#22050cf44dee666312235816427b476d14e39e9b"
-  integrity sha512-7tBfFIQtaZ19WbeQTUA5R1qvRj1c8N+AwHJbsMdNArWLyEL5R7H+A4PjK93hDm1iiBbstuyL1BuN2uwBb85keA==
-  dependencies:
-    "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
-    "@dhis2/ui" "^5.5.1"
-    "@material-ui/core" "^3.9.3"
-    "@material-ui/icons" "^3.0.2"
-    classnames "^2.2.6"
-    d2-utilizr "^0.2.16"
-    d3-color "^1.2.3"
-    highcharts "^8.2.0"
-    lodash "^4.17.20"
-    react-beautiful-dnd "^10.1.1"
-    resize-observer-polyfill "^1.5.1"
-    styled-jsx "^3.3.0"
-
 "@dhis2/analytics@^9.0.0":
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-9.0.0.tgz#ea4574ea6c79f7149c0ba1b2fe987dba6178158b"
@@ -1660,7 +1642,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@^5.4.2", "@dhis2/ui@^5.5.1", "@dhis2/ui@^5.5.2", "@dhis2/ui@^5.5.3":
+"@dhis2/ui@^5.4.2", "@dhis2/ui@^5.5.2", "@dhis2/ui@^5.5.3":
   version "5.5.3"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.5.3.tgz#b96aa3edbc937255657244289a0e43586f579eaa"
   integrity sha512-qmfWolFBl+IIXBkGYFn7eJ5xSYLhZE5GHHio718i2aoziXvrBdqoTR8Yy+eD5jHFyso8owiy+b8vOrZdN3dL3w==
