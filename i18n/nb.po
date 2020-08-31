@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-26T05:58:25.332Z\n"
+"POT-Creation-Date: 2020-08-31T08:37:42.542Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Caroline Hesthagen Holen <caroline@devotta.no>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -15,6 +15,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Untitled dashboard"
+msgstr ""
 
 msgid "Cancel"
 msgstr "Avbryt"
@@ -191,9 +194,6 @@ msgstr "Tekstboks"
 
 msgid "Dashboard title"
 msgstr "Dashbordtittel"
-
-msgid "Untitled dashboard"
-msgstr ""
 
 msgid "Dashboard description"
 msgstr "Beskrivelse av dashbord"
