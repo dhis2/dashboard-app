@@ -15,10 +15,16 @@ body {
     }
 }
 
+.app-shell-app {
+    overflow: hidden !important;
+}
+
 .dashboard-wrapper {
     background-color: #f4f6f8;
     padding-left: 10px;
     padding-right: 10px;
+    overflow: auto;
+    padding-bottom: 100px;
 }
 
 /* plugin TODO */

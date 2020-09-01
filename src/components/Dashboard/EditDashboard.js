@@ -16,6 +16,10 @@ import {
     sGetDashboardItems,
 } from '../../reducers/dashboards'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
+import {
+    getControlBarHeight,
+    HEADERBAR_HEIGHT,
+} from '../ControlBar/controlBarDimensions'
 
 export class EditDashboard extends Component {
     state = {
@@ -44,8 +48,13 @@ export class EditDashboard extends Component {
             return <LayoutPrintPreview fromEdit={true} />
         }
 
+        const style = {
+            height:
+                window.innerHeight - HEADERBAR_HEIGHT - getControlBarHeight(1),
+        }
+
         return (
-            <div className="dashboard-wrapper">
+            <div className="dashboard-wrapper" style={style}>
                 <TitleBar edit={true} />
                 <ItemGrid edit={true} />
             </div>
