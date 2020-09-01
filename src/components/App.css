@@ -2,6 +2,10 @@ body {
     background-color: #f4f6f8;
 }
 
+.app-shell-app {
+    overflow: hidden !important;
+}
+
 @media print {
     body {
         width: 100% !important;
@@ -13,10 +17,6 @@ body {
     .app-shell-app {
         overflow: visible !important;
     }
-}
-
-.app-shell-app {
-    overflow: hidden !important;
 }
 
 .dashboard-wrapper {
