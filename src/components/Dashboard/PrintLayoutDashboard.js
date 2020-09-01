@@ -93,12 +93,22 @@ export class PrintLayoutDashboard extends Component {
         }
     }
 
+    getHeight = () => {
+        return this.props.fromEdit
+            ? window.innerHeight
+            : window.innerHeight - 42
+    }
+
     render() {
         const style = this.props.fromEdit ? { marginTop: '100px' } : {}
+        style.height = this.getHeight()
+
         return (
             <>
                 {!this.props.fromEdit && (
-                    <PrintActionsBar id={this.props.dashboard.id} />
+                    <>
+                        <PrintActionsBar id={this.props.dashboard.id} />
+                    </>
                 )}
                 <div className={classes.wrapper} style={style}>
                     {!this.props.fromEdit && <PrintInfo isLayout={true} />}

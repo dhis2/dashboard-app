@@ -27,4 +27,8 @@
     .container {
         display: none;
     }
+
+    .topMargin {
+        margin-top: 0px;
+    }
 }

@@ -1,6 +1,8 @@
 .wrapper {
     background-color: #f4f6f8;
-    margin-left: 30px;
+    margin-left: var(--spacers-dp32);
+    padding-left: var(--spacers-dp12);
+    overflow-y: auto;
 }
 
 .pageOuter {
@@ -12,12 +14,10 @@
 }
 
 @media print {
-    .pageWrapper {
-        display: none;
-    }
-
     .wrapper {
         background-color: white;
+        height: auto !important;
+        overflow: visible !important;
     }
 
     .pageOuter {

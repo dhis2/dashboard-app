@@ -75,11 +75,16 @@ export class PrintDashboard extends Component {
         }
     }
 
+    getHeight = () => {
+        return window.innerHeight - 42
+    }
+
     render() {
+        const height = this.getHeight()
         return (
             <>
                 <PrintActionsBar id={this.props.dashboard.id} />
-                <div className={classes.wrapper}>
+                <div className={classes.wrapper} style={{ height }}>
                     <PrintInfo isLayout={false} />
                     <div
                         className={classes.pageOuter}
