@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
-import DashboardVerticalOffset from './DashboardVerticalOffset'
 import TitleBar from '../TitleBar/TitleBar'
 import ItemGrid from '../ItemGrid/ItemGrid'
 import EditBar from '../ControlBar/EditBar'
@@ -65,7 +64,6 @@ export class EditDashboard extends Component {
         return (
             <>
                 <EditBar />
-                <DashboardVerticalOffset editMode={true} />
                 {this.props.updateAccess ? (
                     this.renderGrid()
                 ) : (

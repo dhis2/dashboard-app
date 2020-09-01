@@ -210,6 +210,7 @@ export class EditBar extends Component {
                         </div>
                     </div>
                 </ControlBar>
+                <div className={classes.topMargin} />
                 {this.translationDialog()}
                 {this.confirmDeleteDialog()}
             </>

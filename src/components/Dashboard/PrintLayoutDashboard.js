@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { spacers } from '@dhis2/ui'
 
 import PrintInfo from './PrintInfo'
 import PrintActionsBar from './PrintActionsBar'
@@ -95,12 +96,12 @@ export class PrintLayoutDashboard extends Component {
 
     getHeight = () => {
         return this.props.fromEdit
-            ? window.innerHeight
+            ? window.innerHeight - 71 - 48
             : window.innerHeight - 42
     }
 
     render() {
-        const style = this.props.fromEdit ? { marginTop: '100px' } : {}
+        const style = this.props.fromEdit ? { paddingTop: spacers.dp24 } : {}
         style.height = this.getHeight()
 
         return (
