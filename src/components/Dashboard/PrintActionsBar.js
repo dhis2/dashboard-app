@@ -15,17 +15,20 @@ const PrintActionsBar = ({ id }) => {
             : window.innerWidth
 
     return (
-        <div className={classes.container}>
-            <div className={classes.inner} style={{ width }}>
-                <Link className={classes.link} to={`/${id}`}>
-                    <Button>
-                        <LessHorizontalIcon />
-                        {i18n.t('Exit print preview')}
-                    </Button>
-                </Link>
-                <Button onClick={window.print}>{i18n.t('Print')}</Button>
+        <>
+            <div className={classes.container}>
+                <div className={classes.inner} style={{ width }}>
+                    <Link className={classes.link} to={`/${id}`}>
+                        <Button>
+                            <LessHorizontalIcon />
+                            {i18n.t('Exit print preview')}
+                        </Button>
+                    </Link>
+                    <Button onClick={window.print}>{i18n.t('Print')}</Button>
+                </div>
             </div>
-        </div>
+            <div className={classes.topMargin} />
+        </>
     )
 }
 
