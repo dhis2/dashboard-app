@@ -25,6 +25,9 @@ import {
     a4LandscapeWidthPx,
     MAX_ITEM_GRID_HEIGHT,
 } from '../../modules/printUtils'
+import { HEADERBAR_HEIGHT } from '../ControlBar/controlBarDimensions'
+import { PRINT_ACTIONS_BAR_HEIGHT } from './PrintActionsBar'
+import { EDIT_BAR_HEIGHT } from '../ControlBar/EditBar'
 
 import classes from './styles/PrintLayoutDashboard.module.css'
 
@@ -113,8 +116,8 @@ export class PrintLayoutDashboard extends Component {
 
     getHeight = () => {
         return this.props.fromEdit
-            ? window.innerHeight - 71 - 48
-            : window.innerHeight - 42
+            ? window.innerHeight - EDIT_BAR_HEIGHT - HEADERBAR_HEIGHT
+            : window.innerHeight - PRINT_ACTIONS_BAR_HEIGHT
     }
 
     render() {
@@ -124,9 +127,7 @@ export class PrintLayoutDashboard extends Component {
         return (
             <>
                 {!this.props.fromEdit && (
-                    <>
-                        <PrintActionsBar id={this.props.dashboard.id} />
-                    </>
+                    <PrintActionsBar id={this.props.dashboard.id} />
                 )}
                 <div className={classes.wrapper} style={style}>
                     {!this.props.fromEdit && <PrintInfo isLayout={true} />}

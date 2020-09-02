@@ -8,6 +8,9 @@ import { a4LandscapeWidthPx } from '../../modules/printUtils'
 
 import classes from './styles/PrintActionsBar.module.css'
 
+// 42px set in the module css file
+export const PRINT_ACTIONS_BAR_HEIGHT = 42
+
 const PrintActionsBar = ({ id }) => {
     const width =
         a4LandscapeWidthPx < window.innerWidth
