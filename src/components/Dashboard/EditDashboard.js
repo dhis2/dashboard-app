@@ -47,13 +47,11 @@ export class EditDashboard extends Component {
             return <LayoutPrintPreview fromEdit={true} />
         }
 
-        const style = {
-            height:
-                window.innerHeight - HEADERBAR_HEIGHT - getControlBarHeight(1),
-        }
+        const height =
+            window.innerHeight - HEADERBAR_HEIGHT - getControlBarHeight(1)
 
         return (
-            <div className="dashboard-wrapper" style={style}>
+            <div className="dashboard-wrapper" style={{ height }}>
                 <TitleBar edit={true} />
                 <ItemGrid edit={true} />
             </div>

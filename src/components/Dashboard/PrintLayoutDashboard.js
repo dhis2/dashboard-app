@@ -25,14 +25,19 @@ import {
     a4LandscapeWidthPx,
     MAX_ITEM_GRID_HEIGHT,
 } from '../../modules/printUtils'
-import { HEADERBAR_HEIGHT } from '../ControlBar/controlBarDimensions'
+import {
+    getControlBarHeight,
+    HEADERBAR_HEIGHT,
+} from '../ControlBar/controlBarDimensions'
 import { PRINT_ACTIONS_BAR_HEIGHT } from './PrintActionsBar'
-import { EDIT_BAR_HEIGHT } from '../ControlBar/EditBar'
+import { DRAG_HANDLE_HEIGHT } from '../ControlBar/ControlBar'
 
 import classes from './styles/PrintLayoutDashboard.module.css'
 
 import './styles/print.css'
 import './styles/print-layout.css'
+
+const EDIT_BAR_HEIGHT = getControlBarHeight(1) + DRAG_HANDLE_HEIGHT
 
 const isLeapPage = n => {
     // pages 5,9,13,17,21,25,29... are leap pages
@@ -114,22 +119,25 @@ export class PrintLayoutDashboard extends Component {
         }
     }
 
-    getHeight = () => {
+    getWrapperStyle = () => {
         return this.props.fromEdit
-            ? window.innerHeight - EDIT_BAR_HEIGHT - HEADERBAR_HEIGHT
-            : window.innerHeight - PRINT_ACTIONS_BAR_HEIGHT
+            ? {
+                  paddingTop: spacers.dp24,
+                  height:
+                      window.innerHeight - EDIT_BAR_HEIGHT - HEADERBAR_HEIGHT,
+              }
+            : {
+                  height: window.innerHeight - PRINT_ACTIONS_BAR_HEIGHT,
+              }
     }
 
     render() {
-        const style = this.props.fromEdit ? { paddingTop: spacers.dp24 } : {}
-        style.height = this.getHeight()
-
         return (
             <>
                 {!this.props.fromEdit && (
                     <PrintActionsBar id={this.props.dashboard.id} />
                 )}
-                <div className={classes.wrapper} style={style}>
+                <div className={classes.wrapper} style={this.getWrapperStyle()}>
                     {!this.props.fromEdit && <PrintInfo isLayout={true} />}
                     <div
                         className={classes.pageOuter}

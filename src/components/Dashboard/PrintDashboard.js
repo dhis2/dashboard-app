@@ -18,6 +18,7 @@ import {
 } from '../../reducers/dashboards'
 import { PAGEBREAK, PRINT_TITLE_PAGE, SPACER } from '../../modules/itemTypes'
 import { a4LandscapeWidthPx } from '../../modules/printUtils'
+import { PRINT_ACTIONS_BAR_HEIGHT } from './PrintActionsBar'
 
 import classes from './styles/PrintDashboard.module.css'
 
@@ -75,12 +76,9 @@ export class PrintDashboard extends Component {
         }
     }
 
-    getHeight = () => {
-        return window.innerHeight - 42
-    }
-
     render() {
-        const height = this.getHeight()
+        const height = window.innerHeight - PRINT_ACTIONS_BAR_HEIGHT
+
         return (
             <>
                 <PrintActionsBar id={this.props.dashboard.id} />

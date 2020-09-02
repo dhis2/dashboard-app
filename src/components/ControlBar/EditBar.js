@@ -42,9 +42,6 @@ const buttonBarStyle = {
     marginRight: '15px',
 }
 
-// see DashboardsBar.module.css
-export const EDIT_BAR_HEIGHT = 71
-
 export class EditBar extends Component {
     state = {
         translationDialogIsOpen: false,

@@ -26,18 +26,16 @@ export const ViewDashboard = props => {
         }
     }, [props.dashboardIsEditing, props.dashboardIsPrinting])
 
-    const style = {
-        height:
-            window.innerHeight -
-            HEADERBAR_HEIGHT -
-            getControlBarHeight(props.controlBarRows),
-    }
+    const height =
+        window.innerHeight -
+        HEADERBAR_HEIGHT -
+        getControlBarHeight(props.controlBarRows)
 
     return (
         <>
             <DashboardsBar />
             <DashboardVerticalOffset />
-            <div className="dashboard-wrapper" style={style}>
+            <div className="dashboard-wrapper" style={{ height }}>
                 <TitleBar edit={false} />
                 <FilterBar />
                 <ItemGrid edit={false} />
