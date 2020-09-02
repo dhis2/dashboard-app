@@ -3,11 +3,13 @@
 exports[`EditDashboard renders message when enough access 1`] = `
 <Fragment>
   <EditBar />
-  <DashboardVerticalOffset
-    editMode={true}
-  />
   <div
     className="dashboard-wrapper"
+    style={
+      Object {
+        "height": 656,
+      }
+    }
   >
     <TitleBar
       edit={true}
@@ -22,9 +24,6 @@ exports[`EditDashboard renders message when enough access 1`] = `
 exports[`EditDashboard renders message when not enough access 1`] = `
 <Fragment>
   <EditBar />
-  <DashboardVerticalOffset
-    editMode={true}
-  />
   <NoContentMessage
     text="No access"
   />
@@ -34,9 +33,6 @@ exports[`EditDashboard renders message when not enough access 1`] = `
 exports[`EditDashboard renders print preview 1`] = `
 <Fragment>
   <EditBar />
-  <DashboardVerticalOffset
-    editMode={true}
-  />
   <LayoutPrintPreview
     fromEdit={true}
   />
