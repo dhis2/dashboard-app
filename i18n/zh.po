@@ -1,16 +1,16 @@
 # 
 # Translators:
 # phil_dhis2, 2019
-# easylin <lin_xd@126.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # 晓东 林 <13981924470@126.com>, 2020
+# easylin <lin_xd@126.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-08-31T08:37:42.542Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "未命名的仪表板"
 
 msgid "Cancel"
 msgstr "取消"
@@ -37,10 +37,10 @@ msgid ""
 msgstr "删除仪表盘 \"{{ dashboardName }}\" 将从所有用户仪表盘中移除。该操作不能撤销，你确信要永久删除该仪表盘条目？"
 
 msgid "Exit Print preview"
-msgstr ""
+msgstr "退出打印预览"
 
 msgid "Print preview"
-msgstr ""
+msgstr "打印预览"
 
 msgid "Save changes"
 msgstr "保存改变"
@@ -73,34 +73,34 @@ msgid "No access"
 msgstr "不能访问"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "退出打印预览"
 
 msgid "Print"
 msgstr "打印"
 
 msgid ""
 "The pages below are a preview of how the dashboard layout will be printed."
-msgstr ""
+msgstr "以仪表板布局预览将被打印"
 
 msgid ""
 "The pages below are a preview of how each dashboard item will be printed on "
 "a separate page."
-msgstr ""
+msgstr "以下页面是每个仪表板项目如何在单独页面上打印的预览。"
 
 msgid ""
 "Use the default printer settings for best results and check that all "
 "dashboard items have finished loading before printing. This text will not be"
 " printed."
-msgstr ""
+msgstr "使用默认打印机设置可获得最佳效果，并在打印之前检查所有仪表板项目是否已完成加载。此文本将不会打印。"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "仪表板布局"
 
 msgid "one item per page"
-msgstr ""
+msgstr "每页一项"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "打印预览"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -122,7 +122,7 @@ msgid "Item type \"{{type}}\" not supported"
 msgstr "条目类型 \"{{type}}\" 不支持"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "已应用的过滤器"
 
 msgid "Spacer"
 msgstr "空白隔断"
@@ -195,16 +195,16 @@ msgid "Dashboard description"
 msgstr "仪表盘描述"
 
 msgid "Hide description"
-msgstr ""
+msgstr "隐藏说明"
 
 msgid "Show description"
-msgstr ""
+msgstr "显示说明"
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "取消星标仪表盘"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "标星仪表板"
 
 msgid "Edit"
 msgstr "编辑"
@@ -216,10 +216,10 @@ msgid "More"
 msgstr "更多"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "仪表板布局"
 
 msgid "One item per page"
-msgstr ""
+msgstr "每页一项"
 
 msgid "No description"
 msgstr "没有描述"
