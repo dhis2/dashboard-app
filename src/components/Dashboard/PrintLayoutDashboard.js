@@ -21,31 +21,48 @@ import {
     sGetDashboardItems,
 } from '../../reducers/dashboards'
 import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
-import { a4LandscapeWidthPx } from '../../modules/printUtils'
+import {
+    a4LandscapeWidthPx,
+    MAX_ITEM_GRID_HEIGHT,
+} from '../../modules/printUtils'
 
 import classes from './styles/PrintLayoutDashboard.module.css'
 
 import './styles/print.css'
 import './styles/print-layout.css'
 
-const isEven = n => n % 2 == 0
+const isLeapPage = n => {
+    // pages 5,9,13,17,21,25,29... are leap pages
+    let x = 0
+    const startPage = 1
+    const getMultiple = factor => startPage + 4 * factor
+    let multiple = getMultiple(0)
+    let isLeapPage = false
+    while (multiple < n) {
+        multiple = getMultiple(x)
+        ++x
+        if (multiple === n) {
+            isLeapPage = true
+            break
+        }
+    }
+    return isLeapPage
+}
 
 const addPageBreaks = ({ items, addDashboardItem }) => {
     // add enough page breaks so that each item could
     // be put on its own page. Due to the react-grid-layout
     // unit system, we have to estimate roughly the size of each
-    // page. At regular intervals adding an extra unit, like a leap year :P
+    // page. At regular intervals subtract a unit, like a backwards leap year :P
     let yPos = 0
     const yPosList = []
-    for (let i = 0; i < items.length; ++i) {
-        if (i === 0) {
+    for (let pageNum = 1; pageNum <= items.length; ++pageNum) {
+        if (pageNum === 1) {
             yPos += 35
-        } else if (i === 4 || i === 10) {
-            yPos += 40
-        } else if (isEven(i)) {
-            yPos += 39
+        } else if (isLeapPage(pageNum)) {
+            yPos += 38
         } else {
-            yPos += 40
+            yPos += 39
         }
         yPosList.push(yPos)
     }
@@ -69,9 +86,9 @@ export class PrintLayoutDashboard extends Component {
             // If any items are taller than one page, reduce it to one
             // page (react-grid-layout units)
             this.props.items.forEach(item => {
-                if (item.h > 34) {
+                if (item.h > MAX_ITEM_GRID_HEIGHT) {
                     this.props.updateDashboardItem(
-                        Object.assign({}, item, { h: 34 })
+                        Object.assign({}, item, { h: MAX_ITEM_GRID_HEIGHT })
                     )
                 }
             })

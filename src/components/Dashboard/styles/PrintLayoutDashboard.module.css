@@ -18,10 +18,13 @@
         background-color: white;
         height: auto !important;
         overflow: visible !important;
+        margin-left: 0px;
+        padding-left: 0px;
     }
 
     .pageOuter {
         box-shadow: none;
-        border-radius: none;
+        border-radius: 0px;
+        padding: 0px;
     }
 }

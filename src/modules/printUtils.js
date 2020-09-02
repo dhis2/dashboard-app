@@ -7,6 +7,8 @@ import { itemTypeMap } from './itemTypes'
 // const a4LandscapeHeightPx = 794
 export const a4LandscapeWidthPx = 1102
 
+export const MAX_ITEM_GRID_HEIGHT = 34
+
 export const getDomGridItemsSortedByYPos = elements => {
     const types = Object.keys(itemTypeMap)
     const elementsWithBoundingRect = orArray(elements).map(el => {
