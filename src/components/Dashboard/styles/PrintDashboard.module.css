@@ -6,7 +6,7 @@
 }
 
 .pageOuter {
-    padding: 10px;
+    padding: var(--spacers-dp12);
     background-color: white;
     border-radius: 3px;
     box-shadow: 0px 0px 3px 0px var(--colors-grey500);
@@ -18,10 +18,12 @@
         background-color: white;
         height: auto !important;
         overflow: visible !important;
+        margin-left: 0px;
+        padding-left: 0px;
     }
 
     .pageOuter {
         box-shadow: none;
-        border-radius: none;
+        border-radius: 0px;
     }
 }
