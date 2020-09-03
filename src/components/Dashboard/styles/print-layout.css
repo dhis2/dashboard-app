@@ -10,6 +10,10 @@
 
 @media print {
     .react-grid-item.layout.PAGEBREAK {
+        visibility: hidden !important;
+    }
+
+    .react-grid-item.layout.PAGEBREAK.removed {
         display: none !important;
     }
 }

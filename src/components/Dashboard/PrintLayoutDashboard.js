@@ -68,7 +68,7 @@ const addPageBreaks = ({ items, addDashboardItem }) => {
         if (pageNum === 1) {
             yPos += 35
         } else if (isLeapPage(pageNum)) {
-            yPos += 38
+            yPos += 40
         } else {
             yPos += 39
         }
