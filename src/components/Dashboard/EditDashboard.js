@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
-import DashboardVerticalOffset from './DashboardVerticalOffset'
 import TitleBar from '../TitleBar/TitleBar'
 import ItemGrid from '../ItemGrid/ItemGrid'
 import EditBar from '../ControlBar/EditBar'
@@ -16,6 +15,10 @@ import {
     sGetDashboardItems,
 } from '../../reducers/dashboards'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
+import {
+    getControlBarHeight,
+    HEADERBAR_HEIGHT,
+} from '../ControlBar/controlBarDimensions'
 
 export class EditDashboard extends Component {
     state = {
@@ -44,8 +47,11 @@ export class EditDashboard extends Component {
             return <LayoutPrintPreview fromEdit={true} />
         }
 
+        const height =
+            window.innerHeight - HEADERBAR_HEIGHT - getControlBarHeight(1)
+
         return (
-            <div className="dashboard-wrapper">
+            <div className="dashboard-wrapper" style={{ height }}>
                 <TitleBar edit={true} />
                 <ItemGrid edit={true} />
             </div>
@@ -56,7 +62,6 @@ export class EditDashboard extends Component {
         return (
             <>
                 <EditBar />
-                <DashboardVerticalOffset editMode={true} />
                 {this.props.updateAccess ? (
                     this.renderGrid()
                 ) : (

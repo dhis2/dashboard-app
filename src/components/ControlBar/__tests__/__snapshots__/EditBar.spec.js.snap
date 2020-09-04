@@ -32,6 +32,9 @@ exports[`EditBar renders the EditBar 1`] = `
       </div>
     </div>
   </ControlBar>
+  <div
+    className="topMargin"
+  />
 </Fragment>
 `;
 
@@ -67,6 +70,9 @@ exports[`EditBar when update access is false renders only the Discard button 1`]
       </div>
     </div>
   </ControlBar>
+  <div
+    className="topMargin"
+  />
 </Fragment>
 `;
 
@@ -132,6 +138,9 @@ exports[`EditBar when update access is true when dashboard id property provided 
       </div>
     </div>
   </ControlBar>
+  <div
+    className="topMargin"
+  />
   <Component
     className="translation-dialog"
     d2={
@@ -226,6 +235,9 @@ exports[`EditBar when update access is true when dashboard id property provided 
       </div>
     </div>
   </ControlBar>
+  <div
+    className="topMargin"
+  />
   <Component
     className="translation-dialog"
     d2={
@@ -320,6 +332,9 @@ exports[`EditBar when update access is true when dashboard id property provided 
       </div>
     </div>
   </ControlBar>
+  <div
+    className="topMargin"
+  />
   <Component
     className="translation-dialog"
     d2={
@@ -421,6 +436,9 @@ exports[`EditBar when update access is true when dashboard id property provided 
       </div>
     </div>
   </ControlBar>
+  <div
+    className="topMargin"
+  />
   <ConfirmDeleteDialog
     onContinueEditing={[Function]}
     onDeleteConfirmed={[Function]}
@@ -484,5 +502,8 @@ exports[`EditBar when update access is true when no dashboard id property render
       </div>
     </div>
   </ControlBar>
+  <div
+    className="topMargin"
+  />
 </Fragment>
 `;

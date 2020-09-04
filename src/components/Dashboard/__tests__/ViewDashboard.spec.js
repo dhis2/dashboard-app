@@ -23,6 +23,7 @@ describe('ViewDashboard', () => {
             clearPrintDashboard: jest.fn(),
             dashboardIsEditing: false,
             dashboardIsPrinting: false,
+            controlBarRows: 2,
         }
     })
 

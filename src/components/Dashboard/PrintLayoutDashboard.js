@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { spacers } from '@dhis2/ui'
 
 import PrintInfo from './PrintInfo'
 import PrintActionsBar from './PrintActionsBar'
@@ -20,31 +21,56 @@ import {
     sGetDashboardItems,
 } from '../../reducers/dashboards'
 import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
-import { a4LandscapeWidthPx } from '../../modules/printUtils'
+import {
+    a4LandscapeWidthPx,
+    MAX_ITEM_GRID_HEIGHT,
+} from '../../modules/printUtils'
+import {
+    getControlBarHeight,
+    HEADERBAR_HEIGHT,
+} from '../ControlBar/controlBarDimensions'
+import { PRINT_ACTIONS_BAR_HEIGHT } from './PrintActionsBar'
+import { DRAG_HANDLE_HEIGHT } from '../ControlBar/ControlBar'
 
 import classes from './styles/PrintLayoutDashboard.module.css'
 
 import './styles/print.css'
 import './styles/print-layout.css'
 
-const isEven = n => n % 2 == 0
+const EDIT_BAR_HEIGHT = getControlBarHeight(1) + DRAG_HANDLE_HEIGHT
+
+const isLeapPage = n => {
+    // pages 5,9,13,17,21,25,29... are leap pages
+    let x = 0
+    const startPage = 1
+    const getMultiple = factor => startPage + 4 * factor
+    let multiple = getMultiple(0)
+    let isLeapPage = false
+    while (multiple < n) {
+        multiple = getMultiple(x)
+        ++x
+        if (multiple === n) {
+            isLeapPage = true
+            break
+        }
+    }
+    return isLeapPage
+}
 
 const addPageBreaks = ({ items, addDashboardItem }) => {
     // add enough page breaks so that each item could
     // be put on its own page. Due to the react-grid-layout
     // unit system, we have to estimate roughly the size of each
-    // page. At regular intervals adding an extra unit, like a leap year :P
+    // page. At regular intervals add a unit, like a leap year
     let yPos = 0
     const yPosList = []
-    for (let i = 0; i < items.length; ++i) {
-        if (i === 0) {
+    for (let pageNum = 1; pageNum <= items.length; ++pageNum) {
+        if (pageNum === 1) {
             yPos += 35
-        } else if (i === 4 || i === 10) {
+        } else if (isLeapPage(pageNum)) {
             yPos += 40
-        } else if (isEven(i)) {
-            yPos += 39
         } else {
-            yPos += 40
+            yPos += 39
         }
         yPosList.push(yPos)
     }
@@ -68,9 +94,9 @@ export class PrintLayoutDashboard extends Component {
             // If any items are taller than one page, reduce it to one
             // page (react-grid-layout units)
             this.props.items.forEach(item => {
-                if (item.h > 34) {
+                if (item.h > MAX_ITEM_GRID_HEIGHT) {
                     this.props.updateDashboardItem(
-                        Object.assign({}, item, { h: 34 })
+                        Object.assign({}, item, { h: MAX_ITEM_GRID_HEIGHT })
                     )
                 }
             })
@@ -93,14 +119,25 @@ export class PrintLayoutDashboard extends Component {
         }
     }
 
+    getWrapperStyle = () => {
+        return this.props.fromEdit
+            ? {
+                  paddingTop: spacers.dp24,
+                  height:
+                      window.innerHeight - EDIT_BAR_HEIGHT - HEADERBAR_HEIGHT,
+              }
+            : {
+                  height: window.innerHeight - PRINT_ACTIONS_BAR_HEIGHT,
+              }
+    }
+
     render() {
-        const style = this.props.fromEdit ? { marginTop: '100px' } : {}
         return (
             <>
                 {!this.props.fromEdit && (
                     <PrintActionsBar id={this.props.dashboard.id} />
                 )}
-                <div className={classes.wrapper} style={style}>
+                <div className={classes.wrapper} style={this.getWrapperStyle()}>
                     {!this.props.fromEdit && <PrintInfo isLayout={true} />}
                     <div
                         className={classes.pageOuter}

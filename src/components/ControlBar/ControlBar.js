@@ -4,7 +4,7 @@ import { colors } from '@dhis2/ui'
 
 import classes from './styles/ControlBar.module.css'
 
-const DRAG_HANDLE_HEIGHT = 7
+export const DRAG_HANDLE_HEIGHT = 7
 
 class ControlBar extends React.Component {
     constructor(props) {

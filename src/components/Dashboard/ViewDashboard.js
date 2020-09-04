@@ -9,8 +9,13 @@ import DashboardsBar from '../ControlBar/DashboardsBar'
 import DashboardVerticalOffset from './DashboardVerticalOffset'
 import { sGetIsEditing } from '../../reducers/editDashboard'
 import { sGetIsPrinting } from '../../reducers/printDashboard'
+import { sGetControlBarUserRows } from '../../reducers/controlBar'
 import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
+import {
+    getControlBarHeight,
+    HEADERBAR_HEIGHT,
+} from '../ControlBar/controlBarDimensions'
 
 export const ViewDashboard = props => {
     useEffect(() => {
@@ -21,11 +26,16 @@ export const ViewDashboard = props => {
         }
     }, [props.dashboardIsEditing, props.dashboardIsPrinting])
 
+    const height =
+        window.innerHeight -
+        HEADERBAR_HEIGHT -
+        getControlBarHeight(props.controlBarRows)
+
     return (
         <>
             <DashboardsBar />
             <DashboardVerticalOffset />
-            <div className="dashboard-wrapper">
+            <div className="dashboard-wrapper" style={{ height }}>
                 <TitleBar edit={false} />
                 <FilterBar />
                 <ItemGrid edit={false} />
@@ -37,6 +47,7 @@ export const ViewDashboard = props => {
 ViewDashboard.propTypes = {
     clearEditDashboard: PropTypes.func,
     clearPrintDashboard: PropTypes.func,
+    controlBarRows: PropTypes.number,
     dashboardIsEditing: PropTypes.bool,
     dashboardIsPrinting: PropTypes.bool,
 }
@@ -45,6 +56,7 @@ const mapStateToProps = state => {
     return {
         dashboardIsEditing: sGetIsEditing(state),
         dashboardIsPrinting: sGetIsPrinting(state),
+        controlBarRows: sGetControlBarUserRows(state),
     }
 }
 
