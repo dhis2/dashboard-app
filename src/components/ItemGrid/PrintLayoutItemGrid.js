@@ -48,6 +48,10 @@ export class PrintLayoutItemGrid extends Component {
     }
 
     isFirstPageBreak = item => {
+        if (item.type !== PAGEBREAK) {
+            return false
+        }
+
         const pageBreaks = this.props.dashboardItems.filter(
             i => i.type === PAGEBREAK
         )
@@ -60,9 +64,7 @@ export class PrintLayoutItemGrid extends Component {
         // the first-page-break class is used in Edit print preview
         const itemClassNames = cx('print', 'layout', `${item.type}`, {
             'first-page-break':
-                this.props.isEditing &&
-                item.type === PAGEBREAK &&
-                this.isFirstPageBreak(item),
+                this.props.isEditing && this.isFirstPageBreak(item),
         })
 
         return (
