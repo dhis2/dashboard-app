@@ -28,7 +28,7 @@ import {
 import {
     a4LandscapeWidthPx,
     getDomGridItemsSortedByYPos,
-    getTransformY,
+    getTransformYPx,
 } from '../../modules/printUtils'
 
 import { PRINT_LAYOUT } from '../Dashboard/dashboardModes'
@@ -126,7 +126,7 @@ export class PrintLayoutItemGrid extends Component {
             //scroll to below the title page - which is middle of the first pagebreak
             const firstBreak = document.querySelector('.first-page-break')
             if (firstBreak && firstBreak.style && firstBreak.style.transform) {
-                const yPos = getTransformY(firstBreak.style)
+                const yPos = getTransformYPx(firstBreak.style)
                 const scrollArea = document.querySelector('.scroll-area')
 
                 scrollArea && scrollArea.scroll(0, yPos + 50)

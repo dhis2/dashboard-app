@@ -9,12 +9,18 @@ export const a4LandscapeWidthPx = 1102
 
 export const MAX_ITEM_GRID_HEIGHT = 33
 
-export const getTransformY = elStyle => {
+export const getTransformYPx = elStyle => {
     if (!elStyle || !elStyle.transform) {
         return null
     }
 
-    return parseInt(elStyle.transform.split(' ')[1]?.slice(0, -3))
+    const transformY = elStyle.transform.split(' ')[1]
+
+    if (!transformY || transformY.slice(-3, -1) !== 'px') {
+        return null
+    }
+
+    return parseInt(transformY.slice(0, -3))
 }
 
 export const getDomGridItemsSortedByYPos = elements => {
@@ -27,7 +33,7 @@ export const getDomGridItemsSortedByYPos = elements => {
         const rect = el.getBoundingClientRect()
 
         const y = el.style.transform
-            ? parseInt(getTransformY(el.style))
+            ? parseInt(getTransformYPx(el.style))
             : parseInt(rect.y)
 
         return {
