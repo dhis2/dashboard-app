@@ -8,10 +8,6 @@
     visibility: hidden;
 }
 
-.react-grid-item.layout.PRINT_TITLE_PAGE.removed {
-    display: none;
-}
-
 @media print {
     .react-grid-item.layout.PAGEBREAK {
         visibility: hidden !important;
