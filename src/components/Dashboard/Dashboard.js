@@ -49,7 +49,7 @@ export class Dashboard extends Component {
 
             this.setHeaderbarVisibility()
 
-            this.scrollToTop()
+            document.querySelector('.dashboard-wrapper')?.scroll(0, 0)
         }
     }
 
@@ -60,10 +60,6 @@ export class Dashboard extends Component {
         } else {
             header.classList.remove('hidden')
         }
-    }
-
-    scrollToTop = () => {
-        window.scrollTo(0, 0)
     }
 
     componentDidMount() {
