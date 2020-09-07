@@ -57,9 +57,12 @@ export class PrintLayoutItemGrid extends Component {
     }
 
     getItemComponent = item => {
+        // the first-page-break class is used in Edit print preview
         const itemClassNames = cx('print', 'layout', `${item.type}`, {
             'first-page-break':
-                item.type === PAGEBREAK && this.isFirstPageBreak(item),
+                this.props.isEditing &&
+                item.type === PAGEBREAK &&
+                this.isFirstPageBreak(item),
         })
 
         return (
@@ -119,16 +122,12 @@ export class PrintLayoutItemGrid extends Component {
 
         if (this.props.isEditing) {
             //scroll to below the title page - which is middle of the first pagebreak
-            const firstPageBreak = document.querySelector('.first-page-break')
-            if (firstPageBreak && firstPageBreak.style) {
-                const yPos = getTransformY(firstPageBreak.style)
+            const firstBreak = document.querySelector('.first-page-break')
+            if (firstBreak && firstBreak.style && firstBreak.style.transform) {
+                const yPos = getTransformY(firstBreak.style)
+                const scrollArea = document.querySelector('.scroll-area')
 
-                if (yPos) {
-                    const scrollArea = document.querySelector('.scroll-area')
-                    if (scrollArea) {
-                        scrollArea.scroll(0, yPos + 50)
-                    }
-                }
+                scrollArea && scrollArea.scroll(0, yPos + 50)
             }
         }
     }
