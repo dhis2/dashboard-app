@@ -1,22 +1,25 @@
 # 
 # Translators:
-# phil_dhis2, 2019
-# Viktor Varland <viktor@dhis2.org>, 2019
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Sheila André <sandre@saudigitus.org>, 2020
+# phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-25T05:26:00.043Z\n"
+"POT-Creation-Date: 2020-08-31T08:37:42.542Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Sheila André <sandre@saudigitus.org>, 2020\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Untitled dashboard"
+msgstr ""
 
 msgid "Cancel"
 msgstr "Cancelar"
@@ -76,7 +79,7 @@ msgid "Exit print preview"
 msgstr ""
 
 msgid "Print"
-msgstr ""
+msgstr "Imprimir"
 
 msgid ""
 "The pages below are a preview of how the dashboard layout will be printed."
@@ -216,7 +219,7 @@ msgid "Share"
 msgstr "Partilha"
 
 msgid "More"
-msgstr ""
+msgstr "Mais"
 
 msgid "Dashboard layout"
 msgstr ""

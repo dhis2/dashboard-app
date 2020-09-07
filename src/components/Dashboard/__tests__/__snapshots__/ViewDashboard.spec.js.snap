@@ -6,6 +6,11 @@ exports[`ViewDashboard renders correctly default 1`] = `
   <DashboardVerticalOffset />
   <div
     className="dashboard-wrapper"
+    style={
+      Object {
+        "height": 616,
+      }
+    }
   >
     <TitleBar
       edit={false}

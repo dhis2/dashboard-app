@@ -2,19 +2,23 @@
 # Translators:
 # Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2019
 # phil_dhis2, 2019
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-25T05:26:00.043Z\n"
+"POT-Creation-Date: 2020-08-31T08:37:42.542Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Untitled dashboard"
+msgstr ""
 
 msgid "Cancel"
 msgstr "Batalkan"
@@ -75,7 +79,7 @@ msgid "Exit print preview"
 msgstr ""
 
 msgid "Print"
-msgstr ""
+msgstr "Cetak"
 
 msgid ""
 "The pages below are a preview of how the dashboard layout will be printed."
@@ -214,7 +218,7 @@ msgid "Share"
 msgstr "Bagikan"
 
 msgid "More"
-msgstr ""
+msgstr "Lagi"
 
 msgid "Dashboard layout"
 msgstr ""

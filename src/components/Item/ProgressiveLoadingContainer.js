@@ -53,7 +53,7 @@ class ProgressiveLoadingContainer extends Component {
 
         const containers = [
             window, // this is probably unnecessary
-            ...document.getElementsByClassName('app-shell-app'),
+            ...document.getElementsByClassName('dashboard-wrapper'),
         ]
         containers.forEach(container => {
             container.addEventListener('scroll', this.shouldLoadHandler)
@@ -62,7 +62,7 @@ class ProgressiveLoadingContainer extends Component {
     removeHandler() {
         const containers = [
             window, // this is probably unnecessary
-            ...document.getElementsByClassName('app-shell-app'),
+            ...document.getElementsByClassName('dashboard-wrapper'),
         ]
         containers.forEach(container => {
             container.removeEventListener('scroll', this.shouldLoadHandler)

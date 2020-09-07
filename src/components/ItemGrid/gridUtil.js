@@ -1,6 +1,7 @@
 import isFunction from 'd2-utilizr/lib/isFunction'
 
 import { orObject } from '../../modules/util'
+import { MAX_ITEM_GRID_HEIGHT } from '../../modules/printUtils'
 
 // Dimensions for the react-grid-layout
 
@@ -83,7 +84,7 @@ export const getPrintTitlePageItemShape = () => {
         x: 0,
         y: 0,
         w: GRID_COLUMNS - 1,
-        h: 30,
+        h: MAX_ITEM_GRID_HEIGHT,
         static: true,
         minH: 1,
     }

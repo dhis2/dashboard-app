@@ -2,6 +2,13 @@
     background-color: var(--colors-grey600);
     width: 100%;
     padding: 3px;
+    position: fixed;
+    z-index: 10;
+    height: 42px;
+}
+
+.topMargin {
+    margin-top: 42px;
 }
 
 .inner {
@@ -19,5 +26,9 @@
 @media print {
     .container {
         display: none;
+    }
+
+    .topMargin {
+        margin-top: 0px;
     }
 }
