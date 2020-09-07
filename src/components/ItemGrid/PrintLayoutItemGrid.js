@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
+import sortBy from 'lodash/sortBy'
 import ReactGridLayout from 'react-grid-layout'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 
@@ -14,6 +15,7 @@ import {
     sGetPrintDashboardRoot,
     sGetPrintDashboardItems,
 } from '../../reducers/printDashboard'
+import { sGetIsEditing } from '../../reducers/editDashboard'
 
 import {
     GRID_ROW_HEIGHT,
@@ -25,6 +27,7 @@ import {
 import {
     a4LandscapeWidthPx,
     getDomGridItemsSortedByYPos,
+    getTransformY,
 } from '../../modules/printUtils'
 
 import { PRINT_LAYOUT } from '../Dashboard/dashboardModes'
@@ -42,8 +45,21 @@ export class PrintLayoutItemGrid extends Component {
     onLayoutChange = newLayout => {
         this.props.updateDashboardLayout(newLayout)
     }
+
+    isFirstPageBreak = item => {
+        const pageBreaks = this.props.dashboardItems.filter(
+            i => i.type === PAGEBREAK
+        )
+
+        const sortedPageBreaks = sortBy(pageBreaks, ['y'])
+        return item.y === sortedPageBreaks[0].y
+    }
     getItemComponent = item => {
-        const itemClassNames = [item.type, 'print', 'layout'].join(' ')
+        const itemClassNameArray = [item.type, 'print', 'layout']
+        if (item.type === PAGEBREAK && this.isFirstPageBreak(item)) {
+            itemClassNameArray.push('first-page-break')
+        }
+        const itemClassNames = itemClassNameArray.join(' ')
 
         return (
             <div key={item.i} className={itemClassNames}>
@@ -65,6 +81,7 @@ export class PrintLayoutItemGrid extends Component {
 
         for (let i = sortedElements.length - 1; i >= 0; --i) {
             const item = sortedElements[i]
+
             if (item.type === PAGEBREAK) {
                 if (!foundNonPageBreak) {
                     item.el.classList.add('removed')
@@ -97,6 +114,21 @@ export class PrintLayoutItemGrid extends Component {
         }
         if (gridElement) {
             gridElement.style.height = `${maxHeight}px`
+        }
+
+        if (this.props.isEditing) {
+            //scroll to below the title page - which is bottom of the first pagebreak
+            const firstPageBreak = document.querySelector('.first-page-break')
+            if (firstPageBreak && firstPageBreak.style) {
+                const yPos = getTransformY(firstPageBreak.style)
+
+                if (yPos) {
+                    const scrollArea = document.querySelector('.scroll-area')
+                    if (scrollArea) {
+                        scrollArea.scroll(0, yPos + 50)
+                    }
+                }
+            }
         }
     }
 
@@ -155,6 +187,7 @@ export class PrintLayoutItemGrid extends Component {
 
 PrintLayoutItemGrid.propTypes = {
     dashboardItems: PropTypes.array,
+    isEditing: PropTypes.bool,
     isLoading: PropTypes.bool,
     updateDashboardLayout: PropTypes.func,
 }
@@ -169,6 +202,7 @@ const mapStateToProps = state => {
     return {
         isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
         dashboardItems: sGetPrintDashboardItems(state).filter(hasShape),
+        isEditing: sGetIsEditing(state),
     }
 }
 

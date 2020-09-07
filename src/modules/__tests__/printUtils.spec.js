@@ -1,4 +1,4 @@
-import { getDomGridItemsSortedByYPos } from '../printUtils'
+import { getDomGridItemsSortedByYPos, getTransformY } from '../printUtils'
 
 describe('printUtils', () => {
     describe('getDomGridItemsSortedByYPos', () => {
@@ -301,6 +301,21 @@ describe('printUtils', () => {
             expect(expectedBottomItem.bottomY).toEqual(
                 bottomItemH + parseInt(bottomItemY)
             )
+        })
+    })
+
+    describe('getTransformY', () => {
+        it('returns null if no transform property', () => {
+            const style = {}
+            expect(getTransformY(style)).toEqual(null)
+        })
+
+        it('returns y position', () => {
+            const style = {
+                transform: 'translate(10px, 300px)',
+            }
+
+            expect(getTransformY(style)).toEqual(300)
         })
     })
 })

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { spacers } from '@dhis2/ui'
+import cx from 'classnames'
 
 import PrintInfo from './PrintInfo'
 import PrintActionsBar from './PrintActionsBar'
@@ -103,9 +104,7 @@ export class PrintLayoutDashboard extends Component {
 
             addPageBreaks(this.props)
 
-            if (!this.props.fromEdit) {
-                this.props.addDashboardItem({ type: PRINT_TITLE_PAGE })
-            }
+            this.props.addDashboardItem({ type: PRINT_TITLE_PAGE })
         }
     }
 
@@ -137,7 +136,10 @@ export class PrintLayoutDashboard extends Component {
                 {!this.props.fromEdit && (
                     <PrintActionsBar id={this.props.dashboard.id} />
                 )}
-                <div className={classes.wrapper} style={this.getWrapperStyle()}>
+                <div
+                    className={cx(classes.wrapper, 'scroll-area')}
+                    style={this.getWrapperStyle()}
+                >
                     {!this.props.fromEdit && <PrintInfo isLayout={true} />}
                     <div
                         className={classes.pageOuter}
