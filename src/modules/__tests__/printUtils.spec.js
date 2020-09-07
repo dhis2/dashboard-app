@@ -315,7 +315,15 @@ describe('printUtils', () => {
             expect(getTransformY(style)).toEqual(null)
         })
 
-        it('returns y position', () => {
+        it('returns y position if px', () => {
+            const style = {
+                transform: 'translate(10px, 300px)',
+            }
+
+            expect(getTransformY(style)).toEqual(300)
+        })
+
+        it('returns y position if percent', () => {
             const style = {
                 transform: 'translate(10px, 300px)',
             }
