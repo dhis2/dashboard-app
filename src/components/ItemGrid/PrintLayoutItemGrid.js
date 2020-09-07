@@ -5,6 +5,7 @@ import i18n from '@dhis2/d2-i18n'
 import sortBy from 'lodash/sortBy'
 import ReactGridLayout from 'react-grid-layout'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
+import cx from 'classnames'
 
 import { Item } from '../Item/Item'
 import NoContentMessage from '../../widgets/NoContentMessage'
@@ -54,12 +55,12 @@ export class PrintLayoutItemGrid extends Component {
         const sortedPageBreaks = sortBy(pageBreaks, ['y'])
         return item.y === sortedPageBreaks[0].y
     }
+
     getItemComponent = item => {
-        const itemClassNameArray = [item.type, 'print', 'layout']
-        if (item.type === PAGEBREAK && this.isFirstPageBreak(item)) {
-            itemClassNameArray.push('first-page-break')
-        }
-        const itemClassNames = itemClassNameArray.join(' ')
+        const itemClassNames = cx('print', 'layout', `${item.type}`, {
+            'first-page-break':
+                item.type === PAGEBREAK && this.isFirstPageBreak(item),
+        })
 
         return (
             <div key={item.i} className={itemClassNames}>
@@ -117,7 +118,7 @@ export class PrintLayoutItemGrid extends Component {
         }
 
         if (this.props.isEditing) {
-            //scroll to below the title page - which is bottom of the first pagebreak
+            //scroll to below the title page - which is middle of the first pagebreak
             const firstPageBreak = document.querySelector('.first-page-break')
             if (firstPageBreak && firstPageBreak.style) {
                 const yPos = getTransformY(firstPageBreak.style)
