@@ -10,11 +10,10 @@ export const a4LandscapeWidthPx = 1102
 export const MAX_ITEM_GRID_HEIGHT = 33
 
 export const getTransformY = elStyle => {
-    if (!elStyle.transform) {
+    if (!elStyle || !elStyle.transform) {
         return null
     }
 
-    console.log('elStyle', elStyle.transform)
     return parseInt(elStyle.transform.split(' ')[1]?.slice(0, -3))
 }
 

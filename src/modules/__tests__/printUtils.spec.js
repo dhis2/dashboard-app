@@ -305,6 +305,11 @@ describe('printUtils', () => {
     })
 
     describe('getTransformY', () => {
+        it('returns null if style is not defined', () => {
+            const style = undefined
+            expect(getTransformY(style)).toEqual(null)
+        })
+
         it('returns null if no transform property', () => {
             const style = {}
             expect(getTransformY(style)).toEqual(null)
