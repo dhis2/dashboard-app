@@ -335,7 +335,6 @@ describe('printUtils', () => {
                 transform: 'translate(10%, 50%)',
             }
 
-            console.log('transformy', getTransformYPx(style))
             expect(getTransformYPx(style)).toEqual(null)
         })
     })

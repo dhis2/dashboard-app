@@ -14,13 +14,15 @@ export const getTransformYPx = elStyle => {
         return null
     }
 
-    const transformY = elStyle.transform.split(' ')[1]
+    const transformY = elStyle.transform.split(' ')[1]?.slice(0, -1)
 
-    if (!transformY || transformY.slice(-3, -1) !== 'px') {
+    if (!transformY || transformY.slice(-2) !== 'px') {
         return null
     }
 
-    return parseInt(transformY.slice(0, -3))
+    const tY = parseInt(transformY.slice(0, -2))
+
+    return !isNaN(tY) ? tY : null
 }
 
 export const getDomGridItemsSortedByYPos = elements => {
@@ -31,10 +33,7 @@ export const getDomGridItemsSortedByYPos = elements => {
         )
 
         const rect = el.getBoundingClientRect()
-
-        const y = el.style.transform
-            ? parseInt(getTransformYPx(el.style))
-            : parseInt(rect.y)
+        const y = getTransformYPx(el.style) || parseInt(rect.y)
 
         return {
             type,
