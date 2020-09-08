@@ -24,7 +24,7 @@ const PrintInfo = ({ isLayout }) => {
                 <p className={classes.info}>
                     {`${i18n.t('For best print results')}:`}
                 </p>
-                <p className={classes.info}>
+                <div className={classes.info}>
                     <ul className={classes.infoList}>
                         <li>{i18n.t('Use Chrome or Edge web browser')}</li>
                         <li>
@@ -38,7 +38,7 @@ const PrintInfo = ({ isLayout }) => {
                             )}
                         </li>
                     </ul>
-                </p>
+                </div>
             </div>
             <hr className={classes.divider} />
         </div>
