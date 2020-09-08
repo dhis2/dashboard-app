@@ -10,6 +10,7 @@ import DashboardVerticalOffset from './DashboardVerticalOffset'
 import { sGetIsEditing } from '../../reducers/editDashboard'
 import { sGetIsPrinting } from '../../reducers/printDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
+import { sGetWindowHeight } from '../../reducers/windowHeight'
 import { sGetControlBarUserRows } from '../../reducers/controlBar'
 import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
@@ -32,7 +33,7 @@ export const ViewDashboard = props => {
     }, [props.selectedId])
 
     const height =
-        window.innerHeight -
+        props.windowHeight -
         HEADERBAR_HEIGHT -
         getControlBarHeight(props.controlBarRows)
 
@@ -56,6 +57,7 @@ ViewDashboard.propTypes = {
     dashboardIsEditing: PropTypes.bool,
     dashboardIsPrinting: PropTypes.bool,
     selectedId: PropTypes.string,
+    windowHeight: PropTypes.number,
 }
 
 const mapStateToProps = state => {
@@ -64,6 +66,7 @@ const mapStateToProps = state => {
         dashboardIsPrinting: sGetIsPrinting(state),
         controlBarRows: sGetControlBarUserRows(state),
         selectedId: sGetSelectedId(state),
+        windowHeight: sGetWindowHeight(state),
     }
 }
 

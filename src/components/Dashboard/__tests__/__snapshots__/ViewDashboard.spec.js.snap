@@ -8,7 +8,7 @@ exports[`ViewDashboard renders correctly default 1`] = `
     className="dashboard-wrapper"
     style={
       Object {
-        "height": 616,
+        "height": 448,
       }
     }
   >
