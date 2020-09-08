@@ -27,7 +27,7 @@
         "moment": "^2.27.0",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
-        "react-grid-layout": "^1.0.0",
+        "react-grid-layout": "1.1.0",
         "react-redux": "^7.2.1",
         "react-router-dom": "^5.2.0",
         "redux": "^4.0.5",
@@ -45,7 +45,8 @@
         "build": "d2-app-scripts build",
         "build:netlify": "yarn build --standalone",
         "test": "d2-app-scripts test",
-        "validate-push": "CI=true yarn test"
+        "validate-push": "CI=true yarn test",
+        "postinstall": "patch-package"
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^5",
@@ -54,7 +55,9 @@
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.2",
         "enzyme-to-json": "^3.5.0",
-        "immutability-helper": "^3.1.1"
+        "immutability-helper": "^3.1.1",
+        "patch-package": "^6.2.2",
+        "postinstall-postinstall": "^2.1.0"
     },
     "jest": {
         "setupFilesAfterEnv": [
