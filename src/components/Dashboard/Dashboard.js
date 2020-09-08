@@ -48,8 +48,6 @@ export class Dashboard extends Component {
             this.props.selectDashboard(id)
 
             this.setHeaderbarVisibility()
-
-            this.scrollToTop()
         }
     }
 
@@ -60,10 +58,6 @@ export class Dashboard extends Component {
         } else {
             header.classList.remove('hidden')
         }
-    }
-
-    scrollToTop = () => {
-        window.scrollTo(0, 0)
     }
 
     componentDidMount() {

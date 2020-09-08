@@ -9,6 +9,7 @@ import DashboardsBar from '../ControlBar/DashboardsBar'
 import DashboardVerticalOffset from './DashboardVerticalOffset'
 import { sGetIsEditing } from '../../reducers/editDashboard'
 import { sGetIsPrinting } from '../../reducers/printDashboard'
+import { sGetSelectedId } from '../../reducers/selected'
 import { sGetControlBarUserRows } from '../../reducers/controlBar'
 import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
@@ -25,6 +26,10 @@ export const ViewDashboard = props => {
             props.clearPrintDashboard()
         }
     }, [props.dashboardIsEditing, props.dashboardIsPrinting])
+
+    useEffect(() => {
+        document.querySelector('.dashboard-wrapper')?.scroll(0, 0)
+    }, [props.selectedId])
 
     const height =
         window.innerHeight -
@@ -50,6 +55,7 @@ ViewDashboard.propTypes = {
     controlBarRows: PropTypes.number,
     dashboardIsEditing: PropTypes.bool,
     dashboardIsPrinting: PropTypes.bool,
+    selectedId: PropTypes.string,
 }
 
 const mapStateToProps = state => {
@@ -57,6 +63,7 @@ const mapStateToProps = state => {
         dashboardIsEditing: sGetIsEditing(state),
         dashboardIsPrinting: sGetIsPrinting(state),
         controlBarRows: sGetControlBarUserRows(state),
+        selectedId: sGetSelectedId(state),
     }
 }
 
