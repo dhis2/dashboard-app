@@ -1,4 +1,4 @@
-import { getDomGridItemsSortedByYPos } from '../printUtils'
+import { getDomGridItemsSortedByYPos, getTransformYPx } from '../printUtils'
 
 describe('printUtils', () => {
     describe('getDomGridItemsSortedByYPos', () => {
@@ -301,6 +301,57 @@ describe('printUtils', () => {
             expect(expectedBottomItem.bottomY).toEqual(
                 bottomItemH + parseInt(bottomItemY)
             )
+        })
+    })
+
+    describe('getTransformYPx', () => {
+        it('returns null if style is not defined', () => {
+            const style = undefined
+            expect(getTransformYPx(style)).toEqual(null)
+        })
+
+        it('returns null if no transform property', () => {
+            const style = {}
+            expect(getTransformYPx(style)).toEqual(null)
+        })
+
+        it('returns null if transform is malformed', () => {
+            const style = {
+                transform: 'ab',
+            }
+            expect(getTransformYPx(style)).toEqual(null)
+        })
+
+        it('returns y position if px in 100s', () => {
+            const style = {
+                transform: 'translate(10px, 300px)',
+            }
+
+            expect(getTransformYPx(style)).toEqual(300)
+        })
+
+        it('returns y position if px in 10s', () => {
+            const style = {
+                transform: 'translate(10px, 30px)',
+            }
+
+            expect(getTransformYPx(style)).toEqual(30)
+        })
+
+        it('returns y position if px in 1000s', () => {
+            const style = {
+                transform: 'translate(10px, 3000px)',
+            }
+
+            expect(getTransformYPx(style)).toEqual(3000)
+        })
+
+        it('returns null if not px units', () => {
+            const style = {
+                transform: 'translate(10%, 50%)',
+            }
+
+            expect(getTransformYPx(style)).toEqual(null)
         })
     })
 })
