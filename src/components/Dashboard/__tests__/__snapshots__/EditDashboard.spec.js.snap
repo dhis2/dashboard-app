@@ -7,7 +7,7 @@ exports[`EditDashboard renders message when enough access 1`] = `
     className="dashboard-wrapper"
     style={
       Object {
-        "height": NaN,
+        "height": 488,
       }
     }
   >
