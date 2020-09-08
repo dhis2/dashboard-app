@@ -17,7 +17,7 @@ export const getTransformYPx = elStyle => {
     // find valid transforms - those with y pixels
     // the code is expecting the transform prop to
     // look like:  translate(10px, 300px)
-    const transformY = elStyle.transform.split(' ')[1]?.match(/(\d+)px\)$/)
+    const transformY = elStyle.transform.split(' ')[1]?.match(/(\d+)px/)
     if (transformY) {
         return parseInt(transformY[1])
     } else {
