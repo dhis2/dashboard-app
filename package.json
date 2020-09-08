@@ -19,6 +19,7 @@
         "@dhis2/ui": "^5.5.4",
         "@material-ui/core": "^3.9.2",
         "@material-ui/icons": "^4.9.1",
+        "classnames": "^2.2.6",
         "d2": "^31.8.1",
         "d2-utilizr": "^0.2.16",
         "i18next": "^19.7.0",
