@@ -9,6 +9,7 @@ import LayoutPrintPreview from './PrintLayoutDashboard'
 
 import { acSetEditNewDashboard } from '../../actions/editDashboard'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
+import { sGetWindowHeight } from '../../reducers/windowHeight'
 
 import {
     getControlBarHeight,
@@ -22,7 +23,7 @@ class NewDashboard extends Component {
 
     render() {
         const height =
-            window.innerHeight - HEADERBAR_HEIGHT - getControlBarHeight(1)
+            this.props.windowHeight - HEADERBAR_HEIGHT - getControlBarHeight(1)
 
         return (
             <>
@@ -43,10 +44,12 @@ class NewDashboard extends Component {
 NewDashboard.propTypes = {
     isPrintPreviewView: PropTypes.bool,
     setNewDashboard: PropTypes.func,
+    windowHeight: PropTypes.number,
 }
 
 const mapStateToProps = state => ({
     isPrintPreviewView: sGetIsPrintPreviewView(state),
+    windowHeight: sGetWindowHeight(state),
 })
 
 export default connect(mapStateToProps, {

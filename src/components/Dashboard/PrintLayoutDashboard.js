@@ -13,6 +13,7 @@ import {
     acUpdatePrintDashboardItem,
 } from '../../actions/printDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
+import { sGetWindowHeight } from '../../reducers/windowHeight'
 import {
     sGetEditDashboardRoot,
     sGetEditDashboardItems,
@@ -124,10 +125,12 @@ export class PrintLayoutDashboard extends Component {
             ? {
                   paddingTop: spacers.dp24,
                   height:
-                      window.innerHeight - EDIT_BAR_HEIGHT - HEADERBAR_HEIGHT,
+                      this.props.windowHeight -
+                      EDIT_BAR_HEIGHT -
+                      HEADERBAR_HEIGHT,
               }
             : {
-                  height: window.innerHeight - PRINT_ACTIONS_BAR_HEIGHT,
+                  height: this.props.windowHeight - PRINT_ACTIONS_BAR_HEIGHT,
               }
     }
 
@@ -161,6 +164,7 @@ PrintLayoutDashboard.propTypes = {
     items: PropTypes.array,
     setPrintDashboard: PropTypes.func,
     updateDashboardItem: PropTypes.func,
+    windowHeight: PropTypes.number,
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -173,6 +177,7 @@ const mapStateToProps = (state, ownProps) => {
             dashboard,
             id,
             items: sGetEditDashboardItems(state),
+            windowHeight: sGetWindowHeight(state),
         }
     }
 
@@ -182,6 +187,7 @@ const mapStateToProps = (state, ownProps) => {
         dashboard,
         id,
         items: sGetDashboardItems(state),
+        windowHeight: sGetWindowHeight(state),
     }
 }
 

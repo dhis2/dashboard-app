@@ -9,6 +9,7 @@ import EditBar from '../ControlBar/EditBar'
 import LayoutPrintPreview from './PrintLayoutDashboard'
 import NoContentMessage from '../../widgets/NoContentMessage'
 import { acSetEditDashboard } from '../../actions/editDashboard'
+import { sGetWindowHeight } from '../../reducers/windowHeight'
 import { sGetSelectedId } from '../../reducers/selected'
 import {
     sGetDashboardById,
@@ -48,7 +49,7 @@ export class EditDashboard extends Component {
         }
 
         const height =
-            window.innerHeight - HEADERBAR_HEIGHT - getControlBarHeight(1)
+            this.props.windowHeight - HEADERBAR_HEIGHT - getControlBarHeight(1)
 
         return (
             <div className="dashboard-wrapper" style={{ height }}>
@@ -78,6 +79,7 @@ EditDashboard.propTypes = {
     items: PropTypes.array,
     setEditDashboard: PropTypes.func,
     updateAccess: PropTypes.bool,
+    windowHeight: PropTypes.number,
 }
 
 const mapStateToProps = state => {
@@ -92,6 +94,7 @@ const mapStateToProps = state => {
         updateAccess,
         items: sGetDashboardItems(state),
         isPrintPreviewView: sGetIsPrintPreviewView(state),
+        windowHeight: sGetWindowHeight(state),
     }
 }
 
