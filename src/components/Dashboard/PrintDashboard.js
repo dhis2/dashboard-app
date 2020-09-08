@@ -12,6 +12,7 @@ import {
     acRemovePrintDashboardItem,
 } from '../../actions/printDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
+import { sGetWindowHeight } from '../../reducers/windowHeight'
 import {
     sGetDashboardById,
     sGetDashboardItems,
@@ -77,7 +78,7 @@ export class PrintDashboard extends Component {
     }
 
     render() {
-        const height = window.innerHeight - PRINT_ACTIONS_BAR_HEIGHT
+        const height = this.props.windowHeight - PRINT_ACTIONS_BAR_HEIGHT
 
         return (
             <>
@@ -102,6 +103,7 @@ PrintDashboard.propTypes = {
     items: PropTypes.array,
     removeDashboardItem: PropTypes.func,
     setPrintDashboard: PropTypes.func,
+    windowHeight: PropTypes.number,
 }
 
 const mapStateToProps = state => {
@@ -112,6 +114,7 @@ const mapStateToProps = state => {
         dashboard,
         id,
         items: sGetDashboardItems(state),
+        windowHeight: sGetWindowHeight(state),
     }
 }
 

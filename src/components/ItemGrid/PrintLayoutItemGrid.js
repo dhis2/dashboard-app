@@ -65,6 +65,7 @@ export class PrintLayoutItemGrid extends Component {
         const itemClassNames = cx('print', 'layout', `${item.type}`, {
             'first-page-break':
                 this.props.isEditing && this.isFirstPageBreak(item),
+            shortened: !!item.shortened,
         })
 
         return (

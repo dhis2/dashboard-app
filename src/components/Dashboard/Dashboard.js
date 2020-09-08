@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import isEmpty from 'lodash/isEmpty'
 import i18n from '@dhis2/d2-i18n'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
+import debounce from 'lodash/debounce'
 
 import DashboardsBar from '../ControlBar/DashboardsBar'
 import DashboardVerticalOffset from './DashboardVerticalOffset'
@@ -15,6 +16,7 @@ import PrintDashboard from './PrintDashboard'
 import PrintLayoutDashboard from './PrintLayoutDashboard'
 
 import { tSelectDashboard } from '../../actions/dashboards'
+import { acSetWindowHeight } from '../../actions/windowHeight'
 import {
     sDashboardsIsFetching,
     sGetAllDashboards,
@@ -48,8 +50,6 @@ export class Dashboard extends Component {
             this.props.selectDashboard(id)
 
             this.setHeaderbarVisibility()
-
-            this.scrollToTop()
         }
     }
 
@@ -62,11 +62,11 @@ export class Dashboard extends Component {
         }
     }
 
-    scrollToTop = () => {
-        window.scrollTo(0, 0)
-    }
-
     componentDidMount() {
+        window.onresize = debounce(
+            () => this.props.setWindowHeight(window.innerHeight),
+            300
+        )
         this.setDashboard()
     }
 
@@ -128,6 +128,7 @@ Dashboard.propTypes = {
     match: PropTypes.object,
     mode: PropTypes.string,
     selectDashboard: PropTypes.func,
+    setWindowHeight: PropTypes.func,
 }
 
 const mapStateToProps = state => {
@@ -141,4 +142,5 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
     selectDashboard: tSelectDashboard,
+    setWindowHeight: acSetWindowHeight,
 })(Dashboard)

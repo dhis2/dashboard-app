@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 import Input from '@material-ui/core/Input'
 import ItemHeader from '../ItemHeader/ItemHeader'
+import PrintItemInfo from '../ItemHeader/PrintItemInfo'
 import Line from '../../../widgets/Line'
 import {
     Parser as RichTextParser,
@@ -18,7 +19,7 @@ import {
     sGetIsPrinting,
     sGetPrintDashboardItems,
 } from '../../../reducers/printDashboard'
-import { isEditMode } from '../../Dashboard/dashboardModes'
+import { isEditMode, PRINT_LAYOUT } from '../../Dashboard/dashboardModes'
 
 const style = {
     textDiv: {
@@ -86,7 +87,28 @@ const TextItem = props => {
         )
     }
 
-    return <>{isEditMode(dashboardMode) ? editItem() : viewItem()}</>
+    const printItem = () => {
+        const textDivStyle = Object.assign({}, style.textField, style.textDiv)
+        return (
+            <>
+                {props.item.shortened ? <PrintItemInfo /> : null}
+                <div className="dashboard-item-content" style={style.container}>
+                    <RichTextParser style={textDivStyle}>{text}</RichTextParser>
+                </div>
+            </>
+        )
+    }
+
+    let textItem
+    if (isEditMode(dashboardMode)) {
+        textItem = editItem
+    } else if (dashboardMode === PRINT_LAYOUT) {
+        textItem = printItem
+    } else {
+        textItem = viewItem
+    }
+
+    return <>{textItem()}</>
 }
 
 const mapStateToProps = (state, ownProps) => {

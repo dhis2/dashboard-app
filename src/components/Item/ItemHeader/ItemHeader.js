@@ -4,21 +4,26 @@ import { connect } from 'react-redux'
 
 import ViewItemActions from './ViewItemActions'
 import EditItemActions from './EditItemActions'
-import { VIEW, EDIT } from '../../Dashboard/dashboardModes'
+import PrintItemInfo from './PrintItemInfo'
+
+import { VIEW, EDIT, PRINT_LAYOUT } from '../../Dashboard/dashboardModes'
 
 import classes from './styles/ItemHeader.module.css'
 
-const itemActionsMap = {
-    [VIEW]: ViewItemActions,
-    [EDIT]: EditItemActions,
+const getItemActionsMap = isShortened => {
+    return {
+        [VIEW]: ViewItemActions,
+        [EDIT]: EditItemActions,
+        [PRINT_LAYOUT]: isShortened ? PrintItemInfo : null,
+    }
 }
 
 // This is the margin-top + margin-bottom defined in the css file
 export const HEADER_MARGIN_HEIGHT = 12
 
 const ItemHeader = React.forwardRef(
-    ({ dashboardMode, title, ...rest }, ref) => {
-        const Actions = itemActionsMap[dashboardMode]
+    ({ dashboardMode, title, isShortened, ...rest }, ref) => {
+        const Actions = getItemActionsMap(isShortened)[dashboardMode]
         return (
             <div className={classes.itemHeaderWrap} ref={ref}>
                 <p className={classes.itemTitle}>{title}</p>
@@ -32,6 +37,7 @@ ItemHeader.displayName = 'ItemHeader'
 
 ItemHeader.propTypes = {
     dashboardMode: PropTypes.string,
+    isShortened: PropTypes.bool,
     title: PropTypes.string,
 }
 

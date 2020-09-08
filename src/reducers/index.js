@@ -21,6 +21,7 @@ import style from './style'
 import dimensions from './dimensions'
 import settings from './settings'
 import activeModalDimension from './activeModalDimension'
+import windowHeight from './windowHeight'
 
 const USER = 'system'
 
@@ -42,6 +43,7 @@ export default combineReducers({
     dimensions,
     settings,
     activeModalDimension,
+    windowHeight,
 })
 
 // Map constants to data

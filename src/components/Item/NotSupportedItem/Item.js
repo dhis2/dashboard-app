@@ -12,6 +12,7 @@ const NotSupportedItem = props => (
             })}
             itemId={props.item.id}
             dashboardMode={props.dashboardMode}
+            isShortened={props.item.shortened}
         />
         <div
             style={{

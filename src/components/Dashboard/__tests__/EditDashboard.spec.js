@@ -22,6 +22,7 @@ describe('EditDashboard', () => {
             items: undefined,
             dashboardsLoaded: undefined,
             isPrintPreviewView: undefined,
+            windowHeight: 600,
         }
     })
 
