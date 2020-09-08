@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-08-31T08:37:42.542Z\n"
-"PO-Revision-Date: 2020-08-31T08:37:42.542Z\n"
+"POT-Creation-Date: 2020-09-08T06:57:57.672Z\n"
+"PO-Revision-Date: 2020-09-08T06:57:57.672Z\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -100,6 +100,9 @@ msgid "Remove"
 msgstr ""
 
 msgid "Delete item"
+msgstr ""
+
+msgid "This item has been shortened to fit on one page"
 msgstr ""
 
 msgid "Messages"

@@ -56,6 +56,7 @@ const ListItem = (props, context) => {
                 title={getItemTitle(item)}
                 itemId={item.id}
                 dashboardMode={dashboardMode}
+                isShortened={item.shortened}
             />
             <Line />
             <div className="dashboard-item-content">

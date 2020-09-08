@@ -1,0 +1,12 @@
+.warning {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    visibility: visible;
+}
+
+@media print {
+    .warning {
+        display: none;
+    }
+}

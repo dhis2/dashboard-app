@@ -96,6 +96,7 @@ export class PrintLayoutDashboard extends Component {
             // page (react-grid-layout units)
             this.props.items.forEach(item => {
                 if (item.h > MAX_ITEM_GRID_HEIGHT) {
+                    item.shortened = true
                     this.props.updateDashboardItem(
                         Object.assign({}, item, { h: MAX_ITEM_GRID_HEIGHT })
                     )
