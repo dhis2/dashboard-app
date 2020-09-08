@@ -22,7 +22,7 @@ const PrintInfo = ({ isLayout }) => {
             </p>
             <div style={{ maxWidth }}>
                 <p className={classes.info}>
-                    {i18n.t('For best print results:')}
+                    {`${i18n.t('For best print results')}:`}
                 </p>
                 <p className={classes.info}>
                     <ul className={classes.infoList}>
