@@ -55,7 +55,10 @@
     overflow: auto;
 }
 
-.CHART .dashboard-item-content {
+.CHART .dashboard-item-content,
+.VISUALIZATION .dashboard-item-content,
+.MAP .dashboard-item-content,
+.EVENT_CHART .dashboard-item-content {
     overflow: hidden;
 }
 
@@ -65,9 +68,4 @@
 .react-grid-item.MESSAGES .dashboard-item-content,
 .react-grid-item.APP .dashboard-item-content {
     flex: 1;
-}
-
-.CHART.resizing .dashboard-item-content,
-.EVENT_CHART.resizing .dashboard-item-content {
-    overflow: hidden;
 }
