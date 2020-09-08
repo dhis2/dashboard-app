@@ -48,8 +48,6 @@ export class Dashboard extends Component {
             this.props.selectDashboard(id)
 
             this.setHeaderbarVisibility()
-
-            document.querySelector('.dashboard-wrapper')?.scroll(0, 0)
         }
     }
 
