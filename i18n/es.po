@@ -30,7 +30,7 @@ msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
 
 msgid "Save changes"
-msgstr ""
+msgstr "Guardar cambios"
 
 msgid "Translate"
 msgstr "Traducir"
