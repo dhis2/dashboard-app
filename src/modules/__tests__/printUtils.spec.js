@@ -322,12 +322,28 @@ describe('printUtils', () => {
             expect(getTransformYPx(style)).toEqual(null)
         })
 
-        it('returns y position if px', () => {
+        it('returns y position if px in 100s', () => {
             const style = {
                 transform: 'translate(10px, 300px)',
             }
 
             expect(getTransformYPx(style)).toEqual(300)
+        })
+
+        it('returns y position if px in 10s', () => {
+            const style = {
+                transform: 'translate(10px, 30px)',
+            }
+
+            expect(getTransformYPx(style)).toEqual(30)
+        })
+
+        it('returns y position if px in 1000s', () => {
+            const style = {
+                transform: 'translate(10px, 3000px)',
+            }
+
+            expect(getTransformYPx(style)).toEqual(3000)
         })
 
         it('returns null if not px units', () => {
