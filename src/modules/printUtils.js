@@ -14,15 +14,15 @@ export const getTransformYPx = elStyle => {
         return null
     }
 
-    const transformY = elStyle.transform.split(' ')[1]?.slice(0, -1)
-
-    if (!transformY || transformY.slice(-2) !== 'px') {
+    // find valid transforms - those with y pixels
+    // the code is expecting the transform prop to
+    // look like:  translate(10px, 300px)
+    const transformY = elStyle.transform.split(' ')[1]?.match(/(\d+)px\)$/)
+    if (transformY) {
+        return parseInt(transformY[1])
+    } else {
         return null
     }
-
-    const tY = parseInt(transformY.slice(0, -2))
-
-    return !isNaN(tY) ? tY : null
 }
 
 export const getDomGridItemsSortedByYPos = elements => {
