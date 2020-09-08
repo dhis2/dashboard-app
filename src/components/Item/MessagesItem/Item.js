@@ -114,7 +114,7 @@ class MessagesItem extends Component {
                     title={i18n.t('Messages')}
                     itemId={this.props.item.id}
                     dashboardMode={this.props.dashboardMode}
-                    hasWarning={this.props.item.shortened}
+                    isShortened={this.props.item.shortened}
                 />
                 <Line />
                 {this.props.messages.length > 0 && (

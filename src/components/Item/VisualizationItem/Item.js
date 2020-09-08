@@ -304,7 +304,7 @@ export class Item extends Component {
                     actionButtons={actionButtons}
                     ref={this.headerRef}
                     dashboardMode={dashboardMode}
-                    hasWarning={item.shortened}
+                    isShortened={item.shortened}
                 />
                 <FatalErrorBoundary>
                     <div

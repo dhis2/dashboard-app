@@ -4,17 +4,17 @@ import { connect } from 'react-redux'
 
 import ViewItemActions from './ViewItemActions'
 import EditItemActions from './EditItemActions'
-import PrintWarning from './PrintWarning'
+import PrintItemInfo from './PrintItemInfo'
 
 import { VIEW, EDIT, PRINT_LAYOUT } from '../../Dashboard/dashboardModes'
 
 import classes from './styles/ItemHeader.module.css'
 
-const getItemActionsMap = hasWarning => {
+const getItemActionsMap = isShortened => {
     return {
         [VIEW]: ViewItemActions,
         [EDIT]: EditItemActions,
-        [PRINT_LAYOUT]: hasWarning ? PrintWarning : null,
+        [PRINT_LAYOUT]: isShortened ? PrintItemInfo : null,
     }
 }
 
@@ -22,8 +22,8 @@ const getItemActionsMap = hasWarning => {
 export const HEADER_MARGIN_HEIGHT = 12
 
 const ItemHeader = React.forwardRef(
-    ({ dashboardMode, title, hasWarning, ...rest }, ref) => {
-        const Actions = getItemActionsMap(hasWarning)[dashboardMode]
+    ({ dashboardMode, title, isShortened, ...rest }, ref) => {
+        const Actions = getItemActionsMap(isShortened)[dashboardMode]
         return (
             <div className={classes.itemHeaderWrap} ref={ref}>
                 <p className={classes.itemTitle}>{title}</p>
@@ -37,7 +37,7 @@ ItemHeader.displayName = 'ItemHeader'
 
 ItemHeader.propTypes = {
     dashboardMode: PropTypes.string,
-    hasWarning: PropTypes.bool,
+    isShortened: PropTypes.bool,
     title: PropTypes.string,
 }
 

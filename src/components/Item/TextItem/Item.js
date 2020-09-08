@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 import Input from '@material-ui/core/Input'
 import ItemHeader from '../ItemHeader/ItemHeader'
-import PrintWarning from '../ItemHeader/PrintWarning'
+import PrintItemInfo from '../ItemHeader/PrintItemInfo'
 import Line from '../../../widgets/Line'
 import {
     Parser as RichTextParser,
@@ -91,7 +91,7 @@ const TextItem = props => {
         const textDivStyle = Object.assign({}, style.textField, style.textDiv)
         return (
             <>
-                {props.item.shortened ? <PrintWarning /> : null}
+                {props.item.shortened ? <PrintItemInfo /> : null}
                 <div className="dashboard-item-content" style={style.container}>
                     <RichTextParser style={textDivStyle}>{text}</RichTextParser>
                 </div>

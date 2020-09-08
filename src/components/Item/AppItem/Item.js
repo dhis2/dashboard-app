@@ -48,7 +48,7 @@ const AppItem = ({ dashboardMode, item, itemFilters }, context) => {
                 title={appDetails.name}
                 itemId={item.id}
                 dashboardMode={dashboardMode}
-                hasWarning={item.shortened}
+                isShortened={item.shortened}
             />
             <Line />
             <iframe
