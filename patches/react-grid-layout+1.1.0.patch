@@ -1,0 +1,21 @@
+diff --git a/node_modules/react-grid-layout/build/utils.js b/node_modules/react-grid-layout/build/utils.js
+index 78190fa..505f06b 100644
+--- a/node_modules/react-grid-layout/build/utils.js
++++ b/node_modules/react-grid-layout/build/utils.js
+@@ -245,6 +245,7 @@ function resolveCompactionCollision(layout
+   var itemIndex = layout.map(function (layoutItem) {
+     return layoutItem.i;
+   }).indexOf(item.i); // Go through each item we collide with.
++  var layoutHasStatics = getStatics(layout).length > 0;
+ 
+   for (var i = itemIndex + 1; i < layout.length; i++) {
+     var otherItem = layout[i]; // Ignore static items
+@@ -252,7 +253,7 @@ function resolveCompactionCollision(layout
+     if (otherItem.static) continue; // Optimization: we can break early if we know we're past this el
+     // We can do this b/c it's a sorted layout
+ 
+-    if (otherItem.y > item.y + item.h) break;
++    if (!layoutHasStatics && otherItem.y > item.y + item.h) break;
+ 
+     if (collides(item, otherItem)) {
+       resolveCompactionCollision(layout, otherItem, moveToCoord + item[sizeProp], axis);

@@ -11,18 +11,6 @@ const PrintInfo = ({ isLayout }) => {
             ? a4LandscapeWidthPx
             : window.innerWidth
 
-    const infoPartOne = isLayout
-        ? i18n.t(
-              'The pages below are a preview of how the dashboard layout will be printed.'
-          )
-        : i18n.t(
-              'The pages below are a preview of how each dashboard item will be printed on a separate page.'
-          )
-
-    const infoPartTwo = i18n.t(
-        'Use the default printer settings for best results and check that all dashboard items have finished loading before printing. This text will not be printed.'
-    )
-
     const infoHeader = isLayout
         ? i18n.t('dashboard layout')
         : i18n.t('one item per page')
@@ -33,9 +21,24 @@ const PrintInfo = ({ isLayout }) => {
                 {`${i18n.t('Print Preview')}: ${infoHeader}`}
             </p>
             <div style={{ maxWidth }}>
-                <p
-                    className={classes.info}
-                >{`${infoPartOne} ${infoPartTwo}`}</p>
+                <p className={classes.info}>
+                    {`${i18n.t('For best print results')}:`}
+                </p>
+                <p className={classes.info}>
+                    <ul className={classes.infoList}>
+                        <li>{i18n.t('Use Chrome or Edge web browser')}</li>
+                        <li>
+                            {i18n.t(
+                                'Wait for all dashboard items to load before printing'
+                            )}
+                        </li>
+                        <li>
+                            {i18n.t(
+                                'Use A4 landscape paper size and default margin settings in the browser print dialog'
+                            )}
+                        </li>
+                    </ul>
+                </p>
             </div>
             <hr className={classes.divider} />
         </div>

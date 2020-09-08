@@ -16,6 +16,10 @@
     max-width: 800px;
 }
 
+.infoList > li {
+    padding: 4px 0;
+}
+
 .divider {
     width: 1102px;
     margin-left: 0px;
