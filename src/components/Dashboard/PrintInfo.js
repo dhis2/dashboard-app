@@ -29,7 +29,7 @@ const PrintInfo = ({ isLayout }) => {
                         <li>{i18n.t('Use Chrome or Edge web browser')}</li>
                         <li>
                             {i18n.t(
-                                'Wait for all dashboard items to load before printing this page'
+                                'Wait for all dashboard items to load before printing'
                             )}
                         </li>
                         <li>
