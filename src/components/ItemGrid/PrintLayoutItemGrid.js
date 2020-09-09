@@ -108,17 +108,10 @@ export class PrintLayoutItemGrid extends Component {
 
         const pageHeight = 720
         const gridElement = document.querySelector('.react-grid-layout')
+        // the last page break is before the last item(s) so
+        // maxHeight is one page beyond the last page break
         const maxHeight = pageBreakBottom + pageHeight
 
-        if (maxHeight < lastItemBottom) {
-            // there is a problem - this should not happen
-            console.log(
-                'jj PROBLEM! items extend beyond page bottom',
-                maxHeight,
-                '<',
-                lastItemBottom
-            )
-        }
         if (gridElement) {
             gridElement.style.height = `${maxHeight}px`
         }
