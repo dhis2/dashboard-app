@@ -1520,19 +1520,10 @@
     prop-types "^15.5.10"
     react-portal "^4.1.5"
 
-"@dhis2/d2-ui-mentions-wrapper@7.0.7":
+"@dhis2/d2-ui-mentions-wrapper@7.0.7", "@dhis2/d2-ui-mentions-wrapper@^7.0.7":
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-7.0.7.tgz#34d5ff75e71979b8ceca4531a5f12cc69b9f14d9"
   integrity sha512-bgqJKhliGw7kxFJ+l33ro9mDeX/7SGwb4BtdnHvf6Dwm2IOtQkU0FCUDVWc/GtrN8lilQ4oJGE0diTDkuSgzoQ==
-  dependencies:
-    "@material-ui/core" "^3.3.1"
-    lodash "^4.17.10"
-    prop-types "^15.6.2"
-
-"@dhis2/d2-ui-mentions-wrapper@^7.0.3":
-  version "7.0.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-7.0.5.tgz#a8ab1d85af4e862965a016b2009bfa48659b7699"
-  integrity sha512-6+Px03gJHTboVz5KTBTBXHVhrnWDIqkC4ym3o332Rs0Gi4uEb4iHmJQrGtVrSWByxBllX73x080hvQXNxTz9SQ==
   dependencies:
     "@material-ui/core" "^3.3.1"
     lodash "^4.17.10"
