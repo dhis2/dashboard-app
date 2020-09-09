@@ -1481,7 +1481,7 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/d2-ui-core@7.0.5", "@dhis2/d2-ui-core@^7.0.3":
+"@dhis2/d2-ui-core@7.0.5":
   version "7.0.5"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.0.5.tgz#bfedb815ebc0edb2901c0b1f4b59a856e9d18c34"
   integrity sha512-ALK1vVe1yE+4mPnBBIdVNi3aAG7yVeLHjxAcEX/1XvCfK0CKnGas2I8K+KcxZMB0FHBr4+hzKzP4NkE4b+a4gQ==
@@ -1492,7 +1492,7 @@
     material-ui "^0.20.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-core@7.0.7":
+"@dhis2/d2-ui-core@7.0.7", "@dhis2/d2-ui-core@^7.0.7":
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.0.7.tgz#2d8b504916b3283e54d59c0ef17a76a94468a9de"
   integrity sha512-C4UmZrJar+xwhNjCj9SbwoU0tBCxOBphcvn2PjK4z8+tJrG9qTqpJNOw33VZgI6jOxlW1CCh7SPiP5phDUufJw==
