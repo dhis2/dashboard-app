@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-31T08:37:42.542Z\n"
+"POT-Creation-Date: 2020-09-08T17:54:39.674Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Caroline Hesthagen Holen <caroline@devotta.no>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -79,21 +79,6 @@ msgstr ""
 msgid "Print"
 msgstr "Skriv ut"
 
-msgid ""
-"The pages below are a preview of how the dashboard layout will be printed."
-msgstr ""
-
-msgid ""
-"The pages below are a preview of how each dashboard item will be printed on "
-"a separate page."
-msgstr ""
-
-msgid ""
-"Use the default printer settings for best results and check that all "
-"dashboard items have finished loading before printing. This text will not be"
-" printed."
-msgstr ""
-
 msgid "dashboard layout"
 msgstr ""
 
@@ -101,6 +86,20 @@ msgid "one item per page"
 msgstr ""
 
 msgid "Print Preview"
+msgstr ""
+
+msgid "For best print results"
+msgstr ""
+
+msgid "Use Chrome or Edge web browser"
+msgstr ""
+
+msgid "Wait for all dashboard items to load before printing"
+msgstr ""
+
+msgid ""
+"Use A4 landscape paper size and default margin settings in the browser print"
+" dialog"
 msgstr ""
 
 msgid "{{count}} selected"
@@ -113,6 +112,9 @@ msgstr "Fjern"
 
 msgid "Delete item"
 msgstr "Slett element"
+
+msgid "This item has been shortened to fit on one page"
+msgstr ""
 
 msgid "Messages"
 msgstr "Meldinger"
