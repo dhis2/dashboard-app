@@ -201,7 +201,7 @@ ViewTitleBar.contextTypes = {
 
 const mapStateToProps = state => {
     const id = sGetSelectedId(state)
-    const dashboard = orObject(sGetDashboardById(state, id))
+    const dashboard = sGetDashboardById(state, id)
 
     return {
         id,

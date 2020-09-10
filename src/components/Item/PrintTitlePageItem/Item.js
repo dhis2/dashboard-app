@@ -3,14 +3,17 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 
-import { orObject } from '../../../modules/util'
-
 import {
     sGetSelectedId,
     sGetSelectedShowDescription,
 } from '../../../reducers/selected'
 import { sGetDashboardById } from '../../../reducers/dashboards'
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
+import { sGetIsEditing } from '../../../reducers/editDashboard'
+import {
+    sGetPrintDashboardName,
+    sGetPrintDashboardDescription,
+} from '../../../reducers/printDashboard'
 
 import classes from './styles/Item.module.css'
 
@@ -63,12 +66,20 @@ PrintTitlePageItem.defaultProps = {
 
 const mapStateToProps = state => {
     const id = sGetSelectedId(state)
-    const dashboard = orObject(sGetDashboardById(state, id))
+    const isEditMode = sGetIsEditing(state)
+
+    const name = isEditMode
+        ? sGetPrintDashboardName(state) || i18n.t('Untitled dashboard')
+        : sGetDashboardById(state, id).displayName
+
+    const description = isEditMode
+        ? sGetPrintDashboardDescription(state)
+        : sGetDashboardById(state, id).displayDescription
 
     return {
-        name: dashboard.displayName,
+        name,
+        description,
         itemFilters: sGetNamedItemFilters(state),
-        description: dashboard.displayDescription,
         showDescription: sGetSelectedShowDescription(state),
     }
 }
