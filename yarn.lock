@@ -1321,13 +1321,13 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@dhis2/analytics@^10.0.3":
-  version "10.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-10.0.3.tgz#9636bec30824b2a589964364a3b99296c104d7f2"
-  integrity sha512-h81hEvoHJDQshR024gSi/aBa9tpMQ8pwSPpNEDAEzw9QwR3eoNqMkTF8xDc3gO3HcJnfYMrYfdoiLYrQyhE+ZA==
+"@dhis2/analytics@^10.0.3", "@dhis2/analytics@^10.0.5":
+  version "10.0.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-10.0.5.tgz#de2962956fe1df5674f78a4ddc5767deb1b19c72"
+  integrity sha512-SkP8Qd/3yNuuk9BhGPqpidL6PRCBflZNMfa0sQJgxlXO1zO5sP0m4UikpiLWq0IqcfnlfqC4IDv1R2lmsy1t+w==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.5"
-    "@dhis2/ui" "^5.5.3"
+    "@dhis2/ui" "^5.5.5"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
     classnames "^2.2.6"
@@ -1656,7 +1656,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@^5.4.2", "@dhis2/ui@^5.5.3", "@dhis2/ui@^5.5.4", "@dhis2/ui@^5.5.5":
+"@dhis2/ui@^5.4.2", "@dhis2/ui@^5.5.4", "@dhis2/ui@^5.5.5":
   version "5.5.5"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.5.5.tgz#d982ad369f7249fd9b59280d0ad87fe9dd7d94c5"
   integrity sha512-G5JMtqQqbBUoiD9dieoI84hPUqgT4qKowbqVc8hQtxEN/SaB+0I9yoWCTZvg2GhR4r+vAuPsZz0AKJdCiM075A==
