@@ -106,7 +106,10 @@ export class PrintLayoutDashboard extends Component {
 
             addPageBreaks(this.props)
 
-            this.props.addDashboardItem({ type: PRINT_TITLE_PAGE })
+            this.props.addDashboardItem({
+                type: PRINT_TITLE_PAGE,
+                isOipp: false,
+            })
         }
     }
 

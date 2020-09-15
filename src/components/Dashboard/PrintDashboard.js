@@ -22,8 +22,7 @@ import { PAGEBREAK, PRINT_TITLE_PAGE, SPACER } from '../../modules/itemTypes'
 import {
     a4LandscapeWidthPx,
     MAX_ITEM_GRID_HEIGHT_OIPP,
-    MAX_ITEM_GRID_WIDTH,
-    PAGEBREAK_GRID_HEIGHT_OIPP,
+    MAX_ITEM_GRID_WIDTH_OIPP,
 } from '../../modules/printUtils'
 import { PRINT_ACTIONS_BAR_HEIGHT } from './PrintActionsBar'
 
@@ -55,6 +54,16 @@ export class PrintDashboard extends Component {
                 }
             })
 
+            // Resize the items to the full page size
+            this.props.items.forEach(item => {
+                this.props.updateDashboardItem(
+                    Object.assign({}, item, {
+                        w: MAX_ITEM_GRID_WIDTH_OIPP,
+                        h: MAX_ITEM_GRID_HEIGHT_OIPP,
+                    })
+                )
+            })
+
             // insert page breaks into the document flow to create the "pages"
             // when previewing the print
             for (
@@ -69,19 +78,9 @@ export class PrintDashboard extends Component {
                 })
             }
 
-            this.props.addDashboardItem({ type: PRINT_TITLE_PAGE })
-
-            // Resize to the full page size
-            this.props.items.forEach(item => {
-                const w = MAX_ITEM_GRID_WIDTH
-                const h =
-                    item.type === PAGEBREAK
-                        ? PAGEBREAK_GRID_HEIGHT_OIPP
-                        : MAX_ITEM_GRID_HEIGHT_OIPP
-
-                this.props.updateDashboardItem(
-                    Object.assign({}, item, { w, h })
-                )
+            this.props.addDashboardItem({
+                type: PRINT_TITLE_PAGE,
+                isOipp: true,
             })
         }
     }

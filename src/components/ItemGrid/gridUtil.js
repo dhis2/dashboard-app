@@ -17,6 +17,7 @@ export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 }
 
 const NUMBER_OF_ITEM_COLS = 2
 const GRID_COLUMNS = 60
+const MAX_ITEM_GRID_WIDTH = GRID_COLUMNS - 1
 
 export const getGridColumns = () => {
     switch (GRID_LAYOUT) {
@@ -50,7 +51,7 @@ export const getShape = i => {
 
     const col = i % NUMBER_OF_ITEM_COLS
     const row = Math.floor(i / NUMBER_OF_ITEM_COLS)
-    const itemWidth = Math.floor((GRID_COLUMNS - 1) / NUMBER_OF_ITEM_COLS)
+    const itemWidth = Math.floor(MAX_ITEM_GRID_WIDTH / NUMBER_OF_ITEM_COLS)
     const itemHeight = GRID_ROW_HEIGHT * 2
 
     return {
@@ -72,18 +73,18 @@ export const getPageBreakItemShape = (yPos, isStatic = true) => {
     return {
         x: 0,
         y: yPos,
-        w: GRID_COLUMNS - 1,
+        w: MAX_ITEM_GRID_WIDTH,
         h: 5,
         static: !!isStatic,
         minH: 1,
     }
 }
 
-export const getPrintTitlePageItemShape = () => {
+export const getPrintTitlePageItemShape = isOipp => {
     return {
         x: 0,
         y: 0,
-        w: GRID_COLUMNS - 1,
+        w: isOipp ? GRID_COLUMNS - 4 : MAX_ITEM_GRID_WIDTH,
         h: MAX_ITEM_GRID_HEIGHT,
         static: true,
         minH: 1,
