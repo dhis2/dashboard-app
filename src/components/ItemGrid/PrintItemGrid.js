@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import ReactGridLayout from 'react-grid-layout'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
+import cx from 'classnames'
 
 import { Item } from '../Item/Item'
 import NoContentMessage from '../../widgets/NoContentMessage'
@@ -31,7 +32,7 @@ import './ItemGrid.css'
 
 export class PrintItemGrid extends Component {
     getItemComponent = item => (
-        <div key={item.i} className={[item.type, 'print', 'oipp'].join(' ')}>
+        <div key={item.i} className={cx(item.type, 'print', 'oipp')}>
             <Item item={item} dashboardMode={PRINT} />
         </div>
     )
