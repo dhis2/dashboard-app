@@ -8,6 +8,9 @@ import { itemTypeMap } from './itemTypes'
 export const a4LandscapeWidthPx = 1102
 
 export const MAX_ITEM_GRID_HEIGHT = 34
+export const MAX_ITEM_GRID_HEIGHT_OIPP = 35
+export const MAX_ITEM_GRID_WIDTH = 56
+export const PAGEBREAK_GRID_HEIGHT_OIPP = 3
 
 export const getTransformYPx = elStyle => {
     if (!elStyle || !elStyle.transform) {

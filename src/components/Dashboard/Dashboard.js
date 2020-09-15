@@ -68,7 +68,7 @@ export const Dashboard = ({
         if (dashboardsLoaded && !dashboardsIsEmpty) {
             selectDashboard(routeId)
         }
-    }, [dashboardsLoaded, dashboardsIsEmpty, routeId, mode])
+    }, [dashboardsLoaded, dashboardsIsEmpty, routeId])
 
     useEffect(() => {
         const onResize = debounce(

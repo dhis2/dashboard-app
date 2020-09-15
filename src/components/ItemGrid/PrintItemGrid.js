@@ -24,31 +24,17 @@ import {
 } from './gridUtil'
 import { a4LandscapeWidthPx } from '../../modules/printUtils'
 import { orArray } from '../../modules/util'
-import { PAGEBREAK } from '../../modules/itemTypes'
 
 import 'react-grid-layout/css/styles.css'
 
 import './ItemGrid.css'
 
 export class PrintItemGrid extends Component {
-    getItemComponent = item => {
-        const itemClassNames = [item.type, 'print', 'oipp'].join(' ')
-
-        // TODO: this mutates the redux store
-        item.w = 56
-
-        if (item.type === PAGEBREAK) {
-            item.h = 3
-        } else {
-            item.h = 35
-        }
-
-        return (
-            <div key={item.i} className={itemClassNames}>
-                <Item item={item} dashboardMode={PRINT} />
-            </div>
-        )
-    }
+    getItemComponent = item => (
+        <div key={item.i} className={[item.type, 'print', 'oipp'].join(' ')}>
+            <Item item={item} dashboardMode={PRINT} />
+        </div>
+    )
 
     getItemComponents = items => items.map(item => this.getItemComponent(item))
 
