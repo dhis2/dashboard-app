@@ -105,7 +105,7 @@ export class PrintLayoutDashboard extends Component {
 
             this.props.addDashboardItem({
                 type: PRINT_TITLE_PAGE,
-                isOipp: false,
+                isOneItemPerPage: false,
             })
         }
     }

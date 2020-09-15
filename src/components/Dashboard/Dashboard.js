@@ -128,6 +128,7 @@ Dashboard.propTypes = {
     dashboardsIsEmpty: PropTypes.bool,
     dashboardsLoaded: PropTypes.bool,
     id: PropTypes.string,
+    match: PropTypes.object, // provided by the react-router-dom
     mode: PropTypes.string,
     routeId: PropTypes.string,
     selectDashboard: PropTypes.func,
@@ -140,7 +141,7 @@ const mapStateToProps = (state, ownProps) => {
         dashboardsIsEmpty: isEmpty(dashboards),
         dashboardsLoaded: !sDashboardsIsFetching(state),
         id: sGetSelectedId(state),
-        routeId: ownProps.match.params.dashboardId || null,
+        routeId: ownProps.match?.params?.dashboardId || null,
     }
 }
 

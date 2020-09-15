@@ -88,11 +88,11 @@ export const getPageBreakItemShape = (yPos, isStatic = true) => {
     }
 }
 
-export const getPrintTitlePageItemShape = isOipp => {
+export const getPrintTitlePageItemShape = isOneItemPerPage => {
     return {
         x: 0,
         y: 0,
-        w: isOipp ? MAX_ITEM_GRID_WIDTH_OIPP : MAX_ITEM_GRID_WIDTH,
+        w: isOneItemPerPage ? MAX_ITEM_GRID_WIDTH_OIPP : MAX_ITEM_GRID_WIDTH,
         h: MAX_ITEM_GRID_HEIGHT,
         static: true,
         minH: 1,

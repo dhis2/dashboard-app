@@ -80,7 +80,7 @@ export class PrintDashboard extends Component {
 
             this.props.addDashboardItem({
                 type: PRINT_TITLE_PAGE,
-                isOipp: true,
+                isOneItemPerPage: true,
             })
         }
     }
