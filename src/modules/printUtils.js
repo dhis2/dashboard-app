@@ -2,16 +2,6 @@ import sortBy from 'lodash/sortBy'
 import { orArray } from './util'
 import { itemTypeMap } from './itemTypes'
 
-// for A4 landscape (297x210mm)
-// 794 px = (21cm / 2.54) * 96 pixels/inch
-// 1122 px = 29.7 /2.54 * 96 pixels/inch
-// const a4LandscapeHeightPx = 794
-export const a4LandscapeWidthPx = 1102
-
-export const MAX_ITEM_GRID_HEIGHT = 34
-export const MAX_ITEM_GRID_HEIGHT_OIPP = 35
-export const MAX_ITEM_GRID_WIDTH_OIPP = 56
-
 export const getTransformYPx = elStyle => {
     if (!elStyle || !elStyle.transform) {
         return null

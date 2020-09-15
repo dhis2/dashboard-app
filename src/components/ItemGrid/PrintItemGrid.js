@@ -22,8 +22,8 @@ import {
     MARGIN,
     getGridColumns,
     hasShape,
+    a4LandscapeWidthPx,
 } from './gridUtil'
-import { a4LandscapeWidthPx } from '../../modules/printUtils'
 import { orArray } from '../../modules/util'
 
 import 'react-grid-layout/css/styles.css'

@@ -23,7 +23,7 @@ import {
     a4LandscapeWidthPx,
     MAX_ITEM_GRID_HEIGHT_OIPP,
     MAX_ITEM_GRID_WIDTH_OIPP,
-} from '../../modules/printUtils'
+} from '../ItemGrid/gridUtil'
 import { PRINT_ACTIONS_BAR_HEIGHT } from './PrintActionsBar'
 
 import classes from './styles/PrintDashboard.module.css'
