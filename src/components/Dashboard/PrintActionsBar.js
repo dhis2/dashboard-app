@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Button } from '@dhis2/ui'
 import { Link } from 'react-router-dom'
 import LessHorizontalIcon from '../../icons/LessHorizontal'
-import { a4LandscapeWidthPx } from '../../modules/printUtils'
+import { a4LandscapeWidthPx } from '../ItemGrid/gridUtil'
 
 import classes from './styles/PrintActionsBar.module.css'
 
