@@ -71,11 +71,14 @@ export const Dashboard = ({
     }, [dashboardsLoaded, dashboardsIsEmpty, routeId, mode])
 
     useEffect(() => {
-        // TODO does this need to be cleared?
-        window.onresize = debounce(
+        const onResize = debounce(
             () => setWindowHeight(window.innerHeight),
             300
         )
+        window.addEventListener('resize', onResize)
+        return () => {
+            window.removeEventListener('resize', onResize)
+        }
     }, [])
 
     if (!dashboardsLoaded || id === null) {
