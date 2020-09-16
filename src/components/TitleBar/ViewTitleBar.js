@@ -1,10 +1,10 @@
-import React, { useState, createRef } from 'react'
+import React, { Suspense, useState, createRef } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import { Redirect } from 'react-router-dom'
-import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
+
 import Star from '@material-ui/icons/Star'
 import StarBorder from '@material-ui/icons/StarBorder'
 import { Button, FlyoutMenu, Popover, MenuItem, colors } from '@dhis2/ui'
@@ -25,10 +25,15 @@ import {
 
 import classes from './styles/ViewTitleBar.module.css'
 
+const SharingDialog = React.lazy(() => import('@dhis2/d2-ui-sharing-dialog'))
+const PeriodSelectorDialog = React.lazy(() =>
+    import('@dhis2/d2-ui-period-selector-dialog')
+)
 const ViewTitleBar = (props, context) => {
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
+    const [sharingDialogInitiated, setSharingDialogInitiated] = useState(false)
 
     const {
         id,
@@ -42,8 +47,10 @@ const ViewTitleBar = (props, context) => {
         onShowHideDescription,
     } = props
 
-    const toggleSharingDialog = () =>
+    const toggleSharingDialog = () => {
+        setSharingDialogInitiated(true)
         setSharingDialogIsOpen(!sharingDialogIsOpen)
+    }
 
     const toggleMoreOptions = () => setMoreOptionsIsOpen(!moreOptionsIsOpen)
 
@@ -163,14 +170,17 @@ const ViewTitleBar = (props, context) => {
                     {description || i18n.t('No description')}
                 </div>
             ) : null}
-            {id ? (
-                <SharingDialog
-                    d2={context.d2}
-                    id={id}
-                    type="dashboard"
-                    open={sharingDialogIsOpen}
-                    onRequestClose={toggleSharingDialog}
-                />
+            {id && sharingDialogInitiated ? (
+                <Suspense fallback={<div>loading ...</div>}>
+                    <PeriodSelectorDialog open={sharingDialogIsOpen} />
+                    <SharingDialog
+                        d2={context.d2}
+                        id={id}
+                        type="dashboard"
+                        open={sharingDialogIsOpen}
+                        onRequestClose={toggleSharingDialog}
+                    />
+                </Suspense>
             ) : null}
         </>
     )
