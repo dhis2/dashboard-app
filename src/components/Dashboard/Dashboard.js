@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import isEmpty from 'lodash/isEmpty'
@@ -34,6 +34,15 @@ import {
     isPrintMode,
 } from './dashboardModes'
 
+const setHeaderbarVisibility = mode => {
+    const header = document.getElementsByTagName('header')[0]
+    if (isPrintMode(mode)) {
+        header.classList.add('hidden')
+    } else {
+        header.classList.remove('hidden')
+    }
+}
+
 const dashboardMap = {
     [VIEW]: <ViewDashboard />,
     [EDIT]: <EditDashboard />,
@@ -42,101 +51,97 @@ const dashboardMap = {
     [PRINT_LAYOUT]: <PrintLayoutDashboard />,
 }
 
-export class Dashboard extends Component {
-    setDashboard = () => {
-        if (this.props.dashboardsLoaded) {
-            const id = this.props.match.params.dashboardId || null || null
+export const Dashboard = ({
+    id,
+    mode,
+    dashboardsLoaded,
+    dashboardsIsEmpty,
+    routeId,
+    selectDashboard,
+    setWindowHeight,
+}) => {
+    useEffect(() => {
+        setHeaderbarVisibility(mode)
+    }, [mode])
 
-            this.props.selectDashboard(id)
-
-            this.setHeaderbarVisibility()
+    useEffect(() => {
+        if (dashboardsLoaded && !dashboardsIsEmpty) {
+            selectDashboard(routeId)
         }
-    }
+    }, [dashboardsLoaded, dashboardsIsEmpty, routeId])
 
-    setHeaderbarVisibility = () => {
-        const header = document.getElementsByTagName('header')[0]
-        if (isPrintMode(this.props.mode)) {
-            header.classList.add('hidden')
-        } else {
-            header.classList.remove('hidden')
-        }
-    }
-
-    componentDidMount() {
-        window.onresize = debounce(
-            () => this.props.setWindowHeight(window.innerHeight),
+    useEffect(() => {
+        const onResize = debounce(
+            () => setWindowHeight(window.innerHeight),
             300
         )
-        this.setDashboard()
+        window.addEventListener('resize', onResize)
+        return () => {
+            window.removeEventListener('resize', onResize)
+        }
+    }, [])
+
+    if (!dashboardsLoaded || id === null) {
+        return (
+            <Layer translucent>
+                <CenteredContent>
+                    <CircularLoader />
+                </CenteredContent>
+            </Layer>
+        )
     }
 
-    componentDidUpdate() {
-        this.setDashboard()
-    }
-
-    render() {
-        const { id, mode, dashboardsLoaded, dashboardsIsEmpty } = this.props
-
-        if (!dashboardsLoaded || id === null) {
-            return (
-                <Layer translucent>
-                    <CenteredContent>
-                        <CircularLoader />
-                    </CenteredContent>
-                </Layer>
-            )
-        }
-
-        if (mode === NEW) {
-            return dashboardMap[mode]
-        }
-
-        if (dashboardsIsEmpty) {
-            return (
-                <>
-                    <DashboardsBar />
-                    <DashboardVerticalOffset />
-                    <NoContentMessage
-                        text={i18n.t(
-                            'No dashboards found. Use the + button to create a new dashboard.'
-                        )}
-                    />
-                </>
-            )
-        }
-
-        if (id === NON_EXISTING_DASHBOARD_ID) {
-            return (
-                <>
-                    <DashboardsBar />
-                    <DashboardVerticalOffset />
-                    <NoContentMessage
-                        text={i18n.t('Requested dashboard not found')}
-                    />
-                </>
-            )
-        }
-
+    if (mode === NEW) {
         return dashboardMap[mode]
     }
+
+    if (dashboardsIsEmpty) {
+        return (
+            <>
+                <DashboardsBar />
+                <DashboardVerticalOffset />
+                <NoContentMessage
+                    text={i18n.t(
+                        'No dashboards found. Use the + button to create a new dashboard.'
+                    )}
+                />
+            </>
+        )
+    }
+
+    if (id === NON_EXISTING_DASHBOARD_ID) {
+        return (
+            <>
+                <DashboardsBar />
+                <DashboardVerticalOffset />
+                <NoContentMessage
+                    text={i18n.t('Requested dashboard not found')}
+                />
+            </>
+        )
+    }
+
+    return dashboardMap[mode]
 }
 
 Dashboard.propTypes = {
     dashboardsIsEmpty: PropTypes.bool,
     dashboardsLoaded: PropTypes.bool,
     id: PropTypes.string,
-    match: PropTypes.object,
+    match: PropTypes.object, // provided by the react-router-dom
     mode: PropTypes.string,
+    routeId: PropTypes.string,
     selectDashboard: PropTypes.func,
     setWindowHeight: PropTypes.func,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     const dashboards = sGetAllDashboards(state)
     return {
         dashboardsIsEmpty: isEmpty(dashboards),
         dashboardsLoaded: !sDashboardsIsFetching(state),
         id: sGetSelectedId(state),
+        routeId: ownProps.match?.params?.dashboardId || null,
     }
 }
 
