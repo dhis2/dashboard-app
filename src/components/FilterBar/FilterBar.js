@@ -26,6 +26,7 @@ export class FilterBar extends Component {
         const { filters } = this.props
 
         return filters.length ? (
+            // the 3 is calculated so that the FilterBar has the same vertical position as the TitleBar in relation to the ControlBar
             <div className={classes.bar} style={{ top: 3 }}>
                 {filters.map(filter => (
                     <FilterBadge
