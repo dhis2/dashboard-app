@@ -33,6 +33,7 @@ import {
     EVENT_CHART,
     MESSAGES,
 } from '../modules/itemTypes'
+import { orObject } from '../modules/util'
 
 // actions
 
@@ -56,7 +57,8 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
     dispatch(acSetSelectedIsLoading(true))
 
     const snackbarTimeout = setTimeout(() => {
-        const dashboardName = sGetDashboardById(getState(), id).displayName
+        const dashboardName = orObject(sGetDashboardById(getState(), id))
+            .displayName
         if (sGetSelectedIsLoading(getState()) && dashboardName) {
             loadingDashboardMsg.name = dashboardName
 

@@ -15,6 +15,8 @@ import {
     sGetPrintDashboardDescription,
 } from '../../../reducers/printDashboard'
 
+import { orObject } from '../../../modules/util'
+
 import classes from './styles/Item.module.css'
 
 const PrintTitlePageItem = ({
@@ -67,14 +69,15 @@ PrintTitlePageItem.defaultProps = {
 const mapStateToProps = state => {
     const id = sGetSelectedId(state)
     const isEditMode = sGetIsEditing(state)
+    const viewDashboard = orObject(sGetDashboardById(state, id))
 
     const name = isEditMode
         ? sGetPrintDashboardName(state) || i18n.t('Untitled dashboard')
-        : sGetDashboardById(state, id).displayName
+        : viewDashboard.displayName
 
     const description = isEditMode
         ? sGetPrintDashboardDescription(state)
-        : sGetDashboardById(state, id).displayDescription
+        : viewDashboard.displayDescription
 
     return {
         name,
