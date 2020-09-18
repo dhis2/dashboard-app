@@ -83,6 +83,8 @@ const ViewTitleBar = (props, context) => {
 
     const buttonRef = createRef()
 
+    const userAccess = orObject(access)
+
     return (
         <>
             <div className={classes.titleBar}>
@@ -95,7 +97,7 @@ const ViewTitleBar = (props, context) => {
                         <StarIcon style={{ fill: colors.grey600 }} />
                     </div>
                     <div className={classes.strip}>
-                        {access.update ? (
+                        {userAccess.update ? (
                             <Link
                                 className={classes.editLink}
                                 to={`/${id}/edit`}
@@ -103,7 +105,7 @@ const ViewTitleBar = (props, context) => {
                                 <Button>{i18n.t('Edit')}</Button>
                             </Link>
                         ) : null}
-                        {access.manage ? (
+                        {userAccess.manage ? (
                             <Button onClick={toggleSharingDialog}>
                                 {i18n.t('Share')}
                             </Button>
@@ -211,7 +213,7 @@ const mapStateToProps = state => {
         dashboardItems: sGetDashboardItems(state),
         showDescription: sGetSelectedShowDescription(state),
         starred: dashboard.starred,
-        access: orObject(dashboard.access),
+        access: dashboard.access,
     }
 }
 
