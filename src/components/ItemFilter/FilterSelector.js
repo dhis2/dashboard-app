@@ -12,10 +12,7 @@ import FilterDialog from './FilterDialog'
 import { sGetSettingsDisplayNameProperty } from '../../reducers/settings'
 import { sGetActiveModalDimension } from '../../reducers/activeModalDimension'
 import { sGetDimensions } from '../../reducers/dimensions'
-import {
-    sGetItemFiltersRoot,
-    sGetFiltersKeys,
-} from '../../reducers/itemFilters'
+import { sGetItemFiltersRoot } from '../../reducers/itemFilters'
 import { acAddItemFilter, acRemoveItemFilter } from '../../actions/itemFilters'
 import {
     acClearActiveModalDimension,
@@ -100,7 +97,7 @@ const FilterSelector = props => {
                         style={{ width: '320px' }}
                         dimensions={props.dimensions}
                         onDimensionClick={selectDimension}
-                        selectedIds={props.selectedDimensions}
+                        selectedIds={Object.keys(props.initiallySelectedItems)}
                     />
                 </Popover>
             )}
@@ -125,7 +122,6 @@ const mapStateToProps = state => ({
     dimension: sGetActiveModalDimension(state),
     dimensions: sGetDimensions(state),
     initiallySelectedItems: sGetItemFiltersRoot(state),
-    selectedDimensions: sGetFiltersKeys(state),
 })
 
 FilterSelector.propTypes = {
@@ -136,7 +132,6 @@ FilterSelector.propTypes = {
     displayNameProperty: PropTypes.string,
     initiallySelectedItems: PropTypes.object,
     removeItemFilter: PropTypes.func,
-    selectedDimensions: PropTypes.array,
     setActiveModalDimension: PropTypes.func,
 }
 
