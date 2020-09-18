@@ -21,6 +21,7 @@ import {
 import {
     sGetDashboardById,
     sGetDashboardItems,
+    EMPTY_DASHBOARD,
 } from '../../reducers/dashboards'
 
 import classes from './styles/ViewTitleBar.module.css'
@@ -201,7 +202,7 @@ ViewTitleBar.contextTypes = {
 
 const mapStateToProps = state => {
     const id = sGetSelectedId(state)
-    const dashboard = orObject(sGetDashboardById(state, id))
+    const dashboard = sGetDashboardById(state, id) || EMPTY_DASHBOARD
 
     return {
         id,
