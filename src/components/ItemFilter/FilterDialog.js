@@ -44,9 +44,7 @@ const FilterDialog = (
             item => !itemIdsToRemove.includes(item.id)
         )
 
-        const list = newList.length ? newList : []
-
-        setFilters({ ...filters, [dimensionId]: list })
+        setFilters({ ...filters, [dimensionId]: newList })
     }
 
     const onReorderItems = ({ dimensionId, itemIds }) => {
