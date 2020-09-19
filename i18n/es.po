@@ -4,13 +4,14 @@
 # William Aviles <waviles@clintonhealthaccess.org>, 2020
 # phil_dhis2, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
+# Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-19T19:20:59.404Z\n"
 "PO-Revision-Date: 2020-03-02 13:27+0000\n"
-"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
+"Last-Translator: Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,19 +29,22 @@ msgid "Delete"
 msgstr "Borrar"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "Borrar tablero"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"Borrando tablero \"{{ dashboardName }}\" para todos los usuarios. Esta "
+"acción será permanente. Está seguro de que desea continuar eliminando "
+"permanentemente este tablero?"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Salir sin guardar"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Ir a los tableros"
 
 msgid "Save changes"
 msgstr "Guardar cambios"
@@ -49,7 +53,7 @@ msgid "Translate"
 msgstr "Traducir"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Buscar un tablero"
 
 msgid "Show more"
 msgstr "Mostrar más"
@@ -62,9 +66,10 @@ msgstr "Sin acceso"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
+"No se han encontrado tableros. Use el botón + para crear un nuevo tablero"
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "No se ha encontrado el tablero buscado"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -75,86 +80,88 @@ msgid "Remove"
 msgstr "Eliminar"
 
 msgid "Delete item"
-msgstr ""
+msgstr "Borrar elemento"
 
 msgid "Messages"
 msgstr "Mensajes"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Ver todos los mensajes"
 
 msgid "Item type \"{{type}}\" not supported"
-msgstr ""
+msgstr "Tipo de objeto \"{{type}}\" no válido"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Tabulador"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Use el tabulador para crear un espacio vertical vacío con otro objeto del "
+"tablero."
 
 msgid "Text item"
-msgstr ""
+msgstr "Elemento de texto"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Añada texto aquí"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Incapaz de cargar el complemento para este elemento"
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "Ha habido un problema al cargar este elemento del tablero"
 
 msgid "No data to display"
-msgstr ""
+msgstr "Sin datos para mostrar"
 
 msgid "Hide interpretations and details"
-msgstr ""
+msgstr "Ocultar interpretaciones y detalles"
 
 msgid "Show interpretations and details"
-msgstr ""
+msgstr "Mostrar interpretaciones y detalles"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "Ver como gráfico"
 
 msgid "View as Table"
-msgstr ""
+msgstr "Ver como tabla"
 
 msgid "View as Map"
-msgstr ""
+msgstr "Ver como mapa"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "Abrir en la aplicación {{appName}}"
 
 msgid "Confirm"
 msgstr "Confirmar"
 
 msgid "Add filter"
-msgstr ""
+msgstr "Añadir filtro"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "No hay objetos en este tablero"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "Mostrar menos"
 
 msgid "Insert"
 msgstr "Insertar"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Buscar objetos para añadir en este tablero"
 
 msgid "Additional items"
-msgstr ""
+msgstr "Objetos adicionales"
 
 msgid "Text box"
-msgstr ""
+msgstr "Caja de texto"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "Título del tablero"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "Descripción del tablero"
 
 msgid "Edit"
 msgstr "Editar"
@@ -166,7 +173,7 @@ msgid "No description"
 msgstr "Sin descripción"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "Visualizaciones"
 
 msgid "Data Visualizer"
 msgstr "Visualizador de Datos"
@@ -181,13 +188,13 @@ msgid "Maps"
 msgstr "Mapas"
 
 msgid "Event reports"
-msgstr ""
+msgstr "Herramienta para tablas con información individual"
 
 msgid "Event Reports"
 msgstr "Informes de eventos"
 
 msgid "Event charts"
-msgstr ""
+msgstr "Herramienta para gráficos con información individual"
 
 msgid "Event Visualizer"
 msgstr "Visualizador de eventos"
@@ -199,7 +206,7 @@ msgid "Reports"
 msgstr "Informes"
 
 msgid "Resources"
-msgstr ""
+msgstr "Recursos"
 
 msgid "Users"
 msgstr "Usuarios"
