@@ -5,8 +5,6 @@ import PropTypes from 'prop-types'
 import FilterBadge from './FilterBadge'
 
 import { sGetNamedItemFilters } from '../../reducers/itemFilters'
-import { sGetControlBarUserRows } from '../../reducers/controlBar'
-import { getControlBarHeight } from '../ControlBar/controlBarDimensions'
 import { acRemoveItemFilter } from '../../actions/itemFilters'
 import { acSetActiveModalDimension } from '../../actions/activeModalDimension'
 
@@ -25,12 +23,11 @@ export class FilterBar extends Component {
     }
 
     render() {
-        const { filters, userRows } = this.props
-
-        const top = getControlBarHeight(userRows) + 10
+        const { filters } = this.props
 
         return filters.length ? (
-            <div className={classes.bar} style={{ top }}>
+            // the 3 is calculated so that the FilterBar has the same vertical position as the TitleBar in relation to the ControlBar
+            <div className={classes.bar} style={{ top: 3 }}>
                 {filters.map(filter => (
                     <FilterBadge
                         key={filter.id}
@@ -48,7 +45,6 @@ FilterBar.propTypes = {
     filters: PropTypes.array.isRequired,
     removeItemFilter: PropTypes.func.isRequired,
     setActiveModalDimension: PropTypes.func,
-    userRows: PropTypes.number,
 }
 
 FilterBar.defaultProps = {
@@ -58,7 +54,6 @@ FilterBar.defaultProps = {
 
 const mapStateToProps = state => ({
     filters: sGetNamedItemFilters(state),
-    userRows: sGetControlBarUserRows(state),
 })
 
 export default connect(mapStateToProps, {
