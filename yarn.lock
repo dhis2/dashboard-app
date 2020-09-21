@@ -1569,10 +1569,19 @@
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
 
-"@dhis2/d2-ui-rich-text@7.0.7", "@dhis2/d2-ui-rich-text@^7.0.7":
+"@dhis2/d2-ui-rich-text@7.0.7":
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.0.7.tgz#b108340ee342b7d75e1e9d3b484a7cc98da2dbdd"
   integrity sha512-qduwYqTRCFkZ5VpWSDEfpdQhN17eL/PDXgPVLvo4f0cMMkN9bR7e1q0BeemTvpCqTfHxQ+pjiHyaTwqBpzfzTg==
+  dependencies:
+    babel-runtime "^6.26.0"
+    markdown-it "^8.4.2"
+    prop-types "^15.6.2"
+
+"@dhis2/d2-ui-rich-text@^7.0.8":
+  version "7.0.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.0.8.tgz#9eaae380dca3b56df7d0a92940dbacebefcd8624"
+  integrity sha512-YLI1wjgZUCDBcMCOTNIqJwtwdpNjOq8CTFb9esm8wfyT2Mw/vAAy929Sj+tKT8cJ2+xMKJhx8pQaJ4XbPPIZJg==
   dependencies:
     babel-runtime "^6.26.0"
     markdown-it "^8.4.2"
