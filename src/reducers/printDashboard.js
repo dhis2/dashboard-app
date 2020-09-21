@@ -130,6 +130,12 @@ export const sGetPrintDashboardRoot = state => state.printDashboard
 
 export const sGetIsPrinting = state => !isEmpty(state.printDashboard)
 
+export const sGetPrintDashboardName = state =>
+    sGetPrintDashboardRoot(state).name
+
+export const sGetPrintDashboardDescription = state =>
+    sGetPrintDashboardRoot(state).description
+
 export const sGetPrintDashboardItems = state => {
     return (
         sGetPrintDashboardRoot(state)?.dashboardItems || DEFAULT_DASHBOARD_ITEMS
