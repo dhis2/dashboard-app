@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import debounce from 'lodash/debounce'
 import pick from 'lodash/pick'
 
-const defaultDebounceMs = 150
+const defaultDebounceMs = 100
 const defaultBufferFactor = 0.25
 
 class ProgressiveLoadingContainer extends Component {
