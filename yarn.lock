@@ -1321,13 +1321,31 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@dhis2/analytics@^10.0.3", "@dhis2/analytics@^10.0.5":
+"@dhis2/analytics@^10.0.3":
   version "10.0.5"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-10.0.5.tgz#de2962956fe1df5674f78a4ddc5767deb1b19c72"
   integrity sha512-SkP8Qd/3yNuuk9BhGPqpidL6PRCBflZNMfa0sQJgxlXO1zO5sP0m4UikpiLWq0IqcfnlfqC4IDv1R2lmsy1t+w==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.5"
     "@dhis2/ui" "^5.5.5"
+    "@material-ui/core" "^3.9.3"
+    "@material-ui/icons" "^3.0.2"
+    classnames "^2.2.6"
+    d2-utilizr "^0.2.16"
+    d3-color "^1.2.3"
+    highcharts "^8.2.0"
+    lodash "^4.17.20"
+    react-beautiful-dnd "^10.1.1"
+    resize-observer-polyfill "^1.5.1"
+    styled-jsx "^3.3.0"
+
+"@dhis2/analytics@^11.0.4":
+  version "11.0.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.0.4.tgz#7e181b5bf11abdeb708a3b7405870c87f1191d2b"
+  integrity sha512-0QCTAoIJWRaqjlNT4tuQYWu8BbigbV2319AQSOvVaWviHNODM6AlVRBnv/yFsj4YgPCcY200ifiHjQ3mY0nEdw==
+  dependencies:
+    "@dhis2/d2-ui-org-unit-dialog" "^7.0.8"
+    "@dhis2/ui" "^5.5.6"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
     classnames "^2.2.6"
@@ -1481,17 +1499,6 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/d2-ui-core@7.0.5":
-  version "7.0.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.0.5.tgz#bfedb815ebc0edb2901c0b1f4b59a856e9d18c34"
-  integrity sha512-ALK1vVe1yE+4mPnBBIdVNi3aAG7yVeLHjxAcEX/1XvCfK0CKnGas2I8K+KcxZMB0FHBr4+hzKzP4NkE4b+a4gQ==
-  dependencies:
-    babel-runtime "^6.26.0"
-    d2 "~31.7"
-    lodash "^4.17.10"
-    material-ui "^0.20.0"
-    rxjs "^5.5.7"
-
 "@dhis2/d2-ui-core@7.0.7":
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.0.7.tgz#2d8b504916b3283e54d59c0ef17a76a94468a9de"
@@ -1549,22 +1556,22 @@
     lodash "^4.17.10"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-org-unit-dialog@^7.0.5":
-  version "7.0.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-7.0.5.tgz#b13cab9e17ad6555837338a65e2da78a32cb0224"
-  integrity sha512-fY37Z6b6GfqgjJ6Wha05ho6fgHtqHhMX49QxKZSchACH46EmuLq4uw5+wzuAXuZTIjSfsqk07xloWtTtgyjd8Q==
+"@dhis2/d2-ui-org-unit-dialog@^7.0.5", "@dhis2/d2-ui-org-unit-dialog@^7.0.8":
+  version "7.0.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-7.0.8.tgz#7caade6e72ae0b578ee03d84e4326ea6450ce0ac"
+  integrity sha512-LXp8Vx5fCwRkBexADHIDYfdpDX0japeZpbgJxCAtwPbkrY28QXRZhzdllNK0x14FEWlmXghBwUDoqIPr24QrNw==
   dependencies:
-    "@dhis2/d2-ui-org-unit-tree" "7.0.5"
+    "@dhis2/d2-ui-org-unit-tree" "7.0.8"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     prop-types "^15.5.10"
 
-"@dhis2/d2-ui-org-unit-tree@7.0.5":
-  version "7.0.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-7.0.5.tgz#07c8ee3041679d0f2aea21d1155a30db25476072"
-  integrity sha512-HJIy/rrrsONBjVyk0NxsTw9VBXiQu67d3tFM6rd65mBeokANLpWtFk4iGiiifECniX3c6D/NiyX5Ap2iqBIHPg==
+"@dhis2/d2-ui-org-unit-tree@7.0.8":
+  version "7.0.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-7.0.8.tgz#63a23dd1944a73aafb730fe99684e64da17c9037"
+  integrity sha512-RVt7mg1VwcQ+hxZts6+kRqKXSROC8WqST8Wkbb0QJmmCcuxp5Fb6bU2Ah0ApOtw8Q1owWsP+UlJT7sXrzzkX1Q==
   dependencies:
-    "@dhis2/d2-ui-core" "7.0.5"
+    "@dhis2/d2-ui-core" "7.0.8"
     "@material-ui/core" "^3.3.1"
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
@@ -1685,7 +1692,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@^5.4.2", "@dhis2/ui@^5.5.4", "@dhis2/ui@^5.5.5", "@dhis2/ui@^5.6.1":
+"@dhis2/ui@^5.4.2", "@dhis2/ui@^5.5.4", "@dhis2/ui@^5.5.5", "@dhis2/ui@^5.5.6", "@dhis2/ui@^5.6.1":
   version "5.6.1"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.6.1.tgz#f5fe55de9b7a2e553c50f21a76544f42c242d5b3"
   integrity sha512-C/tJ0tn8uIXkJlFGx01NiZt2Cn5pFRy3onlvz7t70PH3E5dddaAOgcdVxlAPSS2WkESdv2iDIh26w8AZtoO7VQ==
