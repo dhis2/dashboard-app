@@ -3,13 +3,14 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 
-import { orObject } from '../../../modules/util'
-
 import {
     sGetSelectedId,
     sGetSelectedShowDescription,
 } from '../../../reducers/selected'
-import { sGetDashboardById } from '../../../reducers/dashboards'
+import {
+    sGetDashboardById,
+    EMPTY_DASHBOARD,
+} from '../../../reducers/dashboards'
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
 
 import classes from './styles/Item.module.css'
@@ -63,7 +64,7 @@ PrintTitlePageItem.defaultProps = {
 
 const mapStateToProps = state => {
     const id = sGetSelectedId(state)
-    const dashboard = orObject(sGetDashboardById(state, id))
+    const dashboard = sGetDashboardById(state, id) || EMPTY_DASHBOARD
 
     return {
         name: dashboard.displayName,
