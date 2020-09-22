@@ -254,13 +254,8 @@ export class Item extends Component {
     }
 
     onSelectActiveType = type => {
-        if (type === this.getActiveType()) {
-            return
-        }
-
-        pluginManager.unmount(this.props.item, this.getActiveType())
-
-        this.props.onSelectActiveType(this.props.visualization.id, type)
+        type !== this.getActiveType() &&
+            this.props.onSelectActiveType(this.props.visualization.id, type)
     }
 
     getActiveType = () =>

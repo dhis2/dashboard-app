@@ -95,6 +95,17 @@ class DefaultPlugin extends Component {
         this.reloadPlugin(prevProps)
     }
 
+    componentWillUnmount() {
+        if (
+            pluginManager.pluginIsAvailable(
+                this.props.item,
+                this.props.visualization
+            )
+        ) {
+            pluginManager.unmount(this.props.item, this.getActiveType())
+        }
+    }
+
     getActiveType = () =>
         this.props.visualization.activeType || this.props.item.type
 
@@ -121,11 +132,11 @@ DefaultPlugin.contextTypes = {
 
 DefaultPlugin.propTypes = {
     classes: PropTypes.object,
-    useActiveType: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     options: PropTypes.object,
     style: PropTypes.object,
+    useActiveType: PropTypes.bool,
     visualization: PropTypes.object,
 }
 
