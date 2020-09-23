@@ -14,6 +14,7 @@ import LoadingMask from './LoadingMask'
 
 import * as pluginManager from './plugin'
 import { sGetVisualization } from '../../../reducers/visualizations'
+import { sGetIsEditing } from '../../../reducers/editDashboard'
 import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
@@ -253,13 +254,17 @@ export class Item extends Component {
         )
     }
 
-    onSelectActiveType = type => {
+    selectActiveType = type => {
         type !== this.getActiveType() &&
-            this.props.onSelectActiveType(this.props.visualization.id, type)
+            this.props.selectActiveType(this.props.visualization.id, type)
     }
 
-    getActiveType = () =>
-        this.props.visualization.activeType || this.props.item.type
+    getActiveType = () => {
+        if (this.props.isEditing) {
+            return this.props.item.type
+        }
+        return this.props.visualization.activeType || this.props.item.type
+    }
 
     pluginIsAvailable = () =>
         pluginManager.pluginIsAvailable(
@@ -283,7 +288,7 @@ export class Item extends Component {
             <ItemHeaderButtons
                 item={item}
                 visualization={this.props.visualization}
-                onSelectActiveType={this.onSelectActiveType}
+                onSelectActiveType={this.selectActiveType}
                 onToggleFooter={this.onToggleFooter}
                 d2={this.d2}
                 activeType={this.getActiveType()}
@@ -324,12 +329,13 @@ Item.contextTypes = {
 
 Item.propTypes = {
     dashboardMode: PropTypes.string,
+    isEditing: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
+    selectActiveType: PropTypes.func,
+    updateVisualization: PropTypes.func,
     visualization: PropTypes.object,
-    onSelectActiveType: PropTypes.func,
     onToggleItemExpanded: PropTypes.func,
-    onVisualizationLoaded: PropTypes.func,
 }
 
 Item.defaultProps = {
@@ -344,6 +350,7 @@ const mapStateToProps = (state, ownProps) => {
         : DEFAULT_STATE_ITEM_FILTERS
 
     return {
+        isEditing: sGetIsEditing(state),
         itemFilters,
         visualization: sGetVisualization(
             state,
@@ -352,11 +359,9 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
-    onVisualizationLoaded: visualization =>
-        dispatch(acAddVisualization(visualization)),
-    onSelectActiveType: (id, type, activeType) =>
-        dispatch(acSetActiveVisualizationType(id, type, activeType)),
-})
+const mapDispatchToProps = {
+    selectActiveType: acSetActiveVisualizationType,
+    updateVisualization: acAddVisualization,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Item)
