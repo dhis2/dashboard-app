@@ -65,7 +65,7 @@ export class Item extends Component {
     }
 
     async componentDidMount() {
-        this.props.onVisualizationLoaded(
+        this.props.updateVisualization(
             // TODO do not call fetch on the pluginManager, do it here as the manager will eventually be removed...
             await pluginManager.fetch(this.props.item)
         )
