@@ -53,7 +53,7 @@
         "@dhis2/cli-style": "^7.0.0",
         "d2-manifest": "^1.0.0",
         "enzyme": "^3.11.0",
-        "enzyme-adapter-react-16": "^1.15.2",
+        "enzyme-adapter-react-16": "^1.15.4",
         "enzyme-to-json": "^3.5.0",
         "immutability-helper": "^3.1.1",
         "patch-package": "^6.2.2",
