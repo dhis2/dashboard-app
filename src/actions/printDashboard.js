@@ -52,7 +52,7 @@ export const acAddPrintDashboardItem = item => {
         const yPos = item.yPos || 0
         shape = getPageBreakItemShape(yPos, item.isStatic)
     } else {
-        shape = getPrintTitlePageItemShape()
+        shape = getPrintTitlePageItemShape(item.isOneItemPerPage)
     }
 
     return {

@@ -1,10 +1,8 @@
 import isFunction from 'd2-utilizr/lib/isFunction'
 
 import { orObject } from '../../modules/util'
-import { MAX_ITEM_GRID_HEIGHT } from '../../modules/printUtils'
 
 // Dimensions for the react-grid-layout
-
 export const GRID_COMPACT_TYPE = 'vertical' // vertical | horizonal | null
 export const GRID_ROW_HEIGHT = 10
 const GRID_COLUMN_WIDTH_PX = 20
@@ -17,6 +15,17 @@ export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 }
 
 const NUMBER_OF_ITEM_COLS = 2
 const GRID_COLUMNS = 60
+const MAX_ITEM_GRID_WIDTH = GRID_COLUMNS - 1
+
+export const MAX_ITEM_GRID_HEIGHT = 34
+export const MAX_ITEM_GRID_HEIGHT_OIPP = 35
+export const MAX_ITEM_GRID_WIDTH_OIPP = 56
+
+// for A4 landscape (297x210mm)
+// 794 px = (21cm / 2.54) * 96 pixels/inch
+// 1122 px = 29.7 /2.54 * 96 pixels/inch
+// const a4LandscapeHeightPx = 794
+export const a4LandscapeWidthPx = 1102
 
 export const getGridColumns = () => {
     switch (GRID_LAYOUT) {
@@ -50,7 +59,7 @@ export const getShape = i => {
 
     const col = i % NUMBER_OF_ITEM_COLS
     const row = Math.floor(i / NUMBER_OF_ITEM_COLS)
-    const itemWidth = Math.floor((GRID_COLUMNS - 1) / NUMBER_OF_ITEM_COLS)
+    const itemWidth = Math.floor(MAX_ITEM_GRID_WIDTH / NUMBER_OF_ITEM_COLS)
     const itemHeight = GRID_ROW_HEIGHT * 2
 
     return {
@@ -72,18 +81,18 @@ export const getPageBreakItemShape = (yPos, isStatic = true) => {
     return {
         x: 0,
         y: yPos,
-        w: GRID_COLUMNS - 1,
+        w: MAX_ITEM_GRID_WIDTH,
         h: 5,
         static: !!isStatic,
         minH: 1,
     }
 }
 
-export const getPrintTitlePageItemShape = () => {
+export const getPrintTitlePageItemShape = isOneItemPerPage => {
     return {
         x: 0,
         y: 0,
-        w: GRID_COLUMNS - 1,
+        w: isOneItemPerPage ? MAX_ITEM_GRID_WIDTH_OIPP : MAX_ITEM_GRID_WIDTH,
         h: MAX_ITEM_GRID_HEIGHT,
         static: true,
         minH: 1,

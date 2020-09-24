@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-31T08:37:42.542Z\n"
+"POT-Creation-Date: 2020-09-08T17:54:39.674Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -78,21 +78,6 @@ msgstr "退出打印预览"
 msgid "Print"
 msgstr "打印"
 
-msgid ""
-"The pages below are a preview of how the dashboard layout will be printed."
-msgstr "以仪表板布局预览将被打印"
-
-msgid ""
-"The pages below are a preview of how each dashboard item will be printed on "
-"a separate page."
-msgstr "以下页面是每个仪表板项目如何在单独页面上打印的预览。"
-
-msgid ""
-"Use the default printer settings for best results and check that all "
-"dashboard items have finished loading before printing. This text will not be"
-" printed."
-msgstr "使用默认打印机设置可获得最佳效果，并在打印之前检查所有仪表板项目是否已完成加载。此文本将不会打印。"
-
 msgid "dashboard layout"
 msgstr "仪表板布局"
 
@@ -101,6 +86,20 @@ msgstr "每页一项"
 
 msgid "Print Preview"
 msgstr "打印预览"
+
+msgid "For best print results"
+msgstr "以获得最佳打印效果"
+
+msgid "Use Chrome or Edge web browser"
+msgstr "使用Chrome或Edge网络浏览器"
+
+msgid "Wait for all dashboard items to load before printing"
+msgstr "等待所有仪表板项目加载后再打印"
+
+msgid ""
+"Use A4 landscape paper size and default margin settings in the browser print"
+" dialog"
+msgstr "在浏览器的“打印”对话框中使用A4横向纸张尺寸和默认边距设置"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -111,6 +110,9 @@ msgstr "移除"
 
 msgid "Delete item"
 msgstr "删除条目"
+
+msgid "This item has been shortened to fit on one page"
+msgstr "此项已缩短为适合一页"
 
 msgid "Messages"
 msgstr "消息"
