@@ -1,0 +1,146 @@
+# 
+# Translators:
+# Ibatov <ibatovk@who.int>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2018-04-03T09:53:39.293Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2020\n"
+"Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uz@Cyrl\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Delete"
+msgstr "Ўчириш"
+
+msgid "Continue editing"
+msgstr ""
+
+msgid "Confirm delete dashboard"
+msgstr ""
+
+msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
+msgstr ""
+
+msgid "Save changes"
+msgstr "Ўзгартиришни сақлаш"
+
+msgid "Translate"
+msgstr "Таржима қилинг"
+
+msgid "Exit without saving"
+msgstr ""
+
+msgid "Search for a dashboard"
+msgstr ""
+
+msgid "Show less"
+msgstr "Камроқ кўрсатилсин"
+
+msgid "Show more"
+msgstr "Кўпроқ кўрсатилсин"
+
+msgid "All"
+msgstr "Барчаси"
+
+msgid "Unread"
+msgstr ""
+
+msgid "Messages"
+msgstr "Хабарлар"
+
+msgid "You like this"
+msgstr ""
+
+msgid "Like"
+msgstr "Каби, ўхшаш"
+
+msgid "Reply"
+msgstr "Жавоб"
+
+msgid "Add your reply"
+msgstr ""
+
+msgid "Add your interpretation"
+msgstr ""
+
+msgid "Spacer"
+msgstr ""
+
+msgid ""
+"Use a spacer to create empty vertical space between other dashboard items."
+msgstr ""
+
+msgid "Text item"
+msgstr ""
+
+msgid "Add text here"
+msgstr ""
+
+msgid "There are no items on this dashboard"
+msgstr ""
+
+msgid "Search for items to add to this dashboard"
+msgstr ""
+
+msgid "See"
+msgstr ""
+
+msgid "fewer"
+msgstr ""
+
+msgid "more"
+msgstr ""
+
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+
+msgid "Add title here"
+msgstr ""
+
+msgid "Add description here"
+msgstr ""
+
+msgid "No description"
+msgstr "Тавсиф йўқ"
+
+msgid "Pivot tables"
+msgstr ""
+
+msgid "Pivot Tables"
+msgstr "Таянч жадваллар"
+
+msgid "Charts"
+msgstr ""
+
+msgid "Visualizer"
+msgstr ""
+
+msgid "Maps"
+msgstr ""
+
+msgid "Event reports"
+msgstr ""
+
+msgid "Event Reports"
+msgstr ""
+
+msgid "Event charts"
+msgstr ""
+
+msgid "Event Visualizer"
+msgstr ""
+
+msgid "Reports"
+msgstr ""
+
+msgid "Resources"
+msgstr ""
+
+msgid "Users"
+msgstr ""
