@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Karoline Tufte Lien <karoline@dhis2.org>, 2020
 # Caroline Hesthagen Holen <caroline@devotta.no>, 2020
+# Karoline Tufte Lien <karoline@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-08T17:54:39.674Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Caroline Hesthagen Holen <caroline@devotta.no>, 2020\n"
+"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "Dashbord uten navn"
 
 msgid "Cancel"
 msgstr "Avbryt"
@@ -38,10 +38,10 @@ msgstr ""
 "dette dashbordet permanent?"
 
 msgid "Exit Print preview"
-msgstr ""
+msgstr "Avslutt forhåndsvisning av utskrift"
 
 msgid "Print preview"
-msgstr ""
+msgstr "Utskriftforhåndsvisning"
 
 msgid "Save changes"
 msgstr "Lagre endringer"
@@ -74,33 +74,35 @@ msgid "No access"
 msgstr "Ingen tilgang"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "Avslutt forhåndsvisning av utskrift"
 
 msgid "Print"
 msgstr "Skriv ut"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "dashbordoppsett"
 
 msgid "one item per page"
-msgstr ""
+msgstr "ett element per side"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "Utskriftforhåndsvisning"
 
 msgid "For best print results"
-msgstr ""
+msgstr "For best utskriftsresultat"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "BrukChrome eller Edge-nettleser"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr ""
+msgstr "Vent til alle dashbordelementene har lastet før du skriver ut"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
 " dialog"
 msgstr ""
+"Bruk A4 liggende papirstørrelse og standard marginnstillinger i nettleserens"
+" utskriftsdialog"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -114,7 +116,7 @@ msgid "Delete item"
 msgstr "Slett element"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "Dette elementet har blitt forkortet for å passe på én side"
 
 msgid "Messages"
 msgstr "Meldinger"
@@ -126,7 +128,7 @@ msgid "Item type \"{{type}}\" not supported"
 msgstr "Elementtypen \"{{type}}\" støttes ikke"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "Filtre brukt"
 
 msgid "Spacer"
 msgstr "Mellomrom"
@@ -201,16 +203,16 @@ msgid "Dashboard description"
 msgstr "Beskrivelse av dashbord"
 
 msgid "Hide description"
-msgstr ""
+msgstr "Skjul beskrivelse"
 
 msgid "Show description"
-msgstr ""
+msgstr "Vis beskrivelse"
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "Fjern stjerne fra dashbordet"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "Merk dashbord med stjerne"
 
 msgid "Edit"
 msgstr "Rediger"
@@ -222,10 +224,10 @@ msgid "More"
 msgstr "Mer"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "Dashbordoppsett"
 
 msgid "One item per page"
-msgstr ""
+msgstr "Ett element per side"
 
 msgid "No description"
 msgstr "Ingen beskrivelse"

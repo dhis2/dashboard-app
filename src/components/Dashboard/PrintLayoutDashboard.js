@@ -23,10 +23,7 @@ import {
     sGetDashboardItems,
 } from '../../reducers/dashboards'
 import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
-import {
-    a4LandscapeWidthPx,
-    MAX_ITEM_GRID_HEIGHT,
-} from '../../modules/printUtils'
+import { a4LandscapeWidthPx, MAX_ITEM_GRID_HEIGHT } from '../ItemGrid/gridUtil'
 import {
     getControlBarHeight,
     HEADERBAR_HEIGHT,
@@ -106,7 +103,10 @@ export class PrintLayoutDashboard extends Component {
 
             addPageBreaks(this.props)
 
-            this.props.addDashboardItem({ type: PRINT_TITLE_PAGE })
+            this.props.addDashboardItem({
+                type: PRINT_TITLE_PAGE,
+                isOneItemPerPage: false,
+            })
         }
     }
 

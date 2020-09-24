@@ -10,6 +10,7 @@ import {
     acSetPrintDashboard,
     acAddPrintDashboardItem,
     acRemovePrintDashboardItem,
+    acUpdatePrintDashboardItem,
 } from '../../actions/printDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
 import { sGetWindowHeight } from '../../reducers/windowHeight'
@@ -18,7 +19,11 @@ import {
     sGetDashboardItems,
 } from '../../reducers/dashboards'
 import { PAGEBREAK, PRINT_TITLE_PAGE, SPACER } from '../../modules/itemTypes'
-import { a4LandscapeWidthPx } from '../../modules/printUtils'
+import {
+    a4LandscapeWidthPx,
+    MAX_ITEM_GRID_HEIGHT_OIPP,
+    MAX_ITEM_GRID_WIDTH_OIPP,
+} from '../ItemGrid/gridUtil'
 import { PRINT_ACTIONS_BAR_HEIGHT } from './PrintActionsBar'
 
 import classes from './styles/PrintDashboard.module.css'
@@ -49,6 +54,16 @@ export class PrintDashboard extends Component {
                 }
             })
 
+            // Resize the items to the full page size
+            this.props.items.forEach(item => {
+                this.props.updateDashboardItem(
+                    Object.assign({}, item, {
+                        w: MAX_ITEM_GRID_WIDTH_OIPP,
+                        h: MAX_ITEM_GRID_HEIGHT_OIPP,
+                    })
+                )
+            })
+
             // insert page breaks into the document flow to create the "pages"
             // when previewing the print
             for (
@@ -63,7 +78,10 @@ export class PrintDashboard extends Component {
                 })
             }
 
-            this.props.addDashboardItem({ type: PRINT_TITLE_PAGE })
+            this.props.addDashboardItem({
+                type: PRINT_TITLE_PAGE,
+                isOneItemPerPage: true,
+            })
         }
     }
 
@@ -103,6 +121,7 @@ PrintDashboard.propTypes = {
     items: PropTypes.array,
     removeDashboardItem: PropTypes.func,
     setPrintDashboard: PropTypes.func,
+    updateDashboardItem: PropTypes.func,
     windowHeight: PropTypes.number,
 }
 
@@ -122,4 +141,5 @@ export default connect(mapStateToProps, {
     setPrintDashboard: acSetPrintDashboard,
     addDashboardItem: acAddPrintDashboardItem,
     removeDashboardItem: acRemovePrintDashboardItem,
+    updateDashboardItem: acUpdatePrintDashboardItem,
 })(PrintDashboard)

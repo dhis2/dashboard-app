@@ -24,14 +24,14 @@ class ProgressiveLoadingContainer extends Component {
     }
     containerRef = null
     shouldLoadHandler = null
+    handlerOptions = { passive: true }
 
     checkShouldLoad() {
-        const bufferPx = this.props.bufferFactor * window.innerHeight
-
         if (!this.containerRef) {
             return
         }
 
+        const bufferPx = this.props.bufferFactor * window.innerHeight
         const rect = this.containerRef.getBoundingClientRect()
         if (
             rect.bottom > -bufferPx &&
@@ -51,22 +51,23 @@ class ProgressiveLoadingContainer extends Component {
             this.props.debounceMs
         )
 
-        const containers = [
-            window, // this is probably unnecessary
-            ...document.getElementsByClassName('dashboard-wrapper'),
-        ]
-        containers.forEach(container => {
-            container.addEventListener('scroll', this.shouldLoadHandler)
-        })
+        document
+            .getElementsByClassName('dashboard-wrapper')[0]
+            ?.addEventListener(
+                'scroll',
+                this.shouldLoadHandler,
+                this.handlerOptions
+            )
     }
+
     removeHandler() {
-        const containers = [
-            window, // this is probably unnecessary
-            ...document.getElementsByClassName('dashboard-wrapper'),
-        ]
-        containers.forEach(container => {
-            container.removeEventListener('scroll', this.shouldLoadHandler)
-        })
+        document
+            .getElementsByClassName('dashboard-wrapper')[0]
+            ?.removeEventListener(
+                'scroll',
+                this.shouldLoadHandler,
+                this.handlerOptions
+            )
     }
 
     componentDidMount() {

@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-
+import { connect } from 'react-redux'
+import i18n from '@dhis2/d2-i18n'
 import {
     Button,
     Modal,
@@ -9,9 +10,6 @@ import {
     ModalActions,
     ButtonStrip,
 } from '@dhis2/ui'
-
-import i18n from '@dhis2/d2-i18n'
-
 import {
     PeriodDimension,
     DynamicDimension,
@@ -20,21 +18,71 @@ import {
     DIMENSION_ID_ORGUNIT,
 } from '@dhis2/analytics'
 
-class FilterDialog extends Component {
-    onConfirm = id => () => this.props.onConfirm(id)
+import { acAddItemFilter, acRemoveItemFilter } from '../../actions/itemFilters'
+import { sGetItemFiltersRoot } from '../../reducers/itemFilters'
 
-    renderDialogContent() {
-        const { displayNameProperty, dimension, selectedItems } = this.props
-        const dialogId = dimension.id
+const FilterDialog = (
+    {
+        displayNameProperty,
+        dimension,
+        initiallySelectedItems,
+        addItemFilter,
+        removeItemFilter,
+        onClose,
+    },
+    context
+) => {
+    const [filters, setFilters] = useState(initiallySelectedItems)
 
-        const commonProps = {
-            d2: this.context.d2,
-            onSelect: this.props.onSelect,
-            onDeselect: this.props.onDeselect,
-            onReorder: this.props.onReorder,
+    const onSelectItems = ({ dimensionId, items }) => {
+        setFilters({ [dimensionId]: items })
+    }
+
+    const onDeselectItems = ({ dimensionId, itemIdsToRemove }) => {
+        const oldList = filters[dimensionId] || []
+        const newList = oldList.filter(
+            item => !itemIdsToRemove.includes(item.id)
+        )
+
+        setFilters({ ...filters, [dimensionId]: newList })
+    }
+
+    const onReorderItems = ({ dimensionId, itemIds }) => {
+        const oldList = filters[dimensionId] || []
+        const reorderedList = itemIds.map(id =>
+            oldList.find(item => item.id === id)
+        )
+
+        setFilters({ ...filters, [dimensionId]: reorderedList })
+    }
+
+    const saveFilter = () => {
+        const id = dimension.id
+        const filterItems = filters[id]
+
+        if (filterItems && filterItems.length) {
+            addItemFilter({
+                id,
+                value: [...filterItems],
+            })
+        } else {
+            removeItemFilter(id)
         }
 
-        switch (dialogId) {
+        onClose(id)
+    }
+
+    const renderDialogContent = () => {
+        const commonProps = {
+            d2: context.d2,
+            onSelect: onSelectItems,
+            onDeselect: onDeselectItems,
+            onReorder: onReorderItems,
+        }
+
+        const selectedItems = filters[dimension.id] || []
+
+        switch (dimension.id) {
             case DIMENSION_ID_PERIOD: {
                 return (
                     <PeriodDimension
@@ -55,7 +103,7 @@ class FilterDialog extends Component {
                 return (
                     <DynamicDimension
                         selectedItems={selectedItems}
-                        dimensionId={dialogId}
+                        dimensionId={dimension.id}
                         onSelect={commonProps.onSelect}
                         context={commonProps.d2}
                     />
@@ -63,51 +111,46 @@ class FilterDialog extends Component {
         }
     }
 
-    render() {
-        const { dimension, onClose } = this.props
-        const dialogId = dimension.id
-
-        return (
-            <>
-                {dialogId && (
-                    <Modal onClose={onClose} position="top" large>
-                        <ModalTitle>{dimension.name}</ModalTitle>
-                        <ModalContent>
-                            {this.renderDialogContent()}
-                        </ModalContent>
-                        <ModalActions>
-                            <ButtonStrip>
-                                <Button secondary onClick={onClose}>
-                                    {i18n.t('Cancel')}
-                                </Button>
-                                <Button
-                                    primary
-                                    onClick={this.onConfirm(dialogId)}
-                                >
-                                    {i18n.t('Confirm')}
-                                </Button>
-                            </ButtonStrip>
-                        </ModalActions>
-                    </Modal>
-                )}
-            </>
-        )
-    }
+    return (
+        <>
+            {dimension.id && (
+                <Modal onClose={onClose} position="top" large>
+                    <ModalTitle>{dimension.name}</ModalTitle>
+                    <ModalContent>{renderDialogContent()}</ModalContent>
+                    <ModalActions>
+                        <ButtonStrip>
+                            <Button secondary onClick={onClose}>
+                                {i18n.t('Cancel')}
+                            </Button>
+                            <Button primary onClick={saveFilter}>
+                                {i18n.t('Confirm')}
+                            </Button>
+                        </ButtonStrip>
+                    </ModalActions>
+                </Modal>
+            )}
+        </>
+    )
 }
 
 FilterDialog.propTypes = {
+    addItemFilter: PropTypes.func,
     dimension: PropTypes.object,
     displayNameProperty: PropTypes.string,
-    selectedItems: PropTypes.array,
+    initiallySelectedItems: PropTypes.object,
+    removeItemFilter: PropTypes.func,
     onClose: PropTypes.func,
-    onConfirm: PropTypes.func,
-    onDeselect: PropTypes.func,
-    onReorder: PropTypes.func,
-    onSelect: PropTypes.func,
 }
 
 FilterDialog.contextTypes = {
     d2: PropTypes.object,
 }
 
-export default FilterDialog
+const mapStateToProps = state => ({
+    initiallySelectedItems: sGetItemFiltersRoot(state),
+})
+
+export default connect(mapStateToProps, {
+    addItemFilter: acAddItemFilter,
+    removeItemFilter: acRemoveItemFilter,
+})(FilterDialog)

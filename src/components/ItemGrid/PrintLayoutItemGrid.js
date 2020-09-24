@@ -24,9 +24,9 @@ import {
     MARGIN,
     getGridColumns,
     hasShape,
+    a4LandscapeWidthPx,
 } from './gridUtil'
 import {
-    a4LandscapeWidthPx,
     getDomGridItemsSortedByYPos,
     getTransformYPx,
 } from '../../modules/printUtils'

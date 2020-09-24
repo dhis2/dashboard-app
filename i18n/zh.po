@@ -88,18 +88,18 @@ msgid "Print Preview"
 msgstr "打印预览"
 
 msgid "For best print results"
-msgstr ""
+msgstr "以获得最佳打印效果"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "使用Chrome或Edge网络浏览器"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr ""
+msgstr "等待所有仪表板项目加载后再打印"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
 " dialog"
-msgstr ""
+msgstr "在浏览器的“打印”对话框中使用A4横向纸张尺寸和默认边距设置"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -112,7 +112,7 @@ msgid "Delete item"
 msgstr "删除条目"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "此项已缩短为适合一页"
 
 msgid "Messages"
 msgstr "消息"
