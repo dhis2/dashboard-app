@@ -17,6 +17,8 @@ export const DEFAULT_STATE_DASHBOARDS = {
     items: [],
 }
 
+export const EMPTY_DASHBOARD = {}
+
 // reducer helper functions
 
 const updateDashboardProp = ({ state, dashboardId, prop, value }) => ({
