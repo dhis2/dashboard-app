@@ -1,29 +1,25 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
-# William Aviles <waviles@clintonhealthaccess.org>, 2020
-# phil_dhis2, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2020
+# Ibatov <ibatovk@who.int>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
-"Last-Translator: Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2020\n"
-"Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2020\n"
+"Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: uz@Cyrl\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Dashboard"
-msgstr "Tablero"
+msgstr ""
 
 msgid "Delete"
-msgstr "Borrar"
+msgstr "Ўчириш"
 
 msgid "Continue editing"
 msgstr ""
@@ -35,88 +31,84 @@ msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
 
 msgid "Exit without saving"
-msgstr "Salir sin guardar"
+msgstr ""
 
 msgid "Go to dashboards"
-msgstr "Ir a los tableros"
+msgstr ""
 
 msgid "Save changes"
-msgstr "Guardar cambios"
+msgstr "Ўзгартиришни сақлаш"
 
 msgid "Translate"
-msgstr "Traducir"
+msgstr "Таржима қилинг"
 
 msgid "Search for a dashboard"
-msgstr "Buscar un tablero"
+msgstr ""
 
 msgid "Show less"
-msgstr "Mostrar menos"
+msgstr "Камроқ кўрсатилсин"
 
 msgid "Show more"
-msgstr "Mostrar más"
+msgstr "Кўпроқ кўрсатилсин"
 
 msgid "No access"
-msgstr "Sin acceso"
+msgstr "Кириш таъқиқланган"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
-"No se han encontrado tableros. Use el botón + para crear un nuevo tablero"
 
 msgid "Requested dashboard not found"
-msgstr "No se ha encontrado el tablero buscado"
+msgstr ""
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] ""
-msgstr[1] ""
 
 msgid "Remove"
-msgstr "Eliminar"
+msgstr "Ўчириш"
 
 msgid "Messages"
-msgstr "Mensajes"
+msgstr "Хабарлар"
 
 msgid "See all messages"
-msgstr "Ver todos los mensajes"
+msgstr ""
 
 msgid "Spacer"
-msgstr "Tabulador"
+msgstr ""
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
-"Use el tabulador para crear un espacio vertical vacío con otro objeto del "
-"tablero."
 
 msgid "Text item"
-msgstr "Elemento de texto"
+msgstr ""
 
 msgid "Add text here"
-msgstr "Añada texto aquí"
+msgstr ""
 
 msgid "Unable to load the plugin for this item"
-msgstr "Incapaz de cargar el complemento para este elemento"
+msgstr ""
 
 msgid "No data to display"
-msgstr "Sin datos para mostrar"
+msgstr ""
 
 msgid "View in {{appName}} app"
 msgstr ""
 
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Бекор қилиш"
 
 msgid "Confirm"
-msgstr "Confirmar"
+msgstr "Тасдиқланг"
 
 msgid "Add filter"
-msgstr "Añadir filtro"
+msgstr ""
 
 msgid "There are no items on this dashboard"
-msgstr "No hay objetos en este tablero"
+msgstr ""
 
 msgid "Search for items to add to this dashboard"
-msgstr "Buscar objetos para añadir en este tablero"
+msgstr ""
 
 msgid "See fewer {{itemTypes}}"
 msgstr ""
@@ -125,16 +117,16 @@ msgid "See more {{itemTypes}}"
 msgstr ""
 
 msgid "Add"
-msgstr "Añadir"
+msgstr "Қўшиш"
 
 msgid "+ ADD"
 msgstr ""
 
 msgid "Additional items"
-msgstr "Objetos adicionales"
+msgstr ""
 
 msgid "Text box"
-msgstr "Caja de texto"
+msgstr ""
 
 msgid "Current translation"
 msgstr ""
@@ -149,49 +141,49 @@ msgid "Add description here"
 msgstr ""
 
 msgid "Edit"
-msgstr "Editar"
+msgstr "Таҳрирлаш"
 
 msgid "Share"
-msgstr "Compartir"
+msgstr "Баҳам кўриш"
 
 msgid "No description"
-msgstr "Sin descripción"
+msgstr "Тавсиф йўқ"
 
 msgid "Pivot tables"
-msgstr "Tablas dinámicas"
+msgstr ""
 
 msgid "Pivot Tables"
-msgstr "Tablas dinamicas"
+msgstr "Таянч жадваллар"
 
 msgid "Charts"
-msgstr "Gráficas"
+msgstr ""
 
 msgid "Visualizer"
-msgstr "Visualizador"
+msgstr ""
 
 msgid "Maps"
-msgstr "Mapas"
+msgstr ""
 
 msgid "Event reports"
-msgstr "Herramienta para tablas con información individual"
+msgstr ""
 
 msgid "Event Reports"
-msgstr "Informes de eventos"
+msgstr ""
 
 msgid "Event charts"
-msgstr "Herramienta para gráficos con información individual"
+msgstr ""
 
 msgid "Event Visualizer"
-msgstr "Visualizador de eventos"
+msgstr ""
 
 msgid "Apps"
-msgstr "Aplicaciones"
+msgstr ""
 
 msgid "Reports"
-msgstr "Informes"
+msgstr ""
 
 msgid "Resources"
-msgstr "Recursos"
+msgstr ""
 
 msgid "Users"
-msgstr "Usuarios"
+msgstr ""
