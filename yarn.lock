@@ -1321,10 +1321,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@dhis2/analytics@^11.0.7":
-  version "11.0.7"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.0.7.tgz#7184796a830a9adb4b3078875df0f96ea4864bfa"
-  integrity sha512-ADMS9r00XacjBfYkAtxqsRYN2uzvwMz1NI47Y7akMvTBL3eowY3omICXJn0FAAtNm6WfYp34FlDdawZCHpsXnw==
+"@dhis2/analytics@^11.0.10", "@dhis2/analytics@^11.0.7":
+  version "11.0.10"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.0.10.tgz#378503ea802fc0e63f86761b7f69109be362d300"
+  integrity sha512-Tfc+FOz8obJlKbJbGa/hTIdx4qg5shlstE56SMG8XR1eqwBdn7mo3XO6qYDGvzzI6vKEuQAwPN2w51sVurUBNA==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.8"
     "@dhis2/ui" "^5.5.6"
