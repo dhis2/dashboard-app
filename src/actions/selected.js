@@ -1,4 +1,8 @@
-import { getCustomDashboards, sGetDashboardById } from '../reducers/dashboards'
+import {
+    getCustomDashboards,
+    sGetDashboardById,
+    EMPTY_DASHBOARD,
+} from '../reducers/dashboards'
 import {
     SET_SELECTED_ID,
     SET_SELECTED_ISLOADING,
@@ -35,7 +39,6 @@ import {
     EVENT_CHART,
     MESSAGES,
 } from '../modules/itemTypes'
-import { orObject } from '../modules/util'
 
 // actions
 
@@ -73,8 +76,9 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
     dispatch(acSetSelectedIsLoading(true))
 
     const snackbarTimeout = setTimeout(() => {
-        const dashboardName = orObject(sGetDashboardById(getState(), id))
-            .displayName
+        const dashboardName = (
+            sGetDashboardById(getState(), id) || EMPTY_DASHBOARD
+        ).displayName
         if (sGetSelectedIsLoading(getState()) && dashboardName) {
             loadingDashboardMsg.name = dashboardName
 
