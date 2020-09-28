@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
+"POT-Creation-Date: 2020-08-26T14:25:37.870Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -16,6 +16,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+msgid "Untitled dashboard"
+msgstr ""
 
 msgid "Dashboard"
 msgstr "لوحة المعلومات"
@@ -127,9 +130,6 @@ msgstr ""
 msgid "Add"
 msgstr "إضافة"
 
-msgid "+ ADD"
-msgstr ""
-
 msgid "Additional items"
 msgstr "عناصر إضافية"
 
@@ -141,9 +141,6 @@ msgstr "الترجمة الحالية"
 
 msgid "Currently editing"
 msgstr "يتم حالياً التعديل"
-
-msgid "Add title here"
-msgstr "أضف عنواناً هنا"
 
 msgid "Add description here"
 msgstr "أضف وصفاً هنا"

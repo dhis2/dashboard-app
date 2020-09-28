@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
+"POT-Creation-Date: 2020-08-26T14:25:37.870Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -15,6 +15,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Untitled dashboard"
+msgstr "Dashbord uten navn"
 
 msgid "Dashboard"
 msgstr "Dashbord"
@@ -123,9 +126,6 @@ msgstr "Se flere {{itemTypes}}"
 msgid "Add"
 msgstr "Legg til"
 
-msgid "+ ADD"
-msgstr "+ LEGG TIL"
-
 msgid "Additional items"
 msgstr "Ytterligere elementer"
 
@@ -137,9 +137,6 @@ msgstr "Nåværende oversettelse"
 
 msgid "Currently editing"
 msgstr "Nåværende redigering"
-
-msgid "Add title here"
-msgstr "Legg til tittel her"
 
 msgid "Add description here"
 msgstr "Legg til beskrivelse her"

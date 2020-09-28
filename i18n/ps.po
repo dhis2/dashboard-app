@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
+"POT-Creation-Date: 2020-08-26T14:25:37.870Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Pushto (https://www.transifex.com/hisp-uio/teams/100509/ps/)\n"
@@ -15,6 +15,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ps\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Untitled dashboard"
+msgstr ""
 
 msgid "Dashboard"
 msgstr "ډېشبورډ [ ډېسبورډ ]"
@@ -121,9 +124,6 @@ msgstr ""
 msgid "Add"
 msgstr "اضافه یې کړئ"
 
-msgid "+ ADD"
-msgstr ""
-
 msgid "Additional items"
 msgstr ""
 
@@ -134,9 +134,6 @@ msgid "Current translation"
 msgstr ""
 
 msgid "Currently editing"
-msgstr ""
-
-msgid "Add title here"
 msgstr ""
 
 msgid "Add description here"

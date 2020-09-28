@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
+"POT-Creation-Date: 2020-08-26T14:25:37.870Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -19,6 +19,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Untitled dashboard"
+msgstr ""
 
 msgid "Dashboard"
 msgstr "Tableau de bord"
@@ -130,9 +133,6 @@ msgstr ""
 msgid "Add"
 msgstr "Add"
 
-msgid "+ ADD"
-msgstr ""
-
 msgid "Additional items"
 msgstr "Objets additionnels"
 
@@ -144,9 +144,6 @@ msgstr ""
 
 msgid "Currently editing"
 msgstr ""
-
-msgid "Add title here"
-msgstr "Ajouter un titre ici"
 
 msgid "Add description here"
 msgstr "Ajouter une description ici"
