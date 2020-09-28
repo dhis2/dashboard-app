@@ -1321,7 +1321,7 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@dhis2/analytics@^11.0.10", "@dhis2/analytics@^11.0.7":
+"@dhis2/analytics@^11.0.10":
   version "11.0.10"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.0.10.tgz#378503ea802fc0e63f86761b7f69109be362d300"
   integrity sha512-Tfc+FOz8obJlKbJbGa/hTIdx4qg5shlstE56SMG8XR1eqwBdn7mo3XO6qYDGvzzI6vKEuQAwPN2w51sVurUBNA==
@@ -1575,12 +1575,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^35.12.26":
-  version "35.12.26"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.12.26.tgz#b785045403a51afb76662ecbe146c45415d9cc60"
-  integrity sha512-djZ+3WtTD4Xy3mjLJxJ+3R9EWAcAkoNeghcRMKLg3eor8UU2aXpyVwTmfNdmecE3320+Cu3i4+tJDB0qXQKOKg==
+"@dhis2/data-visualizer-plugin@^35.12.28":
+  version "35.12.28"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.12.28.tgz#e8e207eba7325cf5ef45ad1ae4445692b7ce577d"
+  integrity sha512-w3VwbYZ/3KXjfjtcJY28RjzwGeseJqiRW1s99GjiPlhSasHC/m/O9DT7+yolnuhepxW6UXQdEsr8r91rsPqaFg==
   dependencies:
-    "@dhis2/analytics" "^11.0.7"
+    "@dhis2/analytics" "^11.0.10"
     "@dhis2/ui" "^5.6.1"
     lodash-es "^4.17.11"
 
