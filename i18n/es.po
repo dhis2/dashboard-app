@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
+"POT-Creation-Date: 2020-08-26T14:25:37.870Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -18,6 +18,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Untitled dashboard"
+msgstr "Tablero sin nombre"
 
 msgid "Dashboard"
 msgstr "Tablero"
@@ -127,9 +130,6 @@ msgstr ""
 msgid "Add"
 msgstr "Añadir"
 
-msgid "+ ADD"
-msgstr ""
-
 msgid "Additional items"
 msgstr "Objetos adicionales"
 
@@ -140,9 +140,6 @@ msgid "Current translation"
 msgstr ""
 
 msgid "Currently editing"
-msgstr ""
-
-msgid "Add title here"
 msgstr ""
 
 msgid "Add description here"

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
+"POT-Creation-Date: 2020-08-26T14:25:37.870Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
@@ -14,6 +14,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar_IQ\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+msgid "Untitled dashboard"
+msgstr ""
 
 msgid "Dashboard"
 msgstr "لوحة المعلومات"
@@ -125,9 +128,6 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-msgid "+ ADD"
-msgstr ""
-
 msgid "Additional items"
 msgstr "عناصر إضافية"
 
@@ -138,9 +138,6 @@ msgid "Current translation"
 msgstr ""
 
 msgid "Currently editing"
-msgstr ""
-
-msgid "Add title here"
 msgstr ""
 
 msgid "Add description here"

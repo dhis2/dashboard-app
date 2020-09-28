@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-18T21:32:56.881Z\n"
+"POT-Creation-Date: 2020-08-26T14:25:37.870Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
 "Last-Translator: Sheila André <sandre@saudigitus.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -17,6 +17,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Untitled dashboard"
+msgstr ""
 
 msgid "Dashboard"
 msgstr "Gráficos"
@@ -125,9 +128,6 @@ msgstr ""
 msgid "Add"
 msgstr "Adicionar"
 
-msgid "+ ADD"
-msgstr ""
-
 msgid "Additional items"
 msgstr "Itens adicionais"
 
@@ -139,9 +139,6 @@ msgstr "Tradução atual"
 
 msgid "Currently editing"
 msgstr "Atualmente a editar"
-
-msgid "Add title here"
-msgstr "Adicionar título aqui"
 
 msgid "Add description here"
 msgstr "Adicionar a descrição aqui"
