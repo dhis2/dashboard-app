@@ -77,6 +77,7 @@ export const EditTitleBar = ({
                     type="text"
                     onChange={updateTitle}
                     value={name}
+                    placeholder={i18n.t('Untitled dashboard')}
                 />
                 <MuiInputField
                     className={classes.description}
