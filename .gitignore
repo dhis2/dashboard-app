@@ -27,3 +27,7 @@ node_modules
 .d2
 src/locales
 build
+
+# test
+cypress.env.json
+cypress/screenshots

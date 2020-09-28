@@ -1,0 +1,6 @@
+{
+    "baseUrl": "http://localhost:3000",
+    "video": true,
+    "projectId": "dashboards-app",
+    "testFiles": "**/*.feature"
+}

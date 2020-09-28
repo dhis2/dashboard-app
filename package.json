@@ -46,11 +46,15 @@
         "build:netlify": "yarn build --standalone",
         "test": "d2-app-scripts test",
         "validate-push": "CI=true yarn test",
-        "postinstall": "patch-package"
+        "postinstall": "patch-package",
+        "cypress:start": "BROWSER=none yarn start",
+        "cy:open": "d2-utils-cypress open --appStart 'yarn cypress:start'",
+        "cy:run": "d2-utils-cypress run --appStart 'yarn cypress:start'"
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^5",
         "@dhis2/cli-style": "^7.0.0",
+        "@dhis2/cli-utils-cypress": "^2.2.1",
         "d2-manifest": "^1.0.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.2",
