@@ -6,9 +6,9 @@ import { CHART, REPORT_TABLE, EVENT_CHART } from '../../../../modules/itemTypes'
 import { Item } from '../Item'
 import DefaultPlugin from '../DefaultPlugin'
 
-jest.mock('@dhis2/data-visualizer-plugin', () => () => <div />) // eslint-disable-line react/display-name
-jest.mock('../DefaultPlugin', () => () => <div />) // eslint-disable-line react/display-name
-jest.mock('../ItemFooter', () => () => <div />) // eslint-disable-line react/display-name
+jest.mock('@dhis2/data-visualizer-plugin', () => () => <div />)
+jest.mock('../DefaultPlugin', () => () => <div />)
+jest.mock('../ItemFooter', () => () => <div />)
 jest.mock('../plugin', () => {
     return {
         getLink: jest.fn(),

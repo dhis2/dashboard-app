@@ -19,6 +19,7 @@ const ItemSearchField = props => (
         onChange={props.onChange}
         onFocus={props.onFocus}
         value={props.value}
+        dataTest="dhis2-dashboard-item-search"
     />
 )
 

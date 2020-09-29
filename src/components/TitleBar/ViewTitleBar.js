@@ -88,7 +88,12 @@ const ViewTitleBar = (props, context) => {
     return (
         <>
             <div className={classes.titleBar}>
-                <span style={titleStyle}>{name}</span>
+                <span
+                    style={titleStyle}
+                    data-test="dhis2-dashboard-view-dashboard-title"
+                >
+                    {name}
+                </span>
                 <div className={classes.actions}>
                     <div
                         className={classes.titleBarIcon}
@@ -101,6 +106,7 @@ const ViewTitleBar = (props, context) => {
                             <Link
                                 className={classes.editLink}
                                 to={`/${id}/edit`}
+                                data-test="dhis2-dashboard-link-edit-dashboard"
                             >
                                 <Button>{i18n.t('Edit')}</Button>
                             </Link>
