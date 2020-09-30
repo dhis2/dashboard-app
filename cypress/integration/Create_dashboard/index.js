@@ -32,11 +32,13 @@ When('dashboard is saved', () => {
     cy.get('[data-test="dhis2-dashboard-save-dashboard-button"]').click()
 })
 
-Then('the saved dashboard should display in view mode', () => {
+Then('the saved dashboard should be displayed', () => {
     cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]').contains(
         dashboardTitle
     )
+})
 
+Then('dashboard displays in view mode', () => {
     cy.location().should(loc => {
         const nonViewRoutes = [
             ROUTE_NEW,
@@ -49,23 +51,7 @@ Then('the saved dashboard should display in view mode', () => {
         const currentRoute = loc.hash.slice(lastSlashIdx + 1)
 
         expect(nonViewRoutes).not.to.include(currentRoute)
-        expect(currentRoute).to.have.length(UID_LENGTH)
-    })
-})
-
-Then('dashboard should be in view mode', () => {
-    cy.location().should(loc => {
-        const nonViewRoutes = [
-            ROUTE_NEW,
-            ROUTE_EDIT,
-            ROUTE_PRINTLAYOUT,
-            ROUTE_PRINTOIPP,
-        ]
-
-        const lastSlashIdx = loc.hash.lastIndexOf('/')
-        const currentRoute = loc.hash.slice(lastSlashIdx)
-
-        expect(nonViewRoutes).not.to.include(currentRoute)
+        expect([0, UID_LENGTH]).to.include(currentRoute.length)
     })
 })
 
@@ -92,7 +78,7 @@ When('user cancels delete', () => {
     cy.get('[data-test="dhis2-dashboard-cancel-delete-dashboard"]').click()
 })
 
-Then('the dashboard is shown in edit mode', () => {
+Then('the dashboard displays in edit mode', () => {
     cy.get('[data-test="dhis2-dashboard-dashboard-title-input"]').should(
         'exist'
     )
@@ -102,11 +88,14 @@ Then('the dashboard is shown in edit mode', () => {
     })
 })
 
-Then(
-    'the dashboard is deleted and first starred dashboard displayed in view mode',
-    () => {
-        cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]').should(
-            'exist'
-        )
-    }
-)
+Then('the dashboard is deleted and first starred dashboard displayed', () => {
+    cy.get('[data-test="dhis2-dashboard-showmore-button"]').click()
+    cy.get('[data-test="dhis2-dashboard-dashboard-chip"]')
+        .contains(dashboardTitle)
+        .should('not.exist')
+
+    // check that we are in view mode and that a dashboard is displayed
+    cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]')
+        .should('exist')
+        .should('not.be.empty')
+})
