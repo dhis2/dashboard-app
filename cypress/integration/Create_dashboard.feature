@@ -7,6 +7,14 @@ Feature: The dashboard is displayed
         And dashboard is saved
         Then the saved dashboard should display in view mode
 
+    Scenario: User cancels a delete dashboard action
+        Given user opens existing dashboard
+        When user chooses to edit dashboard
+        And user chooses to delete dashboard
+        And user cancels delete
+        Then the dashboard is shown in edit mode
+
+
     Scenario: User deletes a dashboard
         Given user opens existing dashboard
         When user chooses to edit dashboard

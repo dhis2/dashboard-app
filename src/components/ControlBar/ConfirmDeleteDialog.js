@@ -19,7 +19,12 @@ export const ConfirmDeleteDialog = ({
     open,
 }) => {
     const actions = [
-        <Button key="cancel" secondary onClick={onContinueEditing}>
+        <Button
+            key="cancel"
+            secondary
+            onClick={onContinueEditing}
+            dataTest="dhis2-dashboard-cancel-delete-dashboard"
+        >
             {i18n.t('Cancel')}
         </Button>,
         <Button

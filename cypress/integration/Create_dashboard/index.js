@@ -58,6 +58,20 @@ When('user confirms delete', () => {
     cy.get('[data-test="dhis2-dashboard-confirm-delete-dashboard"]').click()
 })
 
+When('user cancels delete', () => {
+    cy.get('[data-test="dhis2-dashboard-cancel-delete-dashboard"]').click()
+})
+
+Then('the dashboard is shown in edit mode', () => {
+    cy.get('[data-test="dhis2-dashboard-dashboard-title-input"]')
+        .find('input')
+        .contains('Test this dashboard')
+
+    cy.location().should(loc => {
+        expect(loc.hash.slice(-4)).to.eq('edit')
+    })
+})
+
 Then(
     'the dashboard is deleted and first starred dashboard displayed in view mode',
     () => {
