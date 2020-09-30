@@ -1,7 +1,7 @@
 Feature: The dashboard is displayed
 
     Scenario: User creates a new dashboard
-        Given user selects to create new dashboard
+        Given user chooses to create new dashboard
         And dashboard title is added
         And dashboard items are added
         And dashboard is saved

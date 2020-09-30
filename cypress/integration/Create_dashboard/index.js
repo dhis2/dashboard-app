@@ -2,11 +2,15 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 const UID_LENGTH = 11
 
-// const dashboardTitle = new Date().toString()
-const dashboardTitle = 'hello there'
+const dashboardTitle = new Date().toString()
 
-Given('user selects to create new dashboard', () => {
-    cy.visit('/#/new')
+const ROUTE_EDIT = 'edit'
+const ROUTE_NEW = 'new'
+const ROUTE_PRINTLAYOUT = 'printlayout'
+const ROUTE_PRINTOIPP = 'printoipp'
+
+Given('user chooses to create new dashboard', () => {
+    cy.get('[data-test="dhis2-dashboard-link-new-dashboard"]').click()
 })
 
 When('dashboard title is added', () => {
@@ -34,7 +38,12 @@ Then('the saved dashboard should display in view mode', () => {
     )
 
     cy.location().should(loc => {
-        const nonViewRoutes = ['new', 'edit', 'printlayout', 'printoipp']
+        const nonViewRoutes = [
+            ROUTE_NEW,
+            ROUTE_EDIT,
+            ROUTE_PRINTLAYOUT,
+            ROUTE_PRINTOIPP,
+        ]
 
         const lastSlashIdx = loc.hash.lastIndexOf('/')
         const currentRoute = loc.hash.slice(lastSlashIdx + 1)
@@ -46,7 +55,12 @@ Then('the saved dashboard should display in view mode', () => {
 
 Then('dashboard should be in view mode', () => {
     cy.location().should(loc => {
-        const nonViewRoutes = ['new', 'edit', 'printlayout', 'printoipp']
+        const nonViewRoutes = [
+            ROUTE_NEW,
+            ROUTE_EDIT,
+            ROUTE_PRINTLAYOUT,
+            ROUTE_PRINTOIPP,
+        ]
 
         const lastSlashIdx = loc.hash.lastIndexOf('/')
         const currentRoute = loc.hash.slice(lastSlashIdx)
@@ -56,8 +70,6 @@ Then('dashboard should be in view mode', () => {
 })
 
 Given('user opens existing dashboard', () => {
-    // cy.visit(`/${dashboardId}`)
-
     cy.get('[data-test="dhis2-dashboard-showmore-button"]').click()
     cy.get('[data-test="dhis2-dashboard-dashboard-chip"]')
         .contains(dashboardTitle)
@@ -86,7 +98,7 @@ Then('the dashboard is shown in edit mode', () => {
     )
 
     cy.location().should(loc => {
-        expect(loc.hash.slice(-4)).to.eq('edit')
+        expect(loc.hash.slice(-4)).to.eq(ROUTE_EDIT)
     })
 })
 
