@@ -9,6 +9,11 @@ const ROUTE_NEW = 'new'
 const ROUTE_PRINTLAYOUT = 'printlayout'
 const ROUTE_PRINTOIPP = 'printoipp'
 
+const getRouteFromHash = hash => {
+    const lastSlashIdx = hash.lastIndexOf('/')
+    return hash.slice(lastSlashIdx + 1)
+}
+
 Given('user chooses to create new dashboard', () => {
     cy.get('[data-test="dhis2-dashboard-link-new-dashboard"]').click()
 })
@@ -46,9 +51,7 @@ Then('dashboard displays in view mode', () => {
             ROUTE_PRINTLAYOUT,
             ROUTE_PRINTOIPP,
         ]
-
-        const lastSlashIdx = loc.hash.lastIndexOf('/')
-        const currentRoute = loc.hash.slice(lastSlashIdx + 1)
+        const currentRoute = getRouteFromHash(loc.hash)
 
         expect(nonViewRoutes).not.to.include(currentRoute)
         expect([0, UID_LENGTH]).to.include(currentRoute.length)
@@ -84,7 +87,7 @@ Then('the dashboard displays in edit mode', () => {
     )
 
     cy.location().should(loc => {
-        expect(loc.hash.slice(-4)).to.eq(ROUTE_EDIT)
+        expect(getRouteFromHash(loc.hash)).to.eq(ROUTE_EDIT)
     })
 })
 
@@ -94,7 +97,6 @@ Then('the dashboard is deleted and first starred dashboard displayed', () => {
         .contains(dashboardTitle)
         .should('not.exist')
 
-    // check that we are in view mode and that a dashboard is displayed
     cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]')
         .should('exist')
         .should('not.be.empty')
