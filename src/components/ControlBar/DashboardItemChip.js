@@ -34,6 +34,7 @@ export const DashboardItemChip = ({
                 () => apiPostDataStatistics('DASHBOARD_VIEW', dashboardId),
                 500
             )}
+            data-test="dhis2-dashboard-dashboard-chip"
         >
             <Chip {...chipProps}>{label}</Chip>
         </Link>

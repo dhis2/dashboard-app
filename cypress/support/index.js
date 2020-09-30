@@ -1,7 +1,7 @@
 import '@dhis2/cli-utils-cypress/support'
 
-// Add additional support functions here
-import './helpers'
+// Add additional commands here
+import './commands'
 
 beforeEach(() => {
     /*
@@ -11,4 +11,8 @@ beforeEach(() => {
         Related Cypress issue https://github.com/cypress-io/cypress/issues/408
     */
     cy.clearCookies({ domain: null })
+})
+
+beforeEach(() => {
+    cy.loginThroughForm()
 })

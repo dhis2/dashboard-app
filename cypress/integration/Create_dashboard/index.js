@@ -1,10 +1,9 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-let dashboardId
+const UID_LENGTH = 11
 
-beforeEach(() => {
-    cy.loginThroughForm()
-})
+// const dashboardTitle = new Date().toString()
+const dashboardTitle = 'hello there'
 
 Given('user selects to create new dashboard', () => {
     cy.visit('/#/new')
@@ -12,7 +11,7 @@ Given('user selects to create new dashboard', () => {
 
 When('dashboard title is added', () => {
     cy.get('[data-test="dhis2-dashboard-dashboard-title-input"]').type(
-        'Test this dashboard'
+        dashboardTitle
     )
 })
 
@@ -31,19 +30,38 @@ When('dashboard is saved', () => {
 
 Then('the saved dashboard should display in view mode', () => {
     cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]').contains(
-        'Test this dashboard'
+        dashboardTitle
     )
 
-    // check that the correct # items are on the dashboard
-
     cy.location().should(loc => {
-        expect(loc.hash).not.to.eq('#/new')
-        dashboardId = loc.hash
+        const nonViewRoutes = ['new', 'edit', 'printlayout', 'printoipp']
+
+        const lastSlashIdx = loc.hash.lastIndexOf('/')
+        const currentRoute = loc.hash.slice(lastSlashIdx + 1)
+
+        expect(nonViewRoutes).not.to.include(currentRoute)
+        expect(currentRoute).to.have.length(UID_LENGTH)
+    })
+})
+
+Then('dashboard should be in view mode', () => {
+    cy.location().should(loc => {
+        const nonViewRoutes = ['new', 'edit', 'printlayout', 'printoipp']
+
+        const lastSlashIdx = loc.hash.lastIndexOf('/')
+        const currentRoute = loc.hash.slice(lastSlashIdx)
+
+        expect(nonViewRoutes).not.to.include(currentRoute)
     })
 })
 
 Given('user opens existing dashboard', () => {
-    cy.visit(`/${dashboardId}`)
+    // cy.visit(`/${dashboardId}`)
+
+    cy.get('[data-test="dhis2-dashboard-showmore-button"]').click()
+    cy.get('[data-test="dhis2-dashboard-dashboard-chip"]')
+        .contains(dashboardTitle)
+        .click()
 })
 
 When('user chooses to edit dashboard', () => {
@@ -63,9 +81,9 @@ When('user cancels delete', () => {
 })
 
 Then('the dashboard is shown in edit mode', () => {
-    cy.get('[data-test="dhis2-dashboard-dashboard-title-input"]')
-        .find('input')
-        .contains('Test this dashboard')
+    cy.get('[data-test="dhis2-dashboard-dashboard-title-input"]').should(
+        'exist'
+    )
 
     cy.location().should(loc => {
         expect(loc.hash.slice(-4)).to.eq('edit')
@@ -75,8 +93,8 @@ Then('the dashboard is shown in edit mode', () => {
 Then(
     'the dashboard is deleted and first starred dashboard displayed in view mode',
     () => {
-        cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]').contains(
-            'Antenatal Care'
+        cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]').should(
+            'exist'
         )
     }
 )
