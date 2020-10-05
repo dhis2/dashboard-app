@@ -31,7 +31,7 @@ msgid "Exit without saving"
 msgstr ""
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Бошқарув панелларига ўтиш"
 
 msgid "Save changes"
 msgstr "Ўзгартиришни сақлаш"
@@ -40,7 +40,7 @@ msgid "Translate"
 msgstr "Таржима қилинг"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Бошқариш панелида излаш"
 
 msgid "Show less"
 msgstr "Камроқ кўрсатилсин"
@@ -61,7 +61,7 @@ msgid "Messages"
 msgstr "Хабарлар"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Барча хабарларни кщриш"
 
 msgid "Unable to load the plugin for this item"
 msgstr ""
@@ -95,7 +95,7 @@ msgid "more"
 msgstr ""
 
 msgid "Text box"
-msgstr ""
+msgstr "Матн жойи"
 
 msgid "Add title here"
 msgstr ""
@@ -107,37 +107,37 @@ msgid "No description"
 msgstr "Тавсиф йўқ"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "Таянч жадваллар"
 
 msgid "Pivot Tables"
 msgstr "Таянч жадваллар"
 
 msgid "Charts"
-msgstr ""
+msgstr "Диаграммалар"
 
 msgid "Visualizer"
 msgstr ""
 
 msgid "Maps"
-msgstr ""
+msgstr "Хариталар"
 
 msgid "Event reports"
-msgstr ""
+msgstr "Ҳодисалар ҳисоботи"
 
 msgid "Event Reports"
 msgstr ""
 
 msgid "Event charts"
-msgstr ""
+msgstr "Ҳодисалар диаграммаларда"
 
 msgid "Event Visualizer"
 msgstr ""
 
 msgid "Reports"
-msgstr ""
+msgstr "Ҳисоботлар"
 
 msgid "Resources"
-msgstr ""
+msgstr "Ресурслар"
 
 msgid "Users"
-msgstr ""
+msgstr "Фойдаланувчилар"
