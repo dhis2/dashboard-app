@@ -37,7 +37,7 @@ msgid "Exit without saving"
 msgstr ""
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Бошқариш панелида излаш"
 
 msgid "Show less"
 msgstr "Камроқ кўрсатилсин"
@@ -110,37 +110,37 @@ msgid "No description"
 msgstr "Тавсиф йўқ"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "Таянч жадваллар"
 
 msgid "Pivot Tables"
 msgstr "Таянч жадваллар"
 
 msgid "Charts"
-msgstr ""
+msgstr "Диаграммалар"
 
 msgid "Visualizer"
 msgstr ""
 
 msgid "Maps"
-msgstr ""
+msgstr "Хариталар"
 
 msgid "Event reports"
-msgstr ""
+msgstr "Ҳодисалар ҳисоботи"
 
 msgid "Event Reports"
 msgstr ""
 
 msgid "Event charts"
-msgstr ""
+msgstr "Ҳодисалар диаграммаларда"
 
 msgid "Event Visualizer"
 msgstr ""
 
 msgid "Reports"
-msgstr ""
+msgstr "Ҳисоботлар"
 
 msgid "Resources"
-msgstr ""
+msgstr "Ресурслар"
 
 msgid "Users"
-msgstr ""
+msgstr "Фойдаланувчилар"
