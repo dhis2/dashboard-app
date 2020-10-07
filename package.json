@@ -49,7 +49,8 @@
         "postinstall": "patch-package",
         "cypress:start": "BROWSER=none yarn start",
         "cy:open": "d2-utils-cypress open --appStart 'yarn cypress:start'",
-        "cy:run": "d2-utils-cypress run --appStart 'yarn cypress:start'"
+        "cy:run": "d2-utils-cypress run --appStart 'yarn cypress:start'",
+        "cy:capture": "cypress_dhis2_api_stub_mode=CAPTURE yarn d2-utils-cypress run --appStart 'yarn cypress:start'"
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^5",

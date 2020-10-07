@@ -1,7 +1,10 @@
 import '@dhis2/cli-utils-cypress/support'
 
-// Add additional commands here
+// import { enableNetworkShim } from './server'
+//
 import './commands'
+//
+// enableNetworkShim()
 
 beforeEach(() => {
     /*

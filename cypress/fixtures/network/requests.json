@@ -1,6 +1,22 @@
 {
-    "totalSize": 33978,
-    "duplicates": 12,
-    "nonDeterministicResponses": 0,
-    "requests": []
+  "totalSize": 0,
+  "duplicates": 0,
+  "nonDeterministicResponses": 0,
+  "requests": [
+    {
+      "path": "/dhis-web-commons-security/login.action",
+      "method": "POST",
+      "requestBody": "j_username=admin&j_password=district",
+      "count": 1,
+      "response": null
+    }
+  ],
+  "ignoredRequests": [
+    "process http://localhost:3000/api/32/systemSettings/applicationTitle",
+    "process http://localhost:3000/api/32/me",
+    "process http://localhost:3000/dhis-web-commons/menu/getModules.action",
+    "process http://localhost:3000/api/32/me/dashboard",
+    "process http://localhost:3000/api/32/userSettings",
+    "process http://localhost:8080/dhis-web-commons-security/login.action"
+  ]
 }
