@@ -979,14 +979,25 @@
     material-ui "^0.20.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-interpretations@^7.0.3":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-7.0.3.tgz#b8d2099315e4140354193d18dda0ab7848385eb7"
-  integrity sha512-KiHb/Q5WKM2YuLH0fLQW3PpiX2rx3quGpTPoBHIEWruihZvo7cPqkZNTEn4YHR+8YmQ+Dcbeqh3n6NIjzkDe3Q==
+"@dhis2/d2-ui-core@7.0.8":
+  version "7.0.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.0.8.tgz#efc579b1468a709917feb0a02c157bce6a39d212"
+  integrity sha512-DFbvQgb3oJWeK/a18lmNk7T5mqjqesQ2MDB5Wsj+o+fQ6bF1mUlAI1zYl/hR4KWE9rLnIDTmIK+JZZY3VGR5Yg==
   dependencies:
-    "@dhis2/d2-ui-mentions-wrapper" "7.0.3"
-    "@dhis2/d2-ui-rich-text" "7.0.3"
-    "@dhis2/d2-ui-sharing-dialog" "7.0.3"
+    babel-runtime "^6.26.0"
+    d2 "~31.7"
+    lodash "^4.17.10"
+    material-ui "^0.20.0"
+    rxjs "^5.5.7"
+
+"@dhis2/d2-ui-interpretations@^7.0.8":
+  version "7.0.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-7.0.8.tgz#290281cbb8ff4b4b8baa3d771f15028ee3e4b8f2"
+  integrity sha512-dYW419Q/qk4CYCMjzvqtFaqUdvfnSMFDM1XdcZOMLcKGJIcONZ3IMcKriYlmy9zPQb/OHaTTEBQ8vG5UoJ0AYw==
+  dependencies:
+    "@dhis2/d2-ui-mentions-wrapper" "7.0.8"
+    "@dhis2/d2-ui-rich-text" "7.0.8"
+    "@dhis2/d2-ui-sharing-dialog" "7.0.8"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -996,7 +1007,16 @@
     prop-types "^15.5.10"
     react-portal "^4.1.5"
 
-"@dhis2/d2-ui-mentions-wrapper@7.0.3", "@dhis2/d2-ui-mentions-wrapper@^7.0.3":
+"@dhis2/d2-ui-mentions-wrapper@7.0.8":
+  version "7.0.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-7.0.8.tgz#e9a753e774ad7cc633bb539716fd6182a6ce4e8d"
+  integrity sha512-u21NoxJKC69rsDVaYkZUvR3Hja6Ie2XnZh0TTiVrnJlGW+s3tKcvHlcHfqDPrSyqfRQKCQB//LKGYKhE9U5pMA==
+  dependencies:
+    "@material-ui/core" "^3.3.1"
+    lodash "^4.17.10"
+    prop-types "^15.6.2"
+
+"@dhis2/d2-ui-mentions-wrapper@^7.0.3":
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-7.0.3.tgz#ea67c6a920cf015542b6acb50a1441142eb47b7f"
   integrity sha512-hFxUYnub3p4DjsREKv4gZgrSi/NCfOOoIQT+DJOOj9ZwhVCGZPnOLgXamwdT2kBar9yFXy7AHppBYqwBGBKokQ==
@@ -1025,16 +1045,30 @@
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
 
-"@dhis2/d2-ui-rich-text@7.0.3", "@dhis2/d2-ui-rich-text@^7.0.3":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.0.3.tgz#26c3e4ecf5dddfb3445476c56c87a62448ce229d"
-  integrity sha512-AiX6yf+AsYzSXjyXtuk7QtS/fx18vKcGvgFRaJvf7QV8HFxgkE2S8Owayj5mnTUFX6KFndTqjiXmsxn9jlKvhw==
+"@dhis2/d2-ui-rich-text@7.0.8", "@dhis2/d2-ui-rich-text@^7.0.8":
+  version "7.0.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.0.8.tgz#9eaae380dca3b56df7d0a92940dbacebefcd8624"
+  integrity sha512-YLI1wjgZUCDBcMCOTNIqJwtwdpNjOq8CTFb9esm8wfyT2Mw/vAAy929Sj+tKT8cJ2+xMKJhx8pQaJ4XbPPIZJg==
   dependencies:
     babel-runtime "^6.26.0"
     markdown-it "^8.4.2"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-sharing-dialog@7.0.3", "@dhis2/d2-ui-sharing-dialog@^7.0.3":
+"@dhis2/d2-ui-sharing-dialog@7.0.8":
+  version "7.0.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-7.0.8.tgz#33d62e549bcceba4ecbe00180088381902449a2e"
+  integrity sha512-usXa4FotS90zZkQb2uqBEJOJHcZDbb7CM8GUMnkok8fryjsoeSIIRBEyt5GqVjBH4PHWja3V0BfkBW1w9gp+WQ==
+  dependencies:
+    "@dhis2/d2-ui-core" "7.0.8"
+    "@material-ui/core" "^3.3.1"
+    "@material-ui/icons" "^3.0.1"
+    babel-runtime "^6.26.0"
+    downshift "^2.2.2"
+    prop-types "^15.5.10"
+    recompose "^0.26.0"
+    rxjs "^5.5.7"
+
+"@dhis2/d2-ui-sharing-dialog@^7.0.3":
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-7.0.3.tgz#585b6e20ce991517b83a4a30e770f7f74b29de8e"
   integrity sha512-Q33Rp/csZPSyEeVj7ZjN9+GrPow1D4ghf23kFYJCMvvvXUhOjkImj49XTxfxEMQwPZ+BSmNTDJeQQzYy2jV/RA==
