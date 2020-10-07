@@ -96,7 +96,7 @@ msgid "No data to display"
 msgstr ""
 
 msgid "View in {{appName}} app"
-msgstr ""
+msgstr "{{appName}} иловаси орқали кўриш"
 
 msgid "Cancel"
 msgstr "Бекор қилиш"
@@ -156,7 +156,7 @@ msgid "Charts"
 msgstr "Диаграммалар"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "Визуализатор"
 
 msgid "Maps"
 msgstr "Хариталар"
@@ -165,13 +165,13 @@ msgid "Event reports"
 msgstr "Ҳодисалар ҳисоботи"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Ҳодисалар ҳақида ҳисоботлар"
 
 msgid "Event charts"
 msgstr "Ҳодисалар диаграммаларда"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "Ҳодисалар визуализатори"
 
 msgid "Apps"
 msgstr "Илова"
