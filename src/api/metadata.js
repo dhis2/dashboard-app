@@ -61,7 +61,6 @@ export const getFavoriteFields = ({ withDimensions, withOptions }) => {
                   '!relativePeriods',
                   '!reportParams',
                   '!rowDimensions',
-                  '!series',
                   '!translations',
                   '!userOrganisationUnit',
                   '!userOrganisationUnitChildren',
