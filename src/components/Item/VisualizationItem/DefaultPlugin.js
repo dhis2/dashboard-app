@@ -48,25 +48,15 @@ class DefaultPlugin extends Component {
             ) &&
             this.shouldPluginReload(prevProps)
         ) {
-            const prevVis = orObject(prevProps.visualization)
-            const currentVis = this.props.visualization
-
-            const useActiveType =
-                currentVis.activeType !== prevVis.activeType ||
-                currentVis.activeType !== this.props.item.type
-
             if (
-                useActiveType ||
+                this.props.activeType !== prevProps.activeType ||
                 this.props.itemFilters !== prevProps.itemFilters
             ) {
-                pluginManager.unmount(
-                    this.props.item,
-                    prevVis.activeType || this.props.item.type
-                )
+                pluginManager.unmount(this.props.item, prevProps.activeType)
 
                 pluginManager.load(this.props.item, this.props.visualization, {
                     credentials: this.pluginCredentials,
-                    activeType: useActiveType ? currentVis.activeType : null,
+                    activeType: this.props.activeType,
                 })
             }
         }
@@ -83,9 +73,7 @@ class DefaultPlugin extends Component {
         ) {
             pluginManager.load(this.props.item, this.props.visualization, {
                 credentials: this.pluginCredentials,
-                activeType: this.props.useActiveType
-                    ? this.getActiveType()
-                    : null,
+                activeType: this.props.activeType,
                 options: this.props.options,
             })
         }
@@ -102,12 +90,9 @@ class DefaultPlugin extends Component {
                 this.props.visualization
             )
         ) {
-            pluginManager.unmount(this.props.item, this.getActiveType())
+            pluginManager.unmount(this.props.item, this.props.activeType)
         }
     }
-
-    getActiveType = () =>
-        this.props.visualization.activeType || this.props.item.type
 
     render() {
         const { classes, item, visualization, style } = this.props
@@ -131,12 +116,12 @@ DefaultPlugin.contextTypes = {
 }
 
 DefaultPlugin.propTypes = {
+    activeType: PropTypes.string,
     classes: PropTypes.object,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     options: PropTypes.object,
     style: PropTypes.object,
-    useActiveType: PropTypes.bool,
     visualization: PropTypes.object,
 }
 
