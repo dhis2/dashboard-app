@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "Номсиз бошқарув панели"
 
 msgid "Dashboard"
 msgstr ""
@@ -28,7 +28,7 @@ msgid "Delete"
 msgstr "Ўчириш"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "Бошқарув панелини ўчириш"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
@@ -40,7 +40,7 @@ msgid "Exit without saving"
 msgstr ""
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Бошқарув панелларига ўтиш"
 
 msgid "Save changes"
 msgstr "Ўзгартиришни сақлаш"
@@ -49,7 +49,7 @@ msgid "Translate"
 msgstr "Таржима қилинг"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Бошқариш панелида излаш"
 
 msgid "Show more"
 msgstr "Кўпроқ кўрсатилсин"
@@ -77,7 +77,7 @@ msgid "Messages"
 msgstr "Хабарлар"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Барча хабарларни кщриш"
 
 msgid "Spacer"
 msgstr ""
@@ -123,13 +123,13 @@ msgid "Additional items"
 msgstr ""
 
 msgid "Text box"
-msgstr ""
+msgstr "Матн жойи"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "Бошқарув панели номланиши"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "Бошқарув панели тавсифи"
 
 msgid "Edit"
 msgstr "Таҳрирлаш"
@@ -141,40 +141,40 @@ msgid "No description"
 msgstr "Тавсиф йўқ"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "Таянч жадваллар"
 
 msgid "Pivot Tables"
 msgstr "Таянч жадваллар"
 
 msgid "Charts"
-msgstr ""
+msgstr "Диаграммалар"
 
 msgid "Visualizer"
 msgstr ""
 
 msgid "Maps"
-msgstr ""
+msgstr "Хариталар"
 
 msgid "Event reports"
-msgstr ""
+msgstr "Ҳодисалар ҳисоботи"
 
 msgid "Event Reports"
 msgstr ""
 
 msgid "Event charts"
-msgstr ""
+msgstr "Ҳодисалар диаграммаларда"
 
 msgid "Event Visualizer"
 msgstr ""
 
 msgid "Apps"
-msgstr ""
+msgstr "Илова"
 
 msgid "Reports"
-msgstr ""
+msgstr "Ҳисоботлар"
 
 msgid "Resources"
-msgstr ""
+msgstr "Ресурслар"
 
 msgid "Users"
-msgstr ""
+msgstr "Фойдаланувчилар"
