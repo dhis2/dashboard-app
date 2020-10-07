@@ -1,3 +1,4 @@
+import i18n from '@dhis2/d2-i18n'
 import {
     getCustomDashboards,
     sGetDashboardById,
@@ -26,7 +27,6 @@ import {
 } from '../api/description'
 
 import { withShape } from '../components/ItemGrid/gridUtil'
-import { loadingDashboardMsg } from '../components/SnackbarMessage/SnackbarMessage'
 import { extractFavorite } from '../components/Item/VisualizationItem/plugin'
 
 import {
@@ -63,12 +63,11 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
         const dashboardName = (
             sGetDashboardById(getState(), id) || EMPTY_DASHBOARD
         ).displayName
-        if (sGetSelectedIsLoading(getState()) && dashboardName) {
-            loadingDashboardMsg.name = dashboardName
 
+        if (sGetSelectedIsLoading(getState()) && dashboardName) {
             dispatch(
                 acReceivedSnackbarMessage({
-                    message: loadingDashboardMsg,
+                    message: `${i18n.t('Loading dashboard')}: ${dashboardName}`,
                     open: true,
                 })
             )
