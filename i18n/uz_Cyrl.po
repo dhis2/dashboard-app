@@ -116,7 +116,7 @@ msgid "Charts"
 msgstr "Диаграммалар"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "Визуализатор"
 
 msgid "Maps"
 msgstr "Хариталар"
@@ -125,13 +125,13 @@ msgid "Event reports"
 msgstr "Ҳодисалар ҳисоботи"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Ҳодисалар ҳақида ҳисоботлар"
 
 msgid "Event charts"
 msgstr "Ҳодисалар диаграммаларда"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "Ҳодисалар визуализатори"
 
 msgid "Reports"
 msgstr "Ҳисоботлар"
