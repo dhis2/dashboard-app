@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlertBar renders alert message 1`] = `
+<AlertStack
+  dataTest="dhis2-uicore-alertstack"
+>
+  <AlertBar
+    dataTest="dhis2-uicore-alertbar"
+    duration={8000}
+    icon={true}
+    onHidden={[MockFunction]}
+    permanent={true}
+  >
+    Luke I am your father
+  </AlertBar>
+</AlertStack>
+`;
+
+exports[`AlertBar renders nothing when no message 1`] = `""`;
