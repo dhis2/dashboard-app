@@ -14,7 +14,7 @@ import { sGetUserUsername } from '../reducers/user'
 import { acSetDashboardItems, acAppendDashboards } from './dashboards'
 import { acClearItemFilters } from './itemFilters'
 import { tGetMessages } from '../components/Item/MessagesItem/actions'
-import { acSetAlertMessage, acClearAlertMessage } from './alert
+import { acSetAlertMessage, acClearAlertMessage } from './alert'
 import { acAddVisualization, acClearVisualizations } from './visualizations'
 import { apiFetchDashboard } from '../api/dashboards'
 import { storePreferredDashboardId } from '../api/localStorage'
@@ -78,7 +78,7 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
                 acSetAlertMessage(`${i18n.t('Loading dashboard')}: ${name}`)
             )
         }
-    }, 100)
+    }, 500)
 
     const onSuccess = selected => {
         dispatch(acAppendDashboards(selected))
