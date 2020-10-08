@@ -19,7 +19,7 @@ msgid "Untitled dashboard"
 msgstr "Номсиз бошқарув панели"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Бошқарув панели"
 
 msgid "Cancel"
 msgstr "Бекор қилиш"
