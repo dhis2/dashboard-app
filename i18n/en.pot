@@ -5,10 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-10-07T12:08:58.865Z\n"
-"PO-Revision-Date: 2020-10-07T12:08:58.865Z\n"
+"POT-Creation-Date: 2020-10-08T07:16:41.118Z\n"
+"PO-Revision-Date: 2020-10-08T07:16:41.118Z\n"
 
 msgid "Untitled dashboard"
+msgstr ""
+
+msgid "Loading dashboard"
 msgstr ""
 
 msgid "Cancel"
@@ -178,9 +181,6 @@ msgid "Additional items"
 msgstr ""
 
 msgid "Text box"
-msgstr ""
-
-msgid "Loading dashboard"
 msgstr ""
 
 msgid "Dashboard title"

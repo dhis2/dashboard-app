@@ -55,7 +55,7 @@ export const acSetSelectedShowDescription = value => ({
 export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
     dispatch(acSetSelectedIsLoading(true))
 
-    const snackbarTimeout = setTimeout(() => {
+    const alertTimeout = setTimeout(() => {
         const name = sGetDashboardById(getState(), id)?.displayName
 
         if (sGetSelectedIsLoading(getState()) && name) {
@@ -63,7 +63,7 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
                 acSetAlertMessage(`${i18n.t('Loading dashboard')}: ${name}`)
             )
         }
-    }, 500)
+    }, 100)
 
     const onSuccess = selected => {
         dispatch(acAppendDashboards(selected))
@@ -99,7 +99,7 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
 
         dispatch(acSetSelectedIsLoading(false))
 
-        clearTimeout(snackbarTimeout)
+        clearTimeout(alertTimeout)
 
         dispatch(acClearAlertMessage())
 
