@@ -75,7 +75,9 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
 
         if (sGetSelectedIsLoading(getState()) && name) {
             dispatch(
-                acSetAlertMessage(`${i18n.t('Loading dashboard')}: ${name}`)
+                acSetAlertMessage(
+                    i18n.t(`Loading dashboard – ${name}`, { name })
+                )
             )
         }
     }, 500)
