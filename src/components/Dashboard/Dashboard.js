@@ -81,7 +81,7 @@ export const Dashboard = ({
         }
     }, [])
 
-    if (!dashboardsLoaded || id === null) {
+    if (!dashboardsLoaded) {
         return (
             <Layer translucent>
                 <CenteredContent>
@@ -118,6 +118,16 @@ export const Dashboard = ({
                     text={i18n.t('Requested dashboard not found')}
                 />
             </>
+        )
+    }
+
+    if (id === null) {
+        return (
+            <Layer translucent>
+                <CenteredContent>
+                    <CircularLoader />
+                </CenteredContent>
+            </Layer>
         )
     }
 
