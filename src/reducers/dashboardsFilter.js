@@ -4,6 +4,7 @@ import { validateReducer } from '../modules/util'
 export const SET_DASHBOARDS_FILTER_NAME = 'SET_DASHBOARDS_FILTER_NAME'
 export const SET_DASHBOARDS_FILTER_OWNER = 'SET_DASHBOARDS_FILTER_OWNER'
 export const SET_DASHBOARDS_FILTER_ORDER = 'SET_DASHBOARDS_FILTER_ORDER'
+export const CLEAR_DASHBOARDS_FILTER_NAME = 'CLEAR_DASHBOARDS_FILTER_NAME'
 
 export const ownerData = [
     { id: 'ALL', value: 'All users' },
@@ -31,6 +32,8 @@ const name = (state = DEFAULT_STATE_DASHBOARDS_FILTER_NAME, action) => {
                 action.value,
                 DEFAULT_STATE_DASHBOARDS_FILTER_NAME
             )
+        case CLEAR_DASHBOARDS_FILTER_NAME:
+            return DEFAULT_STATE_DASHBOARDS_FILTER_NAME
         default:
             return state
     }

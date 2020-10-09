@@ -16,12 +16,11 @@ import {
     getControlBarHeight,
     getNumRowsFromHeight,
 } from './controlBarDimensions'
+import { sGetFilterName } from '../../reducers/dashboardsFilter'
 import { sGetControlBarUserRows } from '../../reducers/controlBar'
 import { sGetAllDashboards } from '../../reducers/dashboards'
-import { sGetFilterName } from '../../reducers/dashboardsFilter'
 import { sGetSelectedId } from '../../reducers/selected'
 import { acSetControlBarUserRows } from '../../actions/controlBar'
-import { acSetFilterName } from '../../actions/dashboardsFilter'
 import { orObject, orArray } from '../../modules/util'
 import { apiPostControlBarRows } from '../../api/controlBar'
 
@@ -78,7 +77,7 @@ export class DashboardsBar extends Component {
     }
 
     render() {
-        const { dashboards, name, selectedId, onChangeFilterName } = this.props
+        const { dashboards, selectedId } = this.props
 
         const rowCount = this.state.isMaxHeight
             ? MAX_ROW_COUNT
@@ -99,23 +98,10 @@ export class DashboardsBar extends Component {
             >
                 <div style={contentWrapperStyle}>
                     <div className={classes.leftControls}>
-                        <Link
-                            style={{
-                                display: 'inline-block',
-                                textDecoration: 'none',
-                                marginRight: 10,
-                                position: 'relative',
-                                top: '2px',
-                            }}
-                            to={'/new'}
-                        >
+                        <Link className={classes.newLink} to={'/new'}>
                             <AddCircleIcon />
                         </Link>
-                        <Filter
-                            name={name}
-                            onChangeName={onChangeFilterName}
-                            onKeypressEnter={this.onSelectDashboard}
-                        />
+                        <Filter onKeypressEnter={this.onSelectDashboard} />
                     </div>
                     {orArray(dashboards).map(dashboard => (
                         <Chip
@@ -137,6 +123,14 @@ export class DashboardsBar extends Component {
     }
 }
 
+DashboardsBar.propTypes = {
+    dashboards: PropTypes.array,
+    history: PropTypes.object,
+    selectedId: PropTypes.string,
+    userRows: PropTypes.number,
+    onChangeHeight: PropTypes.func,
+}
+
 const mapStateToProps = state => ({
     dashboards: sGetAllDashboards(state),
     name: sGetFilterName(state),
@@ -146,8 +140,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     onChangeHeight: acSetControlBarUserRows,
-    onChangeFilterName: acSetFilterName,
 }
+
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const dashboards = Object.values(orObject(stateProps.dashboards))
     const displayDashboards = arraySort(
@@ -167,16 +161,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             ...displayDashboards.filter(d => !d.starred),
         ],
     }
-}
-
-DashboardsBar.propTypes = {
-    dashboards: PropTypes.array,
-    history: PropTypes.object,
-    name: PropTypes.string,
-    selectedId: PropTypes.string,
-    userRows: PropTypes.number,
-    onChangeFilterName: PropTypes.func,
-    onChangeHeight: PropTypes.func,
 }
 
 export default withRouter(
