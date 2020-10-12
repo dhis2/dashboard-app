@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
@@ -15,6 +15,7 @@ export const KEYCODE_ENTER = 13
 export const KEYCODE_ESCAPE = 27
 
 const Filter = ({ filterText, onChangeFilterText, onKeypressEnter }) => {
+    const [focusedClassName, setFocusedClassName] = useState(null)
     const setFilterValue = event => {
         event.preventDefault()
         onChangeFilterText(event.target.value)
@@ -38,8 +39,22 @@ const Filter = ({ filterText, onChangeFilterText, onKeypressEnter }) => {
         }
     }
 
+    const onFocus = event => {
+        event.preventDefault()
+        setFocusedClassName(classes.focused)
+    }
+
+    const onBlur = event => {
+        event.preventDefault()
+        setFocusedClassName(null)
+    }
+
     return (
-        <div className={cx(classes.container, 'dashboards-filter-container')}>
+        <div
+            className={cx(classes.container, `${focusedClassName}`)}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        >
             <SearchIcon className={classes.searchIcon} />
             <input
                 className={classes.input}

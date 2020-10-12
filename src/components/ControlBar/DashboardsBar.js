@@ -1,10 +1,12 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
-import ControlBar from './ControlBar'
+import cx from 'classnames'
+
 import arraySort from 'd2-utilizr/lib/arraySort'
 import PropTypes from 'prop-types'
 
+import ControlBar from './ControlBar'
 import Chip from './DashboardItemChip'
 import AddCircleIcon from '../../icons/AddCircle'
 import Filter from './Filter'
@@ -28,99 +30,81 @@ import classes from './styles/DashboardsBar.module.css'
 
 export const MAX_ROW_COUNT = 10
 
-export class DashboardsBar extends Component {
-    state = {
-        rows: MIN_ROW_COUNT,
-    }
+export const DashboardsBar = ({
+    userRows,
+    onChangeHeight,
+    history,
+    dashboards,
+    selectedId,
+}) => {
+    const [rows, setRows] = useState(MIN_ROW_COUNT)
 
-    setInitialDashboardState = rows => {
-        this.setState({ rows, isMaxHeight: rows === MAX_ROW_COUNT })
-    }
+    useEffect(() => {
+        setRows(userRows)
+    }, [userRows])
 
-    componentDidMount() {
-        this.setInitialDashboardState(this.props.userRows)
-    }
+    const isMaxHeight = () => rows === MAX_ROW_COUNT
 
-    componentWillReceiveProps(nextProps) {
-        this.setInitialDashboardState(nextProps.userRows)
-    }
-
-    onChangeHeight = newHeight => {
-        const adjustedHeight = newHeight - 52 // don't rush the transition to a bigger row count
+    const adjustHeight = newHeight => {
         const newRows = Math.max(
             MIN_ROW_COUNT,
-            getNumRowsFromHeight(adjustedHeight)
+            getNumRowsFromHeight(newHeight - 52) // don't rush the transition to a bigger row count
         )
 
-        if (newRows !== this.state.rows) {
-            const newRowCount = Math.min(newRows, MAX_ROW_COUNT)
-
-            this.props.onChangeHeight(newRowCount)
+        if (newRows !== rows) {
+            onChangeHeight(Math.min(newRows, MAX_ROW_COUNT))
         }
     }
 
-    onEndDrag = () => {
-        return apiPostControlBarRows(this.state.rows)
+    const onEndDrag = () => apiPostControlBarRows(rows)
+
+    const toggleMaxHeight = () => {
+        const newRows = isMaxHeight() ? userRows : MAX_ROW_COUNT
+        setRows(newRows)
     }
 
-    onToggleMaxHeight = () => {
-        const rows =
-            this.state.rows === MAX_ROW_COUNT
-                ? this.props.userRows
-                : MAX_ROW_COUNT
+    const onSelectDashboard = () => history.push(`/${dashboards[0].id}`)
 
-        this.setState({ rows, isMaxHeight: !this.state.isMaxHeight })
-    }
+    const overflowYClass = isMaxHeight()
+        ? classes.overflowYAuto
+        : classes.overflowYHidden
 
-    onSelectDashboard = () => {
-        this.props.history.push(`/${this.props.dashboards[0].id}`)
-    }
-
-    render() {
-        const { dashboards, selectedId } = this.props
-
-        const rowCount = this.state.isMaxHeight
-            ? MAX_ROW_COUNT
-            : this.state.rows
-        const controlBarHeight = getControlBarHeight(rowCount)
-        const contentWrapperStyle = {
-            padding: `${FIRST_ROW_PADDING_HEIGHT}px 6px 0 6px`,
-            overflowY: this.state.isMaxHeight ? 'auto' : 'hidden',
-            height: getRowsHeight(rowCount) + FIRST_ROW_PADDING_HEIGHT,
-        }
-
-        return (
-            <ControlBar
-                height={controlBarHeight}
-                onChangeHeight={this.onChangeHeight}
-                onEndDrag={this.onEndDrag}
-                editMode={false}
+    return (
+        <ControlBar
+            height={getControlBarHeight(rows)}
+            onChangeHeight={adjustHeight}
+            onEndDrag={onEndDrag}
+            editMode={false}
+        >
+            <div
+                className={cx(classes.container, overflowYClass)}
+                style={{
+                    height: getRowsHeight(rows) + FIRST_ROW_PADDING_HEIGHT,
+                }}
             >
-                <div style={contentWrapperStyle}>
-                    <div className={classes.leftControls}>
-                        <Link className={classes.newLink} to={'/new'}>
-                            <AddCircleIcon />
-                        </Link>
-                        <Filter onKeypressEnter={this.onSelectDashboard} />
-                    </div>
-                    {orArray(dashboards).map(dashboard => (
-                        <Chip
-                            key={dashboard.id}
-                            label={dashboard.displayName}
-                            starred={dashboard.starred}
-                            dashboardId={dashboard.id}
-                            selected={dashboard.id === selectedId}
-                        />
-                    ))}
+                <div className={classes.leftControls}>
+                    <Link className={classes.newLink} to={'/new'}>
+                        <AddCircleIcon />
+                    </Link>
+                    <Filter onKeypressEnter={onSelectDashboard} />
                 </div>
-                <ShowMoreButton
-                    onClick={this.onToggleMaxHeight}
-                    isMaxHeight={this.state.isMaxHeight}
-                    disabled={this.props.userRows === MAX_ROW_COUNT}
-                />
-            </ControlBar>
-        )
-    }
+                {orArray(dashboards).map(dashboard => (
+                    <Chip
+                        key={dashboard.id}
+                        label={dashboard.displayName}
+                        starred={dashboard.starred}
+                        dashboardId={dashboard.id}
+                        selected={dashboard.id === selectedId}
+                    />
+                ))}
+            </div>
+            <ShowMoreButton
+                onClick={toggleMaxHeight}
+                isMaxHeight={isMaxHeight()}
+                disabled={userRows === MAX_ROW_COUNT}
+            />
+        </ControlBar>
+    )
 }
 
 DashboardsBar.propTypes = {

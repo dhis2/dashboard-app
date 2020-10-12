@@ -29,9 +29,12 @@
     right: 0;
     bottom: 0;
     position: absolute;
-    border-bottom: 1px solid #e0e0e0;
-    transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-bottom: 1px solid var(--colors-grey400);
     pointer-events: none;
+}
+
+.container.focused::after {
+    transform: scaleX(1);
 }
 
 .container::after {
@@ -39,10 +42,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border-bottom: 1px solid #e0e0e0;
     position: absolute;
+    border-bottom: 1px solid var(--colors-grey500);
     transform: scaleX(0);
-    transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
     pointer-events: none;
 }
 

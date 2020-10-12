@@ -1,3 +1,7 @@
+.container {
+    text-align: center;
+}
+
 .showMore {
     color: var(--colors-grey700);
     cursor: pointer;

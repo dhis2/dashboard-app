@@ -1,3 +1,15 @@
+.container {
+    padding: 10px 6px 0 6px;
+}
+
+.overflowYAuto {
+    overflow-y: auto;
+}
+
+.overflowYHidden {
+    overflow-y: hidden;
+}
+
 .leftControls {
     float: left;
     height: 36px;
