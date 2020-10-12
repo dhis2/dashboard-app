@@ -36,6 +36,7 @@ export const DashboardsBar = ({
     history,
     dashboards,
     selectedId,
+    filterText,
 }) => {
     const [rows, setRows] = useState(MIN_ROW_COUNT)
 
@@ -65,6 +66,21 @@ export const DashboardsBar = ({
 
     const onSelectDashboard = () => history.push(`/${dashboards[0].id}`)
 
+    const getFilteredDashboards = () => {
+        const filteredDashboards = arraySort(
+            Object.values(dashboards).filter(d =>
+                d.displayName.toLowerCase().includes(filterText.toLowerCase())
+            ),
+            'ASC',
+            'displayName'
+        )
+
+        return [
+            ...filteredDashboards.filter(d => d.starred),
+            ...filteredDashboards.filter(d => !d.starred),
+        ]
+    }
+
     const overflowYClass = isMaxHeight()
         ? classes.overflowYAuto
         : classes.overflowYHidden
@@ -88,7 +104,7 @@ export const DashboardsBar = ({
                     </Link>
                     <Filter onKeypressEnter={onSelectDashboard} />
                 </div>
-                {orArray(dashboards).map(dashboard => (
+                {getFilteredDashboards().map(dashboard => (
                     <Chip
                         key={dashboard.id}
                         label={dashboard.displayName}
@@ -108,7 +124,8 @@ export const DashboardsBar = ({
 }
 
 DashboardsBar.propTypes = {
-    dashboards: PropTypes.array,
+    dashboards: PropTypes.object,
+    filterText: PropTypes.string,
     history: PropTypes.object,
     selectedId: PropTypes.string,
     userRows: PropTypes.number,
@@ -117,36 +134,15 @@ DashboardsBar.propTypes = {
 
 const mapStateToProps = state => ({
     dashboards: sGetAllDashboards(state),
-    name: sGetFilterName(state),
-    userRows: sGetControlBarUserRows(state),
+    filterText: sGetFilterName(state),
     selectedId: sGetSelectedId(state),
+    userRows: sGetControlBarUserRows(state),
 })
 
 const mapDispatchToProps = {
     onChangeHeight: acSetControlBarUserRows,
 }
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const dashboards = Object.values(orObject(stateProps.dashboards))
-    const displayDashboards = arraySort(
-        dashboards.filter(d =>
-            d.displayName.toLowerCase().includes(stateProps.name.toLowerCase())
-        ),
-        'ASC',
-        'displayName'
-    )
-
-    return {
-        ...stateProps,
-        ...ownProps,
-        ...dispatchProps,
-        dashboards: [
-            ...displayDashboards.filter(d => d.starred),
-            ...displayDashboards.filter(d => !d.starred),
-        ],
-    }
-}
-
 export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps, mergeProps)(DashboardsBar)
+    connect(mapStateToProps, mapDispatchToProps)(DashboardsBar)
 )
