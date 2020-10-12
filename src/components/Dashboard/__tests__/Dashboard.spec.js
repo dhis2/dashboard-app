@@ -75,7 +75,7 @@ describe('Dashboard', () => {
     it('renders correctly when no dashboards found', () => {
         props.dashboardsLoaded = true
         props.dashboardsIsEmpty = true
-        props.id = 'rainbowdash'
+        props.id = null
         props.mode = VIEW
         expect(toJson(dashboard())).toMatchSnapshot()
     })
