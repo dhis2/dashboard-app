@@ -63,7 +63,10 @@ export const DashboardsBar = ({
         setRows(newRows)
     }
 
-    const onSelectDashboard = () => history.push(`/${dashboards[0].id}`)
+    const onSelectDashboard = () => {
+        const id = getFilteredDashboards()[0].id
+        history.push(id)
+    }
 
     const getFilteredDashboards = () => {
         const filteredDashboards = arraySort(

@@ -14,7 +14,7 @@ import classes from './styles/Filter.module.css'
 export const KEYCODE_ENTER = 13
 export const KEYCODE_ESCAPE = 27
 
-const Filter = ({ filterText, onChangeFilterText, onKeypressEnter }) => {
+export const Filter = ({ filterText, onChangeFilterText, onKeypressEnter }) => {
     const [focusedClassName, setFocusedClassName] = useState(null)
     const setFilterValue = event => {
         event.preventDefault()
