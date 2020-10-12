@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-08T17:54:39.674Z\n"
+"POT-Creation-Date: 2020-10-12T06:11:46.298Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2020\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -17,6 +17,9 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Номсиз бошқарув панели"
+
+msgid "Loading dashboard – {{name}}"
+msgstr ""
 
 msgid "Cancel"
 msgstr "Бекор қилиш"
