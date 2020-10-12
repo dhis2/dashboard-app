@@ -8,15 +8,15 @@ msgstr ""
 "POT-Creation-Date: 2019-03-06T17:24:20.929Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
 "Last-Translator: phil_dhis2, 2019\n"
-"Language-Team: Burmese (https://www.transifex.com/hisp-uio/teams/100509/my/)\n"
+"Language-Team: Tetum (Tetun) (https://www.transifex.com/hisp-uio/teams/100509/tet/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: my\n"
+"Language: tet\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Delete"
-msgstr "ဖျက်ဆီးသည်"
+msgstr "Soe"
 
 msgid "Continue editing"
 msgstr ""
@@ -37,7 +37,7 @@ msgid "Save changes"
 msgstr ""
 
 msgid "Translate"
-msgstr "ဘာသာပြန်သည်။"
+msgstr "Traduz"
 
 msgid "Search for a dashboard"
 msgstr ""
@@ -58,7 +58,7 @@ msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "Messages"
-msgstr "သတင်းများ"
+msgstr "Mensajens"
 
 msgid "See all messages"
 msgstr ""
@@ -107,37 +107,37 @@ msgid "No description"
 msgstr ""
 
 msgid "Pivot tables"
-msgstr "ကိန်းဂဏန်းပြဇယားကွက်"
+msgstr ""
 
 msgid "Pivot Tables"
 msgstr ""
 
 msgid "Charts"
-msgstr "ဂရပ် ပုံစံများ"
+msgstr ""
 
 msgid "Visualizer"
 msgstr ""
 
 msgid "Maps"
-msgstr "Maps"
+msgstr ""
 
 msgid "Event reports"
 msgstr ""
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Relatorius Eventu"
 
 msgid "Event charts"
 msgstr ""
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "Vizualizador Eventu"
 
 msgid "Reports"
-msgstr "အစီရင်ခံစာများ"
+msgstr "Relatórius"
 
 msgid "Resources"
 msgstr ""
 
 msgid "Users"
-msgstr "အသုံးပြုသူများ"
+msgstr "Utilizadores"
