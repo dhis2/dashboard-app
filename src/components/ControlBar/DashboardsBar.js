@@ -23,7 +23,6 @@ import { sGetControlBarUserRows } from '../../reducers/controlBar'
 import { sGetAllDashboards } from '../../reducers/dashboards'
 import { sGetSelectedId } from '../../reducers/selected'
 import { acSetControlBarUserRows } from '../../actions/controlBar'
-import { orObject, orArray } from '../../modules/util'
 import { apiPostControlBarRows } from '../../api/controlBar'
 
 import classes from './styles/DashboardsBar.module.css'

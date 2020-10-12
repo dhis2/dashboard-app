@@ -3,16 +3,15 @@
 exports[`DashboardsBar does not render ShowMoreButton when userRows is MAX_ROW_COUNT 1`] = `
 <ControlBar
   editMode={false}
-  height={424}
+  height={64}
   onChangeHeight={[Function]}
   onEndDrag={[Function]}
 >
   <div
+    className="container overflowYHidden"
     style={
       Object {
-        "height": 410,
-        "overflowY": "auto",
-        "padding": "10px 6px 0 6px",
+        "height": 50,
       }
     }
   >
@@ -20,27 +19,19 @@ exports[`DashboardsBar does not render ShowMoreButton when userRows is MAX_ROW_C
       className="leftControls"
     >
       <Link
-        style={
-          Object {
-            "display": "inline-block",
-            "marginRight": 10,
-            "position": "relative",
-            "textDecoration": "none",
-            "top": "2px",
-          }
-        }
+        className="newLink"
         to="/new"
       >
         <AddCircleIcon />
       </Link>
-      <WithStyles(Filter)
+      <Connect(Filter)
         onKeypressEnter={[Function]}
       />
     </div>
   </div>
   <ShowMoreButton
     disabled={true}
-    isMaxHeight={true}
+    isMaxHeight={false}
     onClick={[Function]}
   />
 </ControlBar>
@@ -49,16 +40,15 @@ exports[`DashboardsBar does not render ShowMoreButton when userRows is MAX_ROW_C
 exports[`DashboardsBar renders ShowMoreButton when userRows is less than MAX_ROW_COUNT 1`] = `
 <ControlBar
   editMode={false}
-  height={384}
+  height={64}
   onChangeHeight={[Function]}
   onEndDrag={[Function]}
 >
   <div
+    className="container overflowYHidden"
     style={
       Object {
-        "height": 370,
-        "overflowY": "hidden",
-        "padding": "10px 6px 0 6px",
+        "height": 50,
       }
     }
   >
@@ -66,20 +56,12 @@ exports[`DashboardsBar renders ShowMoreButton when userRows is less than MAX_ROW
       className="leftControls"
     >
       <Link
-        style={
-          Object {
-            "display": "inline-block",
-            "marginRight": 10,
-            "position": "relative",
-            "textDecoration": "none",
-            "top": "2px",
-          }
-        }
+        className="newLink"
         to="/new"
       >
         <AddCircleIcon />
       </Link>
-      <WithStyles(Filter)
+      <Connect(Filter)
         onKeypressEnter={[Function]}
       />
     </div>
@@ -100,11 +82,10 @@ exports[`DashboardsBar renders a DashboardsBar with no items 1`] = `
   onEndDrag={[Function]}
 >
   <div
+    className="container overflowYHidden"
     style={
       Object {
         "height": 50,
-        "overflowY": "hidden",
-        "padding": "10px 6px 0 6px",
       }
     }
   >
@@ -112,20 +93,12 @@ exports[`DashboardsBar renders a DashboardsBar with no items 1`] = `
       className="leftControls"
     >
       <Link
-        style={
-          Object {
-            "display": "inline-block",
-            "marginRight": 10,
-            "position": "relative",
-            "textDecoration": "none",
-            "top": "2px",
-          }
-        }
+        className="newLink"
         to="/new"
       >
         <AddCircleIcon />
       </Link>
-      <WithStyles(Filter)
+      <Connect(Filter)
         onKeypressEnter={[Function]}
       />
     </div>
@@ -146,11 +119,10 @@ exports[`DashboardsBar when dashboards are provided renders DashboardItemChips f
   onEndDrag={[Function]}
 >
   <div
+    className="container overflowYHidden"
     style={
       Object {
         "height": 50,
-        "overflowY": "hidden",
-        "padding": "10px 6px 0 6px",
       }
     }
   >
@@ -158,23 +130,22 @@ exports[`DashboardsBar when dashboards are provided renders DashboardItemChips f
       className="leftControls"
     >
       <Link
-        style={
-          Object {
-            "display": "inline-block",
-            "marginRight": 10,
-            "position": "relative",
-            "textDecoration": "none",
-            "top": "2px",
-          }
-        }
+        className="newLink"
         to="/new"
       >
         <AddCircleIcon />
       </Link>
-      <WithStyles(Filter)
+      <Connect(Filter)
         onKeypressEnter={[Function]}
       />
     </div>
+    <DashboardItemChip
+      dashboardId="fluttershy123"
+      key="fluttershy123"
+      label="Fluttershy"
+      selected={false}
+      starred={true}
+    />
     <DashboardItemChip
       dashboardId="rainbow123"
       key="rainbow123"
@@ -182,12 +153,56 @@ exports[`DashboardsBar when dashboards are provided renders DashboardItemChips f
       selected={false}
       starred={false}
     />
+  </div>
+  <ShowMoreButton
+    disabled={false}
+    isMaxHeight={false}
+    onClick={[Function]}
+  />
+</ControlBar>
+`;
+
+exports[`DashboardsBar when dashboards are provided renders correctly for selected item 1`] = `
+<ControlBar
+  editMode={false}
+  height={64}
+  onChangeHeight={[Function]}
+  onEndDrag={[Function]}
+>
+  <div
+    className="container overflowYHidden"
+    style={
+      Object {
+        "height": 50,
+      }
+    }
+  >
+    <div
+      className="leftControls"
+    >
+      <Link
+        className="newLink"
+        to="/new"
+      >
+        <AddCircleIcon />
+      </Link>
+      <Connect(Filter)
+        onKeypressEnter={[Function]}
+      />
+    </div>
     <DashboardItemChip
       dashboardId="fluttershy123"
       key="fluttershy123"
       label="Fluttershy"
-      selected={false}
+      selected={true}
       starred={true}
+    />
+    <DashboardItemChip
+      dashboardId="rainbow123"
+      key="rainbow123"
+      label="Rainbow Dash"
+      selected={false}
+      starred={false}
     />
   </div>
   <ShowMoreButton

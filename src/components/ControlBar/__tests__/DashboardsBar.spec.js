@@ -2,11 +2,9 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 
-import { getStubContext } from '../../../setupTests'
 import { MIN_ROW_COUNT } from '../controlBarDimensions'
 import { DashboardsBar, MAX_ROW_COUNT } from '../DashboardsBar'
 import ShowMoreButton from '../ShowMoreButton'
-import DashboardItemChip from '../DashboardItemChip'
 import * as api from '../../../api/controlBar'
 
 describe('DashboardsBar', () => {
@@ -14,25 +12,19 @@ describe('DashboardsBar', () => {
     let shallowDashboardsBar
     const dashboardsBar = () => {
         if (!shallowDashboardsBar) {
-            shallowDashboardsBar = shallow(<DashboardsBar {...props} />, {
-                context: getStubContext(),
-            })
+            shallowDashboardsBar = shallow(<DashboardsBar {...props} />)
         }
         return shallowDashboardsBar
     }
 
     beforeEach(() => {
         props = {
-            controlsStyle: undefined,
-            dashboards: undefined,
-            name: undefined,
+            dashboards: {},
+            filterText: '',
+            history: {},
+            selectedId: null,
             userRows: MIN_ROW_COUNT,
-            selectedId: undefined,
-            isMaxHeight: false,
             onChangeHeight: undefined,
-            onEndDrag: undefined,
-            onToggleMaxHeight: undefined,
-            onChangeFilterName: undefined,
         }
         shallowDashboardsBar = undefined
     })
@@ -97,37 +89,27 @@ describe('DashboardsBar', () => {
 
     describe('when dashboards are provided', () => {
         beforeEach(() => {
-            props.dashboards = [
-                {
+            props.dashboards = {
+                rainbow123: {
                     id: 'rainbow123',
                     displayName: 'Rainbow Dash',
                     starred: false,
                 },
-                {
+                fluttershy123: {
                     id: 'fluttershy123',
                     displayName: 'Fluttershy',
                     starred: true,
                 },
-            ]
+            }
         })
 
         it('renders DashboardItemChips for each item on dashboard', () => {
             expect(toJson(dashboardsBar())).toMatchSnapshot()
         })
 
-        describe('when selected ID is provided', () => {
-            beforeEach(() => {
-                props.selectedId = 'fluttershy123'
-            })
-
-            it('sets the selected property to true', () => {
-                expect(
-                    dashboardsBar()
-                        .find(DashboardItemChip)
-                        .at(1)
-                        .props().selected
-                ).toBe(true)
-            })
+        it('renders correctly for selected item', () => {
+            props.selectedId = 'fluttershy123'
+            expect(toJson(dashboardsBar())).toMatchSnapshot()
         })
     })
 })
