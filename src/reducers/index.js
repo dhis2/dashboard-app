@@ -15,7 +15,7 @@ import editDashboard from './editDashboard'
 import printDashboard from './printDashboard'
 import messages from './messages'
 import user from './user'
-import snackbar from './snackbar'
+import alert from './alert'
 import itemFilters from './itemFilters'
 import style from './style'
 import dimensions from './dimensions'
@@ -39,7 +39,7 @@ export default combineReducers({
     printDashboard,
     itemFilters,
     style,
-    snackbar,
+    alert,
     dimensions,
     settings,
     activeModalDimension,

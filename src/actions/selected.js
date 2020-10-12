@@ -1,8 +1,5 @@
-import {
-    getCustomDashboards,
-    sGetDashboardById,
-    EMPTY_DASHBOARD,
-} from '../reducers/dashboards'
+import i18n from '@dhis2/d2-i18n'
+import { getCustomDashboards, sGetDashboardById } from '../reducers/dashboards'
 import {
     SET_SELECTED_ID,
     SET_SELECTED_ISLOADING,
@@ -17,9 +14,8 @@ import { sGetUserUsername } from '../reducers/user'
 import { acSetDashboardItems, acAppendDashboards } from './dashboards'
 import { acClearItemFilters } from './itemFilters'
 import { tGetMessages } from '../components/Item/MessagesItem/actions'
-import { acReceivedSnackbarMessage, acCloseSnackbar } from './snackbar'
+import { acSetAlertMessage, acClearAlertMessage } from './alert'
 import { acAddVisualization, acClearVisualizations } from './visualizations'
-
 import { apiFetchDashboard } from '../api/dashboards'
 import { storePreferredDashboardId } from '../api/localStorage'
 import {
@@ -28,7 +24,6 @@ import {
 } from '../api/description'
 
 import { withShape } from '../components/ItemGrid/gridUtil'
-import { loadingDashboardMsg } from '../components/SnackbarMessage/SnackbarMessage'
 import { extractFavorite } from '../components/Item/VisualizationItem/plugin'
 
 import {
@@ -75,18 +70,14 @@ export const acClearSelectedItemActiveTypes = () => ({
 export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
     dispatch(acSetSelectedIsLoading(true))
 
-    const snackbarTimeout = setTimeout(() => {
-        const dashboardName = (
-            sGetDashboardById(getState(), id) || EMPTY_DASHBOARD
-        ).displayName
-        if (sGetSelectedIsLoading(getState()) && dashboardName) {
-            loadingDashboardMsg.name = dashboardName
+    const alertTimeout = setTimeout(() => {
+        const name = sGetDashboardById(getState(), id)?.displayName
 
+        if (sGetSelectedIsLoading(getState()) && name) {
             dispatch(
-                acReceivedSnackbarMessage({
-                    message: loadingDashboardMsg,
-                    open: true,
-                })
+                acSetAlertMessage(
+                    i18n.t('Loading dashboard – {{name}}', { name })
+                )
             )
         }
     }, 500)
@@ -127,9 +118,9 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
 
         dispatch(acSetSelectedIsLoading(false))
 
-        clearTimeout(snackbarTimeout)
+        clearTimeout(alertTimeout)
 
-        dispatch(acCloseSnackbar())
+        dispatch(acClearAlertMessage())
 
         return selected
     }
