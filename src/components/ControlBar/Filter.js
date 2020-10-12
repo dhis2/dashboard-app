@@ -15,7 +15,7 @@ export const KEYCODE_ENTER = 13
 export const KEYCODE_ESCAPE = 27
 
 export const Filter = ({ filterText, onChangeFilterText, onKeypressEnter }) => {
-    const [focusedClassName, setFocusedClassName] = useState(null)
+    const [focusedClassName, setFocusedClassName] = useState('')
     const setFilterValue = event => {
         event.preventDefault()
         onChangeFilterText(event.target.value)
@@ -46,7 +46,7 @@ export const Filter = ({ filterText, onChangeFilterText, onKeypressEnter }) => {
 
     const onBlur = event => {
         event.preventDefault()
-        setFocusedClassName(null)
+        setFocusedClassName('')
     }
 
     return (

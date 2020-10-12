@@ -2,7 +2,7 @@
 
 exports[`Filter matches the snapshot when filterText property is empty 1`] = `
 <div
-  className="container null"
+  className="container"
   onBlur={[Function]}
   onFocus={[Function]}
 >
