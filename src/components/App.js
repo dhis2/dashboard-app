@@ -5,6 +5,15 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { CssVariables } from '@dhis2/ui'
 
+import Dashboard from './Dashboard/Dashboard'
+import AlertBar from './AlertBar/AlertBar'
+
+import { acReceivedUser } from '../actions/user'
+import { tFetchDashboards } from '../actions/dashboards'
+import { tSetControlBarRows } from '../actions/controlBar'
+import { tSetShowDescription } from '../actions/selected'
+import { tSetDimensions } from '../actions/dimensions'
+
 import {
     EDIT,
     VIEW,
@@ -12,13 +21,6 @@ import {
     PRINT,
     PRINT_LAYOUT,
 } from './Dashboard/dashboardModes'
-import { acReceivedUser } from '../actions/user'
-import { tFetchDashboards } from '../actions/dashboards'
-import { tSetControlBarRows } from '../actions/controlBar'
-import { tSetShowDescription } from '../actions/selected'
-import { tSetDimensions } from '../actions/dimensions'
-import Dashboard from './Dashboard/Dashboard'
-import SnackbarMessage from './SnackbarMessage/SnackbarMessage'
 
 import './App.css'
 
@@ -85,7 +87,7 @@ export class App extends Component {
                         />
                     </Switch>
                 </Router>
-                <SnackbarMessage />
+                <AlertBar />
             </>
         )
     }

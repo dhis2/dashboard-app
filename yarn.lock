@@ -1321,10 +1321,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@dhis2/analytics@^11.0.10":
-  version "11.0.10"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.0.10.tgz#378503ea802fc0e63f86761b7f69109be362d300"
-  integrity sha512-Tfc+FOz8obJlKbJbGa/hTIdx4qg5shlstE56SMG8XR1eqwBdn7mo3XO6qYDGvzzI6vKEuQAwPN2w51sVurUBNA==
+"@dhis2/analytics@^11.0.10", "@dhis2/analytics@^11.0.12":
+  version "11.0.12"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.0.12.tgz#34979ace42d54a60a805c00314399b4493aaf31e"
+  integrity sha512-zMp9oZISVmQevlEF++wsKOGwg6HlQkb9/DxWUZMDomdGxmLK46YM9BL1wzm2LY7E6Wt87hNCYy0nlD/497neDA==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.8"
     "@dhis2/ui" "^5.5.6"
@@ -1339,10 +1339,10 @@
     resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.3.0"
 
-"@dhis2/app-adapter@5.2.1":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-5.2.1.tgz#ed8a1b1baa144f451d3411200b3086e8d8afcc4e"
-  integrity sha512-wPuVaLoUXKDigPqqNeqmaIxQKJEzNkhyeGp2RBg4bzn4vMAharLy5j9BeU/zwi4Dh1xmO9twTdC+1PoOMjNrZw==
+"@dhis2/app-adapter@5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-5.3.0.tgz#01427eca32367bcf3ccaa1e45703989703be0f8d"
+  integrity sha512-j0Yn3gKydpqkOS+9KDttlEL+WzJjTMlXFhzXhX74vhxpstw6BrISuoayxOEAnVUKycvG/U5Pd3WvohzN9JTfgQ==
   dependencies:
     moment "^2.24.0"
 
@@ -1354,30 +1354,30 @@
     "@dhis2/ui-core" "^4.6.1"
     prop-types "^15.7.2"
 
-"@dhis2/app-runtime@^2.2.2", "@dhis2/app-runtime@^2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.3.0.tgz#b059981e4d68734f3d486184ff01789769abc0e6"
-  integrity sha512-cWK3Y70CmEj7tdmrJDm5jo4th1mPBVHJ85QWpebAMQjmmoFW1MK4CLEycp5G2VIyvHMxXz853MqbvTIE+19Xng==
+"@dhis2/app-runtime@^2.2.2", "@dhis2/app-runtime@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.4.0.tgz#069b04bc3c76f7633ccb8ec09a4644463406d25b"
+  integrity sha512-OOckU5D+JWR2PqkZfnZAfq1LguBNVRo3pfIJhHmWhI3iQ+1ZHsL1cjf9vMl3IQxLiYfGN8uDFbufrygpDDqn9A==
   dependencies:
-    "@dhis2/app-service-config" "2.3.0"
-    "@dhis2/app-service-data" "2.3.0"
+    "@dhis2/app-service-config" "2.4.0"
+    "@dhis2/app-service-data" "2.4.0"
 
-"@dhis2/app-service-config@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-2.3.0.tgz#4ae6dcfa1e49eb90cb292bad204a447e8f01f736"
-  integrity sha512-c0nsKBjGYAEv5+04R5BrI7oKMholoONA+yiToVrkohRxbPY4XDQWvRy2tRmlx1W66xCGrk+utOvsp3NWNJH/sA==
+"@dhis2/app-service-config@2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-2.4.0.tgz#945e913f22fe6337852c1189523e8eb9574d33f7"
+  integrity sha512-LCK5GTVbv7J8GKlxPXC6nn+ZEeYj3ddgwcQsdT5kIDVfUPAH7zb7EV7VuCi8ZgioJPEDYIAJlRo3EzI0QDKELQ==
 
-"@dhis2/app-service-data@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-2.3.0.tgz#35b270ce969705889121ed8394e382ffb74d2b66"
-  integrity sha512-H20qRT8jGOJxLyBHLx8huxW0csJmjqdE4/Fy0MQhyS2AJRBsQ5yPWOmcguup2yAtPHg+Do1c47+TshpEbyc8Rg==
+"@dhis2/app-service-data@2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-2.4.0.tgz#107e1ad11a47d471d6117300052ad367b426edc7"
+  integrity sha512-okL1KiWR/RzUqkiAh7qWp4F1fMlJzJqzVa3rRTFhurQ93VgNRAO0YAH7PeUkgDgWw5Q9ArXB+N7Q36ZZl5iiOQ==
 
-"@dhis2/app-shell@5.2.1":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-5.2.1.tgz#2eb2e4cde556b19beaaef6eced048ec445d5e318"
-  integrity sha512-PqpRYtQ+CFhlO+Kf+BEErycWoIfg1ItZ6jRmfjrEmGqK0NRNrEg/lVsPwkIf8iaELO868Ix5zcMu4kepbPkzbA==
+"@dhis2/app-shell@5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-5.3.0.tgz#0d494e73922283dbcabf1f765588171ab4ea4064"
+  integrity sha512-1v8zThdneQqgPnRnwhrdCtLaDysc3hz5ILyvuViDPWjiLb8qKfAKllGwfSrj+RXwWBhkB9em6kUvLFXSkJQGYA==
   dependencies:
-    "@dhis2/app-adapter" "5.2.1"
+    "@dhis2/app-adapter" "5.3.0"
     "@dhis2/app-runtime" "^2.2.2"
     "@dhis2/d2-i18n" "^1.0.5"
     "@dhis2/ui" "^5.4.2"
@@ -1393,9 +1393,9 @@
     typescript "^3.6.3"
 
 "@dhis2/cli-app-scripts@^5":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-5.2.1.tgz#44b299eab0251da239d97f057485bf2ae5c007de"
-  integrity sha512-4fBFvXM+ZfOmq9Ox50tpuj8T47AkcgTEEUJYV9e/BcLv5Y6Dv/FJ34ebV8qGIF6Qp4pKTnCzH/FxWiWdghLa5g==
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-5.3.0.tgz#8f4c01902eabd25d9660978a008e96340c8f99a9"
+  integrity sha512-YiZJjEInW5klBh9aSna+M3rm0GCyrZtoU+EYi5h12I8PX5MrZ1xcpP2oiftxW8eL2BhuH3wJ3ff7xexFochZ+A==
   dependencies:
     "@babel/core" "^7.6.2"
     "@babel/plugin-proposal-class-properties" "^7.8.3"
@@ -1408,7 +1408,7 @@
     "@babel/preset-env" "^7.9.0"
     "@babel/preset-react" "^7.0.0"
     "@babel/preset-typescript" "^7.6.0"
-    "@dhis2/app-shell" "5.2.1"
+    "@dhis2/app-shell" "5.3.0"
     "@dhis2/cli-helpers-engine" "^1.5.0"
     archiver "^3.1.1"
     axios "^0.20.0"
@@ -1575,10 +1575,10 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^35.12.29":
-  version "35.12.29"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.12.29.tgz#76eb8be9385faa6a30e7c75ef5e0ed51ee716843"
-  integrity sha512-jxsxCq99rTwHXkgfA6Qv5CeN16PmFnS121LnN+df+VUjsDQxBFtWhRTL8MIu1xcF8Y8eMNJvQO2igLMa9qehLQ==
+"@dhis2/data-visualizer-plugin@^35.12.31":
+  version "35.12.31"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.12.31.tgz#4603570b8b9fd946e98674867c4d274570089aae"
+  integrity sha512-Rq51ne7++fEPc8dSUr6j1U6k5ZkhTbI4MSAwntP4IP/3JbDYznBbr4uw3ZZNbdkf0cIDysmCn8oxaeQIWEK4gQ==
   dependencies:
     "@dhis2/analytics" "^11.0.10"
     "@dhis2/ui" "^5.6.1"
