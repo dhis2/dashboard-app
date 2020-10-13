@@ -150,7 +150,6 @@ export class EditBar extends Component {
                 onRequestClose={this.toggleTranslationDialog}
                 objectToTranslate={this.state.dashboardModel}
                 fieldsToTranslate={['name', 'description']}
-                // TODO handle messages in snackbar
                 onTranslationSaved={this.onTranslationsSaved}
                 onTranslationError={err =>
                     console.log('translation update error', err)

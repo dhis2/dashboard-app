@@ -14,14 +14,14 @@ import LoadingMask from './LoadingMask'
 
 import * as pluginManager from './plugin'
 import { sGetVisualization } from '../../../reducers/visualizations'
+import { sGetSelectedItemActiveType } from '../../../reducers/selected'
+import { sGetIsEditing } from '../../../reducers/editDashboard'
 import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
 } from '../../../reducers/itemFilters'
-import {
-    acAddVisualization,
-    acSetActiveVisualizationType,
-} from '../../../actions/visualizations'
+import { acAddVisualization } from '../../../actions/visualizations'
+import { acSetSelectedItemActiveType } from '../../../actions/selected'
 import {
     VISUALIZATION,
     MAP,
@@ -64,7 +64,7 @@ export class Item extends Component {
     }
 
     async componentDidMount() {
-        this.props.onVisualizationLoaded(
+        this.props.updateVisualization(
             // TODO do not call fetch on the pluginManager, do it here as the manager will eventually be removed...
             await pluginManager.fetch(this.props.item)
         )
@@ -155,7 +155,7 @@ export class Item extends Component {
 
         const props = {
             ...this.props,
-            useActiveType: !isEditMode(this.props.dashboardMode),
+            activeType,
             visualization,
             classes,
             style: this.memoizedGetContentStyle(
@@ -253,13 +253,17 @@ export class Item extends Component {
         )
     }
 
-    onSelectActiveType = type => {
+    selectActiveType = type => {
         type !== this.getActiveType() &&
-            this.props.onSelectActiveType(this.props.visualization.id, type)
+            this.props.selectActiveType(this.props.item.id, type)
     }
 
-    getActiveType = () =>
-        this.props.visualization.activeType || this.props.item.type
+    getActiveType = () => {
+        if (this.props.isEditing) {
+            return this.props.item.type
+        }
+        return this.props.activeType || this.props.item.type
+    }
 
     pluginIsAvailable = () =>
         pluginManager.pluginIsAvailable(
@@ -283,7 +287,7 @@ export class Item extends Component {
             <ItemHeaderButtons
                 item={item}
                 visualization={this.props.visualization}
-                onSelectActiveType={this.onSelectActiveType}
+                onSelectActiveType={this.selectActiveType}
                 onToggleFooter={this.onToggleFooter}
                 d2={this.d2}
                 activeType={this.getActiveType()}
@@ -323,13 +327,15 @@ Item.contextTypes = {
 }
 
 Item.propTypes = {
+    activeType: PropTypes.string,
     dashboardMode: PropTypes.string,
+    isEditing: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
+    selectActiveType: PropTypes.func,
+    updateVisualization: PropTypes.func,
     visualization: PropTypes.object,
-    onSelectActiveType: PropTypes.func,
     onToggleItemExpanded: PropTypes.func,
-    onVisualizationLoaded: PropTypes.func,
 }
 
 Item.defaultProps = {
@@ -344,6 +350,8 @@ const mapStateToProps = (state, ownProps) => {
         : DEFAULT_STATE_ITEM_FILTERS
 
     return {
+        activeType: sGetSelectedItemActiveType(state, ownProps.item?.id),
+        isEditing: sGetIsEditing(state),
         itemFilters,
         visualization: sGetVisualization(
             state,
@@ -352,11 +360,9 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
-    onVisualizationLoaded: visualization =>
-        dispatch(acAddVisualization(visualization)),
-    onSelectActiveType: (id, type, activeType) =>
-        dispatch(acSetActiveVisualizationType(id, type, activeType)),
-})
+const mapDispatchToProps = {
+    selectActiveType: acSetSelectedItemActiveType,
+    updateVisualization: acAddVisualization,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Item)

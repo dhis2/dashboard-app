@@ -1,73 +1,68 @@
 import reducer, {
     DEFAULT_STATE_VISUALIZATIONS,
     ADD_VISUALIZATION,
-    SET_ACTIVE_VISUALIZATION_TYPE,
+    CLEAR_VISUALIZATIONS,
 } from '../visualizations'
 
 describe('visualizations reducer', () => {
-    const activeType = 'CHART'
-
     const visualization = {
-        id: 'abc',
-        name: 'funny name',
-    }
-
-    const visualizationWithActiveType = {
-        ...visualization,
-        activeType,
+        id: 'rainbowDash',
+        name: 'Rainbow Dash',
     }
 
     const state = {
         [visualization.id]: visualization,
     }
 
-    const stateWithActiveType = {
-        [visualization.id]: visualizationWithActiveType,
-    }
-
     it('should return the default state', () => {
-        const actualState = reducer(undefined, { type: 'NO_MATCH' })
+        const actualState = reducer(undefined, {})
         const expectedState = DEFAULT_STATE_VISUALIZATIONS
 
         expect(actualState).toEqual(expectedState)
     })
 
-    it('should add a visualization (ADD_VISUALIZATION)', () => {
+    it('adds a visualization (ADD_VISUALIZATION)', () => {
         const action = {
             type: ADD_VISUALIZATION,
             value: visualization,
         }
 
         const actualState = reducer(DEFAULT_STATE_VISUALIZATIONS, action)
-        const expectedState = state
 
-        expect(actualState).toEqual(expectedState)
+        expect(actualState).toEqual(state)
     })
 
-    it('should update a visualization with activeType (SET_ACTIVE_VISUALIZATION_TYPE)', () => {
+    it('updates a visualization', () => {
         const action = {
-            type: SET_ACTIVE_VISUALIZATION_TYPE,
-            id: visualization.id,
-            activeType,
+            type: ADD_VISUALIZATION,
+            value: visualization,
         }
 
-        const currentState = state
-        const expectedState = stateWithActiveType
-        const actualState = reducer(currentState, action)
+        const newState = reducer(undefined, action)
+        expect(newState).toEqual(state)
 
-        expect(actualState).toEqual(expectedState)
+        const value = Object.assign({}, visualization, { age: 10 })
+
+        const updatedState = reducer(newState, {
+            type: ADD_VISUALIZATION,
+            value,
+        })
+
+        expect(updatedState).toEqual({
+            rainbowDash: { id: 'rainbowDash', name: 'Rainbow Dash', age: 10 },
+        })
     })
 
-    it('should update a visualization with removed activeType (SET_ACTIVE_VISUALIZATION_TYPE)', () => {
+    it('clears the visualizations', () => {
         const action = {
-            type: SET_ACTIVE_VISUALIZATION_TYPE,
-            id: visualization.id,
+            type: ADD_VISUALIZATION,
+            value: visualization,
         }
 
-        const currentState = stateWithActiveType
-        const expectedState = state
-        const actualState = reducer(currentState, action)
+        const newState = reducer(undefined, action)
+        expect(newState).toEqual(state)
 
-        expect(actualState).toEqual(expectedState)
+        const updatedState = reducer(newState, { type: CLEAR_VISUALIZATIONS })
+        expect(updatedState).toEqual(DEFAULT_STATE_VISUALIZATIONS)
     })
 })
