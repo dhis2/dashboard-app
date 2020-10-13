@@ -51,13 +51,16 @@
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^5",
         "@dhis2/cli-style": "^7.0.0",
+        "@testing-library/jest-dom": "^5.11.4",
+        "@testing-library/react": "^11.0.4",
         "d2-manifest": "^1.0.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.2",
         "enzyme-to-json": "^3.5.0",
         "immutability-helper": "^3.1.1",
         "patch-package": "^6.2.2",
-        "postinstall-postinstall": "^2.1.0"
+        "postinstall-postinstall": "^2.1.0",
+        "redux-mock-store": "^1.5.4"
     },
     "jest": {
         "setupFilesAfterEnv": [

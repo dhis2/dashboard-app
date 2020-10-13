@@ -1,115 +1,206 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
-
+import { render } from '@testing-library/react'
+import { fireEvent } from '@testing-library/dom'
+import { Provider } from 'react-redux'
+import configureMockStore from 'redux-mock-store'
+import { Router } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
+import DashboardsBar, { MAX_ROW_COUNT } from '../DashboardsBar'
 import { MIN_ROW_COUNT } from '../controlBarDimensions'
-import { DashboardsBar, MAX_ROW_COUNT } from '../DashboardsBar'
-import ShowMoreButton from '../ShowMoreButton'
 import * as api from '../../../api/controlBar'
 
-describe('DashboardsBar', () => {
-    let props
-    let shallowDashboardsBar
-    const dashboardsBar = () => {
-        if (!shallowDashboardsBar) {
-            shallowDashboardsBar = shallow(<DashboardsBar {...props} />)
-        }
-        return shallowDashboardsBar
+// TODO this spy is an implementation detail
+jest.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => cb())
+
+const mockStore = configureMockStore()
+const dashboards = {
+    byId: {
+        rainbow123: {
+            id: 'rainbow123',
+            displayName: 'Rainbow Dash',
+            starred: false,
+        },
+        fluttershy123: {
+            id: 'fluttershy123',
+            displayName: 'Fluttershy',
+            starred: true,
+        },
+    },
+}
+
+test('renders a DashboardsBar with minimum height', () => {
+    const store = {
+        dashboards,
+        dashboardsFilter: '',
+        controlBar: { userRows: MIN_ROW_COUNT },
+        selected: { id: 'rainbow123' },
+    }
+    const { container } = render(
+        <Router history={createMemoryHistory()}>
+            <Provider store={mockStore(store)}>
+                <DashboardsBar />
+            </Provider>
+        </Router>
+    )
+    expect(container).toMatchSnapshot()
+})
+
+test('renders a DashboardsBar with maximum height', () => {
+    const store = {
+        dashboards,
+        dashboardsFilter: '',
+        controlBar: { userRows: MAX_ROW_COUNT },
+        selected: { id: 'rainbow123' },
+    }
+    const { container } = render(
+        <Router history={createMemoryHistory()}>
+            <Provider store={mockStore(store)}>
+                <DashboardsBar />
+            </Provider>
+        </Router>
+    )
+    expect(container).toMatchSnapshot()
+})
+
+test('renders a DashboardsBar with selected item', () => {
+    const store = {
+        dashboards,
+        dashboardsFilter: '',
+        controlBar: { userRows: MIN_ROW_COUNT },
+        selected: { id: 'fluttershy123' },
     }
 
-    beforeEach(() => {
-        props = {
-            dashboards: {},
-            filterText: '',
-            history: {},
-            selectedId: null,
-            userRows: MIN_ROW_COUNT,
-            onChangeHeight: undefined,
-        }
-        shallowDashboardsBar = undefined
+    const { container } = render(
+        <Router history={createMemoryHistory()}>
+            <Provider store={mockStore(store)}>
+                <DashboardsBar />
+            </Provider>
+        </Router>
+    )
+    expect(container).toMatchSnapshot()
+})
+
+test('renders a DashboardsBar with no items', () => {
+    const store = {
+        dashboards: { byId: {} },
+        dashboardsFilter: '',
+        controlBar: { userRows: MIN_ROW_COUNT },
+        selected: { id: 'rainbow123' },
+    }
+
+    const { container } = render(
+        <Router history={createMemoryHistory()}>
+            <Provider store={mockStore(store)}>
+                <DashboardsBar />
+            </Provider>
+        </Router>
+    )
+    expect(container).toMatchSnapshot()
+})
+
+test('clicking "Show more" maximizes dashboards bar height', () => {
+    const store = {
+        dashboards,
+        dashboardsFilter: '',
+        controlBar: { userRows: MIN_ROW_COUNT },
+        selected: { id: 'fluttershy123' },
+    }
+    const { getByText, asFragment } = render(
+        <Router history={createMemoryHistory()}>
+            <Provider store={mockStore(store)}>
+                <DashboardsBar />
+            </Provider>
+        </Router>
+    )
+
+    fireEvent.click(getByText('Show more'))
+    expect(asFragment()).toMatchSnapshot()
+})
+
+test('triggers onChangeHeight when controlbar height is changed', () => {
+    const store = mockStore({
+        dashboards,
+        dashboardsFilter: '',
+        controlBar: { userRows: MIN_ROW_COUNT },
+        selected: { id: 'fluttershy123' },
     })
+    const { getByTestId } = render(
+        <Router history={createMemoryHistory()}>
+            <Provider store={store}>
+                <DashboardsBar />
+            </Provider>
+        </Router>
+    )
 
-    it('renders a DashboardsBar with no items', () => {
-        expect(toJson(dashboardsBar())).toMatchSnapshot()
+    const spy = jest.spyOn(api, 'apiPostControlBarRows')
+
+    // TODO - these are implementation details! Refactor the component so this
+    // isn't necessary to run the test
+    fireEvent.mouseDown(getByTestId('controlbar-drag-handle'))
+    fireEvent.mouseMove(window, { clientY: 777 })
+    fireEvent.mouseUp(window)
+
+    const actions = store.getActions()
+
+    expect(actions.length).toEqual(1)
+    expect(actions[0].type).toEqual('SET_CONTROLBAR_USER_ROWS')
+    expect(actions[0].value).toEqual(10)
+
+    spy.mockRestore()
+})
+
+test('does not trigger onChangeHeight when controlbar height is changed to similar value', () => {
+    const store = mockStore({
+        dashboards,
+        dashboardsFilter: '',
+        controlBar: { userRows: MIN_ROW_COUNT },
+        selected: { id: 'fluttershy123' },
     })
+    const { getByTestId } = render(
+        <Router history={createMemoryHistory()}>
+            <Provider store={store}>
+                <DashboardsBar />
+            </Provider>
+        </Router>
+    )
 
-    it('does not render ShowMoreButton when userRows is MAX_ROW_COUNT', () => {
-        props.userRows = MAX_ROW_COUNT
-        expect(toJson(dashboardsBar())).toMatchSnapshot()
-    })
+    const spy = jest.spyOn(api, 'apiPostControlBarRows')
 
-    it('renders ShowMoreButton when userRows is less than MAX_ROW_COUNT', () => {
-        props.userRows = MAX_ROW_COUNT - 1
-        expect(toJson(dashboardsBar())).toMatchSnapshot()
-    })
+    // TODO - these are implementation details! Refactor the component so this
+    // isn't necessary to run the test
+    fireEvent.mouseDown(getByTestId('controlbar-drag-handle'))
+    fireEvent.mouseMove(window, { clientY: 80 })
+    fireEvent.mouseUp(window)
 
-    describe('when ShowMore button is toggled', () => {
-        it('sets the correct value for isMaxHeight property', () => {
-            const bar = dashboardsBar()
-            const btn = bar.find(ShowMoreButton)
-            btn.simulate('click')
-            const rerenderedBtn = bar.find(ShowMoreButton)
+    const actions = store.getActions()
 
-            expect(btn.props().isMaxHeight).not.toEqual(
-                rerenderedBtn.props().isMaxHeight
-            )
-        })
-    })
+    expect(actions.length).toEqual(0)
+    spy.mockRestore()
+})
 
-    it('calls the api to post user rows when drag ends', () => {
-        const spy = jest.spyOn(api, 'apiPostControlBarRows')
+test('calls the api to post user rows when drag ends', () => {
+    const store = {
+        dashboards,
+        dashboardsFilter: '',
+        controlBar: { userRows: MIN_ROW_COUNT },
+        selected: { id: 'rainbow123' },
+    }
+    const { getByTestId } = render(
+        <Router history={createMemoryHistory()}>
+            <Provider store={mockStore(store)}>
+                <DashboardsBar />
+            </Provider>
+        </Router>
+    )
 
-        const controlBar = dashboardsBar()
-        controlBar.simulate('endDrag')
+    const spy = jest.spyOn(api, 'apiPostControlBarRows')
 
-        expect(spy).toHaveBeenCalled()
-    })
+    // TODO - these are implementation details! Refactor the component so this
+    // isn't necessary to run the test
+    fireEvent.mouseDown(getByTestId('controlbar-drag-handle'))
+    fireEvent.mouseMove(window, { clientY: 333 })
+    fireEvent.mouseUp(window)
 
-    it('triggers onChangeHeight when controlbar height is changed', () => {
-        props.onChangeHeight = jest.fn()
-        props.userRows = MAX_ROW_COUNT - 1
-        const dbr = dashboardsBar()
-
-        const newPixelHeight = 200 // should be equivalent to 3 rows
-        dbr.simulate('changeHeight', newPixelHeight)
-        expect(props.onChangeHeight).toHaveBeenCalled()
-        expect(props.onChangeHeight).toHaveBeenCalledWith(3)
-    })
-
-    it('does not trigger onChangeHeight when controlbar height is changed to similar value', () => {
-        props.onChangeHeight = jest.fn()
-        props.userRows = MIN_ROW_COUNT
-
-        const dbr = dashboardsBar()
-
-        const newPixelHeight = 50 //should result in 1 row, same as current
-        dbr.simulate('changeHeight', newPixelHeight)
-        expect(props.onChangeHeight).not.toHaveBeenCalled()
-    })
-
-    describe('when dashboards are provided', () => {
-        beforeEach(() => {
-            props.dashboards = {
-                rainbow123: {
-                    id: 'rainbow123',
-                    displayName: 'Rainbow Dash',
-                    starred: false,
-                },
-                fluttershy123: {
-                    id: 'fluttershy123',
-                    displayName: 'Fluttershy',
-                    starred: true,
-                },
-            }
-        })
-
-        it('renders DashboardItemChips for each item on dashboard', () => {
-            expect(toJson(dashboardsBar())).toMatchSnapshot()
-        })
-
-        it('renders correctly for selected item', () => {
-            props.selectedId = 'fluttershy123'
-            expect(toJson(dashboardsBar())).toMatchSnapshot()
-        })
-    })
+    expect(spy).toHaveBeenCalledTimes(1)
+    spy.mockRestore()
 })
