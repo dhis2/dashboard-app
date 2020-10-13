@@ -16,7 +16,8 @@ describe('Filter', () => {
     beforeEach(() => {
         props = {
             filterText: '',
-            onChangeFilterText: jest.fn(),
+            setDashboardsFilter: jest.fn(),
+            clearDashboardsFilter: jest.fn(),
             onKeypressEnter: jest.fn(),
             classes: {},
         }
@@ -33,12 +34,12 @@ describe('Filter', () => {
             filterWrapper.setProps({ filterText: 'rainbow' })
 
             expect(filterWrapper.find('input').props().value).toEqual('rainbow')
-            expect(props.onChangeFilterText).not.toHaveBeenCalled()
+            expect(props.setDashboardsFilter).not.toHaveBeenCalled()
         })
     })
 
     describe('when input value is changed', () => {
-        it('triggers onChangeFilterText property with correct value', () => {
+        it('triggers setDashboardsFilter property with correct value', () => {
             const newValue = 'fluttershy'
             const e = {
                 target: { value: newValue },
@@ -47,8 +48,8 @@ describe('Filter', () => {
             const inputField = filter().find('input')
             inputField.simulate('change', e)
             expect(e.preventDefault).toHaveBeenCalledTimes(1)
-            expect(props.onChangeFilterText).toHaveBeenCalledTimes(1)
-            expect(props.onChangeFilterText).toHaveBeenCalledWith(newValue)
+            expect(props.setDashboardsFilter).toHaveBeenCalledTimes(1)
+            expect(props.setDashboardsFilter).toHaveBeenCalledWith(newValue)
         })
     })
 
@@ -59,19 +60,18 @@ describe('Filter', () => {
                 .simulate('keyUp', { keyCode: KEYCODE_ENTER })
 
             expect(props.onKeypressEnter).toHaveBeenCalledTimes(1)
-            expect(props.onChangeFilterText).toHaveBeenCalled()
+            expect(props.clearDashboardsFilter).toHaveBeenCalledTimes(1)
         })
 
-        it('triggers onChangeFilterText when key is ESCAPE', () => {
-            props.onChangeFilterText = jest.fn()
+        it('triggers setDashboardsFilter when key is ESCAPE', () => {
+            props.setDashboardsFilter = jest.fn()
             props.onKeypressEnter = jest.fn()
 
             filter()
                 .find('input')
                 .simulate('keyUp', { keyCode: KEYCODE_ESCAPE })
 
-            expect(props.onChangeFilterText).toHaveBeenCalledTimes(1)
-            expect(props.onChangeFilterText).toHaveBeenCalledWith()
+            expect(props.clearDashboardsFilter).toHaveBeenCalledTimes(1)
             expect(props.onKeypressEnter).not.toHaveBeenCalled()
         })
     })

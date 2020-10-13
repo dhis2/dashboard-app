@@ -6,33 +6,37 @@ import cx from 'classnames'
 import SearchIcon from '../../icons/Search'
 import ClearButton from './ClearButton'
 
-import { acSetFilterName } from '../../actions/dashboardsFilter'
-import { sGetFilterName } from '../../reducers/dashboardsFilter'
+import {
+    acSetDashboardsFilter,
+    acClearDashboardsFilter,
+} from '../../actions/dashboardsFilter'
+import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
 
 import classes from './styles/Filter.module.css'
 
 export const KEYCODE_ENTER = 13
 export const KEYCODE_ESCAPE = 27
 
-export const Filter = ({ filterText, onChangeFilterText, onKeypressEnter }) => {
+export const Filter = ({
+    clearDashboardsFilter,
+    filterText,
+    setDashboardsFilter,
+    onKeypressEnter,
+}) => {
     const [focusedClassName, setFocusedClassName] = useState('')
     const setFilterValue = event => {
         event.preventDefault()
-        onChangeFilterText(event.target.value)
-    }
-
-    const clearFilterText = () => {
-        onChangeFilterText()
+        setDashboardsFilter(event.target.value)
     }
 
     const onKeyUp = event => {
         switch (event.keyCode) {
             case KEYCODE_ENTER:
                 onKeypressEnter()
-                clearFilterText()
+                clearDashboardsFilter()
                 break
             case KEYCODE_ESCAPE:
-                clearFilterText()
+                clearDashboardsFilter()
                 break
             default:
                 break
@@ -64,21 +68,25 @@ export const Filter = ({ filterText, onChangeFilterText, onKeypressEnter }) => {
                 onKeyUp={onKeyUp}
                 value={filterText}
             />
-            {filterText && <ClearButton onClear={() => clearFilterText()} />}
+            {filterText && <ClearButton onClear={clearDashboardsFilter} />}
         </div>
     )
 }
 
 Filter.propTypes = {
+    clearDashboardsFilter: PropTypes.func,
     filterText: PropTypes.string,
-    onChangeFilterText: PropTypes.func,
+    setDashboardsFilter: PropTypes.func,
     onKeypressEnter: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
-    filterText: sGetFilterName(state),
+    filterText: sGetDashboardsFilter(state),
 })
 
-const mapDispatchToProps = { onChangeFilterText: acSetFilterName }
+const mapDispatchToProps = {
+    setDashboardsFilter: acSetDashboardsFilter,
+    clearDashboardsFilter: acClearDashboardsFilter,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter)

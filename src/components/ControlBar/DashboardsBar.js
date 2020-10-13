@@ -18,7 +18,7 @@ import {
     getControlBarHeight,
     getNumRowsFromHeight,
 } from './controlBarDimensions'
-import { sGetFilterName } from '../../reducers/dashboardsFilter'
+import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
 import { sGetControlBarUserRows } from '../../reducers/controlBar'
 import { sGetAllDashboards } from '../../reducers/dashboards'
 import { sGetSelectedId } from '../../reducers/selected'
@@ -136,7 +136,7 @@ DashboardsBar.propTypes = {
 
 const mapStateToProps = state => ({
     dashboards: sGetAllDashboards(state),
-    filterText: sGetFilterName(state),
+    filterText: sGetDashboardsFilter(state),
     selectedId: sGetSelectedId(state),
     userRows: sGetControlBarUserRows(state),
 })
