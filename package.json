@@ -50,7 +50,7 @@
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^5",
-        "@dhis2/cli-style": "^7.0.0",
+        "@dhis2/cli-style": "^7.1.0",
         "d2-manifest": "^1.0.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.2",
