@@ -14,6 +14,10 @@ const getRouteFromHash = hash => {
     return hash.slice(lastSlashIdx + 1)
 }
 
+beforeEach(() => {
+    cy.visit('/')
+})
+
 Given('user chooses to create new dashboard', () => {
     cy.get('[data-test="dhis2-dashboard-link-new-dashboard"]').click()
 })
