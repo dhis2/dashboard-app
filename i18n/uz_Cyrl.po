@@ -35,6 +35,9 @@ msgid ""
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"Панелни ўчириш {{БошқарувПанелиНоми}}, уни барча фойдаланувчилар учун "
+"ўчирилишига олиб келади. Бу ҳаракатни орқага қайтариб бўлмайди. Ҳақиқатдан "
+"ҳам ушбу панелни орқага қайтариб бўлмаслик шарти билан ўчирмоқчимисиз?"
 
 msgid "Exit Print preview"
 msgstr "Чоп этишдан аввалги кўрикдан чиқинг"
@@ -49,7 +52,7 @@ msgid "Translate"
 msgstr "Таржима қилинг"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Сақламасдан чиқиш"
 
 msgid "Go to dashboards"
 msgstr "Бошқарув панелларига ўтиш"
@@ -65,9 +68,11 @@ msgstr "Камроқ кўрсатилсин"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
+"Бошқарув панели топилмади. Янги бошқарув панелини яратиш учун + тугмасини "
+"босинг."
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "Сўралган бошқарув панели топилмади"
 
 msgid "No access"
 msgstr "Кириш таъқиқланган"
@@ -127,26 +132,28 @@ msgid "Filters applied"
 msgstr ""
 
 msgid "Spacer"
-msgstr ""
+msgstr "Бўш жой"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Мониторинг панелида элементлар орасида вертикал бўш жой яратиш учун бўш жой "
+"қолдириш функциясидан фойдаланинг"
 
 msgid "Text item"
-msgstr ""
+msgstr "Матн элементи"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Матнни шу ерга қўшинг"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Ушбу элемент учун плагин юкланмади"
 
 msgid "There was a problem loading this dashboard item"
 msgstr ""
 
 msgid "No data to display"
-msgstr ""
+msgstr "Маълумот экранга чиқарилмади"
 
 msgid "Hide interpretations and details"
 msgstr ""
@@ -170,22 +177,22 @@ msgid "Confirm"
 msgstr "Тасдиқланг"
 
 msgid "Add filter"
-msgstr ""
+msgstr "Фильтр киритиш"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "Ушбу бошқарув панелида элементлар йўқ"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "Камроқ кўрсатиш"
 
 msgid "Insert"
-msgstr ""
+msgstr "Киритиш"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Ушбу бошқарув панелига киритиш учун элементларни қидиринг"
 
 msgid "Additional items"
-msgstr ""
+msgstr "Қўшимча элементлар"
 
 msgid "Text box"
 msgstr "Матн жойи"
