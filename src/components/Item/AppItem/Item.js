@@ -14,7 +14,7 @@ import {
 
 import { isEditMode } from '../../Dashboard/dashboardModes'
 
-const getIframeSrc = (appDetails, item, itemFilters = {}) => {
+const getIframeSrc = (appDetails, item, itemFilters) => {
     let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`
 
     if (itemFilters[FILTER_ORG_UNIT] && itemFilters[FILTER_ORG_UNIT].length) {
