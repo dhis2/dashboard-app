@@ -3,26 +3,19 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import NotInterestedIcon from '@material-ui/icons/NotInterested'
 
-import { FILTER_ORG_UNIT } from '../../../actions/itemFilters'
-import {
-    sGetItemFiltersRoot,
-    DEFAULT_STATE_ITEM_FILTERS,
-} from '../../../reducers/itemFilters'
 import ItemHeader from '../ItemHeader/ItemHeader'
 import Line from '../../../widgets/Line'
 
+import { sGetOuItemFilters } from '../../../reducers/itemFilters'
+
 import { isEditMode } from '../../Dashboard/dashboardModes'
 
-const getIframeSrc = (appDetails, item, itemFilters) => {
+const getIframeSrc = (appDetails, item, ouItemFilters) => {
     let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`
 
-    if (
-        itemFilters &&
-        itemFilters[FILTER_ORG_UNIT] &&
-        itemFilters[FILTER_ORG_UNIT].length
-    ) {
-        const ouIds = itemFilters[FILTER_ORG_UNIT].map(
-            ouPath => ouPath.split('/').slice(-1)[0]
+    if (ouItemFilters && ouItemFilters.length) {
+        const ouIds = ouItemFilters.map(
+            ouFilter => ouFilter.path.split('/').slice(-1)[0]
         )
 
         iframeSrc += `&userOrgUnit=${ouIds.join(',')}`
@@ -31,7 +24,7 @@ const getIframeSrc = (appDetails, item, itemFilters) => {
     return iframeSrc
 }
 
-const AppItem = ({ dashboardMode, item, itemFilters }, context) => {
+const AppItem = ({ dashboardMode, item, ouItemFilters }, context) => {
     let appDetails
 
     const appKey = item.appKey
@@ -53,7 +46,7 @@ const AppItem = ({ dashboardMode, item, itemFilters }, context) => {
             <Line />
             <iframe
                 title={appDetails.name}
-                src={getIframeSrc(appDetails, item, itemFilters)}
+                src={getIframeSrc(appDetails, item, ouItemFilters)}
                 className="dashboard-item-content"
                 style={{ border: 'none' }}
             />
@@ -84,7 +77,7 @@ const AppItem = ({ dashboardMode, item, itemFilters }, context) => {
 AppItem.propTypes = {
     dashboardMode: PropTypes.string,
     item: PropTypes.object,
-    itemFilters: PropTypes.object,
+    ouItemFilters: PropTypes.array,
 }
 
 AppItem.contextTypes = {
@@ -92,11 +85,11 @@ AppItem.contextTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const itemFilters = !isEditMode(ownProps.dashboardMode)
-        ? sGetItemFiltersRoot(state)
-        : DEFAULT_STATE_ITEM_FILTERS
+    const ouItemFilters = !isEditMode(ownProps.dashboardMode)
+        ? sGetOuItemFilters(state)
+        : undefined
 
-    return { itemFilters }
+    return { ouItemFilters }
 }
 
 export default connect(mapStateToProps)(AppItem)

@@ -56,3 +56,7 @@ export const sGetNamedItemFilters = createSelector(
             return arr
         }, [])
 )
+
+const FILTER_ORG_UNIT = 'ou'
+export const sGetOuItemFilters = state =>
+    sGetItemFiltersRoot(state)[FILTER_ORG_UNIT]
