@@ -5,6 +5,8 @@ import {
     CLEAR_ITEM_FILTERS,
 } from '../reducers/itemFilters'
 
+export const FILTER_ORG_UNIT = 'ou'
+
 // actions
 
 export const acAddItemFilter = filter => ({
