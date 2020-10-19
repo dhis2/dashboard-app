@@ -17,7 +17,7 @@ const getIframeSrc = (appDetails, item, itemFilters) => {
         itemFilters[FILTER_ORG_UNIT].length
     ) {
         const ouIds = itemFilters[FILTER_ORG_UNIT].map(
-            ouPath => ouPath.split('/').slice(-1)[0]
+            ouFilter => ouFilter.path.split('/').slice(-1)[0]
         );
 
         iframeSrc += `&userOrgUnit=${ouIds.join(',')}`;

@@ -89,6 +89,8 @@
         "@dhis2/cli-style": "^5.0.3",
         "@dhis2/d2-i18n-extract": "^1.0.8",
         "@dhis2/d2-i18n-generate": "^1.1.1",
+        "@testing-library/jest-dom": "^5.11.4",
+        "@testing-library/react": "^11.1.0",
         "d2-manifest": "^1.0.0",
         "enzyme": "^3.9.0",
         "enzyme-adapter-react-16": "^1.10.0",
@@ -97,6 +99,7 @@
         "eslint-plugin-react-hooks": "^2.3.0",
         "husky": "^4.2.5",
         "immutability-helper": "^3.0.0",
-        "prettier": "^1.16.4"
+        "prettier": "^1.16.4",
+        "redux-mock-store": "^1.5.4"
     }
 }
