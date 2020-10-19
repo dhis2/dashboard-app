@@ -17,7 +17,11 @@ import { isEditMode } from '../../Dashboard/dashboardModes'
 const getIframeSrc = (appDetails, item, itemFilters) => {
     let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`
 
-    if (itemFilters[FILTER_ORG_UNIT] && itemFilters[FILTER_ORG_UNIT].length) {
+    if (
+        itemFilters &&
+        itemFilters[FILTER_ORG_UNIT] &&
+        itemFilters[FILTER_ORG_UNIT].length
+    ) {
         const ouIds = itemFilters[FILTER_ORG_UNIT].map(
             ouFilter => ouFilter.path.split('/').slice(-1)[0]
         )
