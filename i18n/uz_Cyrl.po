@@ -19,13 +19,13 @@ msgid "Delete"
 msgstr "Ўчириш"
 
 msgid "Continue editing"
-msgstr ""
+msgstr "Таҳрирлашни давом этиш"
 
 msgid "Confirm delete dashboard"
-msgstr ""
+msgstr "Бошқарув панелини ўчиришни тасдиқлаш"
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr ""
+msgstr "Бошқарув панелини ўчиришни хохлайсизми \"{{БошқарувПанелиНоми}}\"?"
 
 msgid "Save changes"
 msgstr "Ўзгартиришни сақлаш"
@@ -34,7 +34,7 @@ msgid "Translate"
 msgstr "Таржима қилинг"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Сақламасдан чиқиш"
 
 msgid "Search for a dashboard"
 msgstr "Бошқариш панелида излаш"
@@ -70,41 +70,45 @@ msgid "Add your interpretation"
 msgstr ""
 
 msgid "Spacer"
-msgstr ""
+msgstr "Бўш жой"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Мониторинг панелида элементлар орасида вертикал бўш жой яратиш учун бўш жой "
+"қолдириш функциясидан фойдаланинг"
 
 msgid "Text item"
-msgstr ""
+msgstr "Матн элементи"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Матнни шу ерга қўшинг"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "Ушбу бошқарув панелида элементлар йўқ"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Ушбу бошқарув панелига киритиш учун элементларни қидиринг"
 
 msgid "See"
-msgstr ""
+msgstr "Кўриш"
 
 msgid "fewer"
-msgstr ""
+msgstr "камроқ"
 
 msgid "more"
-msgstr ""
+msgstr "кўпроқ"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
+"Бошқарув панели топилмади. Янги бошқарув панелини яратиш учун + тугмасини "
+"босинг."
 
 msgid "Add title here"
-msgstr ""
+msgstr "Сарлавҳани шу ерга киритинг"
 
 msgid "Add description here"
-msgstr ""
+msgstr "Тавсифни шу ерга қўшинг"
 
 msgid "No description"
 msgstr "Тавсиф йўқ"
