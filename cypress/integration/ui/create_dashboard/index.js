@@ -8,10 +8,20 @@ const ROUTE_EDIT = 'edit'
 const ROUTE_NEW = 'new'
 const ROUTE_PRINTLAYOUT = 'printlayout'
 const ROUTE_PRINTOIPP = 'printoipp'
+const nonViewRoutes = [
+    ROUTE_NEW,
+    ROUTE_EDIT,
+    ROUTE_PRINTLAYOUT,
+    ROUTE_PRINTOIPP,
+]
 
 const getRouteFromHash = hash => {
     const lastSlashIdx = hash.lastIndexOf('/')
     return hash.slice(lastSlashIdx + 1)
+}
+
+const toggleShowMoreButton = () => {
+    cy.get('[data-test="dhis2-dashboard-showmore-button"]').click()
 }
 
 beforeEach(() => {
@@ -49,12 +59,6 @@ Then('the saved dashboard should be displayed', () => {
 
 Then('dashboard displays in view mode', () => {
     cy.location().should(loc => {
-        const nonViewRoutes = [
-            ROUTE_NEW,
-            ROUTE_EDIT,
-            ROUTE_PRINTLAYOUT,
-            ROUTE_PRINTOIPP,
-        ]
         const currentRoute = getRouteFromHash(loc.hash)
 
         expect(nonViewRoutes).not.to.include(currentRoute)
@@ -63,7 +67,7 @@ Then('dashboard displays in view mode', () => {
 })
 
 Given('user opens existing dashboard', () => {
-    cy.get('[data-test="dhis2-dashboard-showmore-button"]').click()
+    toggleShowMoreButton()
     cy.get('[data-test="dhis2-dashboard-dashboard-chip"]')
         .contains(dashboardTitle)
         .click()
@@ -96,7 +100,7 @@ Then('the dashboard displays in edit mode', () => {
 })
 
 Then('the dashboard is deleted and first starred dashboard displayed', () => {
-    cy.get('[data-test="dhis2-dashboard-showmore-button"]').click()
+    toggleShowMoreButton()
     cy.get('[data-test="dhis2-dashboard-dashboard-chip"]')
         .contains(dashboardTitle)
         .should('not.exist')

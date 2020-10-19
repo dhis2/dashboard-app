@@ -12,9 +12,7 @@ export default class NetworkShim {
             duplicates: 0,
             nonDeterministicResponses: 0,
             requests: {},
-            ignoredRequests: [],
         }
-        cy.log(`initCaptureMode************ ${this.state.requests.length}`)
     }
 
     initStubMode() {
@@ -36,7 +34,6 @@ export default class NetworkShim {
     }
 
     captureRequestsAndResponses() {
-        this.state.ignoredRequests.concat('here')
         cy.server({
             onAnyRequest: this.captureRequest,
             onAnyResponse: this.captureResponse,
@@ -64,8 +61,6 @@ export default class NetworkShim {
     }
 
     processRequest(xhr) {
-        // this.state.ignoredRequests = 'processRequest'
-        this.state.ignoredRequests.push(`process ${xhr.url}`)
         const host = this.hosts.find(host => xhr.url.indexOf(host) === 0)
         const path = xhr.url.substr(host.length)
         const key = this.createKey(xhr.method, path, xhr.request.body)
@@ -146,11 +141,6 @@ export default class NetworkShim {
         const requestArray = Object.values(this.state.requests)
         cy.log(
             `Networkshim successfully captured ${requestArray.length} requests`,
-            this.state
-        )
-        cy.log(`hosts is ${this.hosts}`)
-        cy.log(
-            `ignored requests total is: ${this.state.ignoredRequests[0]}, ${this.state.ignoredRequests[1]}, ${this.state.ignoredRequests[2]}, ${this.state.ignoredRequests[3]}`,
             this.state
         )
         cy.writeFile(getFileName(), {

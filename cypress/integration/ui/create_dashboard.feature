@@ -1,4 +1,4 @@
-Feature: The dashboard is displayed
+Feature: Creating and deleting dashboard
 
     Scenario: User creates a new dashboard
         Given user chooses to create new dashboard

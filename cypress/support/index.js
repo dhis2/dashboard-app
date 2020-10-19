@@ -1,10 +1,8 @@
 import '@dhis2/cli-utils-cypress/support'
 
 import { enableNetworkShim, loginAndPersistSession } from './server'
-//
-// import './commands'
-//
-// enableNetworkShim()
+
+enableNetworkShim()
 loginAndPersistSession()
 
 beforeEach(() => {
@@ -16,8 +14,3 @@ beforeEach(() => {
     */
     // cy.clearCookies({ domain: null })
 })
-
-// Logging in this way works
-// beforeEach(() => {
-//     cy.loginThroughForm()
-// })
