@@ -30,10 +30,10 @@ import {
 
 const iconFill = { fill: colors.grey600 }
 
-const ItemHeaderButtons = props => {
+const ItemHeaderButtons = (props, context) => {
     const [anchorEl, setAnchorEl] = useState(null)
 
-    const { item, visualization, onSelectActiveType, d2, activeType } = props
+    const { item, visualization, onSelectActiveType, activeType } = props
 
     const isTrackerType = isTrackerDomainType(item.type)
 
@@ -129,7 +129,7 @@ const ItemHeaderButtons = props => {
                             label={i18n.t('Open in {{appName}} app', {
                                 appName: getAppName(item.type),
                             })}
-                            href={getLink(item, d2)}
+                            href={getLink(item, context.d2)}
                             target="_blank"
                         />
                         <MenuItem
@@ -148,11 +148,14 @@ const ItemHeaderButtons = props => {
 ItemHeaderButtons.propTypes = {
     activeFooter: PropTypes.bool,
     activeType: PropTypes.string,
-    d2: PropTypes.object,
     item: PropTypes.object,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,
+}
+
+ItemHeaderButtons.contextTypes = {
+    d2: PropTypes.object,
 }
 
 export default ItemHeaderButtons

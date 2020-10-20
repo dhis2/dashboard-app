@@ -289,7 +289,6 @@ export class Item extends Component {
                 visualization={this.props.visualization}
                 onSelectActiveType={this.selectActiveType}
                 onToggleFooter={this.onToggleFooter}
-                d2={this.d2}
                 activeType={this.getActiveType()}
                 activeFooter={this.state.showFooter}
             />
