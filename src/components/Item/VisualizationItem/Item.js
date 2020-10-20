@@ -15,6 +15,7 @@ import LoadingMask from './LoadingMask'
 import NoVisualizationMessage from './NoVisualizationMessage'
 
 import * as pluginManager from './plugin'
+import getVisualizationConfig from './modules/getVisualizationConfig'
 import { sGetVisualization } from '../../../reducers/visualizations'
 import { sGetSelectedItemActiveType } from '../../../reducers/selected'
 import { sGetIsEditing } from '../../../reducers/editDashboard'
@@ -56,9 +57,7 @@ export class Item extends Component {
 
         this.memoizedApplyFilters = memoizeOne(this.applyFilters)
 
-        this.memoizedGetVisualizationConfig = memoizeOne(
-            pluginManager.getVisualizationConfig
-        )
+        this.memoizedGetVisualizationConfig = memoizeOne(getVisualizationConfig)
 
         this.memoizedGetContentStyle = memoizeOne(this.getContentStyle)
     }

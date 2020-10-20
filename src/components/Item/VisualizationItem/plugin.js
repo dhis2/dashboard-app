@@ -1,5 +1,4 @@
 import isObject from 'lodash/isObject'
-import { VIS_TYPE_COLUMN, VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 import { apiFetchFavorite, getMapFields } from '../../../api/metadata'
 import {
     REPORT_TABLE,
@@ -9,7 +8,7 @@ import {
     EVENT_CHART,
     itemTypeMap,
 } from '../../../modules/itemTypes'
-import { getBaseUrl, getWithoutId } from '../../../modules/util'
+import { getBaseUrl } from '../../../modules/util'
 import { getGridItemDomId } from '../../ItemGrid/gridUtil'
 
 //external plugins
@@ -28,8 +27,6 @@ const getPlugin = type => {
 
     return global[pluginName]
 }
-
-export const THEMATIC_LAYER = 'thematic'
 
 export const pluginIsAvailable = (item = {}, visualization = {}) => {
     const type = visualization.activeType || item.type
@@ -54,9 +51,6 @@ export const extractFavorite = item => {
         {}
     )
 }
-
-export const extractMapView = map =>
-    map.mapViews && map.mapViews.find(mv => mv.layer.includes(THEMATIC_LAYER))
 
 export const loadPlugin = (plugin, config, credentials) => {
     if (!(plugin && plugin.load)) {
@@ -121,34 +115,4 @@ export const unmount = (item, activeType) => {
     if (plugin && plugin.unmount) {
         plugin.unmount(getGridItemDomId(item.id))
     }
-}
-
-export const getVisualizationConfig = (
-    visualization,
-    originalType,
-    activeType
-) => {
-    if (originalType === MAP && originalType !== activeType) {
-        const extractedMapView = extractMapView(visualization)
-
-        if (extractedMapView === undefined) {
-            return null
-        }
-
-        return getWithoutId({
-            ...visualization,
-            ...extractedMapView,
-            mapViews: undefined,
-            type: activeType === CHART ? VIS_TYPE_COLUMN : VIS_TYPE_PIVOT_TABLE,
-        })
-    } else if (originalType === REPORT_TABLE && activeType === CHART) {
-        return getWithoutId({ ...visualization, type: VIS_TYPE_COLUMN })
-    } else if (originalType === CHART && activeType === REPORT_TABLE) {
-        return getWithoutId({
-            ...visualization,
-            type: VIS_TYPE_PIVOT_TABLE,
-        })
-    }
-
-    return getWithoutId(visualization)
 }
