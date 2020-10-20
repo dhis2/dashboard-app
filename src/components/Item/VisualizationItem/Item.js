@@ -59,7 +59,7 @@ export class Item extends Component {
 
         this.memoizedGetVisualizationConfig = memoizeOne(getVisualizationConfig)
 
-        this.memoizedGetContentStyle = memoizeOne(this.getContentStyle)
+        this.memoizedGetContentHeight = memoizeOne(this.getContentHeight)
     }
 
     async componentDidMount() {
@@ -146,23 +146,12 @@ export class Item extends Component {
             )
         }
 
-        const calculatedHeight =
-            this.props.item.originalHeight -
-            this.headerRef.current.clientHeight -
-            HEADER_MARGIN_HEIGHT -
-            ITEM_CONTENT_PADDING_BOTTOM
-
         const props = {
             item: this.props.item,
             itemFilters: this.props.itemFilters,
             activeType,
             visualization,
-            style: this.memoizedGetContentStyle(
-                calculatedHeight,
-                this.contentRef ? this.contentRef.offsetHeight : null,
-                isEditMode(this.props.dashboardMode) ||
-                    isPrintMode(this.props.dashboardMode)
-            ),
+            style: this.getPluginStyle(),
         }
 
         switch (activeType) {
@@ -239,7 +228,22 @@ export class Item extends Component {
             this.props.visualization
         )
 
-    getContentStyle = (calculatedHeight, measuredHeight, preferMeasured) => {
+    getPluginStyle = () => {
+        const calculatedHeight =
+            this.props.item.originalHeight -
+            this.headerRef.current.clientHeight -
+            HEADER_MARGIN_HEIGHT -
+            ITEM_CONTENT_PADDING_BOTTOM
+
+        return this.memoizedGetContentHeight(
+            calculatedHeight,
+            this.contentRef ? this.contentRef.offsetHeight : null,
+            isEditMode(this.props.dashboardMode) ||
+                isPrintMode(this.props.dashboardMode)
+        )
+    }
+
+    getContentHeight = (calculatedHeight, measuredHeight, preferMeasured) => {
         const height = preferMeasured
             ? measuredHeight || calculatedHeight
             : calculatedHeight
