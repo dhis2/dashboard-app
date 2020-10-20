@@ -97,12 +97,8 @@ class DefaultPlugin extends Component {
 
     render() {
         const { item, visualization, style } = this.props
-        const pluginIsAvailable = pluginManager.pluginIsAvailable(
-            item,
-            visualization
-        )
 
-        return pluginIsAvailable ? (
+        return pluginManager.pluginIsAvailable(item, visualization) ? (
             <div id={getGridItemDomId(item.id)} style={style} />
         ) : (
             <NoVisualizationMessage
