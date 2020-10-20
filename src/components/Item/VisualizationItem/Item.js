@@ -222,12 +222,6 @@ export class Item extends Component {
         return this.props.activeType || this.props.item.type
     }
 
-    pluginIsAvailable = () =>
-        pluginManager.pluginIsAvailable(
-            this.props.item,
-            this.props.visualization
-        )
-
     getPluginStyle = () => {
         const calculatedHeight =
             this.props.item.originalHeight -
