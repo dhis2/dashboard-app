@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import i18n from '@dhis2/d2-i18n'
 
+import NoVisualizationMessage from './NoVisualizationMessage'
 import * as pluginManager from './plugin'
 import { getBaseUrl, orObject } from '../../../modules/util'
 import { getGridItemDomId } from '../../ItemGrid/gridUtil'
@@ -95,7 +96,7 @@ class DefaultPlugin extends Component {
     }
 
     render() {
-        const { classes, item, visualization, style } = this.props
+        const { item, visualization, style } = this.props
         const pluginIsAvailable = pluginManager.pluginIsAvailable(
             item,
             visualization
@@ -104,9 +105,9 @@ class DefaultPlugin extends Component {
         return pluginIsAvailable ? (
             <div id={getGridItemDomId(item.id)} style={style} />
         ) : (
-            <div className={classes.textDiv}>
-                {i18n.t('Unable to load the plugin for this item')}
-            </div>
+            <NoVisualizationMessage
+                message={i18n.t('Unable to load the plugin for this item')}
+            />
         )
     }
 }
@@ -117,7 +118,6 @@ DefaultPlugin.contextTypes = {
 
 DefaultPlugin.propTypes = {
     activeType: PropTypes.string,
-    classes: PropTypes.object,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     options: PropTypes.object,

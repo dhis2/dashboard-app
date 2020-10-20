@@ -11,6 +11,7 @@ import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader/ItemHeader'
 import ItemHeaderButtons from './ItemHeaderButtons'
 import ItemFooter from './ItemFooter'
 import LoadingMask from './LoadingMask'
+import NoVisualizationMessage from './NoVisualizationMessage'
 
 import * as pluginManager from './plugin'
 import { sGetVisualization } from '../../../reducers/visualizations'
@@ -36,8 +37,6 @@ import {
 } from '../../Dashboard/dashboardModes'
 
 import { ITEM_CONTENT_PADDING_BOTTOM } from '../../ItemGrid/ItemGrid'
-
-import classes from './styles/Item.module.css'
 
 export class Item extends Component {
     state = {
@@ -141,9 +140,9 @@ export class Item extends Component {
 
         if (!visualization) {
             return (
-                <div className={classes.textDiv}>
-                    {i18n.t('No data to display')}
-                </div>
+                <NoVisualizationMessage
+                    message={i18n.t('No data to display')}
+                />
             )
         }
 
@@ -157,7 +156,6 @@ export class Item extends Component {
             ...this.props,
             activeType,
             visualization,
-            classes,
             style: this.memoizedGetContentStyle(
                 calculatedHeight,
                 this.contentRef ? this.contentRef.offsetHeight : null,
