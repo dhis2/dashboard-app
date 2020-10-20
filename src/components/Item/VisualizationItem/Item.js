@@ -6,6 +6,7 @@ import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
 import i18n from '@dhis2/d2-i18n'
 
 import DefaultPlugin from './DefaultPlugin'
+import MapPlugin from './MapPlugin'
 import FatalErrorBoundary from './FatalErrorBoundary'
 import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader/ItemHeader'
 import ItemHeaderButtons from './ItemHeaderButtons'
@@ -153,7 +154,8 @@ export class Item extends Component {
             ITEM_CONTENT_PADDING_BOTTOM
 
         const props = {
-            ...this.props,
+            item: this.props.item,
+            itemFilters: this.props.itemFilters,
             activeType,
             visualization,
             style: this.memoizedGetContentStyle(
@@ -189,43 +191,12 @@ export class Item extends Component {
                 )
             }
             case MAP: {
-                if (props.item.type === MAP) {
-                    // apply filters only to thematic and event layers
-                    // for maps AO
-                    const mapViews = props.visualization.mapViews.map(obj => {
-                        if (
-                            obj.layer.includes('thematic') ||
-                            obj.layer.includes('event')
-                        ) {
-                            return this.memoizedApplyFilters(
-                                obj,
-                                props.itemFilters
-                            )
-                        }
-
-                        return obj
-                    })
-
-                    props.visualization = {
-                        ...props.visualization,
-                        mapViews,
-                    }
-                } else {
-                    // this is the case of a non map AO passed to the maps plugin
-                    // due to a visualization type switch in dashboard item
-                    // maps plugin takes care of converting the AO to a suitable format
-                    props.visualization = this.memoizedApplyFilters(
-                        props.visualization,
-                        props.itemFilters
-                    )
-                }
-
-                props.options = {
-                    ...props.options,
-                    hideTitle: true,
-                }
-
-                return <DefaultPlugin {...props} />
+                return (
+                    <MapPlugin
+                        applyFilters={this.memoizedApplyFilters}
+                        {...props}
+                    />
+                )
             }
             default: {
                 props.visualization = this.memoizedApplyFilters(
