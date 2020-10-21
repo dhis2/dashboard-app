@@ -12,26 +12,13 @@ import './locales'
 
 const muiTheme = () => createMuiTheme(dhis2theme)
 
-const schemas = [
-    'chart',
-    'map',
-    'report',
-    'reportTable',
-    'eventChart',
-    'eventReport',
-    'dashboard',
-    'organisationUnit',
-    'userGroup',
-]
-
 const d2Config = {
-    schemas,
+    schemas: ['dashboard'],
 }
-
-const authorization = process.env.REACT_APP_DHIS2_AUTHORIZATION || null
 
 // TODO: ER and EV plugins require the auth header in development mode.
 // Remove this when these plugins are rewritten
+const authorization = process.env.REACT_APP_DHIS2_AUTHORIZATION || null
 if (authorization) {
     d2Config.headers = { Authorization: authorization }
 }
