@@ -24,6 +24,11 @@ class DefaultPlugin extends Component {
         this.d2 = context.d2
     }
 
+    pluginIsAvailable = () =>
+        pluginManager.pluginIsAvailable(
+            this.props.activeType || this.props.item.type
+        )
+
     shouldPluginReload = prevProps => {
         // TODO - fix this hack, to handle bug with multiple
         // rerendering while switching between dashboards.
@@ -36,19 +41,14 @@ class DefaultPlugin extends Component {
         const vis = orObject(this.props.visualization)
         const prevVis = orObject(prevProps.visualization)
         const visChanged =
-            vis.id !== prevVis.id || vis.activeType !== prevVis.activeType
+            vis.id !== prevVis.id ||
+            prevProps.activeType !== this.props.activeType
 
         return reloadAllowed && (visChanged || filtersChanged)
     }
 
     reloadPlugin = prevProps => {
-        if (
-            pluginManager.pluginIsAvailable(
-                this.props.item,
-                this.props.visualization
-            ) &&
-            this.shouldPluginReload(prevProps)
-        ) {
+        if (this.pluginIsAvailable() && this.shouldPluginReload(prevProps)) {
             if (
                 this.props.activeType !== prevProps.activeType ||
                 this.props.itemFilters !== prevProps.itemFilters
@@ -66,12 +66,7 @@ class DefaultPlugin extends Component {
     componentDidMount() {
         this.pluginCredentials = pluginCredentials(this.d2)
 
-        if (
-            pluginManager.pluginIsAvailable(
-                this.props.item,
-                this.props.visualization
-            )
-        ) {
+        if (this.pluginIsAvailable()) {
             pluginManager.load(this.props.item, this.props.visualization, {
                 credentials: this.pluginCredentials,
                 activeType: this.props.activeType,
@@ -85,20 +80,15 @@ class DefaultPlugin extends Component {
     }
 
     componentWillUnmount() {
-        if (
-            pluginManager.pluginIsAvailable(
-                this.props.item,
-                this.props.visualization
-            )
-        ) {
+        if (this.pluginIsAvailable()) {
             pluginManager.unmount(this.props.item, this.props.activeType)
         }
     }
 
     render() {
-        const { item, visualization, style } = this.props
+        const { item, style } = this.props
 
-        return pluginManager.pluginIsAvailable(item, visualization) ? (
+        return this.pluginIsAvailable() ? (
             <div id={getGridItemDomId(item.id)} style={style} />
         ) : (
             <NoVisualizationMessage

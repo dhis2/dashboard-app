@@ -28,11 +28,7 @@ const getPlugin = type => {
     return global[pluginName]
 }
 
-export const pluginIsAvailable = (item = {}, visualization = {}) => {
-    const type = visualization.activeType || item.type
-
-    return !!getPlugin(type)
-}
+export const pluginIsAvailable = type => !!getPlugin(type)
 
 export const loadPlugin = (plugin, config, credentials) => {
     if (!(plugin && plugin.load)) {

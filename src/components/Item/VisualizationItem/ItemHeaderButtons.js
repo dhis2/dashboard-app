@@ -105,7 +105,7 @@ const ItemHeaderButtons = (props, context) => {
         </>
     )
 
-    return pluginIsAvailable(item, visualization) ? (
+    return pluginIsAvailable(activeType || item.type) ? (
         <>
             <Button small secondary onClick={handleMenuClick}>
                 <ThreeDots />
