@@ -1,8 +1,8 @@
 import * as d2lib from 'd2'
 
 import { fetch } from '../plugin'
-import { CHART } from '../../../../modules/itemTypes'
-import * as apiMetadata from '../../../../api/metadata'
+import { CHART } from '../../../../../modules/itemTypes'
+import * as apiMetadata from '../../../../../api/metadata'
 
 describe('plugin', () => {
     describe('fetch', () => {

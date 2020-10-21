@@ -10,7 +10,7 @@ jest.mock('@dhis2/data-visualizer-plugin', () => 'VisualizationPlugin')
 jest.mock('../DefaultPlugin', () => 'DefaultPlugin')
 jest.mock('../MapPlugin', () => 'MapPlugin')
 jest.mock('../ItemFooter', () => 'ItemFooter')
-jest.mock('../plugin', () => {
+jest.mock('../modules/plugin', () => {
     return {
         getLink: jest.fn(),
         unmount: jest.fn(),

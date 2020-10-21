@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { colors } from '@dhis2/ui'
-import { getId } from './plugin'
+import { getId } from './modules/plugin'
 import InterpretationsComponent from '@dhis2/d2-ui-interpretations'
 
 const style = {

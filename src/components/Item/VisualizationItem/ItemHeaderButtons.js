@@ -16,7 +16,7 @@ import MapIcon from '@material-ui/icons/Public'
 import LaunchIcon from '@material-ui/icons/Launch'
 
 import { ThreeDots, SpeechBubble } from './assets/icons'
-import { pluginIsAvailable, getLink } from './plugin'
+import { pluginIsAvailable, getLink } from './modules/plugin'
 import {
     CHART,
     MAP,

@@ -7,7 +7,7 @@ import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 
 import { acUpdateDashboardLayout } from '../../actions/editDashboard'
 import { Item } from '../Item/Item'
-import { resize as pluginResize } from '../Item/VisualizationItem/plugin'
+import { resize as pluginResize } from '../Item/VisualizationItem/modules/plugin'
 import { isVisualizationType } from '../../modules/itemTypes'
 import {
     GRID_ROW_HEIGHT,
@@ -59,7 +59,7 @@ export class ItemGrid extends Component {
         this.setState({ expandedItems })
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         if (nextProps.edit) {
             this.setState({ expandedItems: {} })
         }

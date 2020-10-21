@@ -1,5 +1,4 @@
-import isObject from 'lodash/isObject'
-import { apiFetchFavorite, getMapFields } from '../../../api/metadata'
+import { apiFetchFavorite, getMapFields } from '../../../../api/metadata'
 import {
     REPORT_TABLE,
     CHART,
@@ -7,9 +6,10 @@ import {
     EVENT_REPORT,
     EVENT_CHART,
     itemTypeMap,
-} from '../../../modules/itemTypes'
-import { getBaseUrl } from '../../../modules/util'
-import { getGridItemDomId } from '../../ItemGrid/gridUtil'
+} from '../../../../modules/itemTypes'
+import { getBaseUrl } from '../../../../modules/util'
+import { getVisualizationFromItem } from '../../../../modules/getVisualizationFromItem'
+import { getGridItemDomId } from '../../../ItemGrid/gridUtil'
 
 //external plugins
 const itemTypeToExternalPlugin = {
@@ -34,24 +34,6 @@ export const pluginIsAvailable = (item = {}, visualization = {}) => {
     return !!getPlugin(type)
 }
 
-export const extractFavorite = item => {
-    if (!isObject(item)) {
-        return null
-    }
-
-    const propName = itemTypeMap[item.type].propName
-
-    return (
-        item[propName] ||
-        item.reportTable ||
-        item.chart ||
-        item.map ||
-        item.eventReport ||
-        item.eventChart ||
-        {}
-    )
-}
-
 export const loadPlugin = (plugin, config, credentials) => {
     if (!(plugin && plugin.load)) {
         return
@@ -66,9 +48,9 @@ export const loadPlugin = (plugin, config, credentials) => {
     plugin.load(config)
 }
 
-export const getId = item => extractFavorite(item).id
-export const getName = item => extractFavorite(item).name
-export const getDescription = item => extractFavorite(item).description
+export const getId = item => getVisualizationFromItem(item).id
+export const getName = item => getVisualizationFromItem(item).name
+export const getDescription = item => getVisualizationFromItem(item).description
 export const getLink = (item, d2) => {
     const baseUrl = getBaseUrl(d2)
     const appUrl = itemTypeMap[item.type].appUrl(getId(item))

@@ -14,7 +14,7 @@ import ItemFooter from './ItemFooter'
 import LoadingMask from './LoadingMask'
 import NoVisualizationMessage from './NoVisualizationMessage'
 
-import * as pluginManager from './plugin'
+import * as pluginManager from './modules/plugin'
 import getVisualizationConfig from './modules/getVisualizationConfig'
 import { sGetVisualization } from '../../../reducers/visualizations'
 import { sGetSelectedItemActiveType } from '../../../reducers/selected'
@@ -31,6 +31,7 @@ import {
     CHART,
     REPORT_TABLE,
 } from '../../../modules/itemTypes'
+import { getVisualizationFromItem } from '../../../modules/getVisualizationFromItem'
 import memoizeOne from '../../../modules/memoizeOne'
 import {
     isEditMode,
@@ -320,7 +321,7 @@ const mapStateToProps = (state, ownProps) => {
         itemFilters,
         visualization: sGetVisualization(
             state,
-            pluginManager.extractFavorite(ownProps.item).id
+            getVisualizationFromItem(ownProps.item).id
         ),
     }
 }

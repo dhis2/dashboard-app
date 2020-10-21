@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 
 import NoVisualizationMessage from './NoVisualizationMessage'
-import * as pluginManager from './plugin'
+import * as pluginManager from './modules/plugin'
 import { getBaseUrl, orObject } from '../../../modules/util'
 import { getGridItemDomId } from '../../ItemGrid/gridUtil'
 
