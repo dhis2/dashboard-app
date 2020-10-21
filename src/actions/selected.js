@@ -24,7 +24,7 @@ import {
 } from '../api/description'
 
 import { withShape } from '../components/ItemGrid/gridUtil'
-import { getVisualizationFromItem } from '../modules/getVisualizationFromItem'
+import { getVisualizationFromItem } from '../modules/item'
 
 import {
     REPORT_TABLE,

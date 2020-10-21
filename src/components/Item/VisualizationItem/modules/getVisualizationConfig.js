@@ -1,7 +1,7 @@
 import {
     VIS_TYPE_COLUMN,
     VIS_TYPE_PIVOT_TABLE,
-    layoutGetAdaptedLayoutForType,
+    layoutGetAdaptedLayoutByType,
 } from '@dhis2/analytics'
 import { REPORT_TABLE, CHART, MAP } from '../../../../modules/itemTypes'
 
@@ -30,7 +30,7 @@ const getVisualizationConfig = (visualization, originalType, activeType) => {
             type: activeType === CHART ? VIS_TYPE_COLUMN : VIS_TYPE_PIVOT_TABLE,
         })
     } else if (originalType === REPORT_TABLE && activeType === CHART) {
-        const layout = layoutGetAdaptedLayoutForType(visualization, activeType)
+        const layout = layoutGetAdaptedLayoutByType(visualization, activeType)
         return getWithoutId({
             ...visualization,
             ...layout,
