@@ -1,4 +1,4 @@
-import { getVisualizationFromItem } from '../getVisualizationFromItem'
+import { getVisualizationFromItem } from '../item'
 import {
     REPORT_TABLE,
     CHART,

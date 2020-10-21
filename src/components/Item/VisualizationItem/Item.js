@@ -14,7 +14,7 @@ import ItemFooter from './ItemFooter'
 import LoadingMask from './LoadingMask'
 import NoVisualizationMessage from './NoVisualizationMessage'
 
-import * as pluginManager from './modules/plugin'
+import { apiFetchVisualization } from '../../../api/metadata'
 import getVisualizationConfig from './modules/getVisualizationConfig'
 import { sGetVisualization } from '../../../reducers/visualizations'
 import { sGetSelectedItemActiveType } from '../../../reducers/selected'
@@ -31,7 +31,7 @@ import {
     CHART,
     REPORT_TABLE,
 } from '../../../modules/itemTypes'
-import { getVisualizationFromItem } from '../../../modules/getVisualizationFromItem'
+import { getVisualizationId, getVisualizationName } from '../../../modules/item'
 import memoizeOne from '../../../modules/memoizeOne'
 import {
     isEditMode,
@@ -66,7 +66,7 @@ export class Item extends Component {
     async componentDidMount() {
         this.props.updateVisualization(
             // TODO do not call fetch on the pluginManager, do it here as the manager will eventually be removed...
-            await pluginManager.fetch(this.props.item)
+            await apiFetchVisualization(this.props.item)
         )
 
         this.setState({
@@ -264,7 +264,7 @@ export class Item extends Component {
         return (
             <>
                 <ItemHeader
-                    title={pluginManager.getName(item)}
+                    title={getVisualizationName(item)}
                     itemId={item.id}
                     actionButtons={actionButtons}
                     ref={this.headerRef}
@@ -321,7 +321,7 @@ const mapStateToProps = (state, ownProps) => {
         itemFilters,
         visualization: sGetVisualization(
             state,
-            getVisualizationFromItem(ownProps.item).id
+            getVisualizationId(ownProps.item)
         ),
     }
 }

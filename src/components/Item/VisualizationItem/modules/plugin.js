@@ -1,4 +1,3 @@
-import { apiFetchFavorite, getMapFields } from '../../../../api/metadata'
 import {
     REPORT_TABLE,
     CHART,
@@ -8,7 +7,7 @@ import {
     itemTypeMap,
 } from '../../../../modules/itemTypes'
 import { getBaseUrl } from '../../../../modules/util'
-import { getVisualizationFromItem } from '../../../../modules/getVisualizationFromItem'
+import { getVisualizationId } from '../../../../modules/item'
 import { getGridItemDomId } from '../../../ItemGrid/gridUtil'
 
 //external plugins
@@ -44,12 +43,9 @@ export const loadPlugin = (plugin, config, credentials) => {
     plugin.load(config)
 }
 
-export const getId = item => getVisualizationFromItem(item).id
-export const getName = item => getVisualizationFromItem(item).name
-export const getDescription = item => getVisualizationFromItem(item).description
 export const getLink = (item, d2) => {
     const baseUrl = getBaseUrl(d2)
-    const appUrl = itemTypeMap[item.type].appUrl(getId(item))
+    const appUrl = itemTypeMap[item.type].appUrl(getVisualizationId(item))
 
     return `${baseUrl}/${appUrl}`
 }
@@ -69,14 +65,6 @@ export const load = async (
     const plugin = getPlugin(type)
 
     loadPlugin(plugin, config, credentials)
-}
-
-export const fetch = async item => {
-    const fetchedFavorite = await apiFetchFavorite(getId(item), item.type, {
-        fields: item.type === MAP ? getMapFields() : null,
-    })
-
-    return fetchedFavorite
 }
 
 export const resize = item => {

@@ -18,3 +18,7 @@ export const getVisualizationFromItem = item => {
         {}
     )
 }
+
+export const getVisualizationId = item => getVisualizationFromItem(item).id
+
+export const getVisualizationName = item => getVisualizationFromItem(item).name
