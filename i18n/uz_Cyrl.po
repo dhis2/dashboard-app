@@ -25,7 +25,9 @@ msgid "Confirm delete dashboard"
 msgstr "Бошқарув панелини ўчиришни тасдиқлаш"
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr "Бошқарув панелини ўчиришни хохлайсизми \"{{БошқарувПанелиНоми}}\"?"
+msgstr ""
+"Ҳақиқатдан ҳам ушбу бошқарув панелини ўчирмоқчимисиз "
+"\"{{БошқарувПанелиНоми}}\"?"
 
 msgid "Exit without saving"
 msgstr "Сақламасдан чиқиш"
@@ -66,43 +68,43 @@ msgid "See all messages"
 msgstr "Барча хабарларни кщриш"
 
 msgid "Edit your interpretation"
-msgstr ""
+msgstr "Талқинингизни таҳрирланг"
 
 msgid "Update"
 msgstr "Янгилаш"
 
 msgid "Cancel edit"
-msgstr ""
+msgstr "Таҳрирни бекор қилиш"
 
 msgid "Edit"
 msgstr "Таҳрирлаш"
 
 msgid "like"
-msgstr ""
+msgstr "мос келади"
 
 msgid "likes"
-msgstr ""
+msgstr "мос келди"
 
 msgid "You like this"
-msgstr ""
+msgstr "Сизга мос келади"
 
 msgid "Like"
 msgstr "Каби, ўхшаш"
 
 msgid "View in Visualizer"
-msgstr ""
+msgstr "Визуализаторда кўриш"
 
 msgid "Reply"
 msgstr "Жавоб"
 
 msgid "Add your reply"
-msgstr ""
+msgstr "Изоҳингизни қўшинг"
 
 msgid "Interpretations"
 msgstr "Шарҳлар"
 
 msgid "Add your interpretation"
-msgstr ""
+msgstr "Талқинингизни қўшинг"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Ушбу элемент учун плагин юкланмади"
@@ -153,7 +155,7 @@ msgid "Pivot tables"
 msgstr "Таянч жадваллар"
 
 msgid "Pivot Tables"
-msgstr "Таянч жадваллар"
+msgstr "Таянч Жадваллар"
 
 msgid "Charts"
 msgstr "Диаграммалар"
@@ -168,13 +170,13 @@ msgid "Event reports"
 msgstr "Ҳодисалар ҳисоботи"
 
 msgid "Event Reports"
-msgstr "Ҳодисалар ҳақида ҳисоботлар"
+msgstr "Ҳодисалар ҳақида Ҳисоботлар"
 
 msgid "Event charts"
 msgstr "Ҳодисалар диаграммаларда"
 
 msgid "Event Visualizer"
-msgstr "Ҳодисалар визуализатори"
+msgstr "Ҳодиса/Тадбирлар Визуализатори"
 
 msgid "Reports"
 msgstr "Ҳисоботлар"
