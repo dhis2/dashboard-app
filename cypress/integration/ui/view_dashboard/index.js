@@ -50,3 +50,22 @@ When('I press enter in the search dashboard field', () => {
         '{enter}'
     )
 })
+
+When('I click to preview the print layout', () => {
+    cy.get('[data-test="dhis2-dashboard-more-button"]').click()
+    cy.get('[data-test="dhis2-dashboard-print-menu-item"]').click()
+    cy.get('[data-test="dhis2-dashboard-print-layout-menu-item"]').click()
+})
+Then('the print layout displays', () => {
+    //check the url
+    cy.location().should(loc => {
+        expect(loc.hash).to.equal(`${antenatalCareDashboardRoute}/printlayout`)
+    })
+
+    //check for some elements
+    cy.get('[data-test="dhis2-dashboard-print-layout-page"]').should('exist')
+})
+
+When('I click to exit print layout', () => {
+    cy.get('[data-test="dhis2-dashboard-exit-print-preview"]').click()
+})

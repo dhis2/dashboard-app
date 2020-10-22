@@ -148,6 +148,7 @@ export class PrintLayoutDashboard extends Component {
                     <div
                         className={classes.pageOuter}
                         style={{ width: a4LandscapeWidthPx }}
+                        data-test="dhis2-dashboard-print-layout-page"
                     >
                         <PrintLayoutItemGrid />
                     </div>

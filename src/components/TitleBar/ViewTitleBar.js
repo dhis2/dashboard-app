@@ -118,7 +118,10 @@ const ViewTitleBar = (props, context) => {
                         ) : null}
                         <FilterSelector />
                         <span ref={buttonRef}>
-                            <Button onClick={toggleMoreOptions}>
+                            <Button
+                                dataTest="dhis2-dashboard-more-button"
+                                onClick={toggleMoreOptions}
+                            >
                                 <ThreeDots />
                                 <span style={{ marginLeft: '5px' }}>
                                     {i18n.t('More')}
@@ -143,16 +146,22 @@ const ViewTitleBar = (props, context) => {
                                     label={showHideDescriptionLabel}
                                     onClick={showHideDescription}
                                 />
-                                <MenuItem dense label={i18n.t('Print')}>
+                                <MenuItem
+                                    dense
+                                    label={i18n.t('Print')}
+                                    dataTest="dhis2-dashboard-print-menu-item"
+                                >
                                     <MenuItem
                                         dense
                                         label={i18n.t('Dashboard layout')}
                                         onClick={printLayout}
+                                        dataTest="dhis2-dashboard-print-layout-menu-item"
                                     />
                                     <MenuItem
                                         dense
                                         label={i18n.t('One item per page')}
                                         onClick={printOipp}
+                                        dataTest="dhis2-dashboard-print-oipp-item"
                                     />
                                 </MenuItem>
                             </FlyoutMenu>
