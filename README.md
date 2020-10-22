@@ -14,7 +14,7 @@ In order for maps, event reports and event charts to display, you need to provid
 You can provide this inline, for example:
 `REACT_APP_DHIS2_BASE_URL=http://localhost:8080 yarn start`
 
-You can also set this in a `.env` file or straight up as an environment variable in your local system.
+You can also set this in a `.env*.local` file or straight up as an environment variable in your local system.
 
 ### `yarn test`
 
