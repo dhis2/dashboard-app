@@ -1,6 +1,7 @@
 import isObject from 'lodash/isObject'
 import { VIS_TYPE_COLUMN, VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 import { apiFetchFavorite, getMapFields } from '../../../api/metadata'
+import { apiPostFavoriteDataStatistics } from '../../../api/dataStatistics'
 import {
     REPORT_TABLE,
     CHART,
@@ -98,6 +99,14 @@ export const load = async (
 
     loadPlugin(plugin, config, credentials)
 }
+
+export const postFavoriteDataStatistics = async item => {
+    const postedFavoriteDataStatistics = await apiPostFavoriteDataStatistics(
+        getId(item),
+        item.type
+    )
+    return postedFavoriteDataStatistics
+};
 
 export const fetch = async item => {
     const fetchedFavorite = await apiFetchFavorite(getId(item), item.type, {

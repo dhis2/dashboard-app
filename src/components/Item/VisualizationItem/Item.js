@@ -20,6 +20,7 @@ import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
 } from '../../../reducers/itemFilters'
+import { sGatherAnalyticalObjectStatisticsInDashboardViews } from '../../../reducers/settings'
 import { acAddVisualization } from '../../../actions/visualizations'
 import { acSetSelectedItemActiveType } from '../../../actions/selected'
 import {
@@ -68,6 +69,14 @@ export class Item extends Component {
             // TODO do not call fetch on the pluginManager, do it here as the manager will eventually be removed...
             await pluginManager.fetch(this.props.item)
         )
+
+        try {
+            if (this.props.countInDashboard) {
+                const postFavoriteDataStatistics = await pluginManager.postFavoriteDataStatistics(this.props.item)
+            }
+        } catch (e) {
+            console.log(e);
+        }
 
         this.setState({
             configLoaded: true,
@@ -328,6 +337,7 @@ Item.contextTypes = {
 
 Item.propTypes = {
     activeType: PropTypes.string,
+    countInDashboard: PropTypes.bool,
     dashboardMode: PropTypes.string,
     isEditing: PropTypes.bool,
     item: PropTypes.object,
@@ -357,6 +367,7 @@ const mapStateToProps = (state, ownProps) => {
             state,
             pluginManager.extractFavorite(ownProps.item).id
         ),
+        countInDashboard: sGatherAnalyticalObjectStatisticsInDashboardViews(state),
     }
 }
 
