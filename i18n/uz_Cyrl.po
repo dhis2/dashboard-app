@@ -49,25 +49,25 @@ msgid "All"
 msgstr "Барчаси"
 
 msgid "Unread"
-msgstr ""
+msgstr "Ўқилмаган"
 
 msgid "Messages"
 msgstr "Хабарлар"
 
 msgid "You like this"
-msgstr ""
+msgstr "Сизга мос келади"
 
 msgid "Like"
 msgstr "Каби, ўхшаш"
 
 msgid "Reply"
-msgstr "Жавоб"
+msgstr "Изоҳ"
 
 msgid "Add your reply"
-msgstr ""
+msgstr "Изоҳингизни қўшинг"
 
 msgid "Add your interpretation"
-msgstr ""
+msgstr "Талқинингизни қўшинг"
 
 msgid "Spacer"
 msgstr "Бўш жой"
