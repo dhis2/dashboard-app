@@ -67,7 +67,7 @@ msgstr "Сўралган бошқарув панели топилмади"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
+msgstr[0] "{{жами}} танланган"
 
 msgid "Remove"
 msgstr "Ўчириш"
@@ -118,10 +118,10 @@ msgid "Search for items to add to this dashboard"
 msgstr "Ушбу бошқарув панелига киритиш учун элементларни қидиринг"
 
 msgid "See fewer {{itemTypes}}"
-msgstr ""
+msgstr "Камроқ кўрсатиш {{ЭлементТурлари}}"
 
 msgid "See more {{itemTypes}}"
-msgstr ""
+msgstr "Кўпроқ кўрсатиш {{ЭлементТурлари}}"
 
 msgid "Add"
 msgstr "Қўшиш"
@@ -133,10 +133,10 @@ msgid "Text box"
 msgstr "Матн жойи"
 
 msgid "Current translation"
-msgstr ""
+msgstr "Жорий таржима"
 
 msgid "Currently editing"
-msgstr ""
+msgstr "Жорий таҳрир"
 
 msgid "Add description here"
 msgstr "Тавсифни шу ерга қўшинг"
@@ -145,7 +145,7 @@ msgid "Edit"
 msgstr "Таҳрирлаш"
 
 msgid "Share"
-msgstr "Баҳам кўриш"
+msgstr "Улашиш"
 
 msgid "No description"
 msgstr "Тавсиф йўқ"
