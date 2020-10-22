@@ -36,3 +36,17 @@ Then('the Immunization dashboard displays in view mode', () => {
     )
     cy.get('.highcharts-background').should('exist')
 })
+
+When('I search for dashboards containing Immunization', () => {
+    cy.get('[data-test="dhis2-dashboard-search-dashboard-input"]').type('Immun')
+})
+
+Then('Immunization and Immunization data dashboards are choices', () => {
+    cy.get('[data-test="dhis2-uicore-chip"]').should('have.length', 2)
+})
+
+When('I press enter in the search dashboard field', () => {
+    cy.get('[data-test="dhis2-dashboard-search-dashboard-input"]').type(
+        '{enter}'
+    )
+})
