@@ -1,0 +1,150 @@
+# 
+# Translators:
+# Ibatov <ibatovk@who.int>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2018-04-03T09:53:39.293Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2020\n"
+"Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uz@Cyrl\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Delete"
+msgstr "Ўчириш"
+
+msgid "Continue editing"
+msgstr "Таҳрирлашни давом этиш"
+
+msgid "Confirm delete dashboard"
+msgstr "Бошқарув панелини ўчиришни тасдиқлаш"
+
+msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
+msgstr "Бошқарув панелини ўчиришни хохлайсизми \"{{БошқарувПанелиНоми}}\"?"
+
+msgid "Save changes"
+msgstr "Ўзгартиришни сақлаш"
+
+msgid "Translate"
+msgstr "Таржима қилинг"
+
+msgid "Exit without saving"
+msgstr "Сақламасдан чиқиш"
+
+msgid "Search for a dashboard"
+msgstr "Бошқариш панелида излаш"
+
+msgid "Show less"
+msgstr "Камроқ кўрсатилсин"
+
+msgid "Show more"
+msgstr "Кўпроқ кўрсатилсин"
+
+msgid "All"
+msgstr "Барчаси"
+
+msgid "Unread"
+msgstr "Ўқилмаган"
+
+msgid "Messages"
+msgstr "Хабарлар"
+
+msgid "You like this"
+msgstr "Сизга мос келади"
+
+msgid "Like"
+msgstr "Каби, ўхшаш"
+
+msgid "Reply"
+msgstr "Изоҳ"
+
+msgid "Add your reply"
+msgstr "Изоҳингизни қўшинг"
+
+msgid "Add your interpretation"
+msgstr "Талқинингизни қўшинг"
+
+msgid "Spacer"
+msgstr "Бўш жой"
+
+msgid ""
+"Use a spacer to create empty vertical space between other dashboard items."
+msgstr ""
+"Мониторинг панелида элементлар орасида вертикал бўш жой яратиш учун бўш жой "
+"қолдириш функциясидан фойдаланинг"
+
+msgid "Text item"
+msgstr "Матн элементи"
+
+msgid "Add text here"
+msgstr "Матнни шу ерга қўшинг"
+
+msgid "There are no items on this dashboard"
+msgstr "Ушбу бошқарув панелида элементлар йўқ"
+
+msgid "Search for items to add to this dashboard"
+msgstr "Ушбу бошқарув панелига киритиш учун элементларни қидиринг"
+
+msgid "See"
+msgstr "Кўриш"
+
+msgid "fewer"
+msgstr "камроқ"
+
+msgid "more"
+msgstr "кўпроқ"
+
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+"Бошқарув панели топилмади. Янги бошқарув панелини яратиш учун + тугмасини "
+"босинг."
+
+msgid "Add title here"
+msgstr "Сарлавҳани шу ерга киритинг"
+
+msgid "Add description here"
+msgstr "Тавсифни шу ерга қўшинг"
+
+msgid "No description"
+msgstr "Тавсиф йўқ"
+
+msgid "Pivot tables"
+msgstr "Таянч жадваллар"
+
+msgid "Pivot Tables"
+msgstr "Таянч жадваллар"
+
+msgid "Charts"
+msgstr "Диаграммалар"
+
+msgid "Visualizer"
+msgstr "Визуализатор"
+
+msgid "Maps"
+msgstr "Хариталар"
+
+msgid "Event reports"
+msgstr "Ҳодисалар ҳисоботи"
+
+msgid "Event Reports"
+msgstr "Ҳодисалар ҳақида ҳисоботлар"
+
+msgid "Event charts"
+msgstr "Ҳодисалар диаграммаларда"
+
+msgid "Event Visualizer"
+msgstr "Ҳодисалар визуализатори"
+
+msgid "Reports"
+msgstr "Ҳисоботлар"
+
+msgid "Resources"
+msgstr "Ресурслар"
+
+msgid "Users"
+msgstr "Фойдаланувчилар"
