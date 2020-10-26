@@ -161,7 +161,7 @@ const ViewTitleBar = (props, context) => {
                                         dense
                                         label={i18n.t('One item per page')}
                                         onClick={printOipp}
-                                        dataTest="dhis2-dashboard-print-oipp-item"
+                                        dataTest="dhis2-dashboard-print-oipp-menu-item"
                                     />
                                 </MenuItem>
                             </FlyoutMenu>

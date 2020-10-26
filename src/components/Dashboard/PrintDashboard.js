@@ -106,6 +106,7 @@ export class PrintDashboard extends Component {
                     <div
                         className={classes.pageOuter}
                         style={{ width: a4LandscapeWidthPx }}
+                        data-test="dhis2-dashboard-print-oipp-page"
                     >
                         <PrintItemGrid />
                     </div>
