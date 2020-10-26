@@ -3,13 +3,12 @@ import { isDisabledMode, isCaptureMode, getApiBaseUrl } from './utils.js'
 import visitWithUnfetchOverwriteFn from './visitWithUnfetchOverwriteFn.js'
 
 export default function enableNetworkShim(hosts = [getApiBaseUrl()]) {
-    // Replace window.fetch with unfetch, which uses XHR and cypress can work with this
-    Cypress.Commands.overwrite('visit', visitWithUnfetchOverwriteFn)
-
     // No need to stub anything when disabled
     if (isDisabledMode()) {
         return
     }
+    // Replace window.fetch with unfetch, which uses XHR and cypress can work with this
+    Cypress.Commands.overwrite('visit', visitWithUnfetchOverwriteFn)
 
     const networkShim = new NetworkShim(hosts)
 
