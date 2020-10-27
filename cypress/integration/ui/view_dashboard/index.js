@@ -6,7 +6,7 @@ const immunizationDashboardRoute = '#/TAMlzYkstb7'
 const tenSecTimeout = { timeout: 10000 }
 
 Given('I open the Antenatal Care dashboard', () => {
-    cy.visit(antenatalCareDashboardRoute)
+    cy.visit(antenatalCareDashboardRoute, tenSecTimeout)
 })
 
 Then('the Antenatal Care dashboard displays in view mode', () => {
