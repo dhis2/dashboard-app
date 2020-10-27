@@ -10,6 +10,7 @@ env:
     SERVER_START_CMD: 'yarn cy:run-stub'
     SERVER_URL: 'http://localhost:3000'
     CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+    CYPRESS_DHIS2_BASE_URL: 'https://localhost:8080'
 
 jobs:
     e2e:
@@ -26,11 +27,10 @@ jobs:
               uses: cypress-io/github-action@v1
               with:
                   record: true
-                  parallel: true
+                  parallel: false
                   start: ${{ env.SERVER_START_CMD }}
                   wait-on: ${{ env.SERVER_URL }}
                   wait-on-timeout: 60
                   group: 'e2e'
               env:
                   CI: true
-                  CYPRESS_DHIS2_BASE_URL: 'https://localhost:8080'
