@@ -16,7 +16,7 @@ Then('the Antenatal Care dashboard displays in view mode', () => {
         'contain',
         'Antenatal Care'
     )
-    cy.get('.highcharts-background').should('exist')
+    cy.get('.highcharts-background', { timeout: 10000 }).should('exist')
 })
 
 When('I select the Immunization dashboard', () => {
@@ -34,7 +34,7 @@ Then('the Immunization dashboard displays in view mode', () => {
         'contain',
         'Immunization'
     )
-    cy.get('.highcharts-background').should('exist')
+    cy.get('.highcharts-background', { timeout: 10000 }).should('exist')
 })
 
 When('I search for dashboards containing Immunization', () => {
