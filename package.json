@@ -50,8 +50,8 @@
         "cypress:start": "BROWSER=none yarn start",
         "cy:open-live": "cypress_dhis2_api_stub_mode=DISABLED d2-utils-cypress open --appStart 'yarn cypress:start'",
         "cy:run-live": "cypress_dhis2_api_stub_mode=DISABLED d2-utils-cypress run --appStart 'yarn cypress:start'",
-        "cy:open-stub": "d2-utils-cypress open --tag @non-mutating --appStart 'yarn cypress:start'",
-        "cy:run-stub": "d2-utils-cypress run --tag @non-mutating --appStart 'yarn cypress:start'",
+        "cy:open-stub": "d2-utils-cypress cypress_dhis2_api_stub_mode=STUB open --appStart 'yarn cypress:start'",
+        "cy:run-stub": "d2-utils-cypress  cypress_dhis2_api_stub_mode=STUB run --appStart 'yarn cypress:start'",
         "cy:capture": "cypress_dhis2_api_stub_mode=CAPTURE yarn d2-utils-cypress run --appStart 'yarn cypress:start'"
     },
     "devDependencies": {

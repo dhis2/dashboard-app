@@ -33,3 +33,4 @@ jobs:
                   group: 'e2e'
               env:
                   CI: true
+                  CYPRESS_DHIS2_BASE_URL: 'https://localhost:8080'
