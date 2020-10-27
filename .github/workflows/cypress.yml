@@ -10,8 +10,8 @@ env:
     SERVER_START_CMD: 'yarn cy:run-stub'
     SERVER_URL: 'http://localhost:3000'
     CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-    CYPRESS_DHIS2_BASE_URL: 'http://localhost:8080'
-    CYPRESS_DHIS2_API_STUB_MODE: 'STUB'
+    cypress_dhis2_base_url: 'http://localhost:8080'
+    cypress_dhis2_api_stub_mode: 'STUB'
     REACT_APP_DHIS2_BASE_URL: 'http://localhost:8080'
 
 jobs:
