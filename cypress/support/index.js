@@ -1,9 +1,9 @@
 import '@dhis2/cli-utils-cypress/support'
 
-import { enableNetworkShim, loginAndPersistSession } from './server'
+import { enableNetworkShim /*, loginAndPersistSession */ } from './server'
 
 enableNetworkShim()
-loginAndPersistSession()
+// loginAndPersistSession()
 
 beforeEach(() => {
     /*
