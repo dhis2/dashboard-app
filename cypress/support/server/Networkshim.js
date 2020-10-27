@@ -1,4 +1,4 @@
-import { getFileName } from './utils.js'
+import { getFileName, getApiBaseUrl } from './utils.js'
 
 export default class NetworkShim {
     constructor(hosts) {
@@ -44,7 +44,7 @@ export default class NetworkShim {
         cy.server()
         Object.values(this.state.requests).forEach(stub => {
             cy.route({
-                url: Cypress.env('dhis2_base_url') + stub.path,
+                url: getApiBaseUrl() + stub.path,
                 method: stub.method,
                 /* 
                 TODO: for POST / PUT requests we will quite likely have to
