@@ -31,8 +31,5 @@ jobs:
                   wait-on: ${{ env.SERVER_URL }}
                   wait-on-timeout: 60
                   group: 'e2e'
-                  with:
-                      spec: cypress/integration/ui/view_dashboard.feature
               env:
                   CI: true
-                  STORYBOOK_TESTING: true
