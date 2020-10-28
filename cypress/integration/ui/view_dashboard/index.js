@@ -1,7 +1,9 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-const antenatalCareDashboardRoute = '#/nghVC4wtyzi'
-const immunizationDashboardRoute = '#/TAMlzYkstb7'
+// const antenatalCareDashboardRoute = '#/nghVC4wtyzi'
+// const immunizationDashboardRoute = '#/TAMlzYkstb7'
+const immunizationDashboardRoute = '#/kGuKXoR8lL8'
+const antenatalCareDashboardRoute = '#/Tb8kBFjsk2B'
 
 const tenSecTimeout = { timeout: 10000 }
 
@@ -23,7 +25,7 @@ Then('the Antenatal Care dashboard displays in view mode', () => {
 
 When('I select the Immunization dashboard', () => {
     cy.get('[data-test="dhis2-uicore-chip"]', tenSecTimeout)
-        .contains('Immunization')
+        .contains('Immunization mini')
         .click()
 })
 
@@ -43,13 +45,13 @@ When('I search for dashboards containing Immunization', () => {
     cy.get(
         '[data-test="dhis2-dashboard-search-dashboard-input"]',
         tenSecTimeout
-    ).type('Immun')
+    ).type('Immunization mini')
 })
 
 Then('Immunization and Immunization data dashboards are choices', () => {
     cy.get('[data-test="dhis2-uicore-chip"]', tenSecTimeout).should(
         'have.length',
-        2
+        1
     )
 })
 
