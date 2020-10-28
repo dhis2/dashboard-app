@@ -8,7 +8,7 @@ const antenatalCareDashboardRoute = '#/Tb8kBFjsk2B'
 const tenSecTimeout = { timeout: 10000 }
 
 Given('I open the Antenatal Care dashboard', () => {
-    cy.visit(antenatalCareDashboardRoute, tenSecTimeout)
+    cy.visit(antenatalCareDashboardRoute)
 })
 
 Then('the Antenatal Care dashboard displays in view mode', () => {
@@ -16,11 +16,10 @@ Then('the Antenatal Care dashboard displays in view mode', () => {
         expect(loc.hash).to.equal(antenatalCareDashboardRoute)
     })
 
-    cy.get(
-        '[data-test="dhis2-dashboard-view-dashboard-title"]',
-        tenSecTimeout
-    ).should('contain', 'Antenatal Care')
-    cy.get('.highcharts-background', tenSecTimeout).should('exist')
+    cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]', tenSecTimeout)
+        .should('be.visible')
+        .and('contain', 'Antenatal Care')
+    // cy.get('.highcharts-background', tenSecTimeout).should('exist')
 })
 
 When('I select the Immunization dashboard', () => {
@@ -34,11 +33,10 @@ Then('the Immunization dashboard displays in view mode', () => {
         expect(loc.hash).to.equal(immunizationDashboardRoute)
     })
 
-    cy.get(
-        '[data-test="dhis2-dashboard-view-dashboard-title"]',
-        tenSecTimeout
-    ).should('contain', 'Immunization')
-    cy.get('.highcharts-background', tenSecTimeout).should('exist')
+    cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]', tenSecTimeout)
+        .should('be.visible')
+        .and('contain', 'Immunization')
+    // cy.get('.highcharts-background', tenSecTimeout).should('exist')
 })
 
 When('I search for dashboards containing Immunization', () => {
@@ -49,10 +47,9 @@ When('I search for dashboards containing Immunization', () => {
 })
 
 Then('Immunization and Immunization data dashboards are choices', () => {
-    cy.get('[data-test="dhis2-uicore-chip"]', tenSecTimeout).should(
-        'have.length',
-        1
-    )
+    cy.get('[data-test="dhis2-uicore-chip"]', tenSecTimeout)
+        .should('be.visible')
+        .and('have.length', 1)
 })
 
 When('I press enter in the search dashboard field', () => {

@@ -18,6 +18,9 @@ jobs:
     e2e:
         runs-on: ubuntu-latest
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        strategy:
+            matrix:
+                containers: [1, 2, 3]
 
         steps:
             - name: Checkout
@@ -27,8 +30,10 @@ jobs:
               uses: cypress-io/github-action@v2
               with:
                   record: true
+                  parallel: true
                   start: ${{ env.SERVER_START_CMD }}
                   wait-on: ${{ env.SERVER_URL }}
                   wait-on-timeout: 60
+                  group: 'e2e'
               env:
                   CI: true
