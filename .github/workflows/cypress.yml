@@ -7,7 +7,7 @@ on:
     pull_request:
 
 env:
-    SERVER_START_CMD: 'yarn cy:run-stub'
+    SERVER_START_CMD: 'yarn cypress:start'
     SERVER_URL: 'http://localhost:3000'
     CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
     cypress_dhis2_base_url: 'http://localhost:8080'
