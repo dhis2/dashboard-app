@@ -2,10 +2,8 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 const antenatalCareDashboardRoute = '#/nghVC4wtyzi'
 const immunizationDashboardRoute = '#/TAMlzYkstb7'
-// const immunizationDashboardRoute = '#/kGuKXoR8lL8'
-// const antenatalCareDashboardRoute = '#/Tb8kBFjsk2B'
 
-const tenSecTimeout = { timeout: 10000 }
+const tenSecTimeout = { timeout: 4000 }
 
 Given('I open the Antenatal Care dashboard', () => {
     cy.visit(antenatalCareDashboardRoute)
