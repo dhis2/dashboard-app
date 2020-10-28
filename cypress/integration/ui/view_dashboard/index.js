@@ -12,7 +12,6 @@ Given('I open the Antenatal Care dashboard', () => {
 })
 
 Then('the Antenatal Care dashboard displays in view mode', () => {
-    // cy.wait(10000)
     cy.location().should(loc => {
         expect(loc.hash).to.equal(antenatalCareDashboardRoute)
     })
