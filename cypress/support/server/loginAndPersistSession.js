@@ -13,10 +13,10 @@ export default function loginAndPersistSession(mode = getDefaultMode()) {
         Cypress.Cookies.preserveOnce('JSESSIONID')
     })
 
-    // if (!isStubMode(mode)) {
-    //     // log in if using a live backend
-    //     before(() => {
-    //         cy.login()
-    //     })
-    // }
+    if (!isStubMode(mode)) {
+        // log in if using a live backend
+        before(() => {
+            cy.login()
+        })
+    }
 }
