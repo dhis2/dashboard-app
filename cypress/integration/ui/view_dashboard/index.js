@@ -18,7 +18,7 @@ Then('the Antenatal Care dashboard displays in view mode', () => {
         '[data-test="dhis2-dashboard-view-dashboard-title"]',
         tenSecTimeout
     ).should('contain', 'Antenatal Care')
-    cy.get('.highcharts-background').should('exist')
+    cy.get('.highcharts-background', tenSecTimeout).should('exist')
 })
 
 When('I select the Immunization dashboard', () => {
