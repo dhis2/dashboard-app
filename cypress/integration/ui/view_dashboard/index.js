@@ -19,7 +19,7 @@ Then('the Antenatal Care dashboard displays in view mode', () => {
     cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]', tenSecTimeout)
         .should('be.visible')
         .and('contain', 'Antenatal Care')
-    // cy.get('.highcharts-background', tenSecTimeout).should('exist')
+    cy.get('.highcharts-background', tenSecTimeout).should('exist')
 })
 
 When('I select the Immunization dashboard', () => {
@@ -36,7 +36,7 @@ Then('the Immunization dashboard displays in view mode', () => {
     cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]', tenSecTimeout)
         .should('be.visible')
         .and('contain', 'Immunization')
-    // cy.get('.highcharts-background', tenSecTimeout).should('exist')
+    cy.get('.highcharts-background', tenSecTimeout).should('exist')
 })
 
 When('I search for dashboards containing Immunization', () => {
