@@ -10,11 +10,9 @@ env:
     SERVER_START_CMD: 'yarn cypress:start'
     SERVER_URL: 'http://localhost:3000'
     CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-    cypress_dhis2_base_url: 'https://debug.dhis2.org/dev'
-    cypress_dhis2_api_stub_mode: 'DISABLED'
-    cypress_dhis2_username": 'admin'
-    cypress_dhis2_password": 'district'
-    REACT_APP_DHIS2_BASE_URL: 'https://debug.dhis2.org/dev'
+    cypress_dhis2_base_url: 'http://localhost:8080'
+    cypress_dhis2_api_stub_mode: 'STUB'
+    REACT_APP_DHIS2_BASE_URL: 'http://localhost:8080'
 
 jobs:
     e2e:
@@ -31,7 +29,7 @@ jobs:
             - name: Tests
               uses: cypress-io/github-action@v2
               with:
-                  spec: cypress/integration/ui/create_dashboard.feature
+                  spec: cypress/integration/ui/view_dashboard.feature
                   record: true
                   parallel: true
                   start: ${{ env.SERVER_START_CMD }}

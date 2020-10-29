@@ -64,7 +64,9 @@ Then('the print layout displays', () => {
     })
 
     //check for some elements
-    cy.get('[data-test="dhis2-dashboard-print-layout-page"]').should('exist')
+    cy.get('[data-test="dhis2-dashboard-print-layout-page"]').should(
+        'be.visible'
+    )
 })
 
 When('I click to exit print preview', () => {
@@ -84,5 +86,5 @@ Then('the print one-item-per-page displays', () => {
     })
 
     //check for some elements
-    cy.get('[data-test="dhis2-dashboard-print-oipp-page"]').should('exist')
+    cy.get('[data-test="dhis2-dashboard-print-oipp-page"]').should('be.visible')
 })
