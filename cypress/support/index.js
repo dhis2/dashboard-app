@@ -12,5 +12,5 @@ beforeEach(() => {
         Currently, calling clearCookies with domain:null is a workaround to get rid of the cross domain cookies.
         Related Cypress issue https://github.com/cypress-io/cypress/issues/408
     */
-    // cy.clearCookies({ domain: null })
+    cy.clearCookies({ domain: null })
 })
