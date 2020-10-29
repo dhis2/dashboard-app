@@ -20,7 +20,7 @@ msgid "Untitled dashboard"
 msgstr "Dashbord uten navn"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "Laster dashbord - {{name}}"
 
 msgid "Cancel"
 msgstr "Avbryt"
