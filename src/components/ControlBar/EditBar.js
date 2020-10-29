@@ -75,7 +75,6 @@ export class EditBar extends Component {
             ? `/${this.props.dashboardId}`
             : '/'
 
-        console.log('redirectUrl', redirectUrl)
         this.setState({ redirectUrl })
     }
 
@@ -195,7 +194,6 @@ export class EditBar extends Component {
 
     render() {
         if (this.state.redirectUrl) {
-            console.log('redirectUrl', this.state.redirectUrl)
             return <Redirect to={this.state.redirectUrl} />
         }
 
