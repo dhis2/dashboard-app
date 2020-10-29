@@ -28,7 +28,7 @@ beforeEach(() => {
     cy.visit('/')
 })
 
-Given('user chooses to create new dashboard', () => {
+Given('I choose to create new dashboard', () => {
     cy.get('[data-test="dhis2-dashboard-link-new-dashboard"]').click()
 })
 
@@ -66,26 +66,26 @@ Then('dashboard displays in view mode', () => {
     })
 })
 
-Given('user opens existing dashboard', () => {
+Given('I open existing dashboard', () => {
     toggleShowMoreButton()
     cy.get('[data-test="dhis2-dashboard-dashboard-chip"]')
         .contains(dashboardTitle)
         .click()
 })
 
-When('user chooses to edit dashboard', () => {
+When('I choose to edit dashboard', () => {
     cy.get('[data-test="dhis2-dashboard-link-edit-dashboard"]').click()
 })
 
-When('user chooses to delete dashboard', () => {
+When('I choose to delete dashboard', () => {
     cy.get('[data-test="dhis2-dashboard-delete-dashboard-button"]').click()
 })
 
-When('user confirms delete', () => {
+When('I confirm delete', () => {
     cy.get('[data-test="dhis2-dashboard-confirm-delete-dashboard"]').click()
 })
 
-When('user cancels delete', () => {
+When('I cancel delete', () => {
     cy.get('[data-test="dhis2-dashboard-cancel-delete-dashboard"]').click()
 })
 
