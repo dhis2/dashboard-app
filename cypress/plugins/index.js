@@ -1,15 +1,15 @@
 const plugins = require('@dhis2/cli-utils-cypress/plugins')
-const path = require('path')
 
 module.exports = (on, config) => {
     on('before:browser:launch', (browser, launchOptions) => {
         if (browser.family === 'chromium' && browser.name !== 'electron') {
-            launchOptions.extensions.push(
-                path.join(__dirname, '/ignore-x-frame-headers')
-            )
-
+            const disabledChromiumFeatures = [
+                'SameSiteByDefaultCookies',
+                'CookiesWithoutSameSiteMustBeSecure',
+                'SameSiteDefaultChecksMethodRigorously',
+            ]
             launchOptions.args.push(
-                '--disable-features=SameSiteByDefaultCookies,CookiesWithoutSameSiteMustBeSecure,SameSiteDefaultChecksMethodRigorously'
+                `--disable-features=${disabledChromiumFeatures.join(',')}`
             )
         }
 
@@ -17,7 +17,4 @@ module.exports = (on, config) => {
     })
 
     plugins(on, config)
-
-    // Add additional plugins here
-    return config
 }
