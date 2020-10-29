@@ -22,7 +22,7 @@ msgid "Loading dashboard – {{name}}"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 msgid "Delete"
 msgstr "Smazat"
