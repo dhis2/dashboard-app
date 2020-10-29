@@ -102,7 +102,7 @@ msgid "View in {{appName}} app"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 msgid "Confirm"
 msgstr ""
