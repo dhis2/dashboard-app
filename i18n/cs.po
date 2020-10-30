@@ -22,7 +22,7 @@ msgid "Dashboard"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 msgid "Delete"
 msgstr "Smazat"
