@@ -46,7 +46,7 @@ msgid "Show more"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "Vše"
 
 msgid "Unread"
 msgstr ""
