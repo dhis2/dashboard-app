@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Jiří Podhorecký, 2020
+# trendspotter, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-08-26T14:04:44.145Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
-"Last-Translator: Jiří Podhorecký, 2020\n"
+"Last-Translator: trendspotter, 2020\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,7 +77,7 @@ msgid "Remove"
 msgstr "Odebrat"
 
 msgid "Messages"
-msgstr ""
+msgstr "Zprávy"
 
 msgid "See all messages"
 msgstr ""
@@ -108,7 +108,7 @@ msgid "Confirm"
 msgstr ""
 
 msgid "Add filter"
-msgstr ""
+msgstr "Přidat filtr"
 
 msgid "There are no items on this dashboard"
 msgstr ""
