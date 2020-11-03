@@ -19,7 +19,7 @@ msgid "Untitled dashboard"
 msgstr ""
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Ovládací panel"
 
 msgid "Delete"
 msgstr "Smazat"
