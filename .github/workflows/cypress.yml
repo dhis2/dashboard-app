@@ -29,7 +29,7 @@ jobs:
             - name: Tests
               uses: cypress-io/github-action@v2
               with:
-                  spec: cypress/integration/ui/view_dashboard.feature
+                  tags: '@nonmutating'
                   record: true
                   parallel: true
                   start: ${{ env.SERVER_START_CMD }}
