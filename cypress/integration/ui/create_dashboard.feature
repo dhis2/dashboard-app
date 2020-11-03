@@ -1,5 +1,6 @@
 Feature: Creating and deleting dashboard
 
+    @mutating
     Scenario: I create a new dashboard
         Given I choose to create new dashboard
         And dashboard title is added
@@ -8,6 +9,7 @@ Feature: Creating and deleting dashboard
         Then dashboard displays in view mode
         And the saved dashboard should be displayed
 
+    @mutating
     Scenario: I cancel a delete dashboard action
         Given I open existing dashboard
         When I choose to edit dashboard
@@ -15,7 +17,7 @@ Feature: Creating and deleting dashboard
         And I cancel delete
         Then the dashboard displays in edit mode
 
-
+    @mutating
     Scenario: I delete a dashboard
         Given I open existing dashboard
         When I choose to edit dashboard
