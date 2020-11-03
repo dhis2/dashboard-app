@@ -1712,10 +1712,10 @@
     semver "^7.1.3"
     yargs "^15.3.1"
 
-"@dhis2/cli-utils-cypress@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-3.0.2.tgz#7a4ab901f9222b47b8ad07ce3ef4544129faad4a"
-  integrity sha512-n5ds3eD8tg25/wSoRk4QMJy1iQTWYbRi4aPV70k0Bp7kx/d35KNUWECagFK0yFs+P2pksnauC26RWDusKZNj0g==
+"@dhis2/cli-utils-cypress@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-3.0.3.tgz#50904e705ece1bc3d845a579968bbec7a9a98242"
+  integrity sha512-qg2naUkpcp2DZBBwt/Sbky5qL5aROYbBdBTVHrhxhNl2z9u0IvRJwmzAtfPfztdMvUnULGFpAly/pOMQdBXj1Q==
   dependencies:
     "@dhis2/cli-helpers-engine" "^1.5.0"
     concurrently "^5.2.0"
@@ -1726,10 +1726,10 @@
     inquirer "^7.0.4"
     wait-on "^4.0.2"
 
-"@dhis2/cypress-commands@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-3.0.2.tgz#dba3f75346178f7ecfb2dc6c0175851da1c62ce9"
-  integrity sha512-YgJDHu3w3RvLSSS9vHW4sQAjGAOEjAdF4FVpQ4hY3mxUSCrctNHl0eeIQdkGL3RwK2kTIvZ/AS+faaEWn0/3fQ==
+"@dhis2/cypress-commands@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-3.0.3.tgz#f7a1d1428ed95dc10c6732f33a6c2a349ef2e4f6"
+  integrity sha512-OsRuAZcn8sW5NT0ahPVN9rx6qDi9cb6TGYfx6dXggD3At9QMZulP5ivLPmKC6Y70EhA2YPnrtXZmJ4Cjesg8cA==
 
 "@dhis2/d2-i18n@^1.0.5", "@dhis2/d2-i18n@^1.0.6":
   version "1.0.6"

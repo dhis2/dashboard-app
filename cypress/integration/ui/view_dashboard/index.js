@@ -4,7 +4,10 @@ const antenatalCareDashboardRoute = '#/nghVC4wtyzi'
 const immunizationDashboardRoute = '#/TAMlzYkstb7'
 
 Given('I open the Antenatal Care dashboard', () => {
-    cy.visit(antenatalCareDashboardRoute)
+    cy.visit('/')
+    cy.get('[data-test="dhis2-uicore-chip"]')
+        .contains('Antenatal Care')
+        .click()
 })
 
 Then('the Antenatal Care dashboard displays in view mode', () => {

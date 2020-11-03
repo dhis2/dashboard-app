@@ -29,3 +29,9 @@ export const isStubMode = () =>
     Cypress.env('dhis2_api_stub_mode') === API_STUB_MODES.STUB
 
 export const getFileName = () => NETWORK_FIXTURES_FILE_PATH
+
+export const removeAPIServerFromUrlPaths = text => {
+    const apiEndpointUrl = new RegExp(`${getApiBaseUrl()}/api`, 'gi')
+
+    return text.replace(apiEndpointUrl, '')
+}

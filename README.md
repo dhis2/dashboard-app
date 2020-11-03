@@ -13,7 +13,7 @@ Two environment variables need to be set for running dashboards-app in developme
 
 ##### api base url: REACT_APP_DHIS2_BASE_URL
 
-The api base url points to a running DHIS2 instance. This can be for example `http://localhost:8080` or `https://debug.dhis2.org/dev`.
+The api base url points to a running DHIS2 instance. This can be for example `http://localhost:8080`.
 
 ```
 REACT_APP_DHIS2_BASE_URL=http://localhost:8080
@@ -34,7 +34,8 @@ REACT_APP_DHIS2_AUTHORIZATION=Basic YWRtaW46ZGlzdHJpY3Q=
 Additional environment variables are needed in order to run the Cypress e2e tests. It is recommended to define these in the same place as the REACT_APP_DHIS2_BASE_URL env var (for example. `.env`). REACT_APP_DHIS2_BASE_URL and CYPRESS_DHIS2_BASE_URL must match.
 
 ```
-CYPRESS_DHIS2_BASE_URL=https://debug.dhis2.org/dev
+REACT_APP_DHIS2_BASE_URL=http://localhost:8080
+CYPRESS_DHIS2_BASE_URL=http://localhost:8080
 CYPRESS_DHIS2_USERNAME=admin
 CYPRESS_DHIS2_PASSWORD=district
 ```

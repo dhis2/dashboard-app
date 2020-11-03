@@ -1,4 +1,8 @@
-import { getFileName, getApiBaseUrl } from './utils.js'
+import {
+    getFileName,
+    getApiBaseUrl,
+    removeAPIServerFromUrlPaths,
+} from './utils.js'
 
 export default class NetworkShim {
     constructor(hosts) {
@@ -112,14 +116,16 @@ export default class NetworkShim {
         const stateRequest = this.state.requests[key]
         const { size, text } = await this.createResponseBlob(xhr)
 
+        const scrubbedText = removeAPIServerFromUrlPaths(text)
+
         if (stateRequest.response) {
-            if (text !== stateRequest.response) {
+            if (scrubbedText !== stateRequest.response) {
                 this.state.nonDeterministicResponses += 1
                 stateRequest.nonDeterministic = true
             }
         } else {
             // TODO: Capture response headers
-            stateRequest.response = text
+            stateRequest.response = scrubbedText
             stateRequest.size = size
 
             this.state.totalSize += size
