@@ -29,7 +29,6 @@ jobs:
             - name: Tests
               uses: cypress-io/github-action@v2
               with:
-                  tags: '@nonmutating'
                   record: true
                   parallel: true
                   start: ${{ env.SERVER_START_CMD }}
@@ -38,3 +37,4 @@ jobs:
                   group: 'e2e'
               env:
                   CI: true
+                  tags: 'TAGS=@nonmutating'
