@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a valid App item 1`] = `
+<div>
+  <div
+    class="itemHeaderWrap"
+  >
+    <p
+      class="itemTitle"
+    >
+      Scorecard
+    </p>
+  </div>
+  <hr
+    style="background-color: rgb(243, 245, 247); height: 1px; margin: 0px 0px 5px 0px;"
+  />
+  <iframe
+    class="dashboard-item-content"
+    src="launchurl?dashboardItemId=rainbowdash"
+    title="Scorecard"
+  />
+</div>
+`;
+
+exports[`renders a valid App item with filter 1`] = `
+<div>
+  <div
+    class="itemHeaderWrap"
+  >
+    <p
+      class="itemTitle"
+    >
+      Scorecard
+    </p>
+  </div>
+  <hr
+    style="background-color: rgb(243, 245, 247); height: 1px; margin: 0px 0px 5px 0px;"
+  />
+  <iframe
+    class="dashboard-item-content"
+    src="launchurl?dashboardItemId=rainbowdash&userOrgUnit=rainbow"
+    title="Scorecard"
+  />
+</div>
+`;
+
+exports[`renders an invalid App item 1`] = `
+<div>
+  <div
+    class="itemHeaderWrap"
+  >
+    <p
+      class="itemTitle"
+    >
+      unknownApp app not found
+    </p>
+  </div>
+  <hr
+    style="background-color: rgb(243, 245, 247); height: 1px; margin: 0px 0px 5px 0px;"
+  />
+  <div
+    class="dashboard-item-content"
+    style="display: flex; justify-content: center; align-items: center; height: 90%;"
+  >
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root-1 MuiSvgIcon-colorDisabled-6"
+      disabled=""
+      focusable="false"
+      role="presentation"
+      style="width: 100px; height: 100px;"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+      <path
+        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z"
+      />
+    </svg>
+  </div>
+</div>
+`;
