@@ -12,35 +12,22 @@ import './locales'
 
 const muiTheme = () => createMuiTheme(dhis2theme)
 
-const schemas = [
-    'chart',
-    'map',
-    'report',
-    'reportTable',
-    'eventChart',
-    'eventReport',
-    'dashboard',
-    'organisationUnit',
-    'userGroup',
-]
-
-const appConfig = {
-    schemas,
+const d2Config = {
+    schemas: ['dashboard'],
 }
-
-const authorization = process.env.REACT_APP_DHIS2_AUTHORIZATION || null
 
 // TODO: ER and EV plugins require the auth header in development mode.
 // Remove this when these plugins are rewritten
+const authorization = process.env.REACT_APP_DHIS2_AUTHORIZATION || null
 if (authorization) {
-    appConfig.headers = { Authorization: authorization }
+    d2Config.headers = { Authorization: authorization }
 }
 
 const AppWrapper = () => {
     return (
         <ReduxProvider store={configureStore()}>
             <MuiThemeProvider theme={muiTheme()}>
-                <D2Shim appConfig={appConfig} i18nRoot="./i18n">
+                <D2Shim d2Config={d2Config} i18nRoot="./i18n">
                     {({ d2 }) => {
                         if (!d2) {
                             // TODO: Handle errors in d2 initialization
