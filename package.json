@@ -65,6 +65,7 @@
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.2",
         "enzyme-to-json": "^3.5.0",
+        "eslint-plugin-cypress": "^2.11.2",
         "immutability-helper": "^3.1.1",
         "patch-package": "^6.2.2",
         "postinstall-postinstall": "^2.1.0",
