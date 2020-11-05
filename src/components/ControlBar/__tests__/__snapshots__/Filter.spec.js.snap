@@ -2,6 +2,7 @@
 
 exports[`Filter matches the snapshot when name property is empty 1`] = `
 <WithStyles(Input)
+  data-test="dhis2-dashboard-search-dashboard-input"
   endAdornment={
     <WithStyles(WithFormControlContext(InputAdornment))
       position="end"

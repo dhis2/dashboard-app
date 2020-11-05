@@ -101,7 +101,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
           dataTest="dhis2-uicore-buttonstrip"
         >
           <Button
-            dataTest="dhis2-uicore-button"
+            dataTest="dhis2-dashboard-save-dashboard-button"
             onClick={[Function]}
             primary={true}
             type="button"
@@ -198,7 +198,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
           dataTest="dhis2-uicore-buttonstrip"
         >
           <Button
-            dataTest="dhis2-uicore-button"
+            dataTest="dhis2-dashboard-save-dashboard-button"
             onClick={[Function]}
             primary={true}
             type="button"
@@ -295,7 +295,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
           dataTest="dhis2-uicore-buttonstrip"
         >
           <Button
-            dataTest="dhis2-uicore-button"
+            dataTest="dhis2-dashboard-save-dashboard-button"
             onClick={[Function]}
             primary={true}
             type="button"
@@ -392,7 +392,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
           dataTest="dhis2-uicore-buttonstrip"
         >
           <Button
-            dataTest="dhis2-uicore-button"
+            dataTest="dhis2-dashboard-save-dashboard-button"
             onClick={[Function]}
             primary={true}
             type="button"
@@ -414,7 +414,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
             Translate
           </Button>
           <Button
-            dataTest="dhis2-uicore-button"
+            dataTest="dhis2-dashboard-delete-dashboard-button"
             onClick={[Function]}
             type="button"
           >
@@ -472,7 +472,7 @@ exports[`EditBar when update access is true when no dashboard id property render
           dataTest="dhis2-uicore-buttonstrip"
         >
           <Button
-            dataTest="dhis2-uicore-button"
+            dataTest="dhis2-dashboard-save-dashboard-button"
             onClick={[Function]}
             primary={true}
             type="button"
