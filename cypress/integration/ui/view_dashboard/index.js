@@ -2,11 +2,22 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 const antenatalCareDashboardRoute = '#/nghVC4wtyzi'
 const immunizationDashboardRoute = '#/TAMlzYkstb7'
+const deliveryDashboardRoute = '#/iMnYyBfSxmM'
+
+const DASHBOARD_ITEM_CHART_UID = 'GaVhJpqABYX'
+const DASHBOARD_ITEM_TABLE_UID = 'qXsjttMYuoZ'
+// const DASHBOARD_ITEM_MAP_UID = 'G3EtzSWNP9o'
 
 Given('I open the Antenatal Care dashboard', () => {
     cy.visit('/')
     cy.get('[data-test="dhis2-uicore-chip"]')
         .contains('Antenatal Care')
+        .click()
+})
+
+Given('I open the Delivery dashboard', () => {
+    cy.get('[data-test="dhis2-uicore-chip"]')
+        .contains('Delivery')
         .click()
 })
 
@@ -90,4 +101,92 @@ Then('the print one-item-per-page displays', () => {
 
     //check for some elements
     cy.get('[data-test="dhis2-dashboard-print-oipp-page"]').should('be.visible')
+})
+
+When('I click View As Table on a chart dashboard item', () => {
+    cy.get(
+        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_CHART_UID}"]`
+    )
+        .find('[data-test="dhis2-dashboard-item-context-menu"]')
+        .click()
+
+    cy.get('[data-test="dhis2-dashboard-item-viewas-table"]').click()
+})
+
+When('I click View As Chart on a table dashboard item', () => {
+    cy.get(
+        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_TABLE_UID}"]`
+    )
+        .find('[data-test="dhis2-dashboard-item-context-menu"]')
+        .click()
+
+    cy.get('[data-test="dhis2-dashboard-item-viewas-chart"]').click()
+})
+
+Then('the chart dashboard item displays as a chart', () => {
+    cy.get(
+        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_CHART_UID}"]`
+    )
+        .find('.highcharts-container')
+        .should('be.visible')
+
+    cy.get(
+        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_CHART_UID}"]`
+    )
+        .find('.pivot-table-container')
+        .should('not.be.visible')
+})
+
+Then('the chart dashboard item displays as a table', () => {
+    cy.get(
+        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_CHART_UID}"]`
+    )
+        .find('.highcharts-container')
+        .should('not.exist')
+
+    cy.get(
+        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_CHART_UID}"]`
+    )
+        .find('.pivot-table-container')
+        .should('be.visible')
+})
+
+Then('the table dashboard item displays as a chart', () => {
+    cy.get(
+        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_TABLE_UID}"]`
+    )
+        .find('.highcharts-container')
+        .should('be.visible')
+
+    cy.get(
+        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_TABLE_UID}"]`
+    )
+        .find('.pivot-table-container')
+        .should('not.exist')
+})
+
+Then('the table dashboard item displays as a table', () => {
+    cy.get(
+        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_TABLE_UID}"]`
+    )
+        .find('.highcharts-container')
+        .should('not.exist')
+
+    cy.get(
+        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_TABLE_UID}"]`
+    )
+        .find('.pivot-table-container')
+        .should('be.visible')
+})
+
+Then('the Delivery dashboard displays in view mode', () => {
+    cy.location().should(loc => {
+        expect(loc.hash).to.equal(deliveryDashboardRoute)
+    })
+
+    cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]')
+        .scrollIntoView()
+        .should('be.visible')
+        .and('contain', 'Delivery')
+    cy.get('.highcharts-background').should('exist')
 })
