@@ -22,7 +22,7 @@ jest.mock('../modules/plugin', () => {
 
 const mockHeaderRef = { clientHeight: 50 }
 
-describe.skip('VisualizationItem/Item', () => {
+describe('VisualizationItem/Item', () => {
     let props
     let shallowItem
 
@@ -35,12 +35,15 @@ describe.skip('VisualizationItem/Item', () => {
 
     beforeEach(() => {
         props = {
-            classes: {},
+            activeType: null,
+            dashboardMode: 'view',
+            isEditing: false,
             item: {},
-            editMode: false,
             itemFilters: {
                 brilliance: [{ id: 100, name: '100' }],
             },
+            selectActiveType: jest.fn(),
+            updateVisualization: jest.fn(),
             visualization: {
                 name: 'vis name',
                 id: 'vis id',
@@ -50,7 +53,6 @@ describe.skip('VisualizationItem/Item', () => {
                 filters: [],
             },
             onToggleItemExpanded: jest.fn(),
-            onVisualizationLoaded: jest.fn(),
         }
         shallowItem = undefined
     })
@@ -64,6 +66,7 @@ describe.skip('VisualizationItem/Item', () => {
 
         const expectedConfig = {
             ...props.visualization,
+            id: undefined,
             filters: [
                 {
                     dimension: 'brilliance',
@@ -93,6 +96,7 @@ describe.skip('VisualizationItem/Item', () => {
 
         const expectedConfig = {
             ...props.visualization,
+            id: undefined,
             filters: [
                 {
                     dimension: 'brilliance',
@@ -120,6 +124,7 @@ describe.skip('VisualizationItem/Item', () => {
         }
         const expectedConfig = {
             ...props.visualization,
+            id: undefined,
             filters: [
                 {
                     dimension: 'brilliance',

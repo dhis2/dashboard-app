@@ -30,7 +30,8 @@ exports[`VisualizationItem/Item renders a DefaultPlugin when an EVENT_CHART is p
         }
       />
     }
-    title="rainbow"
+    dashboardMode="view"
+    title="Test evchart"
   />
   <FatalErrorBoundary>
     <div
