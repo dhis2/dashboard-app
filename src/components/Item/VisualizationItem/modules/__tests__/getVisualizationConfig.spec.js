@@ -1,17 +1,15 @@
-// import { VIS_TYPE_COLUMN, VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
-
 import getVisualizationConfig, {
     THEMATIC_LAYER,
 } from '../getVisualizationConfig'
 import { REPORT_TABLE, CHART, MAP } from '../../../../../modules/itemTypes'
-
-jest.mock('@dhis2/analytics', () => {
-    return {
-        VIS_TYPE_COLUMN: 'COLUMN',
-        VIS_TYPE_PIVOT_TABLE: 'PIVOT_TABLE',
-        layoutGetAdaptedLayoutForType: () => true,
-    }
-})
+import {
+    DIMENSION_ID_DATA,
+    DIMENSION_ID_PERIOD,
+    DIMENSION_ID_ORGUNIT,
+    AXIS_ID_COLUMNS,
+    AXIS_ID_ROWS,
+    AXIS_ID_FILTERS,
+} from '@dhis2/analytics'
 
 describe('getVisualizationConfig', () => {
     let visualization
@@ -31,13 +29,24 @@ describe('getVisualizationConfig', () => {
     })
 
     it('returns correct config when switching from CHART to REPORT_TABLE', () => {
+        const visConfig = {
+            id: 'vis1',
+            type: 'CHART',
+            [AXIS_ID_COLUMNS]: [{ dimension: DIMENSION_ID_DATA }],
+            [AXIS_ID_ROWS]: [{ dimension: DIMENSION_ID_PERIOD }],
+            [AXIS_ID_FILTERS]: [
+                { dimension: DIMENSION_ID_ORGUNIT },
+                { dimension: 'rainbow' },
+                { dimension: 'twilight' },
+            ],
+        }
         const actualResult = getVisualizationConfig(
-            visualization,
+            visConfig,
             CHART,
             REPORT_TABLE
         )
         const expectedResult = {
-            ...visualization,
+            ...visConfig,
             id: undefined,
             type: 'PIVOT_TABLE',
         }
@@ -45,19 +54,39 @@ describe('getVisualizationConfig', () => {
         expect(actualResult).toEqual(expectedResult)
     })
 
-    it.skip('returns correct config when switching from REPORT_TABLE to CHART', () => {
+    it('returns correct config when switching from REPORT_TABLE to CHART', () => {
+        const visConfig = {
+            id: 'vis1',
+            [AXIS_ID_COLUMNS]: [
+                { dimension: DIMENSION_ID_DATA },
+                { dimension: 'rainbow' },
+            ],
+            [AXIS_ID_ROWS]: [
+                { dimension: DIMENSION_ID_PERIOD },
+                { dimension: 'twilight' },
+            ],
+            [AXIS_ID_FILTERS]: [{ dimension: DIMENSION_ID_ORGUNIT }],
+        }
+
+        const expectedVisConfig = {
+            id: undefined,
+            type: 'COLUMN',
+            [AXIS_ID_COLUMNS]: [{ dimension: DIMENSION_ID_DATA }],
+            [AXIS_ID_ROWS]: [{ dimension: DIMENSION_ID_PERIOD }],
+            [AXIS_ID_FILTERS]: [
+                { dimension: DIMENSION_ID_ORGUNIT },
+                { dimension: 'rainbow' },
+                { dimension: 'twilight' },
+            ],
+        }
+
         const actualResult = getVisualizationConfig(
-            visualization,
+            visConfig,
             REPORT_TABLE,
             CHART
         )
-        const expectedResult = {
-            ...visualization,
-            id: undefined,
-            type: 'COLUMN',
-        }
 
-        expect(actualResult).toEqual(expectedResult)
+        expect(actualResult).toEqual(expectedVisConfig)
     })
 
     it('extracts map analytical object and prepares for plugins', () => {
