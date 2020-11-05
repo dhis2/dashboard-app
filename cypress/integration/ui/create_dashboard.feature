@@ -5,6 +5,7 @@ Feature: Creating and deleting dashboard
         Given I choose to create new dashboard
         And dashboard title is added
         And dashboard items are added
+        And escape key is pressed
         And dashboard is saved
         Then dashboard displays in view mode
         And the saved dashboard should be displayed

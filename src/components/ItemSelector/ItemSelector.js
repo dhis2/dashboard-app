@@ -142,7 +142,12 @@ class ItemSelector extends React.Component {
                     disableEnforceFocus={true}
                     disableRestoreFocus={true}
                 >
-                    <Menu maxWidth={'700px'}>{this.getMenuGroups()}</Menu>
+                    <Menu
+                        dataTest={'dhis2-dashboard-item-menu'}
+                        maxWidth={'700px'}
+                    >
+                        {this.getMenuGroups()}
+                    </Menu>
                 </Popover>
             </>
         )

@@ -1,8 +1,11 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
+// the length of the root route of the app (after the slash): #/
+const ROOT_ROUTE_LENGTH = 0
+// the length of UIDs (after the slash): '#/nghVC4wtyzi'
 const UID_LENGTH = 11
 
-const dashboardTitle = new Date().toString()
+const TEST_DASHBOARD_TITLE = new Date().toUTCString()
 
 const ROUTE_EDIT = 'edit'
 const ROUTE_NEW = 'new'
@@ -34,7 +37,7 @@ Given('I choose to create new dashboard', () => {
 
 When('dashboard title is added', () => {
     cy.get('[data-test="dhis2-dashboard-dashboard-title-input"]').type(
-        dashboardTitle
+        TEST_DASHBOARD_TITLE
     )
 })
 
@@ -43,8 +46,11 @@ When('dashboard items are added', () => {
     cy.get(
         '[data-test="dhis2-dashboard-menu-item-ANC: 1 and 3 coverage Yearly"]'
     ).click()
-    // close the item selector
+})
+
+When('escape key is pressed', () => {
     cy.get('body').trigger('keydown', { key: 'Escape' })
+    cy.get('[data-test="dhis2-dashboard-item-menu]').should('not.be.visible')
 })
 
 When('dashboard is saved', () => {
@@ -53,7 +59,7 @@ When('dashboard is saved', () => {
 
 Then('the saved dashboard should be displayed', () => {
     cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]').contains(
-        dashboardTitle
+        TEST_DASHBOARD_TITLE
     )
 })
 
@@ -62,14 +68,14 @@ Then('dashboard displays in view mode', () => {
         const currentRoute = getRouteFromHash(loc.hash)
 
         expect(nonViewRoutes).not.to.include(currentRoute)
-        expect([0, UID_LENGTH]).to.include(currentRoute.length)
+        expect([ROOT_ROUTE_LENGTH, UID_LENGTH]).to.include(currentRoute.length)
     })
 })
 
 Given('I open existing dashboard', () => {
     toggleShowMoreButton()
     cy.get('[data-test="dhis2-dashboard-dashboard-chip"]')
-        .contains(dashboardTitle)
+        .contains(TEST_DASHBOARD_TITLE)
         .click()
 })
 
@@ -102,7 +108,7 @@ Then('the dashboard displays in edit mode', () => {
 Then('the dashboard is deleted and first starred dashboard displayed', () => {
     toggleShowMoreButton()
     cy.get('[data-test="dhis2-dashboard-dashboard-chip"]')
-        .contains(dashboardTitle)
+        .contains(TEST_DASHBOARD_TITLE)
         .should('not.exist')
 
     cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]')
