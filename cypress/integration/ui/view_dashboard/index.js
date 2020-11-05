@@ -1,6 +1,6 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-const antenatalCareDashboardRoute = '#/nghVC4wtyzi'
+// const antenatalCareDashboardRoute = '#/nghVC4wtyzi'
 const immunizationDashboardRoute = '#/TAMlzYkstb7'
 const deliveryDashboardRoute = '#/iMnYyBfSxmM'
 
@@ -8,8 +8,11 @@ const DASHBOARD_ITEM_CHART_UID = 'GaVhJpqABYX'
 const DASHBOARD_ITEM_TABLE_UID = 'qXsjttMYuoZ'
 // const DASHBOARD_ITEM_MAP_UID = 'G3EtzSWNP9o'
 
-Given('I open the Antenatal Care dashboard', () => {
+beforeEach(() => {
     cy.visit('/')
+})
+
+Given('I open the Antenatal Care dashboard', () => {
     cy.get('[data-test="dhis2-uicore-chip"]')
         .contains('Antenatal Care')
         .click()
@@ -19,17 +22,6 @@ Given('I open the Delivery dashboard', () => {
     cy.get('[data-test="dhis2-uicore-chip"]')
         .contains('Delivery')
         .click()
-})
-
-Then('the Antenatal Care dashboard displays in view mode', () => {
-    cy.location().should(loc => {
-        expect(loc.hash).to.equal(antenatalCareDashboardRoute)
-    })
-
-    cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]')
-        .should('be.visible')
-        .and('contain', 'Antenatal Care')
-    cy.get('.highcharts-background').should('exist')
 })
 
 When('I select the Immunization dashboard', () => {
@@ -49,7 +41,7 @@ Then('the Immunization dashboard displays in view mode', () => {
     cy.get('.highcharts-background').should('exist')
 })
 
-When('I search for dashboards containing Immunization', () => {
+When('I search for dashboards containing Immun', () => {
     cy.get('[data-test="dhis2-dashboard-search-dashboard-input"]').type('Immun')
 })
 
@@ -74,7 +66,7 @@ When('I click to preview the print layout', () => {
 Then('the print layout displays', () => {
     //check the url
     cy.location().should(loc => {
-        expect(loc.hash).to.equal(`${antenatalCareDashboardRoute}/printlayout`)
+        expect(loc.hash).to.equal(`${deliveryDashboardRoute}/printlayout`)
     })
 
     //check for some elements
@@ -96,7 +88,7 @@ When('I click to preview the print one-item-per-page', () => {
 Then('the print one-item-per-page displays', () => {
     //check the url
     cy.location().should(loc => {
-        expect(loc.hash).to.equal(`${antenatalCareDashboardRoute}/printoipp`)
+        expect(loc.hash).to.equal(`${deliveryDashboardRoute}/printoipp`)
     })
 
     //check for some elements
