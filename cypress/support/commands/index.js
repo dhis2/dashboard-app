@@ -1,6 +1,3 @@
-// Cypress.Commands.add(name, callbackFn)
-// Cypress.Commands.add(name, options, callbackFn)
-
 Cypress.Commands.add('clickChip', name => {
     cy.get('[data-test="dhis2-uicore-chip"]')
         .contains(name)
@@ -19,6 +16,10 @@ Cypress.Commands.add('clickViewAsChart', () => {
 
 Cypress.Commands.add('clickViewAsTable', () => {
     cy.get('[data-test="dhis2-dashboard-item-viewas-table"]').click()
+})
+
+Cypress.Commands.add('clickViewAsMap', () => {
+    cy.get('[data-test="dhis2-dashboard-item-viewas-map"]').click()
 })
 
 Cypress.Commands.add('checkDashboardTitle', name => {
@@ -64,4 +65,11 @@ Cypress.Commands.add('checkChartDoesNotExist', name => {
     cy.get(`[data-test="dhis2-dashboard-dashboard-item-prog-${name}"]`)
         .find('.highcharts-container')
         .should('not.exist')
+})
+
+Cypress.Commands.add('checkMapExists', name => {
+    cy.get(`[data-test="dhis2-dashboard-dashboard-item-prog-${name}"]`)
+        .find('.dhis2-map-plugin')
+        .should('exist')
+        .and('be.visible')
 })
