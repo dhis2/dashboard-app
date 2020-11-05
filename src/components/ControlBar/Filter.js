@@ -36,7 +36,7 @@ export class Filter extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         this.setState({
             value: nextProps.name,
         })
@@ -86,6 +86,7 @@ export class Filter extends Component {
                 value={this.state.value}
                 onChange={this.setFilterValue}
                 onKeyUp={this.handleKeyUp}
+                data-test="dhis2-dashboard-search-dashboard-input"
             />
         )
     }

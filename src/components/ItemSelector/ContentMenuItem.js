@@ -55,6 +55,7 @@ const ContentMenuItem = ({ type, name, onInsert, url, visType }) => {
                     <InsertButton />
                 </div>
             }
+            dataTest={`dhis2-dashboard-menu-item-${name}`}
         />
     )
 }
