@@ -12,33 +12,24 @@ beforeEach(() => {
     cy.visit('/')
 })
 
-Given('I open the Antenatal Care dashboard', () => {
-    cy.get('[data-test="dhis2-uicore-chip"]')
-        .contains('Antenatal Care')
-        .click()
-})
-
 Given('I open the Delivery dashboard', () => {
-    cy.get('[data-test="dhis2-uicore-chip"]')
-        .contains('Delivery')
-        .click()
+    cy.clickChip('Delivery')
 })
 
 When('I select the Immunization dashboard', () => {
-    cy.get('[data-test="dhis2-uicore-chip"]')
-        .contains('Immun')
-        .click()
+    cy.clickChip('Immun')
 })
 
 Then('the Immunization dashboard displays in view mode', () => {
-    cy.location().should(loc => {
-        expect(loc.hash).to.equal(immunizationDashboardRoute)
-    })
+    cy.checkUrlLocation(immunizationDashboardRoute)
+    cy.checkDashboardTitle('Immunization')
+    cy.checkChartExists()
+})
 
-    cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]')
-        .should('be.visible')
-        .and('contain', 'Immunization')
-    cy.get('.highcharts-background').should('exist')
+Then('the Delivery dashboard displays in view mode', () => {
+    cy.checkUrlLocation(deliveryDashboardRoute)
+    cy.checkDashboardTitle('Delivery')
+    cy.checkChartExists()
 })
 
 When('I search for dashboards containing Immun', () => {
@@ -64,12 +55,7 @@ When('I click to preview the print layout', () => {
 })
 
 Then('the print layout displays', () => {
-    //check the url
-    cy.location().should(loc => {
-        expect(loc.hash).to.equal(`${deliveryDashboardRoute}/printlayout`)
-    })
-
-    //check for some elements
+    cy.checkUrlLocation(`${deliveryDashboardRoute}/printlayout`)
     cy.get('[data-test="dhis2-dashboard-print-layout-page"]').should(
         'be.visible'
     )
@@ -86,99 +72,36 @@ When('I click to preview the print one-item-per-page', () => {
 })
 
 Then('the print one-item-per-page displays', () => {
-    //check the url
-    cy.location().should(loc => {
-        expect(loc.hash).to.equal(`${deliveryDashboardRoute}/printoipp`)
-    })
-
-    //check for some elements
+    cy.checkUrlLocation(`${deliveryDashboardRoute}/printoipp`)
     cy.get('[data-test="dhis2-dashboard-print-oipp-page"]').should('be.visible')
 })
 
 When('I click View As Table on a chart dashboard item', () => {
-    cy.get(
-        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_CHART_UID}"]`
-    )
-        .find('[data-test="dhis2-dashboard-item-context-menu"]')
-        .click()
-
-    cy.get('[data-test="dhis2-dashboard-item-viewas-table"]').click()
+    cy.clickContextMenu(DASHBOARD_ITEM_CHART_UID)
+    cy.clickViewAsTable(DASHBOARD_ITEM_CHART_UID)
 })
 
 When('I click View As Chart on a table dashboard item', () => {
-    cy.get(
-        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_TABLE_UID}"]`
-    )
-        .find('[data-test="dhis2-dashboard-item-context-menu"]')
-        .click()
-
-    cy.get('[data-test="dhis2-dashboard-item-viewas-chart"]').click()
+    cy.clickContextMenu(DASHBOARD_ITEM_TABLE_UID)
+    cy.clickViewAsChart(DASHBOARD_ITEM_TABLE_UID)
 })
 
 Then('the chart dashboard item displays as a chart', () => {
-    cy.get(
-        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_CHART_UID}"]`
-    )
-        .find('.highcharts-container')
-        .should('be.visible')
-
-    cy.get(
-        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_CHART_UID}"]`
-    )
-        .find('.pivot-table-container')
-        .should('not.be.visible')
+    cy.checkChartExists(DASHBOARD_ITEM_CHART_UID)
+    cy.checkTableDoesNotExist(DASHBOARD_ITEM_CHART_UID)
 })
 
 Then('the chart dashboard item displays as a table', () => {
-    cy.get(
-        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_CHART_UID}"]`
-    )
-        .find('.highcharts-container')
-        .should('not.exist')
-
-    cy.get(
-        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_CHART_UID}"]`
-    )
-        .find('.pivot-table-container')
-        .should('be.visible')
+    cy.checkChartDoesNotExist(DASHBOARD_ITEM_CHART_UID)
+    cy.checkTableExists(DASHBOARD_ITEM_CHART_UID)
 })
 
 Then('the table dashboard item displays as a chart', () => {
-    cy.get(
-        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_TABLE_UID}"]`
-    )
-        .find('.highcharts-container')
-        .should('be.visible')
-
-    cy.get(
-        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_TABLE_UID}"]`
-    )
-        .find('.pivot-table-container')
-        .should('not.exist')
+    cy.checkChartExists(DASHBOARD_ITEM_TABLE_UID)
+    cy.checkTableDoesNotExist(DASHBOARD_ITEM_TABLE_UID)
 })
 
 Then('the table dashboard item displays as a table', () => {
-    cy.get(
-        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_TABLE_UID}"]`
-    )
-        .find('.highcharts-container')
-        .should('not.exist')
-
-    cy.get(
-        `[data-test="dhis2-dashboard-dashboard-item-prog-${DASHBOARD_ITEM_TABLE_UID}"]`
-    )
-        .find('.pivot-table-container')
-        .should('be.visible')
-})
-
-Then('the Delivery dashboard displays in view mode', () => {
-    cy.location().should(loc => {
-        expect(loc.hash).to.equal(deliveryDashboardRoute)
-    })
-
-    cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]')
-        .scrollIntoView()
-        .should('be.visible')
-        .and('contain', 'Delivery')
-    cy.get('.highcharts-background').should('exist')
+    cy.checkChartDoesNotExist(DASHBOARD_ITEM_TABLE_UID)
+    cy.checkTableExists(DASHBOARD_ITEM_TABLE_UID)
 })
