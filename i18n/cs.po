@@ -170,7 +170,7 @@ msgid "Open in {{appName}} app"
 msgstr ""
 
 msgid "Confirm"
-msgstr ""
+msgstr "Potvrdit"
 
 msgid "Add filter"
 msgstr "Přidat filtr"
