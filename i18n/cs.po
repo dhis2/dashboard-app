@@ -43,7 +43,7 @@ msgid "Save changes"
 msgstr ""
 
 msgid "Translate"
-msgstr ""
+msgstr "Přeložit"
 
 msgid "Search for a dashboard"
 msgstr ""
@@ -55,7 +55,7 @@ msgid "Show more"
 msgstr ""
 
 msgid "No access"
-msgstr ""
+msgstr "Žádný přístup"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -141,10 +141,10 @@ msgid "Add description here"
 msgstr ""
 
 msgid "Edit"
-msgstr ""
+msgstr "Upravit"
 
 msgid "Share"
-msgstr ""
+msgstr "Sdílet"
 
 msgid "No description"
 msgstr ""
@@ -162,7 +162,7 @@ msgid "Visualizer"
 msgstr ""
 
 msgid "Maps"
-msgstr ""
+msgstr "Mapy"
 
 msgid "Event reports"
 msgstr ""
@@ -177,7 +177,7 @@ msgid "Event Visualizer"
 msgstr ""
 
 msgid "Apps"
-msgstr ""
+msgstr "Aplikace"
 
 msgid "Reports"
 msgstr ""
