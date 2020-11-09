@@ -46,7 +46,7 @@ msgid "Save changes"
 msgstr ""
 
 msgid "Translate"
-msgstr ""
+msgstr "Přeložit"
 
 msgid "Exit without saving"
 msgstr ""
@@ -70,7 +70,7 @@ msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "No access"
-msgstr ""
+msgstr "Žádný přístup"
 
 msgid "Exit print preview"
 msgstr ""
@@ -212,10 +212,10 @@ msgid "Star dashboard"
 msgstr ""
 
 msgid "Edit"
-msgstr ""
+msgstr "Upravit"
 
 msgid "Share"
-msgstr ""
+msgstr "Sdílet"
 
 msgid "More"
 msgstr "Více"
@@ -239,7 +239,7 @@ msgid "Charts"
 msgstr ""
 
 msgid "Maps"
-msgstr ""
+msgstr "Mapy"
 
 msgid "Event reports"
 msgstr ""
@@ -248,7 +248,7 @@ msgid "Event charts"
 msgstr ""
 
 msgid "Apps"
-msgstr ""
+msgstr "Aplikace"
 
 msgid "Reports"
 msgstr ""
