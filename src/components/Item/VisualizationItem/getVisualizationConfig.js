@@ -3,7 +3,7 @@ import {
     VIS_TYPE_PIVOT_TABLE,
     getAdaptedUiLayoutByType,
 } from '@dhis2/analytics'
-import { REPORT_TABLE, CHART, MAP } from '../../../../modules/itemTypes'
+import { REPORT_TABLE, CHART, MAP } from '../../../modules/itemTypes'
 
 export const THEMATIC_LAYER = 'thematic'
 

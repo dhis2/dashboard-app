@@ -15,7 +15,7 @@ import LoadingMask from './LoadingMask'
 import NoVisualizationMessage from './NoVisualizationMessage'
 
 import { apiFetchVisualization } from '../../../api/metadata'
-import getVisualizationConfig from './modules/getVisualizationConfig'
+import getVisualizationConfig from './getVisualizationConfig'
 import { sGetVisualization } from '../../../reducers/visualizations'
 import { sGetSelectedItemActiveType } from '../../../reducers/selected'
 import { sGetIsEditing } from '../../../reducers/editDashboard'

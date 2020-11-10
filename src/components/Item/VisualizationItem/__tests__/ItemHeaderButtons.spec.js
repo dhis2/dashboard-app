@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import ItemHeaderButtons from '../ItemHeaderButtons'
 
-jest.mock('../modules/plugin', () => ({
+jest.mock('../plugin', () => ({
     getLink: () => 'http://rainbowdash',
     pluginIsAvailable: () => true,
 }))

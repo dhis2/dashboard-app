@@ -1,7 +1,7 @@
 import getVisualizationConfig, {
     THEMATIC_LAYER,
 } from '../getVisualizationConfig'
-import { REPORT_TABLE, CHART, MAP } from '../../../../../modules/itemTypes'
+import { REPORT_TABLE, CHART, MAP } from '../../../../modules/itemTypes'
 import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
