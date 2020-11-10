@@ -37,7 +37,7 @@ export const DashboardsBar = ({
     selectedId,
     filterText,
 }) => {
-    const [rows, setRows] = useState(MIN_ROW_COUNT)
+    const [rows, setRows] = useState(userRows)
 
     useEffect(() => {
         setRows(userRows)
@@ -61,6 +61,10 @@ export const DashboardsBar = ({
     const toggleMaxHeight = () => {
         const newRows = isMaxHeight() ? userRows : MAX_ROW_COUNT
         setRows(newRows)
+    }
+
+    const cancelMaxHeight = () => {
+        setRows(userRows)
     }
 
     const onSelectDashboard = () => {
@@ -117,6 +121,7 @@ export const DashboardsBar = ({
                         starred={dashboard.starred}
                         dashboardId={dashboard.id}
                         selected={dashboard.id === selectedId}
+                        onClick={cancelMaxHeight}
                     />
                 ))}
             </div>
