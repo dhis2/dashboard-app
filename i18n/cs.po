@@ -40,7 +40,7 @@ msgid "Go to dashboards"
 msgstr ""
 
 msgid "Save changes"
-msgstr ""
+msgstr "Uložit změny"
 
 msgid "Translate"
 msgstr "Přeložit"
@@ -49,10 +49,10 @@ msgid "Search for a dashboard"
 msgstr ""
 
 msgid "Show less"
-msgstr ""
+msgstr "Zobrazit méně"
 
 msgid "Show more"
-msgstr ""
+msgstr "Zobrazit více"
 
 msgid "No access"
 msgstr "Žádný přístup"
@@ -123,7 +123,7 @@ msgid "See more {{itemTypes}}"
 msgstr ""
 
 msgid "Add"
-msgstr ""
+msgstr "Přidat"
 
 msgid "Additional items"
 msgstr ""
@@ -147,16 +147,16 @@ msgid "Share"
 msgstr "Sdílet"
 
 msgid "No description"
-msgstr ""
+msgstr "Bez popisu"
 
 msgid "Pivot tables"
 msgstr ""
 
 msgid "Pivot Tables"
-msgstr ""
+msgstr "Kontingenční tabulky"
 
 msgid "Charts"
-msgstr ""
+msgstr "Grafy"
 
 msgid "Visualizer"
 msgstr ""
@@ -168,13 +168,13 @@ msgid "Event reports"
 msgstr ""
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Zprávy o událostech"
 
 msgid "Event charts"
 msgstr ""
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "Vizualizér událostí"
 
 msgid "Apps"
 msgstr "Aplikace"
@@ -183,7 +183,7 @@ msgid "Reports"
 msgstr ""
 
 msgid "Resources"
-msgstr ""
+msgstr "Zdroje"
 
 msgid "Users"
 msgstr "Uživatelé"
