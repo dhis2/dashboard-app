@@ -31,7 +31,7 @@ msgid "Save changes"
 msgstr ""
 
 msgid "Translate"
-msgstr ""
+msgstr "Přeložit"
 
 msgid "Exit without saving"
 msgstr ""
@@ -122,7 +122,7 @@ msgid "Visualizer"
 msgstr ""
 
 msgid "Maps"
-msgstr ""
+msgstr "Mapy"
 
 msgid "Event reports"
 msgstr ""
