@@ -22,7 +22,7 @@ const PrintActionsBar = ({ id }) => {
             <div className={classes.container}>
                 <div className={classes.inner} style={{ width }}>
                     <Link className={classes.link} to={`/${id}`}>
-                        <Button>
+                        <Button dataTest="dhis2-dashboard-exit-print-preview">
                             <LessHorizontalIcon />
                             {i18n.t('Exit print preview')}
                         </Button>

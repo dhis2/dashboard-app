@@ -18,6 +18,7 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
         >
           <a
             class="newLink"
+            data-test="dhis2-dashboard-link-new-dashboard"
             href="/new"
           >
             <svg
@@ -52,6 +53,7 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
             </svg>
             <input
               class="input"
+              data-test="dhis2-dashboard-search-dashboard-input"
               placeholder="Search for a dashboard"
               type="text"
               value=""
@@ -60,6 +62,7 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
         </div>
         <a
           class="link"
+          data-test="dhis2-dashboard-dashboard-chip"
           href="/fluttershy123"
         >
           <span
@@ -97,6 +100,7 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
         </a>
         <a
           class="link"
+          data-test="dhis2-dashboard-dashboard-chip"
           href="/rainbow123"
         >
           <span
@@ -116,6 +120,7 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
       >
         <div
           class="showMore"
+          data-test="dhis2-dashboard-showmore-button"
         >
           Show less
         </div>
@@ -148,6 +153,7 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
         >
           <a
             class="newLink"
+            data-test="dhis2-dashboard-link-new-dashboard"
             href="/new"
           >
             <svg
@@ -182,6 +188,7 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
             </svg>
             <input
               class="input"
+              data-test="dhis2-dashboard-search-dashboard-input"
               placeholder="Search for a dashboard"
               type="text"
               value=""
@@ -191,6 +198,7 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
         </div>
         <a
           class="link"
+          data-test="dhis2-dashboard-dashboard-chip"
           href="/fluttershy123"
         >
           <span
@@ -228,6 +236,7 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
         </a>
         <a
           class="link"
+          data-test="dhis2-dashboard-dashboard-chip"
           href="/rainbow123"
         >
           <span
@@ -279,6 +288,7 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
         >
           <a
             class="newLink"
+            data-test="dhis2-dashboard-link-new-dashboard"
             href="/new"
           >
             <svg
@@ -313,6 +323,7 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
             </svg>
             <input
               class="input"
+              data-test="dhis2-dashboard-search-dashboard-input"
               placeholder="Search for a dashboard"
               type="text"
               value=""
@@ -322,6 +333,7 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
         </div>
         <a
           class="link"
+          data-test="dhis2-dashboard-dashboard-chip"
           href="/fluttershy123"
         >
           <span
@@ -359,6 +371,7 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
         </a>
         <a
           class="link"
+          data-test="dhis2-dashboard-dashboard-chip"
           href="/rainbow123"
         >
           <span
@@ -378,6 +391,7 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
       >
         <div
           class="showMore"
+          data-test="dhis2-dashboard-showmore-button"
         >
           Show more
         </div>
@@ -410,6 +424,7 @@ exports[`renders a DashboardsBar with no items 1`] = `
         >
           <a
             class="newLink"
+            data-test="dhis2-dashboard-link-new-dashboard"
             href="/new"
           >
             <svg
@@ -444,6 +459,7 @@ exports[`renders a DashboardsBar with no items 1`] = `
             </svg>
             <input
               class="input"
+              data-test="dhis2-dashboard-search-dashboard-input"
               placeholder="Search for a dashboard"
               type="text"
               value=""
@@ -457,6 +473,7 @@ exports[`renders a DashboardsBar with no items 1`] = `
       >
         <div
           class="showMore"
+          data-test="dhis2-dashboard-showmore-button"
         >
           Show more
         </div>
@@ -489,6 +506,7 @@ exports[`renders a DashboardsBar with selected item 1`] = `
         >
           <a
             class="newLink"
+            data-test="dhis2-dashboard-link-new-dashboard"
             href="/new"
           >
             <svg
@@ -523,6 +541,7 @@ exports[`renders a DashboardsBar with selected item 1`] = `
             </svg>
             <input
               class="input"
+              data-test="dhis2-dashboard-search-dashboard-input"
               placeholder="Search for a dashboard"
               type="text"
               value=""
@@ -532,6 +551,7 @@ exports[`renders a DashboardsBar with selected item 1`] = `
         </div>
         <a
           class="link"
+          data-test="dhis2-dashboard-dashboard-chip"
           href="/fluttershy123"
         >
           <span
@@ -569,6 +589,7 @@ exports[`renders a DashboardsBar with selected item 1`] = `
         </a>
         <a
           class="link"
+          data-test="dhis2-dashboard-dashboard-chip"
           href="/rainbow123"
         >
           <span
@@ -588,6 +609,7 @@ exports[`renders a DashboardsBar with selected item 1`] = `
       >
         <div
           class="showMore"
+          data-test="dhis2-dashboard-showmore-button"
         >
           Show more
         </div>

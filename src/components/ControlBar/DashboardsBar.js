@@ -101,7 +101,11 @@ export const DashboardsBar = ({
                 }}
             >
                 <div className={classes.leftControls}>
-                    <Link className={classes.newLink} to={'/new'}>
+                    <Link
+                        className={classes.newLink}
+                        to={'/new'}
+                        data-test="dhis2-dashboard-link-new-dashboard"
+                    >
                         <AddCircleIcon />
                     </Link>
                     <Filter onKeypressEnter={onSelectDashboard} />
