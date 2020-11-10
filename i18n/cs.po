@@ -28,7 +28,7 @@ msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
 
 msgid "Save changes"
-msgstr ""
+msgstr "Uložit změny"
 
 msgid "Translate"
 msgstr "Přeložit"
@@ -40,10 +40,10 @@ msgid "Search for a dashboard"
 msgstr ""
 
 msgid "Show less"
-msgstr ""
+msgstr "Zobrazit méně"
 
 msgid "Show more"
-msgstr ""
+msgstr "Zobrazit více"
 
 msgid "All"
 msgstr "Vše"
@@ -58,10 +58,10 @@ msgid "You like this"
 msgstr ""
 
 msgid "Like"
-msgstr ""
+msgstr "Jako"
 
 msgid "Reply"
-msgstr ""
+msgstr "Odpovědět"
 
 msgid "Add your reply"
 msgstr ""
@@ -107,16 +107,16 @@ msgid "Add description here"
 msgstr ""
 
 msgid "No description"
-msgstr ""
+msgstr "Bez popisu"
 
 msgid "Pivot tables"
 msgstr ""
 
 msgid "Pivot Tables"
-msgstr ""
+msgstr "Kontingenční tabulky"
 
 msgid "Charts"
-msgstr ""
+msgstr "Grafy"
 
 msgid "Visualizer"
 msgstr ""
@@ -128,19 +128,19 @@ msgid "Event reports"
 msgstr ""
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Zprávy o událostech"
 
 msgid "Event charts"
 msgstr ""
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "Vizualizér událostí"
 
 msgid "Reports"
 msgstr ""
 
 msgid "Resources"
-msgstr ""
+msgstr "Zdroje"
 
 msgid "Users"
 msgstr "Uživatelé"
