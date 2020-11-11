@@ -43,10 +43,10 @@ msgid "Print preview"
 msgstr ""
 
 msgid "Save changes"
-msgstr ""
+msgstr "Uložit změny"
 
 msgid "Translate"
-msgstr ""
+msgstr "Přeložit"
 
 msgid "Exit without saving"
 msgstr ""
@@ -58,10 +58,10 @@ msgid "Search for a dashboard"
 msgstr ""
 
 msgid "Show more"
-msgstr ""
+msgstr "Zobrazit více"
 
 msgid "Show less"
-msgstr ""
+msgstr "Zobrazit méně"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -70,7 +70,7 @@ msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "No access"
-msgstr ""
+msgstr "Žádný přístup"
 
 msgid "Exit print preview"
 msgstr ""
@@ -212,10 +212,10 @@ msgid "Star dashboard"
 msgstr ""
 
 msgid "Edit"
-msgstr ""
+msgstr "Upravit"
 
 msgid "Share"
-msgstr ""
+msgstr "Sdílet"
 
 msgid "More"
 msgstr "Více"
@@ -227,7 +227,7 @@ msgid "One item per page"
 msgstr ""
 
 msgid "No description"
-msgstr ""
+msgstr "Bez popisu"
 
 msgid "Visualizations"
 msgstr ""
@@ -236,10 +236,10 @@ msgid "Pivot tables"
 msgstr ""
 
 msgid "Charts"
-msgstr ""
+msgstr "Grafy"
 
 msgid "Maps"
-msgstr ""
+msgstr "Mapy"
 
 msgid "Event reports"
 msgstr ""
@@ -248,13 +248,13 @@ msgid "Event charts"
 msgstr ""
 
 msgid "Apps"
-msgstr ""
+msgstr "Aplikace"
 
 msgid "Reports"
 msgstr ""
 
 msgid "Resources"
-msgstr ""
+msgstr "Zdroje"
 
 msgid "Users"
 msgstr "Uživatelé"
