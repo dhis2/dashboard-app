@@ -2,13 +2,14 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2019
 # phil_dhis2, 2020
+# Ulanbek Abakirov <ulans@mail.ru>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-08-26T14:25:37.870Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
-"Last-Translator: phil_dhis2, 2020\n"
+"Last-Translator: Ulanbek Abakirov <ulans@mail.ru>, 2020\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -104,7 +105,7 @@ msgid "No data to display"
 msgstr ""
 
 msgid "View in {{appName}} app"
-msgstr ""
+msgstr "Смотреть в приложении {{appName}}"
 
 msgid "Cancel"
 msgstr "Отмена"
