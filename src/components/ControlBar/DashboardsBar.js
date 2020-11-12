@@ -68,8 +68,10 @@ export const DashboardsBar = ({
     }
 
     const onSelectDashboard = () => {
-        const id = getFilteredDashboards()[0].id
-        history.push(id)
+        const id = getFilteredDashboards()[0]?.id
+        if (id) {
+            history.push(id)
+        }
     }
 
     const getFilteredDashboards = () => {
