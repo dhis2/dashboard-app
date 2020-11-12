@@ -5,9 +5,7 @@ const immunizationDashboardRoute = '#/TAMlzYkstb7'
 
 Given('I open the Antenatal Care dashboard', () => {
     cy.visit('/')
-    cy.get('[data-test="dhis2-uicore-chip"]')
-        .contains('Antenatal Care')
-        .click()
+    cy.get('[data-test="dhis2-uicore-chip"]').contains('Antenatal Care').click()
 })
 
 Then('the Antenatal Care dashboard displays in view mode', () => {
@@ -22,9 +20,7 @@ Then('the Antenatal Care dashboard displays in view mode', () => {
 })
 
 When('I select the Immunization dashboard', () => {
-    cy.get('[data-test="dhis2-uicore-chip"]')
-        .contains('Immun')
-        .click()
+    cy.get('[data-test="dhis2-uicore-chip"]').contains('Immun').click()
 })
 
 Then('the Immunization dashboard displays in view mode', () => {
@@ -90,4 +86,28 @@ Then('the print one-item-per-page displays', () => {
 
     //check for some elements
     cy.get('[data-test="dhis2-dashboard-print-oipp-page"]').should('be.visible')
+})
+
+When('I search for dashboards containing Noexist', () => {
+    cy.get('[data-test="dhis2-dashboard-search-dashboard-input"]').type(
+        'Noexist'
+    )
+})
+Then('no dashboards are choices', () => {
+    cy.get('[data-test="dhis2-uicore-chip"]').should('not.be.visible')
+})
+
+Then("dashboards list restored and dashboard doesn't change", () => {
+    cy.get('[data-test="dhis2-uicore-chip"]')
+        .should('be.visible')
+        .and('have.lengthOf.above', 0)
+
+    cy.location().should(loc => {
+        expect(loc.hash).to.equal(antenatalCareDashboardRoute)
+    })
+
+    cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]')
+        .should('be.visible')
+        .and('contain', 'Antenatal Care')
+    cy.get('.highcharts-background').should('exist')
 })

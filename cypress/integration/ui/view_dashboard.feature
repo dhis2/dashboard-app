@@ -16,6 +16,14 @@ Feature: Viewing dashboards
         Then the Immunization dashboard displays in view mode
 
     @nonmutating
+    Scenario: I search for a dashboard with nonmatching search text
+        Given I open the Antenatal Care dashboard
+        When I search for dashboards containing Noexist
+        Then no dashboards are choices
+        When I press enter in the search dashboard field
+        Then dashboards list restored and dashboard doesn't change
+
+    @nonmutating
     Scenario: I view the print layout preview
         Given I open the Antenatal Care dashboard
         When I click to preview the print layout
