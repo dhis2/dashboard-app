@@ -35,7 +35,7 @@
         "redux-thunk": "^2.3.0",
         "reselect": "^4.0.0",
         "styled-jsx": "^3.3.0",
-        "typeface-roboto": "^0.0.75",
+        "typeface-roboto": "^1.1.13",
         "whatwg-fetch": "^3.4.0"
     },
     "scripts": {
