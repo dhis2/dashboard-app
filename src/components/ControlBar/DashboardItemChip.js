@@ -33,7 +33,6 @@ export const DashboardItemChip = ({
 
     const handleClick = () => {
         debouncedPostStatistics()
-
         onClick()
     }
 
@@ -54,6 +53,7 @@ DashboardItemChip.propTypes = {
     label: PropTypes.string.isRequired,
     selected: PropTypes.bool.isRequired,
     starred: PropTypes.bool.isRequired,
+    onClick: PropTypes.func.isRequired,
     classes: PropTypes.object,
 }
 
