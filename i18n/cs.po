@@ -19,19 +19,19 @@ msgid "Delete"
 msgstr "Smazat"
 
 msgid "Continue editing"
-msgstr ""
+msgstr "Pokračovat v úpravách"
 
 msgid "Confirm delete dashboard"
-msgstr ""
+msgstr "Potvrďte smazání ovládacího panelu"
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr ""
+msgstr "Opravdu chcete smazat ovládací panel \"{{ dashboardName }}\"?"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Odejít bez uložení"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Přejít na ovládací panely"
 
 msgid "Save changes"
 msgstr "Uložit změny"
@@ -40,7 +40,7 @@ msgid "Translate"
 msgstr "Přeložit"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Vyhledat ovládací panel"
 
 msgid "Show less"
 msgstr "Zobrazit méně"
@@ -53,100 +53,104 @@ msgstr "Žádný přístup"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
+"Nebyly nalezeny žádné ovládací panely. Pomocí tlačítka + vytvořte nový "
+"ovládací panel."
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "Požadovaný ovládací panel nebyl nalezen"
 
 msgid "Messages"
 msgstr "Zprávy"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Zobrazit všechny zprávy"
 
 msgid "Edit your interpretation"
-msgstr ""
+msgstr "Upravit svůj výklad"
 
 msgid "Update"
 msgstr "Aktualizovat"
 
 msgid "Cancel edit"
-msgstr ""
+msgstr "Zrušit úpravy"
 
 msgid "Edit"
 msgstr "Upravit"
 
 msgid "like"
-msgstr ""
+msgstr "líbí se"
 
 msgid "likes"
-msgstr ""
+msgstr "se líbí"
 
 msgid "You like this"
-msgstr ""
+msgstr "Líbí se vám"
 
 msgid "Like"
 msgstr "Jako"
 
 msgid "View in Visualizer"
-msgstr ""
+msgstr "Zobrazit ve Visualizeru"
 
 msgid "Reply"
 msgstr "Odpovědět"
 
 msgid "Add your reply"
-msgstr ""
+msgstr "Přidat svoji odpověď"
 
 msgid "Interpretations"
 msgstr "Interpretace"
 
 msgid "Add your interpretation"
-msgstr ""
+msgstr "Přidat svůj výklad"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Nelze načíst plugin pro tuto položku"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Distanční vložka"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Pomocí mezerníku vytvořte prázdný svislý prostor mezi ostatními položkami "
+"ovládacího panelu."
 
 msgid "Text item"
-msgstr ""
+msgstr "Textová položka"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Sem přidat text"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "Na tomto ovládacím panelu nejsou žádné položky"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Vyhledejte položky, které chcete přidat na tento ovládací panel"
 
 msgid "See"
-msgstr ""
+msgstr "Viz"
 
 msgid "fewer"
-msgstr ""
+msgstr "méně"
 
 msgid "more"
-msgstr ""
+msgstr "více"
 
 msgid "Text box"
-msgstr ""
+msgstr "Textové pole"
 
 msgid "Add title here"
-msgstr ""
+msgstr "Sem přidat název"
 
 msgid "Add description here"
-msgstr ""
+msgstr "Přidat popis zde"
 
 msgid "No description"
 msgstr "Bez popisu"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "Kontingenční tabulky"
 
 msgid "Pivot Tables"
 msgstr "Kontingenční tabulky"
@@ -155,25 +159,25 @@ msgid "Charts"
 msgstr "Grafy"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "Vizualizér"
 
 msgid "Maps"
 msgstr "Mapy"
 
 msgid "Event reports"
-msgstr ""
+msgstr "Zprávy o událostech"
 
 msgid "Event Reports"
 msgstr "Zprávy o událostech"
 
 msgid "Event charts"
-msgstr ""
+msgstr "Grafy událostí"
 
 msgid "Event Visualizer"
 msgstr "Vizualizér událostí"
 
 msgid "Reports"
-msgstr ""
+msgstr "Zprávy"
 
 msgid "Resources"
 msgstr "Zdroje"
