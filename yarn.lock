@@ -1393,10 +1393,17 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^11.1.1", "@dhis2/analytics@^11.1.5":
-  version "11.2.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.2.1.tgz#970d92ce20c4087f56ea2cd8a6370cf3ba557e4b"
-  integrity sha512-E/xNSorD2R9W/4lz6Mu9dqiHZ7N9IOxRFGQxZFdFQSkcXhtNWIcAbrMmWaHy6yCOjKwQvLoBcscjBZXZdXh5QA==
+"@dhis2/app-adapter@5.4.1":
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-5.4.1.tgz#e18ddbf1c5b1b09567da2cc17296f8f5a286c294"
+  integrity sha512-ApMq+dVEm+3NvzEX+KareOGoL8/RNUHml7p4wbqhM20s+WlJrrotgKcOech50a7adma+tsk2wMMtAwccwRL/4Q==  
+  dependencies:
+    moment "^2.24.0"
+
+"@dhis2/analytics@^11.2.0":
+  version "11.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.2.0.tgz#977ca4af5e25f825816474b7a7855b9abbb757af"
+  integrity sha512-JAINZQEdXbGqIQUotu6q1/8MAwFpsweMzgB3SCrekOJ3W7K8tJlXDC6FJ3qImppu2OaSv36HQjS6APCCw0y3sA==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.8"
     "@dhis2/ui" "^5.5.6"
@@ -1410,13 +1417,6 @@
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.3.0"
-
-"@dhis2/app-adapter@5.4.1":
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-5.4.1.tgz#e18ddbf1c5b1b09567da2cc17296f8f5a286c294"
-  integrity sha512-ApMq+dVEm+3NvzEX+KareOGoL8/RNUHml7p4wbqhM20s+WlJrrotgKcOech50a7adma+tsk2wMMtAwccwRL/4Q==
-  dependencies:
-    moment "^2.24.0"
 
 "@dhis2/app-runtime-adapter-d2@^1.0.1":
   version "1.0.1"
@@ -2601,6 +2601,11 @@
   integrity sha512-05DYX4zU96IBfZFY+t3Mh88nlwSMtmmzSYaQkKN48T495VV1dkHSah6qYyDTN5ngaS0i0VonH37m+RuzSM0YiA==
   dependencies:
     "@types/node" "*"
+    
+"@types/color-name@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
+  integrity sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
 
 "@types/eslint@^7.2.4":
   version "7.2.4"
@@ -6720,7 +6725,7 @@ enzyme-shallow-equal@^1.0.1, enzyme-shallow-equal@^1.0.4:
     has "^1.0.3"
     object-is "^1.1.2"
 
-enzyme-to-json@^3.5.0:
+enzyme-to-json@^3.6.1:
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/enzyme-to-json/-/enzyme-to-json-3.6.1.tgz#d60740950bc7ca6384dfe6fe405494ec5df996bc"
   integrity sha512-15tXuONeq5ORoZjV/bUo2gbtZrN2IH+Z6DvL35QmZyKHgbY1ahn6wcnLd9Xv9OjiwbAXiiP8MRZwbZrCv1wYNg==
