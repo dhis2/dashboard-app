@@ -16,10 +16,10 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "Ovládací panel bez názvu"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "Načítání ovládacího panelu – {{name}}"
 
 msgid "Cancel"
 msgstr "Zrušit"
@@ -28,19 +28,22 @@ msgid "Delete"
 msgstr "Smazat"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "Smazat ovládací panel"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"Smazáním ovládacího panelu \"{{ dashboardName }}\"  bude odstraněn pro "
+"všechny uživatele. Tuto akci nelze vrátit zpět. Opravdu chcete tento "
+"ovládací panel trvale smazat?"
 
 msgid "Exit Print preview"
-msgstr ""
+msgstr "Ukončit náhled tisku"
 
 msgid "Print preview"
-msgstr ""
+msgstr "Náhled před tiskem"
 
 msgid "Save changes"
 msgstr "Uložit změny"
@@ -49,13 +52,13 @@ msgid "Translate"
 msgstr "Přeložit"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Odejít bez uložení"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Přejít na ovládací panely"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Vyhledat ovládací panel"
 
 msgid "Show more"
 msgstr "Zobrazit více"
@@ -65,109 +68,116 @@ msgstr "Zobrazit méně"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
+"Nebyly nalezeny žádné ovládací panely. Pomocí tlačítka + vytvořte nový "
+"ovládací panel."
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "Požadovaný ovládací panel nebyl nalezen"
 
 msgid "No access"
 msgstr "Žádný přístup"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "Ukončit náhled tisku"
 
 msgid "Print"
 msgstr "Tisk"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "rozložení ovládacího panelu"
 
 msgid "one item per page"
-msgstr ""
+msgstr "jedna položka na stránku"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "Náhled před tiskem"
 
 msgid "For best print results"
-msgstr ""
+msgstr "Pro nejlepší výsledky tisku"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "Použijte webový prohlížeč Chrome nebo Edge"
 
 msgid "Wait for all dashboard items to load before printing"
 msgstr ""
+"Před tiskem počkejte, až se načtou všechny položky na ovládacím panelu"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
 " dialog"
 msgstr ""
+"V dialogovém okně pro tisk v prohlížeči použijte formát papíru A4 na šířku a"
+" výchozí nastavení okrajů"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Vybráno {{count}}"
+msgstr[1] "Vybráno {{count}}"
+msgstr[2] "Vybráno {{count}}"
+msgstr[3] "Vybráno {{count}}"
 
 msgid "Remove"
 msgstr "Odebrat"
 
 msgid "Delete item"
-msgstr ""
+msgstr "Odstranit položku"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "Tato položka byla zkrácena tak, aby se vešla na jednu stránku"
 
 msgid "Messages"
 msgstr "Zprávy"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Zobrazit všechny zprávy"
 
 msgid "Item type \"{{type}}\" not supported"
-msgstr ""
+msgstr "Typ položky \"{{type}}\" není podporován"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "Použité filtry"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Mezerník"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Pomocí mezerníku vytvořte prázdný svislý prostor mezi ostatními položkami "
+"ovládacího panelu."
 
 msgid "Text item"
-msgstr ""
+msgstr "Textová položka"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Sem přidat text"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Nelze načíst plugin pro tuto položku"
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "Při načítání této položky ovládacího panelu došlo k problému"
 
 msgid "No data to display"
-msgstr ""
+msgstr "Žádná data k zobrazení"
 
 msgid "Hide interpretations and details"
-msgstr ""
+msgstr "Skrýt interpretace a podrobnosti"
 
 msgid "Show interpretations and details"
-msgstr ""
+msgstr "Zobrazit interpretace a podrobnosti"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "Zobrazit jako graf"
 
 msgid "View as Table"
-msgstr ""
+msgstr "Zobrazit jako tabulku"
 
 msgid "View as Map"
-msgstr ""
+msgstr "Zobrazit jako mapu"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "Otevřít v aplikaci {{appName}}"
 
 msgid "Confirm"
 msgstr "Potvrdit"
@@ -176,40 +186,40 @@ msgid "Add filter"
 msgstr "Přidat filtr"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "Na tomto ovládacím panelu nejsou žádné položky"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "Zobrazit méně"
 
 msgid "Insert"
-msgstr ""
+msgstr "Vložit"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Vyhledat položky, které chcete přidat na tento ovládací panel"
 
 msgid "Additional items"
-msgstr ""
+msgstr "Další položky"
 
 msgid "Text box"
-msgstr ""
+msgstr "Textové pole"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "Název ovládacího panelu"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "Popis ovládacího panelu"
 
 msgid "Hide description"
-msgstr ""
+msgstr "Skrýt popis"
 
 msgid "Show description"
-msgstr ""
+msgstr "Ukázat popis"
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "Zrušit označení ovládacího panelu"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "Označit ovládací panel"
 
 msgid "Edit"
 msgstr "Upravit"
@@ -221,19 +231,19 @@ msgid "More"
 msgstr "Více"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "Rozložení ovládacího panelu"
 
 msgid "One item per page"
-msgstr ""
+msgstr "Jedna položka na stránku"
 
 msgid "No description"
 msgstr "Bez popisu"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "Vizualizace"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "Kontingenční tabulky"
 
 msgid "Charts"
 msgstr "Grafy"
@@ -242,16 +252,16 @@ msgid "Maps"
 msgstr "Mapy"
 
 msgid "Event reports"
-msgstr ""
+msgstr "Zprávy o událostech"
 
 msgid "Event charts"
-msgstr ""
+msgstr "Grafy událostí"
 
 msgid "Apps"
 msgstr "Aplikace"
 
 msgid "Reports"
-msgstr ""
+msgstr "Zprávy"
 
 msgid "Resources"
 msgstr "Zdroje"
