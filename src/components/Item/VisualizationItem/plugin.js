@@ -1,6 +1,3 @@
-import isObject from 'lodash/isObject'
-import { VIS_TYPE_COLUMN, VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
-import { apiFetchFavorite, getMapFields } from '../../../api/metadata'
 import {
     REPORT_TABLE,
     CHART,
@@ -9,7 +6,8 @@ import {
     EVENT_CHART,
     itemTypeMap,
 } from '../../../modules/itemTypes'
-import { getBaseUrl, getWithoutId } from '../../../modules/util'
+import { getBaseUrl } from '../../../modules/util'
+import { getVisualizationId } from '../../../modules/item'
 import { getGridItemDomId } from '../../ItemGrid/gridUtil'
 
 //external plugins
@@ -29,34 +27,7 @@ const getPlugin = type => {
     return global[pluginName]
 }
 
-export const THEMATIC_LAYER = 'thematic'
-
-export const pluginIsAvailable = (item = {}, visualization = {}) => {
-    const type = visualization.activeType || item.type
-
-    return !!getPlugin(type)
-}
-
-export const extractFavorite = item => {
-    if (!isObject(item)) {
-        return null
-    }
-
-    const propName = itemTypeMap[item.type].propName
-
-    return (
-        item[propName] ||
-        item.reportTable ||
-        item.chart ||
-        item.map ||
-        item.eventReport ||
-        item.eventChart ||
-        {}
-    )
-}
-
-export const extractMapView = map =>
-    map.mapViews && map.mapViews.find(mv => mv.layer.includes(THEMATIC_LAYER))
+export const pluginIsAvailable = type => !!getPlugin(type)
 
 export const loadPlugin = (plugin, config, credentials) => {
     if (!(plugin && plugin.load)) {
@@ -72,12 +43,9 @@ export const loadPlugin = (plugin, config, credentials) => {
     plugin.load(config)
 }
 
-export const getId = item => extractFavorite(item).id
-export const getName = item => extractFavorite(item).name
-export const getDescription = item => extractFavorite(item).description
 export const getLink = (item, d2) => {
     const baseUrl = getBaseUrl(d2)
-    const appUrl = itemTypeMap[item.type].appUrl(getId(item))
+    const appUrl = itemTypeMap[item.type].appUrl(getVisualizationId(item))
 
     return `${baseUrl}/${appUrl}`
 }
@@ -99,14 +67,6 @@ export const load = async (
     loadPlugin(plugin, config, credentials)
 }
 
-export const fetch = async item => {
-    const fetchedFavorite = await apiFetchFavorite(getId(item), item.type, {
-        fields: item.type === MAP ? getMapFields() : null,
-    })
-
-    return fetchedFavorite
-}
-
 export const resize = item => {
     const plugin = getPlugin(item.type)
 
@@ -121,34 +81,4 @@ export const unmount = (item, activeType) => {
     if (plugin && plugin.unmount) {
         plugin.unmount(getGridItemDomId(item.id))
     }
-}
-
-export const getVisualizationConfig = (
-    visualization,
-    originalType,
-    activeType
-) => {
-    if (originalType === MAP && originalType !== activeType) {
-        const extractedMapView = extractMapView(visualization)
-
-        if (extractedMapView === undefined) {
-            return null
-        }
-
-        return getWithoutId({
-            ...visualization,
-            ...extractedMapView,
-            mapViews: undefined,
-            type: activeType === CHART ? VIS_TYPE_COLUMN : VIS_TYPE_PIVOT_TABLE,
-        })
-    } else if (originalType === REPORT_TABLE && activeType === CHART) {
-        return getWithoutId({ ...visualization, type: VIS_TYPE_COLUMN })
-    } else if (originalType === CHART && activeType === REPORT_TABLE) {
-        return getWithoutId({
-            ...visualization,
-            type: VIS_TYPE_PIVOT_TABLE,
-        })
-    }
-
-    return getWithoutId(visualization)
 }

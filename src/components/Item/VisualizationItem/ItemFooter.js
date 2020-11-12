@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { colors } from '@dhis2/ui'
-import { getId } from './plugin'
+import { getVisualizationId } from '../../../modules/item'
 import InterpretationsComponent from '@dhis2/d2-ui-interpretations'
 
 const style = {
@@ -19,7 +19,7 @@ const style = {
 
 class ItemFooter extends Component {
     render() {
-        const objectId = getId(this.props.item)
+        const objectId = getVisualizationId(this.props.item)
 
         return (
             <div className="dashboard-item-footer">
