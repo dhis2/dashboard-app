@@ -24,7 +24,7 @@ import {
 } from '../api/description'
 
 import { withShape } from '../components/ItemGrid/gridUtil'
-import { extractFavorite } from '../components/Item/VisualizationItem/plugin'
+import { getVisualizationFromItem } from '../modules/item'
 
 import {
     REPORT_TABLE,
@@ -104,7 +104,7 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
                 case MAP:
                 case EVENT_REPORT:
                 case EVENT_CHART:
-                    dispatch(acAddVisualization(extractFavorite(item)))
+                    dispatch(acAddVisualization(getVisualizationFromItem(item)))
                     break
                 case MESSAGES:
                     dispatch(tGetMessages(id))

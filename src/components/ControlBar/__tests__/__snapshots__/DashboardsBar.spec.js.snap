@@ -20,6 +20,7 @@ exports[`DashboardsBar does not render ShowMoreButton when userRows is MAX_ROW_C
       className="leftControls"
     >
       <Link
+        data-test="dhis2-dashboard-link-new-dashboard"
         style={
           Object {
             "display": "inline-block",
@@ -66,6 +67,7 @@ exports[`DashboardsBar renders ShowMoreButton when userRows is less than MAX_ROW
       className="leftControls"
     >
       <Link
+        data-test="dhis2-dashboard-link-new-dashboard"
         style={
           Object {
             "display": "inline-block",
@@ -112,6 +114,7 @@ exports[`DashboardsBar renders a DashboardsBar with no items 1`] = `
       className="leftControls"
     >
       <Link
+        data-test="dhis2-dashboard-link-new-dashboard"
         style={
           Object {
             "display": "inline-block",
@@ -158,6 +161,7 @@ exports[`DashboardsBar when dashboards are provided renders DashboardItemChips f
       className="leftControls"
     >
       <Link
+        data-test="dhis2-dashboard-link-new-dashboard"
         style={
           Object {
             "display": "inline-block",

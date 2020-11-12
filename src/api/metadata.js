@@ -1,7 +1,8 @@
 import { getInstance } from 'd2'
 import arrayClean from 'd2-utilizr/lib/arrayClean'
 
-import { getEndPointName } from '../modules/itemTypes'
+import { getEndPointName, MAP } from '../modules/itemTypes'
+import { getVisualizationId } from '../modules/item'
 
 // Id, name
 export const getIdNameFields = ({ rename } = {}) => [
@@ -96,16 +97,19 @@ export const getMapFields = () => [
 ]
 
 // Api
+export const apiFetchVisualization = async item => {
+    const id = getVisualizationId(item)
+    const fields =
+        item.type === MAP
+            ? getMapFields()
+            : getFavoriteFields({
+                  withDimensions: true,
+                  withOptions: true,
+              })
 
-// Get more info about the favorite of a dashboard item
-export const apiFetchFavorite = (id, type, { fields }) =>
-    getInstance().then(d2 =>
-        d2.Api.getApi().get(`${getEndPointName(type)}/${id}`, {
-            fields:
-                fields ||
-                getFavoriteFields({
-                    withDimensions: true,
-                    withOptions: true,
-                }),
-        })
-    )
+    const d2 = await getInstance()
+
+    return await d2.Api.getApi().get(`${getEndPointName(item.type)}/${id}`, {
+        fields,
+    })
+}

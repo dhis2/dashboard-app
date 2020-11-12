@@ -83,8 +83,3 @@ export const getBaseUrl = d2 => {
     const idx = api.baseUrl.indexOf('/api')
     return idx > -1 ? api.baseUrl.slice(0, idx) : api.baseUrl
 }
-
-export const getWithoutId = object => ({
-    ...object,
-    id: undefined,
-})

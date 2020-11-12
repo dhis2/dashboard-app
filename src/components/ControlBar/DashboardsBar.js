@@ -42,7 +42,7 @@ export class DashboardsBar extends Component {
         this.setInitialDashboardState(this.props.userRows)
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         this.setInitialDashboardState(nextProps.userRows)
     }
 
@@ -108,6 +108,7 @@ export class DashboardsBar extends Component {
                                 top: '2px',
                             }}
                             to={'/new'}
+                            data-test="dhis2-dashboard-link-new-dashboard"
                         >
                             <AddCircleIcon />
                         </Link>

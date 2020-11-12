@@ -59,7 +59,7 @@ export class ItemGrid extends Component {
         this.setState({ expandedItems })
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         if (nextProps.edit) {
             this.setState({ expandedItems: {} })
         }

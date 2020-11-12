@@ -1,14 +1,15 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
+// import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
 import { CHART, REPORT_TABLE, EVENT_CHART } from '../../../../modules/itemTypes'
 import { Item } from '../Item'
 import DefaultPlugin from '../DefaultPlugin'
 
-jest.mock('@dhis2/data-visualizer-plugin', () => () => <div />) // eslint-disable-line react/display-name
-jest.mock('../DefaultPlugin', () => () => <div />) // eslint-disable-line react/display-name
-jest.mock('../ItemFooter', () => () => <div />) // eslint-disable-line react/display-name
+jest.mock('@dhis2/data-visualizer-plugin', () => 'VisualizationPlugin')
+jest.mock('../DefaultPlugin', () => 'DefaultPlugin')
+jest.mock('../MapPlugin', () => 'MapPlugin')
+jest.mock('../ItemFooter', () => 'ItemFooter')
 jest.mock('../plugin', () => {
     return {
         getLink: jest.fn(),
@@ -16,7 +17,6 @@ jest.mock('../plugin', () => {
         pluginIsAvailable: () => true,
         getName: () => 'rainbow',
         fetch: () => {},
-        getVisualizationConfig: visualization => visualization,
     }
 })
 
@@ -35,12 +35,15 @@ describe('VisualizationItem/Item', () => {
 
     beforeEach(() => {
         props = {
-            classes: {},
+            activeType: null,
+            dashboardMode: 'view',
+            isEditing: false,
             item: {},
-            editMode: false,
             itemFilters: {
                 brilliance: [{ id: 100, name: '100' }],
             },
+            selectActiveType: jest.fn(),
+            updateVisualization: jest.fn(),
             visualization: {
                 name: 'vis name',
                 id: 'vis id',
@@ -50,7 +53,6 @@ describe('VisualizationItem/Item', () => {
                 filters: [],
             },
             onToggleItemExpanded: jest.fn(),
-            onVisualizationLoaded: jest.fn(),
         }
         shallowItem = undefined
     })
@@ -64,6 +66,7 @@ describe('VisualizationItem/Item', () => {
 
         const expectedConfig = {
             ...props.visualization,
+            id: undefined,
             filters: [
                 {
                     dimension: 'brilliance',
@@ -78,7 +81,7 @@ describe('VisualizationItem/Item', () => {
 
         component.setState({ configLoaded: true })
 
-        const visPlugin = component.find(VisualizationPlugin)
+        const visPlugin = component.find('VisualizationPlugin')
 
         expect(visPlugin.exists()).toBeTruthy()
         expect(visPlugin.prop('visualization')).toEqual(expectedConfig)
@@ -93,6 +96,7 @@ describe('VisualizationItem/Item', () => {
 
         const expectedConfig = {
             ...props.visualization,
+            id: undefined,
             filters: [
                 {
                     dimension: 'brilliance',
@@ -106,7 +110,7 @@ describe('VisualizationItem/Item', () => {
 
         component.setState({ configLoaded: true })
 
-        const visPlugin = component.find(VisualizationPlugin)
+        const visPlugin = component.find('VisualizationPlugin')
 
         expect(visPlugin.exists()).toBeTruthy()
         expect(visPlugin.prop('visualization')).toEqual(expectedConfig)
@@ -120,6 +124,7 @@ describe('VisualizationItem/Item', () => {
         }
         const expectedConfig = {
             ...props.visualization,
+            id: undefined,
             filters: [
                 {
                     dimension: 'brilliance',
