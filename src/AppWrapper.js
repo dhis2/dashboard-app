@@ -3,6 +3,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import dhis2theme from '@dhis2/d2-ui-core/theme/mui3.theme'
 import { Provider as ReduxProvider } from 'react-redux'
 import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
+import { useDataEngine } from '@dhis2/app-runtime'
 
 import App from './components/App'
 import configureStore from './configureStore'
@@ -34,8 +35,10 @@ if (authorization) {
 }
 
 const AppWrapper = () => {
+    const dataEngine = useDataEngine()
+
     return (
-        <ReduxProvider store={configureStore()}>
+        <ReduxProvider store={configureStore(dataEngine)}>
             <MuiThemeProvider theme={muiTheme()}>
                 <D2Shim d2Config={d2Config} i18nRoot="./i18n">
                     {({ d2 }) => {
@@ -43,7 +46,7 @@ const AppWrapper = () => {
                             // TODO: Handle errors in d2 initialization
                             return null
                         }
-                        return <App d2={d2} />
+                        return <App d2={d2} dataEngine={dataEngine} />
                     }}
                 </D2Shim>
             </MuiThemeProvider>
