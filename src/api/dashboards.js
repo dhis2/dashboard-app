@@ -25,6 +25,8 @@ export const dashboardQuery = {
 export const starDashboardMutation = {
     type: 'create',
     resource: 'dashboards',
+    // TODO create mutation does not accept the id function
+    // we must use a workaround until dataEngine supports dynamic resource/path
     id: ({ id }) => `${id}/favorite`,
 }
 
