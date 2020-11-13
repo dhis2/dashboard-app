@@ -149,7 +149,10 @@ export class EditBar extends Component {
                 d2={this.context.d2}
                 open={this.state.translationDialogIsOpen}
                 onRequestClose={this.toggleTranslationDialog}
-                objectToTranslate={this.state.dashboardModel}
+                objectToTranslate={{
+                    ...this.state.dashboard,
+                    modelDefinition: { name: 'dashboard' },
+                }}
                 fieldsToTranslate={['name', 'description']}
                 onTranslationSaved={this.onTranslationsSaved}
                 onTranslationError={err =>
