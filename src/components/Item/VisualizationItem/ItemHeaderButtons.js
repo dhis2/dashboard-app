@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, createRef } from 'react'
 import PropTypes from 'prop-types'
 
 import {
@@ -7,9 +7,15 @@ import {
     VIS_TYPE_GAUGE,
     VIS_TYPE_PIE,
 } from '@dhis2/analytics'
-import { Button, Menu, MenuItem, Divider, colors } from '@dhis2/ui'
+import {
+    Button,
+    FlyoutMenu,
+    Popover,
+    MenuItem,
+    Divider,
+    colors,
+} from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import Popover from '@material-ui/core/Popover'
 import TableIcon from '@material-ui/icons/ViewList'
 import ChartIcon from '@material-ui/icons/InsertChart'
 import MapIcon from '@material-ui/icons/Public'
@@ -31,7 +37,7 @@ import {
 const iconFill = { fill: colors.grey600 }
 
 const ItemHeaderButtons = (props, context) => {
-    const [anchorEl, setAnchorEl] = useState(null)
+    const [menuIsOpen, setMenuIsOpen] = useState(null)
 
     const { item, visualization, onSelectActiveType, activeType } = props
 
@@ -54,16 +60,16 @@ const ItemHeaderButtons = (props, context) => {
 
     const itemHasMapView = () => hasMapView(item.type)
 
-    const handleMenuClick = (_, event) => setAnchorEl(event.currentTarget)
+    const handleMenuClick = () => setMenuIsOpen(true)
 
     const handleInterpretationClick = () => {
         props.onToggleFooter()
-        if (anchorEl !== null) {
+        if (menuIsOpen) {
             handleClose()
         }
     }
 
-    const handleClose = () => setAnchorEl(null)
+    const handleClose = () => setMenuIsOpen(false)
 
     const type = visualization.type || item.type
     const canViewAs =
@@ -105,18 +111,23 @@ const ItemHeaderButtons = (props, context) => {
         </>
     )
 
+    const buttonRef = createRef()
+
     return pluginIsAvailable(activeType || item.type) ? (
         <>
-            <Button small secondary onClick={handleMenuClick}>
-                <ThreeDots />
-            </Button>
-            {anchorEl && (
+            <div ref={buttonRef}>
+                <Button small secondary onClick={handleMenuClick}>
+                    <ThreeDots />
+                </Button>
+            </div>
+            {menuIsOpen && (
                 <Popover
-                    open={Boolean(anchorEl)}
-                    onClose={handleClose}
-                    anchorEl={anchorEl}
+                    reference={buttonRef}
+                    placement="auto-start"
+                    arrow={false}
+                    onClickOutside={handleClose}
                 >
-                    <Menu>
+                    <FlyoutMenu>
                         {canViewAs && (
                             <>
                                 <ViewAsMenuItems />
@@ -138,7 +149,7 @@ const ItemHeaderButtons = (props, context) => {
                             label={interpretationMenuLabel}
                             onClick={handleInterpretationClick}
                         />
-                    </Menu>
+                    </FlyoutMenu>
                 </Popover>
             )}
         </>
