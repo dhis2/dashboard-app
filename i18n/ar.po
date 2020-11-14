@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "لوحة معلومات غير معنونة"
 
 msgid "Dashboard"
 msgstr "لوحة المعلومات"
@@ -68,12 +68,12 @@ msgstr "لم يتم العثور على لوحة المعلومات التي ط�
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "تم تحديد {{count}}"
+msgstr[1] "تم تحديد {{count}}"
+msgstr[2] "تم تحديد {{count}}"
+msgstr[3] "تم تحديد {{count}}"
+msgstr[4] "تم تحديد {{count}}"
+msgstr[5] "تم تحديد {{count}}"
 
 msgid "Remove"
 msgstr "إزالة"
@@ -104,7 +104,7 @@ msgid "No data to display"
 msgstr "لا توجد بيانات للعرض"
 
 msgid "View in {{appName}} app"
-msgstr ""
+msgstr "عرض في تطبيق {{appName}}"
 
 msgid "Cancel"
 msgstr "إلغاء"
@@ -122,10 +122,10 @@ msgid "Search for items to add to this dashboard"
 msgstr "ابحث عن عناصر لإضافتها إلى لوحة المعلومات هذه"
 
 msgid "See fewer {{itemTypes}}"
-msgstr ""
+msgstr "شاهد {{itemTypes}} أقل"
 
 msgid "See more {{itemTypes}}"
-msgstr ""
+msgstr "شاهد {{itemTypes}} أكثر"
 
 msgid "Add"
 msgstr "إضافة"
