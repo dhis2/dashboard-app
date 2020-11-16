@@ -1,0 +1,22 @@
+.edit {
+    font-size: 14px;
+    font-stretch: normal;
+    line-height: 20px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.viewContainer {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.view {
+    font-size: 14px;
+    font-stretch: normal;
+    line-height: 20px;
+    margin: 0 auto;
+    padding: 10px;
+    white-space: pre-line;
+    width: 90%;
+}
