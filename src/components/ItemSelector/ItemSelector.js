@@ -106,11 +106,12 @@ const ItemSelector = ({}, context) => {
                     placement="bottom-start"
                     onClickOutside={closeMenu}
                     arrow={false}
+                    maxWidth="700px"
                 >
                     <FlyoutMenu
                         className={classes.menu}
                         dataTest={'dhis2-dashboard-item-menu'}
-                        maxWidth={'700px'}
+                        maxWidth="700px"
                     >
                         {getMenuGroups()}
                     </FlyoutMenu>
