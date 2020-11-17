@@ -7,7 +7,6 @@ exports[`VisualizationItem/Item renders a DefaultPlugin when an EVENT_CHART is p
       <ItemHeaderButtons
         activeFooter={false}
         activeType="EVENT_CHART"
-        d2={Object {}}
         item={
           Object {
             "eventChart": Object {
@@ -31,7 +30,8 @@ exports[`VisualizationItem/Item renders a DefaultPlugin when an EVENT_CHART is p
         }
       />
     }
-    title="rainbow"
+    dashboardMode="view"
+    title="Test evchart"
   />
   <FatalErrorBoundary>
     <div

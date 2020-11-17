@@ -114,3 +114,27 @@ Then('the table dashboard item displays as a table', () => {
     cy.checkChartDoesNotExist(DASHBOARD_ITEM_TABLE_UID)
     cy.checkTableExists(DASHBOARD_ITEM_TABLE_UID)
 })
+
+When('I search for dashboards containing Noexist', () => {
+    cy.get('[data-test="dhis2-dashboard-search-dashboard-input"]').type(
+        'Noexist'
+    )
+})
+Then('no dashboards are choices', () => {
+    cy.get('[data-test="dhis2-uicore-chip"]').should('not.be.visible')
+})
+
+Then("dashboards list restored and dashboard doesn't change", () => {
+    cy.get('[data-test="dhis2-uicore-chip"]')
+        .should('be.visible')
+        .and('have.lengthOf.above', 0)
+
+    // cy.location().should(loc => {
+    //     expect(loc.hash).to.equal(antenatalCareDashboardRoute)
+    // })
+
+    cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]')
+        .should('be.visible')
+        .and('contain', 'Antenatal Care')
+    cy.get('.highcharts-background').should('exist')
+})

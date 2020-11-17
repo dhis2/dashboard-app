@@ -1,7 +1,5 @@
 Cypress.Commands.add('clickChip', name => {
-    cy.get('[data-test="dhis2-uicore-chip"]')
-        .contains(name)
-        .click()
+    cy.get('[data-test="dhis2-uicore-chip"]').contains(name).click()
 })
 
 Cypress.Commands.add('clickContextMenu', name => {
@@ -42,9 +40,7 @@ Cypress.Commands.add('checkChartExists', name => {
             .should('exist')
             .and('be.visible')
     } else {
-        cy.get('.highcharts-container')
-            .should('exist')
-            .and('be.visible')
+        cy.get('.highcharts-container').should('exist').and('be.visible')
     }
 })
 

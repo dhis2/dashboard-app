@@ -1,22 +1,15 @@
 import {
-    SET_DASHBOARDS_FILTER_NAME,
-    SET_DASHBOARDS_FILTER_OWNER,
-    SET_DASHBOARDS_FILTER_ORDER,
+    SET_DASHBOARDS_FILTER,
+    CLEAR_DASHBOARDS_FILTER,
 } from '../reducers/dashboardsFilter'
 
 // actions
 
-export const acSetFilterName = value => ({
-    type: SET_DASHBOARDS_FILTER_NAME,
+export const acSetDashboardsFilter = value => ({
+    type: SET_DASHBOARDS_FILTER,
     value,
 })
 
-export const acSetFilterOwner = value => ({
-    type: SET_DASHBOARDS_FILTER_OWNER,
-    value,
-})
-
-export const acSetFilterOrder = value => ({
-    type: SET_DASHBOARDS_FILTER_ORDER,
-    value,
+export const acClearDashboardsFilter = () => ({
+    type: CLEAR_DASHBOARDS_FILTER,
 })
