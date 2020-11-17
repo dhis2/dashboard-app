@@ -1,20 +1,8 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 // const antenatalCareDashboardRoute = '#/nghVC4wtyzi'
 const immunizationDashboardRoute = '#/TAMlzYkstb7'
 const deliveryDashboardRoute = '#/iMnYyBfSxmM'
-
-const DASHBOARD_ITEM_CHART_UID = 'GaVhJpqABYX'
-const DASHBOARD_ITEM_TABLE_UID = 'qXsjttMYuoZ'
-// const DASHBOARD_ITEM_MAP_UID = 'G3EtzSWNP9o'
-
-beforeEach(() => {
-    cy.visit('/')
-})
-
-Given('I open the Delivery dashboard', () => {
-    cy.clickChip('Delivery')
-})
 
 When('I select the Immunization dashboard', () => {
     cy.clickChip('Immun')
@@ -23,12 +11,6 @@ When('I select the Immunization dashboard', () => {
 Then('the Immunization dashboard displays in view mode', () => {
     cy.checkUrlLocation(immunizationDashboardRoute)
     cy.checkDashboardTitle('Immunization')
-    cy.checkChartExists()
-})
-
-Then('the Delivery dashboard displays in view mode', () => {
-    cy.checkUrlLocation(deliveryDashboardRoute)
-    cy.checkDashboardTitle('Delivery')
     cy.checkChartExists()
 })
 
@@ -76,50 +58,12 @@ Then('the print one-item-per-page displays', () => {
     cy.get('[data-test="dhis2-dashboard-print-oipp-page"]').should('be.visible')
 })
 
-When('I click View As Table on a chart dashboard item', () => {
-    cy.clickContextMenu(DASHBOARD_ITEM_CHART_UID)
-    cy.clickViewAsTable(DASHBOARD_ITEM_CHART_UID)
-})
-
-When('I click View As Chart on a table dashboard item', () => {
-    cy.clickContextMenu(DASHBOARD_ITEM_TABLE_UID)
-    cy.clickViewAsChart(DASHBOARD_ITEM_TABLE_UID)
-})
-
-When('I click View As Map on a chart dashboard item', () => {
-    cy.clickContextMenu(DASHBOARD_ITEM_CHART_UID)
-    cy.clickViewAsMap()
-})
-Then('the chart dashboard item displays as a map', () => {
-    cy.checkChartDoesNotExist(DASHBOARD_ITEM_CHART_UID)
-    cy.checkMapExists(DASHBOARD_ITEM_CHART_UID)
-})
-
-Then('the chart dashboard item displays as a chart', () => {
-    cy.checkChartExists(DASHBOARD_ITEM_CHART_UID)
-    cy.checkTableDoesNotExist(DASHBOARD_ITEM_CHART_UID)
-})
-
-Then('the chart dashboard item displays as a table', () => {
-    cy.checkChartDoesNotExist(DASHBOARD_ITEM_CHART_UID)
-    cy.checkTableExists(DASHBOARD_ITEM_CHART_UID)
-})
-
-Then('the table dashboard item displays as a chart', () => {
-    cy.checkChartExists(DASHBOARD_ITEM_TABLE_UID)
-    cy.checkTableDoesNotExist(DASHBOARD_ITEM_TABLE_UID)
-})
-
-Then('the table dashboard item displays as a table', () => {
-    cy.checkChartDoesNotExist(DASHBOARD_ITEM_TABLE_UID)
-    cy.checkTableExists(DASHBOARD_ITEM_TABLE_UID)
-})
-
 When('I search for dashboards containing Noexist', () => {
     cy.get('[data-test="dhis2-dashboard-search-dashboard-input"]').type(
         'Noexist'
     )
 })
+
 Then('no dashboards are choices', () => {
     cy.get('[data-test="dhis2-uicore-chip"]').should('not.be.visible')
 })
@@ -129,12 +73,7 @@ Then("dashboards list restored and dashboard doesn't change", () => {
         .should('be.visible')
         .and('have.lengthOf.above', 0)
 
-    // cy.location().should(loc => {
-    //     expect(loc.hash).to.equal(antenatalCareDashboardRoute)
-    // })
-
-    cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]')
-        .should('be.visible')
-        .and('contain', 'Antenatal Care')
-    cy.get('.highcharts-background').should('exist')
+    cy.checkUrlLocation(deliveryDashboardRoute)
+    cy.checkDashboardTitle('Delivery')
+    cy.checkChartExists()
 })

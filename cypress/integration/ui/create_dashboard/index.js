@@ -27,9 +27,9 @@ const toggleShowMoreButton = () => {
     cy.get('[data-test="dhis2-dashboard-showmore-button"]').click()
 }
 
-beforeEach(() => {
-    cy.visit('/')
-})
+// beforeEach(() => {
+//     cy.visit('/')
+// })
 
 Given('I choose to create new dashboard', () => {
     cy.get('[data-test="dhis2-dashboard-link-new-dashboard"]').click()
