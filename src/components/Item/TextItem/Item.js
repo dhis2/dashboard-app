@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
+
 import Input from '@material-ui/core/Input'
 import ItemHeader from '../ItemHeader/ItemHeader'
 import PrintItemInfo from '../ItemHeader/PrintItemInfo'
