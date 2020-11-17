@@ -18,64 +18,6 @@ const ItemSelector = ({}, context) => {
     const [maxOptions, setMaxOptions] = useState(new Set())
 
     useEffect(() => {
-        fetchItems()
-    }, [])
-
-    const closeMenu = () => {
-        setIsOpen(false)
-        setFilter('')
-    }
-
-    const openMenu = () => setIsOpen(true)
-
-    const getCategorizedMenuGroups = () =>
-        categorizedItems
-            .filter(type => {
-                const itemType = itemTypeMap[type]
-                return items && items[itemType.endPointName]
-            })
-            .map(type => {
-                const itemType = itemTypeMap[type]
-                const itemCount = getDefaultItemCount(type)
-                const allItems = items[itemType.endPointName]
-                const hasMore = allItems.length > itemCount
-                const theitems = maxOptions.has(itemType.id)
-                    ? allItems
-                    : allItems.slice(0, itemCount)
-
-                return (
-                    <CategorizedMenuGroup
-                        key={type}
-                        type={type}
-                        title={itemType.pluralTitle}
-                        items={theitems}
-                        onChangeItemsLimit={fetchItems}
-                        hasMore={hasMore}
-                    />
-                )
-            })
-
-    const getSinglesMenuGroups = () =>
-        singleItems.map(category => (
-            <SinglesMenuGroup key={category.id} category={category} />
-        ))
-
-    const getMenuGroups = () =>
-        getCategorizedMenuGroups().concat(getSinglesMenuGroups())
-
-    const fetchItems = async type => {
-        if (type) {
-            const newOptions = new Set(maxOptions)
-
-            newOptions.has(type)
-                ? newOptions.delete(type)
-                : newOptions.add(type)
-
-            setMaxOptions(newOptions)
-        } else {
-            setMaxOptions(new Set())
-        }
-
         let queryString = '?count=11'
         if ([...maxOptions.values()].length) {
             queryString += '&max=' + [...maxOptions.values()].join('&max=')
@@ -87,7 +29,62 @@ const ItemSelector = ({}, context) => {
             .get(`dashboards/q${filterStr}${queryString}`)
             .then(response => setItems(response))
             .catch(console.error)
+    }, [filter, maxOptions])
+
+    const closeMenu = () => {
+        setIsOpen(false)
+        setFilter('')
+        setMaxOptions(new Set())
     }
+
+    const openMenu = () => setIsOpen(true)
+
+    const getCategorizedMenuGroups = () => {
+        return categorizedItems
+            .filter(type => {
+                const itemType = itemTypeMap[type]
+                return items && items[itemType.endPointName]
+            })
+            .map(type => {
+                const itemType = itemTypeMap[type]
+                const itemCount = getDefaultItemCount(type)
+                const allItems = items[itemType.endPointName]
+                const hasMore = allItems.length > itemCount
+                const displayItems = maxOptions.has(itemType.id)
+                    ? allItems
+                    : allItems.slice(0, itemCount)
+
+                return (
+                    <CategorizedMenuGroup
+                        key={type}
+                        type={type}
+                        title={itemType.pluralTitle}
+                        items={displayItems}
+                        onChangeItemsLimit={updateMaxOptions}
+                        hasMore={hasMore}
+                    />
+                )
+            })
+    }
+    const getSinglesMenuGroups = () =>
+        singleItems.map(category => (
+            <SinglesMenuGroup key={category.id} category={category} />
+        ))
+
+    const getMenuGroups = () =>
+        getCategorizedMenuGroups().concat(getSinglesMenuGroups())
+
+    const updateMaxOptions = type => {
+        if (type) {
+            const options = new Set(maxOptions)
+            options.has(type) ? options.delete(type) : options.add(type)
+            setMaxOptions(options)
+        } else {
+            setMaxOptions(new Set())
+        }
+    }
+
+    const updateFilter = ({ value }) => setFilter(value)
 
     const inputRef = createRef()
 
@@ -96,7 +93,7 @@ const ItemSelector = ({}, context) => {
             <span ref={inputRef}>
                 <ItemSearchField
                     value={filter}
-                    onChange={setFilter}
+                    onChange={updateFilter}
                     onFocus={openMenu}
                 />
             </span>
@@ -106,7 +103,7 @@ const ItemSelector = ({}, context) => {
                     placement="bottom-start"
                     onClickOutside={closeMenu}
                     arrow={false}
-                    maxWidth="700px"
+                    maxWidth={700}
                 >
                     <FlyoutMenu
                         className={classes.menu}
