@@ -36,6 +36,8 @@ const FilterSelector = props => {
         )
     }
 
+    console.log('props.dimensions', props.dimensions)
+
     return (
         <>
             <span ref={ref}>

@@ -1,17 +1,11 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 // const antenatalCareDashboardRoute = '#/nghVC4wtyzi'
-const immunizationDashboardRoute = '#/TAMlzYkstb7'
+// const immunizationDashboardRoute = '#/TAMlzYkstb7'
 const deliveryDashboardRoute = '#/iMnYyBfSxmM'
 
 When('I select the Immunization dashboard', () => {
     cy.clickChip('Immun')
-})
-
-Then('the Immunization dashboard displays in view mode', () => {
-    cy.checkUrlLocation(immunizationDashboardRoute)
-    cy.checkDashboardTitle('Immunization')
-    cy.checkChartExists()
 })
 
 When('I search for dashboards containing Immun', () => {
