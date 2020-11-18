@@ -4,20 +4,20 @@ Cypress.Commands.add('clickChip', name => {
 
 Cypress.Commands.add('clickContextMenu', name => {
     cy.get(`[data-test="dhis2-dashboard-dashboard-item-prog-${name}"]`)
-        .find('[data-test="dhis2-dashboard-item-context-menu"]')
+        .find('[data-test="item-context-menu"]')
         .click()
 })
 
 Cypress.Commands.add('clickViewAsChart', () => {
-    cy.get('[data-test="dhis2-dashboard-item-viewas-chart"]').click()
+    cy.get('[data-test="item-viewas-chart"]').click()
 })
 
 Cypress.Commands.add('clickViewAsTable', () => {
-    cy.get('[data-test="dhis2-dashboard-item-viewas-table"]').click()
+    cy.get('[data-test="item-viewas-table"]').click()
 })
 
 Cypress.Commands.add('clickViewAsMap', () => {
-    cy.get('[data-test="dhis2-dashboard-item-viewas-map"]').click()
+    cy.get('[data-test="item-viewas-map"]').click()
 })
 
 Cypress.Commands.add('checkDashboardTitle', name => {

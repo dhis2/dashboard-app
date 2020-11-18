@@ -3,7 +3,7 @@
 exports[`renders correctly 1`] = `
 <Fragment>
   <Button
-    dataTest="dhis2-uicore-button"
+    dataTest="item-context-menu"
     onClick={[Function]}
     secondary={true}
     small={true}

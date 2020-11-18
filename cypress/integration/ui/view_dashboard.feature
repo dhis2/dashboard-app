@@ -29,7 +29,7 @@ Feature: Viewing dashboards
         When I click to preview the print layout
         Then the print layout displays
         When I click to exit print preview
-        Then the Delivery dashboard displays in view mode
+        Then the "Delivery" dashboard displays in view mode
 
     @nonmutating
     Scenario: I view the print one-item-per-page preview
@@ -37,4 +37,4 @@ Feature: Viewing dashboards
         When I click to preview the print one-item-per-page
         Then the print one-item-per-page displays
         When I click to exit print preview
-        Then the Delivery dashboard displays in view mode
+        Then the "Delivery" dashboard displays in view mode

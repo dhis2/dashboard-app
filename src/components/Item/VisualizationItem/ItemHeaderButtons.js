@@ -84,7 +84,7 @@ const ItemHeaderButtons = (props, context) => {
                     label={i18n.t('View as Chart')}
                     onClick={onViewChart}
                     icon={<ChartIcon style={iconFill} />}
-                    dataTest={`dhis2-dashboard-item-viewas-chart`}
+                    dataTest={`item-viewas-chart`}
                 />
             )}
             {activeType !== REPORT_TABLE && activeType !== EVENT_REPORT && (
@@ -93,7 +93,7 @@ const ItemHeaderButtons = (props, context) => {
                     label={i18n.t('View as Table')}
                     onClick={onViewTable}
                     icon={<TableIcon style={iconFill} />}
-                    dataTest={`dhis2-dashboard-item-viewas-table`}
+                    dataTest={`item-viewas-table`}
                 />
             )}
             {itemHasMapView() && activeType !== MAP && (
@@ -102,7 +102,7 @@ const ItemHeaderButtons = (props, context) => {
                     label={i18n.t('View as Map')}
                     onClick={onViewMap}
                     icon={<MapIcon style={iconFill} />}
-                    dataTest={`dhis2-dashboard-item-viewas-map`}
+                    dataTest={`item-viewas-map`}
                 />
             )}
         </>
@@ -114,7 +114,7 @@ const ItemHeaderButtons = (props, context) => {
                 small
                 secondary
                 onClick={handleMenuClick}
-                dataTest={`dhis2-dashboard-item-context-menu`}
+                dataTest={`item-context-menu`}
             >
                 <ThreeDots />
             </Button>
