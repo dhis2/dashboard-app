@@ -13,7 +13,17 @@ import './locales'
 const muiTheme = () => createMuiTheme(dhis2theme)
 
 const d2Config = {
-    schemas: ['dashboard'],
+    schemas: [
+        'chart',
+        'map',
+        'report',
+        'reportTable',
+        'eventChart',
+        'eventReport',
+        'dashboard',
+        'organisationUnit',
+        'userGroup',
+    ],
 }
 
 // TODO: ER and EV plugins require the auth header in development mode.
