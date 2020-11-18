@@ -13,6 +13,7 @@ import ItemFooter from './ItemFooter'
 import LoadingMask from './LoadingMask'
 
 import * as pluginManager from './plugin'
+import { apiPostFavoriteDataStatistics } from '../../../api/dataStatistics'
 import { sGetVisualization } from '../../../reducers/visualizations'
 import { sGetSelectedItemActiveType } from '../../../reducers/selected'
 import { sGetIsEditing } from '../../../reducers/editDashboard'
@@ -29,6 +30,7 @@ import {
     CHART,
     REPORT_TABLE,
 } from '../../../modules/itemTypes'
+import { getVisualizationId, getVisualizationName } from '../../../modules/item'
 import memoizeOne from '../../../modules/memoizeOne'
 import {
     isEditMode,
@@ -71,11 +73,14 @@ export class Item extends Component {
         )
 
         try {
-            if (this.props.countInDashboard) {
-                const postFavoriteDataStatistics = await pluginManager.postFavoriteDataStatistics(this.props.item)
+            if (this.props.gatherDataStatistics) {
+                await apiPostFavoriteDataStatistics(
+                    getVisualizationId(this.props.item),
+                    this.props.item.type
+                )
             }
         } catch (e) {
-            console.log(e);
+            console.log(e)
         }
 
         this.setState({
@@ -337,8 +342,8 @@ Item.contextTypes = {
 
 Item.propTypes = {
     activeType: PropTypes.string,
-    countInDashboard: PropTypes.bool,
     dashboardMode: PropTypes.string,
+    gatherDataStatistics: PropTypes.bool,
     isEditing: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
@@ -367,7 +372,9 @@ const mapStateToProps = (state, ownProps) => {
             state,
             pluginManager.extractFavorite(ownProps.item).id
         ),
-        countInDashboard: sGatherAnalyticalObjectStatisticsInDashboardViews(state),
+        gatherDataStatistics: sGatherAnalyticalObjectStatisticsInDashboardViews(
+            state
+        ),
     }
 }
 
