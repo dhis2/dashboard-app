@@ -151,15 +151,23 @@ export const getVisualizationConfig = (
         const columns = visualization[AXIS_ID_COLUMNS].slice()
         const rows = visualization[AXIS_ID_ROWS].slice()
 
-        const layout = {
-            [AXIS_ID_COLUMNS]: columns.length ? [columns.shift()] : columns,
-            [AXIS_ID_ROWS]: rows.length ? [rows.shift()] : rows,
-            [AXIS_ID_FILTERS]: [
-                ...visualization[AXIS_ID_FILTERS],
-                ...columns,
-                ...rows,
-            ],
+        const layout = {}
+
+        if (visualization.rows.length > 1) {
+            layout[AXIS_ID_ROWS] =
+                rows.length > 2
+                    ? rows.splice(0, 2)
+                    : rows.splice(0, rows.length)
+        } else {
+            layout[AXIS_ID_ROWS] = rows.length ? [rows.shift()] : rows
         }
+
+        layout[AXIS_ID_COLUMNS] = columns.length ? [columns.shift()] : columns
+        layout[AXIS_ID_FILTERS] = [
+            ...visualization[AXIS_ID_FILTERS],
+            ...columns,
+            ...rows,
+        ]
 
         return getWithoutId({
             ...visualization,

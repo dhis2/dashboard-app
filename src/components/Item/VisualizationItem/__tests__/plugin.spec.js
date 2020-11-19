@@ -12,8 +12,8 @@ describe('plugin', () => {
         beforeEach(() => {
             mockGetFn = jest.fn().mockResolvedValue({ pager: {} })
             mockD2 = { Api: { getApi: () => ({ get: mockGetFn }) } }
-            d2lib.getInstance = () => Promise.resolve(mockD2)
-            apiMetadata.apiFetchFavorite = jest.fn()
+            d2lib.getInstance = () => Promise.resolve(mockD2) // eslint-disable-line
+            apiMetadata.apiFetchFavorite = jest.fn() // eslint-disable-line
         })
 
         it('fires apiFetchFavorite request', async done => {
@@ -65,7 +65,7 @@ describe('plugin', () => {
             expect(actualResult).toEqual(expectedResult)
         })
 
-        it('returns correct config when switching from REPORT_TABLE to CHART', () => {
+        it('returns correct config when switching from REPORT_TABLE to CHART two row items', () => {
             const actualResult = getVisualizationConfig(
                 visualization,
                 REPORT_TABLE,
@@ -76,16 +76,77 @@ describe('plugin', () => {
                 id: undefined,
                 type: VIS_TYPE_COLUMN,
                 columns: [{ dimension: 'dx' }],
-                rows: [{ dimension: 'abc' }],
+                rows: [{ dimension: 'abc' }, { dimension: 'efg' }],
                 filters: [
                     { dimension: 'pe' },
                     { dimension: 'ou' },
                     { dimension: 'xyz' },
-                    { dimension: 'efg' },
                 ],
             }
 
             expect(actualResult).toEqual(expectedResult)
+        })
+
+        it('returns correct config when switching from REPORT_TABLE to CHART one row item', () => {
+            const visConfig = {
+                id: 'vis1',
+                columns: [{ dimension: 'dx' }, { dimension: 'rainbow' }],
+                rows: [{ dimension: 'pe' }],
+                filters: [{ dimension: 'ou' }, { dimension: 'twilight' }],
+            }
+
+            const expectedVisConfig = {
+                id: undefined,
+                type: 'COLUMN',
+                columns: [{ dimension: 'dx' }],
+                rows: [{ dimension: 'pe' }],
+                filters: [
+                    { dimension: 'ou' },
+                    { dimension: 'twilight' },
+                    { dimension: 'rainbow' },
+                ],
+            }
+
+            const actualResult = getVisualizationConfig(
+                visConfig,
+                REPORT_TABLE,
+                CHART
+            )
+
+            expect(actualResult).toEqual(expectedVisConfig)
+        })
+
+        it('returns correct config when switching from REPORT_TABLE to CHART >2 row items', () => {
+            const visConfig = {
+                id: 'vis1',
+                columns: [{ dimension: 'dx' }, { dimension: 'rainbow' }],
+                rows: [
+                    { dimension: 'pe' },
+                    { dimension: 'twilight' },
+                    { dimension: 'pinkiepie' },
+                ],
+                filters: [{ dimension: 'ou' }],
+            }
+
+            const expectedVisConfig = {
+                id: undefined,
+                type: 'COLUMN',
+                columns: [{ dimension: 'dx' }],
+                rows: [{ dimension: 'pe' }, { dimension: 'twilight' }],
+                filters: [
+                    { dimension: 'ou' },
+                    { dimension: 'rainbow' },
+                    { dimension: 'pinkiepie' },
+                ],
+            }
+
+            const actualResult = getVisualizationConfig(
+                visConfig,
+                REPORT_TABLE,
+                CHART
+            )
+
+            expect(actualResult).toEqual(expectedVisConfig)
         })
 
         it('extracts map analytical object and prepares for plugins', () => {
