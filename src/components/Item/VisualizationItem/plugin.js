@@ -1,5 +1,11 @@
 import isObject from 'lodash/isObject'
-import { VIS_TYPE_COLUMN, VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
+import {
+    VIS_TYPE_COLUMN,
+    VIS_TYPE_PIVOT_TABLE,
+    AXIS_ID_ROWS,
+    AXIS_ID_COLUMNS,
+    AXIS_ID_FILTERS,
+} from '@dhis2/analytics'
 import { apiFetchFavorite, getMapFields } from '../../../api/metadata'
 import {
     REPORT_TABLE,
@@ -142,7 +148,24 @@ export const getVisualizationConfig = (
             type: activeType === CHART ? VIS_TYPE_COLUMN : VIS_TYPE_PIVOT_TABLE,
         })
     } else if (originalType === REPORT_TABLE && activeType === CHART) {
-        return getWithoutId({ ...visualization, type: VIS_TYPE_COLUMN })
+        const columns = visualization[AXIS_ID_COLUMNS].slice()
+        const rows = visualization[AXIS_ID_ROWS].slice()
+
+        const layout = {
+            [AXIS_ID_COLUMNS]: columns.length ? [columns.shift()] : columns,
+            [AXIS_ID_ROWS]: rows.length ? [rows.shift()] : rows,
+            [AXIS_ID_FILTERS]: [
+                ...visualization[AXIS_ID_FILTERS],
+                ...columns,
+                ...rows,
+            ],
+        }
+
+        return getWithoutId({
+            ...visualization,
+            ...layout,
+            type: VIS_TYPE_COLUMN,
+        })
     } else if (originalType === CHART && activeType === REPORT_TABLE) {
         return getWithoutId({
             ...visualization,
