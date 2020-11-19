@@ -9,7 +9,6 @@ When('I add a {string} filter', () => {
         .contains('Last 6 months')
         .dblclick()
 
-    //click confirm
     cy.get('button').contains('Confirm').click()
 })
 Then('the {string} filter is applied to the dashboard', () => {
@@ -17,7 +16,7 @@ Then('the {string} filter is applied to the dashboard', () => {
         .contains('Period: Last 6 months')
         .should('be.visible')
 
-    cy.get('.highcharts-container')
-        .contains('Last 6 months')
-        .should('be.visible')
+    // cy.get('.highcharts-container')
+    //     .contains('Last 6 months')
+    //     .should('be.visible')
 })
