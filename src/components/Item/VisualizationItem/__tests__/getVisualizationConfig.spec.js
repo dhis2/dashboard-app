@@ -28,32 +28,6 @@ describe('getVisualizationConfig', () => {
         expect(actualResult).toEqual(expectedResult)
     })
 
-    it('returns correct config when switching from CHART to REPORT_TABLE and one row item', () => {
-        const visConfig = {
-            id: 'vis1',
-            type: 'CHART',
-            [AXIS_ID_COLUMNS]: [{ dimension: DIMENSION_ID_DATA }],
-            [AXIS_ID_ROWS]: [{ dimension: DIMENSION_ID_PERIOD }],
-            [AXIS_ID_FILTERS]: [
-                { dimension: DIMENSION_ID_ORGUNIT },
-                { dimension: 'rainbow' },
-                { dimension: 'twilight' },
-            ],
-        }
-        const actualResult = getVisualizationConfig(
-            visConfig,
-            CHART,
-            REPORT_TABLE
-        )
-        const expectedResult = {
-            ...visConfig,
-            id: undefined,
-            type: 'PIVOT_TABLE',
-        }
-
-        expect(actualResult).toEqual(expectedResult)
-    })
-
     it('returns correct config when switching from CHART to REPORT_TABLE', () => {
         const visConfig = {
             id: 'vis1',
