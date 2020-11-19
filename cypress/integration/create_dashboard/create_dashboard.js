@@ -1,5 +1,6 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { dashboardsBar } from '../../elements/dashboardsBar'
+import { dashboardsBar, editBar, titleBar } from '../../elements'
+import { expectDashboardTitleToContain } from '../../elements/titleBar'
 
 // the length of the root route of the app (after the slash): #/
 const ROOT_ROUTE_LENGTH = 0
@@ -25,7 +26,7 @@ const getRouteFromHash = hash => {
 }
 
 Given('I choose to create new dashboard', () => {
-    cy.get('[data-test="link-new-dashboard"]').click()
+    dashboardsBar.clickNew()
 })
 
 When('dashboard title is added', () => {
@@ -33,7 +34,7 @@ When('dashboard title is added', () => {
 })
 
 When('dashboard items are added', () => {
-    cy.get('[data-test="item-search"]').click()
+    dashboardsBar.clickItemSearch()
     cy.get('[data-test="menu-item-ANC: 1 and 3 coverage Yearly"]').click()
 })
 
@@ -43,11 +44,11 @@ When('escape key is pressed', () => {
 })
 
 When('dashboard is saved', () => {
-    cy.get('[data-test="save-dashboard-button"]').click()
+    editBar.clickSave()
 })
 
 Then('the saved dashboard should be displayed', () => {
-    cy.get('[data-test="view-dashboard-title"]').contains(TEST_DASHBOARD_TITLE)
+    expectDashboardTitleToContain(TEST_DASHBOARD_TITLE)
 })
 
 Then('dashboard displays in view mode', () => {
@@ -65,11 +66,11 @@ Given('I open existing dashboard', () => {
 })
 
 When('I choose to edit dashboard', () => {
-    cy.get('[data-test="link-edit-dashboard"]').click()
+    titleBar.clickEdit()
 })
 
 When('I choose to delete dashboard', () => {
-    cy.get('[data-test="delete-dashboard-button"]').click()
+    editBar.clickDelete()
 })
 
 When('I confirm delete', () => {

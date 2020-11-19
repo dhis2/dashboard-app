@@ -2,8 +2,8 @@ import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 import { dashboardsBar } from '../../elements/dashboardsBar'
 import { expectDashboardTitleToContain } from '../../elements/titleBar'
 import { expectChartToExist } from '../../elements/dashboardItem'
-
-// const deliveryDashboardRoute = '#/iMnYyBfSxmM'
+import { expectUrlToMatch } from '../../elements/browserUrl'
+import { dashboards } from '../../assets/backends'
 
 beforeEach(() => {
     cy.visit('/', {
@@ -16,7 +16,7 @@ Given('I open the {string} dashboard', title => {
 })
 
 Then('the {string} dashboard displays in view mode', title => {
-    // cy.checkUrlLocation(deliveryDashboardRoute)
+    expectUrlToMatch(dashboards[title].route)
     expectDashboardTitleToContain(title)
     expectChartToExist()
 })
