@@ -31,7 +31,13 @@ describe('plugin', () => {
         let visualization
 
         beforeEach(() => {
-            visualization = { id: 'SOME_ID', someProp: 'someValue' }
+            visualization = {
+                id: 'SOME_ID',
+                someProp: 'someValue',
+                columns: [{ dimension: 'dx' }, { dimension: 'xyz' }],
+                rows: [{ dimension: 'abc' }, { dimension: 'efg' }],
+                filters: [{ dimension: 'pe' }, { dimension: 'ou' }],
+            }
         })
 
         it('returns default visualization when original type equals active type', () => {
@@ -69,6 +75,14 @@ describe('plugin', () => {
                 ...visualization,
                 id: undefined,
                 type: VIS_TYPE_COLUMN,
+                columns: [{ dimension: 'dx' }],
+                rows: [{ dimension: 'abc' }],
+                filters: [
+                    { dimension: 'pe' },
+                    { dimension: 'ou' },
+                    { dimension: 'xyz' },
+                    { dimension: 'efg' },
+                ],
             }
 
             expect(actualResult).toEqual(expectedResult)
