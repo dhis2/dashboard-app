@@ -87,11 +87,8 @@ const ViewTitleBar = (props, context) => {
 
     return (
         <>
-            <div className={classes.titleBar}>
-                <span
-                    style={titleStyle}
-                    data-test="dhis2-dashboard-view-dashboard-title"
-                >
+            <div className={classes.titleBar} data-test="view-titlebar">
+                <span style={titleStyle} data-test="view-dashboard-title">
                     {name}
                 </span>
                 <div className={classes.actions}>
@@ -106,7 +103,7 @@ const ViewTitleBar = (props, context) => {
                             <Link
                                 className={classes.editLink}
                                 to={`/${id}/edit`}
-                                data-test="dhis2-dashboard-link-edit-dashboard"
+                                data-test="link-edit-dashboard"
                             >
                                 <Button>{i18n.t('Edit')}</Button>
                             </Link>
@@ -119,7 +116,7 @@ const ViewTitleBar = (props, context) => {
                         <FilterSelector />
                         <span ref={buttonRef}>
                             <Button
-                                dataTest="dhis2-dashboard-more-button"
+                                dataTest="more-button"
                                 onClick={toggleMoreOptions}
                             >
                                 <ThreeDots />
@@ -149,19 +146,19 @@ const ViewTitleBar = (props, context) => {
                                 <MenuItem
                                     dense
                                     label={i18n.t('Print')}
-                                    dataTest="dhis2-dashboard-print-menu-item"
+                                    dataTest="print-menu-item"
                                 >
                                     <MenuItem
                                         dense
                                         label={i18n.t('Dashboard layout')}
                                         onClick={printLayout}
-                                        dataTest="dhis2-dashboard-print-layout-menu-item"
+                                        dataTest="print-layout-menu-item"
                                     />
                                     <MenuItem
                                         dense
                                         label={i18n.t('One item per page')}
                                         onClick={printOipp}
-                                        dataTest="dhis2-dashboard-print-oipp-menu-item"
+                                        dataTest="print-oipp-menu-item"
                                     />
                                 </MenuItem>
                             </FlyoutMenu>

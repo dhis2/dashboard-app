@@ -1,4 +1,5 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { dashboardsBar } from '../../elements/dashboardsBar'
 
 // the length of the root route of the app (after the slash): #/
 const ROOT_ROUTE_LENGTH = 0
@@ -23,40 +24,30 @@ const getRouteFromHash = hash => {
     return hash.slice(lastSlashIdx + 1)
 }
 
-const toggleShowMoreButton = () => {
-    cy.get('[data-test="dhis2-dashboard-showmore-button"]').click()
-}
-
 Given('I choose to create new dashboard', () => {
-    cy.get('[data-test="dhis2-dashboard-link-new-dashboard"]').click()
+    cy.get('[data-test="link-new-dashboard"]').click()
 })
 
 When('dashboard title is added', () => {
-    cy.get('[data-test="dhis2-dashboard-dashboard-title-input"]').type(
-        TEST_DASHBOARD_TITLE
-    )
+    cy.get('[data-test="dashboard-title-input"]').type(TEST_DASHBOARD_TITLE)
 })
 
 When('dashboard items are added', () => {
-    cy.get('[data-test="dhis2-dashboard-item-search"]').click()
-    cy.get(
-        '[data-test="dhis2-dashboard-menu-item-ANC: 1 and 3 coverage Yearly"]'
-    ).click()
+    cy.get('[data-test="item-search"]').click()
+    cy.get('[data-test="menu-item-ANC: 1 and 3 coverage Yearly"]').click()
 })
 
 When('escape key is pressed', () => {
     cy.get('body').trigger('keydown', { key: 'Escape' })
-    cy.get('[data-test="dhis2-dashboard-item-menu]').should('not.be.visible')
+    cy.get('[data-test="item-menu]').should('not.be.visible')
 })
 
 When('dashboard is saved', () => {
-    cy.get('[data-test="dhis2-dashboard-save-dashboard-button"]').click()
+    cy.get('[data-test="save-dashboard-button"]').click()
 })
 
 Then('the saved dashboard should be displayed', () => {
-    cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]').contains(
-        TEST_DASHBOARD_TITLE
-    )
+    cy.get('[data-test="view-dashboard-title"]').contains(TEST_DASHBOARD_TITLE)
 })
 
 Then('dashboard displays in view mode', () => {
@@ -69,32 +60,28 @@ Then('dashboard displays in view mode', () => {
 })
 
 Given('I open existing dashboard', () => {
-    toggleShowMoreButton()
-    cy.get('[data-test="dhis2-dashboard-dashboard-chip"]')
-        .contains(TEST_DASHBOARD_TITLE)
-        .click()
+    dashboardsBar.toggleShowMoreButton()
+    dashboardsBar.clickChip(TEST_DASHBOARD_TITLE)
 })
 
 When('I choose to edit dashboard', () => {
-    cy.get('[data-test="dhis2-dashboard-link-edit-dashboard"]').click()
+    cy.get('[data-test="link-edit-dashboard"]').click()
 })
 
 When('I choose to delete dashboard', () => {
-    cy.get('[data-test="dhis2-dashboard-delete-dashboard-button"]').click()
+    cy.get('[data-test="delete-dashboard-button"]').click()
 })
 
 When('I confirm delete', () => {
-    cy.get('[data-test="dhis2-dashboard-confirm-delete-dashboard"]').click()
+    cy.get('[data-test="confirm-delete-dashboard"]').click()
 })
 
 When('I cancel delete', () => {
-    cy.get('[data-test="dhis2-dashboard-cancel-delete-dashboard"]').click()
+    cy.get('[data-test="cancel-delete-dashboard"]').click()
 })
 
 Then('the dashboard displays in edit mode', () => {
-    cy.get('[data-test="dhis2-dashboard-dashboard-title-input"]').should(
-        'exist'
-    )
+    cy.get('[data-test="dashboard-title-input"]').should('exist')
 
     cy.location().should(loc => {
         expect(getRouteFromHash(loc.hash)).to.eq(ROUTE_EDIT)
@@ -102,12 +89,12 @@ Then('the dashboard displays in edit mode', () => {
 })
 
 Then('the dashboard is deleted and first starred dashboard displayed', () => {
-    toggleShowMoreButton()
-    cy.get('[data-test="dhis2-dashboard-dashboard-chip"]')
+    dashboardsBar.toggleShowMoreButton()
+    cy.get('[data-test="dhis2-uicore-chip"]')
         .contains(TEST_DASHBOARD_TITLE)
         .should('not.exist')
 
-    cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]')
+    cy.get('[data-test="view-dashboard-title"]')
         .should('exist')
         .should('not.be.empty')
 })

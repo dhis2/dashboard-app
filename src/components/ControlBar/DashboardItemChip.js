@@ -41,7 +41,6 @@ export const DashboardItemChip = ({
             className={classes.link}
             to={`/${dashboardId}`}
             onClick={handleClick}
-            data-test="dhis2-dashboard-dashboard-chip"
         >
             <Chip {...chipProps}>{label}</Chip>
         </Link>
