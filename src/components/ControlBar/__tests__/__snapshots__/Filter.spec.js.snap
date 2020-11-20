@@ -11,7 +11,7 @@ exports[`Filter matches the snapshot when filterText property is empty 1`] = `
   />
   <input
     className="input"
-    data-test="dhis2-dashboard-search-dashboard-input"
+    data-test="search-dashboard-input"
     onChange={[Function]}
     onKeyUp={[Function]}
     placeholder="Search for a dashboard"

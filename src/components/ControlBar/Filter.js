@@ -67,7 +67,7 @@ export const Filter = ({
                 onChange={setFilterValue}
                 onKeyUp={onKeyUp}
                 value={filterText}
-                data-test="dhis2-dashboard-search-dashboard-input"
+                data-test="search-dashboard-input"
             />
             {filterText && <ClearButton onClear={clearDashboardsFilter} />}
         </div>
