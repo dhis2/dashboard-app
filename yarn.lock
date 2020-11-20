@@ -1560,10 +1560,10 @@
     semver "^7.3.2"
     yargs "^16.1.0"
 
-"@dhis2/cli-utils-cypress@^3.1.0":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-3.1.1.tgz#492da55c292f88e9813cbbe52fae2877abd1070e"
-  integrity sha512-bN0j8f8Its//U6aHzKdtjKtMLl5q0pJxl8QmKNqohlZcXgTqzfC7n/JsB5Dp6r1xq5aLcw8PKnRbVZ9RrK1hQg==
+"@dhis2/cli-utils-cypress@^3.1.3":
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-3.1.3.tgz#3d5dcfb97b2f60af3e714171e45a57145d339865"
+  integrity sha512-gRjWIH/UHUO8gELAE/HM6zaROmMsWAcVAjdPVjbFszp6A+WFhPDWckSzTop5Orw6e7nPFMCLHmUGp9D0j6PRvw==
   dependencies:
     "@dhis2/cli-helpers-engine" "^1.5.0"
     concurrently "^5.2.0"
@@ -1574,10 +1574,10 @@
     inquirer "^7.0.4"
     wait-on "^4.0.2"
 
-"@dhis2/cypress-commands@^3.0.3":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-3.1.1.tgz#c30a4ff30ab51d31a037c59e7e532d5e4ad1c3bf"
-  integrity sha512-PmXEsaXJak13opNuyXQV9+iw6Cqvelmco0qmX/MH5y6JCF2nYebbeT2ROtJX3xNF/R3bkha0ALFts1Xi3ki5cA==
+"@dhis2/cypress-commands@^3.1.3":
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-3.1.3.tgz#df08d9ee7ec2966beb9138de3330edd3cd8ff1af"
+  integrity sha512-IqF3qPnwECAoMQY9dvyNH1NqqpxYdadHlEW1ejpeiKMRZPN2DxlAZRRnYZAHTqDdl9tKxJ5UIDoc0OklKqwmdA==
 
 "@dhis2/d2-i18n@^1.0.5", "@dhis2/d2-i18n@^1.0.6":
   version "1.0.6"
@@ -2516,10 +2516,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@testing-library/dom@^7.26.6":
-  version "7.26.6"
-  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.26.6.tgz#d558db63070a3acea5bea7e2497e631cd12541cc"
-  integrity sha512-/poL7WMpolcGFOHMcxfcFkf1u38DcBUjk3YwNYpBs/MdJ546lg0YdvP2Lq3ujuQzAZxgs8vVvadj3MBnZsBjjA==
+"@testing-library/dom@^7.27.1":
+  version "7.28.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.28.0.tgz#4d68a39675dbf0fa2f3c53bc2b9ab9e1dd1d55b2"
+  integrity sha512-jY9wE3eF/fjrxUCC1VTCnMWE/g+aCP582Df4H6H9wQYY0yLglyevTO7TET9pgg0w9Yzm8n7ck0Hxzi18pN5+4w==
   dependencies:
     "@babel/code-frame" "^7.10.4"
     "@babel/runtime" "^7.12.5"
@@ -2544,13 +2544,13 @@
     lodash "^4.17.15"
     redent "^3.0.0"
 
-"@testing-library/react@^11.1.0":
-  version "11.1.2"
-  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-11.1.2.tgz#089b06d3828e76fc1ff0092dd69c7b59c454c998"
-  integrity sha512-foL0/Mo68M51DdgFwEsO2SDEkUpocuEYidOTcJACGEcoakZDINuERYwVdd6T5e3pPE+BZyGwwURaXcrX1v9RbQ==
+"@testing-library/react@^11.2.1":
+  version "11.2.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-11.2.1.tgz#01b3d2dd5768ac27402b5d7e41c87e605be3c326"
+  integrity sha512-/rKucr9p/mhMongaeTXwgIRfDnsAUu6LbfN+moNUn2oU0Kw5a7inN5vGvPWv7Ef0YndpERAfODjeseUIlhzRHw==
   dependencies:
-    "@babel/runtime" "^7.12.1"
-    "@testing-library/dom" "^7.26.6"
+    "@babel/runtime" "^7.12.5"
+    "@testing-library/dom" "^7.27.1"
 
 "@types/anymatch@*":
   version "1.3.1"
