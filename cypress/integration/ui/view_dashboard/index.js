@@ -5,10 +5,10 @@ const immunizationDashboardRoute = '#/TAMlzYkstb7'
 
 Given('I open the Antenatal Care dashboard', () => {
     cy.visit('/', {
-        timeout: 10000,
+        timeout: 15000,
     })
     cy.get('[data-test="dhis2-uicore-chip"]', {
-        timeout: 10000,
+        timeout: 15000,
     })
         .contains('Antenatal Care')
         .click()

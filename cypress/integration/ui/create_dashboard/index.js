@@ -29,13 +29,13 @@ const toggleShowMoreButton = () => {
 
 beforeEach(() => {
     cy.visit('/', {
-        timeout: 10000,
+        timeout: 15000,
     })
 })
 
 Given('I choose to create new dashboard', () => {
     cy.get('[data-test="link-new-dashboardd"]', {
-        timeout: 10000,
+        timeout: 15000,
     }).click()
 })
 
