@@ -28,11 +28,15 @@ const toggleShowMoreButton = () => {
 }
 
 beforeEach(() => {
-    cy.visit('/')
+    cy.visit('/', {
+        timeout: 10000,
+    })
 })
 
 Given('I choose to create new dashboard', () => {
-    cy.get('[data-test="dhis2-dashboard-link-new-dashboard"]').click()
+    cy.get('[data-test="dhis2-dashboard-link-new-dashboard"]', {
+        timeout: 10000,
+    }).click()
 })
 
 When('dashboard title is added', () => {
