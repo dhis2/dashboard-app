@@ -30,14 +30,17 @@ const getVisualizationConfig = (visualization, originalType, activeType) => {
             type: activeType === CHART ? VIS_TYPE_COLUMN : VIS_TYPE_PIVOT_TABLE,
         })
     } else if (originalType === REPORT_TABLE && activeType === CHART) {
-        const layout = getAdaptedUiLayoutByType(visualization, activeType)
+        const layout = getAdaptedUiLayoutByType(visualization, VIS_TYPE_COLUMN)
         return getWithoutId({
             ...visualization,
             ...layout,
             type: VIS_TYPE_COLUMN,
         })
     } else if (originalType === CHART && activeType === REPORT_TABLE) {
-        const layout = getAdaptedUiLayoutByType(visualization, activeType)
+        const layout = getAdaptedUiLayoutByType(
+            visualization,
+            VIS_TYPE_PIVOT_TABLE
+        )
         return getWithoutId({
             ...visualization,
             ...layout,
