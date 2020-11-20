@@ -34,7 +34,7 @@ beforeEach(() => {
 })
 
 Given('I choose to create new dashboard', () => {
-    cy.get('[data-test="link-new-dashboardd"]', {
+    cy.get('[data-test="link-new-dashboard"]', {
         timeout: 15000,
     }).click()
 })
