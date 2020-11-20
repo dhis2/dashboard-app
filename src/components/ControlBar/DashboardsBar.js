@@ -110,7 +110,7 @@ export const DashboardsBar = ({
                     <Link
                         className={classes.newLink}
                         to={'/new'}
-                        data-test="dhis2-dashboard-link-new-dashboard"
+                        data-test="link-new-dashboard"
                     >
                         <AddCircleIcon />
                     </Link>

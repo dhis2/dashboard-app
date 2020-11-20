@@ -23,7 +23,7 @@ export const ConfirmDeleteDialog = ({
             key="cancel"
             secondary
             onClick={onContinueEditing}
-            dataTest="dhis2-dashboard-cancel-delete-dashboard"
+            dataTest="cancel-delete-dashboard"
         >
             {i18n.t('Cancel')}
         </Button>,
@@ -31,7 +31,7 @@ export const ConfirmDeleteDialog = ({
             key="delete"
             destructive
             onClick={onDeleteConfirmed}
-            dataTest="dhis2-dashboard-confirm-delete-dashboard"
+            dataTest="confirm-delete-dashboard"
         >
             {i18n.t('Delete')}
         </Button>,
