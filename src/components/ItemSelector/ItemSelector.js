@@ -19,7 +19,7 @@ const ItemSearchField = props => (
         onChange={props.onChange}
         onFocus={props.onFocus}
         value={props.value}
-        dataTest="dhis2-dashboard-item-search"
+        dataTest="item-search"
     />
 )
 
@@ -142,10 +142,7 @@ class ItemSelector extends React.Component {
                     disableEnforceFocus={true}
                     disableRestoreFocus={true}
                 >
-                    <Menu
-                        dataTest={'dhis2-dashboard-item-menu'}
-                        maxWidth={'700px'}
-                    >
+                    <Menu dataTest={'item-menu'} maxWidth={'700px'}>
                         {this.getMenuGroups()}
                     </Menu>
                 </Popover>

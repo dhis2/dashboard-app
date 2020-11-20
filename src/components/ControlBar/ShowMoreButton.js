@@ -15,7 +15,7 @@ export const ShowMoreButton = ({ onClick, isMaxHeight, disabled }) => {
                 <div
                     className={classes.showMore}
                     onClick={onClick}
-                    data-test="dhis2-dashboard-showmore-button"
+                    data-test="showmore-button"
                 >
                     {isMaxHeight ? i18n.t('Show less') : i18n.t('Show more')}
                 </div>

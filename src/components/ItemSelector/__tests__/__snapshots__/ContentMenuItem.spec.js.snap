@@ -2,7 +2,7 @@
 
 exports[`ContentMenuItem does not have LaunchLink if no url provided 1`] = `
 <MenuItem
-  dataTest="dhis2-dashboard-menu-item-Pinkie Pie"
+  dataTest="menu-item-Pinkie Pie"
   dense={true}
   label={
     <div
@@ -39,7 +39,7 @@ exports[`ContentMenuItem does not have LaunchLink if no url provided 1`] = `
 
 exports[`ContentMenuItem has a LaunchLink when url is provided 1`] = `
 <MenuItem
-  dataTest="dhis2-dashboard-menu-item-Pinkie Pie"
+  dataTest="menu-item-Pinkie Pie"
   dense={true}
   label={
     <div
