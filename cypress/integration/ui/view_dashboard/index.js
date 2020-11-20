@@ -5,10 +5,10 @@ const immunizationDashboardRoute = '#/TAMlzYkstb7'
 
 Given('I open the Antenatal Care dashboard', () => {
     cy.visit('/', {
-        timeout: 10000,
+        timeout: 15000,
     })
     cy.get('[data-test="dhis2-uicore-chip"]', {
-        timeout: 10000,
+        timeout: 15000,
     })
         .contains('Antenatal Care')
         .click()
@@ -19,7 +19,7 @@ Then('the Antenatal Care dashboard displays in view mode', () => {
         expect(loc.hash).to.equal(antenatalCareDashboardRoute)
     })
 
-    cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]')
+    cy.get('[data-test="view-dashboard-title"]')
         .should('be.visible')
         .and('contain', 'Antenatal Care')
     cy.get('.highcharts-background').should('exist')
@@ -34,14 +34,14 @@ Then('the Immunization dashboard displays in view mode', () => {
         expect(loc.hash).to.equal(immunizationDashboardRoute)
     })
 
-    cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]')
+    cy.get('[data-test="view-dashboard-title"]')
         .should('be.visible')
         .and('contain', 'Immunization')
     cy.get('.highcharts-background').should('exist')
 })
 
 When('I search for dashboards containing Immunization', () => {
-    cy.get('[data-test="dhis2-dashboard-search-dashboard-input"]').type('Immun')
+    cy.get('[data-test="search-dashboard-input"]').type('Immun')
 })
 
 Then('Immunization and Immunization data dashboards are choices', () => {
@@ -51,15 +51,13 @@ Then('Immunization and Immunization data dashboards are choices', () => {
 })
 
 When('I press enter in the search dashboard field', () => {
-    cy.get('[data-test="dhis2-dashboard-search-dashboard-input"]').type(
-        '{enter}'
-    )
+    cy.get('[data-test="search-dashboard-input"]').type('{enter}')
 })
 
 When('I click to preview the print layout', () => {
-    cy.get('[data-test="dhis2-dashboard-more-button"]').click()
-    cy.get('[data-test="dhis2-dashboard-print-menu-item"]').click()
-    cy.get('[data-test="dhis2-dashboard-print-layout-menu-item"]').click()
+    cy.get('[data-test="more-button"]').click()
+    cy.get('[data-test="print-menu-item"]').click()
+    cy.get('[data-test="print-layout-menu-item"]').click()
 })
 
 Then('the print layout displays', () => {
@@ -69,19 +67,17 @@ Then('the print layout displays', () => {
     })
 
     //check for some elements
-    cy.get('[data-test="dhis2-dashboard-print-layout-page"]').should(
-        'be.visible'
-    )
+    cy.get('[data-test="print-layout-page"]').should('be.visible')
 })
 
 When('I click to exit print preview', () => {
-    cy.get('[data-test="dhis2-dashboard-exit-print-preview"]').click()
+    cy.get('[data-test="exit-print-preview"]').click()
 })
 
 When('I click to preview the print one-item-per-page', () => {
-    cy.get('[data-test="dhis2-dashboard-more-button"]').click()
-    cy.get('[data-test="dhis2-dashboard-print-menu-item"]').click()
-    cy.get('[data-test="dhis2-dashboard-print-oipp-menu-item"]').click()
+    cy.get('[data-test="more-button"]').click()
+    cy.get('[data-test="print-menu-item"]').click()
+    cy.get('[data-test="print-oipp-menu-item"]').click()
 })
 
 Then('the print one-item-per-page displays', () => {
@@ -91,13 +87,11 @@ Then('the print one-item-per-page displays', () => {
     })
 
     //check for some elements
-    cy.get('[data-test="dhis2-dashboard-print-oipp-page"]').should('be.visible')
+    cy.get('[data-test="print-oipp-page"]').should('be.visible')
 })
 
 When('I search for dashboards containing Noexist', () => {
-    cy.get('[data-test="dhis2-dashboard-search-dashboard-input"]').type(
-        'Noexist'
-    )
+    cy.get('[data-test="search-dashboard-input"]').type('Noexist')
 })
 Then('no dashboards are choices', () => {
     cy.get('[data-test="dhis2-uicore-chip"]').should('not.be.visible')
@@ -112,7 +106,7 @@ Then("dashboards list restored and dashboard doesn't change", () => {
         expect(loc.hash).to.equal(antenatalCareDashboardRoute)
     })
 
-    cy.get('[data-test="dhis2-dashboard-view-dashboard-title"]')
+    cy.get('[data-test="view-dashboard-title"]')
         .should('be.visible')
         .and('contain', 'Antenatal Care')
     cy.get('.highcharts-background').should('exist')

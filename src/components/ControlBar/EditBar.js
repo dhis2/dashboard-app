@@ -166,7 +166,7 @@ export class EditBar extends Component {
                     <Button
                         primary
                         onClick={this.onSave}
-                        dataTest="dhis2-dashboard-save-dashboard-button"
+                        dataTest="save-dashboard-button"
                     >
                         {i18n.t('Save changes')}
                     </Button>
@@ -182,7 +182,7 @@ export class EditBar extends Component {
                     {this.props.dashboardId && this.props.deleteAccess ? (
                         <Button
                             onClick={this.onConfirmDelete}
-                            dataTest="dhis2-dashboard-delete-dashboard-button"
+                            dataTest="delete-dashboard-button"
                         >
                             {i18n.t('Delete')}
                         </Button>

@@ -54,18 +54,18 @@ describe('getVisualizationConfig', () => {
         expect(actualResult).toEqual(expectedResult)
     })
 
-    it('returns correct config when switching from REPORT_TABLE to CHART', () => {
+    it('returns correct config when switching from REPORT_TABLE to CHART one row item', () => {
         const visConfig = {
             id: 'vis1',
             [AXIS_ID_COLUMNS]: [
                 { dimension: DIMENSION_ID_DATA },
                 { dimension: 'rainbow' },
             ],
-            [AXIS_ID_ROWS]: [
-                { dimension: DIMENSION_ID_PERIOD },
+            [AXIS_ID_ROWS]: [{ dimension: DIMENSION_ID_PERIOD }],
+            [AXIS_ID_FILTERS]: [
+                { dimension: DIMENSION_ID_ORGUNIT },
                 { dimension: 'twilight' },
             ],
-            [AXIS_ID_FILTERS]: [{ dimension: DIMENSION_ID_ORGUNIT }],
         }
 
         const expectedVisConfig = {
@@ -75,8 +75,47 @@ describe('getVisualizationConfig', () => {
             [AXIS_ID_ROWS]: [{ dimension: DIMENSION_ID_PERIOD }],
             [AXIS_ID_FILTERS]: [
                 { dimension: DIMENSION_ID_ORGUNIT },
-                { dimension: 'rainbow' },
                 { dimension: 'twilight' },
+                { dimension: 'rainbow' },
+            ],
+        }
+
+        const actualResult = getVisualizationConfig(
+            visConfig,
+            REPORT_TABLE,
+            CHART
+        )
+
+        expect(actualResult).toEqual(expectedVisConfig)
+    })
+
+    it('returns correct config when switching from REPORT_TABLE to CHART >2 row items', () => {
+        const visConfig = {
+            id: 'vis1',
+            [AXIS_ID_COLUMNS]: [
+                { dimension: DIMENSION_ID_DATA },
+                { dimension: 'rainbow' },
+            ],
+            [AXIS_ID_ROWS]: [
+                { dimension: DIMENSION_ID_PERIOD },
+                { dimension: 'twilight' },
+                { dimension: 'pinkiepie' },
+            ],
+            [AXIS_ID_FILTERS]: [{ dimension: DIMENSION_ID_ORGUNIT }],
+        }
+
+        const expectedVisConfig = {
+            id: undefined,
+            type: 'COLUMN',
+            [AXIS_ID_COLUMNS]: [{ dimension: DIMENSION_ID_DATA }],
+            [AXIS_ID_ROWS]: [
+                { dimension: DIMENSION_ID_PERIOD },
+                { dimension: 'twilight' },
+            ],
+            [AXIS_ID_FILTERS]: [
+                { dimension: DIMENSION_ID_ORGUNIT },
+                { dimension: 'rainbow' },
+                { dimension: 'pinkiepie' },
             ],
         }
 
