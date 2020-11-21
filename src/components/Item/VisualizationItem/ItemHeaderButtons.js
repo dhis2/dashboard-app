@@ -44,32 +44,31 @@ const ItemHeaderButtons = (props, context) => {
     const isTrackerType = isTrackerDomainType(item.type)
 
     const onViewTable = () => {
-        handleClose()
+        closeMenu()
         onSelectActiveType(isTrackerType ? EVENT_REPORT : REPORT_TABLE)
     }
 
     const onViewChart = () => {
-        handleClose()
+        closeMenu()
         onSelectActiveType(isTrackerType ? EVENT_CHART : CHART)
     }
 
     const onViewMap = () => {
-        handleClose()
+        closeMenu()
         onSelectActiveType(MAP)
     }
 
     const itemHasMapView = () => hasMapView(item.type)
 
-    const handleMenuClick = () => setMenuIsOpen(true)
-
     const handleInterpretationClick = () => {
         props.onToggleFooter()
         if (menuIsOpen) {
-            handleClose()
+            closeMenu()
         }
     }
 
-    const handleClose = () => setMenuIsOpen(false)
+    const openMenu = () => setMenuIsOpen(true)
+    const closeMenu = () => setMenuIsOpen(false)
 
     const type = visualization.type || item.type
     const canViewAs =
@@ -116,7 +115,7 @@ const ItemHeaderButtons = (props, context) => {
     return pluginIsAvailable(activeType || item.type) ? (
         <>
             <div ref={buttonRef}>
-                <Button small secondary onClick={handleMenuClick}>
+                <Button small secondary onClick={openMenu}>
                     <ThreeDots />
                 </Button>
             </div>
@@ -125,7 +124,7 @@ const ItemHeaderButtons = (props, context) => {
                     reference={buttonRef}
                     placement="auto-start"
                     arrow={false}
-                    onClickOutside={handleClose}
+                    onClickOutside={closeMenu}
                 >
                     <FlyoutMenu>
                         {canViewAs && (

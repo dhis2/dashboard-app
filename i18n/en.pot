@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-11-13T13:57:56.959Z\n"
-"PO-Revision-Date: 2020-11-13T13:57:56.959Z\n"
+"POT-Creation-Date: 2020-11-21T09:42:35.736Z\n"
+"PO-Revision-Date: 2020-11-21T09:42:35.736Z\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -189,15 +189,6 @@ msgstr ""
 msgid "Dashboard description"
 msgstr ""
 
-msgid "More"
-msgstr ""
-
-msgid "Dashboard layout"
-msgstr ""
-
-msgid "One item per page"
-msgstr ""
-
 msgid "Hide description"
 msgstr ""
 
@@ -214,6 +205,15 @@ msgid "Edit"
 msgstr ""
 
 msgid "Share"
+msgstr ""
+
+msgid "More"
+msgstr ""
+
+msgid "Dashboard layout"
+msgstr ""
+
+msgid "One item per page"
 msgstr ""
 
 msgid "No description"
