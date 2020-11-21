@@ -107,11 +107,12 @@ const ItemSelector = ({}, context) => {
                 >
                     <FlyoutMenu
                         className={classes.menu}
-                        dataTest={'dhis2-dashboard-item-menu'}
+                        dataTest={'item-menu'}
                         maxWidth="700px"
                     >
                         {getMenuGroups()}
                     </FlyoutMenu>
+
                 </Popover>
             )}
         </>

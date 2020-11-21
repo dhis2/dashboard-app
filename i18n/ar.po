@@ -1,15 +1,15 @@
 # 
 # Translators:
-# Hamza Assada <7amza.it@gmail.com>, 2020
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# Hamza Assada <7amza.it@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-10-12T06:11:46.298Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,10 +18,10 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "لوحة معلومات غير معنونة"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "تحميل لوحة المعلومات – {{name}}"
 
 msgid "Cancel"
 msgstr "إلغاء"
@@ -42,10 +42,10 @@ msgstr ""
 "المعلومات هذه نهائياً؟"
 
 msgid "Exit Print preview"
-msgstr ""
+msgstr "الخروج من معاينة الطباعة"
 
 msgid "Print preview"
-msgstr ""
+msgstr "معاينة قبل الطباعة"
 
 msgid "Save changes"
 msgstr "احفظ التغييرات"
@@ -79,33 +79,34 @@ msgid "No access"
 msgstr "الوصول غير ممكن"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "الخروج من معاينة الطباعة"
 
 msgid "Print"
 msgstr "طباعة"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "تخطيط لوحة المعلومات"
 
 msgid "one item per page"
-msgstr ""
+msgstr "عنصر واحد في كل صفحة"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "معاينة قبل الطباعة"
 
 msgid "For best print results"
-msgstr ""
+msgstr "للحصول على أفضل نتائج الطباعة"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "استخدم متصفح Chrome أو Edge"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr ""
+msgstr "انتظر حتى يتم تحميل جميع عناصر لوحة المعلومات قبل الطباعة"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
 " dialog"
 msgstr ""
+"استخدم حجم ورق أفقي A4 وإعدادات الهامش الافتراضية في مربع حوار طباعة المتصفح"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -123,7 +124,7 @@ msgid "Delete item"
 msgstr "حذف العنصر"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "تم اختصار هذا العنصر ليناسب صفحة واحدة"
 
 msgid "Messages"
 msgstr "الرسائل"
@@ -135,7 +136,7 @@ msgid "Item type \"{{type}}\" not supported"
 msgstr "نوع العنصر \"{{type}}\" غير مدعوم"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "تم تطبيق عوامل التصفية"
 
 msgid "Spacer"
 msgstr "مسافة فاصلة"
@@ -208,16 +209,16 @@ msgid "Dashboard description"
 msgstr "وصف لوحة المعلومات"
 
 msgid "Hide description"
-msgstr ""
+msgstr "إخفاء الوصف"
 
 msgid "Show description"
-msgstr ""
+msgstr "إظهار الوصف"
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "إلغاء التمييز بنجمة عن لوحة المعلومات"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "إعطاء نجمة للوحة المعلومات"
 
 msgid "Edit"
 msgstr "تعديل"
@@ -229,10 +230,10 @@ msgid "More"
 msgstr "مزيد"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "تخطيط لوحة المعلومات"
 
 msgid "One item per page"
-msgstr ""
+msgstr "عنصر واحد في كل صفحة"
 
 msgid "No description"
 msgstr "لا يوجد وصف"
