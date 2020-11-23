@@ -3,7 +3,6 @@ import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { EditTitleBar } from '../EditTitleBar'
 
-jest.mock('@dhis2/d2-ui-core/text-field/TextField', () => 'TextField')
 jest.mock('../../ItemSelector/ItemSelector', () => 'ItemSelector')
 
 describe('EditTitleBar', () => {
