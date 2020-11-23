@@ -20,7 +20,8 @@ Then('the {string} filter is applied to the dashboard', () => {
         .should('be.visible')
 
     cy.get('.highcharts-subtitle', OPTIONS)
-        .contains('Last 6 months', OPTIONS)
+        .first()
         .scrollIntoView()
+        .contains('Last 6 months', OPTIONS)
         .should('be.visible')
 })
