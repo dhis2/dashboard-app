@@ -1,16 +1,5 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
-
-const dashboards = {
-    'Antenatal Care': {
-        route: '#/nghVC4wtyzi',
-    },
-    Immunization: {
-        route: '#/TAMlzYkstb7',
-    },
-    Delivery: {
-        route: '#/iMnYyBfSxmM',
-    },
-}
+import { dashboards } from '../../assets/backends'
 
 beforeEach(() => {
     cy.visit('/', {

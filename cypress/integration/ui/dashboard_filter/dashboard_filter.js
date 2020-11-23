@@ -18,6 +18,6 @@ Then('the {string} filter is applied to the dashboard', () => {
         .should('be.visible')
 
     cy.get('.highcharts-container')
-        .contains('Last 6 months')
+        .contains('Last 6 months', { timeout: 15000 })
         .should('be.visible')
 })

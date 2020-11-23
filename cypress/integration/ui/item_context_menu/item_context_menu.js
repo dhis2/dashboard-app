@@ -1,52 +1,40 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import {
-    itemContextMenu,
-    expectChartToExist,
-    expectTableToExist,
-    expectChartToNotExist,
-    expectTableToNotExist,
-    expectMapToExist,
-} from '../../../elements/dashboardItem'
+import { dashboardItem as itemEl } from '../../../elements/dashboardItem'
+import { dashboards } from '../../../assets/backends'
 
-const DASHBOARD_ITEM_CHART_UID = 'GaVhJpqABYX'
-const DASHBOARD_ITEM_TABLE_UID = 'qXsjttMYuoZ'
-// const DASHBOARD_ITEM_MAP_UID = 'G3EtzSWNP9o'
+// these tests being run on the "Delivery" dashboard
+const itemData = dashboards.Delivery.items
 
 When('I click View As Table on a chart dashboard item', () => {
-    itemContextMenu.clickContextMenu(DASHBOARD_ITEM_CHART_UID)
-    itemContextMenu.clickViewAsTable(DASHBOARD_ITEM_CHART_UID)
+    itemEl.action.clickMenuButton(itemData.chart.uid)
+    itemEl.action.clickViewAsTable()
 })
 
 When('I click View As Chart on a table dashboard item', () => {
-    itemContextMenu.clickContextMenu(DASHBOARD_ITEM_TABLE_UID)
-    itemContextMenu.clickViewAsChart(DASHBOARD_ITEM_TABLE_UID)
+    itemEl.action.clickMenuButton(itemData.table.uid)
+    itemEl.action.clickViewAsChart()
 })
 
 When('I click View As Map on a chart dashboard item', () => {
-    itemContextMenu.clickContextMenu(DASHBOARD_ITEM_CHART_UID)
-    itemContextMenu.clickViewAsMap()
+    itemEl.action.clickMenuButton(itemData.chart.uid)
+    itemEl.action.clickViewAsMap()
 })
 Then('the chart dashboard item displays as a map', () => {
-    expectChartToNotExist(DASHBOARD_ITEM_CHART_UID)
-    expectMapToExist(DASHBOARD_ITEM_CHART_UID)
+    itemEl.expect.mapExists(itemData.chart.uid)
 })
 
 Then('the chart dashboard item displays as a chart', () => {
-    expectChartToExist(DASHBOARD_ITEM_CHART_UID)
-    expectTableToNotExist(DASHBOARD_ITEM_CHART_UID)
+    itemEl.expect.chartExists(itemData.chart.uid)
 })
 
 Then('the chart dashboard item displays as a table', () => {
-    expectChartToNotExist(DASHBOARD_ITEM_CHART_UID)
-    expectTableToExist(DASHBOARD_ITEM_CHART_UID)
+    itemEl.expect.tableExists(itemData.chart.uid)
 })
 
 Then('the table dashboard item displays as a chart', () => {
-    expectChartToExist(DASHBOARD_ITEM_TABLE_UID)
-    expectTableToNotExist(DASHBOARD_ITEM_TABLE_UID)
+    itemEl.expect.chartExists(itemData.table.uid)
 })
 
 Then('the table dashboard item displays as a table', () => {
-    expectChartToNotExist(DASHBOARD_ITEM_TABLE_UID)
-    expectTableToExist(DASHBOARD_ITEM_TABLE_UID)
+    itemEl.expect.tableExists(itemData.table.uid)
 })
