@@ -8,7 +8,7 @@ beforeEach(() => {
 })
 
 Given('I open the {string} dashboard', title => {
-    cy.get('[data-test="dhis2-uicore-chip"]', {
+    cy.get('[data-test="dashboard-chip"]', {
         timeout: 15000,
     })
         .contains(title)
