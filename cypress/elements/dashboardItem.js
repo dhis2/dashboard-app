@@ -17,14 +17,10 @@ const clickViewAsMap = () => {
 }
 
 const expectChartToExist = itemUid => {
-    if (itemUid) {
-        cy.get(`[data-test="dashboard-item-prog-${itemUid}"]`)
-            .find('.highcharts-container')
-            .should('exist')
-            .and('be.visible')
-    } else {
-        cy.get('.highcharts-container').should('exist').and('be.visible')
-    }
+    cy.get(`[data-test="dashboard-item-prog-${itemUid}"]`)
+        .find('.highcharts-container')
+        .should('exist')
+        .and('be.visible')
 }
 
 const expectTableToExist = itemUid => {

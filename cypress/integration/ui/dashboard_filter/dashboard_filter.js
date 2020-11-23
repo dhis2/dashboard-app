@@ -1,6 +1,7 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-const OPTIONS = { timeout: 15000 }
+// const OPTIONS = { timeout: 15000 }
+const PERIOD = 'Last 6 months'
 
 When('I add a {string} filter', () => {
     cy.contains('Add filter').click()
@@ -16,12 +17,12 @@ When('I add a {string} filter', () => {
 
 Then('the {string} filter is applied to the dashboard', () => {
     cy.get('[data-test="filter-badge"]')
-        .contains('Period: Last 6 months')
+        .contains(`Period: ${PERIOD}`)
         .should('be.visible')
 
-    cy.get('.highcharts-subtitle', OPTIONS)
-        .first()
-        .scrollIntoView()
-        .contains('Last 6 months', OPTIONS)
-        .should('be.visible')
+    // cy.get('.highcharts-subtitle', OPTIONS)
+    //     .first()
+    //     .scrollIntoView()
+    //     .contains(PERIOD, OPTIONS)
+    //     .should('be.visible')
 })
