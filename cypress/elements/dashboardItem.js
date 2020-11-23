@@ -1,5 +1,5 @@
-const clickMenuButton = name => {
-    cy.get(`[data-test="dashboard-item-prog-${name}"]`)
+const clickMenuButton = itemUid => {
+    cy.get(`[data-test="dashboard-item-prog-${itemUid}"]`)
         .find('[data-test="item-menu-button"]')
         .click()
 }
@@ -16,9 +16,9 @@ const clickViewAsMap = () => {
     cy.contains('View as Map').click()
 }
 
-const expectChartToExist = name => {
-    if (name) {
-        cy.get(`[data-test="dashboard-item-prog-${name}"]`)
+const expectChartToExist = itemUid => {
+    if (itemUid) {
+        cy.get(`[data-test="dashboard-item-prog-${itemUid}"]`)
             .find('.highcharts-container')
             .should('exist')
             .and('be.visible')
@@ -27,27 +27,27 @@ const expectChartToExist = name => {
     }
 }
 
-const expectTableToExist = name => {
-    cy.get(`[data-test="dashboard-item-prog-${name}"]`)
+const expectTableToExist = itemUid => {
+    cy.get(`[data-test="dashboard-item-prog-${itemUid}"]`)
         .find('.pivot-table-container')
         .should('exist')
         .and('be.visible')
 }
 
-const expectTableToNotExist = name => {
-    cy.get(`[data-test="dashboard-item-prog-${name}"]`)
+const expectTableToNotExist = itemUid => {
+    cy.get(`[data-test="dashboard-item-prog-${itemUid}"]`)
         .find('.pivot-table-container')
         .should('not.exist')
 }
 
-const expectChartToNotExist = name => {
-    cy.get(`[data-test="dashboard-item-prog-${name}"]`)
+const expectChartToNotExist = itemUid => {
+    cy.get(`[data-test="dashboard-item-prog-${itemUid}"]`)
         .find('.highcharts-container')
         .should('not.exist')
 }
 
-const expectMapToExist = name => {
-    cy.get(`[data-test="dashboard-item-prog-${name}"]`)
+const expectMapToExist = itemUid => {
+    cy.get(`[data-test="dashboard-item-prog-${itemUid}"]`)
         .find('.dhis2-map-plugin')
         .should('exist')
         .and('be.visible')

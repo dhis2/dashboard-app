@@ -1,5 +1,7 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 
+const OPTIONS = { timeout: 15000 }
+
 When('I add a {string} filter', () => {
     cy.contains('Add filter').click()
 
@@ -17,7 +19,7 @@ Then('the {string} filter is applied to the dashboard', () => {
         .contains('Period: Last 6 months')
         .should('be.visible')
 
-    cy.get('.highcharts-subtitle', { timeout: 15000 })
-        .contains('Last 6 months', { timeout: 15000 })
+    cy.get('.highcharts-subtitle', OPTIONS)
+        .contains('Last 6 months', OPTIONS)
         .should('be.visible')
 })
