@@ -13,7 +13,7 @@ import { dashboards } from '../../../assets/backends'
 
 const OPTIONS = { timeout: 15000 }
 const PERIOD = 'Last 6 months'
-const OU = 'Bombali'
+const OU = 'Sierra Leone'
 const FACILITY_TYPE = 'Clinic'
 
 const chartItemUid = dashboards.Delivery.items.chart.itemUid

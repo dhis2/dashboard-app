@@ -4,9 +4,9 @@ export const filterBadgeSel = '[data-test="filter-badge"]'
 
 export const dblclickDimension = (optionText, dimensionId) => {
     if (dimensionId === 'ou') {
-        cy.get('[data-test="modal-dimension-ou"]', OPTIONS)
-            .find('.arrow')
-            .click()
+        // cy.get('[data-test="modal-dimension-ou"]', OPTIONS)
+        //     .find('.arrow')
+        //     .click()
         cy.get('[data-test="modal-dimension-ou"]', OPTIONS)
             .find('*[role="button"]')
             .contains(optionText, OPTIONS)
