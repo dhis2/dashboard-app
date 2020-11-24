@@ -5,10 +5,11 @@ import {
     chartXAxisLabelSel,
 } from '../../../elements/dashboardItem'
 import {
-    dblclickDimension,
+    unselectedItemsSel,
     filterDimensionsPanelSel,
     filterBadgeSel,
-    checkFilterBadgeContains,
+    orgUnitHierarchySel,
+    orgUnitCheckboxesSel,
 } from '../../../elements/dashboardFilter'
 import { dashboards } from '../../../assets/backends'
 
@@ -24,11 +25,19 @@ When('I add a {string} filter', dimensionType => {
 
     cy.get(filterDimensionsPanelSel).contains(dimensionType).click()
     if (dimensionType === 'Period') {
-        dblclickDimension(PERIOD)
+        cy.get(unselectedItemsSel).contains(PERIOD).dblclick()
     } else if (dimensionType === 'Organisation Unit') {
-        dblclickDimension(OU, 'ou')
+        // TODO: to be able to select items under the top
+        // hierarchy level - not currently working on CI
+        // cy.get('[data-test="modal-dimension-ou"]', OPTIONS)
+        //     .find('.arrow')
+        //     .click()
+        cy.get(orgUnitHierarchySel, OPTIONS)
+            .find(orgUnitCheckboxesSel, OPTIONS)
+            .contains(OU, OPTIONS)
+            .click()
     } else {
-        dblclickDimension(FACILITY_TYPE)
+        cy.get(unselectedItemsSel).contains(FACILITY_TYPE).dblclick()
     }
 
     cy.get('button').contains('Confirm').click()
@@ -39,7 +48,7 @@ Scenario: I add a Period filter
 */
 
 Then('the Period filter is applied to the dashboard', () => {
-    checkFilterBadgeContains(`Period: ${PERIOD}`)
+    cy.get(filterBadgeSel).contains(`Period: ${PERIOD}`).should('be.visible')
 
     // TODO: this assertion fails on CI but passes locally
     getDashboardItem(chartItemUid)
@@ -70,7 +79,9 @@ Then('the Organisation Unit filter is applied to the dashboard', () => {
 Scenario: I add a Facility Type filter
 */
 Then('the Facility Type filter is applied to the dashboard', () => {
-    checkFilterBadgeContains(`Facility Type: ${FACILITY_TYPE}`)
+    cy.get(filterBadgeSel)
+        .contains(`Facility Type: ${FACILITY_TYPE}`)
+        .should('be.visible')
 
     getDashboardItem(chartItemUid)
         .find(chartSubtitleSel, OPTIONS)
