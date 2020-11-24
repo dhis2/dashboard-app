@@ -139,7 +139,7 @@ const ItemHeaderButtons = (props, context) => {
                             })}
                             href={getLink(item, context.d2)}
                             target="_blank"
-                            data-test="link-openinapp"
+                            dataTest="link-openinapp"
                         />
                         <MenuItem
                             dense

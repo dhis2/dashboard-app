@@ -94,7 +94,7 @@ When('I click Open in Data Visualizer app on a chart dashboard item', () => {
 
     /**
      * Since Cypress cannot work with multiple tabs and more
-     * than one domain, here we modify the link to:
+     * than one domain in a single test, modify the link to:
      *  1) open in the current Cypress tab instead of new tab
      *  2) open on the test domain instead of the apiBaseUrl
      */
