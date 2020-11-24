@@ -6,7 +6,8 @@ import {
 } from '../../../elements/dashboardItem'
 import {
     dblclickDimension,
-    getFilterDimensionsPanel,
+    filterDimensionsPanelSel,
+    filterBadgeSel,
     checkFilterBadgeContains,
 } from '../../../elements/dashboardFilter'
 import { dashboards } from '../../../assets/backends'
@@ -21,7 +22,7 @@ const chartItemUid = dashboards.Delivery.items.chart.itemUid
 When('I add a {string} filter', dimensionType => {
     cy.contains('Add filter').click()
 
-    getFilterDimensionsPanel().contains(dimensionType).click()
+    cy.get(filterDimensionsPanelSel).contains(dimensionType).click()
     if (dimensionType === 'Period') {
         dblclickDimension(PERIOD)
     } else if (dimensionType === 'Organisation Unit') {
@@ -53,7 +54,9 @@ Scenario: I add an Organisation Unit filter
 */
 
 Then('the Organisation Unit filter is applied to the dashboard', () => {
-    checkFilterBadgeContains(`Organisation Unit: ${OU}`)
+    cy.get(filterBadgeSel)
+        .contains(`Organisation Unit: ${OU}`)
+        .should('be.visible')
 
     // TODO: this assertion fails on CI but passes locally
     getDashboardItem(chartItemUid)
