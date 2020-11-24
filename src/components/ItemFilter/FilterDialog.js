@@ -114,7 +114,12 @@ const FilterDialog = (
     return (
         <>
             {dimension.id && (
-                <Modal onClose={onClose} position="top" large>
+                <Modal
+                    dataTest={`modal-dimension-${dimension.id}`}
+                    onClose={onClose}
+                    position="top"
+                    large
+                >
                     <ModalTitle>{dimension.name}</ModalTitle>
                     <ModalContent>{renderDialogContent()}</ModalContent>
                     <ModalActions>

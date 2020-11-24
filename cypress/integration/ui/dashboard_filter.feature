@@ -6,13 +6,13 @@ Feature: Dashboard filter
 
     @nonmutating
     Scenario: I add a period filter
-        When I add a "period" filter
-        Then the "period" filter is applied to the dashboard
+        When I add a period filter
+        Then the period filter is applied to the dashboard
 
-# @nonmutating
-# Scenario: I add an organization unit filter
-#     When I add a "organization unit" filter
-#     Then the "organization unit" filter is applied to the dashboard
+    @nonmutating
+    Scenario: I add an organization unit filter
+        When I add an organization unit filter
+        Then the organization unit filter is applied to the dashboard
 
 
 # @nonmutating
