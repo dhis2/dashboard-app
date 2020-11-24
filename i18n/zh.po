@@ -22,7 +22,7 @@ msgid "Untitled dashboard"
 msgstr "未命名的仪表板"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "加载仪表盘-{{name}}"
 
 msgid "Cancel"
 msgstr "取消"
