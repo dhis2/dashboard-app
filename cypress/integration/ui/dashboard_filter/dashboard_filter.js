@@ -23,15 +23,14 @@ const chartItemUid = dashboards.Delivery.items.chart.itemUid
 When('I add a {string} filter', dimensionType => {
     cy.contains('Add filter').click()
 
+    // open the dimensions modal
     cy.get(filterDimensionsPanelSel).contains(dimensionType).click()
+
+    // select an item in the modal
     if (dimensionType === 'Period') {
         cy.get(unselectedItemsSel).contains(PERIOD).dblclick()
     } else if (dimensionType === 'Organisation Unit') {
-        // TODO: to be able to select items under the top
-        // hierarchy level - not currently working on CI
-        // cy.get('[data-test="modal-dimension-ou"]', OPTIONS)
-        //     .find('.arrow')
-        //     .click()
+        cy.get(orgUnitHierarchySel, OPTIONS).find('.arrow').click()
         cy.get(orgUnitHierarchySel, OPTIONS)
             .find(orgUnitCheckboxesSel, OPTIONS)
             .contains(OU, OPTIONS)
@@ -40,6 +39,7 @@ When('I add a {string} filter', dimensionType => {
         cy.get(unselectedItemsSel).contains(FACILITY_TYPE).dblclick()
     }
 
+    // confirm to apply the filter
     cy.get('button').contains('Confirm').click()
 })
 
@@ -50,7 +50,6 @@ Scenario: I add a Period filter
 Then('the Period filter is applied to the dashboard', () => {
     cy.get(filterBadgeSel).contains(`Period: ${PERIOD}`).should('be.visible')
 
-    // TODO: this assertion fails on CI but passes locally
     getDashboardItem(chartItemUid)
         .find(chartSubtitleSel, OPTIONS)
         .scrollIntoView()
@@ -67,7 +66,6 @@ Then('the Organisation Unit filter is applied to the dashboard', () => {
         .contains(`Organisation Unit: ${OU}`)
         .should('be.visible')
 
-    // TODO: this assertion fails on CI but passes locally
     getDashboardItem(chartItemUid)
         .find(chartXAxisLabelSel, OPTIONS)
         .scrollIntoView()
