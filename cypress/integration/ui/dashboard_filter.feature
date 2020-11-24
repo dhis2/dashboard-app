@@ -15,10 +15,10 @@ Feature: Dashboard filter
         Then the organization unit filter is applied to the dashboard
 
 
-# @nonmutating
-# Scenario: I add a dynamic dimension filter
-#     When I add a "dynamic dimension" filter
-#     Then the "dynamic dimension" filter is applied to the dashboard
+    @nonmutating
+    Scenario: I add a dynamic dimension filter
+        When I add a dynamic dimension filter
+        Then the dynamic dimension filter is applied to the dashboard
 
 
 # @nonmutating
