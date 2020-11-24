@@ -5,9 +5,9 @@ export const dashboards = {
     Delivery: {
         route: '#/iMnYyBfSxmM',
         items: {
-            chart: { uid: 'GaVhJpqABYX' },
-            table: { uid: 'qXsjttMYuoZ' },
-            map: { uid: 'G3EtzSWNP9o' },
+            chart: { itemUid: 'GaVhJpqABYX', visUid: 'HDEDqV3yv3H' },
+            table: { itemUid: 'qXsjttMYuoZ' },
+            map: { itemUid: 'G3EtzSWNP9o' },
         },
     },
     Immunization: {

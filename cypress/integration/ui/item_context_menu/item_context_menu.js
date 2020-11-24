@@ -1,41 +1,127 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { dashboardItem as itemEl } from '../../../elements/dashboardItem'
+import {
+    chartSel,
+    mapSel,
+    tableSel,
+    openInAppSel,
+    clickMenuButton,
+    getDashboardItem,
+} from '../../../elements/dashboardItem'
 import { dashboards } from '../../../assets/backends'
 
 // these tests being run on the "Delivery" dashboard
-const chartItemUid = dashboards.Delivery.items.chart.uid
-const tableItemUid = dashboards.Delivery.items.table.uid
+const chartItemUid = dashboards.Delivery.items.chart.itemUid
+const tableItemUid = dashboards.Delivery.items.table.itemUid
+const chartItemVisUrl = `dhis-web-data-visualizer/#/${dashboards.Delivery.items.chart.visUid}`
 
-When('I click View As Table on a chart dashboard item', () => {
-    itemEl.action.clickMenuButton(chartItemUid)
-    itemEl.action.clickViewAsTable()
-})
-
-When('I click View As Chart on a table dashboard item', () => {
-    itemEl.action.clickMenuButton(tableItemUid)
-    itemEl.action.clickViewAsChart()
-})
-
-When('I click View As Map on a chart dashboard item', () => {
-    itemEl.action.clickMenuButton(chartItemUid)
-    itemEl.action.clickViewAsMap()
-})
-Then('the chart dashboard item displays as a map', () => {
-    itemEl.expect.mapExists(chartItemUid)
-})
+/*
+Background
+*/
 
 Then('the chart dashboard item displays as a chart', () => {
-    itemEl.expect.chartExists(chartItemUid)
-})
-
-Then('the chart dashboard item displays as a table', () => {
-    itemEl.expect.tableExists(chartItemUid)
-})
-
-Then('the table dashboard item displays as a chart', () => {
-    itemEl.expect.chartExists(tableItemUid)
+    getDashboardItem(chartItemUid)
+        .find(chartSel)
+        .should('exist')
+        .and('be.visible')
 })
 
 Then('the table dashboard item displays as a table', () => {
-    itemEl.expect.tableExists(tableItemUid)
+    getDashboardItem(tableItemUid)
+        .find(tableSel)
+        .should('exist')
+        .and('be.visible')
 })
+
+/*
+Scenario: View chart as table
+*/
+
+When('I click View As Table on a chart dashboard item', () => {
+    clickMenuButton(chartItemUid)
+    cy.contains('View as Table').click()
+})
+
+Then('the chart dashboard item displays as a table', () => {
+    getDashboardItem(chartItemUid)
+        .find(tableSel)
+        .should('exist')
+        .and('be.visible')
+})
+
+/*
+Scenario: View chart as map
+*/
+
+When('I click View As Map on a chart dashboard item', () => {
+    clickMenuButton(chartItemUid)
+    cy.contains('View as Map').click()
+})
+
+Then('the chart dashboard item displays as a map', () => {
+    getDashboardItem(chartItemUid)
+        .find(mapSel)
+        .should('exist')
+        .and('be.visible')
+})
+
+/*
+Scenario: View table as chart
+*/
+
+When('I click View As Chart on a table dashboard item', () => {
+    clickMenuButton(tableItemUid)
+    cy.contains('View as Chart').click()
+})
+
+Then('the table dashboard item displays as a chart', () => {
+    getDashboardItem(tableItemUid)
+        .find(chartSel)
+        .should('exist')
+        .and('be.visible')
+})
+
+/*
+Scenario: Open chart in Data Visualizer app
+*/
+
+When('I click Open in Data Visualizer app on a chart dashboard item', () => {
+    clickMenuButton(chartItemUid)
+
+    cy.get(openInAppSel)
+        .should('have.attr', 'href')
+        .and('include', chartItemVisUrl)
+
+    /**
+     * Since Cypress cannot work with multiple tabs and more
+     * than one domain, here we modify the link to:
+     *  1) open in the current Cypress tab instead of new tab
+     *  2) open on the test domain instead of the apiBaseUrl
+     */
+    cy.contains('Open in Data Visualizer app')
+        .invoke('removeAttr', 'target')
+        .invoke(
+            'attr',
+            'href',
+            `${Cypress.config().baseUrl}/${chartItemVisUrl}`
+        )
+        .click()
+})
+
+Then('the chart is opened in the Data Visualizer app', () => {
+    // This url is a 404, but the goal is to confirm that
+    // clicking on the link actually navigates to another url.
+    cy.url().should('include', chartItemVisUrl)
+})
+
+/*
+Scenario: Open the interpretations panel
+*/
+
+When(
+    'I click Show interpretations and details on a chart dashboard item',
+    () => {
+        clickMenuButton(chartItemUid)
+        cy.contains('Show interpretations and details').click()
+    }
+)
+Then('the interpretations panel is displayed', () => {})

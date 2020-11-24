@@ -20,3 +20,15 @@ Feature: Item context menu
     Scenario: View table as chart
         When I click View As Chart on a table dashboard item
         Then the table dashboard item displays as a chart
+
+    @nonmutating
+    Scenario: Open chart in Data Visualizer app
+        When I click Open in Data Visualizer app on a chart dashboard item
+        Then the chart is opened in the Data Visualizer app
+
+    @nonmutating
+    Scenario: Open the interpretations panel
+        When I click Show interpretations and details on a chart dashboard item
+        Then the interpretations panel is displayed
+
+
