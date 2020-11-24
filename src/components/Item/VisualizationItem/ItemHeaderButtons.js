@@ -7,14 +7,7 @@ import {
     VIS_TYPE_GAUGE,
     VIS_TYPE_PIE,
 } from '@dhis2/analytics'
-import {
-    Button,
-    FlyoutMenu,
-    Popover,
-    MenuItem,
-    Divider,
-    colors,
-} from '@dhis2/ui'
+import { Button, Menu, Popover, MenuItem, Divider, colors } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import TableIcon from '@material-ui/icons/ViewList'
 import ChartIcon from '@material-ui/icons/InsertChart'
@@ -126,7 +119,7 @@ const ItemHeaderButtons = (props, context) => {
                     arrow={false}
                     onClickOutside={closeMenu}
                 >
-                    <FlyoutMenu>
+                    <Menu>
                         {canViewAs && (
                             <>
                                 <ViewAsMenuItems />
@@ -148,7 +141,7 @@ const ItemHeaderButtons = (props, context) => {
                             label={interpretationMenuLabel}
                             onClick={handleInterpretationClick}
                         />
-                    </FlyoutMenu>
+                    </Menu>
                 </Popover>
             )}
         </>
