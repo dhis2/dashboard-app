@@ -1,95 +1,77 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { getDashboardItem } from '../../../elements/dashboardItem'
+import {
+    getDashboardItem,
+    chartSubtitleSel,
+    chartXAxisLabelSel,
+} from '../../../elements/dashboardItem'
+import {
+    dblclickDimension,
+    getFilterDimensionsPanel,
+    checkFilterBadgeContains,
+} from '../../../elements/dashboardFilter'
 import { dashboards } from '../../../assets/backends'
 
 const OPTIONS = { timeout: 15000 }
 const PERIOD = 'Last 6 months'
 const OU = 'Bombali'
+const FACILITY_TYPE = 'Clinic'
 
 const chartItemUid = dashboards.Delivery.items.chart.itemUid
 
-/*
-Scenario: I add a period filter
-*/
-
-When('I add a period filter', () => {
+When('I add a {string} filter', dimensionType => {
     cy.contains('Add filter').click()
 
-    cy.get('[data-test="undefined-button-pe"]').click()
-
-    cy.get('[data-test="dhis2-uicore-transfer-sourceoptions"]')
-        .contains(PERIOD)
-        .dblclick()
+    getFilterDimensionsPanel().contains(dimensionType).click()
+    if (dimensionType === 'Period') {
+        dblclickDimension(PERIOD)
+    } else if (dimensionType === 'Organisation Unit') {
+        dblclickDimension(OU, 'ou')
+    } else {
+        dblclickDimension(FACILITY_TYPE)
+    }
 
     cy.get('button').contains('Confirm').click()
 })
 
-Then('the period filter is applied to the dashboard', () => {
-    cy.get('[data-test="filter-badge"]')
-        .contains(`Period: ${PERIOD}`)
-        .should('be.visible')
+/*
+Scenario: I add a Period filter
+*/
+
+Then('the Period filter is applied to the dashboard', () => {
+    checkFilterBadgeContains(`Period: ${PERIOD}`)
 
     // TODO: this assertion fails on CI but passes locally
     getDashboardItem(chartItemUid)
-        .find('.highcharts-subtitle', OPTIONS)
+        .find(chartSubtitleSel, OPTIONS)
         .scrollIntoView()
         .contains(PERIOD, OPTIONS)
         .should('be.visible')
 })
 
 /*
-Scenario: I add an organization unit filter
+Scenario: I add an Organisation Unit filter
 */
 
-When('I add an organization unit filter', () => {
-    cy.contains('Add filter').click()
-    cy.get('[data-test="undefined-button-ou"]').click()
-    cy.get('[data-test="modal-dimension-ou"]').find('.arrow').click()
-    cy.get('[data-test="modal-dimension-ou"]')
-        .find('*[role="button"]')
-        .contains(OU, OPTIONS)
-        .click()
-
-    cy.get('button').contains('Confirm').click()
-})
-
-Then('the organization unit filter is applied to the dashboard', () => {
-    cy.get('[data-test="filter-badge"]')
-        .contains(`Organisation Unit: ${OU}`)
-        .should('be.visible')
+Then('the Organisation Unit filter is applied to the dashboard', () => {
+    checkFilterBadgeContains(`Organisation Unit: ${OU}`)
 
     // TODO: this assertion fails on CI but passes locally
     getDashboardItem(chartItemUid)
-        .find('.highcharts-xaxis-labels', OPTIONS)
+        .find(chartXAxisLabelSel, OPTIONS)
         .scrollIntoView()
         .contains(OU, OPTIONS)
         .should('be.visible')
 })
 
 /*
-Scenario: I add a dynamic dimension filter
+Scenario: I add a Facility Type filter
 */
-When('I add a dynamic dimension filter', () => {
-    cy.contains('Add filter').click()
-
-    cy.get('[data-test="dhis2-uicore-popover"]')
-        .contains('Facility Type')
-        .click()
-
-    cy.get('[data-test="dhis2-uicore-transfer-sourceoptions"]')
-        .contains('Clinic')
-        .dblclick()
-
-    cy.get('button').contains('Confirm').click()
-})
-Then('the dynamic dimension filter is applied to the dashboard', () => {
-    cy.get('[data-test="filter-badge"]')
-        .contains(`Facility Type: Clinic`)
-        .should('be.visible')
+Then('the Facility Type filter is applied to the dashboard', () => {
+    checkFilterBadgeContains(`Facility Type: ${FACILITY_TYPE}`)
 
     getDashboardItem(chartItemUid)
-        .find('.highcharts-subtitle', OPTIONS)
+        .find(chartSubtitleSel, OPTIONS)
         .scrollIntoView()
-        .contains('Clinic', OPTIONS)
+        .contains(FACILITY_TYPE, OPTIONS)
         .should('be.visible')
 })
