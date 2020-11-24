@@ -4,6 +4,7 @@ import {
     mapSel,
     tableSel,
     openInAppSel,
+    itemDetailsSel,
     clickMenuButton,
     getDashboardItem,
 } from '../../../elements/dashboardItem'
@@ -124,4 +125,16 @@ When(
         cy.contains('Show interpretations and details').click()
     }
 )
-Then('the interpretations panel is displayed', () => {})
+Then('the interpretations panel is displayed', () => {
+    getDashboardItem(chartItemUid)
+        .find(itemDetailsSel)
+        .contains('Chart details')
+        .scrollIntoView()
+        .should('be.visible')
+
+    getDashboardItem(chartItemUid)
+        .find(itemDetailsSel)
+        .contains('Interpretations')
+        .scrollIntoView()
+        .should('be.visible')
+})
