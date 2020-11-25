@@ -3,7 +3,6 @@ import {
     chartSel,
     mapSel,
     tableSel,
-    openInAppSel,
     itemDetailsSel,
     clickMenuButton,
     getDashboardItem,
@@ -88,7 +87,7 @@ Scenario: Open chart in Data Visualizer app
 When('I click Open in Data Visualizer app on a chart dashboard item', () => {
     clickMenuButton(chartItemUid)
 
-    cy.get(openInAppSel)
+    cy.contains('Open in Data Visualizer app')
         .should('have.attr', 'href')
         .and('include', chartItemVisUrl)
 

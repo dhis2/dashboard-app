@@ -3,7 +3,7 @@ export const chartSubtitleSel = '.highcharts-subtitle'
 export const chartXAxisLabelSel = '.highcharts-xaxis-labels'
 export const mapSel = '.dhis2-map-plugin'
 export const tableSel = '.pivot-table-container'
-export const openInAppSel = '[data-test="link-openinapp"] a'
+
 export const itemDetailsSel = '[data-test="dashboarditem-footer"]'
 
 export const getDashboardItem = itemUid =>
