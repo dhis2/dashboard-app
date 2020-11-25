@@ -39,19 +39,34 @@ const AppItem = ({ dashboardMode, item, itemFilters }, context) => {
         )
     }
 
+    const hideTitle =
+        appDetails &&
+        appDetails.settings &&
+        appDetails.settings.dashboardWidget &&
+        appDetails.settings.dashboardWidget.hideTitle &&
+        dashboardMode != 'edit'
+
     return appDetails && appDetails.name && appDetails.launchUrl ? (
         <>
-            <ItemHeader
-                title={appDetails.name}
-                itemId={item.id}
-                dashboardMode={dashboardMode}
-                isShortened={item.shortened}
-            />
-            <Line />
+            {!hideTitle && (
+                <>
+                    <ItemHeader
+                        title={appDetails.name}
+                        itemId={item.id}
+                        dashboardMode={dashboardMode}
+                        isShortened={item.shortened}
+                    />
+                    <Line />
+                </>
+            )}
             <iframe
                 title={appDetails.name}
                 src={getIframeSrc(appDetails, item, itemFilters)}
-                className="dashboard-item-content"
+                className={
+                    !hideTitle
+                        ? 'dashboard-item-content'
+                        : 'dashboard-item-content-hidden-title'
+                }
                 style={{ border: 'none' }}
             />
         </>
