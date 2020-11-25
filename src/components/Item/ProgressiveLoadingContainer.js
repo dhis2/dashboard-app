@@ -95,7 +95,7 @@ class ProgressiveLoadingContainer extends Component {
                 ref={ref => (this.containerRef = ref)}
                 style={style}
                 className={className}
-                data-test={`dashboard-item-prog-${props.itemId}`}
+                data-test={`dashboarditem-${props.itemId}`}
                 {...eventProps}
             >
                 {shouldLoad && children}

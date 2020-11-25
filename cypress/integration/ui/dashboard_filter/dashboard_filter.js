@@ -12,8 +12,8 @@ import {
     orgUnitCheckboxesSel,
 } from '../../../elements/dashboardFilter'
 import { dashboards } from '../../../assets/backends'
+import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
-const OPTIONS = { timeout: 15000 }
 const PERIOD = 'Last 6 months'
 const OU = 'Sierra Leone'
 const FACILITY_TYPE = 'Clinic'
@@ -30,10 +30,10 @@ When('I add a {string} filter', dimensionType => {
     if (dimensionType === 'Period') {
         cy.get(unselectedItemsSel).contains(PERIOD).dblclick()
     } else if (dimensionType === 'Organisation Unit') {
-        cy.get(orgUnitHierarchySel, OPTIONS).find('.arrow').click()
-        cy.get(orgUnitHierarchySel, OPTIONS)
-            .find(orgUnitCheckboxesSel, OPTIONS)
-            .contains(OU, OPTIONS)
+        cy.get(orgUnitHierarchySel, EXTENDED_TIMEOUT).find('.arrow').click()
+        cy.get(orgUnitHierarchySel, EXTENDED_TIMEOUT)
+            .find(orgUnitCheckboxesSel, EXTENDED_TIMEOUT)
+            .contains(OU, EXTENDED_TIMEOUT)
             .click()
     } else {
         cy.get(unselectedItemsSel).contains(FACILITY_TYPE).dblclick()
@@ -51,9 +51,9 @@ Then('the Period filter is applied to the dashboard', () => {
     cy.get(filterBadgeSel).contains(`Period: ${PERIOD}`).should('be.visible')
 
     getDashboardItem(chartItemUid)
-        .find(chartSubtitleSel, OPTIONS)
+        .find(chartSubtitleSel, EXTENDED_TIMEOUT)
         .scrollIntoView()
-        .contains(PERIOD, OPTIONS)
+        .contains(PERIOD, EXTENDED_TIMEOUT)
         .should('be.visible')
 })
 
@@ -67,9 +67,9 @@ Then('the Organisation Unit filter is applied to the dashboard', () => {
         .should('be.visible')
 
     getDashboardItem(chartItemUid)
-        .find(chartXAxisLabelSel, OPTIONS)
+        .find(chartXAxisLabelSel, EXTENDED_TIMEOUT)
         .scrollIntoView()
-        .contains(OU, OPTIONS)
+        .contains(OU, EXTENDED_TIMEOUT)
         .should('be.visible')
 })
 
@@ -82,8 +82,8 @@ Then('the Facility Type filter is applied to the dashboard', () => {
         .should('be.visible')
 
     getDashboardItem(chartItemUid)
-        .find(chartSubtitleSel, OPTIONS)
+        .find(chartSubtitleSel, EXTENDED_TIMEOUT)
         .scrollIntoView()
-        .contains(FACILITY_TYPE, OPTIONS)
+        .contains(FACILITY_TYPE, EXTENDED_TIMEOUT)
         .should('be.visible')
 })

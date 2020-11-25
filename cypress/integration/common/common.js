@@ -1,18 +1,16 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 import { dashboards } from '../../assets/backends'
+import { EXTENDED_TIMEOUT } from '../../support/utils'
+import { chartSel } from '../../elements/dashboardItem'
+import { dashboardTitleSel } from '../../elements/titleBar'
+import { dashboardChipSel } from '../../elements/dashboardsBar'
 
 beforeEach(() => {
-    cy.visit('/', {
-        timeout: 15000,
-    })
+    cy.visit('/', EXTENDED_TIMEOUT)
 })
 
 Given('I open the {string} dashboard', title => {
-    cy.get('[data-test="dashboard-chip"]', {
-        timeout: 15000,
-    })
-        .contains(title)
-        .click()
+    cy.get(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
 })
 
 Then('the {string} dashboard displays in view mode', title => {
@@ -20,8 +18,6 @@ Then('the {string} dashboard displays in view mode', title => {
         expect(loc.hash).to.equal(dashboards[title].route)
     })
 
-    cy.get('[data-test="view-dashboard-title"]')
-        .should('be.visible')
-        .and('contain', title)
-    cy.get('.highcharts-background').should('exist')
+    cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
+    cy.get(chartSel).should('exist')
 })

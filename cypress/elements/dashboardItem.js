@@ -7,7 +7,7 @@ export const openInAppSel = '[data-test="link-openinapp"] a'
 export const itemDetailsSel = '[data-test="dashboarditem-footer"]'
 
 export const getDashboardItem = itemUid =>
-    cy.get(`[data-test="dashboard-item-prog-${itemUid}"]`)
+    cy.get(`[data-test="dashboarditem-${itemUid}"]`)
 
 export const clickMenuButton = itemUid =>
     getDashboardItem(itemUid).find('[data-test="item-menu-button"]').click()
