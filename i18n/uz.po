@@ -73,7 +73,7 @@ msgstr "Сўралган бошқарув панели топилмади"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] "{{жами}} танланган"
+msgstr[0] "{{count}}  танланган"
 
 msgid "Remove"
 msgstr "Ўчириш"
@@ -172,7 +172,7 @@ msgid "No description"
 msgstr "Тавсиф йўқ"
 
 msgid "Visualizations"
-msgstr "Визуализация"
+msgstr "Визуализациялар"
 
 msgid "Data Visualizer"
 msgstr "Маълумотлар визуализатори"
