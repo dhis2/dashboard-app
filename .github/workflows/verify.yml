@@ -167,8 +167,6 @@ jobs:
 
             - uses: dhis2/deploy-build@master
               with:
-                  # uncomment following line for monorepo apps:
-                  #cwd: ./packages/app
                   build-dir: build/app
                   github-token: ${{ env.GH_TOKEN }}
 
