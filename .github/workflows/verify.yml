@@ -150,7 +150,7 @@ jobs:
 
     publish:
         runs-on: ubuntu-latest
-        needs: [build, lint, test] # add e2e if you use it
+        needs: [build, lint, test, e2e]
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
         steps:
             - uses: actions/checkout@v2
