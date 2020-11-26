@@ -10,4 +10,6 @@ export const getDashboardItem = itemUid =>
     cy.get(`[data-test="dashboarditem-${itemUid}"]`)
 
 export const clickMenuButton = itemUid =>
-    getDashboardItem(itemUid).find('[data-test="item-menu-button"]').click()
+    getDashboardItem(itemUid)
+        .find('[data-test="dashboarditem-menu-button"]')
+        .click()

@@ -112,7 +112,7 @@ const ItemHeaderButtons = (props, context) => {
                     small
                     secondary
                     onClick={openMenu}
-                    dataTest={`item-menu-button`}
+                    dataTest="dashboarditem-menu-button"
                 >
                     <ThreeDots />
                 </Button>
