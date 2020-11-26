@@ -19,9 +19,3 @@ Feature: Dashboard filter
     Scenario: I add a Facility Type filter
         When I add a "Facility Type" filter
         Then the Facility Type filter is applied to the dashboard
-
-
-# @nonmutating
-# Scenario: I filter the list of dashboard filters
-#     When I type "facility" in the filter search
-#     Then filter options matching "facility" are displayed
