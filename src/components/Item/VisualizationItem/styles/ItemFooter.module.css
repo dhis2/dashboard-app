@@ -1,0 +1,11 @@
+.line {
+    margin: -1px 0px 0px;
+    height: 1px;
+    border: none;
+    background-color: var(--colors-grey100);
+}
+
+.scrollContainer {
+    overflow-y: auto;
+    height: 340px;
+}

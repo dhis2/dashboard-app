@@ -108,7 +108,12 @@ const ItemHeaderButtons = (props, context) => {
     return pluginIsAvailable(activeType || item.type) ? (
         <>
             <div ref={buttonRef}>
-                <Button small secondary onClick={openMenu}>
+                <Button
+                    small
+                    secondary
+                    onClick={openMenu}
+                    dataTest="dashboarditem-menu-button"
+                >
                     <ThreeDots />
                 </Button>
             </div>
