@@ -30,7 +30,7 @@ exports[`ConfirmDeleteDialog when open = true matches the snapshot 1`] = `
       dataTest="dhis2-uicore-buttonstrip"
     >
       <Button
-        dataTest="dhis2-uicore-button"
+        dataTest="cancel-delete-dashboard"
         key="cancel"
         onClick={[MockFunction]}
         secondary={true}
@@ -39,7 +39,7 @@ exports[`ConfirmDeleteDialog when open = true matches the snapshot 1`] = `
         Cancel
       </Button>
       <Button
-        dataTest="dhis2-uicore-button"
+        dataTest="confirm-delete-dashboard"
         destructive={true}
         key="delete"
         onClick={[MockFunction]}

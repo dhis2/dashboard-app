@@ -106,6 +106,7 @@ export class PrintDashboard extends Component {
                     <div
                         className={classes.pageOuter}
                         style={{ width: a4LandscapeWidthPx }}
+                        data-test="print-oipp-page"
                     >
                         <PrintItemGrid />
                     </div>

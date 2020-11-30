@@ -1,9 +1,8 @@
 import React, { useState, createRef } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
-import { Redirect } from 'react-router-dom'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import Star from '@material-ui/icons/Star'
 import StarBorder from '@material-ui/icons/StarBorder'
@@ -88,7 +87,9 @@ const ViewTitleBar = (props, context) => {
     return (
         <>
             <div className={classes.titleBar}>
-                <span style={titleStyle}>{name}</span>
+                <span style={titleStyle} data-test="view-dashboard-title">
+                    {name}
+                </span>
                 <div className={classes.actions}>
                     <div
                         className={classes.titleBarIcon}
@@ -101,6 +102,7 @@ const ViewTitleBar = (props, context) => {
                             <Link
                                 className={classes.editLink}
                                 to={`/${id}/edit`}
+                                data-test="link-edit-dashboard"
                             >
                                 <Button>{i18n.t('Edit')}</Button>
                             </Link>
@@ -112,7 +114,10 @@ const ViewTitleBar = (props, context) => {
                         ) : null}
                         <FilterSelector />
                         <span ref={buttonRef}>
-                            <Button onClick={toggleMoreOptions}>
+                            <Button
+                                dataTest="more-button"
+                                onClick={toggleMoreOptions}
+                            >
                                 <ThreeDots />
                                 <span style={{ marginLeft: '5px' }}>
                                     {i18n.t('More')}
@@ -137,16 +142,22 @@ const ViewTitleBar = (props, context) => {
                                     label={showHideDescriptionLabel}
                                     onClick={showHideDescription}
                                 />
-                                <MenuItem dense label={i18n.t('Print')}>
+                                <MenuItem
+                                    dense
+                                    label={i18n.t('Print')}
+                                    dataTest="print-menu-item"
+                                >
                                     <MenuItem
                                         dense
                                         label={i18n.t('Dashboard layout')}
                                         onClick={printLayout}
+                                        dataTest="print-layout-menu-item"
                                     />
                                     <MenuItem
                                         dense
                                         label={i18n.t('One item per page')}
                                         onClick={printOipp}
+                                        dataTest="print-oipp-menu-item"
                                     />
                                 </MenuItem>
                             </FlyoutMenu>

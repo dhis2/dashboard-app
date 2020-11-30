@@ -2,14 +2,16 @@
 
 exports[`renders correctly 1`] = `
 <Fragment>
-  <Button
-    dataTest="dhis2-uicore-button"
-    onClick={[Function]}
-    secondary={true}
-    small={true}
-    type="button"
-  >
-    <ThreeDots />
-  </Button>
+  <div>
+    <Button
+      dataTest="dashboarditem-menu-button"
+      onClick={[Function]}
+      secondary={true}
+      small={true}
+      type="button"
+    >
+      <ThreeDots />
+    </Button>
+  </div>
 </Fragment>
 `;

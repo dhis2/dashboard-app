@@ -51,6 +51,7 @@ class ControlBar extends React.Component {
     renderDragHandle() {
         return typeof this.props.onChangeHeight === 'function' ? (
             <div
+                data-testid="controlbar-drag-handle"
                 className={classes.draghandle}
                 style={{ height: DRAG_HANDLE_HEIGHT }}
                 onMouseDown={this.onStartDrag}

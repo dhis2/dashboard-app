@@ -1,42 +1,24 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import { colors } from '@dhis2/ui'
-import { getId } from './plugin'
+import { getVisualizationId } from '../../../modules/item'
 import InterpretationsComponent from '@dhis2/d2-ui-interpretations'
 
-const style = {
-    scrollContainer: {
-        overflowY: 'auto',
-        height: '340px',
-    },
-    line: {
-        margin: '-1px 0px 0px',
-        height: '1px',
-        border: 'none',
-        backgroundColor: colors.grey100,
-    },
-}
+import classes from './styles/ItemFooter.module.css'
 
-class ItemFooter extends Component {
-    render() {
-        const objectId = getId(this.props.item)
-
-        return (
-            <div className="dashboard-item-footer">
-                <hr style={style.line} />
-                <div style={style.scrollContainer}>
-                    <InterpretationsComponent
-                        d2={this.context.d2}
-                        item={this.props.item}
-                        type={this.props.item.type.toLowerCase()}
-                        id={objectId}
-                        appName="dashboard"
-                    />
-                </div>
-            </div>
-        )
-    }
-}
+const ItemFooter = (props, context) => (
+    <div data-test="dashboarditem-footer">
+        <hr className={classes.line} />
+        <div className={classes.scrollContainer}>
+            <InterpretationsComponent
+                d2={context.d2}
+                item={props.item}
+                type={props.item.type.toLowerCase()}
+                id={getVisualizationId(props.item)}
+                appName="dashboard"
+            />
+        </div>
+    </div>
+)
 
 ItemFooter.contextTypes = {
     d2: PropTypes.object.isRequired,

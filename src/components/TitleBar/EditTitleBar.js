@@ -39,6 +39,7 @@ export const EditTitleBar = ({
                     onChange={updateTitle}
                     value={name}
                     placeholder={i18n.t('Untitled dashboard')}
+                    dataTest="dashboard-title-input"
                 />
                 <TextAreaField
                     className={classes.description}
@@ -46,6 +47,7 @@ export const EditTitleBar = ({
                     label={i18n.t('Dashboard description')}
                     onChange={updateDescription}
                     value={description}
+                    dataTest="dashboard-description-input"
                 />
             </div>
             <div className={classes.itemSelector}>

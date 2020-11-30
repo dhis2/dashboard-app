@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-10-12T06:11:46.298Z\n"
+"POT-Creation-Date: 2020-11-21T09:42:35.736Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -20,7 +20,7 @@ msgid "Untitled dashboard"
 msgstr "Dashbord uten navn"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "Laster dashbord - {{name}}"
 
 msgid "Cancel"
 msgstr "Avbryt"

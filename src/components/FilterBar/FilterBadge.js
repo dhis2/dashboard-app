@@ -37,7 +37,10 @@ class FilterBadge extends Component {
         const { data } = this.props
 
         return (
-            <div style={styles.badgeContainer}>
+            <div
+                style={styles.badgeContainer}
+                data-test="dashboard-filter-badge"
+            >
                 <span style={styles.badge} onClick={this.onClick(data.id)}>
                     {`${data.name}: ${
                         data.values.length > 1

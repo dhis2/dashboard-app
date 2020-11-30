@@ -19,7 +19,7 @@ msgid "Untitled dashboard"
 msgstr "Номсиз бошқарув панели"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "Бошқарув панели юкланмоқда - {{исми}}"
 
 msgid "Cancel"
 msgstr "Бекор қилиш"
@@ -75,7 +75,7 @@ msgid "Requested dashboard not found"
 msgstr "Сўралган бошқарув панели топилмади"
 
 msgid "No access"
-msgstr "Кириш таъқиқланган"
+msgstr "Кириш ҳуқуқи мавжуд эмас"
 
 msgid "Exit print preview"
 msgstr "Чоп этишдан аввалги кўрикдан чиқинг"
@@ -87,37 +87,41 @@ msgid "dashboard layout"
 msgstr "бошқариш панели макети"
 
 msgid "one item per page"
-msgstr ""
+msgstr "бир саҳифада бир элемент"
 
 msgid "Print Preview"
 msgstr "Чоп этишдан аввалги кўрик"
 
 msgid "For best print results"
-msgstr ""
+msgstr "Босиб чиқаришда (принтерда) энг яхши натижага эришиш"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr " Chrome ёки Edge браузеридан фойдаланинг"
 
 msgid "Wait for all dashboard items to load before printing"
 msgstr ""
+"Босиб чиқаришдан олдин бошқариш панелига барча элементларнинг юкланишини "
+"кутинг"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
 " dialog"
 msgstr ""
+"Браузернинг босиб чиқариш (принтер) панелида А4 ва стандарт чегараларни "
+"ўрнатинг"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
+msgstr[0] "{{жами}} танланган"
 
 msgid "Remove"
 msgstr "Ўчириш"
 
 msgid "Delete item"
-msgstr ""
+msgstr "Элементни ўчириш"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "Ушбу элемент бир саҳифага жойлаштириш учун мослаштирилди"
 
 msgid "Messages"
 msgstr "Хабарлар"
@@ -126,10 +130,10 @@ msgid "See all messages"
 msgstr "Барча хабарларни кўриш"
 
 msgid "Item type \"{{type}}\" not supported"
-msgstr ""
+msgstr "Элемент тури \"{{тури}}\" қўллаб қувватланмайди"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "Фильтр қўлланилди"
 
 msgid "Spacer"
 msgstr "Бўш жой"
@@ -150,28 +154,28 @@ msgid "Unable to load the plugin for this item"
 msgstr "Ушбу элемент учун плагин юкланмади"
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "Ушбу панел элементлари юкланишида муаамога дуч келинди"
 
 msgid "No data to display"
 msgstr "Маълумот экранга чиқарилмади"
 
 msgid "Hide interpretations and details"
-msgstr ""
+msgstr "Талқинлар ва тавсилотларни беркитиш"
 
 msgid "Show interpretations and details"
-msgstr ""
+msgstr "Талқинлар ва тавсилотларни кўрсатиш"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "Диаграмма сифатида кўриш"
 
 msgid "View as Table"
-msgstr ""
+msgstr "Жадвал сифатида кўриш"
 
 msgid "View as Map"
-msgstr ""
+msgstr "Харита сифатида кўриш"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "Иловада {{ИловаНоми}} да очиш"
 
 msgid "Confirm"
 msgstr "Тасдиқланг"
@@ -210,10 +214,10 @@ msgid "Show description"
 msgstr "Тавсифни кўрсатиш"
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "Бошқарув панелидаги юлдузча ўчирилади"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "Бошқарув панелига юлдузча ўрнатилади"
 
 msgid "Edit"
 msgstr "Таҳрирлаш"

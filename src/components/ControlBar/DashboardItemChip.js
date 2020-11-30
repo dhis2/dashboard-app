@@ -14,6 +14,7 @@ export const DashboardItemChip = ({
     selected,
     label,
     dashboardId,
+    onClick,
 }) => {
     const chipProps = {
         selected,
@@ -25,15 +26,22 @@ export const DashboardItemChip = ({
             <StarIcon className={`${classes.icon} ${selectedState}`} />
         )
     }
+    const debouncedPostStatistics = debounce(
+        () => apiPostDataStatistics('DASHBOARD_VIEW', dashboardId),
+        500
+    )
+
+    const handleClick = () => {
+        debouncedPostStatistics()
+        onClick()
+    }
 
     return (
         <Link
             className={classes.link}
             to={`/${dashboardId}`}
-            onClick={debounce(
-                () => apiPostDataStatistics('DASHBOARD_VIEW', dashboardId),
-                500
-            )}
+            onClick={handleClick}
+            data-test="dashboard-chip"
         >
             <Chip {...chipProps}>{label}</Chip>
         </Link>
@@ -45,6 +53,7 @@ DashboardItemChip.propTypes = {
     label: PropTypes.string.isRequired,
     selected: PropTypes.bool.isRequired,
     starred: PropTypes.bool.isRequired,
+    onClick: PropTypes.func.isRequired,
     classes: PropTypes.object,
 }
 

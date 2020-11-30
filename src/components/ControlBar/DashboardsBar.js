@@ -1,10 +1,12 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
-import ControlBar from './ControlBar'
+import cx from 'classnames'
+
 import arraySort from 'd2-utilizr/lib/arraySort'
 import PropTypes from 'prop-types'
 
+import ControlBar from './ControlBar'
 import Chip from './DashboardItemChip'
 import AddCircleIcon from '../../icons/AddCircle'
 import Filter from './Filter'
@@ -16,169 +18,144 @@ import {
     getControlBarHeight,
     getNumRowsFromHeight,
 } from './controlBarDimensions'
+import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
 import { sGetControlBarUserRows } from '../../reducers/controlBar'
 import { sGetAllDashboards } from '../../reducers/dashboards'
-import { sGetFilterName } from '../../reducers/dashboardsFilter'
 import { sGetSelectedId } from '../../reducers/selected'
 import { acSetControlBarUserRows } from '../../actions/controlBar'
-import { acSetFilterName } from '../../actions/dashboardsFilter'
-import { orObject, orArray } from '../../modules/util'
 import { apiPostControlBarRows } from '../../api/controlBar'
 
 import classes from './styles/DashboardsBar.module.css'
 
 export const MAX_ROW_COUNT = 10
 
-export class DashboardsBar extends Component {
-    state = {
-        rows: MIN_ROW_COUNT,
-    }
+export const DashboardsBar = ({
+    userRows,
+    onChangeHeight,
+    history,
+    dashboards,
+    selectedId,
+    filterText,
+}) => {
+    const [rows, setRows] = useState(userRows)
 
-    setInitialDashboardState = rows => {
-        this.setState({ rows, isMaxHeight: rows === MAX_ROW_COUNT })
-    }
+    useEffect(() => {
+        setRows(userRows)
+    }, [userRows])
 
-    componentDidMount() {
-        this.setInitialDashboardState(this.props.userRows)
-    }
+    const isMaxHeight = () => rows === MAX_ROW_COUNT
 
-    componentWillReceiveProps(nextProps) {
-        this.setInitialDashboardState(nextProps.userRows)
-    }
-
-    onChangeHeight = newHeight => {
-        const adjustedHeight = newHeight - 52 // don't rush the transition to a bigger row count
+    const adjustHeight = newHeight => {
         const newRows = Math.max(
             MIN_ROW_COUNT,
-            getNumRowsFromHeight(adjustedHeight)
+            getNumRowsFromHeight(newHeight - 52) // don't rush the transition to a bigger row count
         )
 
-        if (newRows !== this.state.rows) {
-            const newRowCount = Math.min(newRows, MAX_ROW_COUNT)
-
-            this.props.onChangeHeight(newRowCount)
+        if (newRows !== rows) {
+            onChangeHeight(Math.min(newRows, MAX_ROW_COUNT))
         }
     }
 
-    onEndDrag = () => {
-        return apiPostControlBarRows(this.state.rows)
+    const onEndDrag = () => apiPostControlBarRows(rows)
+
+    const toggleMaxHeight = () => {
+        const newRows = isMaxHeight() ? userRows : MAX_ROW_COUNT
+        setRows(newRows)
     }
 
-    onToggleMaxHeight = () => {
-        const rows =
-            this.state.rows === MAX_ROW_COUNT
-                ? this.props.userRows
-                : MAX_ROW_COUNT
-
-        this.setState({ rows, isMaxHeight: !this.state.isMaxHeight })
+    const cancelMaxHeight = () => {
+        setRows(userRows)
     }
 
-    onSelectDashboard = () => {
-        this.props.history.push(`/${this.props.dashboards[0].id}`)
-    }
-
-    render() {
-        const { dashboards, name, selectedId, onChangeFilterName } = this.props
-
-        const rowCount = this.state.isMaxHeight
-            ? MAX_ROW_COUNT
-            : this.state.rows
-        const controlBarHeight = getControlBarHeight(rowCount)
-        const contentWrapperStyle = {
-            padding: `${FIRST_ROW_PADDING_HEIGHT}px 6px 0 6px`,
-            overflowY: this.state.isMaxHeight ? 'auto' : 'hidden',
-            height: getRowsHeight(rowCount) + FIRST_ROW_PADDING_HEIGHT,
+    const onSelectDashboard = () => {
+        const id = getFilteredDashboards()[0]?.id
+        if (id) {
+            history.push(id)
         }
+    }
 
-        return (
-            <ControlBar
-                height={controlBarHeight}
-                onChangeHeight={this.onChangeHeight}
-                onEndDrag={this.onEndDrag}
-                editMode={false}
+    const getFilteredDashboards = () => {
+        const filteredDashboards = arraySort(
+            Object.values(dashboards).filter(d =>
+                d.displayName.toLowerCase().includes(filterText.toLowerCase())
+            ),
+            'ASC',
+            'displayName'
+        )
+
+        return [
+            ...filteredDashboards.filter(d => d.starred),
+            ...filteredDashboards.filter(d => !d.starred),
+        ]
+    }
+
+    const overflowYClass = isMaxHeight()
+        ? classes.overflowYAuto
+        : classes.overflowYHidden
+
+    return (
+        <ControlBar
+            height={getControlBarHeight(rows)}
+            onChangeHeight={adjustHeight}
+            onEndDrag={onEndDrag}
+            editMode={false}
+        >
+            <div
+                className={cx(classes.container, overflowYClass)}
+                style={{
+                    height: getRowsHeight(rows) + FIRST_ROW_PADDING_HEIGHT,
+                }}
             >
-                <div style={contentWrapperStyle}>
-                    <div className={classes.leftControls}>
-                        <Link
-                            style={{
-                                display: 'inline-block',
-                                textDecoration: 'none',
-                                marginRight: 10,
-                                position: 'relative',
-                                top: '2px',
-                            }}
-                            to={'/new'}
-                        >
-                            <AddCircleIcon />
-                        </Link>
-                        <Filter
-                            name={name}
-                            onChangeName={onChangeFilterName}
-                            onKeypressEnter={this.onSelectDashboard}
-                        />
-                    </div>
-                    {orArray(dashboards).map(dashboard => (
-                        <Chip
-                            key={dashboard.id}
-                            label={dashboard.displayName}
-                            starred={dashboard.starred}
-                            dashboardId={dashboard.id}
-                            selected={dashboard.id === selectedId}
-                        />
-                    ))}
+                <div className={classes.leftControls}>
+                    <Link
+                        className={classes.newLink}
+                        to={'/new'}
+                        data-test="link-new-dashboard"
+                    >
+                        <AddCircleIcon />
+                    </Link>
+                    <Filter onKeypressEnter={onSelectDashboard} />
                 </div>
-                <ShowMoreButton
-                    onClick={this.onToggleMaxHeight}
-                    isMaxHeight={this.state.isMaxHeight}
-                    disabled={this.props.userRows === MAX_ROW_COUNT}
-                />
-            </ControlBar>
-        )
-    }
+                {getFilteredDashboards().map(dashboard => (
+                    <Chip
+                        key={dashboard.id}
+                        label={dashboard.displayName}
+                        starred={dashboard.starred}
+                        dashboardId={dashboard.id}
+                        selected={dashboard.id === selectedId}
+                        onClick={cancelMaxHeight}
+                    />
+                ))}
+            </div>
+            <ShowMoreButton
+                onClick={toggleMaxHeight}
+                isMaxHeight={isMaxHeight()}
+                disabled={userRows === MAX_ROW_COUNT}
+            />
+        </ControlBar>
+    )
+}
+
+DashboardsBar.propTypes = {
+    dashboards: PropTypes.object,
+    filterText: PropTypes.string,
+    history: PropTypes.object,
+    selectedId: PropTypes.string,
+    userRows: PropTypes.number,
+    onChangeHeight: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
     dashboards: sGetAllDashboards(state),
-    name: sGetFilterName(state),
-    userRows: sGetControlBarUserRows(state),
+    filterText: sGetDashboardsFilter(state),
     selectedId: sGetSelectedId(state),
+    userRows: sGetControlBarUserRows(state),
 })
 
 const mapDispatchToProps = {
     onChangeHeight: acSetControlBarUserRows,
-    onChangeFilterName: acSetFilterName,
-}
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const dashboards = Object.values(orObject(stateProps.dashboards))
-    const displayDashboards = arraySort(
-        dashboards.filter(d =>
-            d.displayName.toLowerCase().includes(stateProps.name.toLowerCase())
-        ),
-        'ASC',
-        'displayName'
-    )
-
-    return {
-        ...stateProps,
-        ...ownProps,
-        ...dispatchProps,
-        dashboards: [
-            ...displayDashboards.filter(d => d.starred),
-            ...displayDashboards.filter(d => !d.starred),
-        ],
-    }
-}
-
-DashboardsBar.propTypes = {
-    dashboards: PropTypes.array,
-    history: PropTypes.object,
-    name: PropTypes.string,
-    selectedId: PropTypes.string,
-    userRows: PropTypes.number,
-    onChangeFilterName: PropTypes.func,
-    onChangeHeight: PropTypes.func,
 }
 
 export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps, mergeProps)(DashboardsBar)
+    connect(mapStateToProps, mapDispatchToProps)(DashboardsBar)
 )

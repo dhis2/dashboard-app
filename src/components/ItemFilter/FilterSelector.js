@@ -50,6 +50,7 @@ const FilterSelector = props => {
                     reference={ref}
                     arrow={true}
                     placement="bottom-start"
+                    dataTest="dashboard-filter-popover"
                 >
                     <DimensionsPanel
                         style={{ width: '320px' }}

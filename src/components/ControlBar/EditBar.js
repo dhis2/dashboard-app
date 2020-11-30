@@ -74,6 +74,7 @@ export class EditBar extends Component {
         const redirectUrl = this.props.dashboardId
             ? `/${this.props.dashboardId}`
             : '/'
+
         this.setState({ redirectUrl })
     }
 
@@ -162,7 +163,11 @@ export class EditBar extends Component {
         return (
             <div className={classes.leftControls}>
                 <ButtonStrip>
-                    <Button primary onClick={this.onSave}>
+                    <Button
+                        primary
+                        onClick={this.onSave}
+                        dataTest="save-dashboard-button"
+                    >
                         {i18n.t('Save changes')}
                     </Button>
                     <Button onClick={this.onPrintPreview}>
@@ -175,7 +180,10 @@ export class EditBar extends Component {
                         </Button>
                     ) : null}
                     {this.props.dashboardId && this.props.deleteAccess ? (
-                        <Button onClick={this.onConfirmDelete}>
+                        <Button
+                            onClick={this.onConfirmDelete}
+                            dataTest="delete-dashboard-button"
+                        >
                             {i18n.t('Delete')}
                         </Button>
                     ) : null}

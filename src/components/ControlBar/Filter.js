@@ -1,106 +1,93 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { withStyles } from '@material-ui/core/styles'
-import InputField from '@material-ui/core/Input'
-import InputAdornment from '@material-ui/core/InputAdornment'
-import SearchIcon from '@material-ui/icons/Search'
-import { colors } from '@dhis2/ui'
-
+import cx from 'classnames'
+import SearchIcon from '../../icons/Search'
 import ClearButton from './ClearButton'
-import { DEFAULT_STATE_DASHBOARDS_FILTER_NAME } from '../../reducers/dashboardsFilter'
 
-const styles = {
-    filterField: {
-        fontSize: '14px',
-        width: '200px',
-        height: '30px',
-        top: '-4px',
-    },
-    searchIcon: {
-        color: colors.grey700,
-        width: '20px',
-        height: '20px',
-    },
-}
+import {
+    acSetDashboardsFilter,
+    acClearDashboardsFilter,
+} from '../../actions/dashboardsFilter'
+import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
+
+import classes from './styles/Filter.module.css'
 
 export const KEYCODE_ENTER = 13
 export const KEYCODE_ESCAPE = 27
 
-export class Filter extends Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            value: DEFAULT_STATE_DASHBOARDS_FILTER_NAME,
-        }
-    }
-
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            value: nextProps.name,
-        })
-    }
-
-    setFilterValue = event => {
+export const Filter = ({
+    clearDashboardsFilter,
+    filterText,
+    setDashboardsFilter,
+    onKeypressEnter,
+}) => {
+    const [focusedClassName, setFocusedClassName] = useState('')
+    const setFilterValue = event => {
         event.preventDefault()
-
-        this.props.onChangeName(event.target.value)
+        setDashboardsFilter(event.target.value)
     }
 
-    handleKeyUp = event => {
+    const onKeyUp = event => {
         switch (event.keyCode) {
             case KEYCODE_ENTER:
-                this.props.onKeypressEnter()
+                onKeypressEnter()
+                clearDashboardsFilter()
                 break
             case KEYCODE_ESCAPE:
-                this.props.onChangeName()
+                clearDashboardsFilter()
                 break
             default:
                 break
         }
     }
 
-    render() {
-        const { classes, name, onChangeName } = this.props
-
-        const startAdornment = (
-            <InputAdornment position="start">
-                <SearchIcon className={classes.searchIcon} />
-            </InputAdornment>
-        )
-
-        const endAdornment =
-            name !== '' && name !== null ? (
-                <InputAdornment position="end">
-                    <ClearButton onClear={() => onChangeName()} />
-                </InputAdornment>
-            ) : null
-
-        return (
-            <InputField
-                className={classes.filterField}
-                placeholder={i18n.t('Search for a dashboard')}
-                startAdornment={startAdornment}
-                endAdornment={endAdornment}
-                value={this.state.value}
-                onChange={this.setFilterValue}
-                onKeyUp={this.handleKeyUp}
-            />
-        )
+    const onFocus = event => {
+        event.preventDefault()
+        setFocusedClassName(classes.focused)
     }
+
+    const onBlur = event => {
+        event.preventDefault()
+        setFocusedClassName('')
+    }
+
+    return (
+        <div
+            className={cx(classes.container, `${focusedClassName}`)}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        >
+            <SearchIcon className={classes.searchIcon} />
+            <input
+                className={classes.input}
+                type="text"
+                placeholder={i18n.t('Search for a dashboard')}
+                onChange={setFilterValue}
+                onKeyUp={onKeyUp}
+                value={filterText}
+                data-test="search-dashboard-input"
+            />
+            {filterText && <ClearButton onClear={clearDashboardsFilter} />}
+        </div>
+    )
 }
 
 Filter.propTypes = {
-    classes: PropTypes.object,
-    name: PropTypes.string,
-    onChangeName: PropTypes.func,
+    clearDashboardsFilter: PropTypes.func,
+    filterText: PropTypes.string,
+    setDashboardsFilter: PropTypes.func,
     onKeypressEnter: PropTypes.func,
 }
 
-Filter.defaultProps = {
-    name: '',
-    onChangeName: Function.prototype,
+const mapStateToProps = state => ({
+    filterText: sGetDashboardsFilter(state),
+})
+
+const mapDispatchToProps = {
+    setDashboardsFilter: acSetDashboardsFilter,
+    clearDashboardsFilter: acClearDashboardsFilter,
 }
 
-export default withStyles(styles)(Filter)
+export default connect(mapStateToProps, mapDispatchToProps)(Filter)

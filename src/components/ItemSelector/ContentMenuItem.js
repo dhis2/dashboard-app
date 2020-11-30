@@ -55,6 +55,7 @@ const ContentMenuItem = ({ type, name, onInsert, url, visType }) => {
                     <InsertButton />
                 </div>
             }
+            dataTest={`menu-item-${name}`}
         />
     )
 }

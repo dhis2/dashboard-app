@@ -6,14 +6,17 @@ import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
 import i18n from '@dhis2/d2-i18n'
 
 import DefaultPlugin from './DefaultPlugin'
+import MapPlugin from './MapPlugin'
 import FatalErrorBoundary from './FatalErrorBoundary'
 import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader/ItemHeader'
 import ItemHeaderButtons from './ItemHeaderButtons'
 import ItemFooter from './ItemFooter'
 import LoadingMask from './LoadingMask'
+import NoVisualizationMessage from './NoVisualizationMessage'
 
-import * as pluginManager from './plugin'
 import { apiPostFavoriteDataStatistics } from '../../../api/dataStatistics'
+import { apiFetchVisualization } from '../../../api/metadata'
+import getVisualizationConfig from './getVisualizationConfig'
 import { sGetVisualization } from '../../../reducers/visualizations'
 import { sGetSelectedItemActiveType } from '../../../reducers/selected'
 import { sGetIsEditing } from '../../../reducers/editDashboard'
@@ -40,8 +43,6 @@ import {
 
 import { ITEM_CONTENT_PADDING_BOTTOM } from '../../ItemGrid/ItemGrid'
 
-import classes from './styles/Item.module.css'
-
 export class Item extends Component {
     state = {
         showFooter: false,
@@ -59,17 +60,14 @@ export class Item extends Component {
 
         this.memoizedApplyFilters = memoizeOne(this.applyFilters)
 
-        this.memoizedGetVisualizationConfig = memoizeOne(
-            pluginManager.getVisualizationConfig
-        )
+        this.memoizedGetVisualizationConfig = memoizeOne(getVisualizationConfig)
 
-        this.memoizedGetContentStyle = memoizeOne(this.getContentStyle)
+        this.memoizedGetContentHeight = memoizeOne(this.getContentHeight)
     }
 
     async componentDidMount() {
         this.props.updateVisualization(
-            // TODO do not call fetch on the pluginManager, do it here as the manager will eventually be removed...
-            await pluginManager.fetch(this.props.item)
+            await apiFetchVisualization(this.props.item)
         )
 
         try {
@@ -155,29 +153,18 @@ export class Item extends Component {
 
         if (!visualization) {
             return (
-                <div className={classes.textDiv}>
-                    {i18n.t('No data to display')}
-                </div>
+                <NoVisualizationMessage
+                    message={i18n.t('No data to display')}
+                />
             )
         }
 
-        const calculatedHeight =
-            this.props.item.originalHeight -
-            this.headerRef.current.clientHeight -
-            HEADER_MARGIN_HEIGHT -
-            ITEM_CONTENT_PADDING_BOTTOM
-
         const props = {
-            ...this.props,
+            item: this.props.item,
+            itemFilters: this.props.itemFilters,
             activeType,
             visualization,
-            classes,
-            style: this.memoizedGetContentStyle(
-                calculatedHeight,
-                this.contentRef ? this.contentRef.offsetHeight : null,
-                isEditMode(this.props.dashboardMode) ||
-                    isPrintMode(this.props.dashboardMode)
-            ),
+            style: this.getPluginStyle(),
         }
 
         switch (activeType) {
@@ -205,43 +192,12 @@ export class Item extends Component {
                 )
             }
             case MAP: {
-                if (props.item.type === MAP) {
-                    // apply filters only to thematic and event layers
-                    // for maps AO
-                    const mapViews = props.visualization.mapViews.map(obj => {
-                        if (
-                            obj.layer.includes('thematic') ||
-                            obj.layer.includes('event')
-                        ) {
-                            return this.memoizedApplyFilters(
-                                obj,
-                                props.itemFilters
-                            )
-                        }
-
-                        return obj
-                    })
-
-                    props.visualization = {
-                        ...props.visualization,
-                        mapViews,
-                    }
-                } else {
-                    // this is the case of a non map AO passed to the maps plugin
-                    // due to a visualization type switch in dashboard item
-                    // maps plugin takes care of converting the AO to a suitable format
-                    props.visualization = this.memoizedApplyFilters(
-                        props.visualization,
-                        props.itemFilters
-                    )
-                }
-
-                props.options = {
-                    ...props.options,
-                    hideTitle: true,
-                }
-
-                return <DefaultPlugin {...props} />
+                return (
+                    <MapPlugin
+                        applyFilters={this.memoizedApplyFilters}
+                        {...props}
+                    />
+                )
             }
             default: {
                 props.visualization = this.memoizedApplyFilters(
@@ -279,13 +235,22 @@ export class Item extends Component {
         return this.props.activeType || this.props.item.type
     }
 
-    pluginIsAvailable = () =>
-        pluginManager.pluginIsAvailable(
-            this.props.item,
-            this.props.visualization
-        )
+    getPluginStyle = () => {
+        const calculatedHeight =
+            this.props.item.originalHeight -
+            this.headerRef.current.clientHeight -
+            HEADER_MARGIN_HEIGHT -
+            ITEM_CONTENT_PADDING_BOTTOM
 
-    getContentStyle = (calculatedHeight, measuredHeight, preferMeasured) => {
+        return this.memoizedGetContentHeight(
+            calculatedHeight,
+            this.contentRef ? this.contentRef.offsetHeight : null,
+            isEditMode(this.props.dashboardMode) ||
+                isPrintMode(this.props.dashboardMode)
+        )
+    }
+
+    getContentHeight = (calculatedHeight, measuredHeight, preferMeasured) => {
         const height = preferMeasured
             ? measuredHeight || calculatedHeight
             : calculatedHeight
@@ -303,7 +268,6 @@ export class Item extends Component {
                 visualization={this.props.visualization}
                 onSelectActiveType={this.selectActiveType}
                 onToggleFooter={this.onToggleFooter}
-                d2={this.d2}
                 activeType={this.getActiveType()}
                 activeFooter={this.state.showFooter}
             />
@@ -312,7 +276,7 @@ export class Item extends Component {
         return (
             <>
                 <ItemHeader
-                    title={pluginManager.getName(item)}
+                    title={getVisualizationName(item)}
                     itemId={item.id}
                     actionButtons={actionButtons}
                     ref={this.headerRef}
@@ -370,7 +334,7 @@ const mapStateToProps = (state, ownProps) => {
         itemFilters,
         visualization: sGetVisualization(
             state,
-            pluginManager.extractFavorite(ownProps.item).id
+            getVisualizationId(ownProps.item)
         ),
         gatherDataStatistics: sGatherAnalyticalObjectStatisticsInDashboardViews(
             state
