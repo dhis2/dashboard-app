@@ -3,14 +3,14 @@ import {
     getDashboardItem,
     chartSubtitleSel,
     chartXAxisLabelSel,
-} from '../../../elements/dashboardItem'
+} from '../../../selectors/dashboardItem'
 import {
     unselectedItemsSel,
     filterDimensionsPanelSel,
     filterBadgeSel,
     orgUnitHierarchySel,
     orgUnitCheckboxesSel,
-} from '../../../elements/dashboardFilter'
+} from '../../../selectors/dashboardFilter'
 import { dashboards } from '../../../assets/backends'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
 

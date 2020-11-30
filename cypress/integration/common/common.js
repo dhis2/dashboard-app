@@ -1,9 +1,9 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 import { dashboards } from '../../assets/backends'
 import { EXTENDED_TIMEOUT } from '../../support/utils'
-import { chartSel } from '../../elements/dashboardItem'
-import { dashboardTitleSel } from '../../elements/titleBar'
-import { dashboardChipSel } from '../../elements/dashboardsBar'
+import { chartSel } from '../../selectors/dashboardItem'
+import { dashboardTitleSel } from '../../selectors/titleBar'
+import { dashboardChipSel } from '../../selectors/dashboardsBar'
 
 beforeEach(() => {
     cy.visit('/', EXTENDED_TIMEOUT)
