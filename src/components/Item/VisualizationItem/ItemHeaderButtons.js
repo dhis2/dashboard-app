@@ -15,7 +15,7 @@ import MapIcon from '@material-ui/icons/Public'
 import LaunchIcon from '@material-ui/icons/Launch'
 
 import { ThreeDots, SpeechBubble } from './assets/icons'
-import { pluginIsAvailable, getLink } from './plugin'
+import { pluginIsAvailable, getLink } from './Plugin/plugin'
 import {
     CHART,
     MAP,
@@ -58,6 +58,11 @@ const ItemHeaderButtons = (props, context) => {
         if (menuIsOpen) {
             closeMenu()
         }
+    }
+
+    function toggleFullScreen() {
+        this.props.onToggleFullscreen()
+        setMenuIsOpen(!menuIsOpen)
     }
 
     const openMenu = () => setMenuIsOpen(true)
@@ -141,6 +146,12 @@ const ItemHeaderButtons = (props, context) => {
                             label={interpretationMenuLabel}
                             onClick={handleInterpretationClick}
                         />
+                        <MenuItem
+                            dense
+                            icon={<SpeechBubble />}
+                            label={i18n.t('View in fullscreen')}
+                            onClick={toggleFullScreen}
+                        />
                     </Menu>
                 </Popover>
             )}
@@ -155,6 +166,7 @@ ItemHeaderButtons.propTypes = {
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,
+    onToggleFullscreen: PropTypes.func,
 }
 
 ItemHeaderButtons.contextTypes = {

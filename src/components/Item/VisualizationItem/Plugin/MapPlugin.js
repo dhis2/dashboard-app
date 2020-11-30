@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import DefaultPlugin from './DefaultPlugin'
-import { MAP } from '../../../modules/itemTypes'
+import { MAP } from '../../../../modules/itemTypes'
 
-const MapPlugin = ({ applyFilters, ...props }) => {
+const MapPlugin = ({ getFilteredVisualization, ...props }) => {
     if (props.item.type === MAP) {
         // apply filters only to thematic and event layers
         // for maps AO
@@ -12,7 +12,7 @@ const MapPlugin = ({ applyFilters, ...props }) => {
                 mapView.layer.includes('thematic') ||
                 mapView.layer.includes('event')
             ) {
-                return applyFilters(mapView, props.itemFilters)
+                return getFilteredVisualization(mapView, props.itemFilters)
             }
 
             return mapView
@@ -26,7 +26,7 @@ const MapPlugin = ({ applyFilters, ...props }) => {
         // this is the case of a non map AO passed to the maps plugin
         // due to a visualization type switch in dashboard item
         // maps plugin takes care of converting the AO to a suitable format
-        props.visualization = applyFilters(
+        props.visualization = getFilteredVisualization(
             props.visualization,
             props.itemFilters
         )
@@ -43,7 +43,7 @@ const MapPlugin = ({ applyFilters, ...props }) => {
 }
 
 MapPlugin.propTypes = {
-    applyFilters: PropTypes.func,
+    getFilteredVisualization: PropTypes.func,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,

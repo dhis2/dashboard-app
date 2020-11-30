@@ -7,7 +7,7 @@ import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 
 import { acUpdateDashboardLayout } from '../../actions/editDashboard'
 import { Item } from '../Item/Item'
-import { resize as pluginResize } from '../Item/VisualizationItem/plugin'
+import { resize as pluginResize } from '../Item/VisualizationItem/Plugin/plugin'
 import { isVisualizationType } from '../../modules/itemTypes'
 import {
     GRID_ROW_HEIGHT,

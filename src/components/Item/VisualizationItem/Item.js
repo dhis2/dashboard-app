@@ -5,14 +5,15 @@ import uniqueId from 'lodash/uniqueId'
 import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
 import i18n from '@dhis2/d2-i18n'
 
-import DefaultPlugin from './DefaultPlugin'
-import MapPlugin from './MapPlugin'
+import DefaultPlugin from './Plugin/DefaultPlugin'
+import MapPlugin from './Plugin/MapPlugin'
 import FatalErrorBoundary from './FatalErrorBoundary'
+// import FullscreenItem from './FullscreenItem'
 import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader/ItemHeader'
 import ItemHeaderButtons from './ItemHeaderButtons'
 import ItemFooter from './ItemFooter'
 import LoadingMask from './LoadingMask'
-import NoVisualizationMessage from './NoVisualizationMessage'
+import NoVisualizationMessage from './Plugin/NoVisualizationMessage'
 
 import { apiFetchVisualization } from '../../../api/metadata'
 import getVisualizationConfig from './getVisualizationConfig'
@@ -46,6 +47,7 @@ export class Item extends Component {
         showFooter: false,
         configLoaded: false,
         pluginIsLoaded: false,
+        isFullscreen: false,
     }
 
     constructor(props, context) {
@@ -55,6 +57,7 @@ export class Item extends Component {
 
         this.contentRef = React.createRef()
         this.headerRef = React.createRef()
+        this.itemRef = React.createRef()
 
         this.memoizedApplyFilters = memoizeOne(this.applyFilters)
 
@@ -210,6 +213,8 @@ export class Item extends Component {
         )
     }
 
+    onToggleFullscreen = () => {}
+
     selectActiveType = type => {
         type !== this.getActiveType() &&
             this.props.selectActiveType(this.props.item.id, type)
@@ -255,13 +260,14 @@ export class Item extends Component {
                 visualization={this.props.visualization}
                 onSelectActiveType={this.selectActiveType}
                 onToggleFooter={this.onToggleFooter}
+                onToggleFullscreen={this.onToggleFullscreen}
                 activeType={this.getActiveType()}
                 activeFooter={this.state.showFooter}
             />
         )
 
         return (
-            <>
+            <div ref={this.itemRef}>
                 <ItemHeader
                     title={getVisualizationName(item)}
                     itemId={item.id}
@@ -282,7 +288,7 @@ export class Item extends Component {
                 {isViewMode(dashboardMode) && showFooter ? (
                     <ItemFooter item={item} />
                 ) : null}
-            </>
+            </div>
         )
     }
 }
