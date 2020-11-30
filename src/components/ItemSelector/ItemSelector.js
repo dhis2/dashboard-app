@@ -107,12 +107,11 @@ const ItemSelector = ({}, context) => {
                 >
                     <FlyoutMenu
                         className={classes.menu}
-                        dataTest={'item-menu'}
+                        dataTest="item-menu"
                         maxWidth="700px"
                     >
                         {getMenuGroups()}
                     </FlyoutMenu>
-
                 </Popover>
             )}
         </>
