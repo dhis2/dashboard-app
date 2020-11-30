@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useMemo, createRef } from 'react'
+import React, { useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-
 import DVPlugin from '@dhis2/data-visualizer-plugin'
 import i18n from '@dhis2/d2-i18n'
+
 import DefaultPlugin from './DefaultPlugin'
 import MapPlugin from './MapPlugin'
 import LoadingMask from '../LoadingMask'
@@ -23,9 +22,23 @@ const VisualizationPlugin = (
     if (!visualization) {
         return <NoVisualizationMessage message={i18n.t('No data to display')} />
     }
-
-    const memoizedGetFilteredVis = useMemo(getFilteredVisualization)
     const [pluginIsLoaded, setPluginIsLoaded] = useState(false)
+
+    // componentDidUpdate
+    // useEffect(() => {
+    // if (
+    //     pluginIsLoaded &&
+    //     (prevProps.visualization !== this.props.visualization ||
+    //         prevProps.itemFilters !== this.props.itemFilters)
+    // ) {
+    //     setPluginIsLoaded(false)
+    // }
+    // }, [pluginIsLoaded, visualization, itemFilters])
+
+    const memoizedGetFilteredVis = useCallback(getFilteredVisualization, [
+        visualization,
+        itemFilters,
+    ])
     const theprops = {
         item: item,
         itemFilters: itemFilters,
@@ -86,33 +99,9 @@ VisualizationPlugin.contextTypes = {
 VisualizationPlugin.propTypes = {
     activeType: PropTypes.string,
     dashboardMode: PropTypes.string,
-    isEditing: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
-    selectActiveType: PropTypes.func,
-    updateVisualization: PropTypes.func,
     visualization: PropTypes.object,
 }
 
-const mapStateToProps = (state, ownProps) => {
-    const itemFilters = !isEditMode(ownProps.dashboardMode)
-        ? sGetItemFiltersRoot(state)
-        : DEFAULT_STATE_ITEM_FILTERS
-
-    return {
-        activeType: sGetSelectedItemActiveType(state, ownProps.item?.id),
-        isEditing: sGetIsEditing(state),
-        itemFilters,
-        visualization: sGetVisualization(
-            state,
-            getVisualizationId(ownProps.item)
-        ),
-    }
-}
-
-const mapDispatchToProps = {
-    selectActiveType: acSetSelectedItemActiveType,
-    updateVisualization: acAddVisualization,
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(VisualizationPlugin)
+export default VisualizationPlugin

@@ -16,6 +16,7 @@ const getWithoutId = object => ({
 })
 
 const getVisualizationConfig = (visualization, originalType, activeType) => {
+    console.log('***** getVisualizationConfig')
     if (originalType === MAP && originalType !== activeType) {
         const extractedMapView = extractMapView(visualization)
 

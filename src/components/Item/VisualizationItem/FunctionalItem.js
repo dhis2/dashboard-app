@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useMemo, createRef } from 'react'
+import React, { useState, useEffect, useCallback, createRef } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import uniqueId from 'lodash/uniqueId'
 
-import VisualizationPlugin from './Plugin/VisualizationPlugin'
+import Visualization from './Plugin/Visualization'
 import FatalErrorBoundary from './FatalErrorBoundary'
 // import FullscreenItem from './FullscreenItem'
 import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader/ItemHeader'
@@ -22,7 +22,7 @@ import {
 import { acAddVisualization } from '../../../actions/visualizations'
 import { acSetSelectedItemActiveType } from '../../../actions/selected'
 import { getVisualizationId, getVisualizationName } from '../../../modules/item'
-import memoizeOne from '../../../modules/memoizeOne'
+
 import {
     isEditMode,
     isPrintMode,
@@ -32,61 +32,73 @@ import {
 import { ITEM_CONTENT_PADDING_BOTTOM } from '../../ItemGrid/ItemGrid'
 
 const Item = props => {
+    const { item, dashboardMode, itemFilters } = props
+
     const [showFooter, setShowFooter] = useState(false)
-    const [configLoaded, setConfigLoaded] = useState(false)
+    const [visualizationLoaded, setVisualizationLoaded] = useState(false)
     const [calculatedHeight, setCalculatedHeight] = useState(null)
-    const [preferMeasured, setPreferMeasured] = useState(
-        isEditMode(props.dashboardMode) || isPrintMode(props.dashboardMode)
-    )
     const [measuredHeight, setMeasuredHeight] = useState(null)
     // const [isFullscreen, setIsFullscreen] = useState(false)
 
     let contentRef = createRef()
     const headerRef = createRef()
     const itemRef = createRef()
+    const preferMeasured =
+        isEditMode(dashboardMode) || isPrintMode(dashboardMode)
 
-    const memoizedGetVisualizationConfig = useMemo(getVisualizationConfig)
+    const memoizedGetVisualizationConfig = useCallback(getVisualizationConfig, [
+        props.visualization,
+        item.type,
+        props.activeType,
+    ])
 
     // componentDidMount
-    useEffect(async () => {
-        props.updateVisualization(await apiFetchVisualization(props.item))
-        setConfigLoaded(true)
-    })
-
-    // componentDidUpdate
-    /*
     useEffect(() => {
-    if (
-        prevState.pluginIsLoaded &&
-        (prevProps.visualization !== this.props.visualization ||
-            prevProps.itemFilters !== this.props.itemFilters)
-    ) {
-        setPluginIsLoaded(false)
-    }
-    }, [pluginIsLoaded, props.visualization, props.itemFilters])
-    */
+        async function updateVisualization() {
+            props.updateVisualization(await apiFetchVisualization(item))
+            setVisualizationLoaded(true)
+        }
 
-    const getUniqueKey = useMemo(() => uniqueId())
+        updateVisualization()
+
+        // some kind of cleanup needed for VisualizationPlugin?
+        // return () => {}
+    }, [])
+
+    useEffect(() => {
+        headerRef.current &&
+            setCalculatedHeight(
+                item.originalHeight -
+                    headerRef.current.clientHeight -
+                    HEADER_MARGIN_HEIGHT -
+                    ITEM_CONTENT_PADDING_BOTTOM
+            )
+    }, [item, headerRef])
+
+    useEffect(() => {
+        setMeasuredHeight(contentRef ? contentRef.offsetHeight : null)
+    }, [contentRef])
+
+    const getUniqueKey = useCallback(() => uniqueId())
 
     const onToggleFooter = () => {
         setShowFooter(!showFooter)
-        props.onToggleItemExpanded(props.item.id)
+        props.onToggleItemExpanded(item.id)
     }
 
     const onToggleFullscreen = () => {}
 
-    const selectActiveType = type => {
-        type !== getActiveType() && props.selectActiveType(props.item.id, type)
-    }
+    const setActiveType = type =>
+        type !== getActiveType() && props.setActiveType(item.id, type)
 
     const getActiveType = () => {
         if (props.isEditing) {
-            return props.item.type
+            return item.type
         }
-        return props.activeType || props.item.type
+        return props.activeType || item.type
     }
 
-    const memoizedGetContentHeight = useMemo(() => {
+    const memoizedGetContentHeight = useCallback(() => {
         const height = preferMeasured
             ? measuredHeight || calculatedHeight
             : calculatedHeight
@@ -94,30 +106,22 @@ const Item = props => {
         return { height }
     }, [calculatedHeight, measuredHeight, preferMeasured])
 
-    const getPluginStyle = () => {
-        setCalculatedHeight(
-            props.item.originalHeight -
-                headerRef.current.clientHeight -
-                HEADER_MARGIN_HEIGHT -
-                ITEM_CONTENT_PADDING_BOTTOM
-        )
-        setMeasuredHeight(contentRef ? contentRef.offsetHeight : null)
-
-        return memoizedGetContentHeight()
-    }
-
-    const { item, dashboardMode, itemFilters } = props
-
     const actionButtons = (
         <ItemHeaderButtons
             item={item}
             visualization={props.visualization}
-            onSelectActiveType={selectActiveType}
+            onSelectActiveType={setActiveType}
             onToggleFooter={onToggleFooter}
             onToggleFullscreen={onToggleFullscreen}
             activeType={getActiveType()}
             activeFooter={showFooter}
         />
+    )
+
+    const vis = memoizedGetVisualizationConfig(
+        props.visualization,
+        item.type,
+        getActiveType()
     )
 
     return (
@@ -136,15 +140,13 @@ const Item = props => {
                     className="dashboard-item-content"
                     ref={ref => (contentRef = ref)}
                 >
-                    {configLoaded && (
-                        <VisualizationPlugin
+                    {visualizationLoaded && (
+                        <Visualization
+                            item={item}
+                            itemFilters={itemFilters}
                             activeType={getActiveType()}
-                            visualization={memoizedGetVisualizationConfig(
-                                props.visualization,
-                                props.item.type,
-                                getActiveType()
-                            )}
-                            style={getPluginStyle()}
+                            visualization={vis}
+                            style={memoizedGetContentHeight()}
                         />
                     )}
                 </div>
@@ -162,7 +164,7 @@ Item.propTypes = {
     isEditing: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
-    selectActiveType: PropTypes.func,
+    setActiveType: PropTypes.func,
     updateVisualization: PropTypes.func,
     visualization: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
@@ -175,14 +177,12 @@ Item.defaultProps = {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const itemFilters = !isEditMode(ownProps.dashboardMode)
-        ? sGetItemFiltersRoot(state)
-        : DEFAULT_STATE_ITEM_FILTERS
-
     return {
         activeType: sGetSelectedItemActiveType(state, ownProps.item?.id),
         isEditing: sGetIsEditing(state),
-        itemFilters,
+        itemFilters: !isEditMode(ownProps.dashboardMode)
+            ? sGetItemFiltersRoot(state)
+            : DEFAULT_STATE_ITEM_FILTERS,
         visualization: sGetVisualization(
             state,
             getVisualizationId(ownProps.item)
@@ -191,7 +191,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = {
-    selectActiveType: acSetSelectedItemActiveType,
+    setActiveType: acSetSelectedItemActiveType,
     updateVisualization: acAddVisualization,
 }
 
