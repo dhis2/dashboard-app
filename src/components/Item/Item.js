@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import VisualizationItem from './VisualizationItem/FunctionalItem'
+import VisualizationItem from './VisualizationItem/Item'
 import MessagesItem from './MessagesItem/Item'
 import NotSupportedItem from './NotSupportedItem/Item'
 import ListItem from './ListItem/Item'

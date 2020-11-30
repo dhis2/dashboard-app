@@ -1,11 +1,12 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
-import DVPlugin from '@dhis2/data-visualizer-plugin'
+import DataVisualizerPlugin from '@dhis2/data-visualizer-plugin'
 import i18n from '@dhis2/d2-i18n'
 
+import usePrevious from './usePrevious'
 import DefaultPlugin from './DefaultPlugin'
 import MapPlugin from './MapPlugin'
-import LoadingMask from '../LoadingMask'
+import LoadingMask from './LoadingMask'
 import NoVisualizationMessage from './NoVisualizationMessage'
 import {
     VISUALIZATION,
@@ -24,27 +25,32 @@ const VisualizationPlugin = (
     }
     const [pluginIsLoaded, setPluginIsLoaded] = useState(false)
 
+    // TODO: does it have to be this way??
+    const previousVis = usePrevious(visualization)
+    const previousItemFilters = usePrevious(itemFilters)
+    const previousPluginIsLoaded = usePrevious(pluginIsLoaded)
+
     // componentDidUpdate
-    // useEffect(() => {
-    // if (
-    //     pluginIsLoaded &&
-    //     (prevProps.visualization !== this.props.visualization ||
-    //         prevProps.itemFilters !== this.props.itemFilters)
-    // ) {
-    //     setPluginIsLoaded(false)
-    // }
-    // }, [pluginIsLoaded, visualization, itemFilters])
+    useEffect(() => {
+        if (
+            previousPluginIsLoaded &&
+            (previousVis !== visualization ||
+                previousItemFilters !== itemFilters)
+        ) {
+            setPluginIsLoaded(false)
+        }
+    }, [pluginIsLoaded, visualization, itemFilters])
 
     const memoizedGetFilteredVis = useCallback(getFilteredVisualization, [
         visualization,
         itemFilters,
     ])
     const theprops = {
-        item: item,
-        itemFilters: itemFilters,
+        item,
+        itemFilters,
         activeType,
         visualization,
-        style: style,
+        style,
     }
 
     const onLoadingComplete = () => setPluginIsLoaded(true)
@@ -56,19 +62,19 @@ const VisualizationPlugin = (
             return (
                 <>
                     {!pluginIsLoaded && (
-                        <div style={theprops.style}>
+                        <div style={style}>
                             <LoadingMask />
                         </div>
                     )}
-                    <DVPlugin
+                    <DataVisualizerPlugin
                         d2={context.d2}
                         visualization={memoizedGetFilteredVis(
                             visualization,
-                            theprops.itemFilters
+                            itemFilters
                         )}
                         onLoadingComplete={onLoadingComplete}
                         forDashboard={true}
-                        style={theprops.style}
+                        style={style}
                     />
                 </>
             )
@@ -84,7 +90,7 @@ const VisualizationPlugin = (
         default: {
             theprops.visualization = memoizedGetFilteredVis(
                 theprops.visualization,
-                theprops.itemFilters
+                itemFilters
             )
 
             return <DefaultPlugin {...theprops} />
