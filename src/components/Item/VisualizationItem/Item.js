@@ -52,17 +52,16 @@ const Item = props => {
         props.activeType,
     ])
 
-    // componentDidMount
     useEffect(() => {
-        async function updateVisualization() {
-            props.updateVisualization(await apiFetchVisualization(item))
-            setVisualizationLoaded(true)
-        }
+        let isSubscribed = true
+        apiFetchVisualization(item).then(vis => {
+            if (isSubscribed) {
+                props.updateVisualization(vis)
+                setVisualizationLoaded(true)
+            }
+        })
 
-        updateVisualization()
-
-        // some kind of cleanup needed for VisualizationPlugin?
-        // return () => {}
+        return () => (isSubscribed = false)
     }, [])
 
     useEffect(() => {
@@ -99,11 +98,9 @@ const Item = props => {
     }
 
     const memoizedGetContentHeight = useCallback(() => {
-        const height = preferMeasured
+        return preferMeasured
             ? measuredHeight || calculatedHeight
             : calculatedHeight
-
-        return { height }
     }, [calculatedHeight, measuredHeight, preferMeasured])
 
     const actionButtons = (
@@ -144,7 +141,7 @@ const Item = props => {
                                 item.type,
                                 getActiveType()
                             )}
-                            style={memoizedGetContentHeight()}
+                            availableHeight={memoizedGetContentHeight()}
                         />
                     )}
                 </div>

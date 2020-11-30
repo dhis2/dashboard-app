@@ -16,13 +16,14 @@ import {
 } from '../../../../modules/itemTypes'
 import getFilteredVisualization from './getFilteredVisualization'
 
-const VisualizationPlugin = (
-    { activeType, visualization, style, item, itemFilters },
+const Visualization = (
+    { activeType, visualization, availableHeight, item, itemFilters },
     context
 ) => {
     if (!visualization) {
         return <NoVisualizationMessage message={i18n.t('No data to display')} />
     }
+
     const [pluginIsLoaded, setPluginIsLoaded] = useState(false)
 
     // TODO: does it have to be this way??
@@ -45,7 +46,8 @@ const VisualizationPlugin = (
         visualization,
         itemFilters,
     ])
-    const theprops = {
+    const style = { height: availableHeight }
+    const defaultPluginProps = {
         item,
         itemFilters,
         activeType,
@@ -83,26 +85,26 @@ const VisualizationPlugin = (
             return (
                 <MapPlugin
                     getFilteredVisualization={memoizedGetFilteredVis}
-                    {...theprops}
+                    {...defaultPluginProps}
                 />
             )
         }
         default: {
-            theprops.visualization = memoizedGetFilteredVis(
-                theprops.visualization,
+            defaultPluginProps.visualization = memoizedGetFilteredVis(
+                visualization,
                 itemFilters
             )
 
-            return <DefaultPlugin {...theprops} />
+            return <DefaultPlugin {...defaultPluginProps} />
         }
     }
 }
 
-VisualizationPlugin.contextTypes = {
+Visualization.contextTypes = {
     d2: PropTypes.object,
 }
 
-VisualizationPlugin.propTypes = {
+Visualization.propTypes = {
     activeType: PropTypes.string,
     dashboardMode: PropTypes.string,
     item: PropTypes.object,
@@ -110,4 +112,4 @@ VisualizationPlugin.propTypes = {
     visualization: PropTypes.object,
 }
 
-export default VisualizationPlugin
+export default Visualization

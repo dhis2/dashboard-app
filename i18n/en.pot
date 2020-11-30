@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-11-30T08:26:02.288Z\n"
-"PO-Revision-Date: 2020-11-30T08:26:02.289Z\n"
+"POT-Creation-Date: 2020-11-30T14:50:18.379Z\n"
+"PO-Revision-Date: 2020-11-30T14:50:18.379Z\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -135,9 +135,6 @@ msgstr ""
 msgid "There was a problem loading this dashboard item"
 msgstr ""
 
-msgid "No data to display"
-msgstr ""
-
 msgid "Hide interpretations and details"
 msgstr ""
 
@@ -160,6 +157,9 @@ msgid "View in fullscreen"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
+msgstr ""
+
+msgid "No data to display"
 msgstr ""
 
 msgid "Confirm"

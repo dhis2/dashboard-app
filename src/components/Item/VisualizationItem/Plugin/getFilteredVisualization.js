@@ -11,7 +11,7 @@ const getVisualizationLayoutClone = vis => {
 }
 
 const getFilteredVisualization = (visualization, filters) => {
-    console.log('getFilteredVisualization')
+    // console.log('getFilteredVisualization')
     if (!Object.keys(filters).length) {
         return visualization
     }
