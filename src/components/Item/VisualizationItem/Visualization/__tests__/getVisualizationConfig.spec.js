@@ -1,7 +1,3 @@
-import getVisualizationConfig, {
-    THEMATIC_LAYER,
-} from '../getVisualizationConfig'
-import { REPORT_TABLE, CHART, MAP } from '../../../../modules/itemTypes'
 import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
@@ -10,6 +6,11 @@ import {
     AXIS_ID_ROWS,
     AXIS_ID_FILTERS,
 } from '@dhis2/analytics'
+
+import getVisualizationConfig, {
+    THEMATIC_LAYER,
+} from '../getVisualizationConfig'
+import { REPORT_TABLE, CHART, MAP } from '../../../../../modules/itemTypes'
 
 describe('getVisualizationConfig', () => {
     let visualization

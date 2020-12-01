@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders NoVisMessage when no visualization 1`] = `
+<div>
+  <div
+    class="message"
+  >
+    No data to display
+  </div>
+</div>
+`;
+
+exports[`renders a DefaultPlugin when activeType is EVENT_CHART 1`] = `
+<div>
+  <defaultplugin
+    activetype="EVENT_CHART"
+    item="[object Object]"
+    itemfilters="[object Object]"
+    style="height: 500px;"
+    visualization="[object Object]"
+  />
+</div>
+`;
+
+exports[`renders a DefaultPlugin when activeType is EVENT_REPORT 1`] = `
+<div>
+  <defaultplugin
+    activetype="EVENT_REPORT"
+    item="[object Object]"
+    itemfilters="[object Object]"
+    style="height: 500px;"
+    visualization="[object Object]"
+  />
+</div>
+`;
+
+exports[`renders a MapPlugin when activeType is MAP 1`] = `
+<div>
+  <mapplugin
+    activetype="MAP"
+    item="[object Object]"
+    itemfilters="[object Object]"
+    style="height: 500px;"
+    visualization="[object Object]"
+  />
+</div>
+`;
+
+exports[`renders a VisPlugin when activeType is CHART 1`] = `
+<div>
+  <div
+    style="height: 500px;"
+  >
+    <div
+      class="center"
+    >
+      <div
+        class="jsx-19995197 "
+        data-test="dhis2-uicore-circularloader"
+        role="progressbar"
+      >
+        <svg
+          class="jsx-19995197"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            class="jsx-19995197 circle"
+            cx="44"
+            cy="44"
+            fill="none"
+            r="20.2"
+            stroke-width="3.6"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <visualizationplugin
+    style="height: 500px;"
+    visualization="[object Object]"
+  />
+</div>
+`;
+
+exports[`renders a VisPlugin when activeType is TABLE 1`] = `
+<div>
+  <div
+    style="height: 500px;"
+  >
+    <div
+      class="center"
+    >
+      <div
+        class="jsx-19995197 "
+        data-test="dhis2-uicore-circularloader"
+        role="progressbar"
+      >
+        <svg
+          class="jsx-19995197"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            class="jsx-19995197 circle"
+            cx="44"
+            cy="44"
+            fill="none"
+            r="20.2"
+            stroke-width="3.6"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <visualizationplugin
+    style="height: 500px;"
+    visualization="[object Object]"
+  />
+</div>
+`;
