@@ -1,0 +1,141 @@
+name: 'dhis2: verify (app)'
+
+on:
+    push:
+        branches:
+
+env:
+    GIT_AUTHOR_NAME: '@dhis2-bot'
+    GIT_AUTHOR_EMAIL: 'apps@dhis2.org'
+    GIT_COMMITTER_NAME: '@dhis2-bot'
+    GIT_COMMITTER_EMAIL: 'apps@dhis2.org'
+    GH_TOKEN: ${{secrets.DHIS2_BOT_GITHUB_TOKEN}}
+    CI: true
+
+jobs:
+    install:
+        runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: actions/cache@v2
+              id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+              with:
+                  path: '**/node_modules'
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Install
+              if: steps.yarn-cache.outputs.cache-hit != 'true'
+              run: yarn install --frozen-lockfile
+
+    build:
+        runs-on: ubuntu-latest
+        needs: install
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: actions/cache@v2
+              id: yarn-cache
+              with:
+                  path: '**/node_modules'
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Build
+              run: yarn build
+
+            - uses: actions/upload-artifact@v2
+              with:
+                  name: app-build
+                  path: |
+                      **/build
+                      !**/node_modules
+                  retention-days: 1
+
+    lint:
+        runs-on: ubuntu-latest
+        needs: install
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: actions/cache@v2
+              id: yarn-cache
+              with:
+                  path: '**/node_modules'
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Lint
+              run: yarn lint
+
+    test:
+        runs-on: ubuntu-latest
+        needs: install
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: actions/cache@v2
+              id: yarn-cache
+              with:
+                  path: '**/node_modules'
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+            # Can be removed if translations aren't required for tests, or if not using the App Platform
+            - name: Generate translations
+              run: yarn d2-app-scripts i18n generate
+
+            - name: Test
+              run: yarn test
+
+    publish:
+        runs-on: ubuntu-latest
+        needs: [build, lint, test, e2e]
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  token: ${{env.GH_TOKEN}}
+
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: actions/download-artifact@v2
+              with:
+                  name: app-build
+
+            - uses: dhis2/deploy-build@master
+              with:
+                  build-dir: build/app
+                  github-token: ${{ env.GH_TOKEN }}
+
+    release:
+        runs-on: ubuntu-latest
+        needs: [publish]
+        if: "github.event_name == 'push' && !contains(github.event.head_commit.message, '[skip ci]')"
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  token: ${{env.GH_TOKEN}}
+
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - name: Publish release to GitHub
+              run: npx @dhis2/cli-utils release
