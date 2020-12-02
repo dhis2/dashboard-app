@@ -95,6 +95,10 @@ jobs:
                   path: '**/node_modules'
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
+            # Can be removed if translations aren't required for tests, or if not using the App Platform
+            - name: Generate translations
+              run: yarn d2-app-scripts i18n generate
+
             - name: Test
               run: yarn test
 
@@ -117,7 +121,7 @@ jobs:
 
             - uses: dhis2/deploy-build@master
               with:
-                  build-dir: build
+                  build-dir: build/app
                   github-token: ${{ env.GH_TOKEN }}
 
     release:
