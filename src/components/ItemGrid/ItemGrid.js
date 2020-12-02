@@ -106,6 +106,7 @@ export class ItemGrid extends Component {
             <ProgressiveLoadingContainer
                 key={item.i}
                 className={itemClassNames}
+                itemId={item.id}
             >
                 <Item
                     item={item}

@@ -1,3 +1,10 @@
+## [31.1.1](https://github.com/dhis2/dashboard-app/compare/v31.1.0...v31.1.1) (2020-12-02)
+
+
+### Bug Fixes
+
+* install the Cypress binary for the e2e tests ([#1340](https://github.com/dhis2/dashboard-app/issues/1340)) ([6512165](https://github.com/dhis2/dashboard-app/commit/6512165813cc1d7b71d5901bf98be528330a30b7))
+
 # [31.1.0](https://github.com/dhis2/dashboards-app/compare/v31.0.1...v31.1.0) (2020-11-26)
 
 
