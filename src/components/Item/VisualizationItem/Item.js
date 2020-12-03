@@ -14,7 +14,7 @@ import ItemFooter from './ItemFooter'
 import LoadingMask from './LoadingMask'
 import NoVisualizationMessage from './NoVisualizationMessage'
 
-import { apiPostFavoriteDataStatistics } from '../../../api/dataStatistics'
+import { apiPostDataStatistics } from '../../../api/dataStatistics'
 import { apiFetchVisualization } from '../../../api/metadata'
 import getVisualizationConfig from './getVisualizationConfig'
 import { sGetVisualization } from '../../../reducers/visualizations'
@@ -32,6 +32,7 @@ import {
     MAP,
     CHART,
     REPORT_TABLE,
+    getDataStatisticsName,
 } from '../../../modules/itemTypes'
 import { getVisualizationId, getVisualizationName } from '../../../modules/item'
 import memoizeOne from '../../../modules/memoizeOne'
@@ -75,9 +76,9 @@ export class Item extends Component {
                 this.props.gatherDataStatistics &&
                 isViewMode(this.props.dashboardMode)
             ) {
-                await apiPostFavoriteDataStatistics(
-                    getVisualizationId(this.props.item),
-                    this.props.item.type
+                await apiPostDataStatistics(
+                    getDataStatisticsName(this.props.item.type),
+                    getVisualizationId(this.props.item)
                 )
             }
         } catch (e) {
