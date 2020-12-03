@@ -71,7 +71,10 @@ export class Item extends Component {
         )
 
         try {
-            if (this.props.gatherDataStatistics) {
+            if (
+                this.props.gatherDataStatistics &&
+                isViewMode(this.props.dashboardMode)
+            ) {
                 await apiPostFavoriteDataStatistics(
                     getVisualizationId(this.props.item),
                     this.props.item.type
