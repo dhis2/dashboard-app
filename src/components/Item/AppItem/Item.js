@@ -12,7 +12,7 @@ import {
     DEFAULT_STATE_ITEM_FILTERS,
 } from '../../../reducers/itemFilters'
 
-import { isEditMode } from '../../Dashboard/dashboardModes'
+import { EDIT, isEditMode } from '../../Dashboard/dashboardModes'
 
 const getIframeSrc = (appDetails, item, itemFilters) => {
     let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`
@@ -40,11 +40,8 @@ const AppItem = ({ dashboardMode, item, itemFilters }, context) => {
     }
 
     const hideTitle =
-        appDetails &&
-        appDetails.settings &&
-        appDetails.settings.dashboardWidget &&
-        appDetails.settings.dashboardWidget.hideTitle &&
-        dashboardMode != 'edit'
+        appDetails?.settings?.dashboardWidget?.hideTitle &&
+        dashboardMode != EDIT
 
     return appDetails && appDetails.name && appDetails.launchUrl ? (
         <>
