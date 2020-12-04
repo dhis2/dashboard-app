@@ -1496,10 +1496,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^11.2.0", "@dhis2/analytics@^11.2.9":
-  version "11.2.9"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.2.9.tgz#d31dff17d5dc7dc7425e3021cb9269530a9e7d40"
-  integrity sha512-KqF9qTOShhWdlrmppjepuLqV6oUXe/y5p8NeZ8wB9V3jyiquiGLCEASpJbcr3m3A66gnApCCG+MwTuq+VYAklg==
+"@dhis2/analytics@^11.2.0", "@dhis2/analytics@^11.3.1":
+  version "11.3.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.3.1.tgz#ce40b0cf4801ee88f70e207a791c84e1ce42c994"
+  integrity sha512-11SQksjD64cx8dAg7C0MtvgtpnguqDw81meLdT2uZ+w2FxLWc41v0dpn2bYa4c82XnEYW1pcPPt1DIKCO01WKA==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.8"
     "@dhis2/ui" "^5.7.7"
@@ -1860,7 +1860,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@^5.6.1", "@dhis2/ui@^5.7.2", "@dhis2/ui@^5.7.3", "@dhis2/ui@^5.7.8":
+"@dhis2/ui@^5.6.1", "@dhis2/ui@^5.7.2", "@dhis2/ui@^5.7.7", "@dhis2/ui@^5.7.8":
   version "5.7.8"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.7.8.tgz#17604580d02cd4a7756552154a089e730a0fdf02"
   integrity sha512-FHyTP6geAkR/jwX1/xG8yl8PvGaNhms8zUmaNiBLQ0mUmD9oJb47U8YXhJ5nVd0SFJnmuckOWgAWMt3meZGJTA==
