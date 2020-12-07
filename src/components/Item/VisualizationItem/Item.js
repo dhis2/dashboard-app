@@ -17,6 +17,7 @@ import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
 } from '../../../reducers/itemFilters'
+import { CHART, EVENT_CHART } from '../../../modules/itemTypes'
 import { acAddVisualization } from '../../../actions/visualizations'
 import { acSetSelectedItemActiveType } from '../../../actions/selected'
 
@@ -34,6 +35,8 @@ export class Item extends Component {
     state = {
         showFooter: false,
         configLoaded: false,
+        isFullscreen: false,
+        itemCoordinates: {},
     }
 
     constructor(props, context) {
@@ -69,6 +72,56 @@ export class Item extends Component {
             { showFooter: !this.state.showFooter },
             this.props.onToggleItemExpanded(this.props.item.id)
         )
+    }
+
+    handleFullscreenChange = () => {
+        const itemEl = document.getElementById(`item-${this.props.item.id}`)
+        console.log('handleFullscreenChange', this.oprops.item.id)
+        if (!document.fullscreenElement) {
+            itemEl.classList.remove('fullscreen')
+        } else {
+            itemEl.classList.add('fullscreen')
+        }
+
+        if (
+            this.getActiveType() === EVENT_CHART ||
+            this.getActiveType() === CHART
+        ) {
+            if (!document.fullscreenElement) {
+                const itemDomId = `#item-${this.props.item.id}`
+                const chartSvg = document.querySelector(`${itemDomId} svg`)
+                const chartContainer = document.querySelector(
+                    `${itemDomId} .highcharts-container`
+                )
+                // reset the width, height and viewbox
+                console.log('reset item to coords', this.state.itemCoordinates)
+                chartContainer.style.width = `${this.state.itemCoordinates.width}px`
+                chartContainer.style.height = `${this.state.itemCoordinates.height}px`
+                chartSvg.setAttribute('width', this.state.itemCoordinates.width)
+                chartSvg.setAttribute(
+                    'height',
+                    this.state.itemCoordinates.height
+                )
+                chartSvg.setAttribute(
+                    'viewBox',
+                    this.state.itemCoordinates.viewBox
+                )
+            }
+        }
+    }
+
+    onToggleFullscreen = () => {
+        console.log('toggleFullscreen', this.props.item.id)
+        this.setState({ isFullscreen: !this.state.isFullscreen }, () => {
+            const el = document.querySelector(
+                `.reactgriditem-${this.props.item.id}`
+            )
+            if (el?.requestFullscreen) {
+                el.onfullscreenchange = this.handleFullscreenChange
+
+                el.requestFullscreen()
+            }
+        })
     }
 
     setActiveType = type => {
@@ -109,6 +162,7 @@ export class Item extends Component {
                 visualization={this.props.visualization}
                 onSelectActiveType={this.setActiveType}
                 onToggleFooter={this.onToggleFooter}
+                onToggleFullscreen={this.onToggleFullscreen}
                 activeType={activeType}
                 activeFooter={showFooter}
             />
@@ -126,6 +180,7 @@ export class Item extends Component {
                 />
                 <FatalErrorBoundary>
                     <div
+                        id={`item-${item.id}`}
                         key={this.getUniqueKey(itemFilters)}
                         className="dashboard-item-content"
                         ref={ref => (this.contentRef = ref)}

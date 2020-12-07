@@ -29,6 +29,33 @@ table.pivot * {
     background-color: #48a999;
 }
 
+.fullscreen {
+    height: 95vh !important;
+    width: 100vw !important;
+}
+
+.pivot-table-container:fullscreen {
+    background-color: white;
+    overflow: scroll;
+}
+
+.event-report-container:fullscreen {
+    background-color: white;
+    overflow: scroll;
+}
+
+.event-report-container:fullscreen > table {
+    margin: 0 auto;
+}
+
+.pivot-table-container:fullscreen > table {
+    margin: 0 auto;
+}
+
+.dashboard-item-content.fullscreen > div {
+    height: 95vh !important;
+}
+
 @media print {
     body {
         width: 100% !important;

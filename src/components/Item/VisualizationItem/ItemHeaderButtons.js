@@ -60,6 +60,11 @@ const ItemHeaderButtons = (props, context) => {
         }
     }
 
+    const handleToggleFullscreenClick = () => {
+        props.onToggleFullscreen()
+        closeMenu()
+    }
+
     const openMenu = () => setMenuIsOpen(true)
     const closeMenu = () => setMenuIsOpen(false)
 
@@ -146,6 +151,12 @@ const ItemHeaderButtons = (props, context) => {
                             label={interpretationMenuLabel}
                             onClick={handleInterpretationClick}
                         />
+                        <MenuItem
+                            dense
+                            icon={<SpeechBubble />}
+                            label={i18n.t('View fullscreen')}
+                            onClick={handleToggleFullscreenClick}
+                        />
                     </Menu>
                 </Popover>
             )}
@@ -160,6 +171,7 @@ ItemHeaderButtons.propTypes = {
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,
+    onToggleFullscreen: PropTypes.func,
 }
 
 ItemHeaderButtons.contextTypes = {

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-11-21T09:42:35.736Z\n"
-"PO-Revision-Date: 2020-11-21T09:42:35.736Z\n"
+"POT-Creation-Date: 2020-12-07T15:44:29.595Z\n"
+"PO-Revision-Date: 2020-12-07T15:44:29.595Z\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -132,13 +132,7 @@ msgstr ""
 msgid "Add text here"
 msgstr ""
 
-msgid "Unable to load the plugin for this item"
-msgstr ""
-
 msgid "There was a problem loading this dashboard item"
-msgstr ""
-
-msgid "No data to display"
 msgstr ""
 
 msgid "Hide interpretations and details"
@@ -157,6 +151,12 @@ msgid "View as Map"
 msgstr ""
 
 msgid "Open in {{appName}} app"
+msgstr ""
+
+msgid "Unable to load the plugin for this item"
+msgstr ""
+
+msgid "No data to display"
 msgstr ""
 
 msgid "Confirm"
