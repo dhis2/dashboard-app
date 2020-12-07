@@ -65,6 +65,10 @@ const ItemHeaderButtons = (props, context) => {
         closeMenu()
     }
 
+    const handleExitFullscreen = () => {
+        props.onToggleFullscreen()
+    }
+
     const openMenu = () => setMenuIsOpen(true)
     const closeMenu = () => setMenuIsOpen(false)
 
@@ -117,9 +121,19 @@ const ItemHeaderButtons = (props, context) => {
                     small
                     secondary
                     onClick={openMenu}
+                    className="item-menu"
                     dataTest="dashboarditem-menu-button"
                 >
                     <ThreeDots />
+                </Button>
+                <Button
+                    small
+                    secondary
+                    className="item-exit-fullscreen-button"
+                    label={i18n.t('Exit fullscreen')}
+                    onClick={handleExitFullscreen}
+                >
+                    {i18n.t('Exit fullscreen')}
                 </Button>
             </div>
             {menuIsOpen && (

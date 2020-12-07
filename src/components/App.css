@@ -34,26 +34,20 @@ table.pivot * {
     width: 100vw !important;
 }
 
-.pivot-table-container:fullscreen {
-    background-color: white;
-    overflow: scroll;
-}
-
-.event-report-container:fullscreen {
-    background-color: white;
-    overflow: scroll;
-}
-
-.event-report-container:fullscreen > table {
-    margin: 0 auto;
-}
-
-.pivot-table-container:fullscreen > table {
-    margin: 0 auto;
-}
-
 .dashboard-item-content.fullscreen > div {
     height: 95vh !important;
+}
+
+.react-grid-item:fullscreen .item-menu {
+    display: none;
+}
+
+.react-grid-item:fullscreen .item-exit-fullscreen-button {
+    display: flex;
+}
+
+.react-grid-item:not(:fullscreen) .item-exit-fullscreen-button {
+    display: none;
 }
 
 @media print {
