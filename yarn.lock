@@ -1696,10 +1696,21 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/d2-ui-core@7.0.8", "@dhis2/d2-ui-core@^7.0.7":
+"@dhis2/d2-ui-core@7.0.8":
   version "7.0.8"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.0.8.tgz#efc579b1468a709917feb0a02c157bce6a39d212"
   integrity sha512-DFbvQgb3oJWeK/a18lmNk7T5mqjqesQ2MDB5Wsj+o+fQ6bF1mUlAI1zYl/hR4KWE9rLnIDTmIK+JZZY3VGR5Yg==
+  dependencies:
+    babel-runtime "^6.26.0"
+    d2 "~31.7"
+    lodash "^4.17.10"
+    material-ui "^0.20.0"
+    rxjs "^5.5.7"
+
+"@dhis2/d2-ui-core@^7.0.11":
+  version "7.0.11"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.0.11.tgz#ba719448a0b983813da2bcb68397b2fde4e882fe"
+  integrity sha512-xmMgnHv/Nl3DAb0Rnvo9jmIMfRasrrpBgrspv7TQmCuGdOeWlo7WYGc5+LueBI11qlzUIJ5RNI69/Dz0Iv/KNA==
   dependencies:
     babel-runtime "^6.26.0"
     d2 "~31.7"
@@ -1860,7 +1871,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@^5.6.1", "@dhis2/ui@^5.7.2", "@dhis2/ui@^5.7.3", "@dhis2/ui@^5.7.8":
+"@dhis2/ui@^5.6.1", "@dhis2/ui@^5.7.2", "@dhis2/ui@^5.7.7", "@dhis2/ui@^5.7.8":
   version "5.7.8"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.7.8.tgz#17604580d02cd4a7756552154a089e730a0fdf02"
   integrity sha512-FHyTP6geAkR/jwX1/xG8yl8PvGaNhms8zUmaNiBLQ0mUmD9oJb47U8YXhJ5nVd0SFJnmuckOWgAWMt3meZGJTA==
