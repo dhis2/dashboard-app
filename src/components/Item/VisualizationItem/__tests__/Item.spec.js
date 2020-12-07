@@ -63,6 +63,7 @@ describe('VisualizationItem/Item', () => {
 
     it('does not render Visualization if config not loaded', () => {
         props.item.type = CHART
+        props.item.id = 'chart-item-1'
         props.item.chart = {
             id: 'chart1',
             name: 'Test chart',

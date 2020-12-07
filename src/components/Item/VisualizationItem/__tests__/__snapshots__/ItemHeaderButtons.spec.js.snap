@@ -4,6 +4,7 @@ exports[`renders correctly 1`] = `
 <Fragment>
   <div>
     <Button
+      className="item-menu"
       dataTest="dashboarditem-menu-button"
       onClick={[Function]}
       secondary={true}
@@ -11,6 +12,17 @@ exports[`renders correctly 1`] = `
       type="button"
     >
       <ThreeDots />
+    </Button>
+    <Button
+      className="item-exit-fullscreen-button"
+      dataTest="dhis2-uicore-button"
+      label="Exit fullscreen"
+      onClick={[Function]}
+      secondary={true}
+      small={true}
+      type="button"
+    >
+      Exit fullscreen
     </Button>
   </div>
 </Fragment>

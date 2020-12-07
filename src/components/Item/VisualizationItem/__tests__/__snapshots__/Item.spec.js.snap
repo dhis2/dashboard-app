@@ -13,11 +13,13 @@ exports[`VisualizationItem/Item does not render Visualization if config not load
               "id": "chart1",
               "name": "Test chart",
             },
+            "id": "chart-item-1",
             "type": "CHART",
           }
         }
         onSelectActiveType={[Function]}
         onToggleFooter={[Function]}
+        onToggleFullscreen={[Function]}
         visualization={
           Object {
             "id": "vis id",
@@ -26,11 +28,12 @@ exports[`VisualizationItem/Item does not render Visualization if config not load
       />
     }
     dashboardMode="view"
+    itemId="chart-item-1"
     title="Test chart"
   />
   <FatalErrorBoundary>
     <div
-      className="dashboard-item-content"
+      className="dashboard-item-content item-chart-item-1"
       key="2"
     />
   </FatalErrorBoundary>
