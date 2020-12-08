@@ -1,8 +1,0 @@
-.container:fullscreen .content {
-    height: 95vh !important;
-    width: 100vw !important;
-}
-
-.container:fullscreen {
-    background-color: white;
-}
