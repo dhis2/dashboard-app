@@ -100,7 +100,6 @@ export class ItemGrid extends Component {
         const itemClassNames = [
             item.type,
             this.props.edit ? 'edit' : 'view',
-            `reactgriditem-${item.id}`,
         ].join(' ')
 
         return (

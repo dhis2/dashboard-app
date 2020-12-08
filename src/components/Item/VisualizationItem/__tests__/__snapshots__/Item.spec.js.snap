@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`VisualizationItem/Item does not render Visualization if config not loaded 1`] = `
-<Fragment>
+<div
+  className="dashboard-item-container"
+>
   <Connect(ItemHeader)
     actionButtons={
       <ItemHeaderButtons
@@ -33,9 +35,9 @@ exports[`VisualizationItem/Item does not render Visualization if config not load
   />
   <FatalErrorBoundary>
     <div
-      className="dashboard-item-content item-chart-item-1"
+      className="dashboard-item-content"
       key="2"
     />
   </FatalErrorBoundary>
-</Fragment>
+</div>
 `;

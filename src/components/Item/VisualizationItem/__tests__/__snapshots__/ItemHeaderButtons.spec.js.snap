@@ -17,7 +17,6 @@ exports[`renders correctly 1`] = `
       className="item-exit-fullscreen-button"
       dataTest="dhis2-uicore-button"
       label="Exit fullscreen"
-      onClick={[Function]}
       secondary={true}
       small={true}
       type="button"

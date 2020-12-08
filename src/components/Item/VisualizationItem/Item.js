@@ -34,7 +34,6 @@ export class Item extends Component {
     state = {
         showFooter: false,
         configLoaded: false,
-        isFullscreen: false,
     }
 
     constructor(props, context) {
@@ -44,6 +43,7 @@ export class Item extends Component {
 
         this.contentRef = React.createRef()
         this.headerRef = React.createRef()
+        this.containerRef = React.createRef()
 
         this.memoizedGetContentHeight = memoizeOne(
             (calculatedHeight, measuredHeight, preferMeasured) =>
@@ -73,31 +73,24 @@ export class Item extends Component {
     }
 
     handleFullscreenChange = () => {
-        const itemEl = document.querySelector(`.item-${this.props.item.id}`)
-        if (itemEl) {
-            if (!document.fullscreenElement) {
-                itemEl.classList.remove('fullscreen')
-            } else {
-                itemEl.classList.add('fullscreen')
-            }
+        if (!document.fullscreenElement) {
+            this.contentRef?.classList.remove('fullscreen')
+        } else {
+            this.contentRef?.classList.add('fullscreen')
         }
     }
 
     onToggleFullscreen = () => {
-        this.setState({ isFullscreen: !this.state.isFullscreen }, () => {
-            if (this.state.isFullscreen) {
-                const el = document.querySelector(
-                    `.reactgriditem-${this.props.item.id}`
-                )
-                if (el?.requestFullscreen) {
-                    el.onfullscreenchange = this.handleFullscreenChange
+        if (document.fullscreenElement === null) {
+            const el = this.containerRef.current
+            if (el?.requestFullscreen) {
+                el.onfullscreenchange = this.handleFullscreenChange
 
-                    el.requestFullscreen()
-                }
-            } else {
-                document.exitFullscreen()
+                el.requestFullscreen()
             }
-        })
+        } else {
+            document.exitFullscreen()
+        }
     }
 
     setActiveType = type => {
@@ -145,7 +138,7 @@ export class Item extends Component {
         )
 
         return (
-            <>
+            <div className="dashboard-item-container" ref={this.containerRef}>
                 <ItemHeader
                     title={getVisualizationName(item)}
                     itemId={item.id}
@@ -157,7 +150,7 @@ export class Item extends Component {
                 <FatalErrorBoundary>
                     <div
                         key={this.getUniqueKey(itemFilters)}
-                        className={`dashboard-item-content item-${item.id}`}
+                        className={`dashboard-item-content`}
                         ref={ref => (this.contentRef = ref)}
                     >
                         {this.state.configLoaded && (
@@ -173,7 +166,7 @@ export class Item extends Component {
                 {isViewMode(dashboardMode) && showFooter ? (
                     <ItemFooter item={item} />
                 ) : null}
-            </>
+            </div>
         )
     }
 }
