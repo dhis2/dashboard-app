@@ -6,13 +6,14 @@
 # Edem Kossi <ekossi@hispwca.org>, 2020
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# Yao Selom SAKA <saka.yao@yahoo.fr>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-11-21T09:42:35.736Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: Yao Selom SAKA <saka.yao@yahoo.fr>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,10 +22,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "Tableau de bord sans titre"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "Chargement du tableau de bord - {{nom}}"
 
 msgid "Cancel"
 msgstr "Annuler"
@@ -45,10 +46,10 @@ msgstr ""
 "Voulez-vous vraiment supprimer définitivement ce tableau de bord?"
 
 msgid "Exit Print preview"
-msgstr ""
+msgstr "Quitter l'aperçu avant impression"
 
 msgid "Print preview"
-msgstr ""
+msgstr "Aperçu avant impression"
 
 msgid "Save changes"
 msgstr "Enregistrer les modifications"
@@ -83,38 +84,42 @@ msgid "No access"
 msgstr "Pas d'accès"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "Quitter l'aperçu avant impression"
 
 msgid "Print"
 msgstr "Imprimer"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "mise en page du tableau de bord"
 
 msgid "one item per page"
-msgstr ""
+msgstr "un élément par page"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "Aperçu avant impression"
 
 msgid "For best print results"
-msgstr ""
+msgstr "Pour de meilleurs résultats d'impression"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "Utiliser le navigateur web Chrome ou Edge"
 
 msgid "Wait for all dashboard items to load before printing"
 msgstr ""
+"Attendez que tous les éléments du tableau de bord soient chargés avant de "
+"les imprimer"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
 " dialog"
 msgstr ""
+"Utilisez un format de papier A4 paysage et les paramètres de marge par "
+"défaut dans la boîte de dialogue d'impression du navigateur"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{{nombre}} choisi"
+msgstr[1] "{{nombre}} choisi"
 
 msgid "Remove"
 msgstr "Supprimer"
@@ -123,7 +128,7 @@ msgid "Delete item"
 msgstr "Supprimer l'item"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "Ce élément a été réduit pour tenir sur une page"
 
 msgid "Messages"
 msgstr "Messages"
@@ -135,7 +140,7 @@ msgid "Item type \"{{type}}\" not supported"
 msgstr "Type d'objet \"{{type}}\" non pris en charge"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "Flitres appliqués"
 
 msgid "Spacer"
 msgstr "Espaceur"
@@ -211,16 +216,16 @@ msgid "Dashboard description"
 msgstr "Description du tableau de bord"
 
 msgid "Hide description"
-msgstr ""
+msgstr "Masquer la description"
 
 msgid "Show description"
-msgstr ""
+msgstr "Afficher la description"
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "Tableau de bord sans étoiles"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "Tableau de bord à étoiles"
 
 msgid "Edit"
 msgstr "Modifier"
@@ -232,10 +237,10 @@ msgid "More"
 msgstr "Plus"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "Mise en page du tableau de bord"
 
 msgid "One item per page"
-msgstr ""
+msgstr "Un élément par page"
 
 msgid "No description"
 msgstr "Pas de description"
