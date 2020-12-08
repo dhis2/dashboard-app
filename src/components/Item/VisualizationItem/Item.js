@@ -128,6 +128,12 @@ export class Item extends Component {
             HEADER_MARGIN_HEIGHT -
             ITEM_CONTENT_PADDING_BOTTOM
 
+        console.log(
+            '**** getheight for item',
+            calculatedHeight,
+            this.contentRef.offsetHeight
+        )
+
         return this.memoizedGetContentHeight(
             calculatedHeight,
             this.contentRef ? this.contentRef.offsetHeight : null,
