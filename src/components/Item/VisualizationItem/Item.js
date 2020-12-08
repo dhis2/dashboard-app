@@ -19,6 +19,7 @@ import {
 } from '../../../reducers/itemFilters'
 import { acAddVisualization } from '../../../actions/visualizations'
 import { acSetSelectedItemActiveType } from '../../../actions/selected'
+import { pluginIsAvailable } from './Visualization/plugin'
 
 import { getVisualizationId, getVisualizationName } from '../../../modules/item'
 import memoizeOne from '../../../modules/memoizeOne'
@@ -30,10 +31,13 @@ import {
 
 import { ITEM_CONTENT_PADDING_BOTTOM } from '../../ItemGrid/ItemGrid'
 
+import classes from './styles/Item.module.css'
+
 export class Item extends Component {
     state = {
         showFooter: false,
         configLoaded: false,
+        isFullscreen: false,
     }
 
     constructor(props, context) {
@@ -73,15 +77,11 @@ export class Item extends Component {
     }
 
     handleFullscreenChange = () => {
-        if (!document.fullscreenElement) {
-            this.contentRef?.classList.remove('fullscreen')
-        } else {
-            this.contentRef?.classList.add('fullscreen')
-        }
+        this.setState({ isFullscreen: !!document.fullscreenElement })
     }
 
     onToggleFullscreen = () => {
-        if (document.fullscreenElement === null) {
+        if (!document.fullscreenElement) {
             const el = this.containerRef.current
             if (el?.requestFullscreen) {
                 el.onfullscreenchange = this.handleFullscreenChange
@@ -106,6 +106,10 @@ export class Item extends Component {
     }
 
     getAvailableHeight = () => {
+        if (this.state.isFullscreen) {
+            return '100%'
+        }
+
         const calculatedHeight =
             this.props.item.originalHeight -
             this.headerRef.current.clientHeight -
@@ -125,7 +129,7 @@ export class Item extends Component {
         const { showFooter } = this.state
         const activeType = this.getActiveType()
 
-        const actionButtons = (
+        const actionButtons = pluginIsAvailable(activeType || item.type) ? (
             <ItemHeaderButtons
                 item={item}
                 visualization={this.props.visualization}
@@ -134,11 +138,12 @@ export class Item extends Component {
                 onToggleFullscreen={this.onToggleFullscreen}
                 activeType={activeType}
                 activeFooter={showFooter}
+                isFullscreen={this.state.isFullscreen}
             />
-        )
+        ) : null
 
         return (
-            <div className="dashboard-item-container" ref={this.containerRef}>
+            <div className={classes.container} ref={this.containerRef}>
                 <ItemHeader
                     title={getVisualizationName(item)}
                     itemId={item.id}
@@ -150,7 +155,7 @@ export class Item extends Component {
                 <FatalErrorBoundary>
                     <div
                         key={this.getUniqueKey(itemFilters)}
-                        className={`dashboard-item-content`}
+                        className={`${classes.content} dashboard-item-content`}
                         ref={ref => (this.contentRef = ref)}
                     >
                         {this.state.configLoaded && (

@@ -29,31 +29,6 @@ table.pivot * {
     background-color: #48a999;
 }
 
-.dashboard-item-content.fullscreen {
-    height: 95vh !important;
-    width: 100vw !important;
-}
-
-.dashboard-item-content.fullscreen > div {
-    height: 100% !important;
-}
-
-.dashboard-item-container:fullscreen {
-    background-color: white;
-}
-
-.dashboard-item-container:fullscreen .item-menu {
-    display: none;
-}
-
-.dashboard-item-container:fullscreen .item-exit-fullscreen-button {
-    display: flex;
-}
-
-.dashboard-item-container:not(:fullscreen) .item-exit-fullscreen-button {
-    display: none;
-}
-
 @media print {
     body {
         width: 100% !important;

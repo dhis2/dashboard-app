@@ -15,7 +15,7 @@ import MapIcon from '@material-ui/icons/Public'
 import LaunchIcon from '@material-ui/icons/Launch'
 
 import { ThreeDots, SpeechBubble } from './assets/icons'
-import { pluginIsAvailable, getLink } from './Visualization/plugin'
+import { getLink } from './Visualization/plugin'
 import {
     CHART,
     MAP,
@@ -31,7 +31,6 @@ const iconFill = { fill: colors.grey600 }
 
 const ItemHeaderButtons = (props, context) => {
     const [menuIsOpen, setMenuIsOpen] = useState(null)
-
     const { item, visualization, onSelectActiveType, activeType } = props
 
     const isTrackerType = isTrackerDomainType(item.type)
@@ -110,26 +109,20 @@ const ItemHeaderButtons = (props, context) => {
 
     const buttonRef = createRef()
 
-    return pluginIsAvailable(activeType || item.type) ? (
+    return props.isFullscreen ? (
+        <Button small secondary onClick={props.onToggleFullscreen}>
+            {i18n.t('Exit fullscreen')}
+        </Button>
+    ) : (
         <>
             <div ref={buttonRef}>
                 <Button
                     small
                     secondary
                     onClick={openMenu}
-                    className="item-menu"
                     dataTest="dashboarditem-menu-button"
                 >
                     <ThreeDots />
-                </Button>
-                <Button
-                    small
-                    secondary
-                    className="item-exit-fullscreen-button"
-                    label={i18n.t('Exit fullscreen')}
-                    onClick={props.onToggleFullscreen}
-                >
-                    {i18n.t('Exit fullscreen')}
                 </Button>
             </div>
             {menuIsOpen && (
@@ -171,12 +164,13 @@ const ItemHeaderButtons = (props, context) => {
                 </Popover>
             )}
         </>
-    ) : null
+    )
 }
 
 ItemHeaderButtons.propTypes = {
     activeFooter: PropTypes.bool,
     activeType: PropTypes.string,
+    isFullscreen: PropTypes.bool,
     item: PropTypes.object,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,

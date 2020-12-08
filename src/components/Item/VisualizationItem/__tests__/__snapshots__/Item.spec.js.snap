@@ -2,13 +2,14 @@
 
 exports[`VisualizationItem/Item does not render Visualization if config not loaded 1`] = `
 <div
-  className="dashboard-item-container"
+  className="container"
 >
   <Connect(ItemHeader)
     actionButtons={
       <ItemHeaderButtons
         activeFooter={false}
         activeType="CHART"
+        isFullscreen={false}
         item={
           Object {
             "chart": Object {
@@ -35,7 +36,7 @@ exports[`VisualizationItem/Item does not render Visualization if config not load
   />
   <FatalErrorBoundary>
     <div
-      className="dashboard-item-content"
+      className="content dashboard-item-content"
       key="2"
     />
   </FatalErrorBoundary>
