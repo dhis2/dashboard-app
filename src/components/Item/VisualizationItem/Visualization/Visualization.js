@@ -68,7 +68,6 @@ class Visualization extends React.Component {
             ),
         }
 
-        console.log('render vis')
         switch (activeType) {
             case VISUALIZATION:
             case CHART:

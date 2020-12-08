@@ -16,7 +16,6 @@ exports[`VisualizationItem/Item does not render Visualization if config not load
               "id": "chart1",
               "name": "Test chart",
             },
-            "id": "chart-item-1",
             "type": "CHART",
           }
         }
@@ -31,7 +30,6 @@ exports[`VisualizationItem/Item does not render Visualization if config not load
       />
     }
     dashboardMode="view"
-    itemId="chart-item-1"
     title="Test chart"
   />
   <FatalErrorBoundary>
