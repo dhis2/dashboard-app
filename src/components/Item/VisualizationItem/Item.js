@@ -45,6 +45,7 @@ export class Item extends Component {
 
         this.contentRef = React.createRef()
         this.headerRef = React.createRef()
+        this.itemDomElSelector = `.reactgriditem-${this.props.item.id}`
 
         this.memoizedGetContentHeight = memoizeOne(
             (calculatedHeight, measuredHeight, preferMeasured) =>
@@ -63,18 +64,14 @@ export class Item extends Component {
             configLoaded: true,
         })
 
-        const el = document.querySelector(
-            `.reactgriditem-${this.props.item.id}`
-        )
+        const el = document.querySelector(this.itemDomElSelector)
         if (el?.requestFullscreen) {
             el.onfullscreenchange = this.handleFullscreenChange
         }
     }
 
     componentWillUnmount() {
-        const el = document.querySelector(
-            `.reactgriditem-${this.props.item.id}`
-        )
+        const el = document.querySelector(this.itemDomElSelector)
         el.removeEventListener(
             'onfullscreenchange',
             this.handleFullscreenChange
@@ -96,9 +93,7 @@ export class Item extends Component {
 
     onToggleFullscreen = () => {
         if (!document.fullscreenElement) {
-            const el = document.querySelector(
-                `.reactgriditem-${this.props.item.id}`
-            )
+            const el = document.querySelector(this.itemDomElSelector)
             el?.requestFullscreen && el.requestFullscreen()
         } else {
             document.exitFullscreen()
@@ -127,12 +122,6 @@ export class Item extends Component {
             this.headerRef.current.clientHeight -
             HEADER_MARGIN_HEIGHT -
             ITEM_CONTENT_PADDING_BOTTOM
-
-        console.log(
-            '**** getheight for item',
-            calculatedHeight,
-            this.contentRef.offsetHeight
-        )
 
         return this.memoizedGetContentHeight(
             calculatedHeight,
@@ -173,7 +162,7 @@ export class Item extends Component {
                 <FatalErrorBoundary>
                     <div
                         key={this.getUniqueKey(itemFilters)}
-                        className={`dashboard-item-content`}
+                        className="dashboard-item-content"
                         ref={ref => (this.contentRef = ref)}
                     >
                         {this.state.configLoaded && (
