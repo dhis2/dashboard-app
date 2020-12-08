@@ -14,7 +14,12 @@ import ChartIcon from '@material-ui/icons/InsertChart'
 import MapIcon from '@material-ui/icons/Public'
 import LaunchIcon from '@material-ui/icons/Launch'
 
-import { ThreeDots, SpeechBubble, Fullscreen } from './assets/icons'
+import {
+    ThreeDots,
+    SpeechBubble,
+    Fullscreen,
+    ExitFullscreen,
+} from './assets/icons'
 import { getLink } from './Visualization/plugin'
 import {
     CHART,
@@ -111,7 +116,7 @@ const ItemHeaderButtons = (props, context) => {
 
     return props.isFullscreen ? (
         <Button small secondary onClick={props.onToggleFullscreen}>
-            {i18n.t('Exit fullscreen')}
+            <ExitFullscreen />
         </Button>
     ) : (
         <>
