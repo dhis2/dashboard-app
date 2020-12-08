@@ -65,6 +65,18 @@ export class Item extends Component {
         this.setState({
             configLoaded: true,
         })
+
+        const el = this.containerRef.current
+        if (el?.requestFullscreen) {
+            el.onfullscreenchange = this.handleFullscreenChange
+        }
+    }
+
+    componentWillUnmount() {
+        this.containerRef.current.removeEventListener(
+            'onfullscreenchange',
+            this.handleFullscreenChange
+        )
     }
 
     getUniqueKey = memoizeOne(() => uniqueId())
@@ -83,11 +95,7 @@ export class Item extends Component {
     onToggleFullscreen = () => {
         if (!document.fullscreenElement) {
             const el = this.containerRef.current
-            if (el?.requestFullscreen) {
-                el.onfullscreenchange = this.handleFullscreenChange
-
-                el.requestFullscreen()
-            }
+            el?.requestFullscreen && el.requestFullscreen()
         } else {
             document.exitFullscreen()
         }
