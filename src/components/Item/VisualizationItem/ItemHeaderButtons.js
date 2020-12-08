@@ -14,7 +14,7 @@ import ChartIcon from '@material-ui/icons/InsertChart'
 import MapIcon from '@material-ui/icons/Public'
 import LaunchIcon from '@material-ui/icons/Launch'
 
-import { ThreeDots, SpeechBubble } from './assets/icons'
+import { ThreeDots, SpeechBubble, Fullscreen } from './assets/icons'
 import { getLink } from './Visualization/plugin'
 import {
     CHART,
@@ -156,7 +156,7 @@ const ItemHeaderButtons = (props, context) => {
                         />
                         <MenuItem
                             dense
-                            icon={<SpeechBubble />}
+                            icon={<Fullscreen />}
                             label={i18n.t('View fullscreen')}
                             onClick={handleToggleFullscreenClick}
                         />
