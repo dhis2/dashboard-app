@@ -31,8 +31,6 @@ import {
 
 import { ITEM_CONTENT_PADDING_BOTTOM } from '../../ItemGrid/ItemGrid'
 
-import classes from './styles/Item.module.css'
-
 export class Item extends Component {
     state = {
         showFooter: false,
@@ -47,7 +45,6 @@ export class Item extends Component {
 
         this.contentRef = React.createRef()
         this.headerRef = React.createRef()
-        this.containerRef = React.createRef()
 
         this.memoizedGetContentHeight = memoizeOne(
             (calculatedHeight, measuredHeight, preferMeasured) =>
@@ -66,14 +63,19 @@ export class Item extends Component {
             configLoaded: true,
         })
 
-        const el = this.containerRef.current
+        const el = document.querySelector(
+            `.reactgriditem-${this.props.item.id}`
+        )
         if (el?.requestFullscreen) {
             el.onfullscreenchange = this.handleFullscreenChange
         }
     }
 
     componentWillUnmount() {
-        this.containerRef.current.removeEventListener(
+        const el = document.querySelector(
+            `.reactgriditem-${this.props.item.id}`
+        )
+        el.removeEventListener(
             'onfullscreenchange',
             this.handleFullscreenChange
         )
@@ -94,7 +96,9 @@ export class Item extends Component {
 
     onToggleFullscreen = () => {
         if (!document.fullscreenElement) {
-            const el = this.containerRef.current
+            const el = document.querySelector(
+                `.reactgriditem-${this.props.item.id}`
+            )
             el?.requestFullscreen && el.requestFullscreen()
         } else {
             document.exitFullscreen()
@@ -151,7 +155,7 @@ export class Item extends Component {
         ) : null
 
         return (
-            <div className={classes.container} ref={this.containerRef}>
+            <>
                 <ItemHeader
                     title={getVisualizationName(item)}
                     itemId={item.id}
@@ -163,7 +167,7 @@ export class Item extends Component {
                 <FatalErrorBoundary>
                     <div
                         key={this.getUniqueKey(itemFilters)}
-                        className={`${classes.content} dashboard-item-content`}
+                        className={`dashboard-item-content`}
                         ref={ref => (this.contentRef = ref)}
                     >
                         {this.state.configLoaded && (
@@ -179,7 +183,7 @@ export class Item extends Component {
                 {isViewMode(dashboardMode) && showFooter ? (
                     <ItemFooter item={item} />
                 ) : null}
-            </div>
+            </>
         )
     }
 }

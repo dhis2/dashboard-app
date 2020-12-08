@@ -29,6 +29,15 @@ table.pivot * {
     background-color: #48a999;
 }
 
+div:fullscreen .dashboard-item-content {
+    height: 95vh !important;
+    width: 100vw !important;
+}
+
+div:fullscreen {
+    background-color: white;
+}
+
 @media print {
     body {
         width: 100% !important;
