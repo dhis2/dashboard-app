@@ -7,7 +7,7 @@ exports[`renders correctly when fullscreen 1`] = `
   small={true}
   type="button"
 >
-  Exit fullscreen
+  <ExitFullscreen />
 </Button>
 `;
 
