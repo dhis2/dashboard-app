@@ -44,7 +44,7 @@ When('dashboard items are added', () => {
 
 When('escape key is pressed', () => {
     cy.get('body').trigger('keydown', { key: 'Escape' })
-    cy.get('[data-test="item-menu]').should('not.be.visible')
+    cy.get('[data-test="item-menu]').should('not.exist')
 })
 
 When('dashboard is saved', () => {

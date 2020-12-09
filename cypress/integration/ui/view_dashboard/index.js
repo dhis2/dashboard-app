@@ -60,7 +60,7 @@ When('I search for dashboards containing Noexist', () => {
     cy.get('[data-test="search-dashboard-input"]').type('Noexist')
 })
 Then('no dashboards are choices', () => {
-    cy.get('[data-test="dhis2-uicore-chip"]').should('not.be.visible')
+    cy.get('[data-test="dhis2-uicore-chip"]').should('not.exist')
 })
 
 Then("dashboards list restored and dashboard doesn't change", () => {
