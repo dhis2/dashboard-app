@@ -1,5 +1,9 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { chartSel } from '../../../selectors/dashboardItem'
+import {
+    gridItemSel,
+    chartSel,
+    chartSubtitleSel,
+} from '../../../selectors/dashboardItem'
 
 // the length of the root route of the app (after the slash): #/
 const ROOT_ROUTE_LENGTH = 0
@@ -134,11 +138,11 @@ Then('no analytics requests are made when item is moved', () => {
         })
     })
 
-    cy.get('.react-grid-item')
+    cy.get(gridItemSel)
         .first()
         .trigger('mousedown')
         .trigger('mousemove', { clientX: 400 })
         .trigger('mouseup')
 
-    cy.get('.highcharts-subtitle').contains(WRONG_SUBTITLE).should('not.exist')
+    cy.get(chartSubtitleSel).contains(WRONG_SUBTITLE).should('not.exist')
 })
