@@ -4,6 +4,7 @@ import {
     chartSel,
     chartSubtitleSel,
 } from '../../../selectors/dashboardItem'
+import { dashboardChipSel } from '../../../selectors/dashboardsBar'
 
 // the length of the root route of the app (after the slash): #/
 const ROOT_ROUTE_LENGTH = 0
@@ -32,6 +33,9 @@ const toggleShowMoreButton = () => {
     cy.get('[data-test="showmore-button"]').click()
 }
 
+/*
+Scenario: I create a new dashboard
+*/
 Given('I choose to create new dashboard', () => {
     cy.get('[data-test="link-new-dashboard"]', {
         timeout: 15000,
@@ -76,9 +80,7 @@ Then('dashboard displays in view mode', () => {
 
 Given('I open existing dashboard', () => {
     toggleShowMoreButton()
-    cy.get('[data-test="dashboard-chip"]')
-        .contains(TEST_DASHBOARD_TITLE)
-        .click()
+    cy.get(dashboardChipSel).contains(TEST_DASHBOARD_TITLE).click()
 })
 
 When('I choose to edit dashboard', () => {
@@ -89,16 +91,12 @@ When('I choose to delete dashboard', () => {
     cy.get('[data-test="delete-dashboard-button"]').click()
 })
 
-When('I confirm delete', () => {
-    cy.get('[data-test="confirm-delete-dashboard"]').click()
-})
+/*
+Scenario: I cancel a delete dashboard action
+*/
 
 When('I cancel delete', () => {
     cy.get('[data-test="cancel-delete-dashboard"]').click()
-})
-
-Then('the chart item is displayed', () => {
-    cy.get(chartSel).should('exist')
 })
 
 Then('the dashboard displays in edit mode', () => {
@@ -109,11 +107,17 @@ Then('the dashboard displays in edit mode', () => {
     })
 })
 
+/*
+Scenario: I delete a dashboard
+*/
+
+When('I confirm delete', () => {
+    cy.get('[data-test="confirm-delete-dashboard"]').click()
+})
+
 Then('the dashboard is deleted and first starred dashboard displayed', () => {
     toggleShowMoreButton()
-    cy.get('[data-test="dashboard-chip"]')
-        .contains(TEST_DASHBOARD_TITLE)
-        .should('not.exist')
+    cy.get(dashboardChipSel).contains(TEST_DASHBOARD_TITLE).should('not.exist')
 
     cy.get('[data-test="view-dashboard-title"]')
         .should('exist')
@@ -123,6 +127,10 @@ Then('the dashboard is deleted and first starred dashboard displayed', () => {
 /*
 Scenario: I move an item on a dashboard
 */
+
+Then('the chart item is displayed', () => {
+    cy.get(chartSel).should('exist')
+})
 
 Then('no analytics requests are made when item is moved', () => {
     const WRONG_SUBTITLE = 'WRONG_SUBTITLE'
