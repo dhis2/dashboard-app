@@ -9,8 +9,6 @@ export default function loginAndPersistSession(mode = getDefaultMode()) {
         // It also ensures that the value from the cypress env
         // is used instead of REACT_APP_DHIS2_BASE_URL
         localStorage.setItem('DHIS2_BASE_URL', baseUrl)
-
-        Cypress.Cookies.preserveOnce('JSESSIONID')
     })
 
     if (!isStubMode(mode)) {
