@@ -1,7 +1,10 @@
 import { enableAutoLogin } from '@dhis2/cypress-commands'
+import { enableNetworkShim } from './server'
+import { getDefaultMode, isStubMode } from './server/utils.js'
 
-import { enableNetworkShim, loginAndPersistSession } from './server'
-
-enableAutoLogin()
 enableNetworkShim()
-loginAndPersistSession()
+
+if (!isStubMode(getDefaultMode())) {
+    // log in if using a live backend
+    enableAutoLogin()
+}
