@@ -138,11 +138,8 @@ Then('no analytics requests are made when item is moved', () => {
         req.reply(res => {
             // modify the chart subtitle so we can check whether the api request
             // was made. (It shouldn't be - that's the test)
-            const metaData = res.body.metaData
-            metaData.items.THIS_YEAR.name = WRONG_SUBTITLE
-
-            const newResponse = Object.assign({}, res.body, { metaData })
-            res.send({ body: newResponse })
+            res.body.metaData.items.THIS_YEAR.name = WRONG_SUBTITLE
+            res.send({ body: res.body })
         })
     })
 
