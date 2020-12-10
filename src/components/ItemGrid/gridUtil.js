@@ -57,13 +57,28 @@ export const getShape = i => {
         throw new Error('Invalid grid block number')
     }
 
-    const col = i % NUMBER_OF_ITEM_COLS
+    /*const col = i % NUMBER_OF_ITEM_COLS
     const row = Math.floor(i / NUMBER_OF_ITEM_COLS)
     const itemWidth = Math.floor(MAX_ITEM_GRID_WIDTH / NUMBER_OF_ITEM_COLS)
     const itemHeight = GRID_ROW_HEIGHT * 2
 
+    console.log({x: col*itemWidth, y: row*itemHeight, col, row, itemHeight, itemWidth})
+
     return {
         x: col * itemWidth,
+        y: row * itemHeight,
+        w: itemWidth,
+        h: itemHeight,
+    }*/
+    const col = (_.random(0, 3) * 3 ) % 12 //(item) % 12
+    const row = Math.floor(i/4)
+    const itemWidth = 3 //Math.floor(59 / 4)
+    const itemHeight = 12 //GRID_ROW_HEIGHT //* 2 //(10*2)
+
+    console.log({x: col, y: row * itemHeight, i})
+
+    return {
+        x: col,
         y: row * itemHeight,
         w: itemWidth,
         h: itemHeight,

@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import ReactGridLayout from 'react-grid-layout'
+import {Responsive, WidthProvider} from 'react-grid-layout'
+const ResponsiveReactGridLayout = WidthProvider(Responsive)
+import 'react-grid-layout/css/styles.css'
+import 'react-resizable/css/styles.css'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 
 import { acUpdateDashboardLayout } from '../../actions/editDashboard'
@@ -37,6 +40,41 @@ import {
 import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer'
 import { VIEW, EDIT } from '../Dashboard/dashboardModes'
 
+//grid
+const generateLayout = (items) => {
+
+    /*return _.map(_.range(0, 25), function(item, i) {
+        var y = Math.ceil(Math.random() * 4) + 1
+
+        //console.log('layout', {x, y: Math.floor(i / 4) * 20, w:2 , h: y, i, itemWidth: Math.floor(59/4)})
+
+        return {
+            x: (_.random(0, 3) * 3 ) % 12, //(_.random(0, 5) * 2) % 12,
+            y: Math.floor(i / 4) * 20,
+            w: 3,
+            h: 10 * 2,
+            i: i.toString(),
+            //static: Math.random() < 0.05
+        }
+    })*/
+
+    return items.map(item => {
+        const col = (_.random(0, 3) * 3 ) % 12 //(item) % 12
+        const row = Math.floor(item/4)
+        const itemWidth = 3 //Math.floor(59 / 4)
+        const itemHeight = 10 * 2//GRID_ROW_HEIGHT * 2 (10*2)
+
+        console.log({x: col, y: row * itemHeight, item})
+
+        return {
+            x: col,
+            y: row * itemHeight,
+            w: itemWidth,
+            h: itemHeight,
+        }
+    })
+}
+
 // Component
 
 const EXPANDED_HEIGHT = 17
@@ -46,42 +84,13 @@ export const ITEM_CONTENT_PADDING_BOTTOM = 4
 export class ItemGrid extends Component {
     state = {
         expandedItems: {},
-    }
-
-    onToggleItemExpanded = clickedId => {
-        const isExpanded =
-            typeof this.state.expandedItems[clickedId] === 'boolean'
-                ? this.state.expandedItems[clickedId]
-                : false
-
-        const expandedItems = { ...this.state.expandedItems }
-        expandedItems[clickedId] = !isExpanded
-        this.setState({ expandedItems })
-    }
-
-    UNSAFE_componentWillReceiveProps(nextProps) {
-        if (nextProps.edit) {
-            this.setState({ expandedItems: {} })
-        }
-    }
-
-    onLayoutChange = newLayout => {
-        if (this.props.edit) {
-            this.props.acUpdateDashboardLayout(newLayout)
-        }
-    }
-
-    onResizeStop = (layout, oldItem, newItem) => {
-        onItemResize(newItem.i)
-
-        const dashboardItem = this.props.dashboardItems.find(
-            item => item.id === newItem.i
-        )
-
-        // call resize on the item component if it's a plugin type
-        if (dashboardItem && isVisualizationType(dashboardItem)) {
-            pluginResize(dashboardItem)
-        }
+        //adding for grid
+        currentBreakpoint: "lg",
+        compactType: "vertical",
+        mounted: false,
+        //layouts: { lg: this.props.initialLayout }
+        //layouts: { lg: generateLayout(this.props.dashboardItems) }
+        layouts: { lg: this.props.dashboardItems }
     }
 
     adjustHeightForExpanded = dashboardItem => {
@@ -117,6 +126,16 @@ export class ItemGrid extends Component {
         )
     }
 
+    onBreakpointChange = (breakpoint) => {
+        this.setState({
+            currentBreakpoint: breakpoint
+        })
+    }
+
+    onLayoutChange = (layout, layouts) => {
+        this.props.onLayoutChange(layout, layouts);
+    }
+
     getItemComponents = items => items.map(item => this.getItemComponent(item))
 
     render() {
@@ -143,22 +162,19 @@ export class ItemGrid extends Component {
                         </CenteredContent>
                     </Layer>
                 ) : null}
-                <ReactGridLayout
+                <ResponsiveReactGridLayout
+                    {...this.props}
+                    layouts={this.state.layouts}
+                    onBreakpointChange={this.onBreakpointChange}
                     onLayoutChange={this.onLayoutChange}
-                    onResizeStop={this.onResizeStop}
-                    className="layout"
-                    layout={items}
-                    margin={MARGIN}
-                    cols={getGridColumns()}
-                    rowHeight={GRID_ROW_HEIGHT}
-                    width={window.innerWidth}
-                    compactType={GRID_COMPACT_TYPE}
-                    isDraggable={edit}
-                    isResizable={edit}
-                    draggableCancel="input,textarea"
+                    measureBeforeMount={false}
+                    useCSSTransforms={this.state.mounted}
+                    compactType={this.state.compactType}
+                    preventCollision={!this.state.compactType}
                 >
+                    {/*{this.generateDOM()}*/}
                     {this.getItemComponents(items)}
-                </ReactGridLayout>
+                </ResponsiveReactGridLayout>
             </div>
         )
     }
@@ -173,6 +189,12 @@ ItemGrid.propTypes = {
 
 ItemGrid.defaultProps = {
     dashboardItems: [],
+    className: "layout",
+    rowHeight: 30,
+    onLayoutChange: function() {},
+    cols: { lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 },
+    //initialLayout: generateLayout()
+    //initialLayout: generateLayout(this.props.dashboardItems)
 }
 
 // Container

@@ -39,10 +39,10 @@ export const ViewDashboard = props => {
 
     return (
         <>
-            <DashboardsBar />
+            {/*<DashboardsBar />*/}
             <DashboardVerticalOffset />
             <div className="dashboard-wrapper" style={{ height }}>
-                <TitleBar edit={false} />
+                {/*<TitleBar edit={false} />*/}
                 <FilterBar />
                 <ItemGrid edit={false} />
             </div>
