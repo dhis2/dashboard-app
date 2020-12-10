@@ -46,7 +46,7 @@ exports[`renders a MapPlugin when activeType is MAP 1`] = `
 </div>
 `;
 
-exports[`renders a VisPlugin when activeType is CHART 1`] = `
+exports[`renders active type CHART rather than original type REPORT_TABLE 1`] = `
 <div>
   <div
     style="height: 500px;"
@@ -82,7 +82,7 @@ exports[`renders a VisPlugin when activeType is CHART 1`] = `
 </div>
 `;
 
-exports[`renders a VisPlugin when activeType is TABLE 1`] = `
+exports[`renders active type REPORT_TABLE rather than original type CHART 1`] = `
 <div>
   <div
     style="height: 500px;"

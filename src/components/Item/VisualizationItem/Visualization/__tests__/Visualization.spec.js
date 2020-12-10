@@ -10,13 +10,13 @@ jest.mock('../MapPlugin', () => 'MapPlugin')
 jest.mock('../DefaultPlugin', () => 'DefaultPlugin')
 
 const mockStore = configureMockStore()
+const DEFAULT_STORE_WITH_ONE_ITEM = {
+    visualizations: { rainbowVis: { rows: [], columns: [], filters: [] } },
+}
 
 test('renders a MapPlugin when activeType is MAP', () => {
-    const store = {
-        visualizations: { rainbowVis: { rows: [], columns: [], filters: [] } },
-    }
     const { container } = render(
-        <Provider store={mockStore(store)}>
+        <Provider store={mockStore(DEFAULT_STORE_WITH_ONE_ITEM)}>
             <Visualization
                 item={{
                     id: 'rainbow',
@@ -32,12 +32,9 @@ test('renders a MapPlugin when activeType is MAP', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('renders a VisPlugin when activeType is CHART', () => {
-    const store = {
-        visualizations: { rainbowVis: { rows: [], columns: [], filters: [] } },
-    }
+test('renders active type CHART rather than original type REPORT_TABLE', () => {
     const { container } = render(
-        <Provider store={mockStore(store)}>
+        <Provider store={mockStore(DEFAULT_STORE_WITH_ONE_ITEM)}>
             <Visualization
                 item={{
                     id: 'rainbow',
@@ -53,12 +50,9 @@ test('renders a VisPlugin when activeType is CHART', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('renders a VisPlugin when activeType is TABLE', () => {
-    const store = {
-        visualizations: { rainbowVis: { rows: [], columns: [], filters: [] } },
-    }
+test('renders active type REPORT_TABLE rather than original type CHART', () => {
     const { container } = render(
-        <Provider store={mockStore(store)}>
+        <Provider store={mockStore(DEFAULT_STORE_WITH_ONE_ITEM)}>
             <Visualization
                 item={{
                     id: 'rainbow',
@@ -75,11 +69,8 @@ test('renders a VisPlugin when activeType is TABLE', () => {
 })
 
 test('renders a DefaultPlugin when activeType is EVENT_CHART', () => {
-    const store = {
-        visualizations: { rainbowVis: { rows: [], columns: [], filters: [] } },
-    }
     const { container } = render(
-        <Provider store={mockStore(store)}>
+        <Provider store={mockStore(DEFAULT_STORE_WITH_ONE_ITEM)}>
             <Visualization
                 item={{
                     id: 'rainbow',
@@ -96,11 +87,8 @@ test('renders a DefaultPlugin when activeType is EVENT_CHART', () => {
 })
 
 test('renders a DefaultPlugin when activeType is EVENT_REPORT', () => {
-    const store = {
-        visualizations: { rainbowVis: { rows: [], columns: [], filters: [] } },
-    }
     const { container } = render(
-        <Provider store={mockStore(store)}>
+        <Provider store={mockStore(DEFAULT_STORE_WITH_ONE_ITEM)}>
             <Visualization
                 item={{
                     id: 'rainbow',
