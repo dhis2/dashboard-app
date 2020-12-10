@@ -3,6 +3,7 @@ export const chartSubtitleSel = '.highcharts-subtitle'
 export const chartXAxisLabelSel = '.highcharts-xaxis-labels'
 export const mapSel = '.dhis2-map-plugin'
 export const tableSel = '.pivot-table-container'
+export const gridItemSel = '.react-grid-item'
 
 export const itemDetailsSel = '[data-test="dashboarditem-footer"]'
 
