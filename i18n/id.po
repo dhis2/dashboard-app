@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-11-21T09:42:35.736Z\n"
+"POT-Creation-Date: 2020-12-09T13:38:15.043Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -147,14 +147,8 @@ msgstr "Item teks"
 msgid "Add text here"
 msgstr "Tambahkan teks di sini"
 
-msgid "Unable to load the plugin for this item"
-msgstr "Tidak dapat memuat plugin untuk item ini"
-
 msgid "There was a problem loading this dashboard item"
 msgstr ""
-
-msgid "No data to display"
-msgstr "Tidak ada data untuk ditampilkan"
 
 msgid "Hide interpretations and details"
 msgstr ""
@@ -173,6 +167,12 @@ msgstr ""
 
 msgid "Open in {{appName}} app"
 msgstr ""
+
+msgid "Unable to load the plugin for this item"
+msgstr "Tidak dapat memuat plugin untuk item ini"
+
+msgid "No data to display"
+msgstr "Tidak ada data untuk ditampilkan"
 
 msgid "Confirm"
 msgstr "Konfirmasi"
