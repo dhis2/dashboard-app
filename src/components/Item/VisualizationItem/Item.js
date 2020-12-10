@@ -2,21 +2,15 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import uniqueId from 'lodash/uniqueId'
-import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
-import i18n from '@dhis2/d2-i18n'
 
-import DefaultPlugin from './DefaultPlugin'
-import MapPlugin from './MapPlugin'
+import Visualization from './Visualization/Visualization'
 import FatalErrorBoundary from './FatalErrorBoundary'
 import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader/ItemHeader'
 import ItemHeaderButtons from './ItemHeaderButtons'
 import ItemFooter from './ItemFooter'
-import LoadingMask from './LoadingMask'
-import NoVisualizationMessage from './NoVisualizationMessage'
 
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
 import { apiFetchVisualization } from '../../../api/metadata'
-import getVisualizationConfig from './getVisualizationConfig'
 import { sGetVisualization } from '../../../reducers/visualizations'
 import { sGetSelectedItemActiveType } from '../../../reducers/selected'
 import { sGetIsEditing } from '../../../reducers/editDashboard'
@@ -27,13 +21,7 @@ import {
 import { sGatherAnalyticalObjectStatisticsInDashboardViews } from '../../../reducers/settings'
 import { acAddVisualization } from '../../../actions/visualizations'
 import { acSetSelectedItemActiveType } from '../../../actions/selected'
-import {
-    VISUALIZATION,
-    MAP,
-    CHART,
-    REPORT_TABLE,
-    getDataStatisticsName,
-} from '../../../modules/itemTypes'
+import { getDataStatisticsName } from '../../../modules/itemTypes'
 import { getVisualizationId, getVisualizationName } from '../../../modules/item'
 import memoizeOne from '../../../modules/memoizeOne'
 import {
@@ -48,7 +36,6 @@ export class Item extends Component {
     state = {
         showFooter: false,
         configLoaded: false,
-        pluginIsLoaded: false,
     }
 
     constructor(props, context) {
@@ -59,11 +46,12 @@ export class Item extends Component {
         this.contentRef = React.createRef()
         this.headerRef = React.createRef()
 
-        this.memoizedApplyFilters = memoizeOne(this.applyFilters)
-
-        this.memoizedGetVisualizationConfig = memoizeOne(getVisualizationConfig)
-
-        this.memoizedGetContentHeight = memoizeOne(this.getContentHeight)
+        this.memoizedGetContentHeight = memoizeOne(
+            (calculatedHeight, measuredHeight, preferMeasured) =>
+                preferMeasured
+                    ? measuredHeight || calculatedHeight
+                    : calculatedHeight
+        )
     }
 
     async componentDidMount() {
@@ -90,135 +78,7 @@ export class Item extends Component {
         })
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (
-            prevState.pluginIsLoaded &&
-            (prevProps.visualization !== this.props.visualization ||
-                prevProps.itemFilters !== this.props.itemFilters)
-        ) {
-            this.setState({
-                pluginIsLoaded: false,
-            })
-        }
-    }
-
-    applyFilters = (visualization, filters) => {
-        if (!Object.keys(filters).length) {
-            return visualization
-        }
-
-        // deep clone objects in filters to avoid changing the visualization in the Redux store
-        const visRows = visualization.rows.map(obj => ({ ...obj }))
-        const visColumns = visualization.columns.map(obj => ({ ...obj }))
-        const visFilters = visualization.filters.map(obj => ({ ...obj }))
-
-        Object.keys(filters).forEach(dimensionId => {
-            if (filters[dimensionId]) {
-                let dimensionFound = false
-
-                ;[visRows, visColumns, visFilters].forEach(dimensionObjects =>
-                    dimensionObjects
-                        .filter(obj => obj.dimension === dimensionId)
-                        .forEach(obj => {
-                            dimensionFound = true
-                            obj.items = filters[dimensionId]
-                        })
-                )
-
-                // add dimension to filters if not already present elsewhere
-                if (!dimensionFound) {
-                    visFilters.push({
-                        dimension: dimensionId,
-                        items: filters[dimensionId],
-                    })
-                }
-            }
-        })
-
-        return {
-            ...visualization,
-            rows: visRows,
-            columns: visColumns,
-            filters: visFilters,
-        }
-    }
-
     getUniqueKey = memoizeOne(() => uniqueId())
-
-    pluginCredentials = null
-
-    getPluginComponent = () => {
-        const activeType = this.getActiveType()
-        const visualization = this.memoizedGetVisualizationConfig(
-            this.props.visualization,
-            this.props.item.type,
-            activeType
-        )
-
-        if (!visualization) {
-            return (
-                <NoVisualizationMessage
-                    message={i18n.t('No data to display')}
-                />
-            )
-        }
-
-        const props = {
-            item: this.props.item,
-            itemFilters: this.props.itemFilters,
-            activeType,
-            visualization,
-            style: this.getPluginStyle(),
-        }
-
-        switch (activeType) {
-            case VISUALIZATION:
-            case CHART:
-            case REPORT_TABLE: {
-                return (
-                    <>
-                        {!this.state.pluginIsLoaded && (
-                            <div style={props.style}>
-                                <LoadingMask />
-                            </div>
-                        )}
-                        <VisualizationPlugin
-                            d2={this.d2}
-                            visualization={this.memoizedApplyFilters(
-                                visualization,
-                                props.itemFilters
-                            )}
-                            onLoadingComplete={this.onLoadingComplete}
-                            forDashboard={true}
-                            style={props.style}
-                        />
-                    </>
-                )
-            }
-            case MAP: {
-                return (
-                    <MapPlugin
-                        applyFilters={this.memoizedApplyFilters}
-                        {...props}
-                    />
-                )
-            }
-            default: {
-                props.visualization = this.memoizedApplyFilters(
-                    props.visualization,
-                    props.itemFilters
-                )
-
-                return <DefaultPlugin {...props} />
-            }
-        }
-    }
-
-    onLoadingComplete = () => {
-        this.setState({
-            pluginIsLoaded: true,
-        })
-    }
 
     onToggleFooter = () => {
         this.setState(
@@ -227,9 +87,9 @@ export class Item extends Component {
         )
     }
 
-    selectActiveType = type => {
+    setActiveType = type => {
         type !== this.getActiveType() &&
-            this.props.selectActiveType(this.props.item.id, type)
+            this.props.setActiveType(this.props.item.id, type)
     }
 
     getActiveType = () => {
@@ -239,7 +99,7 @@ export class Item extends Component {
         return this.props.activeType || this.props.item.type
     }
 
-    getPluginStyle = () => {
+    getAvailableHeight = () => {
         const calculatedHeight =
             this.props.item.originalHeight -
             this.headerRef.current.clientHeight -
@@ -254,26 +114,19 @@ export class Item extends Component {
         )
     }
 
-    getContentHeight = (calculatedHeight, measuredHeight, preferMeasured) => {
-        const height = preferMeasured
-            ? measuredHeight || calculatedHeight
-            : calculatedHeight
-
-        return { height }
-    }
-
     render() {
         const { item, dashboardMode, itemFilters } = this.props
         const { showFooter } = this.state
+        const activeType = this.getActiveType()
 
         const actionButtons = (
             <ItemHeaderButtons
                 item={item}
                 visualization={this.props.visualization}
-                onSelectActiveType={this.selectActiveType}
+                onSelectActiveType={this.setActiveType}
                 onToggleFooter={this.onToggleFooter}
-                activeType={this.getActiveType()}
-                activeFooter={this.state.showFooter}
+                activeType={activeType}
+                activeFooter={showFooter}
             />
         )
 
@@ -293,7 +146,14 @@ export class Item extends Component {
                         className="dashboard-item-content"
                         ref={ref => (this.contentRef = ref)}
                     >
-                        {this.state.configLoaded && this.getPluginComponent()}
+                        {this.state.configLoaded && (
+                            <Visualization
+                                item={item}
+                                activeType={activeType}
+                                itemFilters={itemFilters}
+                                availableHeight={this.getAvailableHeight()}
+                            />
+                        )}
                     </div>
                 </FatalErrorBoundary>
                 {isViewMode(dashboardMode) && showFooter ? (
@@ -315,7 +175,7 @@ Item.propTypes = {
     isEditing: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
-    selectActiveType: PropTypes.func,
+    setActiveType: PropTypes.func,
     updateVisualization: PropTypes.func,
     visualization: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
@@ -347,7 +207,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = {
-    selectActiveType: acSetSelectedItemActiveType,
+    setActiveType: acSetSelectedItemActiveType,
     updateVisualization: acAddVisualization,
 }
 

@@ -1,42 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`VisualizationItem/Item renders a DefaultPlugin when an EVENT_CHART is passed 1`] = `
+exports[`VisualizationItem/Item does not render Visualization if config not loaded 1`] = `
 <Fragment>
   <Connect(ItemHeader)
     actionButtons={
       <ItemHeaderButtons
         activeFooter={false}
-        activeType="EVENT_CHART"
+        activeType="CHART"
         item={
           Object {
-            "eventChart": Object {
-              "id": "evchart1",
-              "name": "Test evchart",
+            "chart": Object {
+              "id": "chart1",
+              "name": "Test chart",
             },
-            "type": "EVENT_CHART",
+            "type": "CHART",
           }
         }
         onSelectActiveType={[Function]}
         onToggleFooter={[Function]}
         visualization={
           Object {
-            "columns": Array [],
-            "description": "vis description",
-            "filters": Array [],
             "id": "vis id",
-            "name": "vis name",
-            "rows": Array [],
           }
         }
       />
     }
     dashboardMode="view"
-    title="Test evchart"
+    title="Test chart"
   />
   <FatalErrorBoundary>
     <div
       className="dashboard-item-content"
-      key="3"
+      key="2"
     />
   </FatalErrorBoundary>
 </Fragment>

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import DefaultPlugin from './DefaultPlugin'
-import { MAP } from '../../../modules/itemTypes'
+import { MAP } from '../../../../modules/itemTypes'
 
 const MapPlugin = ({ applyFilters, ...props }) => {
     if (props.item.type === MAP) {
