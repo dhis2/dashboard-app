@@ -41,7 +41,7 @@ const AppItem = ({ dashboardMode, item, itemFilters }, context) => {
 
     const hideTitle =
         appDetails?.settings?.dashboardWidget?.hideTitle &&
-        dashboardMode != EDIT
+        dashboardMode !== EDIT
 
     return appDetails && appDetails.name && appDetails.launchUrl ? (
         <>
