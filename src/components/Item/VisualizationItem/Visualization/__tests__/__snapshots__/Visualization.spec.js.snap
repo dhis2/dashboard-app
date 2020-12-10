@@ -46,7 +46,7 @@ exports[`renders a MapPlugin when activeType is MAP 1`] = `
 </div>
 `;
 
-exports[`renders active type CHART rather than original type REPORT_TABLE 1`] = `
+exports[`renders a VisualizationPlugin for CHART 1`] = `
 <div>
   <div
     style="height: 500px;"
@@ -82,7 +82,7 @@ exports[`renders active type CHART rather than original type REPORT_TABLE 1`] = 
 </div>
 `;
 
-exports[`renders active type REPORT_TABLE rather than original type CHART 1`] = `
+exports[`renders a VisualizationPlugin for REPORT_TABLE 1`] = `
 <div>
   <div
     style="height: 500px;"
@@ -114,6 +114,53 @@ exports[`renders active type REPORT_TABLE rather than original type CHART 1`] = 
   <visualizationplugin
     style="height: 500px;"
     visualization="[object Object]"
+  />
+</div>
+`;
+
+exports[`renders active type MAP rather than original type REPORT_TABLE 1`] = `
+<div>
+  <mapplugin
+    activetype="MAP"
+    item="[object Object]"
+    itemfilters="[object Object]"
+    style="height: 500px;"
+    visualization="[object Object]"
+  />
+</div>
+`;
+
+exports[`renders active type REPORT_TABLE rather than original type MAP 1`] = `
+<div>
+  <div
+    style="height: 500px;"
+  >
+    <div
+      class="center"
+    >
+      <div
+        class="jsx-19995197 "
+        data-test="dhis2-uicore-circularloader"
+        role="progressbar"
+      >
+        <svg
+          class="jsx-19995197"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            class="jsx-19995197 circle"
+            cx="44"
+            cy="44"
+            fill="none"
+            r="20.2"
+            stroke-width="3.6"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <visualizationplugin
+    style="height: 500px;"
   />
 </div>
 `;
