@@ -72,7 +72,7 @@ export class Item extends Component {
 
     componentWillUnmount() {
         const el = document.querySelector(this.itemDomElSelector)
-        el.removeEventListener(
+        el?.removeEventListener(
             'onfullscreenchange',
             this.handleFullscreenChange
         )
