@@ -32,7 +32,6 @@ const iconFill = { fill: colors.grey600 }
 
 const ItemHeaderButtons = props => {
     const [menuIsOpen, setMenuIsOpen] = useState(null)
-    const [anchorEl, setAnchorEl] = useState(null)
     const { baseUrl } = useConfig()
 
     const { item, visualization, onSelectActiveType, activeType } = props
