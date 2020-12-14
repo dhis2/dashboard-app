@@ -29,13 +29,33 @@ table.pivot * {
     background-color: #48a999;
 }
 
-div:fullscreen .dashboard-item-content {
-    height: 95vh !important;
-    width: 100vw !important;
+div:fullscreen,
+div:-webkit-full-screen {
+    background-color: white;
 }
 
-div:fullscreen {
-    background-color: white;
+div:-webkit-full-screen {
+    object-fit: contain;
+    position: fixed !important;
+    top: 0px !important;
+    right: 0px !important;
+    bottom: 0px !important;
+    left: 0px !important;
+    box-sizing: border-box !important;
+    min-width: 0px !important;
+    max-width: none !important;
+    min-height: 0px !important;
+    max-height: none !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+    margin: 0px !important;
+}
+
+div:fullscreen .dashboard-item-content,
+div:-webkit-full-screen .dashboard-item-content {
+    height: 95vh !important;
+    width: 100vw !important;
 }
 
 @media print {
