@@ -67,15 +67,24 @@ export class Item extends Component {
         const el = document.querySelector(this.itemDomElSelector)
         if (el?.requestFullscreen) {
             el.onfullscreenchange = this.handleFullscreenChange
+        } else if (el.webkitRequestFullscreen) {
+            el.onwebkitfullscreenchange = this.handleFullscreenChange
         }
     }
 
     componentWillUnmount() {
         const el = document.querySelector(this.itemDomElSelector)
-        el?.removeEventListener(
-            'onfullscreenchange',
-            this.handleFullscreenChange
-        )
+        if (el?.onfullscreenchange) {
+            el.removeEventListener(
+                'onfullscreenchange',
+                this.handleFullscreenChange
+            )
+        } else if (el?.onwebkitfullscreenchange) {
+            el.removeEventListener(
+                'onwebkitfullscreenchange',
+                this.handleFullscreenChange
+            )
+        }
     }
 
     getUniqueKey = memoizeOne(() => uniqueId())
@@ -87,16 +96,31 @@ export class Item extends Component {
         )
     }
 
+    isFullscreenSupported = () => {
+        const el = document.querySelector(this.itemDomElSelector)
+        return el?.requestFullscreen || el?.webkitRequestFullscreen
+    }
+
     handleFullscreenChange = () => {
-        this.setState({ isFullscreen: !!document.fullscreenElement })
+        this.setState({
+            isFullscreen:
+                !!document.fullscreenElement ||
+                !!document.webkitFullscreenElement,
+        })
     }
 
     onToggleFullscreen = () => {
-        if (!document.fullscreenElement) {
+        if (!document.fullscreenElement && !document.webkitFullscreenElement) {
             const el = document.querySelector(this.itemDomElSelector)
-            el?.requestFullscreen && el.requestFullscreen()
+            if (el?.requestFullscreen) {
+                el.requestFullscreen()
+            } else if (el?.webkitRequestFullscreen) {
+                el.webkitRequestFullscreen() // Safari
+            }
         } else {
-            document.exitFullscreen()
+            document.exitFullscreen
+                ? document.exitFullscreen()
+                : document.webkitExitFullscreen()
         }
     }
 
@@ -146,6 +170,7 @@ export class Item extends Component {
                 activeType={activeType}
                 activeFooter={showFooter}
                 isFullscreen={this.state.isFullscreen}
+                fullscreenSupported={this.isFullscreenSupported()}
             />
         ) : null
 

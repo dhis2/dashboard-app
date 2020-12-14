@@ -159,12 +159,14 @@ const ItemHeaderButtons = (props, context) => {
                             label={interpretationMenuLabel}
                             onClick={handleInterpretationClick}
                         />
-                        <MenuItem
-                            dense
-                            icon={<Fullscreen />}
-                            label={i18n.t('View fullscreen')}
-                            onClick={handleToggleFullscreenClick}
-                        />
+                        {props.fullscreenSupported && (
+                            <MenuItem
+                                dense
+                                icon={<Fullscreen />}
+                                label={i18n.t('View fullscreen')}
+                                onClick={handleToggleFullscreenClick}
+                            />
+                        )}
                     </Menu>
                 </Popover>
             )}
@@ -175,6 +177,7 @@ const ItemHeaderButtons = (props, context) => {
 ItemHeaderButtons.propTypes = {
     activeFooter: PropTypes.bool,
     activeType: PropTypes.string,
+    fullscreenSupported: PropTypes.bool,
     isFullscreen: PropTypes.bool,
     item: PropTypes.object,
     visualization: PropTypes.object,
