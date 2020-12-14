@@ -65,9 +65,7 @@ describe('ShowMoreButton', () => {
             })
 
             it('triggers onClick when div clicked', () => {
-                showMoreButton()
-                    .childAt(0)
-                    .simulate('click')
+                showMoreButton().childAt(0).simulate('click')
                 expect(props.onClick).toHaveBeenCalled()
             })
         })
