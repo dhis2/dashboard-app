@@ -1496,10 +1496,28 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^11.3.0", "@dhis2/analytics@^11.3.4":
+"@dhis2/analytics@^11.3.0":
   version "11.3.4"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.3.4.tgz#08cb18d64189baae8873ccf5cd89ec81a415de1a"
   integrity sha512-Z6ZWj7lME9d70ycEy1Q/4fz5W4azahmA8MbRKVwuRtaF/czWTexoHJa/BN4DwHCCcStC7CHOKnB312N3MCQ5QA==
+  dependencies:
+    "@dhis2/d2-ui-org-unit-dialog" "^7.0.8"
+    "@dhis2/ui" "^5.7.7"
+    "@material-ui/core" "^3.9.3"
+    "@material-ui/icons" "^3.0.2"
+    classnames "^2.2.6"
+    d2-utilizr "^0.2.16"
+    d3-color "^1.2.3"
+    highcharts "^8.2.0"
+    lodash "^4.17.20"
+    react-beautiful-dnd "^10.1.1"
+    resize-observer-polyfill "^1.5.1"
+    styled-jsx "^3.3.2"
+
+"@dhis2/analytics@^12.0.2":
+  version "12.0.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-12.0.2.tgz#62b45812efc5a118643b5c3051c02076448d2af9"
+  integrity sha512-Ospeo7vijzKO2RP5Eu3ZCqhuRzajOX5WIjLccM4n1p/fJvh/Lxm4j2u7XyXs+hKJu6J5QL710m6lUQB7/jyQ2Q==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.8"
     "@dhis2/ui" "^5.7.7"
@@ -1871,7 +1889,18 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@^5.7.2", "@dhis2/ui@^5.7.3", "@dhis2/ui@^5.7.7", "@dhis2/ui@^5.7.8":
+"@dhis2/ui@^5.7.2":
+  version "5.7.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.7.3.tgz#78c6abdf2482a9ebb487f6d6666111a59f4ebb06"
+  integrity sha512-MXc9JxTJ5Z9tmDJbzNKsjcTJfvUWkypdTV2fGmaMpx3HInx+w8Y3FhivUrcsFXtpARmG/58YerWwYZaWS0OyBQ==
+  dependencies:
+    "@dhis2/ui-constants" "5.7.3"
+    "@dhis2/ui-core" "5.7.3"
+    "@dhis2/ui-forms" "5.7.3"
+    "@dhis2/ui-icons" "5.7.3"
+    "@dhis2/ui-widgets" "5.7.3"
+
+"@dhis2/ui@^5.7.3", "@dhis2/ui@^5.7.7", "@dhis2/ui@^5.7.8":
   version "5.7.8"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.7.8.tgz#17604580d02cd4a7756552154a089e730a0fdf02"
   integrity sha512-FHyTP6geAkR/jwX1/xG8yl8PvGaNhms8zUmaNiBLQ0mUmD9oJb47U8YXhJ5nVd0SFJnmuckOWgAWMt3meZGJTA==
