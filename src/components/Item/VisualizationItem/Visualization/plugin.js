@@ -5,9 +5,9 @@ import {
     EVENT_REPORT,
     EVENT_CHART,
     itemTypeMap,
-} from '../../../modules/itemTypes'
-import { getVisualizationId } from '../../../modules/item'
-import { getGridItemDomId } from '../../ItemGrid/gridUtil'
+} from '../../../../modules/itemTypes'
+import { getVisualizationId } from '../../../../modules/item'
+import { getGridItemDomId } from '../../../ItemGrid/gridUtil'
 
 //external plugins
 const itemTypeToExternalPlugin = {
