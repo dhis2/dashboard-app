@@ -18,9 +18,13 @@ jest.mock('../../../api/dashboards', () => ({
         Promise.resolve(mockDashboardModels[id]),
 }))
 
-jest.mock('@dhis2/d2-ui-translation-dialog', () => () => {
-    return <div className="mock-dhis2-translation-dialog" />
-})
+jest.mock(
+    '@dhis2/d2-ui-translation-dialog',
+    () =>
+        function MockTranslationDialog() {
+            return <div className="mock-dhis2-translation-dialog" />
+        }
+)
 
 describe('EditBar', () => {
     let props

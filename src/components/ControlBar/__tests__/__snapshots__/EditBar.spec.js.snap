@@ -141,7 +141,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
   <div
     className="topMargin"
   />
-  <Component
+  <MockTranslationDialog
     className="translation-dialog"
     d2={
       Object {
@@ -241,7 +241,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
   <div
     className="topMargin"
   />
-  <Component
+  <MockTranslationDialog
     className="translation-dialog"
     d2={
       Object {
@@ -341,7 +341,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
   <div
     className="topMargin"
   />
-  <Component
+  <MockTranslationDialog
     className="translation-dialog"
     d2={
       Object {

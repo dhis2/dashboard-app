@@ -2,7 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import AppWrapper from './AppWrapper'
 
-jest.mock('./components/App', () => () => <div />)
+jest.mock(
+    './components/App',
+    () =>
+        function MockApp() {
+            return <div />
+        }
+)
 jest.mock('@dhis2/app-runtime-adapter-d2', () => {
     return {
         D2Shim: ({ children }) => children({ d2: {} }),
