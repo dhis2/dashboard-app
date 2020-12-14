@@ -60,9 +60,7 @@ export class Item extends Component {
             await apiFetchVisualization(this.props.item)
         )
 
-        this.setState({
-            configLoaded: true,
-        })
+        this.setState({ configLoaded: true })
 
         const el = document.querySelector(this.itemDomElSelector)
         if (el?.requestFullscreen) {
@@ -87,15 +85,6 @@ export class Item extends Component {
         }
     }
 
-    getUniqueKey = memoizeOne(() => uniqueId())
-
-    onToggleFooter = () => {
-        this.setState(
-            { showFooter: !this.state.showFooter },
-            this.props.onToggleItemExpanded(this.props.item.id)
-        )
-    }
-
     isFullscreenSupported = () => {
         const el = document.querySelector(this.itemDomElSelector)
         return el?.requestFullscreen || el?.webkitRequestFullscreen
@@ -110,18 +99,27 @@ export class Item extends Component {
     }
 
     onToggleFullscreen = () => {
-        if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        if (!this.state.isFullscreen) {
             const el = document.querySelector(this.itemDomElSelector)
             if (el?.requestFullscreen) {
                 el.requestFullscreen()
             } else if (el?.webkitRequestFullscreen) {
-                el.webkitRequestFullscreen() // Safari
+                el.webkitRequestFullscreen()
             }
         } else {
             document.exitFullscreen
                 ? document.exitFullscreen()
                 : document.webkitExitFullscreen()
         }
+    }
+
+    getUniqueKey = memoizeOne(() => uniqueId())
+
+    onToggleFooter = () => {
+        this.setState(
+            { showFooter: !this.state.showFooter },
+            this.props.onToggleItemExpanded(this.props.item.id)
+        )
     }
 
     setActiveType = type => {
