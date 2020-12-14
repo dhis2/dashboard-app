@@ -65,7 +65,7 @@ export class Item extends Component {
         const el = document.querySelector(this.itemDomElSelector)
         if (el?.requestFullscreen) {
             el.onfullscreenchange = this.handleFullscreenChange
-        } else if (el.webkitRequestFullscreen) {
+        } else if (el?.webkitRequestFullscreen) {
             el.onwebkitfullscreenchange = this.handleFullscreenChange
         }
     }
