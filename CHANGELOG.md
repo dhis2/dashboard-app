@@ -1,3 +1,10 @@
+# [31.3.0](https://github.com/dhis2/dashboard-app/compare/v31.2.0...v31.3.0) (2020-12-15)
+
+
+### Features
+
+* add support for gathering data statistics on visualization views [DHIS2-9554] ([#1394](https://github.com/dhis2/dashboard-app/issues/1394)) ([380ba29](https://github.com/dhis2/dashboard-app/commit/380ba29db8f0afa4b3ba82a9cb2659c0304da8a5))
+
 # [31.2.0](https://github.com/dhis2/dashboard-app/compare/v31.1.3...v31.2.0) (2020-12-15)
 
 
