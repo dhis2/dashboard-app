@@ -9,6 +9,7 @@ import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader/ItemHeader'
 import ItemHeaderButtons from './ItemHeaderButtons'
 import ItemFooter from './ItemFooter'
 
+import { apiPostDataStatistics } from '../../../api/dataStatistics'
 import { apiFetchVisualization } from '../../../api/metadata'
 import { sGetVisualization } from '../../../reducers/visualizations'
 import { sGetSelectedItemActiveType } from '../../../reducers/selected'
@@ -17,9 +18,10 @@ import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
 } from '../../../reducers/itemFilters'
+import { sGatherAnalyticalObjectStatisticsInDashboardViews } from '../../../reducers/settings'
 import { acAddVisualization } from '../../../actions/visualizations'
 import { acSetSelectedItemActiveType } from '../../../actions/selected'
-
+import { getDataStatisticsName } from '../../../modules/itemTypes'
 import { getVisualizationId, getVisualizationName } from '../../../modules/item'
 import memoizeOne from '../../../modules/memoizeOne'
 import {
@@ -56,6 +58,20 @@ export class Item extends Component {
         this.props.updateVisualization(
             await apiFetchVisualization(this.props.item)
         )
+
+        try {
+            if (
+                this.props.gatherDataStatistics &&
+                isViewMode(this.props.dashboardMode)
+            ) {
+                await apiPostDataStatistics(
+                    getDataStatisticsName(this.props.item.type),
+                    getVisualizationId(this.props.item)
+                )
+            }
+        } catch (e) {
+            console.log(e)
+        }
 
         this.setState({
             configLoaded: true,
@@ -155,6 +171,7 @@ Item.contextTypes = {
 Item.propTypes = {
     activeType: PropTypes.string,
     dashboardMode: PropTypes.string,
+    gatherDataStatistics: PropTypes.bool,
     isEditing: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
@@ -182,6 +199,9 @@ const mapStateToProps = (state, ownProps) => {
         visualization: sGetVisualization(
             state,
             getVisualizationId(ownProps.item)
+        ),
+        gatherDataStatistics: sGatherAnalyticalObjectStatisticsInDashboardViews(
+            state
         ),
     }
 }

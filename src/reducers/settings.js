@@ -8,6 +8,7 @@ export const DEFAULT_SETTINGS = {
     displayNameProperty: 'displayName',
     uiLocale: 'en',
     rootOrganisationUnit: {},
+    keyGatherAnalyticalObjectStatisticsInDashboardViews: false,
 }
 
 export default (state = DEFAULT_SETTINGS, action) => {
@@ -39,3 +40,5 @@ export const sGetRelativePeriod = state =>
     sGetSettings(state).keyAnalysisRelativePeriod
 
 export const sGetUiLocale = state => sGetSettings(state).uiLocale
+export const sGatherAnalyticalObjectStatisticsInDashboardViews = state =>
+    sGetSettings(state).keyGatherAnalyticalObjectStatisticsInDashboardViews
