@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-11-21T09:42:35.736Z\n"
+"POT-Creation-Date: 2020-12-09T13:38:15.043Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -151,14 +151,8 @@ msgstr "عنصر نصي"
 msgid "Add text here"
 msgstr "اضف نص هنا"
 
-msgid "Unable to load the plugin for this item"
-msgstr "تعذر تحميل المكوّن الإضافي لهذا العنصر"
-
 msgid "There was a problem loading this dashboard item"
 msgstr "حدثت مشكلة أثناء تحميل عنصر لوحة المعلومات هذا"
-
-msgid "No data to display"
-msgstr "لا توجد بيانات للعرض"
 
 msgid "Hide interpretations and details"
 msgstr "إخفاء التفسيرات والتفاصيل"
@@ -177,6 +171,12 @@ msgstr "عرض كخريطة"
 
 msgid "Open in {{appName}} app"
 msgstr "إفتح في تطبيق {{appName}}"
+
+msgid "Unable to load the plugin for this item"
+msgstr "تعذر تحميل المكوّن الإضافي لهذا العنصر"
+
+msgid "No data to display"
+msgstr "لا توجد بيانات للعرض"
 
 msgid "Confirm"
 msgstr "تأكيد"

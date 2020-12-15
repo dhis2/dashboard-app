@@ -25,6 +25,7 @@ describe('App', () => {
             setCurrentUser: jest.fn(),
             setControlBarRows: jest.fn(),
             setDimensions: jest.fn(),
+            addSettings: jest.fn(),
             setShowDescription: jest.fn(),
             d2: {},
         }

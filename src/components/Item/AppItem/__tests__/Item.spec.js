@@ -14,6 +14,12 @@ const item = {
     shortened: false,
 }
 
+const itemWithoutTitle = {
+    appKey: 'noTitle',
+    id: 'twilightsparkle',
+    shortened: false,
+}
+
 test('renders a valid App item in view mode', () => {
     const store = {
         itemFilters: {},
@@ -62,6 +68,36 @@ test('renders a valid App item with filter in edit mode', () => {
     expect(container).toMatchSnapshot()
 })
 
+test('renders a valid App item without title in view mode if specified in app settings', () => {
+    const store = {
+        itemFilters: {},
+    }
+
+    const { container } = render(
+        <Provider store={mockStore(store)}>
+            <D2Provider>
+                <Item item={itemWithoutTitle} dashboardMode={'view'} />
+            </D2Provider>
+        </Provider>
+    )
+    expect(container).toMatchSnapshot()
+})
+
+test('renders a valid App item with title in edit mode irrespective of app settings', () => {
+    const store = {
+        itemFilters: {},
+    }
+
+    const { container } = render(
+        <Provider store={mockStore(store)}>
+            <D2Provider>
+                <Item item={itemWithoutTitle} dashboardMode={'edit'} />
+            </D2Provider>
+        </Provider>
+    )
+    expect(container).toMatchSnapshot()
+})
+
 test('renders an invalid App item', () => {
     const store = {
         itemFilters: {
@@ -96,6 +132,16 @@ class D2Provider extends React.Component {
                             key: 'scorecard',
                             name: 'Scorecard',
                             launchUrl: 'launchurl',
+                        },
+                        {
+                            key: 'noTitle',
+                            name: 'No Title',
+                            launchUrl: 'launchurl',
+                            settings: {
+                                dashboardWidget: {
+                                    hideTitle: true,
+                                },
+                            },
                         },
                     ],
                 },

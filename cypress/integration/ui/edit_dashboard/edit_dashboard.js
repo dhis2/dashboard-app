@@ -1,4 +1,10 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import {
+    gridItemSel,
+    chartSel,
+    chartSubtitleSel,
+} from '../../../selectors/dashboardItem'
+import { dashboardChipSel } from '../../../selectors/dashboardsBar'
 
 // the length of the root route of the app (after the slash): #/
 const ROOT_ROUTE_LENGTH = 0
@@ -27,6 +33,9 @@ const toggleShowMoreButton = () => {
     cy.get('[data-test="showmore-button"]').click()
 }
 
+/*
+Scenario: I create a new dashboard
+*/
 Given('I choose to create new dashboard', () => {
     cy.get('[data-test="link-new-dashboard"]', {
         timeout: 15000,
@@ -44,6 +53,11 @@ When('dashboard items are added', () => {
 
 When('escape key is pressed', () => {
     cy.get('body').trigger('keydown', { key: 'Escape' })
+    cy.get('[data-test="item-menu]').should('not.exist')
+})
+
+When('I click outside menu', () => {
+    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
     cy.get('[data-test="item-menu]').should('not.exist')
 })
 
@@ -66,9 +80,7 @@ Then('dashboard displays in view mode', () => {
 
 Given('I open existing dashboard', () => {
     toggleShowMoreButton()
-    cy.get('[data-test="dashboard-chip"]')
-        .contains(TEST_DASHBOARD_TITLE)
-        .click()
+    cy.get(dashboardChipSel).contains(TEST_DASHBOARD_TITLE).click()
 })
 
 When('I choose to edit dashboard', () => {
@@ -79,9 +91,9 @@ When('I choose to delete dashboard', () => {
     cy.get('[data-test="delete-dashboard-button"]').click()
 })
 
-When('I confirm delete', () => {
-    cy.get('[data-test="confirm-delete-dashboard"]').click()
-})
+/*
+Scenario: I cancel a delete dashboard action
+*/
 
 When('I cancel delete', () => {
     cy.get('[data-test="cancel-delete-dashboard"]').click()
@@ -95,13 +107,47 @@ Then('the dashboard displays in edit mode', () => {
     })
 })
 
+/*
+Scenario: I delete a dashboard
+*/
+
+When('I confirm delete', () => {
+    cy.get('[data-test="confirm-delete-dashboard"]').click()
+})
+
 Then('the dashboard is deleted and first starred dashboard displayed', () => {
     toggleShowMoreButton()
-    cy.get('[data-test="dashboard-chip"]')
-        .contains(TEST_DASHBOARD_TITLE)
-        .should('not.exist')
+    cy.get(dashboardChipSel).contains(TEST_DASHBOARD_TITLE).should('not.exist')
 
     cy.get('[data-test="view-dashboard-title"]')
         .should('exist')
         .should('not.be.empty')
+})
+
+/*
+Scenario: I move an item on a dashboard
+*/
+
+Then('the chart item is displayed', () => {
+    cy.get(chartSel).should('exist')
+})
+
+Then('no analytics requests are made when item is moved', () => {
+    const WRONG_SUBTITLE = 'WRONG_SUBTITLE'
+    cy.intercept(/analytics\.json(\S)*skipMeta=false/, req => {
+        req.reply(res => {
+            // modify the chart subtitle so we can check whether the api request
+            // was made. (It shouldn't be - that's the test)
+            res.body.metaData.items.THIS_YEAR.name = WRONG_SUBTITLE
+            res.send({ body: res.body })
+        })
+    })
+
+    cy.get(gridItemSel)
+        .first()
+        .trigger('mousedown')
+        .trigger('mousemove', { clientX: 400 })
+        .trigger('mouseup')
+
+    cy.get(chartSubtitleSel).contains(WRONG_SUBTITLE).should('not.exist')
 })

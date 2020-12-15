@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-11-21T09:42:35.736Z\n"
+"POT-Creation-Date: 2020-12-09T13:38:15.043Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Khmer (https://www.transifex.com/hisp-uio/teams/100509/km/)\n"
@@ -140,13 +140,7 @@ msgstr ""
 msgid "Add text here"
 msgstr ""
 
-msgid "Unable to load the plugin for this item"
-msgstr ""
-
 msgid "There was a problem loading this dashboard item"
-msgstr ""
-
-msgid "No data to display"
 msgstr ""
 
 msgid "Hide interpretations and details"
@@ -165,6 +159,12 @@ msgid "View as Map"
 msgstr ""
 
 msgid "Open in {{appName}} app"
+msgstr ""
+
+msgid "Unable to load the plugin for this item"
+msgstr ""
+
+msgid "No data to display"
 msgstr ""
 
 msgid "Confirm"

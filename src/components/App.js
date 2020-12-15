@@ -13,6 +13,7 @@ import { tFetchDashboards } from '../actions/dashboards'
 import { tSetControlBarRows } from '../actions/controlBar'
 import { tSetShowDescription } from '../actions/selected'
 import { tSetDimensions } from '../actions/dimensions'
+import { tAddSettings } from '../actions/settings'
 
 import {
     EDIT,
@@ -31,6 +32,7 @@ export class App extends Component {
         this.props.setControlBarRows()
         this.props.setShowDescription()
         this.props.setDimensions(this.props.d2)
+        this.props.addSettings()
     }
 
     getChildContext() {
@@ -94,6 +96,7 @@ export class App extends Component {
 }
 
 App.propTypes = {
+    addSettings: PropTypes.func.isRequired,
     fetchDashboards: PropTypes.func.isRequired,
     setControlBarRows: PropTypes.func.isRequired,
     setCurrentUser: PropTypes.func.isRequired,
@@ -116,6 +119,7 @@ const mapDispatchToProps = dispatch => {
         setCurrentUser: currentUser => dispatch(acReceivedUser(currentUser)),
         setDimensions: d2 => dispatch(tSetDimensions(d2)),
         setShowDescription: () => dispatch(tSetShowDescription()),
+        addSettings: () => dispatch(tAddSettings()),
     }
 }
 
