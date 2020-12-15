@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-11-21T09:42:35.736Z\n"
+"POT-Creation-Date: 2020-12-09T13:38:15.043Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Yao Selom SAKA <saka.yao@yahoo.fr>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -157,15 +157,9 @@ msgstr "Élément de texte"
 msgid "Add text here"
 msgstr "Ajouter du texte ici"
 
-msgid "Unable to load the plugin for this item"
-msgstr "Impossible de charger le plugin pour cet objet"
-
 msgid "There was a problem loading this dashboard item"
 msgstr ""
 "Un problème est survenu lors du chargement de cet objet du tableau de bord"
-
-msgid "No data to display"
-msgstr "Aucune donnée à afficher"
 
 msgid "Hide interpretations and details"
 msgstr "Masquer les interprétations et les détails"
@@ -184,6 +178,12 @@ msgstr "Afficher comme carte"
 
 msgid "Open in {{appName}} app"
 msgstr "Ouvrir dans l'app {{appName}}"
+
+msgid "Unable to load the plugin for this item"
+msgstr "Impossible de charger le plugin pour cet objet"
+
+msgid "No data to display"
+msgstr "Aucune donnée à afficher"
 
 msgid "Confirm"
 msgstr "Confirmer"
