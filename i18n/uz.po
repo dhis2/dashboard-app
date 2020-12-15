@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-11-21T09:42:35.736Z\n"
+"POT-Creation-Date: 2020-12-09T13:38:15.043Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2020\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -150,14 +150,8 @@ msgstr "Матн элементи"
 msgid "Add text here"
 msgstr "Матнни шу ерга қўшинг"
 
-msgid "Unable to load the plugin for this item"
-msgstr "Ушбу элемент учун плагин юкланмади"
-
 msgid "There was a problem loading this dashboard item"
 msgstr "Ушбу панел элементлари юкланишида муаамога дуч келинди"
-
-msgid "No data to display"
-msgstr "Маълумот экранга чиқарилмади"
 
 msgid "Hide interpretations and details"
 msgstr "Талқинлар ва тавсилотларни беркитиш"
@@ -176,6 +170,12 @@ msgstr "Харита сифатида кўриш"
 
 msgid "Open in {{appName}} app"
 msgstr "Иловада {{ИловаНоми}} да очиш"
+
+msgid "Unable to load the plugin for this item"
+msgstr "Ушбу элемент учун плагин юкланмади"
+
+msgid "No data to display"
+msgstr "Маълумот экранга чиқарилмади"
 
 msgid "Confirm"
 msgstr "Тасдиқланг"
