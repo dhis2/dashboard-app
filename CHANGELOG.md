@@ -1,3 +1,10 @@
+# [31.2.0](https://github.com/dhis2/dashboard-app/compare/v31.1.3...v31.2.0) (2020-12-15)
+
+
+### Features
+
+* hide app title in View mode if specified in the app manifest (DHIS2-9605) ([#1393](https://github.com/dhis2/dashboard-app/issues/1393)) ([cdb3469](https://github.com/dhis2/dashboard-app/commit/cdb346954a194a511562fbc638523b7fcc8df857))
+
 ## [31.1.3](https://github.com/dhis2/dashboard-app/compare/v31.1.2...v31.1.3) (2020-12-15)
 
 
