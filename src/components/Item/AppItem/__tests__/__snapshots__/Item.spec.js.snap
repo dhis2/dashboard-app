@@ -88,6 +88,60 @@ exports[`renders a valid App item with filter in view mode 1`] = `
 </div>
 `;
 
+exports[`renders a valid App item with title in edit mode irrespective of app settings 1`] = `
+<div>
+  <div
+    class="itemHeaderWrap"
+  >
+    <p
+      class="itemTitle"
+    >
+      No Title
+    </p>
+    <div
+      class="itemActionsWrap"
+    >
+      <button
+        class="deleteItemButton"
+        title="Delete item"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root-10"
+          focusable="false"
+          role="presentation"
+          style="fill: #d32f2f;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <hr
+    style="background-color: rgb(243, 245, 247); height: 1px; margin: 0px 0px 5px 0px;"
+  />
+  <iframe
+    class="dashboard-item-content"
+    src="launchurl?dashboardItemId=twilightsparkle"
+    title="No Title"
+  />
+</div>
+`;
+
+exports[`renders a valid App item without title in view mode if specified in app settings 1`] = `
+<div>
+  <iframe
+    class="dashboard-item-content-hidden-title"
+    src="launchurl?dashboardItemId=twilightsparkle"
+    title="No Title"
+  />
+</div>
+`;
+
 exports[`renders an invalid App item 1`] = `
 <div>
   <div
@@ -108,7 +162,7 @@ exports[`renders an invalid App item 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root-10 MuiSvgIcon-colorDisabled-15"
+      class="MuiSvgIcon-root-19 MuiSvgIcon-colorDisabled-24"
       disabled=""
       focusable="false"
       role="presentation"
