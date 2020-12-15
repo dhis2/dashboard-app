@@ -13,7 +13,7 @@ export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 }
 
 // Dimensions for getShape
 
-const NUMBER_OF_ITEM_COLS = 2
+//const NUMBER_OF_ITEM_COLS = 2
 const GRID_COLUMNS = 60
 const MAX_ITEM_GRID_WIDTH = GRID_COLUMNS - 1
 
@@ -71,11 +71,9 @@ export const getShape = i => {
         h: itemHeight,
     }*/
     const col = (_.random(0, 3) * 3 ) % 12 //(item) % 12
-    const row = Math.floor(i/4)
+    const row = Math.floor(i / 4)
     const itemWidth = 3 //Math.floor(59 / 4)
-    const itemHeight = 12 //GRID_ROW_HEIGHT //* 2 //(10*2)
-
-    console.log({x: col, y: row * itemHeight, i})
+    const itemHeight = GRID_ROW_HEIGHT * 2
 
     return {
         x: col,
