@@ -18,7 +18,7 @@
         "@dhis2/data-visualizer-plugin": "^35.15.0",
         "@dhis2/ui": "^5.7.8",
         "@material-ui/core": "^3.9.2",
-        "@material-ui/icons": "^4.9.1",
+        "@material-ui/icons": "^4.11.2",
         "classnames": "^2.2.6",
         "d2": "^31.8.1",
         "d2-utilizr": "^0.2.16",
