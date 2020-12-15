@@ -1,3 +1,24 @@
+# [31.3.0](https://github.com/dhis2/dashboard-app/compare/v31.2.0...v31.3.0) (2020-12-15)
+
+
+### Features
+
+* add support for gathering data statistics on visualization views [DHIS2-9554] ([#1394](https://github.com/dhis2/dashboard-app/issues/1394)) ([380ba29](https://github.com/dhis2/dashboard-app/commit/380ba29db8f0afa4b3ba82a9cb2659c0304da8a5))
+
+# [31.2.0](https://github.com/dhis2/dashboard-app/compare/v31.1.3...v31.2.0) (2020-12-15)
+
+
+### Features
+
+* hide app title in View mode if specified in the app manifest (DHIS2-9605) ([#1393](https://github.com/dhis2/dashboard-app/issues/1393)) ([cdb3469](https://github.com/dhis2/dashboard-app/commit/cdb346954a194a511562fbc638523b7fcc8df857))
+
+## [31.1.3](https://github.com/dhis2/dashboard-app/compare/v31.1.2...v31.1.3) (2020-12-15)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1370](https://github.com/dhis2/dashboard-app/issues/1370)) ([8022f1c](https://github.com/dhis2/dashboard-app/commit/8022f1ce7c874b5e0f9703c219c164c0fdf93f49))
+
 ## [31.1.2](https://github.com/dhis2/dashboard-app/compare/v31.1.1...v31.1.2) (2020-12-08)
 
 

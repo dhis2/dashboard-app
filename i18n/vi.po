@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-11-21T09:42:35.736Z\n"
+"POT-Creation-Date: 2020-12-09T13:38:15.043Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -144,14 +144,8 @@ msgstr "Mục văn bản"
 msgid "Add text here"
 msgstr "Thêm văn bản tại đây"
 
-msgid "Unable to load the plugin for this item"
-msgstr "Không thể tải plugin cho mục này"
-
 msgid "There was a problem loading this dashboard item"
 msgstr "Đã xảy ra sự cố khi tải mục bảng điều khiển này"
-
-msgid "No data to display"
-msgstr "Không có dữ liệu hiển thị"
 
 msgid "Hide interpretations and details"
 msgstr "Ẩn các diễn giải và chi tiết"
@@ -170,6 +164,12 @@ msgstr "Xem dưới dạng bản đồ"
 
 msgid "Open in {{appName}} app"
 msgstr ""
+
+msgid "Unable to load the plugin for this item"
+msgstr "Không thể tải plugin cho mục này"
+
+msgid "No data to display"
+msgstr "Không có dữ liệu hiển thị"
 
 msgid "Confirm"
 msgstr "Xác nhận"
