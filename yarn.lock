@@ -6106,10 +6106,10 @@ d2-utilizr@^0.2.15, d2-utilizr@^0.2.16:
     lodash.isset "^4.3.0"
     lodash.isstring "^4.0.1"
 
-d2@^31.8.1:
-  version "31.8.2"
-  resolved "https://registry.yarnpkg.com/d2/-/d2-31.8.2.tgz#1b0f47a3686c01ecaa805d3dc44f056626d9baaf"
-  integrity sha512-eRmEf7+OslcdVSF4oFCBFBOwd2FEB8829xNqCz79PK49WkhYIy5c/cwEkwZd2sD5bJyeCyNoi3p4/42wC0AZ1Q==
+d2@^31.9.0:
+  version "31.9.0"
+  resolved "https://registry.yarnpkg.com/d2/-/d2-31.9.0.tgz#83e76735f0b925a000a74ea4b48a412d0c123a36"
+  integrity sha512-wTprxiA0dUa3ZWu1VkNxhoGT9UUWjXk89XKHqG+nh5uRxXL2zsq7Q6nrcpl8XvRG2T/A7BA3ORJFLDIfzrJ9mA==
   dependencies:
     isomorphic-fetch "^2.2.1"
 
