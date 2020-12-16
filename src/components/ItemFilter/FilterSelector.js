@@ -19,6 +19,8 @@ import {
     acSetActiveModalDimension,
 } from '../../actions/activeModalDimension'
 
+import classes from './styles/FilterSelector.module.css'
+
 const FilterSelector = props => {
     const [showPopover, setShowPopover] = useState(false)
 
@@ -38,7 +40,7 @@ const FilterSelector = props => {
 
     return (
         <>
-            <span ref={ref}>
+            <span className={classes.buttonContainer} ref={ref}>
                 <Button onClick={() => setShowPopover(true)}>
                     {i18n.t('Add filter')}
                     <ArrowDropDownIcon />

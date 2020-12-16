@@ -1,4 +1,4 @@
-import React, { useState, createRef } from 'react'
+import React, { useState, useEffect, createRef } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Link, Redirect } from 'react-router-dom'
@@ -7,6 +7,7 @@ import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import Star from '@material-ui/icons/Star'
 import StarBorder from '@material-ui/icons/StarBorder'
 import { Button, FlyoutMenu, Popover, MenuItem, colors } from '@dhis2/ui'
+import debounce from 'lodash/debounce'
 
 import { ThreeDots } from '../Item/VisualizationItem/assets/icons'
 import { orObject } from '../../modules/util'
@@ -29,6 +30,16 @@ const ViewTitleBar = (props, context) => {
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
+    const [width, setWidth] = useState(window.innerWidth)
+    useEffect(() => {
+        const handleResize = debounce(() => {
+            setWidth(window.innerWidth)
+        }, 200)
+        window.addEventListener('resize', handleResize)
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+    }, [])
 
     const {
         id,
@@ -108,13 +119,18 @@ const ViewTitleBar = (props, context) => {
                             </Link>
                         ) : null}
                         {userAccess.manage ? (
-                            <Button onClick={toggleSharingDialog}>
+                            <Button
+                                className={classes.shareButton}
+                                onClick={toggleSharingDialog}
+                            >
                                 {i18n.t('Share')}
                             </Button>
                         ) : null}
                         <FilterSelector />
+
                         <span ref={buttonRef}>
                             <Button
+                                small={width <= 480}
                                 dataTest="more-button"
                                 onClick={toggleMoreOptions}
                             >
