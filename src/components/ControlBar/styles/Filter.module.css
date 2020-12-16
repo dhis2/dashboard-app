@@ -53,3 +53,12 @@
     width: 20px;
     height: 20px;
 }
+
+.searchButton {
+    border: none;
+    background-color: transparent;
+}
+
+.searchButton:hover {
+    cursor: pointer;
+}

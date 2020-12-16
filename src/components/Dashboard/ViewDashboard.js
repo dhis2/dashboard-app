@@ -6,7 +6,6 @@ import TitleBar from '../TitleBar/TitleBar'
 import ItemGrid from '../ItemGrid/ItemGrid'
 import FilterBar from '../FilterBar/FilterBar'
 import DashboardsBar from '../ControlBar/DashboardsBar'
-import DashboardVerticalOffset from './DashboardVerticalOffset'
 import { sGetIsEditing } from '../../reducers/editDashboard'
 import { sGetIsPrinting } from '../../reducers/printDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
@@ -40,7 +39,6 @@ export const ViewDashboard = props => {
     return (
         <>
             <DashboardsBar />
-            <DashboardVerticalOffset />
             <div className="dashboard-wrapper" style={{ height }}>
                 <TitleBar edit={false} />
                 <FilterBar />

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-12-09T13:38:15.043Z\n"
-"PO-Revision-Date: 2020-12-09T13:38:15.043Z\n"
+"POT-Creation-Date: 2020-12-16T15:34:52.045Z\n"
+"PO-Revision-Date: 2020-12-16T15:34:52.045Z\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -29,13 +29,13 @@ msgid ""
 "this dashboard?"
 msgstr ""
 
+msgid "Save changes"
+msgstr ""
+
 msgid "Exit Print preview"
 msgstr ""
 
 msgid "Print preview"
-msgstr ""
-
-msgid "Save changes"
 msgstr ""
 
 msgid "Translate"
@@ -48,12 +48,6 @@ msgid "Go to dashboards"
 msgstr ""
 
 msgid "Search for a dashboard"
-msgstr ""
-
-msgid "Show more"
-msgstr ""
-
-msgid "Show less"
 msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
@@ -169,6 +163,9 @@ msgid "There are no items on this dashboard"
 msgstr ""
 
 msgid "Show fewer"
+msgstr ""
+
+msgid "Show more"
 msgstr ""
 
 msgid "Insert"

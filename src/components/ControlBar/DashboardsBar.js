@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import cx from 'classnames'
-
+import debounce from 'lodash/debounce'
 import arraySort from 'd2-utilizr/lib/arraySort'
 import PropTypes from 'prop-types'
 
-import ControlBar from './ControlBar'
+import ControlBar, { DRAG_HANDLE_HEIGHT } from './ControlBar'
 import Chip from './DashboardItemChip'
 import AddCircleIcon from '../../icons/AddCircle'
 import Filter from './Filter'
@@ -38,10 +38,21 @@ export const DashboardsBar = ({
     filterText,
 }) => {
     const [rows, setRows] = useState(userRows)
+    const [width, setWidth] = useState(window.innerWidth)
 
     useEffect(() => {
         setRows(userRows)
     }, [userRows])
+
+    useEffect(() => {
+        const handleResize = debounce(() => {
+            setWidth(window.innerWidth)
+        }, 200)
+        window.addEventListener('resize', handleResize)
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+    }, [])
 
     const isMaxHeight = () => rows === MAX_ROW_COUNT
 
@@ -89,50 +100,66 @@ export const DashboardsBar = ({
         ]
     }
 
-    const overflowYClass = isMaxHeight()
-        ? classes.overflowYAuto
-        : classes.overflowYHidden
+    const containerClass = cx(
+        classes.container,
+        isMaxHeight() ? classes.expanded : classes.collapsed
+    )
+
+    const viewableRows = width <= 480 && !isMaxHeight() ? MIN_ROW_COUNT : rows
 
     return (
-        <ControlBar
-            height={getControlBarHeight(rows)}
-            onChangeHeight={adjustHeight}
-            onEndDrag={onEndDrag}
-            editMode={false}
-        >
-            <div
-                className={cx(classes.container, overflowYClass)}
-                style={{
-                    height: getRowsHeight(rows) + FIRST_ROW_PADDING_HEIGHT,
-                }}
+        <>
+            <ControlBar
+                height={getControlBarHeight(viewableRows)}
+                onChangeHeight={width > 480 && adjustHeight}
+                onEndDrag={onEndDrag}
             >
-                <div className={classes.leftControls}>
-                    <Link
-                        className={classes.newLink}
-                        to={'/new'}
-                        data-test="link-new-dashboard"
-                    >
-                        <AddCircleIcon />
-                    </Link>
-                    <Filter onKeypressEnter={onSelectDashboard} />
+                <div
+                    className={containerClass}
+                    style={{
+                        height:
+                            getRowsHeight(viewableRows) +
+                            FIRST_ROW_PADDING_HEIGHT,
+                    }}
+                >
+                    <div className={classes.controls}>
+                        <Link
+                            className={classes.newLink}
+                            to={'/new'}
+                            data-test="link-new-dashboard"
+                        >
+                            <AddCircleIcon />
+                        </Link>
+                        <Filter
+                            onKeypressEnter={onSelectDashboard}
+                            onToggleMaxHeight={toggleMaxHeight}
+                            isMaxHeight={isMaxHeight()}
+                        />
+                    </div>
+                    {getFilteredDashboards().map(dashboard => (
+                        <Chip
+                            key={dashboard.id}
+                            label={dashboard.displayName}
+                            starred={dashboard.starred}
+                            dashboardId={dashboard.id}
+                            selected={dashboard.id === selectedId}
+                            onClick={cancelMaxHeight}
+                        />
+                    ))}
                 </div>
-                {getFilteredDashboards().map(dashboard => (
-                    <Chip
-                        key={dashboard.id}
-                        label={dashboard.displayName}
-                        starred={dashboard.starred}
-                        dashboardId={dashboard.id}
-                        selected={dashboard.id === selectedId}
-                        onClick={cancelMaxHeight}
-                    />
-                ))}
-            </div>
-            <ShowMoreButton
-                onClick={toggleMaxHeight}
-                isMaxHeight={isMaxHeight()}
-                disabled={userRows === MAX_ROW_COUNT}
+                <ShowMoreButton
+                    onClick={toggleMaxHeight}
+                    isMaxHeight={isMaxHeight()}
+                    disabled={userRows === MAX_ROW_COUNT}
+                />
+            </ControlBar>
+            <div
+                style={{
+                    marginTop:
+                        getControlBarHeight(viewableRows) + DRAG_HANDLE_HEIGHT,
+                }}
             />
-        </ControlBar>
+        </>
     )
 }
 

@@ -7,7 +7,6 @@ import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import debounce from 'lodash/debounce'
 
 import DashboardsBar from '../ControlBar/DashboardsBar'
-import DashboardVerticalOffset from './DashboardVerticalOffset'
 import NoContentMessage from '../../widgets/NoContentMessage'
 import ViewDashboard from './ViewDashboard'
 import EditDashboard from './EditDashboard'
@@ -99,7 +98,6 @@ export const Dashboard = ({
         return (
             <>
                 <DashboardsBar />
-                <DashboardVerticalOffset />
                 <NoContentMessage
                     text={i18n.t(
                         'No dashboards found. Use the + button to create a new dashboard.'
@@ -113,7 +111,6 @@ export const Dashboard = ({
         return (
             <>
                 <DashboardsBar />
-                <DashboardVerticalOffset />
                 <NoContentMessage
                     text={i18n.t('Requested dashboard not found')}
                 />

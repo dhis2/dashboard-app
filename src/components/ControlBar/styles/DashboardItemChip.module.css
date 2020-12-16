@@ -2,6 +2,7 @@
     display: inline-block;
     text-decoration: none;
     vertical-align: top;
+    margin: 0 -2px;
 }
 .icon {
     height: 20px;

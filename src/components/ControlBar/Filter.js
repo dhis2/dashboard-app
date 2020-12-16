@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
+import debounce from 'lodash/debounce'
 import SearchIcon from '../../icons/Search'
 import ClearButton from './ClearButton'
 
@@ -20,10 +21,22 @@ export const KEYCODE_ESCAPE = 27
 export const Filter = ({
     clearDashboardsFilter,
     filterText,
+    isMaxHeight,
     setDashboardsFilter,
     onKeypressEnter,
+    onToggleMaxHeight,
 }) => {
     const [focusedClassName, setFocusedClassName] = useState('')
+    const [width, setWidth] = useState(window.innerWidth)
+    useEffect(() => {
+        const handleResize = debounce(() => {
+            setWidth(window.innerWidth)
+        }, 200)
+        window.addEventListener('resize', handleResize)
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+    }, [])
     const setFilterValue = event => {
         event.preventDefault()
         setDashboardsFilter(event.target.value)
@@ -53,7 +66,11 @@ export const Filter = ({
         setFocusedClassName('')
     }
 
-    return (
+    return width <= 480 && !isMaxHeight ? (
+        <button className={classes.searchButton} onClick={onToggleMaxHeight}>
+            <SearchIcon className={classes.searchIcon} />
+        </button>
+    ) : (
         <div
             className={cx(classes.container, `${focusedClassName}`)}
             onFocus={onFocus}
@@ -77,8 +94,10 @@ export const Filter = ({
 Filter.propTypes = {
     clearDashboardsFilter: PropTypes.func,
     filterText: PropTypes.string,
+    isMaxHeight: PropTypes.bool,
     setDashboardsFilter: PropTypes.func,
     onKeypressEnter: PropTypes.func,
+    onToggleMaxHeight: PropTypes.func,
 }
 
 const mapStateToProps = state => ({

@@ -1,20 +1,20 @@
 .container {
     padding: 10px 6px 0 6px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.overflowYAuto {
+.expanded {
+    overflow-x: hidden;
     overflow-y: auto;
 }
 
-.overflowYHidden {
-    overflow-y: hidden;
+.collapsed {
+    overflow: hidden;
 }
 
-.leftControls {
-    float: left;
-    height: 36px;
-    position: relative;
-    top: 2px;
+.controls {
+    display: flex;
     margin-right: 4px;
 }
 
@@ -22,14 +22,15 @@
     display: inline-block;
     text-decoration: none;
     margin-right: 10px;
-    position: relative;
-    top: 2px;
 }
 
-.rightControls {
-    float: right;
-}
+@media only screen and (max-width: 480px) {
+    .newLink {
+        display: none;
+    }
 
-.topMargin {
-    margin-top: 71px;
+    .container.collapsed {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
 }
