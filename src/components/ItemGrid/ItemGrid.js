@@ -49,9 +49,7 @@ export class ItemGrid extends Component {
         expandedItems: {},
         //adding states for grid
         currentBreakpoint: 'lg',
-        compactType: GRID_COMPACT_TYPE,
         mounted: false,
-        layouts: { lg: this.props.dashboardItems },
     }
 
     onToggleItemExpanded = clickedId => {
@@ -156,13 +154,12 @@ export class ItemGrid extends Component {
                 ) : null}
                 <ResponsiveReactGridLayout
                     {...this.props}
-                    layouts={this.state.layouts}
+                    layouts={{ lg: this.props.dashboardItems }}
                     onBreakpointChange={this.onBreakpointChange}
                     onLayoutChange={this.onLayoutChange}
                     measureBeforeMount={false}
                     useCSSTransforms={this.state.mounted}
-                    compactType={this.state.compactType}
-                    preventCollision={!this.state.compactType}
+                    compactType={GRID_COMPACT_TYPE}
                     onResizeStop={this.onResizeStop}
                     width={window.innerWidth}
                     margin={MARGIN}
