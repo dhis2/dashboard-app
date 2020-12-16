@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
-import ControlBar from './ControlBar'
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
 import { Button, ButtonStrip } from '@dhis2/ui'
 
@@ -11,6 +10,8 @@ import ConfirmDeleteDialog from './ConfirmDeleteDialog'
 import {
     tSaveDashboard,
     acClearEditDashboard,
+    acSetPrintPreviewView,
+    acClearPrintPreviewView,
 } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
 import {
@@ -22,25 +23,9 @@ import {
     sGetIsNewDashboard,
     sGetIsPrintPreviewView,
 } from '../../reducers/editDashboard'
-import {
-    acSetPrintPreviewView,
-    acClearPrintPreviewView,
-} from '../../actions/editDashboard'
-import {
-    CONTROL_BAR_ROW_HEIGHT,
-    MIN_ROW_COUNT,
-    getControlBarHeight,
-} from './controlBarDimensions'
 import { apiFetchDashboard } from '../../api/dashboards'
 
-import classes from './styles/DashboardsBar.module.css'
-
-const buttonBarStyle = {
-    height: CONTROL_BAR_ROW_HEIGHT,
-    paddingTop: '15px',
-    marginLeft: '15px',
-    marginRight: '15px',
-}
+import classes from './styles/EditBar.module.css'
 
 export class EditBar extends Component {
     state = {
@@ -156,41 +141,36 @@ export class EditBar extends Component {
             />
         ) : null
 
-    renderActionButtons = () => {
-        const printPreviewText = this.props.isPrintPreviewView
-            ? i18n.t('Exit Print preview')
-            : i18n.t('Print preview')
-        return (
-            <div className={classes.leftControls}>
-                <ButtonStrip>
-                    <Button
-                        primary
-                        onClick={this.onSave}
-                        dataTest="save-dashboard-button"
-                    >
-                        {i18n.t('Save changes')}
-                    </Button>
-                    <Button onClick={this.onPrintPreview}>
-                        {printPreviewText}
-                    </Button>
+    renderActionButtons = () => (
+        <ButtonStrip>
+            <Button
+                primary
+                onClick={this.onSave}
+                dataTest="save-dashboard-button"
+            >
+                {i18n.t('Save changes')}
+            </Button>
+            <Button onClick={this.onPrintPreview}>
+                {this.props.isPrintPreviewView
+                    ? i18n.t('Exit Print preview')
+                    : i18n.t('Print preview')}
+            </Button>
 
-                    {this.props.dashboardId ? (
-                        <Button onClick={this.toggleTranslationDialog}>
-                            {i18n.t('Translate')}
-                        </Button>
-                    ) : null}
-                    {this.props.dashboardId && this.props.deleteAccess ? (
-                        <Button
-                            onClick={this.onConfirmDelete}
-                            dataTest="delete-dashboard-button"
-                        >
-                            {i18n.t('Delete')}
-                        </Button>
-                    ) : null}
-                </ButtonStrip>
-            </div>
-        )
-    }
+            {this.props.dashboardId && (
+                <Button onClick={this.toggleTranslationDialog}>
+                    {i18n.t('Translate')}
+                </Button>
+            )}
+            {this.props.dashboardId && this.props.deleteAccess && (
+                <Button
+                    onClick={this.onConfirmDelete}
+                    dataTest="delete-dashboard-button"
+                >
+                    {i18n.t('Delete')}
+                </Button>
+            )}
+        </ButtonStrip>
+    )
 
     render() {
         if (this.state.redirectUrl) {
@@ -198,7 +178,6 @@ export class EditBar extends Component {
         }
 
         const { updateAccess } = this.props
-        const controlBarHeight = getControlBarHeight(MIN_ROW_COUNT)
 
         const discardBtnText = updateAccess
             ? i18n.t('Exit without saving')
@@ -206,18 +185,14 @@ export class EditBar extends Component {
 
         return (
             <>
-                <ControlBar height={controlBarHeight} editMode={true}>
-                    <div style={buttonBarStyle}>
+                <div className={classes.editBar}>
+                    <div className={classes.controls}>
                         {updateAccess ? this.renderActionButtons() : null}
-
-                        <div className={classes.rightControls}>
-                            <Button secondary onClick={this.onDiscard}>
-                                {discardBtnText}
-                            </Button>
-                        </div>
+                        <Button secondary onClick={this.onDiscard}>
+                            {discardBtnText}
+                        </Button>
                     </div>
-                </ControlBar>
-                <div className={classes.topMargin} />
+                </div>
                 {this.translationDialog()}
                 {this.confirmDeleteDialog()}
             </>
