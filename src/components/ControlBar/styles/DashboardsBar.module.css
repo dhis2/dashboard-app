@@ -2,14 +2,6 @@
     padding: 10px 6px 0 6px;
     display: flex;
     flex-wrap: wrap;
-}
-
-.expanded {
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.collapsed {
     overflow: hidden;
 }
 
@@ -42,7 +34,18 @@
 
     .container.collapsed {
         flex-wrap: nowrap;
+    }
+
+    .chipContainer.expanded {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .chipContainer.collapsed {
         overflow-x: auto;
+        overflow-y: hidden;
+        display: flex;
+        flex-wrap: no-wrap;
     }
 
     .controls {
@@ -51,5 +54,7 @@
         padding-top: 8px;
         padding-left: 4px;
         height: 42px;
+        float: none;
+        position: static;
     }
 }

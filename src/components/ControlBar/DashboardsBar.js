@@ -104,6 +104,37 @@ export const DashboardsBar = ({
 
     const viewableRows = width <= 480 && !isMaxHeight() ? MIN_ROW_COUNT : rows
 
+    const rowHeightProp = {
+        height: getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT,
+    }
+
+    const getDashboardChips = () => {
+        const chips = getFilteredDashboards().map((dashboard, i) => (
+            <Chip
+                first={i === 0 && isMaxHeight() && width > 480}
+                key={dashboard.id}
+                label={dashboard.displayName}
+                starred={dashboard.starred}
+                dashboardId={dashboard.id}
+                selected={dashboard.id === selectedId}
+                onClick={cancelMaxHeight}
+            />
+        ))
+        if (width <= 480) {
+            const chipContainerClasses = cx(
+                classes.chipContainer,
+                isMaxHeight() ? classes.expanded : classes.collapsed
+            )
+            return (
+                <div className={chipContainerClasses} style={rowHeightProp}>
+                    {chips}
+                </div>
+            )
+        } else {
+            return chips
+        }
+    }
+
     return (
         <>
             <ControlBar
@@ -114,11 +145,8 @@ export const DashboardsBar = ({
                 <div
                     className={containerClass}
                     ref={ref}
-                    style={{
-                        height:
-                            getRowsHeight(viewableRows) +
-                            FIRST_ROW_PADDING_HEIGHT,
-                    }}
+                    // style={!(width <= 480 && isMaxHeight()) && rowHeightProp}
+                    style={rowHeightProp}
                 >
                     <div className={classes.controls}>
                         <Link
@@ -134,17 +162,7 @@ export const DashboardsBar = ({
                             isMaxHeight={isMaxHeight()}
                         />
                     </div>
-                    {getFilteredDashboards().map((dashboard, i) => (
-                        <Chip
-                            first={i === 0}
-                            key={dashboard.id}
-                            label={dashboard.displayName}
-                            starred={dashboard.starred}
-                            dashboardId={dashboard.id}
-                            selected={dashboard.id === selectedId}
-                            onClick={cancelMaxHeight}
-                        />
-                    ))}
+                    {getDashboardChips()}
                 </div>
                 <ShowMoreButton
                     onClick={toggleMaxHeight}
