@@ -173,7 +173,11 @@ export const DashboardsBar = ({
             <div
                 style={{
                     marginTop:
-                        getControlBarHeight(viewableRows) + DRAG_HANDLE_HEIGHT,
+                        getControlBarHeight(
+                            width <= 480 && !isMaxHeight()
+                                ? MIN_ROW_COUNT
+                                : userRows
+                        ) + DRAG_HANDLE_HEIGHT,
                 }}
             />
         </>
