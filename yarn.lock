@@ -1669,15 +1669,15 @@
     semver "^7.3.2"
     yargs "^16.1.0"
 
-"@dhis2/cli-utils-cypress@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-4.0.0.tgz#2035be6875a2716cc3552368ea0e7c323b36607b"
-  integrity sha512-YZuNACvK2Rkv+HMSuqCWFiaD54hsDdPCz+uTu+mG2kgnzqvXa1Hu2+/DIoLT9KBvyPHpDJtyc+i2CUIHGlLBEA==
+"@dhis2/cli-utils-cypress@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-4.1.0.tgz#bdd57ae0a589f896859c279f52b5806264e18e5f"
+  integrity sha512-W/hldHuA3uz9h4JrPaRxqX+vEwJR+NfXbFmCkEhTmJYRF0nPG/Bp1aHQ8UmfylDetZmF0SWOf1LrjzLBaeWf9g==
   dependencies:
     "@dhis2/cli-helpers-engine" "^1.5.0"
     concurrently "^5.2.0"
     cross-spawn "^7.0.1"
-    cypress "^6.0.0"
+    cypress "^6.0.1"
     cypress-cucumber-preprocessor "^2.0.1"
     fs-extra "^8.1.0"
     inquirer "^7.0.4"
@@ -6037,7 +6037,7 @@ cypress-cucumber-preprocessor@^2.0.1:
     minimist "^1.2.0"
     through "^2.3.8"
 
-cypress@^6.0.0:
+cypress@^6.0.1:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/cypress/-/cypress-6.1.0.tgz#af2596cb110aa98eaf75fef3d8ab379ca0ff2413"
   integrity sha512-uQnSxRcZ6hkf9R5cr8KpRBTzN88QZwLIImbf5DWa5RIxH6o5Gpff58EcjiYhAR8/8p9SGv7O6SRygq4H+k0Qpw==
