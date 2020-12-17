@@ -134,8 +134,9 @@ export const DashboardsBar = ({
                             isMaxHeight={isMaxHeight()}
                         />
                     </div>
-                    {getFilteredDashboards().map(dashboard => (
+                    {getFilteredDashboards().map((dashboard, i) => (
                         <Chip
+                            first={i === 0}
                             key={dashboard.id}
                             label={dashboard.displayName}
                             starred={dashboard.starred}

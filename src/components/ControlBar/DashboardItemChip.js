@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 import { Chip } from '@dhis2/ui'
 import { Link } from 'react-router-dom'
 import debounce from 'lodash/debounce'
 
+import { useWindowDimensions } from '../WindowDimensionsProvider'
 import StarIcon from '../../icons/Star'
 import { apiPostDataStatistics } from '../../api/dataStatistics'
 
@@ -15,7 +17,9 @@ export const DashboardItemChip = ({
     label,
     dashboardId,
     onClick,
+    first,
 }) => {
+    const { width } = useWindowDimensions()
     const chipProps = {
         selected,
     }
@@ -36,9 +40,15 @@ export const DashboardItemChip = ({
         onClick()
     }
 
+    const linkClasses = cx(
+        classes.link,
+        first && classes.first,
+        width <= 480 ? classes.small : classes.wide
+    )
+
     return (
         <Link
-            className={classes.link}
+            className={linkClasses}
             to={`/${dashboardId}`}
             onClick={handleClick}
             data-test="dashboard-chip"
@@ -55,6 +65,7 @@ DashboardItemChip.propTypes = {
     starred: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired,
     classes: PropTypes.object,
+    first: PropTypes.bool,
 }
 
 export default DashboardItemChip
