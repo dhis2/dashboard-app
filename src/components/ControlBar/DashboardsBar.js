@@ -111,7 +111,7 @@ export const DashboardsBar = ({
         <>
             <ControlBar
                 height={getControlBarHeight(viewableRows)}
-                onChangeHeight={width > 480 && adjustHeight}
+                onChangeHeight={dimensions.width > 480 ? adjustHeight : null}
                 onEndDrag={onEndDrag}
             >
                 <div
