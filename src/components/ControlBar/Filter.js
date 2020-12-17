@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
-import debounce from 'lodash/debounce'
 import SearchIcon from '../../icons/Search'
 import ClearButton from './ClearButton'
 
+import { useWindowDimensions } from '../WindowDimensionsProvider'
 import {
     acSetDashboardsFilter,
     acClearDashboardsFilter,
@@ -27,16 +27,8 @@ export const Filter = ({
     onToggleMaxHeight,
 }) => {
     const [focusedClassName, setFocusedClassName] = useState('')
-    const [width, setWidth] = useState(window.innerWidth)
-    useEffect(() => {
-        const handleResize = debounce(() => {
-            setWidth(window.innerWidth)
-        }, 200)
-        window.addEventListener('resize', handleResize)
-        return () => {
-            window.removeEventListener('resize', handleResize)
-        }
-    }, [])
+    const { width } = useWindowDimensions()
+
     const setFilterValue = event => {
         event.preventDefault()
         setDashboardsFilter(event.target.value)

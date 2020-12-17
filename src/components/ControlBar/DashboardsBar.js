@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, createRef } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import cx from 'classnames'
-import debounce from 'lodash/debounce'
 import arraySort from 'd2-utilizr/lib/arraySort'
 import PropTypes from 'prop-types'
 
@@ -18,6 +17,7 @@ import {
     getControlBarHeight,
     getNumRowsFromHeight,
 } from './controlBarDimensions'
+import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
 import { sGetControlBarUserRows } from '../../reducers/controlBar'
 import { sGetAllDashboards } from '../../reducers/dashboards'
@@ -38,21 +38,12 @@ export const DashboardsBar = ({
     filterText,
 }) => {
     const [rows, setRows] = useState(userRows)
-    const [width, setWidth] = useState(window.innerWidth)
+    const { width } = useWindowDimensions()
+    const ref = createRef()
 
     useEffect(() => {
         setRows(userRows)
     }, [userRows])
-
-    useEffect(() => {
-        const handleResize = debounce(() => {
-            setWidth(window.innerWidth)
-        }, 200)
-        window.addEventListener('resize', handleResize)
-        return () => {
-            window.removeEventListener('resize', handleResize)
-        }
-    }, [])
 
     const isMaxHeight = () => rows === MAX_ROW_COUNT
 
@@ -71,10 +62,16 @@ export const DashboardsBar = ({
 
     const toggleMaxHeight = () => {
         const newRows = isMaxHeight() ? userRows : MAX_ROW_COUNT
+        if (isMaxHeight()) {
+            ref.current.scroll(0, 0)
+        }
         setRows(newRows)
     }
 
     const cancelMaxHeight = () => {
+        if (isMaxHeight()) {
+            ref.current.scroll(0, 0)
+        }
         setRows(userRows)
     }
 
@@ -111,11 +108,12 @@ export const DashboardsBar = ({
         <>
             <ControlBar
                 height={getControlBarHeight(viewableRows)}
-                onChangeHeight={dimensions.width > 480 ? adjustHeight : null}
+                onChangeHeight={width > 480 ? adjustHeight : null}
                 onEndDrag={onEndDrag}
             >
                 <div
                     className={containerClass}
+                    ref={ref}
                     style={{
                         height:
                             getRowsHeight(viewableRows) +

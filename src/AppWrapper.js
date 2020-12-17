@@ -4,6 +4,7 @@ import dhis2theme from '@dhis2/d2-ui-core/theme/mui3.theme'
 import { Provider as ReduxProvider } from 'react-redux'
 import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
 
+import WindowDimensionsProvider from './components/WindowDimensionsProvider'
 import App from './components/App'
 import configureStore from './configureStore'
 
@@ -43,7 +44,11 @@ const AppWrapper = () => {
                             // TODO: Handle errors in d2 initialization
                             return null
                         }
-                        return <App d2={d2} />
+                        return (
+                            <WindowDimensionsProvider>
+                                <App d2={d2} />
+                            </WindowDimensionsProvider>
+                        )
                     }}
                 </D2Shim>
             </MuiThemeProvider>
