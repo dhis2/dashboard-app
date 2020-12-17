@@ -10,16 +10,6 @@
     width: 20px;
 }
 
-.first.wide::before {
-    content: '';
-    margin-left: 246px;
-}
-
-.first.small::before {
-    content: '';
-    margin-left: 34px;
-}
-
 .selected {
     fill: var(--colors-white);
 }
