@@ -55,7 +55,6 @@ DashboardItemChip.propTypes = {
     starred: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired,
     classes: PropTypes.object,
-    first: PropTypes.bool,
 }
 
 export default DashboardItemChip
