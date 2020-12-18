@@ -142,7 +142,7 @@ msgid "Edit"
 msgstr "Таҳрирлаш"
 
 msgid "Share"
-msgstr "Баҳам кўриш"
+msgstr "Улашиш"
 
 msgid "No description"
 msgstr "Тавсиф йўқ"
