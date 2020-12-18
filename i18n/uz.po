@@ -208,7 +208,7 @@ msgid "Dashboard description"
 msgstr "Бошқарув панели тавсифи"
 
 msgid "Hide description"
-msgstr "Тавсифни яшириш"
+msgstr "Тавсифни беркитиш"
 
 msgid "Show description"
 msgstr "Тавсифни кўрсатиш"
@@ -223,7 +223,7 @@ msgid "Edit"
 msgstr "Таҳрирлаш"
 
 msgid "Share"
-msgstr "Баҳам кўриш"
+msgstr "Улашиш"
 
 msgid "More"
 msgstr "Кўпроқ"
