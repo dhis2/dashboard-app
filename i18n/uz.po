@@ -25,19 +25,20 @@ msgid "Cancel"
 msgstr "Бекор қилиш"
 
 msgid "Delete"
-msgstr "Ўчириш"
+msgstr "Ўчириб ташлаш"
 
 msgid "Delete dashboard"
-msgstr "Бошқарув панелини ўчириш"
+msgstr "Бошқарув панелини ўчириб ташлаш"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"Панелни ўчириш {{БошқарувПанелиНоми}}, уни барча фойдаланувчилар учун "
-"ўчирилишига олиб келади. Бу ҳаракатни орқага қайтариб бўлмайди. Ҳақиқатдан "
-"ҳам ушбу панелни орқага қайтариб бўлмаслик шарти билан ўчирмоқчимисиз?"
+"Панелни ўчириб ташлаш {{БошқарувПанелиНоми}}, уни барча фойдаланувчилар учун"
+" ўчирилишига олиб келади. Бу ҳаракатни орқага қайтариб бўлмайди. Ҳақиқатдан "
+"ҳам ушбу панелни орқага қайтариб бўлмаслик шарти билан ўчириб "
+"ташламоқчимисиз?"
 
 msgid "Exit without saving"
 msgstr "Сақламасдан чиқиш"
@@ -76,10 +77,10 @@ msgid_plural "{{count}} selected"
 msgstr[0] "{{count}}  танланган"
 
 msgid "Remove"
-msgstr "Ўчириш"
+msgstr "Олиб ташлаш"
 
 msgid "Delete item"
-msgstr "Элементни ўчириш"
+msgstr "Элементни ўчириб ташлаш"
 
 msgid "Messages"
 msgstr "Хабарлар"
