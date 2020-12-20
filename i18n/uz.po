@@ -16,16 +16,16 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Delete"
-msgstr "Ўчириш"
+msgstr "Ўчириб ташлаш"
 
 msgid "Continue editing"
 msgstr "Таҳрирлашни давом этиш"
 
 msgid "Confirm delete dashboard"
-msgstr "Бошқарув панелини ўчиришни тасдиқлаш"
+msgstr "Бошқарув панелини ўчириб ташлашни тасдиқлаш"
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr "Бошқарув панелини ўчиришни хохлайсизми \"{{БошқарувПанелиНоми}}\"?"
+msgstr "Бошқарув панелини ўчириб ташлашни хохлайсизми \"{{БошқарувПанелиНоми}}\"?"
 
 msgid "Exit without saving"
 msgstr "Сақламасдан чиқиш"
