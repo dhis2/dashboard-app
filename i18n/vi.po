@@ -1,15 +1,15 @@
 # 
 # Translators:
-# Mai Nguyen <thanhmai.jica@gmail.com>, 2020
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# Mai Nguyen <thanhmai.jica@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-08T17:54:39.674Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"PO-Revision-Date: 2020-12-22 22:13+0000\n"
+"Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgid "Cancel"
 msgstr "Hủy"
 
 msgid "Delete"
-msgstr "Xoá"
+msgstr "Xóa"
 
 msgid "Delete dashboard"
 msgstr "Xóa bảng điều khiển"
@@ -115,7 +115,7 @@ msgid "This item has been shortened to fit on one page"
 msgstr ""
 
 msgid "Messages"
-msgstr "Hộp thư"
+msgstr "Tin nhắn"
 
 msgid "See all messages"
 msgstr "Xem tất cả tin nhắn"
@@ -226,19 +226,19 @@ msgid "One item per page"
 msgstr ""
 
 msgid "No description"
-msgstr "Không có mô tả"
+msgstr "Không mô tả"
 
 msgid "Visualizations"
 msgstr "Mô hình hóa"
 
 msgid "Pivot tables"
-msgstr "Bảng Xoay"
+msgstr "Bảng xoay"
 
 msgid "Charts"
-msgstr "Biểu Đồ"
+msgstr "Biểu đồ"
 
 msgid "Maps"
-msgstr "Bản Đồ"
+msgstr "Bản đồ"
 
 msgid "Event reports"
 msgstr "Báo Cáo Sự Kiện"
@@ -250,7 +250,7 @@ msgid "Apps"
 msgstr "Ứng dụng"
 
 msgid "Reports"
-msgstr "Báo Cáo"
+msgstr "Báo cáo tổng hợp"
 
 msgid "Resources"
 msgstr "Tài Nguyên"
