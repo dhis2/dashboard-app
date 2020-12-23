@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "Bảng điều khiển không có tiêu đề"
 
 msgid "Cancel"
 msgstr "Hủy"
@@ -34,12 +34,15 @@ msgid ""
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"Xóa bảng điều khiển \"{{tên bảng điều khiển}}\" sẽ xóa cho tất cả người "
+"dùng. Hành động này không thể được hoàn tác. Bạn có chắc chắn muốn xóa vĩnh "
+"viễn bảng điều khiển này không?"
 
 msgid "Exit Print preview"
-msgstr ""
+msgstr "Thoát bản xem trước khi in"
 
 msgid "Print preview"
-msgstr ""
+msgstr "Xem thử bản in"
 
 msgid "Save changes"
 msgstr "Lưu các thay đổi"
@@ -73,37 +76,39 @@ msgid "No access"
 msgstr "Không truy cập"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "Thoát xem trước bản in"
 
 msgid "Print"
 msgstr "In"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "bố cục bảng điều khiển"
 
 msgid "one item per page"
-msgstr ""
+msgstr "một mục trên mỗi trang"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "Xem trước bản in"
 
 msgid "For best print results"
-msgstr ""
+msgstr "Để có kết quả in tốt nhất"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "Sử dụng trình duyệt Chrome hoặc Edge"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr ""
+msgstr "Chờ tải tất cả các mục trên bảng điều khiển trước khi in"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
 " dialog"
 msgstr ""
+"Sử dụng khổ giấy ngang A4 và cài đặt lề mặc định trong hộp thoại in của "
+"trình duyệt"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
+msgstr[0] "Đã chọn {{đếm}}"
 
 msgid "Remove"
 msgstr "Tháo ra"
@@ -112,7 +117,7 @@ msgid "Delete item"
 msgstr "Xóa mục"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "Mục này đã được rút ngắn để vừa với một trang"
 
 msgid "Messages"
 msgstr "Tin nhắn"
@@ -121,10 +126,10 @@ msgid "See all messages"
 msgstr "Xem tất cả tin nhắn"
 
 msgid "Item type \"{{type}}\" not supported"
-msgstr ""
+msgstr "Loại mục \"{{loại}}\" không được hỗ trợ"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "Bộ lọc được áp dụng"
 
 msgid "Spacer"
 msgstr "Dấu cách"
@@ -166,7 +171,7 @@ msgid "View as Map"
 msgstr "Xem dưới dạng bản đồ"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "Mở trong ứng dụng {{Tên ứng dụng}}"
 
 msgid "Confirm"
 msgstr "Xác nhận"
@@ -199,16 +204,16 @@ msgid "Dashboard description"
 msgstr "Mô tả bảng điều khiển"
 
 msgid "Hide description"
-msgstr ""
+msgstr "Ẩn mô tả"
 
 msgid "Show description"
-msgstr ""
+msgstr "Hiển thị mô tả"
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "Không gắn dấu sao bảng điều khiển "
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "Gán dấu sao bảng điều khiển "
 
 msgid "Edit"
 msgstr "Chỉnh sửa"
@@ -220,10 +225,10 @@ msgid "More"
 msgstr "Thêm"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "Bố cục bảng điều khiển "
 
 msgid "One item per page"
-msgstr ""
+msgstr "Một mục trên mỗi trang"
 
 msgid "No description"
 msgstr "Không mô tả"
