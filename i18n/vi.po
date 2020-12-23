@@ -21,13 +21,15 @@ msgid "Delete"
 msgstr "Xóa"
 
 msgid "Continue editing"
-msgstr ""
+msgstr "Tiếp tục chỉnh sửa"
 
 msgid "Confirm delete dashboard"
-msgstr ""
+msgstr "Xác nhận xóa bảng điều khiển "
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
+"Bạn có chắc chắn muốn xóa bảng điều khiển  \"{{tên bảng điều khiển}}\" "
+"không?"
 
 msgid "Exit without saving"
 msgstr "Đóng và không lưu"
@@ -91,22 +93,22 @@ msgid "Search for items to add to this dashboard"
 msgstr "Tìm mục để thêm vào bảng điều khiển này"
 
 msgid "See"
-msgstr ""
+msgstr "Xem"
 
 msgid "fewer"
-msgstr ""
+msgstr "ít hơn"
 
 msgid "more"
-msgstr ""
+msgstr "hơn"
 
 msgid "Text box"
 msgstr "Hộp văn bản"
 
 msgid "Add title here"
-msgstr ""
+msgstr "Thêm tiêu đề ở đây"
 
 msgid "Add description here"
-msgstr ""
+msgstr "Thêm mô tả ở đây"
 
 msgid "No description"
 msgstr "Không mô tả"
