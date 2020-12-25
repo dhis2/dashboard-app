@@ -110,7 +110,7 @@ msgstr ""
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
+msgstr[0] "{{count}}  танланган"
 
 msgid "Remove"
 msgstr "Олиб ташлаш"
