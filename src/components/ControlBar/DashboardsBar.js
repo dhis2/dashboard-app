@@ -109,9 +109,8 @@ export const DashboardsBar = ({
     }
 
     const getDashboardChips = () => {
-        const chips = getFilteredDashboards().map((dashboard, i) => (
+        const chips = getFilteredDashboards().map(dashboard => (
             <Chip
-                first={i === 0 && isMaxHeight() && width > 480}
                 key={dashboard.id}
                 label={dashboard.displayName}
                 starred={dashboard.starred}
@@ -142,12 +141,7 @@ export const DashboardsBar = ({
                 onChangeHeight={width > 480 ? adjustHeight : null}
                 onEndDrag={onEndDrag}
             >
-                <div
-                    className={containerClass}
-                    ref={ref}
-                    // style={!(width <= 480 && isMaxHeight()) && rowHeightProp}
-                    style={rowHeightProp}
-                >
+                <div className={containerClass} ref={ref} style={rowHeightProp}>
                     <div className={classes.controls}>
                         <Link
                             className={classes.newLink}

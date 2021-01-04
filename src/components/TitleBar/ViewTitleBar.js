@@ -118,7 +118,6 @@ const ViewTitleBar = (props, context) => {
                             </Button>
                         ) : null}
                         <FilterSelector />
-
                         <span ref={buttonRef}>
                             <Button
                                 small={width <= 480}

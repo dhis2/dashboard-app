@@ -1,7 +1,5 @@
 .container {
     padding: 10px 6px 0 6px;
-    display: flex;
-    flex-wrap: wrap;
     overflow: hidden;
 }
 
@@ -10,7 +8,7 @@
 }
 
 .controls {
-    display: flex;
+    display: inline;
 }
 
 .newLink {
@@ -21,12 +19,18 @@
 }
 
 @media only screen and (max-width: 480px) {
+    .controls {
+        margin-bottom: var(--spacers-dp8);
+        margin-top: var(--spacers-dp8);
+    }
     .newLink {
         display: none;
     }
 
     .container {
         padding: 4px 0px 4px 4px;
+        display: flex;
+        flex-wrap: wrap;
     }
 
     .container.collapsed {
@@ -37,6 +41,10 @@
         overflow-y: hidden;
     }
 
+    .container.expanded .controls {
+        margin-left: var(--spacers-dp4);
+    }
+
     .chipContainer {
         margin-bottom: -4px;
     }
@@ -44,6 +52,8 @@
     .chipContainer.expanded {
         overflow-x: hidden;
         overflow-y: auto;
+        padding-left: 2px;
+        padding-right: 6px;
     }
 
     .chipContainer.collapsed {

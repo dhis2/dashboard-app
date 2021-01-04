@@ -49,15 +49,21 @@
 
 .searchIcon {
     fill: var(--colors-grey700);
-    width: 20px;
-    height: 20px;
 }
 
 .searchButton {
     border: none;
     background-color: transparent;
+    padding: 0px 6px 0px 0px;
 }
 
 .searchButton:hover {
     cursor: pointer;
+}
+
+@media only screen and (max-width: 480px) {
+    .container {
+        height: 24px;
+        padding-top: inherit;
+    }
 }
