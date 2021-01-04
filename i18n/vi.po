@@ -21,13 +21,15 @@ msgid "Delete"
 msgstr "Xóa"
 
 msgid "Continue editing"
-msgstr ""
+msgstr "Tiếp tục chỉnh sửa"
 
 msgid "Confirm delete dashboard"
-msgstr ""
+msgstr "Xác nhận xóa bảng điều khiển "
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
+"Bạn có chắc chắn muốn xóa bảng điều khiển  \"{{tên bảng điều khiển}}\" "
+"không?"
 
 msgid "Exit without saving"
 msgstr "Đóng và không lưu"
@@ -67,43 +69,43 @@ msgid "See all messages"
 msgstr "Xem tất cả tin nhắn"
 
 msgid "Edit your interpretation"
-msgstr ""
+msgstr "Chỉnh sửa diễn giải của bạn"
 
 msgid "Update"
 msgstr "Cập nhật"
 
 msgid "Cancel edit"
-msgstr ""
+msgstr "Hủy chỉnh sửa"
 
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
 msgid "like"
-msgstr ""
+msgstr "giống"
 
 msgid "likes"
-msgstr ""
+msgstr "thích"
 
 msgid "You like this"
-msgstr ""
+msgstr "Bạn thích điều này"
 
 msgid "Like"
 msgstr "Thích"
 
 msgid "View in Visualizer"
-msgstr ""
+msgstr "Xem trong ứng dụng trực quan hóa"
 
 msgid "Reply"
 msgstr "Trả lời"
 
 msgid "Add your reply"
-msgstr ""
+msgstr "Thêm câu trả lời của bạn"
 
 msgid "Interpretations"
 msgstr "Diễn giải báo cáo"
 
 msgid "Add your interpretation"
-msgstr ""
+msgstr "Thêm diễn giải của bạn"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Không thể tải plugin cho mục này"
@@ -130,22 +132,22 @@ msgid "Search for items to add to this dashboard"
 msgstr "Tìm mục để thêm vào bảng điều khiển này"
 
 msgid "See"
-msgstr ""
+msgstr "Xem"
 
 msgid "fewer"
-msgstr ""
+msgstr "ít hơn"
 
 msgid "more"
-msgstr ""
+msgstr "hơn"
 
 msgid "Text box"
 msgstr "Hộp văn bản"
 
 msgid "Add title here"
-msgstr ""
+msgstr "Thêm tiêu đề ở đây"
 
 msgid "Add description here"
-msgstr ""
+msgstr "Thêm mô tả ở đây"
 
 msgid "No description"
 msgstr "Không mô tả"
