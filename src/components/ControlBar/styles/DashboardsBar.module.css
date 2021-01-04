@@ -36,6 +36,10 @@
         overflow-y: hidden;
     }
 
+    .chipContainer {
+        margin-bottom: -4px;
+    }
+
     .chipContainer.expanded {
         overflow-x: hidden;
         overflow-y: auto;
@@ -45,6 +49,6 @@
         overflow-x: auto;
         overflow-y: hidden;
         display: flex;
-        flex-wrap: no-wrap;
+        flex-wrap: nowrap;
     }
 }
