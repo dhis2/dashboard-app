@@ -17,6 +17,7 @@
     display: inline-block;
     text-decoration: none;
     margin-right: var(--spacers-dp8);
+    margin-top: var(--spacers-dp4);
 }
 
 @media only screen and (max-width: 480px) {
