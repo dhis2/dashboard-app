@@ -3,7 +3,6 @@
 exports[`ViewDashboard renders correctly default 1`] = `
 <Fragment>
   <DashboardsBar />
-  <DashboardVerticalOffset />
   <div
     className="dashboard-wrapper"
     style={

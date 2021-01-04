@@ -11,7 +11,6 @@ exports[`Dashboard renders PRINT_LAYOUT dashboard 1`] = `<PrintLayoutDashboard /
 exports[`Dashboard renders correctly when dashboard id is not valid 1`] = `
 <Fragment>
   <DashboardsBar />
-  <DashboardVerticalOffset />
   <NoContentMessage
     text="Requested dashboard not found"
   />
@@ -75,7 +74,6 @@ exports[`Dashboard renders correctly when dashboards not loaded and id is null 1
 exports[`Dashboard renders correctly when no dashboards found 1`] = `
 <Fragment>
   <DashboardsBar />
-  <DashboardVerticalOffset />
   <NoContentMessage
     text="No dashboards found. Use the + button to create a new dashboard."
   />

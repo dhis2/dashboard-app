@@ -4,7 +4,6 @@ import toJson from 'enzyme-to-json'
 
 import { EditDashboard } from '../EditDashboard'
 
-jest.mock('../DashboardVerticalOffset', () => 'DashboardVerticalOffset')
 jest.mock('../../ControlBar/EditBar', () => 'EditBar')
 jest.mock('../../TitleBar/TitleBar', () => 'TitleBar')
 jest.mock('../../ItemGrid/ItemGrid', () => 'ItemGrid')
