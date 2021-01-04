@@ -23,6 +23,7 @@ import {
     sGetDashboardItems,
     EMPTY_DASHBOARD,
 } from '../../reducers/dashboards'
+import isSmallScreen from '../../modules/isSmallScreen'
 
 import classes from './styles/ViewTitleBar.module.css'
 
@@ -120,7 +121,7 @@ const ViewTitleBar = (props, context) => {
                         <FilterSelector />
                         <span ref={buttonRef}>
                             <Button
-                                small={width <= 480}
+                                small={isSmallScreen(width)}
                                 dataTest="more-button"
                                 onClick={toggleMoreOptions}
                             >

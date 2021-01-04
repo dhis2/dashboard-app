@@ -12,6 +12,7 @@ import {
     acClearDashboardsFilter,
 } from '../../actions/dashboardsFilter'
 import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
+import isSmallScreen from '../../modules/isSmallScreen'
 
 import classes from './styles/Filter.module.css'
 
@@ -58,7 +59,7 @@ export const Filter = ({
         setFocusedClassName('')
     }
 
-    return width <= 480 && !isMaxHeight ? (
+    return isSmallScreen(width) && !isMaxHeight ? (
         <button className={classes.searchButton} onClick={onToggleMaxHeight}>
             <SearchIcon className={classes.searchIcon} />
         </button>

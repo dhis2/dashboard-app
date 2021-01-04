@@ -25,6 +25,8 @@ import { sGetSelectedId } from '../../reducers/selected'
 import { acSetControlBarUserRows } from '../../actions/controlBar'
 import { apiPostControlBarRows } from '../../api/controlBar'
 
+import isSmallScreen from '../../modules/isSmallScreen'
+
 import classes from './styles/DashboardsBar.module.css'
 
 export const MAX_ROW_COUNT = 10
@@ -102,7 +104,8 @@ export const DashboardsBar = ({
         isMaxHeight() ? classes.expanded : classes.collapsed
     )
 
-    const viewableRows = width <= 480 && !isMaxHeight() ? MIN_ROW_COUNT : rows
+    const viewableRows =
+        isSmallScreen(width) && !isMaxHeight() ? MIN_ROW_COUNT : rows
 
     const rowHeightProp = {
         height: getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT,
@@ -119,7 +122,7 @@ export const DashboardsBar = ({
                 onClick={cancelMaxHeight}
             />
         ))
-        if (width <= 480) {
+        if (isSmallScreen(width)) {
             const chipContainerClasses = cx(
                 classes.chipContainer,
                 isMaxHeight() ? classes.expanded : classes.collapsed
@@ -138,7 +141,7 @@ export const DashboardsBar = ({
         <>
             <ControlBar
                 height={getControlBarHeight(viewableRows)}
-                onChangeHeight={width > 480 ? adjustHeight : null}
+                onChangeHeight={!isSmallScreen(width) ? adjustHeight : null}
                 onEndDrag={onEndDrag}
             >
                 <div className={containerClass} ref={ref} style={rowHeightProp}>
@@ -168,7 +171,7 @@ export const DashboardsBar = ({
                 style={{
                     marginTop:
                         getControlBarHeight(
-                            width <= 480 && !isMaxHeight()
+                            isSmallScreen(width) && !isMaxHeight()
                                 ? MIN_ROW_COUNT
                                 : userRows
                         ) + DRAG_HANDLE_HEIGHT,
