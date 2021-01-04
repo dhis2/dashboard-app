@@ -1,155 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
-<DocumentFragment>
-  <div
-    class="root"
-    style="height: 431px; background-color: rgb(255, 255, 255); padding-bottom: 7px;"
-  >
-    <div
-      class="content"
-    >
-      <div
-        class="container overflowYAuto"
-        style="height: 410px;"
-      >
-        <div
-          class="leftControls"
-        >
-          <a
-            class="newLink"
-            data-test="link-new-dashboard"
-            href="/new"
-          >
-            <svg
-              fill="#00796b"
-              height="32"
-              viewBox="0 0 24 24"
-              width="32"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4 11h-3v3c0 .55-.45 1-1 1s-1-.45-1-1v-3H8c-.55 0-1-.45-1-1s.45-1 1-1h3V8c0-.55.45-1 1-1s1 .45 1 1v3h3c.55 0 1 .45 1 1s-.45 1-1 1z"
-              />
-            </svg>
-          </a>
-          <div
-            class="container"
-          >
-            <svg
-              class="searchIcon"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h24v24H0z"
-                fill="none"
-              />
-              <path
-                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-              />
-            </svg>
-            <input
-              class="input"
-              data-test="search-dashboard-input"
-              placeholder="Search for a dashboard"
-              type="text"
-              value=""
-            />
-          </div>
-        </div>
-        <a
-          class="link"
-          data-test="dashboard-chip"
-          href="/fluttershy123"
-        >
-          <span
-            class="jsx-3285323350 selected"
-            data-test="dhis2-uicore-chip"
-          >
-            <span
-              class="jsx-3489677657"
-              data-test="dhis2-uicore-chip-icon"
-            >
-              <svg
-                class="icon selected"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h24v24H0z"
-                  fill="none"
-                />
-                <path
-                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                />
-                <path
-                  d="M0 0h24v24H0z"
-                  fill="none"
-                />
-              </svg>
-            </span>
-            <span
-              class="jsx-785997980 "
-            >
-              Fluttershy
-            </span>
-          </span>
-        </a>
-        <a
-          class="link"
-          data-test="dashboard-chip"
-          href="/rainbow123"
-        >
-          <span
-            class="jsx-3285323350 "
-            data-test="dhis2-uicore-chip"
-          >
-            <span
-              class="jsx-785997980 "
-            >
-              Rainbow Dash
-            </span>
-          </span>
-        </a>
-      </div>
-      <div
-        class="container"
-      >
-        <div
-          class="showMore"
-          data-test="showmore-button"
-        >
-          Show less
-        </div>
-      </div>
-    </div>
-    <div
-      class="draghandle"
-      data-testid="controlbar-drag-handle"
-      style="height: 7px;"
-    />
-  </div>
-</DocumentFragment>
-`;
-
 exports[`renders a DashboardsBar with maximum height 1`] = `
 <div>
   <div
     class="root"
-    style="height: 431px; background-color: rgb(255, 255, 255); padding-bottom: 7px;"
+    style="height: 431px;"
   >
     <div
       class="content"
     >
       <div
-        class="container overflowYAuto"
+        class="container expanded"
         style="height: 410px;"
       >
         <div
-          class="leftControls"
+          class="controls"
         >
           <a
             class="newLink"
@@ -257,7 +122,17 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
         <div
           class="disabled"
         >
-          Show more
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m11.29289 15.7071c.39053.3905 1.02369.3905 1.41422 0l4.99999-4.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-4.2929 4.2929-4.29289-4.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
+              fill="#a0adba"
+            />
+          </svg>
         </div>
       </div>
     </div>
@@ -267,6 +142,9 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
       style="height: 7px;"
     />
   </div>
+  <div
+    style="margin-top: 431px;"
+  />
 </div>
 `;
 
@@ -274,17 +152,17 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
 <div>
   <div
     class="root"
-    style="height: 71px; background-color: rgb(255, 255, 255); padding-bottom: 7px;"
+    style="height: 71px;"
   >
     <div
       class="content"
     >
       <div
-        class="container overflowYHidden"
+        class="container collapsed"
         style="height: 50px;"
       >
         <div
-          class="leftControls"
+          class="controls"
         >
           <a
             class="newLink"
@@ -392,8 +270,19 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
         <div
           class="showMore"
           data-test="showmore-button"
+          title="Show more"
         >
-          Show more
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m11.29289 15.7071c.39053.3905 1.02369.3905 1.41422 0l4.99999-4.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-4.2929 4.2929-4.29289-4.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
+              fill="#a0adba"
+            />
+          </svg>
         </div>
       </div>
     </div>
@@ -403,6 +292,9 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
       style="height: 7px;"
     />
   </div>
+  <div
+    style="margin-top: 71px;"
+  />
 </div>
 `;
 
@@ -410,17 +302,17 @@ exports[`renders a DashboardsBar with no items 1`] = `
 <div>
   <div
     class="root"
-    style="height: 71px; background-color: rgb(255, 255, 255); padding-bottom: 7px;"
+    style="height: 71px;"
   >
     <div
       class="content"
     >
       <div
-        class="container overflowYHidden"
+        class="container collapsed"
         style="height: 50px;"
       >
         <div
-          class="leftControls"
+          class="controls"
         >
           <a
             class="newLink"
@@ -474,8 +366,19 @@ exports[`renders a DashboardsBar with no items 1`] = `
         <div
           class="showMore"
           data-test="showmore-button"
+          title="Show more"
         >
-          Show more
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m11.29289 15.7071c.39053.3905 1.02369.3905 1.41422 0l4.99999-4.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-4.2929 4.2929-4.29289-4.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
+              fill="#a0adba"
+            />
+          </svg>
         </div>
       </div>
     </div>
@@ -485,141 +388,8 @@ exports[`renders a DashboardsBar with no items 1`] = `
       style="height: 7px;"
     />
   </div>
-</div>
-`;
-
-exports[`renders a DashboardsBar with selected item 1`] = `
-<div>
   <div
-    class="root"
-    style="height: 71px; background-color: rgb(255, 255, 255); padding-bottom: 7px;"
-  >
-    <div
-      class="content"
-    >
-      <div
-        class="container overflowYHidden"
-        style="height: 50px;"
-      >
-        <div
-          class="leftControls"
-        >
-          <a
-            class="newLink"
-            data-test="link-new-dashboard"
-            href="/new"
-          >
-            <svg
-              fill="#00796b"
-              height="32"
-              viewBox="0 0 24 24"
-              width="32"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4 11h-3v3c0 .55-.45 1-1 1s-1-.45-1-1v-3H8c-.55 0-1-.45-1-1s.45-1 1-1h3V8c0-.55.45-1 1-1s1 .45 1 1v3h3c.55 0 1 .45 1 1s-.45 1-1 1z"
-              />
-            </svg>
-          </a>
-          <div
-            class="container"
-          >
-            <svg
-              class="searchIcon"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h24v24H0z"
-                fill="none"
-              />
-              <path
-                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-              />
-            </svg>
-            <input
-              class="input"
-              data-test="search-dashboard-input"
-              placeholder="Search for a dashboard"
-              type="text"
-              value=""
-            />
-            
-          </div>
-        </div>
-        <a
-          class="link"
-          data-test="dashboard-chip"
-          href="/fluttershy123"
-        >
-          <span
-            class="jsx-3285323350 selected"
-            data-test="dhis2-uicore-chip"
-          >
-            <span
-              class="jsx-3489677657"
-              data-test="dhis2-uicore-chip-icon"
-            >
-              <svg
-                class="icon selected"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h24v24H0z"
-                  fill="none"
-                />
-                <path
-                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                />
-                <path
-                  d="M0 0h24v24H0z"
-                  fill="none"
-                />
-              </svg>
-            </span>
-            <span
-              class="jsx-785997980 "
-            >
-              Fluttershy
-            </span>
-          </span>
-        </a>
-        <a
-          class="link"
-          data-test="dashboard-chip"
-          href="/rainbow123"
-        >
-          <span
-            class="jsx-3285323350 "
-            data-test="dhis2-uicore-chip"
-          >
-            <span
-              class="jsx-785997980 "
-            >
-              Rainbow Dash
-            </span>
-          </span>
-        </a>
-      </div>
-      <div
-        class="container"
-      >
-        <div
-          class="showMore"
-          data-test="showmore-button"
-        >
-          Show more
-        </div>
-      </div>
-    </div>
-    <div
-      class="draghandle"
-      data-testid="controlbar-drag-handle"
-      style="height: 7px;"
-    />
-  </div>
+    style="margin-top: 71px;"
+  />
 </div>
 `;

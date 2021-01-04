@@ -3,12 +3,6 @@ import { shallow } from 'enzyme'
 
 import ControlBar from '../ControlBar'
 
-jest.mock('@dhis2/ui', () => {
-    return {
-        colors: { white: 'white', yellow050: 'yellow' },
-    }
-})
-
 describe('ControlBar', () => {
     let props
     const children = (
@@ -48,14 +42,6 @@ describe('ControlBar', () => {
 
     it('should not render the drag handle when no onChangeHeight callback is specified', () => {
         expect(renderControlBar().children().length).toBe(1)
-    })
-
-    it('should change the background color in edit mode', () => {
-        props.editMode = true
-
-        expect(renderControlBar().props().style.backgroundColor).not.toBe(
-            'white'
-        )
     })
 
     it('should call the onChangeHeight callback when the drag handle is dragged', () => {
@@ -105,13 +91,13 @@ describe('ControlBar', () => {
         const controlBar = renderControlBar()
         const dragFlap = controlBar.childAt(1)
 
-        expect(controlBar.props().style.transition).not.toBe('none')
+        expect(controlBar.props().className).not.toMatch(/dragging/)
         dragFlap.simulate('mousedown')
-        expect(controlBar.props().style.transition).toBe('none')
+        expect(controlBar.props().className).toMatch(/dragging/)
 
         window.dispatchEvent(new MouseEvent('mouseup'))
         controlBar.update()
-        expect(controlBar.props().style.transition).not.toBe('none')
+        expect(controlBar.props().className).not.toMatch(/dragging/)
     })
 
     it('should start listening for mousemove and mouseup events when the drag flap is clicked', () => {

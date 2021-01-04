@@ -2,145 +2,90 @@
 
 exports[`EditBar renders the EditBar 1`] = `
 <Fragment>
-  <ControlBar
-    editMode={true}
-    height={64}
-    onChangeHeight={null}
-    onEndDrag={null}
+  <div
+    className="editBar"
   >
     <div
-      style={
-        Object {
-          "height": 40,
-          "marginLeft": "15px",
-          "marginRight": "15px",
-          "paddingTop": "15px",
-        }
-      }
+      className="controls"
     >
-      <div
-        className="rightControls"
+      <Button
+        dataTest="dhis2-uicore-button"
+        onClick={[Function]}
+        secondary={true}
+        type="button"
       >
-        <Button
-          dataTest="dhis2-uicore-button"
-          onClick={[Function]}
-          secondary={true}
-          type="button"
-        >
-          Go to dashboards
-        </Button>
-      </div>
+        Go to dashboards
+      </Button>
     </div>
-  </ControlBar>
-  <div
-    className="topMargin"
-  />
+  </div>
 </Fragment>
 `;
 
 exports[`EditBar when update access is false renders only the Discard button 1`] = `
 <Fragment>
-  <ControlBar
-    editMode={true}
-    height={64}
-    onChangeHeight={null}
-    onEndDrag={null}
+  <div
+    className="editBar"
   >
     <div
-      style={
-        Object {
-          "height": 40,
-          "marginLeft": "15px",
-          "marginRight": "15px",
-          "paddingTop": "15px",
-        }
-      }
+      className="controls"
     >
-      <div
-        className="rightControls"
+      <Button
+        dataTest="dhis2-uicore-button"
+        onClick={[Function]}
+        secondary={true}
+        type="button"
       >
-        <Button
-          dataTest="dhis2-uicore-button"
-          onClick={[Function]}
-          secondary={true}
-          type="button"
-        >
-          Go to dashboards
-        </Button>
-      </div>
+        Go to dashboards
+      </Button>
     </div>
-  </ControlBar>
-  <div
-    className="topMargin"
-  />
+  </div>
 </Fragment>
 `;
 
 exports[`EditBar when update access is true when dashboard id property provided renders Save, Translate and Discard buttons and the TranslationDialog but not ConfirmDeleteDialog 1`] = `
 <Fragment>
-  <ControlBar
-    editMode={true}
-    height={64}
-    onChangeHeight={null}
-    onEndDrag={null}
+  <div
+    className="editBar"
   >
     <div
-      style={
-        Object {
-          "height": 40,
-          "marginLeft": "15px",
-          "marginRight": "15px",
-          "paddingTop": "15px",
-        }
-      }
+      className="controls"
     >
-      <div
-        className="leftControls"
+      <ButtonStrip
+        dataTest="dhis2-uicore-buttonstrip"
       >
-        <ButtonStrip
-          dataTest="dhis2-uicore-buttonstrip"
+        <Button
+          dataTest="save-dashboard-button"
+          onClick={[Function]}
+          primary={true}
+          type="button"
         >
-          <Button
-            dataTest="save-dashboard-button"
-            onClick={[Function]}
-            primary={true}
-            type="button"
-          >
-            Save changes
-          </Button>
-          <Button
-            dataTest="dhis2-uicore-button"
-            onClick={[Function]}
-            type="button"
-          >
-            Print preview
-          </Button>
-          <Button
-            dataTest="dhis2-uicore-button"
-            onClick={[Function]}
-            type="button"
-          >
-            Translate
-          </Button>
-        </ButtonStrip>
-      </div>
-      <div
-        className="rightControls"
-      >
+          Save changes
+        </Button>
         <Button
           dataTest="dhis2-uicore-button"
           onClick={[Function]}
-          secondary={true}
           type="button"
         >
-          Exit without saving
+          Print preview
         </Button>
-      </div>
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Translate
+        </Button>
+      </ButtonStrip>
+      <Button
+        dataTest="dhis2-uicore-button"
+        onClick={[Function]}
+        secondary={true}
+        type="button"
+      >
+        Exit without saving
+      </Button>
     </div>
-  </ControlBar>
-  <div
-    className="topMargin"
-  />
+  </div>
   <Component
     className="translation-dialog"
     d2={
@@ -175,69 +120,48 @@ exports[`EditBar when update access is true when dashboard id property provided 
 
 exports[`EditBar when update access is true when dashboard id property provided when TRANSLATE button is clicked shows the translate dialog 1`] = `
 <Fragment>
-  <ControlBar
-    editMode={true}
-    height={64}
-    onChangeHeight={null}
-    onEndDrag={null}
+  <div
+    className="editBar"
   >
     <div
-      style={
-        Object {
-          "height": 40,
-          "marginLeft": "15px",
-          "marginRight": "15px",
-          "paddingTop": "15px",
-        }
-      }
+      className="controls"
     >
-      <div
-        className="leftControls"
+      <ButtonStrip
+        dataTest="dhis2-uicore-buttonstrip"
       >
-        <ButtonStrip
-          dataTest="dhis2-uicore-buttonstrip"
+        <Button
+          dataTest="save-dashboard-button"
+          onClick={[Function]}
+          primary={true}
+          type="button"
         >
-          <Button
-            dataTest="save-dashboard-button"
-            onClick={[Function]}
-            primary={true}
-            type="button"
-          >
-            Save changes
-          </Button>
-          <Button
-            dataTest="dhis2-uicore-button"
-            onClick={[Function]}
-            type="button"
-          >
-            Print preview
-          </Button>
-          <Button
-            dataTest="dhis2-uicore-button"
-            onClick={[Function]}
-            type="button"
-          >
-            Translate
-          </Button>
-        </ButtonStrip>
-      </div>
-      <div
-        className="rightControls"
-      >
+          Save changes
+        </Button>
         <Button
           dataTest="dhis2-uicore-button"
           onClick={[Function]}
-          secondary={true}
           type="button"
         >
-          Exit without saving
+          Print preview
         </Button>
-      </div>
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Translate
+        </Button>
+      </ButtonStrip>
+      <Button
+        dataTest="dhis2-uicore-button"
+        onClick={[Function]}
+        secondary={true}
+        type="button"
+      >
+        Exit without saving
+      </Button>
     </div>
-  </ControlBar>
-  <div
-    className="topMargin"
-  />
+  </div>
   <Component
     className="translation-dialog"
     d2={
@@ -272,69 +196,48 @@ exports[`EditBar when update access is true when dashboard id property provided 
 
 exports[`EditBar when update access is true when dashboard id property provided when TRANSLATE button is clicked shows the translate dialog 2`] = `
 <Fragment>
-  <ControlBar
-    editMode={true}
-    height={64}
-    onChangeHeight={null}
-    onEndDrag={null}
+  <div
+    className="editBar"
   >
     <div
-      style={
-        Object {
-          "height": 40,
-          "marginLeft": "15px",
-          "marginRight": "15px",
-          "paddingTop": "15px",
-        }
-      }
+      className="controls"
     >
-      <div
-        className="leftControls"
+      <ButtonStrip
+        dataTest="dhis2-uicore-buttonstrip"
       >
-        <ButtonStrip
-          dataTest="dhis2-uicore-buttonstrip"
+        <Button
+          dataTest="save-dashboard-button"
+          onClick={[Function]}
+          primary={true}
+          type="button"
         >
-          <Button
-            dataTest="save-dashboard-button"
-            onClick={[Function]}
-            primary={true}
-            type="button"
-          >
-            Save changes
-          </Button>
-          <Button
-            dataTest="dhis2-uicore-button"
-            onClick={[Function]}
-            type="button"
-          >
-            Print preview
-          </Button>
-          <Button
-            dataTest="dhis2-uicore-button"
-            onClick={[Function]}
-            type="button"
-          >
-            Translate
-          </Button>
-        </ButtonStrip>
-      </div>
-      <div
-        className="rightControls"
-      >
+          Save changes
+        </Button>
         <Button
           dataTest="dhis2-uicore-button"
           onClick={[Function]}
-          secondary={true}
           type="button"
         >
-          Exit without saving
+          Print preview
         </Button>
-      </div>
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Translate
+        </Button>
+      </ButtonStrip>
+      <Button
+        dataTest="dhis2-uicore-button"
+        onClick={[Function]}
+        secondary={true}
+        type="button"
+      >
+        Exit without saving
+      </Button>
     </div>
-  </ControlBar>
-  <div
-    className="topMargin"
-  />
+  </div>
   <Component
     className="translation-dialog"
     d2={
@@ -369,76 +272,55 @@ exports[`EditBar when update access is true when dashboard id property provided 
 
 exports[`EditBar when update access is true when dashboard id property provided when deleteAccess is true renders Translate, Delete, and Discard buttons and ConfirmDeleteDialog 1`] = `
 <Fragment>
-  <ControlBar
-    editMode={true}
-    height={64}
-    onChangeHeight={null}
-    onEndDrag={null}
+  <div
+    className="editBar"
   >
     <div
-      style={
-        Object {
-          "height": 40,
-          "marginLeft": "15px",
-          "marginRight": "15px",
-          "paddingTop": "15px",
-        }
-      }
+      className="controls"
     >
-      <div
-        className="leftControls"
+      <ButtonStrip
+        dataTest="dhis2-uicore-buttonstrip"
       >
-        <ButtonStrip
-          dataTest="dhis2-uicore-buttonstrip"
+        <Button
+          dataTest="save-dashboard-button"
+          onClick={[Function]}
+          primary={true}
+          type="button"
         >
-          <Button
-            dataTest="save-dashboard-button"
-            onClick={[Function]}
-            primary={true}
-            type="button"
-          >
-            Save changes
-          </Button>
-          <Button
-            dataTest="dhis2-uicore-button"
-            onClick={[Function]}
-            type="button"
-          >
-            Print preview
-          </Button>
-          <Button
-            dataTest="dhis2-uicore-button"
-            onClick={[Function]}
-            type="button"
-          >
-            Translate
-          </Button>
-          <Button
-            dataTest="delete-dashboard-button"
-            onClick={[Function]}
-            type="button"
-          >
-            Delete
-          </Button>
-        </ButtonStrip>
-      </div>
-      <div
-        className="rightControls"
-      >
+          Save changes
+        </Button>
         <Button
           dataTest="dhis2-uicore-button"
           onClick={[Function]}
-          secondary={true}
           type="button"
         >
-          Exit without saving
+          Print preview
         </Button>
-      </div>
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Translate
+        </Button>
+        <Button
+          dataTest="delete-dashboard-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Delete
+        </Button>
+      </ButtonStrip>
+      <Button
+        dataTest="dhis2-uicore-button"
+        onClick={[Function]}
+        secondary={true}
+        type="button"
+      >
+        Exit without saving
+      </Button>
     </div>
-  </ControlBar>
-  <div
-    className="topMargin"
-  />
+  </div>
   <ConfirmDeleteDialog
     onContinueEditing={[Function]}
     onDeleteConfirmed={[Function]}
@@ -449,61 +331,40 @@ exports[`EditBar when update access is true when dashboard id property provided 
 
 exports[`EditBar when update access is true when no dashboard id property renders Save and Discard buttons but no dialogs 1`] = `
 <Fragment>
-  <ControlBar
-    editMode={true}
-    height={64}
-    onChangeHeight={null}
-    onEndDrag={null}
+  <div
+    className="editBar"
   >
     <div
-      style={
-        Object {
-          "height": 40,
-          "marginLeft": "15px",
-          "marginRight": "15px",
-          "paddingTop": "15px",
-        }
-      }
+      className="controls"
     >
-      <div
-        className="leftControls"
+      <ButtonStrip
+        dataTest="dhis2-uicore-buttonstrip"
       >
-        <ButtonStrip
-          dataTest="dhis2-uicore-buttonstrip"
+        <Button
+          dataTest="save-dashboard-button"
+          onClick={[Function]}
+          primary={true}
+          type="button"
         >
-          <Button
-            dataTest="save-dashboard-button"
-            onClick={[Function]}
-            primary={true}
-            type="button"
-          >
-            Save changes
-          </Button>
-          <Button
-            dataTest="dhis2-uicore-button"
-            onClick={[Function]}
-            type="button"
-          >
-            Print preview
-          </Button>
-        </ButtonStrip>
-      </div>
-      <div
-        className="rightControls"
-      >
+          Save changes
+        </Button>
         <Button
           dataTest="dhis2-uicore-button"
           onClick={[Function]}
-          secondary={true}
           type="button"
         >
-          Exit without saving
+          Print preview
         </Button>
-      </div>
+      </ButtonStrip>
+      <Button
+        dataTest="dhis2-uicore-button"
+        onClick={[Function]}
+        secondary={true}
+        type="button"
+      >
+        Exit without saving
+      </Button>
     </div>
-  </ControlBar>
-  <div
-    className="topMargin"
-  />
+  </div>
 </Fragment>
 `;

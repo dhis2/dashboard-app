@@ -31,7 +31,7 @@ import classes from './styles/DashboardsBar.module.css'
 
 export const MAX_ROW_COUNT = 10
 
-export const DashboardsBar = ({
+const DashboardsBar = ({
     userRows,
     onChangeHeight,
     history,

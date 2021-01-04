@@ -19,7 +19,7 @@ import classes from './styles/Filter.module.css'
 export const KEYCODE_ENTER = 13
 export const KEYCODE_ESCAPE = 27
 
-export const Filter = ({
+export const FilterUnconnected = ({
     clearDashboardsFilter,
     filterText,
     isMaxHeight,
@@ -84,7 +84,7 @@ export const Filter = ({
     )
 }
 
-Filter.propTypes = {
+FilterUnconnected.propTypes = {
     clearDashboardsFilter: PropTypes.func,
     filterText: PropTypes.string,
     isMaxHeight: PropTypes.bool,
@@ -102,4 +102,4 @@ const mapDispatchToProps = {
     clearDashboardsFilter: acClearDashboardsFilter,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Filter)
+export default connect(mapStateToProps, mapDispatchToProps)(FilterUnconnected)
