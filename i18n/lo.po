@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-08T17:54:39.674Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
+"PO-Revision-Date: 2020-12-22 22:13+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
@@ -20,10 +20,10 @@ msgid "Untitled dashboard"
 msgstr ""
 
 msgid "Cancel"
-msgstr "ຍົກເລີກ"
+msgstr "Cancel"
 
 msgid "Delete"
-msgstr "ລຶບ"
+msgstr "ລົບ"
 
 msgid "Delete dashboard"
 msgstr ""
@@ -44,7 +44,7 @@ msgid "Save changes"
 msgstr "ບັນທຶກ"
 
 msgid "Translate"
-msgstr "ແປພາສາ"
+msgstr "ແປ"
 
 msgid "Exit without saving"
 msgstr "ອອກໂດຍບໍ່ບັນທຶກ"
@@ -56,10 +56,10 @@ msgid "Search for a dashboard"
 msgstr "ຄົນຫາກະດານຂ່າວ"
 
 msgid "Show more"
-msgstr "ສະແດງຫຼາຍ"
+msgstr "ສະແດງໃຫ້ເຫັນຫຼາຍຂຶ້ນ"
 
 msgid "Show less"
-msgstr "ສະແດງໜ້ອຍ"
+msgstr "ສະແດງໃຫ້ເຫັນໜ້ອຍລົງ"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -222,7 +222,7 @@ msgid "One item per page"
 msgstr ""
 
 msgid "No description"
-msgstr "ບໍ່ມີຄຳອະທິບາຍ"
+msgstr "ບໍ່ມີລາຍລະອຽດ"
 
 msgid "Visualizations"
 msgstr ""
@@ -246,10 +246,10 @@ msgid "Apps"
 msgstr "ແອັບ"
 
 msgid "Reports"
-msgstr "ລາຍງານ"
+msgstr "ລາຍ​ງານ​"
 
 msgid "Resources"
 msgstr "ແຫຼ່ງ"
 
 msgid "Users"
-msgstr "ຜູ້ໃຊ້"
+msgstr "ຜູ້ນໍາໃຊ້"

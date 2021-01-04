@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Sheila André <sandre@saudigitus.org>, 2020
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
+# Sheila André <sandre@saudigitus.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-08T17:54:39.674Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"PO-Revision-Date: 2020-12-22 22:13+0000\n"
+"Last-Translator: Sheila André <sandre@saudigitus.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +25,7 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 msgid "Delete"
-msgstr "Apagar"
+msgstr "Suprimir"
 
 msgid "Delete dashboard"
 msgstr "Apagar painel"
@@ -46,7 +46,7 @@ msgid "Print preview"
 msgstr ""
 
 msgid "Save changes"
-msgstr "Gravar alterações"
+msgstr "Salvar alterações"
 
 msgid "Translate"
 msgstr "Traduzir"

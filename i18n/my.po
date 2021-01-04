@@ -1,13 +1,13 @@
 # 
 # Translators:
-# phil_dhis2, 2019
+# phil_dhis2, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-03-11T02:00:02.349Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"POT-Creation-Date: 2020-09-08T17:54:39.674Z\n"
+"PO-Revision-Date: 2020-12-22 22:13+0000\n"
+"Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Burmese (https://www.transifex.com/hisp-uio/teams/100509/my/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,8 +15,8 @@ msgstr ""
 "Language: my\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Dashboard"
-msgstr "အချက်အလက်များလေ့လာဆန်းစစ်ခြင်း"
+msgid "Untitled dashboard"
+msgstr ""
 
 msgid "Cancel"
 msgstr "ပယ်ဖျက်သည်"
@@ -33,10 +33,10 @@ msgid ""
 "this dashboard?"
 msgstr ""
 
-msgid "Exit without saving"
+msgid "Exit Print preview"
 msgstr ""
 
-msgid "Go to dashboards"
+msgid "Print preview"
 msgstr ""
 
 msgid "Save changes"
@@ -44,6 +44,12 @@ msgstr ""
 
 msgid "Translate"
 msgstr "ဘာသာပြန်သည်။"
+
+msgid "Exit without saving"
+msgstr ""
+
+msgid "Go to dashboards"
+msgstr ""
 
 msgid "Search for a dashboard"
 msgstr ""
@@ -54,13 +60,42 @@ msgstr ""
 msgid "Show less"
 msgstr ""
 
-msgid "No access"
-msgstr ""
-
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
 
 msgid "Requested dashboard not found"
+msgstr ""
+
+msgid "No access"
+msgstr ""
+
+msgid "Exit print preview"
+msgstr ""
+
+msgid "Print"
+msgstr "Print ထုတ်သည်"
+
+msgid "dashboard layout"
+msgstr ""
+
+msgid "one item per page"
+msgstr ""
+
+msgid "Print Preview"
+msgstr ""
+
+msgid "For best print results"
+msgstr ""
+
+msgid "Use Chrome or Edge web browser"
+msgstr ""
+
+msgid "Wait for all dashboard items to load before printing"
+msgstr ""
+
+msgid ""
+"Use A4 landscape paper size and default margin settings in the browser print"
+" dialog"
 msgstr ""
 
 msgid "{{count}} selected"
@@ -73,6 +108,9 @@ msgstr "ဖယ်ရှားခြင်း"
 msgid "Delete item"
 msgstr ""
 
+msgid "This item has been shortened to fit on one page"
+msgstr ""
+
 msgid "Messages"
 msgstr "သတင်းများ"
 
@@ -80,6 +118,9 @@ msgid "See all messages"
 msgstr ""
 
 msgid "Item type \"{{type}}\" not supported"
+msgstr ""
+
+msgid "Filters applied"
 msgstr ""
 
 msgid "Spacer"
@@ -152,13 +193,34 @@ msgstr ""
 msgid "Dashboard description"
 msgstr ""
 
-msgid "No description"
+msgid "Hide description"
+msgstr ""
+
+msgid "Show description"
+msgstr ""
+
+msgid "Unstar dashboard"
+msgstr ""
+
+msgid "Star dashboard"
 msgstr ""
 
 msgid "Edit"
 msgstr "တည်းဖြတ်သည်"
 
 msgid "Share"
+msgstr ""
+
+msgid "More"
+msgstr ""
+
+msgid "Dashboard layout"
+msgstr ""
+
+msgid "One item per page"
+msgstr ""
+
+msgid "No description"
 msgstr ""
 
 msgid "Visualizations"
