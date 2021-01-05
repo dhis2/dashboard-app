@@ -36,26 +36,10 @@ exports[`EditDashboard renders dashboard 1`] = `
         </div>
         <div
           class="jsx-71743532 box"
-        >
-          <button
-            class="jsx-2371629422 "
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Translate
-          </button>
-        </div>
+        />
         <div
           class="jsx-71743532 box"
-        >
-          <button
-            class="jsx-2371629422 "
-            data-test="delete-dashboard-button"
-            type="button"
-          >
-            Delete
-          </button>
-        </div>
+        />
       </div>
       <button
         class="jsx-2371629422 secondary"
@@ -76,31 +60,6 @@ exports[`EditDashboard renders dashboard 1`] = `
     <div>
       ItemGrid
     </div>
-  </div>
-</div>
-`;
-
-exports[`EditDashboard renders message when not enough access 1`] = `
-<div>
-  <div
-    class="editBar"
-  >
-    <div
-      class="controls"
-    >
-      <button
-        class="jsx-2371629422 secondary"
-        data-test="dhis2-uicore-button"
-        type="button"
-      >
-        Go to dashboards
-      </button>
-    </div>
-  </div>
-  <div
-    style="padding: 50px 10px; text-align: center; font-size: 15px; font-weight: 500; color: rgb(110, 122, 138);"
-  >
-    No access
   </div>
 </div>
 `;
@@ -141,26 +100,10 @@ exports[`EditDashboard renders print preview 1`] = `
         </div>
         <div
           class="jsx-71743532 box"
-        >
-          <button
-            class="jsx-2371629422 "
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Translate
-          </button>
-        </div>
+        />
         <div
           class="jsx-71743532 box"
-        >
-          <button
-            class="jsx-2371629422 "
-            data-test="delete-dashboard-button"
-            type="button"
-          >
-            Delete
-          </button>
-        </div>
+        />
       </div>
       <button
         class="jsx-2371629422 secondary"

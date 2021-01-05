@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-01-05T09:32:21.165Z\n"
-"PO-Revision-Date: 2021-01-05T09:32:21.165Z\n"
+"POT-Creation-Date: 2021-01-05T13:33:31.400Z\n"
+"PO-Revision-Date: 2021-01-05T13:33:31.400Z\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -63,6 +63,15 @@ msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "No access"
+msgstr ""
+
+msgid "Not supported"
+msgstr ""
+
+msgid "Editing dashboards on small screens is not supported."
+msgstr ""
+
+msgid "Creating dashboards on small screens is not supported."
 msgstr ""
 
 msgid "Exit print preview"
