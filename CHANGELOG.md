@@ -1,3 +1,32 @@
+# [31.4.0](https://github.com/dhis2/dashboard-app/compare/v31.3.1...v31.4.0) (2021-01-05)
+
+
+### Features
+
+* add fullscreen option to visualization items [DHIS2-9879] ([#1358](https://github.com/dhis2/dashboard-app/issues/1358)) ([746d7b0](https://github.com/dhis2/dashboard-app/commit/746d7b00321d96a5ae2bcd6959842db5fb99f2f3)), closes [cypress-io/cypress#7776](https://github.com/cypress-io/cypress/issues/7776)
+
+## [31.3.1](https://github.com/dhis2/dashboard-app/compare/v31.3.0...v31.3.1) (2021-01-05)
+
+
+### Bug Fixes
+
+* disable test affected by api bug ([#1418](https://github.com/dhis2/dashboard-app/issues/1418)) ([e01f98b](https://github.com/dhis2/dashboard-app/commit/e01f98b344656255539df14a7dd5f0e9d3d1cf61))
+* **translations:** sync translations from transifex (master) ([#1403](https://github.com/dhis2/dashboard-app/issues/1403)) ([bd1c113](https://github.com/dhis2/dashboard-app/commit/bd1c1136eda2aad13286bce04444424857c59e71))
+
+# [31.3.0](https://github.com/dhis2/dashboard-app/compare/v31.2.0...v31.3.0) (2020-12-15)
+
+
+### Features
+
+* add support for gathering data statistics on visualization views [DHIS2-9554] ([#1394](https://github.com/dhis2/dashboard-app/issues/1394)) ([380ba29](https://github.com/dhis2/dashboard-app/commit/380ba29db8f0afa4b3ba82a9cb2659c0304da8a5))
+
+# [31.2.0](https://github.com/dhis2/dashboard-app/compare/v31.1.3...v31.2.0) (2020-12-15)
+
+
+### Features
+
+* hide app title in View mode if specified in the app manifest (DHIS2-9605) ([#1393](https://github.com/dhis2/dashboard-app/issues/1393)) ([cdb3469](https://github.com/dhis2/dashboard-app/commit/cdb346954a194a511562fbc638523b7fcc8df857))
+
 ## [31.1.3](https://github.com/dhis2/dashboard-app/compare/v31.1.2...v31.1.3) (2020-12-15)
 
 
