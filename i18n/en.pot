@@ -153,6 +153,9 @@ msgstr ""
 msgid "Open in {{appName}} app"
 msgstr ""
 
+msgid "View fullscreen"
+msgstr ""
+
 msgid "Unable to load the plugin for this item"
 msgstr ""
 

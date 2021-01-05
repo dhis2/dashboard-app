@@ -14,8 +14,13 @@ import ChartIcon from '@material-ui/icons/InsertChart'
 import MapIcon from '@material-ui/icons/Public'
 import LaunchIcon from '@material-ui/icons/Launch'
 
-import { ThreeDots, SpeechBubble } from './assets/icons'
-import { pluginIsAvailable, getLink } from './Visualization/plugin'
+import {
+    ThreeDots,
+    SpeechBubble,
+    Fullscreen,
+    ExitFullscreen,
+} from './assets/icons'
+import { getLink } from './Visualization/plugin'
 import {
     CHART,
     MAP,
@@ -31,7 +36,6 @@ const iconFill = { fill: colors.grey600 }
 
 const ItemHeaderButtons = (props, context) => {
     const [menuIsOpen, setMenuIsOpen] = useState(null)
-
     const { item, visualization, onSelectActiveType, activeType } = props
 
     const isTrackerType = isTrackerDomainType(item.type)
@@ -58,6 +62,11 @@ const ItemHeaderButtons = (props, context) => {
         if (menuIsOpen) {
             closeMenu()
         }
+    }
+
+    const handleToggleFullscreenClick = () => {
+        props.onToggleFullscreen()
+        closeMenu()
     }
 
     const openMenu = () => setMenuIsOpen(true)
@@ -105,7 +114,11 @@ const ItemHeaderButtons = (props, context) => {
 
     const buttonRef = createRef()
 
-    return pluginIsAvailable(activeType || item.type) ? (
+    return props.isFullscreen ? (
+        <Button small secondary onClick={props.onToggleFullscreen}>
+            <ExitFullscreen />
+        </Button>
+    ) : (
         <>
             <div ref={buttonRef}>
                 <Button
@@ -146,20 +159,31 @@ const ItemHeaderButtons = (props, context) => {
                             label={interpretationMenuLabel}
                             onClick={handleInterpretationClick}
                         />
+                        {props.fullscreenSupported && (
+                            <MenuItem
+                                dense
+                                icon={<Fullscreen />}
+                                label={i18n.t('View fullscreen')}
+                                onClick={handleToggleFullscreenClick}
+                            />
+                        )}
                     </Menu>
                 </Popover>
             )}
         </>
-    ) : null
+    )
 }
 
 ItemHeaderButtons.propTypes = {
     activeFooter: PropTypes.bool,
     activeType: PropTypes.string,
+    fullscreenSupported: PropTypes.bool,
+    isFullscreen: PropTypes.bool,
     item: PropTypes.object,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,
+    onToggleFullscreen: PropTypes.func,
 }
 
 ItemHeaderButtons.contextTypes = {
