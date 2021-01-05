@@ -57,6 +57,7 @@ export const itemTypeMap = {
     [REPORT_TABLE]: {
         id: REPORT_TABLE,
         endPointName: 'visualizations',
+        dataStatisticsName: 'REPORT_TABLE_VIEW',
         propName: 'visualization',
         pluralTitle: i18n.t('Pivot tables'),
         domainType: DOMAIN_TYPE_AGGREGATE,
@@ -68,6 +69,7 @@ export const itemTypeMap = {
         id: CHART,
         endPointName: 'visualizations',
         propName: 'visualization',
+        dataStatisticsName: 'CHART_VIEW',
         pluralTitle: i18n.t('Charts'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
@@ -77,6 +79,7 @@ export const itemTypeMap = {
     [MAP]: {
         id: MAP,
         endPointName: 'maps',
+        dataStatisticsName: 'MAP_VIEW',
         propName: 'map',
         pluralTitle: i18n.t('Maps'),
         domainType: DOMAIN_TYPE_AGGREGATE,
@@ -159,6 +162,9 @@ export const itemTypeMap = {
 }
 
 export const getEndPointName = type => itemTypeMap[type].endPointName
+
+export const getDataStatisticsName = type =>
+    itemTypeMap[type].dataStatisticsName || null
 
 export const getItemUrl = (type, item, d2) => {
     let url

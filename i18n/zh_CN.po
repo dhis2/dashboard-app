@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-11-21T09:42:35.736Z\n"
+"POT-Creation-Date: 2020-12-09T13:38:15.043Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -140,14 +140,8 @@ msgstr "文本条目"
 msgid "Add text here"
 msgstr "添加文本到这里"
 
-msgid "Unable to load the plugin for this item"
-msgstr "不能该条目的插件"
-
 msgid "There was a problem loading this dashboard item"
 msgstr ""
-
-msgid "No data to display"
-msgstr "没有数据可显示"
 
 msgid "Hide interpretations and details"
 msgstr ""
@@ -166,6 +160,12 @@ msgstr ""
 
 msgid "Open in {{appName}} app"
 msgstr ""
+
+msgid "Unable to load the plugin for this item"
+msgstr "不能该条目的插件"
+
+msgid "No data to display"
+msgstr "没有数据可显示"
 
 msgid "Confirm"
 msgstr "确认"

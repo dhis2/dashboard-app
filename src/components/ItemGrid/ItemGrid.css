@@ -55,6 +55,11 @@
     overflow: auto;
 }
 
+.dashboard-item-content-hidden-title {
+    margin: 5px 4px 4px;
+    overflow: auto;
+}
+
 .CHART .dashboard-item-content,
 .VISUALIZATION .dashboard-item-content,
 .MAP .dashboard-item-content,
@@ -66,6 +71,7 @@
 .react-grid-item.RESOURCES .dashboard-item-content,
 .react-grid-item.TEXT .dashboard-item-content,
 .react-grid-item.MESSAGES .dashboard-item-content,
-.react-grid-item.APP .dashboard-item-content {
+.react-grid-item.APP .dashboard-item-content,
+.react-grid-item.APP .dashboard-item-content-hidden-title {
     flex: 1;
 }
