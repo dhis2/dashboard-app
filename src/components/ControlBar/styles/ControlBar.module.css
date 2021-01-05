@@ -26,7 +26,6 @@
     bottom: 0px;
     left: 0px;
     right: 0px;
-    height: 10;
     cursor: ns-resize;
     transition: all ease-out 75ms;
 }
