@@ -61,7 +61,7 @@ export class Item extends Component {
         this.props.updateVisualization(
             await apiFetchVisualization(this.props.item)
         )
-      
+
         try {
             if (
                 this.props.gatherDataStatistics &&
@@ -103,7 +103,7 @@ export class Item extends Component {
 
     isFullscreenSupported = () => {
         const el = document.querySelector(this.itemDomElSelector)
-        return el?.requestFullscreen || el?.webkitRequestFullscreen
+        return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
     }
 
     handleFullscreenChange = () => {
@@ -152,7 +152,7 @@ export class Item extends Component {
 
     getAvailableHeight = () => {
         if (this.state.isFullscreen) {
-            return '100%'
+            return '95vh'
         }
 
         const calculatedHeight =
