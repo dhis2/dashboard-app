@@ -1,3 +1,11 @@
+## [31.3.1](https://github.com/dhis2/dashboard-app/compare/v31.3.0...v31.3.1) (2021-01-05)
+
+
+### Bug Fixes
+
+* disable test affected by api bug ([#1418](https://github.com/dhis2/dashboard-app/issues/1418)) ([e01f98b](https://github.com/dhis2/dashboard-app/commit/e01f98b344656255539df14a7dd5f0e9d3d1cf61))
+* **translations:** sync translations from transifex (master) ([#1403](https://github.com/dhis2/dashboard-app/issues/1403)) ([bd1c113](https://github.com/dhis2/dashboard-app/commit/bd1c1136eda2aad13286bce04444424857c59e71))
+
 # [31.3.0](https://github.com/dhis2/dashboard-app/compare/v31.2.0...v31.3.0) (2020-12-15)
 
 
