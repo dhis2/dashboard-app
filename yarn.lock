@@ -1683,10 +1683,10 @@
     inquirer "^7.0.4"
     wait-on "^4.0.2"
 
-"@dhis2/cypress-commands@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-4.0.0.tgz#e325b25491ed6af18406c58c6f200aac1bb0c764"
-  integrity sha512-QkodpkxxxEAkUC/Lxnok5byQ/yuiUUjrg9Gqn7EgkkkEOVMooIocgUwuuMyyX9h9tB9P5IaEdAqRJxGaxXLIlQ==
+"@dhis2/cypress-commands@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-5.0.0.tgz#99ac6b0f3b4cd36e7a7dce7caac12c89ac0f02fa"
+  integrity sha512-8jfLMMapcmJswkBh7ODZLbtmskfJSSZrwya03bWwKWM3oVI/uSkZr2GV0Pu3JORohNqoOah2UKlfVRmWgTkpjg==
 
 "@dhis2/d2-i18n@^1.0.5", "@dhis2/d2-i18n@^1.0.6":
   version "1.0.6"
