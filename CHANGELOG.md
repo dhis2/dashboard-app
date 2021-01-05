@@ -1,3 +1,10 @@
+# [31.4.0](https://github.com/dhis2/dashboard-app/compare/v31.3.1...v31.4.0) (2021-01-05)
+
+
+### Features
+
+* add fullscreen option to visualization items [DHIS2-9879] ([#1358](https://github.com/dhis2/dashboard-app/issues/1358)) ([746d7b0](https://github.com/dhis2/dashboard-app/commit/746d7b00321d96a5ae2bcd6959842db5fb99f2f3)), closes [cypress-io/cypress#7776](https://github.com/cypress-io/cypress/issues/7776)
+
 ## [31.3.1](https://github.com/dhis2/dashboard-app/compare/v31.3.0...v31.3.1) (2021-01-05)
 
 
