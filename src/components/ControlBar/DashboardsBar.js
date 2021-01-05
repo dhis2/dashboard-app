@@ -62,18 +62,20 @@ const DashboardsBar = ({
 
     const onEndDrag = () => apiPostControlBarRows(rows)
 
-    const toggleMaxHeight = () => {
-        const newRows = isMaxHeight() ? userRows : MAX_ROW_COUNT
+    const scrollToTop = () => {
         if (isMaxHeight()) {
             ref.current.scroll(0, 0)
         }
+    }
+
+    const toggleMaxHeight = () => {
+        const newRows = isMaxHeight() ? userRows : MAX_ROW_COUNT
+        scrollToTop()
         setRows(newRows)
     }
 
     const cancelMaxHeight = () => {
-        if (isMaxHeight()) {
-            ref.current.scroll(0, 0)
-        }
+        scrollToTop()
         setRows(userRows)
     }
 
