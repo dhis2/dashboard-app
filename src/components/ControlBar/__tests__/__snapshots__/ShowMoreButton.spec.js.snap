@@ -4,14 +4,14 @@ exports[`ShowMoreButton renders correctly when at maxHeight 1`] = `
 <div
   className="container"
 >
-  <div
+  <button
+    aria-label="Show less"
     className="showMore"
     data-test="showmore-button"
     onClick={[Function]}
-    title="Show less"
   >
     <ChevronUp />
-  </div>
+  </button>
 </div>
 `;
 
@@ -19,13 +19,13 @@ exports[`ShowMoreButton renders correctly when not at maxHeight 1`] = `
 <div
   className="container"
 >
-  <div
+  <button
+    aria-label="Show more"
     className="showMore"
     data-test="showmore-button"
     onClick={[Function]}
-    title="Show more"
   >
     <ChevronDown />
-  </div>
+  </button>
 </div>
 `;

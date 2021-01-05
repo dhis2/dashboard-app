@@ -7,7 +7,7 @@ import classes from './styles/ShowMoreButton.module.css'
 
 export const SHOWMORE_BAR_HEIGHT = 16
 
-export const ShowMoreButton = ({ onClick, isMaxHeight, disabled }) => {
+const ShowMoreButton = ({ onClick, isMaxHeight, disabled }) => {
     return (
         <div className={classes.container}>
             {disabled ? (
@@ -15,16 +15,16 @@ export const ShowMoreButton = ({ onClick, isMaxHeight, disabled }) => {
                     <ChevronDown />
                 </div>
             ) : (
-                <div
+                <button
                     className={classes.showMore}
                     onClick={onClick}
                     data-test="showmore-button"
-                    title={
+                    aria-label={
                         isMaxHeight ? i18n.t('Show less') : i18n.t('Show more')
                     }
                 >
                     {isMaxHeight ? <ChevronUp /> : <ChevronDown />}
-                </div>
+                </button>
             )}
         </div>
     )

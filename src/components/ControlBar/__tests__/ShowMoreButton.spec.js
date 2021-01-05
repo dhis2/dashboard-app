@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { ShowMoreButton } from '../ShowMoreButton'
+import ShowMoreButton from '../ShowMoreButton'
 
 describe('ShowMoreButton', () => {
     it('renders correctly when at maxHeight', () => {
@@ -65,9 +65,7 @@ describe('ShowMoreButton', () => {
             })
 
             it('triggers onClick when div clicked', () => {
-                showMoreButton()
-                    .childAt(0)
-                    .simulate('click')
+                showMoreButton().childAt(0).simulate('click')
                 expect(props.onClick).toHaveBeenCalled()
             })
         })

@@ -267,10 +267,10 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
       <div
         class="container"
       >
-        <div
+        <button
+          aria-label="Show more"
           class="showMore"
           data-test="showmore-button"
-          title="Show more"
         >
           <svg
             height="24"
@@ -283,7 +283,7 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
               fill="#a0adba"
             />
           </svg>
-        </div>
+        </button>
       </div>
     </div>
     <div
@@ -363,10 +363,10 @@ exports[`renders a DashboardsBar with no items 1`] = `
       <div
         class="container"
       >
-        <div
+        <button
+          aria-label="Show more"
           class="showMore"
           data-test="showmore-button"
-          title="Show more"
         >
           <svg
             height="24"
@@ -379,7 +379,7 @@ exports[`renders a DashboardsBar with no items 1`] = `
               fill="#a0adba"
             />
           </svg>
-        </div>
+        </button>
       </div>
     </div>
     <div
