@@ -56,7 +56,7 @@
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^5",
-        "@dhis2/cli-style": "^7.2.2",
+        "@dhis2/cli-style": "^7.3.0",
         "@dhis2/cli-utils-cypress": "^4.0.0",
         "@dhis2/cypress-commands": "^4.0.0",
         "@testing-library/jest-dom": "^5.11.8",
