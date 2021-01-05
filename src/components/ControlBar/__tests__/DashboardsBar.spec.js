@@ -67,7 +67,7 @@ test('renders a DashboardsBar with maximum height', () => {
     expect(container).toMatchSnapshot()
 })
 
-test.skip('renders a DashboardsBar with selected item', () => {
+test('renders a DashboardsBar with selected item', () => {
     const store = {
         dashboards,
         dashboardsFilter: '',
@@ -107,14 +107,14 @@ test('renders a DashboardsBar with no items', () => {
     expect(container).toMatchSnapshot()
 })
 
-test.skip('clicking "Show more" maximizes dashboards bar height', () => {
+test('clicking "Show more" maximizes dashboards bar height', () => {
     const store = {
         dashboards,
         dashboardsFilter: '',
         controlBar: { userRows: MIN_ROW_COUNT },
         selected: { id: 'fluttershy123' },
     }
-    const { getByTitle, asFragment } = render(
+    const { getByLabelText, asFragment } = render(
         <Provider store={mockStore(store)}>
             <WindowDimensionsProvider>
                 <Router history={createMemoryHistory()}>
@@ -124,7 +124,7 @@ test.skip('clicking "Show more" maximizes dashboards bar height', () => {
         </Provider>
     )
 
-    fireEvent.click(getByTitle('Show more'))
+    fireEvent.click(getByLabelText('Show more dashboards'))
     expect(asFragment()).toMatchSnapshot()
 })
 
