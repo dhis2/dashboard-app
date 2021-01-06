@@ -33,10 +33,3 @@
     left: 0;
     background-color: transparent;
 }
-
-@media only screen and (max-width: 480px) {
-    .editLink,
-    .shareButton {
-        display: none !important;
-    }
-}
