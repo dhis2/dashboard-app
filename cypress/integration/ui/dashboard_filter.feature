@@ -14,8 +14,7 @@ Feature: Dashboard filter
         When I add a "Organisation Unit" filter
         Then the Organisation Unit filter is applied to the dashboard
 
-# TODO - renable this test once the api bug is fixed
-# @nonmutating
-# Scenario: I add a Facility Type filter
-#     When I add a "Facility Type" filter
-#     Then the Facility Type filter is applied to the dashboard
+    @nonmutating
+    Scenario: I add a Facility Type filter
+        When I add a "Facility Type" filter
+        Then the Facility Type filter is applied to the dashboard

@@ -35,10 +35,7 @@ export function getDate() {
     // const m = Math.floor(Math.random() * 59) + 1;
     // const s = Math.floor(Math.random() * 59) + 1;
 
-    return new Date(`${y}-${M}-${d}`)
-        .toJSON()
-        .replace('T', ' ')
-        .substr(0, 10)
+    return new Date(`${y}-${M}-${d}`).toJSON().replace('T', ' ').substr(0, 10)
 }
 
 export const formatDate = (value, uiLocale) => {

@@ -46,6 +46,7 @@ export class EditBar extends Component {
     state = {
         translationDialogIsOpen: false,
         dashboardModel: undefined,
+        dashboard: undefined,
         confirmDeleteDialogOpen: false,
         redirectUrl: undefined,
     }
@@ -109,10 +110,11 @@ export class EditBar extends Component {
     }
 
     fetchDashboardModel = () => {
-        if (this.props.dashboardId && !this.state.dashboardModel) {
-            apiFetchDashboard(this.props.dashboardId).then(dashboardModel =>
-                this.setState({ dashboardModel })
-            )
+        if (this.props.dashboardId && !this.state.dashboard) {
+            apiFetchDashboard(
+                this.context.dataEngine,
+                this.props.dashboardId
+            ).then(dashboard => this.setState({ dashboard }))
         }
     }
 
@@ -141,13 +143,16 @@ export class EditBar extends Component {
         ) : null
 
     translationDialog = () =>
-        this.state.dashboardModel && this.state.dashboardModel.id ? (
+        this.state.dashboard && this.state.dashboard.id ? (
             <TranslationDialog
                 className="translation-dialog"
                 d2={this.context.d2}
                 open={this.state.translationDialogIsOpen}
                 onRequestClose={this.toggleTranslationDialog}
-                objectToTranslate={this.state.dashboardModel}
+                objectToTranslate={{
+                    ...this.state.dashboard,
+                    modelDefinition: { name: 'dashboard' },
+                }}
                 fieldsToTranslate={['name', 'description']}
                 onTranslationSaved={this.onTranslationsSaved}
                 onTranslationError={err =>
@@ -241,6 +246,7 @@ EditBar.propTypes = {
 }
 
 EditBar.contextTypes = {
+    dataEngine: PropTypes.object,
     d2: PropTypes.object,
 }
 

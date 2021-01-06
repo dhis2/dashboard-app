@@ -3,8 +3,8 @@ import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 import reducer from './reducers'
 
-const configureStore = () => {
-    const middleware = [thunk]
+const configureStore = dataEngine => {
+    const middleware = [thunk.withExtraArgument(dataEngine)]
 
     // Enable Redux devtools if extension is installed instead of redux-logger
     const composeEnhancers =
