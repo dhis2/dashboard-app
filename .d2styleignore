@@ -1,4 +1,6 @@
 /node_modules/*
 /i18n/*
 /public/*
+/src/locales/*
+/cypress/assets
 /cypress/fixtures

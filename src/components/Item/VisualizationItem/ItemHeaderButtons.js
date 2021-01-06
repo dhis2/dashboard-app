@@ -1,6 +1,7 @@
 import React, { useState, createRef } from 'react'
 import PropTypes from 'prop-types'
 
+import { useConfig } from '@dhis2/app-runtime'
 import {
     isSingleValue,
     isYearOverYear,
@@ -34,8 +35,11 @@ import {
 
 const iconFill = { fill: colors.grey600 }
 
-const ItemHeaderButtons = (props, context) => {
+const ItemHeaderButtons = props => {
     const [menuIsOpen, setMenuIsOpen] = useState(null)
+
+    const { baseUrl } = useConfig()
+
     const { item, visualization, onSelectActiveType, activeType } = props
 
     const isTrackerType = isTrackerDomainType(item.type)
@@ -150,7 +154,7 @@ const ItemHeaderButtons = (props, context) => {
                             label={i18n.t('Open in {{appName}} app', {
                                 appName: getAppName(item.type),
                             })}
-                            href={getLink(item, context.d2)}
+                            href={getLink(item, baseUrl)}
                             target="_blank"
                         />
                         <MenuItem
@@ -184,10 +188,6 @@ ItemHeaderButtons.propTypes = {
     onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,
     onToggleFullscreen: PropTypes.func,
-}
-
-ItemHeaderButtons.contextTypes = {
-    d2: PropTypes.object,
 }
 
 export default ItemHeaderButtons
