@@ -1,6 +1,6 @@
 Feature: Small screen dashboard
 
-    @mutating
+    @nonmutating
     Scenario: I view a dashboard
         Given I open the "Delivery" dashboard
         When I go to small screen
@@ -20,7 +20,7 @@ Feature: Small screen dashboard
         Then the wide screen edit view is shown
         And my changes are still there
 
-    @mutating
+    @nonmutating
     Scenario: I am creating a new dashboard
         Given I choose to create new dashboard
         And dashboard title is changed
