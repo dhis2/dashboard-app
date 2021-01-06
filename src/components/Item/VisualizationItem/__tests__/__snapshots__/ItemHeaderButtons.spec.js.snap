@@ -1,6 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`renders correctly when fullscreen 1`] = `
+<Button
+  dataTest="dhis2-uicore-button"
+  secondary={true}
+  small={true}
+  type="button"
+>
+  <ExitFullscreen />
+</Button>
+`;
+
+exports[`renders correctly when not fullscreen 1`] = `
 <Fragment>
   <div>
     <Button

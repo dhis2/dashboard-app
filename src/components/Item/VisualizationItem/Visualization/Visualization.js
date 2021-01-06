@@ -114,7 +114,7 @@ class Visualization extends React.Component {
 
 Visualization.propTypes = {
     activeType: PropTypes.string,
-    availableHeight: PropTypes.number,
+    availableHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,

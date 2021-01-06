@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-12-09T13:38:15.043Z\n"
-"PO-Revision-Date: 2020-12-09T13:38:15.043Z\n"
+"POT-Creation-Date: 2020-12-10T12:16:21.390Z\n"
+"PO-Revision-Date: 2020-12-10T12:16:21.391Z\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -151,6 +151,9 @@ msgid "View as Map"
 msgstr ""
 
 msgid "Open in {{appName}} app"
+msgstr ""
+
+msgid "View fullscreen"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
