@@ -1,6 +1,7 @@
 import isFunction from 'd2-utilizr/lib/isFunction'
 
 import { orObject } from '../../modules/util'
+import { VIEW } from '../Dashboard/dashboardModes'
 
 // Dimensions for the react-grid-layout
 export const GRID_COMPACT_TYPE = 'vertical' // vertical | horizonal | null
@@ -13,7 +14,7 @@ export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 }
 
 // Dimensions for getShape
 
-//const NUMBER_OF_ITEM_COLS = 2
+const NUMBER_OF_ITEM_COLS = 2
 const GRID_COLUMNS = 60
 const MAX_ITEM_GRID_WIDTH = GRID_COLUMNS - 1
 
@@ -53,6 +54,25 @@ export const hasShape = item =>
 // returns a rectangular grid block dimensioned with x, y, w, h in grid units.
 // based on a grid with 3 items across
 export const getShape = i => {
+    if (!isNonNegativeInteger(i)) {
+        throw new Error('Invalid grid block number')
+    }
+
+    const col = i % NUMBER_OF_ITEM_COLS
+    const row = Math.floor(i / NUMBER_OF_ITEM_COLS)
+    const itemWidth = Math.floor(MAX_ITEM_GRID_WIDTH / NUMBER_OF_ITEM_COLS)
+    const itemHeight = GRID_ROW_HEIGHT * 2
+
+    return {
+        x: col * itemWidth,
+        y: row * itemHeight,
+        w: itemWidth,
+        h: itemHeight,
+    }
+}
+
+// returns a rectangular grid block based on a grid with 3 items (Responsive Grid Layout)
+export const getResponsiveShape = i => {
     if (!isNonNegativeInteger(i)) {
         throw new Error('Invalid grid block number')
     }
@@ -119,14 +139,21 @@ export const getOriginalHeight = item => {
  * and the item's originalheight in pixels
  * @function
  * @param {Array} items
+ * @param {string} mode
  * @returns {Array}
  */
 
-export const withShape = items =>
+export const withShape = (items, mode) =>
     items.map((item, index) => {
+        /* const itemWithShape = hasShape(item)
+            ? item
+            : Object.assign({}, item, getShape(index))*/
+        // when VIEW mode prepare a shape based on responsive grid layout
+        const getShapeByMode = mode === VIEW
+            ? getResponsiveShape(index) : getShape(index)
         const itemWithShape = hasShape(item)
             ? item
-            : Object.assign({}, item, getShape(index))
+            : Object.assign({}, item, getShapeByMode)
 
         return Object.assign(
             {},

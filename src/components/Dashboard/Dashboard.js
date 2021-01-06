@@ -66,7 +66,7 @@ export const Dashboard = ({
 
     useEffect(() => {
         if (dashboardsLoaded && !dashboardsIsEmpty) {
-            selectDashboard(routeId)
+            selectDashboard(routeId, mode)
         }
     }, [dashboardsLoaded, dashboardsIsEmpty, routeId])
 

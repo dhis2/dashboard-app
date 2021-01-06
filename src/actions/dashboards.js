@@ -57,7 +57,7 @@ export const tFetchDashboards = () => async dispatch => {
     dispatch(acSetDashboards(collection.toArray()))
 }
 
-export const tSelectDashboard = id => async (dispatch, getState) => {
+export const tSelectDashboard = (id, mode) => async (dispatch, getState) => {
     const onError = error => {
         console.log('Error (apiFetchDashboards): ', error)
         return error
@@ -79,7 +79,7 @@ export const tSelectDashboard = id => async (dispatch, getState) => {
         }
 
         if (dashboardToSelect) {
-            dispatch(tSetSelectedDashboardById(dashboardToSelect.id))
+            dispatch(tSetSelectedDashboardById(dashboardToSelect.id, mode))
         } else {
             dispatch(acSetSelectedId(NON_EXISTING_DASHBOARD_ID))
         }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import ReactGridLayout from 'react-grid-layout'
+import { Responsive, WidthProvider } from 'react-grid-layout'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 
 import { acUpdateDashboardLayout } from '../../actions/editDashboard'
@@ -13,7 +13,6 @@ import {
     GRID_ROW_HEIGHT,
     GRID_COMPACT_TYPE,
     MARGIN,
-    getGridColumns,
     hasShape,
     onItemResize,
 } from './gridUtil'
@@ -37,15 +36,17 @@ import {
 import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer'
 import { VIEW, EDIT } from '../Dashboard/dashboardModes'
 
+const ResponsiveReactGridLayout = WidthProvider(Responsive)
+
 // Component
 
 const EXPANDED_HEIGHT = 17
-// this is set in the .dashboard-item-content css
-export const ITEM_CONTENT_PADDING_BOTTOM = 4
 
-export class ItemGrid extends Component {
+export class ResponsiveItemGrid extends Component {
     state = {
         expandedItems: {},
+        currentBreakpoint: 'lg',
+        mounted: false,
     }
 
     onToggleItemExpanded = clickedId => {
@@ -117,11 +118,16 @@ export class ItemGrid extends Component {
         )
     }
 
+    onBreakpointChange = breakpoint => {
+        this.setState({
+            currentBreakpoint: breakpoint,
+        })
+    }
+
     getItemComponents = items => items.map(item => this.getItemComponent(item))
 
     render() {
         const { edit, isLoading, dashboardItems } = this.props
-
         if (!isLoading && !dashboardItems.length) {
             return (
                 <NoContentMessage
@@ -143,36 +149,41 @@ export class ItemGrid extends Component {
                         </CenteredContent>
                     </Layer>
                 ) : null}
-                <ReactGridLayout
+                <ResponsiveReactGridLayout
+                    {...this.props}
+                    layouts={{ lg: this.props.dashboardItems }}
+                    onBreakpointChange={this.onBreakpointChange}
                     onLayoutChange={this.onLayoutChange}
-                    onResizeStop={this.onResizeStop}
-                    className="layout"
-                    layout={items}
-                    margin={MARGIN}
-                    cols={getGridColumns()}
-                    rowHeight={GRID_ROW_HEIGHT}
-                    width={window.innerWidth}
+                    measureBeforeMount={false}
+                    useCSSTransforms={this.state.mounted}
                     compactType={GRID_COMPACT_TYPE}
+                    onResizeStop={this.onResizeStop}
+                    width={window.innerWidth}
+                    margin={MARGIN}
                     isDraggable={edit}
                     isResizable={edit}
                     draggableCancel="input,textarea"
                 >
                     {this.getItemComponents(items)}
-                </ReactGridLayout>
+                </ResponsiveReactGridLayout>
             </div>
         )
     }
 }
 
-ItemGrid.propTypes = {
+ResponsiveItemGrid.propTypes = {
     acUpdateDashboardLayout: PropTypes.func,
     dashboardItems: PropTypes.array,
     edit: PropTypes.bool,
     isLoading: PropTypes.bool,
 }
 
-ItemGrid.defaultProps = {
+ResponsiveItemGrid.defaultProps = {
     dashboardItems: [],
+    className: 'layout',
+    rowHeight: GRID_ROW_HEIGHT,
+    onLayoutChange: function () {},
+    cols: { lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 },
 }
 
 // Container
@@ -212,4 +223,4 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps,
     mergeProps
-)(ItemGrid)
+)(ResponsiveItemGrid)

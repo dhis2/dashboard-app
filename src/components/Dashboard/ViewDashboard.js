@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import TitleBar from '../TitleBar/TitleBar'
-import ItemGrid from '../ItemGrid/ItemGrid'
+import ResponsiveItemGrid from '../ItemGrid/ResponsiveItemGrid'
 import FilterBar from '../FilterBar/FilterBar'
 import DashboardsBar from '../ControlBar/DashboardsBar'
 import DashboardVerticalOffset from './DashboardVerticalOffset'
@@ -44,7 +44,8 @@ export const ViewDashboard = props => {
             <div className="dashboard-wrapper" style={{ height }}>
                 <TitleBar edit={false} />
                 <FilterBar />
-                <ItemGrid edit={false} />
+                {/*<ItemGrid edit={false} />*/}
+                <ResponsiveItemGrid edit={false} />
             </div>
         </>
     )
