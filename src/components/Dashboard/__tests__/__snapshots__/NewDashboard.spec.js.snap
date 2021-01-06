@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EditDashboard renders dashboard 1`] = `
+exports[`NewDashboard renders dashboard 1`] = `
 <div>
   <div
     class="editBar"
@@ -64,7 +64,7 @@ exports[`EditDashboard renders dashboard 1`] = `
 </div>
 `;
 
-exports[`EditDashboard renders print preview 1`] = `
+exports[`NewDashboard renders print preview 1`] = `
 <div>
   <div
     class="editBar"

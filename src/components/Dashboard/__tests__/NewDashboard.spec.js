@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import WindowDimensionsProvider from '../../WindowDimensionsProvider'
-import EditDashboard from '../NewDashboard'
+import NewDashboard from '../NewDashboard'
 
 jest.mock(
     '../../TitleBar/TitleBar',
@@ -54,15 +54,11 @@ const store = {
     },
 }
 
-const props = {
-    setEditDashboard: jest.fn(),
-}
-
-test('EditDashboard renders dashboard', () => {
+test('NewDashboard renders dashboard', () => {
     const { container } = render(
         <Provider store={mockStore(store)}>
             <WindowDimensionsProvider>
-                <EditDashboard {...props} />
+                <NewDashboard />
             </WindowDimensionsProvider>
         </Provider>
     )
@@ -70,13 +66,13 @@ test('EditDashboard renders dashboard', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('EditDashboard renders print preview', () => {
+test('NewDashboard renders print preview', () => {
     store.editDashboard.printPreviewView = true
 
     const { container } = render(
         <Provider store={mockStore(store)}>
             <WindowDimensionsProvider>
-                <EditDashboard {...props} />
+                <NewDashboard />
             </WindowDimensionsProvider>
         </Provider>
     )
