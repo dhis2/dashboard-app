@@ -36,19 +36,9 @@ const toggleShowMoreButton = () => {
 /*
 Scenario: I create a new dashboard
 */
-Given('I choose to create new dashboard', () => {
-    cy.get('[data-test="link-new-dashboard"]', {
-        timeout: 15000,
-    }).click()
-})
 
 When('dashboard title is added', () => {
     cy.get('[data-test="dashboard-title-input"]').type(TEST_DASHBOARD_TITLE)
-})
-
-When('dashboard items are added', () => {
-    cy.get('[data-test="item-search"]').click()
-    cy.get('[data-test="menu-item-ANC: 1 and 3 coverage Yearly"]').click()
 })
 
 When('escape key is pressed', () => {
@@ -66,7 +56,10 @@ When('dashboard is saved', () => {
 })
 
 Then('the saved dashboard should be displayed', () => {
-    cy.get('[data-test="view-dashboard-title"]').contains(TEST_DASHBOARD_TITLE)
+    cy.get('[data-test="view-dashboard-title"]').should(
+        'have.text',
+        TEST_DASHBOARD_TITLE
+    )
 })
 
 Then('dashboard displays in view mode', () => {
@@ -81,10 +74,6 @@ Then('dashboard displays in view mode', () => {
 Given('I open existing dashboard', () => {
     toggleShowMoreButton()
     cy.get(dashboardChipSel).contains(TEST_DASHBOARD_TITLE).click()
-})
-
-When('I choose to edit dashboard', () => {
-    cy.get('[data-test="link-edit-dashboard"]').click()
 })
 
 When('I choose to delete dashboard', () => {
