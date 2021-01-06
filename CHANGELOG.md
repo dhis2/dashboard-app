@@ -1,3 +1,10 @@
+## [31.4.1](https://github.com/dhis2/dashboard-app/compare/v31.4.0...v31.4.1) (2021-01-06)
+
+
+### Bug Fixes
+
+* restore commented test and remove unused file ([#1430](https://github.com/dhis2/dashboard-app/issues/1430)) ([8c4acf5](https://github.com/dhis2/dashboard-app/commit/8c4acf5bed2c76010bca41b64ef4c4a9becd6713))
+
 # [31.4.0](https://github.com/dhis2/dashboard-app/compare/v31.3.1...v31.4.0) (2021-01-05)
 
 

@@ -141,7 +141,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
   <div
     className="topMargin"
   />
-  <Component
+  <MockTranslationDialog
     className="translation-dialog"
     d2={
       Object {
@@ -163,6 +163,9 @@ exports[`EditBar when update access is true when dashboard id property provided 
     objectToTranslate={
       Object {
         "id": "rainbow123",
+        "modelDefinition": Object {
+          "name": "dashboard",
+        },
       }
     }
     onRequestClose={[Function]}
@@ -238,7 +241,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
   <div
     className="topMargin"
   />
-  <Component
+  <MockTranslationDialog
     className="translation-dialog"
     d2={
       Object {
@@ -260,6 +263,9 @@ exports[`EditBar when update access is true when dashboard id property provided 
     objectToTranslate={
       Object {
         "id": "rainbow123",
+        "modelDefinition": Object {
+          "name": "dashboard",
+        },
       }
     }
     onRequestClose={[Function]}
@@ -335,7 +341,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
   <div
     className="topMargin"
   />
-  <Component
+  <MockTranslationDialog
     className="translation-dialog"
     d2={
       Object {
@@ -357,6 +363,9 @@ exports[`EditBar when update access is true when dashboard id property provided 
     objectToTranslate={
       Object {
         "id": "rainbow123",
+        "modelDefinition": Object {
+          "name": "dashboard",
+        },
       }
     }
     onRequestClose={[Function]}

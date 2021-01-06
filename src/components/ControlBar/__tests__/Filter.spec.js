@@ -55,9 +55,7 @@ describe('Filter', () => {
 
     describe('when key is pressed', () => {
         it('triggers onKeypressEnter when key is ENTER', () => {
-            filter()
-                .find('input')
-                .simulate('keyUp', { keyCode: KEYCODE_ENTER })
+            filter().find('input').simulate('keyUp', { keyCode: KEYCODE_ENTER })
 
             expect(props.onKeypressEnter).toHaveBeenCalledTimes(1)
             expect(props.clearDashboardsFilter).toHaveBeenCalledTimes(1)
