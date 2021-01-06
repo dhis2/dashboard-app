@@ -1496,10 +1496,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^11.3.0":
-  version "11.3.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.3.4.tgz#08cb18d64189baae8873ccf5cd89ec81a415de1a"
-  integrity sha512-Z6ZWj7lME9d70ycEy1Q/4fz5W4azahmA8MbRKVwuRtaF/czWTexoHJa/BN4DwHCCcStC7CHOKnB312N3MCQ5QA==
+"@dhis2/analytics@^12.0.2":
+  version "12.0.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-12.0.2.tgz#62b45812efc5a118643b5c3051c02076448d2af9"
+  integrity sha512-Ospeo7vijzKO2RP5Eu3ZCqhuRzajOX5WIjLccM4n1p/fJvh/Lxm4j2u7XyXs+hKJu6J5QL710m6lUQB7/jyQ2Q==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.8"
     "@dhis2/ui" "^5.7.7"
@@ -1514,10 +1514,10 @@
     resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.3.2"
 
-"@dhis2/analytics@^12.0.2":
-  version "12.0.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-12.0.2.tgz#62b45812efc5a118643b5c3051c02076448d2af9"
-  integrity sha512-Ospeo7vijzKO2RP5Eu3ZCqhuRzajOX5WIjLccM4n1p/fJvh/Lxm4j2u7XyXs+hKJu6J5QL710m6lUQB7/jyQ2Q==
+"@dhis2/analytics@^12.1.0":
+  version "12.1.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-12.1.1.tgz#de41e76091e0a909804688c4c0c4d2b3924c6f31"
+  integrity sha512-oGftpaHPv03lF4ZNHeLzF77E+6TRXBu8VIpCifJabBKlX5ZyhQJLW9ccaSwXvYsAE7xHFcT7uMprkqgLvFalpw==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.8"
     "@dhis2/ui" "^5.7.7"
@@ -1819,12 +1819,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^35.15.0":
-  version "35.15.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.15.0.tgz#2067eeafac2745ffc49e9cbacd89c856fd7f7bbe"
-  integrity sha512-WqvpL8ojdV/Lliwy+QA9UXkJtUfoNunrTmjgpPaIBRFmd1rhnOaNH/byKu2ZM1WITVDJFMcKDu8J2TRuIO6/oQ==
+"@dhis2/data-visualizer-plugin@^35.16.4":
+  version "35.16.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.16.4.tgz#822e5d248a46b79f2aa11c98b3143afd80b0d4fa"
+  integrity sha512-ylHPNWNNFAbRSYRWBWe5WHX/3gNjmQazWuYnWpGCcajmri57JYZ/229UudS/ktAvdNJpKiAET9OxGUBo0E9nxw==
   dependencies:
-    "@dhis2/analytics" "^11.3.0"
+    "@dhis2/analytics" "^12.1.0"
     "@dhis2/ui" "^5.7.3"
     lodash-es "^4.17.11"
 
@@ -2722,10 +2722,10 @@
     lz-string "^1.4.4"
     pretty-format "^26.6.2"
 
-"@testing-library/jest-dom@^5.11.6":
-  version "5.11.6"
-  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.11.6.tgz#782940e82e5cd17bc0a36f15156ba16f3570ac81"
-  integrity sha512-cVZyUNRWwUKI0++yepYpYX7uhrP398I+tGz4zOlLVlUYnZS+Svuxv4fwLeCIy7TnBYKXUaOlQr3vopxL8ZfEnA==
+"@testing-library/jest-dom@^5.11.8":
+  version "5.11.8"
+  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.11.8.tgz#433a84d6f9a089485101b9e112ef03e5c30bcbfc"
+  integrity sha512-ScyKrWQM5xNcr79PkSewnA79CLaoxVskE+f7knTOhDD9ftZSA1Jw8mj+pneqhEu3x37ncNfW84NUr7lqK+mXjA==
   dependencies:
     "@babel/runtime" "^7.9.2"
     "@types/testing-library__jest-dom" "^5.9.1"
@@ -6178,10 +6178,10 @@ d2-utilizr@^0.2.15, d2-utilizr@^0.2.16:
     lodash.isset "^4.3.0"
     lodash.isstring "^4.0.1"
 
-d2@^31.8.1:
-  version "31.8.2"
-  resolved "https://registry.yarnpkg.com/d2/-/d2-31.8.2.tgz#1b0f47a3686c01ecaa805d3dc44f056626d9baaf"
-  integrity sha512-eRmEf7+OslcdVSF4oFCBFBOwd2FEB8829xNqCz79PK49WkhYIy5c/cwEkwZd2sD5bJyeCyNoi3p4/42wC0AZ1Q==
+d2@^31.9.0:
+  version "31.9.0"
+  resolved "https://registry.yarnpkg.com/d2/-/d2-31.9.0.tgz#83e76735f0b925a000a74ea4b48a412d0c123a36"
+  integrity sha512-wTprxiA0dUa3ZWu1VkNxhoGT9UUWjXk89XKHqG+nh5uRxXL2zsq7Q6nrcpl8XvRG2T/A7BA3ORJFLDIfzrJ9mA==
   dependencies:
     isomorphic-fetch "^2.2.1"
 
