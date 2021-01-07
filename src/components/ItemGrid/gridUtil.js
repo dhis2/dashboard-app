@@ -14,7 +14,7 @@ export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 }
 // Dimensions for getShape
 
 const NUMBER_OF_ITEM_COLS = 2
-const GRID_COLUMNS = 60
+export const GRID_COLUMNS = 60
 const MAX_ITEM_GRID_WIDTH = GRID_COLUMNS - 1
 
 export const MAX_ITEM_GRID_HEIGHT = 34

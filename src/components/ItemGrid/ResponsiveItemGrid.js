@@ -11,6 +11,7 @@ import { resize as pluginResize } from '../Item/VisualizationItem/Visualization/
 import { isVisualizationType } from '../../modules/itemTypes'
 import {
     GRID_ROW_HEIGHT,
+    GRID_COLUMNS,
     GRID_COMPACT_TYPE,
     MARGIN,
     hasShape,
@@ -140,6 +141,8 @@ export class ResponsiveItemGrid extends Component {
             ? dashboardItems
             : dashboardItems.map(this.adjustHeightForExpanded)
 
+        console.log('items', items)
+
         return (
             <div className="grid-wrapper">
                 {isLoading ? (
@@ -150,7 +153,9 @@ export class ResponsiveItemGrid extends Component {
                     </Layer>
                 ) : null}
                 <ResponsiveReactGridLayout
-                    {...this.props}
+                    rowHeight={GRID_ROW_HEIGHT}
+                    cols={{ lg: GRID_COLUMNS, sm: 9 }} // min-width for items in dashboard was 9 columns
+                    breakpoints={{ lg: 452, sm: 0 }}
                     layouts={{ lg: this.props.dashboardItems }}
                     onBreakpointChange={this.onBreakpointChange}
                     onLayoutChange={this.onLayoutChange}
@@ -181,10 +186,7 @@ ResponsiveItemGrid.propTypes = {
 ResponsiveItemGrid.defaultProps = {
     dashboardItems: [],
     className: 'layout',
-    rowHeight: GRID_ROW_HEIGHT,
     onLayoutChange: function () {},
-    cols: { lg: 60, md: 60, sm: 60, xs: 9, xxs: 9 }, // min-width for items in dashboard was 9 columns
-    breakpoints: { lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 },
 }
 
 // Container
