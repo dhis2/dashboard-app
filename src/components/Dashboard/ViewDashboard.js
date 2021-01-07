@@ -44,7 +44,6 @@ export const ViewDashboard = props => {
             <div className="dashboard-wrapper" style={{ height }}>
                 <TitleBar edit={false} />
                 <FilterBar />
-                {/*<ItemGrid edit={false} />*/}
                 <ResponsiveItemGrid edit={false} />
             </div>
         </>
