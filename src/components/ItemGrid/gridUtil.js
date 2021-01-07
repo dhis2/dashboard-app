@@ -1,7 +1,6 @@
 import isFunction from 'd2-utilizr/lib/isFunction'
 
 import { orObject } from '../../modules/util'
-import { VIEW } from '../Dashboard/dashboardModes'
 
 // Dimensions for the react-grid-layout
 export const GRID_COMPACT_TYPE = 'vertical' // vertical | horizonal | null
@@ -71,25 +70,6 @@ export const getShape = i => {
     }
 }
 
-// returns a rectangular grid block based on a grid with 3 items (Responsive Grid Layout)
-export const getResponsiveShape = i => {
-    if (!isNonNegativeInteger(i)) {
-        throw new Error('Invalid grid block number')
-    }
-
-    const itemWidth = 4
-    const itemHeight = GRID_ROW_HEIGHT * 2
-    const col = (i * itemWidth) % 12
-    const row = Math.floor(i / 4)
-
-    return {
-        x: col,
-        y: row * itemHeight,
-        w: itemWidth,
-        h: itemHeight,
-    }
-}
-
 export const getGridItemProperties = itemId => {
     return {
         i: itemId,
@@ -139,21 +119,14 @@ export const getOriginalHeight = item => {
  * and the item's originalheight in pixels
  * @function
  * @param {Array} items
- * @param {string} mode
  * @returns {Array}
  */
 
-export const withShape = (items, mode) =>
+export const withShape = items =>
     items.map((item, index) => {
-        /* const itemWithShape = hasShape(item)
-            ? item
-            : Object.assign({}, item, getShape(index))*/
-        // when VIEW mode prepare a shape based on responsive grid layout
-        const getShapeByMode = mode === VIEW
-            ? getResponsiveShape(index) : getShape(index)
         const itemWithShape = hasShape(item)
             ? item
-            : Object.assign({}, item, getShapeByMode)
+            : Object.assign({}, item, getShape(index))
 
         return Object.assign(
             {},

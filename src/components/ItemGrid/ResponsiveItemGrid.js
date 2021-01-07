@@ -183,7 +183,8 @@ ResponsiveItemGrid.defaultProps = {
     className: 'layout',
     rowHeight: GRID_ROW_HEIGHT,
     onLayoutChange: function () {},
-    cols: { lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 },
+    cols: { lg: 60, md: 60, sm: 60, xs: 9, xxs: 9 }, // min-width for items in dashboard was 9 columns
+    breakpoints: { lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 },
 }
 
 // Container
