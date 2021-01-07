@@ -108,6 +108,9 @@ exports[`EditBar when update access is true when dashboard id property provided 
     objectToTranslate={
       Object {
         "id": "rainbow123",
+        "modelDefinition": Object {
+          "name": "dashboard",
+        },
       }
     }
     onRequestClose={[Function]}
@@ -184,6 +187,9 @@ exports[`EditBar when update access is true when dashboard id property provided 
     objectToTranslate={
       Object {
         "id": "rainbow123",
+        "modelDefinition": Object {
+          "name": "dashboard",
+        },
       }
     }
     onRequestClose={[Function]}
@@ -260,6 +266,9 @@ exports[`EditBar when update access is true when dashboard id property provided 
     objectToTranslate={
       Object {
         "id": "rainbow123",
+        "modelDefinition": Object {
+          "name": "dashboard",
+        },
       }
     }
     onRequestClose={[Function]}

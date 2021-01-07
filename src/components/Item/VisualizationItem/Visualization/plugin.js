@@ -6,7 +6,6 @@ import {
     EVENT_CHART,
     itemTypeMap,
 } from '../../../../modules/itemTypes'
-import { getBaseUrl } from '../../../../modules/util'
 import { getVisualizationId } from '../../../../modules/item'
 import { getGridItemDomId } from '../../../ItemGrid/gridUtil'
 
@@ -43,8 +42,7 @@ export const loadPlugin = (plugin, config, credentials) => {
     plugin.load(config)
 }
 
-export const getLink = (item, d2) => {
-    const baseUrl = getBaseUrl(d2)
+export const getLink = (item, baseUrl) => {
     const appUrl = itemTypeMap[item.type].appUrl(getVisualizationId(item))
 
     return `${baseUrl}/${appUrl}`
