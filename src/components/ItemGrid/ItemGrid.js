@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import ReactGridLayout from 'react-grid-layout'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
+import cx from 'classnames'
 
 import { acUpdateDashboardLayout } from '../../actions/editDashboard'
 import { Item } from '../Item/Item'
@@ -24,10 +25,6 @@ import {
     sGetEditDashboardRoot,
     sGetEditDashboardItems,
 } from '../../reducers/editDashboard'
-import {
-    sGetDashboardById,
-    sGetDashboardItems,
-} from '../../reducers/dashboards'
 import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer'
 import { VIEW, EDIT } from '../Dashboard/dashboardModes'
 
@@ -38,31 +35,8 @@ import './styles/ItemGrid.css'
 // Component
 
 export class ItemGrid extends Component {
-    state = {
-        expandedItems: {},
-    }
-
-    onToggleItemExpanded = clickedId => {
-        const isExpanded =
-            typeof this.state.expandedItems[clickedId] === 'boolean'
-                ? this.state.expandedItems[clickedId]
-                : false
-
-        const expandedItems = { ...this.state.expandedItems }
-        expandedItems[clickedId] = !isExpanded
-        this.setState({ expandedItems })
-    }
-
-    UNSAFE_componentWillReceiveProps(nextProps) {
-        if (nextProps.edit) {
-            this.setState({ expandedItems: {} })
-        }
-    }
-
     onLayoutChange = newLayout => {
-        if (this.props.edit) {
-            this.props.acUpdateDashboardLayout(newLayout)
-        }
+        this.props.acUpdateDashboardLayout(newLayout)
     }
 
     onResizeStop = (layout, oldItem, newItem) => {
@@ -78,44 +52,20 @@ export class ItemGrid extends Component {
         }
     }
 
-    adjustHeightForExpanded = dashboardItem => {
-        const expandedItem = this.state.expandedItems[dashboardItem.id]
-
-        if (expandedItem && expandedItem === true) {
-            return Object.assign({}, dashboardItem, {
-                h: dashboardItem.h + EXPANDED_HEIGHT,
-            })
-        }
-
-        return dashboardItem
-    }
-
-    getItemComponent = item => {
-        const itemClassNames = [
-            item.type,
-            this.props.edit ? 'edit' : 'view',
-            `reactgriditem-${item.id}`,
-        ].join(' ')
-
-        return (
-            <ProgressiveLoadingContainer
-                key={item.i}
-                className={itemClassNames}
-                itemId={item.id}
-            >
-                <Item
-                    item={item}
-                    dashboardMode={this.props.edit ? EDIT : VIEW}
-                    onToggleItemExpanded={this.onToggleItemExpanded}
-                />
-            </ProgressiveLoadingContainer>
-        )
-    }
+    getItemComponent = item => (
+        <ProgressiveLoadingContainer
+            key={item.i}
+            className={cx(item.type, 'edit')}
+            itemId={item.id}
+        >
+            <Item item={item} dashboardMode={EDIT} />
+        </ProgressiveLoadingContainer>
+    )
 
     getItemComponents = items => items.map(item => this.getItemComponent(item))
 
     render() {
-        const { edit, isLoading, dashboardItems } = this.props
+        const { isLoading, dashboardItems } = this.props
 
         if (!isLoading && !dashboardItems.length) {
             return (
@@ -125,9 +75,7 @@ export class ItemGrid extends Component {
             )
         }
 
-        const items = edit
-            ? dashboardItems
-            : dashboardItems.map(this.adjustHeightForExpanded)
+        const items = dashboardItems
 
         return (
             <div className="grid-wrapper">
@@ -139,17 +87,16 @@ export class ItemGrid extends Component {
                     </Layer>
                 ) : null}
                 <ReactGridLayout
-                    onLayoutChange={this.onLayoutChange}
-                    onResizeStop={this.onResizeStop}
-                    className="layout"
                     layout={items}
                     margin={MARGIN}
                     cols={getGridColumns()}
                     rowHeight={GRID_ROW_HEIGHT}
                     width={window.innerWidth}
                     compactType={GRID_COMPACT_TYPE}
-                    isDraggable={edit}
-                    isResizable={edit}
+                    onLayoutChange={this.onLayoutChange}
+                    onResizeStop={this.onResizeStop}
+                    isDraggable={true}
+                    isResizable={true}
                     draggableCancel="input,textarea"
                 >
                     {this.getItemComponents(items)}
@@ -162,24 +109,14 @@ export class ItemGrid extends Component {
 ItemGrid.propTypes = {
     acUpdateDashboardLayout: PropTypes.func,
     dashboardItems: PropTypes.array,
-    edit: PropTypes.bool,
     isLoading: PropTypes.bool,
-}
-
-ItemGrid.defaultProps = {
-    dashboardItems: [],
 }
 
 // Container
 
-const mapStateToProps = (state, ownProps) => {
-    const selectedDashboard = ownProps.edit
-        ? sGetEditDashboardRoot(state)
-        : sGetDashboardById(state, sGetSelectedId(state))
-
-    const dashboardItems = ownProps.edit
-        ? sGetEditDashboardItems(state)
-        : sGetDashboardItems(state)
+const mapStateToProps = state => {
+    const selectedDashboard = sGetEditDashboardRoot(state)
+    const dashboardItems = sGetEditDashboardItems(state)
 
     return {
         isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
@@ -191,12 +128,11 @@ const mapDispatchToProps = {
     acUpdateDashboardLayout,
 }
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
+const mergeProps = (stateProps, dispatchProps) => {
     const validItems = orArray(stateProps.dashboardItems).filter(hasShape)
 
     return {
         ...dispatchProps,
-        edit: ownProps.edit,
         isLoading: stateProps.isLoading,
         dashboardItems: validItems,
         onItemResize,
