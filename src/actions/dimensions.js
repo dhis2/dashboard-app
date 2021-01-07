@@ -7,7 +7,7 @@ export const acSetDimensions = dimensions => ({
     value: dimensions,
 })
 
-export const tSetDimensions = d2 => async (dispatch, getState) => {
+export const tSetDimensions = () => async (dispatch, getState, dataEngine) => {
     const onSuccess = dimensions => {
         dispatch(acSetDimensions(dimensions))
     }
@@ -19,7 +19,7 @@ export const tSetDimensions = d2 => async (dispatch, getState) => {
 
     try {
         const displayNameProp = sGetSettingsDisplayNameProperty(getState())
-        const dimensions = await apiFetchDimensions(d2, displayNameProp)
+        const dimensions = await apiFetchDimensions(dataEngine, displayNameProp)
 
         // filter out CATEGORY that are not of type ATTRIBUTE
         const filteredDimensions = dimensions.filter(

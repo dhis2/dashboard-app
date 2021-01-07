@@ -24,9 +24,7 @@ describe('ClearButton', () => {
     })
 
     it('triggers onClear when clicked', () => {
-        clearButton()
-            .find('button')
-            .simulate('click')
+        clearButton().find('button').simulate('click')
         expect(props.onClear).toHaveBeenCalled()
     })
 })
