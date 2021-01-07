@@ -28,7 +28,7 @@ import { orArray } from '../../modules/util'
 
 import 'react-grid-layout/css/styles.css'
 
-import './ItemGrid.css'
+import './styles/ItemGrid.css'
 
 export class PrintItemGrid extends Component {
     getItemComponent = item => (

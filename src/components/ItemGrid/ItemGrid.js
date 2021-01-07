@@ -18,13 +18,7 @@ import {
     onItemResize,
 } from './gridUtil'
 import { orArray } from '../../modules/util'
-
 import NoContentMessage from '../../widgets/NoContentMessage'
-
-import 'react-grid-layout/css/styles.css'
-import 'react-resizable/css/styles.css'
-
-import './ItemGrid.css'
 import { sGetSelectedId, sGetSelectedIsLoading } from '../../reducers/selected'
 import {
     sGetEditDashboardRoot,
@@ -37,11 +31,11 @@ import {
 import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer'
 import { VIEW, EDIT } from '../Dashboard/dashboardModes'
 
-// Component
+import 'react-grid-layout/css/styles.css'
+import 'react-resizable/css/styles.css'
+import './styles/ItemGrid.css'
 
-const EXPANDED_HEIGHT = 17
-// this is set in the .dashboard-item-content css
-export const ITEM_CONTENT_PADDING_BOTTOM = 4
+// Component
 
 export class ItemGrid extends Component {
     state = {

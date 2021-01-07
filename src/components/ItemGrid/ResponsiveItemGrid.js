@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
@@ -26,13 +26,18 @@ import { VIEW } from '../Dashboard/dashboardModes'
 
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
-import './ItemGrid.css'
+import './styles/ItemGrid.css'
 
 const EXPANDED_HEIGHT = 17
 
 const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     const [expandedItems, setExpandedItems] = useState({})
+    const [displayItems, setDisplayItems] = useState(dashboardItems)
     const { width } = useWindowDimensions()
+
+    useEffect(() => {
+        setDisplayItems(dashboardItems.map(adjustHeightForExpanded))
+    }, [expandedItems, dashboardItems])
 
     const onToggleItemExpanded = clickedId => {
         const isExpanded =
@@ -42,7 +47,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
 
         const newExpandedItems = { ...expandedItems }
         newExpandedItems[clickedId] = !isExpanded
-        setExpandedItems(expandedItems)
+        setExpandedItems(newExpandedItems)
     }
 
     const adjustHeightForExpanded = dashboardItem => {
@@ -60,7 +65,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     const getItemComponent = item => (
         <ProgressiveLoadingContainer
             key={item.i}
-            className={cx(item.type, 'view')}
+            className={cx(item.type, 'view', `reactgriditem-${item.id}`)}
             itemId={item.id}
         >
             <Item
@@ -81,10 +86,8 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
         )
     }
 
-    const items = dashboardItems.map(adjustHeightForExpanded)
-
     return (
-        <div className="grid-wrapper">
+        <>
             {isLoading ? (
                 <Layer translucent>
                     <CenteredContent>
@@ -97,7 +100,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
                 width={width}
                 cols={{ lg: GRID_COLUMNS, sm: 9 }} // min-width for items in dashboard was 9 columns
                 breakpoints={{ lg: 452, sm: 0 }}
-                layouts={{ lg: items }}
+                layouts={{ lg: displayItems }}
                 measureBeforeMount={true}
                 compactType={GRID_COMPACT_TYPE}
                 margin={MARGIN}
@@ -105,9 +108,9 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
                 isResizable={false}
                 draggableCancel="input,textarea"
             >
-                {getItemComponents(items)}
+                {getItemComponents(displayItems)}
             </ResponsiveReactGridLayout>
-        </div>
+        </>
     )
 }
 

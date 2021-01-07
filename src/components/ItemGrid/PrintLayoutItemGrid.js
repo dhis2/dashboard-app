@@ -37,10 +37,7 @@ import { PAGEBREAK } from '../../modules/itemTypes'
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 
-import './ItemGrid.css'
-
-// this is set in the .dashboard-item-content css
-export const ITEM_CONTENT_PADDING_BOTTOM = 4
+import './styles/ItemGrid.css'
 
 export class PrintLayoutItemGrid extends Component {
     onLayoutChange = newLayout => {

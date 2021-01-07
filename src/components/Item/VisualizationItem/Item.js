@@ -31,7 +31,8 @@ import {
     isViewMode,
 } from '../../Dashboard/dashboardModes'
 
-import { ITEM_CONTENT_PADDING_BOTTOM } from '../../ItemGrid/ItemGrid'
+// this is set in the .dashboard-item-content css
+const ITEM_CONTENT_PADDING_BOTTOM = 4
 
 export class Item extends Component {
     state = {
