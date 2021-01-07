@@ -9,7 +9,7 @@ import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { Item } from '../Item/Item'
 import {
     GRID_ROW_HEIGHT,
-    GRID_COLUMNS,
+    getGridColumns,
     GRID_COMPACT_TYPE,
     MARGIN,
     hasShape,
@@ -98,7 +98,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
             <ResponsiveReactGridLayout
                 rowHeight={GRID_ROW_HEIGHT}
                 width={width}
-                cols={{ lg: GRID_COLUMNS, sm: 9 }} // min-width for items in dashboard was 9 columns
+                cols={{ lg: getGridColumns(), sm: 9 }} // min-width for items in dashboard was 9 columns
                 breakpoints={{ lg: 452, sm: 0 }}
                 layouts={{ lg: displayItems }}
                 measureBeforeMount={true}

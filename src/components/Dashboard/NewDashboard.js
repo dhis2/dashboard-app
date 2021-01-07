@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import EditBar from '../ControlBar/EditBar'
 import TitleBar from '../TitleBar/TitleBar'
-import ItemGrid from '../ItemGrid/ItemGrid'
+import EditItemGrid from '../ItemGrid/EditItemGrid'
 import LayoutPrintPreview from './PrintLayoutDashboard'
 
 import { acSetEditNewDashboard } from '../../actions/editDashboard'
@@ -33,7 +33,7 @@ class NewDashboard extends Component {
                 ) : (
                     <div className="dashboard-wrapper" style={{ height }}>
                         <TitleBar edit={true} />
-                        <ItemGrid edit={true} />
+                        <EditItemGrid />
                     </div>
                 )}
             </>

@@ -7,7 +7,7 @@ import { EditDashboard } from '../EditDashboard'
 jest.mock('../DashboardVerticalOffset', () => 'DashboardVerticalOffset')
 jest.mock('../../ControlBar/EditBar', () => 'EditBar')
 jest.mock('../../TitleBar/TitleBar', () => 'TitleBar')
-jest.mock('../../ItemGrid/ItemGrid', () => 'ItemGrid')
+jest.mock('../../ItemGrid/EditItemGrid', () => 'EditItemGrid')
 jest.mock('../../../widgets/NoContentMessage', () => 'NoContentMessage')
 jest.mock('../PrintLayoutDashboard', () => 'LayoutPrintPreview')
 

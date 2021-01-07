@@ -1,7 +1,3 @@
-import isFunction from 'd2-utilizr/lib/isFunction'
-
-import { orObject } from '../../modules/util'
-
 // Dimensions for the react-grid-layout
 export const GRID_COMPACT_TYPE = 'vertical' // vertical | horizonal | null
 export const GRID_ROW_HEIGHT = 10
@@ -14,7 +10,7 @@ export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 }
 // Dimensions for getShape
 
 const NUMBER_OF_ITEM_COLS = 2
-export const GRID_COLUMNS = 60
+const GRID_COLUMNS = 60
 const MAX_ITEM_GRID_WIDTH = GRID_COLUMNS - 1
 
 export const MAX_ITEM_GRID_HEIGHT = 34
@@ -136,12 +132,3 @@ export const withShape = items =>
     })
 
 export const getGridItemDomId = id => `item-${id}`
-
-export function onItemResize(id) {
-    const el = orObject(document.querySelector(`#${getGridItemDomId(id)}`))
-    if (isFunction(el.setViewportSize))
-        setTimeout(
-            () => el.setViewportSize(el.clientWidth - 5, el.clientHeight - 5),
-            10
-        )
-}

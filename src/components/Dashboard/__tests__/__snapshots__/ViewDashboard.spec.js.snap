@@ -16,9 +16,7 @@ exports[`ViewDashboard renders correctly default 1`] = `
       edit={false}
     />
     <FilterBar />
-    <ItemGrid
-      edit={false}
-    />
+    <ViewItemGrid />
   </div>
 </Fragment>
 `;

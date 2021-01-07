@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
 import TitleBar from '../TitleBar/TitleBar'
-import ItemGrid from '../ItemGrid/ItemGrid'
+import EditItemGrid from '../ItemGrid/EditItemGrid'
 import EditBar from '../ControlBar/EditBar'
 import LayoutPrintPreview from './PrintLayoutDashboard'
 import NoContentMessage from '../../widgets/NoContentMessage'
@@ -54,7 +54,7 @@ export class EditDashboard extends Component {
         return (
             <div className="dashboard-wrapper" style={{ height }}>
                 <TitleBar edit={true} />
-                <ItemGrid edit={true} />
+                <EditItemGrid />
             </div>
         )
     }

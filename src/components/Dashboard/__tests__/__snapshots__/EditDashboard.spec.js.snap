@@ -14,9 +14,7 @@ exports[`EditDashboard renders message when enough access 1`] = `
     <TitleBar
       edit={true}
     />
-    <ItemGrid
-      edit={true}
-    />
+    <EditItemGrid />
   </div>
 </Fragment>
 `;
