@@ -46,8 +46,6 @@ const EXPANDED_HEIGHT = 17
 export class ResponsiveItemGrid extends Component {
     state = {
         expandedItems: {},
-        currentBreakpoint: 'lg',
-        mounted: false,
     }
 
     onToggleItemExpanded = clickedId => {
@@ -119,12 +117,6 @@ export class ResponsiveItemGrid extends Component {
         )
     }
 
-    onBreakpointChange = breakpoint => {
-        this.setState({
-            currentBreakpoint: breakpoint,
-        })
-    }
-
     getItemComponents = items => items.map(item => this.getItemComponent(item))
 
     render() {
@@ -157,14 +149,11 @@ export class ResponsiveItemGrid extends Component {
                     cols={{ lg: GRID_COLUMNS, sm: 9 }} // min-width for items in dashboard was 9 columns
                     breakpoints={{ lg: 452, sm: 0 }}
                     layouts={{ lg: this.props.dashboardItems }}
-                    onBreakpointChange={this.onBreakpointChange}
-                    onLayoutChange={this.onLayoutChange}
-                    measureBeforeMount={false}
-                    useCSSTransforms={this.state.mounted}
+                    measureBeforeMount={true}
                     compactType={GRID_COMPACT_TYPE}
-                    onResizeStop={this.onResizeStop}
-                    width={window.innerWidth}
                     margin={MARGIN}
+                    onLayoutChange={this.onLayoutChange}
+                    onResizeStop={this.onResizeStop}
                     isDraggable={edit}
                     isResizable={edit}
                     draggableCancel="input,textarea"
@@ -185,8 +174,6 @@ ResponsiveItemGrid.propTypes = {
 
 ResponsiveItemGrid.defaultProps = {
     dashboardItems: [],
-    className: 'layout',
-    onLayoutChange: function () {},
 }
 
 // Container
