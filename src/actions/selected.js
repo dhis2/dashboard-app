@@ -67,9 +67,7 @@ export const acClearSelectedItemActiveTypes = () => ({
 })
 
 // thunks
-export const tSetSelectedDashboardById = (id, mode) => async (
-    dispatch, getState
-) => {
+export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
     dispatch(acSetSelectedIsLoading(true))
 
     const alertTimeout = setTimeout(() => {
@@ -89,9 +87,7 @@ export const tSetSelectedDashboardById = (id, mode) => async (
 
         const customDashboard = getCustomDashboards(selected)[0]
 
-        dispatch(
-            acSetDashboardItems(withShape(customDashboard.dashboardItems, mode))
-        )
+        dispatch(acSetDashboardItems(withShape(customDashboard.dashboardItems)))
 
         storePreferredDashboardId(sGetUserUsername(getState()), id)
 
