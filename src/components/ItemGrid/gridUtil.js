@@ -66,6 +66,29 @@ export const getShape = i => {
     }
 }
 
+// returns a rectangular grid block based on a grid with 1 item (Small devices)
+export const getSingleColumnShape = (item, i) => {
+    if (!isNonNegativeInteger(i)) {
+        throw new Error('Invalid grid block number')
+    }
+
+    const itemWidth = item.w
+    const itemHeight = item.h
+
+    return {
+        x: 0,
+        y: i * itemHeight,
+        w: itemWidth,
+        h: itemHeight,
+    }
+}
+
+export const sortCoordinates = array =>
+    array.slice().sort((a, b) => {
+        if (a.y === b.y) return a.x - b.x
+        return a.y - b.y
+    })
+
 export const getGridItemProperties = itemId => {
     return {
         i: itemId,
@@ -132,3 +155,25 @@ export const withShape = items =>
     })
 
 export const getGridItemDomId = id => `item-${id}`
+
+/**
+ * Returns an array of items containing the x, y, w, h dimensions
+ * based on a single column grid for small devices
+ * @function
+ * @param {Array} items
+ * @return {Array}
+ * */
+
+export const withSingleColumnShape = items =>
+    items.map((item, index) => {
+        const itemWithShape = Object.assign(
+            {},
+            item,
+            getSingleColumnShape(item, index)
+        )
+        return Object.assign(
+            {},
+            itemWithShape,
+            getOriginalHeight(itemWithShape)
+        )
+    })

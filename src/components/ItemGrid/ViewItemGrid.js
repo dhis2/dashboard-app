@@ -13,6 +13,8 @@ import {
     GRID_COMPACT_TYPE,
     MARGIN,
     hasShape,
+    sortCoordinates,
+    withSingleColumnShape,
 } from './gridUtil'
 import { orArray } from '../../modules/util'
 import NoContentMessage from '../../widgets/NoContentMessage'
@@ -34,6 +36,9 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
     const { width } = useWindowDimensions()
+    const displayItemsSmallDevice = withSingleColumnShape(
+        sortCoordinates(dashboardItems)
+    )
 
     useEffect(() => {
         setDisplayItems(dashboardItems.map(adjustHeightForExpanded))
@@ -100,7 +105,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
                 width={width}
                 cols={{ lg: getGridColumns(), sm: 9 }} // min-width for items in dashboard was 9 columns
                 breakpoints={{ lg: 452, sm: 0 }}
-                layouts={{ lg: displayItems }}
+                layouts={{ lg: displayItems, sm: displayItemsSmallDevice }}
                 measureBeforeMount={true}
                 compactType={GRID_COMPACT_TYPE}
                 margin={MARGIN}
