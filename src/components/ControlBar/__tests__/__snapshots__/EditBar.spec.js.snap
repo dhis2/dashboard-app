@@ -66,6 +66,13 @@ exports[`EditBar when update access is true when dashboard id property provided 
           onClick={[Function]}
           type="button"
         >
+          Print preview
+        </Button>
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          type="button"
+        >
           Translate
         </Button>
       </ButtonStrip>
@@ -79,7 +86,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
       </Button>
     </div>
   </div>
-  <Component
+  <MockTranslationDialog
     className="translation-dialog"
     d2={
       Object {
@@ -158,7 +165,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
       </Button>
     </div>
   </div>
-  <Component
+  <MockTranslationDialog
     className="translation-dialog"
     d2={
       Object {
@@ -217,6 +224,13 @@ exports[`EditBar when update access is true when dashboard id property provided 
           onClick={[Function]}
           type="button"
         >
+          Print preview
+        </Button>
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          type="button"
+        >
           Translate
         </Button>
       </ButtonStrip>
@@ -230,7 +244,7 @@ exports[`EditBar when update access is true when dashboard id property provided 
       </Button>
     </div>
   </div>
-  <Component
+  <MockTranslationDialog
     className="translation-dialog"
     d2={
       Object {
