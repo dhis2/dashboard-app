@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
+import sortBy from 'lodash/sortBy'
 import cx from 'classnames'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
@@ -9,12 +10,11 @@ import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { Item } from '../Item/Item'
 import {
     GRID_ROW_HEIGHT,
+    SMALL_SCREEN_GRID_COLUMNS,
     getGridColumns,
     GRID_COMPACT_TYPE,
     MARGIN,
     hasShape,
-    sortCoordinates,
-    withSingleColumnShape,
 } from './gridUtil'
 import { orArray } from '../../modules/util'
 import NoContentMessage from '../../widgets/NoContentMessage'
@@ -40,10 +40,6 @@ const DASHBOARD_WRAPPER_LR_MARGIN = 20
 const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
-    const { width } = useWindowDimensions()
-    const displayItemsSmallDevice = withSingleColumnShape(
-        sortCoordinates(dashboardItems)
-    )
 
     useEffect(() => {
         setDisplayItems(dashboardItems.map(adjustHeightForExpanded))
@@ -96,7 +92,12 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
         )
     }
 
+    const { width } = useWindowDimensions()
     const gridWidth = width - DASHBOARD_WRAPPER_LR_MARGIN
+
+    const layoutSm = sortBy(dashboardItems, ['y', 'x']).map((item, i) =>
+        Object.assign({}, item, { y: i, w: SMALL_SCREEN_GRID_COLUMNS })
+    )
 
     return (
         <div className={classes.gridContainer}>
@@ -110,12 +111,12 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
             <ResponsiveReactGridLayout
                 rowHeight={GRID_ROW_HEIGHT}
                 width={gridWidth}
-                cols={{ lg: getGridColumns(), sm: 9 }} // min-width for items in dashboard was 9 columns
+                cols={{ lg: getGridColumns(), sm: SMALL_SCREEN_GRID_COLUMNS }}
                 breakpoints={{
                     lg: SMALL_SCREEN_BREAKPOINT - DASHBOARD_WRAPPER_LR_MARGIN,
                     sm: 0,
                 }}
-                layouts={{ lg: displayItems, sm: displayItemsSmallDevice }}
+                layouts={{ lg: displayItems, sm: layoutSm }}
                 compactType={GRID_COMPACT_TYPE}
                 margin={MARGIN}
                 containerPadding={{ lg: [0, 0], sm: [0, 0] }}
