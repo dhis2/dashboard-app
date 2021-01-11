@@ -2,12 +2,12 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { NoticeBox, CenteredContent } from '@dhis2/ui'
 
 import EditBar from '../ControlBar/EditBar'
 import TitleBar from '../TitleBar/TitleBar'
 import ItemGrid from '../ItemGrid/ItemGrid'
 import LayoutPrintPreview from './PrintLayoutDashboard'
+import NotSupportedNotice from './NotSupportedNotice'
 
 import { acSetEditNewDashboard } from '../../actions/editDashboard'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
@@ -48,13 +48,11 @@ const NewDashboard = props => {
     return (
         <>
             {isSmallScreen(width) ? (
-                <CenteredContent position="top">
-                    <NoticeBox title={i18n.t('Not supported')} warning>
-                        {i18n.t(
-                            'Creating dashboards on small screens is not supported.'
-                        )}
-                    </NoticeBox>
-                </CenteredContent>
+                <NotSupportedNotice
+                    message={i18n.t(
+                        'Creating dashboards on small screens is not supported.'
+                    )}
+                />
             ) : (
                 renderNewView()
             )}

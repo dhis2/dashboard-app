@@ -2,11 +2,11 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
-import { NoticeBox, CenteredContent } from '@dhis2/ui'
 
 import TitleBar from '../TitleBar/TitleBar'
 import ItemGrid from '../ItemGrid/ItemGrid'
 import EditBar from '../ControlBar/EditBar'
+import NotSupportedNotice from './NotSupportedNotice'
 import { useWindowDimensions } from '../WindowDimensionsProvider'
 import LayoutPrintPreview from './PrintLayoutDashboard'
 import NoContentMessage from '../../widgets/NoContentMessage'
@@ -64,13 +64,11 @@ const EditDashboard = props => {
     return (
         <>
             {isSmallScreen(width) ? (
-                <CenteredContent position="top">
-                    <NoticeBox title={i18n.t('Not supported')} warning>
-                        {i18n.t(
-                            'Editing dashboards on small screens is not supported.'
-                        )}
-                    </NoticeBox>
-                </CenteredContent>
+                <NotSupportedNotice
+                    message={i18n.t(
+                        'Editing dashboards on small screens is not supported.'
+                    )}
+                />
             ) : (
                 renderEditView()
             )}
