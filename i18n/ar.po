@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-10T12:16:21.390Z\n"
+"POT-Creation-Date: 2021-01-05T09:32:21.165Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -41,14 +41,14 @@ msgstr ""
 "المستخدمين. لا يمكن التراجع عن هذا الإجراء. هل تريد بالتأكيد حذف لوحة "
 "المعلومات هذه نهائياً؟"
 
+msgid "Save changes"
+msgstr "احفظ التغييرات"
+
 msgid "Exit Print preview"
 msgstr "الخروج من معاينة الطباعة"
 
 msgid "Print preview"
 msgstr "معاينة قبل الطباعة"
-
-msgid "Save changes"
-msgstr "احفظ التغييرات"
 
 msgid "Translate"
 msgstr "ترجمة"
@@ -62,11 +62,11 @@ msgstr "الذهاب إلى لوحة المعلومات"
 msgid "Search for a dashboard"
 msgstr "البحث عن لوحة معلومات"
 
-msgid "Show more"
-msgstr "إظهار المزيد"
+msgid "Show fewer dashboards"
+msgstr ""
 
-msgid "Show less"
-msgstr "إظهار الأقل"
+msgid "Show more dashboards"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -192,6 +192,9 @@ msgstr "لايوجد عناصر في لوحة المعلومات هذه"
 
 msgid "Show fewer"
 msgstr "عرض أقل"
+
+msgid "Show more"
+msgstr "إظهار المزيد"
 
 msgid "Insert"
 msgstr "إدراج"

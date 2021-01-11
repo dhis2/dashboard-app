@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-10T12:16:21.390Z\n"
+"POT-Creation-Date: 2021-01-05T09:32:21.165Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Persian (Afghanistan) (https://www.transifex.com/hisp-uio/teams/100509/fa_AF/)\n"
@@ -36,13 +36,13 @@ msgid ""
 "this dashboard?"
 msgstr ""
 
+msgid "Save changes"
+msgstr ""
+
 msgid "Exit Print preview"
 msgstr ""
 
 msgid "Print preview"
-msgstr ""
-
-msgid "Save changes"
 msgstr ""
 
 msgid "Translate"
@@ -57,11 +57,11 @@ msgstr ""
 msgid "Search for a dashboard"
 msgstr ""
 
-msgid "Show more"
-msgstr "نمایش دادن بیشتر"
+msgid "Show fewer dashboards"
+msgstr ""
 
-msgid "Show less"
-msgstr "نمایش دادن کم"
+msgid "Show more dashboards"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -181,6 +181,9 @@ msgstr ""
 
 msgid "Show fewer"
 msgstr ""
+
+msgid "Show more"
+msgstr "نمایش دادن بیشتر"
 
 msgid "Insert"
 msgstr "درج"

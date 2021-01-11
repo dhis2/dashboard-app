@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-10T12:16:21.390Z\n"
+"POT-Creation-Date: 2021-01-05T09:32:21.165Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -37,14 +37,14 @@ msgid ""
 "this dashboard?"
 msgstr ""
 
+msgid "Save changes"
+msgstr "保存更改"
+
 msgid "Exit Print preview"
 msgstr ""
 
 msgid "Print preview"
 msgstr ""
-
-msgid "Save changes"
-msgstr "保存更改"
 
 msgid "Translate"
 msgstr "翻译"
@@ -58,11 +58,11 @@ msgstr "进到仪表盘"
 msgid "Search for a dashboard"
 msgstr "搜索仪表盘"
 
-msgid "Show more"
-msgstr "更多"
+msgid "Show fewer dashboards"
+msgstr ""
 
-msgid "Show less"
-msgstr "较少"
+msgid "Show more dashboards"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "没有找到仪表盘条目，使用+ 按钮创建新的仪表盘条目。"
@@ -181,6 +181,9 @@ msgstr "该仪表盘没有条目"
 
 msgid "Show fewer"
 msgstr ""
+
+msgid "Show more"
+msgstr "更多"
 
 msgid "Insert"
 msgstr "插入"

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-10T12:16:21.390Z\n"
+"POT-Creation-Date: 2021-01-05T09:32:21.165Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: trendspotter, 2020\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -39,14 +39,14 @@ msgstr ""
 "všechny uživatele. Tuto akci nelze vrátit zpět. Opravdu chcete tento "
 "ovládací panel trvale smazat?"
 
+msgid "Save changes"
+msgstr "Uložit změny"
+
 msgid "Exit Print preview"
 msgstr "Ukončit náhled tisku"
 
 msgid "Print preview"
 msgstr "Náhled před tiskem"
-
-msgid "Save changes"
-msgstr "Uložit změny"
 
 msgid "Translate"
 msgstr "Přeložit"
@@ -60,11 +60,11 @@ msgstr "Přejít na ovládací panely"
 msgid "Search for a dashboard"
 msgstr "Vyhledat ovládací panel"
 
-msgid "Show more"
-msgstr "Zobrazit více"
+msgid "Show fewer dashboards"
+msgstr ""
 
-msgid "Show less"
-msgstr "Zobrazit méně"
+msgid "Show more dashboards"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -193,6 +193,9 @@ msgstr "Na tomto ovládacím panelu nejsou žádné položky"
 
 msgid "Show fewer"
 msgstr "Zobrazit méně"
+
+msgid "Show more"
+msgstr "Zobrazit více"
 
 msgid "Insert"
 msgstr "Vložit"

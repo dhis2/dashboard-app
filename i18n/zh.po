@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-10T12:16:21.390Z\n"
+"POT-Creation-Date: 2021-01-05T09:32:21.165Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -39,14 +39,14 @@ msgid ""
 "this dashboard?"
 msgstr "删除仪表盘 \"{{ dashboardName }}\" 将从所有用户仪表盘中移除。该操作不能撤销，你确信要永久删除该仪表盘条目？"
 
+msgid "Save changes"
+msgstr "保存改变"
+
 msgid "Exit Print preview"
 msgstr "退出打印预览"
 
 msgid "Print preview"
 msgstr "打印预览"
-
-msgid "Save changes"
-msgstr "保存改变"
 
 msgid "Translate"
 msgstr "翻译"
@@ -60,11 +60,11 @@ msgstr "进到仪表盘"
 msgid "Search for a dashboard"
 msgstr "搜索仪表盘"
 
-msgid "Show more"
-msgstr "显示更多"
+msgid "Show fewer dashboards"
+msgstr ""
 
-msgid "Show less"
-msgstr "显示更少"
+msgid "Show more dashboards"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "没有发现仪表盘，使用+按钮创建新的仪表盘"
@@ -183,6 +183,9 @@ msgstr "该仪表盘没有条目"
 
 msgid "Show fewer"
 msgstr "显示较少"
+
+msgid "Show more"
+msgstr "显示更多"
 
 msgid "Insert"
 msgstr "插入"

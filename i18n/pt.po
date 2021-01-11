@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-10T12:16:21.390Z\n"
+"POT-Creation-Date: 2021-01-05T09:32:21.165Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -42,14 +42,14 @@ msgstr ""
 ". Essa ação não pode ser desfeita. Tem certeza de que deseja apagar "
 "permanentemente este painel?"
 
+msgid "Save changes"
+msgstr "Gravar alterações"
+
 msgid "Exit Print preview"
 msgstr ""
 
 msgid "Print preview"
 msgstr ""
-
-msgid "Save changes"
-msgstr "Gravar alterações"
 
 msgid "Translate"
 msgstr "Traduzir"
@@ -63,11 +63,11 @@ msgstr "Ir para o painel"
 msgid "Search for a dashboard"
 msgstr "Pesquisar por um painel"
 
-msgid "Show more"
-msgstr "Mostrar mais"
+msgid "Show fewer dashboards"
+msgstr ""
 
-msgid "Show less"
-msgstr "Mostrar menos"
+msgid "Show more dashboards"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "Painel não encontrado. Use o botão + para criar um novo painel."
@@ -189,6 +189,9 @@ msgstr "Não há itens neste painel"
 
 msgid "Show fewer"
 msgstr "Mostrar menos"
+
+msgid "Show more"
+msgstr "Mostrar mais"
 
 msgid "Insert"
 msgstr "Inserir"
