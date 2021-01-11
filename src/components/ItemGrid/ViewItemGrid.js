@@ -30,7 +30,12 @@ import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
 
+import classes from './styles/ViewItemGrid.module.css'
+
 const EXPANDED_HEIGHT = 17
+const SMALL_SCREEN_BREAKPOINT = 480
+// sum of left+right margin of the dashboard wrapper
+const DASHBOARD_WRAPPER_LR_MARGIN = 20
 
 const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     const [expandedItems, setExpandedItems] = useState({})
@@ -91,8 +96,10 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
         )
     }
 
+    const gridWidth = width - DASHBOARD_WRAPPER_LR_MARGIN
+
     return (
-        <>
+        <div className={classes.gridContainer}>
             {isLoading ? (
                 <Layer translucent>
                     <CenteredContent>
@@ -102,20 +109,23 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
             ) : null}
             <ResponsiveReactGridLayout
                 rowHeight={GRID_ROW_HEIGHT}
-                width={width}
+                width={gridWidth}
                 cols={{ lg: getGridColumns(), sm: 9 }} // min-width for items in dashboard was 9 columns
-                breakpoints={{ lg: 452, sm: 0 }}
+                breakpoints={{
+                    lg: SMALL_SCREEN_BREAKPOINT - DASHBOARD_WRAPPER_LR_MARGIN,
+                    sm: 0,
+                }}
                 layouts={{ lg: displayItems, sm: displayItemsSmallDevice }}
-                measureBeforeMount={true}
                 compactType={GRID_COMPACT_TYPE}
                 margin={MARGIN}
+                containerPadding={{ lg: [0, 0], sm: [0, 0] }}
                 isDraggable={false}
                 isResizable={false}
                 draggableCancel="input,textarea"
             >
                 {getItemComponents(displayItems)}
             </ResponsiveReactGridLayout>
-        </>
+        </div>
     )
 }
 
