@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { colors } from '@dhis2/ui'
-
+import cx from 'classnames'
 import classes from './styles/ControlBar.module.css'
 
 export const DRAG_HANDLE_HEIGHT = 7
@@ -48,34 +47,26 @@ class ControlBar extends React.Component {
         }
     }
 
-    renderDragHandle() {
-        return typeof this.props.onChangeHeight === 'function' ? (
+    renderDragHandle = () =>
+        typeof this.props.onChangeHeight === 'function' && (
             <div
                 data-testid="controlbar-drag-handle"
                 className={classes.draghandle}
                 style={{ height: DRAG_HANDLE_HEIGHT }}
                 onMouseDown={this.onStartDrag}
             />
-        ) : null
-    }
+        )
 
     render() {
         const height = Math.max(this.props.height, 0) + DRAG_HANDLE_HEIGHT
 
-        const rootStyle = Object.assign(
-            {
-                height,
-                backgroundColor: this.props.editMode
-                    ? colors.yellow050
-                    : colors.white,
-                paddingBottom: DRAG_HANDLE_HEIGHT,
-            },
-            // Disable animations while dragging
-            this.state.dragging ? { transition: 'none' } : {}
+        const rootClass = cx(
+            classes.root,
+            this.state.dragging && classes.dragging
         )
 
         return (
-            <div style={rootStyle} className={classes.root}>
+            <div style={{ height }} className={rootClass}>
                 <div className={classes.content}>{this.props.children}</div>
                 {this.renderDragHandle()}
             </div>
@@ -88,11 +79,6 @@ ControlBar.propTypes = {
      * The height of the control bar in number of lines. Must be a positive integer.
      */
     children: PropTypes.node.isRequired,
-
-    /**
-     * If true, the background color of the control bar changes to indicate that edit mode is active.
-     */
-    editMode: PropTypes.bool.isRequired,
 
     /**
      * Callback function that is called when the control bar is resized.

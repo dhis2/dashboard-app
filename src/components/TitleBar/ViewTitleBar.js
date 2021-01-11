@@ -8,6 +8,7 @@ import Star from '@material-ui/icons/Star'
 import StarBorder from '@material-ui/icons/StarBorder'
 import { Button, FlyoutMenu, Popover, MenuItem, colors } from '@dhis2/ui'
 
+import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { ThreeDots } from '../Item/VisualizationItem/assets/icons'
 import { orObject } from '../../modules/util'
 import { tStarDashboard } from '../../actions/dashboards'
@@ -22,6 +23,7 @@ import {
     sGetDashboardItems,
     EMPTY_DASHBOARD,
 } from '../../reducers/dashboards'
+import isSmallScreen from '../../modules/isSmallScreen'
 
 import classes from './styles/ViewTitleBar.module.css'
 
@@ -29,6 +31,7 @@ const ViewTitleBar = (props, context) => {
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
+    const { width } = useWindowDimensions()
 
     const {
         id,
@@ -109,13 +112,17 @@ const ViewTitleBar = (props, context) => {
                             </Link>
                         ) : null}
                         {userAccess.manage ? (
-                            <Button onClick={toggleSharingDialog}>
+                            <Button
+                                className={classes.shareButton}
+                                onClick={toggleSharingDialog}
+                            >
                                 {i18n.t('Share')}
                             </Button>
                         ) : null}
                         <FilterSelector />
                         <span ref={buttonRef}>
                             <Button
+                                small={isSmallScreen(width)}
                                 dataTest="more-button"
                                 onClick={toggleMoreOptions}
                             >

@@ -4,17 +4,17 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
 <DocumentFragment>
   <div
     class="root"
-    style="height: 431px; background-color: rgb(255, 255, 255); padding-bottom: 7px;"
+    style="height: 431px;"
   >
     <div
       class="content"
     >
       <div
-        class="container overflowYAuto"
+        class="container expanded"
         style="height: 410px;"
       >
         <div
-          class="leftControls"
+          class="controls"
         >
           <a
             class="newLink"
@@ -118,12 +118,28 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
       <div
         class="container"
       >
-        <div
-          class="showMore"
-          data-test="showmore-button"
+        <span
+          class="jsx-611321200"
+          data-test="dhis2-uicore-tooltip-reference"
         >
-          Show less
-        </div>
+          <button
+            aria-label="Show fewer dashboards"
+            class="showMore"
+            data-test="showmore-button"
+          >
+            <svg
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m11.2928932 8.29289322c.360484-.36048396.927715-.3882135 1.3200062-.08318861l.0942074.08318861 5 4.99999998c.3905243.3905243.3905243 1.0236893 0 1.4142136-.360484.3604839-.927715.3882135-1.3200062.0831886l-.0942074-.0831886-4.2928932-4.2921068-4.29289322 4.2921068c-.36048396.3604839-.92771502.3882135-1.32000622.0831886l-.09420734-.0831886c-.36048396-.360484-.3882135-.927715-.08318861-1.3200062l.08318861-.0942074z"
+                fill="#a0adba"
+              />
+            </svg>
+          </button>
+        </span>
       </div>
     </div>
     <div
@@ -132,6 +148,9 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
       style="height: 7px;"
     />
   </div>
+  <div
+    style="margin-top: 71px;"
+  />
 </DocumentFragment>
 `;
 
@@ -139,17 +158,17 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
 <div>
   <div
     class="root"
-    style="height: 431px; background-color: rgb(255, 255, 255); padding-bottom: 7px;"
+    style="height: 431px;"
   >
     <div
       class="content"
     >
       <div
-        class="container overflowYAuto"
+        class="container expanded"
         style="height: 410px;"
       >
         <div
-          class="leftControls"
+          class="controls"
         >
           <a
             class="newLink"
@@ -257,7 +276,17 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
         <div
           class="disabled"
         >
-          Show more
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m11.29289 15.7071c.39053.3905 1.02369.3905 1.41422 0l4.99999-4.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-4.2929 4.2929-4.29289-4.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
+              fill="#a0adba"
+            />
+          </svg>
         </div>
       </div>
     </div>
@@ -267,6 +296,9 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
       style="height: 7px;"
     />
   </div>
+  <div
+    style="margin-top: 431px;"
+  />
 </div>
 `;
 
@@ -274,17 +306,17 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
 <div>
   <div
     class="root"
-    style="height: 71px; background-color: rgb(255, 255, 255); padding-bottom: 7px;"
+    style="height: 71px;"
   >
     <div
       class="content"
     >
       <div
-        class="container overflowYHidden"
+        class="container collapsed"
         style="height: 50px;"
       >
         <div
-          class="leftControls"
+          class="controls"
         >
           <a
             class="newLink"
@@ -389,12 +421,28 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
       <div
         class="container"
       >
-        <div
-          class="showMore"
-          data-test="showmore-button"
+        <span
+          class="jsx-611321200"
+          data-test="dhis2-uicore-tooltip-reference"
         >
-          Show more
-        </div>
+          <button
+            aria-label="Show more dashboards"
+            class="showMore"
+            data-test="showmore-button"
+          >
+            <svg
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m11.29289 15.7071c.39053.3905 1.02369.3905 1.41422 0l4.99999-4.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-4.2929 4.2929-4.29289-4.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
+                fill="#a0adba"
+              />
+            </svg>
+          </button>
+        </span>
       </div>
     </div>
     <div
@@ -403,6 +451,9 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
       style="height: 7px;"
     />
   </div>
+  <div
+    style="margin-top: 71px;"
+  />
 </div>
 `;
 
@@ -410,17 +461,17 @@ exports[`renders a DashboardsBar with no items 1`] = `
 <div>
   <div
     class="root"
-    style="height: 71px; background-color: rgb(255, 255, 255); padding-bottom: 7px;"
+    style="height: 71px;"
   >
     <div
       class="content"
     >
       <div
-        class="container overflowYHidden"
+        class="container collapsed"
         style="height: 50px;"
       >
         <div
-          class="leftControls"
+          class="controls"
         >
           <a
             class="newLink"
@@ -471,12 +522,28 @@ exports[`renders a DashboardsBar with no items 1`] = `
       <div
         class="container"
       >
-        <div
-          class="showMore"
-          data-test="showmore-button"
+        <span
+          class="jsx-611321200"
+          data-test="dhis2-uicore-tooltip-reference"
         >
-          Show more
-        </div>
+          <button
+            aria-label="Show more dashboards"
+            class="showMore"
+            data-test="showmore-button"
+          >
+            <svg
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m11.29289 15.7071c.39053.3905 1.02369.3905 1.41422 0l4.99999-4.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-4.2929 4.2929-4.29289-4.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
+                fill="#a0adba"
+              />
+            </svg>
+          </button>
+        </span>
       </div>
     </div>
     <div
@@ -485,6 +552,9 @@ exports[`renders a DashboardsBar with no items 1`] = `
       style="height: 7px;"
     />
   </div>
+  <div
+    style="margin-top: 71px;"
+  />
 </div>
 `;
 
@@ -492,17 +562,17 @@ exports[`renders a DashboardsBar with selected item 1`] = `
 <div>
   <div
     class="root"
-    style="height: 71px; background-color: rgb(255, 255, 255); padding-bottom: 7px;"
+    style="height: 71px;"
   >
     <div
       class="content"
     >
       <div
-        class="container overflowYHidden"
+        class="container collapsed"
         style="height: 50px;"
       >
         <div
-          class="leftControls"
+          class="controls"
         >
           <a
             class="newLink"
@@ -607,12 +677,28 @@ exports[`renders a DashboardsBar with selected item 1`] = `
       <div
         class="container"
       >
-        <div
-          class="showMore"
-          data-test="showmore-button"
+        <span
+          class="jsx-611321200"
+          data-test="dhis2-uicore-tooltip-reference"
         >
-          Show more
-        </div>
+          <button
+            aria-label="Show more dashboards"
+            class="showMore"
+            data-test="showmore-button"
+          >
+            <svg
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m11.29289 15.7071c.39053.3905 1.02369.3905 1.41422 0l4.99999-4.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-4.2929 4.2929-4.29289-4.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
+                fill="#a0adba"
+              />
+            </svg>
+          </button>
+        </span>
       </div>
     </div>
     <div
@@ -621,5 +707,8 @@ exports[`renders a DashboardsBar with selected item 1`] = `
       style="height: 7px;"
     />
   </div>
+  <div
+    style="margin-top: 71px;"
+  />
 </div>
 `;
