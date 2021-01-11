@@ -34,6 +34,7 @@ import classes from './styles/ViewItemGrid.module.css'
 
 const EXPANDED_HEIGHT = 17
 const SMALL_SCREEN_BREAKPOINT = 480
+const SCROLLBAR_WIDTH = 8
 // sum of left+right margin of the dashboard wrapper
 const DASHBOARD_WRAPPER_LR_MARGIN = 20
 
@@ -93,8 +94,6 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     }
 
     const { width } = useWindowDimensions()
-    const gridWidth = width - DASHBOARD_WRAPPER_LR_MARGIN
-
     const layoutSm = sortBy(dashboardItems, ['y', 'x']).map((item, i) =>
         Object.assign({}, item, { y: i, w: SMALL_SCREEN_GRID_COLUMNS })
     )
@@ -110,7 +109,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
             ) : null}
             <ResponsiveReactGridLayout
                 rowHeight={GRID_ROW_HEIGHT}
-                width={gridWidth}
+                width={width - DASHBOARD_WRAPPER_LR_MARGIN}
                 cols={{ lg: getGridColumns(), sm: SMALL_SCREEN_GRID_COLUMNS }}
                 breakpoints={{
                     lg: SMALL_SCREEN_BREAKPOINT - DASHBOARD_WRAPPER_LR_MARGIN,
@@ -119,7 +118,10 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
                 layouts={{ lg: displayItems, sm: layoutSm }}
                 compactType={GRID_COMPACT_TYPE}
                 margin={MARGIN}
-                containerPadding={{ lg: [0, 0], sm: [0, 0] }}
+                containerPadding={{
+                    lg: [SCROLLBAR_WIDTH, 0],
+                    sm: [SCROLLBAR_WIDTH, 0],
+                }}
                 isDraggable={false}
                 isResizable={false}
                 draggableCancel="input,textarea"
