@@ -52,9 +52,13 @@ export const acSetDashboardItems = value => ({
 
 // thunks
 
-export const tFetchDashboards = () => async dispatch => {
-    const collection = await apiFetchDashboards()
-    dispatch(acSetDashboards(collection.toArray()))
+export const tFetchDashboards = () => async (
+    dispatch,
+    getState,
+    dataEngine
+) => {
+    const dashboards = await apiFetchDashboards(dataEngine)
+    dispatch(acSetDashboards(dashboards))
 }
 
 export const tSelectDashboard = id => async (dispatch, getState) => {
@@ -88,7 +92,11 @@ export const tSelectDashboard = id => async (dispatch, getState) => {
     }
 }
 
-export const tStarDashboard = (id, isStarred) => async dispatch => {
+export const tStarDashboard = (id, isStarred) => async (
+    dispatch,
+    getState,
+    dataEngine
+) => {
     const onSuccess = id => {
         dispatch(acSetDashboardStarred(id, isStarred))
         return id
@@ -99,16 +107,20 @@ export const tStarDashboard = (id, isStarred) => async dispatch => {
         return error
     }
     try {
-        await apiStarDashboard(id, isStarred)
+        await apiStarDashboard(dataEngine, id, isStarred)
         return onSuccess(id)
     } catch (err) {
         return onError(err)
     }
 }
 
-export const tDeleteDashboard = id => async dispatch => {
+export const tDeleteDashboard = id => async (
+    dispatch,
+    getState,
+    dataEngine
+) => {
     try {
-        await apiDeleteDashboard(id)
+        await apiDeleteDashboard(dataEngine, id)
         await dispatch(tFetchDashboards())
 
         return Promise.resolve()

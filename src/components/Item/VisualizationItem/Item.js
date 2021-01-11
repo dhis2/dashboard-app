@@ -21,6 +21,7 @@ import {
 import { sGatherAnalyticalObjectStatisticsInDashboardViews } from '../../../reducers/settings'
 import { acAddVisualization } from '../../../actions/visualizations'
 import { acSetSelectedItemActiveType } from '../../../actions/selected'
+import { pluginIsAvailable } from './Visualization/plugin'
 import { getDataStatisticsName } from '../../../modules/itemTypes'
 import { getVisualizationId, getVisualizationName } from '../../../modules/item'
 import memoizeOne from '../../../modules/memoizeOne'
@@ -36,6 +37,7 @@ export class Item extends Component {
     state = {
         showFooter: false,
         configLoaded: false,
+        isFullscreen: false,
     }
 
     constructor(props, context) {
@@ -45,6 +47,7 @@ export class Item extends Component {
 
         this.contentRef = React.createRef()
         this.headerRef = React.createRef()
+        this.itemDomElSelector = `.reactgriditem-${this.props.item.id}`
 
         this.memoizedGetContentHeight = memoizeOne(
             (calculatedHeight, measuredHeight, preferMeasured) =>
@@ -73,9 +76,57 @@ export class Item extends Component {
             console.log(e)
         }
 
+        this.setState({ configLoaded: true })
+
+        const el = document.querySelector(this.itemDomElSelector)
+        if (el?.requestFullscreen) {
+            el.onfullscreenchange = this.handleFullscreenChange
+        } else if (el?.webkitRequestFullscreen) {
+            el.onwebkitfullscreenchange = this.handleFullscreenChange
+        }
+    }
+
+    componentWillUnmount() {
+        const el = document.querySelector(this.itemDomElSelector)
+        if (el?.onfullscreenchange) {
+            el.removeEventListener(
+                'onfullscreenchange',
+                this.handleFullscreenChange
+            )
+        } else if (el?.onwebkitfullscreenchange) {
+            el.removeEventListener(
+                'onwebkitfullscreenchange',
+                this.handleFullscreenChange
+            )
+        }
+    }
+
+    isFullscreenSupported = () => {
+        const el = document.querySelector(this.itemDomElSelector)
+        return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
+    }
+
+    handleFullscreenChange = () => {
         this.setState({
-            configLoaded: true,
+            isFullscreen:
+                !!document.fullscreenElement ||
+                !!document.webkitFullscreenElement,
         })
+    }
+
+    onToggleFullscreen = () => {
+        if (!this.state.isFullscreen) {
+            const el = document.querySelector(this.itemDomElSelector)
+            if (el?.requestFullscreen) {
+                el.requestFullscreen()
+            } else if (el?.webkitRequestFullscreen) {
+                el.webkitRequestFullscreen()
+            }
+        } else {
+            document.exitFullscreen
+                ? document.exitFullscreen()
+                : document.webkitExitFullscreen()
+        }
     }
 
     getUniqueKey = memoizeOne(() => uniqueId())
@@ -100,6 +151,10 @@ export class Item extends Component {
     }
 
     getAvailableHeight = () => {
+        if (this.state.isFullscreen) {
+            return '95vh'
+        }
+
         const calculatedHeight =
             this.props.item.originalHeight -
             this.headerRef.current.clientHeight -
@@ -119,16 +174,19 @@ export class Item extends Component {
         const { showFooter } = this.state
         const activeType = this.getActiveType()
 
-        const actionButtons = (
+        const actionButtons = pluginIsAvailable(activeType || item.type) ? (
             <ItemHeaderButtons
                 item={item}
                 visualization={this.props.visualization}
                 onSelectActiveType={this.setActiveType}
                 onToggleFooter={this.onToggleFooter}
+                onToggleFullscreen={this.onToggleFullscreen}
                 activeType={activeType}
                 activeFooter={showFooter}
+                isFullscreen={this.state.isFullscreen}
+                fullscreenSupported={this.isFullscreenSupported()}
             />
-        )
+        ) : null
 
         return (
             <>

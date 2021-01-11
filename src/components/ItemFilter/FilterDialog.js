@@ -105,7 +105,6 @@ const FilterDialog = (
                         selectedItems={selectedItems}
                         dimensionId={dimension.id}
                         onSelect={commonProps.onSelect}
-                        context={commonProps.d2}
                     />
                 )
         }

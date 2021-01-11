@@ -171,14 +171,8 @@ export const getCustomDashboards = data =>
         displayDescription: d.displayDescription,
         starred: d.favorite,
         owner: d.user.name,
-        created: d.created
-            .split('T')
-            .join(' ')
-            .substr(0, 16),
-        lastUpdated: d.lastUpdated
-            .split('T')
-            .join(' ')
-            .substr(0, 16),
+        created: d.created.split('T').join(' ').substr(0, 16),
+        lastUpdated: d.lastUpdated.split('T').join(' ').substr(0, 16),
         access: d.access,
         numberOfItems: orArray(d.dashboardItems).length,
         dashboardItems: convertBackendItemsToUi(d.dashboardItems),

@@ -14,7 +14,6 @@ Feature: Dashboard filter
         When I add a "Organisation Unit" filter
         Then the Organisation Unit filter is applied to the dashboard
 
-
     @nonmutating
     Scenario: I add a Facility Type filter
         When I add a "Facility Type" filter

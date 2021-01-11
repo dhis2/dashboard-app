@@ -67,7 +67,11 @@ export const acClearSelectedItemActiveTypes = () => ({
 })
 
 // thunks
-export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
+export const tSetSelectedDashboardById = id => async (
+    dispatch,
+    getState,
+    dataEngine
+) => {
     dispatch(acSetSelectedIsLoading(true))
 
     const alertTimeout = setTimeout(() => {
@@ -107,7 +111,7 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
                     dispatch(acAddVisualization(getVisualizationFromItem(item)))
                     break
                 case MESSAGES:
-                    dispatch(tGetMessages(id))
+                    dispatch(tGetMessages(dataEngine))
                     break
                 default:
                     break
@@ -131,7 +135,7 @@ export const tSetSelectedDashboardById = id => async (dispatch, getState) => {
     }
 
     try {
-        const dashboard = await apiFetchDashboard(id)
+        const dashboard = await apiFetchDashboard(dataEngine, id)
 
         return onSuccess(dashboard)
     } catch (err) {

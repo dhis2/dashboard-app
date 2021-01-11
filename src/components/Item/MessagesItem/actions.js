@@ -11,10 +11,9 @@ export const receivedMessages = value => ({
     value,
 })
 
-export const tGetMessages = () => async dispatch => {
+export const tGetMessages = dataEngine => async dispatch => {
     try {
-        const messages = await getMessages()
-        const { messageConversations } = messages
+        const messageConversations = await getMessages(dataEngine)
 
         return dispatch(receivedMessages(messageConversations))
     } catch (err) {

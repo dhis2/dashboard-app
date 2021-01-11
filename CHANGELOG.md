@@ -1,3 +1,32 @@
+# [31.5.0](https://github.com/dhis2/dashboard-app/compare/v31.4.1...v31.5.0) (2021-01-11)
+
+
+### Features
+
+* responsive control bar and title bar [DHIS2-10138] ([#1400](https://github.com/dhis2/dashboard-app/issues/1400)) ([7b6af12](https://github.com/dhis2/dashboard-app/commit/7b6af12125348cdf4491334699acde95c36fe3f6))
+
+## [31.4.1](https://github.com/dhis2/dashboard-app/compare/v31.4.0...v31.4.1) (2021-01-06)
+
+
+### Bug Fixes
+
+* restore commented test and remove unused file ([#1430](https://github.com/dhis2/dashboard-app/issues/1430)) ([8c4acf5](https://github.com/dhis2/dashboard-app/commit/8c4acf5bed2c76010bca41b64ef4c4a9becd6713))
+
+# [31.4.0](https://github.com/dhis2/dashboard-app/compare/v31.3.1...v31.4.0) (2021-01-05)
+
+
+### Features
+
+* add fullscreen option to visualization items [DHIS2-9879] ([#1358](https://github.com/dhis2/dashboard-app/issues/1358)) ([746d7b0](https://github.com/dhis2/dashboard-app/commit/746d7b00321d96a5ae2bcd6959842db5fb99f2f3)), closes [cypress-io/cypress#7776](https://github.com/cypress-io/cypress/issues/7776)
+
+## [31.3.1](https://github.com/dhis2/dashboard-app/compare/v31.3.0...v31.3.1) (2021-01-05)
+
+
+### Bug Fixes
+
+* disable test affected by api bug ([#1418](https://github.com/dhis2/dashboard-app/issues/1418)) ([e01f98b](https://github.com/dhis2/dashboard-app/commit/e01f98b344656255539df14a7dd5f0e9d3d1cf61))
+* **translations:** sync translations from transifex (master) ([#1403](https://github.com/dhis2/dashboard-app/issues/1403)) ([bd1c113](https://github.com/dhis2/dashboard-app/commit/bd1c1136eda2aad13286bce04444424857c59e71))
+
 # [31.3.0](https://github.com/dhis2/dashboard-app/compare/v31.2.0...v31.3.0) (2020-12-15)
 
 

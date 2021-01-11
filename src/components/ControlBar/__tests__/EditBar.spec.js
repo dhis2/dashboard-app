@@ -14,12 +14,17 @@ const mockDashboardModels = {
 }
 
 jest.mock('../../../api/dashboards', () => ({
-    apiFetchDashboard: id => Promise.resolve(mockDashboardModels[id]),
+    apiFetchDashboard: (dataEngine, id) =>
+        Promise.resolve(mockDashboardModels[id]),
 }))
 
-jest.mock('@dhis2/d2-ui-translation-dialog', () => () => {
-    return <div className="mock-dhis2-translation-dialog" />
-})
+jest.mock(
+    '@dhis2/d2-ui-translation-dialog',
+    () =>
+        function MockTranslationDialog() {
+            return <div className="mock-dhis2-translation-dialog" />
+        }
+)
 
 describe('EditBar', () => {
     let props

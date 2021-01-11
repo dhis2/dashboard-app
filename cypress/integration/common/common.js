@@ -19,7 +19,7 @@ Then('the {string} dashboard displays in view mode', title => {
     })
 
     cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
-    cy.get(chartSel).should('exist')
+    cy.get(chartSel, EXTENDED_TIMEOUT).should('exist')
 })
 
 Given('I choose to create new dashboard', () => {

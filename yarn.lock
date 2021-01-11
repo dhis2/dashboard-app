@@ -1496,10 +1496,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^11.3.0", "@dhis2/analytics@^11.3.4":
-  version "11.3.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.3.4.tgz#08cb18d64189baae8873ccf5cd89ec81a415de1a"
-  integrity sha512-Z6ZWj7lME9d70ycEy1Q/4fz5W4azahmA8MbRKVwuRtaF/czWTexoHJa/BN4DwHCCcStC7CHOKnB312N3MCQ5QA==
+"@dhis2/analytics@^12.1.0", "@dhis2/analytics@^12.1.3":
+  version "12.1.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-12.1.3.tgz#e6170ba465a8a326e6b85cf520a9967442d14cca"
+  integrity sha512-2sT5U4ii+A7c+bfo7bnwKHAYvKRYeelf1zdlkKWk3rcbQbpIptUzTkK2cUUgreDWvHvcwE3Y6HIrEgnNQ8rxdg==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.8"
     "@dhis2/ui" "^5.7.7"
@@ -1801,12 +1801,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^35.15.0":
-  version "35.15.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.15.0.tgz#2067eeafac2745ffc49e9cbacd89c856fd7f7bbe"
-  integrity sha512-WqvpL8ojdV/Lliwy+QA9UXkJtUfoNunrTmjgpPaIBRFmd1rhnOaNH/byKu2ZM1WITVDJFMcKDu8J2TRuIO6/oQ==
+"@dhis2/data-visualizer-plugin@^35.16.4":
+  version "35.16.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.16.4.tgz#822e5d248a46b79f2aa11c98b3143afd80b0d4fa"
+  integrity sha512-ylHPNWNNFAbRSYRWBWe5WHX/3gNjmQazWuYnWpGCcajmri57JYZ/229UudS/ktAvdNJpKiAET9OxGUBo0E9nxw==
   dependencies:
-    "@dhis2/analytics" "^11.3.0"
+    "@dhis2/analytics" "^12.1.0"
     "@dhis2/ui" "^5.7.3"
     lodash-es "^4.17.11"
 
@@ -1817,12 +1817,30 @@
   dependencies:
     prop-types "^15"
 
+"@dhis2/ui-constants@5.7.3":
+  version "5.7.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-5.7.3.tgz#6c484133fdb17e0b71ddb6d621c472b510b3093f"
+  integrity sha512-bs7Y9KPtC/7z9usIUSJxtNqNMGW3f1gZ3tYqGdHnPNknr3RyKPVzgF9VH8r5bNVZUJqSN4EbwtjB2i53EsNHFA==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+
 "@dhis2/ui-constants@5.7.8":
   version "5.7.8"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-5.7.8.tgz#3356de03c5e9ddc0b5fac5087df8ccd97f0dc3c0"
   integrity sha512-Ca9PvKP8s0jcWtqLl5tyAyhoy0F6rAohAiLvoJvRmx1M7lXzxwpHjLZnaQ4b1js3tn7BPB7HRdvv+SREqYY+PA==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
+
+"@dhis2/ui-core@5.7.3":
+  version "5.7.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-5.7.3.tgz#0b20723de22b1ac2ef4a7d9a91bd909573d044a8"
+  integrity sha512-2kP/D61amgCrr0FZZBTniWLGLCdMlQbQxAC7WCP1NVYufFmIHcjLyRvhGLZbHfqsFppHF0CNiQOxZB6oKI3gvg==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+    "@popperjs/core" "^2.5.3"
+    classnames "^2.2.6"
+    react-popper "^2.2.3"
+    resize-observer-polyfill "^1.5.1"
 
 "@dhis2/ui-core@5.7.8":
   version "5.7.8"
@@ -1846,6 +1864,16 @@
     react-popper "^2.2.3"
     resize-observer-polyfill "^1.5.1"
 
+"@dhis2/ui-forms@5.7.3":
+  version "5.7.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-forms/-/ui-forms-5.7.3.tgz#cb84339089234d9565654937611fd70dbacdd9c9"
+  integrity sha512-sKBvolbcffC01+t1krDrA2y8oEmsenkLSFi6AyXmQN8M8YD2x8SECoJILLGUVVaeMXQ81tvgFzfnjh1XZjaI4A==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+    classnames "^2.2.6"
+    final-form "^4.20.1"
+    react-final-form "^6.5.1"
+
 "@dhis2/ui-forms@5.7.8":
   version "5.7.8"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-forms/-/ui-forms-5.7.8.tgz#7b4489b796e2a79bebd1a24b8c1df59103e566c0"
@@ -1856,12 +1884,27 @@
     final-form "^4.20.1"
     react-final-form "^6.5.1"
 
+"@dhis2/ui-icons@5.7.3":
+  version "5.7.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-5.7.3.tgz#d6df117b0001a405caa874d5f887c4f088bc1357"
+  integrity sha512-UGBhF41JmVrZcz2Acliv7TCJhTP1tu7zv3iQQgzm9QG4iwXj6sD0veiLgOUwenw12gqPcv0HfErqjigYflyVLw==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+
 "@dhis2/ui-icons@5.7.8":
   version "5.7.8"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-5.7.8.tgz#cb18c1bfbbcf49b2dae4c2b3ff7a3aeff46aa7f2"
   integrity sha512-3P/Ptsf6HEdi0q8q6ba4Hcr8yuK+Y29PJn1Z56IZNZ+sZmFYiU7vxk5aMwA+s1EnjcPWQjrdwLzqqBAJE2W3Qg==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
+
+"@dhis2/ui-widgets@5.7.3":
+  version "5.7.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-5.7.3.tgz#89fdb5a693968da53cb673df22d27dee7bec8164"
+  integrity sha512-J5xHpR502/yi+mZl4x19PxlRnFlcparIgICD0FuAhwWazbjWKi2xJr3fcff2kej+qWdPQx+oum2d4UYPfkUOCg==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+    classnames "^2.2.6"
 
 "@dhis2/ui-widgets@5.7.8":
   version "5.7.8"
@@ -1871,7 +1914,18 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@^5.7.2", "@dhis2/ui@^5.7.3", "@dhis2/ui@^5.7.7", "@dhis2/ui@^5.7.8":
+"@dhis2/ui@^5.7.2":
+  version "5.7.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.7.3.tgz#78c6abdf2482a9ebb487f6d6666111a59f4ebb06"
+  integrity sha512-MXc9JxTJ5Z9tmDJbzNKsjcTJfvUWkypdTV2fGmaMpx3HInx+w8Y3FhivUrcsFXtpARmG/58YerWwYZaWS0OyBQ==
+  dependencies:
+    "@dhis2/ui-constants" "5.7.3"
+    "@dhis2/ui-core" "5.7.3"
+    "@dhis2/ui-forms" "5.7.3"
+    "@dhis2/ui-icons" "5.7.3"
+    "@dhis2/ui-widgets" "5.7.3"
+
+"@dhis2/ui@^5.7.3", "@dhis2/ui@^5.7.7", "@dhis2/ui@^5.7.8":
   version "5.7.8"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.7.8.tgz#17604580d02cd4a7756552154a089e730a0fdf02"
   integrity sha512-FHyTP6geAkR/jwX1/xG8yl8PvGaNhms8zUmaNiBLQ0mUmD9oJb47U8YXhJ5nVd0SFJnmuckOWgAWMt3meZGJTA==
@@ -2650,10 +2704,10 @@
     lz-string "^1.4.4"
     pretty-format "^26.6.2"
 
-"@testing-library/jest-dom@^5.11.6":
-  version "5.11.6"
-  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.11.6.tgz#782940e82e5cd17bc0a36f15156ba16f3570ac81"
-  integrity sha512-cVZyUNRWwUKI0++yepYpYX7uhrP398I+tGz4zOlLVlUYnZS+Svuxv4fwLeCIy7TnBYKXUaOlQr3vopxL8ZfEnA==
+"@testing-library/jest-dom@^5.11.8":
+  version "5.11.8"
+  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.11.8.tgz#433a84d6f9a089485101b9e112ef03e5c30bcbfc"
+  integrity sha512-ScyKrWQM5xNcr79PkSewnA79CLaoxVskE+f7knTOhDD9ftZSA1Jw8mj+pneqhEu3x37ncNfW84NUr7lqK+mXjA==
   dependencies:
     "@babel/runtime" "^7.9.2"
     "@types/testing-library__jest-dom" "^5.9.1"
@@ -6106,10 +6160,10 @@ d2-utilizr@^0.2.15, d2-utilizr@^0.2.16:
     lodash.isset "^4.3.0"
     lodash.isstring "^4.0.1"
 
-d2@^31.8.1:
-  version "31.8.2"
-  resolved "https://registry.yarnpkg.com/d2/-/d2-31.8.2.tgz#1b0f47a3686c01ecaa805d3dc44f056626d9baaf"
-  integrity sha512-eRmEf7+OslcdVSF4oFCBFBOwd2FEB8829xNqCz79PK49WkhYIy5c/cwEkwZd2sD5bJyeCyNoi3p4/42wC0AZ1Q==
+d2@^31.9.0:
+  version "31.9.0"
+  resolved "https://registry.yarnpkg.com/d2/-/d2-31.9.0.tgz#83e76735f0b925a000a74ea4b48a412d0c123a36"
+  integrity sha512-wTprxiA0dUa3ZWu1VkNxhoGT9UUWjXk89XKHqG+nh5uRxXL2zsq7Q6nrcpl8XvRG2T/A7BA3ORJFLDIfzrJ9mA==
   dependencies:
     isomorphic-fetch "^2.2.1"
 

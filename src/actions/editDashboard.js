@@ -120,7 +120,7 @@ export const acRemoveDashboardItem = value => ({
 
 // thunks
 
-export const tSaveDashboard = () => async (dispatch, getState) => {
+export const tSaveDashboard = () => async (dispatch, getState, dataEngine) => {
     const dashboard = sGetEditDashboardRoot(getState())
 
     const dashboardToSave = {
@@ -131,8 +131,8 @@ export const tSaveDashboard = () => async (dispatch, getState) => {
 
     try {
         const dashboardId = dashboardToSave.id
-            ? await updateDashboard(dashboardToSave)
-            : await postDashboard(dashboardToSave)
+            ? await updateDashboard(dataEngine, dashboardToSave)
+            : await postDashboard(dataEngine, dashboardToSave)
 
         dispatch(acClearEditDashboard())
         await dispatch(tSetSelectedDashboardById(dashboardId))
