@@ -1,35 +1,65 @@
 .container {
     padding: 10px 6px 0 6px;
+    overflow: hidden;
 }
 
-.overflowYAuto {
+.container.expanded {
     overflow-y: auto;
 }
 
-.overflowYHidden {
-    overflow-y: hidden;
-}
-
-.leftControls {
-    float: left;
-    height: 36px;
-    position: relative;
-    top: 2px;
-    margin-right: 4px;
+.controls {
+    display: inline;
 }
 
 .newLink {
     display: inline-block;
     text-decoration: none;
-    margin-right: 10px;
-    position: relative;
-    top: 2px;
+    margin-right: var(--spacers-dp8);
+    margin-top: var(--spacers-dp4);
 }
 
-.rightControls {
-    float: right;
-}
+@media only screen and (max-width: 480px) {
+    .controls {
+        margin-bottom: var(--spacers-dp8);
+        margin-top: var(--spacers-dp8);
+    }
+    .newLink {
+        display: none;
+    }
 
-.topMargin {
-    margin-top: 71px;
+    .container {
+        padding: 4px 0px 4px 4px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .container.collapsed {
+        flex-wrap: nowrap;
+    }
+
+    .container.expanded {
+        overflow-y: hidden;
+    }
+
+    .container.expanded .controls {
+        margin-left: var(--spacers-dp4);
+    }
+
+    .chipContainer {
+        margin-bottom: -4px;
+    }
+
+    .chipContainer.expanded {
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-left: 2px;
+        padding-right: 6px;
+    }
+
+    .chipContainer.collapsed {
+        overflow-x: auto;
+        overflow-y: hidden;
+        display: flex;
+        flex-wrap: nowrap;
+    }
 }
