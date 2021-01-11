@@ -1,3 +1,10 @@
+# [31.5.0](https://github.com/dhis2/dashboard-app/compare/v31.4.1...v31.5.0) (2021-01-11)
+
+
+### Features
+
+* responsive control bar and title bar [DHIS2-10138] ([#1400](https://github.com/dhis2/dashboard-app/issues/1400)) ([7b6af12](https://github.com/dhis2/dashboard-app/commit/7b6af12125348cdf4491334699acde95c36fe3f6))
+
 ## [31.4.1](https://github.com/dhis2/dashboard-app/compare/v31.4.0...v31.4.1) (2021-01-06)
 
 
