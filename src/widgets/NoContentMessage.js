@@ -2,7 +2,7 @@ import React from 'react'
 import { colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 
-export const NoContentMessage = ({ text }) => (
+const NoContentMessage = ({ text }) => (
     <div
         style={{
             padding: '50px 10px',
