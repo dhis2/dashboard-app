@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import { MenuItem, Divider } from '@dhis2/ui'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { useConfig } from '@dhis2/app-runtime'
 
 import HeaderMenuItem from './HeaderMenuItem'
 import ContentMenuItem from './ContentMenuItem'
@@ -23,7 +23,7 @@ const CategorizedMenuGroup = ({
     tAddListItemContent,
     onChangeItemsLimit,
 }) => {
-    const { d2 } = useD2({})
+    const { baseUrl } = useConfig()
     const [seeMore, setSeeMore] = useState(false)
 
     const addItem = item => () => {
@@ -52,7 +52,7 @@ const CategorizedMenuGroup = ({
         <>
             <HeaderMenuItem title={title} />
             {items.map(item => {
-                const itemUrl = getItemUrl(type, item, d2)
+                const itemUrl = getItemUrl(type, item, baseUrl)
                 return (
                     <ContentMenuItem
                         key={item.id || item.key}
