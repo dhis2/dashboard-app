@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { colors } from '@dhis2/ui'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { useConfig } from '@dhis2/app-runtime'
 import DescriptionIcon from '../../../icons/Description'
 import DeleteIcon from '../../../icons/Delete'
 import Line from '../../../widgets/Line'
@@ -23,7 +23,7 @@ const getContentItems = item =>
     )
 
 const ListItem = ({ item, dashboardMode, tRemoveListItemContent }) => {
-    const { d2 } = useD2({})
+    const { baseUrl } = useConfig()
     const contentItems = getContentItems(item)
 
     const getLink = contentItem => {
@@ -41,7 +41,7 @@ const ListItem = ({ item, dashboardMode, tRemoveListItemContent }) => {
                 <a
                     className={classes.link}
                     style={{ color: colors.grey900 }}
-                    href={getItemUrl(item.type, contentItem, d2)}
+                    href={getItemUrl(item.type, contentItem, baseUrl)}
                 >
                     {contentItem.name}
                 </a>
