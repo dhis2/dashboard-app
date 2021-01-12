@@ -82,22 +82,18 @@ class Visualization extends React.Component {
                             </div>
                         )}
                         <D2Shim d2Config={{}}>
-                            {({ d2 }) => {
-                                return (
-                                    <VisualizationPlugin
-                                        d2={d2}
-                                        visualization={this.memoizedGetFilteredVisualization(
-                                            pluginProps.visualization,
-                                            pluginProps.itemFilters
-                                        )}
-                                        onLoadingComplete={
-                                            this.onLoadingComplete
-                                        }
-                                        forDashboard={true}
-                                        style={pluginProps.style}
-                                    />
-                                )
-                            }}
+                            {({ d2 }) => (
+                                <VisualizationPlugin
+                                    d2={d2}
+                                    visualization={this.memoizedGetFilteredVisualization(
+                                        pluginProps.visualization,
+                                        pluginProps.itemFilters
+                                    )}
+                                    onLoadingComplete={this.onLoadingComplete}
+                                    forDashboard={true}
+                                    style={pluginProps.style}
+                                />
+                            )}
                         </D2Shim>
                     </>
                 )
