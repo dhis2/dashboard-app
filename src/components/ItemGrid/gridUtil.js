@@ -1,3 +1,5 @@
+import sortBy from 'lodash/sortBy'
+
 // Dimensions for the react-grid-layout
 export const GRID_COMPACT_TYPE = 'vertical' // vertical | horizonal | null
 export const GRID_ROW_HEIGHT = 10
@@ -67,6 +69,21 @@ export const getShape = i => {
     }
 }
 
+export const addSmallLayout = items =>
+    items.map((item, i) =>
+        Object.assign({}, item, {
+            layoutSm: {
+                x: item.x,
+                y: i,
+                w: SMALL_SCREEN_GRID_COLUMNS,
+                h: item.h,
+            },
+        })
+    )
+
+export const adjustSmallLayout = items =>
+    items.map(item => Object.assign({}, item, { ...item.layoutSm }))
+
 export const getGridItemProperties = itemId => {
     return {
         i: itemId,
@@ -114,13 +131,14 @@ export const getOriginalHeight = item => {
 /**
  * Returns an array of items containing the x, y, w, h dimensions
  * and the item's originalheight in pixels
+ * and dimensions to create the small layout (x, y, w, h)
  * @function
  * @param {Array} items
  * @returns {Array}
  */
 
-export const withShape = items =>
-    items.map((item, index) => {
+export const withShape = items => {
+    items = items.map((item, index) => {
         const itemWithShape = hasShape(item)
             ? item
             : Object.assign({}, item, getShape(index))
@@ -131,5 +149,8 @@ export const withShape = items =>
             getOriginalHeight(itemWithShape)
         )
     })
+
+    return addSmallLayout(sortBy(items, ['y', 'x']))
+}
 
 export const getGridItemDomId = id => `item-${id}`

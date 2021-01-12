@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import sortBy from 'lodash/sortBy'
 import cx from 'classnames'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
@@ -15,6 +14,7 @@ import {
     GRID_COMPACT_TYPE,
     MARGIN,
     hasShape,
+    adjustSmallLayout,
 } from './gridUtil'
 import { orArray } from '../../modules/util'
 import NoContentMessage from '../../widgets/NoContentMessage'
@@ -38,12 +38,14 @@ const SCROLLBAR_WIDTH = 8
 // sum of left+right margin of the dashboard wrapper
 const DASHBOARD_WRAPPER_LR_MARGIN = 20
 
-const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
+const ResponsiveItemGrid = ({ isLoading, dashboardItems, layoutSmall }) => {
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
+    const [layoutSm, setLayoutSm] = useState(layoutSmall)
 
     useEffect(() => {
         setDisplayItems(dashboardItems.map(adjustHeightForExpanded))
+        setLayoutSm(adjustSmallLayout(dashboardItems.slice()))
     }, [expandedItems, dashboardItems])
 
     const onToggleItemExpanded = clickedId => {
@@ -94,9 +96,6 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     }
 
     const { width } = useWindowDimensions()
-    const layoutSm = sortBy(dashboardItems, ['y', 'x']).map((item, i) =>
-        Object.assign({}, item, { y: i, w: SMALL_SCREEN_GRID_COLUMNS })
-    )
 
     return (
         <div className={classes.gridContainer}>
@@ -135,15 +134,19 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
 ResponsiveItemGrid.propTypes = {
     dashboardItems: PropTypes.array,
     isLoading: PropTypes.bool,
+    layoutSmall: PropTypes.array,
 }
 
 const mapStateToProps = state => {
     const selectedDashboard = sGetDashboardById(state, sGetSelectedId(state))
     const dashboardItems = orArray(sGetDashboardItems(state)).filter(hasShape)
 
+    const layoutSmall = adjustSmallLayout(dashboardItems.slice())
+
     return {
         isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
         dashboardItems,
+        layoutSmall,
     }
 }
 
