@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { colors } from '@dhis2/ui'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import DescriptionIcon from '../../../icons/Description'
-
 import DeleteIcon from '../../../icons/Delete'
 import Line from '../../../widgets/Line'
 import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes'
@@ -22,8 +22,8 @@ const getContentItems = item =>
             array.findIndex(el => el.id === item.id) === index
     )
 
-const ListItem = (props, context) => {
-    const { item, dashboardMode, tRemoveListItemContent } = props
+const ListItem = ({ item, dashboardMode, tRemoveListItemContent }) => {
+    const { d2 } = useD2({})
     const contentItems = getContentItems(item)
 
     const getLink = contentItem => {
@@ -41,7 +41,7 @@ const ListItem = (props, context) => {
                 <a
                     className={classes.link}
                     style={{ color: colors.grey900 }}
-                    href={getItemUrl(item.type, contentItem, context.d2)}
+                    href={getItemUrl(item.type, contentItem, d2)}
                 >
                     {contentItem.name}
                 </a>
@@ -77,10 +77,6 @@ ListItem.propTypes = {
     dashboardMode: PropTypes.string,
     item: PropTypes.object,
     tRemoveListItemContent: PropTypes.func,
-}
-
-ListItem.contextTypes = {
-    d2: PropTypes.object,
 }
 
 export default connect(null, {

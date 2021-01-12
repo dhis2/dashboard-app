@@ -49,7 +49,7 @@ const AppWrapper = () => {
                         }
                         return (
                             <WindowDimensionsProvider>
-                                <App d2={d2} dataEngine={dataEngine} />
+                                <App />
                             </WindowDimensionsProvider>
                         )
                     }}

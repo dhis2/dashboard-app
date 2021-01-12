@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import { MenuItem, Divider } from '@dhis2/ui'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import HeaderMenuItem from './HeaderMenuItem'
 import ContentMenuItem from './ContentMenuItem'
-
 import { tAddListItemContent } from './actions'
 import { acAddDashboardItem } from '../../actions/editDashboard'
 import { getItemUrl, APP, VISUALIZATION } from '../../modules/itemTypes'
@@ -14,18 +14,19 @@ import { categorizedItems, listItemTypes } from './selectableItems'
 
 import classes from './styles/CategorizedMenuGroup.module.css'
 
-class CategorizedMenuGroup extends Component {
-    constructor(props) {
-        super(props)
+const CategorizedMenuGroup = ({
+    type,
+    title,
+    items,
+    hasMore,
+    acAddDashboardItem,
+    tAddListItemContent,
+    onChangeItemsLimit,
+}) => {
+    const { d2 } = useD2({})
+    const [seeMore, setSeeMore] = useState(false)
 
-        this.state = {
-            seeMore: false,
-        }
-    }
-
-    addItem = item => () => {
-        const { type, acAddDashboardItem, tAddListItemContent } = this.props
-
+    const addItem = item => () => {
         if (type === APP) {
             acAddDashboardItem({ type, content: item.key })
         } else {
@@ -42,48 +43,44 @@ class CategorizedMenuGroup extends Component {
         }
     }
 
-    toggleSeeMore = () => {
-        this.setState({ seeMore: !this.state.seeMore })
-
-        this.props.onChangeItemsLimit(this.props.type)
+    const toggleSeeMore = () => {
+        setSeeMore(!seeMore)
+        onChangeItemsLimit(type)
     }
 
-    render() {
-        const { title, type, items, hasMore } = this.props
-        return (
-            <>
-                <HeaderMenuItem title={title} />
-                {items.map(item => {
-                    const itemUrl = getItemUrl(type, item, this.context.d2)
-                    return (
-                        <ContentMenuItem
-                            key={item.id || item.key}
-                            type={type}
-                            visType={type === VISUALIZATION ? item.type : type}
-                            name={item.displayName || item.name}
-                            onInsert={this.addItem(item)}
-                            url={itemUrl}
-                        />
-                    )
-                })}
-                {hasMore ? (
-                    <MenuItem
-                        dense
-                        key={`showmore${title}`}
-                        onClick={this.toggleSeeMore}
-                        label={
-                            <button className={classes.showMoreButton}>
-                                {this.state.seeMore
-                                    ? i18n.t('Show fewer')
-                                    : i18n.t('Show more')}
-                            </button>
-                        }
+    return (
+        <>
+            <HeaderMenuItem title={title} />
+            {items.map(item => {
+                const itemUrl = getItemUrl(type, item, d2)
+                return (
+                    <ContentMenuItem
+                        key={item.id || item.key}
+                        type={type}
+                        visType={type === VISUALIZATION ? item.type : type}
+                        name={item.displayName || item.name}
+                        onInsert={addItem(item)}
+                        url={itemUrl}
                     />
-                ) : null}
-                <Divider margin="8px 0px" />
-            </>
-        )
-    }
+                )
+            })}
+            {hasMore ? (
+                <MenuItem
+                    dense
+                    key={`showmore${title}`}
+                    onClick={toggleSeeMore}
+                    label={
+                        <button className={classes.showMoreButton}>
+                            {seeMore
+                                ? i18n.t('Show fewer')
+                                : i18n.t('Show more')}
+                        </button>
+                    }
+                />
+            ) : null}
+            <Divider margin="8px 0px" />
+        </>
+    )
 }
 
 CategorizedMenuGroup.propTypes = {
@@ -94,10 +91,6 @@ CategorizedMenuGroup.propTypes = {
     acAddDashboardItem: PropTypes.func,
     hasMore: PropTypes.bool,
     tAddListItemContent: PropTypes.func,
-}
-
-CategorizedMenuGroup.contextTypes = {
-    d2: PropTypes.object.isRequired,
 }
 
 export default connect(null, {
