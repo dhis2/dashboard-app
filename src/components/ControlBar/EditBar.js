@@ -72,7 +72,7 @@ const EditBar = props => {
     }
 
     const onContinueEditing = () => {
-        this.setState({ confirmDeleteDlgOpen: false })
+        setConfirmDeleteDlgOpen(false)
     }
 
     const onDeleteConfirmed = () => {
