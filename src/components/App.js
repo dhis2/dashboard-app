@@ -26,7 +26,6 @@ import {
 import './App.css'
 
 const App = props => {
-    console.log('APP')
     const { d2 } = useD2({})
 
     useEffect(() => {
