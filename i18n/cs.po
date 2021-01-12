@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-05T09:32:21.165Z\n"
+"POT-Creation-Date: 2021-01-05T13:33:31.400Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: trendspotter, 2020\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -76,6 +76,15 @@ msgstr "Požadovaný ovládací panel nebyl nalezen"
 
 msgid "No access"
 msgstr "Žádný přístup"
+
+msgid "Not supported"
+msgstr ""
+
+msgid "Editing dashboards on small screens is not supported."
+msgstr ""
+
+msgid "Creating dashboards on small screens is not supported."
+msgstr ""
 
 msgid "Exit print preview"
 msgstr "Ukončit náhled tisku"
