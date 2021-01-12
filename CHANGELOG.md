@@ -1,3 +1,10 @@
+# [31.6.0](https://github.com/dhis2/dashboard-app/compare/v31.5.0...v31.6.0) (2021-01-12)
+
+
+### Features
+
+* responsive - disallow editing in small screen ([#1419](https://github.com/dhis2/dashboard-app/issues/1419)) ([9932951](https://github.com/dhis2/dashboard-app/commit/99329516a898b78a32607129ceb6fa5fc9eae81b))
+
 # [31.5.0](https://github.com/dhis2/dashboard-app/compare/v31.4.1...v31.5.0) (2021-01-11)
 
 
