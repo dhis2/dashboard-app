@@ -5,14 +5,40 @@ import configureMockStore from 'redux-mock-store'
 
 import Visualization from '../Visualization'
 
-jest.mock('@dhis2/data-visualizer-plugin', () => 'VisualizationPlugin')
-jest.mock('../MapPlugin', () => 'MapPlugin')
-jest.mock('../DefaultPlugin', () => 'DefaultPlugin')
+jest.mock('@dhis2/app-runtime-adapter-d2', () => ({
+    D2Shim: ({ children }) => children({ d2: {} }),
+}))
+
+jest.mock(
+    '@dhis2/data-visualizer-plugin',
+    () =>
+        function MockVisualizationPlugin() {
+            return <div className="visualization-plugin" />
+        }
+)
+
+jest.mock(
+    '../MapPlugin',
+    () =>
+        function MockMapPlugin() {
+            return <div className="map-plugin" />
+        }
+)
+jest.mock(
+    '../DefaultPlugin',
+    () =>
+        function MockDefaultPlugin() {
+            return <div className="default-plugin" />
+        }
+)
 
 const mockStore = configureMockStore()
 const DEFAULT_STORE_WITH_ONE_ITEM = {
     visualizations: { rainbowVis: { rows: [], columns: [], filters: [] } },
 }
+
+global.eventChartPlugin = {}
+global.eventReportPlugin = {}
 
 test('renders a MapPlugin when activeType is MAP', () => {
     const { container } = render(

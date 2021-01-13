@@ -12,36 +12,24 @@ exports[`renders NoVisMessage when no visualization 1`] = `
 
 exports[`renders a DefaultPlugin when activeType is EVENT_CHART 1`] = `
 <div>
-  <defaultplugin
-    activetype="EVENT_CHART"
-    item="[object Object]"
-    itemfilters="[object Object]"
-    style="height: 500px;"
-    visualization="[object Object]"
+  <div
+    class="default-plugin"
   />
 </div>
 `;
 
 exports[`renders a DefaultPlugin when activeType is EVENT_REPORT 1`] = `
 <div>
-  <defaultplugin
-    activetype="EVENT_REPORT"
-    item="[object Object]"
-    itemfilters="[object Object]"
-    style="height: 500px;"
-    visualization="[object Object]"
+  <div
+    class="default-plugin"
   />
 </div>
 `;
 
 exports[`renders a MapPlugin when activeType is MAP 1`] = `
 <div>
-  <mapplugin
-    activetype="MAP"
-    item="[object Object]"
-    itemfilters="[object Object]"
-    style="height: 500px;"
-    visualization="[object Object]"
+  <div
+    class="map-plugin"
   />
 </div>
 `;
@@ -75,9 +63,8 @@ exports[`renders a VisualizationPlugin for CHART 1`] = `
       </div>
     </div>
   </div>
-  <visualizationplugin
-    style="height: 500px;"
-    visualization="[object Object]"
+  <div
+    class="visualization-plugin"
   />
 </div>
 `;
@@ -111,21 +98,16 @@ exports[`renders a VisualizationPlugin for REPORT_TABLE 1`] = `
       </div>
     </div>
   </div>
-  <visualizationplugin
-    style="height: 500px;"
-    visualization="[object Object]"
+  <div
+    class="visualization-plugin"
   />
 </div>
 `;
 
 exports[`renders active type MAP rather than original type REPORT_TABLE 1`] = `
 <div>
-  <mapplugin
-    activetype="MAP"
-    item="[object Object]"
-    itemfilters="[object Object]"
-    style="height: 500px;"
-    visualization="[object Object]"
+  <div
+    class="map-plugin"
   />
 </div>
 `;
@@ -159,8 +141,8 @@ exports[`renders active type REPORT_TABLE rather than original type MAP 1`] = `
       </div>
     </div>
   </div>
-  <visualizationplugin
-    style="height: 500px;"
+  <div
+    class="visualization-plugin"
   />
 </div>
 `;
