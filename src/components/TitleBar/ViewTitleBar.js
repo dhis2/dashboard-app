@@ -1,6 +1,7 @@
 import React, { useState, createRef } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 import { Link, Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
@@ -38,7 +39,6 @@ const ViewTitleBar = (props, context) => {
         name,
         description,
         access,
-        style,
         showDescription,
         starred,
         onToggleStarredDashboard,
@@ -52,12 +52,6 @@ const ViewTitleBar = (props, context) => {
 
     const printLayout = () => setRedirectUrl(`${id}/printlayout`)
     const printOipp = () => setRedirectUrl(`${id}/printoipp`)
-
-    const titleStyle = Object.assign({}, style.title, {
-        cursor: 'default',
-        userSelect: 'text',
-        top: '7px',
-    })
 
     const StarIcon = starred ? Star : StarBorder
 
@@ -88,10 +82,18 @@ const ViewTitleBar = (props, context) => {
 
     const userAccess = orObject(access)
 
+    const descriptionClasses = cx(
+        classes.descContainer,
+        description ? classes.desc : classes.noDesc
+    )
+
     return (
-        <>
+        <div className={classes.container}>
             <div className={classes.titleBar}>
-                <span style={titleStyle} data-test="view-dashboard-title">
+                <span
+                    className={classes.title}
+                    data-test="view-dashboard-title"
+                >
                     {name}
                 </span>
                 <div className={classes.actions}>
@@ -127,7 +129,7 @@ const ViewTitleBar = (props, context) => {
                                 onClick={toggleMoreOptions}
                             >
                                 <ThreeDots />
-                                <span style={{ marginLeft: '5px' }}>
+                                <span className={classes.moreButton}>
                                     {i18n.t('More')}
                                 </span>
                             </Button>
@@ -173,19 +175,12 @@ const ViewTitleBar = (props, context) => {
                     )}
                 </div>
             </div>
-            {showDescription ? (
-                <div
-                    className="dashboard-description"
-                    style={Object.assign(
-                        { paddingTop: '5px', paddingBottom: '5px' },
-                        style.description,
-                        !description ? { color: '#888' } : {}
-                    )}
-                >
+            {showDescription && (
+                <div className={descriptionClasses}>
                     {description || i18n.t('No description')}
                 </div>
-            ) : null}
-            {id ? (
+            )}
+            {id && (
                 <SharingDialog
                     d2={context.d2}
                     id={id}
@@ -193,8 +188,8 @@ const ViewTitleBar = (props, context) => {
                     open={sharingDialogIsOpen}
                     onRequestClose={toggleSharingDialog}
                 />
-            ) : null}
-        </>
+            )}
+        </div>
     )
 }
 
@@ -205,7 +200,6 @@ ViewTitleBar.propTypes = {
     name: PropTypes.string,
     showDescription: PropTypes.bool,
     starred: PropTypes.bool,
-    style: PropTypes.object,
     onShowHideDescription: PropTypes.func,
     onToggleStarredDashboard: PropTypes.func,
 }

@@ -1,3 +1,7 @@
+.container {
+    padding: 13px 15px 5px 10px;
+}
+
 .section {
     display: flex;
     justify-content: space-between;
