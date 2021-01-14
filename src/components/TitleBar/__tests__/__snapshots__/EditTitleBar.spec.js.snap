@@ -1,83 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EditTitleBar renders correctly 1`] = `
-<div
-  className="container"
+<section
+  className="section"
 >
-  <section
-    className="section"
+  <div
+    className="titleDescription"
   >
-    <div
-      className="titleDescription"
-    >
-      <InputField
-        className="title"
-        dataTest="dashboard-title-input"
-        label="Dashboard title"
-        name="Dashboard title input"
-        onChange={[Function]}
-        placeholder="Untitled dashboard"
-        type="text"
-        value="Rainbow Dash"
-      />
-      <TextAreaField
-        className="description"
-        dataTest="dashboard-description-input"
-        label="Dashboard description"
-        name="Dashboard description input"
-        onChange={[Function]}
-        resize="vertical"
-        rows={4}
-        value="The blue one"
-        width="100%"
-      />
-    </div>
-    <div
-      className="itemSelector"
-    >
-      <ItemSelector />
-    </div>
-  </section>
-</div>
+    <InputField
+      className="title"
+      dataTest="dashboard-title-input"
+      label="Dashboard title"
+      name="Dashboard title input"
+      onChange={[Function]}
+      placeholder="Untitled dashboard"
+      type="text"
+      value="Rainbow Dash"
+    />
+    <TextAreaField
+      className="description"
+      dataTest="dashboard-description-input"
+      label="Dashboard description"
+      name="Dashboard description input"
+      onChange={[Function]}
+      resize="vertical"
+      rows={4}
+      value="The blue one"
+      width="100%"
+    />
+  </div>
+  <div
+    className="itemSelector"
+  >
+    <ItemSelector />
+  </div>
+</section>
 `;
 
 exports[`EditTitleBar renders correctly when no name 1`] = `
-<div
-  className="container"
+<section
+  className="section"
 >
-  <section
-    className="section"
+  <div
+    className="titleDescription"
   >
-    <div
-      className="titleDescription"
-    >
-      <InputField
-        className="title"
-        dataTest="dashboard-title-input"
-        label="Dashboard title"
-        name="Dashboard title input"
-        onChange={[Function]}
-        placeholder="Untitled dashboard"
-        type="text"
-        value=""
-      />
-      <TextAreaField
-        className="description"
-        dataTest="dashboard-description-input"
-        label="Dashboard description"
-        name="Dashboard description input"
-        onChange={[Function]}
-        resize="vertical"
-        rows={4}
-        value="The blue one"
-        width="100%"
-      />
-    </div>
-    <div
-      className="itemSelector"
-    >
-      <ItemSelector />
-    </div>
-  </section>
-</div>
+    <InputField
+      className="title"
+      dataTest="dashboard-title-input"
+      label="Dashboard title"
+      name="Dashboard title input"
+      onChange={[Function]}
+      placeholder="Untitled dashboard"
+      type="text"
+      value=""
+    />
+    <TextAreaField
+      className="description"
+      dataTest="dashboard-description-input"
+      label="Dashboard description"
+      name="Dashboard description input"
+      onChange={[Function]}
+      resize="vertical"
+      rows={4}
+      value="The blue one"
+      width="100%"
+    />
+  </div>
+  <div
+    className="itemSelector"
+  >
+    <ItemSelector />
+  </div>
+</section>
 `;

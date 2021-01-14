@@ -29,33 +29,31 @@ export const EditTitleBar = ({
     }
 
     return (
-        <div className={classes.container}>
-            <section className={classes.section}>
-                <div className={classes.titleDescription}>
-                    <InputField
-                        className={classes.title}
-                        name="Dashboard title input"
-                        label={i18n.t('Dashboard title')}
-                        type="text"
-                        onChange={updateTitle}
-                        value={name}
-                        placeholder={i18n.t('Untitled dashboard')}
-                        dataTest="dashboard-title-input"
-                    />
-                    <TextAreaField
-                        className={classes.description}
-                        name="Dashboard description input"
-                        label={i18n.t('Dashboard description')}
-                        onChange={updateDescription}
-                        value={description}
-                        dataTest="dashboard-description-input"
-                    />
-                </div>
-                <div className={classes.itemSelector}>
-                    <ItemSelector />
-                </div>
-            </section>
-        </div>
+        <section className={classes.section}>
+            <div className={classes.titleDescription}>
+                <InputField
+                    className={classes.title}
+                    name="Dashboard title input"
+                    label={i18n.t('Dashboard title')}
+                    type="text"
+                    onChange={updateTitle}
+                    value={name}
+                    placeholder={i18n.t('Untitled dashboard')}
+                    dataTest="dashboard-title-input"
+                />
+                <TextAreaField
+                    className={classes.description}
+                    name="Dashboard description input"
+                    label={i18n.t('Dashboard description')}
+                    onChange={updateDescription}
+                    value={description}
+                    dataTest="dashboard-description-input"
+                />
+            </div>
+            <div className={classes.itemSelector}>
+                <ItemSelector />
+            </div>
+        </section>
     )
 }
 
