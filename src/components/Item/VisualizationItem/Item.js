@@ -8,7 +8,7 @@ import FatalErrorBoundary from './FatalErrorBoundary'
 import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader/ItemHeader'
 import ItemHeaderButtons from './ItemHeaderButtons'
 import ItemFooter from './ItemFooter'
-
+import { WindowDimensionsCtx } from '../../WindowDimensionsProvider'
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
 import { apiFetchVisualization } from '../../../api/metadata'
 import { sGetVisualization } from '../../../reducers/visualizations'
@@ -25,11 +25,13 @@ import { pluginIsAvailable } from './Visualization/plugin'
 import { getDataStatisticsName } from '../../../modules/itemTypes'
 import { getVisualizationId, getVisualizationName } from '../../../modules/item'
 import memoizeOne from '../../../modules/memoizeOne'
+import isSmallScreen from '../../../modules/isSmallScreen'
 import {
     isEditMode,
     isPrintMode,
     isViewMode,
 } from '../../Dashboard/dashboardModes'
+import { getItemHeightPx } from '../../ItemGrid/gridUtil'
 
 // this is set in the .dashboard-item-content css
 const ITEM_CONTENT_PADDING_BOTTOM = 4
@@ -156,8 +158,10 @@ export class Item extends Component {
             return '95vh'
         }
 
+        const { width } = this.context
+
         const calculatedHeight =
-            this.props.item.originalHeight -
+            getItemHeightPx(this.props.item, isSmallScreen(width)) -
             this.headerRef.current.clientHeight -
             HEADER_MARGIN_HEIGHT -
             ITEM_CONTENT_PADDING_BOTTOM
@@ -222,6 +226,8 @@ export class Item extends Component {
         )
     }
 }
+
+Item.contextType = WindowDimensionsCtx
 
 Item.contextTypes = {
     d2: PropTypes.object,

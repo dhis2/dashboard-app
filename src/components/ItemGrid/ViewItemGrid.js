@@ -9,12 +9,12 @@ import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { Item } from '../Item/Item'
 import {
     GRID_ROW_HEIGHT,
-    SMALL_SCREEN_GRID_COLUMNS,
+    SM_SCREEN_GRID_COLUMNS,
     getGridColumns,
     GRID_COMPACT_TYPE,
     MARGIN,
     hasShape,
-    adjustSmallLayout,
+    getSmallLayout,
 } from './gridUtil'
 import { orArray } from '../../modules/util'
 import NoContentMessage from '../../widgets/NoContentMessage'
@@ -38,14 +38,15 @@ const SCROLLBAR_WIDTH = 8
 // sum of left+right margin of the dashboard wrapper
 const DASHBOARD_WRAPPER_LR_MARGIN = 20
 
-const ResponsiveItemGrid = ({ isLoading, dashboardItems, layoutSmall }) => {
+const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
-    const [layoutSm, setLayoutSm] = useState(layoutSmall)
+    const [layoutSm, setLayoutSm] = useState(getSmallLayout(dashboardItems))
+    const { width } = useWindowDimensions()
 
     useEffect(() => {
         setDisplayItems(dashboardItems.map(adjustHeightForExpanded))
-        setLayoutSm(adjustSmallLayout(dashboardItems.slice()))
+        setLayoutSm(getSmallLayout(dashboardItems))
     }, [expandedItems, dashboardItems])
 
     const onToggleItemExpanded = clickedId => {
@@ -95,8 +96,6 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems, layoutSmall }) => {
         )
     }
 
-    const { width } = useWindowDimensions()
-
     return (
         <div className={classes.gridContainer}>
             {isLoading ? (
@@ -109,7 +108,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems, layoutSmall }) => {
             <ResponsiveReactGridLayout
                 rowHeight={GRID_ROW_HEIGHT}
                 width={width - DASHBOARD_WRAPPER_LR_MARGIN}
-                cols={{ lg: getGridColumns(), sm: SMALL_SCREEN_GRID_COLUMNS }}
+                cols={{ lg: getGridColumns(), sm: SM_SCREEN_GRID_COLUMNS }}
                 breakpoints={{
                     lg: SMALL_SCREEN_BREAKPOINT - DASHBOARD_WRAPPER_LR_MARGIN,
                     sm: 0,
@@ -134,19 +133,15 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems, layoutSmall }) => {
 ResponsiveItemGrid.propTypes = {
     dashboardItems: PropTypes.array,
     isLoading: PropTypes.bool,
-    layoutSmall: PropTypes.array,
 }
 
 const mapStateToProps = state => {
     const selectedDashboard = sGetDashboardById(state, sGetSelectedId(state))
     const dashboardItems = orArray(sGetDashboardItems(state)).filter(hasShape)
 
-    const layoutSmall = adjustSmallLayout(dashboardItems.slice())
-
     return {
         isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
         dashboardItems,
-        layoutSmall,
     }
 }
 
