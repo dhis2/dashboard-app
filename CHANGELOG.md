@@ -1,3 +1,10 @@
+## [31.6.1](https://github.com/dhis2/dashboard-app/compare/v31.6.0...v31.6.1) (2021-01-14)
+
+
+### Bug Fixes
+
+* add margin on all sides of notice box ([#1445](https://github.com/dhis2/dashboard-app/issues/1445)) ([ce8b5e5](https://github.com/dhis2/dashboard-app/commit/ce8b5e5eb42a59e027e723a8de0b02e20481027b))
+
 # [31.6.0](https://github.com/dhis2/dashboard-app/compare/v31.5.0...v31.6.0) (2021-01-12)
 
 
