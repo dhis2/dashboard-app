@@ -42,6 +42,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
     const [layoutSm, setLayoutSm] = useState(getSmallLayout(dashboardItems))
+    const [gridWidth, setGridWidth] = useState(0)
     const { width } = useWindowDimensions()
 
     useEffect(() => {
@@ -80,6 +81,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
         >
             <Item
                 item={item}
+                gridWidth={gridWidth}
                 dashboardMode={VIEW}
                 onToggleItemExpanded={onToggleItemExpanded}
             />
@@ -87,6 +89,12 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     )
 
     const getItemComponents = items => items.map(item => getItemComponent(item))
+
+    const onWidthChanged = containerWidth => {
+        setTimeout(() => {
+            setGridWidth(containerWidth)
+        }, 200)
+    }
 
     if (!isLoading && !dashboardItems.length) {
         return (
@@ -123,6 +131,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
                 isDraggable={false}
                 isResizable={false}
                 draggableCancel="input,textarea"
+                onWidthChange={onWidthChanged}
             >
                 {getItemComponents(displayItems)}
             </ResponsiveReactGridLayout>

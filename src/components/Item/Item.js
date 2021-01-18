@@ -64,6 +64,7 @@ export const Item = props => {
     return (
         <GridItem
             item={props.item}
+            gridWidth={props.gridWidth}
             dashboardMode={props.dashboardMode}
             onToggleItemExpanded={props.onToggleItemExpanded}
         />
@@ -72,6 +73,7 @@ export const Item = props => {
 
 Item.propTypes = {
     dashboardMode: PropTypes.string,
+    gridWidth: PropTypes.number,
     item: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
 }
