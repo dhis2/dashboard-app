@@ -130,7 +130,7 @@ export const getPrintTitlePageItemShape = isOneItemPerPage => {
  * +
  * Number of rows-1 * yMargin
  *
- * @param {Integer} h The height in grid units
+ * @param {Object} item item containing shape (x, y, w, h)
  */
 export const getItemHeightPx = (item, isSmallScreen) => {
     const h = isSmallScreen ? getProportionalHeight(item) : item.h
