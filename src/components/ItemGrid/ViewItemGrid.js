@@ -46,8 +46,8 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     const { width } = useWindowDimensions()
 
     useEffect(() => {
-        setDisplayItems(dashboardItems.map(adjustHeightForExpanded))
-        setLayoutSm(getSmallLayout(dashboardItems))
+        setLayoutSm(getItemsWithAdjustedHeight(getSmallLayout(dashboardItems)))
+        setDisplayItems(getItemsWithAdjustedHeight(dashboardItems))
     }, [expandedItems, dashboardItems])
 
     const onToggleItemExpanded = clickedId => {
@@ -61,17 +61,18 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
         setExpandedItems(newExpandedItems)
     }
 
-    const adjustHeightForExpanded = dashboardItem => {
-        const expandedItem = expandedItems[dashboardItem.id]
+    const getItemsWithAdjustedHeight = items =>
+        items.map(item => {
+            const expandedItem = expandedItems[item.id]
 
-        if (expandedItem && expandedItem === true) {
-            return Object.assign({}, dashboardItem, {
-                h: dashboardItem.h + EXPANDED_HEIGHT,
-            })
-        }
+            if (expandedItem && expandedItem === true) {
+                return Object.assign({}, item, {
+                    h: item.h + EXPANDED_HEIGHT,
+                })
+            }
 
-        return dashboardItem
-    }
+            return item
+        })
 
     const getItemComponent = item => (
         <ProgressiveLoadingContainer

@@ -77,10 +77,18 @@ const getShape = i => {
  * @returns {Array}
  */
 
-export const withShape = (items = []) =>
-    items.map((item, i) =>
+export const withShape = (items = []) => {
+    const itemsWithShape = items.map((item, i) =>
         hasShape(item) ? item : Object.assign({}, item, getShape(i))
     )
+
+    return itemsWithShape.map(item =>
+        Object.assign({}, item, {
+            originalH: item.h,
+            smallOriginalH: getProportionalHeight(item),
+        })
+    )
+}
 
 export const getProportionalHeight = item => {
     const ratioWH = item.w / item.h
@@ -93,6 +101,7 @@ export const getProportionalHeight = item => {
 
 export const getSmallLayout = items =>
     items.map(item => ({
+        id: item.id,
         i: item.i,
         x: item.x,
         y: item.y,
@@ -143,7 +152,7 @@ export const getPrintTitlePageItemShape = isOneItemPerPage => {
  * @param {Object} item item containing shape (x, y, w, h)
  */
 export const getItemHeightPx = (item, isSmallScreen) => {
-    const h = isSmallScreen ? getProportionalHeight(item) : item.h
+    const h = isSmallScreen ? item.smallOriginalH : item.originalH
     return Math.round(GRID_ROW_HEIGHT * h + Math.max(0, h - 1) * MARGIN[1])
 }
 
