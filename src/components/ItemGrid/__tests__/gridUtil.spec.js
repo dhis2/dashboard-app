@@ -1,9 +1,4 @@
-import {
-    hasShape,
-    getShape,
-    getProportionalHeight,
-    getSmallLayout,
-} from '../gridUtil'
+import { hasShape, getShape, getSmallLayout } from '../gridUtil'
 
 describe('getShape', () => {
     it('should return an object with 4 properties (x, y, w, h)', () => {
@@ -36,47 +31,24 @@ describe('hasShape', () => {
     })
 })
 
-describe('getProportionalHeight', () => {
-    it('gets height for 30/15', () => {
-        expect(getProportionalHeight({ w: 30, h: 15 })).toEqual(5)
-    })
-
-    it('gets height for 15/30', () => {
-        expect(getProportionalHeight({ w: 15, h: 30 })).toEqual(20)
-    })
-
-    it('gets height for 8/4', () => {
-        expect(getProportionalHeight({ w: 8, h: 4 })).toEqual(5)
-    })
-
-    it('gets height for 8/16', () => {
-        expect(getProportionalHeight({ w: 8, h: 16 })).toEqual(20)
-    })
-
-    it('gets height for 29/13', () => {
-        expect(getProportionalHeight({ w: 29, h: 13 })).toEqual(4)
-    })
-})
-
 describe('getSmallLayout', () => {
-    it('layout 1', () => {
+    it('returns layout for small screen', () => {
         const items = [
-            { x: 1, y: 1, w: 1, h: 1, i: 'A' },
-            { x: 1, y: 1, w: 1, h: 1, i: 'B' },
-            { x: 1, y: 1, w: 1, h: 1, i: 'C' },
-            { x: 1, y: 1, w: 1, h: 1, i: 'D' },
-            { x: 1, y: 1, w: 1, h: 1, i: 'E' },
+            { x: 0, y: 0, w: 33, h: 15, i: 'A' },
+            { x: 33, y: 15, w: 14, h: 30, i: 'B' },
+            { x: 15, y: 7, w: 7, h: 4, i: 'C' },
+            { x: 7, y: 25, w: 8, h: 16, i: 'D' },
+            { x: 20, y: 25, w: 9, h: 16, i: 'E' },
         ]
 
         const expectedLayout = [
-            { x: 1, y: 1, w: 1, h: 1 },
-            { x: 1, y: 1, w: 1, h: 1 },
-            { x: 1, y: 1, w: 1, h: 1 },
-            { x: 1, y: 1, w: 1, h: 1 },
-            { x: 1, y: 1, w: 1, h: 1 },
+            { x: 0, y: 0, w: 12, h: 16, i: 'A' },
+            { x: 33, y: 15, w: 12, h: 25, i: 'B' },
+            { x: 15, y: 7, w: 12, h: 16, i: 'C' },
+            { x: 7, y: 25, w: 12, h: 24, i: 'D' },
+            { x: 20, y: 25, w: 12, h: 21, i: 'E' },
         ]
-        // toMatch, toEqual... ?
 
-        expect(getSmallLayout(items)).toMatch(expectedLayout)
+        expect(getSmallLayout(items)).toMatchObject(expectedLayout)
     })
 })

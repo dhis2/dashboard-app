@@ -73,8 +73,8 @@ export const getShape = i => {
 }
 
 export const getProportionalHeight = item => {
-    const ratio = item.w / SM_SCREEN_GRID_COLUMNS
-    const h = Math.floor(item.h / ratio)
+    const ratioWH = item.w / item.h
+    const h = Math.floor(SM_SCREEN_GRID_COLUMNS / ratioWH)
 
     return h < SM_SCREEN_MIN_ITEM_GRID_HEIGHT
         ? SM_SCREEN_MIN_ITEM_GRID_HEIGHT

@@ -10,10 +10,10 @@ import { Item } from '../Item/Item'
 import {
     GRID_ROW_HEIGHT,
     SM_SCREEN_GRID_COLUMNS,
-    getGridColumns,
     GRID_COMPACT_TYPE,
     MARGIN,
     hasShape,
+    getGridColumns,
     getSmallLayout,
 } from './gridUtil'
 import { orArray } from '../../modules/util'
