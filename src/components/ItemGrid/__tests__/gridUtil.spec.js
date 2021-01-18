@@ -1,19 +1,25 @@
-import { hasShape, getShape, getSmallLayout } from '../gridUtil'
+import { hasShape, withShape, getSmallLayout } from '../gridUtil'
 
-describe('getShape', () => {
-    it('should return an object with 4 properties (x, y, w, h)', () => {
-        const shape = getShape(0)
-        expect(shape).toHaveProperty('x')
-        expect(shape).toHaveProperty('y')
-        expect(shape).toHaveProperty('w')
-        expect(shape).toHaveProperty('h')
-        expect(Object.keys(shape)).toHaveLength(4)
+describe('withShape', () => {
+    it('returns objects with new properties (x, y, w, h)', () => {
+        const items = withShape([{}])
+        expect(items).toMatchObject([{ x: 0, y: 0, w: 29, h: 20 }])
     })
 
-    it('should throw an error when the grid block number is invalid', () => {
-        expect(() => {
-            getShape('octopus')
-        }).toThrow('Invalid grid block number')
+    it('returns same objects', () => {
+        const items = withShape([
+            { x: 0, y: 0, w: 29, h: 20 },
+            { x: 10, y: 0, w: 10, h: 10 },
+        ])
+        expect(items).toMatchObject([
+            { x: 0, y: 0, w: 29, h: 20 },
+            { x: 10, y: 0, w: 10, h: 10 },
+        ])
+    })
+
+    it('returns empty array', () => {
+        const items = withShape([])
+        expect(items).toEqual([])
     })
 })
 

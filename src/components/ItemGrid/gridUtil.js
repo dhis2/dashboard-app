@@ -54,11 +54,7 @@ export const hasShape = item =>
 
 // returns a rectangular grid block dimensioned with x, y, w, h in grid units.
 // based on a grid with 3 items across
-export const getShape = i => {
-    if (!isNonNegativeInteger(i)) {
-        throw new Error('Invalid grid block number')
-    }
-
+const getShape = i => {
     const col = i % NUMBER_OF_ITEM_COLS
     const row = Math.floor(i / NUMBER_OF_ITEM_COLS)
     const itemWidth = Math.floor(MAX_ITEM_GRID_WIDTH / NUMBER_OF_ITEM_COLS)
@@ -71,6 +67,20 @@ export const getShape = i => {
         h: itemHeight,
     }
 }
+
+/**
+ * Returns an array of items containing the x, y, w, h dimensions
+ * and the item's originalheight in pixels
+ * and dimensions to create the small layout (x, y, w, h)
+ * @function
+ * @param {Array} items
+ * @returns {Array}
+ */
+
+export const withShape = (items = []) =>
+    items.map((item, i) =>
+        hasShape(item) ? item : Object.assign({}, item, getShape(i))
+    )
 
 export const getProportionalHeight = item => {
     const ratioWH = item.w / item.h
@@ -136,19 +146,5 @@ export const getItemHeightPx = (item, isSmallScreen) => {
     const h = isSmallScreen ? getProportionalHeight(item) : item.h
     return Math.round(GRID_ROW_HEIGHT * h + Math.max(0, h - 1) * MARGIN[1])
 }
-
-/**
- * Returns an array of items containing the x, y, w, h dimensions
- * and the item's originalheight in pixels
- * and dimensions to create the small layout (x, y, w, h)
- * @function
- * @param {Array} items
- * @returns {Array}
- */
-
-export const withShape = items =>
-    items.map((item, index) =>
-        hasShape(item) ? item : Object.assign({}, item, getShape(index))
-    )
 
 export const getGridItemDomId = id => `item-${id}`
