@@ -1,6 +1,7 @@
 export const dashboards = {
     'Antenatal Care': {
         route: '#/nghVC4wtyzi',
+        id: 'nghVC4wtyzi',
         items: {
             text: {
                 itemUid: 'ILRTXgXvurM',
