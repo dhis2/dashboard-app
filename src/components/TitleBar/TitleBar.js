@@ -26,7 +26,7 @@ const TitleBar = ({ edit }) => {
         <div
             className="titlebar-wrapper"
             style={{
-                padding: '13px 15px 5px 6px',
+                padding: '13px 15px 5px 10px',
             }}
         >
             {edit ? (

@@ -8,7 +8,7 @@
 }
 .titleBar {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 .titleBarIcon {
     margin-left: 5px;
