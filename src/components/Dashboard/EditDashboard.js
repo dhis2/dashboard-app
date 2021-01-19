@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
-import TitleBar from '../TitleBar/TitleBar'
+import EditTitleBar from '../TitleBar/EditTitleBar'
 import EditItemGrid from '../ItemGrid/EditItemGrid'
 import EditBar from '../ControlBar/EditBar'
 import NotSupportedNotice from './NotSupportedNotice'
@@ -44,7 +44,7 @@ const EditDashboard = props => {
 
         return (
             <div className="dashboard-wrapper" style={{ height }}>
-                <TitleBar edit={true} />
+                <EditTitleBar />
                 <EditItemGrid />
             </div>
         )

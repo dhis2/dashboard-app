@@ -11,9 +11,7 @@ exports[`ViewDashboard renders correctly default 1`] = `
       }
     }
   >
-    <TitleBar
-      edit={false}
-    />
+    <ViewTitleBar />
     <FilterBar />
     <ViewItemGrid />
   </div>

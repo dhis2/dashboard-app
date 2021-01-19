@@ -6,10 +6,10 @@ import WindowDimensionsProvider from '../../WindowDimensionsProvider'
 import EditDashboard from '../EditDashboard'
 
 jest.mock(
-    '../../TitleBar/TitleBar',
+    '../../TitleBar/EditTitleBar',
     () =>
         function MockTitleBar() {
-            return <div>TitleBar</div>
+            return <div>EditTitleBar</div>
         }
 )
 jest.mock(

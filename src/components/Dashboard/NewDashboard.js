@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 
 import EditBar from '../ControlBar/EditBar'
-import TitleBar from '../TitleBar/TitleBar'
+import EditTitleBar from '../TitleBar/EditTitleBar'
 import EditItemGrid from '../ItemGrid/EditItemGrid'
 import LayoutPrintPreview from './PrintLayoutDashboard'
 import NotSupportedNotice from './NotSupportedNotice'
@@ -38,7 +38,7 @@ const NewDashboard = props => {
                 <LayoutPrintPreview fromEdit={true} />
             ) : (
                 <div className="dashboard-wrapper" style={{ height }}>
-                    <TitleBar edit={true} />
+                    <EditTitleBar />
                     <EditItemGrid />
                 </div>
             )}
