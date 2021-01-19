@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-05T13:33:31.400Z\n"
+"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -78,14 +78,14 @@ msgstr "Painel solicitado não encontrado"
 msgid "No access"
 msgstr "Sem acesso"
 
-msgid "Not supported"
-msgstr "Não suportado"
-
 msgid "Editing dashboards on small screens is not supported."
 msgstr "A edição de painéis em telas pequenas não é compatível."
 
 msgid "Creating dashboards on small screens is not supported."
 msgstr "A criação de painéis em telas pequenas não é compatível."
+
+msgid "Not supported"
+msgstr "Não suportado"
 
 msgid "Exit print preview"
 msgstr "Sair da visualização da impressão"

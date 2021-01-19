@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-05T13:33:31.400Z\n"
+"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -84,9 +84,6 @@ msgstr "Tableau de bord demandé introuvable"
 msgid "No access"
 msgstr "Pas d'accès"
 
-msgid "Not supported"
-msgstr "Non supporté"
-
 msgid "Editing dashboards on small screens is not supported."
 msgstr ""
 "La modification de tableaux de bord sur de petits écrans n'est pas prise en "
@@ -96,6 +93,9 @@ msgid "Creating dashboards on small screens is not supported."
 msgstr ""
 "La création de tableaux de bord sur de petits écrans n'est pas prise en "
 "charge."
+
+msgid "Not supported"
+msgstr "Non supporté"
 
 msgid "Exit print preview"
 msgstr "Quitter l'aperçu avant impression"
