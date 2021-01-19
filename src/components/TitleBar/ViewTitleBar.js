@@ -1,6 +1,7 @@
 import React, { useState, createRef } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 import { Link, Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
@@ -39,7 +40,6 @@ const ViewTitleBar = props => {
         name,
         description,
         access,
-        style,
         showDescription,
         starred,
         onToggleStarredDashboard,
@@ -53,12 +53,6 @@ const ViewTitleBar = props => {
 
     const printLayout = () => setRedirectUrl(`${id}/printlayout`)
     const printOipp = () => setRedirectUrl(`${id}/printoipp`)
-
-    const titleStyle = Object.assign({}, style.title, {
-        cursor: 'default',
-        userSelect: 'text',
-        top: '7px',
-    })
 
     const StarIcon = starred ? Star : StarBorder
 
@@ -89,104 +83,107 @@ const ViewTitleBar = props => {
 
     const userAccess = orObject(access)
 
+    const descriptionClasses = cx(
+        classes.descContainer,
+        description ? classes.desc : classes.noDesc
+    )
+
     return (
         <>
-            <div className={classes.titleBar}>
-                <span style={titleStyle} data-test="view-dashboard-title">
-                    {name}
-                </span>
-                <div className={classes.actions}>
-                    <div
-                        className={classes.titleBarIcon}
-                        onClick={onToggleStarredDashboard}
+            <div className={classes.container}>
+                <div className={classes.titleBar}>
+                    <span
+                        className={classes.title}
+                        data-test="view-dashboard-title"
                     >
-                        <StarIcon style={{ fill: colors.grey600 }} />
-                    </div>
-                    <div className={classes.strip}>
-                        {userAccess.update ? (
-                            <Link
-                                className={classes.editLink}
-                                to={`/${id}/edit`}
-                                data-test="link-edit-dashboard"
-                            >
-                                <Button>{i18n.t('Edit')}</Button>
-                            </Link>
-                        ) : null}
-                        {userAccess.manage ? (
-                            <Button
-                                className={classes.shareButton}
-                                onClick={toggleSharingDialog}
-                            >
-                                {i18n.t('Share')}
-                            </Button>
-                        ) : null}
-                        <FilterSelector />
-                        <span ref={buttonRef}>
-                            <Button
-                                small={isSmallScreen(width)}
-                                dataTest="more-button"
-                                onClick={toggleMoreOptions}
-                            >
-                                <ThreeDots />
-                                <span style={{ marginLeft: '5px' }}>
-                                    {i18n.t('More')}
-                                </span>
-                            </Button>
-                        </span>
-                    </div>
-                    {moreOptionsIsOpen && (
-                        <Popover
-                            reference={buttonRef}
-                            placement="bottom-start"
-                            onClickOutside={toggleMoreOptions}
+                        {name}
+                    </span>
+                    <div className={classes.actions}>
+                        <div
+                            className={classes.titleBarIcon}
+                            onClick={onToggleStarredDashboard}
                         >
-                            <FlyoutMenu>
-                                <MenuItem
-                                    dense
-                                    label={toggleStarredDashboardLabel}
-                                    onClick={toggleStarredDashboard}
-                                />
-                                <MenuItem
-                                    dense
-                                    label={showHideDescriptionLabel}
-                                    onClick={showHideDescription}
-                                />
-                                <MenuItem
-                                    dense
-                                    label={i18n.t('Print')}
-                                    dataTest="print-menu-item"
+                            <StarIcon style={{ fill: colors.grey600 }} />
+                        </div>
+                        <div className={classes.strip}>
+                            {userAccess.update ? (
+                                <Link
+                                    className={classes.editLink}
+                                    to={`/${id}/edit`}
+                                    data-test="link-edit-dashboard"
                                 >
+                                    <Button>{i18n.t('Edit')}</Button>
+                                </Link>
+                            ) : null}
+                            {userAccess.manage ? (
+                                <Button
+                                    className={classes.shareButton}
+                                    onClick={toggleSharingDialog}
+                                >
+                                    {i18n.t('Share')}
+                                </Button>
+                            ) : null}
+                            <FilterSelector />
+                            <span ref={buttonRef}>
+                                <Button
+                                    small={isSmallScreen(width)}
+                                    dataTest="more-button"
+                                    onClick={toggleMoreOptions}
+                                >
+                                    <ThreeDots />
+                                    <span className={classes.moreButton}>
+                                        {i18n.t('More')}
+                                    </span>
+                                </Button>
+                            </span>
+                        </div>
+                        {moreOptionsIsOpen && (
+                            <Popover
+                                reference={buttonRef}
+                                placement="bottom-start"
+                                onClickOutside={toggleMoreOptions}
+                            >
+                                <FlyoutMenu>
                                     <MenuItem
                                         dense
-                                        label={i18n.t('Dashboard layout')}
-                                        onClick={printLayout}
-                                        dataTest="print-layout-menu-item"
+                                        label={toggleStarredDashboardLabel}
+                                        onClick={toggleStarredDashboard}
                                     />
                                     <MenuItem
                                         dense
-                                        label={i18n.t('One item per page')}
-                                        onClick={printOipp}
-                                        dataTest="print-oipp-menu-item"
+                                        label={showHideDescriptionLabel}
+                                        onClick={showHideDescription}
                                     />
-                                </MenuItem>
-                            </FlyoutMenu>
-                        </Popover>
-                    )}
+                                    <MenuItem
+                                        dense
+                                        label={i18n.t('Print')}
+                                        dataTest="print-menu-item"
+                                    >
+                                        <MenuItem
+                                            dense
+                                            label={i18n.t('Dashboard layout')}
+                                            onClick={printLayout}
+                                            dataTest="print-layout-menu-item"
+                                        />
+                                        <MenuItem
+                                            dense
+                                            label={i18n.t('One item per page')}
+                                            onClick={printOipp}
+                                            dataTest="print-oipp-menu-item"
+                                        />
+                                    </MenuItem>
+                                </FlyoutMenu>
+                            </Popover>
+                        )}
+                    </div>
                 </div>
+                {showDescription && (
+                    <div className={descriptionClasses}>
+                        {description || i18n.t('No description')}
+                    </div>
+                )}
             </div>
-            {showDescription ? (
-                <div
-                    className="dashboard-description"
-                    style={Object.assign(
-                        { paddingTop: '5px', paddingBottom: '5px' },
-                        style.description,
-                        !description ? { color: '#888' } : {}
-                    )}
-                >
-                    {description || i18n.t('No description')}
-                </div>
-            ) : null}
-            {id ? (
+            {id && (
                 <SharingDialog
                     d2={d2}
                     id={id}
@@ -194,7 +191,7 @@ const ViewTitleBar = props => {
                     open={sharingDialogIsOpen}
                     onRequestClose={toggleSharingDialog}
                 />
-            ) : null}
+            )}
         </>
     )
 }
@@ -206,7 +203,6 @@ ViewTitleBar.propTypes = {
     name: PropTypes.string,
     showDescription: PropTypes.bool,
     starred: PropTypes.bool,
-    style: PropTypes.object,
     onShowHideDescription: PropTypes.func,
     onToggleStarredDashboard: PropTypes.func,
 }

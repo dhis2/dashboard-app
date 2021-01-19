@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
 
 import EditBar from '../ControlBar/EditBar'
-import TitleBar from '../TitleBar/TitleBar'
+import EditTitleBar from '../TitleBar/EditTitleBar'
 import ItemGrid from '../ItemGrid/ItemGrid'
 import LayoutPrintPreview from './PrintLayoutDashboard'
+import NotSupportedNotice from './NotSupportedNotice'
 
 import { acSetEditNewDashboard } from '../../actions/editDashboard'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
@@ -16,29 +18,46 @@ import {
     HEADERBAR_HEIGHT,
 } from '../ControlBar/controlBarDimensions'
 
-class NewDashboard extends Component {
-    componentDidMount() {
-        this.props.setNewDashboard()
-    }
+import { useWindowDimensions } from '../WindowDimensionsProvider'
+import isSmallScreen from '../../modules/isSmallScreen'
 
-    render() {
-        const height =
-            this.props.windowHeight - HEADERBAR_HEIGHT - getControlBarHeight(1)
+const NewDashboard = props => {
+    const { width } = useWindowDimensions()
 
-        return (
-            <>
-                <EditBar />
-                {this.props.isPrintPreviewView ? (
-                    <LayoutPrintPreview fromEdit={true} />
-                ) : (
-                    <div className="dashboard-wrapper" style={{ height }}>
-                        <TitleBar edit={true} />
-                        <ItemGrid edit={true} />
-                    </div>
-                )}
-            </>
-        )
-    }
+    useEffect(() => {
+        props.setNewDashboard()
+    }, [])
+
+    const height =
+        props.windowHeight - HEADERBAR_HEIGHT - getControlBarHeight(1)
+
+    const renderNewView = () => (
+        <>
+            <EditBar />
+            {props.isPrintPreviewView ? (
+                <LayoutPrintPreview fromEdit={true} />
+            ) : (
+                <div className="dashboard-wrapper" style={{ height }}>
+                    <EditTitleBar />
+                    <ItemGrid edit={true} />
+                </div>
+            )}
+        </>
+    )
+
+    return (
+        <>
+            {isSmallScreen(width) ? (
+                <NotSupportedNotice
+                    message={i18n.t(
+                        'Creating dashboards on small screens is not supported.'
+                    )}
+                />
+            ) : (
+                renderNewView()
+            )}
+        </>
+    )
 }
 
 NewDashboard.propTypes = {
