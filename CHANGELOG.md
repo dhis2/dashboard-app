@@ -1,3 +1,10 @@
+## [31.6.2](https://github.com/dhis2/dashboard-app/compare/v31.6.1...v31.6.2) (2021-01-19)
+
+
+### Bug Fixes
+
+* Adjust position of the title to be in line with action buttons in small screen mode ([#1449](https://github.com/dhis2/dashboard-app/issues/1449)) ([844a12f](https://github.com/dhis2/dashboard-app/commit/844a12f7ba10e3f18865e8c0c5cd550f5689de7d))
+
 ## [31.6.1](https://github.com/dhis2/dashboard-app/compare/v31.6.0...v31.6.1) (2021-01-14)
 
 
