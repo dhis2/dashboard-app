@@ -30,3 +30,22 @@
         display: none;
     }
 }
+
+@media only screen and (max-width: 480px) {
+    .infoHeader {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .infoList > li:last-child {
+        padding: 0;
+    }
+
+    .divider {
+        margin-top: 2px;
+        margin-bottom: 16px;
+        height: 1px;
+        border: 0;
+        background-color: #d5dde5;
+    }
+}

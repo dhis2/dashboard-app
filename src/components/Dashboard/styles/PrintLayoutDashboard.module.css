@@ -27,3 +27,9 @@
         border-radius: 0px;
     }
 }
+
+@media only screen and (max-width: 480px) {
+    .wrapper {
+        margin-left: 0px;
+    }
+}
