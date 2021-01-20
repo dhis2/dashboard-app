@@ -12,10 +12,7 @@ import classes from './styles/PrintActionsBar.module.css'
 export const PRINT_ACTIONS_BAR_HEIGHT = 42
 
 const PrintActionsBar = ({ id }) => {
-    const width =
-        a4LandscapeWidthPx < window.innerWidth
-            ? a4LandscapeWidthPx
-            : window.innerWidth
+    const width = a4LandscapeWidthPx
 
     return (
         <>
