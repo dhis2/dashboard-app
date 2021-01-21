@@ -15,11 +15,9 @@ const ShowMoreButton = ({ onClick, isMaxHeight, disabled }) => {
         : i18n.t('Show more dashboards')
 
     const onButtonClicked = () => {
-        // The click may happen on the svg or path
-        // element of the button icon.
-        // In that case it is necessary to trigger
-        // the mouseout on the button element
-        // to ensure that the tooltip is removed
+        // The click may happen on the button svg or path
+        // element. This triggers the mouseout on the button
+        // element to ensure that the tooltip is removed
         const buttonEl = containerRef.current.children[0]
         const event = new MouseEvent('mouseout', {
             bubbles: true,
