@@ -71,7 +71,7 @@ exports[`EditDashboard renders dashboard 1`] = `
     style="height: 788px;"
   >
     <div>
-      TitleBar
+      EditTitleBar
     </div>
     <div>
       ItemGrid
