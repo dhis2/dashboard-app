@@ -45,32 +45,34 @@ const App = props => {
                     <Route
                         exact
                         path="/"
-                        render={() => <Dashboard mode={VIEW} />}
+                        render={props => <Dashboard {...props} mode={VIEW} />}
                     />
                     <Route
                         exact
                         path="/new"
-                        render={() => <Dashboard mode={NEW} />}
+                        render={props => <Dashboard {...props} mode={NEW} />}
                     />
                     <Route
                         exact
                         path="/:dashboardId"
-                        render={() => <Dashboard mode={VIEW} />}
+                        render={props => <Dashboard {...props} mode={VIEW} />}
                     />
                     <Route
                         exact
                         path="/:dashboardId/edit"
-                        render={() => <Dashboard mode={EDIT} />}
+                        render={props => <Dashboard {...props} mode={EDIT} />}
                     />
                     <Route
                         exact
                         path="/:dashboardId/printoipp"
-                        render={() => <Dashboard mode={PRINT} />}
+                        render={props => <Dashboard {...props} mode={PRINT} />}
                     />
                     <Route
                         exact
                         path="/:dashboardId/printlayout"
-                        render={() => <Dashboard mode={PRINT_LAYOUT} />}
+                        render={props => (
+                            <Dashboard {...props} mode={PRINT_LAYOUT} />
+                        )}
                     />
                 </Switch>
             </Router>
