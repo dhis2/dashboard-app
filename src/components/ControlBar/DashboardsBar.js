@@ -13,6 +13,7 @@ import ShowMoreButton from './ShowMoreButton'
 import {
     FIRST_ROW_PADDING_HEIGHT,
     MIN_ROW_COUNT,
+    HEADERBAR_HEIGHT,
     getRowsHeight,
     getControlBarHeight,
     getNumRowsFromHeight,
@@ -40,7 +41,7 @@ const DashboardsBar = ({
     filterText,
 }) => {
     const [rows, setRows] = useState(userRows)
-    const { width } = useWindowDimensions()
+    const { width, height } = useWindowDimensions()
     const ref = createRef()
 
     useEffect(() => {
@@ -101,16 +102,29 @@ const DashboardsBar = ({
         ]
     }
 
-    const containerClass = cx(
-        classes.container,
-        isMaxHeight() ? classes.expanded : classes.collapsed
-    )
-
     const viewableRows =
         isSmallScreen(width) && !isMaxHeight() ? MIN_ROW_COUNT : rows
 
-    const rowHeightProp = {
-        height: getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT,
+    const getHeight = () => {
+        if (isSmallScreen(width) && isMaxHeight()) {
+            return height - HEADERBAR_HEIGHT - DRAG_HANDLE_HEIGHT - 32
+        }
+
+        return getControlBarHeight(viewableRows)
+    }
+
+    const getContainerHeight = () => {
+        if (isSmallScreen(width) && isMaxHeight()) {
+            return height - HEADERBAR_HEIGHT - 22 - 32
+        }
+        return getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT
+    }
+
+    const getChipContainerHeight = () => {
+        if (isSmallScreen(width) && isMaxHeight()) {
+            return height - HEADERBAR_HEIGHT - 42 - 22 - 32
+        }
+        return getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT
     }
 
     const getDashboardChips = () => {
@@ -130,7 +144,10 @@ const DashboardsBar = ({
                 isMaxHeight() ? classes.expanded : classes.collapsed
             )
             return (
-                <div className={chipContainerClasses} style={rowHeightProp}>
+                <div
+                    className={chipContainerClasses}
+                    style={{ height: getChipContainerHeight() }}
+                >
                     {chips}
                 </div>
             )
@@ -139,14 +156,23 @@ const DashboardsBar = ({
         }
     }
 
+    const containerClass = cx(
+        classes.container,
+        isMaxHeight() ? classes.expanded : classes.collapsed
+    )
+
     return (
         <>
             <ControlBar
-                height={getControlBarHeight(viewableRows)}
+                height={getHeight()}
                 onChangeHeight={!isSmallScreen(width) ? adjustHeight : null}
                 onEndDrag={onEndDrag}
             >
-                <div className={containerClass} ref={ref} style={rowHeightProp}>
+                <div
+                    className={containerClass}
+                    ref={ref}
+                    style={{ height: getContainerHeight() }}
+                >
                     <div className={classes.controls}>
                         <Link
                             className={classes.newLink}
