@@ -1,18 +1,17 @@
 .container {
     width: 200px;
-    height: 30px;
-    top: -4px;
+    height: 36px;
     position: relative;
     align-items: center;
     display: inline-flex;
     line-height: 1.1875em;
+    padding-top: var(--spacers-dp8);
 }
 
 .input {
     font-size: 14px;
     border: none;
     margin-left: var(--spacers-dp8);
-    padding: 6px 0 7px 0;
 }
 
 .input::placeholder {
@@ -50,6 +49,21 @@
 
 .searchIcon {
     fill: var(--colors-grey700);
-    width: 20px;
-    height: 20px;
+}
+
+.searchButton {
+    border: none;
+    background-color: transparent;
+    padding: 0px 6px 0px 0px;
+}
+
+.searchButton:hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 480px) {
+    .container {
+        height: 24px;
+        padding-top: inherit;
+    }
 }

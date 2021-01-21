@@ -3,19 +3,17 @@
 }
 
 .showMore {
-    color: var(--colors-grey700);
     cursor: pointer;
-    font-size: 11px;
-    padding-top: 5px;
+    border: none;
+    background-color: transparent;
+    padding: 0px;
+    width: 100%;
 }
 
-.showMore:hover {
-    text-decoration: underline;
+.showMore:focus {
+    outline: none;
 }
 
 .disabled {
-    padding-top: 5px;
-    color: var(--colors-grey500);
-    font-size: 11px;
     cursor: not-allowed;
 }

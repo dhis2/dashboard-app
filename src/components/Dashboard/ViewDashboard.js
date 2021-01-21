@@ -2,11 +2,10 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import TitleBar from '../TitleBar/TitleBar'
+import ViewTitleBar from '../TitleBar/ViewTitleBar'
 import ItemGrid from '../ItemGrid/ItemGrid'
 import FilterBar from '../FilterBar/FilterBar'
 import DashboardsBar from '../ControlBar/DashboardsBar'
-import DashboardVerticalOffset from './DashboardVerticalOffset'
 import { sGetIsEditing } from '../../reducers/editDashboard'
 import { sGetIsPrinting } from '../../reducers/printDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
@@ -40,9 +39,8 @@ export const ViewDashboard = props => {
     return (
         <>
             <DashboardsBar />
-            <DashboardVerticalOffset />
             <div className="dashboard-wrapper" style={{ height }}>
-                <TitleBar edit={false} />
+                <ViewTitleBar />
                 <FilterBar />
                 <ItemGrid edit={false} />
             </div>

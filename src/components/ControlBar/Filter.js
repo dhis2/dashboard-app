@@ -6,24 +6,30 @@ import cx from 'classnames'
 import SearchIcon from '../../icons/Search'
 import ClearButton from './ClearButton'
 
+import { useWindowDimensions } from '../WindowDimensionsProvider'
 import {
     acSetDashboardsFilter,
     acClearDashboardsFilter,
 } from '../../actions/dashboardsFilter'
 import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
+import isSmallScreen from '../../modules/isSmallScreen'
 
 import classes from './styles/Filter.module.css'
 
 export const KEYCODE_ENTER = 13
 export const KEYCODE_ESCAPE = 27
 
-export const Filter = ({
+export const FilterUnconnected = ({
     clearDashboardsFilter,
     filterText,
+    isMaxHeight,
     setDashboardsFilter,
     onKeypressEnter,
+    onToggleMaxHeight,
 }) => {
     const [focusedClassName, setFocusedClassName] = useState('')
+    const { width } = useWindowDimensions()
+
     const setFilterValue = event => {
         event.preventDefault()
         setDashboardsFilter(event.target.value)
@@ -53,7 +59,11 @@ export const Filter = ({
         setFocusedClassName('')
     }
 
-    return (
+    return isSmallScreen(width) && !isMaxHeight ? (
+        <button className={classes.searchButton} onClick={onToggleMaxHeight}>
+            <SearchIcon className={classes.searchIcon} />
+        </button>
+    ) : (
         <div
             className={cx(classes.container, `${focusedClassName}`)}
             onFocus={onFocus}
@@ -74,11 +84,13 @@ export const Filter = ({
     )
 }
 
-Filter.propTypes = {
+FilterUnconnected.propTypes = {
     clearDashboardsFilter: PropTypes.func,
     filterText: PropTypes.string,
+    isMaxHeight: PropTypes.bool,
     setDashboardsFilter: PropTypes.func,
     onKeypressEnter: PropTypes.func,
+    onToggleMaxHeight: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
@@ -90,4 +102,4 @@ const mapDispatchToProps = {
     clearDashboardsFilter: acClearDashboardsFilter,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Filter)
+export default connect(mapStateToProps, mapDispatchToProps)(FilterUnconnected)

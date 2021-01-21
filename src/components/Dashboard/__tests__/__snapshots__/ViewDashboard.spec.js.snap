@@ -3,7 +3,6 @@
 exports[`ViewDashboard renders correctly default 1`] = `
 <Fragment>
   <DashboardsBar />
-  <DashboardVerticalOffset />
   <div
     className="dashboard-wrapper"
     style={
@@ -12,9 +11,7 @@ exports[`ViewDashboard renders correctly default 1`] = `
       }
     }
   >
-    <TitleBar
-      edit={false}
-    />
+    <ViewTitleBar />
     <FilterBar />
     <ItemGrid
       edit={false}

@@ -7,7 +7,6 @@ import { NEW, VIEW, EDIT, PRINT, PRINT_LAYOUT } from '../dashboardModes'
 import { NON_EXISTING_DASHBOARD_ID } from '../../../reducers/selected'
 
 jest.mock('../../ControlBar/DashboardsBar', () => 'DashboardsBar')
-jest.mock('../DashboardVerticalOffset', () => 'DashboardVerticalOffset')
 jest.mock('../../../widgets/NoContentMessage', () => 'NoContentMessage')
 jest.mock('../ViewDashboard', () => 'ViewDashboard')
 jest.mock('../EditDashboard', () => 'EditDashboard')

@@ -9,8 +9,7 @@ jest.mock('react', () => ({
 }))
 
 jest.mock('../../ControlBar/DashboardsBar', () => 'DashboardsBar')
-jest.mock('../DashboardVerticalOffset', () => 'DashboardVerticalOffset')
-jest.mock('../../TitleBar/TitleBar', () => 'TitleBar')
+jest.mock('../../TitleBar/ViewTitleBar', () => 'ViewTitleBar')
 jest.mock('../../FilterBar/FilterBar', () => 'FilterBar')
 jest.mock('../../ItemGrid/ItemGrid', () => 'ItemGrid')
 

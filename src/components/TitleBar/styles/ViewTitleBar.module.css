@@ -1,3 +1,7 @@
+.container {
+    padding: 13px 15px 5px 10px;
+}
+
 .actions {
     display: flex;
     align-items: center;
@@ -25,11 +29,42 @@
     margin-left: var(--spacers-dp8);
 }
 
-.backdrop {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: transparent;
+.title {
+    position: relative;
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--colors-black);
+    min-width: 50px;
+    cursor: default;
+    user-select: text;
+    top: 7px;
+}
+
+.descContainer {
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.desc {
+    color: var(--colors-grey700);
+}
+
+.noDesc {
+    color: #888;
+}
+
+.moreButton {
+    margin-left: 5px;
+}
+
+@media only screen and (max-width: 480px) {
+    .editLink,
+    .shareButton {
+        display: none !important;
+    }
+
+    .title {
+        top: 3px;
+    }
 }

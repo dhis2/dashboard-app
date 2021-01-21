@@ -1,3 +1,31 @@
+## [31.6.2](https://github.com/dhis2/dashboard-app/compare/v31.6.1...v31.6.2) (2021-01-19)
+
+
+### Bug Fixes
+
+* Adjust position of the title to be in line with action buttons in small screen mode ([#1449](https://github.com/dhis2/dashboard-app/issues/1449)) ([844a12f](https://github.com/dhis2/dashboard-app/commit/844a12f7ba10e3f18865e8c0c5cd550f5689de7d))
+
+## [31.6.1](https://github.com/dhis2/dashboard-app/compare/v31.6.0...v31.6.1) (2021-01-14)
+
+
+### Bug Fixes
+
+* add margin on all sides of notice box ([#1445](https://github.com/dhis2/dashboard-app/issues/1445)) ([ce8b5e5](https://github.com/dhis2/dashboard-app/commit/ce8b5e5eb42a59e027e723a8de0b02e20481027b))
+
+# [31.6.0](https://github.com/dhis2/dashboard-app/compare/v31.5.0...v31.6.0) (2021-01-12)
+
+
+### Features
+
+* responsive - disallow editing in small screen ([#1419](https://github.com/dhis2/dashboard-app/issues/1419)) ([9932951](https://github.com/dhis2/dashboard-app/commit/99329516a898b78a32607129ceb6fa5fc9eae81b))
+
+# [31.5.0](https://github.com/dhis2/dashboard-app/compare/v31.4.1...v31.5.0) (2021-01-11)
+
+
+### Features
+
+* responsive control bar and title bar [DHIS2-10138] ([#1400](https://github.com/dhis2/dashboard-app/issues/1400)) ([7b6af12](https://github.com/dhis2/dashboard-app/commit/7b6af12125348cdf4491334699acde95c36fe3f6))
+
 ## [31.4.1](https://github.com/dhis2/dashboard-app/compare/v31.4.0...v31.4.1) (2021-01-06)
 
 

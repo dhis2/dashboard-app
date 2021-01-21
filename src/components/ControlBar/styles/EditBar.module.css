@@ -1,0 +1,16 @@
+.editBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 71px;
+    background-color: var(--colors-yellow050);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 6px 3px;
+    position: relative;
+    z-index: 10;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 var(--spacers-dp8);
+}
