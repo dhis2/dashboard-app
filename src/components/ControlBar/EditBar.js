@@ -34,7 +34,7 @@ const EditBar = props => {
     const dataEngine = useDataEngine()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
     const [dashboard, setDashboard] = useState(undefined)
-    const [confirmDeleteDlgOpen, setConfirmDeleteDlgOpen] = useState(false)
+    const [confirmDeleteDlgIsOpen, setConfirmDeleteDlgIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(undefined)
 
     useEffect(() => {
@@ -46,7 +46,7 @@ const EditBar = props => {
     }, [props.dashboardId, dashboard])
 
     const onConfirmDelete = () => {
-        setConfirmDeleteDlgOpen(true)
+        setConfirmDeleteDlgIsOpen(true)
     }
 
     const onSave = () => {
@@ -72,11 +72,11 @@ const EditBar = props => {
     }
 
     const onContinueEditing = () => {
-        setConfirmDeleteDlgOpen(false)
+        setConfirmDeleteDlgIsOpen(false)
     }
 
     const onDeleteConfirmed = () => {
-        setConfirmDeleteDlgOpen(false)
+        setConfirmDeleteDlgIsOpen(false)
         props.onDelete(props.dashboardId).then(() => {
             setRedirectUrl('/')
         })
@@ -107,7 +107,7 @@ const EditBar = props => {
                 dashboardName={props.dashboardName}
                 onDeleteConfirmed={onDeleteConfirmed}
                 onContinueEditing={onContinueEditing}
-                open={confirmDeleteDlgOpen}
+                open={confirmDeleteDlgIsOpen}
             />
         ) : null
 
