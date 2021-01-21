@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import classes from './styles/ControlBar.module.css'
 
-//Matches the height of .dragHandle in ControlBar.module.css
 export const DRAG_HANDLE_HEIGHT = 7
 
 class ControlBar extends React.Component {
@@ -51,9 +50,10 @@ class ControlBar extends React.Component {
     renderDragHandle = () =>
         typeof this.props.onChangeHeight === 'function' && (
             <div
-                className={classes.draghandle}
-                onMouseDown={this.onStartDrag}
                 data-testid="controlbar-drag-handle"
+                className={classes.draghandle}
+                style={{ height: DRAG_HANDLE_HEIGHT }}
+                onMouseDown={this.onStartDrag}
             />
         )
 
