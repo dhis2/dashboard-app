@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import NotInterestedIcon from '@material-ui/icons/NotInterested'
-
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import ItemHeader from '../ItemHeader/ItemHeader'
 import Line from '../../../widgets/Line'
 
@@ -28,15 +28,15 @@ const getIframeSrc = (appDetails, item, itemFilters) => {
     return iframeSrc
 }
 
-const AppItem = ({ dashboardMode, item, itemFilters }, context) => {
+const AppItem = ({ dashboardMode, item, itemFilters }) => {
+    const { d2 } = useD2({})
+
     let appDetails
 
     const appKey = item.appKey
 
     if (appKey) {
-        appDetails = context.d2.system.installedApps.find(
-            app => app.key === appKey
-        )
+        appDetails = d2.system.installedApps.find(app => app.key === appKey)
     }
 
     const hideTitle =
@@ -94,10 +94,6 @@ AppItem.propTypes = {
     dashboardMode: PropTypes.string,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
-}
-
-AppItem.contextTypes = {
-    d2: PropTypes.object,
 }
 
 const mapStateToProps = (state, ownProps) => {

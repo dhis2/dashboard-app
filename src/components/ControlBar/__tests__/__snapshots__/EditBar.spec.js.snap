@@ -1,379 +1,345 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EditBar renders the EditBar 1`] = `
-<Fragment>
+exports[`renders Save and Discard buttons but no dialogs when no dashboard id 1`] = `
+<div>
   <div
-    className="editBar"
+    class="editBar"
   >
     <div
-      className="controls"
+      class="controls"
     >
-      <Button
-        dataTest="dhis2-uicore-button"
-        onClick={[Function]}
-        secondary={true}
+      <div
+        class="jsx-71743532 start"
+        data-test="dhis2-uicore-buttonstrip"
+      >
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 primary"
+            data-test="save-dashboard-button"
+            type="button"
+          >
+            Save changes
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 "
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Print preview
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        />
+        <div
+          class="jsx-71743532 box"
+        />
+      </div>
+      <button
+        class="jsx-2371629422 secondary"
+        data-test="dhis2-uicore-button"
+        type="button"
+      >
+        Exit without saving
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders Translate, Delete, and Discard buttons when delete access 1`] = `
+<div>
+  <div
+    class="editBar"
+  >
+    <div
+      class="controls"
+    >
+      <div
+        class="jsx-71743532 start"
+        data-test="dhis2-uicore-buttonstrip"
+      >
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 primary"
+            data-test="save-dashboard-button"
+            type="button"
+          >
+            Save changes
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 "
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Print preview
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 "
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Translate
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 "
+            data-test="delete-dashboard-button"
+            type="button"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+      <button
+        class="jsx-2371629422 secondary"
+        data-test="dhis2-uicore-button"
+        type="button"
+      >
+        Exit without saving
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders only the Go to Dashboards button when no update access 1`] = `
+<div>
+  <div
+    class="editBar"
+  >
+    <div
+      class="controls"
+    >
+      <button
+        class="jsx-2371629422 secondary"
+        data-test="dhis2-uicore-button"
         type="button"
       >
         Go to dashboards
-      </Button>
+      </button>
     </div>
   </div>
-</Fragment>
+</div>
 `;
 
-exports[`EditBar when update access is false renders only the Discard button 1`] = `
-<Fragment>
+exports[`renders the EditBar 1`] = `
+<div>
   <div
-    className="editBar"
+    class="editBar"
   >
     <div
-      className="controls"
+      class="controls"
     >
-      <Button
-        dataTest="dhis2-uicore-button"
-        onClick={[Function]}
-        secondary={true}
-        type="button"
+      <div
+        class="jsx-71743532 start"
+        data-test="dhis2-uicore-buttonstrip"
       >
-        Go to dashboards
-      </Button>
-    </div>
-  </div>
-</Fragment>
-`;
-
-exports[`EditBar when update access is true when dashboard id property provided renders Save, Translate and Discard buttons and the TranslationDialog but not ConfirmDeleteDialog 1`] = `
-<Fragment>
-  <div
-    className="editBar"
-  >
-    <div
-      className="controls"
-    >
-      <ButtonStrip
-        dataTest="dhis2-uicore-buttonstrip"
-      >
-        <Button
-          dataTest="save-dashboard-button"
-          onClick={[Function]}
-          primary={true}
-          type="button"
+        <div
+          class="jsx-71743532 box"
         >
-          Save changes
-        </Button>
-        <Button
-          dataTest="dhis2-uicore-button"
-          onClick={[Function]}
-          type="button"
+          <button
+            class="jsx-2371629422 primary"
+            data-test="save-dashboard-button"
+            type="button"
+          >
+            Save changes
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
         >
-          Print preview
-        </Button>
-        <Button
-          dataTest="dhis2-uicore-button"
-          onClick={[Function]}
-          type="button"
+          <button
+            class="jsx-2371629422 "
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Print preview
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
         >
-          Translate
-        </Button>
-      </ButtonStrip>
-      <Button
-        dataTest="dhis2-uicore-button"
-        onClick={[Function]}
-        secondary={true}
+          <button
+            class="jsx-2371629422 "
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Translate
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        />
+      </div>
+      <button
+        class="jsx-2371629422 secondary"
+        data-test="dhis2-uicore-button"
         type="button"
       >
         Exit without saving
-      </Button>
+      </button>
     </div>
   </div>
-  <MockTranslationDialog
-    className="translation-dialog"
-    d2={
-      Object {
-        "currentUser": Object {
-          "firstName": "Mark the Ghost",
-          "surname": "Polak",
-          "userSettings": Object {
-            "get": [Function],
-          },
-        },
-      }
-    }
-    fieldsToTranslate={
-      Array [
-        "name",
-        "description",
-      ]
-    }
-    objectToTranslate={
-      Object {
-        "id": "rainbow123",
-        "modelDefinition": Object {
-          "name": "dashboard",
-        },
-      }
-    }
-    onRequestClose={[Function]}
-    onTranslationError={[Function]}
-    onTranslationSaved={[Function]}
-    open={false}
+</div>
+`;
+
+exports[`shows the confirm delete dialog when delete button clicked 1`] = `
+<DocumentFragment>
+  <div
+    class="editBar"
+  >
+    <div
+      class="controls"
+    >
+      <div
+        class="jsx-71743532 start"
+        data-test="dhis2-uicore-buttonstrip"
+      >
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 primary"
+            data-test="save-dashboard-button"
+            type="button"
+          >
+            Save changes
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 "
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Print preview
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 "
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Translate
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 "
+            data-test="delete-dashboard-button"
+            type="button"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+      <button
+        class="jsx-2371629422 secondary"
+        data-test="dhis2-uicore-button"
+        type="button"
+      >
+        Exit without saving
+      </button>
+    </div>
+  </div>
+  <div
+    class="mock-confirm-delete-dialog"
   />
-</Fragment>
+</DocumentFragment>
 `;
 
-exports[`EditBar when update access is true when dashboard id property provided when TRANSLATE button is clicked shows the translate dialog 1`] = `
-<Fragment>
+exports[`shows the translate dialog 1`] = `
+<DocumentFragment>
   <div
-    className="editBar"
+    class="editBar"
   >
     <div
-      className="controls"
+      class="controls"
     >
-      <ButtonStrip
-        dataTest="dhis2-uicore-buttonstrip"
+      <div
+        class="jsx-71743532 start"
+        data-test="dhis2-uicore-buttonstrip"
       >
-        <Button
-          dataTest="save-dashboard-button"
-          onClick={[Function]}
-          primary={true}
-          type="button"
+        <div
+          class="jsx-71743532 box"
         >
-          Save changes
-        </Button>
-        <Button
-          dataTest="dhis2-uicore-button"
-          onClick={[Function]}
-          type="button"
+          <button
+            class="jsx-2371629422 primary"
+            data-test="save-dashboard-button"
+            type="button"
+          >
+            Save changes
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
         >
-          Print preview
-        </Button>
-        <Button
-          dataTest="dhis2-uicore-button"
-          onClick={[Function]}
-          type="button"
+          <button
+            class="jsx-2371629422 "
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Print preview
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
         >
-          Translate
-        </Button>
-      </ButtonStrip>
-      <Button
-        dataTest="dhis2-uicore-button"
-        onClick={[Function]}
-        secondary={true}
+          <button
+            class="jsx-2371629422 "
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Translate
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 "
+            data-test="delete-dashboard-button"
+            type="button"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+      <button
+        class="jsx-2371629422 secondary"
+        data-test="dhis2-uicore-button"
         type="button"
       >
         Exit without saving
-      </Button>
+      </button>
     </div>
   </div>
-  <MockTranslationDialog
-    className="translation-dialog"
-    d2={
-      Object {
-        "currentUser": Object {
-          "firstName": "Mark the Ghost",
-          "surname": "Polak",
-          "userSettings": Object {
-            "get": [Function],
-          },
-        },
-      }
-    }
-    fieldsToTranslate={
-      Array [
-        "name",
-        "description",
-      ]
-    }
-    objectToTranslate={
-      Object {
-        "id": "rainbow123",
-        "modelDefinition": Object {
-          "name": "dashboard",
-        },
-      }
-    }
-    onRequestClose={[Function]}
-    onTranslationError={[Function]}
-    onTranslationSaved={[Function]}
-    open={false}
-  />
-</Fragment>
-`;
-
-exports[`EditBar when update access is true when dashboard id property provided when TRANSLATE button is clicked shows the translate dialog 2`] = `
-<Fragment>
-  <div
-    className="editBar"
-  >
-    <div
-      className="controls"
-    >
-      <ButtonStrip
-        dataTest="dhis2-uicore-buttonstrip"
-      >
-        <Button
-          dataTest="save-dashboard-button"
-          onClick={[Function]}
-          primary={true}
-          type="button"
-        >
-          Save changes
-        </Button>
-        <Button
-          dataTest="dhis2-uicore-button"
-          onClick={[Function]}
-          type="button"
-        >
-          Print preview
-        </Button>
-        <Button
-          dataTest="dhis2-uicore-button"
-          onClick={[Function]}
-          type="button"
-        >
-          Translate
-        </Button>
-      </ButtonStrip>
-      <Button
-        dataTest="dhis2-uicore-button"
-        onClick={[Function]}
-        secondary={true}
-        type="button"
-      >
-        Exit without saving
-      </Button>
-    </div>
-  </div>
-  <MockTranslationDialog
-    className="translation-dialog"
-    d2={
-      Object {
-        "currentUser": Object {
-          "firstName": "Mark the Ghost",
-          "surname": "Polak",
-          "userSettings": Object {
-            "get": [Function],
-          },
-        },
-      }
-    }
-    fieldsToTranslate={
-      Array [
-        "name",
-        "description",
-      ]
-    }
-    objectToTranslate={
-      Object {
-        "id": "rainbow123",
-        "modelDefinition": Object {
-          "name": "dashboard",
-        },
-      }
-    }
-    onRequestClose={[Function]}
-    onTranslationError={[Function]}
-    onTranslationSaved={[Function]}
-    open={true}
-  />
-</Fragment>
-`;
-
-exports[`EditBar when update access is true when dashboard id property provided when deleteAccess is true renders Translate, Delete, and Discard buttons and ConfirmDeleteDialog 1`] = `
-<Fragment>
-  <div
-    className="editBar"
-  >
-    <div
-      className="controls"
-    >
-      <ButtonStrip
-        dataTest="dhis2-uicore-buttonstrip"
-      >
-        <Button
-          dataTest="save-dashboard-button"
-          onClick={[Function]}
-          primary={true}
-          type="button"
-        >
-          Save changes
-        </Button>
-        <Button
-          dataTest="dhis2-uicore-button"
-          onClick={[Function]}
-          type="button"
-        >
-          Print preview
-        </Button>
-        <Button
-          dataTest="dhis2-uicore-button"
-          onClick={[Function]}
-          type="button"
-        >
-          Translate
-        </Button>
-        <Button
-          dataTest="delete-dashboard-button"
-          onClick={[Function]}
-          type="button"
-        >
-          Delete
-        </Button>
-      </ButtonStrip>
-      <Button
-        dataTest="dhis2-uicore-button"
-        onClick={[Function]}
-        secondary={true}
-        type="button"
-      >
-        Exit without saving
-      </Button>
-    </div>
-  </div>
-  <ConfirmDeleteDialog
-    onContinueEditing={[Function]}
-    onDeleteConfirmed={[Function]}
-    open={false}
-  />
-</Fragment>
-`;
-
-exports[`EditBar when update access is true when no dashboard id property renders Save and Discard buttons but no dialogs 1`] = `
-<Fragment>
-  <div
-    className="editBar"
-  >
-    <div
-      className="controls"
-    >
-      <ButtonStrip
-        dataTest="dhis2-uicore-buttonstrip"
-      >
-        <Button
-          dataTest="save-dashboard-button"
-          onClick={[Function]}
-          primary={true}
-          type="button"
-        >
-          Save changes
-        </Button>
-        <Button
-          dataTest="dhis2-uicore-button"
-          onClick={[Function]}
-          type="button"
-        >
-          Print preview
-        </Button>
-      </ButtonStrip>
-      <Button
-        dataTest="dhis2-uicore-button"
-        onClick={[Function]}
-        secondary={true}
-        type="button"
-      >
-        Exit without saving
-      </Button>
-    </div>
-  </div>
-</Fragment>
+</DocumentFragment>
 `;

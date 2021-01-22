@@ -1,3 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App renders the App 1`] = `ShallowWrapper {}`;
+exports[`renders the app 1`] = `
+<div>
+  <div
+    class="dashboard"
+  />
+</div>
+`;
