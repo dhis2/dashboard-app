@@ -1,4 +1,5 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { EXTENDED_TIMEOUT } from '../../../support/utils'
 import {
     gridItemSel,
     chartSel,
@@ -88,6 +89,12 @@ When('I cancel delete', () => {
     cy.get('[data-test="cancel-delete-dashboard"]').click()
 })
 
+Then('the confirm delete dialog is displayed', () => {
+    cy.contains(
+        `Deleting dashboard "${TEST_DASHBOARD_TITLE}" will remove it for all users`
+    ).should('be.visible')
+})
+
 Then('the dashboard displays in edit mode', () => {
     cy.get('[data-test="dashboard-title-input"]').should('exist')
 
@@ -118,7 +125,7 @@ Scenario: I move an item on a dashboard
 */
 
 Then('the chart item is displayed', () => {
-    cy.get(chartSel).should('exist')
+    cy.get(chartSel, EXTENDED_TIMEOUT).should('exist')
 })
 
 Then('no analytics requests are made when item is moved', () => {
@@ -138,5 +145,7 @@ Then('no analytics requests are made when item is moved', () => {
         .trigger('mousemove', { clientX: 400 })
         .trigger('mouseup')
 
-    cy.get(chartSubtitleSel).contains(WRONG_SUBTITLE).should('not.exist')
+    cy.get(chartSubtitleSel, EXTENDED_TIMEOUT)
+        .contains(WRONG_SUBTITLE)
+        .should('not.exist')
 })

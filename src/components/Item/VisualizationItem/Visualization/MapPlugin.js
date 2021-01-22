@@ -1,7 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
 import DefaultPlugin from './DefaultPlugin'
 import { MAP } from '../../../../modules/itemTypes'
+import { pluginIsAvailable } from './plugin'
+import NoVisualizationMessage from './NoVisualizationMessage'
 
 const MapPlugin = ({ applyFilters, ...props }) => {
     if (props.item.type === MAP) {
@@ -32,17 +35,22 @@ const MapPlugin = ({ applyFilters, ...props }) => {
         )
     }
 
-    return (
+    return pluginIsAvailable(props.activeType || props.item.type) ? (
         <DefaultPlugin
             options={{
                 hideTitle: true,
             }}
             {...props}
         />
+    ) : (
+        <NoVisualizationMessage
+            message={i18n.t('Unable to load the plugin for this item')}
+        />
     )
 }
 
 MapPlugin.propTypes = {
+    activeType: PropTypes.string,
     applyFilters: PropTypes.func,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
