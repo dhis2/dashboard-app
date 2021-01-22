@@ -11,21 +11,21 @@ const PrintInfo = ({ isLayout }) => {
             ? a4LandscapeWidthPx
             : window.innerWidth
 
-    const infoHeader = isLayout
+    const layoutStyle = isLayout
         ? i18n.t('dashboard layout')
         : i18n.t('one item per page')
 
     return (
-        <div className={classes.infoWrapper}>
-            <p className={classes.infoHeader}>
-                {`${i18n.t('Print Preview')}: ${infoHeader}`}
+        <div className={classes.container}>
+            <p className={classes.title}>
+                {`${i18n.t('Print Preview')}: ${layoutStyle}`}
             </p>
             <div style={{ maxWidth }}>
                 <p className={classes.info}>
                     {`${i18n.t('For best print results')}:`}
                 </p>
                 <div className={classes.info}>
-                    <ul className={classes.infoList}>
+                    <ul className={classes.printSuggestions}>
                         <li>{i18n.t('Use Chrome or Edge web browser')}</li>
                         <li>
                             {i18n.t(
