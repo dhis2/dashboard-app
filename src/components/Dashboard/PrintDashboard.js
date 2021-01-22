@@ -1,10 +1,13 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import sortBy from 'lodash/sortBy'
 
 import PrintInfo from './PrintInfo'
-import PrintActionsBar from './PrintActionsBar'
+import PrintActionsBar, {
+    PRINT_ACTIONS_BAR_HEIGHT,
+    PRINT_ACTIONS_BAR_HEIGHT_SM,
+} from './PrintActionsBar'
 import PrintItemGrid from '../ItemGrid/PrintItemGrid'
 import {
     acSetPrintDashboard,
@@ -13,7 +16,6 @@ import {
     acUpdatePrintDashboardItem,
 } from '../../actions/printDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
-import { sGetWindowHeight } from '../../reducers/windowHeight'
 import {
     sGetDashboardById,
     sGetDashboardItems,
@@ -24,39 +26,41 @@ import {
     MAX_ITEM_GRID_HEIGHT_OIPP,
     MAX_ITEM_GRID_WIDTH_OIPP,
 } from '../ItemGrid/gridUtil'
-import { PRINT_ACTIONS_BAR_HEIGHT } from './PrintActionsBar'
+import { useWindowDimensions } from '../WindowDimensionsProvider'
+import isSmallScreen from '../../modules/isSmallScreen'
 
 import classes from './styles/PrintDashboard.module.css'
 
 import './styles/print.css'
 import './styles/print-oipp.css'
 
-export class PrintDashboard extends Component {
-    state = {
-        initialized: false,
-    }
-
-    initPrintDashboard = () => {
-        if (this.props.dashboard) {
-            this.setState({ initialized: true })
-
+const PrintDashboard = ({
+    dashboard,
+    items,
+    setPrintDashboard,
+    addDashboardItem,
+    updateDashboardItem,
+    removeDashboardItem,
+}) => {
+    useEffect(() => {
+        if (dashboard) {
             //sort the items by Y pos so they print in order of top to bottom
-            const sortedItems = sortBy(this.props.items, ['y', 'x'])
+            const sortedItems = sortBy(items, ['y', 'x'])
 
-            this.props.setPrintDashboard(this.props.dashboard, sortedItems)
+            setPrintDashboard(dashboard, sortedItems)
 
             // remove spacers - don't want empty pages
             let spacerCount = 0
-            this.props.items.forEach(item => {
+            items.forEach(item => {
                 if (item.type === SPACER) {
                     spacerCount += 1
-                    this.props.removeDashboardItem(item.id)
+                    removeDashboardItem(item.id)
                 }
             })
 
             // Resize the items to the full page size
-            this.props.items.forEach(item => {
-                this.props.updateDashboardItem(
+            items.forEach(item => {
+                updateDashboardItem(
                     Object.assign({}, item, {
                         w: MAX_ITEM_GRID_WIDTH_OIPP,
                         h: MAX_ITEM_GRID_HEIGHT_OIPP,
@@ -66,54 +70,46 @@ export class PrintDashboard extends Component {
 
             // insert page breaks into the document flow to create the "pages"
             // when previewing the print
-            for (
-                let i = 0;
-                i < (this.props.items.length - spacerCount) * 2;
-                i += 2
-            ) {
-                this.props.addDashboardItem({
+            for (let i = 0; i < (items.length - spacerCount) * 2; i += 2) {
+                addDashboardItem({
                     type: PAGEBREAK,
                     position: i,
                     isStatic: false,
                 })
             }
 
-            this.props.addDashboardItem({
+            addDashboardItem({
                 type: PRINT_TITLE_PAGE,
                 isOneItemPerPage: true,
             })
         }
-    }
+    }, [dashboard, items])
 
-    componentDidMount() {
-        this.initPrintDashboard()
-    }
+    const { width, height } = useWindowDimensions()
+    const availableHeight =
+        height -
+        (isSmallScreen(width)
+            ? PRINT_ACTIONS_BAR_HEIGHT_SM
+            : PRINT_ACTIONS_BAR_HEIGHT)
 
-    componentDidUpdate() {
-        if (!this.state.initialized) {
-            this.initPrintDashboard()
-        }
-    }
-
-    render() {
-        const height = this.props.windowHeight - PRINT_ACTIONS_BAR_HEIGHT
-
-        return (
-            <>
-                <PrintActionsBar id={this.props.dashboard.id} />
-                <div className={classes.wrapper} style={{ height }}>
-                    <PrintInfo isLayout={false} />
-                    <div
-                        className={classes.pageOuter}
-                        style={{ width: a4LandscapeWidthPx }}
-                        data-test="print-oipp-page"
-                    >
-                        <PrintItemGrid />
-                    </div>
+    return (
+        <>
+            <PrintActionsBar id={dashboard.id} />
+            <div
+                className={classes.wrapper}
+                style={{ height: availableHeight }}
+            >
+                <PrintInfo isLayout={false} />
+                <div
+                    className={classes.pageOuter}
+                    style={{ width: a4LandscapeWidthPx }}
+                    data-test="print-oipp-page"
+                >
+                    <PrintItemGrid />
                 </div>
-            </>
-        )
-    }
+            </div>
+        </>
+    )
 }
 
 PrintDashboard.propTypes = {
@@ -123,7 +119,6 @@ PrintDashboard.propTypes = {
     removeDashboardItem: PropTypes.func,
     setPrintDashboard: PropTypes.func,
     updateDashboardItem: PropTypes.func,
-    windowHeight: PropTypes.number,
 }
 
 const mapStateToProps = state => {
@@ -134,7 +129,6 @@ const mapStateToProps = state => {
         dashboard,
         id,
         items: sGetDashboardItems(state),
-        windowHeight: sGetWindowHeight(state),
     }
 }
 
