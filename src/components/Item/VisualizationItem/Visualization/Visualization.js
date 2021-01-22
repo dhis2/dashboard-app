@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
 import i18n from '@dhis2/d2-i18n'
+import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
 
 import DefaultPlugin from './DefaultPlugin'
 import MapPlugin from './MapPlugin'
@@ -20,6 +21,7 @@ import {
 import { getVisualizationId } from '../../../../modules/item'
 import memoizeOne from '../../../../modules/memoizeOne'
 import { sGetVisualization } from '../../../../reducers/visualizations'
+import { pluginIsAvailable } from './plugin'
 
 class Visualization extends React.Component {
     state = {
@@ -85,16 +87,20 @@ class Visualization extends React.Component {
                                 <LoadingMask />
                             </div>
                         )}
-                        <VisualizationPlugin
-                            d2={this.context.d2}
-                            visualization={this.memoizedGetFilteredVisualization(
-                                pluginProps.visualization,
-                                pluginProps.itemFilters
+                        <D2Shim d2Config={{}}>
+                            {({ d2 }) => (
+                                <VisualizationPlugin
+                                    d2={d2}
+                                    visualization={this.memoizedGetFilteredVisualization(
+                                        pluginProps.visualization,
+                                        pluginProps.itemFilters
+                                    )}
+                                    onLoadingComplete={this.onLoadingComplete}
+                                    forDashboard={true}
+                                    style={pluginProps.style}
+                                />
                             )}
-                            onLoadingComplete={this.onLoadingComplete}
-                            forDashboard={true}
-                            style={pluginProps.style}
-                        />
+                        </D2Shim>
                     </>
                 )
             }
@@ -112,7 +118,17 @@ class Visualization extends React.Component {
                     pluginProps.itemFilters
                 )
 
-                return <DefaultPlugin {...pluginProps} />
+                return pluginIsAvailable(
+                    pluginProps.activeType || pluginProps.item.type
+                ) ? (
+                    <DefaultPlugin {...pluginProps} />
+                ) : (
+                    <NoVisualizationMessage
+                        message={i18n.t(
+                            'Unable to load the plugin for this item'
+                        )}
+                    />
+                )
             }
         }
     }
@@ -125,10 +141,6 @@ Visualization.propTypes = {
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,
-}
-
-Visualization.contextTypes = {
-    d2: PropTypes.object,
 }
 
 const mapStateToProps = (state, ownProps) => {

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import {
     Button,
     Modal,
@@ -17,22 +18,19 @@ import {
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
 } from '@dhis2/analytics'
-
 import { acAddItemFilter, acRemoveItemFilter } from '../../actions/itemFilters'
 import { sGetItemFiltersRoot } from '../../reducers/itemFilters'
 
-const FilterDialog = (
-    {
-        displayNameProperty,
-        dimension,
-        initiallySelectedItems,
-        addItemFilter,
-        removeItemFilter,
-        onClose,
-    },
-    context
-) => {
+const FilterDialog = ({
+    displayNameProperty,
+    dimension,
+    initiallySelectedItems,
+    addItemFilter,
+    removeItemFilter,
+    onClose,
+}) => {
     const [filters, setFilters] = useState(initiallySelectedItems)
+    const { d2 } = useD2({})
 
     const onSelectItems = ({ dimensionId, items }) => {
         setFilters({ [dimensionId]: items })
@@ -74,7 +72,7 @@ const FilterDialog = (
 
     const renderDialogContent = () => {
         const commonProps = {
-            d2: context.d2,
+            d2,
             onSelect: onSelectItems,
             onDeselect: onDeselectItems,
             onReorder: onReorderItems,
@@ -144,10 +142,6 @@ FilterDialog.propTypes = {
     initiallySelectedItems: PropTypes.object,
     removeItemFilter: PropTypes.func,
     onClose: PropTypes.func,
-}
-
-FilterDialog.contextTypes = {
-    d2: PropTypes.object,
 }
 
 const mapStateToProps = state => ({
