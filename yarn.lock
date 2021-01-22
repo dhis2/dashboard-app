@@ -1496,10 +1496,28 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^12.1.10", "@dhis2/analytics@^12.1.7":
+"@dhis2/analytics@^12.1.7":
   version "12.1.10"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-12.1.10.tgz#fc95265b7bf48bb8bf794b5e96c61a2d31ff6291"
   integrity sha512-yE+OhGidvlzfqJnTieLiJVcLFT/MhTEwkRySZnir1szWlWS/accQ1Uoddz+5zTOwGZFfNps6HtkLWM7QxkK+7Q==
+  dependencies:
+    "@dhis2/d2-ui-org-unit-dialog" "^7.1.3"
+    "@dhis2/ui" "^6.1.3"
+    "@material-ui/core" "^3.9.3"
+    "@material-ui/icons" "^3.0.2"
+    classnames "^2.2.6"
+    d2-utilizr "^0.2.16"
+    d3-color "^1.2.3"
+    highcharts "^8.2.2"
+    lodash "^4.17.20"
+    react-beautiful-dnd "^10.1.1"
+    resize-observer-polyfill "^1.5.1"
+    styled-jsx "3.3.2"
+
+"@dhis2/analytics@^13.0.1":
+  version "13.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-13.0.1.tgz#b551124baa342a79f36da0deedca8c975351b13f"
+  integrity sha512-TNBUqp5SyNVP9DXaDIpIKmRQ4Y8HBHfObuPk4mPLlI+EDnwt+ZLsGUuDl/OFuU4+NiqOsiaokoit1HyYtHci5g==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.1.3"
     "@dhis2/ui" "^6.1.3"
