@@ -31,7 +31,7 @@
     }
 
     .inner {
-        margin: 0 var(--spacers-dp4);
+        margin: 0 var(--spacers-dp8);
     }
 
     .topMargin {
