@@ -1,3 +1,10 @@
+# [31.7.0](https://github.com/dhis2/dashboard-app/compare/v31.6.2...v31.7.0) (2021-01-25)
+
+
+### Features
+
+* print layout padding and grid width ([#1460](https://github.com/dhis2/dashboard-app/issues/1460)) ([b06b427](https://github.com/dhis2/dashboard-app/commit/b06b427855285feecc056e0a42d56269614bbd32))
+
 ## [31.6.2](https://github.com/dhis2/dashboard-app/compare/v31.6.1...v31.6.2) (2021-01-19)
 
 
