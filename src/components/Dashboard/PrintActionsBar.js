@@ -4,30 +4,32 @@ import i18n from '@dhis2/d2-i18n'
 import { Button } from '@dhis2/ui'
 import { Link } from 'react-router-dom'
 import LessHorizontalIcon from '../../icons/LessHorizontal'
-import { a4LandscapeWidthPx } from '../ItemGrid/gridUtil'
+import { useWindowDimensions } from '../WindowDimensionsProvider'
+import isSmallScreen from '../../modules/isSmallScreen'
 
 import classes from './styles/PrintActionsBar.module.css'
 
-// 42px set in the module css file
-export const PRINT_ACTIONS_BAR_HEIGHT = 42
+// set in PrintActionsBar.module.css
+export const PRINT_ACTIONS_BAR_HEIGHT = 44
+export const PRINT_ACTIONS_BAR_HEIGHT_SM = 36
 
 const PrintActionsBar = ({ id }) => {
-    const width =
-        a4LandscapeWidthPx < window.innerWidth
-            ? a4LandscapeWidthPx
-            : window.innerWidth
+    const { width } = useWindowDimensions()
+    const isSmall = isSmallScreen(width)
 
     return (
         <>
             <div className={classes.container}>
-                <div className={classes.inner} style={{ width }}>
+                <div className={classes.inner}>
                     <Link className={classes.link} to={`/${id}`}>
-                        <Button dataTest="exit-print-preview">
+                        <Button small={isSmall}>
                             <LessHorizontalIcon />
                             {i18n.t('Exit print preview')}
                         </Button>
                     </Link>
-                    <Button onClick={window.print}>{i18n.t('Print')}</Button>
+                    <Button small={isSmall} onClick={window.print}>
+                        {i18n.t('Print')}
+                    </Button>
                 </div>
             </div>
             <div className={classes.topMargin} />

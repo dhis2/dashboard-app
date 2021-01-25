@@ -36,7 +36,7 @@ Then('the print layout displays for {string} dashboard', title => {
 })
 
 When('I click to exit print preview', () => {
-    cy.get('[data-test="exit-print-preview"]').click()
+    cy.contains('Exit print preview').click()
 })
 
 When('I click to preview the print one-item-per-page', () => {
