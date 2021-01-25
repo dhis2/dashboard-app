@@ -1,3 +1,10 @@
+## [31.7.1](https://github.com/dhis2/dashboard-app/compare/v31.7.0...v31.7.1) (2021-01-25)
+
+
+### Bug Fixes
+
+* trigger event to hide tooltip when click wasnt on button ([#1461](https://github.com/dhis2/dashboard-app/issues/1461)) ([b87604c](https://github.com/dhis2/dashboard-app/commit/b87604ca442539e15e80651a5dbb628420376181))
+
 # [31.7.0](https://github.com/dhis2/dashboard-app/compare/v31.6.2...v31.7.0) (2021-01-25)
 
 
