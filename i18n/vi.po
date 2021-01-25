@@ -63,10 +63,10 @@ msgid "Search for a dashboard"
 msgstr "Tìm kiếm bảng điều khiển"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "Hiển thị ít bảng điều khiển hơn"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "Hiển thị thêm bảng điều khiển"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -79,13 +79,13 @@ msgid "No access"
 msgstr "Không truy cập"
 
 msgid "Editing dashboards on small screens is not supported."
-msgstr ""
+msgstr "Không hỗ trợ chỉnh sửa bảng điều khiển trên màn hình nhỏ."
 
 msgid "Creating dashboards on small screens is not supported."
-msgstr ""
+msgstr "Không hỗ trợ tạo bảng điều khiển trên màn hình nhỏ."
 
 msgid "Not supported"
-msgstr ""
+msgstr "Không được hỗ trợ"
 
 msgid "Exit print preview"
 msgstr "Thoát xem trước bản in"
