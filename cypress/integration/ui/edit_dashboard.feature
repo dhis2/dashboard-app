@@ -23,7 +23,8 @@ Feature: Creating, editing and deleting dashboard
         Given I open existing dashboard
         When I choose to edit dashboard
         And I choose to delete dashboard
-        And I cancel delete
+        Then the confirm delete dialog is displayed
+        When I cancel delete
         Then the dashboard displays in edit mode
 
     @mutating
@@ -31,6 +32,7 @@ Feature: Creating, editing and deleting dashboard
         Given I open existing dashboard
         When I choose to edit dashboard
         And I choose to delete dashboard
-        And I confirm delete
+        Then the confirm delete dialog is displayed
+        When I confirm delete
         Then dashboard displays in view mode
         And the dashboard is deleted and first starred dashboard displayed

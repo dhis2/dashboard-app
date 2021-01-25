@@ -1,6 +1,5 @@
 import React, { useState, createRef } from 'react'
 import PropTypes from 'prop-types'
-
 import { useConfig } from '@dhis2/app-runtime'
 import {
     isSingleValue,
