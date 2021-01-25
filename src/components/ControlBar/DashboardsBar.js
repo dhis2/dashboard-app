@@ -17,6 +17,9 @@ import {
     getRowsHeight,
     getControlBarHeight,
     getNumRowsFromHeight,
+    CONTROL_BAR_MARGIN_BOTTOM_SMALL,
+    CONTROL_BAR_OUTER_HEIGHT_DIFF,
+    SEARCH_BAR_HEIGHT_SMALL,
 } from './controlBarDimensions'
 import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
@@ -105,24 +108,42 @@ const DashboardsBar = ({
     const viewableRows =
         isSmallScreen(width) && !isMaxHeight() ? MIN_ROW_COUNT : rows
 
+    // control bar height
     const getHeight = () => {
         if (isSmallScreen(width) && isMaxHeight()) {
-            return height - HEADERBAR_HEIGHT - DRAG_HANDLE_HEIGHT - 32
+            return (
+                height -
+                HEADERBAR_HEIGHT -
+                DRAG_HANDLE_HEIGHT -
+                CONTROL_BAR_MARGIN_BOTTOM_SMALL
+            )
         }
 
         return getControlBarHeight(viewableRows)
     }
 
+    // control bar minus "show more" button
     const getContainerHeight = () => {
         if (isSmallScreen(width) && isMaxHeight()) {
-            return height - HEADERBAR_HEIGHT - 22 - 32
+            return (
+                height -
+                HEADERBAR_HEIGHT -
+                CONTROL_BAR_OUTER_HEIGHT_DIFF - // show more button
+                CONTROL_BAR_MARGIN_BOTTOM_SMALL
+            )
         }
         return getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT
     }
 
     const getChipContainerHeight = () => {
         if (isSmallScreen(width) && isMaxHeight()) {
-            return height - HEADERBAR_HEIGHT - 42 - 22 - 32
+            return (
+                height -
+                HEADERBAR_HEIGHT -
+                SEARCH_BAR_HEIGHT_SMALL -
+                CONTROL_BAR_OUTER_HEIGHT_DIFF - // show more button
+                CONTROL_BAR_MARGIN_BOTTOM_SMALL
+            )
         }
         return getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT
     }
