@@ -1,4 +1,7 @@
 // Dimensions for the react-grid-layout
+import sortBy from 'lodash/sortBy'
+import { isVisualizationType } from '../../modules/itemTypes'
+
 export const GRID_COMPACT_TYPE = 'vertical' // vertical | horizonal | null
 export const GRID_ROW_HEIGHT = 10
 const GRID_COLUMN_WIDTH_PX = 20
@@ -6,7 +9,8 @@ const GRID_LAYOUT = 'FLEXIBLE' // FIXED | FLEXIBLE
 export const MARGIN = [10, 10]
 
 const SM_SCREEN_MIN_ITEM_GRID_HEIGHT = 16 //310px
-export const SM_SCREEN_GRID_COLUMNS = 12
+export const SM_SCREEN_GRID_COLUMNS = 2
+export const MARGIN_SM = [0, 16]
 
 export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 }
 
@@ -91,6 +95,9 @@ export const withShape = (items = []) => {
 }
 
 export const getProportionalHeight = item => {
+    if (!isVisualizationType(item) || item.h > SM_SCREEN_MIN_ITEM_GRID_HEIGHT) {
+        return item.h
+    }
     const ratioWH = item.w / item.h
     const h = Math.floor(SM_SCREEN_GRID_COLUMNS / ratioWH)
 
@@ -100,11 +107,11 @@ export const getProportionalHeight = item => {
 }
 
 export const getSmallLayout = items =>
-    items.map(item => ({
+    sortBy(items, ['y', 'x']).map((item, i) => ({
         id: item.id,
         i: item.i,
-        x: item.x,
-        y: item.y,
+        x: 0,
+        y: i,
         w: SM_SCREEN_GRID_COLUMNS,
         h: getProportionalHeight(item),
     }))
@@ -147,13 +154,14 @@ export const getPrintTitlePageItemShape = isOneItemPerPage => {
  * So the calculation is:
  * GRID_ROW_HEIGHT* Number of rows
  * +
- * Number of rows-1 * yMargin
+ * yMargin * Number of rows-1
  *
  * @param {Object} item item containing shape (x, y, w, h)
  */
 export const getItemHeightPx = (item, isSmallScreen) => {
     const h = isSmallScreen ? item.smallOriginalH : item.originalH
-    return Math.round(GRID_ROW_HEIGHT * h + Math.max(0, h - 1) * MARGIN[1])
+    const yMargin = isSmallScreen ? MARGIN_SM[1] : MARGIN[1]
+    return Math.round(GRID_ROW_HEIGHT * h + Math.max(0, h - 1) * yMargin)
 }
 
 export const getGridItemDomId = id => `item-${id}`

@@ -119,7 +119,7 @@ export class Item extends Component {
                     10
                 )
             }
-            // call resize on the item component if it's a plugin type
+            // call resize on Map item
             pluginResize(this.props.item)
         }
     }

@@ -1,4 +1,9 @@
-import { hasShape, withShape, getSmallLayout } from '../gridUtil'
+import {
+    hasShape,
+    withShape,
+    getSmallLayout,
+    SM_SCREEN_GRID_COLUMNS,
+} from '../gridUtil'
 
 describe('withShape', () => {
     it('returns objects with new properties (x, y, w, h)', () => {
@@ -43,16 +48,16 @@ describe('getSmallLayout', () => {
             { x: 0, y: 0, w: 33, h: 15, i: 'A' },
             { x: 33, y: 15, w: 14, h: 30, i: 'B' },
             { x: 15, y: 7, w: 7, h: 4, i: 'C' },
-            { x: 7, y: 25, w: 8, h: 16, i: 'D' },
-            { x: 20, y: 25, w: 9, h: 16, i: 'E' },
+            { x: 20, y: 25, w: 9, h: 16, i: 'D' },
+            { x: 7, y: 25, w: 8, h: 16, i: 'E' },
         ]
 
         const expectedLayout = [
-            { x: 0, y: 0, w: 12, h: 16, i: 'A' },
-            { x: 33, y: 15, w: 12, h: 25, i: 'B' },
-            { x: 15, y: 7, w: 12, h: 16, i: 'C' },
-            { x: 7, y: 25, w: 12, h: 24, i: 'D' },
-            { x: 20, y: 25, w: 12, h: 21, i: 'E' },
+            { x: 0, y: 0, w: SM_SCREEN_GRID_COLUMNS, h: 16, i: 'A' },
+            { x: 0, y: 1, w: SM_SCREEN_GRID_COLUMNS, h: 16, i: 'C' },
+            { x: 0, y: 2, w: SM_SCREEN_GRID_COLUMNS, h: 25, i: 'B' },
+            { x: 0, y: 3, w: SM_SCREEN_GRID_COLUMNS, h: 24, i: 'E' },
+            { x: 0, y: 4, w: SM_SCREEN_GRID_COLUMNS, h: 21, i: 'D' },
         ]
 
         expect(getSmallLayout(items)).toMatchObject(expectedLayout)

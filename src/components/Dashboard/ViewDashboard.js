@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-
 import ViewTitleBar from '../TitleBar/ViewTitleBar'
 import ViewItemGrid from '../ItemGrid/ViewItemGrid'
 import FilterBar from '../FilterBar/FilterBar'
@@ -9,7 +8,6 @@ import DashboardsBar from '../ControlBar/DashboardsBar'
 import { sGetIsEditing } from '../../reducers/editDashboard'
 import { sGetIsPrinting } from '../../reducers/printDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
-import { sGetWindowHeight } from '../../reducers/windowHeight'
 import { sGetControlBarUserRows } from '../../reducers/controlBar'
 import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
@@ -17,8 +15,11 @@ import {
     getControlBarHeight,
     HEADERBAR_HEIGHT,
 } from '../ControlBar/controlBarDimensions'
+import { useWindowDimensions } from '../WindowDimensionsProvider'
 
 export const ViewDashboard = props => {
+    const { height } = useWindowDimensions()
+
     useEffect(() => {
         if (props.dashboardIsEditing) {
             props.clearEditDashboard()
@@ -31,15 +32,16 @@ export const ViewDashboard = props => {
         document.querySelector('.dashboard-wrapper')?.scroll(0, 0)
     }, [props.selectedId])
 
-    const height =
-        props.windowHeight -
-        HEADERBAR_HEIGHT -
-        getControlBarHeight(props.controlBarRows)
+    const contentHeight =
+        height - HEADERBAR_HEIGHT - getControlBarHeight(props.controlBarRows)
 
     return (
         <>
             <DashboardsBar />
-            <div className="dashboard-wrapper" style={{ height }}>
+            <div
+                className={'dashboard-wrapper'}
+                style={{ height: contentHeight }}
+            >
                 <ViewTitleBar />
                 <FilterBar />
                 <ViewItemGrid />
@@ -55,7 +57,6 @@ ViewDashboard.propTypes = {
     dashboardIsEditing: PropTypes.bool,
     dashboardIsPrinting: PropTypes.bool,
     selectedId: PropTypes.string,
-    windowHeight: PropTypes.number,
 }
 
 const mapStateToProps = state => {
@@ -64,7 +65,6 @@ const mapStateToProps = state => {
         dashboardIsPrinting: sGetIsPrinting(state),
         controlBarRows: sGetControlBarUserRows(state),
         selectedId: sGetSelectedId(state),
-        windowHeight: sGetWindowHeight(state),
     }
 }
 

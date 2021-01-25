@@ -12,6 +12,7 @@ import {
     SM_SCREEN_GRID_COLUMNS,
     GRID_COMPACT_TYPE,
     MARGIN,
+    MARGIN_SM,
     hasShape,
     getGridColumns,
     getSmallLayout,
@@ -25,18 +26,17 @@ import {
 } from '../../reducers/dashboards'
 import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer'
 import { VIEW } from '../Dashboard/dashboardModes'
+import isSmallScreen from '../../modules/isSmallScreen'
 
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
 
-import classes from './styles/ViewItemGrid.module.css'
-
 const EXPANDED_HEIGHT = 17
 const SMALL_SCREEN_BREAKPOINT = 480
 const SCROLLBAR_WIDTH = 8
-// sum of left+right margin of the dashboard wrapper
-const DASHBOARD_WRAPPER_LR_MARGIN = 20
+// sum of left+right padding of dashboard-wrapper (App.css)
+const DASHBOARD_WRAPPER_LR_MARGIN = 32
 
 const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     const [expandedItems, setExpandedItems] = useState({})
@@ -106,7 +106,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     }
 
     return (
-        <div className={classes.gridContainer}>
+        <>
             {isLoading ? (
                 <Layer translucent>
                     <CenteredContent>
@@ -116,7 +116,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
             ) : null}
             <ResponsiveReactGridLayout
                 rowHeight={GRID_ROW_HEIGHT}
-                width={width - DASHBOARD_WRAPPER_LR_MARGIN}
+                width={width - DASHBOARD_WRAPPER_LR_MARGIN - SCROLLBAR_WIDTH}
                 cols={{ lg: getGridColumns(), sm: SM_SCREEN_GRID_COLUMNS }}
                 breakpoints={{
                     lg: SMALL_SCREEN_BREAKPOINT - DASHBOARD_WRAPPER_LR_MARGIN,
@@ -124,10 +124,10 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
                 }}
                 layouts={{ lg: displayItems, sm: layoutSm }}
                 compactType={GRID_COMPACT_TYPE}
-                margin={MARGIN}
+                margin={isSmallScreen(width) ? MARGIN_SM : MARGIN}
                 containerPadding={{
-                    lg: [SCROLLBAR_WIDTH, 0],
-                    sm: [SCROLLBAR_WIDTH, 0],
+                    lg: [0, 0],
+                    sm: [0, 0],
                 }}
                 isDraggable={false}
                 isResizable={false}
@@ -136,7 +136,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
             >
                 {getItemComponents(displayItems)}
             </ResponsiveReactGridLayout>
-        </div>
+        </>
     )
 }
 
