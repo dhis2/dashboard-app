@@ -1,7 +1,6 @@
 import React, { useState, useEffect, createRef } from 'react'
-import PropTypes from 'prop-types'
 import { Popover, FlyoutMenu } from '@dhis2/ui'
-
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import ItemSearchField from './ItemSearchField'
 import CategorizedMenuGroup from './CategorizedMenuGroup'
 import SinglesMenuGroup from './SinglesMenuGroup'
@@ -10,12 +9,12 @@ import { itemTypeMap, getDefaultItemCount } from '../../modules/itemTypes'
 
 import classes from './styles/ItemSelector.module.css'
 
-// eslint-disable-next-line no-empty-pattern
-const ItemSelector = ({}, context) => {
+const ItemSelector = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [filter, setFilter] = useState('')
     const [items, setItems] = useState(null)
     const [maxOptions, setMaxOptions] = useState(new Set())
+    const { d2 } = useD2({})
 
     useEffect(() => {
         let queryString = '?count=11'
@@ -25,7 +24,7 @@ const ItemSelector = ({}, context) => {
 
         const filterStr = filter ? `/${filter}` : ''
 
-        context.d2.Api.getApi()
+        d2.Api.getApi()
             .get(`dashboards/q${filterStr}${queryString}`)
             .then(response => setItems(response))
             .catch(console.error)
@@ -116,10 +115,6 @@ const ItemSelector = ({}, context) => {
             )}
         </>
     )
-}
-
-ItemSelector.contextTypes = {
-    d2: PropTypes.object.isRequired,
 }
 
 export default ItemSelector

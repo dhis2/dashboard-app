@@ -1,111 +1,64 @@
-import React, { Component } from 'react'
+import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
-
-import i18n from '@dhis2/d2-i18n'
-
-import NoVisualizationMessage from './NoVisualizationMessage'
-import * as pluginManager from './plugin'
-import { getBaseUrl, orObject } from '../../../../modules/util'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { useConfig } from '@dhis2/app-runtime'
+import { load, unmount } from './plugin'
 import { getGridItemDomId } from '../../../ItemGrid/gridUtil'
 
-const pluginCredentials = d2 => {
-    return {
-        baseUrl: getBaseUrl(d2),
+const DefaultPlugin = ({ item, activeType, visualization, options, style }) => {
+    const { d2 } = useD2({})
+    const { baseUrl } = useConfig()
+    const credentials = {
+        baseUrl,
         auth: d2.Api.getApi().defaultHeaders.Authorization,
     }
-}
 
-class DefaultPlugin extends Component {
-    pluginCredentials = null
+    const prevItem = useRef()
+    const prevActiveType = useRef()
 
-    constructor(props, context) {
-        super(props)
+    useEffect(() => {
+        load(item, visualization, {
+            credentials,
+            activeType,
+            options,
+        })
 
-        this.d2 = context.d2
-    }
+        prevItem.current = item
+        prevActiveType.current = activeType
 
-    pluginIsAvailable = () =>
-        pluginManager.pluginIsAvailable(
-            this.props.activeType || this.props.item.type
-        )
+        return () => unmount(item, activeType)
+    }, [])
 
-    shouldPluginReload = prevProps => {
-        // TODO - fix this hack, to handle bug with multiple
-        // rerendering while switching between dashboards.
-        //
-        // To determine if the rendering is happening because of a
-        // dashboard switch, check if the item reference has changed.
-        const reloadAllowed = this.props.item === prevProps.item
-
-        const filtersChanged = prevProps.itemFilters !== this.props.itemFilters
-        const vis = orObject(this.props.visualization)
-        const prevVis = orObject(prevProps.visualization)
-        const visChanged =
-            vis.id !== prevVis.id ||
-            prevProps.activeType !== this.props.activeType
-
-        return reloadAllowed && (visChanged || filtersChanged)
-    }
-
-    reloadPlugin = prevProps => {
-        if (this.pluginIsAvailable() && this.shouldPluginReload(prevProps)) {
-            if (
-                this.props.activeType !== prevProps.activeType ||
-                this.props.itemFilters !== prevProps.itemFilters
-            ) {
-                pluginManager.unmount(this.props.item, prevProps.activeType)
-
-                pluginManager.load(this.props.item, this.props.visualization, {
-                    credentials: this.pluginCredentials,
-                    activeType: this.props.activeType,
-                })
-            }
-        }
-    }
-
-    componentDidMount() {
-        this.pluginCredentials = pluginCredentials(this.d2)
-
-        if (this.pluginIsAvailable()) {
-            pluginManager.load(this.props.item, this.props.visualization, {
-                credentials: this.pluginCredentials,
-                activeType: this.props.activeType,
-                options: this.props.options,
+    useEffect(() => {
+        if (shouldPluginReload()) {
+            unmount(item, prevActiveType.current)
+            load(item, visualization, {
+                credentials,
+                activeType,
             })
         }
+
+        prevItem.current = item
+        prevActiveType.current = activeType
+    }, [item, visualization, activeType])
+
+    /**
+     * Prevent unnecessary re-rendering
+     * TODO: fix this hack
+     */
+    const shouldPluginReload = () => {
+        const reloadAllowed = prevItem.current === item
+        const visChanged = prevActiveType.current !== activeType
+
+        return reloadAllowed && visChanged
     }
 
-    componentDidUpdate(prevProps) {
-        this.reloadPlugin(prevProps)
-    }
-
-    componentWillUnmount() {
-        if (this.pluginIsAvailable()) {
-            pluginManager.unmount(this.props.item, this.props.activeType)
-        }
-    }
-
-    render() {
-        const { item, style } = this.props
-
-        return this.pluginIsAvailable() ? (
-            <div id={getGridItemDomId(item.id)} style={style} />
-        ) : (
-            <NoVisualizationMessage
-                message={i18n.t('Unable to load the plugin for this item')}
-            />
-        )
-    }
-}
-
-DefaultPlugin.contextTypes = {
-    d2: PropTypes.object,
+    return <div id={getGridItemDomId(item.id)} style={style} />
 }
 
 DefaultPlugin.propTypes = {
     activeType: PropTypes.string,
     item: PropTypes.object,
-    itemFilters: PropTypes.object,
     options: PropTypes.object,
     style: PropTypes.object,
     visualization: PropTypes.object,
@@ -114,7 +67,6 @@ DefaultPlugin.propTypes = {
 DefaultPlugin.defaultProps = {
     style: {},
     item: {},
-    itemFilters: {},
     options: {},
     visualization: {},
 }

@@ -1,222 +1,255 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
-import { Button } from '@dhis2/ui'
+import { render } from '@testing-library/react'
+import { act } from 'react-dom/test-utils'
+import { fireEvent } from '@testing-library/dom'
+import { Provider } from 'react-redux'
+import configureMockStore from 'redux-mock-store'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { useDataEngine } from '@dhis2/app-runtime'
+import { Router } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
+import EditBar from '../EditBar'
+import { apiFetchDashboard } from '../../../api/dashboards'
+import {
+    acClearEditDashboard,
+    tSaveDashboard,
+} from '../../../actions/editDashboard'
 
-import { EditBar } from '../EditBar'
-import ConfirmDeleteDialog from '../ConfirmDeleteDialog'
-import { getStubContext } from '../../../setupTests'
+const mockStore = configureMockStore()
 
-const mockDashboardModels = {
-    rainbow: {
-        id: 'rainbow123',
-    },
-}
-
-jest.mock('../../../api/dashboards', () => ({
-    apiFetchDashboard: (dataEngine, id) =>
-        Promise.resolve(mockDashboardModels[id]),
+jest.mock('@dhis2/app-runtime-adapter-d2')
+jest.mock('@dhis2/app-runtime')
+jest.mock('../../../api/dashboards')
+jest.mock('../../../actions/editDashboard', () => ({
+    acClearEditDashboard: jest.fn(),
+    tSaveDashboard: jest.fn(),
 }))
 
 jest.mock(
     '@dhis2/d2-ui-translation-dialog',
     () =>
         function MockTranslationDialog() {
-            return <div className="mock-dhis2-translation-dialog" />
+            return <div className="mock-translation-dialog" />
         }
 )
 
-describe('EditBar', () => {
-    let props
-    let shallowEditBar
-    const editBar = () => {
-        const context = getStubContext()
-
-        if (!shallowEditBar) {
-            shallowEditBar = shallow(<EditBar {...props} />, {
-                context,
-            })
+/* eslint-disable react/prop-types */
+jest.mock(
+    '../ConfirmDeleteDialog',
+    () =>
+        function MockConfirmDeleteDialog({ open }) {
+            return open ? <div className="mock-confirm-delete-dialog" /> : null
         }
-        return shallowEditBar
+)
+/* eslint-enable react/prop-types */
+
+useD2.mockReturnValue({
+    d2: {
+        currentUser: 'rainbowDash',
+    },
+})
+
+apiFetchDashboard.mockResolvedValue({
+    rainbow: {
+        id: 'rainbow123',
+    },
+})
+
+useDataEngine.mockReturnValue({
+    dataEngine: {},
+})
+
+test('renders the EditBar', () => {
+    const store = {
+        editDashboard: {
+            id: 'rainbowDash',
+            name: 'Rainbow Dash',
+            access: {
+                update: true,
+                delete: false,
+            },
+            printPreviewView: false,
+        },
+    }
+    const { container } = render(
+        <Provider store={mockStore(store)}>
+            <EditBar />
+        </Provider>
+    )
+    expect(container).toMatchSnapshot()
+})
+
+test('renders only the Go to Dashboards button when no update access', () => {
+    const store = {
+        editDashboard: {
+            id: 'rainbowDash',
+            name: 'Rainbow Dash',
+            access: {
+                update: false,
+                delete: false,
+            },
+            printPreviewView: false,
+        },
+    }
+    const { container } = render(
+        <Provider store={mockStore(store)}>
+            <EditBar />
+        </Provider>
+    )
+    expect(container).toMatchSnapshot()
+})
+
+test('renders Save and Discard buttons but no dialogs when no dashboard id', () => {
+    const store = {
+        editDashboard: {
+            id: '',
+            name: '',
+            access: {},
+            printPreviewView: false,
+        },
     }
 
-    beforeEach(() => {
-        props = {
-            style: {},
-            onSave: undefined,
-            onDiscardChanges: undefined,
-            dashboardId: undefined,
-            deleteAccess: undefined,
-            updateAccess: undefined,
-        }
-        shallowEditBar = undefined
+    const { container } = render(
+        <Provider store={mockStore(store)}>
+            <EditBar />
+        </Provider>
+    )
+    expect(container).toMatchSnapshot()
+})
+
+test('renders Translate, Delete, and Discard buttons when delete access', () => {
+    const store = {
+        editDashboard: {
+            id: 'rainbowDash',
+            name: 'Rainbow Dash',
+            access: {
+                update: true,
+                delete: true,
+            },
+            printPreviewView: false,
+        },
+    }
+    const { container } = render(
+        <Provider store={mockStore(store)}>
+            <EditBar />
+        </Provider>
+    )
+    expect(container).toMatchSnapshot()
+})
+
+test('shows the confirm delete dialog when delete button clicked', () => {
+    const store = {
+        editDashboard: {
+            id: 'rainbowDash',
+            name: 'Rainbow Dash',
+            access: {
+                update: true,
+                delete: true,
+            },
+            printPreviewView: false,
+        },
+    }
+    const { getByText, asFragment } = render(
+        <Provider store={mockStore(store)}>
+            <EditBar />
+        </Provider>
+    )
+
+    asFragment()
+
+    act(() => {
+        fireEvent.click(getByText('Delete'))
     })
 
-    it('renders the EditBar', () => {
-        expect(toJson(editBar())).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
+})
+
+test('shows the translate dialog', () => {
+    const store = {
+        editDashboard: {
+            id: 'rainbowDash',
+            name: 'Rainbow Dash',
+            access: {
+                update: true,
+                delete: true,
+            },
+            printPreviewView: false,
+        },
+    }
+    const { getByText, asFragment } = render(
+        <Provider store={mockStore(store)}>
+            <EditBar />
+        </Provider>
+    )
+
+    act(() => {
+        asFragment()
+        asFragment()
+
+        fireEvent.click(getByText('Translate'))
     })
 
-    describe('when update access is false', () => {
-        beforeEach(() => {
-            props.updateAccess = false
-        })
+    expect(asFragment()).toMatchSnapshot()
+})
 
-        it('renders only the Discard button', () => {
-            expect(toJson(editBar())).toMatchSnapshot()
-        })
+test('triggers the discard action', () => {
+    const store = mockStore({
+        editDashboard: {
+            id: 'rainbowDash',
+            name: 'Rainbow Dash',
+            access: {
+                update: true,
+                delete: true,
+            },
+            printPreviewView: false,
+        },
     })
 
-    describe('when update access is true', () => {
-        beforeEach(() => {
-            props.updateAccess = true
-        })
+    store.dispatch = jest.fn()
 
-        describe('when no dashboard id property', () => {
-            beforeEach(() => {
-                props.onSave = jest.fn(() => ({ then: () => {} }))
-                props.onDiscardChanges = jest.fn()
-            })
+    const { getByText } = render(
+        <Provider store={store}>
+            <Router history={createMemoryHistory()}>
+                <EditBar />
+            </Router>
+        </Provider>
+    )
 
-            it('renders Save and Discard buttons but no dialogs', () => {
-                const wrapper = editBar()
-
-                return Promise.resolve().then(() => {
-                    expect(toJson(wrapper)).toMatchSnapshot()
-                })
-            })
-
-            it('triggers the save action', () => {
-                editBar()
-                    .find(Button)
-                    .filterWhere(n => n.childAt(0).text() === 'Save changes')
-                    .simulate('click')
-
-                expect(props.onSave).toHaveBeenCalled()
-            })
-
-            it('triggers the discard action', () => {
-                editBar()
-                    .find(Button)
-                    .filterWhere(
-                        n => n.childAt(0).text() === 'Exit without saving'
-                    )
-                    .simulate('click')
-                expect(props.onDiscardChanges).toHaveBeenCalled()
-            })
-        })
-
-        describe('when dashboard id property provided', () => {
-            beforeEach(() => {
-                props.dashboardId = 'rainbow'
-            })
-
-            it('renders Save, Translate and Discard buttons and the TranslationDialog but not ConfirmDeleteDialog', () => {
-                const wrapper = editBar()
-
-                return Promise.resolve().then(() => {
-                    expect(toJson(wrapper)).toMatchSnapshot()
-                })
-            })
-
-            describe('when TRANSLATE button is clicked', () => {
-                const getAsyncWrapper = () => {
-                    const wrapper = editBar()
-
-                    return Promise.resolve().then(() => {
-                        wrapper.update()
-                        return wrapper
-                    })
-                }
-
-                it('shows the translate dialog', done => {
-                    getAsyncWrapper().then(wrapper => {
-                        expect(toJson(wrapper)).toMatchSnapshot()
-
-                        wrapper
-                            .find(Button)
-                            .filterWhere(
-                                n => n.childAt(0).text() === 'Translate'
-                            )
-                            .simulate('click')
-
-                        expect(toJson(wrapper)).toMatchSnapshot()
-                        done()
-                    })
-                })
-
-                describe('when translations saved', () => {
-                    beforeEach(() => {
-                        props.onTranslate = jest.fn()
-                    })
-
-                    it('triggers onTranslationsSaved', done => {
-                        getAsyncWrapper()
-                            .then(wrapper => {
-                                wrapper
-                                    .find('.translation-dialog')
-                                    .simulate('translationSaved', [
-                                        {
-                                            locale: 'ponyLang',
-                                            property: 'NAME',
-                                            value: 'Regnbue',
-                                        },
-                                    ])
-                            })
-                            .then(() => {
-                                expect(props.onTranslate).toHaveBeenCalled()
-                                expect(props.onTranslate).toHaveBeenCalledWith(
-                                    'rainbow',
-                                    'Regnbue'
-                                )
-                                done()
-                            })
-                    })
-                })
-            })
-
-            describe('when deleteAccess is true', () => {
-                beforeEach(() => {
-                    props.deleteAccess = true
-                    props.onDelete = jest.fn(() => ({ then: () => {} }))
-                })
-
-                it('renders Translate, Delete, and Discard buttons and ConfirmDeleteDialog', () => {
-                    expect(toJson(editBar())).toMatchSnapshot()
-                })
-
-                it('shows the confirm delete dialog when delete button clicked', () => {
-                    const wrapper = editBar()
-                    expect(
-                        wrapper.find(ConfirmDeleteDialog).prop('open')
-                    ).toEqual(false)
-
-                    wrapper
-                        .find(Button)
-                        .filterWhere(n => n.childAt(0).text() === 'Delete')
-                        .simulate('click')
-
-                    expect(
-                        wrapper.find(ConfirmDeleteDialog).prop('open')
-                    ).toEqual(true)
-                    expect(props.onDelete).not.toHaveBeenCalled()
-                })
-
-                it('triggers onDelete when delete confirmed', () => {
-                    const dlg = editBar().find(ConfirmDeleteDialog)
-                    dlg.simulate('deleteConfirmed')
-
-                    expect(dlg.prop('open')).toEqual(false)
-                    expect(props.onDelete).toHaveBeenCalled()
-                })
-
-                it('does not trigger onDelete when delete not confirmed', () => {
-                    const dlg = editBar().find(ConfirmDeleteDialog)
-                    dlg.simulate('continueEditing')
-
-                    expect(dlg.prop('open')).toEqual(false)
-                    expect(props.onDelete).not.toHaveBeenCalled()
-                })
-            })
-        })
+    act(() => {
+        fireEvent.click(getByText('Exit without saving'))
     })
+
+    expect(store.dispatch).toHaveBeenCalledTimes(1)
+    expect(store.dispatch).toHaveBeenCalledWith(acClearEditDashboard())
+})
+
+test('triggers the save action', () => {
+    const store = mockStore({
+        editDashboard: {
+            id: 'rainbowDash',
+            name: 'Rainbow Dash',
+            access: {
+                update: true,
+                delete: true,
+            },
+            printPreviewView: false,
+        },
+    })
+
+    store.dispatch = jest.fn().mockResolvedValue('rainbowDash')
+
+    const { getByText } = render(
+        <Provider store={store}>
+            <Router history={createMemoryHistory()}>
+                <EditBar />
+            </Router>
+        </Provider>
+    )
+
+    act(() => {
+        fireEvent.click(getByText('Save changes'))
+    })
+
+    expect(store.dispatch).toHaveBeenCalledTimes(1)
+    expect(store.dispatch).toHaveBeenCalledWith(tSaveDashboard())
 })
