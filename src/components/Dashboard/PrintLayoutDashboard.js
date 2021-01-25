@@ -25,7 +25,7 @@ import {
     sGetDashboardItems,
 } from '../../reducers/dashboards'
 import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
-import { a4LandscapeWidthPx, MAX_ITEM_GRID_HEIGHT } from '../ItemGrid/gridUtil'
+import { MAX_ITEM_GRID_HEIGHT } from '../ItemGrid/gridUtil'
 import {
     getControlBarHeight,
     HEADERBAR_HEIGHT,
@@ -109,7 +109,6 @@ const PrintLayoutDashboard = ({
                 {!fromEdit && <PrintInfo isLayout={true} />}
                 <div
                     className={classes.pageOuter}
-                    style={{ width: a4LandscapeWidthPx }}
                     data-test="print-layout-page"
                 >
                     <PrintLayoutItemGrid />

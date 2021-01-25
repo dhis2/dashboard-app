@@ -1,16 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { a4LandscapeWidthPx } from '../ItemGrid/gridUtil'
 
 import classes from './styles/PrintInfo.module.css'
 
 const PrintInfo = ({ isLayout }) => {
-    const maxWidth =
-        a4LandscapeWidthPx < window.innerWidth
-            ? a4LandscapeWidthPx
-            : window.innerWidth
-
     const layoutStyle = isLayout
         ? i18n.t('dashboard layout')
         : i18n.t('one item per page')
@@ -20,25 +14,21 @@ const PrintInfo = ({ isLayout }) => {
             <p className={classes.title}>
                 {`${i18n.t('Print Preview')}: ${layoutStyle}`}
             </p>
-            <div style={{ maxWidth }}>
-                <p className={classes.info}>
-                    {`${i18n.t('For best print results')}:`}
-                </p>
-                <div className={classes.info}>
-                    <ul className={classes.printSuggestions}>
-                        <li>{i18n.t('Use Chrome or Edge web browser')}</li>
-                        <li>
-                            {i18n.t(
-                                'Wait for all dashboard items to load before printing'
-                            )}
-                        </li>
-                        <li>
-                            {i18n.t(
-                                'Use A4 landscape paper size and default margin settings in the browser print dialog'
-                            )}
-                        </li>
-                    </ul>
-                </div>
+            <div className={classes.printSuggestions}>
+                <p>{`${i18n.t('For best print results')}:`}</p>
+                <ul>
+                    <li>{i18n.t('Use Chrome or Edge web browser')}</li>
+                    <li>
+                        {i18n.t(
+                            'Wait for all dashboard items to load before printing'
+                        )}
+                    </li>
+                    <li>
+                        {i18n.t(
+                            'Use A4 landscape paper size and default margin settings in the browser print dialog'
+                        )}
+                    </li>
+                </ul>
             </div>
             <hr className={classes.divider} />
         </div>

@@ -22,7 +22,6 @@ import {
 } from '../../reducers/dashboards'
 import { PAGEBREAK, PRINT_TITLE_PAGE, SPACER } from '../../modules/itemTypes'
 import {
-    a4LandscapeWidthPx,
     MAX_ITEM_GRID_HEIGHT_OIPP,
     MAX_ITEM_GRID_WIDTH_OIPP,
 } from '../ItemGrid/gridUtil'
@@ -100,11 +99,7 @@ const PrintDashboard = ({
                 style={{ height: availableHeight }}
             >
                 <PrintInfo isLayout={false} />
-                <div
-                    className={classes.pageOuter}
-                    style={{ width: a4LandscapeWidthPx }}
-                    data-test="print-oipp-page"
-                >
+                <div className={classes.pageOuter} data-test="print-oipp-page">
                     <PrintItemGrid />
                 </div>
             </div>

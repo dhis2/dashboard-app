@@ -25,7 +25,7 @@ export const MAX_ITEM_GRID_WIDTH_OIPP = 56
 // 794 px = (21cm / 2.54) * 96 pixels/inch
 // 1122 px = 29.7 /2.54 * 96 pixels/inch
 // const a4LandscapeHeightPx = 794
-export const a4LandscapeWidthPx = 1102
+export const A4_LANDSCAPE_WIDTH_PX = 1102
 
 export const getGridColumns = () => {
     switch (GRID_LAYOUT) {
