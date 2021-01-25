@@ -37,3 +37,42 @@ export const getDomGridItemsSortedByYPos = elements => {
     })
     return sortBy(elementsWithBoundingRect, ['bottomY'])
 }
+
+const isLeapPage = n => {
+    // pages 5,9,13,17,21,25,29... are leap pages
+    let x = 0
+    const startPage = 1
+    const getMultiple = factor => startPage + 4 * factor
+    let multiple = getMultiple(0)
+    let isLeapPage = false
+    while (multiple < n) {
+        multiple = getMultiple(x)
+        ++x
+        if (multiple === n) {
+            isLeapPage = true
+            break
+        }
+    }
+    return isLeapPage
+}
+
+export const getPageBreakPositions = items => {
+    // add enough page breaks so that each item could
+    // be put on its own page. Due to the react-grid-layout
+    // unit system, we have to estimate roughly the size of each
+    // page. At regular intervals add a unit, like a leap year
+    const yPosList = []
+    let yPos = 0
+    for (let pageNum = 1; pageNum <= items.length; ++pageNum) {
+        if (pageNum === 1) {
+            yPos += 35
+        } else if (isLeapPage(pageNum)) {
+            yPos += 40
+        } else {
+            yPos += 39
+        }
+        yPosList.push(yPos)
+    }
+
+    return yPosList
+}

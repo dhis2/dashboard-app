@@ -22,7 +22,7 @@ import {
     MARGIN,
     getGridColumns,
     hasShape,
-    a4LandscapeWidthPx,
+    A4_LANDSCAPE_WIDTH_PX,
 } from './gridUtil'
 import { orArray } from '../../modules/util'
 
@@ -50,11 +50,6 @@ export class PrintItemGrid extends Component {
             )
         }
 
-        const width =
-            a4LandscapeWidthPx < window.innerWidth
-                ? a4LandscapeWidthPx
-                : window.innerWidth
-
         return (
             <>
                 {isLoading ? (
@@ -70,7 +65,7 @@ export class PrintItemGrid extends Component {
                     margin={MARGIN}
                     cols={getGridColumns()}
                     rowHeight={GRID_ROW_HEIGHT}
-                    width={width}
+                    width={A4_LANDSCAPE_WIDTH_PX}
                     compactType={GRID_COMPACT_TYPE}
                     isDraggable={false}
                     isResizable={false}
