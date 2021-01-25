@@ -1,11 +1,14 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { spacers } from '@dhis2/ui'
 import cx from 'classnames'
 
 import PrintInfo from './PrintInfo'
-import PrintActionsBar from './PrintActionsBar'
+import PrintActionsBar, {
+    PRINT_ACTIONS_BAR_HEIGHT,
+    PRINT_ACTIONS_BAR_HEIGHT_SM,
+} from './PrintActionsBar'
 import PrintLayoutItemGrid from '../ItemGrid/PrintLayoutItemGrid'
 import {
     acSetPrintDashboard,
@@ -13,7 +16,6 @@ import {
     acUpdatePrintDashboardItem,
 } from '../../actions/printDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
-import { sGetWindowHeight } from '../../reducers/windowHeight'
 import {
     sGetEditDashboardRoot,
     sGetEditDashboardItems,
@@ -23,13 +25,15 @@ import {
     sGetDashboardItems,
 } from '../../reducers/dashboards'
 import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
-import { a4LandscapeWidthPx, MAX_ITEM_GRID_HEIGHT } from '../ItemGrid/gridUtil'
+import { MAX_ITEM_GRID_HEIGHT } from '../ItemGrid/gridUtil'
 import {
     getControlBarHeight,
     HEADERBAR_HEIGHT,
 } from '../ControlBar/controlBarDimensions'
-import { PRINT_ACTIONS_BAR_HEIGHT } from './PrintActionsBar'
 import { DRAG_HANDLE_HEIGHT } from '../ControlBar/ControlBar'
+import { useWindowDimensions } from '../WindowDimensionsProvider'
+import isSmallScreen from '../../modules/isSmallScreen'
+import { getPageBreakPositions } from '../../modules/printUtils'
 
 import classes from './styles/PrintLayoutDashboard.module.css'
 
@@ -38,124 +42,80 @@ import './styles/print-layout.css'
 
 const EDIT_BAR_HEIGHT = getControlBarHeight(1) + DRAG_HANDLE_HEIGHT
 
-const isLeapPage = n => {
-    // pages 5,9,13,17,21,25,29... are leap pages
-    let x = 0
-    const startPage = 1
-    const getMultiple = factor => startPage + 4 * factor
-    let multiple = getMultiple(0)
-    let isLeapPage = false
-    while (multiple < n) {
-        multiple = getMultiple(x)
-        ++x
-        if (multiple === n) {
-            isLeapPage = true
-            break
-        }
-    }
-    return isLeapPage
-}
-
-const addPageBreaks = ({ items, addDashboardItem }) => {
-    // add enough page breaks so that each item could
-    // be put on its own page. Due to the react-grid-layout
-    // unit system, we have to estimate roughly the size of each
-    // page. At regular intervals add a unit, like a leap year
-    let yPos = 0
-    const yPosList = []
-    for (let pageNum = 1; pageNum <= items.length; ++pageNum) {
-        if (pageNum === 1) {
-            yPos += 35
-        } else if (isLeapPage(pageNum)) {
-            yPos += 40
-        } else {
-            yPos += 39
-        }
-        yPosList.push(yPos)
-    }
+const addPageBreaks = (items, addDashboardItem) => {
+    const yPosList = getPageBreakPositions(items)
 
     for (let i = 0; i < items.length; ++i) {
         addDashboardItem({ type: PAGEBREAK, yPos: yPosList[i] })
     }
 }
 
-export class PrintLayoutDashboard extends Component {
-    state = {
-        initialized: false,
-    }
+const PrintLayoutDashboard = ({
+    dashboard,
+    items,
+    setPrintDashboard,
+    addDashboardItem,
+    updateDashboardItem,
+    fromEdit,
+}) => {
+    const { width, height } = useWindowDimensions()
 
-    initPrintLayoutDashboard = () => {
-        if (this.props.dashboard) {
-            this.setState({ initialized: true })
+    const actionBarHeight = isSmallScreen(width)
+        ? PRINT_ACTIONS_BAR_HEIGHT_SM
+        : PRINT_ACTIONS_BAR_HEIGHT
 
-            this.props.setPrintDashboard(this.props.dashboard, this.props.items)
+    useEffect(() => {
+        if (dashboard) {
+            setPrintDashboard(dashboard, items)
 
             // If any items are taller than one page, reduce it to one
             // page (react-grid-layout units)
-            this.props.items.forEach(item => {
+            items.forEach(item => {
                 if (item.h > MAX_ITEM_GRID_HEIGHT) {
                     item.shortened = true
-                    this.props.updateDashboardItem(
+                    updateDashboardItem(
                         Object.assign({}, item, { h: MAX_ITEM_GRID_HEIGHT })
                     )
                 }
             })
 
-            addPageBreaks(this.props)
+            addPageBreaks(items, addDashboardItem)
 
-            this.props.addDashboardItem({
+            addDashboardItem({
                 type: PRINT_TITLE_PAGE,
                 isOneItemPerPage: false,
             })
         }
-    }
+    }, [dashboard, items])
 
-    componentDidMount() {
-        this.initPrintLayoutDashboard()
-    }
-
-    componentDidUpdate() {
-        if (!this.state.initialized) {
-            this.initPrintLayoutDashboard()
-        }
-    }
-
-    getWrapperStyle = () => {
-        return this.props.fromEdit
+    const getWrapperStyle = () => {
+        return fromEdit
             ? {
                   paddingTop: spacers.dp24,
-                  height:
-                      this.props.windowHeight -
-                      EDIT_BAR_HEIGHT -
-                      HEADERBAR_HEIGHT,
+                  height: height - EDIT_BAR_HEIGHT - HEADERBAR_HEIGHT,
               }
             : {
-                  height: this.props.windowHeight - PRINT_ACTIONS_BAR_HEIGHT,
+                  height: height - actionBarHeight,
               }
     }
 
-    render() {
-        return (
-            <>
-                {!this.props.fromEdit && (
-                    <PrintActionsBar id={this.props.dashboard.id} />
-                )}
+    return (
+        <>
+            {!fromEdit && <PrintActionsBar id={dashboard.id} />}
+            <div
+                className={cx(classes.wrapper, 'scroll-area')}
+                style={getWrapperStyle()}
+            >
+                {!fromEdit && <PrintInfo isLayout={true} />}
                 <div
-                    className={cx(classes.wrapper, 'scroll-area')}
-                    style={this.getWrapperStyle()}
+                    className={classes.pageOuter}
+                    data-test="print-layout-page"
                 >
-                    {!this.props.fromEdit && <PrintInfo isLayout={true} />}
-                    <div
-                        className={classes.pageOuter}
-                        style={{ width: a4LandscapeWidthPx }}
-                        data-test="print-layout-page"
-                    >
-                        <PrintLayoutItemGrid />
-                    </div>
+                    <PrintLayoutItemGrid />
                 </div>
-            </>
-        )
-    }
+            </div>
+        </>
+    )
 }
 
 PrintLayoutDashboard.propTypes = {
@@ -165,7 +125,6 @@ PrintLayoutDashboard.propTypes = {
     items: PropTypes.array,
     setPrintDashboard: PropTypes.func,
     updateDashboardItem: PropTypes.func,
-    windowHeight: PropTypes.number,
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -178,7 +137,6 @@ const mapStateToProps = (state, ownProps) => {
             dashboard,
             id,
             items: sGetEditDashboardItems(state),
-            windowHeight: sGetWindowHeight(state),
         }
     }
 
@@ -188,7 +146,6 @@ const mapStateToProps = (state, ownProps) => {
         dashboard,
         id,
         items: sGetDashboardItems(state),
-        windowHeight: sGetWindowHeight(state),
     }
 }
 
