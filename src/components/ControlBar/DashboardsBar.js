@@ -13,13 +13,13 @@ import ShowMoreButton from './ShowMoreButton'
 import {
     FIRST_ROW_PADDING_HEIGHT,
     MIN_ROW_COUNT,
-    HEADERBAR_HEIGHT,
     getRowsHeight,
     getControlBarHeight,
     getNumRowsFromHeight,
-    CONTROL_BAR_MARGIN_BOTTOM_SMALL,
-    CONTROL_BAR_OUTER_HEIGHT_DIFF,
-    SEARCH_BAR_HEIGHT_SMALL,
+    getControlBarHeightSmallDevice,
+    CONTROL_BAR,
+    CONTROL_BAR_CONTAINER,
+    CHIPS_CONTAINER,
 } from './controlBarDimensions'
 import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
@@ -108,41 +108,19 @@ const DashboardsBar = ({
     const viewableRows =
         isSmallScreen(width) && !isMaxHeight() ? MIN_ROW_COUNT : rows
 
-    // control bar height
     const getHeight = () => {
         if (isSmallScreen(width) && isMaxHeight()) {
-            return (
-                height -
-                HEADERBAR_HEIGHT -
-                DRAG_HANDLE_HEIGHT -
-                CONTROL_BAR_MARGIN_BOTTOM_SMALL
-            )
+            return getControlBarHeightSmallDevice(CONTROL_BAR, height)
         }
 
         return getControlBarHeight(viewableRows)
     }
 
-    // control bar minus "show more" button
-    const getContainerHeight = () => {
+    const getContainerHeight = container => {
         if (isSmallScreen(width) && isMaxHeight()) {
-            return (
-                height -
-                HEADERBAR_HEIGHT -
-                CONTROL_BAR_OUTER_HEIGHT_DIFF - // show more button
-                CONTROL_BAR_MARGIN_BOTTOM_SMALL
-            )
-        }
-        return getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT
-    }
-
-    const getChipContainerHeight = () => {
-        if (isSmallScreen(width) && isMaxHeight()) {
-            return (
-                height -
-                HEADERBAR_HEIGHT -
-                SEARCH_BAR_HEIGHT_SMALL -
-                CONTROL_BAR_OUTER_HEIGHT_DIFF - // show more button
-                CONTROL_BAR_MARGIN_BOTTOM_SMALL
+            return getControlBarHeightSmallDevice(
+                container ? CONTROL_BAR_CONTAINER : CHIPS_CONTAINER,
+                height
             )
         }
         return getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT
@@ -167,7 +145,7 @@ const DashboardsBar = ({
             return (
                 <div
                     className={chipContainerClasses}
-                    style={{ height: getChipContainerHeight() }}
+                    style={{ height: getContainerHeight() }}
                 >
                     {chips}
                 </div>
@@ -192,7 +170,9 @@ const DashboardsBar = ({
                 <div
                     className={containerClass}
                     ref={ref}
-                    style={{ height: getContainerHeight() }}
+                    style={{
+                        height: getContainerHeight(CONTROL_BAR_CONTAINER),
+                    }}
                 >
                     <div className={classes.controls}>
                         <Link
