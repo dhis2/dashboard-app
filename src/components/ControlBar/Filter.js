@@ -28,6 +28,7 @@ export const FilterUnconnected = ({
     onToggleMaxHeight,
 }) => {
     const [focusedClassName, setFocusedClassName] = useState('')
+    const [inputFocused, setInputFocus] = useState(false)
     const { width } = useWindowDimensions()
 
     const setFilterValue = event => {
@@ -59,8 +60,19 @@ export const FilterUnconnected = ({
         setFocusedClassName('')
     }
 
+    const onFocusInput = input => {
+        if (input && inputFocused && isSmallScreen(width)) {
+            return input.focus()
+        }
+    }
+
+    const toggleMaxHeight = () => {
+        onToggleMaxHeight()
+        setInputFocus(true)
+    }
+
     return isSmallScreen(width) && !isMaxHeight ? (
-        <button className={classes.searchButton} onClick={onToggleMaxHeight}>
+        <button className={classes.searchButton} onClick={toggleMaxHeight}>
             <SearchIcon className={classes.searchIcon} />
         </button>
     ) : (
@@ -78,6 +90,7 @@ export const FilterUnconnected = ({
                 onKeyUp={onKeyUp}
                 value={filterText}
                 data-test="search-dashboard-input"
+                ref={onFocusInput}
             />
             {filterText && <ClearButton onClear={clearDashboardsFilter} />}
         </div>
