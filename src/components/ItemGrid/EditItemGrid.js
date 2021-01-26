@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import ReactGridLayout from 'react-grid-layout'
+import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import cx from 'classnames'
 
@@ -14,6 +14,9 @@ import {
     GRID_ROW_HEIGHT,
     GRID_COMPACT_TYPE,
     MARGIN,
+    SMALL_SCREEN_BREAKPOINT,
+    SCROLLBAR_WIDTH,
+    DASHBOARD_WRAPPER_LR_MARGIN,
     getGridColumns,
     hasShape,
     getGridItemDomId,
@@ -27,6 +30,7 @@ import {
 } from '../../reducers/editDashboard'
 import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer'
 import { EDIT } from '../Dashboard/dashboardModes'
+import { useWindowDimensions } from '../WindowDimensionsProvider'
 
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
@@ -37,22 +41,22 @@ const EditItemGrid = ({
     dashboardItems,
     acUpdateDashboardLayout,
 }) => {
+    const [gridWidth, setGridWidth] = useState(0)
+    const { width } = useWindowDimensions()
+
     const onLayoutChange = newLayout => {
         acUpdateDashboardLayout(newLayout)
     }
 
-    const onItemResize = id => {
-        const el = document.querySelector(`#${getGridItemDomId(id)}`) || {}
+    const onResizeStop = (layout, oldItem, newItem) => {
+        const el =
+            document.querySelector(`#${getGridItemDomId(newItem.i)}`) || {}
         if (typeof el.setViewportSize === 'function')
             setTimeout(
                 () =>
                     el.setViewportSize(el.clientWidth - 5, el.clientHeight - 5),
                 10
             )
-    }
-
-    const onResizeStop = (layout, oldItem, newItem) => {
-        onItemResize(newItem.i)
 
         const dashboardItem = dashboardItems.find(item => item.id === newItem.i)
 
@@ -68,11 +72,17 @@ const EditItemGrid = ({
             className={cx(item.type, 'edit')}
             itemId={item.id}
         >
-            <Item item={item} dashboardMode={EDIT} />
+            <Item item={item} gridWidth={gridWidth} dashboardMode={EDIT} />
         </ProgressiveLoadingContainer>
     )
 
     const getItemComponents = items => items.map(item => getItemComponent(item))
+
+    const onWidthChanged = containerWidth => {
+        setTimeout(() => {
+            setGridWidth(containerWidth)
+        }, 200)
+    }
 
     if (!isLoading && !dashboardItems.length) {
         return (
@@ -91,21 +101,29 @@ const EditItemGrid = ({
                     </CenteredContent>
                 </Layer>
             ) : null}
-            <ReactGridLayout
-                layout={dashboardItems}
-                margin={MARGIN}
-                cols={getGridColumns()}
+            <ResponsiveReactGridLayout
                 rowHeight={GRID_ROW_HEIGHT}
-                width={window.innerWidth}
+                width={width - DASHBOARD_WRAPPER_LR_MARGIN - SCROLLBAR_WIDTH}
+                cols={{ lg: getGridColumns() }}
+                breakpoints={{
+                    lg: SMALL_SCREEN_BREAKPOINT - DASHBOARD_WRAPPER_LR_MARGIN,
+                }}
+                layouts={{ lg: dashboardItems }}
                 compactType={GRID_COMPACT_TYPE}
+                margin={MARGIN}
+                containerPadding={{
+                    lg: [0, 0],
+                    sm: [0, 0],
+                }}
                 onLayoutChange={onLayoutChange}
                 onResizeStop={onResizeStop}
+                onWidthChange={onWidthChanged}
                 isDraggable={true}
                 isResizable={true}
                 draggableCancel="input,textarea"
             >
                 {getItemComponents(dashboardItems)}
-            </ReactGridLayout>
+            </ResponsiveReactGridLayout>
         </>
     )
 }

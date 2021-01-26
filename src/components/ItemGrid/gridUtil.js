@@ -11,11 +11,13 @@ export const MARGIN = [10, 10]
 const SM_SCREEN_MIN_ITEM_GRID_HEIGHT = 16 //310px
 export const SM_SCREEN_GRID_COLUMNS = 2
 export const MARGIN_SM = [0, 16]
-
-export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 }
+export const SMALL_SCREEN_BREAKPOINT = 480
+export const SCROLLBAR_WIDTH = 8
+// sum of left+right padding of dashboard-wrapper (App.css)
+export const DASHBOARD_WRAPPER_LR_MARGIN = 32
 
 // Dimensions for getShape
-
+export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 }
 const NUMBER_OF_ITEM_COLS = 2
 const GRID_COLUMNS = 60
 

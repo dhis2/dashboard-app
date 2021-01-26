@@ -13,6 +13,9 @@ import {
     GRID_COMPACT_TYPE,
     MARGIN,
     MARGIN_SM,
+    SMALL_SCREEN_BREAKPOINT,
+    SCROLLBAR_WIDTH,
+    DASHBOARD_WRAPPER_LR_MARGIN,
     hasShape,
     getGridColumns,
     getSmallLayout,
@@ -33,10 +36,6 @@ import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
 
 const EXPANDED_HEIGHT = 17
-const SMALL_SCREEN_BREAKPOINT = 480
-const SCROLLBAR_WIDTH = 8
-// sum of left+right padding of dashboard-wrapper (App.css)
-const DASHBOARD_WRAPPER_LR_MARGIN = 32
 
 const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     const [expandedItems, setExpandedItems] = useState({})
