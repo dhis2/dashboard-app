@@ -81,7 +81,10 @@ export const FilterUnconnected = ({
             onFocus={onFocus}
             onBlur={onBlur}
         >
-            <SearchIcon className={classes.searchIcon} />
+            <SearchIcon
+                className={classes.searchIcon}
+                small={isSmallScreen(width) && isMaxHeight}
+            />
             <input
                 className={classes.input}
                 type="text"
