@@ -105,8 +105,6 @@ export const getProportionalHeight = (item, windowWidthPx) => {
         return h
     }
 
-    console.log(item.type, wPx, hPx, ratioWH.toFixed(2))
-
     const gridWidthPx = getGridWidth(windowWidthPx)
 
     // get new height in px based on the ratio
