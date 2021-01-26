@@ -33,7 +33,8 @@ import {
     isPrintMode,
     isViewMode,
 } from '../../Dashboard/dashboardModes'
-import { getItemHeightPx, getGridItemDomId } from '../../ItemGrid/gridUtil'
+import { getItemHeightPx } from '../../../modules/gridUtil'
+import getGridItemDomId from '../../../modules/getGridItemDomId'
 
 // this is set in the .dashboard-item-content css
 const ITEM_CONTENT_PADDING = 4

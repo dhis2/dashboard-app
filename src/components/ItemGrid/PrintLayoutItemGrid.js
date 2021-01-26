@@ -19,16 +19,16 @@ import {
 import { sGetIsEditing } from '../../reducers/editDashboard'
 
 import {
-    GRID_ROW_HEIGHT,
+    GRID_ROW_HEIGHT_PX,
     GRID_COMPACT_TYPE,
-    MARGIN,
+    MARGIN_PX,
     GRID_COLUMNS,
     hasShape,
-    A4_LANDSCAPE_WIDTH_PX,
-} from './gridUtil'
+} from '../../modules/gridUtil'
 import {
     getDomGridItemsSortedByYPos,
     getTransformYPx,
+    A4_LANDSCAPE_WIDTH_PX,
 } from '../../modules/printUtils'
 
 import { PRINT_LAYOUT } from '../Dashboard/dashboardModes'
@@ -145,7 +145,7 @@ export class PrintLayoutItemGrid extends Component {
         }
 
         return (
-            <div className="grid-wrapper">
+            <>
                 {isLoading ? (
                     <Layer translucent>
                         <CenteredContent>
@@ -154,21 +154,21 @@ export class PrintLayoutItemGrid extends Component {
                     </Layer>
                 ) : null}
                 <ReactGridLayout
-                    onLayoutChange={this.onLayoutChange}
                     className="layout"
                     layout={dashboardItems}
-                    margin={MARGIN}
+                    margin={MARGIN_PX}
                     cols={GRID_COLUMNS}
-                    rowHeight={GRID_ROW_HEIGHT}
+                    rowHeight={GRID_ROW_HEIGHT_PX}
                     width={A4_LANDSCAPE_WIDTH_PX}
                     compactType={GRID_COMPACT_TYPE}
                     isDraggable={false}
                     isResizable={false}
                     draggableCancel="input,textarea"
+                    onLayoutChange={this.onLayoutChange}
                 >
                     {this.getItemComponents(dashboardItems)}
                 </ReactGridLayout>
-            </div>
+            </>
         )
     }
 }

@@ -22,7 +22,7 @@ import {
     getGridItemProperties,
     getPageBreakItemShape,
     getPrintTitlePageItemShape,
-} from '../components/ItemGrid/gridUtil'
+} from '../modules/gridUtil'
 import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
 import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
 

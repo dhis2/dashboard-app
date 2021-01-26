@@ -11,16 +11,16 @@ import { Item } from '../Item/Item'
 import { resize as pluginResize } from '../Item/VisualizationItem/Visualization/plugin'
 import { isVisualizationType } from '../../modules/itemTypes'
 import {
-    GRID_ROW_HEIGHT,
+    GRID_ROW_HEIGHT_PX,
     GRID_COMPACT_TYPE,
-    MARGIN,
+    MARGIN_PX,
     GRID_PADDING_PX,
     GRID_COLUMNS,
     hasShape,
-    getGridItemDomId,
     getGridWidth,
-    getBreakpoint,
-} from './gridUtil'
+} from '../../modules/gridUtil'
+import { getBreakpoint } from '../../modules/smallScreen'
+import getGridItemDomId from '../../modules/getGridItemDomId'
 import { orArray } from '../../modules/util'
 import NoContentMessage from '../../widgets/NoContentMessage'
 import { sGetSelectedIsLoading } from '../../reducers/selected'
@@ -102,7 +102,7 @@ const EditItemGrid = ({
                 </Layer>
             ) : null}
             <ResponsiveReactGridLayout
-                rowHeight={GRID_ROW_HEIGHT}
+                rowHeight={GRID_ROW_HEIGHT_PX}
                 width={getGridWidth(width)}
                 cols={{ lg: GRID_COLUMNS }}
                 breakpoints={{
@@ -110,7 +110,7 @@ const EditItemGrid = ({
                 }}
                 layouts={{ lg: dashboardItems }}
                 compactType={GRID_COMPACT_TYPE}
-                margin={MARGIN}
+                margin={MARGIN_PX}
                 containerPadding={{ lg: GRID_PADDING_PX }}
                 onLayoutChange={onLayoutChange}
                 onResizeStop={onResizeStop}

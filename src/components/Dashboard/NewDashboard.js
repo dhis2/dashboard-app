@@ -19,7 +19,7 @@ import {
 } from '../ControlBar/controlBarDimensions'
 
 import { useWindowDimensions } from '../WindowDimensionsProvider'
-import isSmallScreen from '../../modules/isSmallScreen'
+import { isSmallScreen } from '../../modules/smallScreen'
 
 const NewDashboard = props => {
     const { width } = useWindowDimensions()

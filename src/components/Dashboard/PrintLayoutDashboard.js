@@ -25,14 +25,14 @@ import {
     sGetDashboardItems,
 } from '../../reducers/dashboards'
 import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
-import { MAX_ITEM_GRID_HEIGHT } from '../ItemGrid/gridUtil'
+import { MAX_ITEM_GRID_HEIGHT } from '../../modules/gridUtil'
 import {
     getControlBarHeight,
     HEADERBAR_HEIGHT,
 } from '../ControlBar/controlBarDimensions'
 import { DRAG_HANDLE_HEIGHT } from '../ControlBar/ControlBar'
 import { useWindowDimensions } from '../WindowDimensionsProvider'
-import isSmallScreen from '../../modules/isSmallScreen'
+import { isSmallScreen } from '../../modules/smallScreen'
 import { getPageBreakPositions } from '../../modules/printUtils'
 
 import classes from './styles/PrintLayoutDashboard.module.css'

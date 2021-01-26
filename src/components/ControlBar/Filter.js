@@ -12,7 +12,7 @@ import {
     acClearDashboardsFilter,
 } from '../../actions/dashboardsFilter'
 import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
-import isSmallScreen from '../../modules/isSmallScreen'
+import { isSmallScreen } from '../../modules/smallScreen'
 
 import classes from './styles/Filter.module.css'
 

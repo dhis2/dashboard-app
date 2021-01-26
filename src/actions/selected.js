@@ -23,7 +23,7 @@ import {
     apiPostShowDescription,
 } from '../api/description'
 
-import { withShape } from '../components/ItemGrid/gridUtil'
+import { withShape } from '../modules/gridUtil'
 import { getVisualizationFromItem } from '../modules/item'
 
 import {

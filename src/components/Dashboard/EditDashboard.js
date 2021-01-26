@@ -23,7 +23,7 @@ import {
     HEADERBAR_HEIGHT,
 } from '../ControlBar/controlBarDimensions'
 
-import isSmallScreen from '../../modules/isSmallScreen'
+import { isSmallScreen } from '../../modules/smallScreen'
 
 const EditDashboard = props => {
     const { width } = useWindowDimensions()

@@ -13,7 +13,7 @@ import {
     getGridItemProperties,
     getPageBreakItemShape,
     getPrintTitlePageItemShape,
-} from '../components/ItemGrid/gridUtil'
+} from '../modules/gridUtil'
 import { itemTypeMap, PAGEBREAK } from '../modules/itemTypes'
 
 // actions

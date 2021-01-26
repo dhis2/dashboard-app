@@ -7,7 +7,7 @@ import {
     itemTypeMap,
 } from '../../../../modules/itemTypes'
 import { getVisualizationId } from '../../../../modules/item'
-import { getGridItemDomId } from '../../../ItemGrid/gridUtil'
+import getGridItemDomId from '../../../../modules/getGridItemDomId'
 
 //external plugins
 const itemTypeToExternalPlugin = {

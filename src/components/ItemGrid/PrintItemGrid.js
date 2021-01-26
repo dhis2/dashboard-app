@@ -17,13 +17,13 @@ import {
 } from '../../reducers/printDashboard'
 
 import {
-    GRID_ROW_HEIGHT,
+    GRID_ROW_HEIGHT_PX,
     GRID_COMPACT_TYPE,
-    MARGIN,
+    MARGIN_PX,
     GRID_COLUMNS,
     hasShape,
-    A4_LANDSCAPE_WIDTH_PX,
-} from './gridUtil'
+} from '../../modules/gridUtil'
+import { A4_LANDSCAPE_WIDTH_PX } from '../../modules/printUtils'
 import { orArray } from '../../modules/util'
 
 import 'react-grid-layout/css/styles.css'
@@ -62,9 +62,9 @@ export class PrintItemGrid extends Component {
                 <ReactGridLayout
                     className="layout print"
                     layout={dashboardItems}
-                    margin={MARGIN}
+                    margin={MARGIN_PX}
                     cols={GRID_COLUMNS}
-                    rowHeight={GRID_ROW_HEIGHT}
+                    rowHeight={GRID_ROW_HEIGHT_PX}
                     width={A4_LANDSCAPE_WIDTH_PX}
                     compactType={GRID_COMPACT_TYPE}
                     isDraggable={false}

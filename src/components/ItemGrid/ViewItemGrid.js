@@ -8,19 +8,18 @@ import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { Item } from '../Item/Item'
 import {
-    GRID_ROW_HEIGHT,
+    GRID_ROW_HEIGHT_PX,
     SM_SCREEN_GRID_COLUMNS,
     GRID_COMPACT_TYPE,
     GRID_PADDING_PX,
-    MARGIN,
-    MARGIN_SM,
+    MARGIN_PX,
+    MARGIN_SM_PX,
     hasShape,
     GRID_COLUMNS,
     getSmallLayout,
     getGridWidth,
-    getBreakpoint,
     getProportionalHeight,
-} from './gridUtil'
+} from '../../modules/gridUtil'
 import { orArray } from '../../modules/util'
 import NoContentMessage from '../../widgets/NoContentMessage'
 import { sGetSelectedId, sGetSelectedIsLoading } from '../../reducers/selected'
@@ -30,7 +29,7 @@ import {
 } from '../../reducers/dashboards'
 import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer'
 import { VIEW } from '../Dashboard/dashboardModes'
-import isSmallScreen from '../../modules/isSmallScreen'
+import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen'
 
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
@@ -120,7 +119,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
                 </Layer>
             ) : null}
             <ResponsiveReactGridLayout
-                rowHeight={GRID_ROW_HEIGHT}
+                rowHeight={GRID_ROW_HEIGHT_PX}
                 width={getGridWidth(width)}
                 cols={{ lg: GRID_COLUMNS, sm: SM_SCREEN_GRID_COLUMNS }}
                 breakpoints={{
@@ -129,7 +128,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
                 }}
                 layouts={{ lg: displayItems, sm: layoutSm }}
                 compactType={GRID_COMPACT_TYPE}
-                margin={isSmallScreen(width) ? MARGIN_SM : MARGIN}
+                margin={isSmallScreen(width) ? MARGIN_SM_PX : MARGIN_PX}
                 containerPadding={{
                     lg: GRID_PADDING_PX,
                     sm: GRID_PADDING_PX,
