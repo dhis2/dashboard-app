@@ -11,14 +11,15 @@ import {
     GRID_ROW_HEIGHT,
     SM_SCREEN_GRID_COLUMNS,
     GRID_COMPACT_TYPE,
+    GRID_PADDING_PX,
     MARGIN,
     MARGIN_SM,
-    SMALL_SCREEN_BREAKPOINT,
-    SCROLLBAR_WIDTH,
-    DASHBOARD_WRAPPER_LR_MARGIN,
     hasShape,
-    getGridColumns,
+    GRID_COLUMNS,
     getSmallLayout,
+    getGridWidth,
+    getBreakpoint,
+    getProportionalHeight,
 } from './gridUtil'
 import { orArray } from '../../modules/util'
 import NoContentMessage from '../../widgets/NoContentMessage'
@@ -38,14 +39,18 @@ import './styles/ItemGrid.css'
 const EXPANDED_HEIGHT = 17
 
 const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
+    const { width } = useWindowDimensions()
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
-    const [layoutSm, setLayoutSm] = useState(getSmallLayout(dashboardItems))
+    const [layoutSm, setLayoutSm] = useState(
+        getSmallLayout(dashboardItems, width)
+    )
     const [gridWidth, setGridWidth] = useState(0)
-    const { width } = useWindowDimensions()
 
     useEffect(() => {
-        setLayoutSm(getItemsWithAdjustedHeight(getSmallLayout(dashboardItems)))
+        setLayoutSm(
+            getItemsWithAdjustedHeight(getSmallLayout(dashboardItems, width))
+        )
         setDisplayItems(getItemsWithAdjustedHeight(dashboardItems))
     }, [expandedItems, dashboardItems])
 
@@ -67,6 +72,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
             if (expandedItem && expandedItem === true) {
                 return Object.assign({}, item, {
                     h: item.h + EXPANDED_HEIGHT,
+                    smallOriginalH: getProportionalHeight(item, width),
                 })
             }
 
@@ -115,18 +121,18 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
             ) : null}
             <ResponsiveReactGridLayout
                 rowHeight={GRID_ROW_HEIGHT}
-                width={width - DASHBOARD_WRAPPER_LR_MARGIN - SCROLLBAR_WIDTH}
-                cols={{ lg: getGridColumns(), sm: SM_SCREEN_GRID_COLUMNS }}
+                width={getGridWidth(width)}
+                cols={{ lg: GRID_COLUMNS, sm: SM_SCREEN_GRID_COLUMNS }}
                 breakpoints={{
-                    lg: SMALL_SCREEN_BREAKPOINT - DASHBOARD_WRAPPER_LR_MARGIN,
+                    lg: getBreakpoint(),
                     sm: 0,
                 }}
                 layouts={{ lg: displayItems, sm: layoutSm }}
                 compactType={GRID_COMPACT_TYPE}
                 margin={isSmallScreen(width) ? MARGIN_SM : MARGIN}
                 containerPadding={{
-                    lg: [0, 0],
-                    sm: [0, 0],
+                    lg: GRID_PADDING_PX,
+                    sm: GRID_PADDING_PX,
                 }}
                 isDraggable={false}
                 isResizable={false}

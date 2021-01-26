@@ -1,25 +1,27 @@
 // Dimensions for the react-grid-layout
 import sortBy from 'lodash/sortBy'
 import { isVisualizationType } from '../../modules/itemTypes'
+import isSmallScreen from '../../modules/isSmallScreen'
 
 export const GRID_COMPACT_TYPE = 'vertical' // vertical | horizonal | null
 export const GRID_ROW_HEIGHT = 10
-const GRID_COLUMN_WIDTH_PX = 20
-const GRID_LAYOUT = 'FLEXIBLE' // FIXED | FLEXIBLE
 export const MARGIN = [10, 10]
 
 const SM_SCREEN_MIN_ITEM_GRID_HEIGHT = 16 //310px
-export const SM_SCREEN_GRID_COLUMNS = 2
+export const SM_SCREEN_GRID_COLUMNS = 1
 export const MARGIN_SM = [0, 16]
-export const SMALL_SCREEN_BREAKPOINT = 480
-export const SCROLLBAR_WIDTH = 8
+export const GRID_PADDING_PX = [0, 0]
+const SMALL_SCREEN_BREAKPOINT = 480
 // sum of left+right padding of dashboard-wrapper (App.css)
-export const DASHBOARD_WRAPPER_LR_MARGIN = 32
+const DASHBOARD_WRAPPER_LR_MARGIN = 32
+// make an assumption about the original item w/h ratio
+// assumes grid width of ~1200px at time dashboard was created
+const GRID_COL_WIDTH_PX = 10
+export const GRID_COLUMNS = 60
 
 // Dimensions for getShape
 export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 }
 const NUMBER_OF_ITEM_COLS = 2
-const GRID_COLUMNS = 60
 
 const MAX_ITEM_GRID_WIDTH = GRID_COLUMNS - 1
 
@@ -34,17 +36,6 @@ const MIN_ITEM_GRID_HEIGHT = 4
 // 1122 px = 29.7 /2.54 * 96 pixels/inch
 // const a4LandscapeHeightPx = 794
 export const A4_LANDSCAPE_WIDTH_PX = 1102
-
-export const getGridColumns = () => {
-    switch (GRID_LAYOUT) {
-        case 'FLEXIBLE':
-            return GRID_COLUMNS
-        case 'FIXED':
-            return Math.floor((window.innerWidth - 20) / GRID_COLUMN_WIDTH_PX)
-        default:
-            return GRID_COLUMNS
-    }
-}
 
 // isNonNegativeInteger
 
@@ -89,34 +80,63 @@ export const withShape = (items = []) => {
     )
 
     return itemsWithShape.map(item =>
-        Object.assign({}, item, {
-            originalH: item.h,
-            smallOriginalH: getProportionalHeight(item),
-        })
+        Object.assign({}, item, { originalH: item.h })
     )
 }
 
-export const getProportionalHeight = item => {
-    if (!isVisualizationType(item) || item.h > SM_SCREEN_MIN_ITEM_GRID_HEIGHT) {
-        return item.h
-    }
-    const ratioWH = item.w / item.h
-    const h = Math.floor(SM_SCREEN_GRID_COLUMNS / ratioWH)
+export const getGridWidth = windowWidthPx =>
+    windowWidthPx - DASHBOARD_WRAPPER_LR_MARGIN
 
+export const getBreakpoint = () =>
+    SMALL_SCREEN_BREAKPOINT - DASHBOARD_WRAPPER_LR_MARGIN
+
+export const getProportionalHeight = (item, windowWidthPx) => {
+    // get w/h ratio of the original item
+    const wPx = getItemWHPx(item.w, GRID_COL_WIDTH_PX, MARGIN[0])
+    const hPx = getItemWHPx(item.h, GRID_ROW_HEIGHT, MARGIN[1])
+    const ratioWH = wPx / hPx
+
+    if (!isVisualizationType(item)) {
+        // return Math.round(item.h * (MARGIN[1] / MARGIN_SM[1]))
+
+        //convert height in px back to grid units
+        const gridUnitHeightPx = GRID_ROW_HEIGHT + MARGIN_SM[1]
+        const h = Math.round((hPx + MARGIN_SM[1]) / gridUnitHeightPx)
+        return h
+    }
+
+    console.log(item.type, wPx, hPx, ratioWH.toFixed(2))
+
+    const gridWidthPx = getGridWidth(windowWidthPx)
+
+    // get new height in px based on the ratio
+    const newColWidthPx =
+        (gridWidthPx -
+            MARGIN_SM[0] * (SM_SCREEN_GRID_COLUMNS - 1) -
+            GRID_PADDING_PX[0] * 2) /
+        SM_SCREEN_GRID_COLUMNS
+    const newWPx = newColWidthPx * SM_SCREEN_GRID_COLUMNS
+    const newHPx = Math.round(newWPx / ratioWH)
+
+    //convert height in px back to grid units
+    const gridUnitHeightPx = GRID_ROW_HEIGHT + MARGIN_SM[1]
+    const h = Math.round((newHPx + MARGIN_SM[1]) / gridUnitHeightPx)
+
+    // item must be at least the set minimum
     return h < SM_SCREEN_MIN_ITEM_GRID_HEIGHT
         ? SM_SCREEN_MIN_ITEM_GRID_HEIGHT
         : h
 }
 
-export const getSmallLayout = items =>
-    sortBy(items, ['y', 'x']).map((item, i) => ({
-        id: item.id,
-        i: item.i,
-        x: 0,
-        y: i,
-        w: SM_SCREEN_GRID_COLUMNS,
-        h: getProportionalHeight(item),
-    }))
+export const getSmallLayout = (items, windowWidthPx) =>
+    sortBy(items, ['y', 'x']).map((item, i) =>
+        Object.assign({}, item, {
+            x: 0,
+            y: i,
+            w: SM_SCREEN_GRID_COLUMNS,
+            h: getProportionalHeight(item, windowWidthPx),
+        })
+    )
 
 export const getGridItemProperties = itemId => {
     return {
@@ -150,7 +170,8 @@ export const getPrintTitlePageItemShape = isOneItemPerPage => {
 /**
  * Calculates the grid item's height in pixels based
  * on the height in grid units. This calculation
- * is copied directly from react-grid-layout GridItem.js (calcPosition)
+ * is copied directly from react-grid-layout
+ * calculateUtils.js (calcGridItemWHPx)
  *
  * Each row's px height is the sum of the GRID_ROW_HEIGHT + MARGIN-Y
  * So the calculation is:
@@ -160,10 +181,18 @@ export const getPrintTitlePageItemShape = isOneItemPerPage => {
  *
  * @param {Object} item item containing shape (x, y, w, h)
  */
-export const getItemHeightPx = (item, isSmallScreen) => {
-    const h = isSmallScreen ? item.smallOriginalH : item.originalH
-    const yMargin = isSmallScreen ? MARGIN_SM[1] : MARGIN[1]
-    return Math.round(GRID_ROW_HEIGHT * h + Math.max(0, h - 1) * yMargin)
+export const getItemHeightPx = (item, windowWidthPx) => {
+    if (isSmallScreen(windowWidthPx)) {
+        const h = item.smallOriginalH
+            ? item.smallOriginalH
+            : getProportionalHeight(item, windowWidthPx)
+        return getItemWHPx(h, GRID_ROW_HEIGHT, MARGIN_SM[1])
+    }
+
+    return getItemWHPx(item.originalH, GRID_ROW_HEIGHT, MARGIN[1])
 }
+
+const getItemWHPx = (gridUnits, colOrRowSize, marginPx) =>
+    Math.round(colOrRowSize * gridUnits + Math.max(0, gridUnits - 1) * marginPx)
 
 export const getGridItemDomId = id => `item-${id}`

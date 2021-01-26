@@ -14,12 +14,12 @@ import {
     GRID_ROW_HEIGHT,
     GRID_COMPACT_TYPE,
     MARGIN,
-    SMALL_SCREEN_BREAKPOINT,
-    SCROLLBAR_WIDTH,
-    DASHBOARD_WRAPPER_LR_MARGIN,
-    getGridColumns,
+    GRID_PADDING_PX,
+    GRID_COLUMNS,
     hasShape,
     getGridItemDomId,
+    getGridWidth,
+    getBreakpoint,
 } from './gridUtil'
 import { orArray } from '../../modules/util'
 import NoContentMessage from '../../widgets/NoContentMessage'
@@ -103,18 +103,15 @@ const EditItemGrid = ({
             ) : null}
             <ResponsiveReactGridLayout
                 rowHeight={GRID_ROW_HEIGHT}
-                width={width - DASHBOARD_WRAPPER_LR_MARGIN - SCROLLBAR_WIDTH}
-                cols={{ lg: getGridColumns() }}
+                width={getGridWidth(width)}
+                cols={{ lg: GRID_COLUMNS }}
                 breakpoints={{
-                    lg: SMALL_SCREEN_BREAKPOINT - DASHBOARD_WRAPPER_LR_MARGIN,
+                    lg: getBreakpoint(),
                 }}
                 layouts={{ lg: dashboardItems }}
                 compactType={GRID_COMPACT_TYPE}
                 margin={MARGIN}
-                containerPadding={{
-                    lg: [0, 0],
-                    sm: [0, 0],
-                }}
+                containerPadding={{ lg: GRID_PADDING_PX }}
                 onLayoutChange={onLayoutChange}
                 onResizeStop={onResizeStop}
                 onWidthChange={onWidthChanged}

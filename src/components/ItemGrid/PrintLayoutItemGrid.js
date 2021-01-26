@@ -22,7 +22,7 @@ import {
     GRID_ROW_HEIGHT,
     GRID_COMPACT_TYPE,
     MARGIN,
-    getGridColumns,
+    GRID_COLUMNS,
     hasShape,
     A4_LANDSCAPE_WIDTH_PX,
 } from './gridUtil'
@@ -158,7 +158,7 @@ export class PrintLayoutItemGrid extends Component {
                     className="layout"
                     layout={dashboardItems}
                     margin={MARGIN}
-                    cols={getGridColumns()}
+                    cols={GRID_COLUMNS}
                     rowHeight={GRID_ROW_HEIGHT}
                     width={A4_LANDSCAPE_WIDTH_PX}
                     compactType={GRID_COMPACT_TYPE}

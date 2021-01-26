@@ -28,7 +28,6 @@ import {
 import { getDataStatisticsName } from '../../../modules/itemTypes'
 import { getVisualizationId, getVisualizationName } from '../../../modules/item'
 import memoizeOne from '../../../modules/memoizeOne'
-import isSmallScreen from '../../../modules/isSmallScreen'
 import {
     isEditMode,
     isPrintMode,
@@ -181,7 +180,7 @@ export class Item extends Component {
         const { width } = this.context
 
         const calculatedHeight =
-            getItemHeightPx(this.props.item, isSmallScreen(width)) -
+            getItemHeightPx(this.props.item, width) -
             this.headerRef.current.clientHeight -
             HEADER_MARGIN_HEIGHT -
             ITEM_CONTENT_PADDING
