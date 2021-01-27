@@ -1,14 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
-import ReactGridLayout from 'react-grid-layout'
-import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import cx from 'classnames'
 
+import StaticGrid from './StaticGrid'
 import { Item } from '../Item/Item'
-import NoContentMessage from '../../widgets/NoContentMessage'
 
+import { hasShape } from '../../modules/gridUtil'
 import { PRINT } from '../Dashboard/dashboardModes'
 import { sGetSelectedIsLoading } from '../../reducers/selected'
 import {
@@ -16,75 +14,31 @@ import {
     sGetPrintDashboardItems,
 } from '../../reducers/printDashboard'
 
-import {
-    GRID_ROW_HEIGHT_PX,
-    GRID_COMPACT_TYPE,
-    MARGIN_PX,
-    GRID_COLUMNS,
-    hasShape,
-} from '../../modules/gridUtil'
-import { A4_LANDSCAPE_WIDTH_PX } from '../../modules/printUtils'
 import { orArray } from '../../modules/util'
 
-import 'react-grid-layout/css/styles.css'
-
-import './styles/ItemGrid.css'
-
-export class PrintItemGrid extends Component {
-    getItemComponent = item => (
+const PrintItemGrid = ({ isLoading, dashboardItems }) => {
+    const getItemComponent = item => (
         <div key={item.i} className={cx(item.type, 'print', 'oipp')}>
             <Item item={item} dashboardMode={PRINT} />
         </div>
     )
 
-    getItemComponents = items => items.map(item => this.getItemComponent(item))
+    const getItemComponents = items => items.map(item => getItemComponent(item))
 
-    render() {
-        const { isLoading, dashboardItems } = this.props
-
-        if (!isLoading && !dashboardItems.length) {
-            return (
-                <NoContentMessage
-                    text={i18n.t('There are no items on this dashboard')}
-                />
-            )
-        }
-
-        return (
-            <>
-                {isLoading ? (
-                    <Layer translucent>
-                        <CenteredContent>
-                            <CircularLoader />
-                        </CenteredContent>
-                    </Layer>
-                ) : null}
-                <ReactGridLayout
-                    className="layout print"
-                    layout={dashboardItems}
-                    margin={MARGIN_PX}
-                    cols={GRID_COLUMNS}
-                    rowHeight={GRID_ROW_HEIGHT_PX}
-                    width={A4_LANDSCAPE_WIDTH_PX}
-                    compactType={GRID_COMPACT_TYPE}
-                    isDraggable={false}
-                    isResizable={false}
-                    draggableCancel="input,textarea"
-                >
-                    {this.getItemComponents(dashboardItems)}
-                </ReactGridLayout>
-            </>
-        )
-    }
+    return (
+        <StaticGrid
+            isLoading={isLoading}
+            className="print"
+            layout={dashboardItems}
+        >
+            {getItemComponents(dashboardItems)}
+        </StaticGrid>
+    )
 }
 
 PrintItemGrid.propTypes = {
     dashboardItems: PropTypes.array,
     isLoading: PropTypes.bool,
-}
-
-PrintItemGrid.defaultProps = {
-    dashboardItems: [],
 }
 
 const mapStateToProps = state => {

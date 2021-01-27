@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
 import sortBy from 'lodash/sortBy'
-import ReactGridLayout from 'react-grid-layout'
-import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import cx from 'classnames'
 
+import StaticGrid from './StaticGrid'
 import { Item } from '../Item/Item'
-import NoContentMessage from '../../widgets/NoContentMessage'
 
 import { acUpdatePrintDashboardLayout } from '../../actions/printDashboard'
 import { sGetSelectedIsLoading } from '../../reducers/selected'
@@ -18,26 +15,14 @@ import {
 } from '../../reducers/printDashboard'
 import { sGetIsEditing } from '../../reducers/editDashboard'
 
-import {
-    GRID_ROW_HEIGHT_PX,
-    GRID_COMPACT_TYPE,
-    MARGIN_PX,
-    GRID_COLUMNS,
-    hasShape,
-} from '../../modules/gridUtil'
+import { hasShape } from '../../modules/gridUtil'
 import {
     getDomGridItemsSortedByYPos,
     getTransformYPx,
-    A4_LANDSCAPE_WIDTH_PX,
 } from '../../modules/printUtils'
 
 import { PRINT_LAYOUT } from '../Dashboard/dashboardModes'
 import { PAGEBREAK } from '../../modules/itemTypes'
-
-import 'react-grid-layout/css/styles.css'
-import 'react-resizable/css/styles.css'
-
-import './styles/ItemGrid.css'
 
 export class PrintLayoutItemGrid extends Component {
     onLayoutChange = newLayout => {
@@ -136,39 +121,14 @@ export class PrintLayoutItemGrid extends Component {
     render() {
         const { isLoading, dashboardItems } = this.props
 
-        if (!isLoading && !dashboardItems.length) {
-            return (
-                <NoContentMessage
-                    text={i18n.t('There are no items on this dashboard')}
-                />
-            )
-        }
-
         return (
-            <>
-                {isLoading ? (
-                    <Layer translucent>
-                        <CenteredContent>
-                            <CircularLoader />
-                        </CenteredContent>
-                    </Layer>
-                ) : null}
-                <ReactGridLayout
-                    className="layout"
-                    layout={dashboardItems}
-                    margin={MARGIN_PX}
-                    cols={GRID_COLUMNS}
-                    rowHeight={GRID_ROW_HEIGHT_PX}
-                    width={A4_LANDSCAPE_WIDTH_PX}
-                    compactType={GRID_COMPACT_TYPE}
-                    isDraggable={false}
-                    isResizable={false}
-                    draggableCancel="input,textarea"
-                    onLayoutChange={this.onLayoutChange}
-                >
-                    {this.getItemComponents(dashboardItems)}
-                </ReactGridLayout>
-            </>
+            <StaticGrid
+                isLoading={isLoading}
+                layout={dashboardItems}
+                onLayoutChange={this.onLayoutChange}
+            >
+                {this.getItemComponents(dashboardItems)}
+            </StaticGrid>
         )
     }
 }
