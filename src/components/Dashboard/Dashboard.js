@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import isEmpty from 'lodash/isEmpty'
 import i18n from '@dhis2/d2-i18n'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import debounce from 'lodash/debounce'
+import { Redirect } from 'react-router-dom'
 
 import DashboardsBar from '../ControlBar/DashboardsBar'
 import NoContentMessage from '../../widgets/NoContentMessage'
@@ -31,7 +32,11 @@ import {
     PRINT,
     PRINT_LAYOUT,
     isPrintMode,
+    isEditMode,
 } from './dashboardModes'
+
+import { useWindowDimensions } from '../WindowDimensionsProvider'
+import isSmallScreen from '../../modules/isSmallScreen'
 
 const setHeaderbarVisibility = mode => {
     const header = document.getElementsByTagName('header')[0]
@@ -59,8 +64,18 @@ export const Dashboard = ({
     selectDashboard,
     setWindowHeight,
 }) => {
+    const { width } = useWindowDimensions()
+    const [redirectUrl, setRedirectUrl] = useState(null)
+
     useEffect(() => {
         setHeaderbarVisibility(mode)
+    }, [mode])
+
+    useEffect(() => {
+        if (isSmallScreen(width) && isEditMode(mode)) {
+            const redirectUrl = routeId ? `/${routeId}` : '/'
+            setRedirectUrl(redirectUrl)
+        }
     }, [mode])
 
     useEffect(() => {
@@ -79,6 +94,10 @@ export const Dashboard = ({
             window.removeEventListener('resize', onResize)
         }
     }, [])
+
+    if (redirectUrl) {
+        return <Redirect to={redirectUrl} />
+    }
 
     if (!dashboardsLoaded) {
         return (
