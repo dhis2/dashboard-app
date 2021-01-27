@@ -75,6 +75,8 @@ export const Dashboard = ({
         if (isSmallScreen(width) && isEditMode(mode)) {
             const redirectUrl = routeId ? `/${routeId}` : '/'
             setRedirectUrl(redirectUrl)
+        } else {
+            setRedirectUrl(null)
         }
     }, [mode])
 
@@ -95,10 +97,6 @@ export const Dashboard = ({
         }
     }, [])
 
-    if (redirectUrl) {
-        return <Redirect to={redirectUrl} />
-    }
-
     if (!dashboardsLoaded) {
         return (
             <Layer translucent>
@@ -107,6 +105,10 @@ export const Dashboard = ({
                 </CenteredContent>
             </Layer>
         )
+    }
+
+    if (redirectUrl) {
+        return <Redirect to={redirectUrl} />
     }
 
     if (mode === NEW) {
