@@ -1,8 +1,9 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import toJson from 'enzyme-to-json'
 
 import { Dashboard } from '../Dashboard'
+import WindowDimensionsProvider from '../../WindowDimensionsProvider'
 import { NEW, VIEW, EDIT, PRINT, PRINT_LAYOUT } from '../dashboardModes'
 import { NON_EXISTING_DASHBOARD_ID } from '../../../reducers/selected'
 
@@ -14,12 +15,33 @@ jest.mock('../NewDashboard', () => 'NewDashboard')
 jest.mock('../PrintDashboard', () => 'PrintDashboard')
 jest.mock('../PrintLayoutDashboard', () => 'PrintLayoutDashboard')
 
+jest.mock('@dhis2/ui', () => {
+    return {
+        Layer: () =>
+            function MockLayer() {
+                return <div className="mock-layer" />
+            },
+        CenteredContent: () =>
+            function MockCenteredContent() {
+                return <div className="mock-centered-content" />
+            },
+        CircularLoader: () =>
+            function CircularLoader() {
+                return <div className="mock-circular-loader" />
+            },
+    }
+})
+
 describe('Dashboard', () => {
     let props
     let shallowDashboard
     const dashboard = () => {
         if (!shallowDashboard) {
-            shallowDashboard = shallow(<Dashboard {...props} />)
+            shallowDashboard = mount(
+                <WindowDimensionsProvider>
+                    <Dashboard {...props} />
+                </WindowDimensionsProvider>
+            )
         }
         return shallowDashboard
     }
