@@ -41,17 +41,19 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     const { width } = useWindowDimensions()
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
-    const [layoutSm, setLayoutSm] = useState(
-        getSmallLayout(dashboardItems, width)
-    )
+    const [layoutSm, setLayoutSm] = useState([])
     const [gridWidth, setGridWidth] = useState(0)
 
     useEffect(() => {
-        setLayoutSm(
-            getItemsWithAdjustedHeight(getSmallLayout(dashboardItems, width))
-        )
+        if (isSmallScreen(width)) {
+            setLayoutSm(
+                getItemsWithAdjustedHeight(
+                    getSmallLayout(dashboardItems, width)
+                )
+            )
+        }
         setDisplayItems(getItemsWithAdjustedHeight(dashboardItems))
-    }, [expandedItems, dashboardItems])
+    }, [expandedItems, width, dashboardItems])
 
     const onToggleItemExpanded = clickedId => {
         const isExpanded =

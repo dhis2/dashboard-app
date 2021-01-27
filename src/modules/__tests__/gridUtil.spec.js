@@ -51,7 +51,7 @@ describe('getProportionalHeight', () => {
 
     it('returns the proportional height in grid units for 360px', () => {
         const item = { w: 20, h: 20, type: 'CHART' }
-        expect(getProportionalHeight(item, 360)).toEqual(16)
+        expect(getProportionalHeight(item, 360)).toEqual(13)
     })
 
     it('returns the initial height for non vis type', () => {
@@ -76,7 +76,7 @@ describe('getSmallLayout', () => {
                 x: 0,
                 y: 0,
                 w: SM_SCREEN_GRID_COLUMNS,
-                h: 16,
+                h: 13,
                 type: 'CHART',
                 i: 'A',
             },
@@ -84,7 +84,7 @@ describe('getSmallLayout', () => {
                 x: 0,
                 y: 1,
                 w: SM_SCREEN_GRID_COLUMNS,
-                h: 16,
+                h: 13,
                 type: 'CHART',
                 i: 'C',
             },
