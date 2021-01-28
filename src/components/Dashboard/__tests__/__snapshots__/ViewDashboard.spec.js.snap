@@ -2,43 +2,39 @@
 
 exports[`ViewDashboard renders correctly default 1`] = `
 <WindowDimensionsProvider>
- <ViewDashboard
-     clearEditDashboard={[MockFunction]}
-     clearPrintDashboard={[MockFunction]}
-     controlBarRows={2}
-     dashboardIsEditing={false}
-     dashboardIsPrinting={false}
-     windowHeight={600}
-   >
-     <MockDashboardsBar>
-       <div>
-         MockDashboardsBar
-       </div>
-     </MockDashboardsBar>
-     <div
-       className="dashboard-wrapper"
-       style={
-         Object {
-           "height": 616,
-         }
-       }
-     >
-       <MockViewTitleBar>
-         <div>
-           MockViewTitleBar
-         </div>
-       </MockViewTitleBar>
-       <MockFilterBar>
-         <div>
-           MockFilterBar
-         </div>
-       </MockFilterBar>
-       <MockViewItemGrid>
-         <div>
-           MockViewItemGrid
-         </div>
-       </MockViewItemGrid>
-     </div>
-   </ViewDashboard>
+    <ViewDashboard
+        clearEditDashboard={[MockFunction]}
+        clearPrintDashboard={[MockFunction]}
+        controlBarRows={2}
+        dashboardIsEditing={false}
+        dashboardIsPrinting={false}
+        windowHeight={600}
+    >
+        <MockDashboardsBar>
+            <div>
+                MockDashboardsBar
+            </div>
+        </MockDashboardsBar>
+        <div
+            className="dashboard-wrapper"
+            style={
+                Object {
+                    "height": 616,
+                }
+            }
+        >
+            <MockViewTitleBar>
+                <div>
+                    MockViewTitleBar
+                </div>
+            </MockViewTitleBar>
+            <MockFilterBar>
+                <div>
+                    MockFilterBar
+                </div>
+            </MockFilterBar>
+            <ItemGrid edit={false}/>
+        </div>
+    </ViewDashboard>
 </WindowDimensionsProvider>
 `;
