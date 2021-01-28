@@ -1,3 +1,10 @@
+# [31.8.0](https://github.com/dhis2/dashboard-app/compare/v31.7.1...v31.8.0) (2021-01-28)
+
+
+### Features
+
+* responsive - redirect to view when url of /edit or /new manually entered [DHIS2-10138] ([#1473](https://github.com/dhis2/dashboard-app/issues/1473)) ([de3e1a6](https://github.com/dhis2/dashboard-app/commit/de3e1a6e32260d60f5caaf4b8114c1b1b7a9d34a))
+
 ## [31.7.1](https://github.com/dhis2/dashboard-app/compare/v31.7.0...v31.7.1) (2021-01-25)
 
 
