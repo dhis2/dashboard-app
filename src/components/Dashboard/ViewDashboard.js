@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import TitleBar from '../TitleBar/TitleBar'
+import ViewTitleBar from '../TitleBar/ViewTitleBar'
 import ItemGrid from '../ItemGrid/ItemGrid'
 import FilterBar from '../FilterBar/FilterBar'
 import DashboardsBar from '../ControlBar/DashboardsBar'
@@ -40,7 +40,7 @@ export const ViewDashboard = props => {
         <>
             <DashboardsBar />
             <div className="dashboard-wrapper" style={{ height }}>
-                <TitleBar edit={false} />
+                <ViewTitleBar />
                 <FilterBar />
                 <ItemGrid edit={false} />
             </div>

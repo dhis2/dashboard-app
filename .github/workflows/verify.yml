@@ -1,8 +1,6 @@
 name: 'dhis2: verify (app)'
 
-on:
-    push:
-        branches:
+on: push
 
 env:
     GIT_AUTHOR_NAME: '@dhis2-bot'
@@ -11,6 +9,7 @@ env:
     GIT_COMMITTER_EMAIL: 'apps@dhis2.org'
     GH_TOKEN: ${{secrets.DHIS2_BOT_GITHUB_TOKEN}}
     CI: true
+    D2_VERBOSE: true
 
 jobs:
     install:

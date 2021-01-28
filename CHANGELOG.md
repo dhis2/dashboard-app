@@ -1,3 +1,31 @@
+## [31.7.1](https://github.com/dhis2/dashboard-app/compare/v31.7.0...v31.7.1) (2021-01-25)
+
+
+### Bug Fixes
+
+* trigger event to hide tooltip when click wasnt on button ([#1461](https://github.com/dhis2/dashboard-app/issues/1461)) ([b87604c](https://github.com/dhis2/dashboard-app/commit/b87604ca442539e15e80651a5dbb628420376181))
+
+# [31.7.0](https://github.com/dhis2/dashboard-app/compare/v31.6.2...v31.7.0) (2021-01-25)
+
+
+### Features
+
+* print layout padding and grid width ([#1460](https://github.com/dhis2/dashboard-app/issues/1460)) ([b06b427](https://github.com/dhis2/dashboard-app/commit/b06b427855285feecc056e0a42d56269614bbd32))
+
+## [31.6.2](https://github.com/dhis2/dashboard-app/compare/v31.6.1...v31.6.2) (2021-01-19)
+
+
+### Bug Fixes
+
+* Adjust position of the title to be in line with action buttons in small screen mode ([#1449](https://github.com/dhis2/dashboard-app/issues/1449)) ([844a12f](https://github.com/dhis2/dashboard-app/commit/844a12f7ba10e3f18865e8c0c5cd550f5689de7d))
+
+## [31.6.1](https://github.com/dhis2/dashboard-app/compare/v31.6.0...v31.6.1) (2021-01-14)
+
+
+### Bug Fixes
+
+* add margin on all sides of notice box ([#1445](https://github.com/dhis2/dashboard-app/issues/1445)) ([ce8b5e5](https://github.com/dhis2/dashboard-app/commit/ce8b5e5eb42a59e027e723a8de0b02e20481027b))
+
 # [31.6.0](https://github.com/dhis2/dashboard-app/compare/v31.5.0...v31.6.0) (2021-01-12)
 
 

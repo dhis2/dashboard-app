@@ -1,49 +1,43 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import { App } from '../App'
+import { Provider } from 'react-redux'
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+import { render } from '@testing-library/react'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { apiFetchDimensions } from '@dhis2/analytics'
+import { apiFetchDashboards } from '../../api/dashboards'
+import App from '../App'
 
-jest.mock('../Dashboard/Dashboard', () => 'Dashboard')
-jest.mock('../../actions/dimensions', () => ({ tSetDimensions: () => null }))
-jest.mock('../../actions/dashboards', () => ({ tFetchDashboards: () => null }))
-
-describe('App', () => {
-    let props
-    let shallowApp
-    let context
-    const app = context => {
-        if (!shallowApp) {
-            shallowApp = shallow(<App {...props} />, {
-                context,
-            })
+jest.mock('../../api/dashboards')
+jest.mock('@dhis2/analytics')
+jest.mock('@dhis2/app-runtime-adapter-d2')
+jest.mock(
+    '../Dashboard/Dashboard',
+    () =>
+        function MockDashboard() {
+            return <div className="dashboard" />
         }
-        return shallowApp
+)
+
+const middlewares = [thunk]
+const mockStore = configureMockStore(middlewares)
+
+test('renders the app', () => {
+    useD2.mockReturnValue({
+        d2: {
+            currentUser: 'rainbowDash',
+        },
+    })
+    apiFetchDashboards.mockReturnValue('array of dashboards')
+    apiFetchDimensions.mockReturnValue([{ dimensionType: 'mock' }])
+    const store = {
+        settings: {},
     }
-
-    beforeEach(() => {
-        props = {
-            fetchDashboards: jest.fn(),
-            setCurrentUser: jest.fn(),
-            setControlBarRows: jest.fn(),
-            setDimensions: jest.fn(),
-            addSettings: jest.fn(),
-            setShowDescription: jest.fn(),
-            d2: {},
-        }
-        shallowApp = undefined
-        context = {
-            store: {
-                dispatch: jest.fn(),
-            },
-        }
-    })
-
-    it('renders the App', () => {
-        expect(app(context)).toMatchSnapshot()
-    })
-
-    it('fetches the dashboards', () => {
-        app(context)
-
-        expect(props.fetchDashboards).toHaveBeenCalledTimes(1)
-    })
+    const { container } = render(
+        <Provider store={mockStore(store)}>
+            <App />
+        </Provider>
+    )
+    expect(container).toMatchSnapshot()
+    expect(apiFetchDashboards).toHaveBeenCalledTimes(1)
 })

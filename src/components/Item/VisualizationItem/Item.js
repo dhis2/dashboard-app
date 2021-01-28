@@ -40,10 +40,8 @@ export class Item extends Component {
         isFullscreen: false,
     }
 
-    constructor(props, context) {
+    constructor(props) {
         super(props)
-
-        this.d2 = context.d2
 
         this.contentRef = React.createRef()
         this.headerRef = React.createRef()
@@ -220,10 +218,6 @@ export class Item extends Component {
             </>
         )
     }
-}
-
-Item.contextTypes = {
-    d2: PropTypes.object,
 }
 
 Item.propTypes = {
