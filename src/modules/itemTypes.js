@@ -10,8 +10,6 @@ import EmailIcon from '@material-ui/icons/Email'
 import CropFreeIcon from '@material-ui/icons/CropFree'
 import NotInterestedIcon from '@material-ui/icons/NotInterested'
 
-import { getBaseUrl } from './util'
-
 // Item types
 export const VISUALIZATION = 'VISUALIZATION'
 export const REPORT_TABLE = 'REPORT_TABLE'
@@ -166,7 +164,7 @@ export const getEndPointName = type => itemTypeMap[type].endPointName
 export const getDataStatisticsName = type =>
     itemTypeMap[type].dataStatisticsName || null
 
-export const getItemUrl = (type, item, d2) => {
+export const getItemUrl = (type, item, baseUrl) => {
     let url
 
     if (type === APP) {
@@ -174,10 +172,7 @@ export const getItemUrl = (type, item, d2) => {
     }
 
     if (itemTypeMap[type] && itemTypeMap[type].appUrl) {
-        url = `${getBaseUrl(d2)}/${itemTypeMap[type].appUrl(
-            item.id,
-            item.type
-        )}`
+        url = `${baseUrl}/${itemTypeMap[type].appUrl(item.id, item.type)}`
     }
 
     return url

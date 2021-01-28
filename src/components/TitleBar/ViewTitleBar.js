@@ -8,7 +8,7 @@ import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import Star from '@material-ui/icons/Star'
 import StarBorder from '@material-ui/icons/StarBorder'
 import { Button, FlyoutMenu, Popover, MenuItem, colors } from '@dhis2/ui'
-
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { ThreeDots } from '../Item/VisualizationItem/assets/icons'
 import { orObject } from '../../modules/util'
@@ -28,11 +28,12 @@ import isSmallScreen from '../../modules/isSmallScreen'
 
 import classes from './styles/ViewTitleBar.module.css'
 
-const ViewTitleBar = (props, context) => {
+const ViewTitleBar = props => {
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
     const { width } = useWindowDimensions()
+    const { d2 } = useD2({})
 
     const {
         id,
@@ -184,7 +185,7 @@ const ViewTitleBar = (props, context) => {
             </div>
             {id && (
                 <SharingDialog
-                    d2={context.d2}
+                    d2={d2}
                     id={id}
                     type="dashboard"
                     open={sharingDialogIsOpen}
@@ -211,10 +212,6 @@ ViewTitleBar.defaultProps = {
     description: '',
     starred: false,
     showDescription: false,
-}
-
-ViewTitleBar.contextTypes = {
-    d2: PropTypes.object,
 }
 
 const mapStateToProps = state => {
