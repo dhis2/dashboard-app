@@ -201,9 +201,7 @@ const DashboardsBar = ({
                 style={{
                     marginTop:
                         getControlBarHeight(
-                            isSmallScreen(width) && !isMaxHeight()
-                                ? MIN_ROW_COUNT
-                                : userRows
+                            isSmallScreen(width) ? MIN_ROW_COUNT : userRows
                         ) + DRAG_HANDLE_HEIGHT,
                 }}
             />
