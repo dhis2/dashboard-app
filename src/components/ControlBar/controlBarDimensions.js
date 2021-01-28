@@ -29,6 +29,7 @@ export const getControlBarHeight = rows => {
 export const CONTROL_BAR = 'controlBar'
 export const CONTROL_BAR_CONTAINER = 'controlBarContainer'
 export const CHIPS_CONTAINER = 'chipsContainer'
+export const CONTROL_BAR_COLLAPSED = 'controlBarCollapsed'
 
 export const getControlBarHeightSmallDevice = (type, height) => {
     const controlBarHeight =
@@ -46,7 +47,12 @@ export const getControlBarHeightSmallDevice = (type, height) => {
                 SEARCH_BAR_HEIGHT_SMALL -
                 CONTROL_BAR_OUTER_HEIGHT_DIFF
             )
+        case CONTROL_BAR_COLLAPSED:
         default:
-            return height
+            return (
+                SEARCH_BAR_HEIGHT_SMALL +
+                CONTROL_BAR_OUTER_HEIGHT_DIFF +
+                DRAG_HANDLE_HEIGHT
+            )
     }
 }

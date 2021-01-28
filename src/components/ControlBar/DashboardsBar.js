@@ -34,6 +34,7 @@ import isSmallScreen from '../../modules/isSmallScreen'
 import classes from './styles/DashboardsBar.module.css'
 
 export const MAX_ROW_COUNT = 10
+export const isDashboardBarMaxHeight = rows => rows === MAX_ROW_COUNT
 
 const DashboardsBar = ({
     userRows,
@@ -51,7 +52,7 @@ const DashboardsBar = ({
         setRows(userRows)
     }, [userRows])
 
-    const isMaxHeight = () => rows === MAX_ROW_COUNT
+    const isMaxHeight = () => isDashboardBarMaxHeight(rows)
 
     const adjustHeight = newHeight => {
         const newRows = Math.max(
