@@ -1,12 +1,13 @@
+# 
 # Translators:
-# phil_dhis2, 2019
+# phil_dhis2, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-04T08:23:22.661Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"POT-Creation-Date: 2020-09-08T17:54:39.674Z\n"
+"PO-Revision-Date: 2020-12-22 22:13+0000\n"
+"Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Danish (https://www.transifex.com/hisp-uio/teams/100509/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,8 +15,8 @@ msgstr ""
 "Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Dashboard"
-msgstr "Dashboard"
+msgid "Untitled dashboard"
+msgstr ""
 
 msgid "Cancel"
 msgstr "Cancel"
@@ -32,10 +33,10 @@ msgid ""
 "this dashboard?"
 msgstr ""
 
-msgid "Exit without saving"
+msgid "Exit Print preview"
 msgstr ""
 
-msgid "Go to dashboards"
+msgid "Print preview"
 msgstr ""
 
 msgid "Save changes"
@@ -43,6 +44,12 @@ msgstr ""
 
 msgid "Translate"
 msgstr "Translate"
+
+msgid "Exit without saving"
+msgstr ""
+
+msgid "Go to dashboards"
+msgstr ""
 
 msgid "Search for a dashboard"
 msgstr ""
@@ -53,13 +60,42 @@ msgstr ""
 msgid "Show less"
 msgstr ""
 
-msgid "No access"
-msgstr ""
-
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
 
 msgid "Requested dashboard not found"
+msgstr ""
+
+msgid "No access"
+msgstr ""
+
+msgid "Exit print preview"
+msgstr ""
+
+msgid "Print"
+msgstr ""
+
+msgid "dashboard layout"
+msgstr ""
+
+msgid "one item per page"
+msgstr ""
+
+msgid "Print Preview"
+msgstr ""
+
+msgid "For best print results"
+msgstr ""
+
+msgid "Use Chrome or Edge web browser"
+msgstr ""
+
+msgid "Wait for all dashboard items to load before printing"
+msgstr ""
+
+msgid ""
+"Use A4 landscape paper size and default margin settings in the browser print"
+" dialog"
 msgstr ""
 
 msgid "{{count}} selected"
@@ -70,10 +106,22 @@ msgstr[1] ""
 msgid "Remove"
 msgstr "Remove"
 
+msgid "Delete item"
+msgstr ""
+
+msgid "This item has been shortened to fit on one page"
+msgstr ""
+
 msgid "Messages"
 msgstr "Messages"
 
 msgid "See all messages"
+msgstr ""
+
+msgid "Item type \"{{type}}\" not supported"
+msgstr ""
+
+msgid "Filters applied"
 msgstr ""
 
 msgid "Spacer"
@@ -92,7 +140,28 @@ msgstr ""
 msgid "Unable to load the plugin for this item"
 msgstr ""
 
+msgid "There was a problem loading this dashboard item"
+msgstr ""
+
 msgid "No data to display"
+msgstr ""
+
+msgid "Hide interpretations and details"
+msgstr ""
+
+msgid "Show interpretations and details"
+msgstr ""
+
+msgid "View as Chart"
+msgstr ""
+
+msgid "View as Table"
+msgstr ""
+
+msgid "View as Map"
+msgstr ""
+
+msgid "Open in {{appName}} app"
 msgstr ""
 
 msgid "Confirm"
@@ -125,26 +194,44 @@ msgstr ""
 msgid "Dashboard description"
 msgstr ""
 
-msgid "No description"
+msgid "Hide description"
+msgstr ""
+
+msgid "Show description"
+msgstr ""
+
+msgid "Unstar dashboard"
+msgstr ""
+
+msgid "Star dashboard"
 msgstr ""
 
 msgid "Edit"
-msgstr "Edit"
+msgstr ""
 
 msgid "Share"
+msgstr ""
+
+msgid "More"
+msgstr ""
+
+msgid "Dashboard layout"
+msgstr ""
+
+msgid "One item per page"
+msgstr ""
+
+msgid "No description"
+msgstr ""
+
+msgid "Visualizations"
 msgstr ""
 
 msgid "Pivot tables"
 msgstr "Pivot tables"
 
-msgid "Pivot Tables"
-msgstr ""
-
 msgid "Charts"
 msgstr "Charts"
-
-msgid "Visualizer"
-msgstr ""
 
 msgid "Maps"
 msgstr "Maps"
@@ -152,20 +239,14 @@ msgstr "Maps"
 msgid "Event reports"
 msgstr ""
 
-msgid "Event Reports"
-msgstr "Event Reports"
-
 msgid "Event charts"
 msgstr ""
 
-msgid "Event Visualizer"
-msgstr "Event Visualizer"
-
 msgid "Apps"
-msgstr "Apps"
+msgstr ""
 
 msgid "Reports"
-msgstr "Reports"
+msgstr "NRHM Reports"
 
 msgid "Resources"
 msgstr ""
