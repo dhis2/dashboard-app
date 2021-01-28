@@ -11,6 +11,7 @@
     border-radius: 3px;
     box-shadow: 0px 0px 3px 0px var(--colors-grey500);
     margin-bottom: 50px;
+    width: 1102px;
 }
 
 @media print {

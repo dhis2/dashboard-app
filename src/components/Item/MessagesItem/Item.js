@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import { colors } from '@dhis2/ui'
-
+import { useConfig } from '@dhis2/app-runtime'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import ItemHeader from '../ItemHeader/ItemHeader'
 import Line from '../../../widgets/Line'
 
@@ -47,42 +48,44 @@ const style = {
     },
 }
 
-class MessagesItem extends Component {
-    state = {
-        uiLocale: '',
-    }
+const MessagesItem = ({ messages, item, dashboardMode }) => {
+    const [uiLocale, setUiLocale] = useState('')
+    const { d2 } = useD2({})
+    const { baseUrl } = useConfig()
 
-    async componentDidMount() {
-        const uiLocale = await this.context.d2.currentUser.userSettings.get(
-            'keyUiLocale'
-        )
+    useEffect(() => {
+        const getUiLocale = async () => {
+            const uiLocale = await d2.currentUser.userSettings.get(
+                'keyUiLocale'
+            )
+            setUiLocale(uiLocale)
+        }
+        getUiLocale()
+    }, [])
 
-        this.setState({ uiLocale })
-    }
-
-    getMessageHref = msg => {
+    const getMessageHref = msg => {
         const msgIdentifier = msg ? `#/${msg.messageType}/${msg.id}` : ''
-        return `${this.context.baseUrl}/dhis-web-messaging/${msgIdentifier}`
+        return `${baseUrl}/dhis-web-messaging/${msgIdentifier}`
     }
 
-    getMessageSender = msg => {
+    const getMessageSender = msg => {
         const latestMsg = msg.messages.slice(-1)[0]
         return latestMsg.sender ? latestMsg.sender.displayName : ''
     }
 
-    getMessageItems = () => {
-        const modeClass = isViewMode(this.props.dashboardMode) ? 'view' : null
+    const getMessageItems = () => {
+        const modeClass = isViewMode(dashboardMode) ? 'view' : null
 
-        return this.props.messages.map(msg => {
+        return messages.map(msg => {
             const redirectToMsg = () => {
-                if (isViewMode(this.props.dashboardMode)) {
-                    document.location.href = this.getMessageHref(msg)
+                if (isViewMode(dashboardMode)) {
+                    document.location.href = getMessageHref(msg)
                 }
             }
 
             const sender =
                 msg.messageType === PRIVATE
-                    ? this.getMessageSender(msg)
+                    ? getMessageSender(msg)
                     : messageTypes[msg.messageType]
 
             const readClass = !msg.read ? 'unread' : null
@@ -99,7 +102,7 @@ class MessagesItem extends Component {
                         {msg.displayName} ({msg.messageCount})
                     </p>
                     <p style={style.sender}>
-                        {sender} - {formatDate(msgDate, this.state.uiLocale)}
+                        {sender} - {formatDate(msgDate, uiLocale)}
                     </p>
                     <p style={style.snippet}>{latestMsg.text}</p>
                 </li>
@@ -107,40 +110,33 @@ class MessagesItem extends Component {
         })
     }
 
-    render() {
-        return (
-            <>
-                <ItemHeader
-                    title={i18n.t('Messages')}
-                    itemId={this.props.item.id}
-                    dashboardMode={this.props.dashboardMode}
-                    isShortened={this.props.item.shortened}
-                />
-                <Line />
-                {this.props.messages.length > 0 && (
-                    <div className="dashboard-item-content">
-                        <ul style={style.list}>{this.getMessageItems()}</ul>
-                        <div style={style.seeAll}>
-                            <a href={this.getMessageHref()}>
-                                {i18n.t('See all messages')}
-                            </a>
-                        </div>
+    return (
+        <>
+            <ItemHeader
+                title={i18n.t('Messages')}
+                itemId={item.id}
+                dashboardMode={dashboardMode}
+                isShortened={item.shortened}
+            />
+            <Line />
+            {messages.length > 0 && (
+                <div className="dashboard-item-content">
+                    <ul style={style.list}>{getMessageItems()}</ul>
+                    <div style={style.seeAll}>
+                        <a href={getMessageHref()}>
+                            {i18n.t('See all messages')}
+                        </a>
                     </div>
-                )}
-            </>
-        )
-    }
+                </div>
+            )}
+        </>
+    )
 }
 
 MessagesItem.propTypes = {
     dashboardMode: PropTypes.string,
     item: PropTypes.object,
     messages: PropTypes.array,
-}
-
-MessagesItem.contextTypes = {
-    d2: PropTypes.object,
-    baseUrl: PropTypes.string,
 }
 
 const mapStateToProps = state => {
