@@ -30,3 +30,18 @@ Feature: Small screen dashboard
         When I restore the wide screen
         Then the wide screen edit view is shown
         And my changes are still there
+
+    @nonutating
+    Scenario: I change the url to new while in small screen
+        Given I open the "Delivery" dashboard
+        When I go to small screen
+        And I change url to new
+        Then the "Delivery" dashboard displays in default view mode
+
+
+    @nonutating
+    Scenario: I change the url to edit while in small screen
+        Given I open the "Delivery" dashboard
+        When I go to small screen
+        And I change url to edit
+        Then the "Delivery" dashboard displays in view mode
