@@ -3,16 +3,13 @@ import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { ButtonStrip } from '@dhis2/ui'
 import { ConfirmDeleteDialog } from '../ConfirmDeleteDialog'
-import { getStubContext } from '../../../setupTests'
 
 describe('ConfirmDeleteDialog', () => {
     let props
     let shallowDialog
     const dialog = () => {
         if (!shallowDialog) {
-            shallowDialog = shallow(<ConfirmDeleteDialog {...props} />, {
-                context: getStubContext(),
-            })
+            shallowDialog = shallow(<ConfirmDeleteDialog {...props} />)
         }
         return shallowDialog
     }

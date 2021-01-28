@@ -1,10 +1,12 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
 import { Button, ButtonStrip } from '@dhis2/ui'
+import { useDataEngine } from '@dhis2/app-runtime'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import ConfirmDeleteDialog from './ConfirmDeleteDialog'
 import {
@@ -27,57 +29,62 @@ import { apiFetchDashboard } from '../../api/dashboards'
 
 import classes from './styles/EditBar.module.css'
 
-export class EditBar extends Component {
-    state = {
-        translationDialogIsOpen: false,
-        dashboardModel: undefined,
-        dashboard: undefined,
-        confirmDeleteDialogOpen: false,
-        redirectUrl: undefined,
+const EditBar = props => {
+    const { d2 } = useD2({})
+    const dataEngine = useDataEngine()
+    const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
+    const [dashboard, setDashboard] = useState(undefined)
+    const [confirmDeleteDlgIsOpen, setConfirmDeleteDlgIsOpen] = useState(false)
+    const [redirectUrl, setRedirectUrl] = useState(undefined)
+
+    useEffect(() => {
+        if (props.dashboardId && !dashboard) {
+            apiFetchDashboard(dataEngine, props.dashboardId).then(dboard =>
+                setDashboard(dboard)
+            )
+        }
+    }, [props.dashboardId, dashboard])
+
+    const onConfirmDelete = () => {
+        setConfirmDeleteDlgIsOpen(true)
     }
 
-    onConfirmDelete = () => {
-        this.setState({ confirmDeleteDialogOpen: true })
-    }
-
-    onSave = () => {
-        this.props.onSave().then(newId => {
-            this.setState({ redirectUrl: `/${newId}` })
+    const onSave = () => {
+        props.onSave().then(newId => {
+            setRedirectUrl(`/${newId}`)
         })
     }
 
-    onPrintPreview = () => {
-        if (this.props.isPrintPreviewView) {
-            this.props.clearPrintPreview()
-            this.props.clearPrintDashboard()
+    const onPrintPreview = () => {
+        if (props.isPrintPreviewView) {
+            props.clearPrintPreview()
+            props.clearPrintDashboard()
         } else {
-            this.props.showPrintPreview()
+            props.showPrintPreview()
         }
     }
 
-    onDiscard = () => {
-        this.props.onDiscardChanges()
-        const redirectUrl = this.props.dashboardId
-            ? `/${this.props.dashboardId}`
-            : '/'
+    const onDiscard = () => {
+        props.onDiscardChanges()
+        const redirectUrl = props.dashboardId ? `/${props.dashboardId}` : '/'
 
-        this.setState({ redirectUrl })
+        setRedirectUrl(redirectUrl)
     }
 
-    onContinueEditing = () => {
-        this.setState({ confirmDeleteDialogOpen: false })
+    const onContinueEditing = () => {
+        setConfirmDeleteDlgIsOpen(false)
     }
 
-    onDeleteConfirmed = () => {
-        this.setState({ confirmDeleteDialogOpen: false })
-        this.props.onDelete(this.props.dashboardId).then(() => {
-            this.setState({ redirectUrl: '/' })
+    const onDeleteConfirmed = () => {
+        setConfirmDeleteDlgIsOpen(false)
+        props.onDelete(props.dashboardId).then(() => {
+            setRedirectUrl('/')
         })
     }
 
-    onTranslationsSaved = async translations => {
+    const onTranslationsSaved = async translations => {
         if (translations && translations.length) {
-            const dbLocale = await this.context.d2.currentUser.userSettings.get(
+            const dbLocale = await d2.currentUser.userSettings.get(
                 'keyDbLocale'
             )
 
@@ -86,89 +93,62 @@ export class EditBar extends Component {
             )
 
             if (translation && translation.value) {
-                this.props.onTranslate(
-                    this.props.dashboardId,
-                    translation.value
-                )
+                props.onTranslate(props.dashboardId, translation.value)
             }
         }
     }
 
-    fetchDashboardModel = () => {
-        if (this.props.dashboardId && !this.state.dashboard) {
-            apiFetchDashboard(
-                this.context.dataEngine,
-                this.props.dashboardId
-            ).then(dashboard => this.setState({ dashboard }))
-        }
-    }
+    const toggleTranslationDialog = () =>
+        setTranslationDlgIsOpen(!translationDlgIsOpen)
 
-    componentDidMount() {
-        this.fetchDashboardModel()
-    }
-
-    componentDidUpdate() {
-        this.fetchDashboardModel()
-    }
-
-    toggleTranslationDialog = () => {
-        this.setState({
-            translationDialogIsOpen: !this.state.translationDialogIsOpen,
-        })
-    }
-
-    confirmDeleteDialog = () =>
-        this.props.deleteAccess && this.props.dashboardId ? (
+    const confirmDeleteDialog = () =>
+        props.deleteAccess && props.dashboardId ? (
             <ConfirmDeleteDialog
-                dashboardName={this.props.dashboardName}
-                onDeleteConfirmed={this.onDeleteConfirmed}
-                onContinueEditing={this.onContinueEditing}
-                open={this.state.confirmDeleteDialogOpen}
+                dashboardName={props.dashboardName}
+                onDeleteConfirmed={onDeleteConfirmed}
+                onContinueEditing={onContinueEditing}
+                open={confirmDeleteDlgIsOpen}
             />
         ) : null
 
-    translationDialog = () =>
-        this.state.dashboard && this.state.dashboard.id ? (
+    const translationDialog = () =>
+        dashboard && dashboard.id ? (
             <TranslationDialog
                 className="translation-dialog"
-                d2={this.context.d2}
-                open={this.state.translationDialogIsOpen}
-                onRequestClose={this.toggleTranslationDialog}
+                d2={d2}
+                open={translationDlgIsOpen}
+                onRequestClose={toggleTranslationDialog}
                 objectToTranslate={{
-                    ...this.state.dashboard,
+                    ...dashboard,
                     modelDefinition: { name: 'dashboard' },
                 }}
                 fieldsToTranslate={['name', 'description']}
-                onTranslationSaved={this.onTranslationsSaved}
+                onTranslationSaved={onTranslationsSaved}
                 onTranslationError={err =>
                     console.log('translation update error', err)
                 }
             />
         ) : null
 
-    renderActionButtons = () => (
+    const renderActionButtons = () => (
         <ButtonStrip>
-            <Button
-                primary
-                onClick={this.onSave}
-                dataTest="save-dashboard-button"
-            >
+            <Button primary onClick={onSave} dataTest="save-dashboard-button">
                 {i18n.t('Save changes')}
             </Button>
-            <Button onClick={this.onPrintPreview}>
-                {this.props.isPrintPreviewView
+            <Button onClick={onPrintPreview}>
+                {props.isPrintPreviewView
                     ? i18n.t('Exit Print preview')
                     : i18n.t('Print preview')}
             </Button>
 
-            {this.props.dashboardId && (
-                <Button onClick={this.toggleTranslationDialog}>
+            {props.dashboardId && (
+                <Button onClick={toggleTranslationDialog}>
                     {i18n.t('Translate')}
                 </Button>
             )}
-            {this.props.dashboardId && this.props.deleteAccess && (
+            {props.dashboardId && props.deleteAccess && (
                 <Button
-                    onClick={this.onConfirmDelete}
+                    onClick={onConfirmDelete}
                     dataTest="delete-dashboard-button"
                 >
                     {i18n.t('Delete')}
@@ -177,32 +157,30 @@ export class EditBar extends Component {
         </ButtonStrip>
     )
 
-    render() {
-        if (this.state.redirectUrl) {
-            return <Redirect to={this.state.redirectUrl} />
-        }
-
-        const { updateAccess } = this.props
-
-        const discardBtnText = updateAccess
-            ? i18n.t('Exit without saving')
-            : i18n.t('Go to dashboards')
-
-        return (
-            <>
-                <div className={classes.editBar}>
-                    <div className={classes.controls}>
-                        {updateAccess ? this.renderActionButtons() : null}
-                        <Button secondary onClick={this.onDiscard}>
-                            {discardBtnText}
-                        </Button>
-                    </div>
-                </div>
-                {this.translationDialog()}
-                {this.confirmDeleteDialog()}
-            </>
-        )
+    if (redirectUrl) {
+        return <Redirect to={redirectUrl} />
     }
+
+    const { updateAccess } = props
+
+    const discardBtnText = updateAccess
+        ? i18n.t('Exit without saving')
+        : i18n.t('Go to dashboards')
+
+    return (
+        <>
+            <div className={classes.editBar}>
+                <div className={classes.controls}>
+                    {updateAccess ? renderActionButtons() : null}
+                    <Button secondary onClick={onDiscard}>
+                        {discardBtnText}
+                    </Button>
+                </div>
+            </div>
+            {translationDialog()}
+            {confirmDeleteDialog()}
+        </>
+    )
 }
 
 EditBar.propTypes = {
@@ -218,11 +196,6 @@ EditBar.propTypes = {
     onDiscardChanges: PropTypes.func,
     onSave: PropTypes.func,
     onTranslate: PropTypes.func,
-}
-
-EditBar.contextTypes = {
-    dataEngine: PropTypes.object,
-    d2: PropTypes.object,
 }
 
 const mapStateToProps = state => {
