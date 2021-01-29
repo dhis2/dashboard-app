@@ -7,13 +7,56 @@ import WindowDimensionsProvider from '../../WindowDimensionsProvider'
 import { NEW, VIEW, EDIT, PRINT, PRINT_LAYOUT } from '../dashboardModes'
 import { NON_EXISTING_DASHBOARD_ID } from '../../../reducers/selected'
 
-jest.mock('../../ControlBar/DashboardsBar', () => 'DashboardsBar')
-jest.mock('../../../widgets/NoContentMessage', () => 'NoContentMessage')
-jest.mock('../ViewDashboard', () => 'ViewDashboard')
-jest.mock('../EditDashboard', () => 'EditDashboard')
-jest.mock('../NewDashboard', () => 'NewDashboard')
-jest.mock('../PrintDashboard', () => 'PrintDashboard')
-jest.mock('../PrintLayoutDashboard', () => 'PrintLayoutDashboard')
+jest.mock(
+    '../PrintLayoutDashboard',
+    () =>
+        function MockPrintLayoutDashboard() {
+            return <div>MockPrintLayoutDashboard</div>
+        }
+)
+
+jest.mock(
+    '../PrintDashboard',
+    () =>
+        function MockPrintDashboard() {
+            return <div>MockPrintDashboard</div>
+        }
+)
+jest.mock(
+    '../NewDashboard',
+    () =>
+        function MockNewDashboard() {
+            return <div>MockNewDashboard</div>
+        }
+)
+jest.mock(
+    '../EditDashboard',
+    () =>
+        function MockEditDashboard() {
+            return <div>MockEditDashboard</div>
+        }
+)
+jest.mock(
+    '../ViewDashboard',
+    () =>
+        function MockViewDashboard() {
+            return <div>MockViewDashboard</div>
+        }
+)
+jest.mock(
+    '../../../widgets/NoContentMessage',
+    () =>
+        function MockNoContentMessage() {
+            return <div>MockNoContentMessage</div>
+        }
+)
+jest.mock(
+    '../../ControlBar/DashboardsBar',
+    () =>
+        function MockDashboardsBar() {
+            return <div>MockDashboardsBar</div>
+        }
+)
 
 jest.mock('@dhis2/ui', () => {
     return {

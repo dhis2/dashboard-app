@@ -15,7 +15,6 @@ import style from './style'
 import dimensions from './dimensions'
 import settings from './settings'
 import activeModalDimension from './activeModalDimension'
-import windowHeight from './windowHeight'
 
 export default combineReducers({
     dashboards,
@@ -33,5 +32,4 @@ export default combineReducers({
     dimensions,
     settings,
     activeModalDimension,
-    windowHeight,
 })

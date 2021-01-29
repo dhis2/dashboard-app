@@ -30,7 +30,11 @@ exports[`Dashboard renders EDIT dashboard 1`] = `
       }
     }
   >
-    <EditDashboard />
+    <MockEditDashboard>
+      <div>
+        MockEditDashboard
+      </div>
+    </MockEditDashboard>
   </Dashboard>
 </WindowDimensionsProvider>
 `;
@@ -65,7 +69,11 @@ exports[`Dashboard renders NEW dashboard 1`] = `
       }
     }
   >
-    <NewDashboard />
+    <MockNewDashboard>
+      <div>
+        MockNewDashboard
+      </div>
+    </MockNewDashboard>
   </Dashboard>
 </WindowDimensionsProvider>
 `;
@@ -100,7 +108,11 @@ exports[`Dashboard renders PRINT dashboard 1`] = `
       }
     }
   >
-    <PrintDashboard />
+    <MockPrintDashboard>
+      <div>
+        MockPrintDashboard
+      </div>
+    </MockPrintDashboard>
   </Dashboard>
 </WindowDimensionsProvider>
 `;
@@ -135,7 +147,11 @@ exports[`Dashboard renders PRINT_LAYOUT dashboard 1`] = `
       }
     }
   >
-    <PrintLayoutDashboard />
+    <MockPrintLayoutDashboard>
+      <div>
+        MockPrintLayoutDashboard
+      </div>
+    </MockPrintLayoutDashboard>
   </Dashboard>
 </WindowDimensionsProvider>
 `;
@@ -170,10 +186,18 @@ exports[`Dashboard renders correctly when dashboard id is not valid 1`] = `
       }
     }
   >
-    <DashboardsBar />
-    <NoContentMessage
+    <MockDashboardsBar>
+      <div>
+        MockDashboardsBar
+      </div>
+    </MockDashboardsBar>
+    <MockNoContentMessage
       text="Requested dashboard not found"
-    />
+    >
+      <div>
+        MockNoContentMessage
+      </div>
+    </MockNoContentMessage>
   </Dashboard>
 </WindowDimensionsProvider>
 `;
@@ -277,10 +301,18 @@ exports[`Dashboard renders correctly when no dashboards found 1`] = `
     mode="view"
     selectDashboard={[MockFunction]}
   >
-    <DashboardsBar />
-    <NoContentMessage
+    <MockDashboardsBar>
+      <div>
+        MockDashboardsBar
+      </div>
+    </MockDashboardsBar>
+    <MockNoContentMessage
       text="No dashboards found. Use the + button to create a new dashboard."
-    />
+    >
+      <div>
+        MockNoContentMessage
+      </div>
+    </MockNoContentMessage>
   </Dashboard>
 </WindowDimensionsProvider>
 `;
