@@ -1,4 +1,7 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { EXTENDED_TIMEOUT } from '../../../support/utils'
+import { chartSel } from '../../../selectors/dashboardItem'
+import { dashboardTitleSel } from '../../../selectors/titleBar'
 
 const TEST_DASHBOARD_TITLE = 'TEST_DASHBOARD_TITLE'
 
@@ -68,5 +71,34 @@ Then('my changes are still there', () => {
         const val = $input.val()
 
         expect(val).to.match(re)
+    })
+})
+
+// Scenario: I change the url to new while in small screen
+When('I change url to new', () => {
+    const url = `${Cypress.config().baseUrl}/#/new`
+    cy.window().then(win => {
+        win.location.assign(url)
+        cy.wait(2000) // eslint-disable-line cypress/no-unnecessary-waiting
+    })
+})
+
+Then('the {string} dashboard displays in default view mode', title => {
+    cy.location().should(loc => {
+        expect(loc.hash).to.equal('#/')
+    })
+
+    cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
+    cy.get(chartSel, EXTENDED_TIMEOUT).should('exist')
+})
+
+// Scenario: I change the url to 'edit' while in small screen
+When('I change url to edit', () => {
+    cy.location().then(loc => {
+        const url = `${loc.href}/edit`
+        cy.window().then(win => {
+            win.location.assign(url)
+            cy.wait(2000) // eslint-disable-line cypress/no-unnecessary-waiting
+        })
     })
 })
