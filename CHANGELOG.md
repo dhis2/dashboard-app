@@ -1,3 +1,10 @@
+# [31.9.0](https://github.com/dhis2/dashboard-app/compare/v31.8.0...v31.9.0) (2021-01-29)
+
+
+### Features
+
+* set expanded control bar height for small screens ([#1459](https://github.com/dhis2/dashboard-app/issues/1459)) ([0d009ae](https://github.com/dhis2/dashboard-app/commit/0d009ae96d5e86511f97ccf1211aaa9fd2896e66))
+
 # [31.8.0](https://github.com/dhis2/dashboard-app/compare/v31.7.1...v31.8.0) (2021-01-28)
 
 
