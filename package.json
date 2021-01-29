@@ -34,7 +34,7 @@
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.3.0",
         "reselect": "^4.0.0",
-        "styled-jsx": "^3.3.2",
+        "styled-jsx": "^3.4.1",
         "typeface-roboto": "^1.1.13",
         "whatwg-fetch": "^3.4.1"
     },
@@ -57,10 +57,10 @@
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^5",
         "@dhis2/cli-style": "^7.2.2",
-        "@dhis2/cli-utils-cypress": "^4.0.0",
-        "@dhis2/cypress-commands": "^4.0.0",
+        "@dhis2/cli-utils-cypress": "^5.1.0",
+        "@dhis2/cypress-commands": "^5.1.0",
         "@testing-library/jest-dom": "^5.11.8",
-        "@testing-library/react": "^11.2.1",
+        "@testing-library/react": "^11.2.3",
         "d2-manifest": "^1.0.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.5",
