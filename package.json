@@ -63,7 +63,7 @@
         "@testing-library/react": "^11.2.3",
         "d2-manifest": "^1.0.0",
         "enzyme": "^3.11.0",
-        "enzyme-adapter-react-16": "^1.15.5",
+        "enzyme-adapter-react-16": "^1.15.6",
         "enzyme-to-json": "^3.6.1",
         "eslint-plugin-cypress": "^2.11.2",
         "immutability-helper": "^3.1.1",
