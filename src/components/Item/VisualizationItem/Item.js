@@ -107,8 +107,9 @@ export class Item extends Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps.gridWidth !== this.props.gridWidth) {
-            const id = this.props.item.id
-            const el = document.querySelector(`#${getGridItemDomId(id)}`)
+            const el = document.querySelector(
+                `#${getGridItemDomId(this.props.item.id)}`
+            )
             if (typeof el?.setViewportSize === 'function') {
                 setTimeout(
                     () =>
