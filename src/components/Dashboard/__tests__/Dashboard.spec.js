@@ -62,15 +62,15 @@ jest.mock('@dhis2/ui', () => {
     return {
         Layer: () =>
             function MockLayer() {
-                return <div className="mock-layer" />
+                return <div>MockLayer</div>
             },
         CenteredContent: () =>
             function MockCenteredContent() {
-                return <div className="mock-centered-content" />
+                return <div>MockCenteredContent</div>
             },
         CircularLoader: () =>
             function CircularLoader() {
-                return <div className="mock-circular-loader" />
+                return <div>MockCircularLoader</div>
             },
     }
 })
