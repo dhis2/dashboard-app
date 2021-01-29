@@ -65,5 +65,10 @@
     .container {
         height: 24px;
         padding-top: inherit;
+        width: 100%;
+    }
+
+    .input {
+        width: 100%;
     }
 }
