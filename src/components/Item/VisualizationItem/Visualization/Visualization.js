@@ -48,6 +48,7 @@ class Visualization extends React.Component {
             item,
             itemFilters,
             availableHeight,
+            availableWidth,
         } = this.props
 
         if (!visualization) {
@@ -58,11 +59,16 @@ class Visualization extends React.Component {
             )
         }
 
+        const style = { height: availableHeight }
+        if (availableWidth) {
+            style.width = availableWidth
+        }
+
         const pluginProps = {
             item,
             itemFilters,
             activeType,
-            style: { height: availableHeight },
+            style,
             visualization: this.memoizedGetVisualizationConfig(
                 visualization,
                 item.type,
@@ -131,6 +137,7 @@ class Visualization extends React.Component {
 Visualization.propTypes = {
     activeType: PropTypes.string,
     availableHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    availableWidth: PropTypes.number,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,

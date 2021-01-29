@@ -33,9 +33,11 @@ exports[`ViewDashboard renders correctly default 1`] = `
           MockFilterBar
         </div>
       </MockFilterBar>
-      <ItemGrid
-        edit={false}
-      />
+      <MockViewItemGrid>
+        <div>
+          MockViewItemGrid
+        </div>
+      </MockViewItemGrid>
     </div>
   </ViewDashboard>
 </WindowDimensionsProvider>

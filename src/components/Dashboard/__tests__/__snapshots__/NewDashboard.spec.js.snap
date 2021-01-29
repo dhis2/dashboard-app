@@ -58,7 +58,7 @@ exports[`NewDashboard renders dashboard 1`] = `
       EditTitleBar
     </div>
     <div>
-      ItemGrid
+      EditItemGrid
     </div>
   </div>
 </div>

@@ -30,7 +30,14 @@ jest.mock(
             return <div>MockFilterBar</div>
         }
 )
-jest.mock('../../ItemGrid/ItemGrid', () => 'ItemGrid')
+
+jest.mock(
+    '../../ItemGrid/ViewItemGrid',
+    () =>
+        function MockViewItemGrid() {
+            return <div>MockViewItemGrid</div>
+        }
+)
 
 describe('ViewDashboard', () => {
     let props

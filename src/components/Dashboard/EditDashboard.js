@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
 import EditTitleBar from '../TitleBar/EditTitleBar'
-import ItemGrid from '../ItemGrid/ItemGrid'
+import EditItemGrid from '../ItemGrid/EditItemGrid'
 import EditBar from '../ControlBar/EditBar'
 import NotSupportedNotice from './NotSupportedNotice'
 import { useWindowDimensions } from '../WindowDimensionsProvider'
@@ -23,7 +23,7 @@ import {
     HEADERBAR_HEIGHT,
 } from '../ControlBar/controlBarDimensions'
 
-import isSmallScreen from '../../modules/isSmallScreen'
+import { isSmallScreen } from '../../modules/smallScreen'
 
 const EditDashboard = props => {
     const { width } = useWindowDimensions()
@@ -45,7 +45,7 @@ const EditDashboard = props => {
         return (
             <div className="dashboard-wrapper" style={{ height }}>
                 <EditTitleBar />
-                <ItemGrid edit={true} />
+                <EditItemGrid />
             </div>
         )
     }

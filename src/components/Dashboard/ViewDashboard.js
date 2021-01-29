@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-
 import ViewTitleBar from '../TitleBar/ViewTitleBar'
-import ItemGrid from '../ItemGrid/ItemGrid'
+import ViewItemGrid from '../ItemGrid/ViewItemGrid'
 import FilterBar from '../FilterBar/FilterBar'
 import DashboardsBar, {
     isDashboardBarMaxHeight,
@@ -21,7 +20,7 @@ import {
     HEADERBAR_HEIGHT,
 } from '../ControlBar/controlBarDimensions'
 import { useWindowDimensions } from '../WindowDimensionsProvider'
-import isSmallScreen from '../../modules/isSmallScreen'
+import { isSmallScreen } from '../../modules/smallScreen'
 
 export const ViewDashboard = props => {
     const { width, height } = useWindowDimensions()
@@ -54,7 +53,7 @@ export const ViewDashboard = props => {
             >
                 <ViewTitleBar />
                 <FilterBar />
-                <ItemGrid edit={false} />
+                <ViewItemGrid />
             </div>
         </>
     )

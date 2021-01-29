@@ -1,3 +1,10 @@
+# [31.10.0](https://github.com/dhis2/dashboard-app/compare/v31.9.0...v31.10.0) (2021-01-29)
+
+
+### Features
+
+* responsive item grid in view and edit mode [DHIS2-10138] ([#1431](https://github.com/dhis2/dashboard-app/issues/1431)) ([0e0c93f](https://github.com/dhis2/dashboard-app/commit/0e0c93f5399117ee91ee99f899374fc68f2b355a))
+
 # [31.9.0](https://github.com/dhis2/dashboard-app/compare/v31.8.0...v31.9.0) (2021-01-29)
 
 
