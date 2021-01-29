@@ -6,6 +6,14 @@ import WindowDimensionsProvider from '../../WindowDimensionsProvider'
 import NewDashboard from '../NewDashboard'
 
 jest.mock(
+    '../../ControlBar/EditBar',
+    () =>
+        function MockEditBar() {
+            return <div>EditBar</div>
+        }
+)
+
+jest.mock(
     '../../TitleBar/EditTitleBar',
     () =>
         function MockTitleBar() {
@@ -53,7 +61,7 @@ const store = {
     },
 }
 
-test.skip('NewDashboard renders dashboard', () => {
+test('NewDashboard renders dashboard', () => {
     const { container } = render(
         <Provider store={mockStore(store)}>
             <WindowDimensionsProvider>
@@ -65,7 +73,7 @@ test.skip('NewDashboard renders dashboard', () => {
     expect(container).toMatchSnapshot()
 })
 
-test.skip('NewDashboard renders print preview', () => {
+test('NewDashboard renders print preview', () => {
     store.editDashboard.printPreviewView = true
 
     const { container } = render(

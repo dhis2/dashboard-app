@@ -6,6 +6,14 @@ import WindowDimensionsProvider from '../../WindowDimensionsProvider'
 import EditDashboard from '../EditDashboard'
 
 jest.mock(
+    '../../ControlBar/EditBar',
+    () =>
+        function MockEditBar() {
+            return <div>EditBar</div>
+        }
+)
+
+jest.mock(
     '../../TitleBar/EditTitleBar',
     () =>
         function MockTitleBar() {
@@ -59,7 +67,7 @@ const props = {
     setEditDashboard: jest.fn(),
 }
 
-test.skip('EditDashboard renders dashboard', () => {
+test('EditDashboard renders dashboard', () => {
     const { container } = render(
         <Provider store={mockStore(store)}>
             <WindowDimensionsProvider>
@@ -71,7 +79,7 @@ test.skip('EditDashboard renders dashboard', () => {
     expect(container).toMatchSnapshot()
 })
 
-test.skip('EditDashboard renders print preview', () => {
+test('EditDashboard renders print preview', () => {
     store.editDashboard.printPreviewView = true
 
     const { container } = render(
@@ -84,7 +92,7 @@ test.skip('EditDashboard renders print preview', () => {
     expect(container).toMatchSnapshot()
 })
 
-test.skip('EditDashboard renders message when not enough access', () => {
+test('EditDashboard renders message when not enough access', () => {
     store.dashboards.byId.rainbowdash.access.update = false
     store.dashboards.byId.rainbowdash.access.delete = false
     store.editDashboard.access.update = false
