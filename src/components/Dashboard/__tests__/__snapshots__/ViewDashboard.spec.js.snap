@@ -1,21 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ViewDashboard renders correctly default 1`] = `
-<Fragment>
-  <DashboardsBar />
-  <div
-    className="dashboard-wrapper"
-    style={
-      Object {
-        "height": 448,
-      }
-    }
+<WindowDimensionsProvider>
+  <ViewDashboard
+    clearEditDashboard={[MockFunction]}
+    clearPrintDashboard={[MockFunction]}
+    controlBarRows={2}
+    dashboardIsEditing={false}
+    dashboardIsPrinting={false}
+    windowHeight={600}
   >
-    <ViewTitleBar />
-    <FilterBar />
-    <ItemGrid
-      edit={false}
-    />
-  </div>
-</Fragment>
+    <MockDashboardsBar>
+      <div>
+        MockDashboardsBar
+      </div>
+    </MockDashboardsBar>
+    <div
+      className="dashboard-wrapper"
+      style={
+        Object {
+          "height": 616,
+        }
+      }
+    >
+      <MockViewTitleBar>
+        <div>
+          MockViewTitleBar
+        </div>
+      </MockViewTitleBar>
+      <MockFilterBar>
+        <div>
+          MockFilterBar
+        </div>
+      </MockFilterBar>
+      <ItemGrid
+        edit={false}
+      />
+    </div>
+  </ViewDashboard>
+</WindowDimensionsProvider>
 `;

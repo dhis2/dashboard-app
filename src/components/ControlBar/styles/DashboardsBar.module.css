@@ -43,6 +43,8 @@
 
     .container.expanded .controls {
         margin-left: var(--spacers-dp4);
+        margin-right: var(--spacers-dp8);
+        width: 100%;
     }
 
     .chipContainer {
