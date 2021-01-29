@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { useConfig } from '@dhis2/app-runtime'
 import { load, unmount } from './plugin'
-import { getGridItemDomId } from '../../../ItemGrid/gridUtil'
+import getGridItemDomId from '../../../../modules/getGridItemDomId'
 
 const DefaultPlugin = ({ item, activeType, visualization, options, style }) => {
     const { d2 } = useD2({})

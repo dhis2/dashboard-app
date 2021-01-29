@@ -36,7 +36,7 @@ import {
 } from './dashboardModes'
 
 import { useWindowDimensions } from '../WindowDimensionsProvider'
-import isSmallScreen from '../../modules/isSmallScreen'
+import { isSmallScreen } from '../../modules/smallScreen'
 
 const setHeaderbarVisibility = mode => {
     const header = document.getElementsByTagName('header')[0]

@@ -13,10 +13,10 @@ jest.mock(
         }
 )
 jest.mock(
-    '../../ItemGrid/ItemGrid',
+    '../../ItemGrid/EditItemGrid',
     () =>
-        function MockItemGrid() {
-            return <div>ItemGrid</div>
+        function MockEditItemGrid() {
+            return <div>EditItemGrid</div>
         }
 )
 

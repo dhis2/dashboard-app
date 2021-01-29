@@ -29,7 +29,7 @@ import { sGetSelectedId } from '../../reducers/selected'
 import { acSetControlBarUserRows } from '../../actions/controlBar'
 import { apiPostControlBarRows } from '../../api/controlBar'
 
-import isSmallScreen from '../../modules/isSmallScreen'
+import { isSmallScreen } from '../../modules/smallScreen'
 
 import classes from './styles/DashboardsBar.module.css'
 
