@@ -1,81 +1,286 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dashboard renders EDIT dashboard 1`] = `<EditDashboard />`;
+exports[`Dashboard renders EDIT dashboard 1`] = `
+<WindowDimensionsProvider>
+  <Dashboard
+    dashboardsIsEmpty={false}
+    dashboardsLoaded={true}
+    id="rainbowdash"
+    match={
+      Object {
+        "params": Object {
+          "dashboardId": null,
+        },
+      }
+    }
+    mode="edit"
+    selectDashboard={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            undefined,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  >
+    <EditDashboard />
+  </Dashboard>
+</WindowDimensionsProvider>
+`;
 
-exports[`Dashboard renders NEW dashboard 1`] = `<NewDashboard />`;
+exports[`Dashboard renders NEW dashboard 1`] = `
+<WindowDimensionsProvider>
+  <Dashboard
+    dashboardsIsEmpty={false}
+    dashboardsLoaded={true}
+    id="rainbowdash"
+    match={
+      Object {
+        "params": Object {
+          "dashboardId": null,
+        },
+      }
+    }
+    mode="new"
+    selectDashboard={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            undefined,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  >
+    <NewDashboard />
+  </Dashboard>
+</WindowDimensionsProvider>
+`;
 
-exports[`Dashboard renders PRINT dashboard 1`] = `<PrintDashboard />`;
+exports[`Dashboard renders PRINT dashboard 1`] = `
+<WindowDimensionsProvider>
+  <Dashboard
+    dashboardsIsEmpty={false}
+    dashboardsLoaded={true}
+    id="rainbowdash"
+    match={
+      Object {
+        "params": Object {
+          "dashboardId": null,
+        },
+      }
+    }
+    mode="print"
+    selectDashboard={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            undefined,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  >
+    <PrintDashboard />
+  </Dashboard>
+</WindowDimensionsProvider>
+`;
 
-exports[`Dashboard renders PRINT_LAYOUT dashboard 1`] = `<PrintLayoutDashboard />`;
+exports[`Dashboard renders PRINT_LAYOUT dashboard 1`] = `
+<WindowDimensionsProvider>
+  <Dashboard
+    dashboardsIsEmpty={false}
+    dashboardsLoaded={true}
+    id="rainbowdash"
+    match={
+      Object {
+        "params": Object {
+          "dashboardId": null,
+        },
+      }
+    }
+    mode="print-layout"
+    selectDashboard={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            undefined,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  >
+    <PrintLayoutDashboard />
+  </Dashboard>
+</WindowDimensionsProvider>
+`;
 
 exports[`Dashboard renders correctly when dashboard id is not valid 1`] = `
-<Fragment>
-  <DashboardsBar />
-  <NoContentMessage
-    text="Requested dashboard not found"
-  />
-</Fragment>
+<WindowDimensionsProvider>
+  <Dashboard
+    dashboardsIsEmpty={false}
+    dashboardsLoaded={true}
+    id="0"
+    match={
+      Object {
+        "params": Object {
+          "dashboardId": null,
+        },
+      }
+    }
+    mode="view"
+    selectDashboard={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            undefined,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  >
+    <DashboardsBar />
+    <NoContentMessage
+      text="Requested dashboard not found"
+    />
+  </Dashboard>
+</WindowDimensionsProvider>
 `;
 
 exports[`Dashboard renders correctly when dashboards loaded and id is null 1`] = `
-<Layer
-  dataTest="dhis2-uicore-layer"
-  level={2000}
-  position="fixed"
-  translucent={true}
->
-  <CenteredContent
-    dataTest="dhis2-uicore-centeredcontent"
-    position="middle"
+<WindowDimensionsProvider>
+  <Dashboard
+    dashboardsIsEmpty={false}
+    dashboardsLoaded={true}
+    id={null}
+    match={
+      Object {
+        "params": Object {
+          "dashboardId": null,
+        },
+      }
+    }
+    mode="view"
+    selectDashboard={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            undefined,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
   >
-    <CircularLoader
-      dataTest="dhis2-uicore-circularloader"
+    <Layer
+      translucent={true}
     />
-  </CenteredContent>
-</Layer>
+  </Dashboard>
+</WindowDimensionsProvider>
 `;
 
 exports[`Dashboard renders correctly when dashboards not loaded and id is not null 1`] = `
-<Layer
-  dataTest="dhis2-uicore-layer"
-  level={2000}
-  position="fixed"
-  translucent={true}
->
-  <CenteredContent
-    dataTest="dhis2-uicore-centeredcontent"
-    position="middle"
+<WindowDimensionsProvider>
+  <Dashboard
+    dashboardsIsEmpty={false}
+    dashboardsLoaded={false}
+    id="rainbowdash"
+    match={
+      Object {
+        "params": Object {
+          "dashboardId": null,
+        },
+      }
+    }
+    mode="view"
+    selectDashboard={[MockFunction]}
   >
-    <CircularLoader
-      dataTest="dhis2-uicore-circularloader"
+    <Layer
+      translucent={true}
     />
-  </CenteredContent>
-</Layer>
+  </Dashboard>
+</WindowDimensionsProvider>
 `;
 
 exports[`Dashboard renders correctly when dashboards not loaded and id is null 1`] = `
-<Layer
-  dataTest="dhis2-uicore-layer"
-  level={2000}
-  position="fixed"
-  translucent={true}
->
-  <CenteredContent
-    dataTest="dhis2-uicore-centeredcontent"
-    position="middle"
+<WindowDimensionsProvider>
+  <Dashboard
+    dashboardsIsEmpty={false}
+    dashboardsLoaded={false}
+    id={null}
+    match={
+      Object {
+        "params": Object {
+          "dashboardId": null,
+        },
+      }
+    }
+    mode="view"
+    selectDashboard={[MockFunction]}
   >
-    <CircularLoader
-      dataTest="dhis2-uicore-circularloader"
+    <Layer
+      translucent={true}
     />
-  </CenteredContent>
-</Layer>
+  </Dashboard>
+</WindowDimensionsProvider>
 `;
 
 exports[`Dashboard renders correctly when no dashboards found 1`] = `
-<Fragment>
-  <DashboardsBar />
-  <NoContentMessage
-    text="No dashboards found. Use the + button to create a new dashboard."
-  />
-</Fragment>
+<WindowDimensionsProvider>
+  <Dashboard
+    dashboardsIsEmpty={true}
+    dashboardsLoaded={true}
+    id="rainbowdash"
+    match={
+      Object {
+        "params": Object {
+          "dashboardId": null,
+        },
+      }
+    }
+    mode="view"
+    selectDashboard={[MockFunction]}
+  >
+    <DashboardsBar />
+    <NoContentMessage
+      text="No dashboards found. Use the + button to create a new dashboard."
+    />
+  </Dashboard>
+</WindowDimensionsProvider>
 `;

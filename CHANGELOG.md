@@ -1,3 +1,24 @@
+# [31.9.0](https://github.com/dhis2/dashboard-app/compare/v31.8.0...v31.9.0) (2021-01-29)
+
+
+### Features
+
+* set expanded control bar height for small screens ([#1459](https://github.com/dhis2/dashboard-app/issues/1459)) ([0d009ae](https://github.com/dhis2/dashboard-app/commit/0d009ae96d5e86511f97ccf1211aaa9fd2896e66))
+
+# [31.8.0](https://github.com/dhis2/dashboard-app/compare/v31.7.1...v31.8.0) (2021-01-28)
+
+
+### Features
+
+* responsive - redirect to view when url of /edit or /new manually entered [DHIS2-10138] ([#1473](https://github.com/dhis2/dashboard-app/issues/1473)) ([de3e1a6](https://github.com/dhis2/dashboard-app/commit/de3e1a6e32260d60f5caaf4b8114c1b1b7a9d34a))
+
+## [31.7.1](https://github.com/dhis2/dashboard-app/compare/v31.7.0...v31.7.1) (2021-01-25)
+
+
+### Bug Fixes
+
+* trigger event to hide tooltip when click wasnt on button ([#1461](https://github.com/dhis2/dashboard-app/issues/1461)) ([b87604c](https://github.com/dhis2/dashboard-app/commit/b87604ca442539e15e80651a5dbb628420376181))
+
 # [31.7.0](https://github.com/dhis2/dashboard-app/compare/v31.6.2...v31.7.0) (2021-01-25)
 
 

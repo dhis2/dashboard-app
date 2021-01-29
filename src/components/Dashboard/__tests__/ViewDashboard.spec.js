@@ -30,6 +30,7 @@ jest.mock(
             return <div>MockFilterBar</div>
         }
 )
+
 jest.mock(
     '../../ItemGrid/ViewItemGrid',
     () =>

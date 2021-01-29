@@ -4,7 +4,9 @@ import PropTypes from 'prop-types'
 import ViewTitleBar from '../TitleBar/ViewTitleBar'
 import ViewItemGrid from '../ItemGrid/ViewItemGrid'
 import FilterBar from '../FilterBar/FilterBar'
-import DashboardsBar from '../ControlBar/DashboardsBar'
+import DashboardsBar, {
+    isDashboardBarMaxHeight,
+} from '../ControlBar/DashboardsBar'
 import { sGetIsEditing } from '../../reducers/editDashboard'
 import { sGetIsPrinting } from '../../reducers/printDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
@@ -12,13 +14,16 @@ import { sGetControlBarUserRows } from '../../reducers/controlBar'
 import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
 import {
+    CONTROL_BAR_COLLAPSED,
     getControlBarHeight,
+    getControlBarHeightSmallDevice,
     HEADERBAR_HEIGHT,
 } from '../ControlBar/controlBarDimensions'
 import { useWindowDimensions } from '../WindowDimensionsProvider'
+import { isSmallScreen } from '../../modules/smallScreen'
 
 export const ViewDashboard = props => {
-    const { height } = useWindowDimensions()
+    const { width, height } = useWindowDimensions()
 
     useEffect(() => {
         if (props.dashboardIsEditing) {
@@ -32,15 +37,19 @@ export const ViewDashboard = props => {
         document.querySelector('.dashboard-wrapper')?.scroll(0, 0)
     }, [props.selectedId])
 
-    const contentHeight =
-        height - HEADERBAR_HEIGHT - getControlBarHeight(props.controlBarRows)
+    const dashboardHeight =
+        height -
+        HEADERBAR_HEIGHT -
+        (isSmallScreen(width) && !isDashboardBarMaxHeight(props.controlBarRows)
+            ? getControlBarHeightSmallDevice(CONTROL_BAR_COLLAPSED)
+            : getControlBarHeight(props.controlBarRows))
 
     return (
         <>
             <DashboardsBar />
             <div
-                className={'dashboard-wrapper'}
-                style={{ height: contentHeight }}
+                className="dashboard-wrapper"
+                style={{ height: dashboardHeight }}
             >
                 <ViewTitleBar />
                 <FilterBar />

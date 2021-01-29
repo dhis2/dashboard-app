@@ -48,6 +48,55 @@ test('renders a DashboardsBar with minimum height', () => {
     expect(container).toMatchSnapshot()
 })
 
+test('small screen: renders a DashboardsBar with minimum height', () => {
+    global.innerWidth = 480
+    global.innerHeight = 400
+
+    const store = {
+        dashboards,
+        dashboardsFilter: '',
+        controlBar: { userRows: 3 },
+        selected: { id: 'rainbow123' },
+    }
+    const { container } = render(
+        <Provider store={mockStore(store)}>
+            <WindowDimensionsProvider>
+                <Router history={createMemoryHistory()}>
+                    <DashboardsBar />
+                </Router>
+            </WindowDimensionsProvider>
+        </Provider>
+    )
+    expect(container).toMatchSnapshot()
+    global.innerWidth = 800
+    global.innerHeight = 600
+})
+
+test('small screen: clicking "Show more" maximizes dashboards bar height', () => {
+    global.innerWidth = 480
+    global.innerHeight = 400
+    const store = {
+        dashboards,
+        dashboardsFilter: '',
+        controlBar: { userRows: 3 },
+        selected: { id: 'fluttershy123' },
+    }
+    const { getByLabelText, asFragment } = render(
+        <Provider store={mockStore(store)}>
+            <WindowDimensionsProvider>
+                <Router history={createMemoryHistory()}>
+                    <DashboardsBar />
+                </Router>
+            </WindowDimensionsProvider>
+        </Provider>
+    )
+
+    fireEvent.click(getByLabelText('Show more dashboards'))
+    expect(asFragment()).toMatchSnapshot()
+    global.innerWidth = 800
+    global.innerHeight = 600
+})
+
 test('renders a DashboardsBar with maximum height', () => {
     const store = {
         dashboards,

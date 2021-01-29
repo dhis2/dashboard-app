@@ -16,6 +16,10 @@ import {
     getRowsHeight,
     getControlBarHeight,
     getNumRowsFromHeight,
+    getControlBarHeightSmallDevice,
+    CONTROL_BAR,
+    CONTROL_BAR_CONTAINER,
+    CHIPS_CONTAINER,
 } from './controlBarDimensions'
 import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
@@ -30,6 +34,7 @@ import { isSmallScreen } from '../../modules/smallScreen'
 import classes from './styles/DashboardsBar.module.css'
 
 export const MAX_ROW_COUNT = 10
+export const isDashboardBarMaxHeight = rows => rows === MAX_ROW_COUNT
 
 const DashboardsBar = ({
     userRows,
@@ -40,14 +45,14 @@ const DashboardsBar = ({
     filterText,
 }) => {
     const [rows, setRows] = useState(userRows)
-    const { width } = useWindowDimensions()
+    const { width, height } = useWindowDimensions()
     const ref = createRef()
 
     useEffect(() => {
         setRows(userRows)
     }, [userRows])
 
-    const isMaxHeight = () => rows === MAX_ROW_COUNT
+    const isMaxHeight = () => isDashboardBarMaxHeight(rows)
 
     const adjustHeight = newHeight => {
         const newRows = Math.max(
@@ -101,16 +106,25 @@ const DashboardsBar = ({
         ]
     }
 
-    const containerClass = cx(
-        classes.container,
-        isMaxHeight() ? classes.expanded : classes.collapsed
-    )
-
     const viewableRows =
         isSmallScreen(width) && !isMaxHeight() ? MIN_ROW_COUNT : rows
 
-    const rowHeightProp = {
-        height: getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT,
+    const getHeight = () => {
+        if (isSmallScreen(width) && isMaxHeight()) {
+            return getControlBarHeightSmallDevice(CONTROL_BAR, height)
+        }
+
+        return getControlBarHeight(viewableRows)
+    }
+
+    const getContainerHeight = container => {
+        if (isSmallScreen(width) && isMaxHeight()) {
+            return getControlBarHeightSmallDevice(
+                container ? CONTROL_BAR_CONTAINER : CHIPS_CONTAINER,
+                height
+            )
+        }
+        return getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT
     }
 
     const getDashboardChips = () => {
@@ -130,7 +144,10 @@ const DashboardsBar = ({
                 isMaxHeight() ? classes.expanded : classes.collapsed
             )
             return (
-                <div className={chipContainerClasses} style={rowHeightProp}>
+                <div
+                    className={chipContainerClasses}
+                    style={{ height: getContainerHeight() }}
+                >
                     {chips}
                 </div>
             )
@@ -139,14 +156,25 @@ const DashboardsBar = ({
         }
     }
 
+    const containerClass = cx(
+        classes.container,
+        isMaxHeight() ? classes.expanded : classes.collapsed
+    )
+
     return (
         <>
             <ControlBar
-                height={getControlBarHeight(viewableRows)}
+                height={getHeight()}
                 onChangeHeight={!isSmallScreen(width) ? adjustHeight : null}
                 onEndDrag={onEndDrag}
             >
-                <div className={containerClass} ref={ref} style={rowHeightProp}>
+                <div
+                    className={containerClass}
+                    ref={ref}
+                    style={{
+                        height: getContainerHeight(CONTROL_BAR_CONTAINER),
+                    }}
+                >
                     <div className={classes.controls}>
                         <Link
                             className={classes.newLink}
@@ -173,9 +201,7 @@ const DashboardsBar = ({
                 style={{
                     marginTop:
                         getControlBarHeight(
-                            isSmallScreen(width) && !isMaxHeight()
-                                ? MIN_ROW_COUNT
-                                : userRows
+                            isSmallScreen(width) ? MIN_ROW_COUNT : userRows
                         ) + DRAG_HANDLE_HEIGHT,
                 }}
             />
