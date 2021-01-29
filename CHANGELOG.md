@@ -1,3 +1,10 @@
+## [31.10.1](https://github.com/dhis2/dashboard-app/compare/v31.10.0...v31.10.1) (2021-01-29)
+
+
+### Bug Fixes
+
+* fullscreen param to map plugin resize ([#1484](https://github.com/dhis2/dashboard-app/issues/1484)) ([9da5b0c](https://github.com/dhis2/dashboard-app/commit/9da5b0c97fa94c736f8c738953906465c3c08fe8))
+
 # [31.10.0](https://github.com/dhis2/dashboard-app/compare/v31.9.0...v31.10.0) (2021-01-29)
 
 
