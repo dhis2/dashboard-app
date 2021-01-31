@@ -1,0 +1,186 @@
+# 
+# Translators:
+# Yury Rogachev <yury@dhis2.org>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
+"Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uz@Latn\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Delete"
+msgstr "Oʼchirib tashlash"
+
+msgid "Continue editing"
+msgstr ""
+
+msgid "Confirm delete dashboard"
+msgstr ""
+
+msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
+msgstr ""
+
+msgid "Exit without saving"
+msgstr "Saqlamasdan chiqish"
+
+msgid "Go to dashboards"
+msgstr "Boshqaruv panellariga oʼtish"
+
+msgid "Save changes"
+msgstr "Oʼzgartirishni saqlash"
+
+msgid "Translate"
+msgstr "Tarjima qiling"
+
+msgid "Search for a dashboard"
+msgstr "Boshqarish panelida izlash"
+
+msgid "Show less"
+msgstr "Kamroq koʼrsatilsin"
+
+msgid "Show more"
+msgstr "Koʼproq koʼrsatilsin"
+
+msgid "No access"
+msgstr "Kirish huquqi mavjud emas"
+
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+"Boshqaruv paneli topilmadi. Yangi boshqaruv panelini yaratish uchun + "
+"tugmasini bosing."
+
+msgid "Requested dashboard not found"
+msgstr "Soʼralgan boshqaruv paneli topilmadi"
+
+msgid "Messages"
+msgstr "Xabarlar"
+
+msgid "See all messages"
+msgstr "Barcha xabarlarni koʼrish"
+
+msgid "Edit your interpretation"
+msgstr ""
+
+msgid "Update"
+msgstr "Yangilash"
+
+msgid "Cancel edit"
+msgstr ""
+
+msgid "Edit"
+msgstr "Tahrirlash"
+
+msgid "like"
+msgstr ""
+
+msgid "likes"
+msgstr ""
+
+msgid "You like this"
+msgstr ""
+
+msgid "Like"
+msgstr "Kabi, oʼxshash"
+
+msgid "View in Visualizer"
+msgstr ""
+
+msgid "Reply"
+msgstr "Javob"
+
+msgid "Add your reply"
+msgstr ""
+
+msgid "Interpretations"
+msgstr "Sharhlar"
+
+msgid "Add your interpretation"
+msgstr ""
+
+msgid "Unable to load the plugin for this item"
+msgstr "Ushbu element uchun plagin yuklanmadi"
+
+msgid "Spacer"
+msgstr "Boʼsh joy"
+
+msgid ""
+"Use a spacer to create empty vertical space between other dashboard items."
+msgstr ""
+"Monitoring panelida elementlar orasida vertikal boʼsh joy yaratish uchun "
+"boʼsh joy qoldirish funktsiyasidan foydalaning"
+
+msgid "Text item"
+msgstr "Matn elementi"
+
+msgid "Add text here"
+msgstr "Matnni shu yerga qoʼshing"
+
+msgid "There are no items on this dashboard"
+msgstr "Ushbu boshqaruv panelida elementlar yoʼq"
+
+msgid "Search for items to add to this dashboard"
+msgstr "Ushbu boshqaruv paneliga kiritish uchun elementlarni qidiring"
+
+msgid "See"
+msgstr ""
+
+msgid "fewer"
+msgstr ""
+
+msgid "more"
+msgstr ""
+
+msgid "Text box"
+msgstr "Matn joyi"
+
+msgid "Add title here"
+msgstr ""
+
+msgid "Add description here"
+msgstr ""
+
+msgid "No description"
+msgstr "Tavsif yoʼq"
+
+msgid "Pivot tables"
+msgstr ""
+
+msgid "Pivot Tables"
+msgstr "Solishtirma jadvallar"
+
+msgid "Charts"
+msgstr "Diagrammalar"
+
+msgid "Visualizer"
+msgstr "Vizualizator"
+
+msgid "Maps"
+msgstr "Xaritalar"
+
+msgid "Event reports"
+msgstr "Hodisalar hisoboti"
+
+msgid "Event Reports"
+msgstr ""
+
+msgid "Event charts"
+msgstr "Hodisalar diagrammalarda"
+
+msgid "Event Visualizer"
+msgstr "Hodisalar vizualizatori"
+
+msgid "Reports"
+msgstr "Hisobotlar"
+
+msgid "Resources"
+msgstr "Resurslar"
+
+msgid "Users"
+msgstr "Foydalanuvchilar"
