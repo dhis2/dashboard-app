@@ -121,7 +121,7 @@ export class Item extends Component {
                 )
             }
             // call resize on Map item
-            pluginResize(this.props.item)
+            pluginResize(this.props.item, this.state.isFullscreen)
         }
     }
 
@@ -131,11 +131,14 @@ export class Item extends Component {
     }
 
     handleFullscreenChange = () => {
-        this.setState({
-            isFullscreen:
-                !!document.fullscreenElement ||
-                !!document.webkitFullscreenElement,
-        })
+        this.setState(
+            {
+                isFullscreen:
+                    !!document.fullscreenElement ||
+                    !!document.webkitFullscreenElement,
+            },
+            () => pluginResize(this.props.item, this.state.isFullscreen)
+        )
     }
 
     onToggleFullscreen = () => {
