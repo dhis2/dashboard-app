@@ -53,7 +53,7 @@ const dashboardMap = {
     [PRINT_LAYOUT]: <PrintLayoutDashboard />,
 }
 
-export const Dashboard = ({
+const Dashboard = ({
     id,
     mode,
     dashboardsLoaded,

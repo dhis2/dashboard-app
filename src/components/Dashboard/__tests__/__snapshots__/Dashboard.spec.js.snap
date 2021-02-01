@@ -1,318 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Dashboard renders Dashboard Not Found message when dashboard id is not valid 1`] = `
+<div>
+  <div>
+    DashboardsBar
+  </div>
+  <div>
+    Requested dashboard not found
+  </div>
+</div>
+`;
+
 exports[`Dashboard renders EDIT dashboard 1`] = `
-<WindowDimensionsProvider>
-  <Dashboard
-    dashboardsIsEmpty={false}
-    dashboardsLoaded={true}
-    id="rainbowdash"
-    match={
-      Object {
-        "params": Object {
-          "dashboardId": null,
-        },
-      }
-    }
-    mode="edit"
-    selectDashboard={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            undefined,
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
-  >
-    <MockEditDashboard>
-      <div>
-        MockEditDashboard
-      </div>
-    </MockEditDashboard>
-  </Dashboard>
-</WindowDimensionsProvider>
+<div>
+  <div>
+    EditDashboard
+  </div>
+</div>
+`;
+
+exports[`Dashboard renders Loading indicator when dashboards loaded and id is still null 1`] = `
+<div>
+  <div>
+    Layer
+  </div>
+</div>
+`;
+
+exports[`Dashboard renders Loading indicator when dashboards not loaded 1`] = `
+<div>
+  <div>
+    Layer
+  </div>
+</div>
 `;
 
 exports[`Dashboard renders NEW dashboard 1`] = `
-<WindowDimensionsProvider>
-  <Dashboard
-    dashboardsIsEmpty={false}
-    dashboardsLoaded={true}
-    id="rainbowdash"
-    match={
-      Object {
-        "params": Object {
-          "dashboardId": null,
-        },
-      }
-    }
-    mode="new"
-    selectDashboard={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            undefined,
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
-  >
-    <MockNewDashboard>
-      <div>
-        MockNewDashboard
-      </div>
-    </MockNewDashboard>
-  </Dashboard>
-</WindowDimensionsProvider>
+<div>
+  <div>
+    NewDashboard
+  </div>
+</div>
+`;
+
+exports[`Dashboard renders No Dashboards message when no dashboards and mode != NEW 1`] = `
+<div>
+  <div>
+    DashboardsBar
+  </div>
+  <div>
+    No dashboards found. Use the + button to create a new dashboard.
+  </div>
+</div>
 `;
 
 exports[`Dashboard renders PRINT dashboard 1`] = `
-<WindowDimensionsProvider>
-  <Dashboard
-    dashboardsIsEmpty={false}
-    dashboardsLoaded={true}
-    id="rainbowdash"
-    match={
-      Object {
-        "params": Object {
-          "dashboardId": null,
-        },
-      }
-    }
-    mode="print"
-    selectDashboard={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            undefined,
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
-  >
-    <MockPrintDashboard>
-      <div>
-        MockPrintDashboard
-      </div>
-    </MockPrintDashboard>
-  </Dashboard>
-</WindowDimensionsProvider>
+<div>
+  <div>
+    PrintDashboard
+  </div>
+</div>
 `;
 
 exports[`Dashboard renders PRINT_LAYOUT dashboard 1`] = `
-<WindowDimensionsProvider>
-  <Dashboard
-    dashboardsIsEmpty={false}
-    dashboardsLoaded={true}
-    id="rainbowdash"
-    match={
-      Object {
-        "params": Object {
-          "dashboardId": null,
-        },
-      }
-    }
-    mode="print-layout"
-    selectDashboard={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            undefined,
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
-  >
-    <MockPrintLayoutDashboard>
-      <div>
-        MockPrintLayoutDashboard
-      </div>
-    </MockPrintLayoutDashboard>
-  </Dashboard>
-</WindowDimensionsProvider>
-`;
-
-exports[`Dashboard renders correctly when dashboard id is not valid 1`] = `
-<WindowDimensionsProvider>
-  <Dashboard
-    dashboardsIsEmpty={false}
-    dashboardsLoaded={true}
-    id="0"
-    match={
-      Object {
-        "params": Object {
-          "dashboardId": null,
-        },
-      }
-    }
-    mode="view"
-    selectDashboard={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            undefined,
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
-  >
-    <MockDashboardsBar>
-      <div>
-        MockDashboardsBar
-      </div>
-    </MockDashboardsBar>
-    <MockNoContentMessage
-      text="Requested dashboard not found"
-    >
-      <div>
-        MockNoContentMessage
-      </div>
-    </MockNoContentMessage>
-  </Dashboard>
-</WindowDimensionsProvider>
-`;
-
-exports[`Dashboard renders correctly when dashboards loaded and id is null 1`] = `
-<WindowDimensionsProvider>
-  <Dashboard
-    dashboardsIsEmpty={false}
-    dashboardsLoaded={true}
-    id={null}
-    match={
-      Object {
-        "params": Object {
-          "dashboardId": null,
-        },
-      }
-    }
-    mode="view"
-    selectDashboard={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            undefined,
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
-  >
-    <Layer
-      translucent={true}
-    />
-  </Dashboard>
-</WindowDimensionsProvider>
-`;
-
-exports[`Dashboard renders correctly when dashboards not loaded and id is not null 1`] = `
-<WindowDimensionsProvider>
-  <Dashboard
-    dashboardsIsEmpty={false}
-    dashboardsLoaded={false}
-    id="rainbowdash"
-    match={
-      Object {
-        "params": Object {
-          "dashboardId": null,
-        },
-      }
-    }
-    mode="view"
-    selectDashboard={[MockFunction]}
-  >
-    <Layer
-      translucent={true}
-    />
-  </Dashboard>
-</WindowDimensionsProvider>
-`;
-
-exports[`Dashboard renders correctly when dashboards not loaded and id is null 1`] = `
-<WindowDimensionsProvider>
-  <Dashboard
-    dashboardsIsEmpty={false}
-    dashboardsLoaded={false}
-    id={null}
-    match={
-      Object {
-        "params": Object {
-          "dashboardId": null,
-        },
-      }
-    }
-    mode="view"
-    selectDashboard={[MockFunction]}
-  >
-    <Layer
-      translucent={true}
-    />
-  </Dashboard>
-</WindowDimensionsProvider>
-`;
-
-exports[`Dashboard renders correctly when no dashboards found 1`] = `
-<WindowDimensionsProvider>
-  <Dashboard
-    dashboardsIsEmpty={true}
-    dashboardsLoaded={true}
-    id="rainbowdash"
-    match={
-      Object {
-        "params": Object {
-          "dashboardId": null,
-        },
-      }
-    }
-    mode="view"
-    selectDashboard={[MockFunction]}
-  >
-    <MockDashboardsBar>
-      <div>
-        MockDashboardsBar
-      </div>
-    </MockDashboardsBar>
-    <MockNoContentMessage
-      text="No dashboards found. Use the + button to create a new dashboard."
-    >
-      <div>
-        MockNoContentMessage
-      </div>
-    </MockNoContentMessage>
-  </Dashboard>
-</WindowDimensionsProvider>
+<div>
+  <div>
+    PrintLayoutDashboard
+  </div>
+</div>
 `;
