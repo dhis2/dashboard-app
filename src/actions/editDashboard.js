@@ -13,10 +13,9 @@ import {
     REMOVE_DASHBOARD_ITEM,
     SET_PRINT_PREVIEW_VIEW,
     CLEAR_PRINT_PREVIEW_VIEW,
+    sGetEditDashboardRoot,
 } from '../reducers/editDashboard'
-import { sGetEditDashboardRoot } from '../reducers/editDashboard'
 import { updateDashboard, postDashboard } from '../api/editDashboard'
-import { tSetSelectedDashboardById } from '../actions/selected'
 import {
     NEW_ITEM_SHAPE,
     getGridItemProperties,
@@ -25,11 +24,6 @@ import {
 } from '../modules/gridUtil'
 import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
 import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
-
-const onError = error => {
-    console.log('Error (Saving Dashboard): ', error)
-    return error
-}
 
 // actions
 
@@ -129,16 +123,9 @@ export const tSaveDashboard = () => async (dispatch, getState, dataEngine) => {
         name: dashboard.name || i18n.t('Untitled dashboard'),
     }
 
-    try {
-        const dashboardId = dashboardToSave.id
-            ? await updateDashboard(dataEngine, dashboardToSave)
-            : await postDashboard(dataEngine, dashboardToSave)
+    const dashboardId = dashboardToSave.id
+        ? await updateDashboard(dataEngine, dashboardToSave)
+        : await postDashboard(dataEngine, dashboardToSave)
 
-        dispatch(acClearEditDashboard())
-        await dispatch(tSetSelectedDashboardById(dashboardId))
-
-        return Promise.resolve(dashboardId)
-    } catch (error) {
-        onError(error)
-    }
+    return Promise.resolve(dashboardId)
 }

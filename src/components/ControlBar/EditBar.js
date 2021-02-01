@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
 import { Button, ButtonStrip } from '@dhis2/ui'
-import { useDataEngine } from '@dhis2/app-runtime'
+import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import ConfirmDeleteDialog from './ConfirmDeleteDialog'
@@ -37,6 +37,10 @@ const EditBar = props => {
     const [confirmDeleteDlgIsOpen, setConfirmDeleteDlgIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(undefined)
 
+    const { show } = useAlert(({ msg }) => `${msg}`, {
+        critical: true,
+    })
+
     useEffect(() => {
         if (props.dashboardId && !dashboard) {
             apiFetchDashboard(dataEngine, props.dashboardId).then(dboard =>
@@ -49,11 +53,13 @@ const EditBar = props => {
         setConfirmDeleteDlgIsOpen(true)
     }
 
-    const onSave = () => {
-        props.onSave().then(newId => {
-            setRedirectUrl(`/${newId}`)
-        })
-    }
+    const onSave = () =>
+        props
+            .onSave()
+            .then(newId => {
+                setRedirectUrl(`/${newId}`)
+            })
+            .catch(() => show({ msg: `Failed to save the dashboard` }))
 
     const onPrintPreview = () => {
         if (props.isPrintPreviewView) {

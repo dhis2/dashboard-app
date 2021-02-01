@@ -1,7 +1,5 @@
 import { apiFetchDashboard } from './dashboards'
 
-const onError = error => console.log('Error: ', error)
-
 export const createDashboardMutation = {
     resource: 'dashboards',
     type: 'create',
@@ -29,32 +27,24 @@ const generatePayload = (dashboard = {}, data) => {
 }
 
 export const updateDashboard = async (dataEngine, data) => {
-    try {
-        const dashboard = await apiFetchDashboard(dataEngine, data.id)
+    const dashboard = await apiFetchDashboard(dataEngine, data.id)
 
-        const { response } = await dataEngine.mutate(updateDashboardMutation, {
-            variables: {
-                id: data.id,
-                data: generatePayload(dashboard, data),
-            },
-        })
+    const { response } = await dataEngine.mutate(updateDashboardMutation, {
+        variables: {
+            id: data.id,
+            data: generatePayload(dashboard, data),
+        },
+    })
 
-        return response.uid
-    } catch (error) {
-        onError(error)
-    }
+    return response.uid
 }
 
 export const postDashboard = async (dataEngine, data) => {
-    try {
-        const { response } = await dataEngine.mutate(createDashboardMutation, {
-            variables: {
-                data: generatePayload({}, data),
-            },
-        })
+    const { response } = await dataEngine.mutate(createDashboardMutation, {
+        variables: {
+            data: generatePayload({}, data),
+        },
+    })
 
-        return response.uid
-    } catch (error) {
-        onError(error)
-    }
+    return response.uid
 }

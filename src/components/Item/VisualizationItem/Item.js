@@ -62,6 +62,14 @@ export class Item extends Component {
     }
 
     async componentDidMount() {
+        const el = document.querySelector(this.itemDomElSelector)
+
+        if (el?.requestFullscreen) {
+            el.onfullscreenchange = this.handleFullscreenChange
+        } else if (el?.webkitRequestFullscreen) {
+            el.onwebkitfullscreenchange = this.handleFullscreenChange
+        }
+
         this.props.updateVisualization(
             await apiFetchVisualization(this.props.item)
         )
@@ -71,7 +79,7 @@ export class Item extends Component {
                 this.props.gatherDataStatistics &&
                 isViewMode(this.props.dashboardMode)
             ) {
-                await apiPostDataStatistics(
+                apiPostDataStatistics(
                     getDataStatisticsName(this.props.item.type),
                     getVisualizationId(this.props.item)
                 )
@@ -81,13 +89,6 @@ export class Item extends Component {
         }
 
         this.setState({ configLoaded: true })
-
-        const el = document.querySelector(this.itemDomElSelector)
-        if (el?.requestFullscreen) {
-            el.onfullscreenchange = this.handleFullscreenChange
-        } else if (el?.webkitRequestFullscreen) {
-            el.onwebkitfullscreenchange = this.handleFullscreenChange
-        }
     }
 
     componentWillUnmount() {
