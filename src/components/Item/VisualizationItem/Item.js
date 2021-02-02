@@ -83,7 +83,6 @@ export class Item extends Component {
         this.setState({ configLoaded: true })
 
         const el = document.querySelector(this.itemDomElSelector)
-
         if (el?.requestFullscreen) {
             el.onfullscreenchange = this.handleFullscreenChange
         } else if (el?.webkitRequestFullscreen) {
