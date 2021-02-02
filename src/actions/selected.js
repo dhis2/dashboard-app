@@ -129,17 +129,13 @@ export const tSetSelectedDashboardById = id => async (
         return selected
     }
 
-    const onError = error => {
-        console.log('Error: ', error)
-        return error
-    }
-
     try {
         const dashboard = await apiFetchDashboard(dataEngine, id)
 
         return onSuccess(dashboard)
     } catch (err) {
-        return onError(err)
+        console.log('Error: ', err)
+        return err
     }
 }
 

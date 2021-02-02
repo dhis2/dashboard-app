@@ -85,7 +85,7 @@ export default (state = DEFAULT_STATE_DASHBOARDS, action) => {
 
 // root selector
 
-export const sGetDashboardsRoot = state => state.dashboards
+const sGetDashboardsRoot = state => state.dashboards
 
 // selector level 1
 

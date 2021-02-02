@@ -15,6 +15,7 @@ import {
     CLEAR_PRINT_PREVIEW_VIEW,
     sGetEditDashboardRoot,
 } from '../reducers/editDashboard'
+import { tFetchDashboards } from './dashboards'
 import { updateDashboard, postDashboard } from '../api/editDashboard'
 import {
     NEW_ITEM_SHAPE,
@@ -126,6 +127,9 @@ export const tSaveDashboard = () => async (dispatch, getState, dataEngine) => {
     const dashboardId = dashboardToSave.id
         ? await updateDashboard(dataEngine, dashboardToSave)
         : await postDashboard(dataEngine, dashboardToSave)
+
+    // update the dashboard list
+    await dispatch(tFetchDashboards())
 
     return Promise.resolve(dashboardId)
 }
