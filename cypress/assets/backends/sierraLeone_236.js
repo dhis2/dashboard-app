@@ -1,5 +1,6 @@
 export const dashboards = {
     'Antenatal Care': {
+        id: 'nghVC4wtyzi',
         route: '#/nghVC4wtyzi',
         items: {
             text: {
@@ -11,6 +12,7 @@ export const dashboards = {
         },
     },
     Delivery: {
+        id: 'iMnYyBfSxmM',
         route: '#/iMnYyBfSxmM',
         items: {
             chart: { itemUid: 'GaVhJpqABYX', visUid: 'HDEDqV3yv3H' },
@@ -19,6 +21,7 @@ export const dashboards = {
         },
     },
     Immunization: {
+        id: 'TAMlzYkstb7',
         route: '#/TAMlzYkstb7',
     },
 }
