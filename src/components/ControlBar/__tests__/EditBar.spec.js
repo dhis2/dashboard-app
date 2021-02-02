@@ -59,7 +59,7 @@ useDataEngine.mockReturnValue({
     dataEngine: {},
 })
 
-test.skip('renders the EditBar', () => {
+test('renders the EditBar', () => {
     const store = {
         editDashboard: {
             id: 'rainbowDash',
@@ -79,7 +79,7 @@ test.skip('renders the EditBar', () => {
     expect(container).toMatchSnapshot()
 })
 
-test.skip('renders only the Go to Dashboards button when no update access', () => {
+test('renders only the Go to Dashboards button when no update access', () => {
     const store = {
         editDashboard: {
             id: 'rainbowDash',
@@ -99,7 +99,7 @@ test.skip('renders only the Go to Dashboards button when no update access', () =
     expect(container).toMatchSnapshot()
 })
 
-test.skip('renders Save and Discard buttons but no dialogs when no dashboard id', () => {
+test('renders Save and Discard buttons but no dialogs when no dashboard id', () => {
     const store = {
         editDashboard: {
             id: '',
@@ -117,7 +117,7 @@ test.skip('renders Save and Discard buttons but no dialogs when no dashboard id'
     expect(container).toMatchSnapshot()
 })
 
-test.skip('renders Translate, Delete, and Discard buttons when delete access', () => {
+test('renders Translate, Delete, and Discard buttons when delete access', () => {
     const store = {
         editDashboard: {
             id: 'rainbowDash',
@@ -137,7 +137,7 @@ test.skip('renders Translate, Delete, and Discard buttons when delete access', (
     expect(container).toMatchSnapshot()
 })
 
-test.skip('shows the confirm delete dialog when delete button clicked', () => {
+test('shows the confirm delete dialog when delete button clicked', () => {
     const store = {
         editDashboard: {
             id: 'rainbowDash',
@@ -164,7 +164,7 @@ test.skip('shows the confirm delete dialog when delete button clicked', () => {
     expect(asFragment()).toMatchSnapshot()
 })
 
-test.skip('shows the translate dialog', () => {
+test('shows the translate dialog', () => {
     const store = {
         editDashboard: {
             id: 'rainbowDash',
@@ -192,7 +192,7 @@ test.skip('shows the translate dialog', () => {
     expect(asFragment()).toMatchSnapshot()
 })
 
-test.skip('triggers the discard action', () => {
+test('triggers the discard action', () => {
     const store = mockStore({
         editDashboard: {
             id: 'rainbowDash',
@@ -223,7 +223,7 @@ test.skip('triggers the discard action', () => {
     expect(store.dispatch).toHaveBeenCalledWith(acClearEditDashboard())
 })
 
-test.skip('triggers the save action', () => {
+test('triggers the save action', () => {
     const store = mockStore({
         editDashboard: {
             id: 'rainbowDash',

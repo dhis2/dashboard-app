@@ -37,7 +37,7 @@ const EditBar = props => {
     const [confirmDeleteDlgIsOpen, setConfirmDeleteDlgIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(undefined)
 
-    const { show } = useAlert(({ msg }) => `${msg}`, {
+    const alert = useAlert(({ msg }) => `${msg}`, {
         critical: true,
     })
 
@@ -59,7 +59,7 @@ const EditBar = props => {
             .then(newId => {
                 setRedirectUrl(`/${newId}`)
             })
-            .catch(() => show({ msg: `Failed to save the dashboard` }))
+            .catch(() => alert.show({ msg: `Failed to save the dashboard` }))
 
     const onPrintPreview = () => {
         if (props.isPrintPreviewView) {
