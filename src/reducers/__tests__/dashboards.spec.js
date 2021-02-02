@@ -1,6 +1,5 @@
 import reducer, {
     DEFAULT_STATE_DASHBOARDS,
-    sGetDashboardsRoot,
     sGetDashboardById,
     sGetAllDashboards,
     sGetStarredDashboards,
@@ -175,12 +174,6 @@ const dash3 = dashboardsState.byId[dashId3]
 const dash4 = dashboardsState.byId[dashId4]
 
 describe('dashboards selectors', () => {
-    it('sGetDashboardsRoot: should return the root prop', () => {
-        const actualState = sGetDashboardsRoot(testState)
-
-        expect(actualState).toEqual(dashboardsState)
-    })
-
     it('sGetDashboardById: should return dashboard with the provided id', () => {
         const actualState = sGetDashboardById(testState, dashId1)
 
