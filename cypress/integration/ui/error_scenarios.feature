@@ -5,7 +5,6 @@ Feature: Error scenarios
         Given I open an app with no dashboards
         Then a message displays informing that there are no dashboards
 
-
     @nonmutating
     Scenario: I navigate to a dashboard that doesn't exist or I don't have access to
         Given I type an invalid dashboard id in the browser url
@@ -24,7 +23,6 @@ Feature: Error scenarios
         When I choose to edit dashboard
         And A 500 error is thrown when I save the dashboard
         Then I remain in edit mode and error message is displayed
-
 
     @nonmutating
     Scenario: I enter edit mode of a dashboard I do not have access to edit

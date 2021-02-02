@@ -29,6 +29,8 @@ import { apiFetchDashboard } from '../../api/dashboards'
 
 import classes from './styles/EditBar.module.css'
 
+const saveFailedMessage = i18n.t('Failed to save the dashboard')
+
 const EditBar = props => {
     const { d2 } = useD2({})
     const dataEngine = useDataEngine()
@@ -37,7 +39,7 @@ const EditBar = props => {
     const [confirmDeleteDlgIsOpen, setConfirmDeleteDlgIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(undefined)
 
-    const alert = useAlert(({ msg }) => `${msg}`, {
+    const failureAlert = useAlert(saveFailedMessage, {
         critical: true,
     })
 
@@ -53,13 +55,18 @@ const EditBar = props => {
         setConfirmDeleteDlgIsOpen(true)
     }
 
-    const onSave = () =>
-        props
-            .onSave()
-            .then(newId => {
-                setRedirectUrl(`/${newId}`)
-            })
-            .catch(() => alert.show({ msg: `Failed to save the dashboard` }))
+    const onSave = () => {
+        try {
+            props
+                .onSave()
+                .then(newId => {
+                    setRedirectUrl(`/${newId}`)
+                })
+                .catch(() => failureAlert.show())
+        } catch (e) {
+            failureAlert.show()
+        }
+    }
 
     const onPrintPreview = () => {
         if (props.isPrintPreviewView) {
