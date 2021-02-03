@@ -9,6 +9,6 @@ Given('I open an app with no dashboards', () => {
 })
 
 Then('a message displays informing that there are no dashboards', () => {
-    cy.contains('No dashboards found').should('be.visible')
+    cy.contains('No dashboards found', EXTENDED_TIMEOUT).should('be.visible')
     cy.get(newDashboardLinkSel).should('be.visible')
 })
