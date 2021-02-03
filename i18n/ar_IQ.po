@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-09T13:38:15.043Z\n"
+"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
@@ -39,14 +39,14 @@ msgstr ""
 " لا يمكن التراجع عن هذا الإجراء. هل تريد بالتأكيد حذف لوحة المعلومات هذه "
 "نهائياً؟"
 
+msgid "Save changes"
+msgstr "احفظ التغييرات"
+
 msgid "Exit Print preview"
 msgstr ""
 
 msgid "Print preview"
 msgstr ""
-
-msgid "Save changes"
-msgstr "احفظ التغييرات"
 
 msgid "Translate"
 msgstr "ترجمة"
@@ -60,11 +60,11 @@ msgstr "الذهاب إلى لوحة المعلومات"
 msgid "Search for a dashboard"
 msgstr "البحث عن لوحة معلومات"
 
-msgid "Show more"
-msgstr "إظهار المزيد"
+msgid "Show fewer dashboards"
+msgstr ""
 
-msgid "Show less"
-msgstr "إظهار الأقل"
+msgid "Show more dashboards"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -75,6 +75,15 @@ msgstr "لم يتم العثور على لوحة المعلومات التي ط�
 
 msgid "No access"
 msgstr "ممنوع الدخول"
+
+msgid "Editing dashboards on small screens is not supported."
+msgstr ""
+
+msgid "Creating dashboards on small screens is not supported."
+msgstr ""
+
+msgid "Not supported"
+msgstr ""
 
 msgid "Exit print preview"
 msgstr ""
@@ -169,6 +178,9 @@ msgstr "عرض كخريطة"
 msgid "Open in {{appName}} app"
 msgstr "إفتح في تطبيق {{appName}}"
 
+msgid "View fullscreen"
+msgstr ""
+
 msgid "Unable to load the plugin for this item"
 msgstr "تعذر تحميل المكوّن الإضافي لهذا العنصر"
 
@@ -186,6 +198,9 @@ msgstr "لايوجد عناصر في لوحة المعلومات هذه"
 
 msgid "Show fewer"
 msgstr "عرض أقل"
+
+msgid "Show more"
+msgstr "إظهار المزيد"
 
 msgid "Insert"
 msgstr "إدراج"
