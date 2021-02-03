@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Ibatov <ibatovk@who.int>, 2020
+# Ibatov <ibatovk@who.int>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-09T13:38:15.043Z\n"
+"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Ibatov <ibatovk@who.int>, 2020\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,14 +40,14 @@ msgstr ""
 "ҳам ушбу панелни орқага қайтариб бўлмаслик шарти билан ўчириб "
 "ташламоқчимисиз?"
 
+msgid "Save changes"
+msgstr "Ўзгартиришни сақлаш"
+
 msgid "Exit Print preview"
 msgstr "Чоп этишдан аввалги кўрикдан чиқинг"
 
 msgid "Print preview"
 msgstr "Чоп этишдан аввалги кўрик"
-
-msgid "Save changes"
-msgstr "Ўзгартиришни сақлаш"
 
 msgid "Translate"
 msgstr "Таржима қилинг"
@@ -61,11 +61,11 @@ msgstr "Бошқарув панелларига ўтиш"
 msgid "Search for a dashboard"
 msgstr "Бошқариш панелида излаш"
 
-msgid "Show more"
-msgstr "Кўпроқ кўрсатилсин"
+msgid "Show fewer dashboards"
+msgstr ""
 
-msgid "Show less"
-msgstr "Камроқ кўрсатилсин"
+msgid "Show more dashboards"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -77,6 +77,15 @@ msgstr "Сўралган бошқарув панели топилмади"
 
 msgid "No access"
 msgstr "Кириш ҳуқуқи мавжуд эмас"
+
+msgid "Editing dashboards on small screens is not supported."
+msgstr ""
+
+msgid "Creating dashboards on small screens is not supported."
+msgstr ""
+
+msgid "Not supported"
+msgstr ""
 
 msgid "Exit print preview"
 msgstr "Чоп этишдан аввалги кўрикдан чиқинг"
@@ -172,6 +181,9 @@ msgstr "Харита сифатида кўриш"
 msgid "Open in {{appName}} app"
 msgstr "Иловада {{ИловаНоми}} да очиш"
 
+msgid "View fullscreen"
+msgstr ""
+
 msgid "Unable to load the plugin for this item"
 msgstr "Ушбу элемент учун плагин юкланмади"
 
@@ -189,6 +201,9 @@ msgstr "Ушбу бошқарув панелида элементлар йўқ"
 
 msgid "Show fewer"
 msgstr "Камроқ кўрсатиш"
+
+msgid "Show more"
+msgstr "Кўпроқ кўрсатилсин"
 
 msgid "Insert"
 msgstr "Киритиш"
@@ -242,7 +257,7 @@ msgid "Visualizations"
 msgstr "Визуализация"
 
 msgid "Pivot tables"
-msgstr "Таянч жадваллар"
+msgstr "Солиштирма жадваллар"
 
 msgid "Charts"
 msgstr "Диаграммалар"
