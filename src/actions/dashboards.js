@@ -81,7 +81,7 @@ export const tSelectDashboard = id => async (dispatch, getState) => {
             dispatch(acSetSelectedId(NON_EXISTING_DASHBOARD_ID))
         }
     } catch (err) {
-        console.log('Error (apiFetchDashboards): ', err)
+        console.error('Error (apiFetchDashboards): ', err)
         return err
     }
 }
@@ -100,7 +100,7 @@ export const tStarDashboard = (id, isStarred) => async (
         await apiStarDashboard(dataEngine, id, isStarred)
         return onSuccess(id)
     } catch (err) {
-        console.log('Error (apiStarDashboard): ', err)
+        console.error('Error (apiStarDashboard): ', err)
         return err
     }
 }
@@ -116,7 +116,7 @@ export const tDeleteDashboard = id => async (
 
         return Promise.resolve()
     } catch (err) {
-        console.log('Error (deleteDashboard): ', err)
+        console.error('Error (deleteDashboard): ', err)
         return err
     }
 }
