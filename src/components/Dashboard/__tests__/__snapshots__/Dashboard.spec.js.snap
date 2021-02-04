@@ -3,6 +3,7 @@
 exports[`Dashboard renders EDIT dashboard 1`] = `
 <WindowDimensionsProvider>
   <Dashboard
+    clearEditDashboard={[MockFunction]}
     dashboardsIsEmpty={false}
     dashboardsLoaded={true}
     id="rainbowdash"
@@ -38,6 +39,7 @@ exports[`Dashboard renders EDIT dashboard 1`] = `
 exports[`Dashboard renders NEW dashboard 1`] = `
 <WindowDimensionsProvider>
   <Dashboard
+    clearEditDashboard={[MockFunction]}
     dashboardsIsEmpty={false}
     dashboardsLoaded={true}
     id="rainbowdash"
@@ -73,6 +75,19 @@ exports[`Dashboard renders NEW dashboard 1`] = `
 exports[`Dashboard renders PRINT dashboard 1`] = `
 <WindowDimensionsProvider>
   <Dashboard
+    clearEditDashboard={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     dashboardsIsEmpty={false}
     dashboardsLoaded={true}
     id="rainbowdash"
@@ -108,6 +123,19 @@ exports[`Dashboard renders PRINT dashboard 1`] = `
 exports[`Dashboard renders PRINT_LAYOUT dashboard 1`] = `
 <WindowDimensionsProvider>
   <Dashboard
+    clearEditDashboard={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     dashboardsIsEmpty={false}
     dashboardsLoaded={true}
     id="rainbowdash"
@@ -143,6 +171,19 @@ exports[`Dashboard renders PRINT_LAYOUT dashboard 1`] = `
 exports[`Dashboard renders correctly when dashboard id is not valid 1`] = `
 <WindowDimensionsProvider>
   <Dashboard
+    clearEditDashboard={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     dashboardsIsEmpty={false}
     dashboardsLoaded={true}
     id="0"
@@ -181,6 +222,19 @@ exports[`Dashboard renders correctly when dashboard id is not valid 1`] = `
 exports[`Dashboard renders correctly when dashboards loaded and id is null 1`] = `
 <WindowDimensionsProvider>
   <Dashboard
+    clearEditDashboard={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     dashboardsIsEmpty={false}
     dashboardsLoaded={true}
     id={null}
@@ -218,6 +272,19 @@ exports[`Dashboard renders correctly when dashboards loaded and id is null 1`] =
 exports[`Dashboard renders correctly when dashboards not loaded and id is not null 1`] = `
 <WindowDimensionsProvider>
   <Dashboard
+    clearEditDashboard={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     dashboardsIsEmpty={false}
     dashboardsLoaded={false}
     id="rainbowdash"
@@ -241,6 +308,19 @@ exports[`Dashboard renders correctly when dashboards not loaded and id is not nu
 exports[`Dashboard renders correctly when dashboards not loaded and id is null 1`] = `
 <WindowDimensionsProvider>
   <Dashboard
+    clearEditDashboard={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     dashboardsIsEmpty={false}
     dashboardsLoaded={false}
     id={null}
@@ -264,6 +344,19 @@ exports[`Dashboard renders correctly when dashboards not loaded and id is null 1
 exports[`Dashboard renders correctly when no dashboards found 1`] = `
 <WindowDimensionsProvider>
   <Dashboard
+    clearEditDashboard={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     dashboardsIsEmpty={true}
     dashboardsLoaded={true}
     id="rainbowdash"

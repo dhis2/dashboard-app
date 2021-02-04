@@ -56,11 +56,6 @@ export const tFetchDashboards = () => async (
 }
 
 export const tSelectDashboard = id => async (dispatch, getState) => {
-    const onError = error => {
-        console.log('Error (apiFetchDashboards): ', error)
-        return error
-    }
-
     try {
         const state = getState()
 
@@ -82,7 +77,8 @@ export const tSelectDashboard = id => async (dispatch, getState) => {
             dispatch(acSetSelectedId(NON_EXISTING_DASHBOARD_ID))
         }
     } catch (err) {
-        return onError(err)
+        console.error('Error (apiFetchDashboards): ', err)
+        return err
     }
 }
 
@@ -97,7 +93,7 @@ export const tDeleteDashboard = id => async (
 
         return Promise.resolve()
     } catch (err) {
-        console.log('Error (deleteDashboard): ', err)
+        console.error('Error (deleteDashboard): ', err)
         return err
     }
 }

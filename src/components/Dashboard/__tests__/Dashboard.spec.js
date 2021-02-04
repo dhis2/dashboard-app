@@ -69,6 +69,7 @@ describe('Dashboard', () => {
             match: { params: { dashboardId: null } },
             mode: VIEW,
             selectDashboard: jest.fn(),
+            clearEditDashboard: jest.fn(),
         }
         shallowDashboard = undefined
     })

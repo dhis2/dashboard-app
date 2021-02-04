@@ -126,17 +126,13 @@ export const tSetSelectedDashboardById = id => async (
         return selected
     }
 
-    const onError = error => {
-        console.log('Error: ', error)
-        return error
-    }
-
     try {
         const dashboard = await apiFetchDashboard(dataEngine, id)
 
         return onSuccess(dashboard)
     } catch (err) {
-        return onError(err)
+        console.error('Error: ', err)
+        return err
     }
 }
 
@@ -145,15 +141,11 @@ export const tSetShowDescription = () => async dispatch => {
         dispatch(acSetSelectedShowDescription(value))
     }
 
-    const onError = error => {
-        console.log('Error (apiGetShowDescription): ', error)
-        return error
-    }
-
     try {
         const showDescription = await apiGetShowDescription()
         return onSuccess(showDescription)
     } catch (err) {
-        return onError(err)
+        console.error('Error (apiGetShowDescription): ', err)
+        return err
     }
 }

@@ -2,8 +2,11 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { dashboards } from '../../assets/backends'
 import { EXTENDED_TIMEOUT } from '../../support/utils'
 import { chartSel } from '../../selectors/dashboardItem'
-import { dashboardTitleSel } from '../../selectors/titleBar'
-import { dashboardChipSel } from '../../selectors/dashboardsBar'
+import {
+    dashboardTitleSel,
+    dashboardChipSel,
+    newDashboardLinkSel,
+} from '../../selectors/viewDashboard'
 
 beforeEach(() => {
     cy.visit('/', EXTENDED_TIMEOUT)
@@ -23,7 +26,7 @@ Then('the {string} dashboard displays in view mode', title => {
 })
 
 Given('I choose to create new dashboard', () => {
-    cy.get('[data-test="link-new-dashboard"]', {
+    cy.get(newDashboardLinkSel, {
         timeout: 15000,
     }).click()
 })
