@@ -1,3 +1,10 @@
+## [31.10.3](https://github.com/dhis2/dashboard-app/compare/v31.10.2...v31.10.3) (2021-02-04)
+
+
+### Bug Fixes
+
+* change order of save process to avoid memory leaks and add alert for failed save ([#1501](https://github.com/dhis2/dashboard-app/issues/1501)) ([5cfe18f](https://github.com/dhis2/dashboard-app/commit/5cfe18f19ec1905f507836265b1296089b0145d3))
+
 ## [31.10.2](https://github.com/dhis2/dashboard-app/compare/v31.10.1...v31.10.2) (2021-02-03)
 
 
