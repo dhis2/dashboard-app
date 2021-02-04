@@ -2,14 +2,14 @@
 # Translators:
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
-# Mai Nguyen <thanhmai.jica@gmail.com>, 2020
+# Mai Nguyen <thanhmai.jica@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-09T13:38:15.043Z\n"
+"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
+"Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2021\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,14 +41,14 @@ msgstr ""
 "dùng. Hành động này không thể được hoàn tác. Bạn có chắc chắn muốn xóa vĩnh "
 "viễn bảng điều khiển này không?"
 
+msgid "Save changes"
+msgstr "Lưu các thay đổi"
+
 msgid "Exit Print preview"
 msgstr "Thoát xem trước bản in"
 
 msgid "Print preview"
 msgstr "Xem thử bản in"
-
-msgid "Save changes"
-msgstr "Lưu các thay đổi"
 
 msgid "Translate"
 msgstr "Dịch"
@@ -62,11 +62,11 @@ msgstr "Di chuyển tới bảng điều khiển"
 msgid "Search for a dashboard"
 msgstr "Tìm kiếm bảng điều khiển"
 
-msgid "Show more"
-msgstr "Hiện thêm"
+msgid "Show fewer dashboards"
+msgstr "Hiển thị ít bảng điều khiển hơn"
 
-msgid "Show less"
-msgstr "Ẩn bớt"
+msgid "Show more dashboards"
+msgstr "Hiển thị thêm bảng điều khiển"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -77,6 +77,15 @@ msgstr "Không tìm thấy bảng điều khiển được yêu cầu"
 
 msgid "No access"
 msgstr "Không truy cập"
+
+msgid "Editing dashboards on small screens is not supported."
+msgstr "Không hỗ trợ chỉnh sửa bảng điều khiển trên màn hình nhỏ."
+
+msgid "Creating dashboards on small screens is not supported."
+msgstr "Không hỗ trợ tạo bảng điều khiển trên màn hình nhỏ."
+
+msgid "Not supported"
+msgstr "Không được hỗ trợ"
 
 msgid "Exit print preview"
 msgstr "Thoát xem trước bản in"
@@ -170,6 +179,9 @@ msgstr "Xem dưới dạng bản đồ"
 msgid "Open in {{appName}} app"
 msgstr "Mở trong ứng dụng {{Tên ứng dụng}}"
 
+msgid "View fullscreen"
+msgstr "Xem toàn màn hình"
+
 msgid "Unable to load the plugin for this item"
 msgstr "Không thể tải plugin cho mục này"
 
@@ -187,6 +199,9 @@ msgstr "Không có mục nào trong bảng điều khiển này"
 
 msgid "Show fewer"
 msgstr "Hiển thị ít hơn"
+
+msgid "Show more"
+msgstr "Hiện thêm"
 
 msgid "Insert"
 msgstr "Chèn vào"

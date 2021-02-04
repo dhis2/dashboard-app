@@ -8,7 +8,7 @@ import FatalErrorBoundary from './FatalErrorBoundary'
 import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader/ItemHeader'
 import ItemHeaderButtons from './ItemHeaderButtons'
 import ItemFooter from './ItemFooter'
-
+import { WindowDimensionsCtx } from '../../WindowDimensionsProvider'
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
 import { apiFetchVisualization } from '../../../api/metadata'
 import { sGetVisualization } from '../../../reducers/visualizations'
@@ -21,7 +21,10 @@ import {
 import { sGatherAnalyticalObjectStatisticsInDashboardViews } from '../../../reducers/settings'
 import { acAddVisualization } from '../../../actions/visualizations'
 import { acSetSelectedItemActiveType } from '../../../actions/selected'
-import { pluginIsAvailable } from './Visualization/plugin'
+import {
+    pluginIsAvailable,
+    resize as pluginResize,
+} from './Visualization/plugin'
 import { getDataStatisticsName } from '../../../modules/itemTypes'
 import { getVisualizationId, getVisualizationName } from '../../../modules/item'
 import memoizeOne from '../../../modules/memoizeOne'
@@ -30,8 +33,11 @@ import {
     isPrintMode,
     isViewMode,
 } from '../../Dashboard/dashboardModes'
+import { getItemHeightPx } from '../../../modules/gridUtil'
+import getGridItemDomId from '../../../modules/getGridItemDomId'
 
-import { ITEM_CONTENT_PADDING_BOTTOM } from '../../ItemGrid/ItemGrid'
+// this is set in the .dashboard-item-content css
+const ITEM_CONTENT_PADDING = 4
 
 export class Item extends Component {
     state = {
@@ -99,17 +105,40 @@ export class Item extends Component {
         }
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.gridWidth !== this.props.gridWidth) {
+            const el = document.querySelector(
+                `#${getGridItemDomId(this.props.item.id)}`
+            )
+            if (typeof el?.setViewportSize === 'function') {
+                setTimeout(
+                    () =>
+                        el.setViewportSize(
+                            el.clientWidth - 5,
+                            el.clientHeight - 5
+                        ),
+                    10
+                )
+            }
+            // call resize on Map item
+            pluginResize(this.props.item, this.state.isFullscreen)
+        }
+    }
+
     isFullscreenSupported = () => {
         const el = document.querySelector(this.itemDomElSelector)
         return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
     }
 
     handleFullscreenChange = () => {
-        this.setState({
-            isFullscreen:
-                !!document.fullscreenElement ||
-                !!document.webkitFullscreenElement,
-        })
+        this.setState(
+            {
+                isFullscreen:
+                    !!document.fullscreenElement ||
+                    !!document.webkitFullscreenElement,
+            },
+            () => pluginResize(this.props.item, this.state.isFullscreen)
+        )
     }
 
     onToggleFullscreen = () => {
@@ -153,11 +182,13 @@ export class Item extends Component {
             return '95vh'
         }
 
+        const { width } = this.context
+
         const calculatedHeight =
-            this.props.item.originalHeight -
+            getItemHeightPx(this.props.item, width) -
             this.headerRef.current.clientHeight -
             HEADER_MARGIN_HEIGHT -
-            ITEM_CONTENT_PADDING_BOTTOM
+            ITEM_CONTENT_PADDING
 
         return this.memoizedGetContentHeight(
             calculatedHeight,
@@ -165,6 +196,13 @@ export class Item extends Component {
             isEditMode(this.props.dashboardMode) ||
                 isPrintMode(this.props.dashboardMode)
         )
+    }
+
+    getAvailableWidth = () => {
+        const rect = document
+            .querySelector(this.itemDomElSelector)
+            ?.getBoundingClientRect()
+        return rect && rect.width - ITEM_CONTENT_PADDING * 2
     }
 
     render() {
@@ -208,6 +246,7 @@ export class Item extends Component {
                                 activeType={activeType}
                                 itemFilters={itemFilters}
                                 availableHeight={this.getAvailableHeight()}
+                                availableWidth={this.getAvailableWidth()}
                             />
                         )}
                     </div>
@@ -220,10 +259,13 @@ export class Item extends Component {
     }
 }
 
+Item.contextType = WindowDimensionsCtx
+
 Item.propTypes = {
     activeType: PropTypes.string,
     dashboardMode: PropTypes.string,
     gatherDataStatistics: PropTypes.bool,
+    gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,

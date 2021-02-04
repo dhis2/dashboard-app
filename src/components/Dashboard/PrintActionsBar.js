@@ -5,7 +5,7 @@ import { Button } from '@dhis2/ui'
 import { Link } from 'react-router-dom'
 import LessHorizontalIcon from '../../icons/LessHorizontal'
 import { useWindowDimensions } from '../WindowDimensionsProvider'
-import isSmallScreen from '../../modules/isSmallScreen'
+import { isSmallScreen } from '../../modules/smallScreen'
 
 import classes from './styles/PrintActionsBar.module.css'
 

@@ -4,8 +4,6 @@ import {
     SET_DASHBOARD_STARRED,
     SET_DASHBOARD_DISPLAY_NAME,
     SET_DASHBOARD_ITEMS,
-} from '../reducers/dashboards'
-import {
     getCustomDashboards,
     sGetDashboardById,
     sGetDashboardsSortedByStarred,

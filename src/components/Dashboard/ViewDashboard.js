@@ -1,24 +1,30 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-
 import ViewTitleBar from '../TitleBar/ViewTitleBar'
-import ItemGrid from '../ItemGrid/ItemGrid'
+import ViewItemGrid from '../ItemGrid/ViewItemGrid'
 import FilterBar from '../FilterBar/FilterBar'
-import DashboardsBar from '../ControlBar/DashboardsBar'
+import DashboardsBar, {
+    isDashboardBarMaxHeight,
+} from '../ControlBar/DashboardsBar'
 import { sGetIsEditing } from '../../reducers/editDashboard'
 import { sGetIsPrinting } from '../../reducers/printDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
-import { sGetWindowHeight } from '../../reducers/windowHeight'
 import { sGetControlBarUserRows } from '../../reducers/controlBar'
 import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
 import {
+    CONTROL_BAR_COLLAPSED,
     getControlBarHeight,
+    getControlBarHeightSmallDevice,
     HEADERBAR_HEIGHT,
 } from '../ControlBar/controlBarDimensions'
+import { useWindowDimensions } from '../WindowDimensionsProvider'
+import { isSmallScreen } from '../../modules/smallScreen'
 
 export const ViewDashboard = props => {
+    const { width, height } = useWindowDimensions()
+
     useEffect(() => {
         if (props.dashboardIsEditing) {
             props.clearEditDashboard()
@@ -31,18 +37,23 @@ export const ViewDashboard = props => {
         document.querySelector('.dashboard-wrapper')?.scroll(0, 0)
     }, [props.selectedId])
 
-    const height =
-        props.windowHeight -
+    const dashboardHeight =
+        height -
         HEADERBAR_HEIGHT -
-        getControlBarHeight(props.controlBarRows)
+        (isSmallScreen(width) && !isDashboardBarMaxHeight(props.controlBarRows)
+            ? getControlBarHeightSmallDevice(CONTROL_BAR_COLLAPSED)
+            : getControlBarHeight(props.controlBarRows))
 
     return (
         <>
             <DashboardsBar />
-            <div className="dashboard-wrapper" style={{ height }}>
+            <div
+                className="dashboard-wrapper"
+                style={{ height: dashboardHeight }}
+            >
                 <ViewTitleBar />
                 <FilterBar />
-                <ItemGrid edit={false} />
+                <ViewItemGrid />
             </div>
         </>
     )
@@ -55,7 +66,6 @@ ViewDashboard.propTypes = {
     dashboardIsEditing: PropTypes.bool,
     dashboardIsPrinting: PropTypes.bool,
     selectedId: PropTypes.string,
-    windowHeight: PropTypes.number,
 }
 
 const mapStateToProps = state => {
@@ -64,7 +74,6 @@ const mapStateToProps = state => {
         dashboardIsPrinting: sGetIsPrinting(state),
         controlBarRows: sGetControlBarUserRows(state),
         selectedId: sGetSelectedId(state),
-        windowHeight: sGetWindowHeight(state),
     }
 }
 

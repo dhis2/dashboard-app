@@ -24,7 +24,7 @@ import {
     sGetDashboardItems,
     EMPTY_DASHBOARD,
 } from '../../reducers/dashboards'
-import isSmallScreen from '../../modules/isSmallScreen'
+import { isSmallScreen } from '../../modules/smallScreen'
 
 import classes from './styles/ViewTitleBar.module.css'
 

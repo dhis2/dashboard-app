@@ -1,3 +1,38 @@
+## [31.10.2](https://github.com/dhis2/dashboard-app/compare/v31.10.1...v31.10.2) (2021-02-03)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1420](https://github.com/dhis2/dashboard-app/issues/1420)) ([03c4697](https://github.com/dhis2/dashboard-app/commit/03c469780eb486dc5108132bcbe6c3fb9f86fbe9))
+
+## [31.10.1](https://github.com/dhis2/dashboard-app/compare/v31.10.0...v31.10.1) (2021-01-29)
+
+
+### Bug Fixes
+
+* fullscreen param to map plugin resize ([#1484](https://github.com/dhis2/dashboard-app/issues/1484)) ([9da5b0c](https://github.com/dhis2/dashboard-app/commit/9da5b0c97fa94c736f8c738953906465c3c08fe8))
+
+# [31.10.0](https://github.com/dhis2/dashboard-app/compare/v31.9.0...v31.10.0) (2021-01-29)
+
+
+### Features
+
+* responsive item grid in view and edit mode [DHIS2-10138] ([#1431](https://github.com/dhis2/dashboard-app/issues/1431)) ([0e0c93f](https://github.com/dhis2/dashboard-app/commit/0e0c93f5399117ee91ee99f899374fc68f2b355a))
+
+# [31.9.0](https://github.com/dhis2/dashboard-app/compare/v31.8.0...v31.9.0) (2021-01-29)
+
+
+### Features
+
+* set expanded control bar height for small screens ([#1459](https://github.com/dhis2/dashboard-app/issues/1459)) ([0d009ae](https://github.com/dhis2/dashboard-app/commit/0d009ae96d5e86511f97ccf1211aaa9fd2896e66))
+
+# [31.8.0](https://github.com/dhis2/dashboard-app/compare/v31.7.1...v31.8.0) (2021-01-28)
+
+
+### Features
+
+* responsive - redirect to view when url of /edit or /new manually entered [DHIS2-10138] ([#1473](https://github.com/dhis2/dashboard-app/issues/1473)) ([de3e1a6](https://github.com/dhis2/dashboard-app/commit/de3e1a6e32260d60f5caaf4b8114c1b1b7a9d34a))
+
 ## [31.7.1](https://github.com/dhis2/dashboard-app/compare/v31.7.0...v31.7.1) (2021-01-25)
 
 

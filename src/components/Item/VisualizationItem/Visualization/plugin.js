@@ -7,7 +7,7 @@ import {
     itemTypeMap,
 } from '../../../../modules/itemTypes'
 import { getVisualizationId } from '../../../../modules/item'
-import { getGridItemDomId } from '../../../ItemGrid/gridUtil'
+import getGridItemDomId from '../../../../modules/getGridItemDomId'
 
 //external plugins
 const itemTypeToExternalPlugin = {
@@ -65,11 +65,11 @@ export const load = async (
     loadPlugin(plugin, config, credentials)
 }
 
-export const resize = item => {
+export const resize = (item, isFullscreen) => {
     const plugin = getPlugin(item.type)
 
     if (plugin && plugin.resize) {
-        plugin.resize(getGridItemDomId(item.id))
+        plugin.resize(getGridItemDomId(item.id), isFullscreen)
     }
 }
 

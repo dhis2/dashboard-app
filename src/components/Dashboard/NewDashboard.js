@@ -5,7 +5,7 @@ import i18n from '@dhis2/d2-i18n'
 
 import EditBar from '../ControlBar/EditBar'
 import EditTitleBar from '../TitleBar/EditTitleBar'
-import ItemGrid from '../ItemGrid/ItemGrid'
+import EditItemGrid from '../ItemGrid/EditItemGrid'
 import LayoutPrintPreview from './PrintLayoutDashboard'
 import NotSupportedNotice from './NotSupportedNotice'
 
@@ -19,7 +19,7 @@ import {
 } from '../ControlBar/controlBarDimensions'
 
 import { useWindowDimensions } from '../WindowDimensionsProvider'
-import isSmallScreen from '../../modules/isSmallScreen'
+import { isSmallScreen } from '../../modules/smallScreen'
 
 const NewDashboard = props => {
     const { width } = useWindowDimensions()
@@ -39,7 +39,7 @@ const NewDashboard = props => {
             ) : (
                 <div className="dashboard-wrapper" style={{ height }}>
                     <EditTitleBar />
-                    <ItemGrid edit={true} />
+                    <EditItemGrid />
                 </div>
             )}
         </>
