@@ -75,7 +75,9 @@ const ViewTitleBar = ({
         apiPostShowDescription(!showDescription)
             .then(() => {
                 updateShowDescription(!showDescription)
-                toggleMoreOptions()
+                if (moreOptionsIsOpen) {
+                    toggleMoreOptions()
+                }
             })
             .catch(() => {
                 const msg = showDescription
@@ -93,7 +95,9 @@ const ViewTitleBar = ({
         apiStarDashboard(dataEngine, id, !starred)
             .then(() => {
                 setDashboardStarred(id, !starred)
-                toggleMoreOptions()
+                if (moreOptionsIsOpen) {
+                    toggleMoreOptions()
+                }
             })
             .catch(() => {
                 const msg = starred
