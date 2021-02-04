@@ -5,7 +5,7 @@ import {
     chartSel,
     chartSubtitleSel,
 } from '../../../selectors/dashboardItem'
-import { dashboardChipSel } from '../../../selectors/dashboardsBar'
+import { dashboardChipSel } from '../../../selectors/viewDashboard'
 
 // the length of the root route of the app (after the slash): #/
 const ROOT_ROUTE_LENGTH = 0
@@ -53,7 +53,7 @@ When('I click outside menu', () => {
 })
 
 When('dashboard is saved', () => {
-    cy.get('[data-test="save-dashboard-button"]').click()
+    cy.get('button').contains('Save changes').click()
 })
 
 Then('the saved dashboard should be displayed', () => {

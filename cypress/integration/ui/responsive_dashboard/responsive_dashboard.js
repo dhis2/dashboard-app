@@ -1,7 +1,7 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
 import { chartSel } from '../../../selectors/dashboardItem'
-import { dashboardTitleSel } from '../../../selectors/titleBar'
+import { dashboardTitleSel } from '../../../selectors/viewDashboard'
 
 const TEST_DASHBOARD_TITLE = 'TEST_DASHBOARD_TITLE'
 
