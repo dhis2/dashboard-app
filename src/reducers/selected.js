@@ -17,12 +17,6 @@ export const DEFAULT_STATE_SELECTED_ITEM_ACTIVE_TYPES = {}
 
 export const NON_EXISTING_DASHBOARD_ID = '0'
 
-/**
- * Reducer functions that computes and returns the new state based on the given action
- * @function
- * @param {Object} state The current state
- * @param {Object} action The action to be evaluated
- */
 const id = (state = DEFAULT_STATE_SELECTED_ID, action) => {
     switch (action.type) {
         case SET_SELECTED_ID:

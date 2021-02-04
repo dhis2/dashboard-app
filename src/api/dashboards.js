@@ -22,20 +22,6 @@ export const dashboardQuery = {
     },
 }
 
-export const starDashboardMutation = {
-    type: 'create',
-    resource: 'dashboards',
-    // TODO create mutation does not accept the id function
-    // we must use a workaround until dataEngine supports dynamic resource/path
-    id: ({ id }) => `${id}/favorite`,
-}
-
-export const unstarDashboardMutation = {
-    type: 'delete',
-    resource: 'dashboards',
-    id: ({ id }) => `${id}/favorite`,
-}
-
 export const deleteDashboardMutation = {
     type: 'delete',
     resource: 'dashboards',
@@ -68,23 +54,6 @@ export const apiFetchDashboard = async (dataEngine, id) => {
         )
 
         return dashboardData.dashboard
-    } catch (error) {
-        onError(error)
-    }
-}
-
-// Star dashboard
-export const apiStarDashboard = async (dataEngine, id, isStarred) => {
-    try {
-        if (isStarred) {
-            await dataEngine.mutate(starDashboardMutation, {
-                variables: { id },
-            })
-        } else {
-            await dataEngine.mutate(unstarDashboardMutation, {
-                variables: { id },
-            })
-        }
     } catch (error) {
         onError(error)
     }

@@ -11,11 +11,7 @@ import {
 import { NON_EXISTING_DASHBOARD_ID } from '../reducers/selected'
 import { sGetUserUsername } from '../reducers/user'
 import { tSetSelectedDashboardById, acSetSelectedId } from './selected'
-import {
-    apiFetchDashboards,
-    apiStarDashboard,
-    apiDeleteDashboard,
-} from '../api/dashboards'
+import { apiFetchDashboards, apiDeleteDashboard } from '../api/dashboards'
 import { getPreferredDashboardId } from '../api/localStorage'
 import { arrayToIdMap } from '../modules/util'
 
@@ -85,28 +81,6 @@ export const tSelectDashboard = id => async (dispatch, getState) => {
         } else {
             dispatch(acSetSelectedId(NON_EXISTING_DASHBOARD_ID))
         }
-    } catch (err) {
-        return onError(err)
-    }
-}
-
-export const tStarDashboard = (id, isStarred) => async (
-    dispatch,
-    getState,
-    dataEngine
-) => {
-    const onSuccess = id => {
-        dispatch(acSetDashboardStarred(id, isStarred))
-        return id
-    }
-
-    const onError = error => {
-        console.log('Error (apiStarDashboard): ', error)
-        return error
-    }
-    try {
-        await apiStarDashboard(dataEngine, id, isStarred)
-        return onSuccess(id)
     } catch (err) {
         return onError(err)
     }
