@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-09T13:38:15.043Z\n"
+"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Khmer (https://www.transifex.com/hisp-uio/teams/100509/km/)\n"
@@ -37,13 +37,13 @@ msgid ""
 "this dashboard?"
 msgstr ""
 
+msgid "Save changes"
+msgstr ""
+
 msgid "Exit Print preview"
 msgstr ""
 
 msgid "Print preview"
-msgstr ""
-
-msgid "Save changes"
 msgstr ""
 
 msgid "Translate"
@@ -58,10 +58,10 @@ msgstr ""
 msgid "Search for a dashboard"
 msgstr ""
 
-msgid "Show more"
+msgid "Show fewer dashboards"
 msgstr ""
 
-msgid "Show less"
+msgid "Show more dashboards"
 msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
@@ -71,6 +71,15 @@ msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "No access"
+msgstr ""
+
+msgid "Editing dashboards on small screens is not supported."
+msgstr ""
+
+msgid "Creating dashboards on small screens is not supported."
+msgstr ""
+
+msgid "Not supported"
 msgstr ""
 
 msgid "Exit print preview"
@@ -161,6 +170,9 @@ msgstr ""
 msgid "Open in {{appName}} app"
 msgstr ""
 
+msgid "View fullscreen"
+msgstr ""
+
 msgid "Unable to load the plugin for this item"
 msgstr ""
 
@@ -177,6 +189,9 @@ msgid "There are no items on this dashboard"
 msgstr ""
 
 msgid "Show fewer"
+msgstr ""
+
+msgid "Show more"
 msgstr ""
 
 msgid "Insert"
