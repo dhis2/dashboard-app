@@ -10,28 +10,26 @@ Feature: Creating, editing and deleting dashboard
         Then dashboard displays in view mode
         And the saved dashboard should be displayed
 
-
     @mutating
     Scenario: I star the dashboard
         Given I open existing dashboard
         Then dashboard displays in view mode
-        And the dashboard should not be starred
+        And the dashboard is not starred
         When I click to star the dashboard
-        Then the dashboard should be starred
+        Then the dashboard is starred
         When I click to unstar the dashboard
-        Then the dashboard should not be starred
+        Then the dashboard is not starred
 
 
     @mutating
     Scenario: I toggle show description
         Given I open existing dashboard
         Then dashboard displays in view mode
-        And the dashboard description should not be displayed
+        And the dashboard description is not displayed
         When I click to show description
-        Then the dashboard description should be displayed
+        Then the dashboard description is displayed
         When I click to hide the description
-        Then the dashboard description should not be displayed
-
+        Then the dashboard description is not displayed
 
     @nonmutating
     Scenario: I move an item on a dashboard
@@ -57,5 +55,5 @@ Feature: Creating, editing and deleting dashboard
         And I choose to delete dashboard
         Then the confirm delete dialog is displayed
         When I confirm delete
-        Then dashboard displays in view mode
+        Then different dashboard displays in view mode
         And the dashboard is deleted and first starred dashboard displayed

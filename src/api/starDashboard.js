@@ -1,10 +1,10 @@
-const getUnstarDashboardMutation = id => ({
-    type: 'delete',
+const getStarDashboardMutation = id => ({
+    type: 'create',
     resource: `dashboards/${id}/favorite`,
 })
 
-const getStarDashboardMutation = id => ({
-    type: 'create',
+const getUnstarDashboardMutation = id => ({
+    type: 'delete',
     resource: `dashboards/${id}/favorite`,
 })
 

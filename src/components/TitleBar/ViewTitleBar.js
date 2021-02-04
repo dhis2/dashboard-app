@@ -75,15 +75,13 @@ const ViewTitleBar = ({
         apiPostShowDescription(!showDescription)
             .then(() => {
                 updateShowDescription(!showDescription)
-                if (moreOptionsIsOpen) {
-                    toggleMoreOptions()
-                }
+                toggleMoreOptions()
             })
             .catch(() => {
                 const msg = showDescription
                     ? i18n.t('Failed to hide description')
                     : i18n.t('Failed to show description')
-                warningAlert.show(msg)
+                warningAlert.show({ msg })
             })
     }
 
@@ -103,7 +101,7 @@ const ViewTitleBar = ({
                 const msg = starred
                     ? i18n.t('Failed to unstar the dashboard')
                     : i18n.t('Failed to star the dashboard')
-                warningAlert.show(msg)
+                warningAlert.show({ msg })
             })
     }
 
