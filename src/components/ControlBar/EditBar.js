@@ -29,7 +29,9 @@ import { apiFetchDashboard } from '../../api/dashboards'
 
 import classes from './styles/EditBar.module.css'
 
-const saveFailedMessage = i18n.t('Failed to save the dashboard')
+const saveFailedMessage = i18n.t(
+    'Failed to save dashboard. You might be offline or not have access to edit this dashboard.'
+)
 
 const EditBar = props => {
     const { d2 } = useD2({})
@@ -56,16 +58,12 @@ const EditBar = props => {
     }
 
     const onSave = () => {
-        try {
-            props
-                .onSave()
-                .then(newId => {
-                    setRedirectUrl(`/${newId}`)
-                })
-                .catch(() => failureAlert.show())
-        } catch (e) {
-            failureAlert.show()
-        }
+        props
+            .saveDashboard()
+            .then(newId => {
+                setRedirectUrl(`/${newId}`)
+            })
+            .catch(() => failureAlert.show())
     }
 
     const onPrintPreview = () => {
@@ -203,11 +201,11 @@ EditBar.propTypes = {
     dashboardName: PropTypes.string,
     deleteAccess: PropTypes.bool,
     isPrintPreviewView: PropTypes.bool,
+    saveDashboard: PropTypes.func,
     showPrintPreview: PropTypes.func,
     updateAccess: PropTypes.bool,
     onDelete: PropTypes.func,
     onDiscardChanges: PropTypes.func,
-    onSave: PropTypes.func,
     onTranslate: PropTypes.func,
 }
 
@@ -236,7 +234,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     clearPrintDashboard: () => dispatch(acClearPrintDashboard()),
     clearPrintPreview: () => dispatch(acClearPrintPreviewView()),
-    onSave: () => dispatch(tSaveDashboard()).then(id => id),
+    saveDashboard: () => dispatch(tSaveDashboard()).then(id => id),
     onDelete: id => dispatch(tDeleteDashboard(id)),
     onDiscardChanges: () => dispatch(acClearEditDashboard()),
     onTranslate: (id, value) => dispatch(acSetDashboardDisplayName(id, value)),
