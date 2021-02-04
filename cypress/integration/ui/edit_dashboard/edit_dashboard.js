@@ -12,7 +12,7 @@ const ROOT_ROUTE_LENGTH = 0
 // the length of UIDs (after the slash): '#/nghVC4wtyzi'
 const UID_LENGTH = 11
 
-const TEST_DASHBOARD_TITLE = new Date().toUTCString()
+export const TEST_DASHBOARD_TITLE = 'aa' + new Date().toUTCString()
 
 const ROUTE_EDIT = 'edit'
 const ROUTE_NEW = 'new'

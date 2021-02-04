@@ -130,9 +130,16 @@ const ViewTitleBar = ({
                         <div
                             className={classes.star}
                             onClick={onToggleStarredDashboard}
-                            data-test="star-dashboard"
+                            data-test="button-star-dashboard"
                         >
-                            <StarIcon style={{ fill: colors.grey600 }} />
+                            <StarIcon
+                                style={{ fill: colors.grey600 }}
+                                data-test={
+                                    starred
+                                        ? 'dashboard-starred'
+                                        : 'dashboard-unstarred'
+                                }
+                            />
                         </div>
                         <div className={classes.strip}>
                             {userAccess.update ? (
@@ -156,7 +163,6 @@ const ViewTitleBar = ({
                             <span ref={buttonRef}>
                                 <Button
                                     small={isSmallScreen(width)}
-                                    dataTest="more-button"
                                     onClick={toggleMoreOptions}
                                 >
                                     <ThreeDots />
@@ -207,7 +213,10 @@ const ViewTitleBar = ({
                     </div>
                 </div>
                 {showDescription && (
-                    <div className={descriptionClasses}>
+                    <div
+                        className={descriptionClasses}
+                        data-test="dashboard-description"
+                    >
                         {description || i18n.t('No description')}
                     </div>
                 )}
