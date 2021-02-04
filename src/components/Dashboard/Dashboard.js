@@ -16,6 +16,7 @@ import PrintDashboard from './PrintDashboard'
 import PrintLayoutDashboard from './PrintLayoutDashboard'
 
 import { tSelectDashboard } from '../../actions/dashboards'
+import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acSetWindowHeight } from '../../actions/windowHeight'
 import {
     sDashboardsIsFetching,
@@ -63,6 +64,7 @@ export const Dashboard = ({
     routeId,
     selectDashboard,
     setWindowHeight,
+    clearEditDashboard,
 }) => {
     const { width } = useWindowDimensions()
     const [redirectUrl, setRedirectUrl] = useState(null)
@@ -81,10 +83,16 @@ export const Dashboard = ({
     }, [mode])
 
     useEffect(() => {
+        if (!isEditMode(mode)) {
+            clearEditDashboard()
+        }
+    }, [mode])
+
+    useEffect(() => {
         if (dashboardsLoaded && !dashboardsIsEmpty) {
             selectDashboard(routeId)
         }
-    }, [dashboardsLoaded, dashboardsIsEmpty, routeId])
+    }, [dashboardsLoaded, dashboardsIsEmpty, routeId, mode])
 
     useEffect(() => {
         const onResize = debounce(
@@ -176,4 +184,5 @@ const mapStateToProps = (state, ownProps) => {
 export default connect(mapStateToProps, {
     selectDashboard: tSelectDashboard,
     setWindowHeight: acSetWindowHeight,
+    clearEditDashboard: acClearEditDashboard,
 })(Dashboard)

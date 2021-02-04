@@ -1,3 +1,17 @@
+## [31.10.3](https://github.com/dhis2/dashboard-app/compare/v31.10.2...v31.10.3) (2021-02-04)
+
+
+### Bug Fixes
+
+* change order of save process to avoid memory leaks and add alert for failed save ([#1501](https://github.com/dhis2/dashboard-app/issues/1501)) ([5cfe18f](https://github.com/dhis2/dashboard-app/commit/5cfe18f19ec1905f507836265b1296089b0145d3))
+
+## [31.10.2](https://github.com/dhis2/dashboard-app/compare/v31.10.1...v31.10.2) (2021-02-03)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1420](https://github.com/dhis2/dashboard-app/issues/1420)) ([03c4697](https://github.com/dhis2/dashboard-app/commit/03c469780eb486dc5108132bcbe6c3fb9f86fbe9))
+
 ## [31.10.1](https://github.com/dhis2/dashboard-app/compare/v31.10.0...v31.10.1) (2021-01-29)
 
 

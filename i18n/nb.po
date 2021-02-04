@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-09T13:38:15.043Z\n"
+"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -40,14 +40,14 @@ msgstr ""
 "brukere. Denne handlingen kan ikke angres. Er du sikker på at du vil slette "
 "dette dashbordet permanent?"
 
+msgid "Save changes"
+msgstr "Lagre endringer"
+
 msgid "Exit Print preview"
 msgstr "Avslutt forhåndsvisning av utskrift"
 
 msgid "Print preview"
 msgstr "Utskriftforhåndsvisning"
-
-msgid "Save changes"
-msgstr "Lagre endringer"
 
 msgid "Translate"
 msgstr "Oversett"
@@ -61,11 +61,11 @@ msgstr "Gå til dashbordene"
 msgid "Search for a dashboard"
 msgstr "Søk etter et dashbord"
 
-msgid "Show more"
-msgstr "Vis mer"
+msgid "Show fewer dashboards"
+msgstr ""
 
-msgid "Show less"
-msgstr "Vis mindre"
+msgid "Show more dashboards"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "Ingen dashbord funnet. Bruk + -knappen for å lage et nytt dashbord."
@@ -75,6 +75,15 @@ msgstr "Forespurt dashbord ikke funnet"
 
 msgid "No access"
 msgstr "Ingen tilgang"
+
+msgid "Editing dashboards on small screens is not supported."
+msgstr ""
+
+msgid "Creating dashboards on small screens is not supported."
+msgstr ""
+
+msgid "Not supported"
+msgstr ""
 
 msgid "Exit print preview"
 msgstr "Avslutt forhåndsvisning av utskrift"
@@ -169,6 +178,9 @@ msgstr "Vis som kart"
 msgid "Open in {{appName}} app"
 msgstr "Åpne i {{appName}} -appen"
 
+msgid "View fullscreen"
+msgstr ""
+
 msgid "Unable to load the plugin for this item"
 msgstr "Kan ikke laste inn plugin-modulen for dette elementet"
 
@@ -186,6 +198,9 @@ msgstr "Det er ingen elementer på dette dashbordet"
 
 msgid "Show fewer"
 msgstr "Vis færre"
+
+msgid "Show more"
+msgstr "Vis mer"
 
 msgid "Insert"
 msgstr "Sett inn"
