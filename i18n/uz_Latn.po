@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
+"POT-Creation-Date: 2021-02-03T08:01:58.984Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
@@ -39,6 +39,9 @@ msgstr ""
 "uchun oʼchirilishiga olib keladi. Bu harakatni orqaga qaytarib boʼlmaydi. "
 "Haqiqatdan ham ushbu panelni orqaga qaytarib boʼlmaslik sharti bilan "
 "oʼchirib tashlamoqchimisiz?"
+
+msgid "Failed to save the dashboard"
+msgstr ""
 
 msgid "Save changes"
 msgstr "Oʼzgartirishni saqlash"

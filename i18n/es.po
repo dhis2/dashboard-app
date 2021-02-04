@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
+"POT-Creation-Date: 2021-02-03T08:01:58.984Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -42,6 +42,9 @@ msgstr ""
 "Borrando tablero \"{{ dashboardName }}\" para todos los usuarios. Esta "
 "acción será permanente. Está seguro de que desea continuar eliminando "
 "permanentemente este tablero?"
+
+msgid "Failed to save the dashboard"
+msgstr ""
 
 msgid "Save changes"
 msgstr "Guardar cambios"

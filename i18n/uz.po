@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
+"POT-Creation-Date: 2021-02-03T08:01:58.984Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -39,6 +39,9 @@ msgstr ""
 " ўчирилишига олиб келади. Бу ҳаракатни орқага қайтариб бўлмайди. Ҳақиқатдан "
 "ҳам ушбу панелни орқага қайтариб бўлмаслик шарти билан ўчириб "
 "ташламоқчимисиз?"
+
+msgid "Failed to save the dashboard"
+msgstr ""
 
 msgid "Save changes"
 msgstr "Ўзгартиришни сақлаш"
