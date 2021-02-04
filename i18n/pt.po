@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Sheila André <sandre@saudigitus.org>, 2020
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-09T13:38:15.043Z\n"
+"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,10 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "Painel sem título"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "Carregando painel– {{nome}}"
 
 msgid "Cancel"
 msgstr "Cancelar"
@@ -42,14 +42,14 @@ msgstr ""
 ". Essa ação não pode ser desfeita. Tem certeza de que deseja apagar "
 "permanentemente este painel?"
 
-msgid "Exit Print preview"
-msgstr ""
-
-msgid "Print preview"
-msgstr ""
-
 msgid "Save changes"
 msgstr "Gravar alterações"
+
+msgid "Exit Print preview"
+msgstr "Sair da visualização de impressão"
+
+msgid "Print preview"
+msgstr "Visualização de impressão"
 
 msgid "Translate"
 msgstr "Traduzir"
@@ -63,11 +63,11 @@ msgstr "Ir para o painel"
 msgid "Search for a dashboard"
 msgstr "Pesquisar por um painel"
 
-msgid "Show more"
-msgstr "Mostrar mais"
+msgid "Show fewer dashboards"
+msgstr "Mostrar menos painéis"
 
-msgid "Show less"
-msgstr "Mostrar menos"
+msgid "Show more dashboards"
+msgstr "Mostrar mais painéis"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "Painel não encontrado. Use o botão + para criar um novo painel."
@@ -78,8 +78,17 @@ msgstr "Painel solicitado não encontrado"
 msgid "No access"
 msgstr "Sem acesso"
 
+msgid "Editing dashboards on small screens is not supported."
+msgstr "A edição de painéis em telas pequenas não é compatível."
+
+msgid "Creating dashboards on small screens is not supported."
+msgstr "A criação de painéis em telas pequenas não é compatível."
+
+msgid "Not supported"
+msgstr "Não suportado"
+
 msgid "Exit print preview"
-msgstr ""
+msgstr "Sair da visualização da impressão"
 
 msgid "Print"
 msgstr "Imprimir"
@@ -88,29 +97,32 @@ msgid "dashboard layout"
 msgstr ""
 
 msgid "one item per page"
-msgstr ""
+msgstr "um item por página"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "Visualização de Impressão"
 
 msgid "For best print results"
-msgstr ""
+msgstr "Para melhores resultados de impressão"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "Use o navegador Chrome ou Edge"
 
 msgid "Wait for all dashboard items to load before printing"
 msgstr ""
+"Aguarde até que todos os itens do painel sejam carregados antes de imprimir"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
 " dialog"
 msgstr ""
+"Use o tamanho de papel paisagem A4 e as configurações de margem padrão na "
+"caixa de diálogo de impressão do navegador"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{{count}} selecionado"
+msgstr[1] "{{count}} selecionado"
 
 msgid "Remove"
 msgstr "Remover"
@@ -119,7 +131,7 @@ msgid "Delete item"
 msgstr "Apagar item"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "Este item foi reduzido para caber em uma página"
 
 msgid "Messages"
 msgstr "Mensagens"
@@ -131,7 +143,7 @@ msgid "Item type \"{{type}}\" not supported"
 msgstr "Tipo de item \"{{type}}\" não suportado"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "Filtros aplicados"
 
 msgid "Spacer"
 msgstr "Espaçador"
@@ -169,6 +181,9 @@ msgstr "Ver como mapa"
 msgid "Open in {{appName}} app"
 msgstr "Abrir no aplicativo {{appName}}"
 
+msgid "View fullscreen"
+msgstr "Ver tela inteira"
+
 msgid "Unable to load the plugin for this item"
 msgstr "Não foi possível carregar o plug-in para este item"
 
@@ -186,6 +201,9 @@ msgstr "Não há itens neste painel"
 
 msgid "Show fewer"
 msgstr "Mostrar menos"
+
+msgid "Show more"
+msgstr "Mostrar mais"
 
 msgid "Insert"
 msgstr "Inserir"
@@ -206,10 +224,10 @@ msgid "Dashboard description"
 msgstr "Descrição do painel"
 
 msgid "Hide description"
-msgstr ""
+msgstr "Ocultar descrição"
 
 msgid "Show description"
-msgstr ""
+msgstr "Mostrar descrição"
 
 msgid "Unstar dashboard"
 msgstr ""
@@ -230,7 +248,7 @@ msgid "Dashboard layout"
 msgstr ""
 
 msgid "One item per page"
-msgstr ""
+msgstr "Um item por página"
 
 msgid "No description"
 msgstr "Sem descrição"

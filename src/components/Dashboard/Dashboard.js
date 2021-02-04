@@ -15,6 +15,7 @@ import PrintDashboard from './PrintDashboard'
 import PrintLayoutDashboard from './PrintLayoutDashboard'
 
 import { tSelectDashboard } from '../../actions/dashboards'
+import { acClearEditDashboard } from '../../actions/editDashboard'
 import {
     sDashboardsIsFetching,
     sGetAllDashboards,
@@ -60,6 +61,7 @@ const Dashboard = ({
     dashboardsIsEmpty,
     routeId,
     selectDashboard,
+    clearEditDashboard,
 }) => {
     const { width } = useWindowDimensions()
     const [redirectUrl, setRedirectUrl] = useState(null)
@@ -78,10 +80,16 @@ const Dashboard = ({
     }, [mode])
 
     useEffect(() => {
+        if (!isEditMode(mode)) {
+            clearEditDashboard()
+        }
+    }, [mode])
+
+    useEffect(() => {
         if (dashboardsLoaded && !dashboardsIsEmpty) {
             selectDashboard(routeId)
         }
-    }, [dashboardsLoaded, dashboardsIsEmpty, routeId])
+    }, [dashboardsLoaded, dashboardsIsEmpty, routeId, mode])
 
     if (!dashboardsLoaded) {
         return (
@@ -160,4 +168,5 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(mapStateToProps, {
     selectDashboard: tSelectDashboard,
+    clearEditDashboard: acClearEditDashboard,
 })(Dashboard)

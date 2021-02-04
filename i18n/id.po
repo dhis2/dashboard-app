@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-09T13:38:15.043Z\n"
+"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -41,14 +41,14 @@ msgstr ""
 " dihapus dashboard ini tidak dapat dipulihkan. Anda yakin akan menghapus "
 "dashboard ini secara permanen?"
 
+msgid "Save changes"
+msgstr "Simpan perubahan"
+
 msgid "Exit Print preview"
 msgstr ""
 
 msgid "Print preview"
 msgstr ""
-
-msgid "Save changes"
-msgstr "Simpan perubahan"
 
 msgid "Translate"
 msgstr "Terjemahkan"
@@ -62,11 +62,11 @@ msgstr "Ke dashboard"
 msgid "Search for a dashboard"
 msgstr "Cari dashboard"
 
-msgid "Show more"
-msgstr "Tunjukkan lebih banyak"
+msgid "Show fewer dashboards"
+msgstr ""
 
-msgid "Show less"
-msgstr "Tunjukkan lebih sedikit"
+msgid "Show more dashboards"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -77,6 +77,15 @@ msgstr "Dashboard yang diminta tidak ditemukan."
 
 msgid "No access"
 msgstr "Tidak ada akses"
+
+msgid "Editing dashboards on small screens is not supported."
+msgstr ""
+
+msgid "Creating dashboards on small screens is not supported."
+msgstr ""
+
+msgid "Not supported"
+msgstr ""
 
 msgid "Exit print preview"
 msgstr ""
@@ -168,6 +177,9 @@ msgstr ""
 msgid "Open in {{appName}} app"
 msgstr ""
 
+msgid "View fullscreen"
+msgstr ""
+
 msgid "Unable to load the plugin for this item"
 msgstr "Tidak dapat memuat plugin untuk item ini"
 
@@ -185,6 +197,9 @@ msgstr "Tidak ada item dalam dashboard ini"
 
 msgid "Show fewer"
 msgstr "Tampilkan lebih sedikit"
+
+msgid "Show more"
+msgstr "Tunjukkan lebih banyak"
 
 msgid "Insert"
 msgstr "Sisipkan"
