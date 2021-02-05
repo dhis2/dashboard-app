@@ -68,7 +68,7 @@ const EditDashboard = props => {
             {isSmallScreen(width) ? (
                 <NotSupportedNotice
                     message={i18n.t(
-                        'Editing dashboards on small screens is not supported.'
+                        'Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.'
                     )}
                 />
             ) : (
