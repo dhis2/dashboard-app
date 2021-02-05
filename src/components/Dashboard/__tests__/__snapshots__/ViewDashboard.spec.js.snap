@@ -8,7 +8,6 @@ exports[`ViewDashboard renders correctly default 1`] = `
     controlBarRows={2}
     dashboardIsEditing={false}
     dashboardIsPrinting={false}
-    windowHeight={600}
   >
     <MockDashboardsBar>
       <div>
