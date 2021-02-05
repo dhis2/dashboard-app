@@ -7,6 +7,7 @@ describe('DashboardItemChip', () => {
     const defaultProps = {
         starred: false,
         selected: false,
+        onClick: jest.fn(),
         label: 'Hello Rainbow Dash',
         dashboardId: 'myLittlePony',
         classes: {

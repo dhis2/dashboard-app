@@ -28,7 +28,16 @@ test('renders the app', () => {
             currentUser: 'rainbowDash',
         },
     })
-    apiFetchDashboards.mockReturnValue('array of dashboards')
+    apiFetchDashboards.mockReturnValue([
+        {
+            id: 'rainbowdash',
+            name: 'Rainbow Dash',
+            dashboardItems: [],
+            user: {},
+            created: 'today',
+            lastUpdated: 'today',
+        },
+    ])
     apiFetchDimensions.mockReturnValue([{ dimensionType: 'mock' }])
     const store = {
         settings: {},
