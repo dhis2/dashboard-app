@@ -9,7 +9,6 @@ import Star from '@material-ui/icons/Star'
 import StarBorder from '@material-ui/icons/StarBorder'
 import { Button, FlyoutMenu, Popover, MenuItem, colors } from '@dhis2/ui'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { ThreeDots } from '../Item/VisualizationItem/assets/icons'
 import { orObject } from '../../modules/util'
 import { tStarDashboard } from '../../actions/dashboards'
@@ -24,7 +23,6 @@ import {
     sGetDashboardItems,
     EMPTY_DASHBOARD,
 } from '../../reducers/dashboards'
-import { isSmallScreen } from '../../modules/smallScreen'
 
 import classes from './styles/ViewTitleBar.module.css'
 
@@ -32,7 +30,6 @@ const ViewTitleBar = props => {
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
-    const { width } = useWindowDimensions()
     const { d2 } = useD2({})
 
     const {
@@ -126,12 +123,21 @@ const ViewTitleBar = props => {
                             <FilterSelector />
                             <span ref={buttonRef}>
                                 <Button
-                                    small={isSmallScreen(width)}
-                                    dataTest="more-button"
+                                    className={classes.moreButton}
                                     onClick={toggleMoreOptions}
                                 >
                                     <ThreeDots />
-                                    <span className={classes.moreButton}>
+                                    <span className={classes.moreText}>
+                                        {i18n.t('More')}
+                                    </span>
+                                </Button>
+                                <Button
+                                    className={classes.moreButtonSmall}
+                                    small
+                                    onClick={toggleMoreOptions}
+                                >
+                                    <ThreeDots />
+                                    <span className={classes.moreText}>
                                         {i18n.t('More')}
                                     </span>
                                 </Button>

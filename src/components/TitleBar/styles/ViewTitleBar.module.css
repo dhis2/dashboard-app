@@ -55,8 +55,12 @@
     color: #888;
 }
 
-.moreButton {
+.moreText {
     margin-left: 5px;
+}
+
+.moreButtonSmall {
+    display: none !important;
 }
 
 @media only screen and (max-width: 480px) {
@@ -67,5 +71,12 @@
 
     .title {
         top: 3px;
+    }
+    .moreButton {
+        display: none !important;
+    }
+
+    .moreButtonSmall {
+        display: inline-flex !important;
     }
 }
