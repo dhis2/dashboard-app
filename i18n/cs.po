@@ -40,7 +40,7 @@ msgstr ""
 "ovládací panel trvale smazat?"
 
 msgid "Failed to save the dashboard"
-msgstr ""
+msgstr "Uložení ovládacího panelu se nezdařilo"
 
 msgid "Save changes"
 msgstr "Uložit změny"
