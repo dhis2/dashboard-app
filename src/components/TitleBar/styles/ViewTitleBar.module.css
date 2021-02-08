@@ -59,8 +59,8 @@
     margin-left: 5px;
 }
 
-.moreButtonSmall {
-    display: none !important;
+.strip .moreButtonSmall {
+    display: none;
 }
 
 @media only screen and (max-width: 480px) {
@@ -76,7 +76,7 @@
         display: none !important;
     }
 
-    .moreButtonSmall {
+    .strip .moreButtonSmall {
         display: inline-flex !important;
     }
 }

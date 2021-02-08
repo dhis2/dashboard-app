@@ -85,6 +85,17 @@ const ViewTitleBar = props => {
         description ? classes.desc : classes.noDesc
     )
 
+    const getMoreButton = (className, useSmall) => (
+        <Button
+            className={className}
+            small={useSmall}
+            onClick={toggleMoreOptions}
+        >
+            <ThreeDots />
+            <span className={classes.moreText}>{i18n.t('More')}</span>
+        </Button>
+    )
+
     return (
         <>
             <div className={classes.container}>
@@ -122,25 +133,8 @@ const ViewTitleBar = props => {
                             ) : null}
                             <FilterSelector />
                             <span ref={buttonRef}>
-                                <Button
-                                    className={classes.moreButton}
-                                    onClick={toggleMoreOptions}
-                                >
-                                    <ThreeDots />
-                                    <span className={classes.moreText}>
-                                        {i18n.t('More')}
-                                    </span>
-                                </Button>
-                                <Button
-                                    className={classes.moreButtonSmall}
-                                    small
-                                    onClick={toggleMoreOptions}
-                                >
-                                    <ThreeDots />
-                                    <span className={classes.moreText}>
-                                        {i18n.t('More')}
-                                    </span>
-                                </Button>
+                                {getMoreButton(classes.moreButton, false)}
+                                {getMoreButton(classes.moreButtonSmall, true)}
                             </span>
                         </div>
                         {moreOptionsIsOpen && (
