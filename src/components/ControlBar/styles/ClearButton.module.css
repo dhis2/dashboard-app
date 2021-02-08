@@ -20,3 +20,9 @@
     width: 16px;
     height: 16px;
 }
+
+@media only screen and (max-width: 480px) {
+    .button {
+        margin-bottom: var(--spacers-dp4);
+    }
+}
