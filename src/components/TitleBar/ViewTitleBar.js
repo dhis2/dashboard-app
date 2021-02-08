@@ -71,6 +71,7 @@ const ViewTitleBar = props => {
         : i18n.t('Star dashboard')
 
     const toggleStarredDashboard = () => {
+        console.log('test')
         // TODO use dataQuery directly here with create/delete mutations ?!
         onToggleStarredDashboard()
         toggleMoreOptions()
