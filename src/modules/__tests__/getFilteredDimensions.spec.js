@@ -1,6 +1,6 @@
 import getFilteredDimensions from '../getFilteredDimensions'
 
-test('getFilteredDimensions returns dimensions not of type ATTRIBUTE', () => {
+test('getFilteredDimensions filters out CATEGORY dimensions that do not have dataDimensionType="ATTRIBUTE"', () => {
     const dimensions = [
         {
             dataDimensionType: 'ATTRIBUTE',
