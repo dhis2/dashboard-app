@@ -1,36 +1,34 @@
 import React, { useContext, useState, useEffect, createContext } from 'react'
 import PropTypes from 'prop-types'
+import settingsQuery from '../api/settings'
 
-const SystemSettingsContext = createContext()
-
-const query = {
-    myData: {
-        resource: 'systemSettings',
-    },
+export const DEFAULT_SETTINGS = {
+    displayNameProperty: 'displayName',
+    keyGatherAnalyticalObjectStatisticsInDashboardViews: false,
 }
+
+export const SystemSettingsCtx = createContext({})
 
 const SystemSettingsProvider = ({ engine, children }) => {
     const [settings, setSettings] = useState([])
 
     useEffect(() => {
         async function fetchData() {
-            // use the await keyword to grab the resolved promise value
-            const { myData } = await engine.query(query)
+            const { systemSettings } = await engine.query(settingsQuery)
 
-            setSettings(myData)
+            setSettings(Object.assign({}, DEFAULT_SETTINGS, systemSettings))
         }
         fetchData()
     }, [])
 
     return (
-        <SystemSettingsContext.Provider
-            // Add required values to the value prop within an object (my preference)
+        <SystemSettingsCtx.Provider
             value={{
                 settings,
             }}
         >
             {children}
-        </SystemSettingsContext.Provider>
+        </SystemSettingsCtx.Provider>
     )
 }
 
@@ -41,11 +39,4 @@ SystemSettingsProvider.propTypes = {
 
 export default SystemSettingsProvider
 
-// Create a hook to use the SystemSettingsContext, this is a Kent C. Dodds pattern
-export const useSystemSettings = () => {
-    const context = useContext(SystemSettingsContext)
-    if (context === undefined) {
-        throw new Error('Context must be used within a Provider')
-    }
-    return context
-}
+export const useSystemSettings = () => useContext(SystemSettingsCtx)

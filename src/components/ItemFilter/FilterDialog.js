@@ -20,9 +20,9 @@ import {
 } from '@dhis2/analytics'
 import { acAddItemFilter, acRemoveItemFilter } from '../../actions/itemFilters'
 import { sGetItemFiltersRoot } from '../../reducers/itemFilters'
+import { useSystemSettings } from '../SystemSettingsProvider'
 
 const FilterDialog = ({
-    displayNameProperty,
     dimension,
     initiallySelectedItems,
     addItemFilter,
@@ -31,6 +31,7 @@ const FilterDialog = ({
 }) => {
     const [filters, setFilters] = useState(initiallySelectedItems)
     const { d2 } = useD2({})
+    const { displayNameProperty } = useSystemSettings()
 
     const onSelectItems = ({ dimensionId, items }) => {
         setFilters({ [dimensionId]: items })
@@ -138,7 +139,6 @@ const FilterDialog = ({
 FilterDialog.propTypes = {
     addItemFilter: PropTypes.func,
     dimension: PropTypes.object,
-    displayNameProperty: PropTypes.string,
     initiallySelectedItems: PropTypes.object,
     removeItemFilter: PropTypes.func,
     onClose: PropTypes.func,

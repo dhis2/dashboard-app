@@ -4,11 +4,13 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { render } from '@testing-library/react'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { useSystemSettings } from '../SystemSettingsProvider'
 import { apiFetchDimensions } from '@dhis2/analytics'
 import { apiFetchDashboards } from '../../api/dashboards'
 import App from '../App'
 
 jest.mock('../../api/dashboards')
+jest.mock('../SystemSettingsProvider')
 jest.mock('@dhis2/analytics')
 jest.mock('@dhis2/app-runtime-adapter-d2')
 jest.mock(
@@ -27,6 +29,9 @@ test('renders the app', () => {
         d2: {
             currentUser: 'rainbowDash',
         },
+    })
+    useSystemSettings.mockReturnValue({
+        settings: { displayNameProperty: 'displayName' },
     })
     apiFetchDashboards.mockReturnValue([
         {
