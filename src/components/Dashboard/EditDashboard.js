@@ -11,7 +11,6 @@ import { useWindowDimensions } from '../WindowDimensionsProvider'
 import LayoutPrintPreview from './PrintLayoutDashboard'
 import NoContentMessage from '../../widgets/NoContentMessage'
 import { acSetEditDashboard } from '../../actions/editDashboard'
-import { sGetWindowHeight } from '../../reducers/windowHeight'
 import { sGetSelectedId } from '../../reducers/selected'
 import {
     sGetDashboardById,
@@ -26,7 +25,7 @@ import {
 import { isSmallScreen } from '../../modules/smallScreen'
 
 const EditDashboard = props => {
-    const { width } = useWindowDimensions()
+    const { width, height } = useWindowDimensions()
 
     useEffect(() => {
         if (props.dashboard) {
@@ -39,11 +38,14 @@ const EditDashboard = props => {
             return <LayoutPrintPreview fromEdit={true} />
         }
 
-        const height =
-            props.windowHeight - HEADERBAR_HEIGHT - getControlBarHeight(1)
+        const dashboardHeight =
+            height - HEADERBAR_HEIGHT - getControlBarHeight(1)
 
         return (
-            <div className="dashboard-wrapper" style={{ height }}>
+            <div
+                className="dashboard-wrapper"
+                style={{ height: dashboardHeight }}
+            >
                 <EditTitleBar />
                 <EditItemGrid />
             </div>
@@ -66,7 +68,7 @@ const EditDashboard = props => {
             {isSmallScreen(width) ? (
                 <NotSupportedNotice
                     message={i18n.t(
-                        'Editing dashboards on small screens is not supported.'
+                        'Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.'
                     )}
                 />
             ) : (
@@ -82,7 +84,6 @@ EditDashboard.propTypes = {
     items: PropTypes.array,
     setEditDashboard: PropTypes.func,
     updateAccess: PropTypes.bool,
-    windowHeight: PropTypes.number,
 }
 
 const mapStateToProps = state => {
@@ -97,7 +98,6 @@ const mapStateToProps = state => {
         updateAccess,
         items: sGetDashboardItems(state),
         isPrintPreviewView: sGetIsPrintPreviewView(state),
-        windowHeight: sGetWindowHeight(state),
     }
 }
 
