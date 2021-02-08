@@ -31,7 +31,7 @@ const FilterDialog = ({
 }) => {
     const [filters, setFilters] = useState(initiallySelectedItems)
     const { d2 } = useD2({})
-    const { displayNameProperty } = useSystemSettings()
+    const { settings } = useSystemSettings()
 
     const onSelectItems = ({ dimensionId, items }) => {
         setFilters({ [dimensionId]: items })
@@ -93,7 +93,7 @@ const FilterDialog = ({
             case DIMENSION_ID_ORGUNIT:
                 return (
                     <OrgUnitDimension
-                        displayNameProperty={displayNameProperty}
+                        displayNameProperty={settings.displayNameProperty}
                         ouItems={selectedItems}
                         {...commonProps}
                     />
