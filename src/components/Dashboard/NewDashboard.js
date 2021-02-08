@@ -11,7 +11,6 @@ import NotSupportedNotice from './NotSupportedNotice'
 
 import { acSetEditNewDashboard } from '../../actions/editDashboard'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
-import { sGetWindowHeight } from '../../reducers/windowHeight'
 
 import {
     getControlBarHeight,
@@ -22,14 +21,13 @@ import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { isSmallScreen } from '../../modules/smallScreen'
 
 const NewDashboard = props => {
-    const { width } = useWindowDimensions()
+    const { width, height } = useWindowDimensions()
 
     useEffect(() => {
         props.setNewDashboard()
     }, [])
 
-    const height =
-        props.windowHeight - HEADERBAR_HEIGHT - getControlBarHeight(1)
+    const dashboardHeight = height - HEADERBAR_HEIGHT - getControlBarHeight(1)
 
     const renderNewView = () => (
         <>
@@ -37,7 +35,10 @@ const NewDashboard = props => {
             {props.isPrintPreviewView ? (
                 <LayoutPrintPreview fromEdit={true} />
             ) : (
-                <div className="dashboard-wrapper" style={{ height }}>
+                <div
+                    className="dashboard-wrapper"
+                    style={{ height: dashboardHeight }}
+                >
                     <EditTitleBar />
                     <EditItemGrid />
                 </div>
@@ -50,7 +51,7 @@ const NewDashboard = props => {
             {isSmallScreen(width) ? (
                 <NotSupportedNotice
                     message={i18n.t(
-                        'Creating dashboards on small screens is not supported.'
+                        'Creating dashboards on small screens is not supported. Resize your screen to return to create mode.'
                     )}
                 />
             ) : (
@@ -63,12 +64,10 @@ const NewDashboard = props => {
 NewDashboard.propTypes = {
     isPrintPreviewView: PropTypes.bool,
     setNewDashboard: PropTypes.func,
-    windowHeight: PropTypes.number,
 }
 
 const mapStateToProps = state => ({
     isPrintPreviewView: sGetIsPrintPreviewView(state),
-    windowHeight: sGetWindowHeight(state),
 })
 
 export default connect(mapStateToProps, {

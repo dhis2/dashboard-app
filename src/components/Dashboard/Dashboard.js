@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import isEmpty from 'lodash/isEmpty'
 import i18n from '@dhis2/d2-i18n'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
-import debounce from 'lodash/debounce'
 import { Redirect } from 'react-router-dom'
 
 import DashboardsBar from '../ControlBar/DashboardsBar'
@@ -17,7 +16,6 @@ import PrintLayoutDashboard from './PrintLayoutDashboard'
 
 import { tSelectDashboard } from '../../actions/dashboards'
 import { acClearEditDashboard } from '../../actions/editDashboard'
-import { acSetWindowHeight } from '../../actions/windowHeight'
 import {
     sDashboardsIsFetching,
     sGetAllDashboards,
@@ -56,14 +54,13 @@ const dashboardMap = {
     [PRINT_LAYOUT]: <PrintLayoutDashboard />,
 }
 
-export const Dashboard = ({
+const Dashboard = ({
     id,
     mode,
     dashboardsLoaded,
     dashboardsIsEmpty,
     routeId,
     selectDashboard,
-    setWindowHeight,
     clearEditDashboard,
 }) => {
     const { width } = useWindowDimensions()
@@ -93,17 +90,6 @@ export const Dashboard = ({
             selectDashboard(routeId)
         }
     }, [dashboardsLoaded, dashboardsIsEmpty, routeId, mode])
-
-    useEffect(() => {
-        const onResize = debounce(
-            () => setWindowHeight(window.innerHeight),
-            300
-        )
-        window.addEventListener('resize', onResize)
-        return () => {
-            window.removeEventListener('resize', onResize)
-        }
-    }, [])
 
     if (!dashboardsLoaded) {
         return (
@@ -168,7 +154,6 @@ Dashboard.propTypes = {
     mode: PropTypes.string,
     routeId: PropTypes.string,
     selectDashboard: PropTypes.func,
-    setWindowHeight: PropTypes.func,
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -183,6 +168,5 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(mapStateToProps, {
     selectDashboard: tSelectDashboard,
-    setWindowHeight: acSetWindowHeight,
     clearEditDashboard: acClearEditDashboard,
 })(Dashboard)
