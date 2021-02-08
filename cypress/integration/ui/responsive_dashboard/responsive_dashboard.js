@@ -23,6 +23,7 @@ Then('the small screen view is shown', () => {
     cy.get('button').contains('Edit').should('not.be.visible')
     cy.get('button').contains('Share').should('not.be.visible')
     cy.get('button').contains('Add filter').should('not.be.visible')
+
     cy.get('button.small').contains('More').should('be.visible')
     cy.get('button').not('.small').contains('More').should('not.be.visible')
 })
@@ -39,6 +40,7 @@ Then('the wide screen view is shown', () => {
     cy.get('button').contains('Edit').should('be.visible')
     cy.get('button').contains('Share').should('be.visible')
     cy.get('button').contains('Add filter').should('be.visible')
+
     cy.get('button').not('.small').contains('More').should('be.visible')
     cy.get('button.small').contains('More').should('not.be.visible')
 })
