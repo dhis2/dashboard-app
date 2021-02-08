@@ -22,7 +22,7 @@ When('I press enter in the search dashboard field', () => {
 })
 
 When('I click to preview the print layout', () => {
-    cy.get('[data-test="more-button"]').click()
+    cy.get('button').contains('More').click()
     cy.get('[data-test="print-menu-item"]').click()
     cy.get('[data-test="print-layout-menu-item"]').click()
 })
@@ -42,7 +42,7 @@ When('I click to exit print preview', () => {
 })
 
 When('I click to preview the print one-item-per-page', () => {
-    cy.get('[data-test="more-button"]').click()
+    cy.get('button').contains('More').click()
     cy.get('[data-test="print-menu-item"]').click()
     cy.get('[data-test="print-oipp-menu-item"]').click()
 })
