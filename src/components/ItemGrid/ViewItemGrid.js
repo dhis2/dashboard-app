@@ -36,6 +36,7 @@ import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
 
 const EXPANDED_HEIGHT = 17
+const EXPANDED_HEIGHT_SM = 13
 
 const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     const { width } = useWindowDimensions()
@@ -71,8 +72,11 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
             const expandedItem = expandedItems[item.id]
 
             if (expandedItem && expandedItem === true) {
+                const expandedHeight = isSmallScreen(width)
+                    ? EXPANDED_HEIGHT_SM
+                    : EXPANDED_HEIGHT
                 return Object.assign({}, item, {
-                    h: item.h + EXPANDED_HEIGHT,
+                    h: item.h + expandedHeight,
                     smallOriginalH: getProportionalHeight(item, width),
                 })
             }
