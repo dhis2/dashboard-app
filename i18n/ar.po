@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-03T08:01:58.984Z\n"
+"POT-Creation-Date: 2021-02-05T15:43:33.906Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -41,7 +41,9 @@ msgstr ""
 "المستخدمين. لا يمكن التراجع عن هذا الإجراء. هل تريد بالتأكيد حذف لوحة "
 "المعلومات هذه نهائياً؟"
 
-msgid "Failed to save the dashboard"
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
 msgstr ""
 
 msgid "Save changes"
@@ -81,10 +83,14 @@ msgstr "لم يتم العثور على لوحة المعلومات التي ط�
 msgid "No access"
 msgstr "الوصول غير ممكن"
 
-msgid "Editing dashboards on small screens is not supported."
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
 msgstr ""
 
-msgid "Creating dashboards on small screens is not supported."
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
 msgstr ""
 
 msgid "Not supported"
