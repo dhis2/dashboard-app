@@ -1,3 +1,10 @@
+## [31.10.4](https://github.com/dhis2/dashboard-app/compare/v31.10.3...v31.10.4) (2021-02-08)
+
+
+### Bug Fixes
+
+* provide more informative message when edit mode becomes unavailable [DHIS2-10138] ([#1514](https://github.com/dhis2/dashboard-app/issues/1514)) ([4e080bb](https://github.com/dhis2/dashboard-app/commit/4e080bb961ff50371860e1f24fee44fa1d96d71a))
+
 ## [31.10.3](https://github.com/dhis2/dashboard-app/compare/v31.10.2...v31.10.3) (2021-02-04)
 
 
