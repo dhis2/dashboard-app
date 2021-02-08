@@ -6,6 +6,14 @@ import WindowDimensionsProvider from '../../WindowDimensionsProvider'
 import NewDashboard from '../NewDashboard'
 
 jest.mock(
+    '../../ControlBar/EditBar',
+    () =>
+        function MockEditBar() {
+            return <div>EditBar</div>
+        }
+)
+
+jest.mock(
     '../../TitleBar/EditTitleBar',
     () =>
         function MockTitleBar() {
@@ -46,7 +54,6 @@ const store = {
     selected: {
         id: 'rainbowdash',
     },
-    windowHeight: 900,
     editDashboard: {
         id: '',
         access: {},

@@ -49,7 +49,6 @@ describe('ViewDashboard', () => {
             dashboardIsEditing: false,
             dashboardIsPrinting: false,
             controlBarRows: 2,
-            windowHeight: 600,
         }
     })
 

@@ -10,20 +10,13 @@ import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 import EditBar from '../EditBar'
 import { apiFetchDashboard } from '../../../api/dashboards'
-import {
-    acClearEditDashboard,
-    tSaveDashboard,
-} from '../../../actions/editDashboard'
+import { acClearEditDashboard } from '../../../actions/editDashboard'
 
 const mockStore = configureMockStore()
 
 jest.mock('@dhis2/app-runtime-adapter-d2')
 jest.mock('@dhis2/app-runtime')
 jest.mock('../../../api/dashboards')
-jest.mock('../../../actions/editDashboard', () => ({
-    acClearEditDashboard: jest.fn(),
-    tSaveDashboard: jest.fn(),
-}))
 
 jest.mock(
     '@dhis2/d2-ui-translation-dialog',
@@ -49,17 +42,11 @@ useD2.mockReturnValue({
     },
 })
 
-apiFetchDashboard.mockResolvedValue({
-    rainbow: {
-        id: 'rainbow123',
-    },
-})
-
 useDataEngine.mockReturnValue({
     dataEngine: {},
 })
 
-test('renders the EditBar', () => {
+test('renders the EditBar', async () => {
     const store = {
         editDashboard: {
             id: 'rainbowDash',
@@ -71,15 +58,20 @@ test('renders the EditBar', () => {
             printPreviewView: false,
         },
     }
+
+    const promise = Promise.resolve()
+    apiFetchDashboard.mockResolvedValue(promise)
+
     const { container } = render(
         <Provider store={mockStore(store)}>
             <EditBar />
         </Provider>
     )
+    await act(() => promise)
     expect(container).toMatchSnapshot()
 })
 
-test('renders only the Go to Dashboards button when no update access', () => {
+test('renders only the Go to Dashboards button when no update access', async () => {
     const store = {
         editDashboard: {
             id: 'rainbowDash',
@@ -91,15 +83,20 @@ test('renders only the Go to Dashboards button when no update access', () => {
             printPreviewView: false,
         },
     }
+
+    const promise = Promise.resolve()
+    apiFetchDashboard.mockResolvedValue(promise)
+
     const { container } = render(
         <Provider store={mockStore(store)}>
             <EditBar />
         </Provider>
     )
+    await act(() => promise)
     expect(container).toMatchSnapshot()
 })
 
-test('renders Save and Discard buttons but no dialogs when no dashboard id', () => {
+test('renders Save and Discard buttons but no dialogs when no dashboard id', async () => {
     const store = {
         editDashboard: {
             id: '',
@@ -109,15 +106,20 @@ test('renders Save and Discard buttons but no dialogs when no dashboard id', () 
         },
     }
 
+    const promise = Promise.resolve()
+    apiFetchDashboard.mockResolvedValue(promise)
+
     const { container } = render(
         <Provider store={mockStore(store)}>
             <EditBar />
         </Provider>
     )
+
+    await act(() => promise)
     expect(container).toMatchSnapshot()
 })
 
-test('renders Translate, Delete, and Discard buttons when delete access', () => {
+test('renders Translate, Delete, and Discard buttons when delete access', async () => {
     const store = {
         editDashboard: {
             id: 'rainbowDash',
@@ -129,15 +131,20 @@ test('renders Translate, Delete, and Discard buttons when delete access', () => 
             printPreviewView: false,
         },
     }
+    const promise = Promise.resolve()
+    apiFetchDashboard.mockResolvedValue(promise)
+
     const { container } = render(
         <Provider store={mockStore(store)}>
             <EditBar />
         </Provider>
     )
+
+    await act(() => promise)
     expect(container).toMatchSnapshot()
 })
 
-test('shows the confirm delete dialog when delete button clicked', () => {
+test('shows the confirm delete dialog when delete button clicked', async () => {
     const store = {
         editDashboard: {
             id: 'rainbowDash',
@@ -149,11 +156,15 @@ test('shows the confirm delete dialog when delete button clicked', () => {
             printPreviewView: false,
         },
     }
+    const promise = Promise.resolve()
+    apiFetchDashboard.mockResolvedValue(promise)
     const { getByText, asFragment } = render(
         <Provider store={mockStore(store)}>
             <EditBar />
         </Provider>
     )
+
+    await act(() => promise)
 
     asFragment()
 
@@ -164,7 +175,7 @@ test('shows the confirm delete dialog when delete button clicked', () => {
     expect(asFragment()).toMatchSnapshot()
 })
 
-test('shows the translate dialog', () => {
+test('shows the translate dialog', async () => {
     const store = {
         editDashboard: {
             id: 'rainbowDash',
@@ -176,11 +187,16 @@ test('shows the translate dialog', () => {
             printPreviewView: false,
         },
     }
+
+    const promise = Promise.resolve()
+    apiFetchDashboard.mockResolvedValue(promise)
     const { getByText, asFragment } = render(
         <Provider store={mockStore(store)}>
             <EditBar />
         </Provider>
     )
+
+    await act(() => promise)
 
     act(() => {
         asFragment()
@@ -192,7 +208,7 @@ test('shows the translate dialog', () => {
     expect(asFragment()).toMatchSnapshot()
 })
 
-test('triggers the discard action', () => {
+test('triggers the discard action', async () => {
     const store = mockStore({
         editDashboard: {
             id: 'rainbowDash',
@@ -207,6 +223,9 @@ test('triggers the discard action', () => {
 
     store.dispatch = jest.fn()
 
+    const promise = Promise.resolve()
+    apiFetchDashboard.mockResolvedValue(promise)
+
     const { getByText } = render(
         <Provider store={store}>
             <Router history={createMemoryHistory()}>
@@ -214,6 +233,8 @@ test('triggers the discard action', () => {
             </Router>
         </Provider>
     )
+
+    await act(() => promise)
 
     act(() => {
         fireEvent.click(getByText('Exit without saving'))
@@ -221,35 +242,4 @@ test('triggers the discard action', () => {
 
     expect(store.dispatch).toHaveBeenCalledTimes(1)
     expect(store.dispatch).toHaveBeenCalledWith(acClearEditDashboard())
-})
-
-test('triggers the save action', () => {
-    const store = mockStore({
-        editDashboard: {
-            id: 'rainbowDash',
-            name: 'Rainbow Dash',
-            access: {
-                update: true,
-                delete: true,
-            },
-            printPreviewView: false,
-        },
-    })
-
-    store.dispatch = jest.fn().mockResolvedValue('rainbowDash')
-
-    const { getByText } = render(
-        <Provider store={store}>
-            <Router history={createMemoryHistory()}>
-                <EditBar />
-            </Router>
-        </Provider>
-    )
-
-    act(() => {
-        fireEvent.click(getByText('Save changes'))
-    })
-
-    expect(store.dispatch).toHaveBeenCalledTimes(1)
-    expect(store.dispatch).toHaveBeenCalledWith(tSaveDashboard())
 })
