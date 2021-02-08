@@ -51,6 +51,39 @@ const ViewTitleBar = ({
     const [redirectUrl, setRedirectUrl] = useState(null)
     const { width } = useWindowDimensions()
     const { d2 } = useD2({})
+    const starDashboardMutation = useMemo(
+        () => getStarDashboardMutation(id),
+        []
+    )
+    const unstarDashboardMutation = useMemo(
+        () => getUnstarDashboardMutation(id),
+        []
+    )
+
+    const errorDashboardStarredNotUpdated = () => {
+        const msg = starred
+            ? i18n.t('Failed to unstar the dashboard')
+            : i18n.t('Failed to star the dashboard')
+
+        warningAlert.show({ msg })
+    }
+
+    const updateDashboardStarred = () => {
+        setDashboardStarred(id, !starred)
+        if (moreOptionsIsOpen) {
+            toggleMoreOptions()
+        }
+    }
+
+    const [starDashboardMutate] = useDataMutation(starDashboardMutation, {
+        onError: () => errorDashboardStarredNotUpdated(),
+        onComplete: () => updateDashboardStarred(),
+    })
+
+    const [unstarDashboardMutate] = useDataMutation(unstarDashboardMutation, {
+        onError: () => errorDashboardStarredNotUpdated(),
+        onComplete: () => updateDashboardStarred(),
+    })
 
     const warningAlert = useAlert(({ msg }) => msg, {
         warning: true,
@@ -92,39 +125,6 @@ const ViewTitleBar = ({
         ? i18n.t('Unstar dashboard')
         : i18n.t('Star dashboard')
 
-    const starDashboardMutation = useMemo(
-        () => getStarDashboardMutation(id),
-        []
-    )
-    const unstarDashboardMutation = useMemo(
-        () => getUnstarDashboardMutation(id),
-        []
-    )
-
-    const errorDashboardStarredNotUpdated = () => {
-        const msg = starred
-            ? i18n.t('Failed to unstar the dashboard')
-            : i18n.t('Failed to star the dashboard')
-
-        warningAlert.show({ msg })
-    }
-
-    const updateDashboardStarred = () => {
-        setDashboardStarred(id, !starred)
-        if (moreOptionsIsOpen) {
-            toggleMoreOptions()
-        }
-    }
-
-    const [starDashboardMutate] = useDataMutation(starDashboardMutation, {
-        onError: () => errorDashboardStarredNotUpdated(),
-        onComplete: () => updateDashboardStarred(),
-    })
-
-    const [unstarDashboardMutate] = useDataMutation(unstarDashboardMutation, {
-        onError: () => errorDashboardStarredNotUpdated(),
-        onComplete: () => updateDashboardStarred(),
-    })
     const onToggleStarredDashboard = () => {
         if (starred) {
             unstarDashboardMutate()
