@@ -51,7 +51,7 @@ const NewDashboard = props => {
             {isSmallScreen(width) ? (
                 <NotSupportedNotice
                     message={i18n.t(
-                        'Creating dashboards on small screens is not supported. Resize your screen to return to create mode.'
+                        'Creating dashboards on small screens is not supported. Return to landscape orientation on your phone to restore create mode.'
                     )}
                 />
             ) : (
