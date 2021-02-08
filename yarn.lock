@@ -1635,13 +1635,6 @@
     resize-observer-polyfill "^1.5.1"
     styled-jsx "3.3.2"
 
-"@dhis2/app-adapter@5.5.1":
-  version "5.5.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-5.5.1.tgz#3c5a841b5771d5ee753c4713ffa78688279e5549"
-  integrity sha512-osws96DnUVxaZ42mPJgSzvXFYFTA8TacN//GNVn4KjDZhlrUsHbClZ8X68joNZxFfQ5yJEmJzx50iPtPM9Npgg==
-  dependencies:
-    moment "^2.24.0"
-
 "@dhis2/analytics@^14.0.0":
   version "14.0.2"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-14.0.2.tgz#dcfbef69dc50a8f1545dbf162e2c5b544fd53fa8"
@@ -1659,6 +1652,13 @@
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
     styled-jsx "3.3.2"
+
+"@dhis2/app-adapter@5.5.1":
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-5.5.1.tgz#3c5a841b5771d5ee753c4713ffa78688279e5549"
+  integrity sha512-osws96DnUVxaZ42mPJgSzvXFYFTA8TacN//GNVn4KjDZhlrUsHbClZ8X68joNZxFfQ5yJEmJzx50iPtPM9Npgg==
+  dependencies:
+    moment "^2.24.0"
 
 "@dhis2/app-runtime-adapter-d2@^1.0.1":
   version "1.0.1"
@@ -1823,10 +1823,10 @@
     jscodeshift "^0.11.0"
     wait-on "^4.0.2"
 
-"@dhis2/cypress-commands@^5.1.1":
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-5.1.1.tgz#ba826fd984c0800c867c2dad9ac55b5954b71699"
-  integrity sha512-LkHbhoyre/V3+Y3elfmighDfz5HWnlRFxzHM4aMNWJSdylsRKzlaoku55Fgrk+OS8G3e9WT4NlX2ltYJVeGOXA==
+"@dhis2/cypress-commands@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-6.0.0.tgz#b21f1b4b89964be7456a09c799e78d79aa6a6d8a"
+  integrity sha512-bFDJRzd2XNnvyYwOUh2aUWpYEweGNJCCIQ8Tmbx9Ptyw40r5RZcynW3MOseeQkfk1s+GmSxrj2zxTIJ4nX9UdQ==
   dependencies:
     jscodeshift "^0.11.0"
 
