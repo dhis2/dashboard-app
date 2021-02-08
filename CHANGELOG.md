@@ -1,3 +1,17 @@
+## [31.10.5](https://github.com/dhis2/dashboard-app/compare/v31.10.4...v31.10.5) (2021-02-08)
+
+
+### Bug Fixes
+
+* calculations for height of interpretations expansion panel in small screen ([#1510](https://github.com/dhis2/dashboard-app/issues/1510)) ([d2e78c7](https://github.com/dhis2/dashboard-app/commit/d2e78c747652fcfc62ae3f0a9986275bc8e1f275))
+
+## [31.10.4](https://github.com/dhis2/dashboard-app/compare/v31.10.3...v31.10.4) (2021-02-08)
+
+
+### Bug Fixes
+
+* provide more informative message when edit mode becomes unavailable [DHIS2-10138] ([#1514](https://github.com/dhis2/dashboard-app/issues/1514)) ([4e080bb](https://github.com/dhis2/dashboard-app/commit/4e080bb961ff50371860e1f24fee44fa1d96d71a))
+
 ## [31.10.3](https://github.com/dhis2/dashboard-app/compare/v31.10.2...v31.10.3) (2021-02-04)
 
 
