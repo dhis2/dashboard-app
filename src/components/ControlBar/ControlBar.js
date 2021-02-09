@@ -62,7 +62,8 @@ class ControlBar extends React.Component {
 
         const rootClass = cx(
             classes.root,
-            this.state.dragging && classes.dragging
+            this.state.dragging && classes.dragging,
+            this.props.isMaxHeight && classes.expanded
         )
 
         return (
@@ -87,6 +88,11 @@ ControlBar.propTypes = {
      * If no callback is specified the control bar will not have a drag handle.
      */
     height: PropTypes.number.isRequired,
+
+    /**
+     * Control bar is expanded or is in its max height.
+     * */
+    isMaxHeight: PropTypes.bool,
 
     /**
      * Callback function that is called when the control bar is dropped after being dragged.
