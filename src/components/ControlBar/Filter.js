@@ -81,10 +81,12 @@ export const FilterUnconnected = ({
             onFocus={onFocus}
             onBlur={onBlur}
         >
-            <SearchIcon
-                className={classes.searchIcon}
-                small={isSmallScreen(width) && isMaxHeight}
-            />
+            <div className={classes.searchIconContainer}>
+                <SearchIcon
+                    className={classes.searchIcon}
+                    small={isSmallScreen(width) && isMaxHeight}
+                />
+            </div>
             <input
                 className={classes.input}
                 type="text"
@@ -95,7 +97,11 @@ export const FilterUnconnected = ({
                 data-test="search-dashboard-input"
                 ref={onFocusInput}
             />
-            {filterText && <ClearButton onClear={clearDashboardsFilter} />}
+            {filterText && (
+                <div className={classes.clearButtonContainer}>
+                    <ClearButton onClear={clearDashboardsFilter} />
+                </div>
+            )}
         </div>
     )
 }
