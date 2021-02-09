@@ -9,6 +9,7 @@ import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader/ItemHeader'
 import ItemHeaderButtons from './ItemHeaderButtons'
 import ItemFooter from './ItemFooter'
 import { WindowDimensionsCtx } from '../../WindowDimensionsProvider'
+import { SystemSettingsCtx } from '../../SystemSettingsProvider'
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
 import { apiFetchVisualization } from '../../../api/metadata'
 import { sGetVisualization } from '../../../reducers/visualizations'
@@ -18,7 +19,6 @@ import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
 } from '../../../reducers/itemFilters'
-import { sGatherAnalyticalObjectStatisticsInDashboardViews } from '../../../reducers/settings'
 import { acAddVisualization } from '../../../actions/visualizations'
 import { acSetSelectedItemActiveType } from '../../../actions/selected'
 import {
@@ -68,7 +68,8 @@ export class Item extends Component {
 
         try {
             if (
-                this.props.gatherDataStatistics &&
+                this.props.settings
+                    .keyGatherAnalyticalObjectStatisticsInDashboardViews &&
                 isViewMode(this.props.dashboardMode)
             ) {
                 await apiPostDataStatistics(
@@ -177,12 +178,10 @@ export class Item extends Component {
         return this.props.activeType || this.props.item.type
     }
 
-    getAvailableHeight = () => {
+    getAvailableHeight = width => {
         if (this.state.isFullscreen) {
             return '95vh'
         }
-
-        const { width } = this.context
 
         const calculatedHeight =
             getItemHeightPx(this.props.item, width) -
@@ -241,13 +240,19 @@ export class Item extends Component {
                         ref={ref => (this.contentRef = ref)}
                     >
                         {this.state.configLoaded && (
-                            <Visualization
-                                item={item}
-                                activeType={activeType}
-                                itemFilters={itemFilters}
-                                availableHeight={this.getAvailableHeight()}
-                                availableWidth={this.getAvailableWidth()}
-                            />
+                            <WindowDimensionsCtx.Consumer>
+                                {dimensions => (
+                                    <Visualization
+                                        item={item}
+                                        activeType={activeType}
+                                        itemFilters={itemFilters}
+                                        availableHeight={this.getAvailableHeight(
+                                            dimensions.width
+                                        )}
+                                        availableWidth={this.getAvailableWidth()}
+                                    />
+                                )}
+                            </WindowDimensionsCtx.Consumer>
                         )}
                     </div>
                 </FatalErrorBoundary>
@@ -259,17 +264,15 @@ export class Item extends Component {
     }
 }
 
-Item.contextType = WindowDimensionsCtx
-
 Item.propTypes = {
     activeType: PropTypes.string,
     dashboardMode: PropTypes.string,
-    gatherDataStatistics: PropTypes.bool,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     setActiveType: PropTypes.func,
+    settings: PropTypes.object,
     updateVisualization: PropTypes.func,
     visualization: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
@@ -294,9 +297,6 @@ const mapStateToProps = (state, ownProps) => {
             state,
             getVisualizationId(ownProps.item)
         ),
-        gatherDataStatistics: sGatherAnalyticalObjectStatisticsInDashboardViews(
-            state
-        ),
     }
 }
 
@@ -305,4 +305,10 @@ const mapDispatchToProps = {
     updateVisualization: acAddVisualization,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Item)
+const ItemWithSettings = props => (
+    <SystemSettingsCtx.Consumer>
+        {({ settings }) => <Item settings={settings} {...props} />}
+    </SystemSettingsCtx.Consumer>
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemWithSettings)
