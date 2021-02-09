@@ -1,20 +1,19 @@
 import React, { useContext, useState, useEffect, createContext } from 'react'
 import PropTypes from 'prop-types'
-import settingsQuery from '../api/settings'
-
-export const DEFAULT_SETTINGS = {
-    displayNameProperty: 'displayName',
-    keyGatherAnalyticalObjectStatisticsInDashboardViews: false,
-}
+import { useDataEngine } from '@dhis2/app-runtime'
+import settingsQuery, { DEFAULT_SETTINGS } from '../api/settings'
 
 export const SystemSettingsCtx = createContext({})
 
-const SystemSettingsProvider = ({ engine, children }) => {
+const SystemSettingsProvider = ({ children }) => {
     const [settings, setSettings] = useState([])
+    const engine = useDataEngine()
 
     useEffect(() => {
         async function fetchData() {
-            const { systemSettings } = await engine.query(settingsQuery)
+            const { systemSettings } = await engine.query({
+                systemSettings: settingsQuery,
+            })
 
             setSettings(Object.assign({}, DEFAULT_SETTINGS, systemSettings))
         }
@@ -34,7 +33,6 @@ const SystemSettingsProvider = ({ engine, children }) => {
 
 SystemSettingsProvider.propTypes = {
     children: PropTypes.node,
-    engine: PropTypes.object,
 }
 
 export default SystemSettingsProvider

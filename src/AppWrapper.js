@@ -49,7 +49,7 @@ const AppWrapper = () => {
                             return null
                         }
                         return (
-                            <SystemSettingsProvider engine={dataEngine}>
+                            <SystemSettingsProvider>
                                 <WindowDimensionsProvider>
                                     <App />
                                 </WindowDimensionsProvider>
