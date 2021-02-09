@@ -31,6 +31,7 @@ import {
     hasMapView,
     getAppName,
 } from '../../../modules/itemTypes'
+import { useSystemSettings } from '../../SystemSettingsProvider'
 
 const iconFill = { fill: colors.grey600 }
 
@@ -40,6 +41,8 @@ const ItemHeaderButtons = props => {
     const { baseUrl } = useConfig()
 
     const { item, visualization, onSelectActiveType, activeType } = props
+
+    const { settings } = useSystemSettings()
 
     const isTrackerType = isTrackerDomainType(item.type)
 
@@ -117,6 +120,18 @@ const ItemHeaderButtons = props => {
 
     const buttonRef = createRef()
 
+    const fullscreenAllowed =
+        props.fullscreenSupported &&
+        settings.keyDashboardContextMenuItemViewFullscreen
+
+    if (
+        !settings.keyDashboardContextMenuItemOpenInRelevantApp &&
+        !settings.keyDashboardContextMenuItemShowInterpretationsAndDetails &&
+        !settings.keyDashboardContextMenuItemSwitchViewType &&
+        !fullscreenAllowed
+    ) {
+        return null
+    }
     return props.isFullscreen ? (
         <Button small secondary onClick={props.onToggleFullscreen}>
             <ExitFullscreen />
@@ -141,28 +156,37 @@ const ItemHeaderButtons = props => {
                     onClickOutside={closeMenu}
                 >
                     <Menu>
-                        {canViewAs && (
-                            <>
-                                <ViewAsMenuItems />
-                                <Divider />
-                            </>
+                        {canViewAs &&
+                            settings.keyDashboardContextMenuItemSwitchViewType && (
+                                <>
+                                    <ViewAsMenuItems />
+                                    {(settings.keyDashboardContextMenuItemShowInterpretationsAndDetails ||
+                                        settings.keyDashboardContextMenuItemOpenInRelevantApp ||
+                                        fullscreenAllowed) && <Divider />}
+                                </>
+                            )}
+                        {settings.keyDashboardContextMenuItemOpenInRelevantApp && (
+                            <MenuItem
+                                dense
+                                icon={
+                                    <LaunchIcon style={{ fill: '#6e7a8a' }} />
+                                }
+                                label={i18n.t('Open in {{appName}} app', {
+                                    appName: getAppName(item.type),
+                                })}
+                                href={getLink(item, baseUrl)}
+                                target="_blank"
+                            />
                         )}
-                        <MenuItem
-                            dense
-                            icon={<LaunchIcon style={{ fill: '#6e7a8a' }} />}
-                            label={i18n.t('Open in {{appName}} app', {
-                                appName: getAppName(item.type),
-                            })}
-                            href={getLink(item, baseUrl)}
-                            target="_blank"
-                        />
-                        <MenuItem
-                            dense
-                            icon={<SpeechBubble />}
-                            label={interpretationMenuLabel}
-                            onClick={handleInterpretationClick}
-                        />
-                        {props.fullscreenSupported && (
+                        {settings.keyDashboardContextMenuItemShowInterpretationsAndDetails && (
+                            <MenuItem
+                                dense
+                                icon={<SpeechBubble />}
+                                label={interpretationMenuLabel}
+                                onClick={handleInterpretationClick}
+                            />
+                        )}
+                        {fullscreenAllowed && (
                             <MenuItem
                                 dense
                                 icon={<Fullscreen />}

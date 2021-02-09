@@ -8,6 +8,19 @@ jest.mock('../Visualization/plugin', () => ({
     pluginIsAvailable: () => true,
 }))
 
+jest.mock('../../../SystemSettingsProvider', () => ({
+    useSystemSettings: () => {
+        return {
+            settings: {
+                keyDashboardContextMenuItemOpenInRelevantApp: true,
+                keyDashboardContextMenuItemShowInterpretationsAndDetails: true,
+                keyDashboardContextMenuItemSwitchViewType: true,
+                keyDashboardContextMenuItemViewFullscreen: true,
+            },
+        }
+    },
+}))
+
 it('renders correctly when not fullscreen', () => {
     const buttons = shallow(
         <ItemHeaderButtons
