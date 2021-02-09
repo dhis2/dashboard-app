@@ -29,4 +29,21 @@ Feature: Error scenarios
         Given I open a non-editable dashboard in edit mode
         Then only the option to return to view mode is available
 
+    @nonmutating
+    Scenario: Starring a dashboard fails
+        Given I open the "Delivery" dashboard
+        Then the "Delivery" dashboard displays in view mode
+        When clicking to star "Delivery" dashboard fails
+        Then a warning message is displayed stating that starring dashboard failed
+        And the "Delivery" dashboard is not starred
+
+    @nonmutating
+    Scenario: Toggling show description fails
+        Given I open the "Delivery" dashboard
+        Then the "Delivery" dashboard displays in view mode
+        When clicking to show description fails
+        Then a warning message is displayed stating that show description failed
+        And the dashboard description is not displayed
+
+
 
