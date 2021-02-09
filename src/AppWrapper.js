@@ -6,6 +6,7 @@ import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
 import { useDataEngine } from '@dhis2/app-runtime'
 
 import WindowDimensionsProvider from './components/WindowDimensionsProvider'
+import SystemSettingsProvider from './components/SystemSettingsProvider'
 import App from './components/App'
 import configureStore from './configureStore'
 
@@ -48,9 +49,11 @@ const AppWrapper = () => {
                             return null
                         }
                         return (
-                            <WindowDimensionsProvider>
-                                <App />
-                            </WindowDimensionsProvider>
+                            <SystemSettingsProvider>
+                                <WindowDimensionsProvider>
+                                    <App />
+                                </WindowDimensionsProvider>
+                            </SystemSettingsProvider>
                         )
                     }}
                 </D2Shim>

@@ -15,7 +15,7 @@
     display: flex;
     align-items: flex-start;
 }
-.titleBarIcon {
+.star {
     margin-left: 5px;
     position: relative;
     top: 1px;
@@ -55,17 +55,28 @@
     color: #888;
 }
 
-.moreButton {
+.moreText {
     margin-left: 5px;
 }
 
+.strip .moreButtonSmall {
+    display: none;
+}
+
 @media only screen and (max-width: 480px) {
-    .editLink,
-    .shareButton {
-        display: none !important;
+    .strip .editLink,
+    .strip .shareButton {
+        display: none;
     }
 
     .title {
         top: 3px;
+    }
+    .strip .moreButton {
+        display: none;
+    }
+
+    .strip .moreButtonSmall {
+        display: inline-flex;
     }
 }

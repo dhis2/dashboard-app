@@ -13,7 +13,6 @@ import alert from './alert'
 import itemFilters from './itemFilters'
 import style from './style'
 import dimensions from './dimensions'
-import settings from './settings'
 import activeModalDimension from './activeModalDimension'
 
 export default combineReducers({
@@ -30,6 +29,5 @@ export default combineReducers({
     style,
     alert,
     dimensions,
-    settings,
     activeModalDimension,
 })
