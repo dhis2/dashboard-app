@@ -16,10 +16,6 @@ import {
     getRowsHeight,
     getControlBarHeight,
     getNumRowsFromHeight,
-    getControlBarHeightSmallDevice,
-    CONTROL_BAR,
-    CONTROL_BAR_CONTAINER,
-    CHIPS_CONTAINER,
 } from './controlBarDimensions'
 import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
@@ -45,7 +41,7 @@ const DashboardsBar = ({
     filterText,
 }) => {
     const [rows, setRows] = useState(userRows)
-    const { width, height } = useWindowDimensions()
+    const { width } = useWindowDimensions()
     const ref = createRef()
 
     useEffect(() => {
@@ -110,20 +106,10 @@ const DashboardsBar = ({
         isSmallScreen(width) && !isMaxHeight() ? MIN_ROW_COUNT : rows
 
     const getHeight = () => {
-        if (isSmallScreen(width) && isMaxHeight()) {
-            return getControlBarHeightSmallDevice(CONTROL_BAR, height)
-        }
-
         return getControlBarHeight(viewableRows)
     }
 
-    const getContainerHeight = container => {
-        if (isSmallScreen(width) && isMaxHeight()) {
-            return getControlBarHeightSmallDevice(
-                container ? CONTROL_BAR_CONTAINER : CHIPS_CONTAINER,
-                height
-            )
-        }
+    const getContainerHeight = () => {
         return getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT
     }
 
@@ -167,12 +153,13 @@ const DashboardsBar = ({
                 height={getHeight()}
                 onChangeHeight={!isSmallScreen(width) ? adjustHeight : null}
                 onEndDrag={onEndDrag}
+                isMaxHeight={isMaxHeight()}
             >
                 <div
                     className={containerClass}
                     ref={ref}
                     style={{
-                        height: getContainerHeight(CONTROL_BAR_CONTAINER),
+                        height: getContainerHeight(),
                     }}
                 >
                     <div className={classes.controls}>
