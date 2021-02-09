@@ -1,3 +1,17 @@
+## [31.10.7](https://github.com/dhis2/dashboard-app/compare/v31.10.6...v31.10.7) (2021-02-09)
+
+
+### Bug Fixes
+
+* add small More button for small screen [DHIS2-10424] ([#1511](https://github.com/dhis2/dashboard-app/issues/1511)) ([95c4511](https://github.com/dhis2/dashboard-app/commit/95c4511cd02e7a05e77fef02162ad4a672d14811))
+
+## [31.10.6](https://github.com/dhis2/dashboard-app/compare/v31.10.5...v31.10.6) (2021-02-08)
+
+
+### Bug Fixes
+
+* improve positioning of the X button in the dashboard search input ([#1512](https://github.com/dhis2/dashboard-app/issues/1512)) ([b8b6dde](https://github.com/dhis2/dashboard-app/commit/b8b6dde01f2e98236d06ff900f18d040a0d1f911))
+
 ## [31.10.5](https://github.com/dhis2/dashboard-app/compare/v31.10.4...v31.10.5) (2021-02-08)
 
 

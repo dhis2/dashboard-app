@@ -11,7 +11,6 @@ import StarBorder from '@material-ui/icons/StarBorder'
 import { Button, FlyoutMenu, Popover, MenuItem, colors } from '@dhis2/ui'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
-import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { ThreeDots } from '../Item/VisualizationItem/assets/icons'
 import { orObject } from '../../modules/util'
 import { apiStarDashboard } from '../../api/starDashboard'
@@ -29,7 +28,6 @@ import {
     sGetDashboardItems,
     EMPTY_DASHBOARD,
 } from '../../reducers/dashboards'
-import { isSmallScreen } from '../../modules/smallScreen'
 
 import classes from './styles/ViewTitleBar.module.css'
 
@@ -46,7 +44,6 @@ const ViewTitleBar = ({
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
-    const { width } = useWindowDimensions()
     const { d2 } = useD2({})
     const dataEngine = useDataEngine()
 
@@ -113,6 +110,17 @@ const ViewTitleBar = ({
         description ? classes.desc : classes.noDesc
     )
 
+    const getMoreButton = (className, useSmall) => (
+        <Button
+            className={className}
+            small={useSmall}
+            onClick={toggleMoreOptions}
+        >
+            <ThreeDots />
+            <span className={classes.moreText}>{i18n.t('More')}</span>
+        </Button>
+    )
+
     return (
         <>
             <div className={classes.container}>
@@ -158,15 +166,8 @@ const ViewTitleBar = ({
                             ) : null}
                             <FilterSelector />
                             <span ref={buttonRef}>
-                                <Button
-                                    small={isSmallScreen(width)}
-                                    onClick={toggleMoreOptions}
-                                >
-                                    <ThreeDots />
-                                    <span className={classes.moreButton}>
-                                        {i18n.t('More')}
-                                    </span>
-                                </Button>
+                                {getMoreButton(classes.moreButton, false)}
+                                {getMoreButton(classes.moreButtonSmall, true)}
                             </span>
                         </div>
                         {moreOptionsIsOpen && (
