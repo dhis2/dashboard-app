@@ -30,3 +30,24 @@
     transition: all ease-out 75ms;
     height: 7px;
 }
+
+/* LANDSCAPE MODE */
+@media only screen and (max-height: 480px) {
+    /**
+     * control bar should be 100vh -32px
+     * HEADER bar height is 48px, defined as a var in :root
+     */
+    .expanded {
+        height: calc(100vh - 32px - var(--headerbar-height)) !important;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    /**
+     * control bar should be 100vh -32px
+     * HEADER bar height is 48px, defined as a var in :root
+     */
+    .expanded {
+        height: calc(100vh - 32px - var(--headerbar-height)) !important;
+    }
+}
