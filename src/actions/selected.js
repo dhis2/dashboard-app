@@ -18,10 +18,7 @@ import { acSetAlertMessage, acClearAlertMessage } from './alert'
 import { acAddVisualization, acClearVisualizations } from './visualizations'
 import { apiFetchDashboard } from '../api/dashboards'
 import { storePreferredDashboardId } from '../api/localStorage'
-import {
-    apiGetShowDescription,
-    apiPostShowDescription,
-} from '../api/description'
+import { apiGetShowDescription } from '../api/description'
 
 import { withShape } from '../modules/gridUtil'
 import { getVisualizationFromItem } from '../modules/item'
@@ -147,20 +144,6 @@ export const tSetShowDescription = () => async dispatch => {
     try {
         const showDescription = await apiGetShowDescription()
         return onSuccess(showDescription)
-    } catch (err) {
-        console.error('Error (apiGetShowDescription): ', err)
-        return err
-    }
-}
-
-export const tUpdateShowDescription = value => async dispatch => {
-    const onSuccess = () => {
-        dispatch(acSetSelectedShowDescription(value))
-    }
-
-    try {
-        await apiPostShowDescription(value)
-        return onSuccess()
     } catch (err) {
         console.error('Error (apiGetShowDescription): ', err)
         return err
