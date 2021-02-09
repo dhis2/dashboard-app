@@ -14,7 +14,7 @@ export const apiPostUserDataStoreValue = async (key, value) => {
     const d2 = await getInstance()
     const ns = await getNamespace(d2, hasNamespace)
 
-    ns.set(key, value)
+    return ns.set(key, value)
 }
 
 export const apiGetUserDataStoreValue = async (key, defaultValue) => {

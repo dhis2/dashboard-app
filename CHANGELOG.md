@@ -1,3 +1,10 @@
+## [31.10.8](https://github.com/dhis2/dashboard-app/compare/v31.10.7...v31.10.8) (2021-02-09)
+
+
+### Bug Fixes
+
+* restore star dashboard functionality ([#1507](https://github.com/dhis2/dashboard-app/issues/1507)) ([4d625af](https://github.com/dhis2/dashboard-app/commit/4d625af7c1e36754964981e177586bb8d561c7f9))
+
 ## [31.10.7](https://github.com/dhis2/dashboard-app/compare/v31.10.6...v31.10.7) (2021-02-09)
 
 

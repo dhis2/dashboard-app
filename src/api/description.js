@@ -12,5 +12,5 @@ export const apiGetShowDescription = async () =>
         DEFAULT_STATE_SELECTED_SHOWDESCRIPTION
     )
 
-export const apiPostShowDescription = async value =>
-    await apiPostUserDataStoreValue(KEY_SHOW_DESCRIPTION, value)
+export const apiPostShowDescription = value =>
+    apiPostUserDataStoreValue(KEY_SHOW_DESCRIPTION, value)

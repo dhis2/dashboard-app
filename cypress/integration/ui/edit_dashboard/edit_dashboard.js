@@ -5,14 +5,17 @@ import {
     chartSel,
     chartSubtitleSel,
 } from '../../../selectors/dashboardItem'
-import { dashboardChipSel } from '../../../selectors/viewDashboard'
+import {
+    dashboardChipSel,
+    dashboardTitleSel,
+} from '../../../selectors/viewDashboard'
 
 // the length of the root route of the app (after the slash): #/
 const ROOT_ROUTE_LENGTH = 0
 // the length of UIDs (after the slash): '#/nghVC4wtyzi'
 const UID_LENGTH = 11
 
-const TEST_DASHBOARD_TITLE = new Date().toUTCString()
+export const TEST_DASHBOARD_TITLE = 'aa' + new Date().toUTCString()
 
 const ROUTE_EDIT = 'edit'
 const ROUTE_NEW = 'new'
@@ -70,11 +73,28 @@ Then('dashboard displays in view mode', () => {
         expect(nonViewRoutes).not.to.include(currentRoute)
         expect([ROOT_ROUTE_LENGTH, UID_LENGTH]).to.include(currentRoute.length)
     })
+    cy.get(dashboardTitleSel)
+        .should('be.visible')
+        .and('contain', TEST_DASHBOARD_TITLE)
+})
+
+Then('different dashboard displays in view mode', () => {
+    cy.location().should(loc => {
+        const currentRoute = getRouteFromHash(loc.hash)
+
+        expect(nonViewRoutes).not.to.include(currentRoute)
+        expect([ROOT_ROUTE_LENGTH, UID_LENGTH]).to.include(currentRoute.length)
+    })
+    cy.get(dashboardTitleSel)
+        .should('be.visible')
+        .and('not.contain', TEST_DASHBOARD_TITLE)
 })
 
 Given('I open existing dashboard', () => {
     toggleShowMoreButton()
-    cy.get(dashboardChipSel).contains(TEST_DASHBOARD_TITLE).click()
+    cy.get(dashboardChipSel, EXTENDED_TIMEOUT)
+        .contains(TEST_DASHBOARD_TITLE)
+        .click()
 })
 
 When('I choose to delete dashboard', () => {
