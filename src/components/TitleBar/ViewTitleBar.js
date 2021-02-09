@@ -51,13 +51,12 @@ const ViewTitleBar = ({
     const [redirectUrl, setRedirectUrl] = useState(null)
     const { width } = useWindowDimensions()
     const { d2 } = useD2({})
-    const starDashboardMutation = useMemo(
-        () => getStarDashboardMutation(id),
-        []
-    )
+    const starDashboardMutation = useMemo(() => getStarDashboardMutation(id), [
+        id,
+    ])
     const unstarDashboardMutation = useMemo(
         () => getUnstarDashboardMutation(id),
-        []
+        [id]
     )
 
     const errorDashboardStarredNotUpdated = () => {
