@@ -1,3 +1,38 @@
+## [31.10.8](https://github.com/dhis2/dashboard-app/compare/v31.10.7...v31.10.8) (2021-02-09)
+
+
+### Bug Fixes
+
+* restore star dashboard functionality ([#1507](https://github.com/dhis2/dashboard-app/issues/1507)) ([4d625af](https://github.com/dhis2/dashboard-app/commit/4d625af7c1e36754964981e177586bb8d561c7f9))
+
+## [31.10.7](https://github.com/dhis2/dashboard-app/compare/v31.10.6...v31.10.7) (2021-02-09)
+
+
+### Bug Fixes
+
+* add small More button for small screen [DHIS2-10424] ([#1511](https://github.com/dhis2/dashboard-app/issues/1511)) ([95c4511](https://github.com/dhis2/dashboard-app/commit/95c4511cd02e7a05e77fef02162ad4a672d14811))
+
+## [31.10.6](https://github.com/dhis2/dashboard-app/compare/v31.10.5...v31.10.6) (2021-02-08)
+
+
+### Bug Fixes
+
+* improve positioning of the X button in the dashboard search input ([#1512](https://github.com/dhis2/dashboard-app/issues/1512)) ([b8b6dde](https://github.com/dhis2/dashboard-app/commit/b8b6dde01f2e98236d06ff900f18d040a0d1f911))
+
+## [31.10.5](https://github.com/dhis2/dashboard-app/compare/v31.10.4...v31.10.5) (2021-02-08)
+
+
+### Bug Fixes
+
+* calculations for height of interpretations expansion panel in small screen ([#1510](https://github.com/dhis2/dashboard-app/issues/1510)) ([d2e78c7](https://github.com/dhis2/dashboard-app/commit/d2e78c747652fcfc62ae3f0a9986275bc8e1f275))
+
+## [31.10.4](https://github.com/dhis2/dashboard-app/compare/v31.10.3...v31.10.4) (2021-02-08)
+
+
+### Bug Fixes
+
+* provide more informative message when edit mode becomes unavailable [DHIS2-10138] ([#1514](https://github.com/dhis2/dashboard-app/issues/1514)) ([4e080bb](https://github.com/dhis2/dashboard-app/commit/4e080bb961ff50371860e1f24fee44fa1d96d71a))
+
 ## [31.10.3](https://github.com/dhis2/dashboard-app/compare/v31.10.2...v31.10.3) (2021-02-04)
 
 

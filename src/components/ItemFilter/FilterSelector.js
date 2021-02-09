@@ -10,7 +10,6 @@ import { DimensionsPanel } from '@dhis2/analytics'
 import { Button, Popover } from '@dhis2/ui'
 import FilterDialog from './FilterDialog'
 
-import { sGetSettingsDisplayNameProperty } from '../../reducers/settings'
 import { sGetActiveModalDimension } from '../../reducers/activeModalDimension'
 import { sGetDimensions } from '../../reducers/dimensions'
 import { sGetItemFiltersRoot } from '../../reducers/itemFilters'
@@ -64,7 +63,6 @@ const FilterSelector = props => {
             )}
             {!isEmpty(props.dimension) ? (
                 <FilterDialog
-                    displayNameProperty={props.displayNameProperty}
                     dimension={props.dimension}
                     onClose={onCloseDialog}
                 />
@@ -74,7 +72,6 @@ const FilterSelector = props => {
 }
 
 const mapStateToProps = state => ({
-    displayNameProperty: sGetSettingsDisplayNameProperty(state),
     dimension: sGetActiveModalDimension(state),
     dimensions: sGetDimensions(state),
     initiallySelectedItems: sGetItemFiltersRoot(state),
@@ -84,7 +81,6 @@ FilterSelector.propTypes = {
     clearActiveModalDimension: PropTypes.func,
     dimension: PropTypes.object,
     dimensions: PropTypes.array,
-    displayNameProperty: PropTypes.string,
     initiallySelectedItems: PropTypes.object,
     setActiveModalDimension: PropTypes.func,
 }

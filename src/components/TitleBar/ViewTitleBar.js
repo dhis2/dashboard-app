@@ -5,15 +5,19 @@ import cx from 'classnames'
 import { Link, Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
+import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import Star from '@material-ui/icons/Star'
 import StarBorder from '@material-ui/icons/StarBorder'
 import { Button, FlyoutMenu, Popover, MenuItem, colors } from '@dhis2/ui'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-import { useWindowDimensions } from '../WindowDimensionsProvider'
+
 import { ThreeDots } from '../Item/VisualizationItem/assets/icons'
 import { orObject } from '../../modules/util'
-import { tStarDashboard } from '../../actions/dashboards'
-import { tUpdateShowDescription } from '../../actions/selected'
+import { apiStarDashboard } from '../../api/starDashboard'
+import { apiPostShowDescription } from '../../api/description'
+
+import { acSetDashboardStarred } from '../../actions/dashboards'
+import { acSetSelectedShowDescription } from '../../actions/selected'
 import FilterSelector from '../ItemFilter/FilterSelector'
 import {
     sGetSelectedId,
@@ -24,27 +28,28 @@ import {
     sGetDashboardItems,
     EMPTY_DASHBOARD,
 } from '../../reducers/dashboards'
-import { isSmallScreen } from '../../modules/smallScreen'
 
 import classes from './styles/ViewTitleBar.module.css'
 
-const ViewTitleBar = props => {
+const ViewTitleBar = ({
+    id,
+    name,
+    description,
+    access,
+    showDescription,
+    starred,
+    setDashboardStarred,
+    updateShowDescription,
+}) => {
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
-    const { width } = useWindowDimensions()
     const { d2 } = useD2({})
+    const dataEngine = useDataEngine()
 
-    const {
-        id,
-        name,
-        description,
-        access,
-        showDescription,
-        starred,
-        onToggleStarredDashboard,
-        onShowHideDescription,
-    } = props
+    const warningAlert = useAlert(({ msg }) => msg, {
+        warning: true,
+    })
 
     const toggleSharingDialog = () =>
         setSharingDialogIsOpen(!sharingDialogIsOpen)
@@ -64,20 +69,37 @@ const ViewTitleBar = props => {
         ? i18n.t('Hide description')
         : i18n.t('Show description')
 
-    const showHideDescription = () => {
-        onShowHideDescription()
-        toggleMoreOptions()
-    }
+    const onToggleShowDescription = () =>
+        apiPostShowDescription(!showDescription)
+            .then(() => {
+                updateShowDescription(!showDescription)
+                toggleMoreOptions()
+            })
+            .catch(() => {
+                const msg = showDescription
+                    ? i18n.t('Failed to hide description')
+                    : i18n.t('Failed to show description')
+                warningAlert.show({ msg })
+            })
 
     const toggleStarredDashboardLabel = starred
         ? i18n.t('Unstar dashboard')
         : i18n.t('Star dashboard')
 
-    const toggleStarredDashboard = () => {
-        // TODO use dataQuery directly here with create/delete mutations ?!
-        onToggleStarredDashboard()
-        toggleMoreOptions()
-    }
+    const onToggleStarredDashboard = () =>
+        apiStarDashboard(dataEngine, id, !starred)
+            .then(() => {
+                setDashboardStarred(id, !starred)
+                if (moreOptionsIsOpen) {
+                    toggleMoreOptions()
+                }
+            })
+            .catch(() => {
+                const msg = starred
+                    ? i18n.t('Failed to unstar the dashboard')
+                    : i18n.t('Failed to star the dashboard')
+                warningAlert.show({ msg })
+            })
 
     const buttonRef = createRef()
 
@@ -86,6 +108,17 @@ const ViewTitleBar = props => {
     const descriptionClasses = cx(
         classes.descContainer,
         description ? classes.desc : classes.noDesc
+    )
+
+    const getMoreButton = (className, useSmall) => (
+        <Button
+            className={className}
+            small={useSmall}
+            onClick={toggleMoreOptions}
+        >
+            <ThreeDots />
+            <span className={classes.moreText}>{i18n.t('More')}</span>
+        </Button>
     )
 
     return (
@@ -100,10 +133,18 @@ const ViewTitleBar = props => {
                     </span>
                     <div className={classes.actions}>
                         <div
-                            className={classes.titleBarIcon}
+                            className={classes.star}
                             onClick={onToggleStarredDashboard}
+                            data-test="button-star-dashboard"
                         >
-                            <StarIcon style={{ fill: colors.grey600 }} />
+                            <StarIcon
+                                style={{ fill: colors.grey600 }}
+                                data-test={
+                                    starred
+                                        ? 'dashboard-starred'
+                                        : 'dashboard-unstarred'
+                                }
+                            />
                         </div>
                         <div className={classes.strip}>
                             {userAccess.update ? (
@@ -125,16 +166,8 @@ const ViewTitleBar = props => {
                             ) : null}
                             <FilterSelector />
                             <span ref={buttonRef}>
-                                <Button
-                                    small={isSmallScreen(width)}
-                                    dataTest="more-button"
-                                    onClick={toggleMoreOptions}
-                                >
-                                    <ThreeDots />
-                                    <span className={classes.moreButton}>
-                                        {i18n.t('More')}
-                                    </span>
-                                </Button>
+                                {getMoreButton(classes.moreButton, false)}
+                                {getMoreButton(classes.moreButtonSmall, true)}
                             </span>
                         </div>
                         {moreOptionsIsOpen && (
@@ -147,12 +180,12 @@ const ViewTitleBar = props => {
                                     <MenuItem
                                         dense
                                         label={toggleStarredDashboardLabel}
-                                        onClick={toggleStarredDashboard}
+                                        onClick={onToggleStarredDashboard}
                                     />
                                     <MenuItem
                                         dense
                                         label={showHideDescriptionLabel}
-                                        onClick={showHideDescription}
+                                        onClick={onToggleShowDescription}
                                     />
                                     <MenuItem
                                         dense
@@ -178,7 +211,10 @@ const ViewTitleBar = props => {
                     </div>
                 </div>
                 {showDescription && (
-                    <div className={descriptionClasses}>
+                    <div
+                        className={descriptionClasses}
+                        data-test="dashboard-description"
+                    >
                         {description || i18n.t('No description')}
                     </div>
                 )}
@@ -201,10 +237,10 @@ ViewTitleBar.propTypes = {
     description: PropTypes.string,
     id: PropTypes.string,
     name: PropTypes.string,
+    setDashboardStarred: PropTypes.func,
     showDescription: PropTypes.bool,
     starred: PropTypes.bool,
-    onShowHideDescription: PropTypes.func,
-    onToggleStarredDashboard: PropTypes.func,
+    updateShowDescription: PropTypes.func,
 }
 
 ViewTitleBar.defaultProps = {
@@ -229,17 +265,7 @@ const mapStateToProps = state => {
     }
 }
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const { id, starred, showDescription } = stateProps
-    const { dispatch } = dispatchProps
-
-    return {
-        ...stateProps,
-        ...ownProps,
-        onToggleStarredDashboard: () => dispatch(tStarDashboard(id, !starred)),
-        onShowHideDescription: () =>
-            dispatch(tUpdateShowDescription(!showDescription)),
-    }
-}
-
-export default connect(mapStateToProps, null, mergeProps)(ViewTitleBar)
+export default connect(mapStateToProps, {
+    setDashboardStarred: acSetDashboardStarred,
+    updateShowDescription: acSetSelectedShowDescription,
+})(ViewTitleBar)
