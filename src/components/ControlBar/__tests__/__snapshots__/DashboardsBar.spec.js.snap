@@ -3,7 +3,7 @@
 exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
 <DocumentFragment>
   <div
-    class="root"
+    class="root expanded"
     style="height: 431px;"
   >
     <div
@@ -151,7 +151,7 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
 exports[`renders a DashboardsBar with maximum height 1`] = `
 <div>
   <div
-    class="root"
+    class="root expanded"
     style="height: 431px;"
   >
     <div
@@ -691,15 +691,15 @@ exports[`renders a DashboardsBar with selected item 1`] = `
 exports[`small screen: clicking "Show more" maximizes dashboards bar height 1`] = `
 <DocumentFragment>
   <div
-    class="root"
-    style="height: 320px;"
+    class="root expanded"
+    style="height: 431px;"
   >
     <div
       class="content"
     >
       <div
         class="container expanded"
-        style="height: 296px;"
+        style="height: 410px;"
       >
         <div
           class="controls"
@@ -747,7 +747,7 @@ exports[`small screen: clicking "Show more" maximizes dashboards bar height 1`] 
         </div>
         <div
           class="chipContainer expanded"
-          style="height: 256px;"
+          style="height: 410px;"
         >
           <a
             class="link"
