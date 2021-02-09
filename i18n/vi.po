@@ -236,11 +236,23 @@ msgstr "Ẩn mô tả"
 msgid "Show description"
 msgstr "Hiển thị mô tả"
 
+msgid "Failed to hide description"
+msgstr ""
+
+msgid "Failed to show description"
+msgstr ""
+
 msgid "Unstar dashboard"
 msgstr "Không gắn dấu sao bảng điều khiển "
 
 msgid "Star dashboard"
 msgstr "Gán dấu sao bảng điều khiển "
+
+msgid "Failed to unstar the dashboard"
+msgstr ""
+
+msgid "Failed to star the dashboard"
+msgstr ""
 
 msgid "Edit"
 msgstr "Chỉnh sửa"

@@ -235,11 +235,23 @@ msgstr "Skjul beskrivelse"
 msgid "Show description"
 msgstr "Vis beskrivelse"
 
+msgid "Failed to hide description"
+msgstr ""
+
+msgid "Failed to show description"
+msgstr ""
+
 msgid "Unstar dashboard"
 msgstr "Fjern stjerne fra dashbordet"
 
 msgid "Star dashboard"
 msgstr "Merk dashbord med stjerne"
+
+msgid "Failed to unstar the dashboard"
+msgstr ""
+
+msgid "Failed to star the dashboard"
+msgstr ""
 
 msgid "Edit"
 msgstr "Rediger"

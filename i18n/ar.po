@@ -238,11 +238,23 @@ msgstr "إخفاء الوصف"
 msgid "Show description"
 msgstr "إظهار الوصف"
 
+msgid "Failed to hide description"
+msgstr ""
+
+msgid "Failed to show description"
+msgstr ""
+
 msgid "Unstar dashboard"
 msgstr "إلغاء التمييز بنجمة عن لوحة المعلومات"
 
 msgid "Star dashboard"
 msgstr "إعطاء نجمة للوحة المعلومات"
+
+msgid "Failed to unstar the dashboard"
+msgstr ""
+
+msgid "Failed to star the dashboard"
+msgstr ""
 
 msgid "Edit"
 msgstr "تعديل"
