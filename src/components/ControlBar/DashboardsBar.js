@@ -105,12 +105,8 @@ const DashboardsBar = ({
     const viewableRows =
         isSmallScreen(width) && !isMaxHeight() ? MIN_ROW_COUNT : rows
 
-    const getHeight = () => {
-        return getControlBarHeight(viewableRows)
-    }
-
-    const getContainerHeight = () => {
-        return getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT
+    const rowHeightProp = {
+        height: getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT,
     }
 
     const getDashboardChips = () => {
@@ -130,10 +126,7 @@ const DashboardsBar = ({
                 isMaxHeight() ? classes.expanded : classes.collapsed
             )
             return (
-                <div
-                    className={chipContainerClasses}
-                    style={{ height: getContainerHeight() }}
-                >
+                <div className={chipContainerClasses} style={rowHeightProp}>
                     {chips}
                 </div>
             )
@@ -150,18 +143,12 @@ const DashboardsBar = ({
     return (
         <>
             <ControlBar
-                height={getHeight()}
+                height={getControlBarHeight(viewableRows)}
                 onChangeHeight={!isSmallScreen(width) ? adjustHeight : null}
                 onEndDrag={onEndDrag}
                 isMaxHeight={isMaxHeight()}
             >
-                <div
-                    className={containerClass}
-                    ref={ref}
-                    style={{
-                        height: getContainerHeight(),
-                    }}
-                >
+                <div className={containerClass} ref={ref} style={rowHeightProp}>
                     <div className={classes.controls}>
                         <Link
                             className={classes.newLink}
