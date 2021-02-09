@@ -1,3 +1,11 @@
+/* control bar variables: height */
+:root {
+    --controlbar-showmore-height: 24px;
+    --headerbar-height: 48px;
+    --searchbar-height: 40px;
+    --drag-handle-height: 7px;
+}
+
 body {
     background-color: #f4f6f8;
 }
