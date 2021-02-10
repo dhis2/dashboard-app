@@ -42,7 +42,7 @@ msgstr "删除仪表盘 \"{{ dashboardName }}\" 将从所有用户仪表盘中�
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
-msgstr ""
+msgstr "保存仪表盘失败。您可能处于离线状态或无权编辑此仪表板。"
 
 msgid "Save changes"
 msgstr "保存改变"
@@ -83,12 +83,12 @@ msgstr "不能访问"
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
-msgstr ""
+msgstr "不支持在小屏幕上编辑仪表板。调整屏幕大小以返回编辑模式。"
 
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
 " return to create mode."
-msgstr ""
+msgstr "不支持在小屏幕上创建仪表板。调整屏幕大小以返回创建模式。"
 
 msgid "Not supported"
 msgstr "不支持"
@@ -230,10 +230,10 @@ msgid "Show description"
 msgstr "显示说明"
 
 msgid "Failed to hide description"
-msgstr ""
+msgstr "隐藏说明失败"
 
 msgid "Failed to show description"
-msgstr ""
+msgstr "无法显示说明"
 
 msgid "Unstar dashboard"
 msgstr "取消星标仪表盘"
@@ -242,10 +242,10 @@ msgid "Star dashboard"
 msgstr "标星仪表板"
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "无法取消仪表板的星标"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "无法为仪表板加注星标"
 
 msgid "Edit"
 msgstr "编辑"
