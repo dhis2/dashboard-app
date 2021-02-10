@@ -1617,10 +1617,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^14.0.0", "@dhis2/analytics@^14.1.5":
-  version "14.1.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-14.1.5.tgz#f47591f08ed308a8a499de0fa46d7416ca9c18ec"
-  integrity sha512-I1il6HNEMqDXn50KFb9f6C4CEZc1vsbRDKddWfxnOD5ckXNQJDyQVtAi2CFhpKVxalXrKJfxp22q7K24s/AvFA==
+"@dhis2/analytics@^14.1.4", "@dhis2/analytics@^14.1.5":
+  version "14.1.6"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-14.1.6.tgz#026b1b3e63169fdedb023d8b55c20df9a856a310"
+  integrity sha512-Oz96F6zvKtdWcX+nyEAgkjrEvnTJD0jB7YHzOwP25/1Lpy//l2J4ftY1HmUnBpmm2h+6O8iXfILNI6fukZ8oMg==
   dependencies:
     "@dhis2/app-runtime" "^2.6.1"
     "@dhis2/d2-ui-favorites-dialog" "^7.1.3"
@@ -1933,12 +1933,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^35.18.3":
-  version "35.18.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.18.3.tgz#8ed4211ae5ab5483474fc1c78183b5053d739dd8"
-  integrity sha512-7wPcCnQb+GbcJotVHy7eqx+jZcNbuLTdMQOqyGm7mwuD1eYsKTBT9FwE96CPwxLxAbpk/SatH/HbaY+/Obf43g==
+"@dhis2/data-visualizer-plugin@^35.18.6":
+  version "35.18.6"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.18.6.tgz#fcf1489fd9e49459f03a8356b050c19ce4983c8a"
+  integrity sha512-LprnA/4f8Fraq97VHNvRgoDcdnrJxXkY0c2ytFLeiwGXTwn6nZbJFDk35/E+dVjuYKOz0+oJWsPXBARlVc3iOQ==
   dependencies:
-    "@dhis2/analytics" "^14.0.0"
+    "@dhis2/analytics" "^14.1.4"
     "@dhis2/ui" "^6.1.3"
     lodash-es "^4.17.11"
 
@@ -11197,12 +11197,7 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
-lodash-es@^4.17.11:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
-  integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
-
-lodash-es@^4.2.1:
+lodash-es@^4.17.11, lodash-es@^4.2.1:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.20.tgz#29f6332eefc60e849f869c264bc71126ad61e8f7"
   integrity sha512-JD1COMZsq8maT6mnuz1UMV0jvYD0E0aUsSOdrr1/nAG3dhqQXwRRgeW0cSqH1U43INKcqxaiVIQNOUDld7gRDA==
