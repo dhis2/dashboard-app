@@ -6,21 +6,13 @@ import cx from 'classnames'
 import ViewTitleBar from '../TitleBar/ViewTitleBar'
 import ViewItemGrid from '../ItemGrid/ViewItemGrid'
 import FilterBar from '../FilterBar/FilterBar'
-import DashboardsBar, {
-    isDashboardBarMaxHeight,
-} from '../ControlBar/DashboardsBar'
+import DashboardsBar from '../ControlBar/DashboardsBar'
 import { sGetIsEditing } from '../../reducers/editDashboard'
 import { sGetIsPrinting } from '../../reducers/printDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
 import { sGetControlBarUserRows } from '../../reducers/controlBar'
 import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
-import {
-    CONTROL_BAR_COLLAPSED,
-    getControlBarHeight,
-    getControlBarHeightSmallDevice,
-    HEADERBAR_HEIGHT,
-} from '../ControlBar/controlBarDimensions'
 import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { isSmallScreen } from '../../modules/smallScreen'
 
@@ -28,7 +20,7 @@ import classes from './styles/ViewDashboard.module.css'
 
 export const ViewDashboard = props => {
     const [controlbarExpanded, setControlbarExpanded] = useState(false)
-    const { width, height } = useWindowDimensions()
+    const { width } = useWindowDimensions()
 
     useEffect(() => {
         if (props.dashboardIsEditing) {
@@ -42,41 +34,32 @@ export const ViewDashboard = props => {
         document.querySelector('.dashboard-wrapper')?.scroll(0, 0)
     }, [props.selectedId])
 
-    const dashboardHeight =
-        height -
-        HEADERBAR_HEIGHT -
-        (isSmallScreen(width) && !isDashboardBarMaxHeight(props.controlBarRows)
-            ? getControlBarHeightSmallDevice(CONTROL_BAR_COLLAPSED)
-            : getControlBarHeight(props.controlBarRows))
-
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
 
+    const dashboardDisabled = controlbarExpanded && isSmallScreen(width)
+
     return (
-        <>
+        <div className={classes.container}>
             <DashboardsBar onExpandedChanged={onExpandedChanged} />
             <div
                 className={cx(
-                    classes.container,
+                    classes.dashboardContainer,
                     'dashboard-wrapper',
-                    controlbarExpanded && isSmallScreen(width) && 'noScroll'
+                    dashboardDisabled && 'noScroll'
                 )}
-                style={{ height: dashboardHeight }}
             >
-                {controlbarExpanded && isSmallScreen(width) && (
-                    <ComponentCover translucent />
-                )}
+                {dashboardDisabled && <ComponentCover translucent />}
                 <ViewTitleBar />
                 <FilterBar />
                 <ViewItemGrid />
             </div>
-        </>
+        </div>
     )
 }
 
 ViewDashboard.propTypes = {
     clearEditDashboard: PropTypes.func,
     clearPrintDashboard: PropTypes.func,
-    controlBarRows: PropTypes.number,
     dashboardIsEditing: PropTypes.bool,
     dashboardIsPrinting: PropTypes.bool,
     selectedId: PropTypes.string,

@@ -7,12 +7,6 @@
     overflow-y: auto;
 }
 
-.content {
-    position: relative;
-    height: 100%;
-    width: 100%;
-}
-
 .controls {
     display: inline;
 }
@@ -22,6 +16,31 @@
     text-decoration: none;
     margin-right: var(--spacers-dp8);
     margin-top: var(--spacers-dp4);
+}
+
+.root {
+    position: relative;
+    background-color: var(--colors-white);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 6px 3px;
+    transition: all ease-out 75ms;
+    z-index: 2001;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-bottom: 7px;
+}
+
+.dragging {
+    transition: 'none';
+}
+
+.draghandle {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    cursor: ns-resize;
+    transition: all ease-out 75ms;
+    height: 7px;
 }
 
 /* LANDSCAPE MODE */
@@ -66,26 +85,11 @@
         margin-right: var(--spacers-dp8);
         width: 100%;
     }
+}
 
-    .chipContainer {
-        margin-bottom: -4px;
-    }
-
-    .chipContainer.expanded {
-        overflow-x: hidden;
-        overflow-y: auto;
-        padding-left: 2px;
-        padding-right: 6px;
-        height: calc(
-            100vh - 32px - var(--headerbar-height) -
-                var(--controlbar-showmore-height) - var(--searchbar-height)
-        ) !important;
-    }
-
-    .chipContainer.collapsed {
-        overflow-x: auto;
-        overflow-y: hidden;
-        display: flex;
-        flex-wrap: nowrap;
+/* phone LANDSCAPE MODE or small screen */
+@media only screen and (max-height: 480px), only screen and (max-width: 480px) {
+    .root.expanded {
+        height: calc(100vh - 32px - var(--headerbar-height)) !important;
     }
 }
