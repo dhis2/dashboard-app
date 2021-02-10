@@ -10,10 +10,6 @@
     flex: none;
 }
 
-.root.expanded {
-    margin-bottom: 32px;
-}
-
 .container {
     padding: 10px 6px 0 6px;
     overflow: hidden;
@@ -41,9 +37,7 @@
 /* LANDSCAPE MODE */
 @media only screen and (max-height: 480px) {
     .container.expanded {
-        height: calc(
-            100vh - 32px - var(--controlbar-showmore-height)
-        ) !important;
+        flex-direction: column;
     }
 }
 
@@ -60,9 +54,7 @@
 
     .container.expanded {
         overflow-y: hidden;
-        height: calc(
-            100vh - 32px - var(--controlbar-showmore-height)
-        ) !important;
+        flex-direction: column;
     }
 
     .controls {
@@ -84,6 +76,7 @@
 /* phone LANDSCAPE MODE or small screen */
 @media only screen and (max-height: 480px), only screen and (max-width: 480px) {
     .root.expanded {
-        height: calc(100vh - 32px) !important;
+        display: flex;
+        flex-direction: column;
     }
 }

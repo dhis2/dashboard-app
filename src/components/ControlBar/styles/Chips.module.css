@@ -8,10 +8,7 @@
         overflow-y: auto;
         padding-left: 2px;
         padding-right: 6px;
-        height: calc(
-            100vh - 32px - var(--headerbar-height) -
-                var(--controlbar-showmore-height) - var(--searchbar-height)
-        ) !important;
+        flex: 1;
     }
 
     .container.collapsed {

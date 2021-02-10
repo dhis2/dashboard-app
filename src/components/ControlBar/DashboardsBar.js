@@ -107,8 +107,9 @@ const DashboardsBar = ({
             viewableRows = MAX_ROW_COUNT
         } else if (!isSmallScreen(width) && !expanded) {
             viewableRows = userRows
-        } else {
-            viewableRows = MIN_ROW_COUNT
+        } else if (isSmallScreen(width) && expanded) {
+            viewableRows = MAX_ROW_COUNT
+            // return { height: '100%' }
         }
 
         return {
