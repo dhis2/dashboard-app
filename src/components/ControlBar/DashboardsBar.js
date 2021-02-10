@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef } from 'react'
+import React, { useState, createRef } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import cx from 'classnames'
@@ -34,50 +34,46 @@ export const isDashboardBarMaxHeight = rows => rows === MAX_ROW_COUNT
 
 const DashboardsBar = ({
     userRows,
-    onChangeHeight,
+    updateUserRows,
+    onExpandedChanged,
     history,
     dashboards,
     selectedId,
     filterText,
 }) => {
-    const [rows, setRows] = useState(userRows)
+    const [expanded, setExpanded] = useState(false)
     const { width } = useWindowDimensions()
     const ref = createRef()
 
-    useEffect(() => {
-        setRows(userRows)
-    }, [userRows])
-
-    const isMaxHeight = () => isDashboardBarMaxHeight(rows)
-
-    const adjustHeight = newHeight => {
+    const adjustRows = newHeight => {
         const newRows = Math.max(
             MIN_ROW_COUNT,
             getNumRowsFromHeight(newHeight - 52) // don't rush the transition to a bigger row count
         )
 
-        if (newRows !== rows) {
-            onChangeHeight(Math.min(newRows, MAX_ROW_COUNT))
+        if (newRows !== userRows) {
+            updateUserRows(Math.min(newRows, MAX_ROW_COUNT))
         }
     }
 
-    const onEndDrag = () => apiPostControlBarRows(rows)
+    const saveUserRows = () => apiPostControlBarRows(userRows)
 
     const scrollToTop = () => {
-        if (isMaxHeight()) {
+        if (expanded) {
             ref.current.scroll(0, 0)
         }
     }
 
-    const toggleMaxHeight = () => {
-        const newRows = isMaxHeight() ? userRows : MAX_ROW_COUNT
+    const toggleExpanded = () => {
         scrollToTop()
-        setRows(newRows)
+        setExpanded(!expanded)
+        onExpandedChanged(expanded)
     }
 
-    const cancelMaxHeight = () => {
+    const cancelExpanded = () => {
         scrollToTop()
-        setRows(userRows)
+        setExpanded(false)
+        onExpandedChanged(expanded)
     }
 
     const onSelectDashboard = () => {
@@ -102,13 +98,6 @@ const DashboardsBar = ({
         ]
     }
 
-    const viewableRows =
-        isSmallScreen(width) && !isMaxHeight() ? MIN_ROW_COUNT : rows
-
-    const rowHeightProp = {
-        height: getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT,
-    }
-
     const getDashboardChips = () => {
         const chips = getFilteredDashboards().map(dashboard => (
             <Chip
@@ -117,13 +106,13 @@ const DashboardsBar = ({
                 starred={dashboard.starred}
                 dashboardId={dashboard.id}
                 selected={dashboard.id === selectedId}
-                onClick={cancelMaxHeight}
+                onClick={cancelExpanded}
             />
         ))
         if (isSmallScreen(width)) {
             const chipContainerClasses = cx(
                 classes.chipContainer,
-                isMaxHeight() ? classes.expanded : classes.collapsed
+                expanded ? classes.expanded : classes.collapsed
             )
             return (
                 <div className={chipContainerClasses} style={rowHeightProp}>
@@ -137,39 +126,52 @@ const DashboardsBar = ({
 
     const containerClass = cx(
         classes.container,
-        isMaxHeight() ? classes.expanded : classes.collapsed
+        expanded ? classes.expanded : classes.collapsed
     )
+
+    const viewableRows =
+        isSmallScreen(width) && !expanded ? MIN_ROW_COUNT : userRows
+
+    const rowHeightProp = {
+        height: getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT,
+    }
 
     return (
         <>
             <ControlBar
                 height={getControlBarHeight(viewableRows)}
-                onChangeHeight={!isSmallScreen(width) ? adjustHeight : null}
-                onEndDrag={onEndDrag}
-                isMaxHeight={isMaxHeight()}
+                onChangeHeight={!isSmallScreen(width) ? adjustRows : null}
+                onEndDrag={saveUserRows}
+                isExpanded={expanded}
             >
-                <div className={containerClass} ref={ref} style={rowHeightProp}>
-                    <div className={classes.controls}>
-                        <Link
-                            className={classes.newLink}
-                            to={'/new'}
-                            data-test="link-new-dashboard"
-                        >
-                            <AddCircleIcon />
-                        </Link>
-                        <Filter
-                            onKeypressEnter={onSelectDashboard}
-                            onToggleMaxHeight={toggleMaxHeight}
-                            isMaxHeight={isMaxHeight()}
-                        />
+                <div className={classes.content}>
+                    <div
+                        className={containerClass}
+                        ref={ref}
+                        style={rowHeightProp}
+                    >
+                        <div className={classes.controls}>
+                            <Link
+                                className={classes.newLink}
+                                to={'/new'}
+                                data-test="link-new-dashboard"
+                            >
+                                <AddCircleIcon />
+                            </Link>
+                            <Filter
+                                onKeypressEnter={onSelectDashboard}
+                                onToggleExpanded={toggleExpanded}
+                                dashboardBarIsExpanded={expanded}
+                            />
+                        </div>
+                        {getDashboardChips()}
                     </div>
-                    {getDashboardChips()}
+                    <ShowMoreButton
+                        onClick={toggleExpanded}
+                        dashboardBarIsExpanded={expanded}
+                        disabled={!expanded && userRows === MAX_ROW_COUNT}
+                    />
                 </div>
-                <ShowMoreButton
-                    onClick={toggleMaxHeight}
-                    isMaxHeight={isMaxHeight()}
-                    disabled={userRows === MAX_ROW_COUNT}
-                />
             </ControlBar>
             <div
                 style={{
@@ -188,8 +190,9 @@ DashboardsBar.propTypes = {
     filterText: PropTypes.string,
     history: PropTypes.object,
     selectedId: PropTypes.string,
+    updateUserRows: PropTypes.func,
     userRows: PropTypes.number,
-    onChangeHeight: PropTypes.func,
+    onExpandedChanged: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
@@ -200,7 +203,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-    onChangeHeight: acSetControlBarUserRows,
+    updateUserRows: acSetControlBarUserRows,
 }
 
 export default withRouter(

@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { ComponentCover } from '@dhis2/ui'
+import cx from 'classnames'
 import ViewTitleBar from '../TitleBar/ViewTitleBar'
 import ViewItemGrid from '../ItemGrid/ViewItemGrid'
 import FilterBar from '../FilterBar/FilterBar'
@@ -22,7 +24,10 @@ import {
 import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { isSmallScreen } from '../../modules/smallScreen'
 
+import classes from './styles/ViewDashboard.module.css'
+
 export const ViewDashboard = props => {
+    const [controlbarExpanded, setControlbarExpanded] = useState(false)
     const { width, height } = useWindowDimensions()
 
     useEffect(() => {
@@ -44,13 +49,22 @@ export const ViewDashboard = props => {
             ? getControlBarHeightSmallDevice(CONTROL_BAR_COLLAPSED)
             : getControlBarHeight(props.controlBarRows))
 
+    const onExpandedChanged = expanded => setControlbarExpanded(expanded)
+
     return (
         <>
-            <DashboardsBar />
+            <DashboardsBar onExpandedChanged={onExpandedChanged} />
             <div
-                className="dashboard-wrapper"
+                className={cx(
+                    classes.container,
+                    'dashboard-wrapper',
+                    controlbarExpanded && isSmallScreen(width) && 'noScroll'
+                )}
                 style={{ height: dashboardHeight }}
             >
+                {controlbarExpanded && isSmallScreen(width) && (
+                    <ComponentCover translucent />
+                )}
                 <ViewTitleBar />
                 <FilterBar />
                 <ViewItemGrid />

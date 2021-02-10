@@ -8,9 +8,9 @@ import classes from './styles/ShowMoreButton.module.css'
 
 export const SHOWMORE_BAR_HEIGHT = 16
 
-const ShowMoreButton = ({ onClick, isMaxHeight, disabled }) => {
+const ShowMoreButton = ({ onClick, dashboardBarIsExpanded, disabled }) => {
     const containerRef = useRef(null)
-    const buttonLabel = isMaxHeight
+    const buttonLabel = dashboardBarIsExpanded
         ? i18n.t('Show fewer dashboards')
         : i18n.t('Show more dashboards')
 
@@ -48,7 +48,11 @@ const ShowMoreButton = ({ onClick, isMaxHeight, disabled }) => {
                             onMouseOver={onMouseOver}
                             onMouseOut={onMouseOut}
                         >
-                            {isMaxHeight ? <ChevronUp /> : <ChevronDown />}
+                            {dashboardBarIsExpanded ? (
+                                <ChevronUp />
+                            ) : (
+                                <ChevronDown />
+                            )}
                         </button>
                     )}
                 </Tooltip>
@@ -58,8 +62,8 @@ const ShowMoreButton = ({ onClick, isMaxHeight, disabled }) => {
 }
 
 ShowMoreButton.propTypes = {
+    dashboardBarIsExpanded: PropTypes.bool,
     disabled: PropTypes.bool,
-    isMaxHeight: PropTypes.bool,
     onClick: PropTypes.func,
 }
 

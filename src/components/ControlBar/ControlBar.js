@@ -48,63 +48,35 @@ class ControlBar extends React.Component {
         }
     }
 
-    renderDragHandle = () =>
-        typeof this.props.onChangeHeight === 'function' && (
-            <div
-                className={classes.draghandle}
-                onMouseDown={this.onStartDrag}
-                data-testid="controlbar-drag-handle"
-            />
-        )
-
     render() {
         const height = Math.max(this.props.height, 0) + DRAG_HANDLE_HEIGHT
 
         const rootClass = cx(
             classes.root,
             this.state.dragging && classes.dragging,
-            this.props.isMaxHeight && classes.expanded
+            this.props.isExpanded && classes.expanded
         )
 
         return (
             <div style={{ height }} className={rootClass}>
-                <div className={classes.content}>{this.props.children}</div>
-                {this.renderDragHandle()}
+                {this.props.children}
+                {typeof this.props.onChangeHeight === 'function' && (
+                    <div
+                        className={classes.draghandle}
+                        onMouseDown={this.onStartDrag}
+                        data-testid="controlbar-drag-handle"
+                    />
+                )}
             </div>
         )
     }
 }
 
 ControlBar.propTypes = {
-    /**
-     * The height of the control bar in number of lines. Must be a positive integer.
-     */
     children: PropTypes.node.isRequired,
-
-    /**
-     * Callback function that is called when the control bar is resized.
-     * The callback receives one argument: The new height in pixels.
-     *
-     * If no callback is specified the control bar will not have a drag handle.
-     */
     height: PropTypes.number.isRequired,
-
-    /**
-     * Control bar is expanded or is in its max height.
-     * */
-    isMaxHeight: PropTypes.bool,
-
-    /**
-     * Callback function that is called when the control bar is dropped after being dragged.
-     * The callback receives one argument: The new height in pixels.
-     *
-     * Ignored if no "onChangeHeight" function is provided.
-     */
+    isExpanded: PropTypes.bool,
     onChangeHeight: PropTypes.func,
-
-    /**
-     * The contents of the control bar.
-     */
     onEndDrag: PropTypes.func,
 }
 

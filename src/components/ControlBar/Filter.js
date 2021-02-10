@@ -22,10 +22,10 @@ export const KEYCODE_ESCAPE = 27
 export const FilterUnconnected = ({
     clearDashboardsFilter,
     filterText,
-    isMaxHeight,
+    dashboardBarIsExpanded,
     setDashboardsFilter,
     onKeypressEnter,
-    onToggleMaxHeight,
+    onToggleExpanded,
 }) => {
     const [focusedClassName, setFocusedClassName] = useState('')
     const [inputFocused, setInputFocus] = useState(false)
@@ -67,11 +67,11 @@ export const FilterUnconnected = ({
     }
 
     const toggleMaxHeight = () => {
-        onToggleMaxHeight()
+        onToggleExpanded()
         setInputFocus(true)
     }
 
-    return isSmallScreen(width) && !isMaxHeight ? (
+    return isSmallScreen(width) && !dashboardBarIsExpanded ? (
         <button className={classes.searchButton} onClick={toggleMaxHeight}>
             <SearchIcon className={classes.searchIcon} />
         </button>
@@ -84,7 +84,7 @@ export const FilterUnconnected = ({
             <div className={classes.searchIconContainer}>
                 <SearchIcon
                     className={classes.searchIcon}
-                    small={isSmallScreen(width) && isMaxHeight}
+                    small={isSmallScreen(width) && dashboardBarIsExpanded}
                 />
             </div>
             <input
@@ -108,11 +108,11 @@ export const FilterUnconnected = ({
 
 FilterUnconnected.propTypes = {
     clearDashboardsFilter: PropTypes.func,
+    dashboardBarIsExpanded: PropTypes.bool,
     filterText: PropTypes.string,
-    isMaxHeight: PropTypes.bool,
     setDashboardsFilter: PropTypes.func,
     onKeypressEnter: PropTypes.func,
-    onToggleMaxHeight: PropTypes.func,
+    onToggleExpanded: PropTypes.func,
 }
 
 const mapStateToProps = state => ({

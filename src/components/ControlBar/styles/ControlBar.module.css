@@ -5,7 +5,7 @@
     background-color: var(--colors-white);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 6px 3px;
     transition: all ease-out 75ms;
-    z-index: 10;
+    z-index: 2001;
     overflow: hidden;
     box-sizing: border-box;
     padding-bottom: 7px;
@@ -13,12 +13,6 @@
 
 .dragging {
     transition: 'none';
-}
-
-.content {
-    position: relative;
-    height: 100%;
-    width: 100%;
 }
 
 .draghandle {
@@ -31,22 +25,8 @@
     height: 7px;
 }
 
-/* LANDSCAPE MODE */
-@media only screen and (max-height: 480px) {
-    /**
-     * control bar should be 100vh -32px
-     * HEADER bar height is 48px, defined as a var in :root
-     */
-    .expanded {
-        height: calc(100vh - 32px - var(--headerbar-height)) !important;
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    /**
-     * control bar should be 100vh -32px
-     * HEADER bar height is 48px, defined as a var in :root
-     */
+/* phone LANDSCAPE MODE or small screen */
+@media only screen and (max-height: 480px), only screen and (max-width: 480px) {
     .expanded {
         height: calc(100vh - 32px - var(--headerbar-height)) !important;
     }
