@@ -43,6 +43,12 @@ const ItemHeaderButtons = props => {
     const { item, visualization, onSelectActiveType, activeType } = props
 
     const { settings } = useSystemSettings()
+    const {
+        keyDashboardContextMenuItemOpenInRelevantApp: openInRelevantApp,
+        keyDashboardContextMenuItemShowInterpretationsAndDetails: showInterpretationsAndDetails,
+        keyDashboardContextMenuItemSwitchViewType: switchViewType,
+        keyDashboardContextMenuItemViewFullscreen: fullscreenAllowedInSettings,
+    } = settings
 
     const isTrackerType = isTrackerDomainType(item.type)
 
@@ -80,6 +86,7 @@ const ItemHeaderButtons = props => {
 
     const type = visualization.type || item.type
     const canViewAs =
+        switchViewType &&
         !isSingleValue(type) &&
         !isYearOverYear(type) &&
         type !== VIS_TYPE_GAUGE &&
@@ -121,13 +128,12 @@ const ItemHeaderButtons = props => {
     const buttonRef = createRef()
 
     const fullscreenAllowed =
-        props.fullscreenSupported &&
-        settings.keyDashboardContextMenuItemViewFullscreen
+        props.fullscreenSupported && fullscreenAllowedInSettings
 
     if (
-        !settings.keyDashboardContextMenuItemOpenInRelevantApp &&
-        !settings.keyDashboardContextMenuItemShowInterpretationsAndDetails &&
-        !settings.keyDashboardContextMenuItemSwitchViewType &&
+        !openInRelevantApp &&
+        !showInterpretationsAndDetails &&
+        !switchViewType &&
         !fullscreenAllowed
     ) {
         return null
@@ -156,16 +162,15 @@ const ItemHeaderButtons = props => {
                     onClickOutside={closeMenu}
                 >
                     <Menu>
-                        {canViewAs &&
-                            settings.keyDashboardContextMenuItemSwitchViewType && (
-                                <>
-                                    <ViewAsMenuItems />
-                                    {(settings.keyDashboardContextMenuItemShowInterpretationsAndDetails ||
-                                        settings.keyDashboardContextMenuItemOpenInRelevantApp ||
-                                        fullscreenAllowed) && <Divider />}
-                                </>
-                            )}
-                        {settings.keyDashboardContextMenuItemOpenInRelevantApp && (
+                        {canViewAs && (
+                            <>
+                                <ViewAsMenuItems />
+                                {(showInterpretationsAndDetails ||
+                                    openInRelevantApp ||
+                                    fullscreenAllowed) && <Divider />}
+                            </>
+                        )}
+                        {openInRelevantApp && (
                             <MenuItem
                                 dense
                                 icon={
@@ -178,7 +183,7 @@ const ItemHeaderButtons = props => {
                                 target="_blank"
                             />
                         )}
-                        {settings.keyDashboardContextMenuItemShowInterpretationsAndDetails && (
+                        {showInterpretationsAndDetails && (
                             <MenuItem
                                 dense
                                 icon={<SpeechBubble />}
