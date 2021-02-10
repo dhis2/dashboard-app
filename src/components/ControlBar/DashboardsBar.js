@@ -8,6 +8,7 @@ import Chips from './Chips'
 import AddCircleIcon from '../../icons/AddCircle'
 import Filter from './Filter'
 import ShowMoreButton from './ShowMoreButton'
+import DragHandle from './DragHandle'
 import {
     FIRST_ROW_PADDING_HEIGHT,
     MIN_ROW_COUNT,
@@ -79,39 +80,13 @@ const DashboardsBar = ({
     const toggleExpanded = () => {
         scrollToTop()
         setExpanded(!expanded)
-        onExpandedChanged(expanded)
+        onExpandedChanged(!expanded)
     }
 
     const cancelExpanded = () => {
         scrollToTop()
         setExpanded(false)
-        onExpandedChanged(expanded)
-    }
-
-    const onStartDrag = () => {
-        setDragging(true)
-        window.addEventListener('mousemove', onDrag)
-        window.addEventListener('mouseup', onEndDrag)
-    }
-
-    const onDrag = event => {
-        event.preventDefault()
-        event.stopPropagation()
-
-        const newHeight = event.clientY
-
-        if (newHeight !== this.props.height && newHeight > 0) {
-            requestAnimationFrame(() => {
-                adjustRows(newHeight)
-            })
-        }
-    }
-
-    const onEndDrag = () => {
-        setDragging(false)
-        saveUserRows()
-        window.removeEventListener('mousemove', onDrag)
-        window.removeEventListener('mouseup', onEndDrag)
+        onExpandedChanged(false)
     }
 
     const onSelectDashboard = () => {
@@ -126,24 +101,42 @@ const DashboardsBar = ({
         expanded ? classes.expanded : classes.collapsed
     )
 
-    const viewableRows =
-        isSmallScreen(width) && !expanded ? MIN_ROW_COUNT : userRows
+    const rowHeightProp = () => {
+        let viewableRows
+        if (!isSmallScreen(width) && expanded) {
+            viewableRows = MAX_ROW_COUNT
+        } else if (!isSmallScreen(width) && !expanded) {
+            viewableRows = userRows
+        } else {
+            viewableRows = MIN_ROW_COUNT
+        }
 
-    const rowHeightProp = {
-        height: getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT,
+        return {
+            height: getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT,
+        }
     }
 
-    // const height = Math.max(this.props.height, 0) + DRAG_HANDLE_HEIGHT
+    const controlbarHeight = () => {
+        if (!isSmallScreen(width) && expanded) {
+            return getControlBarHeight(MAX_ROW_COUNT) + DRAG_HANDLE_HEIGHT
+        } else if (!isSmallScreen(width) && !expanded) {
+            return getControlBarHeight(userRows) + DRAG_HANDLE_HEIGHT
+        } else if (!expanded) {
+            return getControlBarHeight(MIN_ROW_COUNT) + DRAG_HANDLE_HEIGHT
+        } else if (expanded) {
+            return '100%'
+        }
+    }
 
     const rootClass = cx(
         classes.root,
-        dragging && classes.dragging,
-        expanded && classes.expanded
+        expanded && classes.expanded,
+        dragging && classes.dragging
     )
 
     return (
-        <div className={rootClass} height={getControlBarHeight(viewableRows)}>
-            <div className={containerClass} ref={ref} style={rowHeightProp}>
+        <div className={rootClass} style={{ height: controlbarHeight() }}>
+            <div className={containerClass} ref={ref} style={rowHeightProp()}>
                 <div className={classes.controls}>
                     <Link
                         className={classes.newLink}
@@ -166,10 +159,10 @@ const DashboardsBar = ({
                 disabled={!expanded && userRows === MAX_ROW_COUNT}
             />
             {!isSmallScreen(width) && (
-                <div
-                    className={classes.draghandle}
-                    onMouseDown={onStartDrag}
-                    data-testid="controlbar-drag-handle"
+                <DragHandle
+                    setDragging={setDragging}
+                    onDragEnded={saveUserRows}
+                    onHeightChanged={adjustRows}
                 />
             )}
         </div>

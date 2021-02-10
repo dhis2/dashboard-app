@@ -1,3 +1,19 @@
+.root {
+    position: relative;
+    background-color: var(--colors-white);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 6px 3px;
+    transition: all ease-out 75ms;
+    z-index: 2001;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-bottom: 7px;
+    flex: none;
+}
+
+.root.expanded {
+    margin-bottom: 32px;
+}
+
 .container {
     padding: 10px 6px 0 6px;
     overflow: hidden;
@@ -18,50 +34,20 @@
     margin-top: var(--spacers-dp4);
 }
 
-.root {
-    position: relative;
-    background-color: var(--colors-white);
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 6px 3px;
-    transition: all ease-out 75ms;
-    z-index: 2001;
-    overflow: hidden;
-    box-sizing: border-box;
-    padding-bottom: 7px;
-}
-
 .dragging {
     transition: 'none';
-}
-
-.draghandle {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    cursor: ns-resize;
-    transition: all ease-out 75ms;
-    height: 7px;
 }
 
 /* LANDSCAPE MODE */
 @media only screen and (max-height: 480px) {
     .container.expanded {
         height: calc(
-            100vh - 32px - var(--headerbar-height) -
-                var(--controlbar-showmore-height)
+            100vh - 32px - var(--controlbar-showmore-height)
         ) !important;
     }
 }
 
 @media only screen and (max-width: 480px) {
-    .controls {
-        margin-bottom: var(--spacers-dp8);
-        margin-top: var(--spacers-dp8);
-    }
-    .newLink {
-        display: none;
-    }
-
     .container {
         padding: 4px 0px 4px 4px;
         display: flex;
@@ -75,9 +61,17 @@
     .container.expanded {
         overflow-y: hidden;
         height: calc(
-            100vh - 32px - var(--headerbar-height) -
-                var(--controlbar-showmore-height)
+            100vh - 32px - var(--controlbar-showmore-height)
         ) !important;
+    }
+
+    .controls {
+        margin-bottom: var(--spacers-dp8);
+        margin-top: var(--spacers-dp8);
+    }
+
+    .newLink {
+        display: none;
     }
 
     .container.expanded .controls {
@@ -90,6 +84,6 @@
 /* phone LANDSCAPE MODE or small screen */
 @media only screen and (max-height: 480px), only screen and (max-width: 480px) {
     .root.expanded {
-        height: calc(100vh - 32px - var(--headerbar-height)) !important;
+        height: calc(100vh - 32px) !important;
     }
 }

@@ -24,7 +24,7 @@ const Chips = ({
     const chips = getFilteredDashboards(
         dashboards,
         filterText
-    ).dashboards.map(dashboard => (
+    ).map(dashboard => (
         <Chip
             key={dashboard.id}
             label={dashboard.displayName}

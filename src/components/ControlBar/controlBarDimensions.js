@@ -1,5 +1,5 @@
 import { SHOWMORE_BAR_HEIGHT } from './ShowMoreButton'
-import { DRAG_HANDLE_HEIGHT } from './ControlBar'
+import { DRAG_HANDLE_HEIGHT } from './DashboardsBar'
 
 export const CONTROL_BAR_ROW_HEIGHT = 40
 export const FIRST_ROW_PADDING_HEIGHT = 10

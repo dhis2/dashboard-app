@@ -30,7 +30,7 @@ import {
     getControlBarHeight,
     HEADERBAR_HEIGHT,
 } from '../ControlBar/controlBarDimensions'
-import { DRAG_HANDLE_HEIGHT } from '../ControlBar/ControlBar'
+import { DRAG_HANDLE_HEIGHT } from '../ControlBar/DashboardsBar'
 import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { isSmallScreen } from '../../modules/smallScreen'
 import { getPageBreakPositions } from '../../modules/printUtils'
