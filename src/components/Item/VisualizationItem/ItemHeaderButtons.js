@@ -36,7 +36,7 @@ import { useSystemSettings } from '../../SystemSettingsProvider'
 const iconFill = { fill: colors.grey600 }
 
 const ItemHeaderButtons = props => {
-    const [menuIsOpen, setMenuIsOpen] = useState(null)
+    const [menuIsOpen, setMenuIsOpen] = useState(props.isOpen)
 
     const { baseUrl } = useConfig()
 
@@ -211,6 +211,7 @@ ItemHeaderButtons.propTypes = {
     activeType: PropTypes.string,
     fullscreenSupported: PropTypes.bool,
     isFullscreen: PropTypes.bool,
+    isOpen: PropTypes.bool,
     item: PropTypes.object,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
