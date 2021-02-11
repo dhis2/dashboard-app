@@ -2,8 +2,18 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
 }
 
 .dashboardContainer {
     position: relative;
+}
+
+@media only screen and (max-height: 480px), only screen and (max-width: 480px) {
+    .dashboardContainer.covered {
+        position: absolute;
+        top: 71px;
+        width: 100%;
+        overflow: hidden;
+    }
 }

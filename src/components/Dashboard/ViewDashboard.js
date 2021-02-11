@@ -45,7 +45,7 @@ export const ViewDashboard = props => {
                 className={cx(
                     classes.dashboardContainer,
                     'dashboard-wrapper',
-                    dashboardDisabled && 'noScroll'
+                    controlbarExpanded && classes.covered
                 )}
             >
                 {dashboardDisabled && <ComponentCover translucent />}

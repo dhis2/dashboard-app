@@ -78,15 +78,21 @@ const DashboardsBar = ({
     }
 
     const toggleExpanded = () => {
-        scrollToTop()
-        setExpanded(!expanded)
-        onExpandedChanged(!expanded)
+        if (expanded) {
+            cancelExpanded()
+        } else {
+            scrollToTop()
+            setExpanded(true)
+            onExpandedChanged(!expanded)
+        }
     }
 
     const cancelExpanded = () => {
         scrollToTop()
         setExpanded(false)
-        onExpandedChanged(false)
+        setTimeout(() => {
+            onExpandedChanged(false)
+        }, 200)
     }
 
     const onSelectDashboard = () => {
