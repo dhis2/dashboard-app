@@ -250,3 +250,36 @@ it('does not let you open interpretations and details if settings do not allow',
             .exists()
     ).toBeFalsy()
 })
+
+it('does not render buttons if all relevant settings are false', () => {
+    const mockSystemSettings = {
+        settings: {
+            openInRelevantApp: false,
+            showInterpretationsAndDetails: false,
+            switchViewType: false,
+            fullscreenAllowedInSettings: false,
+        },
+    }
+
+    useSystemSettings.mockImplementationOnce(() => mockSystemSettings)
+    const buttons = shallow(
+        <ItemHeaderButtons
+            item={{
+                type: 'CHART',
+                chart: { type: 'NOT_YOY', domainType: 'AGGREGATE' },
+            }}
+            visualization={{
+                type: 'SINGLE_VALUE',
+            }}
+            onSelectActiveType={Function.prototype}
+            activeFooter={false}
+            activeType={'CHART'}
+            d2={{}}
+            onToggleFooter={Function.prototype}
+            isFullscreen={false}
+            fullscreenSupported={true}
+            isOpen={true}
+        />
+    )
+    expect(toJson(buttons)).toBeFalsy()
+})
