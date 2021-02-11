@@ -2,7 +2,6 @@
     position: relative;
     background-color: var(--colors-white);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 6px 3px;
-    transition: all ease-out 100ms;
     z-index: 2001;
     overflow: hidden;
     box-sizing: border-box;
@@ -30,8 +29,21 @@
     margin-top: var(--spacers-dp4);
 }
 
-.dragging {
-    transition: 'none';
+.topMargin {
+    display: none;
+    box-sizing: border-box;
+    padding-bottom: 7px;
+    flex: none;
+}
+
+@media only screen and (min-width: 481px) {
+    .topMargin.expanded {
+        display: block;
+    }
+
+    .root.expanded {
+        position: absolute;
+    }
 }
 
 /* LANDSCAPE MODE */

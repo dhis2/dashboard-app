@@ -97,6 +97,8 @@ const DashboardsBar = ({
     const cancelExpanded = () => {
         scrollToTop()
         setExpanded(false)
+        // The timeout here is to let the dashboard bar finish collapsing
+        // before the dashboard is triggered to adjust position
         setTimeout(() => {
             onExpandedChanged(false)
         }, 200)
@@ -114,16 +116,27 @@ const DashboardsBar = ({
         expanded ? classes.expanded : classes.collapsed
     )
 
-    const rowHeightProp = () => {
-        let viewableRows
+    const getViewableRows = () => {
         const isSmall = isSmallScreen(width)
+        if (isSmall && expanded) {
+            return null
+        }
+
+        let viewableRows = MIN_ROW_COUNT
+
         if (!isSmall && expanded) {
             viewableRows = MAX_ROW_COUNT
         } else if (!isSmall && !expanded) {
             viewableRows = userRows
-        } else if (isSmall && !expanded) {
-            viewableRows = MIN_ROW_COUNT
-        } else if (isSmall && expanded) {
+        }
+
+        return viewableRows
+    }
+
+    const rowHeightProp = () => {
+        const viewableRows = getViewableRows()
+
+        if (!viewableRows) {
             return {}
         }
 
@@ -133,60 +146,66 @@ const DashboardsBar = ({
     }
 
     const controlbarHeight = () => {
-        if (!isSmallScreen(width) && expanded) {
-            return {
-                height: getControlBarHeight(MAX_ROW_COUNT) + DRAG_HANDLE_HEIGHT,
-            }
-        } else if (!isSmallScreen(width) && !expanded) {
-            return {
-                height: getControlBarHeight(userRows) + DRAG_HANDLE_HEIGHT,
-            }
-        } else if (!expanded) {
-            return {
-                height: getControlBarHeight(MIN_ROW_COUNT) + DRAG_HANDLE_HEIGHT,
-            }
-        } else {
+        const viewableRows = getViewableRows()
+
+        if (!viewableRows) {
             return {}
+        }
+
+        return {
+            height: getControlBarHeight(viewableRows) + DRAG_HANDLE_HEIGHT,
         }
     }
 
-    const rootClass = cx(
-        classes.root,
-        expanded && classes.expanded,
-        dragging && classes.dragging
-    )
+    const controlbarHeightOrig = () => {
+        return {
+            height: getControlBarHeight(userRows) + DRAG_HANDLE_HEIGHT,
+        }
+    }
+
+    const rootClass = cx(classes.root, expanded && classes.expanded)
 
     return (
-        <div className={rootClass} style={controlbarHeight()}>
-            <div className={containerClass} ref={ref} style={rowHeightProp()}>
-                <div className={classes.controls}>
-                    <Link
-                        className={classes.newLink}
-                        to={'/new'}
-                        data-test="link-new-dashboard"
-                    >
-                        <AddCircleIcon />
-                    </Link>
-                    <Filter
-                        onKeypressEnter={onSelectDashboard}
-                        onToggleExpanded={toggleExpanded}
-                        dashboardBarIsExpanded={expanded}
-                    />
+        <>
+            <div className={rootClass} style={controlbarHeight()}>
+                <div
+                    className={containerClass}
+                    ref={ref}
+                    style={rowHeightProp()}
+                >
+                    <div className={classes.controls}>
+                        <Link
+                            className={classes.newLink}
+                            to={'/new'}
+                            data-test="link-new-dashboard"
+                        >
+                            <AddCircleIcon />
+                        </Link>
+                        <Filter
+                            onKeypressEnter={onSelectDashboard}
+                            onToggleExpanded={toggleExpanded}
+                            dashboardBarIsExpanded={expanded}
+                        />
+                    </div>
+                    <Chips expanded={expanded} onChipClicked={cancelExpanded} />
                 </div>
-                <Chips expanded={expanded} onChipClicked={cancelExpanded} />
-            </div>
-            <ShowMoreButton
-                onClick={toggleExpanded}
-                dashboardBarIsExpanded={expanded}
-                disabled={!expanded && userRows === MAX_ROW_COUNT}
-            />
-            {!isSmallScreen(width) && (
-                <DragHandle
-                    setDragging={setDragging}
-                    onHeightChanged={adjustRows}
+                <ShowMoreButton
+                    onClick={toggleExpanded}
+                    dashboardBarIsExpanded={expanded}
+                    disabled={!expanded && userRows === MAX_ROW_COUNT}
                 />
-            )}
-        </div>
+                {!isSmallScreen(width) && (
+                    <DragHandle
+                        setDragging={setDragging}
+                        onHeightChanged={adjustRows}
+                    />
+                )}
+            </div>
+            <div
+                className={cx(classes.topMargin, expanded && classes.expanded)}
+                style={controlbarHeightOrig()}
+            />
+        </>
     )
 }
 
