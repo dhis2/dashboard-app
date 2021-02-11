@@ -78,5 +78,6 @@
     .root.expanded {
         display: flex;
         flex-direction: column;
+        height: calc(100% - 32px);
     }
 }

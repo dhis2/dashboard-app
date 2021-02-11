@@ -103,13 +103,16 @@ const DashboardsBar = ({
 
     const rowHeightProp = () => {
         let viewableRows
-        if (!isSmallScreen(width) && expanded) {
+        const isSmall = isSmallScreen(width)
+        if (!isSmall && expanded) {
             viewableRows = MAX_ROW_COUNT
-        } else if (!isSmallScreen(width) && !expanded) {
+        } else if (!isSmall && !expanded) {
             viewableRows = userRows
-        } else if (isSmallScreen(width) && expanded) {
-            viewableRows = MAX_ROW_COUNT
-            // return { height: '100%' }
+        } else if (isSmall && !expanded) {
+            viewableRows = MIN_ROW_COUNT
+        } else if (isSmall && expanded) {
+            // return { height: 'calc(100% - 32px - 24px)' }
+            return {}
         }
 
         return {
@@ -119,13 +122,19 @@ const DashboardsBar = ({
 
     const controlbarHeight = () => {
         if (!isSmallScreen(width) && expanded) {
-            return getControlBarHeight(MAX_ROW_COUNT) + DRAG_HANDLE_HEIGHT
+            return {
+                height: getControlBarHeight(MAX_ROW_COUNT) + DRAG_HANDLE_HEIGHT,
+            }
         } else if (!isSmallScreen(width) && !expanded) {
-            return getControlBarHeight(userRows) + DRAG_HANDLE_HEIGHT
+            return {
+                height: getControlBarHeight(userRows) + DRAG_HANDLE_HEIGHT,
+            }
         } else if (!expanded) {
-            return getControlBarHeight(MIN_ROW_COUNT) + DRAG_HANDLE_HEIGHT
-        } else if (expanded) {
-            return '100%'
+            return {
+                height: getControlBarHeight(MIN_ROW_COUNT) + DRAG_HANDLE_HEIGHT,
+            }
+        } else {
+            return {}
         }
     }
 
@@ -136,7 +145,7 @@ const DashboardsBar = ({
     )
 
     return (
-        <div className={rootClass} style={{ height: controlbarHeight() }}>
+        <div className={rootClass} style={controlbarHeight()}>
             <div className={containerClass} ref={ref} style={rowHeightProp()}>
                 <div className={classes.controls}>
                     <Link
