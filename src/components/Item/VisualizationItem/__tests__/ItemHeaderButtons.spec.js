@@ -24,10 +24,10 @@ jest.mock('../../../SystemSettingsProvider', () => ({
 
 const mockSystemSettingsDefault = {
     settings: {
-        keyDashboardContextMenuItemOpenInRelevantApp: true,
-        keyDashboardContextMenuItemShowInterpretationsAndDetails: true,
-        keyDashboardContextMenuItemSwitchViewType: true,
-        keyDashboardContextMenuItemViewFullscreen: true,
+        openInRelevantApp: true,
+        showInterpretationsAndDetails: true,
+        switchViewType: true,
+        fullscreenAllowedInSettings: true,
     },
 }
 
@@ -105,7 +105,7 @@ it('does not render ViewAsMenuItems Items if settings do not allow', () => {
         {},
         mockSystemSettingsDefault.settings,
         {
-            keyDashboardContextMenuItemSwitchViewType: false,
+            switchViewType: false,
         }
     )
     useSystemSettings.mockImplementationOnce(() => mockSystemSettings)
@@ -137,7 +137,7 @@ it('does not let you open in relevant app if settings do not allow', () => {
         {},
         mockSystemSettingsDefault.settings,
         {
-            keyDashboardContextMenuItemOpenInRelevantApp: false,
+            openInRelevantApp: false,
         }
     )
     useSystemSettings.mockImplementationOnce(() => mockSystemSettings)
@@ -177,7 +177,7 @@ it('does not let you open in fullscreen if settings do not allow', () => {
         {},
         mockSystemSettingsDefault.settings,
         {
-            keyDashboardContextMenuItemViewFullscreen: false,
+            fullscreenAllowedInSettings: false,
         }
     )
     useSystemSettings.mockImplementationOnce(() => mockSystemSettings)
@@ -217,7 +217,7 @@ it('does not let you open interpretations and details if settings do not allow',
         {},
         mockSystemSettingsDefault.settings,
         {
-            keyDashboardContextMenuItemShowInterpretationsAndDetails: false,
+            showInterpretationsAndDetails: false,
         }
     )
     useSystemSettings.mockImplementationOnce(() => mockSystemSettings)

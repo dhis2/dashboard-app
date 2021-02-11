@@ -42,13 +42,12 @@ const ItemHeaderButtons = props => {
 
     const { item, visualization, onSelectActiveType, activeType } = props
 
-    const { settings } = useSystemSettings()
     const {
-        keyDashboardContextMenuItemOpenInRelevantApp: openInRelevantApp,
-        keyDashboardContextMenuItemShowInterpretationsAndDetails: showInterpretationsAndDetails,
-        keyDashboardContextMenuItemSwitchViewType: switchViewType,
-        keyDashboardContextMenuItemViewFullscreen: fullscreenAllowedInSettings,
-    } = settings
+        openInRelevantApp,
+        showInterpretationsAndDetails,
+        switchViewType,
+        fullscreenAllowedInSettings,
+    } = useSystemSettings().settings
 
     const isTrackerType = isTrackerDomainType(item.type)
 
