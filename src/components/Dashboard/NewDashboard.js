@@ -12,44 +12,35 @@ import NotSupportedNotice from './NotSupportedNotice'
 import { acSetEditNewDashboard } from '../../actions/editDashboard'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
 
-import { useWindowDimensions } from '../WindowDimensionsProvider'
-import { isSmallScreen } from '../../modules/smallScreen'
-
 import classes from './styles/NewDashboard.module.css'
 
 const NewDashboard = props => {
-    const { width } = useWindowDimensions()
-
     useEffect(() => {
         props.setNewDashboard()
     }, [])
 
-    const renderNewView = () => (
-        <div className={classes.container}>
-            <EditBar />
-            {props.isPrintPreviewView ? (
-                <LayoutPrintPreview fromEdit={true} />
-            ) : (
-                <div className="dashboard-wrapper">
-                    <EditTitleBar />
-                    <EditItemGrid />
-                </div>
-            )}
-        </div>
-    )
-
     return (
-        <>
-            {isSmallScreen(width) ? (
+        <div>
+            <div className={classes.container}>
+                <EditBar />
+                {props.isPrintPreviewView ? (
+                    <LayoutPrintPreview fromEdit={true} />
+                ) : (
+                    <div className="dashboard-wrapper">
+                        <EditTitleBar />
+                        <EditItemGrid />
+                    </div>
+                )}
+            </div>
+            <div className={classes.notice}>
                 <NotSupportedNotice
+                    className={classes.notSupportedNotice}
                     message={i18n.t(
                         'Creating dashboards on small screens is not supported. Resize your screen to return to create mode.'
                     )}
                 />
-            ) : (
-                renderNewView()
-            )}
-        </>
+            </div>
+        </div>
     )
 }
 

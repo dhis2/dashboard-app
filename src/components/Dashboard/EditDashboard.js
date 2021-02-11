@@ -7,7 +7,6 @@ import EditTitleBar from '../TitleBar/EditTitleBar'
 import EditItemGrid from '../ItemGrid/EditItemGrid'
 import EditBar from '../ControlBar/EditBar'
 import NotSupportedNotice from './NotSupportedNotice'
-import { useWindowDimensions } from '../WindowDimensionsProvider'
 import LayoutPrintPreview from './PrintLayoutDashboard'
 import NoContentMessage from '../../widgets/NoContentMessage'
 import { acSetEditDashboard } from '../../actions/editDashboard'
@@ -18,13 +17,9 @@ import {
 } from '../../reducers/dashboards'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
 
-import { isSmallScreen } from '../../modules/smallScreen'
-
 import classes from './styles/EditDashboard.module.css'
 
 const EditDashboard = props => {
-    const { width } = useWindowDimensions()
-
     useEffect(() => {
         if (props.dashboard) {
             props.setEditDashboard(props.dashboard, props.items)
@@ -43,28 +38,23 @@ const EditDashboard = props => {
         )
     }
 
-    const renderEditView = () => (
-        <div className={classes.container}>
-            <EditBar />
-            {props.updateAccess ? (
-                renderGrid()
-            ) : (
-                <NoContentMessage text={i18n.t('No access')} />
-            )}
-        </div>
-    )
-
     return (
         <>
-            {isSmallScreen(width) ? (
+            <div className={classes.container}>
+                <EditBar />
+                {props.updateAccess ? (
+                    renderGrid()
+                ) : (
+                    <NoContentMessage text={i18n.t('No access')} />
+                )}
+            </div>
+            <div className={classes.notice}>
                 <NotSupportedNotice
                     message={i18n.t(
                         'Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.'
                     )}
                 />
-            ) : (
-                renderEditView()
-            )}
+            </div>
         </>
     )
 }

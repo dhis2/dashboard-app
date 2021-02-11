@@ -3,3 +3,17 @@
     flex-direction: column;
     height: 100%;
 }
+
+.notice {
+    display: none;
+}
+
+@media only screen and (max-width: 480px) {
+    .container {
+        display: none;
+    }
+
+    .notice {
+        display: block;
+    }
+}
