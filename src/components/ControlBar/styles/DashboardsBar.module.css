@@ -90,6 +90,6 @@
     .root.expanded {
         display: flex;
         flex-direction: column;
-        height: calc(100% - 32px);
+        height: calc(100% - 32px) !important;
     }
 }

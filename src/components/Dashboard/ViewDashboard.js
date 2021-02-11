@@ -19,7 +19,7 @@ import classes from './styles/ViewDashboard.module.css'
 
 export const ViewDashboard = props => {
     const [controlbarExpanded, setControlbarExpanded] = useState(false)
-    const { width } = useWindowDimensions()
+    const { width, height } = useWindowDimensions()
 
     useEffect(() => {
         if (props.dashboardIsEditing) {
@@ -35,7 +35,8 @@ export const ViewDashboard = props => {
 
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
 
-    const dashboardDisabled = controlbarExpanded && isSmallScreen(width)
+    const dashboardDisabled =
+        controlbarExpanded && (isSmallScreen(width) || isSmallScreen(height))
 
     return (
         <div className={classes.container}>
