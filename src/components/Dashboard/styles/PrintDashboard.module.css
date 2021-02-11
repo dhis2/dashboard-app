@@ -1,3 +1,9 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .wrapper {
     background-color: #f4f6f8;
     margin-left: var(--spacers-dp32);

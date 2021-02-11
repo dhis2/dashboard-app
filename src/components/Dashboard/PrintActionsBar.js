@@ -18,22 +18,19 @@ const PrintActionsBar = ({ id }) => {
     const isSmall = isSmallScreen(width)
 
     return (
-        <>
-            <div className={classes.container}>
-                <div className={classes.inner}>
-                    <Link className={classes.link} to={`/${id}`}>
-                        <Button small={isSmall}>
-                            <LessHorizontalIcon />
-                            {i18n.t('Exit print preview')}
-                        </Button>
-                    </Link>
-                    <Button small={isSmall} onClick={window.print}>
-                        {i18n.t('Print')}
+        <div className={classes.container}>
+            <div className={classes.inner}>
+                <Link className={classes.link} to={`/${id}`}>
+                    <Button small={isSmall}>
+                        <LessHorizontalIcon />
+                        {i18n.t('Exit print preview')}
                     </Button>
-                </div>
+                </Link>
+                <Button small={isSmall} onClick={window.print}>
+                    {i18n.t('Print')}
+                </Button>
             </div>
-            <div className={classes.topMargin} />
-        </>
+        </div>
     )
 }
 

@@ -1,8 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .wrapper {
     background-color: #f4f6f8;
     margin-left: var(--spacers-dp32);
     padding-left: var(--spacers-dp12);
     overflow-y: auto;
+}
+
+.wrapper.editView {
+    padding-top: 24px;
+    padding-bottom: 48px;
 }
 
 .pageOuter {

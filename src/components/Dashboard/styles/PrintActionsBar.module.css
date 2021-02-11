@@ -2,12 +2,7 @@
     background-color: var(--colors-grey600);
     width: 100%;
     padding: var(--spacers-dp4) 0;
-    position: fixed;
-    z-index: 10;
-}
-
-.topMargin {
-    margin-top: 44px; /* PRINT_ACTIONS_BAR_HEIGHT */
+    flex: none;
 }
 
 .inner {
