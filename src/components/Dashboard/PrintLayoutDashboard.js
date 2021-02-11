@@ -30,7 +30,6 @@ import {
     getControlBarHeight,
     HEADERBAR_HEIGHT,
 } from '../ControlBar/controlBarDimensions'
-import { DRAG_HANDLE_HEIGHT } from '../ControlBar/DashboardsBar'
 import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { isSmallScreen } from '../../modules/smallScreen'
 import { getPageBreakPositions } from '../../modules/printUtils'
@@ -40,7 +39,7 @@ import classes from './styles/PrintLayoutDashboard.module.css'
 import './styles/print.css'
 import './styles/print-layout.css'
 
-const EDIT_BAR_HEIGHT = getControlBarHeight(1) + DRAG_HANDLE_HEIGHT
+const EDIT_BAR_HEIGHT = getControlBarHeight(1) + 7 //DRAG_HANDLE_HEIGHT
 
 const addPageBreaks = (items, addDashboardItem) => {
     const yPosList = getPageBreakPositions(items)

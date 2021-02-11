@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect, createRef } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import cx from 'classnames'
-import arraySort from 'd2-utilizr/lib/arraySort'
 import PropTypes from 'prop-types'
 import Chips from './Chips'
 import AddCircleIcon from '../../icons/AddCircle'
@@ -11,7 +10,6 @@ import ShowMoreButton from './ShowMoreButton'
 import DragHandle from './DragHandle'
 import {
     FIRST_ROW_PADDING_HEIGHT,
-    MIN_ROW_COUNT,
     getRowsHeight,
     getControlBarHeight,
     getNumRowsFromHeight,
@@ -23,27 +21,12 @@ import { acSetControlBarUserRows } from '../../actions/controlBar'
 import { apiPostControlBarRows } from '../../api/controlBar'
 import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { isSmallScreen } from '../../modules/smallScreen'
+import { getFilteredDashboards } from '../../modules/getFilteredDashboards'
 
 import classes from './styles/DashboardsBar.module.css'
 
-export const MAX_ROW_COUNT = 10
-//Matches the height of .dragHandle in DashboardsBar.module.css
-export const DRAG_HANDLE_HEIGHT = 7
-
-export const getFilteredDashboards = (dashboards, filterText) => {
-    const filteredDashboards = arraySort(
-        Object.values(dashboards).filter(d =>
-            d.displayName.toLowerCase().includes(filterText.toLowerCase())
-        ),
-        'ASC',
-        'displayName'
-    )
-
-    return [
-        ...filteredDashboards.filter(d => d.starred),
-        ...filteredDashboards.filter(d => !d.starred),
-    ]
-}
+const MIN_ROW_COUNT = 1
+const MAX_ROW_COUNT = 10
 
 const DashboardsBar = ({
     userRows,
@@ -153,13 +136,13 @@ const DashboardsBar = ({
         }
 
         return {
-            height: getControlBarHeight(viewableRows) + DRAG_HANDLE_HEIGHT,
+            height: getControlBarHeight(viewableRows) + 7, // DRAG_HANDLE_HEIGHT,
         }
     }
 
     const controlbarHeightOrig = () => {
         return {
-            height: getControlBarHeight(userRows) + DRAG_HANDLE_HEIGHT,
+            height: getControlBarHeight(userRows) + 7, //DRAG_HANDLE_HEIGHT,
         }
     }
 

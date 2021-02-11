@@ -17,15 +17,13 @@ import {
     sGetDashboardItems,
 } from '../../reducers/dashboards'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
-import {
-    getControlBarHeight,
-    HEADERBAR_HEIGHT,
-} from '../ControlBar/controlBarDimensions'
 
 import { isSmallScreen } from '../../modules/smallScreen'
 
+import classes from './styles/EditDashboard.module.css'
+
 const EditDashboard = props => {
-    const { width, height } = useWindowDimensions()
+    const { width } = useWindowDimensions()
 
     useEffect(() => {
         if (props.dashboard) {
@@ -37,15 +35,8 @@ const EditDashboard = props => {
         if (props.isPrintPreviewView) {
             return <LayoutPrintPreview fromEdit={true} />
         }
-
-        const dashboardHeight =
-            height - HEADERBAR_HEIGHT - getControlBarHeight(1)
-
         return (
-            <div
-                className="dashboard-wrapper"
-                style={{ height: dashboardHeight }}
-            >
+            <div className="dashboard-wrapper">
                 <EditTitleBar />
                 <EditItemGrid />
             </div>
@@ -53,14 +44,14 @@ const EditDashboard = props => {
     }
 
     const renderEditView = () => (
-        <>
+        <div className={classes.container}>
             <EditBar />
             {props.updateAccess ? (
                 renderGrid()
             ) : (
                 <NoContentMessage text={i18n.t('No access')} />
             )}
-        </>
+        </div>
     )
 
     return (
