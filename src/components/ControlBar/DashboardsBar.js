@@ -1,4 +1,4 @@
-import React, { useState, createRef } from 'react'
+import React, { useState, useRef, useEffect, createRef } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import cx from 'classnames'
@@ -55,6 +55,7 @@ const DashboardsBar = ({
 }) => {
     const [expanded, setExpanded] = useState(false)
     const [dragging, setDragging] = useState(false)
+    const userRowsChanged = useRef(false)
     const { width } = useWindowDimensions()
     const ref = createRef()
 
@@ -66,10 +67,16 @@ const DashboardsBar = ({
 
         if (newRows !== userRows) {
             updateUserRows(Math.min(newRows, MAX_ROW_COUNT))
+            userRowsChanged.current = true
         }
     }
 
-    const saveUserRows = () => apiPostControlBarRows(userRows)
+    useEffect(() => {
+        if (!dragging && userRowsChanged.current) {
+            apiPostControlBarRows(userRows)
+            userRowsChanged.current = false
+        }
+    }, [dragging, userRowsChanged.current])
 
     const scrollToTop = () => {
         if (expanded) {
@@ -117,7 +124,6 @@ const DashboardsBar = ({
         } else if (isSmall && !expanded) {
             viewableRows = MIN_ROW_COUNT
         } else if (isSmall && expanded) {
-            // return { height: 'calc(100% - 32px - 24px)' }
             return {}
         }
 
@@ -177,7 +183,6 @@ const DashboardsBar = ({
             {!isSmallScreen(width) && (
                 <DragHandle
                     setDragging={setDragging}
-                    onDragEnded={saveUserRows}
                     onHeightChanged={adjustRows}
                 />
             )}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import classes from './styles/DragHandle.module.css'
 
-const DragHandle = ({ onDragEnded, onHeightChanged, setDragging }) => {
+const DragHandle = ({ onHeightChanged, setDragging }) => {
     const [startingY, setStartingY] = useState(0)
 
     const onStartDrag = e => {
@@ -28,7 +28,6 @@ const DragHandle = ({ onDragEnded, onHeightChanged, setDragging }) => {
 
     const onEndDrag = () => {
         setDragging(false)
-        onDragEnded()
         window.removeEventListener('mousemove', onDrag)
         window.removeEventListener('mouseup', onEndDrag)
     }
@@ -44,7 +43,6 @@ const DragHandle = ({ onDragEnded, onHeightChanged, setDragging }) => {
 
 DragHandle.propTypes = {
     setDragging: PropTypes.func,
-    onDragEnded: PropTypes.func,
     onHeightChanged: PropTypes.func,
 }
 
