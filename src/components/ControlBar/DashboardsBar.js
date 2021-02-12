@@ -142,12 +142,10 @@ const DashboardsBar = ({
                     dashboardBarIsExpanded={expanded}
                     disabled={!expanded && userRows === MAX_ROW_COUNT}
                 />
-                {!isSmallScreen(width) && (
-                    <DragHandle
-                        setDragging={setDragging}
-                        onHeightChanged={adjustRows}
-                    />
-                )}
+                <DragHandle
+                    setDragging={setDragging}
+                    onHeightChanged={adjustRows}
+                />
             </div>
             <div
                 className={cx(classes.topMargin, expanded && classes.expanded)}
