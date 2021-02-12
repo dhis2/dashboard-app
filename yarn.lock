@@ -1617,12 +1617,16 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^12.1.10":
-  version "12.1.10"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-12.1.10.tgz#fc95265b7bf48bb8bf794b5e96c61a2d31ff6291"
-  integrity sha512-yE+OhGidvlzfqJnTieLiJVcLFT/MhTEwkRySZnir1szWlWS/accQ1Uoddz+5zTOwGZFfNps6HtkLWM7QxkK+7Q==
+"@dhis2/analytics@^14.0.0", "@dhis2/analytics@^14.1.5":
+  version "14.1.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-14.1.5.tgz#f47591f08ed308a8a499de0fa46d7416ca9c18ec"
+  integrity sha512-I1il6HNEMqDXn50KFb9f6C4CEZc1vsbRDKddWfxnOD5ckXNQJDyQVtAi2CFhpKVxalXrKJfxp22q7K24s/AvFA==
   dependencies:
+    "@dhis2/app-runtime" "^2.6.1"
+    "@dhis2/d2-ui-favorites-dialog" "^7.1.3"
     "@dhis2/d2-ui-org-unit-dialog" "^7.1.3"
+    "@dhis2/d2-ui-sharing-dialog" "^7.1.3"
+    "@dhis2/d2-ui-translation-dialog" "^7.1.3"
     "@dhis2/ui" "^6.1.3"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
@@ -1641,24 +1645,6 @@
   integrity sha512-osws96DnUVxaZ42mPJgSzvXFYFTA8TacN//GNVn4KjDZhlrUsHbClZ8X68joNZxFfQ5yJEmJzx50iPtPM9Npgg==
   dependencies:
     moment "^2.24.0"
-
-"@dhis2/analytics@^14.0.0":
-  version "14.0.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-14.0.2.tgz#dcfbef69dc50a8f1545dbf162e2c5b544fd53fa8"
-  integrity sha512-BqG8mZDRJmE5ABBq4jCviTnyMKzWaMrNajwrWNMNdgXVNa4ceHUzV2Y/Gux9isMJjFjDH2MtCx8KoJgOW1dFFw==
-  dependencies:
-    "@dhis2/d2-ui-org-unit-dialog" "^7.1.3"
-    "@dhis2/ui" "^6.1.3"
-    "@material-ui/core" "^3.9.3"
-    "@material-ui/icons" "^3.0.2"
-    classnames "^2.2.6"
-    d2-utilizr "^0.2.16"
-    d3-color "^1.2.3"
-    highcharts "^8.2.2"
-    lodash "^4.17.20"
-    react-beautiful-dnd "^10.1.1"
-    resize-observer-polyfill "^1.5.1"
-    styled-jsx "3.3.2"
 
 "@dhis2/app-runtime-adapter-d2@^1.0.1":
   version "1.0.1"
@@ -1849,6 +1835,21 @@
     material-ui "^0.20.0"
     rxjs "^5.5.7"
 
+"@dhis2/d2-ui-favorites-dialog@^7.1.3":
+  version "7.1.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-favorites-dialog/-/d2-ui-favorites-dialog-7.1.3.tgz#abfab187634c6f09006cb1c2e5b57f0f0818ec71"
+  integrity sha512-mLhn/A70ZC0MZ2Xrv/mMY+ybp4H2az4y+VtVp/ujpGYdoth4vaoQt7G7ERgx+oM50gK1B6yJNMfEDCd3WZVDyQ==
+  dependencies:
+    "@dhis2/d2-ui-sharing-dialog" "7.1.3"
+    "@material-ui/core" "^3.3.1"
+    "@material-ui/icons" "^3.0.1"
+    babel-runtime "^6.26.0"
+    prop-types "^15.6.0"
+    react-redux "^5.0.7"
+    redux "^3.7.2"
+    redux-logger "^3.0.6"
+    redux-thunk "^2.2.0"
+
 "@dhis2/d2-ui-interpretations@^7.1.3":
   version "7.1.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-7.1.3.tgz#4f365ffbfd65fcee5f2188d02bd6f403288a4fce"
@@ -1904,7 +1905,7 @@
     markdown-it "^8.4.2"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-sharing-dialog@7.1.3", "@dhis2/d2-ui-sharing-dialog@^7.1.1":
+"@dhis2/d2-ui-sharing-dialog@7.1.3", "@dhis2/d2-ui-sharing-dialog@^7.1.1", "@dhis2/d2-ui-sharing-dialog@^7.1.3":
   version "7.1.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-7.1.3.tgz#27412a4e52dc636f167b0548ee5344f8957a3bb1"
   integrity sha512-vTe1IuGRwgBt8jQeGQoa3pGSd4j0lOuY6q9oyblVvT7IQ7GyBecwHS4YT8sK/kM9LwTZ+xDc4VgHVAzoFESVng==
@@ -11201,6 +11202,11 @@ lodash-es@^4.17.11:
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
   integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
 
+lodash-es@^4.2.1:
+  version "4.17.20"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.20.tgz#29f6332eefc60e849f869c264bc71126ad61e8f7"
+  integrity sha512-JD1COMZsq8maT6mnuz1UMV0jvYD0E0aUsSOdrr1/nAG3dhqQXwRRgeW0cSqH1U43INKcqxaiVIQNOUDld7gRDA==
+
 lodash._reinterpolate@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
@@ -11346,7 +11352,7 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-"lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.4, lodash@^4.17.5, lodash@~4.17.10:
+"lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.1, lodash@~4.17.10:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
@@ -14540,10 +14546,20 @@ redux-mock-store@^1.5.4:
   dependencies:
     lodash.isplainobject "^4.0.6"
 
-redux-thunk@^2.3.0:
+redux-thunk@^2.2.0, redux-thunk@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
   integrity sha512-km6dclyFnmcvxhAcrQV2AkZmPQjzPDjgVlQtR0EQjxZPyJ0BnMf3in1ryuR8A2qU0HldVRfxYXbFSKlI3N7Slw==
+
+redux@^3.7.2:
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-3.7.2.tgz#06b73123215901d25d065be342eb026bc1c8537b"
+  integrity sha512-pNqnf9q1hI5HHZRBkj3bAngGZW/JMCmexDlOxw4XagXY2o1327nHH54LoTjiPJ0gizoqPDRqWyX/00g0hD6w+A==
+  dependencies:
+    lodash "^4.2.1"
+    lodash-es "^4.2.1"
+    loose-envify "^1.1.0"
+    symbol-observable "^1.0.3"
 
 redux@^4.0.1, redux@^4.0.5:
   version "4.0.5"
@@ -16231,7 +16247,7 @@ symbol-observable@1.0.1:
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.1.tgz#8340fc4702c3122df5d22288f88283f513d3fdd4"
   integrity sha1-g0D8RwLDEi310iKI+IKD9RPT/dQ=
 
-symbol-observable@1.2.0, symbol-observable@^1.0.4, symbol-observable@^1.1.0, symbol-observable@^1.2.0:
+symbol-observable@1.2.0, symbol-observable@^1.0.3, symbol-observable@^1.0.4, symbol-observable@^1.1.0, symbol-observable@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
   integrity sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==
