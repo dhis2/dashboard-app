@@ -1,4 +1,4 @@
-.root {
+.container {
     position: relative;
     background-color: var(--colors-white);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 6px 3px;
@@ -42,7 +42,7 @@
         display: block;
     }
 
-    .root.expanded {
+    .container.expanded {
         position: absolute;
     }
 }
@@ -88,7 +88,7 @@
 
 /* phone LANDSCAPE MODE or small screen */
 @media only screen and (max-height: 480px), only screen and (max-width: 480px) {
-    .root.expanded {
+    .container.expanded {
         display: flex;
         flex-direction: column;
         height: calc(100% - 32px) !important;

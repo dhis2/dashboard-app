@@ -112,7 +112,7 @@ const DashboardsBar = ({
     return (
         <>
             <div
-                className={cx(classes.root, expanded && classes.expanded)}
+                className={cx(classes.container, expanded && classes.expanded)}
                 style={getControlBarStyle()}
             >
                 <div
