@@ -43,8 +43,7 @@
     }
 
     .container {
-        margin-bottom: var(--spacers-dp8);
-        margin-top: var(--spacers-dp8);
+        padding-bottom: 4px;
     }
 
     .expanded .chipsContainer .controls {
