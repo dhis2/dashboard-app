@@ -12,14 +12,11 @@ import { sGetIsPrinting } from '../../reducers/printDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
 import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
-import { useWindowDimensions } from '../WindowDimensionsProvider'
-import { isSmallScreen } from '../../modules/smallScreen'
 
 import classes from './styles/ViewDashboard.module.css'
 
 export const ViewDashboard = props => {
     const [controlbarExpanded, setControlbarExpanded] = useState(false)
-    const { width, height } = useWindowDimensions()
 
     useEffect(() => {
         if (props.dashboardIsEditing) {
@@ -35,9 +32,6 @@ export const ViewDashboard = props => {
 
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
 
-    const dashboardDisabled =
-        controlbarExpanded && (isSmallScreen(width) || isSmallScreen(height))
-
     return (
         <div className={classes.container}>
             <DashboardsBar onExpandedChanged={onExpandedChanged} />
@@ -48,7 +42,9 @@ export const ViewDashboard = props => {
                     controlbarExpanded && classes.covered
                 )}
             >
-                {dashboardDisabled && <ComponentCover translucent />}
+                {controlbarExpanded && (
+                    <ComponentCover className={classes.cover} translucent />
+                )}
                 <ViewTitleBar />
                 <FilterBar />
                 <ViewItemGrid />
