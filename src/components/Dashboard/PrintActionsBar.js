@@ -12,28 +12,25 @@ export const PRINT_ACTIONS_BAR_HEIGHT = 44
 export const PRINT_ACTIONS_BAR_HEIGHT_SM = 36
 
 const PrintActionsBar = ({ id }) => {
-    const getExitPrintButton = isSmall => {
-        const className = isSmall ? classes.buttonSmall : classes.buttonWide
-        return (
-            <Button className={className} small={isSmall}>
-                <LessHorizontalIcon />
-                {i18n.t('Exit print preview')}
-            </Button>
-        )
-    }
+    const getExitPrintButton = isSmall => (
+        <Button
+            className={isSmall ? classes.buttonSmall : classes.buttonLarge}
+            small={isSmall}
+        >
+            <LessHorizontalIcon />
+            {i18n.t('Exit print preview')}
+        </Button>
+    )
 
-    const getPrintButton = isSmall => {
-        const className = isSmall ? classes.buttonSmall : classes.buttonWide
-        return (
-            <Button
-                className={className}
-                small={isSmall}
-                onClick={window.print}
-            >
-                {i18n.t('Print')}
-            </Button>
-        )
-    }
+    const getPrintButton = isSmall => (
+        <Button
+            className={isSmall ? classes.buttonSmall : classes.buttonLarge}
+            small={isSmall}
+            onClick={window.print}
+        >
+            {i18n.t('Print')}
+        </Button>
+    )
 
     return (
         <>
