@@ -1,0 +1,74 @@
+.container {
+    display: inline;
+}
+
+.newLink {
+    display: inline-block;
+    text-decoration: none;
+    margin-right: var(--spacers-dp8);
+    margin-top: var(--spacers-dp4);
+}
+
+.controlsSmall {
+    display: none;
+}
+
+.controlsLarge {
+    display: inline;
+}
+
+@media only screen and (max-width: 480px) {
+    .newLink {
+        display: none;
+    }
+
+    .controlsSmall {
+        display: block;
+    }
+
+    .controlsLarge {
+        display: none;
+    }
+
+    .container.collapsed {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .container.expanded {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .container {
+        margin-bottom: var(--spacers-dp8);
+        margin-top: var(--spacers-dp8);
+    }
+
+    .expanded .chipsContainer .controls {
+        margin-left: var(--spacers-dp4);
+        margin-right: var(--spacers-dp8);
+        width: 100%;
+    }
+
+    .chipsContainer {
+        margin-bottom: -4px;
+    }
+
+    .expanded .chipsContainer {
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-left: 2px;
+        padding-right: 6px;
+        flex: 1;
+    }
+
+    .collapsed .chipsContainer {
+        overflow-x: auto;
+        overflow-y: hidden;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+}

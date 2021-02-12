@@ -7,6 +7,3 @@ export const getRowsFromHeight = height => {
         (height - SHOWMORE_BUTTON_HEIGHT - PADDING_TOP) / ROW_HEIGHT
     )
 }
-
-export const getControlBarHeight = rows =>
-    rows * ROW_HEIGHT + PADDING_TOP + SHOWMORE_BUTTON_HEIGHT

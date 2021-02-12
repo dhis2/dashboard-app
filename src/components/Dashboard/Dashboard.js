@@ -6,7 +6,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import { Redirect } from 'react-router-dom'
 
-import DashboardsBar from '../ControlBar/DashboardsBar'
+import DashboardsBar from '../ControlBar/ViewControlBar/DashboardsBar'
 import NoContentMessage from '../../widgets/NoContentMessage'
 import ViewDashboard from './ViewDashboard'
 import EditDashboard from './EditDashboard'

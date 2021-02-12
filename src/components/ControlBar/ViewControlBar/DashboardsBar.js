@@ -1,21 +1,15 @@
 import React, { useState, useRef, useEffect, createRef } from 'react'
 import { connect } from 'react-redux'
-import { Link, withRouter } from 'react-router-dom'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import Chips from './Chips'
-import AddCircleIcon from '../../icons/AddCircle'
-import Filter from './Filter'
+
+import Content from './Content'
 import ShowMoreButton from './ShowMoreButton'
 import DragHandle from './DragHandle'
 import { getRowsFromHeight } from './controlBarDimensions'
-import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
-import { sGetControlBarUserRows } from '../../reducers/controlBar'
-import { sGetAllDashboards } from '../../reducers/dashboards'
-import { acSetControlBarUserRows } from '../../actions/controlBar'
-import { apiPostControlBarRows } from '../../api/controlBar'
-
-import { getFilteredDashboards } from '../../modules/getFilteredDashboards'
+import { sGetControlBarUserRows } from '../../../reducers/controlBar'
+import { acSetControlBarUserRows } from '../../../actions/controlBar'
+import { apiPostControlBarRows } from '../../../api/controlBar'
 
 import classes from './styles/DashboardsBar.module.css'
 
@@ -34,14 +28,7 @@ const rowClassMap = {
     10: 'ten',
 }
 
-const DashboardsBar = ({
-    userRows,
-    updateUserRows,
-    onExpandedChanged,
-    history,
-    dashboards,
-    filterText,
-}) => {
+const DashboardsBar = ({ userRows, updateUserRows, onExpandedChanged }) => {
     const [expanded, setExpanded] = useState(false)
     const [dragging, setDragging] = useState(false)
     const userRowsChanged = useRef(false)
@@ -88,13 +75,6 @@ const DashboardsBar = ({
         onExpandedChanged(false)
     }
 
-    const onSelectDashboard = () => {
-        const id = getFilteredDashboards(dashboards, filterText)[0]?.id
-        if (id) {
-            history.push(id)
-        }
-    }
-
     return (
         <>
             <div
@@ -111,21 +91,11 @@ const DashboardsBar = ({
                     )}
                     ref={ref}
                 >
-                    <div className={classes.controls}>
-                        <Link
-                            className={classes.newLink}
-                            to={'/new'}
-                            data-test="link-new-dashboard"
-                        >
-                            <AddCircleIcon />
-                        </Link>
-                        <Filter
-                            onKeypressEnter={onSelectDashboard}
-                            onToggleExpanded={toggleExpanded}
-                            dashboardBarIsExpanded={expanded}
-                        />
-                    </div>
-                    <Chips expanded={expanded} onChipClicked={cancelExpanded} />
+                    <Content
+                        onChipClicked={cancelExpanded}
+                        onSearchClicked={toggleExpanded}
+                        expanded={expanded}
+                    />
                 </div>
                 <ShowMoreButton
                     onClick={toggleExpanded}
@@ -149,17 +119,12 @@ const DashboardsBar = ({
 }
 
 DashboardsBar.propTypes = {
-    dashboards: PropTypes.object,
-    filterText: PropTypes.string,
-    history: PropTypes.object,
     updateUserRows: PropTypes.func,
     userRows: PropTypes.number,
     onExpandedChanged: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
-    dashboards: sGetAllDashboards(state),
-    filterText: sGetDashboardsFilter(state),
     userRows: sGetControlBarUserRows(state),
 })
 
@@ -167,6 +132,4 @@ const mapDispatchToProps = {
     updateUserRows: acSetControlBarUserRows,
 }
 
-export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps)(DashboardsBar)
-)
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardsBar)

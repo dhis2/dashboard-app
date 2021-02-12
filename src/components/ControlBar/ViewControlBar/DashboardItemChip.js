@@ -4,8 +4,8 @@ import { Chip } from '@dhis2/ui'
 import { Link } from 'react-router-dom'
 import debounce from 'lodash/debounce'
 
-import StarIcon from '../../icons/Star'
-import { apiPostDataStatistics } from '../../api/dataStatistics'
+import StarIcon from '../../../icons/Star'
+import { apiPostDataStatistics } from '../../../api/dataStatistics'
 
 import classes from './styles/DashboardItemChip.module.css'
 

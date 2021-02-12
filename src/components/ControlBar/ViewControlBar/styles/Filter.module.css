@@ -1,4 +1,4 @@
-.container {
+.searchArea {
     top: -4px;
     width: 200px;
     height: 30px;
@@ -26,7 +26,7 @@
     outline: 0;
 }
 
-.container::before {
+.searchArea::before {
     content: '\00a0';
     left: 0;
     right: 0;
@@ -36,11 +36,11 @@
     pointer-events: none;
 }
 
-.container.focused::after {
+.searchArea.focused::after {
     transform: scaleX(1);
 }
 
-.container::after {
+.searchArea::after {
     content: '';
     left: 0;
     right: 0;
@@ -51,7 +51,9 @@
     pointer-events: none;
 }
 
-.searchIcon {
+.searchIcon,
+.searchIconSmall,
+.searchIconLarge {
     fill: var(--colors-grey700);
 }
 
@@ -65,10 +67,13 @@
     cursor: pointer;
 }
 
+.searchButton {
+    display: none;
+}
+
 .searchIconContainer {
     height: 0.01em;
     max-height: 2em;
-    display: flex;
     align-items: center;
     margin-right: 8px;
 }
@@ -81,8 +86,13 @@
     margin-left: 8px;
 }
 
+.searchIconSmall {
+    display: none;
+}
+
 @media only screen and (max-width: 480px) {
-    .container {
+    .expanded .searchArea {
+        display: flex;
         height: 24px;
         padding-top: inherit;
         width: 100%;
@@ -90,5 +100,25 @@
 
     .input {
         width: 100%;
+    }
+
+    .collapsed .searchButton {
+        display: inline;
+    }
+
+    .collapsed .searchArea {
+        display: none;
+    }
+
+    .searchIconSmall {
+        display: inline;
+    }
+
+    .expanded .searchIconLarge {
+        display: none;
+    }
+
+    .collapsed .searchIconLarge {
+        display: inline;
     }
 }

@@ -4,11 +4,11 @@ import { fireEvent } from '@testing-library/dom'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import { Router } from 'react-router-dom'
-import WindowDimensionsProvider from '../../WindowDimensionsProvider'
+import WindowDimensionsProvider from '../../../WindowDimensionsProvider'
 import { createMemoryHistory } from 'history'
 import DashboardsBar, { MAX_ROW_COUNT } from '../DashboardsBar'
 import { MIN_ROW_COUNT } from '../controlBarDimensions'
-import * as api from '../../../api/controlBar'
+import * as api from '../../../../api/controlBar'
 
 // TODO this spy is an implementation detail
 jest.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => cb())
