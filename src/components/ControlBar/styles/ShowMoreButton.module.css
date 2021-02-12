@@ -1,6 +1,7 @@
 .container {
     text-align: center;
     flex: none;
+    height: 21px;
 }
 
 .showMore {
@@ -9,6 +10,7 @@
     background-color: transparent;
     padding: 0px;
     width: 100%;
+    height: 21px;
 }
 
 .showMore:focus {

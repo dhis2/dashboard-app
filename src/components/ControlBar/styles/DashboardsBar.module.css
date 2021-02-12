@@ -5,8 +5,9 @@
     z-index: 2001;
     overflow: hidden;
     box-sizing: border-box;
-    padding-bottom: 7px;
     flex: none;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -32,7 +33,6 @@
 .topMargin {
     display: none;
     box-sizing: border-box;
-    padding-bottom: 7px;
     flex: none;
 }
 

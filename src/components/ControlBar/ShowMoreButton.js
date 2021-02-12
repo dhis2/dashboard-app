@@ -6,8 +6,6 @@ import { ChevronDown, ChevronUp } from './assets/icons'
 
 import classes from './styles/ShowMoreButton.module.css'
 
-export const SHOWMORE_BAR_HEIGHT = 16
-
 const ShowMoreButton = ({ onClick, dashboardBarIsExpanded, disabled }) => {
     const containerRef = useRef(null)
     const buttonLabel = dashboardBarIsExpanded

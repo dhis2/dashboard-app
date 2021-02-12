@@ -8,12 +8,7 @@ import AddCircleIcon from '../../icons/AddCircle'
 import Filter from './Filter'
 import ShowMoreButton from './ShowMoreButton'
 import DragHandle from './DragHandle'
-import {
-    FIRST_ROW_PADDING_HEIGHT,
-    getRowsHeight,
-    getControlBarHeight,
-    getNumRowsFromHeight,
-} from './controlBarDimensions'
+import { getControlBarHeight, getRowsFromHeight } from './controlBarDimensions'
 import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
 import { sGetControlBarUserRows } from '../../reducers/controlBar'
 import { sGetAllDashboards } from '../../reducers/dashboards'
@@ -45,7 +40,7 @@ const DashboardsBar = ({
     const adjustRows = newHeight => {
         const newRows = Math.max(
             MIN_ROW_COUNT,
-            getNumRowsFromHeight(newHeight - 52) // don't rush the transition to a bigger row count
+            getRowsFromHeight(newHeight - 52) // don't rush the transition to a bigger row count
         )
 
         if (newRows !== userRows) {
@@ -99,10 +94,11 @@ const DashboardsBar = ({
         expanded ? classes.expanded : classes.collapsed
     )
 
-    const getViewableRows = () => {
+    const getControlBarStyle = () => {
         const isSmall = isSmallScreen(width)
+
         if (isSmall && expanded) {
-            return null
+            return {}
         }
 
         let viewableRows = MIN_ROW_COUNT
@@ -113,49 +109,18 @@ const DashboardsBar = ({
             viewableRows = userRows
         }
 
-        return viewableRows
-    }
-
-    const rowHeightProp = () => {
-        const viewableRows = getViewableRows()
-
-        if (!viewableRows) {
-            return {}
-        }
-
         return {
-            height: getRowsHeight(viewableRows) + FIRST_ROW_PADDING_HEIGHT,
+            height: getControlBarHeight(viewableRows),
         }
     }
-
-    const controlbarHeight = () => {
-        const viewableRows = getViewableRows()
-
-        if (!viewableRows) {
-            return {}
-        }
-
-        return {
-            height: getControlBarHeight(viewableRows) + 7, // DRAG_HANDLE_HEIGHT,
-        }
-    }
-
-    const controlbarHeightOrig = () => {
-        return {
-            height: getControlBarHeight(userRows) + 7, //DRAG_HANDLE_HEIGHT,
-        }
-    }
-
-    const rootClass = cx(classes.root, expanded && classes.expanded)
 
     return (
         <>
-            <div className={rootClass} style={controlbarHeight()}>
-                <div
-                    className={containerClass}
-                    ref={ref}
-                    style={rowHeightProp()}
-                >
+            <div
+                className={cx(classes.root, expanded && classes.expanded)}
+                style={getControlBarStyle()}
+            >
+                <div className={containerClass} ref={ref}>
                     <div className={classes.controls}>
                         <Link
                             className={classes.newLink}
@@ -186,7 +151,7 @@ const DashboardsBar = ({
             </div>
             <div
                 className={cx(classes.topMargin, expanded && classes.expanded)}
-                style={controlbarHeightOrig()}
+                style={{ height: getControlBarHeight(userRows) }}
             />
         </>
     )

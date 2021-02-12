@@ -1,28 +1,12 @@
-import { SHOWMORE_BAR_HEIGHT } from './ShowMoreButton'
+const ROW_HEIGHT = 40
+const PADDING_TOP = 10
+const SHOWMORE_BUTTON_HEIGHT = 21 // 27px - 6px below bottom edge of ctrlbar
 
-//Matches the height of .dragHandle in DashboardsBar.module.css
-// const DRAG_HANDLE_HEIGHT = 7
-
-export const CONTROL_BAR_ROW_HEIGHT = 40
-export const FIRST_ROW_PADDING_HEIGHT = 10
-export const HEADERBAR_HEIGHT = 48
-export const CONTROL_BAR_MARGIN_BOTTOM_SMALL = 32
-export const SEARCH_BAR_HEIGHT_SMALL = 40 // height (24px) + padding top and bottom (8px)
-
-// show more button
-export const CONTROL_BAR_OUTER_HEIGHT_DIFF =
-    FIRST_ROW_PADDING_HEIGHT + SHOWMORE_BAR_HEIGHT - 2 // 2 pixel "adjustment"
-
-export const getRowsHeight = rows => {
-    return rows * CONTROL_BAR_ROW_HEIGHT
-}
-
-export const getNumRowsFromHeight = height => {
+export const getRowsFromHeight = height => {
     return Math.floor(
-        (height - CONTROL_BAR_OUTER_HEIGHT_DIFF) / CONTROL_BAR_ROW_HEIGHT
+        (height - SHOWMORE_BUTTON_HEIGHT - PADDING_TOP) / ROW_HEIGHT
     )
 }
 
-export const getControlBarHeight = rows => {
-    return getRowsHeight(rows) + CONTROL_BAR_OUTER_HEIGHT_DIFF
-}
+export const getControlBarHeight = rows =>
+    rows * ROW_HEIGHT + PADDING_TOP + SHOWMORE_BUTTON_HEIGHT

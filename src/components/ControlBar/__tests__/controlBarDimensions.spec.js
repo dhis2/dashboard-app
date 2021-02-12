@@ -1,15 +1,9 @@
-import { getRowsHeight, getNumRowsFromHeight } from '../controlBarDimensions'
+import { getRowsFromHeight } from '../controlBarDimensions'
 
 describe('controlBarDimensions', () => {
-    describe('getRowsHeight', () => {
-        it('calculates the inner height', () => {
-            expect(getRowsHeight(2)).toEqual(80)
-        })
-    })
-
-    describe('getNumRowsFromHeight', () => {
+    describe('getRowsFromHeight', () => {
         it('returns an integer', () => {
-            const res = getNumRowsFromHeight(100)
+            const res = getRowsFromHeight(100)
             expect(Number.isInteger(res)).toBeTruthy()
         })
     })
