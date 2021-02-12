@@ -4,8 +4,6 @@ import i18n from '@dhis2/d2-i18n'
 import { Button } from '@dhis2/ui'
 import { Link } from 'react-router-dom'
 import LessHorizontalIcon from '../../icons/LessHorizontal'
-import { useWindowDimensions } from '../WindowDimensionsProvider'
-import { isSmallScreen } from '../../modules/smallScreen'
 
 import classes from './styles/PrintActionsBar.module.css'
 
@@ -14,25 +12,38 @@ export const PRINT_ACTIONS_BAR_HEIGHT = 44
 export const PRINT_ACTIONS_BAR_HEIGHT_SM = 36
 
 const PrintActionsBar = ({ id }) => {
-    const { width } = useWindowDimensions()
-    const isSmall = isSmallScreen(width)
+    const getExitPrintButton = isSmall => (
+        <Button
+            className={isSmall ? classes.buttonSmall : classes.buttonLarge}
+            small={isSmall}
+        >
+            <LessHorizontalIcon />
+            {i18n.t('Exit print preview')}
+        </Button>
+    )
+
+    const getPrintButton = isSmall => (
+        <Button
+            className={isSmall ? classes.buttonSmall : classes.buttonLarge}
+            small={isSmall}
+            onClick={window.print}
+        >
+            {i18n.t('Print')}
+        </Button>
+    )
 
     return (
         <>
             <div className={classes.container}>
-                <div className={classes.inner}>
+                <div className={classes.actions}>
                     <Link className={classes.link} to={`/${id}`}>
-                        <Button small={isSmall}>
-                            <LessHorizontalIcon />
-                            {i18n.t('Exit print preview')}
-                        </Button>
+                        {getExitPrintButton(true)}
+                        {getExitPrintButton(false)}
                     </Link>
-                    <Button small={isSmall} onClick={window.print}>
-                        {i18n.t('Print')}
-                    </Button>
+                    {getPrintButton(true)}
+                    {getPrintButton(false)}
                 </div>
             </div>
-            <div className={classes.topMargin} />
         </>
     )
 }

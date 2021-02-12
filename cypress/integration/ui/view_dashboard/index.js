@@ -21,42 +21,6 @@ When('I press enter in the search dashboard field', () => {
     cy.get('[data-test="search-dashboard-input"]').type('{enter}')
 })
 
-When('I click to preview the print layout', () => {
-    cy.get('button').contains('More').click()
-    cy.get('[data-test="print-menu-item"]').click()
-    cy.get('[data-test="print-layout-menu-item"]').click()
-})
-
-Then('the print layout displays for {string} dashboard', title => {
-    //check the url
-    cy.location().should(loc => {
-        expect(loc.hash).to.equal(`${dashboards[title].route}/printlayout`)
-    })
-
-    //check for some elements
-    cy.get('[data-test="print-layout-page"]').should('be.visible')
-})
-
-When('I click to exit print preview', () => {
-    cy.contains('Exit print preview').click()
-})
-
-When('I click to preview the print one-item-per-page', () => {
-    cy.get('button').contains('More').click()
-    cy.get('[data-test="print-menu-item"]').click()
-    cy.get('[data-test="print-oipp-menu-item"]').click()
-})
-
-Then('the print one-item-per-page displays for {string} dashboard', title => {
-    //check the url
-    cy.location().should(loc => {
-        expect(loc.hash).to.equal(`${dashboards[title].route}/printoipp`)
-    })
-
-    //check for some elements
-    cy.get('[data-test="print-oipp-page"]').should('be.visible')
-})
-
 When('I search for dashboards containing Noexist', () => {
     cy.get('[data-test="search-dashboard-input"]').type('Noexist')
 })
