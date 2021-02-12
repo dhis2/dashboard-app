@@ -72,7 +72,12 @@ export const FilterUnconnected = ({
     }
 
     return (
-        <div className={expanded ? classes.expanded : classes.collapsed}>
+        <div
+            className={cx(
+                classes.container,
+                expanded ? classes.expanded : classes.collapsed
+            )}
+        >
             <button
                 className={classes.searchButton}
                 onClick={activateSearchInput}

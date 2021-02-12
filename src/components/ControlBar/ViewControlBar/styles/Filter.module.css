@@ -12,7 +12,6 @@
     font-size: 14px;
     border: none;
     width: 100%;
-    box-sizing: content-box;
     min-width: 0px;
     margin: 0;
     padding: 6px 0 7px;
@@ -76,6 +75,7 @@
     max-height: 2em;
     align-items: center;
     margin-right: 8px;
+    margin-bottom: 16px;
 }
 
 .clearButtonContainer {
@@ -90,11 +90,34 @@
     display: none;
 }
 
-.collapsed {
+.container {
     display: inline;
 }
 
 @media only screen and (max-width: 480px) {
+    .input {
+        width: 100%;
+    }
+
+    .searchIconSmall {
+        display: inline;
+    }
+
+    /* collapsed controlbar */
+    .collapsed .searchArea {
+        display: none;
+    }
+
+    .collapsed .searchButton {
+        display: inline;
+    }
+
+    .collapsed .searchIconLarge {
+        display: inline;
+    }
+
+    /* expanded controlbar */
+
     .expanded .searchArea {
         display: flex;
         height: 24px;
@@ -102,27 +125,7 @@
         width: 100%;
     }
 
-    .input {
-        width: 100%;
-    }
-
-    .collapsed .searchButton {
-        display: inline;
-    }
-
-    .collapsed .searchArea {
-        display: none;
-    }
-
-    .searchIconSmall {
-        display: inline;
-    }
-
     .expanded .searchIconLarge {
         display: none;
-    }
-
-    .collapsed .searchIconLarge {
-        display: inline;
     }
 }

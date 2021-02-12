@@ -34,16 +34,15 @@
         display: flex;
         overflow-x: auto;
         overflow-y: hidden;
+        padding: 4px 0 4px 4px;
     }
 
     .container.expanded {
         display: flex;
         flex-direction: column;
         overflow: hidden;
-    }
-
-    .container {
-        padding-bottom: 4px;
+        padding-top: 12px;
+        padding-left: 8px;
     }
 
     .expanded .chipsContainer .controls {
@@ -59,7 +58,6 @@
     .expanded .chipsContainer {
         overflow-x: hidden;
         overflow-y: auto;
-        padding-left: 2px;
         padding-right: 6px;
         flex: 1;
     }
