@@ -90,6 +90,10 @@
     display: none;
 }
 
+.collapsed {
+    display: inline;
+}
+
 @media only screen and (max-width: 480px) {
     .expanded .searchArea {
         display: flex;
