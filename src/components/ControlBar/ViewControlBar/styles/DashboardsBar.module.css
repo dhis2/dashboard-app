@@ -16,7 +16,7 @@
     margin-bottom: 21px; /* to make space for the show more button */
 }
 
-.content.expanded {
+.expanded .content {
     overflow-y: auto;
 }
 
@@ -51,7 +51,7 @@
     height: 431px;
 }
 
-.container.expanded {
+.expanded .container {
     height: 431px;
 }
 
@@ -62,18 +62,18 @@
 }
 
 @media only screen and (min-width: 481px) {
-    .topMargin.expanded {
+    .expanded .topMargin {
         display: block;
     }
 
-    .container.expanded {
+    .expanded .container {
         position: absolute;
     }
 }
 
 /* LANDSCAPE MODE */
 @media only screen and (max-height: 480px) {
-    .content.expanded {
+    .expanded .content {
         flex-direction: column;
     }
 }
@@ -85,16 +85,16 @@
         flex-wrap: wrap;
     }
 
-    .content.collapsed {
+    .collapsed .content {
         flex-wrap: nowrap;
     }
 
-    .content.expanded {
+    .expanded .content {
         overflow-y: hidden;
         flex-direction: column;
     }
 
-    .topMargin.expanded {
+    .expanded .topMargin {
         display: block;
         height: 71px;
     }
@@ -102,14 +102,14 @@
 
 /* phone LANDSCAPE MODE or small screen */
 @media only screen and (max-height: 480px), only screen and (max-width: 480px) {
-    .container.collapsed {
-        height: 71px !important;
+    .collapsed .container {
+        height: 71px;
     }
 
-    .container.expanded {
+    .expanded .container {
         position: absolute;
         display: flex;
         flex-direction: column;
-        height: calc(100% - 32px) !important;
+        height: calc(100% - 32px);
     }
 }

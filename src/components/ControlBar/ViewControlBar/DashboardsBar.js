@@ -76,21 +76,14 @@ const DashboardsBar = ({ userRows, updateUserRows, onExpandedChanged }) => {
     }
 
     return (
-        <>
+        <div className={expanded ? classes.expanded : classes.collapsed}>
             <div
                 className={cx(
                     classes.container,
-                    classes[rowClassMap[userRows]],
-                    expanded ? classes.expanded : classes.collapsed
+                    classes[rowClassMap[userRows]]
                 )}
             >
-                <div
-                    className={cx(
-                        classes.content,
-                        expanded ? classes.expanded : classes.collapsed
-                    )}
-                    ref={ref}
-                >
+                <div className={classes.content} ref={ref}>
                     <Content
                         onChipClicked={cancelExpanded}
                         onSearchClicked={toggleExpanded}
@@ -110,11 +103,10 @@ const DashboardsBar = ({ userRows, updateUserRows, onExpandedChanged }) => {
             <div
                 className={cx(
                     classes.topMargin,
-                    classes[rowClassMap[userRows]],
-                    expanded ? classes.expanded : classes.collapsed
+                    classes[rowClassMap[userRows]]
                 )}
             />
-        </>
+        </div>
     )
 }
 
