@@ -6,8 +6,7 @@
 
 .wrapper {
     background-color: #f4f6f8;
-    margin-left: var(--spacers-dp32);
-    padding-left: var(--spacers-dp12);
+    padding-left: 44px;
     overflow-y: auto;
 }
 
@@ -25,23 +24,22 @@
     width: 1102px;
 }
 
+@media only screen and (max-width: 480px) {
+    .wrapper {
+        padding-left: var(--spacers-dp12);
+    }
+}
+
 @media print {
     .wrapper {
         background-color: white;
         height: auto !important;
         overflow: visible !important;
-        margin-left: 0px;
         padding-left: 0px;
     }
 
     .pageOuter {
         box-shadow: none;
         border-radius: 0px;
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    .wrapper {
-        margin-left: 0px;
     }
 }
