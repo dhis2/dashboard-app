@@ -24,6 +24,41 @@
     display: inline;
 }
 
+.one {
+    height: 71px;
+}
+.two {
+    height: 111px;
+}
+.three {
+    height: 151px;
+}
+.four {
+    height: 191px;
+}
+.five {
+    height: 231px;
+}
+.six {
+    height: 271px;
+}
+.seven {
+    height: 311px;
+}
+.eight {
+    height: 351px;
+}
+.nine {
+    height: 391px;
+}
+.ten {
+    height: 431px;
+}
+
+.container.expanded {
+    height: 431px;
+}
+
 .newLink {
     display: inline-block;
     text-decoration: none;
@@ -84,11 +119,21 @@
         margin-right: var(--spacers-dp8);
         width: 100%;
     }
+
+    .topMargin.expanded {
+        display: block;
+        height: 71px;
+    }
 }
 
 /* phone LANDSCAPE MODE or small screen */
 @media only screen and (max-height: 480px), only screen and (max-width: 480px) {
+    .container.collapsed {
+        height: 71px !important;
+    }
+
     .container.expanded {
+        position: absolute;
         display: flex;
         flex-direction: column;
         height: calc(100% - 32px) !important;

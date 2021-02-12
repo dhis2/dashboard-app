@@ -8,20 +8,31 @@ import AddCircleIcon from '../../icons/AddCircle'
 import Filter from './Filter'
 import ShowMoreButton from './ShowMoreButton'
 import DragHandle from './DragHandle'
-import { getControlBarHeight, getRowsFromHeight } from './controlBarDimensions'
+import { getRowsFromHeight } from './controlBarDimensions'
 import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
 import { sGetControlBarUserRows } from '../../reducers/controlBar'
 import { sGetAllDashboards } from '../../reducers/dashboards'
 import { acSetControlBarUserRows } from '../../actions/controlBar'
 import { apiPostControlBarRows } from '../../api/controlBar'
-import { useWindowDimensions } from '../WindowDimensionsProvider'
-import { isSmallScreen } from '../../modules/smallScreen'
+
 import { getFilteredDashboards } from '../../modules/getFilteredDashboards'
 
 import classes from './styles/DashboardsBar.module.css'
 
 const MIN_ROW_COUNT = 1
 const MAX_ROW_COUNT = 10
+const rowClassMap = {
+    1: 'one',
+    2: 'two',
+    3: 'three',
+    4: 'four',
+    5: 'five',
+    6: 'six',
+    7: 'seven',
+    8: 'eight',
+    9: 'nine',
+    10: 'ten',
+}
 
 const DashboardsBar = ({
     userRows,
@@ -34,7 +45,6 @@ const DashboardsBar = ({
     const [expanded, setExpanded] = useState(false)
     const [dragging, setDragging] = useState(false)
     const userRowsChanged = useRef(false)
-    const { width } = useWindowDimensions()
     const ref = createRef()
 
     const adjustRows = newHeight => {
@@ -75,11 +85,7 @@ const DashboardsBar = ({
     const cancelExpanded = () => {
         scrollToTop()
         setExpanded(false)
-        // The timeout here is to let the dashboard bar finish collapsing
-        // before the dashboard is triggered to adjust position
-        setTimeout(() => {
-            onExpandedChanged(false)
-        }, 200)
+        onExpandedChanged(false)
     }
 
     const onSelectDashboard = () => {
@@ -89,31 +95,14 @@ const DashboardsBar = ({
         }
     }
 
-    const getControlBarStyle = () => {
-        const isSmall = isSmallScreen(width)
-
-        if (isSmall && expanded) {
-            return {}
-        }
-
-        let viewableRows = MIN_ROW_COUNT
-
-        if (!isSmall && expanded) {
-            viewableRows = MAX_ROW_COUNT
-        } else if (!isSmall && !expanded) {
-            viewableRows = userRows
-        }
-
-        return {
-            height: getControlBarHeight(viewableRows),
-        }
-    }
-
     return (
         <>
             <div
-                className={cx(classes.container, expanded && classes.expanded)}
-                style={getControlBarStyle()}
+                className={cx(
+                    classes.container,
+                    classes[rowClassMap[userRows]],
+                    expanded ? classes.expanded : classes.collapsed
+                )}
             >
                 <div
                     className={cx(
@@ -149,8 +138,11 @@ const DashboardsBar = ({
                 />
             </div>
             <div
-                className={cx(classes.topMargin, expanded && classes.expanded)}
-                style={{ height: getControlBarHeight(userRows) }}
+                className={cx(
+                    classes.topMargin,
+                    classes[rowClassMap[userRows]],
+                    expanded ? classes.expanded : classes.collapsed
+                )}
             />
         </>
     )
