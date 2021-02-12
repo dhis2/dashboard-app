@@ -10,12 +10,13 @@
     flex-direction: column;
 }
 
-.container {
+.content {
     padding: 10px 6px 0 6px;
     overflow: hidden;
+    margin-bottom: 21px; /* to make space for the show more button */
 }
 
-.container.expanded {
+.content.expanded {
     overflow-y: auto;
 }
 
@@ -48,23 +49,23 @@
 
 /* LANDSCAPE MODE */
 @media only screen and (max-height: 480px) {
-    .container.expanded {
+    .content.expanded {
         flex-direction: column;
     }
 }
 
 @media only screen and (max-width: 480px) {
-    .container {
+    .content {
         padding: 4px 0px 4px 4px;
         display: flex;
         flex-wrap: wrap;
     }
 
-    .container.collapsed {
+    .content.collapsed {
         flex-wrap: nowrap;
     }
 
-    .container.expanded {
+    .content.expanded {
         overflow-y: hidden;
         flex-direction: column;
     }
@@ -78,7 +79,7 @@
         display: none;
     }
 
-    .container.expanded .controls {
+    .content.expanded .controls {
         margin-left: var(--spacers-dp4);
         margin-right: var(--spacers-dp8);
         width: 100%;

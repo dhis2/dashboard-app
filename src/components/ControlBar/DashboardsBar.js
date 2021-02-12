@@ -89,11 +89,6 @@ const DashboardsBar = ({
         }
     }
 
-    const containerClass = cx(
-        classes.container,
-        expanded ? classes.expanded : classes.collapsed
-    )
-
     const getControlBarStyle = () => {
         const isSmall = isSmallScreen(width)
 
@@ -120,7 +115,13 @@ const DashboardsBar = ({
                 className={cx(classes.root, expanded && classes.expanded)}
                 style={getControlBarStyle()}
             >
-                <div className={containerClass} ref={ref}>
+                <div
+                    className={cx(
+                        classes.content,
+                        expanded ? classes.expanded : classes.collapsed
+                    )}
+                    ref={ref}
+                >
                     <div className={classes.controls}>
                         <Link
                             className={classes.newLink}
