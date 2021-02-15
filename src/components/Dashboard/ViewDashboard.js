@@ -34,7 +34,10 @@ export const ViewDashboard = props => {
 
     return (
         <div className={classes.container}>
-            <DashboardsBar onExpandedChanged={onExpandedChanged} />
+            <DashboardsBar
+                expanded={controlbarExpanded}
+                onExpandedChanged={onExpandedChanged}
+            />
             <div
                 className={cx(
                     classes.dashboardContainer,
@@ -43,7 +46,11 @@ export const ViewDashboard = props => {
                 )}
             >
                 {controlbarExpanded && (
-                    <ComponentCover className={classes.cover} translucent />
+                    <ComponentCover
+                        className={classes.cover}
+                        translucent
+                        onClick={() => setControlbarExpanded(false)}
+                    />
                 )}
                 <ViewTitleBar />
                 <FilterBar />

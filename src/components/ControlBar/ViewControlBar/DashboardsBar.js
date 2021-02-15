@@ -28,8 +28,12 @@ const rowClassMap = {
     10: 'ten',
 }
 
-const DashboardsBar = ({ userRows, updateUserRows, onExpandedChanged }) => {
-    const [expanded, setExpanded] = useState(false)
+const DashboardsBar = ({
+    userRows,
+    updateUserRows,
+    expanded,
+    onExpandedChanged,
+}) => {
     const [dragging, setDragging] = useState(false)
     const userRowsChanged = useRef(false)
     const ref = createRef()
@@ -64,14 +68,12 @@ const DashboardsBar = ({ userRows, updateUserRows, onExpandedChanged }) => {
             cancelExpanded()
         } else {
             scrollToTop()
-            setExpanded(true)
             onExpandedChanged(!expanded)
         }
     }
 
     const cancelExpanded = () => {
         scrollToTop()
-        setExpanded(false)
         onExpandedChanged(false)
     }
 
@@ -111,6 +113,7 @@ const DashboardsBar = ({ userRows, updateUserRows, onExpandedChanged }) => {
 }
 
 DashboardsBar.propTypes = {
+    expanded: PropTypes.bool,
     updateUserRows: PropTypes.func,
     userRows: PropTypes.number,
     onExpandedChanged: PropTypes.func,
