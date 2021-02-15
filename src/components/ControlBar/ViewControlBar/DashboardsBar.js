@@ -16,7 +16,7 @@ import classes from './styles/DashboardsBar.module.css'
 const MIN_ROW_COUNT = 1
 const MAX_ROW_COUNT = 10
 const rowClassMap = {
-    1: 'one',
+    [MIN_ROW_COUNT]: 'one',
     2: 'two',
     3: 'three',
     4: 'four',
@@ -25,7 +25,7 @@ const rowClassMap = {
     7: 'seven',
     8: 'eight',
     9: 'nine',
-    10: 'ten',
+    [MAX_ROW_COUNT]: 'ten',
 }
 
 const DashboardsBar = ({
