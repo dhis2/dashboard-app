@@ -110,6 +110,7 @@
 
     .collapsed .searchButton {
         display: inline;
+        padding-top: 8px;
     }
 
     .collapsed .searchIconLarge {
