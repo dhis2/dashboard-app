@@ -95,7 +95,7 @@ const PrintDashboard = ({
         <>
             <PrintActionsBar id={dashboard.id} />
             <div
-                className={classes.wrapper}
+                className={classes.container}
                 style={{ height: availableHeight }}
             >
                 <PrintInfo isLayout={false} />

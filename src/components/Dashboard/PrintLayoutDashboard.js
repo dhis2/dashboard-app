@@ -88,7 +88,7 @@ const PrintLayoutDashboard = ({
         }
     }, [dashboard, items])
 
-    const getWrapperStyle = () => {
+    const getContainerStyle = () => {
         return fromEdit
             ? {
                   paddingTop: spacers.dp24,
@@ -103,8 +103,8 @@ const PrintLayoutDashboard = ({
         <>
             {!fromEdit && <PrintActionsBar id={dashboard.id} />}
             <div
-                className={cx(classes.wrapper, 'scroll-area')}
-                style={getWrapperStyle()}
+                className={cx(classes.container, 'scroll-area')}
+                style={getContainerStyle()}
             >
                 {!fromEdit && <PrintInfo isLayout={true} />}
                 <div

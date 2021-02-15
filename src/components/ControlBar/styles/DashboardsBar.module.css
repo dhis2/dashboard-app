@@ -18,6 +18,18 @@
     margin-top: var(--spacers-dp4);
 }
 
+/* LANDSCAPE MODE */
+@media only screen and (max-height: 480px) {
+    /**
+     * control bar should be 100vh -32px
+     * HEADER bar height is 48px, defined as a var in :root
+     * Show more button height is 24px, defined as a var in :root
+     */
+    .container.expanded {
+        height: calc(100vh - 32px - var(--headerbar-height) - var(--controlbar-showmore-height)) !important;
+    }
+}
+
 @media only screen and (max-width: 480px) {
     .controls {
         margin-bottom: var(--spacers-dp8);
@@ -39,6 +51,7 @@
 
     .container.expanded {
         overflow-y: hidden;
+        height: calc(100vh - 32px - var(--headerbar-height) - var(--controlbar-showmore-height)) !important;
     }
 
     .container.expanded .controls {
@@ -56,6 +69,7 @@
         overflow-y: auto;
         padding-left: 2px;
         padding-right: 6px;
+        height: calc(100vh - 32px - var(--headerbar-height) - var(--controlbar-showmore-height) - var(--searchbar-height)) !important;
     }
 
     .chipContainer.collapsed {
