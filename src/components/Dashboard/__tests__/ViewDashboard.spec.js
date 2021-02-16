@@ -2,7 +2,6 @@ import React from 'react'
 import { mount } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { ViewDashboard } from '../ViewDashboard'
-import WindowDimensionsProvider from '../../WindowDimensionsProvider'
 
 jest.mock('react', () => ({
     ...jest.requireActual('react'),
@@ -10,7 +9,7 @@ jest.mock('react', () => ({
 }))
 
 jest.mock(
-    '../../ControlBar/DashboardsBar',
+    '../../ControlBar/ViewControlBar/DashboardsBar',
     () =>
         function MockDashboardsBar() {
             return <div>MockDashboardsBar</div>
@@ -48,7 +47,6 @@ describe('ViewDashboard', () => {
             clearPrintDashboard: jest.fn(),
             dashboardIsEditing: false,
             dashboardIsPrinting: false,
-            controlBarRows: 2,
         }
     })
 
@@ -57,32 +55,20 @@ describe('ViewDashboard', () => {
     })
 
     it('renders correctly default', () => {
-        const tree = mount(
-            <WindowDimensionsProvider>
-                <ViewDashboard {...props} />
-            </WindowDimensionsProvider>
-        )
+        const tree = mount(<ViewDashboard {...props} />)
         expect(toJson(tree)).toMatchSnapshot()
     })
 
     it('clears edit dashboard after redirecting from Edit mode', () => {
         props.dashboardIsEditing = true
-        mount(
-            <WindowDimensionsProvider>
-                <ViewDashboard {...props} />
-            </WindowDimensionsProvider>
-        )
+        mount(<ViewDashboard {...props} />)
         expect(props.clearEditDashboard).toHaveBeenCalled()
         expect(props.clearPrintDashboard).not.toHaveBeenCalled()
     })
 
     it('clears print dashboard after redirecting from Print mode', () => {
         props.dashboardIsPrinting = true
-        mount(
-            <WindowDimensionsProvider>
-                <ViewDashboard {...props} />
-            </WindowDimensionsProvider>
-        )
+        mount(<ViewDashboard {...props} />)
         expect(props.clearEditDashboard).not.toHaveBeenCalled()
         expect(props.clearPrintDashboard).toHaveBeenCalled()
     })

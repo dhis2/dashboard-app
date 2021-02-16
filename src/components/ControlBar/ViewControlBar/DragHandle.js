@@ -36,7 +36,7 @@ const DragHandle = ({ onHeightChanged, setDragging }) => {
         <div
             className={classes.draghandle}
             onMouseDown={onStartDrag}
-            data-testid="controlbar-drag-handle"
+            data-test="controlbar-drag-handle"
         />
     )
 }

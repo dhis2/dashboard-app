@@ -2,7 +2,6 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import WindowDimensionsProvider from '../../WindowDimensionsProvider'
 import EditDashboard from '../EditDashboard'
 
 jest.mock(
@@ -70,9 +69,7 @@ const props = {
 test('EditDashboard renders dashboard', () => {
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <WindowDimensionsProvider>
-                <EditDashboard {...props} />
-            </WindowDimensionsProvider>
+            <EditDashboard {...props} />
         </Provider>
     )
 
@@ -84,9 +81,7 @@ test('EditDashboard renders print preview', () => {
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <WindowDimensionsProvider>
-                <EditDashboard {...props} />
-            </WindowDimensionsProvider>
+            <EditDashboard {...props} />
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -100,9 +95,7 @@ test('EditDashboard renders message when not enough access', () => {
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <WindowDimensionsProvider>
-                <EditDashboard {...props} />
-            </WindowDimensionsProvider>
+            <EditDashboard {...props} />
         </Provider>
     )
     expect(container).toMatchSnapshot()

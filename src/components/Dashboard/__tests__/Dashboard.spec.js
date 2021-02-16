@@ -65,7 +65,7 @@ jest.mock(
 )
 /* eslint-enable react/prop-types */
 jest.mock(
-    '../../ControlBar/DashboardsBar',
+    '../../ControlBar/ViewControlBar/DashboardsBar',
     () =>
         function MockComponent() {
             return <div>DashboardsBar</div>

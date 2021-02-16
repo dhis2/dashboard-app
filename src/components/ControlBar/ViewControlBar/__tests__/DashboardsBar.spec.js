@@ -6,9 +6,7 @@ import configureMockStore from 'redux-mock-store'
 import { Router } from 'react-router-dom'
 import WindowDimensionsProvider from '../../../WindowDimensionsProvider'
 import { createMemoryHistory } from 'history'
-import DashboardsBar, { MAX_ROW_COUNT } from '../DashboardsBar'
-import { MIN_ROW_COUNT } from '../controlBarDimensions'
-import * as api from '../../../../api/controlBar'
+import DashboardsBar, { MIN_ROW_COUNT, MAX_ROW_COUNT } from '../DashboardsBar'
 
 // TODO this spy is an implementation detail
 jest.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => cb())
@@ -81,11 +79,15 @@ test('small screen: clicking "Show more" maximizes dashboards bar height', () =>
         controlBar: { userRows: 3 },
         selected: { id: 'fluttershy123' },
     }
+    const mockExpandedChanged = jest.fn()
     const { getByLabelText, asFragment } = render(
         <Provider store={mockStore(store)}>
             <WindowDimensionsProvider>
                 <Router history={createMemoryHistory()}>
-                    <DashboardsBar />
+                    <DashboardsBar
+                        expanded={false}
+                        onExpandedChanged={mockExpandedChanged}
+                    />
                 </Router>
             </WindowDimensionsProvider>
         </Provider>
@@ -93,6 +95,7 @@ test('small screen: clicking "Show more" maximizes dashboards bar height', () =>
 
     fireEvent.click(getByLabelText('Show more dashboards'))
     expect(asFragment()).toMatchSnapshot()
+    expect(mockExpandedChanged).toBeCalledWith(true)
     global.innerWidth = 800
     global.innerHeight = 600
 })
@@ -108,7 +111,10 @@ test('renders a DashboardsBar with maximum height', () => {
         <Provider store={mockStore(store)}>
             <WindowDimensionsProvider>
                 <Router history={createMemoryHistory()}>
-                    <DashboardsBar />
+                    <DashboardsBar
+                        expanded={false}
+                        onExpandedChanged={jest.fn()}
+                    />
                 </Router>
             </WindowDimensionsProvider>
         </Provider>
@@ -128,7 +134,10 @@ test('renders a DashboardsBar with selected item', () => {
         <WindowDimensionsProvider>
             <Router history={createMemoryHistory()}>
                 <Provider store={mockStore(store)}>
-                    <DashboardsBar />
+                    <DashboardsBar
+                        expanded={false}
+                        onExpandedChanged={jest.fn()}
+                    />
                 </Provider>
             </Router>
         </WindowDimensionsProvider>
@@ -148,7 +157,10 @@ test('renders a DashboardsBar with no items', () => {
         <Provider store={mockStore(store)}>
             <WindowDimensionsProvider>
                 <Router history={createMemoryHistory()}>
-                    <DashboardsBar />
+                    <DashboardsBar
+                        expanded={false}
+                        onExpandedChanged={jest.fn()}
+                    />
                 </Router>
             </WindowDimensionsProvider>
         </Provider>
@@ -163,110 +175,21 @@ test('clicking "Show more" maximizes dashboards bar height', () => {
         controlBar: { userRows: MIN_ROW_COUNT },
         selected: { id: 'fluttershy123' },
     }
+    const mockOnExpandedChanged = jest.fn()
     const { getByLabelText, asFragment } = render(
         <Provider store={mockStore(store)}>
             <WindowDimensionsProvider>
                 <Router history={createMemoryHistory()}>
-                    <DashboardsBar />
+                    <DashboardsBar
+                        expanded={false}
+                        onExpandedChanged={mockOnExpandedChanged}
+                    />
                 </Router>
             </WindowDimensionsProvider>
         </Provider>
     )
 
     fireEvent.click(getByLabelText('Show more dashboards'))
+    expect(mockOnExpandedChanged).toBeCalledWith(true)
     expect(asFragment()).toMatchSnapshot()
-})
-
-test('triggers onChangeHeight when controlbar height is changed', () => {
-    const store = mockStore({
-        dashboards,
-        dashboardsFilter: '',
-        controlBar: { userRows: MIN_ROW_COUNT },
-        selected: { id: 'fluttershy123' },
-    })
-    const { getByTestId } = render(
-        <Provider store={store}>
-            <WindowDimensionsProvider>
-                <Router history={createMemoryHistory()}>
-                    <DashboardsBar />
-                </Router>
-            </WindowDimensionsProvider>
-        </Provider>
-    )
-
-    const spy = jest.spyOn(api, 'apiPostControlBarRows')
-
-    // TODO - these are implementation details! Refactor the component so this
-    // isn't necessary to run the test
-    fireEvent.mouseDown(getByTestId('controlbar-drag-handle'))
-    fireEvent.mouseMove(window, { clientY: 777 })
-    fireEvent.mouseUp(window)
-
-    const actions = store.getActions()
-
-    expect(actions.length).toEqual(1)
-    expect(actions[0].type).toEqual('SET_CONTROLBAR_USER_ROWS')
-    expect(actions[0].value).toEqual(10)
-
-    spy.mockRestore()
-})
-
-test('does not trigger onChangeHeight when controlbar height is changed to similar value', () => {
-    const store = mockStore({
-        dashboards,
-        dashboardsFilter: '',
-        controlBar: { userRows: MIN_ROW_COUNT },
-        selected: { id: 'fluttershy123' },
-    })
-    const { getByTestId } = render(
-        <Provider store={store}>
-            <WindowDimensionsProvider>
-                <Router history={createMemoryHistory()}>
-                    <DashboardsBar />
-                </Router>
-            </WindowDimensionsProvider>
-        </Provider>
-    )
-
-    const spy = jest.spyOn(api, 'apiPostControlBarRows')
-
-    // TODO - these are implementation details! Refactor the component so this
-    // isn't necessary to run the test
-    fireEvent.mouseDown(getByTestId('controlbar-drag-handle'))
-    fireEvent.mouseMove(window, { clientY: 80 })
-    fireEvent.mouseUp(window)
-
-    const actions = store.getActions()
-
-    expect(actions.length).toEqual(0)
-    spy.mockRestore()
-})
-
-test('calls the api to post user rows when drag ends', () => {
-    const store = {
-        dashboards,
-        dashboardsFilter: '',
-        controlBar: { userRows: MIN_ROW_COUNT },
-        selected: { id: 'rainbow123' },
-    }
-    const { getByTestId } = render(
-        <Provider store={mockStore(store)}>
-            <WindowDimensionsProvider>
-                <Router history={createMemoryHistory()}>
-                    <DashboardsBar />
-                </Router>
-            </WindowDimensionsProvider>
-        </Provider>
-    )
-
-    const spy = jest.spyOn(api, 'apiPostControlBarRows')
-
-    // TODO - these are implementation details! Refactor the component so this
-    // isn't necessary to run the test
-    fireEvent.mouseDown(getByTestId('controlbar-drag-handle'))
-    fireEvent.mouseMove(window, { clientY: 333 })
-    fireEvent.mouseUp(window)
-
-    expect(spy).toHaveBeenCalledTimes(1)
-    spy.mockRestore()
 })
