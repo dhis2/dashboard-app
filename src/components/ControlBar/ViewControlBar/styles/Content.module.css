@@ -34,15 +34,15 @@
         display: flex;
         overflow-x: auto;
         overflow-y: hidden;
-        padding: 4px 0 4px 4px;
+        padding: var(--spacers-dp4) 0 var(--spacers-dp4) var(--spacers-dp4);
     }
 
     .container.expanded {
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        padding-top: 12px;
-        padding-left: 8px;
+        padding-top: var(--spacers-dp12);
+        padding-left: var(--spacers-dp8);
     }
 
     .expanded .chipsContainer .controls {

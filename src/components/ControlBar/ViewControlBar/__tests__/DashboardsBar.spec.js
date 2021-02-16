@@ -31,7 +31,7 @@ test('renders a DashboardsBar with minimum height', () => {
     const store = {
         dashboards,
         dashboardsFilter: '',
-        controlBar: { userRows: MIN_ROW_COUNT },
+        controlBar: { userRows: parseInt(MIN_ROW_COUNT) },
         selected: { id: 'rainbow123' },
     }
     const { container } = render(
@@ -104,7 +104,7 @@ test('renders a DashboardsBar with maximum height', () => {
     const store = {
         dashboards,
         dashboardsFilter: '',
-        controlBar: { userRows: MAX_ROW_COUNT },
+        controlBar: { userRows: parseInt(MAX_ROW_COUNT) },
         selected: { id: 'rainbow123' },
     }
     const { container } = render(
@@ -126,7 +126,7 @@ test('renders a DashboardsBar with selected item', () => {
     const store = {
         dashboards,
         dashboardsFilter: '',
-        controlBar: { userRows: MIN_ROW_COUNT },
+        controlBar: { userRows: parseInt(MIN_ROW_COUNT) },
         selected: { id: 'fluttershy123' },
     }
 
@@ -149,7 +149,7 @@ test('renders a DashboardsBar with no items', () => {
     const store = {
         dashboards: { byId: {} },
         dashboardsFilter: '',
-        controlBar: { userRows: MIN_ROW_COUNT },
+        controlBar: { userRows: parseInt(MIN_ROW_COUNT) },
         selected: { id: 'rainbow123' },
     }
 
@@ -172,7 +172,7 @@ test('clicking "Show more" maximizes dashboards bar height', () => {
     const store = {
         dashboards,
         dashboardsFilter: '',
-        controlBar: { userRows: MIN_ROW_COUNT },
+        controlBar: { userRows: parseInt(MIN_ROW_COUNT) },
         selected: { id: 'fluttershy123' },
     }
     const mockOnExpandedChanged = jest.fn()

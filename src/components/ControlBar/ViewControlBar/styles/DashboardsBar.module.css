@@ -1,7 +1,7 @@
 .container {
     position: relative;
     background-color: var(--colors-white);
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 6px 3px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 6px 3px;
     z-index: 2001;
     overflow: hidden;
     box-sizing: border-box;

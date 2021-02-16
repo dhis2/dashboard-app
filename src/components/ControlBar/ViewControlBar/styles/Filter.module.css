@@ -11,7 +11,7 @@
     font-size: 14px;
     border: none;
     width: 100%;
-    min-width: 0px;
+    min-width: 0;
     margin: 0;
     padding: 6px 0 7px;
 }
@@ -58,7 +58,7 @@
 .searchButton {
     border: none;
     background-color: transparent;
-    padding: 0px 6px 0px 0px;
+    padding: 0 6px 0 0;
 }
 
 .searchButton:hover {

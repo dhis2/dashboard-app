@@ -1,13 +1,14 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { EXTENDED_TIMEOUT } from '../../../support/utils'
 import {
     dragHandleSel,
     dashboardsBarSel,
 } from '../../../selectors/viewDashboard'
 
 // Scenario: I change the height of the control bar
-When('I drag to change increase the height of the control bar', () => {
+When('I drag to increase the height of the control bar', () => {
     cy.intercept('PUT', '/userDataStore/dashboard/controlBarRows').as('putRows')
-    cy.get(dragHandleSel)
+    cy.get(dragHandleSel, EXTENDED_TIMEOUT)
         .trigger('mousedown')
         .trigger('mousemove', { clientY: 300 })
         .trigger('mouseup')
@@ -17,11 +18,9 @@ When('I drag to change increase the height of the control bar', () => {
 
 Then('the control bar height should be updated', () => {
     cy.visit('/')
-    cy.get(dashboardsBarSel)
+    cy.get(dashboardsBarSel, EXTENDED_TIMEOUT)
         .invoke('height')
-        .then(h => {
-            expect(h).to.equal(231)
-        })
+        .should('eq', 231)
 
     // restore the original height
     cy.get(dragHandleSel)

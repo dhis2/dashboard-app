@@ -13,10 +13,8 @@ import { apiPostControlBarRows } from '../../../api/controlBar'
 
 import classes from './styles/DashboardsBar.module.css'
 
-export const MIN_ROW_COUNT = 1
-export const MAX_ROW_COUNT = 10
 const rowClassMap = {
-    [MIN_ROW_COUNT]: 'one',
+    1: 'one',
     2: 'two',
     3: 'three',
     4: 'four',
@@ -25,8 +23,12 @@ const rowClassMap = {
     7: 'seven',
     8: 'eight',
     9: 'nine',
-    [MAX_ROW_COUNT]: 'ten',
+    10: 'ten',
 }
+
+const rowClassKeys = Object.keys(rowClassMap)
+export const MIN_ROW_COUNT = rowClassKeys[0]
+export const MAX_ROW_COUNT = rowClassKeys[rowClassKeys.length - 1]
 
 const DashboardsBar = ({
     userRows,

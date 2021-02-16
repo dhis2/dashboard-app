@@ -42,5 +42,5 @@ Feature: Viewing dashboards
     @mutating
     Scenario: I change the height of the control bar
         Given I open the "Delivery" dashboard
-        When I drag to change increase the height of the control bar
+        When I drag to increase the height of the control bar
         Then the control bar height should be updated
