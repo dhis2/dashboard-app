@@ -31,15 +31,23 @@ import {
     hasMapView,
     getAppName,
 } from '../../../modules/itemTypes'
+import { useSystemSettings } from '../../SystemSettingsProvider'
 
 const iconFill = { fill: colors.grey600 }
 
 const ItemHeaderButtons = props => {
-    const [menuIsOpen, setMenuIsOpen] = useState(null)
+    const [menuIsOpen, setMenuIsOpen] = useState(props.isOpen)
 
     const { baseUrl } = useConfig()
 
     const { item, visualization, onSelectActiveType, activeType } = props
+
+    const {
+        openInRelevantApp,
+        showInterpretationsAndDetails,
+        switchViewType,
+        fullscreenAllowedInSettings,
+    } = useSystemSettings().settings
 
     const isTrackerType = isTrackerDomainType(item.type)
 
@@ -77,6 +85,7 @@ const ItemHeaderButtons = props => {
 
     const type = visualization.type || item.type
     const canViewAs =
+        switchViewType &&
         !isSingleValue(type) &&
         !isYearOverYear(type) &&
         type !== VIS_TYPE_GAUGE &&
@@ -117,6 +126,17 @@ const ItemHeaderButtons = props => {
 
     const buttonRef = createRef()
 
+    const fullscreenAllowed =
+        props.fullscreenSupported && fullscreenAllowedInSettings
+
+    if (
+        !openInRelevantApp &&
+        !showInterpretationsAndDetails &&
+        !switchViewType &&
+        !fullscreenAllowed
+    ) {
+        return null
+    }
     return props.isFullscreen ? (
         <Button small secondary onClick={props.onToggleFullscreen}>
             <ExitFullscreen />
@@ -144,25 +164,33 @@ const ItemHeaderButtons = props => {
                         {canViewAs && (
                             <>
                                 <ViewAsMenuItems />
-                                <Divider />
+                                {(showInterpretationsAndDetails ||
+                                    openInRelevantApp ||
+                                    fullscreenAllowed) && <Divider />}
                             </>
                         )}
-                        <MenuItem
-                            dense
-                            icon={<LaunchIcon style={{ fill: '#6e7a8a' }} />}
-                            label={i18n.t('Open in {{appName}} app', {
-                                appName: getAppName(item.type),
-                            })}
-                            href={getLink(item, baseUrl)}
-                            target="_blank"
-                        />
-                        <MenuItem
-                            dense
-                            icon={<SpeechBubble />}
-                            label={interpretationMenuLabel}
-                            onClick={handleInterpretationClick}
-                        />
-                        {props.fullscreenSupported && (
+                        {openInRelevantApp && (
+                            <MenuItem
+                                dense
+                                icon={
+                                    <LaunchIcon style={{ fill: '#6e7a8a' }} />
+                                }
+                                label={i18n.t('Open in {{appName}} app', {
+                                    appName: getAppName(item.type),
+                                })}
+                                href={getLink(item, baseUrl)}
+                                target="_blank"
+                            />
+                        )}
+                        {showInterpretationsAndDetails && (
+                            <MenuItem
+                                dense
+                                icon={<SpeechBubble />}
+                                label={interpretationMenuLabel}
+                                onClick={handleInterpretationClick}
+                            />
+                        )}
+                        {fullscreenAllowed && (
                             <MenuItem
                                 dense
                                 icon={<Fullscreen />}
@@ -182,6 +210,7 @@ ItemHeaderButtons.propTypes = {
     activeType: PropTypes.string,
     fullscreenSupported: PropTypes.bool,
     isFullscreen: PropTypes.bool,
+    isOpen: PropTypes.bool,
     item: PropTypes.object,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
