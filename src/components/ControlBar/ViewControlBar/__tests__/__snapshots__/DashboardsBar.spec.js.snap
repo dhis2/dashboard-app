@@ -498,8 +498,10 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
       <div
         class="container"
       >
-        <div
-          class="disabled"
+        <button
+          aria-label="Show more dashboards"
+          class="showMore"
+          data-test="showmore-button"
         >
           <svg
             height="24"
@@ -512,7 +514,7 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
               fill="#a0adba"
             />
           </svg>
-        </div>
+        </button>
       </div>
       <div
         class="draghandle"

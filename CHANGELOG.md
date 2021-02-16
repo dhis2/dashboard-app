@@ -1,3 +1,10 @@
+# [31.11.0](https://github.com/dhis2/dashboard-app/compare/v31.10.9...v31.11.0) (2021-02-15)
+
+
+### Features
+
+* Restricting view options of dashboard items (DHIS2-7630) ([#1472](https://github.com/dhis2/dashboard-app/issues/1472)) ([e74ee29](https://github.com/dhis2/dashboard-app/commit/e74ee2940010dece08b7b51624928d96e37473e7))
+
 ## [31.10.9](https://github.com/dhis2/dashboard-app/compare/v31.10.8...v31.10.9) (2021-02-12)
 
 
