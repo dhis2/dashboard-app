@@ -1,3 +1,10 @@
+## [31.11.1](https://github.com/dhis2/dashboard-app/compare/v31.11.0...v31.11.1) (2021-02-17)
+
+
+### Bug Fixes
+
+* control bar refactor ([#1529](https://github.com/dhis2/dashboard-app/issues/1529)) ([84dde66](https://github.com/dhis2/dashboard-app/commit/84dde66a933d09dc9a055c843a14569c593932e2))
+
 # [31.11.0](https://github.com/dhis2/dashboard-app/compare/v31.10.9...v31.11.0) (2021-02-15)
 
 
