@@ -101,6 +101,7 @@ const FilterDialog = ({
             default:
                 return (
                     <DynamicDimension
+                        dimensionTitle={dimension.name}
                         selectedItems={selectedItems}
                         dimensionId={dimension.id}
                         onSelect={commonProps.onSelect}
