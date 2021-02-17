@@ -1,0 +1,83 @@
+.container {
+    position: relative;
+    background-color: var(--colors-white);
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 6px 3px;
+    z-index: 2001;
+    overflow: hidden;
+    box-sizing: border-box;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    height: var(--user-rows-height);
+}
+
+.content {
+    padding: 10px 6px 0 6px;
+    overflow: hidden;
+    margin-bottom: 21px; /* to make space for the show more button */
+}
+
+.expanded .content {
+    overflow-y: auto;
+}
+
+.expanded .container {
+    height: var(--max-rows-height);
+}
+
+.spacer {
+    display: none;
+    box-sizing: border-box;
+    flex: none;
+    height: var(--user-rows-height);
+}
+
+@media only screen and (min-width: 481px) {
+    .expanded .spacer {
+        display: block;
+    }
+
+    .expanded .container {
+        position: absolute;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .content {
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .collapsed .content {
+        flex-wrap: nowrap;
+    }
+
+    .expanded .content {
+        overflow-y: hidden;
+        flex-direction: column;
+    }
+
+    .expanded .spacer {
+        display: block;
+        height: var(--min-rows-height);
+    }
+}
+
+/* phone LANDSCAPE MODE or small screen */
+@media only screen and (max-height: 480px), only screen and (max-width: 480px) {
+    .collapsed .container {
+        height: var(--min-rows-height);
+    }
+
+    .expanded .container {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - 32px);
+    }
+
+    .expanded .content {
+        flex-direction: column;
+    }
+}

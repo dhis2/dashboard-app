@@ -12,52 +12,35 @@ import NotSupportedNotice from './NotSupportedNotice'
 import { acSetEditNewDashboard } from '../../actions/editDashboard'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
 
-import {
-    getControlBarHeight,
-    HEADERBAR_HEIGHT,
-} from '../ControlBar/controlBarDimensions'
-
-import { useWindowDimensions } from '../WindowDimensionsProvider'
-import { isSmallScreen } from '../../modules/smallScreen'
+import classes from './styles/NewDashboard.module.css'
 
 const NewDashboard = props => {
-    const { width, height } = useWindowDimensions()
-
     useEffect(() => {
         props.setNewDashboard()
     }, [])
 
-    const dashboardHeight = height - HEADERBAR_HEIGHT - getControlBarHeight(1)
-
-    const renderNewView = () => (
-        <>
-            <EditBar />
-            {props.isPrintPreviewView ? (
-                <LayoutPrintPreview fromEdit={true} />
-            ) : (
-                <div
-                    className="dashboard-wrapper"
-                    style={{ height: dashboardHeight }}
-                >
-                    <EditTitleBar />
-                    <EditItemGrid />
-                </div>
-            )}
-        </>
-    )
-
     return (
-        <>
-            {isSmallScreen(width) ? (
+        <div>
+            <div className={classes.container}>
+                <EditBar />
+                {props.isPrintPreviewView ? (
+                    <LayoutPrintPreview fromEdit={true} />
+                ) : (
+                    <div className="dashboard-wrapper">
+                        <EditTitleBar />
+                        <EditItemGrid />
+                    </div>
+                )}
+            </div>
+            <div className={classes.notice}>
                 <NotSupportedNotice
+                    className={classes.notSupportedNotice}
                     message={i18n.t(
                         'Creating dashboards on small screens is not supported. Resize your screen to return to create mode.'
                     )}
                 />
-            ) : (
-                renderNewView()
-            )}
-        </>
+            </div>
+        </div>
     )
 }
 

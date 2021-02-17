@@ -2,7 +2,6 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import WindowDimensionsProvider from '../../WindowDimensionsProvider'
 import NewDashboard from '../NewDashboard'
 
 jest.mock(
@@ -64,9 +63,7 @@ const store = {
 test('NewDashboard renders dashboard', () => {
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <WindowDimensionsProvider>
-                <NewDashboard />
-            </WindowDimensionsProvider>
+            <NewDashboard />
         </Provider>
     )
 
@@ -78,9 +75,7 @@ test('NewDashboard renders print preview', () => {
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <WindowDimensionsProvider>
-                <NewDashboard />
-            </WindowDimensionsProvider>
+            <NewDashboard />
         </Provider>
     )
     expect(container).toMatchSnapshot()

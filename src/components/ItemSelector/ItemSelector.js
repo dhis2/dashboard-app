@@ -104,13 +104,15 @@ const ItemSelector = () => {
                     arrow={false}
                     maxWidth={700}
                 >
-                    <FlyoutMenu
-                        className={classes.menu}
-                        dataTest="item-menu"
-                        maxWidth="700px"
-                    >
-                        {getMenuGroups()}
-                    </FlyoutMenu>
+                    <div className={classes.popover}>
+                        <FlyoutMenu
+                            className={classes.menu}
+                            dataTest="item-menu"
+                            maxWidth="700px"
+                        >
+                            {getMenuGroups()}
+                        </FlyoutMenu>
+                    </div>
                 </Popover>
             )}
         </>

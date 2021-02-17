@@ -1,3 +1,35 @@
+## [31.11.2](https://github.com/dhis2/dashboard-app/compare/v31.11.1...v31.11.2) (2021-02-17)
+
+
+### Bug Fixes
+
+* hide filter modal when in small screen [DHIS2-10439, DHIS2-10138] ([#1545](https://github.com/dhis2/dashboard-app/issues/1545)) ([b81a1f4](https://github.com/dhis2/dashboard-app/commit/b81a1f4051d1908f115a444289ced5cf3e5632d6))
+
+## [31.11.1](https://github.com/dhis2/dashboard-app/compare/v31.11.0...v31.11.1) (2021-02-17)
+
+
+### Bug Fixes
+
+* control bar refactor ([#1529](https://github.com/dhis2/dashboard-app/issues/1529)) ([84dde66](https://github.com/dhis2/dashboard-app/commit/84dde66a933d09dc9a055c843a14569c593932e2))
+
+# [31.11.0](https://github.com/dhis2/dashboard-app/compare/v31.10.9...v31.11.0) (2021-02-15)
+
+
+### Features
+
+* Restricting view options of dashboard items (DHIS2-7630) ([#1472](https://github.com/dhis2/dashboard-app/issues/1472)) ([e74ee29](https://github.com/dhis2/dashboard-app/commit/e74ee2940010dece08b7b51624928d96e37473e7))
+
+## [31.10.9](https://github.com/dhis2/dashboard-app/compare/v31.10.8...v31.10.9) (2021-02-12)
+
+
+### Bug Fixes
+
+* add css class for expanded control bar ([286c1ae](https://github.com/dhis2/dashboard-app/commit/286c1ae135a52b0882eaa3725cdf718fb8d2b2bc))
+* clean dashboard bar height calculation function ([71bb64d](https://github.com/dhis2/dashboard-app/commit/71bb64dab08d83e77f6f97fb95dca1fe90960417))
+* make space to left of dashboard items scrollable [DHIS2-10138] ([#1523](https://github.com/dhis2/dashboard-app/issues/1523)) ([3305aa3](https://github.com/dhis2/dashboard-app/commit/3305aa3da397bba419840e7162011fad81c81b60))
+* remove inline style calculation height for small, dashboardbar chip container and controlbar ([99dea63](https://github.com/dhis2/dashboard-app/commit/99dea6301a37362d424d66d6f5caff297d7993d5))
+* update dashboard bar snapshot ([1caac43](https://github.com/dhis2/dashboard-app/commit/1caac4347b9202e67005600c595c27d9a57c63d6))
+
 ## [31.10.8](https://github.com/dhis2/dashboard-app/compare/v31.10.7...v31.10.8) (2021-02-09)
 
 

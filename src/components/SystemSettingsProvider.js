@@ -1,7 +1,10 @@
 import React, { useContext, useState, useEffect, createContext } from 'react'
 import PropTypes from 'prop-types'
 import { useDataEngine } from '@dhis2/app-runtime'
-import settingsQuery, { DEFAULT_SETTINGS } from '../api/settings'
+import settingsQuery, {
+    renameSystemSettings,
+    DEFAULT_SETTINGS,
+} from '../api/settings'
 
 export const SystemSettingsCtx = createContext({})
 
@@ -15,7 +18,13 @@ const SystemSettingsProvider = ({ children }) => {
                 systemSettings: settingsQuery,
             })
 
-            setSettings(Object.assign({}, DEFAULT_SETTINGS, systemSettings))
+            setSettings(
+                Object.assign(
+                    {},
+                    renameSystemSettings(DEFAULT_SETTINGS),
+                    renameSystemSettings(systemSettings)
+                )
+            )
         }
         fetchData()
     }, [])

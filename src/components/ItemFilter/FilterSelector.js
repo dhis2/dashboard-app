@@ -53,12 +53,16 @@ const FilterSelector = props => {
                     placement="bottom-start"
                     dataTest="dashboard-filter-popover"
                 >
-                    <DimensionsPanel
-                        style={{ width: '320px' }}
-                        dimensions={props.dimensions}
-                        onDimensionClick={selectDimension}
-                        selectedIds={Object.keys(props.initiallySelectedItems)}
-                    />
+                    <div className={classes.popover}>
+                        <DimensionsPanel
+                            style={{ width: '320px' }}
+                            dimensions={props.dimensions}
+                            onDimensionClick={selectDimension}
+                            selectedIds={Object.keys(
+                                props.initiallySelectedItems
+                            )}
+                        />
+                    </div>
                 </Popover>
             )}
             {!isEmpty(props.dimension) ? (
