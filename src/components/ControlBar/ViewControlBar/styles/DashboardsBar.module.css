@@ -55,14 +55,14 @@
     height: 431px;
 }
 
-.topMargin {
+.spacer {
     display: none;
     box-sizing: border-box;
     flex: none;
 }
 
 @media only screen and (min-width: 481px) {
-    .expanded .topMargin {
+    .expanded .spacer {
         display: block;
     }
 
@@ -87,7 +87,7 @@
         flex-direction: column;
     }
 
-    .expanded .topMargin {
+    .expanded .spacer {
         display: block;
         height: 71px;
     }

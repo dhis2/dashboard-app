@@ -108,10 +108,7 @@ const DashboardsBar = ({
                 />
             </div>
             <div
-                className={cx(
-                    classes.topMargin,
-                    classes[rowClassMap[userRows]]
-                )}
+                className={cx(classes.spacer, classes[rowClassMap[userRows]])}
             />
         </div>
     )
