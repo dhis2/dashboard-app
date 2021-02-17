@@ -39,14 +39,16 @@ const EXPANDED_HEIGHT = 17
 const EXPANDED_HEIGHT_SM = 13
 
 const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
-    const { width } = useWindowDimensions()
+    const { width, height } = useWindowDimensions()
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
     const [layoutSm, setLayoutSm] = useState([])
     const [gridWidth, setGridWidth] = useState(0)
 
+    const isMobileLandscape = () => height <= 480
+
     useEffect(() => {
-        if (isSmallScreen(width)) {
+        if (isSmallScreen(width) || isMobileLandscape()) {
             setLayoutSm(
                 getItemsWithAdjustedHeight(
                     getSmallLayout(dashboardItems, width)
@@ -127,12 +129,23 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
             <ResponsiveReactGridLayout
                 rowHeight={GRID_ROW_HEIGHT_PX}
                 width={getGridWidth(width)}
-                cols={{ lg: GRID_COLUMNS, sm: SM_SCREEN_GRID_COLUMNS }}
+                cols={{
+                    lg: GRID_COLUMNS,
+                    md: isMobileLandscape()
+                        ? SM_SCREEN_GRID_COLUMNS
+                        : GRID_COLUMNS,
+                    sm: SM_SCREEN_GRID_COLUMNS,
+                }}
                 breakpoints={{
                     lg: getBreakpoint(),
+                    md: isMobileLandscape() ? getBreakpoint() : 0,
                     sm: 0,
                 }}
-                layouts={{ lg: displayItems, sm: layoutSm }}
+                layouts={{
+                    lg: displayItems,
+                    md: isMobileLandscape() ? layoutSm : displayItems,
+                    sm: layoutSm,
+                }}
                 compactType={GRID_COMPACT_TYPE}
                 margin={isSmallScreen(width) ? MARGIN_SM_PX : MARGIN_PX}
                 containerPadding={{
