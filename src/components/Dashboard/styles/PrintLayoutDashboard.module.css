@@ -11,8 +11,8 @@
 }
 
 .wrapper.editView {
-    padding-top: 24px;
-    padding-bottom: 48px;
+    padding-top: var(--spacers-dp24);
+    padding-bottom: var(--spacers-dp48);
 }
 
 .pageOuter {
