@@ -1,14 +1,10 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { spacers } from '@dhis2/ui'
 import cx from 'classnames'
 
 import PrintInfo from './PrintInfo'
-import PrintActionsBar, {
-    PRINT_ACTIONS_BAR_HEIGHT,
-    PRINT_ACTIONS_BAR_HEIGHT_SM,
-} from './PrintActionsBar'
+import PrintActionsBar from './PrintActionsBar'
 import PrintLayoutItemGrid from '../ItemGrid/PrintLayoutItemGrid'
 import {
     acSetPrintDashboard,
@@ -26,21 +22,12 @@ import {
 } from '../../reducers/dashboards'
 import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
 import { MAX_ITEM_GRID_HEIGHT } from '../../modules/gridUtil'
-import {
-    getControlBarHeight,
-    HEADERBAR_HEIGHT,
-} from '../ControlBar/controlBarDimensions'
-import { DRAG_HANDLE_HEIGHT } from '../ControlBar/ControlBar'
-import { useWindowDimensions } from '../WindowDimensionsProvider'
-import { isSmallScreen } from '../../modules/smallScreen'
 import { getPageBreakPositions } from '../../modules/printUtils'
 
 import classes from './styles/PrintLayoutDashboard.module.css'
 
 import './styles/print.css'
 import './styles/print-layout.css'
-
-const EDIT_BAR_HEIGHT = getControlBarHeight(1) + DRAG_HANDLE_HEIGHT
 
 const addPageBreaks = (items, addDashboardItem) => {
     const yPosList = getPageBreakPositions(items)
@@ -58,12 +45,6 @@ const PrintLayoutDashboard = ({
     updateDashboardItem,
     fromEdit,
 }) => {
-    const { width, height } = useWindowDimensions()
-
-    const actionBarHeight = isSmallScreen(width)
-        ? PRINT_ACTIONS_BAR_HEIGHT_SM
-        : PRINT_ACTIONS_BAR_HEIGHT
-
     useEffect(() => {
         if (dashboard) {
             setPrintDashboard(dashboard, items)
@@ -88,23 +69,15 @@ const PrintLayoutDashboard = ({
         }
     }, [dashboard, items])
 
-    const getContainerStyle = () => {
-        return fromEdit
-            ? {
-                  paddingTop: spacers.dp24,
-                  height: height - EDIT_BAR_HEIGHT - HEADERBAR_HEIGHT,
-              }
-            : {
-                  height: height - actionBarHeight,
-              }
-    }
-
     return (
-        <>
+        <div className={classes.container}>
             {!fromEdit && <PrintActionsBar id={dashboard.id} />}
             <div
-                className={cx(classes.container, 'scroll-area')}
-                style={getContainerStyle()}
+                className={cx(
+                    classes.wrapper,
+                    'scroll-area',
+                    fromEdit && classes.editView
+                )}
             >
                 {!fromEdit && <PrintInfo isLayout={true} />}
                 <div
@@ -114,7 +87,7 @@ const PrintLayoutDashboard = ({
                     <PrintLayoutItemGrid />
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

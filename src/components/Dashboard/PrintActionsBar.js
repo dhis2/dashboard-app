@@ -33,18 +33,16 @@ const PrintActionsBar = ({ id }) => {
     )
 
     return (
-        <>
-            <div className={classes.container}>
-                <div className={classes.actions}>
-                    <Link className={classes.link} to={`/${id}`}>
-                        {getExitPrintButton(true)}
-                        {getExitPrintButton(false)}
-                    </Link>
-                    {getPrintButton(true)}
-                    {getPrintButton(false)}
-                </div>
+        <div className={classes.container}>
+            <div className={classes.actions}>
+                <Link className={classes.link} to={`/${id}`}>
+                    {getExitPrintButton(true)}
+                    {getExitPrintButton(false)}
+                </Link>
+                {getPrintButton(true)}
+                {getPrintButton(false)}
             </div>
-        </>
+        </div>
     )
 }
 

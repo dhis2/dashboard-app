@@ -3,16 +3,16 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
-import SearchIcon from '../../icons/Search'
+import SearchIcon from '../../../icons/Search'
 import ClearButton from './ClearButton'
 
-import { useWindowDimensions } from '../WindowDimensionsProvider'
+import { useWindowDimensions } from '../../WindowDimensionsProvider'
 import {
     acSetDashboardsFilter,
     acClearDashboardsFilter,
-} from '../../actions/dashboardsFilter'
-import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
-import { isSmallScreen } from '../../modules/smallScreen'
+} from '../../../actions/dashboardsFilter'
+import { sGetDashboardsFilter } from '../../../reducers/dashboardsFilter'
+import { isSmallScreen } from '../../../modules/smallScreen'
 
 import classes from './styles/Filter.module.css'
 
@@ -21,11 +21,11 @@ export const KEYCODE_ESCAPE = 27
 
 export const FilterUnconnected = ({
     clearDashboardsFilter,
+    expanded,
     filterText,
-    isMaxHeight,
     setDashboardsFilter,
     onKeypressEnter,
-    onToggleMaxHeight,
+    onSearchClicked,
 }) => {
     const [focusedClassName, setFocusedClassName] = useState('')
     const [inputFocused, setInputFocus] = useState(false)
@@ -66,53 +66,60 @@ export const FilterUnconnected = ({
         }
     }
 
-    const toggleMaxHeight = () => {
-        onToggleMaxHeight()
+    const activateSearchInput = () => {
+        onSearchClicked()
         setInputFocus(true)
     }
 
-    return isSmallScreen(width) && !isMaxHeight ? (
-        <button className={classes.searchButton} onClick={toggleMaxHeight}>
-            <SearchIcon className={classes.searchIcon} />
-        </button>
-    ) : (
+    return (
         <div
-            className={cx(classes.container, `${focusedClassName}`)}
-            onFocus={onFocus}
-            onBlur={onBlur}
-        >
-            <div className={classes.searchIconContainer}>
-                <SearchIcon
-                    className={classes.searchIcon}
-                    small={isSmallScreen(width) && isMaxHeight}
-                />
-            </div>
-            <input
-                className={classes.input}
-                type="text"
-                placeholder={i18n.t('Search for a dashboard')}
-                onChange={setFilterValue}
-                onKeyUp={onKeyUp}
-                value={filterText}
-                data-test="search-dashboard-input"
-                ref={onFocusInput}
-            />
-            {filterText && (
-                <div className={classes.clearButtonContainer}>
-                    <ClearButton onClear={clearDashboardsFilter} />
-                </div>
+            className={cx(
+                classes.container,
+                expanded ? classes.expanded : classes.collapsed
             )}
+        >
+            <button
+                className={classes.searchButton}
+                onClick={activateSearchInput}
+            >
+                <SearchIcon className={classes.searchIcon} />
+            </button>
+            <div
+                className={cx(classes.searchArea, `${focusedClassName}`)}
+                onFocus={onFocus}
+                onBlur={onBlur}
+            >
+                <div className={classes.searchIconContainer}>
+                    <SearchIcon className={classes.searchIconSmall} small />
+                    <SearchIcon className={classes.searchIconLarge} />
+                </div>
+                <input
+                    className={classes.input}
+                    type="text"
+                    placeholder={i18n.t('Search for a dashboard')}
+                    onChange={setFilterValue}
+                    onKeyUp={onKeyUp}
+                    value={filterText}
+                    data-test="search-dashboard-input"
+                    ref={onFocusInput}
+                />
+                {filterText && (
+                    <div className={classes.clearButtonContainer}>
+                        <ClearButton onClear={clearDashboardsFilter} />
+                    </div>
+                )}
+            </div>
         </div>
     )
 }
 
 FilterUnconnected.propTypes = {
     clearDashboardsFilter: PropTypes.func,
+    expanded: PropTypes.bool,
     filterText: PropTypes.string,
-    isMaxHeight: PropTypes.bool,
     setDashboardsFilter: PropTypes.func,
     onKeypressEnter: PropTypes.func,
-    onToggleMaxHeight: PropTypes.func,
+    onSearchClicked: PropTypes.func,
 }
 
 const mapStateToProps = state => ({

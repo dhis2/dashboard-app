@@ -1,5 +1,4 @@
-.container {
-    top: -4px;
+.searchArea {
     width: 200px;
     height: 30px;
     position: relative;
@@ -12,8 +11,7 @@
     font-size: 14px;
     border: none;
     width: 100%;
-    box-sizing: content-box;
-    min-width: 0px;
+    min-width: 0;
     margin: 0;
     padding: 6px 0 7px;
 }
@@ -26,7 +24,7 @@
     outline: 0;
 }
 
-.container::before {
+.searchArea::before {
     content: '\00a0';
     left: 0;
     right: 0;
@@ -36,11 +34,11 @@
     pointer-events: none;
 }
 
-.container.focused::after {
+.searchArea.focused::after {
     transform: scaleX(1);
 }
 
-.container::after {
+.searchArea::after {
     content: '';
     left: 0;
     right: 0;
@@ -51,26 +49,32 @@
     pointer-events: none;
 }
 
-.searchIcon {
+.searchIcon,
+.searchIconSmall,
+.searchIconLarge {
     fill: var(--colors-grey700);
 }
 
 .searchButton {
     border: none;
     background-color: transparent;
-    padding: 0px 6px 0px 0px;
+    padding: 0 6px 0 0;
 }
 
 .searchButton:hover {
     cursor: pointer;
 }
 
+.searchButton {
+    display: none;
+}
+
 .searchIconContainer {
     height: 0.01em;
     max-height: 2em;
-    display: flex;
     align-items: center;
     margin-right: 8px;
+    margin-bottom: 16px;
 }
 
 .clearButtonContainer {
@@ -81,14 +85,47 @@
     margin-left: 8px;
 }
 
+.searchIconSmall {
+    display: none;
+}
+
+.container {
+    display: inline;
+}
+
 @media only screen and (max-width: 480px) {
-    .container {
+    .input {
+        width: 100%;
+    }
+
+    .searchIconSmall {
+        display: inline;
+    }
+
+    /* collapsed controlbar */
+    .collapsed .searchArea {
+        display: none;
+    }
+
+    .collapsed .searchButton {
+        display: inline;
+        padding-top: 8px;
+    }
+
+    .collapsed .searchIconLarge {
+        display: inline;
+    }
+
+    /* expanded controlbar */
+
+    .expanded .searchArea {
+        display: flex;
         height: 24px;
         padding-top: inherit;
         width: 100%;
     }
 
-    .input {
-        width: 100%;
+    .expanded .searchIconLarge {
+        display: none;
     }
 }

@@ -1,4 +1,10 @@
 .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.wrapper {
     background-color: #f4f6f8;
     padding-left: 44px;
     overflow-y: auto;
@@ -14,13 +20,13 @@
 }
 
 @media only screen and (max-width: 480px) {
-    .container {
+    .wrapper {
         padding-left: var(--spacers-dp12);
     }
 }
 
 @media print {
-    .container {
+    .wrapper {
         background-color: white;
         height: auto !important;
         overflow: visible !important;

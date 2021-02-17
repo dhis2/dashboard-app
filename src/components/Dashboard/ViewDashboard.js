@@ -1,29 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { ComponentCover } from '@dhis2/ui'
+import cx from 'classnames'
 import ViewTitleBar from '../TitleBar/ViewTitleBar'
 import ViewItemGrid from '../ItemGrid/ViewItemGrid'
 import FilterBar from '../FilterBar/FilterBar'
-import DashboardsBar, {
-    isDashboardBarMaxHeight,
-} from '../ControlBar/DashboardsBar'
+import DashboardsBar from '../ControlBar/ViewControlBar/DashboardsBar'
 import { sGetIsEditing } from '../../reducers/editDashboard'
 import { sGetIsPrinting } from '../../reducers/printDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
-import { sGetControlBarUserRows } from '../../reducers/controlBar'
 import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
-import {
-    CONTROL_BAR_COLLAPSED,
-    getControlBarHeight,
-    getControlBarHeightSmallDevice,
-    HEADERBAR_HEIGHT,
-} from '../ControlBar/controlBarDimensions'
-import { useWindowDimensions } from '../WindowDimensionsProvider'
-import { isSmallScreen } from '../../modules/smallScreen'
+
+import classes from './styles/ViewDashboard.module.css'
 
 export const ViewDashboard = props => {
-    const { width, height } = useWindowDimensions()
+    const [controlbarExpanded, setControlbarExpanded] = useState(false)
 
     useEffect(() => {
         if (props.dashboardIsEditing) {
@@ -37,32 +30,39 @@ export const ViewDashboard = props => {
         document.querySelector('.dashboard-wrapper')?.scroll(0, 0)
     }, [props.selectedId])
 
-    const dashboardHeight =
-        height -
-        HEADERBAR_HEIGHT -
-        (isSmallScreen(width) && !isDashboardBarMaxHeight(props.controlBarRows)
-            ? getControlBarHeightSmallDevice(CONTROL_BAR_COLLAPSED)
-            : getControlBarHeight(props.controlBarRows))
+    const onExpandedChanged = expanded => setControlbarExpanded(expanded)
 
     return (
-        <>
-            <DashboardsBar />
+        <div className={classes.container}>
+            <DashboardsBar
+                expanded={controlbarExpanded}
+                onExpandedChanged={onExpandedChanged}
+            />
             <div
-                className="dashboard-wrapper"
-                style={{ height: dashboardHeight }}
+                className={cx(
+                    classes.dashboardContainer,
+                    'dashboard-wrapper',
+                    controlbarExpanded && classes.covered
+                )}
             >
+                {controlbarExpanded && (
+                    <ComponentCover
+                        className={classes.cover}
+                        translucent
+                        onClick={() => setControlbarExpanded(false)}
+                    />
+                )}
                 <ViewTitleBar />
                 <FilterBar />
                 <ViewItemGrid />
             </div>
-        </>
+        </div>
     )
 }
 
 ViewDashboard.propTypes = {
     clearEditDashboard: PropTypes.func,
     clearPrintDashboard: PropTypes.func,
-    controlBarRows: PropTypes.number,
     dashboardIsEditing: PropTypes.bool,
     dashboardIsPrinting: PropTypes.bool,
     selectedId: PropTypes.string,
@@ -72,7 +72,6 @@ const mapStateToProps = state => {
     return {
         dashboardIsEditing: sGetIsEditing(state),
         dashboardIsPrinting: sGetIsPrinting(state),
-        controlBarRows: sGetControlBarUserRows(state),
         selectedId: sGetSelectedId(state),
     }
 }

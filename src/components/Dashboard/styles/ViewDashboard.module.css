@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.dashboardContainer {
+    position: relative;
+}
+
+.cover {
+    display: none;
+}
+
+@media only screen and (max-height: 480px), only screen and (max-width: 480px) {
+    .cover {
+        display: block;
+    }
+    .dashboardContainer.covered {
+        overflow: hidden;
+    }
+}

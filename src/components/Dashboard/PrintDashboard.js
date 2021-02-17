@@ -4,10 +4,7 @@ import PropTypes from 'prop-types'
 import sortBy from 'lodash/sortBy'
 
 import PrintInfo from './PrintInfo'
-import PrintActionsBar, {
-    PRINT_ACTIONS_BAR_HEIGHT,
-    PRINT_ACTIONS_BAR_HEIGHT_SM,
-} from './PrintActionsBar'
+import PrintActionsBar from './PrintActionsBar'
 import PrintItemGrid from '../ItemGrid/PrintItemGrid'
 import {
     acSetPrintDashboard,
@@ -25,8 +22,6 @@ import {
     MAX_ITEM_GRID_HEIGHT_OIPP,
     MAX_ITEM_GRID_WIDTH_OIPP,
 } from '../../modules/gridUtil'
-import { useWindowDimensions } from '../WindowDimensionsProvider'
-import { isSmallScreen } from '../../modules/smallScreen'
 
 import classes from './styles/PrintDashboard.module.css'
 
@@ -84,26 +79,16 @@ const PrintDashboard = ({
         }
     }, [dashboard, items])
 
-    const { width, height } = useWindowDimensions()
-    const availableHeight =
-        height -
-        (isSmallScreen(width)
-            ? PRINT_ACTIONS_BAR_HEIGHT_SM
-            : PRINT_ACTIONS_BAR_HEIGHT)
-
     return (
-        <>
+        <div className={classes.container}>
             <PrintActionsBar id={dashboard.id} />
-            <div
-                className={classes.container}
-                style={{ height: availableHeight }}
-            >
+            <div className={classes.wrapper}>
                 <PrintInfo isLayout={false} />
                 <div className={classes.pageOuter} data-test="print-oipp-page">
                     <PrintItemGrid />
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

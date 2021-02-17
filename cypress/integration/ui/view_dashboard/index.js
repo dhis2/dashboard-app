@@ -3,6 +3,7 @@ import { dashboards } from '../../../assets/backends/sierraLeone_236'
 import {
     dashboardTitleSel,
     dashboardChipSel,
+    dashboardSearchInputSel,
 } from '../../../selectors/viewDashboard'
 
 When('I select the Immunization dashboard', () => {
@@ -10,7 +11,7 @@ When('I select the Immunization dashboard', () => {
 })
 
 When('I search for dashboards containing Immunization', () => {
-    cy.get('[data-test="search-dashboard-input"]').type('Immun')
+    cy.get(dashboardSearchInputSel).type('Immun')
 })
 
 Then('Immunization and Immunization data dashboards are choices', () => {
@@ -18,11 +19,11 @@ Then('Immunization and Immunization data dashboards are choices', () => {
 })
 
 When('I press enter in the search dashboard field', () => {
-    cy.get('[data-test="search-dashboard-input"]').type('{enter}')
+    cy.get(dashboardSearchInputSel).type('{enter}')
 })
 
 When('I search for dashboards containing Noexist', () => {
-    cy.get('[data-test="search-dashboard-input"]').type('Noexist')
+    cy.get(dashboardSearchInputSel).type('Noexist')
 })
 Then('no dashboards are choices', () => {
     cy.get(dashboardChipSel).should('not.exist')
