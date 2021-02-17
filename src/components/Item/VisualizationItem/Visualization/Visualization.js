@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
 import i18n from '@dhis2/d2-i18n'
-import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
 
 import DefaultPlugin from './DefaultPlugin'
 import MapPlugin from './MapPlugin'
@@ -22,6 +20,7 @@ import { getVisualizationId } from '../../../../modules/item'
 import memoizeOne from '../../../../modules/memoizeOne'
 import { sGetVisualization } from '../../../../reducers/visualizations'
 import { pluginIsAvailable } from './plugin'
+import { DataVisualizerPlugin } from './DataVisualizerPlugin'
 
 class Visualization extends React.Component {
     state = {
@@ -83,24 +82,17 @@ class Visualization extends React.Component {
                 return (
                     <>
                         {!this.state.pluginLoaded && (
-                            <div style={pluginProps.style}>
-                                <LoadingMask />
-                            </div>
+                            <LoadingMask style={pluginProps.style} />
                         )}
-                        <D2Shim d2Config={{}}>
-                            {({ d2 }) => (
-                                <VisualizationPlugin
-                                    d2={d2}
-                                    visualization={this.memoizedGetFilteredVisualization(
-                                        pluginProps.visualization,
-                                        pluginProps.itemFilters
-                                    )}
-                                    onLoadingComplete={this.onLoadingComplete}
-                                    forDashboard={true}
-                                    style={pluginProps.style}
-                                />
+                        <DataVisualizerPlugin
+                            visualization={this.memoizedGetFilteredVisualization(
+                                pluginProps.visualization,
+                                pluginProps.itemFilters
                             )}
-                        </D2Shim>
+                            onLoadingComplete={this.onLoadingComplete}
+                            forDashboard={true}
+                            style={pluginProps.style}
+                        />
                     </>
                 )
             }
