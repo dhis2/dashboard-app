@@ -6,7 +6,7 @@ import configureMockStore from 'redux-mock-store'
 import Visualization from '../Visualization'
 
 jest.mock('@dhis2/app-runtime-adapter-d2', () => ({
-    D2Shim: ({ children }) => children({ d2: {} }),
+    useD2: () => ({}),
 }))
 
 jest.mock(
