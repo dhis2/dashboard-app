@@ -13,22 +13,8 @@ import { apiPostControlBarRows } from '../../../api/controlBar'
 
 import classes from './styles/DashboardsBar.module.css'
 
-const rowClassMap = {
-    1: 'one',
-    2: 'two',
-    3: 'three',
-    4: 'four',
-    5: 'five',
-    6: 'six',
-    7: 'seven',
-    8: 'eight',
-    9: 'nine',
-    10: 'ten',
-}
-
-const rowClassKeys = Object.keys(rowClassMap)
-export const MIN_ROW_COUNT = rowClassKeys[0]
-export const MAX_ROW_COUNT = rowClassKeys[rowClassKeys.length - 1]
+const MIN_ROW_COUNT = 1
+const MAX_ROW_COUNT = 10
 
 const DashboardsBar = ({
     userRows,
@@ -50,10 +36,13 @@ const DashboardsBar = ({
 
         if (newRows !== userRows) {
             updateUserRows(Math.min(newRows, MAX_ROW_COUNT))
-            rootElement.style.setProperty('--user-rows', newRows)
             userRowsChanged.current = true
         }
     }
+
+    useEffect(() => {
+        rootElement.style.setProperty('--user-rows-count', userRows)
+    }, [userRows])
 
     useEffect(() => {
         if (!dragging && userRowsChanged.current) {

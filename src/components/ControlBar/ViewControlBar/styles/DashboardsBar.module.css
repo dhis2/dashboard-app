@@ -8,9 +8,7 @@
     flex: none;
     display: flex;
     flex-direction: column;
-    height: calc(
-        var(--controlbar-padding) + (var(--user-rows) * var(--row-height))
-    );
+    height: var(--user-rows-height);
 }
 
 .content {
@@ -24,18 +22,14 @@
 }
 
 .expanded .container {
-    height: calc(
-        var(--controlbar-padding) + (var(--max-user-rows) * var(--row-height))
-    );
+    height: var(--max-rows-height);
 }
 
 .spacer {
     display: none;
     box-sizing: border-box;
     flex: none;
-    height: calc(
-        var(--controlbar-padding) + (var(--user-rows) * var(--row-height))
-    );
+    height: var(--user-rows-height);
 }
 
 @media only screen and (min-width: 481px) {
@@ -66,20 +60,14 @@
 
     .expanded .spacer {
         display: block;
-        height: calc(
-            var(--controlbar-padding) +
-                (var(--min-user-rows) * var(--row-height))
-        );
+        height: var(--min-rows-height);
     }
 }
 
 /* phone LANDSCAPE MODE or small screen */
 @media only screen and (max-height: 480px), only screen and (max-width: 480px) {
     .collapsed .container {
-        height: calc(
-            var(--controlbar-padding) +
-                (var(--min-user-rows) * var(--row-height))
-        );
+        height: var(--min-rows-height);
     }
 
     .expanded .container {
