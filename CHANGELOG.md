@@ -1,3 +1,10 @@
+## [31.11.2](https://github.com/dhis2/dashboard-app/compare/v31.11.1...v31.11.2) (2021-02-17)
+
+
+### Bug Fixes
+
+* hide filter modal when in small screen [DHIS2-10439, DHIS2-10138] ([#1545](https://github.com/dhis2/dashboard-app/issues/1545)) ([b81a1f4](https://github.com/dhis2/dashboard-app/commit/b81a1f4051d1908f115a444289ced5cf3e5632d6))
+
 ## [31.11.1](https://github.com/dhis2/dashboard-app/compare/v31.11.0...v31.11.1) (2021-02-17)
 
 
