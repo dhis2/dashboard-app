@@ -36,6 +36,17 @@ exports[`renders Save and Discard buttons but no dialogs when no dashboard id 1`
         </div>
         <div
           class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 "
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Filter Settings
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
         />
         <div
           class="jsx-71743532 box"
@@ -85,6 +96,17 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
             type="button"
           >
             Print preview
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 "
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Filter Settings
           </button>
         </div>
         <div
@@ -184,6 +206,17 @@ exports[`renders the EditBar 1`] = `
             data-test="dhis2-uicore-button"
             type="button"
           >
+            Filter Settings
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 "
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
             Translate
           </button>
         </div>
@@ -235,6 +268,17 @@ exports[`shows the confirm delete dialog when delete button clicked 1`] = `
             type="button"
           >
             Print preview
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 "
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Filter Settings
           </button>
         </div>
         <div
@@ -307,6 +351,17 @@ exports[`shows the translate dialog 1`] = `
             type="button"
           >
             Print preview
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 "
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Filter Settings
           </button>
         </div>
         <div

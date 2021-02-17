@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
-"PO-Revision-Date: 2021-02-15T14:41:50.992Z\n"
+"POT-Creation-Date: 2021-02-17T18:07:32.071Z\n"
+"PO-Revision-Date: 2021-02-17T18:07:32.071Z\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -41,6 +41,9 @@ msgid "Exit Print preview"
 msgstr ""
 
 msgid "Print preview"
+msgstr ""
+
+msgid "Filter Settings"
 msgstr ""
 
 msgid "Translate"
@@ -184,6 +187,31 @@ msgid "Confirm"
 msgstr ""
 
 msgid "Add filter"
+msgstr ""
+
+msgid "Allow filtering on all dimensions"
+msgstr ""
+
+msgid "Only allow filtering on specified dimensions"
+msgstr ""
+
+msgid "Dashboard Filter Settings"
+msgstr ""
+
+msgid ""
+"Filters allow users of a dashboard to customize the \n"
+"                                data displayed. By default all dimensions "
+"are \n"
+"                                available as filters. Alternatively, a "
+"limited \n"
+"                                number of filters can be made available on "
+"a dashboard."
+msgstr ""
+
+msgid "Available Filters"
+msgstr ""
+
+msgid "Selected Filters"
 msgstr ""
 
 msgid "There are no items on this dashboard"

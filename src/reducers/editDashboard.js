@@ -14,14 +14,17 @@ export const UPDATE_DASHBOARD_ITEM = 'UPDATE_DASHBOARD_ITEM'
 export const RECEIVED_DASHBOARD_LAYOUT = 'RECEIVED_DASHBOARD_LAYOUT'
 export const SET_PRINT_PREVIEW_VIEW = 'SET_PRINT_PREVIEW_VIEW'
 export const CLEAR_PRINT_PREVIEW_VIEW = 'CLEAR_PRINT_PREVIEW_VIEW'
+export const RECEIVED_FILTER_SETTINGS = 'RECEIVED_FILTER_SETTINGS'
 
 export const DEFAULT_STATE_EDIT_DASHBOARD = {}
 export const NEW_DASHBOARD_STATE = {
     id: '',
     name: '',
     access: {},
+    allowedFilters: [],
     description: '',
     dashboardItems: [],
+    restrictFilters: false,
     printPreviewView: false,
 }
 
@@ -136,6 +139,12 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
             }
 
             return state
+        }
+        case RECEIVED_FILTER_SETTINGS: {
+            return Object.assign({}, state, {
+                allowedFilters: action.value.allowedFilters,
+                restrictFilters: action.value.restrictFilters,
+            })
         }
         default:
             return state
