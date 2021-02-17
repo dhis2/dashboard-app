@@ -13,8 +13,8 @@ import { apiPostControlBarRows } from '../../../api/controlBar'
 
 import classes from './styles/DashboardsBar.module.css'
 
-const MIN_ROW_COUNT = 1
-const MAX_ROW_COUNT = 10
+export const MIN_ROW_COUNT = 1
+export const MAX_ROW_COUNT = 10
 
 const DashboardsBar = ({
     userRows,
