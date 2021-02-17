@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-05T15:43:33.906Z\n"
+"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -264,14 +264,14 @@ msgstr ""
 msgid "Failed to star the dashboard"
 msgstr ""
 
+msgid "More"
+msgstr "Plus"
+
 msgid "Edit"
 msgstr "Modifier"
 
 msgid "Share"
 msgstr "Partager"
-
-msgid "More"
-msgstr "Plus"
 
 msgid "Dashboard layout"
 msgstr "Mise en page du tableau de bord"

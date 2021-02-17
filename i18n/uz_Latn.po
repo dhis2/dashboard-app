@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-05T15:43:33.906Z\n"
+"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
@@ -256,14 +256,14 @@ msgstr ""
 msgid "Failed to star the dashboard"
 msgstr ""
 
+msgid "More"
+msgstr "Koʼproq"
+
 msgid "Edit"
 msgstr "Tahrirlash"
 
 msgid "Share"
 msgstr "Ulashish"
-
-msgid "More"
-msgstr "Koʼproq"
 
 msgid "Dashboard layout"
 msgstr "Boshqaruv paneli maketi"

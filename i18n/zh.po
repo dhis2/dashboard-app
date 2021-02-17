@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-05T15:43:33.906Z\n"
+"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -247,14 +247,14 @@ msgstr "无法取消仪表板的星标"
 msgid "Failed to star the dashboard"
 msgstr "无法为仪表板加注星标"
 
+msgid "More"
+msgstr "更多"
+
 msgid "Edit"
 msgstr "编辑"
 
 msgid "Share"
 msgstr "分享"
-
-msgid "More"
-msgstr "更多"
 
 msgid "Dashboard layout"
 msgstr "仪表板布局"
