@@ -7,7 +7,7 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
     data-test="dashboards-bar"
   >
     <div
-      class="container one"
+      class="container"
     >
       <div
         class="content"
@@ -257,7 +257,7 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
       />
     </div>
     <div
-      class="topMargin one"
+      class="spacer"
     />
   </div>
 </DocumentFragment>
@@ -270,7 +270,7 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
     data-test="dashboards-bar"
   >
     <div
-      class="container ten"
+      class="container"
     >
       <div
         class="content"
@@ -522,7 +522,7 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
       />
     </div>
     <div
-      class="topMargin ten"
+      class="spacer"
     />
   </div>
 </div>
@@ -535,7 +535,7 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
     data-test="dashboards-bar"
   >
     <div
-      class="container one"
+      class="container"
     >
       <div
         class="content"
@@ -787,7 +787,7 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
       />
     </div>
     <div
-      class="topMargin one"
+      class="spacer"
     />
   </div>
 </div>
@@ -800,7 +800,7 @@ exports[`renders a DashboardsBar with no items 1`] = `
     data-test="dashboards-bar"
   >
     <div
-      class="container one"
+      class="container"
     >
       <div
         class="content"
@@ -998,7 +998,7 @@ exports[`renders a DashboardsBar with no items 1`] = `
       />
     </div>
     <div
-      class="topMargin one"
+      class="spacer"
     />
   </div>
 </div>
@@ -1011,7 +1011,7 @@ exports[`renders a DashboardsBar with selected item 1`] = `
     data-test="dashboards-bar"
   >
     <div
-      class="container one"
+      class="container"
     >
       <div
         class="content"
@@ -1263,7 +1263,7 @@ exports[`renders a DashboardsBar with selected item 1`] = `
       />
     </div>
     <div
-      class="topMargin one"
+      class="spacer"
     />
   </div>
 </div>
@@ -1276,7 +1276,7 @@ exports[`small screen: clicking "Show more" maximizes dashboards bar height 1`] 
     data-test="dashboards-bar"
   >
     <div
-      class="container three"
+      class="container"
     >
       <div
         class="content"
@@ -1526,7 +1526,7 @@ exports[`small screen: clicking "Show more" maximizes dashboards bar height 1`] 
       />
     </div>
     <div
-      class="topMargin three"
+      class="spacer"
     />
   </div>
 </DocumentFragment>
@@ -1539,7 +1539,7 @@ exports[`small screen: renders a DashboardsBar with minimum height 1`] = `
     data-test="dashboards-bar"
   >
     <div
-      class="container three"
+      class="container"
     >
       <div
         class="content"
@@ -1791,7 +1791,7 @@ exports[`small screen: renders a DashboardsBar with minimum height 1`] = `
       />
     </div>
     <div
-      class="topMargin three"
+      class="spacer"
     />
   </div>
 </div>
