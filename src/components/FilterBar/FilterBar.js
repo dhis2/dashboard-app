@@ -10,7 +10,7 @@ import { acSetActiveModalDimension } from '../../actions/activeModalDimension'
 
 import classes from './styles/FilterBar.module.css'
 
-export class FilterBar extends Component {
+class FilterBar extends Component {
     onBadgeRemove = id => {
         this.props.removeItemFilter(id)
     }

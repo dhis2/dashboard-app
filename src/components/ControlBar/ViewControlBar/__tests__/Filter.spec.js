@@ -8,7 +8,7 @@ import Filter, {
     KEYCODE_ENTER,
     KEYCODE_ESCAPE,
 } from '../Filter'
-import WindowDimensionsProvider from '../../WindowDimensionsProvider'
+import WindowDimensionsProvider from '../../../WindowDimensionsProvider'
 
 const mockStore = configureMockStore()
 

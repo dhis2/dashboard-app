@@ -47,16 +47,16 @@ Then('the wide screen view is shown', () => {
 
 Then('the small screen edit view is shown', () => {
     //no controlbar
-    cy.contains('Save changes').should('not.exist')
-    cy.contains('Exit without saving').should('not.exist')
+    cy.contains('Save changes').should('not.be.visible')
+    cy.contains('Exit without saving').should('not.be.visible')
 
     //notice box and no dashboard
     cy.contains('dashboards on small screens is not supported').should(
         'be.visible'
     )
     // no title or item grid
-    cy.get('[data-test="dashboard-title-input"]').should('not.exist')
-    cy.get('.react-grid-layout').should('not.exist')
+    cy.get('[data-test="dashboard-title-input"]').should('not.be.visible')
+    cy.get('.react-grid-layout').should('not.be.visible')
 })
 
 Then('the wide screen edit view is shown', () => {
@@ -93,7 +93,7 @@ Then('the {string} dashboard displays in default view mode', title => {
     })
 
     cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
-    cy.get(chartSel, EXTENDED_TIMEOUT).should('exist')
+    cy.get(chartSel, EXTENDED_TIMEOUT).should('be.visible')
 })
 
 // Scenario: I change the url to 'edit' while in small screen

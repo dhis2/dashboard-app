@@ -15,7 +15,7 @@ const WindowDimensionsProvider = ({ children }) => {
     useEffect(() => {
         const handleResize = debounce(() => {
             setDimensions(windowDims())
-        }, 200)
+        }, 100)
         window.addEventListener('resize', handleResize)
         return () => {
             window.removeEventListener('resize', handleResize)

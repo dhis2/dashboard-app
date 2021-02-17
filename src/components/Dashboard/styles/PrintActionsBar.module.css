@@ -2,7 +2,7 @@
     background-color: var(--colors-grey600);
     width: 100%;
     padding: var(--spacers-dp4) 0;
-    z-index: 10;
+    flex: none;
 }
 
 .actions {

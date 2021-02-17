@@ -1,9 +1,17 @@
-/* control bar variables: height */
+/* control bar variables */
 :root {
-    --controlbar-showmore-height: 24px;
-    --headerbar-height: 48px;
-    --searchbar-height: 40px;
-    --drag-handle-height: 7px;
+    --user-rows-count: 1;
+    --controlbar-padding: 31px;
+    --row-height: 40px;
+    --min-rows-height: calc(
+        var(--controlbar-padding) + (1 * var(--row-height))
+    );
+    --max-rows-height: calc(
+        var(--controlbar-padding) + (10 * var(--row-height))
+    );
+    --user-rows-height: calc(
+        var(--controlbar-padding) + (var(--user-rows-count) * var(--row-height))
+    );
 }
 
 body {
