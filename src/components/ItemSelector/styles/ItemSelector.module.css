@@ -4,7 +4,7 @@
 }
 
 @media only screen and (max-width: 480px) {
-    .menu {
-        display: none !important;
+    .popover {
+        display: none;
     }
 }
