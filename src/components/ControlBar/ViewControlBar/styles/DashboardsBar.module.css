@@ -8,6 +8,9 @@
     flex: none;
     display: flex;
     flex-direction: column;
+    height: calc(
+        var(--controlbar-padding) + (var(--user-rows) * var(--row-height))
+    );
 }
 
 .content {
@@ -20,45 +23,19 @@
     overflow-y: auto;
 }
 
-.one {
-    height: 71px;
-}
-.two {
-    height: 111px;
-}
-.three {
-    height: 151px;
-}
-.four {
-    height: 191px;
-}
-.five {
-    height: 231px;
-}
-.six {
-    height: 271px;
-}
-.seven {
-    height: 311px;
-}
-.eight {
-    height: 351px;
-}
-.nine {
-    height: 391px;
-}
-.ten {
-    height: 431px;
-}
-
 .expanded .container {
-    height: 431px;
+    height: calc(
+        var(--controlbar-padding) + (var(--max-user-rows) * var(--row-height))
+    );
 }
 
 .spacer {
     display: none;
     box-sizing: border-box;
     flex: none;
+    height: calc(
+        var(--controlbar-padding) + (var(--user-rows) * var(--row-height))
+    );
 }
 
 @media only screen and (min-width: 481px) {
@@ -89,14 +66,20 @@
 
     .expanded .spacer {
         display: block;
-        height: 71px;
+        height: calc(
+            var(--controlbar-padding) +
+                (var(--min-user-rows) * var(--row-height))
+        );
     }
 }
 
 /* phone LANDSCAPE MODE or small screen */
 @media only screen and (max-height: 480px), only screen and (max-width: 480px) {
     .collapsed .container {
-        height: 71px;
+        height: calc(
+            var(--controlbar-padding) +
+                (var(--min-user-rows) * var(--row-height))
+        );
     }
 
     .expanded .container {

@@ -40,6 +40,8 @@ const DashboardsBar = ({
     const userRowsChanged = useRef(false)
     const ref = createRef()
 
+    const rootElement = document.documentElement
+
     const adjustRows = newHeight => {
         const newRows = Math.max(
             MIN_ROW_COUNT,
@@ -48,6 +50,7 @@ const DashboardsBar = ({
 
         if (newRows !== userRows) {
             updateUserRows(Math.min(newRows, MAX_ROW_COUNT))
+            rootElement.style.setProperty('--user-rows', newRows)
             userRowsChanged.current = true
         }
     }
@@ -84,12 +87,7 @@ const DashboardsBar = ({
             className={expanded ? classes.expanded : classes.collapsed}
             data-test="dashboards-bar"
         >
-            <div
-                className={cx(
-                    classes.container,
-                    classes[rowClassMap[userRows]]
-                )}
-            >
+            <div className={cx(classes.container)}>
                 <div className={classes.content} ref={ref}>
                     <Content
                         onChipClicked={cancelExpanded}
@@ -107,9 +105,7 @@ const DashboardsBar = ({
                     onHeightChanged={adjustRows}
                 />
             </div>
-            <div
-                className={cx(classes.spacer, classes[rowClassMap[userRows]])}
-            />
+            <div className={cx(classes.spacer)} />
         </div>
     )
 }
