@@ -28,7 +28,11 @@ export const ViewDashboard = props => {
     }, [props.dashboardIsEditing, props.dashboardIsPrinting])
 
     useEffect(() => {
-        document.querySelector('.dashboard-scroll-container')?.scroll(0, 0)
+        Array.from(
+            document.querySelectorAll('.dashboard-scroll-container')
+        ).forEach(container => {
+            container.scroll(0, 0)
+        })
     }, [props.selectedId])
 
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
