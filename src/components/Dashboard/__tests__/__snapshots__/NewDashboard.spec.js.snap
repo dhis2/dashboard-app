@@ -10,7 +10,7 @@ exports[`NewDashboard renders dashboard 1`] = `
         EditBar
       </div>
       <div
-        class="dashboard-wrapper"
+        class="container dashboard-scroll-container"
       >
         <div>
           EditTitleBar

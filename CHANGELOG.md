@@ -1,3 +1,17 @@
+## [31.12.1](https://github.com/dhis2/dashboard-app/compare/v31.12.0...v31.12.1) (2021-02-18)
+
+
+### Bug Fixes
+
+* spacing between titlebar and filter badge ([#1551](https://github.com/dhis2/dashboard-app/issues/1551)) ([45d90d5](https://github.com/dhis2/dashboard-app/commit/45d90d54f2bc795618684dbe37094139eb5a491b))
+
+# [31.12.0](https://github.com/dhis2/dashboard-app/compare/v31.11.2...v31.12.0) (2021-02-18)
+
+
+### Features
+
+* scroll away control bar when viewing dashboard on screen with height <=480px ([#1550](https://github.com/dhis2/dashboard-app/issues/1550)) ([0caf0d8](https://github.com/dhis2/dashboard-app/commit/0caf0d8c539ca2c50ba6d7d05eb7f2049e645371))
+
 ## [31.11.2](https://github.com/dhis2/dashboard-app/compare/v31.11.1...v31.11.2) (2021-02-17)
 
 
