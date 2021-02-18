@@ -51,23 +51,27 @@ class ProgressiveLoadingContainer extends Component {
             this.props.debounceMs
         )
 
-        document
-            .getElementsByClassName('dashboard-wrapper')[0]
-            ?.addEventListener(
+        Array.from(
+            document.getElementsByClassName('dashboard-scroll-container')
+        ).forEach(container => {
+            container.addEventListener(
                 'scroll',
                 this.shouldLoadHandler,
                 this.handlerOptions
             )
+        })
     }
 
     removeHandler() {
-        document
-            .getElementsByClassName('dashboard-wrapper')[0]
-            ?.removeEventListener(
+        Array.from(
+            document.getElementsByClassName('dashboard-scroll-container')
+        ).forEach(container => {
+            container.removeEventListener(
                 'scroll',
                 this.shouldLoadHandler,
                 this.handlerOptions
             )
+        })
     }
 
     componentDidMount() {
