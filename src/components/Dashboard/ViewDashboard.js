@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { ComponentCover } from '@dhis2/ui'
 import cx from 'classnames'
+import DashboardContainer from './DashboardContainer'
 import ViewTitleBar from '../TitleBar/ViewTitleBar'
 import ViewItemGrid from '../ItemGrid/ViewItemGrid'
 import FilterBar from '../FilterBar/FilterBar'
@@ -27,24 +28,18 @@ export const ViewDashboard = props => {
     }, [props.dashboardIsEditing, props.dashboardIsPrinting])
 
     useEffect(() => {
-        document.querySelector('.dashboard-wrapper')?.scroll(0, 0)
+        document.querySelector('.dashboard-scroll-container')?.scroll(0, 0)
     }, [props.selectedId])
 
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
 
     return (
-        <div className={classes.container}>
+        <div className={cx(classes.container, 'dashboard-scroll-container')}>
             <DashboardsBar
                 expanded={controlbarExpanded}
                 onExpandedChanged={onExpandedChanged}
             />
-            <div
-                className={cx(
-                    classes.dashboardContainer,
-                    'dashboard-wrapper',
-                    controlbarExpanded && classes.covered
-                )}
-            >
+            <DashboardContainer covered={controlbarExpanded}>
                 {controlbarExpanded && (
                     <ComponentCover
                         className={classes.cover}
@@ -55,7 +50,7 @@ export const ViewDashboard = props => {
                 <ViewTitleBar />
                 <FilterBar />
                 <ViewItemGrid />
-            </div>
+            </DashboardContainer>
         </div>
     )
 }

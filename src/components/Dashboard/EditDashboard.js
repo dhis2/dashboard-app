@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
+import DashboardContainer from './DashboardContainer'
 import EditTitleBar from '../TitleBar/EditTitleBar'
 import EditItemGrid from '../ItemGrid/EditItemGrid'
 import EditBar from '../ControlBar/EditBar'
@@ -31,10 +32,10 @@ const EditDashboard = props => {
             return <LayoutPrintPreview fromEdit={true} />
         }
         return (
-            <div className="dashboard-wrapper">
+            <DashboardContainer>
                 <EditTitleBar />
                 <EditItemGrid />
-            </div>
+            </DashboardContainer>
         )
     }
 
