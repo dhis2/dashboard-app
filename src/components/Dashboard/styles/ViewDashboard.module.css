@@ -21,3 +21,13 @@
         overflow: hidden;
     }
 }
+
+@media only screen and (max-height: 480px) {
+    .container {
+        overflow-y: auto;
+    }
+
+    .container .dashboardContainer {
+        overflow: visible;
+    }
+}
