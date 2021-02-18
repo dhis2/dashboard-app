@@ -29,7 +29,7 @@ export const ViewDashboard = props => {
 
     useEffect(() => {
         Array.from(
-            document.querySelectorAll('.dashboard-scroll-container')
+            document.getElementsByClassName('dashboard-scroll-container')
         ).forEach(container => {
             container.scroll(0, 0)
         })
