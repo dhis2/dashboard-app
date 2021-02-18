@@ -1,0 +1,19 @@
+.container {
+    background-color: #f4f6f8;
+    padding-left: var(--spacers-dp16);
+    padding-right: var(--spacers-dp16);
+    padding-bottom: var(--spacers-dp24);
+    overflow: auto;
+}
+
+@media only screen and (max-height: 480px) {
+    .container {
+        overflow: visible;
+    }
+}
+
+@media only screen and (max-height: 480px), only screen and (max-width: 480px) {
+    .covered {
+        overflow: hidden;
+    }
+}

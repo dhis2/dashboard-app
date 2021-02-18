@@ -1,3 +1,10 @@
+# [31.12.0](https://github.com/dhis2/dashboard-app/compare/v31.11.2...v31.12.0) (2021-02-18)
+
+
+### Features
+
+* scroll away control bar when viewing dashboard on screen with height <=480px ([#1550](https://github.com/dhis2/dashboard-app/issues/1550)) ([0caf0d8](https://github.com/dhis2/dashboard-app/commit/0caf0d8c539ca2c50ba6d7d05eb7f2049e645371))
+
 ## [31.11.2](https://github.com/dhis2/dashboard-app/compare/v31.11.1...v31.11.2) (2021-02-17)
 
 
