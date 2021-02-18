@@ -35,6 +35,11 @@ const getPlugin = async type => {
 }
 
 const fetchPlugin = async (type, baseUrl) => {
+    const globalName = itemTypeToGlobalVariable[type]
+    if (global[globalName]) {
+        return global[globalName] // Will be a promise if fetch is in progress
+    }
+
     const scripts = []
 
     if (type === EVENT_REPORT || type === EVENT_CHART) {
@@ -43,16 +48,19 @@ const fetchPlugin = async (type, baseUrl) => {
             scripts.push('./vendor/jquery-3.3.1.min.js')
             scripts.push('./vendor/jquery-migrate-3.0.1.min.js')
         } else {
-            scripts.push('./vendor/babel-polyfill-6.26.0.min.js')
-            scripts.push('./vendor/jquery-3.3.1.min.js')
-            scripts.push('./vendor/jquery-migrate-3.0.1.min.js')
+            scripts.push('./vendor/babel-polyfill-6.26.0.js')
+            scripts.push('./vendor/jquery-3.3.1.js')
+            scripts.push('./vendor/jquery-migrate-3.0.1.js')
         }
     }
 
     scripts.push(baseUrl + itemTypeToScriptPath[type])
 
-    await Promise.all(scripts.map(loadExternalScript))
-    return getPlugin(type)
+    const scriptsPromise = Promise.all(scripts.map(loadExternalScript)).then(
+        () => global[globalName] // At this point, has been replaced with the real thing
+    )
+    global[globalName] = scriptsPromise
+    return await scriptsPromise
 }
 
 export const pluginIsAvailable = type =>
