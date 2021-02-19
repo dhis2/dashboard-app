@@ -3,17 +3,74 @@
 exports[`NewDashboard renders dashboard 1`] = `
 <div>
   <div>
-    EditBar
-  </div>
-  <div
-    class="dashboard-wrapper"
-    style="height: 656px;"
-  >
-    <div>
-      EditTitleBar
+    <div
+      class="container"
+    >
+      <div>
+        EditBar
+      </div>
+      <div
+        class="container dashboard-scroll-container"
+      >
+        <div>
+          EditTitleBar
+        </div>
+        <div>
+          EditItemGrid
+        </div>
+      </div>
     </div>
-    <div>
-      EditItemGrid
+    <div
+      class="notice"
+    >
+      <div
+        class="jsx-761413583 centered-content top"
+        data-test="dhis2-uicore-centeredcontent"
+      >
+        <div
+          class="jsx-761413583 centered-inner-content"
+        >
+          <div
+            class="noticeContainer"
+          >
+            <div
+              class="jsx-3561221191 root warning"
+              data-test="dhis2-uicore-noticebox"
+            >
+              <div
+                data-test="dhis2-uicore-noticebox-icon"
+              >
+                <svg
+                  class="jsx-884574500 jsx-1769496071"
+                  viewBox="0 0 48 48"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    class="jsx-884574500"
+                    d="M2 42h44L24 4 2 42zm24-6h-4v-4h4v4zm0-8h-4v-8h4v8z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="jsx-3561221191"
+              >
+                <h6
+                  class="jsx-1234954849"
+                  data-test="dhis2-uicore-noticebox-title"
+                >
+                  Not supported
+                </h6>
+                <div
+                  class="jsx-3638294246"
+                  data-test="dhis2-uicore-noticebox-message"
+                >
+                  Creating dashboards on small screens is not supported. Resize your screen to return to create mode.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -22,10 +79,68 @@ exports[`NewDashboard renders dashboard 1`] = `
 exports[`NewDashboard renders print preview 1`] = `
 <div>
   <div>
-    EditBar
-  </div>
-  <div>
-    LayoutPrintPreview
+    <div
+      class="container"
+    >
+      <div>
+        EditBar
+      </div>
+      <div>
+        LayoutPrintPreview
+      </div>
+    </div>
+    <div
+      class="notice"
+    >
+      <div
+        class="jsx-761413583 centered-content top"
+        data-test="dhis2-uicore-centeredcontent"
+      >
+        <div
+          class="jsx-761413583 centered-inner-content"
+        >
+          <div
+            class="noticeContainer"
+          >
+            <div
+              class="jsx-3561221191 root warning"
+              data-test="dhis2-uicore-noticebox"
+            >
+              <div
+                data-test="dhis2-uicore-noticebox-icon"
+              >
+                <svg
+                  class="jsx-884574500 jsx-1769496071"
+                  viewBox="0 0 48 48"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    class="jsx-884574500"
+                    d="M2 42h44L24 4 2 42zm24-6h-4v-4h4v4zm0-8h-4v-8h4v8z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="jsx-3561221191"
+              >
+                <h6
+                  class="jsx-1234954849"
+                  data-test="dhis2-uicore-noticebox-title"
+                >
+                  Not supported
+                </h6>
+                <div
+                  class="jsx-3638294246"
+                  data-test="dhis2-uicore-noticebox-message"
+                >
+                  Creating dashboards on small screens is not supported. Resize your screen to return to create mode.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;

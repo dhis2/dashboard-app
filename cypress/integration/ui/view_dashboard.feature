@@ -38,3 +38,9 @@ Feature: Viewing dashboards
         Then the print one-item-per-page displays for "Delivery" dashboard
         When I click to exit print preview
         Then the "Delivery" dashboard displays in view mode
+
+    @mutating
+    Scenario: I change the height of the control bar
+        Given I open the "Delivery" dashboard
+        When I drag to increase the height of the control bar
+        Then the control bar height should be updated

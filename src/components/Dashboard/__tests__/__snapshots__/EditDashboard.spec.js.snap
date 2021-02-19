@@ -2,18 +2,73 @@
 
 exports[`EditDashboard renders dashboard 1`] = `
 <div>
-  <div>
-    EditBar
-  </div>
   <div
-    class="dashboard-wrapper"
-    style="height: 656px;"
+    class="container"
   >
     <div>
-      EditTitleBar
+      EditBar
     </div>
-    <div>
-      EditItemGrid
+    <div
+      class="container dashboard-scroll-container"
+    >
+      <div>
+        EditTitleBar
+      </div>
+      <div>
+        EditItemGrid
+      </div>
+    </div>
+  </div>
+  <div
+    class="notice"
+  >
+    <div
+      class="jsx-761413583 centered-content top"
+      data-test="dhis2-uicore-centeredcontent"
+    >
+      <div
+        class="jsx-761413583 centered-inner-content"
+      >
+        <div
+          class="noticeContainer"
+        >
+          <div
+            class="jsx-3561221191 root warning"
+            data-test="dhis2-uicore-noticebox"
+          >
+            <div
+              data-test="dhis2-uicore-noticebox-icon"
+            >
+              <svg
+                class="jsx-884574500 jsx-1769496071"
+                viewBox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="jsx-884574500"
+                  d="M2 42h44L24 4 2 42zm24-6h-4v-4h4v4zm0-8h-4v-8h4v8z"
+                />
+              </svg>
+            </div>
+            <div
+              class="jsx-3561221191"
+            >
+              <h6
+                class="jsx-1234954849"
+                data-test="dhis2-uicore-noticebox-title"
+              >
+                Not supported
+              </h6>
+              <div
+                class="jsx-3638294246"
+                data-test="dhis2-uicore-noticebox-message"
+              >
+                Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -21,24 +76,136 @@ exports[`EditDashboard renders dashboard 1`] = `
 
 exports[`EditDashboard renders message when not enough access 1`] = `
 <div>
-  <div>
-    EditBar
+  <div
+    class="container"
+  >
+    <div>
+      EditBar
+    </div>
+    <div
+      style="padding: 50px 10px; text-align: center; font-size: 15px; font-weight: 500; color: rgb(110, 122, 138);"
+    >
+      No access
+    </div>
   </div>
   <div
-    style="padding: 50px 10px; text-align: center; font-size: 15px; font-weight: 500; color: rgb(110, 122, 138);"
+    class="notice"
   >
-    No access
+    <div
+      class="jsx-761413583 centered-content top"
+      data-test="dhis2-uicore-centeredcontent"
+    >
+      <div
+        class="jsx-761413583 centered-inner-content"
+      >
+        <div
+          class="noticeContainer"
+        >
+          <div
+            class="jsx-3561221191 root warning"
+            data-test="dhis2-uicore-noticebox"
+          >
+            <div
+              data-test="dhis2-uicore-noticebox-icon"
+            >
+              <svg
+                class="jsx-884574500 jsx-1769496071"
+                viewBox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="jsx-884574500"
+                  d="M2 42h44L24 4 2 42zm24-6h-4v-4h4v4zm0-8h-4v-8h4v8z"
+                />
+              </svg>
+            </div>
+            <div
+              class="jsx-3561221191"
+            >
+              <h6
+                class="jsx-1234954849"
+                data-test="dhis2-uicore-noticebox-title"
+              >
+                Not supported
+              </h6>
+              <div
+                class="jsx-3638294246"
+                data-test="dhis2-uicore-noticebox-message"
+              >
+                Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
 
 exports[`EditDashboard renders print preview 1`] = `
 <div>
-  <div>
-    EditBar
+  <div
+    class="container"
+  >
+    <div>
+      EditBar
+    </div>
+    <div>
+      LayoutPrintPreview
+    </div>
   </div>
-  <div>
-    LayoutPrintPreview
+  <div
+    class="notice"
+  >
+    <div
+      class="jsx-761413583 centered-content top"
+      data-test="dhis2-uicore-centeredcontent"
+    >
+      <div
+        class="jsx-761413583 centered-inner-content"
+      >
+        <div
+          class="noticeContainer"
+        >
+          <div
+            class="jsx-3561221191 root warning"
+            data-test="dhis2-uicore-noticebox"
+          >
+            <div
+              data-test="dhis2-uicore-noticebox-icon"
+            >
+              <svg
+                class="jsx-884574500 jsx-1769496071"
+                viewBox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="jsx-884574500"
+                  d="M2 42h44L24 4 2 42zm24-6h-4v-4h4v4zm0-8h-4v-8h4v8z"
+                />
+              </svg>
+            </div>
+            <div
+              class="jsx-3561221191"
+            >
+              <h6
+                class="jsx-1234954849"
+                data-test="dhis2-uicore-noticebox-title"
+              >
+                Not supported
+              </h6>
+              <div
+                class="jsx-3638294246"
+                data-test="dhis2-uicore-noticebox-message"
+              >
+                Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;

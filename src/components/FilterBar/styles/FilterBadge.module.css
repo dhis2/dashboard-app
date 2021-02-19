@@ -1,0 +1,23 @@
+.container {
+    margin: 2px;
+    padding: 0 var(--spacers-dp16);
+    border-radius: 4px;
+    color: var(--colors-white);
+    background-color: #212934;
+    height: 36px;
+    display: flex;
+    align-items: center;
+}
+
+.badge {
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.removeButton {
+    font-size: 12px;
+    text-decoration: underline;
+    margin-left: var(--spacers-dp24);
+    cursor: pointer;
+}

@@ -1,43 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ViewDashboard renders correctly default 1`] = `
-<WindowDimensionsProvider>
-  <ViewDashboard
-    clearEditDashboard={[MockFunction]}
-    clearPrintDashboard={[MockFunction]}
-    controlBarRows={2}
-    dashboardIsEditing={false}
-    dashboardIsPrinting={false}
+<ViewDashboard
+  clearEditDashboard={[MockFunction]}
+  clearPrintDashboard={[MockFunction]}
+  dashboardIsEditing={false}
+  dashboardIsPrinting={false}
+>
+  <div
+    className="container dashboard-scroll-container"
   >
-    <MockDashboardsBar>
+    <MockDashboardsBar
+      expanded={false}
+      onExpandedChanged={[Function]}
+    >
       <div>
         MockDashboardsBar
       </div>
     </MockDashboardsBar>
-    <div
-      className="dashboard-wrapper"
-      style={
-        Object {
-          "height": 616,
-        }
-      }
+    <DashboardContainer
+      covered={false}
     >
-      <MockViewTitleBar>
-        <div>
-          MockViewTitleBar
-        </div>
-      </MockViewTitleBar>
-      <MockFilterBar>
-        <div>
-          MockFilterBar
-        </div>
-      </MockFilterBar>
-      <MockViewItemGrid>
-        <div>
-          MockViewItemGrid
-        </div>
-      </MockViewItemGrid>
-    </div>
-  </ViewDashboard>
-</WindowDimensionsProvider>
+      <div
+        className="container dashboard-scroll-container"
+      >
+        <MockViewTitleBar>
+          <div>
+            MockViewTitleBar
+          </div>
+        </MockViewTitleBar>
+        <MockFilterBar>
+          <div>
+            MockFilterBar
+          </div>
+        </MockFilterBar>
+        <MockViewItemGrid>
+          <div>
+            MockViewItemGrid
+          </div>
+        </MockViewItemGrid>
+      </div>
+    </DashboardContainer>
+  </div>
+</ViewDashboard>
 `;

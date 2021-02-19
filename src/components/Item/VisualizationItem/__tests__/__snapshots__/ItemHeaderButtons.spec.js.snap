@@ -1,5 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders Menu Items when open 1`] = `
+<Fragment>
+  <div>
+    <Button
+      dataTest="dashboarditem-menu-button"
+      onClick={[Function]}
+      secondary={true}
+      small={true}
+      type="button"
+    >
+      <ThreeDots />
+    </Button>
+  </div>
+  <Popover
+    arrow={false}
+    dataTest="dhis2-uicore-popover"
+    elevation="0 0 1px 0 rgba(64,75,90,0.29), 0 3px 8px -2px rgba(64,75,90,0.30)"
+    maxWidth={360}
+    onClickOutside={[Function]}
+    placement="auto-start"
+    reference={
+      Object {
+        "current": null,
+      }
+    }
+  >
+    <Menu
+      dataTest="dhis2-uicore-menulist"
+    >
+      <ViewAsMenuItems />
+      <Divider
+        dataTest="dhis2-uicore-divider"
+        margin="8px 0"
+      />
+      <MenuItem
+        dataTest="dhis2-uicore-menuitem"
+        dense={true}
+        href="http://rainbowdash"
+        icon={
+          <UNDEFINED
+            style={
+              Object {
+                "fill": "#6e7a8a",
+              }
+            }
+          />
+        }
+        label="Open in Data Visualizer app"
+        target="_blank"
+      />
+      <MenuItem
+        dataTest="dhis2-uicore-menuitem"
+        dense={true}
+        icon={<SpeechBubble />}
+        label="Show interpretations and details"
+        onClick={[Function]}
+      />
+      <MenuItem
+        dataTest="dhis2-uicore-menuitem"
+        dense={true}
+        icon={<Fullscreen />}
+        label="View fullscreen"
+        onClick={[Function]}
+      />
+    </Menu>
+  </Popover>
+</Fragment>
+`;
+
 exports[`renders correctly when fullscreen 1`] = `
 <Button
   dataTest="dhis2-uicore-button"

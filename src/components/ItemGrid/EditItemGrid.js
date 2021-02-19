@@ -32,6 +32,8 @@ import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer'
 import { EDIT } from '../Dashboard/dashboardModes'
 import { useWindowDimensions } from '../WindowDimensionsProvider'
 
+import classes from './styles/ItemGrid.module.css'
+
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
@@ -102,6 +104,7 @@ const EditItemGrid = ({
                 </Layer>
             ) : null}
             <ResponsiveReactGridLayout
+                className={classes.grid}
                 rowHeight={GRID_ROW_HEIGHT_PX}
                 width={getGridWidth(width)}
                 cols={{ lg: GRID_COLUMNS }}

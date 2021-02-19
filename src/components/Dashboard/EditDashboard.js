@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
+import DashboardContainer from './DashboardContainer'
 import EditTitleBar from '../TitleBar/EditTitleBar'
 import EditItemGrid from '../ItemGrid/EditItemGrid'
 import EditBar from '../ControlBar/EditBar'
 import NotSupportedNotice from './NotSupportedNotice'
-import { useWindowDimensions } from '../WindowDimensionsProvider'
 import LayoutPrintPreview from './PrintLayoutDashboard'
 import NoContentMessage from '../../widgets/NoContentMessage'
 import { acSetEditDashboard } from '../../actions/editDashboard'
@@ -17,16 +17,10 @@ import {
     sGetDashboardItems,
 } from '../../reducers/dashboards'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
-import {
-    getControlBarHeight,
-    HEADERBAR_HEIGHT,
-} from '../ControlBar/controlBarDimensions'
 
-import { isSmallScreen } from '../../modules/smallScreen'
+import classes from './styles/EditDashboard.module.css'
 
 const EditDashboard = props => {
-    const { width, height } = useWindowDimensions()
-
     useEffect(() => {
         if (props.dashboard) {
             props.setEditDashboard(props.dashboard, props.items)
@@ -37,43 +31,31 @@ const EditDashboard = props => {
         if (props.isPrintPreviewView) {
             return <LayoutPrintPreview fromEdit={true} />
         }
-
-        const dashboardHeight =
-            height - HEADERBAR_HEIGHT - getControlBarHeight(1)
-
         return (
-            <div
-                className="dashboard-wrapper"
-                style={{ height: dashboardHeight }}
-            >
+            <DashboardContainer>
                 <EditTitleBar />
                 <EditItemGrid />
-            </div>
+            </DashboardContainer>
         )
     }
 
-    const renderEditView = () => (
-        <>
-            <EditBar />
-            {props.updateAccess ? (
-                renderGrid()
-            ) : (
-                <NoContentMessage text={i18n.t('No access')} />
-            )}
-        </>
-    )
-
     return (
         <>
-            {isSmallScreen(width) ? (
+            <div className={classes.container}>
+                <EditBar />
+                {props.updateAccess ? (
+                    renderGrid()
+                ) : (
+                    <NoContentMessage text={i18n.t('No access')} />
+                )}
+            </div>
+            <div className={classes.notice}>
                 <NotSupportedNotice
                     message={i18n.t(
                         'Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.'
                     )}
                 />
-            ) : (
-                renderEditView()
-            )}
+            </div>
         </>
     )
 }

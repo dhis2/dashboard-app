@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-02-05T15:43:33.906Z\n"
-"PO-Revision-Date: 2021-02-05T15:43:33.906Z\n"
+"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
+"PO-Revision-Date: 2021-02-15T14:41:50.992Z\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -237,13 +237,13 @@ msgstr ""
 msgid "Failed to star the dashboard"
 msgstr ""
 
+msgid "More"
+msgstr ""
+
 msgid "Edit"
 msgstr ""
 
 msgid "Share"
-msgstr ""
-
-msgid "More"
 msgstr ""
 
 msgid "Dashboard layout"

@@ -1,6 +1,5 @@
 .container {
-    margin-top: 13px;
-    margin-bottom: 20px;
+    margin-top: var(--spacers-dp12);
 }
 
 .actions {
