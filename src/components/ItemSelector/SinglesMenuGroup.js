@@ -6,7 +6,7 @@ import HeaderMenuItem from './HeaderMenuItem'
 import ContentMenuItem from './ContentMenuItem'
 import { acAddDashboardItem } from '../../actions/editDashboard'
 
-export const SinglesMenuGroup = ({ acAddDashboardItem, category }) => {
+const SinglesMenuGroup = ({ acAddDashboardItem, category }) => {
     const addToDashboard = ({ type, content }) => () => {
         acAddDashboardItem({ type, content })
     }

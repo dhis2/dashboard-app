@@ -1,11 +1,13 @@
 import React, { useState, useEffect, createRef } from 'react'
 import { Popover, FlyoutMenu } from '@dhis2/ui'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { useDataEngine } from '@dhis2/app-runtime'
 import ItemSearchField from './ItemSearchField'
 import CategorizedMenuGroup from './CategorizedMenuGroup'
 import SinglesMenuGroup from './SinglesMenuGroup'
 import { singleItems, categorizedItems } from './selectableItems'
 import { itemTypeMap, getDefaultItemCount } from '../../modules/itemTypes'
+import useDebounce from '../../modules/useDebounce'
+import { getDashboardsQQuery } from '../../api/dashboardsQ'
 
 import classes from './styles/ItemSelector.module.css'
 
@@ -14,21 +16,17 @@ const ItemSelector = () => {
     const [filter, setFilter] = useState('')
     const [items, setItems] = useState(null)
     const [maxOptions, setMaxOptions] = useState(new Set())
-    const { d2 } = useD2({})
+    const dataEngine = useDataEngine()
+    const debouncedFilterText = useDebounce(filter, 200)
 
     useEffect(() => {
-        let queryString = '?count=11'
-        if ([...maxOptions.values()].length) {
-            queryString += '&max=' + [...maxOptions.values()].join('&max=')
-        }
+        const query = getDashboardsQQuery(
+            debouncedFilterText,
+            Array.from(maxOptions)
+        )
 
-        const filterStr = filter ? `/${filter}` : ''
-
-        d2.Api.getApi()
-            .get(`dashboards/q${filterStr}${queryString}`)
-            .then(response => setItems(response))
-            .catch(console.error)
-    }, [filter, maxOptions])
+        dataEngine.query({ items: query }).then(res => setItems(res.items))
+    }, [debouncedFilterText, maxOptions])
 
     const closeMenu = () => {
         setIsOpen(false)
