@@ -2078,18 +2078,7 @@
     "@dhis2/ui-icons" "5.7.8"
     "@dhis2/ui-widgets" "5.7.8"
 
-"@dhis2/ui@^6.1.3":
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-6.1.3.tgz#b5b319dfae64d1b136d0d226bda42b5322b6e5f2"
-  integrity sha512-aibDs4p2RaIPOQcAAYMej19rGmayQPBLeG0PaFfikSPHYFszG5BN+83uQEk7I7S9bv1cP/sI9YYghlw0V15L/g==
-  dependencies:
-    "@dhis2/ui-constants" "6.1.3"
-    "@dhis2/ui-core" "6.1.3"
-    "@dhis2/ui-forms" "6.1.3"
-    "@dhis2/ui-icons" "6.1.3"
-    "@dhis2/ui-widgets" "6.1.3"
-
-"@dhis2/ui@^6.2.3":
+"@dhis2/ui@^6.1.3", "@dhis2/ui@^6.2.3":
   version "6.2.3"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-6.2.3.tgz#e429c5d301ca481d5bf69ebbd01a8498c52298e4"
   integrity sha512-CWdFcYWtAwcjcjgr7FvdvmHHIiIibKpmRsV+hoBZaIoaw3emb736zoUPJ02nZlMgCoTY+vOTT3PeI6reBFS7ew==
