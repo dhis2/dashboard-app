@@ -1809,10 +1809,10 @@
     jscodeshift "^0.11.0"
     wait-on "^4.0.2"
 
-"@dhis2/cypress-commands@^5.1.1":
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-5.1.1.tgz#ba826fd984c0800c867c2dad9ac55b5954b71699"
-  integrity sha512-LkHbhoyre/V3+Y3elfmighDfz5HWnlRFxzHM4aMNWJSdylsRKzlaoku55Fgrk+OS8G3e9WT4NlX2ltYJVeGOXA==
+"@dhis2/cypress-commands@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-7.0.0.tgz#74127093728484981b154f6c86333a0c78d21979"
+  integrity sha512-oeBAtdhbMBI2J71jkRdWBJ4Up7nHqsoVpXaPmi+D/wMszGAETqnXxgXPEVyj4WUQRBtgfqm3FCg6dw5qaXmmNg==
   dependencies:
     jscodeshift "^0.11.0"
 
