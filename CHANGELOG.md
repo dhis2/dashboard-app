@@ -1,3 +1,11 @@
+## [31.12.2](https://github.com/dhis2/dashboard-app/compare/v31.12.1...v31.12.2) (2021-02-22)
+
+
+### Bug Fixes
+
+* debounce the item selector query in dashboard editor [DHIS2-10530] ([#1554](https://github.com/dhis2/dashboard-app/issues/1554)) ([349b305](https://github.com/dhis2/dashboard-app/commit/349b305a582607b82598c8610ddbacf6107d191e))
+* upgrade to ui6 and set resolutions ([#1557](https://github.com/dhis2/dashboard-app/issues/1557)) ([a065cd3](https://github.com/dhis2/dashboard-app/commit/a065cd328dc2fc7703742950bc9c4da3b5bfb845))
+
 ## [31.12.1](https://github.com/dhis2/dashboard-app/compare/v31.12.0...v31.12.1) (2021-02-18)
 
 
