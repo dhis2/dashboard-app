@@ -1,3 +1,10 @@
+## [31.12.3](https://github.com/dhis2/dashboard-app/compare/v31.12.2...v31.12.3) (2021-02-22)
+
+
+### Bug Fixes
+
+* controlbar should always take full width, and other minor position adjustments ([#1563](https://github.com/dhis2/dashboard-app/issues/1563)) ([5d6d704](https://github.com/dhis2/dashboard-app/commit/5d6d704e64273a8154df42ce3630dd895897ee36))
+
 ## [31.12.2](https://github.com/dhis2/dashboard-app/compare/v31.12.1...v31.12.2) (2021-02-22)
 
 
