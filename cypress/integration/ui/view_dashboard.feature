@@ -17,11 +17,11 @@ Feature: Viewing dashboards
 
     @nonmutating
     Scenario: I search for a dashboard with nonmatching search text
-        Given I open the "Delivery" dashboard
+        Given I open the "Antenatal Care" dashboard
         When I search for dashboards containing Noexist
         Then no dashboards are choices
         When I press enter in the search dashboard field
-        Then dashboards list restored and dashboard is still "Delivery"
+        Then dashboards list restored and dashboard is still "Antenatal Care"
 
     @nonmutating
     Scenario: I view the print layout preview
