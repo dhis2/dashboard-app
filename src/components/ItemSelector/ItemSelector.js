@@ -17,7 +17,7 @@ const ItemSelector = () => {
     const [items, setItems] = useState(null)
     const [maxOptions, setMaxOptions] = useState(new Set())
     const dataEngine = useDataEngine()
-    const debouncedFilterText = useDebounce(filter, 200)
+    const debouncedFilterText = useDebounce(filter, 350)
 
     useEffect(() => {
         const query = getDashboardsQQuery(
