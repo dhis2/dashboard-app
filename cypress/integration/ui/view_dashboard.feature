@@ -9,7 +9,7 @@ Feature: Viewing dashboards
 
     @nonmutating
     Scenario: I search for a dashboard
-        Given I open the "Delivery" dashboard
+        Given I open the "Antenatal Care" dashboard
         When I search for dashboards containing Immunization
         Then Immunization and Immunization data dashboards are choices
         When I press enter in the search dashboard field
