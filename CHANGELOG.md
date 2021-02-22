@@ -1,3 +1,10 @@
+## [31.12.4](https://github.com/dhis2/dashboard-app/compare/v31.12.3...v31.12.4) (2021-02-22)
+
+
+### Bug Fixes
+
+* position loading spinner at top of item ([#1564](https://github.com/dhis2/dashboard-app/issues/1564)) ([47c7647](https://github.com/dhis2/dashboard-app/commit/47c7647c458f48ae780b3018dfe324b478286684))
+
 ## [31.12.3](https://github.com/dhis2/dashboard-app/compare/v31.12.2...v31.12.3) (2021-02-22)
 
 
