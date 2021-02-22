@@ -24,6 +24,7 @@
 
     .controlsSmall {
         display: block;
+        margin-bottom: var(--spacers-dp4);
     }
 
     .controlsLarge {

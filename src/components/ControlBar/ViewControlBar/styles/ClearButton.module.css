@@ -24,5 +24,6 @@
 @media only screen and (max-width: 480px) {
     .button {
         margin-bottom: var(--spacers-dp4);
+        margin-right: 1px;
     }
 }
