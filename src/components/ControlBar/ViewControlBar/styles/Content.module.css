@@ -53,6 +53,7 @@
 
     .chipsContainer {
         margin-bottom: -4px;
+        padding-right: 2px;
     }
 
     .expanded .chipsContainer {
