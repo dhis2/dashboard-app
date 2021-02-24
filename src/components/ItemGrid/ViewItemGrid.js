@@ -31,6 +31,8 @@ import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer'
 import { VIEW } from '../Dashboard/dashboardModes'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen'
 
+import classes from './styles/ItemGrid.module.css'
+
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
@@ -125,6 +127,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
                 </Layer>
             ) : null}
             <ResponsiveReactGridLayout
+                className={classes.grid}
                 rowHeight={GRID_ROW_HEIGHT_PX}
                 width={getGridWidth(width)}
                 cols={{ lg: GRID_COLUMNS, sm: SM_SCREEN_GRID_COLUMNS }}

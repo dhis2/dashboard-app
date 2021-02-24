@@ -22,14 +22,6 @@ body {
     overflow: hidden !important;
 }
 
-.dashboard-wrapper {
-    background-color: #f4f6f8;
-    padding-left: 16px;
-    padding-right: 16px;
-    overflow: auto;
-    padding-bottom: 24px;
-}
-
 /* plugin TODO */
 
 table.pivot * {

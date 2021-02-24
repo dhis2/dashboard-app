@@ -16,6 +16,11 @@ import { apiFetchDashboard } from '../../../api/dashboards'
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
+jest.mock('@dhis2/analytics', () => ({
+    getDimensionById: jest.fn(),
+    DIMENSION_ID_PERIOD: 'pe',
+    DIMENSION_ID_ORGUNIT: 'ou',
+}))
 jest.mock('@dhis2/app-runtime')
 jest.mock('../../../api/dashboards')
 jest.mock(
