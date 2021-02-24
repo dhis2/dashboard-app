@@ -18,9 +18,6 @@ const getItemActionsMap = isShortened => {
     }
 }
 
-// This is the margin-top + margin-bottom defined in the css file
-export const HEADER_MARGIN_HEIGHT = 12
-
 const ItemHeader = React.forwardRef(
     ({ dashboardMode, title, isShortened, ...rest }, ref) => {
         const Actions = getItemActionsMap(isShortened)[dashboardMode]
