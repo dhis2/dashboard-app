@@ -45,3 +45,11 @@ Feature: Small screen dashboard
         When I go to small screen
         And I change url to edit
         Then the "Delivery" dashboard displays in view mode
+
+    @nonmutating
+    Scenario: I cannot edit dashboard filter while in small screen
+        Given I open the "Delivery" dashboard
+        And I add a "Period" filter
+        When I go to small screen
+        And I click on the "Period" filter badge
+        Then the filter modal is not opened
