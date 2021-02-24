@@ -36,9 +36,5 @@ When('I add a {string} filter', dimensionType => {
 })
 
 When('I click on the {string} filter badge', filterName => {
-    cy.get(filterBadgeSel)
-        .find('span')
-        .not('.badgeSmall')
-        .contains(filterName)
-        .click()
+    cy.get(filterBadgeSel).find('span:visible').contains(filterName).click()
 })
