@@ -14,7 +14,7 @@ import { sGetEditDashboardRoot } from '../../reducers/editDashboard'
 
 import classes from './styles/EditTitleBar.module.css'
 
-export const EditTitleBar = ({
+const EditTitleBar = ({
     name,
     description,
     onChangeTitle,
