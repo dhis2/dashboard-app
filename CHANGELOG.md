@@ -1,3 +1,11 @@
+## [31.12.5](https://github.com/dhis2/dashboard-app/compare/v31.12.4...v31.12.5) (2021-02-24)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1508](https://github.com/dhis2/dashboard-app/issues/1508)) ([2b92f87](https://github.com/dhis2/dashboard-app/commit/2b92f876934e681e404f0231547cdade043e27b1))
+* get value for margins and padding from css when calculating item available height  ([#1566](https://github.com/dhis2/dashboard-app/issues/1566)) ([cce74db](https://github.com/dhis2/dashboard-app/commit/cce74db50a49124f443b6a541a131c11323208bc))
+
 ## [31.12.4](https://github.com/dhis2/dashboard-app/compare/v31.12.3...v31.12.4) (2021-02-22)
 
 

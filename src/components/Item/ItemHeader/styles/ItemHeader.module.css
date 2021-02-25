@@ -1,7 +1,7 @@
 .itemHeaderWrap {
     display: flex;
-    margin: var(--spacers-dp8) var(--spacers-dp4) var(--spacers-dp8)
-        var(--spacers-dp8);
+    margin: var(--item-header-margin-top) var(--spacers-dp4)
+        var(--item-header-margin-bottom) var(--spacers-dp8);
 }
 
 .itemTitle {

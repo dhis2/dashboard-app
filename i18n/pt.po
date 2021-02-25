@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
+"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -41,6 +41,11 @@ msgstr ""
 "Ao apagar o painel \"{{dashboardName}}\" sera removido de todos os usuários "
 ". Essa ação não pode ser desfeita. Tem certeza de que deseja apagar "
 "permanentemente este painel?"
+
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
 
 msgid "Save changes"
 msgstr "Gravar alterações"
@@ -78,11 +83,15 @@ msgstr "Painel solicitado não encontrado"
 msgid "No access"
 msgstr "Sem acesso"
 
-msgid "Editing dashboards on small screens is not supported."
-msgstr "A edição de painéis em telas pequenas não é compatível."
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
+msgstr ""
 
-msgid "Creating dashboards on small screens is not supported."
-msgstr "A criação de painéis em telas pequenas não é compatível."
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
+msgstr ""
 
 msgid "Not supported"
 msgstr "Não suportado"
@@ -229,20 +238,32 @@ msgstr "Ocultar descrição"
 msgid "Show description"
 msgstr "Mostrar descrição"
 
+msgid "Failed to hide description"
+msgstr ""
+
+msgid "Failed to show description"
+msgstr ""
+
 msgid "Unstar dashboard"
 msgstr ""
 
 msgid "Star dashboard"
 msgstr ""
 
+msgid "Failed to unstar the dashboard"
+msgstr ""
+
+msgid "Failed to star the dashboard"
+msgstr ""
+
+msgid "More"
+msgstr "Mais"
+
 msgid "Edit"
 msgstr "Editar"
 
 msgid "Share"
 msgstr "Partilha"
-
-msgid "More"
-msgstr "Mais"
 
 msgid "Dashboard layout"
 msgstr ""

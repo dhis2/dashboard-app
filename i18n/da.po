@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
+"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Danish (https://www.transifex.com/hisp-uio/teams/100509/da/)\n"
@@ -34,6 +34,11 @@ msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
+msgstr ""
+
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
 msgstr ""
 
 msgid "Save changes"
@@ -72,10 +77,14 @@ msgstr ""
 msgid "No access"
 msgstr ""
 
-msgid "Editing dashboards on small screens is not supported."
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
 msgstr ""
 
-msgid "Creating dashboards on small screens is not supported."
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
 msgstr ""
 
 msgid "Not supported"
@@ -218,19 +227,31 @@ msgstr ""
 msgid "Show description"
 msgstr ""
 
+msgid "Failed to hide description"
+msgstr ""
+
+msgid "Failed to show description"
+msgstr ""
+
 msgid "Unstar dashboard"
 msgstr ""
 
 msgid "Star dashboard"
 msgstr ""
 
+msgid "Failed to unstar the dashboard"
+msgstr ""
+
+msgid "Failed to star the dashboard"
+msgstr ""
+
+msgid "More"
+msgstr ""
+
 msgid "Edit"
 msgstr ""
 
 msgid "Share"
-msgstr ""
-
-msgid "More"
 msgstr ""
 
 msgid "Dashboard layout"

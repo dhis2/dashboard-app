@@ -5,7 +5,7 @@ import uniqueId from 'lodash/uniqueId'
 
 import Visualization from './Visualization/Visualization'
 import FatalErrorBoundary from './FatalErrorBoundary'
-import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader/ItemHeader'
+import ItemHeader from '../ItemHeader/ItemHeader'
 import ItemHeaderButtons from './ItemHeaderButtons'
 import ItemFooter from './ItemFooter'
 import { WindowDimensionsCtx } from '../../WindowDimensionsProvider'
@@ -36,9 +36,6 @@ import {
 import { getItemHeightPx } from '../../../modules/gridUtil'
 import getGridItemDomId from '../../../modules/getGridItemDomId'
 
-// this is set in the .dashboard-item-content css
-const ITEM_CONTENT_PADDING = 4
-
 export class Item extends Component {
     state = {
         showFooter: false,
@@ -52,6 +49,23 @@ export class Item extends Component {
         this.contentRef = React.createRef()
         this.headerRef = React.createRef()
         this.itemDomElSelector = `.reactgriditem-${this.props.item.id}`
+
+        const style = window.getComputedStyle(document.documentElement)
+        this.itemContentPadding = parseInt(
+            style.getPropertyValue('--item-content-padding').replace('px', '')
+        )
+
+        this.itemHeaderTotalMargin =
+            parseInt(
+                style
+                    .getPropertyValue('--item-header-margin-top')
+                    .replace('px', '')
+            ) +
+            parseInt(
+                style
+                    .getPropertyValue('--item-header-margin-bottom')
+                    .replace('px', '')
+            )
 
         this.memoizedGetContentHeight = memoizeOne(
             (calculatedHeight, measuredHeight, preferMeasured) =>
@@ -186,8 +200,8 @@ export class Item extends Component {
         const calculatedHeight =
             getItemHeightPx(this.props.item, width) -
             this.headerRef.current.clientHeight -
-            HEADER_MARGIN_HEIGHT -
-            ITEM_CONTENT_PADDING
+            this.itemHeaderTotalMargin -
+            this.itemContentPadding
 
         return this.memoizedGetContentHeight(
             calculatedHeight,
@@ -201,7 +215,7 @@ export class Item extends Component {
         const rect = document
             .querySelector(this.itemDomElSelector)
             ?.getBoundingClientRect()
-        return rect && rect.width - ITEM_CONTENT_PADDING * 2
+        return rect && rect.width - this.itemContentPadding * 2
     }
 
     render() {
