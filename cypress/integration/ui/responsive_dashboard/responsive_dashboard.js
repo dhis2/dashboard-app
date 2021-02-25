@@ -2,6 +2,7 @@ import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
 import { chartSel } from '../../../selectors/dashboardItem'
 import { dashboardTitleSel } from '../../../selectors/viewDashboard'
+import { dimensionsModalSel } from '../../../selectors/dashboardFilter'
 
 const TEST_DASHBOARD_TITLE = 'TEST_DASHBOARD_TITLE'
 
@@ -105,4 +106,8 @@ When('I change url to edit', () => {
             cy.wait(2000) // eslint-disable-line cypress/no-unnecessary-waiting
         })
     })
+})
+
+Then('the filter modal is not opened', () => {
+    cy.get(dimensionsModalSel, EXTENDED_TIMEOUT).should('not.exist')
 })
