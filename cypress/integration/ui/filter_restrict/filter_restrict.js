@@ -38,12 +38,14 @@ When('I add a dashboard title', () => {
     cy.get('[data-test="dashboard-title-input"]').type(TEST_DASHBOARD_TITLE)
 })
 
-When('I click on Filter Settings', () => {
-    cy.get('button').contains('Filter Settings').click()
+When('I click on Filter settings', () => {
+    cy.get('button').contains('Filter settings').click()
 })
 
-Then('Filter Settings are not restricted, and I can save the dashboard', () => {
-    cy.get('[name="radio-allow-filtering-on-all"]').should('be.checked')
+Then('Filter settings are not restricted, and I can save the dashboard', () => {
+    cy.contains('Allow filtering by all dimensions')
+        .find('input')
+        .should('be.checked')
     cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
     cy.get('button').contains('Save changes').click()
 })
@@ -53,7 +55,7 @@ Scenario: I change Filter Restrictions, do not confirm them, and the restriction
 */
 
 Given(
-    'I open an existing dashboard with non-restricted filter settings in edit mode',
+    'I open an existing dashboard with non-restricted Filter settings in edit mode',
     () => {
         toggleShowMoreButton()
         cy.get(dashboardChipSel).contains(TEST_DASHBOARD_TITLE).click()
@@ -61,8 +63,8 @@ Given(
     }
 )
 
-When('I click to restrict filter settings', () => {
-    cy.get('[name="radio-restrict-filtering"]').parent().click()
+When('I click to restrict Filter settings', () => {
+    cy.contains('Only allow filtering by selected dimensions').parent().click()
 })
 
 When('I click away without confirming', () => {
@@ -70,7 +72,9 @@ When('I click away without confirming', () => {
 })
 
 Then('Filter Restrictions are not restricted', () => {
-    cy.get('[name="radio-allow-filtering-on-all"]').should('be.checked')
+    cy.contains('Allow filtering by all dimensions')
+        .find('input')
+        .should('be.checked')
 })
 
 /*
@@ -80,17 +84,17 @@ Scenario: I see Period and Organisation Unit if newly choosing to restrict dimen
 Then(
     'Period and Organisation Unit are displayed as selected by default',
     () => {
-        cy.get('[data-test="dhis2-uicore-transfer-rightside"]').contains(
-            'Period'
-        )
-        cy.get('[data-test="dhis2-uicore-transfer-rightside"]').contains(
-            'Organisation Unit'
-        )
+        cy.get('[data-test="dhis2-uicore-transfer-rightside"]')
+            .contains('Period')
+            .should('be.visible')
+        cy.get('[data-test="dhis2-uicore-transfer-rightside"]')
+            .contains('Organisation Unit')
+            .should('be.visible')
     }
 )
 
 /*
-Scenario: I change Filter Restrictions and the changes persist while editing Filter Settings
+Scenario: I change Filter Restrictions and the changes persist while editing Filter settings
 */
 
 When('I add Facility Ownership to selected filters', () => {
@@ -99,16 +103,18 @@ When('I add Facility Ownership to selected filters', () => {
 })
 
 When('I click to allow all filters', () => {
-    cy.get('[name="radio-allow-filtering-on-all"]').parent().click()
+    cy.contains('Allow filtering by all dimensions').parent().click()
 })
 
 Then(
     'Filter Restrictions are restricted and Facility Ownership is selected',
     () => {
-        cy.get('[name="radio-restrict-filtering"]').should('be.checked')
-        cy.get('[data-test="dhis2-uicore-transfer-rightside"]').contains(
-            'Facility Ownership'
-        )
+        cy.contains('Only allow filtering by selected dimensions')
+            .find('input')
+            .should('be.checked')
+        cy.get('[data-test="dhis2-uicore-transfer-rightside"]')
+            .contains('Facility Ownership')
+            .should('be.visible')
     }
 )
 
@@ -149,7 +155,9 @@ When('I click Add Filter', () => {
 })
 
 Then('I see Facility Ownership and no other dimensions', () => {
-    cy.get(filterDimensionsPanelSel).contains('Facility Ownership')
+    cy.get(filterDimensionsPanelSel)
+        .contains('Facility Ownership')
+        .should('be.visible')
     cy.get(filterDimensionsPanelSel)
         .get('ul')
         .eq(0)

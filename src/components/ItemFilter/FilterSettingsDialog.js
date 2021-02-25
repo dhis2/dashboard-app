@@ -104,12 +104,7 @@ const FilterSettingsDialog = ({
     return (
         <>
             {open && (
-                <Modal
-                    dataTest="dhis2-uicore-modal"
-                    large
-                    position="top"
-                    onClose={closeDialog}
-                >
+                <Modal large position="top" onClose={closeDialog}>
                     <ModalTitle>
                         {i18n.t('Dashboard filter settings')}
                     </ModalTitle>
