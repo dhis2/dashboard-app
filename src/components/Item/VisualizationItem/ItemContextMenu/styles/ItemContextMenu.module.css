@@ -1,0 +1,5 @@
+@media only screen and (max-width: 480px) {
+    ul li.openInAppMenuItem {
+        display: none;
+    }
+}
