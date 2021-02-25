@@ -15,9 +15,25 @@
     white-space: nowrap;
 }
 
+.badgeSmall {
+    display: none;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
 .removeButton {
     font-size: 12px;
     text-decoration: underline;
     margin-left: var(--spacers-dp24);
     cursor: pointer;
+}
+
+@media only screen and (max-width: 480px) {
+    .badge {
+        display: none;
+    }
+
+    .badgeSmall {
+        display: block;
+    }
 }

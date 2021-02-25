@@ -1,3 +1,17 @@
+## [31.12.7](https://github.com/dhis2/dashboard-app/compare/v31.12.6...v31.12.7) (2021-02-25)
+
+
+### Bug Fixes
+
+* dashboard filter modal should not be available in small screen ([#1567](https://github.com/dhis2/dashboard-app/issues/1567)) ([53db918](https://github.com/dhis2/dashboard-app/commit/53db9183149f6e644897ccb2e888013f298ca0df))
+
+## [31.12.6](https://github.com/dhis2/dashboard-app/compare/v31.12.5...v31.12.6) (2021-02-25)
+
+
+### Bug Fixes
+
+* remove div around content that blocked scrolling while adding items to new dashboard ([#1573](https://github.com/dhis2/dashboard-app/issues/1573)) ([19beb57](https://github.com/dhis2/dashboard-app/commit/19beb578e9f5647c7c222c3eaa9f28210626f0e7))
+
 ## [31.12.5](https://github.com/dhis2/dashboard-app/compare/v31.12.4...v31.12.5) (2021-02-24)
 
 
