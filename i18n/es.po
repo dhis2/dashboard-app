@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
+"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -42,6 +42,11 @@ msgstr ""
 "Borrando tablero \"{{ dashboardName }}\" para todos los usuarios. Esta "
 "acción será permanente. Está seguro de que desea continuar eliminando "
 "permanentemente este tablero?"
+
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
 
 msgid "Save changes"
 msgstr "Guardar cambios"
@@ -80,11 +85,15 @@ msgstr "No se ha encontrado el tablero buscado"
 msgid "No access"
 msgstr "Sin acceso"
 
-msgid "Editing dashboards on small screens is not supported."
-msgstr "No se admite la edición de paneles en pantallas pequeñas."
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
+msgstr ""
 
-msgid "Creating dashboards on small screens is not supported."
-msgstr "No se admite la creación de paneles en pantallas pequeñas."
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
+msgstr ""
 
 msgid "Not supported"
 msgstr "No soportado"
@@ -232,20 +241,32 @@ msgstr "Ocultar la descripción"
 msgid "Show description"
 msgstr "Mostrar la descripción"
 
+msgid "Failed to hide description"
+msgstr ""
+
+msgid "Failed to show description"
+msgstr ""
+
 msgid "Unstar dashboard"
 msgstr "Desmarcar tablero"
 
 msgid "Star dashboard"
 msgstr "Marcar tablero"
 
+msgid "Failed to unstar the dashboard"
+msgstr ""
+
+msgid "Failed to star the dashboard"
+msgstr ""
+
+msgid "More"
+msgstr "Más"
+
 msgid "Edit"
 msgstr "Editar"
 
 msgid "Share"
 msgstr "Compartir"
-
-msgid "More"
-msgstr "Más"
 
 msgid "Dashboard layout"
 msgstr "Diseño del tablero"

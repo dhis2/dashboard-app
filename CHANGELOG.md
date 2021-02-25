@@ -1,3 +1,33 @@
+## [31.12.5](https://github.com/dhis2/dashboard-app/compare/v31.12.4...v31.12.5) (2021-02-24)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1508](https://github.com/dhis2/dashboard-app/issues/1508)) ([2b92f87](https://github.com/dhis2/dashboard-app/commit/2b92f876934e681e404f0231547cdade043e27b1))
+* get value for margins and padding from css when calculating item available height  ([#1566](https://github.com/dhis2/dashboard-app/issues/1566)) ([cce74db](https://github.com/dhis2/dashboard-app/commit/cce74db50a49124f443b6a541a131c11323208bc))
+
+## [31.12.4](https://github.com/dhis2/dashboard-app/compare/v31.12.3...v31.12.4) (2021-02-22)
+
+
+### Bug Fixes
+
+* position loading spinner at top of item ([#1564](https://github.com/dhis2/dashboard-app/issues/1564)) ([47c7647](https://github.com/dhis2/dashboard-app/commit/47c7647c458f48ae780b3018dfe324b478286684))
+
+## [31.12.3](https://github.com/dhis2/dashboard-app/compare/v31.12.2...v31.12.3) (2021-02-22)
+
+
+### Bug Fixes
+
+* controlbar should always take full width, and other minor position adjustments ([#1563](https://github.com/dhis2/dashboard-app/issues/1563)) ([5d6d704](https://github.com/dhis2/dashboard-app/commit/5d6d704e64273a8154df42ce3630dd895897ee36))
+
+## [31.12.2](https://github.com/dhis2/dashboard-app/compare/v31.12.1...v31.12.2) (2021-02-22)
+
+
+### Bug Fixes
+
+* debounce the item selector query in dashboard editor [DHIS2-10530] ([#1554](https://github.com/dhis2/dashboard-app/issues/1554)) ([349b305](https://github.com/dhis2/dashboard-app/commit/349b305a582607b82598c8610ddbacf6107d191e))
+* upgrade to ui6 and set resolutions ([#1557](https://github.com/dhis2/dashboard-app/issues/1557)) ([a065cd3](https://github.com/dhis2/dashboard-app/commit/a065cd328dc2fc7703742950bc9c4da3b5bfb845))
+
 ## [31.12.1](https://github.com/dhis2/dashboard-app/compare/v31.12.0...v31.12.1) (2021-02-18)
 
 
