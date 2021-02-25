@@ -166,7 +166,7 @@ const EditBar = props => {
         ) : null
 
     const filterSettingsDialog = () =>
-        dashboard || newDashboard ? (
+        dashboard || props.newDashboard ? (
             <FilterSettingsDialog
                 dimensions={props.dimensions}
                 restrictFilters={props.restrictFilters}
@@ -210,9 +210,7 @@ const EditBar = props => {
         return <Redirect to={redirectUrl} />
     }
 
-    const { newDashboard, updateAccess } = props
-
-    const discardBtnText = updateAccess
+    const discardBtnText = props.updateAccess
         ? i18n.t('Exit without saving')
         : i18n.t('Go to dashboards')
 
@@ -220,7 +218,7 @@ const EditBar = props => {
         <>
             <div className={classes.editBar}>
                 <div className={classes.controls}>
-                    {updateAccess ? renderActionButtons() : null}
+                    {props.updateAccess ? renderActionButtons() : null}
                     <Button secondary onClick={onDiscard}>
                         {discardBtnText}
                     </Button>
@@ -255,7 +253,6 @@ EditBar.propTypes = {
 
 const mapStateToProps = state => {
     const dashboard = sGetEditDashboardRoot(state)
-    console.log(dashboard)
     let newDashboard
     let deleteAccess
     let updateAccess
