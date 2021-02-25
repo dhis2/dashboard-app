@@ -11,7 +11,7 @@ exports[`renders correctly when filters are not restricted 1`] = `
     <ModalTitle
       dataTest="dhis2-uicore-modaltitle"
     >
-      Dashboard Filter Settings
+      Dashboard filter settings
     </ModalTitle>
     <ModalContent
       dataTest="dhis2-uicore-modalcontent"
@@ -20,10 +20,10 @@ exports[`renders correctly when filters are not restricted 1`] = `
         className="descContainer"
       >
         <span>
-          Filters allow users of a dashboard to customize the 
-                                data displayed. By default all dimensions are 
-                                available as filters. Alternatively, a limited 
-                                number of filters can be made available on a dashboard.
+          Dashboards can be filtered by dimensions to change
+                                         the data shown. By default, all dimensions are available
+                                         as filters. Alternatively, only selected dimensions can
+                                         be made available on a dashboard.
         </span>
       </div>
       <RadioOptions
@@ -71,7 +71,7 @@ exports[`renders correctly when filters are restricted 1`] = `
     <ModalTitle
       dataTest="dhis2-uicore-modaltitle"
     >
-      Dashboard Filter Settings
+      Dashboard filter settings
     </ModalTitle>
     <ModalContent
       dataTest="dhis2-uicore-modalcontent"
@@ -80,10 +80,10 @@ exports[`renders correctly when filters are restricted 1`] = `
         className="descContainer"
       >
         <span>
-          Filters allow users of a dashboard to customize the 
-                                data displayed. By default all dimensions are 
-                                available as filters. Alternatively, a limited 
-                                number of filters can be made available on a dashboard.
+          Dashboards can be filtered by dimensions to change
+                                         the data shown. By default, all dimensions are available
+                                         as filters. Alternatively, only selected dimensions can
+                                         be made available on a dashboard.
         </span>
       </div>
       <RadioOptions

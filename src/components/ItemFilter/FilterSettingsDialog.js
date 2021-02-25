@@ -24,7 +24,7 @@ const RadioOptions = ({
             <Radio
                 dense
                 checked={!filtersSelectable}
-                label={i18n.t('Allow filtering on all dimensions')}
+                label={i18n.t('Allow filtering by all dimensions')}
                 name="radio-allow-filtering-on-all"
                 onChange={payload => {
                     return updateFilterDimensionRestrictability(
@@ -38,7 +38,7 @@ const RadioOptions = ({
             <Radio
                 dense
                 checked={filtersSelectable}
-                label={i18n.t('Only allow filtering on specified dimensions')}
+                label={i18n.t('Only allow filtering by selected dimensions')}
                 name="radio-restrict-filtering"
                 onChange={payload => {
                     return updateFilterDimensionRestrictability(
@@ -111,15 +111,15 @@ const FilterSettingsDialog = ({
                     onClose={closeDialog}
                 >
                     <ModalTitle>
-                        {i18n.t('Dashboard Filter Settings')}
+                        {i18n.t('Dashboard filter settings')}
                     </ModalTitle>
                     <ModalContent>
                         <div className={classes.descContainer}>
                             <span>
-                                {i18n.t(`Filters allow users of a dashboard to customize the 
-                                data displayed. By default all dimensions are 
-                                available as filters. Alternatively, a limited 
-                                number of filters can be made available on a dashboard.`)}
+                                {i18n.t(`Dashboards can be filtered by dimensions to change
+                                         the data shown. By default, all dimensions are available
+                                         as filters. Alternatively, only selected dimensions can
+                                         be made available on a dashboard.`)}
                             </span>
                         </div>
                         <RadioOptions

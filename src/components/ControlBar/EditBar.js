@@ -188,7 +188,7 @@ const EditBar = props => {
                     : i18n.t('Print preview')}
             </Button>
             <Button onClick={toggleFilterSettingsDialog}>
-                {i18n.t('Filter Settings')}
+                {i18n.t('Filter settings')}
             </Button>
             {props.dashboardId && (
                 <Button onClick={toggleTranslationDialog}>

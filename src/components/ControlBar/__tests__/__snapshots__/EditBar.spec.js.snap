@@ -42,7 +42,7 @@ exports[`renders Save and Discard buttons but no dialogs when no dashboard id 1`
             data-test="dhis2-uicore-button"
             type="button"
           >
-            Filter Settings
+            Filter settings
           </button>
         </div>
         <div
@@ -106,7 +106,7 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
             data-test="dhis2-uicore-button"
             type="button"
           >
-            Filter Settings
+            Filter settings
           </button>
         </div>
         <div
@@ -206,7 +206,7 @@ exports[`renders the EditBar 1`] = `
             data-test="dhis2-uicore-button"
             type="button"
           >
-            Filter Settings
+            Filter settings
           </button>
         </div>
         <div
@@ -278,7 +278,7 @@ exports[`shows the confirm delete dialog when delete button clicked 1`] = `
             data-test="dhis2-uicore-button"
             type="button"
           >
-            Filter Settings
+            Filter settings
           </button>
         </div>
         <div
@@ -361,7 +361,7 @@ exports[`shows the translate dialog 1`] = `
             data-test="dhis2-uicore-button"
             type="button"
           >
-            Filter Settings
+            Filter settings
           </button>
         </div>
         <div
