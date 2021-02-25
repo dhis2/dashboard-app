@@ -1,5 +1,5 @@
-/* control bar variables */
 :root {
+    /* control bar variables */
     --user-rows-count: 1;
     --controlbar-padding: 31px;
     --row-height: 40px;
@@ -12,6 +12,11 @@
     --user-rows-height: calc(
         var(--controlbar-padding) + (var(--user-rows-count) * var(--row-height))
     );
+
+    /* item variables */
+    --item-header-margin-top: 8px;
+    --item-header-margin-bottom: 8px;
+    --item-content-padding: 4px;
 }
 
 body {
@@ -20,14 +25,6 @@ body {
 
 .app-shell-app {
     overflow: hidden !important;
-}
-
-.dashboard-wrapper {
-    background-color: #f4f6f8;
-    padding-left: 16px;
-    padding-right: 16px;
-    overflow: auto;
-    padding-bottom: 24px;
 }
 
 /* plugin TODO */

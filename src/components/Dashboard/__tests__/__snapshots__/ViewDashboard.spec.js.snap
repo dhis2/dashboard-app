@@ -8,7 +8,7 @@ exports[`ViewDashboard renders correctly default 1`] = `
   dashboardIsPrinting={false}
 >
   <div
-    className="container"
+    className="container dashboard-scroll-container"
   >
     <MockDashboardsBar
       expanded={false}
@@ -18,25 +18,29 @@ exports[`ViewDashboard renders correctly default 1`] = `
         MockDashboardsBar
       </div>
     </MockDashboardsBar>
-    <div
-      className="dashboardContainer dashboard-wrapper"
+    <DashboardContainer
+      covered={false}
     >
-      <MockViewTitleBar>
-        <div>
-          MockViewTitleBar
-        </div>
-      </MockViewTitleBar>
-      <MockFilterBar>
-        <div>
-          MockFilterBar
-        </div>
-      </MockFilterBar>
-      <MockViewItemGrid>
-        <div>
-          MockViewItemGrid
-        </div>
-      </MockViewItemGrid>
-    </div>
+      <div
+        className="container dashboard-scroll-container"
+      >
+        <MockViewTitleBar>
+          <div>
+            MockViewTitleBar
+          </div>
+        </MockViewTitleBar>
+        <MockFilterBar>
+          <div>
+            MockFilterBar
+          </div>
+        </MockFilterBar>
+        <MockViewItemGrid>
+          <div>
+            MockViewItemGrid
+          </div>
+        </MockViewItemGrid>
+      </div>
+    </DashboardContainer>
   </div>
 </ViewDashboard>
 `;

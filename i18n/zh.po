@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
+"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -38,6 +38,11 @@ msgid ""
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr "删除仪表盘 \"{{ dashboardName }}\" 将从所有用户仪表盘中移除。该操作不能撤销，你确信要永久删除该仪表盘条目？"
+
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr "保存仪表盘失败。您可能处于离线状态或无权编辑此仪表板。"
 
 msgid "Save changes"
 msgstr "保存改变"
@@ -75,11 +80,15 @@ msgstr "请求的仪表盘没有找到"
 msgid "No access"
 msgstr "不能访问"
 
-msgid "Editing dashboards on small screens is not supported."
-msgstr "不支持在小屏幕上编辑仪表板。"
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
+msgstr "不支持在小屏幕上编辑仪表板。调整屏幕大小以返回编辑模式。"
 
-msgid "Creating dashboards on small screens is not supported."
-msgstr "不支持在小屏幕上创建仪表板。"
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
+msgstr "不支持在小屏幕上创建仪表板。调整屏幕大小以返回创建模式。"
 
 msgid "Not supported"
 msgstr "不支持"
@@ -220,20 +229,32 @@ msgstr "隐藏说明"
 msgid "Show description"
 msgstr "显示说明"
 
+msgid "Failed to hide description"
+msgstr "隐藏说明失败"
+
+msgid "Failed to show description"
+msgstr "无法显示说明"
+
 msgid "Unstar dashboard"
 msgstr "取消星标仪表盘"
 
 msgid "Star dashboard"
 msgstr "标星仪表板"
 
+msgid "Failed to unstar the dashboard"
+msgstr "无法取消仪表板的星标"
+
+msgid "Failed to star the dashboard"
+msgstr "无法为仪表板加注星标"
+
+msgid "More"
+msgstr "更多"
+
 msgid "Edit"
 msgstr "编辑"
 
 msgid "Share"
 msgstr "分享"
-
-msgid "More"
-msgstr "更多"
 
 msgid "Dashboard layout"
 msgstr "仪表板布局"

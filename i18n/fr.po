@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
+"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -45,6 +45,11 @@ msgstr ""
 "La suppression du tableau de bord \"{{ dashboardName }}\" affectera tous les"
 " utilisateurs qui y ont accès.  Cette action ne peut pas être annulée. "
 "Voulez-vous vraiment supprimer définitivement ce tableau de bord?"
+
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
 
 msgid "Save changes"
 msgstr "Enregistrer les modifications"
@@ -84,15 +89,15 @@ msgstr "Tableau de bord demandé introuvable"
 msgid "No access"
 msgstr "Pas d'accès"
 
-msgid "Editing dashboards on small screens is not supported."
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
 msgstr ""
-"La modification de tableaux de bord sur de petits écrans n'est pas prise en "
-"charge."
 
-msgid "Creating dashboards on small screens is not supported."
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
 msgstr ""
-"La création de tableaux de bord sur de petits écrans n'est pas prise en "
-"charge."
 
 msgid "Not supported"
 msgstr "Non supporté"
@@ -241,20 +246,32 @@ msgstr "Masquer la description"
 msgid "Show description"
 msgstr "Afficher la description"
 
+msgid "Failed to hide description"
+msgstr ""
+
+msgid "Failed to show description"
+msgstr ""
+
 msgid "Unstar dashboard"
 msgstr "Tableau de bord sans étoiles"
 
 msgid "Star dashboard"
 msgstr "Tableau de bord à étoiles"
 
+msgid "Failed to unstar the dashboard"
+msgstr ""
+
+msgid "Failed to star the dashboard"
+msgstr ""
+
+msgid "More"
+msgstr "Plus"
+
 msgid "Edit"
 msgstr "Modifier"
 
 msgid "Share"
 msgstr "Partager"
-
-msgid "More"
-msgstr "Plus"
 
 msgid "Dashboard layout"
 msgstr "Mise en page du tableau de bord"

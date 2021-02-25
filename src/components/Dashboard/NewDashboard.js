@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 
+import DashboardContainer from './DashboardContainer'
 import EditBar from '../ControlBar/EditBar'
 import EditTitleBar from '../TitleBar/EditTitleBar'
 import EditItemGrid from '../ItemGrid/EditItemGrid'
@@ -20,16 +21,16 @@ const NewDashboard = props => {
     }, [])
 
     return (
-        <div>
+        <>
             <div className={classes.container}>
                 <EditBar />
                 {props.isPrintPreviewView ? (
                     <LayoutPrintPreview fromEdit={true} />
                 ) : (
-                    <div className="dashboard-wrapper">
+                    <DashboardContainer>
                         <EditTitleBar />
                         <EditItemGrid />
-                    </div>
+                    </DashboardContainer>
                 )}
             </div>
             <div className={classes.notice}>
@@ -40,7 +41,7 @@ const NewDashboard = props => {
                     )}
                 />
             </div>
-        </div>
+        </>
     )
 }
 
