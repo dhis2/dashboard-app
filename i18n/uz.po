@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
+"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -39,6 +39,11 @@ msgstr ""
 " ўчирилишига олиб келади. Бу ҳаракатни орқага қайтариб бўлмайди. Ҳақиқатдан "
 "ҳам ушбу панелни орқага қайтариб бўлмаслик шарти билан ўчириб "
 "ташламоқчимисиз?"
+
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
 
 msgid "Save changes"
 msgstr "Ўзгартиришни сақлаш"
@@ -78,10 +83,14 @@ msgstr "Сўралган бошқарув панели топилмади"
 msgid "No access"
 msgstr "Кириш ҳуқуқи мавжуд эмас"
 
-msgid "Editing dashboards on small screens is not supported."
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
 msgstr ""
 
-msgid "Creating dashboards on small screens is not supported."
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
 msgstr ""
 
 msgid "Not supported"
@@ -229,20 +238,32 @@ msgstr "Тавсифни беркитиш"
 msgid "Show description"
 msgstr "Тавсифни кўрсатиш"
 
+msgid "Failed to hide description"
+msgstr ""
+
+msgid "Failed to show description"
+msgstr ""
+
 msgid "Unstar dashboard"
 msgstr "Бошқарув панелидаги юлдузча ўчирилади"
 
 msgid "Star dashboard"
 msgstr "Бошқарув панелига юлдузча ўрнатилади"
 
+msgid "Failed to unstar the dashboard"
+msgstr ""
+
+msgid "Failed to star the dashboard"
+msgstr ""
+
+msgid "More"
+msgstr "Кўпроқ"
+
 msgid "Edit"
 msgstr "Таҳрирлаш"
 
 msgid "Share"
 msgstr "Улашиш"
-
-msgid "More"
-msgstr "Кўпроқ"
 
 msgid "Dashboard layout"
 msgstr "Бошқарув панели макети"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
+"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -39,6 +39,11 @@ msgstr ""
 "Hvis du sletter dashbordet \"{{dashboardName}}\", fjernes det for alle "
 "brukere. Denne handlingen kan ikke angres. Er du sikker på at du vil slette "
 "dette dashbordet permanent?"
+
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
 
 msgid "Save changes"
 msgstr "Lagre endringer"
@@ -76,10 +81,14 @@ msgstr "Forespurt dashbord ikke funnet"
 msgid "No access"
 msgstr "Ingen tilgang"
 
-msgid "Editing dashboards on small screens is not supported."
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
 msgstr ""
 
-msgid "Creating dashboards on small screens is not supported."
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
 msgstr ""
 
 msgid "Not supported"
@@ -226,20 +235,32 @@ msgstr "Skjul beskrivelse"
 msgid "Show description"
 msgstr "Vis beskrivelse"
 
+msgid "Failed to hide description"
+msgstr ""
+
+msgid "Failed to show description"
+msgstr ""
+
 msgid "Unstar dashboard"
 msgstr "Fjern stjerne fra dashbordet"
 
 msgid "Star dashboard"
 msgstr "Merk dashbord med stjerne"
 
+msgid "Failed to unstar the dashboard"
+msgstr ""
+
+msgid "Failed to star the dashboard"
+msgstr ""
+
+msgid "More"
+msgstr "Mer"
+
 msgid "Edit"
 msgstr "Rediger"
 
 msgid "Share"
 msgstr "Del"
-
-msgid "More"
-msgstr "Mer"
 
 msgid "Dashboard layout"
 msgstr "Dashbordoppsett"

@@ -4,7 +4,6 @@ import {
     MAP,
     EVENT_CHART,
     EVENT_REPORT,
-    USERS,
     REPORTS,
     RESOURCES,
     APP,
@@ -43,11 +42,10 @@ export const categorizedItems = [
     MAP,
     EVENT_REPORT,
     EVENT_CHART,
-    USERS,
     REPORTS,
     RESOURCES,
     APP,
 ]
 
 // listItemTypes are included in a single dashboard item
-export const listItemTypes = [REPORTS, RESOURCES, USERS]
+export const listItemTypes = [REPORTS, RESOURCES]

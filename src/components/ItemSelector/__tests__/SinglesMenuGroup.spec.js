@@ -1,28 +1,35 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
-import { SinglesMenuGroup } from '../SinglesMenuGroup'
+import { render } from '@testing-library/react'
+import { Provider } from 'react-redux'
+import configureMockStore from 'redux-mock-store'
 
-describe('SinglesMenuGroup', () => {
-    const wrapper = props => shallow(<SinglesMenuGroup {...props} />)
+import SinglesMenuGroup from '../SinglesMenuGroup'
 
-    it('matches snapshot', () => {
-        const props = {
-            acAddDashboardItem: jest.fn(),
-            category: {
-                header: 'ponies',
-                items: [
-                    {
-                        type: 'colorful',
-                        name: 'Rainbow Dash',
-                    },
-                    {
-                        type: 'greytone',
-                        name: 'B&W',
-                    },
-                ],
-            },
-        }
-        expect(toJson(wrapper(props))).toMatchSnapshot()
-    })
+const mockStore = configureMockStore()
+
+test('renders SingleMenuGroup', () => {
+    const store = {}
+
+    const props = {
+        category: {
+            header: 'ponies',
+            items: [
+                {
+                    type: 'colorful',
+                    name: 'Rainbow Dash',
+                },
+                {
+                    type: 'greytone',
+                    name: 'Twilight',
+                },
+            ],
+        },
+    }
+
+    const { container } = render(
+        <Provider store={mockStore(store)}>
+            <SinglesMenuGroup {...props} />
+        </Provider>
+    )
+    expect(container).toMatchSnapshot()
 })
