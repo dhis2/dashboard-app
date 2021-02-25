@@ -1839,14 +1839,14 @@
     redux-logger "^3.0.6"
     redux-thunk "^2.2.0"
 
-"@dhis2/d2-ui-interpretations@^7.1.3":
-  version "7.1.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-7.1.3.tgz#4f365ffbfd65fcee5f2188d02bd6f403288a4fce"
-  integrity sha512-rgS70Wxufs9mlhQqwp9XyqAlmzk1mVEB5cd2D91ODqwzqVScmGHUhakjQpdO9cYtFMTKxNI3/B3S6HbfqXwG4Q==
+"@dhis2/d2-ui-interpretations@^7.1.4":
+  version "7.1.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-7.1.4.tgz#ba60bc7339f70f3e4b932325791029fa20d0290b"
+  integrity sha512-oTHTfuqDQMVnozJZ7UVsY1Gx0/yoXwj6eXkI7/FBuRFsekE71bPDJ01JDOvwilQx//dl+nU2S+pCkeNk4Ei/Mw==
   dependencies:
-    "@dhis2/d2-ui-mentions-wrapper" "7.1.3"
-    "@dhis2/d2-ui-rich-text" "7.1.3"
-    "@dhis2/d2-ui-sharing-dialog" "7.1.3"
+    "@dhis2/d2-ui-mentions-wrapper" "7.1.4"
+    "@dhis2/d2-ui-rich-text" "7.1.4"
+    "@dhis2/d2-ui-sharing-dialog" "7.1.4"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -1856,16 +1856,7 @@
     prop-types "^15.5.10"
     react-portal "^4.1.5"
 
-"@dhis2/d2-ui-mentions-wrapper@7.1.3":
-  version "7.1.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-7.1.3.tgz#1dba7463db5a39b98524e6601568d3c6dc1e8b9c"
-  integrity sha512-HjnH6vBMvLpjNM8z5iSI3Z5fgJZ+zPpwT4yL7JZX/TqzQuFtSE5cX2MKp3+dlXw4/iNz9qgTgfCg7tT+eHpKzQ==
-  dependencies:
-    "@material-ui/core" "^3.3.1"
-    lodash "^4.17.10"
-    prop-types "^15.6.2"
-
-"@dhis2/d2-ui-mentions-wrapper@^7.1.4":
+"@dhis2/d2-ui-mentions-wrapper@7.1.4", "@dhis2/d2-ui-mentions-wrapper@^7.1.4":
   version "7.1.4"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-7.1.4.tgz#c25162b874452449f47960d79fcd9d9a31cb7a09"
   integrity sha512-drxPCkQFrD1S/IaVynxc2Lc1Wia/32lImkJT4cSJU3m5QsxBVOYZ6R50ZeOb6sX4wvkh97IzJJgP7LuvgRdFQw==
@@ -1894,10 +1885,10 @@
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
 
-"@dhis2/d2-ui-rich-text@7.1.3", "@dhis2/d2-ui-rich-text@^7.1.1":
-  version "7.1.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.1.3.tgz#79c0d374a240df0f39a0c1823784b3cd127d05f7"
-  integrity sha512-T2kqiDqdnIdpFNyEBo4iBt6NR23gfLZ92WHMwaJykT3NryvwgMrblg9bIUjj0T87i1URQOI4hyu1mw/PCeOXTw==
+"@dhis2/d2-ui-rich-text@7.1.4", "@dhis2/d2-ui-rich-text@^7.1.1":
+  version "7.1.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.1.4.tgz#50ca9548f84f007d058c33738d6406b6375e82da"
+  integrity sha512-hYMUYq4Y3oEe9K1wlx0LOeTjWux7K+LGQmtKM17aMRkhZO0yqrnRmgSkblFqjlMr9Sn46AanTkglxhWvru6FYg==
   dependencies:
     babel-runtime "^6.26.0"
     markdown-it "^8.4.2"
