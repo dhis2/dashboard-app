@@ -37,7 +37,7 @@ const saveFailedMessage = i18n.t(
 )
 
 const EditBar = props => {
-    const { d2 } = useD2({})
+    const { d2 } = useD2()
     const dataEngine = useDataEngine()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
     const [filterSettingsDlgIsOpen, setFilterSettingsDlgIsOpen] = useState(

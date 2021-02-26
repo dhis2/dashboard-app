@@ -29,7 +29,7 @@ import {
 import './App.css'
 
 const App = props => {
-    const { d2 } = useD2({})
+    const { d2 } = useD2()
     const dataEngine = useDataEngine()
     const { settings } = useSystemSettings()
 

@@ -50,7 +50,7 @@ const style = {
 
 const MessagesItem = ({ messages, item, dashboardMode }) => {
     const [uiLocale, setUiLocale] = useState('')
-    const { d2 } = useD2({})
+    const { d2 } = useD2()
     const { baseUrl } = useConfig()
 
     useEffect(() => {
