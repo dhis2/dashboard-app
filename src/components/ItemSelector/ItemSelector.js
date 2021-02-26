@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import Popover from '@material-ui/core/Popover'
 import { InputField, Menu } from '@dhis2/ui'
+import debounce from 'lodash/debounce'
 
 import CategorizedMenuGroup from './CategorizedMenuGroup'
 import SinglesMenuGroup from './SinglesMenuGroup'
@@ -32,6 +33,7 @@ class ItemSelector extends React.Component {
             maxOptions: new Set(),
             items: undefined,
             filter: '',
+            debouncedFilter: '',
         }
     }
 
@@ -48,8 +50,15 @@ class ItemSelector extends React.Component {
         })
     }
 
+    updateDebouncedFilterText = debounce(() => {
+        this.setState({ debouncedFilter: this.state.filter }, this.fetchItems)
+    }, 350)
+
     setFilter = (_, event) => {
-        this.setState({ filter: event.target.value }, this.fetchItems)
+        this.setState(
+            { filter: event.target.value },
+            this.updateDebouncedFilterText
+        )
     }
 
     getCategorizedMenuGroups = () =>
@@ -112,7 +121,9 @@ class ItemSelector extends React.Component {
                 '&max=' + [...this.state.maxOptions.values()].join('&max=')
         }
 
-        const filter = this.state.filter ? `/${this.state.filter}` : ''
+        const filter = this.state.debouncedFilter
+            ? `/${this.state.debouncedFilter}`
+            : ''
 
         this.context.d2.Api.getApi()
             .get(`dashboards/q${filter}${queryString}`)
