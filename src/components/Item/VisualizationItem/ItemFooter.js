@@ -7,7 +7,7 @@ import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import classes from './styles/ItemFooter.module.css'
 
 const ItemFooter = props => {
-    const { d2 } = useD2({})
+    const { d2 } = useD2()
     return (
         <div data-test="dashboarditem-footer">
             <hr className={classes.line} />

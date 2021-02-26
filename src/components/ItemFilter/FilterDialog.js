@@ -30,7 +30,7 @@ const FilterDialog = ({
     onClose,
 }) => {
     const [filters, setFilters] = useState(initiallySelectedItems)
-    const { d2 } = useD2({})
+    const { d2 } = useD2()
     const { settings } = useSystemSettings()
 
     const onSelectItems = ({ dimensionId, items }) => {

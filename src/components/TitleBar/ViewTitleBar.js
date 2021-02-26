@@ -46,7 +46,7 @@ const ViewTitleBar = ({
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
-    const { d2 } = useD2({})
+    const { d2 } = useD2()
     const dataEngine = useDataEngine()
 
     const warningAlert = useAlert(({ msg }) => msg, {

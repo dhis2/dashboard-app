@@ -29,7 +29,7 @@ const getIframeSrc = (appDetails, item, itemFilters) => {
 }
 
 const AppItem = ({ dashboardMode, item, itemFilters }) => {
-    const { d2 } = useD2({})
+    const { d2 } = useD2()
 
     let appDetails
 
