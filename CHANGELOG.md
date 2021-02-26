@@ -1,3 +1,17 @@
+## [31.13.2](https://github.com/dhis2/dashboard-app/compare/v31.13.1...v31.13.2) (2021-02-26)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1576](https://github.com/dhis2/dashboard-app/issues/1576)) ([b00c878](https://github.com/dhis2/dashboard-app/commit/b00c878ae52849c486bb67750a02d8fa4dbb41a5))
+
+## [31.13.1](https://github.com/dhis2/dashboard-app/compare/v31.13.0...v31.13.1) (2021-02-26)
+
+
+### Bug Fixes
+
+* ability to restrict dashboard filters [DHIS2-7620] ([#1575](https://github.com/dhis2/dashboard-app/issues/1575)) ([d4531cf](https://github.com/dhis2/dashboard-app/commit/d4531cfb2009e9810a515153efd897a539a29833))
+
 # [31.13.0](https://github.com/dhis2/dashboard-app/compare/v31.12.7...v31.13.0) (2021-02-26)
 
 
