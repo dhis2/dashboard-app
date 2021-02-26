@@ -15,14 +15,11 @@ Background
 
 before(() => {
     cy.request(
-        `http://localhost:8080/api/dashboards?paging=false&fields=id&filter=name:like:${TEST_DASHBOARD_PREFIX}`
+        `dashboards?paging=false&fields=id&filter=name:like:${TEST_DASHBOARD_PREFIX}`
     ).then(resp => {
         try {
             resp.body.dashboards.forEach(dashboard => {
-                cy.request(
-                    'DELETE',
-                    `http://localhost:8080/api/dashboards/${dashboard.id}`
-                )
+                cy.request('DELETE', `dashboards/${dashboard.id}`)
             })
         } catch (e) {
             console.log(`${TEST_DASHBOARD_PREFIX} dashboards not deleted`)
