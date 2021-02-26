@@ -37,7 +37,17 @@ const FilterSelector = props => {
         )
     }
 
-    return (
+    const filterDimensions = () => {
+        if (!props.restrictFilters) {
+            return props.dimensions
+        } else {
+            return props.dimensions.filter(d =>
+                [...props.allowedFilters].includes(d.id)
+            )
+        }
+    }
+
+    return isEmpty(filterDimensions()) ? null : (
         <>
             <span className={classes.buttonContainer} ref={ref}>
                 <Button onClick={() => setShowPopover(true)}>
@@ -56,7 +66,7 @@ const FilterSelector = props => {
                     <div className={classes.popover}>
                         <DimensionsPanel
                             style={{ width: '320px' }}
-                            dimensions={props.dimensions}
+                            dimensions={filterDimensions()}
                             onDimensionClick={selectDimension}
                             selectedIds={Object.keys(
                                 props.initiallySelectedItems
@@ -82,10 +92,12 @@ const mapStateToProps = state => ({
 })
 
 FilterSelector.propTypes = {
+    allowedFilters: PropTypes.array,
     clearActiveModalDimension: PropTypes.func,
     dimension: PropTypes.object,
     dimensions: PropTypes.array,
     initiallySelectedItems: PropTypes.object,
+    restrictFilters: PropTypes.bool,
     setActiveModalDimension: PropTypes.func,
 }
 

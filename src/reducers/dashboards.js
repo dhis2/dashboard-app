@@ -176,4 +176,6 @@ export const getCustomDashboards = data =>
         access: d.access,
         numberOfItems: orArray(d.dashboardItems).length,
         dashboardItems: convertBackendItemsToUi(d.dashboardItems),
+        restrictFilters: d.restrictFilters,
+        allowedFilters: d.allowedFilters ?? [],
     }))
