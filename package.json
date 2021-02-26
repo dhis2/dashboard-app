@@ -5,7 +5,7 @@
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/analytics": "^14.1.5",
+        "@dhis2/analytics": "^15.1.1",
         "@dhis2/app-runtime": "^2.7.0",
         "@dhis2/app-runtime-adapter-d2": "^1.0.2",
         "@dhis2/d2-i18n": "^1.0.6",
@@ -15,7 +15,7 @@
         "@dhis2/d2-ui-rich-text": "^7.1.4",
         "@dhis2/d2-ui-sharing-dialog": "^7.1.4",
         "@dhis2/d2-ui-translation-dialog": "^7.1.4",
-        "@dhis2/data-visualizer-plugin": "^35.18.3",
+        "@dhis2/data-visualizer-plugin": "^35.20.0",
         "@dhis2/ui": "^6.2.3",
         "@material-ui/core": "^3.9.2",
         "@material-ui/icons": "^4.9.1",
@@ -34,7 +34,7 @@
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.3.0",
         "reselect": "^4.0.0",
-        "styled-jsx": "^3.4.1"
+        "styled-jsx": "3.3.2"
     },
     "scripts": {
         "start": "d2-app-scripts start",
@@ -78,6 +78,7 @@
         }
     },
     "resolutions": {
-        "@dhis2/ui": "^6.2.3"
+        "@dhis2/ui": "^6.2.3",
+        "styled-jsx": "3.3.2"
     }
 }
