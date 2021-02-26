@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
+"POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -56,6 +56,9 @@ msgstr "Salir de la vista previa"
 
 msgid "Print preview"
 msgstr "Vista previa"
+
+msgid "Filter settings"
+msgstr ""
 
 msgid "Translate"
 msgstr "Traducir"
@@ -207,6 +210,28 @@ msgstr "Confirmar"
 
 msgid "Add filter"
 msgstr "Añadir filtro"
+
+msgid "Allow filtering by all dimensions"
+msgstr ""
+
+msgid "Only allow filtering by selected dimensions"
+msgstr ""
+
+msgid "Dashboard filter settings"
+msgstr ""
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+
+msgid "Available Filters"
+msgstr ""
+
+msgid "Selected Filters"
+msgstr ""
 
 msgid "There are no items on this dashboard"
 msgstr "No hay objetos en este tablero"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
+"POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2021\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -55,6 +55,9 @@ msgstr "Avslutt forhåndsvisning av utskrift"
 
 msgid "Print preview"
 msgstr "Utskriftforhåndsvisning"
+
+msgid "Filter settings"
+msgstr ""
 
 msgid "Translate"
 msgstr "Oversett"
@@ -207,6 +210,28 @@ msgstr "Bekreft"
 
 msgid "Add filter"
 msgstr "Legg til filter"
+
+msgid "Allow filtering by all dimensions"
+msgstr ""
+
+msgid "Only allow filtering by selected dimensions"
+msgstr ""
+
+msgid "Dashboard filter settings"
+msgstr ""
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+
+msgid "Available Filters"
+msgstr ""
+
+msgid "Selected Filters"
+msgstr ""
 
 msgid "There are no items on this dashboard"
 msgstr "Det er ingen elementer på dette dashbordet"
