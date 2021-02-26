@@ -1,3 +1,10 @@
+# [31.13.0](https://github.com/dhis2/dashboard-app/compare/v31.12.7...v31.13.0) (2021-02-26)
+
+
+### Features
+
+* register passive view of dashboards [DHIS2-7016] ([#1572](https://github.com/dhis2/dashboard-app/issues/1572)) ([ddbf65d](https://github.com/dhis2/dashboard-app/commit/ddbf65d2d2608eede94379e087b6870caa185e03))
+
 ## [31.12.7](https://github.com/dhis2/dashboard-app/compare/v31.12.6...v31.12.7) (2021-02-25)
 
 
