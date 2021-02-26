@@ -13,6 +13,7 @@ import {
     REMOVE_DASHBOARD_ITEM,
     SET_PRINT_PREVIEW_VIEW,
     CLEAR_PRINT_PREVIEW_VIEW,
+    RECEIVED_FILTER_SETTINGS,
     sGetEditDashboardRoot,
 } from '../reducers/editDashboard'
 import { tFetchDashboards } from './dashboards'
@@ -110,6 +111,11 @@ export const acUpdateDashboardItem = item => ({
 
 export const acRemoveDashboardItem = value => ({
     type: REMOVE_DASHBOARD_ITEM,
+    value,
+})
+
+export const acSetFilterSettings = value => ({
+    type: RECEIVED_FILTER_SETTINGS,
     value,
 })
 
