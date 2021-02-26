@@ -1,3 +1,10 @@
+## [31.13.1](https://github.com/dhis2/dashboard-app/compare/v31.13.0...v31.13.1) (2021-02-26)
+
+
+### Bug Fixes
+
+* ability to restrict dashboard filters [DHIS2-7620] ([#1575](https://github.com/dhis2/dashboard-app/issues/1575)) ([d4531cf](https://github.com/dhis2/dashboard-app/commit/d4531cfb2009e9810a515153efd897a539a29833))
+
 # [31.13.0](https://github.com/dhis2/dashboard-app/compare/v31.12.7...v31.13.0) (2021-02-26)
 
 
