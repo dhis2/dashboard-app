@@ -1,6 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { dashboardChipSel } from '../../../selectors/viewDashboard'
 import { filterDimensionsPanelSel } from '../../../selectors/dashboardFilter'
+import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 const TEST_DASHBOARD_PREFIX = 'TEST_FILTER_SETTINGS'
 const TEST_DASHBOARD_TITLE = `${TEST_DASHBOARD_PREFIX}-${new Date().toUTCString()}`
@@ -55,7 +56,9 @@ Given(
     'I open an existing dashboard with non-restricted Filter settings in edit mode',
     () => {
         toggleShowMoreButton()
-        cy.get(dashboardChipSel).contains(TEST_DASHBOARD_TITLE).click()
+        cy.get(dashboardChipSel)
+            .contains(TEST_DASHBOARD_TITLE, EXTENDED_TIMEOUT)
+            .click()
         cy.get('button').contains('Edit').click()
     }
 )
