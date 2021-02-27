@@ -56,7 +56,7 @@ msgid "Print preview"
 msgstr "Náhled před tiskem"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "Nastavení filtru"
 
 msgid "Translate"
 msgstr "Přeložit"
@@ -216,13 +216,13 @@ msgid "Add filter"
 msgstr "Přidat filtr"
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "Povolit filtrování podle všech dimenzí"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "Povolit filtrování pouze podle vybraných dimenzí"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "Nastavení filtru ovládacího panelu"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -230,12 +230,16 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"Ovládací panely lze filtrovat podle dimenzí a měnit jejich\n"
+"                                         zobrazené údaje. Ve výchozím nastavení jsou k dispozici všechny dimenze\n"
+"                                         jako filtry. Alternativně mohou pouze vybrané rozměry\n"
+"                                         být k dispozici na ovládacím panelu."
 
 msgid "Available Filters"
-msgstr ""
+msgstr "Dostupné filtry"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "Vybrané filtry"
 
 msgid "There are no items on this dashboard"
 msgstr "Na tomto ovládacím panelu nejsou žádné položky"
