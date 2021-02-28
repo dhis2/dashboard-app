@@ -54,7 +54,7 @@ msgid "Print preview"
 msgstr "打印预览"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "筛选器设定"
 
 msgid "Translate"
 msgstr "翻译"
@@ -200,13 +200,13 @@ msgid "Add filter"
 msgstr "添加过滤器"
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "允许按所有维度进行过滤"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "仅允许按选定的维度进行过滤"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "仪表板过滤器设置"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -214,12 +214,16 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"仪表板可以按维度进行过滤以进行更改\n"
+"                                         显示的数据。默认情况下，所有尺寸均可用\n"
+"                                         作为过滤器。另外，只有选定的尺寸可以\n"
+"                                         在仪表板上可用。"
 
 msgid "Available Filters"
-msgstr ""
+msgstr "可用过滤器"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "选定的过滤器"
 
 msgid "There are no items on this dashboard"
 msgstr "该仪表盘没有条目"
