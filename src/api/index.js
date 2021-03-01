@@ -42,6 +42,8 @@ export const getDashboardFields = ({ withItems, withFavorite } = {}) =>
         'lastUpdated',
         'access',
         'href', // needed for d2-ui-translations-dialog, since we don't pass a d2 Model anymore
+        'restrictFilters',
+        'allowedFilters',
         withItems
             ? `dashboardItems[${getDashboardItemsFields({
                   withFavorite,

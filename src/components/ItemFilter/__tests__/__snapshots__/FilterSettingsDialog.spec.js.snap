@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when filters are not restricted 1`] = `
+<Fragment>
+  <Modal
+    dataTest="dhis2-uicore-modal"
+    large={true}
+    onClose={[Function]}
+    position="top"
+  >
+    <ModalTitle
+      dataTest="dhis2-uicore-modaltitle"
+    >
+      Dashboard filter settings
+    </ModalTitle>
+    <ModalContent
+      dataTest="dhis2-uicore-modalcontent"
+    >
+      <div
+        className="descContainer"
+      >
+        <span>
+          Dashboards can be filtered by dimensions to change
+                                         the data shown. By default, all dimensions are available
+                                         as filters. Alternatively, only selected dimensions can
+                                         be made available on a dashboard.
+        </span>
+      </div>
+      <RadioOptions
+        filtersSelectable={false}
+        updateFilterDimensionRestrictability={[Function]}
+      />
+    </ModalContent>
+    <ModalActions
+      dataTest="dhis2-uicore-modalactions"
+    >
+      <ButtonStrip
+        dataTest="dhis2-uicore-buttonstrip"
+        end={true}
+      >
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          secondary={true}
+          type="button"
+        >
+          Cancel
+        </Button>
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          primary={true}
+          type="button"
+        >
+          Confirm
+        </Button>
+      </ButtonStrip>
+    </ModalActions>
+  </Modal>
+</Fragment>
+`;
+
+exports[`renders correctly when filters are restricted 1`] = `
+<Fragment>
+  <Modal
+    dataTest="dhis2-uicore-modal"
+    large={true}
+    onClose={[Function]}
+    position="top"
+  >
+    <ModalTitle
+      dataTest="dhis2-uicore-modaltitle"
+    >
+      Dashboard filter settings
+    </ModalTitle>
+    <ModalContent
+      dataTest="dhis2-uicore-modalcontent"
+    >
+      <div
+        className="descContainer"
+      >
+        <span>
+          Dashboards can be filtered by dimensions to change
+                                         the data shown. By default, all dimensions are available
+                                         as filters. Alternatively, only selected dimensions can
+                                         be made available on a dashboard.
+        </span>
+      </div>
+      <RadioOptions
+        filtersSelectable={true}
+        updateFilterDimensionRestrictability={[Function]}
+      />
+      <Transfer
+        dataTest="dhis2-uicore-transfer"
+        filterCallback={[Function]}
+        filterCallbackPicked={[Function]}
+        filterable={true}
+        height="400px"
+        initialSearchTerm=""
+        initialSearchTermPicked=""
+        leftHeader={
+          <div
+            className="transferHeader"
+          >
+            <span>
+              Available Filters
+            </span>
+          </div>
+        }
+        maxSelections={Infinity}
+        onChange={[Function]}
+        options={
+          Array [
+            Object {
+              "label": "kvikk lunsj",
+              "value": "kl",
+            },
+            Object {
+              "label": "salt sild",
+              "value": "ss",
+            },
+            Object {
+              "label": "seigmenn",
+              "value": "sm",
+            },
+          ]
+        }
+        optionsWidth="350px"
+        renderOption={[Function]}
+        rightHeader={
+          <div
+            className="transferHeader"
+          >
+            <span>
+              Selected Filters
+            </span>
+          </div>
+        }
+        selected={
+          Array [
+            "kl",
+          ]
+        }
+        selectedWidth="350px"
+      />
+    </ModalContent>
+    <ModalActions
+      dataTest="dhis2-uicore-modalactions"
+    >
+      <ButtonStrip
+        dataTest="dhis2-uicore-buttonstrip"
+        end={true}
+      >
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          secondary={true}
+          type="button"
+        >
+          Cancel
+        </Button>
+        <Button
+          dataTest="dhis2-uicore-button"
+          onClick={[Function]}
+          primary={true}
+          type="button"
+        >
+          Confirm
+        </Button>
+      </ButtonStrip>
+    </ModalActions>
+  </Modal>
+</Fragment>
+`;

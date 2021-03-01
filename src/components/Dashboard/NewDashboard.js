@@ -21,7 +21,7 @@ const NewDashboard = props => {
     }, [])
 
     return (
-        <div>
+        <>
             <div className={classes.container}>
                 <EditBar />
                 {props.isPrintPreviewView ? (
@@ -41,7 +41,7 @@ const NewDashboard = props => {
                     )}
                 />
             </div>
-        </div>
+        </>
     )
 }
 

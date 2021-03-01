@@ -18,3 +18,9 @@ Feature: Dashboard filter
     Scenario: I add a Facility Type filter
         When I add a "Facility Type" filter
         Then the Facility Type filter is applied to the dashboard
+
+    @nonmutating
+    Scenario: I can access the dimensions modal from the filter badge
+        When I add a "Period" filter
+        And I click on the "Period" filter badge
+        Then the filter modal is opened

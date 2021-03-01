@@ -30,7 +30,7 @@ const FilterDialog = ({
     onClose,
 }) => {
     const [filters, setFilters] = useState(initiallySelectedItems)
-    const { d2 } = useD2({})
+    const { d2 } = useD2()
     const { settings } = useSystemSettings()
 
     const onSelectItems = ({ dimensionId, items }) => {
@@ -113,7 +113,7 @@ const FilterDialog = ({
         <>
             {dimension.id && (
                 <Modal
-                    dataTest={`${dimension.id}-dimension-modal`}
+                    dataTest="dimension-modal"
                     onClose={onClose}
                     position="top"
                     large

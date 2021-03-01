@@ -23,6 +23,8 @@ const generatePayload = (dashboard = {}, data) => {
             width: item.w,
             height: item.h,
         })),
+        allowedFilters: data.allowedFilters,
+        restrictFilters: data.restrictFilters,
     }
 }
 

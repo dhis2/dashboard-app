@@ -6,7 +6,7 @@ import { load, unmount } from './plugin'
 import getGridItemDomId from '../../../../modules/getGridItemDomId'
 
 const DefaultPlugin = ({ item, activeType, visualization, options, style }) => {
-    const { d2 } = useD2({})
+    const { d2 } = useD2()
     const { baseUrl } = useConfig()
     const credentials = {
         baseUrl,
