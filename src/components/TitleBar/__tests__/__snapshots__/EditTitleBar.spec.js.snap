@@ -94,7 +94,9 @@ exports[`EditTitleBar renders correctly when no name or description 1`] = `
     <div
       class="itemSelector"
     >
-      <itemselector />
+      <div
+        class="item-selector"
+      />
     </div>
   </section>
 </div>
@@ -196,7 +198,9 @@ exports[`EditTitleBar renders correctly with name and description 1`] = `
     <div
       class="itemSelector"
     >
-      <itemselector />
+      <div
+        class="item-selector"
+      />
     </div>
   </section>
 </div>

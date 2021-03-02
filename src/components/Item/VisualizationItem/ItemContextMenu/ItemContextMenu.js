@@ -7,85 +7,62 @@ import {
     VIS_TYPE_GAUGE,
     VIS_TYPE_PIE,
 } from '@dhis2/analytics'
-import { Button, Menu, Popover, MenuItem, Divider, colors } from '@dhis2/ui'
+import { Button, Menu, Popover, MenuItem, Divider } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import TableIcon from '@material-ui/icons/ViewList'
-import ChartIcon from '@material-ui/icons/InsertChart'
-import MapIcon from '@material-ui/icons/Public'
 import LaunchIcon from '@material-ui/icons/Launch'
+import ViewAsMenuItems from './ViewAsMenuItems'
+import { useWindowDimensions } from '../../../WindowDimensionsProvider'
+import { isSmallScreen } from '../../../../modules/smallScreen'
 
 import {
     ThreeDots,
     SpeechBubble,
     Fullscreen,
     ExitFullscreen,
-} from './assets/icons'
-import { getLink } from './Visualization/plugin'
-import {
-    CHART,
-    MAP,
-    REPORT_TABLE,
-    EVENT_CHART,
-    EVENT_REPORT,
-    isTrackerDomainType,
-    hasMapView,
-    getAppName,
-} from '../../../modules/itemTypes'
-import { useSystemSettings } from '../../SystemSettingsProvider'
+} from '../assets/icons'
+import { getLink } from '../Visualization/plugin'
+import { getAppName } from '../../../../modules/itemTypes'
+import { useSystemSettings } from '../../../SystemSettingsProvider'
 
-const iconFill = { fill: colors.grey600 }
-
-const ItemHeaderButtons = props => {
-    const [menuIsOpen, setMenuIsOpen] = useState(props.isOpen)
-
+const ItemContextMenu = props => {
+    const [menuIsOpen, setMenuIsOpen] = useState(false)
+    const { width } = useWindowDimensions()
     const { baseUrl } = useConfig()
 
     const { item, visualization, onSelectActiveType, activeType } = props
 
     const {
-        openInRelevantApp,
-        showInterpretationsAndDetails,
-        switchViewType,
-        fullscreenAllowedInSettings,
+        allowVisOpenInApp,
+        allowVisShowInterpretations,
+        allowVisViewAs,
+        allowVisFullscreen,
     } = useSystemSettings().settings
 
-    const isTrackerType = isTrackerDomainType(item.type)
-
-    const onViewTable = () => {
-        closeMenu()
-        onSelectActiveType(isTrackerType ? EVENT_REPORT : REPORT_TABLE)
-    }
-
-    const onViewChart = () => {
-        closeMenu()
-        onSelectActiveType(isTrackerType ? EVENT_CHART : CHART)
-    }
-
-    const onViewMap = () => {
-        closeMenu()
-        onSelectActiveType(MAP)
-    }
-
-    const itemHasMapView = () => hasMapView(item.type)
-
-    const handleInterpretationClick = () => {
+    const toggleInterpretations = () => {
         props.onToggleFooter()
         if (menuIsOpen) {
             closeMenu()
         }
     }
 
-    const handleToggleFullscreenClick = () => {
+    const toggleFullscreen = () => {
         props.onToggleFullscreen()
         closeMenu()
     }
 
-    const openMenu = () => setMenuIsOpen(true)
+    const onActiveTypeChanged = type => {
+        closeMenu()
+        onSelectActiveType(type)
+    }
+
+    const openMenu = () => {
+        setMenuIsOpen(true)
+    }
     const closeMenu = () => setMenuIsOpen(false)
 
     const type = visualization.type || item.type
     const canViewAs =
-        switchViewType &&
+        allowVisViewAs &&
         !isSingleValue(type) &&
         !isYearOverYear(type) &&
         type !== VIS_TYPE_GAUGE &&
@@ -95,48 +72,19 @@ const ItemHeaderButtons = props => {
         ? i18n.t(`Hide interpretations and details`)
         : i18n.t(`Show interpretations and details`)
 
-    const ViewAsMenuItems = () => (
-        <>
-            {activeType !== CHART && activeType !== EVENT_CHART && (
-                <MenuItem
-                    dense
-                    label={i18n.t('View as Chart')}
-                    onClick={onViewChart}
-                    icon={<ChartIcon style={iconFill} />}
-                />
-            )}
-            {activeType !== REPORT_TABLE && activeType !== EVENT_REPORT && (
-                <MenuItem
-                    dense
-                    label={i18n.t('View as Table')}
-                    onClick={onViewTable}
-                    icon={<TableIcon style={iconFill} />}
-                />
-            )}
-            {itemHasMapView() && activeType !== MAP && (
-                <MenuItem
-                    dense
-                    label={i18n.t('View as Map')}
-                    onClick={onViewMap}
-                    icon={<MapIcon style={iconFill} />}
-                />
-            )}
-        </>
-    )
-
     const buttonRef = createRef()
 
-    const fullscreenAllowed =
-        props.fullscreenSupported && fullscreenAllowedInSettings
+    const fullscreenAllowed = props.fullscreenSupported && allowVisFullscreen
 
     if (
-        !openInRelevantApp &&
-        !showInterpretationsAndDetails &&
-        !switchViewType &&
+        !allowVisOpenInApp &&
+        !allowVisShowInterpretations &&
+        !allowVisViewAs &&
         !fullscreenAllowed
     ) {
         return null
     }
+
     return props.isFullscreen ? (
         <Button small secondary onClick={props.onToggleFullscreen}>
             <ExitFullscreen />
@@ -163,13 +111,22 @@ const ItemHeaderButtons = props => {
                     <Menu>
                         {canViewAs && (
                             <>
-                                <ViewAsMenuItems />
-                                {(showInterpretationsAndDetails ||
-                                    openInRelevantApp ||
-                                    fullscreenAllowed) && <Divider />}
+                                <ViewAsMenuItems
+                                    type={item.type}
+                                    activeType={activeType}
+                                    onActiveTypeChanged={onActiveTypeChanged}
+                                />
+                                {(allowVisShowInterpretations ||
+                                    (allowVisOpenInApp &&
+                                        !isSmallScreen(width)) ||
+                                    fullscreenAllowed) && (
+                                    <span data-testid="divider">
+                                        <Divider />
+                                    </span>
+                                )}
                             </>
                         )}
-                        {openInRelevantApp && (
+                        {allowVisOpenInApp && !isSmallScreen(width) && (
                             <MenuItem
                                 dense
                                 icon={
@@ -182,12 +139,12 @@ const ItemHeaderButtons = props => {
                                 target="_blank"
                             />
                         )}
-                        {showInterpretationsAndDetails && (
+                        {allowVisShowInterpretations && (
                             <MenuItem
                                 dense
                                 icon={<SpeechBubble />}
                                 label={interpretationMenuLabel}
-                                onClick={handleInterpretationClick}
+                                onClick={toggleInterpretations}
                             />
                         )}
                         {fullscreenAllowed && (
@@ -195,7 +152,7 @@ const ItemHeaderButtons = props => {
                                 dense
                                 icon={<Fullscreen />}
                                 label={i18n.t('View fullscreen')}
-                                onClick={handleToggleFullscreenClick}
+                                onClick={toggleFullscreen}
                             />
                         )}
                     </Menu>
@@ -205,12 +162,11 @@ const ItemHeaderButtons = props => {
     )
 }
 
-ItemHeaderButtons.propTypes = {
+ItemContextMenu.propTypes = {
     activeFooter: PropTypes.bool,
     activeType: PropTypes.string,
     fullscreenSupported: PropTypes.bool,
     isFullscreen: PropTypes.bool,
-    isOpen: PropTypes.bool,
     item: PropTypes.object,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
@@ -218,4 +174,4 @@ ItemHeaderButtons.propTypes = {
     onToggleFullscreen: PropTypes.func,
 }
 
-export default ItemHeaderButtons
+export default ItemContextMenu

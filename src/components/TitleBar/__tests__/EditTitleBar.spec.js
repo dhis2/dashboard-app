@@ -7,7 +7,13 @@ import EditTitleBar from '../EditTitleBar'
 
 const mockStore = configureMockStore()
 
-jest.mock('../../ItemSelector/ItemSelector', () => 'ItemSelector')
+jest.mock(
+    '../../ItemSelector/ItemSelector',
+    () =>
+        function MockItemSelector() {
+            return <div className="item-selector" />
+        }
+)
 
 describe('EditTitleBar', () => {
     it('renders correctly with name and description', () => {

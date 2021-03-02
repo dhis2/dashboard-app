@@ -52,6 +52,7 @@ describe('ViewDashboard', () => {
         props = {
             clearEditDashboard: jest.fn(),
             clearPrintDashboard: jest.fn(),
+            registerPassiveView: jest.fn(),
             dashboardIsEditing: false,
             dashboardIsPrinting: false,
         }

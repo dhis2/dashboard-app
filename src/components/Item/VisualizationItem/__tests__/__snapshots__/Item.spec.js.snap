@@ -4,7 +4,7 @@ exports[`VisualizationItem/Item does not render Visualization if config not load
 <Fragment>
   <Connect(ItemHeader)
     actionButtons={
-      <ItemHeaderButtons
+      <ItemContextMenu
         activeFooter={false}
         activeType="CHART"
         fullscreenSupported={false}
