@@ -188,6 +188,12 @@ msgstr "Skrýt interpretace a podrobnosti"
 msgid "Show interpretations and details"
 msgstr "Zobrazit interpretace a podrobnosti"
 
+msgid "Open in {{appName}} app"
+msgstr "Otevřít v aplikaci {{appName}}"
+
+msgid "View fullscreen"
+msgstr "Zobrazit na celou obrazovku"
+
 msgid "View as Chart"
 msgstr "Zobrazit jako graf"
 
@@ -196,12 +202,6 @@ msgstr "Zobrazit jako tabulku"
 
 msgid "View as Map"
 msgstr "Zobrazit jako mapu"
-
-msgid "Open in {{appName}} app"
-msgstr "Otevřít v aplikaci {{appName}}"
-
-msgid "View fullscreen"
-msgstr "Zobrazit na celou obrazovku"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Nelze načíst plugin pro tuto položku"

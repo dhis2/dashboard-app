@@ -179,6 +179,12 @@ msgstr "Ẩn các diễn giải và chi tiết"
 msgid "Show interpretations and details"
 msgstr "Hiện các diễn giải và chi tiết"
 
+msgid "Open in {{appName}} app"
+msgstr "Mở trong ứng dụng {{Tên ứng dụng}}"
+
+msgid "View fullscreen"
+msgstr "Xem toàn màn hình"
+
 msgid "View as Chart"
 msgstr "Xem dưới dạng biểu đồ"
 
@@ -187,12 +193,6 @@ msgstr "Xem dưới dạng bảng"
 
 msgid "View as Map"
 msgstr "Xem dưới dạng bản đồ"
-
-msgid "Open in {{appName}} app"
-msgstr "Mở trong ứng dụng {{Tên ứng dụng}}"
-
-msgid "View fullscreen"
-msgstr "Xem toàn màn hình"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Không thể tải plugin cho mục này"

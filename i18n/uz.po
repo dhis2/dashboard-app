@@ -181,6 +181,12 @@ msgstr "Талқинлар ва тавсилотларни беркитиш"
 msgid "Show interpretations and details"
 msgstr "Талқинлар ва тавсилотларни кўрсатиш"
 
+msgid "Open in {{appName}} app"
+msgstr "Иловада {{ИловаНоми}} да очиш"
+
+msgid "View fullscreen"
+msgstr ""
+
 msgid "View as Chart"
 msgstr "Диаграмма сифатида кўриш"
 
@@ -189,12 +195,6 @@ msgstr "Жадвал сифатида кўриш"
 
 msgid "View as Map"
 msgstr "Харита сифатида кўриш"
-
-msgid "Open in {{appName}} app"
-msgstr "Иловада {{ИловаНоми}} да очиш"
-
-msgid "View fullscreen"
-msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "Ушбу элемент учун плагин юкланмади"

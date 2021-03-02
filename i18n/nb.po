@@ -184,6 +184,12 @@ msgstr "Skjul tolkninger og detaljer"
 msgid "Show interpretations and details"
 msgstr "Vis tolkninger og detaljer"
 
+msgid "Open in {{appName}} app"
+msgstr "Åpne i {{appName}} -appen"
+
+msgid "View fullscreen"
+msgstr "Vis fullskjerm"
+
 msgid "View as Chart"
 msgstr "Vis som diagram"
 
@@ -192,12 +198,6 @@ msgstr "Vis som tabell"
 
 msgid "View as Map"
 msgstr "Vis som kart"
-
-msgid "Open in {{appName}} app"
-msgstr "Åpne i {{appName}} -appen"
-
-msgid "View fullscreen"
-msgstr "Vis fullskjerm"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Kan ikke laste inn plugin-modulen for dette elementet"

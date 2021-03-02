@@ -184,6 +184,12 @@ msgstr "Ocultar interpretaciones y detalles"
 msgid "Show interpretations and details"
 msgstr "Mostrar interpretaciones y detalles"
 
+msgid "Open in {{appName}} app"
+msgstr "Abrir en la aplicación {{appName}}"
+
+msgid "View fullscreen"
+msgstr "Ver en pantalla completa"
+
 msgid "View as Chart"
 msgstr "Ver como gráfico"
 
@@ -192,12 +198,6 @@ msgstr "Ver como tabla"
 
 msgid "View as Map"
 msgstr "Ver como mapa"
-
-msgid "Open in {{appName}} app"
-msgstr "Abrir en la aplicación {{appName}}"
-
-msgid "View fullscreen"
-msgstr "Ver en pantalla completa"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Incapaz de cargar el complemento para este elemento"
