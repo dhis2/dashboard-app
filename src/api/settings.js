@@ -16,11 +16,11 @@ const SYSTEM_SETTINGS = [
 ]
 
 const SYSTEM_SETTINGS_REMAPPINGS = {
-    keyDashboardContextMenuItemOpenInRelevantApp: 'openInRelevantApp',
+    keyDashboardContextMenuItemOpenInRelevantApp: 'allowVisOpenInApp',
     keyDashboardContextMenuItemShowInterpretationsAndDetails:
-        'showInterpretationsAndDetails',
-    keyDashboardContextMenuItemSwitchViewType: 'switchViewType',
-    keyDashboardContextMenuItemViewFullscreen: 'fullscreenAllowedInSettings',
+        'allowVisShowInterpretations',
+    keyDashboardContextMenuItemSwitchViewType: 'allowVisViewAs',
+    keyDashboardContextMenuItemViewFullscreen: 'allowVisFullscreen',
 }
 
 export const renameSystemSettings = settings => {

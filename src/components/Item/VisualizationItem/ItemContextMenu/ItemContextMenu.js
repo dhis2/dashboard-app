@@ -11,6 +11,8 @@ import { Button, Menu, Popover, MenuItem, Divider } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import LaunchIcon from '@material-ui/icons/Launch'
 import ViewAsMenuItems from './ViewAsMenuItems'
+import { useWindowDimensions } from '../../../WindowDimensionsProvider'
+import { isSmallScreen } from '../../../../modules/smallScreen'
 
 import {
     ThreeDots,
@@ -22,20 +24,18 @@ import { getLink } from '../Visualization/plugin'
 import { getAppName } from '../../../../modules/itemTypes'
 import { useSystemSettings } from '../../../SystemSettingsProvider'
 
-import classes from './styles/ItemContextMenu.module.css'
-
 const ItemContextMenu = props => {
-    const [menuIsOpen, setMenuIsOpen] = useState(props.isOpen)
-
+    const [menuIsOpen, setMenuIsOpen] = useState(false)
+    const { width } = useWindowDimensions()
     const { baseUrl } = useConfig()
 
     const { item, visualization, onSelectActiveType, activeType } = props
 
     const {
-        openInRelevantApp,
-        showInterpretationsAndDetails,
-        switchViewType,
-        fullscreenAllowedInSettings,
+        allowVisOpenInApp,
+        allowVisShowInterpretations,
+        allowVisViewAs,
+        allowVisFullscreen,
     } = useSystemSettings().settings
 
     const toggleInterpretations = () => {
@@ -55,12 +55,14 @@ const ItemContextMenu = props => {
         onSelectActiveType(type)
     }
 
-    const openMenu = () => setMenuIsOpen(true)
+    const openMenu = () => {
+        setMenuIsOpen(true)
+    }
     const closeMenu = () => setMenuIsOpen(false)
 
     const type = visualization.type || item.type
     const canViewAs =
-        switchViewType &&
+        allowVisViewAs &&
         !isSingleValue(type) &&
         !isYearOverYear(type) &&
         type !== VIS_TYPE_GAUGE &&
@@ -72,17 +74,17 @@ const ItemContextMenu = props => {
 
     const buttonRef = createRef()
 
-    const fullscreenAllowed =
-        props.fullscreenSupported && fullscreenAllowedInSettings
+    const fullscreenAllowed = props.fullscreenSupported && allowVisFullscreen
 
     if (
-        !openInRelevantApp &&
-        !showInterpretationsAndDetails &&
-        !switchViewType &&
+        !allowVisOpenInApp &&
+        !allowVisShowInterpretations &&
+        !allowVisViewAs &&
         !fullscreenAllowed
     ) {
         return null
     }
+
     return props.isFullscreen ? (
         <Button small secondary onClick={props.onToggleFullscreen}>
             <ExitFullscreen />
@@ -114,14 +116,18 @@ const ItemContextMenu = props => {
                                     activeType={activeType}
                                     onActiveTypeChanged={onActiveTypeChanged}
                                 />
-                                {(showInterpretationsAndDetails ||
-                                    openInRelevantApp ||
-                                    fullscreenAllowed) && <Divider />}
+                                {(allowVisShowInterpretations ||
+                                    (allowVisOpenInApp &&
+                                        !isSmallScreen(width)) ||
+                                    fullscreenAllowed) && (
+                                    <span data-testid="divider">
+                                        <Divider />
+                                    </span>
+                                )}
                             </>
                         )}
-                        {openInRelevantApp && (
+                        {allowVisOpenInApp && !isSmallScreen(width) && (
                             <MenuItem
-                                className={classes.openInAppMenuItem}
                                 dense
                                 icon={
                                     <LaunchIcon style={{ fill: '#6e7a8a' }} />
@@ -133,7 +139,7 @@ const ItemContextMenu = props => {
                                 target="_blank"
                             />
                         )}
-                        {false && (
+                        {allowVisShowInterpretations && (
                             <MenuItem
                                 dense
                                 icon={<SpeechBubble />}
@@ -141,7 +147,7 @@ const ItemContextMenu = props => {
                                 onClick={toggleInterpretations}
                             />
                         )}
-                        {false && (
+                        {fullscreenAllowed && (
                             <MenuItem
                                 dense
                                 icon={<Fullscreen />}
@@ -161,7 +167,6 @@ ItemContextMenu.propTypes = {
     activeType: PropTypes.string,
     fullscreenSupported: PropTypes.bool,
     isFullscreen: PropTypes.bool,
-    isOpen: PropTypes.bool,
     item: PropTypes.object,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
