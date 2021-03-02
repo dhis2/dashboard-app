@@ -6,7 +6,7 @@ import uniqueId from 'lodash/uniqueId'
 import Visualization from './Visualization/Visualization'
 import FatalErrorBoundary from './FatalErrorBoundary'
 import ItemHeader from '../ItemHeader/ItemHeader'
-import ItemHeaderButtons from './ItemHeaderButtons'
+import ItemContextMenu from './ItemContextMenu/ItemContextMenu'
 import ItemFooter from './ItemFooter'
 import { WindowDimensionsCtx } from '../../WindowDimensionsProvider'
 import { SystemSettingsCtx } from '../../SystemSettingsProvider'
@@ -224,7 +224,7 @@ export class Item extends Component {
         const activeType = this.getActiveType()
 
         const actionButtons = pluginIsAvailable(activeType || item.type) ? (
-            <ItemHeaderButtons
+            <ItemContextMenu
                 item={item}
                 visualization={this.props.visualization}
                 onSelectActiveType={this.setActiveType}
