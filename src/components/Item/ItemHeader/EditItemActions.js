@@ -8,10 +8,7 @@ import { acRemoveDashboardItem } from '../../../actions/editDashboard'
 import classes from './styles/ItemHeader.module.css'
 
 const EditItemActions = ({ itemId, acRemoveDashboardItem }) => {
-    const handleDeleteItem = () => {
-        console.log('delete item', itemId)
-        acRemoveDashboardItem(itemId)
-    }
+    const handleDeleteItem = () => acRemoveDashboardItem(itemId)
 
     return (
         <div className={classes.itemActionsWrap}>
