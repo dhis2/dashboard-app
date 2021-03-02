@@ -52,7 +52,10 @@ export const ViewDashboard = props => {
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
 
     return (
-        <div className={cx(classes.container, 'dashboard-scroll-container')}>
+        <div
+            className={cx(classes.container, 'dashboard-scroll-container')}
+            data-test="outer-scroll-container"
+        >
             <DashboardsBar
                 expanded={controlbarExpanded}
                 onExpandedChanged={onExpandedChanged}

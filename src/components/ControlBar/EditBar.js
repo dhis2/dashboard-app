@@ -216,7 +216,7 @@ const EditBar = props => {
 
     return (
         <>
-            <div className={classes.editBar}>
+            <div className={classes.editBar} data-test="edit-control-bar">
                 <div className={classes.controls}>
                     {props.updateAccess ? renderActionButtons() : null}
                     <Button secondary onClick={onDiscard}>

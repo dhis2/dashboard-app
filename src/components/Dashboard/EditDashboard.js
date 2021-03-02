@@ -44,6 +44,7 @@ const EditDashboard = props => {
         <>
             <div
                 className={cx(classes.container, 'dashboard-scroll-container')}
+                data-test="outer-scroll-container"
             >
                 <EditBar />
                 {props.updateAccess ? (
