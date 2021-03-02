@@ -6,6 +6,12 @@
     overflow: auto;
 }
 
+@media only screen and (max-height: 480px) {
+    .container {
+        overflow: visible;
+    }
+}
+
 @media only screen and (max-height: 480px), only screen and (max-width: 480px) {
     .covered {
         overflow: hidden;
