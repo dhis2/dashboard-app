@@ -9,6 +9,7 @@ exports[`ViewDashboard renders correctly default 1`] = `
 >
   <div
     className="container dashboard-scroll-container"
+    data-test="outer-scroll-container"
   >
     <MockDashboardsBar
       expanded={false}

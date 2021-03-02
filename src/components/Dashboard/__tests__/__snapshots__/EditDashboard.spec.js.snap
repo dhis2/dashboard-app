@@ -4,6 +4,7 @@ exports[`EditDashboard renders dashboard 1`] = `
 <div>
   <div
     class="container dashboard-scroll-container"
+    data-test="outer-scroll-container"
   >
     <div>
       EditBar
@@ -78,6 +79,7 @@ exports[`EditDashboard renders message when not enough access 1`] = `
 <div>
   <div
     class="container dashboard-scroll-container"
+    data-test="outer-scroll-container"
   >
     <div>
       EditBar
@@ -147,6 +149,7 @@ exports[`EditDashboard renders print preview 1`] = `
 <div>
   <div
     class="container dashboard-scroll-container"
+    data-test="outer-scroll-container"
   >
     <div>
       EditBar
