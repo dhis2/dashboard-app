@@ -83,7 +83,7 @@ exports[`EditDashboard renders message when not enough access 1`] = `
       EditBar
     </div>
     <div
-      style="padding: 50px 10px; text-align: center; font-size: 15px; font-weight: 500; color: rgb(110, 122, 138);"
+      class="container"
     >
       No access
     </div>
