@@ -3,7 +3,7 @@
 exports[`NewDashboard renders dashboard 1`] = `
 <div>
   <div
-    class="container"
+    class="container dashboard-scroll-container"
   >
     <div>
       EditBar
@@ -77,7 +77,7 @@ exports[`NewDashboard renders dashboard 1`] = `
 exports[`NewDashboard renders print preview 1`] = `
 <div>
   <div
-    class="container"
+    class="container dashboard-scroll-container"
   >
     <div>
       EditBar

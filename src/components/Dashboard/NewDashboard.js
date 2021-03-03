@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
+import cx from 'classnames'
 
 import DashboardContainer from './DashboardContainer'
 import EditBar from '../ControlBar/EditBar'
@@ -22,7 +23,9 @@ const NewDashboard = props => {
 
     return (
         <>
-            <div className={classes.container}>
+            <div
+                className={cx(classes.container, 'dashboard-scroll-container')}
+            >
                 <EditBar />
                 {props.isPrintPreviewView ? (
                     <LayoutPrintPreview fromEdit={true} />
