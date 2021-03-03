@@ -1,4 +1,4 @@
-import { apiFetchDashboard } from './dashboards'
+import { apiFetchDashboard } from './fetchDashboard'
 
 export const createDashboardMutation = {
     resource: 'dashboards',
