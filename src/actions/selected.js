@@ -2,14 +2,13 @@ import i18n from '@dhis2/d2-i18n'
 import { sGetDashboardById } from '../reducers/dashboards'
 import {
     SET_SELECTED_ID,
-    SET_SELECTED_ISLOADING,
-    SET_SELECTED_SHOWDESCRIPTION,
     SET_SELECTED_ITEM_ACTIVE_TYPE,
     CLEAR_SELECTED_ITEM_ACTIVE_TYPES,
-    sGetSelectedIsLoading,
     sGetSelectedId,
 } from '../reducers/selected'
+import { sGetIsLoading } from '../reducers/isLoading'
 import { sGetUserUsername } from '../reducers/user'
+import { acSetIsLoading } from './isLoading'
 
 import { acSetDashboardItems, acAppendDashboards } from './dashboards'
 import { acClearItemFilters } from './itemFilters'
@@ -18,7 +17,6 @@ import { acSetAlertMessage, acClearAlertMessage } from './alert'
 import { acAddVisualization, acClearVisualizations } from './visualizations'
 import { apiFetchDashboard } from '../api/fetchDashboard'
 import { storePreferredDashboardId } from '../api/localStorage'
-import { apiGetShowDescription } from '../api/description'
 
 import { withShape } from '../modules/gridUtil'
 import { getVisualizationFromItem } from '../modules/item'
@@ -37,16 +35,6 @@ import {
 
 export const acSetSelectedId = value => ({
     type: SET_SELECTED_ID,
-    value,
-})
-
-export const acSetSelectedIsLoading = value => ({
-    type: SET_SELECTED_ISLOADING,
-    value,
-})
-
-export const acSetSelectedShowDescription = value => ({
-    type: SET_SELECTED_SHOWDESCRIPTION,
     value,
 })
 
@@ -70,12 +58,12 @@ export const tSetSelectedDashboardById = (id, mode) => async (
     getState,
     dataEngine
 ) => {
-    dispatch(acSetSelectedIsLoading(true))
+    dispatch(acSetIsLoading(true))
 
     const alertTimeout = setTimeout(() => {
         const name = sGetDashboardById(getState(), id)?.displayName
 
-        if (sGetSelectedIsLoading(getState()) && name) {
+        if (sGetIsLoading(getState()) && name) {
             dispatch(
                 acSetAlertMessage(
                     i18n.t('Loading dashboard – {{name}}', { name })
@@ -118,7 +106,7 @@ export const tSetSelectedDashboardById = (id, mode) => async (
 
         dispatch(acSetSelectedId(id))
 
-        dispatch(acSetSelectedIsLoading(false))
+        dispatch(acSetIsLoading(false))
 
         clearTimeout(alertTimeout)
 
@@ -133,20 +121,6 @@ export const tSetSelectedDashboardById = (id, mode) => async (
         return onSuccess(dashboard)
     } catch (err) {
         console.error('Error: ', err)
-        return err
-    }
-}
-
-export const tSetShowDescription = () => async dispatch => {
-    const onSuccess = value => {
-        dispatch(acSetSelectedShowDescription(value))
-    }
-
-    try {
-        const showDescription = await apiGetShowDescription()
-        return onSuccess(showDescription)
-    } catch (err) {
-        console.error('Error (apiGetShowDescription): ', err)
         return err
     }
 }

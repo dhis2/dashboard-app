@@ -23,7 +23,7 @@ import { getBreakpoint } from '../../modules/smallScreen'
 import getGridItemDomId from '../../modules/getGridItemDomId'
 import { orArray } from '../../modules/util'
 import NoContentMessage from '../../widgets/NoContentMessage'
-import { sGetSelectedIsLoading } from '../../reducers/selected'
+import { sGetIsLoading } from '../../reducers/isLoading'
 import {
     sGetEditDashboardRoot,
     sGetEditDashboardItems,
@@ -143,7 +143,7 @@ const mapStateToProps = state => {
     )
 
     return {
-        isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
+        isLoading: sGetIsLoading(state) || !selectedDashboard,
         dashboardItems,
     }
 }

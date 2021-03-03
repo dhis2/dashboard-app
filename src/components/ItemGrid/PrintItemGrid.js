@@ -8,7 +8,7 @@ import { Item } from '../Item/Item'
 
 import { hasShape } from '../../modules/gridUtil'
 import { PRINT } from '../Dashboard/dashboardModes'
-import { sGetSelectedIsLoading } from '../../reducers/selected'
+import { sGetIsLoading } from '../../reducers/isLoading'
 import {
     sGetPrintDashboardRoot,
     sGetPrintDashboardItems,
@@ -45,7 +45,7 @@ const mapStateToProps = state => {
     const selectedDashboard = sGetPrintDashboardRoot(state)
 
     return {
-        isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
+        isLoading: sGetIsLoading(state) || !selectedDashboard,
         dashboardItems: orArray(sGetPrintDashboardItems(state)).filter(
             hasShape
         ),

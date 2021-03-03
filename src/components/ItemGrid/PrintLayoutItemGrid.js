@@ -8,7 +8,7 @@ import StaticGrid from './StaticGrid'
 import { Item } from '../Item/Item'
 
 import { acUpdatePrintDashboardLayout } from '../../actions/printDashboard'
-import { sGetSelectedIsLoading } from '../../reducers/selected'
+import { sGetIsLoading } from '../../reducers/isLoading'
 import {
     sGetPrintDashboardRoot,
     sGetPrintDashboardItems,
@@ -148,7 +148,7 @@ const mapStateToProps = state => {
     const selectedDashboard = sGetPrintDashboardRoot(state)
 
     return {
-        isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
+        isLoading: sGetIsLoading(state) || !selectedDashboard,
         dashboardItems: sGetPrintDashboardItems(state).filter(hasShape),
         isEditing: sGetIsEditing(state),
     }

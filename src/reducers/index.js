@@ -4,6 +4,8 @@ import dashboards from './dashboards'
 import selected from './selected'
 import dashboardsFilter from './dashboardsFilter'
 import controlBar from './controlBar'
+import isLoading from './isLoading'
+import showDescription from './showDescription'
 import visualizations from './visualizations'
 import editDashboard from './editDashboard'
 import printDashboard from './printDashboard'
@@ -21,6 +23,8 @@ export default combineReducers({
     selected,
     dashboardsFilter,
     controlBar,
+    isLoading,
+    showDescription,
     visualizations,
     messages,
     user,
