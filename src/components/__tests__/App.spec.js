@@ -6,10 +6,10 @@ import { render } from '@testing-library/react'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { useSystemSettings } from '../SystemSettingsProvider'
 import { apiFetchDimensions } from '@dhis2/analytics'
-import { apiFetchDashboards } from '../../api/dashboards'
+import { fetchAllDashboards } from '../../api/fetchAllDashboards'
 import App from '../App'
 
-jest.mock('../../api/dashboards')
+jest.mock('../../api/fetchAllDashboards')
 jest.mock('../SystemSettingsProvider')
 jest.mock('@dhis2/analytics')
 jest.mock('@dhis2/app-runtime-adapter-d2')
@@ -33,14 +33,11 @@ test('renders the app', () => {
     useSystemSettings.mockReturnValue({
         settings: { displayNameProperty: 'displayName' },
     })
-    apiFetchDashboards.mockReturnValue([
+    fetchAllDashboards.mockReturnValue([
         {
             id: 'rainbowdash',
             name: 'Rainbow Dash',
-            dashboardItems: [],
             user: {},
-            created: 'today',
-            lastUpdated: 'today',
         },
     ])
     apiFetchDimensions.mockReturnValue([{ dimensionType: 'mock' }])
@@ -53,5 +50,5 @@ test('renders the app', () => {
         </Provider>
     )
     expect(container).toMatchSnapshot()
-    expect(apiFetchDashboards).toHaveBeenCalledTimes(1)
+    expect(fetchAllDashboards).toHaveBeenCalledTimes(1)
 })

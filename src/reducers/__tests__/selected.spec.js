@@ -1,7 +1,5 @@
 import reducer, {
     SET_SELECTED_ID,
-    SET_SELECTED_ISLOADING,
-    SET_SELECTED_SHOWDESCRIPTION,
     SET_SELECTED_ITEM_ACTIVE_TYPE,
     CLEAR_SELECTED_ITEM_ACTIVE_TYPES,
     DEFAULT_STATE_SELECTED_ITEM_ACTIVE_TYPES,
@@ -10,8 +8,6 @@ import reducer, {
 describe('selected dashboard reducer', () => {
     const defaultState = {
         id: null,
-        isLoading: false,
-        showDescription: false,
         itemActiveTypes: {},
     }
 
@@ -22,34 +18,6 @@ describe('selected dashboard reducer', () => {
         const actualState = reducer(defaultState, {
             type: SET_SELECTED_ID,
             value: id,
-        })
-
-        expect(actualState).toEqual(expectedState)
-    })
-
-    it('sets the selected dashboard isLoading state', () => {
-        const isLoading = true
-        const expectedState = Object.assign({}, defaultState, {
-            isLoading,
-        })
-
-        const actualState = reducer(defaultState, {
-            type: SET_SELECTED_ISLOADING,
-            value: isLoading,
-        })
-
-        expect(actualState).toEqual(expectedState)
-    })
-
-    it('sets the selected dashboard showDescription state', () => {
-        const showDescription = true
-        const expectedState = Object.assign({}, defaultState, {
-            showDescription,
-        })
-
-        const actualState = reducer(defaultState, {
-            type: SET_SELECTED_SHOWDESCRIPTION,
-            value: showDescription,
         })
 
         expect(actualState).toEqual(expectedState)

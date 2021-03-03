@@ -8,7 +8,7 @@ export const dashboardsQuery = {
     },
 }
 
-const fetchAllDashboards = async dataEngine => {
+export const fetchAllDashboards = async dataEngine => {
     try {
         const dashboardsData = await dataEngine.query({
             dashboards: dashboardsQuery,
@@ -19,5 +19,3 @@ const fetchAllDashboards = async dataEngine => {
         onError(error)
     }
 }
-
-export default fetchAllDashboards
