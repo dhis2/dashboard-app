@@ -14,7 +14,10 @@ import apiFetchDashboards from '../api/fetchAllDashboards'
 import { apiDeleteDashboard } from '../api/deleteDashboard'
 import { getPreferredDashboardId } from '../api/localStorage'
 import { arrayToIdMap } from '../modules/util'
-import { getCustomDashboardsForChips } from '../modules/getCustomDashboards'
+import {
+    getCustomDashboardsForChips,
+    getCustomDashboards,
+} from '../modules/getCustomDashboards'
 
 // actions
 
@@ -25,7 +28,7 @@ export const acSetDashboards = dashboards => ({
 
 export const acAppendDashboards = dashboards => ({
     type: ADD_DASHBOARDS,
-    value: arrayToIdMap(getCustomDashboardsForChips(dashboards)),
+    value: arrayToIdMap(getCustomDashboards(dashboards)),
 })
 
 export const acSetDashboardStarred = (dashboardId, isStarred) => ({
