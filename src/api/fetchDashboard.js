@@ -23,21 +23,22 @@ const getDashboardItemsFields = () =>
         `${getFavoritesFields().join(',')}`,
     ])
 
+const baseDashboardFields = arrayClean([
+    'id',
+    'displayName',
+    'displayDescription',
+    'favorite',
+    'access',
+    'restrictFilters',
+    'allowedFilters',
+    `dashboardItems[${getDashboardItemsFields().join(',')}]`,
+])
+
 export const viewDashboardQuery = {
     resource: 'dashboards',
     id: ({ id }) => id,
     params: {
-        fields: arrayClean([
-            'id',
-            'displayName',
-            'displayDescription',
-            'favorite',
-            `user[${getIdNameFields({ rename: true }).join(',')}]`,
-            'access',
-            'restrictFilters',
-            'allowedFilters',
-            `dashboardItems[${getDashboardItemsFields().join(',')}]`,
-        ]).join(','),
+        fields: baseDashboardFields.join(','),
     },
 }
 
@@ -46,20 +47,13 @@ export const editDashboardQuery = {
     id: ({ id }) => id,
     params: {
         fields: arrayClean([
-            'id',
-            'name',
-            'displayName',
-            'description',
-            'displayDescription',
-            'favorite',
+            ...baseDashboardFields,
             `user[${getIdNameFields({ rename: true }).join(',')}]`,
+            'name',
+            'description',
             'created',
             'lastUpdated',
-            'access',
             'href', // needed for d2-ui-translations-dialog
-            'restrictFilters',
-            'allowedFilters',
-            `dashboardItems[${getDashboardItemsFields().join(',')}]`,
         ]).join(','),
     },
 }

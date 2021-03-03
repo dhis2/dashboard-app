@@ -15,7 +15,6 @@ export const getCustomDashboards = data =>
         description: d.description,
         displayDescription: d.displayDescription,
         starred: d.favorite,
-        owner: d.user.name,
         created: d.created?.split('T').join(' ').substr(0, 16),
         lastUpdated: d.lastUpdated?.split('T').join(' ').substr(0, 16),
         access: d.access,
