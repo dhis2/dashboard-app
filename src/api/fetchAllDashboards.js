@@ -3,13 +3,7 @@ import { onError } from './index'
 export const dashboardsQuery = {
     resource: 'dashboards',
     params: {
-        fields: [
-            'id',
-            'displayName',
-            'favorite',
-            'user[id, displayName~rename(name)]',
-            'dashboardItems[id]',
-        ].join(','),
+        fields: ['id', 'displayName', 'favorite'].join(','),
         paging: false,
     },
 }

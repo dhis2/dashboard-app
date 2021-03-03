@@ -29,6 +29,4 @@ export const getCustomDashboardsForChips = data =>
         id: d.id,
         displayName: d.displayName,
         starred: d.favorite,
-        owner: d.user.name,
-        dashboardItems: convertBackendItemsToUi(d.dashboardItems),
     }))
