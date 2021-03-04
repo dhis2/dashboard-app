@@ -124,8 +124,6 @@ const EditBar = props => {
                     t.property === 'NAME'
             )
 
-            console.log('translation', translation, userSettings.keyDbLocale)
-
             if (translation && translation.value) {
                 props.onTranslate(props.dashboardId, translation.value)
             }

@@ -15,8 +15,6 @@ const UserSettingsProvider = ({ children }) => {
                 userSettings: userSettingsQuery,
             })
 
-            console.log('userSettings', userSettings)
-
             setSettings(userSettings)
         }
         fetchData()
