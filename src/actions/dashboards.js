@@ -10,7 +10,7 @@ import {
 import { NON_EXISTING_DASHBOARD_ID } from '../reducers/selected'
 import { sGetUserUsername } from '../reducers/user'
 import { tSetSelectedDashboardById, acSetSelectedId } from './selected'
-import { apiFetchAllDashboards } from '../api/fetchAllDashboards'
+import { apiFetchDashboards } from '../api/fetchAllDashboards'
 import { apiDeleteDashboard } from '../api/deleteDashboard'
 import { getPreferredDashboardId } from '../api/localStorage'
 import { arrayToIdMap } from '../modules/util'
@@ -55,7 +55,7 @@ export const tFetchDashboards = () => async (
     getState,
     dataEngine
 ) => {
-    const dashboards = await apiFetchAllDashboards(dataEngine)
+    const dashboards = await apiFetchDashboards(dataEngine)
     dispatch(acSetDashboards(dashboards))
 }
 
@@ -81,7 +81,7 @@ export const tSelectDashboard = (id, mode) => async (dispatch, getState) => {
             dispatch(acSetSelectedId(NON_EXISTING_DASHBOARD_ID))
         }
     } catch (err) {
-        console.error('Error (fetchAllDashboards): ', err)
+        console.error('Error (apiFetchDashboards): ', err)
         return err
     }
 }

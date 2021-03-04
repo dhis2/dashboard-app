@@ -11,7 +11,7 @@ import Dashboard from '../Dashboard'
 import WindowDimensionsProvider from '../../WindowDimensionsProvider'
 import { NEW, VIEW, EDIT, PRINT, PRINT_LAYOUT } from '../dashboardModes'
 import { NON_EXISTING_DASHBOARD_ID } from '../../../reducers/selected'
-import { apiFetchDashboard } from '../../../api/fetchDashboard'
+import { apiFetchDashboard } from '../../../api/dashboards'
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
@@ -22,7 +22,7 @@ jest.mock('@dhis2/analytics', () => ({
     DIMENSION_ID_ORGUNIT: 'ou',
 }))
 jest.mock('@dhis2/app-runtime')
-jest.mock('../../../api/fetchDashboard')
+jest.mock('../../../api/dashboards')
 jest.mock(
     '../PrintLayoutDashboard',
     () =>

@@ -2,12 +2,15 @@ import { validateReducer } from '../modules/util'
 
 export const SET_ISLOADING = 'SET_ISLOADING'
 
-export const DEFAULT_STATE_ISLOADING = false
+export const DEFAULT_STATE_SELECTED_ISLOADING = false
 
-const isLoading = (state = DEFAULT_STATE_ISLOADING, action) => {
+const isLoading = (state = DEFAULT_STATE_SELECTED_ISLOADING, action) => {
     switch (action.type) {
         case SET_ISLOADING:
-            return validateReducer(action.value, DEFAULT_STATE_ISLOADING)
+            return validateReducer(
+                action.value,
+                DEFAULT_STATE_SELECTED_ISLOADING
+            )
         default:
             return state
     }

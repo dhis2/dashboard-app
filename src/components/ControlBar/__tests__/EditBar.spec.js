@@ -9,14 +9,14 @@ import { useDataEngine } from '@dhis2/app-runtime'
 import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 import EditBar from '../EditBar'
-import { apiFetchDashboard } from '../../../api/fetchDashboard'
+import { apiFetchDashboard } from '../../../api/dashboards'
 import { acClearEditDashboard } from '../../../actions/editDashboard'
 
 const mockStore = configureMockStore()
 
 jest.mock('@dhis2/app-runtime-adapter-d2')
 jest.mock('@dhis2/app-runtime')
-jest.mock('../../../api/fetchDashboard')
+jest.mock('../../../api/dashboards')
 
 jest.mock(
     '@dhis2/d2-ui-translation-dialog',

@@ -8,7 +8,7 @@ export const dashboardsQuery = {
     },
 }
 
-export const apiFetchAllDashboards = async dataEngine => {
+export const apiFetchDashboards = async dataEngine => {
     try {
         const dashboardsData = await dataEngine.query({
             dashboards: dashboardsQuery,
