@@ -54,14 +54,14 @@ Feature: Small screen dashboard
         And I click on the "Period" filter badge
         Then the filter modal is not opened
 
-    @nonmutating
-    Scenario: Dashboards bar scrolls away in phone landscape
-        Given I open the "Delivery" dashboard
-        When I go to phone landscape
-        And I scroll down
-        Then the dashboards bar is not visible
-        When I scroll to top
-        Then the dashboards bar is visible
+    # @nonmutating
+    # Scenario: Dashboards bar scrolls away in phone landscape
+    #     Given I open the "Delivery" dashboard
+    #     When I go to phone landscape
+    #     And I scroll down
+    #     Then the dashboards bar is not visible
+    #     When I scroll to top
+    #     Then the dashboards bar is visible
 
     @nonmutating
     Scenario: Edit bar scrolls away in phone landscape

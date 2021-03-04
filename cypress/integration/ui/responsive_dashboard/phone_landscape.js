@@ -19,9 +19,7 @@ When('I scroll down', () => {
     // this item is on the bottom of the Delivery dashboard
     cy.contains(
         'Births attended by skilled health personnel by orgunit last year',
-        {
-            timeout: 20000,
-        }
+        EXTENDED_TIMEOUT
     ).should('be.visible')
 })
 
@@ -30,11 +28,11 @@ Then('the dashboards bar is not visible', () => {
 })
 
 When('I scroll to top', () => {
-    cy.get(outerScrollContainerSel, EXTENDED_TIMEOUT).scrollTo('top')
+    cy.get(outerScrollContainerSel).scrollTo('top')
 })
 
 Then('the dashboards bar is visible', () => {
-    cy.get(dashboardsBarSel, EXTENDED_TIMEOUT).should('be.visible')
+    cy.get(dashboardsBarSel).should('be.visible')
 })
 
 Then('the edit control bar is not visible', () => {
@@ -42,5 +40,5 @@ Then('the edit control bar is not visible', () => {
 })
 
 Then('the edit control bar is visible', () => {
-    cy.get(editControlBarSel, EXTENDED_TIMEOUT).should('be.visible')
+    cy.get(editControlBarSel).should('be.visible')
 })
