@@ -1,3 +1,12 @@
+## [31.13.3](https://github.com/dhis2/dashboard-app/compare/v31.13.2...v31.13.3) (2021-03-04)
+
+
+### Bug Fixes
+
+* do not allow "Open in [appname] app" when in small screen ([#1593](https://github.com/dhis2/dashboard-app/issues/1593)) ([56ad5b5](https://github.com/dhis2/dashboard-app/commit/56ad5b5473fe31172573803fd04ac9b671d79fa2))
+* phone landscape scrolling in edit mode was not available ([#1594](https://github.com/dhis2/dashboard-app/issues/1594)) ([6bfc650](https://github.com/dhis2/dashboard-app/commit/6bfc6506eb609aa3e0d5dd0eb9458bdfa108f3a5))
+* temporarily disable flaky cypress test ([#1599](https://github.com/dhis2/dashboard-app/issues/1599)) ([b338564](https://github.com/dhis2/dashboard-app/commit/b3385643cd239f765b21f21b03daef26b1ff490b))
+
 ## [31.13.2](https://github.com/dhis2/dashboard-app/compare/v31.13.1...v31.13.2) (2021-02-26)
 
 
