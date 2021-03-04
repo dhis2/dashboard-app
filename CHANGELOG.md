@@ -1,3 +1,10 @@
+## [31.13.4](https://github.com/dhis2/dashboard-app/compare/v31.13.3...v31.13.4) (2021-03-04)
+
+
+### Bug Fixes
+
+* decrease dashboard request response load size ([#1596](https://github.com/dhis2/dashboard-app/issues/1596)) ([9ac201f](https://github.com/dhis2/dashboard-app/commit/9ac201fec70039f37befa3b2b0bc9fb0c1090853))
+
 ## [31.13.3](https://github.com/dhis2/dashboard-app/compare/v31.13.2...v31.13.3) (2021-03-04)
 
 
