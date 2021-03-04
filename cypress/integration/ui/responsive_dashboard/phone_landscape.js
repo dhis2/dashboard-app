@@ -17,9 +17,12 @@ When('I go to phone landscape', () => {
 When('I scroll down', () => {
     cy.get(outerScrollContainerSel, EXTENDED_TIMEOUT).scrollTo('bottom')
     // this item is on the bottom of the Delivery dashboard
-    cy.contains('Births attended by skilled health personnel', {
-        timeout: 20000,
-    }).should('be.visible')
+    cy.contains(
+        'Births attended by skilled health personnel by orgunit last year',
+        {
+            timeout: 20000,
+        }
+    ).should('be.visible')
 })
 
 Then('the dashboards bar is not visible', () => {
