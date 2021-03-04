@@ -111,6 +111,7 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     }
 
     if (!isLoading && !dashboardItems.length) {
+        console.log('ViewItemGrid no items', dashboardItems)
         return (
             <NoContentMessage
                 text={i18n.t('There are no items on this dashboard')}
