@@ -3,7 +3,7 @@ import { onError } from './index'
 export const dashboardsQuery = {
     resource: 'dashboards',
     params: {
-        fields: ['id', 'displayName', 'favorite'].join(','),
+        fields: ['id', 'displayName', 'favorite~rename(starred)'],
         paging: false,
     },
 }

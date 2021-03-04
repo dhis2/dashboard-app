@@ -27,7 +27,7 @@ const baseDashboardFields = arrayClean([
     'id',
     'displayName',
     'displayDescription',
-    'favorite',
+    'favorite~rename(starred)',
     'access',
     'restrictFilters',
     'allowedFilters',
@@ -38,7 +38,7 @@ export const viewDashboardQuery = {
     resource: 'dashboards',
     id: ({ id }) => id,
     params: {
-        fields: baseDashboardFields.join(','),
+        fields: baseDashboardFields,
     },
 }
 
@@ -54,7 +54,7 @@ export const editDashboardQuery = {
             'created',
             'lastUpdated',
             'href', // needed for d2-ui-translations-dialog
-        ]).join(','),
+        ]),
     },
 }
 
