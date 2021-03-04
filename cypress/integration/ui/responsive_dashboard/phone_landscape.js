@@ -4,6 +4,7 @@ import {
     outerScrollContainerSel,
     editControlBarSel,
 } from '../../../selectors/viewDashboard'
+import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 // Scenario: Dashboards bar scrolls away in phone landscape
 
@@ -17,7 +18,8 @@ When('I scroll down', () => {
     cy.get(outerScrollContainerSel).scrollTo('bottom')
     // this item is on the bottom of the Delivery dashboard
     cy.contains(
-        'Births attended by skilled health personnel by orgunit last year'
+        'Births attended by skilled health personnel by orgunit last year',
+        EXTENDED_TIMEOUT
     ).should('be.visible')
 })
 
