@@ -10,6 +10,7 @@ import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import FilterSettingsDialog from '../ItemFilter/FilterSettingsDialog'
 import ConfirmDeleteDialog from './ConfirmDeleteDialog'
+import { useUserSettings } from '../UserSettingsProvider'
 import {
     tSaveDashboard,
     acClearEditDashboard,
@@ -46,6 +47,8 @@ const EditBar = props => {
     const [dashboard, setDashboard] = useState(undefined)
     const [confirmDeleteDlgIsOpen, setConfirmDeleteDlgIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(undefined)
+
+    const { userSettings } = useUserSettings()
 
     const failureAlert = useAlert(saveFailedMessage, {
         critical: true,
@@ -113,15 +116,15 @@ const EditBar = props => {
         toggleFilterSettingsDialog()
     }
 
-    const onTranslationsSaved = async translations => {
+    const onTranslationsSaved = translations => {
         if (translations && translations.length) {
-            const dbLocale = await d2.currentUser.userSettings.get(
-                'keyDbLocale'
+            const translation = translations.find(
+                t =>
+                    t.locale === userSettings.keyDbLocale &&
+                    t.property === 'NAME'
             )
 
-            const translation = translations.find(
-                t => t.locale === dbLocale && t.property === 'NAME'
-            )
+            console.log('translation', translation, userSettings.keyDbLocale)
 
             if (translation && translation.value) {
                 props.onTranslate(props.dashboardId, translation.value)
