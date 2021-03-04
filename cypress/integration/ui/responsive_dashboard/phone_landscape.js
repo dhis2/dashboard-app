@@ -15,30 +15,29 @@ When('I go to phone landscape', () => {
 })
 
 When('I scroll down', () => {
-    cy.get(outerScrollContainerSel).scrollTo('bottom')
+    cy.get(outerScrollContainerSel, EXTENDED_TIMEOUT).scrollTo('bottom')
     // this item is on the bottom of the Delivery dashboard
-    cy.contains(
-        'Births attended by skilled health personnel by orgunit last year',
-        EXTENDED_TIMEOUT
-    ).should('be.visible')
+    cy.contains('Births attended by skilled health personnel', {
+        timeout: 20000,
+    }).should('be.visible')
 })
 
 Then('the dashboards bar is not visible', () => {
-    cy.get(dashboardsBarSel).should('not.be.visible')
+    cy.get(dashboardsBarSel, EXTENDED_TIMEOUT).should('not.be.visible')
 })
 
 When('I scroll to top', () => {
-    cy.get(outerScrollContainerSel).scrollTo('top')
+    cy.get(outerScrollContainerSel, EXTENDED_TIMEOUT).scrollTo('top')
 })
 
 Then('the dashboards bar is visible', () => {
-    cy.get(dashboardsBarSel).should('be.visible')
+    cy.get(dashboardsBarSel, EXTENDED_TIMEOUT).should('be.visible')
 })
 
 Then('the edit control bar is not visible', () => {
-    cy.get(editControlBarSel).should('not.be.visible')
+    cy.get(editControlBarSel, EXTENDED_TIMEOUT).should('not.be.visible')
 })
 
 Then('the edit control bar is visible', () => {
-    cy.get(editControlBarSel).should('be.visible')
+    cy.get(editControlBarSel, EXTENDED_TIMEOUT).should('be.visible')
 })
