@@ -4,6 +4,7 @@ import {
     outerScrollContainerSel,
     editControlBarSel,
 } from '../../../selectors/viewDashboard'
+import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 // Scenario: Dashboards bar scrolls away in phone landscape
 
@@ -14,15 +15,16 @@ When('I go to phone landscape', () => {
 })
 
 When('I scroll down', () => {
-    cy.get(outerScrollContainerSel).scrollTo('bottom')
+    cy.get(outerScrollContainerSel, EXTENDED_TIMEOUT).scrollTo('bottom')
     // this item is on the bottom of the Delivery dashboard
     cy.contains(
-        'Births attended by skilled health personnel by orgunit last year'
+        'Births attended by skilled health personnel by orgunit last year',
+        EXTENDED_TIMEOUT
     ).should('be.visible')
 })
 
 Then('the dashboards bar is not visible', () => {
-    cy.get(dashboardsBarSel).should('not.be.visible')
+    cy.get(dashboardsBarSel, EXTENDED_TIMEOUT).should('not.be.visible')
 })
 
 When('I scroll to top', () => {
@@ -34,7 +36,7 @@ Then('the dashboards bar is visible', () => {
 })
 
 Then('the edit control bar is not visible', () => {
-    cy.get(editControlBarSel).should('not.be.visible')
+    cy.get(editControlBarSel, EXTENDED_TIMEOUT).should('not.be.visible')
 })
 
 Then('the edit control bar is visible', () => {
