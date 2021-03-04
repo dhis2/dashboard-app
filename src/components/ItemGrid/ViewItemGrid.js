@@ -22,8 +22,7 @@ import {
 } from '../../modules/gridUtil'
 import { orArray } from '../../modules/util'
 import NoContentMessage from '../../widgets/NoContentMessage'
-import { sGetSelectedId } from '../../reducers/selected'
-import { sGetIsLoading } from '../../reducers/isLoading'
+import { sGetSelectedId, sGetSelectedIsLoading } from '../../reducers/selected'
 import {
     sGetDashboardById,
     sGetDashboardItems,
@@ -111,7 +110,6 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     }
 
     if (!isLoading && !dashboardItems.length) {
-        console.log('ViewItemGrid no items', dashboardItems)
         return (
             <NoContentMessage
                 text={i18n.t('There are no items on this dashboard')}
@@ -165,7 +163,7 @@ const mapStateToProps = state => {
     const dashboardItems = orArray(sGetDashboardItems(state)).filter(hasShape)
 
     return {
-        isLoading: sGetIsLoading(state) || !selectedDashboard,
+        isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
         dashboardItems,
     }
 }

@@ -3,8 +3,10 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 
-import { sGetSelectedId } from '../../../reducers/selected'
-import { sGetShowDescription } from '../../../reducers/showDescription'
+import {
+    sGetSelectedId,
+    sGetSelectedShowDescription,
+} from '../../../reducers/selected'
 import {
     sGetDashboardById,
     EMPTY_DASHBOARD,
@@ -82,7 +84,7 @@ const mapStateToProps = state => {
         name,
         description,
         itemFilters: sGetNamedItemFilters(state),
-        showDescription: sGetShowDescription(state),
+        showDescription: sGetSelectedShowDescription(state),
     }
 }
 

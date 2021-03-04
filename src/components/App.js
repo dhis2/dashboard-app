@@ -14,7 +14,7 @@ import { useSystemSettings } from './SystemSettingsProvider'
 import { acReceivedUser } from '../actions/user'
 import { tFetchDashboards } from '../actions/dashboards'
 import { tSetControlBarRows } from '../actions/controlBar'
-import { tSetShowDescription } from '../actions/showDescription'
+import { tSetShowDescription } from '../actions/selected'
 import { acSetDimensions } from '../actions/dimensions'
 import getFilteredDimensions from '../modules/getFilteredDimensions'
 
