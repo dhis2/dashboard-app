@@ -1,5 +1,4 @@
 import arrayClean from 'd2-utilizr/lib/arrayClean'
-import { onError } from './index'
 import {
     getIdNameFields,
     getListItemFields,
@@ -73,6 +72,6 @@ export const apiFetchDashboard = async (dataEngine, id, mode) => {
 
         return dashboardData.dashboard
     } catch (error) {
-        onError(error)
+        console.log('Error: ', error)
     }
 }

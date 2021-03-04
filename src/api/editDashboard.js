@@ -1,4 +1,5 @@
 import { apiFetchDashboard } from './fetchDashboard'
+import { EDIT } from '../components/Dashboard/dashboardModes'
 
 export const createDashboardMutation = {
     resource: 'dashboards',
@@ -29,7 +30,7 @@ const generatePayload = (dashboard = {}, data) => {
 }
 
 export const updateDashboard = async (dataEngine, data) => {
-    const dashboard = await apiFetchDashboard(dataEngine, data.id)
+    const dashboard = await apiFetchDashboard(dataEngine, data.id, EDIT)
 
     const { response } = await dataEngine.mutate(updateDashboardMutation, {
         variables: {

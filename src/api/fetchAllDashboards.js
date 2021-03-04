@@ -1,5 +1,3 @@
-import { onError } from './index'
-
 export const dashboardsQuery = {
     resource: 'dashboards',
     params: {
@@ -16,6 +14,6 @@ export const apiFetchDashboards = async dataEngine => {
 
         return dashboardsData.dashboards.dashboards
     } catch (error) {
-        onError(error)
+        console.log('Error: ', error)
     }
 }
