@@ -71,12 +71,14 @@ export const getFavoriteFields = ({ withDimensions, withOptions }) => {
     ])
 }
 
-export const getFavoritesFields = ({ withDimensions }) => [
-    `reportTable[${getFavoriteFields({ withDimensions }).join(',')}]`,
-    `chart[${['type', ...getFavoriteFields({ withDimensions })].join(',')}]`,
-    `map[${getFavoriteFields({ withDimensions }).join(',')}]`,
-    `eventReport[${getFavoriteFields({ withDimensions }).join(',')}]`,
-    `eventChart[${getFavoriteFields({ withDimensions }).join(',')}]`,
+export const getFavoritesFields = () => [
+    `reportTable[${getFavoriteFields({ withDimensions: false }).join(',')}]`,
+    `chart[${['type', ...getFavoriteFields({ withDimensions: false })].join(
+        ','
+    )}]`,
+    `map[${getFavoriteFields({ withDimensions: false }).join(',')}]`,
+    `eventReport[${getFavoriteFields({ withDimensions: false }).join(',')}]`,
+    `eventChart[${getFavoriteFields({ withDimensions: false }).join(',')}]`,
 ]
 
 // List item

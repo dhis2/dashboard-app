@@ -29,7 +29,8 @@ import {
     sGetIsNewDashboard,
     sGetIsPrintPreviewView,
 } from '../../reducers/editDashboard'
-import { apiFetchDashboard } from '../../api/dashboards'
+import { apiFetchDashboard } from '../../api/fetchDashboard'
+import { EDIT } from '../Dashboard/dashboardModes'
 
 import classes from './styles/EditBar.module.css'
 
@@ -56,9 +57,11 @@ const EditBar = props => {
 
     useEffect(() => {
         if (props.dashboardId && !dashboard) {
-            apiFetchDashboard(dataEngine, props.dashboardId).then(dboard =>
-                setDashboard(dboard)
-            )
+            apiFetchDashboard(
+                dataEngine,
+                props.dashboardId,
+                EDIT
+            ).then(dboard => setDashboard(dboard))
         }
     }, [props.dashboardId, dashboard])
 
