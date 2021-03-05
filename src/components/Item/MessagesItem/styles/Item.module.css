@@ -1,0 +1,25 @@
+.list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.seeAll {
+    text-align: center;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.sender {
+    font-size: 13px;
+    line-height: 15px;
+    margin: 0;
+    color: var(--colors-grey800);
+}
+
+.snippet {
+    color: var(--colors-grey800);
+    font-size: 13px;
+    line-height: 15px;
+    max-height: 30px;
+    overflow: hidden;
+}

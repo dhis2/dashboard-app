@@ -1,10 +1,11 @@
 import React, { useContext, useState, useEffect, createContext } from 'react'
 import PropTypes from 'prop-types'
 import { useDataEngine } from '@dhis2/app-runtime'
-import settingsQuery, {
+import {
+    systemSettingsQuery,
     renameSystemSettings,
     DEFAULT_SETTINGS,
-} from '../api/settings'
+} from '../api/systemSettings'
 
 export const SystemSettingsCtx = createContext({})
 
@@ -15,7 +16,7 @@ const SystemSettingsProvider = ({ children }) => {
     useEffect(() => {
         async function fetchData() {
             const { systemSettings } = await engine.query({
-                systemSettings: settingsQuery,
+                systemSettings: systemSettingsQuery,
             })
 
             setSettings(
