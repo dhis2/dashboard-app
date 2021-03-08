@@ -1921,21 +1921,7 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-translation-dialog@^7.1.4":
-  version "7.1.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-7.1.4.tgz#39b17dd1c1aa8c4539cc3864c95e9e039f402d8e"
-  integrity sha512-dzm0bykKFjYLZ5B6YKqoJlfOuQwXIoLvdbkfqLKuLLZBZAydYWQnAHD6EB7eQlgxFDG+jxtqSzQ/aDuTb8K2Zg==
-  dependencies:
-    "@dhis2/d2-ui-core" "7.1.4"
-    "@material-ui/core" "^3.3.1"
-    "@material-ui/icons" "^3.0.1"
-    babel-runtime "^6.26.0"
-    d2-utilizr "^0.2.15"
-    prop-types "^15.5.10"
-    react-select "^2.0.0"
-    rxjs "^5.5.7"
-
-"@dhis2/d2-ui-translation-dialog@^7.1.5":
+"@dhis2/d2-ui-translation-dialog@^7.1.4", "@dhis2/d2-ui-translation-dialog@^7.1.5":
   version "7.1.5"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-7.1.5.tgz#f27f496b597e97a839847b1f82cca8ca8a7293eb"
   integrity sha512-fiFinyYqij+wOFOtpOuGefjG87i0W5r6SvSdghkBOd+ET5s6GWdB6ETLG3sq3uOzN++tIa/FLnY6xlEAge5Khg==
