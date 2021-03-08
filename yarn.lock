@@ -1935,10 +1935,10 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^35.20.9":
-  version "35.20.9"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.20.9.tgz#c14bd36627cb101304c92898dc4bb4aeb6ad370a"
-  integrity sha512-GIbPlzrWS8tBNwOTYT5Khbn02oVMoh3D1h46HrN0+B1roU9j7nPstDCkjtEcNor4/hOvcIpEyd+i2LLqC+m9rw==
+"@dhis2/data-visualizer-plugin@^35.20.10":
+  version "35.20.10"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.20.10.tgz#7d6d10a79d2f86bebc3d6629e0b4ff3b51b13281"
+  integrity sha512-rbwW4yLrsd+rZdYRa3v0T/9s0Gz2IsnlFqcfTlJ+lFg+d+cJfXnTg1DC5v18NywnBRTxe3I/lQdH2QBILxGEuQ==
   dependencies:
     "@dhis2/analytics" "^16.0.8"
     "@dhis2/ui" "^6.5.1"
@@ -11111,12 +11111,7 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
-lodash-es@^4.17.11:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
-  integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
-
-lodash-es@^4.2.1:
+lodash-es@^4.17.11, lodash-es@^4.2.1:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.20.tgz#29f6332eefc60e849f869c264bc71126ad61e8f7"
   integrity sha512-JD1COMZsq8maT6mnuz1UMV0jvYD0E0aUsSOdrr1/nAG3dhqQXwRRgeW0cSqH1U43INKcqxaiVIQNOUDld7gRDA==
