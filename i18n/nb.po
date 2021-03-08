@@ -57,7 +57,7 @@ msgid "Print preview"
 msgstr "Utskriftforhåndsvisning"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "Filterinnstillinger"
 
 msgid "Translate"
 msgstr "Oversett"
@@ -212,13 +212,13 @@ msgid "Add filter"
 msgstr "Legg til filter"
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "Tillat filtrering etter alle dimensjoner"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "Tillat bare filtrering etter valgte dimensjoner"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "Dashbordfilterinnstillinger"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -226,12 +226,16 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"Dashbord kan filtreres etter dimensjoner for å endre\n"
+"                                         dataene som vises. Som standard er alle dimensjoner tilgjengelige\n"
+"                                         som filtre. Alternativt er det bare valgte dimensjoner som kan\n"
+"                                         gjøres tilgjengelig på et dashbord."
 
 msgid "Available Filters"
-msgstr ""
+msgstr "Tilgjengelige filtere"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "Valgte filtere"
 
 msgid "There are no items on this dashboard"
 msgstr "Det er ingen elementer på dette dashbordet"
