@@ -1,35 +1,49 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
-import { EditTitleBar } from '../EditTitleBar'
+import { render } from '@testing-library/react'
+import { Provider } from 'react-redux'
+import configureMockStore from 'redux-mock-store'
 
-jest.mock('../../ItemSelector/ItemSelector', () => 'ItemSelector')
+import EditTitleBar from '../EditTitleBar'
+
+const mockStore = configureMockStore()
+
+jest.mock(
+    '../../ItemSelector/ItemSelector',
+    () =>
+        function MockItemSelector() {
+            return <div className="item-selector" />
+        }
+)
 
 describe('EditTitleBar', () => {
-    const props = {
-        name: 'Rainbow Dash',
-        description: 'The blue one',
-        onChangeTitle: Function.prototype,
-        onChangeDescription: Function.prototype,
-        classes: {
-            section: 'section',
-            titleDescription: 'titledesc',
-            title: 'title',
-            description: 'description',
-            underline: 'underline',
-            input: 'input',
-            itemSelector: 'itemSelector',
-        },
-    }
-
-    it('renders correctly', () => {
-        const tree = shallow(<EditTitleBar {...props} />)
-        expect(toJson(tree)).toMatchSnapshot()
+    it('renders correctly with name and description', () => {
+        const store = {
+            editDashboard: {
+                name: 'Rainbow Dash',
+                description: 'A very colorful pony',
+            },
+        }
+        const { container } = render(
+            <Provider store={mockStore(store)}>
+                <EditTitleBar />
+            </Provider>
+        )
+        expect(container).toMatchSnapshot()
     })
 
-    it('renders correctly when no name', () => {
-        props.name = ''
-        const tree = shallow(<EditTitleBar {...props} />)
-        expect(toJson(tree)).toMatchSnapshot()
+    it('renders correctly when no name or description', () => {
+        const store = {
+            editDashboard: {
+                name: '',
+                description: '',
+            },
+        }
+
+        const { container } = render(
+            <Provider store={mockStore(store)}>
+                <EditTitleBar />
+            </Provider>
+        )
+        expect(container).toMatchSnapshot()
     })
 })

@@ -40,11 +40,13 @@ const ViewTitleBar = ({
     starred,
     setDashboardStarred,
     updateShowDescription,
+    restrictFilters,
+    allowedFilters,
 }) => {
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
-    const { d2 } = useD2({})
+    const { d2 } = useD2()
     const dataEngine = useDataEngine()
 
     const warningAlert = useAlert(({ msg }) => msg, {
@@ -164,7 +166,10 @@ const ViewTitleBar = ({
                                     {i18n.t('Share')}
                                 </Button>
                             ) : null}
-                            <FilterSelector />
+                            <FilterSelector
+                                allowedFilters={allowedFilters}
+                                restrictFilters={restrictFilters}
+                            />
                             <span ref={buttonRef}>
                                 {getMoreButton(classes.moreButton, false)}
                                 {getMoreButton(classes.moreButtonSmall, true)}
@@ -234,9 +239,11 @@ const ViewTitleBar = ({
 
 ViewTitleBar.propTypes = {
     access: PropTypes.object,
+    allowedFilters: PropTypes.array,
     description: PropTypes.string,
     id: PropTypes.string,
     name: PropTypes.string,
+    restrictFilters: PropTypes.bool,
     setDashboardStarred: PropTypes.func,
     showDescription: PropTypes.bool,
     starred: PropTypes.bool,
@@ -262,6 +269,8 @@ const mapStateToProps = state => {
         showDescription: sGetSelectedShowDescription(state),
         starred: dashboard.starred,
         access: dashboard.access,
+        restrictFilters: dashboard.restrictFilters,
+        allowedFilters: dashboard.allowedFilters,
     }
 }
 

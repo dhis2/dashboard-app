@@ -7,6 +7,7 @@ import { useDataEngine } from '@dhis2/app-runtime'
 
 import WindowDimensionsProvider from './components/WindowDimensionsProvider'
 import SystemSettingsProvider from './components/SystemSettingsProvider'
+import UserSettingsProvider from './components/UserSettingsProvider'
 import App from './components/App'
 import configureStore from './configureStore'
 
@@ -50,9 +51,11 @@ const AppWrapper = () => {
                         }
                         return (
                             <SystemSettingsProvider>
-                                <WindowDimensionsProvider>
-                                    <App />
-                                </WindowDimensionsProvider>
+                                <UserSettingsProvider>
+                                    <WindowDimensionsProvider>
+                                        <App />
+                                    </WindowDimensionsProvider>
+                                </UserSettingsProvider>
                             </SystemSettingsProvider>
                         )
                     }}

@@ -1,3 +1,99 @@
+## [31.13.6](https://github.com/dhis2/dashboard-app/compare/v31.13.5...v31.13.6) (2021-03-08)
+
+
+### Bug Fixes
+
+* DashboardsBar onExpandedChanged must be a function ([#1613](https://github.com/dhis2/dashboard-app/issues/1613)) ([0bc1820](https://github.com/dhis2/dashboard-app/commit/0bc18201217bee80c7509c077d7df32665fcda31))
+* progressive loading on small screen fixes ([#1610](https://github.com/dhis2/dashboard-app/issues/1610)) ([cd19ea5](https://github.com/dhis2/dashboard-app/commit/cd19ea5c839999322709c6d7a13f7da823ac4498))
+
+## [31.13.5](https://github.com/dhis2/dashboard-app/compare/v31.13.4...v31.13.5) (2021-03-05)
+
+
+### Bug Fixes
+
+* use keyAnalysisDisplayProperty from user settings for analytics components ([#1600](https://github.com/dhis2/dashboard-app/issues/1600)) ([35eeb69](https://github.com/dhis2/dashboard-app/commit/35eeb695d1522f5b314b53a6a3a3b0fbc3869e88))
+
+## [31.13.4](https://github.com/dhis2/dashboard-app/compare/v31.13.3...v31.13.4) (2021-03-04)
+
+
+### Bug Fixes
+
+* decrease dashboard request response load size ([#1596](https://github.com/dhis2/dashboard-app/issues/1596)) ([9ac201f](https://github.com/dhis2/dashboard-app/commit/9ac201fec70039f37befa3b2b0bc9fb0c1090853))
+
+## [31.13.3](https://github.com/dhis2/dashboard-app/compare/v31.13.2...v31.13.3) (2021-03-04)
+
+
+### Bug Fixes
+
+* do not allow "Open in [appname] app" when in small screen ([#1593](https://github.com/dhis2/dashboard-app/issues/1593)) ([56ad5b5](https://github.com/dhis2/dashboard-app/commit/56ad5b5473fe31172573803fd04ac9b671d79fa2))
+* phone landscape scrolling in edit mode was not available ([#1594](https://github.com/dhis2/dashboard-app/issues/1594)) ([6bfc650](https://github.com/dhis2/dashboard-app/commit/6bfc6506eb609aa3e0d5dd0eb9458bdfa108f3a5))
+* temporarily disable flaky cypress test ([#1599](https://github.com/dhis2/dashboard-app/issues/1599)) ([b338564](https://github.com/dhis2/dashboard-app/commit/b3385643cd239f765b21f21b03daef26b1ff490b))
+
+## [31.13.2](https://github.com/dhis2/dashboard-app/compare/v31.13.1...v31.13.2) (2021-02-26)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1576](https://github.com/dhis2/dashboard-app/issues/1576)) ([b00c878](https://github.com/dhis2/dashboard-app/commit/b00c878ae52849c486bb67750a02d8fa4dbb41a5))
+
+## [31.13.1](https://github.com/dhis2/dashboard-app/compare/v31.13.0...v31.13.1) (2021-02-26)
+
+
+### Bug Fixes
+
+* ability to restrict dashboard filters [DHIS2-7620] ([#1575](https://github.com/dhis2/dashboard-app/issues/1575)) ([d4531cf](https://github.com/dhis2/dashboard-app/commit/d4531cfb2009e9810a515153efd897a539a29833))
+
+# [31.13.0](https://github.com/dhis2/dashboard-app/compare/v31.12.7...v31.13.0) (2021-02-26)
+
+
+### Features
+
+* register passive view of dashboards [DHIS2-7016] ([#1572](https://github.com/dhis2/dashboard-app/issues/1572)) ([ddbf65d](https://github.com/dhis2/dashboard-app/commit/ddbf65d2d2608eede94379e087b6870caa185e03))
+
+## [31.12.7](https://github.com/dhis2/dashboard-app/compare/v31.12.6...v31.12.7) (2021-02-25)
+
+
+### Bug Fixes
+
+* dashboard filter modal should not be available in small screen ([#1567](https://github.com/dhis2/dashboard-app/issues/1567)) ([53db918](https://github.com/dhis2/dashboard-app/commit/53db9183149f6e644897ccb2e888013f298ca0df))
+
+## [31.12.6](https://github.com/dhis2/dashboard-app/compare/v31.12.5...v31.12.6) (2021-02-25)
+
+
+### Bug Fixes
+
+* remove div around content that blocked scrolling while adding items to new dashboard ([#1573](https://github.com/dhis2/dashboard-app/issues/1573)) ([19beb57](https://github.com/dhis2/dashboard-app/commit/19beb578e9f5647c7c222c3eaa9f28210626f0e7))
+
+## [31.12.5](https://github.com/dhis2/dashboard-app/compare/v31.12.4...v31.12.5) (2021-02-24)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1508](https://github.com/dhis2/dashboard-app/issues/1508)) ([2b92f87](https://github.com/dhis2/dashboard-app/commit/2b92f876934e681e404f0231547cdade043e27b1))
+* get value for margins and padding from css when calculating item available height  ([#1566](https://github.com/dhis2/dashboard-app/issues/1566)) ([cce74db](https://github.com/dhis2/dashboard-app/commit/cce74db50a49124f443b6a541a131c11323208bc))
+
+## [31.12.4](https://github.com/dhis2/dashboard-app/compare/v31.12.3...v31.12.4) (2021-02-22)
+
+
+### Bug Fixes
+
+* position loading spinner at top of item ([#1564](https://github.com/dhis2/dashboard-app/issues/1564)) ([47c7647](https://github.com/dhis2/dashboard-app/commit/47c7647c458f48ae780b3018dfe324b478286684))
+
+## [31.12.3](https://github.com/dhis2/dashboard-app/compare/v31.12.2...v31.12.3) (2021-02-22)
+
+
+### Bug Fixes
+
+* controlbar should always take full width, and other minor position adjustments ([#1563](https://github.com/dhis2/dashboard-app/issues/1563)) ([5d6d704](https://github.com/dhis2/dashboard-app/commit/5d6d704e64273a8154df42ce3630dd895897ee36))
+
+## [31.12.2](https://github.com/dhis2/dashboard-app/compare/v31.12.1...v31.12.2) (2021-02-22)
+
+
+### Bug Fixes
+
+* debounce the item selector query in dashboard editor [DHIS2-10530] ([#1554](https://github.com/dhis2/dashboard-app/issues/1554)) ([349b305](https://github.com/dhis2/dashboard-app/commit/349b305a582607b82598c8610ddbacf6107d191e))
+* upgrade to ui6 and set resolutions ([#1557](https://github.com/dhis2/dashboard-app/issues/1557)) ([a065cd3](https://github.com/dhis2/dashboard-app/commit/a065cd328dc2fc7703742950bc9c4da3b5bfb845))
+
 ## [31.12.1](https://github.com/dhis2/dashboard-app/compare/v31.12.0...v31.12.1) (2021-02-18)
 
 

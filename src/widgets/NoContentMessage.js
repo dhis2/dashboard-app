@@ -1,19 +1,10 @@
 import React from 'react'
-import { colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 
+import classes from './styles/NoContentMessage.module.css'
+
 const NoContentMessage = ({ text }) => (
-    <div
-        style={{
-            padding: '50px 10px',
-            textAlign: 'center',
-            fontSize: '15px',
-            fontWeight: 500,
-            color: colors.grey600,
-        }}
-    >
-        {text}
-    </div>
+    <div className={classes.container}>{text}</div>
 )
 
 NoContentMessage.propTypes = {

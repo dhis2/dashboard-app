@@ -2,6 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { ViewDashboard } from '../ViewDashboard'
+import { apiPostDataStatistics } from '../../../api/dataStatistics'
 
 jest.mock('react', () => ({
     ...jest.requireActual('react'),
@@ -38,6 +39,12 @@ jest.mock(
         }
 )
 
+jest.mock('../../../api/dataStatistics', () => ({
+    apiPostDataStatistics: jest.fn(() => {
+        return new Promise(resolve => resolve(true))
+    }),
+}))
+
 describe('ViewDashboard', () => {
     let props
 
@@ -45,6 +52,7 @@ describe('ViewDashboard', () => {
         props = {
             clearEditDashboard: jest.fn(),
             clearPrintDashboard: jest.fn(),
+            registerPassiveView: jest.fn(),
             dashboardIsEditing: false,
             dashboardIsPrinting: false,
         }
@@ -71,5 +79,17 @@ describe('ViewDashboard', () => {
         mount(<ViewDashboard {...props} />)
         expect(props.clearEditDashboard).not.toHaveBeenCalled()
         expect(props.clearPrintDashboard).toHaveBeenCalled()
+    })
+
+    it('does not post passive view to api if passive view has been registered', () => {
+        props.passiveViewRegistered = true
+        mount(<ViewDashboard {...props} />)
+        expect(apiPostDataStatistics).not.toHaveBeenCalled()
+    })
+
+    it('posts passive view to api if passive view has not been registered', () => {
+        props.passiveViewRegistered = false
+        mount(<ViewDashboard {...props} />)
+        expect(apiPostDataStatistics).toHaveBeenCalled()
     })
 })

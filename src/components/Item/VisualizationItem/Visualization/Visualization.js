@@ -19,6 +19,7 @@ import {
 import { getVisualizationId } from '../../../../modules/item'
 import memoizeOne from '../../../../modules/memoizeOne'
 import { sGetVisualization } from '../../../../reducers/visualizations'
+import { UserSettingsCtx } from '../../../UserSettingsProvider'
 import { pluginIsAvailable } from './plugin'
 import { DataVisualizerPlugin } from './DataVisualizerPlugin'
 
@@ -92,6 +93,10 @@ class Visualization extends React.Component {
                             onLoadingComplete={this.onLoadingComplete}
                             forDashboard={true}
                             style={pluginProps.style}
+                            userSettings={{
+                                displayProperty: this.context.userSettings
+                                    .keyAnalysisDisplayProperty,
+                            }}
                         />
                     </>
                 )
@@ -125,6 +130,8 @@ class Visualization extends React.Component {
         }
     }
 }
+
+Visualization.contextType = UserSettingsCtx
 
 Visualization.propTypes = {
     activeType: PropTypes.string,

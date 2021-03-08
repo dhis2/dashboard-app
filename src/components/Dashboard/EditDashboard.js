@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 import DashboardContainer from './DashboardContainer'
 import EditTitleBar from '../TitleBar/EditTitleBar'
@@ -41,7 +42,10 @@ const EditDashboard = props => {
 
     return (
         <>
-            <div className={classes.container}>
+            <div
+                className={cx(classes.container, 'dashboard-scroll-container')}
+                data-test="outer-scroll-container"
+            >
                 <EditBar />
                 {props.updateAccess ? (
                     renderGrid()

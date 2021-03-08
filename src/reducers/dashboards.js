@@ -1,10 +1,8 @@
 /** @module reducers/dashboards */
 
-import arrayFrom from 'd2-utilizr/lib/arrayFrom'
 import arraySort from 'd2-utilizr/lib/arraySort'
 
-import { orArray, orObject } from '../modules/util'
-import { convertBackendItemsToUi } from '../modules/uiBackendItemConverter'
+import { orObject } from '../modules/util'
 
 export const SET_DASHBOARDS = 'SET_DASHBOARDS'
 export const ADD_DASHBOARDS = 'ADD_DASHBOARDS'
@@ -153,27 +151,3 @@ export const sGetDashboardsSortedByStarred = state => [
     ...arraySort(sGetStarredDashboards(state), 'ASC', 'displayName'),
     ...arraySort(sGetUnstarredDashboards(state), 'ASC', 'displayName'),
 ]
-
-// utils
-
-/**
- * Returns the array of dashboards, customized for ui
- * @function
- * @param {Array} data The original dashboard list
- * @returns {Array}
- */
-export const getCustomDashboards = data =>
-    arrayFrom(data).map(d => ({
-        id: d.id,
-        name: d.name,
-        displayName: d.displayName,
-        description: d.description,
-        displayDescription: d.displayDescription,
-        starred: d.favorite,
-        owner: d.user.name,
-        created: d.created.split('T').join(' ').substr(0, 16),
-        lastUpdated: d.lastUpdated.split('T').join(' ').substr(0, 16),
-        access: d.access,
-        numberOfItems: orArray(d.dashboardItems).length,
-        dashboardItems: convertBackendItemsToUi(d.dashboardItems),
-    }))

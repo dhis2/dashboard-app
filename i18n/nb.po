@@ -1,14 +1,14 @@
 # 
 # Translators:
 # Caroline Hesthagen Holen <caroline@devotta.no>, 2020
-# Karoline Tufte Lien <karoline@dhis2.org>, 2020
+# Karoline Tufte Lien <karoline@dhis2.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-14T08:02:55.217Z\n"
+"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
+"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2021\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,6 +40,13 @@ msgstr ""
 "brukere. Denne handlingen kan ikke angres. Er du sikker på at du vil slette "
 "dette dashbordet permanent?"
 
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+"Kunne ikke lagre dashbordet. Du kan være frakoblet eller ikke ha tilgang til"
+" å redigere dette dashbordet."
+
 msgid "Save changes"
 msgstr "Lagre endringer"
 
@@ -62,10 +69,10 @@ msgid "Search for a dashboard"
 msgstr "Søk etter et dashbord"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "Vis færre dashbord"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "Vis flere dashbord"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "Ingen dashbord funnet. Bruk + -knappen for å lage et nytt dashbord."
@@ -76,14 +83,22 @@ msgstr "Forespurt dashbord ikke funnet"
 msgid "No access"
 msgstr "Ingen tilgang"
 
-msgid "Editing dashboards on small screens is not supported."
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
 msgstr ""
+"Redigering av dashbord på små skjermer støttes ikke. Endre størrelsen på "
+"skjermen for å gå tilbake til redigeringsmodus."
 
-msgid "Creating dashboards on small screens is not supported."
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
 msgstr ""
+"Oppretting av dashbord på små skjermer støttes ikke. Endre størrelsen på "
+"skjermen for å gå tilbake til opprettingsmodus."
 
 msgid "Not supported"
-msgstr ""
+msgstr "Ikke støttet"
 
 msgid "Exit print preview"
 msgstr "Avslutt forhåndsvisning av utskrift"
@@ -179,7 +194,7 @@ msgid "Open in {{appName}} app"
 msgstr "Åpne i {{appName}} -appen"
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "Vis fullskjerm"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Kan ikke laste inn plugin-modulen for dette elementet"
@@ -226,20 +241,32 @@ msgstr "Skjul beskrivelse"
 msgid "Show description"
 msgstr "Vis beskrivelse"
 
+msgid "Failed to hide description"
+msgstr "Kunne ikke skjule beskrivelsen"
+
+msgid "Failed to show description"
+msgstr "Kunne ikke vise beskrivelsen"
+
 msgid "Unstar dashboard"
 msgstr "Fjern stjerne fra dashbordet"
 
 msgid "Star dashboard"
 msgstr "Merk dashbord med stjerne"
 
+msgid "Failed to unstar the dashboard"
+msgstr "Kunne ikke fjerne stjernemerket på dashbordet"
+
+msgid "Failed to star the dashboard"
+msgstr "Kunne ikke stjernemerke dashbordet"
+
+msgid "More"
+msgstr "Mer"
+
 msgid "Edit"
 msgstr "Rediger"
 
 msgid "Share"
 msgstr "Del"
-
-msgid "More"
-msgstr "Mer"
 
 msgid "Dashboard layout"
 msgstr "Dashbordoppsett"
