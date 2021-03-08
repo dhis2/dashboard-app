@@ -71,7 +71,7 @@ const EditItemGrid = ({
     const getItemComponent = item => (
         <ProgressiveLoadingContainer
             key={item.i}
-            className={cx(item.type, 'edit')}
+            className={cx(item.type, 'edit', `reactgriditem-${item.id}`)}
             itemId={item.id}
         >
             <Item item={item} gridWidth={gridWidth} dashboardMode={EDIT} />

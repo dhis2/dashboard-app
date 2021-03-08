@@ -5,8 +5,7 @@ import pick from 'lodash/pick'
 
 const defaultDebounceMs = 100
 const defaultBufferFactor = 0.25
-
-const config = { attributes: true, childList: false, subtree: false }
+const observerConfig = { attributes: true, childList: false, subtree: false }
 
 class ProgressiveLoadingContainer extends Component {
     static propTypes = {
@@ -26,20 +25,9 @@ class ProgressiveLoadingContainer extends Component {
         shouldLoad: false,
     }
     containerRef = null
-    shouldLoadHandler = null
+    debouncedCheckShouldLoad = null
     handlerOptions = { passive: true }
-
-    callback = mutationsList => {
-        const styleChanged = mutationsList.find(
-            mutation => mutation.attributeName === 'style'
-        )
-
-        if (styleChanged) {
-            setTimeout(() => this.checkShouldLoad(), 200)
-        }
-    }
-
-    observer = new MutationObserver(this.callback)
+    observer = null
 
     checkShouldLoad() {
         if (!this.containerRef) {
@@ -62,7 +50,7 @@ class ProgressiveLoadingContainer extends Component {
     }
 
     registerHandler() {
-        this.shouldLoadHandler = debounce(
+        this.debouncedCheckShouldLoad = debounce(
             () => this.checkShouldLoad(),
             this.props.debounceMs
         )
@@ -72,7 +60,7 @@ class ProgressiveLoadingContainer extends Component {
         ).forEach(container => {
             container.addEventListener(
                 'scroll',
-                this.shouldLoadHandler,
+                this.debouncedCheckShouldLoad,
                 this.handlerOptions
             )
         })
@@ -81,7 +69,18 @@ class ProgressiveLoadingContainer extends Component {
             `.reactgriditem-${this.props.itemId}`
         )
 
-        this.observer.observe(targetNode, config)
+        const mutationCallback = mutationsList => {
+            const styleChanged = mutationsList.find(
+                mutation => mutation.attributeName === 'style'
+            )
+
+            if (styleChanged) {
+                this.debouncedCheckShouldLoad()
+            }
+        }
+
+        this.observer = new MutationObserver(mutationCallback)
+        this.observer.observe(targetNode, observerConfig)
     }
 
     removeHandler() {
@@ -90,7 +89,7 @@ class ProgressiveLoadingContainer extends Component {
         ).forEach(container => {
             container.removeEventListener(
                 'scroll',
-                this.shouldLoadHandler,
+                this.debouncedCheckShouldLoad,
                 this.handlerOptions
             )
         })
