@@ -34,8 +34,6 @@ When('I add translations for dashboard name and description', () => {
 })
 
 Then('Norwegian title and description are displayed', () => {
-    // cy.get(dashboardTitleSel).contains(norwegianTitle).should('be.visible')
-
     cy.get('button').contains('More').click()
     cy.contains('Show description').click()
 
