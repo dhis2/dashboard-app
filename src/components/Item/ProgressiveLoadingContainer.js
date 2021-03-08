@@ -65,10 +65,6 @@ class ProgressiveLoadingContainer extends Component {
             )
         })
 
-        const targetNode = document.querySelector(
-            `.reactgriditem-${this.props.itemId}`
-        )
-
         const mutationCallback = mutationsList => {
             const styleChanged = mutationsList.find(
                 mutation => mutation.attributeName === 'style'
@@ -80,7 +76,7 @@ class ProgressiveLoadingContainer extends Component {
         }
 
         this.observer = new MutationObserver(mutationCallback)
-        this.observer.observe(targetNode, observerConfig)
+        this.observer.observe(this.containerRef, observerConfig)
     }
 
     removeHandler() {
