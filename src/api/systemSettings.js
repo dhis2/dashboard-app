@@ -1,5 +1,4 @@
 export const DEFAULT_SETTINGS = {
-    displayNameProperty: 'displayName',
     keyDashboardContextMenuItemOpenInRelevantApp: true,
     keyDashboardContextMenuItemShowInterpretationsAndDetails: true,
     keyDashboardContextMenuItemSwitchViewType: true,
@@ -30,9 +29,7 @@ export const renameSystemSettings = settings => {
     }, {})
 }
 
-const query = {
+export const systemSettingsQuery = {
     resource: 'systemSettings',
     params: { key: SYSTEM_SETTINGS },
 }
-
-export default query

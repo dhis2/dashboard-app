@@ -1,3 +1,10 @@
+## [31.13.5](https://github.com/dhis2/dashboard-app/compare/v31.13.4...v31.13.5) (2021-03-05)
+
+
+### Bug Fixes
+
+* use keyAnalysisDisplayProperty from user settings for analytics components ([#1600](https://github.com/dhis2/dashboard-app/issues/1600)) ([35eeb69](https://github.com/dhis2/dashboard-app/commit/35eeb695d1522f5b314b53a6a3a3b0fbc3869e88))
+
 ## [31.13.4](https://github.com/dhis2/dashboard-app/compare/v31.13.3...v31.13.4) (2021-03-04)
 
 

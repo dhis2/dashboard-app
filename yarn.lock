@@ -1595,10 +1595,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^15.0.6", "@dhis2/analytics@^15.1.1":
-  version "15.1.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-15.1.1.tgz#f816500c311c15237c7e86f1775b20086c075e01"
-  integrity sha512-Rq2N6aH9vIbroCb7TTeBsHWQhWLSptIeOsaFBOBESXchX1VCJEHPv1x3ZMTyZUVMEVxr8wanQcGk3HKeZCgXnw==
+"@dhis2/analytics@^16.0.0", "@dhis2/analytics@^16.0.1":
+  version "16.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-16.0.1.tgz#c23a8ab59a03ca53b12fbac9bc6dacf4d1147d53"
+  integrity sha512-YzUqELARztIP1vgv+2/+cj2AXCsjoi7ltUMSaSJtPoR2v42G/H722/hddkd82muOtweh5KL4jjZmZX/hyCF9lQ==
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^7.1.3"
     "@dhis2/d2-ui-org-unit-dialog" "^7.1.3"
@@ -1935,13 +1935,13 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^35.20.0":
-  version "35.20.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.20.0.tgz#6c19d15910f97f491cfb993398a3286a47ebe654"
-  integrity sha512-iAxTploPCTyrLDpZHUeSTx/uJkmByhzvu2sa7Y22cdipUinBXYkhZeWFLLceG6MmH3uDnJfilkwMYSweCk/FpA==
+"@dhis2/data-visualizer-plugin@^35.20.3":
+  version "35.20.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.20.3.tgz#4150bbc0a2c242488186f71ac3458a44dad2df19"
+  integrity sha512-tg3PsUmDWe3Z+dicJsKZ1aRMrq95/KoKBULhVSC1NBAzFiIz/w+VeZSdFsAIEbDrSYQe09LLKnWmmnj1Bh6T4A==
   dependencies:
-    "@dhis2/analytics" "^15.0.6"
-    "@dhis2/ui" "^6.2.2"
+    "@dhis2/analytics" "^16.0.0"
+    "@dhis2/ui" "^6.5.0"
     lodash-es "^4.17.11"
 
 "@dhis2/prop-types@^1.6.4":
@@ -2005,7 +2005,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@^5.7.2", "@dhis2/ui@^6.2.2", "@dhis2/ui@^6.2.3":
+"@dhis2/ui@^5.7.2", "@dhis2/ui@^6.2.3", "@dhis2/ui@^6.5.0":
   version "6.2.3"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-6.2.3.tgz#e429c5d301ca481d5bf69ebbd01a8498c52298e4"
   integrity sha512-CWdFcYWtAwcjcjgr7FvdvmHHIiIibKpmRsV+hoBZaIoaw3emb736zoUPJ02nZlMgCoTY+vOTT3PeI6reBFS7ew==
