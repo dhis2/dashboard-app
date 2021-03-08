@@ -6,12 +6,15 @@ import pick from 'lodash/pick'
 const defaultDebounceMs = 100
 const defaultBufferFactor = 0.25
 
+const config = { attributes: true, childList: false, subtree: false }
+
 class ProgressiveLoadingContainer extends Component {
     static propTypes = {
         children: PropTypes.node.isRequired,
         bufferFactor: PropTypes.number,
         className: PropTypes.string,
         debounceMs: PropTypes.number,
+        itemId: PropTypes.string,
         style: PropTypes.object,
     }
     static defaultProps = {
@@ -26,6 +29,18 @@ class ProgressiveLoadingContainer extends Component {
     shouldLoadHandler = null
     handlerOptions = { passive: true }
 
+    callback = mutationsList => {
+        const styleChanged = mutationsList.find(
+            mutation => mutation.attributeName === 'style'
+        )
+
+        if (styleChanged) {
+            setTimeout(() => this.checkShouldLoad(), 200)
+        }
+    }
+
+    observer = new MutationObserver(this.callback)
+
     checkShouldLoad() {
         if (!this.containerRef) {
             return
@@ -33,6 +48,7 @@ class ProgressiveLoadingContainer extends Component {
 
         const bufferPx = this.props.bufferFactor * window.innerHeight
         const rect = this.containerRef.getBoundingClientRect()
+
         if (
             rect.bottom > -bufferPx &&
             rect.top < window.innerHeight + bufferPx
@@ -60,6 +76,12 @@ class ProgressiveLoadingContainer extends Component {
                 this.handlerOptions
             )
         })
+
+        const targetNode = document.querySelector(
+            `.reactgriditem-${this.props.itemId}`
+        )
+
+        this.observer.observe(targetNode, config)
     }
 
     removeHandler() {
@@ -72,6 +94,8 @@ class ProgressiveLoadingContainer extends Component {
                 this.handlerOptions
             )
         })
+
+        this.observer.disconnect()
     }
 
     componentDidMount() {
