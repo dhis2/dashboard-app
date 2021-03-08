@@ -5,6 +5,7 @@ import pick from 'lodash/pick'
 
 const defaultDebounceMs = 100
 const defaultBufferFactor = 0.25
+const observerConfig = { attributes: true, childList: false, subtree: false }
 
 class ProgressiveLoadingContainer extends Component {
     static propTypes = {
@@ -12,6 +13,7 @@ class ProgressiveLoadingContainer extends Component {
         bufferFactor: PropTypes.number,
         className: PropTypes.string,
         debounceMs: PropTypes.number,
+        itemId: PropTypes.string,
         style: PropTypes.object,
     }
     static defaultProps = {
@@ -23,8 +25,9 @@ class ProgressiveLoadingContainer extends Component {
         shouldLoad: false,
     }
     containerRef = null
-    shouldLoadHandler = null
+    debouncedCheckShouldLoad = null
     handlerOptions = { passive: true }
+    observer = null
 
     checkShouldLoad() {
         if (!this.containerRef) {
@@ -33,6 +36,7 @@ class ProgressiveLoadingContainer extends Component {
 
         const bufferPx = this.props.bufferFactor * window.innerHeight
         const rect = this.containerRef.getBoundingClientRect()
+
         if (
             rect.bottom > -bufferPx &&
             rect.top < window.innerHeight + bufferPx
@@ -46,7 +50,7 @@ class ProgressiveLoadingContainer extends Component {
     }
 
     registerHandler() {
-        this.shouldLoadHandler = debounce(
+        this.debouncedCheckShouldLoad = debounce(
             () => this.checkShouldLoad(),
             this.props.debounceMs
         )
@@ -56,10 +60,23 @@ class ProgressiveLoadingContainer extends Component {
         ).forEach(container => {
             container.addEventListener(
                 'scroll',
-                this.shouldLoadHandler,
+                this.debouncedCheckShouldLoad,
                 this.handlerOptions
             )
         })
+
+        const mutationCallback = mutationsList => {
+            const styleChanged = mutationsList.find(
+                mutation => mutation.attributeName === 'style'
+            )
+
+            if (styleChanged) {
+                this.debouncedCheckShouldLoad()
+            }
+        }
+
+        this.observer = new MutationObserver(mutationCallback)
+        this.observer.observe(this.containerRef, observerConfig)
     }
 
     removeHandler() {
@@ -68,10 +85,12 @@ class ProgressiveLoadingContainer extends Component {
         ).forEach(container => {
             container.removeEventListener(
                 'scroll',
-                this.shouldLoadHandler,
+                this.debouncedCheckShouldLoad,
                 this.handlerOptions
             )
         })
+
+        this.observer.disconnect()
     }
 
     componentDidMount() {
