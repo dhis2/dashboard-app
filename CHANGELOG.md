@@ -1,3 +1,11 @@
+## [31.13.6](https://github.com/dhis2/dashboard-app/compare/v31.13.5...v31.13.6) (2021-03-08)
+
+
+### Bug Fixes
+
+* DashboardsBar onExpandedChanged must be a function ([#1613](https://github.com/dhis2/dashboard-app/issues/1613)) ([0bc1820](https://github.com/dhis2/dashboard-app/commit/0bc18201217bee80c7509c077d7df32665fcda31))
+* progressive loading on small screen fixes ([#1610](https://github.com/dhis2/dashboard-app/issues/1610)) ([cd19ea5](https://github.com/dhis2/dashboard-app/commit/cd19ea5c839999322709c6d7a13f7da823ac4498))
+
 ## [31.13.5](https://github.com/dhis2/dashboard-app/compare/v31.13.4...v31.13.5) (2021-03-05)
 
 
