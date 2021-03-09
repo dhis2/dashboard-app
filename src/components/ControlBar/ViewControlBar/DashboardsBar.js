@@ -10,6 +10,7 @@ import { getRowsFromHeight } from './controlBarDimensions'
 import { sGetControlBarUserRows } from '../../../reducers/controlBar'
 import { acSetControlBarUserRows } from '../../../actions/controlBar'
 import { apiPostControlBarRows } from '../../../api/controlBar'
+import { useWindowDimensions } from '../../WindowDimensionsProvider'
 
 import classes from './styles/DashboardsBar.module.css'
 
@@ -25,6 +26,7 @@ const DashboardsBar = ({
     const [dragging, setDragging] = useState(false)
     const userRowsChanged = useRef(false)
     const ref = createRef()
+    const { height } = useWindowDimensions()
 
     const rootElement = document.documentElement
 
@@ -43,6 +45,11 @@ const DashboardsBar = ({
     useEffect(() => {
         rootElement.style.setProperty('--user-rows-count', userRows)
     }, [userRows])
+
+    useEffect(() => {
+        const vh = height * 0.01
+        rootElement.style.setProperty('--vh', `${vh}px`)
+    }, [height])
 
     useEffect(() => {
         if (!dragging && userRowsChanged.current) {
