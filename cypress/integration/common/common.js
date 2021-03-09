@@ -26,9 +26,7 @@ Then('the {string} dashboard displays in view mode', title => {
 })
 
 Given('I choose to create new dashboard', () => {
-    cy.get(newDashboardLinkSel, {
-        timeout: 15000,
-    }).click()
+    cy.get(newDashboardLinkSel, EXTENDED_TIMEOUT).click()
 })
 
 When('I choose to edit dashboard', () => {

@@ -2,7 +2,6 @@ import {
     SET_DASHBOARDS,
     ADD_DASHBOARDS,
     SET_DASHBOARD_STARRED,
-    SET_DASHBOARD_DISPLAY_NAME,
     SET_DASHBOARD_ITEMS,
     sGetDashboardById,
     sGetDashboardsSortedByStarred,
@@ -32,12 +31,6 @@ export const acSetDashboardStarred = (dashboardId, isStarred) => ({
     type: SET_DASHBOARD_STARRED,
     dashboardId: dashboardId,
     value: isStarred,
-})
-
-export const acSetDashboardDisplayName = (dashboardId, value) => ({
-    type: SET_DASHBOARD_DISPLAY_NAME,
-    dashboardId,
-    value,
 })
 
 export const acSetDashboardItems = value => ({

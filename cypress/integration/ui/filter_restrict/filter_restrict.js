@@ -130,10 +130,6 @@ When('I click Confirm', () => {
 Scenario: I change Filter Restrictions and the changes do not persist if I click 'Exit without saving'
 */
 
-When('I click Exit without saving', () => {
-    cy.get('button').contains('Exit without saving').click()
-})
-
 When('I open Edit mode', () => {
     cy.get('button').contains('Edit').click()
 })
