@@ -68,12 +68,6 @@ div:-webkit-full-screen {
     margin: 0px !important;
 }
 
-div:fullscreen .dashboard-item-content,
-div:-webkit-full-screen .dashboard-item-content {
-    height: 95vh !important;
-    width: 100vw !important;
-}
-
 @media print {
     body {
         width: 100% !important;
