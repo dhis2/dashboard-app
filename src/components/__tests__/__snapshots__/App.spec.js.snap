@@ -2,6 +2,9 @@
 
 exports[`renders the app 1`] = `
 <div>
+  <header
+    style="height: 48px;"
+  />
   <div
     class="dashboard"
   />

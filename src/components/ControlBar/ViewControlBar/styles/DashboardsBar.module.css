@@ -75,7 +75,7 @@
         position: absolute;
         display: flex;
         flex-direction: column;
-        height: calc(100% - 32px);
+        height: var(--sm-expanded-controlbar-height);
     }
 
     .expanded .content {

@@ -38,6 +38,16 @@ const App = props => {
         props.fetchDashboards()
         props.setControlBarRows()
         props.setShowDescription()
+
+        // store the headerbar height for controlbar height calculations
+        const headerbarHeight = document
+            .querySelector('header')
+            .getBoundingClientRect().height
+
+        document.documentElement.style.setProperty(
+            '--headerbar-height',
+            `${headerbarHeight}px`
+        )
     }, [])
 
     useEffect(() => {
