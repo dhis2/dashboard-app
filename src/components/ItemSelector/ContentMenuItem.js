@@ -2,8 +2,9 @@ import React from 'react'
 import { MenuItem, colors } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
-import { visTypeIcons } from '@dhis2/analytics'
+import { visTypeIcons, VIS_TYPE_SCATTER } from '@dhis2/analytics'
 
+import ScatterIcon from './assets/ScatterIcon'
 import { getItemIcon, VISUALIZATION } from '../../modules/itemTypes'
 import LaunchIcon from '../../icons/Launch'
 
@@ -32,12 +33,17 @@ const InsertButton = () => (
 const ContentMenuItem = ({ type, name, onInsert, url, visType }) => {
     const ItemIcon = getItemIcon(type)
 
-    const renderedItemIcon =
-        type === VISUALIZATION ? (
-            visTypeIcons[visType]
-        ) : (
-            <ItemIcon style={{ fill: colors.grey600 }} />
-        )
+    let renderedItemIcon
+    if (type === VISUALIZATION) {
+        renderedItemIcon =
+            visType === VIS_TYPE_SCATTER ? (
+                <ScatterIcon />
+            ) : (
+                visTypeIcons[visType]
+            )
+    } else {
+        renderedItemIcon = <ItemIcon style={{ fill: colors.grey600 }} />
+    }
 
     return (
         <MenuItem
