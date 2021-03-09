@@ -11,7 +11,6 @@ import reducer, {
     SET_DASHBOARDS,
     ADD_DASHBOARDS,
     SET_DASHBOARD_STARRED,
-    SET_DASHBOARD_DISPLAY_NAME,
     SET_DASHBOARD_ITEMS,
 } from '../dashboards'
 
@@ -118,29 +117,6 @@ describe('dashboards reducer', () => {
                 [dashId1]: {
                     ...dashboardsState.byId[dashId1],
                     starred: starredValue,
-                },
-            },
-        }
-
-        expect(actualState).toEqual(expectedState)
-    })
-
-    it('SET_DASHBOARD_DISPLAYNAME: should set "displayName" on a dashboard', () => {
-        const displayName = 'nome tradotto'
-
-        const actualState = reducer(dashboardsState, {
-            type: SET_DASHBOARD_DISPLAY_NAME,
-            dashboardId: dashId1,
-            value: displayName,
-        })
-
-        const expectedState = {
-            ...dashboardsState,
-            byId: {
-                ...dashboardsState.byId,
-                [dashId1]: {
-                    ...dashboardsState.byId[dashId1],
-                    displayName: displayName,
                 },
             },
         }
