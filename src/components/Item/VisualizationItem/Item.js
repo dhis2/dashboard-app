@@ -192,9 +192,13 @@ export class Item extends Component {
         return this.props.activeType || this.props.item.type
     }
 
-    getAvailableHeight = width => {
+    getAvailableHeight = ({ width, height }) => {
         if (this.state.isFullscreen) {
-            return '95vh'
+            return (
+                height -
+                this.headerRef.current.clientHeight -
+                this.itemHeaderTotalMargin
+            )
         }
 
         const calculatedHeight =
@@ -261,7 +265,7 @@ export class Item extends Component {
                                         activeType={activeType}
                                         itemFilters={itemFilters}
                                         availableHeight={this.getAvailableHeight(
-                                            dimensions.width
+                                            dimensions
                                         )}
                                         availableWidth={this.getAvailableWidth()}
                                     />
