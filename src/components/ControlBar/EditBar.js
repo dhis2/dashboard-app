@@ -10,7 +10,6 @@ import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import FilterSettingsDialog from '../ItemFilter/FilterSettingsDialog'
 import ConfirmDeleteDialog from './ConfirmDeleteDialog'
-import { useUserSettings } from '../UserSettingsProvider'
 import {
     tSaveDashboard,
     acClearEditDashboard,
@@ -19,10 +18,7 @@ import {
     acSetFilterSettings,
 } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
-import {
-    tDeleteDashboard,
-    acSetDashboardDisplayName,
-} from '../../actions/dashboards'
+import { tDeleteDashboard } from '../../actions/dashboards'
 import { sGetDimensions } from '../../reducers/dimensions'
 import {
     sGetEditDashboardRoot,
@@ -48,8 +44,6 @@ const EditBar = props => {
     const [dashboard, setDashboard] = useState(undefined)
     const [confirmDeleteDlgIsOpen, setConfirmDeleteDlgIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(undefined)
-
-    const { userSettings } = useUserSettings()
 
     const failureAlert = useAlert(saveFailedMessage, {
         critical: true,
@@ -119,20 +113,6 @@ const EditBar = props => {
         toggleFilterSettingsDialog()
     }
 
-    const onTranslationsSaved = translations => {
-        if (translations && translations.length) {
-            const translation = translations.find(
-                t =>
-                    t.locale === userSettings.keyDbLocale &&
-                    t.property === 'NAME'
-            )
-
-            if (translation && translation.value) {
-                props.onTranslate(props.dashboardId, translation.value)
-            }
-        }
-    }
-
     const toggleTranslationDialog = () =>
         setTranslationDlgIsOpen(!translationDlgIsOpen)
 
@@ -162,10 +142,10 @@ const EditBar = props => {
                     modelDefinition: { name: 'dashboard' },
                 }}
                 fieldsToTranslate={['name', 'description']}
-                onTranslationSaved={onTranslationsSaved}
                 onTranslationError={err =>
                     console.log('translation update error', err)
                 }
+                onTranslationSaved={Function.prototype}
             />
         ) : null
 
@@ -252,7 +232,6 @@ EditBar.propTypes = {
     updateAccess: PropTypes.bool,
     onDelete: PropTypes.func,
     onDiscardChanges: PropTypes.func,
-    onTranslate: PropTypes.func,
 }
 
 const mapStateToProps = state => {
@@ -289,7 +268,6 @@ const mapDispatchToProps = dispatch => ({
     saveDashboard: () => dispatch(tSaveDashboard()).then(id => id),
     onDelete: id => dispatch(tDeleteDashboard(id)),
     onDiscardChanges: () => dispatch(acClearEditDashboard()),
-    onTranslate: (id, value) => dispatch(acSetDashboardDisplayName(id, value)),
     setFilterSettings: value => dispatch(acSetFilterSettings(value)),
     showPrintPreview: () => dispatch(acSetPrintPreviewView()),
 })
