@@ -56,7 +56,7 @@ When('I click outside menu', () => {
 })
 
 When('dashboard is saved', () => {
-    cy.get('button').contains('Save changes').click()
+    cy.get('button').contains('Save changes', EXTENDED_TIMEOUT).click()
 })
 
 Then('the saved dashboard should be displayed', () => {

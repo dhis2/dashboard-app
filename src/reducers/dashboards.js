@@ -7,7 +7,6 @@ import { orObject } from '../modules/util'
 export const SET_DASHBOARDS = 'SET_DASHBOARDS'
 export const ADD_DASHBOARDS = 'ADD_DASHBOARDS'
 export const SET_DASHBOARD_STARRED = 'SET_DASHBOARD_STARRED'
-export const SET_DASHBOARD_DISPLAY_NAME = 'SET_DASHBOARD_DISPLAY_NAME'
 export const SET_DASHBOARD_ITEMS = 'SET_DASHBOARD_ITEMS'
 
 export const DEFAULT_STATE_DASHBOARDS = {
@@ -59,14 +58,6 @@ export default (state = DEFAULT_STATE_DASHBOARDS, action) => {
                 state,
                 dashboardId: action.dashboardId,
                 prop: 'starred',
-                value: action.value,
-            })
-        }
-        case SET_DASHBOARD_DISPLAY_NAME: {
-            return updateDashboardProp({
-                state,
-                dashboardId: action.dashboardId,
-                prop: 'displayName',
                 value: action.value,
             })
         }
