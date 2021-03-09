@@ -1,15 +1,14 @@
 # 
 # Translators:
 # Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2019
-# phil_dhis2, 2019
-# Viktor Varland <viktor@dhis2.org>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,22 +23,19 @@ msgid "Loading dashboard – {{name}}"
 msgstr ""
 
 msgid "Cancel"
-msgstr "Batalkan"
+msgstr ""
 
 msgid "Delete"
-msgstr "Hapus"
+msgstr "hapus"
 
 msgid "Delete dashboard"
-msgstr "Hapus dashboard"
+msgstr ""
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"Dashboard \"{{ dashboardName }}\" akan dihapus untuk semua pengguna. Setelah"
-" dihapus dashboard ini tidak dapat dipulihkan. Anda yakin akan menghapus "
-"dashboard ini secara permanen?"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -53,6 +49,9 @@ msgid "Exit Print preview"
 msgstr ""
 
 msgid "Print preview"
+msgstr ""
+
+msgid "Filter settings"
 msgstr ""
 
 msgid "Translate"
@@ -100,7 +99,7 @@ msgid "Exit print preview"
 msgstr ""
 
 msgid "Print"
-msgstr "Cetak"
+msgstr ""
 
 msgid "dashboard layout"
 msgstr ""
@@ -127,10 +126,10 @@ msgstr ""
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] "{{count}} terpilih"
+msgstr[0] ""
 
 msgid "Remove"
-msgstr "Hapus"
+msgstr ""
 
 msgid "Delete item"
 msgstr ""
@@ -193,40 +192,62 @@ msgid "Unable to load the plugin for this item"
 msgstr "Tidak dapat memuat plugin untuk item ini"
 
 msgid "No data to display"
-msgstr "Tidak ada data untuk ditampilkan"
+msgstr ""
 
 msgid "Confirm"
-msgstr "Konfirmasi"
+msgstr ""
 
 msgid "Add filter"
-msgstr "Tambah penyaringan"
+msgstr ""
+
+msgid "Allow filtering by all dimensions"
+msgstr ""
+
+msgid "Only allow filtering by selected dimensions"
+msgstr ""
+
+msgid "Dashboard filter settings"
+msgstr ""
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+
+msgid "Available Filters"
+msgstr ""
+
+msgid "Selected Filters"
+msgstr ""
 
 msgid "There are no items on this dashboard"
 msgstr "Tidak ada item dalam dashboard ini"
 
 msgid "Show fewer"
-msgstr "Tampilkan lebih sedikit"
+msgstr ""
 
 msgid "Show more"
-msgstr "Tunjukkan lebih banyak"
+msgstr "Tampilkan lebih"
 
 msgid "Insert"
-msgstr "Sisipkan"
+msgstr ""
 
 msgid "Search for items to add to this dashboard"
 msgstr "Cari item untuk ditambahkan ke dashboard ini"
 
 msgid "Additional items"
-msgstr "Item tambahan"
+msgstr ""
 
 msgid "Text box"
 msgstr "Kotak teks"
 
 msgid "Dashboard title"
-msgstr "Judul dashboard"
+msgstr ""
 
 msgid "Dashboard description"
-msgstr "Deskripsi dashboard"
+msgstr ""
 
 msgid "Hide description"
 msgstr ""
@@ -253,13 +274,13 @@ msgid "Failed to star the dashboard"
 msgstr ""
 
 msgid "More"
-msgstr "Lagi"
+msgstr ""
 
 msgid "Edit"
-msgstr "Edit"
+msgstr ""
 
 msgid "Share"
-msgstr "Bagikan"
+msgstr ""
 
 msgid "Dashboard layout"
 msgstr ""
@@ -298,4 +319,4 @@ msgid "Resources"
 msgstr "Sumber Daya"
 
 msgid "Users"
-msgstr "Pengguna"
+msgstr "User"

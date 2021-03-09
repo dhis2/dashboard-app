@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
+"POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
 "MIME-Version: 1.0\n"
@@ -22,22 +22,19 @@ msgid "Loading dashboard – {{name}}"
 msgstr ""
 
 msgid "Cancel"
-msgstr "إلغاء"
+msgstr ""
 
 msgid "Delete"
 msgstr "حذف"
 
 msgid "Delete dashboard"
-msgstr "حذف لوحة المعلومات"
+msgstr ""
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"سيؤدي حذف لوحة المعلومات \"{{dashboardName}}\" إلى إزالتها لجميع المستخدمين."
-" لا يمكن التراجع عن هذا الإجراء. هل تريد بالتأكيد حذف لوحة المعلومات هذه "
-"نهائياً؟"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -51,6 +48,9 @@ msgid "Exit Print preview"
 msgstr ""
 
 msgid "Print preview"
+msgstr ""
+
+msgid "Filter settings"
 msgstr ""
 
 msgid "Translate"
@@ -133,10 +133,10 @@ msgstr[4] ""
 msgstr[5] ""
 
 msgid "Remove"
-msgstr "إزالة"
+msgstr ""
 
 msgid "Delete item"
-msgstr "حذف العنصر"
+msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr ""
@@ -148,7 +148,7 @@ msgid "See all messages"
 msgstr "رؤية كافة الرسائل"
 
 msgid "Item type \"{{type}}\" not supported"
-msgstr "نوع العنصر \"{{type}}\" غير مدعوم"
+msgstr ""
 
 msgid "Filters applied"
 msgstr ""
@@ -167,25 +167,25 @@ msgid "Add text here"
 msgstr "اضف نص هنا"
 
 msgid "There was a problem loading this dashboard item"
-msgstr "حدثت مشكلة أثناء تحميل عنصر لوحة المعلومات هذا"
+msgstr ""
 
 msgid "Hide interpretations and details"
-msgstr "إخفاء التفسيرات والتفاصيل"
+msgstr ""
 
 msgid "Show interpretations and details"
-msgstr "إظهار التفسيرات والتفاصيل"
+msgstr ""
 
 msgid "View as Chart"
-msgstr "عرض كمخطط بياني"
+msgstr ""
 
 msgid "View as Table"
-msgstr "عرض كجدول"
+msgstr ""
 
 msgid "View as Map"
-msgstr "عرض كخريطة"
+msgstr ""
 
 msgid "Open in {{appName}} app"
-msgstr "إفتح في تطبيق {{appName}}"
+msgstr ""
 
 msgid "View fullscreen"
 msgstr ""
@@ -194,40 +194,62 @@ msgid "Unable to load the plugin for this item"
 msgstr "تعذر تحميل المكوّن الإضافي لهذا العنصر"
 
 msgid "No data to display"
-msgstr "لا توجد بيانات للعرض"
+msgstr ""
 
 msgid "Confirm"
-msgstr "تأكيد"
+msgstr ""
 
 msgid "Add filter"
-msgstr "إضافة عامل تصفية"
+msgstr ""
+
+msgid "Allow filtering by all dimensions"
+msgstr ""
+
+msgid "Only allow filtering by selected dimensions"
+msgstr ""
+
+msgid "Dashboard filter settings"
+msgstr ""
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+
+msgid "Available Filters"
+msgstr ""
+
+msgid "Selected Filters"
+msgstr ""
 
 msgid "There are no items on this dashboard"
 msgstr "لايوجد عناصر في لوحة المعلومات هذه"
 
 msgid "Show fewer"
-msgstr "عرض أقل"
+msgstr ""
 
 msgid "Show more"
 msgstr "إظهار المزيد"
 
 msgid "Insert"
-msgstr "إدراج"
+msgstr ""
 
 msgid "Search for items to add to this dashboard"
 msgstr "ابحث عن عناصر لإضافتها إلى لوحة المعلومات هذه"
 
 msgid "Additional items"
-msgstr "عناصر إضافية"
+msgstr ""
 
 msgid "Text box"
 msgstr "مربع نص"
 
 msgid "Dashboard title"
-msgstr "عنوان لوحة المعلومات"
+msgstr ""
 
 msgid "Dashboard description"
-msgstr "وصف لوحة المعلومات"
+msgstr ""
 
 msgid "Hide description"
 msgstr ""
@@ -257,10 +279,10 @@ msgid "More"
 msgstr ""
 
 msgid "Edit"
-msgstr "تعديل"
+msgstr ""
 
 msgid "Share"
-msgstr "مشاركة"
+msgstr ""
 
 msgid "Dashboard layout"
 msgstr ""
@@ -272,7 +294,7 @@ msgid "No description"
 msgstr "لا يوجد وصف"
 
 msgid "Visualizations"
-msgstr "مخططات بيانية"
+msgstr ""
 
 msgid "Pivot tables"
 msgstr "الجداول المحورية"
@@ -290,7 +312,7 @@ msgid "Event charts"
 msgstr "المخطط البياني للأحداث"
 
 msgid "Apps"
-msgstr "التطبيقات"
+msgstr ""
 
 msgid "Reports"
 msgstr "التقارير"

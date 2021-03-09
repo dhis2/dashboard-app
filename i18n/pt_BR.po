@@ -1,14 +1,13 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2020
+# phil_dhis2, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: phil_dhis2, 2020\n"
+"POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
+"Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/hisp-uio/teams/100509/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +22,7 @@ msgid "Loading dashboard – {{name}}"
 msgstr ""
 
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr ""
 
 msgid "Delete"
 msgstr "Apagar"
@@ -49,6 +48,9 @@ msgid "Exit Print preview"
 msgstr ""
 
 msgid "Print preview"
+msgstr ""
+
+msgid "Filter settings"
 msgstr ""
 
 msgid "Translate"
@@ -95,7 +97,7 @@ msgid "Exit print preview"
 msgstr ""
 
 msgid "Print"
-msgstr "Imprimir"
+msgstr ""
 
 msgid "dashboard layout"
 msgstr ""
@@ -126,7 +128,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Remove"
-msgstr "Remover"
+msgstr ""
 
 msgid "Delete item"
 msgstr ""
@@ -190,9 +192,31 @@ msgid "No data to display"
 msgstr ""
 
 msgid "Confirm"
-msgstr "Confirmar"
+msgstr ""
 
 msgid "Add filter"
+msgstr ""
+
+msgid "Allow filtering by all dimensions"
+msgstr ""
+
+msgid "Only allow filtering by selected dimensions"
+msgstr ""
+
+msgid "Dashboard filter settings"
+msgstr ""
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+
+msgid "Available Filters"
+msgstr ""
+
+msgid "Selected Filters"
 msgstr ""
 
 msgid "There are no items on this dashboard"
@@ -205,7 +229,7 @@ msgid "Show more"
 msgstr ""
 
 msgid "Insert"
-msgstr "Inserir"
+msgstr ""
 
 msgid "Search for items to add to this dashboard"
 msgstr ""
@@ -250,10 +274,10 @@ msgid "More"
 msgstr ""
 
 msgid "Edit"
-msgstr "Editar"
+msgstr ""
 
 msgid "Share"
-msgstr "Partilhar"
+msgstr ""
 
 msgid "Dashboard layout"
 msgstr ""

@@ -1,14 +1,13 @@
 # 
 # Translators:
 # easylin <lin_xd@126.com>, 2020
-# 晓东 林 <13981924470@126.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
+"POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +22,7 @@ msgid "Loading dashboard – {{name}}"
 msgstr ""
 
 msgid "Cancel"
-msgstr "取消"
+msgstr ""
 
 msgid "Delete"
 msgstr "删除"
@@ -49,6 +48,9 @@ msgid "Exit Print preview"
 msgstr ""
 
 msgid "Print preview"
+msgstr ""
+
+msgid "Filter settings"
 msgstr ""
 
 msgid "Translate"
@@ -95,7 +97,7 @@ msgid "Exit print preview"
 msgstr ""
 
 msgid "Print"
-msgstr "打印"
+msgstr ""
 
 msgid "dashboard layout"
 msgstr ""
@@ -125,7 +127,7 @@ msgid_plural "{{count}} selected"
 msgstr[0] ""
 
 msgid "Remove"
-msgstr "移除"
+msgstr ""
 
 msgid "Delete item"
 msgstr ""
@@ -186,13 +188,35 @@ msgid "Unable to load the plugin for this item"
 msgstr "不能该条目的插件"
 
 msgid "No data to display"
-msgstr "没有数据可显示"
+msgstr ""
 
 msgid "Confirm"
-msgstr "确认"
+msgstr ""
 
 msgid "Add filter"
-msgstr "添加过滤器"
+msgstr ""
+
+msgid "Allow filtering by all dimensions"
+msgstr ""
+
+msgid "Only allow filtering by selected dimensions"
+msgstr ""
+
+msgid "Dashboard filter settings"
+msgstr ""
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+
+msgid "Available Filters"
+msgstr ""
+
+msgid "Selected Filters"
+msgstr ""
 
 msgid "There are no items on this dashboard"
 msgstr "该仪表盘没有条目"
@@ -204,7 +228,7 @@ msgid "Show more"
 msgstr "更多"
 
 msgid "Insert"
-msgstr "插入"
+msgstr ""
 
 msgid "Search for items to add to this dashboard"
 msgstr "搜索条目添加到仪表盘"
@@ -246,13 +270,13 @@ msgid "Failed to star the dashboard"
 msgstr ""
 
 msgid "More"
-msgstr "更多"
+msgstr ""
 
 msgid "Edit"
-msgstr "编辑<br>"
+msgstr ""
 
 msgid "Share"
-msgstr "共享"
+msgstr ""
 
 msgid "Dashboard layout"
 msgstr ""
@@ -282,7 +306,7 @@ msgid "Event charts"
 msgstr "事件图表"
 
 msgid "Apps"
-msgstr "应用"
+msgstr ""
 
 msgid "Reports"
 msgstr "报表"
