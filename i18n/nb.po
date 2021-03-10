@@ -1,13 +1,14 @@
 # 
 # Translators:
-# Karoline Tufte Lien <karoline@dhis2.org>, 2020
+# Karoline Tufte Lien <karoline@dhis2.org>, 2021
+# Caroline Hesthagen Holen <caroline@devotta.no>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
+"Last-Translator: Caroline Hesthagen Holen <caroline@devotta.no>, 2021\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,42 +17,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "Dashbord uten navn"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "Laster dashbord - {{name}}"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 msgid "Delete"
 msgstr "Slett"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "Slett dashbord"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"Hvis du sletter dashbordet \"{{dashboardName}}\", fjernes det for alle "
+"brukere. Denne handlingen kan ikke angres. Er du sikker på at du vil slette "
+"dette dashbordet permanent?"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Kunne ikke lagre dashbordet. Du kan være frakoblet eller ikke ha tilgang til"
+" å redigere dette dashbordet."
 
 msgid "Save changes"
 msgstr "Lagre endringer"
 
 msgid "Exit Print preview"
-msgstr ""
+msgstr "Avslutt forhåndsvisning av utskrift"
 
 msgid "Print preview"
-msgstr ""
+msgstr "Utskriftforhåndsvisning"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "Filterinnstillinger"
 
 msgid "Translate"
 msgstr "Oversett"
@@ -66,10 +72,10 @@ msgid "Search for a dashboard"
 msgstr "Søk etter et dashbord"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "Vis færre dashbord"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "Vis flere dashbord"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "Ingen dashbord funnet. Bruk + -knappen for å lage et nytt dashbord."
@@ -84,43 +90,49 @@ msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
+"Redigering av dashbord på små skjermer støttes ikke. Endre størrelsen på "
+"skjermen for å gå tilbake til redigeringsmodus."
 
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
 " return to create mode."
 msgstr ""
+"Oppretting av dashbord på små skjermer støttes ikke. Endre størrelsen på "
+"skjermen for å gå tilbake til opprettingsmodus."
 
 msgid "Not supported"
-msgstr ""
+msgstr "Ikke støttet"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "Avslutt forhåndsvisning av utskrift"
 
 msgid "Print"
-msgstr ""
+msgstr "Skriv ut"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "dashbordoppsett"
 
 msgid "one item per page"
-msgstr ""
+msgstr "ett element per side"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "Utskriftforhåndsvisning"
 
 msgid "For best print results"
-msgstr ""
+msgstr "For best utskriftsresultat"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "BrukChrome eller Edge-nettleser"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr ""
+msgstr "Vent til alle dashbordelementene har lastet før du skriver ut"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
 " dialog"
 msgstr ""
+"Bruk A4 liggende papirstørrelse og standard marginnstillinger i nettleserens"
+" utskriftsdialog"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -128,13 +140,13 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Remove"
-msgstr ""
+msgstr "Fjern"
 
 msgid "Delete item"
-msgstr ""
+msgstr "Slett element"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "Dette elementet har blitt forkortet for å passe på én side"
 
 msgid "Messages"
 msgstr "Meldinger"
@@ -143,10 +155,10 @@ msgid "See all messages"
 msgstr "Se alle meldinger"
 
 msgid "Item type \"{{type}}\" not supported"
-msgstr ""
+msgstr "Elementtypen \"{{type}}\" støttes ikke"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "Filtre brukt"
 
 msgid "Spacer"
 msgstr "Avstandsholder"
@@ -164,49 +176,49 @@ msgid "Add text here"
 msgstr "Legg til tekst her"
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "Det oppstod et problem med å laste inn dette dashbordelementet"
 
 msgid "Hide interpretations and details"
-msgstr ""
+msgstr "Skjul tolkninger og detaljer"
 
 msgid "Show interpretations and details"
-msgstr ""
+msgstr "Vis tolkninger og detaljer"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "Vis som diagram"
 
 msgid "View as Table"
-msgstr ""
+msgstr "Vis som tabell"
 
 msgid "View as Map"
-msgstr ""
+msgstr "Vis som kart"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "Åpne i {{appName}} -appen"
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "Vis fullskjerm"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Kan ikke laste inn plugin-modulen for dette elementet"
 
 msgid "No data to display"
-msgstr ""
+msgstr "Ingen data å vise"
 
 msgid "Confirm"
-msgstr ""
+msgstr "Bekreft"
 
 msgid "Add filter"
-msgstr ""
+msgstr "Legg til filter"
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "Tillat filtrering etter alle dimensjoner"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "Tillat bare filtrering etter valgte dimensjoner"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "Dashbordfilterinnstillinger"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -214,84 +226,88 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"Dashbord kan filtreres etter dimensjoner for å endre\n"
+"                                         dataene som vises. Som standard er alle dimensjoner tilgjengelige\n"
+"                                         som filtre. Alternativt er det bare valgte dimensjoner som kan\n"
+"                                         gjøres tilgjengelig på et dashbord."
 
 msgid "Available Filters"
-msgstr ""
+msgstr "Tilgjengelige filtere"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "Valgte filtere"
 
 msgid "There are no items on this dashboard"
 msgstr "Det er ingen elementer på dette dashbordet"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "Vis færre"
 
 msgid "Show more"
 msgstr "Vis mer"
 
 msgid "Insert"
-msgstr ""
+msgstr "Sett inn"
 
 msgid "Search for items to add to this dashboard"
 msgstr "Søk etter elementer du vil legge til i dette dashbordet"
 
 msgid "Additional items"
-msgstr ""
+msgstr "Ytterligere elementer"
 
 msgid "Text box"
 msgstr "Tekstboks"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "Dashbordtittel"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "Beskrivelse av dashbord"
 
 msgid "Hide description"
-msgstr ""
+msgstr "Skjul beskrivelse"
 
 msgid "Show description"
-msgstr ""
+msgstr "Vis beskrivelse"
 
 msgid "Failed to hide description"
-msgstr ""
+msgstr "Kunne ikke skjule beskrivelsen"
 
 msgid "Failed to show description"
-msgstr ""
+msgstr "Kunne ikke vise beskrivelsen"
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "Fjern stjerne fra dashbordet"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "Merk dashbord med stjerne"
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "Kunne ikke fjerne stjernemerket på dashbordet"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "Kunne ikke stjernemerke dashbordet"
 
 msgid "More"
-msgstr ""
+msgstr "Mer"
 
 msgid "Edit"
-msgstr ""
+msgstr "Rediger"
 
 msgid "Share"
-msgstr ""
+msgstr "Del"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "Dashbordoppsett"
 
 msgid "One item per page"
-msgstr ""
+msgstr "Ett element per side"
 
 msgid "No description"
 msgstr "Ingen beskrivelse"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "Visualiseringer"
 
 msgid "Pivot tables"
 msgstr "Pivottabeller"
@@ -309,7 +325,7 @@ msgid "Event charts"
 msgstr "Hendelsesdiagrammer"
 
 msgid "Apps"
-msgstr ""
+msgstr "Applikasjoner"
 
 msgid "Reports"
 msgstr "Rapporter"

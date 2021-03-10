@@ -1,15 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2019
-# Viktor Varland <viktor@dhis2.org>, 2019
-# Hamza Assada <7amza.it@gmail.com>, 2020
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# Hamza Assada <7amza.it@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
+"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2021\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,25 +18,28 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "لوحة معلومات غير معنونة"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "تحميل لوحة المعلومات – {{name}}"
 
 msgid "Cancel"
-msgstr ""
+msgstr "إلغاء"
 
 msgid "Delete"
 msgstr "حذف"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "حذف لوحة المعلومات"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"سيؤدي حذف لوحة المعلومات \"{{dashboardName}}\" إلى إزالتها عن جميع "
+"المستخدمين. لا يمكن التراجع عن هذا الإجراء. هل تريد بالتأكيد حذف لوحة "
+"المعلومات هذه نهائياً؟"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -47,10 +50,10 @@ msgid "Save changes"
 msgstr "حفظ التغيرات"
 
 msgid "Exit Print preview"
-msgstr ""
+msgstr "الخروج من معاينة الطباعة"
 
 msgid "Print preview"
-msgstr ""
+msgstr "معاينة قبل الطباعة"
 
 msgid "Filter settings"
 msgstr ""
@@ -97,33 +100,34 @@ msgid "Not supported"
 msgstr ""
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "الخروج من معاينة الطباعة"
 
 msgid "Print"
-msgstr ""
+msgstr "طباعة"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "تخطيط لوحة المعلومات"
 
 msgid "one item per page"
-msgstr ""
+msgstr "عنصر واحد في كل صفحة"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "معاينة قبل الطباعة"
 
 msgid "For best print results"
-msgstr ""
+msgstr "للحصول على أفضل نتائج الطباعة"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "استخدم متصفح Chrome أو Edge"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr ""
+msgstr "انتظر حتى يتم تحميل جميع عناصر لوحة المعلومات قبل الطباعة"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
 " dialog"
 msgstr ""
+"استخدم حجم ورق أفقي A4 وإعدادات الهامش الافتراضية في مربع حوار طباعة المتصفح"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -135,13 +139,13 @@ msgstr[4] ""
 msgstr[5] ""
 
 msgid "Remove"
-msgstr ""
+msgstr "إزلة"
 
 msgid "Delete item"
-msgstr ""
+msgstr "حذف العنصر"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "تم اختصار هذا العنصر ليناسب صفحة واحدة"
 
 msgid "Messages"
 msgstr "الرسائل"
@@ -150,10 +154,10 @@ msgid "See all messages"
 msgstr "رؤية كافة الرسائل"
 
 msgid "Item type \"{{type}}\" not supported"
-msgstr ""
+msgstr "نوع العنصر \"{{type}}\" غير مدعوم"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "تم تطبيق عوامل التصفية"
 
 msgid "Spacer"
 msgstr "مسافة فاصلة"
@@ -169,25 +173,25 @@ msgid "Add text here"
 msgstr "اضف نص هنا"
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "حدثت مشكلة أثناء تحميل عنصر لوحة المعلومات هذا"
 
 msgid "Hide interpretations and details"
-msgstr ""
+msgstr "إخفاء التفسيرات والتفاصيل"
 
 msgid "Show interpretations and details"
-msgstr ""
+msgstr "إظهار التفسيرات والتفاصيل"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "عرض كمخطط بياني"
 
 msgid "View as Table"
-msgstr ""
+msgstr "عرض كجدول"
 
 msgid "View as Map"
-msgstr ""
+msgstr "عرض كخريطة"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "إفتح في تطبيق {{appName}}"
 
 msgid "View fullscreen"
 msgstr ""
@@ -196,13 +200,13 @@ msgid "Unable to load the plugin for this item"
 msgstr "تعذر تحميل المكوّن الإضافي لهذا العنصر"
 
 msgid "No data to display"
-msgstr ""
+msgstr "لا توجد بيانات للعرض"
 
 msgid "Confirm"
-msgstr ""
+msgstr "تأكيد"
 
 msgid "Add filter"
-msgstr ""
+msgstr "إضافة عامل تصفية"
 
 msgid "Allow filtering by all dimensions"
 msgstr ""
@@ -230,34 +234,34 @@ msgid "There are no items on this dashboard"
 msgstr "لايوجد عناصر في لوحة المعلومات هذه"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "عرض أقل"
 
 msgid "Show more"
 msgstr "إظهار المزيد"
 
 msgid "Insert"
-msgstr ""
+msgstr "إدراج"
 
 msgid "Search for items to add to this dashboard"
 msgstr "ابحث عن عناصر لإضافتها إلى لوحة المعلومات هذه"
 
 msgid "Additional items"
-msgstr ""
+msgstr "عناصر إضافية"
 
 msgid "Text box"
 msgstr "مربع نص"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "عنوان لوحة المعلومات"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "وصف لوحة المعلومات"
 
 msgid "Hide description"
-msgstr ""
+msgstr "إخفاء الوصف"
 
 msgid "Show description"
-msgstr ""
+msgstr "إظهار الوصف"
 
 msgid "Failed to hide description"
 msgstr ""
@@ -266,10 +270,10 @@ msgid "Failed to show description"
 msgstr ""
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "إلغاء التمييز بنجمة عن لوحة المعلومات"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "إعطاء نجمة للوحة المعلومات"
 
 msgid "Failed to unstar the dashboard"
 msgstr ""
@@ -278,25 +282,25 @@ msgid "Failed to star the dashboard"
 msgstr ""
 
 msgid "More"
-msgstr ""
+msgstr "مزيد"
 
 msgid "Edit"
-msgstr ""
+msgstr "تعديل"
 
 msgid "Share"
-msgstr ""
+msgstr "مشاركة"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "تخطيط لوحة المعلومات"
 
 msgid "One item per page"
-msgstr ""
+msgstr "عنصر واحد في كل صفحة"
 
 msgid "No description"
 msgstr "لا يوجد وصف"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "مخططات بيانية"
 
 msgid "Pivot tables"
 msgstr "الجداول المحورية"
@@ -314,7 +318,7 @@ msgid "Event charts"
 msgstr "المخطط البياني للأحداث"
 
 msgid "Apps"
-msgstr ""
+msgstr "التطبيقات"
 
 msgid "Reports"
 msgstr "التقارير"

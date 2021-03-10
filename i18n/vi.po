@@ -1,15 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2019
-# Viktor Varland <viktor@dhis2.org>, 2019
-# Mai Nguyen <thanhmai.jica@gmail.com>, 2020
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# Mai Nguyen <thanhmai.jica@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
+"Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2021\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,25 +18,28 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "Bảng điều khiển không có tiêu đề"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "Đang bảng điều khiển - {{tên}}"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Hủy"
 
 msgid "Delete"
 msgstr "Xóa"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "Xóa bảng điều khiển"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"Xóa bảng điều khiển \"{{tên bảng điều khiển}}\" sẽ xóa cho tất cả người "
+"dùng. Hành động này không thể được hoàn tác. Bạn có chắc chắn muốn xóa vĩnh "
+"viễn bảng điều khiển này không?"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -47,10 +50,10 @@ msgid "Save changes"
 msgstr "Lưu các thay đổi"
 
 msgid "Exit Print preview"
-msgstr ""
+msgstr "Thoát xem trước bản in"
 
 msgid "Print preview"
-msgstr ""
+msgstr "Xem thử bản in"
 
 msgid "Filter settings"
 msgstr ""
@@ -68,10 +71,10 @@ msgid "Search for a dashboard"
 msgstr "Tìm kiếm bảng điều khiển"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "Hiển thị ít bảng điều khiển hơn"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "Hiển thị thêm bảng điều khiển"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -94,49 +97,51 @@ msgid ""
 msgstr ""
 
 msgid "Not supported"
-msgstr ""
+msgstr "Không được hỗ trợ"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "Thoát xem trước bản in"
 
 msgid "Print"
-msgstr ""
+msgstr "In"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "bố cục bảng điều khiển"
 
 msgid "one item per page"
-msgstr ""
+msgstr "một mục trên mỗi trang"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "Xem trước bản in"
 
 msgid "For best print results"
-msgstr ""
+msgstr "Để có bản in tốt nhất"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "Sử dụng trình duyệt Chrome hoặc Edge"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr ""
+msgstr "Chờ tải tất cả các mục trên bảng điều khiển trước khi in"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
 " dialog"
 msgstr ""
+"Sử dụng khổ giấy ngang A4 và cài đặt lề mặc định trong hộp thoại in của "
+"trình duyệt"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] ""
 
 msgid "Remove"
-msgstr ""
+msgstr "Tháo ra"
 
 msgid "Delete item"
-msgstr ""
+msgstr "Xóa mục"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "Mục này đã được rút ngắn để vừa với một trang"
 
 msgid "Messages"
 msgstr "Tin nhắn"
@@ -145,10 +150,10 @@ msgid "See all messages"
 msgstr "Xem tất cả tin nhắn"
 
 msgid "Item type \"{{type}}\" not supported"
-msgstr ""
+msgstr "Loại mục \"{{loại}}\" không được hỗ trợ"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "Bộ lọc được áp dụng"
 
 msgid "Spacer"
 msgstr "Dấu cách"
@@ -166,40 +171,40 @@ msgid "Add text here"
 msgstr "Thêm văn bản tại đây"
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "Đã xảy ra sự cố khi tải mục bảng điều khiển này"
 
 msgid "Hide interpretations and details"
-msgstr ""
+msgstr "Ẩn các diễn giải và chi tiết"
 
 msgid "Show interpretations and details"
-msgstr ""
+msgstr "Hiện các diễn giải và chi tiết"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "Xem dưới dạng biểu đồ"
 
 msgid "View as Table"
-msgstr ""
+msgstr "Xem dưới dạng bảng"
 
 msgid "View as Map"
-msgstr ""
+msgstr "Xem dưới dạng bản đồ"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "Mở trong ứng dụng {{Tên ứng dụng}}"
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "Xem toàn màn hình"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Không thể tải plugin cho mục này"
 
 msgid "No data to display"
-msgstr ""
+msgstr "Không có dữ liệu hiển thị"
 
 msgid "Confirm"
-msgstr ""
+msgstr "Xác nhận"
 
 msgid "Add filter"
-msgstr ""
+msgstr "Bộ lọc"
 
 msgid "Allow filtering by all dimensions"
 msgstr ""
@@ -227,34 +232,34 @@ msgid "There are no items on this dashboard"
 msgstr "Không có mục nào trong bảng điều khiển này"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "Hiển thị ít hơn"
 
 msgid "Show more"
 msgstr "Hiện thêm"
 
 msgid "Insert"
-msgstr ""
+msgstr "Chèn vào"
 
 msgid "Search for items to add to this dashboard"
 msgstr "Tìm mục để thêm vào bảng điều khiển này"
 
 msgid "Additional items"
-msgstr ""
+msgstr "Hạng mục bổ sung"
 
 msgid "Text box"
 msgstr "Hộp văn bản"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "Tiêu đề bảng điều khiển"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "Mô tả bảng điều khiển"
 
 msgid "Hide description"
-msgstr ""
+msgstr "Ẩn mô tả"
 
 msgid "Show description"
-msgstr ""
+msgstr "Hiển thị mô tả"
 
 msgid "Failed to hide description"
 msgstr ""
@@ -263,10 +268,10 @@ msgid "Failed to show description"
 msgstr ""
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "Không gắn dấu sao bảng điều khiển "
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "Gán dấu sao bảng điều khiển "
 
 msgid "Failed to unstar the dashboard"
 msgstr ""
@@ -275,25 +280,25 @@ msgid "Failed to star the dashboard"
 msgstr ""
 
 msgid "More"
-msgstr ""
+msgstr "Thêm"
 
 msgid "Edit"
-msgstr ""
+msgstr "Chỉnh sửa"
 
 msgid "Share"
-msgstr ""
+msgstr "Chia sẻ"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "Bố cục bảng điều khiển "
 
 msgid "One item per page"
-msgstr ""
+msgstr "Một mục trên mỗi trang"
 
 msgid "No description"
 msgstr "Không mô tả"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "Mô hình hóa"
 
 msgid "Pivot tables"
 msgstr "Bảng xoay"
@@ -311,7 +316,7 @@ msgid "Event charts"
 msgstr "Biểu Đồ Sự Kiện"
 
 msgid "Apps"
-msgstr ""
+msgstr "Ứng dụng"
 
 msgid "Reports"
 msgstr "Báo cáo tổng hợp"

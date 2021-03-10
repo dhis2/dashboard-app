@@ -1,13 +1,13 @@
 # 
 # Translators:
-# phil_dhis2, 2019
+# phil_dhis2, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: phil_dhis2, 2021\n"
 "Language-Team: Burmese (https://www.transifex.com/hisp-uio/teams/100509/my/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgid "Loading dashboard – {{name}}"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "ပယ်ဖျက်သည်"
 
 msgid "Delete"
 msgstr "ဖျက်ဆီးသည်"
@@ -97,7 +97,7 @@ msgid "Exit print preview"
 msgstr ""
 
 msgid "Print"
-msgstr ""
+msgstr "Print ထုတ်သည်"
 
 msgid "dashboard layout"
 msgstr ""
@@ -127,7 +127,7 @@ msgid_plural "{{count}} selected"
 msgstr[0] ""
 
 msgid "Remove"
-msgstr ""
+msgstr "ဖယ်ရှားခြင်း"
 
 msgid "Delete item"
 msgstr ""
@@ -273,7 +273,7 @@ msgid "More"
 msgstr ""
 
 msgid "Edit"
-msgstr ""
+msgstr "တည်းဖြတ်သည်"
 
 msgid "Share"
 msgstr ""

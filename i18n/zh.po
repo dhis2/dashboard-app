@@ -1,14 +1,16 @@
 # 
 # Translators:
-# phil_dhis2, 2019
-# 晓东 林 <13981924470@126.com>, 2020
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# 晓东 林 <13981924470@126.com>, 2021
+# easylin <lin_xd@126.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,42 +19,42 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "未命名的仪表板"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "加载仪表盘-{{name}}"
 
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 msgid "Delete"
 msgstr "删除"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "删除仪表盘"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
-msgstr ""
+msgstr "删除仪表盘 \"{{ dashboardName }}\" 将从所有用户仪表盘中移除。该操作不能撤销，你确信要永久删除该仪表盘条目？"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
-msgstr ""
+msgstr "保存仪表盘失败。您可能处于离线状态，或者无权编辑此仪表板。"
 
 msgid "Save changes"
 msgstr "保存改变"
 
 msgid "Exit Print preview"
-msgstr ""
+msgstr "退出打印预览"
 
 msgid "Print preview"
-msgstr ""
+msgstr "打印预览"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "筛选器设定"
 
 msgid "Translate"
 msgstr "翻译"
@@ -67,10 +69,10 @@ msgid "Search for a dashboard"
 msgstr "搜索仪表盘"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "显示更少的仪表板"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "显示更多仪表板"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "没有发现仪表盘，使用+按钮创建新的仪表盘"
@@ -84,57 +86,57 @@ msgstr "不能访问"
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
-msgstr ""
+msgstr "不支持在小屏幕上编辑仪表板。调整屏幕大小以返回编辑模式。"
 
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
 " return to create mode."
-msgstr ""
+msgstr "不支持在小屏幕上创建仪表板。调整屏幕大小以返回到创建模式。"
 
 msgid "Not supported"
-msgstr ""
+msgstr "不支持"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "退出打印预览"
 
 msgid "Print"
-msgstr ""
+msgstr "打印"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "仪表板布局"
 
 msgid "one item per page"
-msgstr ""
+msgstr "每页一项"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "打印预览"
 
 msgid "For best print results"
-msgstr ""
+msgstr "以获得最佳打印效果"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "使用Chrome或Edge网络浏览器"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr ""
+msgstr "等待所有仪表板项目加载后再打印"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
 " dialog"
-msgstr ""
+msgstr "在浏览器的“打印”对话框中使用A4横向纸张尺寸和默认边距设置"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
+msgstr[0] "已选择{{count}}个"
 
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 msgid "Delete item"
-msgstr ""
+msgstr "删除条目"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "此项已缩短为适合一页"
 
 msgid "Messages"
 msgstr "消息"
@@ -143,10 +145,10 @@ msgid "See all messages"
 msgstr "查看所有消息"
 
 msgid "Item type \"{{type}}\" not supported"
-msgstr ""
+msgstr "条目类型 \"{{type}}\" 不支持"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "已应用的过滤器"
 
 msgid "Spacer"
 msgstr "空白隔断"
@@ -162,49 +164,49 @@ msgid "Add text here"
 msgstr "在这里添加文本"
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "载入仪表盘有问题"
 
 msgid "Hide interpretations and details"
-msgstr ""
+msgstr "隐藏注释和详情"
 
 msgid "Show interpretations and details"
-msgstr ""
+msgstr "显示注释和详情"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "查看图表"
 
 msgid "View as Table"
-msgstr ""
+msgstr "查看表格"
 
 msgid "View as Map"
-msgstr ""
+msgstr "查看地图"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "在{{appName}} 应用中打开"
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "全屏查看"
 
 msgid "Unable to load the plugin for this item"
 msgstr "不能载入该条目的插件"
 
 msgid "No data to display"
-msgstr ""
+msgstr "没有数据可显示"
 
 msgid "Confirm"
-msgstr ""
+msgstr "确认"
 
 msgid "Add filter"
-msgstr ""
+msgstr "添加过滤器"
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "允许按所有维度进行过滤"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "仅允许按选定的维度进行过滤"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "仪表板过滤器设置"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -212,84 +214,88 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"仪表板可以按维度进行过滤以进行更改\n"
+"                                         显示的数据。默认情况下，所有尺寸均可用\n"
+"                                         作为过滤器。另外，只有选定的尺寸可以\n"
+"                                         在仪表板上可用。"
 
 msgid "Available Filters"
-msgstr ""
+msgstr "可用的过滤器"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "选定的过滤器"
 
 msgid "There are no items on this dashboard"
 msgstr "该仪表盘没有条目"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "显示较少"
 
 msgid "Show more"
 msgstr "显示更多"
 
 msgid "Insert"
-msgstr ""
+msgstr "插入"
 
 msgid "Search for items to add to this dashboard"
 msgstr "搜索条目添加到仪表盘"
 
 msgid "Additional items"
-msgstr ""
+msgstr "其它条目"
 
 msgid "Text box"
 msgstr "文本框"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "仪表盘标题"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "仪表盘描述"
 
 msgid "Hide description"
-msgstr ""
+msgstr "隐藏说明"
 
 msgid "Show description"
-msgstr ""
+msgstr "显示说明"
 
 msgid "Failed to hide description"
-msgstr ""
+msgstr "无法隐藏说明"
 
 msgid "Failed to show description"
-msgstr ""
+msgstr "无法显示说明"
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "取消星标仪表盘"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "标星仪表板"
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "无法解除仪表板的星标"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "无法为仪表板加注星标"
 
 msgid "More"
-msgstr ""
+msgstr "更多"
 
 msgid "Edit"
-msgstr ""
+msgstr "编辑<br>"
 
 msgid "Share"
-msgstr ""
+msgstr "分享"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "仪表板布局"
 
 msgid "One item per page"
-msgstr ""
+msgstr "每页一项"
 
 msgid "No description"
 msgstr "没有描述"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "可视化"
 
 msgid "Pivot tables"
 msgstr "透视表"
@@ -307,7 +313,7 @@ msgid "Event charts"
 msgstr "事件图表"
 
 msgid "Apps"
-msgstr ""
+msgstr "应用"
 
 msgid "Reports"
 msgstr "报表管理"

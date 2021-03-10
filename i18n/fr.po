@@ -1,18 +1,20 @@
 # 
 # Translators:
-# Matthieu Pinard <matthieu@pinard.no>, 2019
-# phil_dhis2, 2019
 # a270031086f2a0d3514bc0cb507b48f6, 2019
-# Viktor Varland <viktor@dhis2.org>, 2019
 # Karoline Tufte Lien <karoline@dhis2.org>, 2020
-# Edem Kossi <ekossi@hispwca.org>, 2020
+# Matthieu Pinard <matthieu@pinard.no>, 2021
+# phil_dhis2, 2021
+# Edem Kossi <ekossi@hispwca.org>, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# Yao Selom SAKA <saka.yao@yahoo.fr>, 2021
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2020\n"
+"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,25 +23,28 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "Tableau de bord sans titre"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "Chargement du tableau de bord - {{nom}}"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 msgid "Delete"
 msgstr "Supprimer"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "Supprimer le tableau de bord"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"La suppression du tableau de bord \"{{ dashboardName }}\" affectera tous les"
+" utilisateurs qui y ont accès.  Cette action ne peut pas être annulée. "
+"Voulez-vous vraiment supprimer définitivement ce tableau de bord?"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -50,10 +55,10 @@ msgid "Save changes"
 msgstr "Enregistrer les modifications"
 
 msgid "Exit Print preview"
-msgstr ""
+msgstr "Quitter l'aperçu avant impression"
 
 msgid "Print preview"
-msgstr ""
+msgstr "Aperçu avant impression"
 
 msgid "Filter settings"
 msgstr ""
@@ -71,10 +76,10 @@ msgid "Search for a dashboard"
 msgstr "Rechercher un tableau de bord"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "Afficher moins de tableaux de bord"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "Afficher plus de tableaux de bord"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -98,36 +103,40 @@ msgid ""
 msgstr ""
 
 msgid "Not supported"
-msgstr ""
+msgstr "Non supporté"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "Quitter l'aperçu avant impression"
 
 msgid "Print"
-msgstr ""
+msgstr "Imprimer"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "mise en page du tableau de bord"
 
 msgid "one item per page"
-msgstr ""
+msgstr "un élément par page"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "Aperçu avant impression"
 
 msgid "For best print results"
-msgstr ""
+msgstr "Pour de meilleurs résultats d'impression"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "Utiliser le navigateur web Chrome ou Edge"
 
 msgid "Wait for all dashboard items to load before printing"
 msgstr ""
+"Attendez que tous les éléments du tableau de bord soient chargés avant de "
+"les imprimer"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
 " dialog"
 msgstr ""
+"Utilisez un format de papier A4 paysage et les paramètres de marge par "
+"défaut dans la boîte de dialogue d'impression du navigateur"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -135,13 +144,13 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Remove"
-msgstr ""
+msgstr "Supprimer"
 
 msgid "Delete item"
-msgstr ""
+msgstr "Supprimer l'item"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "Ce élément a été réduit pour tenir sur une page"
 
 msgid "Messages"
 msgstr "Messages"
@@ -150,10 +159,10 @@ msgid "See all messages"
 msgstr "Voir tous les messages"
 
 msgid "Item type \"{{type}}\" not supported"
-msgstr ""
+msgstr "Type d'objet \"{{type}}\" non pris en charge"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "Flitres appliqués"
 
 msgid "Spacer"
 msgstr "Espaceur"
@@ -172,39 +181,40 @@ msgstr "Ajouter du texte ici"
 
 msgid "There was a problem loading this dashboard item"
 msgstr ""
+"Un problème est survenu lors du chargement de cet objet du tableau de bord"
 
 msgid "Hide interpretations and details"
-msgstr ""
+msgstr "Masquer les interprétations et les détails"
 
 msgid "Show interpretations and details"
-msgstr ""
+msgstr "Afficher les interprétations et les détails"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "Afficher comme graphique"
 
 msgid "View as Table"
-msgstr ""
+msgstr "Afficher comme tableau"
 
 msgid "View as Map"
-msgstr ""
+msgstr "Afficher comme carte"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "Ouvrir dans l'app {{appName}}"
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "Afficher en plein écran"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Impossible de charger le plugin pour cet objet"
 
 msgid "No data to display"
-msgstr ""
+msgstr "Aucune donnée à afficher"
 
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmer"
 
 msgid "Add filter"
-msgstr ""
+msgstr "Ajouter le filtre"
 
 msgid "Allow filtering by all dimensions"
 msgstr ""
@@ -232,34 +242,34 @@ msgid "There are no items on this dashboard"
 msgstr "Il n'y a aucun élément sur ce tableau de bord"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "Afficher moins"
 
 msgid "Show more"
 msgstr "Afficher plus"
 
 msgid "Insert"
-msgstr ""
+msgstr "Insérer"
 
 msgid "Search for items to add to this dashboard"
 msgstr "Rechercher des éléments à ajouter à ce tableau de bord"
 
 msgid "Additional items"
-msgstr ""
+msgstr "Objets additionnels"
 
 msgid "Text box"
 msgstr "Zone de texte"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "Titre du tableau de bord"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "Description du tableau de bord"
 
 msgid "Hide description"
-msgstr ""
+msgstr "Masquer la description"
 
 msgid "Show description"
-msgstr ""
+msgstr "Afficher la description"
 
 msgid "Failed to hide description"
 msgstr ""
@@ -268,10 +278,10 @@ msgid "Failed to show description"
 msgstr ""
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "Tableau de bord sans étoiles"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "Tableau de bord à étoiles"
 
 msgid "Failed to unstar the dashboard"
 msgstr ""
@@ -280,25 +290,25 @@ msgid "Failed to star the dashboard"
 msgstr ""
 
 msgid "More"
-msgstr ""
+msgstr "Plus"
 
 msgid "Edit"
-msgstr ""
+msgstr "Modifier"
 
 msgid "Share"
-msgstr ""
+msgstr "Partager"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "Mise en page du tableau de bord"
 
 msgid "One item per page"
-msgstr ""
+msgstr "Un élément par page"
 
 msgid "No description"
 msgstr "Aucune description"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "Visualisations"
 
 msgid "Pivot tables"
 msgstr "Tableaux croisés dynamiques"
@@ -316,7 +326,7 @@ msgid "Event charts"
 msgstr "Tableaux d'événements"
 
 msgid "Apps"
-msgstr ""
+msgstr "Apps"
 
 msgid "Reports"
 msgstr "Rapports"

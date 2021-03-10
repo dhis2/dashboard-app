@@ -1,17 +1,17 @@
 # 
 # Translators:
-# phil_dhis2, 2019
-# Viktor Varland <viktor@dhis2.org>, 2019
 # William Aviles <waviles@clintonhealthaccess.org>, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2020
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2021
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2020\n"
+"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,25 +20,28 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "Tablero sin nombre"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "Cargando panel – {{nombre}}"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 msgid "Delete"
 msgstr "Borrar"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "Borrar tablero"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"Borrando tablero \"{{ dashboardName }}\" para todos los usuarios. Esta "
+"acción será permanente. Está seguro de que desea continuar eliminando "
+"permanentemente este tablero?"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -49,10 +52,10 @@ msgid "Save changes"
 msgstr "Guardar cambios"
 
 msgid "Exit Print preview"
-msgstr ""
+msgstr "Salir de la vista previa"
 
 msgid "Print preview"
-msgstr ""
+msgstr "Vista previa"
 
 msgid "Filter settings"
 msgstr ""
@@ -70,10 +73,10 @@ msgid "Search for a dashboard"
 msgstr "Buscar un tablero"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "Mostrar menos paneles"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "Mostrar más paneles"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -96,36 +99,39 @@ msgid ""
 msgstr ""
 
 msgid "Not supported"
-msgstr ""
+msgstr "No soportado"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "Salir de vista previa"
 
 msgid "Print"
-msgstr ""
+msgstr "Imprimir"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "Diseño de tablero"
 
 msgid "one item per page"
-msgstr ""
+msgstr "Un elemento por página"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "Impresión de vista previa"
 
 msgid "For best print results"
-msgstr ""
+msgstr "Para mejores resultados de impresión"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "Use los navegadores Chrome o Edge"
 
 msgid "Wait for all dashboard items to load before printing"
 msgstr ""
+"Espere a que se carguen todos los elementos del tablero antes de imprimir"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
 " dialog"
 msgstr ""
+"Use un papel de tamaño A4 y los valores de los márgenes por defecto en el "
+"cuadro de impresión"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -133,13 +139,14 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Remove"
-msgstr ""
+msgstr "Eliminar"
 
 msgid "Delete item"
-msgstr ""
+msgstr "Borrar elemento"
 
 msgid "This item has been shortened to fit on one page"
 msgstr ""
+"Este elemento ha sido redimensionado para que quepa en una sola página"
 
 msgid "Messages"
 msgstr "Mensajes"
@@ -148,10 +155,10 @@ msgid "See all messages"
 msgstr "Ver todos los mensajes"
 
 msgid "Item type \"{{type}}\" not supported"
-msgstr ""
+msgstr "Tipo de objeto \"{{type}}\" no válido"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "Filtros aplicados"
 
 msgid "Spacer"
 msgstr "Tabulador"
@@ -169,40 +176,40 @@ msgid "Add text here"
 msgstr "Añada texto aquí"
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "Ha habido un problema al cargar este elemento del tablero"
 
 msgid "Hide interpretations and details"
-msgstr ""
+msgstr "Ocultar interpretaciones y detalles"
 
 msgid "Show interpretations and details"
-msgstr ""
+msgstr "Mostrar interpretaciones y detalles"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "Ver como gráfico"
 
 msgid "View as Table"
-msgstr ""
+msgstr "Ver como tabla"
 
 msgid "View as Map"
-msgstr ""
+msgstr "Ver como mapa"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "Abrir en la aplicación {{appName}}"
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "Ver en pantalla completa"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Incapaz de cargar el complemento para este elemento"
 
 msgid "No data to display"
-msgstr ""
+msgstr "Sin datos para mostrar"
 
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 msgid "Add filter"
-msgstr ""
+msgstr "Añadir filtro"
 
 msgid "Allow filtering by all dimensions"
 msgstr ""
@@ -230,34 +237,34 @@ msgid "There are no items on this dashboard"
 msgstr "No hay objetos en este tablero"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "Mostrar menos"
 
 msgid "Show more"
 msgstr "Mostrar más"
 
 msgid "Insert"
-msgstr ""
+msgstr "Insertar"
 
 msgid "Search for items to add to this dashboard"
 msgstr "Buscar objetos para añadir en este tablero"
 
 msgid "Additional items"
-msgstr ""
+msgstr "Objetos adicionales"
 
 msgid "Text box"
 msgstr "Caja de texto"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "Título del tablero"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "Descripción del tablero"
 
 msgid "Hide description"
-msgstr ""
+msgstr "Ocultar la descripción"
 
 msgid "Show description"
-msgstr ""
+msgstr "Mostrar la descripción"
 
 msgid "Failed to hide description"
 msgstr ""
@@ -266,10 +273,10 @@ msgid "Failed to show description"
 msgstr ""
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "Desmarcar tablero"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "Marcar tablero"
 
 msgid "Failed to unstar the dashboard"
 msgstr ""
@@ -278,25 +285,25 @@ msgid "Failed to star the dashboard"
 msgstr ""
 
 msgid "More"
-msgstr ""
+msgstr "Más"
 
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 msgid "Share"
-msgstr ""
+msgstr "Compartir"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "Diseño del tablero"
 
 msgid "One item per page"
-msgstr ""
+msgstr "Un objeto por página"
 
 msgid "No description"
 msgstr "Sin descripción"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "Visualizaciones"
 
 msgid "Pivot tables"
 msgstr "Tablas dinámicas"
@@ -314,7 +321,7 @@ msgid "Event charts"
 msgstr "Herramienta para gráficos con información individual"
 
 msgid "Apps"
-msgstr ""
+msgstr "Aplicaciones"
 
 msgid "Reports"
 msgstr "Informes"

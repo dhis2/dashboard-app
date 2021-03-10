@@ -1,13 +1,14 @@
 # 
 # Translators:
-# easylin <lin_xd@126.com>, 2020
+# easylin <lin_xd@126.com>, 2021
+# 晓东 林 <13981924470@126.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2020\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2021\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgid "Loading dashboard – {{name}}"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 msgid "Delete"
 msgstr "删除"
@@ -97,7 +98,7 @@ msgid "Exit print preview"
 msgstr ""
 
 msgid "Print"
-msgstr ""
+msgstr "打印"
 
 msgid "dashboard layout"
 msgstr ""
@@ -127,7 +128,7 @@ msgid_plural "{{count}} selected"
 msgstr[0] ""
 
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 msgid "Delete item"
 msgstr ""
@@ -188,13 +189,13 @@ msgid "Unable to load the plugin for this item"
 msgstr "不能该条目的插件"
 
 msgid "No data to display"
-msgstr ""
+msgstr "没有数据可显示"
 
 msgid "Confirm"
-msgstr ""
+msgstr "确认"
 
 msgid "Add filter"
-msgstr ""
+msgstr "添加过滤器"
 
 msgid "Allow filtering by all dimensions"
 msgstr ""
@@ -228,7 +229,7 @@ msgid "Show more"
 msgstr "更多"
 
 msgid "Insert"
-msgstr ""
+msgstr "插入"
 
 msgid "Search for items to add to this dashboard"
 msgstr "搜索条目添加到仪表盘"
@@ -270,13 +271,13 @@ msgid "Failed to star the dashboard"
 msgstr ""
 
 msgid "More"
-msgstr ""
+msgstr "更多"
 
 msgid "Edit"
-msgstr ""
+msgstr "编辑<br>"
 
 msgid "Share"
-msgstr ""
+msgstr "分享"
 
 msgid "Dashboard layout"
 msgstr ""
@@ -306,7 +307,7 @@ msgid "Event charts"
 msgstr "事件图表"
 
 msgid "Apps"
-msgstr ""
+msgstr "Apps"
 
 msgid "Reports"
 msgstr "报表"

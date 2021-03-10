@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2019
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgid "Loading dashboard – {{name}}"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 msgid "Delete"
 msgstr "Удалить"
@@ -100,7 +100,7 @@ msgid "Exit print preview"
 msgstr ""
 
 msgid "Print"
-msgstr ""
+msgstr "Печать"
 
 msgid "dashboard layout"
 msgstr ""
@@ -133,7 +133,7 @@ msgstr[2] ""
 msgstr[3] ""
 
 msgid "Remove"
-msgstr ""
+msgstr "Убрать"
 
 msgid "Delete item"
 msgstr ""
@@ -199,7 +199,7 @@ msgid "No data to display"
 msgstr ""
 
 msgid "Confirm"
-msgstr ""
+msgstr "Подтвердить"
 
 msgid "Add filter"
 msgstr ""
@@ -236,7 +236,7 @@ msgid "Show more"
 msgstr "Показать больше информации"
 
 msgid "Insert"
-msgstr ""
+msgstr "Ввести"
 
 msgid "Search for items to add to this dashboard"
 msgstr "Поиск элементов для добавления на эту информационную панель"
@@ -278,13 +278,13 @@ msgid "Failed to star the dashboard"
 msgstr ""
 
 msgid "More"
-msgstr ""
+msgstr "Более"
 
 msgid "Edit"
-msgstr ""
+msgstr "Редактировать"
 
 msgid "Share"
-msgstr ""
+msgstr "Поделиться"
 
 msgid "Dashboard layout"
 msgstr ""
@@ -314,7 +314,7 @@ msgid "Event charts"
 msgstr "Диаграммы событий"
 
 msgid "Apps"
-msgstr ""
+msgstr "Приложения"
 
 msgid "Reports"
 msgstr "Отчеты"
