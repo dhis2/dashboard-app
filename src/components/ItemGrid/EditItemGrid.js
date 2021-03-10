@@ -64,7 +64,7 @@ const EditItemGrid = ({
 
         // call resize on the item component if it's a plugin type
         if (dashboardItem && isVisualizationType(dashboardItem)) {
-            pluginResize(dashboardItem)
+            pluginResize(dashboardItem.id, dashboardItem.type)
         }
     }
 
