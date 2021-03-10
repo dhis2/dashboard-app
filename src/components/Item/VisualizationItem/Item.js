@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import uniqueId from 'lodash/uniqueId'
-
+import i18n from '@dhis2/d2-i18n'
 import Visualization from './Visualization/Visualization'
 import FatalErrorBoundary from './FatalErrorBoundary'
 import ItemHeader from '../ItemHeader/ItemHeader'
@@ -41,6 +41,7 @@ export class Item extends Component {
         showFooter: false,
         configLoaded: false,
         isFullscreen: false,
+        loadItemFailed: false,
     }
 
     constructor(props) {
@@ -222,24 +223,30 @@ export class Item extends Component {
         return rect && rect.width - this.itemContentPadding * 2
     }
 
+    onFatalError = () => {
+        this.setState({ loadItemFailed: true })
+    }
+
     render() {
         const { item, dashboardMode, itemFilters } = this.props
         const { showFooter } = this.state
         const activeType = this.getActiveType()
 
-        const actionButtons = pluginIsAvailable(activeType || item.type) ? (
-            <ItemContextMenu
-                item={item}
-                visualization={this.props.visualization}
-                onSelectActiveType={this.setActiveType}
-                onToggleFooter={this.onToggleFooter}
-                onToggleFullscreen={this.onToggleFullscreen}
-                activeType={activeType}
-                activeFooter={showFooter}
-                isFullscreen={this.state.isFullscreen}
-                fullscreenSupported={this.isFullscreenSupported()}
-            />
-        ) : null
+        const actionButtons =
+            !this.state.loadItemFailed &&
+            pluginIsAvailable(activeType || item.type) ? (
+                <ItemContextMenu
+                    item={item}
+                    visualization={this.props.visualization}
+                    onSelectActiveType={this.setActiveType}
+                    onToggleFooter={this.onToggleFooter}
+                    onToggleFullscreen={this.onToggleFullscreen}
+                    activeType={activeType}
+                    activeFooter={showFooter}
+                    isFullscreen={this.state.isFullscreen}
+                    fullscreenSupported={this.isFullscreenSupported()}
+                />
+            ) : null
 
         return (
             <>
@@ -251,7 +258,12 @@ export class Item extends Component {
                     dashboardMode={dashboardMode}
                     isShortened={item.shortened}
                 />
-                <FatalErrorBoundary>
+                <FatalErrorBoundary
+                    message={i18n.t(
+                        'There was a problem loading this dashboard item'
+                    )}
+                    onFatalError={this.onFatalError}
+                >
                     <div
                         key={this.getUniqueKey(itemFilters)}
                         className="dashboard-item-content"

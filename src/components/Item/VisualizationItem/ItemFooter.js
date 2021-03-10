@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { getVisualizationId } from '../../../modules/item'
 import InterpretationsComponent from '@dhis2/d2-ui-interpretations'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import i18n from '@dhis2/d2-i18n'
+import FatalErrorBoundary from './FatalErrorBoundary'
 
 import classes from './styles/ItemFooter.module.css'
 
@@ -12,13 +14,19 @@ const ItemFooter = props => {
         <div data-test="dashboarditem-footer">
             <hr className={classes.line} />
             <div className={classes.scrollContainer}>
-                <InterpretationsComponent
-                    d2={d2}
-                    item={props.item}
-                    type={props.item.type.toLowerCase()}
-                    id={getVisualizationId(props.item)}
-                    appName="dashboard"
-                />
+                <FatalErrorBoundary
+                    message={i18n.t(
+                        'There was a problem loading interpretations for this item'
+                    )}
+                >
+                    <InterpretationsComponent
+                        d2={d2}
+                        item={props.item}
+                        type={props.item.type.toLowerCase()}
+                        id={getVisualizationId(props.item)}
+                        appName="dashboard"
+                    />
+                </FatalErrorBoundary>
             </div>
         </div>
     )
