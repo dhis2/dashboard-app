@@ -8,7 +8,7 @@ import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import Star from '@material-ui/icons/Star'
 import StarBorder from '@material-ui/icons/StarBorder'
-import { Button, FlyoutMenu, Popover, MenuItem, colors } from '@dhis2/ui'
+import { Button, FlyoutMenu, Layer, Popper, MenuItem, colors } from '@dhis2/ui'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import { ThreeDots } from '../Item/VisualizationItem/assets/icons'
@@ -176,42 +176,51 @@ const ViewTitleBar = ({
                             </span>
                         </div>
                         {moreOptionsIsOpen && (
-                            <Popover
-                                reference={buttonRef}
-                                placement="bottom-start"
-                                onClickOutside={toggleMoreOptions}
+                            <Layer
+                                position="fixed"
+                                level={2000}
+                                onClick={toggleMoreOptions}
                             >
-                                <FlyoutMenu>
-                                    <MenuItem
-                                        dense
-                                        label={toggleStarredDashboardLabel}
-                                        onClick={onToggleStarredDashboard}
-                                    />
-                                    <MenuItem
-                                        dense
-                                        label={showHideDescriptionLabel}
-                                        onClick={onToggleShowDescription}
-                                    />
-                                    <MenuItem
-                                        dense
-                                        label={i18n.t('Print')}
-                                        dataTest="print-menu-item"
-                                    >
+                                <Popper
+                                    reference={buttonRef}
+                                    placement="bottom-start"
+                                >
+                                    <FlyoutMenu>
                                         <MenuItem
                                             dense
-                                            label={i18n.t('Dashboard layout')}
-                                            onClick={printLayout}
-                                            dataTest="print-layout-menu-item"
+                                            label={toggleStarredDashboardLabel}
+                                            onClick={onToggleStarredDashboard}
                                         />
                                         <MenuItem
                                             dense
-                                            label={i18n.t('One item per page')}
-                                            onClick={printOipp}
-                                            dataTest="print-oipp-menu-item"
+                                            label={showHideDescriptionLabel}
+                                            onClick={onToggleShowDescription}
                                         />
-                                    </MenuItem>
-                                </FlyoutMenu>
-                            </Popover>
+                                        <MenuItem
+                                            dense
+                                            label={i18n.t('Print')}
+                                            dataTest="print-menu-item"
+                                        >
+                                            <MenuItem
+                                                dense
+                                                label={i18n.t(
+                                                    'Dashboard layout'
+                                                )}
+                                                onClick={printLayout}
+                                                dataTest="print-layout-menu-item"
+                                            />
+                                            <MenuItem
+                                                dense
+                                                label={i18n.t(
+                                                    'One item per page'
+                                                )}
+                                                onClick={printOipp}
+                                                dataTest="print-oipp-menu-item"
+                                            />
+                                        </MenuItem>
+                                    </FlyoutMenu>
+                                </Popper>
+                            </Layer>
                         )}
                     </div>
                 </div>
