@@ -1,3 +1,10 @@
+## [31.13.8](https://github.com/dhis2/dashboard-app/compare/v31.13.7...v31.13.8) (2021-03-10)
+
+
+### Bug Fixes
+
+* fix double border in More menu ([#1624](https://github.com/dhis2/dashboard-app/issues/1624)) ([42fbaee](https://github.com/dhis2/dashboard-app/commit/42fbaeedb74bb5a456c11cf7a0f4610100843cb1))
+
 ## [31.13.7](https://github.com/dhis2/dashboard-app/compare/v31.13.6...v31.13.7) (2021-03-09)
 
 
