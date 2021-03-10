@@ -136,7 +136,11 @@ export class Item extends Component {
                 )
             }
             // call resize on Map item
-            pluginResize(this.props.item, this.state.isFullscreen)
+            pluginResize(
+                this.props.item.id,
+                this.getActiveType(),
+                this.state.isFullscreen
+            )
         }
     }
 
@@ -152,7 +156,12 @@ export class Item extends Component {
                     !!document.fullscreenElement ||
                     !!document.webkitFullscreenElement,
             },
-            () => pluginResize(this.props.item, this.state.isFullscreen)
+            () =>
+                pluginResize(
+                    this.props.item.id,
+                    this.getActiveType(),
+                    this.state.isFullscreen
+                )
         )
     }
 
@@ -197,7 +206,8 @@ export class Item extends Component {
             return (
                 height -
                 this.headerRef.current.clientHeight -
-                this.itemHeaderTotalMargin
+                this.itemHeaderTotalMargin -
+                this.itemContentPadding
             )
         }
 

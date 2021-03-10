@@ -1,3 +1,10 @@
+## [31.13.9](https://github.com/dhis2/dashboard-app/compare/v31.13.8...v31.13.9) (2021-03-10)
+
+
+### Bug Fixes
+
+* use correct plugin for active type when resizing ([#1626](https://github.com/dhis2/dashboard-app/issues/1626)) ([aece09e](https://github.com/dhis2/dashboard-app/commit/aece09e9ec0d33c2ba28bbed562308e37d5715eb))
+
 ## [31.13.8](https://github.com/dhis2/dashboard-app/compare/v31.13.7...v31.13.8) (2021-03-10)
 
 
