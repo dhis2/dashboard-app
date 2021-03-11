@@ -18,6 +18,7 @@ exports[`VisualizationItem/Item does not render Visualization if config not load
             "type": "CHART",
           }
         }
+        loadItemFailed={false}
         onSelectActiveType={[Function]}
         onToggleFooter={[Function]}
         onToggleFullscreen={[Function]}
