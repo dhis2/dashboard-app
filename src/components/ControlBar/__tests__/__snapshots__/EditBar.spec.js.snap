@@ -4,6 +4,7 @@ exports[`renders Save and Discard buttons but no dialogs when no dashboard id 1`
 <div>
   <div
     class="editBar"
+    data-test="edit-control-bar"
   >
     <div
       class="controls"
@@ -68,6 +69,7 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
 <div>
   <div
     class="editBar"
+    data-test="edit-control-bar"
   >
     <div
       class="controls"
@@ -148,6 +150,7 @@ exports[`renders only the Go to Dashboards button when no update access 1`] = `
 <div>
   <div
     class="editBar"
+    data-test="edit-control-bar"
   >
     <div
       class="controls"
@@ -168,6 +171,7 @@ exports[`renders the EditBar 1`] = `
 <div>
   <div
     class="editBar"
+    data-test="edit-control-bar"
   >
     <div
       class="controls"
@@ -240,6 +244,7 @@ exports[`shows the confirm delete dialog when delete button clicked 1`] = `
 <DocumentFragment>
   <div
     class="editBar"
+    data-test="edit-control-bar"
   >
     <div
       class="controls"
@@ -323,6 +328,7 @@ exports[`shows the translate dialog 1`] = `
 <DocumentFragment>
   <div
     class="editBar"
+    data-test="edit-control-bar"
   >
     <div
       class="controls"

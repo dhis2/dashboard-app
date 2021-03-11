@@ -9,7 +9,7 @@ import { useDataEngine } from '@dhis2/app-runtime'
 
 import Dashboard from './Dashboard/Dashboard'
 import AlertBar from './AlertBar/AlertBar'
-import { useSystemSettings } from './SystemSettingsProvider'
+import { useUserSettings } from './UserSettingsProvider'
 
 import { acReceivedUser } from '../actions/user'
 import { tFetchDashboards } from '../actions/dashboards'
@@ -31,13 +31,23 @@ import './App.css'
 const App = props => {
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
-    const { settings } = useSystemSettings()
+    const { userSettings } = useUserSettings()
 
     useEffect(() => {
         props.setCurrentUser(d2.currentUser)
         props.fetchDashboards()
         props.setControlBarRows()
         props.setShowDescription()
+
+        // store the headerbar height for controlbar height calculations
+        const headerbarHeight = document
+            .querySelector('header')
+            .getBoundingClientRect().height
+
+        document.documentElement.style.setProperty(
+            '--headerbar-height',
+            `${headerbarHeight}px`
+        )
     }, [])
 
     useEffect(() => {
@@ -45,7 +55,7 @@ const App = props => {
             try {
                 const dimensions = await apiFetchDimensions(
                     dataEngine,
-                    settings.displayNameProperty
+                    userSettings.keyAnalysisDisplayProperty
                 )
 
                 props.setDimensions(getFilteredDimensions(dimensions))
@@ -54,10 +64,10 @@ const App = props => {
             }
         }
 
-        if (settings.displayNameProperty) {
+        if (userSettings.keyAnalysisDisplayProperty) {
             fetchDimensions()
         }
-    }, [settings])
+    }, [userSettings])
 
     return (
         <>

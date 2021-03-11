@@ -12,6 +12,9 @@
     --user-rows-height: calc(
         var(--controlbar-padding) + (var(--user-rows-count) * var(--row-height))
     );
+    --sm-expanded-controlbar-height: calc(
+        (var(--vh, 1vh) * 100) - var(--headerbar-height) - 32px
+    );
 
     /* item variables */
     --item-header-margin-top: 8px;
@@ -63,12 +66,6 @@ div:-webkit-full-screen {
     height: 100% !important;
     transform: none !important;
     margin: 0px !important;
-}
-
-div:fullscreen .dashboard-item-content,
-div:-webkit-full-screen .dashboard-item-content {
-    height: 95vh !important;
-    width: 100vw !important;
 }
 
 @media print {

@@ -6,7 +6,7 @@ import uniqueId from 'lodash/uniqueId'
 import Visualization from './Visualization/Visualization'
 import FatalErrorBoundary from './FatalErrorBoundary'
 import ItemHeader from '../ItemHeader/ItemHeader'
-import ItemHeaderButtons from './ItemHeaderButtons'
+import ItemContextMenu from './ItemContextMenu/ItemContextMenu'
 import ItemFooter from './ItemFooter'
 import { WindowDimensionsCtx } from '../../WindowDimensionsProvider'
 import { SystemSettingsCtx } from '../../SystemSettingsProvider'
@@ -136,7 +136,11 @@ export class Item extends Component {
                 )
             }
             // call resize on Map item
-            pluginResize(this.props.item, this.state.isFullscreen)
+            pluginResize(
+                this.props.item.id,
+                this.getActiveType(),
+                this.state.isFullscreen
+            )
         }
     }
 
@@ -152,7 +156,12 @@ export class Item extends Component {
                     !!document.fullscreenElement ||
                     !!document.webkitFullscreenElement,
             },
-            () => pluginResize(this.props.item, this.state.isFullscreen)
+            () =>
+                pluginResize(
+                    this.props.item.id,
+                    this.getActiveType(),
+                    this.state.isFullscreen
+                )
         )
     }
 
@@ -192,9 +201,14 @@ export class Item extends Component {
         return this.props.activeType || this.props.item.type
     }
 
-    getAvailableHeight = width => {
+    getAvailableHeight = ({ width, height }) => {
         if (this.state.isFullscreen) {
-            return '95vh'
+            return (
+                height -
+                this.headerRef.current.clientHeight -
+                this.itemHeaderTotalMargin -
+                this.itemContentPadding
+            )
         }
 
         const calculatedHeight =
@@ -224,7 +238,7 @@ export class Item extends Component {
         const activeType = this.getActiveType()
 
         const actionButtons = pluginIsAvailable(activeType || item.type) ? (
-            <ItemHeaderButtons
+            <ItemContextMenu
                 item={item}
                 visualization={this.props.visualization}
                 onSelectActiveType={this.setActiveType}
@@ -261,7 +275,7 @@ export class Item extends Component {
                                         activeType={activeType}
                                         itemFilters={itemFilters}
                                         availableHeight={this.getAvailableHeight(
-                                            dimensions.width
+                                            dimensions
                                         )}
                                         availableWidth={this.getAvailableWidth()}
                                     />

@@ -17,3 +17,9 @@
         display: block;
     }
 }
+
+@media only screen and (max-height: 480px) {
+    .container {
+        overflow-y: auto;
+    }
+}

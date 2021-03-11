@@ -1,5 +1,5 @@
 import i18n from '@dhis2/d2-i18n'
-import { getCustomDashboards, sGetDashboardById } from '../reducers/dashboards'
+import { sGetDashboardById } from '../reducers/dashboards'
 import {
     SET_SELECTED_ID,
     SET_SELECTED_ISLOADING,
@@ -16,12 +16,13 @@ import { acClearItemFilters } from './itemFilters'
 import { tGetMessages } from '../components/Item/MessagesItem/actions'
 import { acSetAlertMessage, acClearAlertMessage } from './alert'
 import { acAddVisualization, acClearVisualizations } from './visualizations'
-import { apiFetchDashboard } from '../api/dashboards'
+import { apiFetchDashboard } from '../api/fetchDashboard'
 import { storePreferredDashboardId } from '../api/localStorage'
 import { apiGetShowDescription } from '../api/description'
 
 import { withShape } from '../modules/gridUtil'
 import { getVisualizationFromItem } from '../modules/item'
+import { getCustomDashboards } from '../modules/getCustomDashboards'
 
 import {
     REPORT_TABLE,
@@ -64,7 +65,7 @@ export const acClearSelectedItemActiveTypes = () => ({
 })
 
 // thunks
-export const tSetSelectedDashboardById = id => async (
+export const tSetSelectedDashboardById = (id, mode) => async (
     dispatch,
     getState,
     dataEngine
@@ -127,7 +128,7 @@ export const tSetSelectedDashboardById = id => async (
     }
 
     try {
-        const dashboard = await apiFetchDashboard(dataEngine, id)
+        const dashboard = await apiFetchDashboard(dataEngine, id, mode)
 
         return onSuccess(dashboard)
     } catch (err) {

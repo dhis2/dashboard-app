@@ -48,13 +48,9 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
     const [gridWidth, setGridWidth] = useState(0)
 
     useEffect(() => {
-        if (isSmallScreen(width)) {
-            setLayoutSm(
-                getItemsWithAdjustedHeight(
-                    getSmallLayout(dashboardItems, width)
-                )
-            )
-        }
+        setLayoutSm(
+            getItemsWithAdjustedHeight(getSmallLayout(dashboardItems, width))
+        )
         setDisplayItems(getItemsWithAdjustedHeight(dashboardItems))
     }, [expandedItems, width, dashboardItems])
 
@@ -86,20 +82,25 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
             return item
         })
 
-    const getItemComponent = item => (
-        <ProgressiveLoadingContainer
-            key={item.i}
-            className={cx(item.type, 'view', `reactgriditem-${item.id}`)}
-            itemId={item.id}
-        >
-            <Item
-                item={item}
-                gridWidth={gridWidth}
-                dashboardMode={VIEW}
-                onToggleItemExpanded={onToggleItemExpanded}
-            />
-        </ProgressiveLoadingContainer>
-    )
+    const getItemComponent = item => {
+        if (!layoutSm.length) {
+            return <div key={item.i} />
+        }
+        return (
+            <ProgressiveLoadingContainer
+                key={item.i}
+                className={cx(item.type, 'view', `reactgriditem-${item.id}`)}
+                itemId={item.id}
+            >
+                <Item
+                    item={item}
+                    gridWidth={gridWidth}
+                    dashboardMode={VIEW}
+                    onToggleItemExpanded={onToggleItemExpanded}
+                />
+            </ProgressiveLoadingContainer>
+        )
+    }
 
     const getItemComponents = items => items.map(item => getItemComponent(item))
 

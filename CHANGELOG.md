@@ -1,3 +1,65 @@
+## [31.13.10](https://github.com/dhis2/dashboard-app/compare/v31.13.9...v31.13.10) (2021-03-10)
+
+
+### Bug Fixes
+
+* disable cypress test until complete suite can be fixed ([#1628](https://github.com/dhis2/dashboard-app/issues/1628)) ([152fdf9](https://github.com/dhis2/dashboard-app/commit/152fdf945ccc33b30b0dd6b2cf4cdbc343b2e8e4))
+
+## [31.13.9](https://github.com/dhis2/dashboard-app/compare/v31.13.8...v31.13.9) (2021-03-10)
+
+
+### Bug Fixes
+
+* use correct plugin for active type when resizing ([#1626](https://github.com/dhis2/dashboard-app/issues/1626)) ([aece09e](https://github.com/dhis2/dashboard-app/commit/aece09e9ec0d33c2ba28bbed562308e37d5715eb))
+
+## [31.13.8](https://github.com/dhis2/dashboard-app/compare/v31.13.7...v31.13.8) (2021-03-10)
+
+
+### Bug Fixes
+
+* fix double border in More menu ([#1624](https://github.com/dhis2/dashboard-app/issues/1624)) ([42fbaee](https://github.com/dhis2/dashboard-app/commit/42fbaeedb74bb5a456c11cf7a0f4610100843cb1))
+
+## [31.13.7](https://github.com/dhis2/dashboard-app/compare/v31.13.6...v31.13.7) (2021-03-09)
+
+
+### Bug Fixes
+
+* add scatter icon for ItemSelector ([#1614](https://github.com/dhis2/dashboard-app/issues/1614)) ([66ac287](https://github.com/dhis2/dashboard-app/commit/66ac287f450525f932f433f5d897f89cb4f19384))
+* calc fullscreen height of visualization based on window height ([#1621](https://github.com/dhis2/dashboard-app/issues/1621)) ([13c79b9](https://github.com/dhis2/dashboard-app/commit/13c79b94e6b0bd257bd7c76e9bd4241f1f9c7cf0))
+* preserve sharing and translations when saving dashboard ([#1611](https://github.com/dhis2/dashboard-app/issues/1611)) ([802405d](https://github.com/dhis2/dashboard-app/commit/802405dc25e784926740bc7dcc033a5de1980e6a)), closes [dhis2/dhis2-core#7538](https://github.com/dhis2/dhis2-core/issues/7538)
+* use window height to determine controlbar height ([#1620](https://github.com/dhis2/dashboard-app/issues/1620)) ([d7d730f](https://github.com/dhis2/dashboard-app/commit/d7d730f0e1855286d0aa0a7db51e3643a42c2ed8))
+
+## [31.13.6](https://github.com/dhis2/dashboard-app/compare/v31.13.5...v31.13.6) (2021-03-08)
+
+
+### Bug Fixes
+
+* DashboardsBar onExpandedChanged must be a function ([#1613](https://github.com/dhis2/dashboard-app/issues/1613)) ([0bc1820](https://github.com/dhis2/dashboard-app/commit/0bc18201217bee80c7509c077d7df32665fcda31))
+* progressive loading on small screen fixes ([#1610](https://github.com/dhis2/dashboard-app/issues/1610)) ([cd19ea5](https://github.com/dhis2/dashboard-app/commit/cd19ea5c839999322709c6d7a13f7da823ac4498))
+
+## [31.13.5](https://github.com/dhis2/dashboard-app/compare/v31.13.4...v31.13.5) (2021-03-05)
+
+
+### Bug Fixes
+
+* use keyAnalysisDisplayProperty from user settings for analytics components ([#1600](https://github.com/dhis2/dashboard-app/issues/1600)) ([35eeb69](https://github.com/dhis2/dashboard-app/commit/35eeb695d1522f5b314b53a6a3a3b0fbc3869e88))
+
+## [31.13.4](https://github.com/dhis2/dashboard-app/compare/v31.13.3...v31.13.4) (2021-03-04)
+
+
+### Bug Fixes
+
+* decrease dashboard request response load size ([#1596](https://github.com/dhis2/dashboard-app/issues/1596)) ([9ac201f](https://github.com/dhis2/dashboard-app/commit/9ac201fec70039f37befa3b2b0bc9fb0c1090853))
+
+## [31.13.3](https://github.com/dhis2/dashboard-app/compare/v31.13.2...v31.13.3) (2021-03-04)
+
+
+### Bug Fixes
+
+* do not allow "Open in [appname] app" when in small screen ([#1593](https://github.com/dhis2/dashboard-app/issues/1593)) ([56ad5b5](https://github.com/dhis2/dashboard-app/commit/56ad5b5473fe31172573803fd04ac9b671d79fa2))
+* phone landscape scrolling in edit mode was not available ([#1594](https://github.com/dhis2/dashboard-app/issues/1594)) ([6bfc650](https://github.com/dhis2/dashboard-app/commit/6bfc6506eb609aa3e0d5dd0eb9458bdfa108f3a5))
+* temporarily disable flaky cypress test ([#1599](https://github.com/dhis2/dashboard-app/issues/1599)) ([b338564](https://github.com/dhis2/dashboard-app/commit/b3385643cd239f765b21f21b03daef26b1ff490b))
+
 ## [31.13.2](https://github.com/dhis2/dashboard-app/compare/v31.13.1...v31.13.2) (2021-02-26)
 
 

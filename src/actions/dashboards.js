@@ -2,24 +2,24 @@ import {
     SET_DASHBOARDS,
     ADD_DASHBOARDS,
     SET_DASHBOARD_STARRED,
-    SET_DASHBOARD_DISPLAY_NAME,
     SET_DASHBOARD_ITEMS,
-    getCustomDashboards,
     sGetDashboardById,
     sGetDashboardsSortedByStarred,
 } from '../reducers/dashboards'
 import { NON_EXISTING_DASHBOARD_ID } from '../reducers/selected'
 import { sGetUserUsername } from '../reducers/user'
 import { tSetSelectedDashboardById, acSetSelectedId } from './selected'
-import { apiFetchDashboards, apiDeleteDashboard } from '../api/dashboards'
+import { apiFetchDashboards } from '../api/fetchAllDashboards'
+import { apiDeleteDashboard } from '../api/deleteDashboard'
 import { getPreferredDashboardId } from '../api/localStorage'
 import { arrayToIdMap } from '../modules/util'
+import { getCustomDashboards } from '../modules/getCustomDashboards'
 
 // actions
 
 export const acSetDashboards = dashboards => ({
     type: SET_DASHBOARDS,
-    value: arrayToIdMap(getCustomDashboards(dashboards)),
+    value: arrayToIdMap(dashboards),
 })
 
 export const acAppendDashboards = dashboards => ({
@@ -31,12 +31,6 @@ export const acSetDashboardStarred = (dashboardId, isStarred) => ({
     type: SET_DASHBOARD_STARRED,
     dashboardId: dashboardId,
     value: isStarred,
-})
-
-export const acSetDashboardDisplayName = (dashboardId, value) => ({
-    type: SET_DASHBOARD_DISPLAY_NAME,
-    dashboardId,
-    value,
 })
 
 export const acSetDashboardItems = value => ({
@@ -55,7 +49,7 @@ export const tFetchDashboards = () => async (
     dispatch(acSetDashboards(dashboards))
 }
 
-export const tSelectDashboard = id => async (dispatch, getState) => {
+export const tSelectDashboard = (id, mode) => async (dispatch, getState) => {
     try {
         const state = getState()
 
@@ -72,7 +66,7 @@ export const tSelectDashboard = id => async (dispatch, getState) => {
         }
 
         if (dashboardToSelect) {
-            dispatch(tSetSelectedDashboardById(dashboardToSelect.id))
+            dispatch(tSetSelectedDashboardById(dashboardToSelect.id, mode))
         } else {
             dispatch(acSetSelectedId(NON_EXISTING_DASHBOARD_ID))
         }

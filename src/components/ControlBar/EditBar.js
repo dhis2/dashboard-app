@@ -18,17 +18,15 @@ import {
     acSetFilterSettings,
 } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
-import {
-    tDeleteDashboard,
-    acSetDashboardDisplayName,
-} from '../../actions/dashboards'
+import { tDeleteDashboard } from '../../actions/dashboards'
 import { sGetDimensions } from '../../reducers/dimensions'
 import {
     sGetEditDashboardRoot,
     sGetIsNewDashboard,
     sGetIsPrintPreviewView,
 } from '../../reducers/editDashboard'
-import { apiFetchDashboard } from '../../api/dashboards'
+import { apiFetchDashboard } from '../../api/fetchDashboard'
+import { EDIT } from '../Dashboard/dashboardModes'
 
 import classes from './styles/EditBar.module.css'
 
@@ -53,9 +51,11 @@ const EditBar = props => {
 
     useEffect(() => {
         if (props.dashboardId && !dashboard) {
-            apiFetchDashboard(dataEngine, props.dashboardId).then(dboard =>
-                setDashboard(dboard)
-            )
+            apiFetchDashboard(
+                dataEngine,
+                props.dashboardId,
+                EDIT
+            ).then(dboard => setDashboard(dboard))
         }
     }, [props.dashboardId, dashboard])
 
@@ -113,22 +113,6 @@ const EditBar = props => {
         toggleFilterSettingsDialog()
     }
 
-    const onTranslationsSaved = async translations => {
-        if (translations && translations.length) {
-            const dbLocale = await d2.currentUser.userSettings.get(
-                'keyDbLocale'
-            )
-
-            const translation = translations.find(
-                t => t.locale === dbLocale && t.property === 'NAME'
-            )
-
-            if (translation && translation.value) {
-                props.onTranslate(props.dashboardId, translation.value)
-            }
-        }
-    }
-
     const toggleTranslationDialog = () =>
         setTranslationDlgIsOpen(!translationDlgIsOpen)
 
@@ -158,10 +142,10 @@ const EditBar = props => {
                     modelDefinition: { name: 'dashboard' },
                 }}
                 fieldsToTranslate={['name', 'description']}
-                onTranslationSaved={onTranslationsSaved}
                 onTranslationError={err =>
                     console.log('translation update error', err)
                 }
+                onTranslationSaved={Function.prototype}
             />
         ) : null
 
@@ -216,7 +200,7 @@ const EditBar = props => {
 
     return (
         <>
-            <div className={classes.editBar}>
+            <div className={classes.editBar} data-test="edit-control-bar">
                 <div className={classes.controls}>
                     {props.updateAccess ? renderActionButtons() : null}
                     <Button secondary onClick={onDiscard}>
@@ -248,7 +232,6 @@ EditBar.propTypes = {
     updateAccess: PropTypes.bool,
     onDelete: PropTypes.func,
     onDiscardChanges: PropTypes.func,
-    onTranslate: PropTypes.func,
 }
 
 const mapStateToProps = state => {
@@ -285,7 +268,6 @@ const mapDispatchToProps = dispatch => ({
     saveDashboard: () => dispatch(tSaveDashboard()).then(id => id),
     onDelete: id => dispatch(tDeleteDashboard(id)),
     onDiscardChanges: () => dispatch(acClearEditDashboard()),
-    onTranslate: (id, value) => dispatch(acSetDashboardDisplayName(id, value)),
     setFilterSettings: value => dispatch(acSetFilterSettings(value)),
     showPrintPreview: () => dispatch(acSetPrintPreviewView()),
 })
