@@ -176,7 +176,7 @@ msgid "Open in {{appName}} app"
 msgstr "Ilovada {{appName}} da ochish"
 
 msgid "Confirm"
-msgstr ""
+msgstr "Tasdiqlang"
 
 msgid "Add filter"
 msgstr "Filtr kiritish"
