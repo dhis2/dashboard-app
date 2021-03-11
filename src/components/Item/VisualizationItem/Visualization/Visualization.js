@@ -5,7 +5,7 @@ import i18n from '@dhis2/d2-i18n'
 
 import DefaultPlugin from './DefaultPlugin'
 import MapPlugin from './MapPlugin'
-import LoadingMask from './LoadingMask'
+import DataVisualizerPlugin from './DataVisualizerPlugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
 
 import getFilteredVisualization from './getFilteredVisualization'
@@ -19,9 +19,7 @@ import {
 import { getVisualizationId } from '../../../../modules/item'
 import memoizeOne from '../../../../modules/memoizeOne'
 import { sGetVisualization } from '../../../../reducers/visualizations'
-import { UserSettingsCtx } from '../../../UserSettingsProvider'
 import { pluginIsAvailable } from './plugin'
-import { DataVisualizerPlugin } from './DataVisualizerPlugin'
 
 class Visualization extends React.Component {
     state = {
@@ -81,24 +79,13 @@ class Visualization extends React.Component {
             case CHART:
             case REPORT_TABLE: {
                 return (
-                    <>
-                        {!this.state.pluginLoaded && (
-                            <LoadingMask style={pluginProps.style} />
+                    <DataVisualizerPlugin
+                        visualization={this.memoizedGetFilteredVisualization(
+                            pluginProps.visualization,
+                            pluginProps.itemFilters
                         )}
-                        <DataVisualizerPlugin
-                            visualization={this.memoizedGetFilteredVisualization(
-                                pluginProps.visualization,
-                                pluginProps.itemFilters
-                            )}
-                            onLoadingComplete={this.onLoadingComplete}
-                            forDashboard={true}
-                            style={pluginProps.style}
-                            userSettings={{
-                                displayProperty: this.context.userSettings
-                                    .keyAnalysisDisplayProperty,
-                            }}
-                        />
-                    </>
+                        style={pluginProps.style}
+                    />
                 )
             }
             case MAP: {
@@ -130,8 +117,6 @@ class Visualization extends React.Component {
         }
     }
 }
-
-Visualization.contextType = UserSettingsCtx
 
 Visualization.propTypes = {
     activeType: PropTypes.string,
