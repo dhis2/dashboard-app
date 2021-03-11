@@ -5,7 +5,7 @@
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/analytics": "^16.0.8",
+        "@dhis2/analytics": "^16.0.13",
         "@dhis2/app-runtime": "^2.7.0",
         "@dhis2/app-runtime-adapter-d2": "^1.0.2",
         "@dhis2/d2-i18n": "^1.0.6",
@@ -15,8 +15,8 @@
         "@dhis2/d2-ui-rich-text": "^7.1.6",
         "@dhis2/d2-ui-sharing-dialog": "^7.1.6",
         "@dhis2/d2-ui-translation-dialog": "^7.1.6",
-        "@dhis2/data-visualizer-plugin": "^35.20.12",
-        "@dhis2/ui": "^6.2.3",
+        "@dhis2/data-visualizer-plugin": "^35.20.16",
+        "@dhis2/ui": "^6.5.5",
         "@material-ui/core": "^3.9.2",
         "@material-ui/icons": "^4.9.1",
         "classnames": "^2.2.6",
@@ -78,7 +78,7 @@
         }
     },
     "resolutions": {
-        "@dhis2/ui": "^6.2.3",
+        "@dhis2/ui": "^6.5.5",
         "styled-jsx": "3.3.2"
     }
 }
