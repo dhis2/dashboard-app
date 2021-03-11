@@ -1,11 +1,11 @@
 const config = {
-    name: 'dashboard',
     type: 'app',
-    coreApp: true,
+    name: 'dashboard',
     title: 'Dashboard',
+    coreApp: true,
 
     entryPoints: {
-        app: './src/AppWrapper',
+        app: './src/AppWrapper.js',
     },
 }
 
