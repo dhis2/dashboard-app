@@ -232,21 +232,20 @@ export class Item extends Component {
         const { showFooter } = this.state
         const activeType = this.getActiveType()
 
-        const actionButtons =
-            !this.state.loadItemFailed &&
-            pluginIsAvailable(activeType || item.type) ? (
-                <ItemContextMenu
-                    item={item}
-                    visualization={this.props.visualization}
-                    onSelectActiveType={this.setActiveType}
-                    onToggleFooter={this.onToggleFooter}
-                    onToggleFullscreen={this.onToggleFullscreen}
-                    activeType={activeType}
-                    activeFooter={showFooter}
-                    isFullscreen={this.state.isFullscreen}
-                    fullscreenSupported={this.isFullscreenSupported()}
-                />
-            ) : null
+        const actionButtons = pluginIsAvailable(activeType || item.type) ? (
+            <ItemContextMenu
+                item={item}
+                visualization={this.props.visualization}
+                onSelectActiveType={this.setActiveType}
+                onToggleFooter={this.onToggleFooter}
+                onToggleFullscreen={this.onToggleFullscreen}
+                activeType={activeType}
+                activeFooter={showFooter}
+                isFullscreen={this.state.isFullscreen}
+                fullscreenSupported={this.isFullscreenSupported()}
+                loadItemFailed={this.state.loadItemFailed}
+            />
+        ) : null
 
         return (
             <>

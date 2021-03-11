@@ -29,14 +29,24 @@ const ItemContextMenu = props => {
     const { width } = useWindowDimensions()
     const { baseUrl } = useConfig()
 
-    const { item, visualization, onSelectActiveType, activeType } = props
-
     const {
         allowVisOpenInApp,
         allowVisShowInterpretations,
         allowVisViewAs,
         allowVisFullscreen,
     } = useSystemSettings().settings
+
+    const fullscreenAllowed = props.fullscreenSupported && allowVisFullscreen
+
+    const noOptionsEnabled =
+        !allowVisOpenInApp &&
+        !allowVisShowInterpretations &&
+        !allowVisViewAs &&
+        !fullscreenAllowed
+
+    if (noOptionsEnabled || (!allowVisOpenInApp && props.loadItemFailed)) {
+        return null
+    }
 
     const toggleInterpretations = () => {
         props.onToggleFooter()
@@ -52,7 +62,7 @@ const ItemContextMenu = props => {
 
     const onActiveTypeChanged = type => {
         closeMenu()
-        onSelectActiveType(type)
+        props.onSelectActiveType(type)
     }
 
     const openMenu = () => {
@@ -60,6 +70,7 @@ const ItemContextMenu = props => {
     }
     const closeMenu = () => setMenuIsOpen(false)
 
+    const { item, visualization, loadItemFailed, activeType } = props
     const type = visualization.type || item.type
     const canViewAs =
         allowVisViewAs &&
@@ -73,17 +84,6 @@ const ItemContextMenu = props => {
         : i18n.t(`Show interpretations and details`)
 
     const buttonRef = createRef()
-
-    const fullscreenAllowed = props.fullscreenSupported && allowVisFullscreen
-
-    if (
-        !allowVisOpenInApp &&
-        !allowVisShowInterpretations &&
-        !allowVisViewAs &&
-        !fullscreenAllowed
-    ) {
-        return null
-    }
 
     return props.isFullscreen ? (
         <Button small secondary onClick={props.onToggleFullscreen}>
@@ -109,7 +109,7 @@ const ItemContextMenu = props => {
                     onClickOutside={closeMenu}
                 >
                     <Menu>
-                        {canViewAs && (
+                        {canViewAs && !loadItemFailed && (
                             <>
                                 <ViewAsMenuItems
                                     type={item.type}
@@ -139,7 +139,7 @@ const ItemContextMenu = props => {
                                 target="_blank"
                             />
                         )}
-                        {allowVisShowInterpretations && (
+                        {allowVisShowInterpretations && !loadItemFailed && (
                             <MenuItem
                                 dense
                                 icon={<SpeechBubble />}
@@ -147,7 +147,7 @@ const ItemContextMenu = props => {
                                 onClick={toggleInterpretations}
                             />
                         )}
-                        {fullscreenAllowed && (
+                        {fullscreenAllowed && !loadItemFailed && (
                             <MenuItem
                                 dense
                                 icon={<Fullscreen />}
@@ -168,6 +168,7 @@ ItemContextMenu.propTypes = {
     fullscreenSupported: PropTypes.bool,
     isFullscreen: PropTypes.bool,
     item: PropTypes.object,
+    loadItemFailed: PropTypes.bool,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,
