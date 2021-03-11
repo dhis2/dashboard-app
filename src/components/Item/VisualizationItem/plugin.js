@@ -1,6 +1,13 @@
 import isObject from 'lodash/isObject';
-import { VIS_TYPE_COLUMN, VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics';
+import {
+    VIS_TYPE_COLUMN,
+    VIS_TYPE_PIVOT_TABLE,
+    AXIS_ID_ROWS,
+    AXIS_ID_COLUMNS,
+    AXIS_ID_FILTERS,
+} from '@dhis2/analytics';
 import { apiFetchFavorite, getMapFields } from '../../../api/metadata';
+
 import {
     REPORT_TABLE,
     CHART,
@@ -46,12 +53,12 @@ export const extractFavorite = item => {
 
     return (
         item[propName] ||
-        (item.reportTable ||
-            item.chart ||
-            item.map ||
-            item.eventReport ||
-            item.eventChart ||
-            {})
+        item.reportTable ||
+        item.chart ||
+        item.map ||
+        item.eventReport ||
+        item.eventChart ||
+        {}
     );
 };
 
@@ -142,7 +149,33 @@ export const getVisualizationConfig = (
             type: activeType === CHART ? VIS_TYPE_COLUMN : VIS_TYPE_PIVOT_TABLE,
         });
     } else if (originalType === REPORT_TABLE && activeType === CHART) {
-        return getWithoutId({ ...visualization, type: VIS_TYPE_COLUMN });
+        // return getWithoutId({ ...visualization, type: VIS_TYPE_COLUMN });
+        const columns = visualization[AXIS_ID_COLUMNS].slice();
+        const rows = visualization[AXIS_ID_ROWS].slice();
+
+        const layout = {};
+
+        if (visualization.rows.length > 1) {
+            layout[AXIS_ID_ROWS] =
+                rows.length > 2
+                    ? rows.splice(0, 2)
+                    : rows.splice(0, rows.length);
+        } else {
+            layout[AXIS_ID_ROWS] = rows.length ? [rows.shift()] : rows;
+        }
+
+        layout[AXIS_ID_COLUMNS] = columns.length ? [columns.shift()] : columns;
+        layout[AXIS_ID_FILTERS] = [
+            ...visualization[AXIS_ID_FILTERS],
+            ...columns,
+            ...rows,
+        ];
+
+        return getWithoutId({
+            ...visualization,
+            ...layout,
+            type: VIS_TYPE_COLUMN,
+        });
     } else if (originalType === CHART && activeType === REPORT_TABLE) {
         return getWithoutId({
             ...visualization,
