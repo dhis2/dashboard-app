@@ -181,6 +181,12 @@ msgstr "Talqinlar va tavsilotlarni berkitish"
 msgid "Show interpretations and details"
 msgstr "Talqinlar va tavsilotlarni koʼrsatish"
 
+msgid "Open in {{appName}} app"
+msgstr "Ilovada {{appName}} da ochish"
+
+msgid "View fullscreen"
+msgstr ""
+
 msgid "View as Chart"
 msgstr "Diagramma sifatida koʼrish"
 
@@ -189,12 +195,6 @@ msgstr "Jadval sifatida koʼrish"
 
 msgid "View as Map"
 msgstr "Xarita sifatida koʼrish"
-
-msgid "Open in {{appName}} app"
-msgstr "Ilovada {{appName}} da ochish"
-
-msgid "View fullscreen"
-msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "Ushbu element uchun plagin yuklanmadi"

@@ -178,6 +178,12 @@ msgstr "إخفاء التفسيرات والتفاصيل"
 msgid "Show interpretations and details"
 msgstr "إظهار التفسيرات والتفاصيل"
 
+msgid "Open in {{appName}} app"
+msgstr "إفتح في تطبيق {{appName}}"
+
+msgid "View fullscreen"
+msgstr ""
+
 msgid "View as Chart"
 msgstr "عرض كمخطط بياني"
 
@@ -186,12 +192,6 @@ msgstr "عرض كجدول"
 
 msgid "View as Map"
 msgstr "عرض كخريطة"
-
-msgid "Open in {{appName}} app"
-msgstr "إفتح في تطبيق {{appName}}"
-
-msgid "View fullscreen"
-msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "تعذر تحميل المكوّن الإضافي لهذا العنصر"

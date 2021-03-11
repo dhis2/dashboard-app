@@ -178,6 +178,12 @@ msgstr ""
 msgid "Show interpretations and details"
 msgstr ""
 
+msgid "Open in {{appName}} app"
+msgstr ""
+
+msgid "View fullscreen"
+msgstr ""
+
 msgid "View as Chart"
 msgstr ""
 
@@ -185,12 +191,6 @@ msgid "View as Table"
 msgstr ""
 
 msgid "View as Map"
-msgstr ""
-
-msgid "Open in {{appName}} app"
-msgstr ""
-
-msgid "View fullscreen"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"

@@ -189,6 +189,12 @@ msgstr "Masquer les interprétations et les détails"
 msgid "Show interpretations and details"
 msgstr "Afficher les interprétations et les détails"
 
+msgid "Open in {{appName}} app"
+msgstr "Ouvrir dans l'app {{appName}}"
+
+msgid "View fullscreen"
+msgstr "Afficher en plein écran"
+
 msgid "View as Chart"
 msgstr "Afficher comme graphique"
 
@@ -197,12 +203,6 @@ msgstr "Afficher comme tableau"
 
 msgid "View as Map"
 msgstr "Afficher comme carte"
-
-msgid "Open in {{appName}} app"
-msgstr "Ouvrir dans l'app {{appName}}"
-
-msgid "View fullscreen"
-msgstr "Afficher en plein écran"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Impossible de charger le plugin pour cet objet"
