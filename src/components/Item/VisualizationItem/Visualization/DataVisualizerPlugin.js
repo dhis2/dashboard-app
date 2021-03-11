@@ -13,18 +13,18 @@ const VisualizationPlugin = React.lazy(() =>
 const DataVisualizerPlugin = props => {
     const d2 = useD2()
     const { userSettings } = useUserSettings()
-    const [pluginLoaded, setPluginLoaded] = useState(false)
+    const [visualizationLoaded, setVisualizationLoaded] = useState(false)
 
     return (
         <Suspense fallback={<div />}>
-            {!pluginLoaded && <LoadingMask style={props.style} />}
+            {!visualizationLoaded && <LoadingMask style={props.style} />}
             <VisualizationPlugin
                 d2={d2}
                 forDashboard={true}
                 userSettings={{
                     displayProperty: userSettings.keyAnalysisDisplayProperty,
                 }}
-                onLoadingComplete={() => setPluginLoaded(true)}
+                onLoadingComplete={() => setVisualizationLoaded(true)}
                 {...props}
             />
         </Suspense>
