@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
 import { Warning } from './assets/icons'
 
 import classes from './styles/FatalErrorBoundary.module.css'
@@ -12,13 +11,16 @@ class FatalErrorBoundary extends React.Component {
             errorFound: false,
         }
     }
+
     componentDidCatch(error, info) {
         this.setState({
             errorFound: true,
         })
         console.log('error: ', error)
         console.log('info: ', info)
+        this.props.onFatalError()
     }
+
     render() {
         if (this.state.errorFound) {
             return (
@@ -27,9 +29,7 @@ class FatalErrorBoundary extends React.Component {
                         <Warning />
                     </span>
                     <span className={classes.message}>
-                        {i18n.t(
-                            'There was a problem loading this dashboard item'
-                        )}
+                        {this.props.message}
                     </span>
                 </p>
             )
@@ -40,6 +40,12 @@ class FatalErrorBoundary extends React.Component {
 
 FatalErrorBoundary.propTypes = {
     children: PropTypes.node,
+    message: PropTypes.string,
+    onFatalError: PropTypes.func,
+}
+
+FatalErrorBoundary.defaultProps = {
+    onFatalError: Function.prototype,
 }
 
 export default FatalErrorBoundary

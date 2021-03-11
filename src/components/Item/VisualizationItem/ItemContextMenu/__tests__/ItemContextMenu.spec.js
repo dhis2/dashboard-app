@@ -31,6 +31,7 @@ const defaultProps = {
     activeType: 'CHART',
     fullscreenSupported: true,
     isFullscreen: false,
+    loadItemFailed: false,
 }
 
 test('renders just the button when menu closed', () => {
@@ -311,6 +312,36 @@ test('does not render "Open in [app]" option if settings do not allow', async ()
 
     await waitFor(() => {
         expect(queryByText(/Open in/i)).toBeNull()
+    })
+})
+
+test('renders only View in App when item load failed', async () => {
+    useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
+    const props = Object.assign({}, defaultProps, {
+        item: {
+            type: 'MAP',
+        },
+        visualization: {},
+        activeType: 'MAP',
+        loadItemFailed: true,
+    })
+
+    const { getByRole, queryByTestId, queryByText } = render(
+        <WindowDimensionsProvider>
+            <ItemContextMenu {...props} />
+        </WindowDimensionsProvider>
+    )
+
+    fireEvent.click(getByRole('button'))
+
+    await waitFor(() => {
+        expect(queryByText('View as Map')).toBeNull()
+        expect(queryByText('View as Chart')).toBeNull()
+        expect(queryByText('View as Table')).toBeNull()
+        expect(queryByTestId('divider')).toBeNull()
+        expect(queryByText('Open in Maps app')).toBeTruthy()
+        expect(queryByText('Show interpretations and details')).toBeNull()
+        expect(queryByText('View fullscreen')).toBeNull()
     })
 })
 
