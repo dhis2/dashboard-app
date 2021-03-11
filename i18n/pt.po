@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
+"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -190,11 +190,20 @@ msgstr "Ver tela inteira"
 msgid "View as Chart"
 msgstr "Ver como gráfico"
 
+msgid "This map can't be displayed as a chart"
+msgstr ""
+
 msgid "View as Table"
 msgstr "Ver como tabela"
 
+msgid "This map can't be displayed as a table"
+msgstr ""
+
 msgid "View as Map"
 msgstr "Ver como mapa"
+
+msgid "There was a problem loading interpretations for this item"
+msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "Não foi possível carregar o plug-in para este item"
