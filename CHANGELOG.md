@@ -1,3 +1,10 @@
+## [31.14.2](https://github.com/dhis2/dashboard-app/compare/v31.14.1...v31.14.2) (2021-03-11)
+
+
+### Bug Fixes
+
+* disable View As menu items for maps without a thematic layer [DHIS2-10671] ([#1632](https://github.com/dhis2/dashboard-app/issues/1632)) ([c521111](https://github.com/dhis2/dashboard-app/commit/c521111c23847f336b16cc270568438743530c83))
+
 ## [31.14.1](https://github.com/dhis2/dashboard-app/compare/v31.14.0...v31.14.1) (2021-03-11)
 
 
