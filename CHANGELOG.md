@@ -1,3 +1,10 @@
+# [31.14.0](https://github.com/dhis2/dashboard-app/compare/v31.13.10...v31.14.0) (2021-03-11)
+
+
+### Features
+
+* lazily load plugin scripts and dependencies when needed (DHIS2-10518) ([#1546](https://github.com/dhis2/dashboard-app/issues/1546)) ([c13eafe](https://github.com/dhis2/dashboard-app/commit/c13eafee33a1f13636bdd80f4dfe5e1107e97322))
+
 ## [31.13.10](https://github.com/dhis2/dashboard-app/compare/v31.13.9...v31.13.10) (2021-03-10)
 
 
