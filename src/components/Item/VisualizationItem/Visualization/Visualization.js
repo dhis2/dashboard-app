@@ -8,8 +8,8 @@ import MapPlugin from './MapPlugin'
 import DataVisualizerPlugin from './DataVisualizerPlugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
 
-import getFilteredVisualization from './getFilteredVisualization'
-import getVisualizationConfig from './getVisualizationConfig'
+import getFilteredVisualization from '../../../../modules/getFilteredVisualization'
+import getVisualizationConfig from '../../../../modules/getVisualizationConfig'
 import {
     VISUALIZATION,
     MAP,
