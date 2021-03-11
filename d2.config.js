@@ -1,4 +1,5 @@
 const config = {
+    name: 'dashboard',
     type: 'app',
     coreApp: true,
     title: 'Dashboard',

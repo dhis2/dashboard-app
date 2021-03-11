@@ -1,13 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
 import i18n from '@dhis2/d2-i18n'
-import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
 
 import DefaultPlugin from './DefaultPlugin'
 import MapPlugin from './MapPlugin'
-import LoadingMask from './LoadingMask'
+import DataVisualizerPlugin from './DataVisualizerPlugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
 
 import getFilteredVisualization from './getFilteredVisualization'
@@ -21,14 +19,9 @@ import {
 import { getVisualizationId } from '../../../../modules/item'
 import memoizeOne from '../../../../modules/memoizeOne'
 import { sGetVisualization } from '../../../../reducers/visualizations'
-import { UserSettingsCtx } from '../../../UserSettingsProvider'
 import { pluginIsAvailable } from './plugin'
 
 class Visualization extends React.Component {
-    state = {
-        pluginLoaded: false,
-    }
-
     constructor(props) {
         super(props)
 
@@ -36,10 +29,6 @@ class Visualization extends React.Component {
             getFilteredVisualization
         )
         this.memoizedGetVisualizationConfig = memoizeOne(getVisualizationConfig)
-    }
-
-    onLoadingComplete = () => {
-        this.setState({ pluginLoaded: true })
     }
 
     render() {
@@ -82,32 +71,13 @@ class Visualization extends React.Component {
             case CHART:
             case REPORT_TABLE: {
                 return (
-                    <>
-                        {!this.state.pluginLoaded && (
-                            <div style={pluginProps.style}>
-                                <LoadingMask />
-                            </div>
+                    <DataVisualizerPlugin
+                        visualization={this.memoizedGetFilteredVisualization(
+                            pluginProps.visualization,
+                            pluginProps.itemFilters
                         )}
-                        <D2Shim d2Config={{}}>
-                            {({ d2 }) => (
-                                <VisualizationPlugin
-                                    d2={d2}
-                                    visualization={this.memoizedGetFilteredVisualization(
-                                        pluginProps.visualization,
-                                        pluginProps.itemFilters
-                                    )}
-                                    onLoadingComplete={this.onLoadingComplete}
-                                    forDashboard={true}
-                                    style={pluginProps.style}
-                                    userSettings={{
-                                        displayProperty: this.context
-                                            .userSettings
-                                            .keyAnalysisDisplayProperty,
-                                    }}
-                                />
-                            )}
-                        </D2Shim>
-                    </>
+                        style={pluginProps.style}
+                    />
                 )
             }
             case MAP: {
@@ -139,8 +109,6 @@ class Visualization extends React.Component {
         }
     }
 }
-
-Visualization.contextType = UserSettingsCtx
 
 Visualization.propTypes = {
     activeType: PropTypes.string,
