@@ -46,6 +46,7 @@ test('renders the app', () => {
     }
     const { container } = render(
         <Provider store={mockStore(store)}>
+            <header style={{ height: '48px' }} />
             <App />
         </Provider>
     )

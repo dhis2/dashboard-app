@@ -12,6 +12,10 @@ export const updateDashboardMutation = {
     type: 'update',
     id: ({ id }) => id,
     data: ({ data }) => data,
+    params: {
+        skipTranslation: true,
+        skipSharing: true,
+    },
 }
 
 const generatePayload = (dashboard = {}, data) => {
