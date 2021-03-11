@@ -1,3 +1,10 @@
+## [31.14.1](https://github.com/dhis2/dashboard-app/compare/v31.14.0...v31.14.1) (2021-03-11)
+
+
+### Bug Fixes
+
+* catch errors from the interpretations component ([#1627](https://github.com/dhis2/dashboard-app/issues/1627)) ([cbf4801](https://github.com/dhis2/dashboard-app/commit/cbf4801457326227e9ebe2d6ce39fa7ad21647e0))
+
 # [31.14.0](https://github.com/dhis2/dashboard-app/compare/v31.13.10...v31.14.0) (2021-03-11)
 
 
