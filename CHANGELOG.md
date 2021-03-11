@@ -1,3 +1,10 @@
+## [31.13.10](https://github.com/dhis2/dashboard-app/compare/v31.13.9...v31.13.10) (2021-03-10)
+
+
+### Bug Fixes
+
+* disable cypress test until complete suite can be fixed ([#1628](https://github.com/dhis2/dashboard-app/issues/1628)) ([152fdf9](https://github.com/dhis2/dashboard-app/commit/152fdf945ccc33b30b0dd6b2cf4cdbc343b2e8e4))
+
 ## [31.13.9](https://github.com/dhis2/dashboard-app/compare/v31.13.8...v31.13.9) (2021-03-10)
 
 
