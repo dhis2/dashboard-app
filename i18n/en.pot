@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-03-10T13:31:54.830Z\n"
-"PO-Revision-Date: 2021-03-10T13:31:54.830Z\n"
+"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
+"PO-Revision-Date: 2021-03-11T18:02:28.225Z\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -171,7 +171,13 @@ msgstr ""
 msgid "View as Chart"
 msgstr ""
 
+msgid "This map can't be displayed as a chart"
+msgstr ""
+
 msgid "View as Table"
+msgstr ""
+
+msgid "This map can't be displayed as a table"
 msgstr ""
 
 msgid "View as Map"
