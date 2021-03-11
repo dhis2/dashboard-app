@@ -65,11 +65,11 @@ export const load = async (
     loadPlugin(plugin, config, credentials)
 }
 
-export const resize = (item, isFullscreen) => {
-    const plugin = getPlugin(item.type)
+export const resize = (id, type, isFullscreen = false) => {
+    const plugin = getPlugin(type)
 
-    if (plugin && plugin.resize) {
-        plugin.resize(getGridItemDomId(item.id), isFullscreen)
+    if (plugin?.resize) {
+        plugin.resize(getGridItemDomId(id), isFullscreen)
     }
 }
 
