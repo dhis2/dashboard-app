@@ -168,7 +168,7 @@ msgid "Event reports"
 msgstr "Hodisalar hisoboti"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Hodisalar haqida hisobotlar"
 
 msgid "Event charts"
 msgstr "Hodisalar diagrammalarda"
