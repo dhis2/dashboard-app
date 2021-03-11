@@ -22,10 +22,6 @@ import { sGetVisualization } from '../../../../reducers/visualizations'
 import { pluginIsAvailable } from './plugin'
 
 class Visualization extends React.Component {
-    state = {
-        pluginLoaded: false,
-    }
-
     constructor(props) {
         super(props)
 
@@ -33,10 +29,6 @@ class Visualization extends React.Component {
             getFilteredVisualization
         )
         this.memoizedGetVisualizationConfig = memoizeOne(getVisualizationConfig)
-    }
-
-    onLoadingComplete = () => {
-        this.setState({ pluginLoaded: true })
     }
 
     render() {
