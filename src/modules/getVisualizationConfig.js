@@ -1,14 +1,10 @@
+import getThematicMapViews from './getThematicMapViews'
 import {
     VIS_TYPE_COLUMN,
     VIS_TYPE_PIVOT_TABLE,
     getAdaptedUiLayoutByType,
 } from '@dhis2/analytics'
-import { REPORT_TABLE, CHART, MAP } from '../../../../modules/itemTypes'
-
-export const THEMATIC_LAYER = 'thematic'
-
-const extractMapView = map =>
-    map.mapViews && map.mapViews.find(mv => mv.layer.includes(THEMATIC_LAYER))
+import { REPORT_TABLE, CHART, MAP } from './itemTypes'
 
 const getWithoutId = object => ({
     ...object,
@@ -17,15 +13,15 @@ const getWithoutId = object => ({
 
 const getVisualizationConfig = (visualization, originalType, activeType) => {
     if (originalType === MAP && originalType !== activeType) {
-        const extractedMapView = extractMapView(visualization)
+        const thematicMapViews = getThematicMapViews(visualization)
 
-        if (extractedMapView === undefined) {
+        if (thematicMapViews === undefined) {
             return null
         }
 
         return getWithoutId({
             ...visualization,
-            ...extractedMapView,
+            ...thematicMapViews,
             mapViews: undefined,
             type: activeType === CHART ? VIS_TYPE_COLUMN : VIS_TYPE_PIVOT_TABLE,
         })

@@ -115,6 +115,7 @@ const ItemContextMenu = props => {
                                     type={item.type}
                                     activeType={activeType}
                                     onActiveTypeChanged={onActiveTypeChanged}
+                                    visualization={visualization}
                                 />
                                 {(allowVisShowInterpretations ||
                                     (allowVisOpenInApp &&
