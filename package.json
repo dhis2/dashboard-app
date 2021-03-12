@@ -55,7 +55,7 @@
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^6.0.0",
         "@dhis2/cli-style": "^7.2.2",
-        "@dhis2/cli-utils-cypress": "^7.0.0",
+        "@dhis2/cli-utils-cypress": "^7.0.1",
         "@dhis2/cypress-commands": "^5.1.1",
         "@testing-library/jest-dom": "^5.11.9",
         "@testing-library/react": "^11.2.5",
