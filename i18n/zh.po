@@ -1,15 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2019
-# Viktor Varland <viktor@dhis2.org>, 2020
-# 晓东 林 <13981924470@126.com>, 2020
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# 晓东 林 <13981924470@126.com>, 2021
 # easylin <lin_xd@126.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
+"POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr "删除仪表盘 \"{{ dashboardName }}\" 将从所有用户仪表盘中�
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
-msgstr "保存仪表盘失败。您可能处于离线状态或无权编辑此仪表板。"
+msgstr "保存仪表盘失败。您可能处于离线状态，或者无权编辑此仪表板。"
 
 msgid "Save changes"
 msgstr "保存改变"
@@ -52,6 +52,9 @@ msgstr "退出打印预览"
 
 msgid "Print preview"
 msgstr "打印预览"
+
+msgid "Filter settings"
+msgstr "筛选器设定"
 
 msgid "Translate"
 msgstr "翻译"
@@ -88,7 +91,7 @@ msgstr "不支持在小屏幕上编辑仪表板。调整屏幕大小以返回编
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
 " return to create mode."
-msgstr "不支持在小屏幕上创建仪表板。调整屏幕大小以返回创建模式。"
+msgstr "不支持在小屏幕上创建仪表板。调整屏幕大小以返回到创建模式。"
 
 msgid "Not supported"
 msgstr "不支持"
@@ -124,7 +127,7 @@ msgstr "在浏览器的“打印”对话框中使用A4横向纸张尺寸和默�
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] "{{count}} 个被选择"
+msgstr[0] "已选择{{count}}个"
 
 msgid "Remove"
 msgstr "移除"
@@ -169,6 +172,12 @@ msgstr "隐藏注释和详情"
 msgid "Show interpretations and details"
 msgstr "显示注释和详情"
 
+msgid "Open in {{appName}} app"
+msgstr "在{{appName}} 应用中打开"
+
+msgid "View fullscreen"
+msgstr "全屏查看"
+
 msgid "View as Chart"
 msgstr "查看图表"
 
@@ -177,12 +186,6 @@ msgstr "查看表格"
 
 msgid "View as Map"
 msgstr "查看地图"
-
-msgid "Open in {{appName}} app"
-msgstr "在{{appName}} 应用中打开"
-
-msgid "View fullscreen"
-msgstr "全屏查看"
 
 msgid "Unable to load the plugin for this item"
 msgstr "不能载入该条目的插件"
@@ -195,6 +198,32 @@ msgstr "确认"
 
 msgid "Add filter"
 msgstr "添加过滤器"
+
+msgid "Allow filtering by all dimensions"
+msgstr "允许按所有维度进行过滤"
+
+msgid "Only allow filtering by selected dimensions"
+msgstr "仅允许按选定的维度进行过滤"
+
+msgid "Dashboard filter settings"
+msgstr "仪表板过滤器设置"
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+"仪表板可以按维度进行过滤以进行更改\n"
+"                                         显示的数据。默认情况下，所有尺寸均可用\n"
+"                                         作为过滤器。另外，只有选定的尺寸可以\n"
+"                                         在仪表板上可用。"
+
+msgid "Available Filters"
+msgstr "可用的过滤器"
+
+msgid "Selected Filters"
+msgstr "选定的过滤器"
 
 msgid "There are no items on this dashboard"
 msgstr "该仪表盘没有条目"
@@ -230,7 +259,7 @@ msgid "Show description"
 msgstr "显示说明"
 
 msgid "Failed to hide description"
-msgstr "隐藏说明失败"
+msgstr "无法隐藏说明"
 
 msgid "Failed to show description"
 msgstr "无法显示说明"
@@ -242,7 +271,7 @@ msgid "Star dashboard"
 msgstr "标星仪表板"
 
 msgid "Failed to unstar the dashboard"
-msgstr "无法取消仪表板的星标"
+msgstr "无法解除仪表板的星标"
 
 msgid "Failed to star the dashboard"
 msgstr "无法为仪表板加注星标"
@@ -251,7 +280,7 @@ msgid "More"
 msgstr "更多"
 
 msgid "Edit"
-msgstr "编辑"
+msgstr "编辑<br>"
 
 msgid "Share"
 msgstr "分享"
@@ -284,7 +313,7 @@ msgid "Event charts"
 msgstr "事件图表"
 
 msgid "Apps"
-msgstr "Apps"
+msgstr "应用"
 
 msgid "Reports"
 msgstr "报表管理"

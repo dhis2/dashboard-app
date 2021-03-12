@@ -1,14 +1,14 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
 "Language-Team: Pushto (https://www.transifex.com/hisp-uio/teams/100509/ps/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,6 +49,9 @@ msgid "Exit Print preview"
 msgstr ""
 
 msgid "Print preview"
+msgstr ""
+
+msgid "Filter settings"
 msgstr ""
 
 msgid "Translate"
@@ -168,6 +171,12 @@ msgstr ""
 msgid "Show interpretations and details"
 msgstr ""
 
+msgid "Open in {{appName}} app"
+msgstr ""
+
+msgid "View fullscreen"
+msgstr ""
+
 msgid "View as Chart"
 msgstr ""
 
@@ -175,12 +184,6 @@ msgid "View as Table"
 msgstr ""
 
 msgid "View as Map"
-msgstr ""
-
-msgid "Open in {{appName}} app"
-msgstr ""
-
-msgid "View fullscreen"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
@@ -193,6 +196,28 @@ msgid "Confirm"
 msgstr ""
 
 msgid "Add filter"
+msgstr ""
+
+msgid "Allow filtering by all dimensions"
+msgstr ""
+
+msgid "Only allow filtering by selected dimensions"
+msgstr ""
+
+msgid "Dashboard filter settings"
+msgstr ""
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+
+msgid "Available Filters"
+msgstr ""
+
+msgid "Selected Filters"
 msgstr ""
 
 msgid "There are no items on this dashboard"

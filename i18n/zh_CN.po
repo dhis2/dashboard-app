@@ -1,14 +1,14 @@
 # 
 # Translators:
-# easylin <lin_xd@126.com>, 2020
-# 晓东 林 <13981924470@126.com>, 2020
+# easylin <lin_xd@126.com>, 2021
+# 晓东 林 <13981924470@126.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
+"POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2021\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,6 +49,9 @@ msgid "Exit Print preview"
 msgstr ""
 
 msgid "Print preview"
+msgstr ""
+
+msgid "Filter settings"
 msgstr ""
 
 msgid "Translate"
@@ -167,6 +170,12 @@ msgstr ""
 msgid "Show interpretations and details"
 msgstr ""
 
+msgid "Open in {{appName}} app"
+msgstr ""
+
+msgid "View fullscreen"
+msgstr ""
+
 msgid "View as Chart"
 msgstr ""
 
@@ -174,12 +183,6 @@ msgid "View as Table"
 msgstr ""
 
 msgid "View as Map"
-msgstr ""
-
-msgid "Open in {{appName}} app"
-msgstr ""
-
-msgid "View fullscreen"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
@@ -193,6 +196,28 @@ msgstr "确认"
 
 msgid "Add filter"
 msgstr "添加过滤器"
+
+msgid "Allow filtering by all dimensions"
+msgstr ""
+
+msgid "Only allow filtering by selected dimensions"
+msgstr ""
+
+msgid "Dashboard filter settings"
+msgstr ""
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+
+msgid "Available Filters"
+msgstr ""
+
+msgid "Selected Filters"
+msgstr ""
 
 msgid "There are no items on this dashboard"
 msgstr "该仪表盘没有条目"
@@ -252,7 +277,7 @@ msgid "Edit"
 msgstr "编辑<br>"
 
 msgid "Share"
-msgstr "共享"
+msgstr "分享"
 
 msgid "Dashboard layout"
 msgstr ""
@@ -282,7 +307,7 @@ msgid "Event charts"
 msgstr "事件图表"
 
 msgid "Apps"
-msgstr "应用"
+msgstr "Apps"
 
 msgid "Reports"
 msgstr "报表"

@@ -1,14 +1,14 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
 # Mai Nguyen <thanhmai.jica@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
+"POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2021\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgid "Cancel"
 msgstr "Hủy"
 
 msgid "Delete"
-msgstr "Xoá"
+msgstr "Xóa"
 
 msgid "Delete dashboard"
 msgstr "Xóa bảng điều khiển"
@@ -54,6 +54,9 @@ msgstr "Thoát xem trước bản in"
 
 msgid "Print preview"
 msgstr "Xem thử bản in"
+
+msgid "Filter settings"
+msgstr ""
 
 msgid "Translate"
 msgstr "Dịch"
@@ -129,7 +132,7 @@ msgstr ""
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] "Đã chọn {{đếm}}"
+msgstr[0] ""
 
 msgid "Remove"
 msgstr "Tháo ra"
@@ -141,7 +144,7 @@ msgid "This item has been shortened to fit on one page"
 msgstr "Mục này đã được rút ngắn để vừa với một trang"
 
 msgid "Messages"
-msgstr "Hộp thư"
+msgstr "Tin nhắn"
 
 msgid "See all messages"
 msgstr "Xem tất cả tin nhắn"
@@ -176,6 +179,12 @@ msgstr "Ẩn các diễn giải và chi tiết"
 msgid "Show interpretations and details"
 msgstr "Hiện các diễn giải và chi tiết"
 
+msgid "Open in {{appName}} app"
+msgstr "Mở trong ứng dụng {{Tên ứng dụng}}"
+
+msgid "View fullscreen"
+msgstr "Xem toàn màn hình"
+
 msgid "View as Chart"
 msgstr "Xem dưới dạng biểu đồ"
 
@@ -184,12 +193,6 @@ msgstr "Xem dưới dạng bảng"
 
 msgid "View as Map"
 msgstr "Xem dưới dạng bản đồ"
-
-msgid "Open in {{appName}} app"
-msgstr "Mở trong ứng dụng {{Tên ứng dụng}}"
-
-msgid "View fullscreen"
-msgstr "Xem toàn màn hình"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Không thể tải plugin cho mục này"
@@ -202,6 +205,28 @@ msgstr "Xác nhận"
 
 msgid "Add filter"
 msgstr "Bộ lọc"
+
+msgid "Allow filtering by all dimensions"
+msgstr ""
+
+msgid "Only allow filtering by selected dimensions"
+msgstr ""
+
+msgid "Dashboard filter settings"
+msgstr ""
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+
+msgid "Available Filters"
+msgstr ""
+
+msgid "Selected Filters"
+msgstr ""
 
 msgid "There are no items on this dashboard"
 msgstr "Không có mục nào trong bảng điều khiển này"
@@ -270,19 +295,19 @@ msgid "One item per page"
 msgstr "Một mục trên mỗi trang"
 
 msgid "No description"
-msgstr "Không có mô tả"
+msgstr "Không mô tả"
 
 msgid "Visualizations"
 msgstr "Mô hình hóa"
 
 msgid "Pivot tables"
-msgstr "Bảng Xoay"
+msgstr "Bảng xoay"
 
 msgid "Charts"
-msgstr "Biểu Đồ"
+msgstr "Biểu đồ"
 
 msgid "Maps"
-msgstr "Bản Đồ"
+msgstr "Bản đồ"
 
 msgid "Event reports"
 msgstr "Báo Cáo Sự Kiện"
@@ -294,7 +319,7 @@ msgid "Apps"
 msgstr "Ứng dụng"
 
 msgid "Reports"
-msgstr "Báo Cáo"
+msgstr "Báo cáo tổng hợp"
 
 msgid "Resources"
 msgstr "Tài Nguyên"

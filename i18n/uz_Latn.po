@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
+"POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
+"PO-Revision-Date: 2019-09-01 20:38+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgid "Loading dashboard – {{name}}"
 msgstr "Boshqaruv paneli yuklanmoqda - {{ismi}}"
 
 msgid "Cancel"
-msgstr "Bekor qilish"
+msgstr "Бекор қилиш"
 
 msgid "Delete"
 msgstr "Oʼchirib tashlash"
@@ -53,6 +53,9 @@ msgstr "Chop etishdan avvalgi koʼrikdan chiqing"
 
 msgid "Print preview"
 msgstr "Chop etishdan avvalgi koʼrik"
+
+msgid "Filter settings"
+msgstr ""
 
 msgid "Translate"
 msgstr "Tarjima qiling"
@@ -134,7 +137,7 @@ msgid_plural "{{count}} selected"
 msgstr[0] ""
 
 msgid "Remove"
-msgstr "Olib tashlash"
+msgstr "Олиб ташлаш"
 
 msgid "Delete item"
 msgstr "Elementni oʼchirib tashlash"
@@ -178,6 +181,12 @@ msgstr "Talqinlar va tavsilotlarni berkitish"
 msgid "Show interpretations and details"
 msgstr "Talqinlar va tavsilotlarni koʼrsatish"
 
+msgid "Open in {{appName}} app"
+msgstr "Ilovada {{appName}} da ochish"
+
+msgid "View fullscreen"
+msgstr ""
+
 msgid "View as Chart"
 msgstr "Diagramma sifatida koʼrish"
 
@@ -187,12 +196,6 @@ msgstr "Jadval sifatida koʼrish"
 msgid "View as Map"
 msgstr "Xarita sifatida koʼrish"
 
-msgid "Open in {{appName}} app"
-msgstr "Ilovada {{appName}} da ochish"
-
-msgid "View fullscreen"
-msgstr ""
-
 msgid "Unable to load the plugin for this item"
 msgstr "Ushbu element uchun plagin yuklanmadi"
 
@@ -200,10 +203,32 @@ msgid "No data to display"
 msgstr "Maʼlumot ekranga chiqarilmadi"
 
 msgid "Confirm"
-msgstr ""
+msgstr "Tasdiqlang"
 
 msgid "Add filter"
 msgstr "Filtr kiritish"
+
+msgid "Allow filtering by all dimensions"
+msgstr ""
+
+msgid "Only allow filtering by selected dimensions"
+msgstr ""
+
+msgid "Dashboard filter settings"
+msgstr ""
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+
+msgid "Available Filters"
+msgstr ""
+
+msgid "Selected Filters"
+msgstr ""
 
 msgid "There are no items on this dashboard"
 msgstr "Ushbu boshqaruv panelida elementlar yoʼq"
@@ -263,7 +288,7 @@ msgid "Edit"
 msgstr "Tahrirlash"
 
 msgid "Share"
-msgstr "Ulashish"
+msgstr "Улашиш"
 
 msgid "Dashboard layout"
 msgstr "Boshqaruv paneli maketi"
