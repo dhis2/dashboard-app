@@ -1529,10 +1529,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^16.0.13":
-  version "16.0.13"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-16.0.13.tgz#2be86f4734d52d1416262a1007c3ffb7d42bfc59"
-  integrity sha512-qhjrhDrtm+fMZwLdqvPTT1yfsUQLbgkXuydahwDL30/W+DRWEDlHkoXhb+5aLQHyRRQr8DOHA8IxRT8DLhWCeQ==
+"@dhis2/analytics@^16.0.15":
+  version "16.0.15"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-16.0.15.tgz#868a4094c7957720b112bf584f13c85f7955a287"
+  integrity sha512-3KgjVigsvPflHBTQSboQ3IpArWzeWI6EYqU/dqvtOPk+h9sw7JVFKUfVVqhEU6gIds/gqMmsPR4VwufNO+Scyg==
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^7.1.5"
     "@dhis2/d2-ui-org-unit-dialog" "^7.1.5"
@@ -1869,12 +1869,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^35.20.17":
-  version "35.20.17"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.20.17.tgz#5c63dfd2e4b5cff9342a705495556d115af4b758"
-  integrity sha512-pm+a6LQa/v+YfuKTWJOjJPaLEgZ3gjb1e/TTgIfk4DgT7Za2l7OA6S+ZvqPjLkJwRD0FyXHfh7cFqwHXnwZCXg==
+"@dhis2/data-visualizer-plugin@^35.20.18":
+  version "35.20.18"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.20.18.tgz#c7e2bdf4242e29101d98b860c07066d90d069f8e"
+  integrity sha512-iTXAu1Cu2Z1LrT58TKNaVc8AdmIS+NPVKQhhh3Zw2dTLb61fZpLqPN/XHnqTHsa4uLRqOH3mU7yNlAvCiun0ow==
   dependencies:
-    "@dhis2/analytics" "^16.0.13"
+    "@dhis2/analytics" "^16.0.15"
     "@dhis2/app-runtime" "^2.8.0"
     "@dhis2/d2-i18n" "^1.1.0"
     "@dhis2/ui" "^6.5.5"
@@ -16917,8 +16917,10 @@ watchpack@^1.7.4:
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
+    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
+    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
