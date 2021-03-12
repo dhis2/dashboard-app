@@ -5,13 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-=======
 "POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
->>>>>>> master
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
@@ -207,12 +202,9 @@ msgstr ""
 msgid "View as Map"
 msgstr "Харита сифатида кўриш"
 
-<<<<<<< HEAD
-=======
 msgid "There was a problem loading interpretations for this item"
 msgstr ""
 
->>>>>>> master
 msgid "Unable to load the plugin for this item"
 msgstr "Ушбу элемент учун плагин юкланмади"
 
