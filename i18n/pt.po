@@ -8,9 +8,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
 "Last-Translator: Sheila André <sandre@saudigitus.org>, 2021\n"
+=======
+"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
+"PO-Revision-Date: 2019-06-25 12:37+0000\n"
+"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
+>>>>>>> master
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -190,12 +196,24 @@ msgstr "Ver tela inteira"
 msgid "View as Chart"
 msgstr "Ver como gráfico"
 
+msgid "This map can't be displayed as a chart"
+msgstr ""
+
 msgid "View as Table"
 msgstr "Ver como tabela"
+
+msgid "This map can't be displayed as a table"
+msgstr ""
 
 msgid "View as Map"
 msgstr "Ver como mapa"
 
+<<<<<<< HEAD
+=======
+msgid "There was a problem loading interpretations for this item"
+msgstr ""
+
+>>>>>>> master
 msgid "Unable to load the plugin for this item"
 msgstr "Não foi possível carregar o plug-in para este item"
 

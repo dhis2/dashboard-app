@@ -5,18 +5,18 @@
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/analytics": "^16.0.8",
-        "@dhis2/app-runtime": "^2.7.0",
+        "@dhis2/analytics": "^16.0.15",
+        "@dhis2/app-runtime": "^2.8.0",
         "@dhis2/app-runtime-adapter-d2": "^1.0.2",
-        "@dhis2/d2-i18n": "^1.0.6",
+        "@dhis2/d2-i18n": "^1.1.0",
         "@dhis2/d2-ui-core": "^7.1.6",
         "@dhis2/d2-ui-interpretations": "^7.1.6",
         "@dhis2/d2-ui-mentions-wrapper": "^7.1.6",
         "@dhis2/d2-ui-rich-text": "^7.1.6",
         "@dhis2/d2-ui-sharing-dialog": "^7.1.6",
         "@dhis2/d2-ui-translation-dialog": "^7.1.6",
-        "@dhis2/data-visualizer-plugin": "^35.20.12",
-        "@dhis2/ui": "^6.2.3",
+        "@dhis2/data-visualizer-plugin": "^35.20.18",
+        "@dhis2/ui": "^6.5.5",
         "@material-ui/core": "^3.9.2",
         "@material-ui/icons": "^4.9.1",
         "classnames": "^2.2.6",
@@ -53,7 +53,7 @@
         "cy:capture": "cypress_dhis2_api_stub_mode=CAPTURE yarn d2-utils-cypress run --appStart 'yarn cypress:start'"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^5",
+        "@dhis2/cli-app-scripts": "^6.0.0",
         "@dhis2/cli-style": "^7.2.2",
         "@dhis2/cli-utils-cypress": "^7.0.0",
         "@dhis2/cypress-commands": "^5.1.1",
@@ -76,9 +76,5 @@
         "moduleNameMapper": {
             "^.+\\.(css|sass|scss)$": "identity-obj-proxy"
         }
-    },
-    "resolutions": {
-        "@dhis2/ui": "^6.2.3",
-        "styled-jsx": "3.3.2"
     }
 }

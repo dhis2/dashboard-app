@@ -5,8 +5,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
+=======
+"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
+"PO-Revision-Date: 2019-06-25 12:37+0000\n"
+>>>>>>> master
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
@@ -190,12 +195,24 @@ msgstr ""
 msgid "View as Chart"
 msgstr "Diagramma sifatida koʼrish"
 
+msgid "This map can't be displayed as a chart"
+msgstr ""
+
 msgid "View as Table"
 msgstr "Jadval sifatida koʼrish"
+
+msgid "This map can't be displayed as a table"
+msgstr ""
 
 msgid "View as Map"
 msgstr "Xarita sifatida koʼrish"
 
+<<<<<<< HEAD
+=======
+msgid "There was a problem loading interpretations for this item"
+msgstr ""
+
+>>>>>>> master
 msgid "Unable to load the plugin for this item"
 msgstr "Ushbu element uchun plagin yuklanmadi"
 

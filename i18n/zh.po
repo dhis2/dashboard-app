@@ -8,8 +8,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2021-02-25T12:42:20.350Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
+=======
+"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
+"PO-Revision-Date: 2019-06-25 12:37+0000\n"
+>>>>>>> master
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
@@ -181,12 +186,24 @@ msgstr "全屏查看"
 msgid "View as Chart"
 msgstr "查看图表"
 
+msgid "This map can't be displayed as a chart"
+msgstr ""
+
 msgid "View as Table"
 msgstr "查看表格"
+
+msgid "This map can't be displayed as a table"
+msgstr ""
 
 msgid "View as Map"
 msgstr "查看地图"
 
+<<<<<<< HEAD
+=======
+msgid "There was a problem loading interpretations for this item"
+msgstr ""
+
+>>>>>>> master
 msgid "Unable to load the plugin for this item"
 msgstr "不能载入该条目的插件"
 
@@ -220,7 +237,11 @@ msgstr ""
 "                                         在仪表板上可用。"
 
 msgid "Available Filters"
+<<<<<<< HEAD
 msgstr "可用的过滤器"
+=======
+msgstr "可用过滤器"
+>>>>>>> master
 
 msgid "Selected Filters"
 msgstr "选定的过滤器"

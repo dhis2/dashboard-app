@@ -1,3 +1,33 @@
+## [31.14.3](https://github.com/dhis2/dashboard-app/compare/v31.14.2...v31.14.3) (2021-03-12)
+
+
+### Bug Fixes
+
+* @dhis2/analytics@16.0.15, @dhis2/data-visualizer-plugin@35.20.18 ([#1645](https://github.com/dhis2/dashboard-app/issues/1645)) ([bfa9889](https://github.com/dhis2/dashboard-app/commit/bfa9889865b31deebe5f71d0afb1ece65478c8ca))
+* **translations:** sync translations from transifex (master) ([#1585](https://github.com/dhis2/dashboard-app/issues/1585)) ([45b3524](https://github.com/dhis2/dashboard-app/commit/45b35248630ffad48bc9597c2dc97e9ecee1c1b6))
+* upgrade to @dhis2/cli-app-scripts@6 (DHIS2-9893) ([#1634](https://github.com/dhis2/dashboard-app/issues/1634)) ([662fd6e](https://github.com/dhis2/dashboard-app/commit/662fd6e6a4e8b0418a21acd7238fad8d1df5dcb5))
+
+## [31.14.2](https://github.com/dhis2/dashboard-app/compare/v31.14.1...v31.14.2) (2021-03-11)
+
+
+### Bug Fixes
+
+* disable View As menu items for maps without a thematic layer [DHIS2-10671] ([#1632](https://github.com/dhis2/dashboard-app/issues/1632)) ([c521111](https://github.com/dhis2/dashboard-app/commit/c521111c23847f336b16cc270568438743530c83))
+
+## [31.14.1](https://github.com/dhis2/dashboard-app/compare/v31.14.0...v31.14.1) (2021-03-11)
+
+
+### Bug Fixes
+
+* catch errors from the interpretations component ([#1627](https://github.com/dhis2/dashboard-app/issues/1627)) ([cbf4801](https://github.com/dhis2/dashboard-app/commit/cbf4801457326227e9ebe2d6ce39fa7ad21647e0))
+
+# [31.14.0](https://github.com/dhis2/dashboard-app/compare/v31.13.10...v31.14.0) (2021-03-11)
+
+
+### Features
+
+* lazily load plugin scripts and dependencies when needed (DHIS2-10518) ([#1546](https://github.com/dhis2/dashboard-app/issues/1546)) ([c13eafe](https://github.com/dhis2/dashboard-app/commit/c13eafee33a1f13636bdd80f4dfe5e1107e97322))
+
 ## [31.13.10](https://github.com/dhis2/dashboard-app/compare/v31.13.9...v31.13.10) (2021-03-10)
 
 
