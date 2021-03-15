@@ -1,5 +1,5 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-// import { EXTENDED_TIMEOUT } from '../../../support/utils'
+import { EXTENDED_TIMEOUT } from '../../../support/utils'
 import { getApiBaseUrl } from '../../../support/server/utils'
 
 import {
@@ -34,12 +34,14 @@ When('I add translations for dashboard name and description', () => {
 })
 
 Then('Norwegian title and description are displayed', () => {
-    cy.get('button').contains('More').click()
-    cy.contains('Show description').click()
-
-    cy.get(dashboardTitleSel)
+    cy.get(dashboardTitleSel, EXTENDED_TIMEOUT)
         .should('be.visible')
         .and('contain', norwegianTitle)
+
+    cy.get('button').contains('More', EXTENDED_TIMEOUT).click()
+
+    cy.contains('Show description').click()
+
     cy.get(dashboardDescriptionSel)
         .should('be.visible')
         .and('contain', norwegianDesc)
