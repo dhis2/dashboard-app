@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
+"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2021\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -55,6 +55,9 @@ msgstr "Avslutt forhåndsvisning av utskrift"
 
 msgid "Print preview"
 msgstr "Utskriftforhåndsvisning"
+
+msgid "Filter settings"
+msgstr "Filterinnstillinger"
 
 msgid "Translate"
 msgstr "Oversett"
@@ -181,20 +184,29 @@ msgstr "Skjul tolkninger og detaljer"
 msgid "Show interpretations and details"
 msgstr "Vis tolkninger og detaljer"
 
-msgid "View as Chart"
-msgstr "Vis som diagram"
-
-msgid "View as Table"
-msgstr "Vis som tabell"
-
-msgid "View as Map"
-msgstr "Vis som kart"
-
 msgid "Open in {{appName}} app"
 msgstr "Åpne i {{appName}} -appen"
 
 msgid "View fullscreen"
 msgstr "Vis fullskjerm"
+
+msgid "View as Chart"
+msgstr "Vis som diagram"
+
+msgid "This map can't be displayed as a chart"
+msgstr ""
+
+msgid "View as Table"
+msgstr "Vis som tabell"
+
+msgid "This map can't be displayed as a table"
+msgstr ""
+
+msgid "View as Map"
+msgstr "Vis som kart"
+
+msgid "There was a problem loading interpretations for this item"
+msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "Kan ikke laste inn plugin-modulen for dette elementet"
@@ -207,6 +219,32 @@ msgstr "Bekreft"
 
 msgid "Add filter"
 msgstr "Legg til filter"
+
+msgid "Allow filtering by all dimensions"
+msgstr "Tillat filtrering etter alle dimensjoner"
+
+msgid "Only allow filtering by selected dimensions"
+msgstr "Tillat bare filtrering etter valgte dimensjoner"
+
+msgid "Dashboard filter settings"
+msgstr "Dashbordfilterinnstillinger"
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+"Dashbord kan filtreres etter dimensjoner for å endre\n"
+"                                         dataene som vises. Som standard er alle dimensjoner tilgjengelige\n"
+"                                         som filtre. Alternativt er det bare valgte dimensjoner som kan\n"
+"                                         gjøres tilgjengelig på et dashbord."
+
+msgid "Available Filters"
+msgstr "Tilgjengelige filtere"
+
+msgid "Selected Filters"
+msgstr "Valgte filtere"
 
 msgid "There are no items on this dashboard"
 msgstr "Det er ingen elementer på dette dashbordet"

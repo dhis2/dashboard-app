@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
+"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: trendspotter, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -54,6 +54,9 @@ msgstr "Ukončit náhled tisku"
 
 msgid "Print preview"
 msgstr "Náhled před tiskem"
+
+msgid "Filter settings"
+msgstr "Nastavení filtru"
 
 msgid "Translate"
 msgstr "Přeložit"
@@ -185,20 +188,29 @@ msgstr "Skrýt interpretace a podrobnosti"
 msgid "Show interpretations and details"
 msgstr "Zobrazit interpretace a podrobnosti"
 
-msgid "View as Chart"
-msgstr "Zobrazit jako graf"
-
-msgid "View as Table"
-msgstr "Zobrazit jako tabulku"
-
-msgid "View as Map"
-msgstr "Zobrazit jako mapu"
-
 msgid "Open in {{appName}} app"
 msgstr "Otevřít v aplikaci {{appName}}"
 
 msgid "View fullscreen"
 msgstr "Zobrazit na celou obrazovku"
+
+msgid "View as Chart"
+msgstr "Zobrazit jako graf"
+
+msgid "This map can't be displayed as a chart"
+msgstr ""
+
+msgid "View as Table"
+msgstr "Zobrazit jako tabulku"
+
+msgid "This map can't be displayed as a table"
+msgstr ""
+
+msgid "View as Map"
+msgstr "Zobrazit jako mapu"
+
+msgid "There was a problem loading interpretations for this item"
+msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "Nelze načíst plugin pro tuto položku"
@@ -211,6 +223,32 @@ msgstr "Potvrdit"
 
 msgid "Add filter"
 msgstr "Přidat filtr"
+
+msgid "Allow filtering by all dimensions"
+msgstr "Povolit filtrování podle všech dimenzí"
+
+msgid "Only allow filtering by selected dimensions"
+msgstr "Povolit filtrování pouze podle vybraných dimenzí"
+
+msgid "Dashboard filter settings"
+msgstr "Nastavení filtru ovládacího panelu"
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+"Ovládací panely lze filtrovat podle dimenzí a měnit jejich\n"
+"                                         zobrazené údaje. Ve výchozím nastavení jsou k dispozici všechny dimenze\n"
+"                                         jako filtry. Alternativně mohou pouze vybrané rozměry\n"
+"                                         být k dispozici na ovládacím panelu."
+
+msgid "Available Filters"
+msgstr "Dostupné filtry"
+
+msgid "Selected Filters"
+msgstr "Vybrané filtry"
 
 msgid "There are no items on this dashboard"
 msgstr "Na tomto ovládacím panelu nejsou žádné položky"

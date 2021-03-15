@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
+"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -52,6 +52,9 @@ msgstr "退出打印预览"
 
 msgid "Print preview"
 msgstr "打印预览"
+
+msgid "Filter settings"
+msgstr "筛选器设定"
 
 msgid "Translate"
 msgstr "翻译"
@@ -169,20 +172,29 @@ msgstr "隐藏注释和详情"
 msgid "Show interpretations and details"
 msgstr "显示注释和详情"
 
-msgid "View as Chart"
-msgstr "查看图表"
-
-msgid "View as Table"
-msgstr "查看表格"
-
-msgid "View as Map"
-msgstr "查看地图"
-
 msgid "Open in {{appName}} app"
 msgstr "在{{appName}} 应用中打开"
 
 msgid "View fullscreen"
 msgstr "全屏查看"
+
+msgid "View as Chart"
+msgstr "查看图表"
+
+msgid "This map can't be displayed as a chart"
+msgstr ""
+
+msgid "View as Table"
+msgstr "查看表格"
+
+msgid "This map can't be displayed as a table"
+msgstr ""
+
+msgid "View as Map"
+msgstr "查看地图"
+
+msgid "There was a problem loading interpretations for this item"
+msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "不能载入该条目的插件"
@@ -195,6 +207,32 @@ msgstr "确认"
 
 msgid "Add filter"
 msgstr "添加过滤器"
+
+msgid "Allow filtering by all dimensions"
+msgstr "允许按所有维度进行过滤"
+
+msgid "Only allow filtering by selected dimensions"
+msgstr "仅允许按选定的维度进行过滤"
+
+msgid "Dashboard filter settings"
+msgstr "仪表板过滤器设置"
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+"仪表板可以按维度进行过滤以进行更改\n"
+"                                         显示的数据。默认情况下，所有尺寸均可用\n"
+"                                         作为过滤器。另外，只有选定的尺寸可以\n"
+"                                         在仪表板上可用。"
+
+msgid "Available Filters"
+msgstr "可用过滤器"
+
+msgid "Selected Filters"
+msgstr "选定的过滤器"
 
 msgid "There are no items on this dashboard"
 msgstr "该仪表盘没有条目"
