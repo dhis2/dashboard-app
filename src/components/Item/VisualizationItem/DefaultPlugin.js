@@ -43,8 +43,7 @@ class DefaultPlugin extends Component {
     reloadPlugin = prevProps => {
         if (
             pluginManager.pluginIsAvailable(
-                this.props.item,
-                this.props.visualization
+                this.props.visualization.activeType || this.props.item.type
             ) &&
             this.shouldPluginReload(prevProps)
         ) {
@@ -77,8 +76,7 @@ class DefaultPlugin extends Component {
 
         if (
             pluginManager.pluginIsAvailable(
-                this.props.item,
-                this.props.visualization
+                this.props.visualization.activeType || this.props.item.type
             )
         ) {
             pluginManager.load(this.props.item, this.props.visualization, {
@@ -98,8 +96,7 @@ class DefaultPlugin extends Component {
     componentWillUnmount() {
         if (
             pluginManager.pluginIsAvailable(
-                this.props.item,
-                this.props.visualization
+                this.props.visualization.activeType || this.props.item.type
             )
         ) {
             pluginManager.unmount(this.props.item, this.getActiveType())
@@ -112,8 +109,7 @@ class DefaultPlugin extends Component {
     render() {
         const { classes, item, visualization, style } = this.props
         const pluginIsAvailable = pluginManager.pluginIsAvailable(
-            item,
-            visualization
+            visualization.activeType || item.type
         )
 
         return pluginIsAvailable ? (
