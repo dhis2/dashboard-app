@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
+"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2021\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -54,6 +54,9 @@ msgstr "Thoát xem trước bản in"
 
 msgid "Print preview"
 msgstr "Xem thử bản in"
+
+msgid "Filter settings"
+msgstr ""
 
 msgid "Translate"
 msgstr "Dịch"
@@ -176,20 +179,29 @@ msgstr "Ẩn các diễn giải và chi tiết"
 msgid "Show interpretations and details"
 msgstr "Hiện các diễn giải và chi tiết"
 
-msgid "View as Chart"
-msgstr "Xem dưới dạng biểu đồ"
-
-msgid "View as Table"
-msgstr "Xem dưới dạng bảng"
-
-msgid "View as Map"
-msgstr "Xem dưới dạng bản đồ"
-
 msgid "Open in {{appName}} app"
 msgstr "Mở trong ứng dụng {{Tên ứng dụng}}"
 
 msgid "View fullscreen"
 msgstr "Xem toàn màn hình"
+
+msgid "View as Chart"
+msgstr "Xem dưới dạng biểu đồ"
+
+msgid "This map can't be displayed as a chart"
+msgstr ""
+
+msgid "View as Table"
+msgstr "Xem dưới dạng bảng"
+
+msgid "This map can't be displayed as a table"
+msgstr ""
+
+msgid "View as Map"
+msgstr "Xem dưới dạng bản đồ"
+
+msgid "There was a problem loading interpretations for this item"
+msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "Không thể tải plugin cho mục này"
@@ -202,6 +214,28 @@ msgstr "Xác nhận"
 
 msgid "Add filter"
 msgstr "Bộ lọc"
+
+msgid "Allow filtering by all dimensions"
+msgstr ""
+
+msgid "Only allow filtering by selected dimensions"
+msgstr ""
+
+msgid "Dashboard filter settings"
+msgstr ""
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+
+msgid "Available Filters"
+msgstr ""
+
+msgid "Selected Filters"
+msgstr ""
 
 msgid "There are no items on this dashboard"
 msgstr "Không có mục nào trong bảng điều khiển này"
