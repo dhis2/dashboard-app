@@ -1,17 +1,21 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import isEmpty from 'lodash/isEmpty'
 
 import i18n from '@dhis2/d2-i18n'
-import { DimensionsPanel } from '@dhis2/analytics'
+import { DimensionsPanel, apiFetchDimensions } from '@dhis2/analytics'
+import { acSetDimensions } from '../../actions/dimensions'
+import { sGetDimensions } from '../../reducers/dimensions'
+import { useDataEngine } from '@dhis2/app-runtime'
+import { useUserSettings } from '../UserSettingsProvider'
+import getFilteredDimensions from '../../modules/getFilteredDimensions'
 
 import { Button, Popover } from '@dhis2/ui'
 import FilterDialog from './FilterDialog'
 
 import { sGetActiveModalDimension } from '../../reducers/activeModalDimension'
-import { sGetDimensions } from '../../reducers/dimensions'
 import { sGetItemFiltersRoot } from '../../reducers/itemFilters'
 import {
     acClearActiveModalDimension,
@@ -22,6 +26,31 @@ import classes from './styles/FilterSelector.module.css'
 
 const FilterSelector = props => {
     const [showPopover, setShowPopover] = useState(false)
+    const dataEngine = useDataEngine()
+    const { userSettings } = useUserSettings()
+
+    useEffect(() => {
+        const fetchDimensions = async () => {
+            try {
+                const dimensions = await apiFetchDimensions(
+                    dataEngine,
+                    userSettings.keyAnalysisDisplayProperty
+                )
+
+                props.setDimensions(getFilteredDimensions(dimensions))
+            } catch (e) {
+                console.error(e)
+            }
+        }
+
+        if (
+            userSettings.keyAnalysisDisplayProperty &&
+            showPopover === true &&
+            !props.dimensions.length
+        ) {
+            fetchDimensions()
+        }
+    }, [userSettings, showPopover, props.dimensions])
 
     const ref = useRef(null)
 
@@ -47,7 +76,7 @@ const FilterSelector = props => {
         }
     }
 
-    return isEmpty(filterDimensions()) ? null : (
+    return props.restrictFilters && !props.allowedFilters ? null : (
         <>
             <span className={classes.buttonContainer} ref={ref}>
                 <Button onClick={() => setShowPopover(true)}>
@@ -99,9 +128,11 @@ FilterSelector.propTypes = {
     initiallySelectedItems: PropTypes.object,
     restrictFilters: PropTypes.bool,
     setActiveModalDimension: PropTypes.func,
+    setDimensions: PropTypes.func,
 }
 
 export default connect(mapStateToProps, {
     clearActiveModalDimension: acClearActiveModalDimension,
     setActiveModalDimension: acSetActiveModalDimension,
+    setDimensions: acSetDimensions,
 })(FilterSelector)

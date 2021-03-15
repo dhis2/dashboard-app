@@ -19,7 +19,6 @@ import {
 } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
 import { tDeleteDashboard } from '../../actions/dashboards'
-import { sGetDimensions } from '../../reducers/dimensions'
 import {
     sGetEditDashboardRoot,
     sGetIsNewDashboard,
@@ -152,7 +151,6 @@ const EditBar = props => {
     const filterSettingsDialog = () =>
         dashboard || props.newDashboard ? (
             <FilterSettingsDialog
-                dimensions={props.dimensions}
                 restrictFilters={props.restrictFilters}
                 initiallySelectedItems={props.allowedFilters}
                 onClose={toggleFilterSettingsDialog}
@@ -222,7 +220,6 @@ EditBar.propTypes = {
     dashboardId: PropTypes.string,
     dashboardName: PropTypes.string,
     deleteAccess: PropTypes.bool,
-    dimensions: PropTypes.array,
     isPrintPreviewView: PropTypes.bool,
     newDashboard: PropTypes.bool,
     restrictFilters: PropTypes.bool,
@@ -254,7 +251,6 @@ const mapStateToProps = state => {
         dashboardId: dashboard.id,
         dashboardName: dashboard.name,
         deleteAccess,
-        dimensions: sGetDimensions(state),
         newDashboard,
         restrictFilters: dashboard.restrictFilters,
         isPrintPreviewView: sGetIsPrintPreviewView(state),
