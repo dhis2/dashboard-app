@@ -9,7 +9,7 @@ import { useUserSettings } from '../components/UserSettingsProvider'
 
 const useDimensions = doFetch => {
     const dataEngine = useDataEngine()
-    const { keyAnalysisDisplayProperty } = useUserSettings().userSettings
+    const { userSettings } = useUserSettings()
     const dimensions = useSelector(state => state.dimensions)
     const dispatch = useDispatch()
 
@@ -18,7 +18,7 @@ const useDimensions = doFetch => {
             try {
                 const unfilteredDimensions = await apiFetchDimensions(
                     dataEngine,
-                    keyAnalysisDisplayProperty
+                    userSettings.keyAnalysisDisplayProperty
                 )
 
                 dispatch(
@@ -29,10 +29,14 @@ const useDimensions = doFetch => {
             }
         }
 
-        if (!dimensions.length && doFetch && keyAnalysisDisplayProperty) {
+        if (
+            !dimensions.length &&
+            doFetch &&
+            userSettings.keyAnalysisDisplayProperty
+        ) {
             fetchDimensions()
         }
-    }, [dimensions, doFetch, keyAnalysisDisplayProperty])
+    }, [dimensions, doFetch, userSettings.keyAnalysisDisplayProperty])
 
     return dimensions
 }

@@ -11,12 +11,35 @@ import { createMemoryHistory } from 'history'
 import EditBar from '../EditBar'
 import { apiFetchDashboard } from '../../../api/fetchDashboard'
 import { acClearEditDashboard } from '../../../actions/editDashboard'
+// import { useUserSettings } from '../../UserSettingsProvider'
 
 const mockStore = configureMockStore()
 
 jest.mock('@dhis2/app-runtime-adapter-d2')
 jest.mock('@dhis2/app-runtime')
 jest.mock('../../../api/fetchDashboard')
+
+// jest.mock('../../UserSettingsProvider', () => ({
+//     useUserSettings: () => ({
+//         userSettings: {
+//             keyAnalysisDisplayProperty: 'displayName',
+//         },
+//     }),
+// }))
+
+// const mockUserSettings = {
+//     userSettings: {
+//         keyAnalysisDisplayProperty: 'displayName',
+//     },
+// }
+
+jest.mock(
+    '../../ItemFilter/FilterSettingsDialog',
+    () =>
+        function MockFilterSettingsDialog() {
+            return <div className="mock-filter-settings-dialog" />
+        }
+)
 
 jest.mock(
     '@dhis2/d2-ui-translation-dialog',
