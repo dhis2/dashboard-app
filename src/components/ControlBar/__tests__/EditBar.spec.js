@@ -19,20 +19,6 @@ jest.mock('@dhis2/app-runtime-adapter-d2')
 jest.mock('@dhis2/app-runtime')
 jest.mock('../../../api/fetchDashboard')
 
-// jest.mock('../../UserSettingsProvider', () => ({
-//     useUserSettings: () => ({
-//         userSettings: {
-//             keyAnalysisDisplayProperty: 'displayName',
-//         },
-//     }),
-// }))
-
-// const mockUserSettings = {
-//     userSettings: {
-//         keyAnalysisDisplayProperty: 'displayName',
-//     },
-// }
-
 jest.mock(
     '../../ItemFilter/FilterSettingsDialog',
     () =>
