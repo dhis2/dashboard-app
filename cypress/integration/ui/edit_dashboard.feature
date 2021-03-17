@@ -39,15 +39,14 @@ Feature: Creating, editing and deleting dashboard
         And the chart item is displayed
         Then no analytics requests are made when item is moved
 
-    # TODO: enable test when https://github.com/dhis2/dhis2-core/pull/7538 is released
-    # @mutating
-    # Scenario: I add translations to a dashboard and save dashboard
-    #     Given instance has db language set to Norwegian
-    #     Given I open existing dashboard
-    #     When I choose to edit dashboard
-    #     And I add translations for dashboard name and description
-    #     And dashboard is saved
-    #     Then Norwegian title and description are displayed
+    @mutating
+    Scenario: I add translations to a dashboard and save dashboard
+        Given instance has db language set to Norwegian
+        Given I open existing dashboard
+        When I choose to edit dashboard
+        And I add translations for dashboard name and description
+        And dashboard is saved
+        Then Norwegian title and description are displayed
 
     @mutating
     Scenario: I add translations to a dashboard and discard dashboard changes
@@ -63,9 +62,7 @@ Feature: Creating, editing and deleting dashboard
         Given I open existing dashboard
         When I change sharing settings
         And I choose to edit dashboard
-        And I click Exit without saving
-        # TODO: replace above step with below step when saving dashboard with skipSharing is fixed
-        # And dashboard is saved
+        And dashboard is saved
         Then the new sharing settings should be preserved
 
     @nonmutating
