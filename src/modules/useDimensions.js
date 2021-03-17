@@ -7,9 +7,9 @@ import { useDataEngine } from '@dhis2/app-runtime'
 import getFilteredDimensions from './getFilteredDimensions'
 import { useUserSettings } from '../components/UserSettingsProvider'
 
-const useDimensions = (open = true) => {
+const useDimensions = doFetch => {
     const dataEngine = useDataEngine()
-    const { userSettings } = useUserSettings()
+    const { keyAnalysisDisplayProperty } = useUserSettings().userSettings
     const dimensions = useSelector(state => state.dimensions)
     const dispatch = useDispatch()
 
@@ -18,7 +18,7 @@ const useDimensions = (open = true) => {
             try {
                 const unfilteredDimensions = await apiFetchDimensions(
                     dataEngine,
-                    userSettings.keyAnalysisDisplayProperty
+                    keyAnalysisDisplayProperty
                 )
 
                 dispatch(
@@ -29,14 +29,10 @@ const useDimensions = (open = true) => {
             }
         }
 
-        if (
-            userSettings.keyAnalysisDisplayProperty &&
-            open === true &&
-            !dimensions.length
-        ) {
+        if (!dimensions.length && doFetch && keyAnalysisDisplayProperty) {
             fetchDimensions()
         }
-    }, [userSettings, open, dimensions])
+    }, [dimensions, doFetch, keyAnalysisDisplayProperty])
 
     return dimensions
 }

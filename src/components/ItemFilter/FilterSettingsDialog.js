@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { DIMENSION_ID_PERIOD, DIMENSION_ID_ORGUNIT } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
@@ -11,8 +12,6 @@ import {
     Radio,
     Transfer,
 } from '@dhis2/ui'
-import { DIMENSION_ID_PERIOD, DIMENSION_ID_ORGUNIT } from '@dhis2/analytics'
-
 import useDimensions from '../../modules/useDimensions'
 
 import classes from './styles/FilterSettingsDialog.module.css'
@@ -67,7 +66,6 @@ const FilterSettingsDialog = ({
 }) => {
     const [selected, setSelected] = useState(initiallySelectedItems)
     const [filtersSelectable, setFiltersSelectable] = useState(restrictFilters)
-    console.log('>> jj FilterSettingsDialog', open)
     const dimensions = useDimensions(open)
 
     const updateFilterDimensionRestrictability = val => {
