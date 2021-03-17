@@ -1,11 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import {
-    DIMENSION_ID_PERIOD,
-    DIMENSION_ID_ORGUNIT,
-    apiFetchDimensions,
-} from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
@@ -17,12 +11,9 @@ import {
     Radio,
     Transfer,
 } from '@dhis2/ui'
+import { DIMENSION_ID_PERIOD, DIMENSION_ID_ORGUNIT } from '@dhis2/analytics'
 
-import { acSetDimensions } from '../../actions/dimensions'
-import { sGetDimensions } from '../../reducers/dimensions'
-import { useDataEngine } from '@dhis2/app-runtime'
-import { useUserSettings } from '../UserSettingsProvider'
-import getFilteredDimensions from '../../modules/getFilteredDimensions'
+import useDimensions from '../../modules/useDimensions'
 
 import classes from './styles/FilterSettingsDialog.module.css'
 
@@ -68,41 +59,16 @@ RadioOptions.propTypes = {
 }
 
 const FilterSettingsDialog = ({
-    dimensions,
     restrictFilters,
     initiallySelectedItems,
     onClose,
     onConfirm,
     open,
-    setDimensions,
 }) => {
     const [selected, setSelected] = useState(initiallySelectedItems)
     const [filtersSelectable, setFiltersSelectable] = useState(restrictFilters)
-    const dataEngine = useDataEngine()
-    const { userSettings } = useUserSettings()
-
-    useEffect(() => {
-        const fetchDimensions = async () => {
-            try {
-                const dimensions = await apiFetchDimensions(
-                    dataEngine,
-                    userSettings.keyAnalysisDisplayProperty
-                )
-
-                setDimensions(getFilteredDimensions(dimensions))
-            } catch (e) {
-                console.error(e)
-            }
-        }
-
-        if (
-            open &&
-            userSettings.keyAnalysisDisplayProperty &&
-            !dimensions.length
-        ) {
-            fetchDimensions()
-        }
-    }, [filtersSelectable, open, dimensions, userSettings])
+    console.log('>> jj FilterSettingsDialog', open)
+    const dimensions = useDimensions(open)
 
     const updateFilterDimensionRestrictability = val => {
         if (val) {
@@ -223,19 +189,11 @@ const FilterSettingsDialog = ({
 }
 
 FilterSettingsDialog.propTypes = {
-    dimensions: PropTypes.array,
     initiallySelectedItems: PropTypes.array,
     open: PropTypes.bool,
     restrictFilters: PropTypes.bool,
-    setDimensions: PropTypes.func,
     onClose: PropTypes.func,
     onConfirm: PropTypes.func,
 }
 
-const mapStateToProps = state => ({
-    dimensions: sGetDimensions(state),
-})
-
-export default connect(mapStateToProps, {
-    setDimensions: acSetDimensions,
-})(FilterSettingsDialog)
+export default FilterSettingsDialog

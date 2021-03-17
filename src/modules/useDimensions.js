@@ -1,26 +1,17 @@
-import { useState, useEffect } from 'react'
-import {
-    apiFetchDimensions,
-    getDimensionById,
-    DIMENSION_ID_PERIOD,
-    DIMENSION_ID_ORGUNIT,
-} from '@dhis2/analytics'
+import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { acSetDimensions } from '../actions/dimensions'
+import { apiFetchDimensions } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
 
 import getFilteredDimensions from './getFilteredDimensions'
 import { useUserSettings } from '../components/UserSettingsProvider'
 
-const PE_OU_DIMENSIONS = [
-    getDimensionById(DIMENSION_ID_PERIOD),
-    getDimensionById(DIMENSION_ID_ORGUNIT),
-]
-
-let theDimensions = []
-
 const useDimensions = (open = true) => {
-    const [dimensions, setDimensions] = useState(theDimensions) // eslint-disable-line
     const dataEngine = useDataEngine()
     const { userSettings } = useUserSettings()
+    const dimensions = useSelector(state => state.dimensions)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         const fetchDimensions = async () => {
@@ -30,11 +21,9 @@ const useDimensions = (open = true) => {
                     userSettings.keyAnalysisDisplayProperty
                 )
 
-                theDimensions = PE_OU_DIMENSIONS.concat(
-                    getFilteredDimensions(unfilteredDimensions)
+                dispatch(
+                    acSetDimensions(getFilteredDimensions(unfilteredDimensions))
                 )
-
-                setDimensions(theDimensions)
             } catch (e) {
                 console.error(e)
             }
@@ -43,13 +32,13 @@ const useDimensions = (open = true) => {
         if (
             userSettings.keyAnalysisDisplayProperty &&
             open === true &&
-            !theDimensions.length
+            !dimensions.length
         ) {
             fetchDimensions()
         }
-    }, [userSettings, open, theDimensions])
+    }, [userSettings, open, dimensions])
 
-    return theDimensions
+    return dimensions
 }
 
 export default useDimensions
