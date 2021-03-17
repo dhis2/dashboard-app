@@ -12,6 +12,7 @@ import {
     Radio,
     Transfer,
 } from '@dhis2/ui'
+import useDimensions from '../../modules/useDimensions'
 
 import classes from './styles/FilterSettingsDialog.module.css'
 
@@ -57,7 +58,6 @@ RadioOptions.propTypes = {
 }
 
 const FilterSettingsDialog = ({
-    dimensions,
     restrictFilters,
     initiallySelectedItems,
     onClose,
@@ -66,6 +66,7 @@ const FilterSettingsDialog = ({
 }) => {
     const [selected, setSelected] = useState(initiallySelectedItems)
     const [filtersSelectable, setFiltersSelectable] = useState(restrictFilters)
+    const dimensions = useDimensions(open)
 
     const updateFilterDimensionRestrictability = val => {
         if (val) {
@@ -186,7 +187,6 @@ const FilterSettingsDialog = ({
 }
 
 FilterSettingsDialog.propTypes = {
-    dimensions: PropTypes.array,
     initiallySelectedItems: PropTypes.array,
     open: PropTypes.bool,
     restrictFilters: PropTypes.bool,
