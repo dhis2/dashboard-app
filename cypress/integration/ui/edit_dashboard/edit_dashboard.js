@@ -33,10 +33,6 @@ const getRouteFromHash = hash => {
     return hash.slice(lastSlashIdx + 1)
 }
 
-// const toggleShowMoreButton = () => {
-//     cy.get('[data-test="showmore-button"]').click()
-// }
-
 /*
 Scenario: I create a new dashboard
 */
@@ -91,7 +87,6 @@ Then('different dashboard displays in view mode', () => {
 })
 
 Given('I open existing dashboard', () => {
-    // toggleShowMoreButton()
     cy.get(dashboardChipSel, EXTENDED_TIMEOUT)
         .contains(TEST_DASHBOARD_TITLE)
         .click()
@@ -132,7 +127,6 @@ When('I confirm delete', () => {
 })
 
 Then('the dashboard is deleted and first starred dashboard displayed', () => {
-    // toggleShowMoreButton()
     cy.get(dashboardChipSel).contains(TEST_DASHBOARD_TITLE).should('not.exist')
 
     cy.get('[data-test="view-dashboard-title"]')
