@@ -11,7 +11,6 @@ import { createMemoryHistory } from 'history'
 import EditBar from '../EditBar'
 import { apiFetchDashboard } from '../../../api/fetchDashboard'
 import { acClearEditDashboard } from '../../../actions/editDashboard'
-// import { useUserSettings } from '../../UserSettingsProvider'
 
 const mockStore = configureMockStore()
 
