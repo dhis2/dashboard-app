@@ -12,7 +12,6 @@ import { acReceivedUser } from '../actions/user'
 import { tFetchDashboards } from '../actions/dashboards'
 import { tSetControlBarRows } from '../actions/controlBar'
 import { tSetShowDescription } from '../actions/selected'
-import { acSetDimensions } from '../actions/dimensions'
 
 import {
     EDIT,
@@ -92,7 +91,6 @@ App.propTypes = {
     fetchDashboards: PropTypes.func.isRequired,
     setControlBarRows: PropTypes.func.isRequired,
     setCurrentUser: PropTypes.func.isRequired,
-    setDimensions: PropTypes.func.isRequired,
     setShowDescription: PropTypes.func.isRequired,
 }
 
@@ -100,7 +98,6 @@ const mapDispatchToProps = {
     fetchDashboards: tFetchDashboards,
     setControlBarRows: tSetControlBarRows,
     setCurrentUser: acReceivedUser,
-    setDimensions: acSetDimensions,
     setShowDescription: tSetShowDescription,
 }
 
