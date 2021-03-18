@@ -24,7 +24,7 @@
     /* print variables */
     /* for A4 landscape (297x210mm) */
     /* (29.7 /2.54) * 96 pixels/inch = 1123px */
-    --a4-landscape-width-px: 1123px;
+    --a4-landscape-width-px: 1102px;
 }
 
 body {
