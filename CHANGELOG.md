@@ -1,3 +1,18 @@
+## [31.14.5](https://github.com/dhis2/dashboard-app/compare/v31.14.4...v31.14.5) (2021-03-18)
+
+
+### Bug Fixes
+
+* ctrl bar covered sharing dialog and cypress tests [DHIS2-10691] ([#1652](https://github.com/dhis2/dashboard-app/issues/1652)) ([b18069b](https://github.com/dhis2/dashboard-app/commit/b18069b2afb6cbb112f3310b469f2a85a8679fa9))
+
+## [31.14.4](https://github.com/dhis2/dashboard-app/compare/v31.14.3...v31.14.4) (2021-03-17)
+
+
+### Bug Fixes
+
+* do not request current dashboard when NEW route ([#1655](https://github.com/dhis2/dashboard-app/issues/1655)) ([b31124a](https://github.com/dhis2/dashboard-app/commit/b31124a2a70c81abd0c17df5b89c692520fa0ae7))
+* only request dimensions when needed ([#1654](https://github.com/dhis2/dashboard-app/issues/1654)) ([36eec71](https://github.com/dhis2/dashboard-app/commit/36eec715efdbfd55eae392928cdad91c2acf8a29))
+
 ## [31.14.3](https://github.com/dhis2/dashboard-app/compare/v31.14.2...v31.14.3) (2021-03-12)
 
 

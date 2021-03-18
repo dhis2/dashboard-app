@@ -4,19 +4,14 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { CssVariables } from '@dhis2/ui'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-import { apiFetchDimensions } from '@dhis2/analytics'
-import { useDataEngine } from '@dhis2/app-runtime'
 
 import Dashboard from './Dashboard/Dashboard'
 import AlertBar from './AlertBar/AlertBar'
-import { useUserSettings } from './UserSettingsProvider'
 
 import { acReceivedUser } from '../actions/user'
 import { tFetchDashboards } from '../actions/dashboards'
 import { tSetControlBarRows } from '../actions/controlBar'
 import { tSetShowDescription } from '../actions/selected'
-import { acSetDimensions } from '../actions/dimensions'
-import getFilteredDimensions from '../modules/getFilteredDimensions'
 
 import {
     EDIT,
@@ -30,8 +25,6 @@ import './App.css'
 
 const App = props => {
     const { d2 } = useD2()
-    const dataEngine = useDataEngine()
-    const { userSettings } = useUserSettings()
 
     useEffect(() => {
         props.setCurrentUser(d2.currentUser)
@@ -49,25 +42,6 @@ const App = props => {
             `${headerbarHeight}px`
         )
     }, [])
-
-    useEffect(() => {
-        const fetchDimensions = async () => {
-            try {
-                const dimensions = await apiFetchDimensions(
-                    dataEngine,
-                    userSettings.keyAnalysisDisplayProperty
-                )
-
-                props.setDimensions(getFilteredDimensions(dimensions))
-            } catch (e) {
-                console.error(e)
-            }
-        }
-
-        if (userSettings.keyAnalysisDisplayProperty) {
-            fetchDimensions()
-        }
-    }, [userSettings])
 
     return (
         <>
@@ -117,7 +91,6 @@ App.propTypes = {
     fetchDashboards: PropTypes.func.isRequired,
     setControlBarRows: PropTypes.func.isRequired,
     setCurrentUser: PropTypes.func.isRequired,
-    setDimensions: PropTypes.func.isRequired,
     setShowDescription: PropTypes.func.isRequired,
 }
 
@@ -125,7 +98,6 @@ const mapDispatchToProps = {
     fetchDashboards: tFetchDashboards,
     setControlBarRows: tSetControlBarRows,
     setCurrentUser: acReceivedUser,
-    setDimensions: acSetDimensions,
     setShowDescription: tSetShowDescription,
 }
 
