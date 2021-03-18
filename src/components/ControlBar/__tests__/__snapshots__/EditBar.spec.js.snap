@@ -62,6 +62,9 @@ exports[`renders Save and Discard buttons but no dialogs when no dashboard id 1`
       </button>
     </div>
   </div>
+  <div
+    class="mock-filter-settings-dialog"
+  />
 </div>
 `;
 
