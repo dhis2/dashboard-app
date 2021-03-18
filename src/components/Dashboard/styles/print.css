@@ -16,7 +16,7 @@ header.hidden {
 }
 
 .react-grid-item.PAGEBREAK {
-    width: 1120px !important;
+    width: calc(var(--a4-landscape-width-px) + 10px) !important;
     border: none !important;
     box-shadow: none !important;
     background-color: #f4f6f8;

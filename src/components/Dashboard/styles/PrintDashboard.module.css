@@ -11,7 +11,7 @@
 }
 
 .pageOuter {
-    padding: var(--spacers-dp12);
+    padding: 0 var(--spacers-dp12) 0 14px;
     background-color: white;
     border-radius: 3px;
     box-shadow: 0px 0px 3px 0px var(--colors-grey500);

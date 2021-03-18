@@ -18,6 +18,8 @@ import 'react-resizable/css/styles.css'
 
 import './styles/ItemGrid.css'
 
+const PAGE_PADDING_PX = 24
+
 const StaticGrid = ({
     layout,
     children,
@@ -34,7 +36,7 @@ const StaticGrid = ({
     }
 
     const style = window.getComputedStyle(document.documentElement)
-    const printWidthPx = parseInt(
+    const pageWidthPx = parseInt(
         style.getPropertyValue('--a4-landscape-width-px').replace('px', '')
     )
 
@@ -51,7 +53,7 @@ const StaticGrid = ({
                 margin={MARGIN_PX}
                 cols={GRID_COLUMNS}
                 rowHeight={GRID_ROW_HEIGHT_PX}
-                width={printWidthPx - 20}
+                width={pageWidthPx - PAGE_PADDING_PX}
                 compactType={GRID_COMPACT_TYPE}
                 isDraggable={false}
                 isResizable={false}
