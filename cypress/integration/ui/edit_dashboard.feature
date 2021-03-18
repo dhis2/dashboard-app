@@ -24,6 +24,7 @@ Feature: Creating, editing and deleting dashboard
     @mutating
     Scenario: I toggle show description
         Given I open existing dashboard
+        # And the description is not shown
         Then dashboard displays in view mode
         And the dashboard description is not displayed
         When I click to show description
@@ -41,7 +42,6 @@ Feature: Creating, editing and deleting dashboard
 
     @mutating
     Scenario: I add translations to a dashboard and save dashboard
-        Given instance has db language set to Norwegian
         Given I open existing dashboard
         When I choose to edit dashboard
         And I add translations for dashboard name and description
@@ -50,7 +50,6 @@ Feature: Creating, editing and deleting dashboard
 
     @mutating
     Scenario: I add translations to a dashboard and discard dashboard changes
-        Given instance has db language set to Norwegian
         Given I open existing dashboard
         When I choose to edit dashboard
         And I add translations for dashboard name and description

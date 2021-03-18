@@ -19,7 +19,9 @@ When('I change sharing settings', () => {
 })
 
 Then('the new sharing settings should be preserved', () => {
+    cy.visit('/')
     cy.get(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
+    cy.get('button').contains('Share', EXTENDED_TIMEOUT).should('be.visible')
     cy.get('button').contains('Share', EXTENDED_TIMEOUT).click()
 
     cy.get('hr').should('have.length', 4)
