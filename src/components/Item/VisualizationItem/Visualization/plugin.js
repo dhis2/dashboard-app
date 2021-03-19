@@ -31,7 +31,7 @@ const getPlugin = async type => {
     }
     const pluginName = itemTypeToGlobalVariable[type]
 
-    return global[pluginName]
+    return await global[pluginName]
 }
 
 const fetchPlugin = async (type, baseUrl) => {
@@ -59,6 +59,7 @@ const fetchPlugin = async (type, baseUrl) => {
     const scriptsPromise = Promise.all(scripts.map(loadExternalScript)).then(
         () => global[globalName] // At this point, has been replaced with the real thing
     )
+
     global[globalName] = scriptsPromise
     return await scriptsPromise
 }
@@ -66,7 +67,7 @@ const fetchPlugin = async (type, baseUrl) => {
 export const pluginIsAvailable = type =>
     hasIntegratedPlugin(type) || itemTypeToGlobalVariable[type]
 
-export const loadPlugin = async (type, config, credentials) => {
+const loadPlugin = async (type, config, credentials) => {
     if (!pluginIsAvailable(type)) {
         return
     }
@@ -107,16 +108,15 @@ export const load = async (
     await loadPlugin(type, config, credentials)
 }
 
-export const resize = (id, type, isFullscreen = false) => {
-    const plugin = getPlugin(type)
-
+export const resize = async (id, type, isFullscreen = false) => {
+    const plugin = await getPlugin(type)
     if (plugin?.resize) {
         plugin.resize(getGridItemDomId(id), isFullscreen)
     }
 }
 
-export const unmount = (item, activeType) => {
-    const plugin = getPlugin(activeType)
+export const unmount = async (item, activeType) => {
+    const plugin = await getPlugin(activeType)
 
     if (plugin && plugin.unmount) {
         plugin.unmount(getGridItemDomId(item.id))
