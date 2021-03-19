@@ -15,7 +15,7 @@
         "@dhis2/d2-ui-rich-text": "^7.1.6",
         "@dhis2/d2-ui-sharing-dialog": "^7.1.6",
         "@dhis2/d2-ui-translation-dialog": "^7.1.6",
-        "@dhis2/data-visualizer-plugin": "^35.20.19",
+        "@dhis2/data-visualizer-plugin": "^35.20.20",
         "@dhis2/ui": "^6.5.5",
         "@material-ui/core": "^3.9.2",
         "@material-ui/icons": "^4.9.1",
