@@ -21,10 +21,7 @@ import {
 } from '../../../reducers/itemFilters'
 import { acAddVisualization } from '../../../actions/visualizations'
 import { acSetSelectedItemActiveType } from '../../../actions/selected'
-import {
-    pluginIsAvailable,
-    resize as pluginResize,
-} from './Visualization/plugin'
+import { pluginIsAvailable } from './Visualization/plugin'
 import { getDataStatisticsName } from '../../../modules/itemTypes'
 import { getVisualizationId, getVisualizationName } from '../../../modules/item'
 import memoizeOne from '../../../modules/memoizeOne'
@@ -136,12 +133,6 @@ export class Item extends Component {
                     10
                 )
             }
-            // call resize on Map item
-            pluginResize(
-                this.props.item.id,
-                this.getActiveType(),
-                this.state.isFullscreen
-            )
         }
     }
 
@@ -150,21 +141,12 @@ export class Item extends Component {
         return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
     }
 
-    handleFullscreenChange = () => {
-        this.setState(
-            {
-                isFullscreen:
-                    !!document.fullscreenElement ||
-                    !!document.webkitFullscreenElement,
-            },
-            () =>
-                pluginResize(
-                    this.props.item.id,
-                    this.getActiveType(),
-                    this.state.isFullscreen
-                )
-        )
-    }
+    handleFullscreenChange = () =>
+        this.setState({
+            isFullscreen:
+                !!document.fullscreenElement ||
+                !!document.webkitFullscreenElement,
+        })
 
     onToggleFullscreen = () => {
         if (!this.state.isFullscreen) {
@@ -289,6 +271,8 @@ export class Item extends Component {
                                             dimensions
                                         )}
                                         availableWidth={this.getAvailableWidth()}
+                                        isFullscreen={this.state.isFullscreen}
+                                        gridWidth={this.props.gridWidth}
                                     />
                                 )}
                             </WindowDimensionsCtx.Consumer>

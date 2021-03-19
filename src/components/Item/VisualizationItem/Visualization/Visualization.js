@@ -32,14 +32,7 @@ class Visualization extends React.Component {
     }
 
     render() {
-        const {
-            visualization,
-            activeType,
-            item,
-            itemFilters,
-            availableHeight,
-            availableWidth,
-        } = this.props
+        const { visualization, activeType, item, itemFilters } = this.props
 
         if (!visualization) {
             return (
@@ -49,9 +42,9 @@ class Visualization extends React.Component {
             )
         }
 
-        const style = { height: availableHeight }
-        if (availableWidth) {
-            style.width = availableWidth
+        const style = { height: this.props.availableHeight }
+        if (this.props.availableWidth) {
+            style.width = this.props.availableWidth
         }
 
         const pluginProps = {
@@ -64,6 +57,7 @@ class Visualization extends React.Component {
                 item.type,
                 activeType
             ),
+            ...this.props,
         }
 
         switch (activeType) {
