@@ -29,7 +29,7 @@ export const loadExternalScript = src => {
         element.onload = () => {
             console.log(`Dynamic Script Loaded: ${src}`)
             try {
-                return resolve()
+                resolve()
             } catch (e) {
                 cleanup()
                 reject()
