@@ -32,7 +32,13 @@ class Visualization extends React.Component {
     }
 
     render() {
-        const { visualization, activeType, item, itemFilters } = this.props
+        const {
+            visualization,
+            activeType,
+            item,
+            itemFilters,
+            ...rest
+        } = this.props
 
         if (!visualization) {
             return (
@@ -57,7 +63,7 @@ class Visualization extends React.Component {
                 item.type,
                 activeType
             ),
-            ...this.props,
+            ...rest,
         }
 
         switch (activeType) {
