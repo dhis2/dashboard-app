@@ -104,11 +104,10 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
 
     const getItemComponents = items => items.map(item => getItemComponent(item))
 
-    const onWidthChanged = containerWidth => {
+    const onWidthChanged = containerWidth =>
         setTimeout(() => {
             setGridWidth(containerWidth)
         }, 200)
-    }
 
     if (!isLoading && !dashboardItems.length) {
         return (

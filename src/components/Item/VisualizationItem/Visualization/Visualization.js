@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 
-import DefaultPlugin from './DefaultPlugin'
+import LegacyPlugin from './LegacyPlugin'
 import MapPlugin from './MapPlugin'
 import DataVisualizerPlugin from './DataVisualizerPlugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
@@ -91,7 +91,7 @@ class Visualization extends React.Component {
                 return pluginIsAvailable(
                     pluginProps.activeType || pluginProps.item.type
                 ) ? (
-                    <DefaultPlugin {...pluginProps} />
+                    <LegacyPlugin {...pluginProps} />
                 ) : (
                     <NoVisualizationMessage
                         message={i18n.t(

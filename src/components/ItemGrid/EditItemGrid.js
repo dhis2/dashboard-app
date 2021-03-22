@@ -53,12 +53,14 @@ const EditItemGrid = ({
     const onResizeStop = (layout, oldItem, newItem) => {
         const el =
             document.querySelector(`#${getGridItemDomId(newItem.i)}`) || {}
-        if (typeof el.setViewportSize === 'function')
+
+        if (typeof el.setViewportSize === 'function') {
             setTimeout(
                 () =>
                     el.setViewportSize(el.clientWidth - 5, el.clientHeight - 5),
                 10
             )
+        }
 
         const dashboardItem = dashboardItems.find(item => item.id === newItem.i)
 
@@ -80,11 +82,10 @@ const EditItemGrid = ({
 
     const getItemComponents = items => items.map(item => getItemComponent(item))
 
-    const onWidthChanged = containerWidth => {
+    const onWidthChanged = containerWidth =>
         setTimeout(() => {
             setGridWidth(containerWidth)
         }, 200)
-    }
 
     if (!isLoading && !dashboardItems.length) {
         return (
