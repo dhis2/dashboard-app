@@ -1,3 +1,12 @@
+## [31.14.6](https://github.com/dhis2/dashboard-app/compare/v31.14.5...v31.14.6) (2021-03-22)
+
+
+### Bug Fixes
+
+* avoid double rendering of chart visualizations ([#1658](https://github.com/dhis2/dashboard-app/issues/1658)) ([613ae75](https://github.com/dhis2/dashboard-app/commit/613ae754af8d598d1029c6bdfebf85e3840a1e39))
+* maps, ev and er were not resizing for fullscreen or item resize in edit mode ([#1659](https://github.com/dhis2/dashboard-app/issues/1659)) ([c56b562](https://github.com/dhis2/dashboard-app/commit/c56b56212f46d7af8484c9dbc64b2cf40402eb36))
+* maximum grid width was hanging past right edge of paper in print preview ([#1657](https://github.com/dhis2/dashboard-app/issues/1657)) ([7faf5c2](https://github.com/dhis2/dashboard-app/commit/7faf5c2912d406f0e1c413632206863223fbb091))
+
 ## [31.14.5](https://github.com/dhis2/dashboard-app/compare/v31.14.4...v31.14.5) (2021-03-18)
 
 
