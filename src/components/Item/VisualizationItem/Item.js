@@ -8,6 +8,9 @@ import FatalErrorBoundary from './FatalErrorBoundary'
 import ItemHeader from '../ItemHeader/ItemHeader'
 import ItemContextMenu from './ItemContextMenu/ItemContextMenu'
 import ItemFooter from './ItemFooter'
+import { pluginIsAvailable } from './Visualization/plugin'
+import memoizeOne from './memoizeOne'
+
 import { WindowDimensionsCtx } from '../../WindowDimensionsProvider'
 import { SystemSettingsCtx } from '../../SystemSettingsProvider'
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
@@ -21,15 +24,13 @@ import {
 } from '../../../reducers/itemFilters'
 import { acAddVisualization } from '../../../actions/visualizations'
 import { acSetSelectedItemActiveType } from '../../../actions/selected'
-import { pluginIsAvailable } from './Visualization/plugin'
 import { getDataStatisticsName } from '../../../modules/itemTypes'
 import { getVisualizationId, getVisualizationName } from '../../../modules/item'
-import memoizeOne from '../../../modules/memoizeOne'
 import {
     isEditMode,
     isPrintMode,
     isViewMode,
-} from '../../Dashboard/dashboardModes'
+} from '../../../modules/dashboardModes'
 import { getItemHeightPx } from '../../../modules/gridUtil'
 
 export class Item extends Component {

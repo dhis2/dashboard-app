@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import NotInterestedIcon from '@material-ui/icons/NotInterested'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import ItemHeader from '../ItemHeader/ItemHeader'
-import Line from '../../../widgets/Line'
+import Line from '../../Line'
 
 import { FILTER_ORG_UNIT } from '../../../actions/itemFilters'
 import {
@@ -12,7 +12,7 @@ import {
     DEFAULT_STATE_ITEM_FILTERS,
 } from '../../../reducers/itemFilters'
 
-import { EDIT, isEditMode } from '../../Dashboard/dashboardModes'
+import { EDIT, isEditMode } from '../../../modules/dashboardModes'
 
 const getIframeSrc = (appDetails, item, itemFilters) => {
     let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`

@@ -8,7 +8,7 @@ import {
 } from '../../../../modules/itemTypes'
 import { getVisualizationId } from '../../../../modules/item'
 import getGridItemDomId from '../../../../modules/getGridItemDomId'
-import { loadExternalScript } from '../../../../modules/loadExternalScript'
+import { loadExternalScript } from './loadExternalScript'
 
 //external plugins
 const itemTypeToGlobalVariable = {

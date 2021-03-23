@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import Input from '@material-ui/core/Input'
 import ItemHeader from '../ItemHeader/ItemHeader'
 import PrintItemInfo from '../ItemHeader/PrintItemInfo'
-import Line from '../../../widgets/Line'
+import Line from '../../Line'
 import {
     Parser as RichTextParser,
     Editor as RichTextEditor,
@@ -19,7 +19,7 @@ import {
     sGetIsPrinting,
     sGetPrintDashboardItems,
 } from '../../../reducers/printDashboard'
-import { isEditMode, PRINT_LAYOUT } from '../../Dashboard/dashboardModes'
+import { isEditMode, PRINT_LAYOUT } from '../../../modules/dashboardModes'
 
 const style = {
     textDiv: {

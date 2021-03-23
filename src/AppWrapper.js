@@ -8,7 +8,7 @@ import { useDataEngine } from '@dhis2/app-runtime'
 import WindowDimensionsProvider from './components/WindowDimensionsProvider'
 import SystemSettingsProvider from './components/SystemSettingsProvider'
 import UserSettingsProvider from './components/UserSettingsProvider'
-import App from './components/App'
+import App from './App'
 import configureStore from './configureStore'
 
 import './AppWrapper.css'

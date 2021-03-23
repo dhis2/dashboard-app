@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n'
 import TableIcon from '@material-ui/icons/ViewList'
 import ChartIcon from '@material-ui/icons/InsertChart'
 import MapIcon from '@material-ui/icons/Public'
-import getThematicMapViews from '../../../../modules/getThematicMapViews'
+import getThematicMapViews from '../getThematicMapViews'
 import {
     CHART,
     MAP,

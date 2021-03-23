@@ -4,7 +4,7 @@ import {
     getListItemFields,
     getFavoritesFields,
 } from './metadata'
-import { isViewMode } from '../components/Dashboard/dashboardModes'
+import { isViewMode } from '../modules/dashboardModes'
 
 const getDashboardItemsFields = () =>
     arrayClean([
