@@ -1869,10 +1869,10 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^35.20.21":
-  version "35.20.21"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.20.21.tgz#755f22babf148fccfd7731a4d1836a73abf8fd58"
-  integrity sha512-HhM14JsGh1+m0YJJE64WGeqMhj7JSvLq20pBBGuymPQxn/3IIACBn4ZX/nttAb4Wh+DuIrwuTc1dzB8TeI071Q==
+"@dhis2/data-visualizer-plugin@^35.20.22":
+  version "35.20.22"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.20.22.tgz#7663239e79be8ec8fea1e3406e65782a43d19dcf"
+  integrity sha512-O60DNxWDYiMN2v2Dym18nVlTZcK3qHAL62kHAFuVcD1jJzUX8rX48D2InxrX9T6Z3FlcmUoNihspmdbOHFwd6Q==
   dependencies:
     "@dhis2/analytics" "^16.0.15"
     "@dhis2/app-runtime" "^2.8.0"
@@ -11044,7 +11044,12 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
-lodash-es@^4.17.11, lodash-es@^4.2.1:
+lodash-es@^4.17.11:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
+
+lodash-es@^4.2.1:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.20.tgz#29f6332eefc60e849f869c264bc71126ad61e8f7"
   integrity sha512-JD1COMZsq8maT6mnuz1UMV0jvYD0E0aUsSOdrr1/nAG3dhqQXwRRgeW0cSqH1U43INKcqxaiVIQNOUDld7gRDA==
