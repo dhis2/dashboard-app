@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, waitFor } from '@testing-library/react'
+import { render, waitFor, screen } from '@testing-library/react'
 import { fireEvent } from '@testing-library/dom'
 import WindowDimensionsProvider from '../../../../WindowDimensionsProvider'
 import { useSystemSettings } from '../../../../SystemSettingsProvider'
@@ -21,6 +21,7 @@ const mockSystemSettingsDefault = {
 const defaultProps = {
     item: {
         type: 'CHART',
+        id: 'rainbowdash',
     },
     visualization: {
         type: 'BAR',
@@ -30,7 +31,6 @@ const defaultProps = {
     activeFooter: false,
     activeType: 'CHART',
     fullscreenSupported: true,
-    isFullscreen: false,
     loadItemFailed: false,
 }
 
@@ -47,17 +47,28 @@ test('renders just the button when menu closed', () => {
 })
 
 test('renders exit fullscreen button', () => {
-    useSystemSettings.mockImplementationOnce(() => mockSystemSettingsDefault)
-    const props = Object.assign({}, defaultProps, {
-        isFullscreen: true,
-    })
-    const { container } = render(
+    useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
+    const gridItemClassName = `reactgriditem-${defaultProps.item.id}`
+    const { rerender } = render(
         <WindowDimensionsProvider>
-            <ItemContextMenu {...props} />
+            <div className={gridItemClassName}>
+                <ItemContextMenu {...defaultProps} />
+            </div>
         </WindowDimensionsProvider>
     )
 
-    expect(container).toMatchSnapshot()
+    document.fullscreenElement = document.querySelector(`.${gridItemClassName}`)
+
+    rerender(
+        <WindowDimensionsProvider>
+            <div className={{ gridItemClassName }}>
+                <ItemContextMenu {...defaultProps} />
+            </div>
+        </WindowDimensionsProvider>
+    )
+
+    // document.fullscreenElement = null
+    expect(screen.getByTestId('exit-fullscreen-button')).toBeTruthy()
 })
 
 test('renders popover menu for BAR chart', async () => {

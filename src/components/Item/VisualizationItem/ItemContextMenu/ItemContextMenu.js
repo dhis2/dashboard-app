@@ -90,7 +90,9 @@ const ItemContextMenu = props => {
 
     return fullscreenElement?.classList.contains(`reactgriditem-${item.id}`) ? (
         <Button small secondary onClick={props.onToggleFullscreen}>
-            <ExitFullscreen />
+            <span data-testid="exit-fullscreen-button">
+                <ExitFullscreen />
+            </span>
         </Button>
     ) : (
         <>
