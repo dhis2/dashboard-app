@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-03-23T07:06:54.500Z\n"
-"PO-Revision-Date: 2021-03-23T07:06:54.500Z\n"
+"POT-Creation-Date: 2021-03-23T17:02:36.568Z\n"
+"PO-Revision-Date: 2021-03-23T17:02:36.568Z\n"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -119,21 +119,6 @@ msgstr ""
 msgid "Users"
 msgstr ""
 
-msgid "Cancel"
-msgstr ""
-
-msgid "Delete"
-msgstr ""
-
-msgid "Delete dashboard"
-msgstr ""
-
-msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
-"This action cannot be undone. Are you sure you want to permanently delete "
-"this dashboard?"
-msgstr ""
-
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
@@ -154,10 +139,25 @@ msgstr ""
 msgid "Translate"
 msgstr ""
 
+msgid "Delete"
+msgstr ""
+
 msgid "Exit without saving"
 msgstr ""
 
 msgid "Go to dashboards"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Delete dashboard"
+msgstr ""
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
 msgstr ""
 
 msgid "No access"
@@ -166,15 +166,6 @@ msgstr ""
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
-msgstr ""
-
-msgid "There are no items on this dashboard"
-msgstr ""
-
-msgid "Dashboard title"
-msgstr ""
-
-msgid "Dashboard description"
 msgstr ""
 
 msgid "Allow filtering by all dimensions"
@@ -204,6 +195,9 @@ msgstr ""
 msgid "Confirm"
 msgstr ""
 
+msgid "There are no items on this dashboard"
+msgstr ""
+
 msgid "Show fewer"
 msgstr ""
 
@@ -228,6 +222,12 @@ msgid ""
 msgstr ""
 
 msgid "Not supported"
+msgstr ""
+
+msgid "Dashboard title"
+msgstr ""
+
+msgid "Dashboard description"
 msgstr ""
 
 msgid "Exit print preview"
@@ -259,6 +259,15 @@ msgid ""
 "print dialog"
 msgstr ""
 
+msgid "Search for a dashboard"
+msgstr ""
+
+msgid "Show fewer dashboards"
+msgstr ""
+
+msgid "Show more dashboards"
+msgstr ""
+
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] ""
@@ -268,15 +277,6 @@ msgid "Remove"
 msgstr ""
 
 msgid "Add filter"
-msgstr ""
-
-msgid "Search for a dashboard"
-msgstr ""
-
-msgid "Show fewer dashboards"
-msgstr ""
-
-msgid "Show more dashboards"
 msgstr ""
 
 msgid "Hide description"

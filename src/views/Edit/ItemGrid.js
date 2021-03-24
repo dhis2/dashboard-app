@@ -28,7 +28,7 @@ import {
     sGetEditDashboardRoot,
     sGetEditDashboardItems,
 } from '../../reducers/editDashboard'
-import ProgressiveLoadingContainer from '../../components/Item/ProgressiveLoadingContainer'
+import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
 import { EDIT } from '../../modules/dashboardModes'
 import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
 

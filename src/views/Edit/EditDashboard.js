@@ -5,11 +5,11 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import DashboardContainer from '../../components/DashboardContainer'
-import EditTitleBar from './EditTitleBar'
-import EditItemGrid from './EditItemGrid'
-import EditBar from './EditBar'
+import TitleBar from './TitleBar'
+import ItemGrid from './ItemGrid'
+import ActionsBar from './ActionsBar'
 import NotSupportedNotice from './NotSupportedNotice'
-import LayoutPrintPreview from '../Print/PrintLayoutDashboard'
+import LayoutPrintPreview from '../print/PrintLayoutDashboard'
 import NoContentMessage from '../../components/NoContentMessage'
 import { acSetEditDashboard } from '../../actions/editDashboard'
 import { sGetSelectedId } from '../../reducers/selected'
@@ -34,8 +34,8 @@ const EditDashboard = props => {
         }
         return (
             <DashboardContainer>
-                <EditTitleBar />
-                <EditItemGrid />
+                <TitleBar />
+                <ItemGrid />
             </DashboardContainer>
         )
     }
@@ -46,7 +46,7 @@ const EditDashboard = props => {
                 className={cx(classes.container, 'dashboard-scroll-container')}
                 data-test="outer-scroll-container"
             >
-                <EditBar />
+                <ActionsBar />
                 {props.updateAccess ? (
                     renderGrid()
                 ) : (

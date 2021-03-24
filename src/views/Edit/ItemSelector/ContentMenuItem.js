@@ -5,8 +5,8 @@ import PropTypes from 'prop-types'
 import { visTypeIcons, VIS_TYPE_SCATTER } from '@dhis2/analytics'
 
 import ScatterIcon from './assets/ScatterIcon'
+import LaunchIcon from './assets/Launch'
 import { getItemIcon, VISUALIZATION } from '../../../modules/itemTypes'
-import LaunchIcon from '../../../icons/Launch'
 
 import classes from './styles/ContentMenuItem.module.css'
 

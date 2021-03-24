@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Link, withRouter } from 'react-router-dom'
 
-import Chip from './DashboardItemChip'
-import AddCircleIcon from '../../../icons/AddCircle'
+import Chip from './Chip'
+import AddCircleIcon from './assets/AddCircle'
 import Filter from './Filter'
 import { getFilteredDashboards } from './getFilteredDashboards'
 

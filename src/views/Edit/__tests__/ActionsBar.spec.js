@@ -8,7 +8,7 @@ import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
-import EditBar from '../EditBar'
+import ActionsBar from '../ActionsBar'
 import { apiFetchDashboard } from '../../../api/fetchDashboard'
 import { acClearEditDashboard } from '../../../actions/editDashboard'
 
@@ -54,7 +54,7 @@ useDataEngine.mockReturnValue({
     dataEngine: {},
 })
 
-test('renders the EditBar', async () => {
+test('renders the ActionsBar', async () => {
     const store = {
         editDashboard: {
             id: 'rainbowDash',
@@ -72,7 +72,7 @@ test('renders the EditBar', async () => {
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <EditBar />
+            <ActionsBar />
         </Provider>
     )
     await act(() => promise)
@@ -97,7 +97,7 @@ test('renders only the Go to Dashboards button when no update access', async () 
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <EditBar />
+            <ActionsBar />
         </Provider>
     )
     await act(() => promise)
@@ -119,7 +119,7 @@ test('renders Save and Discard buttons but no dialogs when no dashboard id', asy
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <EditBar />
+            <ActionsBar />
         </Provider>
     )
 
@@ -144,7 +144,7 @@ test('renders Translate, Delete, and Discard buttons when delete access', async 
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <EditBar />
+            <ActionsBar />
         </Provider>
     )
 
@@ -168,7 +168,7 @@ test('shows the confirm delete dialog when delete button clicked', async () => {
     apiFetchDashboard.mockResolvedValue(promise)
     const { getByText, asFragment } = render(
         <Provider store={mockStore(store)}>
-            <EditBar />
+            <ActionsBar />
         </Provider>
     )
 
@@ -200,7 +200,7 @@ test('shows the translate dialog', async () => {
     apiFetchDashboard.mockResolvedValue(promise)
     const { getByText, asFragment } = render(
         <Provider store={mockStore(store)}>
-            <EditBar />
+            <ActionsBar />
         </Provider>
     )
 
@@ -237,7 +237,7 @@ test('triggers the discard action', async () => {
     const { getByText } = render(
         <Provider store={store}>
             <Router history={createMemoryHistory()}>
-                <EditBar />
+                <ActionsBar />
             </Router>
         </Provider>
     )

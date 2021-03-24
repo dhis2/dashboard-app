@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import sortBy from 'lodash/sortBy'
 
 import PrintInfo from './PrintInfo'
-import PrintActionsBar from './PrintActionsBar'
+import PrintActionsBar from './ActionsBar'
 import PrintItemGrid from './PrintItemGrid'
 import {
     acSetPrintDashboard,

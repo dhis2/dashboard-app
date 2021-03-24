@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 
-import EditTitleBar from '../EditTitleBar'
+import TitleBar from '../TitleBar'
 
 const mockStore = configureMockStore()
 
@@ -15,7 +15,7 @@ jest.mock(
         }
 )
 
-describe('EditTitleBar', () => {
+describe('TitleBar', () => {
     it('renders correctly with name and description', () => {
         const store = {
             editDashboard: {
@@ -25,7 +25,7 @@ describe('EditTitleBar', () => {
         }
         const { container } = render(
             <Provider store={mockStore(store)}>
-                <EditTitleBar />
+                <TitleBar />
             </Provider>
         )
         expect(container).toMatchSnapshot()
@@ -41,7 +41,7 @@ describe('EditTitleBar', () => {
 
         const { container } = render(
             <Provider store={mockStore(store)}>
-                <EditTitleBar />
+                <TitleBar />
             </Provider>
         )
         expect(container).toMatchSnapshot()

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { Button } from '@dhis2/ui'
 import { Link } from 'react-router-dom'
-import LessHorizontalIcon from '../../icons/LessHorizontal'
+import LessHorizontalIcon from './assets/LessHorizontal'
 
 import classes from './styles/PrintActionsBar.module.css'
 

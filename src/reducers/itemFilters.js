@@ -2,7 +2,6 @@ import { sGetDimensions } from './dimensions'
 import { createSelector } from 'reselect'
 
 export const CLEAR_ITEM_FILTERS = 'CLEAR_ITEM_FILTERS'
-export const SET_ITEM_FILTERS = 'SET_ITEM_FILTERS'
 export const ADD_ITEM_FILTER = 'ADD_ITEM_FILTER'
 export const REMOVE_ITEM_FILTER = 'REMOVE_ITEM_FILTER'
 
@@ -22,9 +21,6 @@ export default (state = DEFAULT_STATE_ITEM_FILTERS, action) => {
             delete newState[action.id]
 
             return newState
-        }
-        case SET_ITEM_FILTERS: {
-            return action.filters
         }
         case CLEAR_ITEM_FILTERS: {
             return DEFAULT_STATE_ITEM_FILTERS

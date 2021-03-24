@@ -12,7 +12,7 @@ import {
 import { orObject } from '../../modules/util'
 import { sGetEditDashboardRoot } from '../../reducers/editDashboard'
 
-import classes from './styles/EditTitleBar.module.css'
+import classes from './styles/TitleBar.module.css'
 
 const EditTitleBar = ({
     name,

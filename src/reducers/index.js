@@ -11,7 +11,6 @@ import messages from './messages'
 import user from './user'
 import alert from './alert'
 import itemFilters from './itemFilters'
-import style from './style'
 import dimensions from './dimensions'
 import activeModalDimension from './activeModalDimension'
 import passiveViewRegistered from './passiveViewRegistered'
@@ -27,7 +26,6 @@ export default combineReducers({
     editDashboard,
     printDashboard,
     itemFilters,
-    style,
     alert,
     dimensions,
     activeModalDimension,

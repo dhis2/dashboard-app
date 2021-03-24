@@ -27,11 +27,11 @@ import {
     sGetDashboardById,
     sGetDashboardItems,
 } from '../../reducers/dashboards'
-import ProgressiveLoadingContainer from '../../components/Item/ProgressiveLoadingContainer'
+import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
 import { VIEW } from '../../modules/dashboardModes'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen'
 
-import classes from './styles/ViewItemGrid.module.css'
+import classes from './styles/ItemGrid.module.css'
 
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'

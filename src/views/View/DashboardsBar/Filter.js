@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
-import SearchIcon from '../../../icons/Search'
+
+import SearchIcon from './assets/Search'
 import ClearButton from './ClearButton'
 
 import { useWindowDimensions } from '../../../components/WindowDimensionsProvider'

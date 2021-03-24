@@ -27,7 +27,7 @@ import {
 import { apiFetchDashboard } from '../../api/fetchDashboard'
 import { EDIT } from '../../modules/dashboardModes'
 
-import classes from './styles/EditBar.module.css'
+import classes from './styles/ActionsBar.module.css'
 
 const saveFailedMessage = i18n.t(
     'Failed to save dashboard. You might be offline or not have access to edit this dashboard.'

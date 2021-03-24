@@ -13,7 +13,7 @@ import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import { ThreeDots } from '../../components/Item/VisualizationItem/assets/icons'
 import { orObject } from '../../modules/util'
-import { apiStarDashboard } from '../../api/starDashboard'
+import { apiStarDashboard } from './starDashboard'
 import { apiPostShowDescription } from '../../api/description'
 
 import { acSetDashboardStarred } from '../../actions/dashboards'
@@ -29,7 +29,7 @@ import {
     EMPTY_DASHBOARD,
 } from '../../reducers/dashboards'
 
-import classes from './styles/ViewTitleBar.module.css'
+import classes from './styles/TitleBar.module.css'
 
 const ViewTitleBar = ({
     id,

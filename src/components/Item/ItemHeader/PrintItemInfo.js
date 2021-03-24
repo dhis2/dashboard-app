@@ -2,7 +2,7 @@ import React from 'react'
 import { Tooltip } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 
-import InfoIcon from '../../../icons/Info'
+import InfoIcon from './assets/Info'
 
 import classes from './styles/PrintItemInfo.module.css'
 

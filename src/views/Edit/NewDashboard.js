@@ -5,10 +5,10 @@ import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 
 import DashboardContainer from '../../components/DashboardContainer'
-import EditBar from './EditBar'
-import EditTitleBar from './EditTitleBar'
-import EditItemGrid from './EditItemGrid'
-import LayoutPrintPreview from '../Print/PrintLayoutDashboard'
+import ActionsBar from './ActionsBar'
+import TitleBar from './TitleBar'
+import ItemGrid from './ItemGrid'
+import LayoutPrintPreview from '../print/PrintLayoutDashboard'
 import NotSupportedNotice from './NotSupportedNotice'
 
 import { acSetEditNewDashboard } from '../../actions/editDashboard'
@@ -26,13 +26,13 @@ const NewDashboard = props => {
             <div
                 className={cx(classes.container, 'dashboard-scroll-container')}
             >
-                <EditBar />
+                <ActionsBar />
                 {props.isPrintPreviewView ? (
                     <LayoutPrintPreview fromEdit={true} />
                 ) : (
                     <DashboardContainer>
-                        <EditTitleBar />
-                        <EditItemGrid />
+                        <TitleBar />
+                        <ItemGrid />
                     </DashboardContainer>
                 )}
             </div>

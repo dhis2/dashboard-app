@@ -4,10 +4,10 @@ import PropTypes from 'prop-types'
 import { ComponentCover } from '@dhis2/ui'
 import cx from 'classnames'
 
-import ViewTitleBar from './ViewTitleBar'
-import ViewItemGrid from './ViewItemGrid'
+import TitleBar from './TitleBar'
+import ItemGrid from './ItemGrid'
 import FilterBar from './FilterBar/FilterBar'
-import DashboardsBar from './ViewControlBar/DashboardsBar'
+import DashboardsBar from './DashboardsBar/DashboardsBar'
 import DashboardContainer from '../../components/DashboardContainer'
 import { sGetIsEditing } from '../../reducers/editDashboard'
 import { sGetIsPrinting } from '../../reducers/printDashboard'
@@ -69,9 +69,9 @@ export const ViewDashboard = props => {
                         onClick={() => setControlbarExpanded(false)}
                     />
                 )}
-                <ViewTitleBar />
+                <TitleBar />
                 <FilterBar />
-                <ViewItemGrid />
+                <ItemGrid />
             </DashboardContainer>
         </div>
     )
