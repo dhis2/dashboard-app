@@ -17,7 +17,7 @@ exports[`ViewDashboard renders correctly default 1`] = `
       onExpandedChanged={[Function]}
     >
       <div>
-        MockDashboardsBar
+        DashboardsBar
       </div>
     </MockDashboardsBar>
     <DashboardContainer
@@ -26,21 +26,21 @@ exports[`ViewDashboard renders correctly default 1`] = `
       <div
         className="container dashboard-scroll-container"
       >
-        <MockViewTitleBar>
+        <MockTitleBar>
           <div>
-            MockViewTitleBar
+            TitleBar
           </div>
-        </MockViewTitleBar>
+        </MockTitleBar>
         <MockFilterBar>
           <div>
             MockFilterBar
           </div>
         </MockFilterBar>
-        <MockViewItemGrid>
+        <MockItemGrid>
           <div>
-            MockViewItemGrid
+            MockItemGrid
           </div>
-        </MockViewItemGrid>
+        </MockItemGrid>
       </div>
     </DashboardContainer>
   </div>

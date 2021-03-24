@@ -3,10 +3,6 @@ import reducer, {
     sGetDashboardsRoot,
     sGetDashboardById,
     sGetAllDashboards,
-    sGetStarredDashboards,
-    sGetUnstarredDashboards,
-    sGetStarredDashboardIds,
-    sGetUnstarredDashboardIds,
     sGetDashboardsSortedByStarred,
     SET_DASHBOARDS,
     ADD_DASHBOARDS,
@@ -173,30 +169,6 @@ describe('dashboards selectors', () => {
         const actualState = sGetAllDashboards(testState)
 
         expect(actualState).toEqual(dashboardsState.byId)
-    })
-
-    it('sGetStarredDashboards: should return an array of starred dashboards', () => {
-        const actualState = sGetStarredDashboards(testState)
-
-        expect(actualState).toEqual([dash2, dash4])
-    })
-
-    it('sGetUnstarredDashboards: should return an array of unstarred dashboards', () => {
-        const actualState = sGetUnstarredDashboards(testState)
-
-        expect(actualState).toEqual([dash1, dash3])
-    })
-
-    it('sGetStarredDashboardIds: should return an array of starred dashboard ids', () => {
-        const actualState = sGetStarredDashboardIds(testState)
-
-        expect(actualState).toEqual([dashId2, dashId4])
-    })
-
-    it('sGetUnstarredDashboardIds: should return an array of unstarred dashboard ids', () => {
-        const actualState = sGetUnstarredDashboardIds(testState)
-
-        expect(actualState).toEqual([dashId1, dashId3])
     })
 
     it('sGetDashboardsSortedByStarred: should return an array of dashboards sorted by starred/displayName-asc, then unstarred/displayName-asc', () => {

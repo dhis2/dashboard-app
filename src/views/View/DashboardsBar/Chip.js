@@ -1,21 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Chip } from '@dhis2/ui'
+import { Chip as UiChip } from '@dhis2/ui'
 import { Link } from 'react-router-dom'
 import debounce from 'lodash/debounce'
 
 import StarIcon from './assets/Star'
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
 
-import classes from './styles/DashboardItemChip.module.css'
+import classes from './styles/Chip.module.css'
 
-export const DashboardItemChip = ({
-    starred,
-    selected,
-    label,
-    dashboardId,
-    onClick,
-}) => {
+export const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
     const chipProps = {
         selected,
     }
@@ -43,12 +37,12 @@ export const DashboardItemChip = ({
             onClick={handleClick}
             data-test="dashboard-chip"
         >
-            <Chip {...chipProps}>{label}</Chip>
+            <UiChip {...chipProps}>{label}</UiChip>
         </Link>
     )
 }
 
-DashboardItemChip.propTypes = {
+Chip.propTypes = {
     dashboardId: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     selected: PropTypes.bool.isRequired,
@@ -57,4 +51,4 @@ DashboardItemChip.propTypes = {
     classes: PropTypes.object,
 }
 
-export default DashboardItemChip
+export default Chip

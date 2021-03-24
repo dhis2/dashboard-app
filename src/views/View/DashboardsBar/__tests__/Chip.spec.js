@@ -1,9 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Chip } from '@dhis2/ui'
-import { DashboardItemChip } from '../DashboardItemChip'
+import { Chip as UiChip } from '@dhis2/ui'
+import { Chip } from '../Chip'
 
-describe('DashboardItemChip', () => {
+describe('Chip', () => {
     const defaultProps = {
         starred: false,
         selected: false,
@@ -17,7 +17,7 @@ describe('DashboardItemChip', () => {
         },
     }
 
-    const wrapper = props => shallow(<DashboardItemChip {...props} />)
+    const wrapper = props => shallow(<Chip {...props} />)
 
     it('renders a Link', () => {
         const chipWrapper = wrapper(defaultProps)
@@ -36,11 +36,11 @@ describe('DashboardItemChip', () => {
     it('renders a Chip inside the Link', () => {
         const chipWrapper = wrapper(defaultProps)
 
-        expect(chipWrapper.find(Chip).length).toBe(1)
+        expect(chipWrapper.find(UiChip).length).toBe(1)
     })
 
     it('does not pass an icon to Chip when not starred', () => {
-        const chip = wrapper(defaultProps).find(Chip)
+        const chip = wrapper(defaultProps).find(UiChip)
 
         expect(chip.prop('icon')).toBeFalsy()
     })
@@ -49,7 +49,7 @@ describe('DashboardItemChip', () => {
         const props = Object.assign({}, defaultProps, { starred: true })
 
         const iconClasses = wrapper(props)
-            .find(Chip)
+            .find(UiChip)
             .prop('icon')
             .props.className.split(' ')
 
@@ -63,7 +63,7 @@ describe('DashboardItemChip', () => {
             selected: true,
         })
         const iconClasses = wrapper(props)
-            .find(Chip)
+            .find(UiChip)
             .prop('icon')
             .props.className.split(' ')
 
@@ -72,7 +72,7 @@ describe('DashboardItemChip', () => {
     })
 
     it('passes "label" property to Chip as children', () => {
-        const chip = wrapper(defaultProps).find(Chip)
+        const chip = wrapper(defaultProps).find(UiChip)
 
         expect(chip.childAt(0).text()).toBe(defaultProps.label)
     })

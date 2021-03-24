@@ -24,7 +24,7 @@ jest.mock('@dhis2/analytics', () => ({
 jest.mock('@dhis2/app-runtime')
 jest.mock('../api/fetchDashboard')
 jest.mock(
-    '../views/Print/PrintLayoutDashboard',
+    '../views/print/PrintLayoutDashboard',
     () =>
         function MockComponent() {
             return <div>PrintLayoutDashboard</div>
@@ -32,7 +32,7 @@ jest.mock(
 )
 
 jest.mock(
-    '../views/Print/PrintDashboard',
+    '../views/print/PrintDashboard',
     () =>
         function MockComponent() {
             return <div>PrintDashboard</div>
@@ -40,21 +40,21 @@ jest.mock(
 )
 
 jest.mock(
-    '../views/Edit/NewDashboard',
+    '../views/edit/NewDashboard',
     () =>
         function MockComponent() {
             return <div>NewDashboard</div>
         }
 )
 jest.mock(
-    '../views/Edit/EditDashboard',
+    '../views/edit/EditDashboard',
     () =>
         function MockComponent() {
             return <div>EditDashboard</div>
         }
 )
 jest.mock(
-    '../views/View/ViewDashboard',
+    '../views/view/ViewDashboard',
     () =>
         function MockComponent() {
             return <div>ViewDashboard</div>
@@ -70,7 +70,7 @@ jest.mock(
 )
 /* eslint-enable react/prop-types */
 jest.mock(
-    '../views/View/ViewControlBar/DashboardsBar',
+    '../views/view/DashboardsBar/DashboardsBar',
     () =>
         function MockComponent() {
             return <div>DashboardsBar</div>

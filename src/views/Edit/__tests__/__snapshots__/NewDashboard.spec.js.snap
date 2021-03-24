@@ -6,16 +6,16 @@ exports[`NewDashboard renders dashboard 1`] = `
     class="container dashboard-scroll-container"
   >
     <div>
-      EditBar
+      ActionsBar
     </div>
     <div
       class="container dashboard-scroll-container"
     >
       <div>
-        EditTitleBar
+        TitleBar
       </div>
       <div>
-        EditItemGrid
+        ItemGrid
       </div>
     </div>
   </div>
@@ -80,7 +80,7 @@ exports[`NewDashboard renders print preview 1`] = `
     class="container dashboard-scroll-container"
   >
     <div>
-      EditBar
+      ActionsBar
     </div>
     <div>
       LayoutPrintPreview

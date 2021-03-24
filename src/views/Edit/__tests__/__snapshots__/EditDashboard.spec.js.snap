@@ -7,16 +7,16 @@ exports[`EditDashboard renders dashboard 1`] = `
     data-test="outer-scroll-container"
   >
     <div>
-      EditBar
+      ActionsBar
     </div>
     <div
       class="container dashboard-scroll-container"
     >
       <div>
-        EditTitleBar
+        TitleBar
       </div>
       <div>
-        EditItemGrid
+        ItemGrid
       </div>
     </div>
   </div>
@@ -82,7 +82,7 @@ exports[`EditDashboard renders message when not enough access 1`] = `
     data-test="outer-scroll-container"
   >
     <div>
-      EditBar
+      ActionsBar
     </div>
     <div
       class="container"
@@ -152,7 +152,7 @@ exports[`EditDashboard renders print preview 1`] = `
     data-test="outer-scroll-container"
   >
     <div>
-      EditBar
+      ActionsBar
     </div>
     <div>
       LayoutPrintPreview

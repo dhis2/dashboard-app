@@ -10,17 +10,17 @@ jest.mock('react', () => ({
 }))
 
 jest.mock(
-    '../ViewControlBar/DashboardsBar',
+    '../DashboardsBar/DashboardsBar',
     () =>
         function MockDashboardsBar() {
-            return <div>MockDashboardsBar</div>
+            return <div>DashboardsBar</div>
         }
 )
 jest.mock(
-    '../ViewTitleBar',
+    '../TitleBar',
     () =>
-        function MockViewTitleBar() {
-            return <div>MockViewTitleBar</div>
+        function MockTitleBar() {
+            return <div>TitleBar</div>
         }
 )
 jest.mock(
@@ -32,10 +32,10 @@ jest.mock(
 )
 
 jest.mock(
-    '../ViewItemGrid',
+    '../ItemGrid',
     () =>
-        function MockViewItemGrid() {
-            return <div>MockViewItemGrid</div>
+        function MockItemGrid() {
+            return <div>MockItemGrid</div>
         }
 )
 
