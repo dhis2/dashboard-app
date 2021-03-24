@@ -117,6 +117,24 @@ export class Item extends Component {
         }
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if (
+            nextProps.item.w !== this.props.item.w ||
+            nextProps.item.h !== this.props.item.h ||
+            nextProps.activeType !== this.props.activeType ||
+            nextProps.gridWidth !== this.props.gridWidth ||
+            nextProps.itemFilters !== this.props.itemFilters ||
+            nextProps.settings !== this.props.settings ||
+            nextState.showFooter !== this.state.showFooter ||
+            nextState.isFullscreen !== this.state.isFullscreen ||
+            nextState.configLoaded !== this.state.configLoaded ||
+            nextState.loadItemFailed !== this.state.loadItemFailed
+        ) {
+            return true
+        }
+        return false
+    }
+
     isFullscreenSupported = () => {
         const el = document.querySelector(this.itemDomElSelector)
         return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
@@ -206,20 +224,22 @@ export class Item extends Component {
         const { showFooter } = this.state
         const activeType = this.getActiveType()
 
-        const actionButtons = pluginIsAvailable(activeType || item.type) ? (
-            <ItemContextMenu
-                item={item}
-                visualization={this.props.visualization}
-                onSelectActiveType={this.setActiveType}
-                onToggleFooter={this.onToggleFooter}
-                onToggleFullscreen={this.onToggleFullscreen}
-                activeType={activeType}
-                activeFooter={showFooter}
-                isFullscreen={this.state.isFullscreen}
-                fullscreenSupported={this.isFullscreenSupported()}
-                loadItemFailed={this.state.loadItemFailed}
-            />
-        ) : null
+        const actionButtons =
+            pluginIsAvailable(activeType || item.type) &&
+            isViewMode(dashboardMode) ? (
+                <ItemContextMenu
+                    item={item}
+                    visualization={this.props.visualization}
+                    onSelectActiveType={this.setActiveType}
+                    onToggleFooter={this.onToggleFooter}
+                    onToggleFullscreen={this.onToggleFullscreen}
+                    activeType={activeType}
+                    activeFooter={showFooter}
+                    isFullscreen={this.state.isFullscreen}
+                    fullscreenSupported={this.isFullscreenSupported()}
+                    loadItemFailed={this.state.loadItemFailed}
+                />
+            ) : null
 
         return (
             <>

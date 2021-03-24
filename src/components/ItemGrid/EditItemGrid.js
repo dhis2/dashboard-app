@@ -8,8 +8,6 @@ import cx from 'classnames'
 
 import { acUpdateDashboardLayout } from '../../actions/editDashboard'
 import { Item } from '../Item/Item'
-import { resize as pluginResize } from '../Item/VisualizationItem/Visualization/plugin'
-import { isVisualizationType } from '../../modules/itemTypes'
 import {
     GRID_ROW_HEIGHT_PX,
     GRID_COMPACT_TYPE,
@@ -20,7 +18,6 @@ import {
     getGridWidth,
 } from '../../modules/gridUtil'
 import { getBreakpoint } from '../../modules/smallScreen'
-import getGridItemDomId from '../../modules/getGridItemDomId'
 import { orArray } from '../../modules/util'
 import NoContentMessage from '../../widgets/NoContentMessage'
 import { sGetSelectedIsLoading } from '../../reducers/selected'
@@ -50,28 +47,16 @@ const EditItemGrid = ({
         acUpdateDashboardLayout(newLayout)
     }
 
-    const onResizeStop = (layout, oldItem, newItem) => {
-        const el =
-            document.querySelector(`#${getGridItemDomId(newItem.i)}`) || {}
-        if (typeof el.setViewportSize === 'function')
-            setTimeout(
-                () =>
-                    el.setViewportSize(el.clientWidth - 5, el.clientHeight - 5),
-                10
-            )
-
-        const dashboardItem = dashboardItems.find(item => item.id === newItem.i)
-
-        // call resize on the item component if it's a plugin type
-        if (dashboardItem && isVisualizationType(dashboardItem)) {
-            pluginResize(dashboardItem.id, dashboardItem.type)
-        }
+    const onWidthChanged = containerWidth => {
+        setTimeout(() => {
+            setGridWidth(containerWidth)
+        }, 200)
     }
 
     const getItemComponent = item => (
         <ProgressiveLoadingContainer
             key={item.i}
-            className={cx(item.type, 'edit')}
+            className={cx(item.type, 'edit', `reactgriditem-${item.id}`)}
             itemId={item.id}
         >
             <Item item={item} gridWidth={gridWidth} dashboardMode={EDIT} />
@@ -79,12 +64,6 @@ const EditItemGrid = ({
     )
 
     const getItemComponents = items => items.map(item => getItemComponent(item))
-
-    const onWidthChanged = containerWidth => {
-        setTimeout(() => {
-            setGridWidth(containerWidth)
-        }, 200)
-    }
 
     if (!isLoading && !dashboardItems.length) {
         return (
@@ -116,7 +95,6 @@ const EditItemGrid = ({
                 margin={MARGIN_PX}
                 containerPadding={{ lg: GRID_PADDING_PX }}
                 onLayoutChange={onLayoutChange}
-                onResizeStop={onResizeStop}
                 onWidthChange={onWidthChanged}
                 isDraggable={true}
                 isResizable={true}
