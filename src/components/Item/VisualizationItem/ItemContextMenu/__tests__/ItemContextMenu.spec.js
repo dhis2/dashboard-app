@@ -67,7 +67,7 @@ test('renders exit fullscreen button', () => {
         </WindowDimensionsProvider>
     )
 
-    // document.fullscreenElement = null
+    document.fullscreenElement = null
     expect(screen.getByTestId('exit-fullscreen-button')).toBeTruthy()
 })
 
