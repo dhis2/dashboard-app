@@ -8,15 +8,21 @@ import NoVisualizationMessage from './NoVisualizationMessage'
 
 const MapPlugin = ({
     applyFilters,
-    isFullscreen,
     availableHeight,
     availableWidth,
     gridWidth,
     ...props
 }) => {
     useEffect(() => {
+        const fullscreenElement =
+            document.fullscreenElement || document.webkitFullscreenElement
+
+        const isFullscreen = fullscreenElement?.classList.contains(
+            `reactgriditem-${props.item.id}`
+        )
+
         resize(props.item.id, MAP, isFullscreen)
-    }, [availableHeight, availableWidth, isFullscreen, gridWidth])
+    }, [availableHeight, availableWidth, gridWidth])
 
     if (props.item.type === MAP) {
         // apply filters only to thematic and event layers

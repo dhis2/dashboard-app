@@ -85,7 +85,10 @@ const ItemContextMenu = props => {
 
     const buttonRef = createRef()
 
-    return props.isFullscreen ? (
+    const fullscreenElement =
+        document.fullscreenElement || document.webkitFullscreenElement
+
+    return fullscreenElement?.classList.contains(`reactgriditem-${item.id}`) ? (
         <Button small secondary onClick={props.onToggleFullscreen}>
             <ExitFullscreen />
         </Button>
@@ -167,7 +170,6 @@ ItemContextMenu.propTypes = {
     activeFooter: PropTypes.bool,
     activeType: PropTypes.string,
     fullscreenSupported: PropTypes.bool,
-    isFullscreen: PropTypes.bool,
     item: PropTypes.object,
     loadItemFailed: PropTypes.bool,
     visualization: PropTypes.object,

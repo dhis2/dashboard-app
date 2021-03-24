@@ -4,7 +4,6 @@ import DefaultPlugin from './DefaultPlugin'
 import getGridItemDomId from '../../../../modules/getGridItemDomId'
 
 const LegacyPlugin = ({
-    isFullscreen,
     availableHeight,
     availableWidth,
     gridWidth,
@@ -19,7 +18,7 @@ const LegacyPlugin = ({
                 10
             )
         }
-    }, [availableHeight, availableWidth, isFullscreen, gridWidth])
+    }, [availableHeight, availableWidth, gridWidth])
 
     return <DefaultPlugin {...props} />
 }

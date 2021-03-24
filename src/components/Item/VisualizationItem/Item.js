@@ -36,7 +36,6 @@ export class Item extends Component {
     state = {
         showFooter: false,
         configLoaded: false,
-        isFullscreen: false,
         loadItemFailed: false,
     }
 
@@ -117,38 +116,13 @@ export class Item extends Component {
         }
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        if (
-            nextProps.item.w !== this.props.item.w ||
-            nextProps.item.h !== this.props.item.h ||
-            nextProps.activeType !== this.props.activeType ||
-            nextProps.gridWidth !== this.props.gridWidth ||
-            nextProps.itemFilters !== this.props.itemFilters ||
-            nextProps.settings !== this.props.settings ||
-            nextState.showFooter !== this.state.showFooter ||
-            nextState.isFullscreen !== this.state.isFullscreen ||
-            nextState.configLoaded !== this.state.configLoaded ||
-            nextState.loadItemFailed !== this.state.loadItemFailed
-        ) {
-            return true
-        }
-        return false
-    }
-
     isFullscreenSupported = () => {
         const el = document.querySelector(this.itemDomElSelector)
         return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
     }
 
-    handleFullscreenChange = () =>
-        this.setState({
-            isFullscreen:
-                !!document.fullscreenElement ||
-                !!document.webkitFullscreenElement,
-        })
-
     onToggleFullscreen = () => {
-        if (!this.state.isFullscreen) {
+        if (!this.isFullscreen()) {
             const el = document.querySelector(this.itemDomElSelector)
             if (el?.requestFullscreen) {
                 el.requestFullscreen()
@@ -184,7 +158,7 @@ export class Item extends Component {
     }
 
     getAvailableHeight = ({ width, height }) => {
-        if (this.state.isFullscreen) {
+        if (this.isFullscreen()) {
             return (
                 height -
                 this.headerRef.current.clientHeight -
@@ -219,6 +193,15 @@ export class Item extends Component {
         this.setState({ loadItemFailed: true })
     }
 
+    isFullscreen = () => {
+        const fullscreenElement =
+            document.fullscreenElement || document.webkitFullscreenElement
+
+        return fullscreenElement?.classList.contains(
+            `reactgriditem-${this.props.item.id}`
+        )
+    }
+
     render() {
         const { item, dashboardMode, itemFilters } = this.props
         const { showFooter } = this.state
@@ -235,7 +218,6 @@ export class Item extends Component {
                     onToggleFullscreen={this.onToggleFullscreen}
                     activeType={activeType}
                     activeFooter={showFooter}
-                    isFullscreen={this.state.isFullscreen}
                     fullscreenSupported={this.isFullscreenSupported()}
                     loadItemFailed={this.state.loadItemFailed}
                 />
@@ -273,7 +255,6 @@ export class Item extends Component {
                                             dimensions
                                         )}
                                         availableWidth={this.getAvailableWidth()}
-                                        isFullscreen={this.state.isFullscreen}
                                         gridWidth={this.props.gridWidth}
                                     />
                                 )}
