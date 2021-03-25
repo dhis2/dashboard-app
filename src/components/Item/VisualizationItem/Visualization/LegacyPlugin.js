@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import DefaultPlugin from './DefaultPlugin'
-import getGridItemDomId from '../../../../modules/getGridItemDomId'
+import getVisualizationContainerDomId from '../../../../modules/getVisualizationContainerDomId'
 
 const LegacyPlugin = ({
     availableHeight,
@@ -10,7 +10,9 @@ const LegacyPlugin = ({
     ...props
 }) => {
     useEffect(() => {
-        const el = document.querySelector(`#${getGridItemDomId(props.item.id)}`)
+        const el = document.querySelector(
+            `#${getVisualizationContainerDomId(props.item.id)}`
+        )
         if (typeof el?.setViewportSize === 'function') {
             setTimeout(
                 () =>

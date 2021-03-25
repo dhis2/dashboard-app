@@ -23,6 +23,8 @@ import { acAddVisualization } from '../../../actions/visualizations'
 import { acSetSelectedItemActiveType } from '../../../actions/selected'
 import { pluginIsAvailable } from './Visualization/plugin'
 import { getDataStatisticsName } from '../../../modules/itemTypes'
+import { isElementFullscreen } from '../../../modules/isElementFullscreen'
+import { getGridItemElement } from '../../../modules/getGridItemElement'
 import { getVisualizationId, getVisualizationName } from '../../../modules/item'
 import memoizeOne from '../../../modules/memoizeOne'
 import {
@@ -44,7 +46,6 @@ export class Item extends Component {
 
         this.contentRef = React.createRef()
         this.headerRef = React.createRef()
-        this.itemDomElSelector = `.reactgriditem-${this.props.item.id}`
 
         const style = window.getComputedStyle(document.documentElement)
         this.itemContentPadding = parseInt(
@@ -92,38 +93,16 @@ export class Item extends Component {
         }
 
         this.setState({ configLoaded: true })
-
-        const el = document.querySelector(this.itemDomElSelector)
-        if (el?.requestFullscreen) {
-            el.onfullscreenchange = this.handleFullscreenChange
-        } else if (el?.webkitRequestFullscreen) {
-            el.onwebkitfullscreenchange = this.handleFullscreenChange
-        }
-    }
-
-    componentWillUnmount() {
-        const el = document.querySelector(this.itemDomElSelector)
-        if (el?.onfullscreenchange) {
-            el.removeEventListener(
-                'onfullscreenchange',
-                this.handleFullscreenChange
-            )
-        } else if (el?.onwebkitfullscreenchange) {
-            el.removeEventListener(
-                'onwebkitfullscreenchange',
-                this.handleFullscreenChange
-            )
-        }
     }
 
     isFullscreenSupported = () => {
-        const el = document.querySelector(this.itemDomElSelector)
+        const el = getGridItemElement(this.props.item.id)
         return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
     }
 
     onToggleFullscreen = () => {
-        if (!this.isFullscreen()) {
-            const el = document.querySelector(this.itemDomElSelector)
+        if (!isElementFullscreen(this.props.item.id)) {
+            const el = getGridItemElement(this.props.item.id)
             if (el?.requestFullscreen) {
                 el.requestFullscreen()
             } else if (el?.webkitRequestFullscreen) {
@@ -158,7 +137,7 @@ export class Item extends Component {
     }
 
     getAvailableHeight = ({ width, height }) => {
-        if (this.isFullscreen()) {
+        if (isElementFullscreen(this.props.item.id)) {
             return (
                 height -
                 this.headerRef.current.clientHeight -
@@ -182,24 +161,15 @@ export class Item extends Component {
     }
 
     getAvailableWidth = () => {
-        const rect = document
-            .querySelector(this.itemDomElSelector)
-            ?.getBoundingClientRect()
+        const rect = getGridItemElement(
+            this.props.item.id
+        )?.getBoundingClientRect()
 
         return rect && rect.width - this.itemContentPadding * 2
     }
 
     onFatalError = () => {
         this.setState({ loadItemFailed: true })
-    }
-
-    isFullscreen = () => {
-        const fullscreenElement =
-            document.fullscreenElement || document.webkitFullscreenElement
-
-        return fullscreenElement?.classList.contains(
-            `reactgriditem-${this.props.item.id}`
-        )
     }
 
     render() {

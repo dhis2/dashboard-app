@@ -13,6 +13,7 @@ import LaunchIcon from '@material-ui/icons/Launch'
 import ViewAsMenuItems from './ViewAsMenuItems'
 import { useWindowDimensions } from '../../../WindowDimensionsProvider'
 import { isSmallScreen } from '../../../../modules/smallScreen'
+import { isElementFullscreen } from '../../../../modules/isElementFullscreen'
 
 import {
     ThreeDots,
@@ -85,10 +86,7 @@ const ItemContextMenu = props => {
 
     const buttonRef = createRef()
 
-    const fullscreenElement =
-        document.fullscreenElement || document.webkitFullscreenElement
-
-    return fullscreenElement?.classList.contains(`reactgriditem-${item.id}`) ? (
+    return isElementFullscreen(item.id) ? (
         <Button small secondary onClick={props.onToggleFullscreen}>
             <span data-testid="exit-fullscreen-button">
                 <ExitFullscreen />

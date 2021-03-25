@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import DefaultPlugin from './DefaultPlugin'
 import { MAP } from '../../../../modules/itemTypes'
+import { isElementFullscreen } from '../../../../modules/isElementFullscreen'
 import { pluginIsAvailable, resize } from './plugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
 
@@ -14,14 +15,7 @@ const MapPlugin = ({
     ...props
 }) => {
     useEffect(() => {
-        const fullscreenElement =
-            document.fullscreenElement || document.webkitFullscreenElement
-
-        const isFullscreen = fullscreenElement?.classList.contains(
-            `reactgriditem-${props.item.id}`
-        )
-
-        resize(props.item.id, MAP, isFullscreen)
+        resize(props.item.id, MAP, isElementFullscreen(props.item.id))
     }, [availableHeight, availableWidth, gridWidth])
 
     if (props.item.type === MAP) {
