@@ -48,7 +48,8 @@ const EditItemGrid = ({
         acUpdateDashboardLayout(newLayout)
     }
 
-    const onWidthChanged = containerWidth => setGridWidth(containerWidth)
+    const onWidthChanged = containerWidth =>
+        setTimeout(() => setGridWidth(containerWidth), 200)
 
     const getItemComponent = item => (
         <ProgressiveLoadingContainer
