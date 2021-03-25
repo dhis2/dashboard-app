@@ -8,7 +8,6 @@ exports[`VisualizationItem/Item does not render Visualization if config not load
         activeFooter={false}
         activeType="CHART"
         fullscreenSupported={false}
-        isFullscreen={false}
         item={
           Object {
             "chart": Object {

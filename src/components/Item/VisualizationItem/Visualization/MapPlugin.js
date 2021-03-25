@@ -3,20 +3,20 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import DefaultPlugin from './DefaultPlugin'
 import { MAP } from '../../../../modules/itemTypes'
+import { isElementFullscreen } from '../../../../modules/isElementFullscreen'
 import { pluginIsAvailable, resize } from './plugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
 
 const MapPlugin = ({
     applyFilters,
-    isFullscreen,
     availableHeight,
     availableWidth,
     gridWidth,
     ...props
 }) => {
     useEffect(() => {
-        resize(props.item.id, MAP, isFullscreen)
-    }, [availableHeight, availableWidth, isFullscreen, gridWidth])
+        resize(props.item.id, MAP, isElementFullscreen(props.item.id))
+    }, [availableHeight, availableWidth, gridWidth])
 
     if (props.item.type === MAP) {
         // apply filters only to thematic and event layers
