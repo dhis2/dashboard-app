@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { useConfig } from '@dhis2/app-runtime'
 import { load, unmount } from './plugin'
-import getGridItemDomId from '../../../../modules/getGridItemDomId'
+import getVisualizationContainerDomId from '../../../../modules/getVisualizationContainerDomId'
 
 const DefaultPlugin = ({ item, activeType, visualization, options, style }) => {
     const { d2 } = useD2()
@@ -53,7 +53,7 @@ const DefaultPlugin = ({ item, activeType, visualization, options, style }) => {
         return reloadAllowed && visChanged
     }
 
-    return <div id={getGridItemDomId(item.id)} style={style} />
+    return <div id={getVisualizationContainerDomId(item.id)} style={style} />
 }
 
 DefaultPlugin.propTypes = {
