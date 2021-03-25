@@ -13,6 +13,7 @@ import LaunchIcon from '@material-ui/icons/Launch'
 import ViewAsMenuItems from './ViewAsMenuItems'
 import { useWindowDimensions } from '../../../WindowDimensionsProvider'
 import { isSmallScreen } from '../../../../modules/smallScreen'
+import { isElementFullscreen } from '../../../../modules/isElementFullscreen'
 
 import {
     ThreeDots,
@@ -85,9 +86,11 @@ const ItemContextMenu = props => {
 
     const buttonRef = createRef()
 
-    return props.isFullscreen ? (
+    return isElementFullscreen(item.id) ? (
         <Button small secondary onClick={props.onToggleFullscreen}>
-            <ExitFullscreen />
+            <span data-testid="exit-fullscreen-button">
+                <ExitFullscreen />
+            </span>
         </Button>
     ) : (
         <>
@@ -167,7 +170,6 @@ ItemContextMenu.propTypes = {
     activeFooter: PropTypes.bool,
     activeType: PropTypes.string,
     fullscreenSupported: PropTypes.bool,
-    isFullscreen: PropTypes.bool,
     item: PropTypes.object,
     loadItemFailed: PropTypes.bool,
     visualization: PropTypes.object,
