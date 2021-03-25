@@ -4,6 +4,7 @@ import { fireEvent } from '@testing-library/dom'
 import WindowDimensionsProvider from '../../../../WindowDimensionsProvider'
 import { useSystemSettings } from '../../../../SystemSettingsProvider'
 import ItemContextMenu from '../ItemContextMenu'
+import { getGridItemDomElementClassName } from '../../../../../modules/getGridItemDomElementClassName'
 
 jest.mock('../../../../SystemSettingsProvider', () => ({
     useSystemSettings: jest.fn(),
@@ -48,7 +49,10 @@ test('renders just the button when menu closed', () => {
 
 test('renders exit fullscreen button', () => {
     useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
-    const gridItemClassName = `reactgriditem-${defaultProps.item.id}`
+    const gridItemClassName = getGridItemDomElementClassName(
+        defaultProps.item.id
+    )
+
     const { rerender } = render(
         <WindowDimensionsProvider>
             <div className={gridItemClassName}>
