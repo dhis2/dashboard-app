@@ -19,6 +19,7 @@ import {
 } from '../../modules/gridUtil'
 import { getBreakpoint } from '../../modules/smallScreen'
 import { orArray } from '../../modules/util'
+import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName'
 import NoContentMessage from '../../widgets/NoContentMessage'
 import { sGetSelectedIsLoading } from '../../reducers/selected'
 import {
@@ -56,7 +57,11 @@ const EditItemGrid = ({
     const getItemComponent = item => (
         <ProgressiveLoadingContainer
             key={item.i}
-            className={cx(item.type, 'edit', `reactgriditem-${item.id}`)}
+            className={cx(
+                item.type,
+                'edit',
+                getGridItemDomElementClassName(item.id)
+            )}
             itemId={item.id}
         >
             <Item item={item} gridWidth={gridWidth} dashboardMode={EDIT} />

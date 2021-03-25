@@ -30,6 +30,7 @@ import {
 import ProgressiveLoadingContainer from '../Item/ProgressiveLoadingContainer'
 import { VIEW } from '../Dashboard/dashboardModes'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen'
+import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName'
 
 import classes from './styles/ItemGrid.module.css'
 
@@ -89,7 +90,11 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
         return (
             <ProgressiveLoadingContainer
                 key={item.i}
-                className={cx(item.type, 'view', `reactgriditem-${item.id}`)}
+                className={cx(
+                    item.type,
+                    'view',
+                    getGridItemDomElementClassName(item.id)
+                )}
                 itemId={item.id}
             >
                 <Item
