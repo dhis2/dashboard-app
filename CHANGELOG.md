@@ -1,3 +1,10 @@
+## [31.14.7](https://github.com/dhis2/dashboard-app/compare/v31.14.6...v31.14.7) (2021-03-25)
+
+
+### Bug Fixes
+
+* check dom element directly to determine if element is fullscreen in order to avoid unnecessary visualization rerenders ([#1672](https://github.com/dhis2/dashboard-app/issues/1672)) ([279f01f](https://github.com/dhis2/dashboard-app/commit/279f01febaca91b6629579b8be5488c2d8576a5a))
+
 ## [31.14.6](https://github.com/dhis2/dashboard-app/compare/v31.14.5...v31.14.6) (2021-03-22)
 
 
