@@ -1,3 +1,10 @@
+## [31.14.8](https://github.com/dhis2/dashboard-app/compare/v31.14.7...v31.14.8) (2021-03-26)
+
+
+### Bug Fixes
+
+* makes Add filter button's display conditional ([#1677](https://github.com/dhis2/dashboard-app/issues/1677)) ([8ce4b51](https://github.com/dhis2/dashboard-app/commit/8ce4b513d51a3619802aa31aa3698413d074b30c))
+
 ## [31.14.7](https://github.com/dhis2/dashboard-app/compare/v31.14.6...v31.14.7) (2021-03-25)
 
 
