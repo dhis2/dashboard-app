@@ -46,4 +46,4 @@ DragHandle.propTypes = {
     onHeightChanged: PropTypes.func,
 }
 
-export default DragHandle
+export default React.memo(DragHandle, () => true)
