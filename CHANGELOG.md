@@ -1,3 +1,17 @@
+## [31.14.8](https://github.com/dhis2/dashboard-app/compare/v31.14.7...v31.14.8) (2021-03-26)
+
+
+### Bug Fixes
+
+* makes Add filter button's display conditional ([#1677](https://github.com/dhis2/dashboard-app/issues/1677)) ([8ce4b51](https://github.com/dhis2/dashboard-app/commit/8ce4b513d51a3619802aa31aa3698413d074b30c))
+
+## [31.14.7](https://github.com/dhis2/dashboard-app/compare/v31.14.6...v31.14.7) (2021-03-25)
+
+
+### Bug Fixes
+
+* check dom element directly to determine if element is fullscreen in order to avoid unnecessary visualization rerenders ([#1672](https://github.com/dhis2/dashboard-app/issues/1672)) ([279f01f](https://github.com/dhis2/dashboard-app/commit/279f01febaca91b6629579b8be5488c2d8576a5a))
+
 ## [31.14.6](https://github.com/dhis2/dashboard-app/compare/v31.14.5...v31.14.6) (2021-03-22)
 
 
