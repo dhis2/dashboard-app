@@ -1529,10 +1529,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^16.0.15":
-  version "16.0.15"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-16.0.15.tgz#868a4094c7957720b112bf584f13c85f7955a287"
-  integrity sha512-3KgjVigsvPflHBTQSboQ3IpArWzeWI6EYqU/dqvtOPk+h9sw7JVFKUfVVqhEU6gIds/gqMmsPR4VwufNO+Scyg==
+"@dhis2/analytics@^16.0.15", "@dhis2/analytics@^16.0.16":
+  version "16.0.16"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-16.0.16.tgz#d977e11901142e8788da48d0e71184e30ceb581d"
+  integrity sha512-VZNN07eusbzzXGi0hckWIy+LmaEsgWifm+v4ibRCX/fZszQVk1fgopTp5uq/fqNtqe/HR0uzeV2LQTUDkFT2bw==
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^7.1.5"
     "@dhis2/d2-ui-org-unit-dialog" "^7.1.5"
@@ -2720,10 +2720,10 @@
     lz-string "^1.4.4"
     pretty-format "^26.6.2"
 
-"@testing-library/jest-dom@^5.11.9":
-  version "5.11.9"
-  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.11.9.tgz#e6b3cd687021f89f261bd53cbe367041fbd3e975"
-  integrity sha512-Mn2gnA9d1wStlAIT2NU8J15LNob0YFBVjs2aEQ3j8rsfRQo+lAs7/ui1i2TGaJjapLmuNPLTsrm+nPjmZDwpcQ==
+"@testing-library/jest-dom@^5.11.10":
+  version "5.11.10"
+  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.11.10.tgz#1cd90715023e1627f5ed26ab3b38e6f22d77046c"
+  integrity sha512-FuKiq5xuk44Fqm0000Z9w0hjOdwZRNzgx7xGGxQYepWFZy+OYUMOT/wPI4nLYXCaVltNVpU1W/qmD88wLWDsqQ==
   dependencies:
     "@babel/runtime" "^7.9.2"
     "@types/testing-library__jest-dom" "^5.9.1"
