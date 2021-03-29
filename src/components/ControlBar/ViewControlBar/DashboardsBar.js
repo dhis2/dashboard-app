@@ -40,8 +40,10 @@ const DashboardsBar = ({
             onExpandedChanged(false)
         }
 
-        updateUserRows(Math.min(newRows, MAX_ROW_COUNT))
-        userRowsChanged.current = true
+        if (newRows !== userRows) {
+            updateUserRows(Math.min(newRows, MAX_ROW_COUNT))
+            userRowsChanged.current = true
+        }
     }
 
     useEffect(() => {
