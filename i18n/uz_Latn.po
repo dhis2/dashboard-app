@@ -106,7 +106,7 @@ msgid "Cancel"
 msgstr "Bekor qilish"
 
 msgid "Confirm"
-msgstr ""
+msgstr "Tasdiqlang"
 
 msgid "Add filter"
 msgstr "Filtr kiritish"
@@ -169,7 +169,7 @@ msgid "Event reports"
 msgstr "Hodisalar hisoboti"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Hodisalar haqida hisobotlar"
 
 msgid "Event charts"
 msgstr "Hodisalar diagrammalarda"
