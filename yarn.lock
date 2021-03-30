@@ -1869,10 +1869,10 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^35.20.20":
-  version "35.20.20"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.20.20.tgz#1b1d9be10c5ac151ad6384c501386803b2bfc01d"
-  integrity sha512-RFhmmSTzIXyUpXXOEF9JaOWqgxsqnzx0U1vm62k59WZwmtW2Iw3SNNWsOTj+69Te52+qFma/CmJVbrLbhiyxbw==
+"@dhis2/data-visualizer-plugin@^35.20.22":
+  version "35.20.22"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.20.22.tgz#7663239e79be8ec8fea1e3406e65782a43d19dcf"
+  integrity sha512-O60DNxWDYiMN2v2Dym18nVlTZcK3qHAL62kHAFuVcD1jJzUX8rX48D2InxrX9T6Z3FlcmUoNihspmdbOHFwd6Q==
   dependencies:
     "@dhis2/analytics" "^16.0.15"
     "@dhis2/app-runtime" "^2.8.0"
@@ -16917,10 +16917,8 @@ watchpack@^1.7.4:
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
-    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
-    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
