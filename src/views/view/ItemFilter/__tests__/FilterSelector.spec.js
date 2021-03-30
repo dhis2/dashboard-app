@@ -8,7 +8,7 @@ import useDimensions from '../../../../modules/useDimensions'
 
 const mockStore = configureMockStore()
 
-jest.mock('../../../modules/useDimensions', () => jest.fn())
+jest.mock('../../../../modules/useDimensions', () => jest.fn())
 useDimensions.mockImplementation(() => ['Moomin', 'Snorkmaiden'])
 
 test('is null when no filters are restricted and no filters are allowed', () => {
