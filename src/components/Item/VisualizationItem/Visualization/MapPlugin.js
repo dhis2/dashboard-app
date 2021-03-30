@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import DefaultPlugin from './DefaultPlugin'
 import { MAP } from '../../../../modules/itemTypes'
-import { pluginIsAvailable } from './plugin'
+import { isElementFullscreen } from '../../../../modules/isElementFullscreen'
+import { pluginIsAvailable, resize } from './plugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
 
-const MapPlugin = ({ applyFilters, ...props }) => {
+const MapPlugin = ({
+    applyFilters,
+    availableHeight,
+    availableWidth,
+    gridWidth,
+    ...props
+}) => {
+    useEffect(() => {
+        resize(props.item.id, MAP, isElementFullscreen(props.item.id))
+    }, [availableHeight, availableWidth, gridWidth])
+
     if (props.item.type === MAP) {
         // apply filters only to thematic and event layers
         // for maps AO
@@ -35,7 +46,7 @@ const MapPlugin = ({ applyFilters, ...props }) => {
         )
     }
 
-    return pluginIsAvailable(props.activeType || props.item.type) ? (
+    return pluginIsAvailable(MAP) ? (
         <DefaultPlugin
             options={{
                 hideTitle: true,
@@ -50,8 +61,11 @@ const MapPlugin = ({ applyFilters, ...props }) => {
 }
 
 MapPlugin.propTypes = {
-    activeType: PropTypes.string,
     applyFilters: PropTypes.func,
+    availableHeight: PropTypes.number,
+    availableWidth: PropTypes.number,
+    gridWidth: PropTypes.number,
+    isFullscreen: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,

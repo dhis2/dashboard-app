@@ -19,6 +19,14 @@ jest.mock('@dhis2/app-runtime')
 jest.mock('../../../api/fetchDashboard')
 
 jest.mock(
+    '../../ItemFilter/FilterSettingsDialog',
+    () =>
+        function MockFilterSettingsDialog() {
+            return <div className="mock-filter-settings-dialog" />
+        }
+)
+
+jest.mock(
     '@dhis2/d2-ui-translation-dialog',
     () =>
         function MockTranslationDialog() {

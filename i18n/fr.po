@@ -6,13 +6,13 @@
 # Edem Kossi <ekossi@hispwca.org>, 2020
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
-# Yao Selom SAKA <saka.yao@yahoo.fr>, 2020
+# Yao Selom SAKA <ysaka@hispwca.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-15T14:41:50.992Z\n"
+"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -59,6 +59,9 @@ msgstr "Quitter l'aperçu avant impression"
 
 msgid "Print preview"
 msgstr "Aperçu avant impression"
+
+msgid "Filter settings"
+msgstr ""
 
 msgid "Translate"
 msgstr "Traduire"
@@ -186,20 +189,29 @@ msgstr "Masquer les interprétations et les détails"
 msgid "Show interpretations and details"
 msgstr "Afficher les interprétations et les détails"
 
-msgid "View as Chart"
-msgstr "Afficher comme graphique"
-
-msgid "View as Table"
-msgstr "Afficher comme tableau"
-
-msgid "View as Map"
-msgstr "Afficher comme carte"
-
 msgid "Open in {{appName}} app"
 msgstr "Ouvrir dans l'app {{appName}}"
 
 msgid "View fullscreen"
 msgstr "Afficher en plein écran"
+
+msgid "View as Chart"
+msgstr "Afficher comme graphique"
+
+msgid "This map can't be displayed as a chart"
+msgstr ""
+
+msgid "View as Table"
+msgstr "Afficher comme tableau"
+
+msgid "This map can't be displayed as a table"
+msgstr ""
+
+msgid "View as Map"
+msgstr "Afficher comme carte"
+
+msgid "There was a problem loading interpretations for this item"
+msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "Impossible de charger le plugin pour cet objet"
@@ -212,6 +224,28 @@ msgstr "Confirmer"
 
 msgid "Add filter"
 msgstr "Ajouter le filtre"
+
+msgid "Allow filtering by all dimensions"
+msgstr ""
+
+msgid "Only allow filtering by selected dimensions"
+msgstr ""
+
+msgid "Dashboard filter settings"
+msgstr ""
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+
+msgid "Available Filters"
+msgstr ""
+
+msgid "Selected Filters"
+msgstr ""
 
 msgid "There are no items on this dashboard"
 msgstr "Il n'y a aucun élément sur ce tableau de bord"

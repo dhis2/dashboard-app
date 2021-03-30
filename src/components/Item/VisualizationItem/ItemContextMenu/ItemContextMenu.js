@@ -13,6 +13,7 @@ import LaunchIcon from '@material-ui/icons/Launch'
 import ViewAsMenuItems from './ViewAsMenuItems'
 import { useWindowDimensions } from '../../../WindowDimensionsProvider'
 import { isSmallScreen } from '../../../../modules/smallScreen'
+import { isElementFullscreen } from '../../../../modules/isElementFullscreen'
 
 import {
     ThreeDots,
@@ -29,14 +30,24 @@ const ItemContextMenu = props => {
     const { width } = useWindowDimensions()
     const { baseUrl } = useConfig()
 
-    const { item, visualization, onSelectActiveType, activeType } = props
-
     const {
         allowVisOpenInApp,
         allowVisShowInterpretations,
         allowVisViewAs,
         allowVisFullscreen,
     } = useSystemSettings().settings
+
+    const fullscreenAllowed = props.fullscreenSupported && allowVisFullscreen
+
+    const noOptionsEnabled =
+        !allowVisOpenInApp &&
+        !allowVisShowInterpretations &&
+        !allowVisViewAs &&
+        !fullscreenAllowed
+
+    if (noOptionsEnabled || (!allowVisOpenInApp && props.loadItemFailed)) {
+        return null
+    }
 
     const toggleInterpretations = () => {
         props.onToggleFooter()
@@ -52,7 +63,7 @@ const ItemContextMenu = props => {
 
     const onActiveTypeChanged = type => {
         closeMenu()
-        onSelectActiveType(type)
+        props.onSelectActiveType(type)
     }
 
     const openMenu = () => {
@@ -60,6 +71,7 @@ const ItemContextMenu = props => {
     }
     const closeMenu = () => setMenuIsOpen(false)
 
+    const { item, visualization, loadItemFailed, activeType } = props
     const type = visualization.type || item.type
     const canViewAs =
         allowVisViewAs &&
@@ -74,20 +86,11 @@ const ItemContextMenu = props => {
 
     const buttonRef = createRef()
 
-    const fullscreenAllowed = props.fullscreenSupported && allowVisFullscreen
-
-    if (
-        !allowVisOpenInApp &&
-        !allowVisShowInterpretations &&
-        !allowVisViewAs &&
-        !fullscreenAllowed
-    ) {
-        return null
-    }
-
-    return props.isFullscreen ? (
+    return isElementFullscreen(item.id) ? (
         <Button small secondary onClick={props.onToggleFullscreen}>
-            <ExitFullscreen />
+            <span data-testid="exit-fullscreen-button">
+                <ExitFullscreen />
+            </span>
         </Button>
     ) : (
         <>
@@ -109,12 +112,13 @@ const ItemContextMenu = props => {
                     onClickOutside={closeMenu}
                 >
                     <Menu>
-                        {canViewAs && (
+                        {canViewAs && !loadItemFailed && (
                             <>
                                 <ViewAsMenuItems
                                     type={item.type}
                                     activeType={activeType}
                                     onActiveTypeChanged={onActiveTypeChanged}
+                                    visualization={visualization}
                                 />
                                 {(allowVisShowInterpretations ||
                                     (allowVisOpenInApp &&
@@ -139,7 +143,7 @@ const ItemContextMenu = props => {
                                 target="_blank"
                             />
                         )}
-                        {allowVisShowInterpretations && (
+                        {allowVisShowInterpretations && !loadItemFailed && (
                             <MenuItem
                                 dense
                                 icon={<SpeechBubble />}
@@ -147,7 +151,7 @@ const ItemContextMenu = props => {
                                 onClick={toggleInterpretations}
                             />
                         )}
-                        {fullscreenAllowed && (
+                        {fullscreenAllowed && !loadItemFailed && (
                             <MenuItem
                                 dense
                                 icon={<Fullscreen />}
@@ -166,8 +170,8 @@ ItemContextMenu.propTypes = {
     activeFooter: PropTypes.bool,
     activeType: PropTypes.string,
     fullscreenSupported: PropTypes.bool,
-    isFullscreen: PropTypes.bool,
     item: PropTypes.object,
+    loadItemFailed: PropTypes.bool,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,

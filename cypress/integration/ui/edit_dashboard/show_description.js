@@ -1,4 +1,17 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
+// import { getApiBaseUrl } from '../../../support/server/utils'
+
+// TODO this request currently fails with 415 Unsupported media type
+// goal is to add this step
+// Given('the description is not shown', () => {
+//     cy.request(
+//         'PUT',
+//         `${getApiBaseUrl()}/api/userDataStore/dashboard/showDescription`,
+//         false
+//     ).then(response => {
+//         expect(response.status).to.equal(201)
+//     })
+// })
 
 When('I click to show description', () => {
     cy.intercept('PUT', 'userDataStore/dashboard/showDescription').as(

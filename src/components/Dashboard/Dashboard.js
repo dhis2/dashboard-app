@@ -86,7 +86,7 @@ const Dashboard = ({
     }, [mode])
 
     useEffect(() => {
-        if (dashboardsLoaded && !dashboardsIsEmpty) {
+        if (dashboardsLoaded && !dashboardsIsEmpty && mode !== NEW) {
             selectDashboard(routeId, mode)
         }
     }, [dashboardsLoaded, dashboardsIsEmpty, routeId, mode])

@@ -1,3 +1,109 @@
+## [31.14.9](https://github.com/dhis2/dashboard-app/compare/v31.14.8...v31.14.9) (2021-03-30)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1647](https://github.com/dhis2/dashboard-app/issues/1647)) ([2e8677c](https://github.com/dhis2/dashboard-app/commit/2e8677c6fd57fdef622590a39371adbe79959f7f))
+
+## [31.14.8](https://github.com/dhis2/dashboard-app/compare/v31.14.7...v31.14.8) (2021-03-26)
+
+
+### Bug Fixes
+
+* makes Add filter button's display conditional ([#1677](https://github.com/dhis2/dashboard-app/issues/1677)) ([8ce4b51](https://github.com/dhis2/dashboard-app/commit/8ce4b513d51a3619802aa31aa3698413d074b30c))
+
+## [31.14.7](https://github.com/dhis2/dashboard-app/compare/v31.14.6...v31.14.7) (2021-03-25)
+
+
+### Bug Fixes
+
+* check dom element directly to determine if element is fullscreen in order to avoid unnecessary visualization rerenders ([#1672](https://github.com/dhis2/dashboard-app/issues/1672)) ([279f01f](https://github.com/dhis2/dashboard-app/commit/279f01febaca91b6629579b8be5488c2d8576a5a))
+
+## [31.14.6](https://github.com/dhis2/dashboard-app/compare/v31.14.5...v31.14.6) (2021-03-22)
+
+
+### Bug Fixes
+
+* avoid double rendering of chart visualizations ([#1658](https://github.com/dhis2/dashboard-app/issues/1658)) ([613ae75](https://github.com/dhis2/dashboard-app/commit/613ae754af8d598d1029c6bdfebf85e3840a1e39))
+* maps, ev and er were not resizing for fullscreen or item resize in edit mode ([#1659](https://github.com/dhis2/dashboard-app/issues/1659)) ([c56b562](https://github.com/dhis2/dashboard-app/commit/c56b56212f46d7af8484c9dbc64b2cf40402eb36))
+* maximum grid width was hanging past right edge of paper in print preview ([#1657](https://github.com/dhis2/dashboard-app/issues/1657)) ([7faf5c2](https://github.com/dhis2/dashboard-app/commit/7faf5c2912d406f0e1c413632206863223fbb091))
+
+## [31.14.5](https://github.com/dhis2/dashboard-app/compare/v31.14.4...v31.14.5) (2021-03-18)
+
+
+### Bug Fixes
+
+* ctrl bar covered sharing dialog and cypress tests [DHIS2-10691] ([#1652](https://github.com/dhis2/dashboard-app/issues/1652)) ([b18069b](https://github.com/dhis2/dashboard-app/commit/b18069b2afb6cbb112f3310b469f2a85a8679fa9))
+
+## [31.14.4](https://github.com/dhis2/dashboard-app/compare/v31.14.3...v31.14.4) (2021-03-17)
+
+
+### Bug Fixes
+
+* do not request current dashboard when NEW route ([#1655](https://github.com/dhis2/dashboard-app/issues/1655)) ([b31124a](https://github.com/dhis2/dashboard-app/commit/b31124a2a70c81abd0c17df5b89c692520fa0ae7))
+* only request dimensions when needed ([#1654](https://github.com/dhis2/dashboard-app/issues/1654)) ([36eec71](https://github.com/dhis2/dashboard-app/commit/36eec715efdbfd55eae392928cdad91c2acf8a29))
+
+## [31.14.3](https://github.com/dhis2/dashboard-app/compare/v31.14.2...v31.14.3) (2021-03-12)
+
+
+### Bug Fixes
+
+* @dhis2/analytics@16.0.15, @dhis2/data-visualizer-plugin@35.20.18 ([#1645](https://github.com/dhis2/dashboard-app/issues/1645)) ([bfa9889](https://github.com/dhis2/dashboard-app/commit/bfa9889865b31deebe5f71d0afb1ece65478c8ca))
+* **translations:** sync translations from transifex (master) ([#1585](https://github.com/dhis2/dashboard-app/issues/1585)) ([45b3524](https://github.com/dhis2/dashboard-app/commit/45b35248630ffad48bc9597c2dc97e9ecee1c1b6))
+* upgrade to @dhis2/cli-app-scripts@6 (DHIS2-9893) ([#1634](https://github.com/dhis2/dashboard-app/issues/1634)) ([662fd6e](https://github.com/dhis2/dashboard-app/commit/662fd6e6a4e8b0418a21acd7238fad8d1df5dcb5))
+
+## [31.14.2](https://github.com/dhis2/dashboard-app/compare/v31.14.1...v31.14.2) (2021-03-11)
+
+
+### Bug Fixes
+
+* disable View As menu items for maps without a thematic layer [DHIS2-10671] ([#1632](https://github.com/dhis2/dashboard-app/issues/1632)) ([c521111](https://github.com/dhis2/dashboard-app/commit/c521111c23847f336b16cc270568438743530c83))
+
+## [31.14.1](https://github.com/dhis2/dashboard-app/compare/v31.14.0...v31.14.1) (2021-03-11)
+
+
+### Bug Fixes
+
+* catch errors from the interpretations component ([#1627](https://github.com/dhis2/dashboard-app/issues/1627)) ([cbf4801](https://github.com/dhis2/dashboard-app/commit/cbf4801457326227e9ebe2d6ce39fa7ad21647e0))
+
+# [31.14.0](https://github.com/dhis2/dashboard-app/compare/v31.13.10...v31.14.0) (2021-03-11)
+
+
+### Features
+
+* lazily load plugin scripts and dependencies when needed (DHIS2-10518) ([#1546](https://github.com/dhis2/dashboard-app/issues/1546)) ([c13eafe](https://github.com/dhis2/dashboard-app/commit/c13eafee33a1f13636bdd80f4dfe5e1107e97322))
+
+## [31.13.10](https://github.com/dhis2/dashboard-app/compare/v31.13.9...v31.13.10) (2021-03-10)
+
+
+### Bug Fixes
+
+* disable cypress test until complete suite can be fixed ([#1628](https://github.com/dhis2/dashboard-app/issues/1628)) ([152fdf9](https://github.com/dhis2/dashboard-app/commit/152fdf945ccc33b30b0dd6b2cf4cdbc343b2e8e4))
+
+## [31.13.9](https://github.com/dhis2/dashboard-app/compare/v31.13.8...v31.13.9) (2021-03-10)
+
+
+### Bug Fixes
+
+* use correct plugin for active type when resizing ([#1626](https://github.com/dhis2/dashboard-app/issues/1626)) ([aece09e](https://github.com/dhis2/dashboard-app/commit/aece09e9ec0d33c2ba28bbed562308e37d5715eb))
+
+## [31.13.8](https://github.com/dhis2/dashboard-app/compare/v31.13.7...v31.13.8) (2021-03-10)
+
+
+### Bug Fixes
+
+* fix double border in More menu ([#1624](https://github.com/dhis2/dashboard-app/issues/1624)) ([42fbaee](https://github.com/dhis2/dashboard-app/commit/42fbaeedb74bb5a456c11cf7a0f4610100843cb1))
+
+## [31.13.7](https://github.com/dhis2/dashboard-app/compare/v31.13.6...v31.13.7) (2021-03-09)
+
+
+### Bug Fixes
+
+* add scatter icon for ItemSelector ([#1614](https://github.com/dhis2/dashboard-app/issues/1614)) ([66ac287](https://github.com/dhis2/dashboard-app/commit/66ac287f450525f932f433f5d897f89cb4f19384))
+* calc fullscreen height of visualization based on window height ([#1621](https://github.com/dhis2/dashboard-app/issues/1621)) ([13c79b9](https://github.com/dhis2/dashboard-app/commit/13c79b94e6b0bd257bd7c76e9bd4241f1f9c7cf0))
+* preserve sharing and translations when saving dashboard ([#1611](https://github.com/dhis2/dashboard-app/issues/1611)) ([802405d](https://github.com/dhis2/dashboard-app/commit/802405dc25e784926740bc7dcc033a5de1980e6a)), closes [dhis2/dhis2-core#7538](https://github.com/dhis2/dhis2-core/issues/7538)
+* use window height to determine controlbar height ([#1620](https://github.com/dhis2/dashboard-app/issues/1620)) ([d7d730f](https://github.com/dhis2/dashboard-app/commit/d7d730f0e1855286d0aa0a7db51e3643a42c2ed8))
+
 ## [31.13.6](https://github.com/dhis2/dashboard-app/compare/v31.13.5...v31.13.6) (2021-03-08)
 
 
