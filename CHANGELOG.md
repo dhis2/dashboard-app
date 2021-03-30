@@ -1,3 +1,41 @@
+## [31.14.8](https://github.com/dhis2/dashboard-app/compare/v31.14.7...v31.14.8) (2021-03-26)
+
+
+### Bug Fixes
+
+* makes Add filter button's display conditional ([#1677](https://github.com/dhis2/dashboard-app/issues/1677)) ([8ce4b51](https://github.com/dhis2/dashboard-app/commit/8ce4b513d51a3619802aa31aa3698413d074b30c))
+
+## [31.14.7](https://github.com/dhis2/dashboard-app/compare/v31.14.6...v31.14.7) (2021-03-25)
+
+
+### Bug Fixes
+
+* check dom element directly to determine if element is fullscreen in order to avoid unnecessary visualization rerenders ([#1672](https://github.com/dhis2/dashboard-app/issues/1672)) ([279f01f](https://github.com/dhis2/dashboard-app/commit/279f01febaca91b6629579b8be5488c2d8576a5a))
+
+## [31.14.6](https://github.com/dhis2/dashboard-app/compare/v31.14.5...v31.14.6) (2021-03-22)
+
+
+### Bug Fixes
+
+* avoid double rendering of chart visualizations ([#1658](https://github.com/dhis2/dashboard-app/issues/1658)) ([613ae75](https://github.com/dhis2/dashboard-app/commit/613ae754af8d598d1029c6bdfebf85e3840a1e39))
+* maps, ev and er were not resizing for fullscreen or item resize in edit mode ([#1659](https://github.com/dhis2/dashboard-app/issues/1659)) ([c56b562](https://github.com/dhis2/dashboard-app/commit/c56b56212f46d7af8484c9dbc64b2cf40402eb36))
+* maximum grid width was hanging past right edge of paper in print preview ([#1657](https://github.com/dhis2/dashboard-app/issues/1657)) ([7faf5c2](https://github.com/dhis2/dashboard-app/commit/7faf5c2912d406f0e1c413632206863223fbb091))
+
+## [31.14.5](https://github.com/dhis2/dashboard-app/compare/v31.14.4...v31.14.5) (2021-03-18)
+
+
+### Bug Fixes
+
+* ctrl bar covered sharing dialog and cypress tests [DHIS2-10691] ([#1652](https://github.com/dhis2/dashboard-app/issues/1652)) ([b18069b](https://github.com/dhis2/dashboard-app/commit/b18069b2afb6cbb112f3310b469f2a85a8679fa9))
+
+## [31.14.4](https://github.com/dhis2/dashboard-app/compare/v31.14.3...v31.14.4) (2021-03-17)
+
+
+### Bug Fixes
+
+* do not request current dashboard when NEW route ([#1655](https://github.com/dhis2/dashboard-app/issues/1655)) ([b31124a](https://github.com/dhis2/dashboard-app/commit/b31124a2a70c81abd0c17df5b89c692520fa0ae7))
+* only request dimensions when needed ([#1654](https://github.com/dhis2/dashboard-app/issues/1654)) ([36eec71](https://github.com/dhis2/dashboard-app/commit/36eec715efdbfd55eae392928cdad91c2acf8a29))
+
 ## [31.14.3](https://github.com/dhis2/dashboard-app/compare/v31.14.2...v31.14.3) (2021-03-12)
 
 
