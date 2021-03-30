@@ -17,7 +17,7 @@ import { tGetMessages } from '../components/Item/MessagesItem/actions'
 import { acSetAlertMessage, acClearAlertMessage } from './alert'
 import { acAddVisualization, acClearVisualizations } from './visualizations'
 import { apiFetchDashboard } from '../api/fetchDashboard'
-import { storePreferredDashboardId } from '../api/localStorage'
+import { storePreferredDashboardId } from '../modules/localStorage'
 import { apiGetShowDescription } from '../api/description'
 
 import { withShape } from '../modules/gridUtil'

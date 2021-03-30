@@ -27,6 +27,13 @@ Feature: Error scenarios
         Then I remain in edit mode and error message is displayed
 
     @nonmutating
+    Scenario: A 500 error is thrown when I delete the dashboard
+        Given I open the "Delivery" dashboard
+        When I choose to edit dashboard
+        And A 500 error is thrown when I delete the dashboard
+        Then I remain in edit mode and error message is displayed
+
+    @nonmutating
     Scenario: I enter edit mode of a dashboard I do not have access to edit
         Given I open a non-editable dashboard in edit mode
         Then only the option to return to view mode is available

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-03-23T17:02:36.568Z\n"
-"PO-Revision-Date: 2021-03-23T17:02:36.568Z\n"
+"POT-Creation-Date: 2021-03-30T12:38:52.624Z\n"
+"PO-Revision-Date: 2021-03-30T12:38:52.624Z\n"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -121,6 +121,11 @@ msgstr ""
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid ""
+"Failed to delete dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
 

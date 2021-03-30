@@ -7,7 +7,7 @@ import SinglesMenuGroup from './SinglesMenuGroup'
 import { singleItems, categorizedItems } from './selectableItems'
 import { itemTypeMap, getDefaultItemCount } from '../../../modules/itemTypes'
 import useDebounce from '../../../modules/useDebounce'
-import { getDashboardsQQuery } from '../../../api/dashboardsQ'
+import { getDashboardsQQuery } from './dashboardsQQuery'
 
 import classes from './styles/ItemSelector.module.css'
 

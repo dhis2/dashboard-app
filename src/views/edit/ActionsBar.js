@@ -18,7 +18,8 @@ import {
     acSetFilterSettings,
 } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
-import { tDeleteDashboard } from '../../actions/dashboards'
+import { tFetchDashboards } from '../../actions/dashboards'
+import { deleteDashboardMutation } from './deleteDashboardMutation'
 import {
     sGetEditDashboardRoot,
     sGetIsNewDashboard,
@@ -33,6 +34,10 @@ const saveFailedMessage = i18n.t(
     'Failed to save dashboard. You might be offline or not have access to edit this dashboard.'
 )
 
+const deleteFailedMessage = i18n.t(
+    'Failed to delete dashboard. You might be offline or not have access to edit this dashboard.'
+)
+
 const EditBar = props => {
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
@@ -44,7 +49,11 @@ const EditBar = props => {
     const [confirmDeleteDlgIsOpen, setConfirmDeleteDlgIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(undefined)
 
-    const failureAlert = useAlert(saveFailedMessage, {
+    const saveFailureAlert = useAlert(saveFailedMessage, {
+        critical: true,
+    })
+
+    const deleteFailureAlert = useAlert(deleteFailedMessage, {
         critical: true,
     })
 
@@ -62,13 +71,25 @@ const EditBar = props => {
         setConfirmDeleteDlgIsOpen(true)
     }
 
+    const deleteDashboardConfirmed = () => {
+        setConfirmDeleteDlgIsOpen(false)
+
+        dataEngine
+            .mutate(deleteDashboardMutation, {
+                variables: { id: props.dashboardId },
+            })
+            .then(props.fetchDashboards)
+            .then(() => setRedirectUrl('/'))
+            .catch(deleteFailureAlert.show)
+    }
+
     const onSave = () => {
         props
             .saveDashboard()
             .then(newId => {
                 setRedirectUrl(`/${newId}`)
             })
-            .catch(() => failureAlert.show())
+            .catch(() => saveFailureAlert.show())
     }
 
     const onPrintPreview = () => {
@@ -89,13 +110,6 @@ const EditBar = props => {
 
     const onContinueEditing = () => {
         setConfirmDeleteDlgIsOpen(false)
-    }
-
-    const onDeleteConfirmed = () => {
-        setConfirmDeleteDlgIsOpen(false)
-        props.onDelete(props.dashboardId).then(() => {
-            setRedirectUrl('/')
-        })
     }
 
     const onFilterSettingsConfirmed = (
@@ -123,7 +137,7 @@ const EditBar = props => {
         props.deleteAccess && props.dashboardId ? (
             <ConfirmDeleteDialog
                 dashboardName={props.dashboardName}
-                onDeleteConfirmed={onDeleteConfirmed}
+                onDeleteConfirmed={deleteDashboardConfirmed}
                 onContinueEditing={onContinueEditing}
                 open={confirmDeleteDlgIsOpen}
             />
@@ -220,6 +234,7 @@ EditBar.propTypes = {
     dashboardId: PropTypes.string,
     dashboardName: PropTypes.string,
     deleteAccess: PropTypes.bool,
+    fetchDashboards: PropTypes.func,
     isPrintPreviewView: PropTypes.bool,
     newDashboard: PropTypes.bool,
     restrictFilters: PropTypes.bool,
@@ -227,7 +242,6 @@ EditBar.propTypes = {
     setFilterSettings: PropTypes.func,
     showPrintPreview: PropTypes.func,
     updateAccess: PropTypes.bool,
-    onDelete: PropTypes.func,
     onDiscardChanges: PropTypes.func,
 }
 
@@ -262,7 +276,7 @@ const mapDispatchToProps = dispatch => ({
     clearPrintDashboard: () => dispatch(acClearPrintDashboard()),
     clearPrintPreview: () => dispatch(acClearPrintPreviewView()),
     saveDashboard: () => dispatch(tSaveDashboard()).then(id => id),
-    onDelete: id => dispatch(tDeleteDashboard(id)),
+    fetchDashboards: () => dispatch(tFetchDashboards()),
     onDiscardChanges: () => dispatch(acClearEditDashboard()),
     setFilterSettings: value => dispatch(acSetFilterSettings(value)),
     showPrintPreview: () => dispatch(acSetPrintPreviewView()),

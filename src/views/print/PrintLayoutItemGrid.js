@@ -16,10 +16,7 @@ import {
 import { sGetIsEditing } from '../../reducers/editDashboard'
 
 import { hasShape } from '../../modules/gridUtil'
-import {
-    getDomGridItemsSortedByYPos,
-    getTransformYPx,
-} from '../../modules/printUtils'
+import { getDomGridItemsSortedByYPos, getTransformYPx } from './printUtils'
 
 import { PRINT_LAYOUT } from '../../modules/dashboardModes'
 import { PAGEBREAK } from '../../modules/itemTypes'

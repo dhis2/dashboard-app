@@ -22,7 +22,7 @@ import {
 } from '../../reducers/dashboards'
 import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
 import { MAX_ITEM_GRID_HEIGHT } from '../../modules/gridUtil'
-import { getPageBreakPositions } from '../../modules/printUtils'
+import { getPageBreakPositions } from './printUtils'
 
 import classes from './styles/PrintLayoutDashboard.module.css'
 
