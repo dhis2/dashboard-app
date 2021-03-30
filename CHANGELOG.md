@@ -1,3 +1,10 @@
+## [31.14.10](https://github.com/dhis2/dashboard-app/compare/v31.14.9...v31.14.10) (2021-03-30)
+
+
+### Bug Fixes
+
+* expanded control bar not resizing on drag [DHIS2-10795] ([#1681](https://github.com/dhis2/dashboard-app/issues/1681)) ([e857c03](https://github.com/dhis2/dashboard-app/commit/e857c03e05dbbb1e6eb8ac98b5d90acfe79e3257))
+
 ## [31.14.9](https://github.com/dhis2/dashboard-app/compare/v31.14.8...v31.14.9) (2021-03-30)
 
 
