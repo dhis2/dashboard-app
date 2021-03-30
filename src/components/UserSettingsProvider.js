@@ -15,7 +15,10 @@ const UserSettingsProvider = ({ children }) => {
                 userSettings: userSettingsQuery,
             })
 
-            setSettings(userSettings)
+            setSettings({
+                ...userSettings,
+                displayProperty: userSettings.keyAnalysisDisplayProperty,
+            })
         }
         fetchData()
     }, [])
