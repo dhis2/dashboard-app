@@ -8,7 +8,11 @@ import DeleteIcon from './assets/Delete'
 
 import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes'
 import { orArray } from '../../../modules/util'
-import { tRemoveListItemContent } from './actions'
+import {
+    acUpdateDashboardItem,
+    acRemoveDashboardItem,
+} from '../../../actions/editDashboard'
+
 import ItemHeader from '../ItemHeader/ItemHeader'
 import { isEditMode } from '../../../modules/dashboardModes'
 
@@ -22,15 +26,30 @@ const getContentItems = item =>
             array.findIndex(el => el.id === item.id) === index
     )
 
-const ListItem = ({ item, dashboardMode, tRemoveListItemContent }) => {
+const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
     const { baseUrl } = useConfig()
     const contentItems = getContentItems(item)
+
+    const updateDashboardItem = content => {
+        const listItemType = itemTypeMap[item.type].propName
+
+        const newContent = item[listItemType].filter(
+            item => item.id !== content.id
+        )
+
+        if (newContent.length) {
+            item[listItemType] = newContent
+            updateItem(item)
+        } else {
+            removeItem(item)
+        }
+    }
 
     const getLink = contentItem => {
         const deleteButton = (
             <button
                 className={classes.deletebutton}
-                onClick={() => tRemoveListItemContent(item, contentItem)}
+                onClick={() => updateDashboardItem(contentItem)}
             >
                 <DeleteIcon className={classes.deleteicon} />
             </button>
@@ -76,9 +95,11 @@ const ListItem = ({ item, dashboardMode, tRemoveListItemContent }) => {
 ListItem.propTypes = {
     dashboardMode: PropTypes.string,
     item: PropTypes.object,
-    tRemoveListItemContent: PropTypes.func,
+    removeItem: PropTypes.func,
+    updateItem: PropTypes.func,
 }
 
 export default connect(null, {
-    tRemoveListItemContent,
+    removeItem: acRemoveDashboardItem,
+    updateItem: acUpdateDashboardItem,
 })(ListItem)

@@ -8,7 +8,7 @@ import ItemHeader from '../ItemHeader/ItemHeader'
 import { useUserSettings } from '../../UserSettingsProvider'
 
 import { sGetMessagesRoot } from '../../../reducers/messages'
-import { formatDate } from '../../../modules/util'
+import { getFormattedDate } from './getFormattedDate'
 import { isViewMode } from '../../../modules/dashboardModes'
 
 import classes from './styles/Item.module.css'
@@ -67,7 +67,7 @@ const MessagesItem = ({ messages, item, dashboardMode }) => {
                     </p>
                     <p className={classes.sender}>
                         {sender} -{' '}
-                        {formatDate(msgDate, userSettings.keyUiLocale)}
+                        {getFormattedDate(msgDate, userSettings.keyUiLocale)}
                     </p>
                     <p className={classes.snippet}>{latestMsg.text}</p>
                 </li>
