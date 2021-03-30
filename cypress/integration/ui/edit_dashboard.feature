@@ -24,6 +24,7 @@ Feature: Creating, editing and deleting dashboard
     @mutating
     Scenario: I toggle show description
         Given I open existing dashboard
+        # And the description is not shown
         Then dashboard displays in view mode
         And the dashboard description is not displayed
         When I click to show description
@@ -39,19 +40,16 @@ Feature: Creating, editing and deleting dashboard
         And the chart item is displayed
         Then no analytics requests are made when item is moved
 
-    # TODO: enable test when https://github.com/dhis2/dhis2-core/pull/7538 is merged
-    # @mutating
-    # Scenario: I add translations to a dashboard and save dashboard
-    #     Given instance has db language set to Norwegian
-    #     Given I open existing dashboard
-    #     When I choose to edit dashboard
-    #     And I add translations for dashboard name and description
-    #     And dashboard is saved
-    #     Then Norwegian title and description are displayed
+    @mutating
+    Scenario: I add translations to a dashboard and save dashboard
+        Given I open existing dashboard
+        When I choose to edit dashboard
+        And I add translations for dashboard name and description
+        And dashboard is saved
+        Then Norwegian title and description are displayed
 
     @mutating
     Scenario: I add translations to a dashboard and discard dashboard changes
-        Given instance has db language set to Norwegian
         Given I open existing dashboard
         When I choose to edit dashboard
         And I add translations for dashboard name and description
@@ -59,6 +57,14 @@ Feature: Creating, editing and deleting dashboard
         Then Norwegian title and description are displayed
 
     @mutating
+    Scenario: I change sharing settings of a dashboard
+        Given I open existing dashboard
+        When I change sharing settings
+        And I choose to edit dashboard
+        And dashboard is saved
+        Then the new sharing settings should be preserved
+
+    @nonmutating
     Scenario: I cancel a delete dashboard action
         Given I open existing dashboard
         When I choose to edit dashboard
