@@ -37,6 +37,10 @@ const DashboardsBar = ({
             getRowsFromHeight(mouseYPos - 52) // don't rush the transition to a bigger row count
         )
 
+        if (newRows < MAX_ROW_COUNT) {
+            onExpandedChanged(false)
+        }
+
         if (newRows !== userRows) {
             updateUserRows(Math.min(newRows, MAX_ROW_COUNT))
             userRowsChanged.current = true
