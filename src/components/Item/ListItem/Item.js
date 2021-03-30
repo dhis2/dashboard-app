@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { colors } from '@dhis2/ui'
+import { Divider, colors, spacers } from '@dhis2/ui'
 import { useConfig } from '@dhis2/app-runtime'
 import DescriptionIcon from './assets/Description'
 import DeleteIcon from './assets/Delete'
-import Line from '../../Line'
+
 import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes'
 import { orArray } from '../../../modules/util'
 import { tRemoveListItemContent } from './actions'
@@ -58,7 +58,7 @@ const ListItem = ({ item, dashboardMode, tRemoveListItemContent }) => {
                 dashboardMode={dashboardMode}
                 isShortened={item.shortened}
             />
-            <Line />
+            <Divider margin={`0 0 ${spacers.dp4} 0`} />
             <div className="dashboard-item-content">
                 <ul className={classes.list}>
                     {contentItems.map(contentItem => (

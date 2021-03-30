@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import NotInterestedIcon from '@material-ui/icons/NotInterested'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import ItemHeader from '../ItemHeader/ItemHeader'
-import Line from '../../Line'
+import { Divider, spacers } from '@dhis2/ui'
 
 import { FILTER_ORG_UNIT } from '../../../actions/itemFilters'
 import {
@@ -53,7 +53,7 @@ const AppItem = ({ dashboardMode, item, itemFilters }) => {
                         dashboardMode={dashboardMode}
                         isShortened={item.shortened}
                     />
-                    <Line />
+                    <Divider margin={`0 0 ${spacers.dp4} 0`} />
                 </>
             )}
             <iframe
@@ -70,7 +70,7 @@ const AppItem = ({ dashboardMode, item, itemFilters }) => {
     ) : (
         <>
             <ItemHeader title={`${appKey} app not found`} />
-            <Line />
+            <Divider margin={`0 0 ${spacers.dp4} 0`} />
             <div
                 className="dashboard-item-content"
                 style={{

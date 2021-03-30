@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import { useConfig } from '@dhis2/app-runtime'
+import { Divider, spacers } from '@dhis2/ui'
 import ItemHeader from '../ItemHeader/ItemHeader'
-import Line from '../../Line'
 import { useUserSettings } from '../../UserSettingsProvider'
 
 import { sGetMessagesRoot } from '../../../reducers/messages'
@@ -83,7 +83,7 @@ const MessagesItem = ({ messages, item, dashboardMode }) => {
                 dashboardMode={dashboardMode}
                 isShortened={item.shortened}
             />
-            <Line />
+            <Divider margin={`0 0 ${spacers.dp4} 0`} />
             {messages.length > 0 && (
                 <div className="dashboard-item-content">
                     <ul className={classes.list}>{getMessageItems()}</ul>
