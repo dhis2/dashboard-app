@@ -7,7 +7,7 @@ import {
     itemTypeMap,
 } from '../../../../modules/itemTypes'
 import { getVisualizationId } from '../../../../modules/item'
-import getGridItemDomId from '../../../../modules/getGridItemDomId'
+import getVisualizationContainerDomId from '../../../../modules/getVisualizationContainerDomId'
 import { loadExternalScript } from './loadExternalScript'
 
 //external plugins
@@ -101,7 +101,7 @@ export const load = async (
     const config = {
         ...visualization,
         ...options,
-        el: getGridItemDomId(item.id),
+        el: getVisualizationContainerDomId(item.id),
     }
 
     const type = activeType || item.type
@@ -111,7 +111,7 @@ export const load = async (
 export const resize = async (id, type, isFullscreen = false) => {
     const plugin = await getPlugin(type)
     if (plugin?.resize) {
-        plugin.resize(getGridItemDomId(id), isFullscreen)
+        plugin.resize(getVisualizationContainerDomId(id), isFullscreen)
     }
 }
 
@@ -119,6 +119,6 @@ export const unmount = async (item, activeType) => {
     const plugin = await getPlugin(activeType)
 
     if (plugin && plugin.unmount) {
-        plugin.unmount(getGridItemDomId(item.id))
+        plugin.unmount(getVisualizationContainerDomId(item.id))
     }
 }

@@ -46,7 +46,7 @@ const FilterSelector = props => {
         }
     }
 
-    return props.restrictFilters && !props.allowedFilters ? null : (
+    return props.restrictFilters && !props.allowedFilters?.length ? null : (
         <>
             <span className={classes.buttonContainer} ref={ref}>
                 <Button onClick={() => setShowPopover(true)}>

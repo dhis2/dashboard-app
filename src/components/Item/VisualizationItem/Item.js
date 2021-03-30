@@ -25,6 +25,8 @@ import {
 import { acAddVisualization } from '../../../actions/visualizations'
 import { acSetSelectedItemActiveType } from '../../../actions/selected'
 import { getDataStatisticsName } from '../../../modules/itemTypes'
+import { isElementFullscreen } from '../../../modules/isElementFullscreen'
+import { getGridItemElement } from '../../../modules/getGridItemElement'
 import { getVisualizationId, getVisualizationName } from '../../../modules/item'
 import {
     isEditMode,
@@ -37,7 +39,6 @@ export class Item extends Component {
     state = {
         showFooter: false,
         configLoaded: false,
-        isFullscreen: false,
         loadItemFailed: false,
     }
 
@@ -46,7 +47,6 @@ export class Item extends Component {
 
         this.contentRef = React.createRef()
         this.headerRef = React.createRef()
-        this.itemDomElSelector = `.reactgriditem-${this.props.item.id}`
 
         const style = window.getComputedStyle(document.documentElement)
         this.itemContentPadding = parseInt(
@@ -94,45 +94,16 @@ export class Item extends Component {
         }
 
         this.setState({ configLoaded: true })
-
-        const el = document.querySelector(this.itemDomElSelector)
-        if (el?.requestFullscreen) {
-            el.onfullscreenchange = this.handleFullscreenChange
-        } else if (el?.webkitRequestFullscreen) {
-            el.onwebkitfullscreenchange = this.handleFullscreenChange
-        }
-    }
-
-    componentWillUnmount() {
-        const el = document.querySelector(this.itemDomElSelector)
-        if (el?.onfullscreenchange) {
-            el.removeEventListener(
-                'onfullscreenchange',
-                this.handleFullscreenChange
-            )
-        } else if (el?.onwebkitfullscreenchange) {
-            el.removeEventListener(
-                'onwebkitfullscreenchange',
-                this.handleFullscreenChange
-            )
-        }
     }
 
     isFullscreenSupported = () => {
-        const el = document.querySelector(this.itemDomElSelector)
+        const el = getGridItemElement(this.props.item.id)
         return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
     }
 
-    handleFullscreenChange = () =>
-        this.setState({
-            isFullscreen:
-                !!document.fullscreenElement ||
-                !!document.webkitFullscreenElement,
-        })
-
     onToggleFullscreen = () => {
-        if (!this.state.isFullscreen) {
-            const el = document.querySelector(this.itemDomElSelector)
+        if (!isElementFullscreen(this.props.item.id)) {
+            const el = getGridItemElement(this.props.item.id)
             if (el?.requestFullscreen) {
                 el.requestFullscreen()
             } else if (el?.webkitRequestFullscreen) {
@@ -167,7 +138,7 @@ export class Item extends Component {
     }
 
     getAvailableHeight = ({ width, height }) => {
-        if (this.state.isFullscreen) {
+        if (isElementFullscreen(this.props.item.id)) {
             return (
                 height -
                 this.headerRef.current.clientHeight -
@@ -191,9 +162,9 @@ export class Item extends Component {
     }
 
     getAvailableWidth = () => {
-        const rect = document
-            .querySelector(this.itemDomElSelector)
-            ?.getBoundingClientRect()
+        const rect = getGridItemElement(
+            this.props.item.id
+        )?.getBoundingClientRect()
 
         return rect && rect.width - this.itemContentPadding * 2
     }
@@ -207,20 +178,21 @@ export class Item extends Component {
         const { showFooter } = this.state
         const activeType = this.getActiveType()
 
-        const actionButtons = pluginIsAvailable(activeType || item.type) ? (
-            <ItemContextMenu
-                item={item}
-                visualization={this.props.visualization}
-                onSelectActiveType={this.setActiveType}
-                onToggleFooter={this.onToggleFooter}
-                onToggleFullscreen={this.onToggleFullscreen}
-                activeType={activeType}
-                activeFooter={showFooter}
-                isFullscreen={this.state.isFullscreen}
-                fullscreenSupported={this.isFullscreenSupported()}
-                loadItemFailed={this.state.loadItemFailed}
-            />
-        ) : null
+        const actionButtons =
+            pluginIsAvailable(activeType || item.type) &&
+            isViewMode(dashboardMode) ? (
+                <ItemContextMenu
+                    item={item}
+                    visualization={this.props.visualization}
+                    onSelectActiveType={this.setActiveType}
+                    onToggleFooter={this.onToggleFooter}
+                    onToggleFullscreen={this.onToggleFullscreen}
+                    activeType={activeType}
+                    activeFooter={showFooter}
+                    fullscreenSupported={this.isFullscreenSupported()}
+                    loadItemFailed={this.state.loadItemFailed}
+                />
+            ) : null
 
         return (
             <>
@@ -254,7 +226,6 @@ export class Item extends Component {
                                             dimensions
                                         )}
                                         availableWidth={this.getAvailableWidth()}
-                                        isFullscreen={this.state.isFullscreen}
                                         gridWidth={this.props.gridWidth}
                                     />
                                 )}
