@@ -10,6 +10,7 @@ import ItemContextMenu from './ItemContextMenu/ItemContextMenu'
 import ItemFooter from './ItemFooter'
 import { pluginIsAvailable } from './Visualization/plugin'
 import memoizeOne from './memoizeOne'
+import { getGridItemElement } from './getGridItemElement'
 
 import { WindowDimensionsCtx } from '../../WindowDimensionsProvider'
 import { SystemSettingsCtx } from '../../SystemSettingsProvider'
@@ -25,8 +26,8 @@ import {
 import { acAddVisualization } from '../../../actions/visualizations'
 import { acSetSelectedItemActiveType } from '../../../actions/selected'
 import { getDataStatisticsName } from '../../../modules/itemTypes'
-import { isElementFullscreen } from '../../../modules/isElementFullscreen'
-import { getGridItemElement } from '../../../modules/getGridItemElement'
+import { isElementFullscreen } from './isElementFullscreen'
+
 import { getVisualizationId, getVisualizationName } from '../../../modules/item'
 import {
     isEditMode,

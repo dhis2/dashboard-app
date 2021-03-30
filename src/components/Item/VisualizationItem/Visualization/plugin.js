@@ -7,7 +7,7 @@ import {
     itemTypeMap,
 } from '../../../../modules/itemTypes'
 import { getVisualizationId } from '../../../../modules/item'
-import getVisualizationContainerDomId from '../../../../modules/getVisualizationContainerDomId'
+import getVisualizationContainerDomId from '../getVisualizationContainerDomId'
 import { loadExternalScript } from './loadExternalScript'
 
 //external plugins

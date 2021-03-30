@@ -13,7 +13,7 @@ import LaunchIcon from '@material-ui/icons/Launch'
 import ViewAsMenuItems from './ViewAsMenuItems'
 import { useWindowDimensions } from '../../../WindowDimensionsProvider'
 import { isSmallScreen } from '../../../../modules/smallScreen'
-import { isElementFullscreen } from '../../../../modules/isElementFullscreen'
+import { isElementFullscreen } from '../isElementFullscreen'
 
 import {
     ThreeDots,
