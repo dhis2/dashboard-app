@@ -6,7 +6,7 @@
 # phil_dhis2, 2021
 # Edem Kossi <ekossi@hispwca.org>, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
-# Yao Selom SAKA <saka.yao@yahoo.fr>, 2021
+# Yao Selom SAKA <ysaka@hispwca.org>, 2021
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # 
 msgid ""
