@@ -8,7 +8,7 @@ import visualizations from './visualizations'
 import editDashboard from './editDashboard'
 import printDashboard from './printDashboard'
 import messages from './messages'
-import user from './user'
+import username from './username'
 import alert from './alert'
 import itemFilters from './itemFilters'
 import dimensions from './dimensions'
@@ -22,7 +22,7 @@ export default combineReducers({
     controlBar,
     visualizations,
     messages,
-    user,
+    username,
     editDashboard,
     printDashboard,
     itemFilters,

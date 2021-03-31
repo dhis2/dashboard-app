@@ -8,7 +8,7 @@ import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import Dashboard from './Dashboard'
 import AlertBar from './components/AlertBar'
 
-import { acReceivedUser } from './actions/user'
+import { acSetUsername } from './actions/username'
 import { tFetchDashboards } from './actions/dashboards'
 import { tSetControlBarRows } from './actions/controlBar'
 import { tSetShowDescription } from './actions/selected'
@@ -21,7 +21,7 @@ const App = props => {
     const { d2 } = useD2()
 
     useEffect(() => {
-        props.setCurrentUser(d2.currentUser)
+        props.setUsername(d2.currentUser)
         props.fetchDashboards()
         props.setControlBarRows()
         props.setShowDescription()
@@ -84,15 +84,15 @@ const App = props => {
 App.propTypes = {
     fetchDashboards: PropTypes.func.isRequired,
     setControlBarRows: PropTypes.func.isRequired,
-    setCurrentUser: PropTypes.func.isRequired,
     setShowDescription: PropTypes.func.isRequired,
+    setUsername: PropTypes.func.isRequired,
 }
 
 const mapDispatchToProps = {
     fetchDashboards: tFetchDashboards,
     setControlBarRows: tSetControlBarRows,
-    setCurrentUser: acReceivedUser,
     setShowDescription: tSetShowDescription,
+    setUsername: acSetUsername,
 }
 
 export default connect(null, mapDispatchToProps)(App)

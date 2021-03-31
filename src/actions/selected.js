@@ -9,7 +9,7 @@ import {
     sGetSelectedIsLoading,
     sGetSelectedId,
 } from '../reducers/selected'
-import { sGetUserUsername } from '../reducers/user'
+import { sGetUsername } from '../reducers/username'
 
 import { acSetDashboardItems, acAppendDashboards } from './dashboards'
 import { acClearItemFilters } from './itemFilters'
@@ -91,7 +91,7 @@ export const tSetSelectedDashboardById = (id, mode) => async (
 
         dispatch(acSetDashboardItems(withShape(customDashboard.dashboardItems)))
 
-        storePreferredDashboardId(sGetUserUsername(getState()), id)
+        storePreferredDashboardId(sGetUsername(getState()), id)
 
         if (id !== sGetSelectedId(getState())) {
             dispatch(acClearItemFilters())
