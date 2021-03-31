@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 
-import DefaultPlugin from './DefaultPlugin'
+import LegacyPlugin from './LegacyPlugin'
 import MapPlugin from './MapPlugin'
 import DataVisualizerPlugin from './DataVisualizerPlugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
@@ -37,8 +37,7 @@ class Visualization extends React.Component {
             activeType,
             item,
             itemFilters,
-            availableHeight,
-            availableWidth,
+            ...rest
         } = this.props
 
         if (!visualization) {
@@ -49,9 +48,9 @@ class Visualization extends React.Component {
             )
         }
 
-        const style = { height: availableHeight }
-        if (availableWidth) {
-            style.width = availableWidth
+        const style = { height: this.props.availableHeight }
+        if (this.props.availableWidth) {
+            style.width = this.props.availableWidth
         }
 
         const pluginProps = {
@@ -64,6 +63,7 @@ class Visualization extends React.Component {
                 item.type,
                 activeType
             ),
+            ...rest,
         }
 
         switch (activeType) {
@@ -97,7 +97,7 @@ class Visualization extends React.Component {
                 return pluginIsAvailable(
                     pluginProps.activeType || pluginProps.item.type
                 ) ? (
-                    <DefaultPlugin {...pluginProps} />
+                    <LegacyPlugin {...pluginProps} />
                 ) : (
                     <NoVisualizationMessage
                         message={i18n.t(

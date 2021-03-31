@@ -2,7 +2,6 @@
     position: relative;
     background-color: var(--colors-white);
     box-shadow: rgba(0, 0, 0, 0.2) 0 0 6px 3px;
-    z-index: 2001;
     overflow: hidden;
     box-sizing: border-box;
     flex: none;
@@ -24,6 +23,7 @@
 
 .expanded .container {
     height: var(--max-rows-height);
+    z-index: 2001;
 }
 
 .spacer {

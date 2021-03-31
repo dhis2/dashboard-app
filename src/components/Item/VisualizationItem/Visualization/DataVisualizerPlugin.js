@@ -1,6 +1,5 @@
-import React, { Suspense, useState } from 'react'
+import React, { Suspense, useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { useUserSettings } from '../../../UserSettingsProvider'
 import LoadingMask from './LoadingMask'
 
@@ -11,20 +10,21 @@ const VisualizationPlugin = React.lazy(() =>
 )
 
 const DataVisualizerPlugin = props => {
-    const d2 = useD2()
     const { userSettings } = useUserSettings()
     const [visualizationLoaded, setVisualizationLoaded] = useState(false)
+
+    const onLoadingComplete = useCallback(
+        () => setVisualizationLoaded(true),
+        []
+    )
 
     return (
         <Suspense fallback={<div />}>
             {!visualizationLoaded && <LoadingMask style={props.style} />}
             <VisualizationPlugin
-                d2={d2}
                 forDashboard={true}
-                userSettings={{
-                    displayProperty: userSettings.keyAnalysisDisplayProperty,
-                }}
-                onLoadingComplete={() => setVisualizationLoaded(true)}
+                userSettings={userSettings}
+                onLoadingComplete={onLoadingComplete}
                 {...props}
             />
         </Suspense>

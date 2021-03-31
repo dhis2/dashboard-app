@@ -21,10 +21,7 @@ import {
 } from '../../../reducers/itemFilters'
 import { acAddVisualization } from '../../../actions/visualizations'
 import { acSetSelectedItemActiveType } from '../../../actions/selected'
-import {
-    pluginIsAvailable,
-    resize as pluginResize,
-} from './Visualization/plugin'
+import { pluginIsAvailable } from './Visualization/plugin'
 import { getDataStatisticsName } from '../../../modules/itemTypes'
 import { getVisualizationId, getVisualizationName } from '../../../modules/item'
 import memoizeOne from '../../../modules/memoizeOne'
@@ -34,7 +31,6 @@ import {
     isViewMode,
 } from '../../Dashboard/dashboardModes'
 import { getItemHeightPx } from '../../../modules/gridUtil'
-import getGridItemDomId from '../../../modules/getGridItemDomId'
 
 export class Item extends Component {
     state = {
@@ -121,50 +117,17 @@ export class Item extends Component {
         }
     }
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.gridWidth !== this.props.gridWidth) {
-            const el = document.querySelector(
-                `#${getGridItemDomId(this.props.item.id)}`
-            )
-            if (typeof el?.setViewportSize === 'function') {
-                setTimeout(
-                    () =>
-                        el.setViewportSize(
-                            el.clientWidth - 5,
-                            el.clientHeight - 5
-                        ),
-                    10
-                )
-            }
-            // call resize on Map item
-            pluginResize(
-                this.props.item.id,
-                this.getActiveType(),
-                this.state.isFullscreen
-            )
-        }
-    }
-
     isFullscreenSupported = () => {
         const el = document.querySelector(this.itemDomElSelector)
         return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
     }
 
-    handleFullscreenChange = () => {
-        this.setState(
-            {
-                isFullscreen:
-                    !!document.fullscreenElement ||
-                    !!document.webkitFullscreenElement,
-            },
-            () =>
-                pluginResize(
-                    this.props.item.id,
-                    this.getActiveType(),
-                    this.state.isFullscreen
-                )
-        )
-    }
+    handleFullscreenChange = () =>
+        this.setState({
+            isFullscreen:
+                !!document.fullscreenElement ||
+                !!document.webkitFullscreenElement,
+        })
 
     onToggleFullscreen = () => {
         if (!this.state.isFullscreen) {
@@ -230,6 +193,7 @@ export class Item extends Component {
         const rect = document
             .querySelector(this.itemDomElSelector)
             ?.getBoundingClientRect()
+
         return rect && rect.width - this.itemContentPadding * 2
     }
 
@@ -289,6 +253,8 @@ export class Item extends Component {
                                             dimensions
                                         )}
                                         availableWidth={this.getAvailableWidth()}
+                                        isFullscreen={this.state.isFullscreen}
+                                        gridWidth={this.props.gridWidth}
                                     />
                                 )}
                             </WindowDimensionsCtx.Consumer>
