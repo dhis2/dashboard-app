@@ -9,7 +9,6 @@ import {
     sGetSelectedIsLoading,
     sGetSelectedId,
 } from '../reducers/selected'
-import { sGetUsername } from '../reducers/username'
 
 import { acSetDashboardItems, acAppendDashboards } from './dashboards'
 import { acClearItemFilters } from './itemFilters'
@@ -65,7 +64,7 @@ export const acClearSelectedItemActiveTypes = () => ({
 })
 
 // thunks
-export const tSetSelectedDashboardById = (id, mode) => async (
+export const tSetSelectedDashboardById = (id, mode, username) => async (
     dispatch,
     getState,
     dataEngine
@@ -91,7 +90,7 @@ export const tSetSelectedDashboardById = (id, mode) => async (
 
         dispatch(acSetDashboardItems(withShape(customDashboard.dashboardItems)))
 
-        storePreferredDashboardId(sGetUsername(getState()), id)
+        storePreferredDashboardId(username, id)
 
         if (id !== sGetSelectedId(getState())) {
             dispatch(acClearItemFilters())

@@ -7,7 +7,6 @@ import {
     sGetDashboardsSortedByStarred,
 } from '../reducers/dashboards'
 import { NON_EXISTING_DASHBOARD_ID } from '../reducers/selected'
-import { sGetUsername } from '../reducers/username'
 import { tSetSelectedDashboardById, acSetSelectedId } from './selected'
 import { apiFetchDashboards } from '../api/fetchAllDashboards'
 import { getPreferredDashboardId } from '../modules/localStorage'
@@ -48,7 +47,10 @@ export const tFetchDashboards = () => async (
     dispatch(acSetDashboards(dashboards))
 }
 
-export const tSelectDashboard = (id, mode) => async (dispatch, getState) => {
+export const tSelectDashboard = (id, mode, username) => async (
+    dispatch,
+    getState
+) => {
     try {
         const state = getState()
 
@@ -56,7 +58,7 @@ export const tSelectDashboard = (id, mode) => async (dispatch, getState) => {
         if (id) {
             dashboardToSelect = sGetDashboardById(state, id) || null
         } else {
-            const preferredId = getPreferredDashboardId(sGetUsername(state))
+            const preferredId = getPreferredDashboardId(username)
             const dash = sGetDashboardById(state, preferredId)
             dashboardToSelect =
                 preferredId && dash
@@ -65,7 +67,9 @@ export const tSelectDashboard = (id, mode) => async (dispatch, getState) => {
         }
 
         if (dashboardToSelect) {
-            dispatch(tSetSelectedDashboardById(dashboardToSelect.id, mode))
+            dispatch(
+                tSetSelectedDashboardById(dashboardToSelect.id, mode, username)
+            )
         } else {
             dispatch(acSetSelectedId(NON_EXISTING_DASHBOARD_ID))
         }

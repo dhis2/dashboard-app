@@ -5,6 +5,7 @@ import isEmpty from 'lodash/isEmpty'
 import i18n from '@dhis2/d2-i18n'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import { Redirect } from 'react-router-dom'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import DashboardsBar from './pages/view/DashboardsBar/DashboardsBar'
 import NoContentMessage from './components/NoContentMessage'
@@ -59,6 +60,8 @@ const Dashboard = ({
 }) => {
     const { width } = useWindowDimensions()
     const [redirectUrl, setRedirectUrl] = useState(null)
+    const { d2 } = useD2()
+    const username = d2.currentUser.username
 
     useEffect(() => {
         setHeaderbarVisibility(mode)
@@ -81,7 +84,7 @@ const Dashboard = ({
 
     useEffect(() => {
         if (dashboardsLoaded && !dashboardsIsEmpty && mode !== NEW) {
-            selectDashboard(routeId, mode)
+            selectDashboard(routeId, mode, username)
         }
     }, [dashboardsLoaded, dashboardsIsEmpty, routeId, mode])
 
