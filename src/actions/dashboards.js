@@ -3,13 +3,8 @@ import {
     ADD_DASHBOARDS,
     SET_DASHBOARD_STARRED,
     SET_DASHBOARD_ITEMS,
-    sGetDashboardById,
-    sGetDashboardsSortedByStarred,
 } from '../reducers/dashboards'
-import { NON_EXISTING_DASHBOARD_ID } from '../reducers/selected'
-import { tSetSelectedDashboardById, acSetSelectedId } from './selected'
 import { apiFetchDashboards } from '../api/fetchAllDashboards'
-import { getPreferredDashboardId } from '../modules/localStorage'
 import { arrayToIdMap } from '../modules/util'
 import { getCustomDashboards } from '../modules/getCustomDashboards'
 
@@ -45,36 +40,4 @@ export const tFetchDashboards = () => async (
 ) => {
     const dashboards = await apiFetchDashboards(dataEngine)
     dispatch(acSetDashboards(dashboards))
-}
-
-export const tSelectDashboard = (id, mode, username) => async (
-    dispatch,
-    getState
-) => {
-    try {
-        const state = getState()
-
-        let dashboardToSelect = null
-        if (id) {
-            dashboardToSelect = sGetDashboardById(state, id) || null
-        } else {
-            const preferredId = getPreferredDashboardId(username)
-            const dash = sGetDashboardById(state, preferredId)
-            dashboardToSelect =
-                preferredId && dash
-                    ? dash
-                    : sGetDashboardsSortedByStarred(state)[0]
-        }
-
-        if (dashboardToSelect) {
-            dispatch(
-                tSetSelectedDashboardById(dashboardToSelect.id, mode, username)
-            )
-        } else {
-            dispatch(acSetSelectedId(NON_EXISTING_DASHBOARD_ID))
-        }
-    } catch (err) {
-        console.error('Error (apiFetchDashboards): ', err)
-        return err
-    }
 }

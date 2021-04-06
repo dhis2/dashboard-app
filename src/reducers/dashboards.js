@@ -98,6 +98,21 @@ export const sDashboardsIsFetching = state => {
     return sGetDashboardsRoot(state).byId === null
 }
 
+export const sGetSelectedDashboardId = (state, id, lastStoredDashboardId) => {
+    let dashboardToSelect = null
+    if (id) {
+        dashboardToSelect = sGetDashboardById(state, id) || null
+    } else {
+        const dash = sGetDashboardById(state, lastStoredDashboardId)
+        dashboardToSelect =
+            lastStoredDashboardId && dash
+                ? dash
+                : sGetDashboardsSortedByStarred(state)[0]
+    }
+
+    return dashboardToSelect?.id || null
+}
+
 /**
  * Selector which returns all dashboards (the byId object)
  *

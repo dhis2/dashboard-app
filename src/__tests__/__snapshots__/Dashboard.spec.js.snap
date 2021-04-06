@@ -3,10 +3,16 @@
 exports[`Dashboard renders Dashboard Not Found message when dashboard id is not valid 1`] = `
 <div>
   <div>
+    CssVariables
+  </div>
+  <div>
     DashboardsBar
   </div>
   <div>
     Requested dashboard not found
+  </div>
+  <div>
+    AlertStack
   </div>
 </div>
 `;
@@ -14,7 +20,13 @@ exports[`Dashboard renders Dashboard Not Found message when dashboard id is not 
 exports[`Dashboard renders EDIT dashboard 1`] = `
 <div>
   <div>
+    CssVariables
+  </div>
+  <div>
     EditDashboard
+  </div>
+  <div>
+    AlertStack
   </div>
 </div>
 `;
@@ -22,7 +34,13 @@ exports[`Dashboard renders EDIT dashboard 1`] = `
 exports[`Dashboard renders Loading indicator when dashboards loaded and id is still null 1`] = `
 <div>
   <div>
+    CssVariables
+  </div>
+  <div>
     Layer
+  </div>
+  <div>
+    AlertStack
   </div>
 </div>
 `;
@@ -30,7 +48,13 @@ exports[`Dashboard renders Loading indicator when dashboards loaded and id is st
 exports[`Dashboard renders Loading indicator when dashboards not loaded 1`] = `
 <div>
   <div>
+    CssVariables
+  </div>
+  <div>
     Layer
+  </div>
+  <div>
+    AlertStack
   </div>
 </div>
 `;
@@ -38,7 +62,13 @@ exports[`Dashboard renders Loading indicator when dashboards not loaded 1`] = `
 exports[`Dashboard renders NEW dashboard 1`] = `
 <div>
   <div>
+    CssVariables
+  </div>
+  <div>
     NewDashboard
+  </div>
+  <div>
+    AlertStack
   </div>
 </div>
 `;
@@ -46,10 +76,16 @@ exports[`Dashboard renders NEW dashboard 1`] = `
 exports[`Dashboard renders No Dashboards message when no dashboards and mode != NEW 1`] = `
 <div>
   <div>
+    CssVariables
+  </div>
+  <div>
     DashboardsBar
   </div>
   <div>
     No dashboards found. Use the + button to create a new dashboard.
+  </div>
+  <div>
+    AlertStack
   </div>
 </div>
 `;
@@ -57,7 +93,13 @@ exports[`Dashboard renders No Dashboards message when no dashboards and mode != 
 exports[`Dashboard renders PRINT dashboard 1`] = `
 <div>
   <div>
+    CssVariables
+  </div>
+  <div>
     PrintDashboard
+  </div>
+  <div>
+    AlertStack
   </div>
 </div>
 `;
@@ -65,7 +107,13 @@ exports[`Dashboard renders PRINT dashboard 1`] = `
 exports[`Dashboard renders PRINT_LAYOUT dashboard 1`] = `
 <div>
   <div>
+    CssVariables
+  </div>
+  <div>
     PrintLayoutDashboard
+  </div>
+  <div>
+    AlertStack
   </div>
 </div>
 `;

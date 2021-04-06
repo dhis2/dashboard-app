@@ -13,11 +13,6 @@ import {
     GRID_COLUMNS,
 } from '../../modules/gridUtil'
 
-import 'react-grid-layout/css/styles.css'
-import 'react-resizable/css/styles.css'
-
-import '../../ItemGrid.css'
-
 const PAGE_PADDING_PX = 24
 
 const StaticGrid = ({

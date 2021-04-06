@@ -3,6 +3,7 @@ import { render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import { createMemoryHistory } from 'history'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { Router } from 'react-router-dom'
 import thunk from 'redux-thunk'
 import { useDataEngine } from '@dhis2/app-runtime'
@@ -21,6 +22,7 @@ jest.mock('@dhis2/analytics', () => ({
     DIMENSION_ID_PERIOD: 'pe',
     DIMENSION_ID_ORGUNIT: 'ou',
 }))
+jest.mock('@dhis2/app-runtime-adapter-d2')
 jest.mock('@dhis2/app-runtime')
 jest.mock('../api/fetchDashboard')
 jest.mock(
@@ -87,10 +89,25 @@ jest.mock('@dhis2/ui', () => ({
     CircularLoader: function MockComponent() {
         return <div>CircularLoader</div>
     },
+    CssVariables: function MockComponent() {
+        return <div>CssVariables</div>
+    },
+    AlertStack: function MockComponent() {
+        return <div>AlertStack</div>
+    },
+    AlertBar: function MockComponent() {
+        return <div>AlertBar</div>
+    },
 }))
 
 useDataEngine.mockReturnValue({
     dataEngine: {},
+})
+
+useD2.mockReturnValue({
+    d2: {
+        currentUser: { username: 'rainbowDash' },
+    },
 })
 
 const dashboards = {

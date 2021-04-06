@@ -5,8 +5,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-03-30T12:38:52.624Z\n"
-"PO-Revision-Date: 2021-03-30T12:38:52.624Z\n"
+"POT-Creation-Date: 2021-04-06T07:41:06.857Z\n"
+"PO-Revision-Date: 2021-04-06T07:41:06.857Z\n"
+
+msgid "Loading dashboard – {{name}}"
+msgstr ""
+
+msgid "Loading dashboard"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -15,9 +21,6 @@ msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "Untitled dashboard"
-msgstr ""
-
-msgid "Loading dashboard – {{name}}"
 msgstr ""
 
 msgid "Delete item"

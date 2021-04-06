@@ -3,10 +3,16 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import isEmpty from 'lodash/isEmpty'
 import i18n from '@dhis2/d2-i18n'
-import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
+import {
+    Layer,
+    CenteredContent,
+    CircularLoader,
+    CssVariables,
+    AlertStack,
+    AlertBar,
+} from '@dhis2/ui'
 import { Redirect } from 'react-router-dom'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-
 import DashboardsBar from './pages/view/DashboardsBar/DashboardsBar'
 import NoContentMessage from './components/NoContentMessage'
 import ViewDashboard from './pages/view/ViewDashboard'
@@ -15,9 +21,16 @@ import NewDashboard from './pages/edit/NewDashboard'
 import PrintDashboard from './pages/print/PrintDashboard'
 import PrintLayoutDashboard from './pages/print/PrintLayoutDashboard'
 
-import { tSelectDashboard } from './actions/dashboards'
 import { acClearEditDashboard } from './actions/editDashboard'
-import { sDashboardsIsFetching, sGetAllDashboards } from './reducers/dashboards'
+import {
+    tSetSelectedDashboardById,
+    acSetSelectedIsLoading,
+} from './actions/selected'
+import {
+    sGetDashboardById,
+    sDashboardsIsFetching,
+    sGetAllDashboards,
+} from './reducers/dashboards'
 import { sGetSelectedId, NON_EXISTING_DASHBOARD_ID } from './reducers/selected'
 import {
     EDIT,
@@ -51,15 +64,18 @@ const dashboardMap = {
 
 const Dashboard = ({
     id,
+    name,
     mode,
     dashboardsLoaded,
     dashboardsIsEmpty,
     routeId,
     selectDashboard,
     clearEditDashboard,
+    setIsLoading,
 }) => {
     const { width } = useWindowDimensions()
     const [redirectUrl, setRedirectUrl] = useState(null)
+    const [loadingMessage, setLoadingMessage] = useState(null)
     const { d2 } = useD2()
     const username = d2.currentUser.username
 
@@ -83,87 +99,133 @@ const Dashboard = ({
     }, [mode])
 
     useEffect(() => {
-        if (dashboardsLoaded && !dashboardsIsEmpty && mode !== NEW) {
-            selectDashboard(routeId, mode, username)
+        const prepareDashboard = async () => {
+            setIsLoading(true)
+            const alertTimeout = setTimeout(() => {
+                console.log('jj name', name)
+                if (name) {
+                    setLoadingMessage(
+                        i18n.t('Loading dashboard – {{name}}', { name })
+                    )
+                } else {
+                    setLoadingMessage(i18n.t('Loading dashboard'))
+                }
+            }, 500)
+
+            await selectDashboard(routeId, mode, username)
+
+            setIsLoading(false)
+            clearTimeout(alertTimeout)
+            setLoadingMessage(null)
         }
-    }, [dashboardsLoaded, dashboardsIsEmpty, routeId, mode])
+        if (dashboardsLoaded && !dashboardsIsEmpty && mode !== NEW) {
+            console.log('call prepare dashboard')
+            prepareDashboard()
+        }
+    }, [dashboardsLoaded, dashboardsIsEmpty, routeId, mode, name])
 
-    if (!dashboardsLoaded) {
-        return (
-            <Layer translucent>
-                <CenteredContent>
-                    <CircularLoader />
-                </CenteredContent>
-            </Layer>
-        )
-    }
+    const getContent = () => {
+        if (!dashboardsLoaded) {
+            return (
+                <Layer translucent>
+                    <CenteredContent>
+                        <CircularLoader />
+                    </CenteredContent>
+                </Layer>
+            )
+        }
 
-    if (redirectUrl) {
-        return <Redirect to={redirectUrl} />
-    }
+        if (redirectUrl) {
+            return <Redirect to={redirectUrl} />
+        }
 
-    if (mode === NEW) {
+        if (mode === NEW) {
+            return dashboardMap[mode]
+        }
+
+        if (dashboardsIsEmpty) {
+            return (
+                <>
+                    <DashboardsBar />
+                    <NoContentMessage
+                        text={i18n.t(
+                            'No dashboards found. Use the + button to create a new dashboard.'
+                        )}
+                    />
+                </>
+            )
+        }
+
+        if (id === NON_EXISTING_DASHBOARD_ID) {
+            return (
+                <>
+                    <DashboardsBar />
+                    <NoContentMessage
+                        text={i18n.t('Requested dashboard not found')}
+                    />
+                </>
+            )
+        }
+
+        if (id === null) {
+            return (
+                <Layer translucent>
+                    <CenteredContent>
+                        <CircularLoader />
+                    </CenteredContent>
+                </Layer>
+            )
+        }
+
         return dashboardMap[mode]
     }
 
-    if (dashboardsIsEmpty) {
-        return (
-            <>
-                <DashboardsBar />
-                <NoContentMessage
-                    text={i18n.t(
-                        'No dashboards found. Use the + button to create a new dashboard.'
-                    )}
-                />
-            </>
-        )
-    }
-
-    if (id === NON_EXISTING_DASHBOARD_ID) {
-        return (
-            <>
-                <DashboardsBar />
-                <NoContentMessage
-                    text={i18n.t('Requested dashboard not found')}
-                />
-            </>
-        )
-    }
-
-    if (id === null) {
-        return (
-            <Layer translucent>
-                <CenteredContent>
-                    <CircularLoader />
-                </CenteredContent>
-            </Layer>
-        )
-    }
-
-    return dashboardMap[mode]
+    return (
+        <>
+            <CssVariables colors spacers />
+            {getContent()}
+            <AlertStack>
+                {loadingMessage && (
+                    <AlertBar
+                        onHidden={() => setLoadingMessage(null)}
+                        permanent
+                    >
+                        {loadingMessage}
+                    </AlertBar>
+                )}
+            </AlertStack>
+        </>
+    )
 }
 
 Dashboard.propTypes = {
+    clearEditDashboard: PropTypes.func,
     dashboardsIsEmpty: PropTypes.bool,
     dashboardsLoaded: PropTypes.bool,
     id: PropTypes.string,
-    match: PropTypes.object, // provided by the react-router-dom
     mode: PropTypes.string,
+    name: PropTypes.string,
     routeId: PropTypes.string,
     selectDashboard: PropTypes.func,
+    setIsLoading: PropTypes.func,
 }
 
 const mapStateToProps = (state, ownProps) => {
     const dashboards = sGetAllDashboards(state)
+    // match is provided by the react-router-dom
+    const routeId = ownProps.match?.params?.dashboardId || null
+
     return {
         dashboardsIsEmpty: isEmpty(dashboards),
         dashboardsLoaded: !sDashboardsIsFetching(state),
         id: sGetSelectedId(state),
-        routeId: ownProps.match?.params?.dashboardId || null,
+        name: sGetDashboardById(state, routeId)?.displayName || null,
+        routeId,
     }
 }
 
 export default connect(mapStateToProps, {
-    selectDashboard: tSelectDashboard,
+    selectDashboard: tSetSelectedDashboardById,
     clearEditDashboard: acClearEditDashboard,
+    setIsLoading: acSetSelectedIsLoading,
 })(Dashboard)

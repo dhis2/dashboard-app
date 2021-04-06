@@ -34,10 +34,6 @@ import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElem
 
 import classes from './styles/ItemGrid.module.css'
 
-import 'react-grid-layout/css/styles.css'
-import 'react-resizable/css/styles.css'
-import '../../ItemGrid.css'
-
 const EXPANDED_HEIGHT = 17
 const EXPANDED_HEIGHT_SM = 13
 

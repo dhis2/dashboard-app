@@ -8,7 +8,6 @@ import visualizations from './visualizations'
 import editDashboard from './editDashboard'
 import printDashboard from './printDashboard'
 import messages from './messages'
-import alert from './alert'
 import itemFilters from './itemFilters'
 import dimensions from './dimensions'
 import activeModalDimension from './activeModalDimension'
@@ -24,7 +23,6 @@ export default combineReducers({
     editDashboard,
     printDashboard,
     itemFilters,
-    alert,
     dimensions,
     activeModalDimension,
     passiveViewRegistered,

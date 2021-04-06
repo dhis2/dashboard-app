@@ -32,10 +32,6 @@ import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
 
 import classes from './styles/ItemGrid.module.css'
 
-import 'react-grid-layout/css/styles.css'
-import 'react-resizable/css/styles.css'
-import '../../ItemGrid.css'
-
 const EditItemGrid = ({
     isLoading,
     dashboardItems,
