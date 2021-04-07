@@ -30,11 +30,15 @@ const DashboardsBar = ({
 
     const rootElement = document.documentElement
 
-    const adjustRows = newHeight => {
+    const adjustRows = mouseYPos => {
         const newRows = Math.max(
             MIN_ROW_COUNT,
-            getRowsFromHeight(newHeight - 52) // don't rush the transition to a bigger row count
+            getRowsFromHeight(mouseYPos - 52) // don't rush the transition to a bigger row count
         )
+
+        if (newRows < MAX_ROW_COUNT) {
+            onExpandedChanged(false)
+        }
 
         if (newRows !== userRows) {
             updateUserRows(Math.min(newRows, MAX_ROW_COUNT))

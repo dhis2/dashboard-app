@@ -1,3 +1,17 @@
+## [31.14.10](https://github.com/dhis2/dashboard-app/compare/v31.14.9...v31.14.10) (2021-03-30)
+
+
+### Bug Fixes
+
+* expanded control bar not resizing on drag [DHIS2-10795] ([#1681](https://github.com/dhis2/dashboard-app/issues/1681)) ([e857c03](https://github.com/dhis2/dashboard-app/commit/e857c03e05dbbb1e6eb8ac98b5d90acfe79e3257))
+
+## [31.14.9](https://github.com/dhis2/dashboard-app/compare/v31.14.8...v31.14.9) (2021-03-30)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1647](https://github.com/dhis2/dashboard-app/issues/1647)) ([2e8677c](https://github.com/dhis2/dashboard-app/commit/2e8677c6fd57fdef622590a39371adbe79959f7f))
+
 ## [31.14.8](https://github.com/dhis2/dashboard-app/compare/v31.14.7...v31.14.8) (2021-03-26)
 
 

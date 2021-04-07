@@ -1529,10 +1529,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^16.0.15", "@dhis2/analytics@^16.0.16":
-  version "16.0.16"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-16.0.16.tgz#d977e11901142e8788da48d0e71184e30ceb581d"
-  integrity sha512-VZNN07eusbzzXGi0hckWIy+LmaEsgWifm+v4ibRCX/fZszQVk1fgopTp5uq/fqNtqe/HR0uzeV2LQTUDkFT2bw==
+"@dhis2/analytics@^16.0.15", "@dhis2/analytics@^16.0.18":
+  version "16.0.18"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-16.0.18.tgz#c082011ed10a02fb2b30e293d4169748477b4cd9"
+  integrity sha512-yTBtzLzonFCm0un/yEkaNa7/mFnXKLOc+ytZvmr2R61Rmsp+RNUuMFzg5wSVimvyEwAhUI5HAcuRlbysIrJsNQ==
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^7.1.5"
     "@dhis2/d2-ui-org-unit-dialog" "^7.1.5"
@@ -1549,10 +1549,10 @@
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
 
-"@dhis2/app-adapter@6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-6.0.1.tgz#d4b5ef6025878709e941b4ea105a7e8f0dc94df5"
-  integrity sha512-yhEGQ+FSCNoYc1cu/tlaTbhXeJtU2SQzkXH191fZ+uIdqBNOimkylOe+xOepkvGgwOgZheCmyWetqu7TLSAqhQ==
+"@dhis2/app-adapter@6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-6.1.0.tgz#f1683b58b396a3bada4da459ecb757bbc8777ecf"
+  integrity sha512-danRGr84ojGSTCd2rqmQyv9V6yRNOgh3Lw2ai6lQs2uGC/MBNpRBK41vTo7OKeneudmtpkuYHIjrnbQklrrSNA==
   dependencies:
     moment "^2.24.0"
 
@@ -1588,12 +1588,12 @@
   resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-2.8.0.tgz#9cd347127968cb6f3c8a4ab0fc6699ea7058f835"
   integrity sha512-5doyL4bxRMdMXY4RtWo2O3NVGwSDOSUY3hGPXaF1TeFWAqujlPTx17uDw6wEelN6LaryAnVwId2Ep3FOV8v5MA==
 
-"@dhis2/app-shell@6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-6.0.1.tgz#74654fdd055953a024ae861aa61deaccb816d122"
-  integrity sha512-BSyPlfjh8SQeg2ywGtfnQcIQHU1lBT8TOHRaM9rC9K2YcYW+nifB4OemTdKP0/iVCIBAvcvw98d/eTqAkz2ysA==
+"@dhis2/app-shell@6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-6.1.0.tgz#bf1fccde09aacb06e0a23973ad8f247089b7e8e9"
+  integrity sha512-aZ6sHRcoZ34+5iC7zdGts3NwFPoyNfgujoC52AcBmrclQzch00pq8+BEQ8CIJP0Rwu+4U8wZVJ2MJcjKEOBHYg==
   dependencies:
-    "@dhis2/app-adapter" "6.0.1"
+    "@dhis2/app-adapter" "6.1.0"
     "@dhis2/app-runtime" "^2.8.0"
     "@dhis2/d2-i18n" "^1.1.0"
     "@dhis2/ui" "^6.5.3"
@@ -1608,10 +1608,10 @@
     typeface-roboto "^0.0.75"
     typescript "^3.6.3"
 
-"@dhis2/cli-app-scripts@^6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-6.0.1.tgz#b7e01273a721c9c799013696cfaacbc3fe46102a"
-  integrity sha512-A1Xco//IFH3XAcxIG4h3s/bRuKU69TQUjHza8sdsjQLEP8HhVl311J4Vdis5jkfMlWO7FC1pZV1mWy1E3lEyww==
+"@dhis2/cli-app-scripts@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-6.1.0.tgz#c05f6a21edb5702a21343ac20eb7e0aa5bef30bf"
+  integrity sha512-8/kp8hL8Mx+xLObT/TEge4pJESIMxEoWmrJahnFPkCJnm42eYa6Cn2RlLbvfoxgSKrIMZYVG8EM06XL847RlDA==
   dependencies:
     "@babel/core" "^7.6.2"
     "@babel/plugin-proposal-class-properties" "^7.8.3"
@@ -1620,7 +1620,7 @@
     "@babel/preset-env" "^7.9.0"
     "@babel/preset-react" "^7.0.0"
     "@babel/preset-typescript" "^7.6.0"
-    "@dhis2/app-shell" "6.0.1"
+    "@dhis2/app-shell" "6.1.0"
     "@dhis2/cli-helpers-engine" "^2.1.1"
     archiver "^3.1.1"
     axios "^0.20.0"
@@ -1869,10 +1869,10 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^35.20.23":
-  version "35.20.23"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.20.23.tgz#dd81a6311f53ca03aeb770785904ae4d41dd0d33"
-  integrity sha512-gxYb9sekfnXyICG2/xDZQS9MihVE9mzEuwopQMK2asLA2uL6QmdG/nezTQ0FSXxxGWo2leBRRzl8na/+2YWCYQ==
+"@dhis2/data-visualizer-plugin@^37.0.0":
+  version "37.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-37.0.0.tgz#622cadcd195537e53076eee1bf03e1f4316f93bf"
+  integrity sha512-Vrk1Tcw3Ef3KpykDSkUElwE8dEcyRFLMFdGlwHIJ+cOdWUbnNY6zxR7kyn1a0bRJoBCJOosWD2mCdNkPVNS9LA==
   dependencies:
     "@dhis2/analytics" "^16.0.15"
     "@dhis2/app-runtime" "^2.8.0"
@@ -5070,10 +5070,10 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@2.x, classnames@^2.2.5, classnames@^2.2.6:
-  version "2.2.6"
-  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
-  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
+classnames@2.x, classnames@^2.2.5, classnames@^2.2.6, classnames@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
+  integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
 
 clean-css@^4.2.3:
   version "4.2.3"
@@ -13899,10 +13899,10 @@ react-final-form@^6.5.1:
   dependencies:
     "@babel/runtime" "^7.12.1"
 
-react-grid-layout@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/react-grid-layout/-/react-grid-layout-1.1.0.tgz#b71d8e94fd3f433c973121f5465a288bef3042e6"
-  integrity sha512-jdMsHjxOsrwdpEhCu3ghKP03M/QjR56KhgH9uCIWGd1qqAITYobAksDPk9ppERvkNaGTH+mcSuL0pmQjTcQfeg==
+react-grid-layout@1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-grid-layout/-/react-grid-layout-1.2.2.tgz#42cdb4b27fcdc4fad1655d8862b9d54c6f011d6d"
+  integrity sha512-i5/xPkyi0llA6PCEW2B26e7pTY+JLp0zPvs6MYbbEXWaO1FWG0xr6Q/FqPrh6K86glV5ZRU7DEbvnedZVdFglg==
   dependencies:
     classnames "2.x"
     lodash.isequal "^4.0.0"
@@ -17496,9 +17496,9 @@ xtend@^4.0.0, xtend@^4.0.1, xtend@^4.0.2, xtend@~4.0.0, xtend@~4.0.1:
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
 
 y18n@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.0.tgz#95ef94f85ecc81d007c264e190a120f0a3c8566b"
-  integrity sha512-r9S/ZyXu/Xu9q1tYlpsLIsa3EeLXXk0VwlxqTcFRfg9EhMW+17kbt9G0NrgCmhGb5vT2hyhJZLfDGx+7+5Uj/w==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.1.tgz#8db2b83c31c5d75099bb890b23f3094891e247d4"
+  integrity sha512-wNcy4NvjMYL8gogWWYAO7ZFWFfHcbdbE57tZO8e4cbpj8tfUcwrwqSl3ad8HxpYWCdXcJUCeKKZS62Av1affwQ==
 
 y18n@^5.0.5:
   version "5.0.5"
