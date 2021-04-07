@@ -13,25 +13,22 @@ import {
 } from '@dhis2/ui'
 import { Redirect } from 'react-router-dom'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-import DashboardsBar from './pages/view/DashboardsBar/DashboardsBar'
-import NoContentMessage from './components/NoContentMessage'
-import ViewDashboard from './pages/view/ViewDashboard'
-import EditDashboard from './pages/edit/EditDashboard'
-import NewDashboard from './pages/edit/NewDashboard'
-import PrintDashboard from './pages/print/PrintDashboard'
-import PrintLayoutDashboard from './pages/print/PrintLayoutDashboard'
+import NoContentMessage from './NoContentMessage'
+import { ViewDashboard, DashboardsBar } from '../pages/view/'
+import { EditDashboard, NewDashboard } from '../pages/edit/'
+import { PrintDashboard, PrintLayoutDashboard } from '../pages/print/'
 
-import { acClearEditDashboard } from './actions/editDashboard'
+import { acClearEditDashboard } from '../actions/editDashboard'
 import {
     tSetSelectedDashboardById,
     acSetSelectedIsLoading,
-} from './actions/selected'
+} from '../actions/selected'
 import {
     sGetDashboardById,
     sDashboardsIsFetching,
     sGetAllDashboards,
-} from './reducers/dashboards'
-import { sGetSelectedId, NON_EXISTING_DASHBOARD_ID } from './reducers/selected'
+} from '../reducers/dashboards'
+import { sGetSelectedId, NON_EXISTING_DASHBOARD_ID } from '../reducers/selected'
 import {
     EDIT,
     NEW,
@@ -40,10 +37,10 @@ import {
     PRINT_LAYOUT,
     isPrintMode,
     isEditMode,
-} from './modules/dashboardModes'
+} from '../modules/dashboardModes'
 
-import { useWindowDimensions } from './components/WindowDimensionsProvider'
-import { isSmallScreen } from './modules/smallScreen'
+import { useWindowDimensions } from './WindowDimensionsProvider'
+import { isSmallScreen } from '../modules/smallScreen'
 
 const setHeaderbarVisibility = mode => {
     const header = document.getElementsByTagName('header')[0]
@@ -102,7 +99,6 @@ const Dashboard = ({
         const prepareDashboard = async () => {
             setIsLoading(true)
             const alertTimeout = setTimeout(() => {
-                console.log('jj name', name)
                 if (name) {
                     setLoadingMessage(
                         i18n.t('Loading dashboard – {{name}}', { name })
@@ -119,7 +115,6 @@ const Dashboard = ({
             setLoadingMessage(null)
         }
         if (dashboardsLoaded && !dashboardsIsEmpty && mode !== NEW) {
-            console.log('call prepare dashboard')
             prepareDashboard()
         }
     }, [dashboardsLoaded, dashboardsIsEmpty, routeId, mode, name])

@@ -11,7 +11,6 @@ import UserSettingsProvider from './components/UserSettingsProvider'
 import App from './App'
 import configureStore from './configureStore'
 
-import './AppWrapper.css'
 import './locales'
 
 const muiTheme = () => createMuiTheme(dhis2theme)

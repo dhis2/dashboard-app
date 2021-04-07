@@ -9,10 +9,16 @@ import thunk from 'redux-thunk'
 import { useDataEngine } from '@dhis2/app-runtime'
 
 import Dashboard from '../Dashboard'
-import WindowDimensionsProvider from '../components/WindowDimensionsProvider'
-import { NEW, VIEW, EDIT, PRINT, PRINT_LAYOUT } from '../modules/dashboardModes'
-import { NON_EXISTING_DASHBOARD_ID } from '../reducers/selected'
-import { apiFetchDashboard } from '../api/fetchDashboard'
+import WindowDimensionsProvider from '../../components/WindowDimensionsProvider'
+import {
+    NEW,
+    VIEW,
+    EDIT,
+    PRINT,
+    PRINT_LAYOUT,
+} from '../../modules/dashboardModes'
+import { NON_EXISTING_DASHBOARD_ID } from '../../reducers/selected'
+import { apiFetchDashboard } from '../../api/fetchDashboard'
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
@@ -24,60 +30,46 @@ jest.mock('@dhis2/analytics', () => ({
 }))
 jest.mock('@dhis2/app-runtime-adapter-d2')
 jest.mock('@dhis2/app-runtime')
-jest.mock('../api/fetchDashboard')
-jest.mock(
-    '../pages/print/PrintLayoutDashboard',
-    () =>
-        function MockComponent() {
-            return <div>PrintLayoutDashboard</div>
-        }
-)
+jest.mock('../../api/fetchDashboard')
+jest.mock('../../pages/print', () => ({
+    __esModule: true,
+    PrintDashboard: function MockComponent() {
+        return <div>PrintDashboard</div>
+    },
+    PrintLayoutDashboard: function MockComponent() {
+        return <div>PrintLayoutDashboard</div>
+    },
+}))
 
-jest.mock(
-    '../pages/print/PrintDashboard',
-    () =>
-        function MockComponent() {
-            return <div>PrintDashboard</div>
-        }
-)
+jest.mock('../../pages/edit', () => ({
+    __esModule: true,
+    EditDashboard: function MockComponent() {
+        return <div>EditDashboard</div>
+    },
+    NewDashboard: function MockComponent() {
+        return <div>NewDashboard</div>
+    },
+}))
 
-jest.mock(
-    '../pages/edit/NewDashboard',
-    () =>
-        function MockComponent() {
-            return <div>NewDashboard</div>
-        }
-)
-jest.mock(
-    '../pages/edit/EditDashboard',
-    () =>
-        function MockComponent() {
-            return <div>EditDashboard</div>
-        }
-)
-jest.mock(
-    '../pages/view/ViewDashboard',
-    () =>
-        function MockComponent() {
-            return <div>ViewDashboard</div>
-        }
-)
+jest.mock('../../pages/view', () => ({
+    __esModule: true,
+    ViewDashboard: function MockComponent() {
+        return <div>ViewDashboard</div>
+    },
+    DashboardsBar: function MockComponent() {
+        return <div>DashboardsBar</div>
+    },
+}))
 /* eslint-disable react/prop-types */
 jest.mock(
-    '../components/NoContentMessage',
+    '../../components/NoContentMessage',
     () =>
         function MockComponent({ text }) {
             return <div>{text}</div>
         }
 )
 /* eslint-enable react/prop-types */
-jest.mock(
-    '../pages/view/DashboardsBar/DashboardsBar',
-    () =>
-        function MockComponent() {
-            return <div>DashboardsBar</div>
-        }
-)
+
 jest.mock('@dhis2/ui', () => ({
     __esModule: true,
     Layer: function MockComponent() {

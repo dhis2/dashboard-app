@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import Dashboard from './Dashboard'
+import Dashboard from './components/Dashboard'
 
 import { tFetchDashboards } from './actions/dashboards'
 import { tSetControlBarRows } from './actions/controlBar'
