@@ -58,7 +58,7 @@
         "@dhis2/cli-utils-cypress": "^7.0.1",
         "@dhis2/cypress-commands": "^7.0.1",
         "@testing-library/jest-dom": "^5.11.10",
-        "@testing-library/react": "^11.2.5",
+        "@testing-library/react": "^11.2.6",
         "d2-manifest": "^1.0.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.6",
