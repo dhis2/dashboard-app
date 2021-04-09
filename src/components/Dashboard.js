@@ -117,7 +117,7 @@ const Dashboard = ({
         if (dashboardsLoaded && !dashboardsIsEmpty && mode !== NEW) {
             prepareDashboard()
         }
-    }, [dashboardsLoaded, dashboardsIsEmpty, routeId, mode, name])
+    }, [dashboardsLoaded, dashboardsIsEmpty, routeId, mode])
 
     const getContent = () => {
         if (!dashboardsLoaded) {

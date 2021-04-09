@@ -39,5 +39,5 @@ export const tFetchDashboards = () => async (
     dataEngine
 ) => {
     const dashboards = await apiFetchDashboards(dataEngine)
-    dispatch(acSetDashboards(dashboards))
+    return dispatch(acSetDashboards(dashboards))
 }
