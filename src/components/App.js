@@ -2,18 +2,18 @@ import React, { useEffect } from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import Dashboard from './components/Dashboard'
+import Dashboard from './Dashboard'
 
-import { tFetchDashboards } from './actions/dashboards'
-import { tSetControlBarRows } from './actions/controlBar'
-import { tSetShowDescription } from './actions/selected'
+import { tFetchDashboards } from '../actions/dashboards'
+import { tSetControlBarRows } from '../actions/controlBar'
+import { tSetShowDescription } from '../actions/selected'
 
-import { EDIT, VIEW, NEW, PRINT, PRINT_LAYOUT } from './modules/dashboardModes'
+import { EDIT, VIEW, NEW, PRINT, PRINT_LAYOUT } from '../modules/dashboardModes'
 
-import './App.css'
+import './styles/App.css'
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
-import './ItemGrid.css'
+import './styles/ItemGrid.css'
 
 const App = props => {
     useEffect(() => {

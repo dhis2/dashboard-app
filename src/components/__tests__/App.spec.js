@@ -4,17 +4,17 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { render } from '@testing-library/react'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-import { useUserSettings } from '../components/UserSettingsProvider'
+import { useUserSettings } from '../UserSettingsProvider'
 import { apiFetchDimensions } from '@dhis2/analytics'
-import { apiFetchDashboards } from '../api/fetchAllDashboards'
+import { apiFetchDashboards } from '../../api/fetchAllDashboards'
 import App from '../App'
 
-jest.mock('../api/fetchAllDashboards')
-jest.mock('../components/UserSettingsProvider')
+jest.mock('../../api/fetchAllDashboards')
+jest.mock('../UserSettingsProvider')
 jest.mock('@dhis2/analytics')
 jest.mock('@dhis2/app-runtime-adapter-d2')
 jest.mock(
-    '../components/Dashboard',
+    '../Dashboard',
     () =>
         function MockDashboard() {
             return <div className="dashboard" />

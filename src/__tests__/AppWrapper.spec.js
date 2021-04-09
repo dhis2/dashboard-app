@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import AppWrapper from '../AppWrapper'
 
 jest.mock(
-    '../App',
+    '../components/App',
     () =>
         function MockApp() {
             return <div />
