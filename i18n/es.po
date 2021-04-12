@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
+"POT-Creation-Date: 2021-04-06T14:07:44.134Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -25,58 +25,8 @@ msgstr "Tablero sin nombre"
 msgid "Loading dashboard – {{name}}"
 msgstr "Cargando panel – {{nombre}}"
 
-msgid "Cancel"
-msgstr "Cancelar"
-
-msgid "Delete"
-msgstr "Borrar"
-
-msgid "Delete dashboard"
-msgstr "Borrar tablero"
-
-msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
-"This action cannot be undone. Are you sure you want to permanently delete "
-"this dashboard?"
+msgid "Loading dashboard"
 msgstr ""
-"Borrando tablero \"{{ dashboardName }}\" para todos los usuarios. Esta "
-"acción será permanente. Está seguro de que desea continuar eliminando "
-"permanentemente este tablero?"
-
-msgid ""
-"Failed to save dashboard. You might be offline or not have access to edit "
-"this dashboard."
-msgstr ""
-
-msgid "Save changes"
-msgstr "Guardar cambios"
-
-msgid "Exit Print preview"
-msgstr "Salir de la vista previa"
-
-msgid "Print preview"
-msgstr "Vista previa"
-
-msgid "Filter settings"
-msgstr ""
-
-msgid "Translate"
-msgstr "Traducir"
-
-msgid "Exit without saving"
-msgstr "Salir sin guardar"
-
-msgid "Go to dashboards"
-msgstr "Ir a los tableros"
-
-msgid "Search for a dashboard"
-msgstr "Buscar un tablero"
-
-msgid "Show fewer dashboards"
-msgstr "Mostrar menos paneles"
-
-msgid "Show more dashboards"
-msgstr "Mostrar más paneles"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -84,62 +34,6 @@ msgstr ""
 
 msgid "Requested dashboard not found"
 msgstr "No se ha encontrado el tablero buscado"
-
-msgid "No access"
-msgstr "Sin acceso"
-
-msgid ""
-"Editing dashboards on small screens is not supported. Resize your screen to "
-"return to edit mode."
-msgstr ""
-
-msgid ""
-"Creating dashboards on small screens is not supported. Resize your screen to"
-" return to create mode."
-msgstr ""
-
-msgid "Not supported"
-msgstr "No soportado"
-
-msgid "Exit print preview"
-msgstr "Salir de vista previa"
-
-msgid "Print"
-msgstr "Imprimir"
-
-msgid "dashboard layout"
-msgstr "Diseño de tablero"
-
-msgid "one item per page"
-msgstr "Un elemento por página"
-
-msgid "Print Preview"
-msgstr "Impresión de vista previa"
-
-msgid "For best print results"
-msgstr "Para mejores resultados de impresión"
-
-msgid "Use Chrome or Edge web browser"
-msgstr "Use los navegadores Chrome o Edge"
-
-msgid "Wait for all dashboard items to load before printing"
-msgstr ""
-"Espere a que se carguen todos los elementos del tablero antes de imprimir"
-
-msgid ""
-"Use A4 landscape paper size and default margin settings in the browser print"
-" dialog"
-msgstr ""
-"Use un papel de tamaño A4 y los valores de los márgenes por defecto en el "
-"cuadro de impresión"
-
-msgid "{{count}} selected"
-msgid_plural "{{count}} selected"
-msgstr[0] "{{count}} seleccionado"
-msgstr[1] "{{count}} seleccionados"
-
-msgid "Remove"
-msgstr "Eliminar"
 
 msgid "Delete item"
 msgstr "Borrar elemento"
@@ -214,11 +108,92 @@ msgstr "Incapaz de cargar el complemento para este elemento"
 msgid "No data to display"
 msgstr "Sin datos para mostrar"
 
-msgid "Confirm"
-msgstr "Confirmar"
+msgid "Visualizations"
+msgstr "Visualizaciones"
 
-msgid "Add filter"
-msgstr "Añadir filtro"
+msgid "Pivot tables"
+msgstr "Tablas dinámicas"
+
+msgid "Charts"
+msgstr "Gráficas"
+
+msgid "Maps"
+msgstr "Mapas"
+
+msgid "Event reports"
+msgstr "Herramienta para tablas con información individual"
+
+msgid "Event charts"
+msgstr "Herramienta para gráficos con información individual"
+
+msgid "Apps"
+msgstr "Aplicaciones"
+
+msgid "Reports"
+msgstr "Informes"
+
+msgid "Resources"
+msgstr "Recursos"
+
+msgid "Users"
+msgstr "Usuarios"
+
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid ""
+"Failed to delete dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid "Save changes"
+msgstr "Guardar cambios"
+
+msgid "Exit Print preview"
+msgstr "Salir de la vista previa"
+
+msgid "Print preview"
+msgstr "Vista previa"
+
+msgid "Filter settings"
+msgstr ""
+
+msgid "Translate"
+msgstr "Traducir"
+
+msgid "Delete"
+msgstr "Borrar"
+
+msgid "Exit without saving"
+msgstr "Salir sin guardar"
+
+msgid "Go to dashboards"
+msgstr "Ir a los tableros"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Delete dashboard"
+msgstr "Borrar tablero"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+"Borrando tablero \"{{ dashboardName }}\" para todos los usuarios. Esta "
+"acción será permanente. Está seguro de que desea continuar eliminando "
+"permanentemente este tablero?"
+
+msgid "No access"
+msgstr "Sin acceso"
+
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
+msgstr ""
 
 msgid "Allow filtering by all dimensions"
 msgstr ""
@@ -242,6 +217,9 @@ msgstr ""
 msgid "Selected Filters"
 msgstr ""
 
+msgid "Confirm"
+msgstr "Confirmar"
+
 msgid "There are no items on this dashboard"
 msgstr "No hay objetos en este tablero"
 
@@ -263,11 +241,71 @@ msgstr "Objetos adicionales"
 msgid "Text box"
 msgstr "Caja de texto"
 
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
+msgstr ""
+
+msgid "Not supported"
+msgstr "No soportado"
+
 msgid "Dashboard title"
 msgstr "Título del tablero"
 
 msgid "Dashboard description"
 msgstr "Descripción del tablero"
+
+msgid "Exit print preview"
+msgstr "Salir de vista previa"
+
+msgid "Print"
+msgstr "Imprimir"
+
+msgid "dashboard layout"
+msgstr "Diseño de tablero"
+
+msgid "one item per page"
+msgstr "Un elemento por página"
+
+msgid "Print Preview"
+msgstr "Impresión de vista previa"
+
+msgid "For best print results"
+msgstr "Para mejores resultados de impresión"
+
+msgid "Use Chrome or Edge web browser"
+msgstr "Use los navegadores Chrome o Edge"
+
+msgid "Wait for all dashboard items to load before printing"
+msgstr ""
+"Espere a que se carguen todos los elementos del tablero antes de imprimir"
+
+msgid ""
+"Use A4 landscape paper size and default margin settings in the browser print"
+" dialog"
+msgstr ""
+"Use un papel de tamaño A4 y los valores de los márgenes por defecto en el "
+"cuadro de impresión"
+
+msgid "Search for a dashboard"
+msgstr "Buscar un tablero"
+
+msgid "Show fewer dashboards"
+msgstr "Mostrar menos paneles"
+
+msgid "Show more dashboards"
+msgstr "Mostrar más paneles"
+
+msgid "{{count}} selected"
+msgid_plural "{{count}} selected"
+msgstr[0] "{{count}} seleccionado"
+msgstr[1] "{{count}} seleccionados"
+
+msgid "Remove"
+msgstr "Eliminar"
+
+msgid "Add filter"
+msgstr "Añadir filtro"
 
 msgid "Hide description"
 msgstr "Ocultar la descripción"
@@ -310,33 +348,3 @@ msgstr "Un objeto por página"
 
 msgid "No description"
 msgstr "Sin descripción"
-
-msgid "Visualizations"
-msgstr "Visualizaciones"
-
-msgid "Pivot tables"
-msgstr "Tablas dinámicas"
-
-msgid "Charts"
-msgstr "Gráficas"
-
-msgid "Maps"
-msgstr "Mapas"
-
-msgid "Event reports"
-msgstr "Herramienta para tablas con información individual"
-
-msgid "Event charts"
-msgstr "Herramienta para gráficos con información individual"
-
-msgid "Apps"
-msgstr "Aplicaciones"
-
-msgid "Reports"
-msgstr "Informes"
-
-msgid "Resources"
-msgstr "Recursos"
-
-msgid "Users"
-msgstr "Usuarios"

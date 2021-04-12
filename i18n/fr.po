@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
+"POT-Creation-Date: 2021-04-06T14:07:44.134Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -28,58 +28,8 @@ msgstr "Tableau de bord sans titre"
 msgid "Loading dashboard – {{name}}"
 msgstr "Chargement du tableau de bord - {{nom}}"
 
-msgid "Cancel"
-msgstr "Annuler"
-
-msgid "Delete"
-msgstr "Supprimer"
-
-msgid "Delete dashboard"
-msgstr "Supprimer le tableau de bord"
-
-msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
-"This action cannot be undone. Are you sure you want to permanently delete "
-"this dashboard?"
+msgid "Loading dashboard"
 msgstr ""
-"La suppression du tableau de bord \"{{ dashboardName }}\" affectera tous les"
-" utilisateurs qui y ont accès.  Cette action ne peut pas être annulée. "
-"Voulez-vous vraiment supprimer définitivement ce tableau de bord?"
-
-msgid ""
-"Failed to save dashboard. You might be offline or not have access to edit "
-"this dashboard."
-msgstr ""
-
-msgid "Save changes"
-msgstr "Enregistrer les modifications"
-
-msgid "Exit Print preview"
-msgstr "Quitter l'aperçu avant impression"
-
-msgid "Print preview"
-msgstr "Aperçu avant impression"
-
-msgid "Filter settings"
-msgstr ""
-
-msgid "Translate"
-msgstr "Traduire"
-
-msgid "Exit without saving"
-msgstr "Quitter sans sauvegarder"
-
-msgid "Go to dashboards"
-msgstr "Aller aux tableaux de bord"
-
-msgid "Search for a dashboard"
-msgstr "Rechercher un tableau de bord"
-
-msgid "Show fewer dashboards"
-msgstr "Afficher moins de tableaux de bord"
-
-msgid "Show more dashboards"
-msgstr "Afficher plus de tableaux de bord"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -88,63 +38,6 @@ msgstr ""
 
 msgid "Requested dashboard not found"
 msgstr "Tableau de bord demandé introuvable"
-
-msgid "No access"
-msgstr "Pas d'accès"
-
-msgid ""
-"Editing dashboards on small screens is not supported. Resize your screen to "
-"return to edit mode."
-msgstr ""
-
-msgid ""
-"Creating dashboards on small screens is not supported. Resize your screen to"
-" return to create mode."
-msgstr ""
-
-msgid "Not supported"
-msgstr "Non supporté"
-
-msgid "Exit print preview"
-msgstr "Quitter l'aperçu avant impression"
-
-msgid "Print"
-msgstr "Imprimer"
-
-msgid "dashboard layout"
-msgstr "mise en page du tableau de bord"
-
-msgid "one item per page"
-msgstr "un élément par page"
-
-msgid "Print Preview"
-msgstr "Aperçu avant impression"
-
-msgid "For best print results"
-msgstr "Pour de meilleurs résultats d'impression"
-
-msgid "Use Chrome or Edge web browser"
-msgstr "Utiliser le navigateur web Chrome ou Edge"
-
-msgid "Wait for all dashboard items to load before printing"
-msgstr ""
-"Attendez que tous les éléments du tableau de bord soient chargés avant de "
-"les imprimer"
-
-msgid ""
-"Use A4 landscape paper size and default margin settings in the browser print"
-" dialog"
-msgstr ""
-"Utilisez un format de papier A4 paysage et les paramètres de marge par "
-"défaut dans la boîte de dialogue d'impression du navigateur"
-
-msgid "{{count}} selected"
-msgid_plural "{{count}} selected"
-msgstr[0] "{{nombre}} choisi"
-msgstr[1] "{{nombre}} choisi"
-
-msgid "Remove"
-msgstr "Supprimer"
 
 msgid "Delete item"
 msgstr "Supprimer l'item"
@@ -219,11 +112,92 @@ msgstr "Impossible de charger le plugin pour cet objet"
 msgid "No data to display"
 msgstr "Aucune donnée à afficher"
 
-msgid "Confirm"
-msgstr "Confirmer"
+msgid "Visualizations"
+msgstr "Visualisations"
 
-msgid "Add filter"
-msgstr "Ajouter le filtre"
+msgid "Pivot tables"
+msgstr "Tableaux croisés dynamiques"
+
+msgid "Charts"
+msgstr "Graphiques"
+
+msgid "Maps"
+msgstr "Cartes"
+
+msgid "Event reports"
+msgstr "Rapports d'événements"
+
+msgid "Event charts"
+msgstr "Tableaux d'événements"
+
+msgid "Apps"
+msgstr "Applications"
+
+msgid "Reports"
+msgstr "Rapports"
+
+msgid "Resources"
+msgstr "Ressources"
+
+msgid "Users"
+msgstr "Utilisateurs"
+
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid ""
+"Failed to delete dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid "Save changes"
+msgstr "Enregistrer les modifications"
+
+msgid "Exit Print preview"
+msgstr "Quitter l'aperçu avant impression"
+
+msgid "Print preview"
+msgstr "Aperçu avant impression"
+
+msgid "Filter settings"
+msgstr ""
+
+msgid "Translate"
+msgstr "Traduire"
+
+msgid "Delete"
+msgstr "Supprimer"
+
+msgid "Exit without saving"
+msgstr "Quitter sans sauvegarder"
+
+msgid "Go to dashboards"
+msgstr "Aller aux tableaux de bord"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Delete dashboard"
+msgstr "Supprimer le tableau de bord"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+"La suppression du tableau de bord \"{{ dashboardName }}\" affectera tous les"
+" utilisateurs qui y ont accès.  Cette action ne peut pas être annulée. "
+"Voulez-vous vraiment supprimer définitivement ce tableau de bord?"
+
+msgid "No access"
+msgstr "Pas d'accès"
+
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
+msgstr ""
 
 msgid "Allow filtering by all dimensions"
 msgstr ""
@@ -247,6 +221,9 @@ msgstr ""
 msgid "Selected Filters"
 msgstr ""
 
+msgid "Confirm"
+msgstr "Confirmer"
+
 msgid "There are no items on this dashboard"
 msgstr "Il n'y a aucun élément sur ce tableau de bord"
 
@@ -268,11 +245,72 @@ msgstr "Objets additionnels"
 msgid "Text box"
 msgstr "Zone de texte"
 
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
+msgstr ""
+
+msgid "Not supported"
+msgstr "Non supporté"
+
 msgid "Dashboard title"
 msgstr "Titre du tableau de bord"
 
 msgid "Dashboard description"
 msgstr "Description du tableau de bord"
+
+msgid "Exit print preview"
+msgstr "Quitter l'aperçu avant impression"
+
+msgid "Print"
+msgstr "Imprimer"
+
+msgid "dashboard layout"
+msgstr "mise en page du tableau de bord"
+
+msgid "one item per page"
+msgstr "un élément par page"
+
+msgid "Print Preview"
+msgstr "Aperçu avant impression"
+
+msgid "For best print results"
+msgstr "Pour de meilleurs résultats d'impression"
+
+msgid "Use Chrome or Edge web browser"
+msgstr "Utiliser le navigateur web Chrome ou Edge"
+
+msgid "Wait for all dashboard items to load before printing"
+msgstr ""
+"Attendez que tous les éléments du tableau de bord soient chargés avant de "
+"les imprimer"
+
+msgid ""
+"Use A4 landscape paper size and default margin settings in the browser print"
+" dialog"
+msgstr ""
+"Utilisez un format de papier A4 paysage et les paramètres de marge par "
+"défaut dans la boîte de dialogue d'impression du navigateur"
+
+msgid "Search for a dashboard"
+msgstr "Rechercher un tableau de bord"
+
+msgid "Show fewer dashboards"
+msgstr "Afficher moins de tableaux de bord"
+
+msgid "Show more dashboards"
+msgstr "Afficher plus de tableaux de bord"
+
+msgid "{{count}} selected"
+msgid_plural "{{count}} selected"
+msgstr[0] "{{nombre}} choisi"
+msgstr[1] "{{nombre}} choisi"
+
+msgid "Remove"
+msgstr "Supprimer"
+
+msgid "Add filter"
+msgstr "Ajouter le filtre"
 
 msgid "Hide description"
 msgstr "Masquer la description"
@@ -315,33 +353,3 @@ msgstr "Un élément par page"
 
 msgid "No description"
 msgstr "Pas de description"
-
-msgid "Visualizations"
-msgstr "Visualisations"
-
-msgid "Pivot tables"
-msgstr "Tableaux croisés dynamiques"
-
-msgid "Charts"
-msgstr "Graphiques"
-
-msgid "Maps"
-msgstr "Cartes"
-
-msgid "Event reports"
-msgstr "Rapports d'événements"
-
-msgid "Event charts"
-msgstr "Tableaux d'événements"
-
-msgid "Apps"
-msgstr "Applications"
-
-msgid "Reports"
-msgstr "Rapports"
-
-msgid "Resources"
-msgstr "Ressources"
-
-msgid "Users"
-msgstr "Utilisateurs"

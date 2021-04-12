@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
+"POT-Creation-Date: 2021-04-06T14:07:44.134Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Tetum (Tetun) (https://www.transifex.com/hisp-uio/teams/100509/tet/)\n"
@@ -22,54 +22,7 @@ msgstr ""
 msgid "Loading dashboard – {{name}}"
 msgstr ""
 
-msgid "Cancel"
-msgstr "Kansela"
-
-msgid "Delete"
-msgstr "Soe"
-
-msgid "Delete dashboard"
-msgstr ""
-
-msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
-"This action cannot be undone. Are you sure you want to permanently delete "
-"this dashboard?"
-msgstr ""
-
-msgid ""
-"Failed to save dashboard. You might be offline or not have access to edit "
-"this dashboard."
-msgstr ""
-
-msgid "Save changes"
-msgstr ""
-
-msgid "Exit Print preview"
-msgstr ""
-
-msgid "Print preview"
-msgstr ""
-
-msgid "Filter settings"
-msgstr ""
-
-msgid "Translate"
-msgstr "Traduz"
-
-msgid "Exit without saving"
-msgstr ""
-
-msgid "Go to dashboards"
-msgstr ""
-
-msgid "Search for a dashboard"
-msgstr ""
-
-msgid "Show fewer dashboards"
-msgstr ""
-
-msgid "Show more dashboards"
+msgid "Loading dashboard"
 msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
@@ -77,58 +30,6 @@ msgstr ""
 
 msgid "Requested dashboard not found"
 msgstr ""
-
-msgid "No access"
-msgstr ""
-
-msgid ""
-"Editing dashboards on small screens is not supported. Resize your screen to "
-"return to edit mode."
-msgstr ""
-
-msgid ""
-"Creating dashboards on small screens is not supported. Resize your screen to"
-" return to create mode."
-msgstr ""
-
-msgid "Not supported"
-msgstr ""
-
-msgid "Exit print preview"
-msgstr ""
-
-msgid "Print"
-msgstr "Imprime"
-
-msgid "dashboard layout"
-msgstr ""
-
-msgid "one item per page"
-msgstr ""
-
-msgid "Print Preview"
-msgstr ""
-
-msgid "For best print results"
-msgstr ""
-
-msgid "Use Chrome or Edge web browser"
-msgstr ""
-
-msgid "Wait for all dashboard items to load before printing"
-msgstr ""
-
-msgid ""
-"Use A4 landscape paper size and default margin settings in the browser print"
-" dialog"
-msgstr ""
-
-msgid "{{count}} selected"
-msgid_plural "{{count}} selected"
-msgstr[0] ""
-
-msgid "Remove"
-msgstr "Hasai"
 
 msgid "Delete item"
 msgstr ""
@@ -200,10 +101,88 @@ msgstr ""
 msgid "No data to display"
 msgstr ""
 
-msgid "Confirm"
+msgid "Visualizations"
 msgstr ""
 
-msgid "Add filter"
+msgid "Pivot tables"
+msgstr ""
+
+msgid "Charts"
+msgstr ""
+
+msgid "Maps"
+msgstr ""
+
+msgid "Event reports"
+msgstr ""
+
+msgid "Event charts"
+msgstr ""
+
+msgid "Apps"
+msgstr "Jestor apps"
+
+msgid "Reports"
+msgstr "Relatórius"
+
+msgid "Resources"
+msgstr ""
+
+msgid "Users"
+msgstr "Utilizadores"
+
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid ""
+"Failed to delete dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid "Save changes"
+msgstr ""
+
+msgid "Exit Print preview"
+msgstr ""
+
+msgid "Print preview"
+msgstr ""
+
+msgid "Filter settings"
+msgstr ""
+
+msgid "Translate"
+msgstr "Traduz"
+
+msgid "Delete"
+msgstr "Soe"
+
+msgid "Exit without saving"
+msgstr ""
+
+msgid "Go to dashboards"
+msgstr ""
+
+msgid "Cancel"
+msgstr "Kansela"
+
+msgid "Delete dashboard"
+msgstr ""
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+
+msgid "No access"
+msgstr ""
+
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
 msgstr ""
 
 msgid "Allow filtering by all dimensions"
@@ -228,6 +207,9 @@ msgstr ""
 msgid "Selected Filters"
 msgstr ""
 
+msgid "Confirm"
+msgstr ""
+
 msgid "There are no items on this dashboard"
 msgstr ""
 
@@ -249,10 +231,66 @@ msgstr ""
 msgid "Text box"
 msgstr ""
 
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
+msgstr ""
+
+msgid "Not supported"
+msgstr ""
+
 msgid "Dashboard title"
 msgstr ""
 
 msgid "Dashboard description"
+msgstr ""
+
+msgid "Exit print preview"
+msgstr ""
+
+msgid "Print"
+msgstr "Imprime"
+
+msgid "dashboard layout"
+msgstr ""
+
+msgid "one item per page"
+msgstr ""
+
+msgid "Print Preview"
+msgstr ""
+
+msgid "For best print results"
+msgstr ""
+
+msgid "Use Chrome or Edge web browser"
+msgstr ""
+
+msgid "Wait for all dashboard items to load before printing"
+msgstr ""
+
+msgid ""
+"Use A4 landscape paper size and default margin settings in the browser print"
+" dialog"
+msgstr ""
+
+msgid "Search for a dashboard"
+msgstr ""
+
+msgid "Show fewer dashboards"
+msgstr ""
+
+msgid "Show more dashboards"
+msgstr ""
+
+msgid "{{count}} selected"
+msgid_plural "{{count}} selected"
+msgstr[0] ""
+
+msgid "Remove"
+msgstr "Hasai"
+
+msgid "Add filter"
 msgstr ""
 
 msgid "Hide description"
@@ -296,33 +334,3 @@ msgstr ""
 
 msgid "No description"
 msgstr ""
-
-msgid "Visualizations"
-msgstr ""
-
-msgid "Pivot tables"
-msgstr ""
-
-msgid "Charts"
-msgstr ""
-
-msgid "Maps"
-msgstr ""
-
-msgid "Event reports"
-msgstr ""
-
-msgid "Event charts"
-msgstr ""
-
-msgid "Apps"
-msgstr "Jestor apps"
-
-msgid "Reports"
-msgstr "Relatórius"
-
-msgid "Resources"
-msgstr ""
-
-msgid "Users"
-msgstr "Utilizadores"

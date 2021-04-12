@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
+"POT-Creation-Date: 2021-04-06T14:07:44.134Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
@@ -21,57 +21,7 @@ msgstr ""
 msgid "Loading dashboard – {{name}}"
 msgstr ""
 
-msgid "Cancel"
-msgstr "إلغاء"
-
-msgid "Delete"
-msgstr "حذف"
-
-msgid "Delete dashboard"
-msgstr "حذف لوحة المعلومات"
-
-msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
-"This action cannot be undone. Are you sure you want to permanently delete "
-"this dashboard?"
-msgstr ""
-"سيؤدي حذف لوحة المعلومات \"{{dashboardName}}\" إلى إزالتها لجميع المستخدمين."
-" لا يمكن التراجع عن هذا الإجراء. هل تريد بالتأكيد حذف لوحة المعلومات هذه "
-"نهائياً؟"
-
-msgid ""
-"Failed to save dashboard. You might be offline or not have access to edit "
-"this dashboard."
-msgstr ""
-
-msgid "Save changes"
-msgstr "احفظ التغييرات"
-
-msgid "Exit Print preview"
-msgstr ""
-
-msgid "Print preview"
-msgstr ""
-
-msgid "Filter settings"
-msgstr ""
-
-msgid "Translate"
-msgstr "ترجمة"
-
-msgid "Exit without saving"
-msgstr "الخروج من غير حفظ التغييرات"
-
-msgid "Go to dashboards"
-msgstr "الذهاب إلى لوحة المعلومات"
-
-msgid "Search for a dashboard"
-msgstr "البحث عن لوحة معلومات"
-
-msgid "Show fewer dashboards"
-msgstr ""
-
-msgid "Show more dashboards"
+msgid "Loading dashboard"
 msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
@@ -80,63 +30,6 @@ msgstr ""
 
 msgid "Requested dashboard not found"
 msgstr "لم يتم العثور على لوحة المعلومات التي طلبتها"
-
-msgid "No access"
-msgstr "ممنوع الدخول"
-
-msgid ""
-"Editing dashboards on small screens is not supported. Resize your screen to "
-"return to edit mode."
-msgstr ""
-
-msgid ""
-"Creating dashboards on small screens is not supported. Resize your screen to"
-" return to create mode."
-msgstr ""
-
-msgid "Not supported"
-msgstr ""
-
-msgid "Exit print preview"
-msgstr ""
-
-msgid "Print"
-msgstr ""
-
-msgid "dashboard layout"
-msgstr ""
-
-msgid "one item per page"
-msgstr ""
-
-msgid "Print Preview"
-msgstr ""
-
-msgid "For best print results"
-msgstr ""
-
-msgid "Use Chrome or Edge web browser"
-msgstr ""
-
-msgid "Wait for all dashboard items to load before printing"
-msgstr ""
-
-msgid ""
-"Use A4 landscape paper size and default margin settings in the browser print"
-" dialog"
-msgstr ""
-
-msgid "{{count}} selected"
-msgid_plural "{{count}} selected"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "Remove"
-msgstr "إزالة"
 
 msgid "Delete item"
 msgstr "حذف العنصر"
@@ -208,11 +101,92 @@ msgstr "تعذر تحميل المكوّن الإضافي لهذا العنصر"
 msgid "No data to display"
 msgstr "لا توجد بيانات للعرض"
 
-msgid "Confirm"
-msgstr "تأكيد"
+msgid "Visualizations"
+msgstr "مخططات بيانية"
 
-msgid "Add filter"
-msgstr "إضافة عامل تصفية"
+msgid "Pivot tables"
+msgstr "الجداول المحورية"
+
+msgid "Charts"
+msgstr "المخططات البيانية"
+
+msgid "Maps"
+msgstr "الخرائط"
+
+msgid "Event reports"
+msgstr "تقارير الحدث"
+
+msgid "Event charts"
+msgstr "المخطط البياني للأحداث"
+
+msgid "Apps"
+msgstr "التطبيقات"
+
+msgid "Reports"
+msgstr "التقارير"
+
+msgid "Resources"
+msgstr "المصادر"
+
+msgid "Users"
+msgstr "المستخدمون"
+
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid ""
+"Failed to delete dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid "Save changes"
+msgstr "احفظ التغييرات"
+
+msgid "Exit Print preview"
+msgstr ""
+
+msgid "Print preview"
+msgstr ""
+
+msgid "Filter settings"
+msgstr ""
+
+msgid "Translate"
+msgstr "ترجمة"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Exit without saving"
+msgstr "الخروج من غير حفظ التغييرات"
+
+msgid "Go to dashboards"
+msgstr "الذهاب إلى لوحة المعلومات"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Delete dashboard"
+msgstr "حذف لوحة المعلومات"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+"سيؤدي حذف لوحة المعلومات \"{{dashboardName}}\" إلى إزالتها لجميع المستخدمين."
+" لا يمكن التراجع عن هذا الإجراء. هل تريد بالتأكيد حذف لوحة المعلومات هذه "
+"نهائياً؟"
+
+msgid "No access"
+msgstr "ممنوع الدخول"
+
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
+msgstr ""
 
 msgid "Allow filtering by all dimensions"
 msgstr ""
@@ -236,6 +210,9 @@ msgstr ""
 msgid "Selected Filters"
 msgstr ""
 
+msgid "Confirm"
+msgstr "تأكيد"
+
 msgid "There are no items on this dashboard"
 msgstr "لايوجد عناصر في لوحة المعلومات هذه"
 
@@ -257,11 +234,72 @@ msgstr "عناصر إضافية"
 msgid "Text box"
 msgstr "مربع نص"
 
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
+msgstr ""
+
+msgid "Not supported"
+msgstr ""
+
 msgid "Dashboard title"
 msgstr "عنوان لوحة المعلومات"
 
 msgid "Dashboard description"
 msgstr "وصف لوحة المعلومات"
+
+msgid "Exit print preview"
+msgstr ""
+
+msgid "Print"
+msgstr ""
+
+msgid "dashboard layout"
+msgstr ""
+
+msgid "one item per page"
+msgstr ""
+
+msgid "Print Preview"
+msgstr ""
+
+msgid "For best print results"
+msgstr ""
+
+msgid "Use Chrome or Edge web browser"
+msgstr ""
+
+msgid "Wait for all dashboard items to load before printing"
+msgstr ""
+
+msgid ""
+"Use A4 landscape paper size and default margin settings in the browser print"
+" dialog"
+msgstr ""
+
+msgid "Search for a dashboard"
+msgstr "البحث عن لوحة معلومات"
+
+msgid "Show fewer dashboards"
+msgstr ""
+
+msgid "Show more dashboards"
+msgstr ""
+
+msgid "{{count}} selected"
+msgid_plural "{{count}} selected"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+msgid "Remove"
+msgstr "إزالة"
+
+msgid "Add filter"
+msgstr "إضافة عامل تصفية"
 
 msgid "Hide description"
 msgstr ""
@@ -304,33 +342,3 @@ msgstr ""
 
 msgid "No description"
 msgstr "لا يوجد وصف"
-
-msgid "Visualizations"
-msgstr "مخططات بيانية"
-
-msgid "Pivot tables"
-msgstr "الجداول المحورية"
-
-msgid "Charts"
-msgstr "المخططات البيانية"
-
-msgid "Maps"
-msgstr "الخرائط"
-
-msgid "Event reports"
-msgstr "تقارير الحدث"
-
-msgid "Event charts"
-msgstr "المخطط البياني للأحداث"
-
-msgid "Apps"
-msgstr "التطبيقات"
-
-msgid "Reports"
-msgstr "التقارير"
-
-msgid "Resources"
-msgstr "المصادر"
-
-msgid "Users"
-msgstr "المستخدمون"

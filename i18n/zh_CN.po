@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
+"POT-Creation-Date: 2021-04-06T14:07:44.134Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -22,54 +22,7 @@ msgstr ""
 msgid "Loading dashboard – {{name}}"
 msgstr ""
 
-msgid "Cancel"
-msgstr "取消"
-
-msgid "Delete"
-msgstr "删除"
-
-msgid "Delete dashboard"
-msgstr ""
-
-msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
-"This action cannot be undone. Are you sure you want to permanently delete "
-"this dashboard?"
-msgstr ""
-
-msgid ""
-"Failed to save dashboard. You might be offline or not have access to edit "
-"this dashboard."
-msgstr ""
-
-msgid "Save changes"
-msgstr "保存更改"
-
-msgid "Exit Print preview"
-msgstr ""
-
-msgid "Print preview"
-msgstr ""
-
-msgid "Filter settings"
-msgstr ""
-
-msgid "Translate"
-msgstr "翻译"
-
-msgid "Exit without saving"
-msgstr "不保存退出"
-
-msgid "Go to dashboards"
-msgstr "进到仪表盘"
-
-msgid "Search for a dashboard"
-msgstr "搜索仪表盘"
-
-msgid "Show fewer dashboards"
-msgstr ""
-
-msgid "Show more dashboards"
+msgid "Loading dashboard"
 msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
@@ -77,58 +30,6 @@ msgstr "没有找到仪表盘条目，使用+ 按钮创建新的仪表盘条目�
 
 msgid "Requested dashboard not found"
 msgstr "请求的仪表盘条目没有找到"
-
-msgid "No access"
-msgstr "不能访问"
-
-msgid ""
-"Editing dashboards on small screens is not supported. Resize your screen to "
-"return to edit mode."
-msgstr ""
-
-msgid ""
-"Creating dashboards on small screens is not supported. Resize your screen to"
-" return to create mode."
-msgstr ""
-
-msgid "Not supported"
-msgstr ""
-
-msgid "Exit print preview"
-msgstr ""
-
-msgid "Print"
-msgstr "打印"
-
-msgid "dashboard layout"
-msgstr ""
-
-msgid "one item per page"
-msgstr ""
-
-msgid "Print Preview"
-msgstr ""
-
-msgid "For best print results"
-msgstr ""
-
-msgid "Use Chrome or Edge web browser"
-msgstr ""
-
-msgid "Wait for all dashboard items to load before printing"
-msgstr ""
-
-msgid ""
-"Use A4 landscape paper size and default margin settings in the browser print"
-" dialog"
-msgstr ""
-
-msgid "{{count}} selected"
-msgid_plural "{{count}} selected"
-msgstr[0] ""
-
-msgid "Remove"
-msgstr "移除"
 
 msgid "Delete item"
 msgstr ""
@@ -200,11 +101,89 @@ msgstr "不能该条目的插件"
 msgid "No data to display"
 msgstr "没有数据可显示"
 
-msgid "Confirm"
-msgstr "确认"
+msgid "Visualizations"
+msgstr ""
 
-msgid "Add filter"
-msgstr "添加过滤器"
+msgid "Pivot tables"
+msgstr "透视表"
+
+msgid "Charts"
+msgstr "图表"
+
+msgid "Maps"
+msgstr "地图"
+
+msgid "Event reports"
+msgstr "事件报表"
+
+msgid "Event charts"
+msgstr "事件图表"
+
+msgid "Apps"
+msgstr "应用"
+
+msgid "Reports"
+msgstr "报表"
+
+msgid "Resources"
+msgstr "资源"
+
+msgid "Users"
+msgstr "用户"
+
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid ""
+"Failed to delete dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid "Save changes"
+msgstr "保存更改"
+
+msgid "Exit Print preview"
+msgstr ""
+
+msgid "Print preview"
+msgstr ""
+
+msgid "Filter settings"
+msgstr ""
+
+msgid "Translate"
+msgstr "翻译"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Exit without saving"
+msgstr "不保存退出"
+
+msgid "Go to dashboards"
+msgstr "进到仪表盘"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Delete dashboard"
+msgstr ""
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+
+msgid "No access"
+msgstr "不能访问"
+
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
+msgstr ""
 
 msgid "Allow filtering by all dimensions"
 msgstr ""
@@ -228,6 +207,9 @@ msgstr ""
 msgid "Selected Filters"
 msgstr ""
 
+msgid "Confirm"
+msgstr "确认"
+
 msgid "There are no items on this dashboard"
 msgstr "该仪表盘没有条目"
 
@@ -249,11 +231,67 @@ msgstr ""
 msgid "Text box"
 msgstr "文本框"
 
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
+msgstr ""
+
+msgid "Not supported"
+msgstr ""
+
 msgid "Dashboard title"
 msgstr ""
 
 msgid "Dashboard description"
 msgstr ""
+
+msgid "Exit print preview"
+msgstr ""
+
+msgid "Print"
+msgstr "打印"
+
+msgid "dashboard layout"
+msgstr ""
+
+msgid "one item per page"
+msgstr ""
+
+msgid "Print Preview"
+msgstr ""
+
+msgid "For best print results"
+msgstr ""
+
+msgid "Use Chrome or Edge web browser"
+msgstr ""
+
+msgid "Wait for all dashboard items to load before printing"
+msgstr ""
+
+msgid ""
+"Use A4 landscape paper size and default margin settings in the browser print"
+" dialog"
+msgstr ""
+
+msgid "Search for a dashboard"
+msgstr "搜索仪表盘"
+
+msgid "Show fewer dashboards"
+msgstr ""
+
+msgid "Show more dashboards"
+msgstr ""
+
+msgid "{{count}} selected"
+msgid_plural "{{count}} selected"
+msgstr[0] ""
+
+msgid "Remove"
+msgstr "移除"
+
+msgid "Add filter"
+msgstr "添加过滤器"
 
 msgid "Hide description"
 msgstr ""
@@ -296,33 +334,3 @@ msgstr ""
 
 msgid "No description"
 msgstr "没有描述"
-
-msgid "Visualizations"
-msgstr ""
-
-msgid "Pivot tables"
-msgstr "透视表"
-
-msgid "Charts"
-msgstr "图表"
-
-msgid "Maps"
-msgstr "地图"
-
-msgid "Event reports"
-msgstr "事件报表"
-
-msgid "Event charts"
-msgstr "事件图表"
-
-msgid "Apps"
-msgstr "应用"
-
-msgid "Reports"
-msgstr "报表"
-
-msgid "Resources"
-msgstr "资源"
-
-msgid "Users"
-msgstr "用户"
