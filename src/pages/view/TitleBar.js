@@ -8,9 +8,18 @@ import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import Star from '@material-ui/icons/Star'
 import StarBorder from '@material-ui/icons/StarBorder'
-import { Button, FlyoutMenu, Layer, Popper, MenuItem, colors } from '@dhis2/ui'
+import {
+    Button,
+    FlyoutMenu,
+    Layer,
+    Popper,
+    MenuItem,
+    Tag,
+    colors,
+} from '@dhis2/ui'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
+import { useOnlineStatus } from '../../modules/useOnlineStatus'
 import { ThreeDots } from '../../components/Item/VisualizationItem/assets/icons'
 import { orObject } from '../../modules/util'
 import { apiStarDashboard } from './starDashboard'
@@ -48,6 +57,7 @@ const ViewTitleBar = ({
     const [redirectUrl, setRedirectUrl] = useState(null)
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
+    const { isOnline, toggleIsOnline } = useOnlineStatus()
 
     const warningAlert = useAlert(({ msg }) => msg, {
         warning: true,
@@ -126,7 +136,10 @@ const ViewTitleBar = ({
     return (
         <>
             <div className={classes.container}>
-                <div className={classes.titleBar}>
+                <div
+                    className={classes.titleBar}
+                    style={{ position: 'relative' }}
+                >
                     <span
                         className={classes.title}
                         data-test="view-dashboard-title"
@@ -222,6 +235,18 @@ const ViewTitleBar = ({
                                 </Popper>
                             </Layer>
                         )}
+                    </div>
+                    <div
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            right: 0,
+                        }}
+                    >
+                        <Tag>{`isOnline: ${isOnline}`}</Tag>
+                        <Button onClick={toggleIsOnline}>
+                            Toggle online status
+                        </Button>
                     </div>
                 </div>
                 {showDescription && (
