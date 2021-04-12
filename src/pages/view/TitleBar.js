@@ -20,6 +20,7 @@ import {
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import { useOnlineStatus } from '../../modules/useOnlineStatus'
+import { useCacheableSectionStatus } from '../../modules/useCacheableSectionStatus'
 import { ThreeDots } from '../../components/Item/VisualizationItem/assets/icons'
 import { orObject } from '../../modules/util'
 import { apiStarDashboard } from './starDashboard'
@@ -58,6 +59,11 @@ const ViewTitleBar = ({
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
     const { isOnline, toggleIsOnline } = useOnlineStatus()
+    const {
+        lastUpdated,
+        updateCache,
+        removeFromCache,
+    } = useCacheableSectionStatus(id)
 
     const warningAlert = useAlert(({ msg }) => msg, {
         warning: true,
@@ -75,6 +81,15 @@ const ViewTitleBar = ({
 
     if (redirectUrl) {
         return <Redirect to={redirectUrl} />
+    }
+
+    const toggleSaveOfflineLabel = lastUpdated
+        ? i18n.t('Remove from offline storage')
+        : i18n.t('Make available offline')
+
+    const onToggleOfflineStatus = () => {
+        lastUpdated ? removeFromCache() : updateCache()
+        toggleMoreOptions()
     }
 
     const showHideDescriptionLabel = showDescription
@@ -201,6 +216,11 @@ const ViewTitleBar = ({
                                     <FlyoutMenu>
                                         <MenuItem
                                             dense
+                                            label={toggleSaveOfflineLabel}
+                                            onClick={onToggleOfflineStatus}
+                                        />
+                                        <MenuItem
+                                            dense
                                             label={toggleStarredDashboardLabel}
                                             onClick={onToggleStarredDashboard}
                                         />
@@ -249,6 +269,7 @@ const ViewTitleBar = ({
                         </Button>
                     </div>
                 </div>
+                <Tag>{`Last updated: ${lastUpdated}`}</Tag>
                 {showDescription && (
                     <div
                         className={descriptionClasses}
