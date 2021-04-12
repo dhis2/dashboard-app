@@ -14,7 +14,7 @@ import {
 import { Redirect } from 'react-router-dom'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import NoContentMessage from './NoContentMessage'
-import { CacheableSection } from './CacheableSection'
+import CacheableSection from './CacheableSection'
 import { ViewDashboard, DashboardsBar } from '../pages/view/'
 import { EditDashboard, NewDashboard } from '../pages/edit/'
 import { PrintDashboard, PrintLayoutDashboard } from '../pages/print/'
@@ -176,7 +176,7 @@ const Dashboard = ({
         if (mode === VIEW) {
             return (
                 <CacheableSection sectionId={id}>
-                    {dashboardMap[mode]}
+                    <ViewDashboard />
                 </CacheableSection>
             )
         }
