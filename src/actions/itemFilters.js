@@ -1,7 +1,6 @@
 import {
     ADD_ITEM_FILTER,
     REMOVE_ITEM_FILTER,
-    SET_ITEM_FILTERS,
     CLEAR_ITEM_FILTERS,
 } from '../reducers/itemFilters'
 
@@ -21,9 +20,4 @@ export const acRemoveItemFilter = id => ({
 
 export const acClearItemFilters = () => ({
     type: CLEAR_ITEM_FILTERS,
-})
-
-export const acSetItemFilters = filters => ({
-    type: SET_ITEM_FILTERS,
-    filters,
 })

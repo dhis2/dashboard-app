@@ -7,8 +7,8 @@ import {
     itemTypeMap,
 } from '../../../../modules/itemTypes'
 import { getVisualizationId } from '../../../../modules/item'
-import getVisualizationContainerDomId from '../../../../modules/getVisualizationContainerDomId'
-import { loadExternalScript } from '../../../../modules/loadExternalScript'
+import getVisualizationContainerDomId from '../getVisualizationContainerDomId'
+import { loadExternalScript } from './loadExternalScript'
 
 //external plugins
 const itemTypeToGlobalVariable = {

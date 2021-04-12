@@ -98,6 +98,21 @@ export const sDashboardsIsFetching = state => {
     return sGetDashboardsRoot(state).byId === null
 }
 
+export const sGetSelectedDashboardId = (state, id, lastStoredDashboardId) => {
+    let dashboardToSelect = null
+    if (id) {
+        dashboardToSelect = sGetDashboardById(state, id) || null
+    } else {
+        const dash = sGetDashboardById(state, lastStoredDashboardId)
+        dashboardToSelect =
+            lastStoredDashboardId && dash
+                ? dash
+                : sGetDashboardsSortedByStarred(state)[0]
+    }
+
+    return dashboardToSelect?.id || null
+}
+
 /**
  * Selector which returns all dashboards (the byId object)
  *
@@ -119,24 +134,17 @@ export const sGetDashboardItems = state => sGetDashboardsRoot(state).items
 
 // selector level 2
 
-export const sGetStarredDashboards = state =>
+const sGetStarredDashboards = state =>
     Object.values(sGetAllDashboards(state)).filter(
         dashboard => dashboard.starred === true
     )
 
-export const sGetUnstarredDashboards = state =>
+const sGetUnstarredDashboards = state =>
     Object.values(sGetAllDashboards(state)).filter(
         dashboard => dashboard.starred === false
     )
 
 // selector level 3
-
-export const sGetStarredDashboardIds = state => {
-    return sGetStarredDashboards(state).map(dashboard => dashboard.id)
-}
-
-export const sGetUnstarredDashboardIds = state =>
-    sGetUnstarredDashboards(state).map(dashboard => dashboard.id)
 
 export const sGetDashboardsSortedByStarred = state => [
     ...arraySort(sGetStarredDashboards(state), 'ASC', 'displayName'),

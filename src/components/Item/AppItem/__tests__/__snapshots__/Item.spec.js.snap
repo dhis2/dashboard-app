@@ -11,8 +11,9 @@ exports[`renders a valid App item in view mode 1`] = `
       Scorecard
     </p>
   </div>
-  <hr
-    style="background-color: rgb(243, 245, 247); height: 1px; margin: 0px 0px 5px 0px;"
+  <div
+    class="jsx-1555285825 jsx-2740202828 "
+    data-test="dhis2-uicore-divider"
   />
   <iframe
     class="dashboard-item-content"
@@ -55,8 +56,9 @@ exports[`renders a valid App item with filter in edit mode 1`] = `
       </button>
     </div>
   </div>
-  <hr
-    style="background-color: rgb(243, 245, 247); height: 1px; margin: 0px 0px 5px 0px;"
+  <div
+    class="jsx-1555285825 jsx-2740202828 "
+    data-test="dhis2-uicore-divider"
   />
   <iframe
     class="dashboard-item-content"
@@ -77,8 +79,9 @@ exports[`renders a valid App item with filter in view mode 1`] = `
       Scorecard
     </p>
   </div>
-  <hr
-    style="background-color: rgb(243, 245, 247); height: 1px; margin: 0px 0px 5px 0px;"
+  <div
+    class="jsx-1555285825 jsx-2740202828 "
+    data-test="dhis2-uicore-divider"
   />
   <iframe
     class="dashboard-item-content"
@@ -121,8 +124,9 @@ exports[`renders a valid App item with title in edit mode irrespective of app se
       </button>
     </div>
   </div>
-  <hr
-    style="background-color: rgb(243, 245, 247); height: 1px; margin: 0px 0px 5px 0px;"
+  <div
+    class="jsx-1555285825 jsx-2740202828 "
+    data-test="dhis2-uicore-divider"
   />
   <iframe
     class="dashboard-item-content"
@@ -153,8 +157,9 @@ exports[`renders an invalid App item 1`] = `
       unknownApp app not found
     </p>
   </div>
-  <hr
-    style="background-color: rgb(243, 245, 247); height: 1px; margin: 0px 0px 5px 0px;"
+  <div
+    class="jsx-1555285825 jsx-2740202828 "
+    data-test="dhis2-uicore-divider"
   />
   <div
     class="dashboard-item-content"
