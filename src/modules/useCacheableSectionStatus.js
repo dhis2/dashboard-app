@@ -1,3 +1,6 @@
+import { useDispatch } from 'react-redux'
+import { acSetIsRecording } from '../actions/isRecording'
+
 const CACHE_KEY = 'dhis2.dashboard.cache'
 
 const getDashboardCache = () =>
@@ -7,6 +10,8 @@ const setDashboardCache = cache =>
     localStorage.setItem(CACHE_KEY, JSON.stringify(cache))
 
 export const useCacheableSectionStatus = id => {
+    const dispatch = useDispatch()
+
     const updateCache = () => {
         const cached = getDashboardCache()
 
@@ -16,6 +21,7 @@ export const useCacheableSectionStatus = id => {
         })
 
         setDashboardCache(newCache)
+        dispatch(acSetIsRecording(true))
     }
 
     const removeFromCache = () => {

@@ -1,12 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { sGetIsRecording } from '../reducers/isRecording'
 
-const CacheableSection = ({ children }) => {
-    return <>{children}</>
-}
+const CacheableSection = ({ children, isRecording }) => (
+    <>{children({ isRecording })}</>
+)
 
 CacheableSection.propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.function,
+    isRecording: PropTypes.bool,
 }
 
-export default CacheableSection
+const mapStateToProps = state => ({
+    isRecording: sGetIsRecording(state),
+})
+
+export default connect(mapStateToProps)(CacheableSection)

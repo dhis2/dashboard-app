@@ -27,6 +27,7 @@ import {
     sGetDashboardById,
     sGetDashboardItems,
 } from '../../reducers/dashboards'
+import { acSetIsRecording } from '../../actions/isRecording'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
 import { VIEW } from '../../modules/dashboardModes'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen'
@@ -37,7 +38,12 @@ import classes from './styles/ItemGrid.module.css'
 const EXPANDED_HEIGHT = 17
 const EXPANDED_HEIGHT_SM = 13
 
-const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
+const ResponsiveItemGrid = ({
+    isLoading,
+    isRecording,
+    setIsRecording,
+    dashboardItems,
+}) => {
     const { width } = useWindowDimensions()
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
@@ -50,6 +56,12 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
         )
         setDisplayItems(getItemsWithAdjustedHeight(dashboardItems))
     }, [expandedItems, width, dashboardItems])
+
+    useEffect(() => {
+        if (isRecording) {
+            setIsRecording(false)
+        }
+    }, [isRecording])
 
     const onToggleItemExpanded = clickedId => {
         const isExpanded =
@@ -155,6 +167,8 @@ const ResponsiveItemGrid = ({ isLoading, dashboardItems }) => {
 ResponsiveItemGrid.propTypes = {
     dashboardItems: PropTypes.array,
     isLoading: PropTypes.bool,
+    isRecording: PropTypes.bool,
+    setIsRecording: PropTypes.func,
 }
 
 const mapStateToProps = state => {
@@ -167,4 +181,6 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(ResponsiveItemGrid)
+export default connect(mapStateToProps, { setIsRecording: acSetIsRecording })(
+    ResponsiveItemGrid
+)
