@@ -20,7 +20,7 @@ export const DEFAULT_STATE_EDIT_DASHBOARD = {}
 export const NEW_DASHBOARD_STATE = {
     id: '',
     name: '',
-    access: {},
+    access: { update: true, delete: true },
     allowedFilters: [],
     description: '',
     dashboardItems: [],
@@ -161,12 +161,6 @@ export const sGetIsEditing = state => !isEmpty(state.editDashboard)
 
 export const sGetIsPrintPreviewView = state =>
     sGetEditDashboardRoot(state).printPreviewView
-
-export const sGetIsNewDashboard = state => {
-    return (
-        !isEmpty(state.editDashboard) && sGetEditDashboardRoot(state).id === ''
-    )
-}
 
 export const sGetEditDashboardName = state => sGetEditDashboardRoot(state).name
 export const sGetEditDashboardDescription = state =>

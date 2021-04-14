@@ -13,12 +13,14 @@ class ProgressiveLoadingContainer extends Component {
         bufferFactor: PropTypes.number,
         className: PropTypes.string,
         debounceMs: PropTypes.number,
+        forceLoad: PropTypes.bool,
         itemId: PropTypes.string,
         style: PropTypes.object,
     }
     static defaultProps = {
         debounceMs: defaultDebounceMs,
         bufferFactor: defaultBufferFactor,
+        forceLoad: false,
     }
 
     state = {
@@ -34,6 +36,12 @@ class ProgressiveLoadingContainer extends Component {
             return
         }
 
+        if (this.props.forceLoad && !this.state.shouldLoad) {
+            this.setState({ shouldLoad: true })
+            this.removeHandler()
+            return
+        }
+
         const bufferPx = this.props.bufferFactor * window.innerHeight
         const rect = this.containerRef.getBoundingClientRect()
 
@@ -41,10 +49,7 @@ class ProgressiveLoadingContainer extends Component {
             rect.bottom > -bufferPx &&
             rect.top < window.innerHeight + bufferPx
         ) {
-            this.setState({
-                shouldLoad: true,
-            })
-
+            this.setState({ shouldLoad: true })
             this.removeHandler()
         }
     }
@@ -98,12 +103,18 @@ class ProgressiveLoadingContainer extends Component {
         this.checkShouldLoad()
     }
 
+    componentDidUpdate() {
+        if (this.props.forceLoad && !this.state.shouldLoad) {
+            this.checkShouldLoad()
+        }
+    }
+
     componentWillUnmount() {
         this.removeHandler()
     }
 
     render() {
-        const { children, className, style, ...props } = this.props
+        const { children, className, forceLoad, style, ...props } = this.props
         const { shouldLoad } = this.state
 
         const eventProps = pick(props, [
@@ -121,7 +132,7 @@ class ProgressiveLoadingContainer extends Component {
                 data-test={`dashboarditem-${props.itemId}`}
                 {...eventProps}
             >
-                {shouldLoad && children}
+                {(forceLoad || shouldLoad) && children}
             </div>
         )
     }

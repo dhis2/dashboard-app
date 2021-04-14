@@ -92,6 +92,11 @@ const ViewTitleBar = ({
         toggleMoreOptions()
     }
 
+    const onUpdateOfflineCache = () => {
+        updateCache()
+        toggleMoreOptions()
+    }
+
     const showHideDescriptionLabel = showDescription
         ? i18n.t('Hide description')
         : i18n.t('Show description')
@@ -219,6 +224,15 @@ const ViewTitleBar = ({
                                             label={toggleSaveOfflineLabel}
                                             onClick={onToggleOfflineStatus}
                                         />
+                                        {lastUpdated && (
+                                            <MenuItem
+                                                dense
+                                                label={i18n.t(
+                                                    'Update offline cache'
+                                                )}
+                                                onClick={onUpdateOfflineCache}
+                                            />
+                                        )}
                                         <MenuItem
                                             dense
                                             label={toggleStarredDashboardLabel}

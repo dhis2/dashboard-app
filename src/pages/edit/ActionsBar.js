@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -22,11 +22,8 @@ import { tFetchDashboards } from '../../actions/dashboards'
 import { deleteDashboardMutation } from './deleteDashboardMutation'
 import {
     sGetEditDashboardRoot,
-    sGetIsNewDashboard,
     sGetIsPrintPreviewView,
 } from '../../reducers/editDashboard'
-import { apiFetchDashboard } from '../../api/fetchDashboard'
-import { EDIT } from '../../modules/dashboardModes'
 
 import classes from './styles/ActionsBar.module.css'
 
@@ -38,14 +35,13 @@ const deleteFailedMessage = i18n.t(
     'Failed to delete dashboard. You might be offline or not have access to edit this dashboard.'
 )
 
-const EditBar = props => {
+const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
     const [filterSettingsDlgIsOpen, setFilterSettingsDlgIsOpen] = useState(
         false
     )
-    const [dashboard, setDashboard] = useState(undefined)
     const [confirmDeleteDlgIsOpen, setConfirmDeleteDlgIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(undefined)
 
@@ -57,16 +53,6 @@ const EditBar = props => {
         critical: true,
     })
 
-    useEffect(() => {
-        if (props.dashboardId && !dashboard) {
-            apiFetchDashboard(
-                dataEngine,
-                props.dashboardId,
-                EDIT
-            ).then(dboard => setDashboard(dboard))
-        }
-    }, [props.dashboardId, dashboard])
-
     const onConfirmDelete = () => {
         setConfirmDeleteDlgIsOpen(true)
     }
@@ -76,7 +62,7 @@ const EditBar = props => {
 
         dataEngine
             .mutate(deleteDashboardMutation, {
-                variables: { id: props.dashboardId },
+                variables: { id: dashboard.id },
             })
             .then(props.fetchDashboards)
             .then(() => setRedirectUrl('/'))
@@ -93,7 +79,7 @@ const EditBar = props => {
     }
 
     const onPrintPreview = () => {
-        if (props.isPrintPreviewView) {
+        if (isPrintPreviewView) {
             props.clearPrintPreview()
             props.clearPrintDashboard()
         } else {
@@ -103,7 +89,7 @@ const EditBar = props => {
 
     const onDiscard = () => {
         props.onDiscardChanges()
-        const redirectUrl = props.dashboardId ? `/${props.dashboardId}` : '/'
+        const redirectUrl = dashboard.id ? `/${dashboard.id}` : '/'
 
         setRedirectUrl(redirectUrl)
     }
@@ -134,9 +120,9 @@ const EditBar = props => {
     }
 
     const confirmDeleteDialog = () =>
-        props.deleteAccess && props.dashboardId ? (
+        dashboard.access?.delete && dashboard.id ? (
             <ConfirmDeleteDialog
-                dashboardName={props.dashboardName}
+                dashboardName={dashboard.name}
                 onDeleteConfirmed={deleteDashboardConfirmed}
                 onContinueEditing={onContinueEditing}
                 open={confirmDeleteDlgIsOpen}
@@ -144,7 +130,7 @@ const EditBar = props => {
         ) : null
 
     const translationDialog = () =>
-        dashboard && dashboard.id ? (
+        dashboard.id ? (
             <TranslationDialog
                 className="translation-dialog"
                 d2={d2}
@@ -162,16 +148,15 @@ const EditBar = props => {
             />
         ) : null
 
-    const filterSettingsDialog = () =>
-        dashboard || props.newDashboard ? (
-            <FilterSettingsDialog
-                restrictFilters={props.restrictFilters}
-                initiallySelectedItems={props.allowedFilters}
-                onClose={toggleFilterSettingsDialog}
-                onConfirm={onFilterSettingsConfirmed}
-                open={filterSettingsDlgIsOpen}
-            />
-        ) : null
+    const filterSettingsDialog = () => (
+        <FilterSettingsDialog
+            restrictFilters={dashboard.restrictFilters}
+            initiallySelectedItems={dashboard.allowedFilters}
+            onClose={toggleFilterSettingsDialog}
+            onConfirm={onFilterSettingsConfirmed}
+            open={filterSettingsDlgIsOpen}
+        />
+    )
 
     const renderActionButtons = () => (
         <ButtonStrip>
@@ -179,19 +164,19 @@ const EditBar = props => {
                 {i18n.t('Save changes')}
             </Button>
             <Button onClick={onPrintPreview}>
-                {props.isPrintPreviewView
+                {isPrintPreviewView
                     ? i18n.t('Exit Print preview')
                     : i18n.t('Print preview')}
             </Button>
             <Button onClick={toggleFilterSettingsDialog}>
                 {i18n.t('Filter settings')}
             </Button>
-            {props.dashboardId && (
+            {dashboard.id && (
                 <Button onClick={toggleTranslationDialog}>
                     {i18n.t('Translate')}
                 </Button>
             )}
-            {props.dashboardId && props.deleteAccess && (
+            {dashboard.id && dashboard.access?.delete && (
                 <Button
                     onClick={onConfirmDelete}
                     dataTest="delete-dashboard-button"
@@ -206,7 +191,7 @@ const EditBar = props => {
         return <Redirect to={redirectUrl} />
     }
 
-    const discardBtnText = props.updateAccess
+    const discardBtnText = dashboard.access?.update
         ? i18n.t('Exit without saving')
         : i18n.t('Go to dashboards')
 
@@ -214,7 +199,7 @@ const EditBar = props => {
         <>
             <div className={classes.editBar} data-test="edit-control-bar">
                 <div className={classes.controls}>
-                    {props.updateAccess ? renderActionButtons() : null}
+                    {dashboard.access?.update ? renderActionButtons() : null}
                     <Button secondary onClick={onDiscard}>
                         {discardBtnText}
                     </Button>
@@ -228,47 +213,21 @@ const EditBar = props => {
 }
 
 EditBar.propTypes = {
-    allowedFilters: PropTypes.array,
     clearPrintDashboard: PropTypes.func,
     clearPrintPreview: PropTypes.func,
-    dashboardId: PropTypes.string,
-    dashboardName: PropTypes.string,
-    deleteAccess: PropTypes.bool,
+    dashboard: PropTypes.object,
     fetchDashboards: PropTypes.func,
     isPrintPreviewView: PropTypes.bool,
-    newDashboard: PropTypes.bool,
-    restrictFilters: PropTypes.bool,
     saveDashboard: PropTypes.func,
     setFilterSettings: PropTypes.func,
     showPrintPreview: PropTypes.func,
-    updateAccess: PropTypes.bool,
     onDiscardChanges: PropTypes.func,
 }
 
 const mapStateToProps = state => {
-    const dashboard = sGetEditDashboardRoot(state)
-    let newDashboard
-    let deleteAccess
-    let updateAccess
-    if (sGetIsNewDashboard(state)) {
-        newDashboard = true
-        deleteAccess = true
-        updateAccess = true
-    } else {
-        newDashboard = false
-        updateAccess = dashboard.access ? dashboard.access.update : false
-        deleteAccess = dashboard.access ? dashboard.access.delete : false
-    }
-
     return {
-        allowedFilters: dashboard.allowedFilters,
-        dashboardId: dashboard.id,
-        dashboardName: dashboard.name,
-        deleteAccess,
-        newDashboard,
-        restrictFilters: dashboard.restrictFilters,
+        dashboard: sGetEditDashboardRoot(state),
         isPrintPreviewView: sGetIsPrintPreviewView(state),
-        updateAccess,
     }
 }
 

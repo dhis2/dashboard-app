@@ -29,15 +29,11 @@ import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
 
 // actions
 
-export const acSetEditDashboard = (dashboard, items) => {
-    const val = {
-        ...dashboard,
-        dashboardItems: items,
-    }
-
+export const acSetEditDashboard = dashboard => {
+    console.log('here', dashboard)
     return {
         type: RECEIVED_EDIT_DASHBOARD,
-        value: val,
+        value: dashboard,
     }
 }
 

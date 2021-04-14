@@ -22,7 +22,7 @@ import {
 } from '../../modules/gridUtil'
 import { orArray } from '../../modules/util'
 import NoContentMessage from '../../components/NoContentMessage'
-import { sGetSelectedId, sGetSelectedIsLoading } from '../../reducers/selected'
+import { sGetSelectedId } from '../../reducers/selected'
 import {
     sGetDashboardById,
     sGetDashboardItems,
@@ -41,7 +41,7 @@ const EXPANDED_HEIGHT_SM = 13
 const ResponsiveItemGrid = ({
     isLoading,
     isRecording,
-    setIsRecording,
+    // setIsRecording,
     dashboardItems,
 }) => {
     const { width } = useWindowDimensions()
@@ -56,12 +56,6 @@ const ResponsiveItemGrid = ({
         )
         setDisplayItems(getItemsWithAdjustedHeight(dashboardItems))
     }, [expandedItems, width, dashboardItems])
-
-    useEffect(() => {
-        if (isRecording) {
-            setIsRecording(false)
-        }
-    }, [isRecording])
 
     const onToggleItemExpanded = clickedId => {
         const isExpanded =
@@ -95,6 +89,7 @@ const ResponsiveItemGrid = ({
         if (!layoutSm.length) {
             return <div key={item.i} />
         }
+
         return (
             <ProgressiveLoadingContainer
                 key={item.i}
@@ -104,12 +99,14 @@ const ResponsiveItemGrid = ({
                     getGridItemDomElementClassName(item.id)
                 )}
                 itemId={item.id}
+                forceLoad={isRecording}
             >
                 <Item
                     item={item}
                     gridWidth={gridWidth}
                     dashboardMode={VIEW}
                     onToggleItemExpanded={onToggleItemExpanded}
+                    isRecording={isRecording}
                 />
             </ProgressiveLoadingContainer>
         )
@@ -168,7 +165,7 @@ ResponsiveItemGrid.propTypes = {
     dashboardItems: PropTypes.array,
     isLoading: PropTypes.bool,
     isRecording: PropTypes.bool,
-    setIsRecording: PropTypes.func,
+    // setIsRecording: PropTypes.func,
 }
 
 const mapStateToProps = state => {
@@ -176,7 +173,7 @@ const mapStateToProps = state => {
     const dashboardItems = orArray(sGetDashboardItems(state)).filter(hasShape)
 
     return {
-        isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
+        isLoading: !selectedDashboard,
         dashboardItems,
     }
 }

@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import { Redirect } from 'react-router-dom'
+import { useDataEngine } from '@dhis2/app-runtime'
 
 import DashboardContainer from '../../components/DashboardContainer'
+import { apiFetchDashboard } from '../../api/fetchDashboard'
 import TitleBar from './TitleBar'
 import ItemGrid from './ItemGrid'
 import ActionsBar from './ActionsBar'
@@ -12,21 +15,70 @@ import NotSupportedNotice from './NotSupportedNotice'
 import LayoutPrintPreview from '../print/PrintLayoutDashboard'
 import NoContentMessage from '../../components/NoContentMessage'
 import { acSetEditDashboard } from '../../actions/editDashboard'
-import { sGetSelectedId } from '../../reducers/selected'
-import {
-    sGetDashboardById,
-    sGetDashboardItems,
-} from '../../reducers/dashboards'
+import { EDIT } from '../../modules/dashboardModes'
+
+import { withShape } from '../../modules/gridUtil'
+import { getCustomDashboards } from '../../modules/getCustomDashboards'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
+import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
+
+import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
+import { isSmallScreen } from '../../modules/smallScreen'
 
 import classes from './styles/EditDashboard.module.css'
 
 const EditDashboard = props => {
+    const dataEngine = useDataEngine()
+    const { width } = useWindowDimensions()
+    const [redirectUrl, setRedirectUrl] = useState(null)
+    const [isInvalid, setIsInvalid] = useState(false)
+    const [hasUpdateAccess, setHasUpdateAccess] = useState(null)
+
     useEffect(() => {
-        if (props.dashboard) {
-            props.setEditDashboard(props.dashboard, props.items)
+        const prepareDashboard = async () => {
+            try {
+                const dboard = await apiFetchDashboard(
+                    dataEngine,
+                    props.id,
+                    EDIT
+                )
+                const dashboard = getCustomDashboards(dboard)[0]
+                props.setEditDashboard(
+                    Object.assign({}, dashboard, {
+                        dashboardItems: withShape(dashboard.dashboardItems),
+                    })
+                )
+                setHasUpdateAccess(dboard.access?.update || false)
+            } catch (error) {
+                setIsInvalid(true)
+            }
         }
-    }, [props.dashboard])
+
+        if (isSmallScreen(width)) {
+            const redirectUrl = props.id ? `/${props.id}` : '/'
+            setRedirectUrl(redirectUrl)
+            return
+        }
+        setHeaderbarVisible(true)
+
+        if (props.id) {
+            prepareDashboard()
+        }
+    }, [props.id])
+
+    if (redirectUrl) {
+        return <Redirect to={redirectUrl} />
+    }
+
+    if (isInvalid) {
+        return (
+            <>
+                <NoContentMessage
+                    text={i18n.t('Requested dashboard not found')}
+                />
+            </>
+        )
+    }
 
     const renderGrid = () => {
         if (props.isPrintPreviewView) {
@@ -47,7 +99,7 @@ const EditDashboard = props => {
                 data-test="outer-scroll-container"
             >
                 <ActionsBar />
-                {props.updateAccess ? (
+                {hasUpdateAccess ? (
                     renderGrid()
                 ) : (
                     <NoContentMessage text={i18n.t('No access')} />
@@ -65,27 +117,15 @@ const EditDashboard = props => {
 }
 
 EditDashboard.propTypes = {
-    dashboard: PropTypes.object,
+    id: PropTypes.string,
     isPrintPreviewView: PropTypes.bool,
-    items: PropTypes.array,
     setEditDashboard: PropTypes.func,
-    updateAccess: PropTypes.bool,
 }
 
-const mapStateToProps = state => {
-    const id = sGetSelectedId(state)
-    const dashboard = id ? sGetDashboardById(state, id) : null
-
-    const updateAccess =
-        dashboard && dashboard.access ? dashboard.access.update : false
-
-    return {
-        dashboard,
-        updateAccess,
-        items: sGetDashboardItems(state),
-        isPrintPreviewView: sGetIsPrintPreviewView(state),
-    }
-}
+const mapStateToProps = (state, ownProps) => ({
+    id: ownProps.match?.params?.dashboardId || null,
+    isPrintPreviewView: sGetIsPrintPreviewView(state),
+})
 
 export default connect(mapStateToProps, {
     setEditDashboard: acSetEditDashboard,

@@ -5,16 +5,10 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-04-06T14:07:44.134Z\n"
-"PO-Revision-Date: 2021-04-06T14:07:44.134Z\n"
+"POT-Creation-Date: 2021-04-15T06:16:43.336Z\n"
+"PO-Revision-Date: 2021-04-15T06:16:43.336Z\n"
 
 msgid "Untitled dashboard"
-msgstr ""
-
-msgid "Loading dashboard – {{name}}"
-msgstr ""
-
-msgid "Loading dashboard"
 msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
@@ -287,6 +281,12 @@ msgstr ""
 msgid "Add filter"
 msgstr ""
 
+msgid "Remove from offline storage"
+msgstr ""
+
+msgid "Make available offline"
+msgstr ""
+
 msgid "Hide description"
 msgstr ""
 
@@ -320,6 +320,9 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
+msgid "Update offline cache"
+msgstr ""
+
 msgid "Dashboard layout"
 msgstr ""
 
@@ -327,4 +330,10 @@ msgid "One item per page"
 msgstr ""
 
 msgid "No description"
+msgstr ""
+
+msgid "Loading dashboard – {{name}}"
+msgstr ""
+
+msgid "Loading dashboard"
 msgstr ""

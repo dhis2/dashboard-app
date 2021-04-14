@@ -67,6 +67,7 @@ export const Item = props => {
             gridWidth={props.gridWidth}
             dashboardMode={props.dashboardMode}
             onToggleItemExpanded={props.onToggleItemExpanded}
+            isRecording={props.isRecording}
         />
     )
 }
@@ -74,6 +75,7 @@ export const Item = props => {
 Item.propTypes = {
     dashboardMode: PropTypes.string,
     gridWidth: PropTypes.number,
+    isRecording: PropTypes.bool,
     item: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
 }

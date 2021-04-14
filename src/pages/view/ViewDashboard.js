@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { ComponentCover } from '@dhis2/ui'
+import i18n from '@dhis2/d2-i18n'
+import { ComponentCover, AlertStack, AlertBar } from '@dhis2/ui'
 import cx from 'classnames'
 
 import TitleBar from './TitleBar'
@@ -9,27 +10,27 @@ import ItemGrid from './ItemGrid'
 import FilterBar from './FilterBar/FilterBar'
 import DashboardsBar from './DashboardsBar/DashboardsBar'
 import DashboardContainer from '../../components/DashboardContainer'
-import { sGetIsEditing } from '../../reducers/editDashboard'
-import { sGetIsPrinting } from '../../reducers/printDashboard'
-import { sGetSelectedId } from '../../reducers/selected'
 import { sGetPassiveViewRegistered } from '../../reducers/passiveViewRegistered'
+import { sGetDashboardById } from '../../reducers/dashboards'
 import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
+import { acSetIsRecording } from '../../actions/isRecording'
+import { tSetSelectedDashboardById } from '../../actions/selected'
 import { acSetPassiveViewRegistered } from '../../actions/passiveViewRegistered'
 import { apiPostDataStatistics } from '../../api/dataStatistics'
+import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
 
 import classes from './styles/ViewDashboard.module.css'
 
 export const ViewDashboard = props => {
     const [controlbarExpanded, setControlbarExpanded] = useState(false)
+    const [loadingMessage, setLoadingMessage] = useState(null)
 
     useEffect(() => {
-        if (props.dashboardIsEditing) {
-            props.clearEditDashboard()
-        } else if (props.dashboardIsPrinting) {
-            props.clearPrintDashboard()
-        }
-    }, [props.dashboardIsEditing, props.dashboardIsPrinting])
+        setHeaderbarVisible(true)
+        props.clearEditDashboard()
+        props.clearPrintDashboard()
+    }, [])
 
     useEffect(() => {
         Array.from(
@@ -37,62 +38,105 @@ export const ViewDashboard = props => {
         ).forEach(container => {
             container.scroll(0, 0)
         })
-    }, [props.selectedId])
+    }, [props.id])
+
+    useEffect(() => {
+        if (props.isRecording) {
+            props.setIsRecording(false)
+        }
+    }, [props.isRecording])
 
     useEffect(() => {
         if (!props.passiveViewRegistered) {
-            apiPostDataStatistics(
-                'PASSIVE_DASHBOARD_VIEW',
-                props.selectedId
-            ).then(() => {
-                props.registerPassiveView()
-            })
+            apiPostDataStatistics('PASSIVE_DASHBOARD_VIEW', props.id).then(
+                () => {
+                    props.registerPassiveView()
+                }
+            )
         }
     }, [props.passiveViewRegistered])
+
+    useEffect(() => {
+        const prepareDashboard = async () => {
+            const alertTimeout = setTimeout(() => {
+                if (props.name) {
+                    setLoadingMessage(
+                        i18n.t('Loading dashboard – {{name}}', {
+                            name: props.name,
+                        })
+                    )
+                } else {
+                    setLoadingMessage(i18n.t('Loading dashboard'))
+                }
+            }, 500)
+
+            await props.fetchDashboard(props.id, props.username)
+
+            clearTimeout(alertTimeout)
+            setLoadingMessage(null)
+        }
+
+        if (props.id || props.isRecording) {
+            prepareDashboard()
+        }
+    }, [props.id, props.isRecording])
 
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
 
     return (
-        <div
-            className={cx(classes.container, 'dashboard-scroll-container')}
-            data-test="outer-scroll-container"
-        >
-            <DashboardsBar
-                expanded={controlbarExpanded}
-                onExpandedChanged={onExpandedChanged}
-            />
-            <DashboardContainer covered={controlbarExpanded}>
-                {controlbarExpanded && (
-                    <ComponentCover
-                        className={classes.cover}
-                        translucent
-                        onClick={() => setControlbarExpanded(false)}
-                    />
+        <>
+            <div
+                className={cx(classes.container, 'dashboard-scroll-container')}
+                data-test="outer-scroll-container"
+            >
+                <DashboardsBar
+                    expanded={controlbarExpanded}
+                    onExpandedChanged={onExpandedChanged}
+                />
+                <DashboardContainer covered={controlbarExpanded}>
+                    {controlbarExpanded && (
+                        <ComponentCover
+                            className={classes.cover}
+                            translucent
+                            onClick={() => setControlbarExpanded(false)}
+                        />
+                    )}
+                    <TitleBar />
+                    <FilterBar />
+                    <ItemGrid isRecording={props.isRecording} />
+                </DashboardContainer>
+            </div>
+            <AlertStack>
+                {loadingMessage && (
+                    <AlertBar
+                        onHidden={() => setLoadingMessage(null)}
+                        permanent
+                    >
+                        {loadingMessage}
+                    </AlertBar>
                 )}
-                <TitleBar />
-                <FilterBar />
-                <ItemGrid />
-            </DashboardContainer>
-        </div>
+            </AlertStack>
+        </>
     )
 }
 
 ViewDashboard.propTypes = {
     clearEditDashboard: PropTypes.func,
     clearPrintDashboard: PropTypes.func,
-    dashboardIsEditing: PropTypes.bool,
-    dashboardIsPrinting: PropTypes.bool,
+    fetchDashboard: PropTypes.func,
+    id: PropTypes.string,
+    isRecording: PropTypes.bool,
+    name: PropTypes.string,
     passiveViewRegistered: PropTypes.bool,
     registerPassiveView: PropTypes.func,
-    selectedId: PropTypes.string,
+    setIsRecording: PropTypes.func,
+    username: PropTypes.string,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     return {
-        dashboardIsEditing: sGetIsEditing(state),
-        dashboardIsPrinting: sGetIsPrinting(state),
         passiveViewRegistered: sGetPassiveViewRegistered(state),
-        selectedId: sGetSelectedId(state),
+        name: sGetDashboardById(state, ownProps.id)?.displayName || null,
     }
 }
 
@@ -100,4 +144,6 @@ export default connect(mapStateToProps, {
     clearEditDashboard: acClearEditDashboard,
     clearPrintDashboard: acClearPrintDashboard,
     registerPassiveView: acSetPassiveViewRegistered,
+    fetchDashboard: tSetSelectedDashboardById,
+    setIsRecording: acSetIsRecording,
 })(ViewDashboard)

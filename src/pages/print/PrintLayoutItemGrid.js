@@ -8,11 +8,7 @@ import StaticGrid from './StaticGrid'
 import { Item } from '../../components/Item/Item'
 
 import { acUpdatePrintDashboardLayout } from '../../actions/printDashboard'
-import { sGetSelectedIsLoading } from '../../reducers/selected'
-import {
-    sGetPrintDashboardRoot,
-    sGetPrintDashboardItems,
-} from '../../reducers/printDashboard'
+import { sGetPrintDashboardItems } from '../../reducers/printDashboard'
 import { sGetIsEditing } from '../../reducers/editDashboard'
 
 import { hasShape } from '../../modules/gridUtil'
@@ -116,11 +112,10 @@ export class PrintLayoutItemGrid extends Component {
     }
 
     render() {
-        const { isLoading, dashboardItems } = this.props
+        const { dashboardItems } = this.props
 
         return (
             <StaticGrid
-                isLoading={isLoading}
                 layout={dashboardItems}
                 onLayoutChange={this.onLayoutChange}
             >
@@ -133,19 +128,11 @@ export class PrintLayoutItemGrid extends Component {
 PrintLayoutItemGrid.propTypes = {
     dashboardItems: PropTypes.array,
     isEditing: PropTypes.bool,
-    isLoading: PropTypes.bool,
     updateDashboardLayout: PropTypes.func,
 }
 
-PrintLayoutItemGrid.defaultProps = {
-    dashboardItems: [],
-}
-
 const mapStateToProps = state => {
-    const selectedDashboard = sGetPrintDashboardRoot(state)
-
     return {
-        isLoading: sGetSelectedIsLoading(state) || !selectedDashboard,
         dashboardItems: sGetPrintDashboardItems(state).filter(hasShape),
         isEditing: sGetIsEditing(state),
     }
