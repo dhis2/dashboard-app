@@ -1,14 +1,17 @@
 import i18n from '@dhis2/d2-i18n'
-import TableIcon from '@material-ui/icons/ViewList'
-import ChartIcon from '@material-ui/icons/InsertChart'
-import MapIcon from '@material-ui/icons/Public'
-import ExtensionIcon from '@material-ui/icons/Extension'
-import DescriptionIcon from '@material-ui/icons/Description'
-import PersonIcon from '@material-ui/icons/Person'
-import FontDownloadIcon from '@material-ui/icons/FontDownload'
-import EmailIcon from '@material-ui/icons/Email'
-import CropFreeIcon from '@material-ui/icons/CropFree'
-import NotInterestedIcon from '@material-ui/icons/NotInterested'
+import {
+    IconApps24,
+    IconEmptyFrame24,
+    IconFileDocument24,
+    IconLink24,
+    IconMail24,
+    IconQuestion24,
+    IconTable24,
+    IconTextBox24,
+    IconUser24,
+    IconVisualizationColumn24,
+    IconWorld24,
+} from '@dhis2/ui'
 
 // Item types
 export const VISUALIZATION = 'VISUALIZATION'
@@ -182,26 +185,27 @@ export const getItemIcon = type => {
     switch (type) {
         case REPORT_TABLE:
         case EVENT_REPORT:
+            return IconTable24
         case REPORTS:
-            return TableIcon
+            return IconFileDocument24
         case CHART:
         case EVENT_CHART:
-            return ChartIcon
+            return IconVisualizationColumn24
         case MAP:
-            return MapIcon
+            return IconWorld24
         case APP:
-            return ExtensionIcon
+            return IconApps24
         case RESOURCES:
-            return DescriptionIcon
+            return IconLink24
         case USERS:
-            return PersonIcon
+            return IconUser24
         case TEXT:
-            return FontDownloadIcon
+            return IconTextBox24
         case MESSAGES:
-            return EmailIcon
+            return IconMail24
         case SPACER:
-            return CropFreeIcon
+            return IconEmptyFrame24
         default:
-            return NotInterestedIcon
+            return IconQuestion24
     }
 }
