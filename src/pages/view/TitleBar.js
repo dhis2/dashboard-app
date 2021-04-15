@@ -6,15 +6,16 @@ import { Link, Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
-import Star from '@material-ui/icons/Star'
-import StarBorder from '@material-ui/icons/StarBorder'
 import {
     Button,
     DropdownButton,
     FlyoutMenu,
     MenuItem,
+    Tooltip,
     colors,
     IconMore24,
+    IconStar24,
+    IconStarFilled24,
 } from '@dhis2/ui'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
@@ -67,7 +68,7 @@ const ViewTitleBar = ({
     const printLayout = () => setRedirectUrl(`${id}/printlayout`)
     const printOipp = () => setRedirectUrl(`${id}/printoipp`)
 
-    const StarIcon = starred ? Star : StarBorder
+    const StarIcon = starred ? IconStarFilled24 : IconStar24
 
     if (redirectUrl) {
         return <Redirect to={redirectUrl} />
@@ -175,14 +176,22 @@ const ViewTitleBar = ({
                             onClick={onToggleStarredDashboard}
                             data-test="button-star-dashboard"
                         >
-                            <StarIcon
-                                style={{ fill: colors.grey600 }}
-                                data-test={
+                            <Tooltip
+                                content={
                                     starred
-                                        ? 'dashboard-starred'
-                                        : 'dashboard-unstarred'
+                                        ? i18n.t('Unstar dashboard')
+                                        : i18n.t('Star dashboard')
                                 }
-                            />
+                            >
+                                <StarIcon
+                                    color={colors.grey600}
+                                    data-test={
+                                        starred
+                                            ? 'dashboard-starred'
+                                            : 'dashboard-unstarred'
+                                    }
+                                />
+                            </Tooltip>
                         </div>
                         <div className={classes.strip}>
                             {userAccess.update ? (
