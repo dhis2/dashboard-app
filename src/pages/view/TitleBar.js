@@ -1,4 +1,4 @@
-import React, { useState, createRef } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
@@ -110,8 +110,6 @@ const ViewTitleBar = ({
                 warningAlert.show({ msg })
             })
 
-    const buttonRef = createRef()
-
     const userAccess = orObject(access)
 
     const descriptionClasses = cx(
@@ -215,10 +213,8 @@ const ViewTitleBar = ({
                                 allowedFilters={allowedFilters}
                                 restrictFilters={restrictFilters}
                             />
-                            <span ref={buttonRef}>
-                                {getMoreButton(classes.moreButton, false)}
-                                {getMoreButton(classes.moreButtonSmall, true)}
-                            </span>
+                            {getMoreButton(classes.moreButton, false)}
+                            {getMoreButton(classes.moreButtonSmall, true)}
                         </div>
                     </div>
                 </div>
