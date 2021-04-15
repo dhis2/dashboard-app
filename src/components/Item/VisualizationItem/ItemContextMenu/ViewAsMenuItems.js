@@ -1,9 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import TableIcon from '@material-ui/icons/ViewList'
-import ChartIcon from '@material-ui/icons/InsertChart'
-import MapIcon from '@material-ui/icons/Public'
+import {
+    MenuItem,
+    Tooltip,
+    colors,
+    IconVisualizationColumn16,
+    IconTable16,
+    IconWorld16,
+} from '@dhis2/ui'
+
 import getThematicMapViews from '../getThematicMapViews'
 import {
     CHART,
@@ -14,9 +20,6 @@ import {
     isTrackerDomainType,
     hasMapView,
 } from '../../../../modules/itemTypes'
-import { MenuItem, Tooltip, colors } from '@dhis2/ui'
-
-const iconFill = { fill: colors.grey600 }
 
 const ViewAsMenuItems = ({
     type,
@@ -36,6 +39,8 @@ const ViewAsMenuItems = ({
 
     const isDisabled = type === MAP && !getThematicMapViews(visualization)
 
+    const iconColor = isDisabled ? colors.grey500 : colors.grey600
+
     const ViewAsChartMenuItem = () => {
         const ChartMenuItem = () => (
             <MenuItem
@@ -43,7 +48,7 @@ const ViewAsMenuItems = ({
                 disabled={isDisabled}
                 label={i18n.t('View as Chart')}
                 onClick={onViewChart}
-                icon={<ChartIcon style={iconFill} />}
+                icon={<IconVisualizationColumn16 color={iconColor} />}
             />
         )
 
@@ -67,7 +72,7 @@ const ViewAsMenuItems = ({
                 disabled={isDisabled}
                 label={i18n.t('View as Table')}
                 onClick={onViewTable}
-                icon={<TableIcon style={iconFill} />}
+                icon={<IconTable16 color={iconColor} />}
             />
         )
 
@@ -97,7 +102,7 @@ const ViewAsMenuItems = ({
                     dense
                     label={i18n.t('View as Map')}
                     onClick={onViewMap}
-                    icon={<MapIcon style={iconFill} />}
+                    icon={<IconWorld16 color={colors.grey600} />}
                 />
             )}
         </>
