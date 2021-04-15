@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
+import { colors, IconQuestion24 } from '@dhis2/ui'
 import ItemHeader from '../ItemHeader/ItemHeader'
-import NotInterestedIcon from '@material-ui/icons/NotInterested'
 
 const NotSupportedItem = props => (
     <>
@@ -22,10 +22,7 @@ const NotSupportedItem = props => (
                 height: '90%',
             }}
         >
-            <NotInterestedIcon
-                style={{ width: 100, height: 100, align: 'center' }}
-                color="disabled"
-            />
+            <IconQuestion24 color={colors.grey500} />
         </div>
     </>
 )
