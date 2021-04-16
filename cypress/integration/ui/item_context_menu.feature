@@ -28,7 +28,7 @@ Feature: Item context menu
 
     @nonmutating
     Scenario: Open the interpretations panel
-        When I click Show interpretations and details on a chart dashboard item
+        When I click Show details and interpretations on a chart dashboard item
         Then the interpretations panel is displayed
 
 
