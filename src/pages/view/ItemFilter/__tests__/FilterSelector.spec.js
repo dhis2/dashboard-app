@@ -12,7 +12,7 @@ jest.mock('../../../../modules/useDimensions', () => jest.fn())
 useDimensions.mockImplementation(() => ['Moomin', 'Snorkmaiden'])
 
 test('is null when no filters are restricted and no filters are allowed', () => {
-    const store = {}
+    const store = { activeModalDimension: {}, itemFilters: {} }
 
     const props = {
         allowedFilters: [],
@@ -28,7 +28,7 @@ test('is null when no filters are restricted and no filters are allowed', () => 
 })
 
 test('is null when no filters are restricted and allowedFilters undefined', () => {
-    const store = {}
+    const store = { activeModalDimension: {}, itemFilters: {} }
 
     const props = {
         restrictFilters: true,
@@ -43,7 +43,7 @@ test('is null when no filters are restricted and allowedFilters undefined', () =
 })
 
 test('shows button when filters are restricted and at least one filter is allowed', () => {
-    const store = {}
+    const store = { activeModalDimension: {}, itemFilters: {} }
 
     const props = {
         allowedFilters: ['Moomin'],
@@ -59,7 +59,7 @@ test('shows button when filters are restricted and at least one filter is allowe
 })
 
 test('shows button when filters are not restricted', () => {
-    const store = {}
+    const store = { activeModalDimension: {}, itemFilters: {} }
 
     const props = {
         allowedFilters: [],
