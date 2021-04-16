@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Redirect } from 'react-router-dom'
 import { useDataEngine } from '@dhis2/app-runtime'
+import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 
 import DashboardContainer from '../../components/DashboardContainer'
 import { apiFetchDashboard } from '../../api/fetchDashboard'
@@ -33,6 +34,7 @@ const EditDashboard = props => {
     const [redirectUrl, setRedirectUrl] = useState(null)
     const [isInvalid, setIsInvalid] = useState(false)
     const [hasUpdateAccess, setHasUpdateAccess] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         const loadDashboard = async () => {
@@ -49,8 +51,10 @@ const EditDashboard = props => {
                     })
                 )
                 setHasUpdateAccess(dboard.access?.update || false)
+                setIsLoading(false)
             } catch (error) {
                 setIsInvalid(true)
+                setIsLoading(false)
             }
         }
 
@@ -68,6 +72,16 @@ const EditDashboard = props => {
 
     if (redirectUrl) {
         return <Redirect to={redirectUrl} />
+    }
+
+    if (isLoading) {
+        return (
+            <Layer translucent>
+                <CenteredContent>
+                    <CircularLoader />
+                </CenteredContent>
+            </Layer>
+        )
     }
 
     if (isInvalid) {
