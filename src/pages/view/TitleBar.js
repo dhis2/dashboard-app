@@ -181,14 +181,15 @@ const ViewTitleBar = ({
                                         : i18n.t('Star dashboard')
                                 }
                             >
-                                <StarIcon
-                                    color={colors.grey600}
+                                <span
                                     data-test={
                                         starred
                                             ? 'dashboard-starred'
                                             : 'dashboard-unstarred'
                                     }
-                                />
+                                >
+                                    <StarIcon color={colors.grey600} />
+                                </span>
                             </Tooltip>
                         </div>
                         <div className={classes.strip}>

@@ -44,7 +44,7 @@ const FilterSelector = props => {
     }
 
     const getFilterSelector = () => (
-        <Card>
+        <Card dataTest="dashboard-filter-popover">
             <DimensionsPanel
                 style={{ width: '320px' }}
                 dimensions={filterDimensions()}
