@@ -35,7 +35,7 @@ const EditDashboard = props => {
     const [hasUpdateAccess, setHasUpdateAccess] = useState(null)
 
     useEffect(() => {
-        const prepareDashboard = async () => {
+        const loadDashboard = async () => {
             try {
                 const dboard = await apiFetchDashboard(
                     dataEngine,
@@ -62,7 +62,7 @@ const EditDashboard = props => {
         setHeaderbarVisible(true)
 
         if (props.id) {
-            prepareDashboard()
+            loadDashboard()
         }
     }, [props.id])
 

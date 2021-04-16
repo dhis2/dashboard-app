@@ -57,7 +57,7 @@ export const ViewDashboard = props => {
     }, [props.passiveViewRegistered])
 
     useEffect(() => {
-        const prepareDashboard = async () => {
+        const loadDashboard = async () => {
             const alertTimeout = setTimeout(() => {
                 if (props.name) {
                     setLoadingMessage(
@@ -77,7 +77,7 @@ export const ViewDashboard = props => {
         }
 
         if (props.id || props.isRecording) {
-            prepareDashboard()
+            loadDashboard()
         }
     }, [props.id, props.isRecording])
 
@@ -133,12 +133,10 @@ ViewDashboard.propTypes = {
     username: PropTypes.string,
 }
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-        passiveViewRegistered: sGetPassiveViewRegistered(state),
-        name: sGetDashboardById(state, ownProps.id)?.displayName || null,
-    }
-}
+const mapStateToProps = (state, ownProps) => ({
+    passiveViewRegistered: sGetPassiveViewRegistered(state),
+    name: sGetDashboardById(state, ownProps.id)?.displayName || null,
+})
 
 export default connect(mapStateToProps, {
     clearEditDashboard: acClearEditDashboard,
