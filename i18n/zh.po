@@ -25,7 +25,7 @@ msgid "Loading dashboard – {{name}}"
 msgstr "加载仪表盘-{{name}}"
 
 msgid "Loading dashboard"
-msgstr ""
+msgstr "加载仪表板"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "没有发现仪表盘，使用+按钮创建新的仪表盘"
@@ -141,7 +141,7 @@ msgstr "保存仪表盘失败。您可能处于离线状态或无权编辑此仪
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
 "this dashboard."
-msgstr ""
+msgstr "删除仪表盘失败。您可能处于离线状态，或者无权编辑此仪表板。"
 
 msgid "Save changes"
 msgstr "保存改变"
