@@ -1529,10 +1529,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^16.0.15", "@dhis2/analytics@^16.0.18":
-  version "16.0.18"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-16.0.18.tgz#c082011ed10a02fb2b30e293d4169748477b4cd9"
-  integrity sha512-yTBtzLzonFCm0un/yEkaNa7/mFnXKLOc+ytZvmr2R61Rmsp+RNUuMFzg5wSVimvyEwAhUI5HAcuRlbysIrJsNQ==
+"@dhis2/analytics@^16.0.15", "@dhis2/analytics@^16.0.19":
+  version "16.0.19"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-16.0.19.tgz#855cf1cad7a1d36d66255e569e5fab0a5f76029a"
+  integrity sha512-7YLlkTyhMvSIsDQRBYZzrFXcKOLOh3EaFZwFycse+Ney7J+VzwE94DXpCZrnxyalhI03FnI6uMYv7DqhtkNCGQ==
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^7.1.5"
     "@dhis2/d2-ui-org-unit-dialog" "^7.1.5"
