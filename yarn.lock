@@ -1529,10 +1529,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^16.0.15", "@dhis2/analytics@^16.0.19":
-  version "16.0.19"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-16.0.19.tgz#855cf1cad7a1d36d66255e569e5fab0a5f76029a"
-  integrity sha512-7YLlkTyhMvSIsDQRBYZzrFXcKOLOh3EaFZwFycse+Ney7J+VzwE94DXpCZrnxyalhI03FnI6uMYv7DqhtkNCGQ==
+"@dhis2/analytics@^16.0.15":
+  version "16.0.18"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-16.0.18.tgz#c082011ed10a02fb2b30e293d4169748477b4cd9"
+  integrity sha512-yTBtzLzonFCm0un/yEkaNa7/mFnXKLOc+ytZvmr2R61Rmsp+RNUuMFzg5wSVimvyEwAhUI5HAcuRlbysIrJsNQ==
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^7.1.5"
     "@dhis2/d2-ui-org-unit-dialog" "^7.1.5"
@@ -1540,6 +1540,24 @@
     "@dhis2/d2-ui-translation-dialog" "^7.1.5"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
+    classnames "^2.2.6"
+    d2-utilizr "^0.2.16"
+    d3-color "^1.2.3"
+    highcharts "^9.0.0"
+    lodash "^4.17.20"
+    mathjs "^9.2.0"
+    react-beautiful-dnd "^10.1.1"
+    resize-observer-polyfill "^1.5.1"
+
+"@dhis2/analytics@^17.0.0":
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-17.0.0.tgz#ef635ab06a2526f8c61ed7a2996afbbe454bfc3c"
+  integrity sha512-i76hW5iuwNsWw4F+9qFOymOWkgj6YzqBoKVQ/lZC2mSYrqQWrrRRhKHaFBPKDm/chHo0kTF9Au0IaR3aBAKmbg==
+  dependencies:
+    "@dhis2/d2-ui-favorites-dialog" "^7.1.5"
+    "@dhis2/d2-ui-org-unit-dialog" "^7.1.5"
+    "@dhis2/d2-ui-sharing-dialog" "^7.1.5"
+    "@dhis2/d2-ui-translation-dialog" "^7.1.5"
     classnames "^2.2.6"
     d2-utilizr "^0.2.16"
     d3-color "^1.2.3"
