@@ -236,6 +236,7 @@ export class Item extends Component {
                                         )}
                                         availableWidth={this.getAvailableWidth()}
                                         gridWidth={this.props.gridWidth}
+                                        isRecording={this.props.isRecording}
                                     />
                                 )}
                             </WindowDimensionsCtx.Consumer>
