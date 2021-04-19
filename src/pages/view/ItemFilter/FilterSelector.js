@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import isEmpty from 'lodash/isEmpty'
 import i18n from '@dhis2/d2-i18n'
 import { DimensionsPanel } from '@dhis2/analytics'
-import { Card, DropdownButton, colors, IconFilter24 } from '@dhis2/ui'
+import { Card, colors, IconFilter24 } from '@dhis2/ui'
 import FilterDialog from './FilterDialog'
 
 import { sGetActiveModalDimension } from '../../../reducers/activeModalDimension'
@@ -14,15 +14,16 @@ import {
     acSetActiveModalDimension,
 } from '../../../actions/activeModalDimension'
 import useDimensions from '../../../modules/useDimensions'
+import DropdownButton from '../../../components/DropdownButton'
 
 import classes from './styles/FilterSelector.module.css'
 
 const FilterSelector = props => {
-    const [showPopover, setShowPopover] = useState(false)
-    const dimensions = useDimensions(showPopover)
+    const [filterDialogIsOpen, setFilterDialogIsOpen] = useState(false)
+    const dimensions = useDimensions(filterDialogIsOpen)
 
     const onCloseDialog = () => {
-        setShowPopover(false)
+        setFilterDialogIsOpen(false)
 
         props.clearActiveModalDimension()
     }
@@ -58,7 +59,8 @@ const FilterSelector = props => {
         <>
             <span className={classes.buttonContainer}>
                 <DropdownButton
-                    onClick={() => setShowPopover(true)}
+                    open={filterDialogIsOpen}
+                    onClick={() => setFilterDialogIsOpen(true)}
                     icon={<IconFilter24 color={colors.grey700} />}
                     component={getFilterSelector()}
                 >
