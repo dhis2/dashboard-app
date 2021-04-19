@@ -5,7 +5,7 @@ import i18n from '@dhis2/d2-i18n'
 import { ComponentCover, AlertStack, AlertBar } from '@dhis2/ui'
 import cx from 'classnames'
 
-import TitleBar from './TitleBar'
+import { TitleBar } from './TitleBar'
 import ItemGrid from './ItemGrid'
 import FilterBar from './FilterBar/FilterBar'
 import DashboardsBar from './DashboardsBar/DashboardsBar'

@@ -19,25 +19,25 @@ import {
 } from '@dhis2/ui'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
-import { useOnlineStatus } from '../../modules/useOnlineStatus'
-import { useCacheableSectionStatus } from '../../modules/useCacheableSectionStatus'
-import { ThreeDots } from '../../components/Item/VisualizationItem/assets/icons'
-import { orObject } from '../../modules/util'
+import FilterSelector from './FilterSelector'
 import { apiStarDashboard } from './starDashboard'
-import { apiPostShowDescription } from '../../api/description'
+import { useOnlineStatus } from '../../../modules/useOnlineStatus'
+import { useCacheableSectionStatus } from '../../../modules/useCacheableSectionStatus'
+import { orObject } from '../../../modules/util'
+import { ThreeDots } from '../../../components/Item/VisualizationItem/assets/icons'
+import { apiPostShowDescription } from '../../../api/description'
 
-import { acSetDashboardStarred } from '../../actions/dashboards'
-import { acSetSelectedShowDescription } from '../../actions/selected'
-import FilterSelector from './ItemFilter/FilterSelector'
+import { acSetDashboardStarred } from '../../../actions/dashboards'
+import { acSetSelectedShowDescription } from '../../../actions/selected'
 import {
     sGetSelectedId,
     sGetSelectedShowDescription,
-} from '../../reducers/selected'
+} from '../../../reducers/selected'
 import {
     sGetDashboardById,
     sGetDashboardItems,
     EMPTY_DASHBOARD,
-} from '../../reducers/dashboards'
+} from '../../../reducers/dashboards'
 
 import classes from './styles/TitleBar.module.css'
 
@@ -228,8 +228,9 @@ const ViewTitleBar = ({
                                             <MenuItem
                                                 dense
                                                 label={i18n.t(
-                                                    'Update offline cache'
+                                                    'Sync offline data now'
                                                 )}
+                                                disabled={!isOnline}
                                                 onClick={onUpdateOfflineCache}
                                             />
                                         )}
