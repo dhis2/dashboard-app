@@ -14,7 +14,7 @@ import {
     acSetActiveModalDimension,
 } from '../../../actions/activeModalDimension'
 import useDimensions from '../../../modules/useDimensions'
-import DropdownButton from '../../../components/DropdownButton'
+import DropdownButton from '../../../components/DropdownButton/DropdownButton'
 
 import classes from './styles/FilterSelector.module.css'
 

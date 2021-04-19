@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import { Button, Layer, Popper } from '@dhis2/ui'
-import { ArrowDown, ArrowUp } from '@dhis2/ui-core/build/es/Icons/Arrow'
+import { ArrowDown, ArrowUp } from './assets/Arrow'
 
 import styles from './DropdownButton.module.css'
 

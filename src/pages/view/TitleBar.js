@@ -25,7 +25,7 @@ import { apiPostShowDescription } from '../../api/description'
 import { acSetDashboardStarred } from '../../actions/dashboards'
 import { acSetSelectedShowDescription } from '../../actions/selected'
 import FilterSelector from './ItemFilter/FilterSelector'
-import DropdownButton from '../../components/DropdownButton'
+import DropdownButton from '../../components/DropdownButton/DropdownButton'
 import {
     sGetSelectedId,
     sGetSelectedShowDescription,
