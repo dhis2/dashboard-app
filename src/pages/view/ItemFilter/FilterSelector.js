@@ -22,6 +22,9 @@ const FilterSelector = props => {
     const [filterDialogIsOpen, setFilterDialogIsOpen] = useState(false)
     const dimensions = useDimensions(filterDialogIsOpen)
 
+    const toggleFilterDialogIsOpen = () =>
+        setFilterDialogIsOpen(!filterDialogIsOpen)
+
     const onCloseDialog = () => {
         setFilterDialogIsOpen(false)
 
@@ -60,7 +63,7 @@ const FilterSelector = props => {
             <span className={classes.buttonContainer}>
                 <DropdownButton
                     open={filterDialogIsOpen}
-                    onClick={() => setFilterDialogIsOpen(true)}
+                    onClick={toggleFilterDialogIsOpen}
                     icon={<IconFilter24 color={colors.grey700} />}
                     component={getFilterSelector()}
                 >
