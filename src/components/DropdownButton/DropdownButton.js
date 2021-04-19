@@ -31,7 +31,7 @@ const DropdownButton = ({
             </Button>
             {open && (
                 <Layer onClick={onClick} transparent>
-                    <Popper placement="bottom-end" reference={anchorRef}>
+                    <Popper placement="bottom-start" reference={anchorRef}>
                         {component}
                     </Popper>
                 </Layer>
