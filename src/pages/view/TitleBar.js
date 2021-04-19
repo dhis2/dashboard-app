@@ -8,7 +8,6 @@ import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import {
     Button,
-    DropdownButton,
     FlyoutMenu,
     MenuItem,
     Tooltip,
@@ -26,6 +25,7 @@ import { apiPostShowDescription } from '../../api/description'
 import { acSetDashboardStarred } from '../../actions/dashboards'
 import { acSetSelectedShowDescription } from '../../actions/selected'
 import FilterSelector from './ItemFilter/FilterSelector'
+import DropdownButton from '../../components/DropdownButton'
 import {
     sGetSelectedId,
     sGetSelectedShowDescription,
@@ -50,6 +50,7 @@ const ViewTitleBar = ({
     restrictFilters,
     allowedFilters,
 }) => {
+    const [moreOptionsSmallIsOpen, setMoreOptionsSmallIsOpen] = useState(false)
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
@@ -63,7 +64,10 @@ const ViewTitleBar = ({
     const toggleSharingDialog = () =>
         setSharingDialogIsOpen(!sharingDialogIsOpen)
 
-    const toggleMoreOptions = () => setMoreOptionsIsOpen(!moreOptionsIsOpen)
+    const toggleMoreOptions = small =>
+        small
+            ? setMoreOptionsSmallIsOpen(!moreOptionsSmallIsOpen)
+            : setMoreOptionsIsOpen(!moreOptionsIsOpen)
 
     const printLayout = () => setRedirectUrl(`${id}/printlayout`)
     const printOipp = () => setRedirectUrl(`${id}/printoipp`)
@@ -150,9 +154,10 @@ const ViewTitleBar = ({
         <DropdownButton
             className={className}
             small={useSmall}
-            onClick={toggleMoreOptions}
+            onClick={() => toggleMoreOptions(useSmall)}
             icon={<IconMore24 color={colors.grey700} />}
             component={getMoreMenu()}
+            open={useSmall ? moreOptionsSmallIsOpen : moreOptionsIsOpen}
         >
             {i18n.t('More')}
         </DropdownButton>
