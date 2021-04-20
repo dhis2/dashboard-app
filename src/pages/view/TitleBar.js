@@ -240,6 +240,7 @@ const ViewTitleBar = ({
                     type="dashboard"
                     open={sharingDialogIsOpen}
                     onRequestClose={toggleSharingDialog}
+                    insertTheme={true}
                 />
             )}
         </>
