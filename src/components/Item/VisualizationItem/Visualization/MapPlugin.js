@@ -71,8 +71,4 @@ MapPlugin.propTypes = {
     visualization: PropTypes.object,
 }
 
-MapPlugin.defaultValues = {
-    isRecording: false,
-}
-
 export default MapPlugin

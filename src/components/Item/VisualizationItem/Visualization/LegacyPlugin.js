@@ -25,10 +25,6 @@ const LegacyPlugin = ({
     return <DefaultPlugin {...props} />
 }
 
-LegacyPlugin.defaultValues = {
-    isRecording: false,
-}
-
 LegacyPlugin.propTypes = {
     activeType: PropTypes.string,
     availableHeight: PropTypes.number,
