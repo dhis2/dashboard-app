@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Chip as UiChip } from '@dhis2/ui'
+import { Chip as UiChip, colors } from '@dhis2/ui'
 import { Chip } from '../Chip'
 
 describe('Chip', () => {
@@ -48,27 +48,21 @@ describe('Chip', () => {
     it('passes an icon to Chip when starred', () => {
         const props = Object.assign({}, defaultProps, { starred: true })
 
-        const iconClasses = wrapper(props)
-            .find(UiChip)
-            .prop('icon')
-            .props.className.split(' ')
+        const iconColorProp = wrapper(props).find(UiChip).prop('icon').props
+            .color
 
-        expect(iconClasses.length).toEqual(2)
-        expect(iconClasses).toContain('unselected')
+        expect(iconColorProp).toEqual(colors.grey600)
     })
 
-    it('sets the selected class on icon when chip is selected', () => {
+    it('sets the white color on icon when chip is selected', () => {
         const props = Object.assign({}, defaultProps, {
             starred: true,
             selected: true,
         })
-        const iconClasses = wrapper(props)
-            .find(UiChip)
-            .prop('icon')
-            .props.className.split(' ')
+        const iconColorProp = wrapper(props).find(UiChip).prop('icon').props
+            .color
 
-        expect(iconClasses.length).toEqual(2)
-        expect(iconClasses).toContain('selected')
+        expect(iconColorProp).toEqual(colors.white)
     })
 
     it('passes "label" property to Chip as children', () => {

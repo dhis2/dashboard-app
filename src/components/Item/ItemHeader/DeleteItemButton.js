@@ -1,20 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import DeleteIcon from '@material-ui/icons/Delete'
-import { colors } from '@dhis2/ui'
-
-import classes from './styles/DeleteItemButton.module.css'
+import { colors, Button, Tooltip, IconDelete24 } from '@dhis2/ui'
 
 const DeleteItemButton = ({ onClick }) => (
-    <button
-        type="button"
-        className={classes.deleteItemButton}
-        onClick={onClick}
-        title={i18n.t(`Delete item`)}
-    >
-        <DeleteIcon style={{ fill: colors.red500 }} />
-    </button>
+    <Tooltip content={i18n.t('Remove this item')} placement="bottom">
+        <Button
+            secondary
+            small
+            onClick={onClick}
+            icon={<IconDelete24 color={colors.red600} />}
+        />
+    </Tooltip>
 )
 
 DeleteItemButton.propTypes = {

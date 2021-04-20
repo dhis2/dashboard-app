@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import NotInterestedIcon from '@material-ui/icons/NotInterested'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import ItemHeader from '../ItemHeader/ItemHeader'
-import { Divider, spacers } from '@dhis2/ui'
+import { Divider, colors, spacers, IconQuestion24 } from '@dhis2/ui'
 
 import { FILTER_ORG_UNIT } from '../../../actions/itemFilters'
 import {
@@ -80,11 +79,7 @@ const AppItem = ({ dashboardMode, item, itemFilters }) => {
                     height: '90%',
                 }}
             >
-                <NotInterestedIcon
-                    color="disabled"
-                    disabled
-                    style={{ width: 100, height: 100, align: 'center' }}
-                />
+                <IconQuestion24 color={colors.grey500} />
             </div>
         </>
     )

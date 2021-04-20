@@ -36,24 +36,33 @@ exports[`renders a valid App item with filter in edit mode 1`] = `
     <div
       class="itemActionsWrap"
     >
-      <button
-        class="deleteItemButton"
-        title="Delete item"
-        type="button"
+      <span
+        class="jsx-611321200"
+        data-test="dhis2-uicore-tooltip-reference"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root-1"
-          focusable="false"
-          role="presentation"
-          style="fill: #d32f2f;"
-          viewBox="0 0 24 24"
+        <button
+          class="jsx-2371629422 secondary small icon-only"
+          data-test="dhis2-uicore-button"
+          type="button"
         >
-          <path
-            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-          />
-        </svg>
-      </button>
+          <span
+            class="jsx-2371629422 button-icon"
+          >
+            <svg
+              color="#c62828"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 5a1 1 0 010 2h-1v13a2 2 0 01-2 2H7a2 2 0 01-2-2V7H4a1 1 0 110-2zm-3 2H7v13h10zm-6 2v8h-1V9zm3 0v8h-1V9zm1-7v2H9V2z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </span>
     </div>
   </div>
   <div
@@ -104,24 +113,33 @@ exports[`renders a valid App item with title in edit mode irrespective of app se
     <div
       class="itemActionsWrap"
     >
-      <button
-        class="deleteItemButton"
-        title="Delete item"
-        type="button"
+      <span
+        class="jsx-611321200"
+        data-test="dhis2-uicore-tooltip-reference"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root-10"
-          focusable="false"
-          role="presentation"
-          style="fill: #d32f2f;"
-          viewBox="0 0 24 24"
+        <button
+          class="jsx-2371629422 secondary small icon-only"
+          data-test="dhis2-uicore-button"
+          type="button"
         >
-          <path
-            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-          />
-        </svg>
-      </button>
+          <span
+            class="jsx-2371629422 button-icon"
+          >
+            <svg
+              color="#c62828"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 5a1 1 0 010 2h-1v13a2 2 0 01-2 2H7a2 2 0 01-2-2V7H4a1 1 0 110-2zm-3 2H7v13h10zm-6 2v8h-1V9zm3 0v8h-1V9zm1-7v2H9V2z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </span>
     </div>
   </div>
   <div
@@ -166,16 +184,15 @@ exports[`renders an invalid App item 1`] = `
     style="display: flex; justify-content: center; align-items: center; height: 90%;"
   >
     <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root-19 MuiSvgIcon-colorDisabled-24"
-      disabled=""
-      focusable="false"
-      role="presentation"
-      style="width: 100px; height: 100px;"
+      color="#a0adba"
+      height="24"
       viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z"
+        d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2a8 8 0 100 16 8 8 0 000-16zm0 12a1 1 0 110 2 1 1 0 010-2zm0-10a4 4 0 011.155 7.83l-.155.043V15h-2v-3h1a2 2 0 10-1.995-2.15L10 10H8a4 4 0 014-4z"
+        fill="currentColor"
       />
     </svg>
   </div>

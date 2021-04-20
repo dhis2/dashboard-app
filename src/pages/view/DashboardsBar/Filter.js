@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
+import { colors, IconSearch16, IconSearch24 } from '@dhis2/ui'
 
-import SearchIcon from './assets/Search'
 import ClearButton from './ClearButton'
 
 import { useWindowDimensions } from '../../../components/WindowDimensionsProvider'
@@ -83,7 +83,7 @@ export const FilterUnconnected = ({
                 className={classes.searchButton}
                 onClick={activateSearchInput}
             >
-                <SearchIcon className={classes.searchIcon} />
+                <IconSearch24 color={colors.grey800} />
             </button>
             <div
                 className={cx(classes.searchArea, `${focusedClassName}`)}
@@ -91,8 +91,7 @@ export const FilterUnconnected = ({
                 onBlur={onBlur}
             >
                 <div className={classes.searchIconContainer}>
-                    <SearchIcon className={classes.searchIconSmall} small />
-                    <SearchIcon className={classes.searchIconLarge} />
+                    <IconSearch16 color={colors.grey800} />
                 </div>
                 <input
                     className={classes.input}

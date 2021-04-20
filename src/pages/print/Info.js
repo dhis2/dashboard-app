@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import InfoOutlineIcon from '@material-ui/icons/InfoOutlined'
-import { colors } from '@dhis2/ui'
+import { colors, IconInfo24 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 
 class Info extends Component {
@@ -14,7 +13,7 @@ class Info extends Component {
     render() {
         return (
             <div onClick={() => this.props.onClick(this.toggle())}>
-                <InfoOutlineIcon style={{ fill: colors.grey600 }} />
+                <IconInfo24 color={colors.grey600} />
             </div>
         )
     }

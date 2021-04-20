@@ -1,11 +1,9 @@
 import React from 'react'
-import { MenuItem, colors } from '@dhis2/ui'
+import { MenuItem, colors, IconLaunch16 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
-import { visTypeIcons, VIS_TYPE_SCATTER } from '@dhis2/analytics'
+import { visTypeIcons } from '@dhis2/analytics'
 
-import ScatterIcon from './assets/ScatterIcon'
-import LaunchIcon from './assets/Launch'
 import { getItemIcon, VISUALIZATION } from '../../../modules/itemTypes'
 
 import classes from './styles/ContentMenuItem.module.css'
@@ -18,7 +16,7 @@ const LaunchLink = ({ url }) => (
         rel="noopener noreferrer"
         href={url}
     >
-        <LaunchIcon />
+        <IconLaunch16 color={colors.grey700} />
     </a>
 )
 
@@ -35,26 +33,19 @@ const ContentMenuItem = ({ type, name, onInsert, url, visType }) => {
 
     let renderedItemIcon
     if (type === VISUALIZATION) {
-        renderedItemIcon =
-            visType === VIS_TYPE_SCATTER ? (
-                <ScatterIcon />
-            ) : (
-                visTypeIcons[visType]
-            )
+        const VisualizationIcon = visTypeIcons[visType]
+        renderedItemIcon = <VisualizationIcon color={colors.grey600} />
     } else {
-        renderedItemIcon = <ItemIcon style={{ fill: colors.grey600 }} />
+        renderedItemIcon = <ItemIcon color={colors.grey600} />
     }
 
     return (
         <MenuItem
-            dense
             onClick={onInsert}
+            icon={renderedItemIcon}
             label={
                 <div className={classes.menuItem}>
                     <div className={classes.label}>
-                        <span style={{ marginRight: '6px' }}>
-                            {renderedItemIcon}
-                        </span>
                         <span>{name}</span>
                         {url ? <LaunchLink url={url} /> : null}
                     </div>

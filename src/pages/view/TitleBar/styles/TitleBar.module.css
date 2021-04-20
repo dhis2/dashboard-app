@@ -5,7 +5,7 @@
 .actions {
     display: flex;
     align-items: center;
-    margin-left: 20px;
+    margin-left: 8px;
 }
 .editLink {
     text-decoration: none;
