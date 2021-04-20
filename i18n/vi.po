@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-06T14:07:44.134Z\n"
+"POT-Creation-Date: 2021-04-16T11:52:58.307Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2021\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -33,8 +33,8 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr "Không tìm thấy bảng điều khiển được yêu cầu"
 
-msgid "Delete item"
-msgstr "Xóa mục"
+msgid "Remove this item"
+msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Mục này đã được rút ngắn để vừa với một trang"
@@ -69,11 +69,11 @@ msgstr "Thêm văn bản tại đây"
 msgid "There was a problem loading this dashboard item"
 msgstr "Đã xảy ra sự cố khi tải mục bảng điều khiển này"
 
-msgid "Hide interpretations and details"
-msgstr "Ẩn các diễn giải và chi tiết"
+msgid "Hide details and interpretations"
+msgstr ""
 
-msgid "Show interpretations and details"
-msgstr "Hiện các diễn giải và chi tiết"
+msgid "Show details and interpretations"
+msgstr ""
 
 msgid "Open in {{appName}} app"
 msgstr "Mở trong ứng dụng {{Tên ứng dụng}}"
@@ -283,6 +283,12 @@ msgstr ""
 "Sử dụng khổ giấy ngang A4 và cài đặt lề mặc định trong hộp thoại in của "
 "trình duyệt"
 
+msgid "Create a new dashboard"
+msgstr ""
+
+msgid "New"
+msgstr ""
+
 msgid "Search for a dashboard"
 msgstr "Tìm kiếm bảng điều khiển"
 
@@ -326,6 +332,12 @@ msgstr ""
 msgid "Failed to star the dashboard"
 msgstr ""
 
+msgid "Dashboard layout"
+msgstr "Bố cục bảng điều khiển "
+
+msgid "One item per page"
+msgstr "Một mục trên mỗi trang"
+
 msgid "More"
 msgstr "Thêm"
 
@@ -334,12 +346,6 @@ msgstr "Chỉnh sửa"
 
 msgid "Share"
 msgstr "Chia sẻ"
-
-msgid "Dashboard layout"
-msgstr "Bố cục bảng điều khiển "
-
-msgid "One item per page"
-msgstr "Một mục trên mỗi trang"
 
 msgid "No description"
 msgstr "Không có mô tả"

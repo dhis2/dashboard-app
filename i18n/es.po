@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-06T14:07:44.134Z\n"
+"POT-Creation-Date: 2021-04-16T11:52:58.307Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -35,8 +35,8 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr "No se ha encontrado el tablero buscado"
 
-msgid "Delete item"
-msgstr "Borrar elemento"
+msgid "Remove this item"
+msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr ""
@@ -72,11 +72,11 @@ msgstr "Añada texto aquí"
 msgid "There was a problem loading this dashboard item"
 msgstr "Ha habido un problema al cargar este elemento del tablero"
 
-msgid "Hide interpretations and details"
-msgstr "Ocultar interpretaciones y detalles"
+msgid "Hide details and interpretations"
+msgstr ""
 
-msgid "Show interpretations and details"
-msgstr "Mostrar interpretaciones y detalles"
+msgid "Show details and interpretations"
+msgstr ""
 
 msgid "Open in {{appName}} app"
 msgstr "Abrir en la aplicación {{appName}}"
@@ -287,6 +287,12 @@ msgstr ""
 "Use un papel de tamaño A4 y los valores de los márgenes por defecto en el "
 "cuadro de impresión"
 
+msgid "Create a new dashboard"
+msgstr ""
+
+msgid "New"
+msgstr ""
+
 msgid "Search for a dashboard"
 msgstr "Buscar un tablero"
 
@@ -331,6 +337,12 @@ msgstr ""
 msgid "Failed to star the dashboard"
 msgstr ""
 
+msgid "Dashboard layout"
+msgstr "Diseño del tablero"
+
+msgid "One item per page"
+msgstr "Un objeto por página"
+
 msgid "More"
 msgstr "Más"
 
@@ -339,12 +351,6 @@ msgstr "Editar"
 
 msgid "Share"
 msgstr "Compartir"
-
-msgid "Dashboard layout"
-msgstr "Diseño del tablero"
-
-msgid "One item per page"
-msgstr "Un objeto por página"
 
 msgid "No description"
 msgstr "Sin descripción"

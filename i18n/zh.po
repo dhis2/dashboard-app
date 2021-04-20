@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-06T14:07:44.134Z\n"
+"POT-Creation-Date: 2021-04-16T11:52:58.307Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -33,8 +33,8 @@ msgstr "没有发现仪表盘，使用+按钮创建新的仪表盘"
 msgid "Requested dashboard not found"
 msgstr "请求的仪表盘没有找到"
 
-msgid "Delete item"
-msgstr "删除条目"
+msgid "Remove this item"
+msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr "此项已缩短为适合一页"
@@ -67,11 +67,11 @@ msgstr "在这里添加文本"
 msgid "There was a problem loading this dashboard item"
 msgstr "载入仪表盘有问题"
 
-msgid "Hide interpretations and details"
-msgstr "隐藏注释和详情"
+msgid "Hide details and interpretations"
+msgstr ""
 
-msgid "Show interpretations and details"
-msgstr "显示注释和详情"
+msgid "Show details and interpretations"
+msgstr ""
 
 msgid "Open in {{appName}} app"
 msgstr "在{{appName}} 应用中打开"
@@ -280,6 +280,12 @@ msgid ""
 " dialog"
 msgstr "在浏览器的“打印”对话框中使用A4横向纸张尺寸和默认边距设置"
 
+msgid "Create a new dashboard"
+msgstr ""
+
+msgid "New"
+msgstr ""
+
 msgid "Search for a dashboard"
 msgstr "搜索仪表盘"
 
@@ -323,6 +329,12 @@ msgstr "无法取消仪表板的星标"
 msgid "Failed to star the dashboard"
 msgstr "无法为仪表板加注星标"
 
+msgid "Dashboard layout"
+msgstr "仪表板布局"
+
+msgid "One item per page"
+msgstr "每页一项"
+
 msgid "More"
 msgstr "更多"
 
@@ -331,12 +343,6 @@ msgstr "编辑"
 
 msgid "Share"
 msgstr "分享"
-
-msgid "Dashboard layout"
-msgstr "仪表板布局"
-
-msgid "One item per page"
-msgstr "每页一项"
 
 msgid "No description"
 msgstr "没有描述"

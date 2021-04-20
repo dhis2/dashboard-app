@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-06T14:07:44.134Z\n"
+"POT-Creation-Date: 2021-04-16T11:52:58.307Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -33,8 +33,8 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr "لم يتم العثور على لوحة المعلومات التي طلبتها"
 
-msgid "Delete item"
-msgstr "حذف العنصر"
+msgid "Remove this item"
+msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr "تم اختصار هذا العنصر ليناسب صفحة واحدة"
@@ -67,11 +67,11 @@ msgstr "اضف نص هنا"
 msgid "There was a problem loading this dashboard item"
 msgstr "حدثت مشكلة أثناء تحميل عنصر لوحة المعلومات هذا"
 
-msgid "Hide interpretations and details"
-msgstr "إخفاء التفسيرات والتفاصيل"
+msgid "Hide details and interpretations"
+msgstr ""
 
-msgid "Show interpretations and details"
-msgstr "إظهار التفسيرات والتفاصيل"
+msgid "Show details and interpretations"
+msgstr ""
 
 msgid "Open in {{appName}} app"
 msgstr "إفتح في تطبيق {{appName}}"
@@ -280,6 +280,12 @@ msgid ""
 msgstr ""
 "استخدم حجم ورق أفقي A4 وإعدادات الهامش الافتراضية في مربع حوار طباعة المتصفح"
 
+msgid "Create a new dashboard"
+msgstr ""
+
+msgid "New"
+msgstr ""
+
 msgid "Search for a dashboard"
 msgstr "البحث عن لوحة معلومات"
 
@@ -328,6 +334,12 @@ msgstr ""
 msgid "Failed to star the dashboard"
 msgstr ""
 
+msgid "Dashboard layout"
+msgstr "تخطيط لوحة المعلومات"
+
+msgid "One item per page"
+msgstr "عنصر واحد في كل صفحة"
+
 msgid "More"
 msgstr "مزيد"
 
@@ -336,12 +348,6 @@ msgstr "تعديل"
 
 msgid "Share"
 msgstr "مشاركة"
-
-msgid "Dashboard layout"
-msgstr "تخطيط لوحة المعلومات"
-
-msgid "One item per page"
-msgstr "عنصر واحد في كل صفحة"
 
 msgid "No description"
 msgstr "لا يوجد وصف"

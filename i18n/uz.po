@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-06T14:07:44.134Z\n"
+"POT-Creation-Date: 2021-04-16T11:52:58.307Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -32,8 +32,8 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr "Сўралган бошқарув панели топилмади"
 
-msgid "Delete item"
-msgstr "Элементни ўчириб ташлаш"
+msgid "Remove this item"
+msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Ушбу элемент бир саҳифага жойлаштириш учун мослаштирилди"
@@ -68,11 +68,11 @@ msgstr "Матнни шу ерга қўшинг"
 msgid "There was a problem loading this dashboard item"
 msgstr "Ушбу панел элементлари юкланишида муаамога дуч келинди"
 
-msgid "Hide interpretations and details"
-msgstr "Талқинлар ва тавсилотларни беркитиш"
+msgid "Hide details and interpretations"
+msgstr ""
 
-msgid "Show interpretations and details"
-msgstr "Талқинлар ва тавсилотларни кўрсатиш"
+msgid "Show details and interpretations"
+msgstr ""
 
 msgid "Open in {{appName}} app"
 msgstr "Иловада {{ИловаНоми}} да очиш"
@@ -285,6 +285,12 @@ msgstr ""
 "Браузернинг босиб чиқариш (принтер) панелида А4 ва стандарт чегараларни "
 "ўрнатинг"
 
+msgid "Create a new dashboard"
+msgstr ""
+
+msgid "New"
+msgstr ""
+
 msgid "Search for a dashboard"
 msgstr "Бошқариш панелида излаш"
 
@@ -328,6 +334,12 @@ msgstr ""
 msgid "Failed to star the dashboard"
 msgstr ""
 
+msgid "Dashboard layout"
+msgstr "Бошқарув панели макети"
+
+msgid "One item per page"
+msgstr "Ҳар бир саҳифада битта элемент"
+
 msgid "More"
 msgstr "Кўпроқ"
 
@@ -336,12 +348,6 @@ msgstr "Таҳрирлаш"
 
 msgid "Share"
 msgstr "Улашиш"
-
-msgid "Dashboard layout"
-msgstr "Бошқарув панели макети"
-
-msgid "One item per page"
-msgstr "Ҳар бир саҳифада битта элемент"
 
 msgid "No description"
 msgstr "Тавсиф йўқ"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-06T14:07:44.134Z\n"
+"POT-Creation-Date: 2021-04-16T11:52:58.307Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Tajik (https://www.transifex.com/hisp-uio/teams/100509/tg/)\n"
@@ -31,7 +31,7 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr ""
 
-msgid "Delete item"
+msgid "Remove this item"
 msgstr ""
 
 msgid "This item has been shortened to fit on one page"
@@ -65,10 +65,10 @@ msgstr ""
 msgid "There was a problem loading this dashboard item"
 msgstr ""
 
-msgid "Hide interpretations and details"
+msgid "Hide details and interpretations"
 msgstr ""
 
-msgid "Show interpretations and details"
+msgid "Show details and interpretations"
 msgstr ""
 
 msgid "Open in {{appName}} app"
@@ -274,6 +274,12 @@ msgid ""
 " dialog"
 msgstr ""
 
+msgid "Create a new dashboard"
+msgstr ""
+
+msgid "New"
+msgstr ""
+
 msgid "Search for a dashboard"
 msgstr ""
 
@@ -318,6 +324,12 @@ msgstr ""
 msgid "Failed to star the dashboard"
 msgstr ""
 
+msgid "Dashboard layout"
+msgstr ""
+
+msgid "One item per page"
+msgstr ""
+
 msgid "More"
 msgstr ""
 
@@ -326,12 +338,6 @@ msgstr "Таҳрир"
 
 msgid "Share"
 msgstr "Мубодила"
-
-msgid "Dashboard layout"
-msgstr ""
-
-msgid "One item per page"
-msgstr ""
 
 msgid "No description"
 msgstr ""

@@ -6,14 +6,14 @@
 # Edem Kossi <ekossi@hispwca.org>, 2020
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
-# Yao Selom SAKA <ysaka@hispwca.org>, 2020
+# Yao Selom Saka <ysaka@hispwca.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Yayra Gomado <ygomado@hispwca.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-06T14:07:44.134Z\n"
+"POT-Creation-Date: 2021-04-16T11:52:58.307Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Yayra Gomado <ygomado@hispwca.org>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -40,8 +40,8 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr "Tableau de bord demandé introuvable"
 
-msgid "Delete item"
-msgstr "Supprimer l'item"
+msgid "Remove this item"
+msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Ce élément a été réduit pour tenir sur une page"
@@ -77,11 +77,11 @@ msgid "There was a problem loading this dashboard item"
 msgstr ""
 "Un problème est survenu lors du chargement de cet objet du tableau de bord"
 
-msgid "Hide interpretations and details"
-msgstr "Masquer les interprétations et les détails"
+msgid "Hide details and interpretations"
+msgstr ""
 
-msgid "Show interpretations and details"
-msgstr "Afficher les interprétations et les détails"
+msgid "Show details and interpretations"
+msgstr ""
 
 msgid "Open in {{appName}} app"
 msgstr "Ouvrir dans l'app {{appName}}"
@@ -307,6 +307,12 @@ msgstr ""
 "Utilisez un format de papier A4 paysage et les paramètres de marge par "
 "défaut dans la boîte de dialogue d'impression du navigateur"
 
+msgid "Create a new dashboard"
+msgstr ""
+
+msgid "New"
+msgstr ""
+
 msgid "Search for a dashboard"
 msgstr "Rechercher un tableau de bord"
 
@@ -351,6 +357,12 @@ msgstr "Suppression des étoiles du tableau de bord échoué"
 msgid "Failed to star the dashboard"
 msgstr "Ajout d'étoiles au tableau de bord échoué"
 
+msgid "Dashboard layout"
+msgstr "Mise en page du tableau de bord"
+
+msgid "One item per page"
+msgstr "Un élément par page"
+
 msgid "More"
 msgstr "Plus"
 
@@ -359,12 +371,6 @@ msgstr "Modifier"
 
 msgid "Share"
 msgstr "Partager"
-
-msgid "Dashboard layout"
-msgstr "Mise en page du tableau de bord"
-
-msgid "One item per page"
-msgstr "Un élément par page"
 
 msgid "No description"
 msgstr "Pas de description"

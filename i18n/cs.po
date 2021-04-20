@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-06T14:07:44.134Z\n"
+"POT-Creation-Date: 2021-04-16T11:52:58.307Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: trendspotter, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -32,8 +32,8 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr "Požadovaný ovládací panel nebyl nalezen"
 
-msgid "Delete item"
-msgstr "Odstranit položku"
+msgid "Remove this item"
+msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Tato položka byla zkrácena tak, aby se vešla na jednu stránku"
@@ -68,11 +68,11 @@ msgstr "Sem přidat text"
 msgid "There was a problem loading this dashboard item"
 msgstr "Při načítání této položky ovládacího panelu došlo k problému"
 
-msgid "Hide interpretations and details"
-msgstr "Skrýt interpretace a podrobnosti"
+msgid "Hide details and interpretations"
+msgstr ""
 
-msgid "Show interpretations and details"
-msgstr "Zobrazit interpretace a podrobnosti"
+msgid "Show details and interpretations"
+msgstr ""
 
 msgid "Open in {{appName}} app"
 msgstr "Otevřít v aplikaci {{appName}}"
@@ -293,6 +293,12 @@ msgstr ""
 "V dialogovém okně pro tisk v prohlížeči použijte formát papíru A4 na šířku a"
 " výchozí nastavení okrajů"
 
+msgid "Create a new dashboard"
+msgstr ""
+
+msgid "New"
+msgstr ""
+
 msgid "Search for a dashboard"
 msgstr "Vyhledat ovládací panel"
 
@@ -339,6 +345,12 @@ msgstr "Zrušit označení hvězdičky na ovládacím panelu se nezdařilo"
 msgid "Failed to star the dashboard"
 msgstr "Označení ovládacího panelu hvězdičkou se nezdařilo"
 
+msgid "Dashboard layout"
+msgstr "Rozložení ovládacího panelu"
+
+msgid "One item per page"
+msgstr "Jedna položka na stránku"
+
 msgid "More"
 msgstr "Více"
 
@@ -347,12 +359,6 @@ msgstr "Upravit"
 
 msgid "Share"
 msgstr "Sdílet"
-
-msgid "Dashboard layout"
-msgstr "Rozložení ovládacího panelu"
-
-msgid "One item per page"
-msgstr "Jedna položka na stránku"
 
 msgid "No description"
 msgstr "Bez popisu"

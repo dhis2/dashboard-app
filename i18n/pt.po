@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-06T14:07:44.134Z\n"
+"POT-Creation-Date: 2021-04-16T11:52:58.307Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -33,8 +33,8 @@ msgstr "Painel não encontrado. Use o botão + para criar um novo painel."
 msgid "Requested dashboard not found"
 msgstr "Painel solicitado não encontrado"
 
-msgid "Delete item"
-msgstr "Apagar item"
+msgid "Remove this item"
+msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Este item foi reduzido para caber em uma página"
@@ -69,11 +69,11 @@ msgstr "Adicione texto aqui"
 msgid "There was a problem loading this dashboard item"
 msgstr "Ocorreu um problema ao carregar este item do painel"
 
-msgid "Hide interpretations and details"
-msgstr "Ocultar interpretações e detalhes"
+msgid "Hide details and interpretations"
+msgstr ""
 
-msgid "Show interpretations and details"
-msgstr "Mostrar interpretações e detalhes"
+msgid "Show details and interpretations"
+msgstr ""
 
 msgid "Open in {{appName}} app"
 msgstr "Abrir no aplicativo {{appName}}"
@@ -284,6 +284,12 @@ msgstr ""
 "Use o tamanho de papel paisagem A4 e as configurações de margem padrão na "
 "caixa de diálogo de impressão do navegador"
 
+msgid "Create a new dashboard"
+msgstr ""
+
+msgid "New"
+msgstr ""
+
 msgid "Search for a dashboard"
 msgstr "Pesquisar por um painel"
 
@@ -328,6 +334,12 @@ msgstr ""
 msgid "Failed to star the dashboard"
 msgstr ""
 
+msgid "Dashboard layout"
+msgstr ""
+
+msgid "One item per page"
+msgstr "Um item por página"
+
 msgid "More"
 msgstr "Mais"
 
@@ -336,12 +348,6 @@ msgstr "Editar"
 
 msgid "Share"
 msgstr "Partilha"
-
-msgid "Dashboard layout"
-msgstr ""
-
-msgid "One item per page"
-msgstr "Um item por página"
 
 msgid "No description"
 msgstr "Sem descrição"
