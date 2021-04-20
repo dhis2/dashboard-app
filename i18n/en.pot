@@ -5,22 +5,10 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-04-19T12:38:17.236Z\n"
-"PO-Revision-Date: 2021-04-19T12:38:17.236Z\n"
+"POT-Creation-Date: 2021-04-20T13:07:51.829Z\n"
+"PO-Revision-Date: 2021-04-20T13:07:51.829Z\n"
 
 msgid "Untitled dashboard"
-msgstr ""
-
-msgid "Loading dashboard – {{name}}"
-msgstr ""
-
-msgid "Loading dashboard"
-msgstr ""
-
-msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr ""
-
-msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "Remove this item"
@@ -270,14 +258,13 @@ msgid ""
 "print dialog"
 msgstr ""
 
-<<<<<<< HEAD
 msgid "No dashboards found. Use the + button to create a new dashboard."
-=======
+msgstr ""
+
 msgid "Create a new dashboard"
 msgstr ""
 
 msgid "New"
->>>>>>> master
 msgstr ""
 
 msgid "Search for a dashboard"
@@ -330,6 +317,9 @@ msgstr ""
 msgid "Failed to star the dashboard"
 msgstr ""
 
+msgid "Sync offline data now"
+msgstr ""
+
 msgid "Dashboard layout"
 msgstr ""
 
@@ -339,14 +329,7 @@ msgstr ""
 msgid "More"
 msgstr ""
 
-<<<<<<< HEAD
-msgid "Sync offline data now"
-msgstr ""
-
-msgid "Dashboard layout"
-=======
 msgid "Edit"
->>>>>>> master
 msgstr ""
 
 msgid "Share"
