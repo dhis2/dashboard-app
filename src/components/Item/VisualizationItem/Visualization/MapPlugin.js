@@ -11,7 +11,6 @@ const MapPlugin = ({
     applyFilters,
     availableHeight,
     availableWidth,
-    isRecording,
     gridWidth,
     ...props
 }) => {
@@ -47,10 +46,6 @@ const MapPlugin = ({
         )
     }
 
-    if (isRecording) {
-        return <div />
-    }
-
     return pluginIsAvailable(MAP) ? (
         <DefaultPlugin
             options={{
@@ -71,7 +66,6 @@ MapPlugin.propTypes = {
     availableWidth: PropTypes.number,
     gridWidth: PropTypes.number,
     isFullscreen: PropTypes.bool,
-    isRecording: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,

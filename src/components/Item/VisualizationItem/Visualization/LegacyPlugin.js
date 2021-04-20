@@ -7,7 +7,6 @@ const LegacyPlugin = ({
     availableHeight,
     availableWidth,
     gridWidth,
-    isRecording,
     ...props
 }) => {
     useEffect(() => {
@@ -23,10 +22,6 @@ const LegacyPlugin = ({
         }
     }, [availableHeight, availableWidth, gridWidth])
 
-    if (isRecording) {
-        return <div />
-    }
-
     return <DefaultPlugin {...props} />
 }
 
@@ -40,7 +35,6 @@ LegacyPlugin.propTypes = {
     availableWidth: PropTypes.number,
     gridWidth: PropTypes.number,
     isFullscreen: PropTypes.bool,
-    isRecording: PropTypes.bool,
     item: PropTypes.object,
 }
 

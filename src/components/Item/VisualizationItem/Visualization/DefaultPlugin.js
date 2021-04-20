@@ -5,7 +5,14 @@ import { useConfig } from '@dhis2/app-runtime'
 import { load, unmount } from './plugin'
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId'
 
-const DefaultPlugin = ({ item, activeType, visualization, options, style }) => {
+const DefaultPlugin = ({
+    item,
+    activeType,
+    visualization,
+    options,
+    isRecording,
+    style,
+}) => {
     const { d2 } = useD2()
     const { baseUrl } = useConfig()
     const credentials = {
@@ -42,6 +49,17 @@ const DefaultPlugin = ({ item, activeType, visualization, options, style }) => {
         prevActiveType.current = activeType
     }, [item, visualization, activeType])
 
+    useEffect(() => {
+        if (isRecording) {
+            unmount(item, activeType)
+            load(item, visualization, {
+                credentials,
+                activeType,
+                isRecording,
+            })
+        }
+    }, [isRecording])
+
     /**
      * Prevent unnecessary re-rendering
      * TODO: fix this hack
@@ -58,6 +76,7 @@ const DefaultPlugin = ({ item, activeType, visualization, options, style }) => {
 
 DefaultPlugin.propTypes = {
     activeType: PropTypes.string,
+    isRecording: PropTypes.bool,
     item: PropTypes.object,
     options: PropTypes.object,
     style: PropTypes.object,
@@ -66,6 +85,7 @@ DefaultPlugin.propTypes = {
 
 DefaultPlugin.defaultProps = {
     style: {},
+    isRecording: false,
     item: {},
     options: {},
     visualization: {},
