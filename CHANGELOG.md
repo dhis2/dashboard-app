@@ -1,3 +1,10 @@
+## [31.14.11](https://github.com/dhis2/dashboard-app/compare/v31.14.10...v31.14.11) (2021-04-20)
+
+
+### Bug Fixes
+
+* remove material-ui as direct dependency and update to latest ui design DHIS2-10143 ([#1704](https://github.com/dhis2/dashboard-app/issues/1704)) ([4f4cc50](https://github.com/dhis2/dashboard-app/commit/4f4cc50b209fed3e3a93194357540535b0ffc242))
+
 ## [31.14.10](https://github.com/dhis2/dashboard-app/compare/v31.14.9...v31.14.10) (2021-03-30)
 
 
