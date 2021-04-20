@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Chip as UiChip } from '@dhis2/ui'
+import { Chip as UiChip, colors, IconStarFilled24 } from '@dhis2/ui'
 import { Link } from 'react-router-dom'
 import debounce from 'lodash/debounce'
 
-import StarIcon from './assets/Star'
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
 
 import classes from './styles/Chip.module.css'
@@ -15,9 +14,10 @@ export const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
     }
 
     if (starred) {
-        const selectedState = selected ? classes.selected : classes.unselected
         chipProps.icon = (
-            <StarIcon className={`${classes.icon} ${selectedState}`} />
+            <IconStarFilled24
+                color={selected ? colors.white : colors.grey600}
+            />
         )
     }
     const debouncedPostStatistics = debounce(

@@ -13,15 +13,15 @@ exports[`renders menu for active type CHART and type MAP 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root-10"
-          focusable="false"
-          role="presentation"
-          style="fill: #6e7a8a;"
-          viewBox="0 0 24 24"
+          color="#6e7a8a"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M4 14h4v-4H4v4zm0 5h4v-4H4v4zM4 9h4V5H4v4zm5 5h12v-4H9v4zm0 5h12v-4H9v4zM9 5v4h12V5H9z"
+            d="M14 1a1 1 0 011 1v12a1 1 0 01-1 1H2a1 1 0 01-1-1V2a1 1 0 011-1zm-6.5 9H2v4h5.5zm6.5 0H8.5v4H14zM2 5v4h5.5V5zm12-3H2v2h12zM8.5 9H14V5H8.5z"
+            fill="currentColor"
           />
         </svg>
       </span>
@@ -43,15 +43,15 @@ exports[`renders menu for active type CHART and type MAP 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root-10"
-          focusable="false"
-          role="presentation"
-          style="fill: #6e7a8a;"
-          viewBox="0 0 24 24"
+          color="#6e7a8a"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+            d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 1c-.933 0-1.816.213-2.604.593L6 3.5 7.5 3 8 4l-1.5.5.5 2L6 7l-.5-1.5L4 7l1.5 1.5h2l.5 2-1.836 3.214A5.996 5.996 0 008 14c1.494 0 2.86-.546 3.91-1.45l-.41-2.05-2-1 1-2.5h3.417a5.963 5.963 0 00-.832-2.187L11.5 6l-2-.5.454-3.175A5.992 5.992 0 008 2zM2 8a5.997 5.997 0 002.896 5.136L4 10l-.5-1.5-1.47-1.103c-.02.198-.03.4-.03.603z"
+            fill="currentColor"
           />
         </svg>
       </span>
@@ -78,15 +78,15 @@ exports[`renders menu for active type CHART and type REPORT_TABLE 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root-37"
-          focusable="false"
-          role="presentation"
-          style="fill: #6e7a8a;"
-          viewBox="0 0 24 24"
+          color="#6e7a8a"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M4 14h4v-4H4v4zm0 5h4v-4H4v4zM4 9h4V5H4v4zm5 5h12v-4H9v4zm0 5h12v-4H9v4zM9 5v4h12V5H9z"
+            d="M14 1a1 1 0 011 1v12a1 1 0 01-1 1H2a1 1 0 01-1-1V2a1 1 0 011-1zm-6.5 9H2v4h5.5zm6.5 0H8.5v4H14zM2 5v4h5.5V5zm12-3H2v2h12zM8.5 9H14V5H8.5z"
+            fill="currentColor"
           />
         </svg>
       </span>
@@ -108,15 +108,15 @@ exports[`renders menu for active type CHART and type REPORT_TABLE 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root-37"
-          focusable="false"
-          role="presentation"
-          style="fill: #6e7a8a;"
-          viewBox="0 0 24 24"
+          color="#6e7a8a"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+            d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 1c-.933 0-1.816.213-2.604.593L6 3.5 7.5 3 8 4l-1.5.5.5 2L6 7l-.5-1.5L4 7l1.5 1.5h2l.5 2-1.836 3.214A5.996 5.996 0 008 14c1.494 0 2.86-.546 3.91-1.45l-.41-2.05-2-1 1-2.5h3.417a5.963 5.963 0 00-.832-2.187L11.5 6l-2-.5.454-3.175A5.992 5.992 0 008 2zM2 8a5.997 5.997 0 002.896 5.136L4 10l-.5-1.5-1.47-1.103c-.02.198-.03.4-.03.603z"
+            fill="currentColor"
           />
         </svg>
       </span>
@@ -143,15 +143,15 @@ exports[`renders menu for active type EVENT_CHART and type EVENT_REPORT 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root-55"
-          focusable="false"
-          role="presentation"
-          style="fill: #6e7a8a;"
-          viewBox="0 0 24 24"
+          color="#6e7a8a"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M4 14h4v-4H4v4zm0 5h4v-4H4v4zM4 9h4V5H4v4zm5 5h12v-4H9v4zm0 5h12v-4H9v4zM9 5v4h12V5H9z"
+            d="M14 1a1 1 0 011 1v12a1 1 0 01-1 1H2a1 1 0 01-1-1V2a1 1 0 011-1zm-6.5 9H2v4h5.5zm6.5 0H8.5v4H14zM2 5v4h5.5V5zm12-3H2v2h12zM8.5 9H14V5H8.5z"
+            fill="currentColor"
           />
         </svg>
       </span>
@@ -178,16 +178,23 @@ exports[`renders menu for active type EVENT_REPORT and type EVENT_CHART 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root-46"
-          focusable="false"
-          role="presentation"
-          style="fill: #6e7a8a;"
-          viewBox="0 0 24 24"
+          color="#6e7a8a"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"
-          />
+          <g
+            fill="currentColor"
+            fill-rule="evenodd"
+          >
+            <path
+              d="M0 0h1v15h15v1H0z"
+            />
+            <path
+              d="M16 8v7h-3V8zm-5-6v13H8V2zM6 4v11H3V4z"
+            />
+          </g>
         </svg>
       </span>
       <span
@@ -213,16 +220,23 @@ exports[`renders menu for active type MAP and type CHART 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root-1"
-          focusable="false"
-          role="presentation"
-          style="fill: #6e7a8a;"
-          viewBox="0 0 24 24"
+          color="#6e7a8a"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"
-          />
+          <g
+            fill="currentColor"
+            fill-rule="evenodd"
+          >
+            <path
+              d="M0 0h1v15h15v1H0z"
+            />
+            <path
+              d="M16 8v7h-3V8zm-5-6v13H8V2zM6 4v11H3V4z"
+            />
+          </g>
         </svg>
       </span>
       <span
@@ -243,15 +257,15 @@ exports[`renders menu for active type MAP and type CHART 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root-1"
-          focusable="false"
-          role="presentation"
-          style="fill: #6e7a8a;"
-          viewBox="0 0 24 24"
+          color="#6e7a8a"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M4 14h4v-4H4v4zm0 5h4v-4H4v4zM4 9h4V5H4v4zm5 5h12v-4H9v4zm0 5h12v-4H9v4zM9 5v4h12V5H9z"
+            d="M14 1a1 1 0 011 1v12a1 1 0 01-1 1H2a1 1 0 01-1-1V2a1 1 0 011-1zm-6.5 9H2v4h5.5zm6.5 0H8.5v4H14zM2 5v4h5.5V5zm12-3H2v2h12zM8.5 9H14V5H8.5z"
+            fill="currentColor"
           />
         </svg>
       </span>
@@ -282,16 +296,23 @@ exports[`renders menu for active type MAP and type MAP without Thematic layer 1`
           class="jsx-665727467 icon"
         >
           <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root-19"
-            focusable="false"
-            role="presentation"
-            style="fill: #6e7a8a;"
-            viewBox="0 0 24 24"
+            color="#a0adba"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"
-            />
+            <g
+              fill="currentColor"
+              fill-rule="evenodd"
+            >
+              <path
+                d="M0 0h1v15h15v1H0z"
+              />
+              <path
+                d="M16 8v7h-3V8zm-5-6v13H8V2zM6 4v11H3V4z"
+              />
+            </g>
           </svg>
         </span>
         <span
@@ -317,15 +338,15 @@ exports[`renders menu for active type MAP and type MAP without Thematic layer 1`
           class="jsx-665727467 icon"
         >
           <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root-19"
-            focusable="false"
-            role="presentation"
-            style="fill: #6e7a8a;"
-            viewBox="0 0 24 24"
+            color="#a0adba"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M4 14h4v-4H4v4zm0 5h4v-4H4v4zM4 9h4V5H4v4zm5 5h12v-4H9v4zm0 5h12v-4H9v4zM9 5v4h12V5H9z"
+              d="M14 1a1 1 0 011 1v12a1 1 0 01-1 1H2a1 1 0 01-1-1V2a1 1 0 011-1zm-6.5 9H2v4h5.5zm6.5 0H8.5v4H14zM2 5v4h5.5V5zm12-3H2v2h12zM8.5 9H14V5H8.5z"
+              fill="currentColor"
             />
           </svg>
         </span>
@@ -353,16 +374,23 @@ exports[`renders menu for active type REPORT_TABLE and type CHART 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root-28"
-          focusable="false"
-          role="presentation"
-          style="fill: #6e7a8a;"
-          viewBox="0 0 24 24"
+          color="#6e7a8a"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"
-          />
+          <g
+            fill="currentColor"
+            fill-rule="evenodd"
+          >
+            <path
+              d="M0 0h1v15h15v1H0z"
+            />
+            <path
+              d="M16 8v7h-3V8zm-5-6v13H8V2zM6 4v11H3V4z"
+            />
+          </g>
         </svg>
       </span>
       <span
@@ -383,15 +411,15 @@ exports[`renders menu for active type REPORT_TABLE and type CHART 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root-28"
-          focusable="false"
-          role="presentation"
-          style="fill: #6e7a8a;"
-          viewBox="0 0 24 24"
+          color="#6e7a8a"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+            d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 1c-.933 0-1.816.213-2.604.593L6 3.5 7.5 3 8 4l-1.5.5.5 2L6 7l-.5-1.5L4 7l1.5 1.5h2l.5 2-1.836 3.214A5.996 5.996 0 008 14c1.494 0 2.86-.546 3.91-1.45l-.41-2.05-2-1 1-2.5h3.417a5.963 5.963 0 00-.832-2.187L11.5 6l-2-.5.454-3.175A5.992 5.992 0 008 2zM2 8a5.997 5.997 0 002.896 5.136L4 10l-.5-1.5-1.47-1.103c-.02.198-.03.4-.03.603z"
+            fill="currentColor"
           />
         </svg>
       </span>

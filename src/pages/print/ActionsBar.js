@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { Button } from '@dhis2/ui'
+import { Button, colors, IconChevronLeft24 } from '@dhis2/ui'
 import { Link } from 'react-router-dom'
-import LessHorizontalIcon from './assets/LessHorizontal'
 
 import classes from './styles/PrintActionsBar.module.css'
 
@@ -17,7 +16,7 @@ const PrintActionsBar = ({ id }) => {
             className={isSmall ? classes.buttonSmall : classes.buttonLarge}
             small={isSmall}
         >
-            <LessHorizontalIcon />
+            <IconChevronLeft24 color={colors.grey700} />
             {i18n.t('Exit print preview')}
         </Button>
     )

@@ -159,6 +159,7 @@ const EditBar = props => {
                     console.log('translation update error', err)
                 }
                 onTranslationSaved={Function.prototype}
+                insertTheme={true}
             />
         ) : null
 

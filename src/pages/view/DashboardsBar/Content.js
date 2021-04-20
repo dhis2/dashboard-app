@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 import { Link, withRouter } from 'react-router-dom'
+import { Button, Tooltip, colors, IconAdd24 } from '@dhis2/ui'
 
 import Chip from './Chip'
-import AddCircleIcon from './assets/AddCircle'
 import Filter from './Filter'
 import { getFilteredDashboards } from './getFilteredDashboards'
 
@@ -60,7 +61,11 @@ const Content = ({
                 to={'/new'}
                 data-test="link-new-dashboard"
             >
-                <AddCircleIcon />
+                <Tooltip content={i18n.t('Create a new dashboard')}>
+                    <Button small icon={<IconAdd24 color={colors.grey600} />}>
+                        {i18n.t('New')}
+                    </Button>
+                </Tooltip>
             </Link>
             <Filter
                 onKeypressEnter={onSelectDashboard}

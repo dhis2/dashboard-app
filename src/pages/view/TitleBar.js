@@ -1,4 +1,4 @@
-import React, { useState, createRef } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
@@ -6,12 +6,18 @@ import { Link, Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
-import Star from '@material-ui/icons/Star'
-import StarBorder from '@material-ui/icons/StarBorder'
-import { Button, FlyoutMenu, Layer, Popper, MenuItem, colors } from '@dhis2/ui'
+import {
+    Button,
+    FlyoutMenu,
+    MenuItem,
+    Tooltip,
+    colors,
+    IconMore24,
+    IconStar24,
+    IconStarFilled24,
+} from '@dhis2/ui'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
-import { ThreeDots } from '../../components/Item/VisualizationItem/assets/icons'
 import { orObject } from '../../modules/util'
 import { apiStarDashboard } from './starDashboard'
 import { apiPostShowDescription } from '../../api/description'
@@ -19,6 +25,7 @@ import { apiPostShowDescription } from '../../api/description'
 import { acSetDashboardStarred } from '../../actions/dashboards'
 import { acSetSelectedShowDescription } from '../../actions/selected'
 import FilterSelector from './ItemFilter/FilterSelector'
+import DropdownButton from '../../components/DropdownButton/DropdownButton'
 import {
     sGetSelectedId,
     sGetSelectedShowDescription,
@@ -43,6 +50,7 @@ const ViewTitleBar = ({
     restrictFilters,
     allowedFilters,
 }) => {
+    const [moreOptionsSmallIsOpen, setMoreOptionsSmallIsOpen] = useState(false)
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
@@ -56,12 +64,15 @@ const ViewTitleBar = ({
     const toggleSharingDialog = () =>
         setSharingDialogIsOpen(!sharingDialogIsOpen)
 
-    const toggleMoreOptions = () => setMoreOptionsIsOpen(!moreOptionsIsOpen)
+    const toggleMoreOptions = small =>
+        small
+            ? setMoreOptionsSmallIsOpen(!moreOptionsSmallIsOpen)
+            : setMoreOptionsIsOpen(!moreOptionsIsOpen)
 
     const printLayout = () => setRedirectUrl(`${id}/printlayout`)
     const printOipp = () => setRedirectUrl(`${id}/printoipp`)
 
-    const StarIcon = starred ? Star : StarBorder
+    const StarIcon = starred ? IconStarFilled24 : IconStar24
 
     if (redirectUrl) {
         return <Redirect to={redirectUrl} />
@@ -103,8 +114,6 @@ const ViewTitleBar = ({
                 warningAlert.show({ msg })
             })
 
-    const buttonRef = createRef()
-
     const userAccess = orObject(access)
 
     const descriptionClasses = cx(
@@ -112,15 +121,46 @@ const ViewTitleBar = ({
         description ? classes.desc : classes.noDesc
     )
 
+    const getMoreMenu = () => (
+        <FlyoutMenu>
+            <MenuItem
+                dense
+                label={toggleStarredDashboardLabel}
+                onClick={onToggleStarredDashboard}
+            />
+            <MenuItem
+                dense
+                label={showHideDescriptionLabel}
+                onClick={onToggleShowDescription}
+            />
+            <MenuItem dense label={i18n.t('Print')} dataTest="print-menu-item">
+                <MenuItem
+                    dense
+                    label={i18n.t('Dashboard layout')}
+                    onClick={printLayout}
+                    dataTest="print-layout-menu-item"
+                />
+                <MenuItem
+                    dense
+                    label={i18n.t('One item per page')}
+                    onClick={printOipp}
+                    dataTest="print-oipp-menu-item"
+                />
+            </MenuItem>
+        </FlyoutMenu>
+    )
+
     const getMoreButton = (className, useSmall) => (
-        <Button
+        <DropdownButton
             className={className}
             small={useSmall}
-            onClick={toggleMoreOptions}
+            onClick={() => toggleMoreOptions(useSmall)}
+            icon={<IconMore24 color={colors.grey700} />}
+            component={getMoreMenu()}
+            open={useSmall ? moreOptionsSmallIsOpen : moreOptionsIsOpen}
         >
-            <ThreeDots />
-            <span className={classes.moreText}>{i18n.t('More')}</span>
-        </Button>
+            {i18n.t('More')}
+        </DropdownButton>
     )
 
     return (
@@ -139,14 +179,23 @@ const ViewTitleBar = ({
                             onClick={onToggleStarredDashboard}
                             data-test="button-star-dashboard"
                         >
-                            <StarIcon
-                                style={{ fill: colors.grey600 }}
-                                data-test={
+                            <Tooltip
+                                content={
                                     starred
-                                        ? 'dashboard-starred'
-                                        : 'dashboard-unstarred'
+                                        ? i18n.t('Unstar dashboard')
+                                        : i18n.t('Star dashboard')
                                 }
-                            />
+                            >
+                                <span
+                                    data-test={
+                                        starred
+                                            ? 'dashboard-starred'
+                                            : 'dashboard-unstarred'
+                                    }
+                                >
+                                    <StarIcon color={colors.grey600} />
+                                </span>
+                            </Tooltip>
                         </div>
                         <div className={classes.strip}>
                             {userAccess.update ? (
@@ -170,58 +219,9 @@ const ViewTitleBar = ({
                                 allowedFilters={allowedFilters}
                                 restrictFilters={restrictFilters}
                             />
-                            <span ref={buttonRef}>
-                                {getMoreButton(classes.moreButton, false)}
-                                {getMoreButton(classes.moreButtonSmall, true)}
-                            </span>
+                            {getMoreButton(classes.moreButton, false)}
+                            {getMoreButton(classes.moreButtonSmall, true)}
                         </div>
-                        {moreOptionsIsOpen && (
-                            <Layer
-                                position="fixed"
-                                level={2000}
-                                onClick={toggleMoreOptions}
-                            >
-                                <Popper
-                                    reference={buttonRef}
-                                    placement="bottom-start"
-                                >
-                                    <FlyoutMenu>
-                                        <MenuItem
-                                            dense
-                                            label={toggleStarredDashboardLabel}
-                                            onClick={onToggleStarredDashboard}
-                                        />
-                                        <MenuItem
-                                            dense
-                                            label={showHideDescriptionLabel}
-                                            onClick={onToggleShowDescription}
-                                        />
-                                        <MenuItem
-                                            dense
-                                            label={i18n.t('Print')}
-                                            dataTest="print-menu-item"
-                                        >
-                                            <MenuItem
-                                                dense
-                                                label={i18n.t(
-                                                    'Dashboard layout'
-                                                )}
-                                                onClick={printLayout}
-                                                dataTest="print-layout-menu-item"
-                                            />
-                                            <MenuItem
-                                                dense
-                                                label={i18n.t(
-                                                    'One item per page'
-                                                )}
-                                                onClick={printOipp}
-                                                dataTest="print-oipp-menu-item"
-                                            />
-                                        </MenuItem>
-                                    </FlyoutMenu>
-                                </Popper>
-                            </Layer>
-                        )}
                     </div>
                 </div>
                 {showDescription && (
@@ -240,6 +240,7 @@ const ViewTitleBar = ({
                     type="dashboard"
                     open={sharingDialogIsOpen}
                     onRequestClose={toggleSharingDialog}
+                    insertTheme={true}
                 />
             )}
         </>
