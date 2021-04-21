@@ -11,12 +11,6 @@
     display: flex;
     align-items: flex-start;
 }
-.star {
-    margin-left: 5px;
-    position: relative;
-    top: 1px;
-    cursor: pointer;
-}
 .strip {
     display: flex;
     margin-left: var(--spacers-dp8);

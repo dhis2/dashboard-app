@@ -10,17 +10,16 @@ import {
     Button,
     FlyoutMenu,
     MenuItem,
-    Tooltip,
+    // Tooltip,
     colors,
     IconMore24,
-    IconStar24,
-    IconStarFilled24,
     Tag,
 } from '@dhis2/ui'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import FilterSelector from './FilterSelector'
-import { apiStarDashboard } from './moduleStarDashboard'
+import StarDashboardButton from './StarDashboardButton'
+import { apiStarDashboard } from './apiStarDashboard'
 import { orObject } from '../../../modules/util'
 import { useOnlineStatus } from '../../../modules/useOnlineStatus'
 import { useCacheableSectionStatus } from '../../../modules/useCacheableSectionStatus'
@@ -80,8 +79,6 @@ const ViewTitleBar = ({
     const printLayout = () => setRedirectUrl(`${id}/printlayout`)
     const printOipp = () => setRedirectUrl(`${id}/printoipp`)
     const enterEditMode = () => setRedirectUrl(`${id}/edit`)
-
-    const StarIcon = starred ? IconStarFilled24 : IconStar24
 
     if (redirectUrl) {
         return <Redirect to={redirectUrl} />
@@ -202,31 +199,6 @@ const ViewTitleBar = ({
         </DropdownButton>
     )
 
-    const getStarButton = () => (
-        <div
-            className={classes.star}
-            disabled={!isOnline}
-            onClick={onToggleStarredDashboard}
-            data-test="button-star-dashboard"
-        >
-            <Tooltip
-                content={
-                    starred
-                        ? i18n.t('Unstar dashboard')
-                        : i18n.t('Star dashboard')
-                }
-            >
-                <span
-                    data-test={
-                        starred ? 'dashboard-starred' : 'dashboard-unstarred'
-                    }
-                >
-                    <StarIcon color={colors.grey600} />
-                </span>
-            </Tooltip>
-        </div>
-    )
-
     return (
         <>
             <div className={classes.container}>
@@ -241,7 +213,11 @@ const ViewTitleBar = ({
                         {name}
                     </span>
                     <div className={classes.actions}>
-                        {getStarButton()}
+                        <StarDashboardButton
+                            starred={starred}
+                            isOnline={isOnline}
+                            onClick={onToggleStarredDashboard}
+                        />
                         <div className={classes.strip}>
                             {userAccess.update ? (
                                 <Button
