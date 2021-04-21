@@ -8,6 +8,7 @@ import styles from './DropdownButton.module.css'
 const DropdownButton = ({
     children,
     className,
+    disabled,
     icon,
     open,
     onClick,
@@ -21,6 +22,7 @@ const DropdownButton = ({
         <div ref={anchorRef}>
             <Button
                 className={className}
+                disabled={disabled}
                 onClick={onClick}
                 type="button"
                 small={small}
@@ -46,6 +48,7 @@ DropdownButton.propTypes = {
     onClick: PropTypes.func.isRequired,
     children: PropTypes.node,
     className: PropTypes.string,
+    disabled: PropTypes.bool,
     icon: PropTypes.element,
     small: PropTypes.bool,
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
@@ -20,7 +20,7 @@ import {
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import FilterSelector from './FilterSelector'
-import { apiStarDashboard } from './starDashboard'
+import { apiStarDashboard } from './moduleStarDashboard'
 import { orObject } from '../../../modules/util'
 import { useOnlineStatus } from '../../../modules/useOnlineStatus'
 import { useCacheableSectionStatus } from '../../../modules/useCacheableSectionStatus'
@@ -79,6 +79,7 @@ const ViewTitleBar = ({
 
     const printLayout = () => setRedirectUrl(`${id}/printlayout`)
     const printOipp = () => setRedirectUrl(`${id}/printoipp`)
+    const enterEditMode = () => setRedirectUrl(`${id}/edit`)
 
     const StarIcon = starred ? IconStarFilled24 : IconStar24
 
@@ -147,6 +148,7 @@ const ViewTitleBar = ({
         <FlyoutMenu>
             <MenuItem
                 dense
+                disabled={!isOnline}
                 label={toggleSaveOfflineLabel}
                 onClick={onToggleOfflineStatus}
             />
@@ -160,11 +162,13 @@ const ViewTitleBar = ({
             )}
             <MenuItem
                 dense
+                disabled={!isOnline}
                 label={toggleStarredDashboardLabel}
                 onClick={onToggleStarredDashboard}
             />
             <MenuItem
                 dense
+                disabled={!isOnline}
                 label={showHideDescriptionLabel}
                 onClick={onToggleShowDescription}
             />
@@ -198,6 +202,31 @@ const ViewTitleBar = ({
         </DropdownButton>
     )
 
+    const getStarButton = () => (
+        <div
+            className={classes.star}
+            disabled={!isOnline}
+            onClick={onToggleStarredDashboard}
+            data-test="button-star-dashboard"
+        >
+            <Tooltip
+                content={
+                    starred
+                        ? i18n.t('Unstar dashboard')
+                        : i18n.t('Star dashboard')
+                }
+            >
+                <span
+                    data-test={
+                        starred ? 'dashboard-starred' : 'dashboard-unstarred'
+                    }
+                >
+                    <StarIcon color={colors.grey600} />
+                </span>
+            </Tooltip>
+        </div>
+    )
+
     return (
         <>
             <div className={classes.container}>
@@ -212,42 +241,20 @@ const ViewTitleBar = ({
                         {name}
                     </span>
                     <div className={classes.actions}>
-                        <div
-                            className={classes.star}
-                            onClick={onToggleStarredDashboard}
-                            data-test="button-star-dashboard"
-                        >
-                            <Tooltip
-                                content={
-                                    starred
-                                        ? i18n.t('Unstar dashboard')
-                                        : i18n.t('Star dashboard')
-                                }
-                            >
-                                <span
-                                    data-test={
-                                        starred
-                                            ? 'dashboard-starred'
-                                            : 'dashboard-unstarred'
-                                    }
-                                >
-                                    <StarIcon color={colors.grey600} />
-                                </span>
-                            </Tooltip>
-                        </div>
+                        {getStarButton()}
                         <div className={classes.strip}>
                             {userAccess.update ? (
-                                <Link
-                                    className={classes.editLink}
-                                    to={`/${id}/edit`}
-                                    data-test="link-edit-dashboard"
+                                <Button
+                                    onClick={enterEditMode}
+                                    disabled={!isOnline}
                                 >
-                                    <Button>{i18n.t('Edit')}</Button>
-                                </Link>
+                                    {i18n.t('Edit')}
+                                </Button>
                             ) : null}
                             {userAccess.manage ? (
                                 <Button
                                     className={classes.shareButton}
+                                    disabled={!isOnline}
                                     onClick={toggleSharingDialog}
                                 >
                                     {i18n.t('Share')}

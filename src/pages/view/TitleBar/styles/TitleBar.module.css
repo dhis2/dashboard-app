@@ -7,9 +7,6 @@
     align-items: center;
     margin-left: 8px;
 }
-.editLink {
-    text-decoration: none;
-}
 .titleBar {
     display: flex;
     align-items: flex-start;
