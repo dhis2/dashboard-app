@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import i18n from '@dhis2/d2-i18n'
+import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import sortBy from 'lodash/sortBy'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
@@ -15,7 +15,6 @@ import {
     acRemovePrintDashboardItem,
     acUpdatePrintDashboardItem,
 } from '../../actions/printDashboard'
-import NoContentMessage from '../../components/NoContentMessage'
 import { getCustomDashboards } from '../../modules/getCustomDashboards'
 import { apiFetchDashboard } from '../../api/fetchDashboard'
 
@@ -41,7 +40,7 @@ const PrintDashboard = ({
     removeDashboardItem,
 }) => {
     const dataEngine = useDataEngine()
-    const [isInvalid, setIsInvalid] = useState(false)
+    const [redirectUrl, setRedirectUrl] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
     const id = match?.params?.dashboardId || null
 
@@ -99,19 +98,19 @@ const PrintDashboard = ({
 
                 setIsLoading(false)
             } catch (error) {
-                setIsInvalid(true)
+                setRedirectUrl(id)
                 setIsLoading(false)
             }
         }
 
         setHeaderbarVisible(false)
 
-        if (id) {
-            loadDashboard()
-        } else {
-            setIsInvalid(true)
-        }
+        loadDashboard()
     }, [id])
+
+    if (redirectUrl) {
+        return <Redirect to={redirectUrl} />
+    }
 
     if (isLoading) {
         return (
@@ -120,16 +119,6 @@ const PrintDashboard = ({
                     <CircularLoader />
                 </CenteredContent>
             </Layer>
-        )
-    }
-
-    if (isInvalid) {
-        return (
-            <>
-                <NoContentMessage
-                    text={i18n.t('Requested dashboard not found')}
-                />
-            </>
         )
     }
 

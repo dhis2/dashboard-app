@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import i18n from '@dhis2/d2-i18n'
+import { Redirect } from 'react-router-dom'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import { useDataEngine } from '@dhis2/app-runtime'
 
@@ -18,7 +18,6 @@ import {
     acAddPrintDashboardItem,
     acUpdatePrintDashboardItem,
 } from '../../actions/printDashboard'
-import NoContentMessage from '../../components/NoContentMessage'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
 import { PRINT_LAYOUT } from '../../modules/dashboardModes'
 import { sGetEditDashboardRoot } from '../../reducers/editDashboard'
@@ -48,7 +47,7 @@ const PrintLayoutDashboard = ({
     fromEdit,
 }) => {
     const dataEngine = useDataEngine()
-    const [isInvalid, setIsInvalid] = useState(false)
+    const [redirectUrl, setRedirectUrl] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
 
     const customizePrintLayoutDashboard = dboard => {
@@ -89,7 +88,7 @@ const PrintLayoutDashboard = ({
                 )
                 customizePrintLayoutDashboard(dashboard)
             } catch (error) {
-                setIsInvalid(true)
+                setRedirectUrl(id)
                 setIsLoading(false)
             }
         }
@@ -104,6 +103,10 @@ const PrintLayoutDashboard = ({
         }
     }, [dashboard])
 
+    if (redirectUrl) {
+        return <Redirect to={redirectUrl} />
+    }
+
     if (isLoading) {
         return (
             <Layer translucent>
@@ -111,16 +114,6 @@ const PrintLayoutDashboard = ({
                     <CircularLoader />
                 </CenteredContent>
             </Layer>
-        )
-    }
-
-    if (isInvalid) {
-        return (
-            <>
-                <NoContentMessage
-                    text={i18n.t('Requested dashboard not found')}
-                />
-            </>
         )
     }
 

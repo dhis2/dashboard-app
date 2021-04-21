@@ -32,7 +32,6 @@ const EditDashboard = props => {
     const dataEngine = useDataEngine()
     const { width } = useWindowDimensions()
     const [redirectUrl, setRedirectUrl] = useState(null)
-    const [isInvalid, setIsInvalid] = useState(false)
     const [hasUpdateAccess, setHasUpdateAccess] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
 
@@ -53,21 +52,18 @@ const EditDashboard = props => {
                 setHasUpdateAccess(dboard.access?.update || false)
                 setIsLoading(false)
             } catch (error) {
-                setIsInvalid(true)
+                setRedirectUrl(props.id ? `/${props.id}` : '/')
                 setIsLoading(false)
             }
         }
 
         if (isSmallScreen(width)) {
-            const redirectUrl = props.id ? `/${props.id}` : '/'
-            setRedirectUrl(redirectUrl)
+            setRedirectUrl(props.id ? `/${props.id}` : '/')
             return
         }
         setHeaderbarVisible(true)
 
-        if (props.id) {
-            loadDashboard()
-        }
+        loadDashboard()
     }, [props.id])
 
     if (redirectUrl) {
@@ -81,16 +77,6 @@ const EditDashboard = props => {
                     <CircularLoader />
                 </CenteredContent>
             </Layer>
-        )
-    }
-
-    if (isInvalid) {
-        return (
-            <>
-                <NoContentMessage
-                    text={i18n.t('Requested dashboard not found')}
-                />
-            </>
         )
     }
 
