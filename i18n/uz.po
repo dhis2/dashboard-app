@@ -289,7 +289,7 @@ msgid "Create a new dashboard"
 msgstr ""
 
 msgid "New"
-msgstr ""
+msgstr "Янги"
 
 msgid "Search for a dashboard"
 msgstr "Бошқариш панелида излаш"

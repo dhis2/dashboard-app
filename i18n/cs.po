@@ -297,7 +297,7 @@ msgid "Create a new dashboard"
 msgstr ""
 
 msgid "New"
-msgstr ""
+msgstr "Nový"
 
 msgid "Search for a dashboard"
 msgstr "Vyhledat ovládací panel"
