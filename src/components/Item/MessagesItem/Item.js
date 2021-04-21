@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import { useConfig } from '@dhis2/app-runtime'
+import { Divider, spacers } from '@dhis2/ui'
 import ItemHeader from '../ItemHeader/ItemHeader'
-import Line from '../../../widgets/Line'
 import { useUserSettings } from '../../UserSettingsProvider'
 
 import { sGetMessagesRoot } from '../../../reducers/messages'
-import { formatDate } from '../../../modules/util'
-import { isViewMode } from '../../Dashboard/dashboardModes'
+import { getFormattedDate } from './getFormattedDate'
+import { isViewMode } from '../../../modules/dashboardModes'
 
 import classes from './styles/Item.module.css'
 import './MessagesItem.css'
@@ -67,7 +67,7 @@ const MessagesItem = ({ messages, item, dashboardMode }) => {
                     </p>
                     <p className={classes.sender}>
                         {sender} -{' '}
-                        {formatDate(msgDate, userSettings.keyUiLocale)}
+                        {getFormattedDate(msgDate, userSettings.keyUiLocale)}
                     </p>
                     <p className={classes.snippet}>{latestMsg.text}</p>
                 </li>
@@ -83,7 +83,7 @@ const MessagesItem = ({ messages, item, dashboardMode }) => {
                 dashboardMode={dashboardMode}
                 isShortened={item.shortened}
             />
-            <Line />
+            <Divider margin={`0 0 ${spacers.dp4} 0`} />
             {messages.length > 0 && (
                 <div className="dashboard-item-content">
                     <ul className={classes.list}>{getMessageItems()}</ul>

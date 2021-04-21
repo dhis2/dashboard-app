@@ -1,0 +1,1640 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
+<DocumentFragment>
+  <div
+    class="collapsed"
+    data-test="dashboards-bar"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="container collapsed"
+        >
+          <div
+            class="controlsSmall"
+          >
+            <div
+              class="container collapsed"
+            >
+              <button
+                class="searchButton"
+              >
+                <svg
+                  color="#404b5a"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 3a7 7 0 015.6 11.201.056.056 0 01.013.009l.094.083 5 5a1 1 0 01-1.32 1.497l-.094-.083-5-5a1.009 1.009 0 01-.094-.108A7 7 0 1110 3zm0 2a5 5 0 100 10 5 5 0 000-10z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+              <div
+                class="searchArea"
+              >
+                <div
+                  class="searchIconContainer"
+                >
+                  <svg
+                    color="#404b5a"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 1a5 5 0 013.871 8.164l4.483 4.482-.708.708L9.164 9.87A5 5 0 116 1zm0 1a4 4 0 100 8 4 4 0 000-8z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <input
+                  class="input"
+                  data-test="search-dashboard-input"
+                  placeholder="Search for a dashboard"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="chipsContainer"
+          >
+            <div
+              class="controlsLarge"
+            >
+              <a
+                class="newLink"
+                data-test="link-new-dashboard"
+                href="/new"
+              >
+                <span
+                  class="jsx-611321200"
+                  data-test="dhis2-uicore-tooltip-reference"
+                >
+                  <button
+                    class="jsx-2371629422 small"
+                    data-test="dhis2-uicore-button"
+                    type="button"
+                  >
+                    <span
+                      class="jsx-2371629422 button-icon"
+                    >
+                      <svg
+                        color="#6e7a8a"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                    New
+                  </button>
+                </span>
+              </a>
+              <div
+                class="container collapsed"
+              >
+                <button
+                  class="searchButton"
+                >
+                  <svg
+                    color="#404b5a"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 3a7 7 0 015.6 11.201.056.056 0 01.013.009l.094.083 5 5a1 1 0 01-1.32 1.497l-.094-.083-5-5a1.009 1.009 0 01-.094-.108A7 7 0 1110 3zm0 2a5 5 0 100 10 5 5 0 000-10z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+                <div
+                  class="searchArea"
+                >
+                  <div
+                    class="searchIconContainer"
+                  >
+                    <svg
+                      color="#404b5a"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6 1a5 5 0 013.871 8.164l4.483 4.482-.708.708L9.164 9.87A5 5 0 116 1zm0 1a4 4 0 100 8 4 4 0 000-8z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    class="input"
+                    data-test="search-dashboard-input"
+                    placeholder="Search for a dashboard"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <a
+              class="link"
+              data-test="dashboard-chip"
+              href="/fluttershy123"
+            >
+              <span
+                class="jsx-3285323350 selected"
+                data-test="dhis2-uicore-chip"
+              >
+                <span
+                  class="jsx-3489677657"
+                  data-test="dhis2-uicore-chip-icon"
+                >
+                  <svg
+                    color="#ffffff"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.397 7.041l-6.051.88-.114.022a1 1 0 00-.44 1.683l4.378 4.268-1.033 6.027-.013.11a1 1 0 001.463.944L12 18.13l5.413 2.845.1.047a1 1 0 001.35-1.1l-1.034-6.028 4.38-4.268.078-.086a1 1 0 00-.633-1.62l-6.052-.879-2.705-5.484a1 1 0 00-1.794 0z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="jsx-785997980 "
+                >
+                  Fluttershy
+                </span>
+              </span>
+            </a>
+            <a
+              class="link"
+              data-test="dashboard-chip"
+              href="/rainbow123"
+            >
+              <span
+                class="jsx-3285323350 "
+                data-test="dhis2-uicore-chip"
+              >
+                <span
+                  class="jsx-785997980 "
+                >
+                  Rainbow Dash
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container"
+      >
+        <button
+          aria-label="Show more dashboards"
+          class="showMore"
+          data-test="showmore-button"
+        >
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m11.29289 15.7071c.39053.3905 1.02369.3905 1.41422 0l4.99999-4.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-4.2929 4.2929-4.29289-4.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
+              fill="#a0adba"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="draghandle"
+        data-test="controlbar-drag-handle"
+      />
+    </div>
+    <div
+      class="spacer"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`renders a DashboardsBar with maximum height 1`] = `
+<div>
+  <div
+    class="collapsed"
+    data-test="dashboards-bar"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="container collapsed"
+        >
+          <div
+            class="controlsSmall"
+          >
+            <div
+              class="container collapsed"
+            >
+              <button
+                class="searchButton"
+              >
+                <svg
+                  color="#404b5a"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 3a7 7 0 015.6 11.201.056.056 0 01.013.009l.094.083 5 5a1 1 0 01-1.32 1.497l-.094-.083-5-5a1.009 1.009 0 01-.094-.108A7 7 0 1110 3zm0 2a5 5 0 100 10 5 5 0 000-10z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+              <div
+                class="searchArea"
+              >
+                <div
+                  class="searchIconContainer"
+                >
+                  <svg
+                    color="#404b5a"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 1a5 5 0 013.871 8.164l4.483 4.482-.708.708L9.164 9.87A5 5 0 116 1zm0 1a4 4 0 100 8 4 4 0 000-8z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <input
+                  class="input"
+                  data-test="search-dashboard-input"
+                  placeholder="Search for a dashboard"
+                  type="text"
+                  value=""
+                />
+                
+              </div>
+            </div>
+          </div>
+          <div
+            class="chipsContainer"
+          >
+            <div
+              class="controlsLarge"
+            >
+              <a
+                class="newLink"
+                data-test="link-new-dashboard"
+                href="/new"
+              >
+                <span
+                  class="jsx-611321200"
+                  data-test="dhis2-uicore-tooltip-reference"
+                >
+                  <button
+                    class="jsx-2371629422 small"
+                    data-test="dhis2-uicore-button"
+                    type="button"
+                  >
+                    <span
+                      class="jsx-2371629422 button-icon"
+                    >
+                      <svg
+                        color="#6e7a8a"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                    New
+                  </button>
+                </span>
+              </a>
+              <div
+                class="container collapsed"
+              >
+                <button
+                  class="searchButton"
+                >
+                  <svg
+                    color="#404b5a"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 3a7 7 0 015.6 11.201.056.056 0 01.013.009l.094.083 5 5a1 1 0 01-1.32 1.497l-.094-.083-5-5a1.009 1.009 0 01-.094-.108A7 7 0 1110 3zm0 2a5 5 0 100 10 5 5 0 000-10z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+                <div
+                  class="searchArea"
+                >
+                  <div
+                    class="searchIconContainer"
+                  >
+                    <svg
+                      color="#404b5a"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6 1a5 5 0 013.871 8.164l4.483 4.482-.708.708L9.164 9.87A5 5 0 116 1zm0 1a4 4 0 100 8 4 4 0 000-8z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    class="input"
+                    data-test="search-dashboard-input"
+                    placeholder="Search for a dashboard"
+                    type="text"
+                    value=""
+                  />
+                  
+                </div>
+              </div>
+            </div>
+            <a
+              class="link"
+              data-test="dashboard-chip"
+              href="/fluttershy123"
+            >
+              <span
+                class="jsx-3285323350 "
+                data-test="dhis2-uicore-chip"
+              >
+                <span
+                  class="jsx-3489677657"
+                  data-test="dhis2-uicore-chip-icon"
+                >
+                  <svg
+                    color="#6e7a8a"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.397 7.041l-6.051.88-.114.022a1 1 0 00-.44 1.683l4.378 4.268-1.033 6.027-.013.11a1 1 0 001.463.944L12 18.13l5.413 2.845.1.047a1 1 0 001.35-1.1l-1.034-6.028 4.38-4.268.078-.086a1 1 0 00-.633-1.62l-6.052-.879-2.705-5.484a1 1 0 00-1.794 0z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="jsx-785997980 "
+                >
+                  Fluttershy
+                </span>
+              </span>
+            </a>
+            <a
+              class="link"
+              data-test="dashboard-chip"
+              href="/rainbow123"
+            >
+              <span
+                class="jsx-3285323350 selected"
+                data-test="dhis2-uicore-chip"
+              >
+                <span
+                  class="jsx-785997980 "
+                >
+                  Rainbow Dash
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container"
+      >
+        <div
+          class="disabled"
+        >
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m11.29289 15.7071c.39053.3905 1.02369.3905 1.41422 0l4.99999-4.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-4.2929 4.2929-4.29289-4.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
+              fill="#a0adba"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="draghandle"
+        data-test="controlbar-drag-handle"
+      />
+    </div>
+    <div
+      class="spacer"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders a DashboardsBar with minimum height 1`] = `
+<div>
+  <div
+    class="collapsed"
+    data-test="dashboards-bar"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="container collapsed"
+        >
+          <div
+            class="controlsSmall"
+          >
+            <div
+              class="container collapsed"
+            >
+              <button
+                class="searchButton"
+              >
+                <svg
+                  color="#404b5a"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 3a7 7 0 015.6 11.201.056.056 0 01.013.009l.094.083 5 5a1 1 0 01-1.32 1.497l-.094-.083-5-5a1.009 1.009 0 01-.094-.108A7 7 0 1110 3zm0 2a5 5 0 100 10 5 5 0 000-10z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+              <div
+                class="searchArea"
+              >
+                <div
+                  class="searchIconContainer"
+                >
+                  <svg
+                    color="#404b5a"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 1a5 5 0 013.871 8.164l4.483 4.482-.708.708L9.164 9.87A5 5 0 116 1zm0 1a4 4 0 100 8 4 4 0 000-8z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <input
+                  class="input"
+                  data-test="search-dashboard-input"
+                  placeholder="Search for a dashboard"
+                  type="text"
+                  value=""
+                />
+                
+              </div>
+            </div>
+          </div>
+          <div
+            class="chipsContainer"
+          >
+            <div
+              class="controlsLarge"
+            >
+              <a
+                class="newLink"
+                data-test="link-new-dashboard"
+                href="/new"
+              >
+                <span
+                  class="jsx-611321200"
+                  data-test="dhis2-uicore-tooltip-reference"
+                >
+                  <button
+                    class="jsx-2371629422 small"
+                    data-test="dhis2-uicore-button"
+                    type="button"
+                  >
+                    <span
+                      class="jsx-2371629422 button-icon"
+                    >
+                      <svg
+                        color="#6e7a8a"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                    New
+                  </button>
+                </span>
+              </a>
+              <div
+                class="container collapsed"
+              >
+                <button
+                  class="searchButton"
+                >
+                  <svg
+                    color="#404b5a"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 3a7 7 0 015.6 11.201.056.056 0 01.013.009l.094.083 5 5a1 1 0 01-1.32 1.497l-.094-.083-5-5a1.009 1.009 0 01-.094-.108A7 7 0 1110 3zm0 2a5 5 0 100 10 5 5 0 000-10z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+                <div
+                  class="searchArea"
+                >
+                  <div
+                    class="searchIconContainer"
+                  >
+                    <svg
+                      color="#404b5a"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6 1a5 5 0 013.871 8.164l4.483 4.482-.708.708L9.164 9.87A5 5 0 116 1zm0 1a4 4 0 100 8 4 4 0 000-8z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    class="input"
+                    data-test="search-dashboard-input"
+                    placeholder="Search for a dashboard"
+                    type="text"
+                    value=""
+                  />
+                  
+                </div>
+              </div>
+            </div>
+            <a
+              class="link"
+              data-test="dashboard-chip"
+              href="/fluttershy123"
+            >
+              <span
+                class="jsx-3285323350 "
+                data-test="dhis2-uicore-chip"
+              >
+                <span
+                  class="jsx-3489677657"
+                  data-test="dhis2-uicore-chip-icon"
+                >
+                  <svg
+                    color="#6e7a8a"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.397 7.041l-6.051.88-.114.022a1 1 0 00-.44 1.683l4.378 4.268-1.033 6.027-.013.11a1 1 0 001.463.944L12 18.13l5.413 2.845.1.047a1 1 0 001.35-1.1l-1.034-6.028 4.38-4.268.078-.086a1 1 0 00-.633-1.62l-6.052-.879-2.705-5.484a1 1 0 00-1.794 0z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="jsx-785997980 "
+                >
+                  Fluttershy
+                </span>
+              </span>
+            </a>
+            <a
+              class="link"
+              data-test="dashboard-chip"
+              href="/rainbow123"
+            >
+              <span
+                class="jsx-3285323350 selected"
+                data-test="dhis2-uicore-chip"
+              >
+                <span
+                  class="jsx-785997980 "
+                >
+                  Rainbow Dash
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container"
+      >
+        <button
+          aria-label="Show more dashboards"
+          class="showMore"
+          data-test="showmore-button"
+        >
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m11.29289 15.7071c.39053.3905 1.02369.3905 1.41422 0l4.99999-4.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-4.2929 4.2929-4.29289-4.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
+              fill="#a0adba"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="draghandle"
+        data-test="controlbar-drag-handle"
+      />
+    </div>
+    <div
+      class="spacer"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders a DashboardsBar with no items 1`] = `
+<div>
+  <div
+    class="collapsed"
+    data-test="dashboards-bar"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="container collapsed"
+        >
+          <div
+            class="controlsSmall"
+          >
+            <div
+              class="container collapsed"
+            >
+              <button
+                class="searchButton"
+              >
+                <svg
+                  color="#404b5a"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 3a7 7 0 015.6 11.201.056.056 0 01.013.009l.094.083 5 5a1 1 0 01-1.32 1.497l-.094-.083-5-5a1.009 1.009 0 01-.094-.108A7 7 0 1110 3zm0 2a5 5 0 100 10 5 5 0 000-10z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+              <div
+                class="searchArea"
+              >
+                <div
+                  class="searchIconContainer"
+                >
+                  <svg
+                    color="#404b5a"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 1a5 5 0 013.871 8.164l4.483 4.482-.708.708L9.164 9.87A5 5 0 116 1zm0 1a4 4 0 100 8 4 4 0 000-8z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <input
+                  class="input"
+                  data-test="search-dashboard-input"
+                  placeholder="Search for a dashboard"
+                  type="text"
+                  value=""
+                />
+                
+              </div>
+            </div>
+          </div>
+          <div
+            class="chipsContainer"
+          >
+            <div
+              class="controlsLarge"
+            >
+              <a
+                class="newLink"
+                data-test="link-new-dashboard"
+                href="/new"
+              >
+                <span
+                  class="jsx-611321200"
+                  data-test="dhis2-uicore-tooltip-reference"
+                >
+                  <button
+                    class="jsx-2371629422 small"
+                    data-test="dhis2-uicore-button"
+                    type="button"
+                  >
+                    <span
+                      class="jsx-2371629422 button-icon"
+                    >
+                      <svg
+                        color="#6e7a8a"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                    New
+                  </button>
+                </span>
+              </a>
+              <div
+                class="container collapsed"
+              >
+                <button
+                  class="searchButton"
+                >
+                  <svg
+                    color="#404b5a"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 3a7 7 0 015.6 11.201.056.056 0 01.013.009l.094.083 5 5a1 1 0 01-1.32 1.497l-.094-.083-5-5a1.009 1.009 0 01-.094-.108A7 7 0 1110 3zm0 2a5 5 0 100 10 5 5 0 000-10z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+                <div
+                  class="searchArea"
+                >
+                  <div
+                    class="searchIconContainer"
+                  >
+                    <svg
+                      color="#404b5a"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6 1a5 5 0 013.871 8.164l4.483 4.482-.708.708L9.164 9.87A5 5 0 116 1zm0 1a4 4 0 100 8 4 4 0 000-8z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    class="input"
+                    data-test="search-dashboard-input"
+                    placeholder="Search for a dashboard"
+                    type="text"
+                    value=""
+                  />
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container"
+      >
+        <button
+          aria-label="Show more dashboards"
+          class="showMore"
+          data-test="showmore-button"
+        >
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m11.29289 15.7071c.39053.3905 1.02369.3905 1.41422 0l4.99999-4.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-4.2929 4.2929-4.29289-4.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
+              fill="#a0adba"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="draghandle"
+        data-test="controlbar-drag-handle"
+      />
+    </div>
+    <div
+      class="spacer"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders a DashboardsBar with selected item 1`] = `
+<div>
+  <div
+    class="collapsed"
+    data-test="dashboards-bar"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="container collapsed"
+        >
+          <div
+            class="controlsSmall"
+          >
+            <div
+              class="container collapsed"
+            >
+              <button
+                class="searchButton"
+              >
+                <svg
+                  color="#404b5a"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 3a7 7 0 015.6 11.201.056.056 0 01.013.009l.094.083 5 5a1 1 0 01-1.32 1.497l-.094-.083-5-5a1.009 1.009 0 01-.094-.108A7 7 0 1110 3zm0 2a5 5 0 100 10 5 5 0 000-10z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+              <div
+                class="searchArea"
+              >
+                <div
+                  class="searchIconContainer"
+                >
+                  <svg
+                    color="#404b5a"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 1a5 5 0 013.871 8.164l4.483 4.482-.708.708L9.164 9.87A5 5 0 116 1zm0 1a4 4 0 100 8 4 4 0 000-8z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <input
+                  class="input"
+                  data-test="search-dashboard-input"
+                  placeholder="Search for a dashboard"
+                  type="text"
+                  value=""
+                />
+                
+              </div>
+            </div>
+          </div>
+          <div
+            class="chipsContainer"
+          >
+            <div
+              class="controlsLarge"
+            >
+              <a
+                class="newLink"
+                data-test="link-new-dashboard"
+                href="/new"
+              >
+                <span
+                  class="jsx-611321200"
+                  data-test="dhis2-uicore-tooltip-reference"
+                >
+                  <button
+                    class="jsx-2371629422 small"
+                    data-test="dhis2-uicore-button"
+                    type="button"
+                  >
+                    <span
+                      class="jsx-2371629422 button-icon"
+                    >
+                      <svg
+                        color="#6e7a8a"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                    New
+                  </button>
+                </span>
+              </a>
+              <div
+                class="container collapsed"
+              >
+                <button
+                  class="searchButton"
+                >
+                  <svg
+                    color="#404b5a"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 3a7 7 0 015.6 11.201.056.056 0 01.013.009l.094.083 5 5a1 1 0 01-1.32 1.497l-.094-.083-5-5a1.009 1.009 0 01-.094-.108A7 7 0 1110 3zm0 2a5 5 0 100 10 5 5 0 000-10z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+                <div
+                  class="searchArea"
+                >
+                  <div
+                    class="searchIconContainer"
+                  >
+                    <svg
+                      color="#404b5a"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6 1a5 5 0 013.871 8.164l4.483 4.482-.708.708L9.164 9.87A5 5 0 116 1zm0 1a4 4 0 100 8 4 4 0 000-8z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    class="input"
+                    data-test="search-dashboard-input"
+                    placeholder="Search for a dashboard"
+                    type="text"
+                    value=""
+                  />
+                  
+                </div>
+              </div>
+            </div>
+            <a
+              class="link"
+              data-test="dashboard-chip"
+              href="/fluttershy123"
+            >
+              <span
+                class="jsx-3285323350 selected"
+                data-test="dhis2-uicore-chip"
+              >
+                <span
+                  class="jsx-3489677657"
+                  data-test="dhis2-uicore-chip-icon"
+                >
+                  <svg
+                    color="#ffffff"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.397 7.041l-6.051.88-.114.022a1 1 0 00-.44 1.683l4.378 4.268-1.033 6.027-.013.11a1 1 0 001.463.944L12 18.13l5.413 2.845.1.047a1 1 0 001.35-1.1l-1.034-6.028 4.38-4.268.078-.086a1 1 0 00-.633-1.62l-6.052-.879-2.705-5.484a1 1 0 00-1.794 0z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="jsx-785997980 "
+                >
+                  Fluttershy
+                </span>
+              </span>
+            </a>
+            <a
+              class="link"
+              data-test="dashboard-chip"
+              href="/rainbow123"
+            >
+              <span
+                class="jsx-3285323350 "
+                data-test="dhis2-uicore-chip"
+              >
+                <span
+                  class="jsx-785997980 "
+                >
+                  Rainbow Dash
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container"
+      >
+        <button
+          aria-label="Show more dashboards"
+          class="showMore"
+          data-test="showmore-button"
+        >
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m11.29289 15.7071c.39053.3905 1.02369.3905 1.41422 0l4.99999-4.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-4.2929 4.2929-4.29289-4.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
+              fill="#a0adba"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="draghandle"
+        data-test="controlbar-drag-handle"
+      />
+    </div>
+    <div
+      class="spacer"
+    />
+  </div>
+</div>
+`;
+
+exports[`small screen: clicking "Show more" maximizes dashboards bar height 1`] = `
+<DocumentFragment>
+  <div
+    class="collapsed"
+    data-test="dashboards-bar"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="container collapsed"
+        >
+          <div
+            class="controlsSmall"
+          >
+            <div
+              class="container collapsed"
+            >
+              <button
+                class="searchButton"
+              >
+                <svg
+                  color="#404b5a"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 3a7 7 0 015.6 11.201.056.056 0 01.013.009l.094.083 5 5a1 1 0 01-1.32 1.497l-.094-.083-5-5a1.009 1.009 0 01-.094-.108A7 7 0 1110 3zm0 2a5 5 0 100 10 5 5 0 000-10z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+              <div
+                class="searchArea"
+              >
+                <div
+                  class="searchIconContainer"
+                >
+                  <svg
+                    color="#404b5a"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 1a5 5 0 013.871 8.164l4.483 4.482-.708.708L9.164 9.87A5 5 0 116 1zm0 1a4 4 0 100 8 4 4 0 000-8z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <input
+                  class="input"
+                  data-test="search-dashboard-input"
+                  placeholder="Search for a dashboard"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="chipsContainer"
+          >
+            <div
+              class="controlsLarge"
+            >
+              <a
+                class="newLink"
+                data-test="link-new-dashboard"
+                href="/new"
+              >
+                <span
+                  class="jsx-611321200"
+                  data-test="dhis2-uicore-tooltip-reference"
+                >
+                  <button
+                    class="jsx-2371629422 small"
+                    data-test="dhis2-uicore-button"
+                    type="button"
+                  >
+                    <span
+                      class="jsx-2371629422 button-icon"
+                    >
+                      <svg
+                        color="#6e7a8a"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                    New
+                  </button>
+                </span>
+              </a>
+              <div
+                class="container collapsed"
+              >
+                <button
+                  class="searchButton"
+                >
+                  <svg
+                    color="#404b5a"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 3a7 7 0 015.6 11.201.056.056 0 01.013.009l.094.083 5 5a1 1 0 01-1.32 1.497l-.094-.083-5-5a1.009 1.009 0 01-.094-.108A7 7 0 1110 3zm0 2a5 5 0 100 10 5 5 0 000-10z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+                <div
+                  class="searchArea"
+                >
+                  <div
+                    class="searchIconContainer"
+                  >
+                    <svg
+                      color="#404b5a"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6 1a5 5 0 013.871 8.164l4.483 4.482-.708.708L9.164 9.87A5 5 0 116 1zm0 1a4 4 0 100 8 4 4 0 000-8z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    class="input"
+                    data-test="search-dashboard-input"
+                    placeholder="Search for a dashboard"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <a
+              class="link"
+              data-test="dashboard-chip"
+              href="/fluttershy123"
+            >
+              <span
+                class="jsx-3285323350 selected"
+                data-test="dhis2-uicore-chip"
+              >
+                <span
+                  class="jsx-3489677657"
+                  data-test="dhis2-uicore-chip-icon"
+                >
+                  <svg
+                    color="#ffffff"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.397 7.041l-6.051.88-.114.022a1 1 0 00-.44 1.683l4.378 4.268-1.033 6.027-.013.11a1 1 0 001.463.944L12 18.13l5.413 2.845.1.047a1 1 0 001.35-1.1l-1.034-6.028 4.38-4.268.078-.086a1 1 0 00-.633-1.62l-6.052-.879-2.705-5.484a1 1 0 00-1.794 0z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="jsx-785997980 "
+                >
+                  Fluttershy
+                </span>
+              </span>
+            </a>
+            <a
+              class="link"
+              data-test="dashboard-chip"
+              href="/rainbow123"
+            >
+              <span
+                class="jsx-3285323350 "
+                data-test="dhis2-uicore-chip"
+              >
+                <span
+                  class="jsx-785997980 "
+                >
+                  Rainbow Dash
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container"
+      >
+        <button
+          aria-label="Show more dashboards"
+          class="showMore"
+          data-test="showmore-button"
+        >
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m11.29289 15.7071c.39053.3905 1.02369.3905 1.41422 0l4.99999-4.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-4.2929 4.2929-4.29289-4.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
+              fill="#a0adba"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="draghandle"
+        data-test="controlbar-drag-handle"
+      />
+    </div>
+    <div
+      class="spacer"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`small screen: renders a DashboardsBar with minimum height 1`] = `
+<div>
+  <div
+    class="collapsed"
+    data-test="dashboards-bar"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="container collapsed"
+        >
+          <div
+            class="controlsSmall"
+          >
+            <div
+              class="container collapsed"
+            >
+              <button
+                class="searchButton"
+              >
+                <svg
+                  color="#404b5a"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 3a7 7 0 015.6 11.201.056.056 0 01.013.009l.094.083 5 5a1 1 0 01-1.32 1.497l-.094-.083-5-5a1.009 1.009 0 01-.094-.108A7 7 0 1110 3zm0 2a5 5 0 100 10 5 5 0 000-10z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+              <div
+                class="searchArea"
+              >
+                <div
+                  class="searchIconContainer"
+                >
+                  <svg
+                    color="#404b5a"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 1a5 5 0 013.871 8.164l4.483 4.482-.708.708L9.164 9.87A5 5 0 116 1zm0 1a4 4 0 100 8 4 4 0 000-8z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <input
+                  class="input"
+                  data-test="search-dashboard-input"
+                  placeholder="Search for a dashboard"
+                  type="text"
+                  value=""
+                />
+                
+              </div>
+            </div>
+          </div>
+          <div
+            class="chipsContainer"
+          >
+            <div
+              class="controlsLarge"
+            >
+              <a
+                class="newLink"
+                data-test="link-new-dashboard"
+                href="/new"
+              >
+                <span
+                  class="jsx-611321200"
+                  data-test="dhis2-uicore-tooltip-reference"
+                >
+                  <button
+                    class="jsx-2371629422 small"
+                    data-test="dhis2-uicore-button"
+                    type="button"
+                  >
+                    <span
+                      class="jsx-2371629422 button-icon"
+                    >
+                      <svg
+                        color="#6e7a8a"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                    New
+                  </button>
+                </span>
+              </a>
+              <div
+                class="container collapsed"
+              >
+                <button
+                  class="searchButton"
+                >
+                  <svg
+                    color="#404b5a"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 3a7 7 0 015.6 11.201.056.056 0 01.013.009l.094.083 5 5a1 1 0 01-1.32 1.497l-.094-.083-5-5a1.009 1.009 0 01-.094-.108A7 7 0 1110 3zm0 2a5 5 0 100 10 5 5 0 000-10z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+                <div
+                  class="searchArea"
+                >
+                  <div
+                    class="searchIconContainer"
+                  >
+                    <svg
+                      color="#404b5a"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6 1a5 5 0 013.871 8.164l4.483 4.482-.708.708L9.164 9.87A5 5 0 116 1zm0 1a4 4 0 100 8 4 4 0 000-8z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    class="input"
+                    data-test="search-dashboard-input"
+                    placeholder="Search for a dashboard"
+                    type="text"
+                    value=""
+                  />
+                  
+                </div>
+              </div>
+            </div>
+            <a
+              class="link"
+              data-test="dashboard-chip"
+              href="/fluttershy123"
+            >
+              <span
+                class="jsx-3285323350 "
+                data-test="dhis2-uicore-chip"
+              >
+                <span
+                  class="jsx-3489677657"
+                  data-test="dhis2-uicore-chip-icon"
+                >
+                  <svg
+                    color="#6e7a8a"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.397 7.041l-6.051.88-.114.022a1 1 0 00-.44 1.683l4.378 4.268-1.033 6.027-.013.11a1 1 0 001.463.944L12 18.13l5.413 2.845.1.047a1 1 0 001.35-1.1l-1.034-6.028 4.38-4.268.078-.086a1 1 0 00-.633-1.62l-6.052-.879-2.705-5.484a1 1 0 00-1.794 0z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="jsx-785997980 "
+                >
+                  Fluttershy
+                </span>
+              </span>
+            </a>
+            <a
+              class="link"
+              data-test="dashboard-chip"
+              href="/rainbow123"
+            >
+              <span
+                class="jsx-3285323350 selected"
+                data-test="dhis2-uicore-chip"
+              >
+                <span
+                  class="jsx-785997980 "
+                >
+                  Rainbow Dash
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container"
+      >
+        <button
+          aria-label="Show more dashboards"
+          class="showMore"
+          data-test="showmore-button"
+        >
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m11.29289 15.7071c.39053.3905 1.02369.3905 1.41422 0l4.99999-4.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-4.2929 4.2929-4.29289-4.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
+              fill="#a0adba"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="draghandle"
+        data-test="controlbar-drag-handle"
+      />
+    </div>
+    <div
+      class="spacer"
+    />
+  </div>
+</div>
+`;

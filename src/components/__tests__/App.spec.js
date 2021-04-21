@@ -14,7 +14,7 @@ jest.mock('../UserSettingsProvider')
 jest.mock('@dhis2/analytics')
 jest.mock('@dhis2/app-runtime-adapter-d2')
 jest.mock(
-    '../Dashboard/Dashboard',
+    '../Dashboard',
     () =>
         function MockDashboard() {
             return <div className="dashboard" />

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import DefaultPlugin from './DefaultPlugin'
 import { MAP } from '../../../../modules/itemTypes'
-import { isElementFullscreen } from '../../../../modules/isElementFullscreen'
+import { isElementFullscreen } from '../isElementFullscreen'
 import { pluginIsAvailable, resize } from './plugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
 

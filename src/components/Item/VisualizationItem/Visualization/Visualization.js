@@ -8,8 +8,10 @@ import MapPlugin from './MapPlugin'
 import DataVisualizerPlugin from './DataVisualizerPlugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
 
-import getFilteredVisualization from '../../../../modules/getFilteredVisualization'
-import getVisualizationConfig from '../../../../modules/getVisualizationConfig'
+import getFilteredVisualization from './getFilteredVisualization'
+import { pluginIsAvailable } from './plugin'
+import getVisualizationConfig from './getVisualizationConfig'
+import memoizeOne from '../memoizeOne'
 import {
     VISUALIZATION,
     MAP,
@@ -17,9 +19,7 @@ import {
     REPORT_TABLE,
 } from '../../../../modules/itemTypes'
 import { getVisualizationId } from '../../../../modules/item'
-import memoizeOne from '../../../../modules/memoizeOne'
 import { sGetVisualization } from '../../../../reducers/visualizations'
-import { pluginIsAvailable } from './plugin'
 
 class Visualization extends React.Component {
     constructor(props) {

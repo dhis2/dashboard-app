@@ -118,10 +118,10 @@ Scenario: Open the interpretations panel
 */
 
 When(
-    'I click Show interpretations and details on a chart dashboard item',
+    'I click Show details and interpretations on a chart dashboard item',
     () => {
         clickMenuButton(chartItemUid)
-        cy.contains('Show interpretations and details').click()
+        cy.contains('Show details and interpretations').click()
     }
 )
 Then('the interpretations panel is displayed', () => {

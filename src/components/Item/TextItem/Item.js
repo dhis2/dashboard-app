@@ -2,11 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
+import { Divider, TextArea, spacers } from '@dhis2/ui'
 
-import Input from '@material-ui/core/Input'
 import ItemHeader from '../ItemHeader/ItemHeader'
 import PrintItemInfo from '../ItemHeader/PrintItemInfo'
-import Line from '../../../widgets/Line'
 import {
     Parser as RichTextParser,
     Editor as RichTextEditor,
@@ -19,7 +18,7 @@ import {
     sGetIsPrinting,
     sGetPrintDashboardItems,
 } from '../../../reducers/printDashboard'
-import { isEditMode, PRINT_LAYOUT } from '../../Dashboard/dashboardModes'
+import { isEditMode, PRINT_LAYOUT } from '../../../modules/dashboardModes'
 
 const style = {
     textDiv: {
@@ -44,10 +43,10 @@ const style = {
 const TextItem = props => {
     const { item, dashboardMode, text, acUpdateDashboardItem } = props
 
-    const onChangeText = event => {
+    const onChangeText = text => {
         const updatedItem = {
             ...item,
-            text: event.target.value,
+            text,
         }
 
         acUpdateDashboardItem(updatedItem)
@@ -70,16 +69,16 @@ const TextItem = props => {
                     itemId={item.id}
                     dashboardMode={dashboardMode}
                 />
-                <Line />
+                <Divider margin={`0 0 ${spacers.dp4} 0`} />
                 <div className="dashboard-item-content">
-                    <RichTextEditor onEdit={onChangeText}>
-                        <Input
+                    <RichTextEditor
+                        onEdit={event => onChangeText(event.target.value)}
+                    >
+                        <TextArea
+                            rows={30}
                             value={text}
-                            multiline
-                            fullWidth
-                            style={style.textField}
                             placeholder={i18n.t('Add text here')}
-                            onChange={onChangeText}
+                            onChange={({ value }) => onChangeText(value)}
                         />
                     </RichTextEditor>
                 </div>

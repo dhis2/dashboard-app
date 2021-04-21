@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentMenuItem does not have LaunchLink if no url provided 1`] = `
+<MenuItem
+  dataTest="menu-item-Pinkie Pie"
+  icon={
+    <SvgQuestion24
+      color="#6e7a8a"
+    />
+  }
+  label={
+    <div
+      className="menuItem"
+    >
+      <div
+        className="label"
+      >
+        <span>
+          Pinkie Pie
+        </span>
+      </div>
+      <InsertButton />
+    </div>
+  }
+  onClick={[MockFunction]}
+/>
+`;
+
+exports[`ContentMenuItem has a LaunchLink when url is provided 1`] = `
+<MenuItem
+  dataTest="menu-item-Pinkie Pie"
+  icon={
+    <SvgQuestion24
+      color="#6e7a8a"
+    />
+  }
+  label={
+    <div
+      className="menuItem"
+    >
+      <div
+        className="label"
+      >
+        <span>
+          Pinkie Pie
+        </span>
+        <LaunchLink
+          url="http://ponies-r-us.com"
+        />
+      </div>
+      <InsertButton />
+    </div>
+  }
+  onClick={[MockFunction]}
+/>
+`;

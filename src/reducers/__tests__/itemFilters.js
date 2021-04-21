@@ -1,6 +1,5 @@
 import reducer, {
     DEFAULT_STATE_ITEM_FILTERS,
-    SET_ITEM_FILTERS,
     REMOVE_ITEM_FILTER,
     CLEAR_ITEM_FILTERS,
 } from '../itemFilters'
@@ -18,19 +17,6 @@ describe('item filter reducer', () => {
             const actualState = reducer(DEFAULT_STATE_ITEM_FILTERS, {})
 
             expect(actualState).toEqual(DEFAULT_STATE_ITEM_FILTERS)
-        })
-
-        it('should set a filter', () => {
-            const action = {
-                type: SET_ITEM_FILTERS,
-                filters: testState,
-            }
-
-            const expectedState = testState
-
-            const actualState = reducer(undefined, action)
-
-            expect(actualState).toEqual(expectedState)
         })
 
         it('should remove a filter', () => {

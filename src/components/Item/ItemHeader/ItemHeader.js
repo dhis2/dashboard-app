@@ -6,7 +6,7 @@ import ViewItemActions from './ViewItemActions'
 import EditItemActions from './EditItemActions'
 import PrintItemInfo from './PrintItemInfo'
 
-import { VIEW, EDIT, PRINT_LAYOUT } from '../../Dashboard/dashboardModes'
+import { VIEW, EDIT, PRINT_LAYOUT } from '../../../modules/dashboardModes'
 
 import classes from './styles/ItemHeader.module.css'
 

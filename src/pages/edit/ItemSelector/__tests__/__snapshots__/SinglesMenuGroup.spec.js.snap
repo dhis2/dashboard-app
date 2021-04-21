@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders SingleMenuGroup 1`] = `
+<div>
+  <li
+    class="jsx-665727467 item disabled dense"
+    data-test="dhis2-uicore-menuitem"
+  >
+    <a
+      class="jsx-665727467"
+    >
+      <span
+        class="jsx-665727467 label"
+      >
+        <span
+          style="color: rgb(64, 75, 90); font-weight: 600;"
+        >
+          ponies
+        </span>
+      </span>
+    </a>
+  </li>
+  <li
+    class="jsx-665727467 "
+    data-test="menu-item-Rainbow Dash"
+  >
+    <a
+      class="jsx-665727467"
+    >
+      <span
+        class="jsx-665727467 icon"
+      >
+        <svg
+          color="#6e7a8a"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2a8 8 0 100 16 8 8 0 000-16zm0 12a1 1 0 110 2 1 1 0 010-2zm0-10a4 4 0 011.155 7.83l-.155.043V15h-2v-3h1a2 2 0 10-1.995-2.15L10 10H8a4 4 0 014-4z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        class="jsx-665727467 label"
+      >
+        <div
+          class="menuItem"
+        >
+          <div
+            class="label"
+          >
+            <span>
+              Rainbow Dash
+            </span>
+          </div>
+          <button
+            class="buttonInsert"
+          >
+            Insert
+          </button>
+        </div>
+      </span>
+    </a>
+  </li>
+  <li
+    class="jsx-665727467 "
+    data-test="menu-item-Twilight"
+  >
+    <a
+      class="jsx-665727467"
+    >
+      <span
+        class="jsx-665727467 icon"
+      >
+        <svg
+          color="#6e7a8a"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2a8 8 0 100 16 8 8 0 000-16zm0 12a1 1 0 110 2 1 1 0 010-2zm0-10a4 4 0 011.155 7.83l-.155.043V15h-2v-3h1a2 2 0 10-1.995-2.15L10 10H8a4 4 0 014-4z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        class="jsx-665727467 label"
+      >
+        <div
+          class="menuItem"
+        >
+          <div
+            class="label"
+          >
+            <span>
+              Twilight
+            </span>
+          </div>
+          <button
+            class="buttonInsert"
+          >
+            Insert
+          </button>
+        </div>
+      </span>
+    </a>
+  </li>
+</div>
+`;

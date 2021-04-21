@@ -7,20 +7,25 @@ import {
     VIS_TYPE_GAUGE,
     VIS_TYPE_PIE,
 } from '@dhis2/analytics'
-import { Button, Menu, Popover, MenuItem, Divider } from '@dhis2/ui'
+import {
+    colors,
+    Button,
+    Menu,
+    Popover,
+    MenuItem,
+    Divider,
+    IconFullscreen16,
+    IconFullscreenExit16,
+    IconLaunch16,
+    IconMessages16,
+    IconMore24,
+} from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import LaunchIcon from '@material-ui/icons/Launch'
 import ViewAsMenuItems from './ViewAsMenuItems'
 import { useWindowDimensions } from '../../../WindowDimensionsProvider'
 import { isSmallScreen } from '../../../../modules/smallScreen'
-import { isElementFullscreen } from '../../../../modules/isElementFullscreen'
+import { isElementFullscreen } from '../isElementFullscreen'
 
-import {
-    ThreeDots,
-    SpeechBubble,
-    Fullscreen,
-    ExitFullscreen,
-} from '../assets/icons'
 import { getLink } from '../Visualization/plugin'
 import { getAppName } from '../../../../modules/itemTypes'
 import { useSystemSettings } from '../../../SystemSettingsProvider'
@@ -81,15 +86,15 @@ const ItemContextMenu = props => {
         type !== VIS_TYPE_PIE
 
     const interpretationMenuLabel = props.activeFooter
-        ? i18n.t(`Hide interpretations and details`)
-        : i18n.t(`Show interpretations and details`)
+        ? i18n.t(`Hide details and interpretations`)
+        : i18n.t(`Show details and interpretations`)
 
     const buttonRef = createRef()
 
     return isElementFullscreen(item.id) ? (
         <Button small secondary onClick={props.onToggleFullscreen}>
             <span data-testid="exit-fullscreen-button">
-                <ExitFullscreen />
+                <IconFullscreenExit16 color={colors.grey600} />
             </span>
         </Button>
     ) : (
@@ -100,9 +105,8 @@ const ItemContextMenu = props => {
                     secondary
                     onClick={openMenu}
                     dataTest="dashboarditem-menu-button"
-                >
-                    <ThreeDots />
-                </Button>
+                    icon={<IconMore24 color={colors.grey700} />}
+                />
             </div>
             {menuIsOpen && (
                 <Popover
@@ -133,9 +137,7 @@ const ItemContextMenu = props => {
                         {allowVisOpenInApp && !isSmallScreen(width) && (
                             <MenuItem
                                 dense
-                                icon={
-                                    <LaunchIcon style={{ fill: '#6e7a8a' }} />
-                                }
+                                icon={<IconLaunch16 color={colors.grey600} />}
                                 label={i18n.t('Open in {{appName}} app', {
                                     appName: getAppName(item.type),
                                 })}
@@ -146,7 +148,7 @@ const ItemContextMenu = props => {
                         {allowVisShowInterpretations && !loadItemFailed && (
                             <MenuItem
                                 dense
-                                icon={<SpeechBubble />}
+                                icon={<IconMessages16 color={colors.grey600} />}
                                 label={interpretationMenuLabel}
                                 onClick={toggleInterpretations}
                             />
@@ -154,7 +156,9 @@ const ItemContextMenu = props => {
                         {fullscreenAllowed && !loadItemFailed && (
                             <MenuItem
                                 dense
-                                icon={<Fullscreen />}
+                                icon={
+                                    <IconFullscreen16 color={colors.grey600} />
+                                }
                                 label={i18n.t('View fullscreen')}
                                 onClick={toggleFullscreen}
                             />

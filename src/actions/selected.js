@@ -1,37 +1,30 @@
-import i18n from '@dhis2/d2-i18n'
-import { sGetDashboardById } from '../reducers/dashboards'
 import {
     SET_SELECTED_ID,
     SET_SELECTED_ISLOADING,
     SET_SELECTED_SHOWDESCRIPTION,
     SET_SELECTED_ITEM_ACTIVE_TYPE,
     CLEAR_SELECTED_ITEM_ACTIVE_TYPES,
-    sGetSelectedIsLoading,
+    NON_EXISTING_DASHBOARD_ID,
     sGetSelectedId,
 } from '../reducers/selected'
-import { sGetUserUsername } from '../reducers/user'
+
+import { sGetSelectedDashboardId } from '../reducers/dashboards'
 
 import { acSetDashboardItems, acAppendDashboards } from './dashboards'
 import { acClearItemFilters } from './itemFilters'
 import { tGetMessages } from '../components/Item/MessagesItem/actions'
-import { acSetAlertMessage, acClearAlertMessage } from './alert'
-import { acAddVisualization, acClearVisualizations } from './visualizations'
+import { acClearVisualizations } from './visualizations'
 import { apiFetchDashboard } from '../api/fetchDashboard'
-import { storePreferredDashboardId } from '../api/localStorage'
+import {
+    getPreferredDashboardId,
+    storePreferredDashboardId,
+} from '../modules/localStorage'
 import { apiGetShowDescription } from '../api/description'
 
 import { withShape } from '../modules/gridUtil'
-import { getVisualizationFromItem } from '../modules/item'
 import { getCustomDashboards } from '../modules/getCustomDashboards'
 
-import {
-    REPORT_TABLE,
-    CHART,
-    MAP,
-    EVENT_REPORT,
-    EVENT_CHART,
-    MESSAGES,
-} from '../modules/itemTypes'
+import { MESSAGES } from '../modules/itemTypes'
 
 // actions
 
@@ -65,76 +58,51 @@ export const acClearSelectedItemActiveTypes = () => ({
 })
 
 // thunks
-export const tSetSelectedDashboardById = (id, mode) => async (
+export const tSetSelectedDashboardById = (requestedId, mode, username) => (
     dispatch,
     getState,
     dataEngine
 ) => {
-    dispatch(acSetSelectedIsLoading(true))
+    const id = sGetSelectedDashboardId(
+        getState(),
+        requestedId,
+        getPreferredDashboardId(username)
+    )
 
-    const alertTimeout = setTimeout(() => {
-        const name = sGetDashboardById(getState(), id)?.displayName
+    if (!id) {
+        return dispatch(acSetSelectedId(NON_EXISTING_DASHBOARD_ID))
+    }
 
-        if (sGetSelectedIsLoading(getState()) && name) {
+    return apiFetchDashboard(dataEngine, id, mode)
+        .then(selected => {
+            dispatch(acAppendDashboards(selected))
+
+            const customDashboard = getCustomDashboards(selected)[0]
+
             dispatch(
-                acSetAlertMessage(
-                    i18n.t('Loading dashboard – {{name}}', { name })
-                )
+                acSetDashboardItems(withShape(customDashboard.dashboardItems))
             )
-        }
-    }, 500)
 
-    const onSuccess = selected => {
-        dispatch(acAppendDashboards(selected))
+            storePreferredDashboardId(username, id)
 
-        const customDashboard = getCustomDashboards(selected)[0]
-
-        dispatch(acSetDashboardItems(withShape(customDashboard.dashboardItems)))
-
-        storePreferredDashboardId(sGetUserUsername(getState()), id)
-
-        if (id !== sGetSelectedId(getState())) {
-            dispatch(acClearItemFilters())
-            dispatch(acClearVisualizations())
-            dispatch(acClearSelectedItemActiveTypes())
-        }
-
-        customDashboard.dashboardItems.forEach(item => {
-            switch (item.type) {
-                case REPORT_TABLE:
-                case CHART:
-                case MAP:
-                case EVENT_REPORT:
-                case EVENT_CHART:
-                    dispatch(acAddVisualization(getVisualizationFromItem(item)))
-                    break
-                case MESSAGES:
-                    dispatch(tGetMessages(dataEngine))
-                    break
-                default:
-                    break
+            if (id !== sGetSelectedId(getState())) {
+                dispatch(acClearItemFilters())
+                dispatch(acClearVisualizations())
+                dispatch(acClearSelectedItemActiveTypes())
             }
+
+            customDashboard.dashboardItems.some(
+                item => item.type === MESSAGES
+            ) && dispatch(tGetMessages(dataEngine))
+
+            dispatch(acSetSelectedId(id))
+
+            return selected
         })
-
-        dispatch(acSetSelectedId(id))
-
-        dispatch(acSetSelectedIsLoading(false))
-
-        clearTimeout(alertTimeout)
-
-        dispatch(acClearAlertMessage())
-
-        return selected
-    }
-
-    try {
-        const dashboard = await apiFetchDashboard(dataEngine, id, mode)
-
-        return onSuccess(dashboard)
-    } catch (err) {
-        console.error('Error: ', err)
-        return err
-    }
+        .catch(err => {
+            console.error('Error: ', err)
+            return err
+        })
 }
 
 export const tSetShowDescription = () => async dispatch => {

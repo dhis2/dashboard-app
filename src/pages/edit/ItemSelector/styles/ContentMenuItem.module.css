@@ -1,0 +1,38 @@
+.menuItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.launchLink {
+    display: flex;
+    margin-left: 8px;
+    z-index: 10000;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+}
+
+.buttonInsert:hover {
+    cursor: pointer;
+}
+
+.buttonInsert {
+    border: none;
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+li:hover .buttonInsert {
+    visibility: visible;
+}
+
+li .buttonInsert {
+    visibility: hidden;
+}
+
+.buttonInsert:focus {
+    outline: none;
+}

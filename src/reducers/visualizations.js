@@ -4,7 +4,6 @@ import objectClean from 'd2-utilizr/lib/objectClean'
 /** @module reducers/visualizations */
 
 export const ADD_VISUALIZATION = 'ADD_VISUALIZATION'
-export const SET_ACTIVE_VISUALIZATION_TYPE = 'SET_ACTIVE_VISUALIZATION_TYPE'
 export const CLEAR_VISUALIZATIONS = 'CLEAR_VISUALIZATIONS'
 
 export const DEFAULT_STATE_VISUALIZATIONS = {}
@@ -34,7 +33,7 @@ export default (state = DEFAULT_STATE_VISUALIZATIONS, action) => {
 }
 
 // root selector
-export const sGetVisualizationsRoot = state => state.visualizations
+const sGetVisualizationsRoot = state => state.visualizations
 
 // selectors level 1
 export const sGetVisualization = (state, id) => {
