@@ -53,7 +53,12 @@ const ConfirmActionDialog = ({
 
     return (
         open && (
-            <Modal onClose={onCancel} small position="middle">
+            <Modal
+                dataTest="confirm-action-dialog"
+                onClose={onCancel}
+                small
+                position="middle"
+            >
                 <ModalTitle>{texts[action].title}</ModalTitle>
                 <ModalContent>
                     <span className={classes.content}>

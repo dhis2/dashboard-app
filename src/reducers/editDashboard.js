@@ -64,7 +64,7 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
             if (!action.value.position) {
                 return update(state, {
                     dashboardItems: { $unshift: [action.value] },
-                    isDirty: true,
+                    isDirty: { $set: true },
                 })
             }
 
@@ -74,7 +74,7 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                         [parseInt(action.value.position), 0, action.value],
                     ],
                 },
-                isDirty: true,
+                isDirty: { $set: true },
             })
 
         case REMOVE_DASHBOARD_ITEM: {
@@ -89,7 +89,7 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                     dashboardItems: {
                         $splice: [[dashboardItemIndex, 1]],
                     },
-                    isDirty: true,
+                    isDirty: { $set: true },
                 })
             }
 
@@ -143,7 +143,7 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                             ],
                         ],
                     },
-                    isDirty: true,
+                    isDirty: { $set: true },
                 })
 
                 return newState
