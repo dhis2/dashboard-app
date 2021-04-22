@@ -62,9 +62,7 @@ const Content = ({
                 data-test="link-new-dashboard"
             >
                 <Tooltip content={i18n.t('Create a new dashboard')}>
-                    <Button small icon={<IconAdd24 color={colors.grey600} />}>
-                        {i18n.t('New')}
-                    </Button>
+                    <Button small icon={<IconAdd24 color={colors.grey600} />} />
                 </Tooltip>
             </Link>
             <Filter
