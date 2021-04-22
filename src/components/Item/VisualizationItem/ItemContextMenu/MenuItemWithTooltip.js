@@ -6,9 +6,6 @@ import { useOnlineStatus } from '../../../../modules/useOnlineStatus'
 
 const MenuItemWithTooltip = ({ disabledWhenOffline, tooltip, ...rest }) => {
     const { isOnline } = useOnlineStatus()
-    console.log('rest', rest)
-    console.log('isOnline', isOnline)
-    console.log('disabledWhenOffline', disabledWhenOffline)
 
     if (disabledWhenOffline && !isOnline) {
         return (
