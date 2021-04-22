@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-04-20T13:07:51.829Z\n"
-"PO-Revision-Date: 2021-04-20T13:07:51.829Z\n"
+"POT-Creation-Date: 2021-04-21T12:59:59.325Z\n"
+"PO-Revision-Date: 2021-04-21T12:59:59.325Z\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -56,16 +56,19 @@ msgstr ""
 msgid "View fullscreen"
 msgstr ""
 
-msgid "View as Chart"
+msgid "Not available offline"
 msgstr ""
 
 msgid "This map can't be displayed as a chart"
 msgstr ""
 
-msgid "View as Table"
+msgid "View as Chart"
 msgstr ""
 
 msgid "This map can't be displayed as a table"
+msgstr ""
+
+msgid "View as Table"
 msgstr ""
 
 msgid "View as Map"
@@ -154,9 +157,6 @@ msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
-msgstr ""
-
-msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "No access"
@@ -261,6 +261,9 @@ msgstr ""
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
 
+msgid "Requested dashboard not found"
+msgstr ""
+
 msgid "Create a new dashboard"
 msgstr ""
 
@@ -287,6 +290,18 @@ msgstr ""
 msgid "Add filter"
 msgstr ""
 
+msgid "Unstar dashboard"
+msgstr ""
+
+msgid "Star dashboard"
+msgstr ""
+
+msgid "Cannot unstar this dashboard while offline"
+msgstr ""
+
+msgid "Cannot star this dashboard while offline"
+msgstr ""
+
 msgid "Remove from offline storage"
 msgstr ""
 
@@ -303,12 +318,6 @@ msgid "Failed to hide description"
 msgstr ""
 
 msgid "Failed to show description"
-msgstr ""
-
-msgid "Unstar dashboard"
-msgstr ""
-
-msgid "Star dashboard"
 msgstr ""
 
 msgid "Failed to unstar the dashboard"
