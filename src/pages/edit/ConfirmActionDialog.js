@@ -15,7 +15,7 @@ import classes from './styles/ConfirmActionDialog.module.css'
 export const ACTION_DELETE = 'delete'
 export const ACTION_DISCARD = 'discard'
 
-export const ConfirmActionDialog = ({
+const ConfirmActionDialog = ({
     action,
     dashboardName,
     onConfirm,
