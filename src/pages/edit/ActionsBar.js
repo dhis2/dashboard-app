@@ -79,7 +79,7 @@ const EditBar = props => {
         setConfirmDeleteDlgIsOpen(true)
     }
 
-    const deleteDashboardConfirmed = () => {
+    const onDeleteConfirmed = () => {
         setConfirmDeleteDlgIsOpen(false)
 
         dataEngine
@@ -125,7 +125,6 @@ const EditBar = props => {
     }
 
     const onContinueEditing = () => {
-        console.log('onContinueEditing')
         setConfirmDeleteDlgIsOpen(false)
         setConfirmDiscardDlgIsOpen(false)
     }
@@ -235,7 +234,7 @@ const EditBar = props => {
                 <ConfirmActionDialog
                     action={ACTION_DELETE}
                     dashboardName={props.dashboardName}
-                    onConfirm={deleteDashboardConfirmed}
+                    onConfirm={onDeleteConfirmed}
                     onCancel={onContinueEditing}
                     open={confirmDeleteDlgIsOpen}
                 />
