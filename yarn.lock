@@ -1529,7 +1529,7 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^16.0.15", "@dhis2/analytics@^16.0.19":
+"@dhis2/analytics@^16.0.15":
   version "16.0.19"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-16.0.19.tgz#855cf1cad7a1d36d66255e569e5fab0a5f76029a"
   integrity sha512-7YLlkTyhMvSIsDQRBYZzrFXcKOLOh3EaFZwFycse+Ney7J+VzwE94DXpCZrnxyalhI03FnI6uMYv7DqhtkNCGQ==
@@ -1540,6 +1540,24 @@
     "@dhis2/d2-ui-translation-dialog" "^7.1.5"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
+    classnames "^2.2.6"
+    d2-utilizr "^0.2.16"
+    d3-color "^1.2.3"
+    highcharts "^9.0.0"
+    lodash "^4.17.20"
+    mathjs "^9.2.0"
+    react-beautiful-dnd "^10.1.1"
+    resize-observer-polyfill "^1.5.1"
+
+"@dhis2/analytics@^17.0.1":
+  version "17.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-17.0.1.tgz#a6722cc40f3c2c2d13daa1cd89d10df05ef00592"
+  integrity sha512-golQ2v8iAKAQIJkx8sHUlQjkW8Lv32Tqrt1FcuPvzy8dObUykFCiYr2Mtvru1tNfV/03bKp0kwhLwnxScCHwig==
+  dependencies:
+    "@dhis2/d2-ui-favorites-dialog" "^7.1.5"
+    "@dhis2/d2-ui-org-unit-dialog" "^7.1.5"
+    "@dhis2/d2-ui-sharing-dialog" "^7.1.5"
+    "@dhis2/d2-ui-translation-dialog" "^7.1.5"
     classnames "^2.2.6"
     d2-utilizr "^0.2.16"
     d3-color "^1.2.3"
