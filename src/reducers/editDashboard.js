@@ -26,6 +26,7 @@ export const NEW_DASHBOARD_STATE = {
     dashboardItems: [],
     restrictFilters: false,
     printPreviewView: false,
+    isDirty: false,
 }
 
 export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
@@ -36,6 +37,7 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                 k => (newState[k] = action.value[k])
             )
             newState.printPreviewView = false
+            newState.isDirty = false
             return newState
         }
         case RECEIVED_NOT_EDITING:
@@ -47,17 +49,22 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
         case START_NEW_DASHBOARD:
             return NEW_DASHBOARD_STATE
         case RECEIVED_TITLE: {
-            return Object.assign({}, state, { name: action.value })
+            return Object.assign({}, state, {
+                name: action.value,
+                isDirty: true,
+            })
         }
         case RECEIVED_DESCRIPTION: {
             return Object.assign({}, state, {
                 description: action.value,
+                isDirty: true,
             })
         }
         case ADD_DASHBOARD_ITEM:
             if (!action.value.position) {
                 return update(state, {
                     dashboardItems: { $unshift: [action.value] },
+                    isDirty: true,
                 })
             }
 
@@ -67,6 +74,7 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                         [parseInt(action.value.position), 0, action.value],
                     ],
                 },
+                isDirty: true,
             })
 
         case REMOVE_DASHBOARD_ITEM: {
@@ -81,6 +89,7 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                     dashboardItems: {
                         $splice: [[dashboardItemIndex, 1]],
                     },
+                    isDirty: true,
                 })
             }
 
@@ -112,6 +121,7 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                 ? {
                       ...state,
                       dashboardItems: newStateItems,
+                      isDirty: true,
                   }
                 : state
         }
@@ -133,6 +143,7 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                             ],
                         ],
                     },
+                    isDirty: true,
                 })
 
                 return newState
@@ -144,6 +155,7 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
             return Object.assign({}, state, {
                 allowedFilters: action.value.allowedFilters,
                 restrictFilters: action.value.restrictFilters,
+                isDirty: true,
             })
         }
         default:
@@ -174,3 +186,5 @@ export const sGetEditDashboardDescription = state =>
 
 export const sGetEditDashboardItems = state =>
     orObject(sGetEditDashboardRoot(state)).dashboardItems
+
+export const sGetEditIsDirty = state => sGetEditDashboardRoot(state).isDirty
