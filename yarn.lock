@@ -1764,10 +1764,21 @@
     material-ui "^0.20.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-core@7.1.8", "@dhis2/d2-ui-core@^7.1.8":
+"@dhis2/d2-ui-core@7.1.8":
   version "7.1.8"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.1.8.tgz#1339f91f4ce2e0a38897dab29de22db725d058a5"
   integrity sha512-nd6Pfkm18WYbWC4M7HRkIkANuyeDMNQfVQt3nnUZ7Hje2O3hZmzsdOpTWYhtzxSx1uhQV4n/CPjJEWaqG7T+/g==
+  dependencies:
+    babel-runtime "^6.26.0"
+    d2 "~31.7"
+    lodash "^4.17.10"
+    material-ui "^0.20.0"
+    rxjs "^5.5.7"
+
+"@dhis2/d2-ui-core@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.2.0.tgz#932c9b2f439dc730ccb28a69129cfeeba15527ad"
+  integrity sha512-ox3//w5/sVwlEpOwp/h3NwMufd0bf653ZZmw4sWpH8t8oosuvt0F4bDGB7Vz0f8tidB09oLGiAsHmtvKTXpLpA==
   dependencies:
     babel-runtime "^6.26.0"
     d2 "~31.7"
