@@ -2,7 +2,7 @@
 
 exports[`Filter matches the snapshot when filterText property is empty 1`] = `
 <div>
-  <div
+  <span
     class="container collapsed"
   >
     <button
@@ -49,13 +49,13 @@ exports[`Filter matches the snapshot when filterText property is empty 1`] = `
       />
       
     </div>
-  </div>
+  </span>
 </div>
 `;
 
 exports[`Filter when filterText property is provided renders an input with correct value property 1`] = `
 <div>
-  <div
+  <span
     class="container collapsed"
   >
     <button
@@ -125,6 +125,6 @@ exports[`Filter when filterText property is provided renders an input with corre
         </button>
       </div>
     </div>
-  </div>
+  </span>
 </div>
 `;
