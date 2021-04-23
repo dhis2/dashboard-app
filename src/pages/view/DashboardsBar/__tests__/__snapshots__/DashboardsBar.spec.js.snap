@@ -78,7 +78,7 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
               >
                 <button
                   class="jsx-2371629422 newButton small icon-only"
-                  data-test="dhis2-uicore-button"
+                  data-test="new-button"
                   type="button"
                 >
                   <span
@@ -312,7 +312,7 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
               >
                 <button
                   class="jsx-2371629422 newButton small icon-only"
-                  data-test="dhis2-uicore-button"
+                  data-test="new-button"
                   type="button"
                 >
                   <span
@@ -545,7 +545,7 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
               >
                 <button
                   class="jsx-2371629422 newButton small icon-only"
-                  data-test="dhis2-uicore-button"
+                  data-test="new-button"
                   type="button"
                 >
                   <span
@@ -780,7 +780,7 @@ exports[`renders a DashboardsBar with no items 1`] = `
               >
                 <button
                   class="jsx-2371629422 newButton small icon-only"
-                  data-test="dhis2-uicore-button"
+                  data-test="new-button"
                   type="button"
                 >
                   <span
@@ -966,7 +966,7 @@ exports[`renders a DashboardsBar with selected item 1`] = `
               >
                 <button
                   class="jsx-2371629422 newButton small icon-only"
-                  data-test="dhis2-uicore-button"
+                  data-test="new-button"
                   type="button"
                 >
                   <span
@@ -1200,7 +1200,7 @@ exports[`small screen: clicking "Show more" maximizes dashboards bar height 1`] 
               >
                 <button
                   class="jsx-2371629422 newButton small icon-only"
-                  data-test="dhis2-uicore-button"
+                  data-test="new-button"
                   type="button"
                 >
                   <span
@@ -1434,7 +1434,7 @@ exports[`small screen: renders a DashboardsBar with minimum height 1`] = `
               >
                 <button
                   class="jsx-2371629422 newButton small icon-only"
-                  data-test="dhis2-uicore-button"
+                  data-test="new-button"
                   type="button"
                 >
                   <span
