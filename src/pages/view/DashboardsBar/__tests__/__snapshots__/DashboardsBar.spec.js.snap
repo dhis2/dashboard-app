@@ -18,7 +18,7 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
           <div
             class="controlsSmall"
           >
-            <div
+            <span
               class="container collapsed"
             >
               <button
@@ -64,50 +64,43 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
                   value=""
                 />
               </div>
-            </div>
+            </span>
           </div>
           <div
             class="chipsContainer"
           >
-            <div
+            <span
               class="controlsLarge"
             >
-              <a
-                class="newLink"
-                data-test="link-new-dashboard"
-                href="/new"
+              <span
+                class="jsx-611321200"
+                data-test="dhis2-uicore-tooltip-reference"
               >
-                <span
-                  class="jsx-611321200"
-                  data-test="dhis2-uicore-tooltip-reference"
+                <button
+                  class="jsx-2371629422 newButton small icon-only"
+                  data-test="dhis2-uicore-button"
+                  type="button"
                 >
-                  <button
-                    class="jsx-2371629422 small"
-                    data-test="dhis2-uicore-button"
-                    type="button"
+                  <span
+                    class="jsx-2371629422 button-icon"
                   >
-                    <span
-                      class="jsx-2371629422 button-icon"
+                    <svg
+                      color="#6e7a8a"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <svg
-                        color="#6e7a8a"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                    New
-                  </button>
-                </span>
-              </a>
-              <div
+                      <path
+                        d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </span>
+              <span
                 class="container collapsed"
               >
                 <button
@@ -153,8 +146,8 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
                     value=""
                   />
                 </div>
-              </div>
-            </div>
+              </span>
+            </span>
             <a
               class="link"
               data-test="dashboard-chip"
@@ -258,7 +251,7 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
           <div
             class="controlsSmall"
           >
-            <div
+            <span
               class="container collapsed"
             >
               <button
@@ -305,50 +298,43 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
                 />
                 
               </div>
-            </div>
+            </span>
           </div>
           <div
             class="chipsContainer"
           >
-            <div
+            <span
               class="controlsLarge"
             >
-              <a
-                class="newLink"
-                data-test="link-new-dashboard"
-                href="/new"
+              <span
+                class="jsx-611321200"
+                data-test="dhis2-uicore-tooltip-reference"
               >
-                <span
-                  class="jsx-611321200"
-                  data-test="dhis2-uicore-tooltip-reference"
+                <button
+                  class="jsx-2371629422 newButton small icon-only"
+                  data-test="dhis2-uicore-button"
+                  type="button"
                 >
-                  <button
-                    class="jsx-2371629422 small"
-                    data-test="dhis2-uicore-button"
-                    type="button"
+                  <span
+                    class="jsx-2371629422 button-icon"
                   >
-                    <span
-                      class="jsx-2371629422 button-icon"
+                    <svg
+                      color="#6e7a8a"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <svg
-                        color="#6e7a8a"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                    New
-                  </button>
-                </span>
-              </a>
-              <div
+                      <path
+                        d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </span>
+              <span
                 class="container collapsed"
               >
                 <button
@@ -395,8 +381,8 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
                   />
                   
                 </div>
-              </div>
-            </div>
+              </span>
+            </span>
             <a
               class="link"
               data-test="dashboard-chip"
@@ -498,7 +484,7 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
           <div
             class="controlsSmall"
           >
-            <div
+            <span
               class="container collapsed"
             >
               <button
@@ -545,50 +531,43 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
                 />
                 
               </div>
-            </div>
+            </span>
           </div>
           <div
             class="chipsContainer"
           >
-            <div
+            <span
               class="controlsLarge"
             >
-              <a
-                class="newLink"
-                data-test="link-new-dashboard"
-                href="/new"
+              <span
+                class="jsx-611321200"
+                data-test="dhis2-uicore-tooltip-reference"
               >
-                <span
-                  class="jsx-611321200"
-                  data-test="dhis2-uicore-tooltip-reference"
+                <button
+                  class="jsx-2371629422 newButton small icon-only"
+                  data-test="dhis2-uicore-button"
+                  type="button"
                 >
-                  <button
-                    class="jsx-2371629422 small"
-                    data-test="dhis2-uicore-button"
-                    type="button"
+                  <span
+                    class="jsx-2371629422 button-icon"
                   >
-                    <span
-                      class="jsx-2371629422 button-icon"
+                    <svg
+                      color="#6e7a8a"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <svg
-                        color="#6e7a8a"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                    New
-                  </button>
-                </span>
-              </a>
-              <div
+                      <path
+                        d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </span>
+              <span
                 class="container collapsed"
               >
                 <button
@@ -635,8 +614,8 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
                   />
                   
                 </div>
-              </div>
-            </div>
+              </span>
+            </span>
             <a
               class="link"
               data-test="dashboard-chip"
@@ -740,7 +719,7 @@ exports[`renders a DashboardsBar with no items 1`] = `
           <div
             class="controlsSmall"
           >
-            <div
+            <span
               class="container collapsed"
             >
               <button
@@ -787,50 +766,43 @@ exports[`renders a DashboardsBar with no items 1`] = `
                 />
                 
               </div>
-            </div>
+            </span>
           </div>
           <div
             class="chipsContainer"
           >
-            <div
+            <span
               class="controlsLarge"
             >
-              <a
-                class="newLink"
-                data-test="link-new-dashboard"
-                href="/new"
+              <span
+                class="jsx-611321200"
+                data-test="dhis2-uicore-tooltip-reference"
               >
-                <span
-                  class="jsx-611321200"
-                  data-test="dhis2-uicore-tooltip-reference"
+                <button
+                  class="jsx-2371629422 newButton small icon-only"
+                  data-test="dhis2-uicore-button"
+                  type="button"
                 >
-                  <button
-                    class="jsx-2371629422 small"
-                    data-test="dhis2-uicore-button"
-                    type="button"
+                  <span
+                    class="jsx-2371629422 button-icon"
                   >
-                    <span
-                      class="jsx-2371629422 button-icon"
+                    <svg
+                      color="#6e7a8a"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <svg
-                        color="#6e7a8a"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                    New
-                  </button>
-                </span>
-              </a>
-              <div
+                      <path
+                        d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </span>
+              <span
                 class="container collapsed"
               >
                 <button
@@ -877,8 +849,8 @@ exports[`renders a DashboardsBar with no items 1`] = `
                   />
                   
                 </div>
-              </div>
-            </div>
+              </span>
+            </span>
           </div>
         </div>
       </div>
@@ -933,7 +905,7 @@ exports[`renders a DashboardsBar with selected item 1`] = `
           <div
             class="controlsSmall"
           >
-            <div
+            <span
               class="container collapsed"
             >
               <button
@@ -980,50 +952,43 @@ exports[`renders a DashboardsBar with selected item 1`] = `
                 />
                 
               </div>
-            </div>
+            </span>
           </div>
           <div
             class="chipsContainer"
           >
-            <div
+            <span
               class="controlsLarge"
             >
-              <a
-                class="newLink"
-                data-test="link-new-dashboard"
-                href="/new"
+              <span
+                class="jsx-611321200"
+                data-test="dhis2-uicore-tooltip-reference"
               >
-                <span
-                  class="jsx-611321200"
-                  data-test="dhis2-uicore-tooltip-reference"
+                <button
+                  class="jsx-2371629422 newButton small icon-only"
+                  data-test="dhis2-uicore-button"
+                  type="button"
                 >
-                  <button
-                    class="jsx-2371629422 small"
-                    data-test="dhis2-uicore-button"
-                    type="button"
+                  <span
+                    class="jsx-2371629422 button-icon"
                   >
-                    <span
-                      class="jsx-2371629422 button-icon"
+                    <svg
+                      color="#6e7a8a"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <svg
-                        color="#6e7a8a"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                    New
-                  </button>
-                </span>
-              </a>
-              <div
+                      <path
+                        d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </span>
+              <span
                 class="container collapsed"
               >
                 <button
@@ -1070,8 +1035,8 @@ exports[`renders a DashboardsBar with selected item 1`] = `
                   />
                   
                 </div>
-              </div>
-            </div>
+              </span>
+            </span>
             <a
               class="link"
               data-test="dashboard-chip"
@@ -1175,7 +1140,7 @@ exports[`small screen: clicking "Show more" maximizes dashboards bar height 1`] 
           <div
             class="controlsSmall"
           >
-            <div
+            <span
               class="container collapsed"
             >
               <button
@@ -1221,50 +1186,43 @@ exports[`small screen: clicking "Show more" maximizes dashboards bar height 1`] 
                   value=""
                 />
               </div>
-            </div>
+            </span>
           </div>
           <div
             class="chipsContainer"
           >
-            <div
+            <span
               class="controlsLarge"
             >
-              <a
-                class="newLink"
-                data-test="link-new-dashboard"
-                href="/new"
+              <span
+                class="jsx-611321200"
+                data-test="dhis2-uicore-tooltip-reference"
               >
-                <span
-                  class="jsx-611321200"
-                  data-test="dhis2-uicore-tooltip-reference"
+                <button
+                  class="jsx-2371629422 newButton small icon-only"
+                  data-test="dhis2-uicore-button"
+                  type="button"
                 >
-                  <button
-                    class="jsx-2371629422 small"
-                    data-test="dhis2-uicore-button"
-                    type="button"
+                  <span
+                    class="jsx-2371629422 button-icon"
                   >
-                    <span
-                      class="jsx-2371629422 button-icon"
+                    <svg
+                      color="#6e7a8a"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <svg
-                        color="#6e7a8a"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                    New
-                  </button>
-                </span>
-              </a>
-              <div
+                      <path
+                        d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </span>
+              <span
                 class="container collapsed"
               >
                 <button
@@ -1310,8 +1268,8 @@ exports[`small screen: clicking "Show more" maximizes dashboards bar height 1`] 
                     value=""
                   />
                 </div>
-              </div>
-            </div>
+              </span>
+            </span>
             <a
               class="link"
               data-test="dashboard-chip"
@@ -1415,7 +1373,7 @@ exports[`small screen: renders a DashboardsBar with minimum height 1`] = `
           <div
             class="controlsSmall"
           >
-            <div
+            <span
               class="container collapsed"
             >
               <button
@@ -1462,50 +1420,43 @@ exports[`small screen: renders a DashboardsBar with minimum height 1`] = `
                 />
                 
               </div>
-            </div>
+            </span>
           </div>
           <div
             class="chipsContainer"
           >
-            <div
+            <span
               class="controlsLarge"
             >
-              <a
-                class="newLink"
-                data-test="link-new-dashboard"
-                href="/new"
+              <span
+                class="jsx-611321200"
+                data-test="dhis2-uicore-tooltip-reference"
               >
-                <span
-                  class="jsx-611321200"
-                  data-test="dhis2-uicore-tooltip-reference"
+                <button
+                  class="jsx-2371629422 newButton small icon-only"
+                  data-test="dhis2-uicore-button"
+                  type="button"
                 >
-                  <button
-                    class="jsx-2371629422 small"
-                    data-test="dhis2-uicore-button"
-                    type="button"
+                  <span
+                    class="jsx-2371629422 button-icon"
                   >
-                    <span
-                      class="jsx-2371629422 button-icon"
+                    <svg
+                      color="#6e7a8a"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <svg
-                        color="#6e7a8a"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                    New
-                  </button>
-                </span>
-              </a>
-              <div
+                      <path
+                        d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </span>
+              <span
                 class="container collapsed"
               >
                 <button
@@ -1552,8 +1503,8 @@ exports[`small screen: renders a DashboardsBar with minimum height 1`] = `
                   />
                   
                 </div>
-              </div>
-            </div>
+              </span>
+            </span>
             <a
               class="link"
               data-test="dashboard-chip"
