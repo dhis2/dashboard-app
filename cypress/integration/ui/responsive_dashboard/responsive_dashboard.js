@@ -1,7 +1,10 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
 import { chartSel } from '../../../selectors/dashboardItem'
-import { dashboardTitleSel } from '../../../selectors/viewDashboard'
+import {
+    dashboardTitleSel,
+    newButtonSel,
+} from '../../../selectors/viewDashboard'
 import { dimensionsModalSel } from '../../../selectors/dashboardFilter'
 
 const TEST_DASHBOARD_TITLE = 'TEST_DASHBOARD_TITLE'
@@ -18,7 +21,7 @@ When('dashboard title is changed', () => {
 
 Then('the small screen view is shown', () => {
     //controlbar - no search dashboard field
-    cy.get('[data-test="link-new-dashboard"]').should('not.be.visible')
+    cy.get(newButtonSel).should('not.be.visible')
 
     //titlebar - only the More button and the title
     cy.get('button').contains('Edit').should('not.be.visible')
@@ -36,7 +39,7 @@ When('I restore the wide screen', () => {
 })
 
 Then('the wide screen view is shown', () => {
-    cy.get('[data-test="link-new-dashboard"]').should('be.visible')
+    cy.get(newButtonSel).should('be.visible')
 
     cy.get('button').contains('Edit').should('be.visible')
     cy.get('button').contains('Share').should('be.visible')

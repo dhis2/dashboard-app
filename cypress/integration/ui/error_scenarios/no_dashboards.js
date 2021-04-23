@@ -1,6 +1,6 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
-import { newDashboardLinkSel } from '../../../selectors/viewDashboard'
+import { newButtonSel } from '../../../selectors/viewDashboard'
 
 // Scenario: There are no dashboards
 Given('I open an app with no dashboards', () => {
@@ -10,5 +10,5 @@ Given('I open an app with no dashboards', () => {
 
 Then('a message displays informing that there are no dashboards', () => {
     cy.contains('No dashboards found', EXTENDED_TIMEOUT).should('be.visible')
-    cy.get(newDashboardLinkSel).should('be.visible')
+    cy.get(newButtonSel).should('be.visible')
 })
