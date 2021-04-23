@@ -1,6 +1,6 @@
 // Dashboards bar
 export const dashboardChipSel = '[data-test="dashboard-chip"]'
-export const newDashboardLinkSel = '[data-test="link-new-dashboard"]'
+export const newButtonSel = '[data-test="new-button"]'
 export const chipStarSel = '[data-test="dhis2-uicore-chip-icon"]'
 export const dashboardSearchInputSel =
     'input:visible[placeholder="Search for a dashboard"]'

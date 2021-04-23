@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-04-16T11:52:58.307Z\n"
-"PO-Revision-Date: 2021-04-16T11:52:58.307Z\n"
+"POT-Creation-Date: 2021-04-23T09:46:24.658Z\n"
+"PO-Revision-Date: 2021-04-23T09:46:24.658Z\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -267,10 +267,10 @@ msgid ""
 "print dialog"
 msgstr ""
 
-msgid "Create a new dashboard"
+msgid "Not available offline"
 msgstr ""
 
-msgid "New"
+msgid "Create a new dashboard"
 msgstr ""
 
 msgid "Search for a dashboard"
