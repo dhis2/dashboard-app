@@ -1549,10 +1549,10 @@
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
 
-"@dhis2/analytics@^17.0.0":
-  version "17.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-17.0.0.tgz#ef635ab06a2526f8c61ed7a2996afbbe454bfc3c"
-  integrity sha512-i76hW5iuwNsWw4F+9qFOymOWkgj6YzqBoKVQ/lZC2mSYrqQWrrRRhKHaFBPKDm/chHo0kTF9Au0IaR3aBAKmbg==
+"@dhis2/analytics@^17.0.2":
+  version "17.0.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-17.0.2.tgz#5b818247837d50a8496dc5bc490dca0026e174ec"
+  integrity sha512-ukL6gMP72F6hMkjt/LEKS9faONpZnDYm0YBbTDPv1JfZt3eKrDeArEwfaWnieGE7BB3+RJkME7aNjuZkh/LnUg==
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^7.1.5"
     "@dhis2/d2-ui-org-unit-dialog" "^7.1.5"
@@ -1757,17 +1757,6 @@
   version "7.1.5"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.1.5.tgz#38fd0d74004c23d5cb85e84a003e709c5d400ad6"
   integrity sha512-L3zCO8JdW0yhBqWghZOrXeQG5oSVXdFBXIEGcedM8QAe0FG42Ch0MNjzP9FNFpCpCNhjOPO2SlX3sCT8BpQKWg==
-  dependencies:
-    babel-runtime "^6.26.0"
-    d2 "~31.7"
-    lodash "^4.17.10"
-    material-ui "^0.20.0"
-    rxjs "^5.5.7"
-
-"@dhis2/d2-ui-core@7.1.6":
-  version "7.1.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.1.6.tgz#2bc65f86f1cbf0e04ca17accfb164968e5fcb7d4"
-  integrity sha512-zF5Xnts5NLmGkPJHR3QI4H9KLruHSp3JPAmR2lxNtturSpwEzecnauydo/Og76wcscd4V3ylEmIY2d5Ey2o9OA==
   dependencies:
     babel-runtime "^6.26.0"
     d2 "~31.7"
