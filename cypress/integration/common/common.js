@@ -5,7 +5,7 @@ import { chartSel } from '../../selectors/dashboardItem'
 import {
     dashboardTitleSel,
     dashboardChipSel,
-    newDashboardLinkSel,
+    newButtonSel,
 } from '../../selectors/viewDashboard'
 
 beforeEach(() => {
@@ -26,7 +26,7 @@ Then('the {string} dashboard displays in view mode', title => {
 })
 
 Given('I choose to create new dashboard', () => {
-    cy.get(newDashboardLinkSel, EXTENDED_TIMEOUT).click()
+    cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
 })
 
 When('I choose to edit dashboard', () => {
