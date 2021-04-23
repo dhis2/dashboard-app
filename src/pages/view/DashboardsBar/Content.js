@@ -68,6 +68,7 @@ const Content = ({
                     small
                     icon={<IconAdd24 color={colors.grey600} />}
                     onClick={enterNewMode}
+                    dataTest="new-button"
                 />
             </Tooltip>
             <Filter
