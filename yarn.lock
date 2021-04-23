@@ -1549,10 +1549,10 @@
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
 
-"@dhis2/analytics@^17.0.0":
-  version "17.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-17.0.0.tgz#ef635ab06a2526f8c61ed7a2996afbbe454bfc3c"
-  integrity sha512-i76hW5iuwNsWw4F+9qFOymOWkgj6YzqBoKVQ/lZC2mSYrqQWrrRRhKHaFBPKDm/chHo0kTF9Au0IaR3aBAKmbg==
+"@dhis2/analytics@^17.0.2":
+  version "17.0.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-17.0.2.tgz#5b818247837d50a8496dc5bc490dca0026e174ec"
+  integrity sha512-ukL6gMP72F6hMkjt/LEKS9faONpZnDYm0YBbTDPv1JfZt3eKrDeArEwfaWnieGE7BB3+RJkME7aNjuZkh/LnUg==
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^7.1.5"
     "@dhis2/d2-ui-org-unit-dialog" "^7.1.5"
@@ -1807,10 +1807,19 @@
     prop-types "^15.5.10"
     react-portal "^4.1.5"
 
-"@dhis2/d2-ui-mentions-wrapper@7.1.8", "@dhis2/d2-ui-mentions-wrapper@^7.1.8":
+"@dhis2/d2-ui-mentions-wrapper@7.1.8":
   version "7.1.8"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-7.1.8.tgz#000c3f6b4a0ab1cf0eafe9130a54a066f1080ea7"
   integrity sha512-OsLDwLltXo8ABLnO8jw2M6UTopFTJwzetC86oHMPg/WtukqsN0kJbmskVAVD6cO8yV5/w1TR059RKjWmm78Wbg==
+  dependencies:
+    "@material-ui/core" "^3.3.1"
+    lodash "^4.17.10"
+    prop-types "^15.6.2"
+
+"@dhis2/d2-ui-mentions-wrapper@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-7.2.0.tgz#41b216cd5a2895a59cf02c42da9a9c244ee2ec61"
+  integrity sha512-WN21hMLT6x4E+FUL80BH9m7nfU26FplSd3jj3W1qj1QplfYUE1eABxQPxaDfPFAeFOyOaN4QZxKUY/KmirO9WA==
   dependencies:
     "@material-ui/core" "^3.3.1"
     lodash "^4.17.10"
