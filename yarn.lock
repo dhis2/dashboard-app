@@ -1764,10 +1764,21 @@
     material-ui "^0.20.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-core@7.1.8", "@dhis2/d2-ui-core@^7.1.8":
+"@dhis2/d2-ui-core@7.1.8":
   version "7.1.8"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.1.8.tgz#1339f91f4ce2e0a38897dab29de22db725d058a5"
   integrity sha512-nd6Pfkm18WYbWC4M7HRkIkANuyeDMNQfVQt3nnUZ7Hje2O3hZmzsdOpTWYhtzxSx1uhQV4n/CPjJEWaqG7T+/g==
+  dependencies:
+    babel-runtime "^6.26.0"
+    d2 "~31.7"
+    lodash "^4.17.10"
+    material-ui "^0.20.0"
+    rxjs "^5.5.7"
+
+"@dhis2/d2-ui-core@7.2.0", "@dhis2/d2-ui-core@^7.1.8":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.2.0.tgz#932c9b2f439dc730ccb28a69129cfeeba15527ad"
+  integrity sha512-ox3//w5/sVwlEpOwp/h3NwMufd0bf653ZZmw4sWpH8t8oosuvt0F4bDGB7Vz0f8tidB09oLGiAsHmtvKTXpLpA==
   dependencies:
     babel-runtime "^6.26.0"
     d2 "~31.7"
@@ -1868,12 +1879,26 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-sharing-dialog@7.1.8", "@dhis2/d2-ui-sharing-dialog@^7.1.5", "@dhis2/d2-ui-sharing-dialog@^7.1.8":
+"@dhis2/d2-ui-sharing-dialog@7.1.8":
   version "7.1.8"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-7.1.8.tgz#3e0819b128553872d23a522de230e9a46e16a44f"
   integrity sha512-m6YKknbZ94KJ6+MD26gGZBmx0qA7tcQTrhP/Bvjb25VeUV+nvf/InZxO0+AMIkui0XCgzv3xUqxJxjwXhAGGNg==
   dependencies:
     "@dhis2/d2-ui-core" "7.1.8"
+    "@material-ui/core" "^3.3.1"
+    "@material-ui/icons" "^3.0.1"
+    babel-runtime "^6.26.0"
+    downshift "^2.2.2"
+    prop-types "^15.5.10"
+    recompose "^0.26.0"
+    rxjs "^5.5.7"
+
+"@dhis2/d2-ui-sharing-dialog@^7.1.5", "@dhis2/d2-ui-sharing-dialog@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-7.2.0.tgz#18ad372864bc26451ac58f3488b2d68bd235c185"
+  integrity sha512-l12r7yoI9lU5NWxH6yWBlPdXVpIqqRQ96oq5M5taRG/r1UxLNf3KTigOjT8Ghg+LtCnJGFebyXi5ZTFCwN0c/Q==
+  dependencies:
+    "@dhis2/d2-ui-core" "7.2.0"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
