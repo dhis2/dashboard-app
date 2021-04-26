@@ -7,13 +7,52 @@ Feature: Creating, editing and deleting dashboard
         And dashboard items are added
         And I click outside menu
         And dashboard is saved
-        Then dashboard displays in view mode
+        Then the dashboard displays in view mode
         And the saved dashboard should be displayed
+
+    @mutating
+    Scenario: I exit without saving when no changes
+        Given I open existing dashboard
+        Then the dashboard displays in view mode
+        When I choose to edit dashboard
+        And I click Exit without saving
+        Then the dashboard displays in view mode
+
+    @mutating
+    Scenario: I cancel exit without saving when name changed
+        Given I open existing dashboard
+        Then the dashboard displays in view mode
+        When I choose to edit dashboard
+        And dashboard title is added
+        And I click Exit without saving
+        And I decide to continue editing
+        Then the dashboard displays in edit mode
+
+    @mutating
+    Scenario: I cancel exit without saving when item added
+        Given I open existing dashboard
+        Then the dashboard displays in view mode
+        When I choose to edit dashboard
+        And dashboard items are added
+        And I click outside menu
+        And I click Exit without saving
+        And I decide to continue editing
+        Then the dashboard displays in edit mode
+
+    @mutating
+    Scenario: I exit without saving when name changed
+        Given I open existing dashboard
+        Then the dashboard displays in view mode
+        When I choose to edit dashboard
+        And dashboard title is added
+        And I click Exit without saving
+        And I confirm I want to discard changes
+        Then the dashboard displays in view mode
 
     @mutating
     Scenario: I star the dashboard
         Given I open existing dashboard
-        Then dashboard displays in view mode
+        Then the dashboard displays in view mode
         And the dashboard is not starred
         When I click to star the dashboard
         Then the dashboard is starred
@@ -25,7 +64,7 @@ Feature: Creating, editing and deleting dashboard
     Scenario: I toggle show description
         Given I open existing dashboard
         # And the description is not shown
-        Then dashboard displays in view mode
+        Then the dashboard displays in view mode
         And the dashboard description is not displayed
         When I click to show description
         Then the dashboard description is displayed

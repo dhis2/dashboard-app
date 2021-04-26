@@ -147,9 +147,6 @@ msgstr ""
 msgid "Go to dashboards"
 msgstr ""
 
-msgid "Cancel"
-msgstr ""
-
 msgid "Delete dashboard"
 msgstr ""
 
@@ -157,6 +154,23 @@ msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Discard changes"
+msgstr ""
+
+msgid ""
+"This dashboard has unsaved changes. Are you sure you want to leave and "
+"discard these unsaved changes?"
+msgstr ""
+
+msgid "No, stay here"
+msgstr ""
+
+msgid "Yes, discard changes"
 msgstr ""
 
 msgid "No access"

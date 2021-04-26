@@ -9,7 +9,10 @@ import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import FilterSettingsDialog from './FilterSettingsDialog'
-import ConfirmDeleteDialog from './ConfirmDeleteDialog'
+import ConfirmActionDialog, {
+    ACTION_DELETE,
+    ACTION_DISCARD,
+} from './ConfirmActionDialog'
 import {
     tSaveDashboard,
     acClearEditDashboard,
@@ -23,6 +26,7 @@ import { deleteDashboardMutation } from './deleteDashboardMutation'
 import {
     sGetEditDashboardRoot,
     sGetIsPrintPreviewView,
+    sGetEditIsDirty,
 } from '../../reducers/editDashboard'
 
 import classes from './styles/ActionsBar.module.css'
@@ -43,6 +47,10 @@ const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
         false
     )
     const [confirmDeleteDlgIsOpen, setConfirmDeleteDlgIsOpen] = useState(false)
+    const [confirmDiscardDlgIsOpen, setConfirmDiscardDlgIsOpen] = useState(
+        false
+    )
+
     const [redirectUrl, setRedirectUrl] = useState(undefined)
 
     const saveFailureAlert = useAlert(saveFailedMessage, {
@@ -57,7 +65,7 @@ const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
         setConfirmDeleteDlgIsOpen(true)
     }
 
-    const deleteDashboardConfirmed = () => {
+    const onDeleteConfirmed = () => {
         setConfirmDeleteDlgIsOpen(false)
 
         dataEngine
@@ -87,7 +95,15 @@ const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
         }
     }
 
-    const onDiscard = () => {
+    const onConfirmDiscard = () => {
+        if (props.isDirty) {
+            setConfirmDiscardDlgIsOpen(true)
+        } else {
+            onDiscardConfirmed()
+        }
+    }
+
+    const onDiscardConfirmed = () => {
         props.onDiscardChanges()
         const redirectUrl = dashboard.id ? `/${dashboard.id}` : '/'
 
@@ -96,6 +112,7 @@ const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
 
     const onContinueEditing = () => {
         setConfirmDeleteDlgIsOpen(false)
+        setConfirmDiscardDlgIsOpen(false)
     }
 
     const onFilterSettingsConfirmed = (
@@ -118,16 +135,6 @@ const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
     const toggleFilterSettingsDialog = () => {
         setFilterSettingsDlgIsOpen(!filterSettingsDlgIsOpen)
     }
-
-    const confirmDeleteDialog = () =>
-        dashboard.access?.delete && dashboard.id ? (
-            <ConfirmDeleteDialog
-                dashboardName={dashboard.name}
-                onDeleteConfirmed={deleteDashboardConfirmed}
-                onContinueEditing={onContinueEditing}
-                open={confirmDeleteDlgIsOpen}
-            />
-        ) : null
 
     const translationDialog = () =>
         dashboard.id ? (
@@ -201,14 +208,28 @@ const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
             <div className={classes.editBar} data-test="edit-control-bar">
                 <div className={classes.controls}>
                     {dashboard.access?.update ? renderActionButtons() : null}
-                    <Button secondary onClick={onDiscard}>
+                    <Button secondary onClick={onConfirmDiscard}>
                         {discardBtnText}
                     </Button>
                 </div>
             </div>
             {filterSettingsDialog()}
             {translationDialog()}
-            {confirmDeleteDialog()}
+            {dashboard.id && dashboard.access?.delete && (
+                <ConfirmActionDialog
+                    action={ACTION_DELETE}
+                    dashboardName={dashboard.name}
+                    onConfirm={onDeleteConfirmed}
+                    onCancel={onContinueEditing}
+                    open={confirmDeleteDlgIsOpen}
+                />
+            )}
+            <ConfirmActionDialog
+                action={ACTION_DISCARD}
+                onConfirm={onDiscardConfirmed}
+                onCancel={onContinueEditing}
+                open={confirmDiscardDlgIsOpen}
+            />
         </>
     )
 }
@@ -218,6 +239,7 @@ EditBar.propTypes = {
     clearPrintPreview: PropTypes.func,
     dashboard: PropTypes.object,
     fetchDashboards: PropTypes.func,
+    isDirty: PropTypes.bool,
     isPrintPreviewView: PropTypes.bool,
     saveDashboard: PropTypes.func,
     setFilterSettings: PropTypes.func,
@@ -229,6 +251,7 @@ const mapStateToProps = state => {
     return {
         dashboard: sGetEditDashboardRoot(state),
         isPrintPreviewView: sGetIsPrintPreviewView(state),
+        isDirty: sGetEditIsDirty(state),
     }
 }
 

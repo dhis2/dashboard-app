@@ -36,10 +36,10 @@ jest.mock(
 
 /* eslint-disable react/prop-types */
 jest.mock(
-    '../ConfirmDeleteDialog',
+    '../ConfirmActionDialog',
     () =>
-        function MockConfirmDeleteDialog({ open }) {
-            return open ? <div className="mock-confirm-delete-dialog" /> : null
+        function MockConfirmActionDialog({ open }) {
+            return open ? <div className="mock-confirm-action-dialog" /> : null
         }
 )
 /* eslint-enable react/prop-types */
