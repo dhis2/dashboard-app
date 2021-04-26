@@ -98,7 +98,7 @@ Given('I open existing dashboard', () => {
 })
 
 When('I choose to delete dashboard', () => {
-    cy.get('[data-test="delete-dashboard-button"]').click()
+    cy.get('button').contains('Delete').click()
 })
 
 /*
