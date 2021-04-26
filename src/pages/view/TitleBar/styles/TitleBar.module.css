@@ -31,20 +31,6 @@
     top: 7px;
 }
 
-.descContainer {
-    font-size: 14px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.desc {
-    color: var(--colors-grey700);
-}
-
-.noDesc {
-    color: #888;
-}
-
 .moreText {
     margin-left: 5px;
 }

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 import { Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
@@ -17,6 +16,8 @@ import {
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import FilterSelector from './FilterSelector'
+import LastUpdatedTag from './LastUpdatedTag'
+import Description from './Description'
 import Button from '../../../components/ButtonWithTooltip'
 import StarDashboardButton from './StarDashboardButton'
 import { apiStarDashboard } from './apiStarDashboard'
@@ -136,11 +137,6 @@ const ViewTitleBar = ({
 
     const userAccess = orObject(access)
 
-    const descriptionClasses = cx(
-        classes.descContainer,
-        description ? classes.desc : classes.noDesc
-    )
-
     const getMoreMenu = () => (
         <FlyoutMenu>
             <MenuItem
@@ -254,15 +250,11 @@ const ViewTitleBar = ({
                         </UiButton>
                     </div>
                 </div>
-                <Tag>{`Last updated: ${lastUpdated}`}</Tag>
-                {showDescription && (
-                    <div
-                        className={descriptionClasses}
-                        data-test="dashboard-description"
-                    >
-                        {description || i18n.t('No description')}
-                    </div>
-                )}
+                <Description
+                    showDescription={showDescription}
+                    description={description}
+                />
+                <LastUpdatedTag lastUpdated={lastUpdated} />
             </div>
             {id && (
                 <SharingDialog
