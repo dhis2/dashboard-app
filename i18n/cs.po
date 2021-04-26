@@ -170,9 +170,6 @@ msgstr "Odejít bez uložení"
 msgid "Go to dashboards"
 msgstr "Přejít na ovládací panely"
 
-msgid "Cancel"
-msgstr "Zrušit"
-
 msgid "Delete dashboard"
 msgstr "Smazat ovládací panel"
 
@@ -184,6 +181,23 @@ msgstr ""
 "Smazáním ovládacího panelu \"{{ dashboardName }}\"  bude odstraněn pro "
 "všechny uživatele. Tuto akci nelze vrátit zpět. Opravdu chcete tento "
 "ovládací panel trvale smazat?"
+
+msgid "Cancel"
+msgstr "Zrušit"
+
+msgid "Discard changes"
+msgstr ""
+
+msgid ""
+"This dashboard has unsaved changes. Are you sure you want to leave and "
+"discard these unsaved changes?"
+msgstr ""
+
+msgid "No, stay here"
+msgstr ""
+
+msgid "Yes, discard changes"
+msgstr ""
 
 msgid "No access"
 msgstr "Žádný přístup"

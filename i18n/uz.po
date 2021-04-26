@@ -168,9 +168,6 @@ msgstr "Сақламасдан чиқиш"
 msgid "Go to dashboards"
 msgstr "Бошқарув панелларига ўтиш"
 
-msgid "Cancel"
-msgstr "Бекор қилиш"
-
 msgid "Delete dashboard"
 msgstr "Бошқарув панелини ўчириб ташлаш"
 
@@ -183,6 +180,23 @@ msgstr ""
 " ўчирилишига олиб келади. Бу ҳаракатни орқага қайтариб бўлмайди. Ҳақиқатдан "
 "ҳам ушбу панелни орқага қайтариб бўлмаслик шарти билан ўчириб "
 "ташламоқчимисиз?"
+
+msgid "Cancel"
+msgstr "Бекор қилиш"
+
+msgid "Discard changes"
+msgstr ""
+
+msgid ""
+"This dashboard has unsaved changes. Are you sure you want to leave and "
+"discard these unsaved changes?"
+msgstr ""
+
+msgid "No, stay here"
+msgstr ""
+
+msgid "Yes, discard changes"
+msgstr ""
 
 msgid "No access"
 msgstr "Кириш ҳуқуқи мавжуд эмас"

@@ -172,9 +172,6 @@ msgstr "Salir sin guardar"
 msgid "Go to dashboards"
 msgstr "Ir a los tableros"
 
-msgid "Cancel"
-msgstr "Cancelar"
-
 msgid "Delete dashboard"
 msgstr "Borrar tablero"
 
@@ -186,6 +183,23 @@ msgstr ""
 "Borrando tablero \"{{ dashboardName }}\" para todos los usuarios. Esta "
 "acción será permanente. Está seguro de que desea continuar eliminando "
 "permanentemente este tablero?"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Discard changes"
+msgstr ""
+
+msgid ""
+"This dashboard has unsaved changes. Are you sure you want to leave and "
+"discard these unsaved changes?"
+msgstr ""
+
+msgid "No, stay here"
+msgstr ""
+
+msgid "Yes, discard changes"
+msgstr ""
 
 msgid "No access"
 msgstr "Sin acceso"

@@ -169,9 +169,6 @@ msgstr "Đóng và không lưu"
 msgid "Go to dashboards"
 msgstr "Di chuyển tới bảng điều khiển"
 
-msgid "Cancel"
-msgstr "Hủy"
-
 msgid "Delete dashboard"
 msgstr "Xóa bảng điều khiển"
 
@@ -183,6 +180,23 @@ msgstr ""
 "Xóa bảng điều khiển \"{{tên bảng điều khiển}}\" sẽ xóa cho tất cả người "
 "dùng. Hành động này không thể được hoàn tác. Bạn có chắc chắn muốn xóa vĩnh "
 "viễn bảng điều khiển này không?"
+
+msgid "Cancel"
+msgstr "Hủy"
+
+msgid "Discard changes"
+msgstr ""
+
+msgid ""
+"This dashboard has unsaved changes. Are you sure you want to leave and "
+"discard these unsaved changes?"
+msgstr ""
+
+msgid "No, stay here"
+msgstr ""
+
+msgid "Yes, discard changes"
+msgstr ""
 
 msgid "No access"
 msgstr "Không truy cập"

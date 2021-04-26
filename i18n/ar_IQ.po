@@ -165,9 +165,6 @@ msgstr "الخروج من غير حفظ التغييرات"
 msgid "Go to dashboards"
 msgstr "الذهاب إلى لوحة المعلومات"
 
-msgid "Cancel"
-msgstr "إلغاء"
-
 msgid "Delete dashboard"
 msgstr "حذف لوحة المعلومات"
 
@@ -179,6 +176,23 @@ msgstr ""
 "سيؤدي حذف لوحة المعلومات \"{{dashboardName}}\" إلى إزالتها لجميع المستخدمين."
 " لا يمكن التراجع عن هذا الإجراء. هل تريد بالتأكيد حذف لوحة المعلومات هذه "
 "نهائياً؟"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Discard changes"
+msgstr ""
+
+msgid ""
+"This dashboard has unsaved changes. Are you sure you want to leave and "
+"discard these unsaved changes?"
+msgstr ""
+
+msgid "No, stay here"
+msgstr ""
+
+msgid "Yes, discard changes"
+msgstr ""
 
 msgid "No access"
 msgstr "ممنوع الدخول"

@@ -169,9 +169,6 @@ msgstr "Keluar tanpa menyimpan"
 msgid "Go to dashboards"
 msgstr "Ke dashboard"
 
-msgid "Cancel"
-msgstr "Batalkan"
-
 msgid "Delete dashboard"
 msgstr "Hapus dashboard"
 
@@ -183,6 +180,23 @@ msgstr ""
 "Dashboard \"{{ dashboardName }}\" akan dihapus untuk semua pengguna. Setelah"
 " dihapus dashboard ini tidak dapat dipulihkan. Anda yakin akan menghapus "
 "dashboard ini secara permanen?"
+
+msgid "Cancel"
+msgstr "Batalkan"
+
+msgid "Discard changes"
+msgstr ""
+
+msgid ""
+"This dashboard has unsaved changes. Are you sure you want to leave and "
+"discard these unsaved changes?"
+msgstr ""
+
+msgid "No, stay here"
+msgstr ""
+
+msgid "Yes, discard changes"
+msgstr ""
 
 msgid "No access"
 msgstr "Tidak ada akses"

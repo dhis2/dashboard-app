@@ -183,9 +183,6 @@ msgstr "Quitter sans sauvegarder"
 msgid "Go to dashboards"
 msgstr "Aller aux tableaux de bord"
 
-msgid "Cancel"
-msgstr "Annuler"
-
 msgid "Delete dashboard"
 msgstr "Supprimer le tableau de bord"
 
@@ -197,6 +194,23 @@ msgstr ""
 "La suppression du tableau de bord \"{{ dashboardName }}\" affectera tous les"
 " utilisateurs qui y ont accès.  Cette action ne peut pas être annulée. "
 "Voulez-vous vraiment supprimer définitivement ce tableau de bord?"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Discard changes"
+msgstr ""
+
+msgid ""
+"This dashboard has unsaved changes. Are you sure you want to leave and "
+"discard these unsaved changes?"
+msgstr ""
+
+msgid "No, stay here"
+msgstr ""
+
+msgid "Yes, discard changes"
+msgstr ""
 
 msgid "No access"
 msgstr "Pas d'accès"

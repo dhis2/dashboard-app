@@ -168,9 +168,6 @@ msgstr "Saqlamasdan chiqish"
 msgid "Go to dashboards"
 msgstr "Boshqaruv panellariga oʼtish"
 
-msgid "Cancel"
-msgstr "Bekor qilish"
-
 msgid "Delete dashboard"
 msgstr "Boshqaruv panelini oʼchirib tashlash"
 
@@ -183,6 +180,23 @@ msgstr ""
 "uchun oʼchirilishiga olib keladi. Bu harakatni orqaga qaytarib boʼlmaydi. "
 "Haqiqatdan ham ushbu panelni orqaga qaytarib boʼlmaslik sharti bilan "
 "oʼchirib tashlamoqchimisiz?"
+
+msgid "Cancel"
+msgstr "Bekor qilish"
+
+msgid "Discard changes"
+msgstr ""
+
+msgid ""
+"This dashboard has unsaved changes. Are you sure you want to leave and "
+"discard these unsaved changes?"
+msgstr ""
+
+msgid "No, stay here"
+msgstr ""
+
+msgid "Yes, discard changes"
+msgstr ""
 
 msgid "No access"
 msgstr "Kirish huquqi mavjud emas"

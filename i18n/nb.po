@@ -169,9 +169,6 @@ msgstr "Avslutte uten å lagre"
 msgid "Go to dashboards"
 msgstr "Gå til dashbordene"
 
-msgid "Cancel"
-msgstr "Avbryt"
-
 msgid "Delete dashboard"
 msgstr "Slett dashbord"
 
@@ -183,6 +180,23 @@ msgstr ""
 "Hvis du sletter dashbordet \"{{dashboardName}}\", fjernes det for alle "
 "brukere. Denne handlingen kan ikke angres. Er du sikker på at du vil slette "
 "dette dashbordet permanent?"
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid "Discard changes"
+msgstr ""
+
+msgid ""
+"This dashboard has unsaved changes. Are you sure you want to leave and "
+"discard these unsaved changes?"
+msgstr ""
+
+msgid "No, stay here"
+msgstr ""
+
+msgid "Yes, discard changes"
+msgstr ""
 
 msgid "No access"
 msgstr "Ingen tilgang"

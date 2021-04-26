@@ -169,9 +169,6 @@ msgstr "Sair sem gravar"
 msgid "Go to dashboards"
 msgstr "Ir para o painel"
 
-msgid "Cancel"
-msgstr "Cancelar"
-
 msgid "Delete dashboard"
 msgstr "Apagar painel"
 
@@ -183,6 +180,23 @@ msgstr ""
 "Ao apagar o painel \"{{dashboardName}}\" sera removido de todos os usuários "
 ". Essa ação não pode ser desfeita. Tem certeza de que deseja apagar "
 "permanentemente este painel?"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Discard changes"
+msgstr ""
+
+msgid ""
+"This dashboard has unsaved changes. Are you sure you want to leave and "
+"discard these unsaved changes?"
+msgstr ""
+
+msgid "No, stay here"
+msgstr ""
+
+msgid "Yes, discard changes"
+msgstr ""
 
 msgid "No access"
 msgstr "Sem acesso"
