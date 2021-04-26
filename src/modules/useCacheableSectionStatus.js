@@ -42,5 +42,10 @@ export const useCacheableSectionStatus = id => {
         lastUpdated: getLastUpdated(),
         updateCache,
         removeFromCache,
+        //update - don't expose this?
+        //record - re render everything
+        //remove
+        //pending - getting ready to record
+        //recording - currently recording (show overlay - to disallow user interaction)
     }
 }

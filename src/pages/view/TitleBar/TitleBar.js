@@ -7,10 +7,9 @@ import i18n from '@dhis2/d2-i18n'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import {
-    Button,
+    Button as UiButton,
     FlyoutMenu,
     MenuItem,
-    // Tooltip,
     colors,
     IconMore24,
     Tag,
@@ -18,6 +17,7 @@ import {
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import FilterSelector from './FilterSelector'
+import Button from '../../../components/ButtonWithTooltip'
 import StarDashboardButton from './StarDashboardButton'
 import { apiStarDashboard } from './apiStarDashboard'
 import { orObject } from '../../../modules/util'
@@ -188,6 +188,7 @@ const ViewTitleBar = ({
 
     const getMoreButton = (className, useSmall) => (
         <DropdownButton
+            disabledWhenOffline={false}
             className={className}
             small={useSmall}
             onClick={() => toggleMoreOptions(useSmall)}
@@ -220,17 +221,13 @@ const ViewTitleBar = ({
                         />
                         <div className={classes.strip}>
                             {userAccess.update ? (
-                                <Button
-                                    onClick={enterEditMode}
-                                    disabled={!isOnline}
-                                >
+                                <Button onClick={enterEditMode}>
                                     {i18n.t('Edit')}
                                 </Button>
                             ) : null}
                             {userAccess.manage ? (
                                 <Button
                                     className={classes.shareButton}
-                                    disabled={!isOnline}
                                     onClick={toggleSharingDialog}
                                 >
                                     {i18n.t('Share')}
@@ -252,9 +249,9 @@ const ViewTitleBar = ({
                         }}
                     >
                         <Tag>{`isOnline: ${isOnline}`}</Tag>
-                        <Button onClick={toggleIsOnline}>
+                        <UiButton onClick={toggleIsOnline}>
                             Toggle online status
-                        </Button>
+                        </UiButton>
                     </div>
                 </div>
                 <Tag>{`Last updated: ${lastUpdated}`}</Tag>
