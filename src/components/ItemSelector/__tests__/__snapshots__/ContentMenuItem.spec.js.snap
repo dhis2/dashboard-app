@@ -18,7 +18,7 @@ exports[`ContentMenuItem does not have LaunchLink if no url provided 1`] = `
             }
           }
         >
-          <UNDEFINED
+          <pure(NotInterestedIcon)
             style={
               Object {
                 "fill": "#6e7a8a",
@@ -55,7 +55,7 @@ exports[`ContentMenuItem has a LaunchLink when url is provided 1`] = `
             }
           }
         >
-          <UNDEFINED
+          <pure(NotInterestedIcon)
             style={
               Object {
                 "fill": "#6e7a8a",
