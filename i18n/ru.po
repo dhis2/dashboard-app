@@ -2,13 +2,14 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2019
 # phil_dhis2, 2020
+# Ulanbek Abakirov <ulans@mail.ru>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-23T09:46:24.658Z\n"
+"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: phil_dhis2, 2020\n"
+"Last-Translator: Ulanbek Abakirov <ulans@mail.ru>, 2021\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -190,7 +191,7 @@ msgid ""
 msgstr ""
 
 msgid "No, stay here"
-msgstr ""
+msgstr "Нет, остаюсь тут"
 
 msgid "Yes, discard changes"
 msgstr ""
@@ -290,9 +291,6 @@ msgstr ""
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
 " dialog"
-msgstr ""
-
-msgid "Not available offline"
 msgstr ""
 
 msgid "Create a new dashboard"

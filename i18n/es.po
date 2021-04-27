@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-23T09:46:24.658Z\n"
+"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -300,9 +300,6 @@ msgid ""
 msgstr ""
 "Use un papel de tamaño A4 y los valores de los márgenes por defecto en el "
 "cuadro de impresión"
-
-msgid "Not available offline"
-msgstr ""
 
 msgid "Create a new dashboard"
 msgstr ""

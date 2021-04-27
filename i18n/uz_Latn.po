@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-23T09:46:24.658Z\n"
+"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
@@ -185,7 +185,7 @@ msgid "Cancel"
 msgstr "Bekor qilish"
 
 msgid "Discard changes"
-msgstr ""
+msgstr "Oʼzgartirishlar bekor qilinsin"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
@@ -193,7 +193,7 @@ msgid ""
 msgstr ""
 
 msgid "No, stay here"
-msgstr ""
+msgstr "Yoʼq, sahifada qolish"
 
 msgid "Yes, discard changes"
 msgstr ""
@@ -298,9 +298,6 @@ msgid ""
 msgstr ""
 "Brauzerning bosib chiqarish (printer) panelida А4 va standart chegaralarni "
 "oʼrnating"
-
-msgid "Not available offline"
-msgstr ""
 
 msgid "Create a new dashboard"
 msgstr ""

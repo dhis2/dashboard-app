@@ -4,13 +4,14 @@
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
+# Ge Joao <gsimango@saudigitus.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-23T09:46:24.658Z\n"
+"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
+"Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -185,7 +186,7 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 msgid "Discard changes"
-msgstr ""
+msgstr "Descartar mudanças"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
@@ -297,9 +298,6 @@ msgid ""
 msgstr ""
 "Use o tamanho de papel paisagem A4 e as configurações de margem padrão na "
 "caixa de diálogo de impressão do navegador"
-
-msgid "Not available offline"
-msgstr ""
 
 msgid "Create a new dashboard"
 msgstr ""

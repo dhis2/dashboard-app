@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-23T09:46:24.658Z\n"
+"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: trendspotter, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -186,7 +186,7 @@ msgid "Cancel"
 msgstr "Zrušit"
 
 msgid "Discard changes"
-msgstr ""
+msgstr "Zrušit změny"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
@@ -194,7 +194,7 @@ msgid ""
 msgstr ""
 
 msgid "No, stay here"
-msgstr ""
+msgstr "Ne, zůstat zde"
 
 msgid "Yes, discard changes"
 msgstr ""
@@ -306,9 +306,6 @@ msgid ""
 msgstr ""
 "V dialogovém okně pro tisk v prohlížeči použijte formát papíru A4 na šířku a"
 " výchozí nastavení okrajů"
-
-msgid "Not available offline"
-msgstr ""
 
 msgid "Create a new dashboard"
 msgstr ""
