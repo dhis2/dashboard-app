@@ -4,6 +4,24 @@
     vertical-align: top;
 }
 
+.adornment {
+    vertical-align: text-bottom;
+    margin-left: 2px;
+    fill: var(-colors-grey600);
+}
+
+.adornment.selected {
+    fill: var(--colors-white);
+}
+
+.progressIndicator {
+    margin: 4px;
+}
+
+.progressIndicator.selected {
+    color: var(--colors-white);
+}
+
 @media only screen and (max-width: 480px) {
     .link {
         margin: 0 -2px;

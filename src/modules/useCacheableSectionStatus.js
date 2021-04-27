@@ -46,6 +46,6 @@ export const useCacheableSectionStatus = id => {
         //record - re render everything
         //remove
         //pending - getting ready to record
-        //recording - currently recording (show overlay - to disallow user interaction)
+        recording: id === 'JW7RlN5xafN',
     }
 }
