@@ -21,4 +21,5 @@ export const getCustomDashboards = data =>
         dashboardItems: convertBackendItemsToUi(d.dashboardItems),
         restrictFilters: d.restrictFilters,
         allowedFilters: d.allowedFilters ?? [],
+        href: d.href,
     }))

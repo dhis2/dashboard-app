@@ -27,6 +27,7 @@ export const NEW_DASHBOARD_STATE = {
     restrictFilters: false,
     printPreviewView: false,
     isDirty: false,
+    href: '',
 }
 
 export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {

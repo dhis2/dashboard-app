@@ -19,6 +19,7 @@ import { tSetSelectedDashboardById } from '../../actions/selected'
 import { acSetPassiveViewRegistered } from '../../actions/passiveViewRegistered'
 import { apiPostDataStatistics } from '../../api/dataStatistics'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
+import { VIEW } from '../../modules/dashboardModes'
 
 import classes from './styles/ViewDashboard.module.css'
 
@@ -70,7 +71,7 @@ export const ViewDashboard = props => {
                 }
             }, 500)
 
-            await props.fetchDashboard(props.id, props.username)
+            await props.fetchDashboard(props.id, VIEW, props.username)
 
             clearTimeout(alertTimeout)
             setLoadingMessage(null)
