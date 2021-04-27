@@ -71,7 +71,13 @@ export const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
             data-test="dashboard-chip"
         >
             <UiChip {...chipProps}>
-                {label}
+                <span
+                    className={
+                        (lastUpdated || recording) && classes.labelWithAdornment
+                    }
+                >
+                    {label}
+                </span>
                 {getAdornment()}
             </UiChip>
         </Link>
