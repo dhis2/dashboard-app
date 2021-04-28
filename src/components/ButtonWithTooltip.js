@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Button, Tooltip } from '@dhis2/ui'
 import { useOnlineStatus } from '../modules/useOnlineStatus'
 
-const MenuItemWithTooltip = ({ disabledWhenOffline, children, ...rest }) => {
+const ButtonWithTooltip = ({ disabledWhenOffline, children, ...rest }) => {
     const { isOnline } = useOnlineStatus()
 
     if (disabledWhenOffline && !isOnline) {
@@ -24,13 +24,13 @@ const MenuItemWithTooltip = ({ disabledWhenOffline, children, ...rest }) => {
     return <Button {...rest}>{children}</Button>
 }
 
-MenuItemWithTooltip.propTypes = {
+ButtonWithTooltip.propTypes = {
     children: PropTypes.node,
     disabledWhenOffline: PropTypes.bool,
 }
 
-MenuItemWithTooltip.defaultProps = {
+ButtonWithTooltip.defaultProps = {
     disabledWhenOffline: true,
 }
 
-export default MenuItemWithTooltip
+export default ButtonWithTooltip
