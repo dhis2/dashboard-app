@@ -1574,12 +1574,11 @@
   dependencies:
     moment "^2.24.0"
 
-"@dhis2/app-runtime-adapter-d2@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime-adapter-d2/-/app-runtime-adapter-d2-1.0.2.tgz#b1a88d371830bfe63fbc00068f7eda98f3c9259f"
-  integrity sha512-HbkkRdt4qMHAv3EKjZUuXXm7QfHK7NuxEHhxR33xxLfZHGdI+doRqvqzmpvJYkPDv4PaY91V4FKgnyznbDdlkQ==
+"@dhis2/app-runtime-adapter-d2@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime-adapter-d2/-/app-runtime-adapter-d2-1.1.0.tgz#4da0b620a5552b3d7f01b1cc470bb4f2de684025"
+  integrity sha512-Qlff432iw1IljuRoexNCBhpdThYQ6WMNhSIrHQuNpF8JARKmq/W1WhSsnUrYbHy2FL8yBKsORXOWbfMpVY5vRw==
   dependencies:
-    "@dhis2/ui-core" "^4.6.1"
     prop-types "^15.7.2"
 
 "@dhis2/app-runtime@^2.8.0":
@@ -1929,17 +1928,6 @@
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
     "@popperjs/core" "^2.6.0"
-    classnames "^2.2.6"
-    react-popper "^2.2.3"
-    resize-observer-polyfill "^1.5.1"
-
-"@dhis2/ui-core@^4.6.1":
-  version "4.21.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.21.1.tgz#2b5518f6bd5de75404df3eefa83452e0c40852aa"
-  integrity sha512-dpK4UwktLw9qcRkDe5wU76j35ntoulqKpcaBoxXZ1+/rzR2FeaJ+w4l+I+bg45jcK9WjLLsFClc1zi+O/MG1MA==
-  dependencies:
-    "@dhis2/prop-types" "^1.6.4"
-    "@popperjs/core" "^2.4.0"
     classnames "^2.2.6"
     react-popper "^2.2.3"
     resize-observer-polyfill "^1.5.1"
@@ -2550,7 +2538,7 @@
     schema-utils "^2.6.5"
     source-map "^0.7.3"
 
-"@popperjs/core@^2.4.0", "@popperjs/core@^2.6.0":
+"@popperjs/core@^2.6.0":
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.6.0.tgz#f022195afdfc942e088ee2101285a1d31c7d727f"
   integrity sha512-cPqjjzuFWNK3BSKLm0abspP0sp/IGOli4p5I5fKFAzdS8fvjdOwDCfZqAaIiXd9lPkOWi3SUUfZof3hEb7J/uw==
