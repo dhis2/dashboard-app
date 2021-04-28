@@ -4,7 +4,10 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { ComponentCover, AlertStack, AlertBar } from '@dhis2/ui'
 import cx from 'classnames'
+import { useOnlineStatus } from '../../modules/useOnlineStatus'
+import { useCacheableSectionStatus } from '../../modules/useCacheableSectionStatus'
 
+import Notice from '../../components/Notice'
 import { TitleBar } from './TitleBar'
 import ItemGrid from './ItemGrid'
 import FilterBar from './FilterBar/FilterBar'
@@ -26,6 +29,8 @@ import classes from './styles/ViewDashboard.module.css'
 export const ViewDashboard = props => {
     const [controlbarExpanded, setControlbarExpanded] = useState(false)
     const [loadingMessage, setLoadingMessage] = useState(null)
+    const { isOnline } = useOnlineStatus()
+    const { lastUpdated } = useCacheableSectionStatus(props.id)
 
     useEffect(() => {
         setHeaderbarVisible(true)
@@ -48,7 +53,7 @@ export const ViewDashboard = props => {
     }, [props.isRecording])
 
     useEffect(() => {
-        if (!props.passiveViewRegistered) {
+        if (isOnline && !props.passiveViewRegistered) {
             apiPostDataStatistics('PASSIVE_DASHBOARD_VIEW', props.id).then(
                 () => {
                     props.registerPassiveView()
@@ -77,7 +82,7 @@ export const ViewDashboard = props => {
             setLoadingMessage(null)
         }
 
-        if (props.id || props.isRecording) {
+        if (isOnline && (props.id || props.isRecording)) {
             loadDashboard()
         }
     }, [props.id, props.isRecording])
@@ -102,9 +107,20 @@ export const ViewDashboard = props => {
                             onClick={() => setControlbarExpanded(false)}
                         />
                     )}
-                    <TitleBar />
-                    <FilterBar />
-                    <ItemGrid isRecording={props.isRecording} />
+                    {isOnline || lastUpdated || props.dashboardIsLoaded ? (
+                        <>
+                            <TitleBar />
+                            <FilterBar />
+                            <ItemGrid isRecording={props.isRecording} />
+                        </>
+                    ) : (
+                        <Notice
+                            title={i18n.t('Offline')}
+                            message={i18n.t(
+                                'This dashboard cannot be loaded while offline.'
+                            )}
+                        />
+                    )}
                 </DashboardContainer>
             </div>
             <AlertStack>
@@ -124,6 +140,7 @@ export const ViewDashboard = props => {
 ViewDashboard.propTypes = {
     clearEditDashboard: PropTypes.func,
     clearPrintDashboard: PropTypes.func,
+    dashboardIsLoaded: PropTypes.bool,
     fetchDashboard: PropTypes.func,
     id: PropTypes.string,
     isRecording: PropTypes.bool,
@@ -134,10 +151,14 @@ ViewDashboard.propTypes = {
     username: PropTypes.string,
 }
 
-const mapStateToProps = (state, ownProps) => ({
-    passiveViewRegistered: sGetPassiveViewRegistered(state),
-    name: sGetDashboardById(state, ownProps.id)?.displayName || null,
-})
+const mapStateToProps = (state, ownProps) => {
+    const dashboard = sGetDashboardById(state, ownProps.id) || {}
+    return {
+        passiveViewRegistered: sGetPassiveViewRegistered(state),
+        name: dashboard.displayName || null,
+        dashboardIsLoaded: !!dashboard.dashboardItems,
+    }
+}
 
 export default connect(mapStateToProps, {
     clearEditDashboard: acClearEditDashboard,

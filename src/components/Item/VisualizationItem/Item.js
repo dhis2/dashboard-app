@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import uniqueId from 'lodash/uniqueId'
+import isEmpty from 'lodash/isEmpty'
 import i18n from '@dhis2/d2-i18n'
 import Visualization from './Visualization/Visualization'
 import FatalErrorBoundary from './FatalErrorBoundary'
@@ -75,9 +76,15 @@ export class Item extends Component {
     }
 
     async componentDidMount() {
-        this.props.updateVisualization(
-            await apiFetchVisualization(this.props.item)
-        )
+        if (isViewMode(this.props.dashboardMode) && !this.props.isOnline) {
+            return
+        }
+
+        if (isEmpty(this.props.visualization)) {
+            this.props.setVisualization(
+                await apiFetchVisualization(this.props.item)
+            )
+        }
 
         try {
             if (
@@ -99,7 +106,7 @@ export class Item extends Component {
 
     async componentDidUpdate() {
         if (this.props.isRecording) {
-            this.props.updateVisualization(
+            this.props.setVisualization(
                 await apiFetchVisualization(this.props.item)
             )
         }
@@ -256,12 +263,13 @@ Item.propTypes = {
     dashboardMode: PropTypes.string,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
+    isOnline: PropTypes.bool,
     isRecording: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     setActiveType: PropTypes.func,
+    setVisualization: PropTypes.func,
     settings: PropTypes.object,
-    updateVisualization: PropTypes.func,
     visualization: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
 }
@@ -290,7 +298,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = {
     setActiveType: acSetSelectedItemActiveType,
-    updateVisualization: acAddVisualization,
+    setVisualization: acAddVisualization,
 }
 
 const ItemWithSettings = props => (

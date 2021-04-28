@@ -61,21 +61,9 @@ const getGridItem = type => {
 export const Item = props => {
     const GridItem = getGridItem(props.item.type)
 
-    return (
-        <GridItem
-            item={props.item}
-            gridWidth={props.gridWidth}
-            dashboardMode={props.dashboardMode}
-            onToggleItemExpanded={props.onToggleItemExpanded}
-            isRecording={props.isRecording}
-        />
-    )
+    return <GridItem {...props} />
 }
 
 Item.propTypes = {
-    dashboardMode: PropTypes.string,
-    gridWidth: PropTypes.number,
-    isRecording: PropTypes.bool,
     item: PropTypes.object,
-    onToggleItemExpanded: PropTypes.func,
 }

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-04-27T12:30:46.721Z\n"
-"PO-Revision-Date: 2021-04-27T12:30:46.721Z\n"
+"POT-Creation-Date: 2021-04-28T08:33:54.394Z\n"
+"PO-Revision-Date: 2021-04-28T08:33:54.394Z\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -176,6 +176,9 @@ msgstr ""
 msgid "No access"
 msgstr ""
 
+msgid "Not supported"
+msgstr ""
+
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
@@ -232,9 +235,6 @@ msgstr ""
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen "
 "to return to create mode."
-msgstr ""
-
-msgid "Not supported"
 msgstr ""
 
 msgid "Dashboard title"
@@ -365,4 +365,10 @@ msgid "Loading dashboard – {{name}}"
 msgstr ""
 
 msgid "Loading dashboard"
+msgstr ""
+
+msgid "Offline"
+msgstr ""
+
+msgid "This dashboard cannot be loaded while offline."
 msgstr ""
