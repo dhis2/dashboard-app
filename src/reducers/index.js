@@ -14,6 +14,7 @@ import activeModalDimension from './activeModalDimension'
 import passiveViewRegistered from './passiveViewRegistered'
 import isOnline from './isOnline'
 import isRecording from './isRecording'
+import showDescription from './showDescription'
 
 export default combineReducers({
     dashboards,
@@ -30,4 +31,5 @@ export default combineReducers({
     passiveViewRegistered,
     isOnline,
     isRecording,
+    showDescription,
 })

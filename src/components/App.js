@@ -10,7 +10,7 @@ import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import { tFetchDashboards } from '../actions/dashboards'
 import { tSetControlBarRows } from '../actions/controlBar'
-import { tSetShowDescription } from '../actions/selected'
+import { tSetShowDescription } from '../actions/showDescription'
 
 import './styles/App.css'
 import 'react-grid-layout/css/styles.css'
