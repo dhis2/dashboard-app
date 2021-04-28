@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect, createRef } from 'react'
 import { connect } from 'react-redux'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
+import { Button } from '@dhis2/ui'
+import { useOnlineStatus } from '../../../modules/useOnlineStatus'
 
 import Content from './Content'
 import ShowMoreButton from './ShowMoreButton'
@@ -27,6 +29,7 @@ const DashboardsBar = ({
     const userRowsChanged = useRef(false)
     const ref = createRef()
     const { height } = useWindowDimensions()
+    const { isOnline, toggleIsOnline } = useOnlineStatus()
 
     const rootElement = document.documentElement
 
@@ -85,6 +88,7 @@ const DashboardsBar = ({
     return (
         <div
             className={expanded ? classes.expanded : classes.collapsed}
+            style={{ position: 'relative' }}
             data-test="dashboards-bar"
         >
             <div className={cx(classes.container)}>
@@ -106,6 +110,17 @@ const DashboardsBar = ({
                 />
             </div>
             <div className={cx(classes.spacer)} />
+            <div
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    right: 0,
+                }}
+            >
+                <Button dense onClick={toggleIsOnline}>
+                    {`You are ${isOnline ? 'online' : 'offline'}`}
+                </Button>
+            </div>
         </div>
     )
 }

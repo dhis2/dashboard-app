@@ -5,14 +5,7 @@ import { Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
-import {
-    Button as UiButton,
-    FlyoutMenu,
-    MenuItem,
-    colors,
-    IconMore24,
-    Tag,
-} from '@dhis2/ui'
+import { FlyoutMenu, MenuItem, colors, IconMore24 } from '@dhis2/ui'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import FilterSelector from './FilterSelector'
@@ -58,7 +51,7 @@ const ViewTitleBar = ({
     const [redirectUrl, setRedirectUrl] = useState(null)
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
-    const { isOnline, toggleIsOnline } = useOnlineStatus()
+    const { isOnline } = useOnlineStatus()
     const {
         lastUpdated,
         updateCache,
@@ -236,18 +229,6 @@ const ViewTitleBar = ({
                             {getMoreButton(classes.moreButton, false)}
                             {getMoreButton(classes.moreButtonSmall, true)}
                         </div>
-                    </div>
-                    <div
-                        style={{
-                            position: 'absolute',
-                            top: 0,
-                            right: 0,
-                        }}
-                    >
-                        <Tag>{`isOnline: ${isOnline}`}</Tag>
-                        <UiButton onClick={toggleIsOnline}>
-                            Toggle online status
-                        </UiButton>
                     </div>
                 </div>
                 <Description
