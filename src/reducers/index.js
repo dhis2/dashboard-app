@@ -13,6 +13,7 @@ import dimensions from './dimensions'
 import activeModalDimension from './activeModalDimension'
 import passiveViewRegistered from './passiveViewRegistered'
 import showDescription from './showDescription'
+import itemActiveTypes from './itemActiveTypes'
 
 export default combineReducers({
     dashboards,
@@ -28,4 +29,5 @@ export default combineReducers({
     activeModalDimension,
     passiveViewRegistered,
     showDescription,
+    itemActiveTypes,
 })
