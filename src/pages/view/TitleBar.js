@@ -23,13 +23,11 @@ import { apiStarDashboard } from './starDashboard'
 import { apiPostShowDescription } from '../../api/description'
 
 import { acSetDashboardStarred } from '../../actions/dashboards'
-import { acSetSelectedShowDescription } from '../../actions/selected'
+import { acSetShowDescription } from '../../actions/showDescription'
 import FilterSelector from './ItemFilter/FilterSelector'
 import DropdownButton from '../../components/DropdownButton/DropdownButton'
-import {
-    sGetSelectedId,
-    sGetSelectedShowDescription,
-} from '../../reducers/selected'
+import { sGetSelectedId } from '../../reducers/selected'
+import { sGetShowDescription } from '../../reducers/showDescription'
 import {
     sGetDashboardById,
     sGetDashboardItems,
@@ -276,7 +274,7 @@ const mapStateToProps = state => {
         name: dashboard.displayName,
         description: dashboard.displayDescription,
         dashboardItems: sGetDashboardItems(state),
-        showDescription: sGetSelectedShowDescription(state),
+        showDescription: sGetShowDescription(state),
         starred: dashboard.starred,
         access: dashboard.access,
         restrictFilters: dashboard.restrictFilters,
@@ -286,5 +284,5 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
     setDashboardStarred: acSetDashboardStarred,
-    updateShowDescription: acSetSelectedShowDescription,
+    updateShowDescription: acSetShowDescription,
 })(ViewTitleBar)

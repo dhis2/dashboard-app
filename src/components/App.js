@@ -6,7 +6,7 @@ import Dashboard from './Dashboard'
 
 import { tFetchDashboards } from '../actions/dashboards'
 import { tSetControlBarRows } from '../actions/controlBar'
-import { tSetShowDescription } from '../actions/selected'
+import { tSetShowDescription } from '../actions/showDescription'
 
 import { EDIT, VIEW, NEW, PRINT, PRINT_LAYOUT } from '../modules/dashboardModes'
 

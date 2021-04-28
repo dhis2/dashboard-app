@@ -1,7 +1,6 @@
 import {
     SET_SELECTED_ID,
     SET_SELECTED_ISLOADING,
-    SET_SELECTED_SHOWDESCRIPTION,
     SET_SELECTED_ITEM_ACTIVE_TYPE,
     CLEAR_SELECTED_ITEM_ACTIVE_TYPES,
     NON_EXISTING_DASHBOARD_ID,
@@ -19,8 +18,6 @@ import {
     getPreferredDashboardId,
     storePreferredDashboardId,
 } from '../modules/localStorage'
-import { apiGetShowDescription } from '../api/description'
-
 import { withShape } from '../modules/gridUtil'
 import { getCustomDashboards } from '../modules/getCustomDashboards'
 
@@ -35,11 +32,6 @@ export const acSetSelectedId = value => ({
 
 export const acSetSelectedIsLoading = value => ({
     type: SET_SELECTED_ISLOADING,
-    value,
-})
-
-export const acSetSelectedShowDescription = value => ({
-    type: SET_SELECTED_SHOWDESCRIPTION,
     value,
 })
 
@@ -103,18 +95,4 @@ export const tSetSelectedDashboardById = (requestedId, mode, username) => (
             console.error('Error: ', err)
             return err
         })
-}
-
-export const tSetShowDescription = () => async dispatch => {
-    const onSuccess = value => {
-        dispatch(acSetSelectedShowDescription(value))
-    }
-
-    try {
-        const showDescription = await apiGetShowDescription()
-        return onSuccess(showDescription)
-    } catch (err) {
-        console.error('Error (apiGetShowDescription): ', err)
-        return err
-    }
 }
