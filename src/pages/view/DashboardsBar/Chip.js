@@ -73,7 +73,9 @@ export const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
             <UiChip {...chipProps}>
                 <span
                     className={
-                        (lastUpdated || recording) && classes.labelWithAdornment
+                        lastUpdated || recording
+                            ? classes.labelWithAdornment
+                            : undefined
                     }
                 >
                     {label}
