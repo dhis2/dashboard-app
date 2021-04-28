@@ -1,8 +1,6 @@
 import {
     SET_SELECTED_ID,
     SET_SELECTED_ISLOADING,
-    SET_SELECTED_ITEM_ACTIVE_TYPE,
-    CLEAR_SELECTED_ITEM_ACTIVE_TYPES,
     NON_EXISTING_DASHBOARD_ID,
     sGetSelectedId,
 } from '../reducers/selected'
@@ -13,6 +11,7 @@ import { acSetDashboardItems, acAppendDashboards } from './dashboards'
 import { acClearItemFilters } from './itemFilters'
 import { tGetMessages } from '../components/Item/MessagesItem/actions'
 import { acClearVisualizations } from './visualizations'
+import { acClearItemActiveTypes } from './itemActiveTypes'
 import { apiFetchDashboard } from '../api/fetchDashboard'
 import {
     getPreferredDashboardId,
@@ -33,20 +32,6 @@ export const acSetSelectedId = value => ({
 export const acSetSelectedIsLoading = value => ({
     type: SET_SELECTED_ISLOADING,
     value,
-})
-
-export const acSetSelectedItemActiveType = (id, activeType) => {
-    const action = {
-        type: SET_SELECTED_ITEM_ACTIVE_TYPE,
-        id,
-        activeType,
-    }
-
-    return action
-}
-
-export const acClearSelectedItemActiveTypes = () => ({
-    type: CLEAR_SELECTED_ITEM_ACTIVE_TYPES,
 })
 
 // thunks
@@ -80,7 +65,7 @@ export const tSetSelectedDashboardById = (requestedId, mode, username) => (
             if (id !== sGetSelectedId(getState())) {
                 dispatch(acClearItemFilters())
                 dispatch(acClearVisualizations())
-                dispatch(acClearSelectedItemActiveTypes())
+                dispatch(acClearItemActiveTypes())
             }
 
             customDashboard.dashboardItems.some(
