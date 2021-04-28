@@ -1,6 +1,5 @@
 import {
     SET_SELECTED_ID,
-    SET_SELECTED_SHOWDESCRIPTION,
     SET_SELECTED_ITEM_ACTIVE_TYPE,
     CLEAR_SELECTED_ITEM_ACTIVE_TYPES,
     sGetSelectedId,
@@ -12,8 +11,6 @@ import { tGetMessages } from '../components/Item/MessagesItem/actions'
 import { acClearVisualizations } from './visualizations'
 import { apiFetchDashboard } from '../api/fetchDashboard'
 import { storePreferredDashboardId } from '../modules/localStorage'
-import { apiGetShowDescription } from '../api/description'
-
 import { withShape } from '../modules/gridUtil'
 import { getCustomDashboards } from '../modules/getCustomDashboards'
 
@@ -23,11 +20,6 @@ import { MESSAGES } from '../modules/itemTypes'
 
 export const acSetSelectedId = value => ({
     type: SET_SELECTED_ID,
-    value,
-})
-
-export const acSetSelectedShowDescription = value => ({
-    type: SET_SELECTED_SHOWDESCRIPTION,
     value,
 })
 
@@ -75,18 +67,4 @@ export const tSetSelectedDashboardById = (id, mode, username) => (
 
         return selected
     })
-}
-
-export const tSetShowDescription = () => async dispatch => {
-    const onSuccess = value => {
-        dispatch(acSetSelectedShowDescription(value))
-    }
-
-    try {
-        const showDescription = await apiGetShowDescription()
-        return onSuccess(showDescription)
-    } catch (err) {
-        console.error('Error (apiGetShowDescription): ', err)
-        return err
-    }
 }
