@@ -28,7 +28,7 @@
         "react-grid-layout": "1.2.2",
         "react-redux": "^7.2.3",
         "react-router-dom": "^5.2.0",
-        "redux": "^4.0.5",
+        "redux": "^4.1.0",
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.3.0",
         "reselect": "^4.0.0",

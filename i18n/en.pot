@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-04-23T09:46:24.658Z\n"
-"PO-Revision-Date: 2021-04-23T09:46:24.658Z\n"
+"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
+"PO-Revision-Date: 2021-04-27T09:00:25.929Z\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -156,9 +156,6 @@ msgstr ""
 msgid "Go to dashboards"
 msgstr ""
 
-msgid "Cancel"
-msgstr ""
-
 msgid "Delete dashboard"
 msgstr ""
 
@@ -166,6 +163,23 @@ msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Discard changes"
+msgstr ""
+
+msgid ""
+"This dashboard has unsaved changes. Are you sure you want to leave and "
+"discard these unsaved changes?"
+msgstr ""
+
+msgid "No, stay here"
+msgstr ""
+
+msgid "Yes, discard changes"
 msgstr ""
 
 msgid "No access"
@@ -265,9 +279,6 @@ msgstr ""
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser "
 "print dialog"
-msgstr ""
-
-msgid "Not available offline"
 msgstr ""
 
 msgid "Create a new dashboard"

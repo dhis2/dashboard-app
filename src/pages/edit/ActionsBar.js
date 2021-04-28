@@ -9,7 +9,10 @@ import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import FilterSettingsDialog from './FilterSettingsDialog'
-import ConfirmDeleteDialog from './ConfirmDeleteDialog'
+import ConfirmActionDialog, {
+    ACTION_DELETE,
+    ACTION_DISCARD,
+} from './ConfirmActionDialog'
 import {
     tSaveDashboard,
     acClearEditDashboard,
@@ -24,6 +27,7 @@ import {
     sGetEditDashboardRoot,
     sGetIsNewDashboard,
     sGetIsPrintPreviewView,
+    sGetEditIsDirty,
 } from '../../reducers/editDashboard'
 import { apiFetchDashboard } from '../../api/fetchDashboard'
 import { EDIT } from '../../modules/dashboardModes'
@@ -47,6 +51,10 @@ const EditBar = props => {
     )
     const [dashboard, setDashboard] = useState(undefined)
     const [confirmDeleteDlgIsOpen, setConfirmDeleteDlgIsOpen] = useState(false)
+    const [confirmDiscardDlgIsOpen, setConfirmDiscardDlgIsOpen] = useState(
+        false
+    )
+
     const [redirectUrl, setRedirectUrl] = useState(undefined)
 
     const saveFailureAlert = useAlert(saveFailedMessage, {
@@ -71,7 +79,7 @@ const EditBar = props => {
         setConfirmDeleteDlgIsOpen(true)
     }
 
-    const deleteDashboardConfirmed = () => {
+    const onDeleteConfirmed = () => {
         setConfirmDeleteDlgIsOpen(false)
 
         dataEngine
@@ -101,7 +109,15 @@ const EditBar = props => {
         }
     }
 
-    const onDiscard = () => {
+    const onConfirmDiscard = () => {
+        if (props.isDirty) {
+            setConfirmDiscardDlgIsOpen(true)
+        } else {
+            onDiscardConfirmed()
+        }
+    }
+
+    const onDiscardConfirmed = () => {
         props.onDiscardChanges()
         const redirectUrl = props.dashboardId ? `/${props.dashboardId}` : '/'
 
@@ -110,6 +126,7 @@ const EditBar = props => {
 
     const onContinueEditing = () => {
         setConfirmDeleteDlgIsOpen(false)
+        setConfirmDiscardDlgIsOpen(false)
     }
 
     const onFilterSettingsConfirmed = (
@@ -132,16 +149,6 @@ const EditBar = props => {
     const toggleFilterSettingsDialog = () => {
         setFilterSettingsDlgIsOpen(!filterSettingsDlgIsOpen)
     }
-
-    const confirmDeleteDialog = () =>
-        props.deleteAccess && props.dashboardId ? (
-            <ConfirmDeleteDialog
-                dashboardName={props.dashboardName}
-                onDeleteConfirmed={deleteDashboardConfirmed}
-                onContinueEditing={onContinueEditing}
-                open={confirmDeleteDlgIsOpen}
-            />
-        ) : null
 
     const translationDialog = () =>
         dashboard && dashboard.id ? (
@@ -216,14 +223,28 @@ const EditBar = props => {
             <div className={classes.editBar} data-test="edit-control-bar">
                 <div className={classes.controls}>
                     {props.updateAccess ? renderActionButtons() : null}
-                    <Button secondary onClick={onDiscard}>
+                    <Button secondary onClick={onConfirmDiscard}>
                         {discardBtnText}
                     </Button>
                 </div>
             </div>
             {filterSettingsDialog()}
             {translationDialog()}
-            {confirmDeleteDialog()}
+            {props.deleteAccess && props.dashboardId && (
+                <ConfirmActionDialog
+                    action={ACTION_DELETE}
+                    dashboardName={props.dashboardName}
+                    onConfirm={onDeleteConfirmed}
+                    onCancel={onContinueEditing}
+                    open={confirmDeleteDlgIsOpen}
+                />
+            )}
+            <ConfirmActionDialog
+                action={ACTION_DISCARD}
+                onConfirm={onDiscardConfirmed}
+                onCancel={onContinueEditing}
+                open={confirmDiscardDlgIsOpen}
+            />
         </>
     )
 }
@@ -236,6 +257,7 @@ EditBar.propTypes = {
     dashboardName: PropTypes.string,
     deleteAccess: PropTypes.bool,
     fetchDashboards: PropTypes.func,
+    isDirty: PropTypes.bool,
     isPrintPreviewView: PropTypes.bool,
     newDashboard: PropTypes.bool,
     restrictFilters: PropTypes.bool,
@@ -270,6 +292,7 @@ const mapStateToProps = state => {
         restrictFilters: dashboard.restrictFilters,
         isPrintPreviewView: sGetIsPrintPreviewView(state),
         updateAccess,
+        isDirty: sGetEditIsDirty(state),
     }
 }
 
