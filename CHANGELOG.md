@@ -1,3 +1,23 @@
+# [31.15.0](https://github.com/dhis2/dashboard-app/compare/v31.14.11...v31.15.0) (2021-04-27)
+
+
+### Bug Fixes
+
+* make New button icon-only and set redirect url rather than use Link component ([#1714](https://github.com/dhis2/dashboard-app/issues/1714)) ([686d970](https://github.com/dhis2/dashboard-app/commit/686d970cd40e0025916515ef3c02892a1bb3d8db))
+* namespace check issue ([#1725](https://github.com/dhis2/dashboard-app/issues/1725)) ([0997714](https://github.com/dhis2/dashboard-app/commit/0997714d89580c3b76a7e2510d760edbc3084155))
+
+
+### Features
+
+* add confirmation dialog for discarding changes to dashboard ([#1713](https://github.com/dhis2/dashboard-app/issues/1713)) ([0fd4d1c](https://github.com/dhis2/dashboard-app/commit/0fd4d1c2f988fc3307ad308babe96f6382cd650b))
+
+## [31.14.11](https://github.com/dhis2/dashboard-app/compare/v31.14.10...v31.14.11) (2021-04-20)
+
+
+### Bug Fixes
+
+* remove material-ui as direct dependency and update to latest ui design DHIS2-10143 ([#1704](https://github.com/dhis2/dashboard-app/issues/1704)) ([4f4cc50](https://github.com/dhis2/dashboard-app/commit/4f4cc50b209fed3e3a93194357540535b0ffc242))
+
 ## [31.14.10](https://github.com/dhis2/dashboard-app/compare/v31.14.9...v31.14.10) (2021-03-30)
 
 

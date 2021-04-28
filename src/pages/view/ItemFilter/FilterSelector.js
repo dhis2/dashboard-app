@@ -1,11 +1,10 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import isEmpty from 'lodash/isEmpty'
 import i18n from '@dhis2/d2-i18n'
 import { DimensionsPanel } from '@dhis2/analytics'
-import { Button, Popover } from '@dhis2/ui'
+import { Card, colors, IconFilter24 } from '@dhis2/ui'
 import FilterDialog from './FilterDialog'
 
 import { sGetActiveModalDimension } from '../../../reducers/activeModalDimension'
@@ -15,17 +14,19 @@ import {
     acSetActiveModalDimension,
 } from '../../../actions/activeModalDimension'
 import useDimensions from '../../../modules/useDimensions'
+import DropdownButton from '../../../components/DropdownButton/DropdownButton'
 
 import classes from './styles/FilterSelector.module.css'
 
 const FilterSelector = props => {
-    const [showPopover, setShowPopover] = useState(false)
-    const dimensions = useDimensions(showPopover)
+    const [filterDialogIsOpen, setFilterDialogIsOpen] = useState(false)
+    const dimensions = useDimensions(filterDialogIsOpen)
 
-    const ref = useRef(null)
+    const toggleFilterDialogIsOpen = () =>
+        setFilterDialogIsOpen(!filterDialogIsOpen)
 
     const onCloseDialog = () => {
-        setShowPopover(false)
+        setFilterDialogIsOpen(false)
 
         props.clearActiveModalDimension()
     }
@@ -46,34 +47,29 @@ const FilterSelector = props => {
         }
     }
 
+    const getFilterSelector = () => (
+        <Card dataTest="dashboard-filter-popover">
+            <DimensionsPanel
+                style={{ width: '320px' }}
+                dimensions={filterDimensions()}
+                onDimensionClick={selectDimension}
+                selectedIds={Object.keys(props.initiallySelectedItems)}
+            />
+        </Card>
+    )
+
     return props.restrictFilters && !props.allowedFilters?.length ? null : (
         <>
-            <span className={classes.buttonContainer} ref={ref}>
-                <Button onClick={() => setShowPopover(true)}>
-                    {i18n.t('Add filter')}
-                    <ArrowDropDownIcon />
-                </Button>
-            </span>
-            {showPopover && (
-                <Popover
-                    onClickOutside={onCloseDialog}
-                    reference={ref}
-                    arrow={true}
-                    placement="bottom-start"
-                    dataTest="dashboard-filter-popover"
+            <span className={classes.buttonContainer}>
+                <DropdownButton
+                    open={filterDialogIsOpen}
+                    onClick={toggleFilterDialogIsOpen}
+                    icon={<IconFilter24 color={colors.grey700} />}
+                    component={getFilterSelector()}
                 >
-                    <div className={classes.popover}>
-                        <DimensionsPanel
-                            style={{ width: '320px' }}
-                            dimensions={filterDimensions()}
-                            onDimensionClick={selectDimension}
-                            selectedIds={Object.keys(
-                                props.initiallySelectedItems
-                            )}
-                        />
-                    </div>
-                </Popover>
-            )}
+                    {i18n.t('Add filter')}
+                </DropdownButton>
+            </span>
             {!isEmpty(props.dimension) ? (
                 <FilterDialog
                     dimension={props.dimension}

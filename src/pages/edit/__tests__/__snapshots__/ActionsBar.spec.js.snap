@@ -65,6 +65,7 @@ exports[`renders Save and Discard buttons but no dialogs when no dashboard id 1`
   <div
     class="mock-filter-settings-dialog"
   />
+  
 </div>
 `;
 
@@ -322,7 +323,7 @@ exports[`shows the confirm delete dialog when delete button clicked 1`] = `
     </div>
   </div>
   <div
-    class="mock-confirm-delete-dialog"
+    class="mock-confirm-action-dialog"
   />
 </DocumentFragment>
 `;

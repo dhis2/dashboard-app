@@ -3,7 +3,11 @@
 exports[`ContentMenuItem does not have LaunchLink if no url provided 1`] = `
 <MenuItem
   dataTest="menu-item-Pinkie Pie"
-  dense={true}
+  icon={
+    <SvgQuestion24
+      color="#6e7a8a"
+    />
+  }
   label={
     <div
       className="menuItem"
@@ -11,21 +15,6 @@ exports[`ContentMenuItem does not have LaunchLink if no url provided 1`] = `
       <div
         className="label"
       >
-        <span
-          style={
-            Object {
-              "marginRight": "6px",
-            }
-          }
-        >
-          <UNDEFINED
-            style={
-              Object {
-                "fill": "#6e7a8a",
-              }
-            }
-          />
-        </span>
         <span>
           Pinkie Pie
         </span>
@@ -40,7 +29,11 @@ exports[`ContentMenuItem does not have LaunchLink if no url provided 1`] = `
 exports[`ContentMenuItem has a LaunchLink when url is provided 1`] = `
 <MenuItem
   dataTest="menu-item-Pinkie Pie"
-  dense={true}
+  icon={
+    <SvgQuestion24
+      color="#6e7a8a"
+    />
+  }
   label={
     <div
       className="menuItem"
@@ -48,21 +41,6 @@ exports[`ContentMenuItem has a LaunchLink when url is provided 1`] = `
       <div
         className="label"
       >
-        <span
-          style={
-            Object {
-              "marginRight": "6px",
-            }
-          }
-        >
-          <UNDEFINED
-            style={
-              Object {
-                "fill": "#6e7a8a",
-              }
-            }
-          />
-        </span>
         <span>
           Pinkie Pie
         </span>

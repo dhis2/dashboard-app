@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
-import { Link, withRouter } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
+import { Button, Tooltip, colors, IconAdd24 } from '@dhis2/ui'
 
 import Chip from './Chip'
-import AddCircleIcon from './assets/AddCircle'
 import Filter from './Filter'
 import { getFilteredDashboards } from './getFilteredDashboards'
 
@@ -24,11 +25,17 @@ const Content = ({
     onChipClicked,
     onSearchClicked,
 }) => {
+    const [redirectUrl, setRedirectUrl] = useState(null)
+
     const onSelectDashboard = () => {
         const id = getFilteredDashboards(dashboards, filterText)[0]?.id
         if (id) {
             history.push(id)
         }
+    }
+
+    const enterNewMode = () => {
+        setRedirectUrl('/new')
     }
 
     const getChips = () =>
@@ -54,21 +61,27 @@ const Content = ({
     )
 
     const getControlsLarge = () => (
-        <div className={classes.controlsLarge}>
-            <Link
-                className={classes.newLink}
-                to={'/new'}
-                data-test="link-new-dashboard"
-            >
-                <AddCircleIcon />
-            </Link>
+        <span className={classes.controlsLarge}>
+            <Tooltip content={i18n.t('Create a new dashboard')}>
+                <Button
+                    className={classes.newButton}
+                    small
+                    icon={<IconAdd24 color={colors.grey600} />}
+                    onClick={enterNewMode}
+                    dataTest="new-button"
+                />
+            </Tooltip>
             <Filter
                 onKeypressEnter={onSelectDashboard}
                 onSearchClicked={onSearchClicked}
                 expanded={expanded}
             />
-        </div>
+        </span>
     )
+
+    if (redirectUrl) {
+        return <Redirect to={redirectUrl} />
+    }
 
     return (
         <div

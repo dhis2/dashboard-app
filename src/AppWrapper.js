@@ -1,6 +1,4 @@
 import React from 'react'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-import dhis2theme from '@dhis2/d2-ui-core/theme/mui3.theme'
 import { Provider as ReduxProvider } from 'react-redux'
 import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
 import { useDataEngine } from '@dhis2/app-runtime'
@@ -12,8 +10,6 @@ import App from './components/App'
 import configureStore from './configureStore'
 
 import './locales'
-
-const muiTheme = () => createMuiTheme(dhis2theme)
 
 const d2Config = {
     schemas: [
@@ -41,25 +37,23 @@ const AppWrapper = () => {
 
     return (
         <ReduxProvider store={configureStore(dataEngine)}>
-            <MuiThemeProvider theme={muiTheme()}>
-                <D2Shim d2Config={d2Config} i18nRoot="./i18n">
-                    {({ d2 }) => {
-                        if (!d2) {
-                            // TODO: Handle errors in d2 initialization
-                            return null
-                        }
-                        return (
-                            <SystemSettingsProvider>
-                                <UserSettingsProvider>
-                                    <WindowDimensionsProvider>
-                                        <App />
-                                    </WindowDimensionsProvider>
-                                </UserSettingsProvider>
-                            </SystemSettingsProvider>
-                        )
-                    }}
-                </D2Shim>
-            </MuiThemeProvider>
+            <D2Shim d2Config={d2Config} i18nRoot="./i18n">
+                {({ d2 }) => {
+                    if (!d2) {
+                        // TODO: Handle errors in d2 initialization
+                        return null
+                    }
+                    return (
+                        <SystemSettingsProvider>
+                            <UserSettingsProvider>
+                                <WindowDimensionsProvider>
+                                    <App />
+                                </WindowDimensionsProvider>
+                            </UserSettingsProvider>
+                        </SystemSettingsProvider>
+                    )
+                }}
+            </D2Shim>
         </ReduxProvider>
     )
 }
