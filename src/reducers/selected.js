@@ -4,12 +4,7 @@ import { combineReducers } from 'redux'
 import { validateReducer } from '../modules/util'
 
 export const SET_SELECTED_ID = 'SET_SELECTED_ID'
-export const SET_SELECTED_ITEM_ACTIVE_TYPE = 'SET_SELECTED_ITEM_ACTIVE_TYPE'
-export const CLEAR_SELECTED_ITEM_ACTIVE_TYPES =
-    'CLEAR_SELECTED_ITEM_ACTIVE_TYPES'
-
 export const DEFAULT_STATE_SELECTED_ID = null
-export const DEFAULT_STATE_SELECTED_ITEM_ACTIVE_TYPES = {}
 
 export const NON_EXISTING_DASHBOARD_ID = '0'
 
@@ -22,28 +17,8 @@ const id = (state = DEFAULT_STATE_SELECTED_ID, action) => {
     }
 }
 
-const itemActiveTypes = (
-    state = DEFAULT_STATE_SELECTED_ITEM_ACTIVE_TYPES,
-    action
-) => {
-    switch (action.type) {
-        case SET_SELECTED_ITEM_ACTIVE_TYPE: {
-            return {
-                ...state,
-                [action.id]: action.activeType,
-            }
-        }
-        case CLEAR_SELECTED_ITEM_ACTIVE_TYPES: {
-            return DEFAULT_STATE_SELECTED_ITEM_ACTIVE_TYPES
-        }
-        default:
-            return state
-    }
-}
-
 export default combineReducers({
     id,
-    itemActiveTypes,
 })
 
 // Selectors
@@ -51,6 +26,3 @@ export default combineReducers({
 export const sGetSelectedRoot = state => state.selected
 
 export const sGetSelectedId = state => sGetSelectedRoot(state).id
-
-export const sGetSelectedItemActiveType = (state, id) =>
-    sGetSelectedRoot(state).itemActiveTypes[id]

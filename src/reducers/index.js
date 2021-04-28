@@ -15,6 +15,7 @@ import passiveViewRegistered from './passiveViewRegistered'
 import isOnline from './isOnline'
 import isRecording from './isRecording'
 import showDescription from './showDescription'
+import itemActiveTypes from './itemActiveTypes'
 
 export default combineReducers({
     dashboards,
@@ -32,4 +33,5 @@ export default combineReducers({
     isOnline,
     isRecording,
     showDescription,
+    itemActiveTypes,
 })
