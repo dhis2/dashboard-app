@@ -94,8 +94,6 @@ const ViewDashboard = props => {
 
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
 
-    // console.log('View Dashboard', props, isOnline, lastUpdated)
-
     return (
         <>
             <div

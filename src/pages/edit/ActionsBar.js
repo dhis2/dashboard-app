@@ -156,15 +156,17 @@ const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
             />
         ) : null
 
-    const filterSettingsDialog = () => (
-        <FilterSettingsDialog
-            restrictFilters={dashboard.restrictFilters}
-            initiallySelectedItems={dashboard.allowedFilters}
-            onClose={toggleFilterSettingsDialog}
-            onConfirm={onFilterSettingsConfirmed}
-            open={filterSettingsDlgIsOpen}
-        />
-    )
+    const filterSettingsDialog = () => {
+        return (
+            <FilterSettingsDialog
+                restrictFilters={dashboard.restrictFilters}
+                initiallySelectedItems={dashboard.allowedFilters}
+                onClose={toggleFilterSettingsDialog}
+                onConfirm={onFilterSettingsConfirmed}
+                open={filterSettingsDlgIsOpen}
+            />
+        )
+    }
 
     const renderActionButtons = () => (
         <ButtonStrip>
@@ -213,8 +215,8 @@ const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
                     </Button>
                 </div>
             </div>
-            {filterSettingsDialog()}
-            {translationDialog()}
+            {dashboard.access?.update && filterSettingsDialog()}
+            {dashboard.id && dashboard.access?.update && translationDialog()}
             {dashboard.id && dashboard.access?.delete && (
                 <ConfirmActionDialog
                     action={ACTION_DELETE}

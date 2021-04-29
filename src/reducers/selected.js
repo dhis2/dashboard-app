@@ -1,6 +1,6 @@
 export const SET_SELECTED = 'SET_SELECTED'
 
-const VIEW_DASHBOARD_STATE = {
+export const DEFAULT_SELECTED_STATE = {
     id: '',
     displayName: '',
     displayDescription: '',
@@ -11,11 +11,11 @@ const VIEW_DASHBOARD_STATE = {
     dashboardItems: [],
 }
 
-export default (state = VIEW_DASHBOARD_STATE, action) => {
+export default (state = DEFAULT_SELECTED_STATE, action) => {
     switch (action.type) {
         case SET_SELECTED: {
             const newState = {}
-            Object.keys(VIEW_DASHBOARD_STATE).map(
+            Object.keys(DEFAULT_SELECTED_STATE).map(
                 k => (newState[k] = action.value[k])
             )
             return newState

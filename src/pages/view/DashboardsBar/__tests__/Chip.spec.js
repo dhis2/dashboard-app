@@ -1,73 +1,133 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import { Chip as UiChip, colors } from '@dhis2/ui'
-import { Chip } from '../Chip'
+import { render } from '@testing-library/react'
+import { Router } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
+import Chip from '../Chip'
+import { useCacheableSectionStatus } from '../../../../modules/useCacheableSectionStatus'
 
-describe('Chip', () => {
-    const defaultProps = {
-        starred: false,
-        selected: false,
-        onClick: jest.fn(),
-        label: 'Hello Rainbow Dash',
-        dashboardId: 'myLittlePony',
-        classes: {
-            icon: 'iconClass',
-            selected: 'selectedClass',
-            unselected: 'unselectedClass',
-        },
-    }
+jest.mock('../../../../modules/useCacheableSectionStatus', () => ({
+    useCacheableSectionStatus: jest.fn(),
+}))
 
-    const wrapper = props => shallow(<Chip {...props} />)
+const mockOfflineDashboard = {
+    lastUpdated: 'Jan 10',
+    recording: false,
+}
 
-    it('renders a Link', () => {
-        const chipWrapper = wrapper(defaultProps)
+const mockNonOfflineDashboard = {
+    lastUpdated: null,
+    recording: false,
+}
 
-        const div = chipWrapper.find('Link')
-        expect(div).toHaveLength(1)
+const defaultProps = {
+    starred: false,
+    selected: false,
+    onClick: jest.fn(),
+    label: 'Rainbow Dash',
+    dashboardId: 'rainbowdash',
+    classes: {
+        icon: 'iconClass',
+        selected: 'selectedClass',
+        unselected: 'unselectedClass',
+    },
+}
+
+test('renders an unstarred chip for an non-offline dashboard', () => {
+    useCacheableSectionStatus.mockImplementationOnce(
+        () => mockNonOfflineDashboard
+    )
+    const { container } = render(
+        <Router history={createMemoryHistory()}>
+            <Chip {...defaultProps} />
+        </Router>
+    )
+
+    expect(container).toMatchSnapshot()
+})
+
+test('renders an unstarred chip for an offline dashboard', () => {
+    useCacheableSectionStatus.mockImplementationOnce(() => mockOfflineDashboard)
+    const { container } = render(
+        <Router history={createMemoryHistory()}>
+            <Chip {...defaultProps} />
+        </Router>
+    )
+
+    expect(container).toMatchSnapshot()
+})
+
+test('renders a starred chip for a non-offline dashboard', () => {
+    useCacheableSectionStatus.mockImplementationOnce(
+        () => mockNonOfflineDashboard
+    )
+    const props = Object.assign({}, defaultProps, { starred: true })
+    const { container } = render(
+        <Router history={createMemoryHistory()}>
+            <Chip {...props} />
+        </Router>
+    )
+
+    expect(container).toMatchSnapshot()
+})
+
+test('renders a starred chip for an offline dashboard', () => {
+    useCacheableSectionStatus.mockImplementationOnce(() => mockOfflineDashboard)
+    const props = Object.assign({}, defaultProps, { starred: true })
+    const { container } = render(
+        <Router history={createMemoryHistory()}>
+            <Chip {...props} />
+        </Router>
+    )
+
+    expect(container).toMatchSnapshot()
+})
+
+test('renders a starred, selected chip for non-offline dashboard', () => {
+    useCacheableSectionStatus.mockImplementationOnce(
+        () => mockNonOfflineDashboard
+    )
+    const props = Object.assign({}, defaultProps, {
+        starred: true,
+        selected: true,
     })
+    const { container } = render(
+        <Router history={createMemoryHistory()}>
+            <Chip {...props} />
+        </Router>
+    )
 
-    it('renders a Link containing everything else', () => {
-        const chipWrapper = wrapper(defaultProps)
-        const wrappingDiv = chipWrapper.find('Link').first()
+    expect(container).toMatchSnapshot()
+})
 
-        expect(wrappingDiv.children()).toEqual(chipWrapper.children())
+test('renders a starred, selected chip for offline dashboard', () => {
+    useCacheableSectionStatus.mockImplementationOnce(() => mockOfflineDashboard)
+    const props = Object.assign({}, defaultProps, {
+        starred: true,
+        selected: true,
     })
+    const { container } = render(
+        <Router history={createMemoryHistory()}>
+            <Chip {...props} />
+        </Router>
+    )
 
-    it('renders a Chip inside the Link', () => {
-        const chipWrapper = wrapper(defaultProps)
+    expect(container).toMatchSnapshot()
+})
 
-        expect(chipWrapper.find(UiChip).length).toBe(1)
+test('renders a starred, selected chip for offline dashboard that is recording', () => {
+    useCacheableSectionStatus.mockImplementationOnce(() => ({
+        lastUpdated: 'Jan 10',
+        recording: true,
+    }))
+    const props = Object.assign({}, defaultProps, {
+        starred: true,
+        selected: true,
     })
+    const { container } = render(
+        <Router history={createMemoryHistory()}>
+            <Chip {...props} />
+        </Router>
+    )
 
-    it('does not pass an icon to Chip when not starred', () => {
-        const chip = wrapper(defaultProps).find(UiChip)
-
-        expect(chip.prop('icon')).toBeFalsy()
-    })
-
-    it('passes an icon to Chip when starred', () => {
-        const props = Object.assign({}, defaultProps, { starred: true })
-
-        const iconColorProp = wrapper(props).find(UiChip).prop('icon').props
-            .color
-
-        expect(iconColorProp).toEqual(colors.grey600)
-    })
-
-    it('sets the white color on icon when chip is selected', () => {
-        const props = Object.assign({}, defaultProps, {
-            starred: true,
-            selected: true,
-        })
-        const iconColorProp = wrapper(props).find(UiChip).prop('icon').props
-            .color
-
-        expect(iconColorProp).toEqual(colors.white)
-    })
-
-    it('passes "label" property to Chip as children', () => {
-        const chip = wrapper(defaultProps).find(UiChip)
-
-        expect(chip.childAt(0).text()).toBe(defaultProps.label)
-    })
+    expect(container).toMatchSnapshot()
 })

@@ -1,22 +1,15 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { act } from 'react-dom/test-utils'
-import { fireEvent } from '@testing-library/dom'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { useDataEngine } from '@dhis2/app-runtime'
-import { Router } from 'react-router-dom'
-import { createMemoryHistory } from 'history'
 import ActionsBar from '../ActionsBar'
-import { apiFetchDashboard } from '../../../api/fetchDashboard'
-import { acClearEditDashboard } from '../../../actions/editDashboard'
 
 const mockStore = configureMockStore()
 
 jest.mock('@dhis2/app-runtime-adapter-d2')
 jest.mock('@dhis2/app-runtime')
-jest.mock('../../../api/fetchDashboard')
 
 jest.mock(
     '../FilterSettingsDialog',
@@ -54,7 +47,7 @@ useDataEngine.mockReturnValue({
     dataEngine: {},
 })
 
-test('renders the ActionsBar', async () => {
+test('renders the ActionsBar without Delete when no delete access', async () => {
     const store = {
         editDashboard: {
             id: 'rainbowDash',
@@ -64,18 +57,16 @@ test('renders the ActionsBar', async () => {
                 delete: false,
             },
             printPreviewView: false,
+            isDirty: false,
         },
     }
-
-    const promise = Promise.resolve()
-    apiFetchDashboard.mockResolvedValue(promise)
 
     const { container } = render(
         <Provider store={mockStore(store)}>
             <ActionsBar />
         </Provider>
     )
-    await act(() => promise)
+
     expect(container).toMatchSnapshot()
 })
 
@@ -89,33 +80,29 @@ test('renders only the Go to Dashboards button when no update access', async () 
                 delete: false,
             },
             printPreviewView: false,
+            isDirty: false,
         },
     }
-
-    const promise = Promise.resolve()
-    apiFetchDashboard.mockResolvedValue(promise)
 
     const { container } = render(
         <Provider store={mockStore(store)}>
             <ActionsBar />
         </Provider>
     )
-    await act(() => promise)
+
     expect(container).toMatchSnapshot()
 })
 
-test('renders Save and Discard buttons but no dialogs when no dashboard id', async () => {
+test('renders Save and Discard buttons but no dialogs when new dashboard (no dashboard id)', async () => {
     const store = {
         editDashboard: {
             id: '',
             name: '',
             access: {},
             printPreviewView: false,
+            isDirty: false,
         },
     }
-
-    const promise = Promise.resolve()
-    apiFetchDashboard.mockResolvedValue(promise)
 
     const { container } = render(
         <Provider store={mockStore(store)}>
@@ -123,7 +110,6 @@ test('renders Save and Discard buttons but no dialogs when no dashboard id', asy
         </Provider>
     )
 
-    await act(() => promise)
     expect(container).toMatchSnapshot()
 })
 
@@ -137,10 +123,9 @@ test('renders Translate, Delete, and Discard buttons when delete access', async 
                 delete: true,
             },
             printPreviewView: false,
+            isDirty: false,
         },
     }
-    const promise = Promise.resolve()
-    apiFetchDashboard.mockResolvedValue(promise)
 
     const { container } = render(
         <Provider store={mockStore(store)}>
@@ -148,106 +133,5 @@ test('renders Translate, Delete, and Discard buttons when delete access', async 
         </Provider>
     )
 
-    await act(() => promise)
     expect(container).toMatchSnapshot()
-})
-
-test('shows the confirm delete dialog when delete button clicked', async () => {
-    const store = {
-        editDashboard: {
-            id: 'rainbowDash',
-            name: 'Rainbow Dash',
-            access: {
-                update: true,
-                delete: true,
-            },
-            printPreviewView: false,
-        },
-    }
-    const promise = Promise.resolve()
-    apiFetchDashboard.mockResolvedValue(promise)
-    const { getByText, asFragment } = render(
-        <Provider store={mockStore(store)}>
-            <ActionsBar />
-        </Provider>
-    )
-
-    await act(() => promise)
-
-    asFragment()
-
-    act(() => {
-        fireEvent.click(getByText('Delete'))
-    })
-
-    expect(asFragment()).toMatchSnapshot()
-})
-
-test('shows the translate dialog', async () => {
-    const store = {
-        editDashboard: {
-            id: 'rainbowDash',
-            name: 'Rainbow Dash',
-            access: {
-                update: true,
-                delete: true,
-            },
-            printPreviewView: false,
-        },
-    }
-
-    const promise = Promise.resolve()
-    apiFetchDashboard.mockResolvedValue(promise)
-    const { getByText, asFragment } = render(
-        <Provider store={mockStore(store)}>
-            <ActionsBar />
-        </Provider>
-    )
-
-    await act(() => promise)
-
-    act(() => {
-        asFragment()
-        asFragment()
-
-        fireEvent.click(getByText('Translate'))
-    })
-
-    expect(asFragment()).toMatchSnapshot()
-})
-
-test('triggers the discard action', async () => {
-    const store = mockStore({
-        editDashboard: {
-            id: 'rainbowDash',
-            name: 'Rainbow Dash',
-            access: {
-                update: true,
-                delete: true,
-            },
-            printPreviewView: false,
-        },
-    })
-
-    store.dispatch = jest.fn()
-
-    const promise = Promise.resolve()
-    apiFetchDashboard.mockResolvedValue(promise)
-
-    const { getByText } = render(
-        <Provider store={store}>
-            <Router history={createMemoryHistory()}>
-                <ActionsBar />
-            </Router>
-        </Provider>
-    )
-
-    await act(() => promise)
-
-    act(() => {
-        fireEvent.click(getByText('Exit without saving'))
-    })
-
-    expect(store.dispatch).toHaveBeenCalledTimes(1)
-    expect(store.dispatch).toHaveBeenCalledWith(acClearEditDashboard())
 })

@@ -1,19 +1,31 @@
-import reducer, { SET_SELECTED_ID } from '../selected'
+import reducer, { SET_SELECTED, DEFAULT_SELECTED_STATE } from '../selected'
 
-describe('selected dashboard reducer', () => {
-    const defaultState = {
-        id: null,
+test('selected dashboard reducer', () => {
+    const selected = {
+        id: 'fluttershy',
+        displayName: 'Fluttershy',
+        displayDescription: 'shiny pony',
+        dashboardItems: [{ id: 'abc' }, { id: 'def' }],
+        restrictFilters: true,
+        allowedFilters: ['orgunit'],
+        starred: false,
+        access: {},
+    }
+    const expectedState = {
+        id: 'fluttershy',
+        displayName: 'Fluttershy',
+        displayDescription: 'shiny pony',
+        dashboardItems: [{ id: 'abc' }, { id: 'def' }],
+        restrictFilters: true,
+        allowedFilters: ['orgunit'],
+        starred: false,
+        access: {},
     }
 
-    it('sets the selected dashboard id', () => {
-        const id = 'my favorite dashboard'
-        const expectedState = Object.assign({}, defaultState, { id })
-
-        const actualState = reducer(defaultState, {
-            type: SET_SELECTED_ID,
-            value: id,
-        })
-
-        expect(actualState).toEqual(expectedState)
+    const actualState = reducer(DEFAULT_SELECTED_STATE, {
+        type: SET_SELECTED,
+        value: selected,
     })
+
+    expect(actualState).toEqual(expectedState)
 })

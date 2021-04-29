@@ -6,7 +6,7 @@ exports[`renders the app 1`] = `
     style="height: 48px;"
   />
   <div
-    class="dashboard"
+    class="viewdashboard"
   />
 </div>
 `;
