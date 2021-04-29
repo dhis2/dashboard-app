@@ -5,6 +5,8 @@ import {
     getFavoritesFields,
 } from './metadata'
 import { isViewMode } from '../modules/dashboardModes'
+import { getCustomDashboards } from '../modules/getCustomDashboards'
+import { withShape } from '../modules/gridUtil'
 
 const getDashboardItemsFields = () =>
     arrayClean([
@@ -70,7 +72,13 @@ export const apiFetchDashboard = async (dataEngine, id, mode) => {
             }
         )
 
-        return dashboardData.dashboard
+        const dashboard = dashboardData.dashboard
+
+        return getCustomDashboards(
+            Object.assign({}, dashboard, {
+                dashboardItems: withShape(dashboard.dashboardItems),
+            })
+        )[0]
     } catch (error) {
         console.log('Error: ', error)
     }

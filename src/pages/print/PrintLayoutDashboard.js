@@ -9,8 +9,7 @@ import { useDataEngine } from '@dhis2/app-runtime'
 import PrintInfo from './PrintInfo'
 import { apiFetchDashboard } from '../../api/fetchDashboard'
 
-import { withShape, MAX_ITEM_GRID_HEIGHT } from '../../modules/gridUtil'
-import { getCustomDashboards } from '../../modules/getCustomDashboards'
+import { MAX_ITEM_GRID_HEIGHT } from '../../modules/gridUtil'
 import PrintActionsBar from './ActionsBar'
 import PrintLayoutItemGrid from './PrintLayoutItemGrid'
 import {
@@ -75,17 +74,12 @@ const PrintLayoutDashboard = ({
     useEffect(() => {
         const loadDashboard = async () => {
             try {
-                const dboard = await apiFetchDashboard(
+                const dashboard = await apiFetchDashboard(
                     dataEngine,
                     id,
                     PRINT_LAYOUT
                 )
-                const dashboard = getCustomDashboards(dboard)[0]
-                setPrintDashboard(
-                    Object.assign({}, dashboard, {
-                        dashboardItems: withShape(dashboard.dashboardItems),
-                    })
-                )
+                setPrintDashboard(dashboard)
                 customizePrintLayoutDashboard(dashboard)
             } catch (error) {
                 setRedirectUrl(id)

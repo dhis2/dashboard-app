@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
-import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import { useOnlineStatus } from '../../modules/useOnlineStatus'
 
 import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
@@ -16,19 +15,14 @@ import {
     GRID_PADDING_PX,
     MARGIN_PX,
     MARGIN_SM_PX,
-    hasShape,
     GRID_COLUMNS,
     getSmallLayout,
     getGridWidth,
     getProportionalHeight,
 } from '../../modules/gridUtil'
-import { orArray } from '../../modules/util'
 import NoContentMessage from '../../components/NoContentMessage'
-import { sGetSelectedId } from '../../reducers/selected'
-import {
-    sGetDashboardById,
-    sGetDashboardItems,
-} from '../../reducers/dashboards'
+import { sGetSelectedDashboardItems } from '../../reducers/selected'
+
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
 import { VIEW } from '../../modules/dashboardModes'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen'
@@ -39,7 +33,7 @@ import classes from './styles/ItemGrid.module.css'
 const EXPANDED_HEIGHT = 17
 const EXPANDED_HEIGHT_SM = 13
 
-const ResponsiveItemGrid = ({ isLoading, isRecording, dashboardItems }) => {
+const ResponsiveItemGrid = ({ isRecording, dashboardItems }) => {
     const { width } = useWindowDimensions()
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
@@ -115,7 +109,7 @@ const ResponsiveItemGrid = ({ isLoading, isRecording, dashboardItems }) => {
     const onWidthChanged = containerWidth =>
         setTimeout(() => setGridWidth(containerWidth), 200)
 
-    if (!isLoading && !dashboardItems.length) {
+    if (!dashboardItems.length) {
         return (
             <NoContentMessage
                 text={i18n.t('There are no items on this dashboard')}
@@ -124,55 +118,39 @@ const ResponsiveItemGrid = ({ isLoading, isRecording, dashboardItems }) => {
     }
 
     return (
-        <>
-            {isLoading ? (
-                <Layer translucent>
-                    <CenteredContent>
-                        <CircularLoader />
-                    </CenteredContent>
-                </Layer>
-            ) : null}
-            <ResponsiveReactGridLayout
-                className={classes.grid}
-                rowHeight={GRID_ROW_HEIGHT_PX}
-                width={getGridWidth(width)}
-                cols={{ lg: GRID_COLUMNS, sm: SM_SCREEN_GRID_COLUMNS }}
-                breakpoints={{
-                    lg: getBreakpoint(),
-                    sm: 0,
-                }}
-                layouts={{ lg: displayItems, sm: layoutSm }}
-                compactType={GRID_COMPACT_TYPE}
-                margin={isSmallScreen(width) ? MARGIN_SM_PX : MARGIN_PX}
-                containerPadding={{
-                    lg: GRID_PADDING_PX,
-                    sm: GRID_PADDING_PX,
-                }}
-                isDraggable={false}
-                isResizable={false}
-                draggableCancel="input,textarea"
-                onWidthChange={onWidthChanged}
-            >
-                {getItemComponents(displayItems)}
-            </ResponsiveReactGridLayout>
-        </>
+        <ResponsiveReactGridLayout
+            className={classes.grid}
+            rowHeight={GRID_ROW_HEIGHT_PX}
+            width={getGridWidth(width)}
+            cols={{ lg: GRID_COLUMNS, sm: SM_SCREEN_GRID_COLUMNS }}
+            breakpoints={{
+                lg: getBreakpoint(),
+                sm: 0,
+            }}
+            layouts={{ lg: displayItems, sm: layoutSm }}
+            compactType={GRID_COMPACT_TYPE}
+            margin={isSmallScreen(width) ? MARGIN_SM_PX : MARGIN_PX}
+            containerPadding={{
+                lg: GRID_PADDING_PX,
+                sm: GRID_PADDING_PX,
+            }}
+            isDraggable={false}
+            isResizable={false}
+            draggableCancel="input,textarea"
+            onWidthChange={onWidthChanged}
+        >
+            {getItemComponents(displayItems)}
+        </ResponsiveReactGridLayout>
     )
 }
 
 ResponsiveItemGrid.propTypes = {
     dashboardItems: PropTypes.array,
-    isLoading: PropTypes.bool,
     isRecording: PropTypes.bool,
 }
 
-const mapStateToProps = state => {
-    const selectedDashboard = sGetDashboardById(state, sGetSelectedId(state))
-    const dashboardItems = orArray(sGetDashboardItems(state)).filter(hasShape)
-
-    return {
-        isLoading: !selectedDashboard,
-        dashboardItems,
-    }
-}
+const mapStateToProps = state => ({
+    dashboardItems: sGetSelectedDashboardItems(state),
+})
 
 export default connect(mapStateToProps)(ResponsiveItemGrid)

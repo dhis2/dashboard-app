@@ -6,7 +6,6 @@ import {
 } from '../reducers/dashboards'
 import { apiFetchDashboards } from '../api/fetchAllDashboards'
 import { arrayToIdMap } from '../modules/util'
-import { getCustomDashboards } from '../modules/getCustomDashboards'
 
 // actions
 
@@ -17,7 +16,7 @@ export const acSetDashboards = dashboards => ({
 
 export const acAppendDashboards = dashboards => ({
     type: ADD_DASHBOARDS,
-    value: arrayToIdMap(getCustomDashboards(dashboards)),
+    value: arrayToIdMap(dashboards),
 })
 
 export const acSetDashboardStarred = (dashboardId, isStarred) => ({

@@ -15,7 +15,6 @@ import {
     acRemovePrintDashboardItem,
     acUpdatePrintDashboardItem,
 } from '../../actions/printDashboard'
-import { getCustomDashboards } from '../../modules/getCustomDashboards'
 import { apiFetchDashboard } from '../../api/fetchDashboard'
 
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
@@ -24,7 +23,6 @@ import { PAGEBREAK, PRINT_TITLE_PAGE, SPACER } from '../../modules/itemTypes'
 import {
     MAX_ITEM_GRID_HEIGHT_OIPP,
     MAX_ITEM_GRID_WIDTH_OIPP,
-    withShape,
 } from '../../modules/gridUtil'
 
 import classes from './styles/PrintDashboard.module.css'
@@ -47,14 +45,13 @@ const PrintDashboard = ({
     useEffect(() => {
         const loadDashboard = async () => {
             try {
-                const dboard = await apiFetchDashboard(dataEngine, id, PRINT)
-                const dashboard = getCustomDashboards(dboard)[0]
+                const dashboard = await apiFetchDashboard(dataEngine, id, PRINT)
                 //sort the items by Y pos so they print in order of top to bottom
                 const sortedItems = sortBy(dashboard.dashboardItems, ['y', 'x'])
 
                 setPrintDashboard(
                     Object.assign({}, dashboard, {
-                        dashboardItems: withShape(sortedItems),
+                        dashboardItems: sortedItems,
                     })
                 )
 

@@ -1,28 +1,40 @@
-/** @module reducers/selected */
-import { combineReducers } from 'redux'
+export const SET_SELECTED = 'SET_SELECTED'
 
-import { validateReducer } from '../modules/util'
+const VIEW_DASHBOARD_STATE = {
+    id: '',
+    displayName: '',
+    displayDescription: '',
+    starred: false,
+    access: {},
+    restrictFilters: false,
+    allowedFilters: [],
+    dashboardItems: [],
+}
 
-export const SET_SELECTED_ID = 'SET_SELECTED_ID'
-export const DEFAULT_STATE_SELECTED_ID = null
-
-export const NON_EXISTING_DASHBOARD_ID = '0'
-
-const id = (state = DEFAULT_STATE_SELECTED_ID, action) => {
+export default (state = VIEW_DASHBOARD_STATE, action) => {
     switch (action.type) {
-        case SET_SELECTED_ID:
-            return validateReducer(action.value, DEFAULT_STATE_SELECTED_ID)
+        case SET_SELECTED: {
+            const newState = {}
+            Object.keys(VIEW_DASHBOARD_STATE).map(
+                k => (newState[k] = action.value[k])
+            )
+            return newState
+        }
         default:
             return state
     }
 }
 
-export default combineReducers({
-    id,
-})
-
 // Selectors
 
-export const sGetSelectedRoot = state => state.selected
+export const sGetSelected = state => state.selected
 
-export const sGetSelectedId = state => sGetSelectedRoot(state).id
+export const sGetSelectedId = state => sGetSelected(state).id
+
+export const sGetSelectedDisplayName = state => sGetSelected(state).displayName
+
+export const sGetSelectedDisplayDescription = state =>
+    sGetSelected(state).displayDescription
+
+export const sGetSelectedDashboardItems = state =>
+    sGetSelected(state).dashboardItems

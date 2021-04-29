@@ -21,20 +21,15 @@ import { apiPostShowDescription } from '../../../api/description'
 import { acSetDashboardStarred } from '../../../actions/dashboards'
 import { acSetShowDescription } from '../../../actions/showDescription'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton'
-import { sGetSelectedId } from '../../../reducers/selected'
+import { sGetSelected } from '../../../reducers/selected'
 import { sGetShowDescription } from '../../../reducers/showDescription'
-import {
-    sGetDashboardById,
-    sGetDashboardItems,
-    EMPTY_DASHBOARD,
-} from '../../../reducers/dashboards'
 
 import classes from './styles/TitleBar.module.css'
 
 const ViewTitleBar = ({
     id,
-    name,
-    description,
+    displayName,
+    displayDescription,
     access,
     showDescription,
     starred,
@@ -198,7 +193,7 @@ const ViewTitleBar = ({
                         className={classes.title}
                         data-test="view-dashboard-title"
                     >
-                        {name}
+                        {displayName}
                     </span>
                     <div className={classes.actions}>
                         <StarDashboardButton
@@ -231,7 +226,7 @@ const ViewTitleBar = ({
                 </div>
                 <Description
                     showDescription={showDescription}
-                    description={description}
+                    description={displayDescription}
                 />
                 <LastUpdatedTag lastUpdated={lastUpdated} />
             </div>
@@ -252,9 +247,9 @@ const ViewTitleBar = ({
 ViewTitleBar.propTypes = {
     access: PropTypes.object,
     allowedFilters: PropTypes.array,
-    description: PropTypes.string,
+    displayDescription: PropTypes.string,
+    displayName: PropTypes.string,
     id: PropTypes.string,
-    name: PropTypes.string,
     restrictFilters: PropTypes.bool,
     setDashboardStarred: PropTypes.func,
     showDescription: PropTypes.bool,
@@ -262,27 +257,12 @@ ViewTitleBar.propTypes = {
     updateShowDescription: PropTypes.func,
 }
 
-ViewTitleBar.defaultProps = {
-    name: '',
-    description: '',
-    starred: false,
-    showDescription: false,
-}
-
 const mapStateToProps = state => {
-    const id = sGetSelectedId(state)
-    const dashboard = sGetDashboardById(state, id) || EMPTY_DASHBOARD
+    const dashboard = sGetSelected(state)
 
     return {
-        id,
-        name: dashboard.displayName,
-        description: dashboard.displayDescription,
-        dashboardItems: sGetDashboardItems(state),
+        ...dashboard,
         showDescription: sGetShowDescription(state),
-        starred: dashboard.starred,
-        access: dashboard.access,
-        restrictFilters: dashboard.restrictFilters,
-        allowedFilters: dashboard.allowedFilters,
     }
 }
 

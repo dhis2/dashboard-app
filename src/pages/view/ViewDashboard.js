@@ -26,11 +26,12 @@ import { VIEW } from '../../modules/dashboardModes'
 
 import classes from './styles/ViewDashboard.module.css'
 
-export const ViewDashboard = props => {
+const ViewDashboard = props => {
     const [controlbarExpanded, setControlbarExpanded] = useState(false)
     const [loadingMessage, setLoadingMessage] = useState(null)
     const { isOnline } = useOnlineStatus()
     const { lastUpdated } = useCacheableSectionStatus(props.id)
+    // const [dashboardIsLoaded, setDashboardIsLoaded] = useState(false)
 
     useEffect(() => {
         setHeaderbarVisible(true)
@@ -77,17 +78,24 @@ export const ViewDashboard = props => {
             }, 500)
 
             await props.fetchDashboard(props.id, VIEW, props.username)
+            // setDashboardIsLoaded(true)
 
             clearTimeout(alertTimeout)
             setLoadingMessage(null)
         }
 
-        if (isOnline && (props.id || props.isRecording)) {
+        if (props.id || props.isRecording) {
             loadDashboard()
         }
     }, [props.id, props.isRecording])
 
+    // useEffect(() => {
+    //     setDashboardIsLoaded(false)
+    // }, [props.id])
+
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
+
+    console.log('View Dashboard', props, isOnline, lastUpdated)
 
     return (
         <>
@@ -107,7 +115,7 @@ export const ViewDashboard = props => {
                             onClick={() => setControlbarExpanded(false)}
                         />
                     )}
-                    {isOnline || lastUpdated || props.dashboardIsLoaded ? (
+                    {isOnline || lastUpdated ? (
                         <>
                             <TitleBar />
                             <FilterBar />
@@ -140,7 +148,7 @@ export const ViewDashboard = props => {
 ViewDashboard.propTypes = {
     clearEditDashboard: PropTypes.func,
     clearPrintDashboard: PropTypes.func,
-    dashboardIsLoaded: PropTypes.bool,
+    // dashboardIsLoaded: PropTypes.bool,
     fetchDashboard: PropTypes.func,
     id: PropTypes.string,
     isRecording: PropTypes.bool,
@@ -156,7 +164,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
         passiveViewRegistered: sGetPassiveViewRegistered(state),
         name: dashboard.displayName || null,
-        dashboardIsLoaded: !!dashboard.dashboardItems,
+        // dashboardIsLoaded: !!dashboard.dashboardItems, //sGetSelectedDashboardItems(state)
     }
 }
 

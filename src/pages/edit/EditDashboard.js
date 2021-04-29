@@ -18,8 +18,6 @@ import NoContentMessage from '../../components/NoContentMessage'
 import { acSetEditDashboard } from '../../actions/editDashboard'
 import { EDIT } from '../../modules/dashboardModes'
 
-import { withShape } from '../../modules/gridUtil'
-import { getCustomDashboards } from '../../modules/getCustomDashboards'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
 
@@ -38,18 +36,13 @@ const EditDashboard = props => {
     useEffect(() => {
         const loadDashboard = async () => {
             try {
-                const dboard = await apiFetchDashboard(
+                const dashboard = await apiFetchDashboard(
                     dataEngine,
                     props.id,
                     EDIT
                 )
-                const dashboard = getCustomDashboards(dboard)[0]
-                props.setEditDashboard(
-                    Object.assign({}, dashboard, {
-                        dashboardItems: withShape(dashboard.dashboardItems),
-                    })
-                )
-                setHasUpdateAccess(dboard.access?.update || false)
+                props.setEditDashboard(dashboard)
+                setHasUpdateAccess(dashboard.access?.update || false)
                 setIsLoading(false)
             } catch (error) {
                 setRedirectUrl(props.id ? `/${props.id}` : '/')

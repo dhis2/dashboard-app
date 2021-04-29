@@ -1,22 +1,18 @@
-import { SET_SELECTED_ID, sGetSelectedId } from '../reducers/selected'
+import { SET_SELECTED, sGetSelectedId } from '../reducers/selected'
 
-import { acSetDashboardItems, acAppendDashboards } from './dashboards'
+import { acAppendDashboards } from './dashboards'
 import { acClearItemFilters } from './itemFilters'
 import { tGetMessages } from '../components/Item/MessagesItem/actions'
 import { acClearVisualizations } from './visualizations'
 import { acClearItemActiveTypes } from './itemActiveTypes'
 import { apiFetchDashboard } from '../api/fetchDashboard'
 import { storePreferredDashboardId } from '../modules/localStorage'
-
-import { withShape } from '../modules/gridUtil'
-import { getCustomDashboards } from '../modules/getCustomDashboards'
-
 import { MESSAGES } from '../modules/itemTypes'
 
 // actions
 
-export const acSetSelectedId = value => ({
-    type: SET_SELECTED_ID,
+export const acSetSelected = value => ({
+    type: SET_SELECTED,
     value,
 })
 
@@ -26,12 +22,17 @@ export const tSetSelectedDashboardById = (id, mode, username) => (
     getState,
     dataEngine
 ) => {
-    return apiFetchDashboard(dataEngine, id, mode).then(selected => {
-        dispatch(acAppendDashboards(selected))
-
-        const customDashboard = getCustomDashboards(selected)[0]
-
-        dispatch(acSetDashboardItems(withShape(customDashboard.dashboardItems)))
+    return apiFetchDashboard(dataEngine, id, mode).then(dashboard => {
+        //add the dashboard to the list of dashboards if not already there
+        dispatch(
+            acAppendDashboards([
+                {
+                    id: dashboard.id,
+                    displayName: dashboard.displayName,
+                    starred: dashboard.starred,
+                },
+            ])
+        )
 
         if (username) {
             storePreferredDashboardId(username, id)
@@ -43,11 +44,11 @@ export const tSetSelectedDashboardById = (id, mode, username) => (
             dispatch(acClearItemActiveTypes())
         }
 
-        customDashboard.dashboardItems.some(item => item.type === MESSAGES) &&
+        dashboard.dashboardItems.some(item => item.type === MESSAGES) &&
             dispatch(tGetMessages(dataEngine))
 
-        dispatch(acSetSelectedId(id))
+        dispatch(acSetSelected(dashboard))
 
-        return selected
+        return dashboard
     })
 }
