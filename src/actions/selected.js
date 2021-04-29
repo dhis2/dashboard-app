@@ -8,6 +8,7 @@ import { acClearItemActiveTypes } from './itemActiveTypes'
 import { apiFetchDashboard } from '../api/fetchDashboard'
 import { storePreferredDashboardId } from '../modules/localStorage'
 import { MESSAGES } from '../modules/itemTypes'
+import { VIEW } from '../modules/dashboardModes'
 
 // actions
 
@@ -17,12 +18,12 @@ export const acSetSelected = value => ({
 })
 
 // thunks
-export const tSetSelectedDashboardById = (id, mode, username) => (
+export const tSetSelectedDashboardById = (id, username) => (
     dispatch,
     getState,
     dataEngine
 ) => {
-    return apiFetchDashboard(dataEngine, id, mode).then(dashboard => {
+    return apiFetchDashboard(dataEngine, id, { mode: VIEW }).then(dashboard => {
         //add the dashboard to the list of dashboards if not already there
         dispatch(
             acAppendDashboards([

@@ -17,7 +17,7 @@ import { getDomGridItemsSortedByYPos, getTransformYPx } from './printUtils'
 import { PRINT_LAYOUT } from '../../modules/dashboardModes'
 import { PAGEBREAK } from '../../modules/itemTypes'
 
-export class PrintLayoutItemGrid extends Component {
+class PrintLayoutItemGrid extends Component {
     onLayoutChange = newLayout => {
         this.props.updateDashboardLayout(newLayout)
     }

@@ -39,7 +39,7 @@ const EditDashboard = props => {
                 const dashboard = await apiFetchDashboard(
                     dataEngine,
                     props.id,
-                    EDIT
+                    { mode: EDIT }
                 )
                 props.setEditDashboard(dashboard)
                 setHasUpdateAccess(dashboard.access?.update || false)

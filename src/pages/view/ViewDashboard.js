@@ -22,7 +22,6 @@ import { tSetSelectedDashboardById } from '../../actions/selected'
 import { acSetPassiveViewRegistered } from '../../actions/passiveViewRegistered'
 import { apiPostDataStatistics } from '../../api/dataStatistics'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
-import { VIEW } from '../../modules/dashboardModes'
 
 import classes from './styles/ViewDashboard.module.css'
 
@@ -77,7 +76,7 @@ const ViewDashboard = props => {
                 }
             }, 500)
 
-            await props.fetchDashboard(props.id, VIEW, props.username)
+            await props.fetchDashboard(props.id, props.username)
             // setDashboardIsLoaded(true)
 
             clearTimeout(alertTimeout)
@@ -95,7 +94,7 @@ const ViewDashboard = props => {
 
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
 
-    console.log('View Dashboard', props, isOnline, lastUpdated)
+    // console.log('View Dashboard', props, isOnline, lastUpdated)
 
     return (
         <>

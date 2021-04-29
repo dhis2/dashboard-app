@@ -18,7 +18,6 @@ import {
     acUpdatePrintDashboardItem,
 } from '../../actions/printDashboard'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
-import { PRINT_LAYOUT } from '../../modules/dashboardModes'
 import { sGetEditDashboardRoot } from '../../reducers/editDashboard'
 
 import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
@@ -45,6 +44,7 @@ const PrintLayoutDashboard = ({
     updateDashboardItem,
     fromEdit,
 }) => {
+    console.log('PrintLayoutDashboard', dashboard, id)
     const dataEngine = useDataEngine()
     const [redirectUrl, setRedirectUrl] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
@@ -74,11 +74,7 @@ const PrintLayoutDashboard = ({
     useEffect(() => {
         const loadDashboard = async () => {
             try {
-                const dashboard = await apiFetchDashboard(
-                    dataEngine,
-                    id,
-                    PRINT_LAYOUT
-                )
+                const dashboard = await apiFetchDashboard(dataEngine, id)
                 setPrintDashboard(dashboard)
                 customizePrintLayoutDashboard(dashboard)
             } catch (error) {
