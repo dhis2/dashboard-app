@@ -7,14 +7,13 @@ import { orObject } from '../modules/util'
 export const SET_DASHBOARDS = 'SET_DASHBOARDS'
 export const ADD_DASHBOARDS = 'ADD_DASHBOARDS'
 export const SET_DASHBOARD_STARRED = 'SET_DASHBOARD_STARRED'
-export const SET_DASHBOARD_ITEMS = 'SET_DASHBOARD_ITEMS'
 
 export const DEFAULT_STATE_DASHBOARDS = {
     byId: null,
-    items: [],
 }
 
-export const EMPTY_DASHBOARD = {}
+export const EMPTY_DASHBOARDS = {}
+// export const NO_DASHBOARDS = 'NO_DASHBOARDS'
 
 // reducer helper functions
 
@@ -26,7 +25,6 @@ const updateDashboardProp = ({ state, dashboardId, prop, value }) => ({
             [prop]: value,
         },
     },
-    items: state.items,
 })
 
 /**
@@ -41,7 +39,6 @@ export default (state = DEFAULT_STATE_DASHBOARDS, action) => {
         case SET_DASHBOARDS: {
             return {
                 byId: action.value,
-                items: [],
             }
         }
         case ADD_DASHBOARDS: {
@@ -60,12 +57,6 @@ export default (state = DEFAULT_STATE_DASHBOARDS, action) => {
                 prop: 'starred',
                 value: action.value,
             })
-        }
-        case SET_DASHBOARD_ITEMS: {
-            return {
-                ...state,
-                items: action.value,
-            }
         }
         default:
             return state
@@ -107,15 +98,6 @@ export const sDashboardsIsFetching = state => {
  */
 export const sGetAllDashboards = state =>
     orObject(sGetDashboardsRoot(state).byId)
-
-/**
- * Selector which returns the current dashboard items
- *
- * @function
- * @param {Object} state The current state
- * @returns {Array}
- */
-export const sGetDashboardItems = state => sGetDashboardsRoot(state).items
 
 // selector level 2
 

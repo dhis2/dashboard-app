@@ -7,7 +7,6 @@ import reducer, {
     SET_DASHBOARDS,
     ADD_DASHBOARDS,
     SET_DASHBOARD_STARRED,
-    SET_DASHBOARD_ITEMS,
 } from '../dashboards'
 
 const dashId1 = 'dash1'
@@ -19,41 +18,30 @@ const dashboardsState = {
     byId: {
         [dashId1]: {
             id: dashId1,
-            name: 'an unstarred dashboard',
             displayName: 'una cruscotto non stellato',
             starred: false,
         },
         [dashId2]: {
             id: dashId2,
-            name: 'a starred dashboard',
             displayName: 'una cruscotto con stelle',
             starred: true,
         },
         [dashId3]: {
             id: dashId3,
-            name: 'unstarred dashboard',
             displayName: 'cruscotto non stellato',
             starred: false,
         },
         [dashId4]: {
             id: dashId4,
-            name: 'starred dashboard',
             displayName: 'cruscotto con stelle',
             starred: true,
         },
     },
-    items: [
-        {
-            id: 'item1',
-            type: 'REPORT_TABLE',
-        },
-    ],
 }
 
 const dashboards = {
     someDash: {
         id: 'someDash',
-        name: 'good stuff',
         displayName: 'roba buona',
         starred: false,
     },
@@ -66,7 +54,7 @@ describe('dashboards reducer', () => {
         expect(actualState).toEqual(DEFAULT_STATE_DASHBOARDS)
     })
 
-    it('SET_DASHBOARDS: should set the new list of dashboards and clear the items array', () => {
+    it('SET_DASHBOARDS: should set the new list of dashboards', () => {
         const actualState = reducer(dashboardsState, {
             type: SET_DASHBOARDS,
             value: dashboards,
@@ -74,13 +62,12 @@ describe('dashboards reducer', () => {
 
         const expectedState = {
             byId: dashboards,
-            items: [],
         }
 
         expect(actualState).toEqual(expectedState)
     })
 
-    it('ADD_DASHBOARDS: should append to the list of dashboards and leave the items untouched', () => {
+    it('ADD_DASHBOARDS: should append to the list of dashboards', () => {
         const actualState = reducer(dashboardsState, {
             type: ADD_DASHBOARDS,
             value: dashboards,
@@ -115,22 +102,6 @@ describe('dashboards reducer', () => {
                     starred: starredValue,
                 },
             },
-        }
-
-        expect(actualState).toEqual(expectedState)
-    })
-
-    it('SET_DASHBOARD_ITEMS: should set the new list of dashboard items', () => {
-        const items = [{ id: 'item2', type: 'CHART' }]
-
-        const actualState = reducer(dashboardsState, {
-            type: SET_DASHBOARD_ITEMS,
-            value: items,
-        })
-
-        const expectedState = {
-            ...dashboardsState,
-            items,
         }
 
         expect(actualState).toEqual(expectedState)

@@ -1,6 +1,7 @@
 export const SET_SELECTED = 'SET_SELECTED'
 
-export const DEFAULT_SELECTED_STATE = {
+export const DEFAULT_SELECTED_STATE = {}
+const SELECTED_PROPERTIES = {
     id: '',
     displayName: '',
     displayDescription: '',
@@ -15,7 +16,7 @@ export default (state = DEFAULT_SELECTED_STATE, action) => {
     switch (action.type) {
         case SET_SELECTED: {
             const newState = {}
-            Object.keys(DEFAULT_SELECTED_STATE).map(
+            Object.keys(SELECTED_PROPERTIES).map(
                 k => (newState[k] = action.value[k])
             )
             return newState
