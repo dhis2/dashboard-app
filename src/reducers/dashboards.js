@@ -12,9 +12,6 @@ export const DEFAULT_STATE_DASHBOARDS = {
     byId: null,
 }
 
-export const EMPTY_DASHBOARDS = {}
-// export const NO_DASHBOARDS = 'NO_DASHBOARDS'
-
 // reducer helper functions
 
 const updateDashboardProp = ({ state, dashboardId, prop, value }) => ({
