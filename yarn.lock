@@ -1732,17 +1732,6 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/d2-ui-core@7.1.8":
-  version "7.1.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.1.8.tgz#1339f91f4ce2e0a38897dab29de22db725d058a5"
-  integrity sha512-nd6Pfkm18WYbWC4M7HRkIkANuyeDMNQfVQt3nnUZ7Hje2O3hZmzsdOpTWYhtzxSx1uhQV4n/CPjJEWaqG7T+/g==
-  dependencies:
-    babel-runtime "^6.26.0"
-    d2 "~31.7"
-    lodash "^4.17.10"
-    material-ui "^0.20.0"
-    rxjs "^5.5.7"
-
 "@dhis2/d2-ui-core@7.2.0", "@dhis2/d2-ui-core@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.2.0.tgz#932c9b2f439dc730ccb28a69129cfeeba15527ad"
@@ -1770,14 +1759,14 @@
     redux-logger "^3.0.6"
     redux-thunk "^2.2.0"
 
-"@dhis2/d2-ui-interpretations@^7.1.8":
-  version "7.1.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-7.1.8.tgz#eabd123382d68a0f86b563f490f73dd83df567ae"
-  integrity sha512-+J4Z1cB6lvZDHKUOQfexkASK9zZJqfPdJp9UMBS6RcCSYPPrQ1vmn71uXXuRmaSHP6TFuUeQHxhEv8OAvSkypw==
+"@dhis2/d2-ui-interpretations@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-7.2.0.tgz#9be8e8270a1a5bbb8d857dadb3f67314bb6a0172"
+  integrity sha512-VC+SSp8t3WKizWhq0HzwN2lZb/AS3N7HHz99KRXVTx4diG/1TZg2s+rkBSqUfvXislpntjxpzWvHA9z7GMDlOA==
   dependencies:
-    "@dhis2/d2-ui-mentions-wrapper" "7.1.8"
-    "@dhis2/d2-ui-rich-text" "7.1.8"
-    "@dhis2/d2-ui-sharing-dialog" "7.1.8"
+    "@dhis2/d2-ui-mentions-wrapper" "7.2.0"
+    "@dhis2/d2-ui-rich-text" "7.2.0"
+    "@dhis2/d2-ui-sharing-dialog" "7.2.0"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -1787,16 +1776,7 @@
     prop-types "^15.5.10"
     react-portal "^4.1.5"
 
-"@dhis2/d2-ui-mentions-wrapper@7.1.8":
-  version "7.1.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-7.1.8.tgz#000c3f6b4a0ab1cf0eafe9130a54a066f1080ea7"
-  integrity sha512-OsLDwLltXo8ABLnO8jw2M6UTopFTJwzetC86oHMPg/WtukqsN0kJbmskVAVD6cO8yV5/w1TR059RKjWmm78Wbg==
-  dependencies:
-    "@material-ui/core" "^3.3.1"
-    lodash "^4.17.10"
-    prop-types "^15.6.2"
-
-"@dhis2/d2-ui-mentions-wrapper@^7.2.0":
+"@dhis2/d2-ui-mentions-wrapper@7.2.0", "@dhis2/d2-ui-mentions-wrapper@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-7.2.0.tgz#41b216cd5a2895a59cf02c42da9a9c244ee2ec61"
   integrity sha512-WN21hMLT6x4E+FUL80BH9m7nfU26FplSd3jj3W1qj1QplfYUE1eABxQPxaDfPFAeFOyOaN4QZxKUY/KmirO9WA==
@@ -1825,28 +1805,14 @@
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
 
-"@dhis2/d2-ui-rich-text@7.1.8", "@dhis2/d2-ui-rich-text@^7.1.8":
-  version "7.1.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.1.8.tgz#89abf734696df91e5462f76128bf62f34ee7f6bf"
-  integrity sha512-3WJZC+SCcoG1OykfI9PvGKdW5YsRY/dRCm/5ywoKhNQDAvNWHybVliTCgp7Yn1gcGWZVBrllt+38cG4zYG0IKQ==
+"@dhis2/d2-ui-rich-text@7.2.0", "@dhis2/d2-ui-rich-text@^7.1.8":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.2.0.tgz#7960c35dab453aeaad2cee427ecaba19fca270ba"
+  integrity sha512-lMFMZeHINd3lX97z/RDWITcW4epoMnWA8z4Zbh9O6VlM1TXT52m6OCVdeZmF6bW0gPIqOgWKopNz+9Au7HqoeA==
   dependencies:
     babel-runtime "^6.26.0"
     markdown-it "^8.4.2"
     prop-types "^15.6.2"
-
-"@dhis2/d2-ui-sharing-dialog@7.1.8":
-  version "7.1.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-7.1.8.tgz#3e0819b128553872d23a522de230e9a46e16a44f"
-  integrity sha512-m6YKknbZ94KJ6+MD26gGZBmx0qA7tcQTrhP/Bvjb25VeUV+nvf/InZxO0+AMIkui0XCgzv3xUqxJxjwXhAGGNg==
-  dependencies:
-    "@dhis2/d2-ui-core" "7.1.8"
-    "@material-ui/core" "^3.3.1"
-    "@material-ui/icons" "^3.0.1"
-    babel-runtime "^6.26.0"
-    downshift "^2.2.2"
-    prop-types "^15.5.10"
-    recompose "^0.26.0"
-    rxjs "^5.5.7"
 
 "@dhis2/d2-ui-sharing-dialog@7.2.0", "@dhis2/d2-ui-sharing-dialog@^7.2.0":
   version "7.2.0"
