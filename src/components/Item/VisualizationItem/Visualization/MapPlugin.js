@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n'
 import DefaultPlugin from './DefaultPlugin'
 import { MAP } from '../../../../modules/itemTypes'
 import { isElementFullscreen } from '../isElementFullscreen'
-import { pluginIsAvailable, resize } from './plugin'
+import { pluginIsAvailable, resize, unmount } from './plugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
 
 const MapPlugin = ({
@@ -16,6 +16,12 @@ const MapPlugin = ({
     itemFilters,
     ...props
 }) => {
+    useEffect(() => {
+        resize(props.item.id, MAP, isElementFullscreen(props.item.id))
+    }, [availableHeight, availableWidth, gridWidth])
+
+    useEffect(() => () => unmount(props.item, MAP), [])
+
     const getVisualization = () => {
         if (props.item.type === MAP) {
             // apply filters only to thematic and event layers
@@ -39,13 +45,9 @@ const MapPlugin = ({
             // this is the case of a non map AO passed to the maps plugin
             // due to a visualization type switch in dashboard item
             // maps plugin takes care of converting the AO to a suitable format
-            return applyFilters(visualization, props.itemFilters)
+            return applyFilters(visualization, itemFilters)
         }
     }
-
-    useEffect(() => {
-        resize(props.item.id, MAP, isElementFullscreen(props.item.id))
-    }, [availableHeight, availableWidth, gridWidth])
 
     return pluginIsAvailable(MAP) ? (
         <DefaultPlugin

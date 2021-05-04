@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { useConfig } from '@dhis2/app-runtime'
-import { load, unmount } from './plugin'
+import { load } from './plugin'
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId'
 
 const DefaultPlugin = ({
@@ -34,12 +34,18 @@ const DefaultPlugin = ({
         prevItem.current = item
         prevActiveType.current = activeType
         prevFilterVersion.current = filterVersion
-
-        return () => unmount(item, activeType)
     }, [])
 
     useEffect(() => {
-        if (shouldPluginReload()) {
+        if (
+            prevItem.current === item &&
+            (prevActiveType.current !== activeType ||
+                prevFilterVersion.current !== filterVersion)
+        ) {
+            /* Item is the same but type or filters has changed
+             * so necessary to reload
+             */
+            console.log('load', item.type, activeType)
             load(item, visualization, {
                 credentials,
                 activeType,
@@ -50,20 +56,6 @@ const DefaultPlugin = ({
         prevActiveType.current = activeType
         prevFilterVersion.current = filterVersion
     }, [item, visualization, activeType, filterVersion])
-
-    /**
-     * Prevent unnecessary re-rendering
-     * If the item is the same but the activeType or itemFilters
-     * have changed, then reload.
-     * TODO: fix this hack
-     */
-    const shouldPluginReload = () => {
-        const reloadAllowed = prevItem.current === item
-        const visualizationTypeChanged = prevActiveType.current !== activeType
-        const itemFiltersChanged = prevFilterVersion.current !== filterVersion
-
-        return reloadAllowed && (visualizationTypeChanged || itemFiltersChanged)
-    }
 
     return <div id={getVisualizationContainerDomId(item.id)} style={style} />
 }
