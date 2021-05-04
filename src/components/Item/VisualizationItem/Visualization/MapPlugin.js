@@ -55,7 +55,6 @@ const MapPlugin = ({
                 hideTitle: true,
             }}
             {...props}
-            itemFilters={itemFilters}
             visualization={getVisualization()}
         />
     ) : (
