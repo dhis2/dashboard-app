@@ -1529,10 +1529,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^17.0.2", "@dhis2/analytics@^17.0.3":
-  version "17.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-17.0.3.tgz#b80108c6d61d6f9f8eaa4813ddb7211d9d602abc"
-  integrity sha512-5bzG7OrgTYe8YbpYxPMMiLLhtRCy1Hqi7Myg8uO1p7Rjda6fFBqSAomyEdMkXfcOczIs9g1YF7yjjFNP31MsCw==
+"@dhis2/analytics@^17.0.3", "@dhis2/analytics@^17.0.4":
+  version "17.0.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-17.0.5.tgz#1a67628631bcb4c8afd92f567065db0db4b4123a"
+  integrity sha512-cklylMGEK+n9ngA/u/Lv/dhH+OkmT70M0KNSqZx3y3NsitrlfPk4OzYOVfsJjWCelrceWDpDIaJ8Q3ubgZY/jg==
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^7.2.0"
     "@dhis2/d2-ui-org-unit-dialog" "^7.2.0"
@@ -1862,7 +1862,7 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-translation-dialog@^7.1.5", "@dhis2/d2-ui-translation-dialog@^7.1.8", "@dhis2/d2-ui-translation-dialog@^7.2.0":
+"@dhis2/d2-ui-translation-dialog@^7.1.8", "@dhis2/d2-ui-translation-dialog@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-7.2.0.tgz#4e990e6bf551213f1a514b560a211d3444bd34bd"
   integrity sha512-hbe1QWGxo8bx+Ha5XNrN4ELVhJJPrwtJ89asybCot8InPjepYbf1U2QQYG6DX4GzEGZ3r+aSq+07QWfK9h9m+Q==
@@ -1876,26 +1876,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-translation-dialog@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-7.2.0.tgz#4e990e6bf551213f1a514b560a211d3444bd34bd"
-  integrity sha512-hbe1QWGxo8bx+Ha5XNrN4ELVhJJPrwtJ89asybCot8InPjepYbf1U2QQYG6DX4GzEGZ3r+aSq+07QWfK9h9m+Q==
+"@dhis2/data-visualizer-plugin@^37.0.5":
+  version "37.0.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-37.0.5.tgz#46a8c8b6e32e0fcde2369857c8e71607f6446875"
+  integrity sha512-yxFpwNmhpqG0X7S8QM0If7AdXCKyj7IDm7cAHXJfCcT6Cq6MokuVy46VmD4Sra01780WkirwCLxhTL7VKFYESw==
   dependencies:
-    "@dhis2/d2-ui-core" "7.2.0"
-    "@material-ui/core" "^3.3.1"
-    "@material-ui/icons" "^3.0.1"
-    babel-runtime "^6.26.0"
-    d2-utilizr "^0.2.15"
-    prop-types "^15.5.10"
-    react-select "^2.0.0"
-    rxjs "^5.5.7"
-
-"@dhis2/data-visualizer-plugin@^37.0.1":
-  version "37.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-37.0.1.tgz#8516f702cdba3fe3cf709eb82fa3f1af0e3c45db"
-  integrity sha512-+ADRyYfEIlDJP3cR0H+uNlV9rA/o8Bb8bl+KJB21v0fZNGd751kbCittTSUjhCk3IYFMUVHpvY5558yuk5PS0g==
-  dependencies:
-    "@dhis2/analytics" "^17.0.3"
+    "@dhis2/analytics" "^17.0.4"
     "@dhis2/app-runtime" "^2.8.0"
     "@dhis2/d2-i18n" "^1.1.0"
     "@dhis2/ui" "^6.5.5"
