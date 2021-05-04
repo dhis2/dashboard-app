@@ -31,6 +31,7 @@ jest.mock(
 const mockStore = configureMockStore()
 const DEFAULT_STORE_WITH_ONE_ITEM = {
     visualizations: { rainbowVis: { rows: [], columns: [], filters: [] } },
+    itemFilters: {},
 }
 
 test('renders a MapPlugin when activeType is MAP', () => {

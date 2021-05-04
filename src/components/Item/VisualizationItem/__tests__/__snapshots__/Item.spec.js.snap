@@ -37,7 +37,6 @@ exports[`VisualizationItem/Item does not render Visualization if config not load
   >
     <div
       className="dashboard-item-content"
-      key="1"
     />
   </FatalErrorBoundary>
 </Fragment>

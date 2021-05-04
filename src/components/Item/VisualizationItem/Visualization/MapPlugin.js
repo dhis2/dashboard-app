@@ -8,43 +8,44 @@ import { pluginIsAvailable, resize } from './plugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
 
 const MapPlugin = ({
+    visualization,
     applyFilters,
     availableHeight,
     availableWidth,
     gridWidth,
+    itemFilters,
     ...props
 }) => {
+    const getVisualization = () => {
+        if (props.item.type === MAP) {
+            // apply filters only to thematic and event layers
+            // for maps AO
+            const mapViews = visualization.mapViews.map(mapView => {
+                if (
+                    mapView.layer.includes('thematic') ||
+                    mapView.layer.includes('event')
+                ) {
+                    return applyFilters(mapView, itemFilters)
+                }
+
+                return mapView
+            })
+
+            return {
+                ...visualization,
+                mapViews,
+            }
+        } else {
+            // this is the case of a non map AO passed to the maps plugin
+            // due to a visualization type switch in dashboard item
+            // maps plugin takes care of converting the AO to a suitable format
+            return applyFilters(visualization, props.itemFilters)
+        }
+    }
+
     useEffect(() => {
         resize(props.item.id, MAP, isElementFullscreen(props.item.id))
     }, [availableHeight, availableWidth, gridWidth])
-
-    if (props.item.type === MAP) {
-        // apply filters only to thematic and event layers
-        // for maps AO
-        const mapViews = props.visualization.mapViews.map(mapView => {
-            if (
-                mapView.layer.includes('thematic') ||
-                mapView.layer.includes('event')
-            ) {
-                return applyFilters(mapView, props.itemFilters)
-            }
-
-            return mapView
-        })
-
-        props.visualization = {
-            ...props.visualization,
-            mapViews,
-        }
-    } else {
-        // this is the case of a non map AO passed to the maps plugin
-        // due to a visualization type switch in dashboard item
-        // maps plugin takes care of converting the AO to a suitable format
-        props.visualization = applyFilters(
-            props.visualization,
-            props.itemFilters
-        )
-    }
 
     return pluginIsAvailable(MAP) ? (
         <DefaultPlugin
@@ -52,6 +53,8 @@ const MapPlugin = ({
                 hideTitle: true,
             }}
             {...props}
+            itemFilters={itemFilters}
+            visualization={getVisualization()}
         />
     ) : (
         <NoVisualizationMessage

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import uniqueId from 'lodash/uniqueId'
 import i18n from '@dhis2/d2-i18n'
 import Visualization from './Visualization/Visualization'
 import FatalErrorBoundary from './FatalErrorBoundary'
@@ -117,8 +116,6 @@ export class Item extends Component {
         }
     }
 
-    getUniqueKey = memoizeOne(() => uniqueId())
-
     onToggleFooter = () => {
         this.setState(
             { showFooter: !this.state.showFooter },
@@ -212,7 +209,6 @@ export class Item extends Component {
                     onFatalError={this.onFatalError}
                 >
                     <div
-                        key={this.getUniqueKey(itemFilters)}
                         className="dashboard-item-content"
                         ref={ref => (this.contentRef = ref)}
                     >
@@ -228,6 +224,7 @@ export class Item extends Component {
                                         )}
                                         availableWidth={this.getAvailableWidth()}
                                         gridWidth={this.props.gridWidth}
+                                        dashboardMode={dashboardMode}
                                     />
                                 )}
                             </WindowDimensionsCtx.Consumer>

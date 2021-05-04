@@ -5,7 +5,14 @@ import { useConfig } from '@dhis2/app-runtime'
 import { load, unmount } from './plugin'
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId'
 
-const DefaultPlugin = ({ item, activeType, visualization, options, style }) => {
+const DefaultPlugin = ({
+    item,
+    activeType,
+    filterVersion,
+    visualization,
+    options,
+    style,
+}) => {
     const { d2 } = useD2()
     const { baseUrl } = useConfig()
     const credentials = {
@@ -15,6 +22,7 @@ const DefaultPlugin = ({ item, activeType, visualization, options, style }) => {
 
     const prevItem = useRef()
     const prevActiveType = useRef()
+    const prevFilterVersion = useRef()
 
     useEffect(() => {
         load(item, visualization, {
@@ -25,13 +33,13 @@ const DefaultPlugin = ({ item, activeType, visualization, options, style }) => {
 
         prevItem.current = item
         prevActiveType.current = activeType
+        prevFilterVersion.current = filterVersion
 
         return () => unmount(item, activeType)
     }, [])
 
     useEffect(() => {
         if (shouldPluginReload()) {
-            unmount(item, prevActiveType.current)
             load(item, visualization, {
                 credentials,
                 activeType,
@@ -40,17 +48,21 @@ const DefaultPlugin = ({ item, activeType, visualization, options, style }) => {
 
         prevItem.current = item
         prevActiveType.current = activeType
-    }, [item, visualization, activeType])
+        prevFilterVersion.current = filterVersion
+    }, [item, visualization, activeType, filterVersion])
 
     /**
      * Prevent unnecessary re-rendering
+     * If the item is the same but the activeType or itemFilters
+     * have changed, then reload.
      * TODO: fix this hack
      */
     const shouldPluginReload = () => {
         const reloadAllowed = prevItem.current === item
-        const visChanged = prevActiveType.current !== activeType
+        const visualizationTypeChanged = prevActiveType.current !== activeType
+        const itemFiltersChanged = prevFilterVersion.current !== filterVersion
 
-        return reloadAllowed && visChanged
+        return reloadAllowed && (visualizationTypeChanged || itemFiltersChanged)
     }
 
     return <div id={getVisualizationContainerDomId(item.id)} style={style} />
@@ -58,6 +70,7 @@ const DefaultPlugin = ({ item, activeType, visualization, options, style }) => {
 
 DefaultPlugin.propTypes = {
     activeType: PropTypes.string,
+    filterVersion: PropTypes.string,
     item: PropTypes.object,
     options: PropTypes.object,
     style: PropTypes.object,
