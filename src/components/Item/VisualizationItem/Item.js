@@ -17,14 +17,14 @@ import { SystemSettingsCtx } from '../../SystemSettingsProvider'
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
 import { apiFetchVisualization } from '../../../api/metadata'
 import { sGetVisualization } from '../../../reducers/visualizations'
-import { sGetSelectedItemActiveType } from '../../../reducers/selected'
+import { sGetItemActiveType } from '../../../reducers/itemActiveTypes'
 import { sGetIsEditing } from '../../../reducers/editDashboard'
 import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
 } from '../../../reducers/itemFilters'
 import { acAddVisualization } from '../../../actions/visualizations'
-import { acSetSelectedItemActiveType } from '../../../actions/selected'
+import { acSetItemActiveType } from '../../../actions/itemActiveTypes'
 import { getDataStatisticsName } from '../../../modules/itemTypes'
 import { isElementFullscreen } from './isElementFullscreen'
 
@@ -268,7 +268,7 @@ const mapStateToProps = (state, ownProps) => {
         : DEFAULT_STATE_ITEM_FILTERS
 
     return {
-        activeType: sGetSelectedItemActiveType(state, ownProps.item?.id),
+        activeType: sGetItemActiveType(state, ownProps.item?.id),
         isEditing: sGetIsEditing(state),
         itemFilters,
         visualization: sGetVisualization(
@@ -279,7 +279,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = {
-    setActiveType: acSetSelectedItemActiveType,
+    setActiveType: acSetItemActiveType,
     updateVisualization: acAddVisualization,
 }
 
