@@ -45,7 +45,6 @@ const DefaultPlugin = ({
             /* Item is the same but type or filters has changed
              * so necessary to reload
              */
-            console.log('load', item.type, activeType)
             load(item, visualization, {
                 credentials,
                 activeType,
