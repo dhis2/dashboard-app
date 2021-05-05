@@ -27,6 +27,10 @@ Then('the dashboards bar is not visible', () => {
     cy.get(dashboardsBarSel, EXTENDED_TIMEOUT).should('not.be.visible')
 })
 
+When('I scroll to top', () => {
+    cy.get(outerScrollContainerSel).scrollTo('top')
+})
+
 Then('the dashboards bar is visible', () => {
     cy.get(dashboardsBarSel).should('be.visible')
 })
