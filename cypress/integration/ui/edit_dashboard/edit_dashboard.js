@@ -37,10 +37,6 @@ const getRouteFromHash = hash => {
 Scenario: I create a new dashboard
 */
 
-When('dashboard title is added', () => {
-    cy.get('[data-test="dashboard-title-input"]').type(TEST_DASHBOARD_TITLE)
-})
-
 When('escape key is pressed', () => {
     cy.get('body').trigger('keydown', { key: 'Escape' })
     cy.get('[data-test="item-menu]').should('not.exist')
