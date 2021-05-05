@@ -10,6 +10,18 @@ import {
 let norwegianTitle = ''
 let norwegianDesc = ''
 
+beforeEach(() => {
+    //first ensure that the description is not currently shown
+    cy.request({
+        method: 'PUT',
+        url: `${getApiBaseUrl()}/api/userDataStore/dashboard/showDescription`,
+        headers: {
+            'content-type': 'application/json',
+        },
+        body: 'false',
+    }).then(response => expect(response.status).to.equal(201))
+})
+
 When('I add translations for dashboard name and description', () => {
     const now = new Date().toUTCString()
     norwegianTitle = 'nor title ' + now
