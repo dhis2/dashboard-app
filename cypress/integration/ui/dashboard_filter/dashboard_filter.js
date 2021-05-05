@@ -6,7 +6,7 @@ import {
     chartSubtitleSel,
     chartXAxisLabelSel,
 } from '../../../selectors/dashboardItem'
-import { innerScrollContainerSel } from '../../../selectors/viewDashboard'
+// import { innerScrollContainerSel } from '../../../selectors/viewDashboard'
 
 import {
     filterBadgeSel,
@@ -25,7 +25,7 @@ Scenario: I add a Period filter
 Then('the Period filter is applied to the dashboard', () => {
     cy.get(filterBadgeSel).contains(`Period: ${PERIOD}`).should('be.visible')
 
-    cy.get(innerScrollContainerSel).scrollTo('top')
+    // cy.get(innerScrollContainerSel).scrollTo('top')
 
     // check the CHART
     cy.get(`${gridItemSel}.CHART`)
@@ -53,7 +53,7 @@ Then('the Organisation Unit filter is applied to the dashboard', () => {
         .contains(`Organisation Unit: ${OU}`)
         .should('be.visible')
 
-    cy.get(innerScrollContainerSel).scrollTo('top')
+    // cy.get(innerScrollContainerSel).scrollTo('top')
 
     cy.get(`${gridItemSel}.CHART`)
         .find(chartXAxisLabelSel, EXTENDED_TIMEOUT)
@@ -70,7 +70,7 @@ Then('the Facility Type filter is applied to the dashboard', () => {
         .contains(`Facility Type: ${FACILITY_TYPE}`)
         .should('be.visible')
 
-    cy.get(innerScrollContainerSel).scrollTo('top')
+    // cy.get(innerScrollContainerSel).scrollTo('top')
 
     cy.get(`${gridItemSel}.CHART`)
         .find(chartSubtitleSel, EXTENDED_TIMEOUT)
