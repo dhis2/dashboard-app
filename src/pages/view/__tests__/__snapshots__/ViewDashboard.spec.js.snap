@@ -25,6 +25,7 @@ exports[`ViewDashboard renders correctly default 1`] = `
     >
       <div
         className="container dashboard-scroll-container"
+        data-test="inner-scroll-container"
       >
         <MockTitleBar>
           <div>

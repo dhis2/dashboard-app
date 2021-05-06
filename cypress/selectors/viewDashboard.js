@@ -16,5 +16,6 @@ export const dragHandleSel = '[data-test="controlbar-drag-handle"]'
 export const dashboardsBarSel = '[data-test="dashboards-bar"]'
 
 export const outerScrollContainerSel = '[data-test="outer-scroll-container"]'
+export const innerScrollContainerSel = '[data-test="inner-scroll-container"]'
 
 export const editControlBarSel = '[data-test="edit-control-bar"]'

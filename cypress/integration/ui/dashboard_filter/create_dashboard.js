@@ -5,10 +5,11 @@ import {
     dashboardChipSel,
     dashboardTitleSel,
 } from '../../../selectors/viewDashboard'
+import { confirmActionDialogSel } from '../../../selectors/editDashboard'
 
 const TEST_DASHBOARD_TITLE = 'a filter ' + new Date().toUTCString()
 
-When('I add one item of each visualization type and save', () => {
+When('I add a MAP and a CHART and save', () => {
     //add the title
     cy.get('[data-test="dashboard-title-input"]').type(TEST_DASHBOARD_TITLE)
 
@@ -36,20 +37,6 @@ When('I add one item of each visualization type and save', () => {
         .trigger('mousemove', { clientX: 600 })
         .trigger('mouseup')
 
-    // TODO: look into why this resize doesn't work
-    // cy.get(`${gridItemSel}.MAP`)
-    //     .find('.react-resizable-handle')
-    //     .trigger('mousedown')
-    //     .trigger('mousemove', { clientX: 800, clientY: 300 })
-    //     .trigger('mouseup', { force: true })
-
-    // cy.get(`${gridItemSel}.VISUALIZATION`)
-    //     .find('.react-resizable-handle')
-    //     .trigger('mousedown')
-    //     .trigger('mousemove', { clientX: 380, clientY: 300 })
-    //     .trigger('mouseup', { force: true })
-    // cy.get('body').trigger('keydown', { key: 'Escape' })
-
     //save
     cy.get('button').contains('Save changes', EXTENDED_TIMEOUT).click()
 })
@@ -65,7 +52,7 @@ When('I choose to delete dashboard', () => {
 })
 
 When('I confirm delete', () => {
-    cy.get('[data-test="confirm-delete-dashboard"]').click()
+    cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
 })
 
 Then('different dashboard displays in view mode', () => {

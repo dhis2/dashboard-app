@@ -2,7 +2,7 @@ Feature: Dashboard filter
 
     Scenario: I add a Period filter
         When I choose to create new dashboard
-        And I add one item of each visualization type and save
+        And I add a MAP and a CHART and save
         When I add a "Period" filter
         Then the Period filter is applied to the dashboard
 
