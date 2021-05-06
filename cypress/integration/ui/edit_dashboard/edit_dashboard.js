@@ -9,6 +9,11 @@ import {
     dashboardChipSel,
     dashboardTitleSel,
 } from '../../../selectors/viewDashboard'
+import {
+    confirmActionDialogSel,
+    titleInputSel,
+    itemMenuSel,
+} from '../../../selectors/editDashboard'
 
 // the length of the root route of the app (after the slash): #/
 const ROOT_ROUTE_LENGTH = 0
@@ -38,17 +43,17 @@ Scenario: I create a new dashboard
 */
 
 When('dashboard title is added', () => {
-    cy.get('[data-test="dashboard-title-input"]').type(TEST_DASHBOARD_TITLE)
+    cy.get(titleInputSel).type(TEST_DASHBOARD_TITLE)
 })
 
 When('escape key is pressed', () => {
     cy.get('body').trigger('keydown', { key: 'Escape' })
-    cy.get('[data-test="item-menu]').should('not.exist')
+    cy.get(itemMenuSel).should('not.exist')
 })
 
 When('I click outside menu', () => {
     cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
-    cy.get('[data-test="item-menu]').should('not.exist')
+    cy.get(itemMenuSel).should('not.exist')
 })
 
 When('dashboard is saved', () => {
@@ -62,7 +67,7 @@ Then('the saved dashboard should be displayed', () => {
     )
 })
 
-Then('dashboard displays in view mode', () => {
+Then('the dashboard displays in view mode', () => {
     cy.location().should(loc => {
         const currentRoute = getRouteFromHash(loc.hash)
 
@@ -93,7 +98,24 @@ Given('I open existing dashboard', () => {
 })
 
 When('I choose to delete dashboard', () => {
-    cy.get('[data-test="delete-dashboard-button"]').click()
+    cy.get('button').contains('Delete').click()
+})
+
+/*
+Scenario: I exit without saving
+*/
+When('I confirm I want to discard changes', () => {
+    cy.get(confirmActionDialogSel)
+        .find('button')
+        .contains('Yes, discard changes')
+        .click()
+})
+
+When('I decide to continue editing', () => {
+    cy.get(confirmActionDialogSel)
+        .find('button')
+        .contains('No, stay here')
+        .click()
 })
 
 /*
@@ -101,7 +123,7 @@ Scenario: I cancel a delete dashboard action
 */
 
 When('I cancel delete', () => {
-    cy.get('[data-test="cancel-delete-dashboard"]').click()
+    cy.get(confirmActionDialogSel).find('button').contains('Cancel').click()
 })
 
 Then('the confirm delete dialog is displayed', () => {
@@ -111,7 +133,7 @@ Then('the confirm delete dialog is displayed', () => {
 })
 
 Then('the dashboard displays in edit mode', () => {
-    cy.get('[data-test="dashboard-title-input"]').should('exist')
+    cy.get(titleInputSel).should('exist')
 
     cy.location().should(loc => {
         expect(getRouteFromHash(loc.hash)).to.eq(ROUTE_EDIT)
@@ -123,7 +145,7 @@ Scenario: I delete a dashboard
 */
 
 When('I confirm delete', () => {
-    cy.get('[data-test="confirm-delete-dashboard"]').click()
+    cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
 })
 
 Then('the dashboard is deleted and first starred dashboard displayed', () => {

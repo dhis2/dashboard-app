@@ -73,7 +73,7 @@ export const FilterUnconnected = ({
     }
 
     return (
-        <div
+        <span
             className={cx(
                 classes.container,
                 expanded ? classes.expanded : classes.collapsed
@@ -109,7 +109,7 @@ export const FilterUnconnected = ({
                     </div>
                 )}
             </div>
-        </div>
+        </span>
     )
 }
 
