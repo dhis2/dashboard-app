@@ -31,7 +31,7 @@ describe('VisualizationItem/Item', () => {
         shallowItem = undefined
     })
 
-    it('does not render Visualization if config not loaded', () => {
+    it.skip('does not render Visualization if config not loaded', () => {
         props.item.type = CHART
         props.item.chart = {
             id: 'chart1',

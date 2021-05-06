@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import uniqueId from 'lodash/uniqueId'
-import i18n from '@dhis2/d2-i18n'
+// import i18n from '@dhis2/d2-i18n'
 import Visualization from './Visualization/Visualization'
 import FatalErrorBoundary from './FatalErrorBoundary'
 import ItemHeader from '../ItemHeader/ItemHeader'
@@ -41,6 +41,7 @@ export class Item extends Component {
         showFooter: false,
         configLoaded: false,
         loadItemFailed: false,
+        errorMessage: '',
     }
 
     constructor(props) {
@@ -170,8 +171,8 @@ export class Item extends Component {
         return rect && rect.width - this.itemContentPadding * 2
     }
 
-    onFatalError = () => {
-        this.setState({ loadItemFailed: true })
+    onFatalError = errorMessage => {
+        this.setState({ loadItemFailed: true, errorMessage })
     }
 
     render() {
@@ -206,9 +207,7 @@ export class Item extends Component {
                     isShortened={item.shortened}
                 />
                 <FatalErrorBoundary
-                    message={i18n.t(
-                        'There was a problem loading this dashboard item'
-                    )}
+                    message={this.state.errorMessage}
                     onFatalError={this.onFatalError}
                 >
                     <div
