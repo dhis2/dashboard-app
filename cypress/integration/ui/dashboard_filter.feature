@@ -9,11 +9,13 @@ Feature: Dashboard filter
 
     Scenario: I add a Organisation Unit filter
         Given I open existing dashboard
+        Then the dashboard displays in view mode
         When I add a "Organisation Unit" filter
         Then the Organisation Unit filter is applied to the dashboard
 
     Scenario: I add a Facility Type filter
         Given I open existing dashboard
+        Then the dashboard displays in view mode
         When I add a "Facility Type" filter
         Then the Facility Type filter is applied to the dashboard
 
