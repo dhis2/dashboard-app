@@ -18,7 +18,8 @@ class FatalErrorBoundary extends React.Component {
         })
         console.log('error: ', error)
         console.log('info: ', info)
-        this.props.onFatalError(`${error} info: ${info}`)
+
+        this.props.onFatalError(`${error}, INFO: ${JSON.stringify(info)}`)
     }
 
     render() {
