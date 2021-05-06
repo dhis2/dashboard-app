@@ -44,14 +44,6 @@ const ItemContextMenu = props => {
 
     const fullscreenAllowed = props.fullscreenSupported && allowVisFullscreen
 
-    console.log(
-        'allowed',
-        allowVisOpenInApp,
-        allowVisShowInterpretations,
-        allowVisViewAs,
-        fullscreenAllowed
-    )
-
     const noOptionsEnabled =
         !allowVisOpenInApp &&
         !allowVisShowInterpretations &&
