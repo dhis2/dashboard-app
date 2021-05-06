@@ -2,7 +2,7 @@ import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { getApiBaseUrl } from '../../../support/server/utils'
 
 before(() => {
-    //first ensure that the description is not currently shown
+    //ensure that the description is not currently shown
     cy.request({
         method: 'PUT',
         url: `${getApiBaseUrl()}/api/userDataStore/dashboard/showDescription`,

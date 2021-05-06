@@ -11,7 +11,7 @@ let norwegianTitle = ''
 let norwegianDesc = ''
 
 beforeEach(() => {
-    //first ensure that the description is not currently shown
+    //ensure that the description is not currently shown
     cy.request({
         method: 'PUT',
         url: `${getApiBaseUrl()}/api/userDataStore/dashboard/showDescription`,
