@@ -2675,10 +2675,10 @@
     lz-string "^1.4.4"
     pretty-format "^26.6.2"
 
-"@testing-library/jest-dom@^5.11.10":
-  version "5.11.10"
-  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.11.10.tgz#1cd90715023e1627f5ed26ab3b38e6f22d77046c"
-  integrity sha512-FuKiq5xuk44Fqm0000Z9w0hjOdwZRNzgx7xGGxQYepWFZy+OYUMOT/wPI4nLYXCaVltNVpU1W/qmD88wLWDsqQ==
+"@testing-library/jest-dom@^5.12.0":
+  version "5.12.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.12.0.tgz#6a5d340b092c44b7bce17a4791b47d9bc2c61443"
+  integrity sha512-N9Y82b2Z3j6wzIoAqajlKVF1Zt7sOH0pPee0sUHXHc5cv2Fdn23r+vpWm0MBBoGJtPOly5+Bdx1lnc3CD+A+ow==
   dependencies:
     "@babel/runtime" "^7.9.2"
     "@types/testing-library__jest-dom" "^5.9.1"
@@ -6140,10 +6140,10 @@ d2-utilizr@^0.2.15, d2-utilizr@^0.2.16:
     lodash.isset "^4.3.0"
     lodash.isstring "^4.0.1"
 
-d2@^31.9.3:
-  version "31.9.3"
-  resolved "https://registry.yarnpkg.com/d2/-/d2-31.9.3.tgz#c9632fce71f4f001d77b463519d452841863a4f7"
-  integrity sha512-xfILD6PckZHv2WT8puhE5A+SIVhLyCGahWLZpmceXNe9SZfH+gYrEcb6L4nT6UR/jrvIigXH4l3WhwvMdT0Nbw==
+d2@^31.10.0:
+  version "31.10.0"
+  resolved "https://registry.yarnpkg.com/d2/-/d2-31.10.0.tgz#0b7e14d0c33edfe4b1cd77bc8fee3edb293d7a04"
+  integrity sha512-H1g0qXYAmAoHi57I4wBvKcuNjz4XEakSpt4Dpau0ubUee9Zmk0SlbzFQA47s43F09iQRY1Cw189TzAfkC4YK+Q==
   dependencies:
     isomorphic-fetch "^2.2.1"
 
@@ -6882,13 +6882,13 @@ enzyme-shallow-equal@^1.0.1, enzyme-shallow-equal@^1.0.4:
     has "^1.0.3"
     object-is "^1.1.2"
 
-enzyme-to-json@^3.6.1:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/enzyme-to-json/-/enzyme-to-json-3.6.1.tgz#d60740950bc7ca6384dfe6fe405494ec5df996bc"
-  integrity sha512-15tXuONeq5ORoZjV/bUo2gbtZrN2IH+Z6DvL35QmZyKHgbY1ahn6wcnLd9Xv9OjiwbAXiiP8MRZwbZrCv1wYNg==
+enzyme-to-json@^3.6.2:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/enzyme-to-json/-/enzyme-to-json-3.6.2.tgz#94f85c413bcae8ab67be53b0a94b69a560e27823"
+  integrity sha512-Ynm6Z6R6iwQ0g2g1YToz6DWhxVnt8Dy1ijR2zynRKxTyBGA8rCDXU3rs2Qc4OKvUvc2Qoe1bcFK6bnPs20TrTg==
   dependencies:
     "@types/cheerio" "^0.22.22"
-    lodash "^4.17.15"
+    lodash "^4.17.21"
     react-is "^16.12.0"
 
 enzyme@^3.11.0:
