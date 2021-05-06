@@ -4,30 +4,57 @@ import i18n from '@dhis2/d2-i18n'
 import { MenuItem, Tooltip } from '@dhis2/ui'
 import { useOnlineStatus } from '../../../../modules/useOnlineStatus'
 
-const MenuItemWithTooltip = ({ disabledWhenOffline, tooltip, ...rest }) => {
+const MenuItemWithTooltip = ({
+    disabledWhenOffline,
+    tooltip,
+    label,
+    ...rest
+}) => {
     const { isOnline } = useOnlineStatus()
 
-    if (disabledWhenOffline && !isOnline) {
+    const tooltipContent =
+        disabledWhenOffline && !isOnline
+            ? i18n.t('Not available offline')
+            : tooltip
+
+    const notAllowed = disabledWhenOffline && !isOnline
+
+    const getLabelWithTooltip = () => {
         return (
-            <Tooltip content={i18n.t('Not available offline')} closeDelay={100}>
-                <MenuItem dense disabled {...rest} />
+            <Tooltip content={tooltipContent} openDelay={200} closeDelay={100}>
+                {({ onMouseOver, onMouseOut, ref }) => (
+                    <span
+                        onMouseOver={() => notAllowed && onMouseOver()}
+                        onMouseOut={() => notAllowed && onMouseOut()}
+                        ref={ref}
+                    >
+                        {label}
+                        <style jsx>{`
+                            span {
+                                display: inline-flex;
+                                pointer-events: all;
+                                cursor: ${notAllowed ? 'not-allowed' : 'block'};
+                            }
+                        `}</style>
+                    </span>
+                )}
             </Tooltip>
         )
     }
 
-    if (tooltip) {
-        return (
-            <Tooltip content={tooltip} closeDelay={100}>
-                <MenuItem dense disabled {...rest} />
-            </Tooltip>
-        )
-    }
-
-    return <MenuItem dense {...rest} />
+    return (
+        <MenuItem
+            dense
+            disabled={notAllowed}
+            label={getLabelWithTooltip()}
+            {...rest}
+        />
+    )
 }
 
 MenuItemWithTooltip.propTypes = {
     disabledWhenOffline: PropTypes.bool,
+    label: PropTypes.string,
     tooltip: PropTypes.string,
 }
 
