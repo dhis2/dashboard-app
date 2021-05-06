@@ -2,13 +2,13 @@
 # Translators:
 # phil_dhis2, 2019
 # Viktor Varland <viktor@dhis2.org>, 2020
-# 晓东 林 <13981924470@126.com>, 2020
+# 晓东 林 <13981924470@126.com>, 2021
 # easylin <lin_xd@126.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
+"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -24,55 +24,8 @@ msgstr "未命名的仪表板"
 msgid "Loading dashboard – {{name}}"
 msgstr "加载仪表盘-{{name}}"
 
-msgid "Cancel"
-msgstr "取消"
-
-msgid "Delete"
-msgstr "删除"
-
-msgid "Delete dashboard"
-msgstr "删除仪表盘"
-
-msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
-"This action cannot be undone. Are you sure you want to permanently delete "
-"this dashboard?"
-msgstr "删除仪表盘 \"{{ dashboardName }}\" 将从所有用户仪表盘中移除。该操作不能撤销，你确信要永久删除该仪表盘条目？"
-
-msgid ""
-"Failed to save dashboard. You might be offline or not have access to edit "
-"this dashboard."
-msgstr "保存仪表盘失败。您可能处于离线状态或无权编辑此仪表板。"
-
-msgid "Save changes"
-msgstr "保存改变"
-
-msgid "Exit Print preview"
-msgstr "退出打印预览"
-
-msgid "Print preview"
-msgstr "打印预览"
-
-msgid "Filter settings"
-msgstr "筛选器设定"
-
-msgid "Translate"
-msgstr "翻译"
-
-msgid "Exit without saving"
-msgstr "不保存退出"
-
-msgid "Go to dashboards"
-msgstr "进到仪表盘"
-
-msgid "Search for a dashboard"
-msgstr "搜索仪表盘"
-
-msgid "Show fewer dashboards"
-msgstr "显示更少的仪表板"
-
-msgid "Show more dashboards"
-msgstr "显示更多仪表板"
+msgid "Loading dashboard"
+msgstr "加载仪表板"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "没有发现仪表盘，使用+按钮创建新的仪表盘"
@@ -80,60 +33,8 @@ msgstr "没有发现仪表盘，使用+按钮创建新的仪表盘"
 msgid "Requested dashboard not found"
 msgstr "请求的仪表盘没有找到"
 
-msgid "No access"
-msgstr "不能访问"
-
-msgid ""
-"Editing dashboards on small screens is not supported. Resize your screen to "
-"return to edit mode."
-msgstr "不支持在小屏幕上编辑仪表板。调整屏幕大小以返回编辑模式。"
-
-msgid ""
-"Creating dashboards on small screens is not supported. Resize your screen to"
-" return to create mode."
-msgstr "不支持在小屏幕上创建仪表板。调整屏幕大小以返回创建模式。"
-
-msgid "Not supported"
-msgstr "不支持"
-
-msgid "Exit print preview"
-msgstr "退出打印预览"
-
-msgid "Print"
-msgstr "打印"
-
-msgid "dashboard layout"
-msgstr "仪表板布局"
-
-msgid "one item per page"
-msgstr "每页一项"
-
-msgid "Print Preview"
-msgstr "打印预览"
-
-msgid "For best print results"
-msgstr "以获得最佳打印效果"
-
-msgid "Use Chrome or Edge web browser"
-msgstr "使用Chrome或Edge网络浏览器"
-
-msgid "Wait for all dashboard items to load before printing"
-msgstr "等待所有仪表板项目加载后再打印"
-
-msgid ""
-"Use A4 landscape paper size and default margin settings in the browser print"
-" dialog"
-msgstr "在浏览器的“打印”对话框中使用A4横向纸张尺寸和默认边距设置"
-
-msgid "{{count}} selected"
-msgid_plural "{{count}} selected"
-msgstr[0] "{{count}} 个被选择"
-
-msgid "Remove"
-msgstr "移除"
-
-msgid "Delete item"
-msgstr "删除条目"
+msgid "Remove this item"
+msgstr "删除该项目"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "此项已缩短为适合一页"
@@ -166,11 +67,11 @@ msgstr "在这里添加文本"
 msgid "There was a problem loading this dashboard item"
 msgstr "载入仪表盘有问题"
 
-msgid "Hide interpretations and details"
-msgstr "隐藏注释和详情"
+msgid "Hide details and interpretations"
+msgstr "隐藏细节和解释"
 
-msgid "Show interpretations and details"
-msgstr "显示注释和详情"
+msgid "Show details and interpretations"
+msgstr "显示细节和解释"
 
 msgid "Open in {{appName}} app"
 msgstr "在{{appName}} 应用中打开"
@@ -202,107 +103,6 @@ msgstr "不能载入该条目的插件"
 msgid "No data to display"
 msgstr "没有数据可显示"
 
-msgid "Confirm"
-msgstr "确认"
-
-msgid "Add filter"
-msgstr "添加过滤器"
-
-msgid "Allow filtering by all dimensions"
-msgstr "允许按所有维度进行过滤"
-
-msgid "Only allow filtering by selected dimensions"
-msgstr "仅允许按选定的维度进行过滤"
-
-msgid "Dashboard filter settings"
-msgstr "仪表板过滤器设置"
-
-msgid ""
-"Dashboards can be filtered by dimensions to change\n"
-"                                         the data shown. By default, all dimensions are available\n"
-"                                         as filters. Alternatively, only selected dimensions can\n"
-"                                         be made available on a dashboard."
-msgstr ""
-"仪表板可以按维度进行过滤以进行更改\n"
-"                                         显示的数据。默认情况下，所有尺寸均可用\n"
-"                                         作为过滤器。另外，只有选定的尺寸可以\n"
-"                                         在仪表板上可用。"
-
-msgid "Available Filters"
-msgstr "可用过滤器"
-
-msgid "Selected Filters"
-msgstr "选定的过滤器"
-
-msgid "There are no items on this dashboard"
-msgstr "该仪表盘没有条目"
-
-msgid "Show fewer"
-msgstr "显示较少"
-
-msgid "Show more"
-msgstr "显示更多"
-
-msgid "Insert"
-msgstr "插入"
-
-msgid "Search for items to add to this dashboard"
-msgstr "搜索条目添加到仪表盘"
-
-msgid "Additional items"
-msgstr "其它条目"
-
-msgid "Text box"
-msgstr "文本框"
-
-msgid "Dashboard title"
-msgstr "仪表盘标题"
-
-msgid "Dashboard description"
-msgstr "仪表盘描述"
-
-msgid "Hide description"
-msgstr "隐藏说明"
-
-msgid "Show description"
-msgstr "显示说明"
-
-msgid "Failed to hide description"
-msgstr "隐藏说明失败"
-
-msgid "Failed to show description"
-msgstr "无法显示说明"
-
-msgid "Unstar dashboard"
-msgstr "取消星标仪表盘"
-
-msgid "Star dashboard"
-msgstr "标星仪表板"
-
-msgid "Failed to unstar the dashboard"
-msgstr "无法取消仪表板的星标"
-
-msgid "Failed to star the dashboard"
-msgstr "无法为仪表板加注星标"
-
-msgid "More"
-msgstr "更多"
-
-msgid "Edit"
-msgstr "编辑"
-
-msgid "Share"
-msgstr "分享"
-
-msgid "Dashboard layout"
-msgstr "仪表板布局"
-
-msgid "One item per page"
-msgstr "每页一项"
-
-msgid "No description"
-msgstr "没有描述"
-
 msgid "Visualizations"
 msgstr "可视化"
 
@@ -332,3 +132,228 @@ msgstr "资源"
 
 msgid "Users"
 msgstr "用户"
+
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr "保存仪表盘失败。您可能处于离线状态或无权编辑此仪表板。"
+
+msgid ""
+"Failed to delete dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr "删除仪表盘失败。您可能处于离线状态，或者无权编辑此仪表板。"
+
+msgid "Save changes"
+msgstr "保存改变"
+
+msgid "Exit Print preview"
+msgstr "退出打印预览"
+
+msgid "Print preview"
+msgstr "打印预览"
+
+msgid "Filter settings"
+msgstr "筛选器设定"
+
+msgid "Translate"
+msgstr "翻译"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Exit without saving"
+msgstr "不保存退出"
+
+msgid "Go to dashboards"
+msgstr "进到仪表盘"
+
+msgid "Delete dashboard"
+msgstr "删除仪表盘"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr "删除仪表盘 \"{{ dashboardName }}\" 将从所有用户仪表盘中移除。该操作不能撤销，你确信要永久删除该仪表盘条目？"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Discard changes"
+msgstr "忽略修改"
+
+msgid ""
+"This dashboard has unsaved changes. Are you sure you want to leave and "
+"discard these unsaved changes?"
+msgstr "此信息中心有未保存的更改。您确定要离开并丢弃这些未保存的更改吗？"
+
+msgid "No, stay here"
+msgstr "不，待在这里"
+
+msgid "Yes, discard changes"
+msgstr "是的，放弃更改"
+
+msgid "No access"
+msgstr "不能访问"
+
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
+msgstr "不支持在小屏幕上编辑仪表板。调整屏幕大小以返回编辑模式。"
+
+msgid "Allow filtering by all dimensions"
+msgstr "允许按所有维度进行过滤"
+
+msgid "Only allow filtering by selected dimensions"
+msgstr "仅允许按选定的维度进行过滤"
+
+msgid "Dashboard filter settings"
+msgstr "仪表板过滤器设置"
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+"仪表板可以按维度进行过滤以进行更改\n"
+"                                         显示的数据。默认情况下，所有尺寸均可用\n"
+"                                         作为过滤器。另外，只有选定的尺寸可以\n"
+"                                         在仪表板上可用。"
+
+msgid "Available Filters"
+msgstr "可用过滤器"
+
+msgid "Selected Filters"
+msgstr "选定的过滤器"
+
+msgid "Confirm"
+msgstr "确认"
+
+msgid "There are no items on this dashboard"
+msgstr "该仪表盘没有条目"
+
+msgid "Show fewer"
+msgstr "显示较少"
+
+msgid "Show more"
+msgstr "显示更多"
+
+msgid "Insert"
+msgstr "插入"
+
+msgid "Search for items to add to this dashboard"
+msgstr "搜索条目添加到仪表盘"
+
+msgid "Additional items"
+msgstr "其它条目"
+
+msgid "Text box"
+msgstr "文本框"
+
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
+msgstr "不支持在小屏幕上创建仪表板。调整屏幕大小以返回创建模式。"
+
+msgid "Not supported"
+msgstr "不支持"
+
+msgid "Dashboard title"
+msgstr "仪表盘标题"
+
+msgid "Dashboard description"
+msgstr "仪表盘描述"
+
+msgid "Exit print preview"
+msgstr "退出打印预览"
+
+msgid "Print"
+msgstr "打印"
+
+msgid "dashboard layout"
+msgstr "仪表板布局"
+
+msgid "one item per page"
+msgstr "每页一项"
+
+msgid "Print Preview"
+msgstr "打印预览"
+
+msgid "For best print results"
+msgstr "以获得最佳打印效果"
+
+msgid "Use Chrome or Edge web browser"
+msgstr "使用Chrome或Edge网络浏览器"
+
+msgid "Wait for all dashboard items to load before printing"
+msgstr "等待所有仪表板项目加载后再打印"
+
+msgid ""
+"Use A4 landscape paper size and default margin settings in the browser print"
+" dialog"
+msgstr "在浏览器的“打印”对话框中使用A4横向纸张尺寸和默认边距设置"
+
+msgid "Create a new dashboard"
+msgstr "创建一个新的仪表板"
+
+msgid "Search for a dashboard"
+msgstr "搜索仪表盘"
+
+msgid "Show fewer dashboards"
+msgstr "显示更少的仪表板"
+
+msgid "Show more dashboards"
+msgstr "显示更多仪表板"
+
+msgid "{{count}} selected"
+msgid_plural "{{count}} selected"
+msgstr[0] "{{count}} 个被选择"
+
+msgid "Remove"
+msgstr "移除"
+
+msgid "Add filter"
+msgstr "添加过滤器"
+
+msgid "Hide description"
+msgstr "隐藏说明"
+
+msgid "Show description"
+msgstr "显示说明"
+
+msgid "Failed to hide description"
+msgstr "隐藏说明失败"
+
+msgid "Failed to show description"
+msgstr "无法显示说明"
+
+msgid "Unstar dashboard"
+msgstr "取消星标仪表盘"
+
+msgid "Star dashboard"
+msgstr "标星仪表板"
+
+msgid "Failed to unstar the dashboard"
+msgstr "无法取消仪表板的星标"
+
+msgid "Failed to star the dashboard"
+msgstr "无法为仪表板加注星标"
+
+msgid "Dashboard layout"
+msgstr "仪表板布局"
+
+msgid "One item per page"
+msgstr "每页一项"
+
+msgid "More"
+msgstr "更多"
+
+msgid "Edit"
+msgstr "编辑"
+
+msgid "Share"
+msgstr "分享"
+
+msgid "No description"
+msgstr "没有描述"

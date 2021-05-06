@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
+"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2021\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -23,58 +23,8 @@ msgstr "Bảng điều khiển không có tiêu đề"
 msgid "Loading dashboard – {{name}}"
 msgstr "Đang bảng điều khiển - {{tên}}"
 
-msgid "Cancel"
-msgstr "Hủy"
-
-msgid "Delete"
-msgstr "Xoá"
-
-msgid "Delete dashboard"
-msgstr "Xóa bảng điều khiển"
-
-msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
-"This action cannot be undone. Are you sure you want to permanently delete "
-"this dashboard?"
+msgid "Loading dashboard"
 msgstr ""
-"Xóa bảng điều khiển \"{{tên bảng điều khiển}}\" sẽ xóa cho tất cả người "
-"dùng. Hành động này không thể được hoàn tác. Bạn có chắc chắn muốn xóa vĩnh "
-"viễn bảng điều khiển này không?"
-
-msgid ""
-"Failed to save dashboard. You might be offline or not have access to edit "
-"this dashboard."
-msgstr ""
-
-msgid "Save changes"
-msgstr "Lưu các thay đổi"
-
-msgid "Exit Print preview"
-msgstr "Thoát xem trước bản in"
-
-msgid "Print preview"
-msgstr "Xem thử bản in"
-
-msgid "Filter settings"
-msgstr ""
-
-msgid "Translate"
-msgstr "Dịch"
-
-msgid "Exit without saving"
-msgstr "Đóng và không lưu"
-
-msgid "Go to dashboards"
-msgstr "Di chuyển tới bảng điều khiển"
-
-msgid "Search for a dashboard"
-msgstr "Tìm kiếm bảng điều khiển"
-
-msgid "Show fewer dashboards"
-msgstr "Hiển thị ít bảng điều khiển hơn"
-
-msgid "Show more dashboards"
-msgstr "Hiển thị thêm bảng điều khiển"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -83,62 +33,8 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr "Không tìm thấy bảng điều khiển được yêu cầu"
 
-msgid "No access"
-msgstr "Không truy cập"
-
-msgid ""
-"Editing dashboards on small screens is not supported. Resize your screen to "
-"return to edit mode."
+msgid "Remove this item"
 msgstr ""
-
-msgid ""
-"Creating dashboards on small screens is not supported. Resize your screen to"
-" return to create mode."
-msgstr ""
-
-msgid "Not supported"
-msgstr "Không được hỗ trợ"
-
-msgid "Exit print preview"
-msgstr "Thoát xem trước bản in"
-
-msgid "Print"
-msgstr "In"
-
-msgid "dashboard layout"
-msgstr "bố cục bảng điều khiển"
-
-msgid "one item per page"
-msgstr "một mục trên mỗi trang"
-
-msgid "Print Preview"
-msgstr "Xem trước bản in"
-
-msgid "For best print results"
-msgstr "Để có bản in tốt nhất"
-
-msgid "Use Chrome or Edge web browser"
-msgstr "Sử dụng trình duyệt Chrome hoặc Edge"
-
-msgid "Wait for all dashboard items to load before printing"
-msgstr "Chờ tải tất cả các mục trên bảng điều khiển trước khi in"
-
-msgid ""
-"Use A4 landscape paper size and default margin settings in the browser print"
-" dialog"
-msgstr ""
-"Sử dụng khổ giấy ngang A4 và cài đặt lề mặc định trong hộp thoại in của "
-"trình duyệt"
-
-msgid "{{count}} selected"
-msgid_plural "{{count}} selected"
-msgstr[0] "Đã chọn {{đếm}}"
-
-msgid "Remove"
-msgstr "Tháo ra"
-
-msgid "Delete item"
-msgstr "Xóa mục"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Mục này đã được rút ngắn để vừa với một trang"
@@ -173,11 +69,11 @@ msgstr "Thêm văn bản tại đây"
 msgid "There was a problem loading this dashboard item"
 msgstr "Đã xảy ra sự cố khi tải mục bảng điều khiển này"
 
-msgid "Hide interpretations and details"
-msgstr "Ẩn các diễn giải và chi tiết"
+msgid "Hide details and interpretations"
+msgstr ""
 
-msgid "Show interpretations and details"
-msgstr "Hiện các diễn giải và chi tiết"
+msgid "Show details and interpretations"
+msgstr ""
 
 msgid "Open in {{appName}} app"
 msgstr "Mở trong ứng dụng {{Tên ứng dụng}}"
@@ -209,103 +105,6 @@ msgstr "Không thể tải plugin cho mục này"
 msgid "No data to display"
 msgstr "Không có dữ liệu hiển thị"
 
-msgid "Confirm"
-msgstr "Xác nhận"
-
-msgid "Add filter"
-msgstr "Bộ lọc"
-
-msgid "Allow filtering by all dimensions"
-msgstr ""
-
-msgid "Only allow filtering by selected dimensions"
-msgstr ""
-
-msgid "Dashboard filter settings"
-msgstr ""
-
-msgid ""
-"Dashboards can be filtered by dimensions to change\n"
-"                                         the data shown. By default, all dimensions are available\n"
-"                                         as filters. Alternatively, only selected dimensions can\n"
-"                                         be made available on a dashboard."
-msgstr ""
-
-msgid "Available Filters"
-msgstr ""
-
-msgid "Selected Filters"
-msgstr ""
-
-msgid "There are no items on this dashboard"
-msgstr "Không có mục nào trong bảng điều khiển này"
-
-msgid "Show fewer"
-msgstr "Hiển thị ít hơn"
-
-msgid "Show more"
-msgstr "Hiện thêm"
-
-msgid "Insert"
-msgstr "Chèn vào"
-
-msgid "Search for items to add to this dashboard"
-msgstr "Tìm mục để thêm vào bảng điều khiển này"
-
-msgid "Additional items"
-msgstr "Hạng mục bổ sung"
-
-msgid "Text box"
-msgstr "Hộp văn bản"
-
-msgid "Dashboard title"
-msgstr "Tiêu đề bảng điều khiển"
-
-msgid "Dashboard description"
-msgstr "Mô tả bảng điều khiển"
-
-msgid "Hide description"
-msgstr "Ẩn mô tả"
-
-msgid "Show description"
-msgstr "Hiển thị mô tả"
-
-msgid "Failed to hide description"
-msgstr ""
-
-msgid "Failed to show description"
-msgstr ""
-
-msgid "Unstar dashboard"
-msgstr "Không gắn dấu sao bảng điều khiển "
-
-msgid "Star dashboard"
-msgstr "Gán dấu sao bảng điều khiển "
-
-msgid "Failed to unstar the dashboard"
-msgstr ""
-
-msgid "Failed to star the dashboard"
-msgstr ""
-
-msgid "More"
-msgstr "Thêm"
-
-msgid "Edit"
-msgstr "Chỉnh sửa"
-
-msgid "Share"
-msgstr "Chia sẻ"
-
-msgid "Dashboard layout"
-msgstr "Bố cục bảng điều khiển "
-
-msgid "One item per page"
-msgstr "Một mục trên mỗi trang"
-
-msgid "No description"
-msgstr "Không có mô tả"
-
 msgid "Visualizations"
 msgstr "Mô hình hóa"
 
@@ -335,3 +134,229 @@ msgstr "Tài Nguyên"
 
 msgid "Users"
 msgstr "Người dùng"
+
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid ""
+"Failed to delete dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid "Save changes"
+msgstr "Lưu các thay đổi"
+
+msgid "Exit Print preview"
+msgstr "Thoát xem trước bản in"
+
+msgid "Print preview"
+msgstr "Xem thử bản in"
+
+msgid "Filter settings"
+msgstr ""
+
+msgid "Translate"
+msgstr "Dịch"
+
+msgid "Delete"
+msgstr "Xoá"
+
+msgid "Exit without saving"
+msgstr "Đóng và không lưu"
+
+msgid "Go to dashboards"
+msgstr "Di chuyển tới bảng điều khiển"
+
+msgid "Delete dashboard"
+msgstr "Xóa bảng điều khiển"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+"Xóa bảng điều khiển \"{{tên bảng điều khiển}}\" sẽ xóa cho tất cả người "
+"dùng. Hành động này không thể được hoàn tác. Bạn có chắc chắn muốn xóa vĩnh "
+"viễn bảng điều khiển này không?"
+
+msgid "Cancel"
+msgstr "Hủy"
+
+msgid "Discard changes"
+msgstr ""
+
+msgid ""
+"This dashboard has unsaved changes. Are you sure you want to leave and "
+"discard these unsaved changes?"
+msgstr ""
+
+msgid "No, stay here"
+msgstr "Không, ở lại đây"
+
+msgid "Yes, discard changes"
+msgstr ""
+
+msgid "No access"
+msgstr "Không truy cập"
+
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
+msgstr ""
+
+msgid "Allow filtering by all dimensions"
+msgstr ""
+
+msgid "Only allow filtering by selected dimensions"
+msgstr ""
+
+msgid "Dashboard filter settings"
+msgstr ""
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+
+msgid "Available Filters"
+msgstr ""
+
+msgid "Selected Filters"
+msgstr ""
+
+msgid "Confirm"
+msgstr "Xác nhận"
+
+msgid "There are no items on this dashboard"
+msgstr "Không có mục nào trong bảng điều khiển này"
+
+msgid "Show fewer"
+msgstr "Hiển thị ít hơn"
+
+msgid "Show more"
+msgstr "Hiện thêm"
+
+msgid "Insert"
+msgstr "Chèn vào"
+
+msgid "Search for items to add to this dashboard"
+msgstr "Tìm mục để thêm vào bảng điều khiển này"
+
+msgid "Additional items"
+msgstr "Hạng mục bổ sung"
+
+msgid "Text box"
+msgstr "Hộp văn bản"
+
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
+msgstr ""
+
+msgid "Not supported"
+msgstr "Không được hỗ trợ"
+
+msgid "Dashboard title"
+msgstr "Tiêu đề bảng điều khiển"
+
+msgid "Dashboard description"
+msgstr "Mô tả bảng điều khiển"
+
+msgid "Exit print preview"
+msgstr "Thoát xem trước bản in"
+
+msgid "Print"
+msgstr "In"
+
+msgid "dashboard layout"
+msgstr "bố cục bảng điều khiển"
+
+msgid "one item per page"
+msgstr "một mục trên mỗi trang"
+
+msgid "Print Preview"
+msgstr "Xem trước bản in"
+
+msgid "For best print results"
+msgstr "Để có bản in tốt nhất"
+
+msgid "Use Chrome or Edge web browser"
+msgstr "Sử dụng trình duyệt Chrome hoặc Edge"
+
+msgid "Wait for all dashboard items to load before printing"
+msgstr "Chờ tải tất cả các mục trên bảng điều khiển trước khi in"
+
+msgid ""
+"Use A4 landscape paper size and default margin settings in the browser print"
+" dialog"
+msgstr ""
+"Sử dụng khổ giấy ngang A4 và cài đặt lề mặc định trong hộp thoại in của "
+"trình duyệt"
+
+msgid "Create a new dashboard"
+msgstr ""
+
+msgid "Search for a dashboard"
+msgstr "Tìm kiếm bảng điều khiển"
+
+msgid "Show fewer dashboards"
+msgstr "Hiển thị ít bảng điều khiển hơn"
+
+msgid "Show more dashboards"
+msgstr "Hiển thị thêm bảng điều khiển"
+
+msgid "{{count}} selected"
+msgid_plural "{{count}} selected"
+msgstr[0] "Đã chọn {{đếm}}"
+
+msgid "Remove"
+msgstr "Tháo ra"
+
+msgid "Add filter"
+msgstr "Bộ lọc"
+
+msgid "Hide description"
+msgstr "Ẩn mô tả"
+
+msgid "Show description"
+msgstr "Hiển thị mô tả"
+
+msgid "Failed to hide description"
+msgstr ""
+
+msgid "Failed to show description"
+msgstr ""
+
+msgid "Unstar dashboard"
+msgstr "Không gắn dấu sao bảng điều khiển "
+
+msgid "Star dashboard"
+msgstr "Gán dấu sao bảng điều khiển "
+
+msgid "Failed to unstar the dashboard"
+msgstr ""
+
+msgid "Failed to star the dashboard"
+msgstr ""
+
+msgid "Dashboard layout"
+msgstr "Bố cục bảng điều khiển "
+
+msgid "One item per page"
+msgstr "Một mục trên mỗi trang"
+
+msgid "More"
+msgstr "Thêm"
+
+msgid "Edit"
+msgstr "Chỉnh sửa"
+
+msgid "Share"
+msgstr "Chia sẻ"
+
+msgid "No description"
+msgstr "Không có mô tả"
