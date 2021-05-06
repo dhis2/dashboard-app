@@ -49,7 +49,7 @@ Then('the Organisation Unit filter is applied to the dashboard', () => {
         .contains(`Organisation Unit: ${OU}`)
         .should('be.visible')
 
-    cy.get(innerScrollContainerSel).scrollTo('top')
+    cy.get(innerScrollContainerSel).scrollTo('bottom')
     cy.get(`${gridItemSel}.CHART`)
         .find(chartXAxisLabelSel, EXTENDED_TIMEOUT)
         .scrollIntoView()
