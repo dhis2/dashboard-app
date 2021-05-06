@@ -12,6 +12,7 @@ const DashboardContainer = ({ children, covered }) => {
                 'dashboard-scroll-container',
                 covered && classes.covered
             )}
+            data-test="inner-scroll-container"
         >
             {children}
         </div>

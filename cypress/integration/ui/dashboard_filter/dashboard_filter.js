@@ -7,6 +7,8 @@ import {
     chartXAxisLabelSel,
 } from '../../../selectors/dashboardItem'
 
+import { innerScrollContainerSel } from '../../../selectors/viewDashboard'
+
 import {
     filterBadgeSel,
     dimensionsModalSel,
@@ -31,12 +33,11 @@ Then('the Period filter is applied to the dashboard', () => {
         .contains(PERIOD, EXTENDED_TIMEOUT)
         .should('be.visible')
 
+    cy.get(innerScrollContainerSel).scrollTo('top')
+
     // check the MAP
-    cy.get('.dhis2-map-legend-button', EXTENDED_TIMEOUT)
-        .scrollIntoView()
-        .trigger('mouseover')
+    cy.get('.dhis2-map-legend-button', EXTENDED_TIMEOUT).trigger('mouseover')
     cy.get('.dhis2-map-legend-period', EXTENDED_TIMEOUT)
-        .scrollIntoView()
         .contains(PERIOD)
         .should('be.visible')
 })
@@ -50,9 +51,9 @@ Then('the Organisation Unit filter is applied to the dashboard', () => {
         .contains(`Organisation Unit: ${OU}`)
         .should('be.visible')
 
+    cy.get(innerScrollContainerSel).scrollTo('bottom')
     cy.get(`${gridItemSel}.CHART`)
         .find(chartXAxisLabelSel, EXTENDED_TIMEOUT)
-        .scrollIntoView()
         .contains(OU, EXTENDED_TIMEOUT)
         .should('be.visible')
 })
@@ -67,15 +68,13 @@ Then('the Facility Type filter is applied to the dashboard', () => {
 
     cy.get(`${gridItemSel}.CHART`)
         .find(chartSubtitleSel, EXTENDED_TIMEOUT)
-        .scrollIntoView()
         .contains(FACILITY_TYPE, EXTENDED_TIMEOUT)
         .should('be.visible')
 
-    cy.get(mapLegendButtonSel, EXTENDED_TIMEOUT)
-        .scrollIntoView()
-        .trigger('mouseover')
+    cy.get(innerScrollContainerSel).scrollTo('top')
+
+    cy.get(mapLegendButtonSel, EXTENDED_TIMEOUT).trigger('mouseover')
     cy.get(mapLegendContentSel, EXTENDED_TIMEOUT)
-        .scrollIntoView()
         .find('div')
         .contains(`Facility Type: ${FACILITY_TYPE}`)
         .should('be.visible')
