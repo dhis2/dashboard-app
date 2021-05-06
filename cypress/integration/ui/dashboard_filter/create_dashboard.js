@@ -1,6 +1,6 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
-import { gridItemSel } from '../../../selectors/dashboardItem'
+import { gridItemSel, chartSel, mapSel } from '../../../selectors/dashboardItem'
 import {
     dashboardChipSel,
     dashboardTitleSel,
@@ -45,6 +45,12 @@ Given('I open existing dashboard', () => {
     cy.get(dashboardChipSel, EXTENDED_TIMEOUT)
         .contains(TEST_DASHBOARD_TITLE)
         .click()
+})
+
+Then('the dashboard displays in view mode', () => {
+    // check for a map canvas and a highcharts element
+    cy.get(chartSel).should('be.visible')
+    cy.get(mapSel).should('be.visible')
 })
 
 When('I choose to delete dashboard', () => {
