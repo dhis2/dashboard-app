@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
-import { useOnlineStatus } from '../../modules/useOnlineStatus'
 
 import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
 import { Item } from '../../components/Item/Item'
@@ -39,7 +38,6 @@ const ResponsiveItemGrid = ({ isRecording, dashboardItems }) => {
     const [displayItems, setDisplayItems] = useState(dashboardItems)
     const [layoutSm, setLayoutSm] = useState([])
     const [gridWidth, setGridWidth] = useState(0)
-    const { isOnline } = useOnlineStatus()
 
     useEffect(() => {
         setLayoutSm(
@@ -97,7 +95,6 @@ const ResponsiveItemGrid = ({ isRecording, dashboardItems }) => {
                     gridWidth={gridWidth}
                     dashboardMode={VIEW}
                     onToggleItemExpanded={onToggleItemExpanded}
-                    isOnline={isOnline}
                     isRecording={isRecording}
                 />
             </ProgressiveLoadingContainer>

@@ -76,10 +76,6 @@ export class Item extends Component {
     }
 
     async componentDidMount() {
-        if (isViewMode(this.props.dashboardMode) && !this.props.isOnline) {
-            return
-        }
-
         if (isEmpty(this.props.visualization)) {
             this.props.setVisualization(
                 await apiFetchVisualization(this.props.item)
@@ -263,7 +259,6 @@ Item.propTypes = {
     dashboardMode: PropTypes.string,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
-    isOnline: PropTypes.bool,
     isRecording: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,

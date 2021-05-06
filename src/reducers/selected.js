@@ -38,4 +38,7 @@ export const sGetSelectedDisplayDescription = state =>
     sGetSelected(state).displayDescription
 
 export const sGetSelectedDashboardItems = state =>
-    sGetSelected(state).dashboardItems
+    sGetSelected(state).dashboardItems || SELECTED_PROPERTIES.dashboardItems
+
+export const sGetIsNullDashboardItems = state =>
+    sGetSelected(state).dashboardItems === undefined
