@@ -7,21 +7,37 @@ import { useOnlineStatus } from '../modules/useOnlineStatus'
 const ButtonWithTooltip = ({ disabledWhenOffline, children, ...rest }) => {
     const { isOnline } = useOnlineStatus()
 
-    if (disabledWhenOffline && !isOnline) {
-        return (
-            <Tooltip
-                content={i18n.t('Not available offline')}
-                openDelay={200}
-                closeDelay={100}
-            >
-                <Button disabled={!isOnline} {...rest}>
-                    {children}
-                </Button>
-            </Tooltip>
-        )
-    }
+    const notAllowed = disabledWhenOffline && !isOnline
 
-    return <Button {...rest}>{children}</Button>
+    return (
+        <Tooltip
+            content={notAllowed ? i18n.t('Not available offline') : ''}
+            openDelay={200}
+            closeDelay={100}
+        >
+            {({ onMouseOver, onMouseOut, ref }) => (
+                <span
+                    onMouseOver={() => notAllowed && onMouseOver()}
+                    onMouseOut={() => notAllowed && onMouseOut()}
+                    ref={ref}
+                >
+                    <Button disabled={notAllowed} {...rest}>
+                        {children}
+                    </Button>
+                    <style jsx>{`
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: ${notAllowed ? 'not-allowed' : 'block'};
+                        }
+                        span > :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    `}</style>
+                </span>
+            )}
+        </Tooltip>
+    )
 }
 
 ButtonWithTooltip.propTypes = {
