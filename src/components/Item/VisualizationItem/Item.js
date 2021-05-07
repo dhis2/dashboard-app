@@ -100,14 +100,6 @@ export class Item extends Component {
         this.setState({ configLoaded: true })
     }
 
-    async componentDidUpdate() {
-        if (this.props.isRecording) {
-            this.props.setVisualization(
-                await apiFetchVisualization(this.props.item)
-            )
-        }
-    }
-
     isFullscreenSupported = () => {
         const el = getGridItemElement(this.props.item.id)
         return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
@@ -239,7 +231,6 @@ export class Item extends Component {
                                         )}
                                         availableWidth={this.getAvailableWidth()}
                                         gridWidth={this.props.gridWidth}
-                                        isRecording={this.props.isRecording}
                                     />
                                 )}
                             </WindowDimensionsCtx.Consumer>
@@ -259,7 +250,6 @@ Item.propTypes = {
     dashboardMode: PropTypes.string,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
-    isRecording: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     setActiveType: PropTypes.func,
