@@ -2,26 +2,17 @@ const isRelative = path => path.startsWith('./')
 const normalizeRelativePath = path =>
     [process.env.PUBLIC_URL, path.replace(/^\.\//, '')].join('/')
 
-const getScriptElement = src =>
-    document.querySelector('script[src="' + src + '"]')
+const isScriptLoaded = src =>
+    document.querySelector('script[src="' + src + '"]') ? true : false
 
-export const loadExternalScript = isRecording => src => {
+export const loadExternalScript = src => {
     if (isRelative(src)) {
         src = normalizeRelativePath(src)
     }
 
     return new Promise((resolve, reject) => {
-        const scriptEl = getScriptElement(src)
-        if (scriptEl && !isRecording) {
+        if (isScriptLoaded(src)) {
             return resolve()
-        }
-
-        if (scriptEl) {
-            console.log(`Dynamic Script Removed: ${src}`)
-            document.head.removeChild(scriptEl)
-            if (src.indexOf('babel-polyfill') >= -1) {
-                global._babelPolyfill = false
-            }
         }
 
         const element = document.createElement('script')

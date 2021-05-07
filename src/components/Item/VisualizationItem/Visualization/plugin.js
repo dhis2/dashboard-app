@@ -34,9 +34,9 @@ const getPlugin = async type => {
     return await global[pluginName]
 }
 
-const fetchPlugin = async (type, baseUrl, isRecording) => {
+const fetchPlugin = async (type, baseUrl) => {
     const globalName = itemTypeToGlobalVariable[type]
-    if (global[globalName] && !isRecording) {
+    if (global[globalName]) {
         return global[globalName] // Will be a promise if fetch is in progress
     }
 
@@ -56,11 +56,7 @@ const fetchPlugin = async (type, baseUrl, isRecording) => {
 
     scripts.push(baseUrl + itemTypeToScriptPath[type])
 
-    const curriedLoadExternalScript = loadExternalScript(isRecording)
-
-    const scriptsPromise = Promise.all(
-        scripts.map(curriedLoadExternalScript)
-    ).then(
+    const scriptsPromise = Promise.all(scripts.map(loadExternalScript)).then(
         () => global[globalName] // At this point, has been replaced with the real thing
     )
 
@@ -80,14 +76,14 @@ export const getLink = (item, baseUrl) => {
 export const load = async (
     item,
     visualization,
-    { credentials, activeType, options = {}, isRecording = false }
+    { credentials, activeType, options = {} }
 ) => {
     const type = activeType || item.type
     if (!pluginIsAvailable(type)) {
         return
     }
 
-    const plugin = await fetchPlugin(type, credentials.baseUrl, isRecording)
+    const plugin = await fetchPlugin(type, credentials.baseUrl)
 
     if (!(plugin && plugin.load)) {
         return
@@ -110,12 +106,15 @@ export const load = async (
 export const resize = async (id, type, isFullscreen = false) => {
     const plugin = await getPlugin(type)
 
-    plugin?.resize &&
+    if (plugin?.resize) {
         plugin.resize(getVisualizationContainerDomId(id), isFullscreen)
+    }
 }
 
 export const unmount = async (item, activeType) => {
     const plugin = await getPlugin(activeType)
 
-    plugin?.unmount && plugin.unmount(getVisualizationContainerDomId(item.id))
+    if (plugin && plugin.unmount) {
+        plugin.unmount(getVisualizationContainerDomId(item.id))
+    }
 }
