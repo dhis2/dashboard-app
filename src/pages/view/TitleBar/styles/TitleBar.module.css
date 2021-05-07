@@ -7,9 +7,18 @@
     align-items: center;
     margin-left: 8px;
 }
+.editLink {
+    text-decoration: none;
+}
 .titleBar {
     display: flex;
     align-items: flex-start;
+}
+.star {
+    margin-left: 5px;
+    position: relative;
+    top: 1px;
+    cursor: pointer;
 }
 .strip {
     display: flex;
@@ -29,6 +38,20 @@
     cursor: default;
     user-select: text;
     top: 7px;
+}
+
+.descContainer {
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.desc {
+    color: var(--colors-grey700);
+}
+
+.noDesc {
+    color: #888;
 }
 
 .moreText {

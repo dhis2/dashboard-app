@@ -12,7 +12,7 @@ import { apiFetchDashboard } from '../../api/fetchDashboard'
 import TitleBar from './TitleBar'
 import ItemGrid from './ItemGrid'
 import ActionsBar from './ActionsBar'
-import Notice from '../../components/Notice'
+import NotSupportedNotice from './NotSupportedNotice'
 import LayoutPrintPreview from '../print/PrintLayoutDashboard'
 import NoContentMessage from '../../components/NoContentMessage'
 import { acSetEditDashboard } from '../../actions/editDashboard'
@@ -99,7 +99,7 @@ const EditDashboard = props => {
                 )}
             </div>
             <div className={classes.notice}>
-                <Notice
+                <NotSupportedNotice
                     title={i18n.t('Not supported')}
                     message={i18n.t(
                         'Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.'

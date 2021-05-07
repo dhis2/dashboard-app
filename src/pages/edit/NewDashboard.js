@@ -10,7 +10,7 @@ import ActionsBar from './ActionsBar'
 import TitleBar from './TitleBar'
 import ItemGrid from './ItemGrid'
 import LayoutPrintPreview from '../print/PrintLayoutDashboard'
-import Notice from '../../components/Notice'
+import NotSupportedNotice from './NotSupportedNotice'
 
 import { acSetEditNewDashboard } from '../../actions/editDashboard'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
@@ -54,8 +54,8 @@ const NewDashboard = props => {
                 )}
             </div>
             <div className={classes.notice}>
-                <Notice
-                    title={i18n.t('Not supported')}
+                <NotSupportedNotice
+                    className={classes.notSupportedNotice}
                     message={i18n.t(
                         'Creating dashboards on small screens is not supported. Resize your screen to return to create mode.'
                     )}

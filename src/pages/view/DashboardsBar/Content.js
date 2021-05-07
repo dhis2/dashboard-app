@@ -4,8 +4,7 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 import { Redirect, withRouter } from 'react-router-dom'
-import { Button, Tooltip, ComponentCover, IconAdd24 } from '@dhis2/ui'
-import { useOnlineStatus } from '../../../modules/useOnlineStatus'
+import { Button, Tooltip, IconAdd24 } from '@dhis2/ui'
 
 import Chip from './Chip'
 import Filter from './Filter'
@@ -27,7 +26,6 @@ const Content = ({
     onSearchClicked,
 }) => {
     const [redirectUrl, setRedirectUrl] = useState(null)
-    const { isOnline } = useOnlineStatus()
 
     const onSelectDashboard = () => {
         const id = getFilteredDashboards(dashboards, filterText)[0]?.id
@@ -37,9 +35,7 @@ const Content = ({
     }
 
     const enterNewMode = () => {
-        if (isOnline) {
-            setRedirectUrl('/new')
-        }
+        setRedirectUrl('/new')
     }
 
     const getChips = () =>
@@ -67,23 +63,17 @@ const Content = ({
     const getControlsLarge = () => (
         <span className={classes.controlsLarge}>
             <Tooltip
-                content={
-                    isOnline
-                        ? i18n.t('Create new dashboard')
-                        : i18n.t('Cannot create a dashboard while offline')
-                }
+                content={i18n.t('Cannot create a dashboard while offline')}
+                openDelay={200}
                 closeDelay={100}
-                openDelay={400}
             >
                 <Button
                     className={classes.newButton}
-                    disabled={!isOnline}
                     small
                     icon={<IconAdd24 />}
                     onClick={enterNewMode}
                     dataTest="new-button"
                 />
-                {!isOnline && <ComponentCover />}
             </Tooltip>
             <Filter
                 onKeypressEnter={onSelectDashboard}

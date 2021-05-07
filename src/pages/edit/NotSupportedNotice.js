@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { NoticeBox, CenteredContent } from '@dhis2/ui'
 
-import classes from './styles/Notice.module.css'
+import classes from './styles/NotSupportedNotice.module.css'
 
 const Notice = ({ title, message }) => (
     <CenteredContent position="top">

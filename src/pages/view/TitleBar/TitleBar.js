@@ -1,22 +1,26 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { Redirect } from 'react-router-dom'
+import cx from 'classnames'
+import { Link, Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
-import { FlyoutMenu, MenuItem, colors, IconMore24 } from '@dhis2/ui'
+import {
+    Button,
+    FlyoutMenu,
+    MenuItem,
+    Tooltip,
+    colors,
+    IconMore24,
+    IconStar24,
+    IconStarFilled24,
+} from '@dhis2/ui'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import FilterSelector from './FilterSelector'
-import LastUpdatedTag from './LastUpdatedTag'
-import Description from './Description'
-import Button from '../../../components/ButtonWithTooltip'
-import StarDashboardButton from './StarDashboardButton'
 import { apiStarDashboard } from './apiStarDashboard'
 import { orObject } from '../../../modules/util'
-import { useOnlineStatus } from '../../../modules/useOnlineStatus'
-import { useCacheableSectionStatus } from '../../../modules/useCacheableSectionStatus'
 import { apiPostShowDescription } from '../../../api/description'
 import { acSetDashboardStarred } from '../../../actions/dashboards'
 import { acSetShowDescription } from '../../../actions/showDescription'
@@ -44,12 +48,6 @@ const ViewTitleBar = ({
     const [redirectUrl, setRedirectUrl] = useState(null)
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
-    const { isOnline } = useOnlineStatus()
-    const {
-        lastUpdated,
-        updateCache,
-        removeFromCache,
-    } = useCacheableSectionStatus(id)
 
     const warningAlert = useAlert(({ msg }) => msg, {
         warning: true,
@@ -63,32 +61,14 @@ const ViewTitleBar = ({
             ? setMoreOptionsSmallIsOpen(!moreOptionsSmallIsOpen)
             : setMoreOptionsIsOpen(!moreOptionsIsOpen)
 
-    const printLayout = () => {
-        console.log(`redirect to ${id}/printlayout`)
-        setRedirectUrl(`${id}/printlayout`)
-    }
+    const printLayout = () => setRedirectUrl(`${id}/printlayout`)
+
     const printOipp = () => setRedirectUrl(`${id}/printoipp`)
-    const enterEditMode = () => {
-        console.log(`redirect to ${id}/edit`)
-        setRedirectUrl(`${id}/edit`)
-    }
+
+    const StarIcon = starred ? IconStarFilled24 : IconStar24
 
     if (redirectUrl) {
         return <Redirect to={redirectUrl} />
-    }
-
-    const toggleSaveOfflineLabel = lastUpdated
-        ? i18n.t('Remove from offline storage')
-        : i18n.t('Make available offline')
-
-    const onToggleOfflineStatus = () => {
-        lastUpdated ? removeFromCache() : updateCache()
-        toggleMoreOptions()
-    }
-
-    const onUpdateOfflineCache = () => {
-        updateCache()
-        toggleMoreOptions()
     }
 
     const showHideDescriptionLabel = showDescription
@@ -129,31 +109,20 @@ const ViewTitleBar = ({
 
     const userAccess = orObject(access)
 
+    const descriptionClasses = cx(
+        classes.descContainer,
+        displayDescription ? classes.desc : classes.noDesc
+    )
+
     const getMoreMenu = () => (
         <FlyoutMenu>
             <MenuItem
                 dense
-                disabled={!isOnline}
-                label={toggleSaveOfflineLabel}
-                onClick={onToggleOfflineStatus}
-            />
-            {lastUpdated && (
-                <MenuItem
-                    dense
-                    label={i18n.t('Sync offline data now')}
-                    disabled={!isOnline}
-                    onClick={onUpdateOfflineCache}
-                />
-            )}
-            <MenuItem
-                dense
-                disabled={!isOnline}
                 label={toggleStarredDashboardLabel}
                 onClick={onToggleStarredDashboard}
             />
             <MenuItem
                 dense
-                disabled={!isOnline}
                 label={showHideDescriptionLabel}
                 onClick={onToggleShowDescription}
             />
@@ -176,7 +145,6 @@ const ViewTitleBar = ({
 
     const getMoreButton = (className, useSmall) => (
         <DropdownButton
-            disabledWhenOffline={false}
             className={className}
             small={useSmall}
             onClick={() => toggleMoreOptions(useSmall)}
@@ -191,10 +159,7 @@ const ViewTitleBar = ({
     return (
         <>
             <div className={classes.container}>
-                <div
-                    className={classes.titleBar}
-                    style={{ position: 'relative' }}
-                >
+                <div className={classes.titleBar}>
                     <span
                         className={classes.title}
                         data-test="view-dashboard-title"
@@ -202,16 +167,38 @@ const ViewTitleBar = ({
                         {displayName}
                     </span>
                     <div className={classes.actions}>
-                        <StarDashboardButton
-                            starred={starred}
-                            isOnline={isOnline}
+                        <div
+                            className={classes.star}
                             onClick={onToggleStarredDashboard}
-                        />
+                            data-test="button-star-dashboard"
+                        >
+                            <Tooltip
+                                content={
+                                    starred
+                                        ? i18n.t('Unstar dashboard')
+                                        : i18n.t('Star dashboard')
+                                }
+                            >
+                                <span
+                                    data-test={
+                                        starred
+                                            ? 'dashboard-starred'
+                                            : 'dashboard-unstarred'
+                                    }
+                                >
+                                    <StarIcon color={colors.grey600} />
+                                </span>
+                            </Tooltip>
+                        </div>
                         <div className={classes.strip}>
                             {userAccess.update ? (
-                                <Button onClick={enterEditMode}>
-                                    {i18n.t('Edit')}
-                                </Button>
+                                <Link
+                                    className={classes.editLink}
+                                    to={`/${id}/edit`}
+                                    data-test="link-edit-dashboard"
+                                >
+                                    <Button>{i18n.t('Edit')}</Button>
+                                </Link>
                             ) : null}
                             {userAccess.manage ? (
                                 <Button
@@ -230,11 +217,14 @@ const ViewTitleBar = ({
                         </div>
                     </div>
                 </div>
-                <Description
-                    showDescription={showDescription}
-                    description={displayDescription}
-                />
-                <LastUpdatedTag lastUpdated={lastUpdated} />
+                {showDescription && (
+                    <div
+                        className={descriptionClasses}
+                        data-test="dashboard-description"
+                    >
+                        {displayDescription || i18n.t('No description')}
+                    </div>
+                )}
             </div>
             {id && (
                 <SharingDialog
@@ -261,6 +251,13 @@ ViewTitleBar.propTypes = {
     showDescription: PropTypes.bool,
     starred: PropTypes.bool,
     updateShowDescription: PropTypes.func,
+}
+
+ViewTitleBar.defaultProps = {
+    displayName: '',
+    displayDescription: '',
+    starred: false,
+    showDescription: false,
 }
 
 const mapStateToProps = state => {
