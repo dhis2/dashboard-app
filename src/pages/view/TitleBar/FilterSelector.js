@@ -9,20 +9,18 @@ import FilterDialog from './FilterDialog'
 
 import { sGetActiveModalDimension } from '../../../reducers/activeModalDimension'
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
-import { useOnlineStatus } from '../../../modules/useOnlineStatus'
 import {
     acClearActiveModalDimension,
     acSetActiveModalDimension,
 } from '../../../actions/activeModalDimension'
 import useDimensions from '../../../modules/useDimensions'
-import { DropdownButton } from '../../../components/DropdownButton'
+import DropdownButton from '../../../components/DropdownButton/DropdownButton'
 
 import classes from './styles/FilterSelector.module.css'
 
 const FilterSelector = props => {
     const [filterDialogIsOpen, setFilterDialogIsOpen] = useState(false)
     const dimensions = useDimensions(filterDialogIsOpen)
-    const { isOnline } = useOnlineStatus()
 
     const toggleFilterDialogIsOpen = () =>
         setFilterDialogIsOpen(!filterDialogIsOpen)
@@ -65,7 +63,6 @@ const FilterSelector = props => {
             <span className={classes.buttonContainer}>
                 <DropdownButton
                     open={filterDialogIsOpen}
-                    disabled={!isOnline}
                     onClick={toggleFilterDialogIsOpen}
                     icon={<IconFilter24 color={colors.grey700} />}
                     component={getFilterSelector()}
