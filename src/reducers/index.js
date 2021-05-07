@@ -12,8 +12,6 @@ import itemFilters from './itemFilters'
 import dimensions from './dimensions'
 import activeModalDimension from './activeModalDimension'
 import passiveViewRegistered from './passiveViewRegistered'
-import isOnline from './isOnline'
-import isRecording from './isRecording'
 import showDescription from './showDescription'
 import itemActiveTypes from './itemActiveTypes'
 
@@ -30,8 +28,6 @@ export default combineReducers({
     dimensions,
     activeModalDimension,
     passiveViewRegistered,
-    isOnline,
-    isRecording,
     showDescription,
     itemActiveTypes,
 })
