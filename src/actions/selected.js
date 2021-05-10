@@ -1,4 +1,8 @@
-import { SET_SELECTED, sGetSelectedId } from '../reducers/selected'
+import {
+    SET_SELECTED,
+    CLEAR_SELECTED,
+    sGetSelectedId,
+} from '../reducers/selected'
 
 import { acAppendDashboards } from './dashboards'
 import { acClearItemFilters } from './itemFilters'
@@ -15,6 +19,10 @@ import { VIEW } from '../modules/dashboardModes'
 export const acSetSelected = value => ({
     type: SET_SELECTED,
     value,
+})
+
+export const acClearSelected = () => ({
+    type: CLEAR_SELECTED,
 })
 
 // thunks

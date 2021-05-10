@@ -18,9 +18,9 @@ export const acAppendDashboards = dashboards => ({
     value: arrayToIdMap(dashboards),
 })
 
-export const acSetDashboardStarred = (dashboardId, isStarred) => ({
+export const acSetDashboardStarred = (id, isStarred) => ({
     type: SET_DASHBOARD_STARRED,
-    dashboardId: dashboardId,
+    id,
     value: isStarred,
 })
 

@@ -1,4 +1,5 @@
 export const SET_SELECTED = 'SET_SELECTED'
+export const CLEAR_SELECTED = 'CLEAR_SELECTED'
 
 export const DEFAULT_SELECTED_STATE = {}
 const SELECTED_PROPERTIES = {
@@ -20,6 +21,9 @@ export default (state = DEFAULT_SELECTED_STATE, action) => {
                 k => (newState[k] = action.value[k])
             )
             return newState
+        }
+        case CLEAR_SELECTED: {
+            return DEFAULT_SELECTED_STATE
         }
         default:
             return state

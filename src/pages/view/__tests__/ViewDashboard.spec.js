@@ -8,9 +8,6 @@ import ViewDashboard from '../ViewDashboard'
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
 import { apiFetchDashboard } from '../../../api/fetchDashboard'
 
-jest.mock('../../../modules/useOnlineStatus', () => ({
-    useOnlineStatus: jest.fn(() => ({ isOnline: true })),
-}))
 jest.mock('../../../api/fetchDashboard')
 
 jest.mock(
@@ -20,13 +17,13 @@ jest.mock(
             return <div>DashboardsBar</div>
         }
 )
-jest.mock('../TitleBar', () => {
-    return {
-        TitleBar: function MockTitleBar() {
+jest.mock(
+    '../TitleBar/TitleBar',
+    () =>
+        function MockTitleBar() {
             return <div>TitleBar</div>
-        },
-    }
-})
+        }
+)
 
 jest.mock(
     '../FilterBar/FilterBar',
@@ -53,14 +50,13 @@ jest.mock('../../../api/dataStatistics', () => ({
 const dashboardId = 'rainbowdash'
 const store = {
     dashboards: {
-        byId: {
-            [dashboardId]: {
-                id: dashboardId,
-                displayName: 'Rainbow Dash',
-                starred: true,
-            },
+        [dashboardId]: {
+            id: dashboardId,
+            displayName: 'Rainbow Dash',
+            starred: true,
         },
     },
+
     selected: {
         id: '',
     },

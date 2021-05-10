@@ -11,6 +11,7 @@ import {
     colors,
     Button,
     Menu,
+    MenuItem,
     Popover,
     Divider,
     IconFullscreen16,
@@ -21,7 +22,6 @@ import {
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import ViewAsMenuItems from './ViewAsMenuItems'
-import MenuItem from './MenuItemWithTooltip'
 import { useWindowDimensions } from '../../../WindowDimensionsProvider'
 import { isSmallScreen } from '../../../../modules/smallScreen'
 import { isElementFullscreen } from '../isElementFullscreen'
@@ -153,7 +153,6 @@ const ItemContextMenu = props => {
                         )}
                         {fullscreenAllowed && !loadItemFailed && (
                             <MenuItem
-                                disabledWhenOffline={false}
                                 icon={<IconFullscreen16 />}
                                 label={i18n.t('View fullscreen')}
                                 onClick={toggleFullscreen}

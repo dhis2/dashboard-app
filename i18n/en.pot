@@ -5,13 +5,10 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-04-28T08:33:54.394Z\n"
-"PO-Revision-Date: 2021-04-28T08:33:54.394Z\n"
+"POT-Creation-Date: 2021-05-10T05:56:34.799Z\n"
+"PO-Revision-Date: 2021-05-10T05:56:34.799Z\n"
 
 msgid "Untitled dashboard"
-msgstr ""
-
-msgid "Not available offline"
 msgstr ""
 
 msgid "Remove this item"
@@ -59,16 +56,16 @@ msgstr ""
 msgid "View fullscreen"
 msgstr ""
 
-msgid "This map can't be displayed as a chart"
-msgstr ""
-
 msgid "View as Chart"
 msgstr ""
 
-msgid "This map can't be displayed as a table"
+msgid "This map can't be displayed as a chart"
 msgstr ""
 
 msgid "View as Table"
+msgstr ""
+
+msgid "This map can't be displayed as a table"
 msgstr ""
 
 msgid "View as Map"
@@ -278,9 +275,6 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr ""
 
-msgid "Create new dashboard"
-msgstr ""
-
 msgid "Cannot create a dashboard while offline"
 msgstr ""
 
@@ -301,28 +295,7 @@ msgstr[1] ""
 msgid "Remove"
 msgstr ""
 
-msgid "No description"
-msgstr ""
-
 msgid "Add filter"
-msgstr ""
-
-msgid "Unstar dashboard"
-msgstr ""
-
-msgid "Star dashboard"
-msgstr ""
-
-msgid "Cannot unstar this dashboard while offline"
-msgstr ""
-
-msgid "Cannot star this dashboard while offline"
-msgstr ""
-
-msgid "Remove from offline storage"
-msgstr ""
-
-msgid "Make available offline"
 msgstr ""
 
 msgid "Hide description"
@@ -337,13 +310,16 @@ msgstr ""
 msgid "Failed to show description"
 msgstr ""
 
+msgid "Unstar dashboard"
+msgstr ""
+
+msgid "Star dashboard"
+msgstr ""
+
 msgid "Failed to unstar the dashboard"
 msgstr ""
 
 msgid "Failed to star the dashboard"
-msgstr ""
-
-msgid "Sync offline data now"
 msgstr ""
 
 msgid "Dashboard layout"
@@ -361,14 +337,11 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
+msgid "No description"
+msgstr ""
+
 msgid "Loading dashboard – {{name}}"
 msgstr ""
 
 msgid "Loading dashboard"
-msgstr ""
-
-msgid "Offline"
-msgstr ""
-
-msgid "This dashboard cannot be loaded while offline."
 msgstr ""

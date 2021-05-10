@@ -22,6 +22,7 @@ import {
 } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
 import { tFetchDashboards } from '../../actions/dashboards'
+import { acClearSelected } from '../../actions/selected'
 import { deleteDashboardMutation } from './deleteDashboardMutation'
 import {
     sGetEditDashboardRoot,
@@ -72,7 +73,11 @@ const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
             .mutate(deleteDashboardMutation, {
                 variables: { id: dashboard.id },
             })
-            .then(props.fetchDashboards)
+            .then(() => {
+                props.clearSelected()
+
+                return props.fetchDashboards()
+            })
             .then(() => setRedirectUrl('/'))
             .catch(deleteFailureAlert.show)
     }
@@ -81,6 +86,7 @@ const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
         props
             .saveDashboard()
             .then(newId => {
+                props.clearSelected()
                 setRedirectUrl(`/${newId}`)
             })
             .catch(() => saveFailureAlert.show())
@@ -239,6 +245,7 @@ const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
 EditBar.propTypes = {
     clearPrintDashboard: PropTypes.func,
     clearPrintPreview: PropTypes.func,
+    clearSelected: PropTypes.func,
     dashboard: PropTypes.object,
     fetchDashboards: PropTypes.func,
     isDirty: PropTypes.bool,
@@ -260,6 +267,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     clearPrintDashboard: () => dispatch(acClearPrintDashboard()),
     clearPrintPreview: () => dispatch(acClearPrintPreviewView()),
+    clearSelected: () => dispatch(acClearSelected()),
     saveDashboard: () => dispatch(tSaveDashboard()).then(id => id),
     fetchDashboards: () => dispatch(tFetchDashboards()),
     onDiscardChanges: () => dispatch(acClearEditDashboard()),

@@ -14,9 +14,6 @@ exports[`ViewDashboard renders dashboard 1`] = `
       class="container dashboard-scroll-container"
     >
       <div>
-        TitleBar
-      </div>
-      <div>
         MockFilterBar
       </div>
       <div>

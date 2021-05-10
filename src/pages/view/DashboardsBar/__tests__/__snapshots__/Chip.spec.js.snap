@@ -31,9 +31,7 @@ exports[`renders a starred chip for a non-offline dashboard 1`] = `
       <span
         class="jsx-785997980 "
       >
-        <span>
-          Rainbow Dash
-        </span>
+        Rainbow Dash
       </span>
     </span>
   </a>
@@ -71,24 +69,7 @@ exports[`renders a starred chip for an offline dashboard 1`] = `
       <span
         class="jsx-785997980 "
       >
-        <span
-          class="labelWithAdornment"
-        >
-          Rainbow Dash
-        </span>
-        <svg
-          class="adornment"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="m4.5 7v1h-1.5v6h10v-6h-1.5v-1h1.5c.5522847 0 1 .44771525 1 1v6c0 .5522847-.4477153 1-1 1h-10c-.55228475 0-1-.4477153-1-1v-6c0-.55228475.44771525-1 1-1zm5 3v1h-3v-1zm2.1130214-9.31661889.7739572.63323779-4.84985989 5.92760659-3.3906721-3.3906721.70710678-.70710678 2.60944661 2.60955339z"
-            fill="inherit"
-            fill-rule="evenodd"
-          />
-        </svg>
+        Rainbow Dash
       </span>
     </span>
   </a>
@@ -126,9 +107,7 @@ exports[`renders a starred, selected chip for non-offline dashboard 1`] = `
       <span
         class="jsx-785997980 "
       >
-        <span>
-          Rainbow Dash
-        </span>
+        Rainbow Dash
       </span>
     </span>
   </a>
@@ -166,24 +145,7 @@ exports[`renders a starred, selected chip for offline dashboard 1`] = `
       <span
         class="jsx-785997980 "
       >
-        <span
-          class="labelWithAdornment"
-        >
-          Rainbow Dash
-        </span>
-        <svg
-          class="adornment selected"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="m4.5 7v1h-1.5v6h10v-6h-1.5v-1h1.5c.5522847 0 1 .44771525 1 1v6c0 .5522847-.4477153 1-1 1h-10c-.55228475 0-1-.4477153-1-1v-6c0-.55228475.44771525-1 1-1zm5 3v1h-3v-1zm2.1130214-9.31661889.7739572.63323779-4.84985989 5.92760659-3.3906721-3.3906721.70710678-.70710678 2.60944661 2.60955339z"
-            fill="inherit"
-            fill-rule="evenodd"
-          />
-        </svg>
+        Rainbow Dash
       </span>
     </span>
   </a>
@@ -221,30 +183,7 @@ exports[`renders a starred, selected chip for offline dashboard that is recordin
       <span
         class="jsx-785997980 "
       >
-        <span
-          class="labelWithAdornment"
-        >
-          Rainbow Dash
-        </span>
-        <div
-          class="jsx-19995197 progressIndicator selected small"
-          data-test="dhis2-uicore-circularloader"
-          role="progressbar"
-        >
-          <svg
-            class="jsx-19995197"
-            viewBox="22 22 44 44"
-          >
-            <circle
-              class="jsx-19995197 circle"
-              cx="44"
-              cy="44"
-              fill="none"
-              r="20.2"
-              stroke-width="3.6"
-            />
-          </svg>
-        </div>
+        Rainbow Dash
       </span>
     </span>
   </a>
@@ -265,9 +204,7 @@ exports[`renders an unstarred chip for an non-offline dashboard 1`] = `
       <span
         class="jsx-785997980 "
       >
-        <span>
-          Rainbow Dash
-        </span>
+        Rainbow Dash
       </span>
     </span>
   </a>
@@ -288,24 +225,7 @@ exports[`renders an unstarred chip for an offline dashboard 1`] = `
       <span
         class="jsx-785997980 "
       >
-        <span
-          class="labelWithAdornment"
-        >
-          Rainbow Dash
-        </span>
-        <svg
-          class="adornment"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="m4.5 7v1h-1.5v6h10v-6h-1.5v-1h1.5c.5522847 0 1 .44771525 1 1v6c0 .5522847-.4477153 1-1 1h-10c-.55228475 0-1-.4477153-1-1v-6c0-.55228475.44771525-1 1-1zm5 3v1h-3v-1zm2.1130214-9.31661889.7739572.63323779-4.84985989 5.92760659-3.3906721-3.3906721.70710678-.70710678 2.60944661 2.60955339z"
-            fill="inherit"
-            fill-rule="evenodd"
-          />
-        </svg>
+        Rainbow Dash
       </span>
     </span>
   </a>

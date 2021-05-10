@@ -7,7 +7,6 @@ import isEmpty from 'lodash/isEmpty'
 
 import DashboardsBar from './DashboardsBar/DashboardsBar'
 import ViewDashboard from './ViewDashboard'
-import CacheableSection from './CacheableSection'
 import NoContentMessage from '../../components/NoContentMessage'
 import {
     sDashboardsIsFetching,
@@ -56,17 +55,7 @@ const CacheableViewDashboard = ({
         )
     }
 
-    return (
-        <CacheableSection sectionId={id}>
-            {({ isRecording }) => (
-                <ViewDashboard
-                    id={id}
-                    username={username}
-                    isRecording={isRecording}
-                />
-            )}
-        </CacheableSection>
-    )
+    return <ViewDashboard id={id} username={username} />
 }
 
 CacheableViewDashboard.propTypes = {
@@ -81,13 +70,17 @@ const mapStateToProps = (state, ownProps) => {
     // match is provided by the react-router-dom
     const routeId = ownProps.match?.params?.dashboardId || null
 
+    console.log('routeId', routeId)
     let dashboardToSelect = null
     if (routeId) {
         dashboardToSelect = sGetDashboardById(state, routeId) || null
     } else {
         const lastStoredDashboardId = getPreferredDashboardId(ownProps.username)
+        console.log('lastStored', lastStoredDashboardId)
         const dash = sGetDashboardById(state, lastStoredDashboardId)
+        console.log('dash', dash)
         dashboardToSelect = lastStoredDashboardId && dash ? dash : dashboards[0]
+        console.log('dashboardToSelect')
     }
 
     return {

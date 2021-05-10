@@ -28,8 +28,8 @@ const baseDashboardFields = arrayClean([
     'id',
     'displayName',
     'displayDescription',
-    'favorite~rename(starred)',
     'access',
+    'favorite~rename(starred)',
     'restrictFilters',
     'allowedFilters',
     `dashboardItems[${getDashboardItemsFields().join(',')}]`,
@@ -54,6 +54,8 @@ export const editDashboardQuery = {
             'description',
             'created',
             'lastUpdated',
+            'favorite',
+            'favorites',
             'href', // needed for d2-ui-translations-dialog
         ]),
     },

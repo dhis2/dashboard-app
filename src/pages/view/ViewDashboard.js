@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import {
-    // Layer,
-    // CenteredContent,
-    // CircularLoader,
+    Layer,
+    CenteredContent,
+    CircularLoader,
     ComponentCover,
     AlertStack,
     AlertBar,
@@ -100,20 +100,28 @@ const ViewDashboard = props => {
                     expanded={controlbarExpanded}
                     onExpandedChanged={onExpandedChanged}
                 />
-                <DashboardContainer covered={controlbarExpanded}>
-                    {controlbarExpanded && (
-                        <ComponentCover
-                            className={classes.cover}
-                            translucent
-                            onClick={() => setControlbarExpanded(false)}
-                        />
-                    )}
-                    <>
-                        <TitleBar />
-                        <FilterBar />
-                        <ItemGrid />
-                    </>
-                </DashboardContainer>
+                {!props.dashboardLoaded ? (
+                    <Layer translucent>
+                        <CenteredContent>
+                            <CircularLoader />
+                        </CenteredContent>
+                    </Layer>
+                ) : (
+                    <DashboardContainer covered={controlbarExpanded}>
+                        {controlbarExpanded && (
+                            <ComponentCover
+                                className={classes.cover}
+                                translucent
+                                onClick={() => setControlbarExpanded(false)}
+                            />
+                        )}
+                        <>
+                            <TitleBar />
+                            <FilterBar />
+                            <ItemGrid />
+                        </>
+                    </DashboardContainer>
+                )}
             </div>
             <AlertStack>
                 {loadingMessage && (
@@ -143,6 +151,7 @@ ViewDashboard.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
     const dashboard = sGetDashboardById(state, ownProps.id) || {}
+
     return {
         passiveViewRegistered: sGetPassiveViewRegistered(state),
         name: dashboard.displayName || null,

@@ -56,12 +56,6 @@ exports[`NewDashboard renders dashboard 1`] = `
             <div
               class="jsx-3561221191"
             >
-              <h6
-                class="jsx-1234954849"
-                data-test="dhis2-uicore-noticebox-title"
-              >
-                Not supported
-              </h6>
               <div
                 class="jsx-3638294246"
                 data-test="dhis2-uicore-noticebox-message"
@@ -126,12 +120,6 @@ exports[`NewDashboard renders print preview 1`] = `
             <div
               class="jsx-3561221191"
             >
-              <h6
-                class="jsx-1234954849"
-                data-test="dhis2-uicore-noticebox-title"
-              >
-                Not supported
-              </h6>
               <div
                 class="jsx-3638294246"
                 data-test="dhis2-uicore-noticebox-message"

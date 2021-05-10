@@ -26,6 +26,7 @@ import { acSetDashboardStarred } from '../../../actions/dashboards'
 import { acSetShowDescription } from '../../../actions/showDescription'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton'
 import { sGetSelected } from '../../../reducers/selected'
+import { sGetDashboardStarred } from '../../../reducers/dashboards'
 import { sGetShowDescription } from '../../../reducers/showDescription'
 
 import classes from './styles/TitleBar.module.css'
@@ -265,6 +266,9 @@ const mapStateToProps = state => {
 
     return {
         ...dashboard,
+        starred: dashboard.id
+            ? sGetDashboardStarred(state, dashboard.id)
+            : false,
         showDescription: sGetShowDescription(state),
     }
 }
