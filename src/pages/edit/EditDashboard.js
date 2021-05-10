@@ -100,7 +100,6 @@ const EditDashboard = props => {
             </div>
             <div className={classes.notice}>
                 <NotSupportedNotice
-                    title={i18n.t('Not supported')}
                     message={i18n.t(
                         'Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.'
                     )}

@@ -9,15 +9,62 @@ exports[`renders Save and Discard buttons but no dialogs when new dashboard (no 
     <div
       class="controls"
     >
+      <div
+        class="jsx-71743532 start"
+        data-test="dhis2-uicore-buttonstrip"
+      >
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 primary"
+            data-test="save-dashboard-button"
+            type="button"
+          >
+            Save changes
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 "
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Print preview
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 "
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Filter settings
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        />
+        <div
+          class="jsx-71743532 box"
+        />
+      </div>
       <button
         class="jsx-2371629422 secondary"
         data-test="dhis2-uicore-button"
         type="button"
       >
-        Go to dashboards
+        Exit without saving
       </button>
     </div>
   </div>
+  <div
+    class="mock-filter-settings-dialog"
+  />
   
   
 </div>
