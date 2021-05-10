@@ -67,18 +67,7 @@ const fetchPlugin = async (type, baseUrl) => {
 export const pluginIsAvailable = type =>
     hasIntegratedPlugin(type) || itemTypeToGlobalVariable[type]
 
-export const getLink = (item, baseUrl) => {
-    const appUrl = itemTypeMap[item.type].appUrl(getVisualizationId(item))
-
-    return `${baseUrl}/${appUrl}`
-}
-
-export const load = async (
-    item,
-    visualization,
-    { credentials, activeType, options = {} }
-) => {
-    const type = activeType || item.type
+const loadPlugin = async (type, config, credentials) => {
     if (!pluginIsAvailable(type)) {
         return
     }
@@ -95,17 +84,32 @@ export const load = async (
     if (credentials.auth) {
         plugin.auth = credentials.auth
     }
+    plugin.load(config)
+}
 
-    plugin.load({
+export const getLink = (item, baseUrl) => {
+    const appUrl = itemTypeMap[item.type].appUrl(getVisualizationId(item))
+
+    return `${baseUrl}/${appUrl}`
+}
+
+export const load = async (
+    item,
+    visualization,
+    { credentials, activeType, options = {} }
+) => {
+    const config = {
         ...visualization,
         ...options,
         el: getVisualizationContainerDomId(item.id),
-    })
+    }
+
+    const type = activeType || item.type
+    await loadPlugin(type, config, credentials)
 }
 
 export const resize = async (id, type, isFullscreen = false) => {
     const plugin = await getPlugin(type)
-
     if (plugin?.resize) {
         plugin.resize(getVisualizationContainerDomId(id), isFullscreen)
     }

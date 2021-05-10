@@ -99,6 +99,7 @@ const ViewAsMenuItems = ({
             )}
             {hasMapView(type) && activeType !== MAP && (
                 <MenuItem
+                    dense
                     label={i18n.t('View as Map')}
                     onClick={onViewMap}
                     icon={<IconWorld16 color={colors.grey600} />}

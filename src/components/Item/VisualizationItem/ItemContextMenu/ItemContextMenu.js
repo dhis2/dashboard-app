@@ -11,8 +11,8 @@ import {
     colors,
     Button,
     Menu,
-    MenuItem,
     Popover,
+    MenuItem,
     Divider,
     IconFullscreen16,
     IconFullscreenExit16,
@@ -115,7 +115,7 @@ const ItemContextMenu = props => {
                     arrow={false}
                     onClickOutside={closeMenu}
                 >
-                    <Menu dense>
+                    <Menu>
                         {canViewAs && !loadItemFailed && (
                             <>
                                 <ViewAsMenuItems
@@ -136,7 +136,8 @@ const ItemContextMenu = props => {
                         )}
                         {allowVisOpenInApp && !isSmallScreen(width) && (
                             <MenuItem
-                                icon={<IconLaunch16 />}
+                                dense
+                                icon={<IconLaunch16 color={colors.grey600} />}
                                 label={i18n.t('Open in {{appName}} app', {
                                     appName: getAppName(item.type),
                                 })}
@@ -146,14 +147,18 @@ const ItemContextMenu = props => {
                         )}
                         {allowVisShowInterpretations && !loadItemFailed && (
                             <MenuItem
-                                icon={<IconMessages16 />}
+                                dense
+                                icon={<IconMessages16 color={colors.grey600} />}
                                 label={interpretationMenuLabel}
                                 onClick={toggleInterpretations}
                             />
                         )}
                         {fullscreenAllowed && !loadItemFailed && (
                             <MenuItem
-                                icon={<IconFullscreen16 />}
+                                dense
+                                icon={
+                                    <IconFullscreen16 color={colors.grey600} />
+                                }
                                 label={i18n.t('View fullscreen')}
                                 onClick={toggleFullscreen}
                             />
