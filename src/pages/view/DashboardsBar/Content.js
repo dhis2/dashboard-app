@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 import { Redirect, withRouter } from 'react-router-dom'
-import { Button, Tooltip, IconAdd24 } from '@dhis2/ui'
+import { Button, Tooltip, colors, IconAdd24 } from '@dhis2/ui'
 
 import Chip from './Chip'
 import Filter from './Filter'
@@ -62,15 +62,11 @@ const Content = ({
 
     const getControlsLarge = () => (
         <span className={classes.controlsLarge}>
-            <Tooltip
-                content={i18n.t('Cannot create a dashboard while offline')}
-                openDelay={200}
-                closeDelay={100}
-            >
+            <Tooltip content={i18n.t('Create a new dashboard')}>
                 <Button
                     className={classes.newButton}
                     small
-                    icon={<IconAdd24 />}
+                    icon={<IconAdd24 color={colors.grey600} />}
                     onClick={enterNewMode}
                     dataTest="new-button"
                 />

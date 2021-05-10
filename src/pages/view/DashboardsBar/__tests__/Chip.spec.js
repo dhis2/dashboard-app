@@ -1,102 +1,73 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { Router } from 'react-router-dom'
-import { createMemoryHistory } from 'history'
-import Chip from '../Chip'
+import { shallow } from 'enzyme'
+import { Chip as UiChip, colors } from '@dhis2/ui'
+import { Chip } from '../Chip'
 
-const defaultProps = {
-    starred: false,
-    selected: false,
-    onClick: jest.fn(),
-    label: 'Rainbow Dash',
-    dashboardId: 'rainbowdash',
-    classes: {
-        icon: 'iconClass',
-        selected: 'selectedClass',
-        unselected: 'unselectedClass',
-    },
-}
+describe('Chip', () => {
+    const defaultProps = {
+        starred: false,
+        selected: false,
+        onClick: jest.fn(),
+        label: 'Hello Rainbow Dash',
+        dashboardId: 'myLittlePony',
+        classes: {
+            icon: 'iconClass',
+            selected: 'selectedClass',
+            unselected: 'unselectedClass',
+        },
+    }
 
-test('renders an unstarred chip for an non-offline dashboard', () => {
-    const { container } = render(
-        <Router history={createMemoryHistory()}>
-            <Chip {...defaultProps} />
-        </Router>
-    )
+    const wrapper = props => shallow(<Chip {...props} />)
 
-    expect(container).toMatchSnapshot()
-})
+    it('renders a Link', () => {
+        const chipWrapper = wrapper(defaultProps)
 
-test('renders an unstarred chip for an offline dashboard', () => {
-    const { container } = render(
-        <Router history={createMemoryHistory()}>
-            <Chip {...defaultProps} />
-        </Router>
-    )
-
-    expect(container).toMatchSnapshot()
-})
-
-test('renders a starred chip for a non-offline dashboard', () => {
-    const props = Object.assign({}, defaultProps, { starred: true })
-    const { container } = render(
-        <Router history={createMemoryHistory()}>
-            <Chip {...props} />
-        </Router>
-    )
-
-    expect(container).toMatchSnapshot()
-})
-
-test('renders a starred chip for an offline dashboard', () => {
-    const props = Object.assign({}, defaultProps, { starred: true })
-    const { container } = render(
-        <Router history={createMemoryHistory()}>
-            <Chip {...props} />
-        </Router>
-    )
-
-    expect(container).toMatchSnapshot()
-})
-
-test('renders a starred, selected chip for non-offline dashboard', () => {
-    const props = Object.assign({}, defaultProps, {
-        starred: true,
-        selected: true,
+        const div = chipWrapper.find('Link')
+        expect(div).toHaveLength(1)
     })
-    const { container } = render(
-        <Router history={createMemoryHistory()}>
-            <Chip {...props} />
-        </Router>
-    )
 
-    expect(container).toMatchSnapshot()
-})
+    it('renders a Link containing everything else', () => {
+        const chipWrapper = wrapper(defaultProps)
+        const wrappingDiv = chipWrapper.find('Link').first()
 
-test('renders a starred, selected chip for offline dashboard', () => {
-    const props = Object.assign({}, defaultProps, {
-        starred: true,
-        selected: true,
+        expect(wrappingDiv.children()).toEqual(chipWrapper.children())
     })
-    const { container } = render(
-        <Router history={createMemoryHistory()}>
-            <Chip {...props} />
-        </Router>
-    )
 
-    expect(container).toMatchSnapshot()
-})
+    it('renders a Chip inside the Link', () => {
+        const chipWrapper = wrapper(defaultProps)
 
-test('renders a starred, selected chip for offline dashboard that is recording', () => {
-    const props = Object.assign({}, defaultProps, {
-        starred: true,
-        selected: true,
+        expect(chipWrapper.find(UiChip).length).toBe(1)
     })
-    const { container } = render(
-        <Router history={createMemoryHistory()}>
-            <Chip {...props} />
-        </Router>
-    )
 
-    expect(container).toMatchSnapshot()
+    it('does not pass an icon to Chip when not starred', () => {
+        const chip = wrapper(defaultProps).find(UiChip)
+
+        expect(chip.prop('icon')).toBeFalsy()
+    })
+
+    it('passes an icon to Chip when starred', () => {
+        const props = Object.assign({}, defaultProps, { starred: true })
+
+        const iconColorProp = wrapper(props).find(UiChip).prop('icon').props
+            .color
+
+        expect(iconColorProp).toEqual(colors.grey600)
+    })
+
+    it('sets the white color on icon when chip is selected', () => {
+        const props = Object.assign({}, defaultProps, {
+            starred: true,
+            selected: true,
+        })
+        const iconColorProp = wrapper(props).find(UiChip).prop('icon').props
+            .color
+
+        expect(iconColorProp).toEqual(colors.white)
+    })
+
+    it('passes "label" property to Chip as children', () => {
+        const chip = wrapper(defaultProps).find(UiChip)
+
+        expect(chip.childAt(0).text()).toBe(defaultProps.label)
+    })
 })

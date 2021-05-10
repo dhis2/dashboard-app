@@ -8,7 +8,7 @@ import { apiPostDataStatistics } from '../../../api/dataStatistics'
 
 import classes from './styles/Chip.module.css'
 
-const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
+export const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
     const chipProps = {
         selected,
     }

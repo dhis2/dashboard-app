@@ -70,17 +70,13 @@ const mapStateToProps = (state, ownProps) => {
     // match is provided by the react-router-dom
     const routeId = ownProps.match?.params?.dashboardId || null
 
-    console.log('routeId', routeId)
     let dashboardToSelect = null
     if (routeId) {
         dashboardToSelect = sGetDashboardById(state, routeId) || null
     } else {
         const lastStoredDashboardId = getPreferredDashboardId(ownProps.username)
-        console.log('lastStored', lastStoredDashboardId)
         const dash = sGetDashboardById(state, lastStoredDashboardId)
-        console.log('dash', dash)
         dashboardToSelect = lastStoredDashboardId && dash ? dash : dashboards[0]
-        console.log('dashboardToSelect')
     }
 
     return {
