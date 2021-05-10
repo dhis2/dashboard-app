@@ -14,7 +14,7 @@ const toggleShowMoreButton = () => {
 Background
 */
 
-before(() => {
+after(() => {
     cy.request(
         `dashboards?paging=false&fields=id&filter=name:like:${TEST_DASHBOARD_PREFIX}`
     ).then(resp => {
@@ -45,7 +45,7 @@ Then('Filter settings are not restricted, and I can save the dashboard', () => {
         .find('input')
         .should('be.checked')
     cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
-    cy.get('button').contains('Save changes').click()
+    cy.clickSaveChanges()
 })
 
 /*
@@ -143,7 +143,7 @@ When('I remove all filters from selected filters', () => {
 })
 
 When('I save the dashboard', () => {
-    cy.get('button').contains('Save changes').click()
+    cy.clickSaveChanges()
 })
 
 When('I click Add Filter', () => {

@@ -1,8 +1,9 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { dashboards } from '../../../assets/backends/sierraLeone_236'
+// import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 When('I click to preview the print layout', () => {
-    cy.get('button').contains('More').click()
+    cy.clickMoreButton()
     cy.get('[data-test="print-menu-item"]').click()
     cy.get('[data-test="print-layout-menu-item"]').click()
 })
@@ -22,7 +23,7 @@ When('I click to exit print preview', () => {
 })
 
 When('I click to preview the print one-item-per-page', () => {
-    cy.get('button').contains('More').click()
+    cy.clickMoreButton()
     cy.get('[data-test="print-menu-item"]').click()
     cy.get('[data-test="print-oipp-menu-item"]').click()
 })
