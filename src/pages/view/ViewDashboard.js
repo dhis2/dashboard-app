@@ -24,10 +24,7 @@ import { sGetDashboardById } from '../../reducers/dashboards'
 import { sGetSelectedId } from '../../reducers/selected'
 import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
-import {
-    tSetSelectedDashboardById,
-    tSetSelectedDashboardByIdOffline,
-} from '../../actions/selected'
+import { tSetSelectedDashboardById } from '../../actions/selected'
 import { acSetPassiveViewRegistered } from '../../actions/passiveViewRegistered'
 
 import { apiPostDataStatistics } from '../../api/dataStatistics'
@@ -164,5 +161,4 @@ export default connect(mapStateToProps, {
     clearPrintDashboard: acClearPrintDashboard,
     registerPassiveView: acSetPassiveViewRegistered,
     fetchDashboard: tSetSelectedDashboardById,
-    setSelectedAsOffline: tSetSelectedDashboardByIdOffline,
 })(ViewDashboard)
