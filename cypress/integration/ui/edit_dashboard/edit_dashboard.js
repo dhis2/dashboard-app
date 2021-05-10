@@ -13,6 +13,7 @@ import {
     confirmActionDialogSel,
     titleInputSel,
     itemMenuSel,
+    actionsBarSel,
 } from '../../../selectors/editDashboard'
 
 // the length of the root route of the app (after the slash): #/
@@ -57,7 +58,7 @@ When('I click outside menu', () => {
 })
 
 When('dashboard is saved', () => {
-    cy.get('button').contains('Save changes', EXTENDED_TIMEOUT).click()
+    cy.clickSaveChanges()
 })
 
 Then('the saved dashboard should be displayed', () => {
@@ -98,18 +99,15 @@ Given('I open existing dashboard', () => {
 })
 
 When('I choose to delete dashboard', () => {
-    cy.get('button').contains('Delete').click()
+    cy.get(actionsBarSel, EXTENDED_TIMEOUT)
+        .find('button')
+        .contains('Delete', EXTENDED_TIMEOUT)
+        .click()
 })
 
 /*
 Scenario: I exit without saving
 */
-When('I confirm I want to discard changes', () => {
-    cy.get(confirmActionDialogSel)
-        .find('button')
-        .contains('Yes, discard changes')
-        .click()
-})
 
 When('I decide to continue editing', () => {
     cy.get(confirmActionDialogSel)

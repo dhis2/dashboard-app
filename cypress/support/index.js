@@ -1,6 +1,7 @@
 import { enableAutoLogin } from '@dhis2/cypress-commands'
 import { enableNetworkShim } from './server'
 import { getDefaultMode, isStubMode } from './server/utils.js'
+import './commands'
 
 enableNetworkShim()
 

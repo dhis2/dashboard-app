@@ -1,31 +1,31 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { getApiBaseUrl } from '../../../support/server/utils'
+// import { getApiBaseUrl } from '../../../support/server/utils'
 
-before(() => {
-    //ensure that the description is not currently shown
-    cy.request({
-        method: 'PUT',
-        url: `${getApiBaseUrl()}/api/userDataStore/dashboard/showDescription`,
-        headers: {
-            'content-type': 'application/json',
-        },
-        body: 'false',
-    }).then(response => expect(response.status).to.equal(201))
-})
+// TODO this request currently fails with 415 Unsupported media type
+// goal is to add this step
+// Given('the description is not shown', () => {
+//     cy.request(
+//         'PUT',
+//         `${getApiBaseUrl()}/api/userDataStore/dashboard/showDescription`,
+//         false
+//     ).then(response => {
+//         expect(response.status).to.equal(201)
+//     })
+// })
 
 When('I click to show description', () => {
     cy.intercept('PUT', 'userDataStore/dashboard/showDescription').as(
         'toggleDescription'
     )
 
-    cy.get('button').contains('More').click()
+    cy.clickMoreButton()
     cy.contains('Show description').click()
 
     cy.wait('@toggleDescription').its('response.statusCode').should('eq', 201)
 })
 
 When('I click to hide the description', () => {
-    cy.get('button').contains('More').click()
+    cy.clickMoreButton()
     cy.contains('Hide description').click()
 
     cy.wait('@toggleDescription').its('response.statusCode').should('eq', 201)
@@ -37,7 +37,7 @@ When('clicking to show description fails', () => {
         statusCode: 409,
     }).as('showDescriptionFails')
 
-    cy.get('button').contains('More').click()
+    cy.clickMoreButton()
     cy.contains('Show description').click()
     cy.wait('@showDescriptionFails')
         .its('response.statusCode')
