@@ -1,8 +1,9 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 When("I save dashboard that I don't have access to save", () => {
     cy.intercept('PUT', '/dashboards', { statusCode: 409 })
-    cy.get('button').contains('Save changes').click()
+    cy.get('button').contains('Save changes', EXTENDED_TIMEOUT).click()
 })
 Then('I remain in edit mode and error message is displayed', () => {
     cy.get('[data-test="dhis2-uicore-alertbar"]')

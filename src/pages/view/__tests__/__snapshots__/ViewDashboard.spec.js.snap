@@ -10,16 +10,6 @@ exports[`ViewDashboard renders dashboard 1`] = `
     <div>
       DashboardsBar
     </div>
-    <div
-      class="container dashboard-scroll-container"
-    >
-      <div>
-        MockFilterBar
-      </div>
-      <div>
-        MockItemGrid
-      </div>
-    </div>
   </div>
 </div>
 `;

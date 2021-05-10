@@ -160,7 +160,7 @@ const ViewTitleBar = ({
     return (
         <>
             <div className={classes.container}>
-                <div className={classes.titleBar}>
+                <div className={classes.titleBar} data-test="title-bar">
                     <span
                         className={classes.title}
                         data-test="view-dashboard-title"
