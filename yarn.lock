@@ -1529,7 +1529,7 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^17.0.3", "@dhis2/analytics@^17.0.4":
+"@dhis2/analytics@^17.0.4", "@dhis2/analytics@^17.0.5":
   version "17.0.5"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-17.0.5.tgz#1a67628631bcb4c8afd92f567065db0db4b4123a"
   integrity sha512-cklylMGEK+n9ngA/u/Lv/dhH+OkmT70M0KNSqZx3y3NsitrlfPk4OzYOVfsJjWCelrceWDpDIaJ8Q3ubgZY/jg==
