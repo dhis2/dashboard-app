@@ -153,8 +153,6 @@ describe('Dashboard', () => {
             starred: false,
             dashboardItems: [],
             user: {},
-            created: 'today',
-            lastUpdated: 'today',
         })
 
         const { container } = render(
@@ -193,8 +191,6 @@ describe('Dashboard', () => {
             starred: false,
             dashboardItems: [],
             user: {},
-            created: 'today',
-            lastUpdated: 'today',
         })
 
         const { container } = render(
@@ -253,8 +249,6 @@ describe('Dashboard', () => {
             starred: false,
             dashboardItems: [],
             user: {},
-            created: 'today',
-            lastUpdated: 'today',
         })
 
         const match = {
@@ -317,8 +311,6 @@ describe('Dashboard', () => {
             starred: false,
             dashboardItems: [],
             user: {},
-            created: 'today',
-            lastUpdated: 'today',
         })
 
         const match = {
@@ -354,8 +346,6 @@ describe('Dashboard', () => {
             starred: false,
             dashboardItems: [],
             user: {},
-            created: 'today',
-            lastUpdated: 'today',
         })
 
         const match = {
@@ -391,8 +381,6 @@ describe('Dashboard', () => {
             starred: false,
             dashboardItems: [],
             user: {},
-            created: 'today',
-            lastUpdated: 'today',
         })
 
         const match = {
