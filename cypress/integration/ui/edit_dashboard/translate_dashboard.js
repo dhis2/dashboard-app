@@ -6,7 +6,6 @@ import {
     dashboardTitleSel,
     dashboardDescriptionSel,
 } from '../../../selectors/viewDashboard'
-import { actionsBarSel } from '../../../selectors/editDashboard'
 
 let norwegianTitle = ''
 let norwegianDesc = ''
@@ -27,10 +26,7 @@ When('I add translations for dashboard name and description', () => {
     norwegianTitle = 'nor title ' + now
     norwegianDesc = 'nor desc ' + now
 
-    cy.get(actionsBarSel, EXTENDED_TIMEOUT)
-        .find('button')
-        .contains('Translate', EXTENDED_TIMEOUT)
-        .click()
+    cy.clickEditActionButton('Translate')
     cy.contains('Select locale').click()
     cy.contains('Select locale').type('Norwegian{enter}')
     cy.get('[placeholder="Name"]').clear().type(norwegianTitle)
