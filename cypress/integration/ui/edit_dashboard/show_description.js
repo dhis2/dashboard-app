@@ -2,7 +2,6 @@ import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { getApiBaseUrl } from '../../../support/server/utils'
 
 before(() => {
-    //first ensure that the description is not currently shown
     cy.request({
         method: 'PUT',
         url: `${getApiBaseUrl()}/api/userDataStore/dashboard/showDescription`,
@@ -18,14 +17,14 @@ When('I click to show description', () => {
         'toggleDescription'
     )
 
-    cy.get('button').contains('More').click()
+    cy.clickMoreButton()
     cy.contains('Show description').click()
 
     cy.wait('@toggleDescription').its('response.statusCode').should('eq', 201)
 })
 
 When('I click to hide the description', () => {
-    cy.get('button').contains('More').click()
+    cy.clickMoreButton()
     cy.contains('Hide description').click()
 
     cy.wait('@toggleDescription').its('response.statusCode').should('eq', 201)
@@ -37,7 +36,7 @@ When('clicking to show description fails', () => {
         statusCode: 409,
     }).as('showDescriptionFails')
 
-    cy.get('button').contains('More').click()
+    cy.clickMoreButton()
     cy.contains('Show description').click()
     cy.wait('@showDescriptionFails')
         .its('response.statusCode')

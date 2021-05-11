@@ -52,7 +52,7 @@ When('I click outside menu', () => {
 })
 
 When('dashboard is saved', () => {
-    cy.get('button').contains('Save changes', EXTENDED_TIMEOUT).click()
+    cy.clickEditActionButton('Save changes')
 })
 
 Then('the saved dashboard should be displayed', () => {
@@ -162,4 +162,10 @@ Then('no analytics requests are made when item is moved', () => {
     cy.get(chartSubtitleSel, EXTENDED_TIMEOUT)
         .contains(WRONG_SUBTITLE)
         .should('not.exist')
+})
+
+Then('the dashboard displays in view mode', () => {
+    cy.get(dashboardTitleSel)
+        .should('be.visible')
+        .and('contain', TEST_DASHBOARD_TITLE)
 })
