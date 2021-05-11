@@ -103,6 +103,21 @@ Feature: Creating, editing and deleting dashboard
         And dashboard is saved
         Then the new sharing settings should be preserved
 
+    @mutating
+    Scenario: I save a starred dashboard
+        Given I open existing dashboard
+        Then the dashboard displays in view mode
+        And the dashboard is not starred
+        When I click to star the dashboard
+        Then the dashboard is starred
+        When I choose to edit dashboard
+        Then the dashboard displays in edit mode
+        And dashboard is saved
+        Then the dashboard displays in view mode
+        And the dashboard is starred
+        When I click to unstar the dashboard
+        Then the dashboard is not starred
+
     @nonmutating
     Scenario: I cancel a delete dashboard action
         Given I open existing dashboard
