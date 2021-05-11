@@ -78,3 +78,6 @@ Feature: Editing Filter Restrictions
         And I click Confirm
         And I save the dashboard
         Then Add Filter button is not visible
+        When I choose to edit dashboard
+        And I delete the dashboard
+        Then different dashboard displays in view mode

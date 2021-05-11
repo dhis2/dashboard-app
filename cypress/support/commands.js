@@ -10,10 +10,10 @@ Cypress.Commands.add('clickMoreButton', () =>
         .click()
 )
 
-Cypress.Commands.add('clickSaveChanges', () =>
+Cypress.Commands.add('clickEditActionButton', action =>
     cy
         .get(actionsBarSel, EXTENDED_TIMEOUT)
         .find('button')
-        .contains('Save changes', EXTENDED_TIMEOUT)
+        .contains(action, EXTENDED_TIMEOUT)
         .click()
 )

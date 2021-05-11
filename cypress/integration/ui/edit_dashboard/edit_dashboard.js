@@ -52,7 +52,7 @@ When('I click outside menu', () => {
 })
 
 When('dashboard is saved', () => {
-    cy.clickSaveChanges()
+    cy.clickEditActionButton('Save changes')
 })
 
 Then('the saved dashboard should be displayed', () => {
