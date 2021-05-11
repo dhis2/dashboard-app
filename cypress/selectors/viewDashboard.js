@@ -11,6 +11,7 @@ export const dashboardDescriptionSel = '[data-test="dashboard-description"]'
 export const starSel = '[data-test="button-star-dashboard"]'
 export const dashboardStarredSel = '[data-test="dashboard-starred"]'
 export const dashboardUnstarredSel = '[data-test="dashboard-unstarred"]'
+export const titleBarSel = '[data-test="title-bar"]'
 
 export const dragHandleSel = '[data-test="controlbar-drag-handle"]'
 export const dashboardsBarSel = '[data-test="dashboards-bar"]'
