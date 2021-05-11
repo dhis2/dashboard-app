@@ -25,22 +25,23 @@ const DashboardsBar = ({
 }) => {
     const [dragging, setDragging] = useState(false)
     const userRowsChanged = useRef(false)
+    const [mouseYPos, setMouseYPos] = useState(0)
     const ref = createRef()
     const { height } = useWindowDimensions()
 
     const rootElement = document.documentElement
 
-    const adjustRows = newHeight => {
+    useEffect(() => {
         const newRows = Math.max(
             MIN_ROW_COUNT,
-            getRowsFromHeight(newHeight - 52) // don't rush the transition to a bigger row count
+            getRowsFromHeight(mouseYPos - 52) // don't rush the transition to a bigger row count
         )
 
         if (newRows !== userRows) {
             updateUserRows(Math.min(newRows, MAX_ROW_COUNT))
             userRowsChanged.current = true
         }
-    }
+    }, [mouseYPos])
 
     useEffect(() => {
         rootElement.style.setProperty('--user-rows-count', userRows)
@@ -98,7 +99,7 @@ const DashboardsBar = ({
                 />
                 <DragHandle
                     setDragging={setDragging}
-                    onHeightChanged={adjustRows}
+                    onHeightChanged={setMouseYPos}
                 />
             </div>
             <div className={cx(classes.spacer)} />
