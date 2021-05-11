@@ -27,6 +27,9 @@ Then('Filter settings are not restricted, and I can save the dashboard', () => {
         .should('be.checked')
     cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
     cy.clickEditActionButton('Save changes')
+    cy.get(dashboardTitleSel)
+        .should('be.visible')
+        .and('contain', TEST_DASHBOARD_TITLE)
 })
 
 /*
