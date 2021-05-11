@@ -58,7 +58,7 @@ const store = {
     },
 
     selected: {
-        id: '',
+        id: dashboardId,
     },
     passiveViewRegistered: false,
 }

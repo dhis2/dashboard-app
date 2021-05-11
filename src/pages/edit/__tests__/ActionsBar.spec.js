@@ -92,7 +92,7 @@ test('renders only the Go to Dashboards button when no update access', async () 
     expect(container).toMatchSnapshot()
 })
 
-test('renders Save and Discard buttons but no dialogs when new dashboard (no dashboard id)', async () => {
+test('renders Save and Discard buttons but not translation dialog when new dashboard (no dashboard id)', async () => {
     const store = {
         editDashboard: NEW_DASHBOARD_STATE,
     }

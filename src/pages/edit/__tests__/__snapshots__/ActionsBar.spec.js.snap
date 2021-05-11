@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders Save and Discard buttons but no dialogs when new dashboard (no dashboard id) 1`] = `
+exports[`renders Save and Discard buttons but not translation dialog when new dashboard (no dashboard id) 1`] = `
 <div>
   <div
     class="editBar"

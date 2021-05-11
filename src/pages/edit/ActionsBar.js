@@ -40,7 +40,7 @@ const deleteFailedMessage = i18n.t(
     'Failed to delete dashboard. You might be offline or not have access to edit this dashboard.'
 )
 
-const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
+const EditBar = ({ dashboard, ...props }) => {
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
@@ -93,7 +93,7 @@ const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
     }
 
     const onPrintPreview = () => {
-        if (isPrintPreviewView) {
+        if (props.isPrintPreviewView) {
             props.clearPrintPreview()
             props.clearPrintDashboard()
         } else {
@@ -180,7 +180,7 @@ const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
                 {i18n.t('Save changes')}
             </Button>
             <Button onClick={onPrintPreview}>
-                {isPrintPreviewView
+                {props.isPrintPreviewView
                     ? i18n.t('Exit Print preview')
                     : i18n.t('Print preview')}
             </Button>
