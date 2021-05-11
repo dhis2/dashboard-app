@@ -21,6 +21,17 @@ beforeEach(() => {
     })
 })
 
+afterEach(() => {
+    // set dblocale to English
+    cy.request(
+        'POST',
+        `${getApiBaseUrl()}/api/userSettings/keyDbLocale`,
+        'en'
+    ).then(response => {
+        expect(response.status).to.equal(200)
+    })
+})
+
 When('I add translations for dashboard name and description', () => {
     const now = new Date().toUTCString()
     norwegianTitle = 'nor title ' + now
