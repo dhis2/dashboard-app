@@ -163,3 +163,9 @@ Then('no analytics requests are made when item is moved', () => {
         .contains(WRONG_SUBTITLE)
         .should('not.exist')
 })
+
+Then('the dashboard displays in view mode', () => {
+    cy.get(dashboardTitleSel)
+        .should('be.visible')
+        .and('contain', TEST_DASHBOARD_TITLE)
+})
