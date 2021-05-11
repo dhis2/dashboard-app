@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
+"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -21,58 +21,7 @@ msgstr "Номсиз бошқарув панели"
 msgid "Loading dashboard – {{name}}"
 msgstr "Бошқарув панели юкланмоқда - {{исми}}"
 
-msgid "Cancel"
-msgstr "Бекор қилиш"
-
-msgid "Delete"
-msgstr "Ўчириб ташлаш"
-
-msgid "Delete dashboard"
-msgstr "Бошқарув панелини ўчириб ташлаш"
-
-msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
-"This action cannot be undone. Are you sure you want to permanently delete "
-"this dashboard?"
-msgstr ""
-"Панелни ўчириб ташлаш {{БошқарувПанелиНоми}}, уни барча фойдаланувчилар учун"
-" ўчирилишига олиб келади. Бу ҳаракатни орқага қайтариб бўлмайди. Ҳақиқатдан "
-"ҳам ушбу панелни орқага қайтариб бўлмаслик шарти билан ўчириб "
-"ташламоқчимисиз?"
-
-msgid ""
-"Failed to save dashboard. You might be offline or not have access to edit "
-"this dashboard."
-msgstr ""
-
-msgid "Save changes"
-msgstr "Ўзгартиришни сақлаш"
-
-msgid "Exit Print preview"
-msgstr "Чоп этишдан аввалги кўрикдан чиқинг"
-
-msgid "Print preview"
-msgstr "Чоп этишдан аввалги кўрик"
-
-msgid "Filter settings"
-msgstr ""
-
-msgid "Translate"
-msgstr "Таржима қилинг"
-
-msgid "Exit without saving"
-msgstr "Сақламасдан чиқиш"
-
-msgid "Go to dashboards"
-msgstr "Бошқарув панелларига ўтиш"
-
-msgid "Search for a dashboard"
-msgstr "Бошқариш панелида излаш"
-
-msgid "Show fewer dashboards"
-msgstr ""
-
-msgid "Show more dashboards"
+msgid "Loading dashboard"
 msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
@@ -83,64 +32,8 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr "Сўралган бошқарув панели топилмади"
 
-msgid "No access"
-msgstr "Кириш ҳуқуқи мавжуд эмас"
-
-msgid ""
-"Editing dashboards on small screens is not supported. Resize your screen to "
-"return to edit mode."
+msgid "Remove this item"
 msgstr ""
-
-msgid ""
-"Creating dashboards on small screens is not supported. Resize your screen to"
-" return to create mode."
-msgstr ""
-
-msgid "Not supported"
-msgstr ""
-
-msgid "Exit print preview"
-msgstr "Чоп этишдан аввалги кўрикдан чиқинг"
-
-msgid "Print"
-msgstr "Чоп этиш"
-
-msgid "dashboard layout"
-msgstr "бошқариш панели макети"
-
-msgid "one item per page"
-msgstr "бир саҳифада бир элемент"
-
-msgid "Print Preview"
-msgstr "Чоп этишдан аввалги кўрик"
-
-msgid "For best print results"
-msgstr "Босиб чиқаришда (принтерда) энг яхши натижага эришиш"
-
-msgid "Use Chrome or Edge web browser"
-msgstr " Chrome ёки Edge браузеридан фойдаланинг"
-
-msgid "Wait for all dashboard items to load before printing"
-msgstr ""
-"Босиб чиқаришдан олдин бошқариш панелига барча элементларнинг юкланишини "
-"кутинг"
-
-msgid ""
-"Use A4 landscape paper size and default margin settings in the browser print"
-" dialog"
-msgstr ""
-"Браузернинг босиб чиқариш (принтер) панелида А4 ва стандарт чегараларни "
-"ўрнатинг"
-
-msgid "{{count}} selected"
-msgid_plural "{{count}} selected"
-msgstr[0] "{{жами}} танланган"
-
-msgid "Remove"
-msgstr "Олиб ташлаш"
-
-msgid "Delete item"
-msgstr "Элементни ўчириб ташлаш"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Ушбу элемент бир саҳифага жойлаштириш учун мослаштирилди"
@@ -175,11 +68,11 @@ msgstr "Матнни шу ерга қўшинг"
 msgid "There was a problem loading this dashboard item"
 msgstr "Ушбу панел элементлари юкланишида муаамога дуч келинди"
 
-msgid "Hide interpretations and details"
-msgstr "Талқинлар ва тавсилотларни беркитиш"
+msgid "Hide details and interpretations"
+msgstr ""
 
-msgid "Show interpretations and details"
-msgstr "Талқинлар ва тавсилотларни кўрсатиш"
+msgid "Show details and interpretations"
+msgstr ""
 
 msgid "Open in {{appName}} app"
 msgstr "Иловада {{ИловаНоми}} да очиш"
@@ -211,103 +104,6 @@ msgstr "Ушбу элемент учун плагин юкланмади"
 msgid "No data to display"
 msgstr "Маълумот экранга чиқарилмади"
 
-msgid "Confirm"
-msgstr "Тасдиқланг"
-
-msgid "Add filter"
-msgstr "Фильтр киритиш"
-
-msgid "Allow filtering by all dimensions"
-msgstr ""
-
-msgid "Only allow filtering by selected dimensions"
-msgstr ""
-
-msgid "Dashboard filter settings"
-msgstr ""
-
-msgid ""
-"Dashboards can be filtered by dimensions to change\n"
-"                                         the data shown. By default, all dimensions are available\n"
-"                                         as filters. Alternatively, only selected dimensions can\n"
-"                                         be made available on a dashboard."
-msgstr ""
-
-msgid "Available Filters"
-msgstr ""
-
-msgid "Selected Filters"
-msgstr ""
-
-msgid "There are no items on this dashboard"
-msgstr "Ушбу бошқарув панелида элементлар йўқ"
-
-msgid "Show fewer"
-msgstr "Камроқ кўрсатиш"
-
-msgid "Show more"
-msgstr "Кўпроқ кўрсатилсин"
-
-msgid "Insert"
-msgstr "Киритиш"
-
-msgid "Search for items to add to this dashboard"
-msgstr "Ушбу бошқарув панелига киритиш учун элементларни қидиринг"
-
-msgid "Additional items"
-msgstr "Қўшимча элементлар"
-
-msgid "Text box"
-msgstr "Матн жойи"
-
-msgid "Dashboard title"
-msgstr "Бошқарув панели номланиши"
-
-msgid "Dashboard description"
-msgstr "Бошқарув панели тавсифи"
-
-msgid "Hide description"
-msgstr "Тавсифни беркитиш"
-
-msgid "Show description"
-msgstr "Тавсифни кўрсатиш"
-
-msgid "Failed to hide description"
-msgstr ""
-
-msgid "Failed to show description"
-msgstr ""
-
-msgid "Unstar dashboard"
-msgstr "Бошқарув панелидаги юлдузча ўчирилади"
-
-msgid "Star dashboard"
-msgstr "Бошқарув панелига юлдузча ўрнатилади"
-
-msgid "Failed to unstar the dashboard"
-msgstr ""
-
-msgid "Failed to star the dashboard"
-msgstr ""
-
-msgid "More"
-msgstr "Кўпроқ"
-
-msgid "Edit"
-msgstr "Таҳрирлаш"
-
-msgid "Share"
-msgstr "Улашиш"
-
-msgid "Dashboard layout"
-msgstr "Бошқарув панели макети"
-
-msgid "One item per page"
-msgstr "Ҳар бир саҳифада битта элемент"
-
-msgid "No description"
-msgstr "Тавсиф йўқ"
-
 msgid "Visualizations"
 msgstr "Визуализация"
 
@@ -337,3 +133,232 @@ msgstr "Ресурслар"
 
 msgid "Users"
 msgstr "Фойдаланувчилар"
+
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid ""
+"Failed to delete dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid "Save changes"
+msgstr "Ўзгартиришни сақлаш"
+
+msgid "Exit Print preview"
+msgstr "Чоп этишдан аввалги кўрикдан чиқинг"
+
+msgid "Print preview"
+msgstr "Чоп этишдан аввалги кўрик"
+
+msgid "Filter settings"
+msgstr ""
+
+msgid "Translate"
+msgstr "Таржима қилинг"
+
+msgid "Delete"
+msgstr "Ўчириб ташлаш"
+
+msgid "Exit without saving"
+msgstr "Сақламасдан чиқиш"
+
+msgid "Go to dashboards"
+msgstr "Бошқарув панелларига ўтиш"
+
+msgid "Delete dashboard"
+msgstr "Бошқарув панелини ўчириб ташлаш"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+"Панелни ўчириб ташлаш {{БошқарувПанелиНоми}}, уни барча фойдаланувчилар учун"
+" ўчирилишига олиб келади. Бу ҳаракатни орқага қайтариб бўлмайди. Ҳақиқатдан "
+"ҳам ушбу панелни орқага қайтариб бўлмаслик шарти билан ўчириб "
+"ташламоқчимисиз?"
+
+msgid "Cancel"
+msgstr "Бекор қилиш"
+
+msgid "Discard changes"
+msgstr "Ўзгартиришлар бекор қилинсин"
+
+msgid ""
+"This dashboard has unsaved changes. Are you sure you want to leave and "
+"discard these unsaved changes?"
+msgstr ""
+
+msgid "No, stay here"
+msgstr "Йўқ, саҳифада қолиш"
+
+msgid "Yes, discard changes"
+msgstr ""
+
+msgid "No access"
+msgstr "Кириш ҳуқуқи мавжуд эмас"
+
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
+msgstr ""
+
+msgid "Allow filtering by all dimensions"
+msgstr ""
+
+msgid "Only allow filtering by selected dimensions"
+msgstr ""
+
+msgid "Dashboard filter settings"
+msgstr ""
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+
+msgid "Available Filters"
+msgstr ""
+
+msgid "Selected Filters"
+msgstr ""
+
+msgid "Confirm"
+msgstr "Тасдиқланг"
+
+msgid "There are no items on this dashboard"
+msgstr "Ушбу бошқарув панелида элементлар йўқ"
+
+msgid "Show fewer"
+msgstr "Камроқ кўрсатиш"
+
+msgid "Show more"
+msgstr "Кўпроқ кўрсатилсин"
+
+msgid "Insert"
+msgstr "Киритиш"
+
+msgid "Search for items to add to this dashboard"
+msgstr "Ушбу бошқарув панелига киритиш учун элементларни қидиринг"
+
+msgid "Additional items"
+msgstr "Қўшимча элементлар"
+
+msgid "Text box"
+msgstr "Матн жойи"
+
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
+msgstr ""
+
+msgid "Not supported"
+msgstr ""
+
+msgid "Dashboard title"
+msgstr "Бошқарув панели номланиши"
+
+msgid "Dashboard description"
+msgstr "Бошқарув панели тавсифи"
+
+msgid "Exit print preview"
+msgstr "Чоп этишдан аввалги кўрикдан чиқинг"
+
+msgid "Print"
+msgstr "Чоп этиш"
+
+msgid "dashboard layout"
+msgstr "бошқариш панели макети"
+
+msgid "one item per page"
+msgstr "бир саҳифада бир элемент"
+
+msgid "Print Preview"
+msgstr "Чоп этишдан аввалги кўрик"
+
+msgid "For best print results"
+msgstr "Босиб чиқаришда (принтерда) энг яхши натижага эришиш"
+
+msgid "Use Chrome or Edge web browser"
+msgstr " Chrome ёки Edge браузеридан фойдаланинг"
+
+msgid "Wait for all dashboard items to load before printing"
+msgstr ""
+"Босиб чиқаришдан олдин бошқариш панелига барча элементларнинг юкланишини "
+"кутинг"
+
+msgid ""
+"Use A4 landscape paper size and default margin settings in the browser print"
+" dialog"
+msgstr ""
+"Браузернинг босиб чиқариш (принтер) панелида А4 ва стандарт чегараларни "
+"ўрнатинг"
+
+msgid "Create a new dashboard"
+msgstr ""
+
+msgid "Search for a dashboard"
+msgstr "Бошқариш панелида излаш"
+
+msgid "Show fewer dashboards"
+msgstr ""
+
+msgid "Show more dashboards"
+msgstr ""
+
+msgid "{{count}} selected"
+msgid_plural "{{count}} selected"
+msgstr[0] "{{жами}} танланган"
+
+msgid "Remove"
+msgstr "Олиб ташлаш"
+
+msgid "Add filter"
+msgstr "Фильтр киритиш"
+
+msgid "Hide description"
+msgstr "Тавсифни беркитиш"
+
+msgid "Show description"
+msgstr "Тавсифни кўрсатиш"
+
+msgid "Failed to hide description"
+msgstr ""
+
+msgid "Failed to show description"
+msgstr ""
+
+msgid "Unstar dashboard"
+msgstr "Бошқарув панелидаги юлдузча ўчирилади"
+
+msgid "Star dashboard"
+msgstr "Бошқарув панелига юлдузча ўрнатилади"
+
+msgid "Failed to unstar the dashboard"
+msgstr ""
+
+msgid "Failed to star the dashboard"
+msgstr ""
+
+msgid "Dashboard layout"
+msgstr "Бошқарув панели макети"
+
+msgid "One item per page"
+msgstr "Ҳар бир саҳифада битта элемент"
+
+msgid "More"
+msgstr "Кўпроқ"
+
+msgid "Edit"
+msgstr "Таҳрирлаш"
+
+msgid "Share"
+msgstr "Улашиш"
+
+msgid "No description"
+msgstr "Тавсиф йўқ"

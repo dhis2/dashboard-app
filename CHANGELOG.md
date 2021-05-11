@@ -1,3 +1,17 @@
+## [31.15.2](https://github.com/dhis2/dashboard-app/compare/v31.15.1...v31.15.2) (2021-05-10)
+
+
+### Bug Fixes
+
+* set showDescription to false before running tests that change this setting ([#1746](https://github.com/dhis2/dashboard-app/issues/1746)) ([98f5d7c](https://github.com/dhis2/dashboard-app/commit/98f5d7c03156627176dde5ae66e06a0196310b1e))
+
+## [31.15.1](https://github.com/dhis2/dashboard-app/compare/v31.15.0...v31.15.1) (2021-05-06)
+
+
+### Bug Fixes
+
+* sync translations from transifex (master) ([#1701](https://github.com/dhis2/dashboard-app/issues/1701)) ([971b2b9](https://github.com/dhis2/dashboard-app/commit/971b2b96883f5f1e1f95d9572920b8c6ccc41743))
+
 # [31.15.0](https://github.com/dhis2/dashboard-app/compare/v31.14.11...v31.15.0) (2021-04-27)
 
 

@@ -6,20 +6,27 @@ import {
     dashboardTitleSel,
     dashboardDescriptionSel,
 } from '../../../selectors/viewDashboard'
-import { actionsBarSel } from '../../../selectors/editDashboard'
 
 let norwegianTitle = ''
 let norwegianDesc = ''
+
+beforeEach(() => {
+    // set dblocale to English
+    cy.request(
+        'POST',
+        `${getApiBaseUrl()}/api/userSettings/keyDbLocale`,
+        'en'
+    ).then(response => {
+        expect(response.status).to.equal(200)
+    })
+})
 
 When('I add translations for dashboard name and description', () => {
     const now = new Date().toUTCString()
     norwegianTitle = 'nor title ' + now
     norwegianDesc = 'nor desc ' + now
 
-    cy.get(actionsBarSel, EXTENDED_TIMEOUT)
-        .find('button')
-        .contains('Translate', EXTENDED_TIMEOUT)
-        .click()
+    cy.clickEditActionButton('Translate')
     cy.contains('Select locale').click()
     cy.contains('Select locale').type('Norwegian{enter}')
     cy.get('[placeholder="Name"]').clear().type(norwegianTitle)
@@ -53,13 +60,4 @@ Then('Norwegian title and description are displayed', () => {
 
     cy.clickMoreButton()
     cy.contains('Hide description').click()
-
-    // set dblocale back to English
-    cy.request(
-        'POST',
-        `${getApiBaseUrl()}/api/userSettings/keyDbLocale`,
-        'en'
-    ).then(response => {
-        expect(response.status).to.equal(200)
-    })
 })

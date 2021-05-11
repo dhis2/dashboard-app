@@ -53,6 +53,8 @@ export const editDashboardQuery = {
             'name',
             'description',
             'created',
+            'favorite',
+            'favorites',
             'lastUpdated',
             'favorite',
             'favorites',
