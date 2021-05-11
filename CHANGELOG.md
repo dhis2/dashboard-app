@@ -1,3 +1,11 @@
+## [31.15.3](https://github.com/dhis2/dashboard-app/compare/v31.15.2...v31.15.3) (2021-05-11)
+
+
+### Bug Fixes
+
+* dashboards bar does not resize to 1 row [DHIS2-11097] ([#1761](https://github.com/dhis2/dashboard-app/issues/1761)) ([c73bf3a](https://github.com/dhis2/dashboard-app/commit/c73bf3a5f7e8b0d09bb6c7ed570e8ea489c71169))
+* save starred dashboard should not remove the star [DHIS2-11089] ([#1757](https://github.com/dhis2/dashboard-app/issues/1757)) ([f030dae](https://github.com/dhis2/dashboard-app/commit/f030dae1df85b93c78bfe14bdc929aca8dc18704))
+
 ## [31.15.2](https://github.com/dhis2/dashboard-app/compare/v31.15.1...v31.15.2) (2021-05-10)
 
 
