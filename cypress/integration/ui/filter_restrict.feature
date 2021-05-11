@@ -6,6 +6,7 @@ Feature: Editing Filter Restrictions
         And I add a dashboard title
         And I click on Filter settings
         Then Filter settings are not restricted, and I can save the dashboard
+        Then dashboard displays in view mode
 
     @nonmutating
     Scenario: I change Filter Restrictions, do not confirm them, and the restrictions remain unchanged when I click back
@@ -52,7 +53,6 @@ Feature: Editing Filter Restrictions
         And I add Facility Ownership to selected filters
         And I click Confirm
         And I click Exit without saving
-        And I confirm I want to discard changes
         And I open Edit mode
         And I click on Filter settings
         Then Filter Restrictions are not restricted

@@ -4,7 +4,6 @@ import {
     dashboardTitleSel,
 } from '../../../selectors/viewDashboard'
 import { filterDimensionsPanelSel } from '../../../selectors/dashboardFilter'
-import { confirmActionDialogSel } from '../../../selectors/editDashboard'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 const TEST_DASHBOARD_TITLE = `aaa-${new Date().toUTCString()}`
@@ -27,6 +26,9 @@ Then('Filter settings are not restricted, and I can save the dashboard', () => {
         .should('be.checked')
     cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
     cy.clickEditActionButton('Save changes')
+    cy.get(dashboardTitleSel)
+        .should('be.visible')
+        .and('contain', TEST_DASHBOARD_TITLE)
 })
 
 /*
@@ -156,11 +158,17 @@ Then('Add Filter button is not visible', () => {
 
 When('I delete the dashboard', () => {
     cy.clickEditActionButton('Delete')
-    cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
+    cy.get('[data-test="confirm-delete-dashboard"]').click()
 })
 
 Then('different dashboard displays in view mode', () => {
     cy.get(dashboardTitleSel)
         .should('be.visible')
         .and('not.contain', TEST_DASHBOARD_TITLE)
+})
+
+Then('dashboard displays in view mode', () => {
+    cy.get(dashboardTitleSel)
+        .should('be.visible')
+        .and('contain', TEST_DASHBOARD_TITLE)
 })
