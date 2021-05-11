@@ -3,7 +3,7 @@ import { getApiBaseUrl } from '../../../support/server/utils'
 
 // Error scenario
 
-before(() => {
+beforeEach(() => {
     //first ensure that the description is not currently shown
     cy.request({
         method: 'PUT',
