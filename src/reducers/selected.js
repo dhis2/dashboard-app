@@ -6,7 +6,6 @@ const SELECTED_PROPERTIES = {
     id: '',
     displayName: '',
     displayDescription: '',
-    starred: false,
     access: {},
     restrictFilters: false,
     allowedFilters: [],
