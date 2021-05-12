@@ -19,8 +19,6 @@ const SystemSettingsProvider = ({ children }) => {
                 systemSettings: systemSettingsQuery,
             })
 
-            console.log('systemSettings', systemSettings)
-
             setSettings(
                 Object.assign(
                     {},
