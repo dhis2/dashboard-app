@@ -120,17 +120,15 @@ const Dashboard = ({
                     expanded={dashboardsBarExpanded}
                     onExpandedChanged={expanded => updateExpanded(expanded)}
                 />
-                {dashboardsIsEmpty ? (
-                    <NoContentMessage
-                        text={i18n.t(
-                            'No dashboards found. Use the + button to create a new dashboard.'
-                        )}
-                    />
-                ) : (
-                    <NoContentMessage
-                        text={i18n.t('Requested dashboard not found')}
-                    />
-                )}
+                <NoContentMessage
+                    text={
+                        dashboardsIsEmpty
+                            ? i18n.t(
+                                  'No dashboards found. Use the + button to create a new dashboard.'
+                              )
+                            : i18n.t('Requested dashboard not found')
+                    }
+                />
             </>
         )
     }
