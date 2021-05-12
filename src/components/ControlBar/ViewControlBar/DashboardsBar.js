@@ -111,15 +111,10 @@ const DashboardsBar = ({
 }
 
 DashboardsBar.propTypes = {
-    expanded: PropTypes.bool,
+    expanded: PropTypes.bool.isRequired,
+    onExpandedChanged: PropTypes.func.isRequired,
     updateUserRows: PropTypes.func,
     userRows: PropTypes.number,
-    onExpandedChanged: PropTypes.func,
-}
-
-DashboardsBar.defaultProps = {
-    expanded: false,
-    onExpandedChanged: Function.prototype,
 }
 
 const mapStateToProps = state => ({
