@@ -84,7 +84,10 @@ const DashboardsBar = ({
             className={expanded ? classes.expanded : classes.collapsed}
             data-test="dashboards-bar"
         >
-            <div className={cx(classes.container)}>
+            <div
+                className={cx(classes.container)}
+                data-test="dashboardsbar-container"
+            >
                 <div className={classes.content} ref={ref}>
                     <Content
                         onChipClicked={cancelExpanded}

@@ -36,6 +36,7 @@ import {
 
 import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { isSmallScreen } from '../../modules/smallScreen'
+import { useDashboardsBarExpanded } from '../../modules/useDashboardsBarExpanded'
 
 const setHeaderbarVisibility = mode => {
     const header = document.getElementsByTagName('header')[0]
@@ -65,6 +66,9 @@ const Dashboard = ({
 }) => {
     const { width } = useWindowDimensions()
     const [redirectUrl, setRedirectUrl] = useState(null)
+    const [dashboardsBarExpanded, updateExpanded] = useDashboardsBarExpanded(
+        false
+    )
 
     useEffect(() => {
         setHeaderbarVisibility(mode)
@@ -109,26 +113,24 @@ const Dashboard = ({
         return dashboardMap[mode]
     }
 
-    if (dashboardsIsEmpty) {
+    if (dashboardsIsEmpty || id === NON_EXISTING_DASHBOARD_ID) {
         return (
             <>
-                <DashboardsBar />
-                <NoContentMessage
-                    text={i18n.t(
-                        'No dashboards found. Use the + button to create a new dashboard.'
-                    )}
+                <DashboardsBar
+                    expanded={dashboardsBarExpanded}
+                    onExpandedChanged={expanded => updateExpanded(expanded)}
                 />
-            </>
-        )
-    }
-
-    if (id === NON_EXISTING_DASHBOARD_ID) {
-        return (
-            <>
-                <DashboardsBar />
-                <NoContentMessage
-                    text={i18n.t('Requested dashboard not found')}
-                />
+                {dashboardsIsEmpty ? (
+                    <NoContentMessage
+                        text={i18n.t(
+                            'No dashboards found. Use the + button to create a new dashboard.'
+                        )}
+                    />
+                ) : (
+                    <NoContentMessage
+                        text={i18n.t('Requested dashboard not found')}
+                    />
+                )}
             </>
         )
     }

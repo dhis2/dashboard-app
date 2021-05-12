@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { ComponentCover } from '@dhis2/ui'
@@ -16,11 +16,14 @@ import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
 import { acSetPassiveViewRegistered } from '../../actions/passiveViewRegistered'
 import { apiPostDataStatistics } from '../../api/dataStatistics'
+import { useDashboardsBarExpanded } from '../../modules/useDashboardsBarExpanded'
 
 import classes from './styles/ViewDashboard.module.css'
 
 export const ViewDashboard = props => {
-    const [controlbarExpanded, setControlbarExpanded] = useState(false)
+    const [dashboardsBarExpanded, updateExpanded] = useDashboardsBarExpanded(
+        false
+    )
 
     useEffect(() => {
         if (props.dashboardIsEditing) {
@@ -49,7 +52,7 @@ export const ViewDashboard = props => {
         }
     }, [props.passiveViewRegistered])
 
-    const onExpandedChanged = expanded => setControlbarExpanded(expanded)
+    const onExpandedChanged = expanded => updateExpanded(expanded)
 
     return (
         <div
@@ -57,15 +60,15 @@ export const ViewDashboard = props => {
             data-test="outer-scroll-container"
         >
             <DashboardsBar
-                expanded={controlbarExpanded}
+                expanded={dashboardsBarExpanded}
                 onExpandedChanged={onExpandedChanged}
             />
-            <DashboardContainer covered={controlbarExpanded}>
-                {controlbarExpanded && (
+            <DashboardContainer covered={dashboardsBarExpanded}>
+                {dashboardsBarExpanded && (
                     <ComponentCover
                         className={classes.cover}
                         translucent
-                        onClick={() => setControlbarExpanded(false)}
+                        onClick={() => updateExpanded(false)}
                     />
                 )}
                 <ViewTitleBar />
