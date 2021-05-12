@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
+"POT-Creation-Date: 2021-05-12T08:56:39.093Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -21,19 +21,6 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Tablero sin nombre"
-
-msgid "Loading dashboard – {{name}}"
-msgstr "Cargando panel – {{nombre}}"
-
-msgid "Loading dashboard"
-msgstr ""
-
-msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr ""
-"No se han encontrado tableros. Use el botón + para crear un nuevo tablero"
-
-msgid "Requested dashboard not found"
-msgstr "No se ha encontrado el tablero buscado"
 
 msgid "Remove this item"
 msgstr ""
@@ -301,6 +288,13 @@ msgstr ""
 "Use un papel de tamaño A4 y los valores de los márgenes por defecto en el "
 "cuadro de impresión"
 
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+"No se han encontrado tableros. Use el botón + para crear un nuevo tablero"
+
+msgid "Requested dashboard not found"
+msgstr "No se ha encontrado el tablero buscado"
+
 msgid "Create a new dashboard"
 msgstr ""
 
@@ -365,3 +359,9 @@ msgstr "Compartir"
 
 msgid "No description"
 msgstr "Sin descripción"
+
+msgid "Loading dashboard – {{name}}"
+msgstr "Cargando panel – {{nombre}}"
+
+msgid "Loading dashboard"
+msgstr ""
