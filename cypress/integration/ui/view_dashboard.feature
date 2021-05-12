@@ -39,6 +39,13 @@ Feature: Viewing dashboards
         When I click to exit print preview
         Then the "Delivery" dashboard displays in view mode
 
+    @nonmutating
+    Scenario: I view a dashboard with items lacking shape
+        Given I open the "Delivery" dashboard with shapes removed
+        Then the "Delivery" dashboard displays in view mode
+
+
+
 # TODO: flaky test
 # @mutating
 # Scenario: I change the height of the control bar
