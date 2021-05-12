@@ -36,7 +36,6 @@ import {
 
 import { useWindowDimensions } from '../WindowDimensionsProvider'
 import { isSmallScreen } from '../../modules/smallScreen'
-import { useDashboardsBarExpanded } from '../../modules/useDashboardsBarExpanded'
 
 const setHeaderbarVisibility = mode => {
     const header = document.getElementsByTagName('header')[0]
@@ -66,9 +65,7 @@ const Dashboard = ({
 }) => {
     const { width } = useWindowDimensions()
     const [redirectUrl, setRedirectUrl] = useState(null)
-    const [dashboardsBarExpanded, updateExpanded] = useDashboardsBarExpanded(
-        false
-    )
+    const [dashboardsBarExpanded, setDashboardsBarExpanded] = useState(false)
 
     useEffect(() => {
         setHeaderbarVisibility(mode)
@@ -118,7 +115,9 @@ const Dashboard = ({
             <>
                 <DashboardsBar
                     expanded={dashboardsBarExpanded}
-                    onExpandedChanged={expanded => updateExpanded(expanded)}
+                    onExpandedChanged={expanded =>
+                        setDashboardsBarExpanded(expanded)
+                    }
                 />
                 <NoContentMessage
                     text={

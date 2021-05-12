@@ -1,5 +1,6 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
+import { getApiBaseUrl } from '../../../support/server/utils'
 import {
     dragHandleSel,
     dashboardsBarSel,
@@ -9,6 +10,17 @@ import {
 
 const MIN_DASHBOARDS_BAR_HEIGHT = 71
 const MAX_DASHBOARDS_BAR_HEIGHT = 431
+
+beforeEach(() => {
+    cy.request({
+        method: 'PUT',
+        url: `${getApiBaseUrl()}/api/userDataStore/dashboard/controlBarRows`,
+        headers: {
+            'content-type': 'application/json',
+        },
+        body: '1',
+    }).then(response => expect(response.status).to.equal(201))
+})
 
 When('I toggle the control bar height', () => {
     cy.get('[data-test="showmore-button"]').click()
