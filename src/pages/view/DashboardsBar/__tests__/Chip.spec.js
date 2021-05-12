@@ -4,8 +4,6 @@ import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 import Chip from '../Chip'
 
-// mock apiPostDataStatistics?
-
 const defaultProps = {
     onClick: jest.fn(),
     label: 'Hello Rainbow Dash',
