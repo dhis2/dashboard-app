@@ -4,7 +4,7 @@ import ClearIcon from './assets/Clear'
 
 import classes from './styles/ClearButton.module.css'
 
-export const ClearButton = ({ onClear }) => (
+const ClearButton = ({ onClear }) => (
     <button className={classes.button} onClick={onClear}>
         <span>
             <ClearIcon className={classes.icon} color="action" />
