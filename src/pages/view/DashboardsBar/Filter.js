@@ -20,7 +20,7 @@ import classes from './styles/Filter.module.css'
 export const KEYCODE_ENTER = 13
 export const KEYCODE_ESCAPE = 27
 
-export const FilterUnconnected = ({
+const Filter = ({
     clearDashboardsFilter,
     expanded,
     filterText,
@@ -113,7 +113,7 @@ export const FilterUnconnected = ({
     )
 }
 
-FilterUnconnected.propTypes = {
+Filter.propTypes = {
     clearDashboardsFilter: PropTypes.func,
     expanded: PropTypes.bool,
     filterText: PropTypes.string,
@@ -131,4 +131,4 @@ const mapDispatchToProps = {
     clearDashboardsFilter: acClearDashboardsFilter,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FilterUnconnected)
+export default connect(mapStateToProps, mapDispatchToProps)(Filter)

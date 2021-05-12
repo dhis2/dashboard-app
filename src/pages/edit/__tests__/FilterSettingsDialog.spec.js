@@ -36,7 +36,7 @@ jest.mock('../../../modules/useDimensions', () => ({
     },
 }))
 
-test.skip('renders correctly when filters are not restricted', () => {
+test('renders correctly when filters are not restricted', () => {
     const { container } = render(
         <FilterSettingsDialog
             restrictFilters={false}
