@@ -1,13 +1,14 @@
 import React from 'react'
-import { mount } from 'enzyme'
-import toJson from 'enzyme-to-json'
-import { ViewDashboard } from '../ViewDashboard'
+import { render } from '@testing-library/react'
+import { act } from 'react-dom/test-utils'
+import thunk from 'redux-thunk'
+import { Provider } from 'react-redux'
+import configureMockStore from 'redux-mock-store'
+import ViewDashboard from '../ViewDashboard'
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
+import { apiFetchDashboard } from '../../../api/fetchDashboard'
 
-jest.mock('react', () => ({
-    ...jest.requireActual('react'),
-    useEffect: f => f(),
-}))
+jest.mock('../../../api/fetchDashboard')
 
 jest.mock(
     '../DashboardsBar/DashboardsBar',
@@ -17,12 +18,13 @@ jest.mock(
         }
 )
 jest.mock(
-    '../TitleBar',
+    '../TitleBar/TitleBar',
     () =>
         function MockTitleBar() {
             return <div>TitleBar</div>
         }
 )
+
 jest.mock(
     '../FilterBar/FilterBar',
     () =>
@@ -45,51 +47,89 @@ jest.mock('../../../api/dataStatistics', () => ({
     }),
 }))
 
-describe('ViewDashboard', () => {
-    let props
+const dashboardId = 'rainbowdash'
+const store = {
+    dashboards: {
+        [dashboardId]: {
+            id: dashboardId,
+            displayName: 'Rainbow Dash',
+            starred: true,
+        },
+    },
 
-    beforeEach(() => {
-        props = {
-            clearEditDashboard: jest.fn(),
-            clearPrintDashboard: jest.fn(),
-            registerPassiveView: jest.fn(),
-            dashboardIsEditing: false,
-            dashboardIsPrinting: false,
-        }
-    })
+    selected: {
+        id: dashboardId,
+    },
+    passiveViewRegistered: false,
+}
 
-    afterEach(() => {
-        jest.clearAllMocks()
-    })
+window.HTMLElement.prototype.scroll = function () {}
 
-    it('renders correctly default', () => {
-        const tree = mount(<ViewDashboard {...props} />)
-        expect(toJson(tree)).toMatchSnapshot()
-    })
+const middlewares = [thunk]
+const mockStore = configureMockStore(middlewares)
 
-    it('clears edit dashboard after redirecting from Edit mode', () => {
-        props.dashboardIsEditing = true
-        mount(<ViewDashboard {...props} />)
-        expect(props.clearEditDashboard).toHaveBeenCalled()
-        expect(props.clearPrintDashboard).not.toHaveBeenCalled()
+test('ViewDashboard renders dashboard', async () => {
+    const promise = Promise.resolve({
+        id: dashboardId,
+        dashboardItems: [],
     })
+    apiFetchDashboard.mockResolvedValue(promise)
 
-    it('clears print dashboard after redirecting from Print mode', () => {
-        props.dashboardIsPrinting = true
-        mount(<ViewDashboard {...props} />)
-        expect(props.clearEditDashboard).not.toHaveBeenCalled()
-        expect(props.clearPrintDashboard).toHaveBeenCalled()
-    })
+    const { container } = render(
+        <>
+            <header />
+            <Provider store={mockStore(store)}>
+                <ViewDashboard id={dashboardId} />
+            </Provider>
+        </>
+    )
 
-    it('does not post passive view to api if passive view has been registered', () => {
-        props.passiveViewRegistered = true
-        mount(<ViewDashboard {...props} />)
-        expect(apiPostDataStatistics).not.toHaveBeenCalled()
-    })
+    await act(() => promise)
+    expect(container).toMatchSnapshot()
+    jest.clearAllMocks()
+})
 
-    it('posts passive view to api if passive view has not been registered', () => {
-        props.passiveViewRegistered = false
-        mount(<ViewDashboard {...props} />)
-        expect(apiPostDataStatistics).toHaveBeenCalled()
+test('ViewDashboard does not post passive view to api if passive view has been registered', async () => {
+    store.passiveViewRegistered = true
+    const promise = Promise.resolve({
+        id: dashboardId,
+        dashboardItems: [],
     })
+    apiFetchDashboard.mockResolvedValue(promise)
+
+    render(
+        <>
+            <header />
+            <Provider store={mockStore(store)}>
+                <ViewDashboard id={dashboardId} />
+            </Provider>
+        </>
+    )
+
+    await act(() => promise)
+    expect(apiPostDataStatistics).not.toHaveBeenCalled()
+    jest.clearAllMocks()
+})
+
+test('ViewDashboard posts passive view to api if passive view has not been registered', async () => {
+    store.passiveViewRegistered = false
+    const promise = Promise.resolve({
+        id: dashboardId,
+        dashboardItems: [],
+    })
+    apiFetchDashboard.mockResolvedValue(promise)
+
+    render(
+        <>
+            <header />
+            <Provider store={mockStore(store)}>
+                <ViewDashboard id={dashboardId} />
+            </Provider>
+        </>
+    )
+
+    await act(() => promise)
+
+    expect(apiPostDataStatistics).toHaveBeenCalled()
+    jest.clearAllMocks()
 })

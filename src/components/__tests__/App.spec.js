@@ -5,7 +5,6 @@ import thunk from 'redux-thunk'
 import { render } from '@testing-library/react'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { useUserSettings } from '../UserSettingsProvider'
-import { apiFetchDimensions } from '@dhis2/analytics'
 import { apiFetchDashboards } from '../../api/fetchAllDashboards'
 import App from '../App'
 
@@ -13,13 +12,37 @@ jest.mock('../../api/fetchAllDashboards')
 jest.mock('../UserSettingsProvider')
 jest.mock('@dhis2/analytics')
 jest.mock('@dhis2/app-runtime-adapter-d2')
-jest.mock(
-    '../Dashboard',
-    () =>
-        function MockDashboard() {
-            return <div className="dashboard" />
-        }
-)
+jest.mock('../../pages/view', () => {
+    return {
+        ViewDashboard: function MockDashboard() {
+            return <div className="viewdashboard" />
+        },
+    }
+})
+
+jest.mock('../../pages/edit', () => {
+    return {
+        NewDashboard: function MockDashboard() {
+            return <div className="newdashboard" />
+        },
+
+        EditDashboard: function MockDashboard() {
+            return <div className="editdashboard" />
+        },
+    }
+})
+
+jest.mock('../../pages/print', () => {
+    return {
+        PrintDashboard: function MockDashboard() {
+            return <div className="printdashboard" />
+        },
+
+        PrintLayoutDashboard: function MockDashboard() {
+            return <div className="printlayoutdashboard" />
+        },
+    }
+})
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
@@ -30,9 +53,11 @@ test('renders the app', () => {
             currentUser: 'rainbowDash',
         },
     })
+
     useUserSettings.mockReturnValue({
         userSettings: { keyAnalysisDisplayProperty: 'displayName' },
     })
+
     apiFetchDashboards.mockReturnValue([
         {
             id: 'rainbowdash',
@@ -40,15 +65,14 @@ test('renders the app', () => {
             starred: true,
         },
     ])
-    apiFetchDimensions.mockReturnValue([{ dimensionType: 'mock' }])
-    const store = {
-        settings: {},
-    }
+
     const { container } = render(
-        <Provider store={mockStore(store)}>
+        <>
             <header style={{ height: '48px' }} />
-            <App />
-        </Provider>
+            <Provider store={mockStore({})}>
+                <App />
+            </Provider>
+        </>
     )
     expect(container).toMatchSnapshot()
     expect(apiFetchDashboards).toHaveBeenCalledTimes(1)

@@ -2,6 +2,9 @@
 
 exports[`NewDashboard renders dashboard 1`] = `
 <div>
+  <header
+    style="height: 48px;"
+  />
   <div
     class="container dashboard-scroll-container"
   >
@@ -76,6 +79,9 @@ exports[`NewDashboard renders dashboard 1`] = `
 
 exports[`NewDashboard renders print preview 1`] = `
 <div>
+  <header
+    style="height: 48px;"
+  />
   <div
     class="container dashboard-scroll-container"
   >

@@ -3,6 +3,7 @@ import { render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import NewDashboard from '../NewDashboard'
+import WindowDimensionsProvider from '../../../components/WindowDimensionsProvider'
 
 jest.mock(
     '../ActionsBar',
@@ -38,33 +39,23 @@ jest.mock(
 const mockStore = configureMockStore()
 
 const store = {
-    dashboards: {
-        byId: {
-            rainbowdash: {
-                id: 'rainbowdash',
-                access: {
-                    update: true,
-                    delete: true,
-                },
-            },
-        },
-        items: [],
-    },
-    selected: {
-        id: 'rainbowdash',
-    },
     editDashboard: {
         id: '',
-        access: {},
+        access: { update: true, delete: true },
         printPreviewView: false,
     },
 }
 
 test('NewDashboard renders dashboard', () => {
     const { container } = render(
-        <Provider store={mockStore(store)}>
-            <NewDashboard />
-        </Provider>
+        <>
+            <header style={{ height: '48px' }} />
+            <Provider store={mockStore(store)}>
+                <WindowDimensionsProvider>
+                    <NewDashboard />
+                </WindowDimensionsProvider>
+            </Provider>
+        </>
     )
 
     expect(container).toMatchSnapshot()
@@ -74,9 +65,14 @@ test('NewDashboard renders print preview', () => {
     store.editDashboard.printPreviewView = true
 
     const { container } = render(
-        <Provider store={mockStore(store)}>
-            <NewDashboard />
-        </Provider>
+        <>
+            <header style={{ height: '48px' }} />
+            <Provider store={mockStore(store)}>
+                <WindowDimensionsProvider>
+                    <NewDashboard />
+                </WindowDimensionsProvider>
+            </Provider>
+        </>
     )
     expect(container).toMatchSnapshot()
 })

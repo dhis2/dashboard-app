@@ -18,17 +18,10 @@ import { itemTypeMap, PAGEBREAK } from '../modules/itemTypes'
 
 // actions
 
-export const acSetPrintDashboard = (dashboard, items) => {
-    const val = {
-        ...dashboard,
-        dashboardItems: items,
-    }
-
-    return {
-        type: SET_PRINT_DASHBOARD,
-        value: val,
-    }
-}
+export const acSetPrintDashboard = dashboard => ({
+    type: SET_PRINT_DASHBOARD,
+    value: dashboard,
+})
 
 export const acClearPrintDashboard = () => ({
     type: CLEAR_PRINT_DASHBOARD,

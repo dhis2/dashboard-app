@@ -2,13 +2,15 @@ import React, { useEffect } from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import Dashboard from './Dashboard'
+import { CssVariables } from '@dhis2/ui'
+import { NewDashboard, EditDashboard } from '../pages/edit'
+import { ViewDashboard } from '../pages/view'
+import { PrintDashboard, PrintLayoutDashboard } from '../pages/print'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
 import { tFetchDashboards } from '../actions/dashboards'
 import { tSetControlBarRows } from '../actions/controlBar'
 import { tSetShowDescription } from '../actions/showDescription'
-
-import { EDIT, VIEW, NEW, PRINT, PRINT_LAYOUT } from '../modules/dashboardModes'
 
 import './styles/App.css'
 import 'react-grid-layout/css/styles.css'
@@ -16,6 +18,8 @@ import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
 
 const App = props => {
+    const { d2 } = useD2()
+
     useEffect(() => {
         props.fetchDashboards()
         props.setControlBarRows()
@@ -33,42 +37,53 @@ const App = props => {
     }, [])
 
     return (
-        <Router>
-            <Switch>
-                <Route
-                    exact
-                    path="/"
-                    render={props => <Dashboard {...props} mode={VIEW} />}
-                />
-                <Route
-                    exact
-                    path="/new"
-                    render={props => <Dashboard {...props} mode={NEW} />}
-                />
-                <Route
-                    exact
-                    path="/:dashboardId"
-                    render={props => <Dashboard {...props} mode={VIEW} />}
-                />
-                <Route
-                    exact
-                    path="/:dashboardId/edit"
-                    render={props => <Dashboard {...props} mode={EDIT} />}
-                />
-                <Route
-                    exact
-                    path="/:dashboardId/printoipp"
-                    render={props => <Dashboard {...props} mode={PRINT} />}
-                />
-                <Route
-                    exact
-                    path="/:dashboardId/printlayout"
-                    render={props => (
-                        <Dashboard {...props} mode={PRINT_LAYOUT} />
-                    )}
-                />
-            </Switch>
-        </Router>
+        <>
+            <CssVariables colors spacers />
+            <Router>
+                <Switch>
+                    <Route
+                        exact
+                        path="/"
+                        render={props => (
+                            <ViewDashboard
+                                username={d2.currentUser.username}
+                                {...props}
+                            />
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/new"
+                        render={props => <NewDashboard {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/:dashboardId"
+                        render={props => (
+                            <ViewDashboard
+                                username={d2.currentUser.username}
+                                {...props}
+                            />
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/:dashboardId/edit"
+                        render={props => <EditDashboard {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/:dashboardId/printoipp"
+                        render={props => <PrintDashboard {...props} />}
+                    />
+                    <Route
+                        exact
+                        path="/:dashboardId/printlayout"
+                        render={props => <PrintLayoutDashboard {...props} />}
+                    />
+                </Switch>
+            </Router>
+        </>
     )
 }
 

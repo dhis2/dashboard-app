@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import uniqueId from 'lodash/uniqueId'
+import isEmpty from 'lodash/isEmpty'
 import i18n from '@dhis2/d2-i18n'
 import Visualization from './Visualization/Visualization'
 import FatalErrorBoundary from './FatalErrorBoundary'
@@ -75,9 +76,11 @@ export class Item extends Component {
     }
 
     async componentDidMount() {
-        this.props.updateVisualization(
-            await apiFetchVisualization(this.props.item)
-        )
+        if (isEmpty(this.props.visualization)) {
+            this.props.setVisualization(
+                await apiFetchVisualization(this.props.item)
+            )
+        }
 
         try {
             if (
@@ -250,8 +253,8 @@ Item.propTypes = {
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     setActiveType: PropTypes.func,
+    setVisualization: PropTypes.func,
     settings: PropTypes.object,
-    updateVisualization: PropTypes.func,
     visualization: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
 }
@@ -280,7 +283,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = {
     setActiveType: acSetItemActiveType,
-    updateVisualization: acAddVisualization,
+    setVisualization: acAddVisualization,
 }
 
 const ItemWithSettings = props => (

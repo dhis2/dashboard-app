@@ -1,46 +1,47 @@
-/** @module reducers/selected */
-import { combineReducers } from 'redux'
+export const SET_SELECTED = 'SET_SELECTED'
+export const CLEAR_SELECTED = 'CLEAR_SELECTED'
 
-import { validateReducer } from '../modules/util'
-
-export const SET_SELECTED_ID = 'SET_SELECTED_ID'
-export const SET_SELECTED_ISLOADING = 'SET_SELECTED_ISLOADING'
-
-export const DEFAULT_STATE_SELECTED_ID = null
-export const DEFAULT_STATE_SELECTED_ISLOADING = false
-
-export const NON_EXISTING_DASHBOARD_ID = '0'
-
-const id = (state = DEFAULT_STATE_SELECTED_ID, action) => {
-    switch (action.type) {
-        case SET_SELECTED_ID:
-            return validateReducer(action.value, DEFAULT_STATE_SELECTED_ID)
-        default:
-            return state
-    }
+export const DEFAULT_SELECTED_STATE = {}
+const SELECTED_PROPERTIES = {
+    id: '',
+    displayName: '',
+    displayDescription: '',
+    access: {},
+    restrictFilters: false,
+    allowedFilters: [],
+    dashboardItems: [],
 }
 
-const isLoading = (state = DEFAULT_STATE_SELECTED_ISLOADING, action) => {
+export default (state = DEFAULT_SELECTED_STATE, action) => {
     switch (action.type) {
-        case SET_SELECTED_ISLOADING:
-            return validateReducer(
-                action.value,
-                DEFAULT_STATE_SELECTED_ISLOADING
+        case SET_SELECTED: {
+            const newState = {}
+            Object.keys(SELECTED_PROPERTIES).map(
+                k => (newState[k] = action.value[k])
             )
+            return newState
+        }
+        case CLEAR_SELECTED: {
+            return DEFAULT_SELECTED_STATE
+        }
         default:
             return state
     }
 }
-
-export default combineReducers({
-    id,
-    isLoading,
-})
 
 // Selectors
 
-export const sGetSelectedRoot = state => state.selected
+export const sGetSelected = state => state.selected
 
-export const sGetSelectedId = state => sGetSelectedRoot(state).id
+export const sGetSelectedId = state => sGetSelected(state).id
 
-export const sGetSelectedIsLoading = state => sGetSelectedRoot(state).isLoading
+export const sGetSelectedDisplayName = state => sGetSelected(state).displayName
+
+export const sGetSelectedDisplayDescription = state =>
+    sGetSelected(state).displayDescription
+
+export const sGetSelectedDashboardItems = state =>
+    sGetSelected(state).dashboardItems || SELECTED_PROPERTIES.dashboardItems
+
+export const sGetIsNullDashboardItems = state =>
+    sGetSelected(state).dashboardItems === undefined
