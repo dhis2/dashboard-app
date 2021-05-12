@@ -20,7 +20,17 @@ jest.mock(
     '../Visualization/Visualization',
     () =>
         function MockVisualizationComponent(props) {
-            return <div className="mock-visualization-component" {...props} />
+            return (
+                <div
+                    className="visualization"
+                    item={props.item} //eslint-disable-line react/prop-types
+                    activetype={props.activeType} //eslint-disable-line react/prop-types
+                    itemfilters={props.itemFilters} //eslint-disable-line react/prop-types
+                    availableheight={props.availableheight} //eslint-disable-line react/prop-types
+                    availablewidth={props.availablewidth} //eslint-disable-line react/prop-types
+                    gridwidth={props.gridWidth} //eslint-disable-line react/prop-types
+                />
+            )
         }
 )
 
