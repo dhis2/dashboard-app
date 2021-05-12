@@ -13,7 +13,7 @@ import {
 
 import { acUpdateDashboardItem } from '../../../actions/editDashboard'
 import { sGetEditDashboardItems } from '../../../reducers/editDashboard'
-import { sGetDashboardItems } from '../../../reducers/dashboards'
+import { sGetSelectedDashboardItems } from '../../../reducers/selected'
 import {
     sGetIsPrinting,
     sGetPrintDashboardItems,
@@ -118,7 +118,7 @@ const mapStateToProps = (state, ownProps) => {
     } else if (isEditMode(ownProps.dashboardMode)) {
         items = sGetEditDashboardItems(state)
     } else {
-        items = sGetDashboardItems(state)
+        items = sGetSelectedDashboardItems(state)
     }
 
     const item = items.find(item => item.id === ownProps.item.id)

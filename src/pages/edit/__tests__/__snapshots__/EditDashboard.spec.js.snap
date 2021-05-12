@@ -1,7 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EditDashboard does not render titlebar and grid if small screen 1`] = `
+<div>
+  <header />
+</div>
+`;
+
 exports[`EditDashboard renders dashboard 1`] = `
 <div>
+  <header />
   <div
     class="container dashboard-scroll-container"
     data-test="outer-scroll-container"
@@ -77,6 +84,7 @@ exports[`EditDashboard renders dashboard 1`] = `
 
 exports[`EditDashboard renders message when not enough access 1`] = `
 <div>
+  <header />
   <div
     class="container dashboard-scroll-container"
     data-test="outer-scroll-container"
@@ -147,6 +155,7 @@ exports[`EditDashboard renders message when not enough access 1`] = `
 
 exports[`EditDashboard renders print preview 1`] = `
 <div>
+  <header />
   <div
     class="container dashboard-scroll-container"
     data-test="outer-scroll-container"

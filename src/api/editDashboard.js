@@ -34,7 +34,10 @@ const generatePayload = (dashboard = {}, data) => {
 }
 
 export const updateDashboard = async (dataEngine, data) => {
-    const dashboard = await apiFetchDashboard(dataEngine, data.id, EDIT)
+    const dashboard = await apiFetchDashboard(dataEngine, data.id, {
+        mode: EDIT,
+        forSave: true,
+    })
 
     const { response } = await dataEngine.mutate(updateDashboardMutation, {
         variables: {
