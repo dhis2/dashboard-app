@@ -1,42 +1,103 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
-import { CHART } from '../../../../modules/itemTypes'
-import { Item } from '../Item'
+import { render } from '@testing-library/react'
+import { act } from 'react-dom/test-utils'
+import Item from '../Item'
+import { Provider } from 'react-redux'
+import configureMockStore from 'redux-mock-store'
+import WindowDimensionsProvider from '../../../WindowDimensionsProvider'
+import SystemSettingsProvider from '../../../SystemSettingsProvider'
+import { apiFetchVisualization } from '../../../../api/fetchVisualization'
 
-jest.mock('../ItemFooter', () => 'ItemFooter')
-jest.mock('../Visualization/Visualization', () => 'VisualizationComponent')
+jest.mock('../../../../api/fetchVisualization')
+jest.mock('../../../SystemSettingsProvider')
+jest.mock('../Visualization/plugin', () => {
+    return {
+        pluginIsAvailable: () => true,
+    }
+})
 
-describe('VisualizationItem/Item', () => {
-    let props
-    let shallowItem
-
-    const canvas = () => {
-        if (!shallowItem) {
-            shallowItem = shallow(<Item {...props} />)
+jest.mock(
+    '../Visualization/Visualization',
+    () =>
+        function MockVisualizationComponent(props) {
+            return <div className="mock-visualization-component" {...props} />
         }
-        return shallowItem
+)
+
+const mockStore = configureMockStore()
+
+test('Visualization/Item renders view mode', async () => {
+    const promise = Promise.resolve()
+
+    const store = {
+        itemFilters: {},
+        itemActiveTypes: {},
+        editDashboard: {},
+        visualizations: {},
     }
 
-    beforeEach(() => {
-        props = {
-            activeType: null,
-            dashboardMode: 'view',
-            isEditing: false,
-            item: {},
-            visualization: {
-                id: 'vis id',
-            },
-        }
-        shallowItem = undefined
-    })
+    const item = {
+        type: 'CHART',
+        chart: {
+            id: 'fancychart',
+            name: 'Fancy Chart',
+        },
+    }
 
-    it('does not render Visualization if config not loaded', () => {
-        props.item.type = CHART
-        props.item.chart = {
-            id: 'chart1',
-            name: 'Test chart',
-        }
-        expect(toJson(canvas())).toMatchSnapshot()
+    apiFetchVisualization.mockResolvedValue({
+        id: 'fancychart',
+        name: 'Fancy Chart',
+        type: 'COLUMN',
     })
+    const { container } = render(
+        <Provider store={mockStore(store)}>
+            <SystemSettingsProvider>
+                <WindowDimensionsProvider>
+                    <Item item={item} dashboardMode="view" />
+                </WindowDimensionsProvider>
+            </SystemSettingsProvider>
+        </Provider>
+    )
+
+    await act(() => promise)
+    expect(container).toMatchSnapshot()
+})
+
+test('Visualization/Item renders edit mode', async () => {
+    const promise = Promise.resolve()
+
+    const store = {
+        itemFilters: {},
+        itemActiveTypes: {},
+        editDashboard: {
+            id: 'fancychart',
+        },
+        visualizations: {},
+    }
+
+    const item = {
+        type: 'CHART',
+        chart: {
+            id: 'fancychart',
+            name: 'Fancy Chart',
+        },
+    }
+
+    apiFetchVisualization.mockResolvedValue({
+        id: 'fancychart',
+        name: 'Fancy Chart',
+        type: 'COLUMN',
+    })
+    const { container } = render(
+        <Provider store={mockStore(store)}>
+            <SystemSettingsProvider>
+                <WindowDimensionsProvider>
+                    <Item item={item} dashboardMode="edit" />
+                </WindowDimensionsProvider>
+            </SystemSettingsProvider>
+        </Provider>
+    )
+
+    await act(() => promise)
+    expect(container).toMatchSnapshot()
 })
