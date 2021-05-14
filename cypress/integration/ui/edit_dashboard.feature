@@ -74,6 +74,7 @@ Feature: Creating, editing and deleting dashboard
     @nonmutating
     Scenario: I move an item on a dashboard
         Given I open existing dashboard
+        Then the dashboard displays in view mode
         When I choose to edit dashboard
         Then the dashboard displays in edit mode
         And the chart item is displayed
@@ -98,6 +99,7 @@ Feature: Creating, editing and deleting dashboard
     @mutating
     Scenario: I change sharing settings of a dashboard
         Given I open existing dashboard
+        Then the dashboard displays in view mode
         When I change sharing settings
         And I choose to edit dashboard
         And dashboard is saved
