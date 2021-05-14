@@ -1,33 +1,29 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+import { render } from '@testing-library/react'
 import ContentMenuItem from '../ContentMenuItem'
 
-describe('ContentMenuItem', () => {
-    let props
-    const wrapper = () => shallow(<ContentMenuItem {...props} />)
+test('ContentMenuItem has a LaunchLink when url is provided', () => {
+    const props = {
+        name: 'Rainbow Dash',
+        type: 'pony',
+        url: 'http://ponies-r-us.com',
+        visType: 'BAR',
+        onInsert: jest.fn(),
+    }
 
-    beforeEach(() => {
-        props = {
-            type: 'pony',
-            name: 'Pinkie Pie',
-            onInsert: jest.fn(),
-        }
-    })
+    const { container } = render(<ContentMenuItem {...props} />)
 
-    it('has onClick action on the Menu Item', () => {
-        const menuItem = wrapper()
+    expect(container).toMatchSnapshot()
+})
 
-        expect(menuItem.prop('onClick')).toEqual(props.onInsert)
-    })
-
-    it('has a LaunchLink when url is provided', () => {
-        props.url = 'http://ponies-r-us.com'
-
-        expect(toJson(wrapper())).toMatchSnapshot()
-    })
-
-    it('does not have LaunchLink if no url provided', () => {
-        expect(toJson(wrapper())).toMatchSnapshot()
-    })
+test('does not have LaunchLink if no url provided', () => {
+    const props = {
+        name: 'Fancy chart',
+        type: 'VISUALIZATION',
+        url: '',
+        visType: 'BAR',
+        onInsert: jest.fn(),
+    }
+    const { container } = render(<ContentMenuItem {...props} />)
+    expect(container).toMatchSnapshot()
 })

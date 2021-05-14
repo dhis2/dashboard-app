@@ -1,13 +1,12 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import {
-    dashboardChipSel,
-    dashboardTitleSel,
-} from '../../../selectors/viewDashboard'
+import { dashboardTitleSel } from '../../../selectors/viewDashboard'
 import { filterDimensionsPanelSel } from '../../../selectors/dashboardFilter'
 import { confirmActionDialogSel } from '../../../selectors/editDashboard'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 const TEST_DASHBOARD_TITLE = `aaa-${new Date().toUTCString()}`
+
+let dashboardId
 
 /*
 Scenario: I create a new dashboard and have no Filter Restrictions
@@ -30,6 +29,9 @@ Then('Filter settings are not restricted, and I can save the dashboard', () => {
     cy.get(dashboardTitleSel)
         .should('be.visible')
         .and('contain', TEST_DASHBOARD_TITLE)
+    cy.location().should(loc => {
+        dashboardId = loc.hash
+    })
 })
 
 /*
@@ -39,10 +41,7 @@ Scenario: I change Filter Restrictions, do not confirm them, and the restriction
 Given(
     'I open an existing dashboard with non-restricted Filter settings in edit mode',
     () => {
-        cy.get(dashboardChipSel)
-            .contains(TEST_DASHBOARD_TITLE, EXTENDED_TIMEOUT)
-            .click()
-        cy.get('button').contains('Edit').click()
+        cy.visit(`/${dashboardId}/edit`)
     }
 )
 
@@ -114,7 +113,13 @@ Scenario: I change Filter Restrictions and the changes do not persist if I click
 */
 
 When('I open Edit mode', () => {
-    cy.get('button').contains('Edit').click()
+    cy.get('button', EXTENDED_TIMEOUT).contains('Edit').click()
+})
+
+Then('the dashboard displays in view mode', () => {
+    cy.get(dashboardTitleSel)
+        .should('be.visible')
+        .and('contain', TEST_DASHBOARD_TITLE)
 })
 
 /*
