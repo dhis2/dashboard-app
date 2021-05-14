@@ -116,6 +116,12 @@ When('I open Edit mode', () => {
     cy.get('button', EXTENDED_TIMEOUT).contains('Edit').click()
 })
 
+Then('the dashboard displays in view mode', () => {
+    cy.get(dashboardTitleSel)
+        .should('be.visible')
+        .and('contain', TEST_DASHBOARD_TITLE)
+})
+
 /*
 Scenario: I change Filter Restrictions, save dashboard and can see the changes in filter dimensions panel
 */
