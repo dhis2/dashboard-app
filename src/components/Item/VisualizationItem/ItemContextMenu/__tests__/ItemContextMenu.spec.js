@@ -53,7 +53,6 @@ test('renders just the button when menu closed', () => {
 
 test('renders exit fullscreen button', () => {
     useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
-
     const gridItemClassName = getGridItemDomElementClassName(
         defaultProps.item.id
     )
@@ -82,7 +81,6 @@ test('renders exit fullscreen button', () => {
 
 test('renders popover menu for BAR chart', async () => {
     useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
-
     const props = Object.assign({}, defaultProps, {
         visualization: {
             type: 'BAR',
@@ -110,7 +108,6 @@ test('renders popover menu for BAR chart', async () => {
 
 test('renders popover menu for SINGLE_VALUE chart', async () => {
     useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
-
     const props = Object.assign({}, defaultProps, {
         visualization: {
             type: 'SINGLE_VALUE',
@@ -138,7 +135,6 @@ test('renders popover menu for SINGLE_VALUE chart', async () => {
 
 test('renders popover menu for YEAR_OVER_YEAR_LINE chart', async () => {
     useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
-
     const props = Object.assign({}, defaultProps, {
         visualization: {
             type: 'YEAR_OVER_YEAR_LINE',
@@ -166,7 +162,6 @@ test('renders popover menu for YEAR_OVER_YEAR_LINE chart', async () => {
 
 test('renders popover menu for GAUGE chart', async () => {
     useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
-
     const props = Object.assign({}, defaultProps, {
         visualization: {
             type: 'GAUGE',
@@ -194,7 +189,6 @@ test('renders popover menu for GAUGE chart', async () => {
 
 test('renders popover menu for PIE chart', async () => {
     useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
-
     const props = Object.assign({}, defaultProps, {
         visualization: {
             type: 'PIE',
@@ -222,7 +216,6 @@ test('renders popover menu for PIE chart', async () => {
 
 test('renders popover menu for PIVOT_TABLE', async () => {
     useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
-
     const props = Object.assign({}, defaultProps, {
         item: {
             type: 'REPORT_TABLE',
@@ -254,7 +247,6 @@ test('renders popover menu for PIVOT_TABLE', async () => {
 
 test('renders popover menu for MAP', async () => {
     useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
-
     const props = Object.assign({}, defaultProps, {
         item: {
             type: 'MAP',
@@ -284,7 +276,6 @@ test('renders popover menu for MAP', async () => {
 
 test('renders popover menu when interpretations displayed', async () => {
     useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
-
     const props = Object.assign({}, defaultProps, {
         visualization: {
             type: 'BAR',
@@ -345,7 +336,6 @@ test('does not render "Open in [app]" option if settings do not allow', async ()
 
 test('renders only View in App when item load failed', async () => {
     useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
-
     const props = Object.assign({}, defaultProps, {
         item: {
             type: 'MAP',

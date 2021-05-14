@@ -30,7 +30,7 @@ Given('I choose to create new dashboard', () => {
 })
 
 When('I choose to edit dashboard', () => {
-    cy.get('[data-test="link-edit-dashboard"]').click()
+    cy.get('button').contains('Edit').click()
 })
 
 When('dashboard items are added', () => {
