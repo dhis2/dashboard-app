@@ -1,56 +1,120 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ContentMenuItem does not have LaunchLink if no url provided 1`] = `
-<MenuItem
-  dataTest="menu-item-Pinkie Pie"
-  icon={
-    <SvgQuestion24
-      color="#6e7a8a"
-    />
-  }
-  label={
-    <div
-      className="menuItem"
+exports[`ContentMenuItem has a LaunchLink when url is provided 1`] = `
+<div>
+  <li
+    class="jsx-665727467 "
+    data-test="menu-item-Rainbow Dash"
+  >
+    <a
+      class="jsx-665727467"
     >
-      <div
-        className="label"
+      <span
+        class="jsx-665727467 icon"
       >
-        <span>
-          Pinkie Pie
-        </span>
-      </div>
-      <InsertButton />
-    </div>
-  }
-  onClick={[MockFunction]}
-/>
+        <svg
+          color="#6e7a8a"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2a8 8 0 100 16 8 8 0 000-16zm0 12a1 1 0 110 2 1 1 0 010-2zm0-10a4 4 0 011.155 7.83l-.155.043V15h-2v-3h1a2 2 0 10-1.995-2.15L10 10H8a4 4 0 014-4z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        class="jsx-665727467 label"
+      >
+        <div
+          class="menuItem"
+        >
+          <div
+            class="label"
+          >
+            <span>
+              Rainbow Dash
+            </span>
+            <a
+              class="launchLink"
+              href="http://ponies-r-us.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <svg
+                color="#4a5768"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 2v1H3v10h10V9h1v4a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1zm7.5-1a.5.5 0 01.492.41L15 1.5v5a.5.5 0 01-.992.09L14 6.5V2.706L7.354 9.354a.5.5 0 01-.765-.638l.057-.07L13.292 2H9.5a.5.5 0 01-.492-.41L9 1.5a.5.5 0 01.41-.492L9.5 1z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+          </div>
+          <button
+            class="buttonInsert"
+          >
+            Insert
+          </button>
+        </div>
+      </span>
+    </a>
+  </li>
+</div>
 `;
 
-exports[`ContentMenuItem has a LaunchLink when url is provided 1`] = `
-<MenuItem
-  dataTest="menu-item-Pinkie Pie"
-  icon={
-    <SvgQuestion24
-      color="#6e7a8a"
-    />
-  }
-  label={
-    <div
-      className="menuItem"
+exports[`does not have LaunchLink if no url provided 1`] = `
+<div>
+  <li
+    class="jsx-665727467 "
+    data-test="menu-item-Fancy chart"
+  >
+    <a
+      class="jsx-665727467"
     >
-      <div
-        className="label"
+      <span
+        class="jsx-665727467 icon"
       >
-        <span>
-          Pinkie Pie
-        </span>
-        <LaunchLink
-          url="http://ponies-r-us.com"
-        />
-      </div>
-      <InsertButton />
-    </div>
-  }
-  onClick={[MockFunction]}
-/>
+        <svg
+          color="#6e7a8a"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4 2v18h18v2H2V2h2zm16 13v3H6v-3h14zm-4-5v3H6v-3h10zm-4-5v3H6V5h6z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        class="jsx-665727467 label"
+      >
+        <div
+          class="menuItem"
+        >
+          <div
+            class="label"
+          >
+            <span>
+              Fancy chart
+            </span>
+          </div>
+          <button
+            class="buttonInsert"
+          >
+            Insert
+          </button>
+        </div>
+      </span>
+    </a>
+  </li>
+</div>
 `;

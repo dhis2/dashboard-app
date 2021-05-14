@@ -8,7 +8,6 @@ test('selected dashboard reducer', () => {
         dashboardItems: [{ id: 'abc' }, { id: 'def' }],
         restrictFilters: true,
         allowedFilters: ['orgunit'],
-        starred: false,
         access: {},
     }
     const expectedState = {
@@ -18,7 +17,6 @@ test('selected dashboard reducer', () => {
         dashboardItems: [{ id: 'abc' }, { id: 'def' }],
         restrictFilters: true,
         allowedFilters: ['orgunit'],
-        starred: false,
         access: {},
     }
 

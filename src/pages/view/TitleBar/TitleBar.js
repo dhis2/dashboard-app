@@ -22,6 +22,7 @@ import { acSetDashboardStarred } from '../../../actions/dashboards'
 import { acSetShowDescription } from '../../../actions/showDescription'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton'
 import { sGetSelected } from '../../../reducers/selected'
+import { sGetDashboardStarred } from '../../../reducers/dashboards'
 import { sGetShowDescription } from '../../../reducers/showDescription'
 
 import classes from './styles/TitleBar.module.css'
@@ -67,6 +68,7 @@ const ViewTitleBar = ({
         console.log(`redirect to ${id}/printlayout`)
         setRedirectUrl(`${id}/printlayout`)
     }
+
     const printOipp = () => setRedirectUrl(`${id}/printoipp`)
     const enterEditMode = () => {
         console.log(`redirect to ${id}/edit`)
@@ -194,6 +196,7 @@ const ViewTitleBar = ({
                 <div
                     className={classes.titleBar}
                     style={{ position: 'relative' }}
+                    data-test="title-bar"
                 >
                     <span
                         className={classes.title}
@@ -268,6 +271,9 @@ const mapStateToProps = state => {
 
     return {
         ...dashboard,
+        starred: dashboard.id
+            ? sGetDashboardStarred(state, dashboard.id)
+            : false,
         showDescription: sGetShowDescription(state),
     }
 }

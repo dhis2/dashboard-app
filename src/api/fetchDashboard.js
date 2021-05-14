@@ -53,6 +53,8 @@ export const editDashboardQuery = {
             'name',
             'description',
             'created',
+            'favorite',
+            'favorites',
             'lastUpdated',
             'href', // needed for d2-ui-translations-dialog
         ]),

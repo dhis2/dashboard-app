@@ -1,32 +1,12 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { dashboardChipSel } from '../../../selectors/viewDashboard'
+import { dashboardTitleSel } from '../../../selectors/viewDashboard'
 import { filterDimensionsPanelSel } from '../../../selectors/dashboardFilter'
+import { confirmActionDialogSel } from '../../../selectors/editDashboard'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
-const TEST_DASHBOARD_PREFIX = 'TEST_FILTER_SETTINGS'
-const TEST_DASHBOARD_TITLE = `${TEST_DASHBOARD_PREFIX}-${new Date().toUTCString()}`
+const TEST_DASHBOARD_TITLE = `aaa-${new Date().toUTCString()}`
 
-const toggleShowMoreButton = () => {
-    cy.get('[data-test="showmore-button"]').click()
-}
-
-/*
-Background
-*/
-
-before(() => {
-    cy.request(
-        `dashboards?paging=false&fields=id&filter=name:like:${TEST_DASHBOARD_PREFIX}`
-    ).then(resp => {
-        try {
-            resp.body.dashboards.forEach(dashboard => {
-                cy.request('DELETE', `dashboards/${dashboard.id}`)
-            })
-        } catch (e) {
-            console.log(`${TEST_DASHBOARD_PREFIX} dashboards not deleted`)
-        }
-    })
-})
+let dashboardId
 
 /*
 Scenario: I create a new dashboard and have no Filter Restrictions
@@ -37,7 +17,7 @@ When('I add a dashboard title', () => {
 })
 
 When('I click on Filter settings', () => {
-    cy.get('button').contains('Filter settings').click()
+    cy.clickEditActionButton('Filter settings')
 })
 
 Then('Filter settings are not restricted, and I can save the dashboard', () => {
@@ -45,7 +25,13 @@ Then('Filter settings are not restricted, and I can save the dashboard', () => {
         .find('input')
         .should('be.checked')
     cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
-    cy.get('button').contains('Save changes').click()
+    cy.clickEditActionButton('Save changes')
+    cy.get(dashboardTitleSel)
+        .should('be.visible')
+        .and('contain', TEST_DASHBOARD_TITLE)
+    cy.location().should(loc => {
+        dashboardId = loc.hash
+    })
 })
 
 /*
@@ -55,11 +41,7 @@ Scenario: I change Filter Restrictions, do not confirm them, and the restriction
 Given(
     'I open an existing dashboard with non-restricted Filter settings in edit mode',
     () => {
-        toggleShowMoreButton()
-        cy.get(dashboardChipSel)
-            .contains(TEST_DASHBOARD_TITLE, EXTENDED_TIMEOUT)
-            .click()
-        cy.get('button').contains('Edit').click()
+        cy.visit(`/${dashboardId}/edit`)
     }
 )
 
@@ -131,7 +113,13 @@ Scenario: I change Filter Restrictions and the changes do not persist if I click
 */
 
 When('I open Edit mode', () => {
-    cy.get('button').contains('Edit').click()
+    cy.get('button', EXTENDED_TIMEOUT).contains('Edit').click()
+})
+
+Then('the dashboard displays in view mode', () => {
+    cy.get(dashboardTitleSel)
+        .should('be.visible')
+        .and('contain', TEST_DASHBOARD_TITLE)
 })
 
 /*
@@ -143,7 +131,7 @@ When('I remove all filters from selected filters', () => {
 })
 
 When('I save the dashboard', () => {
-    cy.get('button').contains('Save changes').click()
+    cy.clickEditActionButton('Save changes')
 })
 
 When('I click Add Filter', () => {
@@ -172,4 +160,15 @@ Scenario: I restrict filters to no dimensions and do not see Add Filter in dashb
 
 Then('Add Filter button is not visible', () => {
     cy.contains('Add filter').should('not.exist')
+})
+
+When('I delete the dashboard', () => {
+    cy.clickEditActionButton('Delete')
+    cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
+})
+
+Then('different dashboard displays in view mode', () => {
+    cy.get(dashboardTitleSel)
+        .should('be.visible')
+        .and('not.contain', TEST_DASHBOARD_TITLE)
 })

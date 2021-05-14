@@ -96,7 +96,6 @@ const ViewDashboard = props => {
             await props.fetchDashboard(props.id, props.username)
 
             setSelectedIsLoaded(true)
-
             clearTimeout(alertTimeout)
             setLoadingMessage(null)
         }
@@ -204,6 +203,7 @@ ViewDashboard.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
     const dashboard = sGetDashboardById(state, ownProps.id) || {}
+
     return {
         passiveViewRegistered: sGetPassiveViewRegistered(state),
         name: dashboard.displayName || null,

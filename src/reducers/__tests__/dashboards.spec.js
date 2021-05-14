@@ -15,27 +15,25 @@ const dashId3 = 'dash3'
 const dashId4 = 'dash4'
 
 const dashboardsState = {
-    byId: {
-        [dashId1]: {
-            id: dashId1,
-            displayName: 'una cruscotto non stellato',
-            starred: false,
-        },
-        [dashId2]: {
-            id: dashId2,
-            displayName: 'una cruscotto con stelle',
-            starred: true,
-        },
-        [dashId3]: {
-            id: dashId3,
-            displayName: 'cruscotto non stellato',
-            starred: false,
-        },
-        [dashId4]: {
-            id: dashId4,
-            displayName: 'cruscotto con stelle',
-            starred: true,
-        },
+    [dashId1]: {
+        id: dashId1,
+        displayName: 'una cruscotto non stellato',
+        starred: false,
+    },
+    [dashId2]: {
+        id: dashId2,
+        displayName: 'una cruscotto con stelle',
+        starred: true,
+    },
+    [dashId3]: {
+        id: dashId3,
+        displayName: 'cruscotto non stellato',
+        starred: false,
+    },
+    [dashId4]: {
+        id: dashId4,
+        displayName: 'cruscotto con stelle',
+        starred: true,
     },
 }
 
@@ -60,9 +58,7 @@ describe('dashboards reducer', () => {
             value: dashboards,
         })
 
-        const expectedState = {
-            byId: dashboards,
-        }
+        const expectedState = dashboards
 
         expect(actualState).toEqual(expectedState)
     })
@@ -75,10 +71,7 @@ describe('dashboards reducer', () => {
 
         const expectedState = {
             ...dashboardsState,
-            byId: {
-                ...dashboardsState.byId,
-                ...dashboards,
-            },
+            ...dashboards,
         }
 
         expect(actualState).toEqual(expectedState)
@@ -89,18 +82,15 @@ describe('dashboards reducer', () => {
 
         const actualState = reducer(dashboardsState, {
             type: SET_DASHBOARD_STARRED,
-            dashboardId: dashId1,
+            id: dashId1,
             value: starredValue,
         })
 
         const expectedState = {
             ...dashboardsState,
-            byId: {
-                ...dashboardsState.byId,
-                [dashId1]: {
-                    ...dashboardsState.byId[dashId1],
-                    starred: starredValue,
-                },
+            [dashId1]: {
+                ...dashboardsState[dashId1],
+                starred: starredValue,
             },
         }
 
@@ -112,10 +102,10 @@ const testState = {
     dashboards: dashboardsState,
 }
 
-const dash1 = dashboardsState.byId[dashId1]
-const dash2 = dashboardsState.byId[dashId2]
-const dash3 = dashboardsState.byId[dashId3]
-const dash4 = dashboardsState.byId[dashId4]
+const dash1 = dashboardsState[dashId1]
+const dash2 = dashboardsState[dashId2]
+const dash3 = dashboardsState[dashId3]
+const dash4 = dashboardsState[dashId4]
 
 describe('dashboards selectors', () => {
     it('sGetDashboardsRoot: should return the root prop', () => {
@@ -127,7 +117,7 @@ describe('dashboards selectors', () => {
     it('sGetDashboardById: should return dashboard with the provided id', () => {
         const actualState = sGetDashboardById(testState, dashId1)
 
-        expect(actualState).toEqual(dashboardsState.byId[dashId1])
+        expect(actualState).toEqual(dashboardsState[dashId1])
     })
 
     it('sGetDashboardById: should return undefined', () => {
@@ -139,7 +129,7 @@ describe('dashboards selectors', () => {
     it('sGetAllDashboards: should return an object with all dashboards', () => {
         const actualState = sGetAllDashboards(testState)
 
-        expect(actualState).toEqual(dashboardsState.byId)
+        expect(actualState).toEqual(dashboardsState)
     })
 
     it('sGetDashboardsSortedByStarred: should return an array of dashboards sorted by starred/displayName-asc, then unstarred/displayName-asc', () => {

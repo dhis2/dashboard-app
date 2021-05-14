@@ -5,6 +5,7 @@ import configureMockStore from 'redux-mock-store'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { useDataEngine } from '@dhis2/app-runtime'
 import ActionsBar from '../ActionsBar'
+import { NEW_DASHBOARD_STATE } from '../../../reducers/editDashboard'
 
 const mockStore = configureMockStore()
 
@@ -93,15 +94,9 @@ test('renders only the Go to Dashboards button when no update access', async () 
     expect(container).toMatchSnapshot()
 })
 
-test('renders Save and Discard buttons but no dialogs when new dashboard (no dashboard id)', async () => {
+test('renders Save and Discard buttons but not translation dialog when new dashboard (no dashboard id)', async () => {
     const store = {
-        editDashboard: {
-            id: '',
-            name: '',
-            access: {},
-            printPreviewView: false,
-            isDirty: false,
-        },
+        editDashboard: NEW_DASHBOARD_STATE,
     }
 
     const { container } = render(

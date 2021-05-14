@@ -57,7 +57,7 @@ When('I click outside menu', () => {
 })
 
 When('dashboard is saved', () => {
-    cy.get('button').contains('Save changes', EXTENDED_TIMEOUT).click()
+    cy.clickEditActionButton('Save changes')
 })
 
 Then('the saved dashboard should be displayed', () => {
@@ -98,18 +98,12 @@ Given('I open existing dashboard', () => {
 })
 
 When('I choose to delete dashboard', () => {
-    cy.get('button').contains('Delete').click()
+    cy.clickEditActionButton('Delete')
 })
 
 /*
 Scenario: I exit without saving
 */
-When('I confirm I want to discard changes', () => {
-    cy.get(confirmActionDialogSel)
-        .find('button')
-        .contains('Yes, discard changes')
-        .click()
-})
 
 When('I decide to continue editing', () => {
     cy.get(confirmActionDialogSel)

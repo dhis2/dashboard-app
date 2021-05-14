@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
+"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: trendspotter, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -21,60 +21,8 @@ msgstr "Ovládací panel bez názvu"
 msgid "Loading dashboard – {{name}}"
 msgstr "Načítání ovládacího panelu – {{name}}"
 
-msgid "Cancel"
-msgstr "Zrušit"
-
-msgid "Delete"
-msgstr "Smazat"
-
-msgid "Delete dashboard"
-msgstr "Smazat ovládací panel"
-
-msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
-"This action cannot be undone. Are you sure you want to permanently delete "
-"this dashboard?"
+msgid "Loading dashboard"
 msgstr ""
-"Smazáním ovládacího panelu \"{{ dashboardName }}\"  bude odstraněn pro "
-"všechny uživatele. Tuto akci nelze vrátit zpět. Opravdu chcete tento "
-"ovládací panel trvale smazat?"
-
-msgid ""
-"Failed to save dashboard. You might be offline or not have access to edit "
-"this dashboard."
-msgstr ""
-"Uložení ovládacího panelu se nezdařilo. Možná jste offline nebo nemáte "
-"přístup k úpravám tohoto ovládacího panelu."
-
-msgid "Save changes"
-msgstr "Uložit změny"
-
-msgid "Exit Print preview"
-msgstr "Ukončit náhled tisku"
-
-msgid "Print preview"
-msgstr "Náhled před tiskem"
-
-msgid "Filter settings"
-msgstr "Nastavení filtru"
-
-msgid "Translate"
-msgstr "Přeložit"
-
-msgid "Exit without saving"
-msgstr "Odejít bez uložení"
-
-msgid "Go to dashboards"
-msgstr "Přejít na ovládací panely"
-
-msgid "Search for a dashboard"
-msgstr "Vyhledat ovládací panel"
-
-msgid "Show fewer dashboards"
-msgstr "Zobrazit méně ovládacích panelů"
-
-msgid "Show more dashboards"
-msgstr "Zobrazit další ovládací panely"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -84,70 +32,8 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr "Požadovaný ovládací panel nebyl nalezen"
 
-msgid "No access"
-msgstr "Žádný přístup"
-
-msgid ""
-"Editing dashboards on small screens is not supported. Resize your screen to "
-"return to edit mode."
+msgid "Remove this item"
 msgstr ""
-"Úpravy ovládacích panelů na malých obrazovkách nejsou podporovány. Změňte "
-"velikost obrazovky a vraťte se do režimu úprav."
-
-msgid ""
-"Creating dashboards on small screens is not supported. Resize your screen to"
-" return to create mode."
-msgstr ""
-"Vytváření ovládacích panelů na malých obrazovkách není podporováno. Změňte "
-"velikost obrazovky a vraťte se do režimu vytváření."
-
-msgid "Not supported"
-msgstr "Není podporováno"
-
-msgid "Exit print preview"
-msgstr "Ukončit náhled tisku"
-
-msgid "Print"
-msgstr "Tisk"
-
-msgid "dashboard layout"
-msgstr "rozložení ovládacího panelu"
-
-msgid "one item per page"
-msgstr "jedna položka na stránku"
-
-msgid "Print Preview"
-msgstr "Náhled před tiskem"
-
-msgid "For best print results"
-msgstr "Pro nejlepší výsledky tisku"
-
-msgid "Use Chrome or Edge web browser"
-msgstr "Použijte webový prohlížeč Chrome nebo Edge"
-
-msgid "Wait for all dashboard items to load before printing"
-msgstr ""
-"Před tiskem počkejte, až se načtou všechny položky na ovládacím panelu"
-
-msgid ""
-"Use A4 landscape paper size and default margin settings in the browser print"
-" dialog"
-msgstr ""
-"V dialogovém okně pro tisk v prohlížeči použijte formát papíru A4 na šířku a"
-" výchozí nastavení okrajů"
-
-msgid "{{count}} selected"
-msgid_plural "{{count}} selected"
-msgstr[0] "Vybráno {{count}}"
-msgstr[1] "Vybráno {{count}}"
-msgstr[2] "Vybráno {{count}}"
-msgstr[3] "Vybráno {{count}}"
-
-msgid "Remove"
-msgstr "Odebrat"
-
-msgid "Delete item"
-msgstr "Odstranit položku"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Tato položka byla zkrácena tak, aby se vešla na jednu stránku"
@@ -182,11 +68,11 @@ msgstr "Sem přidat text"
 msgid "There was a problem loading this dashboard item"
 msgstr "Při načítání této položky ovládacího panelu došlo k problému"
 
-msgid "Hide interpretations and details"
-msgstr "Skrýt interpretace a podrobnosti"
+msgid "Hide details and interpretations"
+msgstr ""
 
-msgid "Show interpretations and details"
-msgstr "Zobrazit interpretace a podrobnosti"
+msgid "Show details and interpretations"
+msgstr ""
 
 msgid "Open in {{appName}} app"
 msgstr "Otevřít v aplikaci {{appName}}"
@@ -218,107 +104,6 @@ msgstr "Nelze načíst plugin pro tuto položku"
 msgid "No data to display"
 msgstr "Žádná data k zobrazení"
 
-msgid "Confirm"
-msgstr "Potvrdit"
-
-msgid "Add filter"
-msgstr "Přidat filtr"
-
-msgid "Allow filtering by all dimensions"
-msgstr "Povolit filtrování podle všech dimenzí"
-
-msgid "Only allow filtering by selected dimensions"
-msgstr "Povolit filtrování pouze podle vybraných dimenzí"
-
-msgid "Dashboard filter settings"
-msgstr "Nastavení filtru ovládacího panelu"
-
-msgid ""
-"Dashboards can be filtered by dimensions to change\n"
-"                                         the data shown. By default, all dimensions are available\n"
-"                                         as filters. Alternatively, only selected dimensions can\n"
-"                                         be made available on a dashboard."
-msgstr ""
-"Ovládací panely lze filtrovat podle dimenzí a měnit jejich\n"
-"                                         zobrazené údaje. Ve výchozím nastavení jsou k dispozici všechny dimenze\n"
-"                                         jako filtry. Alternativně mohou pouze vybrané rozměry\n"
-"                                         být k dispozici na ovládacím panelu."
-
-msgid "Available Filters"
-msgstr "Dostupné filtry"
-
-msgid "Selected Filters"
-msgstr "Vybrané filtry"
-
-msgid "There are no items on this dashboard"
-msgstr "Na tomto ovládacím panelu nejsou žádné položky"
-
-msgid "Show fewer"
-msgstr "Zobrazit méně"
-
-msgid "Show more"
-msgstr "Zobrazit více"
-
-msgid "Insert"
-msgstr "Vložit"
-
-msgid "Search for items to add to this dashboard"
-msgstr "Vyhledat položky, které chcete přidat na tento ovládací panel"
-
-msgid "Additional items"
-msgstr "Další položky"
-
-msgid "Text box"
-msgstr "Textové pole"
-
-msgid "Dashboard title"
-msgstr "Název ovládacího panelu"
-
-msgid "Dashboard description"
-msgstr "Popis ovládacího panelu"
-
-msgid "Hide description"
-msgstr "Skrýt popis"
-
-msgid "Show description"
-msgstr "Ukázat popis"
-
-msgid "Failed to hide description"
-msgstr "Skrytí popisu se nezdařilo"
-
-msgid "Failed to show description"
-msgstr "Popis se nepodařilo zobrazit"
-
-msgid "Unstar dashboard"
-msgstr "Zrušit označení ovládacího panelu"
-
-msgid "Star dashboard"
-msgstr "Označit ovládací panel"
-
-msgid "Failed to unstar the dashboard"
-msgstr "Zrušit označení hvězdičky na ovládacím panelu se nezdařilo"
-
-msgid "Failed to star the dashboard"
-msgstr "Označení ovládacího panelu hvězdičkou se nezdařilo"
-
-msgid "More"
-msgstr "Více"
-
-msgid "Edit"
-msgstr "Upravit"
-
-msgid "Share"
-msgstr "Sdílet"
-
-msgid "Dashboard layout"
-msgstr "Rozložení ovládacího panelu"
-
-msgid "One item per page"
-msgstr "Jedna položka na stránku"
-
-msgid "No description"
-msgstr "Bez popisu"
-
 msgid "Visualizations"
 msgstr "Vizualizace"
 
@@ -348,3 +133,243 @@ msgstr "Zdroje"
 
 msgid "Users"
 msgstr "Uživatelé"
+
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+"Uložení ovládacího panelu se nezdařilo. Možná jste offline nebo nemáte "
+"přístup k úpravám tohoto ovládacího panelu."
+
+msgid ""
+"Failed to delete dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid "Save changes"
+msgstr "Uložit změny"
+
+msgid "Exit Print preview"
+msgstr "Ukončit náhled tisku"
+
+msgid "Print preview"
+msgstr "Náhled před tiskem"
+
+msgid "Filter settings"
+msgstr "Nastavení filtru"
+
+msgid "Translate"
+msgstr "Přeložit"
+
+msgid "Delete"
+msgstr "Smazat"
+
+msgid "Exit without saving"
+msgstr "Odejít bez uložení"
+
+msgid "Go to dashboards"
+msgstr "Přejít na ovládací panely"
+
+msgid "Delete dashboard"
+msgstr "Smazat ovládací panel"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+"Smazáním ovládacího panelu \"{{ dashboardName }}\"  bude odstraněn pro "
+"všechny uživatele. Tuto akci nelze vrátit zpět. Opravdu chcete tento "
+"ovládací panel trvale smazat?"
+
+msgid "Cancel"
+msgstr "Zrušit"
+
+msgid "Discard changes"
+msgstr "Zrušit změny"
+
+msgid ""
+"This dashboard has unsaved changes. Are you sure you want to leave and "
+"discard these unsaved changes?"
+msgstr ""
+
+msgid "No, stay here"
+msgstr "Ne, zůstat zde"
+
+msgid "Yes, discard changes"
+msgstr ""
+
+msgid "No access"
+msgstr "Žádný přístup"
+
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
+msgstr ""
+"Úpravy ovládacích panelů na malých obrazovkách nejsou podporovány. Změňte "
+"velikost obrazovky a vraťte se do režimu úprav."
+
+msgid "Allow filtering by all dimensions"
+msgstr "Povolit filtrování podle všech dimenzí"
+
+msgid "Only allow filtering by selected dimensions"
+msgstr "Povolit filtrování pouze podle vybraných dimenzí"
+
+msgid "Dashboard filter settings"
+msgstr "Nastavení filtru ovládacího panelu"
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+"Ovládací panely lze filtrovat podle dimenzí a měnit jejich\n"
+"                                         zobrazené údaje. Ve výchozím nastavení jsou k dispozici všechny dimenze\n"
+"                                         jako filtry. Alternativně mohou pouze vybrané rozměry\n"
+"                                         být k dispozici na ovládacím panelu."
+
+msgid "Available Filters"
+msgstr "Dostupné filtry"
+
+msgid "Selected Filters"
+msgstr "Vybrané filtry"
+
+msgid "Confirm"
+msgstr "Potvrdit"
+
+msgid "There are no items on this dashboard"
+msgstr "Na tomto ovládacím panelu nejsou žádné položky"
+
+msgid "Show fewer"
+msgstr "Zobrazit méně"
+
+msgid "Show more"
+msgstr "Zobrazit více"
+
+msgid "Insert"
+msgstr "Vložit"
+
+msgid "Search for items to add to this dashboard"
+msgstr "Vyhledat položky, které chcete přidat na tento ovládací panel"
+
+msgid "Additional items"
+msgstr "Další položky"
+
+msgid "Text box"
+msgstr "Textové pole"
+
+msgid ""
+"Creating dashboards on small screens is not supported. Resize your screen to"
+" return to create mode."
+msgstr ""
+"Vytváření ovládacích panelů na malých obrazovkách není podporováno. Změňte "
+"velikost obrazovky a vraťte se do režimu vytváření."
+
+msgid "Not supported"
+msgstr "Není podporováno"
+
+msgid "Dashboard title"
+msgstr "Název ovládacího panelu"
+
+msgid "Dashboard description"
+msgstr "Popis ovládacího panelu"
+
+msgid "Exit print preview"
+msgstr "Ukončit náhled tisku"
+
+msgid "Print"
+msgstr "Tisk"
+
+msgid "dashboard layout"
+msgstr "rozložení ovládacího panelu"
+
+msgid "one item per page"
+msgstr "jedna položka na stránku"
+
+msgid "Print Preview"
+msgstr "Náhled před tiskem"
+
+msgid "For best print results"
+msgstr "Pro nejlepší výsledky tisku"
+
+msgid "Use Chrome or Edge web browser"
+msgstr "Použijte webový prohlížeč Chrome nebo Edge"
+
+msgid "Wait for all dashboard items to load before printing"
+msgstr ""
+"Před tiskem počkejte, až se načtou všechny položky na ovládacím panelu"
+
+msgid ""
+"Use A4 landscape paper size and default margin settings in the browser print"
+" dialog"
+msgstr ""
+"V dialogovém okně pro tisk v prohlížeči použijte formát papíru A4 na šířku a"
+" výchozí nastavení okrajů"
+
+msgid "Create a new dashboard"
+msgstr ""
+
+msgid "Search for a dashboard"
+msgstr "Vyhledat ovládací panel"
+
+msgid "Show fewer dashboards"
+msgstr "Zobrazit méně ovládacích panelů"
+
+msgid "Show more dashboards"
+msgstr "Zobrazit další ovládací panely"
+
+msgid "{{count}} selected"
+msgid_plural "{{count}} selected"
+msgstr[0] "Vybráno {{count}}"
+msgstr[1] "Vybráno {{count}}"
+msgstr[2] "Vybráno {{count}}"
+msgstr[3] "Vybráno {{count}}"
+
+msgid "Remove"
+msgstr "Odebrat"
+
+msgid "Add filter"
+msgstr "Přidat filtr"
+
+msgid "Hide description"
+msgstr "Skrýt popis"
+
+msgid "Show description"
+msgstr "Ukázat popis"
+
+msgid "Failed to hide description"
+msgstr "Skrytí popisu se nezdařilo"
+
+msgid "Failed to show description"
+msgstr "Popis se nepodařilo zobrazit"
+
+msgid "Unstar dashboard"
+msgstr "Zrušit označení ovládacího panelu"
+
+msgid "Star dashboard"
+msgstr "Označit ovládací panel"
+
+msgid "Failed to unstar the dashboard"
+msgstr "Zrušit označení hvězdičky na ovládacím panelu se nezdařilo"
+
+msgid "Failed to star the dashboard"
+msgstr "Označení ovládacího panelu hvězdičkou se nezdařilo"
+
+msgid "Dashboard layout"
+msgstr "Rozložení ovládacího panelu"
+
+msgid "One item per page"
+msgstr "Jedna položka na stránku"
+
+msgid "More"
+msgstr "Více"
+
+msgid "Edit"
+msgstr "Upravit"
+
+msgid "Share"
+msgstr "Sdílet"
+
+msgid "No description"
+msgstr "Bez popisu"

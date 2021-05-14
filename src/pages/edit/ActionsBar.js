@@ -22,6 +22,7 @@ import {
 } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
 import { tFetchDashboards } from '../../actions/dashboards'
+import { acClearSelected } from '../../actions/selected'
 import { deleteDashboardMutation } from './deleteDashboardMutation'
 import {
     sGetEditDashboardRoot,
@@ -39,7 +40,7 @@ const deleteFailedMessage = i18n.t(
     'Failed to delete dashboard. You might be offline or not have access to edit this dashboard.'
 )
 
-const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
+const EditBar = ({ dashboard, ...props }) => {
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
@@ -72,7 +73,11 @@ const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
             .mutate(deleteDashboardMutation, {
                 variables: { id: dashboard.id },
             })
-            .then(props.fetchDashboards)
+            .then(() => {
+                props.clearSelected()
+
+                return props.fetchDashboards()
+            })
             .then(() => setRedirectUrl('/'))
             .catch(deleteFailureAlert.show)
     }
@@ -81,13 +86,14 @@ const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
         props
             .saveDashboard()
             .then(newId => {
+                props.clearSelected()
                 setRedirectUrl(`/${newId}`)
             })
             .catch(() => saveFailureAlert.show())
     }
 
     const onPrintPreview = () => {
-        if (isPrintPreviewView) {
+        if (props.isPrintPreviewView) {
             props.clearPrintPreview()
             props.clearPrintDashboard()
         } else {
@@ -174,7 +180,7 @@ const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
                 {i18n.t('Save changes')}
             </Button>
             <Button onClick={onPrintPreview}>
-                {isPrintPreviewView
+                {props.isPrintPreviewView
                     ? i18n.t('Exit Print preview')
                     : i18n.t('Print preview')}
             </Button>
@@ -239,6 +245,7 @@ const EditBar = ({ dashboard, isPrintPreviewView, ...props }) => {
 EditBar.propTypes = {
     clearPrintDashboard: PropTypes.func,
     clearPrintPreview: PropTypes.func,
+    clearSelected: PropTypes.func,
     dashboard: PropTypes.object,
     fetchDashboards: PropTypes.func,
     isDirty: PropTypes.bool,
@@ -260,6 +267,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     clearPrintDashboard: () => dispatch(acClearPrintDashboard()),
     clearPrintPreview: () => dispatch(acClearPrintPreviewView()),
+    clearSelected: () => dispatch(acClearSelected()),
     saveDashboard: () => dispatch(tSaveDashboard()).then(id => id),
     fetchDashboards: () => dispatch(tFetchDashboards()),
     onDiscardChanges: () => dispatch(acClearEditDashboard()),

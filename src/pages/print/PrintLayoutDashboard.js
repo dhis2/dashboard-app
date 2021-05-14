@@ -44,7 +44,6 @@ const PrintLayoutDashboard = ({
     updateDashboardItem,
     fromEdit,
 }) => {
-    console.log('PrintLayoutDashboard', dashboard, id)
     const dataEngine = useDataEngine()
     const [redirectUrl, setRedirectUrl] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
