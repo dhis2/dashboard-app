@@ -19,19 +19,19 @@ Feature: Error scenarios
         When I open the "Delivery" dashboard
         Then the "Delivery" dashboard displays in view mode
 
-    @nonmutating
-    Scenario: I navigate to print dashboard that doesn't exist
-        Given I type an invalid print dashboard id in the browser url
-        Then a message displays informing that the dashboard is not found
-        When I open the "Delivery" dashboard
-        Then the "Delivery" dashboard displays in view mode
+    # @nonmutating
+    # Scenario: I navigate to print dashboard that doesn't exist
+    #     Given I type an invalid print dashboard id in the browser url
+    #     Then a message displays informing that the dashboard is not found
+    #     When I open the "Delivery" dashboard
+    #     Then the "Delivery" dashboard displays in view mode
 
-    @nonmutating
-    Scenario: I navigate to print layout dashboard that doesn't exist
-        Given I type an invalid print layout dashboard id in the browser url
-        Then a message displays informing that the dashboard is not found
-        When I open the "Delivery" dashboard
-        Then the "Delivery" dashboard displays in view mode
+    # @nonmutating
+    # Scenario: I navigate to print layout dashboard that doesn't exist
+    #     Given I type an invalid print layout dashboard id in the browser url
+    #     Then a message displays informing that the dashboard is not found
+    #     When I open the "Delivery" dashboard
+    #     Then the "Delivery" dashboard displays in view mode
 
     @nonmutating
     Scenario: An error occurs while saving a dashboard that I don't have access to

@@ -16,7 +16,7 @@ import { getGridItemElement } from './getGridItemElement'
 import { WindowDimensionsCtx } from '../../WindowDimensionsProvider'
 import { SystemSettingsCtx } from '../../SystemSettingsProvider'
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
-import { apiFetchVisualization } from '../../../api/metadata'
+import { apiFetchVisualization } from '../../../api/fetchVisualization'
 import { sGetVisualization } from '../../../reducers/visualizations'
 import { sGetItemActiveType } from '../../../reducers/itemActiveTypes'
 import { sGetIsEditing } from '../../../reducers/editDashboard'
@@ -37,7 +37,7 @@ import {
 } from '../../../modules/dashboardModes'
 import { getItemHeightPx } from '../../../modules/gridUtil'
 
-export class Item extends Component {
+class Item extends Component {
     state = {
         showFooter: false,
         configLoaded: false,
