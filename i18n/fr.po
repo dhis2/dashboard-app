@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
+"POT-Creation-Date: 2021-05-12T08:56:39.093Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Yao Selom Saka <ysaka@hispwca.org>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -25,20 +25,6 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Tableau de bord sans titre"
-
-msgid "Loading dashboard – {{name}}"
-msgstr "Chargement du tableau de bord - {{nom}}"
-
-msgid "Loading dashboard"
-msgstr "Chargement du tableau de bord"
-
-msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr ""
-"Aucun tableau de bord trouvé. Utilisez le bouton + pour créer un nouveau "
-"tableau de bord."
-
-msgid "Requested dashboard not found"
-msgstr "Tableau de bord demandé introuvable"
 
 msgid "Remove this item"
 msgstr ""
@@ -321,6 +307,14 @@ msgstr ""
 "Utilisez un format de papier A4 paysage et les paramètres de marge par "
 "défaut dans la boîte de dialogue d'impression du navigateur"
 
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+"Aucun tableau de bord trouvé. Utilisez le bouton + pour créer un nouveau "
+"tableau de bord."
+
+msgid "Requested dashboard not found"
+msgstr "Tableau de bord demandé introuvable"
+
 msgid "Create a new dashboard"
 msgstr ""
 
@@ -385,3 +379,9 @@ msgstr "Partager"
 
 msgid "No description"
 msgstr "Pas de description"
+
+msgid "Loading dashboard – {{name}}"
+msgstr "Chargement du tableau de bord - {{nom}}"
+
+msgid "Loading dashboard"
+msgstr "Chargement du tableau de bord"

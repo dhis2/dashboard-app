@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
+"POT-Creation-Date: 2021-05-12T08:56:39.093Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Ulanbek Abakirov <ulans@mail.ru>, 2021\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
@@ -19,20 +19,6 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr ""
-
-msgid "Loading dashboard – {{name}}"
-msgstr ""
-
-msgid "Loading dashboard"
-msgstr ""
-
-msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr ""
-"Информационные Панели не найдены. Используйте кнопку + для создания новой "
-"информационной панели."
-
-msgid "Requested dashboard not found"
-msgstr "Запрашиваемая информационная панель не найдена"
 
 msgid "Remove this item"
 msgstr ""
@@ -293,6 +279,14 @@ msgid ""
 " dialog"
 msgstr ""
 
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+"Информационные Панели не найдены. Используйте кнопку + для создания новой "
+"информационной панели."
+
+msgid "Requested dashboard not found"
+msgstr "Запрашиваемая информационная панель не найдена"
+
 msgid "Create a new dashboard"
 msgstr ""
 
@@ -359,3 +353,9 @@ msgstr "Поделиться"
 
 msgid "No description"
 msgstr "Нет описания"
+
+msgid "Loading dashboard – {{name}}"
+msgstr ""
+
+msgid "Loading dashboard"
+msgstr ""
