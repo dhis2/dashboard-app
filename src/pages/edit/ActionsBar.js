@@ -12,7 +12,7 @@ import FilterSettingsDialog from './FilterSettingsDialog'
 import ConfirmActionDialog, {
     ACTION_DELETE,
     ACTION_DISCARD,
-} from './ConfirmActionDialog'
+} from '../../components/ConfirmActionDialog'
 import {
     tSaveDashboard,
     acClearEditDashboard,

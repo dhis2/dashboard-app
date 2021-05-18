@@ -12,8 +12,9 @@ import {
 
 import classes from './styles/ConfirmActionDialog.module.css'
 
-export const ACTION_DELETE = 'delete'
-export const ACTION_DISCARD = 'discard'
+export const ACTION_DELETE = 'delete_dashboard'
+export const ACTION_DISCARD = 'discard_changes_to_dashboard'
+export const ACTION_CLEAR_ALL_FILTERS = 'clear_all_filters'
 
 const ConfirmActionDialog = ({
     action,
@@ -39,6 +40,14 @@ const ConfirmActionDialog = ({
             ),
             cancel: i18n.t('No, stay here'),
             confirm: i18n.t('Yes, discard changes'),
+        },
+        [ACTION_CLEAR_ALL_FILTERS]: {
+            title: i18n.t('Removing filters while offline'),
+            message: i18n.t(
+                'Removing this filter while offline will remove all other filters. Do you want to remove all filters on this dashboard?'
+            ),
+            cancel: i18n.t('No, cancel'),
+            confirm: i18n.t('Yes, remove filters'),
         },
     }
 

@@ -124,9 +124,9 @@ const ViewDashboard = props => {
 
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
 
-    console.log(
-        `loaded: ${props.isLoaded}, selectedIsLoaded: ${selectedIsLoaded}`
-    )
+    // console.log(
+    //     `loaded: ${props.isLoaded}, selectedIsLoaded: ${selectedIsLoaded}`
+    // )
     const getContent = () => {
         if (!isOnline && !props.isLoaded && !isCached) {
             return (
