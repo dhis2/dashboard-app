@@ -95,6 +95,16 @@ Given('I open existing dashboard', () => {
     cy.get(dashboardChipSel, EXTENDED_TIMEOUT)
         .contains(TEST_DASHBOARD_TITLE)
         .click()
+
+    cy.location().should(loc => {
+        const currentRoute = getRouteFromHash(loc.hash)
+
+        expect(nonViewRoutes).not.to.include(currentRoute)
+        expect([ROOT_ROUTE_LENGTH, UID_LENGTH]).to.include(currentRoute.length)
+    })
+    cy.get(dashboardTitleSel)
+        .should('be.visible')
+        .and('contain', TEST_DASHBOARD_TITLE)
 })
 
 When('I choose to delete dashboard', () => {
