@@ -4,10 +4,12 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
-import { Button, ButtonStrip } from '@dhis2/ui'
+import { ButtonStrip } from '@dhis2/ui'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { useOnlineStatus } from '../../modules/useOnlineStatus'
 
+import Button from '../../components/ButtonWithTooltip'
 import FilterSettingsDialog from './FilterSettingsDialog'
 import ConfirmActionDialog, {
     ACTION_DELETE,
@@ -43,6 +45,7 @@ const deleteFailedMessage = i18n.t(
 const EditBar = ({ dashboard, ...props }) => {
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
+    const { isOnline, toggleIsOnline } = useOnlineStatus()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
     const [filterSettingsDlgIsOpen, setFilterSettingsDlgIsOpen] = useState(
         false
@@ -213,11 +216,30 @@ const EditBar = ({ dashboard, ...props }) => {
 
     return (
         <>
-            <div className={classes.editBar} data-test="edit-control-bar">
+            <div
+                className={classes.editBar}
+                data-test="edit-control-bar"
+                style={{ position: 'relative' }}
+            >
                 <div className={classes.controls}>
                     {dashboard.access?.update ? renderActionButtons() : null}
-                    <Button secondary onClick={onConfirmDiscard}>
+                    <Button
+                        secondary
+                        onClick={onConfirmDiscard}
+                        disabledWhenOffline={false}
+                    >
                         {discardBtnText}
+                    </Button>
+                </div>
+                <div
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        right: 0,
+                    }}
+                >
+                    <Button dense onClick={toggleIsOnline}>
+                        {`You are ${isOnline ? 'online' : 'offline'}`}
                     </Button>
                 </div>
             </div>

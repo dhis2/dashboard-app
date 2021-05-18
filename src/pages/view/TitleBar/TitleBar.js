@@ -65,13 +65,11 @@ const ViewTitleBar = ({
             : setMoreOptionsIsOpen(!moreOptionsIsOpen)
 
     const printLayout = () => {
-        console.log(`redirect to ${id}/printlayout`)
         setRedirectUrl(`${id}/printlayout`)
     }
 
     const printOipp = () => setRedirectUrl(`${id}/printoipp`)
     const enterEditMode = () => {
-        console.log(`redirect to ${id}/edit`)
         setRedirectUrl(`${id}/edit`)
     }
 
