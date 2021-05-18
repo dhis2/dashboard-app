@@ -32,7 +32,6 @@ export const tSetSelectedDashboardById = (id, username) => (
     dataEngine
 ) => {
     return apiFetchDashboard(dataEngine, id, { mode: VIEW }).then(dashboard => {
-        //add the dashboard to the list of dashboards if not already there
         dispatch(
             acAppendDashboards([
                 {

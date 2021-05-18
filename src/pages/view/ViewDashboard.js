@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import {
-    // Layer,
-    // CenteredContent,
-    // CircularLoader,
+    Layer,
+    CenteredContent,
+    CircularLoader,
     ComponentCover,
     AlertStack,
     AlertBar,
@@ -47,7 +47,7 @@ const ViewDashboard = props => {
     const [loadingMessage, setLoadingMessage] = useState(null)
     const [selectedIsLoaded, setSelectedIsLoaded] = useState(false)
     const { isOnline } = useOnlineStatus()
-    const { lastUpdated } = useCacheableSectionStatus(props.id)
+    const { lastUpdated: isCached } = useCacheableSectionStatus(props.id)
 
     useEffect(() => {
         setHeaderbarVisible(true)
@@ -70,12 +70,12 @@ const ViewDashboard = props => {
     }, [props.isRecording])
 
     useEffect(() => {
-        if (isOnline && !props.passiveViewRegistered) {
-            apiPostDataStatistics('PASSIVE_DASHBOARD_VIEW', props.id).then(
-                () => {
+        if (!props.passiveViewRegistered) {
+            apiPostDataStatistics('PASSIVE_DASHBOARD_VIEW', props.id)
+                .then(() => {
                     props.registerPassiveView()
-                }
-            )
+                })
+                .catch(error => console.info(error))
         }
     }, [props.passiveViewRegistered])
 
@@ -95,38 +95,79 @@ const ViewDashboard = props => {
 
             await props.fetchDashboard(props.id, props.username)
 
-            setSelectedIsLoaded(true)
-            clearTimeout(alertTimeout)
             setLoadingMessage(null)
+            clearTimeout(alertTimeout)
         }
 
         if (
             (isOnline && props.isRecording) ||
-            (isOnline && !props.dashboardLoaded) ||
+            (isOnline && !props.isLoaded) ||
             (isOnline && props.nullDashboardItems) ||
-            (!isOnline && lastUpdated && !props.dashboardLoaded)
+            (!isOnline && isCached && !props.isLoaded)
         ) {
-            // console.log(
-            //     isOnline,
-            //     !!lastUpdated,
-            //     props.dashboardLoaded,
-            //     'Load. you are online and recording, or you are online and just switched to a new dashboard, or you are offline and switched to a offline dashboard'
-            // )
+            // online and recording, or
+            // online and switched to a new dashboard, or
+            // just went online and the uncached dashboard can now load or
+            // offline and switched to a cached dashboard
             loadDashboard()
-        } else if (!isOnline && !lastUpdated && !props.dashboardLoaded) {
-            //we are offline, switched to a new dashboard that is not an offline dashboard
-            // console.log(
-            //     isOnline,
-            //     !!lastUpdated,
-            //     props.dashboardLoaded,
-            //     'While offline, you switched to a non-offline dashboard'
-            // )
+            setSelectedIsLoaded(true)
+        } else if (!isOnline && !isCached && !props.isLoaded) {
+            // While offline, you switched to an uncached dashboard
+            // So go ahead and switch "selected" but leave all properties
+            // except 'id' empty
+
             setSelectedIsLoaded(false)
+            // this sets dashboardItems to Null
             props.setSelectedAsOffline(props.id, props.username)
         }
-    }, [props.id, props.isRecording, isOnline, props.dashboardLoaded])
+    }, [props.id, props.isRecording, isOnline, props.isLoaded])
 
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
+
+    console.log(
+        `loaded: ${props.isLoaded}, selectedIsLoaded: ${selectedIsLoaded}`
+    )
+    const getContent = () => {
+        if (!isOnline && !props.isLoaded && !isCached) {
+            return (
+                <Notice
+                    title={i18n.t('Offline')}
+                    message={i18n.t(
+                        'This dashboard cannot be loaded while offline. AAA'
+                    )}
+                />
+            )
+        }
+
+        if (isOnline && !selectedIsLoaded) {
+            return (
+                <Layer translucent>
+                    <CenteredContent>
+                        <CircularLoader />
+                    </CenteredContent>
+                </Layer>
+            )
+        }
+
+        if (selectedIsLoaded) {
+            return (
+                <>
+                    <TitleBar />
+                    <FilterBar />
+                    <ItemGrid isRecording={props.isRecording} />
+                </>
+            )
+        }
+
+        return (
+            <Notice
+                title={i18n.t('Offline')}
+                message={i18n.t(
+                    'This dashboard cannot be loaded while offline.'
+                )}
+            />
+        )
+    }
 
     return (
         <>
@@ -138,38 +179,16 @@ const ViewDashboard = props => {
                     expanded={controlbarExpanded}
                     onExpandedChanged={onExpandedChanged}
                 />
-                {!isOnline && !props.dashboardLoaded && !lastUpdated ? (
-                    <Notice
-                        title={i18n.t('Offline')}
-                        message={i18n.t(
-                            'This dashboard cannot be loaded while offline. AAA'
-                        )}
-                    />
-                ) : (
-                    <DashboardContainer covered={controlbarExpanded}>
-                        {controlbarExpanded && (
-                            <ComponentCover
-                                className={classes.cover}
-                                translucent
-                                onClick={() => setControlbarExpanded(false)}
-                            />
-                        )}
-                        {selectedIsLoaded ? (
-                            <>
-                                <TitleBar />
-                                <FilterBar />
-                                <ItemGrid isRecording={props.isRecording} />
-                            </>
-                        ) : (
-                            <Notice
-                                title={i18n.t('Offline')}
-                                message={i18n.t(
-                                    'This dashboard cannot be loaded while offline.'
-                                )}
-                            />
-                        )}
-                    </DashboardContainer>
-                )}
+                <DashboardContainer covered={controlbarExpanded}>
+                    {controlbarExpanded && (
+                        <ComponentCover
+                            className={classes.cover}
+                            translucent
+                            onClick={() => setControlbarExpanded(false)}
+                        />
+                    )}
+                    {getContent()}
+                </DashboardContainer>
             </div>
             <AlertStack>
                 {loadingMessage && (
@@ -188,9 +207,9 @@ const ViewDashboard = props => {
 ViewDashboard.propTypes = {
     clearEditDashboard: PropTypes.func,
     clearPrintDashboard: PropTypes.func,
-    dashboardLoaded: PropTypes.bool,
     fetchDashboard: PropTypes.func,
     id: PropTypes.string,
+    isLoaded: PropTypes.bool,
     isRecording: PropTypes.bool,
     name: PropTypes.string,
     nullDashboardItems: PropTypes.bool,
@@ -207,7 +226,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
         passiveViewRegistered: sGetPassiveViewRegistered(state),
         name: dashboard.displayName || null,
-        dashboardLoaded: sGetSelectedId(state) === ownProps.id,
+        isLoaded: sGetSelectedId(state) === ownProps.id,
         nullDashboardItems: sGetIsNullDashboardItems(state),
     }
 }
