@@ -1,3 +1,10 @@
+## [31.15.4](https://github.com/dhis2/dashboard-app/compare/v31.15.3...v31.15.4) (2021-05-18)
+
+
+### Bug Fixes
+
+* all cypress tests in edit mode should check that view mode is displayed first ([#1769](https://github.com/dhis2/dashboard-app/issues/1769)) ([0be9fb1](https://github.com/dhis2/dashboard-app/commit/0be9fb1f39271909c0a042378c2d31e89eb5d3dd))
+
 ## [31.15.3](https://github.com/dhis2/dashboard-app/compare/v31.15.2...v31.15.3) (2021-05-11)
 
 
