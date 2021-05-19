@@ -11,10 +11,7 @@ import { useOnlineStatus } from '../../modules/useOnlineStatus'
 
 import Button from '../../components/ButtonWithTooltip'
 import FilterSettingsDialog from './FilterSettingsDialog'
-import ConfirmActionDialog, {
-    ACTION_DELETE,
-    ACTION_DISCARD,
-} from '../../components/ConfirmActionDialog'
+import ConfirmActionDialog from '../../components/ConfirmActionDialog'
 import {
     tSaveDashboard,
     acClearEditDashboard,
@@ -259,15 +256,24 @@ const EditBar = ({ dashboard, ...props }) => {
             {dashboard.id && dashboard.access?.update && translationDialog()}
             {dashboard.id && dashboard.access?.delete && (
                 <ConfirmActionDialog
-                    action={ACTION_DELETE}
-                    dashboardName={dashboard.name}
+                    title={i18n.t('Delete dashboard')}
+                    message={i18n.t(
+                        `Deleting dashboard "${dashboard.name}" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?`
+                    )}
+                    cancelLabel={i18n.t('Cancel')}
+                    confirmLabel={i18n.t('Delete')}
                     onConfirm={onDeleteConfirmed}
                     onCancel={onContinueEditing}
                     open={confirmDeleteDlgIsOpen}
                 />
             )}
             <ConfirmActionDialog
-                action={ACTION_DISCARD}
+                title={i18n.t('Discard changes')}
+                message={i18n.t(
+                    'This dashboard has unsaved changes. Are you sure you want to leave and discard these unsaved changes?'
+                )}
+                cancelLabel={i18n.t('No, stay here')}
+                confirmLabel={i18n.t('Yes, discard changes')}
                 onConfirm={onDiscardConfirmed}
                 onCancel={onContinueEditing}
                 open={confirmDiscardDlgIsOpen}

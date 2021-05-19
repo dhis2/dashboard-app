@@ -95,6 +95,7 @@ const ViewDashboard = props => {
             await props.fetchDashboard(props.id, props.username)
 
             setLoadingMessage(null)
+            setSelectedIsLoaded(true)
             clearTimeout(alertTimeout)
         }
 
@@ -105,7 +106,6 @@ const ViewDashboard = props => {
                 !selectedIsLoaded)
         ) {
             loadDashboard()
-            setSelectedIsLoaded(true)
         } else if (!dashboardIsAvailable && props.isDifferentDashboard) {
             setSelectedIsLoaded(false)
             props.setSelectedAsOffline(props.id, props.username)
@@ -128,6 +128,7 @@ const ViewDashboard = props => {
                 />
             )
         }
+        console.log('ViewDashboard selectedIsLoaded', selectedIsLoaded)
 
         return !selectedIsLoaded ? (
             <Layer translucent>

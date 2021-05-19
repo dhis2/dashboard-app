@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
 import { useOnlineStatus } from '../../../modules/useOnlineStatus'
 
 import FilterBadge from './FilterBadge'
-import ConfirmActionDialog, {
-    ACTION_CLEAR_ALL_FILTERS,
-} from '../../../components/ConfirmActionDialog'
+import ConfirmActionDialog from '../../../components/ConfirmActionDialog'
 
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
 import {
@@ -42,10 +41,15 @@ const FilterBar = ({ filters, removeFilter, removeAllFilters }) => {
                 ))}
             </div>
             <ConfirmActionDialog
-                action={ACTION_CLEAR_ALL_FILTERS}
+                open={dialogIsOpen}
+                title={i18n.t('Removing filters while offline')}
+                message={i18n.t(
+                    'Removing this filter while offline will remove all other filters. Do you want to remove all filters on this dashboard?'
+                )}
+                cancelLabel={i18n.t('No, cancel')}
+                confirmLabel={i18n.t('Yes, remove filters')}
                 onConfirm={removeAllFilters}
                 onCancel={closeDialog}
-                open={dialogIsOpen}
             />
         </>
     ) : null

@@ -106,6 +106,8 @@ const ResponsiveItemGrid = ({ isRecording, dashboardItems }) => {
     const onWidthChanged = containerWidth =>
         setTimeout(() => setGridWidth(containerWidth), 200)
 
+    console.log('dashboardItems', dashboardItems)
+
     if (!dashboardItems.length) {
         return (
             <NoContentMessage

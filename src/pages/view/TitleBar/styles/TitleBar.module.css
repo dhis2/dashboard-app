@@ -2,22 +2,9 @@
     margin-top: var(--spacers-dp12);
 }
 
-.actions {
-    display: flex;
-    align-items: center;
-    margin-left: 8px;
-}
 .titleBar {
     display: flex;
     align-items: flex-start;
-}
-.strip {
-    display: flex;
-    margin-left: var(--spacers-dp8);
-}
-
-.strip > * {
-    margin-left: var(--spacers-dp8);
 }
 
 .title {
@@ -31,28 +18,8 @@
     top: 7px;
 }
 
-.moreText {
-    margin-left: 5px;
-}
-
-.strip .moreButtonSmall {
-    display: none;
-}
-
 @media only screen and (max-width: 480px) {
-    .strip .editLink,
-    .strip .shareButton {
-        display: none;
-    }
-
     .title {
         top: 3px;
-    }
-    .strip .moreButton {
-        display: none;
-    }
-
-    .strip .moreButtonSmall {
-        display: inline-flex;
     }
 }
