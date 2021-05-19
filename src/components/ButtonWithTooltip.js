@@ -4,14 +4,19 @@ import i18n from '@dhis2/d2-i18n'
 import { Button, Tooltip } from '@dhis2/ui'
 import { useOnlineStatus } from '../modules/useOnlineStatus'
 
-const ButtonWithTooltip = ({ disabledWhenOffline, children, ...rest }) => {
+const ButtonWithTooltip = ({
+    disabledWhenOffline,
+    tooltip,
+    children,
+    ...rest
+}) => {
     const { isOnline } = useOnlineStatus()
 
     const notAllowed = disabledWhenOffline && !isOnline
 
     return (
         <Tooltip
-            content={notAllowed ? i18n.t('Not available offline') : ''}
+            content={tooltip || i18n.t('Not available offline')}
             openDelay={200}
             closeDelay={100}
         >
@@ -43,6 +48,7 @@ const ButtonWithTooltip = ({ disabledWhenOffline, children, ...rest }) => {
 ButtonWithTooltip.propTypes = {
     children: PropTypes.node,
     disabledWhenOffline: PropTypes.bool,
+    tooltip: PropTypes.string,
 }
 
 ButtonWithTooltip.defaultProps = {

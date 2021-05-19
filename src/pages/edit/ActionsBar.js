@@ -179,7 +179,12 @@ const EditBar = ({ dashboard, ...props }) => {
 
     const renderActionButtons = () => (
         <ButtonStrip>
-            <Button primary onClick={onSave} dataTest="save-dashboard-button">
+            <Button
+                primary
+                onClick={onSave}
+                dataTest="save-dashboard-button"
+                tooltip={i18n.t('Cannot save this dashboard while offline')}
+            >
                 {i18n.t('Save changes')}
             </Button>
             <Button onClick={onPrintPreview}>
@@ -199,6 +204,9 @@ const EditBar = ({ dashboard, ...props }) => {
                 <Button
                     onClick={onConfirmDelete}
                     dataTest="delete-dashboard-button"
+                    tooltip={i18n.t(
+                        'Cannot delete this dashboard while offline'
+                    )}
                 >
                     {i18n.t('Delete')}
                 </Button>
@@ -238,7 +246,11 @@ const EditBar = ({ dashboard, ...props }) => {
                         right: 0,
                     }}
                 >
-                    <Button dense onClick={toggleIsOnline}>
+                    <Button
+                        dense
+                        onClick={toggleIsOnline}
+                        disabledWhenOffline={false}
+                    >
                         {`You are ${isOnline ? 'online' : 'offline'}`}
                     </Button>
                 </div>

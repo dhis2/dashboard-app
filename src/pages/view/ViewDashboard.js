@@ -24,10 +24,7 @@ import Notice from '../../components/Notice'
 
 import { sGetPassiveViewRegistered } from '../../reducers/passiveViewRegistered'
 import { sGetDashboardById } from '../../reducers/dashboards'
-import {
-    sGetSelectedId,
-    sGetIsNullDashboardItems,
-} from '../../reducers/selected'
+import { sGetSelectedId } from '../../reducers/selected'
 import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
 import { acSetIsRecording } from '../../actions/isRecording'
@@ -48,6 +45,8 @@ const ViewDashboard = props => {
     const [selectedIsLoaded, setSelectedIsLoaded] = useState(false)
     const { isOnline } = useOnlineStatus()
     const { lastUpdated: isCached } = useCacheableSectionStatus(props.id)
+
+    const dashboardIsAvailable = isOnline || !!isCached
 
     useEffect(() => {
         setHeaderbarVisible(true)
@@ -100,77 +99,60 @@ const ViewDashboard = props => {
         }
 
         if (
-            (isOnline && props.isRecording) ||
-            (isOnline && !props.isLoaded) ||
-            (isOnline && props.nullDashboardItems) ||
-            (!isOnline && isCached && !props.isLoaded)
+            dashboardIsAvailable &&
+            (props.isRecording ||
+                props.isDifferentDashboard ||
+                !selectedIsLoaded)
         ) {
-            // online and recording, or
-            // online and switched to a new dashboard, or
-            // just went online and the uncached dashboard can now load or
-            // offline and switched to a cached dashboard
             loadDashboard()
             setSelectedIsLoaded(true)
-        } else if (!isOnline && !isCached && !props.isLoaded) {
-            // While offline, you switched to an uncached dashboard
-            // So go ahead and switch "selected" but leave all properties
-            // except 'id' empty
-
+        } else if (!dashboardIsAvailable && props.isDifferentDashboard) {
             setSelectedIsLoaded(false)
-            // this sets dashboardItems to Null
             props.setSelectedAsOffline(props.id, props.username)
         }
-    }, [props.id, props.isRecording, isOnline, props.isLoaded])
+    }, [props.id, props.isRecording, isOnline, props.isDifferentDashboard])
 
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
 
-    // console.log(
-    //     `loaded: ${props.isLoaded}, selectedIsLoaded: ${selectedIsLoaded}`
-    // )
     const getContent = () => {
-        if (!isOnline && !props.isLoaded && !isCached) {
+        if (
+            !dashboardIsAvailable &&
+            (props.isDifferentDashboard || !selectedIsLoaded)
+        ) {
             return (
                 <Notice
                     title={i18n.t('Offline')}
                     message={i18n.t(
-                        'This dashboard cannot be loaded while offline. AAA'
+                        'This dashboard cannot be loaded while offline.'
                     )}
                 />
             )
         }
 
-        if (isOnline && !selectedIsLoaded) {
-            return (
-                <Layer translucent>
-                    <CenteredContent>
-                        <CircularLoader />
-                    </CenteredContent>
-                </Layer>
-            )
-        }
-
-        if (selectedIsLoaded) {
-            return (
-                <>
-                    <TitleBar />
-                    <FilterBar />
-                    <ItemGrid isRecording={props.isRecording} />
-                </>
-            )
-        }
-
-        return (
-            <Notice
-                title={i18n.t('Offline')}
-                message={i18n.t(
-                    'This dashboard cannot be loaded while offline.'
-                )}
-            />
+        return !selectedIsLoaded ? (
+            <Layer translucent>
+                <CenteredContent>
+                    <CircularLoader />
+                </CenteredContent>
+            </Layer>
+        ) : (
+            <>
+                <TitleBar />
+                <FilterBar />
+                <ItemGrid isRecording={props.isRecording} />
+            </>
         )
     }
 
     return (
         <>
+            {props.isRecording && (
+                <Layer translucent>
+                    <CenteredContent>
+                        <CircularLoader />
+                    </CenteredContent>
+                </Layer>
+            )}
             <div
                 className={cx(classes.container, 'dashboard-scroll-container')}
                 data-test="outer-scroll-container"
@@ -209,10 +191,9 @@ ViewDashboard.propTypes = {
     clearPrintDashboard: PropTypes.func,
     fetchDashboard: PropTypes.func,
     id: PropTypes.string,
-    isLoaded: PropTypes.bool,
+    isDifferentDashboard: PropTypes.bool,
     isRecording: PropTypes.bool,
     name: PropTypes.string,
-    nullDashboardItems: PropTypes.bool,
     passiveViewRegistered: PropTypes.bool,
     registerPassiveView: PropTypes.func,
     setIsRecording: PropTypes.func,
@@ -226,8 +207,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
         passiveViewRegistered: sGetPassiveViewRegistered(state),
         name: dashboard.displayName || null,
-        isLoaded: sGetSelectedId(state) === ownProps.id,
-        nullDashboardItems: sGetIsNullDashboardItems(state),
+        isDifferentDashboard: sGetSelectedId(state) !== ownProps.id,
     }
 }
 
