@@ -1842,10 +1842,10 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^37.0.9":
-  version "37.0.9"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-37.0.9.tgz#b884da6d2a123861222618a7b1f93abe1a0643c6"
-  integrity sha512-vj7FG1bzhTO2ykIX4K9m2n2xbaygjOZAonOc13RrRjIh1XPGcDNDMVrjeLVzu9cQxxLGLwa+t/CgvJovVAi+jQ==
+"@dhis2/data-visualizer-plugin@^37.0.10":
+  version "37.0.10"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-37.0.10.tgz#a17f673f13bd951a9d30d3c40fee72c06a064587"
+  integrity sha512-iaEXWyRl1aPTQgIsmnCCw3kOa0soYFPy2XYV+inqQwEaynTQ17UjxNBxBIEOIcjk712Ah4KWWNy22mFa158RoQ==
   dependencies:
     "@dhis2/analytics" "^17.0.4"
     "@dhis2/app-runtime" "^2.8.0"
