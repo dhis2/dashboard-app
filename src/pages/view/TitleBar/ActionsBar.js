@@ -233,6 +233,8 @@ const ViewActions = ({
                     onRequestClose={onToggleSharingDialog}
                     open={sharingDialogIsOpen}
                     insertTheme={true}
+                    isOffline={!isOnline}
+                    offlineMessage={i18n.t('Not available offline')}
                 />
             )}
             <ConfirmActionDialog

@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ComponentCover, CenteredContent } from '@dhis2/ui'
 import InterpretationsComponent from '@dhis2/d2-ui-interpretations'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
@@ -17,21 +16,6 @@ const ItemFooter = props => {
 
     return (
         <div data-test="dashboarditem-footer" style={{ position: 'relative' }}>
-            {/* <Tooltip content="Not available offline"> */}
-            {!isOnline && (
-                <ComponentCover className={classes.cover} translucent>
-                    <CenteredContent>
-                        <span
-                            style={{
-                                backgroundColor: 'white',
-                                padding: '10px',
-                            }}
-                        >
-                            Not available offline
-                        </span>
-                    </CenteredContent>
-                </ComponentCover>
-            )}
             <hr className={classes.line} />
             <div className={classes.scrollContainer}>
                 <FatalErrorBoundary
@@ -45,10 +29,10 @@ const ItemFooter = props => {
                         type={props.item.type.toLowerCase()}
                         id={getVisualizationId(props.item)}
                         appName="dashboard"
+                        isOffline={!isOnline}
                     />
                 </FatalErrorBoundary>
             </div>
-            {/* </Tooltip> */}
         </div>
     )
 }

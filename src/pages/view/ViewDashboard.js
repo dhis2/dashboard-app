@@ -128,7 +128,6 @@ const ViewDashboard = props => {
                 />
             )
         }
-        console.log('ViewDashboard selectedIsLoaded', selectedIsLoaded)
 
         return !selectedIsLoaded ? (
             <Layer translucent>
