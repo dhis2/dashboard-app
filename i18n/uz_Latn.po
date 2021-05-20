@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
+"POT-Creation-Date: 2021-05-12T08:56:39.093Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
@@ -17,20 +17,6 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Nomsiz boshqaruv paneli"
-
-msgid "Loading dashboard – {{name}}"
-msgstr "Boshqaruv paneli yuklanmoqda - {{ismi}}"
-
-msgid "Loading dashboard"
-msgstr ""
-
-msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr ""
-"Boshqaruv paneli topilmadi. Yangi boshqaruv panelini yaratish uchun + "
-"tugmasini bosing."
-
-msgid "Requested dashboard not found"
-msgstr "Soʼralgan boshqaruv paneli topilmadi"
 
 msgid "Remove this item"
 msgstr ""
@@ -299,6 +285,14 @@ msgstr ""
 "Brauzerning bosib chiqarish (printer) panelida А4 va standart chegaralarni "
 "oʼrnating"
 
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+"Boshqaruv paneli topilmadi. Yangi boshqaruv panelini yaratish uchun + "
+"tugmasini bosing."
+
+msgid "Requested dashboard not found"
+msgstr "Soʼralgan boshqaruv paneli topilmadi"
+
 msgid "Create a new dashboard"
 msgstr ""
 
@@ -362,3 +356,9 @@ msgstr "Ulashish"
 
 msgid "No description"
 msgstr "Tavsif yoʼq"
+
+msgid "Loading dashboard – {{name}}"
+msgstr "Boshqaruv paneli yuklanmoqda - {{ismi}}"
+
+msgid "Loading dashboard"
+msgstr ""

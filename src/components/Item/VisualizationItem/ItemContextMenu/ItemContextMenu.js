@@ -26,8 +26,8 @@ import { useWindowDimensions } from '../../../WindowDimensionsProvider'
 import { isSmallScreen } from '../../../../modules/smallScreen'
 import { isElementFullscreen } from '../isElementFullscreen'
 
-import { getLink } from '../Visualization/plugin'
-import { getAppName } from '../../../../modules/itemTypes'
+import { getAppName, itemTypeMap } from '../../../../modules/itemTypes'
+import { getVisualizationId } from '../../../../modules/item'
 import { useSystemSettings } from '../../../SystemSettingsProvider'
 
 const ItemContextMenu = props => {
@@ -91,6 +91,10 @@ const ItemContextMenu = props => {
 
     const buttonRef = createRef()
 
+    const itemHref = `${baseUrl}/${itemTypeMap[item.type].appUrl(
+        getVisualizationId(item)
+    )}`
+
     return isElementFullscreen(item.id) ? (
         <Button small secondary onClick={props.onToggleFullscreen}>
             <span data-testid="exit-fullscreen-button">
@@ -140,7 +144,7 @@ const ItemContextMenu = props => {
                                 label={i18n.t('Open in {{appName}} app', {
                                     appName: getAppName(item.type),
                                 })}
-                                href={getLink(item, baseUrl)}
+                                href={itemHref}
                                 target="_blank"
                             />
                         )}
