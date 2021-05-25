@@ -1,12 +1,11 @@
 import { When } from 'cypress-cucumber-preprocessor/steps'
 import {
-    filterBadgeSel,
     unselectedItemsSel,
     filterDimensionsPanelSel,
     dimensionsModalSel,
     orgUnitCheckboxesSel,
-} from '../../selectors/dashboardFilter'
-import { EXTENDED_TIMEOUT } from '../../support/utils'
+} from '../../../selectors/dashboardFilter'
+import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 const PERIOD = 'Last 6 months'
 const OU = 'Sierra Leone'
@@ -33,8 +32,4 @@ When('I add a {string} filter', dimensionType => {
 
     // confirm to apply the filter
     cy.get('button').contains('Confirm').click()
-})
-
-When('I click on the {string} filter badge', filterName => {
-    cy.get(filterBadgeSel).find('span:visible').contains(filterName).click()
 })

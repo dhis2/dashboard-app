@@ -46,13 +46,8 @@ When('dashboard title is added', () => {
     cy.get(titleInputSel).type(TEST_DASHBOARD_TITLE)
 })
 
-When('escape key is pressed', () => {
-    cy.get('body').trigger('keydown', { key: 'Escape' })
-    cy.get(itemMenuSel).should('not.exist')
-})
-
-When('I click outside menu', () => {
-    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+When('I close the item selector', () => {
+    cy.closeModal()
     cy.get(itemMenuSel).should('not.exist')
 })
 
@@ -61,10 +56,7 @@ When('dashboard is saved', () => {
 })
 
 Then('the saved dashboard should be displayed', () => {
-    cy.get('[data-test="view-dashboard-title"]').should(
-        'have.text',
-        TEST_DASHBOARD_TITLE
-    )
+    cy.get(dashboardTitleSel).should('have.text', TEST_DASHBOARD_TITLE)
 })
 
 Then('the dashboard displays in view mode', () => {
@@ -136,14 +128,6 @@ Then('the confirm delete dialog is displayed', () => {
     ).should('be.visible')
 })
 
-Then('the dashboard displays in edit mode', () => {
-    cy.get(titleInputSel).should('exist')
-
-    cy.location().should(loc => {
-        expect(getRouteFromHash(loc.hash)).to.eq(ROUTE_EDIT)
-    })
-})
-
 /*
 Scenario: I delete a dashboard
 */
@@ -155,9 +139,7 @@ When('I confirm delete', () => {
 Then('the dashboard is deleted and first starred dashboard displayed', () => {
     cy.get(dashboardChipSel).contains(TEST_DASHBOARD_TITLE).should('not.exist')
 
-    cy.get('[data-test="view-dashboard-title"]')
-        .should('exist')
-        .should('not.be.empty')
+    cy.get(dashboardTitleSel).should('exist').should('not.be.empty')
 })
 
 /*

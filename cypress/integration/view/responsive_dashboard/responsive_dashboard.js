@@ -5,6 +5,7 @@ import {
     dashboardTitleSel,
     newButtonSel,
 } from '../../../selectors/viewDashboard'
+import { titleInputSel } from '../../../selectors/editDashboard'
 import { dimensionsModalSel } from '../../../selectors/dashboardFilter'
 
 const TEST_DASHBOARD_TITLE = 'TEST_DASHBOARD_TITLE'
@@ -16,7 +17,7 @@ When('I go to small screen', () => {
 })
 
 When('dashboard title is changed', () => {
-    cy.get('[data-test="dashboard-title-input"]').type(TEST_DASHBOARD_TITLE)
+    cy.get(titleInputSel).type(TEST_DASHBOARD_TITLE)
 })
 
 Then('the small screen view is shown', () => {
@@ -59,7 +60,7 @@ Then('the small screen edit view is shown', () => {
         'be.visible'
     )
     // no title or item grid
-    cy.get('[data-test="dashboard-title-input"]').should('not.be.visible')
+    cy.get(titleInputSel).should('not.be.visible')
     cy.get('.react-grid-layout').should('not.be.visible')
 })
 
@@ -68,14 +69,14 @@ Then('the wide screen edit view is shown', () => {
     cy.get('button').contains('Save changes').should('be.visible')
     cy.get('button').contains('Exit without saving').should('be.visible')
 
-    cy.get('[data-test="dashboard-title-input"]').should('be.visible')
+    cy.get(titleInputSel).should('be.visible')
     cy.get('.react-grid-layout').should('be.visible')
 })
 
 Then('my changes are still there', () => {
     //title or item changes
     var re = new RegExp(TEST_DASHBOARD_TITLE, 'g')
-    cy.get('[data-test="dashboard-title-input"] input').should($input => {
+    cy.get(`${titleInputSel} input`).should($input => {
         const val = $input.val()
 
         expect(val).to.match(re)

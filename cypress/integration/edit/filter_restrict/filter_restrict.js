@@ -1,8 +1,10 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { dashboardTitleSel } from '../../../selectors/viewDashboard'
 import { filterDimensionsPanelSel } from '../../../selectors/dashboardFilter'
-import { confirmActionDialogSel } from '../../../selectors/editDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+import {
+    confirmActionDialogSel,
+    titleInputSel,
+} from '../../../selectors/editDashboard'
 
 const TEST_DASHBOARD_TITLE = `aaa-${new Date().toUTCString()}`
 
@@ -13,7 +15,7 @@ Scenario: I create a new dashboard and have no Filter Restrictions
 */
 
 When('I add a dashboard title', () => {
-    cy.get('[data-test="dashboard-title-input"]').type(TEST_DASHBOARD_TITLE)
+    cy.get(titleInputSel).type(TEST_DASHBOARD_TITLE)
 })
 
 When('I click on Filter settings', () => {
@@ -24,11 +26,15 @@ Then('Filter settings are not restricted, and I can save the dashboard', () => {
     cy.contains('Allow filtering by all dimensions')
         .find('input')
         .should('be.checked')
-    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+
+    cy.closeModal()
+
     cy.clickEditActionButton('Save changes')
+
     cy.get(dashboardTitleSel)
         .should('be.visible')
         .and('contain', TEST_DASHBOARD_TITLE)
+
     cy.location().should(loc => {
         dashboardId = loc.hash
     })
@@ -50,7 +56,7 @@ When('I click to restrict Filter settings', () => {
 })
 
 When('I click away without confirming', () => {
-    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+    cy.closeModal()
 })
 
 Then('Filter Restrictions are not restricted', () => {
@@ -111,10 +117,6 @@ When('I click Confirm', () => {
 /*
 Scenario: I change Filter Restrictions and the changes do not persist if I click 'Exit without saving'
 */
-
-When('I open Edit mode', () => {
-    cy.get('button', EXTENDED_TIMEOUT).contains('Edit').click()
-})
 
 Then('the dashboard displays in view mode', () => {
     cy.get(dashboardTitleSel)

@@ -21,6 +21,6 @@ Feature: Dashboard filter
 
     @nonmutating
     Scenario: I can access the dimensions modal from the filter badge
-        When I add a "Period" filter
-        And I click on the "Period" filter badge
+        Given I add a "Period" filter
+        When I click on the "Period" filter badge
         Then the filter modal is opened

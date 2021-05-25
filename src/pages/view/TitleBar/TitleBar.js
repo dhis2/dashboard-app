@@ -196,7 +196,6 @@ const ViewTitleBar = ({
                                 <Link
                                     className={classes.editLink}
                                     to={`/${id}/edit`}
-                                    data-test="link-edit-dashboard"
                                 >
                                     <Button>{i18n.t('Edit')}</Button>
                                 </Link>

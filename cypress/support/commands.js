@@ -17,3 +17,7 @@ Cypress.Commands.add('clickEditActionButton', action =>
         .contains(action, EXTENDED_TIMEOUT)
         .click()
 )
+
+Cypress.Commands.add('closeModal', () =>
+    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+)
