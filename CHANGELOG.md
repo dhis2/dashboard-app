@@ -1,3 +1,10 @@
+## [31.15.6](https://github.com/dhis2/dashboard-app/compare/v31.15.5...v31.15.6) (2021-05-25)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1773](https://github.com/dhis2/dashboard-app/issues/1773)) ([fd7359f](https://github.com/dhis2/dashboard-app/commit/fd7359f3d7efc017ea0a333902f5faf17d410b2a))
+
 ## [31.15.5](https://github.com/dhis2/dashboard-app/compare/v31.15.4...v31.15.5) (2021-05-18)
 
 
