@@ -19,7 +19,7 @@ msgid "Untitled dashboard"
 msgstr "Ovládací panel bez názvu"
 
 msgid "Remove this item"
-msgstr ""
+msgstr "Odebrat tuto položku"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Tato položka byla zkrácena tak, aby se vešla na jednu stránku"
@@ -55,10 +55,10 @@ msgid "There was a problem loading this dashboard item"
 msgstr "Při načítání této položky ovládacího panelu došlo k problému"
 
 msgid "Hide details and interpretations"
-msgstr ""
+msgstr "Skrýt podrobnosti a interpretace"
 
 msgid "Show details and interpretations"
-msgstr ""
+msgstr "Zobrazit podrobnosti a interpretace"
 
 msgid "Open in {{appName}} app"
 msgstr "Otevřít v aplikaci {{appName}}"
@@ -131,6 +131,8 @@ msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Smazání ovládacího panelu se nezdařilo. Možná jste offline nebo nemáte "
+"přístup k úpravám tohoto ovládacího panelu."
 
 msgid "Save changes"
 msgstr "Uložit změny"
@@ -178,12 +180,14 @@ msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
 "discard these unsaved changes?"
 msgstr ""
+"Tento ovládací panel obsahuje neuložené změny. Jste si jisti, že chcete tyto"
+" neuložené změny opustit a zahodit?"
 
 msgid "No, stay here"
 msgstr "Ne, zůstat zde"
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "Ano, zahodit změny"
 
 msgid "No access"
 msgstr "Žádný přístup"
@@ -302,7 +306,7 @@ msgid "Requested dashboard not found"
 msgstr "Požadovaný ovládací panel nebyl nalezen"
 
 msgid "Create a new dashboard"
-msgstr ""
+msgstr "Vytvořit nový ovládací panel"
 
 msgid "Search for a dashboard"
 msgstr "Vyhledat ovládací panel"
@@ -372,4 +376,4 @@ msgid "Loading dashboard – {{name}}"
 msgstr "Načítání ovládacího panelu – {{name}}"
 
 msgid "Loading dashboard"
-msgstr ""
+msgstr "Načítání ovládacího panelu"
