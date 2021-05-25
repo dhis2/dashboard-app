@@ -1547,10 +1547,10 @@
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
 
-"@dhis2/app-adapter@6.1.2":
-  version "6.1.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-6.1.2.tgz#f459d7492a19e54a47fcc52935b96853e85a142f"
-  integrity sha512-sfjaQY2YnDDRNRBHL8+sbuymOnIcB/gAb+/ZIF8YTL5SZw8jkz+FaR1FJmDggpa4+cSV4fn2yGVHMidceOaxlg==
+"@dhis2/app-adapter@6.1.3":
+  version "6.1.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-6.1.3.tgz#5b318f78706ea39b08c744b0b43878311e30c59c"
+  integrity sha512-rtPybnG/EoPT5Qhud0ZSzqJZUKH0Is2G0FJdVxqoZZeheexyUEghihjKyeSvWIGGh+dKPGOUynBqXxV/AVBNQg==
   dependencies:
     moment "^2.24.0"
 
@@ -1585,12 +1585,12 @@
   resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-2.8.0.tgz#9cd347127968cb6f3c8a4ab0fc6699ea7058f835"
   integrity sha512-5doyL4bxRMdMXY4RtWo2O3NVGwSDOSUY3hGPXaF1TeFWAqujlPTx17uDw6wEelN6LaryAnVwId2Ep3FOV8v5MA==
 
-"@dhis2/app-shell@6.1.2":
-  version "6.1.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-6.1.2.tgz#626a0a348cf9b0d4fbd4fa99f66294fdc6aea591"
-  integrity sha512-X0tIkMsYT2mrnFbWCF8ap53gStAvMDKt9gNm//RQ+/4/cP2HAv50tmxbtoRzb3YW/1xK4OoYpEHZC1mY1O5Ktg==
+"@dhis2/app-shell@6.1.3":
+  version "6.1.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-6.1.3.tgz#5989f9cdc8eee8935c74c9801109ba4069cd7125"
+  integrity sha512-fH7HQpIdWcjfY4+2Z9OujN5SR6bcs/cbulut1tG2uMoASQtMlah/KqimK/2rXJ5/ytm9DzXicNNTmQrGQLQ2nQ==
   dependencies:
-    "@dhis2/app-adapter" "6.1.2"
+    "@dhis2/app-adapter" "6.1.3"
     "@dhis2/app-runtime" "^2.8.0"
     "@dhis2/d2-i18n" "^1.1.0"
     "@dhis2/ui" "^6.5.3"
@@ -1605,10 +1605,10 @@
     typeface-roboto "^0.0.75"
     typescript "^3.6.3"
 
-"@dhis2/cli-app-scripts@^6.1.2":
-  version "6.1.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-6.1.2.tgz#e6ec380171099161b8d9466f41992f353fc14b13"
-  integrity sha512-Yggs6bygUM7mvdPGnlrd+2iJdSsN7vxOE7fH59di+MZoP/KlSvwEuSqPTsEyPlSmn+5LuzvWsmr2YCJXmZOVPw==
+"@dhis2/cli-app-scripts@^6.1.3":
+  version "6.1.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-6.1.3.tgz#5dd9e02695af6715c77c56a8d9d32f5ab174deb1"
+  integrity sha512-c0G0dX/nleeRLgE6/0uPEAuVpQJn5GwsR36DpGan4SUiEisVqB+AXL7FdcAhZNwlWKNY9YKjEbyiUu1DxIq0Gw==
   dependencies:
     "@babel/core" "^7.6.2"
     "@babel/plugin-proposal-class-properties" "^7.8.3"
@@ -1617,7 +1617,7 @@
     "@babel/preset-env" "^7.9.0"
     "@babel/preset-react" "^7.0.0"
     "@babel/preset-typescript" "^7.6.0"
-    "@dhis2/app-shell" "6.1.2"
+    "@dhis2/app-shell" "6.1.3"
     "@dhis2/cli-helpers-engine" "^2.1.1"
     archiver "^3.1.1"
     axios "^0.20.0"
@@ -1825,10 +1825,19 @@
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
 
-"@dhis2/d2-ui-rich-text@7.2.0", "@dhis2/d2-ui-rich-text@^7.1.8":
+"@dhis2/d2-ui-rich-text@7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.2.0.tgz#7960c35dab453aeaad2cee427ecaba19fca270ba"
   integrity sha512-lMFMZeHINd3lX97z/RDWITcW4epoMnWA8z4Zbh9O6VlM1TXT52m6OCVdeZmF6bW0gPIqOgWKopNz+9Au7HqoeA==
+  dependencies:
+    babel-runtime "^6.26.0"
+    markdown-it "^8.4.2"
+    prop-types "^15.6.2"
+
+"@dhis2/d2-ui-rich-text@^7.3.0":
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.3.0.tgz#4125f66a3a053936a52a7a8a37b41b668cc67d87"
+  integrity sha512-unoLEK8ysQRlqgH6WlfXNh62JKqv/gLHfhmQPAk2wE6zeg2XVap1G1A9rOsLxkSdu6lzc7fb6zv277V8PlYr7w==
   dependencies:
     babel-runtime "^6.26.0"
     markdown-it "^8.4.2"
@@ -8645,10 +8654,10 @@ i18next-scanner@^2.10.3:
     vinyl "^2.2.0"
     vinyl-fs "^3.0.1"
 
-i18next@*, i18next@^20.2.4:
-  version "20.2.4"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-20.2.4.tgz#972220f19dfef0075a70890d3e8b1f7cf64c5bd6"
-  integrity sha512-goE1LCA/IZOGG26PkkqoOl2KWR7YP606SvokVQZ29J6QwE02KycrzNetoMUJeqYrTxs4rmiiZgZp+q8qofQL6Q==
+i18next@*, i18next@^20.3.0:
+  version "20.3.0"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-20.3.0.tgz#9558b431241fb1dbbd445174391ede65d0a68ed9"
+  integrity sha512-eFv4aQvaGykp48mI4JEaCcoD/j4zoYjFnDYhChe3ukwvbHx3q4mKZlB8YnmhYrHQR5FopLlCrzcSuY0ZWfiakA==
   dependencies:
     "@babel/runtime" "^7.12.0"
 
