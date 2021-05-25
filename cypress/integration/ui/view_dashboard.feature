@@ -40,7 +40,24 @@ Feature: Viewing dashboards
         Then the "Delivery" dashboard displays in view mode
 
     @mutating
+    Scenario: I expand the control bar
+        Given I open the "Delivery" dashboard
+        Then the control bar should be at collapsed height
+        When I toggle the control bar height
+        Then the control bar should be expanded to full height
+
+    @mutating
+    Scenario: I expand the control bar when dashboard not found
+        Given I type an invalid dashboard id in the browser url
+        Then a message displays informing that the dashboard is not found
+        And the control bar should be at collapsed height
+        When I toggle the control bar height
+        Then the control bar should be expanded to full height
+
+
+    @mutating
     Scenario: I change the height of the control bar
         Given I open the "Delivery" dashboard
         When I drag to increase the height of the control bar
         Then the control bar height should be updated
+

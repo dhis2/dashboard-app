@@ -65,6 +65,7 @@ const Dashboard = ({
 }) => {
     const { width } = useWindowDimensions()
     const [redirectUrl, setRedirectUrl] = useState(null)
+    const [dashboardsBarExpanded, setDashboardsBarExpanded] = useState(false)
 
     useEffect(() => {
         setHeaderbarVisibility(mode)
@@ -109,25 +110,23 @@ const Dashboard = ({
         return dashboardMap[mode]
     }
 
-    if (dashboardsIsEmpty) {
+    if (dashboardsIsEmpty || id === NON_EXISTING_DASHBOARD_ID) {
         return (
             <>
-                <DashboardsBar />
-                <NoContentMessage
-                    text={i18n.t(
-                        'No dashboards found. Use the + button to create a new dashboard.'
-                    )}
+                <DashboardsBar
+                    expanded={dashboardsBarExpanded}
+                    onExpandedChanged={expanded =>
+                        setDashboardsBarExpanded(expanded)
+                    }
                 />
-            </>
-        )
-    }
-
-    if (id === NON_EXISTING_DASHBOARD_ID) {
-        return (
-            <>
-                <DashboardsBar />
                 <NoContentMessage
-                    text={i18n.t('Requested dashboard not found')}
+                    text={
+                        dashboardsIsEmpty
+                            ? i18n.t(
+                                  'No dashboards found. Use the + button to create a new dashboard.'
+                              )
+                            : i18n.t('Requested dashboard not found')
+                    }
                 />
             </>
         )
