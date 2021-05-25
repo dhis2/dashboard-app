@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
+"POT-Creation-Date: 2021-05-12T08:56:39.093Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -17,20 +17,6 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Номсиз бошқарув панели"
-
-msgid "Loading dashboard – {{name}}"
-msgstr "Бошқарув панели юкланмоқда - {{исми}}"
-
-msgid "Loading dashboard"
-msgstr ""
-
-msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr ""
-"Бошқарув панели топилмади. Янги бошқарув панелини яратиш учун + тугмасини "
-"босинг."
-
-msgid "Requested dashboard not found"
-msgstr "Сўралган бошқарув панели топилмади"
 
 msgid "Remove this item"
 msgstr ""
@@ -299,6 +285,14 @@ msgstr ""
 "Браузернинг босиб чиқариш (принтер) панелида А4 ва стандарт чегараларни "
 "ўрнатинг"
 
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+"Бошқарув панели топилмади. Янги бошқарув панелини яратиш учун + тугмасини "
+"босинг."
+
+msgid "Requested dashboard not found"
+msgstr "Сўралган бошқарув панели топилмади"
+
 msgid "Create a new dashboard"
 msgstr ""
 
@@ -362,3 +356,9 @@ msgstr "Улашиш"
 
 msgid "No description"
 msgstr "Тавсиф йўқ"
+
+msgid "Loading dashboard – {{name}}"
+msgstr "Бошқарув панели юкланмоқда - {{исми}}"
+
+msgid "Loading dashboard"
+msgstr ""

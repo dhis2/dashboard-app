@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
+"POT-Creation-Date: 2021-05-12T08:56:39.093Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -18,18 +18,6 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr ""
-
-msgid "Loading dashboard – {{name}}"
-msgstr ""
-
-msgid "Loading dashboard"
-msgstr ""
-
-msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr "没有找到仪表盘条目，使用+ 按钮创建新的仪表盘条目。"
-
-msgid "Requested dashboard not found"
-msgstr "请求的仪表盘条目没有找到"
 
 msgid "Remove this item"
 msgstr ""
@@ -288,6 +276,12 @@ msgid ""
 " dialog"
 msgstr ""
 
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr "没有找到仪表盘条目，使用+ 按钮创建新的仪表盘条目。"
+
+msgid "Requested dashboard not found"
+msgstr "请求的仪表盘条目没有找到"
+
 msgid "Create a new dashboard"
 msgstr ""
 
@@ -351,3 +345,9 @@ msgstr "共享"
 
 msgid "No description"
 msgstr "没有描述"
+
+msgid "Loading dashboard – {{name}}"
+msgstr ""
+
+msgid "Loading dashboard"
+msgstr ""

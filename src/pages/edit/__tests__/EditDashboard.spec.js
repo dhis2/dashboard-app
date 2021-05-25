@@ -1,8 +1,15 @@
 import React from 'react'
 import { render } from '@testing-library/react'
+import { act } from 'react-dom/test-utils'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
+import { Router, Route } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
 import EditDashboard from '../EditDashboard'
+import WindowDimensionsProvider from '../../../components/WindowDimensionsProvider'
+import { apiFetchDashboard } from '../../../api/fetchDashboard'
+
+jest.mock('../../../api/fetchDashboard')
 
 jest.mock(
     '../ActionsBar',
@@ -37,66 +44,106 @@ jest.mock(
 
 const mockStore = configureMockStore()
 
-const store = {
-    dashboards: {
-        byId: {
-            rainbowdash: {
-                id: 'rainbowdash',
-                access: {
-                    update: true,
-                    delete: true,
-                },
+const renderWithRouterMatch = (
+    ui,
+    {
+        route = '/',
+        history = createMemoryHistory({ initialEntries: [route] }),
+        store = {},
+    } = {}
+) => {
+    return {
+        ...render(
+            <>
+                <header />
+                <Provider store={mockStore(store)}>
+                    <WindowDimensionsProvider>
+                        <Router history={history}>
+                            <Route path={'edit/:id'} component={ui} />
+                        </Router>
+                    </WindowDimensionsProvider>
+                </Provider>
+            </>
+        ),
+    }
+}
+
+const dashboardId = 'rainbowdash'
+
+test('EditDashboard renders dashboard', async () => {
+    const promise = Promise.resolve()
+    apiFetchDashboard.mockResolvedValue({
+        id: dashboardId,
+        access: { update: true },
+    })
+    const { container } = renderWithRouterMatch(EditDashboard, {
+        route: `edit/${dashboardId}`,
+
+        store: {
+            editDashboard: {
+                printPreviewView: false,
             },
         },
-        items: [],
-    },
-    selected: {
-        id: 'rainbowdash',
-    },
-    editDashboard: {
-        id: 'rainbowdash',
-        access: {
-            update: true,
-            delete: true,
+    })
+
+    await act(() => promise)
+    expect(container).toMatchSnapshot()
+})
+
+test('EditDashboard renders print preview', async () => {
+    const promise = Promise.resolve()
+    apiFetchDashboard.mockResolvedValue({
+        id: dashboardId,
+        access: { update: true },
+    })
+    const { container } = renderWithRouterMatch(EditDashboard, {
+        route: `edit/${dashboardId}`,
+        store: {
+            editDashboard: {
+                printPreviewView: true,
+            },
         },
-    },
-}
+    })
 
-const props = {
-    setEditDashboard: jest.fn(),
-}
-
-test('EditDashboard renders dashboard', () => {
-    const { container } = render(
-        <Provider store={mockStore(store)}>
-            <EditDashboard {...props} />
-        </Provider>
-    )
-
+    await act(() => promise)
     expect(container).toMatchSnapshot()
 })
 
-test('EditDashboard renders print preview', () => {
-    store.editDashboard.printPreviewView = true
+test('EditDashboard renders message when not enough access', async () => {
+    const promise = Promise.resolve()
+    apiFetchDashboard.mockResolvedValue({
+        id: dashboardId,
+        access: { update: false },
+    })
+    const { container } = renderWithRouterMatch(EditDashboard, {
+        route: `edit/${dashboardId}`,
+        store: {
+            editDashboard: {
+                printPreviewView: false,
+            },
+        },
+    })
 
-    const { container } = render(
-        <Provider store={mockStore(store)}>
-            <EditDashboard {...props} />
-        </Provider>
-    )
+    await act(() => promise)
     expect(container).toMatchSnapshot()
 })
 
-test('EditDashboard renders message when not enough access', () => {
-    store.dashboards.byId.rainbowdash.access.update = false
-    store.dashboards.byId.rainbowdash.access.delete = false
-    store.editDashboard.access.update = false
-    store.editDashboard.access.delete = false
+test('EditDashboard does not render titlebar and grid if small screen', async () => {
+    global.innerWidth = 480
+    const promise = Promise.resolve()
+    apiFetchDashboard.mockResolvedValue({
+        id: dashboardId,
+        access: { update: true },
+    })
+    const { container } = renderWithRouterMatch(EditDashboard, {
+        route: `edit/${dashboardId}`,
+        store: {
+            editDashboard: {
+                printPreviewView: false,
+            },
+        },
+    })
 
-    const { container } = render(
-        <Provider store={mockStore(store)}>
-            <EditDashboard {...props} />
-        </Provider>
-    )
+    await act(() => promise)
     expect(container).toMatchSnapshot()
 })

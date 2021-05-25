@@ -1,9 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import { Redirect } from 'react-router-dom'
+import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
+import { useDataEngine } from '@dhis2/app-runtime'
 
 import PrintInfo from './PrintInfo'
+import { apiFetchDashboard } from '../../api/fetchDashboard'
+
+import { MAX_ITEM_GRID_HEIGHT } from '../../modules/gridUtil'
 import PrintActionsBar from './ActionsBar'
 import PrintLayoutItemGrid from './PrintLayoutItemGrid'
 import {
@@ -11,17 +17,10 @@ import {
     acAddPrintDashboardItem,
     acUpdatePrintDashboardItem,
 } from '../../actions/printDashboard'
-import { sGetSelectedId } from '../../reducers/selected'
-import {
-    sGetEditDashboardRoot,
-    sGetEditDashboardItems,
-} from '../../reducers/editDashboard'
-import {
-    sGetDashboardById,
-    sGetDashboardItems,
-} from '../../reducers/dashboards'
+import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
+import { sGetEditDashboardRoot } from '../../reducers/editDashboard'
+
 import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
-import { MAX_ITEM_GRID_HEIGHT } from '../../modules/gridUtil'
 import { getPageBreakPositions } from './printUtils'
 
 import classes from './styles/PrintLayoutDashboard.module.css'
@@ -39,39 +38,77 @@ const addPageBreaks = (items, addDashboardItem) => {
 
 const PrintLayoutDashboard = ({
     dashboard,
-    items,
+    id,
     setPrintDashboard,
     addDashboardItem,
     updateDashboardItem,
     fromEdit,
 }) => {
+    const dataEngine = useDataEngine()
+    const [redirectUrl, setRedirectUrl] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
+
+    const customizePrintLayoutDashboard = dboard => {
+        // If any items are taller than one page, reduce it to one
+        // page (react-grid-layout units)
+        dboard.dashboardItems.forEach(item => {
+            if (item.h > MAX_ITEM_GRID_HEIGHT) {
+                item.shortened = true
+                updateDashboardItem(
+                    Object.assign({}, item, { h: MAX_ITEM_GRID_HEIGHT })
+                )
+            }
+        })
+
+        addPageBreaks(dboard.dashboardItems, addDashboardItem)
+
+        addDashboardItem({
+            type: PRINT_TITLE_PAGE,
+            isOneItemPerPage: false,
+        })
+
+        setIsLoading(false)
+    }
+
     useEffect(() => {
-        if (dashboard) {
-            setPrintDashboard(dashboard, items)
-
-            // If any items are taller than one page, reduce it to one
-            // page (react-grid-layout units)
-            items.forEach(item => {
-                if (item.h > MAX_ITEM_GRID_HEIGHT) {
-                    item.shortened = true
-                    updateDashboardItem(
-                        Object.assign({}, item, { h: MAX_ITEM_GRID_HEIGHT })
-                    )
-                }
-            })
-
-            addPageBreaks(items, addDashboardItem)
-
-            addDashboardItem({
-                type: PRINT_TITLE_PAGE,
-                isOneItemPerPage: false,
-            })
+        const loadDashboard = async () => {
+            try {
+                const dashboard = await apiFetchDashboard(dataEngine, id)
+                setPrintDashboard(dashboard)
+                customizePrintLayoutDashboard(dashboard)
+            } catch (error) {
+                setRedirectUrl(id)
+                setIsLoading(false)
+            }
         }
-    }, [dashboard, items])
+
+        setHeaderbarVisible(false)
+
+        if (!dashboard) {
+            loadDashboard()
+        } else {
+            setPrintDashboard(dashboard)
+            customizePrintLayoutDashboard(dashboard)
+        }
+    }, [dashboard])
+
+    if (redirectUrl) {
+        return <Redirect to={redirectUrl} />
+    }
+
+    if (isLoading) {
+        return (
+            <Layer translucent>
+                <CenteredContent>
+                    <CircularLoader />
+                </CenteredContent>
+            </Layer>
+        )
+    }
 
     return (
         <div className={classes.container}>
-            {!fromEdit && <PrintActionsBar id={dashboard.id} />}
+            {!fromEdit && <PrintActionsBar id={id} />}
             <div
                 className={cx(
                     classes.wrapper,
@@ -95,30 +132,15 @@ PrintLayoutDashboard.propTypes = {
     addDashboardItem: PropTypes.func,
     dashboard: PropTypes.object,
     fromEdit: PropTypes.bool,
-    items: PropTypes.array,
+    id: PropTypes.string,
     setPrintDashboard: PropTypes.func,
     updateDashboardItem: PropTypes.func,
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const id = sGetSelectedId(state)
-
-    if (ownProps.fromEdit) {
-        const dashboard = sGetEditDashboardRoot(state)
-
-        return {
-            dashboard,
-            id,
-            items: sGetEditDashboardItems(state),
-        }
-    }
-
-    const dashboard = id ? sGetDashboardById(state, id) : null
-
     return {
-        dashboard,
-        id,
-        items: sGetDashboardItems(state),
+        dashboard: ownProps.fromEdit ? sGetEditDashboardRoot(state) : null,
+        id: ownProps.match?.params?.dashboardId || null,
     }
 }
 

@@ -7,27 +7,9 @@ import { orObject } from '../modules/util'
 export const SET_DASHBOARDS = 'SET_DASHBOARDS'
 export const ADD_DASHBOARDS = 'ADD_DASHBOARDS'
 export const SET_DASHBOARD_STARRED = 'SET_DASHBOARD_STARRED'
-export const SET_DASHBOARD_ITEMS = 'SET_DASHBOARD_ITEMS'
 
-export const DEFAULT_STATE_DASHBOARDS = {
-    byId: null,
-    items: [],
-}
-
-export const EMPTY_DASHBOARD = {}
-
-// reducer helper functions
-
-const updateDashboardProp = ({ state, dashboardId, prop, value }) => ({
-    byId: {
-        ...state.byId,
-        [dashboardId]: {
-            ...state.byId[dashboardId],
-            [prop]: value,
-        },
-    },
-    items: state.items,
-})
+export const EMPTY_DASHBOARDS = {}
+export const DEFAULT_STATE_DASHBOARDS = null
 
 /**
  * Reducer that computes and returns the new state based on the given action
@@ -39,32 +21,21 @@ const updateDashboardProp = ({ state, dashboardId, prop, value }) => ({
 export default (state = DEFAULT_STATE_DASHBOARDS, action) => {
     switch (action.type) {
         case SET_DASHBOARDS: {
-            return {
-                byId: action.value,
-                items: [],
-            }
+            return action.value
         }
         case ADD_DASHBOARDS: {
             return {
                 ...state,
-                byId: {
-                    ...state.byId,
-                    ...action.value,
-                },
+                ...action.value,
             }
         }
         case SET_DASHBOARD_STARRED: {
-            return updateDashboardProp({
-                state,
-                dashboardId: action.dashboardId,
-                prop: 'starred',
-                value: action.value,
-            })
-        }
-        case SET_DASHBOARD_ITEMS: {
             return {
                 ...state,
-                items: action.value,
+                [action.id]: {
+                    ...state[action.id],
+                    starred: action.value,
+                },
             }
         }
         default:
@@ -81,8 +52,8 @@ export const sGetDashboardsRoot = state => state.dashboards
 /**
  * Selector which returns a dashboard by id from the state object
  * If no matching dashboard is found it returns undefined
- * If dashboards.byId is null, then the dashboards api request
- * has not yet completed. If dashboards.byId is an empty object
+ * If dashboards is null, then the dashboards api request
+ * has not yet completed. If dashboards is an empty object
  * then the dashboards api request is complete, but no dashboards
  * were returned
  *
@@ -92,45 +63,23 @@ export const sGetDashboardsRoot = state => state.dashboards
  * @returns {Object | undefined}
  */
 export const sGetDashboardById = (state, id) =>
-    orObject(sGetDashboardsRoot(state).byId)[id]
+    (sGetDashboardsRoot(state) || EMPTY_DASHBOARDS)[id]
+
+export const sGetDashboardStarred = (state, id) =>
+    sGetDashboardById(state, id).starred
 
 export const sDashboardsIsFetching = state => {
-    return sGetDashboardsRoot(state).byId === null
-}
-
-export const sGetSelectedDashboardId = (state, id, lastStoredDashboardId) => {
-    let dashboardToSelect = null
-    if (id) {
-        dashboardToSelect = sGetDashboardById(state, id) || null
-    } else {
-        const dash = sGetDashboardById(state, lastStoredDashboardId)
-        dashboardToSelect =
-            lastStoredDashboardId && dash
-                ? dash
-                : sGetDashboardsSortedByStarred(state)[0]
-    }
-
-    return dashboardToSelect?.id || null
+    return sGetDashboardsRoot(state) === null
 }
 
 /**
- * Selector which returns all dashboards (the byId object)
+ * Selector which returns all dashboards
  *
  * @function
  * @param {Object} state The current state
  * @returns {Object | undefined}
  */
-export const sGetAllDashboards = state =>
-    orObject(sGetDashboardsRoot(state).byId)
-
-/**
- * Selector which returns the current dashboard items
- *
- * @function
- * @param {Object} state The current state
- * @returns {Array}
- */
-export const sGetDashboardItems = state => sGetDashboardsRoot(state).items
+export const sGetAllDashboards = state => orObject(sGetDashboardsRoot(state))
 
 // selector level 2
 

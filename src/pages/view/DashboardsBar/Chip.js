@@ -8,7 +8,7 @@ import { apiPostDataStatistics } from '../../../api/dataStatistics'
 
 import classes from './styles/Chip.module.css'
 
-export const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
+const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
     const chipProps = {
         selected,
     }
@@ -48,7 +48,6 @@ Chip.propTypes = {
     selected: PropTypes.bool.isRequired,
     starred: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired,
-    classes: PropTypes.object,
 }
 
 export default Chip

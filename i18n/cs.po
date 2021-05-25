@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
+"POT-Creation-Date: 2021-05-12T08:56:39.093Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: trendspotter, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -17,20 +17,6 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Ovládací panel bez názvu"
-
-msgid "Loading dashboard – {{name}}"
-msgstr "Načítání ovládacího panelu – {{name}}"
-
-msgid "Loading dashboard"
-msgstr ""
-
-msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr ""
-"Nebyly nalezeny žádné ovládací panely. Pomocí tlačítka + vytvořte nový "
-"ovládací panel."
-
-msgid "Requested dashboard not found"
-msgstr "Požadovaný ovládací panel nebyl nalezen"
 
 msgid "Remove this item"
 msgstr ""
@@ -307,6 +293,14 @@ msgstr ""
 "V dialogovém okně pro tisk v prohlížeči použijte formát papíru A4 na šířku a"
 " výchozí nastavení okrajů"
 
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+"Nebyly nalezeny žádné ovládací panely. Pomocí tlačítka + vytvořte nový "
+"ovládací panel."
+
+msgid "Requested dashboard not found"
+msgstr "Požadovaný ovládací panel nebyl nalezen"
+
 msgid "Create a new dashboard"
 msgstr ""
 
@@ -373,3 +367,9 @@ msgstr "Sdílet"
 
 msgid "No description"
 msgstr "Bez popisu"
+
+msgid "Loading dashboard – {{name}}"
+msgstr "Načítání ovládacího panelu – {{name}}"
+
+msgid "Loading dashboard"
+msgstr ""

@@ -4,9 +4,7 @@ import {
     MAP,
     EVENT_REPORT,
     EVENT_CHART,
-    itemTypeMap,
 } from '../../../../modules/itemTypes'
-import { getVisualizationId } from '../../../../modules/item'
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId'
 import { loadExternalScript } from './loadExternalScript'
 
@@ -85,12 +83,6 @@ const loadPlugin = async (type, config, credentials) => {
         plugin.auth = credentials.auth
     }
     plugin.load(config)
-}
-
-export const getLink = (item, baseUrl) => {
-    const appUrl = itemTypeMap[item.type].appUrl(getVisualizationId(item))
-
-    return `${baseUrl}/${appUrl}`
 }
 
 export const load = async (

@@ -45,6 +45,10 @@ const PrintActionsBar = ({ id }) => {
     )
 }
 
+PrintActionsBar.defaultValues = {
+    id: '/',
+}
+
 PrintActionsBar.propTypes = {
     id: PropTypes.string,
 }

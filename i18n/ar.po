@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
+"POT-Creation-Date: 2021-05-12T08:56:39.093Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2021\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -19,19 +19,6 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "لوحة معلومات غير معنونة"
-
-msgid "Loading dashboard – {{name}}"
-msgstr "تحميل لوحة المعلومات – {{name}}"
-
-msgid "Loading dashboard"
-msgstr ""
-
-msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr ""
-"لم يتم العثور على لوحات معلومات. استخدم الزر + لإنشاء لوحة معلومات جديدة."
-
-msgid "Requested dashboard not found"
-msgstr "لم يتم العثور على لوحة المعلومات التي طلبتها"
 
 msgid "Remove this item"
 msgstr ""
@@ -294,6 +281,13 @@ msgid ""
 msgstr ""
 "استخدم حجم ورق أفقي A4 وإعدادات الهامش الافتراضية في مربع حوار طباعة المتصفح"
 
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+"لم يتم العثور على لوحات معلومات. استخدم الزر + لإنشاء لوحة معلومات جديدة."
+
+msgid "Requested dashboard not found"
+msgstr "لم يتم العثور على لوحة المعلومات التي طلبتها"
+
 msgid "Create a new dashboard"
 msgstr ""
 
@@ -362,3 +356,9 @@ msgstr "مشاركة"
 
 msgid "No description"
 msgstr "لا يوجد وصف"
+
+msgid "Loading dashboard – {{name}}"
+msgstr "تحميل لوحة المعلومات – {{name}}"
+
+msgid "Loading dashboard"
+msgstr ""

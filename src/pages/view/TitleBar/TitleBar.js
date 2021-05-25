@@ -18,28 +18,23 @@ import {
 } from '@dhis2/ui'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
-import { orObject } from '../../modules/util'
-import { apiStarDashboard } from './starDashboard'
-import { apiPostShowDescription } from '../../api/description'
-
-import { acSetDashboardStarred } from '../../actions/dashboards'
-import { acSetShowDescription } from '../../actions/showDescription'
-import FilterSelector from './ItemFilter/FilterSelector'
-import DropdownButton from '../../components/DropdownButton/DropdownButton'
-import { sGetSelectedId } from '../../reducers/selected'
-import { sGetShowDescription } from '../../reducers/showDescription'
-import {
-    sGetDashboardById,
-    sGetDashboardItems,
-    EMPTY_DASHBOARD,
-} from '../../reducers/dashboards'
+import FilterSelector from './FilterSelector'
+import { apiStarDashboard } from './apiStarDashboard'
+import { orObject } from '../../../modules/util'
+import { apiPostShowDescription } from '../../../api/description'
+import { acSetDashboardStarred } from '../../../actions/dashboards'
+import { acSetShowDescription } from '../../../actions/showDescription'
+import DropdownButton from '../../../components/DropdownButton/DropdownButton'
+import { sGetSelected } from '../../../reducers/selected'
+import { sGetDashboardStarred } from '../../../reducers/dashboards'
+import { sGetShowDescription } from '../../../reducers/showDescription'
 
 import classes from './styles/TitleBar.module.css'
 
 const ViewTitleBar = ({
     id,
-    name,
-    description,
+    displayName,
+    displayDescription,
     access,
     showDescription,
     starred,
@@ -68,6 +63,7 @@ const ViewTitleBar = ({
             : setMoreOptionsIsOpen(!moreOptionsIsOpen)
 
     const printLayout = () => setRedirectUrl(`${id}/printlayout`)
+
     const printOipp = () => setRedirectUrl(`${id}/printoipp`)
 
     const StarIcon = starred ? IconStarFilled24 : IconStar24
@@ -116,7 +112,7 @@ const ViewTitleBar = ({
 
     const descriptionClasses = cx(
         classes.descContainer,
-        description ? classes.desc : classes.noDesc
+        displayDescription ? classes.desc : classes.noDesc
     )
 
     const getMoreMenu = () => (
@@ -169,7 +165,7 @@ const ViewTitleBar = ({
                         className={classes.title}
                         data-test="view-dashboard-title"
                     >
-                        {name}
+                        {displayName}
                     </span>
                     <div className={classes.actions}>
                         <div
@@ -227,7 +223,7 @@ const ViewTitleBar = ({
                         className={descriptionClasses}
                         data-test="dashboard-description"
                     >
-                        {description || i18n.t('No description')}
+                        {displayDescription || i18n.t('No description')}
                     </div>
                 )}
             </div>
@@ -248,9 +244,9 @@ const ViewTitleBar = ({
 ViewTitleBar.propTypes = {
     access: PropTypes.object,
     allowedFilters: PropTypes.array,
-    description: PropTypes.string,
+    displayDescription: PropTypes.string,
+    displayName: PropTypes.string,
     id: PropTypes.string,
-    name: PropTypes.string,
     restrictFilters: PropTypes.bool,
     setDashboardStarred: PropTypes.func,
     showDescription: PropTypes.bool,
@@ -259,26 +255,21 @@ ViewTitleBar.propTypes = {
 }
 
 ViewTitleBar.defaultProps = {
-    name: '',
-    description: '',
+    displayName: '',
+    displayDescription: '',
     starred: false,
     showDescription: false,
 }
 
 const mapStateToProps = state => {
-    const id = sGetSelectedId(state)
-    const dashboard = sGetDashboardById(state, id) || EMPTY_DASHBOARD
+    const dashboard = sGetSelected(state)
 
     return {
-        id,
-        name: dashboard.displayName,
-        description: dashboard.displayDescription,
-        dashboardItems: sGetDashboardItems(state),
+        ...dashboard,
+        starred: dashboard.id
+            ? sGetDashboardStarred(state, dashboard.id)
+            : false,
         showDescription: sGetShowDescription(state),
-        starred: dashboard.starred,
-        access: dashboard.access,
-        restrictFilters: dashboard.restrictFilters,
-        allowedFilters: dashboard.allowedFilters,
     }
 }
 

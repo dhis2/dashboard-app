@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
+"POT-Creation-Date: 2021-05-12T08:56:39.093Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -21,18 +21,6 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Painel sem título"
-
-msgid "Loading dashboard – {{name}}"
-msgstr "Carregando painel– {{nome}}"
-
-msgid "Loading dashboard"
-msgstr ""
-
-msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr "Painel não encontrado. Use o botão + para criar um novo painel."
-
-msgid "Requested dashboard not found"
-msgstr "Painel solicitado não encontrado"
 
 msgid "Remove this item"
 msgstr ""
@@ -299,6 +287,12 @@ msgstr ""
 "Use o tamanho de papel paisagem A4 e as configurações de margem padrão na "
 "caixa de diálogo de impressão do navegador"
 
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr "Painel não encontrado. Use o botão + para criar um novo painel."
+
+msgid "Requested dashboard not found"
+msgstr "Painel solicitado não encontrado"
+
 msgid "Create a new dashboard"
 msgstr ""
 
@@ -363,3 +357,9 @@ msgstr "Partilha"
 
 msgid "No description"
 msgstr "Sem descrição"
+
+msgid "Loading dashboard – {{name}}"
+msgstr "Carregando painel– {{nome}}"
+
+msgid "Loading dashboard"
+msgstr ""

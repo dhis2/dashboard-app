@@ -3,12 +3,11 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 
-import { sGetSelectedId } from '../../../reducers/selected'
-import { sGetShowDescription } from '../../../reducers/showDescription'
 import {
-    sGetDashboardById,
-    EMPTY_DASHBOARD,
-} from '../../../reducers/dashboards'
+    sGetSelectedDisplayName,
+    sGetSelectedDisplayDescription,
+} from '../../../reducers/selected'
+import { sGetShowDescription } from '../../../reducers/showDescription'
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
 import { sGetIsEditing } from '../../../reducers/editDashboard'
 import {
@@ -66,17 +65,15 @@ PrintTitlePageItem.defaultProps = {
 }
 
 const mapStateToProps = state => {
-    const id = sGetSelectedId(state)
     const isEditMode = sGetIsEditing(state)
-    const viewDashboard = sGetDashboardById(state, id) || EMPTY_DASHBOARD
 
     const name = isEditMode
         ? sGetPrintDashboardName(state) || i18n.t('Untitled dashboard')
-        : viewDashboard.displayName
+        : sGetSelectedDisplayName(state)
 
     const description = isEditMode
         ? sGetPrintDashboardDescription(state)
-        : viewDashboard.displayDescription
+        : sGetSelectedDisplayDescription(state)
 
     return {
         name,

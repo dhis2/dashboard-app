@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
+"POT-Creation-Date: 2021-05-12T08:56:39.093Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Burmese (https://www.transifex.com/hisp-uio/teams/100509/my/)\n"
@@ -16,18 +16,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr ""
-
-msgid "Loading dashboard – {{name}}"
-msgstr ""
-
-msgid "Loading dashboard"
-msgstr ""
-
-msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr ""
-
-msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "Remove this item"
@@ -287,6 +275,12 @@ msgid ""
 " dialog"
 msgstr ""
 
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+
+msgid "Requested dashboard not found"
+msgstr ""
+
 msgid "Create a new dashboard"
 msgstr ""
 
@@ -349,4 +343,10 @@ msgid "Share"
 msgstr ""
 
 msgid "No description"
+msgstr ""
+
+msgid "Loading dashboard – {{name}}"
+msgstr ""
+
+msgid "Loading dashboard"
 msgstr ""

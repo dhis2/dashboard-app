@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-27T09:00:25.929Z\n"
+"POT-Creation-Date: 2021-05-12T08:56:39.093Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2021\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -19,19 +19,6 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Bảng điều khiển không có tiêu đề"
-
-msgid "Loading dashboard – {{name}}"
-msgstr "Đang bảng điều khiển - {{tên}}"
-
-msgid "Loading dashboard"
-msgstr ""
-
-msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr ""
-"Không thấy bảng điều khiển. Nhấn vào dấu cộng để tạo bảng điều khiến mới"
-
-msgid "Requested dashboard not found"
-msgstr "Không tìm thấy bảng điều khiển được yêu cầu"
 
 msgid "Remove this item"
 msgstr ""
@@ -297,6 +284,13 @@ msgstr ""
 "Sử dụng khổ giấy ngang A4 và cài đặt lề mặc định trong hộp thoại in của "
 "trình duyệt"
 
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+"Không thấy bảng điều khiển. Nhấn vào dấu cộng để tạo bảng điều khiến mới"
+
+msgid "Requested dashboard not found"
+msgstr "Không tìm thấy bảng điều khiển được yêu cầu"
+
 msgid "Create a new dashboard"
 msgstr ""
 
@@ -360,3 +354,9 @@ msgstr "Chia sẻ"
 
 msgid "No description"
 msgstr "Không có mô tả"
+
+msgid "Loading dashboard – {{name}}"
+msgstr "Đang bảng điều khiển - {{tên}}"
+
+msgid "Loading dashboard"
+msgstr ""

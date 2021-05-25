@@ -13,17 +13,15 @@ jest.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => cb())
 
 const mockStore = configureMockStore()
 const dashboards = {
-    byId: {
-        rainbow123: {
-            id: 'rainbow123',
-            displayName: 'Rainbow Dash',
-            starred: false,
-        },
-        fluttershy123: {
-            id: 'fluttershy123',
-            displayName: 'Fluttershy',
-            starred: true,
-        },
+    rainbow123: {
+        id: 'rainbow123',
+        displayName: 'Rainbow Dash',
+        starred: false,
+    },
+    fluttershy123: {
+        id: 'fluttershy123',
+        displayName: 'Fluttershy',
+        starred: true,
     },
 }
 
@@ -147,7 +145,7 @@ test('renders a DashboardsBar with selected item', () => {
 
 test('renders a DashboardsBar with no items', () => {
     const store = {
-        dashboards: { byId: {} },
+        dashboards: {},
         dashboardsFilter: '',
         controlBar: { userRows: parseInt(MIN_ROW_COUNT) },
         selected: { id: 'rainbow123' },

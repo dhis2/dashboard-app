@@ -1,49 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ViewDashboard renders correctly default 1`] = `
-<ViewDashboard
-  clearEditDashboard={[MockFunction]}
-  clearPrintDashboard={[MockFunction]}
-  dashboardIsEditing={false}
-  dashboardIsPrinting={false}
-  registerPassiveView={[MockFunction]}
->
+exports[`ViewDashboard renders dashboard 1`] = `
+<div>
+  <header />
   <div
-    className="container dashboard-scroll-container"
+    class="container dashboard-scroll-container"
     data-test="outer-scroll-container"
   >
-    <MockDashboardsBar
-      expanded={false}
-      onExpandedChanged={[Function]}
+    <div>
+      DashboardsBar
+    </div>
+    <div
+      class="container dashboard-scroll-container"
     >
       <div>
-        DashboardsBar
+        TitleBar
       </div>
-    </MockDashboardsBar>
-    <DashboardContainer
-      covered={false}
-    >
-      <div
-        className="container dashboard-scroll-container"
-        data-test="inner-scroll-container"
-      >
-        <MockTitleBar>
-          <div>
-            TitleBar
-          </div>
-        </MockTitleBar>
-        <MockFilterBar>
-          <div>
-            MockFilterBar
-          </div>
-        </MockFilterBar>
-        <MockItemGrid>
-          <div>
-            MockItemGrid
-          </div>
-        </MockItemGrid>
+      <div>
+        MockFilterBar
       </div>
-    </DashboardContainer>
+      <div>
+        MockItemGrid
+      </div>
+    </div>
   </div>
-</ViewDashboard>
+</div>
 `;

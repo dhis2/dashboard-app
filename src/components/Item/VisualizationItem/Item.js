@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import isEmpty from 'lodash/isEmpty'
 import i18n from '@dhis2/d2-i18n'
 import Visualization from './Visualization/Visualization'
 import FatalErrorBoundary from './FatalErrorBoundary'
@@ -14,7 +15,7 @@ import { getGridItemElement } from './getGridItemElement'
 import { WindowDimensionsCtx } from '../../WindowDimensionsProvider'
 import { SystemSettingsCtx } from '../../SystemSettingsProvider'
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
-import { apiFetchVisualization } from '../../../api/metadata'
+import { apiFetchVisualization } from '../../../api/fetchVisualization'
 import { sGetVisualization } from '../../../reducers/visualizations'
 import { sGetItemActiveType } from '../../../reducers/itemActiveTypes'
 import { sGetIsEditing } from '../../../reducers/editDashboard'
@@ -35,7 +36,7 @@ import {
 } from '../../../modules/dashboardModes'
 import { getItemHeightPx } from '../../../modules/gridUtil'
 
-export class Item extends Component {
+class Item extends Component {
     state = {
         showFooter: false,
         configLoaded: false,
@@ -74,9 +75,11 @@ export class Item extends Component {
     }
 
     async componentDidMount() {
-        this.props.updateVisualization(
-            await apiFetchVisualization(this.props.item)
-        )
+        if (isEmpty(this.props.visualization)) {
+            this.props.setVisualization(
+                await apiFetchVisualization(this.props.item)
+            )
+        }
 
         try {
             if (
@@ -247,8 +250,8 @@ Item.propTypes = {
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     setActiveType: PropTypes.func,
+    setVisualization: PropTypes.func,
     settings: PropTypes.object,
-    updateVisualization: PropTypes.func,
     visualization: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
 }
@@ -277,7 +280,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = {
     setActiveType: acSetItemActiveType,
-    updateVisualization: acAddVisualization,
+    setVisualization: acAddVisualization,
 }
 
 const ItemWithSettings = props => (
