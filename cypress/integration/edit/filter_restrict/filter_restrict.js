@@ -1,11 +1,17 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { dashboardTitleSel } from '../../../selectors/viewDashboard'
 import { filterDimensionsPanelSel } from '../../../selectors/dashboardFilter'
-import { titleInputSel } from '../../../selectors/editDashboard'
+import {
+    titleInputSel,
+    confirmActionDialogSel,
+} from '../../../selectors/editDashboard'
 
 const TEST_DASHBOARD_TITLE = `aaa-${new Date().toUTCString()}`
 
 let dashboardId
+
+const closeModal = () =>
+    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
 
 /*
 Scenario: I create a new dashboard and have no Filter Restrictions
@@ -24,7 +30,7 @@ Then('Filter settings are not restricted, and I can save the dashboard', () => {
         .find('input')
         .should('be.checked')
 
-    cy.closeModal()
+    closeModal()
 
     cy.clickEditActionButton('Save changes')
 
@@ -49,11 +55,12 @@ Given(
 )
 
 When('I click to restrict Filter settings', () => {
-    cy.contains('Only allow filtering by selected dimensions').parent().click()
+    closeModal()
 })
 
 When('I click away without confirming', () => {
-    cy.closeModal()
+    //close modal
+    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
 })
 
 Then('Filter Restrictions are not restricted', () => {
@@ -163,7 +170,7 @@ Then('Add Filter button is not visible', () => {
 
 When('I delete the dashboard', () => {
     cy.clickEditActionButton('Delete')
-    cy.confirmDeleteDashboard()
+    cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
 })
 
 Then('different dashboard displays in view mode', () => {

@@ -47,7 +47,9 @@ When('dashboard title is added', () => {
 })
 
 When('I close the item selector', () => {
-    cy.closeModal()
+    //close modal
+    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+
     cy.get(itemMenuSel).should('not.exist')
 })
 
@@ -119,7 +121,7 @@ Scenario: I cancel a delete dashboard action
 */
 
 When('I cancel delete', () => {
-    cy.cancelDeleteDashboard()
+    cy.get(confirmActionDialogSel).find('button').contains('Cancel').click()
 })
 
 Then('the confirm delete dialog is displayed', () => {
@@ -133,7 +135,7 @@ Scenario: I delete a dashboard
 */
 
 When('I confirm delete', () => {
-    cy.confirmDeleteDashboard()
+    cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
 })
 
 Then('the dashboard is deleted and first starred dashboard displayed', () => {
