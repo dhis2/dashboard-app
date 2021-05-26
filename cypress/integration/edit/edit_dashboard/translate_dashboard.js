@@ -51,13 +51,13 @@ Then('Norwegian title and description are displayed', () => {
         .should('be.visible')
         .and('contain', norwegianTitle)
 
-    cy.clickMoreButton()
+    cy.clickViewActionButton('More')
     cy.contains('Show description').click()
 
     cy.get(dashboardDescriptionSel)
         .should('be.visible')
         .and('contain', norwegianDesc)
 
-    cy.clickMoreButton()
+    cy.clickViewActionButton('More')
     cy.contains('Hide description').click()
 })

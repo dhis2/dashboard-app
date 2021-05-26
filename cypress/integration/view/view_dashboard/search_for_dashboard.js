@@ -6,12 +6,8 @@ import {
     dashboardSearchInputSel,
 } from '../../../selectors/viewDashboard'
 
-When('I select the Immunization dashboard', () => {
-    cy.get(dashboardChipSel).contains('Immun').click()
-})
-
-When('I search for dashboards containing Immunization', () => {
-    cy.get(dashboardSearchInputSel).type('Immun')
+When('I search for dashboards containing {string}', title => {
+    cy.get(dashboardSearchInputSel).type(title)
 })
 
 Then('Immunization and Immunization data dashboards are choices', () => {
@@ -22,9 +18,6 @@ When('I press enter in the search dashboard field', () => {
     cy.get(dashboardSearchInputSel).type('{enter}')
 })
 
-When('I search for dashboards containing Noexist', () => {
-    cy.get(dashboardSearchInputSel).type('Noexist')
-})
 Then('no dashboards are choices', () => {
     cy.get(dashboardChipSel).should('not.exist')
 })

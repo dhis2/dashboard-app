@@ -2,8 +2,8 @@ import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 import {
     dashboardsBarSel,
     outerScrollContainerSel,
-    editControlBarSel,
 } from '../../../selectors/viewDashboard'
+import { actionsBarSel } from '../../../selectors/editDashboard'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 // Scenario: Dashboards bar scrolls away in phone landscape
@@ -36,9 +36,9 @@ Then('the dashboards bar is visible', () => {
 })
 
 Then('the edit control bar is not visible', () => {
-    cy.get(editControlBarSel, EXTENDED_TIMEOUT).should('not.be.visible')
+    cy.get(actionsBarSel, EXTENDED_TIMEOUT).should('not.be.visible')
 })
 
 Then('the edit control bar is visible', () => {
-    cy.get(editControlBarSel).should('be.visible')
+    cy.get(actionsBarSel).should('be.visible')
 })

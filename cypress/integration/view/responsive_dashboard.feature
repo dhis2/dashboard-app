@@ -22,7 +22,7 @@ Feature: Small screen dashboard
 
     @nonmutating
     Scenario: I am creating a new dashboard
-        Given I choose to create new dashboard
+        Given I start a new dashboard
         And dashboard title is changed
         And dashboard items are added
         When I go to small screen

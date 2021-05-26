@@ -2,7 +2,7 @@ Feature: Creating, editing and deleting dashboard
 
     @mutating
     Scenario: I create a new dashboard
-        Given I choose to create new dashboard
+        Given I start a new dashboard
         And dashboard title is added
         And dashboard items are added
         And I close the item selector

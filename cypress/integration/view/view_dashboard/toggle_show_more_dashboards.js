@@ -1,5 +1,6 @@
 import { When } from 'cypress-cucumber-preprocessor/steps'
+import { showMoreLessSel } from '../../../selectors/viewDashboard'
 
 When('I toggle show more dashboards', () => {
-    cy.get('[data-test="showmore-button"]').click()
+    cy.get(showMoreLessSel).click()
 })

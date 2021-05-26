@@ -5,17 +5,17 @@ import { titleBarSel } from '../../../selectors/viewDashboard'
 
 const ROUTE_EDIT = 'edit'
 
+const getRouteFromHash = hash => {
+    const lastSlashIdx = hash.lastIndexOf('/')
+    return hash.slice(lastSlashIdx + 1)
+}
+
 const confirmEditMode = () => {
     cy.get(titleInputSel).should('exist')
 
     cy.location().should(loc => {
         expect(getRouteFromHash(loc.hash)).to.eq(ROUTE_EDIT)
     })
-}
-
-const getRouteFromHash = hash => {
-    const lastSlashIdx = hash.lastIndexOf('/')
-    return hash.slice(lastSlashIdx + 1)
 }
 
 When('I choose to edit dashboard', () => {

@@ -18,14 +18,14 @@ When('I click to show description', () => {
         'toggleDescription'
     )
 
-    cy.clickMoreButton()
+    cy.clickViewActionButton('More')
     cy.contains('Show description').click()
 
     cy.wait('@toggleDescription').its('response.statusCode').should('eq', 201)
 })
 
 When('I click to hide the description', () => {
-    cy.clickMoreButton()
+    cy.clickViewActionButton('More')
     cy.contains('Hide description').click()
 
     cy.wait('@toggleDescription').its('response.statusCode').should('eq', 201)
@@ -37,7 +37,7 @@ When('clicking to show description fails', () => {
         statusCode: 409,
     }).as('showDescriptionFails')
 
-    cy.clickMoreButton()
+    cy.clickViewActionButton('More')
     cy.contains('Show description').click()
     cy.wait('@showDescriptionFails')
         .its('response.statusCode')

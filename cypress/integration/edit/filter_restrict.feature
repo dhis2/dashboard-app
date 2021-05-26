@@ -2,7 +2,7 @@ Feature: Editing Filter Restrictions
 
     @mutating
     Scenario: I create a new dashboard and have no Filter Restrictions
-        Given I choose to create new dashboard
+        Given I start a new dashboard
         And I add a dashboard title
         And I click on Filter settings
         Then Filter settings are not restricted, and I can save the dashboard

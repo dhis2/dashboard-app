@@ -42,7 +42,6 @@ Feature: Errors while in view mode
     @nonmutating
     Scenario: Starring a dashboard fails
         Given I open the "Delivery" dashboard
-        Then the "Delivery" dashboard displays in view mode
         When clicking to star "Delivery" dashboard fails
         Then a warning message is displayed stating that starring dashboard failed
         And the "Delivery" dashboard is not starred
@@ -51,7 +50,6 @@ Feature: Errors while in view mode
 # @nonmutating
 # Scenario: Toggling show description fails
 #     Given I open the "Delivery" dashboard
-#     Then the "Delivery" dashboard displays in view mode
 #     When clicking to show description fails
 #     Then a warning message is displayed stating that show description failed
 #     And the dashboard description is not displayed

@@ -119,7 +119,7 @@ Scenario: I cancel a delete dashboard action
 */
 
 When('I cancel delete', () => {
-    cy.get(confirmActionDialogSel).find('button').contains('Cancel').click()
+    cy.cancelDeleteDashboard()
 })
 
 Then('the confirm delete dialog is displayed', () => {
@@ -133,7 +133,7 @@ Scenario: I delete a dashboard
 */
 
 When('I confirm delete', () => {
-    cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
+    cy.confirmDeleteDashboard()
 })
 
 Then('the dashboard is deleted and first starred dashboard displayed', () => {

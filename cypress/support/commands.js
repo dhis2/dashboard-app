@@ -1,12 +1,15 @@
 import { EXTENDED_TIMEOUT } from './utils'
 import { titleBarSel } from '../selectors/viewDashboard'
-import { actionsBarSel } from '../selectors/editDashboard'
+import {
+    actionsBarSel,
+    confirmActionDialogSel,
+} from '../selectors/editDashboard'
 
-Cypress.Commands.add('clickMoreButton', () =>
+Cypress.Commands.add('clickViewActionButton', action =>
     cy
         .get(titleBarSel, EXTENDED_TIMEOUT)
         .find('button')
-        .contains('More', EXTENDED_TIMEOUT)
+        .contains(action, EXTENDED_TIMEOUT)
         .click()
 )
 
@@ -20,4 +23,12 @@ Cypress.Commands.add('clickEditActionButton', action =>
 
 Cypress.Commands.add('closeModal', () =>
     cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+)
+
+Cypress.Commands.add('cancelDeleteDashboard', () =>
+    cy.get(confirmActionDialogSel).find('button').contains('Cancel').click()
+)
+
+Cypress.Commands.add('confirmDeleteDashboard', () =>
+    cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
 )

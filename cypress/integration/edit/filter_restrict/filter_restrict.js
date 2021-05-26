@@ -1,10 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { dashboardTitleSel } from '../../../selectors/viewDashboard'
 import { filterDimensionsPanelSel } from '../../../selectors/dashboardFilter'
-import {
-    confirmActionDialogSel,
-    titleInputSel,
-} from '../../../selectors/editDashboard'
+import { titleInputSel } from '../../../selectors/editDashboard'
 
 const TEST_DASHBOARD_TITLE = `aaa-${new Date().toUTCString()}`
 
@@ -137,7 +134,7 @@ When('I save the dashboard', () => {
 })
 
 When('I click Add Filter', () => {
-    cy.contains('Add filter').click()
+    cy.clickViewActionButton('Add filter')
 })
 
 Then('I see Facility Ownership and no other dimensions', () => {
@@ -166,7 +163,7 @@ Then('Add Filter button is not visible', () => {
 
 When('I delete the dashboard', () => {
     cy.clickEditActionButton('Delete')
-    cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
+    cy.confirmDeleteDashboard()
 })
 
 Then('different dashboard displays in view mode', () => {

@@ -2,7 +2,6 @@ Feature: Dashboard filter
 
     Background:
         Given I open the "Delivery" dashboard
-        And the "Delivery" dashboard displays in view mode
 
     @nonmutating
     Scenario: I add a Period filter
