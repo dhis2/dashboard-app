@@ -7,6 +7,7 @@ import {
     dashboardChipSel,
     newButtonSel,
 } from '../../selectors/viewDashboard'
+import { titleInputSel } from '../../selectors/editDashboard'
 
 beforeEach(() => {
     cy.visit('/', EXTENDED_TIMEOUT)
@@ -31,6 +32,7 @@ Given('I choose to create new dashboard', () => {
 
 When('I choose to edit dashboard', () => {
     cy.get('[data-test="link-edit-dashboard"]').click()
+    cy.get(titleInputSel, EXTENDED_TIMEOUT).should('be.visible')
 })
 
 When('dashboard items are added', () => {
