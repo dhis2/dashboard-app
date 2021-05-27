@@ -1,4 +1,5 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { EXTENDED_TIMEOUT } from '../../../support/utils'
 import {
     chartSel,
     mapSel,
@@ -20,14 +21,14 @@ Background
 
 Then('the chart dashboard item displays as a chart', () => {
     getDashboardItem(chartItemUid)
-        .find(chartSel)
+        .find(chartSel, EXTENDED_TIMEOUT)
         .should('exist')
         .and('be.visible')
 })
 
 Then('the table dashboard item displays as a table', () => {
     getDashboardItem(tableItemUid)
-        .find(tableSel)
+        .find(tableSel, EXTENDED_TIMEOUT)
         .should('exist')
         .and('be.visible')
 })
@@ -43,7 +44,7 @@ When('I click View As Table on a chart dashboard item', () => {
 
 Then('the chart dashboard item displays as a table', () => {
     getDashboardItem(chartItemUid)
-        .find(tableSel)
+        .find(tableSel, EXTENDED_TIMEOUT)
         .should('exist')
         .and('be.visible')
 })
@@ -59,7 +60,7 @@ When('I click View As Map on a chart dashboard item', () => {
 
 Then('the chart dashboard item displays as a map', () => {
     getDashboardItem(chartItemUid)
-        .find(mapSel)
+        .find(mapSel, EXTENDED_TIMEOUT)
         .should('exist')
         .and('be.visible')
 })
@@ -75,7 +76,7 @@ When('I click View As Chart on a table dashboard item', () => {
 
 Then('the table dashboard item displays as a chart', () => {
     getDashboardItem(tableItemUid)
-        .find(chartSel)
+        .find(chartSel, EXTENDED_TIMEOUT)
         .should('exist')
         .and('be.visible')
 })
