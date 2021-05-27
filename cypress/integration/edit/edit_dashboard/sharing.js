@@ -1,6 +1,6 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
-import { dashboardTitleSel } from '../../../selectors/viewDashboard'
+import { dashboardTitleSel } from '../../../elements/viewDashboard'
 
 const USER_NAME = 'Kevin Boateng'
 

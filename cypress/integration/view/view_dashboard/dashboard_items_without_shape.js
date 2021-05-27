@@ -1,7 +1,7 @@
 import { Given } from 'cypress-cucumber-preprocessor/steps'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
 import { dashboards } from '../../../assets/backends'
-import { dashboardChipSel } from '../../../selectors/viewDashboard'
+import { dashboardChipSel } from '../../../elements/viewDashboard'
 
 Given('I open the {string} dashboard with shapes removed', title => {
     const regex = new RegExp(`dashboards/${dashboards[title].id}`, 'g')

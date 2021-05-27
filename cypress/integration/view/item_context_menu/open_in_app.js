@@ -1,5 +1,5 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { clickMenuButton } from '../../../selectors/dashboardItem'
+import { clickMenuButton } from '../../../elements/dashboardItem'
 import { dashboards } from '../../../assets/backends'
 
 // these tests being run on the "Delivery" dashboard

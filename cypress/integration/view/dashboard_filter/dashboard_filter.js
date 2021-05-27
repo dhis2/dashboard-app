@@ -3,11 +3,11 @@ import {
     getDashboardItem,
     chartSubtitleSel,
     chartXAxisLabelSel,
-} from '../../../selectors/dashboardItem'
+} from '../../../elements/dashboardItem'
 import {
     filterBadgeSel,
     dimensionsModalSel,
-} from '../../../selectors/dashboardFilter'
+} from '../../../elements/dashboardFilter'
 import { dashboards } from '../../../assets/backends'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
 

@@ -4,7 +4,7 @@ import {
     filterDimensionsPanelSel,
     dimensionsModalSel,
     orgUnitCheckboxesSel,
-} from '../../../selectors/dashboardFilter'
+} from '../../../elements/dashboardFilter'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 const PERIOD = 'Last 6 months'

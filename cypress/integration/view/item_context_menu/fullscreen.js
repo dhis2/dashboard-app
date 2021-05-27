@@ -3,7 +3,7 @@ import {
     getDashboardItem,
     itemMenuButton,
     clickMenuButton,
-} from '../../../selectors/dashboardItem'
+} from '../../../elements/dashboardItem'
 import { dashboards } from '../../../assets/backends'
 
 Then('the text item does not have a context menu', () => {

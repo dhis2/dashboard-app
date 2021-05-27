@@ -6,7 +6,7 @@ import {
     dashboardUnstarredSel,
     dashboardChipSel,
     chipStarSel,
-} from '../../../selectors/viewDashboard'
+} from '../../../elements/viewDashboard'
 
 // Scenario: I star the dashboard
 When('I click to star the dashboard', () => {

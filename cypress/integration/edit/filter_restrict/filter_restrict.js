@@ -1,10 +1,14 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { dashboardTitleSel } from '../../../selectors/viewDashboard'
-import { filterDimensionsPanelSel } from '../../../selectors/dashboardFilter'
+import {
+    dashboardTitleSel,
+    clickViewActionButton,
+} from '../../../elements/viewDashboard'
+import { filterDimensionsPanelSel } from '../../../elements/dashboardFilter'
 import {
     titleInputSel,
     confirmActionDialogSel,
-} from '../../../selectors/editDashboard'
+    clickEditActionButton,
+} from '../../../elements/editDashboard'
 
 const TEST_DASHBOARD_TITLE = `aaa-${new Date().toUTCString()}`
 
@@ -22,7 +26,7 @@ When('I add a dashboard title', () => {
 })
 
 When('I click on Filter settings', () => {
-    cy.clickEditActionButton('Filter settings')
+    clickEditActionButton('Filter settings')
 })
 
 Then('Filter settings are not restricted, and I can save the dashboard', () => {
@@ -32,7 +36,7 @@ Then('Filter settings are not restricted, and I can save the dashboard', () => {
 
     closeModal()
 
-    cy.clickEditActionButton('Save changes')
+    clickEditActionButton('Save changes')
 
     cy.get(dashboardTitleSel)
         .should('be.visible')
@@ -55,12 +59,12 @@ Given(
 )
 
 When('I click to restrict Filter settings', () => {
-    closeModal()
+    cy.contains('Only allow filtering by selected dimensions').parent().click()
 })
 
 When('I click away without confirming', () => {
     //close modal
-    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+    closeModal()
 })
 
 Then('Filter Restrictions are not restricted', () => {
@@ -137,11 +141,11 @@ When('I remove all filters from selected filters', () => {
 })
 
 When('I save the dashboard', () => {
-    cy.clickEditActionButton('Save changes')
+    clickEditActionButton('Save changes')
 })
 
 When('I click Add Filter', () => {
-    cy.clickViewActionButton('Add filter')
+    clickViewActionButton('Add filter')
 })
 
 Then('I see Facility Ownership and no other dimensions', () => {
@@ -169,7 +173,7 @@ Then('Add Filter button is not visible', () => {
 })
 
 When('I delete the dashboard', () => {
-    cy.clickEditActionButton('Delete')
+    clickEditActionButton('Delete')
     cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
 })
 

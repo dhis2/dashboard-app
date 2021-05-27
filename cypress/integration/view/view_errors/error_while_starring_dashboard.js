@@ -5,7 +5,7 @@ import {
     dashboardUnstarredSel,
     dashboardStarredSel,
     dashboardChipSel,
-} from '../../../selectors/viewDashboard'
+} from '../../../elements/viewDashboard'
 
 When('clicking to star {string} dashboard fails', title => {
     cy.log('url', `dashboards/${dashboards[title].id}/favorite`)

@@ -1,5 +1,5 @@
 import { When } from 'cypress-cucumber-preprocessor/steps'
-import { confirmActionDialogSel } from '../../../selectors/editDashboard'
+import { confirmActionDialogSel } from '../../../elements/editDashboard'
 
 When('I confirm I want to discard changes', () => {
     cy.get(confirmActionDialogSel)

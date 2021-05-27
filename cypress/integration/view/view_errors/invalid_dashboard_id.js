@@ -1,6 +1,6 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
-import { dashboardTitleSel } from '../../../selectors/viewDashboard'
+import { dashboardTitleSel } from '../../../elements/viewDashboard'
 
 // Scenario: Dashboard id is invalid
 Given('I type an invalid dashboard id in the browser url', () => {

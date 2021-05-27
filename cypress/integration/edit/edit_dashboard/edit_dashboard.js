@@ -4,16 +4,17 @@ import {
     gridItemSel,
     chartSel,
     chartSubtitleSel,
-} from '../../../selectors/dashboardItem'
+} from '../../../elements/dashboardItem'
 import {
     dashboardChipSel,
     dashboardTitleSel,
-} from '../../../selectors/viewDashboard'
+} from '../../../elements/viewDashboard'
 import {
     confirmActionDialogSel,
     titleInputSel,
     itemMenuSel,
-} from '../../../selectors/editDashboard'
+    clickEditActionButton,
+} from '../../../elements/editDashboard'
 
 // the length of the root route of the app (after the slash): #/
 const ROOT_ROUTE_LENGTH = 0
@@ -54,7 +55,7 @@ When('I close the item selector', () => {
 })
 
 When('dashboard is saved', () => {
-    cy.clickEditActionButton('Save changes')
+    clickEditActionButton('Save changes')
 })
 
 Then('the saved dashboard should be displayed', () => {
@@ -102,7 +103,7 @@ Given('I open existing dashboard', () => {
 })
 
 When('I choose to delete dashboard', () => {
-    cy.clickEditActionButton('Delete')
+    clickEditActionButton('Delete')
 })
 
 /*

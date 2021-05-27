@@ -4,7 +4,7 @@ import {
     dashboardTitleSel,
     dashboardChipSel,
     dashboardSearchInputSel,
-} from '../../../selectors/viewDashboard'
+} from '../../../elements/viewDashboard'
 
 When('I search for dashboards containing {string}', title => {
     cy.get(dashboardSearchInputSel).type(title)

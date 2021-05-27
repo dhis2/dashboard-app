@@ -5,7 +5,9 @@ import { getApiBaseUrl } from '../../../support/server/utils'
 import {
     dashboardTitleSel,
     dashboardDescriptionSel,
-} from '../../../selectors/viewDashboard'
+    clickViewActionButton,
+} from '../../../elements/viewDashboard'
+import { clickEditActionButton } from '../../../elements/editDashboard'
 
 let norwegianTitle = ''
 let norwegianDesc = ''
@@ -26,7 +28,7 @@ When('I add translations for dashboard name and description', () => {
     norwegianTitle = 'nor title ' + now
     norwegianDesc = 'nor desc ' + now
 
-    cy.clickEditActionButton('Translate')
+    clickEditActionButton('Translate')
     cy.contains('Select locale').click()
     cy.contains('Select locale').type('Norwegian{enter}')
     cy.get('[placeholder="Name"]').clear().type(norwegianTitle)
@@ -51,13 +53,13 @@ Then('Norwegian title and description are displayed', () => {
         .should('be.visible')
         .and('contain', norwegianTitle)
 
-    cy.clickViewActionButton('More')
+    clickViewActionButton('More')
     cy.contains('Show description').click()
 
     cy.get(dashboardDescriptionSel)
         .should('be.visible')
         .and('contain', norwegianDesc)
 
-    cy.clickViewActionButton('More')
+    clickViewActionButton('More')
     cy.contains('Hide description').click()
 })

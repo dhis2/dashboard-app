@@ -6,7 +6,7 @@ import {
     tableSel,
     clickMenuButton,
     getDashboardItem,
-} from '../../../selectors/dashboardItem'
+} from '../../../elements/dashboardItem'
 import { dashboards } from '../../../assets/backends'
 
 // these tests being run on the "Delivery" dashboard
