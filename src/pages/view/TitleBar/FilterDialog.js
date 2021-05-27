@@ -17,6 +17,15 @@ import {
     OrgUnitDimension,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
+    DAILY,
+    WEEKLY,
+    WEEKLYWED,
+    WEEKLYTHU,
+    WEEKLYSAT,
+    WEEKLYSUN,
+    BIWEEKLY,
+    MONTHLY,
+    BIMONTHLY,
 } from '@dhis2/analytics'
 import {
     acAddItemFilter,
@@ -24,6 +33,7 @@ import {
 } from '../../../actions/itemFilters'
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
 import { useUserSettings } from '../../../components/UserSettingsProvider'
+import { useSystemSettings } from '../../../components/SystemSettingsProvider'
 
 const FilterDialog = ({
     dimension,
@@ -35,6 +45,7 @@ const FilterDialog = ({
     const [filters, setFilters] = useState(initiallySelectedItems)
     const { d2 } = useD2()
     const { userSettings } = useUserSettings()
+    const { settings: systemSettings } = useSystemSettings()
 
     const onSelectItems = ({ dimensionId, items }) => {
         setFilters({ [dimensionId]: items })
@@ -74,6 +85,26 @@ const FilterDialog = ({
         onClose(id)
     }
 
+    const getExcludedPeriodTypes = (settings = {}) => {
+        const types = []
+        if (settings['hideDailyPeriods']) {
+            types.push(DAILY)
+        }
+        if (settings['hideWeeklyPeriods']) {
+            types.push(WEEKLY, WEEKLYWED, WEEKLYTHU, WEEKLYSAT, WEEKLYSUN)
+        }
+        if (settings['hideBiWeeklyPeriods']) {
+            types.push(BIWEEKLY)
+        }
+        if (settings['hideMonthlyPeriods']) {
+            types.push(MONTHLY)
+        }
+        if (settings['hideBiMonthlyPeriods']) {
+            types.push(BIMONTHLY)
+        }
+        return types
+    }
+
     const renderDialogContent = () => {
         const commonProps = {
             d2,
@@ -90,6 +121,9 @@ const FilterDialog = ({
                     <PeriodDimension
                         selectedPeriods={selectedItems}
                         onSelect={commonProps.onSelect}
+                        excludedPeriodTypes={getExcludedPeriodTypes(
+                            systemSettings
+                        )}
                     />
                 )
             }
