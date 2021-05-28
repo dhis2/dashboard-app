@@ -12,6 +12,11 @@ const SYSTEM_SETTINGS = [
     'keyDashboardContextMenuItemSwitchViewType',
     'keyDashboardContextMenuItemViewFullscreen',
     'keyGatherAnalyticalObjectStatisticsInDashboardViews',
+    'keyHideBiMonthlyPeriods',
+    'keyHideDailyPeriods',
+    'keyHideMonthlyPeriods',
+    'keyHideWeeklyPeriods',
+    'keyHideBiWeeklyPeriods',
 ]
 
 const SYSTEM_SETTINGS_REMAPPINGS = {
@@ -20,6 +25,11 @@ const SYSTEM_SETTINGS_REMAPPINGS = {
         'allowVisShowInterpretations',
     keyDashboardContextMenuItemSwitchViewType: 'allowVisViewAs',
     keyDashboardContextMenuItemViewFullscreen: 'allowVisFullscreen',
+    keyHideBiMonthlyPeriods: 'hideBiMonthlyPeriods',
+    keyHideDailyPeriods: 'hideDailyPeriods',
+    keyHideMonthlyPeriods: 'hideMonthlyPeriods',
+    keyHideWeeklyPeriods: 'hideWeeklyPeriods',
+    keyHideBiWeeklyPeriods: 'hideBiWeeklyPeriods',
 }
 
 export const renameSystemSettings = settings => {
