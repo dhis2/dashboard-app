@@ -1529,10 +1529,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^17.0.4", "@dhis2/analytics@^17.1.0":
-  version "17.1.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-17.1.0.tgz#c3c0e1250a352e709ef065c5e3f05066b65c5d2f"
-  integrity sha512-kfukdKTmnYs7r8o+4DeQ8MuwYkvuwlHxDRYy8bd+Beo5ERGtr4yGPfjHNCcxxgBbApNHHA5nMID1qBSAzGy9Qg==
+"@dhis2/analytics@^18.0.0":
+  version "18.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-18.0.0.tgz#0d03b9851708a8de3825a2c9824afe0380ccc597"
+  integrity sha512-IsJuXDgDw+DaYbxIDKGzx1PHWXx97qNquyBwszrpRfw++G2x/8bMPpJ2yGHU1KwuGEv0Io2J8Rnx0NPrRG4rSQ==
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^7.2.0"
     "@dhis2/d2-ui-org-unit-dialog" "^7.2.0"
@@ -1867,12 +1867,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^37.1.0":
-  version "37.1.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-37.1.0.tgz#8d29313b3fec4cb817c808083361dae1cf0c6a2b"
-  integrity sha512-Lu4G98DRml+gb7rd1edTx4LybaKgQodN9nmkFa+3tfv+pVqUX5y3jE4hXCy/pAqdpZvb9+WqnQdI4SLlA0IZmQ==
+"@dhis2/data-visualizer-plugin@^37.2.0":
+  version "37.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-37.2.0.tgz#7ac548ee7540fb3ae06594d1b6a6fe482716a319"
+  integrity sha512-AJAHXw4Q8AQ197zGq/iuufAZD5De1VotjV2vZFsuuxxsk2gLMHzcqpQ4ZwtiR6KxD1TkkHwDaCifsAQ5UToj4A==
   dependencies:
-    "@dhis2/analytics" "^17.0.4"
+    "@dhis2/analytics" "^18.0.0"
     "@dhis2/app-runtime" "^2.8.0"
     "@dhis2/d2-i18n" "^1.1.0"
     "@dhis2/ui" "^6.5.5"
