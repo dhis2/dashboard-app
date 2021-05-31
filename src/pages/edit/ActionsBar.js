@@ -200,6 +200,12 @@ const EditBar = ({ dashboard, ...props }) => {
                     {i18n.t('Delete')}
                 </Button>
             )}
+            <Button
+            // onClick={onConfirmDelete}
+            // dataTest="delete-dashboard-button"
+            >
+                {i18n.t('Auto layout')}
+            </Button>
         </ButtonStrip>
     )
 
