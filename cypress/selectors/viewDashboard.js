@@ -18,5 +18,6 @@ export const dashboardsBarSel = '[data-test="dashboards-bar"]'
 export const dashboardsBarContainerSel = '[data-test="dashboardsbar-container"]'
 
 export const outerScrollContainerSel = '[data-test="outer-scroll-container"]'
+export const innerScrollContainerSel = '[data-test="inner-scroll-container"]'
 
 export const editControlBarSel = '[data-test="edit-control-bar"]'

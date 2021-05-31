@@ -2,10 +2,17 @@ import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { useConfig } from '@dhis2/app-runtime'
-import { load, unmount } from './plugin'
+import { load } from './plugin'
 import getGridItemDomId from '../../../../modules/getGridItemDomId'
 
-const DefaultPlugin = ({ item, activeType, visualization, options, style }) => {
+const DefaultPlugin = ({
+    item,
+    activeType,
+    filterVersion,
+    visualization,
+    options,
+    style,
+}) => {
     const { d2 } = useD2()
     const { baseUrl } = useConfig()
     const credentials = {
@@ -15,6 +22,7 @@ const DefaultPlugin = ({ item, activeType, visualization, options, style }) => {
 
     const prevItem = useRef()
     const prevActiveType = useRef()
+    const prevFilterVersion = useRef()
 
     useEffect(() => {
         load(item, visualization, {
@@ -25,13 +33,15 @@ const DefaultPlugin = ({ item, activeType, visualization, options, style }) => {
 
         prevItem.current = item
         prevActiveType.current = activeType
-
-        return () => unmount(item, activeType)
+        prevFilterVersion.current = filterVersion
     }, [])
 
     useEffect(() => {
-        if (shouldPluginReload()) {
-            unmount(item, prevActiveType.current)
+        if (
+            prevItem.current === item &&
+            (prevActiveType.current !== activeType ||
+                prevFilterVersion.current !== filterVersion)
+        ) {
             load(item, visualization, {
                 credentials,
                 activeType,
@@ -40,24 +50,15 @@ const DefaultPlugin = ({ item, activeType, visualization, options, style }) => {
 
         prevItem.current = item
         prevActiveType.current = activeType
-    }, [item, visualization, activeType])
-
-    /**
-     * Prevent unnecessary re-rendering
-     * TODO: fix this hack
-     */
-    const shouldPluginReload = () => {
-        const reloadAllowed = prevItem.current === item
-        const visChanged = prevActiveType.current !== activeType
-
-        return reloadAllowed && visChanged
-    }
+        prevFilterVersion.current = filterVersion
+    }, [item, visualization, activeType, filterVersion])
 
     return <div id={getGridItemDomId(item.id)} style={style} />
 }
 
 DefaultPlugin.propTypes = {
     activeType: PropTypes.string,
+    filterVersion: PropTypes.string,
     item: PropTypes.object,
     options: PropTypes.object,
     style: PropTypes.object,

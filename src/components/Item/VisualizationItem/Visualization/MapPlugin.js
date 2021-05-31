@@ -3,47 +3,51 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import DefaultPlugin from './DefaultPlugin'
 import { MAP } from '../../../../modules/itemTypes'
-import { pluginIsAvailable, resize } from './plugin'
+import { pluginIsAvailable, resize, unmount } from './plugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
 
 const MapPlugin = ({
+    visualization,
     applyFilters,
     isFullscreen,
     availableHeight,
     availableWidth,
     gridWidth,
+    itemFilters,
     ...props
 }) => {
     useEffect(() => {
         resize(props.item.id, MAP, isFullscreen)
     }, [availableHeight, availableWidth, isFullscreen, gridWidth])
 
-    if (props.item.type === MAP) {
-        // apply filters only to thematic and event layers
-        // for maps AO
-        const mapViews = props.visualization.mapViews.map(mapView => {
-            if (
-                mapView.layer.includes('thematic') ||
-                mapView.layer.includes('event')
-            ) {
-                return applyFilters(mapView, props.itemFilters)
+    // The function returned from this effect is run when this component unmounts
+    useEffect(() => () => unmount(props.item, MAP), [])
+
+    const getVisualization = () => {
+        if (props.item.type === MAP) {
+            // apply filters only to thematic and event layers
+            // for maps AO
+            const mapViews = visualization.mapViews.map(mapView => {
+                if (
+                    mapView.layer.includes('thematic') ||
+                    mapView.layer.includes('event')
+                ) {
+                    return applyFilters(mapView, itemFilters)
+                }
+
+                return mapView
+            })
+
+            return {
+                ...visualization,
+                mapViews,
             }
-
-            return mapView
-        })
-
-        props.visualization = {
-            ...props.visualization,
-            mapViews,
+        } else {
+            // this is the case of a non map AO passed to the maps plugin
+            // due to a visualization type switch in dashboard item
+            // maps plugin takes care of converting the AO to a suitable format
+            return applyFilters(visualization, itemFilters)
         }
-    } else {
-        // this is the case of a non map AO passed to the maps plugin
-        // due to a visualization type switch in dashboard item
-        // maps plugin takes care of converting the AO to a suitable format
-        props.visualization = applyFilters(
-            props.visualization,
-            props.itemFilters
-        )
     }
 
     return pluginIsAvailable(MAP) ? (
@@ -52,6 +56,7 @@ const MapPlugin = ({
                 hideTitle: true,
             }}
             {...props}
+            visualization={getVisualization()}
         />
     ) : (
         <NoVisualizationMessage

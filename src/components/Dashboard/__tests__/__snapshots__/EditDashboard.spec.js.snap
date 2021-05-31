@@ -11,6 +11,7 @@ exports[`EditDashboard renders dashboard 1`] = `
     </div>
     <div
       class="container dashboard-scroll-container"
+      data-test="inner-scroll-container"
     >
       <div>
         EditTitleBar
