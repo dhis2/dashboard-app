@@ -144,7 +144,7 @@ describe('getAutoItemShapes', () => {
 
     it('should handle 2 columns', () => {
         const newItems = getAutoItemShapes(items, 2, 60)
-
+        console.log('newItems 2', newItems)
         const expectedItems = [
             { x: 0, y: 0, w: 30, h: 29, id: 'ILRTXgXvurM' },
             { x: 30, y: 0, w: 30, h: 29, id: 'i6NTSuDsk6l' },
@@ -157,6 +157,66 @@ describe('getAutoItemShapes', () => {
             { x: 0, y: 116, w: 30, h: 29, id: 'ctlS5cTa4tt' },
             { x: 30, y: 116, w: 30, h: 29, id: 'OiyMNoXzSdY' },
             { x: 0, y: 145, w: 30, h: 29, id: 'tgtgBRAPNUT' },
+        ]
+
+        expect(newItems).toEqual(expectedItems)
+    })
+
+    it('should handle 3 columns', () => {
+        const newItems = getAutoItemShapes(items, 3, 60)
+        console.log('newItems 3', newItems)
+        const expectedItems = [
+            { x: 0, y: 0, w: 20, h: 29, id: 'ILRTXgXvurM' },
+            { x: 20, y: 0, w: 20, h: 29, id: 'i6NTSuDsk6l' },
+            { x: 40, y: 0, w: 20, h: 29, id: 'Mfc8okt2ACJ' },
+            { x: 0, y: 29, w: 20, h: 29, id: 'kHRSFUr3dYe' },
+            { x: 20, y: 29, w: 20, h: 29, id: 'azz0KRlHgLs' },
+            { x: 40, y: 29, w: 20, h: 29, id: 'xS4X0ZL6GCI' },
+            { x: 0, y: 58, w: 20, h: 29, id: 'olgiP3q91Bb' },
+            { x: 20, y: 58, w: 20, h: 29, id: 'YZ7U25Japom' },
+            { x: 40, y: 58, w: 20, h: 29, id: 'ctlS5cTa4tt' },
+            { x: 0, y: 87, w: 20, h: 29, id: 'OiyMNoXzSdY' },
+            { x: 20, y: 87, w: 20, h: 29, id: 'tgtgBRAPNUT' },
+        ]
+
+        expect(newItems).toEqual(expectedItems)
+    })
+
+    it('should handle 4 columns', () => {
+        const newItems = getAutoItemShapes(items, 4, 60)
+        console.log('newItems 4', newItems)
+        const expectedItems = [
+            { x: 0, y: 0, w: 15, h: 29, id: 'ILRTXgXvurM' },
+            { x: 15, y: 0, w: 15, h: 29, id: 'i6NTSuDsk6l' },
+            { x: 30, y: 0, w: 15, h: 29, id: 'Mfc8okt2ACJ' },
+            { x: 45, y: 0, w: 15, h: 29, id: 'kHRSFUr3dYe' },
+            { x: 0, y: 29, w: 15, h: 29, id: 'azz0KRlHgLs' },
+            { x: 15, y: 29, w: 15, h: 29, id: 'xS4X0ZL6GCI' },
+            { x: 30, y: 29, w: 15, h: 29, id: 'olgiP3q91Bb' },
+            { x: 45, y: 29, w: 15, h: 29, id: 'YZ7U25Japom' },
+            { x: 0, y: 58, w: 15, h: 29, id: 'ctlS5cTa4tt' },
+            { x: 15, y: 58, w: 15, h: 29, id: 'OiyMNoXzSdY' },
+            { x: 30, y: 58, w: 15, h: 29, id: 'tgtgBRAPNUT' },
+        ]
+
+        expect(newItems).toEqual(expectedItems)
+    })
+
+    it('should handle 5 columns', () => {
+        const newItems = getAutoItemShapes(items, 5, 60)
+        console.log('newItems 5', newItems)
+        const expectedItems = [
+            { x: 0, y: 0, w: 12, h: 29, id: 'ILRTXgXvurM' },
+            { x: 12, y: 0, w: 12, h: 29, id: 'i6NTSuDsk6l' },
+            { x: 24, y: 0, w: 12, h: 29, id: 'Mfc8okt2ACJ' },
+            { x: 36, y: 0, w: 12, h: 29, id: 'kHRSFUr3dYe' },
+            { x: 48, y: 0, w: 12, h: 29, id: 'azz0KRlHgLs' },
+            { x: 0, y: 29, w: 12, h: 29, id: 'xS4X0ZL6GCI' },
+            { x: 12, y: 29, w: 12, h: 29, id: 'olgiP3q91Bb' },
+            { x: 24, y: 29, w: 12, h: 29, id: 'YZ7U25Japom' },
+            { x: 36, y: 29, w: 12, h: 29, id: 'ctlS5cTa4tt' },
+            { x: 48, y: 29, w: 12, h: 29, id: 'OiyMNoXzSdY' },
+            { x: 0, y: 58, w: 12, h: 29, id: 'tgtgBRAPNUT' },
         ]
 
         expect(newItems).toEqual(expectedItems)

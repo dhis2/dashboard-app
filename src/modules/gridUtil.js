@@ -223,7 +223,7 @@ export const getAutoItemShapes = (
     const itemsWithNewShape = []
     const itemHeight = NEW_ITEM_SHAPE.h
 
-    for (let i = 0, colIdx = 1, rowIdx = 1, item; i < items.length; i++) {
+    for (let i = 0, colIdx = 0, rowIdx = 0, item; i < items.length; i++) {
         item = items[i]
 
         itemsWithNewShape.push({
@@ -236,8 +236,8 @@ export const getAutoItemShapes = (
 
         colIdx = colIdx + 1
 
-        if (colIdx > numberOfColGroups) {
-            colIdx = 1
+        if (colIdx === numberOfColGroups) {
+            colIdx = 0
             rowIdx = rowIdx + 1
         }
     }
