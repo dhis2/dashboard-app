@@ -1,7 +1,7 @@
 Feature: Dashboard filter
 
     Scenario: I add a Period filter
-        When I choose to create new dashboard
+        When I start a new dashboard
         And I add a MAP and a CHART and save
         Then the dashboard displays in view mode
         When I add a "Period" filter
