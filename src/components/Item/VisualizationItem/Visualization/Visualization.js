@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
+import uniqueId from 'lodash/uniqueId'
 
 import LegacyPlugin from './LegacyPlugin'
 import MapPlugin from './MapPlugin'
@@ -20,6 +21,11 @@ import {
 } from '../../../../modules/itemTypes'
 import { getVisualizationId } from '../../../../modules/item'
 import { sGetVisualization } from '../../../../reducers/visualizations'
+import {
+    sGetItemFiltersRoot,
+    DEFAULT_STATE_ITEM_FILTERS,
+} from '../../../../reducers/itemFilters'
+import { isEditMode } from '../../../../modules/dashboardModes'
 
 class Visualization extends React.Component {
     constructor(props) {
@@ -29,6 +35,8 @@ class Visualization extends React.Component {
             getFilteredVisualization
         )
         this.memoizedGetVisualizationConfig = memoizeOne(getVisualizationConfig)
+
+        this.getFilterVersion = memoizeOne(() => uniqueId())
     }
 
     render() {
@@ -53,18 +61,13 @@ class Visualization extends React.Component {
             style.width = this.props.availableWidth
         }
 
-        const pluginProps = {
-            item,
-            itemFilters,
-            activeType,
-            style,
-            visualization: this.memoizedGetVisualizationConfig(
-                visualization,
-                item.type,
-                activeType
-            ),
-            ...rest,
-        }
+        const visualizationConfig = this.memoizedGetVisualizationConfig(
+            visualization,
+            item.type,
+            activeType
+        )
+
+        const filterVersion = this.getFilterVersion(itemFilters)
 
         switch (activeType) {
             case VISUALIZATION:
@@ -73,31 +76,40 @@ class Visualization extends React.Component {
                 return (
                     <DataVisualizerPlugin
                         visualization={this.memoizedGetFilteredVisualization(
-                            pluginProps.visualization,
-                            pluginProps.itemFilters
+                            visualizationConfig,
+                            itemFilters
                         )}
-                        style={pluginProps.style}
+                        style={style}
                     />
                 )
             }
             case MAP: {
                 return (
                     <MapPlugin
+                        item={item}
+                        activeType={activeType}
+                        visualization={visualizationConfig}
+                        itemFilters={itemFilters}
                         applyFilters={this.memoizedGetFilteredVisualization}
-                        {...pluginProps}
+                        filterVersion={filterVersion}
+                        style={style}
+                        {...rest}
                     />
                 )
             }
             default: {
-                pluginProps.visualization = this.memoizedGetFilteredVisualization(
-                    pluginProps.visualization,
-                    pluginProps.itemFilters
-                )
-
-                return pluginIsAvailable(
-                    pluginProps.activeType || pluginProps.item.type
-                ) ? (
-                    <LegacyPlugin {...pluginProps} />
+                return pluginIsAvailable(activeType || item.type) ? (
+                    <LegacyPlugin
+                        item={item}
+                        activeType={activeType}
+                        visualization={this.memoizedGetFilteredVisualization(
+                            visualizationConfig,
+                            itemFilters
+                        )}
+                        filterVersion={filterVersion}
+                        style={style}
+                        {...rest}
+                    />
                 ) : (
                     <NoVisualizationMessage
                         message={i18n.t(
@@ -120,7 +132,12 @@ Visualization.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => {
+    const itemFilters = !isEditMode(ownProps.dashboardMode)
+        ? sGetItemFiltersRoot(state)
+        : DEFAULT_STATE_ITEM_FILTERS
+
     return {
+        itemFilters,
         visualization: sGetVisualization(
             state,
             getVisualizationId(ownProps.item)
