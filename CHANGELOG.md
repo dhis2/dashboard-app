@@ -1,3 +1,15 @@
+# [31.16.0](https://github.com/dhis2/dashboard-app/compare/v31.15.6...v31.16.0) (2021-05-31)
+
+
+### Bug Fixes
+
+* applying a filter to a dashboard with a Map item results in the map not rendering [DHIS2-11054] ([#1741](https://github.com/dhis2/dashboard-app/issues/1741)) ([cd4d2d6](https://github.com/dhis2/dashboard-app/commit/cd4d2d64d4c444d43f206885cd68c509df476806))
+
+
+### Features
+
+* hide periods based on system settings (DHIS2-11161) ([#1789](https://github.com/dhis2/dashboard-app/issues/1789)) ([d01c2e6](https://github.com/dhis2/dashboard-app/commit/d01c2e6299641d1038d129716e311e03e96b4368))
+
 ## [31.15.6](https://github.com/dhis2/dashboard-app/compare/v31.15.5...v31.15.6) (2021-05-25)
 
 
