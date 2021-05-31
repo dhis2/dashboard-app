@@ -4,6 +4,7 @@ import {
     getSmallLayout,
     getProportionalHeight,
     SM_SCREEN_GRID_COLUMNS,
+    getAutoItemShapes,
 } from '../gridUtil'
 
 describe('withShape', () => {
@@ -141,17 +142,23 @@ describe('getAutoItemShapes', () => {
         { x: 14, y: 60, w: 15, h: 20, id: 'xS4X0ZL6GCI' },
     ]
 
-    const expectedItems = [
-        { x: 0, y: 0, w: 10, h: 20, id: 'ILRTXgXvurM' },
-        { x: 0, y: 20, w: 16, h: 20, id: 'i6NTSuDsk6l' },
-        { x: 0, y: 40, w: 29, h: 20, id: 'Mfc8okt2ACJ' },
-        { x: 0, y: 60, w: 14, h: 20, id: 'kHRSFUr3dYe' },
-        { x: 10, y: 0, w: 24, h: 20, id: 'azz0KRlHgLs' },
-        { x: 14, y: 60, w: 15, h: 20, id: 'xS4X0ZL6GCI' },
-        { x: 16, y: 20, w: 18, h: 20, id: 'olgiP3q91Bb' },
-        { x: 29, y: 40, w: 29, h: 20, id: 'YZ7U25Japom' },
-        { x: 29, y: 60, w: 29, h: 20, id: 'ctlS5cTa4tt' },
-        { x: 34, y: 0, w: 24, h: 20, id: 'OiyMNoXzSdY' },
-        { x: 34, y: 20, w: 24, h: 20, id: 'tgtgBRAPNUT' },
-    ]
+    it('should handle 2 columns', () => {
+        const newItems = getAutoItemShapes(items, 2, 60)
+
+        const expectedItems = [
+            { x: 0, y: 0, w: 30, h: 29, id: 'ILRTXgXvurM' },
+            { x: 30, y: 0, w: 30, h: 29, id: 'i6NTSuDsk6l' },
+            { x: 0, y: 29, w: 30, h: 29, id: 'Mfc8okt2ACJ' },
+            { x: 30, y: 29, w: 30, h: 29, id: 'kHRSFUr3dYe' },
+            { x: 0, y: 58, w: 30, h: 29, id: 'azz0KRlHgLs' },
+            { x: 30, y: 58, w: 30, h: 29, id: 'xS4X0ZL6GCI' },
+            { x: 0, y: 87, w: 30, h: 29, id: 'olgiP3q91Bb' },
+            { x: 30, y: 87, w: 30, h: 29, id: 'YZ7U25Japom' },
+            { x: 0, y: 116, w: 30, h: 29, id: 'ctlS5cTa4tt' },
+            { x: 30, y: 116, w: 30, h: 29, id: 'OiyMNoXzSdY' },
+            { x: 0, y: 145, w: 30, h: 29, id: 'tgtgBRAPNUT' },
+        ]
+
+        expect(newItems).toEqual(expectedItems)
+    })
 })
