@@ -20,6 +20,7 @@ const MapPlugin = ({
         resize(props.item.id, MAP, isElementFullscreen(props.item.id))
     }, [availableHeight, availableWidth, gridWidth])
 
+    // The function returned from this effect is run when this component unmounts
     useEffect(() => () => unmount(props.item, MAP), [])
 
     const getVisualization = () => {
