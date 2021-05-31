@@ -184,13 +184,6 @@ const getItemWHPx = (gridUnits, colOrRowSize, marginPx) =>
 
 // Auto layout
 
-/**
- * Blabla
- * @function
- * @param {Array} items
- * @returns {Array}
- */
-
 const getNumberOfColGroupCols = (
     numberOfColGroups = 2,
     maxCols = GRID_COLUMNS
