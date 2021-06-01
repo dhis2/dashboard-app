@@ -19,6 +19,7 @@ import {
     acSetPrintPreviewView,
     acClearPrintPreviewView,
     acSetFilterSettings,
+    acUpdateDashboardLayout,
 } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
 import { tFetchDashboards } from '../../actions/dashboards'
@@ -28,9 +29,11 @@ import {
     sGetEditDashboardRoot,
     sGetIsPrintPreviewView,
     sGetEditIsDirty,
+    sGetEditDashboardItems,
 } from '../../reducers/editDashboard'
 
 import classes from './styles/ActionsBar.module.css'
+import { getAutoItemShapes } from '../../modules/gridUtil'
 
 const saveFailedMessage = i18n.t(
     'Failed to save dashboard. You might be offline or not have access to edit this dashboard.'
@@ -201,8 +204,11 @@ const EditBar = ({ dashboard, ...props }) => {
                 </Button>
             )}
             <Button
-            // onClick={onConfirmDelete}
-            // dataTest="delete-dashboard-button"
+                onClick={() => {
+                    alert(3)
+                    props.setAutoLayout(2)
+                }}
+                // dataTest="delete-dashboard-button"
             >
                 {i18n.t('Auto layout')}
             </Button>
@@ -257,6 +263,7 @@ EditBar.propTypes = {
     isDirty: PropTypes.bool,
     isPrintPreviewView: PropTypes.bool,
     saveDashboard: PropTypes.func,
+    setAutoLayout: PropTypes.func,
     setFilterSettings: PropTypes.func,
     showPrintPreview: PropTypes.func,
     onDiscardChanges: PropTypes.func,
@@ -270,15 +277,21 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
-    clearPrintDashboard: () => dispatch(acClearPrintDashboard()),
-    clearPrintPreview: () => dispatch(acClearPrintPreviewView()),
-    clearSelected: () => dispatch(acClearSelected()),
-    saveDashboard: () => dispatch(tSaveDashboard()).then(id => id),
-    fetchDashboards: () => dispatch(tFetchDashboards()),
-    onDiscardChanges: () => dispatch(acClearEditDashboard()),
-    setFilterSettings: value => dispatch(acSetFilterSettings(value)),
-    showPrintPreview: () => dispatch(acSetPrintPreviewView()),
-})
+const mapDispatchToProps = {
+    clearPrintDashboard: () => dispatch => dispatch(acClearPrintDashboard()),
+    clearPrintPreview: () => dispatch => dispatch(acClearPrintPreviewView()),
+    clearSelected: () => dispatch => dispatch(acClearSelected()),
+    saveDashboard: () => dispatch => dispatch(tSaveDashboard()).then(id => id),
+    fetchDashboards: () => dispatch => dispatch(tFetchDashboards()),
+    onDiscardChanges: () => dispatch => dispatch(acClearEditDashboard()),
+    setFilterSettings: value => dispatch =>
+        dispatch(acSetFilterSettings(value)),
+    showPrintPreview: () => dispatch => dispatch(acSetPrintPreviewView()),
+    setAutoLayout: value => (dispatch, getState) => {
+        const items = sGetEditDashboardItems(getState())
+        const newShapes = getAutoItemShapes(items, value)
+        dispatch(acUpdateDashboardLayout(newShapes))
+    },
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditBar)

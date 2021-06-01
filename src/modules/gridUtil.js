@@ -209,7 +209,7 @@ export const getAutoItemShapes = (
     )
 
     if (!numberOfColGroupCols || !dashboardItems.length) {
-        return []
+        return null
     }
 
     const items = sortItems(dashboardItems)
