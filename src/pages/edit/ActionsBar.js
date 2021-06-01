@@ -42,7 +42,7 @@ const deleteFailedMessage = i18n.t(
 const EditBar = ({ dashboard, ...props }) => {
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
-    const { isOnline, toggleIsOnline } = useOnlineStatus()
+    const { isOnline, goOffline, goOnline } = useOnlineStatus()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
     const [filterSettingsDlgIsOpen, setFilterSettingsDlgIsOpen] = useState(
         false
@@ -240,15 +240,24 @@ const EditBar = ({ dashboard, ...props }) => {
                     style={{
                         position: 'absolute',
                         top: 0,
-                        right: 0,
+                        right: '180px',
                     }}
                 >
                     <Button
+                        className={isOnline ? classes.online : classes.offline}
                         dense
-                        onClick={toggleIsOnline}
-                        disabledWhenOffline={false}
+                        onClick={goOffline}
+                        dataTest={'go-offline'}
                     >
-                        {`You are ${isOnline ? 'online' : 'offline'}`}
+                        Go off
+                    </Button>
+                    <Button
+                        className={isOnline ? classes.online : classes.offline}
+                        dense
+                        onClick={goOnline}
+                        dataTest={'go-online'}
+                    >
+                        Go on
                     </Button>
                 </div>
             </div>

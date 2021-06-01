@@ -8,8 +8,8 @@ export const gridItemSel = '.react-grid-item'
 export const itemDetailsSel = '[data-test="dashboarditem-footer"]'
 export const itemMenuButton = '[data-test="dashboarditem-menu-button"]'
 
-export const getDashboardItem = itemUid =>
-    cy.get(`[data-test="dashboarditem-${itemUid}"]`)
+export const getDashboardItem = name =>
+    cy.get(`[data-test="dashboarditem-${name}"]`)
 
-export const clickMenuButton = itemUid =>
-    getDashboardItem(itemUid).find(itemMenuButton).click()
+export const clickMenuButton = name =>
+    getDashboardItem(name).find(itemMenuButton).click()

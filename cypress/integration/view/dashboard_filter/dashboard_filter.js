@@ -15,7 +15,7 @@ const PERIOD = 'Last 6 months'
 const OU = 'Sierra Leone'
 const FACILITY_TYPE = 'Clinic'
 
-const chartItemUid = dashboards.Delivery.items.chart.itemUid
+const chartName = dashboards.Delivery.items.chart.name
 
 /*
 Scenario: I add a Period filter
@@ -24,7 +24,7 @@ Scenario: I add a Period filter
 Then('the Period filter is applied to the dashboard', () => {
     cy.get(filterBadgeSel).contains(`Period: ${PERIOD}`).should('be.visible')
 
-    getDashboardItem(chartItemUid)
+    getDashboardItem(chartName)
         .find(chartSubtitleSel, EXTENDED_TIMEOUT)
         .scrollIntoView()
         .contains(PERIOD, EXTENDED_TIMEOUT)
@@ -40,7 +40,7 @@ Then('the Organisation Unit filter is applied to the dashboard', () => {
         .contains(`Organisation Unit: ${OU}`)
         .should('be.visible')
 
-    getDashboardItem(chartItemUid)
+    getDashboardItem(chartName)
         .find(chartXAxisLabelSel, EXTENDED_TIMEOUT)
         .scrollIntoView()
         .contains(OU, EXTENDED_TIMEOUT)
@@ -55,7 +55,7 @@ Then('the Facility Type filter is applied to the dashboard', () => {
         .contains(`Facility Type: ${FACILITY_TYPE}`)
         .should('be.visible')
 
-    getDashboardItem(chartItemUid)
+    getDashboardItem(chartName)
         .find(chartSubtitleSel, EXTENDED_TIMEOUT)
         .scrollIntoView()
         .contains(FACILITY_TYPE, EXTENDED_TIMEOUT)

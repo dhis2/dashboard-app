@@ -14,7 +14,7 @@ class ProgressiveLoadingContainer extends Component {
         className: PropTypes.string,
         debounceMs: PropTypes.number,
         forceLoad: PropTypes.bool,
-        itemId: PropTypes.string,
+        name: PropTypes.string,
         style: PropTypes.object,
     }
     static defaultProps = {
@@ -129,7 +129,7 @@ class ProgressiveLoadingContainer extends Component {
                 ref={ref => (this.containerRef = ref)}
                 style={style}
                 className={className}
-                data-test={`dashboarditem-${props.itemId}`}
+                data-test={`dashboarditem-${props.name}`}
                 {...eventProps}
             >
                 {(forceLoad || shouldLoad) && children}

@@ -30,7 +30,7 @@ const DashboardsBar = ({
     const userRowsChanged = useRef(false)
     const ref = createRef()
     const { height } = useWindowDimensions()
-    const { isOnline, toggleIsOnline } = useOnlineStatus()
+    const { isOnline, goOnline, goOffline } = useOnlineStatus()
 
     const rootElement = document.documentElement
 
@@ -116,10 +116,26 @@ const DashboardsBar = ({
                     position: 'absolute',
                     top: 0,
                     right: 0,
+                    zIndex: '3000',
                 }}
             >
-                <Button dense onClick={toggleIsOnline}>
-                    {`You are ${isOnline ? 'online' : 'offline'}`}
+                <Button
+                    className={isOnline ? classes.online : classes.offline}
+                    dense
+                    small
+                    onClick={goOffline}
+                    dataTest={'go-offline'}
+                >
+                    Go off
+                </Button>
+                <Button
+                    className={isOnline ? classes.online : classes.offline}
+                    dense
+                    small
+                    onClick={goOnline}
+                    dataTest={'go-online'}
+                >
+                    Go on
                 </Button>
             </div>
         </div>

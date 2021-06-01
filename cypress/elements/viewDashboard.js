@@ -23,6 +23,13 @@ export const titleBarSel = '[data-test="title-bar"]'
 export const outerScrollContainerSel = '[data-test="outer-scroll-container"]'
 
 /** Functions **/
+
+export const getViewActionButton = action =>
+    cy
+        .get(titleBarSel, EXTENDED_TIMEOUT)
+        .find('button')
+        .contains(action, EXTENDED_TIMEOUT)
+
 export const clickViewActionButton = action =>
     cy
         .get(titleBarSel, EXTENDED_TIMEOUT)

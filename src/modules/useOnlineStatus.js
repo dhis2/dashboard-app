@@ -8,5 +8,7 @@ export const useOnlineStatus = () => {
     return {
         isOnline,
         toggleIsOnline: () => dispatch(acSetIsOnline()),
+        goOnline: () => dispatch(acSetIsOnline(true)),
+        goOffline: () => dispatch(acSetIsOnline(false)),
     }
 }
