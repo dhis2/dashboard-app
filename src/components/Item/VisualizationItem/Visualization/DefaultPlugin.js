@@ -8,10 +8,11 @@ import getVisualizationContainerDomId from '../getVisualizationContainerDomId'
 const DefaultPlugin = ({
     item,
     activeType,
+    filterVersion,
     visualization,
     options,
-    isRecording,
     style,
+    isRecording,
 }) => {
     const { d2 } = useD2()
     const { baseUrl } = useConfig()
@@ -22,6 +23,7 @@ const DefaultPlugin = ({
 
     const prevItem = useRef()
     const prevActiveType = useRef()
+    const prevFilterVersion = useRef()
 
     useEffect(() => {
         load(item, visualization, {
@@ -32,22 +34,8 @@ const DefaultPlugin = ({
 
         prevItem.current = item
         prevActiveType.current = activeType
-
-        return () => unmount(item, activeType)
+        prevFilterVersion.current = filterVersion
     }, [])
-
-    useEffect(() => {
-        if (shouldPluginReload()) {
-            unmount(item, prevActiveType.current)
-            load(item, visualization, {
-                credentials,
-                activeType,
-            })
-        }
-
-        prevItem.current = item
-        prevActiveType.current = activeType
-    }, [item, visualization, activeType])
 
     useEffect(() => {
         if (isRecording) {
@@ -60,22 +48,32 @@ const DefaultPlugin = ({
         }
     }, [isRecording])
 
-    /**
-     * Prevent unnecessary re-rendering
-     * TODO: fix this hack
-     */
-    const shouldPluginReload = () => {
-        const reloadAllowed = prevItem.current === item
-        const visChanged = prevActiveType.current !== activeType
+    useEffect(() => {
+        if (
+            prevItem.current === item &&
+            (prevActiveType.current !== activeType ||
+                prevFilterVersion.current !== filterVersion)
+        ) {
+            /* Item is the same but type or filters has changed
+             * so necessary to reload
+             */
+            load(item, visualization, {
+                credentials,
+                activeType,
+            })
+        }
 
-        return reloadAllowed && visChanged
-    }
+        prevItem.current = item
+        prevActiveType.current = activeType
+        prevFilterVersion.current = filterVersion
+    }, [item, visualization, activeType, filterVersion])
 
     return <div id={getVisualizationContainerDomId(item.id)} style={style} />
 }
 
 DefaultPlugin.propTypes = {
     activeType: PropTypes.string,
+    filterVersion: PropTypes.string,
     isRecording: PropTypes.bool,
     item: PropTypes.object,
     options: PropTypes.object,

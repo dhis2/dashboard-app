@@ -13,3 +13,8 @@ export const getDashboardItem = name =>
 
 export const clickMenuButton = name =>
     getDashboardItem(name).find(itemMenuButton).click()
+
+//map
+
+export const mapLegendButtonSel = '.dhis2-map-legend-button'
+export const mapLegendContentSel = '.dhis2-map-legend-content'
