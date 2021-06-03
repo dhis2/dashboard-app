@@ -196,7 +196,7 @@ const getNumberOfColGroupCols = (
 }
 
 const sortItems = items =>
-    items.slice().sort((a, b) => (a.x === b.x ? a.y - b.y : a.x - b.x))
+    items.slice().sort((a, b) => (a.y === b.y ? a.x - b.x : a.y - b.y))
 
 export const getAutoItemShapes = (
     dashboardItems,

@@ -205,8 +205,8 @@ const EditBar = ({ dashboard, ...props }) => {
             )}
             <Button
                 onClick={() => {
-                    alert(3)
-                    props.setAutoLayout(2)
+                    console.log(3)
+                    props.onAutoLayoutSelect(3)
                 }}
                 // dataTest="delete-dashboard-button"
             >
@@ -263,9 +263,9 @@ EditBar.propTypes = {
     isDirty: PropTypes.bool,
     isPrintPreviewView: PropTypes.bool,
     saveDashboard: PropTypes.func,
-    setAutoLayout: PropTypes.func,
     setFilterSettings: PropTypes.func,
     showPrintPreview: PropTypes.func,
+    onAutoLayoutSelect: PropTypes.func,
     onDiscardChanges: PropTypes.func,
 }
 
@@ -287,9 +287,11 @@ const mapDispatchToProps = {
     setFilterSettings: value => dispatch =>
         dispatch(acSetFilterSettings(value)),
     showPrintPreview: () => dispatch => dispatch(acSetPrintPreviewView()),
-    setAutoLayout: value => (dispatch, getState) => {
+    onAutoLayoutSelect: value => (dispatch, getState) => {
         const items = sGetEditDashboardItems(getState())
+        console.log('items', items)
         const newShapes = getAutoItemShapes(items, value)
+        console.log('newShapes', newShapes)
         dispatch(acUpdateDashboardLayout(newShapes))
     },
 }
