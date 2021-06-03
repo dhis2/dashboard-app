@@ -205,8 +205,9 @@ const EditBar = ({ dashboard, ...props }) => {
             )}
             <Button
                 onClick={() => {
-                    console.log(3)
-                    props.onAutoLayoutSelect(3)
+                    const n = Math.floor(Math.random() * 5) + 1
+                    console.log(n, 'columns')
+                    props.onAutoLayoutSelect(n)
                 }}
                 // dataTest="delete-dashboard-button"
             >
