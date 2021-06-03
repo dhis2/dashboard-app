@@ -129,32 +129,32 @@ describe('getSmallLayout', () => {
 
 describe('getAutoItemShapes', () => {
     const items = [
-        { x: 16, y: 20, w: 18, h: 20, id: 'olgiP3q91Bb' },
-        { x: 0, y: 0, w: 10, h: 20, id: 'ILRTXgXvurM' },
-        { x: 0, y: 40, w: 29, h: 20, id: 'Mfc8okt2ACJ' },
-        { x: 10, y: 0, w: 24, h: 20, id: 'azz0KRlHgLs' },
-        { x: 0, y: 20, w: 16, h: 20, id: 'i6NTSuDsk6l' },
-        { x: 34, y: 0, w: 24, h: 20, id: 'OiyMNoXzSdY' },
-        { x: 29, y: 40, w: 29, h: 20, id: 'YZ7U25Japom' },
-        { x: 29, y: 60, w: 29, h: 20, id: 'ctlS5cTa4tt' },
-        { x: 0, y: 60, w: 14, h: 20, id: 'kHRSFUr3dYe' },
-        { x: 34, y: 20, w: 24, h: 20, id: 'tgtgBRAPNUT' },
-        { x: 14, y: 60, w: 15, h: 20, id: 'xS4X0ZL6GCI' },
+        { x: 16, y: 20, w: 18, h: 20, id: 'e' },
+        { x: 0, y: 0, w: 10, h: 20, id: 'a' },
+        { x: 0, y: 40, w: 29, h: 20, id: 'g' },
+        { x: 10, y: 0, w: 24, h: 20, id: 'b' },
+        { x: 0, y: 20, w: 16, h: 20, id: 'd' },
+        { x: 34, y: 0, w: 24, h: 20, id: 'c' },
+        { x: 29, y: 40, w: 29, h: 20, id: 'h' },
+        { x: 29, y: 60, w: 29, h: 20, id: 'k' },
+        { x: 0, y: 60, w: 14, h: 20, id: 'i' },
+        { x: 34, y: 20, w: 24, h: 20, id: 'f' },
+        { x: 14, y: 60, w: 15, h: 20, id: 'j' },
     ]
 
     it('should handle 2 columns', () => {
         const expectedItems = [
-            { x: 0, y: 0, w: 30, h: 29, id: 'ILRTXgXvurM' },
-            { x: 30, y: 0, w: 30, h: 29, id: 'i6NTSuDsk6l' },
-            { x: 0, y: 29, w: 30, h: 29, id: 'Mfc8okt2ACJ' },
-            { x: 30, y: 29, w: 30, h: 29, id: 'kHRSFUr3dYe' },
-            { x: 0, y: 58, w: 30, h: 29, id: 'azz0KRlHgLs' },
-            { x: 30, y: 58, w: 30, h: 29, id: 'xS4X0ZL6GCI' },
-            { x: 0, y: 87, w: 30, h: 29, id: 'olgiP3q91Bb' },
-            { x: 30, y: 87, w: 30, h: 29, id: 'YZ7U25Japom' },
-            { x: 0, y: 116, w: 30, h: 29, id: 'ctlS5cTa4tt' },
-            { x: 30, y: 116, w: 30, h: 29, id: 'OiyMNoXzSdY' },
-            { x: 0, y: 145, w: 30, h: 29, id: 'tgtgBRAPNUT' },
+            { x: 0, y: 0, w: 30, h: 29, id: 'a' },
+            { x: 30, y: 0, w: 30, h: 29, id: 'b' },
+            { x: 0, y: 29, w: 30, h: 29, id: 'c' },
+            { x: 30, y: 29, w: 30, h: 29, id: 'd' },
+            { x: 0, y: 58, w: 30, h: 29, id: 'e' },
+            { x: 30, y: 58, w: 30, h: 29, id: 'f' },
+            { x: 0, y: 87, w: 30, h: 29, id: 'g' },
+            { x: 30, y: 87, w: 30, h: 29, id: 'h' },
+            { x: 0, y: 116, w: 30, h: 29, id: 'i' },
+            { x: 30, y: 116, w: 30, h: 29, id: 'j' },
+            { x: 0, y: 145, w: 30, h: 29, id: 'k' },
         ]
 
         expect(getAutoItemShapes(items, 2, 60)).toEqual(expectedItems)
@@ -162,17 +162,17 @@ describe('getAutoItemShapes', () => {
 
     it('should handle 3 columns', () => {
         const expectedItems = [
-            { x: 0, y: 0, w: 20, h: 29, id: 'ILRTXgXvurM' },
-            { x: 20, y: 0, w: 20, h: 29, id: 'i6NTSuDsk6l' },
-            { x: 40, y: 0, w: 20, h: 29, id: 'Mfc8okt2ACJ' },
-            { x: 0, y: 29, w: 20, h: 29, id: 'kHRSFUr3dYe' },
-            { x: 20, y: 29, w: 20, h: 29, id: 'azz0KRlHgLs' },
-            { x: 40, y: 29, w: 20, h: 29, id: 'xS4X0ZL6GCI' },
-            { x: 0, y: 58, w: 20, h: 29, id: 'olgiP3q91Bb' },
-            { x: 20, y: 58, w: 20, h: 29, id: 'YZ7U25Japom' },
-            { x: 40, y: 58, w: 20, h: 29, id: 'ctlS5cTa4tt' },
-            { x: 0, y: 87, w: 20, h: 29, id: 'OiyMNoXzSdY' },
-            { x: 20, y: 87, w: 20, h: 29, id: 'tgtgBRAPNUT' },
+            { x: 0, y: 0, w: 20, h: 29, id: 'a' },
+            { x: 20, y: 0, w: 20, h: 29, id: 'b' },
+            { x: 40, y: 0, w: 20, h: 29, id: 'c' },
+            { x: 0, y: 29, w: 20, h: 29, id: 'd' },
+            { x: 20, y: 29, w: 20, h: 29, id: 'e' },
+            { x: 40, y: 29, w: 20, h: 29, id: 'f' },
+            { x: 0, y: 58, w: 20, h: 29, id: 'g' },
+            { x: 20, y: 58, w: 20, h: 29, id: 'h' },
+            { x: 40, y: 58, w: 20, h: 29, id: 'i' },
+            { x: 0, y: 87, w: 20, h: 29, id: 'j' },
+            { x: 20, y: 87, w: 20, h: 29, id: 'k' },
         ]
 
         expect(getAutoItemShapes(items, 3, 60)).toEqual(expectedItems)
@@ -180,17 +180,17 @@ describe('getAutoItemShapes', () => {
 
     it('should handle 4 columns', () => {
         const expectedItems = [
-            { x: 0, y: 0, w: 15, h: 29, id: 'ILRTXgXvurM' },
-            { x: 15, y: 0, w: 15, h: 29, id: 'i6NTSuDsk6l' },
-            { x: 30, y: 0, w: 15, h: 29, id: 'Mfc8okt2ACJ' },
-            { x: 45, y: 0, w: 15, h: 29, id: 'kHRSFUr3dYe' },
-            { x: 0, y: 29, w: 15, h: 29, id: 'azz0KRlHgLs' },
-            { x: 15, y: 29, w: 15, h: 29, id: 'xS4X0ZL6GCI' },
-            { x: 30, y: 29, w: 15, h: 29, id: 'olgiP3q91Bb' },
-            { x: 45, y: 29, w: 15, h: 29, id: 'YZ7U25Japom' },
-            { x: 0, y: 58, w: 15, h: 29, id: 'ctlS5cTa4tt' },
-            { x: 15, y: 58, w: 15, h: 29, id: 'OiyMNoXzSdY' },
-            { x: 30, y: 58, w: 15, h: 29, id: 'tgtgBRAPNUT' },
+            { x: 0, y: 0, w: 15, h: 29, id: 'a' },
+            { x: 15, y: 0, w: 15, h: 29, id: 'b' },
+            { x: 30, y: 0, w: 15, h: 29, id: 'c' },
+            { x: 45, y: 0, w: 15, h: 29, id: 'd' },
+            { x: 0, y: 29, w: 15, h: 29, id: 'e' },
+            { x: 15, y: 29, w: 15, h: 29, id: 'f' },
+            { x: 30, y: 29, w: 15, h: 29, id: 'g' },
+            { x: 45, y: 29, w: 15, h: 29, id: 'h' },
+            { x: 0, y: 58, w: 15, h: 29, id: 'i' },
+            { x: 15, y: 58, w: 15, h: 29, id: 'j' },
+            { x: 30, y: 58, w: 15, h: 29, id: 'k' },
         ]
 
         expect(getAutoItemShapes(items, 4, 60)).toEqual(expectedItems)
@@ -198,17 +198,17 @@ describe('getAutoItemShapes', () => {
 
     it('should handle 5 columns', () => {
         const expectedItems = [
-            { x: 0, y: 0, w: 12, h: 29, id: 'ILRTXgXvurM' },
-            { x: 12, y: 0, w: 12, h: 29, id: 'i6NTSuDsk6l' },
-            { x: 24, y: 0, w: 12, h: 29, id: 'Mfc8okt2ACJ' },
-            { x: 36, y: 0, w: 12, h: 29, id: 'kHRSFUr3dYe' },
-            { x: 48, y: 0, w: 12, h: 29, id: 'azz0KRlHgLs' },
-            { x: 0, y: 29, w: 12, h: 29, id: 'xS4X0ZL6GCI' },
-            { x: 12, y: 29, w: 12, h: 29, id: 'olgiP3q91Bb' },
-            { x: 24, y: 29, w: 12, h: 29, id: 'YZ7U25Japom' },
-            { x: 36, y: 29, w: 12, h: 29, id: 'ctlS5cTa4tt' },
-            { x: 48, y: 29, w: 12, h: 29, id: 'OiyMNoXzSdY' },
-            { x: 0, y: 58, w: 12, h: 29, id: 'tgtgBRAPNUT' },
+            { x: 0, y: 0, w: 12, h: 29, id: 'a' },
+            { x: 12, y: 0, w: 12, h: 29, id: 'b' },
+            { x: 24, y: 0, w: 12, h: 29, id: 'c' },
+            { x: 36, y: 0, w: 12, h: 29, id: 'd' },
+            { x: 48, y: 0, w: 12, h: 29, id: 'e' },
+            { x: 0, y: 29, w: 12, h: 29, id: 'f' },
+            { x: 12, y: 29, w: 12, h: 29, id: 'g' },
+            { x: 24, y: 29, w: 12, h: 29, id: 'h' },
+            { x: 36, y: 29, w: 12, h: 29, id: 'i' },
+            { x: 48, y: 29, w: 12, h: 29, id: 'j' },
+            { x: 0, y: 58, w: 12, h: 29, id: 'k' },
         ]
 
         expect(getAutoItemShapes(items, 5, 60)).toEqual(expectedItems)
@@ -216,17 +216,17 @@ describe('getAutoItemShapes', () => {
 
     it('should handle 6 columns', () => {
         const expectedItems = [
-            { x: 0, y: 0, w: 10, h: 29, id: 'ILRTXgXvurM' },
-            { x: 10, y: 0, w: 10, h: 29, id: 'i6NTSuDsk6l' },
-            { x: 20, y: 0, w: 10, h: 29, id: 'Mfc8okt2ACJ' },
-            { x: 30, y: 0, w: 10, h: 29, id: 'kHRSFUr3dYe' },
-            { x: 40, y: 0, w: 10, h: 29, id: 'azz0KRlHgLs' },
-            { x: 50, y: 0, w: 10, h: 29, id: 'xS4X0ZL6GCI' },
-            { x: 0, y: 29, w: 10, h: 29, id: 'olgiP3q91Bb' },
-            { x: 10, y: 29, w: 10, h: 29, id: 'YZ7U25Japom' },
-            { x: 20, y: 29, w: 10, h: 29, id: 'ctlS5cTa4tt' },
-            { x: 30, y: 29, w: 10, h: 29, id: 'OiyMNoXzSdY' },
-            { x: 40, y: 29, w: 10, h: 29, id: 'tgtgBRAPNUT' },
+            { x: 0, y: 0, w: 10, h: 29, id: 'a' },
+            { x: 10, y: 0, w: 10, h: 29, id: 'b' },
+            { x: 20, y: 0, w: 10, h: 29, id: 'c' },
+            { x: 30, y: 0, w: 10, h: 29, id: 'd' },
+            { x: 40, y: 0, w: 10, h: 29, id: 'e' },
+            { x: 50, y: 0, w: 10, h: 29, id: 'f' },
+            { x: 0, y: 29, w: 10, h: 29, id: 'g' },
+            { x: 10, y: 29, w: 10, h: 29, id: 'h' },
+            { x: 20, y: 29, w: 10, h: 29, id: 'i' },
+            { x: 30, y: 29, w: 10, h: 29, id: 'j' },
+            { x: 40, y: 29, w: 10, h: 29, id: 'k' },
         ]
 
         expect(getAutoItemShapes(items, 6, 60)).toEqual(expectedItems)
