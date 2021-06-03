@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { acSetIsRecording } from '../actions/isRecording'
+import { acIncrementCacheVersion } from '../actions/cacheVersion'
 
 const CACHE_KEY = 'dhis2.dashboard.cache'
 
@@ -13,6 +14,7 @@ export const useCacheableSectionStatus = id => {
     const dispatch = useDispatch()
 
     const updateCache = () => {
+        console.log('updateCache')
         const cached = getDashboardCache()
 
         const timestamp = new Date(Date.now()).toString()
@@ -22,14 +24,17 @@ export const useCacheableSectionStatus = id => {
 
         setDashboardCache(newCache)
         dispatch(acSetIsRecording(true))
+        dispatch(acIncrementCacheVersion())
     }
 
     const removeFromCache = () => {
+        console.log('removeFromCache')
         const cached = getDashboardCache()
 
         delete cached[id]
 
         setDashboardCache(cached)
+        dispatch(acIncrementCacheVersion())
     }
 
     const getLastUpdated = () => {
@@ -40,12 +45,10 @@ export const useCacheableSectionStatus = id => {
 
     return {
         lastUpdated: getLastUpdated(),
-        updateCache,
-        removeFromCache,
-        //update - don't expose this?
-        //record - re render everything
-        //remove
+        updateCache, //record - re render everything
+        removeFromCache, //remove
+        recording: id === 'juY8oe5lg4g',
         //pending - getting ready to record
-        recording: false, //id === 'JW7RlN5xafN',
+        //update - don't expose this?
     }
 }

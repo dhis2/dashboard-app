@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import cx from 'classnames'
 import {
     Chip as UiChip,
@@ -11,15 +12,28 @@ import { Link } from 'react-router-dom'
 import debounce from 'lodash/debounce'
 import { OfflineSaved } from './assets/icons'
 import { useCacheableSectionStatus } from '../../../modules/useCacheableSectionStatus'
+import { sGetCacheVersion } from '../../../reducers/cacheVersion'
 
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
 
 import classes from './styles/Chip.module.css'
 
-const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
+const Chip = ({
+    starred,
+    selected,
+    label,
+    dashboardId,
+    onClick,
+    cacheVersion,
+}) => {
     const { lastUpdated, recording } = useCacheableSectionStatus(dashboardId)
     const chipProps = {
         selected,
+    }
+
+    const i = 0
+    if (i > 0) {
+        console.log('cacheVersion', cacheVersion)
     }
 
     if (starred) {
@@ -92,6 +106,11 @@ Chip.propTypes = {
     selected: PropTypes.bool.isRequired,
     starred: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired,
+    cacheVersion: PropTypes.number,
 }
 
-export default Chip
+const mapStateToProps = state => ({
+    cacheVersion: sGetCacheVersion(state),
+})
+
+export default connect(mapStateToProps, null)(Chip)

@@ -16,6 +16,7 @@ import isOnline from './isOnline'
 import isRecording from './isRecording'
 import showDescription from './showDescription'
 import itemActiveTypes from './itemActiveTypes'
+import cacheVersion from './cacheVersion'
 
 export default combineReducers({
     dashboards,
@@ -34,4 +35,5 @@ export default combineReducers({
     isRecording,
     showDescription,
     itemActiveTypes,
+    cacheVersion,
 })

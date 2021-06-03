@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
-import { ButtonStrip } from '@dhis2/ui'
+import { ButtonStrip, Button as UiButton } from '@dhis2/ui'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { useOnlineStatus } from '../../modules/useOnlineStatus'
@@ -243,22 +243,22 @@ const EditBar = ({ dashboard, ...props }) => {
                         right: '180px',
                     }}
                 >
-                    <Button
+                    <UiButton
                         className={isOnline ? classes.online : classes.offline}
                         dense
                         onClick={goOffline}
                         dataTest={'go-offline'}
                     >
                         Go off
-                    </Button>
-                    <Button
+                    </UiButton>
+                    <UiButton
                         className={isOnline ? classes.online : classes.offline}
                         dense
                         onClick={goOnline}
                         dataTest={'go-online'}
                     >
                         Go on
-                    </Button>
+                    </UiButton>
                 </div>
             </div>
             {dashboard.access?.update && filterSettingsDialog()}
