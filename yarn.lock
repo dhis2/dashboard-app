@@ -1529,7 +1529,7 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^18.1.0", "@dhis2/analytics@^18.2.2":
+"@dhis2/analytics@^18.1.3", "@dhis2/analytics@^18.2.2":
   version "18.2.2"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-18.2.2.tgz#2a00a4924dfa6c6c631e776220b22d26bb499703"
   integrity sha512-IHKgFJeFYzLjQZfkYgySW6gzD+odmRyYcVj9NacAXOKQNkMul+/D0Y3cY2EfwDn2ADLnxCj15E0ASkl0GjmmBg==
@@ -1867,12 +1867,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^37.3.1":
-  version "37.3.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-37.3.1.tgz#b088761053a61fc091c1f42ada216a4e2d4462fc"
-  integrity sha512-M7Bl5kyyQdTtuP0qY7gAB7xlm6LrpN5FCjiXyghlSh5AODc1YAtPzWSZKGaV9dsUFFtGV0ZFz5gdBsBg/U1aKg==
+"@dhis2/data-visualizer-plugin@^37.4.3":
+  version "37.4.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-37.4.3.tgz#7dd90ebd4c5e6a97a5d7ed7f466fccce69c726ff"
+  integrity sha512-8V+QW72rg6eRblMMAcpkl6kQVLWx+Mfl8eFXfG9iPSax7WqXXzZ163UWTUH8KGWkCKLDVpbjwtzk+CyxCXU1YQ==
   dependencies:
-    "@dhis2/analytics" "^18.1.0"
+    "@dhis2/analytics" "^18.2.2"
     "@dhis2/app-runtime" "^2.8.0"
     "@dhis2/d2-i18n" "^1.1.0"
     "@dhis2/ui" "^6.5.5"
@@ -2700,10 +2700,10 @@
     lz-string "^1.4.4"
     pretty-format "^26.6.2"
 
-"@testing-library/jest-dom@^5.12.0":
-  version "5.12.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.12.0.tgz#6a5d340b092c44b7bce17a4791b47d9bc2c61443"
-  integrity sha512-N9Y82b2Z3j6wzIoAqajlKVF1Zt7sOH0pPee0sUHXHc5cv2Fdn23r+vpWm0MBBoGJtPOly5+Bdx1lnc3CD+A+ow==
+"@testing-library/jest-dom@^5.13.0":
+  version "5.13.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.13.0.tgz#0a365684e2c1159f857f5915be50089fc5657df0"
+  integrity sha512-+jXXTn8GjRnZkJfzG/tqK/2Q7dGlBInR412WE7Aml7CT3wdSpx5dMQC0HOwVQoZ3cNTmQUy8fCVGUV/Zhoyvcw==
   dependencies:
     "@babel/runtime" "^7.9.2"
     "@types/testing-library__jest-dom" "^5.9.1"
