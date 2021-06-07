@@ -55,7 +55,7 @@
         "@dhis2/cli-style": "^7.2.2",
         "@dhis2/cli-utils-cypress": "^7.0.1",
         "@dhis2/cypress-commands": "^7.0.1",
-        "@testing-library/jest-dom": "^5.12.0",
+        "@testing-library/jest-dom": "^5.13.0",
         "@testing-library/react": "^11.2.7",
         "d2-manifest": "^1.0.0",
         "eslint-plugin-cypress": "^2.11.3",
