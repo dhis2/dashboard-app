@@ -21,6 +21,7 @@ export const dashboardUnstarredSel = '[data-test="dashboard-unstarred"]'
 export const titleBarSel = '[data-test="title-bar"]'
 
 export const outerScrollContainerSel = '[data-test="outer-scroll-container"]'
+export const innerScrollContainerSel = '[data-test="inner-scroll-container"]'
 
 /** Functions **/
 export const clickViewActionButton = action =>
