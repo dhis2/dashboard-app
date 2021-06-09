@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
-import { Button, ButtonStrip } from '@dhis2/ui'
+import { Button, ButtonStrip, FlyoutMenu, MenuItem } from '@dhis2/ui'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
@@ -20,6 +20,7 @@ import {
     acClearPrintPreviewView,
     acSetFilterSettings,
     acUpdateDashboardLayout,
+    acSetHideGrid,
 } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
 import { tFetchDashboards } from '../../actions/dashboards'
@@ -34,6 +35,7 @@ import {
 
 import classes from './styles/ActionsBar.module.css'
 import { getAutoItemShapes } from '../../modules/gridUtil'
+import DropdownButton from '../../components/DropdownButton/DropdownButton'
 
 const saveFailedMessage = i18n.t(
     'Failed to save dashboard. You might be offline or not have access to edit this dashboard.'
@@ -50,6 +52,7 @@ const EditBar = ({ dashboard, ...props }) => {
     const [filterSettingsDlgIsOpen, setFilterSettingsDlgIsOpen] = useState(
         false
     )
+    const [autoLayoutIsOpen, setAutoLayoutIsOpen] = useState(false)
     const [confirmDeleteDlgIsOpen, setConfirmDeleteDlgIsOpen] = useState(false)
     const [confirmDiscardDlgIsOpen, setConfirmDiscardDlgIsOpen] = useState(
         false
@@ -177,6 +180,26 @@ const EditBar = ({ dashboard, ...props }) => {
         )
     }
 
+    const getAutoLayoutMenuItem = numberOfCols => (
+        <MenuItem
+            dense
+            label={`${numberOfCols} columns`}
+            onClick={() => {
+                setAutoLayoutIsOpen(false)
+                Array.from(
+                    document.querySelectorAll('.dashboard-scroll-container')
+                ).forEach(el => (el.scrollTop = 0))
+                props.onAutoLayoutSelect(numberOfCols)
+            }}
+        />
+    )
+
+    const getAutoLayoutMenu = () => (
+        <FlyoutMenu>
+            {new Array(10).fill().map((_, i) => getAutoLayoutMenuItem(i + 1))}
+        </FlyoutMenu>
+    )
+
     const renderActionButtons = () => (
         <ButtonStrip>
             <Button primary onClick={onSave} dataTest="save-dashboard-button">
@@ -203,16 +226,17 @@ const EditBar = ({ dashboard, ...props }) => {
                     {i18n.t('Delete')}
                 </Button>
             )}
-            <Button
+            <DropdownButton
                 onClick={() => {
-                    const n = Math.floor(Math.random() * 5) + 1
-                    console.log(n, 'columns')
-                    props.onAutoLayoutSelect(n)
+                    setAutoLayoutIsOpen(!autoLayoutIsOpen)
                 }}
+                component={getAutoLayoutMenu()}
+                // icon={<IconMore24 color={colors.grey700} />}
+                open={autoLayoutIsOpen}
                 // dataTest="delete-dashboard-button"
             >
                 {i18n.t('Auto layout')}
-            </Button>
+            </DropdownButton>
         </ButtonStrip>
     )
 
@@ -289,11 +313,11 @@ const mapDispatchToProps = {
         dispatch(acSetFilterSettings(value)),
     showPrintPreview: () => dispatch => dispatch(acSetPrintPreviewView()),
     onAutoLayoutSelect: value => (dispatch, getState) => {
-        const items = sGetEditDashboardItems(getState())
-        console.log('items', items)
-        const newShapes = getAutoItemShapes(items, value)
-        console.log('newShapes', newShapes)
-        dispatch(acUpdateDashboardLayout(newShapes))
+        const prevItems = sGetEditDashboardItems(getState())
+        const itemsWithNewShapes = getAutoItemShapes(prevItems, value)
+        dispatch(acSetHideGrid(true))
+        dispatch(acUpdateDashboardLayout(itemsWithNewShapes))
+        setTimeout(() => dispatch(acSetHideGrid(false)), 0)
     },
 }
 
