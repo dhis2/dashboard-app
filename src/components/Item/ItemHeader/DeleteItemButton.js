@@ -12,6 +12,7 @@ const DeleteItemButton = ({ onClick }) => (
         className={classes.deleteItemButton}
         onClick={onClick}
         title={i18n.t(`Delete item`)}
+        data-test="delete-item-button"
     >
         <DeleteIcon style={{ fill: colors.red500 }} />
     </button>

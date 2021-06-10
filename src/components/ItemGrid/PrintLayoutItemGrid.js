@@ -51,7 +51,11 @@ export class PrintLayoutItemGrid extends Component {
         })
 
         return (
-            <div key={item.i} className={itemClassNames}>
+            <div
+                key={item.i}
+                className={itemClassNames}
+                data-test={`dashboarditem-${item.id}`}
+            >
                 <Item item={item} dashboardMode={PRINT_LAYOUT} />
             </div>
         )

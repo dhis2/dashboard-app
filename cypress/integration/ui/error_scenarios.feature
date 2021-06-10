@@ -39,6 +39,24 @@ Feature: Error scenarios
         Then a warning message is displayed stating that starring dashboard failed
         And the "Delivery" dashboard is not starred
 
+    Scenario: View dashboard containing item that is missing type
+        Given I open the Delivery dashboard with items missing a type
+        Then the "Delivery" dashboard displays in view mode
+        And the items missing type are displayed with a warning
+
+    Scenario: Edit dashboard containing item that is missing type
+        Given I open the Delivery dashboard with items missing a type
+        When I choose to edit dashboard
+        Then the items missing type are displayed with a warning
+        And I can delete the items
+
+    Scenario: Print dashboard containing item that is missing type
+        Given I open the Delivery dashboard with items missing a type
+        When I click to preview the print layout
+        Then the print layout displays for "Delivery" dashboard
+        And the items missing type are displayed with a warning
+
+# TODO unflake this flaky test
 # @nonmutating
 # Scenario: Toggling show description fails
 #     Given I open the "Delivery" dashboard
