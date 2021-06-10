@@ -16,7 +16,7 @@ const NotSupportedItem = ({ item, dashboardMode }) => {
             <ItemHeader
                 itemId={item.id}
                 dashboardMode={dashboardMode}
-                isShortened={false}
+                isShortened={item.shortened}
             />
             <div
                 style={{
