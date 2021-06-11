@@ -10,6 +10,7 @@ const DeleteItemButton = ({ onClick }) => (
             small
             onClick={onClick}
             icon={<IconDelete24 color={colors.red600} />}
+            dataTest="delete-item-button"
         />
     </Tooltip>
 )

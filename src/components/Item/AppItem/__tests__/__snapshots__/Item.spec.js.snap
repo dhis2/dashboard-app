@@ -42,7 +42,7 @@ exports[`renders a valid App item with filter in edit mode 1`] = `
       >
         <button
           class="jsx-2371629422 secondary small icon-only"
-          data-test="dhis2-uicore-button"
+          data-test="delete-item-button"
           type="button"
         >
           <span
@@ -119,7 +119,7 @@ exports[`renders a valid App item with title in edit mode irrespective of app se
       >
         <button
           class="jsx-2371629422 secondary small icon-only"
-          data-test="dhis2-uicore-button"
+          data-test="delete-item-button"
           type="button"
         >
           <span
