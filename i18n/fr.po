@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-05-12T08:56:39.093Z\n"
+"POT-Creation-Date: 2021-06-10T10:08:47.318Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Yao Selom Saka <ysaka@hispwca.org>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -38,8 +38,11 @@ msgstr "Messages"
 msgid "See all messages"
 msgstr "Voir tous les messages"
 
-msgid "Item type \"{{type}}\" not supported"
-msgstr "Type d'objet \"{{type}}\" non pris en charge"
+msgid "Item type \"{{type}}\" is not supported"
+msgstr ""
+
+msgid "Item type is missing"
+msgstr ""
 
 msgid "Filters applied"
 msgstr "Flitres appliqués"

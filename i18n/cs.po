@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-05-12T08:56:39.093Z\n"
+"POT-Creation-Date: 2021-06-10T10:08:47.318Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: trendspotter, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -30,8 +30,11 @@ msgstr "Zprávy"
 msgid "See all messages"
 msgstr "Zobrazit všechny zprávy"
 
-msgid "Item type \"{{type}}\" not supported"
-msgstr "Typ položky \"{{type}}\" není podporován"
+msgid "Item type \"{{type}}\" is not supported"
+msgstr ""
+
+msgid "Item type is missing"
+msgstr ""
 
 msgid "Filters applied"
 msgstr "Použité filtry"
