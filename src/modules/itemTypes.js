@@ -32,7 +32,7 @@ const DOMAIN_TYPE_TRACKER = 'TRACKER'
 
 // Dashboard helpers
 export const isVisualizationType = item =>
-    !!itemTypeMap[item.type].isVisualizationType
+    !!itemTypeMap[item.type]?.isVisualizationType
 export const hasMapView = itemType =>
     itemTypeMap[itemType].domainType === DOMAIN_TYPE_AGGREGATE
 export const isTrackerDomainType = itemType =>
@@ -48,6 +48,7 @@ export const itemTypeMap = {
         endPointName: 'visualizations',
         propName: 'visualization',
         pluralTitle: i18n.t('Visualizations'),
+        isVisualizationType: true,
         appUrl: id => `dhis-web-data-visualizer/#/${id}`,
         appName: 'Data Visualizer',
         defaultItemCount: 10,

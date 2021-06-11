@@ -12,7 +12,13 @@ export const getDashboardItem = itemUid =>
     cy.get(`[data-test="dashboarditem-${itemUid}"]`)
 
 export const clickMenuButton = itemUid =>
-    getDashboardItem(itemUid).find(itemMenuButton).click()
+    getDashboardItem(itemUid).scrollIntoView().find(itemMenuButton).click()
+
+export const clickItemDeleteButton = itemUid =>
+    getDashboardItem(itemUid)
+        .scrollIntoView()
+        .find('[data-test="delete-item-button"]')
+        .click()
 
 //map
 
