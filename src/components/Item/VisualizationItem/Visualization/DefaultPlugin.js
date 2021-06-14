@@ -45,6 +45,7 @@ const DefaultPlugin = ({
             load(item, visualization, {
                 credentials,
                 activeType,
+                options,
             })
         }
 
