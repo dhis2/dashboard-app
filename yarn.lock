@@ -1867,15 +1867,15 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^37.4.3":
-  version "37.4.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-37.4.3.tgz#7dd90ebd4c5e6a97a5d7ed7f466fccce69c726ff"
-  integrity sha512-8V+QW72rg6eRblMMAcpkl6kQVLWx+Mfl8eFXfG9iPSax7WqXXzZ163UWTUH8KGWkCKLDVpbjwtzk+CyxCXU1YQ==
+"@dhis2/data-visualizer-plugin@^37.4.5":
+  version "37.4.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-37.4.5.tgz#d5d20d16bf32cf30b1ca5036583791c2a69c0dc4"
+  integrity sha512-wh1QtNI+AXzvze679FIT8YSGO1sGYUEdc1H9nA0DWRrHqzksaW4lYDGY9Bq8ge6xaljj2AHXwtiqo0bybRhIWg==
   dependencies:
     "@dhis2/analytics" "^18.2.2"
     "@dhis2/app-runtime" "^2.8.0"
     "@dhis2/d2-i18n" "^1.1.0"
-    "@dhis2/ui" "^6.5.5"
+    "@dhis2/ui" "^6.9.0"
     lodash-es "^4.17.11"
 
 "@dhis2/prop-types@^1.6.4":
@@ -1928,7 +1928,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.3.1"
 
-"@dhis2/ui@^6.5.3", "@dhis2/ui@^6.5.5", "@dhis2/ui@^6.9.0":
+"@dhis2/ui@^6.5.3", "@dhis2/ui@^6.9.0":
   version "6.9.0"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-6.9.0.tgz#e9bc2aa861fdca1ca2a6ecc5ab896970a4552f10"
   integrity sha512-kzmT3jHvJ9+jky7gl8spFf9ifhbyyo29eriap+xm+eWyKadmK2olkCv6yudQzec1oJwqF+nfVw1nfnUmiEvWPw==
