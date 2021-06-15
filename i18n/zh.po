@@ -34,10 +34,10 @@ msgid "See all messages"
 msgstr "查看所有消息"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "不支持项目类型“{{type}}”"
 
 msgid "Item type is missing"
-msgstr ""
+msgstr "缺少条目类型"
 
 msgid "Filters applied"
 msgstr "已应用的过滤器"
