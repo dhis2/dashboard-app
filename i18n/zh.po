@@ -145,7 +145,7 @@ msgid "See all messages"
 msgstr "查看所有消息"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "不支持项目类型“{{type}}”"
 
 msgid "The item type is missing"
 msgstr ""
