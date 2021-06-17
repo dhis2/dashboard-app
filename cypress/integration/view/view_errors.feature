@@ -64,6 +64,13 @@ Feature: Errors while in view mode
         Then the print layout displays for "Delivery" dashboard
         And the items missing type are displayed with a warning
 
+    Scenario: Item visualization fails when filter applied [DHIS2-11303]
+        Given I create a dashboard with a chart that will fail
+        When I apply a "Diagnosis" filter of type "Burns"
+        Then an error message is displayed on the item
+        When I remove the filter
+        Then the visualization is displayed correctly
+
 # TODO unflake this flaky test
 # @nonmutating
 # Scenario: Toggling show description fails
