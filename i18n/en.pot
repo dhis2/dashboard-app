@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-06-10T10:08:47.318Z\n"
-"PO-Revision-Date: 2021-06-10T10:08:47.318Z\n"
+"POT-Creation-Date: 2021-06-17T07:44:06.871Z\n"
+"PO-Revision-Date: 2021-06-17T07:44:06.871Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -26,8 +26,8 @@ msgstr "See all messages"
 msgid "Item type \"{{type}}\" is not supported"
 msgstr "Item type \"{{type}}\" is not supported"
 
-msgid "Item type is missing"
-msgstr "Item type is missing"
+msgid "The item type is missing"
+msgstr "The item type is missing"
 
 msgid "Filters applied"
 msgstr "Filters applied"
@@ -82,6 +82,12 @@ msgstr "Unable to load the plugin for this item"
 
 msgid "No data to display"
 msgstr "No data to display"
+
+msgid "There was an error loading data for this item"
+msgstr "There was an error loading data for this item"
+
+msgid "Open this item in {{appName}}"
+msgstr "Open this item in {{appName}}"
 
 msgid "Visualizations"
 msgstr "Visualizations"

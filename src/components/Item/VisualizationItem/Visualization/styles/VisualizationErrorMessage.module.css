@@ -1,0 +1,16 @@
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.errorMessage {
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.appLink {
+    margin-top: 8px;
+}

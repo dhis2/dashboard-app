@@ -80,6 +80,8 @@ class Visualization extends React.Component {
                             itemFilters
                         )}
                         style={style}
+                        filterVersion={filterVersion}
+                        item={item}
                     />
                 )
             }
