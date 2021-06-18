@@ -1,3 +1,11 @@
+## [31.16.1](https://github.com/dhis2/dashboard-app/compare/v31.16.0...v31.16.1) (2021-06-14)
+
+
+### Bug Fixes
+
+* dashboard crashes if an item is missing type [TECH-588] ([#1812](https://github.com/dhis2/dashboard-app/issues/1812)) ([a200395](https://github.com/dhis2/dashboard-app/commit/a2003954a7268992427cf647605cf9ce80bdefa1))
+* include hideTitle property when loading map [DHIS2-11302] ([18d3053](https://github.com/dhis2/dashboard-app/commit/18d3053eb1152ba4e0d82d65e17661de33a2cf69))
+
 # [31.16.0](https://github.com/dhis2/dashboard-app/compare/v31.15.6...v31.16.0) (2021-05-31)
 
 
