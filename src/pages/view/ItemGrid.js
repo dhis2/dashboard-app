@@ -23,7 +23,6 @@ import NoContentMessage from '../../components/NoContentMessage'
 import { sGetSelectedDashboardItems } from '../../reducers/selected'
 
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
-import { VIEW } from '../../modules/dashboardModes'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen'
 import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName'
 
@@ -92,7 +91,6 @@ const ResponsiveItemGrid = ({ dashboardItems }) => {
                 <Item
                     item={item}
                     gridWidth={gridWidth}
-                    dashboardMode={VIEW}
                     onToggleItemExpanded={onToggleItemExpanded}
                 />
             </ProgressiveLoadingContainer>

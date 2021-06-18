@@ -19,6 +19,7 @@ import {
     sGetPrintDashboardItems,
 } from '../../../reducers/printDashboard'
 import { isEditMode, PRINT_LAYOUT } from '../../../modules/dashboardModes'
+import { Consumer as DashboardModeConsumer } from '../../../components/DashboardModeProvider'
 
 const style = {
     textDiv: {
@@ -61,30 +62,24 @@ const TextItem = props => {
         )
     }
 
-    const editItem = () => {
-        return (
-            <>
-                <ItemHeader
-                    title={i18n.t('Text item')}
-                    itemId={item.id}
-                    dashboardMode={dashboardMode}
-                />
-                <Divider margin={`0 0 ${spacers.dp4} 0`} />
-                <div className="dashboard-item-content">
-                    <RichTextEditor
-                        onEdit={event => onChangeText(event.target.value)}
-                    >
-                        <TextArea
-                            rows={30}
-                            value={text}
-                            placeholder={i18n.t('Add text here')}
-                            onChange={({ value }) => onChangeText(value)}
-                        />
-                    </RichTextEditor>
-                </div>
-            </>
-        )
-    }
+    const editItem = () => (
+        <>
+            <ItemHeader title={i18n.t('Text item')} itemId={item.id} />
+            <Divider margin={`0 0 ${spacers.dp4} 0`} />
+            <div className="dashboard-item-content">
+                <RichTextEditor
+                    onEdit={event => onChangeText(event.target.value)}
+                >
+                    <TextArea
+                        rows={30}
+                        value={text}
+                        placeholder={i18n.t('Add text here')}
+                        onChange={({ value }) => onChangeText(value)}
+                    />
+                </RichTextEditor>
+            </div>
+        </>
+    )
 
     const printItem = () => {
         const textDivStyle = Object.assign({}, style.textField, style.textDiv)
@@ -135,6 +130,12 @@ TextItem.propTypes = {
     text: PropTypes.string,
 }
 
+const TextItemWithDashboardMode = props => (
+    <DashboardModeConsumer>
+        {dashboardMode => <TextItem dashboardMode={dashboardMode} {...props} />}
+    </DashboardModeConsumer>
+)
+
 export default connect(mapStateToProps, {
     acUpdateDashboardItem,
-})(TextItem)
+})(TextItemWithDashboardMode)

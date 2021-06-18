@@ -14,6 +14,7 @@ import { getGridItemElement } from './getGridItemElement'
 
 import { WindowDimensionsCtx } from '../../WindowDimensionsProvider'
 import { SystemSettingsCtx } from '../../SystemSettingsProvider'
+import { Consumer as DashboardModeConsumer } from '../../DashboardModeProvider'
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
 import { apiFetchVisualization } from '../../../api/fetchVisualization'
 import { sGetVisualization } from '../../../reducers/visualizations'
@@ -283,10 +284,23 @@ const mapDispatchToProps = {
     setVisualization: acAddVisualization,
 }
 
-const ItemWithSettings = props => (
+const ItemWithSettingsAndMode = props => (
     <SystemSettingsCtx.Consumer>
-        {({ settings }) => <Item settings={settings} {...props} />}
+        {({ settings }) => (
+            <DashboardModeConsumer>
+                {dashboardMode => (
+                    <Item
+                        settings={settings}
+                        dashboardMode={dashboardMode}
+                        {...props}
+                    />
+                )}
+            </DashboardModeConsumer>
+        )}
     </SystemSettingsCtx.Consumer>
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(ItemWithSettings)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ItemWithSettingsAndMode)

@@ -7,7 +7,6 @@ import StaticGrid from './StaticGrid'
 import { Item } from '../../components/Item/Item'
 
 import { hasShape } from '../../modules/gridUtil'
-import { PRINT } from '../../modules/dashboardModes'
 import { sGetPrintDashboardItems } from '../../reducers/printDashboard'
 
 import { orArray } from '../../modules/util'
@@ -15,7 +14,7 @@ import { orArray } from '../../modules/util'
 const PrintItemGrid = ({ dashboardItems }) => {
     const getItemComponent = item => (
         <div key={item.i} className={cx(item.type, 'print', 'oipp')}>
-            <Item item={item} dashboardMode={PRINT} />
+            <Item item={item} />
         </div>
     )
 

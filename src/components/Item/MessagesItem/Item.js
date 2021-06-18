@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
@@ -10,6 +10,7 @@ import { useUserSettings } from '../../UserSettingsProvider'
 import { sGetMessagesRoot } from '../../../reducers/messages'
 import { getFormattedDate } from './getFormattedDate'
 import { isViewMode } from '../../../modules/dashboardModes'
+import { DashboardModeContext } from '../../DashboardModeProvider'
 
 import classes from './styles/Item.module.css'
 import './MessagesItem.css'
@@ -23,9 +24,10 @@ const messageTypes = {
     SYSTEM: 'System',
 }
 
-const MessagesItem = ({ messages, item, dashboardMode }) => {
+const MessagesItem = ({ messages, item }) => {
     const { baseUrl } = useConfig()
     const { userSettings } = useUserSettings()
+    const dashboardMode = useContext(DashboardModeContext)
 
     const getMessageHref = msg => {
         const msgIdentifier = msg ? `#/${msg.messageType}/${msg.id}` : ''
@@ -80,7 +82,6 @@ const MessagesItem = ({ messages, item, dashboardMode }) => {
             <ItemHeader
                 title={i18n.t('Messages')}
                 itemId={item.id}
-                dashboardMode={dashboardMode}
                 isShortened={item.shortened}
             />
             <Divider margin={`0 0 ${spacers.dp4} 0`} />
@@ -99,7 +100,6 @@ const MessagesItem = ({ messages, item, dashboardMode }) => {
 }
 
 MessagesItem.propTypes = {
-    dashboardMode: PropTypes.string,
     item: PropTypes.object,
     messages: PropTypes.array,
 }

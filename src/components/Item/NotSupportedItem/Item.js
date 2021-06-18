@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n'
 import { colors, IconQuestion24 } from '@dhis2/ui'
 import ItemHeader from '../ItemHeader/ItemHeader'
 
-const NotSupportedItem = ({ item, dashboardMode }) => {
+const NotSupportedItem = ({ item }) => {
     const message = item.type
         ? i18n.t('Item type "{{type}}" is not supported', {
               type: item.type,
@@ -13,11 +13,7 @@ const NotSupportedItem = ({ item, dashboardMode }) => {
 
     return (
         <>
-            <ItemHeader
-                itemId={item.id}
-                dashboardMode={dashboardMode}
-                isShortened={item.shortened}
-            />
+            <ItemHeader itemId={item.id} isShortened={item.shortened} />
             <div
                 style={{
                     display: 'flex',
@@ -35,7 +31,6 @@ const NotSupportedItem = ({ item, dashboardMode }) => {
 }
 
 NotSupportedItem.propTypes = {
-    dashboardMode: PropTypes.string,
     item: PropTypes.object,
 }
 

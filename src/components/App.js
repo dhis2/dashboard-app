@@ -11,6 +11,8 @@ import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { tFetchDashboards } from '../actions/dashboards'
 import { tSetControlBarRows } from '../actions/controlBar'
 import { tSetShowDescription } from '../actions/showDescription'
+import { Provider as DashboardModeProvider } from '../components/DashboardModeProvider'
+import { VIEW, EDIT, PRINT_LAYOUT, PRINT } from '../modules/dashboardModes'
 
 import './styles/App.css'
 import 'react-grid-layout/css/styles.css'
@@ -45,41 +47,61 @@ const App = props => {
                         exact
                         path="/"
                         render={props => (
-                            <ViewDashboard
-                                username={d2.currentUser.username}
-                                {...props}
-                            />
+                            <DashboardModeProvider value={VIEW}>
+                                <ViewDashboard
+                                    username={d2.currentUser.username}
+                                    {...props}
+                                />
+                            </DashboardModeProvider>
                         )}
                     />
                     <Route
                         exact
                         path="/new"
-                        render={props => <NewDashboard {...props} />}
+                        render={props => (
+                            <DashboardModeProvider value={EDIT}>
+                                <NewDashboard {...props} />
+                            </DashboardModeProvider>
+                        )}
                     />
                     <Route
                         exact
                         path="/:dashboardId"
                         render={props => (
-                            <ViewDashboard
-                                username={d2.currentUser.username}
-                                {...props}
-                            />
+                            <DashboardModeProvider value={VIEW}>
+                                <ViewDashboard
+                                    username={d2.currentUser.username}
+                                    {...props}
+                                />
+                            </DashboardModeProvider>
                         )}
                     />
                     <Route
                         exact
                         path="/:dashboardId/edit"
-                        render={props => <EditDashboard {...props} />}
+                        render={props => (
+                            <DashboardModeProvider value={EDIT}>
+                                <EditDashboard {...props} />
+                            </DashboardModeProvider>
+                        )}
                     />
                     <Route
                         exact
                         path="/:dashboardId/printoipp"
-                        render={props => <PrintDashboard {...props} />}
+                        render={props => (
+                            <DashboardModeProvider value={PRINT}>
+                                <PrintDashboard {...props} />
+                            </DashboardModeProvider>
+                        )}
                     />
                     <Route
                         exact
                         path="/:dashboardId/printlayout"
-                        render={props => <PrintLayoutDashboard {...props} />}
+                        render={props => (
+                            <DashboardModeProvider value={PRINT_LAYOUT}>
+                                <PrintLayoutDashboard {...props} />
+                            </DashboardModeProvider>
+                        )}
                     />
                 </Switch>
             </Router>

@@ -10,37 +10,6 @@ exports[`Visualization/Item renders edit mode 1`] = `
     >
       Fancy Chart
     </p>
-    <div
-      class="itemActionsWrap"
-    >
-      <span
-        class="jsx-611321200"
-        data-test="dhis2-uicore-tooltip-reference"
-      >
-        <button
-          class="jsx-2371629422 secondary small icon-only"
-          data-test="delete-item-button"
-          type="button"
-        >
-          <span
-            class="jsx-2371629422 button-icon"
-          >
-            <svg
-              color="#c62828"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M20 5a1 1 0 010 2h-1v13a2 2 0 01-2 2H7a2 2 0 01-2-2V7H4a1 1 0 110-2zm-3 2H7v13h10zm-6 2v8h-1V9zm3 0v8h-1V9zm1-7v2H9V2z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-        </button>
-      </span>
-    </div>
   </div>
   <div
     class="dashboard-item-content"

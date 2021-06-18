@@ -12,6 +12,7 @@ import {
 } from '../../../reducers/itemFilters'
 
 import { EDIT, isEditMode } from '../../../modules/dashboardModes'
+import { Consumer as DashboardModeConsumer } from '../../../components/DashboardModeProvider'
 
 const getIframeSrc = (appDetails, item, itemFilters) => {
     let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`
@@ -49,7 +50,6 @@ const AppItem = ({ dashboardMode, item, itemFilters }) => {
                     <ItemHeader
                         title={appDetails.name}
                         itemId={item.id}
-                        dashboardMode={dashboardMode}
                         isShortened={item.shortened}
                     />
                     <Divider margin={`0 0 ${spacers.dp4} 0`} />
@@ -99,4 +99,10 @@ const mapStateToProps = (state, ownProps) => {
     return { itemFilters }
 }
 
-export default connect(mapStateToProps)(AppItem)
+const AppItemWithDashboardMode = props => (
+    <DashboardModeConsumer>
+        {dashboardMode => <AppItem dashboardMode={dashboardMode} {...props} />}
+    </DashboardModeConsumer>
+)
+
+export default connect(mapStateToProps)(AppItemWithDashboardMode)

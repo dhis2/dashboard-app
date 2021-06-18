@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Divider, colors, spacers } from '@dhis2/ui'
@@ -15,6 +15,7 @@ import {
 
 import ItemHeader from '../ItemHeader/ItemHeader'
 import { isEditMode } from '../../../modules/dashboardModes'
+import { DashboardModeContext } from '../../../components/DashboardModeProvider'
 
 import classes from './Item.module.css'
 
@@ -26,9 +27,10 @@ const getContentItems = item =>
             array.findIndex(el => el.id === item.id) === index
     )
 
-const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
+const ListItem = ({ item, removeItem, updateItem }) => {
     const { baseUrl } = useConfig()
     const contentItems = getContentItems(item)
+    const dashboardMode = useContext(DashboardModeContext)
 
     const updateDashboardItem = content => {
         const listItemType = itemTypeMap[item.type].propName
@@ -74,7 +76,6 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
             <ItemHeader
                 title={getItemTitle(item)}
                 itemId={item.id}
-                dashboardMode={dashboardMode}
                 isShortened={item.shortened}
             />
             <Divider margin={`0 0 ${spacers.dp4} 0`} />
@@ -93,7 +94,6 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
 }
 
 ListItem.propTypes = {
-    dashboardMode: PropTypes.string,
     item: PropTypes.object,
     removeItem: PropTypes.func,
     updateItem: PropTypes.func,

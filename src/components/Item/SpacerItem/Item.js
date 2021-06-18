@@ -18,7 +18,6 @@ const SpacerItem = props => {
             <ItemHeader
                 title={i18n.t('Spacer')}
                 itemId={props.item.id}
-                dashboardMode={props.dashboardMode}
                 isShortened={props.item.shortened}
             />
             <p style={style}>
@@ -31,7 +30,6 @@ const SpacerItem = props => {
 }
 
 SpacerItem.propTypes = {
-    dashboardMode: PropTypes.string,
     item: PropTypes.object,
 }
 

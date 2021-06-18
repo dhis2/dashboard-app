@@ -14,7 +14,6 @@ import { sGetIsEditing } from '../../reducers/editDashboard'
 import { hasShape } from '../../modules/gridUtil'
 import { getDomGridItemsSortedByYPos, getTransformYPx } from './printUtils'
 
-import { PRINT_LAYOUT } from '../../modules/dashboardModes'
 import { PAGEBREAK } from '../../modules/itemTypes'
 
 class PrintLayoutItemGrid extends Component {
@@ -49,7 +48,7 @@ class PrintLayoutItemGrid extends Component {
                 className={itemClassNames}
                 data-test={`dashboarditem-${item.id}`}
             >
-                <Item item={item} dashboardMode={PRINT_LAYOUT} />
+                <Item item={item} />
             </div>
         )
     }
