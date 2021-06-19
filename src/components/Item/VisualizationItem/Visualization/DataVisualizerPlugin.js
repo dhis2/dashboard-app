@@ -15,6 +15,7 @@ const DataVisualizerPlugin = ({
     item,
     style,
     visualization,
+    dashboardMode,
 }) => {
     const { userSettings } = useUserSettings()
     const [visualizationLoaded, setVisualizationLoaded] = useState(false)
@@ -29,10 +30,15 @@ const DataVisualizerPlugin = ({
 
     useEffect(() => {
         setError(false)
-    }, [filterVersion])
+    }, [filterVersion, visualization.type])
 
     if (error) {
-        return <VisualizationErrorMessage item={item} />
+        return (
+            <VisualizationErrorMessage
+                item={item}
+                dashboardMode={dashboardMode}
+            />
+        )
     }
 
     return (
@@ -51,6 +57,7 @@ const DataVisualizerPlugin = ({
 }
 
 DataVisualizerPlugin.propTypes = {
+    dashboardMode: PropTypes.string,
     filterVersion: PropTypes.string,
     item: PropTypes.object,
     style: PropTypes.object,

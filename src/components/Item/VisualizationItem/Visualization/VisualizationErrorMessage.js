@@ -5,6 +5,7 @@ import { useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui'
 
 import { getVisualizationId } from '../../../../modules/item'
+import { isPrintMode } from '../../../../modules/dashboardModes'
 
 import { getAppName, itemTypeMap } from '../../../../modules/itemTypes'
 
@@ -25,7 +26,7 @@ const getErrorIcon = () => (
     </svg>
 )
 
-const VisualizationErrorMessage = ({ item }) => {
+const VisualizationErrorMessage = ({ item, dashboardMode }) => {
     const { baseUrl } = useConfig()
 
     const visHref = `${baseUrl}/${itemTypeMap[item.type].appUrl(
@@ -38,23 +39,26 @@ const VisualizationErrorMessage = ({ item }) => {
             <p className={classes.errorMessage}>
                 {i18n.t('There was an error loading data for this item')}
             </p>
-            <p className={classes.appLink}>
-                <a
-                    onClick={e => e.stopPropagation()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={visHref}
-                >
-                    {i18n.t('Open this item in {{appName}}', {
-                        appName: getAppName(item.type),
-                    })}
-                </a>
-            </p>
+            {!isPrintMode(dashboardMode) ? (
+                <p className={classes.appLink}>
+                    <a
+                        onClick={e => e.stopPropagation()}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={visHref}
+                    >
+                        {i18n.t('Open this item in {{appName}}', {
+                            appName: getAppName(item.type),
+                        })}
+                    </a>
+                </p>
+            ) : null}
         </div>
     )
 }
 
 VisualizationErrorMessage.propTypes = {
+    dashboardMode: PropTypes.string,
     item: PropTypes.object,
 }
 

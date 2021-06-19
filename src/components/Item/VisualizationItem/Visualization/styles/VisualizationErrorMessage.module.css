@@ -7,10 +7,12 @@
 }
 
 .errorMessage {
-    margin-bottom: 8px;
+    margin-bottom: var(--spacers-dp8);
+    font-size: 16px;
     font-weight: 600;
 }
 
 .appLink {
-    margin-top: 8px;
+    font-size: 16px;
+    margin-top: var(--spacers-dp8);
 }
