@@ -292,7 +292,7 @@ msgid "More"
 msgstr "更多"
 
 msgid "Edit"
-msgstr "编辑<br>"
+msgstr "编辑"
 
 msgid "Share"
 msgstr "分享"
