@@ -25,6 +25,8 @@ import { sGetSelectedDashboardItems } from '../../reducers/selected'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
 import { VIEW } from '../../modules/dashboardModes'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen'
+import { getVisualizationName } from '../../modules/item'
+import { isVisualizationType } from '../../modules/itemTypes'
 import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName'
 
 import classes from './styles/ItemGrid.module.css'
@@ -87,7 +89,11 @@ const ResponsiveItemGrid = ({ dashboardItems }) => {
                     'view',
                     getGridItemDomElementClassName(item.id)
                 )}
-                itemId={item.id}
+                name={
+                    isVisualizationType(item)
+                        ? getVisualizationName(item)
+                        : item.id
+                }
             >
                 <Item
                     item={item}

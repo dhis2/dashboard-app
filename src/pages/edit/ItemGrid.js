@@ -23,6 +23,8 @@ import NoContentMessage from '../../components/NoContentMessage'
 import { sGetEditDashboardItems } from '../../reducers/editDashboard'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
 import { EDIT } from '../../modules/dashboardModes'
+import { getVisualizationName } from '../../modules/item'
+import { isVisualizationType } from '../../modules/itemTypes'
 import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
 
 import classes from './styles/ItemGrid.module.css'
@@ -44,7 +46,9 @@ const EditItemGrid = ({ dashboardItems, acUpdateDashboardLayout }) => {
                 'edit',
                 getGridItemDomElementClassName(item.id)
             )}
-            itemId={item.id}
+            name={
+                isVisualizationType(item) ? getVisualizationName(item) : item.id
+            }
         >
             <Item item={item} gridWidth={gridWidth} dashboardMode={EDIT} />
         </ProgressiveLoadingContainer>
