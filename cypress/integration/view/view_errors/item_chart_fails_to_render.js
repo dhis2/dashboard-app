@@ -18,7 +18,7 @@ import {
 import {
     chartSel,
     tableSel,
-    clickMenuButton,
+    itemMenuButtonSel,
 } from '../../../elements/dashboardItem'
 
 const TEST_DASHBOARD_TITLE = '0filter-fail-' + new Date().toUTCString()
@@ -76,19 +76,21 @@ Then('an error message not including a link is displayed on the item', () => {
 })
 
 When('I view as chart', () => {
-    clickMenuButton(VIS_NAME)
+    cy.get(itemMenuButtonSel).click()
     cy.contains('View as Chart').click()
 })
 
 When('I view as table', () => {
-    clickMenuButton(VIS_NAME)
+    cy.get(itemMenuButtonSel).click()
     cy.contains('View as Table').click()
 })
 
 When('I remove the filter', () => {
-    cy.wait(5000) // eslint-disable-line cypress/no-unnecessary-waiting
+    // cy.wait(5000) // eslint-disable-line cypress/no-unnecessary-waiting
     cy.get(filterBadgeSel).scrollIntoView().contains('Remove').click()
-    cy.wait(5000) // eslint-disable-line cypress/no-unnecessary-waiting
+    // cy.wait(5000) // eslint-disable-line cypress/no-unnecessary-waiting
+
+    cy.get(filterBadgeSel).should('not.exist')
 })
 
 Then('the {string} is displayed correctly', visType => {
