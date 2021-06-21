@@ -19,7 +19,7 @@ import {
     acSetPrintPreviewView,
     acClearPrintPreviewView,
     acSetFilterSettings,
-    acUpdateDashboardLayout,
+    acUpdateDashboardItemShapes,
     acSetHideGrid,
 } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
@@ -316,7 +316,7 @@ const mapDispatchToProps = {
         const prevItems = sGetEditDashboardItems(getState())
         const itemsWithNewShapes = getAutoItemShapes(prevItems, value)
         dispatch(acSetHideGrid(true))
-        dispatch(acUpdateDashboardLayout(itemsWithNewShapes))
+        dispatch(acUpdateDashboardItemShapes(itemsWithNewShapes))
         setTimeout(() => dispatch(acSetHideGrid(false)), 0)
     },
 }

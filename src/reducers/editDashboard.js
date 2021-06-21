@@ -11,7 +11,7 @@ export const RECEIVED_DESCRIPTION = 'RECEIVED_DESCRIPTION'
 export const ADD_DASHBOARD_ITEM = 'ADD_DASHBOARD_ITEM'
 export const REMOVE_DASHBOARD_ITEM = 'REMOVE_DASHBOARD_ITEM'
 export const UPDATE_DASHBOARD_ITEM = 'UPDATE_DASHBOARD_ITEM'
-export const RECEIVED_DASHBOARD_LAYOUT = 'RECEIVED_DASHBOARD_LAYOUT'
+export const RECEIVED_DASHBOARD_ITEM_SHAPES = 'RECEIVED_DASHBOARD_ITEM_SHAPES'
 export const SET_PRINT_PREVIEW_VIEW = 'SET_PRINT_PREVIEW_VIEW'
 export const CLEAR_PRINT_PREVIEW_VIEW = 'CLEAR_PRINT_PREVIEW_VIEW'
 export const RECEIVED_FILTER_SETTINGS = 'RECEIVED_FILTER_SETTINGS'
@@ -30,6 +30,11 @@ export const NEW_DASHBOARD_STATE = {
     isDirty: false,
     href: '',
     hideGrid: false,
+    //new
+    layout: {
+        cols: 2,
+        addItemsTo: 'END',
+    },
 }
 
 export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
@@ -98,7 +103,7 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
 
             return state
         }
-        case RECEIVED_DASHBOARD_LAYOUT: {
+        case RECEIVED_DASHBOARD_ITEM_SHAPES: {
             const stateItems = orArray(state.dashboardItems)
             let layoutHasChanged = false
 

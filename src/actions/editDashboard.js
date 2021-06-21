@@ -7,7 +7,7 @@ import {
     RECEIVED_NOT_EDITING,
     RECEIVED_TITLE,
     RECEIVED_DESCRIPTION,
-    RECEIVED_DASHBOARD_LAYOUT,
+    RECEIVED_DASHBOARD_ITEM_SHAPES,
     ADD_DASHBOARD_ITEM,
     UPDATE_DASHBOARD_ITEM,
     REMOVE_DASHBOARD_ITEM,
@@ -61,8 +61,8 @@ export const acSetDashboardDescription = value => ({
     value,
 })
 
-export const acUpdateDashboardLayout = value => ({
-    type: RECEIVED_DASHBOARD_LAYOUT,
+export const acUpdateDashboardItemShapes = value => ({
+    type: RECEIVED_DASHBOARD_ITEM_SHAPES,
     value,
 })
 

@@ -3,7 +3,7 @@ import reducer, {
     DEFAULT_STATE_EDIT_DASHBOARD,
     NEW_DASHBOARD_STATE,
     sGetIsEditing,
-    RECEIVED_DASHBOARD_LAYOUT,
+    RECEIVED_DASHBOARD_ITEM_SHAPES,
     RECEIVED_NOT_EDITING,
     START_NEW_DASHBOARD,
     RECEIVED_EDIT_DASHBOARD,
@@ -51,7 +51,7 @@ describe('editDashboard', () => {
             ]
 
             const actualState = reducer(initialState, {
-                type: RECEIVED_DASHBOARD_LAYOUT,
+                type: RECEIVED_DASHBOARD_ITEM_SHAPES,
                 value: newLayout,
             })
 

@@ -5,7 +5,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import cx from 'classnames'
 
-import { acUpdateDashboardLayout } from '../../actions/editDashboard'
+import { acUpdateDashboardItemShapes } from '../../actions/editDashboard'
 import { Item } from '../../components/Item/Item'
 import {
     GRID_ROW_HEIGHT_PX,
@@ -32,14 +32,14 @@ import classes from './styles/ItemGrid.module.css'
 
 const EditItemGrid = ({
     dashboardItems,
-    acUpdateDashboardLayout,
+    acUpdateDashboardItemShapes,
     hideGrid,
 }) => {
     const [gridWidth, setGridWidth] = useState({ width: 0 })
     const { width } = useWindowDimensions()
 
     const onLayoutChange = newLayout => {
-        acUpdateDashboardLayout(newLayout)
+        acUpdateDashboardItemShapes(newLayout)
     }
 
     const onWidthChanged = containerWidth =>
@@ -102,7 +102,7 @@ const EditItemGrid = ({
 }
 
 EditItemGrid.propTypes = {
-    acUpdateDashboardLayout: PropTypes.func,
+    acUpdateDashboardItemShapes: PropTypes.func,
     dashboardItems: PropTypes.array,
     hideGrid: PropTypes.bool,
 }
@@ -117,7 +117,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    acUpdateDashboardLayout,
+    acUpdateDashboardItemShapes,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditItemGrid)
