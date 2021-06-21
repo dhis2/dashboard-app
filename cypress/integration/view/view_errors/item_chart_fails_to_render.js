@@ -87,6 +87,7 @@ When('I view as table', () => {
 
 When('I remove the filter', () => {
     cy.get(filterBadgeSel).contains('Remove').click()
+    cy.wait(5000) // eslint-disable-line cypress/no-unnecessary-waiting
 })
 
 Then('the {string} is displayed correctly', visType => {
