@@ -91,9 +91,9 @@ When('I remove the filter', () => {
 
 Then('the {string} is displayed correctly', visType => {
     if (visType === 'chart') {
-        cy.get(chartSel).should('be.visible')
+        cy.get(chartSel, EXTENDED_TIMEOUT).should('be.visible')
     } else if (visType === 'table') {
-        cy.get(tableSel).should('be.visible')
+        cy.get(tableSel, EXTENDED_TIMEOUT).should('be.visible')
     }
 
     //TODO - add snapshot testing
