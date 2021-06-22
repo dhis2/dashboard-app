@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-10T10:08:47.318Z\n"
+"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: trendspotter, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -33,7 +33,7 @@ msgstr "Zobrazit všechny zprávy"
 msgid "Item type \"{{type}}\" is not supported"
 msgstr ""
 
-msgid "Item type is missing"
+msgid "The item type is missing"
 msgstr ""
 
 msgid "Filters applied"
@@ -92,6 +92,12 @@ msgstr "Nelze načíst plugin pro tuto položku"
 
 msgid "No data to display"
 msgstr "Žádná data k zobrazení"
+
+msgid "There was an error loading data for this item"
+msgstr ""
+
+msgid "Open this item in {{appName}}"
+msgstr ""
 
 msgid "Visualizations"
 msgstr "Vizualizace"

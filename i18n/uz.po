@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-10T10:08:47.318Z\n"
+"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -33,7 +33,7 @@ msgstr "Барча хабарларни кўриш"
 msgid "Item type \"{{type}}\" is not supported"
 msgstr ""
 
-msgid "Item type is missing"
+msgid "The item type is missing"
 msgstr ""
 
 msgid "Filters applied"
@@ -92,6 +92,12 @@ msgstr "Ушбу элемент учун плагин юкланмади"
 
 msgid "No data to display"
 msgstr "Маълумот экранга чиқарилмади"
+
+msgid "There was an error loading data for this item"
+msgstr ""
+
+msgid "Open this item in {{appName}}"
+msgstr ""
 
 msgid "Visualizations"
 msgstr "Визуализация"
