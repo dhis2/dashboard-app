@@ -86,6 +86,7 @@ When('I view as table', () => {
 })
 
 When('I remove the filter', () => {
+    cy.wait(4000) // eslint-disable-line cypress/no-unnecessary-waiting
     cy.get(filterBadgeSel).scrollIntoView().contains('Remove').click()
 
     cy.get(filterBadgeSel).should('not.exist')
