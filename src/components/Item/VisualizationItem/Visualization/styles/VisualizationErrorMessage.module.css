@@ -1,0 +1,18 @@
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.errorMessage {
+    margin-bottom: var(--spacers-dp8);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.appLink {
+    font-size: 16px;
+    margin-top: var(--spacers-dp8);
+}
