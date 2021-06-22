@@ -1,10 +1,6 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { dashboards } from '../../../assets/backends/sierraLeone_236'
 
-When('I click to exit print preview', () => {
-    cy.get('button').not('.small').contains('Exit print preview').click()
-})
-
 When('I click to preview the print one-item-per-page', () => {
     cy.clickMoreButton()
     cy.get('[data-test="print-menu-item"]').click()
