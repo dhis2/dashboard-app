@@ -24,7 +24,7 @@ const DashboardsBar = ({
     onExpandedChanged,
 }) => {
     const [dragging, setDragging] = useState(false)
-    const [mouseYPos, setMouseYPos] = useState(false)
+    const [mouseYPos, setMouseYPos] = useState(0)
     const userRowsChanged = useRef(false)
     const ref = createRef()
     const { height } = useWindowDimensions()
@@ -32,7 +32,7 @@ const DashboardsBar = ({
     const rootElement = document.documentElement
 
     useEffect(() => {
-        if (mouseYPos === false) {
+        if (mouseYPos === 0) {
             return
         }
 
