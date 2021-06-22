@@ -16,6 +16,7 @@ export const SET_PRINT_PREVIEW_VIEW = 'SET_PRINT_PREVIEW_VIEW'
 export const CLEAR_PRINT_PREVIEW_VIEW = 'CLEAR_PRINT_PREVIEW_VIEW'
 export const RECEIVED_FILTER_SETTINGS = 'RECEIVED_FILTER_SETTINGS'
 export const RECEIVED_HIDE_GRID = 'RECEIVED_HIDE_GRID'
+export const RECEIVED_LAYOUT_COLUMNS = 'RECEIVED_LAYOUT_COLUMNS'
 
 export const DEFAULT_STATE_EDIT_DASHBOARD = {}
 export const NEW_DASHBOARD_STATE = {
@@ -30,11 +31,7 @@ export const NEW_DASHBOARD_STATE = {
     isDirty: false,
     href: '',
     hideGrid: false,
-    //new
-    layout: {
-        cols: 2,
-        addItemsTo: 'END',
-    },
+    layout: { columns: 2 },
 }
 
 export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
@@ -172,6 +169,15 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                 hideGrid: action.value,
             }
         }
+        case RECEIVED_LAYOUT_COLUMNS: {
+            return {
+                ...state,
+                layout: {
+                    ...state.layout,
+                    columns: action.value,
+                },
+            }
+        }
         default:
             return state
     }
@@ -198,3 +204,6 @@ export const sGetEditDashboardItems = state =>
 export const sGetEditIsDirty = state => sGetEditDashboardRoot(state).isDirty
 
 export const sGetHideGrid = state => sGetEditDashboardRoot(state).hideGrid
+
+export const sGetLayout = state => orObject(sGetEditDashboardRoot(state).layout)
+export const sGetLayoutColumns = state => sGetLayout(state).columns

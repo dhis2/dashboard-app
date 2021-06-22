@@ -4,7 +4,12 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
-import { Button, ButtonStrip, FlyoutMenu, MenuItem } from '@dhis2/ui'
+import {
+    Button,
+    ButtonStrip,
+    SingleSelect,
+    SingleSelectOption,
+} from '@dhis2/ui'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
@@ -21,6 +26,7 @@ import {
     acSetFilterSettings,
     acUpdateDashboardItemShapes,
     acSetHideGrid,
+    acSetLayoutColumns,
 } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
 import { tFetchDashboards } from '../../actions/dashboards'
@@ -31,11 +37,11 @@ import {
     sGetIsPrintPreviewView,
     sGetEditIsDirty,
     sGetEditDashboardItems,
+    sGetLayoutColumns,
 } from '../../reducers/editDashboard'
 
 import classes from './styles/ActionsBar.module.css'
 import { getAutoItemShapes } from '../../modules/gridUtil'
-import DropdownButton from '../../components/DropdownButton/DropdownButton'
 
 const saveFailedMessage = i18n.t(
     'Failed to save dashboard. You might be offline or not have access to edit this dashboard.'
@@ -52,7 +58,6 @@ const EditBar = ({ dashboard, ...props }) => {
     const [filterSettingsDlgIsOpen, setFilterSettingsDlgIsOpen] = useState(
         false
     )
-    const [autoLayoutIsOpen, setAutoLayoutIsOpen] = useState(false)
     const [confirmDeleteDlgIsOpen, setConfirmDeleteDlgIsOpen] = useState(false)
     const [confirmDiscardDlgIsOpen, setConfirmDiscardDlgIsOpen] = useState(
         false
@@ -181,23 +186,26 @@ const EditBar = ({ dashboard, ...props }) => {
     }
 
     const getAutoLayoutMenuItem = numberOfCols => (
-        <MenuItem
-            dense
+        <SingleSelectOption
+            key={numberOfCols}
             label={`${numberOfCols} columns`}
-            onClick={() => {
-                setAutoLayoutIsOpen(false)
-                Array.from(
-                    document.querySelectorAll('.dashboard-scroll-container')
-                ).forEach(el => (el.scrollTop = 0))
-                props.onAutoLayoutSelect(numberOfCols)
-            }}
+            value={String(numberOfCols)}
         />
     )
 
     const getAutoLayoutMenu = () => (
-        <FlyoutMenu>
+        <SingleSelect
+            placeholder="Number of columns"
+            selected={String(props.columns)}
+            onChange={({ selected }) => {
+                Array.from(
+                    document.querySelectorAll('.dashboard-scroll-container')
+                ).forEach(el => (el.scrollTop = 0))
+                props.onAutoLayoutSelect(parseInt(selected))
+            }}
+        >
             {new Array(10).fill().map((_, i) => getAutoLayoutMenuItem(i + 1))}
-        </FlyoutMenu>
+        </SingleSelect>
     )
 
     const renderActionButtons = () => (
@@ -226,17 +234,7 @@ const EditBar = ({ dashboard, ...props }) => {
                     {i18n.t('Delete')}
                 </Button>
             )}
-            <DropdownButton
-                onClick={() => {
-                    setAutoLayoutIsOpen(!autoLayoutIsOpen)
-                }}
-                component={getAutoLayoutMenu()}
-                // icon={<IconMore24 color={colors.grey700} />}
-                open={autoLayoutIsOpen}
-                // dataTest="delete-dashboard-button"
-            >
-                {i18n.t('Auto layout')}
-            </DropdownButton>
+            {getAutoLayoutMenu()}
         </ButtonStrip>
     )
 
@@ -283,6 +281,7 @@ EditBar.propTypes = {
     clearPrintDashboard: PropTypes.func,
     clearPrintPreview: PropTypes.func,
     clearSelected: PropTypes.func,
+    columns: PropTypes.number,
     dashboard: PropTypes.object,
     fetchDashboards: PropTypes.func,
     isDirty: PropTypes.bool,
@@ -294,13 +293,16 @@ EditBar.propTypes = {
     onDiscardChanges: PropTypes.func,
 }
 
-const mapStateToProps = state => {
-    return {
-        dashboard: sGetEditDashboardRoot(state),
-        isPrintPreviewView: sGetIsPrintPreviewView(state),
-        isDirty: sGetEditIsDirty(state),
-    }
+EditBar.defaultProps = {
+    columns: 2,
 }
+
+const mapStateToProps = state => ({
+    columns: sGetLayoutColumns(state),
+    dashboard: sGetEditDashboardRoot(state),
+    isPrintPreviewView: sGetIsPrintPreviewView(state),
+    isDirty: sGetEditIsDirty(state),
+})
 
 const mapDispatchToProps = {
     clearPrintDashboard: () => dispatch => dispatch(acClearPrintDashboard()),
@@ -312,10 +314,11 @@ const mapDispatchToProps = {
     setFilterSettings: value => dispatch =>
         dispatch(acSetFilterSettings(value)),
     showPrintPreview: () => dispatch => dispatch(acSetPrintPreviewView()),
-    onAutoLayoutSelect: value => (dispatch, getState) => {
+    onAutoLayoutSelect: numberOfCols => (dispatch, getState) => {
         const prevItems = sGetEditDashboardItems(getState())
-        const itemsWithNewShapes = getAutoItemShapes(prevItems, value)
+        const itemsWithNewShapes = getAutoItemShapes(prevItems, numberOfCols)
         dispatch(acSetHideGrid(true))
+        dispatch(acSetLayoutColumns(numberOfCols))
         dispatch(acUpdateDashboardItemShapes(itemsWithNewShapes))
         setTimeout(() => dispatch(acSetHideGrid(false)), 0)
     },

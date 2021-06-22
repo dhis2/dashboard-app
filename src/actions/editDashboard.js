@@ -16,6 +16,7 @@ import {
     RECEIVED_FILTER_SETTINGS,
     sGetEditDashboardRoot,
     RECEIVED_HIDE_GRID,
+    RECEIVED_LAYOUT_COLUMNS,
 } from '../reducers/editDashboard'
 import { tFetchDashboards } from './dashboards'
 import { updateDashboard, postDashboard } from '../api/editDashboard'
@@ -115,6 +116,11 @@ export const acSetFilterSettings = value => ({
 
 export const acSetHideGrid = value => ({
     type: RECEIVED_HIDE_GRID,
+    value,
+})
+
+export const acSetLayoutColumns = value => ({
+    type: RECEIVED_LAYOUT_COLUMNS,
     value,
 })
 
