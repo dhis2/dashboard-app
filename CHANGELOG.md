@@ -1,3 +1,10 @@
+## [31.16.3](https://github.com/dhis2/dashboard-app/compare/v31.16.2...v31.16.3) (2021-06-22)
+
+
+### Bug Fixes
+
+* add onError callback to handle failed chart from DV plugin [DHIS2-11303] ([#1826](https://github.com/dhis2/dashboard-app/issues/1826)) ([2aa5f6b](https://github.com/dhis2/dashboard-app/commit/2aa5f6b483d9e2214aa172a0c760eaec208c34c7))
+
 ## [31.16.2](https://github.com/dhis2/dashboard-app/compare/v31.16.1...v31.16.2) (2021-06-22)
 
 
