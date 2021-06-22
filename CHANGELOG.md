@@ -1,3 +1,10 @@
+## [31.16.2](https://github.com/dhis2/dashboard-app/compare/v31.16.1...v31.16.2) (2021-06-22)
+
+
+### Bug Fixes
+
+* dashboards bar row height should only be changed after user drags to change the height ([#1830](https://github.com/dhis2/dashboard-app/issues/1830)) ([1e4503d](https://github.com/dhis2/dashboard-app/commit/1e4503d6074ca787e4890bf1fcc5fca7da48d7af))
+
 ## [31.16.1](https://github.com/dhis2/dashboard-app/compare/v31.16.0...v31.16.1) (2021-06-14)
 
 
