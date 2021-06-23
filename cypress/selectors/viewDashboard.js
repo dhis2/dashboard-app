@@ -1,3 +1,5 @@
+import { EXTENDED_TIMEOUT } from '../support/utils'
+
 // Dashboards bar
 export const dashboardChipSel = '[data-test="dashboard-chip"]'
 export const newDashboardLinkSel = '[data-test="link-new-dashboard"]'
@@ -21,3 +23,10 @@ export const outerScrollContainerSel = '[data-test="outer-scroll-container"]'
 export const innerScrollContainerSel = '[data-test="inner-scroll-container"]'
 
 export const editControlBarSel = '[data-test="edit-control-bar"]'
+
+export const clickViewActionButton = action =>
+    cy
+        .get(titleBarSel, EXTENDED_TIMEOUT)
+        .find('button')
+        .contains(action, EXTENDED_TIMEOUT)
+        .click()
