@@ -56,7 +56,7 @@
         "@dhis2/cli-utils-cypress": "^7.0.1",
         "@dhis2/cypress-commands": "^7.0.1",
         "@testing-library/jest-dom": "^5.14.1",
-        "@testing-library/react": "^11.2.7",
+        "@testing-library/react": "^12.0.0",
         "d2-manifest": "^1.0.0",
         "eslint-plugin-cypress": "^2.11.3",
         "immutability-helper": "^3.1.1",
