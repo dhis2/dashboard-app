@@ -95,10 +95,10 @@ msgid "No data to display"
 msgstr "没有数据可显示"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "加载此项目的数据时出错"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "在 {{appName}} 中打开此条目"
 
 msgid "Visualizations"
 msgstr "可视化"
