@@ -227,7 +227,7 @@ msgid "More"
 msgstr "Lagi"
 
 msgid "Dashboard layout"
-msgstr "Tata letak dasbor"
+msgstr "Tata letak dashboard"
 
 msgid "One item per page"
 msgstr "Satu item per halaman"
