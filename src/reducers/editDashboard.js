@@ -1,6 +1,14 @@
 /** @module reducers/editDashboard */
+import { generateUid } from 'd2/uid'
 import update from 'immutability-helper'
 import isEmpty from 'lodash/isEmpty'
+import {
+    getGridItemProperties,
+    getPageBreakItemShape,
+    getPrintTitlePageItemShape,
+    NEW_ITEM_SHAPE,
+} from '../modules/gridUtil'
+import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
 import { orArray, orObject } from '../modules/util'
 
 export const RECEIVED_EDIT_DASHBOARD = 'RECEIVED_EDIT_DASHBOARD'
@@ -34,6 +42,35 @@ export const NEW_DASHBOARD_STATE = {
     layout: { columns: 2 },
 }
 
+const getDashboardItem = item => {
+    const type = item.type
+    delete item.type
+    const itemPropName = itemTypeMap[type].propName
+
+    const id = generateUid()
+    const gridItemProperties = getGridItemProperties(id)
+
+    let shape
+    if (type === PAGEBREAK) {
+        const yPos = item.yPos || 0
+        shape = getPageBreakItemShape(yPos, item.isStatic)
+    } else if (type === PRINT_TITLE_PAGE) {
+        shape = getPrintTitlePageItemShape()
+    } else {
+        shape = NEW_ITEM_SHAPE
+    }
+
+    return {
+        id,
+        type,
+        position: item.position || null,
+        [itemPropName]: item.content,
+        ...NEW_ITEM_SHAPE,
+        ...gridItemProperties,
+        ...shape,
+    }
+}
+
 export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
     switch (action.type) {
         case RECEIVED_EDIT_DASHBOARD: {
@@ -65,23 +102,24 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                 isDirty: true,
             })
         }
-        case ADD_DASHBOARD_ITEM:
-            if (!action.value.position) {
+        case ADD_DASHBOARD_ITEM: {
+            const item = getDashboardItem(action.value)
+            console.log('item', item)
+
+            if (!item.position) {
                 return update(state, {
-                    dashboardItems: { $unshift: [action.value] },
+                    dashboardItems: { $unshift: [item] },
                     isDirty: { $set: true },
                 })
             }
 
             return update(state, {
                 dashboardItems: {
-                    $splice: [
-                        [parseInt(action.value.position), 0, action.value],
-                    ],
+                    $splice: [[parseInt(item.position), 0, item]],
                 },
                 isDirty: { $set: true },
             })
-
+        }
         case REMOVE_DASHBOARD_ITEM: {
             const idToRemove = action.value
 
@@ -102,7 +140,7 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
         }
         case RECEIVED_DASHBOARD_ITEM_SHAPES: {
             const stateItems = orArray(state.dashboardItems)
-            let layoutHasChanged = false
+            let shapesHaveChanged = false
 
             const newStateItems = action.value.map(({ x, y, w, h, i }) => {
                 const stateItem = stateItems.find(si => si.id === i)
@@ -115,14 +153,14 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                         stateItem.h === h
                     )
                 ) {
-                    layoutHasChanged = true
+                    shapesHaveChanged = true
                     return Object.assign({}, stateItem, { w, h, x, y })
                 }
 
                 return stateItem
             })
 
-            return layoutHasChanged
+            return shapesHaveChanged
                 ? {
                       ...state,
                       dashboardItems: newStateItems,

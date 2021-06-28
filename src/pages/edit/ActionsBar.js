@@ -314,11 +314,11 @@ const mapDispatchToProps = {
     setFilterSettings: value => dispatch =>
         dispatch(acSetFilterSettings(value)),
     showPrintPreview: () => dispatch => dispatch(acSetPrintPreviewView()),
-    onAutoLayoutSelect: numberOfCols => (dispatch, getState) => {
+    onAutoLayoutSelect: columns => (dispatch, getState) => {
         const prevItems = sGetEditDashboardItems(getState())
-        const itemsWithNewShapes = getAutoItemShapes(prevItems, numberOfCols)
+        const itemsWithNewShapes = getAutoItemShapes(prevItems, columns)
         dispatch(acSetHideGrid(true))
-        dispatch(acSetLayoutColumns(numberOfCols))
+        dispatch(acSetLayoutColumns(columns))
         dispatch(acUpdateDashboardItemShapes(itemsWithNewShapes))
         setTimeout(() => dispatch(acSetHideGrid(false)), 0)
     },

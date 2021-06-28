@@ -20,13 +20,13 @@ import {
 } from '../reducers/editDashboard'
 import { tFetchDashboards } from './dashboards'
 import { updateDashboard, postDashboard } from '../api/editDashboard'
-import {
-    NEW_ITEM_SHAPE,
-    getGridItemProperties,
-    getPageBreakItemShape,
-    getPrintTitlePageItemShape,
-} from '../modules/gridUtil'
-import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
+// import {
+//     NEW_ITEM_SHAPE,
+//     getGridItemProperties,
+//     getPageBreakItemShape,
+//     getPrintTitlePageItemShape,
+// } from '../modules/gridUtil'
+// import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
 import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
 
 // actions
@@ -67,37 +67,10 @@ export const acUpdateDashboardItemShapes = value => ({
     value,
 })
 
-export const acAddDashboardItem = item => {
-    const type = item.type
-    delete item.type
-    const itemPropName = itemTypeMap[type].propName
-
-    const id = generateUid()
-    const gridItemProperties = getGridItemProperties(id)
-
-    let shape
-    if (type === PAGEBREAK) {
-        const yPos = item.yPos || 0
-        shape = getPageBreakItemShape(yPos, item.isStatic)
-    } else if (type === PRINT_TITLE_PAGE) {
-        shape = getPrintTitlePageItemShape()
-    } else {
-        shape = NEW_ITEM_SHAPE
-    }
-
-    return {
-        type: ADD_DASHBOARD_ITEM,
-        value: {
-            id,
-            type,
-            position: item.position || null,
-            [itemPropName]: item.content,
-            ...NEW_ITEM_SHAPE,
-            ...gridItemProperties,
-            ...shape,
-        },
-    }
-}
+export const acAddDashboardItem = item => ({
+    type: ADD_DASHBOARD_ITEM,
+    value: item,
+})
 
 export const acUpdateDashboardItem = item => ({
     type: UPDATE_DASHBOARD_ITEM,

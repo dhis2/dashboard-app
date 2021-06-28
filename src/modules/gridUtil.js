@@ -201,20 +201,27 @@ const sortItems = items =>
 export const getAutoItemShapes = (
     dashboardItems,
     numberOfColGroups,
-    maxCols
+    { newItem, addTo = 'END' } = {}
 ) => {
-    const numberOfColGroupCols = getNumberOfColGroupCols(
-        numberOfColGroups,
-        maxCols
-    )
+    newItem = { i: 'R9A0rvAydpn' }
 
-    if (!numberOfColGroupCols || !dashboardItems.length) {
+    const numberOfColGroupCols = getNumberOfColGroupCols(numberOfColGroups)
+
+    if (!numberOfColGroupCols || (!dashboardItems.length && !newItem)) {
         return null
     }
 
     const items = sortItems(dashboardItems)
     const itemsWithNewShape = []
     const itemHeight = NEW_ITEM_SHAPE.h
+
+    if (newItem) {
+        if (addTo === 'END') {
+            items.push(newItem)
+        } else if (addTo === 'START') {
+            items.unshift(newItem)
+        }
+    }
 
     for (let i = 0, colIdx = 0, rowIdx = 0, item; i < items.length; i++) {
         item = items[i]
