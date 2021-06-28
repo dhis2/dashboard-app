@@ -19,7 +19,7 @@ exports[`Visualization/Item renders edit mode 1`] = `
       >
         <button
           class="jsx-2371629422 secondary small icon-only"
-          data-test="dhis2-uicore-button"
+          data-test="delete-item-button"
           type="button"
         >
           <span
@@ -42,15 +42,17 @@ exports[`Visualization/Item renders edit mode 1`] = `
       </span>
     </div>
   </div>
-  <div
-    class="dashboard-item-content"
-  >
+  <div>
     <div
-      activetype="CHART"
-      class="visualization"
-      item="[object Object]"
-      itemfilters="[object Object]"
-    />
+      class="dashboard-item-content"
+    >
+      <div
+        activetype="CHART"
+        class="visualization"
+        item="[object Object]"
+        itemfilters="[object Object]"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -69,15 +71,17 @@ exports[`Visualization/Item renders view mode 1`] = `
       class="itemActionsWrap"
     />
   </div>
-  <div
-    class="dashboard-item-content"
-  >
+  <div>
     <div
-      activetype="CHART"
-      class="visualization"
-      item="[object Object]"
-      itemfilters="[object Object]"
-    />
+      class="dashboard-item-content"
+    >
+      <div
+        activetype="CHART"
+        class="visualization"
+        item="[object Object]"
+        itemfilters="[object Object]"
+      />
+    </div>
   </div>
 </div>
 `;

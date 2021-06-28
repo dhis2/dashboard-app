@@ -1,14 +1,14 @@
 import { Then } from 'cypress-cucumber-preprocessor/steps'
 import {
     getDashboardItem,
-    itemMenuButton,
+    itemMenuButtonSel,
     clickMenuButton,
 } from '../../../elements/dashboardItem'
 import { dashboards } from '../../../assets/backends'
 
 Then('the text item does not have a context menu', () => {
     getDashboardItem(dashboards['Antenatal Care'].items.text.itemUid)
-        .find(itemMenuButton)
+        .find(itemMenuButtonSel)
         .should('not.exist')
 })
 

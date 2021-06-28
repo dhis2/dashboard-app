@@ -35,6 +35,10 @@ const DashboardsBar = ({
     const rootElement = document.documentElement
 
     useEffect(() => {
+        if (mouseYPos === 0) {
+            return
+        }
+
         const newRows = Math.max(
             MIN_ROW_COUNT,
             getRowsFromHeight(mouseYPos - 52) // don't rush the transition to a bigger row count

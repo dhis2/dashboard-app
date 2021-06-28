@@ -1,3 +1,25 @@
+## [31.16.3](https://github.com/dhis2/dashboard-app/compare/v31.16.2...v31.16.3) (2021-06-22)
+
+
+### Bug Fixes
+
+* add onError callback to handle failed chart from DV plugin [DHIS2-11303] ([#1826](https://github.com/dhis2/dashboard-app/issues/1826)) ([2aa5f6b](https://github.com/dhis2/dashboard-app/commit/2aa5f6b483d9e2214aa172a0c760eaec208c34c7))
+
+## [31.16.2](https://github.com/dhis2/dashboard-app/compare/v31.16.1...v31.16.2) (2021-06-22)
+
+
+### Bug Fixes
+
+* dashboards bar row height should only be changed after user drags to change the height ([#1830](https://github.com/dhis2/dashboard-app/issues/1830)) ([1e4503d](https://github.com/dhis2/dashboard-app/commit/1e4503d6074ca787e4890bf1fcc5fca7da48d7af))
+
+## [31.16.1](https://github.com/dhis2/dashboard-app/compare/v31.16.0...v31.16.1) (2021-06-14)
+
+
+### Bug Fixes
+
+* dashboard crashes if an item is missing type [TECH-588] ([#1812](https://github.com/dhis2/dashboard-app/issues/1812)) ([a200395](https://github.com/dhis2/dashboard-app/commit/a2003954a7268992427cf647605cf9ce80bdefa1))
+* include hideTitle property when loading map [DHIS2-11302] ([18d3053](https://github.com/dhis2/dashboard-app/commit/18d3053eb1152ba4e0d82d65e17661de33a2cf69))
+
 # [31.16.0](https://github.com/dhis2/dashboard-app/compare/v31.15.6...v31.16.0) (2021-05-31)
 
 
