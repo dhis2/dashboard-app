@@ -42,7 +42,7 @@ export const NEW_DASHBOARD_STATE = {
     layout: { columns: 2 },
 }
 
-const getDashboardItem = item => {
+const getDashboardItem = (item, columns) => {
     const type = item.type
     delete item.type
     const itemPropName = itemTypeMap[type].propName
@@ -105,6 +105,9 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
         case ADD_DASHBOARD_ITEM: {
             const item = getDashboardItem(action.value)
             console.log('item', item)
+            console.log('state', state)
+            const columns = getColumns(getLayout(state))
+            console.log('columns', columns)
 
             if (!item.position) {
                 return update(state, {
@@ -243,5 +246,12 @@ export const sGetEditIsDirty = state => sGetEditDashboardRoot(state).isDirty
 
 export const sGetHideGrid = state => sGetEditDashboardRoot(state).hideGrid
 
-export const sGetLayout = state => orObject(sGetEditDashboardRoot(state).layout)
-export const sGetLayoutColumns = state => sGetLayout(state).columns
+const getLayout = editDashboard => editDashboard.layout
+
+export const sGetLayout = state =>
+    getLayout(orObject(sGetEditDashboardRoot(state)))
+
+const getColumns = layout => layout.columns
+
+export const sGetLayoutColumns = state =>
+    getColumns(orObject(sGetLayout(state)))

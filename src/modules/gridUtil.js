@@ -244,3 +244,12 @@ export const getAutoItemShapes = (
 
     return itemsWithNewShape
 }
+
+// extend later to support item span etc
+
+// use cases:
+// - new layout: no new items, calc new shapes, unmount
+// - add to start: sort new item first, calc new shapes, unmount
+// - add to end: find next shape, add
+
+// const getNextItemShape = layout => {}
