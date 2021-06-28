@@ -6,13 +6,14 @@
 # Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Alison Andrade <aandrade@ippfwhr.org>, 2021
+# drprabhjot, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Alison Andrade <aandrade@ippfwhr.org>, 2021\n"
+"Last-Translator: drprabhjot, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,10 +38,10 @@ msgid "See all messages"
 msgstr "Ver todos los mensajes"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "El tipo de elemento \"{{type}}\" no es compatible"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "Falta el tipo de elemento"
 
 msgid "Filters applied"
 msgstr "Filtros aplicados"
@@ -100,10 +101,10 @@ msgid "No data to display"
 msgstr "Sin datos para mostrar"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "Hubo un error al cargar los datos de este elemento."
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Abra este elemento en {{appName}}"
 
 msgid "Visualizations"
 msgstr "Visualizaciones"
@@ -229,6 +230,10 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"Tableros se pueden filtrar por dimensiones para cambiar\n"
+"                                         los datos mostrados. De forma predeterminada, todas las dimensiones están disponibles\n"
+"                                         como filtros. Alternativamente, solo las dimensiones seleccionadas pueden\n"
+"                                         estar disponibles en un tablero."
 
 msgid "Available Filters"
 msgstr "Filtros disponibles"
@@ -357,10 +362,10 @@ msgid "Star dashboard"
 msgstr "Marcar tablero"
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "No se pudo desmarcar el tablero"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "No se pudo marcar el tablero"
 
 msgid "Dashboard layout"
 msgstr "Diseño del tablero"
