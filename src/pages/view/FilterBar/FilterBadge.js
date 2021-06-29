@@ -3,8 +3,10 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { Tooltip } from '@dhis2/ui'
-import { useOnlineStatus } from '../../../modules/useOnlineStatus'
-import { useCacheableSectionStatus } from '../../../modules/useCacheableSectionStatus'
+import {
+    useOnlineStatus,
+    useCacheableSection,
+} from '@dhis2/app-service-offline'
 
 import { acSetActiveModalDimension } from '../../../actions/activeModalDimension'
 import { sGetSelectedId } from '../../../reducers/selected'
@@ -13,7 +15,7 @@ import classes from './styles/FilterBadge.module.css'
 
 const FilterBadge = ({ dashboardId, filter, openFilterModal, onRemove }) => {
     const { isOnline } = useOnlineStatus()
-    const { lastUpdated: isCached } = useCacheableSectionStatus(dashboardId)
+    const { isCached } = useCacheableSection(dashboardId)
 
     const notAllowed = !isCached && !isOnline
 

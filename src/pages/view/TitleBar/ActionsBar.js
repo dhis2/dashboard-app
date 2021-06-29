@@ -7,8 +7,10 @@ import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import { FlyoutMenu, MenuItem, colors, IconMore24 } from '@dhis2/ui'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-import { useOnlineStatus } from '../../../modules/useOnlineStatus'
-import { useCacheableSectionStatus } from '../../../modules/useCacheableSectionStatus'
+import {
+    useOnlineStatus,
+    useCacheableSection,
+} from '@dhis2/app-service-offline'
 
 import FilterSelector from './FilterSelector'
 import StarDashboardButton from './StarDashboardButton'
@@ -51,11 +53,7 @@ const ViewActions = ({
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
     const { isOnline } = useOnlineStatus()
-    const {
-        lastUpdated,
-        updateCache,
-        removeFromCache,
-    } = useCacheableSectionStatus(id)
+    const { lastUpdated, startRecording, remove } = useCacheableSection(id)
 
     const warningAlert = useAlert(({ msg }) => msg, {
         warning: true,
@@ -73,22 +71,26 @@ const ViewActions = ({
     const onCacheDashboardConfirmed = () => {
         setConfirmCacheDialogIsOpen(false)
         removeAllFilters()
-        updateCache()
+        startRecording()
     }
 
     const onToggleOfflineStatus = () => {
         toggleMoreOptions()
 
         if (lastUpdated) {
-            return removeFromCache()
+            return remove()
         }
 
-        return filtersLength ? setConfirmCacheDialogIsOpen(true) : updateCache()
+        return filtersLength
+            ? setConfirmCacheDialogIsOpen(true)
+            : startRecording()
     }
 
     const onUpdateOfflineCache = () => {
         toggleMoreOptions()
-        return filtersLength ? setConfirmCacheDialogIsOpen(true) : updateCache()
+        return filtersLength
+            ? setConfirmCacheDialogIsOpen(true)
+            : startRecording()
     }
 
     const onToggleShowDescription = () =>

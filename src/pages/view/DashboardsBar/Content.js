@@ -5,7 +5,7 @@ import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 import { Redirect, withRouter } from 'react-router-dom'
 import { Button, Tooltip, ComponentCover, IconAdd24 } from '@dhis2/ui'
-import { useOnlineStatus } from '../../../modules/useOnlineStatus'
+import { useOnlineStatus } from '@dhis2/app-service-offline'
 
 import Chip from './Chip'
 import Filter from './Filter'

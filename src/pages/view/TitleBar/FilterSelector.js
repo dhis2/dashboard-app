@@ -4,12 +4,13 @@ import { connect } from 'react-redux'
 import isEmpty from 'lodash/isEmpty'
 import i18n from '@dhis2/d2-i18n'
 import { DimensionsPanel } from '@dhis2/analytics'
+import { useOnlineStatus } from '@dhis2/app-service-offline'
 import { Card, colors, IconFilter24 } from '@dhis2/ui'
-import FilterDialog from './FilterDialog'
 
+import FilterDialog from './FilterDialog'
 import { sGetActiveModalDimension } from '../../../reducers/activeModalDimension'
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
-import { useOnlineStatus } from '../../../modules/useOnlineStatus'
+
 import {
     acClearActiveModalDimension,
     acSetActiveModalDimension,

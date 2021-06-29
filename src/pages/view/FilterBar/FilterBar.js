@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { useOnlineStatus } from '../../../modules/useOnlineStatus'
+import { useOnlineStatus } from '@dhis2/app-service-offline'
 
 import FilterBadge from './FilterBadge'
 import ConfirmActionDialog from '../../../components/ConfirmActionDialog'

@@ -10,8 +10,10 @@ import {
 } from '@dhis2/ui'
 import { Link } from 'react-router-dom'
 import debounce from 'lodash/debounce'
+import { useCacheableSection } from '@dhis2/app-service-offline'
+
 import { OfflineSaved } from './assets/icons'
-import { useCacheableSectionStatus } from '../../../modules/useCacheableSectionStatus'
+
 import { sGetCacheVersion } from '../../../reducers/cacheVersion'
 
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
@@ -26,7 +28,7 @@ const Chip = ({
     onClick,
     cacheVersion,
 }) => {
-    const { lastUpdated, recording } = useCacheableSectionStatus(dashboardId)
+    const { lastUpdated } = useCacheableSection(dashboardId)
     const chipProps = {
         selected,
     }
@@ -54,27 +56,15 @@ const Chip = ({
     }
 
     const getAdornment = () => {
-        if (recording) {
-            return (
-                <CircularLoader
-                    className={cx(
-                        classes.progressIndicator,
-                        selected && classes.selected
-                    )}
-                    small
-                />
-            )
-        } else if (lastUpdated) {
-            return (
-                <OfflineSaved
-                    className={cx(
-                        classes.adornment,
-                        selected && classes.selected
-                    )}
-                />
-            )
+        if (!lastUpdated) {
+            return null
         }
-        return null
+
+        return (
+            <OfflineSaved
+                className={cx(classes.adornment, selected && classes.selected)}
+            />
+        )
     }
 
     return (
@@ -87,9 +77,7 @@ const Chip = ({
             <UiChip {...chipProps}>
                 <span
                     className={
-                        lastUpdated || recording
-                            ? classes.labelWithAdornment
-                            : undefined
+                        lastUpdated ? classes.labelWithAdornment : undefined
                     }
                 >
                     {label}

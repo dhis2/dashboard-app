@@ -2,17 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import {
-    Layer,
-    CenteredContent,
-    CircularLoader,
-    ComponentCover,
-    AlertStack,
-    AlertBar,
-} from '@dhis2/ui'
+import { ComponentCover, AlertStack, AlertBar } from '@dhis2/ui'
 import cx from 'classnames'
-import { useOnlineStatus } from '../../modules/useOnlineStatus'
-import { useCacheableSectionStatus } from '../../modules/useCacheableSectionStatus'
+import {
+    useOnlineStatus,
+    useCacheableSection,
+} from '@dhis2/app-service-offline'
 
 import { TitleBar } from './TitleBar'
 import ItemGrid from './ItemGrid'
@@ -21,13 +16,13 @@ import DashboardsBar from './DashboardsBar/DashboardsBar'
 
 import DashboardContainer from '../../components/DashboardContainer'
 import Notice from '../../components/Notice'
+import LoadingMask from '../../components/LoadingMask'
 
 import { sGetPassiveViewRegistered } from '../../reducers/passiveViewRegistered'
 import { sGetDashboardById } from '../../reducers/dashboards'
 import { sGetSelectedId } from '../../reducers/selected'
 import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
-import { acSetIsRecording } from '../../actions/isRecording'
 import {
     tSetSelectedDashboardById,
     tSetSelectedDashboardByIdOffline,
@@ -44,7 +39,8 @@ const ViewDashboard = props => {
     const [loadingMessage, setLoadingMessage] = useState(null)
     const [selectedIsLoaded, setSelectedIsLoaded] = useState(false)
     const { isOnline } = useOnlineStatus()
-    const { lastUpdated: isCached } = useCacheableSectionStatus(props.id)
+    const { isCached } = useCacheableSection(props.id)
+    const recordingState = false
 
     const dashboardIsAvailable = isOnline || !!isCached
 
@@ -61,12 +57,6 @@ const ViewDashboard = props => {
             container.scroll(0, 0)
         })
     }, [props.id])
-
-    useEffect(() => {
-        if (props.isRecording) {
-            props.setIsRecording(false)
-        }
-    }, [props.isRecording])
 
     useEffect(() => {
         if (!props.passiveViewRegistered) {
@@ -101,7 +91,7 @@ const ViewDashboard = props => {
 
         if (
             dashboardIsAvailable &&
-            (props.isRecording ||
+            (recordingState === 'recording' ||
                 props.isDifferentDashboard ||
                 !selectedIsLoaded)
         ) {
@@ -110,7 +100,7 @@ const ViewDashboard = props => {
             setSelectedIsLoaded(false)
             props.setSelectedAsOffline(props.id, props.username)
         }
-    }, [props.id, props.isRecording, isOnline, props.isDifferentDashboard])
+    }, [props.id, recordingState, isOnline, props.isDifferentDashboard])
 
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
 
@@ -130,29 +120,18 @@ const ViewDashboard = props => {
         }
 
         return !selectedIsLoaded ? (
-            <Layer translucent>
-                <CenteredContent>
-                    <CircularLoader />
-                </CenteredContent>
-            </Layer>
+            <LoadingMask />
         ) : (
             <>
                 <TitleBar />
                 <FilterBar />
-                <ItemGrid isRecording={props.isRecording} />
+                <ItemGrid isRecording={recordingState === 'recording'} />
             </>
         )
     }
 
     return (
         <>
-            {props.isRecording && (
-                <Layer translucent>
-                    <CenteredContent>
-                        <CircularLoader />
-                    </CenteredContent>
-                </Layer>
-            )}
             <div
                 className={cx(classes.container, 'dashboard-scroll-container')}
                 data-test="outer-scroll-container"
@@ -192,11 +171,9 @@ ViewDashboard.propTypes = {
     fetchDashboard: PropTypes.func,
     id: PropTypes.string,
     isDifferentDashboard: PropTypes.bool,
-    isRecording: PropTypes.bool,
     name: PropTypes.string,
     passiveViewRegistered: PropTypes.bool,
     registerPassiveView: PropTypes.func,
-    setIsRecording: PropTypes.func,
     setSelectedAsOffline: PropTypes.func,
     username: PropTypes.string,
 }
@@ -217,5 +194,4 @@ export default connect(mapStateToProps, {
     registerPassiveView: acSetPassiveViewRegistered,
     fetchDashboard: tSetSelectedDashboardById,
     setSelectedAsOffline: tSetSelectedDashboardByIdOffline,
-    setIsRecording: acSetIsRecording,
 })(ViewDashboard)

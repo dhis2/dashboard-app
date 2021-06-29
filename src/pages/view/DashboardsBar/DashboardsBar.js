@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import { Button } from '@dhis2/ui'
-import { useOnlineStatus } from '../../../modules/useOnlineStatus'
+import { useOnlineStatus } from '@dhis2/app-service-offline'
 
 import Content from './Content'
 import ShowMoreButton from './ShowMoreButton'

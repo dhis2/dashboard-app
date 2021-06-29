@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import isEmpty from 'lodash/isEmpty'
 import i18n from '@dhis2/d2-i18n'
+
 import Visualization from './Visualization/Visualization'
 import FatalErrorBoundary from './FatalErrorBoundary'
 import ItemHeader from '../ItemHeader/ItemHeader'

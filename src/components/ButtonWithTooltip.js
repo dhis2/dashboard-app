@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { Button, Tooltip } from '@dhis2/ui'
-import { useOnlineStatus } from '../modules/useOnlineStatus'
+import { useOnlineStatus } from '@dhis2/app-service-offline'
 
 const ButtonWithTooltip = ({
     disabledWhenOffline,

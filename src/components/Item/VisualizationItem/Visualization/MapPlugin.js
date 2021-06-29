@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { useOnlineStatus } from '../../../../modules/useOnlineStatus'
+import { useOnlineStatus } from '@dhis2/app-service-offline'
 import DefaultPlugin from './DefaultPlugin'
 import { MAP } from '../../../../modules/itemTypes'
 import { isElementFullscreen } from '../isElementFullscreen'

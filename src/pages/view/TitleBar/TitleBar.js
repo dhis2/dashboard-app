@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-// import { useCacheableSectionStatus } from '../../../modules/useCacheableSectionStatus'
 
 import ActionsBar from './ActionsBar'
 import LastUpdatedTag from './LastUpdatedTag'
@@ -18,10 +17,6 @@ const ViewTitleBar = ({
     displayDescription,
     showDescription,
 }) => {
-    // const { lastUpdated } = useCacheableSectionStatus(id)
-
-    // console.log('lastUpdated', lastUpdated)
-
     return (
         <div className={classes.container}>
             <div

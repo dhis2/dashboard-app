@@ -7,7 +7,7 @@ import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
 import { ButtonStrip, Button as UiButton } from '@dhis2/ui'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-import { useOnlineStatus } from '../../modules/useOnlineStatus'
+import { useOnlineStatus } from '@dhis2/app-service-offline'
 
 import Button from '../../components/ButtonWithTooltip'
 import FilterSettingsDialog from './FilterSettingsDialog'

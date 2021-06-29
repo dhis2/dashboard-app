@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import InterpretationsComponent from '@dhis2/d2-ui-interpretations'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
-import { useOnlineStatus } from '../../../modules/useOnlineStatus'
+import { useOnlineStatus } from '@dhis2/app-service-offline'
 
 import FatalErrorBoundary from './FatalErrorBoundary'
 import { getVisualizationId } from '../../../modules/item'

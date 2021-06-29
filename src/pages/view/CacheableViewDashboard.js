@@ -1,14 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
+
 import i18n from '@dhis2/d2-i18n'
 import isEmpty from 'lodash/isEmpty'
+// import { CacheableSection } from '@dhis2/app-service-offline'
 
 import DashboardsBar from './DashboardsBar/DashboardsBar'
-import ViewDashboard from './ViewDashboard'
-import CacheableSection from './CacheableSection'
+// import ViewDashboard from './ViewDashboard'
 import NoContentMessage from '../../components/NoContentMessage'
+import LoadingMask from '../../components/LoadingMask'
 import {
     sDashboardsIsFetching,
     sGetDashboardById,
@@ -23,13 +24,7 @@ const CacheableViewDashboard = ({
     username,
 }) => {
     if (!dashboardsLoaded) {
-        return (
-            <Layer translucent>
-                <CenteredContent>
-                    <CircularLoader />
-                </CenteredContent>
-            </Layer>
-        )
+        return <LoadingMask />
     }
 
     if (dashboardsIsEmpty) {
@@ -57,15 +52,10 @@ const CacheableViewDashboard = ({
     }
 
     return (
-        <CacheableSection sectionId={id}>
-            {({ isRecording }) => (
-                <ViewDashboard
-                    id={id}
-                    username={username}
-                    isRecording={isRecording}
-                />
-            )}
-        </CacheableSection>
+        // <CacheableSection sectionId={id} loadingMask={<LoadingMask />}>
+        <ViewDashboard id={id} username={username} />
+        // <div>Hey Jen2</div>
+        // </CacheableSection>
     )
 }
 
