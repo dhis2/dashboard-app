@@ -1,14 +1,14 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import {
-    dashboardTitleSel,
-    clickViewActionButton,
-} from '../../../elements/viewDashboard'
 import { filterDimensionsPanelSel } from '../../../elements/dashboardFilter'
 import {
     titleInputSel,
     confirmActionDialogSel,
     clickEditActionButton,
 } from '../../../elements/editDashboard'
+import {
+    dashboardTitleSel,
+    clickViewActionButton,
+} from '../../../elements/viewDashboard'
 
 const TEST_DASHBOARD_TITLE = `aaa-${new Date().toUTCString()}`
 
@@ -153,13 +153,11 @@ Then('I see Facility Ownership and no other dimensions', () => {
         .contains('Facility Ownership')
         .should('be.visible')
     cy.get(filterDimensionsPanelSel)
-        .get('ul')
-        .eq(0)
-        .find('li')
+        .contains('MAIN DIMENSIONS')
         .should('not.exist')
     cy.get(filterDimensionsPanelSel)
-        .get('ul')
-        .eq(1)
+        .contains('YOUR DIMENSIONS')
+        .next('ul')
         .find('li')
         .should('have.length', 1)
 })
