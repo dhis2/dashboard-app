@@ -2397,7 +2397,7 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^37.4.3":
+"@dhis2/data-visualizer-plugin@^37.5.0":
   version "37.5.4"
   resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-37.5.4.tgz#329922a6a2dfb3540c2d3cac512b589266370a2b"
   integrity sha512-KKaZw8hyfD7gKA4I42BEXxcPXJ89r9+beOmjTBS9TaR67pKcJ56jWL8fJwQLTsnI2NrSqwlckXUP1uFEysNuKg==

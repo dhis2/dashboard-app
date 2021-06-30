@@ -1,17 +1,15 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { MenuItem, Divider } from '@dhis2/ui'
-import { useConfig } from '@dhis2/app-runtime'
-
-import HeaderMenuItem from './HeaderMenuItem'
-import ContentMenuItem from './ContentMenuItem'
-import { categorizedItems, listItemTypes } from './selectableItems'
-import { tAddListItemContent } from './actions'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import { acAddDashboardItem } from '../../../actions/editDashboard'
 import { getItemUrl, APP, VISUALIZATION } from '../../../modules/itemTypes'
-
+import { tAddListItemContent } from './actions'
+import ContentMenuItem from './ContentMenuItem'
+import HeaderMenuItem from './HeaderMenuItem'
+import { categorizedItems, listItemTypes } from './selectableItems'
 import classes from './styles/CategorizedMenuGroup.module.css'
 
 const CategorizedMenuGroup = ({

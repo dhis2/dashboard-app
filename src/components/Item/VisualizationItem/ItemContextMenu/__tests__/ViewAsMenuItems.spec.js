@@ -1,6 +1,5 @@
-import React from 'react'
 import { render } from '@testing-library/react'
-import ViewAsMenuItems from '../ViewAsMenuItems'
+import React from 'react'
 import {
     REPORT_TABLE,
     MAP,
@@ -8,6 +7,7 @@ import {
     EVENT_REPORT,
     EVENT_CHART,
 } from '../../../../../modules/itemTypes'
+import ViewAsMenuItems from '../ViewAsMenuItems'
 
 const defaultProps = {
     onActiveTypeChanged: jest.fn(),

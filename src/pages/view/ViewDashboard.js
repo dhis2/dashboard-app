@@ -1,6 +1,3 @@
-import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import {
     Layer,
@@ -11,26 +8,24 @@ import {
     AlertBar,
 } from '@dhis2/ui'
 import cx from 'classnames'
-
-import TitleBar from './TitleBar/TitleBar'
-import ItemGrid from './ItemGrid'
-import FilterBar from './FilterBar/FilterBar'
-import DashboardsBar from './DashboardsBar/DashboardsBar'
-
-import DashboardContainer from '../../components/DashboardContainer'
-
-import { sGetPassiveViewRegistered } from '../../reducers/passiveViewRegistered'
-import { sGetDashboardById } from '../../reducers/dashboards'
-import { sGetSelectedId } from '../../reducers/selected'
+import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 import { acClearEditDashboard } from '../../actions/editDashboard'
+import { acSetPassiveViewRegistered } from '../../actions/passiveViewRegistered'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
 import { tSetSelectedDashboardById } from '../../actions/selected'
-import { acSetPassiveViewRegistered } from '../../actions/passiveViewRegistered'
-
 import { apiPostDataStatistics } from '../../api/dataStatistics'
+import DashboardContainer from '../../components/DashboardContainer'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
-
+import { sGetDashboardById } from '../../reducers/dashboards'
+import { sGetPassiveViewRegistered } from '../../reducers/passiveViewRegistered'
+import { sGetSelectedId } from '../../reducers/selected'
+import DashboardsBar from './DashboardsBar/DashboardsBar'
+import FilterBar from './FilterBar/FilterBar'
+import ItemGrid from './ItemGrid'
 import classes from './styles/ViewDashboard.module.css'
+import TitleBar from './TitleBar/TitleBar'
 
 const ViewDashboard = props => {
     const [controlbarExpanded, setControlbarExpanded] = useState(false)

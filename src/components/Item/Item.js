@@ -1,15 +1,5 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-
-import VisualizationItem from './VisualizationItem/Item'
-import MessagesItem from './MessagesItem/Item'
-import NotSupportedItem from './NotSupportedItem/Item'
-import ListItem from './ListItem/Item'
-import TextItem from './TextItem/Item'
-import AppItem from './AppItem/Item'
-import SpacerItem from './SpacerItem/Item'
-import PageBreakItem from './PageBreakItem/Item'
-import PrintTitlePageItem from './PrintTitlePageItem/Item'
+import React from 'react'
 import {
     APP,
     VISUALIZATION,
@@ -27,6 +17,15 @@ import {
     PAGEBREAK,
     PRINT_TITLE_PAGE,
 } from '../../modules/itemTypes'
+import AppItem from './AppItem/Item'
+import ListItem from './ListItem/Item'
+import MessagesItem from './MessagesItem/Item'
+import NotSupportedItem from './NotSupportedItem/Item'
+import PageBreakItem from './PageBreakItem/Item'
+import PrintTitlePageItem from './PrintTitlePageItem/Item'
+import SpacerItem from './SpacerItem/Item'
+import TextItem from './TextItem/Item'
+import VisualizationItem from './VisualizationItem/Item'
 
 const getGridItem = type => {
     switch (type) {

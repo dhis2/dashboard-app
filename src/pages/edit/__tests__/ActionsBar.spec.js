@@ -1,11 +1,11 @@
-import React from 'react'
+import { useDataEngine } from '@dhis2/app-runtime'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { render } from '@testing-library/react'
+import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-import { useDataEngine } from '@dhis2/app-runtime'
-import ActionsBar from '../ActionsBar'
 import { NEW_DASHBOARD_STATE } from '../../../reducers/editDashboard'
+import ActionsBar from '../ActionsBar'
 
 const mockStore = configureMockStore()
 

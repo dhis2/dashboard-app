@@ -1,16 +1,3 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import i18n from '@dhis2/d2-i18n'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-import {
-    Button,
-    Modal,
-    ModalTitle,
-    ModalContent,
-    ModalActions,
-    ButtonStrip,
-} from '@dhis2/ui'
 import {
     PeriodDimension,
     DynamicDimension,
@@ -27,13 +14,26 @@ import {
     MONTHLY,
     BIMONTHLY,
 } from '@dhis2/analytics'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import i18n from '@dhis2/d2-i18n'
+import {
+    Button,
+    Modal,
+    ModalTitle,
+    ModalContent,
+    ModalActions,
+    ButtonStrip,
+} from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import {
     acAddItemFilter,
     acRemoveItemFilter,
 } from '../../../actions/itemFilters'
-import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
-import { useUserSettings } from '../../../components/UserSettingsProvider'
 import { useSystemSettings } from '../../../components/SystemSettingsProvider'
+import { useUserSettings } from '../../../components/UserSettingsProvider'
+import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
 
 const FilterDialog = ({
     dimension,

@@ -1,9 +1,9 @@
-import { sGetEditDashboardRoot } from '../../../reducers/editDashboard'
-import { itemTypeMap } from '../../../modules/itemTypes'
 import {
     acAddDashboardItem,
     acUpdateDashboardItem,
 } from '../../../actions/editDashboard'
+import { itemTypeMap } from '../../../modules/itemTypes'
+import { sGetEditDashboardRoot } from '../../../reducers/editDashboard'
 
 export const tAddListItemContent = (type, content) => (dispatch, getState) => {
     const state = getState()

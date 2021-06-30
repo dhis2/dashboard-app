@@ -1,9 +1,9 @@
-import React from 'react'
 import { render } from '@testing-library/react'
+import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import NewDashboard from '../NewDashboard'
 import WindowDimensionsProvider from '../../../components/WindowDimensionsProvider'
+import NewDashboard from '../NewDashboard'
 
 jest.mock(
     '../ActionsBar',

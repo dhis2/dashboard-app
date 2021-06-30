@@ -1,5 +1,5 @@
-import React, { Suspense, useState, useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
+import React, { Suspense, useState, useEffect, useCallback } from 'react'
 import { useUserSettings } from '../../../UserSettingsProvider'
 import LoadingMask from './LoadingMask'
 import VisualizationErrorMessage from './VisualizationErrorMessage'

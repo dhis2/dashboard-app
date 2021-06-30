@@ -1,20 +1,17 @@
+import i18n from '@dhis2/d2-i18n'
+import { colors, IconSearch16, IconSearch24 } from '@dhis2/ui'
+import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
-import cx from 'classnames'
-import { colors, IconSearch16, IconSearch24 } from '@dhis2/ui'
-
-import ClearButton from './ClearButton'
-
-import { useWindowDimensions } from '../../../components/WindowDimensionsProvider'
 import {
     acSetDashboardsFilter,
     acClearDashboardsFilter,
 } from '../../../actions/dashboardsFilter'
-import { sGetDashboardsFilter } from '../../../reducers/dashboardsFilter'
+import { useWindowDimensions } from '../../../components/WindowDimensionsProvider'
 import { isSmallScreen } from '../../../modules/smallScreen'
-
+import { sGetDashboardsFilter } from '../../../reducers/dashboardsFilter'
+import ClearButton from './ClearButton'
 import classes from './styles/Filter.module.css'
 
 export const KEYCODE_ENTER = 13

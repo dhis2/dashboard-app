@@ -1,17 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-import ItemHeader from '../ItemHeader/ItemHeader'
 import { Divider, colors, spacers, IconQuestion24 } from '@dhis2/ui'
-
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
 import { FILTER_ORG_UNIT } from '../../../actions/itemFilters'
+import { EDIT, isEditMode } from '../../../modules/dashboardModes'
 import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
 } from '../../../reducers/itemFilters'
-
-import { EDIT, isEditMode } from '../../../modules/dashboardModes'
+import ItemHeader from '../ItemHeader/ItemHeader'
 
 const getIframeSrc = (appDetails, item, itemFilters) => {
     let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`

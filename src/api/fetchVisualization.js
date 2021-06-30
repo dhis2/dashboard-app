@@ -1,7 +1,7 @@
 import { getInstance } from 'd2'
-import { getMapFields, getFavoriteFields } from './metadata'
-import { getEndPointName, MAP } from '../modules/itemTypes'
 import { getVisualizationId } from '../modules/item'
+import { getEndPointName, MAP } from '../modules/itemTypes'
+import { getMapFields, getFavoriteFields } from './metadata'
 
 export const apiFetchVisualization = async item => {
     const id = getVisualizationId(item)

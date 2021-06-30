@@ -1,14 +1,13 @@
-import React, { useState, useEffect, createRef } from 'react'
-import { Popover, FlyoutMenu } from '@dhis2/ui'
 import { useDataEngine } from '@dhis2/app-runtime'
-import ItemSearchField from './ItemSearchField'
-import CategorizedMenuGroup from './CategorizedMenuGroup'
-import SinglesMenuGroup from './SinglesMenuGroup'
-import { singleItems, categorizedItems } from './selectableItems'
+import { Popover, FlyoutMenu } from '@dhis2/ui'
+import React, { useState, useEffect, createRef } from 'react'
 import { itemTypeMap, getDefaultItemCount } from '../../../modules/itemTypes'
 import useDebounce from '../../../modules/useDebounce'
+import CategorizedMenuGroup from './CategorizedMenuGroup'
 import { getDashboardsQQuery } from './dashboardsQQuery'
-
+import ItemSearchField from './ItemSearchField'
+import { singleItems, categorizedItems } from './selectableItems'
+import SinglesMenuGroup from './SinglesMenuGroup'
 import classes from './styles/ItemSelector.module.css'
 
 const ItemSelector = () => {

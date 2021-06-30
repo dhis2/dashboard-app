@@ -1,9 +1,8 @@
-import React, { useRef } from 'react'
-import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { Tooltip } from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React, { useRef } from 'react'
 import { ChevronDown, ChevronUp } from './assets/icons'
-
 import classes from './styles/ShowMoreButton.module.css'
 
 const ShowMoreButton = ({ onClick, dashboardBarIsExpanded, disabled }) => {

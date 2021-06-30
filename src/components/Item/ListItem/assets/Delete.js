@@ -1,6 +1,6 @@
-import React from 'react'
 import { colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
+import React from 'react'
 
 const DeleteIcon = ({ className }) => (
     <svg

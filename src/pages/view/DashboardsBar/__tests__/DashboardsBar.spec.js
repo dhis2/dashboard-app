@@ -1,11 +1,11 @@
-import React from 'react'
-import { render } from '@testing-library/react'
 import { fireEvent } from '@testing-library/dom'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import { Router } from 'react-router-dom'
-import WindowDimensionsProvider from '../../../../components/WindowDimensionsProvider'
+import { render } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
+import React from 'react'
+import { Provider } from 'react-redux'
+import { Router } from 'react-router-dom'
+import configureMockStore from 'redux-mock-store'
+import WindowDimensionsProvider from '../../../../components/WindowDimensionsProvider'
 import DashboardsBar, { MIN_ROW_COUNT, MAX_ROW_COUNT } from '../DashboardsBar'
 
 // TODO this spy is an implementation detail

@@ -1,6 +1,14 @@
-import { generateUid } from 'd2/uid'
 import i18n from '@dhis2/d2-i18n'
-
+import { generateUid } from 'd2/uid'
+import { updateDashboard, postDashboard } from '../api/editDashboard'
+import {
+    NEW_ITEM_SHAPE,
+    getGridItemProperties,
+    getPageBreakItemShape,
+    getPrintTitlePageItemShape,
+} from '../modules/gridUtil'
+import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
+import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
 import {
     RECEIVED_EDIT_DASHBOARD,
     START_NEW_DASHBOARD,
@@ -17,15 +25,6 @@ import {
     sGetEditDashboardRoot,
 } from '../reducers/editDashboard'
 import { tFetchDashboards } from './dashboards'
-import { updateDashboard, postDashboard } from '../api/editDashboard'
-import {
-    NEW_ITEM_SHAPE,
-    getGridItemProperties,
-    getPageBreakItemShape,
-    getPrintTitlePageItemShape,
-} from '../modules/gridUtil'
-import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
-import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
 
 // actions
 

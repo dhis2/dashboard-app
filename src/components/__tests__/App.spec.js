@@ -1,12 +1,12 @@
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { render } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { render } from '@testing-library/react'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-import { useUserSettings } from '../UserSettingsProvider'
 import { apiFetchDashboards } from '../../api/fetchAllDashboards'
 import App from '../App'
+import { useUserSettings } from '../UserSettingsProvider'
 
 jest.mock('../../api/fetchAllDashboards')
 jest.mock('../UserSettingsProvider')

@@ -1,7 +1,6 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import { Warning } from './assets/icons'
-
 import classes from './styles/FatalErrorBoundary.module.css'
 
 class FatalErrorBoundary extends React.Component {
