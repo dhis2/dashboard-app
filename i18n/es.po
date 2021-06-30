@@ -4,13 +4,14 @@
 # Viktor Varland <viktor@dhis2.org>, 2019
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2020
+# drprabhjot, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2018-04-03T09:53:39.293Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2020\n"
+"Last-Translator: drprabhjot, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,13 +23,13 @@ msgid "Delete"
 msgstr "Borrar"
 
 msgid "Continue editing"
-msgstr ""
+msgstr "Continua editando"
 
 msgid "Confirm delete dashboard"
-msgstr ""
+msgstr "Confirma la eliminación del tablero"
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr ""
+msgstr "¿Está seguro de que desea eliminar el tablero \"{{dashboardName}}\"?"
 
 msgid "Save changes"
 msgstr "Guardar cambios"
@@ -52,13 +53,13 @@ msgid "All"
 msgstr "Todos"
 
 msgid "Unread"
-msgstr ""
+msgstr "No leído"
 
 msgid "Messages"
 msgstr "Mensajes"
 
 msgid "You like this"
-msgstr ""
+msgstr "Te gusta este"
 
 msgid "Like"
 msgstr "como"
@@ -67,10 +68,10 @@ msgid "Reply"
 msgstr "Responder"
 
 msgid "Add your reply"
-msgstr ""
+msgstr "Agrega tu respuesta"
 
 msgid "Add your interpretation"
-msgstr ""
+msgstr "Agrega tu interpretación"
 
 msgid "Spacer"
 msgstr "Tabulador"
@@ -94,10 +95,10 @@ msgid "Search for items to add to this dashboard"
 msgstr "Buscar objetos para añadir en este tablero"
 
 msgid "See"
-msgstr ""
+msgstr "Ver"
 
 msgid "fewer"
-msgstr ""
+msgstr "menos"
 
 msgid "more"
 msgstr "más"
@@ -107,10 +108,10 @@ msgstr ""
 "No se han encontrado tableros. Use el botón + para crear un nuevo tablero"
 
 msgid "Add title here"
-msgstr ""
+msgstr "Agrega título aquí"
 
 msgid "Add description here"
-msgstr ""
+msgstr "Agrega descripción aquí"
 
 msgid "No description"
 msgstr "Sin descripción"
