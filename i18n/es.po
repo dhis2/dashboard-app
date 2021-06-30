@@ -5,13 +5,15 @@
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
+# Alison Andrade <aandrade@ippfwhr.org>, 2021
+# drprabhjot, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-05-12T08:56:39.093Z\n"
+"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
+"Last-Translator: drprabhjot, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +25,7 @@ msgid "Untitled dashboard"
 msgstr "Tablero sin nombre"
 
 msgid "Remove this item"
-msgstr ""
+msgstr "Eliminar este elemento"
 
 msgid "This item has been shortened to fit on one page"
 msgstr ""
@@ -35,8 +37,11 @@ msgstr "Mensajes"
 msgid "See all messages"
 msgstr "Ver todos los mensajes"
 
-msgid "Item type \"{{type}}\" not supported"
-msgstr "Tipo de objeto \"{{type}}\" no válido"
+msgid "Item type \"{{type}}\" is not supported"
+msgstr "El tipo de elemento \"{{type}}\" no es compatible"
+
+msgid "The item type is missing"
+msgstr "Falta el tipo de elemento"
 
 msgid "Filters applied"
 msgstr "Filtros aplicados"
@@ -60,10 +65,10 @@ msgid "There was a problem loading this dashboard item"
 msgstr "Ha habido un problema al cargar este elemento del tablero"
 
 msgid "Hide details and interpretations"
-msgstr ""
+msgstr "Ocultar detalles e interpretaciones"
 
 msgid "Show details and interpretations"
-msgstr ""
+msgstr "Mostrar detalles e interpretaciones"
 
 msgid "Open in {{appName}} app"
 msgstr "Abrir en la aplicación {{appName}}"
@@ -75,25 +80,31 @@ msgid "View as Chart"
 msgstr "Ver como gráfico"
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "Este mapa no se puede mostrar como gráfico"
 
 msgid "View as Table"
 msgstr "Ver como tabla"
 
 msgid "This map can't be displayed as a table"
-msgstr ""
+msgstr "Este mapa no se puede mostrar como una tabla"
 
 msgid "View as Map"
 msgstr "Ver como mapa"
 
 msgid "There was a problem loading interpretations for this item"
-msgstr ""
+msgstr "Hubo un problema al cargar las interpretaciones de este elemento."
 
 msgid "Unable to load the plugin for this item"
 msgstr "Incapaz de cargar el complemento para este elemento"
 
 msgid "No data to display"
 msgstr "Sin datos para mostrar"
+
+msgid "There was an error loading data for this item"
+msgstr "Hubo un error al cargar los datos de este elemento."
+
+msgid "Open this item in {{appName}}"
+msgstr "Abra este elemento en {{appName}}"
 
 msgid "Visualizations"
 msgstr "Visualizaciones"
@@ -129,11 +140,15 @@ msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"No se pudo guardar el tablero de mando. Es posible que esté desconectado o "
+"no tenga acceso para editar este tablero de mando."
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"No se pudo eliminar el tablero de mando. Es posible que esté desconectado o "
+"no tenga acceso para editar este tablero de mando."
 
 msgid "Save changes"
 msgstr "Guardar cambios"
@@ -145,7 +160,7 @@ msgid "Print preview"
 msgstr "Vista previa"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "Configuración de filtro"
 
 msgid "Translate"
 msgstr "Traducir"
@@ -175,18 +190,20 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 msgid "Discard changes"
-msgstr ""
+msgstr "Descartar los cambios"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
 "discard these unsaved changes?"
 msgstr ""
+"Este tablero de mando tiene cambios no guardados. ¿Está seguro de que desea "
+"salir y descartar estos cambios no guardados?"
 
 msgid "No, stay here"
-msgstr ""
+msgstr "No, yo me quedo aquí"
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "Sí, descartar cambios"
 
 msgid "No access"
 msgstr "Sin acceso"
@@ -195,15 +212,17 @@ msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
+"No se admite la edición de tableros de mando en pantallas pequeñas. Cambie "
+"el tamaño de su pantalla para volver al modo de edición."
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "Permitir filtrar por todas las dimensiones"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "Permitir solo el filtrado por dimensiones seleccionadas"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "Configuración del filtro del tablero de mando"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -211,12 +230,16 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"Tableros se pueden filtrar por dimensiones para cambiar\n"
+"                                         los datos mostrados. De forma predeterminada, todas las dimensiones están disponibles\n"
+"                                         como filtros. Alternativamente, solo las dimensiones seleccionadas pueden\n"
+"                                         estar disponibles en un tablero."
 
 msgid "Available Filters"
-msgstr ""
+msgstr "Filtros disponibles"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "Filtros seleccionados"
 
 msgid "Confirm"
 msgstr "Confirmar"
@@ -246,6 +269,8 @@ msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
 " return to create mode."
 msgstr ""
+"No se admite la creación de tableros de mando en pantallas pequeñas. Cambie "
+"el tamaño de su pantalla para volver al modo de creación."
 
 msgid "Not supported"
 msgstr "No soportado"
@@ -296,7 +321,7 @@ msgid "Requested dashboard not found"
 msgstr "No se ha encontrado el tablero buscado"
 
 msgid "Create a new dashboard"
-msgstr ""
+msgstr "Crea un nuevo tablero de mando"
 
 msgid "Search for a dashboard"
 msgstr "Buscar un tablero"
@@ -325,10 +350,10 @@ msgid "Show description"
 msgstr "Mostrar la descripción"
 
 msgid "Failed to hide description"
-msgstr ""
+msgstr "No se pudo ocultar la descripción"
 
 msgid "Failed to show description"
-msgstr ""
+msgstr "No se pudo mostrar la descripción"
 
 msgid "Unstar dashboard"
 msgstr "Desmarcar tablero"
@@ -337,10 +362,10 @@ msgid "Star dashboard"
 msgstr "Marcar tablero"
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "No se pudo desmarcar el tablero"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "No se pudo marcar el tablero"
 
 msgid "Dashboard layout"
 msgstr "Diseño del tablero"
@@ -364,4 +389,4 @@ msgid "Loading dashboard – {{name}}"
 msgstr "Cargando panel – {{nombre}}"
 
 msgid "Loading dashboard"
-msgstr ""
+msgstr "Cargando tablero de mando"
