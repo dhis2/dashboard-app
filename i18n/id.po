@@ -3,13 +3,15 @@
 # Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2019
 # Viktor Varland <viktor@dhis2.org>, 2019
 # phil_dhis2, 2019
+# Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2021
+# Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2021\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,13 +23,13 @@ msgid "Delete"
 msgstr "hapus"
 
 msgid "Continue editing"
-msgstr ""
+msgstr "Lanjutkan mengedit"
 
 msgid "Confirm delete dashboard"
-msgstr ""
+msgstr "Konfirmasi hapus dasbor"
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr ""
+msgstr "Yakin ingin menghapus dasbor \"{{ dashboardName }}\"?"
 
 msgid "Exit without saving"
 msgstr "Keluar tanpa menyimpan"
@@ -67,49 +69,49 @@ msgid "See all messages"
 msgstr "Lihat semua pesan"
 
 msgid "Edit your interpretation"
-msgstr ""
+msgstr "Edit interpretasi Anda"
 
 msgid "Update"
 msgstr "perbarui"
 
 msgid "Cancel edit"
-msgstr ""
+msgstr "Batalkan pengeditan"
 
 msgid "Edit"
 msgstr "Edit"
 
 msgid "like"
-msgstr ""
+msgstr "Suka"
 
 msgid "likes"
-msgstr ""
+msgstr "suka"
 
 msgid "You like this"
-msgstr ""
+msgstr "Anda suka ini"
 
 msgid "Like"
 msgstr "Suka"
 
 msgid "View in Visualizer"
-msgstr ""
+msgstr "Lihat di Visualizer"
 
 msgid "Reply"
 msgstr "Balas"
 
 msgid "Add your reply"
-msgstr ""
+msgstr "Tambahkan balasan Anda"
 
 msgid "Interpretations"
 msgstr "Interpretasi"
 
 msgid "Add your interpretation"
-msgstr ""
+msgstr "Tambahkan interpretasi Anda"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Tidak dapat memuat plugin untuk item ini"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Spacer"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
@@ -130,22 +132,22 @@ msgid "Search for items to add to this dashboard"
 msgstr "Cari item untuk ditambahkan ke dashboard ini"
 
 msgid "See"
-msgstr ""
+msgstr "Lihat"
 
 msgid "fewer"
-msgstr ""
+msgstr "lebih sedikit"
 
 msgid "more"
-msgstr ""
+msgstr "lebih"
 
 msgid "Text box"
 msgstr "Kotak teks"
 
 msgid "Add title here"
-msgstr ""
+msgstr "Tambahkan judul di sini"
 
 msgid "Add description here"
-msgstr ""
+msgstr "Tambahkan deskripsi di sini"
 
 msgid "No description"
 msgstr "Tidak ada deskripsi"
@@ -160,7 +162,7 @@ msgid "Charts"
 msgstr "Grafik"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "Visualisasi"
 
 msgid "Maps"
 msgstr "Peta"

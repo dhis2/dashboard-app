@@ -5,13 +5,14 @@
 # William Aviles <waviles@clintonhealthaccess.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2020
+# drprabhjot, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2020\n"
+"Last-Translator: drprabhjot, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,13 +24,13 @@ msgid "Delete"
 msgstr "Borrar"
 
 msgid "Continue editing"
-msgstr ""
+msgstr "Continua editando"
 
 msgid "Confirm delete dashboard"
-msgstr ""
+msgstr "Confirma la eliminación del tablero"
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr ""
+msgstr "¿Está seguro de que desea eliminar el tablero \"{{dashboardName}}\"?"
 
 msgid "Exit without saving"
 msgstr "Salir sin guardar"
@@ -69,43 +70,43 @@ msgid "See all messages"
 msgstr "Ver todos los mensajes"
 
 msgid "Edit your interpretation"
-msgstr ""
+msgstr "Edita tu interpretación"
 
 msgid "Update"
 msgstr "Actualizar"
 
 msgid "Cancel edit"
-msgstr ""
+msgstr "Cancela editar"
 
 msgid "Edit"
 msgstr "Editar"
 
 msgid "like"
-msgstr ""
+msgstr "como"
 
 msgid "likes"
-msgstr ""
+msgstr "likes"
 
 msgid "You like this"
-msgstr ""
+msgstr "Te gusta este"
 
 msgid "Like"
 msgstr "como"
 
 msgid "View in Visualizer"
-msgstr ""
+msgstr "Ver en visualizador"
 
 msgid "Reply"
 msgstr "Responder"
 
 msgid "Add your reply"
-msgstr ""
+msgstr "Agrega tu respuesta"
 
 msgid "Interpretations"
 msgstr "Interpretaciones"
 
 msgid "Add your interpretation"
-msgstr ""
+msgstr "Agrega tu interpretación"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Incapaz de cargar el complemento para este elemento"
@@ -132,10 +133,10 @@ msgid "Search for items to add to this dashboard"
 msgstr "Buscar objetos para añadir en este tablero"
 
 msgid "See"
-msgstr ""
+msgstr "Ver"
 
 msgid "fewer"
-msgstr ""
+msgstr "menos"
 
 msgid "more"
 msgstr "más"
@@ -144,10 +145,10 @@ msgid "Text box"
 msgstr "Caja de texto"
 
 msgid "Add title here"
-msgstr ""
+msgstr "Agregar título aquí"
 
 msgid "Add description here"
-msgstr ""
+msgstr "Agrega descripción aquí"
 
 msgid "No description"
 msgstr "Sin descripción"
