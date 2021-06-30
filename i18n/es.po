@@ -5,13 +5,15 @@
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2021
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
+# Alison Andrade <aandrade@ippfwhr.org>, 2021
+# drprabhjot, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
+"POT-Creation-Date: 2021-06-10T13:31:39.680Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
+"Last-Translator: drprabhjot, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,6 +49,8 @@ msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"No se pudo guardar el tablero de mando. Es posible que esté desconectado o "
+"no tenga acceso para editar este tablero de mando."
 
 msgid "Save changes"
 msgstr "Guardar cambios"
@@ -58,7 +62,7 @@ msgid "Print preview"
 msgstr "Vista previa"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "Configuración de filtro"
 
 msgid "Translate"
 msgstr "Traducir"
@@ -92,11 +96,15 @@ msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
+"No se admite la edición de tableros de mando en pantallas pequeñas. Cambie "
+"el tamaño de su pantalla para volver al modo de edición."
 
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
 " return to create mode."
 msgstr ""
+"No se admite la creación de tableros de mando en pantallas pequeñas. Cambie "
+"el tamaño de su pantalla para volver al modo de creación."
 
 msgid "Not supported"
 msgstr "No soportado"
@@ -135,8 +143,8 @@ msgstr ""
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{{count}} seleccionado"
+msgstr[1] "{{count}} seleccionado"
 
 msgid "Remove"
 msgstr "Eliminar"
@@ -154,8 +162,11 @@ msgstr "Mensajes"
 msgid "See all messages"
 msgstr "Ver todos los mensajes"
 
-msgid "Item type \"{{type}}\" not supported"
-msgstr "Tipo de objeto \"{{type}}\" no válido"
+msgid "Item type \"{{type}}\" is not supported"
+msgstr "El tipo de elemento \"{{type}}\" no es compatible"
+
+msgid "The item type is missing"
+msgstr "Falta el tipo de elemento"
 
 msgid "Filters applied"
 msgstr "Filtros aplicados"
@@ -194,19 +205,19 @@ msgid "View as Chart"
 msgstr "Ver como gráfico"
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "Este mapa no se puede mostrar como gráfico"
 
 msgid "View as Table"
 msgstr "Ver como tabla"
 
 msgid "This map can't be displayed as a table"
-msgstr ""
+msgstr "Este mapa no se puede mostrar como una tabla"
 
 msgid "View as Map"
 msgstr "Ver como mapa"
 
 msgid "There was a problem loading interpretations for this item"
-msgstr ""
+msgstr "Hubo un problema al cargar las interpretaciones de este elemento."
 
 msgid "Unable to load the plugin for this item"
 msgstr "Incapaz de cargar el complemento para este elemento"
@@ -221,13 +232,13 @@ msgid "Add filter"
 msgstr "Añadir filtro"
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "Permitir filtrar por todas las dimensiones"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "Permitir solo el filtrado por dimensiones seleccionadas"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "Configuración del filtro del tablero de mando"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -235,12 +246,16 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"Tableros se pueden filtrar por dimensiones para cambiar\n"
+"                                         los datos mostrados. De forma predeterminada, todas las dimensiones están disponibles\n"
+"                                         como filtros. Alternativamente, solo las dimensiones seleccionadas pueden\n"
+"                                         estar disponibles en un tablero."
 
 msgid "Available Filters"
-msgstr ""
+msgstr "Filtros disponibles"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "Filtros seleccionados"
 
 msgid "There are no items on this dashboard"
 msgstr "No hay objetos en este tablero"
@@ -276,10 +291,10 @@ msgid "Show description"
 msgstr "Mostrar la descripción"
 
 msgid "Failed to hide description"
-msgstr ""
+msgstr "No se pudo ocultar la descripción"
 
 msgid "Failed to show description"
-msgstr ""
+msgstr "No se pudo mostrar la descripción"
 
 msgid "Unstar dashboard"
 msgstr "Desmarcar tablero"
@@ -288,10 +303,10 @@ msgid "Star dashboard"
 msgstr "Marcar tablero"
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "No se ha podido desmarcar el tablero"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "No se pudo marcar el tablero"
 
 msgid "More"
 msgstr "Más"

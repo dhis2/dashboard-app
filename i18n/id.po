@@ -4,13 +4,14 @@
 # Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Carwoto Sa'an <carwoto@gmail.com>, 2021
+# Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
+"POT-Creation-Date: 2021-06-10T13:31:39.680Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Carwoto Sa'an <carwoto@gmail.com>, 2021\n"
+"Last-Translator: Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2021\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,10 +20,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "Dasbor tanpa judul"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "Memuat dasbor – {{name}}"
 
 msgid "Cancel"
 msgstr "Batal"
@@ -46,18 +47,20 @@ msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Gagal menyimpan dasbor. Anda mungkin offline atau tidak memiliki akses untuk"
+" mengedit dasbor ini."
 
 msgid "Save changes"
 msgstr "Simpan perubahan"
 
 msgid "Exit Print preview"
-msgstr ""
+msgstr "Keluar dari Pratinjau"
 
 msgid "Print preview"
-msgstr ""
+msgstr "Pratinjau"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "Pengaturan filter"
 
 msgid "Translate"
 msgstr "Terjemahkan"
@@ -72,10 +75,10 @@ msgid "Search for a dashboard"
 msgstr "Cari dashboard"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "Tampilkan lebih sedikit dasbor"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "Tampilkan lebih banyak dasbor"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -91,56 +94,62 @@ msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
+"Mengedit dasbor di layar kecil tidak didukung. Ubah ukuran layar Anda untuk "
+"kembali ke mode edit."
 
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
 " return to create mode."
 msgstr ""
+"Membuat dasbor di layar kecil tidak didukung. Ubah ukuran layar Anda untuk "
+"kembali ke mode buat."
 
 msgid "Not supported"
-msgstr ""
+msgstr "Tidak didukung"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "Keluar dari pratinjau"
 
 msgid "Print"
 msgstr "Cetak"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "tata letak dasbor"
 
 msgid "one item per page"
-msgstr ""
+msgstr "satu item per halaman"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "Pratinjau"
 
 msgid "For best print results"
-msgstr ""
+msgstr "Untuk hasil cetak terbaik"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "Gunakan web browser Chrome atau Edge"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr ""
+msgstr "Tunggu hingga semua item dasbor dimuat sebelum mencetak"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
 " dialog"
 msgstr ""
+"Gunakan ukuran kertas lanskap A4 dan pengaturan margin default dalam dialog "
+"pencetakan browser"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
+msgstr[0] "{{count}} terpilih"
 
 msgid "Remove"
 msgstr "Hapus"
 
 msgid "Delete item"
-msgstr ""
+msgstr "Hapus item"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "Item ini telah dipersingkat agar muat di satu halaman"
 
 msgid "Messages"
 msgstr "Pesan"
@@ -148,14 +157,17 @@ msgstr "Pesan"
 msgid "See all messages"
 msgstr "Lihat semua pesan"
 
-msgid "Item type \"{{type}}\" not supported"
-msgstr ""
+msgid "Item type \"{{type}}\" is not supported"
+msgstr "Jenis item \"{{type}}\" tidak didukung"
+
+msgid "The item type is missing"
+msgstr "Jenis barang tidak ada"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "Filter diterapkan"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Spacer"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
@@ -170,37 +182,37 @@ msgid "Add text here"
 msgstr "Tambahkan teks di sini"
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "Ada masalah saat memuat item dasbor ini"
 
 msgid "Hide interpretations and details"
-msgstr ""
+msgstr "Sembunyikan interpretasi dan detail"
 
 msgid "Show interpretations and details"
-msgstr ""
+msgstr "Tampilkan interpretasi dan detail"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "Buka di aplikasi {{appName}}"
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "Lihat layar penuh"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "Lihat sebagai Bagan"
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "Peta ini tidak dapat ditampilkan sebagai bagan"
 
 msgid "View as Table"
-msgstr ""
+msgstr "Lihat sebagai Tabel"
 
 msgid "This map can't be displayed as a table"
-msgstr ""
+msgstr "Peta ini tidak dapat ditampilkan sebagai tabel"
 
 msgid "View as Map"
-msgstr ""
+msgstr "Lihat sebagai Peta"
 
 msgid "There was a problem loading interpretations for this item"
-msgstr ""
+msgstr "Ada masalah saat memuat interpretasi untuk item ini"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Tidak dapat memuat plugin untuk item ini"
@@ -215,13 +227,13 @@ msgid "Add filter"
 msgstr "Tambah penyaringan"
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "Izinkan pemfilteran menurut semua dimensi"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "Hanya izinkan pemfilteran menurut dimensi yang dipilih"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "Pengaturan filter dasbor"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -229,12 +241,16 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"Dasbor dapat difilter berdasarkan dimensi untuk merubah\n"
+"                                         data yang ditampilkan. Secara default, semua dimensi tersedia\n"
+"                                         sebagai filter. Atau, hanya dimensi yang dipilih yang dapat\n"
+"                                         tersedia di dasbor."
 
 msgid "Available Filters"
-msgstr ""
+msgstr "Filter yang Tersedia"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "Filter yang Dipilih"
 
 msgid "There are no items on this dashboard"
 msgstr "Tidak ada item dalam dashboard ini"
@@ -264,28 +280,28 @@ msgid "Dashboard description"
 msgstr "Deskripsi dashboard"
 
 msgid "Hide description"
-msgstr ""
+msgstr "Sembunyikan deskripsi"
 
 msgid "Show description"
-msgstr ""
+msgstr "Tampilkan deskripsi"
 
 msgid "Failed to hide description"
-msgstr ""
+msgstr "Gagal menyembunyikan deskripsi"
 
 msgid "Failed to show description"
-msgstr ""
+msgstr "Gagal menampilkan deskripsi"
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "Hapus bintang pada dasbor"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "Beri bintang pada dasbor"
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "Gagal menghapus bintang pada dasbor"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "Gagal memberi bintang pada dasbor"
 
 msgid "More"
 msgstr "Lagi"
@@ -297,16 +313,16 @@ msgid "Share"
 msgstr "Bagikan"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "Tata letak dasbor"
 
 msgid "One item per page"
-msgstr ""
+msgstr "Satu item per halaman"
 
 msgid "No description"
 msgstr "Tidak ada deskripsi"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "Visualisasi"
 
 msgid "Pivot tables"
 msgstr "Tabel pivot"
@@ -324,7 +340,7 @@ msgid "Event charts"
 msgstr "Grafik kejadian"
 
 msgid "Apps"
-msgstr ""
+msgstr "Aplikasi"
 
 msgid "Reports"
 msgstr "Laporan"

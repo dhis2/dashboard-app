@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-11T18:02:28.225Z\n"
+"POT-Creation-Date: 2021-06-10T13:31:39.680Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
 "Last-Translator: Sheila André <sandre@saudigitus.org>, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -151,8 +151,11 @@ msgstr "Mensagens"
 msgid "See all messages"
 msgstr "Ver todas as mensagens"
 
-msgid "Item type \"{{type}}\" not supported"
-msgstr "Tipo de item \"{{type}}\" não suportado"
+msgid "Item type \"{{type}}\" is not supported"
+msgstr ""
+
+msgid "The item type is missing"
+msgstr ""
 
 msgid "Filters applied"
 msgstr "Filtros aplicados"
