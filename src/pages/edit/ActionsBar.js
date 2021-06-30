@@ -27,6 +27,7 @@ import {
     acUpdateDashboardItemShapes,
     acSetHideGrid,
     acSetLayoutColumns,
+    tSetDashboardItems,
 } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
 import { tFetchDashboards } from '../../actions/dashboards'
@@ -315,12 +316,8 @@ const mapDispatchToProps = {
         dispatch(acSetFilterSettings(value)),
     showPrintPreview: () => dispatch => dispatch(acSetPrintPreviewView()),
     onAutoLayoutSelect: columns => (dispatch, getState) => {
-        const prevItems = sGetEditDashboardItems(getState())
-        const itemsWithNewShapes = getAutoItemShapes(prevItems, columns)
-        dispatch(acSetHideGrid(true))
         dispatch(acSetLayoutColumns(columns))
-        dispatch(acUpdateDashboardItemShapes(itemsWithNewShapes))
-        setTimeout(() => dispatch(acSetHideGrid(false)), 0)
+        dispatch(tSetDashboardItems())
     },
 }
 

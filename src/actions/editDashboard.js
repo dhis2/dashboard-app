@@ -17,6 +17,8 @@ import {
     sGetEditDashboardRoot,
     RECEIVED_HIDE_GRID,
     RECEIVED_LAYOUT_COLUMNS,
+    sGetEditDashboardItems,
+    sGetLayoutColumns,
 } from '../reducers/editDashboard'
 import { tFetchDashboards } from './dashboards'
 import { updateDashboard, postDashboard } from '../api/editDashboard'
@@ -28,6 +30,7 @@ import { updateDashboard, postDashboard } from '../api/editDashboard'
 // } from '../modules/gridUtil'
 // import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
 import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
+import { getAutoItemShapes } from '../modules/gridUtil'
 
 // actions
 
@@ -98,6 +101,28 @@ export const acSetLayoutColumns = value => ({
 })
 
 // thunks
+
+export const tSetDashboardItems = newItem => (dispatch, getState) => {
+    const prevItems = sGetEditDashboardItems(getState())
+
+    if (newItem) {
+        prevItems.unshift({
+            ...newItem,
+            x: 0,
+            y: 0,
+            w: 0,
+            h: 0,
+        })
+    }
+
+    // TODO change from columns to layout
+    const columns = sGetLayoutColumns(getState())
+    const itemsWithNewShapes = getAutoItemShapes(prevItems, columns)
+    console.log('itemsWithNewShapes', itemsWithNewShapes)
+    dispatch(acSetHideGrid(true))
+    dispatch(acUpdateDashboardItemShapes(itemsWithNewShapes))
+    setTimeout(() => dispatch(acSetHideGrid(false)), 0)
+}
 
 export const tSaveDashboard = () => async (dispatch, getState, dataEngine) => {
     const dashboard = sGetEditDashboardRoot(getState())

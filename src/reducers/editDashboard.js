@@ -42,6 +42,7 @@ export const NEW_DASHBOARD_STATE = {
     layout: { columns: 2 },
 }
 
+// make new fn to handle a layout object, not just columns
 const getDashboardItem = (item, columns) => {
     const type = item.type
     delete item.type

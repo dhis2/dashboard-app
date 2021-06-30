@@ -201,27 +201,20 @@ const sortItems = items =>
 export const getAutoItemShapes = (
     dashboardItems,
     numberOfColGroups,
-    { newItem, addTo = 'END' } = {}
+    maxCols
 ) => {
-    newItem = { i: 'R9A0rvAydpn' }
+    const numberOfColGroupCols = getNumberOfColGroupCols(
+        numberOfColGroups,
+        maxCols
+    )
 
-    const numberOfColGroupCols = getNumberOfColGroupCols(numberOfColGroups)
-
-    if (!numberOfColGroupCols || (!dashboardItems.length && !newItem)) {
+    if (!numberOfColGroupCols || !dashboardItems.length) {
         return null
     }
 
     const items = sortItems(dashboardItems)
     const itemsWithNewShape = []
     const itemHeight = NEW_ITEM_SHAPE.h
-
-    if (newItem) {
-        if (addTo === 'END') {
-            items.push(newItem)
-        } else if (addTo === 'START') {
-            items.unshift(newItem)
-        }
-    }
 
     for (let i = 0, colIdx = 0, rowIdx = 0, item; i < items.length; i++) {
         item = items[i]
@@ -248,7 +241,7 @@ export const getAutoItemShapes = (
 // extend later to support item span etc
 
 // use cases:
-// - new layout: no new items, calc new shapes, unmount
+// - set new layout: no new items, calc new shapes, unmount
 // - add to start: sort new item first, calc new shapes, unmount
 // - add to end: find next shape, add
 
