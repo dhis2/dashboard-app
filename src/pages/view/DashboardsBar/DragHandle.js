@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-
+import React, { useState } from 'react'
 import classes from './styles/DragHandle.module.css'
 
 const DragHandle = ({ onHeightChanged, setDragging }) => {

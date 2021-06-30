@@ -1,14 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
 import { useConfig } from '@dhis2/app-runtime'
+import i18n from '@dhis2/d2-i18n'
 import { colors } from '@dhis2/ui'
-
-import { getVisualizationId } from '../../../../modules/item'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { isPrintMode } from '../../../../modules/dashboardModes'
-
+import { getVisualizationId } from '../../../../modules/item'
 import { getAppName, itemTypeMap } from '../../../../modules/itemTypes'
-
 import classes from './styles/VisualizationErrorMessage.module.css'
 
 const getErrorIcon = () => (

@@ -1,5 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import {
     MenuItem,
@@ -9,8 +7,8 @@ import {
     IconTable16,
     IconWorld16,
 } from '@dhis2/ui'
-
-import getThematicMapViews from '../getThematicMapViews'
+import PropTypes from 'prop-types'
+import React from 'react'
 import {
     CHART,
     MAP,
@@ -20,6 +18,7 @@ import {
     isTrackerDomainType,
     hasMapView,
 } from '../../../../modules/itemTypes'
+import getThematicMapViews from '../getThematicMapViews'
 
 const ViewAsMenuItems = ({
     type,

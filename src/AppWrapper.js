@@ -1,12 +1,11 @@
+import { useDataEngine } from '@dhis2/app-runtime'
+import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
 import React from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
-import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
-import { useDataEngine } from '@dhis2/app-runtime'
-
-import WindowDimensionsProvider from './components/WindowDimensionsProvider'
+import App from './components/App'
 import SystemSettingsProvider from './components/SystemSettingsProvider'
 import UserSettingsProvider from './components/UserSettingsProvider'
-import App from './components/App'
+import WindowDimensionsProvider from './components/WindowDimensionsProvider'
 import configureStore from './configureStore'
 
 import './locales'

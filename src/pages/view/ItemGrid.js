@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
-
-import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
+import { connect } from 'react-redux'
 import { Item } from '../../components/Item/Item'
+import NoContentMessage from '../../components/NoContentMessage'
+import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
+import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
+import { VIEW } from '../../modules/dashboardModes'
+import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName'
 import {
     GRID_ROW_HEIGHT_PX,
     SM_SCREEN_GRID_COLUMNS,
@@ -19,14 +22,8 @@ import {
     getGridWidth,
     getProportionalHeight,
 } from '../../modules/gridUtil'
-import NoContentMessage from '../../components/NoContentMessage'
-import { sGetSelectedDashboardItems } from '../../reducers/selected'
-
-import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
-import { VIEW } from '../../modules/dashboardModes'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen'
-import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName'
-
+import { sGetSelectedDashboardItems } from '../../reducers/selected'
 import classes from './styles/ItemGrid.module.css'
 
 const EXPANDED_HEIGHT = 17

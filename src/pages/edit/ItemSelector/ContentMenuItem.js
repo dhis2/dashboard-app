@@ -1,11 +1,9 @@
-import React from 'react'
-import { MenuItem, colors, IconLaunch16 } from '@dhis2/ui'
-import i18n from '@dhis2/d2-i18n'
-import PropTypes from 'prop-types'
 import { visTypeIcons } from '@dhis2/analytics'
-
+import i18n from '@dhis2/d2-i18n'
+import { MenuItem, colors, IconLaunch16 } from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { getItemIcon, VISUALIZATION } from '../../../modules/itemTypes'
-
 import classes from './styles/ContentMenuItem.module.css'
 
 const LaunchLink = ({ url }) => (

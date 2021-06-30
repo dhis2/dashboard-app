@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
 import { render } from '@testing-library/react'
+import React from 'react'
 import ConfirmActionDialog, {
     ACTION_DELETE,
     ACTION_DISCARD,

@@ -1,11 +1,7 @@
-import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import cx from 'classnames'
-import { Link, Redirect } from 'react-router-dom'
+import { useDataEngine, useAlert } from '@dhis2/app-runtime'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
-import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import {
     Button,
     FlyoutMenu,
@@ -16,19 +12,21 @@ import {
     IconStar24,
     IconStarFilled24,
 } from '@dhis2/ui'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-
-import FilterSelector from './FilterSelector'
-import { apiStarDashboard } from './apiStarDashboard'
-import { orObject } from '../../../modules/util'
-import { apiPostShowDescription } from '../../../api/description'
+import cx from 'classnames'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import { Link, Redirect } from 'react-router-dom'
 import { acSetDashboardStarred } from '../../../actions/dashboards'
 import { acSetShowDescription } from '../../../actions/showDescription'
+import { apiPostShowDescription } from '../../../api/description'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton'
-import { sGetSelected } from '../../../reducers/selected'
+import { orObject } from '../../../modules/util'
 import { sGetDashboardStarred } from '../../../reducers/dashboards'
+import { sGetSelected } from '../../../reducers/selected'
 import { sGetShowDescription } from '../../../reducers/showDescription'
-
+import { apiStarDashboard } from './apiStarDashboard'
+import FilterSelector from './FilterSelector'
 import classes from './styles/TitleBar.module.css'
 
 const ViewTitleBar = ({

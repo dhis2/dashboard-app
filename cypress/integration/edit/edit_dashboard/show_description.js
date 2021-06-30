@@ -1,6 +1,6 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { getApiBaseUrl } from '../../../support/server/utils'
 import { clickViewActionButton } from '../../../elements/viewDashboard'
+import { getApiBaseUrl } from '../../../support/server/utils'
 
 before(() => {
     //ensure that the description is not currently shown

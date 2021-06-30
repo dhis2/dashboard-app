@@ -1,12 +1,12 @@
-import React from 'react'
 import { render } from '@testing-library/react'
+import React from 'react'
 import { act } from 'react-dom/test-utils'
-import Item from '../Item'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import WindowDimensionsProvider from '../../../WindowDimensionsProvider'
-import SystemSettingsProvider from '../../../SystemSettingsProvider'
 import { apiFetchVisualization } from '../../../../api/fetchVisualization'
+import SystemSettingsProvider from '../../../SystemSettingsProvider'
+import WindowDimensionsProvider from '../../../WindowDimensionsProvider'
+import Item from '../Item'
 
 jest.mock('../../../../api/fetchVisualization')
 jest.mock('../../../SystemSettingsProvider')

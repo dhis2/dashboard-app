@@ -1,15 +1,16 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-
-import HeaderMenuItem from './HeaderMenuItem'
-import ContentMenuItem from './ContentMenuItem'
 import { acAddDashboardItem } from '../../../actions/editDashboard'
+import ContentMenuItem from './ContentMenuItem'
+import HeaderMenuItem from './HeaderMenuItem'
 
 const SinglesMenuGroup = ({ acAddDashboardItem, category }) => {
-    const addToDashboard = ({ type, content }) => () => {
-        acAddDashboardItem({ type, content })
-    }
+    const addToDashboard =
+        ({ type, content }) =>
+        () => {
+            acAddDashboardItem({ type, content })
+        }
 
     return (
         <>

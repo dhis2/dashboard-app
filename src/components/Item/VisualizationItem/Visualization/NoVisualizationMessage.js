@@ -1,6 +1,5 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-
+import React from 'react'
 import classes from './styles/NoVisualizationMessage.module.css'
 
 const NoVisualizationMessage = ({ message }) => {

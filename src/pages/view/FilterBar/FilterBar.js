@@ -1,10 +1,8 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-
-import FilterBadge from './FilterBadge'
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
-
+import FilterBadge from './FilterBadge'
 import classes from './styles/FilterBar.module.css'
 
 const FilterBar = ({ filters }) =>

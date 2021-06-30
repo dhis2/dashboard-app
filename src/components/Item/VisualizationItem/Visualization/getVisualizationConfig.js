@@ -1,10 +1,10 @@
-import getThematicMapViews from '../getThematicMapViews'
 import {
     VIS_TYPE_COLUMN,
     VIS_TYPE_PIVOT_TABLE,
     getAdaptedUiLayoutByType,
 } from '@dhis2/analytics'
 import { REPORT_TABLE, CHART, MAP } from '../../../../modules/itemTypes'
+import getThematicMapViews from '../getThematicMapViews'
 
 const getWithoutId = object => ({
     ...object,
