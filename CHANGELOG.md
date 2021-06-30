@@ -1,3 +1,11 @@
+## [31.16.4](https://github.com/dhis2/dashboard-app/compare/v31.16.3...v31.16.4) (2021-06-30)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1798](https://github.com/dhis2/dashboard-app/issues/1798)) ([3640928](https://github.com/dhis2/dashboard-app/commit/3640928fb6b3dbe81603e50100b65bb3ee4db756))
+* fix locale format passed to Intl in interpretations ([#1835](https://github.com/dhis2/dashboard-app/issues/1835)) ([91304a4](https://github.com/dhis2/dashboard-app/commit/91304a47eb02d37cf456fdc499ff950152db36a5))
+
 ## [31.16.3](https://github.com/dhis2/dashboard-app/compare/v31.16.2...v31.16.3) (2021-06-22)
 
 
