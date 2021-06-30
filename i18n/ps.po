@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-05-12T08:56:39.093Z\n"
+"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Pushto (https://www.transifex.com/hisp-uio/teams/100509/ps/)\n"
@@ -31,7 +31,10 @@ msgstr "پېغامونه"
 msgid "See all messages"
 msgstr ""
 
-msgid "Item type \"{{type}}\" not supported"
+msgid "Item type \"{{type}}\" is not supported"
+msgstr ""
+
+msgid "The item type is missing"
 msgstr ""
 
 msgid "Filters applied"
@@ -87,6 +90,12 @@ msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "No data to display"
+msgstr ""
+
+msgid "There was an error loading data for this item"
+msgstr ""
+
+msgid "Open this item in {{appName}}"
 msgstr ""
 
 msgid "Visualizations"

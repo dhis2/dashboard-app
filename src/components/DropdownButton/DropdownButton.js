@@ -1,8 +1,7 @@
-import React, { useRef } from 'react'
-import PropTypes from 'prop-types'
 import { Button, Layer, Popper } from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React, { useRef } from 'react'
 import { ArrowDown, ArrowUp } from './assets/Arrow'
-
 import styles from './DropdownButton.module.css'
 
 const DropdownButton = ({

@@ -7,6 +7,7 @@ export const dashboards = {
                 itemUid: 'ILRTXgXvurM',
             },
             chart: {
+                name: 'ANC: ANC 3 coverage by districts last 12 months',
                 itemUid: 'azz0KRlHgLs',
             },
         },
@@ -15,9 +16,20 @@ export const dashboards = {
         id: 'iMnYyBfSxmM',
         route: '#/iMnYyBfSxmM',
         items: {
-            chart: { itemUid: 'GaVhJpqABYX', visUid: 'HDEDqV3yv3H' },
-            table: { itemUid: 'qXsjttMYuoZ' },
-            map: { itemUid: 'G3EtzSWNP9o' },
+            chart: {
+                name: 'Delivery: Institutional delivery rates Yearly',
+                itemUid: 'GaVhJpqABYX',
+                visUid: 'HDEDqV3yv3H',
+            },
+            table: {
+                name: 'Delivery: Live births in facilities last 4 quarters',
+                itemUid: 'qXsjttMYuoZ',
+            },
+            map: {
+                name:
+                    'Delivery: PHU delivery rate (by pop) by chiefdom last year',
+                itemUid: 'G3EtzSWNP9o',
+            },
         },
     },
     Immunization: {

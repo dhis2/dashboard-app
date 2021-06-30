@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import debounce from 'lodash/debounce'
+import PropTypes from 'prop-types'
+import React, { createContext, useContext, useState, useEffect } from 'react'
 
 export const WindowDimensionsCtx = createContext(null)
 

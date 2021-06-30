@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import DefaultPlugin from './DefaultPlugin'
+import PropTypes from 'prop-types'
+import React, { useEffect } from 'react'
 import { MAP } from '../../../../modules/itemTypes'
 import { isElementFullscreen } from '../isElementFullscreen'
-import { pluginIsAvailable, resize, unmount } from './plugin'
+import DefaultPlugin from './DefaultPlugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
+import { pluginIsAvailable, resize, unmount } from './plugin'
 
 const MapPlugin = ({
     visualization,

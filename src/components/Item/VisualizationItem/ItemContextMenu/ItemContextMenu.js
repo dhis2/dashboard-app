@@ -1,12 +1,11 @@
-import React, { useState, createRef } from 'react'
-import PropTypes from 'prop-types'
-import { useConfig } from '@dhis2/app-runtime'
 import {
     isSingleValue,
     isYearOverYear,
     VIS_TYPE_GAUGE,
     VIS_TYPE_PIE,
 } from '@dhis2/analytics'
+import { useConfig } from '@dhis2/app-runtime'
+import i18n from '@dhis2/d2-i18n'
 import {
     colors,
     Button,
@@ -20,15 +19,15 @@ import {
     IconMessages16,
     IconMore24,
 } from '@dhis2/ui'
-import i18n from '@dhis2/d2-i18n'
-import ViewAsMenuItems from './ViewAsMenuItems'
-import { useWindowDimensions } from '../../../WindowDimensionsProvider'
-import { isSmallScreen } from '../../../../modules/smallScreen'
-import { isElementFullscreen } from '../isElementFullscreen'
-
-import { getAppName, itemTypeMap } from '../../../../modules/itemTypes'
+import PropTypes from 'prop-types'
+import React, { useState, createRef } from 'react'
 import { getVisualizationId } from '../../../../modules/item'
+import { getAppName, itemTypeMap } from '../../../../modules/itemTypes'
+import { isSmallScreen } from '../../../../modules/smallScreen'
 import { useSystemSettings } from '../../../SystemSettingsProvider'
+import { useWindowDimensions } from '../../../WindowDimensionsProvider'
+import { isElementFullscreen } from '../isElementFullscreen'
+import ViewAsMenuItems from './ViewAsMenuItems'
 
 const ItemContextMenu = props => {
     const [menuIsOpen, setMenuIsOpen] = useState(false)

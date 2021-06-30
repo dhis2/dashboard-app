@@ -1,11 +1,10 @@
+import { apiFetchDimensions } from '@dhis2/analytics'
+import { useDataEngine } from '@dhis2/app-runtime'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { acSetDimensions } from '../actions/dimensions'
-import { apiFetchDimensions } from '@dhis2/analytics'
-import { useDataEngine } from '@dhis2/app-runtime'
-
-import getFilteredDimensions from './getFilteredDimensions'
 import { useUserSettings } from '../components/UserSettingsProvider'
+import getFilteredDimensions from './getFilteredDimensions'
 
 const useDimensions = doFetch => {
     const dataEngine = useDataEngine()

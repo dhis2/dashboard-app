@@ -1,5 +1,9 @@
 import { Then } from 'cypress-cucumber-preprocessor/steps'
 import {
+    filterBadgeSel,
+    dimensionsModalSel,
+} from '../../../elements/dashboardFilter'
+import {
     gridItemSel,
     mapLegendButtonSel,
     mapLegendContentSel,
@@ -7,11 +11,6 @@ import {
     chartXAxisLabelSel,
 } from '../../../elements/dashboardItem'
 import { innerScrollContainerSel } from '../../../elements/viewDashboard'
-
-import {
-    filterBadgeSel,
-    dimensionsModalSel,
-} from '../../../elements/dashboardFilter'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 const PERIOD = 'Last 6 months'

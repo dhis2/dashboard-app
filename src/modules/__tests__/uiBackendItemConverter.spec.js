@@ -1,10 +1,10 @@
+import { VISUALIZATION, SPACER, TEXT } from '../itemTypes'
 import {
     convertBackendItemsToUi,
     convertUiItemsToBackend,
     spacerContent,
     emptyTextItemContent,
 } from '../uiBackendItemConverter'
-import { VISUALIZATION, SPACER, TEXT } from '../itemTypes'
 
 const visualizationItem = {
     id: 'visualization item',

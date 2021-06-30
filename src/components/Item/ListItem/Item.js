@@ -1,21 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { Divider, colors, spacers } from '@dhis2/ui'
 import { useConfig } from '@dhis2/app-runtime'
-import DescriptionIcon from './assets/Description'
-import DeleteIcon from './assets/Delete'
-
-import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes'
-import { orArray } from '../../../modules/util'
+import { Divider, colors, spacers } from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
 import {
     acUpdateDashboardItem,
     acRemoveDashboardItem,
 } from '../../../actions/editDashboard'
-
-import ItemHeader from '../ItemHeader/ItemHeader'
 import { isEditMode } from '../../../modules/dashboardModes'
-
+import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes'
+import { orArray } from '../../../modules/util'
+import ItemHeader from '../ItemHeader/ItemHeader'
+import DeleteIcon from './assets/Delete'
+import DescriptionIcon from './assets/Description'
 import classes from './Item.module.css'
 
 const getItemTitle = item => itemTypeMap[item.type].pluralTitle

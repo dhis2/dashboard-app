@@ -1,24 +1,22 @@
-import React from 'react'
-import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
-import PropTypes from 'prop-types'
-import { Divider, TextArea, spacers } from '@dhis2/ui'
-
-import ItemHeader from '../ItemHeader/ItemHeader'
-import PrintItemInfo from '../ItemHeader/PrintItemInfo'
 import {
     Parser as RichTextParser,
     Editor as RichTextEditor,
 } from '@dhis2/d2-ui-rich-text'
-
+import { Divider, TextArea, spacers } from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
 import { acUpdateDashboardItem } from '../../../actions/editDashboard'
+import { isEditMode, PRINT_LAYOUT } from '../../../modules/dashboardModes'
 import { sGetEditDashboardItems } from '../../../reducers/editDashboard'
-import { sGetSelectedDashboardItems } from '../../../reducers/selected'
 import {
     sGetIsPrinting,
     sGetPrintDashboardItems,
 } from '../../../reducers/printDashboard'
-import { isEditMode, PRINT_LAYOUT } from '../../../modules/dashboardModes'
+import { sGetSelectedDashboardItems } from '../../../reducers/selected'
+import ItemHeader from '../ItemHeader/ItemHeader'
+import PrintItemInfo from '../ItemHeader/PrintItemInfo'
 
 const style = {
     textDiv: {

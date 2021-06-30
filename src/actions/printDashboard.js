@@ -1,5 +1,11 @@
 import { generateUid } from 'd2/uid'
-
+import {
+    NEW_ITEM_SHAPE,
+    getGridItemProperties,
+    getPageBreakItemShape,
+    getPrintTitlePageItemShape,
+} from '../modules/gridUtil'
+import { itemTypeMap, PAGEBREAK } from '../modules/itemTypes'
 import {
     SET_PRINT_DASHBOARD,
     CLEAR_PRINT_DASHBOARD,
@@ -8,13 +14,6 @@ import {
     REMOVE_PRINT_DASHBOARD_ITEM,
     UPDATE_PRINT_DASHBOARD_ITEM,
 } from '../reducers/printDashboard'
-import {
-    NEW_ITEM_SHAPE,
-    getGridItemProperties,
-    getPageBreakItemShape,
-    getPrintTitlePageItemShape,
-} from '../modules/gridUtil'
-import { itemTypeMap, PAGEBREAK } from '../modules/itemTypes'
 
 // actions
 

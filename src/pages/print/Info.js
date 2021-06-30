@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
 import { colors, IconInfo24 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 
 class Info extends Component {
     show = false

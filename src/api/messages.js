@@ -1,8 +1,7 @@
 export const messageConversationsQuery = {
     resource: 'messageConversations',
     params: {
-        fields:
-            'id,messageCount,lastUpdated,messageType,displayName,read,messages[id,read,sender[id,displayName],text,lastUpdated]',
+        fields: 'id,messageCount,lastUpdated,messageType,displayName,read,messages[id,read,sender[id,displayName],text,lastUpdated]',
         order: 'read:asc',
         pageSize: 200,
     },
