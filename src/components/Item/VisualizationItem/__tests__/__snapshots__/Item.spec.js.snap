@@ -36,9 +36,7 @@ exports[`VisualizationItem/Item does not render Visualization if config not load
     message="There was a problem loading this dashboard item"
     onFatalError={[Function]}
   >
-    <div
-      className="dashboard-item-content"
-    />
+    <div />
   </FatalErrorBoundary>
 </Fragment>
 `;

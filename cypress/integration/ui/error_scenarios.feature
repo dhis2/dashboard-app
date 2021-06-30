@@ -56,6 +56,37 @@ Feature: Error scenarios
         Then the print layout displays for "Delivery" dashboard
         And the items missing type are displayed with a warning
 
+    Scenario: Item visualization fails when filter applied [DHIS2-11303]
+        Given I create a dashboard with a chart that will fail
+        When I apply a "Diagnosis" filter of type "Burns"
+        Then an error message is displayed on the item
+        When I click to preview the print layout
+        Then an error message not including a link is displayed on the item
+        When I click to exit print preview
+        And I remove the filter
+        Then the "chart" is displayed correctly
+
+    Scenario: Item visualization fails when filter applied and viewed as table [DHIS2-11303]
+        Given I open a dashboard with a chart that will fail
+        When I apply a "Diagnosis" filter of type "Burns"
+        Then an error message is displayed on the item
+        When I view as table
+        Then an error message is displayed on the item
+        When I remove the filter
+        Then the "table" is displayed correctly
+
+    Scenario: Item visualization fails when filter applied and viewed as table then viewed as chart [DHIS2-11303]
+        Given I open a dashboard with a chart that will fail
+        When I apply a "Diagnosis" filter of type "Burns"
+        Then an error message is displayed on the item
+        When I view as table
+        Then an error message is displayed on the item
+        When I view as chart
+        Then an error message is displayed on the item
+        When I remove the filter
+        Then the "chart" is displayed correctly
+        And I delete the dashboard
+
 # TODO unflake this flaky test
 # @nonmutating
 # Scenario: Toggling show description fails

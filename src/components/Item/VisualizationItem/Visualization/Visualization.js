@@ -80,6 +80,9 @@ class Visualization extends React.Component {
                             itemFilters
                         )}
                         style={style}
+                        filterVersion={filterVersion}
+                        item={item}
+                        dashboardMode={this.props.dashboardMode}
                     />
                 )
             }
@@ -126,6 +129,7 @@ Visualization.propTypes = {
     activeType: PropTypes.string,
     availableHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     availableWidth: PropTypes.number,
+    dashboardMode: PropTypes.string,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,

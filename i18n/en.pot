@@ -92,8 +92,14 @@ msgstr ""
 msgid "Print"
 msgstr ""
 
-msgid "dashboard layout"
-msgstr ""
+msgid "There was an error loading data for this item"
+msgstr "There was an error loading data for this item"
+
+msgid "Open this item in {{appName}}"
+msgstr "Open this item in {{appName}}"
+
+msgid "Visualizations"
+msgstr "Visualizations"
 
 msgid "one item per page"
 msgstr ""
