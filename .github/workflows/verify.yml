@@ -75,9 +75,8 @@ jobs:
                   path: '**/node_modules'
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
-            - uses: actions/download-artifact@v2
-              with:
-                  name: app-build
+            - name: Build
+              run: yarn build
 
             - name: Lint
               run: yarn lint
