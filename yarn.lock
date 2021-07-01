@@ -2100,10 +2100,10 @@
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
 
-"@dhis2/app-adapter@7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-7.0.0.tgz#fb16a2bb05457402141c0ce56e8078bed002f2ee"
-  integrity sha512-WiWd/eRPmp+PQUWKizeMGPj9EvtnuZMW/GeZJmq0AUHmvCTzW824oM4vwNnVH7DpkqfaVxvxXTyMqckMxMsFwg==
+"@dhis2/app-adapter@7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-7.0.1.tgz#96c3204c1ada4b0104a12346d1ea00cc3e2bff01"
+  integrity sha512-rqxIAUPHITsx7tF8D3AI2jOdqtLsTqzVDNmjh0z5jDJ9pEu0h3CR2ml72Y1Su+Mc8KHWzzwTKiEtW/2cER/C5A==
   dependencies:
     moment "^2.24.0"
 
@@ -2138,12 +2138,12 @@
   resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-2.8.0.tgz#9cd347127968cb6f3c8a4ab0fc6699ea7058f835"
   integrity sha512-5doyL4bxRMdMXY4RtWo2O3NVGwSDOSUY3hGPXaF1TeFWAqujlPTx17uDw6wEelN6LaryAnVwId2Ep3FOV8v5MA==
 
-"@dhis2/app-shell@7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-7.0.0.tgz#21189ec9d3ece9907c7ec48f3c70d3c3a4fd335b"
-  integrity sha512-LfnSysstJWWMT8XGiyXwIP6mAHmTkaOVe0ruMZOKFAf0JBU/jr32DBYzqrmMii9XdnCo8Rv0GgqSYtRl84/NsQ==
+"@dhis2/app-shell@7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-7.0.1.tgz#9a8652df38b78b6bedafba88098dce21e0957de5"
+  integrity sha512-OvO4/PZNxAUgwuRHxkcreOcr4mvQyngNgnuLQJSOx3vWSuaucptxu5FzhCndi3vosLd6YKb0vxHyjvuDBRcwxw==
   dependencies:
-    "@dhis2/app-adapter" "7.0.0"
+    "@dhis2/app-adapter" "7.0.1"
     "@dhis2/app-runtime" "^2.8.0"
     "@dhis2/d2-i18n" "^1.1.0"
     "@dhis2/ui" "^6.5.3"
@@ -2158,10 +2158,10 @@
     typeface-roboto "^0.0.75"
     typescript "^3.6.3"
 
-"@dhis2/cli-app-scripts@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-7.0.0.tgz#307f8fc935819b78480cf730237019e523ba38d6"
-  integrity sha512-2K86t8lxJFgVpFNsSg8/m5+SKM6ByNpMhFTI0UfJQOGM65SsLfxztmzav7x3nBt5c2+qxwdWp/D6CjbRn5SLDw==
+"@dhis2/cli-app-scripts@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-7.0.1.tgz#ea3d231f5dd168606e2e23262d955338e37762f8"
+  integrity sha512-298AkcYzBe9wwinM0brVT0hBX2Gwrtwkpm7XY/ipceuQtYAodWGmzOXgVj4gIpRre7zWszdq4HoKoRhxRGo0KA==
   dependencies:
     "@babel/core" "^7.6.2"
     "@babel/plugin-proposal-class-properties" "^7.8.3"
@@ -2170,7 +2170,7 @@
     "@babel/preset-env" "^7.9.0"
     "@babel/preset-react" "^7.0.0"
     "@babel/preset-typescript" "^7.6.0"
-    "@dhis2/app-shell" "7.0.0"
+    "@dhis2/app-shell" "7.0.1"
     "@dhis2/cli-helpers-engine" "^3.0.0"
     archiver "^3.1.1"
     axios "^0.20.0"
