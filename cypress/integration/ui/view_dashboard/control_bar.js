@@ -70,3 +70,13 @@ Then('the control bar height should be updated', () => {
         .trigger('mouseup')
     cy.wait('@putRows').its('response.statusCode').should('eq', 201)
 })
+
+When('I drag to decrease the height of the control bar', () => {
+    cy.intercept('PUT', '/userDataStore/dashboard/controlBarRows').as('putRows')
+    cy.get(dragHandleSel, EXTENDED_TIMEOUT)
+        .trigger('mousedown')
+        .trigger('mousemove', { clientY: 300 })
+        .trigger('mouseup')
+
+    cy.wait('@putRows').its('response.statusCode').should('eq', 201)
+})

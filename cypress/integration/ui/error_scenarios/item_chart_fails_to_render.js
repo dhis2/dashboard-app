@@ -7,7 +7,6 @@ import {
 } from '../../../selectors/viewDashboard'
 import {
     clickEditActionButton,
-    confirmActionDialogSel,
     createDashboard,
 } from '../../../selectors/editDashboard'
 import {
@@ -111,7 +110,7 @@ Then('I delete the dashboard', () => {
         `Deleting dashboard "${TEST_DASHBOARD_TITLE}" will remove it for all users`
     ).should('be.visible')
 
-    cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
+    cy.get('[data-test="confirm-delete-dashboard"]').click()
     cy.get(dashboardChipSel).contains(TEST_DASHBOARD_TITLE).should('not.exist')
 
     cy.get(dashboardTitleSel).should('exist').should('not.be.empty')

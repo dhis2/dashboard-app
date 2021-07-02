@@ -54,10 +54,17 @@ Feature: Viewing dashboards
         When I toggle the control bar height
         Then the control bar should be expanded to full height
 
+# TODO: flaky test
+# @mutating
+# Scenario: I change the height of the control bar
+#     Given I open the "Delivery" dashboard
+#     When I drag to increase the height of the control bar
+#     Then the control bar height should be updated
 
-    @mutating
-    Scenario: I change the height of the control bar
-        Given I open the "Delivery" dashboard
-        When I drag to increase the height of the control bar
-        Then the control bar height should be updated
-
+# TODO: flaky test
+# @mutating
+# Scenario: I change the height of an expanded control bar
+#     Given I open the "Delivery" dashboard
+#     When I toggle show more dashboards
+#     And I drag to decrease the height of the control bar
+#     Then the control bar height should be updated
