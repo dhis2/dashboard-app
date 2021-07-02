@@ -30,7 +30,7 @@ import { updateDashboard, postDashboard } from '../api/editDashboard'
 // } from '../modules/gridUtil'
 // import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
 import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
-import { getAutoItemShapes } from '../modules/gridUtil'
+import { getAutoItemShapes, getDashboardItem } from '../modules/gridUtil'
 
 // actions
 
@@ -107,7 +107,7 @@ export const tSetDashboardItems = newItem => (dispatch, getState) => {
 
     if (newItem) {
         prevItems.unshift({
-            ...newItem,
+            ...getDashboardItem(newItem),
             x: 0,
             y: 0,
             w: 0,
@@ -118,7 +118,9 @@ export const tSetDashboardItems = newItem => (dispatch, getState) => {
     // TODO change from columns to layout
     const columns = sGetLayoutColumns(getState())
     const itemsWithNewShapes = getAutoItemShapes(prevItems, columns)
+
     console.log('itemsWithNewShapes', itemsWithNewShapes)
+
     dispatch(acSetHideGrid(true))
     dispatch(acUpdateDashboardItemShapes(itemsWithNewShapes))
     setTimeout(() => dispatch(acSetHideGrid(false)), 0)

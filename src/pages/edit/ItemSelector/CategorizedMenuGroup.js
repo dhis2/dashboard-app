@@ -9,7 +9,10 @@ import HeaderMenuItem from './HeaderMenuItem'
 import ContentMenuItem from './ContentMenuItem'
 import { categorizedItems, listItemTypes } from './selectableItems'
 import { tAddListItemContent } from './actions'
-import { acAddDashboardItem } from '../../../actions/editDashboard'
+import {
+    acAddDashboardItem,
+    tSetDashboardItems,
+} from '../../../actions/editDashboard'
 import { getItemUrl, APP, VISUALIZATION } from '../../../modules/itemTypes'
 
 import classes from './styles/CategorizedMenuGroup.module.css'
@@ -19,7 +22,8 @@ const CategorizedMenuGroup = ({
     title,
     items,
     hasMore,
-    acAddDashboardItem,
+    // acAddDashboardItem,
+    onAddItem,
     tAddListItemContent,
     onChangeItemsLimit,
 }) => {
@@ -28,7 +32,8 @@ const CategorizedMenuGroup = ({
 
     const addItem = item => () => {
         if (type === APP) {
-            acAddDashboardItem({ type, content: item.key })
+            // acAddDashboardItem({ type, content: item.key })
+            onAddItem({ type, content: item.key })
         } else {
             const newItem = {
                 id: item.id,
@@ -38,7 +43,7 @@ const CategorizedMenuGroup = ({
             if (listItemTypes.includes(type)) {
                 tAddListItemContent(type, newItem)
             } else {
-                acAddDashboardItem({ type, content: newItem })
+                onAddItem({ type, content: newItem })
             }
         }
     }
@@ -87,6 +92,7 @@ CategorizedMenuGroup.propTypes = {
     items: PropTypes.array.isRequired,
     title: PropTypes.string.isRequired,
     type: PropTypes.oneOf(categorizedItems).isRequired,
+    onAddItem: PropTypes.func.isRequired,
     onChangeItemsLimit: PropTypes.func.isRequired,
     acAddDashboardItem: PropTypes.func,
     hasMore: PropTypes.bool,
@@ -96,4 +102,7 @@ CategorizedMenuGroup.propTypes = {
 export default connect(null, {
     acAddDashboardItem,
     tAddListItemContent,
+    onAddItem: item => (dispatch, getState) => {
+        dispatch(tSetDashboardItems(item))
+    },
 })(CategorizedMenuGroup)

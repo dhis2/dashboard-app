@@ -42,36 +42,6 @@ export const NEW_DASHBOARD_STATE = {
     layout: { columns: 2 },
 }
 
-// make new fn to handle a layout object, not just columns
-const getDashboardItem = (item, columns) => {
-    const type = item.type
-    delete item.type
-    const itemPropName = itemTypeMap[type].propName
-
-    const id = generateUid()
-    const gridItemProperties = getGridItemProperties(id)
-
-    let shape
-    if (type === PAGEBREAK) {
-        const yPos = item.yPos || 0
-        shape = getPageBreakItemShape(yPos, item.isStatic)
-    } else if (type === PRINT_TITLE_PAGE) {
-        shape = getPrintTitlePageItemShape()
-    } else {
-        shape = NEW_ITEM_SHAPE
-    }
-
-    return {
-        id,
-        type,
-        position: item.position || null,
-        [itemPropName]: item.content,
-        ...NEW_ITEM_SHAPE,
-        ...gridItemProperties,
-        ...shape,
-    }
-}
-
 export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
     switch (action.type) {
         case RECEIVED_EDIT_DASHBOARD: {
@@ -146,8 +116,12 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
             const stateItems = orArray(state.dashboardItems)
             let shapesHaveChanged = false
 
-            const newStateItems = action.value.map(({ x, y, w, h, i }) => {
+            const newStateItems = action.value.map(({ x, y, w, h, i }, idx) => {
                 const stateItem = stateItems.find(si => si.id === i)
+
+                if (!stateItem) {
+                    return action.value[idx]
+                }
 
                 if (
                     !(

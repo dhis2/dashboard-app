@@ -1,6 +1,12 @@
 // Dimensions for the react-grid-layout
+import { generateUid } from 'd2/uid'
 import sortBy from 'lodash/sortBy'
-import { isVisualizationType } from './itemTypes'
+import {
+    isVisualizationType,
+    itemTypeMap,
+    PAGEBREAK,
+    PRINT_TITLE_PAGE,
+} from './itemTypes'
 import { isSmallScreen } from './smallScreen'
 
 export const GRID_COMPACT_TYPE = 'vertical' // vertical | horizonal | null
@@ -196,7 +202,9 @@ const getNumberOfColGroupCols = (
 }
 
 const sortItems = items =>
-    items.slice().sort((a, b) => (a.y === b.y ? a.x - b.x : a.y - b.y))
+    items
+        .slice()
+        .sort((a, b) => a.y - b.y || a.x - b.x || a.h - b.h || a.w - b.w)
 
 export const getAutoItemShapes = (
     dashboardItems,
@@ -238,11 +246,39 @@ export const getAutoItemShapes = (
     return itemsWithNewShape
 }
 
-// extend later to support item span etc
-
 // use cases:
 // - set new layout: no new items, calc new shapes, unmount
 // - add to start: sort new item first, calc new shapes, unmount
 // - add to end: find next shape, add
 
 // const getNextItemShape = layout => {}
+
+// make new fn to handle a layout object, not just columns
+export const getDashboardItem = item => {
+    const type = item.type
+    delete item.type
+    const itemPropName = itemTypeMap[type].propName
+
+    const id = generateUid()
+    const gridItemProperties = getGridItemProperties(id)
+
+    let shape
+    if (type === PAGEBREAK) {
+        const yPos = item.yPos || 0
+        shape = getPageBreakItemShape(yPos, item.isStatic)
+    } else if (type === PRINT_TITLE_PAGE) {
+        shape = getPrintTitlePageItemShape()
+    } else {
+        shape = NEW_ITEM_SHAPE
+    }
+
+    return {
+        id,
+        type,
+        position: item.position || null,
+        [itemPropName]: item.content,
+        ...NEW_ITEM_SHAPE,
+        ...gridItemProperties,
+        ...shape,
+    }
+}
