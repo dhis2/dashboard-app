@@ -8,6 +8,7 @@ import i18n from '@dhis2/d2-i18n';
 
 import DefaultPlugin from './DefaultPlugin';
 import FatalErrorBoundary from './FatalErrorBoundary';
+import VisualizationErrorMessage from './VisualizationErrorMessage';
 import ItemHeader, { HEADER_MARGIN_HEIGHT } from '../ItemHeader';
 import ItemHeaderButtons from './ItemHeaderButtons';
 import ItemFooter from './ItemFooter';
@@ -25,6 +26,7 @@ import {
     REPORT_TABLE,
 } from '../../../modules/itemTypes';
 import memoizeOne from '../../../modules/memoizeOne';
+import { getBaseUrl } from '../../../modules/util';
 
 import { colors } from '@dhis2/ui-core';
 import { getVisualizationConfig } from './plugin';
@@ -67,6 +69,7 @@ export class Item extends Component {
         showFooter: false,
         configLoaded: false,
         pluginIsLoaded: false,
+        isError: false,
     };
 
     constructor(props, context) {
@@ -99,13 +102,20 @@ export class Item extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (
-            prevState.pluginIsLoaded &&
-            (prevProps.visualization !== this.props.visualization ||
-                prevProps.itemFilters !== this.props.itemFilters)
+            prevProps.visualization !== this.props.visualization ||
+            prevProps.itemFilters !== this.props.itemFilters
         ) {
-            this.setState({
-                pluginIsLoaded: false,
-            });
+            if (this.state.isError) {
+                this.setState({ isError: false });
+            }
+
+            if (prevState.pluginIsLoaded) {
+                // if the visualization or filters has changed, then mark pluginLoaded as false
+                // since a different plugin may be needed
+                this.setState({
+                    pluginIsLoaded: false,
+                });
+            }
         }
     }
 
@@ -116,8 +126,12 @@ export class Item extends Component {
 
         // deep clone objects in filters to avoid changing the visualization in the Redux store
         const visRows = visualization.rows.map(obj => ({ ...obj }));
-        const visColumns = visualization.columns.map(obj => ({ ...obj }));
-        const visFilters = visualization.filters.map(obj => ({ ...obj }));
+        const visColumns = visualization.columns.map(obj => ({
+            ...obj,
+        }));
+        const visFilters = visualization.filters.map(obj => ({
+            ...obj,
+        }));
 
         Object.keys(filters).forEach(dimensionId => {
             if (filters[dimensionId]) {
@@ -150,11 +164,36 @@ export class Item extends Component {
         };
     };
 
-    getUniqueKey = memoizeOne(() => uniqueId());
+    getFilterVersion = memoizeOne(() => uniqueId());
+
+    onError = () => this.setState({ isError: true });
 
     pluginCredentials = null;
 
     getPluginComponent = () => {
+        const calculatedHeight =
+            this.props.item.originalHeight -
+            this.headerRef.current.clientHeight -
+            HEADER_MARGIN_HEIGHT -
+            ITEM_CONTENT_PADDING_BOTTOM;
+
+        const style = this.memoizedGetContentStyle(
+            calculatedHeight,
+            this.contentRef ? this.contentRef.offsetHeight : null,
+            this.props.editMode
+        );
+
+        if (this.state.isError) {
+            return (
+                <div style={style}>
+                    <VisualizationErrorMessage
+                        item={this.props.item}
+                        baseUrl={getBaseUrl(this.d2)}
+                    />
+                </div>
+            );
+        }
+
         const activeType = this.getActiveType();
         const visualization = this.memoizedGetVisualizationConfig(
             this.props.visualization,
@@ -170,20 +209,10 @@ export class Item extends Component {
             );
         }
 
-        const calculatedHeight =
-            this.props.item.originalHeight -
-            this.headerRef.current.clientHeight -
-            HEADER_MARGIN_HEIGHT -
-            ITEM_CONTENT_PADDING_BOTTOM;
-
         const props = {
             ...this.props,
             visualization,
-            style: this.memoizedGetContentStyle(
-                calculatedHeight,
-                this.contentRef ? this.contentRef.offsetHeight : null,
-                this.props.editMode
-            ),
+            style,
         };
 
         switch (activeType) {
@@ -204,6 +233,7 @@ export class Item extends Component {
                                 props.itemFilters
                             )}
                             onLoadingComplete={this.onLoadingComplete}
+                            onError={this.onError}
                             forDashboard={true}
                             style={props.style}
                         />
@@ -326,7 +356,7 @@ export class Item extends Component {
                 />
                 <FatalErrorBoundary>
                     <div
-                        key={this.getUniqueKey(itemFilters)}
+                        key={this.getFilterVersion(itemFilters)}
                         className="dashboard-item-content"
                         ref={ref => (this.contentRef = ref)}
                     >

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-08-26T13:20:39.720Z\n"
-"PO-Revision-Date: 2020-08-26T13:20:39.720Z\n"
+"POT-Creation-Date: 2021-07-06T14:06:20.506Z\n"
+"PO-Revision-Date: 2021-07-06T14:06:20.506Z\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -116,6 +116,12 @@ msgid "View as Map"
 msgstr ""
 
 msgid "Open in {{appName}} app"
+msgstr ""
+
+msgid "There was an error loading data for this item"
+msgstr ""
+
+msgid "Open this item in {{appName}}"
 msgstr ""
 
 msgid "Confirm"
