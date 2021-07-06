@@ -4,11 +4,14 @@ import PropTypes from 'prop-types'
 
 import HeaderMenuItem from './HeaderMenuItem'
 import ContentMenuItem from './ContentMenuItem'
-import { acAddDashboardItem } from '../../../actions/editDashboard'
+import {
+    // acAddDashboardItem,
+    tSetDashboardItems,
+} from '../../../actions/editDashboard'
 
-const SinglesMenuGroup = ({ acAddDashboardItem, category }) => {
+const SinglesMenuGroup = ({ onAddItem, category }) => {
     const addToDashboard = ({ type, content }) => () => {
-        acAddDashboardItem({ type, content })
+        onAddItem({ type, content })
     }
 
     return (
@@ -27,8 +30,13 @@ const SinglesMenuGroup = ({ acAddDashboardItem, category }) => {
 }
 
 SinglesMenuGroup.propTypes = {
-    acAddDashboardItem: PropTypes.func,
+    // acAddDashboardItem: PropTypes.func,
     category: PropTypes.object,
+    onAddItem: PropTypes.func,
 }
 
-export default connect(null, { acAddDashboardItem })(SinglesMenuGroup)
+export default connect(null, {
+    onAddItem: item => dispatch => {
+        dispatch(tSetDashboardItems(item))
+    },
+})(SinglesMenuGroup)
