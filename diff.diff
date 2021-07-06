@@ -1,0 +1,217 @@
+diff --git a/src/actions/editDashboard.js b/src/actions/editDashboard.js
+index dfce2d9e..91b58390 100644
+--- a/src/actions/editDashboard.js
++++ b/src/actions/editDashboard.js
+@@ -119,7 +119,7 @@ export const tSetDashboardItems = newItem => (dispatch, getState) => {
+     const columns = sGetLayoutColumns(getState())
+     const itemsWithNewShapes = getAutoItemShapes(prevItems, columns)
+ 
+-    console.log('itemsWithNewShapes', itemsWithNewShapes)
++    // console.log('itemsWithNewShapes', itemsWithNewShapes)
+ 
+     dispatch(acSetHideGrid(true))
+     dispatch(acUpdateDashboardItemShapes(itemsWithNewShapes))
+diff --git a/src/modules/gridUtil.js b/src/modules/gridUtil.js
+index d5052938..d9ec86b8 100644
+--- a/src/modules/gridUtil.js
++++ b/src/modules/gridUtil.js
+@@ -271,7 +271,9 @@ export const getDashboardItem = item => {
+     } else {
+         shape = NEW_ITEM_SHAPE
+     }
+-
++    if (itemPropName === 'reports') {
++        console.log('--reports', item.content)
++    }
+     return {
+         id,
+         type,
+diff --git a/src/pages/edit/ItemSelector/CategorizedMenuGroup.js b/src/pages/edit/ItemSelector/CategorizedMenuGroup.js
+index 3a93f40e..bee2a26e 100644
+--- a/src/pages/edit/ItemSelector/CategorizedMenuGroup.js
++++ b/src/pages/edit/ItemSelector/CategorizedMenuGroup.js
+@@ -11,11 +11,19 @@ import { categorizedItems, listItemTypes } from './selectableItems'
+ import { tAddListItemContent } from './actions'
+ import {
+     acAddDashboardItem,
++    acUpdateDashboardItem,
+     tSetDashboardItems,
+ } from '../../../actions/editDashboard'
+-import { getItemUrl, APP, VISUALIZATION } from '../../../modules/itemTypes'
++import {
++    getItemUrl,
++    APP,
++    VISUALIZATION,
++    itemTypeMap,
++} from '../../../modules/itemTypes'
+ 
+ import classes from './styles/CategorizedMenuGroup.module.css'
++import { sGetEditDashboardItems } from '../../../reducers/editDashboard'
++import { getDashboardItem } from '../../../modules/gridUtil'
+ 
+ const CategorizedMenuGroup = ({
+     type,
+@@ -24,30 +32,12 @@ const CategorizedMenuGroup = ({
+     hasMore,
+     // acAddDashboardItem,
+     onAddItem,
+-    tAddListItemContent,
++    // tAddListItemContent,
+     onChangeItemsLimit,
+ }) => {
+     const { baseUrl } = useConfig()
+     const [seeMore, setSeeMore] = useState(false)
+ 
+-    const addItem = item => () => {
+-        if (type === APP) {
+-            // acAddDashboardItem({ type, content: item.key })
+-            onAddItem({ type, content: item.key })
+-        } else {
+-            const newItem = {
+-                id: item.id,
+-                name: item.displayName || item.name,
+-            }
+-
+-            if (listItemTypes.includes(type)) {
+-                tAddListItemContent(type, newItem)
+-            } else {
+-                onAddItem({ type, content: newItem })
+-            }
+-        }
+-    }
+-
+     const toggleSeeMore = () => {
+         setSeeMore(!seeMore)
+         onChangeItemsLimit(type)
+@@ -64,7 +54,7 @@ const CategorizedMenuGroup = ({
+                         type={type}
+                         visType={type === VISUALIZATION ? item.type : type}
+                         name={item.displayName || item.name}
+-                        onInsert={addItem(item)}
++                        onInsert={() => onAddItem(type, item)}
+                         url={itemUrl}
+                     />
+                 )
+@@ -94,15 +84,67 @@ CategorizedMenuGroup.propTypes = {
+     type: PropTypes.oneOf(categorizedItems).isRequired,
+     onAddItem: PropTypes.func.isRequired,
+     onChangeItemsLimit: PropTypes.func.isRequired,
+-    acAddDashboardItem: PropTypes.func,
++    // acAddDashboardItem: PropTypes.func,
+     hasMore: PropTypes.bool,
+-    tAddListItemContent: PropTypes.func,
++    // tAddListItemContent: PropTypes.func,
+ }
+ 
+ export default connect(null, {
+     acAddDashboardItem,
+     tAddListItemContent,
+-    onAddItem: item => (dispatch, getState) => {
+-        dispatch(tSetDashboardItems(item))
++    onAddItem: (type, item) => (dispatch, getState) => {
++        let actionConfig
++        console.log('----------------')
++        console.log('TYPE', type)
++        if (type === APP) {
++            // acAddDashboardItem({ type, content: item.key })
++            // dispatch(tSetDashboardItems({ type, content: item.key }))
++            actionConfig = getDashboardItem({ type, content: item.key })
++        } else {
++            const newItem = {
++                id: item.id,
++                name: item.displayName || item.name,
++            }
++
++            if (listItemTypes.includes(type)) {
++                const listItemType = itemTypeMap[type].propName
++                const dashboardItems = sGetEditDashboardItems(getState())
++                const dashboardItemIndex = dashboardItems.findIndex(
++                    item => item.type === type
++                )
++                console.log('dashboardItems', dashboardItems)
++                console.log(
++                    'dashboardItemIndex',
++                    dashboardItemIndex,
++                    dashboardItemIndex > -1
++                )
++                console.log('itemTypeMap', itemTypeMap)
++                console.log('listItemType', listItemType)
++
++                let dashboardItem
++
++                // Reports/Resources/Users dashboard item type already present in dashboard
++                if (dashboardItemIndex > -1) {
++                    dashboardItem = dashboardItems[dashboardItemIndex]
++                    dashboardItem[listItemType].push(newItem)
++                    console.log('dashboardItem if > -1', dashboardItem)
++
++                    dispatch(acUpdateDashboardItem(dashboardItem))
++                } else {
++                    dashboardItem = {
++                        type: type,
++                        content: [newItem],
++                    }
++
++                    actionConfig = getDashboardItem(dashboardItem)
++                }
++            } else {
++                actionConfig = getDashboardItem({ type, content: newItem })
++            }
++        }
++
++        if (actionConfig) {
++            dispatch(tSetDashboardItems(actionConfig))
++        }
+     },
+ })(CategorizedMenuGroup)
+diff --git a/src/reducers/editDashboard.js b/src/reducers/editDashboard.js
+index 78625d82..7c797a6b 100644
+--- a/src/reducers/editDashboard.js
++++ b/src/reducers/editDashboard.js
+@@ -74,25 +74,27 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
+             })
+         }
+         case ADD_DASHBOARD_ITEM: {
+-            const item = getDashboardItem(action.value)
+-            console.log('item', item)
+-            console.log('state', state)
+-            const columns = getColumns(getLayout(state))
+-            console.log('columns', columns)
+-
+-            if (!item.position) {
+-                return update(state, {
+-                    dashboardItems: { $unshift: [item] },
+-                    isDirty: { $set: true },
+-                })
+-            }
+-
+-            return update(state, {
+-                dashboardItems: {
+-                    $splice: [[parseInt(item.position), 0, item]],
+-                },
+-                isDirty: { $set: true },
+-            })
++            console.log('ADD_DASHBOARD_ITEM', 'remove me')
++            return null
++            // const item = getDashboardItem(action.value)
++            // console.log('item', item)
++            // console.log('state', state)
++            // const columns = getColumns(getLayout(state))
++            // console.log('columns', columns)
++
++            // if (!item.position) {
++            //     return update(state, {
++            //         dashboardItems: { $unshift: [item] },
++            //         isDirty: { $set: true },
++            //     })
++            // }
++
++            // return update(state, {
++            //     dashboardItems: {
++            //         $splice: [[parseInt(item.position), 0, item]],
++            //     },
++            //     isDirty: { $set: true },
++            // })
+         }
+         case REMOVE_DASHBOARD_ITEM: {
+             const idToRemove = action.value

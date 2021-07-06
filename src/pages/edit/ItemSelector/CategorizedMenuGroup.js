@@ -94,7 +94,7 @@ CategorizedMenuGroup.propTypes = {
     type: PropTypes.oneOf(categorizedItems).isRequired,
     onAddItem: PropTypes.func.isRequired,
     onChangeItemsLimit: PropTypes.func.isRequired,
-    acAddDashboardItem: PropTypes.func,
+    // acAddDashboardItem: PropTypes.func,
     hasMore: PropTypes.bool,
     tAddListItemContent: PropTypes.func,
 }
@@ -102,7 +102,7 @@ CategorizedMenuGroup.propTypes = {
 export default connect(null, {
     acAddDashboardItem,
     tAddListItemContent,
-    onAddItem: item => (dispatch, getState) => {
+    onAddItem: item => dispatch => {
         dispatch(tSetDashboardItems(item))
     },
 })(CategorizedMenuGroup)

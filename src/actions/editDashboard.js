@@ -119,7 +119,7 @@ export const tSetDashboardItems = newItem => (dispatch, getState) => {
     const columns = sGetLayoutColumns(getState())
     const itemsWithNewShapes = getAutoItemShapes(prevItems, columns)
 
-    console.log('itemsWithNewShapes', itemsWithNewShapes)
+    console.log('tSetDashboardItems', 'itemsWithNewShapes', itemsWithNewShapes)
 
     dispatch(acSetHideGrid(true))
     dispatch(acUpdateDashboardItemShapes(itemsWithNewShapes))
