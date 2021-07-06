@@ -194,10 +194,6 @@ export class Item extends Component {
             case VISUALIZATION:
             case CHART:
             case REPORT_TABLE: {
-                const filterVersion = this.getFilterVersion(
-                    this.props.itemFilters
-                )
-
                 return (
                     <>
                         {!this.state.pluginIsLoaded && (
@@ -215,9 +211,6 @@ export class Item extends Component {
                             onError={this.onError}
                             forDashboard={true}
                             style={props.style}
-                            filterVersion={filterVersion}
-                            item={this.props.item}
-                            dashboardMode={this.props.dashboardMode}
                         />
                     </>
                 )
