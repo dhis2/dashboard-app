@@ -77,28 +77,17 @@ export class Item extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log(
-            `CDU too pluginLoaded: ${
-                prevState.pluginIsLoaded
-            }, visSame: ${prevProps.visualization ===
-                this.props
-                    .visualization}, filtersSame: ${prevProps.itemFilters ===
-                this.props.itemFilters}`
-        )
-
         if (
             prevProps.visualization !== this.props.visualization ||
             prevProps.itemFilters !== this.props.itemFilters
         ) {
             if (this.state.isError) {
-                console.log('CDU set isError=false')
                 this.setState({ isError: false })
             }
 
             if (prevState.pluginIsLoaded) {
                 // if the visualization or filters has changed, then mark pluginLoaded as false
                 // since a different plugin may be needed
-                console.log('CDU set pluginLoaded=false')
                 this.setState({
                     pluginIsLoaded: false,
                 })
@@ -149,15 +138,11 @@ export class Item extends Component {
 
     getFilterVersion = memoizeOne(() => uniqueId())
 
-    onError = () => {
-        this.setState({ isError: true })
-    }
+    onError = () => this.setState({ isError: true })
 
     pluginCredentials = null
 
     getPluginComponent = () => {
-        console.log('render, isError? ', this.state.isError)
-
         const calculatedHeight =
             this.props.item.originalHeight -
             this.headerRef.current.clientHeight -
