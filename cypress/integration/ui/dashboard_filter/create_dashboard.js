@@ -42,8 +42,8 @@ When('I add a MAP and a CHART and save', () => {
 
 Then('the dashboard displays in view mode', () => {
     // check for a map canvas and a highcharts element
-    cy.get(chartSel).should('be.visible')
-    cy.get(mapSel).should('be.visible')
+    cy.get(chartSel, EXTENDED_TIMEOUT).should('be.visible')
+    cy.get(mapSel, EXTENDED_TIMEOUT).should('be.visible')
 })
 
 Given('I open existing dashboard', () => {
