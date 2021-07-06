@@ -10,7 +10,7 @@ import ContentMenuItem from './ContentMenuItem'
 import { categorizedItems, listItemTypes } from './selectableItems'
 import { tAddListItemContent } from './actions'
 import {
-    acAddDashboardItem,
+    // acAddDashboardItem,
     tSetDashboardItems,
 } from '../../../actions/editDashboard'
 import { getItemUrl, APP, VISUALIZATION } from '../../../modules/itemTypes'
@@ -100,7 +100,7 @@ CategorizedMenuGroup.propTypes = {
 }
 
 export default connect(null, {
-    acAddDashboardItem,
+    // acAddDashboardItem,
     tAddListItemContent,
     onAddItem: item => dispatch => {
         dispatch(tSetDashboardItems(item))
