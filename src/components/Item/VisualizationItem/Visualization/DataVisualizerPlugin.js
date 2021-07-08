@@ -34,10 +34,12 @@ const DataVisualizerPlugin = ({
 
     if (error) {
         return (
-            <VisualizationErrorMessage
-                item={item}
-                dashboardMode={dashboardMode}
-            />
+            <div style={style}>
+                <VisualizationErrorMessage
+                    item={item}
+                    dashboardMode={dashboardMode}
+                />
+            </div>
         )
     }
 
