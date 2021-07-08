@@ -1134,7 +1134,7 @@
     js-levenshtein "^1.1.3"
     semver "^5.5.0"
 
-"@babel/preset-env@^7.12.1", "@babel/preset-env@^7.8.4", "@babel/preset-env@^7.9.0":
+"@babel/preset-env@^7.12.1", "@babel/preset-env@^7.14.7", "@babel/preset-env@^7.8.4":
   version "7.14.7"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.14.7.tgz#5c70b22d4c2d893b03d8c886a5c17422502b932a"
   integrity sha512-itOGqCKLsSUl0Y+1nSfhbuuOlTs0MJk2Iv7iSH+XT/mR8U1zRLO7NjWlYXB47yhK4J/7j+HYty/EhFZDYKa/VA==
@@ -2082,10 +2082,10 @@
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
 
-"@dhis2/app-adapter@7.0.1":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-7.0.1.tgz#96c3204c1ada4b0104a12346d1ea00cc3e2bff01"
-  integrity sha512-rqxIAUPHITsx7tF8D3AI2jOdqtLsTqzVDNmjh0z5jDJ9pEu0h3CR2ml72Y1Su+Mc8KHWzzwTKiEtW/2cER/C5A==
+"@dhis2/app-adapter@7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-7.1.0.tgz#75bf2f379ca490fb6ff0e36765d9f4cde533ffcf"
+  integrity sha512-xi/dDXY/s/KqAFhvkJcwXh/tPcH4qZlKizDtJyHrwFGGP71pdMrEg4WBc/5gAQg1m6yziS+VoCyL43KOzVJ8WA==
   dependencies:
     moment "^2.24.0"
 
@@ -2120,12 +2120,12 @@
   resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-2.8.0.tgz#9cd347127968cb6f3c8a4ab0fc6699ea7058f835"
   integrity sha512-5doyL4bxRMdMXY4RtWo2O3NVGwSDOSUY3hGPXaF1TeFWAqujlPTx17uDw6wEelN6LaryAnVwId2Ep3FOV8v5MA==
 
-"@dhis2/app-shell@7.0.1":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-7.0.1.tgz#9a8652df38b78b6bedafba88098dce21e0957de5"
-  integrity sha512-OvO4/PZNxAUgwuRHxkcreOcr4mvQyngNgnuLQJSOx3vWSuaucptxu5FzhCndi3vosLd6YKb0vxHyjvuDBRcwxw==
+"@dhis2/app-shell@7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-7.1.0.tgz#676c56f13de050be0236e1a52035ba0d731febd9"
+  integrity sha512-4USqo/9pQ0YtQLnKa+pFA5tFK+QBYaHHfp+EVx8cYQ2sO0bo0mg2mrPZNPibJ5IT3COylwOBm73ZKkXU1Jwsyw==
   dependencies:
-    "@dhis2/app-adapter" "7.0.1"
+    "@dhis2/app-adapter" "7.1.0"
     "@dhis2/app-runtime" "^2.8.0"
     "@dhis2/d2-i18n" "^1.1.0"
     "@dhis2/ui" "^6.5.3"
@@ -2140,19 +2140,19 @@
     typeface-roboto "^0.0.75"
     typescript "^3.6.3"
 
-"@dhis2/cli-app-scripts@^7.0.1":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-7.0.1.tgz#ea3d231f5dd168606e2e23262d955338e37762f8"
-  integrity sha512-298AkcYzBe9wwinM0brVT0hBX2Gwrtwkpm7XY/ipceuQtYAodWGmzOXgVj4gIpRre7zWszdq4HoKoRhxRGo0KA==
+"@dhis2/cli-app-scripts@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-7.1.0.tgz#0a526cb260ecdae76c2d8c4f6d49599dca6c9114"
+  integrity sha512-yhVAgNiSsCFz51hRiA8k7CCGuvXmXiTqBqhv+axgcoxTQRIsJm1rteiTHVuig97GxAjolhxUct3Y16GL4Vd70A==
   dependencies:
     "@babel/core" "^7.6.2"
     "@babel/plugin-proposal-class-properties" "^7.8.3"
     "@babel/plugin-proposal-nullish-coalescing-operator" "^7.8.3"
     "@babel/plugin-proposal-optional-chaining" "^7.8.3"
-    "@babel/preset-env" "^7.9.0"
+    "@babel/preset-env" "^7.14.7"
     "@babel/preset-react" "^7.0.0"
     "@babel/preset-typescript" "^7.6.0"
-    "@dhis2/app-shell" "7.0.1"
+    "@dhis2/app-shell" "7.1.0"
     "@dhis2/cli-helpers-engine" "^3.0.0"
     archiver "^3.1.1"
     axios "^0.20.0"
