@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Suspense, useState, useEffect, useCallback } from 'react'
 import { useUserSettings } from '../../../UserSettingsProvider'
 import LoadingMask from './LoadingMask'
+import classes from './styles/DataVisualizerPlugin.module.css'
 import VisualizationErrorMessage from './VisualizationErrorMessage'
 
 const VisualizationPlugin = React.lazy(() =>
@@ -44,14 +45,16 @@ const DataVisualizerPlugin = ({
     return (
         <Suspense fallback={<div />}>
             {!visualizationLoaded && <LoadingMask style={style} />}
-            <VisualizationPlugin
-                visualization={visualization}
-                forDashboard={true}
-                userSettings={userSettings}
-                style={style}
-                onLoadingComplete={onLoadingComplete}
-                onError={onError}
-            />
+            <div className={classes.wrapper}>
+                <VisualizationPlugin
+                    visualization={visualization}
+                    forDashboard={true}
+                    userSettings={userSettings}
+                    style={style}
+                    onLoadingComplete={onLoadingComplete}
+                    onError={onError}
+                />
+            </div>
         </Suspense>
     )
 }
