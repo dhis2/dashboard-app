@@ -1,11 +1,11 @@
 {
     "name": "dashboard-app",
-    "version": "31.16.4",
+    "version": "31.17.0",
     "description": "DHIS2 Dashboard app",
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/analytics": "^19.0.1",
+        "@dhis2/analytics": "^20.0.2",
         "@dhis2/app-runtime": "^2.8.0",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/d2-i18n": "^1.1.0",
@@ -15,8 +15,8 @@
         "@dhis2/d2-ui-rich-text": "^7.3.1",
         "@dhis2/d2-ui-sharing-dialog": "^7.3.1",
         "@dhis2/d2-ui-translation-dialog": "^7.3.1",
-        "@dhis2/data-visualizer-plugin": "^37.5.5",
-        "@dhis2/ui": "^6.10.4",
+        "@dhis2/data-visualizer-plugin": "^37.6.1",
+        "@dhis2/ui": "^6.10.5",
         "classnames": "^2.3.1",
         "d2": "^31.10.0",
         "d2-utilizr": "^0.2.16",
@@ -51,7 +51,7 @@
         "cy:capture": "cypress_dhis2_api_stub_mode=CAPTURE yarn d2-utils-cypress run --appStart 'yarn cypress:start'"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^7.0.1",
+        "@dhis2/cli-app-scripts": "^7.1.0",
         "@dhis2/cli-style": "^9.0.1",
         "@dhis2/cli-utils-cypress": "^7.0.1",
         "@dhis2/cypress-commands": "^7.0.1",
