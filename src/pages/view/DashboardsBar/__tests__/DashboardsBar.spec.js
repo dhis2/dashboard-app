@@ -26,7 +26,7 @@ const dashboards = {
 }
 
 jest.mock('../../../../modules/useOnlineStatus', () => ({
-    useOnlineStatus: () => ({ isOnline: true }),
+    useOnlineStatus: () => ({ online: true }),
 }))
 
 test('renders a DashboardsBar with minimum height', () => {

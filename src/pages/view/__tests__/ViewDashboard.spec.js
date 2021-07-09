@@ -9,7 +9,7 @@ import { apiPostDataStatistics } from '../../../api/dataStatistics'
 import { apiFetchDashboard } from '../../../api/fetchDashboard'
 
 jest.mock('../../../modules/useOnlineStatus', () => ({
-    useOnlineStatus: jest.fn(() => ({ isOnline: true })),
+    useOnlineStatus: jest.fn(() => ({ online: true })),
 }))
 
 jest.mock('../../../api/fetchDashboard')

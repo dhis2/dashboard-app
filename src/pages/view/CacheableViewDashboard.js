@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 
 import i18n from '@dhis2/d2-i18n'
 import isEmpty from 'lodash/isEmpty'
-// import { CacheableSection } from '@dhis2/app-service-offline'
+import { CacheableSection } from '@dhis2/app-service-offline'
 
 import DashboardsBar from './DashboardsBar/DashboardsBar'
-// import ViewDashboard from './ViewDashboard'
+import ViewDashboard from './ViewDashboard'
 import NoContentMessage from '../../components/NoContentMessage'
 import LoadingMask from '../../components/LoadingMask'
 import {
@@ -52,10 +52,9 @@ const CacheableViewDashboard = ({
     }
 
     return (
-        // <CacheableSection sectionId={id} loadingMask={<LoadingMask />}>
-        <ViewDashboard id={id} username={username} />
-        // <div>Hey Jen2</div>
-        // </CacheableSection>
+        <CacheableSection id={id} loadingMask={<LoadingMask />}>
+            <ViewDashboard id={id} username={username} />
+        </CacheableSection>
     )
 }
 

@@ -9,18 +9,18 @@ import {
     EVENT_CHART,
 } from '../../../../../modules/itemTypes'
 
-import { useOnlineStatus } from '../../../../../modules/useOnlineStatus'
+import { useOnlineStatus } from '@dhis2/app-service-offline'
 
-jest.mock('../../../../../modules/useOnlineStatus', () => ({
-    useOnlineStatus: jest.fn(() => ({ isOnline: true })),
+jest.mock('@dhis2/app-service-offline', () => ({
+    useOnlineStatus: jest.fn(() => ({ online: true, offline: false })),
 }))
 
 const offline = {
-    isOnline: false,
+    online: false,
 }
 
 const online = {
-    isOnline: true,
+    online: true,
 }
 
 const defaultProps = {

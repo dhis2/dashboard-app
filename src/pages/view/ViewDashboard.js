@@ -38,11 +38,10 @@ const ViewDashboard = props => {
     const [controlbarExpanded, setControlbarExpanded] = useState(false)
     const [loadingMessage, setLoadingMessage] = useState(null)
     const [selectedIsLoaded, setSelectedIsLoaded] = useState(false)
-    const { isOnline } = useOnlineStatus()
-    const { isCached } = useCacheableSection(props.id)
-    const recordingState = false
+    const { online } = useOnlineStatus()
+    const { isCached, recordingState } = useCacheableSection(props.id)
 
-    const dashboardIsAvailable = isOnline || !!isCached
+    const dashboardIsAvailable = online || isCached
 
     useEffect(() => {
         setHeaderbarVisible(true)
@@ -100,7 +99,7 @@ const ViewDashboard = props => {
             setSelectedIsLoaded(false)
             props.setSelectedAsOffline(props.id, props.username)
         }
-    }, [props.id, recordingState, isOnline, props.isDifferentDashboard])
+    }, [props.id, recordingState, online, props.isDifferentDashboard])
 
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
 

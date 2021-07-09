@@ -4,10 +4,9 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
-import { ButtonStrip, Button as UiButton } from '@dhis2/ui'
+import { ButtonStrip } from '@dhis2/ui'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-import { useOnlineStatus } from '@dhis2/app-service-offline'
 
 import Button from '../../components/ButtonWithTooltip'
 import FilterSettingsDialog from './FilterSettingsDialog'
@@ -42,7 +41,6 @@ const deleteFailedMessage = i18n.t(
 const EditBar = ({ dashboard, ...props }) => {
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
-    const { isOnline, goOffline, goOnline } = useOnlineStatus()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
     const [filterSettingsDlgIsOpen, setFilterSettingsDlgIsOpen] = useState(
         false
@@ -235,30 +233,6 @@ const EditBar = ({ dashboard, ...props }) => {
                     >
                         {discardBtnText}
                     </Button>
-                </div>
-                <div
-                    style={{
-                        position: 'absolute',
-                        top: 0,
-                        right: '180px',
-                    }}
-                >
-                    <UiButton
-                        className={isOnline ? classes.online : classes.offline}
-                        dense
-                        onClick={goOffline}
-                        dataTest={'go-offline'}
-                    >
-                        Go off
-                    </UiButton>
-                    <UiButton
-                        className={isOnline ? classes.online : classes.offline}
-                        dense
-                        onClick={goOnline}
-                        dataTest={'go-online'}
-                    >
-                        Go on
-                    </UiButton>
                 </div>
             </div>
             {dashboard.access?.update && filterSettingsDialog()}

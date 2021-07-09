@@ -38,10 +38,12 @@
     },
     "resolutions": {
         "@dhis2/app-service-offline": "file:../app-runtime/services/offline",
-        "@dhis2/cli-app-scripts": "file:../app-platform/cli"
+        "@dhis2/cli-app-scripts": "file:../app-platform/cli",
+        "@dhis2/app-adapter": "file:../app-platform/adapter",
+        "@dhis2/app-shell": "file:../app-platform/shell"
     },
     "scripts": {
-        "start": "yarn build && yarn serve",
+         "start": "d2-app-scripts start",
         "serve": "serve -l 3000 build/app",
         "coverage": "npm test -- --coverage",
         "lint": "d2-style js check || d2-style text check",

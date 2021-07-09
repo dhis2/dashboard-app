@@ -10,9 +10,9 @@ const ButtonWithTooltip = ({
     children,
     ...rest
 }) => {
-    const { isOnline } = useOnlineStatus()
+    const { online } = useOnlineStatus()
 
-    const notAllowed = disabledWhenOffline && !isOnline
+    const notAllowed = disabledWhenOffline && !online
 
     return (
         <Tooltip

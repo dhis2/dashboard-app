@@ -16,11 +16,11 @@ import {
 import classes from './styles/FilterBar.module.css'
 
 const FilterBar = ({ filters, removeFilter, removeAllFilters }) => {
-    const { isOnline } = useOnlineStatus()
+    const { online } = useOnlineStatus()
     const [dialogIsOpen, setDialogIsOpen] = useState(false)
 
     const onRemoveFilter = filterId => {
-        if (!isOnline && filters.length > 1) {
+        if (!online && filters.length > 1) {
             setDialogIsOpen(true)
         } else {
             removeFilter(filterId)

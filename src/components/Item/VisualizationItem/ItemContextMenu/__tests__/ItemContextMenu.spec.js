@@ -11,7 +11,7 @@ jest.mock('../../../../SystemSettingsProvider', () => ({
 }))
 
 jest.mock('../../../../../modules/useOnlineStatus', () => ({
-    useOnlineStatus: jest.fn(() => ({ isOnline: true })),
+    useOnlineStatus: jest.fn(() => ({ online: true })),
 }))
 
 const mockSystemSettingsDefault = {

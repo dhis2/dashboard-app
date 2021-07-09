@@ -14,10 +14,10 @@ import { sGetSelectedId } from '../../../reducers/selected'
 import classes from './styles/FilterBadge.module.css'
 
 const FilterBadge = ({ dashboardId, filter, openFilterModal, onRemove }) => {
-    const { isOnline } = useOnlineStatus()
+    const { online } = useOnlineStatus()
     const { isCached } = useCacheableSection(dashboardId)
 
-    const notAllowed = !isCached && !isOnline
+    const notAllowed = !isCached && !online
 
     const filterText = `${filter.name}: ${
         filter.values.length > 1

@@ -5,15 +5,15 @@ import { Tooltip, IconStar24, IconStarFilled24, colors } from '@dhis2/ui'
 
 import classes from './styles/StarDashboardButton.module.css'
 
-const StarDashboardButton = ({ starred, isOnline, onClick }) => {
+const StarDashboardButton = ({ starred, online, onClick }) => {
     const StarIcon = starred ? IconStarFilled24 : IconStar24
 
     const handleOnClick = () => {
-        isOnline && onClick()
+        online && onClick()
     }
 
     let tooltipContent
-    if (isOnline) {
+    if (online) {
         if (starred) {
             tooltipContent = i18n.t('Unstar dashboard')
         } else {
@@ -32,7 +32,7 @@ const StarDashboardButton = ({ starred, isOnline, onClick }) => {
     return (
         <button
             className={classes.star}
-            disabled={!isOnline}
+            disabled={!online}
             onClick={handleOnClick}
             data-test="button-star-dashboard"
         >
@@ -50,7 +50,7 @@ const StarDashboardButton = ({ starred, isOnline, onClick }) => {
 }
 
 StarDashboardButton.propTypes = {
-    isOnline: PropTypes.bool,
+    online: PropTypes.bool,
     starred: PropTypes.bool,
     onClick: PropTypes.func,
 }

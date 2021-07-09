@@ -27,7 +27,7 @@ const Content = ({
     onSearchClicked,
 }) => {
     const [redirectUrl, setRedirectUrl] = useState(null)
-    const { isOnline } = useOnlineStatus()
+    const { online } = useOnlineStatus()
 
     const onSelectDashboard = () => {
         const id = getFilteredDashboards(dashboards, filterText)[0]?.id
@@ -37,7 +37,7 @@ const Content = ({
     }
 
     const enterNewMode = () => {
-        if (isOnline) {
+        if (online) {
             setRedirectUrl('/new')
         }
     }
@@ -68,7 +68,7 @@ const Content = ({
         <span className={classes.controlsLarge}>
             <Tooltip
                 content={
-                    isOnline
+                    online
                         ? i18n.t('Create new dashboard')
                         : i18n.t('Cannot create a dashboard while offline')
                 }
@@ -77,13 +77,13 @@ const Content = ({
             >
                 <Button
                     className={classes.newButton}
-                    disabled={!isOnline}
+                    disabled={!online}
                     small
                     icon={<IconAdd24 />}
                     onClick={enterNewMode}
                     dataTest="new-button"
                 />
-                {!isOnline && <ComponentCover />}
+                {!online && <ComponentCover />}
             </Tooltip>
             <Filter
                 onKeypressEnter={onSelectDashboard}

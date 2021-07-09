@@ -5,7 +5,7 @@ import { InputField, Tooltip } from '@dhis2/ui'
 import { useOnlineStatus } from '@dhis2/app-service-offline'
 
 const ItemSearchField = props => {
-    const { isOnline } = useOnlineStatus()
+    const { online } = useOnlineStatus()
 
     const getInput = () => (
         <InputField
@@ -16,11 +16,11 @@ const ItemSearchField = props => {
             onFocus={props.onFocus}
             value={props.value}
             dataTest="item-search"
-            disabled={!isOnline}
+            disabled={!online}
         />
     )
 
-    if (isOnline) {
+    if (online) {
         return <>{getInput()}</>
     }
 

@@ -12,7 +12,7 @@ import classes from './styles/ItemFooter.module.css'
 
 const ItemFooter = props => {
     const { d2 } = useD2()
-    const { isOnline } = useOnlineStatus()
+    const { online } = useOnlineStatus()
 
     return (
         <div data-test="dashboarditem-footer" style={{ position: 'relative' }}>
@@ -29,7 +29,7 @@ const ItemFooter = props => {
                         type={props.item.type.toLowerCase()}
                         id={getVisualizationId(props.item)}
                         appName="dashboard"
-                        isOffline={!isOnline}
+                        isOffline={!online}
                     />
                 </FatalErrorBoundary>
             </div>
