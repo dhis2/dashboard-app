@@ -1,8 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import { useOnlineStatus } from '@dhis2/app-service-offline'
 import i18n from '@dhis2/d2-i18n'
 import { MenuItem, Tooltip } from '@dhis2/ui'
-import { useOnlineStatus } from '@dhis2/app-service-offline'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const MenuItemWithTooltip = ({
     disabledWhenOffline,

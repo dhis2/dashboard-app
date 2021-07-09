@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import cx from 'classnames'
-
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
+import { connect } from 'react-redux'
 import { acUpdateDashboardLayout } from '../../actions/editDashboard'
 import { Item } from '../../components/Item/Item'
+import NoContentMessage from '../../components/NoContentMessage'
+import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
+import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
+import { EDIT } from '../../modules/dashboardModes'
+import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName'
 import {
     GRID_ROW_HEIGHT_PX,
     GRID_COMPACT_TYPE,
@@ -18,13 +22,7 @@ import {
 } from '../../modules/gridUtil'
 import { getBreakpoint } from '../../modules/smallScreen'
 import { orArray } from '../../modules/util'
-import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName'
-import NoContentMessage from '../../components/NoContentMessage'
 import { sGetEditDashboardItems } from '../../reducers/editDashboard'
-import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
-import { EDIT } from '../../modules/dashboardModes'
-import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
-
 import classes from './styles/ItemGrid.module.css'
 
 const EditItemGrid = ({ dashboardItems, acUpdateDashboardLayout }) => {

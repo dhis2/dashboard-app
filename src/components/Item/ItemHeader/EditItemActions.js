@@ -1,10 +1,8 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import { connect } from 'react-redux'
-
-import DeleteItemButton from './DeleteItemButton'
 import { acRemoveDashboardItem } from '../../../actions/editDashboard'
-
+import DeleteItemButton from './DeleteItemButton'
 import classes from './styles/ItemHeader.module.css'
 
 const EditItemActions = ({ itemId, acRemoveDashboardItem }) => {

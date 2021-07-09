@@ -1,20 +1,20 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
 import {
     gridItemSel,
     chartSel,
     chartSubtitleSel,
 } from '../../../elements/dashboardItem'
 import {
-    dashboardChipSel,
-    dashboardTitleSel,
-} from '../../../elements/viewDashboard'
-import {
     confirmActionDialogSel,
     titleInputSel,
     itemMenuSel,
     clickEditActionButton,
 } from '../../../elements/editDashboard'
+import {
+    dashboardChipSel,
+    dashboardTitleSel,
+} from '../../../elements/viewDashboard'
+import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 // the length of the root route of the app (after the slash): #/
 const ROOT_ROUTE_LENGTH = 0

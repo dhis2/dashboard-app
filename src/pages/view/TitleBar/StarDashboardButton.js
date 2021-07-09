@@ -1,8 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { Tooltip, IconStar24, IconStarFilled24, colors } from '@dhis2/ui'
-
+import PropTypes from 'prop-types'
+import React from 'react'
 import classes from './styles/StarDashboardButton.module.css'
 
 const StarDashboardButton = ({ starred, online, onClick }) => {

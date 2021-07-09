@@ -1,5 +1,5 @@
-import React from 'react'
 import { colors } from '@dhis2/ui'
+import React from 'react'
 
 export const Warning = () => (
     <svg

@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import debounce from 'lodash/debounce'
 import pick from 'lodash/pick'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 
 const defaultDebounceMs = 100
 const defaultBufferFactor = 0.25

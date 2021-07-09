@@ -1,23 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import cx from 'classnames'
-import {
-    Chip as UiChip,
-    colors,
-    IconStarFilled24,
-    CircularLoader,
-} from '@dhis2/ui'
-import { Link } from 'react-router-dom'
-import debounce from 'lodash/debounce'
 import { useCacheableSection } from '@dhis2/app-service-offline'
-
-import { OfflineSaved } from './assets/icons'
-
-import { sGetCacheVersion } from '../../../reducers/cacheVersion'
-
+import { Chip as UiChip, colors, IconStarFilled24 } from '@dhis2/ui'
+import cx from 'classnames'
+import debounce from 'lodash/debounce'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
-
+import { sGetCacheVersion } from '../../../reducers/cacheVersion'
+import { OfflineSaved } from './assets/icons'
 import classes from './styles/Chip.module.css'
 
 const Chip = ({

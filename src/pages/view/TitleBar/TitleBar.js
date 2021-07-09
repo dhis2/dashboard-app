@@ -1,14 +1,11 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-
-import ActionsBar from './ActionsBar'
-import LastUpdatedTag from './LastUpdatedTag'
-import Description from './Description'
-
 import { sGetSelected } from '../../../reducers/selected'
 import { sGetShowDescription } from '../../../reducers/showDescription'
-
+import ActionsBar from './ActionsBar'
+import Description from './Description'
+import LastUpdatedTag from './LastUpdatedTag'
 import classes from './styles/TitleBar.module.css'
 
 const ViewTitleBar = ({

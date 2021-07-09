@@ -27,11 +27,11 @@ exports[`NewDashboard renders dashboard 1`] = `
     class="notice"
   >
     <div
-      class="jsx-761413583 centered-content top"
+      class="jsx-498096601 center top"
       data-test="dhis2-uicore-centeredcontent"
     >
       <div
-        class="jsx-761413583 centered-inner-content"
+        class="jsx-498096601 center-inner-content"
       >
         <div
           class="noticeContainer"
@@ -41,16 +41,19 @@ exports[`NewDashboard renders dashboard 1`] = `
             data-test="dhis2-uicore-noticebox"
           >
             <div
+              class="jsx-3231412310"
               data-test="dhis2-uicore-noticebox-icon"
             >
               <svg
-                class="jsx-884574500 jsx-1769496071"
-                viewBox="0 0 48 48"
+                color="#e56408"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  class="jsx-884574500"
-                  d="M2 42h44L24 4 2 42zm24-6h-4v-4h4v4zm0-8h-4v-8h4v8z"
+                  d="M12.847 2.794l.056.102 8.416 17.674a1 1 0 01-.786 1.423l-.117.007H3.584a1 1 0 01-.947-1.322l.044-.108 8.416-17.674a1 1 0 011.75-.102zM12 18a1 1 0 100 2 1 1 0 000-2zm1-9h-2v7h2z"
+                  fill="currentColor"
                 />
               </svg>
             </div>
@@ -97,11 +100,11 @@ exports[`NewDashboard renders print preview 1`] = `
     class="notice"
   >
     <div
-      class="jsx-761413583 centered-content top"
+      class="jsx-498096601 center top"
       data-test="dhis2-uicore-centeredcontent"
     >
       <div
-        class="jsx-761413583 centered-inner-content"
+        class="jsx-498096601 center-inner-content"
       >
         <div
           class="noticeContainer"
@@ -111,16 +114,19 @@ exports[`NewDashboard renders print preview 1`] = `
             data-test="dhis2-uicore-noticebox"
           >
             <div
+              class="jsx-3231412310"
               data-test="dhis2-uicore-noticebox-icon"
             >
               <svg
-                class="jsx-884574500 jsx-1769496071"
-                viewBox="0 0 48 48"
+                color="#e56408"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  class="jsx-884574500"
-                  d="M2 42h44L24 4 2 42zm24-6h-4v-4h4v4zm0-8h-4v-8h4v8z"
+                  d="M12.847 2.794l.056.102 8.416 17.674a1 1 0 01-.786 1.423l-.117.007H3.584a1 1 0 01-.947-1.322l.044-.108 8.416-17.674a1 1 0 011.75-.102zM12 18a1 1 0 100 2 1 1 0 000-2zm1-9h-2v7h2z"
+                  fill="currentColor"
                 />
               </svg>
             </div>

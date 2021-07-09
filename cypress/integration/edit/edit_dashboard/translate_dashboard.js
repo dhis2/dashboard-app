@@ -1,13 +1,12 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
-import { getApiBaseUrl } from '../../../support/server/utils'
-
+import { clickEditActionButton } from '../../../elements/editDashboard'
 import {
     dashboardTitleSel,
     dashboardDescriptionSel,
     clickViewActionButton,
 } from '../../../elements/viewDashboard'
-import { clickEditActionButton } from '../../../elements/editDashboard'
+import { getApiBaseUrl } from '../../../support/server/utils'
+import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 let norwegianTitle = ''
 let norwegianDesc = ''

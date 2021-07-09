@@ -1,6 +1,6 @@
-import React from 'react'
+import { useOnlineStatus } from '@dhis2/app-service-offline'
 import { render } from '@testing-library/react'
-import ViewAsMenuItems from '../ViewAsMenuItems'
+import React from 'react'
 import {
     REPORT_TABLE,
     MAP,
@@ -8,8 +8,7 @@ import {
     EVENT_REPORT,
     EVENT_CHART,
 } from '../../../../../modules/itemTypes'
-
-import { useOnlineStatus } from '@dhis2/app-service-offline'
+import ViewAsMenuItems from '../ViewAsMenuItems'
 
 jest.mock('@dhis2/app-service-offline', () => ({
     useOnlineStatus: jest.fn(() => ({ online: true, offline: false })),

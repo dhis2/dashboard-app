@@ -1,20 +1,17 @@
+import { useOnlineStatus } from '@dhis2/app-service-offline'
+import i18n from '@dhis2/d2-i18n'
+import { Button, ComponentCover, Tooltip, IconAdd24 } from '@dhis2/ui'
+import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
-import cx from 'classnames'
 import { Redirect, withRouter } from 'react-router-dom'
-import { Button, Tooltip, ComponentCover, IconAdd24 } from '@dhis2/ui'
-import { useOnlineStatus } from '@dhis2/app-service-offline'
-
-import Chip from './Chip'
-import Filter from './Filter'
-import { getFilteredDashboards } from './getFilteredDashboards'
-
 import { sGetAllDashboards } from '../../../reducers/dashboards'
 import { sGetDashboardsFilter } from '../../../reducers/dashboardsFilter'
 import { sGetSelectedId } from '../../../reducers/selected'
-
+import Chip from './Chip'
+import Filter from './Filter'
+import { getFilteredDashboards } from './getFilteredDashboards'
 import classes from './styles/Content.module.css'
 
 const Content = ({

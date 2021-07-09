@@ -1,23 +1,20 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import isEmpty from 'lodash/isEmpty'
-import i18n from '@dhis2/d2-i18n'
 import { DimensionsPanel } from '@dhis2/analytics'
 import { useOnlineStatus } from '@dhis2/app-service-offline'
+import i18n from '@dhis2/d2-i18n'
 import { Card, colors, IconFilter24 } from '@dhis2/ui'
-
-import FilterDialog from './FilterDialog'
-import { sGetActiveModalDimension } from '../../../reducers/activeModalDimension'
-import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
-
+import isEmpty from 'lodash/isEmpty'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import {
     acClearActiveModalDimension,
     acSetActiveModalDimension,
 } from '../../../actions/activeModalDimension'
+import DropdownButton from '../../../components/DropdownButton/DropdownButton'
 import useDimensions from '../../../modules/useDimensions'
-import { DropdownButton } from '../../../components/DropdownButton'
-
+import { sGetActiveModalDimension } from '../../../reducers/activeModalDimension'
+import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
+import FilterDialog from './FilterDialog'
 import classes from './styles/FilterSelector.module.css'
 
 const FilterSelector = props => {

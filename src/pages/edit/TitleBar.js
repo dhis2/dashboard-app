@@ -1,17 +1,15 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { InputField, TextAreaField } from '@dhis2/ui'
-
-import ItemSelector from './ItemSelector/ItemSelector'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
 import {
     acSetDashboardTitle,
     acSetDashboardDescription,
 } from '../../actions/editDashboard'
 import { orObject } from '../../modules/util'
 import { sGetEditDashboardRoot } from '../../reducers/editDashboard'
-
+import ItemSelector from './ItemSelector/ItemSelector'
 import classes from './styles/TitleBar.module.css'
 
 const EditTitleBar = ({

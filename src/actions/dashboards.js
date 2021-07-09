@@ -1,10 +1,10 @@
+import { apiFetchDashboards } from '../api/fetchAllDashboards'
+import { arrayToIdMap } from '../modules/util'
 import {
     SET_DASHBOARDS,
     ADD_DASHBOARDS,
     SET_DASHBOARD_STARRED,
 } from '../reducers/dashboards'
-import { apiFetchDashboards } from '../api/fetchAllDashboards'
-import { arrayToIdMap } from '../modules/util'
 
 // actions
 
@@ -26,11 +26,8 @@ export const acSetDashboardStarred = (id, isStarred) => ({
 
 // thunks
 
-export const tFetchDashboards = () => async (
-    dispatch,
-    getState,
-    dataEngine
-) => {
-    const dashboards = await apiFetchDashboards(dataEngine)
-    return dispatch(acSetDashboards(dashboards))
-}
+export const tFetchDashboards =
+    () => async (dispatch, getState, dataEngine) => {
+        const dashboards = await apiFetchDashboards(dataEngine)
+        return dispatch(acSetDashboards(dashboards))
+    }

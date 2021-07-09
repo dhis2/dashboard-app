@@ -1,16 +1,13 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { useDataEngine, useAlert } from '@dhis2/app-runtime'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
 import { ButtonStrip } from '@dhis2/ui'
-import { useDataEngine, useAlert } from '@dhis2/app-runtime'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-
-import Button from '../../components/ButtonWithTooltip'
-import FilterSettingsDialog from './FilterSettingsDialog'
-import ConfirmActionDialog from '../../components/ConfirmActionDialog'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+import { tFetchDashboards } from '../../actions/dashboards'
 import {
     tSaveDashboard,
     acClearEditDashboard,
@@ -19,15 +16,16 @@ import {
     acSetFilterSettings,
 } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
-import { tFetchDashboards } from '../../actions/dashboards'
 import { acClearSelected } from '../../actions/selected'
-import { deleteDashboardMutation } from './deleteDashboardMutation'
+import Button from '../../components/ButtonWithTooltip'
+import ConfirmActionDialog from '../../components/ConfirmActionDialog'
 import {
     sGetEditDashboardRoot,
     sGetIsPrintPreviewView,
     sGetEditIsDirty,
 } from '../../reducers/editDashboard'
-
+import { deleteDashboardMutation } from './deleteDashboardMutation'
+import FilterSettingsDialog from './FilterSettingsDialog'
 import classes from './styles/ActionsBar.module.css'
 
 const saveFailedMessage = i18n.t(
@@ -42,13 +40,11 @@ const EditBar = ({ dashboard, ...props }) => {
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
-    const [filterSettingsDlgIsOpen, setFilterSettingsDlgIsOpen] = useState(
-        false
-    )
+    const [filterSettingsDlgIsOpen, setFilterSettingsDlgIsOpen] =
+        useState(false)
     const [confirmDeleteDlgIsOpen, setConfirmDeleteDlgIsOpen] = useState(false)
-    const [confirmDiscardDlgIsOpen, setConfirmDiscardDlgIsOpen] = useState(
-        false
-    )
+    const [confirmDiscardDlgIsOpen, setConfirmDiscardDlgIsOpen] =
+        useState(false)
 
     const [redirectUrl, setRedirectUrl] = useState(undefined)
 

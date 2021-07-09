@@ -1,7 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import { MenuItem, colors } from '@dhis2/ui'
-
+import PropTypes from 'prop-types'
+import React from 'react'
 import classes from './styles/HeaderMenuItem.module.css'
 
 const HeaderMenuItem = ({ title }) => (

@@ -1,13 +1,13 @@
-import React from 'react'
 import { render } from '@testing-library/react'
+import { createMemoryHistory } from 'history'
+import React from 'react'
 import { act } from 'react-dom/test-utils'
 import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
 import { Router, Route } from 'react-router-dom'
-import { createMemoryHistory } from 'history'
-import EditDashboard from '../EditDashboard'
-import WindowDimensionsProvider from '../../../components/WindowDimensionsProvider'
+import configureMockStore from 'redux-mock-store'
 import { apiFetchDashboard } from '../../../api/fetchDashboard'
+import WindowDimensionsProvider from '../../../components/WindowDimensionsProvider'
+import EditDashboard from '../EditDashboard'
 
 jest.mock('../../../api/fetchDashboard')
 

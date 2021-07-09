@@ -1,5 +1,5 @@
-import { SET_SHOW_DESCRIPTION } from '../reducers/showDescription'
 import { apiGetShowDescription } from '../api/description'
+import { SET_SHOW_DESCRIPTION } from '../reducers/showDescription'
 
 export const acSetShowDescription = value => ({
     type: SET_SHOW_DESCRIPTION,

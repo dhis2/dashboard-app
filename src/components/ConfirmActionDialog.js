@@ -1,6 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
 import {
     Button,
     Modal,
@@ -9,7 +6,8 @@ import {
     ButtonStrip,
     ModalTitle,
 } from '@dhis2/ui'
-
+import PropTypes from 'prop-types'
+import React from 'react'
 import classes from './styles/ConfirmActionDialog.module.css'
 
 const ConfirmActionDialog = ({

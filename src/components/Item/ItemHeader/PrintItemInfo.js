@@ -1,7 +1,6 @@
-import React from 'react'
-import { Tooltip, colors, IconWarning24 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-
+import { Tooltip, colors, IconWarning24 } from '@dhis2/ui'
+import React from 'react'
 import classes from './styles/PrintItemInfo.module.css'
 
 const PrintWarning = () => (

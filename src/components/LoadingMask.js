@@ -1,5 +1,5 @@
-import React from 'react'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
+import React from 'react'
 
 const LoadingMask = () => (
     <Layer translucent>

@@ -1,12 +1,12 @@
-import React from 'react'
 import { render } from '@testing-library/react'
+import React from 'react'
 import { act } from 'react-dom/test-utils'
-import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import ViewDashboard from '../ViewDashboard'
+import thunk from 'redux-thunk'
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
 import { apiFetchDashboard } from '../../../api/fetchDashboard'
+import ViewDashboard from '../ViewDashboard'
 
 jest.mock('../../../modules/useOnlineStatus', () => ({
     useOnlineStatus: jest.fn(() => ({ online: true })),

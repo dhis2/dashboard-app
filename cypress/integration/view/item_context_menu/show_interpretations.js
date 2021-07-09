@@ -1,10 +1,10 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { dashboards } from '../../../assets/backends'
 import {
     itemDetailsSel,
     clickMenuButton,
     getDashboardItem,
 } from '../../../elements/dashboardItem'
-import { dashboards } from '../../../assets/backends'
 
 // these tests being run on the "Delivery" dashboard
 const chartName = dashboards.Delivery.items.chart.name

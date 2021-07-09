@@ -1,13 +1,13 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
-import {
-    dashboardChipSel,
-    dashboardTitleSel,
-} from '../../../elements/viewDashboard'
 import {
     getDashboardItem,
     clickItemDeleteButton,
 } from '../../../elements/dashboardItem'
+import {
+    dashboardChipSel,
+    dashboardTitleSel,
+} from '../../../elements/viewDashboard'
+import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 const ITEM_1_UID = 'GaVhJpqABYX'
 const ITEM_2_UID = 'qXsjttMYuoZ'
@@ -17,9 +17,8 @@ const interceptDashboardRequest = () => {
     cy.intercept(/dashboards\/iMnYyBfSxmM/, req => {
         req.reply(res => {
             // modify 3 items with different styles of "missing" type property
-            res.body.dashboardItems.find(
-                item => item.id === ITEM_1_UID
-            ).type = null
+            res.body.dashboardItems.find(item => item.id === ITEM_1_UID).type =
+                null
 
             const item = res.body.dashboardItems.find(
                 item => item.id === ITEM_2_UID

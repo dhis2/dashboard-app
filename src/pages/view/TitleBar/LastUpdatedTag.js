@@ -1,9 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import moment from 'moment'
-import { Tag, Tooltip } from '@dhis2/ui'
 import { useCacheableSection } from '@dhis2/app-service-offline'
-
+import { Tag, Tooltip } from '@dhis2/ui'
+import moment from 'moment'
+import PropTypes from 'prop-types'
+import React from 'react'
 import classes from './styles/LastUpdatedTag.module.css'
 
 const LastUpdatedTag = ({ id }) => {

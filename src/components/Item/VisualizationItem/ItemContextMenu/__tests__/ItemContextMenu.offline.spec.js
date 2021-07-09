@@ -1,10 +1,10 @@
-import React from 'react'
-import { render, waitFor, screen } from '@testing-library/react'
 import { fireEvent } from '@testing-library/dom'
-import WindowDimensionsProvider from '../../../../WindowDimensionsProvider'
-import { useSystemSettings } from '../../../../SystemSettingsProvider'
-import ItemContextMenu from '../ItemContextMenu'
+import { render, waitFor, screen } from '@testing-library/react'
+import React from 'react'
 import { getGridItemDomElementClassName } from '../../../../../modules/getGridItemDomElementClassName'
+import { useSystemSettings } from '../../../../SystemSettingsProvider'
+import WindowDimensionsProvider from '../../../../WindowDimensionsProvider'
+import ItemContextMenu from '../ItemContextMenu'
 
 jest.mock('../../../../SystemSettingsProvider', () => ({
     useSystemSettings: jest.fn(),

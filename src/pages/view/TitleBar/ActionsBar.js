@@ -1,34 +1,31 @@
-import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import { Redirect } from 'react-router-dom'
-import i18n from '@dhis2/d2-i18n'
-import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
-import { FlyoutMenu, MenuItem, colors, IconMore24 } from '@dhis2/ui'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import {
     useOnlineStatus,
     useCacheableSection,
 } from '@dhis2/app-service-offline'
-
-import FilterSelector from './FilterSelector'
-import StarDashboardButton from './StarDashboardButton'
-import { apiStarDashboard } from './apiStarDashboard'
+import i18n from '@dhis2/d2-i18n'
+import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
+import { FlyoutMenu, MenuItem, colors, IconMore24 } from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+import { acSetDashboardStarred } from '../../../actions/dashboards'
+import { acClearItemFilters } from '../../../actions/itemFilters'
+import { acSetShowDescription } from '../../../actions/showDescription'
+import { apiPostShowDescription } from '../../../api/description'
 import Button from '../../../components/ButtonWithTooltip'
 import ConfirmActionDialog from '../../../components/ConfirmActionDialog'
-import { orObject } from '../../../modules/util'
-import { apiPostShowDescription } from '../../../api/description'
-import { acSetDashboardStarred } from '../../../actions/dashboards'
-import { acSetShowDescription } from '../../../actions/showDescription'
-import { acClearItemFilters } from '../../../actions/itemFilters'
-
 import DropdownButton from '../../../components/DropdownButton/DropdownButton'
-import { sGetSelected } from '../../../reducers/selected'
+import { orObject } from '../../../modules/util'
 import { sGetDashboardStarred } from '../../../reducers/dashboards'
-import { sGetShowDescription } from '../../../reducers/showDescription'
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
-
+import { sGetSelected } from '../../../reducers/selected'
+import { sGetShowDescription } from '../../../reducers/showDescription'
+import { apiStarDashboard } from './apiStarDashboard'
+import FilterSelector from './FilterSelector'
+import StarDashboardButton from './StarDashboardButton'
 import classes from './styles/ActionsBar.module.css'
 
 const ViewActions = ({
@@ -46,9 +43,8 @@ const ViewActions = ({
     const [moreOptionsSmallIsOpen, setMoreOptionsSmallIsOpen] = useState(false)
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
-    const [confirmCacheDialogIsOpen, setConfirmCacheDialogIsOpen] = useState(
-        false
-    )
+    const [confirmCacheDialogIsOpen, setConfirmCacheDialogIsOpen] =
+        useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
     const { d2 } = useD2()
     const dataEngine = useDataEngine()

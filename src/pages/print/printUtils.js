@@ -1,6 +1,6 @@
 import sortBy from 'lodash/sortBy'
-import { orArray } from '../../modules/util'
 import { itemTypeMap } from '../../modules/itemTypes'
+import { orArray } from '../../modules/util'
 
 export const getTransformYPx = elStyle => {
     if (!elStyle || !elStyle.transform) {

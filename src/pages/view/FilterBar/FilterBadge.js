@@ -1,16 +1,14 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
-import { Tooltip } from '@dhis2/ui'
 import {
     useOnlineStatus,
     useCacheableSection,
 } from '@dhis2/app-service-offline'
-
+import i18n from '@dhis2/d2-i18n'
+import { Tooltip } from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
 import { acSetActiveModalDimension } from '../../../actions/activeModalDimension'
 import { sGetSelectedId } from '../../../reducers/selected'
-
 import classes from './styles/FilterBadge.module.css'
 
 const FilterBadge = ({ dashboardId, filter, openFilterModal, onRemove }) => {

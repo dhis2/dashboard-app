@@ -1,5 +1,4 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { TEST_DASHBOARD_TITLE } from './edit_dashboard'
 import {
     starSel,
     dashboardStarredSel,
@@ -7,6 +6,7 @@ import {
     dashboardChipSel,
     chipStarSel,
 } from '../../../elements/viewDashboard'
+import { TEST_DASHBOARD_TITLE } from './edit_dashboard'
 
 // Scenario: I star the dashboard
 When('I click to star the dashboard', () => {

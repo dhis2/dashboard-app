@@ -1,11 +1,11 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
 import { gridItemSel, chartSel, mapSel } from '../../../elements/dashboardItem'
+import { confirmActionDialogSel } from '../../../elements/editDashboard'
 import {
     dashboardChipSel,
     dashboardTitleSel,
 } from '../../../elements/viewDashboard'
-import { confirmActionDialogSel } from '../../../elements/editDashboard'
+import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 const TEST_DASHBOARD_TITLE = 'a filter ' + new Date().toUTCString()
 

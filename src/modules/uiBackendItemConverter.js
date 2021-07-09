@@ -1,5 +1,5 @@
-import { TEXT, SPACER } from './itemTypes'
 import { getGridItemProperties } from './gridUtil'
+import { TEXT, SPACER } from './itemTypes'
 
 export const spacerContent = 'SPACER_ITEM_FOR_DASHBOARD_LAYOUT_CONVENIENCE'
 export const emptyTextItemContent = 'TEXT_ITEM_WITH_NO_CONTENT'

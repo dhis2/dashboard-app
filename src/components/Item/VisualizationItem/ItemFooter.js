@@ -1,13 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import InterpretationsComponent from '@dhis2/d2-ui-interpretations'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-import i18n from '@dhis2/d2-i18n'
 import { useOnlineStatus } from '@dhis2/app-service-offline'
-
-import FatalErrorBoundary from './FatalErrorBoundary'
+import i18n from '@dhis2/d2-i18n'
+import InterpretationsComponent from '@dhis2/d2-ui-interpretations'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { getVisualizationId } from '../../../modules/item'
-
+import FatalErrorBoundary from './FatalErrorBoundary'
 import classes from './styles/ItemFooter.module.css'
 
 const ItemFooter = props => {

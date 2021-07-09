@@ -1,21 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-
+import { CacheableSection } from '@dhis2/app-service-offline'
 import i18n from '@dhis2/d2-i18n'
 import isEmpty from 'lodash/isEmpty'
-import { CacheableSection } from '@dhis2/app-service-offline'
-
-import DashboardsBar from './DashboardsBar/DashboardsBar'
-import ViewDashboard from './ViewDashboard'
-import NoContentMessage from '../../components/NoContentMessage'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
 import LoadingMask from '../../components/LoadingMask'
+import NoContentMessage from '../../components/NoContentMessage'
+import { getPreferredDashboardId } from '../../modules/localStorage'
 import {
     sDashboardsIsFetching,
     sGetDashboardById,
     sGetDashboardsSortedByStarred,
 } from '../../reducers/dashboards'
-import { getPreferredDashboardId } from '../../modules/localStorage'
+import DashboardsBar from './DashboardsBar/DashboardsBar'
+import ViewDashboard from './ViewDashboard'
 
 const CacheableViewDashboard = ({
     id,

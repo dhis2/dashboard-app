@@ -1,15 +1,4 @@
 import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
-import {
-    clickViewActionButton,
-    dashboardChipSel,
-    dashboardTitleSel,
-} from '../../../elements/viewDashboard'
-import {
-    clickEditActionButton,
-    confirmActionDialogSel,
-    createDashboard,
-} from '../../../elements/editDashboard'
 import {
     dimensionsModalSel,
     filterDimensionsPanelSel,
@@ -20,6 +9,17 @@ import {
     tableSel,
     itemMenuButtonSel,
 } from '../../../elements/dashboardItem'
+import {
+    clickEditActionButton,
+    confirmActionDialogSel,
+    createDashboard,
+} from '../../../elements/editDashboard'
+import {
+    clickViewActionButton,
+    dashboardChipSel,
+    dashboardTitleSel,
+} from '../../../elements/viewDashboard'
+import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 const TEST_DASHBOARD_TITLE = '0filter-fail-' + new Date().toUTCString()
 

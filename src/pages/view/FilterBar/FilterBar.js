@@ -1,18 +1,15 @@
+import { useOnlineStatus } from '@dhis2/app-service-offline'
+import i18n from '@dhis2/d2-i18n'
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
-import { useOnlineStatus } from '@dhis2/app-service-offline'
-
-import FilterBadge from './FilterBadge'
-import ConfirmActionDialog from '../../../components/ConfirmActionDialog'
-
-import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
 import {
     acRemoveItemFilter,
     acClearItemFilters,
 } from '../../../actions/itemFilters'
-
+import ConfirmActionDialog from '../../../components/ConfirmActionDialog'
+import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
+import FilterBadge from './FilterBadge'
 import classes from './styles/FilterBar.module.css'
 
 const FilterBar = ({ filters, removeFilter, removeAllFilters }) => {
