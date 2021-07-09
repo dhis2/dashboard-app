@@ -39,7 +39,16 @@ export const NEW_DASHBOARD_STATE = {
     isDirty: false,
     href: '',
     hideGrid: false,
-    layout: { columns: 2 },
+    layout: {
+        columns: [
+            { index: 0, span: 1 },
+            { index: 1, span: 1 },
+            { index: 2, span: 1 },
+            { index: 3, span: 1 },
+            { index: 4, span: 1 },
+            { index: 5, span: 1 },
+        ],
+    },
 }
 
 export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
