@@ -197,7 +197,7 @@ const EditBar = ({ dashboard, ...props }) => {
     const getAutoLayoutMenu = () => (
         <SingleSelect
             placeholder="Number of columns"
-            selected={String(props.columns)}
+            selected={String(props.columns.length)}
             onChange={({ selected }) => {
                 Array.from(
                     document.querySelectorAll('.dashboard-scroll-container')
@@ -205,7 +205,7 @@ const EditBar = ({ dashboard, ...props }) => {
                 props.onAutoLayoutSelect(parseInt(selected))
             }}
         >
-            {new Array(10).fill().map((_, i) => getAutoLayoutMenuItem(i + 1))}
+            {new Array(10).fill().map((_, i) => getAutoLayoutMenuItem(i))}
         </SingleSelect>
     )
 
@@ -282,7 +282,7 @@ EditBar.propTypes = {
     clearPrintDashboard: PropTypes.func,
     clearPrintPreview: PropTypes.func,
     clearSelected: PropTypes.func,
-    columns: PropTypes.number,
+    columns: PropTypes.array,
     dashboard: PropTypes.object,
     fetchDashboards: PropTypes.func,
     isDirty: PropTypes.bool,
@@ -295,7 +295,7 @@ EditBar.propTypes = {
 }
 
 EditBar.defaultProps = {
-    columns: 2,
+    columns: [...Array(5).keys()].map(i => ({ index: i })),
 }
 
 const mapStateToProps = state => ({
@@ -315,8 +315,12 @@ const mapDispatchToProps = {
     setFilterSettings: value => dispatch =>
         dispatch(acSetFilterSettings(value)),
     showPrintPreview: () => dispatch => dispatch(acSetPrintPreviewView()),
-    onAutoLayoutSelect: columns => (dispatch, getState) => {
-        dispatch(acSetLayoutColumns(columns))
+    onAutoLayoutSelect: columns => dispatch => {
+        dispatch(
+            acSetLayoutColumns(
+                [...Array(columns).keys()].map(i => ({ index: i }))
+            )
+        )
         dispatch(tSetDashboardItems())
     },
 }

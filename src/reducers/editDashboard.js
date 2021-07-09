@@ -41,12 +41,12 @@ export const NEW_DASHBOARD_STATE = {
     hideGrid: false,
     layout: {
         columns: [
-            { index: 0, span: 1 },
-            { index: 1, span: 1 },
-            { index: 2, span: 1 },
-            { index: 3, span: 1 },
-            { index: 4, span: 1 },
-            { index: 5, span: 1 },
+            { index: 0 },
+            { index: 1 },
+            { index: 2 },
+            { index: 3 },
+            { index: 4 },
+            { index: 5 },
         ],
     },
 }
@@ -233,9 +233,8 @@ export const sGetHideGrid = state => sGetEditDashboardRoot(state).hideGrid
 const getLayout = editDashboard => editDashboard.layout
 
 export const sGetLayout = state =>
-    getLayout(orObject(sGetEditDashboardRoot(state)))
+    orObject(getLayout(sGetEditDashboardRoot(state)))
 
 const getColumns = layout => layout.columns
 
-export const sGetLayoutColumns = state =>
-    getColumns(orObject(sGetLayout(state)))
+export const sGetLayoutColumns = state => orArray(getColumns(sGetLayout(state)))

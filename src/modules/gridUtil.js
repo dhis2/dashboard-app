@@ -190,15 +190,12 @@ const getItemWHPx = (gridUnits, colOrRowSize, marginPx) =>
 
 // Auto layout
 
-const getNumberOfColGroupCols = (
-    numberOfColGroups = 2,
-    maxCols = GRID_COLUMNS
-) => {
-    if (numberOfColGroups < 1 || numberOfColGroups > maxCols) {
+const getNumberOfColUnits = (columns, maxColUnits = GRID_COLUMNS) => {
+    if (columns.length < 1 || columns.length > maxColUnits) {
         return null
     }
 
-    return Math.floor(maxCols / numberOfColGroups)
+    return Math.floor(maxColUnits / columns.length)
 }
 
 const sortItems = items =>
@@ -206,17 +203,10 @@ const sortItems = items =>
         .slice()
         .sort((a, b) => a.y - b.y || a.x - b.x || a.h - b.h || a.w - b.w)
 
-export const getAutoItemShapes = (
-    dashboardItems,
-    numberOfColGroups,
-    maxCols
-) => {
-    const numberOfColGroupCols = getNumberOfColGroupCols(
-        numberOfColGroups,
-        maxCols
-    )
+export const getAutoItemShapes = (dashboardItems, columns, maxColUnits) => {
+    const numberOfColUnits = getNumberOfColUnits(columns, maxColUnits)
 
-    if (!numberOfColGroupCols || !dashboardItems.length) {
+    if (!numberOfColUnits || !dashboardItems.length) {
         return null
     }
 
@@ -229,15 +219,15 @@ export const getAutoItemShapes = (
 
         itemsWithNewShape.push({
             ...item,
-            w: numberOfColGroupCols,
+            w: numberOfColUnits,
             h: itemHeight,
-            x: numberOfColGroupCols * colIdx,
+            x: numberOfColUnits * colIdx,
             y: itemHeight * rowIdx,
         })
 
         colIdx = colIdx + 1
 
-        if (colIdx === numberOfColGroups) {
+        if (colIdx === columns.length) {
             colIdx = 0
             rowIdx = rowIdx + 1
         }
@@ -253,7 +243,6 @@ export const getAutoItemShapes = (
 
 // const getNextItemShape = layout => {}
 
-// make new fn to handle a layout object, not just columns
 export const getDashboardItem = item => {
     const type = item.type
     delete item.type

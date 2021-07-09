@@ -19,6 +19,7 @@ import {
     RECEIVED_LAYOUT_COLUMNS,
     sGetEditDashboardItems,
     sGetLayoutColumns,
+    sGetLayout,
 } from '../reducers/editDashboard'
 import { tFetchDashboards } from './dashboards'
 import { updateDashboard, postDashboard } from '../api/editDashboard'
@@ -116,10 +117,17 @@ export const tSetDashboardItems = newItem => (dispatch, getState) => {
     }
 
     // TODO change from columns to layout
-    const columns = sGetLayoutColumns(getState())
-    const itemsWithNewShapes = getAutoItemShapes(prevItems, columns)
+    console.log('sGetLayout(getState())', sGetLayout(getState()))
+    const itemsWithNewShapes = getAutoItemShapes(
+        prevItems,
+        sGetLayoutColumns(getState())
+    )
 
     console.log('tSetDashboardItems', 'itemsWithNewShapes', itemsWithNewShapes)
+
+    if (!itemsWithNewShapes) {
+        return
+    }
 
     dispatch(acSetHideGrid(true))
     dispatch(acUpdateDashboardItemShapes(itemsWithNewShapes))
