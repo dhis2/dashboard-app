@@ -2085,8 +2085,8 @@
 "@dhis2/app-adapter@7.1.0", "@dhis2/app-adapter@file:../app-platform/adapter":
   version "7.1.0"
   dependencies:
-    "@dhis2/app-service-offline" "file:../../../Library/Caches/Yarn/v6/npm-@dhis2-app-adapter-7.1.0-5c6942db-94a3-45d2-aa20-6dad38cbfa32-1625836024149/node_modules/app-runtime/services/offline"
-    "@dhis2/sw" "file:../../../Library/Caches/Yarn/v6/npm-@dhis2-app-adapter-7.1.0-5c6942db-94a3-45d2-aa20-6dad38cbfa32-1625836024149/node_modules/@dhis2/sw"
+    "@dhis2/app-service-offline" "file:../../../Library/Caches/Yarn/v6/npm-@dhis2-app-adapter-7.1.0-f57ba345-03ff-4d7c-bf72-e9093e05a9ab-1625836881686/node_modules/app-runtime/services/offline"
+    "@dhis2/sw" "file:../../../Library/Caches/Yarn/v6/npm-@dhis2-app-adapter-7.1.0-f57ba345-03ff-4d7c-bf72-e9093e05a9ab-1625836881686/node_modules/@dhis2/sw"
     moment "^2.24.0"
 
 "@dhis2/app-runtime-adapter-d2@^1.1.0":
@@ -2129,7 +2129,7 @@
     "@dhis2/app-adapter" "7.1.0"
     "@dhis2/app-runtime" "^2.8.0"
     "@dhis2/d2-i18n" "^1.1.0"
-    "@dhis2/sw" "file:../../../Library/Caches/Yarn/v6/npm-@dhis2-app-shell-7.1.0-7a970956-343f-4563-abfa-d7b13e337f10-1625836024155/node_modules/@dhis2/sw"
+    "@dhis2/sw" "file:../../../Library/Caches/Yarn/v6/npm-@dhis2-app-shell-7.1.0-58bd5ab9-2c80-4177-9825-134ebec5f230-1625836881691/node_modules/@dhis2/sw"
     "@dhis2/ui" "^6.5.3"
     classnames "^2.2.6"
     moment "^2.29.1"

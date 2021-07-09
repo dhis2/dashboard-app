@@ -4,10 +4,8 @@ import cx from 'classnames'
 import debounce from 'lodash/debounce'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
-import { sGetCacheVersion } from '../../../reducers/cacheVersion'
 import { OfflineSaved } from './assets/icons'
 import classes from './styles/Chip.module.css'
 
@@ -88,8 +86,4 @@ Chip.propTypes = {
     cacheVersion: PropTypes.number,
 }
 
-const mapStateToProps = state => ({
-    cacheVersion: sGetCacheVersion(state),
-})
-
-export default connect(mapStateToProps, null)(Chip)
+export default Chip

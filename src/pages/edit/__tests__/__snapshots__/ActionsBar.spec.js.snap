@@ -5,6 +5,7 @@ exports[`renders Save and Discard buttons but not translation dialog when new da
   <div
     class="editBar"
     data-test="edit-control-bar"
+    style="position: relative;"
   >
     <div
       class="controls"
@@ -16,35 +17,77 @@ exports[`renders Save and Discard buttons but not translation dialog when new da
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-2371629422 primary"
-            data-test="save-dashboard-button"
-            type="button"
-          >
-            Save changes
-          </button>
+          <span>
+            <button
+              class="jsx-2371629422 primary"
+              data-test="save-dashboard-button"
+              type="button"
+            >
+              Save changes
+            </button>
+            <style>
+              
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+            </style>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-2371629422 "
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Print preview
-          </button>
+          <span>
+            <button
+              class="jsx-2371629422 "
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Print preview
+            </button>
+            <style>
+              
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+            </style>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-2371629422 "
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Filter settings
-          </button>
+          <span>
+            <button
+              class="jsx-2371629422 "
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Filter settings
+            </button>
+            <style>
+              
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+            </style>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
@@ -53,13 +96,27 @@ exports[`renders Save and Discard buttons but not translation dialog when new da
           class="jsx-71743532 box"
         />
       </div>
-      <button
-        class="jsx-2371629422 secondary"
-        data-test="dhis2-uicore-button"
-        type="button"
-      >
-        Exit without saving
-      </button>
+      <span>
+        <button
+          class="jsx-2371629422 secondary"
+          data-test="dhis2-uicore-button"
+          type="button"
+        >
+          Exit without saving
+        </button>
+        <style>
+          
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+        </style>
+      </span>
     </div>
   </div>
   <div
@@ -75,6 +132,7 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
   <div
     class="editBar"
     data-test="edit-control-bar"
+    style="position: relative;"
   >
     <div
       class="controls"
@@ -86,66 +144,150 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-2371629422 primary"
-            data-test="save-dashboard-button"
-            type="button"
-          >
-            Save changes
-          </button>
+          <span>
+            <button
+              class="jsx-2371629422 primary"
+              data-test="save-dashboard-button"
+              type="button"
+            >
+              Save changes
+            </button>
+            <style>
+              
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+            </style>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-2371629422 "
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Print preview
-          </button>
+          <span>
+            <button
+              class="jsx-2371629422 "
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Print preview
+            </button>
+            <style>
+              
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+            </style>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-2371629422 "
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Filter settings
-          </button>
+          <span>
+            <button
+              class="jsx-2371629422 "
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Filter settings
+            </button>
+            <style>
+              
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+            </style>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-2371629422 "
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Translate
-          </button>
+          <span>
+            <button
+              class="jsx-2371629422 "
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Translate
+            </button>
+            <style>
+              
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+            </style>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-2371629422 "
-            data-test="delete-dashboard-button"
-            type="button"
-          >
-            Delete
-          </button>
+          <span>
+            <button
+              class="jsx-2371629422 "
+              data-test="delete-dashboard-button"
+              type="button"
+            >
+              Delete
+            </button>
+            <style>
+              
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+            </style>
+          </span>
         </div>
       </div>
-      <button
-        class="jsx-2371629422 secondary"
-        data-test="dhis2-uicore-button"
-        type="button"
-      >
-        Exit without saving
-      </button>
+      <span>
+        <button
+          class="jsx-2371629422 secondary"
+          data-test="dhis2-uicore-button"
+          type="button"
+        >
+          Exit without saving
+        </button>
+        <style>
+          
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+        </style>
+      </span>
     </div>
   </div>
   <div
@@ -162,17 +304,32 @@ exports[`renders only the Go to Dashboards button when no update access 1`] = `
   <div
     class="editBar"
     data-test="edit-control-bar"
+    style="position: relative;"
   >
     <div
       class="controls"
     >
-      <button
-        class="jsx-2371629422 secondary"
-        data-test="dhis2-uicore-button"
-        type="button"
-      >
-        Go to dashboards
-      </button>
+      <span>
+        <button
+          class="jsx-2371629422 secondary"
+          data-test="dhis2-uicore-button"
+          type="button"
+        >
+          Go to dashboards
+        </button>
+        <style>
+          
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+        </style>
+      </span>
     </div>
   </div>
 </div>
@@ -183,6 +340,7 @@ exports[`renders the ActionsBar without Delete when no delete access 1`] = `
   <div
     class="editBar"
     data-test="edit-control-bar"
+    style="position: relative;"
   >
     <div
       class="controls"
@@ -194,58 +352,128 @@ exports[`renders the ActionsBar without Delete when no delete access 1`] = `
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-2371629422 primary"
-            data-test="save-dashboard-button"
-            type="button"
-          >
-            Save changes
-          </button>
+          <span>
+            <button
+              class="jsx-2371629422 primary"
+              data-test="save-dashboard-button"
+              type="button"
+            >
+              Save changes
+            </button>
+            <style>
+              
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+            </style>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-2371629422 "
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Print preview
-          </button>
+          <span>
+            <button
+              class="jsx-2371629422 "
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Print preview
+            </button>
+            <style>
+              
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+            </style>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-2371629422 "
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Filter settings
-          </button>
+          <span>
+            <button
+              class="jsx-2371629422 "
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Filter settings
+            </button>
+            <style>
+              
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+            </style>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-2371629422 "
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Translate
-          </button>
+          <span>
+            <button
+              class="jsx-2371629422 "
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Translate
+            </button>
+            <style>
+              
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+            </style>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         />
       </div>
-      <button
-        class="jsx-2371629422 secondary"
-        data-test="dhis2-uicore-button"
-        type="button"
-      >
-        Exit without saving
-      </button>
+      <span>
+        <button
+          class="jsx-2371629422 secondary"
+          data-test="dhis2-uicore-button"
+          type="button"
+        >
+          Exit without saving
+        </button>
+        <style>
+          
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+        </style>
+      </span>
     </div>
   </div>
   <div

@@ -8,8 +8,12 @@ import { apiPostDataStatistics } from '../../../api/dataStatistics'
 import { apiFetchDashboard } from '../../../api/fetchDashboard'
 import ViewDashboard from '../ViewDashboard'
 
-jest.mock('../../../modules/useOnlineStatus', () => ({
+jest.mock('@dhis2/app-service-offline', () => ({
     useOnlineStatus: jest.fn(() => ({ online: true })),
+    useCacheableSection: jest.fn(() => ({
+        isCached: false,
+        recordingState: 'default',
+    })),
 }))
 
 jest.mock('../../../api/fetchDashboard')

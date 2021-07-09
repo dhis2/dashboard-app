@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { render } from '@test.skiping-library/react'
+import { render } from '@testing-library/react'
 import React from 'react'
 import ConfirmActionDialog from '../ConfirmActionDialog'
 
@@ -15,7 +15,7 @@ jest.mock('@dhis2/ui', () => {
     }
 })
 
-test.skip('ConfirmActionDialog renders confirm delete dialog', () => {
+test('ConfirmActionDialog renders confirm delete dialog', () => {
     const { container } = render(
         <ConfirmActionDialog
             title="Delete dashboard"
@@ -30,7 +30,7 @@ test.skip('ConfirmActionDialog renders confirm delete dialog', () => {
     expect(container).toMatchSnapshot()
 })
 
-test.skip('ConfirmActionDialog renders discard changes dialog', () => {
+test('ConfirmActionDialog renders discard changes dialog', () => {
     const { container } = render(
         <ConfirmActionDialog
             title="Discard changes"
@@ -45,7 +45,7 @@ test.skip('ConfirmActionDialog renders discard changes dialog', () => {
     expect(container).toMatchSnapshot()
 })
 
-test.skip('ConfirmActionDialog does not render dialog if not open', () => {
+test('ConfirmActionDialog does not render dialog if not open', () => {
     const { container } = render(
         <ConfirmActionDialog
             onConfirm={jest.fn()}

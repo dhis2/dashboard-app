@@ -233,17 +233,6 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
     <div
       class="spacer"
     />
-    <div
-      style="position: absolute; top: 0px; right: 0px;"
-    >
-      <button
-        class="jsx-2371629422 "
-        data-test="dhis2-uicore-button"
-        type="button"
-      >
-        You are online
-      </button>
-    </div>
   </div>
 </DocumentFragment>
 `;
@@ -481,17 +470,6 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
     <div
       class="spacer"
     />
-    <div
-      style="position: absolute; top: 0px; right: 0px;"
-    >
-      <button
-        class="jsx-2371629422 "
-        data-test="dhis2-uicore-button"
-        type="button"
-      >
-        You are online
-      </button>
-    </div>
   </div>
 </div>
 `;
@@ -731,17 +709,6 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
     <div
       class="spacer"
     />
-    <div
-      style="position: absolute; top: 0px; right: 0px;"
-    >
-      <button
-        class="jsx-2371629422 "
-        data-test="dhis2-uicore-button"
-        type="button"
-      >
-        You are online
-      </button>
-    </div>
   </div>
 </div>
 `;
@@ -928,17 +895,6 @@ exports[`renders a DashboardsBar with no items 1`] = `
     <div
       class="spacer"
     />
-    <div
-      style="position: absolute; top: 0px; right: 0px;"
-    >
-      <button
-        class="jsx-2371629422 "
-        data-test="dhis2-uicore-button"
-        type="button"
-      >
-        You are online
-      </button>
-    </div>
   </div>
 </div>
 `;
@@ -1178,17 +1134,6 @@ exports[`renders a DashboardsBar with selected item 1`] = `
     <div
       class="spacer"
     />
-    <div
-      style="position: absolute; top: 0px; right: 0px;"
-    >
-      <button
-        class="jsx-2371629422 "
-        data-test="dhis2-uicore-button"
-        type="button"
-      >
-        You are online
-      </button>
-    </div>
   </div>
 </div>
 `;
@@ -1426,17 +1371,6 @@ exports[`small screen: clicking "Show more" maximizes dashboards bar height 1`] 
     <div
       class="spacer"
     />
-    <div
-      style="position: absolute; top: 0px; right: 0px;"
-    >
-      <button
-        class="jsx-2371629422 "
-        data-test="dhis2-uicore-button"
-        type="button"
-      >
-        You are online
-      </button>
-    </div>
   </div>
 </DocumentFragment>
 `;
@@ -1676,17 +1610,6 @@ exports[`small screen: renders a DashboardsBar with minimum height 1`] = `
     <div
       class="spacer"
     />
-    <div
-      style="position: absolute; top: 0px; right: 0px;"
-    >
-      <button
-        class="jsx-2371629422 "
-        data-test="dhis2-uicore-button"
-        type="button"
-      >
-        You are online
-      </button>
-    </div>
   </div>
 </div>
 `;
