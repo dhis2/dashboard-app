@@ -177,10 +177,10 @@ msgid "Open in {{appName}} app"
 msgstr "Otevřít v aplikaci {{appName}}"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "Při načítání dat této položky došlo k chybě"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Otevřít tuto položku v aplikaci {{appName}}"
 
 msgid "Confirm"
 msgstr "Potvrdit"
