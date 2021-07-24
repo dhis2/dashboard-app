@@ -31,10 +31,10 @@ msgid "See all messages"
 msgstr "Zobrazit všechny zprávy"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "Typ položky \"{{type}}\" není podporován"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "Typ položky chybí"
 
 msgid "Filters applied"
 msgstr "Použité filtry"
@@ -94,10 +94,10 @@ msgid "No data to display"
 msgstr "Žádná data k zobrazení"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "Při načítání dat této položky došlo k chybě"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Otevřít tuto položku v aplikaci {{appName}}"
 
 msgid "Visualizations"
 msgstr "Vizualizace"
