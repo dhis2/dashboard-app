@@ -1,14 +1,14 @@
 /** @module reducers/editDashboard */
-import { generateUid } from 'd2/uid'
+// import { generateUid } from 'd2/uid'
 import update from 'immutability-helper'
 import isEmpty from 'lodash/isEmpty'
-import {
-    getGridItemProperties,
-    getPageBreakItemShape,
-    getPrintTitlePageItemShape,
-    NEW_ITEM_SHAPE,
-} from '../modules/gridUtil'
-import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
+// import {
+//     getGridItemProperties,
+//     getPageBreakItemShape,
+//     getPrintTitlePageItemShape,
+//     NEW_ITEM_SHAPE,
+// } from '../modules/gridUtil'
+// import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
 import { orArray, orObject } from '../modules/util'
 
 export const RECEIVED_EDIT_DASHBOARD = 'RECEIVED_EDIT_DASHBOARD'
@@ -25,6 +25,7 @@ export const CLEAR_PRINT_PREVIEW_VIEW = 'CLEAR_PRINT_PREVIEW_VIEW'
 export const RECEIVED_FILTER_SETTINGS = 'RECEIVED_FILTER_SETTINGS'
 export const RECEIVED_HIDE_GRID = 'RECEIVED_HIDE_GRID'
 export const RECEIVED_LAYOUT_COLUMNS = 'RECEIVED_LAYOUT_COLUMNS'
+export const RECEIVED_ADD_ITEMS_TO = 'RECEIVED_ADD_ITEMS_TO'
 
 export const DEFAULT_STATE_EDIT_DASHBOARD = {}
 export const NEW_DASHBOARD_STATE = {
@@ -49,6 +50,7 @@ export const NEW_DASHBOARD_STATE = {
             { index: 5 },
         ],
     },
+    addTo: 'END',
 }
 
 export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
@@ -203,6 +205,12 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                 },
             }
         }
+        case RECEIVED_ADD_ITEMS_TO: {
+            return {
+                ...state,
+                addItemsTo: action.value,
+            }
+        }
         default:
             return state
     }
@@ -238,3 +246,5 @@ export const sGetLayout = state =>
 const getColumns = layout => layout.columns
 
 export const sGetLayoutColumns = state => orArray(getColumns(sGetLayout(state)))
+
+export const sGetAddItemsTo = state => sGetEditDashboardRoot(state).addItemsTo

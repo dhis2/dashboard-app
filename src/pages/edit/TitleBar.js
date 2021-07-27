@@ -2,12 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { InputField, TextAreaField } from '@dhis2/ui'
+import { InputField, TextAreaField, Radio } from '@dhis2/ui'
 
 import ItemSelector from './ItemSelector/ItemSelector'
 import {
     acSetDashboardTitle,
     acSetDashboardDescription,
+    acSetAddItemsTo,
 } from '../../actions/editDashboard'
 import { orObject } from '../../modules/util'
 import { sGetEditDashboardRoot } from '../../reducers/editDashboard'
@@ -15,8 +16,10 @@ import { sGetEditDashboardRoot } from '../../reducers/editDashboard'
 import classes from './styles/TitleBar.module.css'
 
 const EditTitleBar = ({
+    addItemsTo,
     name,
     description,
+    onChangeAddItemsTo,
     onChangeTitle,
     onChangeDescription,
 }) => {
@@ -30,7 +33,7 @@ const EditTitleBar = ({
 
     return (
         <section className={classes.section}>
-            <div className={classes.titleDescription}>
+            <div className={classes.row}>
                 <InputField
                     className={classes.title}
                     name="Dashboard title input"
@@ -50,16 +53,39 @@ const EditTitleBar = ({
                     dataTest="dashboard-description-input"
                 />
             </div>
-            <div className={classes.itemSelector}>
-                <ItemSelector />
+            <div className={classes.row}>
+                <div className={classes.itemSelector}>
+                    <ItemSelector />
+                </div>
+                <div className={classes.layout}>Layout</div>
+                <div className={classes.addItemsTo}>
+                    <Radio
+                        label="End of dashboard"
+                        name="END"
+                        onChange={value =>
+                            value.checked && onChangeAddItemsTo(value.name)
+                        }
+                        checked={addItemsTo === 'END'}
+                    />
+                    <Radio
+                        label="Start of dashboard"
+                        name="START"
+                        onChange={value =>
+                            value.checked && onChangeAddItemsTo(value.name)
+                        }
+                        checked={addItemsTo === 'START'}
+                    />
+                </div>
             </div>
         </section>
     )
 }
 
 EditTitleBar.propTypes = {
+    onChangeAddItemsTo: PropTypes.func.isRequired,
     onChangeDescription: PropTypes.func.isRequired,
     onChangeTitle: PropTypes.func.isRequired,
+    addItemsTo: PropTypes.string,
     description: PropTypes.string,
     name: PropTypes.string,
 }
@@ -67,6 +93,7 @@ EditTitleBar.propTypes = {
 EditTitleBar.defaultProps = {
     name: '',
     description: '',
+    addItemsTo: 'END',
 }
 
 const mapStateToProps = state => {
@@ -75,12 +102,14 @@ const mapStateToProps = state => {
     return {
         name: selectedDashboard.name,
         description: selectedDashboard.description,
+        addItemsTo: selectedDashboard.addItemsTo,
     }
 }
 
 const mapDispatchToProps = {
     onChangeTitle: acSetDashboardTitle,
     onChangeDescription: acSetDashboardDescription,
+    onChangeAddItemsTo: acSetAddItemsTo,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditTitleBar)

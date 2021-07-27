@@ -17,6 +17,7 @@ import {
     sGetEditDashboardRoot,
     RECEIVED_HIDE_GRID,
     RECEIVED_LAYOUT_COLUMNS,
+    RECEIVED_ADD_ITEMS_TO,
     sGetEditDashboardItems,
     sGetLayoutColumns,
     sGetLayout,
@@ -98,6 +99,11 @@ export const acSetHideGrid = value => ({
 
 export const acSetLayoutColumns = value => ({
     type: RECEIVED_LAYOUT_COLUMNS,
+    value,
+})
+
+export const acSetAddItemsTo = value => ({
+    type: RECEIVED_ADD_ITEMS_TO,
     value,
 })
 

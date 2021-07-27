@@ -3,7 +3,7 @@
     justify-content: space-between; */
     margin: 13px 15px 19px 10px;
 }
-.titleDescription {
+.row {
     /* flex: 3; */
     display: flex;
     justify-content: space-between;
@@ -20,8 +20,4 @@
     margin-top: 15px; */
     flex: 3;
     margin-left: 15px;
-}
-.itemSelector {
-    flex: 2;
-    /* position: relative; */
 }
