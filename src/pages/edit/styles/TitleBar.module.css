@@ -3,11 +3,20 @@
     justify-content: space-between; */
     margin: 13px 15px 19px 10px;
 }
-.row {
+.row,
+.fieldset {
     /* flex: 3; */
     display: flex;
     justify-content: space-between;
     /* margin-right: 50px; */
+}
+.fieldset {
+    margin-top: 8px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    padding: 4px 12px 8px;
+    color: darkslategray;
 }
 .title {
     /* display: block;
@@ -20,4 +29,19 @@
     margin-top: 15px; */
     flex: 3;
     margin-left: 15px;
+}
+.itemSelector {
+    flex: 3;
+}
+.layout {
+    flex: 1;
+}
+.addItemsTo {
+    flex: 2;
+}
+.radioGroup {
+    display: flex;
+}
+.radioGroup label:not(:first-child) {
+    margin-left: 8px;
 }

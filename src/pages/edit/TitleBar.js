@@ -53,28 +53,33 @@ const EditTitleBar = ({
                     dataTest="dashboard-description-input"
                 />
             </div>
-            <div className={classes.row}>
+            <div className={classes.fieldset}>
                 <div className={classes.itemSelector}>
                     <ItemSelector />
                 </div>
                 <div className={classes.layout}>Layout</div>
                 <div className={classes.addItemsTo}>
-                    <Radio
-                        label="End of dashboard"
-                        name="END"
-                        onChange={value =>
-                            value.checked && onChangeAddItemsTo(value.name)
-                        }
-                        checked={addItemsTo === 'END'}
-                    />
-                    <Radio
-                        label="Start of dashboard"
-                        name="START"
-                        onChange={value =>
-                            value.checked && onChangeAddItemsTo(value.name)
-                        }
-                        checked={addItemsTo === 'START'}
-                    />
+                    <div>Add items to</div>
+                    <div className={classes.radioGroup}>
+                        <Radio
+                            dense
+                            label="End of dashboard"
+                            name="END"
+                            onChange={value =>
+                                value.checked && onChangeAddItemsTo(value.name)
+                            }
+                            checked={addItemsTo === 'END'}
+                        />
+                        <Radio
+                            dense
+                            label="Start of dashboard"
+                            name="START"
+                            onChange={value =>
+                                value.checked && onChangeAddItemsTo(value.name)
+                            }
+                            checked={addItemsTo === 'START'}
+                        />
+                    </div>
                 </div>
             </div>
         </section>
