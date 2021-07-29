@@ -21,6 +21,7 @@ import {
     sGetEditDashboardItems,
     sGetLayoutColumns,
     sGetLayout,
+    sGetAddItemsTo,
 } from '../reducers/editDashboard'
 import { tFetchDashboards } from './dashboards'
 import { updateDashboard, postDashboard } from '../api/editDashboard'
@@ -32,7 +33,11 @@ import { updateDashboard, postDashboard } from '../api/editDashboard'
 // } from '../modules/gridUtil'
 // import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
 import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
-import { getAutoItemShapes, getDashboardItem } from '../modules/gridUtil'
+import {
+    addToItemsEnd,
+    getAutoItemShapes,
+    getDashboardItem,
+} from '../modules/gridUtil'
 
 // actions
 
@@ -109,35 +114,57 @@ export const acSetAddItemsTo = value => ({
 
 // thunks
 
+// no layout + end: add to new row at the end, default size
+// no layout + start: add to 0,0, default size
+// layout + end: calculate and add to "next shape in layout"
+// layout + start: add to 0,0,0,0, sort, remount
+
 export const tSetDashboardItems = newItem => (dispatch, getState) => {
+    const addItemsTo = sGetAddItemsTo(getState())
+    const columns = sGetLayoutColumns(getState())
     const prevItems = sGetEditDashboardItems(getState())
 
-    if (newItem) {
-        prevItems.unshift({
-            ...getDashboardItem(newItem),
-            x: 0,
-            y: 0,
-            w: 0,
-            h: 0,
-        })
+    console.log('-addItemsTo: ', addItemsTo)
+    console.log('-columns: ', columns)
+
+    if (!newItem || addItemsTo === 'START') {
+        if (newItem) {
+            prevItems.unshift({
+                ...getDashboardItem(newItem),
+                x: 0,
+                y: 0,
+                w: 0,
+                h: 0,
+            })
+        }
+
+        // TODO change from columns to layout
+        console.log('sGetLayout(getState())', sGetLayout(getState()))
+        const itemsWithNewShapes = getAutoItemShapes(
+            prevItems,
+            sGetLayoutColumns(getState())
+        )
+
+        console.log(
+            'tSetDashboardItems',
+            'itemsWithNewShapes',
+            itemsWithNewShapes
+        )
+
+        if (!itemsWithNewShapes) {
+            return
+        }
+
+        dispatch(acSetHideGrid(true))
+        dispatch(acUpdateDashboardItemShapes(itemsWithNewShapes))
+        setTimeout(() => dispatch(acSetHideGrid(false)), 0)
+    } else if (addItemsTo === 'END') {
+        dispatch(
+            acUpdateDashboardItemShapes(
+                addToItemsEnd(newItem, prevItems, columns)
+            )
+        )
     }
-
-    // TODO change from columns to layout
-    console.log('sGetLayout(getState())', sGetLayout(getState()))
-    const itemsWithNewShapes = getAutoItemShapes(
-        prevItems,
-        sGetLayoutColumns(getState())
-    )
-
-    console.log('tSetDashboardItems', 'itemsWithNewShapes', itemsWithNewShapes)
-
-    if (!itemsWithNewShapes) {
-        return
-    }
-
-    dispatch(acSetHideGrid(true))
-    dispatch(acUpdateDashboardItemShapes(itemsWithNewShapes))
-    setTimeout(() => dispatch(acSetHideGrid(false)), 0)
 }
 
 export const tSaveDashboard = () => async (dispatch, getState, dataEngine) => {

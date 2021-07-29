@@ -50,10 +50,10 @@ export const NEW_DASHBOARD_STATE = {
             { index: 5 },
         ],
     },
-    addTo: 'END',
+    addItemsTo: 'END',
 }
 
-export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
+export default (state = NEW_DASHBOARD_STATE, action) => {
     switch (action.type) {
         case RECEIVED_EDIT_DASHBOARD: {
             const newState = {}
@@ -199,10 +199,12 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
         case RECEIVED_LAYOUT_COLUMNS: {
             return {
                 ...state,
-                layout: {
-                    ...state.layout,
-                    columns: action.value,
-                },
+                layout: !action.value.length
+                    ? {}
+                    : {
+                          ...state.layout,
+                          columns: action.value,
+                      },
             }
         }
         case RECEIVED_ADD_ITEMS_TO: {

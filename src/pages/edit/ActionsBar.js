@@ -189,7 +189,7 @@ const EditBar = ({ dashboard, ...props }) => {
     const getAutoLayoutMenuItem = numberOfCols => (
         <SingleSelectOption
             key={numberOfCols}
-            label={`${numberOfCols} columns`}
+            label={numberOfCols === 0 ? 'Freeflow' : `${numberOfCols} columns`}
             value={String(numberOfCols)}
         />
     )

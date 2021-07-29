@@ -236,12 +236,28 @@ export const getAutoItemShapes = (dashboardItems, columns, maxColUnits) => {
     return itemsWithNewShape
 }
 
-// use cases:
-// - set new layout: no new items, calc new shapes, unmount
-// - add to start: sort new item first, calc new shapes, unmount
-// - add to end: find next shape, add
+export const addToItemsEnd = (newItem, dashboardItems, columns) => {
+    if (!columns.length) {
+        return [
+            ...dashboardItems,
+            {
+                ...NEW_ITEM_SHAPE,
+                y: dashboardItems.reduce(
+                    (mx, item) => Math.max(mx, item.y + item.h),
+                    0
+                ),
+            },
+        ]
+    }
 
-// const getNextItemShape = layout => {}
+    return getAutoItemShapes([
+        ...dashboardItems,
+        {
+            ...NEW_ITEM_SHAPE,
+            y: 99999999,
+        },
+    ])
+}
 
 export const getDashboardItem = item => {
     const type = item.type
