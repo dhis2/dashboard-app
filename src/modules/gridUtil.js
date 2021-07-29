@@ -232,7 +232,7 @@ export const getAutoItemShapes = (dashboardItems, columns, maxColUnits) => {
             rowIdx = rowIdx + 1
         }
     }
-
+    console.log('itemsWithNewShape', itemsWithNewShape)
     return itemsWithNewShape
 }
 
@@ -242,6 +242,7 @@ export const addToItemsEnd = (newItem, dashboardItems, columns) => {
             ...dashboardItems,
             {
                 ...NEW_ITEM_SHAPE,
+                ...newItem,
                 y: dashboardItems.reduce(
                     (mx, item) => Math.max(mx, item.y + item.h),
                     0
@@ -250,13 +251,17 @@ export const addToItemsEnd = (newItem, dashboardItems, columns) => {
         ]
     }
 
-    return getAutoItemShapes([
-        ...dashboardItems,
-        {
-            ...NEW_ITEM_SHAPE,
-            y: 99999999,
-        },
-    ])
+    return getAutoItemShapes(
+        [
+            ...dashboardItems,
+            {
+                ...NEW_ITEM_SHAPE,
+                ...newItem,
+                y: 99999999,
+            },
+        ],
+        columns
+    )
 }
 
 export const getDashboardItem = item => {

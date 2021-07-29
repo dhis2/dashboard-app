@@ -161,7 +161,7 @@ export const tSetDashboardItems = newItem => (dispatch, getState) => {
     } else if (addItemsTo === 'END') {
         dispatch(
             acUpdateDashboardItemShapes(
-                addToItemsEnd(newItem, prevItems, columns)
+                addToItemsEnd(getDashboardItem(newItem), prevItems, columns)
             )
         )
     }
