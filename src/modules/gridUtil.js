@@ -236,7 +236,7 @@ export const getAutoItemShapes = (dashboardItems, columns, maxColUnits) => {
     return itemsWithNewShape
 }
 
-export const addToItemsEnd = (newItem, dashboardItems, columns) => {
+export const addToItemsEnd = (dashboardItems, columns, newItem) => {
     if (!columns.length) {
         return [
             ...dashboardItems,

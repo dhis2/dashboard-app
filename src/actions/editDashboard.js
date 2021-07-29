@@ -138,18 +138,7 @@ export const tSetDashboardItems = newItem => (dispatch, getState) => {
             })
         }
 
-        // TODO change from columns to layout
-        console.log('sGetLayout(getState())', sGetLayout(getState()))
-        const itemsWithNewShapes = getAutoItemShapes(
-            prevItems,
-            sGetLayoutColumns(getState())
-        )
-
-        console.log(
-            'tSetDashboardItems',
-            'itemsWithNewShapes',
-            itemsWithNewShapes
-        )
+        const itemsWithNewShapes = getAutoItemShapes(prevItems, columns)
 
         if (!itemsWithNewShapes) {
             return
@@ -161,7 +150,7 @@ export const tSetDashboardItems = newItem => (dispatch, getState) => {
     } else if (addItemsTo === 'END') {
         dispatch(
             acUpdateDashboardItemShapes(
-                addToItemsEnd(getDashboardItem(newItem), prevItems, columns)
+                addToItemsEnd(prevItems, columns, getDashboardItem(newItem))
             )
         )
     }
