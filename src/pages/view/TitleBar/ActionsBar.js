@@ -67,7 +67,7 @@ const ViewActions = ({
     const onCacheDashboardConfirmed = () => {
         setConfirmCacheDialogIsOpen(false)
         removeAllFilters()
-        startRecording()
+        startRecording({})
     }
 
     const onToggleOfflineStatus = () => {
@@ -86,7 +86,7 @@ const ViewActions = ({
         toggleMoreOptions()
         return filtersLength
             ? setConfirmCacheDialogIsOpen(true)
-            : startRecording()
+            : startRecording({})
     }
 
     const onToggleShowDescription = () =>
