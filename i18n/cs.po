@@ -159,10 +159,10 @@ msgid "See all messages"
 msgstr "Zobrazit všechny zprávy"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "Typ položky \"{{type}}\" není podporován"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "Typ položky chybí"
 
 msgid "Filters applied"
 msgstr "Použité filtry"
