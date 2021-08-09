@@ -8,8 +8,12 @@ import classes from './styles/LastUpdatedTag.module.css'
 const LastUpdatedTag = ({ id }) => {
     const { lastUpdated } = useCacheableSection(id)
 
-    return lastUpdated ? (
-        <Tooltip content={lastUpdated} openDelay={200} closeDelay={100}>
+    return lastUpdated && lastUpdated.toString ? (
+        <Tooltip
+            content={<span>{lastUpdated.toString()}</span>}
+            openDelay={200}
+            closeDelay={100}
+        >
             <Tag
                 className={classes.lastUpdatedTag}
             >{`Offline data last updated ${moment(
