@@ -13,18 +13,19 @@ class ProgressiveLoadingContainer extends Component {
         bufferFactor: PropTypes.number,
         className: PropTypes.string,
         debounceMs: PropTypes.number,
-        forceLoad: PropTypes.bool,
+        forceLoadCount: PropTypes.number,
         name: PropTypes.string,
         style: PropTypes.object,
     }
     static defaultProps = {
         debounceMs: defaultDebounceMs,
         bufferFactor: defaultBufferFactor,
-        forceLoad: false,
+        forceLoadCount: 0,
     }
 
     state = {
         shouldLoad: false,
+        internalForceLoadCount: 0,
     }
     containerRef = null
     debouncedCheckShouldLoad = null
@@ -36,8 +37,12 @@ class ProgressiveLoadingContainer extends Component {
             return
         }
 
-        if (this.props.forceLoad && !this.state.shouldLoad) {
+        // force load item regardless of its position
+        if (this.shouldForceLoad() && !this.state.shouldLoad) {
             this.setState({ shouldLoad: true })
+            this.setState({
+                internalForceLoadCount: this.props.forceLoadCount,
+            })
             this.removeHandler()
             return
         }
@@ -45,6 +50,7 @@ class ProgressiveLoadingContainer extends Component {
         const bufferPx = this.props.bufferFactor * window.innerHeight
         const rect = this.containerRef.getBoundingClientRect()
 
+        // load item if it is near viewport
         if (
             rect.bottom > -bufferPx &&
             rect.top < window.innerHeight + bufferPx
@@ -98,13 +104,17 @@ class ProgressiveLoadingContainer extends Component {
         this.observer.disconnect()
     }
 
+    shouldForceLoad() {
+        return this.props.forceLoadCount > this.state.internalForceLoadCount
+    }
+
     componentDidMount() {
         this.registerHandler()
         this.checkShouldLoad()
     }
 
     componentDidUpdate() {
-        if (this.props.forceLoad && !this.state.shouldLoad) {
+        if (this.shouldForceLoad() && !this.state.shouldLoad) {
             this.checkShouldLoad()
         }
     }
@@ -114,8 +124,9 @@ class ProgressiveLoadingContainer extends Component {
     }
 
     render() {
-        const { children, className, forceLoad, style, ...props } = this.props
-        const { shouldLoad } = this.state
+        const { children, className, style, ...props } = this.props
+
+        const shouldLoad = this.state.shouldLoad || this.shouldForceLoad()
 
         const eventProps = pick(props, [
             'onMouseDown',
@@ -132,7 +143,7 @@ class ProgressiveLoadingContainer extends Component {
                 data-test={`dashboarditem-${props.name}`}
                 {...eventProps}
             >
-                {(forceLoad || shouldLoad) && children}
+                {shouldLoad && children}
             </div>
         )
     }

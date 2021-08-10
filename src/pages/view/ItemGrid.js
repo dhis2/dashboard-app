@@ -30,7 +30,7 @@ import classes from './styles/ItemGrid.module.css'
 const EXPANDED_HEIGHT = 17
 const EXPANDED_HEIGHT_SM = 13
 
-const ResponsiveItemGrid = ({ isRecording, dashboardItems }) => {
+const ResponsiveItemGrid = ({ forceLoadCount, dashboardItems }) => {
     const { width } = useWindowDimensions()
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
@@ -86,14 +86,13 @@ const ResponsiveItemGrid = ({ isRecording, dashboardItems }) => {
                     getGridItemDomElementClassName(item.id)
                 )}
                 name={getVisualizationName(item)}
-                forceLoad={isRecording}
+                forceLoadCount={forceLoadCount}
             >
                 <Item
                     item={item}
                     gridWidth={gridWidth}
                     dashboardMode={VIEW}
                     onToggleItemExpanded={onToggleItemExpanded}
-                    isRecording={isRecording}
                 />
             </ProgressiveLoadingContainer>
         )
@@ -141,7 +140,7 @@ const ResponsiveItemGrid = ({ isRecording, dashboardItems }) => {
 
 ResponsiveItemGrid.propTypes = {
     dashboardItems: PropTypes.array,
-    isRecording: PropTypes.bool,
+    forceLoadCount: PropTypes.number,
 }
 
 const mapStateToProps = state => ({

@@ -1,5 +1,4 @@
 import i18n from '@dhis2/d2-i18n'
-import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -73,11 +72,9 @@ class Item extends Component {
     }
 
     async componentDidMount() {
-        if (isEmpty(this.props.visualization)) {
-            this.props.setVisualization(
-                await apiFetchVisualization(this.props.item)
-            )
-        }
+        this.props.setVisualization(
+            await apiFetchVisualization(this.props.item)
+        )
 
         try {
             if (
@@ -95,14 +92,6 @@ class Item extends Component {
         }
 
         this.setState({ configLoaded: true })
-    }
-
-    async componentDidUpdate() {
-        if (this.props.isRecording) {
-            this.props.setVisualization(
-                await apiFetchVisualization(this.props.item)
-            )
-        }
     }
 
     isFullscreenSupported = () => {
