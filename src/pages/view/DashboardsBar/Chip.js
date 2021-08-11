@@ -9,22 +9,10 @@ import { apiPostDataStatistics } from '../../../api/dataStatistics'
 import { OfflineSaved } from './assets/icons'
 import classes from './styles/Chip.module.css'
 
-const Chip = ({
-    starred,
-    selected,
-    label,
-    dashboardId,
-    onClick,
-    cacheVersion,
-}) => {
+const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
     const { lastUpdated } = useCacheableSection(dashboardId)
     const chipProps = {
         selected,
-    }
-
-    const i = 0
-    if (i > 0) {
-        console.log('cacheVersion', cacheVersion)
     }
 
     if (starred) {
