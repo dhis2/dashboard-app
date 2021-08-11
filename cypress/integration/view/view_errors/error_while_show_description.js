@@ -12,7 +12,7 @@ before(() => {
             'content-type': 'application/json',
         },
         body: 'false',
-    }).then(response => expect(response.status).to.equal(201))
+    }).then(response => expect(response.status).to.equal(200))
 })
 
 When('clicking to show description fails', () => {
