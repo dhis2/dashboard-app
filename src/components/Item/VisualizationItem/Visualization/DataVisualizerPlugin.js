@@ -27,7 +27,10 @@ const DataVisualizerPlugin = ({
         []
     )
 
-    const onError = () => setError(true)
+    const onError = e => {
+        console.log('e', e)
+        setError(true)
+    }
 
     useEffect(() => {
         setError(false)

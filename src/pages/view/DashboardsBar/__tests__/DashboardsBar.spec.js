@@ -25,7 +25,7 @@ const dashboards = {
     },
 }
 
-jest.mock('@dhis2/app-service-offline', () => ({
+jest.mock('@dhis2/app-runtime', () => ({
     useOnlineStatus: () => ({ online: true }),
     useCacheableSection: jest.fn(() => ({
         isCached: false,

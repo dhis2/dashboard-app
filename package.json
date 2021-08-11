@@ -6,9 +6,8 @@
     "license": "BSD-3-Clause",
     "dependencies": {
         "@dhis2/analytics": "^20.0.2",
-        "@dhis2/app-runtime": "^2.8.0",
+        "@dhis2/app-runtime": "^2.10.0-pwa.1",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
-        "@dhis2/app-service-offline": "file:../app-runtime/services/offline",
         "@dhis2/d2-i18n": "^1.1.0",
         "@dhis2/d2-ui-core": "^7.3.1",
         "@dhis2/d2-ui-interpretations": "^7.3.1",
@@ -18,6 +17,7 @@
         "@dhis2/d2-ui-translation-dialog": "^7.3.1",
         "@dhis2/data-visualizer-plugin": "^37.6.1",
         "@dhis2/ui": "^6.10.5",
+        "add": "^2.0.6",
         "classnames": "^2.3.1",
         "d2": "^31.10.0",
         "d2-utilizr": "^0.2.16",
@@ -34,13 +34,8 @@
         "redux-thunk": "^2.3.0",
         "reselect": "^4.0.0",
         "serve": "^12.0.0",
-        "styled-jsx": "3.3.2"
-    },
-    "resolutions": {
-        "@dhis2/app-service-offline": "file:../app-runtime/services/offline",
-        "@dhis2/cli-app-scripts": "file:../app-platform/cli",
-        "@dhis2/app-adapter": "file:../app-platform/adapter",
-        "@dhis2/app-shell": "file:../app-platform/shell"
+        "styled-jsx": "3.3.2",
+        "yarn": "^1.22.11"
     },
     "scripts": {
         "start": "d2-app-scripts start",
@@ -59,7 +54,7 @@
         "cy:capture": "cypress_dhis2_api_stub_mode=CAPTURE yarn d2-utils-cypress run --appStart 'yarn cypress:start'"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "file:../app-platform/cli",
+        "@dhis2/cli-app-scripts": "^7.3.0-alpha.1",
         "@dhis2/cli-style": "^9.0.1",
         "@dhis2/cli-utils-cypress": "^7.0.1",
         "@dhis2/cypress-commands": "^7.0.1",

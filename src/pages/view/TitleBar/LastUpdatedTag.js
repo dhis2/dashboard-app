@@ -1,4 +1,4 @@
-import { useCacheableSection } from '@dhis2/app-service-offline'
+import { useCacheableSection } from '@dhis2/app-runtime'
 import { Tag, Tooltip } from '@dhis2/ui'
 import moment from 'moment'
 import PropTypes from 'prop-types'

@@ -1,7 +1,4 @@
-import {
-    useOnlineStatus,
-    useCacheableSection,
-} from '@dhis2/app-service-offline'
+import { useOnlineStatus, useCacheableSection } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { ComponentCover, AlertStack, AlertBar } from '@dhis2/ui'
 import cx from 'classnames'

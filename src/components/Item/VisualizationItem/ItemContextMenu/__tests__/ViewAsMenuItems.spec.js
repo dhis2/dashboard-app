@@ -1,4 +1,4 @@
-import { useOnlineStatus } from '@dhis2/app-service-offline'
+import { useOnlineStatus } from '@dhis2/app-runtime'
 import { render } from '@testing-library/react'
 import React from 'react'
 import {
@@ -10,7 +10,7 @@ import {
 } from '../../../../../modules/itemTypes'
 import ViewAsMenuItems from '../ViewAsMenuItems'
 
-jest.mock('@dhis2/app-service-offline', () => ({
+jest.mock('@dhis2/app-runtime', () => ({
     useOnlineStatus: jest.fn(() => ({ online: true, offline: false })),
 }))
 

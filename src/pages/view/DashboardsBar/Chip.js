@@ -1,4 +1,4 @@
-import { useCacheableSection } from '@dhis2/app-service-offline'
+import { useCacheableSection } from '@dhis2/app-runtime'
 import { Chip as UiChip, colors, IconStarFilled24 } from '@dhis2/ui'
 import cx from 'classnames'
 import debounce from 'lodash/debounce'

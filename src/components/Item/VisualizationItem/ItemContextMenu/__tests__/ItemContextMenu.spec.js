@@ -10,7 +10,7 @@ jest.mock('../../../../SystemSettingsProvider', () => ({
     useSystemSettings: jest.fn(),
 }))
 
-jest.mock('@dhis2/app-service-offline', () => ({
+jest.mock('@dhis2/app-runtime', () => ({
     useOnlineStatus: jest.fn(() => ({ online: true })),
 }))
 

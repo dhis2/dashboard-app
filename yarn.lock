@@ -2082,11 +2082,12 @@
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
 
-"@dhis2/app-adapter@7.1.0", "@dhis2/app-adapter@file:../app-platform/adapter":
-  version "7.1.0"
+"@dhis2/app-adapter@7.3.0-alpha.1":
+  version "7.3.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-7.3.0-alpha.1.tgz#8330c35807187881e12ff569145fab72dc31f90d"
+  integrity sha512-smzkjvec4q8NlE2uSM0+wMB4u9mM6QWAY/YEIUgCii4Q+GQSB9H8yihZGvcs81bStD0i2gCZmwd6Ns7Fns/QlQ==
   dependencies:
-    "@dhis2/app-service-offline" "file:../../../Library/Caches/Yarn/v6/npm-@dhis2-app-adapter-7.1.0-f57ba345-03ff-4d7c-bf72-e9093e05a9ab-1625836881686/node_modules/app-runtime/services/offline"
-    "@dhis2/sw" "file:../../../Library/Caches/Yarn/v6/npm-@dhis2-app-adapter-7.1.0-f57ba345-03ff-4d7c-bf72-e9093e05a9ab-1625836881686/node_modules/@dhis2/sw"
+    "@dhis2/pwa" "7.3.0-alpha.1"
     moment "^2.24.0"
 
 "@dhis2/app-runtime-adapter-d2@^1.1.0":
@@ -2095,6 +2096,16 @@
   integrity sha512-Qlff432iw1IljuRoexNCBhpdThYQ6WMNhSIrHQuNpF8JARKmq/W1WhSsnUrYbHy2FL8yBKsORXOWbfMpVY5vRw==
   dependencies:
     prop-types "^15.7.2"
+
+"@dhis2/app-runtime@^2.10.0-pwa.1":
+  version "2.10.0-pwa.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.10.0-pwa.1.tgz#93a37409004c36c1638bc9dc01fe17c1e5cc3e29"
+  integrity sha512-QlGQqc7ltWm54hfMzzfGxElhkP2lRHiX9A+eZs33zNuwg80wVN2BfCyRfoD95guhKXJlcmQ8/6Af+76jzoJNww==
+  dependencies:
+    "@dhis2/app-service-alerts" "2.10.0-pwa.1"
+    "@dhis2/app-service-config" "2.10.0-pwa.1"
+    "@dhis2/app-service-data" "2.10.0-pwa.1"
+    "@dhis2/app-service-offline" "2.10.0-pwa.1"
 
 "@dhis2/app-runtime@^2.8.0":
   version "2.8.0"
@@ -2105,45 +2116,66 @@
     "@dhis2/app-service-config" "2.8.0"
     "@dhis2/app-service-data" "2.8.0"
 
+"@dhis2/app-service-alerts@2.10.0-pwa.1":
+  version "2.10.0-pwa.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-alerts/-/app-service-alerts-2.10.0-pwa.1.tgz#1651de8e12bc10d4f0b32b4deff02711499348f5"
+  integrity sha512-kLxdEzEUkTRshaN/Of4sTIhUSZf14QLmIhJPZrtWSqiBuvNdya3Qri7+cBpGxTK7kDf13UTH++dHOYFe8BN+HA==
+
 "@dhis2/app-service-alerts@2.8.0":
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/@dhis2/app-service-alerts/-/app-service-alerts-2.8.0.tgz#f480043a15b5a2b7d90a6e74931ddd3ebb65aa1c"
   integrity sha512-hpMqdxCG9w5H2EZyLPQKcKzCdp/Sof68ZGd85lNHo+1c10+1pWhKAjt/p3zoRllHppp17TbEgKoXa1oRx2NeHg==
+
+"@dhis2/app-service-config@2.10.0-pwa.1":
+  version "2.10.0-pwa.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-2.10.0-pwa.1.tgz#1fc10ed8fa2cc3d5bb335ab1c254c224ffb47e89"
+  integrity sha512-R7rY9capeU9rFRdbZH0+Zo/jtUvEeu+yk6lZy7aiDqjf66I+p5/DZPnKTEyqB20gFEb4Qa0KRHYEk44K4bA3fA==
 
 "@dhis2/app-service-config@2.8.0":
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-2.8.0.tgz#4ce7520e28a7700fa11ad7bcba6468a0a58751a4"
   integrity sha512-SZnoa2EjsgV8a1QfnSk6fqxORV3pRcA+SYyz/H/nkr/VodkdgmO5CiwlZxXW8pG+4i6sbMGjGualam2jHF34wg==
 
+"@dhis2/app-service-data@2.10.0-pwa.1":
+  version "2.10.0-pwa.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-2.10.0-pwa.1.tgz#9a6cb897fdc87a94c560f2d522351e177e95ee75"
+  integrity sha512-6ypgudTNfo3k/zczrkbtrjV1Bxph9FKaI7KazOId7BpQwScZMCDvcaDaIMBb4QA2W6dh73u7G4bnKAWloBpKcw==
+
 "@dhis2/app-service-data@2.8.0":
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-2.8.0.tgz#9cd347127968cb6f3c8a4ab0fc6699ea7058f835"
   integrity sha512-5doyL4bxRMdMXY4RtWo2O3NVGwSDOSUY3hGPXaF1TeFWAqujlPTx17uDw6wEelN6LaryAnVwId2Ep3FOV8v5MA==
 
-"@dhis2/app-service-offline@file:../app-runtime/services/offline":
-  version "2.8.0"
+"@dhis2/app-service-offline@2.10.0-pwa.1":
+  version "2.10.0-pwa.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-offline/-/app-service-offline-2.10.0-pwa.1.tgz#195a2c577e62c056629c345d17aef41b02c196d7"
+  integrity sha512-hHXMNylsrNqxS9Qe9kA3U74O3zB+Js1loDAm7xxZHn/HV70/yaJtjRI/UYZ65/8SxmT4LyzVJg06jjRYfIy6DA==
 
-"@dhis2/app-shell@7.1.0", "@dhis2/app-shell@file:../app-platform/shell":
-  version "7.1.0"
+"@dhis2/app-shell@7.3.0-alpha.1":
+  version "7.3.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-7.3.0-alpha.1.tgz#baadc3104ab6a7d9d3575c5c372e3a6a8c960108"
+  integrity sha512-pW/6w6JqMxYk96Z1HtjOik7fOMvbUJZ7sqAy7jRpProA7fYmvt4a3kjkNHdF/SqlMqanFw/9wuGOlujKP/Eusw==
   dependencies:
-    "@dhis2/app-adapter" "7.1.0"
-    "@dhis2/app-runtime" "^2.8.0"
+    "@dhis2/app-adapter" "7.3.0-alpha.1"
+    "@dhis2/app-runtime" "^2.10.0-pwa.1"
     "@dhis2/d2-i18n" "^1.1.0"
-    "@dhis2/sw" "file:../../../Library/Caches/Yarn/v6/npm-@dhis2-app-shell-7.1.0-58bd5ab9-2c80-4177-9825-134ebec5f230-1625836881691/node_modules/@dhis2/sw"
-    "@dhis2/ui" "^6.5.3"
+    "@dhis2/pwa" "7.3.0-alpha.1"
+    "@dhis2/ui" "^6.10.5"
     classnames "^2.2.6"
     moment "^2.29.1"
     prop-types "^15.7.2"
     react "^16.8.6"
     react-dom "^16.8.6"
-    react-scripts "^4.0.0"
+    react-scripts "^4.0.3"
     source-map-explorer "^2.1.0"
     styled-jsx "^3.2.2"
     typeface-roboto "^0.0.75"
     typescript "^3.6.3"
 
-"@dhis2/cli-app-scripts@file:../app-platform/cli":
-  version "7.1.0"
+"@dhis2/cli-app-scripts@^7.3.0-alpha.1":
+  version "7.3.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-7.3.0-alpha.1.tgz#f011c300495e04c50f97bb0b64ff29e90ecee3d8"
+  integrity sha512-j/3WiYHkN7mlHdwFQ5LJpjCu5iBspML9N33Pk5D8r9eAmJ9zILuJB7r4KiWFI8isfR8Yka3rFoELvT9oSgMDlQ==
   dependencies:
     "@babel/core" "^7.6.2"
     "@babel/plugin-proposal-class-properties" "^7.8.3"
@@ -2152,7 +2184,7 @@
     "@babel/preset-env" "^7.14.7"
     "@babel/preset-react" "^7.0.0"
     "@babel/preset-typescript" "^7.6.0"
-    "@dhis2/app-shell" "7.1.0"
+    "@dhis2/app-shell" "7.3.0-alpha.1"
     "@dhis2/cli-helpers-engine" "^3.0.0"
     archiver "^3.1.1"
     axios "^0.20.0"
@@ -2386,8 +2418,10 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/sw@file:../app-platform/sw":
-  version "1.0.0"
+"@dhis2/pwa@7.3.0-alpha.1":
+  version "7.3.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/pwa/-/pwa-7.3.0-alpha.1.tgz#320a3712ff8833be4ec2b501f91bffbf8bfd7eea"
+  integrity sha512-4XTeKaHi/7WxDi6OK2hxIbX1FbzZ887Xj5gfW8cTOPyHrRDPiVfzidcTvavxbLQWZGiT2GQ1owOZqe/lIYUflA==
   dependencies:
     idb "^6.0.0"
     workbox-core "^6.1.5"
@@ -2488,7 +2522,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.3.1"
 
-"@dhis2/ui@^6.10.5", "@dhis2/ui@^6.5.3", "@dhis2/ui@^6.9.0":
+"@dhis2/ui@^6.10.5", "@dhis2/ui@^6.9.0":
   version "6.10.5"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-6.10.5.tgz#de9e6fb53d75a47eb23a63e20bc4a60908c5d9cd"
   integrity sha512-YM9YRVo5UXFXqHr7dJSoH8x6z3eFkaEmoHlmPht4hmCiNUK7MJK+CoBGwAXB8+UD/t7kIZhJpMJiF6mN5vCxwQ==
@@ -4266,6 +4300,11 @@ acorn@^8.2.4, acorn@^8.4.1:
   version "8.4.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.4.1.tgz#56c36251fc7cabc7096adc18f05afe814321a28c"
   integrity sha512-asabaBSkEKosYKMITunzX177CXxQ4Q8BSSzMTKD+FefUhipQC70gfW5SiUDhYQ3vk8G+81HqQk7Fv9OXwwn9KA==
+
+add@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/add/-/add-2.0.6.tgz#248f0a9f6e5a528ef2295dbeec30532130ae2235"
+  integrity sha1-JI8Kn25aUo7yKV2+7DBTITCuIjU=
 
 address@1.1.2, address@^1.0.1:
   version "1.1.2"
@@ -14806,7 +14845,7 @@ react-router@5.2.0:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
-react-scripts@^4.0.0:
+react-scripts@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-4.0.3.tgz#b1cafed7c3fa603e7628ba0f187787964cb5d345"
   integrity sha512-S5eO4vjUzUisvkIPB7jVsKtuH2HhWcASREYWHAQ1FP5HyCv3xgn+wpILAEWkmy+A+tTNbSZClhxjT3qz6g4L1A==
@@ -18733,6 +18772,11 @@ yargs@^16.2.0:
     string-width "^4.2.0"
     y18n "^5.0.5"
     yargs-parser "^20.2.2"
+
+yarn@^1.22.11:
+  version "1.22.11"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.22.11.tgz#d0104043e7349046e0e2aec977c24be106925ed6"
+  integrity sha512-AWje4bzqO9RUn3sdnM5N8n4ZJ0BqCc/kqFJvpOI5/EVkINXui0yuvU7NDCEF//+WaxHuNay2uOHxA4+tq1P3cg==
 
 yauzl@^2.10.0:
   version "2.10.0"

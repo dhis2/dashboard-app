@@ -1,9 +1,6 @@
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-import {
-    useOnlineStatus,
-    useCacheableSection,
-} from '@dhis2/app-service-offline'
+import { useOnlineStatus, useCacheableSection } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import { FlyoutMenu, MenuItem, colors, IconMore24 } from '@dhis2/ui'

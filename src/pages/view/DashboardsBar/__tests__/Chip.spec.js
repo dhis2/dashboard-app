@@ -1,11 +1,11 @@
-import { useCacheableSection } from '@dhis2/app-service-offline'
+import { useCacheableSection } from '@dhis2/app-runtime'
 import { render } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
 import React from 'react'
 import { Router } from 'react-router-dom'
 import Chip from '../Chip'
 
-jest.mock('@dhis2/app-service-offline', () => ({
+jest.mock('@dhis2/app-runtime', () => ({
     useCacheableSection: jest.fn(),
 }))
 
