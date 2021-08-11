@@ -2,6 +2,9 @@ import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { clickViewActionButton } from '../../../elements/viewDashboard'
 import { getApiBaseUrl } from '../../../support/server/utils'
 
+const SHOW_DESC_RESP_CODE_SUCCESS = 200
+const SHOW_DESC_RESP_CODE_FAIL = 409
+
 before(() => {
     //ensure that the description is not currently shown
     cy.request({
@@ -11,7 +14,9 @@ before(() => {
             'content-type': 'application/json',
         },
         body: 'false',
-    }).then(response => expect(response.status).to.equal(200))
+    }).then(response =>
+        expect(response.status).to.equal(SHOW_DESC_RESP_CODE_SUCCESS)
+    )
 })
 
 When('I click to show description', () => {
@@ -22,27 +27,31 @@ When('I click to show description', () => {
     clickViewActionButton('More')
     cy.contains('Show description').click()
 
-    cy.wait('@toggleDescription').its('response.statusCode').should('eq', 201)
+    cy.wait('@toggleDescription')
+        .its('response.statusCode')
+        .should('eq', SHOW_DESC_RESP_CODE_SUCCESS)
 })
 
 When('I click to hide the description', () => {
     clickViewActionButton('More')
     cy.contains('Hide description').click()
 
-    cy.wait('@toggleDescription').its('response.statusCode').should('eq', 201)
+    cy.wait('@toggleDescription')
+        .its('response.statusCode')
+        .should('eq', SHOW_DESC_RESP_CODE_SUCCESS)
 })
 
 // Error scenario
 When('clicking to show description fails', () => {
     cy.intercept('PUT', 'userDataStore/dashboard/showDescription', {
-        statusCode: 409,
+        statusCode: SHOW_DESC_RESP_CODE_FAIL,
     }).as('showDescriptionFails')
 
     clickViewActionButton('More')
     cy.contains('Show description').click()
     cy.wait('@showDescriptionFails')
         .its('response.statusCode')
-        .should('eq', 409)
+        .should('eq', SHOW_DESC_RESP_CODE_FAIL)
 })
 
 Then(
