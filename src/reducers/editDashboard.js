@@ -126,11 +126,13 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
         case RECEIVED_DASHBOARD_ITEM_SHAPES: {
             const stateItems = orArray(state.dashboardItems)
             let shapesHaveChanged = false
-
+            console.log('RECEIVED_DASHBOARD_ITEM_SHAPES reducer')
             const newStateItems = action.value.map(({ x, y, w, h, i }, idx) => {
                 const stateItem = stateItems.find(si => si.id === i)
 
                 if (!stateItem) {
+                    console.log('!stateItem')
+                    shapesHaveChanged = true
                     return action.value[idx]
                 }
 
@@ -148,7 +150,7 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
 
                 return stateItem
             })
-
+            console.log('shapesHaveChanged?', shapesHaveChanged)
             return shapesHaveChanged
                 ? {
                       ...state,

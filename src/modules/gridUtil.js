@@ -237,7 +237,9 @@ export const getAutoItemShapes = (dashboardItems, columns, maxColUnits) => {
 }
 
 export const addToItemsEnd = (dashboardItems, columns, newItem) => {
+    console.log('addToItemsEnd', 'columns length:', columns.length)
     if (!columns.length) {
+        // when no layout
         return [
             ...dashboardItems,
             {
@@ -266,7 +268,7 @@ export const addToItemsEnd = (dashboardItems, columns, newItem) => {
 
 export const getDashboardItem = item => {
     const type = item.type
-    delete item.type
+    // delete item.type
     const itemPropName = itemTypeMap[type].propName
 
     const id = generateUid()
@@ -281,6 +283,19 @@ export const getDashboardItem = item => {
     } else {
         shape = NEW_ITEM_SHAPE
     }
+
+    console.log('GRIDITEMPROPERTIES', gridItemProperties)
+    console.log('shape', shape)
+
+    console.log('RETURNED OBJECT', {
+        id,
+        type,
+        position: item.position || null,
+        [itemPropName]: item.content,
+        ...NEW_ITEM_SHAPE,
+        ...gridItemProperties,
+        ...shape,
+    })
 
     return {
         id,

@@ -123,13 +123,18 @@ export const tSetDashboardItems = newItem => (dispatch, getState) => {
     const addItemsTo = sGetAddItemsTo(getState())
     const columns = sGetLayoutColumns(getState())
     const prevItems = sGetEditDashboardItems(getState())
+    console.group('tSetDashboardItems')
+    console.log('--addItemsTo', addItemsTo)
+    console.log('--columns', columns)
+    console.log('--prevItems', prevItems)
+    console.log('--newItem', newItem)
+    console.groupEnd()
 
-    console.log('-addItemsTo: ', addItemsTo)
-    console.log('-columns: ', columns)
+    const items = [...prevItems]
 
     if (!newItem || addItemsTo === 'START') {
         if (newItem) {
-            prevItems.unshift({
+            items.push({
                 ...getDashboardItem(newItem),
                 x: 0,
                 y: 0,
@@ -138,21 +143,27 @@ export const tSetDashboardItems = newItem => (dispatch, getState) => {
             })
         }
 
-        const itemsWithNewShapes = getAutoItemShapes(prevItems, columns)
+        const itemsWithNewShapes = getAutoItemShapes(items, columns)
 
         if (!itemsWithNewShapes) {
+            // TODO remove log
+            console.log('-Stopped because itemsWithNewShapes is empty')
             return
         }
 
         dispatch(acSetHideGrid(true))
         dispatch(acUpdateDashboardItemShapes(itemsWithNewShapes))
         setTimeout(() => dispatch(acSetHideGrid(false)), 0)
-    } else if (addItemsTo === 'END') {
-        dispatch(
-            acUpdateDashboardItemShapes(
-                addToItemsEnd(prevItems, columns, getDashboardItem(newItem))
-            )
-        )
+    } else if (!addItemsTo || addItemsTo === 'END') {
+        // TODO remove !addItemsTo
+        const item = getDashboardItem(newItem)
+        const addToEndResult = addToItemsEnd(items, columns, item)
+
+        console.group('tSetDashboardItems END')
+        console.log('item', item)
+        console.log('addToEndResult', addToEndResult)
+        console.groupEnd()
+        dispatch(acUpdateDashboardItemShapes(addToEndResult))
     }
 }
 
