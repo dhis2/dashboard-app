@@ -228,7 +228,6 @@ class Item extends Component {
                                             availableWidth={this.getAvailableWidth()}
                                             gridWidth={this.props.gridWidth}
                                             dashboardMode={dashboardMode}
-                                            isRecording={this.props.isRecording}
                                         />
                                     </div>
                                 )}
@@ -249,7 +248,6 @@ Item.propTypes = {
     dashboardMode: PropTypes.string,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
-    isRecording: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     setActiveType: PropTypes.func,
