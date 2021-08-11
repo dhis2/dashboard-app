@@ -215,11 +215,7 @@ const EditBar = ({ dashboard, ...props }) => {
 
     return (
         <>
-            <div
-                className={classes.editBar}
-                data-test="edit-control-bar"
-                style={{ position: 'relative' }}
-            >
+            <div className={classes.editBar} data-test="edit-control-bar">
                 <div className={classes.controls}>
                     {dashboard.access?.update ? renderActionButtons() : null}
                     <Button
