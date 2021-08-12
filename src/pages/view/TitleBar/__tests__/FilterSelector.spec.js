@@ -1,3 +1,4 @@
+import { useOnlineStatus } from '@dhis2/app-runtime'
 import { render, screen } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
@@ -7,8 +8,48 @@ import FilterSelector from '../FilterSelector'
 
 const mockStore = configureMockStore()
 
+jest.mock('@dhis2/app-runtime', () => ({
+    useOnlineStatus: jest.fn(() => ({ offline: false })),
+}))
+
 jest.mock('../../../../modules/useDimensions', () => jest.fn())
 useDimensions.mockImplementation(() => ['Moomin', 'Snorkmaiden'])
+
+test('is disabled when offline', () => {
+    useOnlineStatus.mockImplementationOnce(jest.fn(() => ({ offline: true })))
+
+    const store = { activeModalDimension: {}, itemFilters: {} }
+
+    const props = {
+        allowedFilters: [],
+        restrictFilters: false,
+    }
+
+    const { container } = render(
+        <Provider store={mockStore(store)}>
+            <FilterSelector {...props} />
+        </Provider>
+    )
+    expect(container).toMatchSnapshot()
+})
+
+test('is enabled when online', () => {
+    // useOnlineStatus.mockImplementation(jest.fn(() => ({ offline: false })))
+
+    const store = { activeModalDimension: {}, itemFilters: {} }
+
+    const props = {
+        allowedFilters: [],
+        restrictFilters: false,
+    }
+
+    const { container } = render(
+        <Provider store={mockStore(store)}>
+            <FilterSelector {...props} />
+        </Provider>
+    )
+    expect(container).toMatchSnapshot()
+})
 
 test('is null when no filters are restricted and no filters are allowed', () => {
     const store = { activeModalDimension: {}, itemFilters: {} }

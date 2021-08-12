@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`is disabled when offline 1`] = `
+<div>
+  <span
+    class="buttonContainer"
+  >
+    <div>
+      <span>
+        <button
+          class="jsx-2371629422 "
+          data-test="dhis2-uicore-button"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="jsx-2371629422 button-icon"
+          >
+            <svg
+              color="#4a5768"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14 16l-1 2h-2l-1-2zm4-5l-1 2H7l-1-2zm3-5l-1 2H4L3 6z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+          Add filter
+          <svg
+            class="arrow"
+            viewBox="0 0 12 12"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m5.29289 8.7071c.39053.3905 1.02369.3905 1.41422 0l2.99999-2.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-2.2929 2.2929-2.29289-2.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
+            />
+            <style>
+              
+                svg {
+                    fill: inherit;
+                    height: 12px;
+                    width: 12px;
+                    vertical-align: middle;
+                    pointer-events: none;
+                }
+            
+            </style>
+          </svg>
+        </button>
+        <style>
+          
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: not-allowed;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+        </style>
+      </span>
+    </div>
+  </span>
+</div>
+`;
+
+exports[`is enabled when online 1`] = `
+<div>
+  <span
+    class="buttonContainer"
+  >
+    <div>
+      <span>
+        <button
+          class="jsx-2371629422 "
+          data-test="dhis2-uicore-button"
+          type="button"
+        >
+          <span
+            class="jsx-2371629422 button-icon"
+          >
+            <svg
+              color="#4a5768"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14 16l-1 2h-2l-1-2zm4-5l-1 2H7l-1-2zm3-5l-1 2H4L3 6z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+          Add filter
+          <svg
+            class="arrow"
+            viewBox="0 0 12 12"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m5.29289 8.7071c.39053.3905 1.02369.3905 1.41422 0l2.99999-2.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-2.2929 2.2929-2.29289-2.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
+            />
+            <style>
+              
+                svg {
+                    fill: inherit;
+                    height: 12px;
+                    width: 12px;
+                    vertical-align: middle;
+                    pointer-events: none;
+                }
+            
+            </style>
+          </svg>
+        </button>
+        <style>
+          
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: not-allowed;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+        </style>
+      </span>
+    </div>
+  </span>
+</div>
+`;

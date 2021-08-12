@@ -20,7 +20,7 @@ import classes from './styles/FilterSelector.module.css'
 const FilterSelector = props => {
     const [filterDialogIsOpen, setFilterDialogIsOpen] = useState(false)
     const dimensions = useDimensions(filterDialogIsOpen)
-    const { online } = useOnlineStatus()
+    const { offline } = useOnlineStatus()
 
     const toggleFilterDialogIsOpen = () =>
         setFilterDialogIsOpen(!filterDialogIsOpen)
@@ -63,7 +63,7 @@ const FilterSelector = props => {
             <span className={classes.buttonContainer}>
                 <DropdownButton
                     open={filterDialogIsOpen}
-                    disabled={!online}
+                    disabled={offline}
                     onClick={toggleFilterDialogIsOpen}
                     icon={<IconFilter24 color={colors.grey700} />}
                     component={getFilterSelector()}
