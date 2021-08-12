@@ -1,32 +1,31 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2020
-# phil_dhis2, 2020
+# Cherise Beek <cherise.beek@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-07-06T14:06:20.506Z\n"
 "PO-Revision-Date: 2020-03-02 13:27+0000\n"
-"Last-Translator: phil_dhis2, 2020\n"
-"Language-Team: Pushto (https://www.transifex.com/hisp-uio/teams/100509/ps/)\n"
+"Last-Translator: Cherise Beek <cherise.beek@gmail.com>, 2021\n"
+"Language-Team: Dutch (https://www.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ps\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Untitled dashboard"
 msgstr ""
 
 msgid "Dashboard"
-msgstr "ډېشبورډ [ ډېسبورډ ]"
+msgstr ""
 
 msgid "Cancel"
-msgstr "رد یې کړئ [ ژباړه ـ ردول ]"
+msgstr ""
 
 msgid "Delete"
-msgstr "خذف یې کړئ"
+msgstr "Verwijderen"
 
 msgid "Delete dashboard"
 msgstr ""
@@ -47,16 +46,16 @@ msgid "Save changes"
 msgstr ""
 
 msgid "Translate"
-msgstr "ژباړه"
+msgstr ""
 
 msgid "Search for a dashboard"
 msgstr ""
 
 msgid "Show more"
-msgstr "ډېر ښکاره کړئ"
+msgstr ""
 
 msgid "Show less"
-msgstr "لږ ښکاره کړئ"
+msgstr ""
 
 msgid "No access"
 msgstr ""
@@ -73,13 +72,13 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Remove"
-msgstr "لرې کول"
+msgstr ""
 
 msgid "Delete item"
 msgstr ""
 
 msgid "Messages"
-msgstr "پېغامونه"
+msgstr ""
 
 msgid "See all messages"
 msgstr ""
@@ -164,49 +163,49 @@ msgid "Dashboard description"
 msgstr ""
 
 msgid "Edit"
-msgstr "درست یې کړئ"
+msgstr ""
 
 msgid "Share"
-msgstr "شریک یې کړئ"
+msgstr ""
 
 msgid "No description"
-msgstr "هېڅ ډول تشریح نه لري"
+msgstr ""
 
 msgid "Visualizations"
 msgstr ""
 
 msgid "Data Visualizer"
-msgstr "د مالوماتو (ډاټا) ښکاره کوونکی"
+msgstr ""
 
 msgid "Pivot tables"
-msgstr "محوري جدولونه"
+msgstr ""
 
 msgid "Charts"
-msgstr "چارټونه"
+msgstr ""
 
 msgid "Maps"
-msgstr "نخشې"
+msgstr ""
 
 msgid "Event reports"
 msgstr ""
 
 msgid "Event Reports"
-msgstr "د پېښې اړوند راپورونه"
+msgstr ""
 
 msgid "Event charts"
 msgstr ""
 
 msgid "Event Visualizer"
-msgstr "د پېښې انځوروونکی"
+msgstr ""
 
 msgid "Apps"
-msgstr "اپلیکېشن [ د اپلیکېشن تنظیموونکی ]"
+msgstr ""
 
 msgid "Reports"
-msgstr "راپورونه"
+msgstr ""
 
 msgid "Resources"
 msgstr ""
 
 msgid "Users"
-msgstr "کاروونکي [ کاروونکي ]"
+msgstr ""
