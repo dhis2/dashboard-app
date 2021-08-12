@@ -1,45 +1,40 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { sGetSelected } from '../../../reducers/selected'
+import {
+    sGetSelectedDisplayName,
+    sGetSelectedDisplayDescription,
+} from '../../../reducers/selected'
 import { sGetShowDescription } from '../../../reducers/showDescription'
 import ActionsBar from './ActionsBar'
 import Description from './Description'
 import classes from './styles/TitleBar.module.css'
 
-const ViewTitleBar = ({ displayName, displayDescription, showDescription }) => {
-    return (
-        <div className={classes.container}>
-            <div className={classes.titleBar} data-test="title-bar">
-                <span
-                    className={classes.title}
-                    data-test="view-dashboard-title"
-                >
-                    {displayName}
-                </span>
-                <ActionsBar />
-            </div>
-            <Description
-                showDescription={showDescription}
-                description={displayDescription}
-            />
+const ViewTitleBar = ({ name, description, showDescription }) => (
+    <div className={classes.container}>
+        <div className={classes.titleBar} data-test="title-bar">
+            <span className={classes.title} data-test="view-dashboard-title">
+                {name}
+            </span>
+            <ActionsBar />
         </div>
-    )
-}
+        <Description
+            description={description}
+            showDescription={showDescription}
+        />
+    </div>
+)
 
 ViewTitleBar.propTypes = {
-    displayDescription: PropTypes.string,
-    displayName: PropTypes.string,
+    description: PropTypes.string,
+    name: PropTypes.string,
     showDescription: PropTypes.bool,
 }
 
-const mapStateToProps = state => {
-    const dashboard = sGetSelected(state)
-
-    return {
-        ...dashboard,
-        showDescription: sGetShowDescription(state),
-    }
-}
+const mapStateToProps = state => ({
+    name: sGetSelectedDisplayName(state),
+    description: sGetSelectedDisplayDescription(state),
+    showDescription: sGetShowDescription(state),
+})
 
 export default connect(mapStateToProps)(ViewTitleBar)

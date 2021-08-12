@@ -5,15 +5,21 @@ import React from 'react'
 import classes from './styles/Description.module.css'
 
 const Description = ({ description, showDescription }) => {
-    const descriptionClasses = cx(
-        classes.descContainer,
-        description ? classes.desc : classes.noDesc
-    )
-    return showDescription ? (
-        <div className={descriptionClasses} data-test="dashboard-description">
+    if (!showDescription) {
+        return null
+    }
+
+    return (
+        <div
+            className={cx(
+                classes.descContainer,
+                description ? classes.desc : classes.noDesc
+            )}
+            data-test="dashboard-description"
+        >
             {description || i18n.t('No description')}
         </div>
-    ) : null
+    )
 }
 
 Description.propTypes = {

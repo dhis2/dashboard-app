@@ -43,14 +43,13 @@ const ViewActions = ({
         warning: true,
     })
 
+    const onToggleSharingDialog = () =>
+        setSharingDialogIsOpen(!sharingDialogIsOpen)
+
     const toggleMoreOptions = small =>
         small
             ? setMoreOptionsSmallIsOpen(!moreOptionsSmallIsOpen)
             : setMoreOptionsIsOpen(!moreOptionsIsOpen)
-
-    if (redirectUrl) {
-        return <Redirect to={redirectUrl} />
-    }
 
     const onToggleShowDescription = () =>
         apiPostShowDescription(!showDescription)
@@ -79,9 +78,6 @@ const ViewActions = ({
                     : i18n.t('Failed to star the dashboard')
                 warningAlert.show({ msg })
             })
-
-    const onToggleSharingDialog = () =>
-        setSharingDialogIsOpen(!sharingDialogIsOpen)
 
     const userAccess = orObject(access)
 
@@ -135,6 +131,10 @@ const ViewActions = ({
         </DropdownButton>
     )
 
+    if (redirectUrl) {
+        return <Redirect to={redirectUrl} />
+    }
+
     return (
         <>
             <div className={classes.actions}>
@@ -181,9 +181,7 @@ const ViewActions = ({
 ViewActions.propTypes = {
     access: PropTypes.object,
     allowedFilters: PropTypes.array,
-    filtersLength: PropTypes.number,
     id: PropTypes.string,
-    removeAllFilters: PropTypes.func,
     restrictFilters: PropTypes.bool,
     setDashboardStarred: PropTypes.func,
     showDescription: PropTypes.bool,
