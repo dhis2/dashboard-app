@@ -26,13 +26,11 @@ jest.mock(
         }
 )
 
-jest.mock('../TitleBar', () => {
-    return {
-        TitleBar: function MockTitleBar() {
-            return <div>TitleBar</div>
-        },
-    }
-})
+jest.mock('../TitleBar', () => ({
+    TitleBar: function MockTitleBar() {
+        return <div>TitleBar</div>
+    },
+}))
 
 jest.mock(
     '../FilterBar/FilterBar',
