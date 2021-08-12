@@ -1,4 +1,3 @@
-import { useDataEngine } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { render } from '@testing-library/react'
 import React from 'react'
@@ -44,9 +43,11 @@ useD2.mockReturnValue({
     },
 })
 
-useDataEngine.mockReturnValue({
-    dataEngine: {},
-})
+jest.mock('@dhis2/app-runtime', () => ({
+    useOnlineStatus: jest.fn(() => ({ online: true, offline: false })),
+    useDataEngine: jest.fn(() => ({ dataEngine: {} })),
+    useAlert: jest.fn(() => ({})),
+}))
 
 test('renders the ActionsBar without Delete when no delete access', async () => {
     const store = {
@@ -58,7 +59,6 @@ test('renders the ActionsBar without Delete when no delete access', async () => 
                 delete: false,
             },
             printPreviewView: false,
-            isDirty: false,
         },
     }
 
@@ -81,7 +81,6 @@ test('renders only the Go to Dashboards button when no update access', async () 
                 delete: false,
             },
             printPreviewView: false,
-            isDirty: false,
         },
     }
 
@@ -118,7 +117,6 @@ test('renders Translate, Delete, and Discard buttons when delete access', async 
                 delete: true,
             },
             printPreviewView: false,
-            isDirty: false,
         },
     }
 

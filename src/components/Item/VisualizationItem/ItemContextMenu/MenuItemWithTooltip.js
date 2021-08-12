@@ -10,14 +10,14 @@ const MenuItemWithTooltip = ({
     label,
     ...rest
 }) => {
-    const { online } = useOnlineStatus()
+    const { offline } = useOnlineStatus()
 
     const tooltipContent =
-        disabledWhenOffline && !online
+        disabledWhenOffline && offline
             ? i18n.t('Not available offline')
             : tooltip
 
-    const notAllowed = disabledWhenOffline && !online
+    const notAllowed = disabledWhenOffline && offline
 
     const getLabelWithTooltip = () => {
         return (

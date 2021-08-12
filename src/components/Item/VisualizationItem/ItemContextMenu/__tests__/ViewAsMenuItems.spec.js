@@ -16,10 +16,12 @@ jest.mock('@dhis2/app-runtime', () => ({
 
 const offline = {
     online: false,
+    offline: true,
 }
 
 const online = {
     online: true,
+    offline: false,
 }
 
 const defaultProps = {

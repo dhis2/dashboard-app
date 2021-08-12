@@ -11,7 +11,8 @@ jest.mock('../../../../SystemSettingsProvider', () => ({
 }))
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useOnlineStatus: jest.fn(() => ({ online: false })),
+    useOnlineStatus: jest.fn(() => ({ offline: true })),
+    useConfig: jest.fn(() => ({ baseUrl: 'dhis2' })),
 }))
 
 const mockSystemSettingsDefault = {
