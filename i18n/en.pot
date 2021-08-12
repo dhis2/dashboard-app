@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
-"PO-Revision-Date: 2021-06-22T05:21:30.147Z\n"
+"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
+"PO-Revision-Date: 2021-08-12T08:03:01.719Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -325,20 +325,17 @@ msgstr[1] "{{count}} selected"
 msgid "Remove"
 msgstr "Remove"
 
-msgid "Add filter"
-msgstr "Add filter"
-
-msgid "Hide description"
-msgstr "Hide description"
-
-msgid "Show description"
-msgstr "Show description"
-
 msgid "Failed to hide description"
 msgstr "Failed to hide description"
 
 msgid "Failed to show description"
 msgstr "Failed to show description"
+
+msgid "Failed to unstar the dashboard"
+msgstr "Failed to unstar the dashboard"
+
+msgid "Failed to star the dashboard"
+msgstr "Failed to star the dashboard"
 
 msgid "Unstar dashboard"
 msgstr "Unstar dashboard"
@@ -346,11 +343,11 @@ msgstr "Unstar dashboard"
 msgid "Star dashboard"
 msgstr "Star dashboard"
 
-msgid "Failed to unstar the dashboard"
-msgstr "Failed to unstar the dashboard"
+msgid "Hide description"
+msgstr "Hide description"
 
-msgid "Failed to star the dashboard"
-msgstr "Failed to star the dashboard"
+msgid "Show description"
+msgstr "Show description"
 
 msgid "Dashboard layout"
 msgstr "Dashboard layout"
@@ -369,6 +366,9 @@ msgstr "Share"
 
 msgid "No description"
 msgstr "No description"
+
+msgid "Add filter"
+msgstr "Add filter"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Loading dashboard – {{name}}"
