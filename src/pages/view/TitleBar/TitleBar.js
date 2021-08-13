@@ -29,10 +29,9 @@ const ViewTitleBar = ({
                 </span>
                 <ActionsBar />
             </div>
-            <Description
-                showDescription={showDescription}
-                description={displayDescription}
-            />
+            {showDescription && (
+                <Description description={displayDescription} />
+            )}
             {<LastUpdatedTag id={id} />}
         </div>
     )

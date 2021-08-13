@@ -5,6 +5,7 @@
 .titleBar {
     display: flex;
     align-items: flex-start;
+    position: relative;
 }
 
 .title {
