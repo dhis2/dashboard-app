@@ -18,10 +18,7 @@ const ViewTitleBar = ({ name, description, showDescription }) => (
             </span>
             <ActionsBar />
         </div>
-        <Description
-            description={description}
-            showDescription={showDescription}
-        />
+        {showDescription && <Description description={description} />}
     </div>
 )
 
