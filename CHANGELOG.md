@@ -1,3 +1,12 @@
+## [31.17.1](https://github.com/dhis2/dashboard-app/compare/v31.17.0...v31.17.1) (2021-08-12)
+
+
+### Bug Fixes
+
+* bump dv plugin and ui to latest ([#1892](https://github.com/dhis2/dashboard-app/issues/1892)) ([89dd128](https://github.com/dhis2/dashboard-app/commit/89dd128c60acd1c88d7c1bc2eeb11cc331586179))
+* set correct item height when adding dashboard items in edit mode ([#1868](https://github.com/dhis2/dashboard-app/issues/1868)) ([41575f4](https://github.com/dhis2/dashboard-app/commit/41575f4fc44c97e6f2c4249d668ba1cad04ca4ff)), closes [#1826](https://github.com/dhis2/dashboard-app/issues/1826)
+* the response code for PUT userDataStore has been changed from 201 to 200 ([#1896](https://github.com/dhis2/dashboard-app/issues/1896)) ([ced4258](https://github.com/dhis2/dashboard-app/commit/ced4258298c5dee0c57861885ab47236c05e20d2))
+
 # [31.17.0](https://github.com/dhis2/dashboard-app/compare/v31.16.4...v31.17.0) (2021-07-07)
 
 
