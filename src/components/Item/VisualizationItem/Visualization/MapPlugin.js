@@ -2,10 +2,11 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { MAP } from '../../../../modules/itemTypes'
+import getVisualizationContainerDomId from '../getVisualizationContainerDomId'
 import { isElementFullscreen } from '../isElementFullscreen'
 import DefaultPlugin from './DefaultPlugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
-import { pluginIsAvailable, resize, unmount } from './plugin'
+import { pluginIsAvailable, getPlugin, unmount } from './plugin'
 
 const MapPlugin = ({
     visualization,
@@ -17,7 +18,13 @@ const MapPlugin = ({
     ...props
 }) => {
     useEffect(() => {
-        resize(props.item.id, MAP, isElementFullscreen(props.item.id))
+        const resizeMap = async (id, isFullscreen) => {
+            const plugin = await getPlugin(MAP)
+            plugin?.resize &&
+                plugin.resize(getVisualizationContainerDomId(id), isFullscreen)
+        }
+
+        resizeMap(props.item.id, isElementFullscreen(props.item.id))
     }, [availableHeight, availableWidth, gridWidth])
 
     // The function returned from this effect is run when this component unmounts
