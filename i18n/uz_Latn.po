@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
+"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
@@ -321,19 +321,16 @@ msgstr[0] ""
 msgid "Remove"
 msgstr "Olib tashlash"
 
-msgid "Add filter"
-msgstr "Filtr kiritish"
-
-msgid "Hide description"
-msgstr "Tavsifni berkitish"
-
-msgid "Show description"
-msgstr "Tavsifni koʼrsatish"
-
 msgid "Failed to hide description"
 msgstr ""
 
 msgid "Failed to show description"
+msgstr ""
+
+msgid "Failed to unstar the dashboard"
+msgstr ""
+
+msgid "Failed to star the dashboard"
 msgstr ""
 
 msgid "Unstar dashboard"
@@ -342,11 +339,11 @@ msgstr "Boshqaruv panelidagi yulduzcha oʼchiriladi"
 msgid "Star dashboard"
 msgstr "Boshqaruv paneliga yulduzcha oʼrnatiladi"
 
-msgid "Failed to unstar the dashboard"
-msgstr ""
+msgid "Hide description"
+msgstr "Tavsifni berkitish"
 
-msgid "Failed to star the dashboard"
-msgstr ""
+msgid "Show description"
+msgstr "Tavsifni koʼrsatish"
 
 msgid "Dashboard layout"
 msgstr "Boshqaruv paneli maketi"
@@ -365,6 +362,9 @@ msgstr "Ulashish"
 
 msgid "No description"
 msgstr "Tavsif yoʼq"
+
+msgid "Add filter"
+msgstr "Filtr kiritish"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Boshqaruv paneli yuklanmoqda - {{ismi}}"

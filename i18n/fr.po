@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
+"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Yao Selom Saka <ysaka@hispwca.org>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -344,20 +344,17 @@ msgstr[1] "{{nombre}} choisi"
 msgid "Remove"
 msgstr "Supprimer"
 
-msgid "Add filter"
-msgstr "Ajouter le filtre"
-
-msgid "Hide description"
-msgstr "Masquer la description"
-
-msgid "Show description"
-msgstr "Afficher la description"
-
 msgid "Failed to hide description"
 msgstr "Masquer la description échoué"
 
 msgid "Failed to show description"
 msgstr "Affichage de la description échoué"
+
+msgid "Failed to unstar the dashboard"
+msgstr "Suppression des étoiles du tableau de bord échoué"
+
+msgid "Failed to star the dashboard"
+msgstr "Ajout d'étoiles au tableau de bord échoué"
 
 msgid "Unstar dashboard"
 msgstr "Tableau de bord sans étoiles"
@@ -365,11 +362,11 @@ msgstr "Tableau de bord sans étoiles"
 msgid "Star dashboard"
 msgstr "Tableau de bord à étoiles"
 
-msgid "Failed to unstar the dashboard"
-msgstr "Suppression des étoiles du tableau de bord échoué"
+msgid "Hide description"
+msgstr "Masquer la description"
 
-msgid "Failed to star the dashboard"
-msgstr "Ajout d'étoiles au tableau de bord échoué"
+msgid "Show description"
+msgstr "Afficher la description"
 
 msgid "Dashboard layout"
 msgstr "Mise en page du tableau de bord"
@@ -388,6 +385,9 @@ msgstr "Partager"
 
 msgid "No description"
 msgstr "Pas de description"
+
+msgid "Add filter"
+msgstr "Ajouter le filtre"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Chargement du tableau de bord - {{nom}}"

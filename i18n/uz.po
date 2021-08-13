@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
+"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -321,19 +321,16 @@ msgstr[0] "{{жами}} танланган"
 msgid "Remove"
 msgstr "Олиб ташлаш"
 
-msgid "Add filter"
-msgstr "Фильтр киритиш"
-
-msgid "Hide description"
-msgstr "Тавсифни беркитиш"
-
-msgid "Show description"
-msgstr "Тавсифни кўрсатиш"
-
 msgid "Failed to hide description"
 msgstr ""
 
 msgid "Failed to show description"
+msgstr ""
+
+msgid "Failed to unstar the dashboard"
+msgstr ""
+
+msgid "Failed to star the dashboard"
 msgstr ""
 
 msgid "Unstar dashboard"
@@ -342,11 +339,11 @@ msgstr "Бошқарув панелидаги юлдузча ўчирилади"
 msgid "Star dashboard"
 msgstr "Бошқарув панелига юлдузча ўрнатилади"
 
-msgid "Failed to unstar the dashboard"
-msgstr ""
+msgid "Hide description"
+msgstr "Тавсифни беркитиш"
 
-msgid "Failed to star the dashboard"
-msgstr ""
+msgid "Show description"
+msgstr "Тавсифни кўрсатиш"
 
 msgid "Dashboard layout"
 msgstr "Бошқарув панели макети"
@@ -365,6 +362,9 @@ msgstr "Улашиш"
 
 msgid "No description"
 msgstr "Тавсиф йўқ"
+
+msgid "Add filter"
+msgstr "Фильтр киритиш"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Бошқарув панели юкланмоқда - {{исми}}"

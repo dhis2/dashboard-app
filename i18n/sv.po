@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
+"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
 "Language-Team: Swedish (https://www.transifex.com/hisp-uio/teams/100509/sv/)\n"
@@ -311,19 +311,16 @@ msgstr[1] ""
 msgid "Remove"
 msgstr "Avlägsna"
 
-msgid "Add filter"
-msgstr ""
-
-msgid "Hide description"
-msgstr ""
-
-msgid "Show description"
-msgstr ""
-
 msgid "Failed to hide description"
 msgstr ""
 
 msgid "Failed to show description"
+msgstr ""
+
+msgid "Failed to unstar the dashboard"
+msgstr ""
+
+msgid "Failed to star the dashboard"
 msgstr ""
 
 msgid "Unstar dashboard"
@@ -332,10 +329,10 @@ msgstr ""
 msgid "Star dashboard"
 msgstr ""
 
-msgid "Failed to unstar the dashboard"
+msgid "Hide description"
 msgstr ""
 
-msgid "Failed to star the dashboard"
+msgid "Show description"
 msgstr ""
 
 msgid "Dashboard layout"
@@ -355,6 +352,9 @@ msgstr "Dela"
 
 msgid "No description"
 msgstr "Ingen beskrivning"
+
+msgid "Add filter"
+msgstr ""
 
 msgid "Loading dashboard – {{name}}"
 msgstr ""

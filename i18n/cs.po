@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
+"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: trendspotter <jirka.p@volny.cz>, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -336,20 +336,17 @@ msgstr[3] "Vybráno {{count}}"
 msgid "Remove"
 msgstr "Odebrat"
 
-msgid "Add filter"
-msgstr "Přidat filtr"
-
-msgid "Hide description"
-msgstr "Skrýt popis"
-
-msgid "Show description"
-msgstr "Ukázat popis"
-
 msgid "Failed to hide description"
 msgstr "Skrytí popisu se nezdařilo"
 
 msgid "Failed to show description"
 msgstr "Popis se nepodařilo zobrazit"
+
+msgid "Failed to unstar the dashboard"
+msgstr "Zrušit označení hvězdičky na ovládacím panelu se nezdařilo"
+
+msgid "Failed to star the dashboard"
+msgstr "Označení ovládacího panelu hvězdičkou se nezdařilo"
 
 msgid "Unstar dashboard"
 msgstr "Zrušit označení ovládacího panelu"
@@ -357,11 +354,11 @@ msgstr "Zrušit označení ovládacího panelu"
 msgid "Star dashboard"
 msgstr "Označit ovládací panel"
 
-msgid "Failed to unstar the dashboard"
-msgstr "Zrušit označení hvězdičky na ovládacím panelu se nezdařilo"
+msgid "Hide description"
+msgstr "Skrýt popis"
 
-msgid "Failed to star the dashboard"
-msgstr "Označení ovládacího panelu hvězdičkou se nezdařilo"
+msgid "Show description"
+msgstr "Ukázat popis"
 
 msgid "Dashboard layout"
 msgstr "Rozložení ovládacího panelu"
@@ -380,6 +377,9 @@ msgstr "Sdílet"
 
 msgid "No description"
 msgstr "Bez popisu"
+
+msgid "Add filter"
+msgstr "Přidat filtr"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Načítání ovládacího panelu – {{name}}"

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
+"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2021\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -321,19 +321,16 @@ msgstr[5] "تم اختيار {{count}}"
 msgid "Remove"
 msgstr "إزالة"
 
-msgid "Add filter"
-msgstr "إضافة عامل تصفية"
-
-msgid "Hide description"
-msgstr "إخفاء الوصف"
-
-msgid "Show description"
-msgstr "إظهار الوصف"
-
 msgid "Failed to hide description"
 msgstr ""
 
 msgid "Failed to show description"
+msgstr ""
+
+msgid "Failed to unstar the dashboard"
+msgstr ""
+
+msgid "Failed to star the dashboard"
 msgstr ""
 
 msgid "Unstar dashboard"
@@ -342,11 +339,11 @@ msgstr "إلغاء التمييز بنجمة عن لوحة المعلومات"
 msgid "Star dashboard"
 msgstr "إعطاء نجمة للوحة المعلومات"
 
-msgid "Failed to unstar the dashboard"
-msgstr ""
+msgid "Hide description"
+msgstr "إخفاء الوصف"
 
-msgid "Failed to star the dashboard"
-msgstr ""
+msgid "Show description"
+msgstr "إظهار الوصف"
 
 msgid "Dashboard layout"
 msgstr "تخطيط لوحة المعلومات"
@@ -365,6 +362,9 @@ msgstr "مشاركة"
 
 msgid "No description"
 msgstr "لا يوجد وصف"
+
+msgid "Add filter"
+msgstr "إضافة عامل تصفية"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "تحميل لوحة المعلومات – {{name}}"

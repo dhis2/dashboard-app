@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
+"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Caroline Hesthagen Holen <caroline@devotta.no>, 2021\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -328,20 +328,17 @@ msgstr[1] "{{count}} valgt"
 msgid "Remove"
 msgstr "Fjern"
 
-msgid "Add filter"
-msgstr "Legg til filter"
-
-msgid "Hide description"
-msgstr "Skjul beskrivelse"
-
-msgid "Show description"
-msgstr "Vis beskrivelse"
-
 msgid "Failed to hide description"
 msgstr "Kunne ikke skjule beskrivelsen"
 
 msgid "Failed to show description"
 msgstr "Kunne ikke vise beskrivelsen"
+
+msgid "Failed to unstar the dashboard"
+msgstr "Kunne ikke fjerne stjernemerket på dashbordet"
+
+msgid "Failed to star the dashboard"
+msgstr "Kunne ikke stjernemerke dashbordet"
 
 msgid "Unstar dashboard"
 msgstr "Fjern stjerne fra dashbordet"
@@ -349,11 +346,11 @@ msgstr "Fjern stjerne fra dashbordet"
 msgid "Star dashboard"
 msgstr "Merk dashbord med stjerne"
 
-msgid "Failed to unstar the dashboard"
-msgstr "Kunne ikke fjerne stjernemerket på dashbordet"
+msgid "Hide description"
+msgstr "Skjul beskrivelse"
 
-msgid "Failed to star the dashboard"
-msgstr "Kunne ikke stjernemerke dashbordet"
+msgid "Show description"
+msgstr "Vis beskrivelse"
 
 msgid "Dashboard layout"
 msgstr "Dashbordoppsett"
@@ -372,6 +369,9 @@ msgstr "Del"
 
 msgid "No description"
 msgstr "Ingen beskrivelse"
+
+msgid "Add filter"
+msgstr "Legg til filter"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Laster dashbord - {{name}}"

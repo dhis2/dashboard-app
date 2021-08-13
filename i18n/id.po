@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
+"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2021\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -335,20 +335,17 @@ msgstr[0] "{{count}} terpilih"
 msgid "Remove"
 msgstr "Hapus"
 
-msgid "Add filter"
-msgstr "Tambah penyaringan"
-
-msgid "Hide description"
-msgstr "Sembunyikan deskripsi"
-
-msgid "Show description"
-msgstr "Tampilkan deskripsi"
-
 msgid "Failed to hide description"
 msgstr "Gagal menyembunyikan deskripsi"
 
 msgid "Failed to show description"
 msgstr "Gagal menampilkan deskripsi"
+
+msgid "Failed to unstar the dashboard"
+msgstr "Gagal menghapus bintang pada dasbor"
+
+msgid "Failed to star the dashboard"
+msgstr "Gagal memberi bintang pada dasbor"
 
 msgid "Unstar dashboard"
 msgstr "Hapus bintang dasbor"
@@ -356,11 +353,11 @@ msgstr "Hapus bintang dasbor"
 msgid "Star dashboard"
 msgstr "Dasbor bintang"
 
-msgid "Failed to unstar the dashboard"
-msgstr "Gagal menghapus bintang pada dasbor"
+msgid "Hide description"
+msgstr "Sembunyikan deskripsi"
 
-msgid "Failed to star the dashboard"
-msgstr "Gagal memberi bintang pada dasbor"
+msgid "Show description"
+msgstr "Tampilkan deskripsi"
 
 msgid "Dashboard layout"
 msgstr "Tata letak dasbor"
@@ -379,6 +376,9 @@ msgstr "Bagikan"
 
 msgid "No description"
 msgstr "Tidak ada deskripsi"
+
+msgid "Add filter"
+msgstr "Tambah penyaringan"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Memuat dasbor – {{name}}"

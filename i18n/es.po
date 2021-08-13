@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
+"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: drprabhjot, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -340,20 +340,17 @@ msgstr[1] "{{count}} seleccionados"
 msgid "Remove"
 msgstr "Eliminar"
 
-msgid "Add filter"
-msgstr "Añadir filtro"
-
-msgid "Hide description"
-msgstr "Ocultar la descripción"
-
-msgid "Show description"
-msgstr "Mostrar la descripción"
-
 msgid "Failed to hide description"
 msgstr "No se pudo ocultar la descripción"
 
 msgid "Failed to show description"
 msgstr "No se pudo mostrar la descripción"
+
+msgid "Failed to unstar the dashboard"
+msgstr "No se pudo desmarcar el tablero"
+
+msgid "Failed to star the dashboard"
+msgstr "No se pudo marcar el tablero"
 
 msgid "Unstar dashboard"
 msgstr "Desmarcar tablero"
@@ -361,11 +358,11 @@ msgstr "Desmarcar tablero"
 msgid "Star dashboard"
 msgstr "Marcar tablero"
 
-msgid "Failed to unstar the dashboard"
-msgstr "No se pudo desmarcar el tablero"
+msgid "Hide description"
+msgstr "Ocultar la descripción"
 
-msgid "Failed to star the dashboard"
-msgstr "No se pudo marcar el tablero"
+msgid "Show description"
+msgstr "Mostrar la descripción"
 
 msgid "Dashboard layout"
 msgstr "Diseño del tablero"
@@ -384,6 +381,9 @@ msgstr "Compartir"
 
 msgid "No description"
 msgstr "Sin descripción"
+
+msgid "Add filter"
+msgstr "Añadir filtro"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Cargando panel – {{nombre}}"
