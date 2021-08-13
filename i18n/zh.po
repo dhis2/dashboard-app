@@ -215,7 +215,7 @@ msgid "Star dashboard"
 msgstr "标星仪表板"
 
 msgid "Edit"
-msgstr "编辑<br>"
+msgstr "编辑"
 
 msgid "Share"
 msgstr "分享"
