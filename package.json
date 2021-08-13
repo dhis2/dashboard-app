@@ -1,6 +1,6 @@
 {
     "name": "dashboard-app",
-    "version": "31.17.0",
+    "version": "31.17.1",
     "description": "DHIS2 Dashboard app",
     "private": true,
     "license": "BSD-3-Clause",
@@ -20,7 +20,7 @@
         "classnames": "^2.3.1",
         "d2": "^31.10.0",
         "d2-utilizr": "^0.2.16",
-        "i18next": "^20.3.2",
+        "i18next": "^20.3.5",
         "lodash": "^4.17.21",
         "moment": "^2.29.1",
         "react": "^16.14.0",
@@ -52,7 +52,7 @@
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^7.1.0",
-        "@dhis2/cli-style": "^9.0.1",
+        "@dhis2/cli-style": "^9.1.0",
         "@dhis2/cli-utils-cypress": "^7.0.1",
         "@dhis2/cypress-commands": "^7.0.1",
         "@testing-library/jest-dom": "^5.14.1",

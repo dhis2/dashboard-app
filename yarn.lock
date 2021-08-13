@@ -2664,10 +2664,10 @@
     update-notifier "^3.0.0"
     yargs "^13.1.0"
 
-"@dhis2/cli-style@^9.0.1":
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-9.0.1.tgz#919bb978362ed9aeb7a253a3b58d6f25e3c09bd9"
-  integrity sha512-CGZQebdhh3EtpjyQGeQEbwVE0vmSqzz8TWrVEkuo9bVxBu7Gjpok5mnsFE0wXLP0kqga9zBuwfeIbY8iAoO1kA==
+"@dhis2/cli-style@^9.1.0":
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-9.1.0.tgz#6ca6f453f6af8324c458e2711950456bcd9cdae9"
+  integrity sha512-48RxxPjquSr5TKBdIBdcBDRyoiJXhtrcsl9HWK5LW9k9kMbJ8u/e3Boa8JRai972Eedv94lbEXfm1D2q5m/7Nw==
   dependencies:
     "@commitlint/cli" "^11.0.0"
     "@commitlint/config-conventional" "^11.0.0"
@@ -9908,10 +9908,10 @@ i18next-scanner@^2.10.3:
     vinyl "^2.2.0"
     vinyl-fs "^3.0.1"
 
-i18next@*, i18next@^20.3.2:
-  version "20.3.2"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-20.3.2.tgz#5195e76b9e0848a1c198001bf6c7fc72995a55f1"
-  integrity sha512-e8CML2R9Ng2sSQOM80wb/PrM2j8mDm84o/T4Amzn9ArVyNX5/ENWxxAXkRpZdTQNDaxKImF93Wep4mAoozFrKw==
+i18next@*, i18next@^20.3.5:
+  version "20.3.5"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-20.3.5.tgz#14308b79a3f1cafb24fdcd8e182d3673baf1e979"
+  integrity sha512-//MGeU6n4TencJmCgG+TCrpdgAD/NDEU/KfKQekYbJX6QV7sD/NjWQdVdBi+bkT0snegnSoB7QhjSeatrk3a0w==
   dependencies:
     "@babel/runtime" "^7.12.0"
 
@@ -16959,9 +16959,9 @@ tar-stream@^2.1.0:
     readable-stream "^3.1.1"
 
 tar@^4.4.8:
-  version "4.4.13"
-  resolved "https://registry.yarnpkg.com/tar/-/tar-4.4.13.tgz#43b364bc52888d555298637b10d60790254ab525"
-  integrity sha512-w2VwSrBoHa5BsSyH+KxEqeQBAllHhccyMFVHtGtdMpF4W7IRWfZjFiQceJPChOeTsSDVUpER2T8FA93pr0L+QA==
+  version "4.4.15"
+  resolved "https://registry.yarnpkg.com/tar/-/tar-4.4.15.tgz#3caced4f39ebd46ddda4d6203d48493a919697f8"
+  integrity sha512-ItbufpujXkry7bHH9NpQyTXPbJ72iTlXgkBAYsAjDXk3Ds8t/3NfO5P4xZGy7u+sYuQUbimgzswX4uQIEeNVOA==
   dependencies:
     chownr "^1.1.1"
     fs-minipass "^1.2.5"
