@@ -144,7 +144,10 @@ const ViewActions = ({
                 />
                 <div className={classes.strip}>
                     {userAccess.update ? (
-                        <Button onClick={() => setRedirectUrl(`${id}/edit`)}>
+                        <Button
+                            className={classes.editButton}
+                            onClick={() => setRedirectUrl(`${id}/edit`)}
+                        >
                             {i18n.t('Edit')}
                         </Button>
                     ) : null}
