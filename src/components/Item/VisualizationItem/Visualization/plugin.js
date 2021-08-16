@@ -32,9 +32,9 @@ export const getPlugin = async type => {
     return await global[pluginName]
 }
 
-const fetchPlugin = async (type, baseUrl, isRecording) => {
+const fetchPlugin = async (type, baseUrl) => {
     const globalName = itemTypeToGlobalVariable[type]
-    if (global[globalName] && !isRecording) {
+    if (global[globalName]) {
         return global[globalName] // Will be a promise if fetch is in progress
     }
 
@@ -54,11 +54,7 @@ const fetchPlugin = async (type, baseUrl, isRecording) => {
 
     scripts.push(baseUrl + itemTypeToScriptPath[type])
 
-    const curriedLoadExternalScript = loadExternalScript(isRecording)
-
-    const scriptsPromise = Promise.all(
-        scripts.map(curriedLoadExternalScript)
-    ).then(
+    const scriptsPromise = Promise.all(scripts.map(loadExternalScript)).then(
         () => global[globalName] // At this point, has been replaced with the real thing
     )
 
@@ -69,19 +65,14 @@ const fetchPlugin = async (type, baseUrl, isRecording) => {
 export const pluginIsAvailable = type =>
     hasIntegratedPlugin(type) || itemTypeToGlobalVariable[type]
 
-export const load = async (
-    item,
-    visualization,
-    { credentials, activeType, options = {}, isRecording = false }
-) => {
-    const type = activeType || item.type
+const loadPlugin = async (type, config, credentials) => {
     if (!pluginIsAvailable(type)) {
         return
     }
 
-    const plugin = await fetchPlugin(type, credentials.baseUrl, isRecording)
+    const plugin = await fetchPlugin(type, credentials.baseUrl)
 
-    if (!plugin?.load) {
+    if (!(plugin && plugin.load)) {
         return
     }
 
@@ -91,16 +82,28 @@ export const load = async (
     if (credentials.auth) {
         plugin.auth = credentials.auth
     }
+    plugin.load(config)
+}
 
-    plugin.load({
+export const load = async (
+    item,
+    visualization,
+    { credentials, activeType, options = {} }
+) => {
+    const config = {
         ...visualization,
         ...options,
         el: getVisualizationContainerDomId(item.id),
-    })
+    }
+
+    const type = activeType || item.type
+    await loadPlugin(type, config, credentials)
 }
 
 export const unmount = async (item, activeType) => {
     const plugin = await getPlugin(activeType)
 
-    plugin?.unmount && plugin.unmount(getVisualizationContainerDomId(item.id))
+    if (plugin && plugin.unmount) {
+        plugin.unmount(getVisualizationContainerDomId(item.id))
+    }
 }
