@@ -8,6 +8,7 @@ const config = {
         enabled: true,
         caching: {
             patternsToOmit: [
+                'dashboards/[a-zA-Z0-9]*',
                 'visualizations',
                 'analytics',
                 'maps',
