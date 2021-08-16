@@ -2,6 +2,10 @@
 import { generateUid } from 'd2/uid'
 import sortBy from 'lodash/sortBy'
 import {
+    acSetHideGrid,
+    acUpdateDashboardItemShapes,
+} from '../actions/editDashboard'
+import {
     isVisualizationType,
     itemTypeMap,
     PAGEBREAK,
@@ -207,6 +211,7 @@ export const getAutoItemShapes = (dashboardItems, columns, maxColUnits) => {
     const numberOfColUnits = getNumberOfColUnits(columns, maxColUnits)
 
     if (!numberOfColUnits || !dashboardItems.length) {
+        console.log('getAutoItemShapes', 'return null')
         return null
     }
 
@@ -236,7 +241,34 @@ export const getAutoItemShapes = (dashboardItems, columns, maxColUnits) => {
     return itemsWithNewShape
 }
 
-export const addToItemsEnd = (dashboardItems, columns, newItem) => {
+export const addToItemsStart = (dashboardItems, columns, newDashboardItem) => {
+    if (!columns.length) {
+        // when no layout
+        return [
+            ...dashboardItems,
+            {
+                ...NEW_ITEM_SHAPE,
+                ...newDashboardItem,
+            },
+        ]
+    } else {
+        return getAutoItemShapes(
+            [
+                ...dashboardItems,
+                {
+                    ...newDashboardItem,
+                    x: 0,
+                    y: 0,
+                    w: 0,
+                    h: 0,
+                },
+            ],
+            columns
+        )
+    }
+}
+
+export const addToItemsEnd = (dashboardItems, columns, newDashboardItem) => {
     console.log('addToItemsEnd', 'columns length:', columns.length)
     if (!columns.length) {
         // when no layout
@@ -244,7 +276,7 @@ export const addToItemsEnd = (dashboardItems, columns, newItem) => {
             ...dashboardItems,
             {
                 ...NEW_ITEM_SHAPE,
-                ...newItem,
+                ...newDashboardItem,
                 y: dashboardItems.reduce(
                     (mx, item) => Math.max(mx, item.y + item.h),
                     0
@@ -258,12 +290,24 @@ export const addToItemsEnd = (dashboardItems, columns, newItem) => {
             ...dashboardItems,
             {
                 ...NEW_ITEM_SHAPE,
-                ...newItem,
+                ...newDashboardItem,
                 y: 99999999,
             },
         ],
         columns
     )
+}
+
+export const updateItems = (items, dispatch, options = {}) => {
+    const { reload } = options
+
+    if (reload) {
+        dispatch(acSetHideGrid(true))
+        dispatch(acUpdateDashboardItemShapes(items))
+        setTimeout(() => dispatch(acSetHideGrid(false)), 0)
+    } else {
+        dispatch(acUpdateDashboardItemShapes(items))
+    }
 }
 
 export const getDashboardItem = item => {

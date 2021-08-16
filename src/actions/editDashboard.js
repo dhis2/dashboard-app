@@ -35,8 +35,12 @@ import { updateDashboard, postDashboard } from '../api/editDashboard'
 import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
 import {
     addToItemsEnd,
+    addToItemsStart,
     getAutoItemShapes,
     getDashboardItem,
+    reloadGridWithItems,
+    updateItems,
+    updateItemsAndReload,
 } from '../modules/gridUtil'
 
 // actions
@@ -122,49 +126,78 @@ export const acSetAddItemsTo = value => ({
 export const tSetDashboardItems = newItem => (dispatch, getState) => {
     const addItemsTo = sGetAddItemsTo(getState())
     const columns = sGetLayoutColumns(getState())
-    const prevItems = sGetEditDashboardItems(getState())
+    const items = [...sGetEditDashboardItems(getState())]
     console.group('tSetDashboardItems')
     console.log('--addItemsTo', addItemsTo)
     console.log('--columns', columns)
-    console.log('--prevItems', prevItems)
+    console.log('--items', items)
     console.log('--newItem', newItem)
     console.groupEnd()
 
-    const items = [...prevItems]
+    let dashboardItemsWithShapes
 
-    if (!newItem || addItemsTo === 'START') {
-        if (newItem) {
-            items.push({
-                ...getDashboardItem(newItem),
-                x: 0,
-                y: 0,
-                w: 0,
-                h: 0,
-            })
+    if (!newItem) {
+        dashboardItemsWithShapes = getAutoItemShapes(items, columns)
+        updateItems(dashboardItemsWithShapes, dispatch, {
+            reload: true,
+        })
+    } else {
+        const newDashboardItem = getDashboardItem(newItem)
+
+        if (addItemsTo === 'START') {
+            dashboardItemsWithShapes = addToItemsStart(
+                items,
+                columns,
+                newDashboardItem
+            )
+            updateItems(dashboardItemsWithShapes, dispatch, { reload: true })
+        } else if (addItemsTo === 'END') {
+            dashboardItemsWithShapes = addToItemsEnd(
+                items,
+                columns,
+                newDashboardItem
+            )
+            updateItems(dashboardItemsWithShapes, dispatch)
         }
-
-        const itemsWithNewShapes = getAutoItemShapes(items, columns)
-
-        if (!itemsWithNewShapes) {
-            // TODO remove log
-            console.log('-Stopped because itemsWithNewShapes is empty')
-            return
-        }
-
-        dispatch(acSetHideGrid(true))
-        dispatch(acUpdateDashboardItemShapes(itemsWithNewShapes))
-        setTimeout(() => dispatch(acSetHideGrid(false)), 0)
-    } else if (!addItemsTo || addItemsTo === 'END') {
-        // TODO remove !addItemsTo
-        const item = getDashboardItem(newItem)
-        const addToEndResult = addToItemsEnd(items, columns, item)
-
-        console.group('tSetDashboardItems END')
-        console.log('item', item)
-        console.log('addToEndResult', addToEndResult)
-        console.groupEnd()
-        dispatch(acUpdateDashboardItemShapes(addToEndResult))
     }
+
+    // if (!newItem || addItemsTo === 'START') {
+    //     if (newItem) {
+    //         items.push({
+    //             ...getDashboardItem(newItem),
+    //             x: 0,
+    //             y: 0,
+    //             w: 0,
+    //             h: 0,
+    //         })
+    //     }
+
+    //     console.log(
+    //         '-Before itemsWithNewShapes/getAutoItemShapes: items: ',
+    //         items,
+    //         columns
+    //     )
+    //     const itemsWithNewShapes = getAutoItemShapes(items, columns)
+    //     debugger
+    //     if (!itemsWithNewShapes) {
+    //         // TODO remove log
+    //         console.log('-Stopped because itemsWithNewShapes is empty')
+    //         return
+    //     }
+
+    //     updateItems(itemsWithNewShapes, dispatch, { reload: true })
+    // } else if (!addItemsTo || addItemsTo === 'END') {
+    //     // TODO remove !addItemsTo
+    //     const item = getDashboardItem(newItem)
+    //     const addToEndResult = addToItemsEnd(items, columns, item)
+
+    //     console.group('tSetDashboardItems END')
+    //     console.log('item', item)
+    //     console.log('addToEndResult', addToEndResult)
+    //     console.groupEnd()
+
+    //     updateItems(addToEndResult)
+    // }
 }
 
 export const tSaveDashboard = () => async (dispatch, getState, dataEngine) => {
