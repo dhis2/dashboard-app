@@ -10,6 +10,7 @@ import { acSetEditDashboard } from '../../actions/editDashboard'
 import { apiFetchDashboard } from '../../api/fetchDashboard'
 import DashboardContainer from '../../components/DashboardContainer'
 import NoContentMessage from '../../components/NoContentMessage'
+import Notice from '../../components/Notice'
 import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
 import { EDIT } from '../../modules/dashboardModes'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
@@ -18,7 +19,6 @@ import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
 import LayoutPrintPreview from '../print/PrintLayoutDashboard'
 import ActionsBar from './ActionsBar'
 import ItemGrid from './ItemGrid'
-import NotSupportedNotice from './NotSupportedNotice'
 import classes from './styles/EditDashboard.module.css'
 import TitleBar from './TitleBar'
 
@@ -95,7 +95,8 @@ const EditDashboard = props => {
                 )}
             </div>
             <div className={classes.notice}>
-                <NotSupportedNotice
+                <Notice
+                    title={i18n.t('Not supported')}
                     message={i18n.t(
                         'Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.'
                     )}
