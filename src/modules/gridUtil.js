@@ -331,7 +331,7 @@ export const getDashboardItem = item => {
     console.log('GRIDITEMPROPERTIES', gridItemProperties)
     console.log('shape', shape)
 
-    console.log('RETURNED OBJECT', {
+    console.log('GET DASHBOARD ITEM RETURNED OBJECT', {
         id,
         type,
         position: item.position || null,

@@ -60,8 +60,10 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
             Object.keys(NEW_DASHBOARD_STATE).map(
                 k => (newState[k] = action.value[k])
             )
-            newState.printPreviewView = false
-            newState.isDirty = false
+            newState.printPreviewView = NEW_DASHBOARD_STATE.printPreviewView
+            newState.isDirty = NEW_DASHBOARD_STATE.isDirty
+            newState.addItemsTo = NEW_DASHBOARD_STATE.addItemsTo
+            console.log('newState', newState)
             return newState
         }
         case RECEIVED_NOT_EDITING:

@@ -1,4 +1,4 @@
-import { generateUid } from 'd2/uid'
+// import { generateUid } from 'd2/uid'
 import i18n from '@dhis2/d2-i18n'
 
 import {
@@ -20,7 +20,7 @@ import {
     RECEIVED_ADD_ITEMS_TO,
     sGetEditDashboardItems,
     sGetLayoutColumns,
-    sGetLayout,
+    // sGetLayout,
     sGetAddItemsTo,
 } from '../reducers/editDashboard'
 import { tFetchDashboards } from './dashboards'
@@ -38,9 +38,7 @@ import {
     addToItemsStart,
     getAutoItemShapes,
     getDashboardItem,
-    reloadGridWithItems,
     updateItems,
-    updateItemsAndReload,
 } from '../modules/gridUtil'
 
 // actions
