@@ -245,11 +245,11 @@ export const addToItemsStart = (dashboardItems, columns, newDashboardItem) => {
     if (!columns.length) {
         // when no layout
         return [
-            ...dashboardItems,
             {
                 ...NEW_ITEM_SHAPE,
                 ...newDashboardItem,
             },
+            ...dashboardItems,
         ]
     } else {
         return getAutoItemShapes(
@@ -328,10 +328,10 @@ export const getDashboardItem = item => {
         shape = NEW_ITEM_SHAPE
     }
 
-    console.log('GRIDITEMPROPERTIES', gridItemProperties)
-    console.log('shape', shape)
+    console.log('*GETDASHBOARDITEM, gridItemProperties', gridItemProperties)
+    console.log('*GETDASHBOARDITEM, shape', shape)
 
-    console.log('GET DASHBOARD ITEM RETURNED OBJECT', {
+    console.log('*GETDASHBOARDITEM, RETURNED OBJECT', {
         id,
         type,
         position: item.position || null,
