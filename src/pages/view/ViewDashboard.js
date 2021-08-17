@@ -30,7 +30,6 @@ const ViewDashboard = props => {
     const [controlbarExpanded, setControlbarExpanded] = useState(false)
     const [loadingMessage, setLoadingMessage] = useState(null)
     const [selectedIsLoaded, setSelectedIsLoaded] = useState(false)
-    const [forceLoadCount, setForceLoadCount] = useState(0)
     const { online } = useOnlineStatus()
     const { isCached, recordingState } = useCacheableSection(props.id)
 
@@ -96,12 +95,6 @@ const ViewDashboard = props => {
         }
     }, [props.id, recordingState, online, props.isDifferentDashboard])
 
-    useEffect(() => {
-        if (recordingState === 'recording') {
-            setForceLoadCount(forceLoadCount + 1)
-        }
-    }, [recordingState])
-
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
 
     const getContent = () => {
@@ -125,7 +118,7 @@ const ViewDashboard = props => {
             <>
                 <TitleBar />
                 <FilterBar />
-                <ItemGrid forceLoadCount={forceLoadCount} />
+                <ItemGrid />
             </>
         )
     }
