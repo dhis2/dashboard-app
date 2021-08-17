@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { acSetEditNewDashboard } from '../../actions/editDashboard'
 import DashboardContainer from '../../components/DashboardContainer'
+import Notice from '../../components/Notice'
 import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
 import { isSmallScreen } from '../../modules/smallScreen'
@@ -13,7 +14,6 @@ import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
 import LayoutPrintPreview from '../print/PrintLayoutDashboard'
 import ActionsBar from './ActionsBar'
 import ItemGrid from './ItemGrid'
-import NotSupportedNotice from './NotSupportedNotice'
 import classes from './styles/NewDashboard.module.css'
 import TitleBar from './TitleBar'
 
@@ -50,8 +50,8 @@ const NewDashboard = props => {
                 )}
             </div>
             <div className={classes.notice}>
-                <NotSupportedNotice
-                    className={classes.notSupportedNotice}
+                <Notice
+                    title={i18n.t('Not supported')}
                     message={i18n.t(
                         'Creating dashboards on small screens is not supported. Resize your screen to return to create mode.'
                     )}
