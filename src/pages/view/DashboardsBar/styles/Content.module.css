@@ -16,6 +16,10 @@
     top: var(--spacers-dp4);
 }
 
+.chipsContainer {
+    min-height: 40px;
+}
+
 @media only screen and (max-width: 480px) {
     .newLink {
         display: none;
@@ -54,6 +58,7 @@
     .chipsContainer {
         margin-bottom: -4px;
         padding-right: 2px;
+        min-height: 0;
     }
 
     .expanded .chipsContainer {
