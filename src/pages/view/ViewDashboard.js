@@ -29,7 +29,8 @@ import { TitleBar } from './TitleBar'
 const ViewDashboard = props => {
     const [controlbarExpanded, setControlbarExpanded] = useState(false)
     const [loadingMessage, setLoadingMessage] = useState(null)
-    const [selectedIsLoaded, setSelectedIsLoaded] = useState(false)
+    const [loaded, setLoaded] = useState(false)
+    const [loadFailed, setLoadFailed] = useState(false)
     const { online } = useOnlineStatus()
     const { isCached, recordingState } = useCacheableSection(props.id)
 
@@ -59,7 +60,7 @@ const ViewDashboard = props => {
         }
     }, [props.passiveViewRegistered])
 
-    useEffect(() => setSelectedIsLoaded(false), [props.id])
+    useEffect(() => setLoaded(false), [props.id])
 
     useEffect(() => {
         const loadDashboard = async () => {
@@ -75,22 +76,30 @@ const ViewDashboard = props => {
                 }
             }, 500)
 
-            await props.fetchDashboard(props.id, props.username)
+            try {
+                await props.fetchDashboard(props.id, props.username)
 
-            setLoadingMessage(null)
-            setSelectedIsLoaded(true)
-            clearTimeout(alertTimeout)
+                setLoadingMessage(null)
+                setLoaded(true)
+                setLoadFailed(false)
+                clearTimeout(alertTimeout)
+            } catch (e) {
+                setLoadFailed(true)
+                setLoadingMessage(null)
+                clearTimeout(alertTimeout)
+                props.setSelectedAsOffline(props.id, props.username)
+            }
         }
 
         if (
             dashboardIsAvailable &&
             (recordingState === 'recording' ||
                 props.isDifferentDashboard ||
-                !selectedIsLoaded)
+                !loaded)
         ) {
             loadDashboard()
         } else if (!dashboardIsAvailable && props.isDifferentDashboard) {
-            setSelectedIsLoaded(false)
+            setLoaded(false)
             props.setSelectedAsOffline(props.id, props.username)
         }
     }, [props.id, recordingState, online, props.isDifferentDashboard])
@@ -98,10 +107,7 @@ const ViewDashboard = props => {
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
 
     const getContent = () => {
-        if (
-            !dashboardIsAvailable &&
-            (props.isDifferentDashboard || !selectedIsLoaded)
-        ) {
+        if (!dashboardIsAvailable && (props.isDifferentDashboard || !loaded)) {
             return (
                 <Notice
                     title={i18n.t('Offline')}
@@ -112,7 +118,18 @@ const ViewDashboard = props => {
             )
         }
 
-        return !selectedIsLoaded ? (
+        if (loadFailed) {
+            return (
+                <Notice
+                    title={i18n.t('Load dashboard failed')}
+                    message={i18n.t(
+                        'This dashboard could not be loaded. Please try again later.'
+                    )}
+                />
+            )
+        }
+
+        return !loaded ? (
             <LoadingMask />
         ) : (
             <>
