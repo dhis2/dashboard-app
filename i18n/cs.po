@@ -1,13 +1,13 @@
 # 
 # Translators:
-# trendspotter, 2021
+# trendspotter <jirka.p@volny.cz>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: trendspotter, 2021\n"
+"Last-Translator: trendspotter <jirka.p@volny.cz>, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,10 +31,10 @@ msgid "See all messages"
 msgstr "Zobrazit všechny zprávy"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "Typ položky \"{{type}}\" není podporován"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "Typ položky chybí"
 
 msgid "Filters applied"
 msgstr "Použité filtry"
@@ -94,10 +94,10 @@ msgid "No data to display"
 msgstr "Žádná data k zobrazení"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "Při načítání dat této položky došlo k chybě"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Otevřít tuto položku v aplikaci {{appName}}"
 
 msgid "Visualizations"
 msgstr "Vizualizace"

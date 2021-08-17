@@ -1,3 +1,17 @@
+## [31.17.3](https://github.com/dhis2/dashboard-app/compare/v31.17.2...v31.17.3) (2021-08-13)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1852](https://github.com/dhis2/dashboard-app/issues/1852)) ([2c892d7](https://github.com/dhis2/dashboard-app/commit/2c892d7ce8924b229f7c4c7d840039e3886bbdba))
+
+## [31.17.2](https://github.com/dhis2/dashboard-app/compare/v31.17.1...v31.17.2) (2021-08-13)
+
+
+### Bug Fixes
+
+* break up TitleBar into components ([#1901](https://github.com/dhis2/dashboard-app/issues/1901)) ([965b33d](https://github.com/dhis2/dashboard-app/commit/965b33d5d8335cfbfb8ac9d63690bc46a1cb148b))
+
 ## [31.17.1](https://github.com/dhis2/dashboard-app/compare/v31.17.0...v31.17.1) (2021-08-12)
 
 
