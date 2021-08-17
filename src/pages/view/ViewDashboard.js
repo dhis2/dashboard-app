@@ -60,6 +60,8 @@ const ViewDashboard = props => {
         }
     }, [props.passiveViewRegistered])
 
+    useEffect(() => setSelectedIsLoaded(false), [props.id])
+
     useEffect(() => {
         const loadDashboard = async () => {
             const alertTimeout = setTimeout(() => {
