@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-08-13T12:09:56.277Z\n"
-"PO-Revision-Date: 2021-08-13T12:09:56.277Z\n"
+"POT-Creation-Date: 2021-08-17T11:19:22.368Z\n"
+"PO-Revision-Date: 2021-08-17T11:19:22.368Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -308,11 +308,11 @@ msgstr "No dashboards found. Use the + button to create a new dashboard."
 msgid "Requested dashboard not found"
 msgstr "Requested dashboard not found"
 
-msgid "Create new dashboard"
-msgstr "Create new dashboard"
-
 msgid "Cannot create a dashboard while offline"
 msgstr "Cannot create a dashboard while offline"
+
+msgid "Create new dashboard"
+msgstr "Create new dashboard"
 
 msgid "Search for a dashboard"
 msgstr "Search for a dashboard"
@@ -428,6 +428,12 @@ msgstr "Loading dashboard – {{name}}"
 
 msgid "Loading dashboard"
 msgstr "Loading dashboard"
+
+msgid "Load dashboard failed"
+msgstr "Load dashboard failed"
+
+msgid "This dashboard could not be loaded. Please try again later."
+msgstr "This dashboard could not be loaded. Please try again later."
 
 msgid "Offline"
 msgstr "Offline"
