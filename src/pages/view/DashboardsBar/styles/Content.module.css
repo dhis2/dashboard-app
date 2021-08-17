@@ -3,6 +3,7 @@
 }
 
 .newButton {
+    margin-left: var(--spacers-dp8);
     margin-right: var(--spacers-dp8);
     margin-top: var(--spacers-dp4);
 }
