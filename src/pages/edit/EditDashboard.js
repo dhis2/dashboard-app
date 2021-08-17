@@ -18,7 +18,7 @@ import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
 import LayoutPrintPreview from '../print/PrintLayoutDashboard'
 import ActionsBar from './ActionsBar'
 import ItemGrid from './ItemGrid'
-import NotSupportedNotice from './NotSupportedNotice'
+import Notice from '../../components/Notice'
 import classes from './styles/EditDashboard.module.css'
 import TitleBar from './TitleBar'
 
@@ -95,7 +95,8 @@ const EditDashboard = props => {
                 )}
             </div>
             <div className={classes.notice}>
-                <NotSupportedNotice
+                <Notice
+                    title={i18n.t('Not supported')}
                     message={i18n.t(
                         'Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.'
                     )}
