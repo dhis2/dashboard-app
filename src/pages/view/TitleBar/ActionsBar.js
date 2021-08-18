@@ -1,6 +1,10 @@
-import { useDataEngine, useAlert } from '@dhis2/app-runtime'
+import {
+    useDataEngine,
+    useAlert,
+    useOnlineStatus,
+    useCacheableSection,
+} from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-import { useOnlineStatus, useCacheableSection } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
 import { FlyoutMenu, MenuItem, colors, IconMore24 } from '@dhis2/ui'
@@ -45,7 +49,7 @@ const ViewActions = ({
     const [redirectUrl, setRedirectUrl] = useState(null)
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
-    const { online } = useOnlineStatus()
+    const { offline } = useOnlineStatus()
     const { lastUpdated, startRecording, remove } = useCacheableSection(id)
 
     const warningAlert = useAlert(({ msg }) => msg, {
@@ -123,7 +127,7 @@ const ViewActions = ({
         <FlyoutMenu>
             <MenuItem
                 dense
-                disabled={!online}
+                disabled={offline}
                 label={
                     lastUpdated
                         ? i18n.t('Remove from offline storage')
@@ -135,13 +139,13 @@ const ViewActions = ({
                 <MenuItem
                     dense
                     label={i18n.t('Sync offline data now')}
-                    disabled={!online}
+                    disabled={offline}
                     onClick={onUpdateOfflineCache}
                 />
             )}
             <MenuItem
                 dense
-                disabled={!online}
+                disabled={offline}
                 label={
                     starred
                         ? i18n.t('Unstar dashboard')
@@ -151,7 +155,7 @@ const ViewActions = ({
             />
             <MenuItem
                 dense
-                disabled={!online}
+                disabled={offline}
                 label={
                     showDescription
                         ? i18n.t('Hide description')
@@ -195,7 +199,6 @@ const ViewActions = ({
             <div className={classes.actions}>
                 <StarDashboardButton
                     starred={starred}
-                    online={online}
                     onClick={onToggleStarredDashboard}
                 />
                 <div className={classes.strip}>
@@ -231,7 +234,7 @@ const ViewActions = ({
                     onRequestClose={onToggleSharingDialog}
                     open={sharingDialogIsOpen}
                     insertTheme={true}
-                    isOffline={!online}
+                    isOffline={offline}
                     offlineMessage={i18n.t('Not available offline')}
                 />
             )}
