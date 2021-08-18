@@ -3,27 +3,38 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import DeleteItemButton from './DeleteItemButton'
-import { acRemoveDashboardItem } from '../../../actions/editDashboard'
+import {
+    acRemoveDashboardItem,
+    tSetDashboardItems,
+} from '../../../actions/editDashboard'
 
 import classes from './styles/ItemHeader.module.css'
+import { sGetLayoutColumns } from '../../../reducers/editDashboard'
 
-const EditItemActions = ({ itemId, acRemoveDashboardItem }) => {
-    const handleDeleteItem = () => acRemoveDashboardItem(itemId)
-
+const EditItemActions = ({ itemId, onDeleteItem }) => {
     return (
         <div className={classes.itemActionsWrap}>
-            <DeleteItemButton onClick={handleDeleteItem} />
+            <DeleteItemButton onClick={() => onDeleteItem(itemId)} />
         </div>
     )
 }
 
 EditItemActions.propTypes = {
-    acRemoveDashboardItem: PropTypes.func,
+    // acRemoveDashboardItem: PropTypes.func,
     itemId: PropTypes.string,
+    onDeleteItem: PropTypes.func,
 }
 
 const mapDispatchToProps = {
-    acRemoveDashboardItem,
+    onDeleteItem: itemId => (dispatch, getState) => {
+        const columns = sGetLayoutColumns(getState())
+
+        if (columns.length) {
+            dispatch(tSetDashboardItems(null, itemId)) // TODO support removal
+        } else {
+            dispatch(acRemoveDashboardItem(itemId))
+        }
+    },
 }
 
 export default connect(null, mapDispatchToProps)(EditItemActions)

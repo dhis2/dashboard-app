@@ -121,26 +121,33 @@ export const acSetAddItemsTo = value => ({
 // layout + end: calculate and add to "next shape in layout"
 // layout + start: add to 0,0,0,0, sort, remount
 
-export const tSetDashboardItems = newItem => (dispatch, getState) => {
+export const tSetDashboardItems = (itemToAdd, itemIdToRemove) => (
+    dispatch,
+    getState
+) => {
     const addItemsTo = sGetAddItemsTo(getState())
     const columns = sGetLayoutColumns(getState())
-    const items = [...sGetEditDashboardItems(getState())]
+    let items = [...sGetEditDashboardItems(getState())]
+    let dashboardItemsWithShapes
+
     console.group('tSetDashboardItems')
     console.log('--addItemsTo', addItemsTo)
     console.log('--columns', columns)
     console.log('--items', items)
-    console.log('--newItem', newItem)
+    console.log('--newItem', itemToAdd)
     console.groupEnd()
 
-    let dashboardItemsWithShapes
+    if (itemIdToRemove) {
+        items = items.filter(item => item.id !== itemIdToRemove)
+    }
 
-    if (!newItem) {
+    if (!itemToAdd) {
         dashboardItemsWithShapes = getAutoItemShapes(items, columns)
         updateItems(dashboardItemsWithShapes, dispatch, {
             reload: true,
         })
     } else {
-        const newDashboardItem = getDashboardItem(newItem)
+        const newDashboardItem = getDashboardItem(itemToAdd)
 
         if (addItemsTo === 'START') {
             dashboardItemsWithShapes = addToItemsStart(
@@ -158,44 +165,6 @@ export const tSetDashboardItems = newItem => (dispatch, getState) => {
             updateItems(dashboardItemsWithShapes, dispatch)
         }
     }
-
-    // if (!newItem || addItemsTo === 'START') {
-    //     if (newItem) {
-    //         items.push({
-    //             ...getDashboardItem(newItem),
-    //             x: 0,
-    //             y: 0,
-    //             w: 0,
-    //             h: 0,
-    //         })
-    //     }
-
-    //     console.log(
-    //         '-Before itemsWithNewShapes/getAutoItemShapes: items: ',
-    //         items,
-    //         columns
-    //     )
-    //     const itemsWithNewShapes = getAutoItemShapes(items, columns)
-    //     debugger
-    //     if (!itemsWithNewShapes) {
-    //         // TODO remove log
-    //         console.log('-Stopped because itemsWithNewShapes is empty')
-    //         return
-    //     }
-
-    //     updateItems(itemsWithNewShapes, dispatch, { reload: true })
-    // } else if (!addItemsTo || addItemsTo === 'END') {
-    //     // TODO remove !addItemsTo
-    //     const item = getDashboardItem(newItem)
-    //     const addToEndResult = addToItemsEnd(items, columns, item)
-
-    //     console.group('tSetDashboardItems END')
-    //     console.log('item', item)
-    //     console.log('addToEndResult', addToEndResult)
-    //     console.groupEnd()
-
-    //     updateItems(addToEndResult)
-    // }
 }
 
 export const tSaveDashboard = () => async (dispatch, getState, dataEngine) => {
