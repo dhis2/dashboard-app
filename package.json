@@ -51,7 +51,8 @@
         "cy:capture": "cypress_dhis2_api_stub_mode=CAPTURE yarn d2-utils-cypress run --appStart 'yarn cypress:start'"
     },
     "resolutions": {
-        "@dhis2/app-runtime": "^2.10.0-pwa.3"
+        "@dhis2/app-runtime": "^2.10.0-pwa.3",
+        "@dhis2/cli-app-scripts": "^7.3.0-alpha.1"
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^7.3.0-alpha.1",
