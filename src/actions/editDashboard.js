@@ -127,19 +127,25 @@ export const tSetDashboardItems = (itemToAdd, itemIdToRemove) => (
 ) => {
     const addItemsTo = sGetAddItemsTo(getState())
     const columns = sGetLayoutColumns(getState())
+
+    console.log(
+        '--sGetEditDashboardItems(getState())',
+        sGetEditDashboardItems(getState())
+    )
     let items = [...sGetEditDashboardItems(getState())]
     let dashboardItemsWithShapes
-
-    console.group('tSetDashboardItems')
-    console.log('--addItemsTo', addItemsTo)
-    console.log('--columns', columns)
-    console.log('--items', items)
-    console.log('--newItem', itemToAdd)
-    console.groupEnd()
 
     if (itemIdToRemove) {
         items = items.filter(item => item.id !== itemIdToRemove)
     }
+
+    console.group('tSetDashboardItems')
+    console.log('-itemToAdd', itemToAdd)
+    console.log('-itemIdToRemove', itemIdToRemove)
+    console.log('--addItemsTo', addItemsTo)
+    console.log('--columns', columns)
+    console.log('--items', items)
+    console.groupEnd()
 
     if (!itemToAdd) {
         dashboardItemsWithShapes = getAutoItemShapes(items, columns)

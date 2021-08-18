@@ -131,20 +131,18 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
             }
 
             const stateItems = orArray(state.dashboardItems)
-            let shapesHaveChanged = false
-            console.log(
-                'RECEIVED_DASHBOARD_ITEM_SHAPES reducer, action.value: ',
-                action.value
-            )
-            const newStateItems = action.value.map(({ x, y, w, h, i }, idx) => {
-                const stateItem = stateItems.find(si => si.id === i)
 
-                if (!stateItem) {
-                    console.log('!stateItem')
-                    shapesHaveChanged = true
-                    return action.value[idx]
+            if (stateItems.length !== action.value.length) {
+                return {
+                    ...state,
+                    dashboardItems: action.value,
                 }
+            }
 
+            let shapesHaveChanged = false
+
+            const newStateItems = action.value.map(({ x, y, w, h, i }) => {
+                const stateItem = stateItems.find(si => si.id === i)
                 if (
                     !(
                         stateItem.x === x &&

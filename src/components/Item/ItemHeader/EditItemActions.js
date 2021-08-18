@@ -9,7 +9,10 @@ import {
 } from '../../../actions/editDashboard'
 
 import classes from './styles/ItemHeader.module.css'
-import { sGetLayoutColumns } from '../../../reducers/editDashboard'
+import {
+    sGetEditDashboardItems,
+    sGetLayoutColumns,
+} from '../../../reducers/editDashboard'
 
 const EditItemActions = ({ itemId, onDeleteItem }) => {
     return (
@@ -20,7 +23,6 @@ const EditItemActions = ({ itemId, onDeleteItem }) => {
 }
 
 EditItemActions.propTypes = {
-    // acRemoveDashboardItem: PropTypes.func,
     itemId: PropTypes.string,
     onDeleteItem: PropTypes.func,
 }
@@ -28,11 +30,17 @@ EditItemActions.propTypes = {
 const mapDispatchToProps = {
     onDeleteItem: itemId => (dispatch, getState) => {
         const columns = sGetLayoutColumns(getState())
+        const dashboardItems = sGetEditDashboardItems(getState())
+        console.group('onDeleteItem')
+        console.log('itemId: ', itemId)
+        console.log('columns: ', columns)
+        console.log('dashboardItems: ', dashboardItems)
+        console.groupEnd()
 
-        if (columns.length) {
-            dispatch(tSetDashboardItems(null, itemId)) // TODO support removal
-        } else {
+        if (!columns.length || dashboardItems.length === 1) {
             dispatch(acRemoveDashboardItem(itemId))
+        } else {
+            dispatch(tSetDashboardItems(null, itemId))
         }
     },
 }
