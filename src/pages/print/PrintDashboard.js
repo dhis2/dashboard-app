@@ -91,7 +91,7 @@ const PrintDashboard = ({
 
                 setIsLoading(false)
             } catch (error) {
-                setRedirectUrl(id)
+                setRedirectUrl(id ? `/${id}` : '/')
                 setIsLoading(false)
             }
         }

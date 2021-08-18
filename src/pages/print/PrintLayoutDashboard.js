@@ -73,7 +73,7 @@ const PrintLayoutDashboard = ({
                 setPrintDashboard(dashboard)
                 customizePrintLayoutDashboard(dashboard)
             } catch (error) {
-                setRedirectUrl(id)
+                setRedirectUrl(id ? `/${id}` : '/')
                 setIsLoading(false)
             }
         }
