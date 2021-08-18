@@ -51,7 +51,7 @@ const CacheableViewDashboard = ({
 
     return (
         <CacheableSection id={id} loadingMask={<LoadingMask />}>
-            <ViewDashboard id={id} username={username} />
+            <ViewDashboard key={id} id={id} username={username} />
         </CacheableSection>
     )
 }
