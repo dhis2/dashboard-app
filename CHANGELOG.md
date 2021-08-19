@@ -1,3 +1,10 @@
+## [31.17.4](https://github.com/dhis2/dashboard-app/compare/v31.17.3...v31.17.4) (2021-08-18)
+
+
+### Bug Fixes
+
+* content css ([#1907](https://github.com/dhis2/dashboard-app/issues/1907)) ([d8c5dec](https://github.com/dhis2/dashboard-app/commit/d8c5deca56ac7ebde290c3980b3575d8f9ad86b1))
+
 ## [31.17.3](https://github.com/dhis2/dashboard-app/compare/v31.17.2...v31.17.3) (2021-08-13)
 
 
