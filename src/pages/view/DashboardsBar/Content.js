@@ -62,32 +62,38 @@ const Content = ({
     )
 
     const getControlsLarge = () => (
-        <span className={classes.controlsLarge}>
-            <Tooltip
-                content={
-                    offline
-                        ? i18n.t('Cannot create a dashboard while offline')
-                        : i18n.t('Create new dashboard')
-                }
-                closeDelay={100}
-                openDelay={400}
-            >
-                <Button
-                    className={classes.newButton}
-                    disabled={offline}
-                    small
-                    icon={<IconAdd24 />}
-                    onClick={enterNewMode}
-                    dataTest="new-button"
-                />
-                {offline && <ComponentCover />}
-            </Tooltip>
+        <div className={classes.controlsLarge}>
+            <div className={classes.buttonPadding}>
+                <div className={classes.buttonPosition}>
+                    <Tooltip
+                        content={
+                            offline
+                                ? i18n.t(
+                                      'Cannot create a dashboard while offline'
+                                  )
+                                : i18n.t('Create new dashboard')
+                        }
+                        closeDelay={100}
+                        openDelay={400}
+                    >
+                        <Button
+                            className={classes.newButton}
+                            disabled={offline}
+                            small
+                            icon={<IconAdd24 />}
+                            onClick={enterNewMode}
+                            dataTest="new-button"
+                        />
+                        {offline && <ComponentCover />}
+                    </Tooltip>
+                </div>
+            </div>
             <Filter
                 onKeypressEnter={onSelectDashboard}
                 onSearchClicked={onSearchClicked}
                 expanded={expanded}
             />
-        </span>
+        </div>
     )
 
     if (redirectUrl) {

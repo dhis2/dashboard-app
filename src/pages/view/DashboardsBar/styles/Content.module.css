@@ -2,19 +2,24 @@
     display: inline;
 }
 
-.newButton {
-    margin-left: var(--spacers-dp8);
-    margin-right: var(--spacers-dp8);
-    margin-top: var(--spacers-dp4);
-}
-
 .controlsSmall {
     display: none;
 }
 
 .controlsLarge {
+    display: inline-flex;
     position: relative;
-    top: var(--spacers-dp4);
+    top: 5px;
+}
+
+.buttonPadding {
+    padding: 2px 8px 0 8px;
+    display: inline-flex;
+}
+
+.buttonPosition {
+    position: relative;
+    display: inline-flex;
 }
 
 .chipsContainer {
