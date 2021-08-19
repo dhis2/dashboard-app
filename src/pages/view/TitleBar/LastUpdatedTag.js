@@ -16,6 +16,7 @@ const LastUpdatedTag = ({ id }) => {
         >
             <Tag
                 className={classes.lastUpdatedTag}
+                maxWidth="400px"
             >{`Offline data last updated ${moment(
                 lastUpdated
             ).fromNow()}`}</Tag>
