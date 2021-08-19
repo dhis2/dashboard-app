@@ -10,7 +10,7 @@ const LastUpdatedTag = ({ id }) => {
 
     return lastUpdated && lastUpdated.toString ? (
         <Tooltip
-            content={<span>{lastUpdated.toString()}</span>}
+            content={<span>{moment(lastUpdated).format('llll')}</span>}
             openDelay={200}
             closeDelay={100}
         >
