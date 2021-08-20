@@ -2,7 +2,7 @@ import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { clickViewActionButton } from '../../../elements/viewDashboard'
 import { getApiBaseUrl } from '../../../support/server/utils'
 
-const SHOW_DESC_RESP_CODE_SUCCESS = 200
+const SHOW_DESC_RESP_CODE_SUCCESS = 201
 const SHOW_DESC_RESP_CODE_FAIL = 409
 
 before(() => {
