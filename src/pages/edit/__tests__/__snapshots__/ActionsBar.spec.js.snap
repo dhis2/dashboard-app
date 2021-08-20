@@ -55,34 +55,67 @@ exports[`renders Save and Discard buttons but not translation dialog when new da
         <div
           class="jsx-71743532 box"
         >
-          <div>
-            <button
-              class="jsx-2371629422 "
-              data-test="dhis2-uicore-button"
-              type="button"
+          <div
+            class="jsx-2510973279 root"
+            data-test="dhis2-uicore-singleselect"
+          >
+            <div
+              class="jsx-2510973279 root-input"
             >
-              Auto layout
-              <svg
-                class="arrow"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                data-test="dhis2-uicore-select"
               >
-                <path
-                  d="m5.29289 8.7071c.39053.3905 1.02369.3905 1.41422 0l2.99999-2.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-2.2929 2.2929-2.29289-2.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
-                />
-                <style>
-                  
-                svg {
-                    fill: inherit;
-                    height: 12px;
-                    width: 12px;
-                    vertical-align: middle;
-                    pointer-events: none;
-                }
-            
-                </style>
-              </svg>
-            </button>
+                <div
+                  class="jsx-297747822 root"
+                  data-test="dhis2-uicore-select-input"
+                  tabindex="0"
+                >
+                  <div
+                    class="jsx-297747822 root-children"
+                  >
+                    <div
+                      class="jsx-2240447017 jsx-4123978364 root"
+                    >
+                      <div
+                        class="jsx-2240447017 jsx-4123978364 root-input"
+                      >
+                        <div
+                          class="jsx-3691749911 root"
+                        >
+                          6 columns
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="jsx-297747822 root-right"
+                  >
+                    <svg
+                      class="jsx-595155045 "
+                      version="1.1"
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g
+                        class="jsx-595155045"
+                        fill="none"
+                        fill-rule="evenodd"
+                        id="icon/16/arrow-down"
+                        stroke="none"
+                        stroke-width="1"
+                      >
+                        <path
+                          class="jsx-595155045"
+                          d="M7.29289,11.7071 C7.68342,12.0976 8.31658,12.0976 8.70711,11.7071 L13.7071,6.70711 C14.0976,6.31658 14.0976,5.68342 13.7071,5.29289 C13.3166,4.90237 12.6834,4.90237 12.2929,5.29289 L8,9.58579 L3.70711,5.29289 C3.31658,4.90237 2.68342,4.90237 2.29289,5.29289 C1.90237,5.68342 1.90237,6.31658 2.29289,6.70711 L7.29289,11.7071 Z"
+                          fill="#4A5768"
+                          id="arrow-down"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -174,34 +207,67 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
         <div
           class="jsx-71743532 box"
         >
-          <div>
-            <button
-              class="jsx-2371629422 "
-              data-test="dhis2-uicore-button"
-              type="button"
+          <div
+            class="jsx-2510973279 root"
+            data-test="dhis2-uicore-singleselect"
+          >
+            <div
+              class="jsx-2510973279 root-input"
             >
-              Auto layout
-              <svg
-                class="arrow"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                data-test="dhis2-uicore-select"
               >
-                <path
-                  d="m5.29289 8.7071c.39053.3905 1.02369.3905 1.41422 0l2.99999-2.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-2.2929 2.2929-2.29289-2.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
-                />
-                <style>
-                  
-                svg {
-                    fill: inherit;
-                    height: 12px;
-                    width: 12px;
-                    vertical-align: middle;
-                    pointer-events: none;
-                }
-            
-                </style>
-              </svg>
-            </button>
+                <div
+                  class="jsx-297747822 root"
+                  data-test="dhis2-uicore-select-input"
+                  tabindex="0"
+                >
+                  <div
+                    class="jsx-297747822 root-children"
+                  >
+                    <div
+                      class="jsx-2240447017 jsx-4123978364 root"
+                    >
+                      <div
+                        class="jsx-2240447017 jsx-4123978364 root-input"
+                      >
+                        <div
+                          class="jsx-3691749911 root"
+                        >
+                          Freeflow
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="jsx-297747822 root-right"
+                  >
+                    <svg
+                      class="jsx-595155045 "
+                      version="1.1"
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g
+                        class="jsx-595155045"
+                        fill="none"
+                        fill-rule="evenodd"
+                        id="icon/16/arrow-down"
+                        stroke="none"
+                        stroke-width="1"
+                      >
+                        <path
+                          class="jsx-595155045"
+                          d="M7.29289,11.7071 C7.68342,12.0976 8.31658,12.0976 8.70711,11.7071 L13.7071,6.70711 C14.0976,6.31658 14.0976,5.68342 13.7071,5.29289 C13.3166,4.90237 12.6834,4.90237 12.2929,5.29289 L8,9.58579 L3.70711,5.29289 C3.31658,4.90237 2.68342,4.90237 2.29289,5.29289 C1.90237,5.68342 1.90237,6.31658 2.29289,6.70711 L7.29289,11.7071 Z"
+                          fill="#4A5768"
+                          id="arrow-down"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -307,34 +373,67 @@ exports[`renders the ActionsBar without Delete when no delete access 1`] = `
         <div
           class="jsx-71743532 box"
         >
-          <div>
-            <button
-              class="jsx-2371629422 "
-              data-test="dhis2-uicore-button"
-              type="button"
+          <div
+            class="jsx-2510973279 root"
+            data-test="dhis2-uicore-singleselect"
+          >
+            <div
+              class="jsx-2510973279 root-input"
             >
-              Auto layout
-              <svg
-                class="arrow"
-                viewBox="0 0 12 12"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                data-test="dhis2-uicore-select"
               >
-                <path
-                  d="m5.29289 8.7071c.39053.3905 1.02369.3905 1.41422 0l2.99999-2.99999c.3905-.39053.3905-1.02369 0-1.41422-.3905-.39052-1.0237-.39052-1.4142 0l-2.2929 2.2929-2.29289-2.2929c-.39053-.39052-1.02369-.39052-1.41422 0-.39052.39053-.39052 1.02369 0 1.41422z"
-                />
-                <style>
-                  
-                svg {
-                    fill: inherit;
-                    height: 12px;
-                    width: 12px;
-                    vertical-align: middle;
-                    pointer-events: none;
-                }
-            
-                </style>
-              </svg>
-            </button>
+                <div
+                  class="jsx-297747822 root"
+                  data-test="dhis2-uicore-select-input"
+                  tabindex="0"
+                >
+                  <div
+                    class="jsx-297747822 root-children"
+                  >
+                    <div
+                      class="jsx-2240447017 jsx-4123978364 root"
+                    >
+                      <div
+                        class="jsx-2240447017 jsx-4123978364 root-input"
+                      >
+                        <div
+                          class="jsx-3691749911 root"
+                        >
+                          Freeflow
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="jsx-297747822 root-right"
+                  >
+                    <svg
+                      class="jsx-595155045 "
+                      version="1.1"
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g
+                        class="jsx-595155045"
+                        fill="none"
+                        fill-rule="evenodd"
+                        id="icon/16/arrow-down"
+                        stroke="none"
+                        stroke-width="1"
+                      >
+                        <path
+                          class="jsx-595155045"
+                          d="M7.29289,11.7071 C7.68342,12.0976 8.31658,12.0976 8.70711,11.7071 L13.7071,6.70711 C14.0976,6.31658 14.0976,5.68342 13.7071,5.29289 C13.3166,4.90237 12.6834,4.90237 12.2929,5.29289 L8,9.58579 L3.70711,5.29289 C3.31658,4.90237 2.68342,4.90237 2.29289,5.29289 C1.90237,5.68342 1.90237,6.31658 2.29289,6.70711 L7.29289,11.7071 Z"
+                          fill="#4A5768"
+                          id="arrow-down"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
