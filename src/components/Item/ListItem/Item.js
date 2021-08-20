@@ -1,6 +1,6 @@
 import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { Divider, colors, spacers } from '@dhis2/ui'
+import { Divider, IconFileDocument16, colors, spacers } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -12,7 +12,6 @@ import { isEditMode } from '../../../modules/dashboardModes'
 import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes'
 import { orArray } from '../../../modules/util'
 import ItemHeader from '../ItemHeader/ItemHeader'
-import DescriptionIcon from './assets/Description'
 import classes from './Item.module.css'
 
 const getItemTitle = item => itemTypeMap[item.type].pluralTitle
@@ -43,9 +42,9 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
     }
 
     const getLink = contentItem => {
-        const deleteButton = (
+        const removeButton = (
             <button
-                className={classes.deletebutton}
+                className={classes.removeButton}
                 onClick={() => updateDashboardItem(contentItem)}
             >
                 {i18n.t('Remove')}
@@ -61,7 +60,7 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
                 >
                     {contentItem.name}
                 </a>
-                {isEditMode(dashboardMode) ? deleteButton : null}
+                {isEditMode(dashboardMode) ? removeButton : null}
             </>
         )
     }
@@ -79,8 +78,10 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
                 <ul className={classes.list}>
                     {contentItems.map(contentItem => (
                         <li className={classes.item} key={contentItem.id}>
-                            <DescriptionIcon className={classes.itemicon} />
-                            {getLink(contentItem)}
+                            <span className={classes.itemContent}>
+                                <IconFileDocument16 color={colors.grey600} />
+                                {getLink(contentItem)}
+                            </span>
                         </li>
                     ))}
                 </ul>
