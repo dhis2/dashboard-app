@@ -1,4 +1,5 @@
 import { useConfig } from '@dhis2/app-runtime'
+import i18n from '@dhis2/d2-i18n'
 import { Divider, colors, spacers } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -11,7 +12,6 @@ import { isEditMode } from '../../../modules/dashboardModes'
 import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes'
 import { orArray } from '../../../modules/util'
 import ItemHeader from '../ItemHeader/ItemHeader'
-import DeleteIcon from './assets/Delete'
 import DescriptionIcon from './assets/Description'
 import classes from './Item.module.css'
 
@@ -48,7 +48,7 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
                 className={classes.deletebutton}
                 onClick={() => updateDashboardItem(contentItem)}
             >
-                <DeleteIcon className={classes.deleteicon} />
+                {i18n.t('Remove')}
             </button>
         )
 
