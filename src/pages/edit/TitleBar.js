@@ -16,6 +16,7 @@ import { LayoutFixedIcon } from './assets/LayoutFixed'
 import { LayoutFreeflowIcon } from './assets/LayoutFreeflow'
 
 import classes from './styles/TitleBar.module.css'
+import { LayoutModal } from './LayoutModal'
 
 const EditTitleBar = ({
     addItemsTo,
@@ -33,7 +34,8 @@ const EditTitleBar = ({
         onChangeDescription(e.target.value)
     }
 
-    const [useColumns, setUseColumns] = useState(true) // just for test
+    const [columns, setColumns] = useState(3) // just for test
+    const [showLayoutModal, setShowLayoutModal] = useState(false)
 
     return (
         <div className={classes.container}>
@@ -62,20 +64,15 @@ const EditTitleBar = ({
                 <div className={classes.layoutWrapper}>
                     <p className={classes.label}>{i18n.t('Layout')}</p>
                     <div className={classes.layoutOption}>
-                        {useColumns ? (
-                            <LayoutFixedIcon />
-                        ) : (
-                            <LayoutFreeflowIcon />
-                        )}
+                        {columns ? <LayoutFixedIcon /> : <LayoutFreeflowIcon />}
                         <span>
-                            {useColumns
-                                ? i18n.t('3 columns')
+                            {columns
+                                ? i18n.t('{{numberOfColumns}} columns', {
+                                      numberOfColumns: columns, // TODO: Add pluralisation
+                                  })
                                 : i18n.t('Freeflow')}
                         </span>
-                        <Button
-                            small
-                            onClick={() => setUseColumns(!useColumns)}
-                        >
+                        <Button small onClick={() => setShowLayoutModal(true)}>
                             {i18n.t('Change layout')}
                         </Button>
                     </div>
@@ -106,6 +103,13 @@ const EditTitleBar = ({
                     </div>
                 </div>
             </div>
+            {showLayoutModal && (
+                <LayoutModal
+                    onClose={() => setShowLayoutModal(false)}
+                    columns={columns}
+                    setColumns={columns => setColumns(columns)}
+                />
+            )}
         </div>
     )
 }
