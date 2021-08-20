@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { InputField, TextAreaField, Radio } from '@dhis2/ui'
+import { InputField, TextAreaField, Radio, Button } from '@dhis2/ui'
 
 import ItemSelector from './ItemSelector/ItemSelector'
 import {
@@ -12,6 +12,8 @@ import {
 } from '../../actions/editDashboard'
 import { orObject } from '../../modules/util'
 import { sGetEditDashboardRoot } from '../../reducers/editDashboard'
+import { LayoutFixedIcon } from './assets/LayoutFixed'
+import { LayoutFreeflowIcon } from './assets/LayoutFreeflow'
 
 import classes from './styles/TitleBar.module.css'
 
@@ -31,11 +33,12 @@ const EditTitleBar = ({
         onChangeDescription(e.target.value)
     }
 
+    const [useColumns, setUseColumns] = useState(true) // just for test
+
     return (
-        <section className={classes.section}>
-            <div className={classes.row}>
+        <div className={classes.container}>
+            <div className={classes.inputWrapper}>
                 <InputField
-                    className={classes.title}
                     name="Dashboard title input"
                     label={i18n.t('Dashboard title')}
                     type="text"
@@ -45,7 +48,6 @@ const EditTitleBar = ({
                     dataTest="dashboard-title-input"
                 />
                 <TextAreaField
-                    className={classes.description}
                     name="Dashboard description input"
                     label={i18n.t('Dashboard description')}
                     onChange={updateDescription}
@@ -53,17 +55,39 @@ const EditTitleBar = ({
                     dataTest="dashboard-description-input"
                 />
             </div>
-            <div className={classes.fieldset}>
-                <div className={classes.itemSelector}>
+            <div className={classes.searchContainer}>
+                <div className={classes.searchWrapper}>
                     <ItemSelector />
                 </div>
-                <div className={classes.layout}>Layout</div>
-                <div className={classes.addItemsTo}>
-                    <div>Add items to</div>
-                    <div className={classes.radioGroup}>
+                <div className={classes.layoutWrapper}>
+                    <p className={classes.label}>{i18n.t('Layout')}</p>
+                    <div className={classes.layoutOption}>
+                        {useColumns ? (
+                            <LayoutFixedIcon />
+                        ) : (
+                            <LayoutFreeflowIcon />
+                        )}
+                        <span>
+                            {useColumns
+                                ? i18n.t('3 columns')
+                                : i18n.t('Freeflow')}
+                        </span>
+                        <Button
+                            small
+                            onClick={() => setUseColumns(!useColumns)}
+                        >
+                            {i18n.t('Change layout')}
+                        </Button>
+                    </div>
+                </div>
+                <div className={classes.positionWrapper}>
+                    <p className={classes.label}>
+                        {i18n.t('Add new items to')}
+                    </p>
+                    <div className={classes.positionOptions}>
                         <Radio
                             dense
-                            label="End of dashboard"
+                            label={i18n.t('End of dashboard')}
                             name="END"
                             onChange={value =>
                                 value.checked && onChangeAddItemsTo(value.name)
@@ -72,7 +96,7 @@ const EditTitleBar = ({
                         />
                         <Radio
                             dense
-                            label="Start of dashboard"
+                            label={i18n.t('Start of dashboard')}
                             name="START"
                             onChange={value =>
                                 value.checked && onChangeAddItemsTo(value.name)
@@ -82,7 +106,7 @@ const EditTitleBar = ({
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     )
 }
 

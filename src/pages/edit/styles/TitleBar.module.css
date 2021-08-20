@@ -1,47 +1,78 @@
-.section {
-    /* display: flex;
-    justify-content: space-between; */
-    margin: 13px 15px 19px 10px;
+.container {
+    background: var(--colors-grey100);
 }
-.row,
-.fieldset {
-    /* flex: 3; */
+
+.inputWrapper {
     display: flex;
-    justify-content: space-between;
-    /* margin-right: 50px; */
+    flex-wrap: wrap;
+    margin-top: var(--spacers-dp16);
 }
-.fieldset {
-    margin-top: 8px;
-    border: 1px solid gainsboro;
-    border-radius: 5px;
-    background-color: whitesmoke;
-    padding: 4px 12px 8px;
-    color: darkslategray;
+
+.inputWrapper > div {
+    flex-grow: 1;
+    min-width: 350px;
+    margin-bottom: var(--spacers-dp8);
 }
-.title {
-    /* display: block;
-    clear: both; */
-    flex: 2;
+
+.inputWrapper > div:first-child {
+    margin-right: var(--spacers-dp8);
 }
-.description {
-    /* display: block;
-    clear: both;
-    margin-top: 15px; */
-    flex: 3;
-    margin-left: 15px;
+
+.searchContainer {
+    display: flex;
+    flex-wrap: wrap;
+    background: var(--colors-grey200);
+    border: 1px solid var(--colors-grey400);
+    border-radius: 6px;
+    padding: var(--spacers-dp8) var(--spacers-dp8) 0;
 }
-.itemSelector {
-    flex: 3;
+
+.searchContainer > :not(:last-child) {
+    margin-right: 32px;
 }
-.layout {
-    flex: 1;
+
+.searchContainer > div {
+    margin-bottom: var(--spacers-dp8);
 }
-.addItemsTo {
-    flex: 2;
+
+.searchWrapper {
+    flex-grow: 1;
+    min-width: 300px;
 }
-.radioGroup {
+
+.layoutWrapper {
+    min-width: 230px;
+}
+
+.positionWrapper {
+    min-width: 280px;
+}
+
+.label {
+    font-size: 14px;
+    margin: 0 0 var(--spacers-dp8);
+}
+
+.layoutOption {
+    display: flex;
+    align-items: center;
+    color: var(--colors-grey700);
+}
+
+.layoutOption > svg {
+    height: 14px;
+    width: 14px;
+    fill: var(--colors-grey700);
+}
+
+.layoutOption > :not(:last-child) {
+    margin-right: var(--spacers-dp8);
+}
+
+.positionOptions {
     display: flex;
 }
-.radioGroup label:not(:first-child) {
-    margin-left: 8px;
+
+.positionOptions > :not(:last-child) {
+    margin-right: var(--spacers-dp8);
 }
