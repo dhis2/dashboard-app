@@ -140,7 +140,13 @@ export const tSetDashboardItems = (itemToAdd, itemIdToRemove) => (
     console.groupEnd()
 
     if (!itemToAdd && !itemIdToRemove) {
-        // changing columns only
+        // changing columns
+
+        if (!columns.length) {
+            // freeflow, do nothing
+            return
+        }
+
         dashboardItemsWithShapes = getAutoItemShapes(items, columns)
         updateItems(dashboardItemsWithShapes, dispatch, {
             reload: true,
