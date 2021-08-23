@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
+"POT-Creation-Date: 2021-08-20T08:15:38.467Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2021\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -27,6 +27,9 @@ msgstr "Hapus item ini"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Item ini telah dipersingkat agar muat di satu halaman"
+
+msgid "Remove"
+msgstr "Hapus"
 
 msgid "Messages"
 msgstr "Pesan"
@@ -205,6 +208,9 @@ msgstr "Ya, buang perubahan"
 msgid "No access"
 msgstr "Tidak ada akses"
 
+msgid "Not supported"
+msgstr "Tidak didukung"
+
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
@@ -269,9 +275,6 @@ msgstr ""
 "Pembuatan dasbor di layar kecil tidak didukung. Ubah ukuran layar Anda untuk"
 " kembali ke mode buat."
 
-msgid "Not supported"
-msgstr "Tidak didukung"
-
 msgid "Dashboard title"
 msgstr "Judul dashboard"
 
@@ -331,9 +334,6 @@ msgstr "Tampilkan lebih banyak dasbor"
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} terpilih"
-
-msgid "Remove"
-msgstr "Hapus"
 
 msgid "Failed to hide description"
 msgstr "Gagal menyembunyikan deskripsi"

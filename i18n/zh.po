@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
+"POT-Creation-Date: 2021-08-20T08:15:38.467Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -26,6 +26,9 @@ msgstr "删除该项目"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "此项已缩短为适合一页"
+
+msgid "Remove"
+msgstr "移除"
 
 msgid "Messages"
 msgstr "消息"
@@ -193,6 +196,9 @@ msgstr "是的，放弃更改"
 msgid "No access"
 msgstr "不能访问"
 
+msgid "Not supported"
+msgstr "不支持"
+
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
@@ -253,9 +259,6 @@ msgid ""
 " return to create mode."
 msgstr "不支持在小屏幕上创建仪表板。调整屏幕大小以返回创建模式。"
 
-msgid "Not supported"
-msgstr "不支持"
-
 msgid "Dashboard title"
 msgstr "仪表盘标题"
 
@@ -312,9 +315,6 @@ msgstr "显示更多仪表板"
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} 个被选择"
-
-msgid "Remove"
-msgstr "移除"
 
 msgid "Failed to hide description"
 msgstr "隐藏说明失败"

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
+"POT-Creation-Date: 2021-08-20T08:15:38.467Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: trendspotter <jirka.p@volny.cz>, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -23,6 +23,9 @@ msgstr "Odebrat tuto položku"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Tato položka byla zkrácena tak, aby se vešla na jednu stránku"
+
+msgid "Remove"
+msgstr "Odebrat"
 
 msgid "Messages"
 msgstr "Zprávy"
@@ -201,6 +204,9 @@ msgstr "Ano, zahodit změny"
 msgid "No access"
 msgstr "Žádný přístup"
 
+msgid "Not supported"
+msgstr "Není podporováno"
+
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
@@ -264,9 +270,6 @@ msgid ""
 msgstr ""
 "Vytváření ovládacích panelů na malých obrazovkách není podporováno. Změňte "
 "velikost obrazovky a vraťte se do režimu vytváření."
-
-msgid "Not supported"
-msgstr "Není podporováno"
 
 msgid "Dashboard title"
 msgstr "Název ovládacího panelu"
@@ -332,9 +335,6 @@ msgstr[0] "Vybráno {{count}}"
 msgstr[1] "Vybráno {{count}}"
 msgstr[2] "Vybráno {{count}}"
 msgstr[3] "Vybráno {{count}}"
-
-msgid "Remove"
-msgstr "Odebrat"
 
 msgid "Failed to hide description"
 msgstr "Skrytí popisu se nezdařilo"

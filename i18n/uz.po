@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
+"POT-Creation-Date: 2021-08-20T08:15:38.467Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -23,6 +23,9 @@ msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Ушбу элемент бир саҳифага жойлаштириш учун мослаштирилди"
+
+msgid "Remove"
+msgstr "Олиб ташлаш"
 
 msgid "Messages"
 msgstr "Хабарлар"
@@ -196,6 +199,9 @@ msgstr ""
 msgid "No access"
 msgstr "Кириш ҳуқуқи мавжуд эмас"
 
+msgid "Not supported"
+msgstr ""
+
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
@@ -250,9 +256,6 @@ msgstr "Матн жойи"
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
 " return to create mode."
-msgstr ""
-
-msgid "Not supported"
 msgstr ""
 
 msgid "Dashboard title"
@@ -317,9 +320,6 @@ msgstr ""
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "{{жами}} танланган"
-
-msgid "Remove"
-msgstr "Олиб ташлаш"
 
 msgid "Failed to hide description"
 msgstr ""

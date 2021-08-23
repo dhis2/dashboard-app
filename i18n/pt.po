@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
+"POT-Creation-Date: 2021-08-20T08:15:38.467Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -27,6 +27,9 @@ msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Este item foi reduzido para caber em uma página"
+
+msgid "Remove"
+msgstr "Remover"
 
 msgid "Messages"
 msgstr "Mensagens"
@@ -199,6 +202,9 @@ msgstr ""
 msgid "No access"
 msgstr "Sem acesso"
 
+msgid "Not supported"
+msgstr "Não suportado"
+
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
@@ -254,9 +260,6 @@ msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
 " return to create mode."
 msgstr ""
-
-msgid "Not supported"
-msgstr "Não suportado"
 
 msgid "Dashboard title"
 msgstr "Título do painel"
@@ -318,9 +321,6 @@ msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} selecionado"
 msgstr[1] "{{count}} selecionado"
-
-msgid "Remove"
-msgstr "Remover"
 
 msgid "Failed to hide description"
 msgstr ""

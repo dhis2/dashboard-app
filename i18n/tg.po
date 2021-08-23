@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
+"POT-Creation-Date: 2021-08-20T08:15:38.467Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Tajik (https://www.transifex.com/hisp-uio/teams/100509/tg/)\n"
@@ -24,6 +24,9 @@ msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr ""
+
+msgid "Remove"
+msgstr "Тоза кардан"
 
 msgid "Messages"
 msgstr "Паёмҳо"
@@ -191,6 +194,9 @@ msgstr ""
 msgid "No access"
 msgstr ""
 
+msgid "Not supported"
+msgstr ""
+
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
@@ -245,9 +251,6 @@ msgstr ""
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
 " return to create mode."
-msgstr ""
-
-msgid "Not supported"
 msgstr ""
 
 msgid "Dashboard title"
@@ -307,9 +310,6 @@ msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] ""
 msgstr[1] ""
-
-msgid "Remove"
-msgstr "Тоза кардан"
 
 msgid "Failed to hide description"
 msgstr ""

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
+"POT-Creation-Date: 2021-08-20T08:15:38.467Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2021\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
@@ -23,6 +23,9 @@ msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr ""
+
+msgid "Remove"
+msgstr "إزالة"
 
 msgid "Messages"
 msgstr "الرسائل"
@@ -193,6 +196,9 @@ msgstr ""
 msgid "No access"
 msgstr "ممنوع الدخول"
 
+msgid "Not supported"
+msgstr ""
+
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
@@ -247,9 +253,6 @@ msgstr "مربع نص"
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
 " return to create mode."
-msgstr ""
-
-msgid "Not supported"
 msgstr ""
 
 msgid "Dashboard title"
@@ -314,9 +317,6 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
-
-msgid "Remove"
-msgstr "إزالة"
 
 msgid "Failed to hide description"
 msgstr ""

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
+"POT-Creation-Date: 2021-08-20T08:15:38.467Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Ulanbek Abakirov <ulans@mail.ru>, 2021\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
@@ -25,6 +25,9 @@ msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr ""
+
+msgid "Remove"
+msgstr "Удалить"
 
 msgid "Messages"
 msgstr "Сообщения"
@@ -194,6 +197,9 @@ msgstr ""
 msgid "No access"
 msgstr "Нет доступа"
 
+msgid "Not supported"
+msgstr ""
+
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
@@ -248,9 +254,6 @@ msgstr "Текстовое окно"
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
 " return to create mode."
-msgstr ""
-
-msgid "Not supported"
 msgstr ""
 
 msgid "Dashboard title"
@@ -314,9 +317,6 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
-
-msgid "Remove"
-msgstr "Удалить"
 
 msgid "Failed to hide description"
 msgstr ""

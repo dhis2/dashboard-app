@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T08:03:01.719Z\n"
+"POT-Creation-Date: 2021-08-20T08:15:38.467Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Caroline Hesthagen Holen <caroline@devotta.no>, 2021\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -24,6 +24,9 @@ msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Dette elementet har blitt forkortet for å passe på én side"
+
+msgid "Remove"
+msgstr "Fjern"
 
 msgid "Messages"
 msgstr "Meldinger"
@@ -198,6 +201,9 @@ msgstr ""
 msgid "No access"
 msgstr "Ingen tilgang"
 
+msgid "Not supported"
+msgstr "Ikke støttet"
+
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
@@ -262,9 +268,6 @@ msgstr ""
 "Oppretting av dashbord på små skjermer støttes ikke. Endre størrelsen på "
 "skjermen for å gå tilbake til opprettingsmodus."
 
-msgid "Not supported"
-msgstr "Ikke støttet"
-
 msgid "Dashboard title"
 msgstr "Dashbordtittel"
 
@@ -324,9 +327,6 @@ msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} valgt"
 msgstr[1] "{{count}} valgt"
-
-msgid "Remove"
-msgstr "Fjern"
 
 msgid "Failed to hide description"
 msgstr "Kunne ikke skjule beskrivelsen"
