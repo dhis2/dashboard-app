@@ -1,3 +1,10 @@
+## [31.17.6](https://github.com/dhis2/dashboard-app/compare/v31.17.5...v31.17.6) (2021-08-23)
+
+
+### Bug Fixes
+
+* replace icons used for list item delete items ([#1909](https://github.com/dhis2/dashboard-app/issues/1909)) ([55ba86d](https://github.com/dhis2/dashboard-app/commit/55ba86d379315eea619ff3de5a9121242bb592c4))
+
 ## [31.17.5](https://github.com/dhis2/dashboard-app/compare/v31.17.4...v31.17.5) (2021-08-23)
 
 
