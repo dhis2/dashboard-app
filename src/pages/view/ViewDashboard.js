@@ -132,7 +132,7 @@ const ViewDashboard = props => {
             )
         }
 
-        return !loaded ? (
+        return props.requestedId !== props.currentId ? (
             <LoadingMask />
         ) : (
             <>
