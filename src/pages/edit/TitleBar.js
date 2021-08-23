@@ -67,12 +67,10 @@ const EditTitleBar = ({
                         {columns ? <LayoutFixedIcon /> : <LayoutFreeflowIcon />}
                         <span>
                             {columns
-                                ? i18n.t('{{numberOfColumns}} columns', {
-                                      numberOfColumns: columns,
-                                      defaultValue:
-                                          '{{numberOfColumns}} column',
-                                      defaultValue_plural:
-                                          '{{numberOfColumns}} columns',
+                                ? i18n.t('{{count}} columns', {
+                                      count: columns,
+                                      defaultValue: '{{count}} column',
+                                      defaultValue_plural: '{{count}} columns',
                                   })
                                 : i18n.t('Freeflow')}
                         </span>
