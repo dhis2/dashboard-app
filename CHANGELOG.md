@@ -1,3 +1,10 @@
+## [31.17.5](https://github.com/dhis2/dashboard-app/compare/v31.17.4...v31.17.5) (2021-08-23)
+
+
+### Bug Fixes
+
+* response code for /userDataStore has been restored to 201 ([#1910](https://github.com/dhis2/dashboard-app/issues/1910)) ([00ea30f](https://github.com/dhis2/dashboard-app/commit/00ea30ff3143b2f5feb74afac449394b3c8ca243)), closes [#1896](https://github.com/dhis2/dashboard-app/issues/1896)
+
 ## [31.17.4](https://github.com/dhis2/dashboard-app/compare/v31.17.3...v31.17.4) (2021-08-18)
 
 
