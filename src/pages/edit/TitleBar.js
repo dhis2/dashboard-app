@@ -9,9 +9,14 @@ import {
     acSetDashboardTitle,
     acSetDashboardDescription,
     acSetAddItemsTo,
+    acSetLayoutColumns,
+    tSetDashboardItems,
 } from '../../actions/editDashboard'
 import { orObject } from '../../modules/util'
-import { sGetEditDashboardRoot } from '../../reducers/editDashboard'
+import {
+    sGetEditDashboardRoot,
+    sGetLayoutColumns,
+} from '../../reducers/editDashboard'
 import { LayoutFixedIcon } from './assets/LayoutFixed'
 import { LayoutFreeflowIcon } from './assets/LayoutFreeflow'
 
@@ -20,11 +25,13 @@ import { LayoutModal } from './LayoutModal'
 
 const EditTitleBar = ({
     addItemsTo,
-    name,
+    columns,
     description,
+    name,
     onChangeAddItemsTo,
     onChangeTitle,
     onChangeDescription,
+    onSaveLayout,
 }) => {
     const updateTitle = (_, e) => {
         onChangeTitle(e.target.value)
@@ -34,7 +41,6 @@ const EditTitleBar = ({
         onChangeDescription(e.target.value)
     }
 
-    const [columns, setColumns] = useState(3) // just for test
     const [showLayoutModal, setShowLayoutModal] = useState(false)
 
     return (
@@ -64,11 +70,15 @@ const EditTitleBar = ({
                 <div className={classes.layoutWrapper}>
                     <p className={classes.label}>{i18n.t('Layout')}</p>
                     <div className={classes.layoutOption}>
-                        {columns ? <LayoutFixedIcon /> : <LayoutFreeflowIcon />}
+                        {columns.length ? (
+                            <LayoutFixedIcon />
+                        ) : (
+                            <LayoutFreeflowIcon />
+                        )}
                         <span>
-                            {columns
+                            {columns.length
                                 ? i18n.t('{{numberOfColumns}} columns', {
-                                      numberOfColumns: columns, // TODO: Add pluralisation
+                                      numberOfColumns: columns.length, // TODO: Add pluralisation
                                   })
                                 : i18n.t('Freeflow')}
                         </span>
@@ -106,8 +116,8 @@ const EditTitleBar = ({
             {showLayoutModal && (
                 <LayoutModal
                     onClose={() => setShowLayoutModal(false)}
-                    columns={columns}
-                    setColumns={columns => setColumns(columns)}
+                    columns={columns.length}
+                    onSaveLayout={onSaveLayout}
                 />
             )}
         </div>
@@ -118,7 +128,9 @@ EditTitleBar.propTypes = {
     onChangeAddItemsTo: PropTypes.func.isRequired,
     onChangeDescription: PropTypes.func.isRequired,
     onChangeTitle: PropTypes.func.isRequired,
+    onSaveLayout: PropTypes.func.isRequired,
     addItemsTo: PropTypes.string,
+    columns: PropTypes.array,
     description: PropTypes.string,
     name: PropTypes.string,
 }
@@ -134,6 +146,7 @@ const mapStateToProps = state => {
 
     return {
         name: selectedDashboard.name,
+        columns: sGetLayoutColumns(state),
         description: selectedDashboard.description,
         addItemsTo: selectedDashboard.addItemsTo,
     }
@@ -143,6 +156,15 @@ const mapDispatchToProps = {
     onChangeTitle: acSetDashboardTitle,
     onChangeDescription: acSetDashboardDescription,
     onChangeAddItemsTo: acSetAddItemsTo,
+    onSaveLayout: columns => dispatch => {
+        console.log('SET COLUMNS', columns)
+        dispatch(
+            acSetLayoutColumns(
+                [...Array(columns).keys()].map(i => ({ index: i }))
+            )
+        )
+        dispatch(tSetDashboardItems())
+    },
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditTitleBar)
