@@ -17,6 +17,9 @@ msgstr "Remove this item"
 msgid "This item has been shortened to fit on one page"
 msgstr "This item has been shortened to fit on one page"
 
+msgid "Remove"
+msgstr "Remove"
+
 msgid "Messages"
 msgstr "Messages"
 
@@ -321,9 +324,6 @@ msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} selected"
 msgstr[1] "{{count}} selected"
-
-msgid "Remove"
-msgstr "Remove"
 
 msgid "Failed to hide description"
 msgstr "Failed to hide description"
