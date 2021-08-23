@@ -34,9 +34,9 @@ const MapPlugin = ({
     useEffect(() => () => unmount(props.item, MAP), [])
 
     useEffect(() => {
-        const setMapOfflineStatus = async online => {
+        const setMapOfflineStatus = async onlineStatus => {
             const plugin = await getPlugin(MAP)
-            plugin?.setOfflineStatus && plugin.setOfflineStatus(online)
+            plugin?.setOfflineStatus && plugin.setOfflineStatus(onlineStatus)
         }
 
         setMapOfflineStatus(!online)
