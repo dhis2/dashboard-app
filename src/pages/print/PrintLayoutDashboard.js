@@ -11,6 +11,7 @@ import {
     acUpdatePrintDashboardItem,
 } from '../../actions/printDashboard'
 import { apiFetchDashboard } from '../../api/fetchDashboard'
+import { VIEW } from '../../modules/dashboardModes'
 import { MAX_ITEM_GRID_HEIGHT } from '../../modules/gridUtil'
 import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
@@ -69,7 +70,9 @@ const PrintLayoutDashboard = ({
     useEffect(() => {
         const loadDashboard = async () => {
             try {
-                const dashboard = await apiFetchDashboard(dataEngine, id)
+                const dashboard = await apiFetchDashboard(dataEngine, id, {
+                    mode: VIEW,
+                })
                 setPrintDashboard(dashboard)
                 customizePrintLayoutDashboard(dashboard)
             } catch (error) {

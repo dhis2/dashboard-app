@@ -12,6 +12,7 @@ import {
     acUpdatePrintDashboardItem,
 } from '../../actions/printDashboard'
 import { apiFetchDashboard } from '../../api/fetchDashboard'
+import { VIEW } from '../../modules/dashboardModes'
 import {
     MAX_ITEM_GRID_HEIGHT_OIPP,
     MAX_ITEM_GRID_WIDTH_OIPP,
@@ -41,7 +42,9 @@ const PrintDashboard = ({
     useEffect(() => {
         const loadDashboard = async () => {
             try {
-                const dashboard = await apiFetchDashboard(dataEngine, id)
+                const dashboard = await apiFetchDashboard(dataEngine, id, {
+                    mode: VIEW,
+                })
                 //sort the items by Y pos so they print in order of top to bottom
                 const sortedItems = sortBy(dashboard.dashboardItems, ['y', 'x'])
 

@@ -50,7 +50,8 @@ const ViewActions = ({
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
     const { offline } = useOnlineStatus()
-    const { lastUpdated, startRecording, remove } = useCacheableSection(id)
+    const { lastUpdated, isCached, startRecording, remove } =
+        useCacheableSection(id)
 
     const warningAlert = useAlert(({ msg }) => msg, {
         warning: true,
@@ -163,7 +164,12 @@ const ViewActions = ({
                 }
                 onClick={onToggleShowDescription}
             />
-            <MenuItem dense label={i18n.t('Print')} dataTest="print-menu-item">
+            <MenuItem
+                dense
+                disabled={offline && !isCached}
+                label={i18n.t('Print')}
+                dataTest="print-menu-item"
+            >
                 <MenuItem
                     dense
                     label={i18n.t('Dashboard layout')}
