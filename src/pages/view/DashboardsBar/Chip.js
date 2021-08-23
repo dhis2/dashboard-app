@@ -1,4 +1,4 @@
-import { useCacheableSection } from '@dhis2/app-runtime'
+import { useOnlineStatus, useCacheableSection } from '@dhis2/app-runtime'
 import { Chip as UiChip, colors, IconStarFilled24 } from '@dhis2/ui'
 import cx from 'classnames'
 import debounce from 'lodash/debounce'
@@ -11,6 +11,7 @@ import classes from './styles/Chip.module.css'
 
 const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
     const { lastUpdated } = useCacheableSection(dashboardId)
+    const { online } = useOnlineStatus()
     const chipProps = {
         selected,
     }
@@ -28,7 +29,7 @@ const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
     )
 
     const handleClick = () => {
-        debouncedPostStatistics()
+        online && debouncedPostStatistics()
         onClick()
     }
 

@@ -51,7 +51,7 @@ const ViewDashboard = props => {
     }, [props.id])
 
     useEffect(() => {
-        if (!props.passiveViewRegistered) {
+        if (!props.passiveViewRegistered && online) {
             apiPostDataStatistics('PASSIVE_DASHBOARD_VIEW', props.id)
                 .then(() => {
                     props.registerPassiveView()
