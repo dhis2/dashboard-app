@@ -32,9 +32,7 @@ const ViewDashboard = props => {
     const [loaded, setLoaded] = useState(false)
     const [loadFailed, setLoadFailed] = useState(false)
     const { online } = useOnlineStatus()
-    const { isCached, recordingState } = useCacheableSection(props.id)
-
-    const dashboardIsAvailable = online || isCached
+    const { isCached, recordingState } = useCacheableSection(props.requestedId)
 
     useEffect(() => {
         setHeaderbarVisible(true)
@@ -43,16 +41,18 @@ const ViewDashboard = props => {
     }, [])
 
     useEffect(() => {
+        setLoaded(false)
+
         Array.from(
             document.getElementsByClassName('dashboard-scroll-container')
         ).forEach(container => {
             container.scroll(0, 0)
         })
-    }, [props.id])
+    }, [props.requestedId])
 
     useEffect(() => {
         if (!props.passiveViewRegistered && online) {
-            apiPostDataStatistics('PASSIVE_DASHBOARD_VIEW', props.id)
+            apiPostDataStatistics('PASSIVE_DASHBOARD_VIEW', props.requestedId)
                 .then(() => {
                     props.registerPassiveView()
                 })
@@ -60,15 +60,13 @@ const ViewDashboard = props => {
         }
     }, [props.passiveViewRegistered])
 
-    useEffect(() => setLoaded(false), [props.id])
-
     useEffect(() => {
         const loadDashboard = async () => {
             const alertTimeout = setTimeout(() => {
-                if (props.name) {
+                if (props.requestedDashboardName) {
                     setLoadingMessage(
                         i18n.t('Loading dashboard – {{name}}', {
-                            name: props.name,
+                            name: props.requestedDashboardName,
                         })
                     )
                 } else {
@@ -77,37 +75,42 @@ const ViewDashboard = props => {
             }, 500)
 
             try {
-                await props.fetchDashboard(props.id, props.username)
-
-                setLoadingMessage(null)
                 setLoaded(true)
+                await props.fetchDashboard(props.requestedId, props.username)
+
                 setLoadFailed(false)
+                setLoadingMessage(null)
                 clearTimeout(alertTimeout)
             } catch (e) {
+                setLoaded(false)
                 setLoadFailed(true)
                 setLoadingMessage(null)
                 clearTimeout(alertTimeout)
-                props.setSelectedAsOffline(props.id, props.username)
+                props.setSelectedAsOffline(props.requestedId, props.username)
             }
         }
 
+        const requestedIsAvailable = online || isCached
+        const switchingDashboard = props.requestedId !== props.currentId
         if (
-            dashboardIsAvailable &&
-            (recordingState === 'recording' ||
-                props.isDifferentDashboard ||
-                !loaded)
+            requestedIsAvailable &&
+            (recordingState === 'recording' || !loaded)
         ) {
             loadDashboard()
-        } else if (!dashboardIsAvailable && props.isDifferentDashboard) {
+        } else if (!requestedIsAvailable && switchingDashboard) {
             setLoaded(false)
-            props.setSelectedAsOffline(props.id, props.username)
+            props.setSelectedAsOffline(props.requestedId, props.username)
         }
-    }, [props.id, recordingState, online, props.isDifferentDashboard])
+    }, [props.requestedId, props.currentId, loaded, recordingState, online])
 
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
 
     const getContent = () => {
-        if (!dashboardIsAvailable && (props.isDifferentDashboard || !loaded)) {
+        if (
+            !online &&
+            !isCached &&
+            (props.requestedId !== props.currentId || !loaded)
+        ) {
             return (
                 <Notice
                     title={i18n.t('Offline')}
@@ -178,23 +181,23 @@ const ViewDashboard = props => {
 ViewDashboard.propTypes = {
     clearEditDashboard: PropTypes.func,
     clearPrintDashboard: PropTypes.func,
+    currentId: PropTypes.string,
     fetchDashboard: PropTypes.func,
-    id: PropTypes.string,
-    isDifferentDashboard: PropTypes.bool,
-    name: PropTypes.string,
     passiveViewRegistered: PropTypes.bool,
     registerPassiveView: PropTypes.func,
+    requestedDashboardName: PropTypes.string,
+    requestedId: PropTypes.string,
     setSelectedAsOffline: PropTypes.func,
     username: PropTypes.string,
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const dashboard = sGetDashboardById(state, ownProps.id) || {}
+    const dashboard = sGetDashboardById(state, ownProps.requestedId) || {}
 
     return {
         passiveViewRegistered: sGetPassiveViewRegistered(state),
-        name: dashboard.displayName || null,
-        isDifferentDashboard: sGetSelectedId(state) !== ownProps.id,
+        requestedDashboardName: dashboard.displayName || null,
+        currentId: sGetSelectedId(state),
     }
 }
 
