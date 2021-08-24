@@ -1,4 +1,4 @@
-import { useDataEngine, useAlert } from '@dhis2/app-runtime'
+import { useOnlineStatus, useDataEngine, useAlert } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
@@ -39,6 +39,7 @@ const deleteFailedMessage = i18n.t(
 const EditBar = ({ dashboard, ...props }) => {
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
+    const { online } = useOnlineStatus()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
     const [filterSettingsDlgIsOpen, setFilterSettingsDlgIsOpen] =
         useState(false)
@@ -153,6 +154,7 @@ const EditBar = ({ dashboard, ...props }) => {
                 }
                 onTranslationSaved={Function.prototype}
                 insertTheme={true}
+                isOnline={online}
             />
         ) : null
 
