@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-08-18T08:33:13.979Z\n"
-"PO-Revision-Date: 2021-08-18T08:33:13.979Z\n"
+"POT-Creation-Date: 2021-08-20T08:15:38.467Z\n"
+"PO-Revision-Date: 2021-08-20T08:15:38.467Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -19,6 +19,9 @@ msgstr "Remove this item"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "This item has been shortened to fit on one page"
+
+msgid "Remove"
+msgstr "Remove"
 
 msgid "Messages"
 msgstr "Messages"
@@ -328,6 +331,7 @@ msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} selected"
 msgstr[1] "{{count}} selected"
 
+<<<<<<< HEAD
 msgid "Cannot remove filters while offline"
 msgstr "Cannot remove filters while offline"
 
@@ -350,6 +354,8 @@ msgstr "No, cancel"
 msgid "Yes, remove filters"
 msgstr "Yes, remove filters"
 
+=======
+>>>>>>> master
 msgid "Failed to hide description"
 msgstr "Failed to hide description"
 
