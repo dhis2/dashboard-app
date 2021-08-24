@@ -6,8 +6,8 @@ import {
 } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
-import { SharingDialog } from '@dhis2-ui/sharing-dialog'
 import { Button, FlyoutMenu, colors, IconMore24 } from '@dhis2/ui'
+import { SharingDialog } from '@dhis2-ui/sharing-dialog'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
@@ -48,7 +48,6 @@ const ViewActions = ({
     const [confirmCacheDialogIsOpen, setConfirmCacheDialogIsOpen] =
         useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
-    const { d2 } = useD2()
     const dataEngine = useDataEngine()
     const { offline } = useOnlineStatus()
     const { lastUpdated, isCached, startRecording, remove } =
