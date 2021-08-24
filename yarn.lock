@@ -2550,12 +2550,12 @@
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
 
-"@dhis2/app-adapter@7.3.0-alpha.2":
-  version "7.3.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-7.3.0-alpha.2.tgz#c98c57bc8b9488bb113e82fd545e267827a360fa"
-  integrity sha512-DaF7peRCF3PBeiwnTk9j5KU8cVCmqrRT9CQp52bdI0uu6U05fsRwLWWXEnC/jMWA7z0zHPPWiqF7a9zihVe6UA==
+"@dhis2/app-adapter@7.3.0-alpha.3":
+  version "7.3.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-7.3.0-alpha.3.tgz#e6bb77a19e7d7f985c006f41d0f81773fce1bd04"
+  integrity sha512-jLiYIefG0zSBga8m5mSm0nqXkSS4POCnSeV66Hd2yu2jau2IXE6LfYOQykC4FKMoGUWjZaGcQ4KlL9B5DIGZ3g==
   dependencies:
-    "@dhis2/pwa" "7.3.0-alpha.2"
+    "@dhis2/pwa" "7.3.0-alpha.3"
     moment "^2.24.0"
 
 "@dhis2/app-runtime-adapter-d2@^1.1.0":
@@ -2565,7 +2565,7 @@
   dependencies:
     prop-types "^15.7.2"
 
-"@dhis2/app-runtime@2.10.0-pwa.3", "@dhis2/app-runtime@^2.10.0-pwa.1", "@dhis2/app-runtime@^2.10.0-pwa.3", "@dhis2/app-runtime@^2.8.0":
+"@dhis2/app-runtime@2.10.0-pwa.3", "@dhis2/app-runtime@^2.10.0-pwa.3", "@dhis2/app-runtime@^2.8.0":
   version "2.10.0-pwa.3"
   resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.10.0-pwa.3.tgz#24200b1e40faa01aa4930e65368841809fc34947"
   integrity sha512-SuQmGb+lx1cR6GqqNmPVYgdb+1AZnEI1hhfgLuJBj6lotDxPYO19sxmhLpAyGn//fneW0jD7uTEvKhxIVEpu6Q==
@@ -2595,15 +2595,15 @@
   resolved "https://registry.yarnpkg.com/@dhis2/app-service-offline/-/app-service-offline-2.10.0-pwa.3.tgz#44bd3f86412f5d953bbd6c4e7234ec62c03affb5"
   integrity sha512-Ho2KIBJpSleEDfhztacnUU0nP1w5MWPEw3FxjtD9qMQuiF50sircfg2hfZmQS/NjfPJJZNmXTGHdnWSQv8WxDQ==
 
-"@dhis2/app-shell@7.3.0-alpha.2":
-  version "7.3.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-7.3.0-alpha.2.tgz#d92927ef7ced67ef603f9321beeda277222bb7c8"
-  integrity sha512-2VqpfE63gTGoJgygOjiE/aP463l2QqVqNt8bjEDPq0IALZrC9Cd/HpuyGgkkuKNoZ9ZLTu0rPFURPXerrmun7A==
+"@dhis2/app-shell@7.3.0-alpha.3":
+  version "7.3.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-7.3.0-alpha.3.tgz#ae2c515893f0a24e1ad65bb3dad2e467c4a97f5b"
+  integrity sha512-nh1N0bW4TVy/Gtt2TUgBkszlgbqOvRRnr2Rtr1Z8uNOkta2aQPOXtZUlLkpBgpYTReeMSnQWkZQvHi1erFFGWQ==
   dependencies:
-    "@dhis2/app-adapter" "7.3.0-alpha.2"
-    "@dhis2/app-runtime" "^2.10.0-pwa.1"
+    "@dhis2/app-adapter" "7.3.0-alpha.3"
+    "@dhis2/app-runtime" "^2.10.0-pwa.3"
     "@dhis2/d2-i18n" "^1.1.0"
-    "@dhis2/pwa" "7.3.0-alpha.2"
+    "@dhis2/pwa" "7.3.0-alpha.3"
     "@dhis2/ui" "^6.10.5"
     classnames "^2.2.6"
     moment "^2.29.1"
@@ -2616,10 +2616,10 @@
     typeface-roboto "^0.0.75"
     typescript "^3.6.3"
 
-"@dhis2/cli-app-scripts@7.3.0-alpha.2":
-  version "7.3.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-7.3.0-alpha.2.tgz#e9c6b11335c69e087e33349c3f5a002d1558efc8"
-  integrity sha512-wPGx9rTLFySwdjcvPb/1TKPwGGcbVfPaNnN7C7AKvnbdFyXKPKXxKbrBFLcRNYo7PskIsqulGj0uNSL3QaxG7w==
+"@dhis2/cli-app-scripts@7.3.0-alpha.3":
+  version "7.3.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-7.3.0-alpha.3.tgz#4bc4210d813fd1705f45c2a4e7d8a420ebcfe7fa"
+  integrity sha512-LSmj3GgIld7qU7oGcXr/InV+bbd6mI8Ndy+QrYsJnxgvLiVVqniFLeA8rGGdgyXp4WLag2rYrvHIvLsfXc3Hjg==
   dependencies:
     "@babel/core" "^7.6.2"
     "@babel/plugin-proposal-class-properties" "^7.8.3"
@@ -2628,7 +2628,7 @@
     "@babel/preset-env" "^7.14.7"
     "@babel/preset-react" "^7.0.0"
     "@babel/preset-typescript" "^7.6.0"
-    "@dhis2/app-shell" "7.3.0-alpha.2"
+    "@dhis2/app-shell" "7.3.0-alpha.3"
     "@dhis2/cli-helpers-engine" "^3.0.0"
     archiver "^3.1.1"
     axios "^0.20.0"
@@ -2862,10 +2862,10 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/pwa@7.3.0-alpha.2":
-  version "7.3.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/pwa/-/pwa-7.3.0-alpha.2.tgz#53d373e305ad64750962e29e16af22f55d826984"
-  integrity sha512-dM7cSiOJFZM+KE5FQoKxkzmUDMLH1LsFayYcNkVxBrl5apK1jMhNVQqz3OzB7g/g+k/p/Mo4ijZKilq+7UUsQw==
+"@dhis2/pwa@7.3.0-alpha.3":
+  version "7.3.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/pwa/-/pwa-7.3.0-alpha.3.tgz#9a7e533a547e64940ebcfcc27f227d5fd6da99d0"
+  integrity sha512-oeM+xX7pwHRa31r4Or/LP0PEV67sv0RZA7dwpzHhy0bKdWuKs5SmgEfcMFyimJk7gYDRGBb9aJh1IIB/kebDIw==
   dependencies:
     idb "^6.0.0"
     workbox-core "^6.1.5"
