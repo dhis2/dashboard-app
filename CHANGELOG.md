@@ -1,3 +1,10 @@
+## [31.17.8](https://github.com/dhis2/dashboard-app/compare/v31.17.7...v31.17.8) (2021-08-25)
+
+
+### Bug Fixes
+
+* pass callback to handle expanded flag everywhere DashboardsBar is used [DHIS2-11031] ([#1914](https://github.com/dhis2/dashboard-app/issues/1914)) ([23de3c1](https://github.com/dhis2/dashboard-app/commit/23de3c16f6403b9a5f969155883977a1271f1f29)), closes [#1764](https://github.com/dhis2/dashboard-app/issues/1764)
+
 ## [31.17.7](https://github.com/dhis2/dashboard-app/compare/v31.17.6...v31.17.7) (2021-08-25)
 
 
