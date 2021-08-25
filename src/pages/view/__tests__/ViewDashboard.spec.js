@@ -86,7 +86,7 @@ test('ViewDashboard renders dashboard', async () => {
         <>
             <header />
             <Provider store={mockStore(store)}>
-                <ViewDashboard id={dashboardId} />
+                <ViewDashboard requestedId={dashboardId} />
             </Provider>
         </>
     )

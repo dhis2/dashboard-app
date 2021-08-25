@@ -18,12 +18,12 @@ exports[`Visualization/Item renders edit mode 1`] = `
         data-test="dhis2-uicore-tooltip-reference"
       >
         <button
-          class="jsx-2371629422 secondary small icon-only"
+          class="jsx-4026241391 secondary small icon-only"
           data-test="delete-item-button"
           type="button"
         >
           <span
-            class="jsx-2371629422 button-icon"
+            class="jsx-4026241391 button-icon"
           >
             <svg
               color="#c62828"

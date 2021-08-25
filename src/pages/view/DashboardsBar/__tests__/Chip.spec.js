@@ -6,17 +6,16 @@ import { Router } from 'react-router-dom'
 import Chip from '../Chip'
 
 jest.mock('@dhis2/app-runtime', () => ({
+    useOnlineStatus: () => ({ online: true }),
     useCacheableSection: jest.fn(),
 }))
 
 const mockOfflineDashboard = {
     lastUpdated: 'Jan 10',
-    recording: false,
 }
 
 const mockNonOfflineDashboard = {
     lastUpdated: null,
-    recording: false,
 }
 
 const defaultProps = {
@@ -32,8 +31,8 @@ const defaultProps = {
     },
 }
 
-test('renders an unstarred chip for an non-offline dashboard', () => {
-    useCacheableSection.mockImplementationOnce(() => mockNonOfflineDashboard)
+test('renders an unstarred chip for a non-offline dashboard', () => {
+    useCacheableSection.mockImplementation(() => mockNonOfflineDashboard)
     const { container } = render(
         <Router history={createMemoryHistory()}>
             <Chip {...defaultProps} />
@@ -44,7 +43,7 @@ test('renders an unstarred chip for an non-offline dashboard', () => {
 })
 
 test('renders an unstarred chip for an offline dashboard', () => {
-    useCacheableSection.mockImplementationOnce(() => mockOfflineDashboard)
+    useCacheableSection.mockImplementation(() => mockOfflineDashboard)
     const { container } = render(
         <Router history={createMemoryHistory()}>
             <Chip {...defaultProps} />
@@ -54,8 +53,8 @@ test('renders an unstarred chip for an offline dashboard', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('renders a starred chip for a non-offline dashboard', () => {
-    useCacheableSection.mockImplementationOnce(() => mockNonOfflineDashboard)
+test('renders a starred chip for a non-cached dashboard', () => {
+    useCacheableSection.mockImplementation(() => mockNonOfflineDashboard)
     const props = Object.assign({}, defaultProps, { starred: true })
     const { container } = render(
         <Router history={createMemoryHistory()}>
@@ -66,8 +65,8 @@ test('renders a starred chip for a non-offline dashboard', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('renders a starred chip for an offline dashboard', () => {
-    useCacheableSection.mockImplementationOnce(() => mockOfflineDashboard)
+test('renders a starred chip for a cached dashboard', () => {
+    useCacheableSection.mockImplementation(() => mockOfflineDashboard)
     const props = Object.assign({}, defaultProps, { starred: true })
     const { container } = render(
         <Router history={createMemoryHistory()}>
@@ -78,8 +77,8 @@ test('renders a starred chip for an offline dashboard', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('renders a starred, selected chip for non-offline dashboard', () => {
-    useCacheableSection.mockImplementationOnce(() => mockNonOfflineDashboard)
+test('renders a starred, selected chip for non-cached dashboard', () => {
+    useCacheableSection.mockImplementation(() => mockNonOfflineDashboard)
     const props = Object.assign({}, defaultProps, {
         starred: true,
         selected: true,
@@ -93,26 +92,8 @@ test('renders a starred, selected chip for non-offline dashboard', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('renders a starred, selected chip for offline dashboard', () => {
-    useCacheableSection.mockImplementationOnce(() => mockOfflineDashboard)
-    const props = Object.assign({}, defaultProps, {
-        starred: true,
-        selected: true,
-    })
-    const { container } = render(
-        <Router history={createMemoryHistory()}>
-            <Chip {...props} />
-        </Router>
-    )
-
-    expect(container).toMatchSnapshot()
-})
-
-test('renders a starred, selected chip for offline dashboard that is recording', () => {
-    useCacheableSection.mockImplementationOnce(() => ({
-        lastUpdated: 'Jan 10',
-        recording: true,
-    }))
+test('renders a starred, selected chip for a cached dashboard', () => {
+    useCacheableSection.mockImplementation(() => mockOfflineDashboard)
     const props = Object.assign({}, defaultProps, {
         starred: true,
         selected: true,

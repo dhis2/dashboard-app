@@ -133,7 +133,7 @@ exports[`renders correctly when filters are not restricted 1`] = `
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 secondary"
+            class="jsx-4026241391 secondary"
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -143,13 +143,27 @@ exports[`renders correctly when filters are not restricted 1`] = `
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-2371629422 primary"
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Confirm
-          </button>
+          <span>
+            <button
+              class="jsx-4026241391 primary"
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Confirm
+            </button>
+            <style>
+              
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+            </style>
+          </span>
         </div>
       </div>
     </div>
@@ -295,7 +309,7 @@ exports[`renders correctly when filters are restricted 1`] = `
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 secondary"
+            class="jsx-4026241391 secondary"
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -305,13 +319,27 @@ exports[`renders correctly when filters are restricted 1`] = `
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-2371629422 primary"
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Confirm
-          </button>
+          <span>
+            <button
+              class="jsx-4026241391 primary"
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Confirm
+            </button>
+            <style>
+              
+                        span {
+                            display: inline-flex;
+                            pointer-events: all;
+                            cursor: block;
+                        }
+                        span &gt; :global(button:disabled) {
+                            pointer-events: none;
+                        }
+                    
+            </style>
+          </span>
         </div>
       </div>
     </div>
