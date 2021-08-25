@@ -1,4 +1,3 @@
-import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState, useRef, useEffect, createRef } from 'react'
 import { connect } from 'react-redux'
@@ -90,7 +89,10 @@ const DashboardsBar = ({
             className={expanded ? classes.expanded : classes.collapsed}
             data-test="dashboards-bar"
         >
-            <div className={cx(classes.container)}>
+            <div
+                className={classes.container}
+                data-test="dashboardsbar-container"
+            >
                 <div className={classes.content} ref={ref}>
                     <Content
                         onChipClicked={cancelExpanded}
@@ -108,7 +110,7 @@ const DashboardsBar = ({
                     onHeightChanged={setMouseYPos}
                 />
             </div>
-            <div className={cx(classes.spacer)} />
+            <div className={classes.spacer} />
         </div>
     )
 }
