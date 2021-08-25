@@ -1,3 +1,10 @@
+## [31.17.7](https://github.com/dhis2/dashboard-app/compare/v31.17.6...v31.17.7) (2021-08-25)
+
+
+### Bug Fixes
+
+* adjust z-index so tooltip on Show more/fewer dashboards button shows ([#1912](https://github.com/dhis2/dashboard-app/issues/1912)) ([cce97f9](https://github.com/dhis2/dashboard-app/commit/cce97f963c764d6a2cbc26d29fb85b1015fb12e5))
+
 ## [31.17.6](https://github.com/dhis2/dashboard-app/compare/v31.17.5...v31.17.6) (2021-08-23)
 
 
