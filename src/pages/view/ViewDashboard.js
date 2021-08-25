@@ -3,7 +3,6 @@ import {
     Layer,
     CenteredContent,
     CircularLoader,
-    ComponentCover,
     AlertStack,
     AlertBar,
 } from '@dhis2/ui'
@@ -101,9 +100,8 @@ const ViewDashboard = props => {
                 ) : (
                     <DashboardContainer covered={controlbarExpanded}>
                         {controlbarExpanded && (
-                            <ComponentCover
+                            <div
                                 className={classes.cover}
-                                translucent
                                 onClick={() => setControlbarExpanded(false)}
                             />
                         )}

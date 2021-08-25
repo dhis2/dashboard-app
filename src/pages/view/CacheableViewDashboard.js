@@ -2,7 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import NoContentMessage from '../../components/NoContentMessage'
 import { getPreferredDashboardId } from '../../modules/localStorage'
@@ -20,6 +20,8 @@ const CacheableViewDashboard = ({
     dashboardsIsEmpty,
     username,
 }) => {
+    const [dashboardsBarExpanded, setDashboardsBarExpanded] = useState(false)
+
     if (!dashboardsLoaded) {
         return (
             <Layer translucent>
@@ -30,25 +32,23 @@ const CacheableViewDashboard = ({
         )
     }
 
-    if (dashboardsIsEmpty) {
+    if (dashboardsIsEmpty || id === null) {
         return (
             <>
-                <DashboardsBar />
-                <NoContentMessage
-                    text={i18n.t(
-                        'No dashboards found. Use the + button to create a new dashboard.'
-                    )}
+                <DashboardsBar
+                    expanded={dashboardsBarExpanded}
+                    onExpandedChanged={expanded =>
+                        setDashboardsBarExpanded(expanded)
+                    }
                 />
-            </>
-        )
-    }
-
-    if (id === null) {
-        return (
-            <>
-                <DashboardsBar />
                 <NoContentMessage
-                    text={i18n.t('Requested dashboard not found')}
+                    text={
+                        dashboardsIsEmpty
+                            ? i18n.t(
+                                  'No dashboards found. Use the + button to create a new dashboard.'
+                              )
+                            : i18n.t('Requested dashboard not found')
+                    }
                 />
             </>
         )
