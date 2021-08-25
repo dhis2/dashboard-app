@@ -2,6 +2,7 @@
 // import { generateUid } from 'd2/uid'
 import update from 'immutability-helper'
 import isEmpty from 'lodash/isEmpty'
+import { addResizeHandlers, getDashboardItem } from '../modules/gridUtil'
 // import {
 //     getGridItemProperties,
 //     getPageBreakItemShape,
@@ -41,14 +42,7 @@ export const NEW_DASHBOARD_STATE = {
     href: '',
     hideGrid: false,
     layout: {
-        columns: [
-            { index: 0 },
-            { index: 1 },
-            { index: 2 },
-            { index: 3 },
-            { index: 4 },
-            { index: 5 },
-        ],
+        columns: [],
     },
     addItemsTo: 'END',
 }
@@ -63,7 +57,6 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
             newState.printPreviewView = NEW_DASHBOARD_STATE.printPreviewView
             newState.isDirty = NEW_DASHBOARD_STATE.isDirty
             newState.addItemsTo = NEW_DASHBOARD_STATE.addItemsTo
-            console.log('newState', newState)
             return newState
         }
         case RECEIVED_NOT_EDITING:
@@ -129,13 +122,19 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
             if (!action.value) {
                 return state
             }
-
-            const stateItems = orArray(state.dashboardItems)
+            console.log('--STATE', state)
+            const columns = getColumns(getLayout(state))
+            const stateItems = addResizeHandlers(
+                orArray(state.dashboardItems, columns.length)
+            )
 
             if (stateItems.length !== action.value.length) {
                 return {
                     ...state,
-                    dashboardItems: action.value,
+                    dashboardItems: addResizeHandlers(
+                        action.value,
+                        columns.length
+                    ),
                 }
             }
 
@@ -152,16 +151,26 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
                     )
                 ) {
                     shapesHaveChanged = true
-                    return Object.assign({}, stateItem, { w, h, x, y })
+                    return Object.assign({}, stateItem, {
+                        w,
+                        h,
+                        x,
+                        y,
+                    })
                 }
 
                 return stateItem
             })
             console.log('shapesHaveChanged?', shapesHaveChanged)
+            console.log('newStateItems', newStateItems)
+
             return shapesHaveChanged
                 ? {
                       ...state,
-                      dashboardItems: newStateItems,
+                      dashboardItems: addResizeHandlers(
+                          newStateItems,
+                          columns.length
+                      ),
                       isDirty: true,
                   }
                 : state

@@ -4,12 +4,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
-import {
-    Button,
-    ButtonStrip,
-    SingleSelect,
-    SingleSelectOption,
-} from '@dhis2/ui'
+import { Button, ButtonStrip } from '@dhis2/ui'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 
@@ -24,10 +19,6 @@ import {
     acSetPrintPreviewView,
     acClearPrintPreviewView,
     acSetFilterSettings,
-    acUpdateDashboardItemShapes,
-    acSetHideGrid,
-    acSetLayoutColumns,
-    tSetDashboardItems,
 } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
 import { tFetchDashboards } from '../../actions/dashboards'
@@ -37,12 +28,10 @@ import {
     sGetEditDashboardRoot,
     sGetIsPrintPreviewView,
     sGetEditIsDirty,
-    sGetEditDashboardItems,
     sGetLayoutColumns,
 } from '../../reducers/editDashboard'
 
 import classes from './styles/ActionsBar.module.css'
-import { getAutoItemShapes } from '../../modules/gridUtil'
 
 const saveFailedMessage = i18n.t(
     'Failed to save dashboard. You might be offline or not have access to edit this dashboard.'
@@ -186,29 +175,6 @@ const EditBar = ({ dashboard, ...props }) => {
         )
     }
 
-    const getAutoLayoutMenuItem = numberOfCols => (
-        <SingleSelectOption
-            key={numberOfCols}
-            label={numberOfCols === 0 ? 'Freeflow' : `${numberOfCols} columns`}
-            value={String(numberOfCols)}
-        />
-    )
-
-    const getAutoLayoutMenu = () => (
-        <SingleSelect
-            placeholder="Number of columns"
-            selected={String(props.columns.length)}
-            onChange={({ selected }) => {
-                Array.from(
-                    document.querySelectorAll('.dashboard-scroll-container')
-                ).forEach(el => (el.scrollTop = 0))
-                props.onAutoLayoutSelect(parseInt(selected))
-            }}
-        >
-            {new Array(10).fill().map((_, i) => getAutoLayoutMenuItem(i))}
-        </SingleSelect>
-    )
-
     const renderActionButtons = () => (
         <ButtonStrip>
             <Button primary onClick={onSave} dataTest="save-dashboard-button">
@@ -235,7 +201,6 @@ const EditBar = ({ dashboard, ...props }) => {
                     {i18n.t('Delete')}
                 </Button>
             )}
-            {getAutoLayoutMenu()}
         </ButtonStrip>
     )
 
@@ -315,14 +280,6 @@ const mapDispatchToProps = {
     setFilterSettings: value => dispatch =>
         dispatch(acSetFilterSettings(value)),
     showPrintPreview: () => dispatch => dispatch(acSetPrintPreviewView()),
-    onAutoLayoutSelect: columns => dispatch => {
-        dispatch(
-            acSetLayoutColumns(
-                [...Array(columns).keys()].map(i => ({ index: i }))
-            )
-        )
-        dispatch(tSetDashboardItems())
-    },
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditBar)

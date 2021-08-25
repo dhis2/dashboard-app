@@ -105,7 +105,7 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
                                     }
                                     // default value 3?
                                 />
-                                <InputField
+                                {/* <InputField
                                     inputWidth="100px"
                                     type="number"
                                     label={i18n.t(
@@ -113,7 +113,7 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
                                     )}
                                     className={classes.gap}
                                     // default value 16?
-                                />
+                                /> */}
                             </div>
                         )}
                     </div>

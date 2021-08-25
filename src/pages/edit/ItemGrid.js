@@ -23,6 +23,7 @@ import NoContentMessage from '../../components/NoContentMessage'
 import {
     sGetEditDashboardItems,
     sGetHideGrid,
+    sGetLayoutColumns,
 } from '../../reducers/editDashboard'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
 import { EDIT } from '../../modules/dashboardModes'

@@ -310,6 +310,9 @@ export const updateItems = (items, dispatch, options = {}) => {
     }
 }
 
+export const addResizeHandlers = (items, shouldAdd) =>
+    shouldAdd ? items.map(item => ({ ...item, resizeHandles: ['s'] })) : items
+
 export const getDashboardItem = item => {
     const type = item.type
     // delete item.type
