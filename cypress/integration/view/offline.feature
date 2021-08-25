@@ -7,7 +7,6 @@ Feature: Offline dashboard
         Given I open an uncached dashboard
         When connectivity is turned off
         Then all actions requiring connectivity are disabled
-        And  connectivity is turned on
 
     Scenario: I am online with a cached dashboard when I lose connectivity
         Given I open a cached dashboard

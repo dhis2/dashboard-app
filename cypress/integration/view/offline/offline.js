@@ -1,9 +1,8 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { clickMenuButton } from '../../../elements/dashboardItem'
+import { itemMenuButtonSel } from '../../../elements/dashboardItem'
 import {
     titleInputSel,
     confirmActionDialogSel,
-    // getEditActionButton,
     clickEditActionButton,
     itemSearchSel,
 } from '../../../elements/editDashboard'
@@ -15,15 +14,15 @@ import {
     dashboardTitleSel,
     dashboardChipSel,
 } from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils' //, goOffline, goOnline
+import { EXTENDED_TIMEOUT, goOnline, goOffline } from '../../../support/utils'
 
-// beforeEach(() => {
-//     goOnline()
-// })
+beforeEach(() => {
+    goOnline()
+})
 
-// afterEach(() => {
-//     goOnline()
-// })
+afterEach(() => {
+    goOnline()
+})
 
 Given('I delete the cached and uncached dashboard', () => {
     //delete the uncached and cached dashboard
@@ -63,7 +62,8 @@ Given('I create a cached and uncached dashboard', () => {
     cy.contains('Offline data last updated').should('be.visible')
 })
 
-const DASHBOARD_ITEM_NAME = 'ANC: 1 and 3 coverage Yearly'
+const CACHED_DASHBOARD_ITEM_NAME = 'ANC: 1 and 3 coverage Yearly'
+const UNCACHED_DASHBOARD_ITEM_NAME = 'ANC: 1-3 trend lines last 12 months'
 
 const UNCACHED_DASHBOARD_TITLE =
     'aa un' + new Date().toUTCString().slice(-12, -4)
@@ -77,7 +77,14 @@ const createDashboard = cache => {
 
     cy.get(titleInputSel, EXTENDED_TIMEOUT).type(title)
     cy.get('[data-test="item-search"]').click()
-    cy.get(`[data-test="menu-item-${DASHBOARD_ITEM_NAME}"]`).click()
+    if (cache) {
+        cy.get(`[data-test="menu-item-${CACHED_DASHBOARD_ITEM_NAME}"]`).click()
+    } else {
+        cy.get(
+            `[data-test="menu-item-${UNCACHED_DASHBOARD_ITEM_NAME}"]`
+        ).click()
+    }
+
     cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
     clickEditActionButton('Save changes')
     cy.get(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
@@ -95,15 +102,6 @@ const makeDashboardOffline = () => {
 // Scenario: I am online with an uncached dashboard when I lose connectivity
 
 Given('I open an uncached dashboard', () => {
-    //first cache the uncached dashboard - TODO remove when real
-    //caching is in place
-    cy.get(dashboardChipSel).contains(CACHED_DASHBOARD_TITLE).click()
-    cy.get(dashboardTitleSel)
-        .contains(CACHED_DASHBOARD_TITLE)
-        .should('be.visible')
-
-    makeDashboardOffline()
-
     // open the uncached dashboard
     cy.get(dashboardChipSel).contains(UNCACHED_DASHBOARD_TITLE).click()
     cy.get(dashboardTitleSel)
@@ -124,13 +122,11 @@ Given('I open an uncached dashboard', () => {
 })
 
 When('connectivity is turned off', () => {
-    cy.get('[data-test="go-offline"]').click({ force: true })
-    // goOffline()
+    goOffline()
 })
 
 When('connectivity is turned on', () => {
-    cy.get('[data-test="go-online"]').click({ force: true })
-    // goOnline()
+    goOnline()
 })
 
 Then('all actions requiring connectivity are disabled', () => {
@@ -143,7 +139,7 @@ Then('all actions requiring connectivity are disabled', () => {
     getViewActionButton('More').should('be.enabled')
 
     // item context menu (everything except view fullscreen)
-    clickMenuButton(DASHBOARD_ITEM_NAME)
+    cy.get(itemMenuButtonSel, EXTENDED_TIMEOUT).click()
 
     cy.contains('li', 'View as').should('have.class', 'disabled')
     cy.contains('li', 'Open in Data Visualizer app').should(
@@ -177,7 +173,6 @@ Given('I open a cached dashboard', () => {
         .contains(CACHED_DASHBOARD_TITLE)
         .should('be.visible')
 
-    makeDashboardOffline()
     // check that the chip has the icon? (or maybe component test for this)
 })
 
@@ -216,7 +211,7 @@ Then('the cached dashboard is loaded and displayed in view mode', () => {
         .should('be.visible')
 
     cy.contains('Offline data last updated').should('be.visible')
-    cy.contains(DASHBOARD_ITEM_NAME).should('be.visible')
+    cy.contains(CACHED_DASHBOARD_ITEM_NAME).should('be.visible')
 })
 
 Then('the uncached dashboard is loaded and displayed in view mode', () => {
@@ -225,7 +220,7 @@ Then('the uncached dashboard is loaded and displayed in view mode', () => {
         .should('be.visible')
 
     cy.contains('Offline data last updated').should('not.exist')
-    cy.contains(DASHBOARD_ITEM_NAME).should('be.visible')
+    cy.contains(UNCACHED_DASHBOARD_ITEM_NAME).should('be.visible')
 })
 
 // Scenario: I am offline and switch to an uncached dashboard and then connectivity is restored
@@ -267,8 +262,6 @@ Given('I open a cached dashboard in edit mode', () => {
         .contains(CACHED_DASHBOARD_TITLE)
         .should('be.visible')
 
-    makeDashboardOffline()
-
     clickViewActionButton('Edit')
     cy.get(titleInputSel, EXTENDED_TIMEOUT).should('be.visible')
 })
@@ -289,7 +282,7 @@ Then('it is not possible to change sharing settings', () => {
 
 // Scenario: The interpretations panel is open when connectivity is lost
 When('I open the interpretations panel', () => {
-    clickMenuButton(DASHBOARD_ITEM_NAME)
+    cy.get(itemMenuButtonSel, EXTENDED_TIMEOUT).click()
     cy.contains('Show details and interpretations').click()
     cy.get('[placeholder="Write an interpretation"]')
         .scrollIntoView()
