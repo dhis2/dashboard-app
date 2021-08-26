@@ -24,6 +24,15 @@ afterEach(() => {
     goOnline()
 })
 
+const OFFLINE_DATA_LAST_UPDATED_TEXT = 'Offline data last updated'
+const CACHED_DASHBOARD_ITEM_NAME = 'ANC: 1 and 3 coverage Yearly'
+const UNCACHED_DASHBOARD_ITEM_NAME = 'ANC: 1-3 trend lines last 12 months'
+const MAKE_AVAILABLE_OFFLINE_TEXT = 'Make available offline'
+
+const closeMoreMenu = () => {
+    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+}
+
 Given('I delete the cached and uncached dashboard', () => {
     //delete the uncached and cached dashboard
     cy.get(dashboardChipSel).contains(UNCACHED_DASHBOARD_TITLE).click()
@@ -59,11 +68,8 @@ Given('I create a cached and uncached dashboard', () => {
 
     // check that there is a "Last updated" tag
     //TODO possibly need to wait to make sure db is completely loaded?
-    cy.contains('Offline data last updated').should('be.visible')
+    cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('be.visible')
 })
-
-const CACHED_DASHBOARD_ITEM_NAME = 'ANC: 1 and 3 coverage Yearly'
-const UNCACHED_DASHBOARD_ITEM_NAME = 'ANC: 1-3 trend lines last 12 months'
 
 const UNCACHED_DASHBOARD_TITLE =
     'aa un' + new Date().toUTCString().slice(-12, -4)
@@ -85,7 +91,7 @@ const createDashboard = cache => {
         ).click()
     }
 
-    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+    closeMoreMenu()
     clickEditActionButton('Save changes')
     cy.get(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
     if (cache) {
@@ -95,8 +101,8 @@ const createDashboard = cache => {
 
 const makeDashboardOffline = () => {
     clickViewActionButton('More')
-    cy.contains('Make available offline').click()
-    cy.contains('Offline data last updated').should('be.visible')
+    cy.contains(MAKE_AVAILABLE_OFFLINE_TEXT).click()
+    cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('be.visible')
 }
 
 // Scenario: I am online with an uncached dashboard when I lose connectivity
@@ -110,15 +116,15 @@ Given('I open an uncached dashboard', () => {
 
     // check that there is no "Last updated" tag
     //TODO possibly need to wait to make sure db is completely loaded?
-    cy.contains('Offline data last updated').should('not.exist')
+    cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('not.exist')
 
     // check that the correct options under "More" are available
     clickViewActionButton('More')
     cy.contains('Remove from offline storage').should('not.exist')
     cy.contains('Sync offline data now').should('not.exist')
-    cy.contains('Make available offline').should('be.visible')
-    //close the More menu
-    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+    cy.contains(MAKE_AVAILABLE_OFFLINE_TEXT).should('be.visible')
+
+    closeMoreMenu()
 })
 
 When('connectivity is turned off', () => {
@@ -181,9 +187,9 @@ Then('the cached dashboard options are available', () => {
     clickViewActionButton('More')
     cy.contains('Remove from offline storage').should('be.visible')
     cy.contains('Sync offline data now').should('be.visible')
-    cy.contains('Make available offline').should('not.exist')
-    // close the Menu
-    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+    cy.contains(MAKE_AVAILABLE_OFFLINE_TEXT).should('not.exist')
+
+    closeMoreMenu()
 })
 
 // Scenario: I am offline and switch to an uncached dashboard
@@ -193,7 +199,7 @@ When('I click to open an uncached dashboard', () => {
         .contains(UNCACHED_DASHBOARD_TITLE)
         .should('be.visible')
 
-    cy.contains('Offline data last updated').should('not.exist')
+    cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('not.exist')
 })
 
 When('I click to open an uncached dashboard when offline', () => {
@@ -210,7 +216,7 @@ Then('the cached dashboard is loaded and displayed in view mode', () => {
         .contains(CACHED_DASHBOARD_TITLE)
         .should('be.visible')
 
-    cy.contains('Offline data last updated').should('be.visible')
+    cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('be.visible')
     cy.contains(CACHED_DASHBOARD_ITEM_NAME).should('be.visible')
 })
 
@@ -219,7 +225,7 @@ Then('the uncached dashboard is loaded and displayed in view mode', () => {
         .contains(UNCACHED_DASHBOARD_TITLE)
         .should('be.visible')
 
-    cy.contains('Offline data last updated').should('not.exist')
+    cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('not.exist')
     cy.contains(UNCACHED_DASHBOARD_ITEM_NAME).should('be.visible')
 })
 
