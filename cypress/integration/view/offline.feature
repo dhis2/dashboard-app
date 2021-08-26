@@ -2,23 +2,25 @@ Feature: Offline dashboard
 
     Scenario: I cache an uncached dashboard
         Given I create a cached and uncached dashboard
+        Then the cached dashboard has a Last Updated time and chip icon
+        And the uncached dashboard does not have a Last Updated time and no chip icon
 
     Scenario: I am online with an uncached dashboard when I lose connectivity
         Given I open an uncached dashboard
         When connectivity is turned off
-        Then all actions requiring connectivity are disabled
+        Then all actions for "uncached" dashboard requiring connectivity are disabled
 
     Scenario: I am online with a cached dashboard when I lose connectivity
         Given I open a cached dashboard
         Then the cached dashboard options are available
         When connectivity is turned off
-        Then all actions requiring connectivity are disabled
+        Then all actions for "cached" dashboard requiring connectivity are disabled
 
     Scenario: I am offline and switch from a cached dashboard to an uncached dashboard
         Given I open a cached dashboard
         And connectivity is turned off
         When I click to open an uncached dashboard when offline
-        Then the dashboard is not available while offline message is displayed
+        Then the dashboard is not available and offline message is displayed
 
     Scenario: I am offline and switch to a cached dashboard
         Given I open an uncached dashboard
@@ -30,7 +32,7 @@ Feature: Offline dashboard
         Given I open a cached dashboard
         And connectivity is turned off
         When I click to open an uncached dashboard when offline
-        Then the dashboard is not available while offline message is displayed
+        Then the dashboard is not available and offline message is displayed
         When connectivity is turned on
         Then the uncached dashboard is loaded and displayed in view mode
 
@@ -39,7 +41,7 @@ Feature: Offline dashboard
         When connectivity is turned off
         Then all edit actions requiring connectivity are disabled
         When I click Exit without saving
-        Then the dashboard is not available while offline message is displayed
+        Then the dashboard is not available and offline message is displayed
         When connectivity is turned on
         Then the uncached dashboard is loaded and displayed in view mode
 
