@@ -56,6 +56,9 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
             )
             newState.printPreviewView = NEW_DASHBOARD_STATE.printPreviewView
             newState.isDirty = NEW_DASHBOARD_STATE.isDirty
+            newState.layout = {
+                columns: [],
+            }
             newState.addItemsTo = NEW_DASHBOARD_STATE.addItemsTo
             return newState
         }
@@ -122,19 +125,16 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
             if (!action.value) {
                 return state
             }
-            console.log('--STATE', state)
-            const columns = getColumns(getLayout(state))
+            const hasColumns = Boolean(getColumns(getLayout(state)).length)
+            console.log('--hasColumns', hasColumns)
             const stateItems = addResizeHandlers(
-                orArray(state.dashboardItems, columns.length)
+                orArray(state.dashboardItems, hasColumns)
             )
 
             if (stateItems.length !== action.value.length) {
                 return {
                     ...state,
-                    dashboardItems: addResizeHandlers(
-                        action.value,
-                        columns.length
-                    ),
+                    dashboardItems: addResizeHandlers(action.value, hasColumns),
                 }
             }
 
@@ -164,16 +164,25 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
             console.log('shapesHaveChanged?', shapesHaveChanged)
             console.log('newStateItems', newStateItems)
 
-            return shapesHaveChanged
-                ? {
-                      ...state,
-                      dashboardItems: addResizeHandlers(
-                          newStateItems,
-                          columns.length
-                      ),
-                      isDirty: true,
-                  }
-                : state
+            // return shapesHaveChanged
+            //     ? {
+            //           ...state,
+            //           dashboardItems: addResizeHandlers(
+            //               newStateItems,
+            //               hasColumns
+            //           ),
+            //           isDirty: true,
+            //       }
+            //     : state
+
+            return {
+                ...state,
+                dashboardItems: addResizeHandlers(
+                    shapesHaveChanged ? newStateItems : state.dashboardItems,
+                    hasColumns
+                ),
+                isDirty: shapesHaveChanged,
+            }
         }
         case UPDATE_DASHBOARD_ITEM: {
             const dashboardItem = action.value
@@ -217,12 +226,10 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
         case RECEIVED_LAYOUT_COLUMNS: {
             return {
                 ...state,
-                layout: !action.value.length
-                    ? {}
-                    : {
-                          ...state.layout,
-                          columns: action.value,
-                      },
+                layout: {
+                    ...state.layout,
+                    columns: action.value,
+                },
             }
         }
         case RECEIVED_ADD_ITEMS_TO: {

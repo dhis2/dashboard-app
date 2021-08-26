@@ -131,26 +131,18 @@ export const tSetDashboardItems = (itemToAdd, itemIdToRemove) => (
     let items = [...sGetEditDashboardItems(getState())]
     let dashboardItemsWithShapes
 
-    console.group('tSetDashboardItems')
-    console.log('-itemToAdd', itemToAdd)
-    console.log('-itemIdToRemove', itemIdToRemove)
-    console.log('--addItemsTo', addItemsTo)
-    console.log('--columns', columns)
-    console.log('--items', items)
-    console.groupEnd()
-
     if (!itemToAdd && !itemIdToRemove) {
         // changing columns
 
         if (!columns.length) {
-            // freeflow, do nothing
-            return
+            // freeflow
+            updateItems(items, dispatch)
+        } else {
+            dashboardItemsWithShapes = getAutoItemShapes(items, columns)
+            updateItems(dashboardItemsWithShapes, dispatch, {
+                reload: true,
+            })
         }
-
-        dashboardItemsWithShapes = getAutoItemShapes(items, columns)
-        updateItems(dashboardItemsWithShapes, dispatch, {
-            reload: true,
-        })
     } else {
         if (itemIdToRemove) {
             items = items.filter(item => item.id !== itemIdToRemove)
@@ -159,29 +151,28 @@ export const tSetDashboardItems = (itemToAdd, itemIdToRemove) => (
         if (!itemToAdd) {
             dashboardItemsWithShapes = getAutoItemShapes(items, columns)
             updateItems(dashboardItemsWithShapes, dispatch)
-            return
+        } else {
+            const newDashboardItem = getDashboardItem(itemToAdd)
+
+            switch (addItemsTo) {
+                case 'START':
+                    dashboardItemsWithShapes = addToItemsStart(
+                        items,
+                        columns,
+                        newDashboardItem
+                    )
+                    break
+                case 'END':
+                default:
+                    dashboardItemsWithShapes = addToItemsEnd(
+                        items,
+                        columns,
+                        newDashboardItem
+                    )
+            }
+
+            updateItems(dashboardItemsWithShapes, dispatch)
         }
-
-        const newDashboardItem = getDashboardItem(itemToAdd)
-
-        switch (addItemsTo) {
-            case 'START':
-                dashboardItemsWithShapes = addToItemsStart(
-                    items,
-                    columns,
-                    newDashboardItem
-                )
-                break
-            case 'END':
-            default:
-                dashboardItemsWithShapes = addToItemsEnd(
-                    items,
-                    columns,
-                    newDashboardItem
-                )
-        }
-
-        updateItems(dashboardItemsWithShapes, dispatch)
     }
 }
 

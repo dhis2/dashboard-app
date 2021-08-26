@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
@@ -23,7 +23,6 @@ import NoContentMessage from '../../components/NoContentMessage'
 import {
     sGetEditDashboardItems,
     sGetHideGrid,
-    sGetLayoutColumns,
 } from '../../reducers/editDashboard'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
 import { EDIT } from '../../modules/dashboardModes'
