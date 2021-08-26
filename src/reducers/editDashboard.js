@@ -83,22 +83,20 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
             })
         }
         case ADD_DASHBOARD_ITEM: {
-            const item = getDashboardItem(action.value)
-            console.log('item', item)
-            console.log('state', state)
-            const columns = getColumns(getLayout(state))
-            console.log('columns', columns)
+            const dashboardItem = getDashboardItem(action.value)
 
-            if (!item.position) {
+            if (!dashboardItem.position) {
                 return update(state, {
-                    dashboardItems: { $unshift: [item] },
+                    dashboardItems: { $unshift: [dashboardItem] },
                     isDirty: { $set: true },
                 })
             }
 
             return update(state, {
                 dashboardItems: {
-                    $splice: [[parseInt(item.position), 0, item]],
+                    $splice: [
+                        [parseInt(dashboardItem.position), 0, dashboardItem],
+                    ],
                 },
                 isDirty: { $set: true },
             })
