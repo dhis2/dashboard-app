@@ -33,7 +33,7 @@ exports[`ConfirmActionDialog renders confirm delete dialog 1`] = `
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 secondary"
+            class="jsx-3597138218 secondary"
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -44,7 +44,7 @@ exports[`ConfirmActionDialog renders confirm delete dialog 1`] = `
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 destructive"
+            class="jsx-3597138218 destructive"
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -88,7 +88,7 @@ exports[`ConfirmActionDialog renders discard changes dialog 1`] = `
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 secondary"
+            class="jsx-3597138218 secondary"
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -99,7 +99,7 @@ exports[`ConfirmActionDialog renders discard changes dialog 1`] = `
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 destructive"
+            class="jsx-3597138218 destructive"
             data-test="dhis2-uicore-button"
             type="button"
           >
