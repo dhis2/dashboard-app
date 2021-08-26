@@ -1,3 +1,10 @@
+## [31.17.9](https://github.com/dhis2/dashboard-app/compare/v31.17.8...v31.17.9) (2021-08-26)
+
+
+### Bug Fixes
+
+* legend key print style (DHIS2-11636) ([#1911](https://github.com/dhis2/dashboard-app/issues/1911)) ([bf3c61b](https://github.com/dhis2/dashboard-app/commit/bf3c61b3969711cc2bf078c6cea2d1ab350f334b))
+
 ## [31.17.8](https://github.com/dhis2/dashboard-app/compare/v31.17.7...v31.17.8) (2021-08-25)
 
 
