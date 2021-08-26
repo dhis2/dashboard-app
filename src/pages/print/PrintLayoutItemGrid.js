@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { acUpdatePrintDashboardLayout } from '../../actions/printDashboard'
 import { Item } from '../../components/Item/Item'
 import { PRINT_LAYOUT } from '../../modules/dashboardModes'
+import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName'
 import { hasShape } from '../../modules/gridUtil'
 import { PAGEBREAK } from '../../modules/itemTypes'
 import { sGetIsEditing } from '../../reducers/editDashboard'
@@ -33,11 +34,17 @@ class PrintLayoutItemGrid extends Component {
 
     getItemComponent = item => {
         // the first-page-break class is used in Edit print preview
-        const itemClassNames = cx('print', 'layout', `${item.type}`, {
-            'first-page-break':
-                this.props.isEditing && this.isFirstPageBreak(item),
-            shortened: !!item.shortened,
-        })
+        const itemClassNames = cx(
+            'print',
+            'layout',
+            getGridItemDomElementClassName(item.id),
+            `${item.type}`,
+            {
+                'first-page-break':
+                    this.props.isEditing && this.isFirstPageBreak(item),
+                shortened: !!item.shortened,
+            }
+        )
 
         return (
             <div
