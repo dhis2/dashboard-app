@@ -23,7 +23,6 @@ import {
     getGridWidth,
     getProportionalHeight,
 } from '../../modules/gridUtil'
-import { getVisualizationName } from '../../modules/item'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen'
 import {
     sGetSelectedId,
@@ -97,7 +96,7 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
                     'view',
                     getGridItemDomElementClassName(item.id)
                 )}
-                name={getVisualizationName(item)}
+                itemId={item.id}
                 forceLoadCount={forceLoadCount}
             >
                 <Item

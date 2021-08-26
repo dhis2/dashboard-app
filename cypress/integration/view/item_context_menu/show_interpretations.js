@@ -7,7 +7,7 @@ import {
 } from '../../../elements/dashboardItem'
 
 // these tests being run on the "Delivery" dashboard
-const chartName = dashboards.Delivery.items.chart.name
+const chartItemUid = dashboards.Delivery.items.chart.itemUid
 
 /*
 Scenario: Open the interpretations panel
@@ -16,18 +16,18 @@ Scenario: Open the interpretations panel
 When(
     'I click Show details and interpretations on a chart dashboard item',
     () => {
-        clickMenuButton(chartName)
+        clickMenuButton(chartItemUid)
         cy.contains('Show details and interpretations').click()
     }
 )
 Then('the interpretations panel is displayed', () => {
-    getDashboardItem(chartName)
+    getDashboardItem(chartItemUid)
         .find(itemDetailsSel)
         .contains('Chart details')
         .scrollIntoView()
         .should('be.visible')
 
-    getDashboardItem(chartName)
+    getDashboardItem(chartItemUid)
         .find(itemDetailsSel)
         .contains('Interpretations')
         .scrollIntoView()
