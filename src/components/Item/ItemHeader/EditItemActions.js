@@ -31,11 +31,6 @@ const mapDispatchToProps = {
     onDeleteItem: itemId => (dispatch, getState) => {
         const columns = sGetLayoutColumns(getState())
         const dashboardItems = sGetEditDashboardItems(getState())
-        console.group('onDeleteItem')
-        console.log('itemId: ', itemId)
-        console.log('columns: ', columns)
-        console.log('dashboardItems: ', dashboardItems)
-        console.groupEnd()
 
         if (!columns.length || dashboardItems.length === 1) {
             dispatch(acRemoveDashboardItem(itemId))

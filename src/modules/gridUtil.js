@@ -211,7 +211,6 @@ export const getAutoItemShapes = (dashboardItems, columns, maxColUnits) => {
     const numberOfColUnits = getNumberOfColUnits(columns, maxColUnits)
 
     if (!numberOfColUnits || !dashboardItems.length) {
-        console.log('getAutoItemShapes', 'return null')
         return null
     }
 
@@ -237,7 +236,7 @@ export const getAutoItemShapes = (dashboardItems, columns, maxColUnits) => {
             rowIdx = rowIdx + 1
         }
     }
-    console.log('itemsWithNewShape', itemsWithNewShape)
+
     return itemsWithNewShape
 }
 
@@ -269,7 +268,6 @@ export const addToItemsStart = (dashboardItems, columns, newDashboardItem) => {
 }
 
 export const addToItemsEnd = (dashboardItems, columns, newDashboardItem) => {
-    console.log('addToItemsEnd', 'columns length:', columns.length)
     if (!columns.length) {
         // when no layout
         return [
@@ -310,8 +308,10 @@ export const updateItems = (items, dispatch, options = {}) => {
     }
 }
 
-export const addResizeHandlers = (items, shouldAdd) =>
-    shouldAdd ? items.map(item => ({ ...item, resizeHandles: ['s'] })) : items
+export const addResizeHandlers = (items, isRestricted) =>
+    isRestricted
+        ? items.map(item => ({ ...item, resizeHandles: ['s'] }))
+        : items
 
 export const getDashboardItem = item => {
     const type = item.type
@@ -330,19 +330,6 @@ export const getDashboardItem = item => {
     } else {
         shape = NEW_ITEM_SHAPE
     }
-
-    console.log('*GETDASHBOARDITEM, gridItemProperties', gridItemProperties)
-    console.log('*GETDASHBOARDITEM, shape', shape)
-
-    console.log('*GETDASHBOARDITEM, RETURNED OBJECT', {
-        id,
-        type,
-        position: item.position || null,
-        [itemPropName]: item.content,
-        ...NEW_ITEM_SHAPE,
-        ...gridItemProperties,
-        ...shape,
-    })
 
     return {
         id,

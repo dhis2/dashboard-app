@@ -157,7 +157,6 @@ const mapDispatchToProps = {
     onChangeDescription: acSetDashboardDescription,
     onChangeAddItemsTo: acSetAddItemsTo,
     onSaveLayout: columns => dispatch => {
-        console.log('SET COLUMNS', columns)
         dispatch(
             acSetLayoutColumns(
                 [...Array(columns).keys()].map(i => ({ index: i }))
