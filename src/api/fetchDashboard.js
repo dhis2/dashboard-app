@@ -32,6 +32,8 @@ const baseDashboardFields = arrayClean([
     'access',
     'restrictFilters',
     'allowedFilters',
+    'layout',
+    'itemConfig',
     `dashboardItems[${getDashboardItemsFields().join(',')}]`,
 ])
 
@@ -68,6 +70,7 @@ export const apiFetchDashboard = async (
     { mode = null, forSave = false } = {}
 ) => {
     const query = isViewMode(mode) ? viewDashboardQuery : editDashboardQuery
+
     try {
         const dashboardData = await dataEngine.query(
             { dashboard: query },

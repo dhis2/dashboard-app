@@ -51,15 +51,11 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
     switch (action.type) {
         case RECEIVED_EDIT_DASHBOARD: {
             const newState = {}
-            Object.keys(NEW_DASHBOARD_STATE).map(
+            Object.keys(NEW_DASHBOARD_STATE).forEach(
                 k => (newState[k] = action.value[k])
             )
             newState.printPreviewView = NEW_DASHBOARD_STATE.printPreviewView
             newState.isDirty = NEW_DASHBOARD_STATE.isDirty
-            newState.layout = {
-                columns: [],
-            }
-            newState.addItemsTo = NEW_DASHBOARD_STATE.addItemsTo
             return newState
         }
         case RECEIVED_NOT_EDITING:

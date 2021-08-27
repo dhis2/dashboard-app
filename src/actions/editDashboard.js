@@ -178,7 +178,6 @@ export const tSetDashboardItems = (itemToAdd, itemIdToRemove) => (
 
 export const tSaveDashboard = () => async (dispatch, getState, dataEngine) => {
     const dashboard = sGetEditDashboardRoot(getState())
-
     const dashboardToSave = {
         ...dashboard,
         dashboardItems: convertUiItemsToBackend(dashboard.dashboardItems),

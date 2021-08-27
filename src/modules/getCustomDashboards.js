@@ -22,4 +22,6 @@ export const getCustomDashboards = data =>
         restrictFilters: d.restrictFilters,
         allowedFilters: d.allowedFilters ?? [],
         href: d.href,
+        layout: d.layout,
+        itemConfig: d.itemConfig,
     }))

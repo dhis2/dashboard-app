@@ -33,6 +33,7 @@ export const tSetSelectedDashboardById = (id, username) => (
 ) => {
     return apiFetchDashboard(dataEngine, id, { mode: VIEW }).then(dashboard => {
         //add the dashboard to the list of dashboards if not already there
+
         dispatch(
             acAppendDashboards([
                 {
@@ -56,6 +57,7 @@ export const tSetSelectedDashboardById = (id, username) => (
         dashboard.dashboardItems.some(item => item.type === MESSAGES) &&
             dispatch(tGetMessages(dataEngine))
 
+        console.log('fetch dashboard 2', dashboard)
         dispatch(acSetSelected(dashboard))
 
         return dashboard
