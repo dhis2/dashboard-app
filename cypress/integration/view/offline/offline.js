@@ -20,6 +20,9 @@ beforeEach(() => {
     goOnline()
 })
 
+const CACHED = 'cached'
+const UNCACHED = 'uncached'
+
 const OFFLINE_DATA_LAST_UPDATED_TEXT = 'Offline data last updated'
 const CACHED_DASHBOARD_ITEM_NAME = 'ANC: 1 and 3 coverage Yearly'
 const UNCACHED_DASHBOARD_ITEM_NAME = 'ANC: 1-3 trend lines last 12 months'
@@ -29,15 +32,18 @@ const UNCACHED_DASHBOARD_TITLE =
     'aa un' + new Date().toUTCString().slice(-12, -4)
 const CACHED_DASHBOARD_TITLE = 'aa ca' + new Date().toUTCString().slice(-12, -4)
 
-const createDashboard = cache => {
+const createDashboard = cacheState => {
+    const cachedDashboard = cacheState === CACHED
     cy.get(newButtonSel).click()
     cy.get(titleInputSel, EXTENDED_TIMEOUT).should('be.visible')
 
-    const title = cache ? CACHED_DASHBOARD_TITLE : UNCACHED_DASHBOARD_TITLE
+    const title = cachedDashboard
+        ? CACHED_DASHBOARD_TITLE
+        : UNCACHED_DASHBOARD_TITLE
 
     cy.get(titleInputSel, EXTENDED_TIMEOUT).type(title)
     cy.get('[data-test="item-search"]').click()
-    if (cache) {
+    if (cachedDashboard) {
         cy.get(`[data-test="menu-item-${CACHED_DASHBOARD_ITEM_NAME}"]`).click()
     } else {
         cy.get(
@@ -48,7 +54,7 @@ const createDashboard = cache => {
     closeMenu()
     clickEditActionButton('Save changes')
     cy.get(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
-    if (cache) {
+    if (cachedDashboard) {
         cacheDashboard()
     }
 }
@@ -73,9 +79,9 @@ const cacheDashboard = () => {
     cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('be.visible')
 }
 
-const checkCorrectMoreOptions = cached => {
+const checkCorrectMoreOptions = cacheState => {
     clickViewActionButton('More')
-    if (cached) {
+    if (cacheState === CACHED) {
         cy.contains('Remove from offline storage').should('be.visible')
         cy.contains('Sync offline data now').should('be.visible')
         cy.contains(MAKE_AVAILABLE_OFFLINE_TEXT).should('not.exist')
@@ -98,7 +104,7 @@ const checkCorrectMoreOptionsEnabledState = (online, cacheState) => {
     } else {
         cy.contains('li', 'Star dashboard').should('have.class', 'disabled')
         cy.contains('li', 'Show description').should('have.class', 'disabled')
-        if (cacheState === 'cached') {
+        if (cacheState === CACHED) {
             cy.contains('li', 'Print').should('not.have.class', 'disabled')
         } else {
             cy.contains('li', 'Print').should('have.class', 'disabled')
@@ -122,8 +128,8 @@ const deleteDashboard = dashboardTitle => {
 // Scenario: I cache an uncached dashboard
 
 Given('I create a cached and uncached dashboard', () => {
-    createDashboard(true)
-    createDashboard(false)
+    createDashboard(CACHED)
+    createDashboard(UNCACHED)
 })
 
 Then('the cached dashboard has a Last Updated time and chip icon', () => {
@@ -158,7 +164,7 @@ Given('I open an uncached dashboard', () => {
     openDashboard(UNCACHED_DASHBOARD_TITLE)
     cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('not.exist')
 
-    checkCorrectMoreOptions(false)
+    checkCorrectMoreOptions(UNCACHED)
     closeMenu()
 })
 
@@ -219,7 +225,7 @@ Given('I open a cached dashboard', () => {
 })
 
 Then('the cached dashboard options are available', () => {
-    checkCorrectMoreOptions(true)
+    checkCorrectMoreOptions(CACHED)
     closeMenu()
 })
 
