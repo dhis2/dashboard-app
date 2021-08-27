@@ -33,18 +33,6 @@ const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
         onClick()
     }
 
-    const getAdornment = () => {
-        if (!lastUpdated) {
-            return null
-        }
-
-        return (
-            <OfflineSaved
-                className={cx(classes.adornment, selected && classes.selected)}
-            />
-        )
-    }
-
     return (
         <Link
             className={classes.link}
@@ -60,7 +48,14 @@ const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
                 >
                     {label}
                 </span>
-                {getAdornment()}
+                {lastUpdated && (
+                    <OfflineSaved
+                        className={cx(
+                            classes.adornment,
+                            selected && classes.selected
+                        )}
+                    />
+                )}
             </UiChip>
         </Link>
     )
@@ -72,7 +67,6 @@ Chip.propTypes = {
     selected: PropTypes.bool.isRequired,
     starred: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired,
-    cacheVersion: PropTypes.number,
 }
 
 export default Chip

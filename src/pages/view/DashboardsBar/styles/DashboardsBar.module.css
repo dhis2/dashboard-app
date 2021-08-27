@@ -1,3 +1,7 @@
+.bar {
+    position: relative;
+}
+
 .container {
     position: relative;
     background-color: var(--colors-white);

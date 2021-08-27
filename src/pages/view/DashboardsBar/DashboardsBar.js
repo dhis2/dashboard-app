@@ -1,3 +1,4 @@
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, {
     useState,
@@ -92,8 +93,10 @@ const DashboardsBar = ({
 
     return (
         <div
-            className={expanded ? classes.expanded : classes.collapsed}
-            style={{ position: 'relative' }}
+            className={cx(
+                classes.bar,
+                expanded ? classes.expanded : classes.collapsed
+            )}
             data-test="dashboards-bar"
         >
             <div
