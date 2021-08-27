@@ -235,7 +235,8 @@ const EditBar = ({ dashboard, ...props }) => {
                 <ConfirmActionDialog
                     title={i18n.t('Delete dashboard')}
                     message={i18n.t(
-                        `Deleting dashboard "${dashboard.name}" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?`
+                        'Deleting dashboard "{{ dashboardName }}" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?',
+                        { dashboardName: dashboard.name }
                     )}
                     cancelLabel={i18n.t('Cancel')}
                     confirmLabel={i18n.t('Delete')}
