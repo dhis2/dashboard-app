@@ -1,3 +1,7 @@
+.itemFooter {
+    position: relative;
+}
+
 .line {
     margin: -1px 0px 0px;
     height: 1px;

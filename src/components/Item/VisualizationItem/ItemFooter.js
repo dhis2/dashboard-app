@@ -13,7 +13,7 @@ const ItemFooter = props => {
     const { offline } = useOnlineStatus()
 
     return (
-        <div data-test="dashboarditem-footer" style={{ position: 'relative' }}>
+        <div className={classes.itemFooter} data-test="dashboarditem-footer">
             <hr className={classes.line} />
             <div className={classes.scrollContainer}>
                 <FatalErrorBoundary
