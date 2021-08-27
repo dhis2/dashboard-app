@@ -17,21 +17,13 @@ import {
     sGetEditDashboardRoot,
     RECEIVED_HIDE_GRID,
     RECEIVED_LAYOUT_COLUMNS,
-    RECEIVED_ADD_ITEMS_TO,
+    RECEIVED_ITEM_CONFIG_INSERT_POSITION,
     sGetEditDashboardItems,
     sGetLayoutColumns,
-    // sGetLayout,
-    sGetAddItemsTo,
+    sGetItemConfigInsertPosition,
 } from '../reducers/editDashboard'
 import { tFetchDashboards } from './dashboards'
 import { updateDashboard, postDashboard } from '../api/editDashboard'
-// import {
-//     NEW_ITEM_SHAPE,
-//     getGridItemProperties,
-//     getPageBreakItemShape,
-//     getPrintTitlePageItemShape,
-// } from '../modules/gridUtil'
-// import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
 import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
 import {
     addToItemsEnd,
@@ -109,8 +101,8 @@ export const acSetLayoutColumns = value => ({
     value,
 })
 
-export const acSetAddItemsTo = value => ({
-    type: RECEIVED_ADD_ITEMS_TO,
+export const acSetItemConfigInsertPosition = value => ({
+    type: RECEIVED_ITEM_CONFIG_INSERT_POSITION,
     value,
 })
 
@@ -125,7 +117,7 @@ export const tSetDashboardItems = (itemToAdd, itemIdToRemove) => (
     dispatch,
     getState
 ) => {
-    const addItemsTo = sGetAddItemsTo(getState())
+    const insertPosition = sGetItemConfigInsertPosition(getState())
     const columns = sGetLayoutColumns(getState())
 
     let items = [...sGetEditDashboardItems(getState())]
@@ -154,7 +146,7 @@ export const tSetDashboardItems = (itemToAdd, itemIdToRemove) => (
         } else {
             const newDashboardItem = getDashboardItem(itemToAdd)
 
-            switch (addItemsTo) {
+            switch (insertPosition) {
                 case 'START':
                     dashboardItemsWithShapes = addToItemsStart(
                         items,

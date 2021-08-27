@@ -57,7 +57,6 @@ export const tSetSelectedDashboardById = (id, username) => (
         dashboard.dashboardItems.some(item => item.type === MESSAGES) &&
             dispatch(tGetMessages(dataEngine))
 
-        console.log('fetch dashboard 2', dashboard)
         dispatch(acSetSelected(dashboard))
 
         return dashboard

@@ -26,7 +26,8 @@ export const CLEAR_PRINT_PREVIEW_VIEW = 'CLEAR_PRINT_PREVIEW_VIEW'
 export const RECEIVED_FILTER_SETTINGS = 'RECEIVED_FILTER_SETTINGS'
 export const RECEIVED_HIDE_GRID = 'RECEIVED_HIDE_GRID'
 export const RECEIVED_LAYOUT_COLUMNS = 'RECEIVED_LAYOUT_COLUMNS'
-export const RECEIVED_ADD_ITEMS_TO = 'RECEIVED_ADD_ITEMS_TO'
+export const RECEIVED_ITEM_CONFIG_INSERT_POSITION =
+    'RECEIVED_ITEM_CONFIG_INSERT_POSITION'
 
 export const DEFAULT_STATE_EDIT_DASHBOARD = {}
 export const NEW_DASHBOARD_STATE = {
@@ -44,7 +45,9 @@ export const NEW_DASHBOARD_STATE = {
     layout: {
         columns: [],
     },
-    addItemsTo: 'END',
+    itemConfig: {
+        insertPosition: 'END',
+    },
 }
 
 export default (state = NEW_DASHBOARD_STATE, action) => {
@@ -120,7 +123,6 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
                 return state
             }
             const hasColumns = Boolean(getColumns(getLayout(state)).length)
-            console.log('--hasColumns', hasColumns)
             const stateItems = addResizeHandlers(
                 orArray(state.dashboardItems, hasColumns)
             )
@@ -155,19 +157,6 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
 
                 return stateItem
             })
-            console.log('shapesHaveChanged?', shapesHaveChanged)
-            console.log('newStateItems', newStateItems)
-
-            // return shapesHaveChanged
-            //     ? {
-            //           ...state,
-            //           dashboardItems: addResizeHandlers(
-            //               newStateItems,
-            //               hasColumns
-            //           ),
-            //           isDirty: true,
-            //       }
-            //     : state
 
             return {
                 ...state,
@@ -226,10 +215,13 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
                 },
             }
         }
-        case RECEIVED_ADD_ITEMS_TO: {
+        case RECEIVED_ITEM_CONFIG_INSERT_POSITION: {
             return {
                 ...state,
-                addItemsTo: action.value,
+                itemConfig: {
+                    ...state.itemConfig,
+                    insertPosition: action.value,
+                },
             }
         }
         default:
@@ -268,4 +260,12 @@ const getColumns = layout => layout.columns
 
 export const sGetLayoutColumns = state => orArray(getColumns(sGetLayout(state)))
 
-export const sGetAddItemsTo = state => sGetEditDashboardRoot(state).addItemsTo
+const getItemConfig = editDashboard => editDashboard.itemConfig
+
+export const sGetItemConfig = state =>
+    orObject(getItemConfig(sGetEditDashboardRoot(state)))
+
+const getInsertPosition = itemConfig => itemConfig.insertPosition
+
+export const sGetItemConfigInsertPosition = state =>
+    getInsertPosition(sGetItemConfig(state))

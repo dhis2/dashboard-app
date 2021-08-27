@@ -8,13 +8,14 @@ import ItemSelector from './ItemSelector/ItemSelector'
 import {
     acSetDashboardTitle,
     acSetDashboardDescription,
-    acSetAddItemsTo,
     acSetLayoutColumns,
     tSetDashboardItems,
+    acSetItemConfigInsertPosition,
 } from '../../actions/editDashboard'
 import { orObject } from '../../modules/util'
 import {
     sGetEditDashboardRoot,
+    sGetItemConfigInsertPosition,
     sGetLayoutColumns,
 } from '../../reducers/editDashboard'
 import { LayoutFixedIcon } from './assets/LayoutFixed'
@@ -24,11 +25,11 @@ import classes from './styles/TitleBar.module.css'
 import { LayoutModal } from './LayoutModal'
 
 const EditTitleBar = ({
-    addItemsTo,
+    insertPosition,
     columns,
     description,
     name,
-    onChangeAddItemsTo,
+    onChangeInsertPosition,
     onChangeTitle,
     onChangeDescription,
     onSaveLayout,
@@ -94,18 +95,20 @@ const EditTitleBar = ({
                             label={i18n.t('End of dashboard')}
                             name="END"
                             onChange={value =>
-                                value.checked && onChangeAddItemsTo(value.name)
+                                value.checked &&
+                                onChangeInsertPosition(value.name)
                             }
-                            checked={addItemsTo === 'END'}
+                            checked={insertPosition === 'END'}
                         />
                         <Radio
                             dense
                             label={i18n.t('Start of dashboard')}
                             name="START"
                             onChange={value =>
-                                value.checked && onChangeAddItemsTo(value.name)
+                                value.checked &&
+                                onChangeInsertPosition(value.name)
                             }
-                            checked={addItemsTo === 'START'}
+                            checked={insertPosition === 'START'}
                         />
                     </div>
                 </div>
@@ -125,37 +128,37 @@ const EditTitleBar = ({
 }
 
 EditTitleBar.propTypes = {
-    onChangeAddItemsTo: PropTypes.func.isRequired,
     onChangeDescription: PropTypes.func.isRequired,
+    onChangeInsertPosition: PropTypes.func.isRequired,
     onChangeTitle: PropTypes.func.isRequired,
     onSaveLayout: PropTypes.func.isRequired,
-    addItemsTo: PropTypes.string,
     columns: PropTypes.array,
     description: PropTypes.string,
+    insertPosition: PropTypes.string,
     name: PropTypes.string,
 }
 
 EditTitleBar.defaultProps = {
     name: '',
     description: '',
-    addItemsTo: 'END',
+    insertPosition: 'END',
 }
 
 const mapStateToProps = state => {
     const selectedDashboard = orObject(sGetEditDashboardRoot(state))
-
+    console.log('STATE', state, sGetItemConfigInsertPosition(state))
     return {
         name: selectedDashboard.name,
         columns: sGetLayoutColumns(state),
         description: selectedDashboard.description,
-        addItemsTo: selectedDashboard.addItemsTo,
+        insertPosition: sGetItemConfigInsertPosition(state),
     }
 }
 
 const mapDispatchToProps = {
     onChangeTitle: acSetDashboardTitle,
     onChangeDescription: acSetDashboardDescription,
-    onChangeAddItemsTo: acSetAddItemsTo,
+    onChangeInsertPosition: acSetItemConfigInsertPosition,
     onSaveLayout: columns => dispatch => {
         dispatch(
             acSetLayoutColumns(

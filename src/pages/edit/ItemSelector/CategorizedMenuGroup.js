@@ -51,8 +51,7 @@ const CategorizedMenuGroup = ({
 }) => {
     const { baseUrl } = useConfig()
     const [seeMore, setSeeMore] = useState(false)
-    console.log('ITEMS', items)
-    console.log('TYPE', type)
+
     const addItem = item => () => {
         if (type === APP) {
             // acAddDashboardItem({ type, content: item.key })
@@ -126,10 +125,6 @@ export default connect(null, {
     // acAddDashboardItem,
     tAddListItemContent,
     onAddItem: item => dispatch => {
-        console.group('map dispatch to props')
-        console.log('item', item)
-        console.log('type', item.type)
-        console.groupEnd()
         dispatch(tSetDashboardItems(item))
     },
 })(CategorizedMenuGroup)
