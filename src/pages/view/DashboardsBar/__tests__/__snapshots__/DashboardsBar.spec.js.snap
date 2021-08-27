@@ -9,6 +9,7 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
   >
     <div
       class="container"
+      data-test="dashboardsbar-container"
     >
       <div
         class="content"
@@ -254,6 +255,7 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
   >
     <div
       class="container"
+      data-test="dashboardsbar-container"
     >
       <div
         class="content"
@@ -499,6 +501,7 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
   >
     <div
       class="container"
+      data-test="dashboardsbar-container"
     >
       <div
         class="content"
@@ -746,6 +749,7 @@ exports[`renders a DashboardsBar with no items 1`] = `
   >
     <div
       class="container"
+      data-test="dashboardsbar-container"
     >
       <div
         class="content"
@@ -940,6 +944,7 @@ exports[`renders a DashboardsBar with selected item 1`] = `
   >
     <div
       class="container"
+      data-test="dashboardsbar-container"
     >
       <div
         class="content"
@@ -1187,6 +1192,7 @@ exports[`small screen: clicking "Show more" maximizes dashboards bar height 1`] 
   >
     <div
       class="container"
+      data-test="dashboardsbar-container"
     >
       <div
         class="content"
@@ -1432,6 +1438,7 @@ exports[`small screen: renders a DashboardsBar with minimum height 1`] = `
   >
     <div
       class="container"
+      data-test="dashboardsbar-container"
     >
       <div
         class="content"

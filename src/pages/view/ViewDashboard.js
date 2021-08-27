@@ -1,6 +1,6 @@
 import { useOnlineStatus, useCacheableSection } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { ComponentCover, AlertStack, AlertBar } from '@dhis2/ui'
+import { AlertStack, AlertBar } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
@@ -155,9 +155,8 @@ const ViewDashboard = props => {
                 />
                 <DashboardContainer covered={controlbarExpanded}>
                     {controlbarExpanded && (
-                        <ComponentCover
+                        <div
                             className={classes.cover}
-                            translucent
                             onClick={() => setControlbarExpanded(false)}
                         />
                     )}

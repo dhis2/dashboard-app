@@ -1,4 +1,3 @@
-import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, {
     useState,
@@ -97,7 +96,10 @@ const DashboardsBar = ({
             style={{ position: 'relative' }}
             data-test="dashboards-bar"
         >
-            <div className={cx(classes.container)}>
+            <div
+                className={classes.container}
+                data-test="dashboardsbar-container"
+            >
                 <div className={classes.content} ref={ref}>
                     <Content
                         onChipClicked={memoizedCancelExpanded}
@@ -115,7 +117,7 @@ const DashboardsBar = ({
                     onHeightChanged={setMouseYPos}
                 />
             </div>
-            <div className={cx(classes.spacer)} />
+            <div className={classes.spacer} />
         </div>
     )
 }

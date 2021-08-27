@@ -23,7 +23,7 @@
 
 .expanded .container {
     height: var(--max-rows-height);
-    z-index: 2001;
+    z-index: 1999;
 }
 
 .spacer {
