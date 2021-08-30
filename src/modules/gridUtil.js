@@ -268,32 +268,19 @@ export const addToItemsStart = (dashboardItems, columns, newDashboardItem) => {
 }
 
 export const addToItemsEnd = (dashboardItems, columns, newDashboardItem) => {
-    if (!columns.length) {
-        // when no layout
-        return [
-            ...dashboardItems,
-            {
-                ...NEW_ITEM_SHAPE,
-                ...newDashboardItem,
-                y: dashboardItems.reduce(
-                    (mx, item) => Math.max(mx, item.y + item.h),
-                    0
-                ),
-            },
-        ]
-    }
+    const items = [
+        ...dashboardItems,
+        {
+            ...NEW_ITEM_SHAPE,
+            ...newDashboardItem,
+            y: dashboardItems.reduce(
+                (mx, item) => Math.max(mx, item.y + item.h),
+                0
+            ),
+        },
+    ]
 
-    return getAutoItemShapes(
-        [
-            ...dashboardItems,
-            {
-                ...NEW_ITEM_SHAPE,
-                ...newDashboardItem,
-                y: 99999999,
-            },
-        ],
-        columns
-    )
+    return columns.length ? getAutoItemShapes(items, columns) : items
 }
 
 export const updateItems = (items, dispatch, options = {}) => {
@@ -312,7 +299,6 @@ export const hasLayout = layout => layout?.columns?.length
 
 export const getDashboardItem = item => {
     const type = item.type
-    // delete item.type
     const itemPropName = itemTypeMap[type].propName
 
     const id = generateUid()

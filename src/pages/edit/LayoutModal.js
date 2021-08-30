@@ -85,7 +85,7 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
                         </h2>
                         <p className={classes.description}>
                             {i18n.t(
-                                'Dashboard items are automatically placed within fixed, horizontal columns. The number of columns and the space between them can be adjusted.'
+                                'Dashboard items are automatically placed within fixed, horizontal columns. The number of columns can be adjusted.'
                             )}
                         </p>
                         {cols > 0 && (

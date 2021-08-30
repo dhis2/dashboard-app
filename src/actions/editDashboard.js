@@ -131,7 +131,6 @@ export const tSetDashboardItems = (itemToAdd, itemIdToRemove) => (
             updateItems(items, dispatch)
         } else {
             dashboardItemsWithShapes = getAutoItemShapes(items, columns)
-            console.log('dashboardItemsWithShapes', dashboardItemsWithShapes)
             updateItems(dashboardItemsWithShapes, dispatch, {
                 reload: true,
             })
