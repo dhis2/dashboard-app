@@ -216,21 +216,17 @@ export const getAutoItemShapes = (dashboardItems, columns, maxColUnits) => {
 
     const items = sortItems(dashboardItems)
     const itemsWithNewShape = []
+    const itemHeight = NEW_ITEM_SHAPE.h
 
-    for (
-        let i = 0, colIdx = 0, rowIdx = 0, item, itemH;
-        i < items.length;
-        i++
-    ) {
+    for (let i = 0, colIdx = 0, rowIdx = 0, item; i < items.length; i++) {
         item = items[i]
-        itemH = item.h || NEW_ITEM_SHAPE.h
 
         itemsWithNewShape.push({
             ...item,
             w: numberOfColUnits,
-            h: itemH,
+            h: itemHeight,
             x: numberOfColUnits * colIdx,
-            y: itemH * rowIdx,
+            y: itemHeight * rowIdx,
         })
 
         colIdx = colIdx + 1

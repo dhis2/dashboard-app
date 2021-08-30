@@ -5,7 +5,10 @@ import i18n from '@dhis2/d2-i18n'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import cx from 'classnames'
 
-import { acUpdateDashboardItemShapes } from '../../actions/editDashboard'
+import {
+    acUpdateDashboardItemShapes,
+    tSetDashboardItems,
+} from '../../actions/editDashboard'
 import { Item } from '../../components/Item/Item'
 import {
     GRID_ROW_HEIGHT_PX,

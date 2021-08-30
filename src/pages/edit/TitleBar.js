@@ -65,9 +65,6 @@ const EditTitleBar = ({
                 />
             </div>
             <div className={classes.searchContainer}>
-                <div className={classes.searchWrapper}>
-                    <ItemSelector />
-                </div>
                 <div className={classes.layoutWrapper}>
                     <p className={classes.label}>{i18n.t('Layout')}</p>
                     <div className={classes.layoutOption}>
@@ -114,6 +111,9 @@ const EditTitleBar = ({
                             checked={insertPosition === 'START'}
                         />
                     </div>
+                </div>
+                <div className={classes.searchWrapper}>
+                    <ItemSelector />
                 </div>
             </div>
             {showLayoutModal && (
