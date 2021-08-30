@@ -143,7 +143,9 @@ exports[`renders correctly when filters are not restricted 1`] = `
         <div
           class="jsx-71743532 box"
         >
-          <span>
+          <span
+            class="span"
+          >
             <button
               class="jsx-3597138218 primary"
               data-test="dhis2-uicore-button"
@@ -151,18 +153,6 @@ exports[`renders correctly when filters are not restricted 1`] = `
             >
               Confirm
             </button>
-            <style>
-              
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-            </style>
           </span>
         </div>
       </div>
@@ -319,7 +309,9 @@ exports[`renders correctly when filters are restricted 1`] = `
         <div
           class="jsx-71743532 box"
         >
-          <span>
+          <span
+            class="span"
+          >
             <button
               class="jsx-3597138218 primary"
               data-test="dhis2-uicore-button"
@@ -327,18 +319,6 @@ exports[`renders correctly when filters are restricted 1`] = `
             >
               Confirm
             </button>
-            <style>
-              
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-            </style>
           </span>
         </div>
       </div>

@@ -16,7 +16,9 @@ exports[`renders Save and Discard buttons but not translation dialog when new da
         <div
           class="jsx-71743532 box"
         >
-          <span>
+          <span
+            class="span"
+          >
             <button
               class="jsx-3597138218 primary"
               data-test="save-dashboard-button"
@@ -24,24 +26,14 @@ exports[`renders Save and Discard buttons but not translation dialog when new da
             >
               Save changes
             </button>
-            <style>
-              
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-            </style>
           </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <span>
+          <span
+            class="span"
+          >
             <button
               class="jsx-3597138218 "
               data-test="dhis2-uicore-button"
@@ -49,24 +41,14 @@ exports[`renders Save and Discard buttons but not translation dialog when new da
             >
               Print preview
             </button>
-            <style>
-              
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-            </style>
           </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <span>
+          <span
+            class="span"
+          >
             <button
               class="jsx-3597138218 "
               data-test="dhis2-uicore-button"
@@ -74,18 +56,6 @@ exports[`renders Save and Discard buttons but not translation dialog when new da
             >
               Filter settings
             </button>
-            <style>
-              
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-            </style>
           </span>
         </div>
         <div
@@ -95,27 +65,13 @@ exports[`renders Save and Discard buttons but not translation dialog when new da
           class="jsx-71743532 box"
         />
       </div>
-      <span>
-        <button
-          class="jsx-3597138218 secondary"
-          data-test="dhis2-uicore-button"
-          type="button"
-        >
-          Exit without saving
-        </button>
-        <style>
-          
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-        </style>
-      </span>
+      <button
+        class="jsx-3597138218 secondary"
+        data-test="dhis2-uicore-button"
+        type="button"
+      >
+        Exit without saving
+      </button>
     </div>
   </div>
   <div
@@ -142,7 +98,9 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
         <div
           class="jsx-71743532 box"
         >
-          <span>
+          <span
+            class="span"
+          >
             <button
               class="jsx-3597138218 primary"
               data-test="save-dashboard-button"
@@ -150,24 +108,14 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
             >
               Save changes
             </button>
-            <style>
-              
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-            </style>
           </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <span>
+          <span
+            class="span"
+          >
             <button
               class="jsx-3597138218 "
               data-test="dhis2-uicore-button"
@@ -175,24 +123,14 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
             >
               Print preview
             </button>
-            <style>
-              
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-            </style>
           </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <span>
+          <span
+            class="span"
+          >
             <button
               class="jsx-3597138218 "
               data-test="dhis2-uicore-button"
@@ -200,24 +138,14 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
             >
               Filter settings
             </button>
-            <style>
-              
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-            </style>
           </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <span>
+          <span
+            class="span"
+          >
             <button
               class="jsx-3597138218 "
               data-test="dhis2-uicore-button"
@@ -225,24 +153,14 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
             >
               Translate
             </button>
-            <style>
-              
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-            </style>
           </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <span>
+          <span
+            class="span"
+          >
             <button
               class="jsx-3597138218 "
               data-test="delete-dashboard-button"
@@ -250,42 +168,16 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
             >
               Delete
             </button>
-            <style>
-              
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-            </style>
           </span>
         </div>
       </div>
-      <span>
-        <button
-          class="jsx-3597138218 secondary"
-          data-test="dhis2-uicore-button"
-          type="button"
-        >
-          Exit without saving
-        </button>
-        <style>
-          
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-        </style>
-      </span>
+      <button
+        class="jsx-3597138218 secondary"
+        data-test="dhis2-uicore-button"
+        type="button"
+      >
+        Exit without saving
+      </button>
     </div>
   </div>
   <div
@@ -306,27 +198,13 @@ exports[`renders only the Go to Dashboards button when no update access 1`] = `
     <div
       class="controls"
     >
-      <span>
-        <button
-          class="jsx-3597138218 secondary"
-          data-test="dhis2-uicore-button"
-          type="button"
-        >
-          Go to dashboards
-        </button>
-        <style>
-          
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-        </style>
-      </span>
+      <button
+        class="jsx-3597138218 secondary"
+        data-test="dhis2-uicore-button"
+        type="button"
+      >
+        Go to dashboards
+      </button>
     </div>
   </div>
 </div>
@@ -348,7 +226,9 @@ exports[`renders the ActionsBar without Delete when no delete access 1`] = `
         <div
           class="jsx-71743532 box"
         >
-          <span>
+          <span
+            class="span"
+          >
             <button
               class="jsx-3597138218 primary"
               data-test="save-dashboard-button"
@@ -356,24 +236,14 @@ exports[`renders the ActionsBar without Delete when no delete access 1`] = `
             >
               Save changes
             </button>
-            <style>
-              
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-            </style>
           </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <span>
+          <span
+            class="span"
+          >
             <button
               class="jsx-3597138218 "
               data-test="dhis2-uicore-button"
@@ -381,24 +251,14 @@ exports[`renders the ActionsBar without Delete when no delete access 1`] = `
             >
               Print preview
             </button>
-            <style>
-              
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-            </style>
           </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <span>
+          <span
+            class="span"
+          >
             <button
               class="jsx-3597138218 "
               data-test="dhis2-uicore-button"
@@ -406,24 +266,14 @@ exports[`renders the ActionsBar without Delete when no delete access 1`] = `
             >
               Filter settings
             </button>
-            <style>
-              
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-            </style>
           </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <span>
+          <span
+            class="span"
+          >
             <button
               class="jsx-3597138218 "
               data-test="dhis2-uicore-button"
@@ -431,45 +281,19 @@ exports[`renders the ActionsBar without Delete when no delete access 1`] = `
             >
               Translate
             </button>
-            <style>
-              
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-            </style>
           </span>
         </div>
         <div
           class="jsx-71743532 box"
         />
       </div>
-      <span>
-        <button
-          class="jsx-3597138218 secondary"
-          data-test="dhis2-uicore-button"
-          type="button"
-        >
-          Exit without saving
-        </button>
-        <style>
-          
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: block;
-                        }
-                        span &gt; :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    
-        </style>
-      </span>
+      <button
+        class="jsx-3597138218 secondary"
+        data-test="dhis2-uicore-button"
+        type="button"
+      >
+        Exit without saving
+      </button>
     </div>
   </div>
   <div
