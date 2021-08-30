@@ -49,8 +49,15 @@
 }
 
 .label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--colors-grey800);
+    margin: 5px 0 3px;
+}
+
+.layoutValue {
     font-size: 14px;
-    margin: 0 0 var(--spacers-dp8);
+    color: var(--colors-grey900);
 }
 
 .layoutOption {
@@ -71,6 +78,7 @@
 
 .positionOptions {
     display: flex;
+    padding-top: 4px;
 }
 
 .positionOptions > :not(:last-child) {

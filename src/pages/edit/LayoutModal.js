@@ -118,7 +118,7 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
                         )}
                     </div>
                 </div>
-                <Divider />
+                {/* <Divider />
                 <InputField
                     helpText={i18n.t(
                         'Default height only applies to items added to a dashboard, this setting will not change existing items'
@@ -131,7 +131,7 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
                     type="number"
                     inputWidth="100px"
                     // default value 64?
-                />
+                /> */}
             </ModalContent>
             <ModalActions>
                 <ButtonStrip end>

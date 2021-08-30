@@ -65,6 +65,9 @@ const EditTitleBar = ({
                 />
             </div>
             <div className={classes.searchContainer}>
+                <div className={classes.searchWrapper}>
+                    <ItemSelector />
+                </div>
                 <div className={classes.layoutWrapper}>
                     <p className={classes.label}>{i18n.t('Layout')}</p>
                     <div className={classes.layoutOption}>
@@ -73,7 +76,7 @@ const EditTitleBar = ({
                         ) : (
                             <LayoutFreeflowIcon />
                         )}
-                        <span>
+                        <span className={classes.layoutValue}>
                             {columns.length
                                 ? i18n.t('{{numberOfColumns}} columns', {
                                       numberOfColumns: columns.length, // TODO: Add pluralisation
@@ -112,9 +115,6 @@ const EditTitleBar = ({
                         />
                     </div>
                 </div>
-                <div className={classes.searchWrapper}>
-                    <ItemSelector />
-                </div>
             </div>
             {showLayoutModal && (
                 <LayoutModal
@@ -146,7 +146,7 @@ EditTitleBar.defaultProps = {
 
 const mapStateToProps = state => {
     const selectedDashboard = orObject(sGetEditDashboardRoot(state))
-    console.log('STATE', state, sGetItemConfigInsertPosition(state))
+
     return {
         name: selectedDashboard.name,
         columns: sGetLayoutColumns(state),
