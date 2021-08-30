@@ -1,19 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { InputField } from '@dhis2/ui'
+import { Input } from '@dhis2/ui'
+
+import classes from './styles/ItemSearchField.module.css'
 
 const ItemSearchField = props => (
-    <InputField
-        name="Dashboard item search"
-        label={i18n.t('Search for items to add to this dashboard')}
-        type="text"
-        onChange={props.onChange}
-        onFocus={props.onFocus}
-        value={props.value}
-        dataTest="item-search"
-        placeholder={i18n.t('Search for visualizations, reports and more')}
-    />
+    <>
+        <div className={classes.label}>
+            Search for items to add to this dashboard
+        </div>
+        <Input
+            name="Dashboard item search"
+            label={i18n.t('Search for items to add to this dashboard')}
+            type="text"
+            onChange={props.onChange}
+            onFocus={props.onFocus}
+            value={props.value}
+            dataTest="item-search"
+            placeholder={i18n.t('Search for visualizations, reports and more')}
+        />
+    </>
 )
 
 ItemSearchField.propTypes = {
