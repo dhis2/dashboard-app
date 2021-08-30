@@ -7,7 +7,7 @@ import {
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
-import { FlyoutMenu, MenuItem, colors, IconMore24 } from '@dhis2/ui'
+import { Button, FlyoutMenu, MenuItem, colors, IconMore24 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
@@ -16,9 +16,9 @@ import { acSetDashboardStarred } from '../../../actions/dashboards'
 import { acClearItemFilters } from '../../../actions/itemFilters'
 import { acSetShowDescription } from '../../../actions/showDescription'
 import { apiPostShowDescription } from '../../../api/description'
-import Button from '../../../components/ButtonWithTooltip'
 import ConfirmActionDialog from '../../../components/ConfirmActionDialog'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton'
+import Tooltip from '../../../components/Tooltip'
 import { orObject } from '../../../modules/util'
 import { sGetDashboardStarred } from '../../../reducers/dashboards'
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
@@ -188,13 +188,13 @@ const ViewActions = ({
 
     const getMoreButton = (className, useSmall) => (
         <DropdownButton
-            disabledWhenOffline={false}
             className={className}
             small={useSmall}
+            open={useSmall ? moreOptionsSmallIsOpen : moreOptionsIsOpen}
+            disabledWhenOffline={false}
             onClick={() => toggleMoreOptions(useSmall)}
             icon={<IconMore24 color={colors.grey700} />}
             component={getMoreMenu()}
-            open={useSmall ? moreOptionsSmallIsOpen : moreOptionsIsOpen}
         >
             {i18n.t('More')}
         </DropdownButton>
@@ -209,20 +209,26 @@ const ViewActions = ({
                 />
                 <div className={classes.strip}>
                     {userAccess.update ? (
-                        <Button
-                            className={classes.editButton}
-                            onClick={() => setRedirectUrl(`${id}/edit`)}
-                        >
-                            {i18n.t('Edit')}
-                        </Button>
+                        <Tooltip>
+                            <Button
+                                disabled={offline}
+                                className={classes.editButton}
+                                onClick={() => setRedirectUrl(`${id}/edit`)}
+                            >
+                                {i18n.t('Edit')}
+                            </Button>
+                        </Tooltip>
                     ) : null}
                     {userAccess.manage ? (
-                        <Button
-                            className={classes.shareButton}
-                            onClick={onToggleSharingDialog}
-                        >
-                            {i18n.t('Share')}
-                        </Button>
+                        <Tooltip>
+                            <Button
+                                disabled={offline}
+                                className={classes.shareButton}
+                                onClick={onToggleSharingDialog}
+                            >
+                                {i18n.t('Share')}
+                            </Button>
+                        </Tooltip>
                     ) : null}
                     <FilterSelector
                         allowedFilters={allowedFilters}

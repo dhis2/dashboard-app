@@ -12,7 +12,7 @@ import {
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import ButtonWithTooltip from '../../components/ButtonWithTooltip'
+import Tooltip from '../../components/Tooltip'
 import useDimensions from '../../modules/useDimensions'
 import classes from './styles/FilterSettingsDialog.module.css'
 
@@ -166,21 +166,24 @@ const FilterSettingsDialog = ({
                             >
                                 {i18n.t('Cancel')}
                             </Button>
-                            <ButtonWithTooltip
-                                tooltip={i18n.t(
+                            <Tooltip
+                                content={i18n.t(
                                     'Cannot confirm changes while offline'
                                 )}
-                                onClick={() => {
-                                    if (!filtersSelectable) {
-                                        setSelected([])
-                                    }
-                                    onConfirm(filtersSelectable, selected)
-                                }}
-                                primary
-                                type="button"
                             >
-                                {i18n.t('Confirm')}
-                            </ButtonWithTooltip>
+                                <Button
+                                    onClick={() => {
+                                        if (!filtersSelectable) {
+                                            setSelected([])
+                                        }
+                                        onConfirm(filtersSelectable, selected)
+                                    }}
+                                    primary
+                                    type="button"
+                                >
+                                    {i18n.t('Confirm')}
+                                </Button>
+                            </Tooltip>
                         </ButtonStrip>
                     </ModalActions>
                 </Modal>

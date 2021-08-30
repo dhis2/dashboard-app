@@ -1,20 +1,29 @@
-import { Layer, Popper } from '@dhis2/ui'
+import { Button, Layer, Popper } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
-import Button from '../ButtonWithTooltip'
+import Tooltip from '../Tooltip'
 import { ArrowDown, ArrowUp } from './assets/Arrow'
 import styles from './DropdownButton.module.css'
 
-const DropdownButton = ({ children, open, onClick, component, ...rest }) => {
+const DropdownButton = ({
+    children,
+    open,
+    onClick,
+    disabledWhenOffline,
+    component,
+    ...rest
+}) => {
     const anchorRef = useRef()
 
     const ArrowIconComponent = open ? ArrowUp : ArrowDown
     return (
         <div ref={anchorRef}>
-            <Button onClick={onClick} {...rest}>
-                {children}
-                <ArrowIconComponent className={styles.arrow} />
-            </Button>
+            <Tooltip disabledWhenOffline={disabledWhenOffline}>
+                <Button onClick={onClick} {...rest}>
+                    {children}
+                    <ArrowIconComponent className={styles.arrow} />
+                </Button>
+            </Tooltip>
             {open && (
                 <Layer onClick={onClick} transparent>
                     <Popper placement="bottom-start" reference={anchorRef}>
@@ -31,6 +40,7 @@ DropdownButton.propTypes = {
     component: PropTypes.element.isRequired,
     open: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired,
+    disabledWhenOffline: PropTypes.bool,
 }
 
 export default DropdownButton

@@ -2,7 +2,7 @@ import { useOnlineStatus, useDataEngine, useAlert } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
-import { ButtonStrip } from '@dhis2/ui'
+import { Button, ButtonStrip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
@@ -17,8 +17,8 @@ import {
 } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
 import { acClearSelected } from '../../actions/selected'
-import Button from '../../components/ButtonWithTooltip'
 import ConfirmActionDialog from '../../components/ConfirmActionDialog'
+import Tooltip from '../../components/Tooltip'
 import {
     sGetEditDashboardRoot,
     sGetIsPrintPreviewView,
@@ -172,37 +172,54 @@ const EditBar = ({ dashboard, ...props }) => {
 
     const renderActionButtons = () => (
         <ButtonStrip>
-            <Button
-                primary
-                onClick={onSave}
-                dataTest="save-dashboard-button"
-                tooltip={i18n.t('Cannot save this dashboard while offline')}
+            <Tooltip
+                content={i18n.t('Cannot save this dashboard while offline')}
             >
-                {i18n.t('Save changes')}
-            </Button>
-            <Button onClick={onPrintPreview}>
-                {props.isPrintPreviewView
-                    ? i18n.t('Exit Print preview')
-                    : i18n.t('Print preview')}
-            </Button>
-            <Button onClick={toggleFilterSettingsDialog}>
-                {i18n.t('Filter settings')}
-            </Button>
-            {dashboard.id && (
-                <Button onClick={toggleTranslationDialog}>
-                    {i18n.t('Translate')}
+                <Button
+                    disabled={!online}
+                    primary
+                    onClick={onSave}
+                    dataTest="save-dashboard-button"
+                >
+                    {i18n.t('Save changes')}
                 </Button>
+            </Tooltip>
+            <Tooltip>
+                <Button disabled={!online} onClick={onPrintPreview}>
+                    {props.isPrintPreviewView
+                        ? i18n.t('Exit Print preview')
+                        : i18n.t('Print preview')}
+                </Button>
+            </Tooltip>
+            <Tooltip>
+                <Button disabled={!online} onClick={toggleFilterSettingsDialog}>
+                    {i18n.t('Filter settings')}
+                </Button>
+            </Tooltip>
+            {dashboard.id && (
+                <Tooltip>
+                    <Button
+                        disabled={!online}
+                        onClick={toggleTranslationDialog}
+                    >
+                        {i18n.t('Translate')}
+                    </Button>
+                </Tooltip>
             )}
             {dashboard.id && dashboard.access?.delete && (
-                <Button
-                    onClick={onConfirmDelete}
-                    dataTest="delete-dashboard-button"
-                    tooltip={i18n.t(
+                <Tooltip
+                    content={i18n.t(
                         'Cannot delete this dashboard while offline'
                     )}
                 >
-                    {i18n.t('Delete')}
-                </Button>
+                    <Button
+                        disabled={!online}
+                        onClick={onConfirmDelete}
+                        dataTest="delete-dashboard-button"
+                    >
+                        {i18n.t('Delete')}
+                    </Button>
+                </Tooltip>
             )}
         </ButtonStrip>
     )
@@ -211,21 +228,15 @@ const EditBar = ({ dashboard, ...props }) => {
         return <Redirect to={redirectUrl} />
     }
 
-    const discardBtnText = dashboard.access?.update
-        ? i18n.t('Exit without saving')
-        : i18n.t('Go to dashboards')
-
     return (
         <>
             <div className={classes.editBar} data-test="edit-control-bar">
                 <div className={classes.controls}>
                     {dashboard.access?.update ? renderActionButtons() : null}
-                    <Button
-                        secondary
-                        onClick={onConfirmDiscard}
-                        disabledWhenOffline={false}
-                    >
-                        {discardBtnText}
+                    <Button secondary onClick={onConfirmDiscard}>
+                        {dashboard.access?.update
+                            ? i18n.t('Exit without saving')
+                            : i18n.t('Go to dashboards')}
                     </Button>
                 </div>
             </div>

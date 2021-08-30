@@ -1,0 +1,11 @@
+.span {
+    display: inline-flex;
+    pointer-events: all;
+}
+.span > :global(button:disabled) {
+    pointer-events: none;
+}
+
+.notAllowed {
+    cursor: not-allowed;
+}
