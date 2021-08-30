@@ -14,7 +14,7 @@ const LastUpdatedTag = ({ id }) => {
             openDelay={200}
             closeDelay={100}
         >
-            <Tag className={classes.lastUpdatedTag}>
+            <Tag className={classes.lastUpdatedTag} maxWidth="400px">
                 {`Offline data last updated ${moment(lastUpdated).fromNow()}`}
             </Tag>
         </Tooltip>
