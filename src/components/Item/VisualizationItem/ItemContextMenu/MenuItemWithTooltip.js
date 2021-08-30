@@ -1,8 +1,10 @@
 import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { MenuItem, Tooltip } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
+import classes from './styles/MenuItemWithTooltip.module.css'
 
 const MenuItemWithTooltip = ({
     disabledWhenOffline,
@@ -24,18 +26,15 @@ const MenuItemWithTooltip = ({
             <Tooltip content={tooltipContent} openDelay={200} closeDelay={100}>
                 {({ onMouseOver, onMouseOut, ref }) => (
                     <span
+                        className={cx(
+                            classes.span,
+                            notAllowed && classes.notAllowed
+                        )}
                         onMouseOver={() => notAllowed && onMouseOver()}
                         onMouseOut={() => notAllowed && onMouseOut()}
                         ref={ref}
                     >
                         {label}
-                        <style jsx>{`
-                            span {
-                                display: inline-flex;
-                                pointer-events: all;
-                                cursor: ${notAllowed ? 'not-allowed' : 'block'};
-                            }
-                        `}</style>
                     </span>
                 )}
             </Tooltip>

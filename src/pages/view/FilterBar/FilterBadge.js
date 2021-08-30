@@ -1,6 +1,7 @@
 import { useOnlineStatus, useCacheableSection } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Tooltip } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -43,6 +44,10 @@ const FilterBadge = ({ dashboardId, filter, openFilterModal, onRemove }) => {
             >
                 {({ onMouseOver, onMouseOut, ref }) => (
                     <span
+                        className={cx(
+                            classes.span,
+                            notAllowed && classes.notAllowed
+                        )}
                         onMouseOver={() => notAllowed && onMouseOver()}
                         onMouseOut={() => notAllowed && onMouseOut()}
                         ref={ref}
@@ -54,16 +59,6 @@ const FilterBadge = ({ dashboardId, filter, openFilterModal, onRemove }) => {
                         >
                             {i18n.t('Remove')}
                         </button>
-                        <style jsx>{`
-                            span {
-                                display: inline-flex;
-                                pointer-events: all;
-                                cursor: ${notAllowed ? 'not-allowed' : 'block'};
-                            }
-                            span > :global(button:disabled) {
-                                pointer-events: none;
-                            }
-                        `}</style>
                     </span>
                 )}
             </Tooltip>

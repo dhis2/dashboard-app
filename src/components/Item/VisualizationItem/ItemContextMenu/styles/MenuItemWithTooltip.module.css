@@ -1,0 +1,8 @@
+.span {
+    display: inline-flex;
+    pointer-events: all;
+}
+
+.notAllowed {
+    cursor: not-allowed;
+}

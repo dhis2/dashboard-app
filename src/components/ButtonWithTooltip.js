@@ -1,8 +1,10 @@
 import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Button, Tooltip } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
+import classes from './styles/ButtonWithTooltip.module.css'
 
 const ButtonWithTooltip = ({
     disabledWhenOffline,
@@ -22,6 +24,10 @@ const ButtonWithTooltip = ({
         >
             {({ onMouseOver, onMouseOut, ref }) => (
                 <span
+                    className={cx(
+                        classes.span,
+                        notAllowed && classes.notAllowed
+                    )}
                     onMouseOver={() => notAllowed && onMouseOver()}
                     onMouseOut={() => notAllowed && onMouseOut()}
                     ref={ref}
@@ -29,16 +35,6 @@ const ButtonWithTooltip = ({
                     <Button disabled={notAllowed} {...rest}>
                         {children}
                     </Button>
-                    <style jsx>{`
-                        span {
-                            display: inline-flex;
-                            pointer-events: all;
-                            cursor: ${notAllowed ? 'not-allowed' : 'block'};
-                        }
-                        span > :global(button:disabled) {
-                            pointer-events: none;
-                        }
-                    `}</style>
                 </span>
             )}
         </Tooltip>
