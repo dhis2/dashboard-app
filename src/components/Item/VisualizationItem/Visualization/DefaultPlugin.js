@@ -12,7 +12,6 @@ const DefaultPlugin = ({
     visualization,
     options,
     style,
-    isRecording,
 }) => {
     const { d2 } = useD2()
     const { baseUrl } = useConfig()
@@ -35,18 +34,9 @@ const DefaultPlugin = ({
         prevItem.current = item
         prevActiveType.current = activeType
         prevFilterVersion.current = filterVersion
-    }, [])
 
-    useEffect(() => {
-        if (isRecording) {
-            unmount(item, activeType)
-            load(item, visualization, {
-                credentials,
-                activeType,
-                isRecording,
-            })
-        }
-    }, [isRecording])
+        return () => unmount(item, item.type || activeType)
+    }, [])
 
     useEffect(() => {
         if (
@@ -75,7 +65,6 @@ const DefaultPlugin = ({
 DefaultPlugin.propTypes = {
     activeType: PropTypes.string,
     filterVersion: PropTypes.string,
-    isRecording: PropTypes.bool,
     item: PropTypes.object,
     options: PropTypes.object,
     style: PropTypes.object,
