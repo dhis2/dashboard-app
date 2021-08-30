@@ -308,8 +308,7 @@ export const updateItems = (items, dispatch, options = {}) => {
     }
 }
 
-export const addResizeHandlers = (items, isLayout) =>
-    items.map(item => ({ ...item, resizeHandles: [isLayout ? 's' : 'se'] }))
+export const hasLayout = layout => layout?.columns?.length
 
 export const getDashboardItem = item => {
     const type = item.type

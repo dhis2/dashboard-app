@@ -2,7 +2,7 @@
 // import { generateUid } from 'd2/uid'
 import update from 'immutability-helper'
 import isEmpty from 'lodash/isEmpty'
-import { addResizeHandlers, getDashboardItem } from '../modules/gridUtil'
+import { getDashboardItem } from '../modules/gridUtil'
 // import {
 //     getGridItemProperties,
 //     getPageBreakItemShape,
@@ -122,15 +122,13 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
             if (!action.value) {
                 return state
             }
-            const hasColumns = Boolean(getColumns(getLayout(state)).length)
-            const stateItems = addResizeHandlers(
-                orArray(state.dashboardItems, hasColumns)
-            )
+
+            const stateItems = orArray(state.dashboardItems)
 
             if (stateItems.length !== action.value.length) {
                 return {
                     ...state,
-                    dashboardItems: addResizeHandlers(action.value, hasColumns),
+                    dashboardItems: action.value,
                 }
             }
 
@@ -160,10 +158,9 @@ export default (state = NEW_DASHBOARD_STATE, action) => {
 
             return {
                 ...state,
-                dashboardItems: addResizeHandlers(
-                    shapesHaveChanged ? newStateItems : state.dashboardItems,
-                    hasColumns
-                ),
+                dashboardItems: shapesHaveChanged
+                    ? newStateItems
+                    : state.dashboardItems,
                 isDirty: shapesHaveChanged,
             }
         }

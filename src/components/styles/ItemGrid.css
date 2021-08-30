@@ -22,6 +22,10 @@
     cursor: move;
 }
 
+.react-grid-item.edit.react-resizable-hide {
+    cursor: auto;
+}
+
 .react-grid-item.SPACER.view {
     visibility: hidden;
 }

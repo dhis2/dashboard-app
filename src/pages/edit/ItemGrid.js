@@ -18,6 +18,7 @@ import {
     GRID_COLUMNS,
     hasShape,
     getGridWidth,
+    hasLayout,
 } from '../../modules/gridUtil'
 import { getBreakpoint } from '../../modules/smallScreen'
 import { orArray } from '../../modules/util'
@@ -26,6 +27,7 @@ import NoContentMessage from '../../components/NoContentMessage'
 import {
     sGetEditDashboardItems,
     sGetHideGrid,
+    sGetLayout,
 } from '../../reducers/editDashboard'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
 import { EDIT } from '../../modules/dashboardModes'
@@ -36,6 +38,7 @@ import classes from './styles/ItemGrid.module.css'
 const EditItemGrid = ({
     dashboardItems,
     acUpdateDashboardItemShapes,
+    hasLayout,
     hideGrid,
 }) => {
     const [gridWidth, setGridWidth] = useState({ width: 0 })
@@ -95,8 +98,8 @@ const EditItemGrid = ({
             containerPadding={{ lg: GRID_PADDING_PX }}
             onLayoutChange={onLayoutChange}
             onWidthChange={onWidthChanged}
-            isDraggable={true}
-            isResizable={true}
+            isDraggable={!hasLayout}
+            isResizable={!hasLayout}
             draggableCancel="input,textarea"
         >
             {getItemComponents(dashboardItems)}
@@ -107,6 +110,7 @@ const EditItemGrid = ({
 EditItemGrid.propTypes = {
     acUpdateDashboardItemShapes: PropTypes.func,
     dashboardItems: PropTypes.array,
+    hasLayout: PropTypes.bool,
     hideGrid: PropTypes.bool,
 }
 
@@ -115,6 +119,7 @@ EditItemGrid.propTypes = {
 const mapStateToProps = state => {
     return {
         dashboardItems: orArray(sGetEditDashboardItems(state)).filter(hasShape),
+        hasLayout: hasLayout(sGetLayout(state)),
         hideGrid: sGetHideGrid(state),
     }
 }
