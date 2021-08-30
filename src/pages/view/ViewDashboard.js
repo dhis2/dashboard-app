@@ -24,7 +24,7 @@ import DashboardsBar from './DashboardsBar/DashboardsBar'
 import FilterBar from './FilterBar/FilterBar'
 import ItemGrid from './ItemGrid'
 import classes from './styles/ViewDashboard.module.css'
-import { TitleBar } from './TitleBar'
+import TitleBar from './TitleBar/TitleBar'
 
 const ViewDashboard = props => {
     const [controlbarExpanded, setControlbarExpanded] = useState(false)
