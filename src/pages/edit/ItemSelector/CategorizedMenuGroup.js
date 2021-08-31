@@ -17,28 +17,6 @@ import { getItemUrl, APP, VISUALIZATION } from '../../../modules/itemTypes'
 
 import classes from './styles/CategorizedMenuGroup.module.css'
 
-// one of the items passed down
-
-// TYPE: "VISUALIZATION"
-
-// attributeValues: []
-// created: "2021-08-10T11:29:51.648"
-// createdBy: {id: "xE7jOejl9FI", code: null, name: "John Traore", displayName: "John Traore", username: "admin"}
-// displayName: "A1 POST"
-// externalAccess: false
-// favorite: false
-// favorites: []
-// id: "MEKCqWipb0W"
-// lastUpdated: "2021-08-10T11:29:51.648"
-// lastUpdatedBy: {id: "xE7jOejl9FI", code: null, name: "John Traore", displayName: "John Traore", username: "admin"}
-// name: "A1 POST"
-// publicAccess: "--------"
-// sharing: {owner: "xE7jOejl9FI", external: false, users: {…}, userGroups: {…}, public: "--------"}
-// translations: []
-// type: "PIVOT_TABLE"
-// user: {id: "xE7jOejl9FI", code: null, name: "John Traore", displayName: "John Traore", username: "admin"}
-// userAccesses: []
-
 const CategorizedMenuGroup = ({
     type,
     title,
