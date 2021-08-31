@@ -61,6 +61,7 @@ export const itemTypeMap = {
     [VISUALIZATION]: {
         id: VISUALIZATION,
         endPointName: 'visualizations',
+        dataStatisticsName: 'VISUALIZATION_VIEW',
         propName: 'visualization',
         pluralTitle: i18n.t('Visualizations'),
         domainType: DOMAIN_TYPE_AGGREGATE,
