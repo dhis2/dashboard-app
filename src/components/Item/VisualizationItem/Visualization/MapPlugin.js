@@ -18,7 +18,7 @@ const MapPlugin = ({
     itemFilters,
     ...props
 }) => {
-    const { online } = useOnlineStatus()
+    const { offline } = useOnlineStatus()
 
     useEffect(() => {
         const resizeMap = async (id, isFullscreen) => {
@@ -34,13 +34,13 @@ const MapPlugin = ({
     useEffect(() => () => unmount(props.item, MAP), [])
 
     useEffect(() => {
-        const setMapOfflineStatus = async onlineStatus => {
+        const setMapOfflineStatus = async offlineStatus => {
             const plugin = await getPlugin(MAP)
-            plugin?.setOfflineStatus && plugin.setOfflineStatus(onlineStatus)
+            plugin?.setOfflineStatus && plugin.setOfflineStatus(offlineStatus)
         }
 
-        setMapOfflineStatus(!online)
-    }, [online])
+        setMapOfflineStatus(offline)
+    }, [offline])
 
     const getVisualization = () => {
         if (props.item.type === MAP) {
