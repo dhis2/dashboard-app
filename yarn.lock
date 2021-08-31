@@ -3362,7 +3362,7 @@
     markdown-it "^8.4.2"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-sharing-dialog@7.3.2", "@dhis2/d2-ui-sharing-dialog@^7.2.0", "@dhis2/d2-ui-sharing-dialog@^7.3.2":
+"@dhis2/d2-ui-sharing-dialog@7.3.2", "@dhis2/d2-ui-sharing-dialog@^7.2.0":
   version "7.3.2"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-7.3.2.tgz#081cf3fcddb3b0095755263dc241ffda29bf6a85"
   integrity sha512-1vywqSJudJFYx5sxXVx+lO3IrApqqQlM2zykWFAcjNElYeYZvBycATk0szTQoJvhCP6M90rMNbuKPpYiTE6BgQ==
