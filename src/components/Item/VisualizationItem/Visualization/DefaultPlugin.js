@@ -3,7 +3,7 @@ import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId'
-import { load } from './plugin'
+import { load, unmount } from './plugin'
 
 const DefaultPlugin = ({
     item,
@@ -34,6 +34,8 @@ const DefaultPlugin = ({
         prevItem.current = item
         prevActiveType.current = activeType
         prevFilterVersion.current = filterVersion
+
+        return () => unmount(item, item.type || activeType)
     }, [])
 
     useEffect(() => {

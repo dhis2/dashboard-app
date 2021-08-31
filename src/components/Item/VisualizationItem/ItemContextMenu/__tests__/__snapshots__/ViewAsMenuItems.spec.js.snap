@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders menu for active type CHART and type MAP 1`] = `
+exports[`renders disabled menu items when offline 1`] = `
 <div>
   <li
-    class="jsx-665727467 dense"
+    class="jsx-665727467 disabled dense"
     data-test="dhis2-uicore-menuitem"
   >
     <a
@@ -13,7 +13,46 @@ exports[`renders menu for active type CHART and type MAP 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          color="#6e7a8a"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            fill="currentColor"
+            fill-rule="evenodd"
+          >
+            <path
+              d="M0 0h1v15h15v1H0z"
+            />
+            <path
+              d="M16 8v7h-3V8zm-5-6v13H8V2zM6 4v11H3V4z"
+            />
+          </g>
+        </svg>
+      </span>
+      <span
+        class="jsx-665727467 label"
+      >
+        <span
+          class="span notAllowed"
+        >
+          View as Chart
+        </span>
+      </span>
+    </a>
+  </li>
+  <li
+    class="jsx-665727467 disabled dense"
+    data-test="dhis2-uicore-menuitem"
+  >
+    <a
+      class="jsx-665727467"
+    >
+      <span
+        class="jsx-665727467 icon"
+      >
+        <svg
           height="16"
           viewBox="0 0 16 16"
           width="16"
@@ -28,7 +67,49 @@ exports[`renders menu for active type CHART and type MAP 1`] = `
       <span
         class="jsx-665727467 label"
       >
-        View as Table
+        <span
+          class="span notAllowed"
+        >
+          View as Table
+        </span>
+      </span>
+    </a>
+  </li>
+</div>
+`;
+
+exports[`renders menu for active type CHART and type MAP 1`] = `
+<div>
+  <li
+    class="jsx-665727467 dense"
+    data-test="dhis2-uicore-menuitem"
+  >
+    <a
+      class="jsx-665727467"
+    >
+      <span
+        class="jsx-665727467 icon"
+      >
+        <svg
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14 1a1 1 0 011 1v12a1 1 0 01-1 1H2a1 1 0 01-1-1V2a1 1 0 011-1zm-6.5 9H2v4h5.5zm6.5 0H8.5v4H14zM2 5v4h5.5V5zm12-3H2v2h12zM8.5 9H14V5H8.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        class="jsx-665727467 label"
+      >
+        <span
+          class="span"
+        >
+          View as Table
+        </span>
       </span>
     </a>
   </li>
@@ -43,7 +124,6 @@ exports[`renders menu for active type CHART and type MAP 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          color="#6e7a8a"
           height="16"
           viewBox="0 0 16 16"
           width="16"
@@ -58,7 +138,11 @@ exports[`renders menu for active type CHART and type MAP 1`] = `
       <span
         class="jsx-665727467 label"
       >
-        View as Map
+        <span
+          class="span"
+        >
+          View as Map
+        </span>
       </span>
     </a>
   </li>
@@ -78,7 +162,6 @@ exports[`renders menu for active type CHART and type REPORT_TABLE 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          color="#6e7a8a"
           height="16"
           viewBox="0 0 16 16"
           width="16"
@@ -93,7 +176,11 @@ exports[`renders menu for active type CHART and type REPORT_TABLE 1`] = `
       <span
         class="jsx-665727467 label"
       >
-        View as Table
+        <span
+          class="span"
+        >
+          View as Table
+        </span>
       </span>
     </a>
   </li>
@@ -108,7 +195,6 @@ exports[`renders menu for active type CHART and type REPORT_TABLE 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          color="#6e7a8a"
           height="16"
           viewBox="0 0 16 16"
           width="16"
@@ -123,7 +209,11 @@ exports[`renders menu for active type CHART and type REPORT_TABLE 1`] = `
       <span
         class="jsx-665727467 label"
       >
-        View as Map
+        <span
+          class="span"
+        >
+          View as Map
+        </span>
       </span>
     </a>
   </li>
@@ -143,7 +233,6 @@ exports[`renders menu for active type EVENT_CHART and type EVENT_REPORT 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          color="#6e7a8a"
           height="16"
           viewBox="0 0 16 16"
           width="16"
@@ -158,7 +247,11 @@ exports[`renders menu for active type EVENT_CHART and type EVENT_REPORT 1`] = `
       <span
         class="jsx-665727467 label"
       >
-        View as Table
+        <span
+          class="span"
+        >
+          View as Table
+        </span>
       </span>
     </a>
   </li>
@@ -178,7 +271,6 @@ exports[`renders menu for active type EVENT_REPORT and type EVENT_CHART 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          color="#6e7a8a"
           height="16"
           viewBox="0 0 16 16"
           width="16"
@@ -200,7 +292,11 @@ exports[`renders menu for active type EVENT_REPORT and type EVENT_CHART 1`] = `
       <span
         class="jsx-665727467 label"
       >
-        View as Chart
+        <span
+          class="span"
+        >
+          View as Chart
+        </span>
       </span>
     </a>
   </li>
@@ -220,7 +316,6 @@ exports[`renders menu for active type MAP and type CHART 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          color="#6e7a8a"
           height="16"
           viewBox="0 0 16 16"
           width="16"
@@ -242,7 +337,11 @@ exports[`renders menu for active type MAP and type CHART 1`] = `
       <span
         class="jsx-665727467 label"
       >
-        View as Chart
+        <span
+          class="span"
+        >
+          View as Chart
+        </span>
       </span>
     </a>
   </li>
@@ -257,7 +356,6 @@ exports[`renders menu for active type MAP and type CHART 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          color="#6e7a8a"
           height="16"
           viewBox="0 0 16 16"
           width="16"
@@ -272,7 +370,11 @@ exports[`renders menu for active type MAP and type CHART 1`] = `
       <span
         class="jsx-665727467 label"
       >
-        View as Table
+        <span
+          class="span"
+        >
+          View as Table
+        </span>
       </span>
     </a>
   </li>
@@ -281,83 +383,79 @@ exports[`renders menu for active type MAP and type CHART 1`] = `
 
 exports[`renders menu for active type MAP and type MAP without Thematic layer 1`] = `
 <div>
-  <span
-    class="jsx-611321200"
-    data-test="dhis2-uicore-tooltip-reference"
+  <li
+    class="jsx-665727467 dense"
+    data-test="dhis2-uicore-menuitem"
   >
-    <li
-      class="jsx-665727467 disabled dense"
-      data-test="dhis2-uicore-menuitem"
+    <a
+      class="jsx-665727467"
     >
-      <a
-        class="jsx-665727467"
+      <span
+        class="jsx-665727467 icon"
+      >
+        <svg
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            fill="currentColor"
+            fill-rule="evenodd"
+          >
+            <path
+              d="M0 0h1v15h15v1H0z"
+            />
+            <path
+              d="M16 8v7h-3V8zm-5-6v13H8V2zM6 4v11H3V4z"
+            />
+          </g>
+        </svg>
+      </span>
+      <span
+        class="jsx-665727467 label"
       >
         <span
-          class="jsx-665727467 icon"
-        >
-          <svg
-            color="#a0adba"
-            height="16"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="currentColor"
-              fill-rule="evenodd"
-            >
-              <path
-                d="M0 0h1v15h15v1H0z"
-              />
-              <path
-                d="M16 8v7h-3V8zm-5-6v13H8V2zM6 4v11H3V4z"
-              />
-            </g>
-          </svg>
-        </span>
-        <span
-          class="jsx-665727467 label"
+          class="span"
         >
           View as Chart
         </span>
-      </a>
-    </li>
-  </span>
-  <span
-    class="jsx-611321200"
-    data-test="dhis2-uicore-tooltip-reference"
+      </span>
+    </a>
+  </li>
+  <li
+    class="jsx-665727467 dense"
+    data-test="dhis2-uicore-menuitem"
   >
-    <li
-      class="jsx-665727467 disabled dense"
-      data-test="dhis2-uicore-menuitem"
+    <a
+      class="jsx-665727467"
     >
-      <a
-        class="jsx-665727467"
+      <span
+        class="jsx-665727467 icon"
+      >
+        <svg
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14 1a1 1 0 011 1v12a1 1 0 01-1 1H2a1 1 0 01-1-1V2a1 1 0 011-1zm-6.5 9H2v4h5.5zm6.5 0H8.5v4H14zM2 5v4h5.5V5zm12-3H2v2h12zM8.5 9H14V5H8.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        class="jsx-665727467 label"
       >
         <span
-          class="jsx-665727467 icon"
-        >
-          <svg
-            color="#a0adba"
-            height="16"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M14 1a1 1 0 011 1v12a1 1 0 01-1 1H2a1 1 0 01-1-1V2a1 1 0 011-1zm-6.5 9H2v4h5.5zm6.5 0H8.5v4H14zM2 5v4h5.5V5zm12-3H2v2h12zM8.5 9H14V5H8.5z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-        <span
-          class="jsx-665727467 label"
+          class="span"
         >
           View as Table
         </span>
-      </a>
-    </li>
-  </span>
+      </span>
+    </a>
+  </li>
 </div>
 `;
 
@@ -374,7 +472,6 @@ exports[`renders menu for active type REPORT_TABLE and type CHART 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          color="#6e7a8a"
           height="16"
           viewBox="0 0 16 16"
           width="16"
@@ -396,7 +493,11 @@ exports[`renders menu for active type REPORT_TABLE and type CHART 1`] = `
       <span
         class="jsx-665727467 label"
       >
-        View as Chart
+        <span
+          class="span"
+        >
+          View as Chart
+        </span>
       </span>
     </a>
   </li>
@@ -411,7 +512,6 @@ exports[`renders menu for active type REPORT_TABLE and type CHART 1`] = `
         class="jsx-665727467 icon"
       >
         <svg
-          color="#6e7a8a"
           height="16"
           viewBox="0 0 16 16"
           width="16"
@@ -426,7 +526,11 @@ exports[`renders menu for active type REPORT_TABLE and type CHART 1`] = `
       <span
         class="jsx-665727467 label"
       >
-        View as Map
+        <span
+          class="span"
+        >
+          View as Map
+        </span>
       </span>
     </a>
   </li>

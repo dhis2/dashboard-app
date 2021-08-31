@@ -30,6 +30,7 @@ Then('the dashboard is starred', () => {
 
     cy.get(dashboardChipSel)
         .contains(TEST_DASHBOARD_TITLE)
+        .parent()
         .siblings(chipStarSel)
         .first()
         .should('be.visible')
@@ -42,6 +43,7 @@ Then('the dashboard is not starred', () => {
 
     cy.get(dashboardChipSel)
         .contains(TEST_DASHBOARD_TITLE)
+        .parent()
         .siblings()
         .should('not.exist')
 })

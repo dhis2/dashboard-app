@@ -11,7 +11,6 @@ import {
     Button,
     Menu,
     Popover,
-    MenuItem,
     Divider,
     IconFullscreen16,
     IconFullscreenExit16,
@@ -28,6 +27,7 @@ import {
     getItemTypeForVis,
 } from '../../../../modules/itemTypes'
 import { isSmallScreen } from '../../../../modules/smallScreen'
+import MenuItem from '../../../MenuItemWithTooltip'
 import { useSystemSettings } from '../../../SystemSettingsProvider'
 import { useWindowDimensions } from '../../../WindowDimensionsProvider'
 import { isElementFullscreen } from '../isElementFullscreen'
@@ -122,7 +122,7 @@ const ItemContextMenu = props => {
                     arrow={false}
                     onClickOutside={closeMenu}
                 >
-                    <Menu>
+                    <Menu dense>
                         {canViewAs && !loadItemFailed && (
                             <>
                                 <ViewAsMenuItems
@@ -143,8 +143,7 @@ const ItemContextMenu = props => {
                         )}
                         {allowVisOpenInApp && !isSmallScreen(width) && (
                             <MenuItem
-                                dense
-                                icon={<IconLaunch16 color={colors.grey600} />}
+                                icon={<IconLaunch16 />}
                                 label={i18n.t('Open in {{appName}} app', {
                                     appName: getAppName(item.type),
                                 })}
@@ -154,18 +153,15 @@ const ItemContextMenu = props => {
                         )}
                         {allowVisShowInterpretations && !loadItemFailed && (
                             <MenuItem
-                                dense
-                                icon={<IconMessages16 color={colors.grey600} />}
+                                icon={<IconMessages16 />}
                                 label={interpretationMenuLabel}
                                 onClick={toggleInterpretations}
                             />
                         )}
                         {fullscreenAllowed && !loadItemFailed && (
                             <MenuItem
-                                dense
-                                icon={
-                                    <IconFullscreen16 color={colors.grey600} />
-                                }
+                                disabledWhenOffline={false}
+                                icon={<IconFullscreen16 />}
                                 label={i18n.t('View fullscreen')}
                                 onClick={toggleFullscreen}
                             />

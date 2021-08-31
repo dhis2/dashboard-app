@@ -16,35 +16,47 @@ exports[`renders Save and Discard buttons but not translation dialog when new da
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-3597138218 primary"
-            data-test="save-dashboard-button"
-            type="button"
+          <span
+            class="span"
           >
-            Save changes
-          </button>
+            <button
+              class="jsx-3597138218 primary"
+              data-test="save-dashboard-button"
+              type="button"
+            >
+              Save changes
+            </button>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-3597138218 "
-            data-test="dhis2-uicore-button"
-            type="button"
+          <span
+            class="span"
           >
-            Print preview
-          </button>
+            <button
+              class="jsx-3597138218 "
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Print preview
+            </button>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-3597138218 "
-            data-test="dhis2-uicore-button"
-            type="button"
+          <span
+            class="span"
           >
-            Filter settings
-          </button>
+            <button
+              class="jsx-3597138218 "
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Filter settings
+            </button>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
@@ -86,57 +98,77 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-3597138218 primary"
-            data-test="save-dashboard-button"
-            type="button"
+          <span
+            class="span"
           >
-            Save changes
-          </button>
+            <button
+              class="jsx-3597138218 primary"
+              data-test="save-dashboard-button"
+              type="button"
+            >
+              Save changes
+            </button>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-3597138218 "
-            data-test="dhis2-uicore-button"
-            type="button"
+          <span
+            class="span"
           >
-            Print preview
-          </button>
+            <button
+              class="jsx-3597138218 "
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Print preview
+            </button>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-3597138218 "
-            data-test="dhis2-uicore-button"
-            type="button"
+          <span
+            class="span"
           >
-            Filter settings
-          </button>
+            <button
+              class="jsx-3597138218 "
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Filter settings
+            </button>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-3597138218 "
-            data-test="dhis2-uicore-button"
-            type="button"
+          <span
+            class="span"
           >
-            Translate
-          </button>
+            <button
+              class="jsx-3597138218 "
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Translate
+            </button>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-3597138218 "
-            data-test="delete-dashboard-button"
-            type="button"
+          <span
+            class="span"
           >
-            Delete
-          </button>
+            <button
+              class="jsx-3597138218 "
+              data-test="delete-dashboard-button"
+              type="button"
+            >
+              Delete
+            </button>
+          </span>
         </div>
       </div>
       <button
@@ -194,46 +226,62 @@ exports[`renders the ActionsBar without Delete when no delete access 1`] = `
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-3597138218 primary"
-            data-test="save-dashboard-button"
-            type="button"
+          <span
+            class="span"
           >
-            Save changes
-          </button>
+            <button
+              class="jsx-3597138218 primary"
+              data-test="save-dashboard-button"
+              type="button"
+            >
+              Save changes
+            </button>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-3597138218 "
-            data-test="dhis2-uicore-button"
-            type="button"
+          <span
+            class="span"
           >
-            Print preview
-          </button>
+            <button
+              class="jsx-3597138218 "
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Print preview
+            </button>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-3597138218 "
-            data-test="dhis2-uicore-button"
-            type="button"
+          <span
+            class="span"
           >
-            Filter settings
-          </button>
+            <button
+              class="jsx-3597138218 "
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Filter settings
+            </button>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-3597138218 "
-            data-test="dhis2-uicore-button"
-            type="button"
+          <span
+            class="span"
           >
-            Translate
-          </button>
+            <button
+              class="jsx-3597138218 "
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Translate
+            </button>
+          </span>
         </div>
         <div
           class="jsx-71743532 box"

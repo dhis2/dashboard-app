@@ -1,8 +1,16 @@
+.itemFooter {
+    position: relative;
+}
+
 .line {
     margin: -1px 0px 0px;
     height: 1px;
     border: none;
     background-color: var(--colors-grey100);
+}
+
+.cover:hover {
+    cursor: not-allowed;
 }
 
 .scrollContainer {

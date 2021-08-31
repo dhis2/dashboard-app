@@ -1,11 +1,6 @@
+import { useOnlineStatus, useCacheableSection } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import {
-    Layer,
-    CenteredContent,
-    CircularLoader,
-    AlertStack,
-    AlertBar,
-} from '@dhis2/ui'
+import { AlertStack, AlertBar } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
@@ -13,9 +8,14 @@ import { connect } from 'react-redux'
 import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acSetPassiveViewRegistered } from '../../actions/passiveViewRegistered'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
-import { tSetSelectedDashboardById } from '../../actions/selected'
+import {
+    tSetSelectedDashboardById,
+    tSetSelectedDashboardByIdOffline,
+} from '../../actions/selected'
 import { apiPostDataStatistics } from '../../api/dataStatistics'
 import DashboardContainer from '../../components/DashboardContainer'
+import LoadingMask from '../../components/LoadingMask'
+import Notice from '../../components/Notice'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
 import { sGetDashboardById } from '../../reducers/dashboards'
 import { sGetPassiveViewRegistered } from '../../reducers/passiveViewRegistered'
@@ -29,6 +29,10 @@ import TitleBar from './TitleBar/TitleBar'
 const ViewDashboard = props => {
     const [controlbarExpanded, setControlbarExpanded] = useState(false)
     const [loadingMessage, setLoadingMessage] = useState(null)
+    const [loaded, setLoaded] = useState(false)
+    const [loadFailed, setLoadFailed] = useState(false)
+    const { online } = useOnlineStatus()
+    const { isCached, recordingState } = useCacheableSection(props.requestedId)
 
     useEffect(() => {
         setHeaderbarVisible(true)
@@ -37,30 +41,32 @@ const ViewDashboard = props => {
     }, [])
 
     useEffect(() => {
+        setLoaded(false)
+
         Array.from(
             document.getElementsByClassName('dashboard-scroll-container')
         ).forEach(container => {
             container.scroll(0, 0)
         })
-    }, [props.id])
+    }, [props.requestedId])
 
     useEffect(() => {
-        if (!props.passiveViewRegistered) {
-            apiPostDataStatistics('PASSIVE_DASHBOARD_VIEW', props.id).then(
-                () => {
+        if (!props.passiveViewRegistered && online) {
+            apiPostDataStatistics('PASSIVE_DASHBOARD_VIEW', props.requestedId)
+                .then(() => {
                     props.registerPassiveView()
-                }
-            )
+                })
+                .catch(error => console.info(error))
         }
     }, [props.passiveViewRegistered])
 
     useEffect(() => {
         const loadDashboard = async () => {
             const alertTimeout = setTimeout(() => {
-                if (props.name) {
+                if (props.requestedDashboardName) {
                     setLoadingMessage(
                         i18n.t('Loading dashboard – {{name}}', {
-                            name: props.name,
+                            name: props.requestedDashboardName,
                         })
                     )
                 } else {
@@ -68,18 +74,74 @@ const ViewDashboard = props => {
                 }
             }, 500)
 
-            await props.fetchDashboard(props.id, props.username)
+            try {
+                setLoaded(true)
+                await props.fetchDashboard(props.requestedId, props.username)
 
-            clearTimeout(alertTimeout)
-            setLoadingMessage(null)
+                setLoadFailed(false)
+                setLoadingMessage(null)
+                clearTimeout(alertTimeout)
+            } catch (e) {
+                setLoaded(false)
+                setLoadFailed(true)
+                setLoadingMessage(null)
+                clearTimeout(alertTimeout)
+                props.setSelectedAsOffline(props.requestedId, props.username)
+            }
         }
 
-        if (!props.dashboardLoaded) {
+        const requestedIsAvailable = online || isCached
+        const switchingDashboard = props.requestedId !== props.currentId
+        if (
+            requestedIsAvailable &&
+            (recordingState === 'recording' || !loaded)
+        ) {
             loadDashboard()
+        } else if (!requestedIsAvailable && switchingDashboard) {
+            setLoaded(false)
+            props.setSelectedAsOffline(props.requestedId, props.username)
         }
-    }, [props.id, props.dashboardLoaded])
+    }, [props.requestedId, props.currentId, loaded, recordingState, online])
 
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
+
+    const getContent = () => {
+        if (
+            !online &&
+            !isCached &&
+            (props.requestedId !== props.currentId || !loaded)
+        ) {
+            return (
+                <Notice
+                    title={i18n.t('Offline')}
+                    message={i18n.t(
+                        'This dashboard cannot be loaded while offline.'
+                    )}
+                />
+            )
+        }
+
+        if (loadFailed) {
+            return (
+                <Notice
+                    title={i18n.t('Load dashboard failed')}
+                    message={i18n.t(
+                        'This dashboard could not be loaded. Please try again later.'
+                    )}
+                />
+            )
+        }
+
+        return props.requestedId !== props.currentId ? (
+            <LoadingMask />
+        ) : (
+            <>
+                <TitleBar />
+                <FilterBar />
+                <ItemGrid />
+            </>
+        )
+    }
 
     return (
         <>
@@ -91,27 +153,15 @@ const ViewDashboard = props => {
                     expanded={controlbarExpanded}
                     onExpandedChanged={onExpandedChanged}
                 />
-                {!props.dashboardLoaded ? (
-                    <Layer translucent>
-                        <CenteredContent>
-                            <CircularLoader />
-                        </CenteredContent>
-                    </Layer>
-                ) : (
-                    <DashboardContainer covered={controlbarExpanded}>
-                        {controlbarExpanded && (
-                            <div
-                                className={classes.cover}
-                                onClick={() => setControlbarExpanded(false)}
-                            />
-                        )}
-                        <>
-                            <TitleBar />
-                            <FilterBar />
-                            <ItemGrid />
-                        </>
-                    </DashboardContainer>
-                )}
+                <DashboardContainer covered={controlbarExpanded}>
+                    {controlbarExpanded && (
+                        <div
+                            className={classes.cover}
+                            onClick={() => setControlbarExpanded(false)}
+                        />
+                    )}
+                    {getContent()}
+                </DashboardContainer>
             </div>
             <AlertStack>
                 {loadingMessage && (
@@ -130,22 +180,23 @@ const ViewDashboard = props => {
 ViewDashboard.propTypes = {
     clearEditDashboard: PropTypes.func,
     clearPrintDashboard: PropTypes.func,
-    dashboardLoaded: PropTypes.bool,
+    currentId: PropTypes.string,
     fetchDashboard: PropTypes.func,
-    id: PropTypes.string,
-    name: PropTypes.string,
     passiveViewRegistered: PropTypes.bool,
     registerPassiveView: PropTypes.func,
+    requestedDashboardName: PropTypes.string,
+    requestedId: PropTypes.string,
+    setSelectedAsOffline: PropTypes.func,
     username: PropTypes.string,
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const dashboard = sGetDashboardById(state, ownProps.id) || {}
+    const dashboard = sGetDashboardById(state, ownProps.requestedId) || {}
 
     return {
         passiveViewRegistered: sGetPassiveViewRegistered(state),
-        name: dashboard.displayName || null,
-        dashboardLoaded: sGetSelectedId(state) === ownProps.id,
+        requestedDashboardName: dashboard.displayName || null,
+        currentId: sGetSelectedId(state),
     }
 }
 
@@ -154,4 +205,5 @@ export default connect(mapStateToProps, {
     clearPrintDashboard: acClearPrintDashboard,
     registerPassiveView: acSetPassiveViewRegistered,
     fetchDashboard: tSetSelectedDashboardById,
+    setSelectedAsOffline: tSetSelectedDashboardByIdOffline,
 })(ViewDashboard)

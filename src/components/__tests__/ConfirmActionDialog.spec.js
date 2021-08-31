@@ -1,10 +1,7 @@
 /* eslint-disable react/prop-types */
 import { render } from '@testing-library/react'
 import React from 'react'
-import ConfirmActionDialog, {
-    ACTION_DELETE,
-    ACTION_DISCARD,
-} from '../ConfirmActionDialog'
+import ConfirmActionDialog from '../ConfirmActionDialog'
 
 jest.mock('@dhis2/ui', () => {
     const originalModule = jest.requireActual('@dhis2/ui')
@@ -21,8 +18,10 @@ jest.mock('@dhis2/ui', () => {
 test('ConfirmActionDialog renders confirm delete dialog', () => {
     const { container } = render(
         <ConfirmActionDialog
-            action={ACTION_DELETE}
-            dashboardName="Twilight Sparkle"
+            title="Delete dashboard"
+            message="Deleting dashboard Twilight Sparkle will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?"
+            cancelLabel="Cancel"
+            confirmLabel="Delete"
             onConfirm={jest.fn()}
             onCancel={jest.fn()}
             open={true}
@@ -34,7 +33,10 @@ test('ConfirmActionDialog renders confirm delete dialog', () => {
 test('ConfirmActionDialog renders discard changes dialog', () => {
     const { container } = render(
         <ConfirmActionDialog
-            action={ACTION_DISCARD}
+            title="Discard changes"
+            message="This dashboard has unsaved changes. Are you sure you want to leave and discard these unsaved changes?"
+            cancelLabel="No, stay here"
+            confirmLabel="Yes, discard changes"
             onConfirm={jest.fn()}
             onCancel={jest.fn()}
             open={true}
@@ -46,7 +48,6 @@ test('ConfirmActionDialog renders discard changes dialog', () => {
 test('ConfirmActionDialog does not render dialog if not open', () => {
     const { container } = render(
         <ConfirmActionDialog
-            action={ACTION_DISCARD}
             onConfirm={jest.fn()}
             onCancel={jest.fn()}
             open={false}

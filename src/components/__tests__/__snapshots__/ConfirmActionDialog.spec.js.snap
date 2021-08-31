@@ -18,7 +18,7 @@ exports[`ConfirmActionDialog renders confirm delete dialog 1`] = `
       <span
         class="content"
       >
-        Deleting dashboard "Twilight Sparkle" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?
+        Deleting dashboard Twilight Sparkle will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?
       </span>
     </div>
     <div

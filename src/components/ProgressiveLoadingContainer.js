@@ -13,12 +13,14 @@ class ProgressiveLoadingContainer extends Component {
         bufferFactor: PropTypes.number,
         className: PropTypes.string,
         debounceMs: PropTypes.number,
+        forceLoad: PropTypes.bool,
         itemId: PropTypes.string,
         style: PropTypes.object,
     }
     static defaultProps = {
         debounceMs: defaultDebounceMs,
         bufferFactor: defaultBufferFactor,
+        forceLoad: false,
     }
 
     state = {
@@ -34,17 +36,22 @@ class ProgressiveLoadingContainer extends Component {
             return
         }
 
+        // force load item regardless of its position
+        if (this.forceLoad && !this.state.shouldLoad) {
+            this.setState({ shouldLoad: true })
+            this.removeHandler()
+            return
+        }
+
         const bufferPx = this.props.bufferFactor * window.innerHeight
         const rect = this.containerRef.getBoundingClientRect()
 
+        // load item if it is near viewport
         if (
             rect.bottom > -bufferPx &&
             rect.top < window.innerHeight + bufferPx
         ) {
-            this.setState({
-                shouldLoad: true,
-            })
-
+            this.setState({ shouldLoad: true })
             this.removeHandler()
         }
     }
@@ -98,13 +105,20 @@ class ProgressiveLoadingContainer extends Component {
         this.checkShouldLoad()
     }
 
+    componentDidUpdate() {
+        if (this.props.forceLoad && !this.state.shouldLoad) {
+            this.checkShouldLoad()
+        }
+    }
+
     componentWillUnmount() {
         this.removeHandler()
     }
 
     render() {
         const { children, className, style, ...props } = this.props
-        const { shouldLoad } = this.state
+
+        const shouldLoad = this.state.shouldLoad || props.forceLoad
 
         const eventProps = pick(props, [
             'onMouseDown',

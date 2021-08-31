@@ -1,9 +1,10 @@
+import { CacheableSection } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import LoadingMask from '../../components/LoadingMask'
 import NoContentMessage from '../../components/NoContentMessage'
 import { getPreferredDashboardId } from '../../modules/localStorage'
 import {
@@ -23,13 +24,7 @@ const CacheableViewDashboard = ({
     const [dashboardsBarExpanded, setDashboardsBarExpanded] = useState(false)
 
     if (!dashboardsLoaded) {
-        return (
-            <Layer translucent>
-                <CenteredContent>
-                    <CircularLoader />
-                </CenteredContent>
-            </Layer>
-        )
+        return <LoadingMask />
     }
 
     if (dashboardsIsEmpty || id === null) {
@@ -54,7 +49,11 @@ const CacheableViewDashboard = ({
         )
     }
 
-    return <ViewDashboard id={id} username={username} />
+    return (
+        <CacheableSection id={id} loadingMask={<LoadingMask />}>
+            <ViewDashboard key={id} requestedId={id} username={username} />
+        </CacheableSection>
+    )
 }
 
 CacheableViewDashboard.propTypes = {

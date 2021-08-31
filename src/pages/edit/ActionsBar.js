@@ -1,4 +1,4 @@
-import { useDataEngine, useAlert } from '@dhis2/app-runtime'
+import { useOnlineStatus, useDataEngine, useAlert } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
@@ -17,16 +17,14 @@ import {
 } from '../../actions/editDashboard'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
 import { acClearSelected } from '../../actions/selected'
+import ConfirmActionDialog from '../../components/ConfirmActionDialog'
+import OfflineTooltip from '../../components/OfflineTooltip'
 import {
     sGetEditDashboardRoot,
     sGetIsPrintPreviewView,
     sGetEditIsDirty,
     sGetLayoutColumns,
 } from '../../reducers/editDashboard'
-import ConfirmActionDialog, {
-    ACTION_DELETE,
-    ACTION_DISCARD,
-} from './ConfirmActionDialog'
 import { deleteDashboardMutation } from './deleteDashboardMutation'
 import FilterSettingsDialog from './FilterSettingsDialog'
 import classes from './styles/ActionsBar.module.css'
@@ -42,6 +40,7 @@ const deleteFailedMessage = i18n.t(
 const EditBar = ({ dashboard, ...props }) => {
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
+    const { online } = useOnlineStatus()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
     const [filterSettingsDlgIsOpen, setFilterSettingsDlgIsOpen] =
         useState(false)
@@ -156,6 +155,7 @@ const EditBar = ({ dashboard, ...props }) => {
                 }
                 onTranslationSaved={Function.prototype}
                 insertTheme={true}
+                isOnline={online}
             />
         ) : null
 
@@ -173,29 +173,54 @@ const EditBar = ({ dashboard, ...props }) => {
 
     const renderActionButtons = () => (
         <ButtonStrip>
-            <Button primary onClick={onSave} dataTest="save-dashboard-button">
-                {i18n.t('Save changes')}
-            </Button>
-            <Button onClick={onPrintPreview}>
-                {props.isPrintPreviewView
-                    ? i18n.t('Exit Print preview')
-                    : i18n.t('Print preview')}
-            </Button>
-            <Button onClick={toggleFilterSettingsDialog}>
-                {i18n.t('Filter settings')}
-            </Button>
-            {dashboard.id && (
-                <Button onClick={toggleTranslationDialog}>
-                    {i18n.t('Translate')}
+            <OfflineTooltip
+                content={i18n.t('Cannot save this dashboard while offline')}
+            >
+                <Button
+                    disabled={!online}
+                    primary
+                    onClick={onSave}
+                    dataTest="save-dashboard-button"
+                >
+                    {i18n.t('Save changes')}
                 </Button>
+            </OfflineTooltip>
+            <OfflineTooltip>
+                <Button disabled={!online} onClick={onPrintPreview}>
+                    {props.isPrintPreviewView
+                        ? i18n.t('Exit Print preview')
+                        : i18n.t('Print preview')}
+                </Button>
+            </OfflineTooltip>
+            <OfflineTooltip>
+                <Button disabled={!online} onClick={toggleFilterSettingsDialog}>
+                    {i18n.t('Filter settings')}
+                </Button>
+            </OfflineTooltip>
+            {dashboard.id && (
+                <OfflineTooltip>
+                    <Button
+                        disabled={!online}
+                        onClick={toggleTranslationDialog}
+                    >
+                        {i18n.t('Translate')}
+                    </Button>
+                </OfflineTooltip>
             )}
             {dashboard.id && dashboard.access?.delete && (
-                <Button
-                    onClick={onConfirmDelete}
-                    dataTest="delete-dashboard-button"
+                <OfflineTooltip
+                    content={i18n.t(
+                        'Cannot delete this dashboard while offline'
+                    )}
                 >
-                    {i18n.t('Delete')}
-                </Button>
+                    <Button
+                        disabled={!online}
+                        onClick={onConfirmDelete}
+                        dataTest="delete-dashboard-button"
+                    >
+                        {i18n.t('Delete')}
+                    </Button>
+                </OfflineTooltip>
             )}
         </ButtonStrip>
     )
@@ -204,17 +229,15 @@ const EditBar = ({ dashboard, ...props }) => {
         return <Redirect to={redirectUrl} />
     }
 
-    const discardBtnText = dashboard.access?.update
-        ? i18n.t('Exit without saving')
-        : i18n.t('Go to dashboards')
-
     return (
         <>
             <div className={classes.editBar} data-test="edit-control-bar">
                 <div className={classes.controls}>
                     {dashboard.access?.update ? renderActionButtons() : null}
                     <Button secondary onClick={onConfirmDiscard}>
-                        {discardBtnText}
+                        {dashboard.access?.update
+                            ? i18n.t('Exit without saving')
+                            : i18n.t('Go to dashboards')}
                     </Button>
                 </div>
             </div>
@@ -222,15 +245,25 @@ const EditBar = ({ dashboard, ...props }) => {
             {dashboard.id && dashboard.access?.update && translationDialog()}
             {dashboard.id && dashboard.access?.delete && (
                 <ConfirmActionDialog
-                    action={ACTION_DELETE}
-                    dashboardName={dashboard.name}
+                    title={i18n.t('Delete dashboard')}
+                    message={i18n.t(
+                        'Deleting dashboard "{{ dashboardName }}" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?',
+                        { dashboardName: dashboard.name }
+                    )}
+                    cancelLabel={i18n.t('Cancel')}
+                    confirmLabel={i18n.t('Delete')}
                     onConfirm={onDeleteConfirmed}
                     onCancel={onContinueEditing}
                     open={confirmDeleteDlgIsOpen}
                 />
             )}
             <ConfirmActionDialog
-                action={ACTION_DISCARD}
+                title={i18n.t('Discard changes')}
+                message={i18n.t(
+                    'This dashboard has unsaved changes. Are you sure you want to leave and discard these unsaved changes?'
+                )}
+                cancelLabel={i18n.t('No, stay here')}
+                confirmLabel={i18n.t('Yes, discard changes')}
                 onConfirm={onDiscardConfirmed}
                 onCancel={onContinueEditing}
                 open={confirmDiscardDlgIsOpen}

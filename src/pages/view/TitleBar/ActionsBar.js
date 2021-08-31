@@ -1,8 +1,13 @@
-import { useDataEngine, useAlert } from '@dhis2/app-runtime'
+import {
+    useDataEngine,
+    useAlert,
+    useOnlineStatus,
+    useCacheableSection,
+} from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
-import { Button, FlyoutMenu, MenuItem, colors, IconMore24 } from '@dhis2/ui'
+import { Button, FlyoutMenu, colors, IconMore24 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
@@ -11,7 +16,10 @@ import { acSetDashboardStarred } from '../../../actions/dashboards'
 import { acClearItemFilters } from '../../../actions/itemFilters'
 import { acSetShowDescription } from '../../../actions/showDescription'
 import { apiPostShowDescription } from '../../../api/description'
+import ConfirmActionDialog from '../../../components/ConfirmActionDialog'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton'
+import MenuItem from '../../../components/MenuItemWithTooltip'
+import OfflineTooltip from '../../../components/OfflineTooltip'
 import { orObject } from '../../../modules/util'
 import { sGetDashboardStarred } from '../../../reducers/dashboards'
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
@@ -29,27 +37,60 @@ const ViewActions = ({
     starred,
     setDashboardStarred,
     updateShowDescription,
+    removeAllFilters,
     restrictFilters,
     allowedFilters,
+    filtersLength,
 }) => {
     const [moreOptionsSmallIsOpen, setMoreOptionsSmallIsOpen] = useState(false)
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
+    const [confirmCacheDialogIsOpen, setConfirmCacheDialogIsOpen] =
+        useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
     const { d2 } = useD2()
     const dataEngine = useDataEngine()
+    const { offline } = useOnlineStatus()
+    const { lastUpdated, isCached, startRecording, remove } =
+        useCacheableSection(id)
 
     const warningAlert = useAlert(({ msg }) => msg, {
         warning: true,
     })
 
-    const onToggleSharingDialog = () =>
-        setSharingDialogIsOpen(!sharingDialogIsOpen)
-
     const toggleMoreOptions = small =>
         small
             ? setMoreOptionsSmallIsOpen(!moreOptionsSmallIsOpen)
             : setMoreOptionsIsOpen(!moreOptionsIsOpen)
+
+    if (redirectUrl) {
+        return <Redirect to={redirectUrl} />
+    }
+
+    const onCacheDashboardConfirmed = () => {
+        setConfirmCacheDialogIsOpen(false)
+        removeAllFilters()
+        startRecording({})
+    }
+
+    const onToggleOfflineStatus = () => {
+        toggleMoreOptions()
+
+        if (lastUpdated) {
+            return remove()
+        }
+
+        return filtersLength
+            ? setConfirmCacheDialogIsOpen(true)
+            : startRecording({})
+    }
+
+    const onUpdateOfflineCache = () => {
+        toggleMoreOptions()
+        return filtersLength
+            ? setConfirmCacheDialogIsOpen(true)
+            : startRecording({})
+    }
 
     const onToggleShowDescription = () =>
         apiPostShowDescription(!showDescription)
@@ -79,12 +120,34 @@ const ViewActions = ({
                 warningAlert.show({ msg })
             })
 
+    const onToggleSharingDialog = () =>
+        setSharingDialogIsOpen(!sharingDialogIsOpen)
+
     const userAccess = orObject(access)
 
     const getMoreMenu = () => (
         <FlyoutMenu>
             <MenuItem
                 dense
+                disabled={offline}
+                label={
+                    lastUpdated
+                        ? i18n.t('Remove from offline storage')
+                        : i18n.t('Make available offline')
+                }
+                onClick={onToggleOfflineStatus}
+            />
+            {lastUpdated && (
+                <MenuItem
+                    dense
+                    label={i18n.t('Sync offline data now')}
+                    disabled={offline}
+                    onClick={onUpdateOfflineCache}
+                />
+            )}
+            <MenuItem
+                dense
+                disabled={offline}
                 label={
                     starred
                         ? i18n.t('Unstar dashboard')
@@ -94,6 +157,7 @@ const ViewActions = ({
             />
             <MenuItem
                 dense
+                disabled={offline}
                 label={
                     showDescription
                         ? i18n.t('Hide description')
@@ -101,7 +165,12 @@ const ViewActions = ({
                 }
                 onClick={onToggleShowDescription}
             />
-            <MenuItem dense label={i18n.t('Print')} dataTest="print-menu-item">
+            <MenuItem
+                dense
+                disabled={offline && !isCached}
+                label={i18n.t('Print')}
+                dataTest="print-menu-item"
+            >
                 <MenuItem
                     dense
                     label={i18n.t('Dashboard layout')}
@@ -122,18 +191,15 @@ const ViewActions = ({
         <DropdownButton
             className={className}
             small={useSmall}
+            open={useSmall ? moreOptionsSmallIsOpen : moreOptionsIsOpen}
+            disabledWhenOffline={false}
             onClick={() => toggleMoreOptions(useSmall)}
             icon={<IconMore24 color={colors.grey700} />}
             component={getMoreMenu()}
-            open={useSmall ? moreOptionsSmallIsOpen : moreOptionsIsOpen}
         >
             {i18n.t('More')}
         </DropdownButton>
     )
-
-    if (redirectUrl) {
-        return <Redirect to={redirectUrl} />
-    }
 
     return (
         <>
@@ -144,20 +210,26 @@ const ViewActions = ({
                 />
                 <div className={classes.strip}>
                     {userAccess.update ? (
-                        <Button
-                            className={classes.editButton}
-                            onClick={() => setRedirectUrl(`${id}/edit`)}
-                        >
-                            {i18n.t('Edit')}
-                        </Button>
+                        <OfflineTooltip>
+                            <Button
+                                disabled={offline}
+                                className={classes.editButton}
+                                onClick={() => setRedirectUrl(`${id}/edit`)}
+                            >
+                                {i18n.t('Edit')}
+                            </Button>
+                        </OfflineTooltip>
                     ) : null}
                     {userAccess.manage ? (
-                        <Button
-                            className={classes.shareButton}
-                            onClick={onToggleSharingDialog}
-                        >
-                            {i18n.t('Share')}
-                        </Button>
+                        <OfflineTooltip>
+                            <Button
+                                disabled={offline}
+                                className={classes.shareButton}
+                                onClick={onToggleSharingDialog}
+                            >
+                                {i18n.t('Share')}
+                            </Button>
+                        </OfflineTooltip>
                     ) : null}
                     <FilterSelector
                         allowedFilters={allowedFilters}
@@ -175,8 +247,21 @@ const ViewActions = ({
                     onRequestClose={onToggleSharingDialog}
                     open={sharingDialogIsOpen}
                     insertTheme={true}
+                    isOffline={offline}
+                    offlineMessage={i18n.t('Not available offline')}
                 />
             )}
+            <ConfirmActionDialog
+                title={i18n.t('Clear dashboard filters?')}
+                message={i18n.t(
+                    "A dashboard's filters can’t be saved offline. Do you want to remove the filters and make this dashboard available offline?"
+                )}
+                cancelLabel={i18n.t('No, cancel')}
+                confirmLabel={i18n.t('Yes, clear filters and sync')}
+                onConfirm={onCacheDashboardConfirmed}
+                onCancel={() => setConfirmCacheDialogIsOpen(false)}
+                open={confirmCacheDialogIsOpen}
+            />
         </>
     )
 }
@@ -184,7 +269,9 @@ const ViewActions = ({
 ViewActions.propTypes = {
     access: PropTypes.object,
     allowedFilters: PropTypes.array,
+    filtersLength: PropTypes.number,
     id: PropTypes.string,
+    removeAllFilters: PropTypes.func,
     restrictFilters: PropTypes.bool,
     setDashboardStarred: PropTypes.func,
     showDescription: PropTypes.bool,

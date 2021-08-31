@@ -1,5 +1,6 @@
+import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { Button, Tooltip, colors, IconAdd24 } from '@dhis2/ui'
+import { Button, ComponentCover, Tooltip, IconAdd24 } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
@@ -23,6 +24,7 @@ const Content = ({
     onSearchClicked,
 }) => {
     const [redirectUrl, setRedirectUrl] = useState(null)
+    const { offline } = useOnlineStatus()
 
     const onSelectDashboard = () => {
         const id = getFilteredDashboards(dashboards, filterText)[0]?.id
@@ -32,7 +34,9 @@ const Content = ({
     }
 
     const enterNewMode = () => {
-        setRedirectUrl('/new')
+        if (!offline) {
+            setRedirectUrl('/new')
+        }
     }
 
     const getChips = () =>
@@ -58,22 +62,38 @@ const Content = ({
     )
 
     const getControlsLarge = () => (
-        <span className={classes.controlsLarge}>
-            <Tooltip content={i18n.t('Create a new dashboard')}>
-                <Button
-                    className={classes.newButton}
-                    small
-                    icon={<IconAdd24 color={colors.grey600} />}
-                    onClick={enterNewMode}
-                    dataTest="new-button"
-                />
-            </Tooltip>
+        <div className={classes.controlsLarge}>
+            <div className={classes.buttonPadding}>
+                <div className={classes.buttonPosition}>
+                    <Tooltip
+                        content={
+                            offline
+                                ? i18n.t(
+                                      'Cannot create a dashboard while offline'
+                                  )
+                                : i18n.t('Create new dashboard')
+                        }
+                        closeDelay={100}
+                        openDelay={400}
+                    >
+                        <Button
+                            className={classes.newButton}
+                            disabled={offline}
+                            small
+                            icon={<IconAdd24 />}
+                            onClick={enterNewMode}
+                            dataTest="new-button"
+                        />
+                        {offline && <ComponentCover />}
+                    </Tooltip>
+                </div>
+            </div>
             <Filter
                 onKeypressEnter={onSelectDashboard}
                 onSearchClicked={onSearchClicked}
                 expanded={expanded}
             />
-        </span>
+        </div>
     )
 
     if (redirectUrl) {

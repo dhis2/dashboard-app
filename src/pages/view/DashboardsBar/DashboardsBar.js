@@ -1,5 +1,12 @@
+import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useState, useRef, useEffect, createRef } from 'react'
+import React, {
+    useState,
+    useRef,
+    useEffect,
+    useCallback,
+    createRef,
+} from 'react'
 import { connect } from 'react-redux'
 import { acSetControlBarUserRows } from '../../../actions/controlBar'
 import { apiPostControlBarRows } from '../../../api/controlBar'
@@ -70,23 +77,26 @@ const DashboardsBar = ({
         }
     }
 
-    const toggleExpanded = () => {
+    const memoizedToggleExpanded = useCallback(() => {
         if (expanded) {
-            cancelExpanded()
+            memoizedCancelExpanded()
         } else {
             scrollToTop()
             onExpandedChanged(!expanded)
         }
-    }
+    }, [expanded])
 
-    const cancelExpanded = () => {
+    const memoizedCancelExpanded = useCallback(() => {
         scrollToTop()
         onExpandedChanged(false)
-    }
+    }, [])
 
     return (
         <div
-            className={expanded ? classes.expanded : classes.collapsed}
+            className={cx(
+                classes.bar,
+                expanded ? classes.expanded : classes.collapsed
+            )}
             data-test="dashboards-bar"
         >
             <div
@@ -95,13 +105,13 @@ const DashboardsBar = ({
             >
                 <div className={classes.content} ref={ref}>
                     <Content
-                        onChipClicked={cancelExpanded}
-                        onSearchClicked={toggleExpanded}
+                        onChipClicked={memoizedCancelExpanded}
+                        onSearchClicked={memoizedToggleExpanded}
                         expanded={expanded}
                     />
                 </div>
                 <ShowMoreButton
-                    onClick={toggleExpanded}
+                    onClick={memoizedToggleExpanded}
                     dashboardBarIsExpanded={expanded}
                     disabled={!expanded && userRows === MAX_ROW_COUNT}
                 />
@@ -123,7 +133,6 @@ DashboardsBar.propTypes = {
 }
 
 DashboardsBar.defaultProps = {
-    expanded: false,
     onExpandedChanged: Function.prototype,
 }
 

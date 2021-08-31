@@ -26,36 +26,47 @@ export const acClearSelected = () => ({
 
 // thunks
 export const tSetSelectedDashboardById =
-    (id, username) => (dispatch, getState, dataEngine) => {
-        return apiFetchDashboard(dataEngine, id, { mode: VIEW }).then(
-            dashboard => {
-                //add the dashboard to the list of dashboards if not already there
-                dispatch(
-                    acAppendDashboards([
-                        {
-                            id: dashboard.id,
-                            displayName: dashboard.displayName,
-                            starred: dashboard.starred,
-                        },
-                    ])
-                )
-
-                if (username) {
-                    storePreferredDashboardId(username, id)
-                }
-
-                if (id !== sGetSelectedId(getState())) {
-                    dispatch(acClearItemFilters())
-                    dispatch(acClearVisualizations())
-                    dispatch(acClearItemActiveTypes())
-                }
-
-                dashboard.dashboardItems.some(item => item.type === MESSAGES) &&
-                    dispatch(tGetMessages(dataEngine))
-
-                dispatch(acSetSelected(dashboard))
-
-                return dashboard
-            }
+    (id, username) => async (dispatch, getState, dataEngine) => {
+        const dashboard = await apiFetchDashboard(dataEngine, id, {
+            mode: VIEW,
+        })
+        dispatch(
+            acAppendDashboards([
+                {
+                    id: dashboard.id,
+                    displayName: dashboard.displayName,
+                    starred: dashboard.starred,
+                },
+            ])
         )
+
+        if (username) {
+            storePreferredDashboardId(username, id)
+        }
+
+        if (id !== sGetSelectedId(getState())) {
+            dispatch(acClearItemFilters())
+            dispatch(acClearVisualizations())
+            dispatch(acClearItemActiveTypes())
+        }
+
+        dashboard.dashboardItems.some(item => item.type === MESSAGES) &&
+            dispatch(tGetMessages(dataEngine))
+
+        dispatch(acSetSelected(dashboard))
+    }
+
+export const tSetSelectedDashboardByIdOffline =
+    (id, username) => (dispatch, getState) => {
+        if (username) {
+            storePreferredDashboardId(username, id)
+        }
+
+        if (id !== sGetSelectedId(getState())) {
+            dispatch(acClearItemFilters())
+            dispatch(acClearVisualizations())
+            dispatch(acClearItemActiveTypes())
+        }
+
+        dispatch(acSetSelected({ id }))
     }

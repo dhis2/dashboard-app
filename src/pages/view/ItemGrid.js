@@ -1,3 +1,4 @@
+import { useCacheableSection } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -23,18 +24,23 @@ import {
     getProportionalHeight,
 } from '../../modules/gridUtil'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen'
-import { sGetSelectedDashboardItems } from '../../reducers/selected'
+import {
+    sGetSelectedId,
+    sGetSelectedDashboardItems,
+} from '../../reducers/selected'
 import classes from './styles/ItemGrid.module.css'
 
 const EXPANDED_HEIGHT = 17
 const EXPANDED_HEIGHT_SM = 13
 
-const ResponsiveItemGrid = ({ dashboardItems }) => {
+const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
     const { width } = useWindowDimensions()
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
     const [layoutSm, setLayoutSm] = useState([])
     const [gridWidth, setGridWidth] = useState(0)
+    const [forceLoad, setForceLoad] = useState(false)
+    const { recordingState } = useCacheableSection(dashboardId)
 
     useEffect(() => {
         setLayoutSm(
@@ -42,6 +48,12 @@ const ResponsiveItemGrid = ({ dashboardItems }) => {
         )
         setDisplayItems(getItemsWithAdjustedHeight(dashboardItems))
     }, [expandedItems, width, dashboardItems])
+
+    useEffect(() => {
+        if (recordingState === 'recording') {
+            setForceLoad(true)
+        }
+    }, [recordingState])
 
     const onToggleItemExpanded = clickedId => {
         const isExpanded =
@@ -85,6 +97,7 @@ const ResponsiveItemGrid = ({ dashboardItems }) => {
                     getGridItemDomElementClassName(item.id)
                 )}
                 itemId={item.id}
+                forceLoad={forceLoad}
             >
                 <Item
                     item={item}
@@ -137,11 +150,13 @@ const ResponsiveItemGrid = ({ dashboardItems }) => {
 }
 
 ResponsiveItemGrid.propTypes = {
+    dashboardId: PropTypes.string,
     dashboardItems: PropTypes.array,
 }
 
 const mapStateToProps = state => ({
     dashboardItems: sGetSelectedDashboardItems(state),
+    dashboardId: sGetSelectedId(state),
 })
 
 export default connect(mapStateToProps)(ResponsiveItemGrid)

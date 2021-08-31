@@ -1,4 +1,5 @@
 import { DimensionsPanel } from '@dhis2/analytics'
+import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Card, colors, IconFilter24 } from '@dhis2/ui'
 import isEmpty from 'lodash/isEmpty'
@@ -19,6 +20,7 @@ import classes from './styles/FilterSelector.module.css'
 const FilterSelector = props => {
     const [filterDialogIsOpen, setFilterDialogIsOpen] = useState(false)
     const dimensions = useDimensions(filterDialogIsOpen)
+    const { offline } = useOnlineStatus()
 
     const toggleFilterDialogIsOpen = () =>
         setFilterDialogIsOpen(!filterDialogIsOpen)
@@ -61,6 +63,7 @@ const FilterSelector = props => {
             <span className={classes.buttonContainer}>
                 <DropdownButton
                     open={filterDialogIsOpen}
+                    disabled={offline}
                     onClick={toggleFilterDialogIsOpen}
                     icon={<IconFilter24 color={colors.grey700} />}
                     component={getFilterSelector()}

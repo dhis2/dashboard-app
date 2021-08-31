@@ -8,6 +8,14 @@ import { apiPostDataStatistics } from '../../../api/dataStatistics'
 import { apiFetchDashboard } from '../../../api/fetchDashboard'
 import ViewDashboard from '../ViewDashboard'
 
+jest.mock('@dhis2/app-runtime', () => ({
+    useOnlineStatus: jest.fn(() => ({ online: true })),
+    useCacheableSection: jest.fn(() => ({
+        isCached: false,
+        recordingState: 'default',
+    })),
+}))
+
 jest.mock('../../../api/fetchDashboard')
 
 jest.mock(
@@ -17,6 +25,7 @@ jest.mock(
             return <div>DashboardsBar</div>
         }
 )
+
 jest.mock(
     '../TitleBar/TitleBar',
     () =>
@@ -79,7 +88,7 @@ test('ViewDashboard renders dashboard', async () => {
         <>
             <header />
             <Provider store={mockStore(store)}>
-                <ViewDashboard id={dashboardId} />
+                <ViewDashboard requestedId={dashboardId} />
             </Provider>
         </>
     )

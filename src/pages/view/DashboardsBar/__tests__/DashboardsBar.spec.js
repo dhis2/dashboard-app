@@ -25,6 +25,14 @@ const dashboards = {
     },
 }
 
+jest.mock('@dhis2/app-runtime', () => ({
+    useOnlineStatus: () => ({ online: true }),
+    useCacheableSection: jest.fn(() => ({
+        isCached: false,
+        recordingState: 'default',
+    })),
+}))
+
 test('renders a DashboardsBar with minimum height', () => {
     const store = {
         dashboards,

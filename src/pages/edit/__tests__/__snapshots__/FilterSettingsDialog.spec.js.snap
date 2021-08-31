@@ -143,13 +143,17 @@ exports[`renders correctly when filters are not restricted 1`] = `
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-3597138218 primary"
-            data-test="dhis2-uicore-button"
-            type="button"
+          <span
+            class="span"
           >
-            Confirm
-          </button>
+            <button
+              class="jsx-3597138218 primary"
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Confirm
+            </button>
+          </span>
         </div>
       </div>
     </div>
@@ -305,13 +309,17 @@ exports[`renders correctly when filters are restricted 1`] = `
         <div
           class="jsx-71743532 box"
         >
-          <button
-            class="jsx-3597138218 primary"
-            data-test="dhis2-uicore-button"
-            type="button"
+          <span
+            class="span"
           >
-            Confirm
-          </button>
+            <button
+              class="jsx-3597138218 primary"
+              data-test="dhis2-uicore-button"
+              type="button"
+            >
+              Confirm
+            </button>
+          </span>
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
@@ -17,6 +18,8 @@ const MapPlugin = ({
     itemFilters,
     ...props
 }) => {
+    const { offline } = useOnlineStatus()
+
     useEffect(() => {
         const resizeMap = async (id, isFullscreen) => {
             const plugin = await getPlugin(MAP)
@@ -29,6 +32,15 @@ const MapPlugin = ({
 
     // The function returned from this effect is run when this component unmounts
     useEffect(() => () => unmount(props.item, MAP), [])
+
+    useEffect(() => {
+        const setMapOfflineStatus = async offlineStatus => {
+            const plugin = await getPlugin(MAP)
+            plugin?.setOfflineStatus && plugin.setOfflineStatus(offlineStatus)
+        }
+
+        setMapOfflineStatus(offline)
+    }, [offline])
 
     const getVisualization = () => {
         if (props.item.type === MAP) {
