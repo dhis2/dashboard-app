@@ -10,8 +10,7 @@ export const getVisualizationFromItem = item => {
 
     return (
         item[propName] ||
-        item.reportTable ||
-        item.chart ||
+        item.visualization ||
         item.map ||
         item.eventReport ||
         item.eventChart ||
