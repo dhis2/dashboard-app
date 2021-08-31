@@ -13,7 +13,10 @@ import {
 } from '../../../modules/dashboardModes'
 import { getItemHeightPx } from '../../../modules/gridUtil'
 import { getVisualizationId, getVisualizationName } from '../../../modules/item'
-import { getDataStatisticsName } from '../../../modules/itemTypes'
+import {
+    getDataStatisticsName,
+    getItemTypeForVis,
+} from '../../../modules/itemTypes'
 import { sGetIsEditing } from '../../../reducers/editDashboard'
 import { sGetItemActiveType } from '../../../reducers/itemActiveTypes'
 import {
@@ -128,9 +131,9 @@ class Item extends Component {
 
     getActiveType = () => {
         if (this.props.isEditing) {
-            return this.props.item.type
+            return getItemTypeForVis(this.props.item)
         }
-        return this.props.activeType || this.props.item.type
+        return this.props.activeType || getItemTypeForVis(this.props.item)
     }
 
     getAvailableHeight = ({ width, height }) => {

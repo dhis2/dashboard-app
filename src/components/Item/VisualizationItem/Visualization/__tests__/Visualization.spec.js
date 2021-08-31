@@ -57,8 +57,8 @@ test('renders a VisualizationPlugin for CHART', () => {
             <Visualization
                 item={{
                     id: 'rainbow',
-                    type: 'CHART',
-                    chart: { id: 'rainbowVis' },
+                    type: 'VISUALIZATION',
+                    visualization: { id: 'rainbowVis', type: 'BAR' },
                 }}
                 activeType="CHART"
                 itemFilters={{}}
@@ -75,8 +75,8 @@ test('renders a VisualizationPlugin for REPORT_TABLE', () => {
             <Visualization
                 item={{
                     id: 'rainbow',
-                    type: 'REPORT_TABLE',
-                    reportTable: { id: 'rainbowVis' },
+                    type: 'VISUALIZATION',
+                    visualization: { id: 'rainbowVis', type: 'PIVOT_TABLE' },
                 }}
                 activeType="REPORT_TABLE"
                 itemFilters={{}}
@@ -93,8 +93,8 @@ test('renders active type MAP rather than original type REPORT_TABLE', () => {
             <Visualization
                 item={{
                     id: 'rainbow',
-                    type: 'REPORT_TABLE',
-                    reportTable: { id: 'rainbowVis' },
+                    type: 'VISUALIZATION',
+                    visualization: { id: 'rainbowVis', type: 'PIVOT_TABLE' },
                 }}
                 activeType="MAP"
                 itemFilters={{}}
@@ -130,7 +130,7 @@ test('renders a DefaultPlugin when activeType is EVENT_CHART', () => {
                 item={{
                     id: 'rainbow',
                     type: 'EVENT_CHART',
-                    chart: { id: 'rainbowVis' },
+                    eventChart: { id: 'rainbowVis' },
                 }}
                 activeType="EVENT_CHART"
                 itemFilters={{}}
@@ -148,7 +148,7 @@ test('renders a DefaultPlugin when activeType is EVENT_REPORT', () => {
                 item={{
                     id: 'rainbow',
                     type: 'EVENT_REPORT',
-                    chart: { id: 'rainbowVis' },
+                    eventReport: { id: 'rainbowVis' },
                 }}
                 activeType="EVENT_REPORT"
                 itemFilters={{}}
@@ -166,7 +166,11 @@ test('renders NoVisMessage when no visualization', () => {
     const { container } = render(
         <Provider store={mockStore(store)}>
             <Visualization
-                item={{ id: 'rainbow' }}
+                item={{
+                    id: 'rainbow',
+                    type: 'VISUALIZATION',
+                    visualization: { type: 'BAR' },
+                }}
                 activeType="CHART"
                 itemFilters={{}}
                 availableHeight={500}
