@@ -4,10 +4,7 @@ import { connect } from 'react-redux'
 
 import HeaderMenuItem from './HeaderMenuItem'
 import ContentMenuItem from './ContentMenuItem'
-import {
-    // acAddDashboardItem,
-    tSetDashboardItems,
-} from '../../../actions/editDashboard'
+import { tSetDashboardItems } from '../../../actions/editDashboard'
 
 const SinglesMenuGroup = ({ onAddItem, category }) => {
     const addToDashboard = ({ type, content }) => () => {
@@ -30,7 +27,6 @@ const SinglesMenuGroup = ({ onAddItem, category }) => {
 }
 
 SinglesMenuGroup.propTypes = {
-    // acAddDashboardItem: PropTypes.func,
     category: PropTypes.object,
     onAddItem: PropTypes.func,
 }
