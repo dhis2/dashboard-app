@@ -2,14 +2,14 @@
 
 exports[`TitleBar renders correctly when no name or description 1`] = `
 <div>
-  <section
-    class="section"
+  <div
+    class="container"
   >
     <div
-      class="titleDescription"
+      class="inputWrapper"
     >
       <div
-        class="jsx-1141087211 title"
+        class="jsx-1141087211 "
         data-test="dashboard-title-input"
       >
         <label
@@ -51,7 +51,7 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
         </div>
       </div>
       <div
-        class="jsx-1141087211 description"
+        class="jsx-1141087211 "
         data-test="dashboard-description-input"
       >
         <label
@@ -92,26 +92,164 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
       </div>
     </div>
     <div
-      class="itemSelector"
+      class="searchContainer"
     >
       <div
-        class="item-selector"
-      />
+        class="layoutWrapper"
+      >
+        <p
+          class="label"
+        >
+          Layout
+        </p>
+        <div
+          class="layoutOption"
+        >
+          <svg
+            height="42"
+            viewBox="0 0 42 42"
+            width="42"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m42 33v9h-42v-9zm-31-12v7h-11v-7zm15 0v7h-11v-7zm16-21v28h-10v-28zm-16 0v16h-26v-16z"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <span
+            class="layoutValue"
+          >
+            Freeflow
+          </span>
+          <button
+            class="jsx-3597138218 small"
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Change layout
+          </button>
+        </div>
+      </div>
+      <div
+        class="positionWrapper"
+      >
+        <p
+          class="label"
+        >
+          Add new items to
+        </p>
+        <div
+          class="positionOptions"
+        >
+          <label
+            class="jsx-1176042981 dense"
+            data-test="dhis2-uicore-radio"
+          >
+            <input
+              checked=""
+              class="jsx-1176042981"
+              name="END"
+              type="radio"
+              value=""
+            />
+            <div
+              class="jsx-1176042981 icon dense"
+            >
+              <svg
+                class="jsx-1659897952 jsx-1631270792 checked"
+                viewBox="0 0 14 14"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  class="jsx-1659897952 jsx-1631270792 background"
+                  cx="7"
+                  cy="7"
+                  r="7"
+                />
+                <path
+                  class="jsx-1659897952 jsx-1631270792 outer unchecked"
+                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,13 C3.6862915,13 1,10.3137085 1,7 C1,3.6862915 3.6862915,1 7,1 C10.3137085,1 13,3.6862915 13,7 C13,10.3137085 10.3137085,13 7,13 Z"
+                />
+                <path
+                  class="jsx-1659897952 jsx-1631270792 outer checked"
+                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,12 C4.23857625,12 2,9.76142375 2,7 C2,4.23857625 4.23857625,2 7,2 C9.76142375,2 12,4.23857625 12,7 C12,9.76142375 9.76142375,12 7,12 Z"
+                />
+                <circle
+                  class="jsx-1659897952 jsx-1631270792 inner"
+                  cx="7"
+                  cy="7"
+                  r="3"
+                />
+              </svg>
+            </div>
+            End of dashboard
+          </label>
+          <label
+            class="jsx-1176042981 dense"
+            data-test="dhis2-uicore-radio"
+          >
+            <input
+              class="jsx-1176042981"
+              name="START"
+              type="radio"
+              value=""
+            />
+            <div
+              class="jsx-1176042981 icon dense"
+            >
+              <svg
+                class="jsx-1659897952 jsx-1631270792 "
+                viewBox="0 0 14 14"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  class="jsx-1659897952 jsx-1631270792 background"
+                  cx="7"
+                  cy="7"
+                  r="7"
+                />
+                <path
+                  class="jsx-1659897952 jsx-1631270792 outer unchecked"
+                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,13 C3.6862915,13 1,10.3137085 1,7 C1,3.6862915 3.6862915,1 7,1 C10.3137085,1 13,3.6862915 13,7 C13,10.3137085 10.3137085,13 7,13 Z"
+                />
+                <path
+                  class="jsx-1659897952 jsx-1631270792 outer checked"
+                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,12 C4.23857625,12 2,9.76142375 2,7 C2,4.23857625 4.23857625,2 7,2 C9.76142375,2 12,4.23857625 12,7 C12,9.76142375 9.76142375,12 7,12 Z"
+                />
+                <circle
+                  class="jsx-1659897952 jsx-1631270792 inner"
+                  cx="7"
+                  cy="7"
+                  r="3"
+                />
+              </svg>
+            </div>
+            Start of dashboard
+          </label>
+        </div>
+      </div>
+      <div
+        class="searchWrapper"
+      >
+        <div
+          class="item-selector"
+        />
+      </div>
     </div>
-  </section>
+  </div>
 </div>
 `;
 
 exports[`TitleBar renders correctly with name and description 1`] = `
 <div>
-  <section
-    class="section"
+  <div
+    class="container"
   >
     <div
-      class="titleDescription"
+      class="inputWrapper"
     >
       <div
-        class="jsx-1141087211 title"
+        class="jsx-1141087211 "
         data-test="dashboard-title-input"
       >
         <label
@@ -153,7 +291,7 @@ exports[`TitleBar renders correctly with name and description 1`] = `
         </div>
       </div>
       <div
-        class="jsx-1141087211 description"
+        class="jsx-1141087211 "
         data-test="dashboard-description-input"
       >
         <label
@@ -196,12 +334,150 @@ exports[`TitleBar renders correctly with name and description 1`] = `
       </div>
     </div>
     <div
-      class="itemSelector"
+      class="searchContainer"
     >
       <div
-        class="item-selector"
-      />
+        class="layoutWrapper"
+      >
+        <p
+          class="label"
+        >
+          Layout
+        </p>
+        <div
+          class="layoutOption"
+        >
+          <svg
+            height="42"
+            viewBox="0 0 42 42"
+            width="42"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m42 33v9h-42v-9zm-31-12v7h-11v-7zm15 0v7h-11v-7zm16-21v28h-10v-28zm-16 0v16h-26v-16z"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <span
+            class="layoutValue"
+          >
+            Freeflow
+          </span>
+          <button
+            class="jsx-3597138218 small"
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Change layout
+          </button>
+        </div>
+      </div>
+      <div
+        class="positionWrapper"
+      >
+        <p
+          class="label"
+        >
+          Add new items to
+        </p>
+        <div
+          class="positionOptions"
+        >
+          <label
+            class="jsx-1176042981 dense"
+            data-test="dhis2-uicore-radio"
+          >
+            <input
+              checked=""
+              class="jsx-1176042981"
+              name="END"
+              type="radio"
+              value=""
+            />
+            <div
+              class="jsx-1176042981 icon dense"
+            >
+              <svg
+                class="jsx-1659897952 jsx-1631270792 checked"
+                viewBox="0 0 14 14"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  class="jsx-1659897952 jsx-1631270792 background"
+                  cx="7"
+                  cy="7"
+                  r="7"
+                />
+                <path
+                  class="jsx-1659897952 jsx-1631270792 outer unchecked"
+                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,13 C3.6862915,13 1,10.3137085 1,7 C1,3.6862915 3.6862915,1 7,1 C10.3137085,1 13,3.6862915 13,7 C13,10.3137085 10.3137085,13 7,13 Z"
+                />
+                <path
+                  class="jsx-1659897952 jsx-1631270792 outer checked"
+                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,12 C4.23857625,12 2,9.76142375 2,7 C2,4.23857625 4.23857625,2 7,2 C9.76142375,2 12,4.23857625 12,7 C12,9.76142375 9.76142375,12 7,12 Z"
+                />
+                <circle
+                  class="jsx-1659897952 jsx-1631270792 inner"
+                  cx="7"
+                  cy="7"
+                  r="3"
+                />
+              </svg>
+            </div>
+            End of dashboard
+          </label>
+          <label
+            class="jsx-1176042981 dense"
+            data-test="dhis2-uicore-radio"
+          >
+            <input
+              class="jsx-1176042981"
+              name="START"
+              type="radio"
+              value=""
+            />
+            <div
+              class="jsx-1176042981 icon dense"
+            >
+              <svg
+                class="jsx-1659897952 jsx-1631270792 "
+                viewBox="0 0 14 14"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  class="jsx-1659897952 jsx-1631270792 background"
+                  cx="7"
+                  cy="7"
+                  r="7"
+                />
+                <path
+                  class="jsx-1659897952 jsx-1631270792 outer unchecked"
+                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,13 C3.6862915,13 1,10.3137085 1,7 C1,3.6862915 3.6862915,1 7,1 C10.3137085,1 13,3.6862915 13,7 C13,10.3137085 10.3137085,13 7,13 Z"
+                />
+                <path
+                  class="jsx-1659897952 jsx-1631270792 outer checked"
+                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,12 C4.23857625,12 2,9.76142375 2,7 C2,4.23857625 4.23857625,2 7,2 C9.76142375,2 12,4.23857625 12,7 C12,9.76142375 9.76142375,12 7,12 Z"
+                />
+                <circle
+                  class="jsx-1659897952 jsx-1631270792 inner"
+                  cx="7"
+                  cy="7"
+                  r="3"
+                />
+              </svg>
+            </div>
+            Start of dashboard
+          </label>
+        </div>
+      </div>
+      <div
+        class="searchWrapper"
+      >
+        <div
+          class="item-selector"
+        />
+      </div>
     </div>
-  </section>
+  </div>
 </div>
 `;

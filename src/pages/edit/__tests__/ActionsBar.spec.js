@@ -4,7 +4,7 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import { NEW_DASHBOARD_STATE } from '../../../reducers/editDashboard'
+import { DEFAULT_STATE_EDIT_DASHBOARD } from '../../../reducers/editDashboard'
 import ActionsBar from '../ActionsBar'
 
 const mockStore = configureMockStore()
@@ -94,7 +94,7 @@ test('renders only the Go to Dashboards button when no update access', async () 
 
 test('renders Save and Discard buttons but not translation dialog when new dashboard (no dashboard id)', async () => {
     const store = {
-        editDashboard: NEW_DASHBOARD_STATE,
+        editDashboard: DEFAULT_STATE_EDIT_DASHBOARD,
     }
 
     const { container } = render(

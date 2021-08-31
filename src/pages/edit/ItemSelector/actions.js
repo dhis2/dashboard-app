@@ -1,6 +1,7 @@
 import {
-    acAddDashboardItem,
+    // acAddDashboardItem,
     acUpdateDashboardItem,
+    tSetDashboardItems,
 } from '../../../actions/editDashboard'
 import { itemTypeMap } from '../../../modules/itemTypes'
 import { sGetEditDashboardRoot } from '../../../reducers/editDashboard'
@@ -26,6 +27,7 @@ export const tAddListItemContent = (type, content) => (dispatch, getState) => {
             content: [content],
         }
 
-        dispatch(acAddDashboardItem(dashboardItem))
+        // dispatch(acAddDashboardItem(dashboardItem))
+        dispatch(tSetDashboardItems(dashboardItem))
     }
 }

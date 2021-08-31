@@ -4,7 +4,7 @@ import { MenuItem, Divider } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { acAddDashboardItem } from '../../../actions/editDashboard'
+import { tSetDashboardItems } from '../../../actions/editDashboard'
 import { getItemUrl, APP, VISUALIZATION } from '../../../modules/itemTypes'
 import { tAddListItemContent } from './actions'
 import ContentMenuItem from './ContentMenuItem'
@@ -17,7 +17,7 @@ const CategorizedMenuGroup = ({
     title,
     items,
     hasMore,
-    acAddDashboardItem,
+    onAddItem,
     tAddListItemContent,
     onChangeItemsLimit,
 }) => {
@@ -26,7 +26,8 @@ const CategorizedMenuGroup = ({
 
     const addItem = item => () => {
         if (type === APP) {
-            acAddDashboardItem({ type, content: item.key })
+            // acAddDashboardItem({ type, content: item.key })
+            onAddItem({ type, content: item.key })
         } else {
             const newItem = {
                 id: item.id,
@@ -36,7 +37,7 @@ const CategorizedMenuGroup = ({
             if (listItemTypes.includes(type)) {
                 tAddListItemContent(type, newItem)
             } else {
-                acAddDashboardItem({ type, content: newItem })
+                onAddItem({ type, content: newItem })
             }
         }
     }
@@ -85,13 +86,15 @@ CategorizedMenuGroup.propTypes = {
     items: PropTypes.array.isRequired,
     title: PropTypes.string.isRequired,
     type: PropTypes.oneOf(categorizedItems).isRequired,
+    onAddItem: PropTypes.func.isRequired,
     onChangeItemsLimit: PropTypes.func.isRequired,
-    acAddDashboardItem: PropTypes.func,
     hasMore: PropTypes.bool,
     tAddListItemContent: PropTypes.func,
 }
 
 export default connect(null, {
-    acAddDashboardItem,
     tAddListItemContent,
+    onAddItem: item => dispatch => {
+        dispatch(tSetDashboardItems(item))
+    },
 })(CategorizedMenuGroup)

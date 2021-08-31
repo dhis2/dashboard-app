@@ -10,6 +10,8 @@ const SELECTED_PROPERTIES = {
     restrictFilters: false,
     allowedFilters: [],
     dashboardItems: [],
+    layout: [],
+    itemConfig: {},
 }
 
 export default (state = DEFAULT_SELECTED_STATE, action) => {

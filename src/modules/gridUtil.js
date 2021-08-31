@@ -1,6 +1,16 @@
 // Dimensions for the react-grid-layout
+import { generateUid } from 'd2/uid'
 import sortBy from 'lodash/sortBy'
-import { isVisualizationType } from './itemTypes'
+import {
+    acSetHideGrid,
+    acUpdateDashboardItemShapes,
+} from '../actions/editDashboard'
+import {
+    isVisualizationType,
+    itemTypeMap,
+    PAGEBREAK,
+    PRINT_TITLE_PAGE,
+} from './itemTypes'
 import { isSmallScreen } from './smallScreen'
 
 export const GRID_COMPACT_TYPE = 'vertical' // vertical | horizonal | null
@@ -181,3 +191,136 @@ export const getItemHeightPx = (item, windowWidthPx) => {
 
 const getItemWHPx = (gridUnits, colOrRowSize, marginPx) =>
     Math.round(colOrRowSize * gridUnits + Math.max(0, gridUnits - 1) * marginPx)
+
+// Auto layout
+
+const getNumberOfColUnits = (columns, maxColUnits = GRID_COLUMNS) => {
+    if (columns.length < 1 || columns.length > maxColUnits) {
+        return null
+    }
+
+    return Math.floor(maxColUnits / columns.length)
+}
+
+const sortItems = items =>
+    items
+        .slice()
+        .sort((a, b) => a.y - b.y || a.x - b.x || a.h - b.h || a.w - b.w)
+
+export const getAutoItemShapes = (dashboardItems, columns, maxColUnits) => {
+    const numberOfColUnits = getNumberOfColUnits(columns, maxColUnits)
+
+    if (!numberOfColUnits || !dashboardItems.length) {
+        return null
+    }
+
+    const items = sortItems(dashboardItems)
+    const itemsWithNewShape = []
+    const itemHeight = NEW_ITEM_SHAPE.h
+
+    for (let i = 0, colIdx = 0, rowIdx = 0, item; i < items.length; i++) {
+        item = items[i]
+
+        itemsWithNewShape.push({
+            ...item,
+            w: numberOfColUnits,
+            h: itemHeight,
+            x: numberOfColUnits * colIdx,
+            y: itemHeight * rowIdx,
+        })
+
+        colIdx = colIdx + 1
+
+        if (colIdx === columns.length) {
+            colIdx = 0
+            rowIdx = rowIdx + 1
+        }
+    }
+
+    return itemsWithNewShape
+}
+
+export const addToItemsStart = (dashboardItems, columns, newDashboardItem) => {
+    if (!columns.length) {
+        // when no layout
+        return [
+            {
+                ...NEW_ITEM_SHAPE,
+                ...newDashboardItem,
+            },
+            ...dashboardItems,
+        ]
+    } else {
+        return getAutoItemShapes(
+            [
+                ...dashboardItems,
+                {
+                    ...newDashboardItem,
+                    x: 0,
+                    y: 0,
+                    w: 0,
+                    h: 0,
+                },
+            ],
+            columns
+        )
+    }
+}
+
+export const addToItemsEnd = (dashboardItems, columns, newDashboardItem) => {
+    const items = [
+        ...dashboardItems,
+        {
+            ...NEW_ITEM_SHAPE,
+            ...newDashboardItem,
+            y: dashboardItems.reduce(
+                (mx, item) => Math.max(mx, item.y + item.h),
+                0
+            ),
+        },
+    ]
+
+    return columns.length ? getAutoItemShapes(items, columns) : items
+}
+
+export const updateItems = (items, dispatch, options = {}) => {
+    const { reload } = options
+
+    if (reload) {
+        dispatch(acSetHideGrid(true))
+        dispatch(acUpdateDashboardItemShapes(items))
+        setTimeout(() => dispatch(acSetHideGrid(false)), 0)
+    } else {
+        dispatch(acUpdateDashboardItemShapes(items))
+    }
+}
+
+export const hasLayout = layout => layout?.columns?.length
+
+export const getDashboardItem = item => {
+    const type = item.type
+    const itemPropName = itemTypeMap[type]?.propName
+
+    const id = generateUid()
+    const gridItemProperties = getGridItemProperties(id)
+
+    let shape
+    if (type === PAGEBREAK) {
+        const yPos = item.yPos || 0
+        shape = getPageBreakItemShape(yPos, item.isStatic)
+    } else if (type === PRINT_TITLE_PAGE) {
+        shape = getPrintTitlePageItemShape()
+    } else {
+        shape = NEW_ITEM_SHAPE
+    }
+
+    return {
+        id,
+        type,
+        position: item.position || null,
+        [itemPropName]: item.content,
+        ...NEW_ITEM_SHAPE,
+        ...gridItemProperties,
+        ...shape,
+    }
+}

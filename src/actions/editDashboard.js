@@ -1,13 +1,12 @@
 import i18n from '@dhis2/d2-i18n'
-import { generateUid } from 'd2/uid'
 import { updateDashboard, postDashboard } from '../api/editDashboard'
 import {
-    NEW_ITEM_SHAPE,
-    getGridItemProperties,
-    getPageBreakItemShape,
-    getPrintTitlePageItemShape,
+    addToItemsEnd,
+    addToItemsStart,
+    getAutoItemShapes,
+    getDashboardItem,
+    updateItems,
 } from '../modules/gridUtil'
-import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
 import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
 import {
     RECEIVED_EDIT_DASHBOARD,
@@ -15,7 +14,7 @@ import {
     RECEIVED_NOT_EDITING,
     RECEIVED_TITLE,
     RECEIVED_DESCRIPTION,
-    RECEIVED_DASHBOARD_LAYOUT,
+    RECEIVED_DASHBOARD_ITEM_SHAPES,
     ADD_DASHBOARD_ITEM,
     UPDATE_DASHBOARD_ITEM,
     REMOVE_DASHBOARD_ITEM,
@@ -23,6 +22,12 @@ import {
     CLEAR_PRINT_PREVIEW_VIEW,
     RECEIVED_FILTER_SETTINGS,
     sGetEditDashboardRoot,
+    RECEIVED_HIDE_GRID,
+    RECEIVED_LAYOUT_COLUMNS,
+    RECEIVED_ITEM_CONFIG_INSERT_POSITION,
+    sGetEditDashboardItems,
+    sGetLayoutColumns,
+    sGetItemConfigInsertPosition,
 } from '../reducers/editDashboard'
 import { tFetchDashboards } from './dashboards'
 
@@ -59,42 +64,15 @@ export const acSetDashboardDescription = value => ({
     value,
 })
 
-export const acUpdateDashboardLayout = value => ({
-    type: RECEIVED_DASHBOARD_LAYOUT,
+export const acUpdateDashboardItemShapes = value => ({
+    type: RECEIVED_DASHBOARD_ITEM_SHAPES,
     value,
 })
 
-export const acAddDashboardItem = item => {
-    const type = item.type
-    delete item.type
-    const itemPropName = itemTypeMap[type].propName
-
-    const id = generateUid()
-    const gridItemProperties = getGridItemProperties(id)
-
-    let shape
-    if (type === PAGEBREAK) {
-        const yPos = item.yPos || 0
-        shape = getPageBreakItemShape(yPos, item.isStatic)
-    } else if (type === PRINT_TITLE_PAGE) {
-        shape = getPrintTitlePageItemShape()
-    } else {
-        shape = NEW_ITEM_SHAPE
-    }
-
-    return {
-        type: ADD_DASHBOARD_ITEM,
-        value: {
-            id,
-            type,
-            position: item.position || null,
-            [itemPropName]: item.content,
-            ...NEW_ITEM_SHAPE,
-            ...gridItemProperties,
-            ...shape,
-        },
-    }
-}
+export const acAddDashboardItem = item => ({
+    type: ADD_DASHBOARD_ITEM,
+    value: item,
+})
 
 export const acUpdateDashboardItem = item => ({
     type: UPDATE_DASHBOARD_ITEM,
@@ -111,11 +89,83 @@ export const acSetFilterSettings = value => ({
     value,
 })
 
+export const acSetHideGrid = value => ({
+    type: RECEIVED_HIDE_GRID,
+    value,
+})
+
+export const acSetLayoutColumns = value => ({
+    type: RECEIVED_LAYOUT_COLUMNS,
+    value,
+})
+
+export const acSetItemConfigInsertPosition = value => ({
+    type: RECEIVED_ITEM_CONFIG_INSERT_POSITION,
+    value,
+})
+
 // thunks
+
+// no layout + end: add to new row at the end, default size
+// no layout + start: add to 0,0, default size
+// layout + end: calculate and add to "next shape in layout"
+// layout + start: add to 0,0,0,0, sort, remount
+
+export const tSetDashboardItems =
+    (itemToAdd, itemIdToRemove) => (dispatch, getState) => {
+        const insertPosition = sGetItemConfigInsertPosition(getState())
+        const columns = sGetLayoutColumns(getState())
+
+        let items = [...sGetEditDashboardItems(getState())]
+        let dashboardItemsWithShapes
+
+        if (!itemToAdd && !itemIdToRemove) {
+            // changing columns
+
+            if (!columns.length) {
+                // freeflow
+                updateItems(items, dispatch)
+            } else {
+                dashboardItemsWithShapes = getAutoItemShapes(items, columns)
+                updateItems(dashboardItemsWithShapes, dispatch, {
+                    reload: true,
+                })
+            }
+        } else {
+            if (itemIdToRemove) {
+                items = items.filter(item => item.id !== itemIdToRemove)
+            }
+
+            if (!itemToAdd) {
+                dashboardItemsWithShapes = getAutoItemShapes(items, columns)
+                updateItems(dashboardItemsWithShapes, dispatch)
+            } else {
+                const newDashboardItem = getDashboardItem(itemToAdd)
+
+                switch (insertPosition) {
+                    case 'START':
+                        dashboardItemsWithShapes = addToItemsStart(
+                            items,
+                            columns,
+                            newDashboardItem
+                        )
+                        break
+                    case 'END':
+                    default:
+                        dashboardItemsWithShapes = addToItemsEnd(
+                            items,
+                            columns,
+                            newDashboardItem
+                        )
+                }
+
+                updateItems(dashboardItemsWithShapes, dispatch)
+            }
+        }
+    }
 
 export const tSaveDashboard = () => async (dispatch, getState, dataEngine) => {
     const dashboard = sGetEditDashboardRoot(getState())
-
     const dashboardToSave = {
         ...dashboard,
         dashboardItems: convertUiItemsToBackend(dashboard.dashboardItems),

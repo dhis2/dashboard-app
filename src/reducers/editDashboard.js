@@ -1,6 +1,15 @@
 /** @module reducers/editDashboard */
+// import { generateUid } from 'd2/uid'
 import update from 'immutability-helper'
 import isEmpty from 'lodash/isEmpty'
+import { getDashboardItem } from '../modules/gridUtil'
+// import {
+//     getGridItemProperties,
+//     getPageBreakItemShape,
+//     getPrintTitlePageItemShape,
+//     NEW_ITEM_SHAPE,
+// } from '../modules/gridUtil'
+// import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
 import { orArray, orObject } from '../modules/util'
 
 export const RECEIVED_EDIT_DASHBOARD = 'RECEIVED_EDIT_DASHBOARD'
@@ -11,13 +20,17 @@ export const RECEIVED_DESCRIPTION = 'RECEIVED_DESCRIPTION'
 export const ADD_DASHBOARD_ITEM = 'ADD_DASHBOARD_ITEM'
 export const REMOVE_DASHBOARD_ITEM = 'REMOVE_DASHBOARD_ITEM'
 export const UPDATE_DASHBOARD_ITEM = 'UPDATE_DASHBOARD_ITEM'
-export const RECEIVED_DASHBOARD_LAYOUT = 'RECEIVED_DASHBOARD_LAYOUT'
+export const RECEIVED_DASHBOARD_ITEM_SHAPES = 'RECEIVED_DASHBOARD_ITEM_SHAPES'
 export const SET_PRINT_PREVIEW_VIEW = 'SET_PRINT_PREVIEW_VIEW'
 export const CLEAR_PRINT_PREVIEW_VIEW = 'CLEAR_PRINT_PREVIEW_VIEW'
 export const RECEIVED_FILTER_SETTINGS = 'RECEIVED_FILTER_SETTINGS'
+export const RECEIVED_HIDE_GRID = 'RECEIVED_HIDE_GRID'
+export const RECEIVED_LAYOUT_COLUMNS = 'RECEIVED_LAYOUT_COLUMNS'
+export const RECEIVED_ITEM_CONFIG_INSERT_POSITION =
+    'RECEIVED_ITEM_CONFIG_INSERT_POSITION'
 
-export const DEFAULT_STATE_EDIT_DASHBOARD = {}
-export const NEW_DASHBOARD_STATE = {
+export const EMPTY_STATE_EDIT_DASHBOARD = {}
+export const DEFAULT_STATE_EDIT_DASHBOARD = {
     id: '',
     name: '',
     access: { update: true, delete: true },
@@ -28,27 +41,35 @@ export const NEW_DASHBOARD_STATE = {
     printPreviewView: false,
     isDirty: false,
     href: '',
+    hideGrid: false,
+    layout: {
+        columns: [],
+    },
+    itemConfig: {
+        insertPosition: 'END',
+    },
 }
 
 export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
     switch (action.type) {
         case RECEIVED_EDIT_DASHBOARD: {
             const newState = {}
-            Object.keys(NEW_DASHBOARD_STATE).map(
+            Object.keys(DEFAULT_STATE_EDIT_DASHBOARD).forEach(
                 k => (newState[k] = action.value[k])
             )
-            newState.printPreviewView = false
-            newState.isDirty = false
+            newState.printPreviewView =
+                DEFAULT_STATE_EDIT_DASHBOARD.printPreviewView
+            newState.isDirty = DEFAULT_STATE_EDIT_DASHBOARD.isDirty
             return newState
         }
         case RECEIVED_NOT_EDITING:
-            return DEFAULT_STATE_EDIT_DASHBOARD
+            return EMPTY_STATE_EDIT_DASHBOARD
         case SET_PRINT_PREVIEW_VIEW:
             return Object.assign({}, state, { printPreviewView: true })
         case CLEAR_PRINT_PREVIEW_VIEW:
             return Object.assign({}, state, { printPreviewView: false })
         case START_NEW_DASHBOARD:
-            return NEW_DASHBOARD_STATE
+            return DEFAULT_STATE_EDIT_DASHBOARD
         case RECEIVED_TITLE: {
             return Object.assign({}, state, {
                 name: action.value,
@@ -61,10 +82,12 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                 isDirty: true,
             })
         }
-        case ADD_DASHBOARD_ITEM:
-            if (!action.value.position) {
+        case ADD_DASHBOARD_ITEM: {
+            const dashboardItem = getDashboardItem(action.value)
+
+            if (!dashboardItem.position) {
                 return update(state, {
-                    dashboardItems: { $unshift: [action.value] },
+                    dashboardItems: { $unshift: [dashboardItem] },
                     isDirty: { $set: true },
                 })
             }
@@ -72,12 +95,12 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
             return update(state, {
                 dashboardItems: {
                     $splice: [
-                        [parseInt(action.value.position), 0, action.value],
+                        [parseInt(dashboardItem.position), 0, dashboardItem],
                     ],
                 },
                 isDirty: { $set: true },
             })
-
+        }
         case REMOVE_DASHBOARD_ITEM: {
             const idToRemove = action.value
 
@@ -96,13 +119,24 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
 
             return state
         }
-        case RECEIVED_DASHBOARD_LAYOUT: {
+        case RECEIVED_DASHBOARD_ITEM_SHAPES: {
+            if (!action.value) {
+                return state
+            }
+
             const stateItems = orArray(state.dashboardItems)
-            let layoutHasChanged = false
+
+            if (stateItems.length !== action.value.length) {
+                return {
+                    ...state,
+                    dashboardItems: action.value,
+                }
+            }
+
+            let shapesHaveChanged = false
 
             const newStateItems = action.value.map(({ x, y, w, h, i }) => {
                 const stateItem = stateItems.find(si => si.id === i)
-
                 if (
                     !(
                         stateItem.x === x &&
@@ -111,20 +145,25 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                         stateItem.h === h
                     )
                 ) {
-                    layoutHasChanged = true
-                    return Object.assign({}, stateItem, { w, h, x, y })
+                    shapesHaveChanged = true
+                    return Object.assign({}, stateItem, {
+                        w,
+                        h,
+                        x,
+                        y,
+                    })
                 }
 
                 return stateItem
             })
 
-            return layoutHasChanged
-                ? {
-                      ...state,
-                      dashboardItems: newStateItems,
-                      isDirty: true,
-                  }
-                : state
+            return {
+                ...state,
+                dashboardItems: shapesHaveChanged
+                    ? newStateItems
+                    : state.dashboardItems,
+                isDirty: shapesHaveChanged,
+            }
         }
         case UPDATE_DASHBOARD_ITEM: {
             const dashboardItem = action.value
@@ -159,6 +198,30 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                 isDirty: true,
             })
         }
+        case RECEIVED_HIDE_GRID: {
+            return {
+                ...state,
+                hideGrid: action.value,
+            }
+        }
+        case RECEIVED_LAYOUT_COLUMNS: {
+            return {
+                ...state,
+                layout: {
+                    ...state.layout,
+                    columns: action.value,
+                },
+            }
+        }
+        case RECEIVED_ITEM_CONFIG_INSERT_POSITION: {
+            return {
+                ...state,
+                itemConfig: {
+                    ...state.itemConfig,
+                    insertPosition: action.value,
+                },
+            }
+        }
         default:
             return state
     }
@@ -183,3 +246,24 @@ export const sGetEditDashboardItems = state =>
     orObject(sGetEditDashboardRoot(state)).dashboardItems
 
 export const sGetEditIsDirty = state => sGetEditDashboardRoot(state).isDirty
+
+export const sGetHideGrid = state => sGetEditDashboardRoot(state).hideGrid
+
+const getLayout = editDashboard => editDashboard.layout
+
+export const sGetLayout = state =>
+    orObject(getLayout(sGetEditDashboardRoot(state)))
+
+const getColumns = layout => layout.columns
+
+export const sGetLayoutColumns = state => orArray(getColumns(sGetLayout(state)))
+
+const getItemConfig = editDashboard => editDashboard.itemConfig
+
+export const sGetItemConfig = state =>
+    orObject(getItemConfig(sGetEditDashboardRoot(state)))
+
+const getInsertPosition = itemConfig => itemConfig.insertPosition
+
+export const sGetItemConfigInsertPosition = state =>
+    getInsertPosition(sGetItemConfig(state))
