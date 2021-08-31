@@ -55,11 +55,9 @@ class Visualization extends React.Component {
             style.width = this.props.availableWidth
         }
 
-        const originalType = getItemTypeForVis(item)
-
         const visualizationConfig = this.memoizedGetVisualizationConfig(
             visualization,
-            originalType,
+            getItemTypeForVis(item),
             activeType
         )
 
