@@ -47,10 +47,11 @@ test('Visualization/Item renders view mode', async () => {
     }
 
     const item = {
-        type: 'CHART',
-        chart: {
+        type: 'VISUALIZATION',
+        visualization: {
             id: 'fancychart',
             name: 'Fancy Chart',
+            type: 'COLUMN',
         },
     }
 
@@ -86,8 +87,8 @@ test('Visualization/Item renders edit mode', async () => {
     }
 
     const item = {
-        type: 'CHART',
-        chart: {
+        type: 'VISUALIZATION',
+        visualization: {
             id: 'fancychart',
             name: 'Fancy Chart',
         },
