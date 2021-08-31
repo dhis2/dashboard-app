@@ -34,6 +34,7 @@ export const getAxesFields = ({ withItems }) => [
 export const getFavoriteFields = ({ withDimensions, withOptions }) => {
     return arrayClean([
         `${getIdNameFields({ rename: true }).join(',')}`,
+        'type',
         'displayDescription~rename(description)',
         withDimensions ? `${getAxesFields({ withItems: true }).join(',')}` : ``,
         withOptions
