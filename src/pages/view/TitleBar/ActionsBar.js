@@ -4,10 +4,14 @@ import {
     useOnlineStatus,
     useCacheableSection,
 } from '@dhis2/app-runtime'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
-import { Button, FlyoutMenu, colors, IconMore24 } from '@dhis2/ui'
-import { SharingDialog } from '@dhis2-ui/sharing-dialog'
+import {
+    Button,
+    FlyoutMenu,
+    colors,
+    IconMore24,
+    SharingDialog,
+} from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
