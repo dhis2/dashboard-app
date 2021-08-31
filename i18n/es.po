@@ -1,17 +1,17 @@
 # 
 # Translators:
 # William Aviles <waviles@clintonhealthaccess.org>, 2020
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
 # Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Alison Andrade <aandrade@ippfwhr.org>, 2021
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
 # drprabhjot, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-23T09:48:29.014Z\n"
+"POT-Creation-Date: 2021-08-31T20:31:16.412Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: drprabhjot, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -79,17 +79,17 @@ msgstr "Abrir en la aplicación {{appName}}"
 msgid "View fullscreen"
 msgstr "Ver en pantalla completa"
 
-msgid "View as Chart"
-msgstr "Ver como gráfico"
-
 msgid "This map can't be displayed as a chart"
 msgstr "Este mapa no se puede mostrar como gráfico"
 
-msgid "View as Table"
-msgstr "Ver como tabla"
+msgid "View as Chart"
+msgstr "Ver como gráfico"
 
 msgid "This map can't be displayed as a table"
 msgstr "Este mapa no se puede mostrar como una tabla"
+
+msgid "View as Table"
+msgstr "Ver como tabla"
 
 msgid "View as Map"
 msgstr "Ver como mapa"
@@ -108,6 +108,9 @@ msgstr "Hubo un error al cargar los datos de este elemento."
 
 msgid "Open this item in {{appName}}"
 msgstr "Abra este elemento en {{appName}}"
+
+msgid "Not available offline"
+msgstr ""
 
 msgid "Visualizations"
 msgstr "Visualizaciones"
@@ -153,6 +156,9 @@ msgstr ""
 "No se pudo eliminar el tablero de mando. Es posible que esté desconectado o "
 "no tenga acceso para editar este tablero de mando."
 
+msgid "Cannot save this dashboard while offline"
+msgstr ""
+
 msgid "Save changes"
 msgstr "Guardar cambios"
 
@@ -167,6 +173,9 @@ msgstr "Configuración de filtro"
 
 msgid "Translate"
 msgstr "Traducir"
+
+msgid "Cannot delete this dashboard while offline"
+msgstr ""
 
 msgid "Delete"
 msgstr "Borrar"
@@ -247,6 +256,9 @@ msgstr "Filtros disponibles"
 msgid "Selected Filters"
 msgstr "Filtros seleccionados"
 
+msgid "Cannot confirm changes while offline"
+msgstr ""
+
 msgid "Confirm"
 msgstr "Confirmar"
 
@@ -265,11 +277,51 @@ msgstr "Insertar"
 msgid "Search for items to add to this dashboard"
 msgstr "Buscar objetos para añadir en este tablero"
 
+msgid "Search for visualizations, reports and more"
+msgstr ""
+
+msgid "Cannot search for dashboard items while offline"
+msgstr ""
+
 msgid "Additional items"
 msgstr "Objetos adicionales"
 
 msgid "Text box"
 msgstr "Caja de texto"
+
+msgid "Dashboard layout"
+msgstr "Diseño del tablero"
+
+msgid "Freeflow"
+msgstr ""
+
+msgid "Dashboard items can be placed anywhere, at any size."
+msgstr ""
+
+msgid "Fixed columns"
+msgstr ""
+
+msgid ""
+"Dashboard items are automatically placed within fixed, horizontal columns. "
+"The number of columns can be adjusted."
+msgstr ""
+
+msgid "Number of columns"
+msgstr ""
+
+msgid "Gap size between columns (px)"
+msgstr ""
+
+msgid ""
+"Default height only applies to items added to a dashboard, this setting will"
+" not change existing items"
+msgstr ""
+
+msgid "Default height for items added to dashboard (rows)"
+msgstr ""
+
+msgid "Save layout"
+msgstr ""
 
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
@@ -283,6 +335,24 @@ msgstr "Título del tablero"
 
 msgid "Dashboard description"
 msgstr "Descripción del tablero"
+
+msgid "Layout"
+msgstr "Diseño"
+
+msgid "{{numberOfColumns}} columns"
+msgstr ""
+
+msgid "Change layout"
+msgstr ""
+
+msgid "Add new items to"
+msgstr ""
+
+msgid "End of dashboard"
+msgstr ""
+
+msgid "Start of dashboard"
+msgstr ""
 
 msgid "Exit print preview"
 msgstr "Salir de vista previa"
@@ -323,8 +393,11 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr "No se ha encontrado el tablero buscado"
 
-msgid "Create a new dashboard"
-msgstr "Crea un nuevo tablero de mando"
+msgid "Cannot create a dashboard while offline"
+msgstr ""
+
+msgid "Create new dashboard"
+msgstr ""
 
 msgid "Search for a dashboard"
 msgstr "Buscar un tablero"
@@ -340,6 +413,23 @@ msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} seleccionado"
 msgstr[1] "{{count}} seleccionados"
 
+msgid "Cannot remove filters while offline"
+msgstr ""
+
+msgid "Removing filters while offline"
+msgstr ""
+
+msgid ""
+"Removing this filter while offline will remove all other filters. Do you "
+"want to remove all filters on this dashboard?"
+msgstr ""
+
+msgid "No, cancel"
+msgstr "No, cancela"
+
+msgid "Yes, remove filters"
+msgstr ""
+
 msgid "Failed to hide description"
 msgstr "No se pudo ocultar la descripción"
 
@@ -351,6 +441,15 @@ msgstr "No se pudo desmarcar el tablero"
 
 msgid "Failed to star the dashboard"
 msgstr "No se pudo marcar el tablero"
+
+msgid "Remove from offline storage"
+msgstr ""
+
+msgid "Make available offline"
+msgstr ""
+
+msgid "Sync offline data now"
+msgstr ""
 
 msgid "Unstar dashboard"
 msgstr "Desmarcar tablero"
@@ -364,9 +463,6 @@ msgstr "Ocultar la descripción"
 msgid "Show description"
 msgstr "Mostrar la descripción"
 
-msgid "Dashboard layout"
-msgstr "Diseño del tablero"
-
 msgid "One item per page"
 msgstr "Un objeto por página"
 
@@ -379,14 +475,46 @@ msgstr "Editar"
 msgid "Share"
 msgstr "Compartir"
 
+msgid "Clear dashboard filters?"
+msgstr ""
+
+msgid ""
+"A dashboard's filters can’t be saved offline. Do you want to remove the "
+"filters and make this dashboard available offline?"
+msgstr ""
+
+msgid "Yes, clear filters and sync"
+msgstr ""
+
 msgid "No description"
 msgstr "Sin descripción"
 
 msgid "Add filter"
 msgstr "Añadir filtro"
 
+msgid "Offline data last updated {{time}}"
+msgstr ""
+
+msgid "Cannot unstar this dashboard while offline"
+msgstr ""
+
+msgid "Cannot star this dashboard while offline"
+msgstr ""
+
 msgid "Loading dashboard – {{name}}"
 msgstr "Cargando panel – {{nombre}}"
 
 msgid "Loading dashboard"
 msgstr "Cargando tablero de mando"
+
+msgid "Offline"
+msgstr "Desconectado"
+
+msgid "This dashboard cannot be loaded while offline."
+msgstr ""
+
+msgid "Load dashboard failed"
+msgstr ""
+
+msgid "This dashboard could not be loaded. Please try again later."
+msgstr ""

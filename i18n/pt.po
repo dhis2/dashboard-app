@@ -1,17 +1,17 @@
 # 
 # Translators:
-# Sheila André <sandre@saudigitus.org>, 2020
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Ge Joao <gsimango@saudigitus.org>, 2021
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# Sheila André <sandre@saudigitus.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-23T09:48:29.014Z\n"
+"POT-Creation-Date: 2021-08-31T20:31:16.412Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2021\n"
+"Last-Translator: Sheila André <sandre@saudigitus.org>, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -76,17 +76,17 @@ msgstr "Abrir no aplicativo {{appName}}"
 msgid "View fullscreen"
 msgstr "Ver tela inteira"
 
+msgid "This map can't be displayed as a chart"
+msgstr ""
+
 msgid "View as Chart"
 msgstr "Ver como gráfico"
 
-msgid "This map can't be displayed as a chart"
+msgid "This map can't be displayed as a table"
 msgstr ""
 
 msgid "View as Table"
 msgstr "Ver como tabela"
-
-msgid "This map can't be displayed as a table"
-msgstr ""
 
 msgid "View as Map"
 msgstr "Ver como mapa"
@@ -104,6 +104,9 @@ msgid "There was an error loading data for this item"
 msgstr ""
 
 msgid "Open this item in {{appName}}"
+msgstr ""
+
+msgid "Not available offline"
 msgstr ""
 
 msgid "Visualizations"
@@ -146,6 +149,9 @@ msgid ""
 "this dashboard."
 msgstr ""
 
+msgid "Cannot save this dashboard while offline"
+msgstr ""
+
 msgid "Save changes"
 msgstr "Gravar alterações"
 
@@ -160,6 +166,9 @@ msgstr ""
 
 msgid "Translate"
 msgstr "Traduzir"
+
+msgid "Cannot delete this dashboard while offline"
+msgstr ""
 
 msgid "Delete"
 msgstr "Apagar"
@@ -232,6 +241,9 @@ msgstr ""
 msgid "Selected Filters"
 msgstr ""
 
+msgid "Cannot confirm changes while offline"
+msgstr ""
+
 msgid "Confirm"
 msgstr "Confirmar"
 
@@ -250,11 +262,51 @@ msgstr "Inserir"
 msgid "Search for items to add to this dashboard"
 msgstr "Procurar itens para adicionar a este painel"
 
+msgid "Search for visualizations, reports and more"
+msgstr ""
+
+msgid "Cannot search for dashboard items while offline"
+msgstr ""
+
 msgid "Additional items"
 msgstr "Itens adicionais"
 
 msgid "Text box"
 msgstr "Caixa de texto"
+
+msgid "Dashboard layout"
+msgstr ""
+
+msgid "Freeflow"
+msgstr ""
+
+msgid "Dashboard items can be placed anywhere, at any size."
+msgstr ""
+
+msgid "Fixed columns"
+msgstr ""
+
+msgid ""
+"Dashboard items are automatically placed within fixed, horizontal columns. "
+"The number of columns can be adjusted."
+msgstr ""
+
+msgid "Number of columns"
+msgstr ""
+
+msgid "Gap size between columns (px)"
+msgstr ""
+
+msgid ""
+"Default height only applies to items added to a dashboard, this setting will"
+" not change existing items"
+msgstr ""
+
+msgid "Default height for items added to dashboard (rows)"
+msgstr ""
+
+msgid "Save layout"
+msgstr ""
 
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
@@ -266,6 +318,24 @@ msgstr "Título do painel"
 
 msgid "Dashboard description"
 msgstr "Descrição do painel"
+
+msgid "Layout"
+msgstr "Disposição"
+
+msgid "{{numberOfColumns}} columns"
+msgstr ""
+
+msgid "Change layout"
+msgstr ""
+
+msgid "Add new items to"
+msgstr ""
+
+msgid "End of dashboard"
+msgstr ""
+
+msgid "Start of dashboard"
+msgstr ""
 
 msgid "Exit print preview"
 msgstr "Sair da visualização da impressão"
@@ -305,7 +375,10 @@ msgstr "Painel não encontrado. Use o botão + para criar um novo painel."
 msgid "Requested dashboard not found"
 msgstr "Painel solicitado não encontrado"
 
-msgid "Create a new dashboard"
+msgid "Cannot create a dashboard while offline"
+msgstr ""
+
+msgid "Create new dashboard"
 msgstr ""
 
 msgid "Search for a dashboard"
@@ -322,6 +395,23 @@ msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} selecionado"
 msgstr[1] "{{count}} selecionado"
 
+msgid "Cannot remove filters while offline"
+msgstr ""
+
+msgid "Removing filters while offline"
+msgstr ""
+
+msgid ""
+"Removing this filter while offline will remove all other filters. Do you "
+"want to remove all filters on this dashboard?"
+msgstr ""
+
+msgid "No, cancel"
+msgstr "Não, cancelar"
+
+msgid "Yes, remove filters"
+msgstr ""
+
 msgid "Failed to hide description"
 msgstr ""
 
@@ -332,6 +422,15 @@ msgid "Failed to unstar the dashboard"
 msgstr ""
 
 msgid "Failed to star the dashboard"
+msgstr ""
+
+msgid "Remove from offline storage"
+msgstr ""
+
+msgid "Make available offline"
+msgstr ""
+
+msgid "Sync offline data now"
 msgstr ""
 
 msgid "Unstar dashboard"
@@ -346,9 +445,6 @@ msgstr "Ocultar descrição"
 msgid "Show description"
 msgstr "Mostrar descrição"
 
-msgid "Dashboard layout"
-msgstr ""
-
 msgid "One item per page"
 msgstr "Um item por página"
 
@@ -361,14 +457,46 @@ msgstr "Editar"
 msgid "Share"
 msgstr "Partilha"
 
+msgid "Clear dashboard filters?"
+msgstr ""
+
+msgid ""
+"A dashboard's filters can’t be saved offline. Do you want to remove the "
+"filters and make this dashboard available offline?"
+msgstr ""
+
+msgid "Yes, clear filters and sync"
+msgstr ""
+
 msgid "No description"
 msgstr "Sem descrição"
 
 msgid "Add filter"
 msgstr "Adicionar filtros"
 
+msgid "Offline data last updated {{time}}"
+msgstr ""
+
+msgid "Cannot unstar this dashboard while offline"
+msgstr ""
+
+msgid "Cannot star this dashboard while offline"
+msgstr ""
+
 msgid "Loading dashboard – {{name}}"
 msgstr "Carregando painel– {{nome}}"
 
 msgid "Loading dashboard"
+msgstr ""
+
+msgid "Offline"
+msgstr "Desligado"
+
+msgid "This dashboard cannot be loaded while offline."
+msgstr ""
+
+msgid "Load dashboard failed"
+msgstr ""
+
+msgid "This dashboard could not be loaded. Please try again later."
 msgstr ""
