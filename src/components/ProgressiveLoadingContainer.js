@@ -120,8 +120,6 @@ class ProgressiveLoadingContainer extends Component {
 
         const shouldLoad = this.state.shouldLoad || props.forceLoad
 
-        console.log('shouldLoad', shouldLoad, props.itemId)
-
         const eventProps = pick(props, [
             'onMouseDown',
             'onTouchStart',
