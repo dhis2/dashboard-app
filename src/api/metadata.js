@@ -68,10 +68,7 @@ export const getFavoriteFields = ({ withDimensions, withOptions }) => {
 }
 
 export const getFavoritesFields = () => [
-    `reportTable[${getFavoriteFields({ withDimensions: false }).join(',')}]`,
-    `chart[${['type', ...getFavoriteFields({ withDimensions: false })].join(
-        ','
-    )}]`,
+    `visualization[${getFavoriteFields({ withDimensions: false }).join(',')}]`,
     `map[${getFavoriteFields({ withDimensions: false }).join(',')}]`,
     `eventReport[${getFavoriteFields({ withDimensions: false }).join(',')}]`,
     `eventChart[${getFavoriteFields({ withDimensions: false }).join(',')}]`,
