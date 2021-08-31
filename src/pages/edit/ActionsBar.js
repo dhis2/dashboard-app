@@ -18,7 +18,7 @@ import {
 import { acClearPrintDashboard } from '../../actions/printDashboard'
 import { acClearSelected } from '../../actions/selected'
 import ConfirmActionDialog from '../../components/ConfirmActionDialog'
-import Tooltip from '../../components/Tooltip'
+import OfflineTooltip from '../../components/OfflineTooltip'
 import {
     sGetEditDashboardRoot,
     sGetIsPrintPreviewView,
@@ -172,7 +172,7 @@ const EditBar = ({ dashboard, ...props }) => {
 
     const renderActionButtons = () => (
         <ButtonStrip>
-            <Tooltip
+            <OfflineTooltip
                 content={i18n.t('Cannot save this dashboard while offline')}
             >
                 <Button
@@ -183,31 +183,31 @@ const EditBar = ({ dashboard, ...props }) => {
                 >
                     {i18n.t('Save changes')}
                 </Button>
-            </Tooltip>
-            <Tooltip>
+            </OfflineTooltip>
+            <OfflineTooltip>
                 <Button disabled={!online} onClick={onPrintPreview}>
                     {props.isPrintPreviewView
                         ? i18n.t('Exit Print preview')
                         : i18n.t('Print preview')}
                 </Button>
-            </Tooltip>
-            <Tooltip>
+            </OfflineTooltip>
+            <OfflineTooltip>
                 <Button disabled={!online} onClick={toggleFilterSettingsDialog}>
                     {i18n.t('Filter settings')}
                 </Button>
-            </Tooltip>
+            </OfflineTooltip>
             {dashboard.id && (
-                <Tooltip>
+                <OfflineTooltip>
                     <Button
                         disabled={!online}
                         onClick={toggleTranslationDialog}
                     >
                         {i18n.t('Translate')}
                     </Button>
-                </Tooltip>
+                </OfflineTooltip>
             )}
             {dashboard.id && dashboard.access?.delete && (
-                <Tooltip
+                <OfflineTooltip
                     content={i18n.t(
                         'Cannot delete this dashboard while offline'
                     )}
@@ -219,7 +219,7 @@ const EditBar = ({ dashboard, ...props }) => {
                     >
                         {i18n.t('Delete')}
                     </Button>
-                </Tooltip>
+                </OfflineTooltip>
             )}
         </ButtonStrip>
     )

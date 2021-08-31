@@ -19,7 +19,7 @@ import { apiPostShowDescription } from '../../../api/description'
 import ConfirmActionDialog from '../../../components/ConfirmActionDialog'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton'
 import MenuItem from '../../../components/MenuItemWithTooltip'
-import Tooltip from '../../../components/Tooltip'
+import OfflineTooltip from '../../../components/OfflineTooltip'
 import { orObject } from '../../../modules/util'
 import { sGetDashboardStarred } from '../../../reducers/dashboards'
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
@@ -210,7 +210,7 @@ const ViewActions = ({
                 />
                 <div className={classes.strip}>
                     {userAccess.update ? (
-                        <Tooltip>
+                        <OfflineTooltip>
                             <Button
                                 disabled={offline}
                                 className={classes.editButton}
@@ -218,10 +218,10 @@ const ViewActions = ({
                             >
                                 {i18n.t('Edit')}
                             </Button>
-                        </Tooltip>
+                        </OfflineTooltip>
                     ) : null}
                     {userAccess.manage ? (
-                        <Tooltip>
+                        <OfflineTooltip>
                             <Button
                                 disabled={offline}
                                 className={classes.shareButton}
@@ -229,7 +229,7 @@ const ViewActions = ({
                             >
                                 {i18n.t('Share')}
                             </Button>
-                        </Tooltip>
+                        </OfflineTooltip>
                     ) : null}
                     <FilterSelector
                         allowedFilters={allowedFilters}

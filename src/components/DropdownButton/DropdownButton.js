@@ -1,7 +1,7 @@
 import { Button, Layer, Popper } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
-import Tooltip from '../Tooltip'
+import OfflineTooltip from '../OfflineTooltip'
 import { ArrowDown, ArrowUp } from './assets/Arrow'
 import styles from './DropdownButton.module.css'
 
@@ -18,12 +18,12 @@ const DropdownButton = ({
     const ArrowIconComponent = open ? ArrowUp : ArrowDown
     return (
         <div ref={anchorRef}>
-            <Tooltip disabledWhenOffline={disabledWhenOffline}>
+            <OfflineTooltip disabledWhenOffline={disabledWhenOffline}>
                 <Button onClick={onClick} {...rest}>
                     {children}
                     <ArrowIconComponent className={styles.arrow} />
                 </Button>
-            </Tooltip>
+            </OfflineTooltip>
             {open && (
                 <Layer onClick={onClick} transparent>
                     <Popper placement="bottom-start" reference={anchorRef}>
