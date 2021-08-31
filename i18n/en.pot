@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-08-31T15:06:04.781Z\n"
-"PO-Revision-Date: 2021-08-31T15:06:04.781Z\n"
+"POT-Creation-Date: 2021-08-31T20:31:16.412Z\n"
+"PO-Revision-Date: 2021-08-31T20:31:16.412Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -264,6 +264,9 @@ msgstr "Insert"
 msgid "Search for items to add to this dashboard"
 msgstr "Search for items to add to this dashboard"
 
+msgid "Search for visualizations, reports and more"
+msgstr "Search for visualizations, reports and more"
+
 msgid "Cannot search for dashboard items while offline"
 msgstr "Cannot search for dashboard items while offline"
 
@@ -272,6 +275,44 @@ msgstr "Additional items"
 
 msgid "Text box"
 msgstr "Text box"
+
+msgid "Dashboard layout"
+msgstr "Dashboard layout"
+
+msgid "Freeflow"
+msgstr "Freeflow"
+
+msgid "Dashboard items can be placed anywhere, at any size."
+msgstr "Dashboard items can be placed anywhere, at any size."
+
+msgid "Fixed columns"
+msgstr "Fixed columns"
+
+msgid ""
+"Dashboard items are automatically placed within fixed, horizontal columns. "
+"The number of columns can be adjusted."
+msgstr ""
+"Dashboard items are automatically placed within fixed, horizontal columns. "
+"The number of columns can be adjusted."
+
+msgid "Number of columns"
+msgstr "Number of columns"
+
+msgid "Gap size between columns (px)"
+msgstr "Gap size between columns (px)"
+
+msgid ""
+"Default height only applies to items added to a dashboard, this setting "
+"will not change existing items"
+msgstr ""
+"Default height only applies to items added to a dashboard, this setting "
+"will not change existing items"
+
+msgid "Default height for items added to dashboard (rows)"
+msgstr "Default height for items added to dashboard (rows)"
+
+msgid "Save layout"
+msgstr "Save layout"
 
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen "
@@ -285,6 +326,24 @@ msgstr "Dashboard title"
 
 msgid "Dashboard description"
 msgstr "Dashboard description"
+
+msgid "Layout"
+msgstr "Layout"
+
+msgid "{{numberOfColumns}} columns"
+msgstr "{{numberOfColumns}} columns"
+
+msgid "Change layout"
+msgstr "Change layout"
+
+msgid "Add new items to"
+msgstr "Add new items to"
+
+msgid "End of dashboard"
+msgstr "End of dashboard"
+
+msgid "Start of dashboard"
+msgstr "Start of dashboard"
 
 msgid "Exit print preview"
 msgstr "Exit print preview"
@@ -394,9 +453,6 @@ msgstr "Hide description"
 
 msgid "Show description"
 msgstr "Show description"
-
-msgid "Dashboard layout"
-msgstr "Dashboard layout"
 
 msgid "One item per page"
 msgstr "One item per page"

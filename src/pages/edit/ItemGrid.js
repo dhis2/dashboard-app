@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { connect } from 'react-redux'
-import { acUpdateDashboardLayout } from '../../actions/editDashboard'
+import { acUpdateDashboardItemShapes } from '../../actions/editDashboard'
 import { Item } from '../../components/Item/Item'
 import NoContentMessage from '../../components/NoContentMessage'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
@@ -19,20 +19,32 @@ import {
     GRID_COLUMNS,
     hasShape,
     getGridWidth,
+    hasLayout,
 } from '../../modules/gridUtil'
 import { getBreakpoint } from '../../modules/smallScreen'
 import { orArray } from '../../modules/util'
-import { sGetEditDashboardItems } from '../../reducers/editDashboard'
+import {
+    sGetEditDashboardItems,
+    sGetHideGrid,
+    sGetLayout,
+} from '../../reducers/editDashboard'
 import classes from './styles/ItemGrid.module.css'
 
-const EditItemGrid = ({ dashboardItems, acUpdateDashboardLayout }) => {
-    const [gridWidth, setGridWidth] = useState(0)
+const EditItemGrid = ({
+    dashboardItems,
+    acUpdateDashboardItemShapes,
+    hasLayout,
+    hideGrid,
+}) => {
+    const [gridWidth, setGridWidth] = useState({ width: 0 })
     const { width } = useWindowDimensions()
 
-    const onLayoutChange = newLayout => acUpdateDashboardLayout(newLayout)
+    const onLayoutChange = newLayout => {
+        acUpdateDashboardItemShapes(newLayout)
+    }
 
     const onWidthChanged = containerWidth =>
-        setTimeout(() => setGridWidth(containerWidth), 200)
+        setTimeout(() => setGridWidth({ width: containerWidth }), 200)
 
     const getItemComponent = item => (
         <ProgressiveLoadingContainer
@@ -44,7 +56,11 @@ const EditItemGrid = ({ dashboardItems, acUpdateDashboardLayout }) => {
             )}
             itemId={item.id}
         >
-            <Item item={item} gridWidth={gridWidth} dashboardMode={EDIT} />
+            <Item
+                item={item}
+                gridWidth={gridWidth.width}
+                dashboardMode={EDIT}
+            />
         </ProgressiveLoadingContainer>
     )
 
@@ -56,6 +72,10 @@ const EditItemGrid = ({ dashboardItems, acUpdateDashboardLayout }) => {
                 text={i18n.t('There are no items on this dashboard')}
             />
         )
+    }
+
+    if (hideGrid) {
+        return null
     }
 
     return (
@@ -73,8 +93,8 @@ const EditItemGrid = ({ dashboardItems, acUpdateDashboardLayout }) => {
             containerPadding={{ lg: GRID_PADDING_PX }}
             onLayoutChange={onLayoutChange}
             onWidthChange={onWidthChanged}
-            isDraggable={true}
-            isResizable={true}
+            isDraggable={!hasLayout}
+            isResizable={!hasLayout}
             draggableCancel="input,textarea"
         >
             {getItemComponents(dashboardItems)}
@@ -83,8 +103,10 @@ const EditItemGrid = ({ dashboardItems, acUpdateDashboardLayout }) => {
 }
 
 EditItemGrid.propTypes = {
-    acUpdateDashboardLayout: PropTypes.func,
+    acUpdateDashboardItemShapes: PropTypes.func,
     dashboardItems: PropTypes.array,
+    hasLayout: PropTypes.bool,
+    hideGrid: PropTypes.bool,
 }
 
 // Container
@@ -92,11 +114,13 @@ EditItemGrid.propTypes = {
 const mapStateToProps = state => {
     return {
         dashboardItems: orArray(sGetEditDashboardItems(state)).filter(hasShape),
+        hasLayout: hasLayout(sGetLayout(state)),
+        hideGrid: sGetHideGrid(state),
     }
 }
 
 const mapDispatchToProps = {
-    acUpdateDashboardLayout,
+    acUpdateDashboardItemShapes,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditItemGrid)
