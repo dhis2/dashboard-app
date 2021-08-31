@@ -10,6 +10,7 @@ import {
     MAP,
     CHART,
     REPORT_TABLE,
+    getItemTypeForVis,
 } from '../../../../modules/itemTypes'
 import {
     sGetItemFiltersRoot,
@@ -56,7 +57,7 @@ class Visualization extends React.Component {
 
         const visualizationConfig = this.memoizedGetVisualizationConfig(
             visualization,
-            item.type,
+            getItemTypeForVis(item),
             activeType
         )
 

@@ -1,3 +1,4 @@
+import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import {
     IconApps24,
@@ -44,13 +45,26 @@ export const getDefaultItemCount = itemType =>
     itemTypeMap[itemType].defaultItemCount || 5
 export const getAppName = itemType => itemTypeMap[itemType].appName || ''
 
+export const getItemTypeForVis = item => {
+    if (item.type === VISUALIZATION) {
+        if (item.visualization.type === VIS_TYPE_PIVOT_TABLE) {
+            return REPORT_TABLE
+        } else {
+            return CHART
+        }
+    }
+    return item.type
+}
+
 // Item type map
 export const itemTypeMap = {
     [VISUALIZATION]: {
         id: VISUALIZATION,
         endPointName: 'visualizations',
+        dataStatisticsName: 'VISUALIZATION_VIEW',
         propName: 'visualization',
         pluralTitle: i18n.t('Visualizations'),
+        domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
         appUrl: id => `dhis-web-data-visualizer/#/${id}`,
         appName: 'Data Visualizer',
