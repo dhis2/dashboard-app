@@ -133,7 +133,7 @@ exports[`renders correctly when filters are not restricted 1`] = `
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-4026241391 secondary"
+            class="jsx-3597138218 secondary"
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -147,7 +147,7 @@ exports[`renders correctly when filters are not restricted 1`] = `
             class="span"
           >
             <button
-              class="jsx-4026241391 primary"
+              class="jsx-3597138218 primary"
               data-test="dhis2-uicore-button"
               type="button"
             >
@@ -299,7 +299,7 @@ exports[`renders correctly when filters are restricted 1`] = `
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-4026241391 secondary"
+            class="jsx-3597138218 secondary"
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -313,7 +313,7 @@ exports[`renders correctly when filters are restricted 1`] = `
             class="span"
           >
             <button
-              class="jsx-4026241391 primary"
+              class="jsx-3597138218 primary"
               data-test="dhis2-uicore-button"
               type="button"
             >

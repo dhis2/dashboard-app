@@ -122,7 +122,7 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
             Freeflow
           </span>
           <button
-            class="jsx-4026241391 small"
+            class="jsx-3597138218 small"
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -364,7 +364,7 @@ exports[`TitleBar renders correctly with name and description 1`] = `
             Freeflow
           </span>
           <button
-            class="jsx-4026241391 small"
+            class="jsx-3597138218 small"
             data-test="dhis2-uicore-button"
             type="button"
           >

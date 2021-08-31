@@ -41,12 +41,12 @@ exports[`renders a valid App item with filter in edit mode 1`] = `
         data-test="dhis2-uicore-tooltip-reference"
       >
         <button
-          class="jsx-4026241391 secondary small icon-only"
+          class="jsx-3597138218 secondary small icon-only"
           data-test="delete-item-button"
           type="button"
         >
           <span
-            class="jsx-4026241391 button-icon"
+            class="jsx-3597138218 button-icon"
           >
             <svg
               color="#c62828"
@@ -118,12 +118,12 @@ exports[`renders a valid App item with title in edit mode irrespective of app se
         data-test="dhis2-uicore-tooltip-reference"
       >
         <button
-          class="jsx-4026241391 secondary small icon-only"
+          class="jsx-3597138218 secondary small icon-only"
           data-test="delete-item-button"
           type="button"
         >
           <span
-            class="jsx-4026241391 button-icon"
+            class="jsx-3597138218 button-icon"
           >
             <svg
               color="#c62828"
