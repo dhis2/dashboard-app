@@ -49,6 +49,9 @@
         "cy:run-stub": "cypress_dhis2_api_stub_mode=STUB d2-utils-cypress run --tags '@nonmutating' --appStart 'yarn cypress:start' --record",
         "cy:capture": "cypress_dhis2_api_stub_mode=CAPTURE yarn d2-utils-cypress run --appStart 'yarn cypress:start'"
     },
+    "resolutions": {
+        "@dhis2/ui": "6.20.0"
+    },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^7.6.0",
         "@dhis2/cli-style": "^9.1.0",
