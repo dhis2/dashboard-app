@@ -1,17 +1,11 @@
 import { getVisualizationFromItem } from '../item'
-import {
-    REPORT_TABLE,
-    CHART,
-    MAP,
-    EVENT_REPORT,
-    EVENT_CHART,
-} from '../itemTypes'
+import { VISUALIZATION, MAP, EVENT_REPORT, EVENT_CHART } from '../itemTypes'
 
 test('getVisualizationFromItem for chart', () => {
     const vis = 'chart visualization'
     const item = {
-        type: CHART,
-        chart: vis,
+        type: VISUALIZATION,
+        visualization: vis,
     }
 
     expect(getVisualizationFromItem(item)).toEqual(vis)
@@ -20,8 +14,8 @@ test('getVisualizationFromItem for chart', () => {
 test('getVisualizationFromItem for table', () => {
     const vis = 'table visualization'
     const item = {
-        type: REPORT_TABLE,
-        reportTable: vis,
+        type: VISUALIZATION,
+        visualization: vis,
     }
 
     expect(getVisualizationFromItem(item)).toEqual(vis)

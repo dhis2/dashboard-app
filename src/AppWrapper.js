@@ -12,10 +12,9 @@ import './locales'
 
 const d2Config = {
     schemas: [
-        'chart',
+        'visualization',
         'map',
         'report',
-        'reportTable',
         'eventChart',
         'eventReport',
         'dashboard',

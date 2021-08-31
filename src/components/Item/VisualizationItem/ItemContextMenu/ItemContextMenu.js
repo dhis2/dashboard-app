@@ -22,7 +22,11 @@ import {
 import PropTypes from 'prop-types'
 import React, { useState, createRef } from 'react'
 import { getVisualizationId } from '../../../../modules/item'
-import { getAppName, itemTypeMap } from '../../../../modules/itemTypes'
+import {
+    getAppName,
+    itemTypeMap,
+    getItemTypeForVis,
+} from '../../../../modules/itemTypes'
 import { isSmallScreen } from '../../../../modules/smallScreen'
 import { useSystemSettings } from '../../../SystemSettingsProvider'
 import { useWindowDimensions } from '../../../WindowDimensionsProvider'
@@ -122,7 +126,7 @@ const ItemContextMenu = props => {
                         {canViewAs && !loadItemFailed && (
                             <>
                                 <ViewAsMenuItems
-                                    type={item.type}
+                                    type={getItemTypeForVis(item)}
                                     activeType={activeType}
                                     onActiveTypeChanged={onActiveTypeChanged}
                                     visualization={visualization}
