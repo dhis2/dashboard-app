@@ -7,9 +7,11 @@ import ContentMenuItem from './ContentMenuItem'
 import { tSetDashboardItems } from '../../../actions/editDashboard'
 
 const SinglesMenuGroup = ({ onAddItem, category }) => {
-    const addToDashboard = ({ type, content }) => () => {
-        onAddItem({ type, content })
-    }
+    const addToDashboard =
+        ({ type, content }) =>
+        () => {
+            onAddItem({ type, content })
+        }
 
     return (
         <>

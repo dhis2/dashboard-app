@@ -111,60 +111,58 @@ export const acSetItemConfigInsertPosition = value => ({
 // layout + end: calculate and add to "next shape in layout"
 // layout + start: add to 0,0,0,0, sort, remount
 
-export const tSetDashboardItems = (itemToAdd, itemIdToRemove) => (
-    dispatch,
-    getState
-) => {
-    const insertPosition = sGetItemConfigInsertPosition(getState())
-    const columns = sGetLayoutColumns(getState())
+export const tSetDashboardItems =
+    (itemToAdd, itemIdToRemove) => (dispatch, getState) => {
+        const insertPosition = sGetItemConfigInsertPosition(getState())
+        const columns = sGetLayoutColumns(getState())
 
-    let items = [...sGetEditDashboardItems(getState())]
-    let dashboardItemsWithShapes
+        let items = [...sGetEditDashboardItems(getState())]
+        let dashboardItemsWithShapes
 
-    if (!itemToAdd && !itemIdToRemove) {
-        // changing columns
+        if (!itemToAdd && !itemIdToRemove) {
+            // changing columns
 
-        if (!columns.length) {
-            // freeflow
-            updateItems(items, dispatch)
+            if (!columns.length) {
+                // freeflow
+                updateItems(items, dispatch)
+            } else {
+                dashboardItemsWithShapes = getAutoItemShapes(items, columns)
+                updateItems(dashboardItemsWithShapes, dispatch, {
+                    reload: true,
+                })
+            }
         } else {
-            dashboardItemsWithShapes = getAutoItemShapes(items, columns)
-            updateItems(dashboardItemsWithShapes, dispatch, {
-                reload: true,
-            })
-        }
-    } else {
-        if (itemIdToRemove) {
-            items = items.filter(item => item.id !== itemIdToRemove)
-        }
-
-        if (!itemToAdd) {
-            dashboardItemsWithShapes = getAutoItemShapes(items, columns)
-            updateItems(dashboardItemsWithShapes, dispatch)
-        } else {
-            const newDashboardItem = getDashboardItem(itemToAdd)
-
-            switch (insertPosition) {
-                case 'START':
-                    dashboardItemsWithShapes = addToItemsStart(
-                        items,
-                        columns,
-                        newDashboardItem
-                    )
-                    break
-                case 'END':
-                default:
-                    dashboardItemsWithShapes = addToItemsEnd(
-                        items,
-                        columns,
-                        newDashboardItem
-                    )
+            if (itemIdToRemove) {
+                items = items.filter(item => item.id !== itemIdToRemove)
             }
 
-            updateItems(dashboardItemsWithShapes, dispatch)
+            if (!itemToAdd) {
+                dashboardItemsWithShapes = getAutoItemShapes(items, columns)
+                updateItems(dashboardItemsWithShapes, dispatch)
+            } else {
+                const newDashboardItem = getDashboardItem(itemToAdd)
+
+                switch (insertPosition) {
+                    case 'START':
+                        dashboardItemsWithShapes = addToItemsStart(
+                            items,
+                            columns,
+                            newDashboardItem
+                        )
+                        break
+                    case 'END':
+                    default:
+                        dashboardItemsWithShapes = addToItemsEnd(
+                            items,
+                            columns,
+                            newDashboardItem
+                        )
+                }
+
+                updateItems(dashboardItemsWithShapes, dispatch)
+            }
         }
     }
-}
 
 export const tSaveDashboard = () => async (dispatch, getState, dataEngine) => {
     const dashboard = sGetEditDashboardRoot(getState())

@@ -6,10 +6,7 @@ import HeaderMenuItem from './HeaderMenuItem'
 import ContentMenuItem from './ContentMenuItem'
 import { categorizedItems, listItemTypes } from './selectableItems'
 import { tAddListItemContent } from './actions'
-import {
-    // acAddDashboardItem,
-    tSetDashboardItems,
-} from '../../../actions/editDashboard'
+import { tSetDashboardItems } from '../../../actions/editDashboard'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
@@ -22,7 +19,6 @@ const CategorizedMenuGroup = ({
     title,
     items,
     hasMore,
-    // acAddDashboardItem,
     onAddItem,
     tAddListItemContent,
     onChangeItemsLimit,
@@ -94,13 +90,11 @@ CategorizedMenuGroup.propTypes = {
     type: PropTypes.oneOf(categorizedItems).isRequired,
     onAddItem: PropTypes.func.isRequired,
     onChangeItemsLimit: PropTypes.func.isRequired,
-    // acAddDashboardItem: PropTypes.func,
     hasMore: PropTypes.bool,
     tAddListItemContent: PropTypes.func,
 }
 
 export default connect(null, {
-    // acAddDashboardItem,
     tAddListItemContent,
     onAddItem: item => dispatch => {
         dispatch(tSetDashboardItems(item))
