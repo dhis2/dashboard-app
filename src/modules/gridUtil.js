@@ -299,7 +299,7 @@ export const hasLayout = layout => layout?.columns?.length
 
 export const getDashboardItem = item => {
     const type = item.type
-    const itemPropName = itemTypeMap[type].propName
+    const itemPropName = itemTypeMap[type]?.propName
 
     const id = generateUid()
     const gridItemProperties = getGridItemProperties(id)

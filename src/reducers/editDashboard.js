@@ -29,8 +29,8 @@ export const RECEIVED_LAYOUT_COLUMNS = 'RECEIVED_LAYOUT_COLUMNS'
 export const RECEIVED_ITEM_CONFIG_INSERT_POSITION =
     'RECEIVED_ITEM_CONFIG_INSERT_POSITION'
 
-export const DEFAULT_STATE_EDIT_DASHBOARD = {}
-export const NEW_DASHBOARD_STATE = {
+export const EMPTY_STATE_EDIT_DASHBOARD = {}
+export const DEFAULT_STATE_EDIT_DASHBOARD = {
     id: '',
     name: '',
     access: { update: true, delete: true },
@@ -50,25 +50,26 @@ export const NEW_DASHBOARD_STATE = {
     },
 }
 
-export default (state = NEW_DASHBOARD_STATE, action) => {
+export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
     switch (action.type) {
         case RECEIVED_EDIT_DASHBOARD: {
             const newState = {}
-            Object.keys(NEW_DASHBOARD_STATE).forEach(
+            Object.keys(DEFAULT_STATE_EDIT_DASHBOARD).forEach(
                 k => (newState[k] = action.value[k])
             )
-            newState.printPreviewView = NEW_DASHBOARD_STATE.printPreviewView
-            newState.isDirty = NEW_DASHBOARD_STATE.isDirty
+            newState.printPreviewView =
+                DEFAULT_STATE_EDIT_DASHBOARD.printPreviewView
+            newState.isDirty = DEFAULT_STATE_EDIT_DASHBOARD.isDirty
             return newState
         }
         case RECEIVED_NOT_EDITING:
-            return DEFAULT_STATE_EDIT_DASHBOARD
+            return EMPTY_STATE_EDIT_DASHBOARD
         case SET_PRINT_PREVIEW_VIEW:
             return Object.assign({}, state, { printPreviewView: true })
         case CLEAR_PRINT_PREVIEW_VIEW:
             return Object.assign({}, state, { printPreviewView: false })
         case START_NEW_DASHBOARD:
-            return NEW_DASHBOARD_STATE
+            return DEFAULT_STATE_EDIT_DASHBOARD
         case RECEIVED_TITLE: {
             return Object.assign({}, state, {
                 name: action.value,

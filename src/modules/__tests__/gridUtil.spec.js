@@ -142,6 +142,19 @@ describe('getAutoItemShapes', () => {
         { x: 14, y: 60, w: 15, h: 20, id: 'j' },
     ]
 
+    const col6 = [
+        { index: 0 },
+        { index: 1 },
+        { index: 2 },
+        { index: 3 },
+        { index: 4 },
+        { index: 5 },
+    ]
+    const col5 = col6.slice(0, 5)
+    const col4 = col6.slice(0, 4)
+    const col3 = col6.slice(0, 3)
+    const col2 = col6.slice(0, 2)
+
     it('should handle 2 columns', () => {
         const expectedItems = [
             { x: 0, y: 0, w: 30, h: 29, id: 'a' },
@@ -157,7 +170,7 @@ describe('getAutoItemShapes', () => {
             { x: 0, y: 145, w: 30, h: 29, id: 'k' },
         ]
 
-        expect(getAutoItemShapes(items, 2, 60)).toEqual(expectedItems)
+        expect(getAutoItemShapes(items, col2, 60)).toEqual(expectedItems)
     })
 
     it('should handle 3 columns', () => {
@@ -175,7 +188,7 @@ describe('getAutoItemShapes', () => {
             { x: 20, y: 87, w: 20, h: 29, id: 'k' },
         ]
 
-        expect(getAutoItemShapes(items, 3, 60)).toEqual(expectedItems)
+        expect(getAutoItemShapes(items, col3, 60)).toEqual(expectedItems)
     })
 
     it('should handle 4 columns', () => {
@@ -193,7 +206,7 @@ describe('getAutoItemShapes', () => {
             { x: 30, y: 58, w: 15, h: 29, id: 'k' },
         ]
 
-        expect(getAutoItemShapes(items, 4, 60)).toEqual(expectedItems)
+        expect(getAutoItemShapes(items, col4, 60)).toEqual(expectedItems)
     })
 
     it('should handle 5 columns', () => {
@@ -211,7 +224,7 @@ describe('getAutoItemShapes', () => {
             { x: 0, y: 58, w: 12, h: 29, id: 'k' },
         ]
 
-        expect(getAutoItemShapes(items, 5, 60)).toEqual(expectedItems)
+        expect(getAutoItemShapes(items, col5, 60)).toEqual(expectedItems)
     })
 
     it('should handle 6 columns', () => {
@@ -229,6 +242,6 @@ describe('getAutoItemShapes', () => {
             { x: 40, y: 29, w: 10, h: 29, id: 'k' },
         ]
 
-        expect(getAutoItemShapes(items, 6, 60)).toEqual(expectedItems)
+        expect(getAutoItemShapes(items, col6, 60)).toEqual(expectedItems)
     })
 })

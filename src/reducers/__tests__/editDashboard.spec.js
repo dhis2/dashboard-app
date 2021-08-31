@@ -1,7 +1,6 @@
 import update from 'immutability-helper'
 import reducer, {
     DEFAULT_STATE_EDIT_DASHBOARD,
-    NEW_DASHBOARD_STATE,
     sGetIsEditing,
     RECEIVED_DASHBOARD_ITEM_SHAPES,
     RECEIVED_NOT_EDITING,
@@ -12,6 +11,7 @@ import reducer, {
     ADD_DASHBOARD_ITEM,
     UPDATE_DASHBOARD_ITEM,
     REMOVE_DASHBOARD_ITEM,
+    EMPTY_STATE_EDIT_DASHBOARD,
 } from '../editDashboard'
 
 describe('editDashboard', () => {
@@ -90,15 +90,15 @@ describe('editDashboard', () => {
                 type: RECEIVED_NOT_EDITING,
             })
 
-            expect(actualState).toEqual(DEFAULT_STATE_EDIT_DASHBOARD)
+            expect(actualState).toEqual(EMPTY_STATE_EDIT_DASHBOARD)
         })
 
         it('should return the state for a new dashboard', () => {
-            const actualState = reducer(DEFAULT_STATE_EDIT_DASHBOARD, {
+            const actualState = reducer(EMPTY_STATE_EDIT_DASHBOARD, {
                 type: START_NEW_DASHBOARD,
             })
 
-            expect(actualState).toEqual(NEW_DASHBOARD_STATE)
+            expect(actualState).toEqual(DEFAULT_STATE_EDIT_DASHBOARD)
         })
 
         it('should set the dashboard to be edited', () => {
@@ -152,9 +152,11 @@ describe('editDashboard', () => {
         })
 
         it('should add a dashboard item', () => {
+            const type = 'ROBOT'
+
             const newItem = {
                 id: 'add1',
-                type: 'ROBOT',
+                type,
             }
 
             const actualState = reducer(initialState, {
@@ -166,11 +168,7 @@ describe('editDashboard', () => {
                 initialState.dashboardItems.length + 1
             )
 
-            const expectedState = update(initialState, {
-                dashboardItems: { $unshift: [newItem] },
-            })
-
-            expect(actualState).toMatchObject(expectedState)
+            expect(actualState.dashboardItems[0].type).toBe(type)
 
             //check for pure function
             expect(initialState.dashboardItems.length).toEqual(2)
