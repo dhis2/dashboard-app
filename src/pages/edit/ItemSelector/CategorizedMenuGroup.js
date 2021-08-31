@@ -1,9 +1,6 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { MenuItem, Divider } from '@dhis2/ui'
-import { useConfig } from '@dhis2/app-runtime'
 
 import HeaderMenuItem from './HeaderMenuItem'
 import ContentMenuItem from './ContentMenuItem'
@@ -13,6 +10,9 @@ import {
     // acAddDashboardItem,
     tSetDashboardItems,
 } from '../../../actions/editDashboard'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import { getItemUrl, APP, VISUALIZATION } from '../../../modules/itemTypes'
 
 import classes from './styles/CategorizedMenuGroup.module.css'

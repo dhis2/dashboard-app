@@ -1,17 +1,14 @@
+import PropTypes from 'prop-types'
 import React, { useState, useRef, useEffect, createRef } from 'react'
 import { connect } from 'react-redux'
-import cx from 'classnames'
-import PropTypes from 'prop-types'
-
-import Content from './Content'
-import ShowMoreButton from './ShowMoreButton'
-import DragHandle from './DragHandle'
-import { getRowsFromHeight } from './getRowsFromHeight'
-import { sGetControlBarUserRows } from '../../../reducers/controlBar'
 import { acSetControlBarUserRows } from '../../../actions/controlBar'
 import { apiPostControlBarRows } from '../../../api/controlBar'
 import { useWindowDimensions } from '../../../components/WindowDimensionsProvider'
-
+import { sGetControlBarUserRows } from '../../../reducers/controlBar'
+import Content from './Content'
+import DragHandle from './DragHandle'
+import { getRowsFromHeight } from './getRowsFromHeight'
+import ShowMoreButton from './ShowMoreButton'
 import classes from './styles/DashboardsBar.module.css'
 
 export const MIN_ROW_COUNT = 1
@@ -32,6 +29,10 @@ const DashboardsBar = ({
     const rootElement = document.documentElement
 
     useEffect(() => {
+        if (mouseYPos === 0) {
+            return
+        }
+
         const newRows = Math.max(
             MIN_ROW_COUNT,
             getRowsFromHeight(mouseYPos - 52) // don't rush the transition to a bigger row count
@@ -88,7 +89,10 @@ const DashboardsBar = ({
             className={expanded ? classes.expanded : classes.collapsed}
             data-test="dashboards-bar"
         >
-            <div className={cx(classes.container)}>
+            <div
+                className={classes.container}
+                data-test="dashboardsbar-container"
+            >
                 <div className={classes.content} ref={ref}>
                     <Content
                         onChipClicked={cancelExpanded}
@@ -106,7 +110,7 @@ const DashboardsBar = ({
                     onHeightChanged={setMouseYPos}
                 />
             </div>
-            <div className={cx(classes.spacer)} />
+            <div className={classes.spacer} />
         </div>
     )
 }

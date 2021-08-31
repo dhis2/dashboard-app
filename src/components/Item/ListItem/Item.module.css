@@ -5,34 +5,32 @@
 }
 
 .item {
-    margin-bottom: 8px;
+    margin-bottom: var(--spacers-dp8);
 }
 
-.itemicon {
-    vertical-align: text-bottom;
-    width: 18px;
-    height: 18px;
+.itemContent {
+    display: inline-flex;
 }
 
 .link {
     font-size: 14px;
-    margin-left: 5px;
+    margin-left: var(--spacers-dp4);
     text-decoration: underline;
 }
 
-.deleteicon {
-    vertical-align: text-bottom;
-}
-
-.deletebutton {
+.removeButton {
     border: none;
-    border-radius: 50%;
     cursor: pointer;
-    margin-left: 5px;
-    padding: 0px 5px;
+    margin-left: var(--spacers-dp8);
+    color: var(--colors-red600);
+    font-size: 12px;
+    text-decoration: underline;
+    background-color: transparent;
     vertical-align: text-bottom;
 }
 
-.deletebutton:focus {
+.removeButton:hover,
+.removeButton:focus {
     outline: none;
+    color: var(--colors-red800);
 }

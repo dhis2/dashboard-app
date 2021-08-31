@@ -1,21 +1,18 @@
+import cx from 'classnames'
+import sortBy from 'lodash/sortBy'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import sortBy from 'lodash/sortBy'
-import cx from 'classnames'
-
-import StaticGrid from './StaticGrid'
-import { Item } from '../../components/Item/Item'
-
 import { acUpdatePrintDashboardLayout } from '../../actions/printDashboard'
-import { sGetPrintDashboardItems } from '../../reducers/printDashboard'
-import { sGetIsEditing } from '../../reducers/editDashboard'
-
-import { hasShape } from '../../modules/gridUtil'
-import { getDomGridItemsSortedByYPos, getTransformYPx } from './printUtils'
-
+import { Item } from '../../components/Item/Item'
 import { PRINT_LAYOUT } from '../../modules/dashboardModes'
+import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName'
+import { hasShape } from '../../modules/gridUtil'
 import { PAGEBREAK } from '../../modules/itemTypes'
+import { sGetIsEditing } from '../../reducers/editDashboard'
+import { sGetPrintDashboardItems } from '../../reducers/printDashboard'
+import { getDomGridItemsSortedByYPos, getTransformYPx } from './printUtils'
+import StaticGrid from './StaticGrid'
 
 class PrintLayoutItemGrid extends Component {
     onLayoutChange = newLayout => {
@@ -37,11 +34,17 @@ class PrintLayoutItemGrid extends Component {
 
     getItemComponent = item => {
         // the first-page-break class is used in Edit print preview
-        const itemClassNames = cx('print', 'layout', `${item.type}`, {
-            'first-page-break':
-                this.props.isEditing && this.isFirstPageBreak(item),
-            shortened: !!item.shortened,
-        })
+        const itemClassNames = cx(
+            'print',
+            'layout',
+            getGridItemDomElementClassName(item.id),
+            `${item.type}`,
+            {
+                'first-page-break':
+                    this.props.isEditing && this.isFirstPageBreak(item),
+                shortened: !!item.shortened,
+            }
+        )
 
         return (
             <div

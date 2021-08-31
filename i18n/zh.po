@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-05-12T08:56:39.093Z\n"
+"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -33,8 +33,11 @@ msgstr "消息"
 msgid "See all messages"
 msgstr "查看所有消息"
 
-msgid "Item type \"{{type}}\" not supported"
-msgstr "条目类型 \"{{type}}\" 不支持"
+msgid "Item type \"{{type}}\" is not supported"
+msgstr "不支持项目类型“{{type}}”"
+
+msgid "The item type is missing"
+msgstr "缺少条目类型"
 
 msgid "Filters applied"
 msgstr "已应用的过滤器"
@@ -90,6 +93,12 @@ msgstr "不能载入该条目的插件"
 
 msgid "No data to display"
 msgstr "没有数据可显示"
+
+msgid "There was an error loading data for this item"
+msgstr "加载此项目的数据时出错"
+
+msgid "Open this item in {{appName}}"
+msgstr "在 {{appName}} 中打开此条目"
 
 msgid "Visualizations"
 msgstr "可视化"

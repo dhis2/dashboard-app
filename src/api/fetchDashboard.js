@@ -1,12 +1,12 @@
 import arrayClean from 'd2-utilizr/lib/arrayClean'
+import { isViewMode } from '../modules/dashboardModes'
+import { getCustomDashboards } from '../modules/getCustomDashboards'
+import { withShape } from '../modules/gridUtil'
 import {
     getIdNameFields,
     getListItemFields,
     getFavoritesFields,
 } from './metadata'
-import { isViewMode } from '../modules/dashboardModes'
-import { getCustomDashboards } from '../modules/getCustomDashboards'
-import { withShape } from '../modules/gridUtil'
 
 const getDashboardItemsFields = () =>
     arrayClean([

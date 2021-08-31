@@ -1,19 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
+import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import isEmpty from 'lodash/isEmpty'
-
-import DashboardsBar from './DashboardsBar/DashboardsBar'
-import ViewDashboard from './ViewDashboard'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import NoContentMessage from '../../components/NoContentMessage'
+import { getPreferredDashboardId } from '../../modules/localStorage'
 import {
     sDashboardsIsFetching,
     sGetDashboardById,
     sGetDashboardsSortedByStarred,
 } from '../../reducers/dashboards'
-import { getPreferredDashboardId } from '../../modules/localStorage'
+import DashboardsBar from './DashboardsBar/DashboardsBar'
+import ViewDashboard from './ViewDashboard'
 
 const CacheableViewDashboard = ({
     id,
@@ -21,6 +20,8 @@ const CacheableViewDashboard = ({
     dashboardsIsEmpty,
     username,
 }) => {
+    const [dashboardsBarExpanded, setDashboardsBarExpanded] = useState(false)
+
     if (!dashboardsLoaded) {
         return (
             <Layer translucent>
@@ -31,25 +32,23 @@ const CacheableViewDashboard = ({
         )
     }
 
-    if (dashboardsIsEmpty) {
+    if (dashboardsIsEmpty || id === null) {
         return (
             <>
-                <DashboardsBar />
-                <NoContentMessage
-                    text={i18n.t(
-                        'No dashboards found. Use the + button to create a new dashboard.'
-                    )}
+                <DashboardsBar
+                    expanded={dashboardsBarExpanded}
+                    onExpandedChanged={expanded =>
+                        setDashboardsBarExpanded(expanded)
+                    }
                 />
-            </>
-        )
-    }
-
-    if (id === null) {
-        return (
-            <>
-                <DashboardsBar />
                 <NoContentMessage
-                    text={i18n.t('Requested dashboard not found')}
+                    text={
+                        dashboardsIsEmpty
+                            ? i18n.t(
+                                  'No dashboards found. Use the + button to create a new dashboard.'
+                              )
+                            : i18n.t('Requested dashboard not found')
+                    }
                 />
             </>
         )

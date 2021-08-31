@@ -1,3 +1,97 @@
+## [31.17.9](https://github.com/dhis2/dashboard-app/compare/v31.17.8...v31.17.9) (2021-08-26)
+
+
+### Bug Fixes
+
+* legend key print style (DHIS2-11636) ([#1911](https://github.com/dhis2/dashboard-app/issues/1911)) ([bf3c61b](https://github.com/dhis2/dashboard-app/commit/bf3c61b3969711cc2bf078c6cea2d1ab350f334b))
+
+## [31.17.8](https://github.com/dhis2/dashboard-app/compare/v31.17.7...v31.17.8) (2021-08-25)
+
+
+### Bug Fixes
+
+* pass callback to handle expanded flag everywhere DashboardsBar is used [DHIS2-11031] ([#1914](https://github.com/dhis2/dashboard-app/issues/1914)) ([23de3c1](https://github.com/dhis2/dashboard-app/commit/23de3c16f6403b9a5f969155883977a1271f1f29)), closes [#1764](https://github.com/dhis2/dashboard-app/issues/1764)
+
+## [31.17.7](https://github.com/dhis2/dashboard-app/compare/v31.17.6...v31.17.7) (2021-08-25)
+
+
+### Bug Fixes
+
+* adjust z-index so tooltip on Show more/fewer dashboards button shows ([#1912](https://github.com/dhis2/dashboard-app/issues/1912)) ([cce97f9](https://github.com/dhis2/dashboard-app/commit/cce97f963c764d6a2cbc26d29fb85b1015fb12e5))
+
+## [31.17.6](https://github.com/dhis2/dashboard-app/compare/v31.17.5...v31.17.6) (2021-08-23)
+
+
+### Bug Fixes
+
+* replace icons used for list item delete items ([#1909](https://github.com/dhis2/dashboard-app/issues/1909)) ([55ba86d](https://github.com/dhis2/dashboard-app/commit/55ba86d379315eea619ff3de5a9121242bb592c4))
+
+## [31.17.5](https://github.com/dhis2/dashboard-app/compare/v31.17.4...v31.17.5) (2021-08-23)
+
+
+### Bug Fixes
+
+* response code for /userDataStore has been restored to 201 ([#1910](https://github.com/dhis2/dashboard-app/issues/1910)) ([00ea30f](https://github.com/dhis2/dashboard-app/commit/00ea30ff3143b2f5feb74afac449394b3c8ca243)), closes [#1896](https://github.com/dhis2/dashboard-app/issues/1896)
+
+## [31.17.4](https://github.com/dhis2/dashboard-app/compare/v31.17.3...v31.17.4) (2021-08-18)
+
+
+### Bug Fixes
+
+* content css ([#1907](https://github.com/dhis2/dashboard-app/issues/1907)) ([d8c5dec](https://github.com/dhis2/dashboard-app/commit/d8c5deca56ac7ebde290c3980b3575d8f9ad86b1))
+
+## [31.17.3](https://github.com/dhis2/dashboard-app/compare/v31.17.2...v31.17.3) (2021-08-13)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1852](https://github.com/dhis2/dashboard-app/issues/1852)) ([2c892d7](https://github.com/dhis2/dashboard-app/commit/2c892d7ce8924b229f7c4c7d840039e3886bbdba))
+
+## [31.17.2](https://github.com/dhis2/dashboard-app/compare/v31.17.1...v31.17.2) (2021-08-13)
+
+
+### Bug Fixes
+
+* break up TitleBar into components ([#1901](https://github.com/dhis2/dashboard-app/issues/1901)) ([965b33d](https://github.com/dhis2/dashboard-app/commit/965b33d5d8335cfbfb8ac9d63690bc46a1cb148b))
+
+## [31.17.1](https://github.com/dhis2/dashboard-app/compare/v31.17.0...v31.17.1) (2021-08-12)
+
+
+### Bug Fixes
+
+* bump dv plugin and ui to latest ([#1892](https://github.com/dhis2/dashboard-app/issues/1892)) ([89dd128](https://github.com/dhis2/dashboard-app/commit/89dd128c60acd1c88d7c1bc2eeb11cc331586179))
+* set correct item height when adding dashboard items in edit mode ([#1868](https://github.com/dhis2/dashboard-app/issues/1868)) ([41575f4](https://github.com/dhis2/dashboard-app/commit/41575f4fc44c97e6f2c4249d668ba1cad04ca4ff)), closes [#1826](https://github.com/dhis2/dashboard-app/issues/1826)
+* the response code for PUT userDataStore has been changed from 201 to 200 ([#1896](https://github.com/dhis2/dashboard-app/issues/1896)) ([ced4258](https://github.com/dhis2/dashboard-app/commit/ced4258298c5dee0c57861885ab47236c05e20d2))
+
+# [31.17.0](https://github.com/dhis2/dashboard-app/compare/v31.16.4...v31.17.0) (2021-07-07)
+
+
+### Features
+
+* legend key (DHIS2-11239) ([#1839](https://github.com/dhis2/dashboard-app/issues/1839)) ([571c302](https://github.com/dhis2/dashboard-app/commit/571c3023c99e776003160642f3ccc0160d784a52))
+
+## [31.16.4](https://github.com/dhis2/dashboard-app/compare/v31.16.3...v31.16.4) (2021-06-30)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1798](https://github.com/dhis2/dashboard-app/issues/1798)) ([3640928](https://github.com/dhis2/dashboard-app/commit/3640928fb6b3dbe81603e50100b65bb3ee4db756))
+* fix locale format passed to Intl in interpretations ([#1835](https://github.com/dhis2/dashboard-app/issues/1835)) ([91304a4](https://github.com/dhis2/dashboard-app/commit/91304a47eb02d37cf456fdc499ff950152db36a5))
+
+## [31.16.3](https://github.com/dhis2/dashboard-app/compare/v31.16.2...v31.16.3) (2021-06-22)
+
+
+### Bug Fixes
+
+* add onError callback to handle failed chart from DV plugin [DHIS2-11303] ([#1826](https://github.com/dhis2/dashboard-app/issues/1826)) ([2aa5f6b](https://github.com/dhis2/dashboard-app/commit/2aa5f6b483d9e2214aa172a0c760eaec208c34c7))
+
+## [31.16.2](https://github.com/dhis2/dashboard-app/compare/v31.16.1...v31.16.2) (2021-06-22)
+
+
+### Bug Fixes
+
+* dashboards bar row height should only be changed after user drags to change the height ([#1830](https://github.com/dhis2/dashboard-app/issues/1830)) ([1e4503d](https://github.com/dhis2/dashboard-app/commit/1e4503d6074ca787e4890bf1fcc5fca7da48d7af))
+
 ## [31.16.1](https://github.com/dhis2/dashboard-app/compare/v31.16.0...v31.16.1) (2021-06-14)
 
 

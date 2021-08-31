@@ -5,8 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2021-08-31T11:12:36.355Z\n"
 "PO-Revision-Date: 2021-08-31T11:12:36.355Z\n"
+=======
+"POT-Creation-Date: 2021-08-23T09:48:29.014Z\n"
+"PO-Revision-Date: 2021-08-23T09:48:29.014Z\n"
+>>>>>>> b15e2d5c3fc0c9943d7627c33c8540e053dca6d0
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -16,6 +21,9 @@ msgstr "Remove this item"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "This item has been shortened to fit on one page"
+
+msgid "Remove"
+msgstr "Remove"
 
 msgid "Messages"
 msgstr "Messages"
@@ -82,6 +90,12 @@ msgstr "Unable to load the plugin for this item"
 
 msgid "No data to display"
 msgstr "No data to display"
+
+msgid "There was an error loading data for this item"
+msgstr "There was an error loading data for this item"
+
+msgid "Open this item in {{appName}}"
+msgstr "Open this item in {{appName}}"
 
 msgid "Visualizations"
 msgstr "Visualizations"
@@ -184,6 +198,9 @@ msgstr "Yes, discard changes"
 
 msgid "No access"
 msgstr "No access"
+
+msgid "Not supported"
+msgstr "Not supported"
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
@@ -294,9 +311,6 @@ msgstr ""
 "Creating dashboards on small screens is not supported. Resize your screen "
 "to return to create mode."
 
-msgid "Not supported"
-msgstr "Not supported"
-
 msgid "Dashboard title"
 msgstr "Dashboard title"
 
@@ -375,23 +389,17 @@ msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} selected"
 msgstr[1] "{{count}} selected"
 
-msgid "Remove"
-msgstr "Remove"
-
-msgid "Add filter"
-msgstr "Add filter"
-
-msgid "Hide description"
-msgstr "Hide description"
-
-msgid "Show description"
-msgstr "Show description"
-
 msgid "Failed to hide description"
 msgstr "Failed to hide description"
 
 msgid "Failed to show description"
 msgstr "Failed to show description"
+
+msgid "Failed to unstar the dashboard"
+msgstr "Failed to unstar the dashboard"
+
+msgid "Failed to star the dashboard"
+msgstr "Failed to star the dashboard"
 
 msgid "Unstar dashboard"
 msgstr "Unstar dashboard"
@@ -399,11 +407,11 @@ msgstr "Unstar dashboard"
 msgid "Star dashboard"
 msgstr "Star dashboard"
 
-msgid "Failed to unstar the dashboard"
-msgstr "Failed to unstar the dashboard"
+msgid "Hide description"
+msgstr "Hide description"
 
-msgid "Failed to star the dashboard"
-msgstr "Failed to star the dashboard"
+msgid "Show description"
+msgstr "Show description"
 
 msgid "One item per page"
 msgstr "One item per page"
@@ -419,6 +427,9 @@ msgstr "Share"
 
 msgid "No description"
 msgstr "No description"
+
+msgid "Add filter"
+msgstr "Add filter"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Loading dashboard – {{name}}"

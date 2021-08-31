@@ -23,7 +23,7 @@ const itemTypeToScriptPath = {
 
 const hasIntegratedPlugin = type => [CHART, REPORT_TABLE].includes(type)
 
-const getPlugin = async type => {
+export const getPlugin = async type => {
     if (hasIntegratedPlugin(type)) {
         return true
     }
@@ -98,13 +98,6 @@ export const load = async (
 
     const type = activeType || item.type
     await loadPlugin(type, config, credentials)
-}
-
-export const resize = async (id, type, isFullscreen = false) => {
-    const plugin = await getPlugin(type)
-    if (plugin?.resize) {
-        plugin.resize(getVisualizationContainerDomId(id), isFullscreen)
-    }
 }
 
 export const unmount = async (item, activeType) => {

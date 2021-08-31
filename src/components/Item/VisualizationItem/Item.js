@@ -1,40 +1,38 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import isEmpty from 'lodash/isEmpty'
 import i18n from '@dhis2/d2-i18n'
-import Visualization from './Visualization/Visualization'
-import FatalErrorBoundary from './FatalErrorBoundary'
-import ItemHeader from '../ItemHeader/ItemHeader'
-import ItemContextMenu from './ItemContextMenu/ItemContextMenu'
-import ItemFooter from './ItemFooter'
-import { pluginIsAvailable } from './Visualization/plugin'
-import memoizeOne from './memoizeOne'
-import { getGridItemElement } from './getGridItemElement'
-
-import { WindowDimensionsCtx } from '../../WindowDimensionsProvider'
-import { SystemSettingsCtx } from '../../SystemSettingsProvider'
+import isEmpty from 'lodash/isEmpty'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { acSetItemActiveType } from '../../../actions/itemActiveTypes'
+import { acAddVisualization } from '../../../actions/visualizations'
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
 import { apiFetchVisualization } from '../../../api/fetchVisualization'
-import { sGetVisualization } from '../../../reducers/visualizations'
-import { sGetItemActiveType } from '../../../reducers/itemActiveTypes'
-import { sGetIsEditing } from '../../../reducers/editDashboard'
-import {
-    sGetItemFiltersRoot,
-    DEFAULT_STATE_ITEM_FILTERS,
-} from '../../../reducers/itemFilters'
-import { acAddVisualization } from '../../../actions/visualizations'
-import { acSetItemActiveType } from '../../../actions/itemActiveTypes'
-import { getDataStatisticsName } from '../../../modules/itemTypes'
-import { isElementFullscreen } from './isElementFullscreen'
-
-import { getVisualizationId, getVisualizationName } from '../../../modules/item'
 import {
     isEditMode,
     isPrintMode,
     isViewMode,
 } from '../../../modules/dashboardModes'
 import { getItemHeightPx } from '../../../modules/gridUtil'
+import { getVisualizationId, getVisualizationName } from '../../../modules/item'
+import { getDataStatisticsName } from '../../../modules/itemTypes'
+import { sGetIsEditing } from '../../../reducers/editDashboard'
+import { sGetItemActiveType } from '../../../reducers/itemActiveTypes'
+import {
+    sGetItemFiltersRoot,
+    DEFAULT_STATE_ITEM_FILTERS,
+} from '../../../reducers/itemFilters'
+import { sGetVisualization } from '../../../reducers/visualizations'
+import { SystemSettingsCtx } from '../../SystemSettingsProvider'
+import { WindowDimensionsCtx } from '../../WindowDimensionsProvider'
+import ItemHeader from '../ItemHeader/ItemHeader'
+import FatalErrorBoundary from './FatalErrorBoundary'
+import { getGridItemElement } from './getGridItemElement'
+import { isElementFullscreen } from './isElementFullscreen'
+import ItemContextMenu from './ItemContextMenu/ItemContextMenu'
+import ItemFooter from './ItemFooter'
+import memoizeOne from './memoizeOne'
+import { pluginIsAvailable } from './Visualization/plugin'
+import Visualization from './Visualization/Visualization'
 
 class Item extends Component {
     state = {

@@ -1,11 +1,9 @@
+import i18n from '@dhis2/d2-i18n'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
-
-import { acRemoveItemFilter } from '../../../actions/itemFilters'
 import { acSetActiveModalDimension } from '../../../actions/activeModalDimension'
-
+import { acRemoveItemFilter } from '../../../actions/itemFilters'
 import classes from './styles/FilterBadge.module.css'
 
 const FilterBadge = ({ filter, openFilterModal, removeFilter }) => {

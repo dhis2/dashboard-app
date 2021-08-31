@@ -1,20 +1,18 @@
+import i18n from '@dhis2/d2-i18n'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
-
+import { sGetIsEditing } from '../../../reducers/editDashboard'
+import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
+import {
+    sGetPrintDashboardName,
+    sGetPrintDashboardDescription,
+} from '../../../reducers/printDashboard'
 import {
     sGetSelectedDisplayName,
     sGetSelectedDisplayDescription,
 } from '../../../reducers/selected'
 import { sGetShowDescription } from '../../../reducers/showDescription'
-import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
-import { sGetIsEditing } from '../../../reducers/editDashboard'
-import {
-    sGetPrintDashboardName,
-    sGetPrintDashboardDescription,
-} from '../../../reducers/printDashboard'
-
 import classes from './styles/Item.module.css'
 
 const PrintTitlePageItem = ({

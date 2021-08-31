@@ -32,11 +32,11 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
             data-test="dhis2-uicore-box"
           >
             <div
-              class="jsx-3353877153 jsx-1090541828 input"
+              class="jsx-3353877153 jsx-3094570948 input"
               data-test="dhis2-uicore-input"
             >
               <input
-                class="jsx-3353877153 jsx-1090541828 "
+                class="jsx-3353877153 jsx-3094570948 "
                 id="Dashboard title input"
                 name="Dashboard title input"
                 placeholder="Untitled dashboard"
@@ -44,7 +44,7 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
                 value=""
               />
               <div
-                class="jsx-3353877153 jsx-1090541828 status-icon"
+                class="jsx-3353877153 jsx-3094570948 status-icon"
               />
             </div>
           </div>
@@ -270,11 +270,11 @@ exports[`TitleBar renders correctly with name and description 1`] = `
             data-test="dhis2-uicore-box"
           >
             <div
-              class="jsx-3353877153 jsx-1090541828 input"
+              class="jsx-3353877153 jsx-3094570948 input"
               data-test="dhis2-uicore-input"
             >
               <input
-                class="jsx-3353877153 jsx-1090541828 "
+                class="jsx-3353877153 jsx-3094570948 "
                 id="Dashboard title input"
                 name="Dashboard title input"
                 placeholder="Untitled dashboard"
@@ -282,7 +282,7 @@ exports[`TitleBar renders correctly with name and description 1`] = `
                 value="Rainbow Dash"
               />
               <div
-                class="jsx-3353877153 jsx-1090541828 status-icon"
+                class="jsx-3353877153 jsx-3094570948 status-icon"
               />
             </div>
           </div>

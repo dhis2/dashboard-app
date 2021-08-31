@@ -1,6 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 import HeaderMenuItem from './HeaderMenuItem'
 import ContentMenuItem from './ContentMenuItem'

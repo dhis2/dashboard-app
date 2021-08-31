@@ -1,5 +1,5 @@
-import { RECEIVED_MESSAGES } from '../../../reducers/messages'
 import { getMessages } from '../../../api/messages'
+import { RECEIVED_MESSAGES } from '../../../reducers/messages'
 
 const onError = (action, error) => {
     console.log(`Error in action ${action}: ${error}`)

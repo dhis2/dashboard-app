@@ -1,31 +1,29 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import uniqueId from 'lodash/uniqueId'
-
-import LegacyPlugin from './LegacyPlugin'
-import MapPlugin from './MapPlugin'
-import DataVisualizerPlugin from './DataVisualizerPlugin'
-import NoVisualizationMessage from './NoVisualizationMessage'
-
-import getFilteredVisualization from './getFilteredVisualization'
-import { pluginIsAvailable } from './plugin'
-import getVisualizationConfig from './getVisualizationConfig'
-import memoizeOne from '../memoizeOne'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
+import { isEditMode } from '../../../../modules/dashboardModes'
+import { getVisualizationId } from '../../../../modules/item'
 import {
     VISUALIZATION,
     MAP,
     CHART,
     REPORT_TABLE,
 } from '../../../../modules/itemTypes'
-import { getVisualizationId } from '../../../../modules/item'
-import { sGetVisualization } from '../../../../reducers/visualizations'
 import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
 } from '../../../../reducers/itemFilters'
-import { isEditMode } from '../../../../modules/dashboardModes'
+import { sGetVisualization } from '../../../../reducers/visualizations'
+import memoizeOne from '../memoizeOne'
+import DataVisualizerPlugin from './DataVisualizerPlugin'
+import getFilteredVisualization from './getFilteredVisualization'
+import getVisualizationConfig from './getVisualizationConfig'
+import LegacyPlugin from './LegacyPlugin'
+import MapPlugin from './MapPlugin'
+import NoVisualizationMessage from './NoVisualizationMessage'
+import { pluginIsAvailable } from './plugin'
 
 class Visualization extends React.Component {
     constructor(props) {
@@ -40,13 +38,8 @@ class Visualization extends React.Component {
     }
 
     render() {
-        const {
-            visualization,
-            activeType,
-            item,
-            itemFilters,
-            ...rest
-        } = this.props
+        const { visualization, activeType, item, itemFilters, ...rest } =
+            this.props
 
         if (!visualization) {
             return (
@@ -80,6 +73,9 @@ class Visualization extends React.Component {
                             itemFilters
                         )}
                         style={style}
+                        filterVersion={filterVersion}
+                        item={item}
+                        dashboardMode={this.props.dashboardMode}
                     />
                 )
             }
@@ -126,6 +122,7 @@ Visualization.propTypes = {
     activeType: PropTypes.string,
     availableHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     availableWidth: PropTypes.number,
+    dashboardMode: PropTypes.string,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,

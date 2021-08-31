@@ -1,9 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import cx from 'classnames'
-import ReactGridLayout from 'react-grid-layout'
 import i18n from '@dhis2/d2-i18n'
-
+import cx from 'classnames'
+import PropTypes from 'prop-types'
+import React from 'react'
+import ReactGridLayout from 'react-grid-layout'
 import NoContentMessage from '../../components/NoContentMessage'
 import {
     GRID_ROW_HEIGHT_PX,

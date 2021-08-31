@@ -1,6 +1,5 @@
-// import { generateUid } from 'd2/uid'
 import i18n from '@dhis2/d2-i18n'
-
+import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
 import {
     RECEIVED_EDIT_DASHBOARD,
     START_NEW_DASHBOARD,
@@ -24,7 +23,6 @@ import {
 } from '../reducers/editDashboard'
 import { tFetchDashboards } from './dashboards'
 import { updateDashboard, postDashboard } from '../api/editDashboard'
-import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
 import {
     addToItemsEnd,
     addToItemsStart,

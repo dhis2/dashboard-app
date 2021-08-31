@@ -1,5 +1,5 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import { connect } from 'react-redux'
 
 import DeleteItemButton from './DeleteItemButton'
@@ -8,11 +8,12 @@ import {
     tSetDashboardItems,
 } from '../../../actions/editDashboard'
 
-import classes from './styles/ItemHeader.module.css'
 import {
     sGetEditDashboardItems,
     sGetLayoutColumns,
 } from '../../../reducers/editDashboard'
+
+import classes from './styles/ItemHeader.module.css'
 
 const EditItemActions = ({ itemId, onDeleteItem }) => {
     return (

@@ -3,6 +3,7 @@
 }
 
 .newButton {
+    margin-left: var(--spacers-dp8);
     margin-right: var(--spacers-dp8);
     margin-top: var(--spacers-dp4);
 }
@@ -14,6 +15,10 @@
 .controlsLarge {
     position: relative;
     top: var(--spacers-dp4);
+}
+
+.chipsContainer {
+    min-height: 40px;
 }
 
 @media only screen and (max-width: 480px) {
@@ -54,6 +59,7 @@
     .chipsContainer {
         margin-bottom: -4px;
         padding-right: 2px;
+        min-height: 0;
     }
 
     .expanded .chipsContainer {

@@ -17,7 +17,7 @@ exports[`renders Save and Discard buttons but not translation dialog when new da
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 primary"
+            class="jsx-3597138218 primary"
             data-test="save-dashboard-button"
             type="button"
           >
@@ -28,7 +28,7 @@ exports[`renders Save and Discard buttons but not translation dialog when new da
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 "
+            class="jsx-3597138218 "
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -39,7 +39,7 @@ exports[`renders Save and Discard buttons but not translation dialog when new da
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 "
+            class="jsx-3597138218 "
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -120,7 +120,7 @@ exports[`renders Save and Discard buttons but not translation dialog when new da
         </div>
       </div>
       <button
-        class="jsx-2371629422 secondary"
+        class="jsx-3597138218 secondary"
         data-test="dhis2-uicore-button"
         type="button"
       >
@@ -153,7 +153,7 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 primary"
+            class="jsx-3597138218 primary"
             data-test="save-dashboard-button"
             type="button"
           >
@@ -164,7 +164,7 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 "
+            class="jsx-3597138218 "
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -175,7 +175,7 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 "
+            class="jsx-3597138218 "
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -186,7 +186,7 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 "
+            class="jsx-3597138218 "
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -197,7 +197,7 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 "
+            class="jsx-3597138218 "
             data-test="delete-dashboard-button"
             type="button"
           >
@@ -272,7 +272,7 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
         </div>
       </div>
       <button
-        class="jsx-2371629422 secondary"
+        class="jsx-3597138218 secondary"
         data-test="dhis2-uicore-button"
         type="button"
       >
@@ -299,7 +299,7 @@ exports[`renders only the Go to Dashboards button when no update access 1`] = `
       class="controls"
     >
       <button
-        class="jsx-2371629422 secondary"
+        class="jsx-3597138218 secondary"
         data-test="dhis2-uicore-button"
         type="button"
       >
@@ -327,7 +327,7 @@ exports[`renders the ActionsBar without Delete when no delete access 1`] = `
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 primary"
+            class="jsx-3597138218 primary"
             data-test="save-dashboard-button"
             type="button"
           >
@@ -338,7 +338,7 @@ exports[`renders the ActionsBar without Delete when no delete access 1`] = `
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 "
+            class="jsx-3597138218 "
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -349,7 +349,7 @@ exports[`renders the ActionsBar without Delete when no delete access 1`] = `
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 "
+            class="jsx-3597138218 "
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -360,7 +360,7 @@ exports[`renders the ActionsBar without Delete when no delete access 1`] = `
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-2371629422 "
+            class="jsx-3597138218 "
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -438,7 +438,7 @@ exports[`renders the ActionsBar without Delete when no delete access 1`] = `
         </div>
       </div>
       <button
-        class="jsx-2371629422 secondary"
+        class="jsx-3597138218 secondary"
         data-test="dhis2-uicore-button"
         type="button"
       >

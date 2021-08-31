@@ -1,14 +1,10 @@
+import { useDataEngine } from '@dhis2/app-runtime'
+import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
+import sortBy from 'lodash/sortBy'
+import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import sortBy from 'lodash/sortBy'
-import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
-import { useDataEngine } from '@dhis2/app-runtime'
-
-import PrintInfo from './PrintInfo'
-import PrintActionsBar from './ActionsBar'
-import PrintItemGrid from './PrintItemGrid'
 import {
     acSetPrintDashboard,
     acAddPrintDashboardItem,
@@ -16,14 +12,15 @@ import {
     acUpdatePrintDashboardItem,
 } from '../../actions/printDashboard'
 import { apiFetchDashboard } from '../../api/fetchDashboard'
-
-import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
-import { PAGEBREAK, PRINT_TITLE_PAGE, SPACER } from '../../modules/itemTypes'
 import {
     MAX_ITEM_GRID_HEIGHT_OIPP,
     MAX_ITEM_GRID_WIDTH_OIPP,
 } from '../../modules/gridUtil'
-
+import { PAGEBREAK, PRINT_TITLE_PAGE, SPACER } from '../../modules/itemTypes'
+import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
+import PrintActionsBar from './ActionsBar'
+import PrintInfo from './PrintInfo'
+import PrintItemGrid from './PrintItemGrid'
 import classes from './styles/PrintDashboard.module.css'
 
 import './styles/print.css'

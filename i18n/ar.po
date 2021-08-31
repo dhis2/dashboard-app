@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-05-12T08:56:39.093Z\n"
+"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2021\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -32,8 +32,11 @@ msgstr "الرسائل"
 msgid "See all messages"
 msgstr "رؤية كافة الرسائل"
 
-msgid "Item type \"{{type}}\" not supported"
-msgstr "نوع العنصر \"{{type}}\" غير مدعوم"
+msgid "Item type \"{{type}}\" is not supported"
+msgstr ""
+
+msgid "The item type is missing"
+msgstr ""
 
 msgid "Filters applied"
 msgstr "تم تطبيق عوامل التصفية"
@@ -89,6 +92,12 @@ msgstr "تعذر تحميل المكوّن الإضافي لهذا العنصر"
 
 msgid "No data to display"
 msgstr "لا توجد بيانات للعرض"
+
+msgid "There was an error loading data for this item"
+msgstr ""
+
+msgid "Open this item in {{appName}}"
+msgstr ""
 
 msgid "Visualizations"
 msgstr "مخططات بيانية"

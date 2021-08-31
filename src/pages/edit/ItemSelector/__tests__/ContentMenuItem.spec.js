@@ -1,5 +1,5 @@
-import React from 'react'
 import { render } from '@testing-library/react'
+import React from 'react'
 import ContentMenuItem from '../ContentMenuItem'
 
 test('ContentMenuItem has a LaunchLink when url is provided', () => {

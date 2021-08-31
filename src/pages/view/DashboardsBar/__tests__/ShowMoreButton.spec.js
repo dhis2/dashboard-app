@@ -1,6 +1,6 @@
-import React from 'react'
-import { render } from '@testing-library/react'
 import { fireEvent } from '@testing-library/dom'
+import { render } from '@testing-library/react'
+import React from 'react'
 import ShowMoreButton from '../ShowMoreButton'
 
 describe('ShowMoreButton', () => {

@@ -1,20 +1,26 @@
+import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import cx from 'classnames'
-
-import StaticGrid from './StaticGrid'
 import { Item } from '../../components/Item/Item'
-
-import { hasShape } from '../../modules/gridUtil'
 import { PRINT } from '../../modules/dashboardModes'
-import { sGetPrintDashboardItems } from '../../reducers/printDashboard'
-
+import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName'
+import { hasShape } from '../../modules/gridUtil'
 import { orArray } from '../../modules/util'
+import { sGetPrintDashboardItems } from '../../reducers/printDashboard'
+import StaticGrid from './StaticGrid'
 
 const PrintItemGrid = ({ dashboardItems }) => {
     const getItemComponent = item => (
-        <div key={item.i} className={cx(item.type, 'print', 'oipp')}>
+        <div
+            key={item.i}
+            className={cx(
+                item.type,
+                'print',
+                'oipp',
+                getGridItemDomElementClassName(item.id)
+            )}
+        >
             <Item item={item} dashboardMode={PRINT} />
         </div>
     )

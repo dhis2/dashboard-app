@@ -1,30 +1,26 @@
+import { useDataEngine } from '@dhis2/app-runtime'
+import i18n from '@dhis2/d2-i18n'
+import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
+import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import i18n from '@dhis2/d2-i18n'
-import PropTypes from 'prop-types'
-import cx from 'classnames'
 import { Redirect } from 'react-router-dom'
-import { useDataEngine } from '@dhis2/app-runtime'
-import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
-
-import DashboardContainer from '../../components/DashboardContainer'
-import { apiFetchDashboard } from '../../api/fetchDashboard'
-import TitleBar from './TitleBar'
-import ItemGrid from './ItemGrid'
-import ActionsBar from './ActionsBar'
-import NotSupportedNotice from './NotSupportedNotice'
-import LayoutPrintPreview from '../print/PrintLayoutDashboard'
-import NoContentMessage from '../../components/NoContentMessage'
 import { acSetEditDashboard } from '../../actions/editDashboard'
-import { EDIT } from '../../modules/dashboardModes'
-
-import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
-import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
-
+import { apiFetchDashboard } from '../../api/fetchDashboard'
+import DashboardContainer from '../../components/DashboardContainer'
+import NoContentMessage from '../../components/NoContentMessage'
+import Notice from '../../components/Notice'
 import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
+import { EDIT } from '../../modules/dashboardModes'
+import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
 import { isSmallScreen } from '../../modules/smallScreen'
-
+import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
+import LayoutPrintPreview from '../print/PrintLayoutDashboard'
+import ActionsBar from './ActionsBar'
+import ItemGrid from './ItemGrid'
 import classes from './styles/EditDashboard.module.css'
+import TitleBar from './TitleBar'
 
 const EditDashboard = props => {
     const dataEngine = useDataEngine()
@@ -99,7 +95,8 @@ const EditDashboard = props => {
                 )}
             </div>
             <div className={classes.notice}>
-                <NotSupportedNotice
+                <Notice
+                    title={i18n.t('Not supported')}
                     message={i18n.t(
                         'Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.'
                     )}
