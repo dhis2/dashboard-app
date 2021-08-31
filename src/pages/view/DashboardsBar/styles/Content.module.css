@@ -13,7 +13,7 @@
 }
 
 .buttonPadding {
-    padding: 2px 8px 0 8px;
+    padding: 2px var(--spacers-dp8) 0 var(--spacers-dp8);
     display: inline-flex;
 }
 

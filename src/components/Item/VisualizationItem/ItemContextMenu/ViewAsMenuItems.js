@@ -11,8 +11,8 @@ import {
     isTrackerDomainType,
     hasMapView,
 } from '../../../../modules/itemTypes'
+import MenuItem from '../../../MenuItemWithTooltip'
 import getThematicMapViews from '../getThematicMapViews'
-import MenuItem from './MenuItemWithTooltip'
 
 const ViewAsMenuItems = ({
     type,

@@ -27,10 +27,10 @@ import {
     getItemTypeForVis,
 } from '../../../../modules/itemTypes'
 import { isSmallScreen } from '../../../../modules/smallScreen'
+import MenuItem from '../../../MenuItemWithTooltip'
 import { useSystemSettings } from '../../../SystemSettingsProvider'
 import { useWindowDimensions } from '../../../WindowDimensionsProvider'
 import { isElementFullscreen } from '../isElementFullscreen'
-import MenuItem from './MenuItemWithTooltip'
 import ViewAsMenuItems from './ViewAsMenuItems'
 
 const ItemContextMenu = props => {

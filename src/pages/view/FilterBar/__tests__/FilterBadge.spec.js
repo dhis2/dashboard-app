@@ -8,7 +8,7 @@ const mockStore = configureMockStore()
 
 const store = { selected: { id: 'dashboard1' } }
 
-test.skip('Filter Badge displays badge containing number of items in filter', () => {
+test('Filter Badge displays badge containing number of items in filter', () => {
     const filter = {
         id: 'ponies',
         name: 'Ponies',
@@ -26,7 +26,7 @@ test.skip('Filter Badge displays badge containing number of items in filter', ()
     expect(container).toMatchSnapshot()
 })
 
-test.skip('FilterBadge displays badge with filter item name when only one filter item', () => {
+test('FilterBadge displays badge with filter item name when only one filter item', () => {
     const filter = {
         id: 'ponies',
         name: 'Ponies',

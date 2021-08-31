@@ -23,7 +23,7 @@
 
 .removeButton {
     background-color: transparent;
-    color: white;
+    color: var(--colors-white);
     border: none;
     padding: 0;
     font-size: 12px;
