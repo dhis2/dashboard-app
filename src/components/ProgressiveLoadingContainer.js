@@ -13,19 +13,18 @@ class ProgressiveLoadingContainer extends Component {
         bufferFactor: PropTypes.number,
         className: PropTypes.string,
         debounceMs: PropTypes.number,
-        forceLoadCount: PropTypes.number,
+        forceLoad: PropTypes.bool,
         itemId: PropTypes.string,
         style: PropTypes.object,
     }
     static defaultProps = {
         debounceMs: defaultDebounceMs,
         bufferFactor: defaultBufferFactor,
-        forceLoadCount: 0,
+        forceLoad: false,
     }
 
     state = {
         shouldLoad: false,
-        internalForceLoadCount: 0,
     }
     containerRef = null
     debouncedCheckShouldLoad = null
@@ -38,11 +37,8 @@ class ProgressiveLoadingContainer extends Component {
         }
 
         // force load item regardless of its position
-        if (this.shouldForceLoad() && !this.state.shouldLoad) {
+        if (this.forceLoad && !this.state.shouldLoad) {
             this.setState({ shouldLoad: true })
-            this.setState({
-                internalForceLoadCount: this.props.forceLoadCount,
-            })
             this.removeHandler()
             return
         }
@@ -104,17 +100,13 @@ class ProgressiveLoadingContainer extends Component {
         this.observer.disconnect()
     }
 
-    shouldForceLoad() {
-        return this.props.forceLoadCount > this.state.internalForceLoadCount
-    }
-
     componentDidMount() {
         this.registerHandler()
         this.checkShouldLoad()
     }
 
     componentDidUpdate() {
-        if (this.shouldForceLoad() && !this.state.shouldLoad) {
+        if (this.props.forceLoad && !this.state.shouldLoad) {
             this.checkShouldLoad()
         }
     }
@@ -126,7 +118,9 @@ class ProgressiveLoadingContainer extends Component {
     render() {
         const { children, className, style, ...props } = this.props
 
-        const shouldLoad = this.state.shouldLoad || this.shouldForceLoad()
+        const shouldLoad = this.state.shouldLoad || props.forceLoad
+
+        console.log('shouldLoad', shouldLoad, props.itemId)
 
         const eventProps = pick(props, [
             'onMouseDown',

@@ -39,7 +39,7 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
     const [displayItems, setDisplayItems] = useState(dashboardItems)
     const [layoutSm, setLayoutSm] = useState([])
     const [gridWidth, setGridWidth] = useState(0)
-    const [forceLoadCount, setForceLoadCount] = useState(0)
+    const [forceLoad, setForceLoad] = useState(false)
     const { recordingState } = useCacheableSection(dashboardId)
 
     useEffect(() => {
@@ -51,7 +51,7 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
 
     useEffect(() => {
         if (recordingState === 'recording') {
-            setForceLoadCount(forceLoadCount + 1)
+            setForceLoad(true)
         }
     }, [recordingState])
 
@@ -97,7 +97,7 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
                     getGridItemDomElementClassName(item.id)
                 )}
                 itemId={item.id}
-                forceLoadCount={forceLoadCount}
+                forceLoad={forceLoad}
             >
                 <Item
                     item={item}
