@@ -1,9 +1,8 @@
 import {
-    REPORT_TABLE,
-    CHART,
     MAP,
     EVENT_REPORT,
     EVENT_CHART,
+    VISUALIZATION,
 } from '../../../../modules/itemTypes'
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId'
 import { loadExternalScript } from './loadExternalScript'
@@ -21,7 +20,7 @@ const itemTypeToScriptPath = {
     [EVENT_CHART]: '/dhis-web-event-visualizer/eventchart.js',
 }
 
-const hasIntegratedPlugin = type => [CHART, REPORT_TABLE].includes(type)
+const hasIntegratedPlugin = type => type === VISUALIZATION
 
 export const getPlugin = async type => {
     if (hasIntegratedPlugin(type)) {
