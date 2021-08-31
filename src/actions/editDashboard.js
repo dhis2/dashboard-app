@@ -1,4 +1,12 @@
 import i18n from '@dhis2/d2-i18n'
+import { updateDashboard, postDashboard } from '../api/editDashboard'
+import {
+    addToItemsEnd,
+    addToItemsStart,
+    getAutoItemShapes,
+    getDashboardItem,
+    updateItems,
+} from '../modules/gridUtil'
 import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
 import {
     RECEIVED_EDIT_DASHBOARD,
@@ -22,14 +30,6 @@ import {
     sGetItemConfigInsertPosition,
 } from '../reducers/editDashboard'
 import { tFetchDashboards } from './dashboards'
-import { updateDashboard, postDashboard } from '../api/editDashboard'
-import {
-    addToItemsEnd,
-    addToItemsStart,
-    getAutoItemShapes,
-    getDashboardItem,
-    updateItems,
-} from '../modules/gridUtil'
 
 // actions
 

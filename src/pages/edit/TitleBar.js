@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { InputField, TextAreaField, Radio, Button } from '@dhis2/ui'
-
-import ItemSelector from './ItemSelector/ItemSelector'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import {
     acSetDashboardTitle,
     acSetDashboardDescription,
@@ -20,9 +18,9 @@ import {
 } from '../../reducers/editDashboard'
 import { LayoutFixedIcon } from './assets/LayoutFixed'
 import { LayoutFreeflowIcon } from './assets/LayoutFreeflow'
-
-import classes from './styles/TitleBar.module.css'
+import ItemSelector from './ItemSelector/ItemSelector'
 import { LayoutModal } from './LayoutModal'
+import classes from './styles/TitleBar.module.css'
 
 const EditTitleBar = ({
     insertPosition,

@@ -1,3 +1,4 @@
+import i18n from '@dhis2/d2-i18n'
 import {
     Modal,
     ModalTitle,
@@ -5,14 +6,12 @@ import {
     ModalActions,
     ButtonStrip,
     Button,
-    Divider,
     InputField,
     Radio,
 } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import cx from 'classnames'
-import i18n from '@dhis2/d2-i18n'
 import { LayoutFixedIcon } from './assets/LayoutFixed'
 import { LayoutFreeflowIcon } from './assets/LayoutFreeflow'
 import classes from './styles/LayoutModal.module.css'

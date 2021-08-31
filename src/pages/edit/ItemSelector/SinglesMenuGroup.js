@@ -1,10 +1,9 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import { connect } from 'react-redux'
-
-import HeaderMenuItem from './HeaderMenuItem'
-import ContentMenuItem from './ContentMenuItem'
 import { tSetDashboardItems } from '../../../actions/editDashboard'
+import ContentMenuItem from './ContentMenuItem'
+import HeaderMenuItem from './HeaderMenuItem'
 
 const SinglesMenuGroup = ({ onAddItem, category }) => {
     const addToDashboard =

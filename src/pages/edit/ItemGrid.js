@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
-
-import { acUpdateDashboardItemShapes } from '../../actions/editDashboard'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { connect } from 'react-redux'
+import { acUpdateDashboardItemShapes } from '../../actions/editDashboard'
 import { Item } from '../../components/Item/Item'
 import NoContentMessage from '../../components/NoContentMessage'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
@@ -29,7 +28,6 @@ import {
     sGetHideGrid,
     sGetLayout,
 } from '../../reducers/editDashboard'
-
 import classes from './styles/ItemGrid.module.css'
 
 const EditItemGrid = ({
