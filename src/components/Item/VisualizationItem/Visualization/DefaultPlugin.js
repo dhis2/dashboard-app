@@ -73,7 +73,6 @@ DefaultPlugin.propTypes = {
 
 DefaultPlugin.defaultProps = {
     style: {},
-    isRecording: false,
     item: {},
     options: {},
     visualization: {},
