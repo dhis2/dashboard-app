@@ -1,3 +1,17 @@
+# [31.18.0](https://github.com/dhis2/dashboard-app/compare/v31.17.9...v31.18.0) (2021-09-01)
+
+
+### Bug Fixes
+
+* disable or delete cypress tests that are currently broken [v37] ([#1925](https://github.com/dhis2/dashboard-app/issues/1925)) ([#1926](https://github.com/dhis2/dashboard-app/issues/1926)) ([264a999](https://github.com/dhis2/dashboard-app/commit/264a9996f90d4254b6f899840669158d3b7e154b))
+* migrate from chart/pt to visualizations ([#1916](https://github.com/dhis2/dashboard-app/issues/1916)) ([b313a39](https://github.com/dhis2/dashboard-app/commit/b313a39b08b2fb80e0d436761d47e470b9f7b0d3))
+
+
+### Features
+
+* dashboard layout (DHIS2-3600) ([#1803](https://github.com/dhis2/dashboard-app/issues/1803)) ([75da018](https://github.com/dhis2/dashboard-app/commit/75da0186cb5c9ab98c6ea5498cba48e89c1c121e))
+* offline dashboard ([#1700](https://github.com/dhis2/dashboard-app/issues/1700)) ([4103643](https://github.com/dhis2/dashboard-app/commit/4103643ff74c38b561d09b656063153fb68d2894))
+
 ## [31.17.9](https://github.com/dhis2/dashboard-app/compare/v31.17.8...v31.17.9) (2021-08-26)
 
 
