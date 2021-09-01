@@ -30,11 +30,11 @@ Feature: Item context menu
         When I click Open in Data Visualizer app on a chart dashboard item
         Then the chart is opened in the Data Visualizer app
 
-    @nonmutating
-    Scenario: Open the interpretations panel
-        Given I open the "Delivery" dashboard
-        When I click Show details and interpretations on a chart dashboard item
-        Then the interpretations panel is displayed
+    # @nonmutating
+    # Scenario: Open the interpretations panel
+    #     Given I open the "Delivery" dashboard
+    #     When I click Show details and interpretations on a chart dashboard item
+    #     Then the interpretations panel is displayed
 
     @nonmutating
     Scenario: Text item does not have a context menu
