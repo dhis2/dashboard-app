@@ -1,7 +1,7 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
 # Mai Nguyen <thanhmai.jica@gmail.com>, 2021
 # 
 msgid ""
@@ -318,7 +318,7 @@ msgid "Dashboard description"
 msgstr "Mô tả bảng điều khiển"
 
 msgid "Layout"
-msgstr ""
+msgstr "Bố cục"
 
 msgid "{{numberOfColumns}} columns"
 msgstr ""
@@ -404,7 +404,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Không"
 
 msgid "Yes, remove filters"
 msgstr ""
@@ -487,7 +487,7 @@ msgid "Loading dashboard"
 msgstr ""
 
 msgid "Offline"
-msgstr ""
+msgstr "Ngoại tuyến"
 
 msgid "This dashboard cannot be loaded while offline."
 msgstr ""

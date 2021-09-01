@@ -103,7 +103,7 @@ msgid "Open this item in {{appName}}"
 msgstr "Otevřít tuto položku v aplikaci {{appName}}"
 
 msgid "Not available offline"
-msgstr ""
+msgstr "Není k dispozici offline"
 
 msgid "Visualizations"
 msgstr "Vizualizace"
@@ -330,7 +330,7 @@ msgid "Dashboard description"
 msgstr "Popis ovládacího panelu"
 
 msgid "Layout"
-msgstr ""
+msgstr "Rozložení"
 
 msgid "{{numberOfColumns}} columns"
 msgstr ""
@@ -421,7 +421,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Ne, zrušit"
 
 msgid "Yes, remove filters"
 msgstr ""
@@ -504,7 +504,7 @@ msgid "Loading dashboard"
 msgstr "Načítání ovládacího panelu"
 
 msgid "Offline"
-msgstr ""
+msgstr "Offline"
 
 msgid "This dashboard cannot be loaded while offline."
 msgstr ""

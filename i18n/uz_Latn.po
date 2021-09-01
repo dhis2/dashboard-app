@@ -317,7 +317,7 @@ msgid "Dashboard description"
 msgstr "Boshqaruv paneli tavsifi"
 
 msgid "Layout"
-msgstr ""
+msgstr "Joylashish tartibi"
 
 msgid "{{numberOfColumns}} columns"
 msgstr ""
@@ -406,7 +406,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Yoʼq, bekor qiling"
 
 msgid "Yes, remove filters"
 msgstr ""
@@ -489,7 +489,7 @@ msgid "Loading dashboard"
 msgstr ""
 
 msgid "Offline"
-msgstr ""
+msgstr "Offlayn"
 
 msgid "This dashboard cannot be loaded while offline."
 msgstr ""

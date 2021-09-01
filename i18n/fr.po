@@ -3,19 +3,19 @@
 # a270031086f2a0d3514bc0cb507b48f6, 2019
 # Matthieu Pinard <matthieu@pinard.no>, 2019
 # Edem Kossi <ekossi@hispwca.org>, 2020
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Yayra Gomado <ygomado@hispwca.org>, 2021
 # Karoline Tufte Lien <karoline@dhis2.org>, 2021
 # Yao Selom Saka <ysaka@hispwca.org>, 2021
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-08-31T20:31:16.412Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Yao Selom Saka <ysaka@hispwca.org>, 2021\n"
+"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -339,7 +339,7 @@ msgid "Dashboard description"
 msgstr "Description du tableau de bord"
 
 msgid "Layout"
-msgstr ""
+msgstr "Mise en page"
 
 msgid "{{numberOfColumns}} columns"
 msgstr ""
@@ -429,7 +429,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Non, annuler"
 
 msgid "Yes, remove filters"
 msgstr ""
@@ -512,7 +512,7 @@ msgid "Loading dashboard"
 msgstr "Chargement du tableau de bord"
 
 msgid "Offline"
-msgstr ""
+msgstr "Hors ligne"
 
 msgid "This dashboard cannot be loaded while offline."
 msgstr ""

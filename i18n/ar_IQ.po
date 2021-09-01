@@ -314,7 +314,7 @@ msgid "Dashboard description"
 msgstr "وصف لوحة المعلومات"
 
 msgid "Layout"
-msgstr ""
+msgstr "التنسيق"
 
 msgid "{{numberOfColumns}} columns"
 msgstr ""
@@ -486,7 +486,7 @@ msgid "Loading dashboard"
 msgstr ""
 
 msgid "Offline"
-msgstr ""
+msgstr "غير متصل"
 
 msgid "This dashboard cannot be loaded while offline."
 msgstr ""

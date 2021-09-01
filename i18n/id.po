@@ -3,15 +3,16 @@
 # Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2019
 # phil_dhis2, 2019
 # Viktor Varland <viktor@dhis2.org>, 2020
-# Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2021
 # Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2021
+# Carwoto Sa'an <carwoto@gmail.com>, 2021
+# Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-08-31T20:31:16.412Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2021\n"
+"Last-Translator: Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2021\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -334,7 +335,7 @@ msgid "Dashboard description"
 msgstr "Deskripsi dashboard"
 
 msgid "Layout"
-msgstr ""
+msgstr "Tata Letak"
 
 msgid "{{numberOfColumns}} columns"
 msgstr ""
@@ -420,7 +421,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Tidak, batalkan"
 
 msgid "Yes, remove filters"
 msgstr ""
