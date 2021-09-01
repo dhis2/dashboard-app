@@ -1,3 +1,15 @@
+# [31.19.0](https://github.com/dhis2/dashboard-app/compare/v31.18.0...v31.19.0) (2021-09-01)
+
+
+### Bug Fixes
+
+* bump analytics and ui to latest ([#1927](https://github.com/dhis2/dashboard-app/issues/1927)) ([20e9187](https://github.com/dhis2/dashboard-app/commit/20e9187852d6aab98592e63831118544630f6382))
+
+
+### Features
+
+* use the new SharingDialog with cascading sharing ([#1913](https://github.com/dhis2/dashboard-app/issues/1913)) ([0d37a41](https://github.com/dhis2/dashboard-app/commit/0d37a41784b8eb7d96a5b371809c3c65c059625f))
+
 # [31.18.0](https://github.com/dhis2/dashboard-app/compare/v31.17.9...v31.18.0) (2021-09-01)
 
 

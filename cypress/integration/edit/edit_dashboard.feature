@@ -88,13 +88,13 @@ Feature: Creating, editing and deleting dashboard
     #     And I click Exit without saving
     #     Then Norwegian title and description are displayed
 
-    @mutating
-    Scenario: I change sharing settings of a dashboard
-        Given I open existing dashboard
-        When I change sharing settings
-        And I choose to edit dashboard
-        And dashboard is saved
-        Then the new sharing settings should be preserved
+    # @mutating
+    # Scenario: I change sharing settings of a dashboard
+    #     Given I open existing dashboard
+    #     When I change sharing settings
+    #     And I choose to edit dashboard
+    #     And dashboard is saved
+    #     Then the new sharing settings should be preserved
 
     @mutating
     Scenario: I save a starred dashboard
