@@ -3058,10 +3058,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^20.0.4":
-  version "20.0.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-20.0.4.tgz#d68fa1c068a5ca58731dcd90526f3291e6189358"
-  integrity sha512-0ogkqlmXrOdDaZ60RDSIIIMJEp/e1OqISzekEYMc9WwKNpVOXU681o+oXlBgAl1KEm0w5AB0KDZT6H+sr1Y2uQ==
+"@dhis2/analytics@^20.2.0":
+  version "20.2.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-20.2.1.tgz#6e628d17d57260976455ad7964c9f466054143fa"
+  integrity sha512-5W6zl5hz9psQyjQSdQ+SO8bTvhQn/OV3J9VpYQYvdiELeORtMHWFa0AYM4cwTkwjxagqp55cLYZh3QVN0+tiog==
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^7.3.0"
     "@dhis2/d2-ui-org-unit-dialog" "^7.3.0"
@@ -3076,10 +3076,10 @@
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
 
-"@dhis2/analytics@^20.2.0":
-  version "20.2.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-20.2.1.tgz#6e628d17d57260976455ad7964c9f466054143fa"
-  integrity sha512-5W6zl5hz9psQyjQSdQ+SO8bTvhQn/OV3J9VpYQYvdiELeORtMHWFa0AYM4cwTkwjxagqp55cLYZh3QVN0+tiog==
+"@dhis2/analytics@^20.4.0":
+  version "20.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-20.4.0.tgz#c43bd6cdea00cafd0faaa8d61fede2396a461e7b"
+  integrity sha512-WaT9b40TY628n7ueVT1V24rFd/U36nSlFb51OFQlxejrP+84GQCndJ+w0+k4d9Ud0x0cp/OyDHDb1RYBcg/FGg==
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^7.3.0"
     "@dhis2/d2-ui-org-unit-dialog" "^7.3.0"
