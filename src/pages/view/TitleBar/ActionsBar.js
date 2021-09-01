@@ -4,10 +4,14 @@ import {
     useOnlineStatus,
     useCacheableSection,
 } from '@dhis2/app-runtime'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
-import SharingDialog from '@dhis2/d2-ui-sharing-dialog'
-import { Button, FlyoutMenu, colors, IconMore24 } from '@dhis2/ui'
+import {
+    Button,
+    FlyoutMenu,
+    colors,
+    IconMore24,
+    SharingDialog,
+} from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
@@ -48,7 +52,6 @@ const ViewActions = ({
     const [confirmCacheDialogIsOpen, setConfirmCacheDialogIsOpen] =
         useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
-    const { d2 } = useD2()
     const dataEngine = useDataEngine()
     const { offline } = useOnlineStatus()
     const { lastUpdated, isCached, startRecording, remove } =
@@ -239,16 +242,11 @@ const ViewActions = ({
                     {getMoreButton(classes.moreButtonSmall, true)}
                 </div>
             </div>
-            {id && (
+            {id && sharingDialogIsOpen && (
                 <SharingDialog
-                    d2={d2}
                     id={id}
                     type="dashboard"
-                    onRequestClose={onToggleSharingDialog}
-                    open={sharingDialogIsOpen}
-                    insertTheme={true}
-                    isOffline={offline}
-                    offlineMessage={i18n.t('Not available offline')}
+                    onClose={onToggleSharingDialog}
                 />
             )}
             <ConfirmActionDialog
