@@ -128,7 +128,7 @@ const deleteDashboard = dashboardTitle => {
 // Scenario: I cache an uncached dashboard
 
 Given('I create a cached and uncached dashboard', () => {
-    createDashboard(CACHED)
+    // createDashboard(CACHED)
     createDashboard(UNCACHED)
 })
 
@@ -310,5 +310,5 @@ Then('it is not possible to interact with interpretations', () => {
 
 Given('I delete the cached and uncached dashboard', () => {
     deleteDashboard(UNCACHED_DASHBOARD_TITLE)
-    deleteDashboard(CACHED_DASHBOARD_TITLE)
+    // deleteDashboard(CACHED_DASHBOARD_TITLE)
 })
