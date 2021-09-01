@@ -45,14 +45,14 @@ Feature: Creating, editing and deleting dashboard
         And I confirm I want to discard changes
         Then the dashboard displays in view mode
 
-    # @mutating
-    # Scenario: I star the dashboard
-    #     Given I open existing dashboard
-    #     And the dashboard is not starred
-    #     When I click to star the dashboard
-    #     Then the dashboard is starred
-    #     When I click to unstar the dashboard
-    #     Then the dashboard is not starred
+    @mutating
+    Scenario: I star the dashboard
+        Given I open existing dashboard
+        And the dashboard is not starred
+        When I click to star the dashboard
+        Then the dashboard is starred
+        When I click to unstar the dashboard
+        Then the dashboard is not starred
 
 
     @mutating
