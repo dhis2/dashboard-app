@@ -126,11 +126,11 @@ const deleteDashboard = dashboardTitle => {
 // Scenario: I cache an uncached dashboard
 
 Given('I create a cached and uncached dashboard', () => {
-    cy.log('creat the uncached dashboard')
+    cy.log('create the uncached dashboard')
     createDashboard(UNCACHED)
-    cy.wait(5000) // eslint-disable-line cypress/no-unnecessary-waiting
-    cy.log('now create the cached dashboard')
+    cy.log('create the cached dashboard')
     createDashboard(CACHED)
+    cy.wait(3000) // eslint-disable-line cypress/no-unnecessary-waiting
 })
 
 Then('the cached dashboard has a Last Updated time and chip icon', () => {
