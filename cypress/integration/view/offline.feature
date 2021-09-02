@@ -52,11 +52,11 @@ Feature: Offline dashboard
         When I click Exit without saving
         Then the cached dashboard is loaded and displayed in view mode
 
-    Scenario: The sharing dialog is open when connectivity is lost
-        Given I open a cached dashboard
-        When I open sharing settings
-        And connectivity is turned off
-        Then it is not possible to change sharing settings
+    # Scenario: The sharing dialog is open when connectivity is lost
+    #     Given I open a cached dashboard
+    #     When I open sharing settings
+    #     And connectivity is turned off
+    #     Then it is not possible to change sharing settings
 
     # Scenario: The interpretations panel is open when connectivity is lost
     #     Given I open a cached dashboard
