@@ -58,11 +58,11 @@ Feature: Offline dashboard
     #     And connectivity is turned off
     #     Then it is not possible to change sharing settings
 
-    # Scenario: The interpretations panel is open when connectivity is lost
-    #     Given I open a cached dashboard
-    #     And I open the interpretations panel
-    #     When connectivity is turned off
-    #     Then it is not possible to interact with interpretations
+    Scenario: The interpretations panel is open when connectivity is lost
+        Given I open a cached dashboard
+        And I open the interpretations panel
+        When connectivity is turned off
+        Then it is not possible to interact with interpretations
 
 
     Scenario: I delete the cached and uncached dashboard
