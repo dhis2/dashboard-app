@@ -52,7 +52,7 @@ Feature: Editing Filter Restrictions
         And I add Facility Ownership to selected filters
         And I click Confirm
         And I click Exit without saving
-        And I confirm I want to discard changes
+        # And I confirm I want to discard changes
         Then the dashboard displays in view mode
         When I choose to edit dashboard
         And I click on Filter settings
