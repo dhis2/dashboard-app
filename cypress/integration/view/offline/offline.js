@@ -55,7 +55,11 @@ const createDashboard = cacheState => {
     clickEditActionButton('Save changes')
     cy.get(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
     if (cachedDashboard) {
-        cacheDashboard()
+        clickViewActionButton('More')
+        cy.contains(MAKE_AVAILABLE_OFFLINE_TEXT, EXTENDED_TIMEOUT).click()
+        cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT, EXTENDED_TIMEOUT).should(
+            'be.visible'
+        )
     }
 }
 
@@ -71,12 +75,6 @@ const checkDashboardIsVisible = title => {
 const enterEditMode = () => {
     clickViewActionButton('Edit')
     cy.get(titleInputSel, EXTENDED_TIMEOUT).should('be.visible')
-}
-
-const cacheDashboard = () => {
-    clickViewActionButton('More')
-    cy.contains(MAKE_AVAILABLE_OFFLINE_TEXT).click()
-    cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('be.visible')
 }
 
 const checkCorrectMoreOptions = cacheState => {
@@ -128,8 +126,11 @@ const deleteDashboard = dashboardTitle => {
 // Scenario: I cache an uncached dashboard
 
 Given('I create a cached and uncached dashboard', () => {
-    createDashboard(CACHED)
+    cy.log('creat the uncached dashboard')
     createDashboard(UNCACHED)
+    cy.wait(5000)
+    cy.log('now create the cached dashboard')
+    createDashboard(CACHED)
 })
 
 Then('the cached dashboard has a Last Updated time and chip icon', () => {
