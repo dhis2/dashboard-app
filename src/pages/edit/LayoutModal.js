@@ -21,6 +21,11 @@ const DEFAULT_COLUMN_AMOUNT = 3
 export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
     const [cols, setCols] = useState(columns)
 
+    const setColsWrapper = value => {
+        const parsedValue = parseInt(value, 10)
+        !isNaN(parsedValue) && setCols(parsedValue)
+    }
+
     return (
         <Modal large onClose={onClose}>
             <ModalTitle>{i18n.t('Dashboard layout')}</ModalTitle>
@@ -92,6 +97,7 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
                                 <InputField
                                     inputWidth="100px"
                                     type="number"
+                                    min="1"
                                     label={i18n.t('Number of columns')}
                                     className={classes.columns}
                                     value={
@@ -100,9 +106,8 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
                                             : ''
                                     }
                                     onChange={({ value }) =>
-                                        setCols(parseInt(value, 10))
+                                        setColsWrapper(value)
                                     }
-                                    // default value 3?
                                 />
                                 {/* <InputField
                                     inputWidth="100px"
