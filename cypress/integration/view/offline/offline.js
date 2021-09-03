@@ -16,9 +16,9 @@ import {
 } from '../../../elements/viewDashboard'
 import { EXTENDED_TIMEOUT, goOnline, goOffline } from '../../../support/utils'
 
-beforeEach(() => {
-    goOnline()
-})
+// beforeEach(() => {
+//     goOnline()
+// })
 
 const CACHED = 'cached'
 const UNCACHED = 'uncached'
