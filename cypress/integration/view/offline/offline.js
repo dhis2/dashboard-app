@@ -121,10 +121,10 @@ const deleteDashboard = dashboardTitle => {
 Given('I create two dashboards', () => {
     cy.log('create the uncached dashboard')
     createDashboard(UNCACHED)
-    cy.wait(3000) // eslint-disable-line cypress/no-unnecessary-waiting
-    cy.log('create the cached dashboard')
-    createDashboard(CACHED)
-    cy.wait(3000) // eslint-disable-line cypress/no-unnecessary-waiting
+    // cy.wait(3000) // eslint-disable-line cypress/no-unnecessary-waiting
+    // cy.log('create the cached dashboard')
+    // createDashboard(CACHED)
+    // cy.wait(3000) // eslint-disable-line cypress/no-unnecessary-waiting
 })
 
 When('I cache one of the dashboards', () => {
