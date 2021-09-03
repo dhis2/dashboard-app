@@ -1,3 +1,15 @@
+## [31.19.1](https://github.com/dhis2/dashboard-app/compare/v31.19.0...v31.19.1) (2021-09-03)
+
+
+### Bug Fixes
+
+* bump cli-app-scripts to solve issues with z-index and Modals ([#1931](https://github.com/dhis2/dashboard-app/issues/1931)) ([d49347d](https://github.com/dhis2/dashboard-app/commit/d49347df502b8d88ea7c27fa8501737703c8ae76))
+* disable dirty check on exit (DHIS2-11701) ([#1930](https://github.com/dhis2/dashboard-app/issues/1930)) ([f452540](https://github.com/dhis2/dashboard-app/commit/f4525400ba8ee2195f59a52f64a2078178f75305))
+* readd missing offlinejs file ([#1929](https://github.com/dhis2/dashboard-app/issues/1929)) ([86851b1](https://github.com/dhis2/dashboard-app/commit/86851b1ecca208534d4524416050a12e7ba8ecc2))
+* reduce cypress runners from 10 to 3 for fewer db conflicts ([#1937](https://github.com/dhis2/dashboard-app/issues/1937)) ([9c6a2e3](https://github.com/dhis2/dashboard-app/commit/9c6a2e3e640f7d876162d554a34701d093bec350))
+* reenable cypress tests for offline ([#1928](https://github.com/dhis2/dashboard-app/issues/1928)) ([cbb782c](https://github.com/dhis2/dashboard-app/commit/cbb782cb3ee04a11d7c47125168b1b725ebba802))
+* upgrade d2-ui 7.3.3 ([#1932](https://github.com/dhis2/dashboard-app/issues/1932)) ([09d446d](https://github.com/dhis2/dashboard-app/commit/09d446d5a195cde0f2067ee52811b833007c709e))
+
 # [31.19.0](https://github.com/dhis2/dashboard-app/compare/v31.18.0...v31.19.0) (2021-09-01)
 
 
