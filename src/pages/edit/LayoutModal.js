@@ -30,7 +30,14 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
     useEffect(() => setCols(columns), [])
 
     const setColsWrapper = value => {
+        console.log(value)
         const parsedValue = parseInt(value, 10)
+
+        // handle values like ".2"
+        if (isNaN(parsedValue) && value !== '') {
+            setCols(1)
+            return
+        }
 
         if (parsedValue < 1) {
             setCols(1)
