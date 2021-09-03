@@ -295,7 +295,7 @@ export const updateItems = (items, dispatch, options = {}) => {
     }
 }
 
-export const hasLayout = layout => layout?.columns?.length
+export const hasLayout = layout => Boolean(layout?.columns?.length)
 
 export const getDashboardItem = item => {
     const type = item.type
