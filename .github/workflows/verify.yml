@@ -148,8 +148,8 @@ jobs:
                   SERVER_START_CMD: 'yarn cypress:start'
                   SERVER_URL: 'http://localhost:3000'
                   cypress_dhis2_api_stub_mode: 'DISABLED'
-                  REACT_APP_DHIS2_BASE_URL: ${{ secrets.CYPRESS_DHIS2_BASE_URL }}
-                  cypress_dhis2_base_url: ${{ secrets.CYPRESS_DHIS2_BASE_URL }}
+                  REACT_APP_DHIS2_BASE_URL: ${{ secrets.CYPRESS_DHIS2_BASE_URL_37 }}
+                  cypress_dhis2_base_url: ${{ secrets.CYPRESS_DHIS2_BASE_URL_37 }}
                   cypress_dhis2_username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
                   cypress_dhis2_password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
 
