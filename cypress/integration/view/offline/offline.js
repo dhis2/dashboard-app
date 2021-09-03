@@ -54,13 +54,6 @@ const createDashboard = cacheState => {
     closeMenu()
     clickEditActionButton('Save changes')
     cy.get(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
-    if (cachedDashboard) {
-        clickViewActionButton('More')
-        cy.contains(MAKE_AVAILABLE_OFFLINE_TEXT, EXTENDED_TIMEOUT).click()
-        cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT, EXTENDED_TIMEOUT).should(
-            'be.visible'
-        )
-    }
 }
 
 const openDashboard = title => {
@@ -125,17 +118,27 @@ const deleteDashboard = dashboardTitle => {
 
 // Scenario: I cache an uncached dashboard
 
-Given('I create a cached and uncached dashboard', () => {
+Given('I create two dashboards', () => {
     cy.log('create the uncached dashboard')
     createDashboard(UNCACHED)
+    cy.wait(3000) // eslint-disable-line cypress/no-unnecessary-waiting
     cy.log('create the cached dashboard')
     createDashboard(CACHED)
     cy.wait(3000) // eslint-disable-line cypress/no-unnecessary-waiting
 })
 
-Then('the cached dashboard has a Last Updated time and chip icon', () => {
+When('I cache one of the dashboards', () => {
     openDashboard(CACHED_DASHBOARD_TITLE)
-    cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('be.visible')
+    clickViewActionButton('More')
+    cy.contains(MAKE_AVAILABLE_OFFLINE_TEXT, EXTENDED_TIMEOUT).click()
+    cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT, EXTENDED_TIMEOUT).should(
+        'be.visible'
+    )
+})
+
+Then('the cached dashboard has a Last Updated time and chip icon', () => {
+    // openDashboard(CACHED_DASHBOARD_TITLE)
+    // cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('be.visible')
 
     // check that the chip has the icon
     cy.get(dashboardChipSel)

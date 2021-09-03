@@ -1,7 +1,8 @@
 Feature: Offline dashboard
 
     Scenario: I cache an uncached dashboard
-        Given I create a cached and uncached dashboard
+        Given I create two dashboards
+        When I cache one of the dashboards
         Then the cached dashboard has a Last Updated time and chip icon
         And the uncached dashboard does not have a Last Updated time and no chip icon
 
