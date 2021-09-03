@@ -17,14 +17,14 @@ Feature: Creating, editing and deleting dashboard
         And I click Exit without saving
         Then the dashboard displays in view mode
 
-    @mutating
-    Scenario: I cancel exit without saving when name changed
-        Given I open existing dashboard
-        When I choose to edit dashboard
-        And dashboard title is added
-        And I click Exit without saving
-        And I decide to continue editing
-        Then the dashboard displays in edit mode
+    # @mutating
+    # Scenario: I cancel exit without saving when name changed
+    #     Given I open existing dashboard
+    #     When I choose to edit dashboard
+    #     And dashboard title is added
+    #     And I click Exit without saving
+    #     And I decide to continue editing
+    #     Then the dashboard displays in edit mode
 
     # @mutating
     # Scenario: I cancel exit without saving when item added
@@ -42,7 +42,7 @@ Feature: Creating, editing and deleting dashboard
         When I choose to edit dashboard
         And dashboard title is added
         And I click Exit without saving
-        And I confirm I want to discard changes
+        #   And I confirm I want to discard changes
         Then the dashboard displays in view mode
 
     @mutating
