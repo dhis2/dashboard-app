@@ -34,7 +34,7 @@ const CACHED_DASHBOARD_TITLE = 'aa ca' + new Date().toUTCString().slice(-12, -4)
 
 const createDashboard = cacheState => {
     const cachedDashboard = cacheState === CACHED
-    cy.get(newButtonSel).click()
+    cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
     cy.get(titleInputSel, EXTENDED_TIMEOUT).should('be.visible')
 
     const title = cachedDashboard
@@ -54,9 +54,6 @@ const createDashboard = cacheState => {
     closeMenu()
     clickEditActionButton('Save changes')
     cy.get(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
-    if (cachedDashboard) {
-        cacheDashboard()
-    }
 }
 
 const openDashboard = title => {
@@ -71,12 +68,6 @@ const checkDashboardIsVisible = title => {
 const enterEditMode = () => {
     clickViewActionButton('Edit')
     cy.get(titleInputSel, EXTENDED_TIMEOUT).should('be.visible')
-}
-
-const cacheDashboard = () => {
-    clickViewActionButton('More')
-    cy.contains(MAKE_AVAILABLE_OFFLINE_TEXT).click()
-    cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('be.visible')
 }
 
 const checkCorrectMoreOptions = cacheState => {
@@ -127,14 +118,24 @@ const deleteDashboard = dashboardTitle => {
 
 // Scenario: I cache an uncached dashboard
 
-Given('I create a cached and uncached dashboard', () => {
-    createDashboard(CACHED)
+Given('I create two dashboards', () => {
+    cy.log('create the uncached dashboard')
     createDashboard(UNCACHED)
+    createDashboard(CACHED)
+})
+
+When('I cache one of the dashboards', () => {
+    openDashboard(CACHED_DASHBOARD_TITLE)
+    clickViewActionButton('More')
+    cy.contains(MAKE_AVAILABLE_OFFLINE_TEXT, EXTENDED_TIMEOUT).click()
+    cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT, EXTENDED_TIMEOUT).should(
+        'be.visible'
+    )
 })
 
 Then('the cached dashboard has a Last Updated time and chip icon', () => {
-    openDashboard(CACHED_DASHBOARD_TITLE)
-    cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('be.visible')
+    // openDashboard(CACHED_DASHBOARD_TITLE)
+    // cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('be.visible')
 
     // check that the chip has the icon
     cy.get(dashboardChipSel)
