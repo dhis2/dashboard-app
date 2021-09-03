@@ -1,6 +1,7 @@
 Feature: Offline dashboard
 
     Scenario: I cache an uncached dashboard
+
         Given I create two dashboards
         # When I cache one of the dashboards
         # Then the cached dashboard has a Last Updated time and chip icon

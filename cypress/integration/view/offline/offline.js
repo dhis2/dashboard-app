@@ -16,9 +16,9 @@ import {
 } from '../../../elements/viewDashboard'
 import { EXTENDED_TIMEOUT, goOnline, goOffline } from '../../../support/utils'
 
-// beforeEach(() => {
-//     goOnline()
-// })
+beforeEach(() => {
+    goOnline()
+})
 
 const CACHED = 'cached'
 const UNCACHED = 'uncached'
@@ -34,7 +34,7 @@ const CACHED_DASHBOARD_TITLE = 'aa ca' + new Date().toUTCString().slice(-12, -4)
 
 const createDashboard = cacheState => {
     const cachedDashboard = cacheState === CACHED
-    cy.get(newButtonSel).click()
+    cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
     cy.get(titleInputSel, EXTENDED_TIMEOUT).should('be.visible')
 
     const title = cachedDashboard
