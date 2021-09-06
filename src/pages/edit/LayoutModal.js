@@ -11,15 +11,46 @@ import {
 } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { GRID_COLUMNS } from '../../modules/gridUtil'
 import { LayoutFixedIcon } from './assets/LayoutFixed'
 import { LayoutFreeflowIcon } from './assets/LayoutFreeflow'
 import classes from './styles/LayoutModal.module.css'
 
-const DEFAULT_COLUMN_AMOUNT = 3
+const DEFAULT_COLUMNS = 3
+
+const isColumns = value => Boolean(value) || value === ''
+
+const getColsSaveValue = value =>
+    value === '' ? DEFAULT_COLUMNS : parseInt(value, 10)
 
 export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
     const [cols, setCols] = useState(columns)
+
+    useEffect(() => setCols(columns), [])
+
+    const setColsWrapper = value => {
+        console.log(value)
+        const parsedValue = parseInt(value, 10)
+
+        // handle values like ".2"
+        if (isNaN(parsedValue) && value !== '') {
+            setCols(1)
+            return
+        }
+
+        if (parsedValue < 1) {
+            setCols(1)
+            return
+        }
+
+        if (parsedValue > GRID_COLUMNS) {
+            setCols(GRID_COLUMNS)
+            return
+        }
+
+        setCols(value)
+    }
 
     return (
         <Modal large onClose={onClose}>
@@ -27,18 +58,18 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
             <ModalContent>
                 <div
                     className={cx(classes.option, {
-                        [classes.active]: !cols,
+                        [classes.active]: !isColumns(cols),
                     })}
                     onClick={() => setCols(0)}
                 >
                     <Radio
                         onChange={() => setCols(0)}
-                        checked={!cols}
+                        checked={cols === 0}
                         className={classes.radio}
                     />
                     <div
                         className={cx(classes.iconWrapper, {
-                            [classes.activeIcon]: !cols,
+                            [classes.activeIcon]: !isColumns(cols),
                         })}
                     >
                         <LayoutFreeflowIcon />
@@ -54,26 +85,26 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
                 </div>
                 <div
                     className={cx(classes.option, {
-                        [classes.activeOption]: cols,
+                        [classes.activeOption]: isColumns(cols),
                     })}
                     onClick={() => {
-                        if (!cols) {
-                            setCols(DEFAULT_COLUMN_AMOUNT)
+                        if (cols === 0) {
+                            setCols(DEFAULT_COLUMNS)
                         }
                     }}
                 >
                     <Radio
                         onChange={() => {
-                            if (!cols) {
-                                setCols(DEFAULT_COLUMN_AMOUNT)
+                            if (cols === 0) {
+                                setCols(DEFAULT_COLUMNS)
                             }
                         }}
-                        checked={Boolean(cols)}
+                        checked={isColumns(cols)}
                         className={classes.radio}
                     />
                     <div
                         className={cx(classes.iconWrapper, {
-                            [classes.activeIcon]: cols,
+                            [classes.activeIcon]: isColumns(cols),
                         })}
                     >
                         <LayoutFixedIcon />
@@ -87,22 +118,20 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
                                 'Dashboard items are automatically placed within fixed, horizontal columns. The number of columns can be adjusted.'
                             )}
                         </p>
-                        {cols > 0 && (
+                        {isColumns(cols) && (
                             <div className={classes.columnOptions}>
                                 <InputField
                                     inputWidth="100px"
                                     type="number"
+                                    min="1"
+                                    max={String(GRID_COLUMNS)}
+                                    placeholder={String(DEFAULT_COLUMNS)}
                                     label={i18n.t('Number of columns')}
                                     className={classes.columns}
-                                    value={
-                                        cols || cols === 0
-                                            ? cols.toString()
-                                            : ''
-                                    }
+                                    value={String(cols)}
                                     onChange={({ value }) =>
-                                        setCols(parseInt(value, 10))
+                                        setColsWrapper(value)
                                     }
-                                    // default value 3?
                                 />
                                 {/* <InputField
                                     inputWidth="100px"
@@ -140,7 +169,8 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
                     <Button
                         primary
                         onClick={() => {
-                            onSaveLayout(cols)
+                            console.log('on save', cols, getColsSaveValue(cols))
+                            onSaveLayout(getColsSaveValue(cols))
                             onClose()
                         }}
                     >
