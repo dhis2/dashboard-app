@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
+"POT-Creation-Date: 2021-08-31T20:31:16.412Z\n"
+"PO-Revision-Date: 2021-09-03 23:41+0000\n"
 "Last-Translator: trendspotter <jirka.p@volny.cz>, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,9 @@ msgstr "Odebrat tuto položku"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Tato položka byla zkrácena tak, aby se vešla na jednu stránku"
+
+msgid "Remove"
+msgstr "Odebrat"
 
 msgid "Messages"
 msgstr "Zprávy"
@@ -69,17 +72,17 @@ msgstr "Otevřít v aplikaci {{appName}}"
 msgid "View fullscreen"
 msgstr "Zobrazit na celou obrazovku"
 
-msgid "View as Chart"
-msgstr "Zobrazit jako graf"
-
 msgid "This map can't be displayed as a chart"
 msgstr "Tuto mapu nelze zobrazit jako graf"
 
-msgid "View as Table"
-msgstr "Zobrazit jako tabulku"
+msgid "View as Chart"
+msgstr "Zobrazit jako graf"
 
 msgid "This map can't be displayed as a table"
 msgstr "Tuto mapu nelze zobrazit jako tabulku"
+
+msgid "View as Table"
+msgstr "Zobrazit jako tabulku"
 
 msgid "View as Map"
 msgstr "Zobrazit jako mapu"
@@ -98,6 +101,9 @@ msgstr "Při načítání dat této položky došlo k chybě"
 
 msgid "Open this item in {{appName}}"
 msgstr "Otevřít tuto položku v aplikaci {{appName}}"
+
+msgid "Not available offline"
+msgstr "Není k dispozici offline"
 
 msgid "Visualizations"
 msgstr "Vizualizace"
@@ -143,6 +149,9 @@ msgstr ""
 "Smazání ovládacího panelu se nezdařilo. Možná jste offline nebo nemáte "
 "přístup k úpravám tohoto ovládacího panelu."
 
+msgid "Cannot save this dashboard while offline"
+msgstr "Tento offline panel nelze uložit v režimu offline"
+
 msgid "Save changes"
 msgstr "Uložit změny"
 
@@ -157,6 +166,9 @@ msgstr "Nastavení filtru"
 
 msgid "Translate"
 msgstr "Přeložit"
+
+msgid "Cannot delete this dashboard while offline"
+msgstr "Ovládací panel nelze smazat, když jste offline"
 
 msgid "Delete"
 msgstr "Smazat"
@@ -201,6 +213,9 @@ msgstr "Ano, zahodit změny"
 msgid "No access"
 msgstr "Žádný přístup"
 
+msgid "Not supported"
+msgstr "Není podporováno"
+
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
@@ -234,6 +249,9 @@ msgstr "Dostupné filtry"
 msgid "Selected Filters"
 msgstr "Vybrané filtry"
 
+msgid "Cannot confirm changes while offline"
+msgstr "V režimu offline nelze potvrdit změny"
+
 msgid "Confirm"
 msgstr "Potvrdit"
 
@@ -252,11 +270,55 @@ msgstr "Vložit"
 msgid "Search for items to add to this dashboard"
 msgstr "Vyhledat položky, které chcete přidat na tento ovládací panel"
 
+msgid "Search for visualizations, reports and more"
+msgstr "Hledejte vizualizace, zprávy a další"
+
+msgid "Cannot search for dashboard items while offline"
+msgstr "V režimu offline nelze vyhledávat položky ovládacího panelu"
+
 msgid "Additional items"
 msgstr "Další položky"
 
 msgid "Text box"
 msgstr "Textové pole"
+
+msgid "Dashboard layout"
+msgstr "Rozložení ovládacího panelu"
+
+msgid "Freeflow"
+msgstr "Volný tok"
+
+msgid "Dashboard items can be placed anywhere, at any size."
+msgstr "Položky na ovládací panel lze umístit kdekoli a v jakékoli velikosti."
+
+msgid "Fixed columns"
+msgstr "Opravené sloupce"
+
+msgid ""
+"Dashboard items are automatically placed within fixed, horizontal columns. "
+"The number of columns can be adjusted."
+msgstr ""
+"Položky ovládacího panelu jsou automaticky umístěny do pevných "
+"horizontálních sloupců. Počet sloupců lze upravit."
+
+msgid "Number of columns"
+msgstr "Počet sloupců"
+
+msgid "Gap size between columns (px)"
+msgstr "Velikost mezery mezi sloupci (px)"
+
+msgid ""
+"Default height only applies to items added to a dashboard, this setting will"
+" not change existing items"
+msgstr ""
+"Výchozí výška platí pouze pro položky přidané na ovládací panel, toto "
+"nastavení nezmění stávající položky"
+
+msgid "Default height for items added to dashboard (rows)"
+msgstr "Výchozí výška pro položky přidané na ovládací panel (řádky)"
+
+msgid "Save layout"
+msgstr "Uložit rozvržení"
 
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
@@ -265,14 +327,29 @@ msgstr ""
 "Vytváření ovládacích panelů na malých obrazovkách není podporováno. Změňte "
 "velikost obrazovky a vraťte se do režimu vytváření."
 
-msgid "Not supported"
-msgstr "Není podporováno"
-
 msgid "Dashboard title"
 msgstr "Název ovládacího panelu"
 
 msgid "Dashboard description"
 msgstr "Popis ovládacího panelu"
+
+msgid "Layout"
+msgstr "Rozložení"
+
+msgid "{{numberOfColumns}} columns"
+msgstr "{{numberOfColumns}} sloupců"
+
+msgid "Change layout"
+msgstr "Změnit rozložení"
+
+msgid "Add new items to"
+msgstr "Přidat nové položky do"
+
+msgid "End of dashboard"
+msgstr "Konec ovládacího panelu"
+
+msgid "Start of dashboard"
+msgstr "Začátek ovládacího panelu"
 
 msgid "Exit print preview"
 msgstr "Ukončit náhled tisku"
@@ -314,7 +391,10 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr "Požadovaný ovládací panel nebyl nalezen"
 
-msgid "Create a new dashboard"
+msgid "Cannot create a dashboard while offline"
+msgstr "V režimu offline nelze vytvořit ovládací panel"
+
+msgid "Create new dashboard"
 msgstr "Vytvořit nový ovládací panel"
 
 msgid "Search for a dashboard"
@@ -328,22 +408,29 @@ msgstr "Zobrazit další ovládací panely"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] "Vybráno {{count}}"
+msgstr[0] "Vybrán {{count}}"
 msgstr[1] "Vybráno {{count}}"
 msgstr[2] "Vybráno {{count}}"
 msgstr[3] "Vybráno {{count}}"
 
-msgid "Remove"
-msgstr "Odebrat"
+msgid "Cannot remove filters while offline"
+msgstr "V režimu offline nelze odebrat filtry"
 
-msgid "Add filter"
-msgstr "Přidat filtr"
+msgid "Removing filters while offline"
+msgstr "Odebírání filtrů při offline"
 
-msgid "Hide description"
-msgstr "Skrýt popis"
+msgid ""
+"Removing this filter while offline will remove all other filters. Do you "
+"want to remove all filters on this dashboard?"
+msgstr ""
+"Odstraněním tohoto filtru v režimu offline odstraníte všechny ostatní "
+"filtry. Chcete na tomto panelu odebrat všechny filtry?"
 
-msgid "Show description"
-msgstr "Ukázat popis"
+msgid "No, cancel"
+msgstr "Ne, zrušit"
+
+msgid "Yes, remove filters"
+msgstr "Ano, odstranit filtry"
 
 msgid "Failed to hide description"
 msgstr "Skrytí popisu se nezdařilo"
@@ -351,20 +438,32 @@ msgstr "Skrytí popisu se nezdařilo"
 msgid "Failed to show description"
 msgstr "Popis se nepodařilo zobrazit"
 
-msgid "Unstar dashboard"
-msgstr "Zrušit označení ovládacího panelu"
-
-msgid "Star dashboard"
-msgstr "Označit ovládací panel"
-
 msgid "Failed to unstar the dashboard"
 msgstr "Zrušit označení hvězdičky na ovládacím panelu se nezdařilo"
 
 msgid "Failed to star the dashboard"
 msgstr "Označení ovládacího panelu hvězdičkou se nezdařilo"
 
-msgid "Dashboard layout"
-msgstr "Rozložení ovládacího panelu"
+msgid "Remove from offline storage"
+msgstr "Odebrat z offline úložiště"
+
+msgid "Make available offline"
+msgstr "Zpřístupnit offline"
+
+msgid "Sync offline data now"
+msgstr "Synchronizovat offline data teď"
+
+msgid "Unstar dashboard"
+msgstr "Zrušit označení ovládacího panelu"
+
+msgid "Star dashboard"
+msgstr "Označit ovládací panel"
+
+msgid "Hide description"
+msgstr "Skrýt popis"
+
+msgid "Show description"
+msgstr "Ukázat popis"
 
 msgid "One item per page"
 msgstr "Jedna položka na stránku"
@@ -378,11 +477,48 @@ msgstr "Upravit"
 msgid "Share"
 msgstr "Sdílet"
 
+msgid "Clear dashboard filters?"
+msgstr "Vymazat filtry na ovládacím panelu?"
+
+msgid ""
+"A dashboard's filters can’t be saved offline. Do you want to remove the "
+"filters and make this dashboard available offline?"
+msgstr ""
+"Filtry ovládacího panelu nelze uložit offline. Chcete odebrat filtry a "
+"zpřístupnit tento ovládací panel offline?"
+
+msgid "Yes, clear filters and sync"
+msgstr "Ano, vymazat filtry a synchronizovat"
+
 msgid "No description"
 msgstr "Bez popisu"
+
+msgid "Add filter"
+msgstr "Přidat filtr"
+
+msgid "Offline data last updated {{time}}"
+msgstr "Offline data naposledy aktualizována {{time}}"
+
+msgid "Cannot unstar this dashboard while offline"
+msgstr "U ovládacího panelu nelze odebrat hvězdičku, když jste offline"
+
+msgid "Cannot star this dashboard while offline"
+msgstr "Tento offline panel nelze označit hvězdičkou, když jste offline"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Načítání ovládacího panelu – {{name}}"
 
 msgid "Loading dashboard"
 msgstr "Načítání ovládacího panelu"
+
+msgid "Offline"
+msgstr "Offline"
+
+msgid "This dashboard cannot be loaded while offline."
+msgstr "Tento ovládací panel nelze načíst v režimu offline."
+
+msgid "Load dashboard failed"
+msgstr "Načtení ovládacího panelu se nezdařilo"
+
+msgid "This dashboard could not be loaded. Please try again later."
+msgstr "Tento ovládací panel nelze načíst. Prosím zkuste to znovu později."
