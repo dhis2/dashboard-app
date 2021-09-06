@@ -1,13 +1,13 @@
 # 
 # Translators:
-# phil_dhis2, 2020
+# phil_dhis2, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-22T05:21:30.147Z\n"
+"POT-Creation-Date: 2021-08-31T20:31:16.412Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: phil_dhis2, 2020\n"
+"Last-Translator: phil_dhis2, 2021\n"
 "Language-Team: Burmese (https://www.transifex.com/hisp-uio/teams/100509/my/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,6 +23,9 @@ msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr ""
+
+msgid "Remove"
+msgstr "ဖယ်ရှားခြင်း"
 
 msgid "Messages"
 msgstr "သတင်းများ"
@@ -67,16 +70,16 @@ msgstr ""
 msgid "View fullscreen"
 msgstr ""
 
-msgid "View as Chart"
-msgstr ""
-
 msgid "This map can't be displayed as a chart"
 msgstr ""
 
-msgid "View as Table"
+msgid "View as Chart"
 msgstr ""
 
 msgid "This map can't be displayed as a table"
+msgstr ""
+
+msgid "View as Table"
 msgstr ""
 
 msgid "View as Map"
@@ -95,6 +98,9 @@ msgid "There was an error loading data for this item"
 msgstr ""
 
 msgid "Open this item in {{appName}}"
+msgstr ""
+
+msgid "Not available offline"
 msgstr ""
 
 msgid "Visualizations"
@@ -137,6 +143,9 @@ msgid ""
 "this dashboard."
 msgstr ""
 
+msgid "Cannot save this dashboard while offline"
+msgstr ""
+
 msgid "Save changes"
 msgstr ""
 
@@ -151,6 +160,9 @@ msgstr ""
 
 msgid "Translate"
 msgstr "ဘာသာပြန်သည်။"
+
+msgid "Cannot delete this dashboard while offline"
+msgstr ""
 
 msgid "Delete"
 msgstr "ဖျက်ဆီးသည်"
@@ -190,6 +202,9 @@ msgstr ""
 msgid "No access"
 msgstr ""
 
+msgid "Not supported"
+msgstr ""
+
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
@@ -217,6 +232,9 @@ msgstr ""
 msgid "Selected Filters"
 msgstr ""
 
+msgid "Cannot confirm changes while offline"
+msgstr ""
+
 msgid "Confirm"
 msgstr ""
 
@@ -235,10 +253,50 @@ msgstr ""
 msgid "Search for items to add to this dashboard"
 msgstr ""
 
+msgid "Search for visualizations, reports and more"
+msgstr ""
+
+msgid "Cannot search for dashboard items while offline"
+msgstr ""
+
 msgid "Additional items"
 msgstr ""
 
 msgid "Text box"
+msgstr ""
+
+msgid "Dashboard layout"
+msgstr ""
+
+msgid "Freeflow"
+msgstr ""
+
+msgid "Dashboard items can be placed anywhere, at any size."
+msgstr ""
+
+msgid "Fixed columns"
+msgstr ""
+
+msgid ""
+"Dashboard items are automatically placed within fixed, horizontal columns. "
+"The number of columns can be adjusted."
+msgstr ""
+
+msgid "Number of columns"
+msgstr ""
+
+msgid "Gap size between columns (px)"
+msgstr ""
+
+msgid ""
+"Default height only applies to items added to a dashboard, this setting will"
+" not change existing items"
+msgstr ""
+
+msgid "Default height for items added to dashboard (rows)"
+msgstr ""
+
+msgid "Save layout"
 msgstr ""
 
 msgid ""
@@ -246,13 +304,28 @@ msgid ""
 " return to create mode."
 msgstr ""
 
-msgid "Not supported"
-msgstr ""
-
 msgid "Dashboard title"
 msgstr ""
 
 msgid "Dashboard description"
+msgstr ""
+
+msgid "Layout"
+msgstr ""
+
+msgid "{{numberOfColumns}} columns"
+msgstr ""
+
+msgid "Change layout"
+msgstr ""
+
+msgid "Add new items to"
+msgstr ""
+
+msgid "End of dashboard"
+msgstr ""
+
+msgid "Start of dashboard"
 msgstr ""
 
 msgid "Exit print preview"
@@ -290,7 +363,10 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr ""
 
-msgid "Create a new dashboard"
+msgid "Cannot create a dashboard while offline"
+msgstr ""
+
+msgid "Create new dashboard"
 msgstr ""
 
 msgid "Search for a dashboard"
@@ -306,16 +382,21 @@ msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] ""
 
-msgid "Remove"
-msgstr "ဖယ်ရှားခြင်း"
-
-msgid "Add filter"
+msgid "Cannot remove filters while offline"
 msgstr ""
 
-msgid "Hide description"
+msgid "Removing filters while offline"
 msgstr ""
 
-msgid "Show description"
+msgid ""
+"Removing this filter while offline will remove all other filters. Do you "
+"want to remove all filters on this dashboard?"
+msgstr ""
+
+msgid "No, cancel"
+msgstr ""
+
+msgid "Yes, remove filters"
 msgstr ""
 
 msgid "Failed to hide description"
@@ -324,19 +405,31 @@ msgstr ""
 msgid "Failed to show description"
 msgstr ""
 
-msgid "Unstar dashboard"
-msgstr ""
-
-msgid "Star dashboard"
-msgstr ""
-
 msgid "Failed to unstar the dashboard"
 msgstr ""
 
 msgid "Failed to star the dashboard"
 msgstr ""
 
-msgid "Dashboard layout"
+msgid "Remove from offline storage"
+msgstr ""
+
+msgid "Make available offline"
+msgstr ""
+
+msgid "Sync offline data now"
+msgstr ""
+
+msgid "Unstar dashboard"
+msgstr ""
+
+msgid "Star dashboard"
+msgstr ""
+
+msgid "Hide description"
+msgstr ""
+
+msgid "Show description"
 msgstr ""
 
 msgid "One item per page"
@@ -351,11 +444,46 @@ msgstr "တည်းဖြတ်သည်"
 msgid "Share"
 msgstr ""
 
+msgid "Clear dashboard filters?"
+msgstr ""
+
+msgid ""
+"A dashboard's filters can’t be saved offline. Do you want to remove the "
+"filters and make this dashboard available offline?"
+msgstr ""
+
+msgid "Yes, clear filters and sync"
+msgstr ""
+
 msgid "No description"
+msgstr ""
+
+msgid "Add filter"
+msgstr ""
+
+msgid "Offline data last updated {{time}}"
+msgstr ""
+
+msgid "Cannot unstar this dashboard while offline"
+msgstr ""
+
+msgid "Cannot star this dashboard while offline"
 msgstr ""
 
 msgid "Loading dashboard – {{name}}"
 msgstr ""
 
 msgid "Loading dashboard"
+msgstr ""
+
+msgid "Offline"
+msgstr "အင်တာနက်နှင့်မချိတ်ဆက်ထားပါ"
+
+msgid "This dashboard cannot be loaded while offline."
+msgstr ""
+
+msgid "Load dashboard failed"
+msgstr ""
+
+msgid "This dashboard could not be loaded. Please try again later."
 msgstr ""
