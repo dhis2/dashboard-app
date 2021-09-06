@@ -98,11 +98,13 @@ const EditBar = ({ dashboard, ...props }) => {
     }
 
     const onConfirmDiscard = () => {
-        if (props.isDirty) {
-            setConfirmDiscardDlgIsOpen(true)
-        } else {
-            onDiscardConfirmed()
-        }
+        // disabling dirty check in 2.37
+
+        // if (props.isDirty) {
+        //     setConfirmDiscardDlgIsOpen(true)
+        // } else {
+        onDiscardConfirmed()
+        // }
     }
 
     const onDiscardConfirmed = () => {
