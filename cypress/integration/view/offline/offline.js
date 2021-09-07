@@ -13,6 +13,7 @@ import {
     clickViewActionButton,
     dashboardTitleSel,
     dashboardChipSel,
+    dashboardDescriptionSel,
 } from '../../../elements/viewDashboard'
 import { EXTENDED_TIMEOUT, goOnline, goOffline } from '../../../support/utils'
 
@@ -94,7 +95,10 @@ const checkCorrectMoreOptionsEnabledState = (online, cacheState) => {
         cy.contains('li', 'Print').should('not.have.class', 'disabled')
     } else {
         cy.contains('li', 'Star dashboard').should('have.class', 'disabled')
-        cy.contains('li', 'Show description').should('have.class', 'disabled')
+        cy.contains('li', 'Show description').should(
+            'not.have.class',
+            'disabled'
+        )
         if (cacheState === CACHED) {
             cy.contains('li', 'Print').should('not.have.class', 'disabled')
         } else {
@@ -312,4 +316,13 @@ Then('it is not possible to interact with interpretations', () => {
 Given('I delete the cached and uncached dashboard', () => {
     deleteDashboard(UNCACHED_DASHBOARD_TITLE)
     deleteDashboard(CACHED_DASHBOARD_TITLE)
+})
+
+// Scenario: I show the description while offline
+When('I choose Show Description', () => {
+    clickViewActionButton('More')
+    cy.contains('Show description').click()
+})
+Then('the description is shown along with a warning', () => {
+    cy.get(dashboardDescriptionSel).should('be.visible')
 })

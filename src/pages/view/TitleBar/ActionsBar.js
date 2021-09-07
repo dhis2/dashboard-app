@@ -95,18 +95,15 @@ const ViewActions = ({
             : startRecording({})
     }
 
-    const onToggleShowDescription = () =>
-        apiPostShowDescription(!showDescription)
-            .then(() => {
-                updateShowDescription(!showDescription)
-                toggleMoreOptions()
+    const onToggleShowDescription = () => {
+        updateShowDescription(!showDescription)
+        toggleMoreOptions()
+        apiPostShowDescription(!showDescription).catch(() =>
+            warningAlert.show({
+                msg: i18n.t('Failed to save show/hide description preference.'),
             })
-            .catch(() => {
-                const msg = showDescription
-                    ? i18n.t('Failed to hide description')
-                    : i18n.t('Failed to show description')
-                warningAlert.show({ msg })
-            })
+        )
+    }
 
     const onToggleStarredDashboard = () =>
         apiStarDashboard(dataEngine, id, !starred)
@@ -160,7 +157,7 @@ const ViewActions = ({
             />
             <MenuItem
                 dense
-                disabled={offline}
+                disabledWhenOffline={false}
                 label={
                     showDescription
                         ? i18n.t('Hide description')
