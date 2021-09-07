@@ -1,3 +1,10 @@
+## [31.19.4](https://github.com/dhis2/dashboard-app/compare/v31.19.3...v31.19.4) (2021-09-07)
+
+
+### Bug Fixes
+
+* i18n plurals for number of layout columns ([#1941](https://github.com/dhis2/dashboard-app/issues/1941)) ([fe1f451](https://github.com/dhis2/dashboard-app/commit/fe1f45124eed2de16a1f0e418e9c4bf73444a452))
+
 ## [31.19.3](https://github.com/dhis2/dashboard-app/compare/v31.19.2...v31.19.3) (2021-09-06)
 
 

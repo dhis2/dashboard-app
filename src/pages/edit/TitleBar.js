@@ -73,8 +73,10 @@ const EditTitleBar = ({
                         )}
                         <span className={classes.layoutValue}>
                             {columns.length
-                                ? i18n.t('{{numberOfColumns}} columns', {
-                                      numberOfColumns: columns.length, // TODO: Add pluralisation
+                                ? i18n.t('{{count}} columns', {
+                                      count: columns.length,
+                                      defaultValue: '{{count}} column',
+                                      defaultValue_plural: '{{count}} columns',
                                   })
                                 : i18n.t('Freeflow')}
                         </span>
