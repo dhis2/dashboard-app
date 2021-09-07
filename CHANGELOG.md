@@ -1,3 +1,10 @@
+## [31.19.5](https://github.com/dhis2/dashboard-app/compare/v31.19.4...v31.19.5) (2021-09-07)
+
+
+### Bug Fixes
+
+* restore z-index that makes the dashboards bar bottom shadow appear on top of the dashboard content ([#1944](https://github.com/dhis2/dashboard-app/issues/1944)) ([19cc286](https://github.com/dhis2/dashboard-app/commit/19cc2866c9a9cbf8094d88d7215c7a724e40109a))
+
 ## [31.19.4](https://github.com/dhis2/dashboard-app/compare/v31.19.3...v31.19.4) (2021-09-07)
 
 
