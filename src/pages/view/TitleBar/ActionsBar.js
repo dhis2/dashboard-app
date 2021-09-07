@@ -70,29 +70,35 @@ const ViewActions = ({
         return <Redirect to={redirectUrl} />
     }
 
+    const onRecordError = () => {
+        warningAlert.show({
+            msg: i18n.t('The dashboard could not be cached. Please try again'),
+        })
+    }
+
     const onCacheDashboardConfirmed = () => {
         setConfirmCacheDialogIsOpen(false)
         removeAllFilters()
-        startRecording({})
+        startRecording({
+            onError: onRecordError,
+        })
     }
 
     const onToggleOfflineStatus = () => {
-        toggleMoreOptions()
-
         if (lastUpdated) {
             return remove()
         }
 
-        return filtersLength
-            ? setConfirmCacheDialogIsOpen(true)
-            : startRecording({})
+        onUpdateOfflineCache()
     }
 
     const onUpdateOfflineCache = () => {
         toggleMoreOptions()
         return filtersLength
             ? setConfirmCacheDialogIsOpen(true)
-            : startRecording({})
+            : startRecording({
+                  onError: onRecordError,
+              })
     }
 
     const onToggleShowDescription = () =>
