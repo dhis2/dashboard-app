@@ -57,9 +57,11 @@ const ViewActions = ({
     const { lastUpdated, isCached, startRecording, remove } =
         useCacheableSection(id)
 
-    const warningAlert = useAlert(({ msg }) => msg, {
-        warning: true,
-    })
+    const { show } = useAlert(
+        ({ msg }) => msg,
+        ({ isCritical }) =>
+            isCritical ? { critical: true } : { warning: true }
+    )
 
     const toggleMoreOptions = small =>
         small
@@ -71,8 +73,11 @@ const ViewActions = ({
     }
 
     const onRecordError = () => {
-        warningAlert.show({
-            msg: i18n.t('The dashboard could not be cached. Please try again.'),
+        show({
+            msg: i18n.t(
+                "The dashboard couldn't be made available offline. Try again."
+            ),
+            isCritical: true,
         })
     }
 
@@ -111,7 +116,7 @@ const ViewActions = ({
                 const msg = showDescription
                     ? i18n.t('Failed to hide description')
                     : i18n.t('Failed to show description')
-                warningAlert.show({ msg })
+                show({ msg, isCritical: false })
             })
 
     const onToggleStarredDashboard = () =>
@@ -126,7 +131,7 @@ const ViewActions = ({
                 const msg = starred
                     ? i18n.t('Failed to unstar the dashboard')
                     : i18n.t('Failed to star the dashboard')
-                warningAlert.show({ msg })
+                show({ msg, isCritical: false })
             })
 
     const onToggleSharingDialog = () =>
