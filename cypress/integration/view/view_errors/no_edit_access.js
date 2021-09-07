@@ -16,6 +16,6 @@ Given('I open a non-editable dashboard in edit mode', () => {
 })
 
 Then('only the option to return to view mode is available', () => {
-    cy.contains('Go to dashboards').should('be.visible')
+    cy.contains('Go to dashboards', EXTENDED_TIMEOUT).should('be.visible')
     cy.contains('No access').should('be.visible')
 })
