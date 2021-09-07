@@ -13,6 +13,7 @@
     flex-direction: column;
     height: var(--user-rows-height);
     width: 100%;
+    z-index: 1;
 }
 
 .content {
