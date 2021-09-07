@@ -72,7 +72,7 @@ const ViewActions = ({
 
     const onRecordError = () => {
         warningAlert.show({
-            msg: i18n.t('The dashboard could not be cached. Please try again'),
+            msg: i18n.t('The dashboard could not be cached. Please try again.'),
         })
     }
 
