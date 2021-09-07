@@ -1,3 +1,17 @@
+## [31.19.3](https://github.com/dhis2/dashboard-app/compare/v31.19.2...v31.19.3) (2021-09-06)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1906](https://github.com/dhis2/dashboard-app/issues/1906)) ([92a2c27](https://github.com/dhis2/dashboard-app/commit/92a2c273b0bc2f6f58f7dda624a00e20e1fc916c))
+
+## [31.19.2](https://github.com/dhis2/dashboard-app/compare/v31.19.1...v31.19.2) (2021-09-06)
+
+
+### Bug Fixes
+
+* require a number and only allow numbers greater than zero for layout columns (DHIS2-11703) ([#1933](https://github.com/dhis2/dashboard-app/issues/1933)) ([f21ee2e](https://github.com/dhis2/dashboard-app/commit/f21ee2ec352a24392583ab8c6868328209392096))
+
 ## [31.19.1](https://github.com/dhis2/dashboard-app/compare/v31.19.0...v31.19.1) (2021-09-03)
 
 
