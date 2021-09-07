@@ -330,8 +330,10 @@ msgstr "Dashboard description"
 msgid "Layout"
 msgstr "Layout"
 
-msgid "{{numberOfColumns}} columns"
-msgstr "{{numberOfColumns}} columns"
+msgid "{{count}} columns"
+msgid_plural "{{count}} columns"
+msgstr[0] "{{count}} column"
+msgstr[1] "{{count}} columns"
 
 msgid "Change layout"
 msgstr "Change layout"
