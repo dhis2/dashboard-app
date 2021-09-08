@@ -242,7 +242,10 @@ When('I click to open an uncached dashboard', () => {
 })
 
 When('I click to open an uncached dashboard when offline', () =>
-    openDashboard(UNCACHED_DASHBOARD_TITLE)
+    cy
+        .get(dashboardChipSel, EXTENDED_TIMEOUT)
+        .contains(UNCACHED_DASHBOARD_TITLE)
+        .click()
 )
 
 When('I click to open a cached dashboard when offline', () =>
