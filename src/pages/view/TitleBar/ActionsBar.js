@@ -89,12 +89,16 @@ const ViewActions = ({
         })
     }
 
-    const onToggleOfflineStatus = () => {
-        if (lastUpdated) {
-            return remove()
-        }
+    const onRemoveFromOffline = () => {
+        toggleMoreOptions()
+        lastUpdated && remove()
+    }
 
-        onUpdateOfflineCache()
+    const onAddToOffline = () => {
+        toggleMoreOptions()
+        return filtersLength
+            ? setConfirmCacheDialogIsOpen(true)
+            : startRecording({})
     }
 
     const onUpdateOfflineCache = () => {
@@ -141,16 +145,21 @@ const ViewActions = ({
 
     const getMoreMenu = () => (
         <FlyoutMenu>
-            <MenuItem
-                dense
-                disabled={offline}
-                label={
-                    lastUpdated
-                        ? i18n.t('Remove from offline storage')
-                        : i18n.t('Make available offline')
-                }
-                onClick={onToggleOfflineStatus}
-            />
+            {lastUpdated ? (
+                <MenuItem
+                    dense
+                    disabledWhenOffline={false}
+                    label={i18n.t('Remove from offline storage')}
+                    onClick={onRemoveFromOffline}
+                />
+            ) : (
+                <MenuItem
+                    dense
+                    disabled={offline}
+                    label={i18n.t('Make available offline')}
+                    onClick={onAddToOffline}
+                />
+            )}
             {lastUpdated && (
                 <MenuItem
                     dense
