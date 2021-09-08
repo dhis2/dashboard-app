@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-07T10:44:42.043Z\n"
+"POT-Creation-Date: 2021-09-07T13:08:57.602Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2021\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -425,6 +425,9 @@ msgid "No, cancel"
 msgstr "Tidak, batalkan"
 
 msgid "Yes, remove filters"
+msgstr ""
+
+msgid "The dashboard couldn't be made available offline. Try again."
 msgstr ""
 
 msgid "Failed to hide description"
