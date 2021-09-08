@@ -109,12 +109,7 @@ const ViewActions = ({
     const onToggleShowDescription = () => {
         updateShowDescription(!showDescription)
         toggleMoreOptions()
-        apiPostShowDescription(!showDescription).catch(() =>
-            show({
-                msg: i18n.t('Failed to save show/hide description preference.'),
-                isCritical: false,
-            })
-        )
+        !offline && apiPostShowDescription(!showDescription)
     }
 
     const onToggleStarredDashboard = () =>

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-09-07T13:08:57.602Z\n"
-"PO-Revision-Date: 2021-09-07T13:08:57.602Z\n"
+"POT-Creation-Date: 2021-09-08T13:07:16.333Z\n"
+"PO-Revision-Date: 2021-09-08T13:07:16.333Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -425,12 +425,6 @@ msgstr "Yes, remove filters"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "The dashboard couldn't be made available offline. Try again."
-
-msgid "Failed to hide description"
-msgstr "Failed to hide description"
-
-msgid "Failed to show description"
-msgstr "Failed to show description"
 
 msgid "Failed to unstar the dashboard"
 msgstr "Failed to unstar the dashboard"
