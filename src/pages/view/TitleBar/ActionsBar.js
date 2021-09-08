@@ -57,9 +57,11 @@ const ViewActions = ({
     const { lastUpdated, isCached, startRecording, remove } =
         useCacheableSection(id)
 
-    const warningAlert = useAlert(({ msg }) => msg, {
-        warning: true,
-    })
+    const { show } = useAlert(
+        ({ msg }) => msg,
+        ({ isCritical }) =>
+            isCritical ? { critical: true } : { warning: true }
+    )
 
     const toggleMoreOptions = small =>
         small
@@ -70,37 +72,47 @@ const ViewActions = ({
         return <Redirect to={redirectUrl} />
     }
 
+    const onRecordError = () => {
+        show({
+            msg: i18n.t(
+                "The dashboard couldn't be made available offline. Try again."
+            ),
+            isCritical: true,
+        })
+    }
+
     const onCacheDashboardConfirmed = () => {
         setConfirmCacheDialogIsOpen(false)
         removeAllFilters()
-        startRecording({})
+        startRecording({
+            onError: onRecordError,
+        })
     }
 
     const onToggleOfflineStatus = () => {
-        toggleMoreOptions()
-
         if (lastUpdated) {
             return remove()
         }
 
-        return filtersLength
-            ? setConfirmCacheDialogIsOpen(true)
-            : startRecording({})
+        onUpdateOfflineCache()
     }
 
     const onUpdateOfflineCache = () => {
         toggleMoreOptions()
         return filtersLength
             ? setConfirmCacheDialogIsOpen(true)
-            : startRecording({})
+            : startRecording({
+                  onError: onRecordError,
+              })
     }
 
     const onToggleShowDescription = () => {
         updateShowDescription(!showDescription)
         toggleMoreOptions()
         apiPostShowDescription(!showDescription).catch(() =>
-            warningAlert.show({
+            show({
                 msg: i18n.t('Failed to save show/hide description preference.'),
+                isCritical: false
             })
         )
     }
@@ -117,7 +129,7 @@ const ViewActions = ({
                 const msg = starred
                     ? i18n.t('Failed to unstar the dashboard')
                     : i18n.t('Failed to star the dashboard')
-                warningAlert.show({ msg })
+                show({ msg, isCritical: false })
             })
 
     const onToggleSharingDialog = () =>
