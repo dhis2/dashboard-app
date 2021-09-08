@@ -58,7 +58,7 @@ const createDashboard = cacheState => {
 }
 
 const openDashboard = title => {
-    cy.get(dashboardChipSel).contains(title).click()
+    cy.get(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
     checkDashboardIsVisible(title)
 }
 
@@ -241,13 +241,13 @@ When('I click to open an uncached dashboard', () => {
     cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('not.exist')
 })
 
-When('I click to open an uncached dashboard when offline', () => {
-    cy.get(dashboardChipSel).contains(UNCACHED_DASHBOARD_TITLE).click()
-})
+When('I click to open an uncached dashboard when offline', () =>
+    openDashboard(UNCACHED_DASHBOARD_TITLE)
+)
 
-When('I click to open a cached dashboard when offline', () => {
-    cy.get(dashboardChipSel).contains(CACHED_DASHBOARD_TITLE).click()
-})
+When('I click to open a cached dashboard when offline', () =>
+    openDashboard(CACHED_DASHBOARD_TITLE)
+)
 
 // Scenario: I am offline and switch to a cached dashboard
 Then('the cached dashboard is loaded and displayed in view mode', () => {
