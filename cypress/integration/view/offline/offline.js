@@ -328,4 +328,12 @@ When('I choose Show Description', () => {
 })
 Then('the description is shown along with a warning', () => {
     cy.get(dashboardDescriptionSel).should('be.visible')
+
+// Scenario: I remove a dashboard from cache while offline
+When('I click to Remove from offline storage', () => {
+    clickViewActionButton('More')
+    cy.contains('Remove from offline storage').click()
+})
+Then('the dashboard is not cached', () => {
+    cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('not.exist')
 })
