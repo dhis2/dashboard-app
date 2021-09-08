@@ -112,7 +112,7 @@ const ViewActions = ({
         apiPostShowDescription(!showDescription).catch(() =>
             show({
                 msg: i18n.t('Failed to save show/hide description preference.'),
-                isCritical: false
+                isCritical: false,
             })
         )
     }
