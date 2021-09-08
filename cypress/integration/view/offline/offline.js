@@ -313,3 +313,12 @@ Given('I delete the cached and uncached dashboard', () => {
     deleteDashboard(UNCACHED_DASHBOARD_TITLE)
     deleteDashboard(CACHED_DASHBOARD_TITLE)
 })
+
+// Scenario: I remove a dashboard from cache while offline
+When('I click to Remove from offline storage', () => {
+    clickViewActionButton('More')
+    cy.contains('Remove from offline storage').click()
+})
+Then('the dashboard is not cached', () => {
+    cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('not.exist')
+})

@@ -53,6 +53,14 @@ Feature: Offline dashboard
         When I click Exit without saving
         Then the cached dashboard is loaded and displayed in view mode
 
+    Scenario: I remove a dashboard from cache while offline
+        Given I open a cached dashboard
+        And connectivity is turned off
+        When I click to Remove from offline storage
+        Then the dashboard is not cached
+        When connectivity is turned on
+        Then I cache one of the dashboards
+
     # Scenario: The sharing dialog is open when connectivity is lost
     #     Given I open a cached dashboard
     #     When I open sharing settings
