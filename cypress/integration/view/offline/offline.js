@@ -13,6 +13,7 @@ import {
     clickViewActionButton,
     dashboardTitleSel,
     dashboardChipSel,
+    dashboardDescriptionSel,
 } from '../../../elements/viewDashboard'
 import { EXTENDED_TIMEOUT, goOnline, goOffline } from '../../../support/utils'
 
@@ -57,7 +58,7 @@ const createDashboard = cacheState => {
 }
 
 const openDashboard = title => {
-    cy.get(dashboardChipSel).contains(title).click()
+    cy.get(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
     checkDashboardIsVisible(title)
 }
 
@@ -94,7 +95,10 @@ const checkCorrectMoreOptionsEnabledState = (online, cacheState) => {
         cy.contains('li', 'Print').should('not.have.class', 'disabled')
     } else {
         cy.contains('li', 'Star dashboard').should('have.class', 'disabled')
-        cy.contains('li', 'Show description').should('have.class', 'disabled')
+        cy.contains('li', 'Show description').should(
+            'not.have.class',
+            'disabled'
+        )
         if (cacheState === CACHED) {
             cy.contains('li', 'Print').should('not.have.class', 'disabled')
         } else {
@@ -238,11 +242,13 @@ When('I click to open an uncached dashboard', () => {
 })
 
 When('I click to open an uncached dashboard when offline', () => {
-    cy.get(dashboardChipSel).contains(UNCACHED_DASHBOARD_TITLE).click()
+    cy.get(dashboardChipSel, EXTENDED_TIMEOUT)
+        .contains(UNCACHED_DASHBOARD_TITLE)
+        .click()
 })
 
 When('I click to open a cached dashboard when offline', () => {
-    cy.get(dashboardChipSel).contains(CACHED_DASHBOARD_TITLE).click()
+    openDashboard(CACHED_DASHBOARD_TITLE)
 })
 
 // Scenario: I am offline and switch to a cached dashboard
@@ -314,11 +320,22 @@ Given('I delete the cached and uncached dashboard', () => {
     deleteDashboard(CACHED_DASHBOARD_TITLE)
 })
 
+// Scenario: I show the description while offline
+When('I choose Show Description', () => {
+    clickViewActionButton('More')
+    cy.contains('Show description').click()
+})
+
+Then('the description is shown along with a warning', () => {
+    cy.get(dashboardDescriptionSel).should('be.visible')
+})
+
 // Scenario: I remove a dashboard from cache while offline
 When('I click to Remove from offline storage', () => {
     clickViewActionButton('More')
     cy.contains('Remove from offline storage').click()
 })
+
 Then('the dashboard is not cached', () => {
     cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('not.exist')
 })
