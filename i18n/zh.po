@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-07T13:08:57.602Z\n"
+"POT-Creation-Date: 2021-09-08T13:07:16.333Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -409,12 +409,6 @@ msgstr "是的，删除过滤器"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr ""
-
-msgid "Failed to hide description"
-msgstr "隐藏说明失败"
-
-msgid "Failed to show description"
-msgstr "无法显示说明"
 
 msgid "Failed to unstar the dashboard"
 msgstr "无法取消仪表板的星标"

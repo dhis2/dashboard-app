@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-07T13:08:57.602Z\n"
+"POT-Creation-Date: 2021-09-08T13:07:16.333Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
 "Language-Team: Tetum (Tetun) (https://www.transifex.com/hisp-uio/teams/100509/tet/)\n"
@@ -402,12 +402,6 @@ msgid "Yes, remove filters"
 msgstr ""
 
 msgid "The dashboard couldn't be made available offline. Try again."
-msgstr ""
-
-msgid "Failed to hide description"
-msgstr ""
-
-msgid "Failed to show description"
 msgstr ""
 
 msgid "Failed to unstar the dashboard"

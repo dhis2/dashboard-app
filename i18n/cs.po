@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-07T13:08:57.602Z\n"
+"POT-Creation-Date: 2021-09-08T13:07:16.333Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: trendspotter <jirka.p@volny.cz>, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -438,12 +438,6 @@ msgstr "Ano, odstranit filtry"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr ""
-
-msgid "Failed to hide description"
-msgstr "Skrytí popisu se nezdařilo"
-
-msgid "Failed to show description"
-msgstr "Popis se nepodařilo zobrazit"
 
 msgid "Failed to unstar the dashboard"
 msgstr "Zrušit označení hvězdičky na ovládacím panelu se nezdařilo"
