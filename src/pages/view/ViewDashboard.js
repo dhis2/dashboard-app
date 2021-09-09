@@ -1,4 +1,5 @@
 import { useOnlineStatus, useCacheableSection } from '@dhis2/app-runtime'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import { AlertStack, AlertBar } from '@dhis2/ui'
 import cx from 'classnames'
@@ -17,6 +18,8 @@ import DashboardContainer from '../../components/DashboardContainer'
 import LoadingMask from '../../components/LoadingMask'
 import Notice from '../../components/Notice'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
+import getCacheableSectionId from '../../modules/getCacheableSectionId'
+// import { useCacheableSection } from '../../modules/useCacheableSection'
 import { sGetDashboardById } from '../../reducers/dashboards'
 import { sGetPassiveViewRegistered } from '../../reducers/passiveViewRegistered'
 import { sGetSelectedId } from '../../reducers/selected'
@@ -32,7 +35,9 @@ const ViewDashboard = props => {
     const [loaded, setLoaded] = useState(false)
     const [loadFailed, setLoadFailed] = useState(false)
     const { online } = useOnlineStatus()
-    const { isCached, recordingState } = useCacheableSection(props.requestedId)
+    const { d2 } = useD2()
+    const cId = getCacheableSectionId(d2.currentUser.id, props.requestedId)
+    const { isCached, recordingState } = useCacheableSection(cId)
 
     useEffect(() => {
         setHeaderbarVisible(true)
@@ -178,6 +183,7 @@ const ViewDashboard = props => {
 }
 
 ViewDashboard.propTypes = {
+    cacheSectionId: PropTypes.string,
     clearEditDashboard: PropTypes.func,
     clearPrintDashboard: PropTypes.func,
     currentId: PropTypes.string,

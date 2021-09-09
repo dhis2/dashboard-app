@@ -4,6 +4,7 @@ import {
     useOnlineStatus,
     useCacheableSection,
 } from '@dhis2/app-runtime'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
@@ -24,6 +25,8 @@ import ConfirmActionDialog from '../../../components/ConfirmActionDialog'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton'
 import MenuItem from '../../../components/MenuItemWithTooltip'
 import OfflineTooltip from '../../../components/OfflineTooltip'
+import getCacheableSectionId from '../../../modules/getCacheableSectionId'
+// import { useCacheableSection } from '../../../modules/useCacheableSection'
 import { orObject } from '../../../modules/util'
 import { sGetDashboardStarred } from '../../../reducers/dashboards'
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
@@ -54,8 +57,10 @@ const ViewActions = ({
     const [redirectUrl, setRedirectUrl] = useState(null)
     const dataEngine = useDataEngine()
     const { offline } = useOnlineStatus()
+    const { d2 } = useD2()
+    const cId = getCacheableSectionId(d2.currentUser.id, id)
     const { lastUpdated, isCached, startRecording, remove } =
-        useCacheableSection(id)
+        useCacheableSection(cId)
 
     const { show } = useAlert(
         ({ msg }) => msg,
@@ -95,13 +100,7 @@ const ViewActions = ({
     }
 
     const onAddToOffline = () => {
-        toggleMoreOptions()
-        return filtersLength
-            ? setConfirmCacheDialogIsOpen(true)
-            : startRecording({})
-    }
-
-    const onUpdateOfflineCache = () => {
+        console.log('onAddToOffline startRecording', startRecording)
         toggleMoreOptions()
         return filtersLength
             ? setConfirmCacheDialogIsOpen(true)
@@ -158,7 +157,7 @@ const ViewActions = ({
                     dense
                     label={i18n.t('Sync offline data now')}
                     disabled={offline}
-                    onClick={onUpdateOfflineCache}
+                    onClick={onAddToOffline}
                 />
             )}
             <MenuItem

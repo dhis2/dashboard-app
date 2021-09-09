@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import LoadingMask from '../../components/LoadingMask'
 import NoContentMessage from '../../components/NoContentMessage'
 import { getPreferredDashboardId } from '../../modules/localStorage'
+import getCacheableSectionId from '../../modules/getCacheableSectionId'
 import {
     sDashboardsIsFetching,
     sGetDashboardById,
@@ -19,6 +20,7 @@ const CacheableViewDashboard = ({
     id,
     dashboardsLoaded,
     dashboardsIsEmpty,
+    userId,
     username,
 }) => {
     const [dashboardsBarExpanded, setDashboardsBarExpanded] = useState(false)
@@ -49,9 +51,17 @@ const CacheableViewDashboard = ({
         )
     }
 
+    // const cacheSectionId = `${userId}-${id}}`
+    const cacheSectionId = getCacheableSectionId(userId, id)
+
     return (
-        <CacheableSection id={id} loadingMask={<LoadingMask />}>
-            <ViewDashboard key={id} requestedId={id} username={username} />
+        <CacheableSection id={cacheSectionId} loadingMask={<LoadingMask />}>
+            <ViewDashboard
+                key={cacheSectionId}
+                requestedId={id}
+                cacheSectionId={cacheSectionId}
+                username={username}
+            />
         </CacheableSection>
     )
 }
@@ -60,6 +70,7 @@ CacheableViewDashboard.propTypes = {
     dashboardsIsEmpty: PropTypes.bool,
     dashboardsLoaded: PropTypes.bool,
     id: PropTypes.string,
+    userId: PropTypes.string,
     username: PropTypes.string,
 }
 
