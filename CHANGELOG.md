@@ -1,3 +1,13 @@
+## [31.19.6](https://github.com/dhis2/dashboard-app/compare/v31.19.5...v31.19.6) (2021-09-09)
+
+
+### Bug Fixes
+
+* **deps:** use latest app scripts to fix infinite update err ([#1949](https://github.com/dhis2/dashboard-app/issues/1949)) ([c3be283](https://github.com/dhis2/dashboard-app/commit/c3be2833fc276aeda5c79b5da099a12753ea9fef))
+* add background graphics to the print text (DHIS2-11725) ([#1948](https://github.com/dhis2/dashboard-app/issues/1948)) ([9588ec5](https://github.com/dhis2/dashboard-app/commit/9588ec5f66869653aac3997ca67bf345f3350c77))
+* add callback for when recording fails due to network errors ([#1940](https://github.com/dhis2/dashboard-app/issues/1940)) ([1992521](https://github.com/dhis2/dashboard-app/commit/19925210b678b6e2245a75b3a3f9e4a4ac467a8a))
+* make option to remove from cache available while offline ([#1946](https://github.com/dhis2/dashboard-app/issues/1946)) ([33afbc7](https://github.com/dhis2/dashboard-app/commit/33afbc791954fa5e7077ffc273d27705414a9b72))
+
 ## [31.19.5](https://github.com/dhis2/dashboard-app/compare/v31.19.4...v31.19.5) (2021-09-07)
 
 
