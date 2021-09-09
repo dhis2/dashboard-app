@@ -24,7 +24,7 @@ const PrintInfo = ({ isLayout }) => {
                     </li>
                     <li>
                         {i18n.t(
-                            'Use A4 landscape paper size and default margin settings in the browser print dialog'
+                            'Use A4 landscape paper size, default margin settings and turn on background graphics in the browser print dialog'
                         )}
                     </li>
                 </ul>
