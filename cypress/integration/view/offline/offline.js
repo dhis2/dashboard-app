@@ -241,16 +241,15 @@ When('I click to open an uncached dashboard', () => {
     cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('not.exist')
 })
 
-When('I click to open an uncached dashboard when offline', () =>
-    cy
-        .get(dashboardChipSel, EXTENDED_TIMEOUT)
+When('I click to open an uncached dashboard when offline', () => {
+    cy.get(dashboardChipSel, EXTENDED_TIMEOUT)
         .contains(UNCACHED_DASHBOARD_TITLE)
         .click()
-)
+})
 
-When('I click to open a cached dashboard when offline', () =>
+When('I click to open a cached dashboard when offline', () => {
     openDashboard(CACHED_DASHBOARD_TITLE)
-)
+})
 
 // Scenario: I am offline and switch to a cached dashboard
 Then('the cached dashboard is loaded and displayed in view mode', () => {
@@ -326,14 +325,17 @@ When('I choose Show Description', () => {
     clickViewActionButton('More')
     cy.contains('Show description').click()
 })
+
 Then('the description is shown along with a warning', () => {
     cy.get(dashboardDescriptionSel).should('be.visible')
+})
 
 // Scenario: I remove a dashboard from cache while offline
 When('I click to Remove from offline storage', () => {
     clickViewActionButton('More')
     cy.contains('Remove from offline storage').click()
 })
+
 Then('the dashboard is not cached', () => {
     cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('not.exist')
 })
