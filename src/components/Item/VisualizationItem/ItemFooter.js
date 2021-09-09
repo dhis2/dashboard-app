@@ -8,9 +8,11 @@ import { getVisualizationId } from '../../../modules/item'
 import FatalErrorBoundary from './FatalErrorBoundary'
 import classes from './styles/ItemFooter.module.css'
 
-const ItemFooter = props => {
+const ItemFooter = ({ item }) => {
     const { d2 } = useD2()
     const { offline } = useOnlineStatus()
+    const id = getVisualizationId(item)
+    const type = item.type.toLowerCase()
 
     return (
         <div className={classes.itemFooter} data-test="dashboarditem-footer">
@@ -23,9 +25,9 @@ const ItemFooter = props => {
                 >
                     <InterpretationsComponent
                         d2={d2}
-                        item={props.item}
-                        type={props.item.type.toLowerCase()}
-                        id={getVisualizationId(props.item)}
+                        item={item}
+                        type={type}
+                        id={id}
                         appName="dashboard"
                         isOffline={offline}
                     />
