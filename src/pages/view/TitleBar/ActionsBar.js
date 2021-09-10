@@ -91,7 +91,6 @@ const ViewActions = ({
     }
 
     const onAddToOffline = () => {
-        // console.log('onAddToOffline startRecording', startRecording)
         toggleMoreOptions()
         return filtersLength
             ? setConfirmCacheDialogIsOpen(true)
