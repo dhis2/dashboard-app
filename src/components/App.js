@@ -1,4 +1,3 @@
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { CssVariables } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
@@ -17,8 +16,6 @@ import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
 
 const App = props => {
-    const { d2 } = useD2()
-
     useEffect(() => {
         props.fetchDashboards()
         props.setControlBarRows()
@@ -43,12 +40,7 @@ const App = props => {
                     <Route
                         exact
                         path="/"
-                        render={props => (
-                            <ViewDashboard
-                                username={d2.currentUser.username}
-                                {...props}
-                            />
-                        )}
+                        render={props => <ViewDashboard {...props} />}
                     />
                     <Route
                         exact
@@ -58,12 +50,7 @@ const App = props => {
                     <Route
                         exact
                         path="/:dashboardId"
-                        render={props => (
-                            <ViewDashboard
-                                username={d2.currentUser.username}
-                                {...props}
-                            />
-                        )}
+                        render={props => <ViewDashboard {...props} />}
                     />
                     <Route
                         exact
