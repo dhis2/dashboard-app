@@ -1,5 +1,4 @@
 import { useOnlineStatus } from '@dhis2/app-runtime'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import { AlertStack, AlertBar } from '@dhis2/ui'
 import cx from 'classnames'
@@ -34,7 +33,6 @@ const ViewDashboard = props => {
     const [loaded, setLoaded] = useState(false)
     const [loadFailed, setLoadFailed] = useState(false)
     const { online } = useOnlineStatus()
-    const { d2 } = useD2()
     const { isCached, recordingState } = useCacheableSection(props.requestedId)
 
     useEffect(() => {
@@ -79,10 +77,7 @@ const ViewDashboard = props => {
 
             try {
                 setLoaded(true)
-                await props.fetchDashboard(
-                    props.requestedId,
-                    d2.currentUser.username
-                )
+                await props.fetchDashboard(props.requestedId, props.username)
 
                 setLoadFailed(false)
                 setLoadingMessage(null)
@@ -92,10 +87,7 @@ const ViewDashboard = props => {
                 setLoadFailed(true)
                 setLoadingMessage(null)
                 clearTimeout(alertTimeout)
-                props.setSelectedAsOffline(
-                    props.requestedId,
-                    d2.currentUser.username
-                )
+                props.setSelectedAsOffline(props.requestedId, props.username)
             }
         }
 
@@ -108,10 +100,7 @@ const ViewDashboard = props => {
             loadDashboard()
         } else if (!requestedIsAvailable && switchingDashboard) {
             setLoaded(false)
-            props.setSelectedAsOffline(
-                props.requestedId,
-                d2.currentUser.username
-            )
+            props.setSelectedAsOffline(props.requestedId, props.username)
         }
     }, [props.requestedId, props.currentId, loaded, recordingState, online])
 
@@ -199,6 +188,7 @@ ViewDashboard.propTypes = {
     requestedDashboardName: PropTypes.string,
     requestedId: PropTypes.string,
     setSelectedAsOffline: PropTypes.func,
+    username: PropTypes.string,
 }
 
 const mapStateToProps = (state, ownProps) => {
