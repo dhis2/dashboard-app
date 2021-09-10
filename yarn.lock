@@ -2136,7 +2136,7 @@
   dependencies:
     prop-types "^15.7.2"
 
-"@dhis2/app-runtime@^2.11.0":
+"@dhis2/app-runtime@2.11.0", "@dhis2/app-runtime@^2.11.0", "@dhis2/app-runtime@^3.0.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.11.0.tgz#85f6474ce8957e500ae129abe80bdc02a272d24d"
   integrity sha512-rHqWttpOSgKpdSZXIe+Ay9fehkIAfYuTYshH4z0tYaCOdtRLz+J7z8EbESIwtTpcgrYaqv9gcojiqwc3/RwZiA==
@@ -2145,16 +2145,6 @@
     "@dhis2/app-service-config" "2.11.0"
     "@dhis2/app-service-data" "2.11.0"
     "@dhis2/app-service-offline" "2.11.0"
-
-"@dhis2/app-runtime@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-3.0.0.tgz#b71871b06d1b6414cadd998fce861f857a37ccc3"
-  integrity sha512-68WNwCWna5DzrF/97zapzwq3G9LVVKDAnD+EHQ/6iaJdl7eTpc2PFlKmWUIEX9R2/C4w+6IEqa9oxXECDJPkJQ==
-  dependencies:
-    "@dhis2/app-service-alerts" "3.0.0"
-    "@dhis2/app-service-config" "3.0.0"
-    "@dhis2/app-service-data" "3.0.0"
-    "@dhis2/app-service-offline" "3.0.0"
 
 "@dhis2/app-service-alerts@2.11.0":
   version "2.11.0"
