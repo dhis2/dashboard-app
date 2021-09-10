@@ -7,9 +7,9 @@ import React from 'react'
 import classes from './styles/Tooltip.module.css'
 
 const Tooltip = ({ disabledWhenOffline, content, children }) => {
-    const { online } = useOnlineStatus()
+    const { offline } = useOnlineStatus()
 
-    const notAllowed = disabledWhenOffline && !online
+    const notAllowed = disabledWhenOffline && offline
 
     return (
         <UiTooltip

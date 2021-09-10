@@ -73,6 +73,12 @@ Feature: Offline dashboard
         When connectivity is turned off
         Then it is not possible to interact with interpretations
 
+    Scenario: I show the description while offline
+        Given I open an uncached dashboard
+        And connectivity is turned off
+        When I choose Show Description
+        Then the description is shown along with a warning
+
 
     Scenario: I delete the cached and uncached dashboard
         Given I delete the cached and uncached dashboard
