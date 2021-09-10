@@ -51,7 +51,6 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
 
     useEffect(() => {
         if (recordingState === 'recording') {
-            console.log('setForceLoad=true, recordingState', recordingState)
             setForceLoad(true)
         }
     }, [recordingState])
