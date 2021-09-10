@@ -1,3 +1,11 @@
+## [31.19.7](https://github.com/dhis2/dashboard-app/compare/v31.19.6...v31.19.7) (2021-09-09)
+
+
+### Bug Fixes
+
+* reduce the size of the item menu ([#1952](https://github.com/dhis2/dashboard-app/issues/1952)) ([ec70ad0](https://github.com/dhis2/dashboard-app/commit/ec70ad0b66f9996a0e0392a95cb3f631410ae051))
+* show/hide description regardless of whether offline ([#1945](https://github.com/dhis2/dashboard-app/issues/1945)) ([a0b9840](https://github.com/dhis2/dashboard-app/commit/a0b9840c1d2a726a8a808d268e22437844dcc949))
+
 ## [31.19.6](https://github.com/dhis2/dashboard-app/compare/v31.19.5...v31.19.6) (2021-09-09)
 
 
