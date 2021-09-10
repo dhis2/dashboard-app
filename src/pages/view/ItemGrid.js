@@ -1,5 +1,3 @@
-import { useCacheableSection } from '@dhis2/app-runtime'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -25,8 +23,7 @@ import {
     getProportionalHeight,
 } from '../../modules/gridUtil'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen'
-import getCacheableSectionId from '../../modules/getCacheableSectionId'
-// import { useCacheableSection } from '../../modules/useCacheableSection'
+import { useCacheableSection } from '../../modules/useCacheableSection'
 import {
     sGetSelectedId,
     sGetSelectedDashboardItems,
@@ -37,15 +34,13 @@ const EXPANDED_HEIGHT = 17
 const EXPANDED_HEIGHT_SM = 13
 
 const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
-    const { d2 } = useD2()
     const { width } = useWindowDimensions()
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
     const [layoutSm, setLayoutSm] = useState([])
     const [gridWidth, setGridWidth] = useState(0)
     const [forceLoad, setForceLoad] = useState(false)
-    const cId = getCacheableSectionId(d2.currentUser.id, dashboardId)
-    const { recordingState } = useCacheableSection(cId)
+    const { recordingState } = useCacheableSection(dashboardId)
 
     useEffect(() => {
         setLayoutSm(

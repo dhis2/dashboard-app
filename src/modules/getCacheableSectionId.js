@@ -1,4 +1,1 @@
-export default (userId, dashboardId) => {
-    return `${userId}-${dashboardId}`
-    // return dashboardId
-}
+export default (userId, dashboardId) => `${userId}-${dashboardId}`

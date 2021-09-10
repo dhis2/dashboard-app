@@ -1,5 +1,4 @@
-import { useOnlineStatus, useCacheableSection } from '@dhis2/app-runtime'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Tooltip } from '@dhis2/ui'
 import cx from 'classnames'
@@ -7,16 +6,13 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 import { acSetActiveModalDimension } from '../../../actions/activeModalDimension'
-import getCacheableSectionId from '../../../modules/getCacheableSectionId'
-// import { useCacheableSection } from '../../../modules/useCacheableSection'
+import { useCacheableSection } from '../../../modules/useCacheableSection'
 import { sGetSelectedId } from '../../../reducers/selected'
 import classes from './styles/FilterBadge.module.css'
 
 const FilterBadge = ({ dashboardId, filter, openFilterModal, onRemove }) => {
     const { online } = useOnlineStatus()
-    const { d2 } = useD2()
-    const cId = getCacheableSectionId(d2.currentUser.id, dashboardId)
-    const { isCached } = useCacheableSection(cId)
+    const { isCached } = useCacheableSection(dashboardId)
 
     const notAllowed = !isCached && !online
 

@@ -1,4 +1,4 @@
-import { useOnlineStatus, useCacheableSection } from '@dhis2/app-runtime'
+import { useOnlineStatus } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import { AlertStack, AlertBar } from '@dhis2/ui'
@@ -18,8 +18,7 @@ import DashboardContainer from '../../components/DashboardContainer'
 import LoadingMask from '../../components/LoadingMask'
 import Notice from '../../components/Notice'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
-import getCacheableSectionId from '../../modules/getCacheableSectionId'
-// import { useCacheableSection } from '../../modules/useCacheableSection'
+import { useCacheableSection } from '../../modules/useCacheableSection'
 import { sGetDashboardById } from '../../reducers/dashboards'
 import { sGetPassiveViewRegistered } from '../../reducers/passiveViewRegistered'
 import { sGetSelectedId } from '../../reducers/selected'
@@ -36,8 +35,7 @@ const ViewDashboard = props => {
     const [loadFailed, setLoadFailed] = useState(false)
     const { online } = useOnlineStatus()
     const { d2 } = useD2()
-    const cId = getCacheableSectionId(d2.currentUser.id, props.requestedId)
-    const { isCached, recordingState } = useCacheableSection(cId)
+    const { isCached, recordingState } = useCacheableSection(props.requestedId)
 
     useEffect(() => {
         setHeaderbarVisible(true)
@@ -81,7 +79,10 @@ const ViewDashboard = props => {
 
             try {
                 setLoaded(true)
-                await props.fetchDashboard(props.requestedId, props.username)
+                await props.fetchDashboard(
+                    props.requestedId,
+                    d2.currentUser.username
+                )
 
                 setLoadFailed(false)
                 setLoadingMessage(null)
@@ -91,7 +92,10 @@ const ViewDashboard = props => {
                 setLoadFailed(true)
                 setLoadingMessage(null)
                 clearTimeout(alertTimeout)
-                props.setSelectedAsOffline(props.requestedId, props.username)
+                props.setSelectedAsOffline(
+                    props.requestedId,
+                    d2.currentUser.username
+                )
             }
         }
 
@@ -104,7 +108,10 @@ const ViewDashboard = props => {
             loadDashboard()
         } else if (!requestedIsAvailable && switchingDashboard) {
             setLoaded(false)
-            props.setSelectedAsOffline(props.requestedId, props.username)
+            props.setSelectedAsOffline(
+                props.requestedId,
+                d2.currentUser.username
+            )
         }
     }, [props.requestedId, props.currentId, loaded, recordingState, online])
 
@@ -183,7 +190,6 @@ const ViewDashboard = props => {
 }
 
 ViewDashboard.propTypes = {
-    cacheSectionId: PropTypes.string,
     clearEditDashboard: PropTypes.func,
     clearPrintDashboard: PropTypes.func,
     currentId: PropTypes.string,
@@ -193,7 +199,6 @@ ViewDashboard.propTypes = {
     requestedDashboardName: PropTypes.string,
     requestedId: PropTypes.string,
     setSelectedAsOffline: PropTypes.func,
-    username: PropTypes.string,
 }
 
 const mapStateToProps = (state, ownProps) => {
