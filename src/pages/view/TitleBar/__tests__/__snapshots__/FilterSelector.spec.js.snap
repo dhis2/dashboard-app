@@ -7,7 +7,7 @@ exports[`is disabled when offline 1`] = `
   >
     <div>
       <span
-        class="span notAllowed"
+        class="span"
       >
         <button
           class="jsx-3597138218 "
@@ -67,7 +67,7 @@ exports[`is enabled when online 1`] = `
   >
     <div>
       <span
-        class="span notAllowed"
+        class="span"
       >
         <button
           class="jsx-3597138218 "
