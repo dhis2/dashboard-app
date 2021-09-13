@@ -1,4 +1,4 @@
-import { useOnlineStatus, useCacheableSection } from '@dhis2/app-runtime'
+import { useOnlineStatus } from '@dhis2/app-runtime'
 import { Chip as UiChip, colors, IconStarFilled24 } from '@dhis2/ui'
 import cx from 'classnames'
 import debounce from 'lodash/debounce'
@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { apiPostDataStatistics } from '../../../api/dataStatistics'
+import { useCacheableSection } from '../../../modules/useCacheableSection'
 import { OfflineSaved } from './assets/icons'
 import classes from './styles/Chip.module.css'
 
