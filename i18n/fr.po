@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-31T20:31:16.412Z\n"
+"POT-Creation-Date: 2021-09-08T13:07:16.333Z\n"
 "PO-Revision-Date: 2021-09-03 23:41+0000\n"
 "Last-Translator: Yayra Gomado <ygomado@hispwca.org>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -434,11 +434,8 @@ msgstr "Non, annuler"
 msgid "Yes, remove filters"
 msgstr ""
 
-msgid "Failed to hide description"
-msgstr "Masquer la description échoué"
-
-msgid "Failed to show description"
-msgstr "Affichage de la description échoué"
+msgid "The dashboard couldn't be made available offline. Try again."
+msgstr ""
 
 msgid "Failed to unstar the dashboard"
 msgstr "Suppression des étoiles du tableau de bord échoué"
