@@ -320,7 +320,6 @@ Given('I delete the cached and uncached dashboard', () => {
     deleteDashboard(CACHED_DASHBOARD_TITLE)
 })
 
-
 // Scenario: I show the description while offline
 When('I choose Show Description', () => {
     clickViewActionButton('More')
