@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-31T20:31:16.412Z\n"
+"POT-Creation-Date: 2021-09-08T13:07:16.333Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
 "Language-Team: Tajik (https://www.transifex.com/hisp-uio/teams/100509/tg/)\n"
@@ -314,8 +314,10 @@ msgstr ""
 msgid "Layout"
 msgstr "Тарҳбандӣ"
 
-msgid "{{numberOfColumns}} columns"
-msgstr ""
+msgid "{{count}} columns"
+msgid_plural "{{count}} columns"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Change layout"
 msgstr ""
@@ -401,10 +403,7 @@ msgstr ""
 msgid "Yes, remove filters"
 msgstr ""
 
-msgid "Failed to hide description"
-msgstr ""
-
-msgid "Failed to show description"
+msgid "The dashboard couldn't be made available offline. Try again."
 msgstr ""
 
 msgid "Failed to unstar the dashboard"
