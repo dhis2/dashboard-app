@@ -1,9 +1,4 @@
-import {
-    useDataEngine,
-    useAlert,
-    useOnlineStatus,
-    useCacheableSection,
-} from '@dhis2/app-runtime'
+import { useDataEngine, useAlert, useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
@@ -24,6 +19,7 @@ import ConfirmActionDialog from '../../../components/ConfirmActionDialog'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton'
 import MenuItem from '../../../components/MenuItemWithTooltip'
 import OfflineTooltip from '../../../components/OfflineTooltip'
+import { useCacheableSection } from '../../../modules/useCacheableSection'
 import { orObject } from '../../../modules/util'
 import { sGetDashboardStarred } from '../../../reducers/dashboards'
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
@@ -98,13 +94,6 @@ const ViewActions = ({
         toggleMoreOptions()
         return filtersLength
             ? setConfirmCacheDialogIsOpen(true)
-            : startRecording({})
-    }
-
-    const onUpdateOfflineCache = () => {
-        toggleMoreOptions()
-        return filtersLength
-            ? setConfirmCacheDialogIsOpen(true)
             : startRecording({
                   onError: onRecordError,
               })
@@ -158,7 +147,7 @@ const ViewActions = ({
                     dense
                     label={i18n.t('Sync offline data now')}
                     disabled={offline}
-                    onClick={onUpdateOfflineCache}
+                    onClick={onAddToOffline}
                 />
             )}
             <MenuItem

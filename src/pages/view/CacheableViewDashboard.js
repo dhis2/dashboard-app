@@ -1,4 +1,5 @@
 import { CacheableSection } from '@dhis2/app-runtime'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
@@ -6,6 +7,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import LoadingMask from '../../components/LoadingMask'
 import NoContentMessage from '../../components/NoContentMessage'
+import getCacheableSectionId from '../../modules/getCacheableSectionId'
 import { getPreferredDashboardId } from '../../modules/localStorage'
 import {
     sDashboardsIsFetching,
@@ -19,9 +21,9 @@ const CacheableViewDashboard = ({
     id,
     dashboardsLoaded,
     dashboardsIsEmpty,
-    username,
 }) => {
     const [dashboardsBarExpanded, setDashboardsBarExpanded] = useState(false)
+    const { d2 } = useD2()
 
     if (!dashboardsLoaded) {
         return <LoadingMask />
@@ -49,9 +51,15 @@ const CacheableViewDashboard = ({
         )
     }
 
+    const cacheSectionId = getCacheableSectionId(d2.currentUser.id, id)
+
     return (
-        <CacheableSection id={id} loadingMask={<LoadingMask />}>
-            <ViewDashboard key={id} requestedId={id} username={username} />
+        <CacheableSection id={cacheSectionId} loadingMask={<LoadingMask />}>
+            <ViewDashboard
+                key={cacheSectionId}
+                requestedId={id}
+                username={d2.currentUser.username}
+            />
         </CacheableSection>
     )
 }
@@ -60,7 +68,6 @@ CacheableViewDashboard.propTypes = {
     dashboardsIsEmpty: PropTypes.bool,
     dashboardsLoaded: PropTypes.bool,
     id: PropTypes.string,
-    username: PropTypes.string,
 }
 
 const mapStateToProps = (state, ownProps) => {

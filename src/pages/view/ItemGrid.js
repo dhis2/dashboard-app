@@ -1,4 +1,3 @@
-import { useCacheableSection } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -24,6 +23,7 @@ import {
     getProportionalHeight,
 } from '../../modules/gridUtil'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen'
+import { useCacheableSection } from '../../modules/useCacheableSection'
 import {
     sGetSelectedId,
     sGetSelectedDashboardItems,

@@ -11,6 +11,17 @@ import DashboardsBar, { MIN_ROW_COUNT, MAX_ROW_COUNT } from '../DashboardsBar'
 // TODO this spy is an implementation detail
 jest.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => cb())
 
+jest.mock('@dhis2/app-runtime-adapter-d2', () => ({
+    useD2: () => ({
+        d2: {
+            currentUser: {
+                username: 'rainbowDash',
+                id: 'r3nb0d5h',
+            },
+        },
+    }),
+}))
+
 const mockStore = configureMockStore()
 const dashboards = {
     rainbow123: {
