@@ -25,7 +25,10 @@ const MenuItemWithTooltip = ({
             dense
             disabled={notAllowed}
             label={
-                <OfflineTooltip content={tooltipContent}>
+                <OfflineTooltip
+                    content={tooltipContent}
+                    disabledWhenOffline={disabledWhenOffline}
+                >
                     {label}
                 </OfflineTooltip>
             }
