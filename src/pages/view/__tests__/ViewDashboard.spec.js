@@ -8,6 +8,17 @@ import { apiPostDataStatistics } from '../../../api/dataStatistics'
 import { apiFetchDashboard } from '../../../api/fetchDashboard'
 import ViewDashboard from '../ViewDashboard'
 
+jest.mock('@dhis2/app-runtime-adapter-d2', () => ({
+    useD2: () => ({
+        d2: {
+            currentUser: {
+                username: 'rainbowDash',
+                id: 'r3nb0d5h',
+            },
+        },
+    }),
+}))
+
 jest.mock('@dhis2/app-runtime', () => ({
     useOnlineStatus: jest.fn(() => ({ online: true })),
     useCacheableSection: jest.fn(() => ({

@@ -1,9 +1,9 @@
-import { useCacheableSection } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Tag, Tooltip } from '@dhis2/ui'
 import moment from 'moment'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useCacheableSection } from '../../../modules/useCacheableSection'
 import classes from './styles/LastUpdatedTag.module.css'
 
 const LastUpdatedTag = ({ id }) => {
