@@ -1,3 +1,10 @@
+## [31.19.8](https://github.com/dhis2/dashboard-app/compare/v31.19.7...v31.19.8) (2021-09-10)
+
+
+### Bug Fixes
+
+* bump dv plugin to latest ([#1960](https://github.com/dhis2/dashboard-app/issues/1960)) ([c588c65](https://github.com/dhis2/dashboard-app/commit/c588c65927aef98ee5e29db88acaba54b7a6835e))
+
 ## [31.19.7](https://github.com/dhis2/dashboard-app/compare/v31.19.6...v31.19.7) (2021-09-09)
 
 

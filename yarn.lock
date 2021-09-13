@@ -2104,10 +2104,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^20.4.2":
-  version "20.4.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-20.4.2.tgz#6d3894d9466459c68e3a395d00fbeec199f34f1f"
-  integrity sha512-FRVoBd4fEfZ+Dj2vqerCQ2TX41Wev6SkS80aEV6BSdbHexK8lg1kxDiX0E/zjB+lywdychd0IQ94UURNwEGk8g==
+"@dhis2/analytics@^20.4.2", "@dhis2/analytics@^20.4.3":
+  version "20.4.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-20.4.5.tgz#6ea7fa5f945b7b567e38c3d3fa658902a58a899a"
+  integrity sha512-FNFHac6+w0P2JHi5jZXYHSoqoG22sImL22+XyPg1ezgxg/SO2xhHgdqdNmC+xTrXRW47clJmjeKZd7zSTK1DJw==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.3.0"
     "@dhis2/d2-ui-translation-dialog" "^7.3.1"
@@ -2411,15 +2411,15 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^38.0.1":
-  version "38.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-38.0.1.tgz#fcee712e057f6a664f3bb1ed07b261c41e1be702"
-  integrity sha512-14j8XSvIEem71A9t6/jUTebCaG6IjZicA1rxVTOIsh+lu/SscEAsvu9MaiRiENyHURKRZSUFTy0pIoR7/WXZRw==
+"@dhis2/data-visualizer-plugin@^38.0.11":
+  version "38.0.11"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-38.0.11.tgz#d4d171144034883e7f05b018068681054ed329ca"
+  integrity sha512-gcL0OGLiCPBQuWIpRh4YP123HxznkSRmY1LQJxk0NDdABEcbwENCmgvOzkUfsHd/cvDVIOlASlZf8Q+6WJLeyQ==
   dependencies:
-    "@dhis2/analytics" "^20.4.2"
+    "@dhis2/analytics" "^20.4.3"
     "@dhis2/app-runtime" "^2.11.0"
     "@dhis2/d2-i18n" "^1.1.0"
-    "@dhis2/ui" "^6.20.0"
+    "@dhis2/ui" "^6.23.5"
     lodash-es "^4.17.21"
 
 "@dhis2/prop-types@^1.6.4":
@@ -2533,7 +2533,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.3.1"
 
-"@dhis2/ui@6.20.0", "@dhis2/ui@^6.19.0", "@dhis2/ui@^6.20.0":
+"@dhis2/ui@6.20.0", "@dhis2/ui@^6.19.0", "@dhis2/ui@^6.20.0", "@dhis2/ui@^6.23.5":
   version "6.20.0"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-6.20.0.tgz#00473fdec2dfb40d351fefcba379cc5f96472311"
   integrity sha512-l/ClExMi21FPIEfMg2bCvlLLUOx8r6s+3ZJudkMLtqSZvteZV9BYyPBUr2EyACBrtmwIbwvj71TBfZ3D6wSx8Q==
