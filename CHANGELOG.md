@@ -1,3 +1,10 @@
+## [31.19.10](https://github.com/dhis2/dashboard-app/compare/v31.19.9...v31.19.10) (2021-09-13)
+
+
+### Bug Fixes
+
+* add userId to cache section id so cached dashboards are user-specific ([#1954](https://github.com/dhis2/dashboard-app/issues/1954)) ([8849fb0](https://github.com/dhis2/dashboard-app/commit/8849fb0ca6c1e52233814c7dbd5a414c69e16e6f))
+
 ## [31.19.9](https://github.com/dhis2/dashboard-app/compare/v31.19.8...v31.19.9) (2021-09-13)
 
 
