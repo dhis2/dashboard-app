@@ -53,7 +53,7 @@ const NewDashboard = props => {
                 <Notice
                     title={i18n.t('Not supported')}
                     message={i18n.t(
-                        'Creating dashboards on small screens is not supported. Resize your screen to return to create mode.'
+                        'Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.'
                     )}
                 />
             </div>
