@@ -175,31 +175,38 @@ const EditBar = ({ dashboard, ...props }) => {
 
     const renderActionButtons = () => (
         <ButtonStrip>
-            <OfflineTooltip
-                content={i18n.t('Cannot save this dashboard while offline')}
-            >
-                <Button
-                    disabled={!online}
-                    primary
-                    onClick={onSave}
-                    dataTest="save-dashboard-button"
+            {!props.isPrintPreviewView && (
+                <OfflineTooltip
+                    content={i18n.t('Cannot save this dashboard while offline')}
                 >
-                    {i18n.t('Save changes')}
-                </Button>
-            </OfflineTooltip>
+                    <Button
+                        disabled={!online}
+                        primary
+                        onClick={onSave}
+                        dataTest="save-dashboard-button"
+                    >
+                        {i18n.t('Save changes')}
+                    </Button>
+                </OfflineTooltip>
+            )}
             <OfflineTooltip>
                 <Button disabled={!online} onClick={onPrintPreview}>
                     {props.isPrintPreviewView
-                        ? i18n.t('Exit Print preview')
+                        ? i18n.t('Exit print preview')
                         : i18n.t('Print preview')}
                 </Button>
             </OfflineTooltip>
-            <OfflineTooltip>
-                <Button disabled={!online} onClick={toggleFilterSettingsDialog}>
-                    {i18n.t('Filter settings')}
-                </Button>
-            </OfflineTooltip>
-            {dashboard.id && (
+            {!props.isPrintPreviewView && (
+                <OfflineTooltip>
+                    <Button
+                        disabled={!online}
+                        onClick={toggleFilterSettingsDialog}
+                    >
+                        {i18n.t('Filter settings')}
+                    </Button>
+                </OfflineTooltip>
+            )}
+            {dashboard.id && !props.isPrintPreviewView && (
                 <OfflineTooltip>
                     <Button
                         disabled={!online}
@@ -209,21 +216,23 @@ const EditBar = ({ dashboard, ...props }) => {
                     </Button>
                 </OfflineTooltip>
             )}
-            {dashboard.id && dashboard.access?.delete && (
-                <OfflineTooltip
-                    content={i18n.t(
-                        'Cannot delete this dashboard while offline'
-                    )}
-                >
-                    <Button
-                        disabled={!online}
-                        onClick={onConfirmDelete}
-                        dataTest="delete-dashboard-button"
+            {dashboard.id &&
+                !props.isPrintPreviewView &&
+                dashboard.access?.delete && (
+                    <OfflineTooltip
+                        content={i18n.t(
+                            'Cannot delete this dashboard while offline'
+                        )}
                     >
-                        {i18n.t('Delete')}
-                    </Button>
-                </OfflineTooltip>
-            )}
+                        <Button
+                            disabled={!online}
+                            onClick={onConfirmDelete}
+                            dataTest="delete-dashboard-button"
+                        >
+                            {i18n.t('Delete')}
+                        </Button>
+                    </OfflineTooltip>
+                )}
         </ButtonStrip>
     )
 
@@ -236,11 +245,13 @@ const EditBar = ({ dashboard, ...props }) => {
             <div className={classes.editBar} data-test="edit-control-bar">
                 <div className={classes.controls}>
                     {dashboard.access?.update ? renderActionButtons() : null}
-                    <Button secondary onClick={onConfirmDiscard}>
-                        {dashboard.access?.update
-                            ? i18n.t('Exit without saving')
-                            : i18n.t('Go to dashboards')}
-                    </Button>
+                    {!props.isPrintPreviewView && (
+                        <Button secondary onClick={onConfirmDiscard}>
+                            {dashboard.access?.update
+                                ? i18n.t('Exit without saving')
+                                : i18n.t('Go to dashboards')}
+                        </Button>
+                    )}
                 </div>
             </div>
             {dashboard.access?.update && filterSettingsDialog()}
