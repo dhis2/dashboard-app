@@ -314,13 +314,6 @@ msgstr "Default height for items added to dashboard (rows)"
 msgid "Save layout"
 msgstr "Save layout"
 
-msgid ""
-"Creating dashboards on small screens is not supported. Resize your screen "
-"to return to create mode."
-msgstr ""
-"Creating dashboards on small screens is not supported. Resize your screen "
-"to return to create mode."
-
 msgid "Dashboard title"
 msgstr "Dashboard title"
 
