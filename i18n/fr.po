@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-09T12:38:10.210Z\n"
+"POT-Creation-Date: 2021-09-14T13:34:35.765Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -166,7 +166,7 @@ msgstr ""
 msgid "Save changes"
 msgstr "Enregistrer les modifications"
 
-msgid "Exit Print preview"
+msgid "Exit print preview"
 msgstr "Quitter l'aperçu avant impression"
 
 msgid "Print preview"
@@ -325,13 +325,6 @@ msgstr ""
 msgid "Save layout"
 msgstr ""
 
-msgid ""
-"Creating dashboards on small screens is not supported. Resize your screen to"
-" return to create mode."
-msgstr ""
-"La création de tableaux de bord sur de petits écrans n'est pas prise en "
-"charge. Redimensionnez votre écran pour revenir en mode édition."
-
 msgid "Dashboard title"
 msgstr "Titre du tableau de bord"
 
@@ -357,9 +350,6 @@ msgstr ""
 
 msgid "Start of dashboard"
 msgstr ""
-
-msgid "Exit print preview"
-msgstr "Quitter l'aperçu avant impression"
 
 msgid "Print"
 msgstr "Imprimer"
