@@ -33,7 +33,7 @@ const ViewDashboard = props => {
     const [loaded, setLoaded] = useState(false)
     const [loadFailed, setLoadFailed] = useState(false)
     const { online } = useOnlineStatus()
-    const { isCached, recordingState } = useCacheableSection(props.requestedId)
+    const { isCached } = useCacheableSection(props.requestedId)
 
     useEffect(() => {
         setHeaderbarVisible(true)
@@ -76,9 +76,8 @@ const ViewDashboard = props => {
             }, 500)
 
             try {
-                setLoaded(true)
                 await props.fetchDashboard(props.requestedId, props.username)
-
+                setLoaded(true)
                 setLoadFailed(false)
                 setLoadingMessage(null)
                 clearTimeout(alertTimeout)
@@ -93,16 +92,14 @@ const ViewDashboard = props => {
 
         const requestedIsAvailable = online || isCached
         const switchingDashboard = props.requestedId !== props.currentId
-        if (
-            requestedIsAvailable &&
-            (recordingState === 'recording' || !loaded)
-        ) {
+
+        if (requestedIsAvailable && !loaded) {
             loadDashboard()
         } else if (!requestedIsAvailable && switchingDashboard) {
             setLoaded(false)
             props.setSelectedAsOffline(props.requestedId, props.username)
         }
-    }, [props.requestedId, props.currentId, loaded, recordingState, online])
+    }, [props.requestedId, props.currentId, loaded, online])
 
     const onExpandedChanged = expanded => setControlbarExpanded(expanded)
 
