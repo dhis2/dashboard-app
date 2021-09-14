@@ -70,7 +70,7 @@ exports[`NewDashboard renders dashboard 1`] = `
                 class="jsx-3638294246"
                 data-test="dhis2-uicore-noticebox-message"
               >
-                Creating dashboards on small screens is not supported. Resize your screen to return to create mode.
+                Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.
               </div>
             </div>
           </div>
@@ -143,7 +143,7 @@ exports[`NewDashboard renders print preview 1`] = `
                 class="jsx-3638294246"
                 data-test="dhis2-uicore-noticebox-message"
               >
-                Creating dashboards on small screens is not supported. Resize your screen to return to create mode.
+                Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.
               </div>
             </div>
           </div>
