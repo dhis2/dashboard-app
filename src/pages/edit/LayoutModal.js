@@ -30,7 +30,6 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
     useEffect(() => setCols(columns), [])
 
     const setColsWrapper = value => {
-        console.log(value)
         const parsedValue = parseInt(value, 10)
 
         // handle values like ".2"
@@ -169,7 +168,6 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
                     <Button
                         primary
                         onClick={() => {
-                            console.log('on save', cols, getColsSaveValue(cols))
                             onSaveLayout(getColsSaveValue(cols))
                             onClose()
                         }}
