@@ -2104,7 +2104,7 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^20.4.6", "@dhis2/analytics@^20.4.7":
+"@dhis2/analytics@^20.4.7":
   version "20.4.7"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-20.4.7.tgz#97ae0a5470585b50928b253fa08e8e511993d397"
   integrity sha512-zWzkecWElWd3M/3Irf4SJ19ekIuyWKb0f9+UVpRpdsCn1/qvlRAJ4zz0NtWAhwBChye3ZW8CExSSJYdrCSrzIw==
@@ -2411,12 +2411,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^38.0.12":
-  version "38.0.12"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-38.0.12.tgz#c66455b67747438c5f9d8d5db08ae249deae42ad"
-  integrity sha512-rEYNqKJwitqHru6bXhhm/CipROXfEswBkEV82PXCT504iEIvQULKw33ytVDG+gsZhkuqoywdapI59OItqSj7ww==
+"@dhis2/data-visualizer-plugin@^38.0.13":
+  version "38.0.13"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-38.0.13.tgz#ad82c817543f1307de29c3b21fed16c02c9de25b"
+  integrity sha512-hzPCOaNYxdGUOIlgTZdsLicIp9hVNVy3tgteDhj9sjtyD+Zh3Ll6/ZJ7UhDE4gO33ugftGgqPWB431cwPg38tQ==
   dependencies:
-    "@dhis2/analytics" "^20.4.6"
+    "@dhis2/analytics" "^20.4.7"
     "@dhis2/app-runtime" "^2.11.0"
     "@dhis2/d2-i18n" "^1.1.0"
     "@dhis2/ui" "^6.23.5"
