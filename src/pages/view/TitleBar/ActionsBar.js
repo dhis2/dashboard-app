@@ -64,6 +64,11 @@ const ViewActions = ({
             ? setMoreOptionsSmallIsOpen(!moreOptionsSmallIsOpen)
             : setMoreOptionsIsOpen(!moreOptionsIsOpen)
 
+    const closeMoreOptions = () => {
+        setMoreOptionsSmallIsOpen(false)
+        setMoreOptionsIsOpen(false)
+    }
+
     if (redirectUrl) {
         return <Redirect to={redirectUrl} />
     }
@@ -86,12 +91,12 @@ const ViewActions = ({
     }
 
     const onRemoveFromOffline = () => {
-        toggleMoreOptions()
+        closeMoreOptions()
         lastUpdated && remove()
     }
 
     const onAddToOffline = () => {
-        toggleMoreOptions()
+        closeMoreOptions()
         return filtersLength
             ? setConfirmCacheDialogIsOpen(true)
             : startRecording({
@@ -101,7 +106,7 @@ const ViewActions = ({
 
     const onToggleShowDescription = () => {
         updateShowDescription(!showDescription)
-        toggleMoreOptions()
+        closeMoreOptions()
         !offline && apiPostShowDescription(!showDescription)
     }
 
@@ -109,9 +114,7 @@ const ViewActions = ({
         apiStarDashboard(dataEngine, id, !starred)
             .then(() => {
                 setDashboardStarred(id, !starred)
-                if (moreOptionsIsOpen) {
-                    toggleMoreOptions()
-                }
+                closeMoreOptions()
             })
             .catch(() => {
                 const msg = starred
