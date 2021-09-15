@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-08T13:07:16.333Z\n"
+"POT-Creation-Date: 2021-09-14T13:34:35.765Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -152,7 +152,7 @@ msgstr "离线时无法保存此仪表板"
 msgid "Save changes"
 msgstr "保存改变"
 
-msgid "Exit Print preview"
+msgid "Exit print preview"
 msgstr "退出打印预览"
 
 msgid "Print preview"
@@ -306,11 +306,6 @@ msgstr "添加到仪表板的项目的默认高度（行）"
 msgid "Save layout"
 msgstr "保存布局"
 
-msgid ""
-"Creating dashboards on small screens is not supported. Resize your screen to"
-" return to create mode."
-msgstr "不支持在小屏幕上创建仪表板。调整屏幕大小以返回创建模式。"
-
 msgid "Dashboard title"
 msgstr "仪表盘标题"
 
@@ -336,9 +331,6 @@ msgstr "仪表板结束"
 msgid "Start of dashboard"
 msgstr "仪表板的开始"
 
-msgid "Exit print preview"
-msgstr "退出打印预览"
-
 msgid "Print"
 msgstr "打印"
 
@@ -361,9 +353,9 @@ msgid "Wait for all dashboard items to load before printing"
 msgstr "等待所有仪表板项目加载后再打印"
 
 msgid ""
-"Use A4 landscape paper size and default margin settings in the browser print"
-" dialog"
-msgstr "在浏览器的“打印”对话框中使用A4横向纸张尺寸和默认边距设置"
+"Use A4 landscape paper size, default margin settings and turn on background "
+"graphics in the browser print dialog"
+msgstr "使用 A4 横向纸张大小、默认边距设置并在浏览器打印对话框中打开背景图形"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "没有发现仪表盘，使用+按钮创建新的仪表盘"
@@ -408,7 +400,7 @@ msgid "Yes, remove filters"
 msgstr "是的，删除过滤器"
 
 msgid "The dashboard couldn't be made available offline. Try again."
-msgstr ""
+msgstr "仪表盘无法离线使用。再试一次。"
 
 msgid "Failed to unstar the dashboard"
 msgstr "无法取消仪表板的星标"

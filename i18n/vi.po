@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-08T13:07:16.333Z\n"
+"POT-Creation-Date: 2021-09-14T13:34:35.765Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2021\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -153,7 +153,7 @@ msgstr ""
 msgid "Save changes"
 msgstr "Lưu các thay đổi"
 
-msgid "Exit Print preview"
+msgid "Exit print preview"
 msgstr "Thoát xem trước bản in"
 
 msgid "Print preview"
@@ -306,11 +306,6 @@ msgstr ""
 msgid "Save layout"
 msgstr ""
 
-msgid ""
-"Creating dashboards on small screens is not supported. Resize your screen to"
-" return to create mode."
-msgstr ""
-
 msgid "Dashboard title"
 msgstr "Tiêu đề bảng điều khiển"
 
@@ -336,9 +331,6 @@ msgstr ""
 msgid "Start of dashboard"
 msgstr ""
 
-msgid "Exit print preview"
-msgstr "Thoát xem trước bản in"
-
 msgid "Print"
 msgstr "In"
 
@@ -361,11 +353,9 @@ msgid "Wait for all dashboard items to load before printing"
 msgstr "Chờ tải tất cả các mục trên bảng điều khiển trước khi in"
 
 msgid ""
-"Use A4 landscape paper size and default margin settings in the browser print"
-" dialog"
+"Use A4 landscape paper size, default margin settings and turn on background "
+"graphics in the browser print dialog"
 msgstr ""
-"Sử dụng khổ giấy ngang A4 và cài đặt lề mặc định trong hộp thoại in của "
-"trình duyệt"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""

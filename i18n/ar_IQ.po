@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-08T13:07:16.333Z\n"
+"POT-Creation-Date: 2021-09-14T13:34:35.765Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2021\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
@@ -149,7 +149,7 @@ msgstr ""
 msgid "Save changes"
 msgstr "احفظ التغييرات"
 
-msgid "Exit Print preview"
+msgid "Exit print preview"
 msgstr ""
 
 msgid "Print preview"
@@ -302,11 +302,6 @@ msgstr ""
 msgid "Save layout"
 msgstr ""
 
-msgid ""
-"Creating dashboards on small screens is not supported. Resize your screen to"
-" return to create mode."
-msgstr ""
-
 msgid "Dashboard title"
 msgstr "عنوان لوحة المعلومات"
 
@@ -337,9 +332,6 @@ msgstr ""
 msgid "Start of dashboard"
 msgstr ""
 
-msgid "Exit print preview"
-msgstr ""
-
 msgid "Print"
 msgstr ""
 
@@ -362,8 +354,8 @@ msgid "Wait for all dashboard items to load before printing"
 msgstr ""
 
 msgid ""
-"Use A4 landscape paper size and default margin settings in the browser print"
-" dialog"
+"Use A4 landscape paper size, default margin settings and turn on background "
+"graphics in the browser print dialog"
 msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
