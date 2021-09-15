@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-09T12:38:10.210Z\n"
+"POT-Creation-Date: 2021-09-14T13:34:35.765Z\n"
 "PO-Revision-Date: 2021-09-03 23:41+0000\n"
 "Last-Translator: Nadiia <semchuk@aph.org.ua>, 2021\n"
 "Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
@@ -152,7 +152,7 @@ msgstr ""
 msgid "Save changes"
 msgstr ""
 
-msgid "Exit Print preview"
+msgid "Exit print preview"
 msgstr ""
 
 msgid "Print preview"
@@ -302,11 +302,6 @@ msgstr ""
 msgid "Save layout"
 msgstr ""
 
-msgid ""
-"Creating dashboards on small screens is not supported. Resize your screen to"
-" return to create mode."
-msgstr ""
-
 msgid "Dashboard title"
 msgstr ""
 
@@ -333,9 +328,6 @@ msgid "End of dashboard"
 msgstr ""
 
 msgid "Start of dashboard"
-msgstr ""
-
-msgid "Exit print preview"
 msgstr ""
 
 msgid "Print"
