@@ -1,3 +1,14 @@
+## [31.19.11](https://github.com/dhis2/dashboard-app/compare/v31.19.10...v31.19.11) (2021-09-15)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1968](https://github.com/dhis2/dashboard-app/issues/1968)) ([66070be](https://github.com/dhis2/dashboard-app/commit/66070be3db0b26bac4b0c540412710807a9ef34a))
+* analytics@20.4.7, data-visualizer-plugin@38.0.13 ([#1981](https://github.com/dhis2/dashboard-app/issues/1981)) ([30b25fb](https://github.com/dhis2/dashboard-app/commit/30b25fbdac2a788f67fc941304704906b6e78249))
+* in small screen make the "editing not possible" message the same whether in create or edit mode ([#1972](https://github.com/dhis2/dashboard-app/issues/1972)) ([1b9a193](https://github.com/dhis2/dashboard-app/commit/1b9a193bce45d95f5dfa9a88291d0d46fb055c4f))
+* remove other action buttons when in edit mode print preview ([#1974](https://github.com/dhis2/dashboard-app/issues/1974)) ([e9a54d1](https://github.com/dhis2/dashboard-app/commit/e9a54d150cfcd2f494aa42e0f66e2a794aaa8e88))
+* when loading a dashboard set the loaded flag after the fetch so state doesn't toggle back and forth  ([#1975](https://github.com/dhis2/dashboard-app/issues/1975)) ([c9b4ff7](https://github.com/dhis2/dashboard-app/commit/c9b4ff70b74ce5faa3b3eca15962b8d29780a0a8))
+
 ## [31.19.10](https://github.com/dhis2/dashboard-app/compare/v31.19.9...v31.19.10) (2021-09-13)
 
 

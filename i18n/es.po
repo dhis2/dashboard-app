@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-08T13:07:16.333Z\n"
+"POT-Creation-Date: 2021-09-14T13:34:35.765Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: drprabhjot, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -162,8 +162,8 @@ msgstr ""
 msgid "Save changes"
 msgstr "Guardar cambios"
 
-msgid "Exit Print preview"
-msgstr "Salir de la vista previa"
+msgid "Exit print preview"
+msgstr "Salir de vista previa"
 
 msgid "Print preview"
 msgstr "Vista previa"
@@ -323,13 +323,6 @@ msgstr ""
 msgid "Save layout"
 msgstr ""
 
-msgid ""
-"Creating dashboards on small screens is not supported. Resize your screen to"
-" return to create mode."
-msgstr ""
-"No se admite la creación de tableros de mando en pantallas pequeñas. Cambie "
-"el tamaño de su pantalla para volver al modo de creación."
-
 msgid "Dashboard title"
 msgstr "Título del tablero"
 
@@ -356,9 +349,6 @@ msgstr ""
 msgid "Start of dashboard"
 msgstr ""
 
-msgid "Exit print preview"
-msgstr "Salir de vista previa"
-
 msgid "Print"
 msgstr "Imprimir"
 
@@ -382,11 +372,9 @@ msgstr ""
 "Espere a que se carguen todos los elementos del tablero antes de imprimir"
 
 msgid ""
-"Use A4 landscape paper size and default margin settings in the browser print"
-" dialog"
+"Use A4 landscape paper size, default margin settings and turn on background "
+"graphics in the browser print dialog"
 msgstr ""
-"Use un papel de tamaño A4 y los valores de los márgenes por defecto en el "
-"cuadro de impresión"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
