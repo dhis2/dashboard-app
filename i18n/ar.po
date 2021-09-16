@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-10T13:31:39.680Z\n"
+"POT-Creation-Date: 2021-09-16T08:58:12.325Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2021\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -213,6 +213,12 @@ msgstr "تعذر تحميل المكوّن الإضافي لهذا العنصر"
 
 msgid "No data to display"
 msgstr "لا توجد بيانات للعرض"
+
+msgid "There was an error loading data for this item"
+msgstr ""
+
+msgid "Open this item in {{appName}}"
+msgstr ""
 
 msgid "Confirm"
 msgstr "تأكيد"
