@@ -5,7 +5,7 @@
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/analytics": "^16.0.20",
+        "@dhis2/analytics": "^16.0.23",
         "@dhis2/app-runtime": "^2.8.0",
         "@dhis2/app-runtime-adapter-d2": "^1.0.2",
         "@dhis2/d2-i18n": "^1.1.0",
@@ -15,7 +15,7 @@
         "@dhis2/d2-ui-rich-text": "^7.1.6",
         "@dhis2/d2-ui-sharing-dialog": "^7.1.6",
         "@dhis2/d2-ui-translation-dialog": "^7.1.6",
-        "@dhis2/data-visualizer-plugin": "^36.1.3",
+        "@dhis2/data-visualizer-plugin": "^36.1.7",
         "@dhis2/ui": "^6.5.5",
         "@material-ui/core": "^3.9.2",
         "@material-ui/icons": "^4.9.1",
