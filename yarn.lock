@@ -1321,10 +1321,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@dhis2/analytics@11.0.x", "@dhis2/analytics@~11.0.0":
-  version "11.0.18"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.0.18.tgz#683cbff0fe7b22f450d2b90d365e575fd420e01c"
-  integrity sha512-QrET9PMpETYPkgRL4HeJ2JIr/FjtbJYrLNV/KW0zGs+XrlBn4czwnRpb5xAk3+y9ScfKmxzYmGxxkWwZUdIGCw==
+"@dhis2/analytics@~11.0.20":
+  version "11.0.20"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.0.20.tgz#b0a2b1cf30fa3937c66c0917137732129c9025d4"
+  integrity sha512-0TDVPjeqhR9UiIdYc/UPrBfXW6XP94MJYkfCE0z8IIhIAR0P/U0fFOi6N/fThVP4Piaqf0Ybo2OB0wDDi20Y6Q==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.8"
     "@dhis2/ui" "^5.5.6"
@@ -1597,12 +1597,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^35.22.0":
-  version "35.22.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.22.0.tgz#47b281b8decb44e71c50d64aa568bd4ca0a6ec62"
-  integrity sha512-I0eIG6joI4QhKCVNGcFcLEq3JmY2CuwBIBGbTj5P7Gq2IBQRpzypoDruAA71vkkgm0Bx7LkbtvuqCFuMfLnCAw==
+"@dhis2/data-visualizer-plugin@^35.22.14":
+  version "35.22.14"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-35.22.14.tgz#78c16828359b45f52e7e75064e09d6cf9e4a6e4b"
+  integrity sha512-sztVPULNradhpQJ1ZHYxwRoz8H98bhLNwi/ItcU+NYfS07GdONPoAhkNSDpnph7fmLYloIqzOw1v65c0wgSUjw==
   dependencies:
-    "@dhis2/analytics" "~11.0.0"
+    "@dhis2/analytics" "~11.0.20"
     "@dhis2/ui" "^5.6.1"
     lodash-es "^4.17.11"
 
