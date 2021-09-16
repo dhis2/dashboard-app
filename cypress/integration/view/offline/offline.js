@@ -175,10 +175,12 @@ Given('I open an uncached dashboard', () => {
 
 When('connectivity is turned off', () => {
     goOffline()
+    cy.wait(500) // eslint-disable-line cypress/no-unnecessary-waiting
 })
 
 When('connectivity is turned on', () => {
     goOnline()
+    cy.wait(500) // eslint-disable-line cypress/no-unnecessary-waiting
 })
 
 Then(
