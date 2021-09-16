@@ -1218,10 +1218,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@dhis2/analytics@^4", "@dhis2/analytics@^4.4.1":
-  version "4.5.34"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.5.34.tgz#f17c87f275dbc130192ce41037a457f3d60c6fa9"
-  integrity sha512-7VEBsmvULdqdHAOL+kCUBXtbbNqcuVcSD90vdModax30mbGFVGWPHCDx6kvg5Cs2P2xDrvSHh1jso53V4gH1Mg==
+"@dhis2/analytics@^4.5.39":
+  version "4.5.39"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.5.39.tgz#6e4eddfc0172f33623a0d7a5d74554d699b8362c"
+  integrity sha512-BKHCNwDTvaGL+WkLzXq610Ja0tnOQ6NHOHg0hrwo/yXI8ZKpzDKPX790jLsRH3UYYZnCwMwaPKToE4RVQoFOPQ==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
     "@dhis2/ui-core" "^4.16.0"
@@ -1441,12 +1441,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^34.6.57":
-  version "34.6.57"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-34.6.57.tgz#3c80460a2431dd71f1e617c2ea03466453058d08"
-  integrity sha512-JhAihHWl2Wg0b79NBZwvlKUie3BDVosb4zO1m0bhnwp1WAJ+5Ox/El5VIPYYattlYzRUVQh4SD+rzhenPTMyNA==
+"@dhis2/data-visualizer-plugin@^34.6.71":
+  version "34.6.71"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-34.6.71.tgz#a597493a1f831816d58fdbc6697a74587eb09490"
+  integrity sha512-eJi2wQTdAxjUKlgH161uc2uIDD3xIXiSYUcYgOAWT0P/HlPQNMxAFH8JM6RghcP5h+6JCH9AUnzzjCyd9JhS3A==
   dependencies:
-    "@dhis2/analytics" "^4"
+    "@dhis2/analytics" "^4.5.39"
     "@dhis2/ui-core" "^4.21.1"
     d2-analysis "33.2.11"
     lodash-es "^4.17.11"
