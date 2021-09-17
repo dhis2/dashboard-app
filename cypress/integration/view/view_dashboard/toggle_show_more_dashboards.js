@@ -30,7 +30,9 @@ Given('I type an invalid dashboard id in the browser url', () => {
 })
 
 Then('a message displays informing that the dashboard is not found', () => {
-    cy.contains('Requested dashboard not found').should('be.visible')
+    cy.contains('Requested dashboard not found', EXTENDED_TIMEOUT).should(
+        'be.visible'
+    )
     cy.get(dashboardTitleSel).should('not.exist')
 })
 Then('the control bar should be at collapsed height', () => {
