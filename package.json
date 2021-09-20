@@ -5,7 +5,7 @@
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/analytics": "^20.4.7",
+        "@dhis2/analytics": "^20.4.8",
         "@dhis2/app-runtime": "^2.11.0",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/d2-i18n": "^1.1.0",
@@ -14,7 +14,7 @@
         "@dhis2/d2-ui-mentions-wrapper": "^7.3.3",
         "@dhis2/d2-ui-rich-text": "^7.3.3",
         "@dhis2/d2-ui-translation-dialog": "^7.3.3",
-        "@dhis2/data-visualizer-plugin": "^38.0.13",
+        "@dhis2/data-visualizer-plugin": "^38.0.14",
         "@dhis2/ui": "^6.20.0",
         "classnames": "^2.3.1",
         "d2": "^31.10.0",
@@ -48,9 +48,6 @@
         "cy:open-stub": "cypress_dhis2_api_stub_mode=STUB d2-utils-cypress open --appStart 'yarn cypress:start'",
         "cy:run-stub": "cypress_dhis2_api_stub_mode=STUB d2-utils-cypress run --tags '@nonmutating' --appStart 'yarn cypress:start' --record",
         "cy:capture": "cypress_dhis2_api_stub_mode=CAPTURE yarn d2-utils-cypress run --appStart 'yarn cypress:start'"
-    },
-    "resolutions": {
-        "@dhis2/ui": "6.20.0"
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^7.6.5",
