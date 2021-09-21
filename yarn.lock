@@ -2534,7 +2534,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.3.1"
 
-"@dhis2/ui@^6.19.0", "@dhis2/ui@^6.20.0", "@dhis2/ui@^6.23.5":
+"@dhis2/ui@^6.19.0", "@dhis2/ui@^6.23.5":
   version "6.24.2"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-6.24.2.tgz#44eaa33edaa3099efd171110100dc9c01d7caf9f"
   integrity sha512-WURpa2HWb2gWNUhp8gUNgjS9Tg7i5YIwGOyDw44ui0lwNub1vtWYnE5jFR8lGh1oEhN5GSWOPoYaFiI9JLzFzQ==
