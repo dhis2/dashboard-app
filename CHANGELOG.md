@@ -1,3 +1,12 @@
+## [31.19.12](https://github.com/dhis2/dashboard-app/compare/v31.19.11...v31.19.12) (2021-09-23)
+
+
+### Bug Fixes
+
+* remove console.log ([#1982](https://github.com/dhis2/dashboard-app/issues/1982)) ([271463b](https://github.com/dhis2/dashboard-app/commit/271463bf27cbb6f131c86750568e5bb70032ca18))
+* restore dashboard filter tests ([#1986](https://github.com/dhis2/dashboard-app/issues/1986)) ([391b168](https://github.com/dhis2/dashboard-app/commit/391b16844014003ad1485b58b6d09ebd489f0019))
+* update analytics and DV plugin ([#1991](https://github.com/dhis2/dashboard-app/issues/1991)) ([aca8807](https://github.com/dhis2/dashboard-app/commit/aca8807cdb9d991fe8aec27329930b4d33319374))
+
 ## [31.19.11](https://github.com/dhis2/dashboard-app/compare/v31.19.10...v31.19.11) (2021-09-15)
 
 
