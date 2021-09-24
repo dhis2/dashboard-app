@@ -34,13 +34,16 @@ jobs:
 
             - name: Deploy
               id: netlify-deploy
-              uses: nwtgck/actions-netlify@v1.1
+              uses: nwtgck/actions-netlify@v1.2.2
               timeout-minutes: 1
               with:
                   github-token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
+                  github-deployment-environment: 'netlify'
+                  github-deployment-description: 'PR Preview on Netlify'
                   deploy-message: ${{ github.event.pull_request.title }}
                   enable-pull-request-comment: true
-                  enable-commit-comment: false
+                  enable-commit-comment: true
+                  enable-commit-status: true
                   alias: pr-${{ github.event.number }}
                   # customize according to project needs
                   publish-dir: 'build/app'
