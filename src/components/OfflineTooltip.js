@@ -6,10 +6,10 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import classes from './styles/Tooltip.module.css'
 
-const Tooltip = ({ disabledWhenOffline, content, children }) => {
+const Tooltip = ({ disabledWhenOffline, disabled, content, children }) => {
     const { offline } = useOnlineStatus()
 
-    const notAllowed = disabledWhenOffline && offline
+    const notAllowed = disabled || (disabledWhenOffline && offline)
 
     return (
         <UiTooltip
@@ -37,10 +37,12 @@ const Tooltip = ({ disabledWhenOffline, content, children }) => {
 Tooltip.propTypes = {
     children: PropTypes.node,
     content: PropTypes.string,
+    disabled: PropTypes.bool,
     disabledWhenOffline: PropTypes.bool,
 }
 
 Tooltip.defaultProps = {
+    disabled: false,
     disabledWhenOffline: true,
 }
 

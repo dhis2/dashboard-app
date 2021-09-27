@@ -12,7 +12,6 @@ import {
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import OfflineTooltip from '../../components/OfflineTooltip'
 import useDimensions from '../../modules/useDimensions'
 import classes from './styles/FilterSettingsDialog.module.css'
 
@@ -166,24 +165,18 @@ const FilterSettingsDialog = ({
                             >
                                 {i18n.t('Cancel')}
                             </Button>
-                            <OfflineTooltip
-                                content={i18n.t(
-                                    'Cannot confirm changes while offline'
-                                )}
+                            <Button
+                                onClick={() => {
+                                    if (!filtersSelectable) {
+                                        setSelected([])
+                                    }
+                                    onConfirm(filtersSelectable, selected)
+                                }}
+                                primary
+                                type="button"
                             >
-                                <Button
-                                    onClick={() => {
-                                        if (!filtersSelectable) {
-                                            setSelected([])
-                                        }
-                                        onConfirm(filtersSelectable, selected)
-                                    }}
-                                    primary
-                                    type="button"
-                                >
-                                    {i18n.t('Confirm')}
-                                </Button>
-                            </OfflineTooltip>
+                                {i18n.t('Confirm')}
+                            </Button>
                         </ButtonStrip>
                     </ModalActions>
                 </Modal>

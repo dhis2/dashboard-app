@@ -144,6 +144,7 @@ const ItemContextMenu = props => {
                         {allowVisOpenInApp && !isSmallScreen(width) && (
                             <MenuItem
                                 icon={<IconLaunch16 />}
+                                disabledWhenOffline={false}
                                 label={i18n.t('Open in {{appName}} app', {
                                     appName: getAppName(item.type),
                                 })}
