@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-09-14T13:34:35.765Z\n"
-"PO-Revision-Date: 2021-09-14T13:34:35.765Z\n"
+"POT-Creation-Date: 2021-09-28T07:35:26.454Z\n"
+"PO-Revision-Date: 2021-09-28T07:35:26.454Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -242,9 +242,6 @@ msgstr "Available Filters"
 
 msgid "Selected Filters"
 msgstr "Selected Filters"
-
-msgid "Cannot confirm changes while offline"
-msgstr "Cannot confirm changes while offline"
 
 msgid "Confirm"
 msgstr "Confirm"

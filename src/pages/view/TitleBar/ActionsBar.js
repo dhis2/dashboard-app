@@ -176,17 +176,22 @@ const ViewActions = ({
             <MenuItem
                 dense
                 disabled={offline && !isCached}
+                disabledWhenOffline={false}
                 label={i18n.t('Print')}
                 dataTest="print-menu-item"
             >
                 <MenuItem
                     dense
+                    disabled={offline && !isCached}
+                    disabledWhenOffline={false}
                     label={i18n.t('Dashboard layout')}
                     onClick={() => setRedirectUrl(`${id}/printlayout`)}
                     dataTest="print-layout-menu-item"
                 />
                 <MenuItem
                     dense
+                    disabled={offline && !isCached}
+                    disabledWhenOffline={false}
                     label={i18n.t('One item per page')}
                     onClick={() => setRedirectUrl(`${id}/printoipp`)}
                     dataTest="print-oipp-menu-item"
