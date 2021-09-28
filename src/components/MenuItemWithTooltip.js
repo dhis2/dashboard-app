@@ -9,6 +9,7 @@ const MenuItemWithTooltip = ({
     disabledWhenOffline,
     tooltip,
     label,
+    disabled,
     ...rest
 }) => {
     const { offline } = useOnlineStatus()
@@ -18,7 +19,7 @@ const MenuItemWithTooltip = ({
             ? i18n.t('Not available offline')
             : tooltip
 
-    const notAllowed = disabledWhenOffline && offline
+    const notAllowed = disabled || (disabledWhenOffline && offline)
 
     return (
         <MenuItem
@@ -27,6 +28,7 @@ const MenuItemWithTooltip = ({
             label={
                 <OfflineTooltip
                     content={tooltipContent}
+                    disabled={disabled}
                     disabledWhenOffline={disabledWhenOffline}
                 >
                     {label}
@@ -38,12 +40,14 @@ const MenuItemWithTooltip = ({
 }
 
 MenuItemWithTooltip.propTypes = {
+    disabled: PropTypes.bool,
     disabledWhenOffline: PropTypes.bool,
     label: PropTypes.string,
     tooltip: PropTypes.string,
 }
 
 MenuItemWithTooltip.defaultProps = {
+    disabled: false,
     disabledWhenOffline: true,
     tooltip: '',
 }

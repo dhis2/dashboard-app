@@ -43,6 +43,7 @@ const ViewAsMenuItems = ({
                     }
                     label={i18n.t('View as Chart')}
                     onClick={onViewChart}
+                    disabled={notSupported}
                     icon={<IconVisualizationColumn16 />}
                 />
             )}
@@ -55,6 +56,7 @@ const ViewAsMenuItems = ({
                     }
                     label={i18n.t('View as Table')}
                     onClick={onViewTable}
+                    disabled={notSupported}
                     icon={<IconTable16 />}
                 />
             )}
