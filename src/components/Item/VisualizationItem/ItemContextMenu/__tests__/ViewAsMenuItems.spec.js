@@ -82,6 +82,21 @@ test('renders menu for active type MAP and type MAP without Thematic layer', asy
     expect(container).toMatchSnapshot()
 })
 
+test('renders menu for active type MAP and type MAP without Thematic layer when offline', async () => {
+    useOnlineStatus.mockImplementation(jest.fn(() => offline))
+    const props = Object.assign({}, defaultProps, {
+        type: MAP,
+        activeType: MAP,
+        visualization: {
+            mapViews: [{ layer: 'earthEngine' }],
+        },
+    })
+
+    const { container } = render(<ViewAsMenuItems {...props} />)
+
+    expect(container).toMatchSnapshot()
+})
+
 test('renders menu for active type REPORT_TABLE and type CHART', async () => {
     useOnlineStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {

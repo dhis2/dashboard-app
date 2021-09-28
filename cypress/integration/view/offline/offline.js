@@ -211,7 +211,7 @@ Then(
 
         cy.contains('li', 'View as').should('have.class', 'disabled')
         cy.contains('li', 'Open in Data Visualizer app').should(
-            'have.class',
+            'not.have.class',
             'disabled'
         )
         cy.contains('li', 'Show details and interpretations').should(
