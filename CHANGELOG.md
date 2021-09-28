@@ -1,3 +1,10 @@
+## [31.19.13](https://github.com/dhis2/dashboard-app/compare/v31.19.12...v31.19.13) (2021-09-28)
+
+
+### Bug Fixes
+
+* disable View as Chart/Table for non-thematic maps ([#1997](https://github.com/dhis2/dashboard-app/issues/1997)) ([cc1a44d](https://github.com/dhis2/dashboard-app/commit/cc1a44d2b3ce66b47a7aaf142b69da7c99f2a818))
+
 ## [31.19.12](https://github.com/dhis2/dashboard-app/compare/v31.19.11...v31.19.12) (2021-09-23)
 
 
