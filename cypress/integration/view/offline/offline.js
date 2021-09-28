@@ -175,10 +175,22 @@ Given('I open an uncached dashboard', () => {
 
 When('connectivity is turned off', () => {
     goOffline()
+    cy.get('[data-test="headerbar-online-status"]')
+        .contains('Offline')
+        .should('be.visible')
+    cy.get('[data-test="headerbar-online-status"]')
+        .contains('Online')
+        .should('not.exist')
 })
 
 When('connectivity is turned on', () => {
     goOnline()
+    cy.get('[data-test="headerbar-online-status"]')
+        .contains('Online')
+        .should('be.visible')
+    cy.get('[data-test="headerbar-online-status"]')
+        .contains('Offline')
+        .should('not.exist')
 })
 
 Then(

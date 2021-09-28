@@ -21,7 +21,8 @@ import {
 } from '../../../elements/viewDashboard'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
-const TEST_DASHBOARD_TITLE = '0filter-fail-' + new Date().toUTCString()
+const TEST_DASHBOARD_TITLE =
+    '0filterfail' + new Date().toUTCString().slice(-12, -4)
 
 // Scenario: Item visualization fails when filter applied [DHIS2-11303]
 
