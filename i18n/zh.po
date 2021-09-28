@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-10T13:31:39.680Z\n"
+"POT-Creation-Date: 2021-09-16T08:58:12.325Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -204,6 +204,12 @@ msgstr "不能载入该条目的插件"
 
 msgid "No data to display"
 msgstr "没有数据可显示"
+
+msgid "There was an error loading data for this item"
+msgstr "加载此项目的数据时出错"
+
+msgid "Open this item in {{appName}}"
+msgstr "在 {{appName}} 中打开此条目"
 
 msgid "Confirm"
 msgstr "确认"

@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-10T13:31:39.680Z\n"
+"POT-Creation-Date: 2021-09-16T08:58:12.325Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
 "Last-Translator: drprabhjot, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -224,6 +224,12 @@ msgstr "Incapaz de cargar el complemento para este elemento"
 
 msgid "No data to display"
 msgstr "Sin datos para mostrar"
+
+msgid "There was an error loading data for this item"
+msgstr "Hubo un error al cargar los datos de este elemento."
+
+msgid "Open this item in {{appName}}"
+msgstr "Abra este elemento en {{appName}}"
 
 msgid "Confirm"
 msgstr "Confirmar"
