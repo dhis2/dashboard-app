@@ -84,12 +84,12 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
                     data-test="dhis2-uicore-tooltip-reference"
                   >
                     <button
-                      class="jsx-3597138218 newButton small icon-only"
+                      class="jsx-1937199209 newButton small icon-only"
                       data-test="new-button"
                       type="button"
                     >
                       <span
-                        class="jsx-3597138218 button-icon"
+                        class="jsx-1937199209 button-icon"
                       >
                         <svg
                           height="24"
@@ -330,12 +330,12 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
                     data-test="dhis2-uicore-tooltip-reference"
                   >
                     <button
-                      class="jsx-3597138218 newButton small icon-only"
+                      class="jsx-1937199209 newButton small icon-only"
                       data-test="new-button"
                       type="button"
                     >
                       <span
-                        class="jsx-3597138218 button-icon"
+                        class="jsx-1937199209 button-icon"
                       >
                         <svg
                           height="24"
@@ -575,12 +575,12 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
                     data-test="dhis2-uicore-tooltip-reference"
                   >
                     <button
-                      class="jsx-3597138218 newButton small icon-only"
+                      class="jsx-1937199209 newButton small icon-only"
                       data-test="new-button"
                       type="button"
                     >
                       <span
-                        class="jsx-3597138218 button-icon"
+                        class="jsx-1937199209 button-icon"
                       >
                         <svg
                           height="24"
@@ -822,12 +822,12 @@ exports[`renders a DashboardsBar with no items 1`] = `
                     data-test="dhis2-uicore-tooltip-reference"
                   >
                     <button
-                      class="jsx-3597138218 newButton small icon-only"
+                      class="jsx-1937199209 newButton small icon-only"
                       data-test="new-button"
                       type="button"
                     >
                       <span
-                        class="jsx-3597138218 button-icon"
+                        class="jsx-1937199209 button-icon"
                       >
                         <svg
                           height="24"
@@ -1016,12 +1016,12 @@ exports[`renders a DashboardsBar with selected item 1`] = `
                     data-test="dhis2-uicore-tooltip-reference"
                   >
                     <button
-                      class="jsx-3597138218 newButton small icon-only"
+                      class="jsx-1937199209 newButton small icon-only"
                       data-test="new-button"
                       type="button"
                     >
                       <span
-                        class="jsx-3597138218 button-icon"
+                        class="jsx-1937199209 button-icon"
                       >
                         <svg
                           height="24"
@@ -1262,12 +1262,12 @@ exports[`small screen: clicking "Show more" maximizes dashboards bar height 1`] 
                     data-test="dhis2-uicore-tooltip-reference"
                   >
                     <button
-                      class="jsx-3597138218 newButton small icon-only"
+                      class="jsx-1937199209 newButton small icon-only"
                       data-test="new-button"
                       type="button"
                     >
                       <span
-                        class="jsx-3597138218 button-icon"
+                        class="jsx-1937199209 button-icon"
                       >
                         <svg
                           height="24"
@@ -1508,12 +1508,12 @@ exports[`small screen: renders a DashboardsBar with minimum height 1`] = `
                     data-test="dhis2-uicore-tooltip-reference"
                   >
                     <button
-                      class="jsx-3597138218 newButton small icon-only"
+                      class="jsx-1937199209 newButton small icon-only"
                       data-test="new-button"
                       type="button"
                     >
                       <span
-                        class="jsx-3597138218 button-icon"
+                        class="jsx-1937199209 button-icon"
                       >
                         <svg
                           height="24"
