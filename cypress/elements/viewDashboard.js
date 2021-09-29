@@ -37,4 +37,5 @@ export const clickViewActionButton = action =>
         .get(titleBarSel, EXTENDED_TIMEOUT)
         .find('button')
         .contains(action, EXTENDED_TIMEOUT)
+        .should('be.enabled')
         .click()
