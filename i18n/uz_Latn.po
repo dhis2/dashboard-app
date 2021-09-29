@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-14T13:34:35.765Z\n"
+"POT-Creation-Date: 2021-09-28T07:35:26.454Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
@@ -236,9 +236,6 @@ msgid "Available Filters"
 msgstr ""
 
 msgid "Selected Filters"
-msgstr ""
-
-msgid "Cannot confirm changes while offline"
 msgstr ""
 
 msgid "Confirm"
