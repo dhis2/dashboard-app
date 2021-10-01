@@ -1,3 +1,10 @@
+## [31.19.15](https://github.com/dhis2/dashboard-app/compare/v31.19.14...v31.19.15) (2021-10-01)
+
+
+### Bug Fixes
+
+* disable layout when offline ([#2007](https://github.com/dhis2/dashboard-app/issues/2007)) ([6af98f1](https://github.com/dhis2/dashboard-app/commit/6af98f13dad4b15763cbff7e84ef79be774b5b14))
+
 ## [31.19.14](https://github.com/dhis2/dashboard-app/compare/v31.19.13...v31.19.14) (2021-10-01)
 
 
