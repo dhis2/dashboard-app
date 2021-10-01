@@ -1,3 +1,12 @@
+## [31.19.14](https://github.com/dhis2/dashboard-app/compare/v31.19.13...v31.19.14) (2021-10-01)
+
+
+### Bug Fixes
+
+* **deps:** bump platform deps to clear sensitive caches and more ([#1999](https://github.com/dhis2/dashboard-app/issues/1999)) ([45a4ca2](https://github.com/dhis2/dashboard-app/commit/45a4ca2dd39d83713d30b0a30cca995555b6a6c0))
+* close the More options menu when an option has been selected [v37] ([#1983](https://github.com/dhis2/dashboard-app/issues/1983)) ([#2004](https://github.com/dhis2/dashboard-app/issues/2004)) ([6593bd4](https://github.com/dhis2/dashboard-app/commit/6593bd4d9c33c1c2f1348f5da71da0644b60cbdb))
+* **translations:** sync translations from transifex (master) ([#2000](https://github.com/dhis2/dashboard-app/issues/2000)) ([b893bd7](https://github.com/dhis2/dashboard-app/commit/b893bd7bd500503c383703e793d44e5c24915f54))
+
 ## [31.19.13](https://github.com/dhis2/dashboard-app/compare/v31.19.12...v31.19.13) (2021-09-28)
 
 
