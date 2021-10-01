@@ -237,7 +237,20 @@ Then('all edit actions requiring connectivity are disabled', () => {
     cy.contains('Delete').should('be.disabled')
     cy.contains('Exit without saving').should('not.be.disabled')
 
+    cy.contains('Change layout').should('be.disabled')
     cy.get(itemSearchSel).find('input').should('have.class', 'disabled')
+})
+
+Then('all edit actions requiring connectivity are enabled', () => {
+    cy.contains('Save changes').should('be.enabled')
+    cy.contains('Print preview').should('be.enabled')
+    cy.contains('Filter settings').should('be.enabled')
+    cy.contains('Translate').should('be.enabled')
+    cy.contains('Delete').should('be.enabled')
+    cy.contains('Exit without saving').should('be.enabled')
+
+    cy.contains('Change layout').should('be.enabled')
+    cy.get(itemSearchSel).find('input').should('not.have.class', 'disabled')
 })
 
 // Scenario: I am online with a cached dashboard when I lose connectivity
