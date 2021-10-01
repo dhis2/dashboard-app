@@ -1,3 +1,4 @@
+import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Modal,
@@ -12,6 +13,7 @@ import {
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
+import OfflineTooltip from '../../components/OfflineTooltip'
 import { GRID_COLUMNS } from '../../modules/gridUtil'
 import { LayoutFixedIcon } from './assets/LayoutFixed'
 import { LayoutFreeflowIcon } from './assets/LayoutFreeflow'
@@ -25,6 +27,7 @@ const getColsSaveValue = value =>
     value === '' ? DEFAULT_COLUMNS : parseInt(value, 10)
 
 export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
+    const { offline } = useOnlineStatus()
     const [cols, setCols] = useState(columns)
 
     useEffect(() => setCols(columns), [])
@@ -165,15 +168,18 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
                     <Button secondary onClick={onClose}>
                         {i18n.t('Cancel')}
                     </Button>
-                    <Button
-                        primary
-                        onClick={() => {
-                            onSaveLayout(getColsSaveValue(cols))
-                            onClose()
-                        }}
-                    >
-                        {i18n.t('Save layout')}
-                    </Button>
+                    <OfflineTooltip>
+                        <Button
+                            disabled={offline}
+                            primary
+                            onClick={() => {
+                                onSaveLayout(getColsSaveValue(cols))
+                                onClose()
+                            }}
+                        >
+                            {i18n.t('Save layout')}
+                        </Button>
+                    </OfflineTooltip>
                     {/* TODO: Only save the layout when "Save" is clicked? */}
                 </ButtonStrip>
             </ModalActions>

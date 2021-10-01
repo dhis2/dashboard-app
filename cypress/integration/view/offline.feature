@@ -53,6 +53,13 @@ Feature: Offline dashboard
         When I click Exit without saving
         Then the cached dashboard is loaded and displayed in view mode
 
+    Scenario: I am in edit mode when I lose connectivity and then connectivity is restored
+        Given I open an uncached dashboard in edit mode
+        When connectivity is turned off
+        Then all edit actions requiring connectivity are disabled
+        When connectivity is turned on
+        Then all edit actions requiring connectivity are enabled
+
     Scenario: I remove a dashboard from cache while offline
         Given I open a cached dashboard
         And connectivity is turned off
