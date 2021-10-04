@@ -19,7 +19,7 @@ const DropdownButton = ({
     return (
         <div ref={anchorRef}>
             <OfflineTooltip disabledWhenOffline={disabledWhenOffline}>
-                <Button onClick={onClick} {...rest}>
+                <Button onClick={onClick} type="button" {...rest}>
                     {children}
                     <ArrowIconComponent className={styles.arrow} />
                 </Button>

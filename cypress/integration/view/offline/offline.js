@@ -66,6 +66,15 @@ const checkDashboardIsVisible = title => {
     cy.get(dashboardTitleSel).contains(title).should('be.visible')
 }
 
+const openAndCacheDashboard = title => {
+    openDashboard(title)
+    clickViewActionButton('More')
+    cy.contains(MAKE_AVAILABLE_OFFLINE_TEXT, EXTENDED_TIMEOUT).click()
+    cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT, EXTENDED_TIMEOUT).should(
+        'be.visible'
+    )
+}
+
 const enterEditMode = () => {
     clickViewActionButton('Edit')
     cy.get(titleInputSel, EXTENDED_TIMEOUT).should('be.visible')
@@ -129,12 +138,7 @@ Given('I create two dashboards', () => {
 })
 
 When('I cache one of the dashboards', () => {
-    openDashboard(CACHED_DASHBOARD_TITLE)
-    clickViewActionButton('More')
-    cy.contains(MAKE_AVAILABLE_OFFLINE_TEXT, EXTENDED_TIMEOUT).click()
-    cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT, EXTENDED_TIMEOUT).should(
-        'be.visible'
-    )
+    openAndCacheDashboard(CACHED_DASHBOARD_TITLE)
 })
 
 Then('the cached dashboard has a Last Updated time and chip icon', () => {
@@ -233,12 +237,25 @@ Then('all edit actions requiring connectivity are disabled', () => {
     cy.contains('Delete').should('be.disabled')
     cy.contains('Exit without saving').should('not.be.disabled')
 
+    cy.contains('Change layout').should('be.disabled')
     cy.get(itemSearchSel).find('input').should('have.class', 'disabled')
 })
 
+Then('all edit actions requiring connectivity are enabled', () => {
+    cy.contains('Save changes').should('be.enabled')
+    cy.contains('Print preview').should('be.enabled')
+    cy.contains('Filter settings').should('be.enabled')
+    cy.contains('Translate').should('be.enabled')
+    cy.contains('Delete').should('be.enabled')
+    cy.contains('Exit without saving').should('be.enabled')
+
+    cy.contains('Change layout').should('be.enabled')
+    cy.get(itemSearchSel).find('input').should('not.have.class', 'disabled')
+})
+
 // Scenario: I am online with a cached dashboard when I lose connectivity
-Given('I open a cached dashboard', () => {
-    openDashboard(CACHED_DASHBOARD_TITLE)
+Given('I open and cache a dashboard', () => {
+    openAndCacheDashboard(CACHED_DASHBOARD_TITLE)
 })
 
 Then('the cached dashboard options are available', () => {
@@ -296,7 +313,7 @@ Then('the dashboard is not available and offline message is displayed', () => {
 
 // Scenario: I am in edit mode on a cached dashboard when I lose connectivity and then I exit without saving
 Given('I open a cached dashboard in edit mode', () => {
-    openDashboard(CACHED_DASHBOARD_TITLE)
+    openAndCacheDashboard(CACHED_DASHBOARD_TITLE)
     enterEditMode()
 })
 
