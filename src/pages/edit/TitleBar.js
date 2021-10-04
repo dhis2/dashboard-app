@@ -1,3 +1,4 @@
+import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { InputField, TextAreaField, Radio, Button } from '@dhis2/ui'
 import PropTypes from 'prop-types'
@@ -10,6 +11,7 @@ import {
     tSetDashboardItems,
     acSetItemConfigInsertPosition,
 } from '../../actions/editDashboard'
+import OfflineTooltip from '../../components/OfflineTooltip'
 import { orObject } from '../../modules/util'
 import {
     sGetEditDashboardRoot,
@@ -32,6 +34,7 @@ const EditTitleBar = ({
     onChangeDescription,
     onSaveLayout,
 }) => {
+    const { offline } = useOnlineStatus()
     const updateTitle = (_, e) => {
         onChangeTitle(e.target.value)
     }
@@ -80,9 +83,15 @@ const EditTitleBar = ({
                                   })
                                 : i18n.t('Freeflow')}
                         </span>
-                        <Button small onClick={() => setShowLayoutModal(true)}>
-                            {i18n.t('Change layout')}
-                        </Button>
+                        <OfflineTooltip>
+                            <Button
+                                disabled={offline}
+                                small
+                                onClick={() => setShowLayoutModal(true)}
+                            >
+                                {i18n.t('Change layout')}
+                            </Button>
+                        </OfflineTooltip>
                     </div>
                 </div>
                 <div className={classes.positionWrapper}>
