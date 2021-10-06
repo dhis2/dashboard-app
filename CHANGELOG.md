@@ -1,3 +1,10 @@
+## [31.19.16](https://github.com/dhis2/dashboard-app/compare/v31.19.15...v31.19.16) (2021-10-06)
+
+
+### Bug Fixes
+
+* include program, programStage, trackedEntityType in map request ([#2011](https://github.com/dhis2/dashboard-app/issues/2011)) ([0d96c84](https://github.com/dhis2/dashboard-app/commit/0d96c844eace1b04dcd1eba735ebdafad81e047b))
+
 ## [31.19.15](https://github.com/dhis2/dashboard-app/compare/v31.19.14...v31.19.15) (2021-10-01)
 
 
