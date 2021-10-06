@@ -12,6 +12,16 @@ export const dashboards = {
             },
         },
     },
+    'Cases Malaria': {
+        id: 'JW7RlN5xafN',
+        route: '#/JW7RlN5xafN',
+        items: {
+            map: {
+                name: 'Malaria: Cases <5y female Pujehun this year events',
+                itemUid: 'HQp9BAUG9v8',
+            },
+        },
+    },
     Delivery: {
         id: 'iMnYyBfSxmM',
         route: '#/iMnYyBfSxmM',
@@ -26,8 +36,7 @@ export const dashboards = {
                 itemUid: 'qXsjttMYuoZ',
             },
             map: {
-                name:
-                    'Delivery: PHU delivery rate (by pop) by chiefdom last year',
+                name: 'Delivery: PHU delivery rate (by pop) by chiefdom last year',
                 itemUid: 'G3EtzSWNP9o',
             },
         },
