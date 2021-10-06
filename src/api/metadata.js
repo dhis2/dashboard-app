@@ -88,15 +88,21 @@ export const getListItemFields = () => [
     `users[${getIdNameFields({ rename: true }).join(',')}]`,
 ]
 
-// Map
-export const getMapFields = () => [
-    `${getIdNameFields({ rename: true }).join(',')}`,
-    'user,longitude,latitude,zoom,basemap',
-    `mapViews[${getFavoriteFields({
+export const getMapFields = () => {
+    const favoriteFields = getFavoriteFields({
         withDimensions: true,
         withOptions: true,
-    })}]`,
-]
+    })
+
+    const teFields =
+        'program[id,displayName~rename(name)],programStage[id,displayName~rename(name)],trackedEntityType[id,displayName~rename(name)]'
+
+    return [
+        `${getIdNameFields({ rename: true }).join(',')}`,
+        'user,longitude,latitude,zoom,basemap',
+        `mapViews[${favoriteFields.concat(teFields)}]`,
+    ]
+}
 
 // Api
 export const apiFetchVisualization = async item => {
