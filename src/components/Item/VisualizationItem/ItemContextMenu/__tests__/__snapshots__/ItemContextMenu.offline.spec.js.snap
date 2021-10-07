@@ -4,12 +4,12 @@ exports[`renders just the button when menu closed 1`] = `
 <div>
   <div>
     <button
-      class="jsx-3597138218 secondary small icon-only"
+      class="jsx-1937199209 secondary small icon-only"
       data-test="dashboarditem-menu-button"
       type="button"
     >
       <span
-        class="jsx-3597138218 button-icon"
+        class="jsx-1937199209 button-icon"
       >
         <svg
           color="#4a5768"
