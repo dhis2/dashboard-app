@@ -6,7 +6,7 @@
     "license": "BSD-3-Clause",
     "dependencies": {
         "@dhis2/analytics": "^20.4.10",
-        "@dhis2/app-runtime": "^2.11.0",
+        "@dhis2/app-runtime": "^2.12.2",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/d2-i18n": "^1.1.0",
         "@dhis2/d2-ui-core": "^7.3.3",
@@ -15,7 +15,7 @@
         "@dhis2/d2-ui-rich-text": "^7.3.3",
         "@dhis2/d2-ui-translation-dialog": "^7.3.3",
         "@dhis2/data-visualizer-plugin": "^37.9.8",
-        "@dhis2/ui": "^6.23.5",
+        "@dhis2/ui": "^6.25.3",
         "classnames": "^2.3.1",
         "d2": "^31.10.0",
         "d2-utilizr": "^0.2.16",
@@ -49,12 +49,8 @@
         "cy:run-stub": "cypress_dhis2_api_stub_mode=STUB d2-utils-cypress run --tags '@nonmutating' --appStart 'yarn cypress:start' --record",
         "cy:capture": "cypress_dhis2_api_stub_mode=CAPTURE yarn d2-utils-cypress run --appStart 'yarn cypress:start'"
     },
-    "resolutions": {
-        "@dhis2/ui": "6.23.5",
-        "@dhis2/app-runtime": "2.11.0"
-    },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^7.6.5",
+        "@dhis2/cli-app-scripts": "^7.7.1",
         "@dhis2/cli-style": "^9.1.0",
         "@dhis2/cli-utils-cypress": "^7.0.1",
         "@dhis2/cypress-commands": "^7.0.1",

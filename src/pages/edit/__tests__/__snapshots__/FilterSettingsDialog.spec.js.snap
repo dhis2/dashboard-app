@@ -30,18 +30,18 @@ exports[`renders correctly when filters are not restricted 1`] = `
           class="radioButton"
         >
           <label
-            class="jsx-1176042981 dense"
+            class="jsx-869913229 dense"
             data-test="dhis2-uicore-radio"
           >
             <input
               checked=""
-              class="jsx-1176042981"
+              class="jsx-869913229"
               name="radio-allow-filtering-on-all"
               type="radio"
               value="false"
             />
             <div
-              class="jsx-1176042981 icon dense"
+              class="jsx-869913229 icon dense"
             >
               <svg
                 class="jsx-1659897952 jsx-1631270792 checked"
@@ -77,17 +77,17 @@ exports[`renders correctly when filters are not restricted 1`] = `
           class="radioButton"
         >
           <label
-            class="jsx-1176042981 dense"
+            class="jsx-869913229 dense"
             data-test="dhis2-uicore-radio"
           >
             <input
-              class="jsx-1176042981"
+              class="jsx-869913229"
               name="radio-restrict-filtering"
               type="radio"
               value="true"
             />
             <div
-              class="jsx-1176042981 icon dense"
+              class="jsx-869913229 icon dense"
             >
               <svg
                 class="jsx-1659897952 jsx-1631270792 "
@@ -133,7 +133,7 @@ exports[`renders correctly when filters are not restricted 1`] = `
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-3597138218 secondary"
+            class="jsx-1937199209 secondary"
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -144,7 +144,7 @@ exports[`renders correctly when filters are not restricted 1`] = `
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-3597138218 primary"
+            class="jsx-1937199209 primary"
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -187,17 +187,17 @@ exports[`renders correctly when filters are restricted 1`] = `
           class="radioButton"
         >
           <label
-            class="jsx-1176042981 dense"
+            class="jsx-869913229 dense"
             data-test="dhis2-uicore-radio"
           >
             <input
-              class="jsx-1176042981"
+              class="jsx-869913229"
               name="radio-allow-filtering-on-all"
               type="radio"
               value="false"
             />
             <div
-              class="jsx-1176042981 icon dense"
+              class="jsx-869913229 icon dense"
             >
               <svg
                 class="jsx-1659897952 jsx-1631270792 "
@@ -233,18 +233,18 @@ exports[`renders correctly when filters are restricted 1`] = `
           class="radioButton"
         >
           <label
-            class="jsx-1176042981 dense"
+            class="jsx-869913229 dense"
             data-test="dhis2-uicore-radio"
           >
             <input
               checked=""
-              class="jsx-1176042981"
+              class="jsx-869913229"
               name="radio-restrict-filtering"
               type="radio"
               value="true"
             />
             <div
-              class="jsx-1176042981 icon dense"
+              class="jsx-869913229 icon dense"
             >
               <svg
                 class="jsx-1659897952 jsx-1631270792 checked"
@@ -295,7 +295,7 @@ exports[`renders correctly when filters are restricted 1`] = `
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-3597138218 secondary"
+            class="jsx-1937199209 secondary"
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -306,7 +306,7 @@ exports[`renders correctly when filters are restricted 1`] = `
           class="jsx-71743532 box"
         >
           <button
-            class="jsx-3597138218 primary"
+            class="jsx-1937199209 primary"
             data-test="dhis2-uicore-button"
             type="button"
           >
