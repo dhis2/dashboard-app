@@ -1528,10 +1528,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^16.0.20":
-  version "16.0.20"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-16.0.20.tgz#5946cf1255d559a14ef296fa5c5a199c67696e17"
-  integrity sha512-n55ESUd+9Vmf36xWuzlbPQD2WODkugsC/6FL1Kd7155qPYNeEqdtZl3KmrAQ4NCJOx5ZY0PaT6M7zPBQ8SBcYQ==
+"@dhis2/analytics@^16.0.20", "@dhis2/analytics@^16.0.23":
+  version "16.0.23"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-16.0.23.tgz#51b3e8a24501c6ee4c2c856510de98fabdca2fec"
+  integrity sha512-xKT6FUzjeQue6i1ycf4IcH1fBzbTFu4fqqnjTyJ6zJVoXEABVeCP/YhzBgc8hEFfiXyQEcqkuAyVir0hHXfIow==
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^7.1.5"
     "@dhis2/d2-ui-org-unit-dialog" "^7.1.5"
@@ -1849,7 +1849,7 @@
   resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-36.1.9.tgz#755bf8ba8f93ed5fa1e4d6ae4a864d4cf18db648"
   integrity sha512-I4u+O/T1749oLcApUm2WmrQ9XrZqWAQEKOH01Y6mXfYqu2r+tCwnyShYOmT9rnN5oTt8WTqI56yHmO5rjSY0gg==
   dependencies:
-    "@dhis2/analytics" "^16.0.20"
+    "@dhis2/analytics" "^16.0.23"
     "@dhis2/app-runtime" "^2.8.0"
     "@dhis2/d2-i18n" "^1.1.0"
     "@dhis2/ui" "^6.5.5"

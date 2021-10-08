@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-06-10T13:31:39.680Z\n"
-"PO-Revision-Date: 2021-06-10T13:31:39.680Z\n"
+"POT-Creation-Date: 2021-10-08T09:31:43.683Z\n"
+"PO-Revision-Date: 2021-10-08T09:31:43.683Z\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -92,14 +92,8 @@ msgstr ""
 msgid "Print"
 msgstr ""
 
-msgid "There was an error loading data for this item"
-msgstr "There was an error loading data for this item"
-
-msgid "Open this item in {{appName}}"
-msgstr "Open this item in {{appName}}"
-
-msgid "Visualizations"
-msgstr "Visualizations"
+msgid "dashboard layout"
+msgstr ""
 
 msgid "one item per page"
 msgstr ""
@@ -199,6 +193,12 @@ msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "No data to display"
+msgstr ""
+
+msgid "There was an error loading data for this item"
+msgstr ""
+
+msgid "Open this item in {{appName}}"
 msgstr ""
 
 msgid "Confirm"
