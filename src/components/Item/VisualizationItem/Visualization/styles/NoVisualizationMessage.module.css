@@ -1,6 +1,21 @@
+.container {
+    display: flex;
+    margin: 0;
+    padding: var(--spacers-dp8);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.icon {
+    display: inline-flex;
+    vertical-align: middle;
+    margin-right: var(--spacers-dp8);
+}
+
 .message {
-    font-size: 14px;
+    font-size: 13px;
     font-stretch: normal;
-    padding: 10px;
     line-height: 20px;
 }
