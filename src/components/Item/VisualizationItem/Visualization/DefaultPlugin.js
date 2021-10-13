@@ -9,6 +9,7 @@ const DefaultPlugin = ({
     item,
     activeType,
     filterVersion,
+    mapViewCount,
     visualization,
     options,
     style,
@@ -23,6 +24,7 @@ const DefaultPlugin = ({
     const prevItem = useRef()
     const prevActiveType = useRef()
     const prevFilterVersion = useRef()
+    const prevMapViewCount = useRef()
 
     useEffect(() => {
         load(item, visualization, {
@@ -34,6 +36,7 @@ const DefaultPlugin = ({
         prevItem.current = item
         prevActiveType.current = activeType
         prevFilterVersion.current = filterVersion
+        prevMapViewCount.current = mapViewCount
 
         return () => unmount(item, item.type || activeType)
     }, [])
@@ -42,11 +45,14 @@ const DefaultPlugin = ({
         if (
             prevItem.current === item &&
             (prevActiveType.current !== activeType ||
-                prevFilterVersion.current !== filterVersion)
+                prevFilterVersion.current !== filterVersion ||
+                prevMapViewCount.current < mapViewCount)
         ) {
             /* Item is the same but type or filters has changed
+             * or map was previously loaded with fewer mapViews
              * so necessary to reload
              */
+
             load(item, visualization, {
                 credentials,
                 activeType,
@@ -57,7 +63,7 @@ const DefaultPlugin = ({
         prevItem.current = item
         prevActiveType.current = activeType
         prevFilterVersion.current = filterVersion
-    }, [item, visualization, activeType, filterVersion])
+    }, [item, visualization, activeType, filterVersion, mapViewCount])
 
     return <div id={getVisualizationContainerDomId(item.id)} style={style} />
 }
@@ -66,6 +72,7 @@ DefaultPlugin.propTypes = {
     activeType: PropTypes.string,
     filterVersion: PropTypes.string,
     item: PropTypes.object,
+    mapViewCount: PropTypes.number,
     options: PropTypes.object,
     style: PropTypes.object,
     visualization: PropTypes.object,
