@@ -1,5 +1,8 @@
 .container {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 0;
     padding: var(--spacers-dp8);
     position: absolute;
@@ -11,11 +14,12 @@
 .icon {
     display: inline-flex;
     vertical-align: middle;
-    margin-right: var(--spacers-dp8);
+    margin-bottom: var(--spacers-dp8);
 }
 
 .message {
     font-size: 13px;
     font-stretch: normal;
-    line-height: 20px;
+    line-height: 18px;
+    color: var(--colors-grey800);
 }
