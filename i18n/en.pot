@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-09-28T07:35:26.454Z\n"
-"PO-Revision-Date: 2021-09-28T07:35:26.454Z\n"
+"POT-Creation-Date: 2021-10-13T08:31:26.948Z\n"
+"PO-Revision-Date: 2021-10-13T08:31:26.948Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -79,6 +79,12 @@ msgstr "View as Map"
 
 msgid "There was a problem loading interpretations for this item"
 msgstr "There was a problem loading interpretations for this item"
+
+msgid "Maps with only Earth Engine layers cannot be displayed when offline"
+msgstr "Maps with only Earth Engine layers cannot be displayed when offline"
+
+msgid "Earth Engine layers on this map cannot be loaded while offline"
+msgstr "Earth Engine layers on this map cannot be loaded while offline"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Unable to load the plugin for this item"

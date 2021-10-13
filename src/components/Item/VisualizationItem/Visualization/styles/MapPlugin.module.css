@@ -1,0 +1,6 @@
+.warningIcon {
+    background-color: var(--colors-white);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
