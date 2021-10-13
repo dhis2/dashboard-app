@@ -1,6 +1,6 @@
 import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { IconWarningFilled24, Tooltip, colors } from '@dhis2/ui'
+import { IconWarning24, Tooltip, colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { MAP } from '../../../../modules/itemTypes'
@@ -114,7 +114,7 @@ const MapPlugin = ({
                             )}
                             placement="right"
                         >
-                            <IconWarningFilled24 color={colors.yellow700} />
+                            <IconWarning24 color={colors.grey400} />
                         </Tooltip>
                     </span>
                 )}
