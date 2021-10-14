@@ -1,13 +1,18 @@
 import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
+import { IconWarning24, Tooltip, colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { MAP } from '../../../../modules/itemTypes'
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId'
 import { isElementFullscreen } from '../isElementFullscreen'
 import DefaultPlugin from './DefaultPlugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
 import { pluginIsAvailable, getPlugin, unmount } from './plugin'
+import classes from './styles/MapPlugin.module.css'
+
+const mapViewIsThematicOrEvent = mapView =>
+    mapView.layer.includes('thematic') || mapView.layer.includes('event')
 
 const MapPlugin = ({
     visualization,
@@ -19,6 +24,7 @@ const MapPlugin = ({
     ...props
 }) => {
     const { offline } = useOnlineStatus()
+    const [initialized, setInitialized] = useState(false)
 
     useEffect(() => {
         const resizeMap = async (id, isFullscreen) => {
@@ -39,6 +45,8 @@ const MapPlugin = ({
             plugin?.setOfflineStatus && plugin.setOfflineStatus(offlineStatus)
         }
 
+        !offline && setInitialized(true)
+
         setMapOfflineStatus(offline)
     }, [offline])
 
@@ -46,16 +54,18 @@ const MapPlugin = ({
         if (props.item.type === MAP) {
             // apply filters only to thematic and event layers
             // for maps AO
-            const mapViews = visualization.mapViews.map(mapView => {
-                if (
-                    mapView.layer.includes('thematic') ||
-                    mapView.layer.includes('event')
-                ) {
-                    return applyFilters(mapView, itemFilters)
-                }
+            const mapViews = visualization.mapViews
+                .map(mapView => {
+                    if (mapViewIsThematicOrEvent(mapView)) {
+                        return applyFilters(mapView, itemFilters)
+                    }
 
-                return mapView
-            })
+                    return mapView
+                })
+                .filter(
+                    mapView =>
+                        !offline || !mapView.layer.includes('earthEngine')
+                )
 
             return {
                 ...visualization,
@@ -69,14 +79,46 @@ const MapPlugin = ({
         }
     }
 
+    if (
+        offline &&
+        !initialized &&
+        !visualization.mapViews?.find(mapViewIsThematicOrEvent)
+    ) {
+        return (
+            <NoVisualizationMessage
+                message={i18n.t(
+                    'Maps with only Earth Engine layers cannot be displayed when offline'
+                )}
+            />
+        )
+    }
+
+    const vis = getVisualization()
     return pluginIsAvailable(MAP) ? (
-        <DefaultPlugin
-            options={{
-                hideTitle: true,
-            }}
-            {...props}
-            visualization={getVisualization()}
-        />
+        <>
+            <DefaultPlugin
+                options={{
+                    hideTitle: true,
+                }}
+                {...props}
+                visualization={vis}
+                mapViewCount={vis.mapViews?.length}
+            />
+            {offline &&
+                !initialized &&
+                vis.mapViews?.length !== visualization.mapViews?.length && (
+                    <span className={classes.warningIcon}>
+                        <Tooltip
+                            content={i18n.t(
+                                'Earth Engine layers on this map cannot be loaded while offline'
+                            )}
+                            placement="right"
+                        >
+                            <IconWarning24 color={colors.grey400} />
+                        </Tooltip>
+                    </span>
+                )}
+        </>
     ) : (
         <NoVisualizationMessage
             message={i18n.t('Unable to load the plugin for this item')}
