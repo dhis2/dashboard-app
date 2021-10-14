@@ -1,3 +1,11 @@
+## [31.19.18](https://github.com/dhis2/dashboard-app/compare/v31.19.17...v31.19.18) (2021-10-14)
+
+
+### Bug Fixes
+
+* **deps:** bump cli-app-scripts@^7.7.4 and app-runtime@^2.12.3 ([#2037](https://github.com/dhis2/dashboard-app/issues/2037)) ([fd3fb92](https://github.com/dhis2/dashboard-app/commit/fd3fb927cbcf2b512dcee4337ff64458a6dad956))
+* maps with ee layers should not load the ee layers when offline ([#2035](https://github.com/dhis2/dashboard-app/issues/2035)) ([7bff816](https://github.com/dhis2/dashboard-app/commit/7bff81683661b1dd837bf764fd73ef108f90fa09))
+
 ## [31.19.17](https://github.com/dhis2/dashboard-app/compare/v31.19.16...v31.19.17) (2021-10-13)
 
 
