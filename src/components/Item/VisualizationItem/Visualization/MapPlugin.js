@@ -82,7 +82,7 @@ const MapPlugin = ({
         return (
             <NoVisualizationMessage
                 message={i18n.t(
-                    'Maps with only Earth Engine layers cannot be displayed when offline'
+                    'Maps with Earth Engine layers cannot be displayed when offline'
                 )}
             />
         )
