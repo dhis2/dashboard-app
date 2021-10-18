@@ -1,6 +1,5 @@
 import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { IconWarning24, Tooltip, colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { MAP } from '../../../../modules/itemTypes'
@@ -9,10 +8,11 @@ import { isElementFullscreen } from '../isElementFullscreen'
 import DefaultPlugin from './DefaultPlugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
 import { pluginIsAvailable, getPlugin, unmount } from './plugin'
-import classes from './styles/MapPlugin.module.css'
 
 const mapViewIsThematicOrEvent = mapView =>
     mapView.layer.includes('thematic') || mapView.layer.includes('event')
+
+const mapViewIsEELayer = mapView => mapView.layer.includes('earthEngine')
 
 const MapPlugin = ({
     visualization,
@@ -54,18 +54,13 @@ const MapPlugin = ({
         if (props.item.type === MAP) {
             // apply filters only to thematic and event layers
             // for maps AO
-            const mapViews = visualization.mapViews
-                .map(mapView => {
-                    if (mapViewIsThematicOrEvent(mapView)) {
-                        return applyFilters(mapView, itemFilters)
-                    }
+            const mapViews = visualization.mapViews.map(mapView => {
+                if (mapViewIsThematicOrEvent(mapView)) {
+                    return applyFilters(mapView, itemFilters)
+                }
 
-                    return mapView
-                })
-                .filter(
-                    mapView =>
-                        !offline || !mapView.layer.includes('earthEngine')
-                )
+                return mapView
+            })
 
             return {
                 ...visualization,
@@ -82,12 +77,12 @@ const MapPlugin = ({
     if (
         offline &&
         !initialized &&
-        !visualization.mapViews?.find(mapViewIsThematicOrEvent)
+        visualization.mapViews?.find(mapViewIsEELayer)
     ) {
         return (
             <NoVisualizationMessage
                 message={i18n.t(
-                    'Maps with only Earth Engine layers cannot be displayed when offline'
+                    'Maps with Earth Engine layers cannot be displayed when offline'
                 )}
             />
         )
@@ -104,20 +99,6 @@ const MapPlugin = ({
                 visualization={vis}
                 mapViewCount={vis.mapViews?.length}
             />
-            {offline &&
-                !initialized &&
-                vis.mapViews?.length !== visualization.mapViews?.length && (
-                    <span className={classes.warningIcon}>
-                        <Tooltip
-                            content={i18n.t(
-                                'Earth Engine layers on this map cannot be loaded while offline'
-                            )}
-                            placement="right"
-                        >
-                            <IconWarning24 color={colors.grey400} />
-                        </Tooltip>
-                    </span>
-                )}
         </>
     ) : (
         <NoVisualizationMessage
