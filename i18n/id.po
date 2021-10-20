@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-10-13T08:31:26.948Z\n"
+"POT-Creation-Date: 2021-10-18T11:58:56.192Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2021\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -95,10 +95,7 @@ msgstr "Lihat sebagai Peta"
 msgid "There was a problem loading interpretations for this item"
 msgstr "Ada masalah saat memuat interpretasi untuk item ini"
 
-msgid "Maps with only Earth Engine layers cannot be displayed when offline"
-msgstr ""
-
-msgid "Earth Engine layers on this map cannot be loaded while offline"
+msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"

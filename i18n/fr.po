@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-10-13T08:31:26.948Z\n"
+"POT-Creation-Date: 2021-10-18T11:58:56.192Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -101,10 +101,7 @@ msgstr ""
 "Un problème est survenu lors du chargement des interprétations pour cet "
 "élément"
 
-msgid "Maps with only Earth Engine layers cannot be displayed when offline"
-msgstr ""
-
-msgid "Earth Engine layers on this map cannot be loaded while offline"
+msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
