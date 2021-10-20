@@ -18,6 +18,7 @@
 }
 
 .message {
+    text-align: center;
     font-size: 13px;
     font-stretch: normal;
     line-height: 18px;
