@@ -6,11 +6,7 @@ import {
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 When('I open the dashboard app with the root url', () => {
-    const url = `${Cypress.config().baseUrl}/#/`
-    cy.window().then(win => {
-        win.location.assign(url)
-        cy.wait(2000) // eslint-disable-line cypress/no-unnecessary-waiting
-    })
+    cy.visit('/', EXTENDED_TIMEOUT)
 
     cy.location().should(loc => {
         expect(loc.hash).to.equal('#/')
