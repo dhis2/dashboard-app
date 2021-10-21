@@ -5,7 +5,7 @@ import {
 } from '../../../elements/viewDashboard'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
-When('I open the dashboard app', () => {
+When('I open the dashboard app with the root url', () => {
     const url = `${Cypress.config().baseUrl}/#/`
     cy.window().then(win => {
         win.location.assign(url)

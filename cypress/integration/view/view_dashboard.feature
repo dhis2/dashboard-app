@@ -67,9 +67,9 @@ Feature: Viewing dashboards
     @nonmutating
     Scenario: User's preferred dashboard is opened
         Given I open the "Antenatal Care" dashboard
-        When I open the dashboard app
+        When I open the dashboard app with the root url
         And I open the "Delivery" dashboard
-        And I open the dashboard app
+        And I open the dashboard app with the root url
         Then the "Delivery" dashboard displays
 
 
