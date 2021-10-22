@@ -43,20 +43,28 @@ Feature: Viewing dashboards
         Given I open the "Delivery" dashboard with shapes removed
         Then the "Delivery" dashboard displays in view mode
 
-    @mutating
+    @nonmutating
     Scenario: I expand the control bar
         Given I open the "Delivery" dashboard
         Then the control bar should be at collapsed height
         When I toggle show more dashboards
         Then the control bar should be expanded to full height
 
-    @mutating
+    @nonmutating
     Scenario: I expand the control bar when dashboard not found
         Given I type an invalid dashboard id in the browser url
         Then a message displays informing that the dashboard is not found
         And the control bar should be at collapsed height
         When I toggle show more dashboards
         Then the control bar should be expanded to full height
+
+    @nonmutating
+    Scenario: User's preferred dashboard is opened
+        Given I open the "Antenatal Care" dashboard
+        When I open the dashboard app with the root url
+        And I open the "Delivery" dashboard
+        And I open the dashboard app with the root url
+        Then the "Delivery" dashboard displays
 
 # TODO: flaky test
 # @mutating
