@@ -92,7 +92,7 @@ msgid "There was a problem loading interpretations for this item"
 msgstr "加载该项目的解释时出现问题"
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
-msgstr ""
+msgstr "离线时无法显示带有 Earth Engine 图层的地图"
 
 msgid "Unable to load the plugin for this item"
 msgstr "不能载入该条目的插件"
