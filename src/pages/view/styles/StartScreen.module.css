@@ -85,6 +85,8 @@
     height: 16px;
     display: flex;
     align-items: center;
+    position: relative;
+    top: -1px;
 }
 .icon svg {
     height: 16px;
