@@ -16,6 +16,7 @@ import './styles/App.css'
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
+import { acSetSelected } from '../actions/selected'
 
 const App = props => {
     const { d2 } = useD2()
@@ -60,9 +61,15 @@ const App = props => {
                     <Route
                         exact
                         path={ROUTE_START_PATH}
-                        render={() => (
-                            <LandingPage username={d2.currentUser.username} />
-                        )}
+                        render={() => {
+                            props.setNoneSelected()
+
+                            return (
+                                <LandingPage
+                                    username={d2.currentUser.username}
+                                />
+                            )
+                        }}
                     />
                     <Route
                         exact
@@ -103,6 +110,7 @@ const App = props => {
 App.propTypes = {
     fetchDashboards: PropTypes.func,
     setControlBarRows: PropTypes.func,
+    setNoneSelected: PropTypes.func,
     setShowDescription: PropTypes.func,
 }
 
@@ -110,6 +118,7 @@ const mapDispatchToProps = {
     fetchDashboards: tFetchDashboards,
     setControlBarRows: tSetControlBarRows,
     setShowDescription: tSetShowDescription,
+    setNoneSelected: () => acSetSelected({}),
 }
 
 export default connect(null, mapDispatchToProps)(App)

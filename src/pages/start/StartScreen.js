@@ -1,4 +1,4 @@
-import { useDataEngine } from '@dhis2/app-runtime'
+import { useDataEngine, useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { IconDashboardWindow16, colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
@@ -9,6 +9,7 @@ import styles from './styles/StartScreen.module.css'
 const StartScreen = ({ username }) => {
     const [mostViewedDashboards, setMostViewedDashboards] = useState([])
     const dataEngine = useDataEngine()
+    const { online } = useOnlineStatus()
 
     useEffect(() => {
         async function populateMostViewedDashboards(dataEngine) {
@@ -31,8 +32,10 @@ const StartScreen = ({ username }) => {
                 setMostViewedDashboards(dashboards)
             }
         }
-        populateMostViewedDashboards(dataEngine)
-    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+        if (online) {
+            populateMostViewedDashboards(dataEngine)
+        }
+    }, [username, online])
 
     const getContent = () => (
         <div data-test="start-screen">
