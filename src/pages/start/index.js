@@ -1,3 +1,5 @@
 import LandingPage from './LandingPage'
 
-export { LandingPage }
+const ROUTE_START_PATH = '/start'
+
+export { LandingPage, ROUTE_START_PATH }

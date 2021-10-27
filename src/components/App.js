@@ -9,7 +9,7 @@ import { tFetchDashboards } from '../actions/dashboards'
 import { tSetShowDescription } from '../actions/showDescription'
 import { NewDashboard, EditDashboard } from '../pages/edit'
 import { PrintDashboard, PrintLayoutDashboard } from '../pages/print'
-import { LandingPage } from '../pages/start'
+import { LandingPage, ROUTE_START_PATH } from '../pages/start'
 import { ViewDashboard } from '../pages/view'
 import { useUserSettings } from './UserSettingsProvider'
 import './styles/App.css'
@@ -48,7 +48,7 @@ const App = props => {
                         path="/"
                         render={props =>
                             userSettings.janProp ? (
-                                <Redirect to={'/start'} />
+                                <Redirect to={ROUTE_START_PATH} />
                             ) : (
                                 <ViewDashboard
                                     {...props}
@@ -59,7 +59,7 @@ const App = props => {
                     />
                     <Route
                         exact
-                        path="/start"
+                        path={ROUTE_START_PATH}
                         render={() => (
                             <LandingPage username={d2.currentUser.username} />
                         )}

@@ -75,7 +75,6 @@ const StartScreen = ({ username }) => {
                             <Link
                                 className={styles.dashboard}
                                 to={`/${dashboard.id}`}
-                                // onClick={handleClick}
                                 data-test="dashboard-chip"
                             >
                                 <span className={styles.icon}>
