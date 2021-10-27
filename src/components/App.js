@@ -17,6 +17,13 @@ import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
 import { acSetSelected } from '../actions/selected'
+import { acClearItemFilters } from '../actions/itemFilters'
+import { acClearPrintDashboard } from '../actions/printDashboard'
+import { acClearItemActiveTypes } from '../actions/itemActiveTypes'
+import { acClearActiveModalDimension } from '../actions/activeModalDimension'
+import { acClearEditDashboard } from '../actions/editDashboard'
+import { acClearVisualizations } from '../actions/visualizations'
+import { acClearDashboardsFilter } from '../actions/dashboardsFilter'
 
 const App = props => {
     const { d2 } = useD2()
@@ -62,7 +69,7 @@ const App = props => {
                         exact
                         path={ROUTE_START_PATH}
                         render={() => {
-                            props.setNoneSelected()
+                            props.resetState()
 
                             return (
                                 <LandingPage
@@ -118,7 +125,16 @@ const mapDispatchToProps = {
     fetchDashboards: tFetchDashboards,
     setControlBarRows: tSetControlBarRows,
     setShowDescription: tSetShowDescription,
-    setNoneSelected: () => acSetSelected({}),
+    resetState: () => dispatch => {
+        dispatch(acSetSelected({}))
+        dispatch(acClearDashboardsFilter())
+        dispatch(acClearVisualizations())
+        dispatch(acClearEditDashboard())
+        dispatch(acClearPrintDashboard())
+        dispatch(acClearItemFilters())
+        dispatch(acClearActiveModalDimension())
+        dispatch(acClearItemActiveTypes())
+    },
 }
 
 export default connect(null, mapDispatchToProps)(App)
