@@ -1,13 +1,19 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useState } from 'react'
+import DashboardsBar from '../../components/DashboardsBar/DashboardsBar'
 import StartScreen from './StartScreen'
 
 const LandingPage = ({ username }) => {
+    const [controlbarExpanded, setControlbarExpanded] = useState(false)
+
     return (
-        <div>
-            <div>Dashboards bar</div>
+        <>
+            <DashboardsBar
+                expanded={controlbarExpanded}
+                onExpandedChanged={expanded => setControlbarExpanded(expanded)}
+            />
             <StartScreen username={username} />
-        </div>
+        </>
     )
 }
 
