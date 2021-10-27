@@ -4,31 +4,30 @@ import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Redirect, HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { acClearActiveModalDimension } from '../actions/activeModalDimension'
 import { tSetControlBarRows } from '../actions/controlBar'
 import { tFetchDashboards } from '../actions/dashboards'
+import { acClearDashboardsFilter } from '../actions/dashboardsFilter'
+import { acClearEditDashboard } from '../actions/editDashboard'
+import { acClearItemActiveTypes } from '../actions/itemActiveTypes'
+import { acClearItemFilters } from '../actions/itemFilters'
+import { acClearPrintDashboard } from '../actions/printDashboard'
+import { acSetSelected } from '../actions/selected'
 import { tSetShowDescription } from '../actions/showDescription'
+import { acClearVisualizations } from '../actions/visualizations'
 import { NewDashboard, EditDashboard } from '../pages/edit'
 import { PrintDashboard, PrintLayoutDashboard } from '../pages/print'
 import { LandingPage, ROUTE_START_PATH } from '../pages/start'
 import { ViewDashboard } from '../pages/view'
-import { useUserSettings } from './UserSettingsProvider'
+import { useSystemSettings } from './SystemSettingsProvider'
 import './styles/App.css'
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
-import { acSetSelected } from '../actions/selected'
-import { acClearItemFilters } from '../actions/itemFilters'
-import { acClearPrintDashboard } from '../actions/printDashboard'
-import { acClearItemActiveTypes } from '../actions/itemActiveTypes'
-import { acClearActiveModalDimension } from '../actions/activeModalDimension'
-import { acClearEditDashboard } from '../actions/editDashboard'
-import { acClearVisualizations } from '../actions/visualizations'
-import { acClearDashboardsFilter } from '../actions/dashboardsFilter'
 
 const App = props => {
     const { d2 } = useD2()
-    const { userSettings } = useUserSettings()
-    console.log('landing?', userSettings.janProp)
+    const { systemSettings } = useSystemSettings()
 
     useEffect(() => {
         props.fetchDashboards()
@@ -55,7 +54,7 @@ const App = props => {
                         exact
                         path="/"
                         render={props =>
-                            userSettings.janProp ? (
+                            systemSettings.startModuleFastLandingPage ? (
                                 <Redirect to={ROUTE_START_PATH} />
                             ) : (
                                 <ViewDashboard
@@ -116,8 +115,8 @@ const App = props => {
 
 App.propTypes = {
     fetchDashboards: PropTypes.func,
+    resetState: PropTypes.func,
     setControlBarRows: PropTypes.func,
-    setNoneSelected: PropTypes.func,
     setShowDescription: PropTypes.func,
 }
 

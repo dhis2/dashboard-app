@@ -43,7 +43,7 @@ const ItemContextMenu = props => {
         allowVisShowInterpretations,
         allowVisViewAs,
         allowVisFullscreen,
-    } = useSystemSettings().settings
+    } = useSystemSettings().systemSettings
 
     const fullscreenAllowed = props.fullscreenSupported && allowVisFullscreen
 

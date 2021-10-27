@@ -128,7 +128,7 @@ const ViewDashboard = props => {
                                     to={ROUTE_START_PATH}
                                     className={classes.link}
                                 >
-                                    {i18n.t('Back to start page')}
+                                    {i18n.t('Go to start page')}
                                 </Link>
                             </div>
                         </>

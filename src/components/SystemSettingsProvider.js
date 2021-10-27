@@ -33,7 +33,7 @@ const SystemSettingsProvider = ({ children }) => {
     return (
         <SystemSettingsCtx.Provider
             value={{
-                settings,
+                systemSettings: settings,
             }}
         >
             {children}

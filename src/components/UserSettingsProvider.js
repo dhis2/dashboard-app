@@ -18,7 +18,6 @@ const UserSettingsProvider = ({ children }) => {
             setSettings({
                 ...userSettings,
                 displayProperty: userSettings.keyAnalysisDisplayProperty,
-                janProp: true,
             })
         }
         fetchData()

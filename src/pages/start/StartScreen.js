@@ -4,6 +4,7 @@ import { IconDashboardWindow16, colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { apiGetDataStatistics } from '../../api/dataStatistics'
 import styles from './styles/StartScreen.module.css'
 
 const StartScreen = ({ username }) => {
@@ -13,19 +14,10 @@ const StartScreen = ({ username }) => {
 
     useEffect(() => {
         async function populateMostViewedDashboards(dataEngine) {
-            const statsQuery = {
-                resource: 'dataStatistics/favorites',
-                params: {
-                    eventType: 'DASHBOARD_VIEW',
-                    pageSize: 6,
-                    ...(username ? { username } : {}),
-                },
-            }
-
-            const mostViewedDashboardsResult = await dataEngine.query({
-                dashboard: statsQuery,
-            })
-
+            const mostViewedDashboardsResult = await apiGetDataStatistics(
+                dataEngine,
+                username
+            )
             const dashboards = mostViewedDashboardsResult.dashboard
 
             if (dashboards && dashboards.length) {
