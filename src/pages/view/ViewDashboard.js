@@ -5,6 +5,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acSetPassiveViewRegistered } from '../../actions/passiveViewRegistered'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
@@ -22,6 +23,7 @@ import { useCacheableSection } from '../../modules/useCacheableSection'
 import { sGetDashboardById } from '../../reducers/dashboards'
 import { sGetPassiveViewRegistered } from '../../reducers/passiveViewRegistered'
 import { sGetSelectedId } from '../../reducers/selected'
+import { ROUTE_START_PATH } from '../start'
 import FilterBar from './FilterBar/FilterBar'
 import ItemGrid from './ItemGrid'
 import classes from './styles/ViewDashboard.module.css'
@@ -114,9 +116,23 @@ const ViewDashboard = props => {
             return (
                 <Notice
                     title={i18n.t('Offline')}
-                    message={i18n.t(
-                        'This dashboard cannot be loaded while offline.'
-                    )}
+                    message={
+                        <>
+                            <p>
+                                {i18n.t(
+                                    'This dashboard cannot be loaded while offline.'
+                                )}
+                            </p>
+                            <div>
+                                <Link
+                                    to={ROUTE_START_PATH}
+                                    className={classes.link}
+                                >
+                                    {i18n.t('Back to start page')}
+                                </Link>
+                            </div>
+                        </>
+                    }
                 />
             )
         }
