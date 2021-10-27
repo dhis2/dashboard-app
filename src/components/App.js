@@ -9,13 +9,13 @@ import { tFetchDashboards } from '../actions/dashboards'
 import { tSetShowDescription } from '../actions/showDescription'
 import { NewDashboard, EditDashboard } from '../pages/edit'
 import { PrintDashboard, PrintLayoutDashboard } from '../pages/print'
+import { LandingPage } from '../pages/start'
 import { ViewDashboard } from '../pages/view'
 import { useUserSettings } from './UserSettingsProvider'
 import './styles/App.css'
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
-import StartScreen from '../pages/view/StartScreen'
 
 const App = props => {
     const { d2 } = useD2()
@@ -61,7 +61,7 @@ const App = props => {
                         exact
                         path="/start"
                         render={() => (
-                            <StartScreen username={d2.currentUser.username} />
+                            <LandingPage username={d2.currentUser.username} />
                         )}
                     />
                     <Route
