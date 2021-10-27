@@ -5,7 +5,7 @@
 .inputWrapper {
     display: flex;
     flex-wrap: wrap;
-    margin-top: var(--spacers-dp16);
+    margin-top: var(--spacers-dp8);
 }
 
 .inputWrapper > div {
@@ -24,7 +24,7 @@
     background: var(--colors-grey200);
     border: 1px solid var(--colors-grey400);
     border-radius: 6px;
-    padding: var(--spacers-dp8) var(--spacers-dp8) 0 var(--spacers-dp16);
+    padding: var(--spacers-dp4) var(--spacers-dp4) 0 var(--spacers-dp12);
 }
 
 .searchContainer > :not(:last-child) {

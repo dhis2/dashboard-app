@@ -182,6 +182,7 @@ const EditBar = ({ dashboard, ...props }) => {
                     <Button
                         disabled={!online}
                         primary
+                        small
                         onClick={onSave}
                         dataTest="save-dashboard-button"
                     >
@@ -190,7 +191,7 @@ const EditBar = ({ dashboard, ...props }) => {
                 </OfflineTooltip>
             )}
             <OfflineTooltip>
-                <Button disabled={!online} onClick={onPrintPreview}>
+                <Button small disabled={!online} onClick={onPrintPreview}>
                     {props.isPrintPreviewView
                         ? i18n.t('Exit print preview')
                         : i18n.t('Print preview')}
@@ -199,6 +200,7 @@ const EditBar = ({ dashboard, ...props }) => {
             {!props.isPrintPreviewView && (
                 <OfflineTooltip>
                     <Button
+                        small
                         disabled={!online}
                         onClick={toggleFilterSettingsDialog}
                     >
@@ -209,6 +211,7 @@ const EditBar = ({ dashboard, ...props }) => {
             {dashboard.id && !props.isPrintPreviewView && (
                 <OfflineTooltip>
                     <Button
+                        small
                         disabled={!online}
                         onClick={toggleTranslationDialog}
                     >
@@ -225,6 +228,7 @@ const EditBar = ({ dashboard, ...props }) => {
                         )}
                     >
                         <Button
+                            small
                             disabled={!online}
                             onClick={onConfirmDelete}
                             dataTest="delete-dashboard-button"
@@ -246,7 +250,7 @@ const EditBar = ({ dashboard, ...props }) => {
                 <div className={classes.controls}>
                     {dashboard.access?.update ? renderActionButtons() : null}
                     {!props.isPrintPreviewView && (
-                        <Button secondary onClick={onConfirmDiscard}>
+                        <Button small secondary onClick={onConfirmDiscard}>
                             {dashboard.access?.update
                                 ? i18n.t('Exit without saving')
                                 : i18n.t('Go to dashboards')}
