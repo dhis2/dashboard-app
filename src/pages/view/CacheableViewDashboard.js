@@ -5,6 +5,7 @@ import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import DashboardsBar from '../../components/DashboardsBar/DashboardsBar'
 import LoadingMask from '../../components/LoadingMask'
 import NoContentMessage from '../../components/NoContentMessage'
 import getCacheableSectionId from '../../modules/getCacheableSectionId'
@@ -14,7 +15,6 @@ import {
     sGetDashboardById,
     sGetDashboardsSortedByStarred,
 } from '../../reducers/dashboards'
-import DashboardsBar from './DashboardsBar/DashboardsBar'
 import ViewDashboard from './ViewDashboard'
 
 const CacheableViewDashboard = ({

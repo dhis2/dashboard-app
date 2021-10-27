@@ -7,10 +7,10 @@ import { connect } from 'react-redux'
 import {
     acSetDashboardsFilter,
     acClearDashboardsFilter,
-} from '../../../actions/dashboardsFilter'
-import { useWindowDimensions } from '../../../components/WindowDimensionsProvider'
-import { isSmallScreen } from '../../../modules/smallScreen'
-import { sGetDashboardsFilter } from '../../../reducers/dashboardsFilter'
+} from '../../actions/dashboardsFilter'
+import { isSmallScreen } from '../../modules/smallScreen'
+import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
+import { useWindowDimensions } from '../WindowDimensionsProvider'
 import ClearButton from './ClearButton'
 import classes from './styles/Filter.module.css'
 

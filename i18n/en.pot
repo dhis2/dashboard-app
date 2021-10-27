@@ -5,11 +5,26 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-10-27T11:58:10.356Z\n"
-"PO-Revision-Date: 2021-10-27T11:58:10.356Z\n"
+"POT-Creation-Date: 2021-10-27T12:09:53.315Z\n"
+"PO-Revision-Date: 2021-10-27T12:09:53.315Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
+
+msgid "Cannot create a dashboard while offline"
+msgstr "Cannot create a dashboard while offline"
+
+msgid "Create new dashboard"
+msgstr "Create new dashboard"
+
+msgid "Search for a dashboard"
+msgstr "Search for a dashboard"
+
+msgid "Show fewer dashboards"
+msgstr "Show fewer dashboards"
+
+msgid "Show more dashboards"
+msgstr "Show more dashboards"
 
 msgid "Remove this item"
 msgstr "Remove this item"
@@ -392,21 +407,6 @@ msgstr "No dashboards found. Use the + button to create a new dashboard."
 
 msgid "Requested dashboard not found"
 msgstr "Requested dashboard not found"
-
-msgid "Cannot create a dashboard while offline"
-msgstr "Cannot create a dashboard while offline"
-
-msgid "Create new dashboard"
-msgstr "Create new dashboard"
-
-msgid "Search for a dashboard"
-msgstr "Search for a dashboard"
-
-msgid "Show fewer dashboards"
-msgstr "Show fewer dashboards"
-
-msgid "Show more dashboards"
-msgstr "Show more dashboards"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
