@@ -3,21 +3,24 @@ import { CssVariables } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { Redirect, HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { tSetControlBarRows } from '../actions/controlBar'
 import { tFetchDashboards } from '../actions/dashboards'
 import { tSetShowDescription } from '../actions/showDescription'
 import { NewDashboard, EditDashboard } from '../pages/edit'
 import { PrintDashboard, PrintLayoutDashboard } from '../pages/print'
 import { ViewDashboard } from '../pages/view'
-
+import { useUserSettings } from './UserSettingsProvider'
 import './styles/App.css'
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
+import StartScreen from '../pages/view/StartScreen'
 
 const App = props => {
     const { d2 } = useD2()
+    const { userSettings } = useUserSettings()
+    console.log('landing?', userSettings.janProp)
 
     useEffect(() => {
         props.fetchDashboards()
@@ -43,11 +46,22 @@ const App = props => {
                     <Route
                         exact
                         path="/"
-                        render={props => (
-                            <ViewDashboard
-                                {...props}
-                                username={d2.currentUser.username}
-                            />
+                        render={props =>
+                            userSettings.janProp ? (
+                                <Redirect to={'/start'} />
+                            ) : (
+                                <ViewDashboard
+                                    {...props}
+                                    username={d2.currentUser.username}
+                                />
+                            )
+                        }
+                    />
+                    <Route
+                        exact
+                        path="/start"
+                        render={() => (
+                            <StartScreen username={d2.currentUser.username} />
                         )}
                     />
                     <Route
