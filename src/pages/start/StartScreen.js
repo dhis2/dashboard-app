@@ -54,7 +54,7 @@ const StartScreen = ({ username }) => {
                     </li>
                 </ul>
             </div>
-            {mostViewedDashboards.length > 0 && (
+            {online && mostViewedDashboards.length > 0 && (
                 <div className={styles.section}>
                     <h3
                         className={styles.title}
