@@ -6,9 +6,11 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { apiFetchDashboards } from '../../api/fetchAllDashboards'
 import App from '../App'
+import { useSystemSettings } from '../SystemSettingsProvider'
 import { useUserSettings } from '../UserSettingsProvider'
 
 jest.mock('../../api/fetchAllDashboards')
+jest.mock('../SystemSettingsProvider')
 jest.mock('../UserSettingsProvider')
 jest.mock('@dhis2/analytics')
 jest.mock('@dhis2/app-runtime-adapter-d2')
@@ -52,6 +54,10 @@ test('renders the app', () => {
         d2: {
             currentUser: 'rainbowDash',
         },
+    })
+
+    useSystemSettings.mockReturnValue({
+        systemSettings: { startModuleEnableLightweight: true },
     })
 
     useUserSettings.mockReturnValue({
