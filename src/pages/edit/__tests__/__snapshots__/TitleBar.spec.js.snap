@@ -36,7 +36,7 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
               data-test="dhis2-uicore-input"
             >
               <input
-                class="jsx-3353877153 jsx-2133963083 "
+                class="jsx-3353877153 jsx-2133963083 dense"
                 id="Dashboard title input"
                 name="Dashboard title input"
                 placeholder="Untitled dashboard"
@@ -78,7 +78,7 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
               data-test="dhis2-uicore-textarea"
             >
               <textarea
-                class="jsx-4150870461 jsx-2961587785 "
+                class="jsx-4150870461 jsx-2961587785 dense"
                 id="Dashboard description input"
                 name="Dashboard description input"
                 rows="4"
@@ -280,7 +280,7 @@ exports[`TitleBar renders correctly with name and description 1`] = `
               data-test="dhis2-uicore-input"
             >
               <input
-                class="jsx-3353877153 jsx-2133963083 "
+                class="jsx-3353877153 jsx-2133963083 dense"
                 id="Dashboard title input"
                 name="Dashboard title input"
                 placeholder="Untitled dashboard"
@@ -322,7 +322,7 @@ exports[`TitleBar renders correctly with name and description 1`] = `
               data-test="dhis2-uicore-textarea"
             >
               <textarea
-                class="jsx-4150870461 jsx-2961587785 "
+                class="jsx-4150870461 jsx-2961587785 dense"
                 id="Dashboard description input"
                 name="Dashboard description input"
                 rows="4"
