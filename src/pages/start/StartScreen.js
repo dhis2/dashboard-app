@@ -24,9 +24,7 @@ const StartScreen = ({ username }) => {
                 setMostViewedDashboards(dashboards)
             }
         }
-        if (online) {
-            populateMostViewedDashboards(dataEngine)
-        }
+        online ? populateMostViewedDashboards(dataEngine) : []
     }, [username, online])
 
     const getContent = () => (
