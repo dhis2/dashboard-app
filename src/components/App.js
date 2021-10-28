@@ -54,7 +54,7 @@ const App = props => {
                         exact
                         path="/"
                         render={props =>
-                            systemSettings.startModuleFastLandingPage ? (
+                            systemSettings.startModuleEnableLightweight ? (
                                 <Redirect to={ROUTE_START_PATH} />
                             ) : (
                                 <ViewDashboard

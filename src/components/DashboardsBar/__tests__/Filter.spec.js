@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import WindowDimensionsProvider from '../../../../components/WindowDimensionsProvider'
+import WindowDimensionsProvider from '../../../components/WindowDimensionsProvider'
 import Filter from '../Filter'
 
 const mockStore = configureMockStore()

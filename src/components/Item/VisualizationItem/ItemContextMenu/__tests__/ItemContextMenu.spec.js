@@ -16,7 +16,7 @@ jest.mock('@dhis2/app-runtime', () => ({
 }))
 
 const mockSystemSettingsDefault = {
-    settings: {
+    systemSettings: {
         allowVisOpenInApp: true,
         allowVisShowInterpretations: true,
         allowVisViewAs: true,
@@ -299,7 +299,7 @@ test('renders popover menu when interpretations displayed', async () => {
 
 test('does not render "View as" options if settings do not allow', async () => {
     useSystemSettings.mockImplementation(() => ({
-        settings: Object.assign({}, mockSystemSettingsDefault.settings, {
+        systemSettings: Object.assign({}, mockSystemSettingsDefault.settings, {
             allowVisViewAs: false,
         }),
     }))
@@ -318,7 +318,7 @@ test('does not render "View as" options if settings do not allow', async () => {
 
 test('does not render "Open in [app]" option if settings do not allow', async () => {
     useSystemSettings.mockImplementation(() => ({
-        settings: Object.assign({}, mockSystemSettingsDefault.settings, {
+        systemSettings: Object.assign({}, mockSystemSettingsDefault.settings, {
             allowVisOpenInApp: false,
         }),
     }))
@@ -367,7 +367,7 @@ test('renders only View in App when item load failed', async () => {
 
 test('does not render "fullscreen" option if settings do not allow', async () => {
     useSystemSettings.mockImplementation(() => ({
-        settings: Object.assign({}, mockSystemSettingsDefault.settings, {
+        systemSettings: Object.assign({}, mockSystemSettingsDefault.settings, {
             allowVisFullscreen: false,
         }),
     }))
@@ -386,7 +386,7 @@ test('does not render "fullscreen" option if settings do not allow', async () =>
 
 test('does not render "Show interpretations" option if settings do not allow', async () => {
     useSystemSettings.mockImplementation(() => ({
-        settings: Object.assign({}, mockSystemSettingsDefault.settings, {
+        systemSettings: Object.assign({}, mockSystemSettingsDefault.settings, {
             allowVisShowInterpretations: false,
         }),
     }))
@@ -405,7 +405,7 @@ test('does not render "Show interpretations" option if settings do not allow', a
 
 test('renders null if all relevant settings are false', async () => {
     useSystemSettings.mockImplementation(() => ({
-        settings: {
+        systemSettings: {
             allowVisOpenInApp: false,
             allowVisShowInterpretations: false,
             allowVisViewAs: false,

@@ -17,7 +17,7 @@ const SYSTEM_SETTINGS = [
     'keyHideMonthlyPeriods',
     'keyHideWeeklyPeriods',
     'keyHideBiWeeklyPeriods',
-    // 'startModuleFastLandingPage',
+    // 'startModuleEnableLightweight',
 ]
 
 const SYSTEM_SETTINGS_REMAPPINGS = {
