@@ -1,3 +1,12 @@
+## [31.19.19](https://github.com/dhis2/dashboard-app/compare/v31.19.18...v31.19.19) (2021-10-28)
+
+
+### Bug Fixes
+
+* action bar, title bar spacing ([#2048](https://github.com/dhis2/dashboard-app/issues/2048)) ([7502a12](https://github.com/dhis2/dashboard-app/commit/7502a122fb878afd283ad2cea1a7cfbce8402cf4))
+* if map contains an ee layer, then do not display it when offline [v37] ([#2041](https://github.com/dhis2/dashboard-app/issues/2041)) ([#2043](https://github.com/dhis2/dashboard-app/issues/2043)) ([bc91b9e](https://github.com/dhis2/dashboard-app/commit/bc91b9e64a73eda949dd9d0e39ad923cbd5bfbd6))
+* username is needed to fetch preferred dashboard ([#2045](https://github.com/dhis2/dashboard-app/issues/2045)) ([fdeab40](https://github.com/dhis2/dashboard-app/commit/fdeab401b0a0e47c5da6f65ed97aaf00411c920e))
+
 ## [31.19.18](https://github.com/dhis2/dashboard-app/compare/v31.19.17...v31.19.18) (2021-10-14)
 
 

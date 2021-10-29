@@ -17,6 +17,7 @@ const ItemSearchField = props => {
             onFocus={props.onFocus}
             value={props.value}
             dataTest="item-search"
+            dense
             disabled={!online}
             placeholder={i18n.t('Search for visualizations, reports and more')}
         />
