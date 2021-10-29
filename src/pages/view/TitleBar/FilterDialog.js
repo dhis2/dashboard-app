@@ -45,7 +45,7 @@ const FilterDialog = ({
     const [filters, setFilters] = useState(initiallySelectedItems)
     const { d2 } = useD2()
     const { userSettings } = useUserSettings()
-    const { settings: systemSettings } = useSystemSettings()
+    const { systemSettings } = useSystemSettings()
 
     const onSelectItems = ({ dimensionId, items }) => {
         setFilters({ [dimensionId]: items })
@@ -85,21 +85,21 @@ const FilterDialog = ({
         onClose(id)
     }
 
-    const getExcludedPeriodTypes = (settings = {}) => {
+    const getExcludedPeriodTypes = (systemSettings = {}) => {
         const types = []
-        if (settings['hideDailyPeriods']) {
+        if (systemSettings['hideDailyPeriods']) {
             types.push(DAILY)
         }
-        if (settings['hideWeeklyPeriods']) {
+        if (systemSettings['hideWeeklyPeriods']) {
             types.push(WEEKLY, WEEKLYWED, WEEKLYTHU, WEEKLYSAT, WEEKLYSUN)
         }
-        if (settings['hideBiWeeklyPeriods']) {
+        if (systemSettings['hideBiWeeklyPeriods']) {
             types.push(BIWEEKLY)
         }
-        if (settings['hideMonthlyPeriods']) {
+        if (systemSettings['hideMonthlyPeriods']) {
             types.push(MONTHLY)
         }
-        if (settings['hideBiMonthlyPeriods']) {
+        if (systemSettings['hideBiMonthlyPeriods']) {
             types.push(BIMONTHLY)
         }
         return types
